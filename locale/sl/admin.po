@@ -1,0 +1,852 @@
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
+"Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"sl_SI/>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Ime nastavitve"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Vrednost nastavitve"
+
+msgid "admin.adminFunctions"
+msgstr "Administrativne funkcije"
+
+msgid "admin.clearDataCache"
+msgstr "Izbriši začasen pomnilnik (cash) za podatke"
+
+msgid "admin.clearTemplateCache"
+msgstr "Izbriši začasen pomnilnik (cash) za predloge"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Konfiguracijska datoteka je bila uspešno posodobljena. Opozorilo: v primeru, "
+"da spletišče ne bo pravilno delovalo, boste morda morali ročno popraviti "
+"konfiguracijsko datoteko <tt>config.inc.php</tt>."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Ste prepričani, da želite izbrisati začasen pomnilnik za predloge?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Ste prepričani, da želite prekiniti vse uporabniške seje? Vsi uporabniki, ki "
+"so trenutno prijavljeni v sistem, se bodo morali ponovno prijaviti v sistem "
+"(vključno z vami)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Vsebina konfiguracijske datoteke"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Ste prepričani, da želite trajno izbrisati {$contextName} skupaj z vso "
+"pripadajočo vsebino?"
+
+msgid "admin.currentVersion"
+msgstr "Trenutna verzija"
+
+msgid "admin.dateInstalled"
+msgstr "Datum namestitve"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Spodaj je prikazana posodobljena vsebina konfiguracijske datoteke. Odprite "
+"datoteko <tt>config.inc.php</tt> v primernem urejevalniku in zamenjajte "
+"vsebino datoteke s spodnjo."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Prikaži novo konfiguracijo"
+
+msgid "admin.expireSessions"
+msgstr "Prekini uporabniške seje"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Ta jezik je primaren za to spletišče. Ne morete ga izključiti, dokler ne "
+"izberete drugega primarnega jezika."
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Ste prepričani, da želite ponovno naložiti ta jezik? To bo izbrisalo vse "
+"obstoječe specifike, kot so email predloge."
+
+msgid "admin.languages.installedLocales"
+msgstr "Nameščeni jeziki"
+
+msgid "admin.languages.installLanguages"
+msgstr "Upravljaj jezike"
+
+msgid "admin.languages.availableLocales"
+msgstr "Jeziki, ki so na voljo"
+
+msgid "admin.languages.installLocale"
+msgstr "Namesti jezik"
+
+msgid "admin.languages.installLocales"
+msgstr "Namesti"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Namesti nov jezik"
+
+msgid "admin.languages.languageSettings"
+msgstr "Nastavitve jezika"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Za namestitev ni na voljo drugih jezikov."
+
+msgid "admin.languages.reload"
+msgstr "Ponastavi jezik"
+
+msgid "admin.languages.uninstall"
+msgstr "Odstrani jezik"
+
+msgid "admin.phpInfo"
+msgstr "Razširjene informacije o PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Razporejevalnik opravil"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces opravila se je začel."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces opravila se je ustavil."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Opravilo ni povzročila nobenega zapisa v \"log\"."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Izvršila se je avtomatska namestitev programske opreme {$softwareName}. "
+"Zapis v \"log\" datoteki lahko preneste tukaj: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Ste prepričani, da želite izbrisati vse \"log\" zapise opravil, ki so se "
+"zagnale iz razporejevalnika opravil?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Izbriši \"log\" zapise izvajanj opravil iz razporejevalnika opravil"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Opomnik za recenzijo"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Opomnik za potek naročnine"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Opravilo nalagalnika datoteke s statistikami"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Zavrnjeno, datoteke {$file} ni bilo možno odpreti."
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache verzija"
+
+msgid "admin.server.dbDriver"
+msgstr "Gonilnik baze podatkov"
+
+msgid "admin.server.dbVersion"
+msgstr "Verzija podatkovnega strežnika"
+
+msgid "admin.serverInformation"
+msgstr "Informacije o strežniku"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP verzija"
+
+msgid "admin.server.platform"
+msgstr "OS platforma"
+
+msgid "admin.settings"
+msgstr "Nastavitve"
+
+msgid "admin.settings.about"
+msgstr "O tem spletišču"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email glavnega stika"
+
+msgid "admin.settings.contactName"
+msgstr "Ime glavnega stika"
+
+msgid "admin.settings.introduction"
+msgstr "Uvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Najmanjša dolžina gesla (znakov)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jezik spletišča"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Napačen format stilske tablice. Dovoljeni formati je .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Stilska tablica spletišča"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logotip spletišča"
+
+msgid "admin.settings.siteTitle"
+msgstr "Ime spletišča"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema spletišča"
+
+msgid "admin.siteAdmin"
+msgstr "Administracija spletišča"
+
+msgid "admin.siteManagement"
+msgstr "Upravljanje spletišča"
+
+msgid "admin.siteSettings"
+msgstr "Nastavitve spletišča"
+
+msgid "admin.siteSetup"
+msgstr "Namestitev spletišča"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Konfiguracijska datoteka <tt>config.inc.php</tt> ne obstaja, ni berljiva ali "
+"je neveljavna."
+
+msgid "admin.systemInformation"
+msgstr "Informacije o sistemu"
+
+msgid "admin.versionBuild"
+msgstr "Popravek"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Preveri za posodobitve"
+
+msgid "admin.version.downloadPackage"
+msgstr "Prenesi"
+
+msgid "admin.version.downloadPatch"
+msgstr "Prenesi popravek"
+
+msgid "admin.versionHistory"
+msgstr "Zgodovina verzij"
+
+msgid "admin.version.latest"
+msgstr "Zadnja verzija"
+
+msgid "admin.versionMajor"
+msgstr "Glavna"
+
+msgid "admin.versionMinor"
+msgstr "Manjša"
+
+msgid "admin.version.moreInfo"
+msgstr "Več informacij"
+
+msgid "admin.versionRevision"
+msgstr "Revizija"
+
+msgid "admin.version.updateAvailable"
+msgstr "Na voljo je posodobljena verzija"
+
+msgid "admin.version.upToDate"
+msgstr "Vaš sistem je posodobljen"
+
+msgid "admin.version"
+msgstr "Različica"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Osnovna pot {$path} mora biti znotraj mape z javnimi datotekami."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mapa {$path} ni mapa ali pa ni dosegljiva."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Dadoteke {$filename} ni bilo mogoče premakniti iz {$currentFilePath} v "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Datoteka {$filename} je bial obdelana in arhivirana."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Nalagalnik datotek"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Na voljo ni nobneih jezikovnih paketov za prenos."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Ste prepričani, da želite spremeniti primarni jezik revije? Uporabniška "
+"imena (ki so obvezna v primarnem jeziku), ki niso podana v novem jeziku, "
+"bodo skopirana iz obstoječega jezika."
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Objavi prispevke načrtovane za objavo"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "To nastavitev lahko spreminja le administrator."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Onemogoči vloge"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Omeji masovne emaile"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Masovni emaili"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Izbriši začasne datoteke (cash) na datotečnem sistemu. To se lahko naredi le "
+"na razvojnem okolju."
+
+msgid "admin.deleteCache"
+msgstr "Izbriši začasni pomnilnik (cash)"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginacija"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Ustvarjeno"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Na voljo"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Rezervirano"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Poskusi"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Ime opravila"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Čakalna vrsta"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Čakalna vrsta opravil"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Opcija mora biti podana! Preveri način uporabe."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Prikaži parametre ukaza Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Prikači način uporabe ukaza Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Prikaži število opravil v čakalni vrsti"
+
+msgid "admin.jobs.createdAt"
+msgstr "Ustvarjeno {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Ustvarjeno"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Poskusi"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Čakalna vrsta"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Opravilo"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Poglej opravila"
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Poglej vsa opravila v čakalni vrsti v sistemu in sledi neuspelim poskusom."
+
+msgid "navigation.tools.jobs"
+msgstr "Opravila"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Poglej opravila v čakalni vrsti"
+
+msgid "admin.jobs.totalCount"
+msgstr "V čakalni vrsti je skupaj <strong>{$total}</strong> opravil"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Ste mislili nekaj od spodnjega?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Opcija {$option} ne obstaja."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Imamo {$total} opravil v čakalni vrsti"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Zbriši vsa opravila!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Ni bilo mogoče zbrisati vsa opravila."
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Opravilo je bilo zbrisano!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Napačen ID opravila"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr "Uporabiti morate ID opravila, '--all' ali '--queue='"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Naslednji"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Predhodni"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Trenutni"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Dodaj testno opravilo v testno čakalno vrsto. Uporabite opciska parametra --"
+"only= in pass 'failed' ali 'success' za dodajanje neuspešnih ali uspešnih "
+"opravil."
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Izbrišite določeno opravilo v čakalni vrsti na osnovi njegovega IDja. Če "
+"želite zbrisati vse, uporabite parameter -all. Če želite zbrisati vse iz "
+"določene vrste, uporabite parameter --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Prikaži seznam opravil v čakalni vrsti. Če želite rezultate paginirati, "
+"uporabite parametre --page= in --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Ukazi za namespace `{$namespace}`, ki so na voljo:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "ukaz [argumenti]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Uporaba:"
+
+msgid "admin.systemInformation.view"
+msgstr "Poglej informacije o sistemu"
+
+msgid "admin.systemInformation.description"
+msgstr "Poglej informacije o verziji in nastavitvah aplikacije in strežnika."
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Obvestilo o uredniškem poročilu"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Izbriši \"log\" zapise"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Izbriši \"log\" zapise končanih opravil iz razporejevalnika opravil."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponiraj DOIje pri nastavljeni registracijski agenciji"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Vsi trenutno prijavljeni uporabniki bodo odjavljeni iz aplikacije, vključno "
+"z vami, in se bodo morali ponovno prijaviti."
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Odstrani nepotrjene pretečene uporabnike"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Odposlano {$count} emailov z uredniškim opomnikom uporabnikom {$userIds} v "
+"kontekstu {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Iskanje urednikov za opomnik v kontekstu {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Pošlji email vsakemu uredniku z opomnikom o njihovih odprtih nalogah"
+
+msgid "admin.auth.confirmDelete"
+msgstr "Ste prepričani, da želite trajno odstraniti za vir avtentikacije?"
+
+msgid "admin.auth.create"
+msgstr "Ustvari vir za avtentikacijo"
+
+msgid "admin.auth.noneCreated"
+msgstr "Na voljo ni nobenega vira za avtentikacijo."
+
+msgid "admin.authSources"
+msgstr "Viri za avtentikacijo"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Posodobi DB-IP city lite bazo podatkov"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Mapa {$directory} ni prazna. To lahko pomeni, da je bil predhoden proces "
+"neuspešen ali hkrtno izvajanje procesa. Ta datoteka bo avtomatično ponovno "
+"obdelana."
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Preimenovanje datoteke DB-IP city lite baze podatkov {$sourceFilename} v "
+"{$targetFilename} ni uspelo."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Datoteka {$file} je v stari obliki dnevniškega zapisa in ne more biti "
+"obdelana, zato bo premaknjena nazaj v odložitveno mapo."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Datoteka z dnevniškimi zapisi {$file} je bila preskočena, ker so bile "
+"statistike za tisti mesec že izračunane. Za ponoven izrčun statistik za "
+"pretekli mesec, morate obnoviti vse datoteke z dnevniškimi zapisi za tisti "
+"mesec in uporabiti CLI orodje za ponoven izračun statistik."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "ID prispevka ni integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Tip datoteke ni podprt."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Regija ni string dolg do največ treh alfanumeričnih znakov."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Prišlo je do napake pri obdelavi datoteke z dnevniškimi zapisi {$file} v "
+"vrstici {$lineNumber}: {$msg}"
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Ciljne datoteke {$filePath} ni bilo "
+"mogoče odpreti s fopen."
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Izvorne gz-datoteke {$filePath} ni "
+"bilo mogoče odpreti z gzopen."
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Izvorne gz-datoteke {$filePath} ni "
+"bilo mogoče odpreti z gzread."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Izvrone datoteke {$filePath} ni bilo "
+"mogoče zapreti z gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Dekompresirane izvorne datoteke "
+"{$filePath} ni bilo mogoče odstraniti z unlink."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Izvorne datoteke {$filePath} ni bilo "
+"mogoče odpreti s fopen."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. V ciiljno datoteko {$filePath} ni "
+"bilo mogoče pisati z gzwrite."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Odprte ciiljne datoteke {$filePath} "
+"ni bilo mogoče zapreti z gzclose."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"Vrstica {$lineNumber} v datoteki z dnevniškimi zapisi {$file} je v napačni "
+"obliki in bo izpuščena."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Napačen zapis v vrstici {$lineNumber} v datoteki z dnevniškimi zapisi "
+"{$file}: {$error}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Čas ni veljaven datum."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "ID konteksta ni integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "ID reprezentacije ni integer."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Assoc tip ni podprt."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Država ni dvomesten alfanumeričen string."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "ID-ji institucije niso niz."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Proces, ki bo v ozadju obdelal datoteko z dnevniškimi zapisi {$file}, je bil "
+"zagnan."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Ciljne datoteke {$filePath} ni bilo "
+"mogoče odpreti s fwrite."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Ciljne datoteke {$filePath} ni bilo "
+"mogoče zapreti s fclose."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Ciljne datoteke {$filePath} ni bilo "
+"mogoče odpreti z gzopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Ciljne datoteke {$filePath} ni bilo "
+"mogoče prebrati s fread."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Odprte izvorne datoteke {$filePath} "
+"ni bilo mogoče zapreti z fclose."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"Datoteke ni bilo mogoče dekompresirati. Izvorne datoteke {$filePath} ni bilo "
+"mogoče odstraniti z unlink."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Opravilo, ki naloži uporabniške statistike iz datoteke {$file}, ni bilo "
+"uspešno. Datoteke ni bilo mogoče pramakniti iz {$archivedFilePath} na "
+"{$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Opravilo, ki naloži uporabniške statistike iz datoteke {$file}, ni bilo "
+"uspešno. Datoteka je bila premaknjena v odložitveno mapo."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Kako identificirati to platformo v COUNTER SUSHi poročilih? ID platforme "
+"mora imeti 17 znakov in lahko vsebuje le ASCII črke (a–z, A–Z), številke "
+"(0–9), podčrtajs (_), pike (.) in poševnico naprej (/), dočina pa ne sem "
+"presegati 17 znakov. Vedite, da bo ID platforme uporabljen v različnih "
+"stolpcih in naj bi bil kolikor je mogoče kratek, a še vedno prepoznaven. "
+"Običajno je ID platforme baziran na imenu, dobro znani okrajšani domeni "
+"izdajatelja ali platforme."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Glede na COUNTER SUSHI protokol mora vsako statistično pročilo imenovati "
+"\"platformo\", ki posreduje statistike. Privzeto bo revijia določena kot "
+"platforma za vse statistike. V primeru, da vse revije na tem strežniku "
+"pripadajo enemu ponudniku, boste morda želeli, da bo celoten strežnik "
+"določen kot platforma."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Uporabi strežnik kot platformo za vse revije."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID platforme"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"ID platforme je obvezen, če bo spletišče identificirano kot SUSHI platforma."
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma"
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Uporabniške statistike COUNTER in Geo so seštete po mesecih. Po tem se "
+"dnevni zapisi odstranijo. Izberite to opcijo, če želite, da dnevni zapisi "
+"ostanejo v bazi podatkov. Zavedajte se, da bo to občutno povečalo velikost "
+"baze podatkov."
+
+#, fuzzy
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Dnevne metrike"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Mesečne ali dnevne statistike"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Zbirati ali ne dnevne ali mesečne statistike. Zbiranje dnevnih statistik "
+"lahko občutno poveča velikost baze podatkov."
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Statistike so pridobljene is dnevniških datotek, ki so po procesiranju "
+"premaknjene v <code>{$path}</code>. Ali naj bodo dnevniške datotek po "
+"procesiranju stisnjene v <code>.gz</code> datoteke? Stisnjene datoteke lahko "
+"zavzamejo manj prostora na strežniku."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Datoteke z dnevniškimi zapisi ostanejo kjer so"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Dnevniški zapisi naj se stisnejo"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Obdelaj opravila v čakalni vrsti"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Zbirka podatkov"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Nastavite, kakšne statistike bi radi zbirali."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Shramba podatkov"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Nastavite katere vrste statistik naj se shranjujeno na strežniku."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi protokol"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Nastavite <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> protokol, industrijsko priznan format za distribuiranje "
+"statistik."
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Opravila v čakalni vrsti ne morejo biti opravljena, ker je aplikacija v "
+"načinu vzdrževanja."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Zaženite brezkončen proces, ki bo še naprej v ozadju obdeloval opravila. "
+"Uporabite --help, če želite videti dodatne opcije, ki so na voljo pri tem "
+"ukazu."
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Zaključeno zagnanih {$jobCount} opravil v čakalni vrsti {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "V čakalni vrsti {$queueName} ni nobenega opravila na voljo za zagon."
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Testno pravilo, ki bo neuspešno, je razporejeno v čakalno vrsto {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Testno pravilo, ki bo uspešno, je razporejeno v čakalno vrsto {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Neveljavna opcija za testno pravilo. Za opcijo '--only=' se lahko uporabi le "
+"'failed' or 'success'."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Ni najdenih opravil za brisanje."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Zbiraj dnevni in mesečne statistike"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Zbiraj le mesečne statistike"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Stisni dnevniške zapise"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Omeji dostop do COUNTER SUSHI statistik API-je le za upravljalce in "
+"administratorje"
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "opcije izvršnega ukaza"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "uporaba: [--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "Opcije, ki so na voljo za izvršni ukaz"
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Ime povezave do čakalne vrste za delo (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "Ime čakalne vrste za delo (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Ime \"delavca\" (privzeto: '{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Število sekund do ponovnega zagona opravila, ki je naletel na spregledano "
+"izjemo (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "Meja za pomnilik v megabytih (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr "Število sekund, ki jih lahko potrebuje podporces ({$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+"Število sekund za spanje, ko ni na voljo nobenega opravila ({$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+"Prisili \"delavca\", da teče tudi v vzdrževalnem načinu (privzeto: "
+"{$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"Število ponovitev zagona opravila, preden se ga zabeleži kot neuspešnega "
+"(privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Zaustavi, ko je čakalna vrsta prazna (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+"Število opravil, ki se opravijo pred zaustavitvijo (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Največje število sekund, ko \"delavec\" lahko teče (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Število sekun za pavzo med opravili (privzeto: {$default}')"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Zaženi \"delavca\" za testno čakalno vrsto"
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Razporedi opravila, ki so na voljo v čakalno vrsto. Če želite raporediti "
+"opravila v točno določeno čakalno vrsto, uporabite parameter --"
+"queue=QUEUE_NAME. Lahko uporabite tudi parameter --test za testni zagon "
+"opravila ali --once za zagon le enega opravila hkrati"

@@ -1,0 +1,275 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"არ შეგიძლიათ შეცვალოთ ფაილის კავშირი, assocType და assocId-ის გადაცემის "
+"გარეშე."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "დაწყების თარიღი არ უნდა იყოს უფრო გვიან, ვიდრე დასრულების თარიღი."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "თარიღი უნდა იყოს ფორმატში: YYYY-MM-DD."
+
+msgid "api.400.paramNotSupported"
+msgstr "პარამეტრი {$param} არ არის მხარდაჭერილი."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API ტოკენის ვალიდაცია ვერ მოხერხდა. ეს შეიძლება იყოს შეცდომა API ტოკენში ან "
+"რომ API ტოკენი აღარ არის მოქმედი."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"ვერ მოხერხდა apiToken-ის დეკოდირება, ვინაიდან მოხდა შემდეგი შეცდომა: {$error}"
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "შეუძლებელია შექმნის დროს შეცვლა."
+
+msgid "api.403.unauthorized"
+msgstr "უკაცრავად, არ გაქვთ მოთხოვნილ მონაცემებზე წვდომის უფლება."
+
+msgid "api.404.resourceNotFound"
+msgstr "მოთხოვნილი მონაცემები ვერ მოიძებნა."
+
+msgid "api.404.endpointNotFound"
+msgstr "მოთხოვნილი URL-მისამართი არ არსებობს."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API token ვერ იქნება გამოყენებული საიტის წვდომისათვის, ვინაიდან "
+"ადმინისტრატორმა არ დააკონფიგურირა საიდუმლო გასაღები."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "მოთხოვნილი განცხადება ვერ მოიძებნა."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "შემდეგი ენები არ არის მხარდაჭერილი: {$locales}."
+
+msgid "api.emails.400.missingBody"
+msgstr "აუცილებელია ელფოსტის მისამართის შეტანა."
+
+msgid "api.emails.400.missingSubject"
+msgstr "აუცილებელია ელფოსტის სათაურის შეტანა."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"თქვენ უნდა მიუთითოთ მომხმარებლის როლები, რომლებმაც უნდა მიიღონ ეს ელფოსტა."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"თქვენ არ გაქვთ უფლება გააგზავნოთ ელფოსტა ერთ, ან რამდენიმე არჩეულ როლზე."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "მოთხოვნილი ელფოსტის შაბლონი ვერ მოიძებნა."
+
+msgid "api.files.400.noUpload"
+msgstr "არ არის ასატვირთი ფაილი მოთხოვნაში."
+
+msgid "api.files.400.uploadFailed"
+msgstr "ერთი, ან მეტი ფაილი ვერ აიტვირთა."
+
+msgid "api.files.400.fileSize"
+msgstr "{$maxSize} - ზე მეტი ზომის ფაილების ატვირთვა შეუძლებელია."
+
+msgid "api.files.400.config"
+msgstr ""
+"ფაილი ვერ აიტვირთა სერვერის კონფიგურაციის შეცდომის გამო. გთხოვთ, "
+"დაუკავშირდეთ სისტემის ადმინისტრატორს."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "პუბლიკაცია, რომლის გამოქვეყნებაც გსურთ, უკვე გამოქვეყნებულია."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "პუბლიკაცია, რომლის გამოქვეყნებაც გსურთ, არ გამოქვეყნებულა."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"თქვენ არ შეგიძლიათ შეცვალოთ ეს გამოცემა, რადგან ის უკვე გამოქვეყნებულია."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"თქვენ არ შეგიძლიათ შეცვალოთ სტატუსი პირდაპირ API-ს საშუალებით. ამის ნაცვლად, "
+"გამოიყენეთ /publish და /unpublish საბოლოო წერტილები."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "თქვენ უნდა გამოაქვეყნოთ ეს გამოცემა, სანამ წაშლით."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "ფაილების ატვირთვა შეგიძლიათ მხოლოდ შემდეგი ტიპისთვის: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "სურათი, რომელიც ატვირთეთ, არ არის მართებული."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"თქვენი ატვირთული ფაილი არ ემთხვეოდა ფაილის გაფართოებას. ეს შეიძლება მოხდეს "
+"მაშინ, როდესაც ფაილს გადაარქვეს შეუთავსებელი ტიპი, მაგალითად, photo.png "
+"შეიცვალა photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "უკაცრავად, არ გაქვთ ფაილების ატვირთვის უფლება."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"თქვენ არ გაქვთ საკმარისი ადგილი თქვენს მომხმარებლის დირექტორიაში. თქვენი "
+"ატვირთული ფაილის ზომა შეადგენს: {$fileUploadSize}kb და თქვენ დაგრჩათ "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"საჯარო ფაილების დირექტორია ვერ მოიძებნა, ან მასში ფაილების შენახვა "
+"შეუძლებელია. გთხოვთ, დაუკავშირდეთ თქვენს ადმინისტრატორს ამ საკითხის "
+"მოსაგვარებლად."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "დაწყების თარიღი არ შეიძლება იყოს 2001-01-01-ზე ადრე."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "დასრულების თარიღი არ შეიძლება იყოს გუშინზე გვიან."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"ფაილის ამ ეტაპიდან ფაილის ასოცირება სხვა წარსადგენ ფაილთან არ შეგიძლიათ."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "ფაილის ამ ეტაპის ფაილი ვერ დააკავშირებთ დისკუსიის შენიშვნასთან."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"თქვენ არ შეგიძლიათ დააკავშიროთ ფაილი ამ ფაილის ეტაპიდან განხილვის "
+"დავალებასთან."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"თქვენ არ შეგიძლიათ დააკავშიროთ ფაილი ამ ფაილის ეტაპიდან განხილვის რაუნდთან."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "განხილვის ეტაპზე ფაილების მოთხოვნისას უნდა მიუთითოთ განხილვის რაუნდი."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "თქვენ უნდა მიუთითოთ ფაილის ეტაპი."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "ამ ფაილის ჩასწორების მოთხოვნაში ცვლილებები ვერ მოიძებნა."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "თქვენს მიერ მოწოდებული განხილვის რაუნდი ამ წარდგენის ნაწილი არ არის."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "თქვენ არ გაქვთ ამ ფაილებზე წვდომა."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "თქვენ არ გაქვთ ამ ფაილების დამატებისა და ჩასწორების უფლება."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "ამ განხილვის რაუნდში თქვენ არ გაქვთ ფაილებზე წვდომა."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "თქვენი მოთხოვნა ვერ შესრულდა, რადგან მას აკლია საჭირო ინფორმაცია."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "მოთხოვნილი ტომი, ნომერი, ან წელი არასწორია."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"თქვენი მოთხოვნა არ დაკმაყოფილდა. ეს შეიძლება იყოს იმის გამო, რომ თქვენი "
+"შესვლის ვადა ამოიწურა. სცადეთ გვერდის გადატვირთვა და ისევ სცადეთ."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "თქვენ ვერ წაშლით წარდგენას, რომელიც ამ კონტექსტს არ არის მინიჭებული."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"თქვენ შეგიძლიათ ნახოთ მხოლოდ გამოუქვეყნებელი წარდგინებები, რომლებსაც თქვენ "
+"მიანიჭეთ."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "თქვენ არ გაქვთ ამ წარდგენის წაშლის ნებართვა."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "თქვენ არ გაქვთ ამ პუბლიკაციის ჩასწორების უფლება."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"ეს საბოლოო წერტილი არ არის ხელმისაწვდომი კონტექსტიდან. მასზე წვდომა უნდა "
+"მოხდეს საიტის სახელების სივრციდან."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"აქტიური თემა, {$themePluginPath}, ჩართული არ არის და შეიძლება არ იყოს "
+"დაინსტალირებული."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "ენა {$locale} არ არის მხარდაჭერილი."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "თქვენ უნდა მიუთითოთ ელწერილის თემა და ტექსტი."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"თქვენ არ შეგიძლიათ შეცვალოთ ელემენტის DOI, რომელიც არ არის ამ კონტექსტში"
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"ეს საბოლოო წერტილი მიუწვდომელია საიტის მასშტაბური სახელების სივრციდან და "
+"უნდა მოითხოვოს მოცემულ კონტექსტში."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "თქვენ მიერ მოთხოვნილი DOI ვერ მოიძებნა."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"გამოუქვეყნებელი ნივთების ექსპორტი/დეპონირება შეუძლებელია. გთხოვთ, გააუქმოთ "
+"გამოუქვეყნებელი ერთეულების არჩევა და სცადოთ ხელახლა."
+
+msgid "api.dois.400.creationFailed"
+msgstr "მოხდა შეცდომა და DOI ობიექტის შექმნა ვერ მოხერხდა."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "მოხდა XML ვალიდაციის შეცდომა და XML-ის ექსპორტი ვერ მოხერხდა."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"მოხდა შეცდომა და ზოგიერთი წარმოდგენილი ელემენტი არ მოინიშნა რეგისტრირებული."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"ზოგიერთი ელემენტი წარმატებით არ განთავსდა. გთხოვთ, შეამოწმოთ ცალკეული "
+"ელემენტები მათი კონკრეტული შეცდომის შეტყობინებებისთვის."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "მოთხოვნაში არ იყო მოქმედი გამოქვეყნების ობიექტი."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "მოთხოვნაში იყო ერთი ან მეტი არასწორი გამოცემის ობიექტი."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"თქვენ არ შეგიძლიათ ჩაწეროთ გადაწყვეტილება ან გირჩიოთ გადაწყვეტილება ამ "
+"წარდგენისთვის, რადგან ის უკვე გამოქვეყნებულია."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "თქვენ მიერ მოწოდებული ფაილის ეტაპი არასწორია."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"ფაილის ამ ფაილის ეტაპზე გადატანისას უნდა მიუთითოთ მიმოხილვის რაუნდის ID."

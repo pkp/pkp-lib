@@ -1,0 +1,232 @@
+# Jesper B. Thestrup <jbt@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
+"PO-Revision-Date: 2022-01-06 14:08+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/ojs/emails/da_DK/"
+">\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Tak for din indsendelse til {$contextName}"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"<p>Kære{$recipientName}.</p><p> Tak, fordi du har fremsendt manuskriptet til "
+"{$contextName}. Vi har modtaget din indsendelse, {$submissionTitle}, og et "
+"medlem af vores redaktion vil se på indsendelsen snarest. Vi sender dig en e-"
+"mail, når der er taget en indledende beslutning, og vi kontakter dig "
+"muligvis for flere oplysninger.</p><p> Du kan se din indsendelse og følge "
+"bedømmelsen her: </p><p>Submission URL: {$submissionUrl}</p><p>. Hvis du er "
+"blevet logget ud, kan du logge ind igen med dit brugernavn  "
+"{$recipientUsername}</p><p> Hvis du har nogle spørgsmål så kontakt mig via <"
+"a href=\"{$submissionUrl}\">submission dashboard</a>.</p><p>Tak fordi du "
+"valgte dette tidsskrift til at udgive din artikel i.</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Bekræftelse af bedømmelse af artikel"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Tak, fordi du har fuldført bedømmelsen af manuskriptet &quot;{$submissionTitle}&quot; til {$contextName}. Vi påskønner dit bidrag til kvaliteten af de artikler, vi publicerer."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Denne e-mail sendes af sektionsredaktøren for at bekræfte modtagelsen af en fuldført bedømmelse og takker bedømmeren for sit bidrag."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Redaktørbeslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi er nået frem til en afgørelse vedrørende dit bidrag til {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Vi har besluttet følgende: Fremsendes til bedømmelse<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Næste trin for publicering af din indsendelse"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>Jeg skriver til dig fra {$contextName} for "
+"at fortælle dig, at redigeringen af dit manuskript: {$submissionTitle}, er "
+"færdig. Dit manuskript vil nu gå videre til produktionsfasen, hvor det "
+"endelige dokument vil blive forberedt til publicering. Vi kontakter dig, "
+"hvis vi har brug for yderligere assistance fra dig.</p><p>Hvis du har nogle "
+"spørgsmål, er du velkommen til at kontakte mig via dit <a href=\""
+"{$submissionUrl}\">submission dashboard</a>.</p><p>Med venlig "
+"hilsen</p>{$signature}"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr ""
+"Din indsendelse er blevet bedømt, og vi opfordrer dig til at indsende dine "
+"ændringer"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>Dit manuskript, {$submissionTitle}, er "
+"blevet bedømt og vi vil bede dig indsende en revideret udgave, der "
+"adresserer kommentarerne fra bedømmerne. En redaktør vil gennemgå disse "
+"revisioner, og hvis de i tilstrækkelig grad adresserer "
+"bedømmelseskommentarerne, vil dit manuskript muligvis blive accepteret til "
+"udgivelse.</p><p>Bedømmernes kommentarer er inkluderet i bunden af denne e-"
+"mail. Vær venlig at svare på hver enkelt kommentar og identificér de "
+"ændringer, du laver. Hvis du vurderer, at en kommentar fra en bedømmer er "
+"ubegrundet eller upassende, bedes du venligst forklare dit perspektiv.</p><p>"
+"Når du har færdiggjort din revision af manuskriptet, kan du uploade det "
+"reviderede dokument(er) sammen med dine svar til bedømmernes kommentarer i "
+"dit <a href=\"{$submissionUrl}\">indsendelses dashboard</a>. Hvis du er "
+"blevet logget ud, kan du logge ind igen med brugernavnet "
+"{$recipientUsername}.</p><p>I panelet markeret \"Revisioner\", kan du trykke "
+"på \"Upload fil\" og finde filen(/rne) på din computer. Redaktøren får "
+"besked, når dit reviderede manuskript er blevet uploadet. Hvis du har brug "
+"for at kommunikere direkte med redaktøren, kan du tilføje et indlæg i "
+"panelet \"Drøftelser under bedømmelse\", som du finder under \"Revisioner\" "
+"panelet.</p><p>Hvis du har nogle spørgsmål, er du velkommen til at kontakte "
+"mig fra dit <a href=\"{$submissionUrl}\">indsendelses dashboard</a>.</p><p>"
+"Vi ser frem til at modtage dit reviderede manuskript.</p><p>Med venlig "
+"hilsen</p>{$signature}<hr><p>De følgende kommentarer er modtaget fra "
+"bedømmerne.</p>{$allReviewerComments}"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr ""
+"Din indsendelse er blevet bedømt - vær venlig at revidere og indsende igen"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>Efter modtagelse af dit manuskript, "
+"{$submissionTitle}, har bedømmerne anbefalet, at indsendelsen ikke kan "
+"accepteres til udgivelse i dens nuværende form. Vi vil dog gerne opfordre "
+"dig til at indsende en revideret version, der adresserer bedømmernes "
+"kommentarer. Dine revisioner vil blive gennemgået af en redaktør, og bliver "
+"måske sendt i endnu en runde fagfællebedømmelse.</p><p>Vær opmærksom på, at "
+"indsendelse af et revideret manuskript ikke er en garanti for accept til "
+"publicering.</p><p>Bedømmernes kommentarer er inkluderet i bunden af denne e-"
+"mail. Vær venlig at svare på hver enkelt kommentar og identificér de "
+"ændringer, du laver. Hvis du vurderer, at en kommentar fra en bedømmer er "
+"ubegrundet eller upassende, bedes du venligst forklare dit perspektiv. Hvis "
+"du har nogle spørgsmål til anbefalingerne i din bedømmelse, bedes du "
+"inkludere disse i dit svar.</p><p>Når du har færdiggjort din revision af "
+"manuskriptet, kan du uploade det reviderede dokument(er) sammen med dine "
+"svar til bedømmernes kommentarer i dit <a href=\"{$submissionUrl}\">"
+"indsendelses dashboard</a>. Hvis du er blevet logget ud, kan du logge ind "
+"igen med brugernavnet {$recipientUsername}.</p><p>I panelet markeret \""
+"Revisioner\", kan du trykke på \"Upload fil\" og finde filen(/rne) på din "
+"computer. Redaktøren får besked, når dit reviderede manuskript er blevet "
+"uploadet. Hvis du har brug for at kommunikere direkte med redaktøren, kan du "
+"tilføje et indlæg i panelet \"Drøftelser under bedømmelse\", som du finder "
+"under \"Revisioner\" panelet.</p><p>Hvis du har nogle spørgsmål, er du "
+"velkommen til at kontakte mig fra dit <a href=\"{$submissionUrl}\">"
+"indsendelses dashboard</a>.</p><p>Vi ser frem til at modtage dit reviderede "
+"manuskript.</p><p>Med venlig hilsen</p>{$signature}<hr><p>De følgende "
+"kommentarer er modtaget fra bedømmerne.</p>{$allReviewerComments}"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Din indsendelse er blevet afvist"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>\n"
+"Vi sætter pris på at have modtaget dit manuskript, men på baggrund af "
+"kommentarer fra bedømmerne, kan vi desværre ikke acceptere dit manuskript, "
+"{$submissionTitle}, til at blive publiceret.</p><p>Kommentarerne fra "
+"bedømmerne er inkluderet i bunden af denne e-mail.</p><p>Tak fordi du valgte "
+"at indsende dit manuskript til {$contextName}. Selvom det er skuffende at få "
+"en afvisning, håber jeg, at du vil finde bedømmernes kommentarer "
+"konstruktive og hjælpsomme.</p><p>Det står dig frit for at indsende dit "
+"manuskript til et andet tidsskrift.</p><p>Med venlig "
+"hilsen</p>{$signature}<hr><p>De følgende kommentarer er modtaget fra "
+"bedømmerne.</p>{$allReviewerComments}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "Redaktøranbefaling"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"<p>Kære {$editors},</p><p>Efter at have overvejet bedømmernes feedback vil "
+"jeg komme med følgende anbefaling vedrørende indsendelsen "
+"{$submissionTitle}.</p><p>Min anbefaling er:<br />{$recommendation}.</p><p>"
+"Besøg venligst indsendelsen <a href=\"{$submissionUrl}\">redaktionel "
+"workflow</a> for at handle på denne anbefaling.</p><p>Du er velkommen til at "
+"kontakte mig, hvis der er nogle spørgsmål.</p><p>Med venlig "
+"hilsen</p><p>{$senderName}</p>"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr ""
+"Indsendelsen {$submissionId} er klar til manuskriptredigering til "
+"{$contextAcronym}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>Jeg vil bede dig om at foretage "
+"manuskriptredigering af </p><p><a href\"{$submissionUrl}\">{$submissionId} "
+"{$submissionTitle}</a><br />{$contextName}</p><p> ved at følge disse "
+"trin.</p><ol><li>1. Klik på manuskriptets URL-adresse nedenfor.</li><li>2. "
+"Åbn tilgængelig(e) fil(er) under ‘Filer til redigering’ og tilføj, om "
+"nødvendigt, et indlæg under ‘Drøftelser under manuskriptredigering’.</li><li>"
+"3. Gem manuskriptredigeret fil og upload den ud for "
+"‘Manuskriptredigering’.</li><li>4. Giv redaktøren besked, når alle filer er "
+"færdigredigerede og klar til at blive videresendt til "
+"’Produktion’.</li></ol><p> Hvis du ikke har mulighed for at løse denne "
+"opgave på nuværende tidspunkt, eller du har nogle spørgsmål, bedes du "
+"kontakte mig. Tak for dit bidrag til dette tidsskrift.</p><p>Med venlig "
+"hilsen</p>{$signature}"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Din indsendelse er blevet afvist"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"<p>Kære {$recipientName}.</p><p>Jeg beklager at måtte informere dig om, at "
+"redaktøren efter at have vurderet din indsendelse {$submissionTitle}, mener, "
+"at den ikke egner sig til udgivelse i {$contextName}.</p><p>Jeg håber, du "
+"kan få artiklen optaget i et andet tidsskrift.</p><p>Med venlig "
+"hilsen</p>{$signature}"
+
+#, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Besked omhandlende {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv venligst din besked."
+
+#, fuzzy
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"Når denne e-mail er aktiveret, sendes den automatisk til de øvrige "
+"forfattere, udover indsenderen, angivet under indsendelsesprocessen."

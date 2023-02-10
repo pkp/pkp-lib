@@ -1,0 +1,516 @@
+# Studiorimau <studiorimau@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-30 13:15+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/ms/"
+">\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submission.createNewRound"
+msgstr "Cipta Pusingan Ulasan Baharu"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Anda akan membuat pusingan ulasan baharu untuk penyerahan ini. Fail yang "
+"belum digunakan dalam pusingan ulasan lain disenaraikan di bawah."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Jangan buat perbincangan ulasan."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Buat perbincangan ulasan tentang cadangan ini."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Jangan hantar e-mel kepada editor."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Maklumkan Editor"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Rekod Cadangan Editorial"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Rekod Keputusan Editorial"
+
+msgid "editor.submission.newRound"
+msgstr "Pusingan Ulasan Baharu"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Fail Sedia Produksi"
+
+msgid "editor.review.emailReviewer"
+msgstr "E-mel Pengulas"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Anda belum memuat naik sebarang fail ulasan."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Tiada Fail Dimuat Naik"
+
+msgid "editor.review.reviewDetails"
+msgstr "Butiran Ulasan"
+
+msgid "editor.review"
+msgstr "Ulasan"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Mana-mana fail yang telah dimuat naik ke mana-mana peringkat penyerahan "
+"boleh ditambahkan pada penyenaraian Copyedit Files dengan menandai kotak "
+"semak Sertakan di bawah dan mengklik Cari: semua fail yang tersedia akan "
+"disenaraikan dan boleh dipilih untuk dimasukkan. Fail tambahan yang belum "
+"dimuat naik ke peringkat boleh ditambah pada penyenaraian dengan mengklik "
+"pautan Muat Naik Fail."
+
+msgid "editor.submission.addAuditor"
+msgstr "Tugaskan Juruaudit"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Tidak meluluskan fail copyedited ini akan menjadikannya tidak tersedia untuk "
+"dihantar ke peringkat produksi. Adakah anda mahu tidak meluluskan fail ini?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Fail copyedted perlu diluluskan sebelum boleh dihantar ke peringkat "
+"Produksi. Adakah anda mahu meluluskan fail ini?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Peringatan bukti"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-mel untuk dihantar kepada pengguna"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Tiada audit diminta untuk fail ini"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Daftar Pengguna Sedia Ada sebagai Pengulas"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Jadual tugas"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Tarikh Tamat Tugas"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Pilih Pengulas"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Fail Copyediting"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Jadual Untuk Penerbitan"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Seorang peserta yang dipilih tidak ditugaskan ke peringkat ini."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Perbincangan tidak boleh dibuat dengan peserta yang dipilih kerana ia akan "
+"memberi kesan kepada kerahasiaan proses ulasan."
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Setelah ulasan ini telah dibaca, tekan \"Sahkan\" untuk menunjukkan bahawa "
+"proses ulasan mungkin diteruskan. Jika pengulas telah menyerahkan ulasan "
+"mereka di tempat lain, anda boleh memuat naik fail di bawah dan kemudian "
+"tekan \"Sahkan\" untuk meneruskan."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Tidak mengambil kira Ulasan ini"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Adakah anda ingin menandai ulasan ini sebagai tidak dipertimbangkan? Sejarah "
+"ulasan akan dikekalkan."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Daftar pengguna dengan kumpulan pengguna pengulas ini"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Terdapat ralat semasa mengembalikan pengulas. Sila cuba lagi."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Berlaku ralat semasa memadamkan pengulas. Sila cuba lagi."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Terdapat ralat semasa menambah pengulas. Sila cuba lagi."
+
+msgid "editor.review.mustSelect"
+msgstr "Anda mesti memilih pengulas"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Tiada penilaian"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Nilaikan kualiti ulasan yang diberikan. Penilaian ini tidak dikongsi dengan "
+"pengulas."
+
+msgid "editor.review.rateReviewer"
+msgstr "Penilaian pengulas"
+
+msgid "editor.review.reviewerComments"
+msgstr "Komen Pengulas"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Pengulas Mengucapkan Terima Kasih"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Ulasan Diserahkan"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Ulasan Disahkan"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Ulasan Selesai"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Tarikh Tamat Ulasan"
+
+msgid "editor.review.reviewDue"
+msgstr "Tarikh tamat ulasan: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Kembalikan Keputusan"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editor membatalkan permintaan ulasan ini."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Pengulas telah menolak permintaan ulasan."
+
+msgid "editor.review.requestCancelled"
+msgstr "Permintaan Dibatalkan"
+
+msgid "editor.review.requestDeclined"
+msgstr "Permintaan Ditolak"
+
+msgid "editor.review.requestAccepted"
+msgstr "Permintaan Diterima"
+
+msgid "editor.review.requestSent"
+msgstr "Permintaan dihantar"
+
+msgid "editor.review.responseDue"
+msgstr "Tarikh tamat respon: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Baca Ulasan Baru"
+
+msgid "editor.review.readReview"
+msgstr "Baca Ulasan"
+
+msgid "editor.review.sendReminder"
+msgstr "Hantar Peringatan"
+
+msgid "editor.review.skipEmail"
+msgstr "Jangan hantar e-mel kepada Pengulas."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Ralat menghantar ucapan terima kasih kepada pengulas"
+
+msgid "editor.review.reminderError"
+msgstr "Ralat menghantar peringatan ulasan"
+
+msgid "editor.review.thankReviewer"
+msgstr "Terima kasih Pengulas"
+
+msgid "editor.review.reminder"
+msgstr "Peringatan Ulasan"
+
+msgid "editor.review.noReviews"
+msgstr "Tiada ulasan rakan sejawat untuk diimport"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Ulasan ditambahkan pada badan mesej."
+
+msgid "editor.review.dateAccepted"
+msgstr "Tarikh Penerimaan Ulasan"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Semakan akan tertakluk kepada pusingan baharu ulasan sejawat."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Semakan tidak akan tertakluk kepada pusingan baharu ulasan sejawat."
+
+msgid "editor.review.newReviewRound"
+msgstr "Memerlukan Pusingan Ulasan Baharu"
+
+msgid "editor.review.uploadRevision"
+msgstr "Muat Naik Semakan"
+
+msgid "editor.review.importantDates"
+msgstr "Tarikh Penting"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-mel untuk dihantar kepada pengulas"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Pengulas Tanpa Nama"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Sunting Ulasan"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Tutup Pilihan Fail"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Fail Untuk Diulas"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Pengulas Tanpa Nama/Pengarang Tanpa Nama"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Pengulas Tanpa Nama/Pengarang Terdedah"
+
+msgid "editor.submissionReview.open"
+msgstr "Buka"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Jangan hantar e-mel pemberitahuan"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Hantar e-mel pemberitahuan kepada editor: {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Hantar e-mel pemberitahuan kepada pengarang: {$authorName}"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Jenis Ulasan"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Kembalikan Pengulas"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Batalkan Pengulas"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Nyahtugaskan Pengulas"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Mendaftar Pengguna Sedia Ada"
+
+msgid "editor.review.createReviewer"
+msgstr "Cipta Pengulas Baharu"
+
+msgid "editor.submission.backToSearch"
+msgstr "Kembali ke Carian"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Fail Ulasan Semasa Untuk Pusingan {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr ""
+"Tunjukkan fail daripada semua peringkat aliran kerja yang boleh diakses."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Cari Pengguna"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Cari Pengulas"
+
+msgid "editor.submission.addReviewer"
+msgstr "Tambah Pengulas"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Gunakan <em>+Tambah Pengulas</em> untuk menjemput pembaca mengulas fail "
+"penyerahan. Ikon buku nota menunjukkan bahawa ulasan telah diserahkan, yang "
+"kemudiannya diperiksa <em>Diakui</em> selepas ia dirujuk. Apabila ulasan "
+"tertunggak, ikon sampul merah muncul untuk mengingatkan pengulas."
+
+msgid "editor.submission.revisions"
+msgstr "Semakan"
+
+msgid "editor.submission.selectFiles"
+msgstr "Pilih Fail"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Muat Naik/Pilih Fail"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Anda mesti memilih pengguna untuk ditugaskan."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Jangan hantar e-mel kepada Juruaudit"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Anda mesti menyertakan mesej peribadi."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+"Anda mesti memilih sekurang-kurangnya satu fail untuk ditugaskan kepada "
+"pengguna."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Pilih fail di bawah untuk dihantar ke peringkat ulasan."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Mesej kepada pengguna"
+
+msgid "editor.review.notInitiated"
+msgstr "Proses ulasan masih belum dimulakan."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Ubah keputusan"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Penyerahan diterima untuk ulasan."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Dihantar kepada produksi."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Dihantar untuk pusingan ulasan baharu."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Penyerahan diterbitkan."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Penyerahan diterima."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Penyerahan ditolak."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Keputusan direkodkan"
+
+msgid "editor.submissionLibrary"
+msgstr "Pustaka"
+
+msgid "editor.activityLog"
+msgstr "Log Aktiviti"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Adakah anda pasti mahu memadam penyerahan ini secara kekal?"
+
+msgid "reviewer.list.empty"
+msgstr "Tiada pengulas ditemui"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Minat Displin Mengulas"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Buka kunci"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Pengulas ini dikunci kerana mereka telah diberikan peranan yang membolehkan "
+"mereka melihat identiti pengarang. Ulasan rakan sejawat tanpa nama tidak "
+"boleh dijamin. Adakah anda mahu membuka kunci pengulas ini juga?"
+
+msgid "reviewer.list.reassign"
+msgstr "Tetapkan semula"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Pengulas ini telah ditugaskan untuk mengulas penyerahan ini."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Tidak pernah ditugaskan"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Purata hari untuk menyelesaikan ulasan"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Hari sejak ulasan terakhir ditugaskan"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Semalam"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} hari"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Rating pengulas: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Permintaan ulasan dibatalkan"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Permintaan ulasan ditolak"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ulasan telah selesai"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Ulasan aktif ditugaskan pada masa ini"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktif"
+
+msgid "reviewer.list.filterRating"
+msgstr "Dinilai sekurang-kurangnya"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Corak {$pattern} tidak dibenarkan untuk pengenalpasti awam."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Pengenalpasti awam '{$publicIdentifier}' mestilah bukan nombor."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Adakah anda pasti mahu membatalkan keputusan untuk menolak penyerahan ini?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Batalkan kelulusan untuk bukti ini untuk menunjukkan proofreading tidak lagi "
+"lengkap dan fail belum sedia untuk diterbitkan."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Luluskan bukti ini untuk menunjukkan proofreading telah selesai dan fail "
+"sedia untuk diterbitkan."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Batalkan Kelulusan Bukti"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Luluskan Bukti"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Pengulas yang Dipilih"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Fail boleh dilampirkan untuk dimasukkan dalam perbincangan ini daripada "
+"senarai di bawah."
+
+msgid "grid.action.editQuery"
+msgstr "Sunting Perbincangan"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Fail yang Dilampirkan"
+
+msgid "submission.queries.messageRequired"
+msgstr "Mesej perbincangan diperlukan."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Subjek perbincangan diperlukan."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Anda belum memilih sebarang fail untuk diulas oleh penyemak."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Tiada Fail Dipilih"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Amaran: Menukar borang ulasan akan menjejaskan sebarang jawapan yang dibuat "
+"oleh pengulas yang menggunakan borang ini. Adakah anda pasti mahu meneruskan?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Pilih Borang Ulasan"
+
+msgid "editor.article.reviewForms"
+msgstr "Borang Ulasan"

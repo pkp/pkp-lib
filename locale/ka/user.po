@@ -1,0 +1,498 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-15 15:55+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.accountInformation"
+msgstr "ანგარიშის დეტალები"
+
+msgid "user.changePassword"
+msgstr "პაროლის შეცვლა"
+
+msgid "user.editMyProfile"
+msgstr "ჩემი პროფილის ჩასწორება"
+
+msgid "user.email"
+msgstr "ელფოსტა"
+
+msgid "user.group"
+msgstr "მომხმარებელთა ჯგუფები"
+
+msgid "user.login.forgotPassword"
+msgstr "დაგავიწყდათ პაროლი?"
+
+msgid "user.login"
+msgstr "შესვლა"
+
+msgid "user.login.resetPassword"
+msgstr "პაროლის ჩამოყრა"
+
+msgid "user.logOut"
+msgstr "გამოსვლა"
+
+msgid "user.myAccount"
+msgstr "ჩემი ანგარიში"
+
+msgid "user.name"
+msgstr "სახელი"
+
+msgid "user.password"
+msgstr "პაროლი"
+
+msgid "user.phone"
+msgstr "ტელეფონი"
+
+msgid "user.profile.editProfile"
+msgstr "პროფილის ჩასწორება"
+
+msgid "user.profile.form.emailRequired"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
+
+msgid "user.profile.newPassword"
+msgstr "ახალი პაროლი"
+
+msgid "user.profile"
+msgstr "პროფილი"
+
+msgid "user.profile.publicProfile"
+msgstr "მომხმარებლის პროფილი"
+
+msgid "user.login.registerNewAccount"
+msgstr "რეგისტრაცია"
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "პაროლები არ ემთხვევა."
+
+msgid "user.register"
+msgstr "რეგისტრაცია"
+
+msgid "user.role.author"
+msgstr "ავტორი"
+
+msgid "user.role.authors"
+msgstr "ავტორები"
+
+msgid "user.role.editor"
+msgstr "რედაქტორი"
+
+msgid "user.role.reviewer"
+msgstr "რეცენზენტი"
+
+msgid "user.roles"
+msgstr "როლები"
+
+msgid "user.sendPassword"
+msgstr "დადასტურება"
+
+msgid "user.title"
+msgstr "სათაური"
+
+msgid "user.username"
+msgstr "მომხმარებლის სახელი"
+
+msgid "user.profile.contact"
+msgstr "კონტაქტი"
+
+msgid "user.profile.public"
+msgstr "საჯარო"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"თქვენ წარმატებით დარეგისტრირდით. <a href=\"{$profileUrl}\">დააწკაპუნეთ აქ</a>"
+" თქვენი მომხმარებლის პროფილის დასასრულებლად."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"დიახ, მე ვეთანხმები ჩემს მონაცემების შეგროვებას და შენახვას, <a href=\""
+"{$privacyUrl}\" target=\"_blank\">კონფიდენციალურობის დებულების</a> "
+"შესაბამისად."
+
+msgid "user.affiliation"
+msgstr "კუთვნილება"
+
+msgid "user.affiliation.description"
+msgstr "(თქვენი დაწესებულება, მაგ. „სიმონ ფრეიზერის უნივერსიტეტი“)"
+
+msgid "user.affiliations"
+msgstr "კუთვნილებები"
+
+msgid "user.authorization.accessDenied"
+msgstr "წვდომა აკრძალულია."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "პროცესის ავთენტიფიკაციის ნიშანი არ არის ან არასწორია."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"ამ ოპერაციას ვერ გამოიძახებთ კონტექსტის გარეშე (პრესა, ჟურნალი, კონფერენცია "
+"და ა.შ.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "შესვლა სავალდებულოა."
+
+msgid "user.authorization.privateOperation"
+msgstr "ოპერაცია, რომელზე წვდომაც სცადეთ, არის პირადი ან არ არსებობს."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "თქვენ უარი თქვით შესვლაზე. ამ საიტზე შესვლა ამჟამად შეზღუდულია."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "ამჟამინდელ როლს ამ ოპერაციაზე წვდომა არ აქვს."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"ამ წარდგინებას თქვენ არ მიანიჭეთ ისეთი როლი, რომლის გამოყენებაც დაშვებულია "
+"ამ ოპერაციაში."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "ამ ოპერაციაზე წვდომისთვის უნდა დააყენოთ მომხმარებლის მოქმედი ჯგუფი."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"სანამ დაიწყებთ მუშაობას, მენეჯერის როლის მქონე მომხმარებელი (ე.ი. წარმოების "
+"რედაქტორი) უნდა დაენიშნოს ეტაპს."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "ამჟამად სამუშაო პროცესის იმ ეტაპზე წვდომა არ გაქვთ."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "სამუშაო პროცესის ეტაპი არ იყო მითითებული."
+
+msgid "user.authorization.pluginRequired"
+msgstr "პლაგინი არ იყო მითითებული და აუცილებელია."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "თქვენ არ გაქვთ ამ მიმოხილვის დავალებაზე წვდომის ნებართვა."
+
+msgid "user.authorization.submissionQuery"
+msgstr "თქვენ არ გაქვთ ამ დისკუსიაზე წვდომის ნებართვა."
+
+msgid "user.biography"
+msgstr "ბიოგრაფიული განცხადება (მაგალითად, განყოფილება და წოდება)"
+
+msgid "user.changeMyPassword"
+msgstr "პაროლის შეცვლა"
+
+msgid "user.dateLastLogin"
+msgstr "ბოლო ავტორიზაცია"
+
+msgid "user.dateRegistered"
+msgstr "რეგისტრაციის თარიღი"
+
+msgid "user.givenName"
+msgstr "სახელი"
+
+msgid "user.interests"
+msgstr "ინტერესების განხილვა"
+
+msgid "user.gossip"
+msgstr "გამოშვების შენიშვნები"
+
+msgid "user.gossip.description"
+msgstr ""
+"ჩაიწერეთ შენიშვნები ამ რეცენზენტის შესახებ, რომელთა გაკეთება გსურთ სხვა "
+"ადმინისტრატორებისთვის, მენეჯერებისთვის და ყველა რედაქტორისთვის. შენიშვნები "
+"ხილული იქნება მომავალი განხილვის დავალებებისთვის."
+
+msgid "user.familyName"
+msgstr "გვარი"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"პროფილის სურათის არასწორი ფორმატი ან სურათი ძალიან დიდია. მიღებული "
+"ფორმატებია .gif, .jpg ან .png და სურათი არ უნდა აღემატებოდეს 150x150 პიქსელს."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "თქვენი ანგარიში გათიშულია შემდეგი მიზეზით: {$reason}"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"თქვენი ანგარიში გამორთულია. დამატებითი ინფორმაციისთვის დაუკავშირდით "
+"ადმინისტრატორს."
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"ჩვენ გამოგიგზავნეთ დასტურის ელწერილი შემდეგ მისამართზე: {$email}. თქვენი "
+"ახალი ანგარიშის გასააქტიურებლად გთხოვთ, მიჰყვეთ ელფოსტის მითითებებს. თუ "
+"ელწერილს ვერ ხედავთ, გთხოვთ შეამოწმოთ, არის თუ არა იგი განთავსებული თქვენს "
+"სპამის საქაღალდეში."
+
+msgid "user.login.activate"
+msgstr "ანგარიშის გააქტიურება"
+
+msgid "user.login.activated"
+msgstr ""
+"გმადლობთ თქვენი ანგარიშის გააქტიურებისათვის. ახლა თქვენ შეგიძლიათ შეხვიდეთ "
+"სერთიფიკატების გამოყენებით, რომლებიც მიუთითეთ თქვენი ანგარიშის შექმნისას."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"ამ საიტზე შესვლამდე უნდა აირჩიოთ ახალი პაროლი.<br /><br />გთხოვთ, შეიყვანოთ "
+"თქვენი მომხმარებლის სახელი და თქვენი ამჟამინდელი და ახალი პაროლები, რომ "
+"შეცვალოთ თქვენი ანგარიშის პაროლი."
+
+msgid "user.login.loginError"
+msgstr "პაროლი, ან მომხმარებლის სახელი არასწორია, გთხოვთ, სცადოთ ხელახლა."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"დადასტურება გაიგზავნა თქვენს ელფოსტის მისამართზე. გთხოვთ, მიჰყვეთ ელფოსტის "
+"მითითებებს თქვენი პაროლის გადასაყენებლად."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"უკაცრავად, ბმულს, რომელზეც დააწკაპუნეთ, ვადა ამოიწურა ან არასწორია. გთხოვთ, "
+"ისევ სცადოთ თქვენი პაროლის გადაყენება."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"ახალი პაროლი გაიგზავნა თქვენს ელფოსტის მისამართზე. ახლა თქვენ შეგიძლიათ "
+"შეხვიდეთ საიტზე თქვენი ახალი პაროლით."
+
+msgid "user.login.registeredEmail"
+msgstr "რეგისტრირებული მომხმარებლის ელფოსტა"
+
+msgid "user.login.registrationComplete"
+msgstr "რეგისტრაცია დასრულებულია"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "მადლობა რეგისტრაციისთვის! რისი გაკეთება გსურთ?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "შენატანების ნახვა"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "ახალი შენატანი"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "განაგრძეთ დათვალიერება"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "რეგისტრაცია ელოდება დადასტურებას"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "ცვლილების გარეშე დატოვება"
+
+msgid "user.logOutAs"
+msgstr "გამოსვლა, როგორც {$username}"
+
+msgid "user.hello"
+msgstr "გამარჯობა, "
+
+msgid "user.mailingAddress"
+msgstr "Საფოსტო მისამართი"
+
+msgid "user.repeatPassword"
+msgstr "პაროლის გამეორება"
+
+msgid "user.preferredPublicName"
+msgstr "სასურველი საჯარო სახელი"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"როგორ გირჩევნიათ, რომ მოგმართოთ? თუ გსურთ, მისალმების ფორმა, შუა სახელი და "
+"სუფიქსები შეგიძლიათ დაამატოთ აქ."
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"შეიყვანეთ თქვენი მიმდინარე და ახალი პაროლები ქვემოთ, რომ შეცვალოთ თქვენი "
+"ანგარიშის პაროლი."
+
+msgid "user.profile.form.countryRequired"
+msgstr "ქვეყანა სავალდებულოა."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "სახელი სავალდებულოა."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"თქვენ დაამატეთ გვარი იმ ენისთვის, რომელსაც არ აქვს მოცემული სახელი. გთხოვთ, "
+"დაამატოთ სახელი ამ ენისთვის."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "ელფოსტის მისამართი სავალდებულოა."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "შეიტანეთ თქვენი ახალი პაროლი."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "თქვენს მიერ შეყვანილი პაროლი არ არის სწორი."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "გამოცემის ღია წვდომის ელფოსტის შეტყობინებები"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "პაროლი სავალდებულოა."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "თქვენი ახალი პაროლი ემთხვევა ძველ პაროლს."
+
+msgid "user.profile.form.profileImage"
+msgstr "პროფილის სურათი"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "ახალმა გამოცემამ გამოაქვეყნა ელფოსტის შეტყობინებები"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"მითითებული URL არასწორია. გთხოვთ, გადაამოწმოთ URL და სცადოთ ხელახლა. "
+"(მინიშნება: სცადეთ დაამატოთ http:// URL-ის დასაწყისში.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "მომხმარებლის ჯგუფი სავალდებულოა."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "მომხმარებლის სახელი სავალდებულოა."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "თქვენ უნდა დაეთანხმოთ კონფიდენციალურობის დებულების პირობებს."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "მიმდინარე პაროლის შესანარჩუნებლად დატოვეთ პაროლის ველები ცარიელი."
+
+msgid "user.profile.oldPassword"
+msgstr "მიმდინარე პაროლი"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "გაიმეორეთ ახალი პაროლი"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"გთხოვთ, შეიყვანოთ თქვენი ელფოსტის მისამართი. თქვენ მიიღებთ ელწერილს "
+"ინსტრუქციებით, თუ როგორ უნდა აღადგინოთ თქვენი პაროლი."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"დიახ, მსურს გავიგო ახალი პუბლიკაციებისა და განცხადებების შესახებ ყველა იმ "
+"ჟურნალისთვის, რომელშიც მე დავრეგისტრირდი."
+
+msgid "user.register.form.emailExists"
+msgstr "არჩეული მომხმარებლის ელფოსტა უკვე გამოიყენება სხვა მომხმარებლის მიერ."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "ელფოსტის მისამართის ველები არ ემთხვევა."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"მომხმარებლის სახელი შეიძლება შეიცავდეს მხოლოდ მცირე ზომის ალფანუმერულ "
+"სიმბოლოებს, ქვედა ხაზებს და დეფისებს და უნდა დაიწყოს და დასრულდეს "
+"ალფანუმერული სიმბოლოთი."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "მინიმუმ ერთი როლი უნდა იყოს შერჩეული."
+
+msgid "user.register.form.usernameExists"
+msgstr "არჩეული მომხმარებლის სახელი უკვე გამოიყენება სხვა მომხმარებლის მიერ."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "პაროლი უნდა შეიცავდეს მინიმუმ {$length} სიმბოლოს."
+
+msgid "user.register.registerAs"
+msgstr "რეგისტრაცია {$contextName} როგორც…"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"მომხმარებლის სახელი უნდა შეიცავდეს მხოლოდ მცირე ასოებს, ციფრებს და დეფისებს/"
+"ქვედა ხაზებს."
+
+msgid "user.role.assistant"
+msgstr "ასისტენტი"
+
+msgid "user.role.author_s"
+msgstr "ავტორი(ებ)ი"
+
+msgid "user.role.editors"
+msgstr "რედაქტორები"
+
+msgid "user.role.reader"
+msgstr "მკითხველი"
+
+msgid "user.role.readers"
+msgstr "მკითხველები"
+
+msgid "user.role.reviewers"
+msgstr "რეცენზენტები"
+
+msgid "user.role.siteAdmin"
+msgstr "საიტის ადმინისტრატორი"
+
+msgid "user.role.siteAdmins"
+msgstr "საიტის ადმინისტრატორები"
+
+msgid "user.role.copyeditor"
+msgstr "ლიტერატურული რედაქტორი"
+
+msgid "user.role.copyeditors"
+msgstr "ლიტერატურული რედაქტორები"
+
+msgid "user.role.proofreader"
+msgstr "კორექტორი"
+
+msgid "user.role.proofreaders"
+msgstr "კორექტორები"
+
+msgid "user.role.layoutEditor"
+msgstr "განლაგების რედაქტორი"
+
+msgid "user.role.layoutEditors"
+msgstr "განლაგების რედაქტორები"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"გამომიგზავნეთ დამადასტურებელი ელფოსტა, ჩემი მომხმარებლის სახელის და პაროლის "
+"ჩათვლით"
+
+msgid "user.signature"
+msgstr "ხელმოწერა"
+
+msgid "user.url"
+msgstr "მთავარი გვერდის URL"
+
+msgid "user.userHome"
+msgstr "მომხმარებლის მთავარი გვერდი"
+
+msgid "user.workingLanguages"
+msgstr "სამუშაო ენები"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"თქვენს მიერ მითითებული ORCID iD არასწორია. გთხოვთ, შეიყვანოთ სრული URI (მაგ. "
+"“https://orcid.org/0000-0002-1825-0097”)."
+
+msgid "user.profile.identity"
+msgstr "იდენტურობა"
+
+msgid "user.apiKey"
+msgstr "API გასაღები"
+
+msgid "user.apiKeyEnabled"
+msgstr "გარე პროგრამების ჩართვა API გასაღებით ამ ანგარიშზე შესასვლელად"
+
+msgid "user.apiKey.generate"
+msgstr "ახალი API გასაღების შექმნა"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"ახალი API გასაღების გაუქმება გააუქმებს არსებულ გასაღებს ამ მომხმარებლისთვის."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"სანამ API გასაღებს შექმნით, თქვენი საიტის ადმინისტრატორმა უნდა დააყენოს "
+"საიდუმლო კონფიგურაციის ფაილში (“api_key_secret”)."
+
+msgid "user.privacyLink"
+msgstr ""
+"თქვენი მონაცემები ინახება ჩვენი <a href=\"{$privacyUrl}\" target=\"_blank\">"
+"კონფიდენციალურობის დებულების შესაბამისად</a> ."

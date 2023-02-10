@@ -1,0 +1,2197 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022.
+# Osman Durmaz <osmandurmaz@hotmail.de>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
+"PO-Revision-Date: 2022-10-24 16:34+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"tr_TR/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "about.aboutSite"
+msgstr "Site Hakkında"
+
+msgid "about.contact"
+msgstr "İletişim"
+
+msgid "about.contact.email"
+msgstr "E-posta"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.principalContact"
+msgstr "Temel İletişim"
+
+msgid "about.contact.supportContact"
+msgstr "Destek İletişim"
+
+msgid "about.other"
+msgstr "Diğer"
+
+msgid "about.people"
+msgstr "Kişiler"
+
+msgid "about.policies"
+msgstr "Politikalar"
+
+msgid "about.siteMap"
+msgstr "Site Haritası"
+
+msgid "announcement.announcements"
+msgstr "Duyurular"
+
+msgid "announcement.announcementsHome"
+msgstr "Duyurular"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Daha fazla duyuru..."
+
+msgid "announcement.noneExist"
+msgstr "Yayınlanan duyuru yok."
+
+msgid "announcement.posted"
+msgstr "Yayın Tarihi"
+
+msgid "announcement.view"
+msgstr "Duyuruyu gör"
+
+msgid "common.action"
+msgstr "İşlem"
+
+msgid "common.activate"
+msgstr "Etkinleştir"
+
+msgid "common.active"
+msgstr "Aktif"
+
+msgid "common.add"
+msgstr "Ekle"
+
+msgid "common.addSelf"
+msgstr "Kayıt Ol"
+
+msgid "common.all"
+msgstr "Tümü"
+
+msgid "common.alphaList"
+msgstr "A B C Ç D E F G Ğ H I İ J K L M N O Ö P Q R S Ş T U Ü V W X Y Z"
+
+msgid "common.alreadyAssigned"
+msgstr "Atanmış"
+
+msgid "common.altText"
+msgstr "Alternatif Metin"
+
+msgid "common.and"
+msgstr "ve"
+
+msgid "common.applyAction"
+msgstr "İşlemi Uygula"
+
+msgid "common.assign"
+msgstr "Ata"
+
+msgid "common.assigned"
+msgstr "Atandı"
+
+msgid "common.back"
+msgstr "Geri"
+
+msgid "common.between"
+msgstr "arasında"
+
+msgid "common.cancel"
+msgstr "İptal"
+
+msgid "common.cancelled"
+msgstr "İptal Edildi"
+
+msgid "common.captchaField.description"
+msgstr "Lütfen resim üzerinde görüntülenen karakterleri giriniz."
+
+msgid "common.captchaField"
+msgstr "Doğrulama"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tBu çalışma <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0  License</a> ile lisanslanmıştır.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tBu çalışma  <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0</a>.\n"
+"\t</div>\n"
+"\t ile lisanslanmıştır.\n"
+"\t"
+
+msgid "common.changesSaved"
+msgstr "Değişiklikleriniz kaydedildi."
+
+msgid "common.chooseOne"
+msgstr "Seçim Yap"
+
+msgid "common.close"
+msgstr "Kapat"
+
+msgid "common.closeWindow"
+msgstr "Pencereyi Kapat"
+
+msgid "common.complete"
+msgstr "Tamamla"
+
+msgid "common.completed"
+msgstr "Tamamlandı"
+
+msgid "common.continue"
+msgstr "Devam Et"
+
+msgid "common.copy"
+msgstr "Kopyala"
+
+msgid "common.country"
+msgstr "Ülke"
+
+msgid "common.create"
+msgstr "Oluştur"
+
+msgid "common.dateCompleted"
+msgstr "Tamamlanma Tarihi"
+
+msgid "common.date"
+msgstr "Tarih"
+
+msgid "common.dateModified"
+msgstr "Değiştirilme Tarihi"
+
+msgid "common.dateRequested"
+msgstr "Talep Tarihi"
+
+msgid "common.dateSubmitted"
+msgstr "Gönderilme Tarihi"
+
+msgid "common.dateUploaded"
+msgstr "Yüklenme Tarihi"
+
+msgid "common.day"
+msgstr "Gün"
+
+msgid "common.deactivate"
+msgstr "Devre Dışı Bırak"
+
+msgid "common.default"
+msgstr "Varsayılan"
+
+msgid "common.delete"
+msgstr "Sil"
+
+msgid "common.deleteSelection"
+msgstr "Seçileni Sil"
+
+msgid "common.description"
+msgstr "Açıklama"
+
+msgid "common.disable"
+msgstr "Kapalı"
+
+msgid "common.disabled"
+msgstr "Kapatıldı"
+
+msgid "common.discipline"
+msgstr "Disiplin"
+
+msgid "common.done"
+msgstr "Tamamlandı"
+
+msgid "common.download"
+msgstr "İndir"
+
+msgid "common.edit"
+msgstr "Düzenle"
+
+msgid "common.enabled"
+msgstr "Etkinleştirildi"
+
+msgid "common.error.databaseError"
+msgstr "Veri tabanı hatası oluştu: {$error}"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Bilinmeyen bir veri tabanı hatası oluştu."
+
+msgid "common.error.framesRequired"
+msgstr "Bu site çerçeve kullanmaktadır. Çerçeve kullanmayan biçimi için <a href=\"{$url}\"> buraya tıklayın</a>."
+
+msgid "common.event"
+msgstr "Olay"
+
+msgid "common.export"
+msgstr "İhraç"
+
+msgid "common.fullscreen"
+msgstr "Tam Ekran"
+
+msgid "common.fullscreenOff"
+msgstr "Kapat"
+
+msgid "common.false"
+msgstr "Yanlış"
+
+msgid "common.file"
+msgstr "Dosya"
+
+msgid "common.fileName"
+msgstr "Dosya Adı"
+
+msgid "common.fileSize"
+msgstr "Dosya Boyutu"
+
+msgid "common.fileType"
+msgstr "Dosya Türü"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.height"
+msgstr "Boyut"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Ana Sayfa Başlık Logosu"
+
+msgid "common.hour"
+msgstr "Saat"
+
+msgid "common.id"
+msgstr "SN"
+
+msgid "common.import"
+msgstr "Veri al"
+
+msgid "common.initiate"
+msgstr "Başlat"
+
+msgid "common.inProgress"
+msgstr "İşlem sürüyor"
+
+msgid "common.keywords"
+msgstr "Anahtar kelimeler"
+
+msgid "common.language"
+msgstr "Dil"
+
+msgid "common.languages"
+msgstr "Diller"
+
+msgid "common.manage"
+msgstr "Yönet"
+
+msgid "common.mailingAddress"
+msgstr "Posta Adresi"
+
+msgid "common.minute"
+msgstr "Dakika(lar)"
+
+msgid "common.modify"
+msgstr "Değiştir"
+
+msgid "common.month"
+msgstr "Ay"
+
+msgid "common.noneAssigned"
+msgstr "Atama Bekleyenler"
+
+msgid "common.none"
+msgstr "Hiçbiri"
+
+msgid "common.no"
+msgstr "Hayır"
+
+msgid "common.noComments"
+msgstr "Yorum yok"
+
+msgid "common.notApplicable"
+msgstr "Uygulanamaz"
+
+msgid "common.notApplicableShort"
+msgstr "Uygulanamaz"
+
+msgid "common.notAvailable"
+msgstr "Kullanılamıyor"
+
+msgid "common.note"
+msgstr "Not"
+
+msgid "common.notes"
+msgstr "Notlar"
+
+msgid "common.off"
+msgstr "Kapalı"
+
+msgid "common.on"
+msgstr "Açık"
+
+msgid "common.ok"
+msgstr "Tamam"
+
+msgid "common.options"
+msgstr "Seçenekler"
+
+msgid "common.order"
+msgstr "Sipariş"
+
+msgid "common.originalFileName"
+msgstr "Orijinal dosya adı"
+
+msgid "common.or"
+msgstr "veya"
+
+msgid "common.other"
+msgstr "Diğer"
+
+msgid "common.plugin"
+msgstr "Eklentiler"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" eklentisi aktifleştirildi."
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" eklentisi kapatıldı."
+
+msgid "common.preview"
+msgstr "Ön İzleme"
+
+msgid "common.publisher"
+msgstr "Yayıncı"
+
+msgid "common.record"
+msgstr "Kayıt"
+
+msgid "common.related"
+msgstr "İlgili"
+
+msgid "common.refresh"
+msgstr "Yenile"
+
+msgid "common.remove"
+msgstr "Kaldır"
+
+msgid "common.removeSelection"
+msgstr "* Doldurulması zorunlu alanları gösterir"
+
+msgid "common.replaced"
+msgstr "Değiştirildi"
+
+msgid "common.replaceFile"
+msgstr "Dosyanın üzerine yaz"
+
+msgid "common.requiredField"
+msgstr "* Doldurulması zorunlu alanları gösterir"
+
+msgid "common.required"
+msgstr "Gerekli"
+
+msgid "common.saveAndContinue"
+msgstr "Kaydet ve devam et"
+
+msgid "common.saveAndEmail"
+msgstr "Kaydet ve e-posta gönder"
+
+msgid "common.save"
+msgstr "Kaydet"
+
+msgid "common.search"
+msgstr "Ara"
+
+msgid "common.second"
+msgstr "Saniye(ler)"
+
+msgid "common.selectAll"
+msgstr "Tümünü Seç"
+
+msgid "common.selectNone"
+msgstr "Hiçbirini seçme"
+
+msgid "common.select"
+msgstr "Seç"
+
+msgid "common.size"
+msgstr "Boyut"
+
+msgid "common.source"
+msgstr "Kaynak"
+
+msgid "common.status"
+msgstr "Durum"
+
+msgid "common.subject"
+msgstr "Konu"
+
+msgid "common.suggest"
+msgstr "Öner"
+
+msgid "common.title"
+msgstr "Başlık"
+
+msgid "common.top"
+msgstr "Üst"
+
+msgid "common.true"
+msgstr "Doğru"
+
+msgid "common.type"
+msgstr "Tür"
+
+msgid "common.uninitiated"
+msgstr "Başlatılmamış"
+
+msgid "common.unknownError"
+msgstr ""
+"Beklenmeyen bir hata oluştu. Lütfen sayfayı yenileyin ve tekrar deneyin."
+
+msgid "common.untitled"
+msgstr "Başlıksız"
+
+msgid "common.updated"
+msgstr "Güncellenmiş"
+
+msgid "common.upload"
+msgstr "Dosya yükle"
+
+msgid "common.uploadFailed"
+msgstr "Dosya yüklenemedi ve gözden geçirilemedi."
+
+msgid "common.up"
+msgstr "Yukarı"
+
+msgid "common.url"
+msgstr "Web Adresi"
+
+msgid "common.user"
+msgstr "Kullanıcı"
+
+msgid "common.view"
+msgstr "Görüntüle"
+
+msgid "common.weeks"
+msgstr "hafta"
+
+msgid "common.width"
+msgstr "Genişlik"
+
+msgid "common.year"
+msgstr "Yıl"
+
+msgid "common.yes"
+msgstr "Evet"
+
+msgid "common.loading"
+msgstr "Yükleniyor"
+
+msgid "debug.databaseQueries"
+msgstr "Veri tabanı sorgu sayısı"
+
+msgid "debug.executionTime"
+msgstr "Sayfa oluşturuldu"
+
+msgid "debug.memoryUsage"
+msgstr "Bellek Kullanımı"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XML'den yüklenen yerel liste: \"{$localeList}\""
+
+msgid "debug.notes.localeLoad"
+msgstr "XML'den yüklenen yerel dosya: \"{$localeFile}\""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "Eksik yerel anahtar: \"{$key}\"."
+
+msgid "debug.notes"
+msgstr "Notlar:"
+
+msgid "email.addAttachment"
+msgstr "Dosya Ekle"
+
+msgid "email.addBccRecipient"
+msgstr "Bilgi için alıcı ekle (BCC)"
+
+msgid "email.addCcRecipient"
+msgstr "Bilgi için alıcı ekle (CC)"
+
+msgid "email.addToRecipient"
+msgstr "Alıcı Ekle"
+
+msgid "email.attachments"
+msgstr "Eklentiler"
+
+msgid "email.bcc"
+msgstr "Bilgi için alıcı ekle (BCC)"
+
+msgid "email.bccSender"
+msgstr "Bu mesajın bir kopyasını adresime gönder ({$address})"
+
+msgid "email.body"
+msgstr "Mesaj"
+
+msgid "email.cc"
+msgstr "Bilgi için alıcı ekle (CC)"
+
+msgid "email.compose"
+msgstr "E-posta Gönder"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Göndermeye çalıştığınız mesajın çok fazla alıcısı var."
+
+msgid "email.compose.tooSoon"
+msgstr "Son mesaj gönderildikten hemen sonra mesaj göndermeye çalışıyorsunuz. Yeni mesajı göndermek için lütfen bekleyiniz."
+
+msgid "email.email"
+msgstr "E-posta"
+
+msgid "email.from"
+msgstr "Gönderen"
+
+msgid "email.invalid"
+msgstr "{$email} adresi geçerli değil."
+
+msgid "email.multipart"
+msgstr "Bu mesaj MIME formatında çok parçalı bir mesajdır."
+
+msgid "email.recipient"
+msgstr "Alıcı"
+
+msgid "email.recipients"
+msgstr "Alıcılar"
+
+msgid "email.sender"
+msgstr "Gönderen"
+
+msgid "email.send"
+msgstr "Gönder"
+
+msgid "email.skip"
+msgstr "E-posta Göndermeden"
+
+msgid "email.subject"
+msgstr "Konu"
+
+msgid "email.to"
+msgstr "Alıcı"
+
+msgid "form.errorsOccurred"
+msgstr "Form işlenirken hata oluştu"
+
+msgid "form.formLanguage.description"
+msgstr "Formu doldurmak için öncelikle bir dil seçiniz."
+
+msgid "form.formLanguage"
+msgstr "Form Dili"
+
+msgid "form.contains"
+msgstr "içerir"
+
+msgid "form.is"
+msgstr "eşittir"
+
+msgid "form.startsWith"
+msgstr "ile başlar"
+
+msgid "form.postRequired"
+msgstr "Form düzgün bir şekilde gönderilemedi."
+
+msgid "form.required"
+msgstr "(* Gerekli)"
+
+msgid "form.resubmit"
+msgstr "Tekrar Gönder"
+
+msgid "form.saveToUpload"
+msgstr "Dosyayı yüklemek için Kaydet'i kullanınız."
+
+msgid "form.send"
+msgstr "Gönder"
+
+msgid "form.submit"
+msgstr "Gönder"
+
+msgid "help.help"
+msgstr "Yardım"
+
+msgid "help.toc"
+msgstr "İçindekiler"
+
+msgid "help.upALevel"
+msgstr "Bir düzey yukarı"
+
+msgid "icon.checked.alt"
+msgstr "Seçilmiş"
+
+msgid "icon.comment.alt"
+msgstr "Yorum"
+
+msgid "icon.delete.alt"
+msgstr "Sil"
+
+msgid "icon.edit.alt"
+msgstr "Düzelt"
+
+msgid "icon.folder.alt"
+msgstr "Dizin"
+
+msgid "icon.font_large.alt"
+msgstr "Büyük"
+
+msgid "icon.font_medium.alt"
+msgstr "Orta"
+
+msgid "icon.font_small.alt"
+msgstr "Küçük"
+
+msgid "icon.info.alt"
+msgstr "Bilgi"
+
+msgid "icon.letter.alt"
+msgstr "Mektup"
+
+msgid "icon.mail.alt"
+msgstr "Posta"
+
+msgid "icon.unchecked.alt"
+msgstr "Seçilmemiş"
+
+msgid "icon.view.alt"
+msgstr "Göster"
+
+msgid "locale.primary"
+msgstr "Öncelikli dil"
+
+msgid "locale.supported"
+msgstr "Desteklenen diller"
+
+msgid "navigation.about"
+msgstr "Hakkında"
+
+msgid "navigation.browse"
+msgstr "Listele"
+
+msgid "navigation.browseByTitle"
+msgstr "Başlığa Göre"
+
+msgid "navigation.dashboard"
+msgstr "Gösterge Paneli"
+
+msgid "navigation.home"
+msgstr "Ana Sayfa"
+
+msgid "navigation.infoForReaders"
+msgstr "Okuyucular İçin"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Okuyucular İçin Bilgi"
+
+msgid "navigation.items"
+msgstr "Toplam {$total} ögeden {$from} - {$to} arası"
+
+msgid "navigation.login"
+msgstr "Giriş"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Sonraki Adım"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Önceki Adım"
+
+msgid "navigation.register"
+msgstr "Kayıt"
+
+msgid "navigation.search"
+msgstr "Ara"
+
+msgid "navigation.stepNumber"
+msgstr "Adım {$step}"
+
+msgid "navigation.userHome"
+msgstr "Kullanıcı Sayfası"
+
+msgid "navigation.user"
+msgstr "Kullanıcı"
+
+msgid "notification.allow"
+msgstr "Bu tür bildirimlerin görüntülenmesine izin ver."
+
+msgid "notification.confirmError"
+msgstr "Abonelik doğrulamanızda bir hata var."
+
+msgid "notification.confirmSuccess"
+msgstr "Başarılı bir şekilde üye oldunuz."
+
+msgid "notification.noneExist"
+msgstr "Her hangi bir bildirim yok."
+
+msgid "notification.notification"
+msgstr "Bildirim"
+
+msgid "notification.notifications"
+msgstr "Bildirimler"
+
+msgid "notification.settings"
+msgstr "Bilgilendirme Ayarları"
+
+msgid "notification.settingsDescription"
+msgstr "Belirlenmiş sistem durumlarından istediğinizi seçiniz. Gösterilen bildirimlerinizden engellemek istediklerinzin çek işeretini kaldırınız."
+
+msgid "notification.reminderError"
+msgstr "Parolanızı gönderirken bir hata oluştu. Lütfen girmiş olduğunuz e-posta adresinizin doğru olduğundan emin olunuz."
+
+msgid "notification.reminderSent"
+msgstr "Yeni parolanız belirtmiş olduğunuz e-posta adresine gönderilmiştir."
+
+msgid "search.abstract"
+msgstr "Öz"
+
+msgid "search.author"
+msgstr "Yazarlar"
+
+msgid "search.coverage"
+msgstr "Kapsam"
+
+msgid "search.date"
+msgstr "Tarih"
+
+msgid "search.dateFrom"
+msgstr "den"
+
+msgid "search.dateTo"
+msgstr "kadar"
+
+msgid "search.discipline"
+msgstr "Bilim dal(lar)ı"
+
+msgid "search.fullText"
+msgstr "Tam Metin"
+
+msgid "search.indexTerms"
+msgstr "İndeks terimleri"
+
+msgid "search.matchAll"
+msgstr "Tüm kategorileri eşle"
+
+msgid "search.noResults"
+msgstr "Sonuç bulunamadı"
+
+msgid "search.operator.and"
+msgstr "ve"
+
+msgid "search.operator.not"
+msgstr "değil"
+
+msgid "search.operator.or"
+msgstr "veya"
+
+msgid "search.searchResults"
+msgstr "Arama Sonuçları"
+
+msgid "search.subject"
+msgstr "Anahtar Kelime(ler)"
+
+msgid "search.titleIndex"
+msgstr "Başlık İndeksini Listele"
+
+msgid "search.title"
+msgstr "Başlık"
+
+msgid "search.typeMethodApproach"
+msgstr "Tür (Yöntem/Yaklaşım)"
+
+msgid "announcement.postedOn"
+msgstr "{$postDate} tarihinde yayınlandı"
+
+msgid "common.accepted"
+msgstr "Kabul Edildi"
+
+msgid "common.titleSmallWords"
+msgstr "ile, ve gibi bağlaçlar"
+
+msgid "common.warning"
+msgstr "Uyarı"
+
+msgid "common.confirm"
+msgstr "Onayla"
+
+msgid "common.content"
+msgstr "İçerik"
+
+msgid "common.declined"
+msgstr "Reddedildi"
+
+msgid "common.enable"
+msgstr "Aktifleştir"
+
+msgid "common.finish"
+msgstr "Son"
+
+msgid "common.go"
+msgstr "Git"
+
+msgid "common.less"
+msgstr "Küçük"
+
+msgid "common.billingAddress"
+msgstr "Fatura adresi (farklıysa)"
+
+msgid "common.more"
+msgstr "Daha Fazla"
+
+msgid "common.noMatches"
+msgstr "Eşleşmedi"
+
+msgid "common.overdue"
+msgstr "Gecikmiş"
+
+msgid "common.re"
+msgstr "Re :"
+
+msgid "common.reminder"
+msgstr "Hatırlatma"
+
+msgid "common.remote"
+msgstr "Uzak"
+
+msgid "common.remoteURL"
+msgstr "Uzak URL"
+
+msgid "common.unread"
+msgstr "Okunmamış"
+
+msgid "common.plugins"
+msgstr "Eklentiler"
+
+msgid "email.subjectRequired"
+msgstr "Lütfen bir e-posta konusu giriniz."
+
+msgid "email.bodyRequired"
+msgstr "Lütfen bir e-posta metni giriniz."
+
+msgid "form.confirmSubmit"
+msgstr "Bu formu göndermek istediğinizden emin misiniz?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Doğrula"
+
+msgid "form.dataHasChanged"
+msgstr "Formdaki veriler değişti. Devam edilsin mi?"
+
+msgid "form.invalidImage"
+msgstr "Hatalı görsel yüklendi. Geçerli biçimleri .png, .gif, veya .jpg'tir."
+
+msgid "navigation.access"
+msgstr "Kullanıcılar & Roller"
+
+msgid "navigation.admin"
+msgstr "Yönetim"
+
+msgid "navigation.browseByAuthor"
+msgstr "Yazara Göre"
+
+msgid "navigation.data"
+msgstr "Veri"
+
+msgid "navigation.publicMenu"
+msgstr "Genel Menü"
+
+msgid "navigation.settings"
+msgstr "Ayarlar"
+
+msgid "navigation.setup"
+msgstr "Ayar"
+
+msgid "navigation.sitemap"
+msgstr "Site Haritası"
+
+msgid "navigation.submissions"
+msgstr "Gönderiler"
+
+msgid "navigation.system"
+msgstr "sistem"
+
+msgid "navigation.userManagement"
+msgstr "Üye Yönetimi"
+
+msgid "common.acknowledged"
+msgstr "Onaylandı"
+
+msgid "common.notified"
+msgstr "Bildirilmiş"
+
+msgid "common.reset"
+msgstr "Yeniden Ayarlamak"
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Kamu Bilgi Projesi (PKP)"
+
+msgid "common.currentStyleSheet"
+msgstr "Geçerli Sitil Dosyası"
+
+msgid "about.description"
+msgstr "Açıklama"
+
+msgid "about.guidelines"
+msgstr "Rehber"
+
+msgid "common.allDownloads"
+msgstr "Tüm İndirmeler"
+
+msgid "common.navigation.sidebar"
+msgstr "Yan Taraf"
+
+msgid "common.navigation.site"
+msgstr "Site Menüsü"
+
+msgid "common.navigation.siteContext"
+msgstr "Site İçerik Menüsü"
+
+msgid "common.navigation.user"
+msgstr "Kullanıcı Menüsü"
+
+msgid "common.tasks"
+msgstr "Görevler"
+
+msgid "common.list"
+msgstr "Liste"
+
+msgid "common.grid"
+msgstr "Sistem"
+
+msgid "common.confirmDelete"
+msgstr "Bu öğeyi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
+
+msgid "common.abstract"
+msgstr "Öz"
+
+msgid "common.name"
+msgstr "Ad"
+
+msgid "common.assigned.date"
+msgstr "Atama: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Mevcut"
+
+msgid "common.error"
+msgstr "Hata"
+
+msgid "common.notice"
+msgstr "Bidirim"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr "Bu web sitesinin captcha doğrulaması doğru şekilde yapılandırılmamış. Gizli anahtar eksik."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr "Bu web sitesinin captcha doğrulaması doğru şekilde yapılandırılmamış. Gizli anahtar geçersiz."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Spam gönderilerini önlemek için kullanılan doğrulama kontrolünü tamamlamanız gerekmektedir."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Spam gönderilerini önlemek için kullanılan doğrulama kontrolünü geçmediniz."
+
+msgid "common.closePanel"
+msgstr "Paneli Kapat"
+
+msgid "common.completed.date"
+msgstr "Tamamlandı: {$dateCompleted}"
+
+msgid "common.confirmed.date"
+msgstr "Onaylandı: {$dateConfirmed}"
+
+msgid "common.contents"
+msgstr "İçerikler"
+
+msgid "common.dateHijri"
+msgstr "Hicri Takvim"
+
+msgid "common.deleting"
+msgstr "Siliniyor"
+
+msgid "common.designation"
+msgstr "Atama"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} piksel"
+
+msgid "common.downloadPdf"
+msgstr "PDF İndir"
+
+msgid "common.fileUploaderError"
+msgstr "Sistem dosyası yükleyicisi çağrılıyor. Görünmüyorsa, çalışma zamanlarının hiçbiri bu tarayıcı tarafından desteklenmez. Lütfen destek için yöneticiye başvurun."
+
+msgid "common.filter"
+msgstr "Filtreler"
+
+msgid "common.filterAdd"
+msgstr "Filtre ekle: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Filtre temizle: {$filterTitle}"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Ana Sayfa"
+
+msgid "common.itemsPerPage"
+msgstr "Sayfa başına öğe"
+
+msgid "common.favicon.altText"
+msgstr "Favori İkonu"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Yönlendirme menü öğesi başarılı bir şekilde eklendi"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Yönlendirme menüsü başarılı bir şekilde eklendi"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Yönlendirme menüsü başarılı bir şekilde güncellendi"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Yönlendirme menüsü başarılı bir şekilde kaldırıldı"
+
+msgid "list.viewMore"
+msgstr "{$name} hakkında genişletilmiş ayrıntıları göster"
+
+msgid "list.viewLess"
+msgstr "{$name} hakkında genişletilmiş ayrıntıları gizle"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Redaktör Düzenlemeleri Bekleniyor."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} Tur Durumu"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Yönlendirme menü öğesi başarılı bir şekilde güncellendi"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Yönlendirme menü öğesi başarılı bir şekilde kaldırıldı"
+
+msgid "user.authorization.submissionAuthor"
+msgstr "Mevcut kullanıcı istenen gönderinin yazarı değildir. Lütfen doğru kullanıcı hesabıyla giriş yaptığınızdan emin olun."
+
+msgid "notification.type.queryActivity"
+msgstr "Tartışma etkinliği."
+
+msgid "notification.type.queryAdded"
+msgstr "Tartışma eklendi."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Katılımcı listesinde \"Atama\" bağlantısını kullanarak bir redaktör atayın."
+
+msgid "notification.signedFile"
+msgstr "Dosya dikkate alındı."
+
+msgid "user.authorization.submissionFile"
+msgstr "Geçerli kullanıcı belirtilen gönderim dosyasına erişmeye yetkili değildir."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Geçersiz gönderi."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Geçersiz temsil."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr "Şu anda gönderiyi görüntülemek için yeterli yetkiye sahip değilsiniz. Lütfen profilinizi düzenleyerek \"Register As/Şeklinde Kayıt\" altında uygun rollerin verildiğinden emin olun."
+
+msgid "notification.type.pendingRevisions"
+msgstr "{$stage}. adımda değerlendirilecek düzeltmeler."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Düzeltmeler {$stage}. adıma gönderildi."
+
+msgid "notification.type.reviewerComment"
+msgstr "Bir hakem \"{$title}\" hakkında yorum yaptı."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "Gönderi üst verisi kaydedildi."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Tüm kayıtlı kullanıcılara bilgilendirme e-postası gönder."
+
+msgid "search.advancedFilters"
+msgstr "Gelişmiş filtreler"
+
+msgid "search.advancedSearchMore"
+msgstr "Daha fazla arama seçeneği"
+
+msgid "search.advancedSearchLess"
+msgstr "Daha fazla arama seçeneğini sakla"
+
+msgid "search.searchAgain"
+msgstr "Yeniden ara"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "İndeks temizleniyor"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "tamam"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "hata"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} indeksli makale"
+
+msgid "search.deleteFilter"
+msgstr "Sil"
+
+msgid "search.indexTermsLong"
+msgstr "Tüm indeks terim alanları"
+
+msgid "search.SearchFor"
+msgstr "için Ara"
+
+msgid "notification.email"
+msgstr "Bu tür bildirimler için bana bir e-posta gönderme."
+
+msgid "notification.addedNote"
+msgstr "Not gönderildi."
+
+msgid "notification.removedNote"
+msgstr "Not silindi."
+
+msgid "notification.removedFile"
+msgstr "Silinmiş dosya."
+
+msgid "notification.removedSubmission"
+msgstr "Silinmiş gönderi."
+
+msgid "notification.sentNotification"
+msgstr "Bildirim gönderildi."
+
+msgid "grid.action.downloadFile"
+msgstr "Bu dosyayı indir"
+
+msgid "context.path"
+msgstr "Yol"
+
+msgid "common.lessThan"
+msgstr "{$value} veya daha az"
+
+msgid "common.listSeparator"
+msgstr ","
+
+msgid "common.moreThan"
+msgstr "{$value} veya daha fazla"
+
+msgid "common.notes.tooltip"
+msgstr "Notlar (Sarı: yeni notlar; Mavi: okunmuş notlar; Gri: not yok)"
+
+msgid "common.notified.date"
+msgstr "Bildirim: {$dateNotified}"
+
+msgid "dashboard.tasks"
+msgstr "Görevler"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} : {$total}"
+
+msgid "common.pagination.label"
+msgstr "Ek sayfaları listele"
+
+msgid "common.pageNumber"
+msgstr "Sayfa {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "%{$percentage}"
+
+msgid "common.prefix"
+msgstr "Önek"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Örnekler: A, The"
+
+msgid "common.quality"
+msgstr "Kalite"
+
+msgid "common.queue.long.active"
+msgstr "Aktif Gönderiler"
+
+msgid "common.readMore"
+msgstr "Daha fazla oku"
+
+msgid "common.readMoreWithTitle"
+msgstr "Hakkında daha fazla bilgi edinin {$title}"
+
+msgid "common.reminded.date"
+msgstr "Hatırlatıldı: {$dateReminded}"
+
+msgid "common.saving"
+msgstr "Kaydediliyor"
+
+msgid "common.searchQuery"
+msgstr "Arama Sorgusu"
+
+msgid "common.clearSearch"
+msgstr "Arama ifadesini temizle"
+
+msgid "common.sendEmail"
+msgstr "Email gönder"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.subjects"
+msgstr "Konular"
+
+msgid "common.subtitle"
+msgstr "Alt Başlık"
+
+msgid "common.component"
+msgstr "Bileşen"
+
+msgid "common.uploadedDate"
+msgstr "Yükleme tarihi"
+
+msgid "common.homepageImage.altText"
+msgstr "Ana Sayfa Görseli"
+
+msgid "common.upload.addFile"
+msgstr "Dosya Yükle"
+
+msgid "common.upload.changeFile"
+msgstr "Dosya Değiştir"
+
+msgid "common.upload.dragFile"
+msgstr "Yüklemeye başlamak için buraya sürükleyip bırakın"
+
+msgid "common.viewProfile"
+msgstr "Profil Görüntüle"
+
+msgid "common.count"
+msgstr "Say"
+
+msgid "common.publicAccess"
+msgstr "Genel Erişim"
+
+msgid "defaultMetric.title"
+msgstr "Varsayılan Metrik"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Değerlendirilmiş Dosyayı Yükle"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Dosya Yükle"
+
+msgid "email.senderName"
+msgstr "Gönderici Adı"
+
+msgid "email.senderEmail"
+msgstr "Gönderici e-Postası"
+
+msgid "form.url.invalid"
+msgstr "Belirtilen URL geçersiz. Lütfen kontrol edip tekrar deneyin."
+
+msgid "form.fileRequired"
+msgstr "Bir dosya yüklemesi gereklidir."
+
+msgid "help.previous"
+msgstr "Önceki"
+
+msgid "help.next"
+msgstr "Sonraki"
+
+msgid "informationCenter.informationCenter"
+msgstr "Bilgi Merkezi"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Editöryal Geçmiş"
+
+msgid "informationCenter.addNote"
+msgstr "Not Ekle"
+
+msgid "informationCenter.noNotes"
+msgstr "Gösterilecek not yok."
+
+msgid "informationCenter.pastNotes"
+msgstr "Önceki Düzeltme Notları"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Bu notu silmek istediğinizden emin misiniz?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Son Revizyon"
+
+msgid "informationCenter.pastHistory"
+msgstr "Eski Revizyonlar"
+
+msgid "informationCenter.history.noItems"
+msgstr "Kayıtlı bir günlük yok."
+
+msgid "informationCenter.history.notePosted"
+msgstr "Yeni not gönderildi."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Bildirim kullanıcılara gönderildi."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Bildirim kullanıcılara gönderildi."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Tartışma Başlat"
+
+msgid "navigation.viewFrontend"
+msgstr "Siteyi Görüntüle"
+
+msgid "notification.addedAuditor"
+msgstr "Denetçi Eklendi."
+
+msgid "notification.removedAuditor"
+msgstr "Denetçi kaldırıldı."
+
+msgid "notification.addedQuery"
+msgstr "Tartışma Eklendi"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Değerlendirme onaylandı olarak işaretlendi. E-posta gönderilmedi."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "İncelemeye gönderilen e-postaya teşekkür ederiz."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Değerlendirme dosyaları güncellendi."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Duyuru türü eklendi."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Duyuru türü düzeltildi."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Duyuru türü kaldırıldı."
+
+msgid "notification.removedAnnouncement"
+msgstr "Duyuru kaldırıldı."
+
+msgid "navigation.archives"
+msgstr "Arşiv"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Buradasınız:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Araçlar"
+
+msgid "navigation.tools.importExport"
+msgstr "İçe/Dışa Aktar"
+
+msgid "navigation.tools.statistics"
+msgstr "İstatistikler"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$total} öğeden {$shown} gösteriliyor"
+
+msgid "navigation.skip.main"
+msgstr "Ana içeriği atla"
+
+msgid "navigation.skip.nav"
+msgstr "Ana yönlendirme menüsünü atla"
+
+msgid "navigation.skip.footer"
+msgstr "Site alt kısmını atla"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Tüm dosyaların anonim olduğundan nasıl emin olunur"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Mevcut inceleme politikasını okuyun"
+
+msgid "grid.action.deleteNotification"
+msgstr "Görev Sil"
+
+msgid "grid.action.markNew"
+msgstr "Yeni"
+
+msgid "grid.action.markRead"
+msgstr "Okunmuş"
+
+msgid "dashboard.myQueue"
+msgstr "İş Kuyrukları"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "DeğerlendirmeTakvimi"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Editörün İsteği"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "Son Tarih"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Değerlednirme Tarihi"
+
+msgid "submission.task.responseDueDate"
+msgstr "Son Tarih"
+
+msgid "navigation.goBack"
+msgstr "Geri Git"
+
+msgid "notification.addedReviewer"
+msgstr "{$reviewerName} adlı hakeme bu gönderiyi incelemek için bir e-posta bildirimi gönderdi."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr "{$reviewerName} adlı hakem bu gönderiyi incelemek üzere atandı ve ancak bir e-posta bildirimi gönderilmedi."
+
+msgid "notification.removedReviewer"
+msgstr "Hakem iptal edildi."
+
+msgid "notification.addedStageParticipant"
+msgstr "Kullanıcı düzey katılımcısı olarak eklendi."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Yeni duyuru."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Bekleyen değerlendirme."
+
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" için denetim isteği"
+
+msgid "notification.type.allReviewsIn"
+msgstr "Tüm yorumlar mevcut ve {$stage} kısmında bir karar gereklidir."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Düzenlenmiş bir dosya, {$stage} kısmında yayınlamanız için yüklendi."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Kendiniz ve {$userFullName} arasında bir tartışma başlatın."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Kullanmak için önceden tanımlanmış bir mesaj seçin veya aşağıdaki formu doldurun."
+
+msgid "stageParticipants.notify.message"
+msgstr "Mesaj"
+
+msgid "stageParticipants.notify.warning"
+msgstr "Lütfen mesaj alanını doldurduğunuzdan ve en az bir alıcı seçtiğinizden emin olun."
+
+msgid "stageParticipants.options"
+msgstr "Atama ayrıcalıkları"
+
+msgid "stageParticipants.recommendOnly"
+msgstr "Bu katılımcının yalnızca bir editör kararını önermesine izin verilir ve editör kararlarını kaydetmesi için yetkili bir editör gerektirecektir."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Hakemlik görevi güncellendi."
+
+msgid "common.commaListSeparator"
+msgstr "- "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "validator.url"
+msgstr "Bu geçerli bir URL değil."
+
+msgid "validator.unique"
+msgstr "{$attribute} zaten alındı."
+
+msgid "validator.timezone"
+msgstr "Bu geçerli bir saat dilimi değil."
+
+msgid "validator.string"
+msgstr "Bu geçerli bir dize değil."
+
+msgid "validator.size.array"
+msgstr "Bu, {$size} öğe içermelidir."
+
+msgid "validator.size.string"
+msgstr "Bu {$size} karakter olmalıdır."
+
+msgid "validator.size.file"
+msgstr "Bu {$size} kilobayt olmalıdır."
+
+msgid "validator.size.numeric"
+msgstr "Bu {$size} olmalıdır."
+
+msgid "validator.same"
+msgstr "{$attribute} ve {$other} eşleşmelidir."
+
+msgid "validator.required_without_all"
+msgstr "Bu alan, {$values}'nin hiçbiri yoksa gereklidir."
+
+msgid "validator.required_without"
+msgstr "Bu alan,  {$values} mevcut değilse gereklidir."
+
+msgid "validator.required_with_all"
+msgstr "Bu alan, {$values} mevcut olduğunda gereklidir."
+
+msgid "validator.required_with"
+msgstr "Bu alan, {$values} mevcut olduğunda gereklidir."
+
+msgid "validator.required_unless"
+msgstr "{$other},  {$values} içinde değilse bu alan gereklidir."
+
+msgid "validator.required_if"
+msgstr "Bu alan, {$other} {$value} olduğunda gereklidir."
+
+msgid "validator.required"
+msgstr "Bu alan gereklidir."
+
+msgid "validator.regex"
+msgstr "Bu doğru biçimlendirilmemiş."
+
+msgid "validator.present"
+msgstr "{$attribute} alanı mevcut olmalıdır."
+
+msgid "validator.orcid"
+msgstr "Bu geçerli bir ORCID değil."
+
+msgid "validator.numeric"
+msgstr "Bu geçerli bir sayı değil."
+
+msgid "validator.not_in"
+msgstr "Seçilen {$attribute} geçersiz."
+
+msgid "validator.min.array"
+msgstr "Bu en az {$min} öğe içermelidir."
+
+msgid "validator.min.string"
+msgstr "Bu en az {$min} karakter olmalıdır."
+
+msgid "validator.min.file"
+msgstr "Bu en az {$min} kilobayt olmalıdır."
+
+msgid "validator.min.numeric"
+msgstr "Bu en az {$min} olmalıdır."
+
+msgid "validator.mimes"
+msgstr "Bu,  {$values} türünde bir dosya olmalıdır."
+
+msgid "validator.max.array"
+msgstr "Bu öğede {$max} öğeden fazla öğe olmayabilir."
+
+msgid "validator.max.string"
+msgstr "Bu, {$max} karakterden fazla olamaz."
+
+msgid "validator.max.file"
+msgstr "Bu, {$max} kilobayttan fazla olamaz."
+
+msgid "validator.max.numeric"
+msgstr "Bu, {$max} değerinden büyük olamaz."
+
+msgid "validator.localeKey"
+msgstr ""
+"Diller yerel ayar kodu kullanılarak belirtilmelidir. Örnekler: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Bu alan çok dilli. Desteklenen her dil için ayrı değerler sağlanmalıdır."
+
+msgid "validator.locale"
+msgstr "Bu dil kabul edilmiyor."
+
+msgid "validator.json"
+msgstr "Bu geçerli bir JSON dizesi değil."
+
+msgid "validator.issn"
+msgstr "Bu geçerli bir ISSN değil."
+
+msgid "validator.ip"
+msgstr "Bu geçerli bir IP adresi değil."
+
+msgid "validator.integer"
+msgstr "Bu geçerli bir tam sayı değil."
+
+msgid "validator.in"
+msgstr "Seçilen {$attribute} geçersiz."
+
+msgid "validator.image"
+msgstr "Bu bir resim olmalı."
+
+msgid "validator.filled"
+msgstr "Bu alan gereklidir."
+
+msgid "validator.exists"
+msgstr "Seçilen {$attribute} geçersiz."
+
+msgid "validator.email"
+msgstr "Bu geçerli bir email adresi değildir."
+
+msgid "validator.digits_between"
+msgstr "Bu, {$min} ile {$max} basamak arasında olmalıdır."
+
+msgid "validator.digits"
+msgstr "Bu,  {$digits} basamak uzunluğunda olmalıdır."
+
+msgid "validator.different"
+msgstr "{$attribute} ve {$other} farklı olmalıdır."
+
+msgid "validator.date_format"
+msgstr "Bu, {$format} biçimiyle eşleşmiyor."
+
+msgid "validator.date"
+msgstr "Bu geçerli bir tarih değil."
+
+msgid "validator.currency"
+msgstr "Bu geçerli bir para birimi değil."
+
+msgid "validator.confirmed"
+msgstr "Bu alanın onayı eşleşmiyor."
+
+msgid "validator.boolean"
+msgstr "Bu alan doğru veya yanlış olmalıdır."
+
+msgid "validator.between.array"
+msgstr "Bunun {$min} ile {$max} arasında öğe içermesi gerekir."
+
+msgid "validator.between.string"
+msgstr "Bu, {$min} ile {$max} arasında karakter olmalıdır."
+
+msgid "validator.between.file"
+msgstr "Bu, {$min} ve {$max} arasında kilobayt olmalıdır."
+
+msgid "validator.between.numeric"
+msgstr "Bu, {$min} ile {$max} arasında olmalıdır."
+
+msgid "validator.before"
+msgstr "Bu tarih {$date} tarihinden önce olmalıdır."
+
+msgid "validator.array"
+msgstr "Bu geçerli bir dizi değil."
+
+msgid "validator.alpha_num"
+msgstr "Bu yalnızca harf ve rakam içerebilir."
+
+msgid "validator.alpha_dash"
+msgstr "Bu yalnızca harf, rakam, tire ve alt çizgi içerebilir."
+
+msgid "validator.alpha"
+msgstr "Bu yalnızca harf içerebilir."
+
+msgid "validator.after"
+msgstr "Bu tarih {$date} tarihinden sonra olmalıdır."
+
+msgid "validator.active_url"
+msgstr "Bu geçerli bir URL değil."
+
+msgid "validator.accepted"
+msgstr "Lütfen bu öğeyi kabul edin .."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Bu, editoryal rapor aracılığıyla derginizin sağlığını kontrol etmeniz için "
+"iyi bir hatırlatmadır."
+
+msgid "notification.type.editorialReport"
+msgstr "İstatistik rapor özeti."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Geçersiz yayın."
+
+msgid "notification.editStageParticipant"
+msgstr "Düzey ataması değiştirildi."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Hakem yeniden atandı."
+
+msgid "notification.cancelledReviewer"
+msgstr "Hakem iptal edildi."
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>Bu yayına sunulmak üzere kör hakem değerlendirmesinin bütünlüğünü "
+"sağlamak için yazarların ve hakemlerin kimliklerinin birbirleriyle "
+"tanınmasını önlemek için her türlü çaba gösterilmelidir. Bu, yazarlar, "
+"editörler ve hakemleri (incelemenin bir parçası olarak belge yükleyen) metin "
+"ve dosya özellikleri ile ilgili olarak aşağıdaki adımların yapılıp "
+"yapılmadığını kontrol etmeyi içerir: </p>\n"
+"<ul><li>Belgenin yazarları, yazarların adı, makale başlığı vb. yerine \""
+"Yazar\" ve referanslarda ve dipnotlarda yıl kullanılan metin ile isimlerini "
+"metinden sildi.</li>\n"
+"<li>Belgenin yazarları, aşağıdaki adımları uygulayarak kişisel bilgileri "
+"dosya özelliklerinden kaldırmışlardır:\n"
+"<ul><li>Windows için Microsoft Word:\n"
+"<ul><li>Dosyaya Git</li>\n"
+"<li>Bilgi Seçin</li>\n"
+"<li>Sorunları Kontrol Et'i tıklayın</li>\n"
+"<li>Belgeyi İncele'yi tıklayın</li>\n"
+"<li>Belge Denetçisi iletişim kutusunda, incelenmesini istediğiniz gizli "
+"içerik türünü seçmek için onay kutularını seçin.</li>\n"
+"<li>Tümünü Kaldır'ı tıklayın</li>\n"
+"<li>Kapat'ı tıklayın</li>\n"
+"<li>Belgeyi kaydedin</li></ul>\n"
+"<li>MacOS için Microsoft Word:\n"
+"<ul><li> Araçlara Git</li>\n"
+"<li>Belgeyi Koru'yu tıklayın</li>\n"
+"<li>Kaydetme sırasında bu dosya için kişisel bilgileri kaldır</li>'ı seçin\n"
+"<li>Tamam'ı tıklayın ve dosyayı kaydedin</li></ul></li>\n"
+"<li>PDF:\n"
+"<ul><li>Dosyaya Git</li>\n"
+"<li>Özellikleri Seç</li>\n"
+"<li>Yazar alanındaki herhangi bir adı kaldırın</li>\n"
+"<li>Tamam'ı tıklayın</li>\n"
+"<li>Belgeyi kaydedin</li></ul></li></ul>\n"
+
+msgid "navigation.skip.announcements"
+msgstr "Duyurulara atla"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Bu katılımcıda hiçbir değişiklik yapılamaz"
+
+msgid "stageParticipants.selectedUser"
+msgstr "Katılımcı"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Bu kişinin makalenin başlık, özet, üst veriler ve diğer yayın ayrıntıları "
+"gibi bilgilerinde değişiklikler yapmasına izin verin. Makale son kontrolden "
+"geçtiyse ve yayına hazırsa bu ayrıcalığı iptal etmek isteyebilirsiniz."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "İzinler"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} dilleri tamamlandı"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName} içinde {$label}"
+
+msgid "form.requireId"
+msgstr "Geçerli bir ID girmelisiniz."
+
+msgid "form.requirePrimaryLocale"
+msgstr "Bu alanı  {$language} ile doldurmalısınız."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Form gönderilemedi. Çıkış yapmış olabilirsiniz. Lütfen sayfayı yeniden "
+"yükleyin ve tekrar deneyin."
+
+msgid "form.missingRequired"
+msgstr "Bu alan gereklidir."
+
+msgid "form.errorUnknown"
+msgstr ""
+"Beklenmedik bir sorun oluştu. Çıkış yapmış olabilirsiniz. Lütfen sayfayı "
+"yeniden yükleyin ve tekrar deneyin."
+
+msgid "form.errors"
+msgstr ""
+"{$count} hata ile karşılaşıldığı için form kaydedilmedi. Lütfen bu hataları "
+"düzeltin ve tekrar deneyin."
+
+msgid "form.errorMany"
+msgstr "Lütfen {$count} adet hatayı düzeltin."
+
+msgid "form.errorOne"
+msgstr "Lütfen bir hatayı düzeltin."
+
+msgid "form.errorGoTo"
+msgstr "Sonraki hataya atla"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}: {$errorMessage} konumuna git"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Başka dosya yükleyemezsiniz."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Dosyayı kaldır"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Bu yüklemeyi iptal etmek istediğinizden emin misiniz?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Yükleme iptal edildi"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Yüklemeyi iptal et"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Sunucu{{statusCode}} koduyla yanıt verdi. Bu sorun devam ederse lütfen "
+"sistem yöneticisine başvurun."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Bu tür dosyalar yüklenemez."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Dosya çok büyük  ({{filesize}}mb). {{maxFilesize}}mb'ten daha büyük dosyalar "
+"yüklenemez."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Dosyalarınızı yüklemek için lütfen aşağıdaki yedek formu kullanın."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Tarayıcınız sürükle ve bırak dosya yüklemelerini desteklemiyor."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Yüklemek için dosyaları buraya bırakın"
+
+msgid "form.disallowedProp"
+msgstr "Bu özelliğe izin verilmiyor."
+
+msgid "form.disallowedLocales"
+msgstr "Yalnızca şu dillere izin verilir: {$languages}."
+
+msgid "email.compose.error"
+msgstr ""
+"E-posta mesajı gönderilirken bir sorun oluştu. Lütfen daha sonra tekrar "
+"deneyin veya sistem yöneticinize başvurun."
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Seçili olan görüntünün önizlemesi."
+
+msgid "common.upload.restore"
+msgstr "Orijinali Geri Yükle"
+
+msgid "common.submenu"
+msgstr "Alt Menü"
+
+msgid "common.selectedPrefix"
+msgstr "Seçildi:"
+
+msgid "common.removeItem"
+msgstr "{$item} öğesini kaldır"
+
+msgid "common.pagination.previous"
+msgstr "Önceki sayfa"
+
+msgid "common.pagination.next"
+msgstr "Sonraki sayfa"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page}. sayfaya git"
+
+msgid "common.override"
+msgstr "Geçersiz Kıl"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} konumunu azalt"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} konumunu artırın"
+
+msgid "common.noTemporaryFile"
+msgstr "Yüklediğiniz dosya bulunamadı. Lütfen tekrar yüklemeyi deneyin."
+
+msgid "common.noItemsFound"
+msgstr "Hiç bir öğe bulunamadı."
+
+msgid "common.lastActivity"
+msgstr "Son etkinlik tarihi: {$date}."
+
+msgid "common.dateDecided"
+msgstr "Karar Tarihi"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Siteyi salt metin tarayıcıda veya yardımcı cihazlarla görüntüleyen "
+"ziyaretçiler için bu görseli açıklayın. Örnek: \"Editörümüz PKP "
+"konferansında konuşuyor.\""
+
+msgid "navigation.skip.description"
+msgstr "İçerik linklerine atla"
+
+msgid "common.moreThanOnly"
+msgstr "Daha fazla"
+
+msgid "common.lessThanOnly"
+msgstr "Daha az"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Gizlilik Seçenekleri"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Hakem atama yetkiniz yok."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Bu tartışma mesajına erişme yetkiniz yok."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Geçersiz tartışma."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Geçersiz değerlendirme turu."
+
+msgid "user.email"
+msgstr "E-posta"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Tüm dosyaların anonim olduğundan nasıl emin olunur"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} adet öge bulundu."
+
+msgid "search.searchResults.foundSingle"
+msgstr "Bir öğe bulundu."
+
+msgid "navigation.backTo"
+msgstr "⟵ {$page}'e Dön"
+
+msgid "form.saved"
+msgstr "Kaydedildi"
+
+msgid "common.viewWithName"
+msgstr "{$name} Görüntüle"
+
+msgid "common.user.nonexistent"
+msgstr "[Varolmayan kullanıcı]"
+
+msgid "common.addFile"
+msgstr "Dosya Ekle"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.selectWithName"
+msgstr "{$name} Seç"
+
+msgid "common.editItem"
+msgstr "{$name} Düzenle"
+
+msgid "common.inactive"
+msgstr "Pasif"
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Aboneliği iptal et"
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Beklenmedik bir hata oluştu ve {$email} e-posta adresinin aboneliğini iptal "
+"edemedik. <a href=\"{$profileNotificationUrl}\">Kullanıcı profilinizdeki</a> "
+"tüm e-posta bildirimlerini iptal edebilir veya yardım için doğrudan bizimle "
+"iletişime geçebilirsiniz."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} e-posta adresi başarıyla abonelikten çıkarıldı. Artık size bu e-"
+"postaları göndermeyeceğiz. <a href=\"{$profileNotificationUrl}\">Kullanıcı "
+"profilinizden</a> istediğiniz zaman e-posta bildirimlerine yeniden abone "
+"olabilirsiniz."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\">Kullanıcı profilinizden</a> "
+"istediğiniz zaman e-posta bildirimlerine yeniden abone olabilirsiniz."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Artık {$email} adresine {$contextName} tarafından gönderilen almak "
+"istemediğiniz e-postaları seçin."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Aboneliğinizi iptal edemedik"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Aboneliğiniz iptal edildi"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML Düğümü içe aktarılamadı"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Kurulum ortamınızda desteklenmeyen bir dönüşümü çalıştırmaya çalışıyorsunuz."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"({$displayName}) filtresi {$inputTypeName} ve {$typeofInput} girişlerini "
+"destekler"
+
+msgid "validator.country"
+msgstr "Bu geçerli bir ülke değil."
+
+msgid "common.insert"
+msgstr "İçeri Aktar"
+
+msgid "validator.alpha_dash_period"
+msgstr "Sadece harf, rakam, tire, alt çizgi ve nokta içerebilir."
+
+msgid "validation.invalidOption"
+msgstr "Bu geçerli bir seçenek değil."
+
+msgid "list.collapseAll"
+msgstr "Hepsini Daralt"
+
+msgid "list.expandAll"
+msgstr "Hepsini genişlet"
+
+msgid "timeZone"
+msgstr "Saat dilimi"
+
+msgid "common.deselect"
+msgstr "Seçimi Bırak"
+
+msgid "common.attachSelected"
+msgstr "Seçileni Ekle"
+
+msgid "common.attachFiles"
+msgstr "Dosya Ekle"
+
+msgid "common.attachedFiles"
+msgstr "Ekli Dosyalar"
+
+msgid "common.addFiles"
+msgstr "Dosya Ekle"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCC Ekle"
+
+msgid "common.findTemplate"
+msgstr "Şablon Bul"
+
+msgid "common.dragAndDropHere"
+msgstr "Dosyaları buraya sürükleyip bırakın."
+
+msgid "common.orUploadFile"
+msgstr "Veya bir dosya yükleyin"
+
+msgid "common.insertContent"
+msgstr "İçerik Ekle"
+
+msgid "common.insertContentSearch"
+msgstr "Eklenecek içeriği bulun"
+
+msgid "common.keepWorking"
+msgstr "Çalışmaya devam ediyor"
+
+msgid "common.numberedMore"
+msgstr "{$number} daha"
+
+msgid "common.searching"
+msgstr "Aranıyor"
+
+msgid "common.showAllSteps"
+msgstr "Tüm adımları göster"
+
+msgid "common.switchTo"
+msgstr "Değiştir"
+
+msgid "common.switchToNamedItem"
+msgstr "{$name}'i değiştir"
+
+msgid "common.viewError"
+msgstr "Hatayı Görüntüle"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Aday Makale Dosyalarını Ekle"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Gönderim aşamasında yazar tarafından yüklenen dosyaları ekleyin."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Kütüphane Dosyaları"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Kütüphane Dosyalarını Ekle"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Gönderim ve Yayıncı Kitaplıklarından dosya ekleyin."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Değerlendirme Dosyaları Ekle"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Hakemler tarafından yüklenen dosyaları ekleyin"
+
+msgid "institution.institutions"
+msgstr "Kurumlar"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Bilinmeyen komut {$komut}"
+
+msgid "common.upload.addFile.description"
+msgstr "Bilgisayarınızdan bir dosya yükleyin."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Hakeme gönderilecek düzeltilmiş dosyalar gibi iş akışı sırasında yüklenen "
+"dosyaları ekleyin."
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} dosyası eklenemedi."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Bu e-postayı oluşturmak için {$localeName} olarak değiştirmek istediğinizden "
+"emin misiniz? E-postanın konusu ve gövdesinde yaptığınız tüm değişiklikler "
+"kaybolacaktır."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Hakemlik ataması yeniden gözden geçirmesi için istek gönderildi."
+
+msgid "notification.type.editorialReminder"
+msgstr "Bekleyen görevlerin haftalık e-postası"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.downloadReport"
+msgstr "Rapor İndir"
+
+msgid "common.geographic"
+msgstr "Coğrafi"
+
+msgid "common.searchPhrase"
+msgstr "Arama İfadesi"
+
+msgid "validator.country.regex"
+msgstr ""
+"Geçerli bir ülke kodu değil. Ülke kodu 2 harfli uluslararası kodlardan biri "
+"olmalıdır. https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#"
+"Officially_assigned_code_elements adresinden tüm ülke kodlarına bakın."
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "Yazar eklendi."
+
+msgid "notification.editedAuthor"
+msgstr "Yazar düzeltildi."
+

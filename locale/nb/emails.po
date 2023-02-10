@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
+"PO-Revision-Date: 2021-03-10 15:53+0000\n"
+"Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/ojs/"
+"emails/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Vi har mottatt innleveringen din"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Takk for at du har sendt inn «{$submissionTitle}» til {$contextName}. Du kan "
+"følge innleveringen gjennom den redaksjonelle prosessen ved å logge deg inn "
+"på tidsskriftets nettsted:<br />\n"
+"<br />\n"
+"Innleveringens URL: {$submissionUrl}<br />\n"
+"Brukernavn: {$recipientUsername}<br />\n"
+"<br />\n"
+"Ta kontakt med meg om du har spørsmål. Takk for at du velger tidsskriftet "
+"vårt som kanal for å publisere arbeidet ditt.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Bekreftelse på fullført fagfellevurdering"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Takk for at du har fullført vurderingen av manuskriptet «{$submissionTitle}» "
+"for {$contextName}. Vi setter stor pris på at du bidrar til å sikre den "
+"faglige kvaliteten på artiklene vi publiserer."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"Denne e-posten sendes av en seksjonsredaktør for å bekrefte at "
+"fagfellevurderingen er mottatt, og takke fagfellen for innsatsen."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», "
+"som du sendte inn til {$contextName}. <br />\n"
+"<br />\n"
+"Vår beslutning er: Sendes til fagfellevurdering<br />\n"
+"<br />\n"
+"Innleveringens URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Redaktørens beslutning"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Redigeringen av «{$submissionTitle}» er ferdigstilt. Vi sender den videre "
+"til produksjon.<br />\n"
+"<br />\n"
+"Innleveringens URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Redaktørens beslutning"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», "
+"som du sendte inn til {$contextName}.<br />\n"
+"<br />\n"
+"Vår beslutning er: Omarbeiding kreves"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din «{$submissionTitle}», "
+"som du sendte inn til {$contextName}. <br />\n"
+"<br />\n"
+"Vår beslutning er: Lever inn til ny fagfellevurdering"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Redaktørens beslutning"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», "
+"som du sendte inn til {$contextName}. <br />\n"
+"<br />\n"
+"Vår beslutning er: Manuskriptet avvises"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"Min anbefaling for innleveringen &quot;{$submissionTitle}&quot; til "
+"{$contextName}, er: {$recommendation}"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Redaktørens anbefaling"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Forespørsel om manuskriptredigering"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Takk for at du har sagt deg villig til å bidra til arbeidet vårt. "
+"Innleveringen «{$submissionTitle}»; for {$contextName} er klar for "
+"redigering. Du finner innleveringen på tidsskriftets nettsted, sammen med "
+"vår «Instruks for språkvask.<br />\n"
+"<br />\n"
+"1. Klikk på innleveringens URL under<br />\n"
+"2. Åpne filer som er tilgjengelige under «Filer til språkvask». Legg til "
+"eventuelle kommentarer i diskusjonsfeltet.<br />\n"
+"3. Lagre de språkvaskede filene og last dem opp.<br />\n"
+"4. Informer redaktøren at alle filene har blitt bearbeidet og at "
+"produksjonen kan starte.<br/>\n"
+"<br />\n"
+"{$contextName} URL: {$submissionUrl}<br />\n"
+"Brukernavn: {$recipientUsername}<br />"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Vi har tatt en beslutning angående innleveringen din, «{$submissionTitle}», "
+"som du sendte inn til {$contextName}.<br />\n"
+"<br />\n"
+"Vår beslutning er: Manuskriptet avvises"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Redaktørens beslutning"
+
+msgid "emails.discussion.subject"
+msgstr "En beskjed angående {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Skriv inn beskjeden din her."

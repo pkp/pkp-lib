@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-04-17 18:37+0000\n"
+"Last-Translator: Hewa Salam Khalid <hewa.salam@koyauniversity.org>\n"
+"Language-Team: Kurdish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/ku_IQ/>\n"
+"Language: ku_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "ئەم بەکارهێنەرە وەک هەڵسەنگێنەر بۆ ئەم فایلە دیاری نەکراوە."
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "تەنیا بۆ سەرنوسەر"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "بۆ توێژەر و سەرنوسەر"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"سەرنوسەر داوا دەکات کە هەڵسەنگاندنەکە قبوڵ یان ڕەت بکەوە پێش تەواوبونی کاتی "
+"دیاریکراو."
+
+msgid "reviewer.aboutDueDates"
+msgstr "دەربارەی کۆتا ڕۆژەکان"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"سوپاس بۆ تەواوکردنی هەڵسەنگاندنەکەت بۆ ئەم توێژینەوەیە. هەڵسەنگاندنەکەت بە "
+"سەرکەوتویی پێشکەش کرا. ئێمە کارەکەی تۆ بەرز دەنرخێنین؛ سەرنوسەر لەوانەیە لە "
+"هەر کاتێکدا بۆ زانیاریی زیاتر لەگەڵتان لە پەیوەندیدا بێت."
+
+msgid "reviewer.confirmSubmit"
+msgstr "ئایا تۆ دڵنیایت لەوەی کە دەتەوێت ئەم هەڵسەنگاندنە پێشکەش بکەیت؟"
+
+msgid "reviewer.complete"
+msgstr "هەڵسەنگاندنەکە پێشکەش کرا"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"ئەو فایلانە بار بکە کە دەتەوێت دەربارەیان لەگەڵ سەرنوسەر یان توێژەر ڕاوێژ "
+"بکەیت، لەگەڵ فایلە چاککراوەکان."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "هەڵسەنگاندنەکەت بۆ توێژینەوەکە لەم فۆڕمەی خوارەوە بنوسە."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"کلیک لەسەر ناوی فایلەکانی خوارەوە بکە بۆ دابەزاندنی فایلەکانی پەیوەندیدار بە "
+"توێژینەوە پێشکەشکراوەکە."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "بڵاوکراوەکە هیچ پەیڕەوێکی هەڵسەنگێنەری دانەبەزاندووە."
+
+msgid "reviewer.submission.guidelines"
+msgstr "پەیڕەوی هەڵسەنگاندن"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "بەرژەوەندییە دژبەرەکان"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "من لەوانەیە بەرژەوەندیی دژبەرم هەبێت (لە خوارەوە دیاریم کردووە)"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "من هیچ بەرژەوەندییەکی دژبەرم نییە"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"بڵاوکراوەکە کۆمەڵێک ڕێنمایی هەیە بۆ دڵنیابون لە نەبونی پەیوەندیی دژبەر کە "
+"کاریگەری لەسەر پرۆسەی هەڵسەنگاندن هەبیت. تکایە چاوێک بە ڕێنماییەکاندا "
+"بخشێنەوە."
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "پێڕەوی هەڵسەنگاندن"
+
+msgid "reviewer.submission.submitReview"
+msgstr "پێشکەشکردنی هەڵسەنگاندنەکە"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "بچۆ هەنگاوی #3"
+
+msgid "reviewer.submission.acceptReview"
+msgstr "هەڵسەنگاندنەکە قبوڵ بکە، بچۆ هەنگاوی #2"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "لە خوارەوە هۆکارەکانی ڕەتکردنەوەی هەڵسەنگاندنەکە بۆ سەرنوسەر بنوسە."
+
+msgid "reviewer.submission.declineReview"
+msgstr "ڕەتکردنەوەی داواکاریی هەڵسەنگاندن"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "فایلەکانی هەڵسەنگێنەر"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "هەمو زانیارییەکانی توێژینەوە پێشکەشکراوەکە پیشان بدە"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"تۆ وەک هەڵسەنگێنەرێکی گونجاو بۆ هەڵسەنگاندنی ئەم توێژینەوەیە دەستنیشان "
+"کراویت. لە خوارەوە زانیارییەکانی توێژینەوەکە و ڕێنماییەکانی هەڵسەنگاندن "
+"بەردەستن. ئێمە هیواخوازین کە بەڕێزتان ئەم ئەرکە قبوڵ بکەن."
+
+msgid "reviewer.step1.request"
+msgstr "داواکاری بۆ هەڵسەنگاندن"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. تەواوکردن"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. دابەزاندن & هەڵسەنگاندن"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. پەیڕەوەکان"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. داواکاری"

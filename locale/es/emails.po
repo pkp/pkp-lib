@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
+"PO-Revision-Date: 2021-03-20 13:12+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"es_ES/>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Acuse de recibo del envío"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Gracias por enviar el manuscrito &quot;{$submissionTitle}&quot; a {$contextName}. Con el sistema de gestión de publicaciones en línea que utilizamos podrá seguir el progreso a través del proceso editorial tras iniciar sesión en el sitio web de la publicación:<br />\n"
+"<br />\n"
+"URL del manuscrito: {$submissionUrl}<br />\n"
+"Nombre de usuario/a: {$recipientUsername}<br />\n"
+"<br />\n"
+"Si tiene alguna duda puede ponerse en contacto conmigo. Gracias por elegir esta editorial para mostrar su trabajo.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Acuse de recibo de revisión de artículo"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Gracias por completar la revisión del envío &quot;{$submissionTitle},&quot; para {$contextName}. Apreciamos su contribución a la calidad de los trabajos que publicamos."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Este correo enviado por el/la Editor/a de Sección para confirmar la recepción de una revisión completada y agradecer al / a la revisor/a su contribución."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hemos llegado a una decisión respecto a su envío {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Nuestra decisión es: Enviar a revisión<br />\n"
+"<br />\n"
+"Enlace: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"La edición de su envío, &quot;{$submissionTitle},&quot; se ha completado. Ya "
+"está listo para pasar a producción.<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hemos tomado una decisión sobre su envío en {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Nuestra decisión es: Necesita revisiones"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hemos tomado una decisión sobre su envío en {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Nuestra decisión es: Volver a enviar a revisión"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Hemos tomado una decisión sobre su envío en {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Nuestra decisión es: Rechazar el envío"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "Recomendación del editor/a"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"La recomendación respecto al envío a {$contextName}, &quot;{$submissionTitle}&quot; es: {$recommendation}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Petición de corrección"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Me gustaría pedirle que llevara a cabo la corrección de "
+"&quot;{$submissionTitle}&quot; para {$contextName}. Para hacerlo debería "
+"seguir los pasos siguientes:<br />\n"
+"1. Haga clic en la URL del envío que encontrará al final de este correo.<br "
+"/>\n"
+"2. Abra todos los archivos disponibles en \"Archivos borradores\" y haga la "
+"corrección, añadiendo todos los comentarios que necesite en \"Discusiones de "
+"corrección\".<br />\n"
+"3. Guarde los archivos corregidos y cárguelos en el panel \"Corregidos\".<br "
+"/>\n"
+"4. Notifique al editor/a que los archivos están listos y que el proceso de "
+"producción puede empezar.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"URL del envío: {$submissionUrl}<br />\n"
+"Nombre de usuario/a: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Decisión del editor/a"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Hemos llegado a una decisión sobre su envío a {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Nuestra decisión es: Rechazar el envío"
+
+#, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Mensaje sobre {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Introduzca su mensaje."

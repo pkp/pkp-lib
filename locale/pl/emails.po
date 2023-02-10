@@ -1,0 +1,184 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:18-08:00\n"
+"PO-Revision-Date: 2020-12-09 14:52+0000\n"
+"Last-Translator: rl <biuro@fimagis.pl>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/ojs/emails/pl_PL/"
+">\n"
+"Language: pl_PL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Potwierdzenie zgłoszenia tekstu"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"dziękujemy za zgłoszenie tekstu &quot;{$submissionTitle}&quot; do "
+"opublikowania w czasopiśmie {$contextName}. Nasz system umożliwia "
+"sprawdzenie, na jakim etapie znajduje się nadesłany tekst:<br />\n"
+"<br />\n"
+"WWW tekstu: {$submissionUrl} <br />\n"
+"Nazwa użytkownika: {$recipientUsername}<br />\n"
+"<br />\n"
+"W razie dodatkowych pytań proszę o kontakt.<br />\n"
+"<br />\n"
+"Z wyrazami szacunku,\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Podziękowanie za wykonanie recenzji"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"dziękujemy za wykonanie recenzji tekstu &quot;\"{$submissionTitle}\"&quot;, "
+"zgłoszonego do czasopisma \"{$contextName}\". Doceniamy Pani/ Pana wkład w "
+"budowanie jakości naszego czasopisma.\n"
+"Z wyrazami szacunku."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Ta wiadomość jest przesyłana przez redaktora prowadzącego do recenzenta. Zawiera potwierdzenie otrzymania recenzji i podziękowanie za wykonaną pracę."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"podjęllśmy decyzję w sprawie tekstu \"{$submissionTitle}\" zgłoszonego do "
+"czasopisma \"{$contextName}\".<br />\n"
+"<br />\n"
+"Decyzja redaktora: Przesłane do recenzji<br />\n"
+"<br />\n"
+"WWW tekstu: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie {$authors}<br />\n"
+"<br />\n"
+"korekta tekstu \"{$submissionTitle}\". Tekst został przekazany do składu.<br "
+"/>\n"
+"<br />\n"
+"WWW tekstu: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"podjęliśmy decyzję w sprawie tekstu \"{$submissionTitle}\", zgłoszonego do "
+"czasopisma \"{$contextName}\".<br />\n"
+"<br />\n"
+"Decyzja redakcji: Wymagane poprawki"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"podjęliśmy decyzję w sprawie tekstu „{$submissionTitle}”, zgłoszonego do "
+"czasopisma \"{$contextName}\".<br />\n"
+"<br />\n"
+"Decyzja redakcji: Wymagane poprawki i ponowna recenzja"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"podjęliśmy decyzję w sprawie tekstu \"{$submissionTitle}\", zgłoszonego do "
+"czasopisma \"{$contextName}\".<br />\n"
+"<br />\n"
+"Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "Rekomendacja redaktora"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"przesyłam rekomendację w sprawie tekstu \"{$submissionTitle}\", zgłoszonego "
+"do czasopisma \"{$contextName}\": {$recommendation}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Prośba do korektora"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"Szanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"proszę o wykonanie korekty tekstu &quot;{$submissionTitle}&quot;, "
+"zgłoszonego do czasopisma {$contextName}.\n"
+"Proszę o postępowanie zgodnie z poniższymi krokami. <br />\n"
+"1. Kliknij na link do zgłoszonego tekstu znajdujący się poniżej.<br /> \n"
+"2. Pobierz pliki robocze i wykonaj korektę. Ustal zmiany z autorem używając "
+"narzędzi do dyskusji.<br />\n"
+"3. Zapisz poprawiony plik(i) i prześlij go do systemu.<br />\n"
+"4. Powiadom redaktora o ukończeniu korekty i przekazaniu tekstu do "
+"realizacji.<br />\n"
+"<br />\n"
+"WWW {$contextName}: {$contextUrl}<br />\n"
+"WWW tekstu: {$submissionUrl}<br />\n"
+"Nazwa użytkownika: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Decyzja redakcji"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\tSzanowna Pani/ Szanowny Panie,<br />\n"
+"<br />\n"
+"podjęliśmy decyzję w sprawie tekstu  &quot;{$submissionTitle}&quot;, "
+"zgłoszonego do czasopisma \"{$contextName}\".<br />\n"
+"<br />\n"
+"Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
+
+#, fuzzy
+msgid "emails.discussion.subject"
+msgstr "Wiadomość do czasopisma \"{$contextName}\""
+
+msgid "emails.discussion.body"
+msgstr "Proszę o wpisanie wiadomości."

@@ -1,0 +1,511 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-08-26 18:25+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Պահանջվում է օգտանուն։"
+
+msgid "user.privacyLink"
+msgstr ""
+"Ձեր տվյալները պահվում են համաձայն մեր <a href=\"{$privacyUrl}\" target="
+"\"_blank\">գաղտնիության հայտարարության</a>:"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Նախքան API բանալի ստեղծելը, ձեր կայքի ադմինիստրատորը պետք է գաղտնիք սահմանի "
+"կազմաձևման նիշքում (\"api_key_secret\"):"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Նոր API բանալի ստեղծելը այս օգտատիրոջ համար գոյություն ունեցող ցանկացած "
+"բանալի անվավեր կդարձնի:"
+
+msgid "user.apiKey.generate"
+msgstr "Ստեղծեք API Բանալի"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Այս հաշիվ մուտք գործելու համար միացրեք արտաքին հավելվածները API բանալիով"
+
+msgid "user.apiKey"
+msgstr "API բանալի"
+
+msgid "user.profile.public"
+msgstr "Հանրային"
+
+msgid "user.profile.contact"
+msgstr "Կոնտակտ"
+
+msgid "user.profile.identity"
+msgstr "Ինքնություն"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Ձեր նշած ORCID ID-ն անվավեր է: Խնդրում ենք ներառել ամբողջական URI-ն (օրինակ՝ "
+"\"https://orcid.org/0000-0002-1825-0097\"):"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.workingLanguages"
+msgstr "Աշխատանքային լեզուներ"
+
+msgid "user.username"
+msgstr "Օգտանուն"
+
+msgid "user.userHome"
+msgstr "Օգտվողի տնային էջ"
+
+msgid "user.url"
+msgstr "Տնային էջի URL"
+
+msgid "user.title"
+msgstr "Դիմելաձև"
+
+msgid "user.signature"
+msgstr "Ստորագրություն"
+
+msgid "user.sendPassword.description"
+msgstr "Ուղարկեք ինձ հաստատման նամակ, ներառյալ իմ օգտվողի անունը և գաղտնաբառը"
+
+msgid "user.sendPassword"
+msgstr "Հաստատում"
+
+msgid "user.roles"
+msgstr "Դերեր"
+
+msgid "user.role.layoutEditors"
+msgstr "Շարվածքի խմբագիրներ"
+
+msgid "user.role.layoutEditor"
+msgstr "Շարվածքի խմբագիր"
+
+msgid "user.role.proofreaders"
+msgstr "Սրբագրողներ"
+
+msgid "user.role.proofreader"
+msgstr "Սրբագրող"
+
+msgid "user.role.copyeditors"
+msgstr "Գրական խմբագիրներ"
+
+msgid "user.role.copyeditor"
+msgstr "Գրական խմբագիր"
+
+msgid "user.role.siteAdmins"
+msgstr "Կայքի ադմինիստրատորներ"
+
+msgid "user.role.siteAdmin"
+msgstr "Կայքի ադմինիստրատոր"
+
+msgid "user.role.reviewers"
+msgstr "Գրախոսողներ"
+
+msgid "user.role.reviewer"
+msgstr "Գրախոսող"
+
+msgid "user.role.readers"
+msgstr "Ընթերցողներ"
+
+msgid "user.role.reader"
+msgstr "Ընթերցող"
+
+msgid "user.role.editors"
+msgstr "Խմբագիրներ"
+
+msgid "user.role.editor"
+msgstr "Խմբագիր"
+
+msgid "user.role.authors"
+msgstr "Հեղինակներ"
+
+msgid "user.role.author_s"
+msgstr "Հեղինակ(ներ)"
+
+msgid "user.role.author"
+msgstr "Հեղինակ"
+
+msgid "user.role.assistant"
+msgstr "Օգնական"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Դուք հաջողությամբ գրանցվել եք: <a href=\"{$profileUrl}\">Սեղմեք այստեղ</a> "
+"ձեր օգտատիրոջ պրոֆիլը լրացնելու համար:"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Օգտվողի անունը պետք է պարունակի միայն փոքրատառեր, թվեր և գծիկներ/ընդգծումներ:"
+
+msgid "user.register"
+msgstr "Գրանցվեք"
+
+msgid "user.register.registerAs"
+msgstr "Գրանցվեք {$contextName} -ում որպես..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Գաղտնաբառը պետք է առնվազն լինի {$length} նիշ:"
+
+msgid "user.register.form.usernameExists"
+msgstr "Ընտրված օգտանունն արդեն օգտագործվում է մեկ այլ օգտվողի կողմից:"
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Պետք է ընտրել առնվազն մեկ դեր:"
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Օգտվողի անունը կարող է պարունակել միայն ստորին ընտրության տառաթվային նիշեր, "
+"ընդգծում և գծիկներ, և պետք է սկսվի և ավարտվի տառաթվային նիշով:"
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Էլ․ փոստի հասցեի դաշտերը չեն համընկնում:"
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Գաղտնաբառերը չեն համընկնում:"
+
+msgid "user.register.form.emailExists"
+msgstr "Ընտրված էլ․ փոստի հասցեն արդեն օգտագործվում է մեկ այլ օգտվողի կողմից:"
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Այո, ես կցանկանայի տեղեկանալ նոր հրապարակումների և հայտարարությունների մասին։"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Այո, ես համաձայն եմ, որ իմ տվյալները հավաքվեն և պահպանվեն համաձայն <a href=\""
+"{$privacyUrl}\" target=\"_blank\">Գաղտնիության հայտարարության</a>:"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Ստորև մուտքագրեք ձեր հաշվի էլ․ փոստի հասցեն և նամակ կուղարկվի ձեր գաղտնաբառը "
+"վերականգնելու հրահանգներով:"
+
+msgid "user.login.registerNewAccount"
+msgstr "Գրանցել"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Կրկնեք նոր գաղտնաբառը"
+
+msgid "user.profile.publicProfile"
+msgstr "Օգտվողի պրոֆիլ"
+
+msgid "user.profile"
+msgstr "Պրոֆիլ"
+
+msgid "user.profile.oldPassword"
+msgstr "Ընթացիկ գաղտնաբառ"
+
+msgid "user.profile.newPassword"
+msgstr "Նոր գաղտնաբառ"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Ներկայիս գաղտնաբառը պահելու համար գաղտնաբառերի դաշտերը թողեք դատարկ:"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Դուք պետք է համաձայնեք գաղտնիության հայտարարության պայմաններին:"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Պահանջվում է օգտվողների խումբ:"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Նշված URL-ը վավեր չէ: Խնդրում ենք կրկնակի ստուգել URL-ը և նորից փորձել: ("
+"Հուշում. Փորձեք ավելացնել http:// URL-ի սկզբում)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Նոր թողարկումը հրապարակել է էլ․ փոստի ծանուցումներ"
+
+msgid "user.profile.form.profileImage"
+msgstr "Պրոֆիլի պատկեր"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Ձեր նոր գաղտնաբառը նույնն է, ինչ ձեր հին գաղտնաբառը:"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Պահանջվում է գաղտնաբառ:"
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Թողարկեք բաց մատչելիության էլ․ փոստի ծանուցումներ"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Ձեր մուտքագրած ընթացիկ գաղտնաբառը սխալ էր:"
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Դուք պետք է մուտքագրեք ձեր նոր գաղտնաբառը:"
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Պահանջվում է փոստային հասցե:"
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Դուք ազգանուն եք ավելացրել լեզվի համար, որում բացակայում է անունը: Խնդրում "
+"ենք այս լեզվի համար ազգանուն ավելացնել:"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Ազգանունը պարտադիր է։"
+
+msgid "user.profile.form.emailRequired"
+msgstr "Պահանջվում է էլ․ փոստի վավեր հասցե:"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Երկիրը պարտադիր է."
+
+msgid "user.profile.editProfile"
+msgstr "Խմբագրեք պրոֆիլը"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Ներքևում մուտքագրեք ձեր ընթացիկ և նոր գաղտնաբառերը՝ ձեր հաշվի գաղտնաբառը "
+"փոխելու համար:"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Խնդրում ենք տրամադրել ամբողջական անունը, քանի որ հեղինակը պետք է "
+"նույնականացվի հրապարակված աշխատանքով: Օրինակ՝ դոկտոր Ալան Պ. Մուանդենգա"
+
+msgid "user.preferredPublicName"
+msgstr "Նախընտրելի հանրային անուն"
+
+msgid "user.phone"
+msgstr "Հեռախոս"
+
+msgid "user.repeatPassword"
+msgstr "Կրկնեք գաղտնաբառը"
+
+msgid "user.password"
+msgstr "Գաղտնաբառ"
+
+msgid "user.name"
+msgstr "Անուն"
+
+msgid "user.myAccount"
+msgstr "Իմ հաշիվը"
+
+msgid "user.mailingAddress"
+msgstr "Փոստային հասցե"
+
+msgid "user.hello"
+msgstr "Ողջույն, "
+
+msgid "user.logOutAs"
+msgstr "Դուրս գալ որպես {$username}"
+
+msgid "user.logOut"
+msgstr "Դուրս գալ"
+
+msgid "user.login.resetPassword"
+msgstr "Վերակայեք գաղտնաբառը"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Մնալ Համակարգում"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Գրանցումը սպասում է ստուգմանը"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Շարունակել զննումը"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Կատարեք նոր ներկայացում"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Դիտել հայտերը"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Շնորհակալություն գրանցվելու համար: Ի՞նչ կցանկանայիք անել հաջորդիվ:"
+
+msgid "user.login.registrationComplete"
+msgstr "Գրանցումն ավարտված է"
+
+msgid "user.login.registeredEmail"
+msgstr "Գրանցված օգտվողի էլ․ փոստ"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Ձեր էլ․ փոստի հասցեին նոր գաղտնաբառ է ուղարկվել: Այժմ դուք կարող եք մուտք "
+"գործել կայք ձեր նոր գաղտնաբառով:"
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Ներողություն, հղումը, որի վրա սեղմել եք, ժամկետանց է կամ վավեր չէ: Խնդրում "
+"ենք կրկին վերականգնել ձեր գաղտնաբառը:"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Ձեր էլ․ փոստի հասցեին հաստատում է ուղարկվել, եթե գտնվել է համընկնող հաշիվ: "
+"Խնդրում ենք հետևել էլ․ փոստի հրահանգներին՝ ձեր գաղտնաբառը վերականգնելու "
+"համար:"
+
+msgid "user.login"
+msgstr "Մուտք"
+
+msgid "user.login.loginError"
+msgstr "Սխալ մուտքանուն կամ գաղտնաբառ. Խնդրում եմ կրկին փորձեք։"
+
+msgid "user.login.forgotPassword"
+msgstr "Մոռացե՞լ եք Ձեր գաղտնաբառը։"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Դուք պետք է ընտրեք նոր գաղտնաբառ, որպեսզի կարողանաք մուտք գործել այս կայք:<"
+"br /><br />Խնդրում ենք մուտքագրել օգտվողի ձեր անունը և ձեր ընթացիկ և նոր "
+"գաղտնաբառերը ստորև՝ ձեր հաշվի գաղտնաբառը փոխելու համար:"
+
+msgid "user.login.activated"
+msgstr ""
+"Շնորհակալություն ձեր հաշիվն ակտիվացնելու համար: Այժմ կարող եք մուտք գործել՝ "
+"օգտագործելով այն լիազորությունները, որոնք տրամադրել եք ձեր հաշիվը ստեղծելիս:"
+
+msgid "user.login.activate"
+msgstr "Ակտիվացրեք հաշիվը"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Մենք ձեզ հաստատման նամակ ենք ուղարկել {$email} հասցեով: Խնդրում ենք հետևել "
+"այդ էլ․ նամակի հրահանգներին՝ ձեր նոր հաշիվն ակտիվացնելու համար: Եթե նամակ "
+"չեք տեսնում, խնդրում ենք ստուգել՝ արդյոք այն դրված է ձեր սպամի թղթապանակում:"
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Ձեր հաշիվն անջատվել է: Լրացուցիչ տեղեկությունների համար դիմեք "
+"ադմինիստրատորին:"
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Ձեր հաշիվն անջատվել է հետևյալ պատճառով՝ {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Անվավեր պրոֆիլի պատկերի ձևաչափ կամ պատկերը չափազանց մեծ է: Ընդունված "
+"ձևաչափերն են .gif, .jpg կամ .png, և պատկերը չպետք է գերազանցի 150x150 "
+"պիքսելը:"
+
+msgid "user.familyName"
+msgstr "Ազգանուն"
+
+msgid "user.group"
+msgstr "Օգտվողների խումբ"
+
+msgid "user.gossip.description"
+msgstr ""
+"Գրանցեք գրառումներ այս գրախոսի մասին, որոնք ցանկանում եք տեսանելի դարձնել "
+"այլ ադմինիստրատորների, կառավարիչների և բոլոր խմբագրողների համար: Նշումները "
+"տեսանելի կլինեն հետագա վերանայման առաջադրանքների համար:"
+
+msgid "user.gossip"
+msgstr "Խմբագրական նշումներ"
+
+msgid "user.interests"
+msgstr "Հետաքրքրությունների վերանայում"
+
+msgid "user.givenName"
+msgstr "Անուն"
+
+msgid "user.email"
+msgstr "Էլ․ փոստ"
+
+msgid "user.editMyProfile"
+msgstr "Խմբագրել իմ պրոֆիլը"
+
+msgid "user.dateRegistered"
+msgstr "Գրանցման ամսաթիվը"
+
+msgid "user.dateLastLogin"
+msgstr "Վերջին մուտք"
+
+msgid "user.changePassword"
+msgstr "Փոխեք գաղտնաբառը"
+
+msgid "user.changeMyPassword"
+msgstr "Փոխեք իմ գաղտնաբառը"
+
+msgid "user.biography"
+msgstr "Կենսագրություն (օրինակ՝ բաժին և կոչում)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Դուք այս քննարկմանը մուտք գործելու թույլտվություն չունեք:"
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Դուք վերանայման այս առաջադրանքին մուտք գործելու թույլտվություն չունեք:"
+
+msgid "user.authorization.pluginRequired"
+msgstr "Փլագին նշված չէ և պահանջվում է:"
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Աշխատակարգի փուլը չի նշված:"
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Դուք ներկայումս մուտք չունեք աշխատանքային գործընթացի այդ փուլին:"
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Շարունակելու համար Մենեջերի դեր ունեցող օգտվողը (այսինքն՝ Արտադրության "
+"խմբագիրը) պետք է նշանակվի փուլին:"
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Այս գործողություն մուտք գործելու համար դուք պետք է սահմանեք օգտվողների վավեր "
+"խումբ:"
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Դուք չեք նշանակվել այս ներկայացմանը մի դերով, որը թույլատրված է մուտք գործել "
+"այս գործողություն:"
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Ընթացիկ դերը մուտք չունի այս գործողությանը:"
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Ձեզ մերժել են մուտքը: Այս կայք մուտք գործելը ներկայումս սահմանափակված է:"
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+"Գործողությունը, որին փորձել եք մուտք գործել, կա՛մ անձնական է, կա՛մ "
+"գոյություն չունի:"
+
+msgid "user.authorization.loginRequired"
+msgstr "Պահանջվում է գրանցանուն:"
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Դուք չեք կարող այս գործողությունն անվանել առանց համատեքստի (մամուլ, ամսագիր, "
+"կոնֆերանս և այլն):"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "ործընթացի նույնականացման ժետոնը բացակայում է կամ անվավեր է:"
+
+msgid "user.authorization.accessDenied"
+msgstr "Մուտքն արգելված է."
+
+msgid "user.affiliations"
+msgstr "Պատկանելություններ"
+
+msgid "user.affiliation.description"
+msgstr "(Ձեր հաստատությունը, օրինակ՝ «Սայմոն Ֆրեյզերի համալսարան»)"
+
+msgid "user.affiliation"
+msgstr "Պատկանելություն"
+
+msgid "user.accountInformation"
+msgstr "Հաշվի տեղեկատվություն"
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Իսկապե՞ս ուզում եք ջնջել այս API բանալին:"
+
+msgid "user.apiKey.remove"
+msgstr "Ջնջել"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Բանալին ջնջելը կչեղարկի մուտքը ցանկացած հավելված, որն օգտագործում է այն:"

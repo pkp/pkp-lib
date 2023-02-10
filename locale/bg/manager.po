@@ -1,0 +1,3607 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2022.
+# Albena Vassileva <albena.ava@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-12-29 21:02+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"manager/bg_BG/>\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Изисква се файл с изображение. Моля, уверете се, че сте избрали и качили "
+"файл."
+
+msgid "manager.website.appearance"
+msgstr "Изглед"
+
+msgid "manager.website.information"
+msgstr "Информация"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Предстои да маркирате записи с DOI метаданни за {$count} обект(а) като "
+"регистрирани. Сигурни ли сте, че искате да маркирате тези записи като "
+"регистрирани?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Маркиране на DOI като регистрирани"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Предстои да изпратите записи с DOI метаданни за {$count} обект(а) до "
+"{$registrationAgency}. Сигурни ли сте, че искате да депозирате тези записи?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Депозиране на DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Депозиране на всички"
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Тип обяви"
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Няма създадени типове обяви."
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Необходимо е име за типа обяви."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Име"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Вече съществува тип обяви с това име."
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Запази и създай друг"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Редактиране"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Редактиране на тип обяви"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Създаване"
+
+msgid "manager.announcementTypes.create"
+msgstr "Създаване на тип обяви"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Предупреждение! Всички обяви от този тип също ще бъдат изтрити. Сигурни ли "
+"сте, че искате да продължите и да изтриете този тип обяви?"
+
+msgid "manager.announcementTypes"
+msgstr "Типове обяви"
+
+msgid "manager.announcements.type"
+msgstr "Тип"
+
+msgid "manager.announcements.title"
+msgstr "Заглавие"
+
+msgid "manager.announcements.noneCreated"
+msgstr "Няма създадени обяви."
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Моля, изберете валиден тип на обявата."
+
+msgid "manager.announcements.form.typeId"
+msgstr "Тип"
+
+msgid "manager.announcements.form.title"
+msgstr "Заглавие"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Необходимо е заглавие на обявата."
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Запази и създай друга"
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Кратко описание"
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Необходимо е кратко описание на обявата."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Кратко описание, което се появява заедно със заглавието на обявата."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Описанието на обява е задължително."
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Пълният текст на обявата."
+
+msgid "manager.announcements.form.description"
+msgstr "Обява"
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Моля, изберете месец и/или ден в допълнение към годината на срока на "
+"валидност."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Моля, изберете валидна дата за срока на валидност на обявата."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Моля, изберете година и/или ден в допълнение към месеца на срока на "
+"валидност."
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Обявата ще бъде показвана на читателите до тази дата. Оставете празно, ако "
+"искате обявата да се показва за неопределен срок."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Срок на валидност"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Моля, изберете година и/или месец, освен деня, за датата на валидност."
+
+msgid "manager.announcements.editTitle"
+msgstr "Редактиране"
+
+msgid "manager.announcements.edit"
+msgstr "Редактиране на обява"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Изтриване на обява"
+
+msgid "manager.announcements.datePublish"
+msgstr "Публикувано"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Валидност"
+
+msgid "manager.announcements.createTitle"
+msgstr "Създаване"
+
+msgid "manager.announcements.create"
+msgstr "Създаване на нова обява"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Сигурни ли сте, че искате да изтриете завинаги обявата {$title}?"
+
+msgid "manager.announcements"
+msgstr "Обяви"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Трябва да изберете поне една роля, която да бъде свързана с този потребител."
+
+msgid "manager.users"
+msgstr "Потребители"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Търсене на потребител по име"
+
+msgid "stats.editorialActivity"
+msgstr "Редакторска дейност"
+
+msgid "manager.distribution.license"
+msgstr "Лиценз"
+
+msgid "manager.workflow"
+msgstr "Работна процедура"
+
+msgid "manager.website.title"
+msgstr "Настройки на сайта"
+
+msgid "manager.people.mergeUsers"
+msgstr "Обединяване на потребители"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Тази група няма членове."
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Наистина ли искате да изтриете членството в тази група?"
+
+msgid "manager.groups.membership.addMember"
+msgstr "Добавяне на член"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Изисква се заглавие на групата."
+
+msgid "manager.groups.editTitle"
+msgstr "Редакция на заглавие"
+
+msgid "manager.groups.createTitle"
+msgstr "Създаване на заглавие"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Наистина ли искате да изтриете тази група?"
+
+msgid "manager.files.uploadFile"
+msgstr "Качване на файл"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Качени файлове"
+
+msgid "manager.files.parentDir"
+msgstr "Родителска (по-горна) директория"
+
+msgid "manager.files.indexOfDir"
+msgstr "Индекс на {$dir}"
+
+msgid "manager.files.emptyDir"
+msgstr "В тази директория не бяха намерени файлове."
+
+msgid "manager.files.createDir"
+msgstr "Създаване на директория"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Да се изтрие ли този файл или директория? Имайте предвид, че директорията "
+"трябва да е празна, преди да може да бъде изтрита."
+
+msgid "manager.filesBrowser"
+msgstr "Файлов браузер"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Изберете потребителите, които да бъдат експортирани в Excel/CSV файл."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Експорт към Excel/CSV"
+
+msgid "manager.emails.sentTo"
+msgstr "Изпратено на"
+
+msgid "manager.emails.sentFrom"
+msgstr "Изпратено от"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Нулиране към стойност по подразбиране"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ако нулирате този шаблон, всички данни за съобщението ще бъдат нулирани до "
+"стойността по подразбиране, като всички модификации ще бъдат загубени. "
+"Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ако нулирате всички шаблони, всички модификации на шаблоните за имейли ще "
+"бъдат загубени. Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.resetAll"
+msgstr "Нулиране на всички"
+
+msgid "manager.emails"
+msgstr "Подготвени имейли"
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "За имейла се изисква тема."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "За имейла се изисква съдържание."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"За имейла е необходим уникален имейл ключ, който не съдържа интервали или "
+"специални знаци."
+
+msgid "manager.emails.enable.message"
+msgstr "Ще активирате този имейл. Искате ли да потвърдите тази операция?"
+
+msgid "manager.emails.enabled"
+msgstr "Активиране на този шаблон за имейл"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Трябва да предоставите идентификатор на контекста, когато добавяте шаблон за "
+"имейл."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Други шаблони"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони за имейл"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон за имейл"
+
+msgid "manager.emails.editTestExample"
+msgstr "Редактиране на тестов пример за имейл"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ще деактивирате този имейл шаблон. Ако има системни процеси, използващи този "
+"шаблон, те няма да го използват повече. Искате ли да потвърдите тази "
+"операция?"
+
+msgid "manager.emails.enable"
+msgstr "Активиране"
+
+msgid "manager.people.enroll"
+msgstr "Записване на потребител"
+
+msgid "manager.people.enable"
+msgstr "Активиране"
+
+msgid "manager.plugins.enable"
+msgstr "Активиране"
+
+msgid "manager.plugins.disable"
+msgstr "Деактивиране"
+
+msgid "manager.people.disable"
+msgstr "Деактивиране"
+
+msgid "manager.emails.disable"
+msgstr "Деактивиране"
+
+msgid "manager.emails.details"
+msgstr "Детайли за шаблон"
+
+msgid "manager.emails.data"
+msgstr "Данни за шаблонно съобщение"
+
+msgid "manager.emails.createEmail"
+msgstr "Създаване на имейл"
+
+msgid "manager.emails.addEmail"
+msgstr "Добавяне на шаблон"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Следното съобщение беше върнато от {$registrationAgency} и съдържа "
+"подробности за регистрацията:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Следната грешка беше върната от {$registrationAgency} и съдържа подробности "
+"за причината за грешката:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Подробностите за напомнянето за резензиране са актуализирани."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Ръководство за рецензиране"
+
+msgid "manager.publication.emails"
+msgstr "Имейли"
+
+msgid "manager.publication.productionStage"
+msgstr "Публикация"
+
+msgid "manager.publication.editorialStage"
+msgstr "Редактиране"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензия"
+
+msgid "manager.publication.submissionStage"
+msgstr "Изпратени материали"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Елементите са успешно изпратени за депозит"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Елементите успешно са присвоили нови DOI"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Елементите са успешно маркирани като регистрирани"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Елементите са експортирани успешно"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Някои DOI не успяха да бъдат актуализирани."
+
+msgid "manager.dois.status.stale"
+msgstr "Изостанал"
+
+msgid "manager.dois.status.error"
+msgstr "Грешка"
+
+msgid "manager.dois.status.registered"
+msgstr "Регистриран"
+
+msgid "manager.dois.status.submitted"
+msgstr "Изпратен"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Нерегистриран"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Необходими DOI"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Депозиране на DOI"
+
+msgid "manger.dois.update.success"
+msgstr "DOI са успешно актуализирани"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Съобщение за успешна регистрация"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Преглед на запис"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Съобщение за грешка при регистрация"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Преглед на грешката"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Този елемент не може да бъде депозиран, докато не бъде публикуван."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Метаданните за този елемент не са изпратени на {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Метаданните за този елемент са изпратени на {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Статус на публикация"
+
+msgid "manager.dois.depositStatus"
+msgstr "Статус на депозиране"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Ще планирате всички неизпълнени записи с метаданни на DOI да бъдат "
+"депозирани в {$registrationAgency}. Индивидуалното състояние на всеки "
+"елемент ще бъде актуализирано, когато бъде получен отговор. Наистина ли "
+"искате да планирате депозити за всички тези елементи?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Депозиране на всички DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Ще присвоите нови DOI на {$count} елемент(и) за всеки отговарящ на условията "
+"елемент, който все още няма присвоен DOI. Наистина ли искате да присвоите "
+"DOI на тези елементи?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Присвояване на DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Ще експортирате записи с метаданни на DOI за {$count} елемент(и) за "
+"{$registrationAgency}. Наистина ли искате да експортирате тези записи?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Експорт на DOI"
+
+msgid "manager.readingTools"
+msgstr "Инструменти за читателя"
+
+msgid "manager.plugins"
+msgstr "Системни добавки (плъгини)"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Това е добавка (плъгин) за целия сайт. Само администраторът на сайта може да "
+"управлява този плъгин."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Управление на добавките (пългините)"
+
+msgid "manager.plugins.action"
+msgstr "Действие:"
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Изисквайте от потребителя да промени паролата си следващия път, когато влезе "
+"в системата."
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Потребителят е създаден успешно."
+
+msgid "manager.people.unenroll"
+msgstr "Отписване"
+
+msgid "manager.people.syncUsers"
+msgstr "Синхронизация на записването на потребители"
+
+msgid "manager.people.signInAsUser"
+msgstr "Вход като потребител"
+
+msgid "manager.people.signInAs"
+msgstr "Вход като"
+
+msgid "manager.people.signedInAs"
+msgstr "В момента сте влезли като {$username}"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Запази и създай друга"
+
+msgid "manager.people.remove"
+msgstr "Премахване"
+
+msgid "manager.people"
+msgstr "Хора"
+
+msgid "manager.people.noneEnrolled"
+msgstr "Няма записани потребители."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Няма съответстващи потребители."
+
+msgid "manager.people.mustProvideName"
+msgstr "Моля, първо посочете поне фамилно име за потребителя."
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Моля, изберете роля в горната част на страницата, преди да щракнете върху "
+"„Записване на потребител“."
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Наистина ли искате да обедините избраните {$oldAccountCount} акаунти в "
+"акаунта с потребителско име \"{$newUsername}\"? Избраните {$oldAccountCount} "
+"акаунти няма да съществуват след това. Това действие не е обратимо."
+
+msgid "manager.people.mergeUser"
+msgstr "Обединение на потребители"
+
+msgid "manager.people.invalidUser"
+msgstr "За съжаление заявеният потребител не съществува."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Записване на потребител като"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr ""
+"Потребителите могат да бъдат присвоени или премахнати от роля по всяко време."
+
+msgid "manager.people.enrollSync"
+msgstr "Синхронизиране на записването"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Синхронизиране на роля"
+
+msgid "manager.people.enrollSelected"
+msgstr "Записване на избраните потребители"
+
+msgid "manager.people.enrollment"
+msgstr "Записване"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Изберете потребителите, на които искате да изпратите имейл, като поставите "
+"отметка в квадратчетата до техните имена"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Избиране на език"
+
+msgid "manager.people.emailUsers"
+msgstr "Изпращане на имейл до потребители"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Изпращане на имейл на потребители, регистрирани като"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Изпращане на имейл до избрани потребители"
+
+msgid "manager.people.editUser"
+msgstr "Редактиране на потребител"
+
+msgid "manager.people.editProfile"
+msgstr "Редактиране на профил"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Без роля"
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Изпратете на потребителя имейл за добре дошли, съдържащ неговото "
+"потребителско име и парола."
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Генериране на произволна парола."
+
+msgid "manager.people.createUser"
+msgstr "Създаване на нов потребител"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Да се отпише ли този потребител?"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Трябва да се въведе съществуващ потребител."
+
+msgid "manager.payment.timestamp"
+msgstr "Времеви печат"
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Изберете всички езици за поддръжка на сайта чрез меню за избор на език, "
+"което да се показва на всяка страница. Менюто ще се появи само ако са "
+"избрани повече от един език."
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Тази система по избор позволява определена критична информация да бъде "
+"въведена на няколко допълнителни езика. За да използвате тази функция, "
+"изберете алтернативни езици и изберете от опциите, изброени по-долу."
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Презареждане на стойностите по подразбиране"
+
+msgid "manager.language.forms"
+msgstr "Форми"
+
+msgid "manager.language.submissions"
+msgstr "Изпратени материали"
+
+msgid "manager.language.ui"
+msgstr "UI - потребителски интерфейс"
+
+msgid "manager.importExport"
+msgstr "Импорт/Експорт на данни"
+
+msgid "manager.groups.title"
+msgstr "Заглавие"
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Няма намерени потребители."
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Изисквайте авторите да се съгласят със следното известие за авторски права "
+"като част от процеса на подаване."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Известие за авторски права"
+
+msgid "manager.setup.advanced"
+msgstr "Разширено"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Всичко, въведено тук, ще се появи на началната ви страница."
+
+msgid "manager.setup.additionalContent"
+msgstr "Допълнително съдържание"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Тези подробности могат да бъдат включени в метаданни, предоставени на "
+"архивни органи на трети страни."
+
+msgid "manager.setup.publishing"
+msgstr "Подробности за публикуване"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Няма"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI могат да бъдат автоматично създавани и депозирани в регистрационна "
+"агенция. За да използвате тази функция, намерете и инсталирайте добавка "
+"(плъгин) от съответната регистрационна агенция."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Няма активирана регистрационна агенция"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Моля, изберете регистрационната агенция, която искате да използвате, когато "
+"депозирате DOI."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Регистрационна агенция"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr ""
+"Наличен по-рано персонализиран, дефиниран от потребителя модел. Вече не се "
+"използва."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Използване на шаблон по подразбиране"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Суфиксът на DOI може да има всякаква форма, но трябва да бъде уникален сред "
+"всички публикувани обекти със същия DOI префикс:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI суфикс"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "На {$objects} ще бъде присвоен DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Елементи с DOI"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI префикс"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Никога"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "При публикуване"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Кога на материалът трябва да бъде присвоен DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Автоматично присвояване на DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префиксът DOI е задължителен и трябва да бъде във формат: 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Това се присвоява от агенция за регистрация на DOI, като <a href=\"https://"
+"www.crossref.org\" target=\"_new\">Crossref</a> или <a href=\"https://"
+"datacite.org /\" target=\"new\">DataCite</a>. Пример: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Регистрацията на DOI и метаданните могат автоматично да бъдат депозирани в "
+"избраната агенция за регистрация всеки път, когато се публикува статия с "
+"DOI. Автоматично депозиране ще се извършва на планирани интервали и статусът "
+"на регистрация на всеки DOI може да се наблюдава от страницата за управление "
+"на DOI."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Активиране на автоматично депозиране"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Автоматично депозиране"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI префикс"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Активиране на DOI"
+
+msgid "manager.setup.dois.registration"
+msgstr "Регистрация"
+
+msgid "manager.setup.dois.setup"
+msgstr "Настройка"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонсор"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Използване на формат ГГГГММДД."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Използване на формат ГГГГММ."
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Системата генерира отчети, които проследяват подробностите, свързани с "
+"използването на сайта и подаванията на материали за даден период от време. "
+"Отчетите се генерират във формат CSV, който изисква приложение за електронни "
+"таблици за преглед."
+
+msgid "manager.statistics.reports"
+msgstr "Отчети"
+
+msgid "stats.region"
+msgstr "Регион"
+
+msgid "stats.city"
+msgstr "Град"
+
+msgid "stats.views"
+msgstr "Прегледи"
+
+msgid "stats.downloads"
+msgstr "Сваляния"
+
+msgid "stats.views.timelineInterval"
+msgstr "Общо гледания по дата"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Общо сваляния по дата"
+
+msgid "manager.statistics"
+msgstr "Статистика и отчети"
+
+msgid "manager.roles"
+msgstr "Роли"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Използвайте формуляра по-долу, за да зададете максималните стойности за "
+"термините, които искате да търсите. Формулярът е предварително попълнен с "
+"изчислените средни стойности на тези полета."
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Интереси към рецензиране"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Търсене по име"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Търсене на рецензенти по име"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Смяна"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Не можете да изтриете този представител, тъй като те са присвоени на "
+"пазарните метаданни за един или повече формати на публикация за това "
+"подаване на материали."
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Въведете условия за публично лицензиране, които искате да показвате до "
+"публикувана работа."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Условия на лиценза"
+
+msgid "manager.distribution.license.other"
+msgstr "URL на друг лиценз"
+
+msgid "notification.editedUser"
+msgstr "Редактирано от потребителя."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Езиковата настройка не можа да бъде запазена. За всяка опция трябва да е "
+"активиран поне един език"
+
+msgid "notification.localeSettingsSaved"
+msgstr "Езиковите настройки са записани."
+
+msgid "notification.localeReloaded"
+msgstr "{$locale} език е презареден за {$contextName}."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} език е деинсталиран."
+
+msgid "notification.localeInstalled"
+msgstr "Всички избрани езици са инсталирани и активирани."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} е дефиниран като основен език."
+
+msgid "notification.localeDisabled"
+msgstr "Езикът е деактивиран."
+
+msgid "notification.localeEnabled"
+msgstr "Езикът е активиран."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Version.xml не се намира в директорията на добавката (плъгин)"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+"Version.xml в директорията на добавките (плъгини) съдържа невалидни данни."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Изберете файл на добавката (плъгин)"
+
+msgid "manager.plugins.uploadError"
+msgstr "Грешка при качването на файла"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успешна актуализация до версия {$versionString}"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Актуализацията не бе успешна. {$errorString}"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Тази форма ви позволява да надстроите добавка (плъгин). Моля, уверете се, че "
+"добавката е компресирана като .tar.gz файл."
+
+msgid "manager.plugins.upgrade"
+msgstr "Актуализация на добавка (плъгин)"
+
+msgid "manager.plugins.settings"
+msgstr "Настройки"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Добавката (плъгин) съществува, но е по-нова от инсталираната версия. Моля, "
+"актуализирайте вместо това действие"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr ""
+"Добавката (плъгин) не съществува. Моля, инсталирайте вместо това действие"
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Version.xml в качената добавка (плъгин) съдържа име на плъгина, което не "
+"отговаря на името на надстроения плъгин."
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"Качената добавка (плъгин) не отговаря на категорията на надстроения плъгин."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Каченият архив на добавката (плъгин) не съдържа папка, която съответства на "
+"името на плъгина."
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успешно инсталирана версия {$versionNumber}"
+
+msgid "manager.plugins.installFailed"
+msgstr "Неуспешно инсталиране. {$errorString}"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Не е достъпно"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Актуално"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Може да се актуализира"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "По-нова от наличната версия"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Добавката (плъгин) вече е инсталирана и актуална."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Добавката (плъгин) вече е инсталирана, но може да бъде актуализирана до по-"
+"нова версия."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Добавката (плъгин) вече е инсталирана и е по-нова от версията, налична в "
+"галерията."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "В момента няма налична съвместима версия на тази добавка (плъгин)."
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Добавката (плъгин) все още не е инсталирана."
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Обща информация"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Начална страница"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "версия {$version} от {$date}"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Разработчик"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+"Тази добавка (плъгин) е предоставена от един от нашите партньори за "
+"разработка."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Партньор"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Тази добавка (плъгин) е прегледана и одобрена от екипа на проекта Public "
+"Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Ревизиран"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Тази добавка (плъгин) е разработена и поддържана от екипа на проекта Public "
+"Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Официален"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Най-нова съвместима версия"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Инсталация"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Общ преглед"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Галерия добавки (плъгини)"
+
+msgid "manager.plugins.installed"
+msgstr "Инсталирани добавки (плъгини)"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Моля, уверете се, че файлът е избран за качване."
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Този формуляр ви позволява да качите и инсталирате нова добавка (плъгин). "
+"Моля, уверете се, че добавката е компресирана като .tar.gz файл."
+
+msgid "manager.plugins.upload"
+msgstr "Качване на нова добавка (плъгин)"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Моля, изберете първо файл"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Добавката (плъгин) \"{$pluginName}\" не съществува"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Тази страница позволява на мениджъра да прегледа и евентуално да конфигурира "
+"добавките (плъгини) , които са инсталирани в момента. Плъгините са разделени "
+"на категории, според тяхната функция. Категориите са изброени по-долу, а във "
+"всяка категория е текущият набор от плъгини."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Добавката (плъгин) \"{$pluginName}\" беше успешно премахната"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Добавката (плъгин) \"{$pluginName}\" не можа да бъде изтрита от файловата "
+"система. Това може да е проблем с разрешенията. Моля, уверете се, че уеб "
+"сървърът може да записва в директорията на плъгините (включително "
+"поддиректориите), но не забравяйте да я защитите отново по-късно."
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Като щракнете върху изтриване, ще премахнете тази добавка (плъгин) от "
+"файловата система на сървъра."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Сигурни ли сте, че искате да премахнете тази добавка (плъгин)?"
+
+msgid "grid.action.installPlugin"
+msgstr "Инсталиране/актуализация на добавка (плъгин)"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Сигурни ли сте, че искате да актуализирате тази добавка (плъгин)?"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Сигурни ли сте, че искате да инсталирате тази добавка (плъгин)?"
+
+msgid "manager.plugins.delete"
+msgstr "Премахване на добавка (плъгин)"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Добавката (плъгин) за не беше копирана успешно. Това може да е проблем с "
+"разрешенията. Моля, уверете се, че уеб сървърът може да записва в "
+"директорията на плъгините (включително поддиректориите), но не забравяйте да "
+"я защитите отново по-късно."
+
+msgid "plugins.categories.pubIds.description"
+msgstr ""
+"Тези добавки (плъгини) влагат възможност за поддръжка на публични "
+"идентификатори."
+
+msgid "plugins.categories.pubIds"
+msgstr "Добавки (плъгини) за публични идентификатори"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+"Тези добавки (плъгини) за формат изразяват метаданни в OAI комуникации."
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Добавки (плъгини) за OAI формат за метаданни"
+
+msgid "plugins.categories.themes"
+msgstr "Добавки (плъгини) за тема"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Добавките (плъгини) за тема могат да се използват за промяна на външния вид "
+"на системата."
+
+msgid "plugins.categories.reports"
+msgstr "Добавки (плъгини) за отчети"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Добавките (плъгини) за отчети се използват за внедряване на различни видове "
+"отчети и извлечения от данни."
+
+msgid "plugins.categories.paymethod"
+msgstr "Добавки (плъгини) за плащане"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Добавките (плъгини) за метод на плащане внедряват поддръжка за различни "
+"начини за обработка на плащания онлайн."
+
+msgid "plugins.categories.importexport"
+msgstr "Добавки (плъгини) за импорт/експорт"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Добавките (плъгини) за импортиране/експортиране могат да се използват за "
+"прехвърляне на съдържание към и от други системи."
+
+msgid "plugins.categories.generic"
+msgstr "Генерични добавки (плъгини)"
+
+msgid "plugins.categories.gateways"
+msgstr "Добавки (плъгини) за шлюзове"
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+"Добавки (плъгини) за шлюзове предоставят данни в реално време към външни "
+"системи."
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Блоковите добавки (плъгини) са включващи се компоненти на потребителския "
+"интерфейс, като например различните инструменти на страничната лента."
+
+msgid "plugins.categories.blocks"
+msgstr "Добавки (плъгини) за блокове"
+
+msgid "plugins.categories.auth"
+msgstr "Добавки (плъгини) за оторизация"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Добавкиje (плъгини) за метаданни прилагат допълнителни стандарти за "
+"метаданни."
+
+msgid "plugins.categories.metadata"
+msgstr "Добавки (плъгини) за метаданни"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Регистрирани потребители"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage} %)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} нови)"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Опции за достъп до сайта"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Сигурни ли сте, че искате да активирате тази секция?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Сигурни ли сте, че искате да деактивирате тази секция?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Деактивиране на тази секция и няма да се правят нови заявки за материали в "
+"нея."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Избраната от вас тема не е инсталирана или активирана."
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Нови теми могат да бъдат инсталирани от раздела Добавки (плъгини) в горната "
+"част на тази страница."
+
+msgid "manager.setup.theme"
+msgstr "Тема"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Лице за контакт, което може да помогне на редактори, автори и рецензенти при "
+"всякакви проблеми, които имат при изпращането, редактирането, рецензирането "
+"или публикуването на материали."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Контакт за техническа поддръжка"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Опитните уеб разработчици могат да качат CSS файл, за да персонализират "
+"допълнително външния вид на уебсайта."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Примери: научни асоциации, университетски катедри, кооперации и др. "
+"Спонсорите се показват публично."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Връзка със спонсора и описание на политиката"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Представете връзка за <button type=\"button\">как да се уверите, че всички "
+"файлове са анонимизирани</button> по време на качване"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Режим на резензиране по подразбиране"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Изпратете напомняне по имейл, ако рецензентът не е изпратил препоръка в "
+"рамките на съответния брой дни след крайната дата за рецензиране."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Напомняне за рецензия"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Изпратете напомняне по имейл, ако рецензентът не е отговорил на молбата за "
+"рецензия съответния брой дни след крайния срок за отговор."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Напомняне за отговор"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Настройките по подразбиране могат да се променят за всяка рецензия по време "
+"на редакционния процес."
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Не напомняй"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Брой седмици за завършване на рецензия"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Брой седмици за приемане или отхвърляне на молба за рецензиране."
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Краен срок за завършване по подразбиране"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Краен срок за отговор по подразбиране"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Това изявление ще се появи по време на регистрацията на потребителя, "
+"изпращането на материали от автора и на публично достъпната страница за "
+"поверителност. В някои юрисдикции от вас се изисква законово да разкриете "
+"как обработвате потребителски данни в тази политика за поверителност."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Персонализиран формат"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата и час (кратък формат)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата и час"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Час"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (кратък формат)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Изберете предпочитания формат за дати и часове. Персонализиран формат може "
+"да бъде въведен с помощта на специалните <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters'>символи за "
+"формат</a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Формати за дата и час"
+
+msgid "manager.setup.dateTime"
+msgstr "Дата и час"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Декларация за поверителност"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Въведете данни за контакт, обикновено за главен редактор, ръководен редактор "
+"или длъжност на административен персонал, които могат да бъдат показани на "
+"вашия публично достъпен уебсайт."
+
+msgid "manager.setup.principalContact"
+msgstr "Главен редакционен контакт"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Очертайте политиката и процесите на рецензиране за читателите и авторите. "
+"Това описание често включва броя на рецензентите, които обикновено се "
+"използват при прегледа на дадени материали, критериите, по които от "
+"рецензентите се изисква да преценят представените материали, очакваното "
+"време, необходимо за провеждане на рецензиите, и принципите, използвани за "
+"избор на рецензенти."
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Въведете всички изображения, текст или HTML код, които искате да се показват "
+"в долната част на уебсайта ви."
+
+msgid "manager.setup.pageFooter"
+msgstr "Долен колонтитул"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на заглавката на страницата (горен "
+"колонтитул) или качването не бе успешно. Приетите формати са .gif, .jpg или ."
+"png."
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ако предоставяте незабавен (с публикуването на броя) безплатен достъп до "
+"цялото публикувано съдържание, можете да въведете описание на вашата "
+"политика за отворен достъп."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Политика за отворен достъп"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Изпращане на друг имейл"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Имейлът беше изпратен успешно до всички получатели."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Изпращане на имейла. Моля, не прелиствайте, докато изпращането не приключи."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Ще изпратите имейл до {$total} потребители. Наистина ли искате да изпратите "
+"този имейл?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Изпращане на имейл"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Изпратете ми копие от този имейл на {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Изберете потребителите, които трябва да получат вашето имейл известие."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Известяване"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Авторите автоматично получават имейл с потвърждение на изпращането им. Може "
+"да имате копия от този имейл, изпратени до следния имейл:"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Един или повече от тези имейл адреси не са валидни."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Копие от имейла с потвърждение за изпращане ще бъде изпратено на всеки от "
+"имейл адресите, въведени тук. Отделете няколко имейл адреса със запетая. "
+"Пример: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Уведомяване на следния имейл"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Не"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Да, изпратете копие на {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Уведомяване на основния контакт"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Известия"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Изпращане на имейл само до автори, асоциирани с работния процес за "
+"подадените материали. Обикновено това е изпращащият автор."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Изпращане на известие по имейл до всички автори на подадения материал."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Кой следва да получи имейл с известие, когато бъде записано редакционно "
+"решение?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Уведомяване на всички автори"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Изпращане на копие на този имейл адрес"
+
+msgid "manager.setup.notifications"
+msgstr "Уведомление на автора за подаване на материали"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Каченият от вас файл не можа да бъде намерен. Моля, опитайте да го качите "
+"отново."
+
+msgid "manager.setup.logo"
+msgstr "Лого"
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Регистриране и одит"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Блокът {$name} не може да бъде намерен. Моля, уверете се, че добавката "
+"(плъгин) е инсталирана и активирана."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Странична лента"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описания"
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на заглавието на началната страница или "
+"качването не бе успешно. Приетите формати са .gif, .jpg или .png."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Невалиден формат на изображението на началната страница или качването не бе "
+"успешно. Приетите формати са .gif, .jpg или .png."
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+"Качете изображение, което да се показва на видно място на началната страница."
+
+msgid "manager.setup.homepageImage"
+msgstr "Изображение на началната страница"
+
+msgid "manager.setup.favicon"
+msgstr "Икона Favicon"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Възникна грешка при изтриването на този елемент."
+
+msgid "manager.setup.competingInterests"
+msgstr "Конкуриращи се интереси"
+
+msgid "manager.setup.checklist"
+msgstr "Контролен списък"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Деактивиране на приемането на материали"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Препоръчаните насоки включват библиографски стандарти и стандарти за "
+"форматиране, заедно с примери за често срещани формати за цитиране, които да "
+"се използват при подаване на материали."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Насоки за автора"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип елемент"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Редакция на елемент от формуляр"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Падащ списък"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Създаване на нов елемент"
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Копиране към:"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Потвърдете изтриването на публикуван елемент от формуляра..."
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Изберете тип елемент"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Квадратчета за отметка (можете да изберете едно или повече)"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Добавяне на избраното"
+
+msgid "manager.reviewFormElements"
+msgstr "Елементи на формуляра"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Промяна на типа елемент на формуляра..."
+
+msgid "manager.reviewForms.title"
+msgstr "Заглавие"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Данни от формуляр за рецензия"
+
+msgid "manager.reviewForms.preview"
+msgstr "Предварителен преглед на формуляр"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Не са използвани формуляри за рецензия."
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Не са създадени формуляри за рецензия."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Няма / Формулар за рецензия в свободна форма"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Създадените тук формуляри за партньорска рецензия ще бъдат представени на "
+"рецензентите за попълване, вместо формуляра по подразбиране, който се състои "
+"от две отворени текстови полета, първото „за автор и редактор“ и второто „за "
+"редактор“. Формулярите за рецензия могат да бъдат определени за конкретна "
+"секция на изданието и редакторите ще имат възможността да избират кой "
+"формуляр да използват при възлагането на рецензията. Във всички случаи "
+"редакторите ще имат възможността да включат рецензиите в кореспонденцията с "
+"автора."
+
+msgid "manager.reviewForms.inReview"
+msgstr "В процес на рецензиране"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Трябва да има заглавие на формуляра за преглед."
+
+msgid "manager.reviewForms.edit"
+msgstr "Формуляр за рецензия"
+
+msgid "manager.reviewForms.description"
+msgstr "Описание и инструкции"
+
+msgid "manager.reviewForms.create"
+msgstr "Създаване на формуляр за рецензия"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Наистина ли искате да изтриете този формуляр за рецензия?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Завършено"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Наистина ли искате да създадете копие на този формуляр за рецензия?"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Наистина ли искате да деактивирате този формуляр за рецензия? Той вече няма "
+"да е наличен за нови задачи за рецензиране."
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Наистина ли искате да активирате този формуляр за рецензия? След като бъде "
+"присвоен към рецензията, вече няма да можете да го деактивирате."
+
+msgid "manager.reviewForms"
+msgstr "Форми за рецензиране"
+
+msgid "manager.distribution.title"
+msgstr "Настройки на разпространение"
+
+msgid "manager.distribution"
+msgstr "Разпространение"
+
+msgid "manager.workflow.title"
+msgstr "Настройки на работната процедура"
+
+msgid "manager.website"
+msgstr "Уебсайт"
+
+msgid "manager.settings.wizard"
+msgstr "Помощник за настройки"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Изберете типа метаданни, които тези файлове могат да получат. \"Документ\" "
+"трябва да бъде избран за основните файлове на публикация, като например PDF "
+"за изтегляне, така че тези файлове да наследят своите метаданни от "
+"публикацията. В противен случай изберете \"Допълнително съдържание\" за "
+"повечето типове файлове. \"Произведения на изкуството\" са подходящи за "
+"файлове, които изискват различни метаданни за кредит, надпис и лиценз."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Метаданни на файла"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Ключът може да съдържа само буквено-цифрови знаци, долни черти и тирета и "
+"трябва да започва и завършва с буквено-цифров знак."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ключът вече съществува."
+
+msgid "manager.setup.genres.key.description"
+msgstr "Незадължителен кратък символичен идентификатор за този жанр."
+
+msgid "manager.setup.genres.key"
+msgstr "Ключ"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Това са допълнителни файлове, като набори от данни и изследователски "
+"материали, и ще се показват отделно от основните файлове с публикации."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Това са зависими файлове, като изображения, показани от HTML файл, и няма да "
+"се показват с публикувано съдържание."
+
+msgid "manager.setup.genres.label"
+msgstr "Тип файл"
+
+msgid "grid.action.restoreGenres"
+msgstr "Възстановете компонентите до настройките по подразбиране"
+
+msgid "grid.action.deleteGenre"
+msgstr "Премахване на този компонент"
+
+msgid "grid.action.editGenre"
+msgstr "Редактиране на този компонент"
+
+msgid "grid.action.addGenre"
+msgstr "Добавяне на компонент"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Изберете библиотечни файлове, които да прикачите"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Този библиотечен файл може да бъде достъпен за изтегляне, ако „Публичен "
+"достъп“ е активиран, на адрес: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Друго"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Отчети"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Достъп (разрешения)"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Договори"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "За този файл в библиотеката е необходим тип файл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "За този библиотечен файл се изисква име."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Изисква се библиотечен файл. Моля, уверете се, че сте избрали и качили файл."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Разрешете редактиране на метаданни за подаване."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Трябва да дефинирате етап, към който да асоциирате."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Трябва да дефинирате ниво на достъп за роля."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Трябва да дефинирате уникална абревиатура на ролята."
+
+msgid "settings.roles.uniqueName"
+msgstr "Трябва да дефинирате уникално име на ролята."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Трябва да дефинирате абревиатура за роля."
+
+msgid "settings.roles.nameRequired"
+msgstr "Трябва да дефинирате име на роля."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Ще премахнете тази роля от този контекст. Тази операция също така ще изтрие "
+"свързани настройки и всички потребителски асоциации на тази роля. Искате ли "
+"да продължите?"
+
+msgid "settings.roles.from"
+msgstr "Ниво на достъп"
+
+msgid "settings.roles.roleDetails"
+msgstr "Детайли за роля"
+
+msgid "settings.roles.stages"
+msgstr "Етапи"
+
+msgid "settings.roles.assignedStages"
+msgstr "Асоциирани етапи"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Абревиатура"
+
+msgid "settings.roles.roleName"
+msgstr "Име на роля"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Тази роля е разрешена само да препоръча рецензионно решение и ще изисква от "
+"упълномощен редактор да запише окончателното решение."
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Разрешаване на потребителска саморегистрация"
+
+msgid "settings.roles.showTitles"
+msgstr "Показване на заглавието на ролята в списъка на сътрудниците"
+
+msgid "settings.roles.roleOptions"
+msgstr "Параметри на роля"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валута"
+
+msgid "manager.paymentMethod.method"
+msgstr "Начин за плащане"
+
+msgid "manager.paymentMethod.none"
+msgstr "Няма избран начин на плащане"
+
+msgid "manager.paymentMethod.title"
+msgstr "Начини за плащане"
+
+msgid "manager.paymentMethod"
+msgstr "Плащания"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Добавете персонализирани HTML тагове, известни също като мета тагове, които "
+"искате да бъдат вмъкнати в главата на всяка страница. Консултирайте се с "
+"технически съветник, преди да добавите етикети тук."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Потребителски етикети (тагове)"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Това съобщение уведомява главния редактор или редактор на раздел, че е "
+"направена редакционна препоръка по отношение на една от назначените им "
+"публикации. Това съобщение се използва, когато на редактора е позволено само "
+"да препоръча редакционно решение и изисква от упълномощен редактор да "
+"записва редакционни решения. Тази опция може да бъде избрана, когато "
+"асоциирате участници към подаване на материали."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Направена препоръка"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че материалите се изпращат директно на етапа на "
+"стилова корекция и няма да бъде бъдат рецензирани."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Рецензирането е пропуснато"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че тяхният материал е изпратен на продукционен "
+"етап."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Изпратено към продукционен етап"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че тяхният материал е изпратен на етап "
+"рецензиране."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Изпратен за рецензия"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че предишно решение за отхвърляне на "
+"материалите без рецензиране се отменя."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Възстановяване на отхвърлени материали без рецензиране"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че предишно решение за отхвърляне на "
+"материалите след рецензиране се отменя."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Възстановяване на отхвърлени материали"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора за решение за „преразглеждане и повторно "
+"изпращане“ относно техните подадени материали."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Повторно изпращане за рецензия"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора за решение да поискат ревизии по време на "
+"рецензиране."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Направено е искане за ревизии"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че е започнат е нов кръг (етап) на рецензиране "
+"на подадените материали."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Започнат е нов кръг (етап) на рецензиране"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Подадените материали са отхвърлени преди рецензиране"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че подадените материали са отхвърлени след "
+"партньорска рецензия."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Подадените материали са отхвърлени"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на подаване на материали."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+"Подадените материали са изпратени обратно към етапа на подаване на материали"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на рецензиране."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Подадените материали са изпратени обратно към етапа на рецензиране"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че техните подадени материали са изпратени "
+"обратно към етапа на стилово редактиране."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+"Подадените материали са изпратени обратно към етапа на стилово редактиране"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че подадените материали са приети за "
+"публикуване."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Подадените материали са приети"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Поканихме авторите да изпратят преработена версия за допълнителна рецензия."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Поканихме авторите да представят ревизии на подадените материали."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Избрахме да отхвърлим това подаване на материали."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Избрахме да приемем това подаване на материали без ревизии."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Кратко описание на това решение, което е предназначено да бъде споделено в "
+"известие по имейл, изпратено до рецензентите относно това решение."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Този имейл се изпраща от редактор до рецензента, за да го уведоми, че е "
+"взето решение по отношение на подадени материали, които той е рецензирал."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Копие от имейл съобщението, изпратено до подаващия материалите автор"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Този имейл се изпраща, за да уведоми авторите на подадени материали, които "
+"не са определени като участници в самото подаване, че е взето решение. "
+"Обикновено това са всички останали, освен подаващия автор."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Уведомяване на други автори"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Този имейл автоматично се изпраща на нов потребител, когато се регистрира в "
+"сайта, когато настройките изискват имейл адресът да бъде валидиран."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Потвърждаване на имейл (сайт)"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+"Този имейл се изпраща, когато редактор отмени асосиирането на рецензент."
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "Асосиирането на рецензент е отменено"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Този имейл се изпраща, когато рецензент, който е бил асоцииран, но е "
+"премахнат като такъв от подадените материали, бъде възстановен от редактор."
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Рецензентът е възстановен"
+
+msgid "mailable.discussionMessage.description"
+msgstr ""
+"Този имейл се изпраща автоматично до участниците в дискусията, когато към "
+"дискусията се добави ново съобщение."
+
+msgid "mailable.discussionMessage.name"
+msgstr "Ново съобщение в дискусия"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Имената на авторите, присвоени на работния процес за подаване на материали. "
+"Обикновено това е подаващият автор"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr ""
+"URL адресът на подадените материали в редакционния бекенд панел "
+"(редакторското табло)"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL адрес на автора към подадените материали"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Пълните имена на авторите"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Имена на автори под формата на съкратен низ"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Абстракт (резюме) на подадените материали"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Уникален идентификатор на подадените материали"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Заглавие на подадените материали"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Редакторите, определени за това подаване на материали, които могат да вземат "
+"решение"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "Имейлът на основния контакт на уебсайта"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Пълното име на основния контакт на уебсайта"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Подписът на имейла на подателя"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Имейл адресът на подателя"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Пълното име на подателя"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Това списание провежда отворено рецензиране. Рецензентите ще видят вашето "
+"име и институционалната принадлежност, както и имената и институционалната "
+"принадлежност на вашите съавтори. По същия начин ще видите имената и "
+"институционалната принадлежност на рецензентите."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Това списание извършва „анонимно рецензензиране“. Вашето име и тези на "
+"вашите съавтори ще бъдат видими за рецензентите; обаче самоличността на "
+"рецензентите ще остане анонимна."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Това списание провежда двойно анонимно партньорско рецензиране. Рецензентите "
+"няма да видят никаква идентифицираща информация за вас или вашите съавтори. "
+"По същия начин няма да знаете кой е прегледал вашето представяне и няма да "
+"се свържете директно с рецензентите."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Описание на метода за рецензиране по подразбиране, като двойно анонимен или "
+"отворен."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Препоръчителното решение, като \"Приемане на подадените материали\""
+
+msgid "emailTemplate.variable.recipient.submissionReviewUrl"
+msgstr "URL адресът на заданието за рецензия"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Дата, на която трябва да приключи рецензирането"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Дата, на която рецензентът трябва да приеме или отхвърли заданието"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Потребителското име на получателя или на всички получатели"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Пълното име на получателя или на всички получатели"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"В кръга на рецензиране е взето това решение, ако решението е свързано с етап "
+"на рецензиране."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "На етапа на редакционния работен процес е взето това решение."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Описание на взетото решение."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Име (заглавие) на взетото решение."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+"URL адресът за преглед на всички присвоени от потребителя заявки за подаване "
+"на материали."
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"URL адресът към страница, където потребителят може да възстанови изгубена "
+"парола"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Пощенски адрес на списанието"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Всички коментари от завършени реценции. Имената на рецензентите са скрити за "
+"анонимни рецензии"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Процесът не успя и прекъсна при анализа на публикациите"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Процесът не успя и прекъсна при анализа на авторите"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" — \"{$submissionTitle}\""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Посоченият път на списанието, \"{$contextPath}\", не съществува."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ГРЕШКА:"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Грешна конфигурация на филтъра [{$filterName}]: {$filterCount} срещания. "
+"Трябва да е само един."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Общи елементи"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Изтеглете експортирания файл от бутона по-долу."
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Експортирането завърши успешно."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Сваляне на експортиран файл"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Резултати от експорта на материали"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Процесът е неуспешен. Проверете по-долу за грешки/предупреждения."
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Степен на отхвърляне (след рецензия)"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Степен на отхвърляне (при подаване)"
+
+msgid "stats.name.declineRate"
+msgstr "Степен на отхвърляне"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Степен на приемане"
+
+msgid "stats.name.daysToReject"
+msgstr "Дни до отхвърляне"
+
+msgid "stats.name.daysToAccept"
+msgstr "Дни до приемане"
+
+msgid "stats.name.daysToDecision"
+msgstr "Дни до първото редакционно решение"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Публикувани материали"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Отхвърлени материали (след рецензия)"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Отхвърлени материали (при подаване)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Отхвърлени материали"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Приети материали"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Получени материали"
+
+msgid "stats.userStatistics"
+msgstr "Потребителска статистика"
+
+msgid "stats.trends"
+msgstr "Тенденции"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Общо в рамките на периода от време"
+
+msgid "stats.total"
+msgstr "Общо"
+
+msgid "stats.submissionsActive"
+msgstr "Активни подадени материали"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Търсене по заглавие, автор и ID"
+
+msgid "stats.pdf"
+msgstr "Формат PDF"
+
+msgid "stats.monthly"
+msgstr "Месечно"
+
+msgid "stats.html"
+msgstr "Формат HTML"
+
+msgid "stats.fileViews"
+msgstr "Прегледи на файл"
+
+msgid "stats.descriptionForStat"
+msgstr "Описание за {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Броят дни, необходими на повечето изпратени материали, за да получат първото "
+"редакционно решение, като например отхвърляне на документа или изпращане за "
+"рецензия.<br><br>Тези числа показват, че 80% от изпратените документи "
+"достигат до решението в рамките на дадения брой дни.< br <br>Тази статистика "
+"се опитва да опише кога мнозинството от авторите, подаващи материали се във "
+"вашето списание, могат да очакват решение."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Процентът за избрания период от време се изчислява за подадени материали "
+"през този период от време и получили окончателно решение.<br><br>Например, "
+"помислете за случая, в който са направени десет подадени заявки през този "
+"период от време. Четири бяха приети, четири бяха отхвърлени и две все още "
+"очакват окончателно решение.<br><br>Процентът на приемане ще бъде 50% (4 от "
+"8 подадени заявки), тъй като двете предложения, които не са стигнали до "
+"окончателно решение, не се зачитат."
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Година до дата"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "От {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Последната година"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Последни две години"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Последни 90 дни"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Последни 30 дни"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Последни 12 месеца"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Началната дата не може да е по-ранна от {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Крайната дата не може да е по-късна от {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Началната дата трябва да е преди крайната дата."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Форматът на датата не е валиден. Въведете всяка дата във формат ГГГГ-ММ-ДД."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Въведете всяка дата във формат ГГГГ-ММ-ДД. Например, ако искате датата за 15 "
+"януари 2019 г., въведете 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "От"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Една от въведените дати не съществува."
+
+msgid "stats.dateRange.customRange"
+msgstr "Персонализиран диапазон"
+
+msgid "stats.dateRange.change"
+msgstr "Промяна на периода от време"
+
+msgid "stats.dateRange.apply"
+msgstr "Прилагане"
+
+msgid "stats.dateRange.allDates"
+msgstr "Всички дати"
+
+msgid "stats.dateRange"
+msgstr "Период от време"
+
+msgid "stats.daily"
+msgstr "Дневно"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/година)"
+
+msgid "stats.allUsers"
+msgstr "Всички потребители"
+
+msgid "grid.category.categoryDetails"
+msgstr "Подробности за категорията"
+
+msgid "grid.category.nameRequired"
+msgstr "Моля, въведете име на категория."
+
+msgid "grid.category.removeText"
+msgstr "Наистина ли искате да премахнете тази категория?"
+
+msgid "grid.category.parentCategory"
+msgstr "Родителска (старша) категория"
+
+msgid "grid.category.pathExists"
+msgstr "Пътят на категорията вече съществува. Моля, въведете уникален път."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Пътят на категорията трябва да се състои само от букви и цифри."
+
+msgid "grid.category.urlWillBe"
+msgstr "URL адресът на категорията ще бъде: {$sampleUrl}"
+
+msgid "grid.category.description"
+msgstr "Описание"
+
+msgid "grid.category.path"
+msgstr "Път"
+
+msgid "grid.category.name"
+msgstr "Име"
+
+msgid "grid.category.edit"
+msgstr "Редакция на категория"
+
+msgid "grid.category.add"
+msgstr "Добавяне на категория"
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте въвели декларация за поверителност в "
+"Настройки > Работен процес > Подадени материали."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Връзка към страницата, показваща вашата декларация за поверителност."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Връзка към страницата за търсене."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако посетителят е влязъл като потребител в "
+"системата, плащанията са активирани в Настройки > Разпространение > Плащания "
+"и са необходими абонаменти от Настройки > Разпространение > Достъп."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако плащанията са активирани в Настройки > "
+"Разпространение > Плащания."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Моля, изберете тип навигационно меню."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили информацията за контакт в "
+"Настройки > Контакт."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Връзка към страница, показваща вашата информация за контакт."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само когато посетителят не е влязъл като "
+"потребител в системата."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само когато посетителят е влязъл като потребител в "
+"системата."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Връзка, чрез която потребителят ще излезе от системата."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Тази връзка ще се показва само на администратори."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Връзка към административните инструменти за целия сайт."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Връзка към страницата на потребителския профил."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Връзка към редакционното табло."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Връзка към страницата за регистрация на потребител."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Връзка към страницата за влизане на потребителя."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте активирали съобщения в Настройки > "
+"Уебсайт."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Връзка към страницата, показваща вашите публични съобщения."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Връзка към архивните броеве на списанието."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Връзка към текущия брой на списание."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Връзка към страницата, показваща инструкции за подаване на материали."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили секцията \"Редакционен екип"
+"\" в Настройки > Списание."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Връзка към страница, показваща съдържанието на главния банер в Настройки > "
+"Списание."
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Тази връзка ще се показва само ако сте попълнили секцията \"За списанието\" "
+"в Настройки > Списание."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Връзка към страница, показваща съдържанието на списанието в Настройки > "
+"Списание"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Връзка към който и да е URL на друг сайт, като https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Създайте персонализирана потребителска страница на вашия сайт и свържете към "
+"нея от навигационно меню."
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Потребителска страница"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+"Изберете тип \"меню за навигация\" или \"потребителско\", за да направите "
+"свое собствено"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип меню за навигация"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Когато елемент от менюто отвори подменю, връзката му не може да бъде "
+"следвана на всички устройства. Например, ако имате елемент \"Относно\", "
+"който отваря подменю с \"Контакт\" и \"Редакционен екип\", връзката \"Относно"
+"\" може да не е достъпна на всички устройства. В менюто по подразбиране това "
+"се обработва чрез създаване на втори елемент от менюто, „За списанието“, "
+"който се появява в подменюто."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Отдалечен/външен URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Научете повече за това кога този елемент от менюто ще бъде показан или скрит."
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Трябва да бъде предоставен URL адрес"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL-адрес"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "На тази област вече е присвоено меню за навигация."
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Изберете навигационна област"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Навигационни области в активната тема"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Неприсвоени елементи от менюто"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Присвоени елементи от менюто"
+
+msgid "manager.navigationMenuItems"
+msgstr "Елементи от менюто за навигация"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Заглавието е задължително"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Това заглавие вече съществува за друго меню за навигация."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Този път вече съществува за друг елемент от менюто за навигация."
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Полето за път трябва да съдържа само буквено-цифрови знаци плюс .', '/', "
+"'-', и '_'."
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Съдържание"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Тази страница ще бъде достъпна на адрес: <blockquote>{$pagesPath}</"
+"blockquote>...където %PATH% е пътят, въведен по-горе. <strong>Забележка:</"
+"strong> Две страници не могат да имат еднакъв път. Използването на пътища, "
+"които са вградени в системата, може да доведе до загуба на достъп до важни "
+"функции.</p>"
+
+msgid "manager.navigationMenus"
+msgstr "Навигация"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Път"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Заглавие"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Потребителското име \"{$username}\" и имейлът \"{$email}\" не съвпадат с "
+"един и същ съществуващ потребител."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импортираният потребител {$username}\" има обикновена парола, която не е "
+"валидна. Потребителят не е импортиран."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Импортираната потребителска парола на \"{$username}\" не можа да бъде "
+"импортирана такава, каквато е. Нова парола е изпратена на потребителския "
+"имейл. Потребителят е импортиран."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импортираният потребител \"{$username}\" няма парола. Проверете своя XML "
+"формат за импортиране. Потребителят не е импортиран."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Грешки при импорт/експорт:"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Файлът за подадените материали {$id} беше пропуснат, защото е прикачен към "
+"запис, който няма да бъде импортиран, като например задание за преглед или "
+"дискусия."
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Файлът за подадените материали не можа да бъде импортиран"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Ревизията \"{$revisionId}\" за подадения файл \"{$fileId}\" ще създаде "
+"дублиран запис"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Предоставеният размер на файла \"{$expected}\" и действителният размер на "
+"файла \"{$actual}\" не съвпадат"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Временен файл {$dest} не можа да бъде създаден от {$source}"
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Неизвестен качващ {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Авторът {$authorName} няма дадено име на езика на подаването на материали, "
+"{$localeName}. Материалите не могат да бъдат импортирани без тази информация."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Липсва потребителска група за името на автор {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"Файлът за импортиране включва автор '{$authorName}' с потребителска група "
+"'{$userGroupName}'. Няма дефинирана потребителска група в целевата "
+"инсталация с потребителска група с това име."
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Съдържанието не е езиково кодирано като {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Неизвестна езикова кодировка {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Неизвестен жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Неизвестен елемент {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Идентификатор: {$id}"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Възникнали грешки:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Открити предупреждения:"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Грешки при валидиране:"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Изискайте от автора да предостави референциите (библиографията), преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Изисквайте референциите (библиографията) от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Не изисквайте референциите (библиографията) от автора по време на подаването "
+"на материали."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Активиране на метаданните за референциите (библиографията)"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Съберете референциите (библиографията) в отделно поле. Това може да се "
+"наложи за спазване на услугите за проследяване на цитати, като Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Изискайте от автора да разкрие всички поддържащи агенции, преди да приемете "
+"подадените материали."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Изисквайте подкрепящи агенции от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Не изисквайте подкрепящи агенции от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Активирайте метаданните на поддържащите агенции"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Подпомагащите агенции могат да посочат източника на финансиране на "
+"изследванията или друга институционална подкрепа, която е улеснила "
+"изследването."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Изисквайте от автора да предостави дисциплини, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Изисквайте дисциплини от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Не изисквайте дисциплини от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Активирайте метаданните на дисциплините"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Дисциплините са видове обучение или клонове на знанието, както са описани от "
+"университетските факултети и учените общества."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Изискайте от автора да предостави типа, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Изисквайте типа от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Не изисквайте типа от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Активиране на тип метаданни"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Характерът или жанрът на основното съдържание на подаване. Типът обикновено "
+"е „Текст“, но може да бъде и „Набор от данни“, „Изображение“ или някой от <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-"
+"vocabulary/# section-7-dcmi-type-vocabulary\">Типове Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Изисквайте от автора да предостави теми, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Изисквайте теми от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Не изисквайте теми от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Активиране на метаданни за темата"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Теми ще бъдат ключови думи, ключови фрази или класификационни кодове, които "
+"описват тема на подадените материали."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Изисквайте от автора да предостави URL на източника, преди да приемете "
+"подадените материали."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Изисквайте URL на източника от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Не изисквайте URL на източника от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Активиране на метаданни за източник"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Източникът може да бъде идентификатор, като DOI, на друго произведение или "
+"ресурс, от който е получено подаването на материали."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Изисквайте от автора да разкрие всички предишни права за достъп, преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Изисквайте разкриване на правата от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Не изисквайте разкриване на правата от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Активиране на метаданните за правата"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Всички права, притежавани върху подадените материали, което може да включва "
+"права на интелектуална собственост (IPR), авторско право и различни права на "
+"собственост."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Изисквайте от автора да въведе езиците на материала, преди да приемете "
+"подаването на материали."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Изисквайте езиците на материала от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Не изисквайте езиците на материала от автора по време на подаването на "
+"материали."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Активиране на езикови метаданни"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Езикът указва основния език на произведението, използвайки езиков код („en“) "
+"с незадължителен код на държавата („en_US“)."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Изискайте от автора да предложи ключови думи, преди да приемете подадените "
+"материали."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Изисквайте ключови думи от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Не изисквайте ключови думи от автора по време на подаването на материали."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Активиране на метаданни за ключови думи"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Ключовите думи обикновено са фрази от една до три думи, които се използват "
+"за обозначаване на основните теми на подаваните материали."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Изискайте от автора да предложи метаданни за обхвата (покритието), преди да "
+"приемете подадените материали."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Изисквайте метаданни за обхвата (покритието) от автора по време на подаване "
+"на материали."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Не изисквайте метаданни за обхвата (покритието) от автора по време на "
+"подаване на материали."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Активиране на метаданните за обхват (покритие)"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Обхватът (покритието) обикновено указва пространственото местоположение на "
+"произведението (име на място или географски координати), времеви период "
+"(етикет за период, дата или период от време) или юрисдикция (като наименуван "
+"административен обект)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Обхват"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Форма за подаване на материали"
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL към уеб страница, описваща лиценза, ако е наличен."
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Изискайте изявление за конкурентен интерес по време на партньорската "
+"рецензия."
+
+msgid "grid.action.createReviewForm"
+msgstr "Създаване на нов формуляр за рецензия"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Видим (за автори)"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Едноредово текстово поле"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Разширено текстово поле"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Текстово поле с една дума"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Включено в съобщението до автора"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Задължително е рецензента да попълни елемента"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио бутони (можете да изберете само един)"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Описание"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Елемент"
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Избор"
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Не са създадени елементи от формуляра."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "За елемента от формуляра е необходим въпрос."
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "За елемента на формуляра се изисква тип елемент."
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Този имейл е изпратен автоматично, за да напомни на рецензента, че е изтекло "
+"времето за рецензиране."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Напомняне за рецензиране (автоматично)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Този имейл е изпратен от редактор, за да напомни на рецензента, че е изтекло "
+"времето за рецензиране"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Напомняне за рецензиране"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Този имейл се изпраща от рецензент, когато отхвърля заявка за рецензиране"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Отказ за рецензиране"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Този имейл се изпраща автоматично, когато рецензентът приеме заявка за "
+"рецензия"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Потвърждение за рецензиране"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Хеширан URL адрес, който се изпраща на потребител, за да потвърди нулирането "
+"на паролата"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Имейл подпис на уебсайта за автоматизирани имейли"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL адресът на заданието за рецензия"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Преди този компонент да може да бъде изтрит, трябва да асоциирате всички "
+"свързани файлове за подадените материали с различен компонент."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Други подадени материали"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Това включва подадени материали, които не се отчитат в други суми, като "
+"тези, които все още са в етам на редакиране и тези, които изглежда са "
+"импортирани."
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+"Обработването на свързаните материали - {$child} на подадения материал не бе "
+"успешно"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Липсва текущата публикация за подадения материал"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Персонализиран модел (не се препоръчва)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Персонализиран DOI суфиксен модел"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI суфикс"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Изисква се префикс DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Не можете да изпълните тази операция без активирани DOI."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Неуспешни актуализации на DOI"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Този имейл се изпраща автоматично, когато изтича срокът за потвърждение от "
+"страна на рецензента (вижте Опции за рецензии в Настройки > Работен поток > "
+"Рецензии) и достъпът на рецензент с едно щракване е деактивиран. Планираните "
+"задачи трябва да бъдат активирани и конфигурирани (вижте конфигурационния "
+"файл на сайта)."
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Този имейл от редактора на секции до рецензент изисква от рецензента да "
+"приеме или отхвърли задачата за преглед на изпратен материал за статия. "
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Този имейл от редактор до рецензент изисква от рецензента да приеме или "
+"отхвърли задачата за рецензия на изпратените материали за следващ етап от "
+"редакцията. Той предоставя информация за изпратеното, като заглавието и "
+"резюмето, краен срок за преглед и как да получите достъп до самите материали."
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Следваща заявка за рецензия"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Заявка за рецензия"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "Просрочен отговор за рецензия (автоматичен)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Този имейл се изпраща на рецензент, за да потвърди, че рецензията му е "
+"получена с благодарност за неговия принос."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Признание за рецензия"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Този имейл се изпраща на регистриран потребител, когато той посочи, че е "
+"забравил паролата си или не може да влезе. В имейла се предоставя URL адрес "
+"с връзка за задаване на нова парола."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Този имейл се изпраща на новорегистриран потребител, когато редакторът е "
+"създал потребителя през контролния панел за потребителски настройки. Имейлът "
+"приветства потребителя в системата и му предоставя запис с потребителското "
+"му име и парола."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Този имейл се изпраща на новорегистриран рецензент, за да го приветства в "
+"системата и да им предостави запис с потребителско име и парола."
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
+"изпраща ръкопис към списанието. Той предоставя информация за проследяване на "
+"подаването на ръкописа и благодари на автора за изпращането на материала."
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Този имейл автоматично се изпраща до съавторите на ръкописа, които не са "
+"изпращащия автор."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Този имейл се изпраща автоматично до назначения редактор, когато авторът "
+"качи преработена версия на статия."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Този имейл се изпраща, когато се създаде ново съобщение."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Този имейл се изпраща автоматично месечно до редактори и мениджъри на "
+"списания, за да им предостави общ преглед на състоянието на системата."
+
+msgid "manager.people.authSource"
+msgstr "Източник на удостоверяване"
+
+msgid "emailTemplate.variable.password"
+msgstr "Нова произволна потребителска парола"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Пълното име на потребител, който е качил файл с материали"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Заглавие на обявата"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Кратко описание на обявата"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL адрес към обявата"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Брой изпратени материали, получени този месец"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Брой на отхвърлените материали"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Месец на отчета"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Връзка към страницата на редакционната дейност"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Събиране на данни за държавата на посетителя"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Събиране на данни за държавата и региона на посетителя"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Събиране на данни за държава, регион и град на посетителя"
+
+msgid "stats.unique"
+msgstr "Уникални"
+
+msgid "stats.unknown"
+msgstr "неизвестен"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL адресът за потребителя, за да преглежда и редактира своя профил."
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Списък с изпратени материали с неизпълнени задачи"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Брой на приетите материали"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Общ брой на получени материали"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Идентификация на изданието, включително том, номер, година и заглавие"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Година на отчета"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Броят на материалите, присвоени на този редактор"
+
+msgid "manager.institutions.edit"
+msgstr "Редактиране на институция"
+
+msgid "manager.setup.statistics"
+msgstr "Статистики"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Географски статистики"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Не събирайте никакви географски данни"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Активирайте институционална статистика, ако искате да събирате статистика за "
+"употребата по институция. Ако е активирано, ще трябва да конфигурирате IP "
+"обхватите за всяка институция, която искате да проследявате."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Активиране на институционална статистика"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Статистика за използване от институция"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"На път сте да маркирате записи с метаданни на DOI за {$count} елемент(а) "
+"като остарели. Остарелият статус може да се приложи само към по-рано "
+"изпратени DOI. Сигурни ли сте, че искате да маркирате тези записи като "
+"остарели?"
+
+msgid "manager.institutions.form.ror"
+msgstr "Регистър на исзледователски организации (ROR)"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Валидните стойности включват IP адрес (напр. 142.58.103.1), IP диапазон "
+"(напр. 142.58.103.1 - 142.58.103.4), IP диапазон със заместващ знак "
+"„*“ (напр. 142.58.*.*) и IP диапазон с CIDR (напр. 142.58.100.0/24)."
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Маркираане на DOI като нерегистрирани"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"На път сте да маркирате записи с метаданни на DOI за {$count} елемент(а) "
+"като нерегистрирани. Сигурни ли сте, че искате да маркирате тези записи като "
+"нерегистрирани?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Маркиране DOI като остарели"
+
+msgid "manager.dois.actions.description"
+msgstr "Предприемане действие върху {$count} избран(и) елемент(а)."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Елементите са маркирани успешно като нерегистрирани"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Елементите са маркирани успешно като остарели"
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+"Идентификатор в регистъра на изследователски организации за тази институция."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP диапазони"
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Изтриване на институцията"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Сигурни ли сте, че искате да продължите и да изтриете тази институция?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Невалиден IP диапазон"
+
+msgid "manager.setup.institutions"
+msgstr "Институции"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Потвърждение за нулиране на парола"
+
+msgid "mailable.userRegister.name"
+msgstr "Потребителят е създаден"
+
+msgid "mailable.submissionAck.name"
+msgstr "Потвърждение за подадени материали"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Потвърждение за подадени материали (Съавтори)"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Регистър на рецензента"
+
+msgid "mailable.discussionReview.name"
+msgstr "Преглед на дискусия"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Този имейл се изпраща на етапа на работния процес по рецензиране, за да "
+"уведоми потребителя."
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Дискусия - стилово редактиране"
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Известие за преработена версия"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Дискусия за подадени материали"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Този имейл се изпраща на етапа на подаване на материали, за да уведоми "
+"потребителя."
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Редактиране на известие за рецензия"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява рецензента за променени подробности относно "
+"рецензията."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява асоциираните редактори за нова версия на "
+"публикацията"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Уведомления на редакторите за коментар на рецензента"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Този имейл се изпраща автоматично до асоциираните редактори, когато "
+"рецензентът направи препоръка"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Дискусия - продукционен етап"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Поканеният рецензент на подадените материали е отменен."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Материали, изпратени обратно от етапа за стилово редактиране"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че неговото изпращане е върнато от етапа на "
+"стилово редактиране."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Кръгът за рецензиране е отменен"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Връзка към страницата със статистика на публикуваните статии"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че кръгът за рецензиране на техните подадени "
+"материали е отменен."
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Този имейл се изпраща на етапа на стилово редактиране, за да уведоми "
+"потребителя."
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Този имейл се изпраща на продукционния етап на работния процес, за да "
+"уведоми потребителя."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Известие за статистически отчет"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Известие за публикувана версия"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Редакционно напомняне"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Автоматичен имейл, изпратен до редакторите с неизпълнени задачи"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Публично API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Дали да се ограничи или не достъпът до крайните точки на API за "
+"статистически данни за COUNTER SUSHI. Ако не е отметнато, API ще бъде "
+"достъпен само за потребители с администраторски или мениджърски роли."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Изберете типа географска статистика за използване, която да събирате. По-"
+"подробната географска статистика може значително да увеличи размера на "
+"вашата база данни и в някои редки случаи може да подкопае анонимността на "
+"вашите посетители."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Повторно изпращане на молба за рецензия до рецензента"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Този имейл се изпраща от редактор до рецензент, който е отхвърлил молба за "
+"рецензия, когато редакторът иска да изпрати отново молбата."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Направете статистиката на COUNTER SUSHI публично достъпна"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Предмет на дискусията"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Съдържанието на новата дискусия или отговор"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} до {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Всички {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Сваляне на файлове"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Брой сваляния на всеки файл."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Сваляне на географска информация"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Броят гледания и изтегляния за всеки град, регион или държава."
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Геолокацията се предоставя от <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "Относно геолокацията"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} до {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Всички {$filter}"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Броят на {$type} за всеки {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Изтегляне на хронологията"
+
+msgid "stats.timelineInterval"
+msgstr "Хронологичен интервал"
+
+msgid "stats.timelineType"
+msgstr "Хронологичен тип"
+
+msgid "stats.timeline"
+msgstr "Хронология"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI съдържа невалидни знаци."
+
+msgid "stats.name.submissionsImported"
+msgstr "Импортирани материали"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Основен файл"
+
+msgid "stats.file.type.suppFile"
+msgstr "Допълнителен файл"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Процес на изпратените материали"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Контролен списък за изпращане на материали"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Следното се показва на авторите, когато започнат изпращането си на материал. "
+"От авторите се иска да потвърдят, че тяхната работа отговаря на "
+"изискванията, посочени тук, преди да започнат подаването."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Уведомяване на рецензентите за решението"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпката за качване на файлове. "
+"Предоставете кратко обяснение какви файлове се очаква авторите да добавят с "
+"подаването си на материали."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпката с подробностите, когато "
+"те са помолени да предоставят заглавието, резюмето и друга ключова "
+"информация за тяхното изпращане."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на последната стъпка от съветника "
+"за изпращане на материали, когато те са помолени да прегледат цялата "
+"информация, която са предоставили, преди да изпратят работата си."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Ръководство за автора"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Асоцииране на {$name} като {$role}"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "URL адрес към изпратените материали"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Следното се показва на авторите, преди да започнат да изпращат материал. "
+"Дайте кратко обяснение на процеса на изпращане, така че авторът да знае "
+"какво да очаква."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпката отбелязване на "
+"сътрудници. Дайте кратко обяснение каква информация трябва да предостави "
+"авторът за себе си, съавторите и всички други сътрудници."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпка \"За редакторите\", "
+"когато те са помолени да предоставят метаданни като ключови думи, коментари "
+"към редактора и други подробности за подпомагане на редакционния преглед."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Изберете редакционните потребители, които трябва да бъдат присвоени "
+"автоматично на всички нови публикации в тази категория."
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Редакционни задачи"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+"Имената и институционалната принадлежност на авторите на подаваните "
+"материали."
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Изберете редакционните потребители, които трябва да бъдат присвоени "
+"автоматично на всички нови публикации в този раздел."
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "URL адрес към изпратените материали в Съветника за изпращане"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Подаваните материали са съхранени за по-късна обработка"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Автоматичен имейл, изпратен до авторите, когато запазят своето подаване на "
+"метериали, за да го довършат по-късно"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Ново съобщение"
+
+msgid "manager.mailables.templates"
+msgstr "Шаблони"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Редактиране на шаблон"
+
+msgid "manager.mailables.search"
+msgstr "Търсене по име или описание"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Въведете кратко име, за да ви помогне да намерите този шаблон."
+
+msgid "manager.submissionAck.description"
+msgstr ""
+"Кой трябва да получи имейл, когато бъде завършено ново подаване на материали."
+
+msgid "manager.submissionAck.off"
+msgstr "Да не се изпраща имейл."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Изпращане на имейл до всички автори."
+
+msgid "manager.editorialDecisions"
+msgstr "Редакторски решения"
+
+msgid "manager.forEditors.description"
+msgstr "Конфигурирне на известията по имейл, които да изпращате до редакторите."
+
+msgid "manager.editorialStatistics"
+msgstr "Редакционни статистики"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Изпращане на месечен имейл до редакторите."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Не не се изпраща имейла до редакторите."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Заявка за типографска редакция"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Въпрос относно цитиране"
+
+msgid "mailable.editorAssign.name"
+msgstr "Асоцииран редактор"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Готов за продукция"
+
+msgid "mailable.system"
+msgstr "Система"
+
+msgid "mailable.versionCreated.name"
+msgstr "Създадена версия"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Завършена рецензия"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Асоцииран редактор"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Подаден материал, за които следва да се асоциира редактор"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Конфигуриране на известията по имейл, които да се изпращат до авторите, "
+"когато бъде записано редакционно решение."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Дали да се изпраща или не месечен имейл до редакторите с редакционната "
+"статистика на списанието, като проценти на приемане и отказ. Редакторите "
+"могат да се отпишат от този имейл от своя потребителски профил."
+
+msgid "mailable.reviewEdit.name"
+msgstr "Редактирана рецензия"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Добавяне и редактиране на шаблони</a> за всички "
+"имейли, изпратени от системата.</p>"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Благодарност за подадените натериали на съавторите"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Добавете и редактирайте шаблони, които искате да направите достъпни за "
+"потребителя, когато се изпраща този имейл. По подразбиране ще се зареди "
+"автоматично и потребителят ще може бързо да зареди всички други шаблони, "
+"които добавите тук."
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Този имейл се изпраща на редактор, когато му бъде присвоен подаден материал."
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Броят на подадени материали, които не са включени в други сметки"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Годината на отчета"
+
+msgid "manager.manageEmails"
+msgstr "Управление на имейли"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Нулиране на шаблон"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Сигурни ли сте, че искате да нулирате темата и основния текст към техните "
+"настройки по подразбиране за шаблона <strong>{$template}</strong>?"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Премахване на шаблон"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"Сигурни ли сте, че искате да изтриете шаблона <strong>{$template}</strong>?"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Конфигурирайте известията по имейл, които да се изпращат, когато се направи "
+"ново подаване на материали."
+
+msgid "manager.newSubmission"
+msgstr "Нови материали"
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Изпращане на имейл само до подаващия материалите автор."
+
+msgid "manager.forEditors"
+msgstr "За редактори"

@@ -1,0 +1,180 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-09-26 15:18+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: bg (generated) <http://translate.pkp.sfu.ca/projects/ojs/"
+"emails/bg/>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
+"приключи процеса на изпращане на ръкопис към списанието. Той предоставя "
+"информация за проследяване на подаването на ръкописа и благодари на автора "
+"за изпращането."
+
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Благодарим ви, че изпратихте ръкописа,  &quot;{$submissionTitle}&quot; до "
+"{$contextName}. Със системата за управление на онлайн списания, която "
+"използваме, ще можете да проследявате напредъкът на рецензионния и "
+"редакционен процес, като влезете в уеб сайта на списанието: <br />\n"
+"<br />\n"
+"URL на изпратения ръкопис: {$submissionUrl}<br />\n"
+"Потребител: {$recipientUsername}<br />\n"
+"<br />\n"
+"Ако имате въпроси, моля свържете се с нас. Благодарим ви, че разглеждате "
+"това списание като подходящо място за публикуване на вашия труд. <br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Потвърждение за подаване"
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Признание за рецензия на статия"
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"Този имейл се изпраща от редактор на секции, за да потвърди получаването на "
+"завършена рецензия и да благодари на рецензента за неговия принос."
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Благодарим Ви, че резензирахте изпратените материали, "
+"&quot;{$submissionTitle},&quot; за {$contextName}. Оценяваме приноса ви към "
+"качеството на работата, която публикуваме."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Достигнахме решение относно вашето подаване на материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашето решение е да: Изпратим за рецензиране<br />\n"
+"<br />\n"
+"URL на изпратените материали: {$submissionUrl}"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Редактирането на вашите изпратени материали , &quot;{$submissionTitle},&quot;"
+" е завършено.  В момента се подготвят за публикация.<br />\n"
+"<br />\n"
+"URL на изпратените материали: {$submissionUrl}"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Достигнахме решение относно вашето подаване на материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашето решение е: Необходима е редакция"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Достигнахме решение относно вашето подаване на материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашето решение е: Повторно изпращане за резензия"
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"Достигнахме решение относно вашето подаване на материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашето решение е да: Отхвърлим подадените материали"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Препоръка на редактора"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"Препоръката относно подадените материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot; е: {$recommendation}"
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Моля да предприемете стилистична проверка на &quot;{$submissionTitle}&quot; "
+"за {$contextName} със следните стъпки.<br />\n"
+"1. Кликнете върху URL адреса за изпратените материали по -долу.<br />\n"
+"2. Отворете всички налични файлове под Чернови файлове и направете вашата "
+"редакция, като при необходимост добавите всякакви дискусии във връзка с "
+"вашата работа.<br />\n"
+"3. Запазете редактираните файл/файлове и ги качете в панела.<br />\n"
+"4. Уведомете редактора, че всички файлове са подготвени и че "
+"производственият процес може да започне.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"URL на изпратените материали: {$submissionUrl}<br />\n"
+"Потребител: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Молба за стилистична проверка"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Решение на редактора"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"Достигнахме решение относно вашето подаване на материали до {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Нашето решение е да: Отхвърлим изпратените материали"
+
+msgid "emails.discussion.subject"
+msgstr "Съобщение относно {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "Моля, въведете вашето съобщение."

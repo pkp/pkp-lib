@@ -1,0 +1,2113 @@
+# Tormod Strømme <tormod.stromme@uib.no>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2022-08-17 15:57+0000\n"
+"Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "submission.abstractViews"
+msgstr "Antall visninger av sammendrag"
+
+msgid "submission.accepted"
+msgstr "Akseptert"
+
+msgid "submission.acknowledge"
+msgstr "Bekreft"
+
+msgid "submission.ask"
+msgstr "Spør"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Tilbake til redigering av innlevering"
+
+msgid "submission.changeComments"
+msgstr "Endre til"
+
+msgid "submission.comments.addComment"
+msgstr "Legg til kommentar"
+
+msgid "submission.comments.comments"
+msgstr "Kommentarer"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Er du sikker på at du vil slette denne kommentaren?"
+
+msgid "submission.comments.corrections"
+msgstr "Korrigeringer"
+
+msgid "submission.comments.editComment"
+msgstr "Rediger kommentar"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Importer fagfellevurderinger"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Fagfelle {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "Ingen kommentarer"
+
+msgid "submission.comments.noReviews"
+msgstr "Ingen fagfellevurderinger"
+
+msgid "submission.comments.review"
+msgstr "Fagfellevurdering"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Send den redaksjonelle beslutningen til fagfellene"
+
+msgid "submission.comments.subject"
+msgstr "Emne"
+
+msgid "submission.complete"
+msgstr "Utført"
+
+msgid "submission.done"
+msgstr "Ferdig"
+
+msgid "submission.dueDate"
+msgstr "Frist"
+
+msgid "submission.due"
+msgstr "Ventet"
+
+msgid "submission.editing"
+msgstr "Redigering"
+
+msgid "submission.editMetadata"
+msgstr "Rediger metadata"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Tilbake til e-postloggen"
+
+msgid "submission.email.confirmClearLog"
+msgstr "Er du sikker på at du vil tømme e-postloggen for denne innleveringen?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Er du sikker på at du vil slette denne innførselen i e-postloggen?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Slett loggføring"
+
+msgid "submission.emailLog"
+msgstr "E-postlogg"
+
+msgid "submission.event.backToEventLog"
+msgstr "Tilbake til aktivitetslogg"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Er du sikker på at du vil tømme aktivitetsloggen for denne innleveringen?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "Er du sikker på at du vil slette denne innføringen i aktivitetsloggen?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Slett loggføring"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Metadata for innlevering oppdatert"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Innleveringsfil oppdatert"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Fagfellevurdering akseptert av mellommann"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Fagfellevurdering akseptert"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Fagfellevurdering avslått"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Frist for fagfellevurdering omgjort"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Fagfelle oppnevnt til innleveringen"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Fagfellens rangering innsendt"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Fagfelle fjernet"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Fil med fagfellevurdering oppdatert"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Fagfellevurdering satt i gang"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Fil med fagfellens anbefaling"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Fagfellevurdering startet på nytt"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Fagfellevurdering innsendt på nytt"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Fil med fagfellens revidering oppdatert"
+
+msgid "submission.files"
+msgstr "Filer"
+
+msgid "submission.galley"
+msgstr "Oppsett"
+
+msgid "submission.history.clearLog"
+msgstr "Tøm logg"
+
+msgid "submission.history"
+msgstr "Historikk"
+
+msgid "submission.history.noLogEntries"
+msgstr "Ingen loggføringer."
+
+msgid "submission.history.recentLogEntries"
+msgstr "Siste loggføringer"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "E-postlogg"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Aktivitetslogg"
+
+msgid "submission.history.submissionNotes"
+msgstr "Innleveringsnotater"
+
+msgid "submission.history.viewLog"
+msgstr "Vis logg"
+
+msgid "submission.initiated"
+msgstr "Satt i gang"
+
+msgid "submission.lastModified"
+msgstr "Sist endret"
+
+msgid "submission.layout.addGalley"
+msgstr "Legg til et layoutoppsett"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Er du sikker på at du permanent vil slette oppsettet?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Er du sikker på at du vil fjerne dette bilde fra oppsettet?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Slett dette stilarket."
+
+msgid "submission.layout.editGalley"
+msgstr "Rediger et layoutoppsett"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Oppsettformat"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML-oppsettfiler"
+
+msgid "submission.layout.galleyImages"
+msgstr "Bilder"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "Etiketten identifiserer filformatet (f.eks. HTML, PDF)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Etikett"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Du må legge inn en etikett."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Du må angi et språk."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Du må oppgi en språkpakke."
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Ingen bilder"
+
+msgid "submission.layout.galleys"
+msgstr "Oppsett"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Stilarkfil"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Stil"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Lage første oppsett"
+
+msgid "submission.layout.layoutFile"
+msgstr "Layoutfil"
+
+msgid "submission.layout"
+msgstr "Layout"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Layoutversjon"
+
+msgid "submission.layout.newGalley"
+msgstr "Lag nytt oppsett"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Ingen fil med stilark er lagt til oppsettet."
+
+msgid "submission.layout.viewingGalley"
+msgstr "Vis oppsettet til innleveringen"
+
+msgid "submission.layout.viewProof"
+msgstr "Vis korrektur"
+
+msgid "submission.metadata"
+msgstr "Metadata"
+
+msgid "submission.noReviewAssignments"
+msgstr "Ingen oppdrag om fagfellevurdering"
+
+msgid "submission.notes.addNewNote"
+msgstr "Legg til nytt notat"
+
+msgid "submission.notes.attachedFile"
+msgstr "Vedlegg"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Tilbake til innleveringsnotater"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Notater"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Tøm alle notater"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Forminske notater"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Vil du fjerne alle innleveringsnotatene?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Vil du fjerne innleveringsnotatet?"
+
+msgid "submission.notes.createNewNote"
+msgstr "Opprett nytt notat"
+
+msgid "submission.notes.deleteNote"
+msgstr "Slett notat"
+
+msgid "submission.notes.editNote"
+msgstr "Rediger notat"
+
+msgid "submission.notes.expandNotes"
+msgstr "Utvid notater"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Ingen innleveringsnotater"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Fjern opplastet fil"
+
+msgid "submission.notes"
+msgstr "Notater til innleveringen"
+
+msgid "submission.notes.updateNote"
+msgstr "Oppdater notat"
+
+msgid "submission.notes.viewNotes"
+msgstr "Vis notater"
+
+msgid "submission.originalFile"
+msgstr "Originalfil"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Redigering"
+
+msgid "submission.page.history"
+msgstr "#{$id} Historikk"
+
+msgid "submission.page.review"
+msgstr "#{$id} Fagfellevurdering"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Oppsummering"
+
+msgid "submission.peerReview"
+msgstr "Fagfellevurdering"
+
+msgid "submission.recommendation"
+msgstr "Anbefaling: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "Avvist"
+
+msgid "submission.request"
+msgstr "Bestill"
+
+msgid "submission.response"
+msgstr "Svar"
+
+msgid "submission.restrictions"
+msgstr "Restriksjoner"
+
+msgid "submission.reviewMetadata"
+msgstr "Metadata for fagfellevurdering"
+
+msgid "submission.review"
+msgstr "Fagfellevurdering"
+
+msgid "submission.reviewVersion"
+msgstr "Versjon av fagfellevurdering"
+
+msgid "submissions.active"
+msgstr "Aktiv"
+
+msgid "submissions.archived"
+msgstr "Arkivert"
+
+msgid "submission.saveMetadata"
+msgstr "Lagre metadata"
+
+msgid "submissions.completed"
+msgstr "Utført"
+
+msgid "submissions.declined"
+msgstr "Avvist"
+
+msgid "submissions.incomplete"
+msgstr "Ufullstendig"
+
+msgid "submissions.noSubmissions"
+msgstr "Ingen innleveringer"
+
+msgid "submissions.queuedEditing"
+msgstr "Redigeres"
+
+msgid "submissions.queued"
+msgstr "I køen"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Ingen redaktør har blitt tildelt denne innleveringen."
+
+msgid "submissions.ruling"
+msgstr "Avgjørelse"
+
+msgid "submissions.submit"
+msgstr "Send inn"
+
+msgid "submissions.submitted"
+msgstr "Innsendt"
+
+msgid "submission.start"
+msgstr "Start"
+
+msgid "submission.submissionHistory"
+msgstr "Innleveringshistorikk"
+
+msgid "submission.submissionManuscript"
+msgstr "Manuskriptet"
+
+msgid "submission.submissionReview"
+msgstr "Manuskriptvurdering"
+
+msgid "submission.submitter"
+msgstr "Innsender"
+
+msgid "submission.summary"
+msgstr "Oppsummering"
+
+msgid "submission.titleAndAbstract"
+msgstr "Tittel og sammendrag"
+
+msgid "submission.underway"
+msgstr "Under arbeid"
+
+msgid "submission.uploadFileTo"
+msgstr "Last opp fil til"
+
+msgid "submission.viewMetadata"
+msgstr "Vis metadata"
+
+msgid "submission.views"
+msgstr "Visninger"
+
+msgid "metadata.property.displayName.author"
+msgstr "Forfattere"
+
+msgid "metadata.property.validationMessage.author"
+msgstr "For best resultat bør du oppgi forfattere på følgende måte: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Redaktører"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "For best resultat bør du oppgi forfattere på følgende måte: Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.date"
+msgstr "Publiseringsdato"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Oppgi en gyldig publiseringsdato. Bruk formatet: ÅÅÅÅ-MM-DD."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Utgave"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Oppgi en gyldig utgave."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Årgang"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Oppgi en gyldig årgang."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Skriv inn en gyldig DOI."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Lenke til publikasjonen"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Skriv inn en gyldig, alternativ lenke til publikasjonen."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Kommentar"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Skriv inn en gyldig kommentar."
+
+msgid "submission.uploadSuccessful"
+msgstr "Filen ble lastet opp."
+
+msgid "submission.loadMessage"
+msgstr "Vent mens filen lastes opp til serveren."
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ÅÅÅÅ-MM-DD"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API-nøkkel"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Skriv inn ISBNdb API-nøkkelen din. Om du ikke har fått en slik nøkkel, kan "
+"du be om en gratis nøkkel fra ISBNdb-prosjektet."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Konferansedato"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Skriv inn en gyldig konferansedato. Bruk formatet: ÅÅÅÅ-MM-DD."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Konferansested"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Skriv inn et gyldig konferansested."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Konferansenavn"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Skriv inn et gyldig konferansenavn."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Konferansesponsor"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Skriv inn en gyldig konferansesponsor."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Institusjon"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Skriv inn en gyldig institusjon."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Første side"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "Skriv inn en gyldig førsteside (må være et tall)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Siste side"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "Skriv inn en gyldig siste side (må være et tall)."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Kapitteltittel"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Skriv inn en gyldig kapitteltittel."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Utgave"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Skriv inn en gyldig utgave."
+
+msgid "metadata.property.displayName.size"
+msgstr "Antall sider"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "Skriv inn et gyldig antall sider (må være et tall)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Utgiversted"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Skriv inn et gyldig utgiversted."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Navn på utgiver"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Skriv inn et gyldig utgivernavn."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN-nummer"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Skriv inn et gyldig ISBN-nummer (9 eller 13 sifre)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "ISSN-nummer for papirutgave"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Skriv inn et gyldig ISSN-nummer for papirutgave."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN-nummer (elektronisk utgave)"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Skriv inn et gyldig eISSN-nummer."
+
+msgid "submission.addFile"
+msgstr "Last opp fil"
+
+msgid "submission.citations"
+msgstr "Referanser"
+
+msgid "metadata.property.displayName.title"
+msgstr "Tittel"
+
+msgid "submission.fileDetails"
+msgstr "Fildetaljer"
+
+msgid "submission.nameRequired"
+msgstr "Elementet må ha et navn."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Artikkelens tittel"
+
+msgid "metadata.property.displayName.source"
+msgstr "Tittel på publikasjonen"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Notat"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Type publikasjon"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Undertittel"
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Deler av tittel blir ignorert mens sorteringen pågår"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "Skriv bare de første tegnene som skal ignoreres når tittelen sorteres."
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Legg til en gyldig tittel."
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Legg til en gyldig undertittel."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Navnetype"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Legg til en gyldig navnetype: «person», «organisasjon» eller «konferanse»."
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Oppgi en gyldig tittel."
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Oppgi en gyldig tittel på publikasjonen."
+
+msgid "submission.form.replaceExisting"
+msgstr "Erstatte en eksisterende fil?"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} er oppnevnt som fagfelle av manuskriptet {$submissionId} for "
+"vurderingsrunden {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Vurderingsrunde {$round} av innleveringen {$submissionId} ved {$reviewerName}"
+"  er fjernet."
+
+msgid "log.review.reviewReinstated"
+msgstr "Vurderingsrunde {$round} av manuskript {$submissionId} ved {$reviewerName}  er igangsatt på nytt."
+
+msgid "submission.reviewForm"
+msgstr "Vurderingsskjema"
+
+msgid "submission.reviewFormResponse"
+msgstr "Skjema for respons til fagfellevurdering"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Du er oppnevnt i flere roller for denne innleveringen. Vil du gå til <a href="
+"\"{$urlAuthorWorkflow}\">forfatters arbeidsflyt</a> eller <a href=\""
+"{$urlEditorialWorkflow}\">redaksjonell arbeidsflyt</a>?"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "grid.action.itemWorkflow"
+msgstr "Gå til arbeidsflyten for denne innleveringen"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Bidragsyter eller sponsor"
+
+msgid "submission.supplementary.publisher"
+msgstr "Utgiver"
+
+msgid "submission.supplementary.subject"
+msgstr "Tema"
+
+msgid "submission.supplementary.creator"
+msgstr "Den som lagde (eller eier) filen"
+
+msgid "submission.supplementary"
+msgstr "Supplerende innhold"
+
+msgid "submission.art"
+msgstr "Illustrasjoner"
+
+msgid "submission.document"
+msgstr "Dokument"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Denne fagfellevurderingen er ferdigstilt og fagfellen har blitt takket for "
+"bidraget."
+
+msgid "submission.review.status.complete"
+msgstr "Denne fagfellevurderingen er fullført."
+
+msgid "submission.review.status.received"
+msgstr "Denne fagfellen har innlevert sin fagfellevurdering."
+
+msgid "submission.review.status.accepted"
+msgstr "Denne fagfellevurderingen har blitt akseptert."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr ""
+"Fagfellen har ikke overholdt fristen for innlevering av fagfellevurdering."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Fagfellen har ikke svart innen svarfristen."
+
+msgid "submission.review.status.declined"
+msgstr "Fagfellen har avvist forespørselen."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Avventer respons fra fagfelle."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} har fullført vurderingen under {$round} runde for "
+"innlevering {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktøren {$userName} har validert en {$round} runde for innlevering "
+"{$submissionId}."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} har markert runde {$round} vurdering av innlevering "
+"{$submissionId} som ikke vurdert."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Last opp revidert fil"
+
+msgid "submission.productionReady"
+msgstr "Bok tilgjengelig"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Velg fagfellevurderingen(e) du vil dele med forfatteren/forfatterne"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Fagfellens vedlegg"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Det ble opprettet en ny versjon av en innlevering"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Du må oppnevne en redaktør før fagfellevurderingen kan starte. Bruk lenken "
+"«Deltakere» over."
+
+msgid "notification.uploadedResponse"
+msgstr "Respons lastet opp."
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Innlevering avvist."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "En ny runde av vurderinger ble startet."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Send inn for ny fagfellevurdering."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Må bearbeides."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Ekstern fagfellevurdering startet."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Innlevering godkjent."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Siste avgjørelse fra redaktør."
+
+msgid "notification.type.indexRequest"
+msgstr "Du har blitt bedt om å lage en indeks for «{$title}»."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Du har blitt bedt om å se over layouten av «{$title}»."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Du har blitt bedt om å se over språvasken av «{$title}»."
+
+msgid "notification.type.editorAssign"
+msgstr "Du har blitt oppnent til å redigere innleveringen «{$title}»."
+
+msgid "submission.documents"
+msgstr "Dokumenter i innleveringen"
+
+msgid "submission.stageNotInitiated"
+msgstr "Steg ikke satt i gang."
+
+msgid "submission.description"
+msgstr "Beskrivelse"
+
+msgid "submission.overview"
+msgstr "Gå gjennom innleveringen"
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "{$username} fjernet den siste revideringen av filen «{$title}»."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"{$username} slettet en revidert versjon av «{$originalFileName}» fra "
+"innleveringen {$submissionId}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"{$username} la til en revidert versjon av «{$originalFileName}» til "
+"innleveringen {$submissionId}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"{$username} slettet filen «{$originalFileName}» fra innleveringen "
+"{$submissionId}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Filen «{$originalFileName}» ble lastet opp av {$username} for  "
+"{$submissionId}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Det oppsto en feil da du prøvde å oppnevne sluttkontrollør. Forsøk igjen."
+
+msgid "submission.finalDraft"
+msgstr "Filer til språkvask"
+
+msgid "submission.submit.currentFile"
+msgstr "Nåværende fil"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Kontroller filene"
+
+msgid "submission.actionNeeded"
+msgstr "Må behandles"
+
+msgid "submission.noActionRequired"
+msgstr "Må ikke behandles"
+
+msgid "submission.currentStage"
+msgstr "Nåværende stadie"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Registrerte anbefalinger"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Anbefal en redaksjonell avgjørelse for denne innleveringen."
+
+msgid "editor.submission.recommendation"
+msgstr "Anbefaling"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Anbefalinger: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Anbefaling: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Endre anbefalingen"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Legg inn din anbefaling"
+
+#, fuzzy
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Oppnevn en redaktør til å ta de redaksjonelle avgjørelsene på dette stadiet."
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Sistekorrekturen vil ikke lenger være offentlig tilgjengelig for nedlasting "
+"eller kjøp. Vil du avvise den?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Godkjenn sistekorrektur"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Filen med sistekorrektur må bli krysset av som godkjent for å bli "
+"tilgjengelig. Vil du godkjenne den?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Send til intern vurdering"
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Aksepter og hopp over fagfellevurdering"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Send til produksjon"
+
+msgid "editor.submission.decision.decline"
+msgstr "Avvis innlevering"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Ny runde fagfellevurdering"
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Lever inn til ny fagfellevurdering"
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Be om revidering"
+
+msgid "editor.submission.decision.accept"
+msgstr "Aksepter innlevering"
+
+msgid "editor.submission.decision"
+msgstr "Avgjørelse"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Er du sikker på at du vil at forfatterne av denne innleveringen skal kunne "
+"redigere metadata for innleveringen på dette trinnet?"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Er du sikker på at du vil at forfatterne av denne innleveringen ikke skal "
+"kunne redigere metadata for innleveringen på dette trinnet?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Tillat redigering av metadata"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Ikke tillat redigering av metadata"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Deltakeren du har valgt er oppnevnt til å gjennomføre blind "
+"fagfellevurdering. Hvis du oppnevner dem til deltaker så vil de ha tilgang "
+"til forfatterens identitet. Dette anbefales ikke dersom du ikke på andre "
+"måter kan sikre integriteten i fagfellevurderingsprosessen."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Du må velge en bruker for denne brukergruppen."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Du må velge en brukergruppe."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"Du er i ferd med å fjerne en deltaker fra <strong>alle</strong> stadier. "
+"Dersom brukeren også har kommende oppgaver som sluttkontrollør, vil disse "
+"bli fjernet."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Fjern deltaker"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Brukergruppen legger til brukere i ulike stadier av arbeidsflyten. Alle "
+"brukere som er lagt til dette stadiet, vil automatisk bli lagt til andre "
+"stadier brukergruppen deres har blitt lagt til. Dette er vanligvis reservert "
+"for redaktører, forfattere og oversettere."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Rediger oppgave"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Legg til deltaker"
+
+msgid "editor.submission.participant"
+msgstr "Deltakere"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Ingen tildelt"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Deltakere"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Alle anbefalinger er levert inn. Det må tas en avgjørelse."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Nye redaksjonelle anbefalinger har blitt levert inn."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Avventer anbefaling fra redaktørene."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Fristen for fagfellevurdering har forfalt."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Alle fagfellevurderinger er fullført."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Nye fagfellevurderinger er levert inn."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "Avventer respons fra fagfeller."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Avventer valg av fagfeller."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Innleveringen er avvist."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Innleveringen er akseptert."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Sendt til ekstern fagfellevurdering."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Innleveringen er levert til ny fagfellevurderingsrunde."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Innleveringen må sendes inn på ny for en ny fagfellevurderingsrunde."
+
+#, fuzzy
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Revideringer er levert inn."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Revideringer har blitt forespurt."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "Det er ingen filer å revidere."
+
+msgid "submission.upload.proof"
+msgstr "Last opp en publiseringsklar fil"
+
+msgid "submission.upload.productionReady"
+msgstr "Last opp en produksjonsklar fil"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"Etter å ha sett gjennom den tildelte filen, kan du legge til ev. kommentarer "
+"i filen under og/eller laste opp en kommentert kopi av filen (eller en annen "
+"fil)."
+
+msgid "submission.upload.uploadFiles"
+msgstr "Last opp filer"
+
+msgid "submission.upload.fairCopy"
+msgstr "Last opp endelig versjon"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Last opp språkvasket fil"
+
+msgid "submission.upload.finalDraft"
+msgstr "Last opp fil"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Dokumentkategori"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Last opp bibilioteksfil"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Dersom du laster opp en vitenskapelig antologi, bør du laste opp kapitlene "
+"individuelt. Bruk rollen antologiredaktør."
+
+msgid "submission.upload.userGroup"
+msgstr "Last opp dette som..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Dette er ikke en revidert versjon av en eksisterende fil"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"Dersom du laster opp en revidert versjon av en eksisterende fil, merk "
+"hvilken det gjelder."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Velg filen du vil revidere."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Navnet på filen du lastet opp ligner navnet på en tidligere opplastet fil "
+"«{$revisedFileName}».´ Er dette filen du vil bytte «{$revisedFileName}» ut? "
+"Hvis så, velg filen under. Hvis ikke, velger du «Dette er ikke en revidert "
+"versjon av en eksisterende fil» før du fortsetter."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Mulig duplikat eller revidert versjon funnet"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Manglende eller ugyldig brukergruppe!"
+
+msgid "submission.upload.noGenre"
+msgstr "Manglende eller ugyldig komponent!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Du må skrive inn et filnavn"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "Bekreft"
+
+msgid "submission.submit.metadataStep"
+msgstr "Sjekk detaljene"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Last opp"
+
+msgid "submission.submit.uploadStep"
+msgstr "Last opp filen"
+
+msgid "submission.status.published"
+msgstr "Publisert"
+
+msgid "submission.status.declined"
+msgstr "Avslått"
+
+msgid "submission.status.unassigned"
+msgstr "Ikke oppnevnt"
+
+msgid "submission.status.submission"
+msgstr "Avventer redaktørens avgjørelse"
+
+msgid "submission.status.review"
+msgstr "Til fagfellevurdering"
+
+msgid "submission.status.production"
+msgstr "Korrekturleses"
+
+msgid "submission.status.editorial"
+msgstr "Språkvaskes"
+
+msgid "workflow.stage"
+msgstr "Stadie"
+
+msgid "workflow.stage.any"
+msgstr "Alle stadier"
+
+msgid "workflow.review.internalReview"
+msgstr "Intern vurdering"
+
+msgid "submission.form.name"
+msgstr "Gi filen et navn (f.eks. Manuskript; Tabell 1)"
+
+msgid "submission.submit.addAuthor"
+msgstr "Legg til bidragsyter"
+
+msgid "submission.submit.contributorRole"
+msgstr "Bidragsyterens rolle"
+
+msgid "submission.artworkFileDetails"
+msgstr "Detaljer: Fil med illustrasjoner"
+
+msgid "submission.createRemote"
+msgstr "Lag eksternt"
+
+msgid "submission.indexingInformation"
+msgstr "Indekseringsinformasjon"
+
+msgid "submission.currentAgencies"
+msgstr "Nåværende sponsorer"
+
+msgid "submission.supportingAgencies"
+msgstr "Sponsorer"
+
+msgid "submission.upload.query"
+msgstr "Last opp en diskusjonsfil"
+
+msgid "submission.upload.dependent"
+msgstr "Last opp en supplerende fil"
+
+msgid "submission.manageDependentFiles"
+msgstr "Styr supplerende filer"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Supplerende filer"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Innleverte filer"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Språk"
+
+msgid "submission.submit.metadataForm"
+msgstr "Ytterligere informasjon"
+
+msgid "submission.submit.newFile"
+msgstr "Legg til en fil til"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "Inkluder bidragsyter i søkelister?"
+
+msgid "submission.submit.fileAdded"
+msgstr "Fil lagt til"
+
+msgid "submission.submit.fileInformation"
+msgstr "Informasjon om filen"
+
+msgid "submission.submit.selectFile"
+msgstr "Velg fil"
+
+msgid "submission.submissionTitle"
+msgstr "Tittel på innlevering:"
+
+msgid "submission.submission"
+msgstr "Innlevering"
+
+msgid "submission.source"
+msgstr "Kilde"
+
+msgid "submission.rights"
+msgstr "Rettigheter"
+
+msgid "submission.reviewed"
+msgstr "Fagfellevurdert"
+
+msgid "submission.production"
+msgstr "Produksjon"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Referanser"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Legg til en gyldig ekstern URL (inkluder http:// eller https://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Ekstern URL"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Gi beskjed til"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Vi alle aktivitetene fra tidligere versjoner"
+
+msgid "submission.informationCenter.history"
+msgstr "Historikk"
+
+msgid "submission.informationCenter.notes"
+msgstr "Notater"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Innlevering: informasjon"
+
+msgid "submission.publisherId.enable"
+msgstr "Aktiver for {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Utgiver-ID-en kan brukes til å registrere ID-en fra en ekstern database. "
+"Eksempelvis kan varer som eksporteres for innskudd på PubMed inneholde "
+"utgiver-ID. Dette bør ikke brukes til DOI."
+
+msgid "submission.publisherId"
+msgstr "Offentlig URL-identifikator"
+
+msgid "submission.identifiers"
+msgstr "Identifikator"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Dette er en utdatert versjon publisert {$datePublished}. Les <a href=\""
+"{$urlRecentVersion}\">den nyeste versjonen</a>."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.versions"
+msgstr "Versjoner"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Oppdatert {$dateUpdated}"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Last ned referanse"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Referansestiler"
+
+msgid "submission.howToCite"
+msgstr "Hvordan referere"
+
+msgid "submission.files.downloadAll"
+msgstr "Last ned alle filer"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Forfatterne har nå ikke lov til å redigere metadata når innleveringen er i "
+"trinn {stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Forfatterne har nå lov til å redigere metadata når innleveringen er på trinn "
+"{stage}."
+
+msgid "submission.event.viewEmail"
+msgstr "Se e-post"
+
+msgid "submission.event.subjectPrefix"
+msgstr "En e-post ble sendt:"
+
+msgid "submission.event.fileRevised"
+msgstr ""
+"Den reviderte filen \"{$name}\" (file ID {$fileId}-{$fileRevision}) ble "
+"lastet opp."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Første steg av innlevering ferdig."
+
+msgid "submission.event.participantRemoved"
+msgstr "{$name} ({$username}) er fjernet som {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) ble lagt til denne innleveringen som et "
+"{$userGroupName}."
+
+msgid "submission.editorial"
+msgstr "Språkvask"
+
+msgid "submission.downloads"
+msgstr "Nedlastinger"
+
+msgid "submission.coverage"
+msgstr "Informasjon om dekning"
+
+msgid "submission.queryNoteFiles"
+msgstr "Diskusjonsfiler"
+
+msgid "submission.copyediting"
+msgstr "Språkvask"
+
+msgid "submission.copyedited"
+msgstr "Ferdig språkvasket"
+
+msgid "submission.contributors"
+msgstr "Bidragsytere"
+
+msgid "submission.comments.addReviews"
+msgstr "Legg fagfellevurderingene til e-post"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Hent ut og lagre referanser"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Følgende referanser er hentet ut og vil bli lenket til innleveringens "
+"metadata."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Uthentede referanser"
+
+msgid "submission.citations.description"
+msgstr ""
+"Legg til hver referanse på en ny linje slik at den kan hentes ut og "
+"registreres separat."
+
+msgid "submission.changeFile"
+msgstr "Endre fil"
+
+msgid "submission.attachedFile"
+msgstr "Vedlegg"
+
+msgid "submission.agencies"
+msgstr "Støtteorganisasjoner"
+
+msgid "submission.additionalFiles"
+msgstr "Ytterligere filer"
+
+msgid "submission.mySubmissions"
+msgstr "Mine innleveringer"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} av {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Forfatterbiografier"
+
+msgid "submission.authorBiography"
+msgstr "Forfatterbiografi"
+
+msgid "submission.authors"
+msgstr "Forfattere"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Arkiverte innleveringer"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Mine oppdrag"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Ikke tildelt"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Sammendrag"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Skriv inn et gyldig delnavn."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Delnavn"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Skriv inn et gyldig delnummer."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Delnummer"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Pass på at du setter en gyldig type tittel. Støttede verdier er «forkortet», "
+"«oversatt», «alternativ» og «standardisert»."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Titteltype"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Pass på at du alltid oppgir en type publikasjon. Du kan velge mellom bok ("
+"for bøker og kapitler) og tidsskrift (for tidsskriftsartikler). Andre vil "
+"ikke fungere."
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Skriv inn et gyldig notat."
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Skriv inn en gyldig PMID."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Skriv inn en gyldig SICI."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Legg inn en gyldig CODEN."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Skriv inn en gyldig, egendefinert publikasjons-ID."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Egendefinert publikasjons-ID"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Legg til et gyldig tillegg."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Tillegg"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Skriv inn en gyldig serie."
+
+msgid "metadata.property.displayName.series"
+msgstr "Serie"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Skriv inn en gyldig sesongsidentifikator."
+
+msgid "metadata.property.displayName.season"
+msgstr "Sesong"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Skriv inn en gyldig tilgangsdato. Bruk formatet: ÅÅÅÅ-MM-DD."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Tilgangsdato"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Intern feil. En ugyldig verdi har blitt lagt til «Valgfrie filter»-"
+"innstillingen. Rapporter gjerne  programfeilen."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "Ikke bruk som standard (vil fremdeles være tilgjengelig for redaktør)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Velg referansemodul."
+
+msgid "submission.event.proofsApproved"
+msgstr "{$name} ({$username}) har godkjent sistekorrekturen av «{$formatName}»."
+
+msgid "submission.event.signoffSignoff"
+msgstr "{$name} ({$username}) har kvittert ut «{$file}»."
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"{$name} ({$username}) har fullført en sluttkontroll og lastet opp «{$file}»."
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"{$name} ({$username}) ble fjernet som sluttkontrollør for filen «{$file}»."
+
+msgid "submission.event.fileAuditorAdded"
+msgstr "{$name} ({$username}) ble lagt til som sluttkontrollør for «{$file}»."
+
+msgid "publication.wordCount"
+msgstr "Antall ord: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Sammendraget er for langt. Det må være på {$limit} ord eller mindre. For "
+"tiden er det {$count} ord."
+
+msgid "publication.version.confirm"
+msgstr "Er du sikker på at du vil opprette en ny versjon?"
+
+msgid "publication.version.all"
+msgstr "Alle versjoner"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL-stien kan ikke være et tall."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL-stien er allerede brukt og kan ikke brukes igjen."
+
+msgid "publication.urlPath.description"
+msgstr "En valgfri sti til bruk i URL'en i stedet for ID."
+
+msgid "publication.urlPath"
+msgstr "URL-sti"
+
+msgid "publication.unschedule"
+msgstr "Ta bort fra publiseringsplanlegging"
+
+msgid "publication.titleAbstract.success"
+msgstr "Tittelen og abstraktet har blitt oppdatert."
+
+msgid "publication.titleAbstract"
+msgstr "Tittel og sammendrag"
+
+msgid "publication.status.unpublished"
+msgstr "Ikke publisert"
+
+msgid "publication.status.scheduled"
+msgstr "Planlagt"
+
+msgid "publication.publish.success"
+msgstr "Publikasjonsstatus har blitt endret."
+
+msgid "publication.publicationLicense.success"
+msgstr "Opplysninger om opphavsrett og lisens har blitt oppdatert."
+
+msgid "publication.publicationLicense"
+msgstr "Tillatelser og offentliggjøring"
+
+msgid "publication.publicationIdentifiers.success"
+msgstr "Identifikatorene er oppdatert."
+
+msgid "publication.metadata.success"
+msgstr "Metadata er oppdatert."
+
+msgid "publication.event.versionCreated"
+msgstr "En ny versjon ble opprettet."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datoen må være i formatet ÅÅÅÅ-MM-DD, for eksempel. 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Opprett ny versjon"
+
+msgid "publication.contributors"
+msgstr "Bidragsytere"
+
+msgid "publication.citations.success"
+msgstr "Referansene har blitt oppdatert."
+
+msgid "catalog.category.subcategories"
+msgstr "Underkategorier"
+
+msgid "catalog.category.noItems"
+msgstr "Ingenting er publisert i denne kategorien ennå."
+
+msgid "submission.currentCoverImage"
+msgstr "Nåværende bilde"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorier"
+
+msgid "category.coverImage"
+msgstr "Omslagsbilde"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publiseringsdato (nyeste først)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publiseringsdato (eldste først)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Tittel (Å-A)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Tittel (A-Å)"
+
+msgid "grid.category.categories"
+msgstr "Kategorier"
+
+msgid "submission.list.assignEditor"
+msgstr "Oppnevn redaktør"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dager siden siste aktivitet"
+
+msgid "submission.list.activity"
+msgstr "Aktivitet"
+
+msgid "submission.list.currentStage"
+msgstr "For øyeblikket i {$stage} stadiet."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Denne innleveringen må fullføres før en redaktør vil vurdere den."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Du er oppnevnt med en redaksjonell rolle for denne innleveringen. Vil du gå "
+"til <a href=\"{$urlEditorialWorkflow}\">den redaksjonelle arbeidsflyten</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Åpne diskusjoner"
+
+msgid "submission.list.filesPrepared"
+msgstr "Filer forberedt"
+
+msgid "submission.list.galleysCreated"
+msgstr "Produksjonsoppsett laget"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Språkvaskede filer innlevert"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revideringer innlevert"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Fagfellevurderinger fullført"
+
+msgid "submission.list.viewSubmission"
+msgstr "Se innlevering"
+
+msgid "submission.list.confirmDelete"
+msgstr "Vil du slette innleveringen?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Fagfellevurdering avbrutt"
+
+msgid "submission.list.reviewComplete"
+msgstr "Fagfellevurdering innlevert"
+
+msgid "submission.list.reviewDue"
+msgstr "Frist for fagfellevurdering: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Vurderingsoppdrag"
+
+msgid "submission.list.responseDue"
+msgstr "Svarfrist: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Ingen innleveringer funnet."
+
+msgid "submission.list.infoCenter"
+msgstr "Aktivitetslogg og -notater"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Du må legge til minst en deltaker til denne innleveringen før du kan sette i "
+"gang en diskusjon."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Du har blitt lagt til diskusjonen «{$queryTitle}» om innleveringen "
+"«{$submissionTitle}»."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Ny aktivitet i diskusjonen merket «{$queryTitle}» om innleveringen  "
+"«{$submissionTitle}»."
+
+msgid "submission.query.new"
+msgstr ""
+"{$creatorName} har startet en ny diskusjon: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} har svart på {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Legg til et nytt svar i diskusjonen"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Hvis du forlater denne diskusjonen får du ikke lengre melding om nye "
+"beskjeder. Vil du forlate diskusjonen?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Forlat diskusjon"
+
+msgid "submission.query.addNote"
+msgstr "Legg til beskjed"
+
+msgid "submission.query.closed"
+msgstr "Lukket"
+
+msgid "submission.query.lastReply"
+msgstr "Siste svar"
+
+msgid "submission.query.from"
+msgstr "Fra"
+
+msgid "submission.query.replies"
+msgstr "Svar"
+
+msgid "submission.query.messages"
+msgstr "Beskjeder"
+
+msgid "submission.query.subject"
+msgstr "Tema"
+
+msgid "submission.queries.editorial"
+msgstr "Diskusjon av språkvask"
+
+msgid "submission.queries.review"
+msgstr "Diskusjon av fagfellevurderingen"
+
+msgid "submission.queries.submission"
+msgstr "Diskusjon før fagfellevurdering"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"Lisens</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"Lisens</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel=\"license\""
+" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported Lisens</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 Unported Lisens</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel=\"license\""
+" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported Lisens</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Dette verket er lisensiert under en <a rel=\"license\""
+" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported Lisens</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\"license\" "
+"href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\"><img "
+"alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
+"88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\"license\" "
+"href=\"http://creativecommons.org/licenses/by/4.0/\">Creative Commons "
+"Attribution 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\"license\" "
+"href=\"http://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\""
+"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/\">"
+"Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\""
+"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Dette verket er lisensiert under <a rel=\""
+"license\" href=\"http://creativecommons.org/licenses/by-nc-nd/4.0/\">"
+"Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.licenseURL"
+msgstr "URL for lisens"
+
+msgid "submission.licenseURLValid"
+msgstr "Legg til en gyldig, ekstern URL (inkluder http://)."
+
+msgid "submission.copyrightStatement"
+msgstr "Opphavsrett {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Opphavsrett registrert i (år)"
+
+msgid "submission.copyrightOther"
+msgstr "Opphavsrettserklæring"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Tilpasset opphavsrettserklæring"
+
+msgid "submission.copyrightHolder"
+msgstr "Rettighetshaver"
+
+msgid "submission.copyright"
+msgstr "Opphavsrett"
+
+msgid "submission.license"
+msgstr "Lisens"
+
+msgid "submission.attachPermissions"
+msgstr "Tilordne følgende rettigheter:"
+
+msgid "submission.permissions"
+msgstr "Rettigheter"
+
+msgid "grid.action.editMetadata"
+msgstr "Rediger metadata"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Legg til et nytt element til sjekklisten"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Du må oppnevne en produksjonsredaktør før den redaksjonelle prosessen kan "
+"starte. Bruk lenken «Deltakere» over."
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Du må oppnevne en produksjonsredaktør før produksjonen kan starte. Bruk "
+"lenken «Deltakere» over."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Produksjon startet."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Referansemodul"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Legg inn en gyldig WorldCat API-nøkkel, dersom du har det."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API-nøkkel"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+"Legg inn en gyldig e-post med registrering hos PubMed, dersom du har det."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "E-post for PubMed-registrering"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Oppgi en gyldig e-post for registrering hos Crossref. Du kan registrere e-"
+"posten din gratis på nettsiden til Crossref."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "E-post for Crossref-registrering"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Utvidet metadata"
+
+msgid "submission.submit.whatNext.return"
+msgstr "gå tilbake til administrasjonssiden"
+
+msgid "submission.submit.whatNext.create"
+msgstr "opprette ny innlevering"
+
+msgid "submission.submit.whatNext.review"
+msgstr "sjekke innleveringen"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "Foreløpig kan du:"
+
+msgid "submission.submit.submissionComplete"
+msgstr "Innlevering fullført"
+
+#, fuzzy
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Du må lese gjennom og bekrefte at du har gjort alt på listen før du "
+"fortsetter."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Sjekkliste"
+
+msgid "author.publicationNotFound"
+msgstr "Publikasjonen til denne forfatteren ble ikke funnet."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Forfatterne til denne publikasjonen kan ikke redigeres fordi publikasjonen "
+"allerede er offentliggjort."
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "Velg rollen som best beskriver ditt bidrag til denne innleveringen."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Lever inn som"
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Nye fagfellevurderinger er sendt inn. De vurderes av redaktøren."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Legg ved en formatert referanseliste eller bibliografi. Bruk en tom linje "
+"til å skille elementene fra hverandre."
+
+msgid "notification.type.revertDecline"
+msgstr "Beslutningen om å avvise denne innleveringen ble endret."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Avvist innlevering reaktivert."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Metadataene til filen \"{$originalFileName}\" ble redigert av {$username}."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Omgjør avvisning"
+
+msgid "submission.upload.percentComplete"
+msgstr "Opplasting er {$percent}% ferdig"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Last opp eventuelle filer som redaksjonen trenger for å evaluere "
+"innleveringen din."
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Filopplasteren blir registrert når filen opprettes, og denne kan ikke endres."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Er du sikker på at du vil fjerne denne filen?"
+
+msgid "submission.submit.genre.description"
+msgstr "Velg det som best beskriver denne filen."
+
+msgid "submission.submit.genre.label"
+msgstr "Hva slags fil er dette?"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"En eller flere fagfeller har overskrevet fristen. Redaksjonen er varslet og "
+"vil ta skritt for å sikre at fagfellevurderingen blir fullført. Du trenger "
+"ikke å foreta deg noe på dette tidspunkt. Du får beskjed når det er tatt en "
+"beslutning."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Dette er en forhåndsvisning og har ikke blitt publisert enda. <a href=\""
+"{$url}\">Se innleveringen</a>"
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "Ingen filer er lagt ved denne innleveringen."
+
+msgid "author.submit.confirmation"
+msgstr "Bekreftelse"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Angi et språk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Legg inn et emne."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Angi et fagfelt."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Angi et nøkkelord."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Angi informasjon om dekning."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Angi typen."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Angi kilde."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Angi informasjon om rettigheter."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Angi referanser."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+msgid "submission.type.tip"
+msgstr ""
+"Denne typen innlevering er vanligvis av typen bilde, tekst eller andre "
+"multimediatyper, f.eks. programvare og interaktive media. Velg en av de mest "
+"relevante for din innlevering. Du finner eksempler her: <a target=\"_blank\" "
+"href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#"
+"type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Er innleveringen ledet ut av en annen ressurs? Hvis så, kan du legge in en "
+"URL eller en beskrivelse av ressursen."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Her kan du kan legge inn en kort erklæring om tilgangsrettighetene til "
+"innleveringen."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Legg til ytterligere informasjon om innleveringen. Trykk «Enter» etter hvert "
+"ord."
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Utgiveren godtar innleveringer på flere språk. Velg språk i "
+"rullegardinmenyen over."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Kontaktperson for redaksjonell korrespondanse."

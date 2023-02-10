@@ -1,0 +1,181 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-12 08:24+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "გაგზავნის დადასტურება"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Thank you for submitting the manuscript, &quot;{$submissionTitle}&quot; to "
+"{$contextName}. With the online journal management system that we are using, "
+"you will be able to track its progress through the editorial process by "
+"logging in to the journal web site:<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}<br />\n"
+"Username: {$recipientUsername}<br />\n"
+"<br />\n"
+"If you have any questions, please contact me. Thank you for considering this "
+"journal as a venue for your work..<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Thank you for completing the review of the submission, "
+"&quot;{$submissionTitle},&quot; for {$contextName}. We appreciate your "
+"contribution to the quality of the work that we publish.."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ რეცენზიის მიღების "
+"დასადასტურებლად და მადლობის გამოსახატად რეცენზენტის მიერ გაწეული "
+"ღვაწლისათვის."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "რეცენზიის მიღების დასტური"
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"We have reached a decision regarding your submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot;..<br />\n"
+"<br />\n"
+"Our decision is to: Send to Review<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"The editing of your submission, &quot;{$submissionTitle},&quot; is "
+"complete.  We are now sending it to production..<br />\n"
+"<br />\n"
+"Submission URL: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"We have reached a decision regarding your submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot;..<br />\n"
+"<br />\n"
+"Our decision is: Revisions Required"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"We have reached a decision regarding your submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot;..<br />\n"
+"<br />\n"
+"Our decision is to: Resubmit for Review"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"We have reached a decision regarding your submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot;..<br />\n"
+"<br />\n"
+"Our decision is to: Decline Submission"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}: <br />\n"
+"<br />\n"
+"The recommendation regarding the submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot; is: {$recommendation}"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"I would ask that you undertake the copyediting of "
+"&quot;{$submissionTitle}&quot; for {$contextName} by following these steps..<"
+"br />\n"
+"1. Click on the Submission URL below.<br />\n"
+"2. Open any files available under Draft Files and do your copyediting, while "
+"adding any Copyediting Discussions as needed.<br />\n"
+"3. Save copyedited file(s), and upload to Copyedited panel.<br />\n"
+"4. Notify the Editor that all files have been prepared, and that the "
+"Production process may begin.<br />\n"
+"<br />\n"
+"{$contextName} URL: {$contextUrl}<br />\n"
+"Submission URL: {$submissionUrl}<br />\n"
+"Username: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "ლიტერატურული რედაქტირების მოთხოვნა"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"We have reached a decision regarding your submission to {$contextName}, "
+"&quot;{$submissionTitle}&quot;..<br />\n"
+"<br />\n"
+"Our decision is to: Decline Submission"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+
+msgid "emails.discussion.subject"
+msgstr "შეტყობინება ჟურანლის შესახებ {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "გთხოვთ, შეიტანოთ შეტყობინება."
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+"ეს წერილი (თუ ეს შესაძლებლობა ჩართულია) ავტომატურად გაეგზავნება სხვა "
+"ავტორებს, რომლებიც არ არიან OJS-ის მომხმარებლები, მაგრამ მითითებული არიან "
+"მასალების გაგზავნის პროცეში."

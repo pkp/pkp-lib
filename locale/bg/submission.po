@@ -1,0 +1,2694 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"submission/bg_BG/>\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Предоставете форматиран списък с референции за произведения, цитирани в това "
+"подаване на материали. Моля, отделете отделните препратки с празен ред."
+
+msgid "author.publicationNotFound"
+msgstr "Публикацията за този автор не може да бъде намерена."
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Авторите на тази публикация не могат да бъдат редактирани, тъй като тя вече "
+"е публикувана."
+
+msgid "submission.citations.description"
+msgstr ""
+"Въведете всяка библиографска препратка на нов ред, така че да могат да бъдат "
+"извлечени и записани отделно."
+
+msgid "submission.citations"
+msgstr "Литература (библиография)"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
+"88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/3.0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons "
+"Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons "
+"Attribution-NonCommercial-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons "
+"Attribution-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\""
+"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/4.0/\">Creative Commons Attribution 4.0 "
+"International License</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons "
+"Attribution-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-sa/4.0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons "
+"Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
+"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
+"0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons "
+"Attribution-NonCommercial 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/4.0/88x31.png\" /></a><p>Публикация с <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons "
+"Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
+
+msgid "submission.license.cc.by-sa4"
+msgstr ""
+"CC Attribution-ShareAlike 4.0 (Посочване на автора-Споделяне при същите "
+"условия)"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0 (Посочване на автора)"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0 (Посочване на автора-Без производни)"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr ""
+"CC Attribution-NonCommercial-ShareAlike 4.0 (Посочване на автора-Споделяне "
+"при същите условия )"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0 (Посочване на автора-Нетърговски)"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr ""
+"CC Attribution-NonCommercial-NoDerivatives 4.0 (Посочване на "
+"автора-Нетърговски-Без производни)"
+
+msgid "submission.licenseURL"
+msgstr "URL за лиценз"
+
+msgid "submission.licenseURLValid"
+msgstr "Моля, предоставете валиден отдалечен URL (включете http://)."
+
+msgid "submission.license"
+msgstr "Лиценз"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Сваляне на цитатен файл"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Още формати за цитиране"
+
+msgid "submission.howToCite"
+msgstr "Как да цитирате"
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "Изпратените материали не са приети (отказани)."
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "Изпратените материали са приети."
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "Изпратените материали не са приети (отказани)."
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "Изпратените материали са приети."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr ""
+"Да не се използва по подразбиране (все пак ще бъде достъпно за редактора)"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Моля, изберете един от дадените модули за цитиране."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Модул за цитиране"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Моля, въведете валиден ключ за API на WorldCat, ако имате такъв."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "API ключ за WorldCat"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Моля, въведете валиден имейл за регистрация в PubMed, ако имате такъв."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Имейл за регистрация в PubMed"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Моля, въведете своя ISBNdb API ключ. Ако все още нямате ключ, можете да го "
+"заявите безплатно от проекта ISBNdb."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "API ключ за ISBNdb"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Моля, въведете валиден имейл за регистрация за Crossref. Можете да "
+"регистрирате своя имейл безплатно на уебсайта на Crossref."
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Регистрационен имейл в Crossref"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Разширени метаданни"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Обратно към таблото за управление"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Създаване на ново подаване на материали"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Преглед на подаването на материали"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "За сега, можете:"
+
+msgid "submission.submit.removeConfirm"
+msgstr "Наистина ли искате да премахнете този файл?"
+
+msgid "submission.submit.genre.description"
+msgstr "Изберете опцията, която най-добре описва този файл."
+
+msgid "submission.submit.genre.label"
+msgstr "Какъв вид файл е това?"
+
+msgid "submission.submit.submissionComplete"
+msgstr "Подаването на материали е завършено"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "Всички подадени материали трябва да отговарят на следните изисквания."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Изисквания за подаването на материали"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Изберете ролята, която най-добре описва вашия принос към това подаване на "
+"материали."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Изпращане като"
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Един или повече рецензенти пропуснаха крайния си срок. Редакционният екип е "
+"уведомен и ще предприеме действия, за да гарантира, че рецензиите ще бъдат "
+"завършени. В момента не е необходимо да предприемате никакви действия. Ще "
+"бъдете уведомени, когато бъде взето решение."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Изпратени са нови рецензии и се разглеждат от редактора."
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Моля, въведете валидно място на провеждане на конференцията."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Място на провеждане на конференцията"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Моля, въведете валидна дата на конференцията (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Дата на конференцията"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Моля, въведете валидно допълнение на изданието."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Допълнение"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Моля, въведете валидна серия."
+
+msgid "metadata.property.displayName.series"
+msgstr "Серия"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Моля, въведете валидно издание."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Издание"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Моля, въведете валидно заглавие на глава на изданието."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Заглавие на глава"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Моля, въведете валиден сезон (при серии) на изданието."
+
+msgid "metadata.property.displayName.season"
+msgstr "Сезон (при серии)"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Моля, въведете валиден том на изданието."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Том"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Моля, въведете валиден брой на изданието."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Брой"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Моля, въведете валидна дата на достъп (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Дата на достъп"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Моля, въведете валидна дата на публикуване (формат: ГГГГ-ММ-ДД)."
+
+msgid "metadata.property.displayName.date"
+msgstr "Дата на публикуване"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Моля, въведете заглавие на публикацията."
+
+msgid "metadata.property.displayName.source"
+msgstr "Заглавие на публикацията"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Моля въведете валидно заглавие на статията/материала."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Заглавие на статията/материала"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"За най-добри резултати редакторите трябва да бъдат въведени в следния формат:"
+" Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Редактори"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"За най-добри резултати авторите трябва да бъдат въведени в следния формат: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.author"
+msgstr "Автори"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Вътрешна грешка. Има невалидна стойност за настройката „незадължителен "
+"филтър“. Моля, докладвайте това като грешка."
+
+msgid "submission.comments.editComment"
+msgstr "Редакция на коментар"
+
+msgid "submission.comments.corrections"
+msgstr "Корекции"
+
+msgid "submission.comments.confirmDelete"
+msgstr "Сигурни ли сте, че искате да изтриете този коментар?"
+
+msgid "submission.comments.comments"
+msgstr "Коментари"
+
+msgid "submission.comments.addComment"
+msgstr "Добавяне на коментар"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Извличане и запазване на литература (референции)"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Следните препратки на литература (референции) са извлечени и ще бъдат "
+"свързани с метаданните за подаване."
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations"
+msgstr "Извлечена литература (референции)"
+
+msgid "submission.changeFile"
+msgstr "Промяна на файл"
+
+msgid "submission.changeComments"
+msgstr "Промени на"
+
+msgid "submission.backToSubmissionEditing"
+msgstr "Обратно към редактиране на подадените материали"
+
+msgid "submission.attachedFile"
+msgstr "Прикрепен файл"
+
+msgid "submission.ask"
+msgstr "Въпрос"
+
+msgid "submission.acknowledge"
+msgstr "Признание"
+
+msgid "submission.accepted"
+msgstr "Приети"
+
+msgid "submission.abstractViews"
+msgstr "Преглед на абстракти (резюмета)"
+
+msgid "submission.agencies"
+msgstr "Агенции"
+
+msgid "submission.additionalFiles"
+msgstr "Допълнителни файлове"
+
+msgid "submission.addFile"
+msgstr "Качване на файл"
+
+msgid "submission.mySubmissions"
+msgstr "С мен като автор"
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} на {$title}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} и др."
+
+msgid "submission.authorWithAffiliation"
+msgstr "Автор: {$name}, {$affiliation}"
+
+msgid "submission.authorBiographies"
+msgstr "Авторски биографии"
+
+msgid "submission.authorBiography"
+msgstr "Авторска биография"
+
+msgid "submission.authors"
+msgstr "Автори"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Архивирани подадени материали"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Асоциирани към мен"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Неасоциирани"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Абстракт (резюме)"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Моля, уверете се, че сте задали валиден тип име (наименование). Поддържаните "
+"стойности са 'personal', 'corporate' и 'conference'."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Тип на името (наименованието)"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Моля, въведете валидно име на част."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Име на част"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Моля, въведете валиден номер на част."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Номер на част"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Моля, въведете валидно подзаглавие."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Подзаглавие"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Моля, въведете валидно заглавие."
+
+msgid "metadata.property.displayName.title"
+msgstr "Заглавие"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Моля, въведете само началните знаци на заглавието, които трябва да се "
+"игнорират при сортиране на заглавието."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Част от заглавието се игнорира при сортиране"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Моля, уверете се, че сте задали валиден тип заглавие. Поддържаните стойности "
+"са 'abreviated', 'translated', 'alternative' и 'uniform'."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Тип на заглавие"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Моля, уверете се, че винаги задавате тип публикация. Понастоящем "
+"поддържаните стойности са book (за книги или глави от книги) и journal (за "
+"статии от списания). В противен случай изходното форматиране на цитатите "
+"няма да работи правилно."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Тип на публикация"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Моля, въведете валидна анотация."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Анотация"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Моля, въведете валиден коментар."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Коментар"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Моля, въведете валидна алтернативна връзка към публикацията."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Връзка към публикацията"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Моля, въведете валиден PMID."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Моля, въведете валиден SICI."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Моля, въведете валиден CODEN."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Моля, въведете валиден собствен идентификатор на публикация."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "Собствен идентификатор на публикация"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Моля, въведете валиднен DOI."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Моля, въведете валиден ISSN на онлайн издание."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "Онлайн ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Моля, въведете валиден ISSN за печатно издание."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Печатен ISSN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Моля, въведете валиден ISBN (9 или 13 цифри)."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Моля, въведете валидно име на издателството."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Име на издателство"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Моля, въведете валидно място на издаване (на издателя)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Място на издаване (на издателя)"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Моля, въведете валиден общ брой страници (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Брой страници"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Моля, въведете валидна последна страница (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Последна страница"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"Моля, въведете валидна първа страница (трябва да бъде числова стойност)."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "Първа страница"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Моля, въведете валидна институция."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Институция"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Моля, въведете валиден спонсор на конференцията."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Спонсор на конференцията"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Моля, въведете валидно име на конференцията."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Име на конференцията"
+
+msgid "submission.email.backToEmailLog"
+msgstr "Обратно към дневника (лог) на имейли"
+
+msgid "submission.editorial"
+msgstr "Стилова корекция"
+
+msgid "submission.editMetadata"
+msgstr "Редактиране на метаданни"
+
+msgid "submission.editing"
+msgstr "Редактиране"
+
+msgid "submission.due"
+msgstr "До"
+
+msgid "submission.dueDate"
+msgstr "Крайна дата"
+
+msgid "submission.downloads"
+msgstr "Файлове за сваляне"
+
+msgid "submission.done"
+msgstr "Готово"
+
+msgid "submission.coverage"
+msgstr "Информация относно обхвата"
+
+msgid "submission.queryNoteFiles"
+msgstr "Дискусионни файлове"
+
+msgid "submission.copyediting"
+msgstr "Стилова корекция"
+
+msgid "submission.copyedited"
+msgstr "Стилово коригиран"
+
+msgid "submission.contributors"
+msgstr "Списък на автори и участници"
+
+msgid "submission.complete"
+msgstr "Завръшено"
+
+msgid "submission.comments.subject"
+msgstr "Тема (предмет)"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "Изпращане на редакционно решение към рецензентите"
+
+msgid "submission.comments.review"
+msgstr "Рецензия"
+
+msgid "submission.comments.noReviews"
+msgstr "Няма рецензии"
+
+msgid "submission.comments.noComments"
+msgstr "Няма коментари"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "Рецензент {$reviewerLetter}:"
+
+msgid "submission.comments.addReviews"
+msgstr "Добавяне на рецензии към имейл"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "Импортиране на рецензии"
+
+msgid "submission.event.viewEmail"
+msgstr "Преглед на имейл"
+
+msgid "submission.event.subjectPrefix"
+msgstr "Изпратен е имейл:"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "Файлът с ревизии (версии) на рецензента е актуализиран"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "Повторно е изпратена рецензия"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "Подновена е процедура по асоцииране на рецензент"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "Файл с препоръки от рецензента"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "Започната е процедура по асоцииране на рецензент"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "Файлът с рецензия е актуализиран"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "Премахнато е асоциирането на рецензент за изпратените материали"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "Изпратена е оценка за рецензента"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "Асоцииран е рецензент за изпратените материали"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "Променен е крайният срок за изготвян на рецензия"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "Асоциирането на заданието за рецензия е отказано"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "Асоциирането на заданието за рецензия е прието"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "Заданието за рецензия е прието от пълномощник"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "Файлът за подадените материали е актуализиран"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "Метаданните за подадените материали са актуализирани"
+
+msgid "submission.event.fileRevised"
+msgstr "Версия (ревизия) \"{$name}\" беше качена за файл {$submissionFileId}."
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Първоначалното подаване на материали е завършено."
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+"Изпратен е имейл за решението на {$recipientCount} рецензент/и с тема "
+"{$subject}."
+
+msgid "submission.event.deleteLogEntry"
+msgstr "Изтриване на запис от регистъра"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr ""
+"Наистина ли искате да изтриете този запис в регистъра на събитията (лог)?"
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+"Наистина ли искате да изчистите регистъра на събитията (лог) за това "
+"подаване на материали?"
+
+msgid "submission.event.backToEventLog"
+msgstr "Обратно към регистъра събитията (лог)"
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) беше премахнат като {$userGroupName}."
+
+msgid "submission.event.participantAdded"
+msgstr ""
+"{$name} ({$username}) беше причислен към това подаване на материали като "
+"{$userGroupName}."
+
+msgid "submission.emailLog"
+msgstr "Имейл регистър (лог)"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "Изтриване на запис в регистрационния файл (лог)"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "Наистина ли искате да изтриете този запис в имейл регистъра (лог)?"
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+"Наистина ли искате да изчистите имейл регистъра (лог) за това изпращане?"
+
+msgid "submission.source"
+msgstr "Източник"
+
+msgid "submissions.ruling"
+msgstr "Решение"
+
+msgid "submissions.queuedUnassigned"
+msgstr "Не е асоцииран редактор към това подаване на материали."
+
+msgid "submissions.queued"
+msgstr "В опашката"
+
+msgid "submissions.queuedEditing"
+msgstr "В процес на редакция"
+
+msgid "submissions.noSubmissions"
+msgstr "Няма подадени материали"
+
+msgid "submissions.incomplete"
+msgstr "Незавършени"
+
+msgid "submissions.declined"
+msgstr "Отказани"
+
+msgid "submissions.completed"
+msgstr "Завършени"
+
+msgid "submission.saveMetadata"
+msgstr "Запис на метаданните"
+
+msgid "submissions.archived"
+msgstr "Архивирани"
+
+msgid "submissions.active"
+msgstr "Активни"
+
+msgid "submission.rights"
+msgstr "Права"
+
+msgid "submission.reviewVersion"
+msgstr "Версия за рецензия"
+
+msgid "submission.reviewed"
+msgstr "Рецензирано"
+
+msgid "submission.review"
+msgstr "Рецензия"
+
+msgid "submission.reviewMetadata"
+msgstr "Метаданни на рецензията"
+
+msgid "submission.restrictions"
+msgstr "Ограничения"
+
+msgid "submission.response"
+msgstr "Отговор"
+
+msgid "submission.request"
+msgstr "Заявка"
+
+msgid "submission.rejected"
+msgstr "Отказано"
+
+msgid "submission.recommendation"
+msgstr "Препоръка: {$recommendation}"
+
+msgid "submission.production"
+msgstr "Публикация"
+
+msgid "submission.peerReview"
+msgstr "Рецензиране"
+
+msgid "submission.page.citations"
+msgstr "#{$id} Цитати (библиография)"
+
+msgid "submission.page.summary"
+msgstr "#{$id} Абстракт"
+
+msgid "submission.page.review"
+msgstr "#{$id} Рецензия"
+
+msgid "submission.page.history"
+msgstr "#{$id} История"
+
+msgid "submission.page.editing"
+msgstr "#{$id} Редактиране"
+
+msgid "submission.originalFile"
+msgstr "Оригинален файл"
+
+msgid "submission.notes.viewNotes"
+msgstr "Преглед на бележките"
+
+msgid "submission.notes.updateNote"
+msgstr "Актуализиране на бележката"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "Премахване на качен файл"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "Няма бележки към изпратения материал"
+
+msgid "submission.notes.expandNotes"
+msgstr "Разгъване на бележките"
+
+msgid "submission.notes.editNote"
+msgstr "Редакция на бележка"
+
+msgid "submission.notes.deleteNote"
+msgstr "Изтриване на бележка"
+
+msgid "submission.notes.createNewNote"
+msgstr "Създаване на нова бележка"
+
+msgid "submission.notes.confirmDelete"
+msgstr "Да бъде ли премахната тази бележка към изпратения материал?"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "Да бъдат ли премахнати всички бележки към изпратения материал?"
+
+msgid "submission.notes.collapseNotes"
+msgstr "Свиване на бележките"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "Изчистване на всички бележки"
+
+msgid "submission.notes.breadcrumb"
+msgstr "Бележки"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "Обратно към бележките към изпратения материал"
+
+msgid "submission.notes.attachedFile"
+msgstr "Прикрепен файл"
+
+msgid "submission.notes.addNewNote"
+msgstr "Добавяне на нова бележка"
+
+msgid "submission.noReviewAssignments"
+msgstr "Няма асоциирани рецензенти"
+
+msgid "submission.metadata"
+msgstr "Метаданни на подадените материали"
+
+msgid "submission.layout.viewProof"
+msgstr "Преглед на коректурата"
+
+msgid "submission.layout.viewingGalley"
+msgstr "Преглеждане на типографията на изпратените материали"
+
+msgid "submission.layout.noStyleFile"
+msgstr "Към тази типография не е добавен файл със стилова таблица."
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} - ({$version})"
+
+msgid "submission.layout.newGalley"
+msgstr "Създаване на нова типография"
+
+msgid "submission.layout.layoutVersion"
+msgstr "Версия на оформлението"
+
+msgid "submission.layout"
+msgstr "Оформление"
+
+msgid "submission.layout.layoutFile"
+msgstr "Оформителски файл"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "Първоначално създаване на типография"
+
+msgid "submission.layout.galleyStyle"
+msgstr "Стил"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "Файл на стиловата таблица"
+
+msgid "submission.layout.galleys"
+msgstr "Типографии"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "Няма изображения"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Моля, предоставете валиден отдалечен URL (включете http://)."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Отдалечен/външен URL"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "Изисква се локализация на типографията."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "Изисква се език на типографията."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "Изисква се етикет на типографията."
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Обикновено се използва за идентифициране на файловия формат (напр. PDF, HTML "
+"и др.)."
+
+msgid "submission.layout.galleyLabel"
+msgstr "Заглавие на типографията"
+
+msgid "submission.layout.galleyImages"
+msgstr "Изображения"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "Файлове на HTML типография"
+
+msgid "submission.layout.editGalley"
+msgstr "Редактиране на оформителска типография"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "Изтриване на тази стилова таблица."
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "Наистина ли искате да премахнете това изображение от типографията?"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "Наистина ли искате да изтриете тази типографията за постоянно?"
+
+msgid "submission.layout.addGalley"
+msgstr "Добавяне на оформителска типография"
+
+msgid "submission.layout.galleyFormat"
+msgstr "Формат на типографията"
+
+msgid "submission.lastModified"
+msgstr "Последно модифицирано"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Показване на събитията от предни версии"
+
+msgid "submission.informationCenter.notes"
+msgstr "Бележки"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Метаданни"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Информация за изпратения материал"
+
+msgid "submission.publisherId.enable"
+msgstr "Активиране за {$objects}"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"Идентификационният номер на издателя може да се използва за запис на "
+"идентификатора от външна база данни. Например статиите, експортирани за "
+"депозит в PubMed, могат да включват идентификационния номер на издателя. "
+"Това не трябва да се използва за DOI."
+
+msgid "submission.publisherId"
+msgstr "Идентификатор на издателя"
+
+msgid "submission.identifiers"
+msgstr "Идентификатори"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Това е стара версия, публикувана на {$datePublished}. Прочетете <a href=\""
+"{$urlRecentVersion}\">последната версия</a>."
+
+msgid "submission.versions"
+msgstr "Версии"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Актуализирано на {$dateUpdated}"
+
+msgid "submission.initiated"
+msgstr "Започнато"
+
+msgid "submission.history.viewLog"
+msgstr "Преглед на регистъра (лог)"
+
+msgid "submission.history.submissionNotes"
+msgstr "Бележки към изпратените материали"
+
+msgid "submission.notes"
+msgstr "Бележки към изпратените материали"
+
+msgid "submission.history.submissionEventLog"
+msgstr "Регистър (лог) на събитията"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "Имейл регистър (лог)"
+
+msgid "submission.history.recentLogEntries"
+msgstr "Последни записи"
+
+msgid "submission.history.noLogEntries"
+msgstr "Няма записи в регистъра (лог)."
+
+msgid "submission.stageParticipants.notify"
+msgstr "Известяване"
+
+msgid "submission.informationCenter.history"
+msgstr "История"
+
+msgid "submission.history"
+msgstr "История"
+
+msgid "submission.history.clearLog"
+msgstr "Изчистване на регистъра (лог)"
+
+msgid "submission.galley"
+msgstr "Типография"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Записът за качващия файл се записва, когато файлът е създаден и не може да "
+"бъде променен."
+
+msgid "submission.files.downloadAll"
+msgstr "Сваляне на всички файлове"
+
+msgid "submission.files"
+msgstr "Файлове"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите вече не е разрешено да редактират метаданни при подаване на етап "
+"{stage}."
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"На авторите вече е разрешено да редактират метаданни при подаване на етап "
+"{stage}."
+
+msgid "submission.titleAndAbstract"
+msgstr "Заглавие и абстракт"
+
+msgid "submission.indexingInformation"
+msgstr "Информация за индексиране"
+
+msgid "submission.currentAgencies"
+msgstr "Текущи организации"
+
+msgid "submission.supportingAgencies"
+msgstr "Поддържащи организации"
+
+msgid "submission.summary"
+msgstr "Обобщение"
+
+msgid "submission.upload.query"
+msgstr "Качване на дискусионен файл"
+
+msgid "submission.upload.dependent"
+msgstr "Качване на зависим файл"
+
+msgid "submission.upload.percentComplete"
+msgstr "Качването е {$percent}% завършено"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Качете всички файлове, от които редакционният екип ще се нуждае, за да оцени "
+"вашето подаване на материали."
+
+msgid "submission.manageDependentFiles"
+msgstr "Управление на зивисимите файлове"
+
+msgid "submission.submit.dependentFiles"
+msgstr "Зависими файлове"
+
+msgid "submission.submit.submissionFiles"
+msgstr "Файлове на подадените материали"
+
+msgid "submission.submit.submissionLocale"
+msgstr "Език на подадените материали"
+
+msgid "submission.submit.metadataForm"
+msgstr "Допълнителни уточнения"
+
+msgid "submission.submit.newFile"
+msgstr "Добавяне на друг файл"
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Списъци с публикации"
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+"Включване на този сътрудник, когато се идентифицират автори в списъци с "
+"публикации."
+
+msgid "submission.submit.fileAdded"
+msgstr "Файлът е добавен"
+
+msgid "submission.submit.fileInformation"
+msgstr "Информация за файла"
+
+msgid "submission.submit.selectFile"
+msgstr "Избиране на файл"
+
+msgid "submission.submitter"
+msgstr "Изпращач"
+
+msgid "submission.submissionReview"
+msgstr "Рецензия на изпратените материали"
+
+msgid "submission.submissionManuscript"
+msgstr "Ръкопис на изпратените материали"
+
+msgid "submission.submissionHistory"
+msgstr "История на изпратените материали"
+
+msgid "submission.start"
+msgstr "Начало"
+
+msgid "submission.submissionTitle"
+msgstr "Заглавие на изпратените материали:"
+
+msgid "submission.submission"
+msgstr "Изпратени материали"
+
+msgid "submissions.submitted"
+msgstr "Изпратени"
+
+msgid "submissions.submit"
+msgstr "Изпращане"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Наистина ли искате авторите на това изпращане на материали да не могат да "
+"редактират метаданните на подаването на този етап?"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Разрешаване на редактиране на метаданни"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Забраняване на редактиране на метаданни"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Избраният от вас участник е асоцииран за провеждане на анонмна реценция. Ако "
+"ги определяте като участник, те ще имат достъп до самоличността на автора. "
+"Насърчаваме ви да не назначавате този участник, освен ако не можете "
+"самостоятелно да осигурите целостта на процеса на рецензиране."
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "Трябва да изберете потребител за посочената потребителска група."
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "Трябва да изберете потребителска група."
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"На път сте да премахнете този участник от <strong>всички</strong> етапи."
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "Премахване на участник"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Потребителите се асоциират на етапи от работния процес по потребителска "
+"група. Всеки потребител, присвоен на този етап, автоматично ще бъде "
+"асоцииран към други етапи, към които е назначена неговата потребителска "
+"група. Това обикновено е запазено за редактори, автори и преводачи."
+
+msgid "editor.submission.editStageParticipant"
+msgstr "Редактиране на асоциирането"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "Асоцииране на участник"
+
+msgid "editor.submission.participant"
+msgstr "Участник"
+
+msgid "editor.submission.noneAssigned"
+msgstr "Няма асоциирани"
+
+msgid "editor.submission.stageParticipants"
+msgstr "Участници"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Всички препоръки са включени и е необходимо решение."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Подадени са нови редакционни препоръки."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "В очакване на препоръки от редакторите."
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Рецензията е закъсняла."
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "Всички рецензенти са отговорили и е необходимо решение."
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "Изпратени са нови рецензии."
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "В очакване на отговори от рецензенти."
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "Изчаква се асоциирането на рецензенти."
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "Изпратено на външна рецензия."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr ""
+"Подаването на материали беше изпратено отново за друг кръг за рецензиране."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"Подаването на материали трябва да бъде изпратено отново за друг кръг за "
+"рецензиране."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Подадени са ревизии и е необходимо решение."
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "Изискани са ревизии."
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "В момента няма файлове, които да ревизирате."
+
+msgid "submission.upload.response.description"
+msgstr ""
+"След като прегледате асоциирания файл, запишете всички коментари към файла "
+"по-долу и/или качете анотирано копие на файла (или друг файл)."
+
+msgid "submission.upload.proof"
+msgstr "Качване на готов за публикация файл"
+
+msgid "submission.upload.productionReady"
+msgstr "Качване на готов за продукция на публикацията файл"
+
+msgid "submission.upload.uploadFiles"
+msgstr "Качване на файлове"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "Качване на файл след стилова редакция"
+
+msgid "submission.upload.finalDraft"
+msgstr "Качване на файл"
+
+msgid "submission.upload.libraryCategory"
+msgstr "Категория документ за подаване на материали"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "Качване на библиотечен файл"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"Ако изпращате редактиран том, трябва да качите всички глави на тома "
+"поотделно, в ролята си на редактор на том."
+
+msgid "submission.upload.userGroup"
+msgstr "Качване на този файл в моята роля като..."
+
+msgid "submission.upload.uploadNewFile"
+msgstr "Това не е ревизия на съществуващ файл"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr "Ако качвате ревизия на съществуващ файл, моля, посочете кой файл."
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "Моля, изберете файла, който искате да ревизирарате."
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"Името на качения файл прилича на името на по-рано качен файл, \""
+"{$revisedFileName}\". Този файл предназначен ли е да замени \""
+"{$revisedFileName}\"? Ако е така, изберете файла по-долу. В противен случай "
+"изберете „Това не е ревизия на съществуващ файл“, преди да продължите."
+
+msgid "submission.upload.possibleRevision"
+msgstr "Открито е възможно дублиране или ревизия"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "Липсваща или невалидна потребителска група!"
+
+msgid "submission.upload.noGenre"
+msgstr "Липсващ или невалиден компонент!"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "Трябва да въведете име на файл за този файл"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. Потвърждение"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. Преглед на детайлите"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "Качване на файл с материали"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. Качване на файл"
+
+msgid "submission.status.published"
+msgstr "Публикувано"
+
+msgid "submission.status.declined"
+msgstr "Отказано"
+
+msgid "submission.status.unassigned"
+msgstr "Неасоциирано"
+
+msgid "submission.status.submission"
+msgstr "В очакване на решение на редактора"
+
+msgid "submission.status.review"
+msgstr "В етап рецензиране"
+
+msgid "submission.status.production"
+msgstr "В етап коректура"
+
+msgid "submission.status.editorial"
+msgstr "В етап стилова редакция"
+
+msgid "workflow.stage"
+msgstr "Кръг (етап)"
+
+msgid "workflow.stage.any"
+msgstr "Всеки кръг (етап)"
+
+msgid "workflow.review.internalReview"
+msgstr "Вътрешно рецензиране"
+
+msgid "submission.form.replaceExisting"
+msgstr "Подмяна на съществуващ файл?"
+
+msgid "submission.form.name"
+msgstr "Име на файла (напр. Ръкопис; Таблица 1)"
+
+msgid "submission.submit.addAuthor"
+msgstr "Добавяне на автор/сътрудник"
+
+msgid "submission.submit.contributorRole"
+msgstr "Роля на автора/сътрудника"
+
+msgid "submission.date.yyyymmdd"
+msgstr "ГГГГ-ММ-ДД"
+
+msgid "submission.date.mmdd"
+msgstr "ММ-ДД"
+
+msgid "submission.nameRequired"
+msgstr "За този елемент се изисква наименование."
+
+msgid "submission.fileDetails"
+msgstr "Информация за файл"
+
+msgid "submission.artworkFileDetails"
+msgstr "Информазия за графичния файл"
+
+msgid "submission.loadMessage"
+msgstr "Моля, изчакайте, докато вашият файл се качи на сървъра."
+
+msgid "submission.uploadSuccessful"
+msgstr "Вашият файл е качен."
+
+msgid "submission.views"
+msgstr "Прегледи"
+
+msgid "submission.viewMetadata"
+msgstr "Преглед на метаданни"
+
+msgid "submission.createRemote"
+msgstr "Създаване на отдалечен ресурс"
+
+msgid "submission.uploadFileTo"
+msgstr "Качване на файл в"
+
+msgid "submission.underway"
+msgstr "В процес"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+"Това подаване на материали ще бъде отхвърлено за публикуване. Етапът на "
+"рецензиране ще бъде затворен и материалите ще бъдат архивирани."
+
+msgid "editor.submission.decision.decline"
+msgstr "Отказване на подадените материали"
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
+msgstr ""
+"{$editorName} отмени решението да приеме тези материали и ги изпрати обратно "
+"на етапа на подаване на материали."
+
+msgid "editor.submission.decision.backToSubmissionFromCopyediting.description"
+msgstr ""
+"Отменете решението за приемане на тези материали и ги изпратете обратно на "
+"етапа за подаване на материали."
+
+msgid "editor.submission.decision.backToSubmission.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че техните материали за "
+"статия се изпращат обратно към етапа на подаване. Обяснете защо е взето това "
+"решение и информирайте автора каква по-нататъшна работа ще бъде предприета, "
+"преди да продължите обработката на материалите."
+
+msgid "editor.submission.decision.backToSubmission.completed.description"
+msgstr ""
+"Материалът, {$title}, беше изпратен обратно към етап подадени материали."
+
+msgid "editor.submission.decision.backToSubmission.completed"
+msgstr "Изпращащане обратно към етап подадени материали"
+
+msgid "editor.submission.decision.backToSubmission"
+msgstr "Обратно към етап подадени материали"
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че подадените им материали "
+"са приети за публикуване. Този имейл няма да бъде изпратен, докато решението "
+"не бъде записано."
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+"Материалите, {$title}, са приети за публикуване и изпратени към етап за "
+"стилова корекция. Всички известия са изпратени, с изключение на тези, които "
+"сте избрали да пропуснете."
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Материалът е приет"
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+"{$editorName} прие тези материали и ги изпрати за етап на стилова корекция."
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+"Това подаване на материали ще бъде прието за публикуване и изпратено за "
+"стилова корекция."
+
+msgid "editor.submission.decision.accept"
+msgstr "Приемане на материала"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+"Изпратете имейл до рецензентите, за да им благодарите за рецензията и да ги "
+"уведомите, че е взето решение. На всеки рецензент ще бъде изпратен отделен "
+"имейл, за да се защити анонимността му. Фразата {$recipientName} може да се "
+"използва в съобщението, за да включи безопасно името на всеки рецензент."
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Известяване на рецензентите"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Известяване на авторите"
+
+msgid "editor.submission.decision"
+msgstr "Решение"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Сигурни ли сте, че искате авторите на тези материали да могат да редактират "
+"метаданните на подаването на този етап?"
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+"Създаден е нов кръг (етап) за рецензиране на подадените материали: {$title}. "
+"Авторът е уведомен, освен ако не сте избрали да пропуснете този имейл."
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr "Кръгът (етапът) за рецензиране е създаден"
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+"Отваряне на друг кръг (етап) за рецензиране на това подаване на материали."
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+"{$editorName} създаде нов кръг (етап) за рецензиране за това подаване на "
+"материали."
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr "Нов кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+"Тези подадени материали ще бъдат отхвърлени за публикуване. Няма да се "
+"извършва по-нататъшна рецензия и материалите ще бъдат архивиранани."
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че подадените материали са "
+"отхвърлени. Този имейл няма да бъде изпратен, докато решението не бъде "
+"записано."
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+"Подадените материали, {$title}, са отхвърлени и изпратени в архива. Всички "
+"известия са изпратени, с изключение на тези, които сте избрали да пропуснете."
+
+msgid "editor.submission.decision.decline.completed"
+msgstr "Подадените материали са отхвърлени"
+
+msgid "editor.submission.decision.decline.log"
+msgstr "{$editorName} отхвърли това подаване на материали."
+
+msgid "submission.supplementary.publisher"
+msgstr "Издател"
+
+msgid "submission.supplementary.subject"
+msgstr "Предмет (тема)"
+
+msgid "submission.supplementary.creator"
+msgstr "Автор (или собственик) на файла"
+
+msgid "submission.supplementary"
+msgstr "Допълнително съдържание"
+
+msgid "submission.art"
+msgstr "Илюстрация"
+
+msgid "submission.document"
+msgstr "Документ"
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Тази рецензия е завършена и е изпратен благодарствен имейл на рецензента за "
+"неговия принос."
+
+msgid "submission.review.status.complete"
+msgstr "Рецензията е завършена."
+
+msgid "submission.review.status.received"
+msgstr "Рецензентът е изпратил своята рецензия."
+
+msgid "submission.review.status.accepted"
+msgstr "Тази рецензия е приета."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Рецензентът е пропуснал крайния срок за рецензиране."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Рецензентът е пропуснал крайния срок за отговор."
+
+msgid "submission.review.status.declined"
+msgstr "Рецензентът отхвърли тази молба за рецензия."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "В очакване на отговор от рецензента."
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "Качване на файл с ревизия"
+
+msgid "submission.productionReady"
+msgstr "Изданието е достъпно"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Изберете файлове от рецензията, които да споделите с автора(ите)"
+
+msgid "grid.reviewAttachments.title"
+msgstr "Файлове, прикрепени от рецензента"
+
+msgid "notification.type.revertDecline"
+msgstr "Решението за отхвърляне на тези материали беше отменено."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Създадена е нова версия на подадените материали"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"Преди да започне рецензиране, трябва да бъде назначен редактор. Моля, "
+"добавете редактор, като използвате списъка с участници."
+
+msgid "notification.uploadedResponse"
+msgstr "Отговорът е качен."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Отказаните материали са повторно активирани (отказът е отменен)."
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Нов кръг (етап) на рецензиране е започнат."
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "Повторно изпращане за рецензиране."
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "Изисква се ревизия."
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "Процесът по външно рецензиране е започнат."
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "Последно решение на редактора."
+
+msgid "notification.type.indexRequest"
+msgstr "Бяхте помолени да създадете индекс на \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Бяхте помолени да прегледате оформлението на \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Бяхте помолени да направите стилова корекция на \"{$title}\"."
+
+msgid "notification.type.editorAssign"
+msgstr "Бяхте асоцииран като редактор на подадените материали \"{$title}\"."
+
+msgid "submission.documents"
+msgstr "Документи за подадените материали"
+
+msgid "submission.stageNotInitiated"
+msgstr "Кръгът (етапът) не е започнат."
+
+msgid "submission.description"
+msgstr "Описание"
+
+msgid "submission.overview"
+msgstr "Преглед на подадените материали"
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username}) одобри коректурата за \"{$formatName}.\""
+
+msgid "submission.event.signoffSignoff"
+msgstr "\"{$name}\" ({$username}) окончателно одобри файла \"{$file}.\""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr "\"{$name}\" ({$username}) завърши одита и качи файла \"{$file}.\""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username}) беше премахнат като одитор за файла \"{$file}.\""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username}) беше добавен като одитор за файла \"{$file}.\""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+"Последната редакция на файла \"{$title}\" беше премахната от {$username}."
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"{$username}."
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"Файлът с ревизия \"{$originalFileName}\" за материала {$submissionId} беше "
+"качен от {$username}."
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше изтрит от "
+"{$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Файлът \"{$originalFileName}\" за материала {$submissionId} беше качен от "
+"{$username}."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Метаданните за файла \"{$originalFileName}\" бяха редактирани от {$username}."
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+"Възникна грешка при опит за асоцииране на одитора. Моля, опитайте отново."
+
+msgid "submission.finalDraft"
+msgstr "Работни файлове (чернови)"
+
+msgid "submission.submit.currentFile"
+msgstr "Текущ файл"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "Файлове за рецензиране"
+
+msgid "submission.actionNeeded"
+msgstr "Изискват се действия"
+
+msgid "submission.noActionRequired"
+msgstr "Не се изискват действия"
+
+msgid "submission.currentStage"
+msgstr "Текущ кръг (етап)"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Записани препоръки"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Препоръчване на редакционно решение за това подаване на материали."
+
+msgid "editor.submission.recommendation"
+msgstr "Препоръка"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+"Не можете да правите препоръка, докато не е асоцииран редактор, който да "
+"запише решение."
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Препоръки: {$recommendations}"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Препоръка: {$recommendation}"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Промяна на препоръка"
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Написване на препоръка"
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
+"{$editorName} препоръча подадените материали да бъдат отхвърлени за "
+"публикуване."
+
+msgid "editor.submission.recommend.decline.description"
+msgstr "Препоръчвам подадените материали да бъдат отхвърлени за публикуване."
+
+msgid "editor.submission.recommend.decline"
+msgstr "Препоръка за отхвърляне"
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+"{$editorName} препоръча автора да бъде помолен да представи ревизии за друг "
+"кръг (етап) на рецензиране."
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+"Препоръчвам авторът да бъде помолен да представи ревизии за друг кръг (етап) "
+"на рецензиране."
+
+msgid "editor.submission.recommend.resubmit"
+msgstr "Препоръка за повторно изпращане за рецензиране"
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr "{$editorName} препоръчва да се поискат ревизии от автора."
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+"Препоръчвам да се поискат ревизии от автора, преди това подаване на "
+"материали да бъде прието за публикуване."
+
+msgid "editor.submission.recommend.revisions"
+msgstr "Препоръка за ревизии"
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+"Вашата препоръка е записана и отговорният(ите) редактор(и) са уведомени."
+
+msgid "editor.submission.recommend.completed"
+msgstr "Препоръката е изпратена"
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+"{$editorName} препоръча това подаване на материали да бъде прието за "
+"публикуване и изпратено за стилова корекция."
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+"Препоръчвам това подаване на материали да бъде прието за публикуване и "
+"изпратено за стилова корекция."
+
+msgid "editor.submission.recommend.accept"
+msgstr "Препоръка за приемане на материала"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+"Изпратете съобщение до отговорните редактори, за да ги уведомите за "
+"препоръката. Обяснете защо тази препоръка е направена в отговор на "
+"препоръките и коментарите, предоставени от рецензенти."
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Асоциирайте редактор, за да се активират редакционните решения за този етап."
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+"Материалът {$title} вече е активен на етапа с получени материали. Авторът е "
+"уведомен, освен ако не сте избрали да пропуснете този имейл."
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че предишно решение за "
+"отхвърляне на тези материали е отменено. Обяснете защо решението е отменено "
+"и ги уведомете дали се очаква подаването да бъде рецензирано."
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr "Материалът {$title} вече е активен на етап рецензиране."
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr "Материалите са върнати към активен редакционен процес"
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr "{$editorName} отмени предишно решение за отхвърляне на тези материали."
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+"Отменете предишно решение за отхвърляне на тези материали и ги върнете към "
+"активния редакционен процес. Авторът е уведомен, освен ако не сте избрали да "
+"пропуснете този имейл."
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Отмяна на отказ"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"Този файл с коректура вече няма да бъде публично достъпен за сваляне или "
+"покупка. Искате ли да отмените одобрението?"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "Одобряване на коректурите"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"Файлът с коректурата трябва да бъде отбелязан като одобрен, за да бъде "
+"наличен за последваща обработка. Искате ли да го одобрите?"
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Изпращане за вътрешна рецензия"
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че това подаване на "
+"материали е прието за публикуване и е изпратено към етапа за стилово "
+"редактиране без да бъде правена рецензия. Този имейл няма да бъде изпратен, "
+"докато решението не бъде записано."
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+"Материалът {$title} , пропуска етапа на рецензиране и се изпраща към стилова "
+"корекция. Авторът е уведомен, освен ако не сте избрали да пропуснете този "
+"имейл."
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr "Прескочено рецензиране"
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+"{$editorName} прие материала като ще пропусне етапа на рецензиране и той се "
+"изпраща за стилова корекция."
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+"Приемане на материала и пропускане на етапа на рецензиране. Това решение ще "
+"придвижи материала към етап стилова корекция."
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Приемане на материала и пропускане на рецензиране"
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че тeзи материали са "
+"изпратени обратно към етапа на стилово редактиране. Обяснете защо е взето "
+"това решение и информирайте автора какво допълнително редактиране ще се "
+"изисква, преди това представяне да бъде готово за производство/публикуване."
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+"Материалът {$title} беше изпратен обратно към етапа на стилово редактиране. "
+"Авторът е уведомен, освен ако не сте избрали да пропуснете този имейл."
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr "Изпращане обратно към етапа на стилово редактиране"
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+"{$editorName} изпрати тези материали обратно към етапа на стилово "
+"редактиране."
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr "Изпращане на тези материали обратно към етапа на стилово редактиране."
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr "Обратно към етапа на стилово редактиране"
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+"Изпращане на имейл за уведомяване на авторите че материалите са насочени към "
+"продукционен етап. Този имейл няма да бъде изпратен, докато решението не "
+"бъде записано."
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+"Материалите {$title} бяха изпратени към продукционен етап. Авторът е "
+"уведомен, освен ако не сте избрали да пропуснете този имейл."
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr "Изпратено към продукционен етап"
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr "{$editorName} изпрати материалите към продукционен етап."
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+"Изпращане на материалите към продукционен етап, за да бъдат подготвени за "
+"публикуване."
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Изпращане за продукционен етап"
+
+msgid "editor.submission.decision.newRound"
+msgstr "Нов кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+"Подадените материали - {$title}, са изпратени към етапа за рецензия. Авторът "
+"е уведомен, освен ако не сте избрали да пропуснете този имейл."
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr "Изпратено за рецензиране"
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr "{$editorName} изпрати тези материали към етап рецензиране."
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr "Това подаване на материали е готово за изпращане за рецензия."
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr "Изпращане за рецензия"
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че ревизиите ще трябва да "
+"бъдат завършени и изпратени за друг кръг (етап) на рецензиране. Включете "
+"всички подробности, които ще са необходими на автора, за да преразгледа "
+"подадените материали. Когато е уместно, не забравяйте да анонимизирате "
+"всички коментари на рецензента."
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+"Поискани са ревизирани версии на материалите - {$title}. Беше записано "
+"решение за изпращане на ревизиите за друг кръг (етап) от рецензиране. Всички "
+"известия са изпратени, с изключение на тези, които сте избрали да пропуснете."
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr "Поискани са ревизии"
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+"{$editorName} поиска ревизии на подадените материали, които трябва да бъдат "
+"изпратени за друг кръг (етап) на рецензиране."
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+"Авторът трябва да предостави ревизии, които ще бъдат изпратени за друг кръг "
+"за рецензиране, преди материалите да бъдат приети за публикуване."
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Повторно изпращане за рецензия"
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че ще са необходими "
+"ревизии, преди тези материали да бъдат приети за публикуване. Включете "
+"всички подробности, които ще са необходими на автора, за да преразгледа "
+"представянето си. Когато е уместно, не забравяйте да анонимизирате всички "
+"коментари на рецензента. Този имейл няма да бъде изпратен, докато решението "
+"не бъде записано."
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+"Поискани са ревизирани версии на материалите - {$title}. Всички известия са "
+"изпратени, с изключение на тези, които сте избрали да пропуснете."
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr "Направено е искане за ревизии"
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr "{$editorName} изиска ревизирани версии на тези материали."
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+"Авторът трябва да предостави ревизирани версии на материалите, преди те да "
+"бъдат приети за публикуване."
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Искане за ревизии"
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+"Изберете файлове, които трябва да бъдат изпратени към етапа за "
+"продукция/публикуване."
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr "Изберете файлове, които трябва да бъдат изпратени за рецензиране."
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+"Изберете файлове, които трябва да бъдат изпратени към етапа на стилово "
+"редактиране."
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Изпратете имейл до авторите, за да ги уведомите, че е създаден е нов кръг "
+"(етап) за рецензиране на подадените от тях материали. Този имейл няма да "
+"бъде изпратен, докато решението не бъде записано."
+
+msgid "publication.wordCount"
+msgstr "Брой думи: {$count}/{$limit}"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"Резюмето (абстракт) е твърде дълго. Трябва да бъде {$count} думи или по-"
+"малко. В момента съдържа {$count} думи."
+
+msgid "publication.version.confirm"
+msgstr "Наистина ли искате да създадете нова версия?"
+
+msgid "publication.version.all"
+msgstr "Всички версии"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Пътят на URL адреса не може да бъде число."
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL адресът вече е използван и не може да се използва отново."
+
+msgid "publication.urlPath.description"
+msgstr ""
+"Незадължителен път, който да се използва в URL адреса вместо в "
+"идентификатора."
+
+msgid "publication.urlPath"
+msgstr "URL адрес"
+
+msgid "publication.unschedule"
+msgstr "Свален от планиране"
+
+msgid "publication.titleAbstract"
+msgstr "Заглавие и абстракт"
+
+msgid "publication.status.unpublished"
+msgstr "Непубликуван"
+
+msgid "publication.status.scheduled"
+msgstr "Планиран"
+
+msgid "publication.publicationLicense"
+msgstr "Разрешения и съгласия"
+
+msgid "publication.event.versionCreated"
+msgstr "Създадена е нова версия."
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Датата трябва да е във формат ГГГГ-ММ-ДД, като 2019-01-01."
+
+msgid "publication.createVersion"
+msgstr "Създаване на нова версия"
+
+msgid "publication.contributors"
+msgstr "Съавтори"
+
+msgid "catalog.category.subcategories"
+msgstr "Подкатегории"
+
+msgid "catalog.category.noItems"
+msgstr "Все още нищо не е публикувано в тази категория."
+
+msgid "submission.currentCoverImage"
+msgstr "Текущо изображение"
+
+msgid "submission.submit.placement.categories"
+msgstr "Категории"
+
+msgid "category.coverImage"
+msgstr "Изображение на обложката"
+
+msgid "category.category"
+msgstr "Категории"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Дата на публикация (първо новите)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Дата на публикация (първо старите)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Заглавие (Я-А)"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "Заглавие (А-Я)"
+
+msgid "grid.category.categories"
+msgstr "Категории"
+
+msgid "submission.list.assignEditor"
+msgstr "Асоцииране на редактор"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Дни от последната активност"
+
+msgid "submission.list.activity"
+msgstr "Активност"
+
+msgid "submission.list.currentStage"
+msgstr "Текущо в кръг (етап) {$stage}."
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+"Това подаване на материали трябва да бъде завършено, преди редактор да го "
+"прегледа."
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Участвате в редакторска роля за това подаване на материали. Искате ли да "
+"получите достъп до <a href=\"{$urlEditorialWorkflow}\">редакционния работен "
+"процес</a>?"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Участвате в няколко роли за това подаване на материали. Искате ли да "
+"получите достъп до <a href=\"{$urlAuthorWorkflow}\">работния поток на "
+"автора</a> или <a href=\"{$urlEditorialWorkflow}\">редакционния работен "
+"процес</a>?"
+
+msgid "submission.list.discussions"
+msgstr "Отворени дискусии"
+
+msgid "submission.list.filesPrepared"
+msgstr "Подготвени файлове"
+
+msgid "submission.list.galleysCreated"
+msgstr "Създадени типографии"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Изпратени стилово редактирани файлове"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Изпратени рецензии"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Възложените рецензии са завършени"
+
+msgid "submission.list.viewSubmission"
+msgstr "Преглед на материал"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr "Преглед на всички материали"
+
+msgid "submission.list.confirmDelete"
+msgstr "Да бъде ли изтрит подадения материал?"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Рецензията е отказана"
+
+msgid "submission.list.reviewComplete"
+msgstr "Рецензията е изпратена"
+
+msgid "submission.list.reviewDue"
+msgstr "Срок за рецензиране до: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Асоцииране за рецензия"
+
+msgid "submission.list.responseDue"
+msgstr "Отговор до: {$date}"
+
+msgid "submission.list.empty"
+msgstr "Няма намерени материали."
+
+msgid "submission.list.infoCenter"
+msgstr "Регистър на събитията и бележки"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Трябва да асоциирате поне един участник към това подаване на материали, "
+"преди да започнете дискусия."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName} - {$userGroup}"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Бяхте добавен/а в дискусия \"{$queryTitle}\" относно подадени материали \""
+"{$submissionTitle}\"."
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Нова активност е налична в дискусия \"{$queryTitle}\" относно подадени "
+"материали \"{$submissionTitle}\"."
+
+msgid "submission.query.new"
+msgstr "{$creatorName} започна дискусия: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} отговори на {$noteTitle}: {$noteContents}"
+
+msgid "grid.action.openNoteForm"
+msgstr "Добавяне на нов отговор към дискусията"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Ако напуснете тази дискусия, повече няма да получавате известия за нови "
+"съобщения. Искате ли да напуснете дискусията?"
+
+msgid "submission.query.leaveQuery"
+msgstr "Напускане на дискусията"
+
+msgid "submission.query.addNote"
+msgstr "Добавяне на съобщение"
+
+msgid "submission.query.closed"
+msgstr "Затворено"
+
+msgid "submission.query.lastReply"
+msgstr "Последен отговор"
+
+msgid "submission.query.from"
+msgstr "От"
+
+msgid "submission.query.replies"
+msgstr "Отговори"
+
+msgid "submission.query.messages"
+msgstr "Съобщения"
+
+msgid "submission.query.subject"
+msgstr "Тема (предмет)"
+
+msgid "submission.queries.editorial"
+msgstr "Дискусии към стиловото редактиране"
+
+msgid "submission.queries.submission"
+msgstr "Дискусии преди рецензиране"
+
+msgid "submission.queries.review"
+msgstr "Резензионни дискусии"
+
+msgid "submission.copyrightStatement"
+msgstr "Авторски права (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.copyrightYear"
+msgstr "Година за авторски права"
+
+msgid "submission.copyrightOther"
+msgstr "Декларация за авторски права"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Собствена декларация за авторски права"
+
+msgid "submission.copyrightHolder"
+msgstr "Държащ авторско право"
+
+msgid "submission.copyright"
+msgstr "Авторско право"
+
+msgid "submission.attachPermissions"
+msgstr "Добавяне на следните права към материалите:"
+
+msgid "submission.permissions"
+msgstr "Права"
+
+msgid "grid.action.editMetadata"
+msgstr "Редактиране на метаданни"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Създаване на нов елемент във формуляра за рецензия"
+
+msgid "submission.reviewFormResponse"
+msgstr "Формуляр за рецензия - отговор"
+
+msgid "submission.reviewForm"
+msgstr "Формуляр за рецензия"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"Преди да започне процеса на публикуване, трябва да бъде асоцииран "
+"производствен редактор. Моля, добавете производствен редактор, като "
+"използвате списъка с участници."
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"Преди да започне процеса на редактиране, трябва да бъде асоцииран "
+"производствен редактор. Моля, добавете производствен редактор, като "
+"използвате списъка с участници."
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Започнат е процеса за публикуване."
+
+msgid "grid.action.itemWorkflow"
+msgstr "Към работния процес за това подаване на материали"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Спомуществувател или спонсор"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} завърши рецензията за кръг (етап) {$round} за подадените "
+"материали {$submissionId}."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Радакторът {$userName} потвърди рецензията за кръг (етап) {$round} за "
+"подадените материали {$submissionId}."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"На кръг (етап) {$round} рецензирането от {$reviewerName} за подадените "
+"материали {$submissionId} беше започнато отново."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} маркира кръг (етап) {$round} от рецензирането на материали "
+"{$submissionId} като непрегледан."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"На кръг (етап) {$round} рецензията на {$reviewerName} за изпратените "
+"материали {$submissionId} беше премахната."
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} беше асоцииран да рецензира подадените материали "
+"{$submissionId} за кръг (етап) {$round}."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr "Неактивен повече от {$days} дни в етап {$stage}."
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr "{$editorName} отмени кръг (етап) за рецензиране."
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr "Последният кръг (етап) за рецензиране е отменен."
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+"Кръгът (етапа) за рецензиране на подадените материали, {$title}, е отменен. "
+"Всички известия са изпратени, с изключение на тези, които сте избрали да "
+"пропуснете."
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr "Кръгът (етапа) на стилова корекция е отменен"
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr "Изпращане на подадените материали обратно от етапа на стилова корекция."
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+"{$editorName} изпрати подадените материали обратно от етапа на стилова "
+"корекция."
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr "Изпратени обратно от етапа на стилова корекция"
+
+msgid "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+"Изпращане на имейл до асоциираните рецензенти, за да ги уведомите, че "
+"тяхната задача за рецензия е отменена."
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+"Изпращане на имейл до авторите, за да ги уведомите, че кръгът на рецензиране "
+"е затворен. Този имейл няма да бъде изпратен, докато решението не бъде "
+"записано."
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr "Спиране кръг (етап) на рецензиране"
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+"Отмяна на текущия кръг на реценциране и изпращене на материалите обратно към "
+"последния кръг на рецензиране. Ако това е първият кръг на рецензиране, той "
+"те ще бъдат изпратени обратно на етапа на подаване."
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+"Може да анулира кръг (етап) за рецензиране само ако нито един свързан "
+"рецензент няма наличен завършена или изпратена рецензия."
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+"Подадените материали, {$title}, бяха изпратени обратно от етапа на стилова "
+"корекция. Авторът е уведомен, освен ако не сте избрали да пропуснете този "
+"имейл."
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+"Изпратащане на имейл до авторите, за да ги уведомите, че редактирането е "
+"отменено и подадените материали ще бъдат подложени на допълнителна "
+"редакционна проверка."
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+"Неуспешно маркиране на DOI за остарял за {$pubObjectTitle}. DOI не може да "
+"бъде маркиран като остарял, защото все още не е регистриран или изпратен."
+
+msgid "doi.submission.notPublished"
+msgstr ""
+"Неуспешно маркиране на DOI, регистриран за {$pubObjectTitle}. Подадените "
+"материали трябва да бъдат публикувани, преди статусът да може да бъде "
+"актуализиран."
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+"Нови подадени материали чакат да бъдат изпратени за преглед или отхвърлени."
+
+msgid "submission.firstPublished"
+msgstr "Първо публикувано"
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+"Изпратете повторно заявката за рецензия в кръг {$round} до {$reviewerName} "
+"за подадени материали {$submissionid}."
+
+msgid "author.submit.noFiles"
+msgstr "Към това изпращане на материали не са прикачени файлове."
+
+msgid "author.submit.confirmation"
+msgstr "Потвърждение"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Моля, въведете език."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Моля, въведете предмет."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Моля, въведете дисциплина."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Моля, въведете ключова дума."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Моля, въведете информацията за обхвата."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Моля, въведете типа."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Моля, въведете източника."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Моля, въведете правата."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Моля, въведете препратките към литературата (библиография)."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Добавяне на допълнителна информация за вашето подаване на материали. "
+"Натискайте 'enter' след всеки термин."
+
+msgid "submission.type.tip"
+msgstr ""
+"Типът на подадените материали обикновено е „изображение“, „текст“ или друго "
+"мултимедийно съдържание, включително „софтуер“ или „интерактивен“. Моля, "
+"изберете най-подходящия за вашето изпращане на материали. Примери могат да "
+"бъдат намерени на<a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/"
+"2001/04/12/usageguide/generic.shtml#type</a>"
+
+msgid "submission.source.tip"
+msgstr ""
+"Това подаване на материали извлечено ли е от друг ресурс? Ако е така, можете "
+"да въведете URL адрес или описание на този ресурс."
+
+msgid "submission.rights.tip"
+msgstr ""
+"Ако желаете, можете да въведете кратко изявление относно правата за достъп, "
+"притежавани в или над това подаване на материали."
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+"Добавяне на допълнителна информация за вашето подаване на материали. "
+"Натискайте 'enter' след всеки термин."
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr "Изберете основния език на подадените материали."
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr "Основен контакт за редакционна кореспонденция."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Изберете редакторска роля, ако искате сами да редактирате и публикувате тези "
+"материали."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr ""
+"Да, моето подаване на материали за статия отговаря на всички тези изисквания."
+
+msgid "submission.details"
+msgstr "Подробности за подадените материали"
+
+msgid "submission.forTheEditors"
+msgstr "За редакторите"
+
+msgid "submission.reviewAndSubmit"
+msgstr "Преглед и изпращане"
+
+msgid "submission.wizard.beforeStart"
+msgstr "Преди да започнете"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "Промяна на настройките за изпращане на материали"
+
+msgid "submission.wizard.completeSteps"
+msgstr "Изпълнете стъпките, за да подадете материала"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"Има един или повече проблеми, които трябва да бъдат отстранени, преди да "
+"можете да изпратите. Моля, прегледайте информацията по-долу и направете "
+"исканите промени."
+
+msgid "submission.wizard.validating"
+msgstr "Проверка на подавания материал"
+
+msgid "submission.wizard.confirm"
+msgstr "Моля, потвърдете следното, преди да изпратите."
+
+msgid "submission.wizard.title"
+msgstr "Направете подаване на ръкопис"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "Подаване на ръкопис: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "Не са добавени автор и съавтори за този ръкопис."
+
+msgid "submission.wizard.notAllowed"
+msgstr "Не е позволено"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "Съгласие за поверителност"
+
+msgid "submission.wizard.saved"
+msgstr "Запазено за по-късно"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "Изпратихме ви копие от тази връзка по имейл на {$email}."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "Секцията (рубриката) е затворена"
+
+msgid "submission.wizard.start"
+msgstr "Започнете подаване на ръкопис"
+
+msgid "submission.wizard.startingStatus"
+msgstr "Започнато подаване на ръкопис"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "Подаване на ръкопис на <strong>{$language}</strong>."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "Подаване на ръкопис към секция (рубрика): <strong>{$section}</strong>."
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"Подаване на ръкопис към секция (рубрика) <strong>{$section}</strong> на "
+"<strong>{$language}</strong> език."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"Тези материали вече са подадени. Моля, посетете вашето <a href=\"{$url}\""
+">табло за управление на изпращания</a>, за да ги видите."
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+"Изберете само категориите, които са подходящи за вашето изпращане на "
+"материали."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Ръкописът, <strong>{$title}</strong>, ще бъде изпратен до "
+"<strong>{$context}</strong> за редакционна проверка. Сигурни ли сте, че "
+"искате да завършите това изпращане?"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Добавете всяка информация, която смятате, че нашият редакционен екип трябва "
+"да знае, когато оценява вашия ръкопис."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "За един или повече от авторите липсват подробности в {$language}."
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"Подробностите за вашето изпращане са запазени в нашата система, но "
+"материалът все още не е изпратен за разглеждане. Можете да се върнете, за да "
+"завършите изпращането си по всяко време, като следвате връзката по-долу."
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+"Възникна грешка и не успяхме да запазим подаването ви. Може да е прекъснала "
+"връзката."
+
+msgid "submission.copyright.agree"
+msgstr "Да, съгласявам се с декларацията за авторски права."
+
+msgid "submission.viewingPreview"
+msgstr ""
+"Това е предварителен преглед и не е публикуван. <a href=\"{$url}\">Вижте "
+"подадените материали</a>"

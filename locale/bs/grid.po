@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-01-21 12:53+0000\n"
+"Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
+"Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"bs_BA/>\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.action.setApproval"
+msgstr "Postavi odobrenje"
+
+msgid "grid.action.disapprove"
+msgstr "Neodobri"
+
+msgid "grid.action.approve"
+msgstr "Odobri"
+
+msgid "grid.action.edit"
+msgstr "Uredi"
+
+msgid "grid.action.remove"
+msgstr "Ukloni"
+
+msgid "grid.action.editorialHistory"
+msgstr "Historija uređivanja"
+
+msgid "grid.action.deleteSection"
+msgstr "Izbriši sekciju"
+
+msgid "grid.action.export"
+msgstr "Izvoz"
+
+msgid "grid.action.editSection"
+msgstr "Uredi sekciju"
+
+msgid "grid.action.editMedia"
+msgstr "Uredi medij"
+
+msgid "grid.action.deleteMedia"
+msgstr "Izbriši medij"
+
+msgid "grid.action.deleteFile"
+msgstr "Izbriši datoteku"
+
+msgid "grid.action.delete"
+msgstr "Izbriši"
+
+msgid "grid.action.reload"
+msgstr "Ponovo učitaj"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Odobrite ovu uređenu datoteku za slanje u sljedeću fazu"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Poništite ovog recenzenta"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj korisnika"
+
+msgid "grid.action.updateQuery"
+msgstr "Ažuriraj diskusiju"
+
+msgid "grid.action.deleteQuery"
+msgstr "Izbriši diskusiju"
+
+msgid "grid.action.readQuery"
+msgstr "Pročitaj diskusiju"
+
+msgid "grid.action.addQuery"
+msgstr "Dodaj diskusiju"
+
+msgid "grid.action.addNote"
+msgstr "Dodaj bilješku"
+
+msgid "grid.action.addItem"
+msgstr "Dodaj stavku"
+
+msgid "grid.action.sort"
+msgstr "Sortiraj"
+
+msgid "grid.action.manageAccess"
+msgstr "Upravljanje pristupom"
+
+msgid "grid.action.uninstall"
+msgstr "Deinstaliraj"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ova stavka je hostana izdaleka."
+
+msgid "grid.noAuditors"
+msgstr "Nema revizora"
+
+msgid "grid.settings"
+msgstr "Postavke"
+
+msgid "grid.noItems"
+msgstr "Nema stavki"

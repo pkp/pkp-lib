@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-10-01 19:11+0000\n"
+"Last-Translator: Rachel Joseph <rachel.joseph@biu.ac.il>\n"
+"Language-Team: Hebrew <http://translate.pkp.sfu.ca/projects/ojs/emails/he_IL/"
+">\n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"דוא\"ל זה, כאשר הוא מופעל, נשלח אוטומטית למחבר כאשר הם משלימים את תהליך הגשת "
+"כתב היד לכתב העת. הוא מספק מידע על מעקב אחר ההגשה בתהליך ומודה למחבר על "
+"המסירה."
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"תודה על הגשת המאמר {$submissionTitle} אל {$contextName}. דרך המערכת תוכל "
+"לעקוב אחר התקדמותו בתהליך העריכה על ידי כניסה לאתר כתב העת.<br />\n"
+"<br />\n"
+"כתובת אתר להגשה: {$submissionUrl}<br />\n"
+"שם משתמש: {$recipientUsername}<br />\n"
+"<br />\n"
+"אם יש לך שאלות, אנא צור איתי קשר. תודה ששקלת את כתב העת הזה כמקום לעבודה "
+"שלך.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "אישור ההגשה"
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:\n"
+"\n"
+"<br />\n"
+"\n"
+"תודה על חוות דעתך על ההגשה \"{$submissionTitle} ל{$contextName}. אנו מעריכים "
+"את תרומתך לאיכות העבודה שאנו מפרסמים."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"דוא\"ל זה נשלח על ידי עורך מדור כדי לאשר את קבלת חוות הדעת ולהודות לסוקר על "
+"התרומות שלהם."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "אישור סקירת מאמר"

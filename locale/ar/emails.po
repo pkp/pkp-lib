@@ -1,0 +1,167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:17-08:00\n"
+"PO-Revision-Date: 2020-12-17 17:52+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/ojs/emails/ar_IQ/"
+">\n"
+"Language: ar_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "إشعار طلب التقديم"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"شكراً على تقديمك المؤلَّف &quot;{$submissionTitle}&quot; إلى {$contextName}. عبر نظام إدارة المجلة هذا الذي نستعمله، سيكون بإمكانك متابعة مراحل معالجة طلبك عبر ولوجك إلى موقع المجلة باستعمال الرابط:<br />\n"
+"<br />\n"
+"رابط المؤلَّف: {$submissionUrl}<br />\n"
+"اسم الدخول: {$recipientUsername}<br />\n"
+"<br />\n"
+"إن كان لديك أي استفسارات، لطفاً تواصل معي. شكراً على اعتبارك هذه المجلة جديرة بعملك.<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "إشعار تحكيم المؤلَّف"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"نشكر إكمالك لتحكيم المؤلَّف الموسوم &quot;{$submissionTitle},&quot; والمرسل إلى {$contextName}. إننا نقدر لك مشاركتك في ترصين الأعمال التي تنشرها مجلتنا."
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "هذه الرسالة يصدرها محرر القسم لتأكيد استلامه لتقييمات وملاحظات المحكم الكاملة، وليشكره على مساهمته في عملية التحكيم."
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "قرار هيئة التحرير"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"قرارنا هو: إرسال طلبك إلى التحكيم<br />\n"
+"<br />\n"
+"رابط الطلب: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "قرار هيئة التحرير"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"إن متعلقات تحرير مؤلَّفك الموسوم &quot;{$submissionTitle},&quot; قد اكتملت. نحن الآن نرسله إلى مرحلة الإنتاج.<br />\n"
+"<br />\n"
+"رابط الطلب: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "قرار هيئة التحرير"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"قرارنا هو: بعض التنقيحات مطلوبة"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "قرار هيئة التحرير"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"قرارنا هو: إعادة التقديم مجدداً"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "قرار هيئة التحرير"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"قرارنا هو: الرفض"
+
+#, fuzzy
+msgid "emails.editorRecommendation.subject"
+msgstr "توصيات المحرر"
+
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}:<br />\n"
+"<br />\n"
+"إن التوصيات المتعلقة بطلب النشر في {$contextName}، &quot;{$submissionTitle}&quot; هي: {$recommendation}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "إلتماس نسخة التدقيق"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"أود مطالبتك بتوفير نسخة مدققة من المؤلَّف الموسوم &quot;{$submissionTitle}&quot; والمرسل إلى {$contextName} عبر اتباع الخطوات الآتية:<br />\n"
+"1. أنقر على رابط طلب النشر أدناه.<br />\n"
+"2. إفتح أي ملفات متوافرة ضمن الملفات المسودة وأجر متطلبات التدقيق مضيفاً أي قرارات أو ملاحظات تتعلق بالتدقيق حسب الحاجة.<br />\n"
+"3. إحفظ الملفات المدققة، ثم إرفعها إلى لوحة المدققات.<br />\n"
+"4. أعلم المحرر بأن جميع الملفات صارت جاهزة، وأن بالإمكان الشروع بعملية الإنتاج.<br />\n"
+"<br />\n"
+"رابط {$contextName}: {$contextUrl}<br />\n"
+"رابط الطلب: {$submissionUrl}<br />\n"
+"اسم الدخول: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "قرار المحرر"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}:<br />\n"
+"<br />\n"
+"لقد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}، &quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"إن قرارنا هو: رفض النشر"
+
+#, fuzzy
+msgid "emails.discussion.subject"
+msgstr "رسالة تتعلق بالمجلة {$contextName}"
+
+msgid "emails.discussion.body"
+msgstr "لطفاً أكتب رسالتك هنا."

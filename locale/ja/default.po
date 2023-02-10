@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-03-25 08:29+0000\n"
+"Last-Translator: Bjorn-Ole Kamm <pkp_trans@b-ok.de>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"default/ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "default.genres.styleSheet"
+msgstr "HTMLスタイルシート"
+
+msgid "default.genres.image"
+msgstr "画像"
+
+msgid "default.genres.multimedia"
+msgstr "マルチメディア"
+
+msgid "default.genres.other"
+msgstr "その他"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Read"
+
+msgid "default.groups.plural.reader"
+msgstr "購読者"
+
+msgid "default.groups.name.reader"
+msgstr "購読者"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.plural.translator"
+msgstr "翻訳者"
+
+msgid "default.groups.name.translator"
+msgstr "翻訳者"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.plural.author"
+msgstr "著者"
+
+msgid "default.groups.name.author"
+msgstr "著者"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "レイアウトエディタ"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "レイアウトエディタ"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.plural.indexer"
+msgstr "索引作製者"
+
+msgid "default.groups.name.indexer"
+msgstr "索引作製者"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.plural.funding"
+msgstr "資金コーディネーター"
+
+msgid "default.groups.name.funding"
+msgstr "資金コーディネーター"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.plural.marketing"
+msgstr "マーケティングおよびセールスコーディネーター"
+
+msgid "default.groups.name.marketing"
+msgstr "マーケティングおよびセールスコーディネーター"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "内部査読者"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "内部査読者"
+
+msgid "default.groups.abbrev.designer"
+msgstr "デザイン"
+
+msgid "default.groups.plural.designer"
+msgstr "デザイナー"
+
+msgid "default.groups.name.designer"
+msgstr "デザイナー"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.plural.proofreader"
+msgstr "校正者"
+
+msgid "default.groups.name.proofreader"
+msgstr "校正者"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "原稿整理者"
+
+msgid "default.groups.name.copyeditor"
+msgstr "原稿整理者"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "制作編集者"
+
+msgid "default.groups.name.productionEditor"
+msgstr "制作編集者"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "サイト管理者"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "サイト管理者"
+
+#, fuzzy
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
+"mailto: {$contactEmail}\">{$contactEmail}</a></p>"

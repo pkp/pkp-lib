@@ -1,0 +1,3613 @@
+# Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
+"PO-Revision-Date: 2023-02-02 21:29+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
+"cs_CZ/>\n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "manager.announcements"
+msgstr "Oznámení"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Jste si jisti, že chcete trvale odstranit oznámení {$title}?"
+
+msgid "manager.announcements.create"
+msgstr "Vytvořit nové oznámení"
+
+msgid "manager.announcements.createTitle"
+msgstr "Vytvořit"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Vypršení"
+
+msgid "manager.announcements.edit"
+msgstr "Editovat oznámení"
+
+msgid "manager.announcements.editTitle"
+msgstr "Editovat"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Zvolte prosím rok a/nebo měsíc ke zvolenému dni vypršení."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Datum vypršení"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Oznámení bude zobrazeno čtenářům do tohoto data. Ponechte prázdné, pokud má "
+"být oznámení zobrazeno neurčitě dlouho."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Zvolte prosím rok a/nebo den ke zvolenému měsíci vypršení."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Zvolte prosím platné datum vypršení."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Zvolte, prosím, měsíc a/nebo den ke zvolenému roku vypršení."
+
+msgid "manager.announcements.form.description"
+msgstr "Oznámení"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Celý text oznámení."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Je vyžadován popis oznámení."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Stručný popis, který se zobrazí spolu s názvem oznámení."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Je vyžadován krátký popis oznámení."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Krátký popis"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Uložit a vytvořit další"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Je vyžadován název oznámení."
+
+msgid "manager.announcements.form.title"
+msgstr "Název"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Typ"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Zvolte prosím platný typ oznámení."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Žádná oznámení nebyla vytvořena."
+
+msgid "manager.announcements.title"
+msgstr "Název"
+
+msgid "manager.announcements.type"
+msgstr "Typ"
+
+msgid "manager.announcementTypes"
+msgstr "Typy oznámení"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Varování! Všechna oznámení s tímto typem oznámení budou také smazána. Jste "
+"si jistý, že chcete pokračovat a smazat tento typ oznámení?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Vytvořit typ oznámení"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Vytvořit"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editovat typ oznámení"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editovat"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Uložit a vytvořit další"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Typ oznámení s tímto názvem již existuje."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Název"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Je vyžadován název typu oznámení."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Nebyly vytvořeny žádné typy oznámení."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Typ oznámení"
+
+msgid "manager.emails.createEmail"
+msgstr "Vytvořit email"
+
+msgid "manager.emails.disable"
+msgstr "Zakázat"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editovat testovací příklad emailu"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Šablona emailu"
+
+msgid "manager.emails.enabled"
+msgstr "Povolit tuto šablonu emailu"
+
+msgid "manager.emails.enable"
+msgstr "Povolit"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Pro daný email je vyžadován unikátní emailový klíč."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Je vyžadován text zprávy emailu."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Je vyžadován předmět emailu."
+
+msgid "manager.emails"
+msgstr "Připravené e-maily"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Resetovat na výchozí"
+
+msgid "manager.filesBrowser"
+msgstr "Prohlížeč souborů"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Vymazat tento soubor nebo adresář? Adresář musí být prázdný, aby mohl být "
+"smazán."
+
+msgid "manager.files.createDir"
+msgstr "Vytvořit adresář"
+
+msgid "manager.files.emptyDir"
+msgstr "V tomto adresáři nebyly nalezeny žádné soubory."
+
+msgid "manager.files.indexOfDir"
+msgstr "Index adresáře {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Nadřazený adresář"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Nahrané soubory"
+
+msgid "manager.files.uploadFile"
+msgstr "Nahrát soubor"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Jste si jisti, že chcete smazat tuto skupinu?"
+
+msgid "manager.groups.createTitle"
+msgstr "Vytvořit název"
+
+msgid "manager.groups.editTitle"
+msgstr "Editovat název"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Je vyžadován název skupiny."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Přidat člena"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Jste si jisti, že chcete smazat toto skupinové členství?"
+
+msgid "manager.groups.membership"
+msgstr "Členství"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Tato skupina nemá žádné členy."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Nebyli nalezeni žádní uživatelé."
+
+msgid "manager.groups.title"
+msgstr "Název"
+
+msgid "manager.importExport"
+msgstr "Importovat/Exportovat data"
+
+msgid "manager.languages.alternateLocaleInstructions"
+msgstr ""
+"Tento systém volitelně umožňuje, aby byly určité zásadní informace vkládány "
+"v několika dalších jazycích. Pro využití této funkce zvolte alternativní "
+"lokalizace a vyberte z níže uvedených možností."
+
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Vyberte všechny jazykové lokalizace, které mají být podporovány a dostupné "
+"na všech stránkách prostřednictvím menu pro výběr jazyka. Menu se zobrazí "
+"pouze v případě, že je zvolena více než jedna jazyková lokalizace."
+
+msgid "manager.payment.timestamp"
+msgstr "Časové razítko"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Odejmout roli tomuto uživateli?"
+
+msgid "manager.people.createUser"
+msgstr "Vytvořit nového uživatele"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Vygenerovat náhodné heslo."
+
+msgid "manager.people.createUserSendNotify"
+msgstr ""
+"Poslat uživateli uvítací email obsahující jeho uživatelské jméno a heslo."
+
+msgid "manager.people.disable"
+msgstr "Zablokovat"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Bez role"
+
+msgid "manager.people.editProfile"
+msgstr "Editovat Profil"
+
+msgid "manager.people.editUser"
+msgstr "Editovat uživatele"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Napsat vybraným uživatelům email"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Napsat email uživatelům zapsaným jako"
+
+msgid "manager.people.emailUsers"
+msgstr "Napsat uživateli email"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Vyberte jazykovou lokalizaci"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Vyberte uživatele, kterým byste chtěli napsat email tím, že zaškrtnete "
+"políčka vedle jejich jmen"
+
+msgid "manager.people.enable"
+msgstr "Povolit"
+
+msgid "manager.people.enroll"
+msgstr "Zapsat uživatele"
+
+msgid "manager.people.enrollment"
+msgstr "Zapsání"
+
+msgid "manager.people.enrollSelected"
+msgstr "Zapsat vybrané uživatele"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Synchronizovat roli"
+
+msgid "manager.people.enrollSync"
+msgstr "Synchronizovat přidělené role"
+
+msgid "manager.people.enrollUserAsDescription"
+msgstr "Uživateli může být kdykoli přiřazena nebo odejmuta role."
+
+msgid "manager.people.enrollUserAs"
+msgstr "Zapsat uživatele jako"
+
+msgid "manager.people.invalidUser"
+msgstr "Promiňte, požadovaný uživatel neexistuje."
+
+msgid "manager.people.mergeUser"
+msgstr "Sloučit uživatele"
+
+msgid "manager.people.mergeUsers.confirm"
+msgstr ""
+"Jste si jisti, že chcete sloučit účet s uživatelským jménem "
+"\"{$oldAccountCount}\" s účtem s uživatelský jménem \"{$newUsername}\"? Účet "
+"s uživatelským jménem \"{$oldAccountCount}\" poté přestane existovat. Tato "
+"akce je nevratná."
+
+msgid "manager.people.mergeUsers"
+msgstr "Sloučit více uživatelů"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Zvolte prosím roli v horní části stránky předtím, než kliknete na \"Zapsat "
+"uživatele\"."
+
+msgid "manager.people.mustProvideName"
+msgstr "Prosím, uveďte nejprve alespoň příjmení uživatele."
+
+msgid "manager.people.noMatchingUsers"
+msgstr "Žádní odpovídající uživatelé."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Žádní zapsaní uživatelé."
+
+msgid "manager.people"
+msgstr "Lidé"
+
+msgid "manager.people.remove"
+msgstr "Odstranit"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Uložit a vytvořit dalšího"
+
+msgid "manager.people.signInAs"
+msgstr "Přihlásit se jako"
+
+msgid "manager.people.signInAsUser"
+msgstr "Přihlásit se jako uživatel"
+
+msgid "manager.people.syncUsers"
+msgstr "Synchronizovat zapojení uživatelů"
+
+msgid "manager.people.unenroll"
+msgstr "Odejmout roli"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Uživatel byl úspěšně vytvořen."
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Vyžadovat od uživatele, aby si při příštím přihlášení změnil své heslo."
+
+msgid "manager.plugins.action"
+msgstr "Akce:"
+
+msgid "manager.plugins.disable"
+msgstr "Zakázat"
+
+msgid "manager.plugins.enable"
+msgstr "Povolit"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Správa pluginů"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Tento plugin je využíván v rámci celého webového systému. Spravovat tento "
+"doplněk může pouze administrátor stránek."
+
+msgid "manager.plugins"
+msgstr "Pluginy systému"
+
+msgid "manager.readingTools"
+msgstr "Čtenářské nástroje"
+
+msgid "manager.roles"
+msgstr "Role"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Při mazání této položky došlo k chybě."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Neplatný formát obrázku pro domácí stránku. Podporované formáty jsou .gif, ."
+"jpg, nebo .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Neplatný formát obrázku názvu pro záhlaví domácí stránky. Podporované "
+"formáty jsou .gif, .jpg, nebo .png."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Zaznamenávání údajů a kontrola"
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Neplatný formát obrázku loga pro záhlaví stránky. Podporované formáty jsou ."
+"gif, .jpg, nebo .png."
+
+msgid "manager.statistics"
+msgstr "Statistiky &amp; Zprávy"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage} %)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} nových)"
+
+msgid "manager.users"
+msgstr "Uživatelé"
+
+msgid "plugins.categories.auth"
+msgstr "Autorizační pluginy"
+
+msgid "plugins.categories.blocks"
+msgstr "Pluginy bloků"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Pluginy bloků jsou připojitelné UI komponenty, jako například různé "
+"postranní lišty s nástroji."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Pluginy brány poskytují živá data externím systémům."
+
+msgid "plugins.categories.gateways"
+msgstr "Pluginy brány"
+
+msgid "plugins.categories.generic"
+msgstr "Všeobecné pluginy"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Pluginy pro import/export mohou být použity k přenesení obsahu z nebo do "
+"jiných systému."
+
+msgid "plugins.categories.importexport"
+msgstr "Pluginy pro import/export"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Pluginy platebních metod zavádějí podporu různých způsobů zpracování online "
+"plateb."
+
+msgid "plugins.categories.paymethod"
+msgstr "Platební pluginy"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Pluginy pro generování výkazů lze využít pro tvorbu různých typů výkazů a "
+"výňatků dat pro správce a manažery."
+
+msgid "plugins.categories.reports"
+msgstr "Pluginy pro generování výkazů"
+
+msgid "plugins.categories.themes.description"
+msgstr "Pluginy témat vzhledu mohou být využity ke změně vzhledu systému."
+
+msgid "plugins.categories.themes"
+msgstr "Pluginy témat vzhledu"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Plugin formátu OAI metadat"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Tyto formátové pluginy vydávají matadata v OAI komunikaci."
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Změna typo položky formuláře..."
+
+msgid "manager.reviewFormElements"
+msgstr "Položky formuláře"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Přidat výběr"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Zaškrtávací políčka (můžete vybrat jedno nebo více)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Vybraz typ položky"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Potvrdit smazání publikované položky formuláře..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopírovat do:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Vytvořit novou položku"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Pole se seznamem"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editovat položku formuláře"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Typ položky"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Pro položku formuláře je požadován typ položky."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Pro položku je vyžadována otázka."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Nebyly vytvořeny žádné položky formuláře."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Výběr"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Položka"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Přepínače (můžete vybrat pouze jeden)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Recenzenti musí vyplnit položku"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Textové pole pro jedno slovo"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Rozšířené textové pole"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Jednořádkové textové pole"
+
+msgid "manager.reviewForms"
+msgstr "Formuláře recenzí"
+
+msgid "manager.reviewForms.completed"
+msgstr "Dokončeno"
+
+msgid "manager.reviewForms.create"
+msgstr "Vytvořit formulář pro recenze"
+
+msgid "manager.reviewForms.description"
+msgstr "Popis a instrukce"
+
+msgid "manager.reviewForms.edit"
+msgstr "Formulář recenze"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Pro formulář recenze je vyžadován název."
+
+msgid "manager.reviewForms.inReview"
+msgstr "V recenzi"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Zde vytvořené formuláře recenzí budou předloženy recenzetům k vyplnění "
+"namísto výchozího formuláře, který obsahuje dvě otevřená pole - první \"pro "
+"autora a editora\" a druhé \"pro editora\". Formuláře posudků mohou být "
+"vyhrazeny pro jednotlivé sekce a editoři budou mít možnost zvolit, který "
+"formulář použít při přidělování recenze. V každém případě budou mít editoři "
+"možnost zahrnout recenze do korespondence s autorem."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Žádný / Nepodléhá recenzování"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Nebyly vytvořeny žádné formuláře recenzí."
+
+msgid "manager.reviewForms.preview"
+msgstr "Náhled formuláře"
+
+msgid "manager.reviewForms.title"
+msgstr "Název"
+
+msgid "manager.website.information"
+msgstr "Informace"
+
+msgid "manager.website.appearance"
+msgstr "Vzhled"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Je požadován obrázkový soubor. Ujistěte se, že jste vybrali a nahráli soubor."
+
+msgid "manager.announcements.datePublish"
+msgstr "Publikováno"
+
+msgid "manager.publication.submissionStage"
+msgstr "Příspěvek"
+
+msgid "manager.publication.reviewStage"
+msgstr "Recenze"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redakce"
+
+msgid "manager.publication.productionStage"
+msgstr "Produkce"
+
+msgid "manager.publication.emails"
+msgstr "Emaily"
+
+msgid "manager.emails.data"
+msgstr "Data šablony zprávy"
+
+msgid "manager.emails.details"
+msgstr "Podrobnosti šablony"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Chystáte se zakázat tuto šablonu emailu. Pokud existují systémové procesy "
+"používající tuto šablonu, nebudou ji moci používat. Chcete tuto akci "
+"potvrdit?"
+
+msgid "manager.emails.enable.message"
+msgstr "Chystáte se aktivovat tento email. Chcete tuto akci potvrdit?"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Pokud obnovíte všechny šablony, budou všechny změny šablon emailů ztraceny. "
+"Chcete tuto akci potvrdit?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Pokud tuto šablonu obnovíte, všechna data zpráv budou obnovena na výchozí "
+"hodnotu a ztratí se všechny změny. Chcete tuto akci potvrdit?"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Příspěvek"
+
+msgid "manager.language.forms"
+msgstr "Formuláře"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Obnovit výchozí nastavení"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Hledat uživatele podle jména"
+
+msgid "manager.reviewerSearch.change"
+msgstr "Změnit"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Hledat recenzenty podle jména"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Hledat podle jména"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Oblasti zájmu o recenze"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Pomocí níže uvedeného formuláře nastavte maximální hodnoty výrazů, které "
+"chcete vyhledat. Formulář je předem naplněn vypočtenými průměry těchto polí."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL na webovou stránku,k která popisuje licenci, pokud je dostupná."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Formulář příspěvku"
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Chyby validace:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Vyskytly se chyby:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Neznámý prvek {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Neznámý žánr {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Neznámé kódování {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"Soubor importu obsahuje autora '{$authorName}' se skupinou uživatelů "
+"'{$userGroupName}'. V cílové instalaci není definována žádná uživatelská "
+"skupina s tímto názvem."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Nebyl použit formulář pro recenzenty."
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Data formuláře pro recenzenty"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Zahrnuto do zprávy pro autora"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Viditelné (pro autory)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Vytvořit nový formulář pro recenzenty"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Požadovat vyjádření ke konfliktu zájmů pro recenzenty."
+
+msgid "stats.city"
+msgstr "Město"
+
+msgid "stats.region"
+msgstr "Region"
+
+msgid "manager.statistics.reports"
+msgstr "Zprávy"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Systém vytváří přehledy, které sledují podrobnosti spojené s návštěvami webu "
+"a příspěvky za dané časové období. Přehledy jsou generovány ve formátu CSV, "
+"který vyžaduje zobrazení tabulkové aplikace."
+
+msgid "plugins.categories.pubIds"
+msgstr "Pluginy veřejných identifikátorů"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Tyto pluginy implementují podporu pro veřejné identifikátory."
+
+msgid "grid.action.addGenre"
+msgstr "Přidat komponentu"
+
+msgid "grid.action.editGenre"
+msgstr "Editovat komponentu"
+
+msgid "grid.action.deleteGenre"
+msgstr "Smazat komponentu"
+
+msgid "grid.action.restoreGenres"
+msgstr "Obnovit nastavení komponent na výchozí hodnoty"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+"Jste si jisti, že chcete vytvořit kopii tohoto formuláře pro recenzenty?"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Jste si jisti, že chcete smazat tento formulář pro recenzenty?"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Použijte formát RRRRMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Použijte formát RRRRMMDD."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponzor"
+
+msgid "manager.setup.publishing"
+msgstr "Podrobnosti o publikování"
+
+msgid "manager.setup.publishingDescription"
+msgstr "Název organizace vydávající časopis bude zobrazen v části O časopisu."
+
+msgid "manager.setup.additionalContent"
+msgstr "Další obsah"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Cokoliv, co zadáte zde, se objeví na domovské stránce časopisu."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Poznámka k copyrightu"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Požádejte autory, aby souhlasili s oznámením o autorských právech v rámci "
+"procesu podání."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Jste si jisti, že chcete zakázat tento formulář recenzenta? Formulář již "
+"nebude k dispozici při nových přiřazeních recenzí."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Neznámý nástroj nahrávání: {$param}"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Pokyny pro autory"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Doporučené pokyny zahrnují bibliografické a formátovací standardy spolu s "
+"příklady běžných formátů citací, které mají být použity při podání příspěvku."
+
+msgid "manager.setup.competingInterests"
+msgstr "Konflikt zájmů"
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Je třeba zvolit alespoň jednu roli, která bude přiřazena tomuto uživateli."
+
+msgid "manager.website"
+msgstr "Webové stránky"
+
+msgid "manager.website.title"
+msgstr "Nastavení webových stránek"
+
+msgid "manager.workflow"
+msgstr "Pracovní postup"
+
+msgid "manager.workflow.title"
+msgstr "Nastavení workflow"
+
+msgid "manager.distribution"
+msgstr "Distribuce"
+
+msgid "manager.distribution.title"
+msgstr "Nastavení distribuce"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Jste si jisti, že chcete povolit tento formulář recenzenta? Jakmile bude "
+"přiřazen k jakékoliv recenzi, nebude možné ho zakázat."
+
+msgid "manager.settings.wizard"
+msgstr "Průvodce nastavením"
+
+msgid "settings.roles.roleOptions"
+msgstr "Možnosti rolí"
+
+msgid "settings.roles.showTitles"
+msgstr "Ukázat název role v seznamu autorů"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Dovolit samoobslužnou registraci uživatelů"
+
+msgid "settings.roles.roleName"
+msgstr "Název role"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Zkratka"
+
+msgid "settings.roles.assignedStages"
+msgstr "Přiřazené etapy"
+
+msgid "settings.roles.stages"
+msgstr "Etapy"
+
+msgid "settings.roles.roleDetails"
+msgstr "Detail role"
+
+msgid "settings.roles.from"
+msgstr "Úroveň přístupu"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Chystáte se tuto roli odstranit z tohoto kontextu. Tato operace také "
+"odstraní související nastavení a všechny přiřazení uživatelů této roli. "
+"Chcete pokračovat?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Je třeba definovat název role."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Je třeba definovat zkratku role."
+
+msgid "settings.roles.uniqueName"
+msgstr "Je třeba definovat unikátní název role."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Je třeba definovat unikátní zkratku názvu role."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Musíte pro tuto roli nastavit úroveň přístupu."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Je třeba zvolit etapu k přiřazení."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Je vyžadován knihovní soubor. Ujistěte se, prosím, že jste zvolili a nahráli "
+"soubor."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Pro tento knihovní soubor je vyžadováno jméno."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Zadání typu souboru je požadováno pro tento knihovní soubor."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Kontakty"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Oprávnění"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Zprávy"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Ostatní"
+
+msgid "notification.editedUser"
+msgstr "Uživatel byl upraven."
+
+msgid "manager.paymentMethod"
+msgstr "Platby"
+
+msgid "manager.paymentMethod.title"
+msgstr "Metoda platby"
+
+msgid "manager.paymentMethod.none"
+msgstr "Nebyla vybrána žádná metoda platby"
+
+msgid "manager.paymentMethod.method"
+msgstr "Metoda platby"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Měna"
+
+msgid "notification.localeEnabled"
+msgstr "Lokalizace povolena."
+
+msgid "notification.localeDisabled"
+msgstr "Lokalizace zakázána."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} byla definována jako primární lokalizace."
+
+msgid "notification.localeInstalled"
+msgstr "Všechny vybrané lokalizace byly nainstalovány a aktivovány."
+
+msgid "notification.localeUninstalled"
+msgstr "Lokalizace {$locale} byla odinstalovány."
+
+msgid "notification.localeReloaded"
+msgstr "Lokalizace {$locale} byla znovu nahrána."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Nastavení lokalizací bylo uloženo."
+
+msgid "plugins.categories.metadata"
+msgstr "Pluginy metadat"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Pluginy metadat zavádějí další standardy metadat."
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.notifications"
+msgstr "Upozornění na příspěvky autora"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Poslat kopii na tuto emailovou adresu"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Autorům je automaticky zasíláno emailem potvrzení podání jejich příspěvku. "
+"Můžete zaslat kopii této zprávy také na následující adresy:"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Politika otevřeného přístupu"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Pokud povolujete okamžitý volný přístup k publikovanému obsahu, můžete zde "
+"upřesnit vaši Open Access Policy."
+
+msgid "manager.setup.pageFooter"
+msgstr "Patička stránek"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Vložte libovolný obrázek, text nebo HTML kód, který se má objevit ve spodní "
+"části vašeho webu."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Definujte čtenářům a autorům principy recenzního procesu Tento popis by měl "
+"zahrnovat počet recenzentů, kteří se obvykle používají při kontrole "
+"příspěvku, kritéria, podle nichž jsou recenzenti požádáni o posuzování "
+"podání, očekávaný čas potřebný k provedení recenzí a zásady použité při "
+"výběru recenzentů."
+
+msgid "manager.setup.principalContact"
+msgstr "Hlavní kontakt"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Zadejte podrobnosti o kontaktech, obvykle na hlavního redaktora, na redakci "
+"nebo na administrativní pracovníky, které lze zobrazit na vašem veřejně "
+"přístupném webu."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Zásady zachování soukromí"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Toto oznámení se objeví autorovi během procesu podání příspěvku a je veřejně "
+"přístupný na stránce \"O časopisu\"."
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Počet týdnů k přijetí či odmítnutí požadavku na recenzi."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Počet týdnů na odevzdání hotové recenze"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nikdy nepřipomínat"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Výchozí hodnoty lze upravit pro každou recenzi během redakčního procesu."
+
+msgid "manager.setup.homepageImage"
+msgstr "Obrázek na domácí stránku"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Nahrajte obrázek, který se má zobrazovat na domácí stránce."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Popis"
+
+msgid "manager.setup.theme"
+msgstr "Téma"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Nová témata mohou být nainstalována v pomocí ouška \"Pluginy\" v horní části "
+"této stránky."
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Postranní sloupec"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Poslat připomenutí, pokud recenzent neodpověděl na žádost o recenzi během "
+"následujícího času (počtu dnů) po stanoveném datu."
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Poslat připomenutí, pokud recenzent neodevzdal hotovou recenzi během "
+"následující doby (počtu dnů) po stanoveném datu."
+
+msgid "manager.setup.reviewOptions.reviewTime"
+msgstr "Výchozí termín pro recenze"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Popis vztahu ke sponzory a popis zásad"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Příklady: vědecké asociace, univerzitní oddělení, družstva atd. Sponzoři "
+"jsou veřejně zobrazováni."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Zkušení vývojáři webu mohou nahrát soubor css a přizpůsobit tak vzhled webu."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Kontakt na technickou podporu"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Kontakt na osobu, která může pomoci editorům, autorům a recenzentům s "
+"problémy při podávání příspěvků, jejich editování, při nahrávání recenzních "
+"posudků či při publikování materiálů."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Možnosti přístupu ke stránkám"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Plugin nebyl úspěšně zkopírován. Může to být problém s oprávněními. Ujistěte "
+"se, že webový server je schopen zapisovat do adresáře plugins (včetně "
+"podadresářů), ale nezapomeňte ho později znovu zabezpečit."
+
+msgid "manager.plugins.delete"
+msgstr "Smazat plugin"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Jste si jisti, že chcete nainstalovat tento plugin?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Jste si jisti, že chcete upgradovat tento plugin?"
+
+msgid "grid.action.installPlugin"
+msgstr "Nainstalovat, nebo upgradovat plugin"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Jste si jisti, že chcete smazat tento plugin ze systému?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "Kliknutím na tlačítko Smazat odstraníte plugin ze systému."
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Plugin \"{$pluginName}\" nemohl být odstraněn ze souborového systému. Může "
+"to být problém s oprávněními. Ujistěte se, že webový server je schopen "
+"zapisovat do adresáře plugins (včetně podadresářů), ale nezapomeňte ho "
+"později znovu zabezpečit."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Plugin \"{$pluginName}\" byl úspěšně smazán"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Tato stránka umožňuje správci prohlížet a případně nakonfigurovat "
+"nainstalované pluginy. Pluginy jsou rozděleny do kategorií podle jejich "
+"funkce. Kategorie jsou uvedeny níže a v každé kategorii je jejich aktuální "
+"sada pluginů."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Plugin \"{$pluginName}\" neexistuje"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Vyberte nejprve soubor"
+
+msgid "manager.plugins.upload"
+msgstr "Nahrát nový plugin"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Tento formulář umožňuje nahrát a nainstalovat nový plugin. Zkontrolujte, zda "
+"je plugin komprimován jako soubor .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Ujistěte se, prosím, zda byl vybraný soubor nahrán."
+
+msgid "manager.plugins.installed"
+msgstr "Nainstalované pluginy"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galerie pluginů"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Přehled"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instalace"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Nejnovější kompatibilní verze"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Oficiální"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Recenzované"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Správce"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "verze {$version} vydaná dne {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Domácí stránka"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Přehled"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Stav"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Tento plugin nebyl doposud nainstalován."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+"V současné době není k dispozici žádná kompatibilní verze tohoto pluginu."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Plugin již nainstalován a je novější než verze dostupná v galerii."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Plugin je již nainstalován, ale může být aktualizován na novější verzi."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin je již nainstalován a je v aktuální verzi."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Novější, než dostupná verze"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Lze upgradovat"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Aktuální"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Nedostupný"
+
+msgid "manager.plugins.installFailed"
+msgstr "Instalace selhala. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Úspěšně byla nainstalována verze {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Nahraný archiv plugin neobsahuje složku, která odpovídá názvu pluginu."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Nahraný plugin neodpovídá kategorii upgradovaného pluginu."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Soubor version.xml v nahraném pluginu obsahuje název pluginu, který "
+"neodpovídá názvu upgradovaného pluginu."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin neexistuje. Nainstalujte ho, prosím"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Plugin již existuje, ale je novější než nainstalovaná verze. Aktualizujte "
+"ho, prosím"
+
+msgid "manager.plugins.settings"
+msgstr "Nastavení"
+
+msgid "manager.plugins.upgrade"
+msgstr "Upgrade pluginu"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Tento formulář umožňuje aktualizaci pluginu. Zkontrolujte, zda je plugin "
+"komprimován jako soubor .tar.gz."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Upgrade selhal. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Úspěšně upgradována na verzi {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Chyba při nahrávání souboru"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Vyberte soubor pluginu"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "Soubor version.xml ve složce pluginu obsahuje neplatné údaje."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "Soubor version.xml nebyl ve složce pluginu nalezen"
+
+msgid "manager.setup.competingInterestsDescription"
+msgstr ""
+"Recenzenti budou požádáni, aby splnili níže uvedené zásady pro zveřejňování "
+"informací o konfliktu zájmů."
+
+msgid "manager.people.existingUserRequired"
+msgstr "Musí být zadán existující uživatel."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Tento plugin byl vytvořen a je spravován týmem Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Tento plugin byl zkontrolován a schválen týmem Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Tento plugin byl poskytnut jedním za našich vývojových partnerů."
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Tato role dovoluje dávat pouze doporučení k rozhodnutí o recenzi a bude "
+"požadovat konečné rozhodnutí oprávněného redaktora."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze v případě, že jste vyplnili informaci v rubrice "
+"Kontakt v Nastavení > Kontakt."
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Dočasný soubor {$dest} nelze vytvořit z {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Uvedená velikost souboru \"{$expected}\" a skutečná velikost souboru "
+"\"{$actual}\" se neshodují"
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Odkaz na aktuální číslo."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Odkaz na archiv čísel."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Odkaz na stránku vašich oznámení."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze v případě, pokud jste povolili oznámení na "
+"Nastavení > Webové stránky."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Odkaz na stránku pro přihlášení uživatele."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Odkaz na stránku k registraci uživatele."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Odkaz na redakční panel."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Odkaz na stránku s profilem uživatele."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Odkaz na nástroje k administraci celého webu."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Tento odkaz se zobrazí pouze administrativním uživatelům."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Odkaz k odhlášení uživatele."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Tento odkaz se zobrazí jen v případě, že návštěvník je přihlášen."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Tento odkaz se zobrazí jen v případě, že návštěvník není přihlášen."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Odkaz na stránku s vašemi kontaktními informacemi."
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Tento obsah není kódování jako {$param}"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Úpravy \"{$revisionId}\" souboru příspěvku \"{$fileId}\" vytvoří duplicitní "
+"záznam"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Soubor příspěvku nelze importovat"
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Název"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Cesta"
+
+msgid "manager.navigationMenus"
+msgstr "Navigační menu"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Tato stránka bude dostupná na adrese: <blockquote>{$pagesPath}</"
+"blockquote> ... kde %PATH% je cesta zadaná výše. <strong>Poznámka:</strong> "
+"Žádné dvě stránky nemohou mít stejnou cestu. Použití cest vložených do "
+"systému může způsobit ztrátu přístupu k důležitým funkcím.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Obsah"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Pole pro cestu musí obsahovat pouze alfanumerické znaky a znaky '.', '/', "
+"'-', a '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Tato cesta již existuje pro jiný prvek navigačního menu."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tento název již existuje v jiném navigačním menu."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Toto pole je povinné"
+
+msgid "manager.navigationMenuItems"
+msgstr "Prvky navigačního menu"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Přiřazené prvky menu"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Nepřiřazené prvky menu"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Navigační oblast aktivního tématu"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Vyberte navigační oblast"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Je třeba zadat URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Další informace o tom, kdy se tato položka nabídky zobrazí nebo skryje."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Když se v položce menu otevře podmenu, je možné, že tento odkaz nebude "
+"dostupný na všech zařízeních. Pokud máte například položku O časopisu, která "
+"otevře podmenu Kontakt a Redakční tým, nemusí být odkaz \"O časopisu\" "
+"dostupný na všech zařízeních. Ve výchozím menu je toto ošetřeno vytvořením "
+"druhé položky menu \"O časopise\", která se objeví v podmenu."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Typ navigačního menu"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Zvolte Typ navigačního menu, nebo si vytvořte vlastní"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Vlastní stránka"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "Vytvořte na vašem webu vlastní stránku a propojte v navigačním menu."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Vzdálené URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Odkaz na libovolné URL či na jinou stránku, jako https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Odkaz na stránku, která zobrazí obsah O obsahu časopisu v Nastavení > Časopis"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze v případě, že jste v sekci Nastavení> Časopis "
+"vyplnili sekci O časopisu."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr "Odkaz na stránku, která zobrazí obsah hlavičky v Nastavení > Časopis."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze v případě, že jste vyplnili sekci Redakční tým "
+"v Nastavení > Časopis."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Odkaz na stránku popisující pokyny pro podávání příspěvků."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Upozornění:"
+
+msgid "manager.setup.genres.key"
+msgstr "Klíč"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Volitelný krátký symbolický identifikátor pro tento žánr."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Tento klíč již existuje."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Klíč může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky a musí "
+"začínat a končit alfanumerickým znakem."
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Pro tuto oblast je již přiřazené navigační menu."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Vyberte, prosím, typ navigačního menu."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze pokud jsou zapnuty platby v Nastavení > "
+"Distribuce > Platby."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze pokud je návštěvník přihlášen, jsou zapnuty "
+"platby v Nastavení > Distribuce > Platby a je vyžadováno předplatné v "
+"Nastavení > Distribuce > Přístup."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Odkaz na vyhledávací stránku."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Odkaz na stránku zobrazující prohlášení o soukromí."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Tento odkaz se zobrazí pouze pokud jste vložili prohlášení o soukromí v "
+"Nastavení > Workflow > Příspěvek."
+
+msgid "manager.setup.searchEngineIndexing.sitemap"
+msgstr "Mapa stránek"
+
+msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+msgstr ""
+"XML mapa stránek je dostupná pro vyhledávací servery na tomto odkazu: <a "
+"href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Tento soubor knihovny může být dostupný pro stažení, pokud je umožněn "
+"\"Veřejný přístup\" na odkazu: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Vyberte soubory z knihovny k připojení"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Míra odmítnutí po recenzi"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Odmítnuté příspěvky (smetení ze stolu)"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Míra zamítnutých žádostí"
+
+msgid "stats.name.declineRate"
+msgstr "Míra odmítnutí"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Míra přijetí"
+
+msgid "stats.name.daysToReject"
+msgstr "Dny k odmítnutí"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dny k přijetí"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dny do prvního rozhodnutí recenze"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Publikované příspěvky"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Odmítnuté příspěvky (po recenzi)"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Odmítnuté příspěvky"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Uznané příspěvky"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Přijaté příspěvky"
+
+msgid "stats.userStatistics"
+msgstr "Statistiky uživatelů"
+
+msgid "stats.trends"
+msgstr "Trendy"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Celkem v časovém období"
+
+msgid "stats.total"
+msgstr "Celkový"
+
+msgid "stats.submissionsActive"
+msgstr "Aktivní příspěvky"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Hledání podle názvu, autora a ID"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.monthly"
+msgstr "Měsíčně"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.fileViews"
+msgstr "Zobrazení souborů"
+
+msgid "stats.editorialActivity"
+msgstr "Redakční činnost"
+
+msgid "stats.descriptionForStat"
+msgstr "Popis pro {$stat}"
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Počet dní, po které většina návrhů obdrží první redakční rozhodnutí, "
+"například odmítnutí nebo odeslání ke kontrole. <br><br> Tato čísla ukazují, "
+"že 80% příspěvků dosáhne rozhodnutí v daném počtu dní. < br> <br> Tato "
+"statistika se pokouší popsat, kdy většina autorů, kteří se do časopisu "
+"zasílají, může očekávat rozhodnutí."
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Procento vybraného časového období se vypočítá pro příspěvky, které byly "
+"předloženy v tomto časovém období a obdržely konečné rozhodnutí. <br><br> "
+"Například zvažte případ, kdy bylo během tohoto časového období provedeno "
+"deset podání. Čtyři byla přijata, čtyři byla zamítnuta a dva stále čekají na "
+"konečné rozhodnutí. <br><br> Míra přijetí bude 50% (4 z 8 podání), protože "
+"dvě podání, která nedosáhla konečného rozhodnutí, se nepočítají."
+
+msgid "stats.dateRange.untilDate"
+msgstr "Do {$date}"
+
+msgid "stats.dateRange.to"
+msgstr "Do"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Rok k datu"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Od {$date}"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Minulý rok"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Poslední dva roky"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Posledních 90 dní"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Posledních 30 dní"
+
+msgid "stats.dateRange.last12Months"
+msgstr "Posledních 12 měsíců"
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Datum zahájení nesmí být dřívější než {$date}."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Datum ukončení nesmí být pozdější než {$date}."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Datum zahájení musí být před datem ukončení."
+
+msgid "stats.dateRange.invalidDate"
+msgstr "Formát data není platný. Zadejte každé datum ve formátu RRRR-MM-DD."
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Zadejte každé datum ve formátu RRRR-MM-DD. Například pokud chcete datum do "
+"15. ledna 2019, zadejte 2019-01-15."
+
+msgid "stats.dateRange.from"
+msgstr "Od"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Jedno ze zadaných dat neexistuje."
+
+msgid "stats.dateRange.customRange"
+msgstr "Vlastní rozsah"
+
+msgid "stats.dateRange.change"
+msgstr "Změnit časové období"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplikovat"
+
+msgid "stats.dateRange.allDates"
+msgstr "Všechna data"
+
+msgid "stats.dateRange"
+msgstr "Časové období"
+
+msgid "stats.daily"
+msgstr "Denně"
+
+msgid "stats.allUsers"
+msgstr "Všichni uživatelé"
+
+msgid "grid.category.categoryDetails"
+msgstr "Detaily kategorie"
+
+msgid "grid.category.nameRequired"
+msgstr "Zadejte název kategorie."
+
+msgid "grid.category.removeText"
+msgstr "Opravdu chcete tuto kategorii odebrat?"
+
+msgid "grid.category.parentCategory"
+msgstr "Nadřazená kategorie"
+
+msgid "grid.category.description"
+msgstr "Popis"
+
+msgid "grid.category.pathExists"
+msgstr "Cesta kategorie již existuje. Zadejte jedinečnou cestu."
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Cesta kategorie musí obsahovat pouze písmena a čísla."
+
+msgid "grid.category.urlWillBe"
+msgstr "Adresa URL kategorie bude: {$sampleUrl}"
+
+msgid "grid.category.path"
+msgstr "Cesta"
+
+msgid "grid.category.name"
+msgstr "Název"
+
+msgid "grid.category.edit"
+msgstr "Upravit kategorii"
+
+msgid "grid.category.add"
+msgstr "Přidat kategorii"
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Uživatelské jméno „{$username}“ a e-mail „{$email}“ se neshodují s jedním a "
+"stejným existujícím uživatelem."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Importovaný uživatel „{$username}“ má prosté heslo, které není platné. "
+"Uživatel nebyl importován."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Heslo importovaného uživatele „{$username}“ nebylo možné importovat tak, jak "
+"je. Na e-mail uživatele bylo odesláno nové heslo. Uživatel byl importován."
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Importovaný uživatel „{$username}“ nemá žádné heslo. Zkontrolujte "
+"importovaný formát XML. Uživatel nebyl importován."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Chyby importu/exportu:"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Autor {$authorName} nemá dané jméno v jazyce příspěvku, {$localeName}. Bez "
+"těchto informací nelze příspěvek odeslat."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Před přijetím příspěvku požádejte autora, aby poskytl reference."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Požádejte autora, aby při odesílání příspěvku poskytl reference."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Během odesílání nevyžadujte reference od autora."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Povolit metadata referencí"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Shromažďujte reference příspěvku v samostatném poli. To může být vyžadováno "
+"pro zajištění souladu se službami pro sledování citací, jako je Crossref."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Před přijetím příspěvku požádejte autora, aby zveřejnil podpůrné agentury."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Požádejte autora, aby během podání zveřejnil jakékoli podpůrné agentury."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Během odesílání nevyžadujte od autora podpůrné agentury."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Povolit metadata podpůrných agentur"
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Podpůrné agentury mohou uvést zdroj financování výzkumu nebo jinou "
+"institucionální podporu, která výzkum usnadnila."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Před přijetím příspěvku požádejte autora, aby poskytl obory."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Požádejte autora, aby poskytl obory během podání příspěvku."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Během podání nevyžadujte od autora obory."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Povolit metadata oborů"
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Obory jsou typy studia nebo obory znalostí, jak jsou popsány univerzitními "
+"fakultami a učenými společnostmi."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Před přijetím žádosti požádejte autora, aby poskytl typ."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Požádejte autora, aby poskytl typ během odesílání."
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Během odesílání nevyžadujte od autora typ."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Povolit metadata typu"
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Povaha nebo žánr hlavního obsahu podání. Typ je obvykle \"Text\", ale může "
+"to být také \"Dataset\", \"Image\" nebo jakýkoli z typů <a target = \"_ blank"
+"\" href=\"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/"
+"\">>Dublin Core</a>."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Před přijetím žádosti požádejte autora, aby poskytl předmět."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Požádejte autora, aby během odesílání příspěvku uvedl předmět."
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Během odesílání příspěvku nevyžadujte od autora předmět."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Povolit metadata předmětu"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Předměty budou klíčová slova, klíčové fráze nebo klasifikační kódy, které "
+"popisují téma příspěvku."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Před přijetím žádosti požádejte autora, aby poskytl zdrojovou URL adresu."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Požádejte autora, aby během odesílání poskytl zdrojovou URL adresu."
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Během odesílání nevyžadujte od autora zdrojovou URL adresu."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Povolit metadata zdrojů"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Zdrojem může být ID, jako je DOI, jiného díla nebo zdroje, ze kterého je "
+"návrh odvozen."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Před přijetím žádosti požádejte autora, aby uvedl veškerá předchozí "
+"přístupová práva."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Požádejte autora, aby zveřejnil veškerá předchozí oprávnění k článku během "
+"odesílání."
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Během odesílání nepožadujte od autora zveřejnění práv."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Povolit metadata práv"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Jakákoli práva k příspěvku, která mohou zahrnovat práva duševního "
+"vlastnictví, autorská práva a různá vlastnická práva."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Před přijetím požádejte autora, aby zadal jazyky příspěvku."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Požádejte autora, aby během podání uvedl jazyky příspěvku."
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Během odesílání nevyžadujte od autora jazyky příspěvku."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Povolit jazyková metadata"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Jazyk označuje primární pracovní jazyk pomocí kódu jazyka (např. „en“) s "
+"volitelným kódem země (např. „en_US“)."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Před přijetím příspěvku požádejte autora, aby navrhl klíčová slova."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Požádejte autora, aby při odesílání příspěvku navrhl klíčová slova."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Během odesílání příspěvku nevyžadujte od autora klíčová slova."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Povolit klíčová slova"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Klíčová slova jsou obvykle jedno až tříslovná fráze, která se používají k "
+"označení hlavních témat příspěvku."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "Před přijetím příspěvku požádejte autora, aby navrhl metadata dosahu."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Požádejte autora, aby během odesílání navrhl metadata dosahu."
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Během odesílání nevyžadujte od autora metadata o dosahu."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Povolit metadata dosahu"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Dosah obvykle označuje geografické umístění díla (název místa nebo zeměpisné "
+"souřadnice), časové období (označení období, datum nebo časové období) nebo "
+"jurisdikci (například pojmenovanou administrativní jednotku)."
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Dosah"
+
+msgid "manager.setup.metadata.success"
+msgstr "Metadata příspěvku byla úspěšně aktualizována."
+
+msgid "manager.reviewFormElements.description"
+msgstr "Popis"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Povolit úpravy metadat příspěvku."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Přidejte vlastní HTML kód, který chcete vložit do hlavičky každé stránky. "
+"Před přidáním značek se poraďte s technikem."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Vlastní štítky"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Zadejte veřejné licenční podmínky, které chcete zobrazit vedle publikovaných "
+"prací."
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licenční podmínky"
+
+msgid "manager.distribution.license.other"
+msgstr "Další licenční URL"
+
+msgid "manager.distribution.license.success"
+msgstr "Podrobnosti o licenci byly aktualizovány. "
+
+msgid "manager.distribution.license"
+msgstr "Licence"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrovaní uživatelé"
+
+msgid "manager.setup.theme.notFound"
+msgstr "Vybrané téma není nainstalováno ani povoleno."
+
+msgid "manager.setup.theme.success"
+msgstr ""
+"Téma bylo aktualizováno. <a href=\"{$url}\" target=\"_blank\">Zobrazit nyní</"
+"a>"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Představte odkaz na <button type = \"button\"> jak zajistit, aby byly "
+"všechny soubory během nahrávání anonymizovány </button>"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Výchozí režim recenze"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Připomenutí recenze"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Připomenutí odpovědi"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Výchozí termín dokončení"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Výchozí termín odpovědi"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Soubor, který jste nahráli, nebyl nalezen. Zkuste ho znovu nahrát."
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blok {$name} nebyl nalezen. Ujistěte se, že je plugin nainstalován a povolen."
+
+msgid "manager.setup.checklist"
+msgstr "Kontrolní seznam"
+
+msgid "manager.setup.authorGuidelines.success"
+msgstr "Pokyny pro autory byly úspěšně aktualizovány."
+
+msgid "manager.setup.appearance.success"
+msgstr "Nastavení vzhledu bylo aktualizováno."
+
+msgid "manager.setup.advanced"
+msgstr "Pokročilý"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Tento zástupce nelze odstranit, protože jsou přiřazena k tržním metadatům "
+"pro jeden nebo více publikačních formátů pro tento příspěvek."
+
+msgid "manager.emails.sentTo"
+msgstr "Odesláno do"
+
+msgid "manager.emails.sentFrom"
+msgstr "Odesláno z"
+
+msgid "manager.emails.resetAll"
+msgstr "Resetovat vše"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Při přidávání e-mailové šablony musíte zadat ID kontextu."
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-mailové šablony"
+
+msgid "manager.emails.editEmail.success"
+msgstr "Šablona e-mailu byla upravena."
+
+msgid "manager.emails.addEmail.success"
+msgstr "Byla přidána šablona e-mailu."
+
+msgid "manager.emails.addEmail"
+msgstr "Přidat šablonu"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Podrobnosti připomenutí recenze byly aktualizovány."
+
+msgid "manager.publication.reviewSetup.success"
+msgstr "Nastavení recenzí bylo aktualizováno."
+
+msgid "manager.publication.reviewerGuidance.success"
+msgstr "Pokyny pro recenzenty byly aktualizovány."
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Pokyny pro recenzenty"
+
+msgid "manager.publication.emailSetup.success"
+msgstr "Nastavení e-mailu bylo aktualizováno."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/rok)"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Soubor příspěvku {$id} byl přeskočen, protože je připojen k záznamu, který "
+"nebude importován, jako je například přiřazení recenze nebo diskuse."
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Vyberte typ metadat, která mohou tyto soubory obdržet. Dokument by měl být "
+"vybrán pro hlavní soubory příspěvku, jako je soubor PDF ke stažení, aby tyto "
+"soubory zdědily svá metadata z příspěvku. Pro většiny ostatních typů souborů "
+"vyberte Doplňkový obsah. Umělecké dílo je vhodné pro soubory, které vyžadují "
+"odlišná metadata kreditu, titulků a licencí."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadata souboru"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Jedná se o doplňkové soubory, jako jsou soubory dat a výzkumné materiály, a "
+"budou zobrazeny odděleně od hlavních souborů příspěvku."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Tyto soubory jsou závislé soubory, například obrázky zobrazené souborem "
+"HTML, a nebudou se zobrazovat s publikovaným obsahem."
+
+msgid "manager.setup.genres.label"
+msgstr "Typ souboru"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Opravdu chcete aktivovat tuto sekci?"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Opravdu chcete tuto sekci deaktivovat?"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Deaktivujte tuto sekce a nedovolte, aby do ní bylo možné odesílat nové "
+"příspěvky."
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Vlastní"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum a čas (Krátký formát)"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum a čas"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Čas"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (Krátký formát)"
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Zvolte preferovaný formát pro datum a čas. Vlastní formát lze zadat pomocí "
+"speciálních <a href=\"https://www.php.net/manual/en/function.strftime."
+"php#refsect1-function.strftime-parameters\"> formátovacích znaků </a>."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formát data a času"
+
+msgid "manager.setup.dateTime"
+msgstr "Datum a čas"
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Poslat další email"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-mail byl úspěšně odeslán všem příjemcům."
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Odesílání e-mailu. Dokud není odesílání dokončeno, neodcházejte."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Chystáte se odeslat e-mail {$total} uživatelům. Opravdu chcete odeslat tento "
+"e-mail?"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Poslat email"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Zašlete mi kopii tohoto e-mailu na adresu {$email}."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Vyberte uživatele, kteří by měli dostávat vaše e-mailová upozornění."
+
+msgid "manager.setup.notifyUsers"
+msgstr "Oznámit"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Zakázat příspěvky"
+
+msgid "manager.people.signedInAs"
+msgstr "Aktuálně jste přihlášeni jako {$username}"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Vyberte uživatele, které chcete exportovat do souboru formátu Excel/CSV."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export do formátu Excel/CSV"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Smazat oznámení"
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Nastavení jazyka nelze uložit. Pro každou možnost musí být povolen alespoň "
+"jeden jazyk"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Další šablony"
+
+msgid "plugins.importexport.common.cliError"
+msgstr "CHYBA:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Vybraná cesta k časopisu \"{$contextPath}\" neexistuje."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Jedna nebo více z těchto e-mailových adres není platná."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopie e-mailu s potvrzením odeslání příspěvku bude zaslána na všechny zde "
+"zadané e-mailové adresy. Oddělte více e-mailových adres čárkou. Příklad: "
+"jeden@priklad.com, dva@priklad.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Upozornit kohokoli"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ne"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ano, poslat kopii na email {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Upozornit primární kontakt"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Oznámení"
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Stáhněte exportovaný soubor tlačítkem níže."
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Procesu se nepodařilo analyzovat publikace"
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces se nepodařilo analyzovat autory"
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Chybná konfigurace filtru [{$filterName}]: Existuje {$filterCount} výskytů "
+"filtru. Měl by být jen jeden."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Obecné položky"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Export byl úspěšně dokončen."
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Stáhnout exportovaný soubor"
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportovat výsledky podání příspěvku"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces selhal. Zkontrolujte níže chyby a varování."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Chybí zařazení do uživatelské skupiny pro autora jménem {$param}"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL adresa příspěvku v redakčním backendu"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Plná jména autorů"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Jména autorů ve zkrácené formě"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Abstrakt příspěvku"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Unikátní ID příspěvku"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Název příspěvku"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Redaktoři přiřazení k tomuto podání, kteří mohou rozhodnout"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Celé jméno hlavního kontaktu webové stránky"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Emailový podpis odesilatele"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Emailová adresa odesilatele"
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Celé jméno odesilatele"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "Adresa URL zadání recenze"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum, kdy má být recenze dokončena"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Datum, kdy by měl recenzent úkol přijmout nebo odmítnout"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Uživatelské jméno příjemce nebo všech příjemců"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Celé jméno příjemce nebo všech příjemců"
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr "Adresa URL stránky, na které může uživatel obnovit ztracené heslo"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán novému uživateli při registraci na webu, "
+"pokud nastavení vyžaduje ověření e-mailové adresy."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validace emailu (stránky)"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr "Tento email je poslán v případě, že editor zruší přiřazení recenzenta."
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "Bylo zrušeno přiřazení recenzenta"
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Tento e-mail je odeslán, když editor znovu přiřadí nepřiřazeného recenzenta."
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Recenzent obnoven"
+
+msgid "mailable.discussionMessage.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán účastníkům diskuse, jakmile je do "
+"diskuse přidána nová zpráva."
+
+msgid "mailable.discussionMessage.name"
+msgstr "Nová diskusní zpráva"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-mail hlavní kontaktní osoby webové stránky"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán po uplynutí lhůty pro odpověď recenzenta "
+"na žádost o recenzi."
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Tento e-mail od editora sekce recenzentovi žádá, aby recenzent přijal nebo "
+"odmítl úkol posoudit předložený příspěvek. "
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Tento e-mail od redaktora recenzentovi žádá, aby recenzent přijal nebo "
+"odmítl úkol recenzovat předložený příspěvek v dalším kole recenzního řízení. "
+"Poskytuje informace o příspěvku, jako je název a abstrakt, datum uzávěrky "
+"recenze a způsob přístupu k samotnému příspěvku."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Žádný"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI mohou být automaticky vytvořeny a uloženy u registrační agentury. Chcete-"
+"li tuto funkci používat, vyhledejte a nainstalujte zásuvný modul od "
+"příslušné registrační agentury."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nebyla povolena žádná registrační agentura"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Vyberte registrační agenturu, kterou chcete použít při ukládání DOI."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registrační agentura"
+
+msgid "doi.manager.settings.doiSuffixLegacyUser"
+msgstr "Dříve dostupný vlastní, uživatelem definovaný vzor. Již se nepoužívá."
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Výchozí"
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Přípona DOI může mít libovolnou podobu, ale musí být jedinečná mezi všemi "
+"publikačními objekty se stejnou přidělenou předponou DOI:"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Přípona DOI"
+
+msgid "doi.manager.settings.enableFor"
+msgstr "{$objects} získají DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Položka s DOI"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefix DOI"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nikdy"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Po zveřejnění"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Kdy má být příspěvku přiděleno DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatické přiřazování DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Prefix DOI je povinný a musí být v následujícím formátu 10.xxxx."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Přiděluje ho registrační agentura DOI, například <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> nebo <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a>. Příklad: 10.xxxx"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Registrace DOI a metadata mohou být automaticky uloženy u vybrané "
+"registrační agentury vždy, když je zveřejněna položka s DOI. K automatickému "
+"uložení dojde v plánovaných intervalech a stav registrace každého DOI lze "
+"sledovat na stránce pro správu DOI."
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Povolit automatické ukládání"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatické uložení"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefix DOI"
+
+msgid "manager.setup.enableDois.enable"
+msgstr "Povolit DOI"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrace"
+
+msgid "manager.setup.dois.setup"
+msgstr "Nastavení"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Následující zpráva byla vrácena agenturou {$registrationAgency} a obsahuje "
+"podrobnosti o registraci:"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Následující chyba byla vrácena agenturou {$registrationAgency} a obsahuje "
+"podrobnosti o příčině chyby:"
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Položky úspěšně předané k uložení"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Položkám byly úspěšně přiřazeny nové DOI"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Položky byly úspěšně označeny jako exportované"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Položky byly úspěšně exportovány"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Některé DOI se nepodařilo aktualizovat"
+
+msgid "manager.dois.status.stale"
+msgstr "Zastaralé"
+
+msgid "manager.dois.status.error"
+msgstr "Chyba"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrováno"
+
+msgid "manager.dois.status.submitted"
+msgstr "Odesláno"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Registrace zrušena"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Uložit DOI"
+
+msgid "manger.dois.update.success"
+msgstr "Úspěšně aktualizované/á DOI"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zpráva o úspěšné registraci"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Zobrazit záznam"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Chybová zpráva při registraci"
+
+msgid "manager.dois.registration.viewError"
+msgstr "Zobrazení chyby"
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Tuto položku nelze uložit, dokud není zveřejněna."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadata k této položce nebyla odeslána {$registrationAgency}."
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadata k této položce byla předána {$registrationAgency}."
+
+msgid "manager.dois.publicationStatus"
+msgstr "Stav publikování"
+
+msgid "manager.dois.depositStatus"
+msgstr "Stav uložení"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Chystáte se naplánovat uložení všech zbývajících metadatových záznamů DOI u "
+"{$registrationAgency}. Uloženy budou pouze ty položky, které byly vydány a "
+"bylo jim přiděleno DOI. Stav jednotlivých položek bude aktualizován po "
+"obdržení odpovědi. Jste si jisti, že chcete naplánovat vklady pro všechny "
+"tyto položky?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Uložit všechny DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Chystáte se přiřadit nové DOI k {$count} položkám pro všechny způsobilé "
+"položky, které ještě nemají přiřazené DOI. Jste si jisti, že chcete těmto "
+"položkám přiřadit DOI?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Přiřazená DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Chystáte se exportovat metadatové záznamy DOI pro {$count} položek pro "
+"{$registrationAgency}. Jste si jisti, že chcete tyto záznamy exportovat?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Export DOI"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro {$count} položek jako "
+"registrované. Jste si jisti, že chcete tyto záznamy označit jako "
+"registrované?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Označit DOI jako registrované"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Chystáte se odeslat metadatové záznamy DOI pro {$count} položek do "
+"{$registrationAgency}. Jste si jisti, že chcete tyto záznamy uložit?"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Uložení DOI"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr "Uložit vše"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Tato zpráva oznamuje vedoucímu redaktorovi nebo redaktorovi sekce, že bylo "
+"vydáno redakční doporučení týkající se jednoho z jejich přidělených "
+"příspěvků. Tato zpráva se používá v případech, kdy je redaktor oprávněn "
+"pouze doporučit redakční rozhodnutí a vyžaduje, aby pověřený redaktor "
+"zaznamenal redakční rozhodnutí. Tuto možnost lze zvolit při přiřazování "
+"účastníků k příspěvku."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Vypracováno doporučení"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek je odeslán přímo do fáze "
+"závěrečných úprav a nebude podroben recenznímu řízení."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Příspěvek byl přijat (bez recenzního řízení)"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do produkční "
+"fáze."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Odeslání do produkční fáze"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Odesláno do recenzního řízení"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku bez recenzního řízení se ruší."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Obnovení příspěvku odmítnutého bez recenzního řízení"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že předchozí rozhodnutí o zamítnutí jeho "
+"příspěvku po recenzním řízení se ruší."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Obnovení odmítnutého příspěvku"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavku na „úpravy textu "
+"opětovné předložení“ jeho příspěvku."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Znovu podat do recenzního řízení"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi rozhodnutí o požadavcích na úpravu textu "
+"během recenzního řízení."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Byly vyžádány úpravy textu"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že začíná nové kolo recenzí jeho příspěvku."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Zahájení nového kola recenzí"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut (před recenzním řízením)"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl po recenzním řízení "
+"odmítnut."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"podávání."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Příspěvek odeslán zpět do fáze podání"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"recenzního řízení."
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Příspěvek byl poslán zpět do recenzní fáze"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět do fáze "
+"konečných úprav."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Příspěvek byl zaslán zpět k závěrečným úpravám"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl přijat k publikaci."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Příspěvek byl přijat"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "Vyzvali jsme autory, aby předložili revidovanou verzi k další recenzi."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Vyzvali jsme autory k předložení upraveného textu."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Rozhodli jsme se tento příspěvek odmítnout."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Rozhodli jsme se přijmout tento příspěvek bez úprav."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Krátký popis tohoto rozhodnutí, který má být sdílen v e-mailovém oznámení "
+"zaslaném recenzentům o tomto rozhodnutí."
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, aby mu oznámil, že bylo přijato "
+"rozhodnutí týkající se příspěvku, který recenzoval."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopie e-mailové zprávy, která byla zaslána předkládajícímu autorovi"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Tento e-mail se zasílá autorům příspěvku, kteří nejsou přiřazeni jako "
+"účastníci, aby byli informováni o rozhodnutí. Obvykle se jedná o všechny "
+"ostatní kromě předkládajícího autora."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Upozornit ostatní autory"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Jména autorů přiřazených k pracovnímu postupu příspěvku. Obvykle se jedná o "
+"předkládajícího autora"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Adresa URL autora podání"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Tento časopis provádí otevřené recenzní řízení. Recenzenti uvidí vaše jméno "
+"a afiliaci, jakož i jména a afiliaci vašich spoluautorů. Stejně tak vy "
+"uvidíte jména a afiliace recenzentů."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Tento časopis provádí „anonymní“ recenzní řízení. Vaše jméno a jména vašich "
+"spoluautorů budou recenzentům viditelná; totožnost recenzentů však zůstane "
+"anonymní."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Tento časopis provádí dvojí anonymní recenzní řízení. Recenzenti neuvidí "
+"žádné identifikační údaje o vás ani o vašich spoluautorech. Stejně tak se "
+"nedozvíte, kdo váš příspěvek recenzoval, a recenzenti se vám přímo neozvou."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Popis výchozí metody recenzí, například dvojitá anonymní nebo otevřená."
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Doporučené rozhodnutí, například Přijmout příspěvek"
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"Kolo recenzí, v němž bylo toto rozhodnutí přijato, pokud se rozhodnutí týká "
+"fáze recenze."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Popis přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Název přijatého rozhodnutí."
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "Adresa URL pro zobrazení všech přiřazených příspěvků uživatele."
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Všechny komentáře z dokončených recenzí. U anonymních recenzí jsou jména "
+"recenzentů skryta"
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Odeslat email pouze autorům přiřazeným k pracovnímu postupu příspěvku. "
+"Obvykle se jedná o předkládajícího autora."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Odeslání e-mailového oznámení všem autorům příspěvku."
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Kdo by měl obdržet oznamovací e-mail, když je zaznamenáno redakční "
+"rozhodnutí?"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Upozornit všechny autory"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Potřebuje DOI"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Mailová adresa časopisu"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Tento e-mail se automaticky odešle, pokud recenzent nedokončí recenzi do "
+"stanoveného termínu."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Připomenutí recenze (automatizované)"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Tento e-mail zasílá editor, aby připomněl recenzentovi, že uplynul termín "
+"pro dodání recenze"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Připomenutí recenze"
+
+msgid "mailable.reviewDecline.description"
+msgstr "Tento e-mail odesílá recenzent při odmítnutí žádosti o recenzi"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Odmítnutí recenze"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán, když recenzent přijme žádost o recenzi"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Potvrzení recenze"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Hashovaná adresa URL, která je odeslána uživateli pro potvrzení resetování "
+"hesla"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "E-mailový podpis webové stránky pro automatické e-maily"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Před odstraněním této součásti je nutné přiřadit všechny související soubory "
+"příspěvku k jiné součásti."
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Jiné příspěvky"
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Zahrnuje příspěvky, které nejsou započítány do jiných součtů, například ty, "
+"které jsou stále v procesu, a ty, které se zdají být importovány."
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Vlastní vzor (nedoporučuje se)"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Vlastní vzor suffixu DOI"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Suffix DOI"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Je vyžadován prefix DOI"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Podřízený příspěvek {$child} se nepodařilo zpracovat"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Chybí aktuální zveřejnění příspěvku"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Tuto operaci nelze vyvolat bez povolených DOI."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Aktualizace DOI selhala"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Požadavek na následnou recenzi"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Požadavek na recenzi"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "Uplynula lhůta na reakci na požadavek na recenzi (automatizované)"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, aby mu potvrdil, že jeho recenzi "
+"obdržel, a poděkoval mu za jeho práci."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Poděkování za recenzi"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Automatický e-mail zaslaný redaktorům s nevyřízenými úkoly"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Redakční připomenutí"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Počet příspěvků přidělených tomuto redaktorovi"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Seznam příspěvků s nevyřízenými úkoly"
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Tento email je zasílán registrovanému uživateli, když uvede, že zapomněl své "
+"heslo nebo se nemůže přihlásit. Obsahuje adresu URL, kterou může následovat "
+"a resetovat své heslo."
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"Tento e-mail je odeslán nově vytvořenému uživateli, pokud správce vytvořil "
+"uživatele prostřednictvím nastavení uživatele. Tento e-mail by měl uživatele "
+"přivítat v systému a poskytnout mu informaci o jeho uživatelském jménu a "
+"hesle."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Tento email je zaslán nově registrovanému recenzentovi jako přivítání do "
+"systému a poskytne mu doklad o jeho uživatelském jménu a heslu."
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Tento e-mail je automaticky zaslán autorovi při odeslání příspěvku. Obsahuje "
+"informace o sledování příspěvku v redakčním procesu a poděkování autorovi za "
+"podání příspěvku."
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Tento e-mail je automaticky zasílán dalším autorům uvedeným u příspěvku, "
+"kteří nejsou přihlašujícím autorem."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Tento email je automaticky odeslán příslušnému editorovi článku, pokud autor "
+"odešle revidovanou verzi článku."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Tento email je posílán, pokud je vytvořeno nové oznámení."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tento e-mail je automaticky zasílán měsíčně editorům a správcům časopisů, "
+"aby jim poskytl přehled o stavu systému."
+
+msgid "manager.people.authSource"
+msgstr "Zdroj ověření"
+
+msgid "manager.institutions.edit"
+msgstr "Editovat instituci"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+"Registrační číslo organizace (Research Organization Registry) pro tuto "
+"instituci."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "Rozsahy IP adres"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Platné hodnoty zahrnují IP adresu (např. 142.58.103.1), rozsah IP (např. "
+"142.58.103.1 – 142.58.103.4), rozsah IP se zástupným znakem „*“ (např. "
+"142.58.*.*) a rozsah IP s CIDR (např. 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Smazat instituci"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Opravdu chcete pokračovat a smazat tuto instituci?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Neplatný rozsah IP adres"
+
+msgid "manager.setup.statistics"
+msgstr "Statistiky"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geografické statistiky"
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Neshromažďovat žádné zeměpisné údaje"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Shromáždění země návštěvníka"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Shromažďování země a regionu návštěvníka"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Shromažďování státu, regionu a města návštěvníka"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institucionální statistiky"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Pokud chcete shromažďovat statistiky o používání podle institucí, povolte "
+"institucionální statistiky. Pokud je tato možnost povolena, je třeba "
+"nakonfigurovat rozsahy IP pro každou instituci, kterou chcete sledovat."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Povolit institucionální statistiky"
+
+msgid "manager.setup.institutions"
+msgstr "Instituce"
+
+msgid "stats.unique"
+msgstr "Unikátní"
+
+msgid "stats.unknown"
+msgstr "neznámý"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Označit DOI jako neregistrované"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro položky {$count} jako "
+"neregistrované. Jste si jisti, že chcete tyto záznamy označit jako "
+"neregistrované?"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Chystáte se označit metadatové záznamy DOI pro položku (položky) {$count} "
+"jako zastaralé. Stav \"zastaralé\" lze použít pouze pro dříve odeslané DOI. "
+"Jste si jisti, že chcete tyto záznamy označit jako zastaralé?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Označit DOI jako zastaralé"
+
+msgid "manager.dois.actions.description"
+msgstr "Proveďte akci na {$count} vybraných položkách."
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Položky úspěšně označené jako neregistrované"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Položky úspěšně označené jako zastaralé"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nové náhodné uživatelské heslo"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Úplné jméno uživatele, který nahrál soubor příspěvku"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Název oznámení"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Stručný popis oznámení"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "Adresa URL oznámení"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Počet příspěvků přijatých tento měsíc"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Počet odmítnutých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Počet přijatých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Celkový počet přijatých příspěvků"
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Měsíc vydání zprávy"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Rok vydání zprávy"
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Odkaz na stránku s redakčními aktivitami"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Odkaz na stránku se statistikami publikovaných článků"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Potvrzení obnovení hesla"
+
+msgid "mailable.userRegister.name"
+msgstr "Uživatelský účet byl vytvořen"
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Registrace recenzentů"
+
+msgid "mailable.submissionAck.name"
+msgstr "Potvrzení podání příspěvku"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Potvrzení podání příspěvku (ostatní autoři)"
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Diskuse (k příspěvku)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"podávání příspěvku."
+
+msgid "mailable.discussionReview.name"
+msgstr "Diskuse (k recenzi)"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"recenzování."
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Diskuse (ve fázi copyeditingu)"
+
+msgid "mailable.discussionProduction.name"
+msgstr "Diskuse (v produkční fázi)"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Tento e-mail je odeslán při vytvoření diskuse nebo odpovědi na ni v "
+"produkční fázi."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Oznámení revidované verze"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Oznámení o statistické zprávě"
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Oznámení o publikované verzi"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Tento e-mail automaticky upozorní recenzenta na změny v přiřazené recenzi."
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Identifikace čísla, včetně svazku, čísla, roku a názvu"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Tento e-mail je odeslán po vytvoření diskuse nebo odpovědi na ni ve fázi "
+"copyeditingu."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Tento e-mail automaticky informuje přidělené redaktory o publikování nové "
+"verze"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Editovat oznámení o recenzi"
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Komentář recenzenta: Upozornit redakci"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán přiděleným redaktorům, když recenzent "
+"odevzdá recenzní doporučení"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Příspěvek odeslán zpět z copyeditingu"
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Recenzní kolo bylo zrušeno"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Pozvaný recenzent k příspěvku byl odebrán z role."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho příspěvek byl odeslán zpět z "
+"copyeditingu."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že recenzní kolo jeho příspěvku bylo zrušeno."
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Veřejné API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Omezit/neomezit přístup ke koncovým bodům API pro statistiku COUNTER SUSHI. "
+"Pokud není zaškrtnuto, bude rozhraní API přístupné pouze uživatelům s rolí "
+"správce nebo manažera."
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Opětovné odeslání žádosti o recenzi recenzentovi"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Tento e-mail zasílá editor recenzentovi, který odmítl žádost o recenzi, "
+"pokud si editor přeje žádost znovu zaslat."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Vyberte typ statistik geografického využití, které chcete shromažďovat. "
+"Podrobnější geografické statistiky mohou značně zvětšit velikost vaší "
+"databáze a v některých vzácných případech mohou narušit anonymitu "
+"návštěvníků."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Zveřejnit statistiky COUNTER SUSHI"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "Obsah nové diskuse nebo odpovědi"
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "Předmět diskuse"
+
+msgid "stats.publications.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
+
+msgid "stats.publications.downloadReport.allFilters"
+msgstr "Všechny {$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Stáhnout soubory"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "Počet stažení každého souboru."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Stáhnout Geografická data"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "Počet zobrazení a stažení pro každé město, region nebo zemi."
+
+msgid "stats.geographic.ccAttribution"
+msgstr "Geolokace poskytována <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "O geolokaci"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} až {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "Všechny {$filter}"
+
+msgid "stats.timeline"
+msgstr "Časová osa"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Počet {$type} pro každý {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Časová osa ke stažení"
+
+msgid "stats.timelineInterval"
+msgstr "Interval časové osy"
+
+msgid "stats.timelineType"
+msgstr "Typ časové osy"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI obsahuje neplatné znaky."
+
+msgid "stats.views"
+msgstr "Náhledy"
+
+msgid "stats.downloads"
+msgstr "Stažení"
+
+msgid "stats.views.timelineInterval"
+msgstr "Celkem náhledů podle data"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Celkem stažení podle data"
+
+msgid "stats.file.type.suppFile"
+msgstr "Doplňkový soubor"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Primární soubor"
+
+msgid "stats.name.submissionsImported"
+msgstr "Importované příspěvky"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Probíhající podání příspěvků"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Zaškrtávací seznam pro přípravu příspěvku"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Při zahájení odesílání se autorům zobrazí následující informace. Autoři jsou "
+"požádáni, aby před zahájením předkládání potvrdili, že jejich příspěvek "
+"splňuje všechny zde uvedené požadavky."
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Počet příspěvků nezahrnutých do ostatních součtů"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Rok vydání zprávy"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Nové oznámení"
+
+msgid "manager.manageEmails"
+msgstr "Správa emailů"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Přidání a úprava šablon</a> pro všechny e-maily "
+"odesílané systémem.</p>"
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Přidejte a upravte šablony, které chcete zpřístupnit uživateli při odesílání "
+"tohoto e-mailu. Výchozí se načte automaticky a uživatel bude moci rychle "
+"načíst jakékoli další šablony, které sem přidáte."
+
+msgid "manager.mailables.templates"
+msgstr "Šablony"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Úprava šablony"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Odstranění šablony"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr "Opravdu chcete odstranit šablonu <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Obnovení šablony"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Jste si jisti, že chcete pro šablonu <strong>{$template}</strong> obnovit "
+"výchozí hodnoty předmětu a těla?"
+
+msgid "manager.mailables.search"
+msgstr "Vyhledávání podle názvu nebo popisu"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Zadejte stručný název, který vám pomůže tuto šablonu najít."
+
+msgid "manager.newSubmission"
+msgstr "Nový příspěvek"
+
+msgid "manager.submissionAck.description"
+msgstr "Kdo by měl obdržet e-mail o dokončení podání nového příspěvku."
+
+msgid "manager.submissionAck.off"
+msgstr "Neposílejte e-mail."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "E-mail zašlete pouze autorovi, který práci předkládá."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Odeslání e-mailu všem autorům."
+
+msgid "manager.editorialDecisions"
+msgstr "Redakční rozhodnutí"
+
+msgid "manager.forEditors"
+msgstr "Pro redaktory"
+
+msgid "manager.forEditors.description"
+msgstr "Konfigurace e-mailových oznámení, která se mají odesílat redaktorům."
+
+msgid "manager.editorialStatistics"
+msgstr "Redakční statistiky"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Zasílání měsíčních e-mailů redaktorům."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Neposílat e-mail redaktorům."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Požadovat copyediting"
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Otázka k citacím"
+
+msgid "mailable.editorAssign.name"
+msgstr "Byl přiřazen redaktor"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Hotovo pro produkci"
+
+msgid "mailable.system"
+msgstr "Systém"
+
+msgid "mailable.versionCreated.name"
+msgstr "Vytvořena verze"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Recenze byla dokončena"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Recenze upravena"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Konfigurace e-mailových oznámení, která se mají odesílat při novém příspěvku."
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Konfigurace e-mailových oznámení, která se mají odesílat autorům, když je "
+"zaznamenáno rozhodnutí redakce."
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Zda zasílat redaktorům měsíční e-mail se statistikami o vydávání časopisu, "
+"například o počtu přijatých a odmítnutých příspěvků. Redaktoři se mohou z "
+"odběru tohoto e-mailu odhlásit ve svém uživatelském profilu."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Oznámení rozhodnutí recenzentům"
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"V kroku nahrávání souborů se autorům zobrazí následující informace. "
+"Poskytněte stručné vysvětlení, jaké soubory mají autoři sdílet se svým "
+"příspěvkem."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v kroku podrobností, kdy jsou "
+"požádáni, aby uvedli název, abstrakt a další klíčové informace o svém "
+"příspěvku."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v posledním kroku průvodce "
+"odesláním, kdy jsou vyzváni, aby si před odesláním své práce zkontrolovali "
+"všechny poskytnuté informace."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Průvodce autora"
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Přiřaďte {$name} jako {$role}"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "Jména a afiliace autorů příspěvku."
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "Adresa URL pro odeslání v průvodci odesláním"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Příspěvek byl uložen na později"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Automatický e-mail zaslaný autorům, když uloží svůj příspěvek k pozdějšímu "
+"dokončení"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Redaktor přiřazen (automaticky)"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Příspěvek potřebuje přiřazení redaktora"
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Autorům se před zahájením předkládání zobrazí následující informace. "
+"Poskytněte stručné vysvětlení procesu zpracování příspěvku, aby autor věděl, "
+"co může očekávat."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"V kroku přispěvatelů se autorům zobrazují následující údaje. Poskytněte "
+"stručné vysvětlení, jaké informace by měl autor poskytnout o sobě, "
+"spoluautorech a případných dalších přispěvatelích."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v kroku Pro redaktory, kdy jsou "
+"požádáni o uvedení metadat, jako jsou klíčová slova, komentáře pro redaktora "
+"a další podrobnosti, které pomohou při redakční kontrole."
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Redakční úkoly"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Vyberte redaktory, kteří mají být automaticky přiřazeni ke všem novým "
+"příspěvkům v této sekci."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Vyberte redaktory, kteří mají být automaticky přiřazeni ke všem novým "
+"příspěvkům v této kategorii."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "Adresa URL zveřejněného příspěvku"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Poděkování ostatním autorům příspěvku"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Tento e-mail je zaslán redaktorovi, když je mu automaticky přiřazen "
+"příspěvek."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Hromadné akce"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Verzování DOI"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Existuje {$count} verzí."
+
+msgid "doi.manager.versions.view"
+msgstr "Zobrazit vše"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI pro všechny verze"
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Krátké prohlášení popisující, zda autor či autoři zpřístupnili svá výzkumná "
+"data, a pokud ano, kde je mohou čtenáři získat."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Povolení dat prohlášení o dostupnosti metadat"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "Během odesílání nepožadovat od autora prohlášení o dostupnosti dat."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Požádejte autora o prohlášení o dostupnosti dat při odesílání příspěvku."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Před přijetím příspěvku požadovat, aby autor předložil prohlášení o "
+"dostupnosti údajů."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Přiřadit redaktora"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Jakákoli publikovaná nebo nepublikovaná položka, která 1) má dílčí objekt "
+"bez přiřazeného DOI, kde 2) je povolen typ DOI dílčího objektu (např. "
+"sazebnice bez DOI se zde nezobrazí, pokud není povoleno DOI pro sazebnice)"
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Položky, u nichž byla metadata aktualizována na místní úrovni a které bude "
+"třeba znovu předložit nebo aktualizovat u stanovené registrační agentury, "
+"aby se zajistila aktuálnost všech dříve předložených metadat."
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Položka, která 1) má přiřazeny všechny povolené typy DOI a 2) nebyla "
+"publikována"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Položky, které 1) mají přidělené DOI pro všechny povolené typy DOI, 2) jsou "
+"zveřejněny a 3) dosud nebyly registrovány u registrační agentury."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Položky, které byly předloženy stanovené registrační agentuře."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Položky, které byly úspěšně zaregistrovány u registrační agentury nebo ručně "
+"označeny jako registrované."
+
+msgid "manager.dois.status.error.description"
+msgstr "Položky, u kterých došlo k chybě v procesu registrace."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Statusy DOI"
+
+msgid "manager.submitWithCategories.no"
+msgstr "Ne, toto pole autorům nezobrazujte."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Měl by být autor odesílající příspěvek při novém odeslání požádán o výběr "
+"kategorie?"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Ano, přidejte do průvodce odesláním pole kategorie."
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"Správa DOI se přestěhovala. Podívejte se prosím na stránky <a href=\""
+"{$doiManagementUrl}\">Správa DOI</a> a <a href=\"{$doiSettingsUrl}\""
+">Nastavení DOI</a>."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Tato položka byla manuálně zaregistrována u registrační agentury."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "Ano, požadujte po autorech, aby nahráli jeden nebo více těchto souborů."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Ne, povolte nové příspěvky bez těchto souborů."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Požadavek na příspěvek"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Měl by být při každém novém podání příspěvku vyžadován alespoň jeden z "
+"těchto souborů? Pokud zvolíte ano, autoři nebudou moci odesílat příspěvky, "
+"dokud nenahrají alespoň jeden soubor tohoto typu."

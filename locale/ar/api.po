@@ -1,0 +1,284 @@
+# M. Ali <vorteem@gmail.com>, 2022, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:37+00:00\n"
+"PO-Revision-Date: 2023-02-04 04:48+0000\n"
+"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"ar_IQ/>\n"
+"Language: ar_IQ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.400.paramNotSupported"
+msgstr "إن العامل {$param} غير مدعوم."
+
+msgid "api.403.unauthorized"
+msgstr "ليست لديك صلاحية الوصول إلى المورد الذي طلبته."
+
+msgid "api.404.resourceNotFound"
+msgstr "تعذر العثور على المورد المطلوب."
+
+msgid "api.404.endpointNotFound"
+msgstr "تعذر التعرف على الرابط المطلوب."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "تعذر العثور على قالب المراسلة الذي طلبته."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "المقالة التي تريد نشرها سبق وأن نُشرت بالفعل."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "المقالة التي تريد إلغاء نشرها لم يتم نشرها بعد."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "يتعذر عليك تعديل هذا المنشور بعد نشره."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr "يتعذر عليك تعديل الحالة مباشرة عبر وجهة برمجة التطبيق. بدلاً من ذلك، استعمل مفاتيح الوصول /publish و /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "ينبغي القيام بإلغاء النشر قبل أن يتسنى لك الحذف."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "يمكنك رفع أنواع الملفات الآتية حصراً: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "الصورة التي رفعتها غير صحيحة."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr "الملف الذي رفعته ليس بنفس الامتداد. قد يحدث ذلك عند تغيير صيغة الملف إلى صيغة أخرى غير مدعومة، على سبيل المثال: تغيير photo.png إلى photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "رفع الملفات غير متاح لك."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr "لا تتوفر لك المساحة الكافية في مجلد المستخدم. الملف الذي تحاول رفعه بحجم {$fileUploadSize}kb ولديك {$dirSizeLeft}kb متبقية فقط."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr "مجلد الملفات العام غير موجود أو يتعذر حفظ الملفات فيه. لطفاً، تواصل مع المشرف على الموقع لحل هذه المشكلة."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "تعديل هذا المنشور غير متاح لك."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "التاريخ لا بد أن يكون بالتنسيق YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "تاريخ البدء لا يمكن له أن يكون بعد تاريخ الانتهاء."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "تاريخ البدء لا يمكن له أن يكون قبل 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "تاريخ الانتهاء لا يمكن له أن يكون بعد البارحة."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr "طلبك غير صحيح. فترة مقياس الزمن لا بد أن تكون إما `day` أو `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "طلبك غير صحيح. طريقة الترتيب لا بد لها أن تكون إما `desc` أو `asc`."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "طلبك مرفوض. قد يكون سبب ذلك أنه انتهت صلاحية دخولك إلى الموقع. حاول تنشيط الصفحة ثم عاود الكرة."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "يمكنك فقط معاينة الطلبات غير المنشورة التي تم تعيينها لك."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "ليس بإمكانك حذف طلب النشر غير المضمن في هذا السياق."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "ليس لديك صلاحية حذف طلب النشر هذا."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr "هذه النقطة غير متاحة ضمن أي سياق. لا بد من الوصول إليها عبر مجال تسمية معرف على نطاق الموقع بالكامل."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "تعذر تنفيذ طلبك لأنه يفتقر إلى معلومات ضرورية."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "ما تطلبه من رقم المجلد، العدد، أو السنة، غير صحيح."
+
+msgid "api.files.400.noUpload"
+msgstr "تعذر العثور على أي ملف لرفعه مع الطلب."
+
+msgid "api.files.400.uploadFailed"
+msgstr "تعذر رفع واحد أو أكثر من الملفات."
+
+msgid "api.files.400.fileSize"
+msgstr "يتعذر رفع الملفات التي يزيد حجمها عن {$maxSize}."
+
+msgid "api.files.400.config"
+msgstr "تعذر رفع الملف بسبب خطأ في إعدادات الملقم. لطفاً، بادر إلى مراسلة مشرف النظام."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "إن النمط {$themePluginPath} غير ممَكَّن أو قد يكون غير منصب."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "إن اللغة {$locale} غير مدعومة."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "الأبجدية {$vocab} غير مدعومة."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "لا يمكنك تعديل إرتباط الملف بدون تمرير نوع الارتباط ومُعرَّفه."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"ليس مسموحاً لك بإرسال بريد الكتروني إلى مستخدمين ذوي واحد أو أكثر من الأدوار "
+"المحددة."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "ينبغي عليك تضمين أدوار المستخدمين الذين عليهم تلقي هذه الرسالة."
+
+msgid "api.emails.400.missingSubject"
+msgstr "ينبغي عليك وضع موضوع الرسالة."
+
+msgid "api.emails.400.missingBody"
+msgstr "ينبغي عليك تضمين البريد الالكتروني لترسل إليه."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "تعذر العثور على الإعلان الذي طلبته."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "ليس من الممكن تغيير  وقت إنشائه."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "ليس مسموحاً لك بالوصول إلى هذه الملفات في جولة التحكيم هذه."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "ليس مسموحاً لك بإضافة تلك الملفات وتحريرها."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "ليس مسموحاً لك بالوصول إلى هذه الملفات."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "جولة التحكيم التي قدمتها ليست جزءاً من طلب التقديم هذا."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "ينبغي عليك توفير مخزن للملفات."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "ينبغي عليك تحديد جولة التحكيم عند إلتماس الملفات في مرحلة التحكيم."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع جولة تحكيم."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع مهمة تحكيم."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع ملاحظة مناقشة."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "لا يمكنك ربط ملف من مخزون الملفات هذا مع ملف طلب تقديم آخر."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "تعذر العثور في الطلب على تغييرات من شأنها تعديل هذا الملف."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "اللغات الآتية غير مدعومة: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"لا يمكن استعمال ترميز واجهة برمجة التطبيق للوصول إلى هذا الموقع لأن مشرف "
+"الموقع لم يقم بتعريف مفتاح السر."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "تعذر فك شفرة ترميز واجهة برمجة التطبيق بسبب الخطأ الآتي: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"تعذر التحقق من ترميز واجهة برمجة التطبيق. قد يشير هذا إلى خطأ في ترميز واجهة "
+"برمجة التطبيق أو أنه لم يعد صالحاً."
+
+msgid "api.dois.400.creationFailed"
+msgstr "وقع خطأ ما وتعذر إنشاء كيان معرف المكون الرقمي."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "تعذر العثور على معرف المكون الرقمي الذي طلبته."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "لا يمكنك تحرير معرف المكون الرقمي للعنصر الذي ليس في هذا السياق."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"ينبغي عليك إعطاء الرمز التعريفي لجولة التحكيم عند نقل الملف إلى مرحلة "
+"الملفات هذه."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "مرحلة الملف التي أعطيتها غير صالحة."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"لا يمكنك تسجيل القرار أو التوصية به لطلب التقديم هذا لأنه سبق وأن تم نشره."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "واحد أو أكثر من مكونات النشر غير الصالحة تم تضمينه في الطلب."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "لم يتم تضمين مكونات نشر صالحة في الطلب."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"لم ينجح إيداع بعض العناصر. يرجى التحقق منها فردًا فردًا للوقوف على رسائل "
+"الخطأ الخاصة بكل منها."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr "وقع خطأ ما وبعض العناصر المسلمة لم يتم تأشيرها على أنها مسجلة."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "وقع خطأ عند التحقق من صحة XML وتعذر تصديره."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"العناصر غير المنشورة لا يمكن تصديرها/إيداعها. يرجى إزالة التأشير من العناصر "
+"غير المنشورة ثم المحاولة مجددًا."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"هذه النقطة الطرفية غير متاحة من جانب مساحة الاسم التي على مستوى كل الموقع، "
+"وينبغي التماسها لسياق معين."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "ينبغي عليك توفير موضوع البريد الالكتروني ومتنه."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "تعذر العثور على البريد الالكتروني الذي طلبته."
+
+msgid "api.dois.400.prefixRequired"
+msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا لتوليد معرفات المكونات الرقمية."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "توليد معرفات المكونات الرقمية يتطلب وجود بادئتها."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr "طلبك لم يكن صحيحًا. الفترة الزمنية ينبغي أن تكون إما`day` أو `month`."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "تعذر العثور على المؤسسة التي طلبتها."
+
+msgid "api.400.propReadOnly"
+msgstr "لا يمكن تعديل الخاصية {$prop}."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "ليس مسموحًا لك تقديم طلب بهذا الدور."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "ليس هذا سياقًا صحيحًا."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "ليس هذا قالب بريد الكتروني إفتراضي لرسالة معروفة."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "لم يتم التعرف على نوع المنشور"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "لم يتم العثور على مكون النشر الذي طلبته."

@@ -1,0 +1,178 @@
+# Ruslan Shodmonov <belovedspy1209@gmail.com>, 2021.
+# OBIDJON ABDULLOYEV <obidjon1987@mail.ru>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-01-03 06:16+0000\n"
+"Last-Translator: OBIDJON ABDULLOYEV <obidjon1987@mail.ru>\n"
+"Language-Team: Uzbek <http://translate.pkp.sfu.ca/projects/ojs/emails/uz_UZ@"
+"latin/>\n"
+"Language: uz_UZ@latin\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.description"
+msgstr ""
+"Bu elektron pochta, qo'lyozmani jurnalga topshirish jarayonini tugatgandan "
+"so'ng, avtomatik ravishda muallifga yuboriladi. U yuborish jarayonini "
+"kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"<p>Hurmatli {$recipientName},</p><p>{$contextName} ga yuborganingiz uchun "
+"tashakkur. {$submissionTitle} degan maʼlumotingizni oldik va tahririyatimiz "
+"aʼzosi uni tez orada koʻradi. Dastlabki qaror qabul qilinganda sizga e-"
+"pochta orqali xat yuboriladi va biz qoʻshimcha maʼlumot olish uchun siz "
+"bilan bogʻlanishimiz mumkin.</p><p>Quyidagi manzilda taqdimotingizni "
+"koʻrishingiz va tahrir jarayoni orqali uning borishini kuzatishingiz "
+"mumkin:</p><p>Yuborish URL manzili: {$submissionUrl}</p><p>Agar tizimdan "
+"chiqqan bo'lsangiz, {$recipientUsername} foydalanuvchi nomi bilan qayta "
+"kirishingiz mumkin</p><p>Agar sizda biron bir savol bo'lsa, <a href=\""
+"{$submissionUrl}\">yuborish paneli< /a>.</p><p> orqali men bilan bog'laning. "
+"Ushbu jurnalni ish joyingiz deb hisoblaganingiz uchun "
+"tashakkur.</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Taqdim etishni tasdiqlash"
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr ""
+"Bu xat bo'lim muharriri tomonidan ko'rib chiqilganligini tasdiqlash va "
+"sharhlovchiga o'z hissalari uchun minnatdorchilik bildirish uchun yuboriladi."
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"{$recipientName}: <br />\n"
+"<br/>\n"
+"Taqdimotni ko'rib chiqishni tugatganingiz uchun tashakkur, & quot; {$submissionTitle}, "
+"& quot; {$contextName} uchun. Biz nashr etayotgan asarlar "
+"sifatiga qo'shgan hissangizni qadrlaymiz."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Maqolani ko'rib chiqish"
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br/>\n"
+"Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga "
+"yuborishingiz bo'yicha qarorga keldik. <br />\n"
+"<br/>\n"
+"Bizning qarorimiz: Ko'rib chiqish uchun yuborish <br />\n"
+"<br/>\n"
+"Yuborish URL manzili: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Tahririyat qarori"
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br/>\n"
+"Sizning topshirig'ingizni tahrirlash, & quot; {$submissionTitle}, & quot; "
+"tugallangan. Hozir uni ishlab chiqarishga jo'natmoqdamiz. <br />\n"
+"<br/>\n"
+"Yuborish URL manzili: {$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Tahririyat qarori"
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br/>\n"
+"Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga "
+"yuborishingiz bo'yicha qarorga keldik. <br />\n"
+"<br/>\n"
+"Bizning qarorimiz: tuzatishlar talab qilinadi"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Tahririyat qarori"
+#, fuzzy
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br/>\n"
+"Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga "
+"yuborishingiz bo'yicha qarorga keldik. <br />\n"
+"<br/>\n"
+"Bizning qarorimiz: qayta ko'rib chiqish uchun yuborish"
+
+#, fuzzy
+msgid "emails.editorDecisionResubmit.subject"
+msgstr "Tahririyat qarori"
+#, fuzzy
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+"{$authors}: <br />\n"
+"<br/>\n"
+"Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga "
+"yuborishingiz bo'yicha qarorga keldik. <br />\n"
+"<br/>\n"
+"Bizning qarorimiz: Arizani rad etish"
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "Tahririyat qarori"
+#, fuzzy
+msgid "emails.editorRecommendation.body"
+msgstr ""
+"{$editors}: <br />\n"
+"<br/>\n"
+"{$contextName}, & quot; {$submissionTitle} & quot; bu: {$recommendation}"
+
+msgid "emails.editorRecommendation.subject"
+msgstr "Tahririyat tavsiyanomasi"
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"{$recipientName}: <br />\n"
+"<br/>\n"
+"Men sizdan & quot; {$submissionTitle} & quot; {$contextName} uchun quyidagi "
+"amallarni bajaring. <br />\n"
+"1. Quyidagi Yuborish URL manzilini bosing. <br />\n"
+"2. \"Draft Files\" bo'limida mavjud bo'lgan fayllarni oching va nusxa "
+"ko'chiring, kerak bo'lganda nusxa ko'chirish bo'yicha munozaralarni "
+"qo'shing. <br />\n"
+"3. Nusxalangan fayllarni saqlang va Nusxalangan panelga yuklang. <br />\n"
+"4. Tahririyatga barcha fayllar tayyorlangani va ishlab chiqarish jarayoni "
+"boshlanishi haqida xabar bering. <br />\n"
+"<br/>\n"
+"{$ contextName} URL manzili: {$contextUrl} <br />\n"
+"Yuborish URL manzili: {$submissionUrl} <br />\n"
+"Foydalanuvchi nomi: {$recipientUsername}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "So'rovni nusxalash"
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+"\n"
+"\t\t\t{$authors}: <br />\n"
+"<br/>\n"
+"Biz sizning {$contextName}, & quot; {$submissionTitle} & quot; ga "
+"yuborishingiz bo'yicha qarorga keldik. <br />\n"
+"<br/>\n"
+"Bizning qarorimiz: Arizani rad etish"
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Tahririyat qarori"
+
+msgid "emails.discussion.subject"
+msgstr "{$ ContextName} haqida xabar"
+
+msgid "emails.discussion.body"
+msgstr "Xabaringizni kiriting."

@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-12-01 22:46+0000\n"
+"Last-Translator: Michael Bauer <fios@igaidhlig.net>\n"
+"Language-Team: Gaelic <http://translate.pkp.sfu.ca/projects/ojs/emails/gd_GB/"
+">\n"
+"Language: gd_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 || n==11) ? 0 : (n==2 || n==12) ? 1 : "
+"(n > 2 && n < 20) ? 2 : 3;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Thèid am post-d seo a chur gu cleachdaiche clàraichte nuair a bhios iad air "
+"innse gun do dhìochuimhnich iad am facal-faire aca no nach urrainn dhaibh "
+"clàradh a-steach. Tha e a’ toirt URL dhaibh far an urrainn dhaibh am facal-"
+"faire aca ath-shuidheachadh."
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Thèid am post-d seo a chur gu deasaiche earrainn le lèirmheasaiche mar "
+"fhreagairt air iarrtas airson fios a leigeil gu deasaiche na h-earrainn gun "
+"deach gabhail ris an iarrtas agus gun tèid a choileanadh ron cheann-là a "
+"chaidh a shònrachadh."
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Thèid am post-d seo a chur gu deasaiche earrainn le lèirmheasaiche mar "
+"fhreagairt air iarrtas airson fios a leigeil gu deasaiche na h-earrainn gun "
+"deach an t-iarrtas a dhiùltadh."
+
+#, fuzzy
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Thèid am post-d seo a chur gu lèirmheasaiche le deasaiche earrainn airson "
+"cur na c(h)uimhne gu bheil an lèirmheas aca ri lìbhrigeadh."
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Thèid am post-d seo a chur gu fèin-obrachail nuair a dh’fhalbhas an ùine air "
+"a’ cheann-là lìbhrigidh aig lèirmheasaiche (faic na roghainnean lèirmheis fo "
+"na “Roghainnean” > “Sruth-obrach” > “Lèirmheas) agus nuair a bhios "
+"inntrigeadh lèirmheasaichean le aon bhriogadh à comas. Feumaidh "
+"sgeidealachadh shaothraichean a bhith an comas agus air a rèiteachadh (faic "
+"faidhle rèiteachadh na làraich)."
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Thèid am post-d seo a chur gu fèin-obrachail nuair a dh’fhalbhas an ùine air "
+"ceann-là freagairt dearbhadh an lèirmheasaiche (faic na roghainnean "
+"lèirmheis fo na “Roghainnean” > “Sruth-obrach” > “Lèirmheas) agus nuair a "
+"bhios inntrigeadh lèirmheasaichean le aon bhriogadh à comas. Feumaidh "
+"sgeidealachadh shaothraichean a bhith an comas agus air a rèiteachadh (faic "
+"faidhle rèiteachadh na làraich)."
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Tha am post-d seo dheasaiche earrainn gu lèirmheasaiche a’ faighneachd an "
+"gabh iad ri lèirmheas air tagradh no an diùlt iad e. Tha e a’ toirt seachad "
+"fiosrachadh mun tagradh, mar an tiotal is geàrr-chunntas, ceann-là "
+"lìbhrigeadh an lèirmheis agus mar a gheibhear greim air an tagradh e fhèin. "
+"Seo an teachdaireachd a thèid a chleachdadh nuair a thaghar am pròiseas "
+"lèirmheis stannardach fo “Stiùireadh” > “Roghainnean” > “Sruth-obrach” > "
+"“Lèirmheas”."
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Tha am post-d seo dheasaiche earrainn gu lèirmheasaiche a’ faighneachd an "
+"gabh iad ri lèirmheas air tagradh san dàrna cuairt (no cuairt nas motha) no "
+"an diùlt iad e. Tha e a’ toirt seachad fiosrachadh mun tagradh, mar an "
+"tiotal is geàrr-chunntas, ceann-là lìbhrigeadh an lèirmheis agus mar a "
+"gheibhear greim air an tagradh e fhèin. Seo an teachdaireachd a thèid a "
+"chleachdadh nuair a thaghar am pròiseas lèirmheis stannardach fo “Stiùireadh”"
+" > “Roghainnean” > “Sruth-obrach” > “Lèirmheas”."
+
+#, fuzzy
+msgid "mailable.userRegister.description"
+msgstr ""
+"Thèid am post-d seo a chur gu cleachdaiche a tha air ùr-chlàradh agus a’ cur "
+"fàilte dhan t-siostam orra agus a’ thoirt dhaibh clàr dhen ainm-"
+"chleachdaiche is facal-faire aca."
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Thèid am post-d seo a chur gu lèirmheasaiche a tha air ùr-chlàradh agus a’ "
+"cur fàilte dhan t-siostam orra agus a’ thoirt dhaibh clàr dhen ainm-"
+"chleachdaiche is facal-faire aca."
+
+#, fuzzy
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Thèid am post-d seo, ma bhios e an comas, a chur gu fèin-obrachail gu ùghdar "
+"nuair a choileanas iad tagradh le bhith a’ chur sgrìobhainn chun an iris-"
+"leabhair. Tha e ag innse mar as urrainnear an tagradh a thracadh tron "
+"phròiseas agus tha e a’ toirt taing dhan ùghdar airson an tagraidh."
+
+#, fuzzy
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Thèid am post-d seo, ma bhios e an comas, a chur gu fèin-obrachail gu na h-"
+"ùghdaran eile a chaidh ainmeachadh rè an tagraidh ach nach eil nan "
+"cleachdaichean am broinn OJS."
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Thèid am post-d seo a chur chun an deasaiche iomruinte gu fèin-obrachail "
+"nuair a luchdaicheas ùghdar suas tionndadh lèirmheaste de dh’artaigeal."
+
+msgid "mailable.announcementNotify.description"
+msgstr ""
+"Thèid am post-d seo a chur nuair a chaidh fios-naidheachd ùr a chruthachadh."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Thèid am post-d seo a chur gu deasaichean is manaidsearan iris-leabhraichean "
+"gach mìos gu fèin-obrachail airson foir-shealladh air slàinte an t-siostaim "
+"a thoirt dhaibh."

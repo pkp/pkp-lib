@@ -1,0 +1,200 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
+# Jesper B. Thestrup <jbt@kb.dk>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2023-02-02 14:59+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"da_DK/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "default.genres.other"
+msgstr "Andet"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Websted-admin"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Websteds-admin'er"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produktionsredaktør"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Produktionsredaktører"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Manuskriptredaktør"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Manuskriptredaktører"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korrekturlæser"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korrekturlæsere"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
+msgid "default.groups.name.designer"
+msgstr "Designer"
+
+msgid "default.groups.plural.designer"
+msgstr "Designere"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Design"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Intern bedømmer"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interne bedømmere"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
+
+msgid "default.groups.name.marketing"
+msgstr "Marketings- og salgskoordinator"
+
+msgid "default.groups.plural.marketing"
+msgstr "Marketings- og salgskoordinatorer"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "Finansieringskoordinator"
+
+msgid "default.groups.plural.funding"
+msgstr "Finansieringskoordinatorer"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Klassifikator"
+
+msgid "default.groups.plural.indexer"
+msgstr "Klassifikatorer"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Layoutredaktør"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Layoutredaktører"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Forfatter"
+
+msgid "default.groups.plural.author"
+msgstr "Forfattere"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Oversætter"
+
+msgid "default.groups.plural.translator"
+msgstr "Oversættere"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Overs"
+
+msgid "default.groups.name.reader"
+msgstr "Læser"
+
+msgid "default.groups.plural.reader"
+msgstr "Læsere"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Læs"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedie"
+
+msgid "default.genres.image"
+msgstr "Billede"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stylesheet"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Dette er en automatisk besked fra <a href=\"{$contextUrl}\""
+">{$contextName}</a>.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Tak for din indsendelse til {$contextName}. Du vil blive bedt om at "
+"uploade filer, angive medforfattere og angive anden information såsom titel "
+"og resumé.</p><p>Læs venligst vores <a href=\"{$submissionGuidelinesUrl}\" "
+"target=\"_blank\">Retningslinjer for indsendelser</a>, hvis du ikke allerede "
+"har gjort det. Når du udfylder felterne, så angiv så mange detaljer som "
+"muligt for at hjælpe vores redaktører med at evaluere dit arbejde.</p><p>Når "
+"du går i gang, kan du gemme din indsendelse og komme tilbage senere. Du får "
+"mulighed for at gennemgå og evt. rette den angivne information før du "
+"indsender.</p>"
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+"<p>Upload alle filer, der er nødvendige for at vores redaktion kan evaluere "
+"din indsendelse. Udover selve manuskriptet, kan det måske være relevant at "
+"indsende datasæt, udtalelse om eventuelle interessekonflikter eller andre "
+"supplerende filer, hvis disse er hjælpsomme for redaktørerne.</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Angiv venligst de følgende detaljer for at hjælpe os til at håndtere din "
+"indsendelse i vores system.</p>"
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+"<p>Angiv venligst de følgende detaljer for at hjælpe vores redaktion med at "
+"håndtere din indsendelse.</p><p>Når du indtaster metadata, så angiv ord/"
+"termer, som du tror, vil være de mest hjælpsomme for den person, der "
+"håndterer din indsendelse. Denne information kan ændres inden "
+"publicering.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Gennemgå den information, du har angivet, før du færdiggør din "
+"indsendelse. Du kan ændre alle detaljer, du ser her, ved at klikke på "
+"Redigér knappen i toppen af hver sektion.</p><p>Når din indsendelse er "
+"færdiggjort, vil den blive tildelt til et medlem af redaktionen. Vær venlig "
+"at sikre dig, at de informationer, du har angivet her, er så præcise som "
+"muligt.</p>"
+
+msgid "default.submission.step.contributors"
+msgstr ""
+"<p>Angiv detaljer om alle bidragyderne til denne indsendelse. Bidragydere, "
+"der tilføjes her, vil få en e-mail tilsendt som en bekræftelse på "
+"indsendelsen samt en kopi af alle de redaktionelle beslutninger, der bliver "
+"registreret for denne indsendelse.</p><p>Hvis en bidragyder ikke kan "
+"kontaktes per e-mail, fordi de enten skal forblive anonym, eller de ikke har "
+"en e-mail konto, så undlad venligst at indtaste en falsk e-mail adresse. Du "
+"kan i stedet tilføje information om denne bidragyder i en besked til "
+"redaktøren i et senere trin i indsendelsesprocessen.</p>"

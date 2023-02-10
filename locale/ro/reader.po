@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-09 12:48+0000\n"
+"Last-Translator: Mihai-Leonard Duduman <mduduman@gmail.com>\n"
+"Language-Team: Romanian <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"ro_RO/>\n"
+"Language: ro_RO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Ștergerea acestui comentariu va șterge, de asemenea, orice răspuns la "
+"acesta. Sunteți sigur că vreți să faceți asta?"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.titleRequired"
+msgstr "Este necesar un titlu pentru comentariu."
+
+msgid "reader.fullText"
+msgstr "Text integral:"
+
+msgid "comments.viewAllComments"
+msgstr "Vizualizați toate comentariile"
+
+msgid "comments.title"
+msgstr "Titlu"
+
+msgid "comments.replies"
+msgstr "Răspunsuri"
+
+msgid "comments.readMore"
+msgstr "Citește mai mult"
+
+msgid "comments.readerComments"
+msgstr "Comentariile cititorilor"
+
+msgid "comments.postReply"
+msgstr "Postare răspuns"
+
+msgid "comments.postAnonymously"
+msgstr "Postați acest comentariu în mod anonim"
+
+msgid "comments.oneReply"
+msgstr "(Răspunde)"
+
+msgid "comments.nReplies"
+msgstr "({$num} Răspunsuri)"
+
+msgid "comments.noComments"
+msgstr "Nu au fost postate comentarii pentru cititori."
+
+msgid "comments.name"
+msgstr "Afișare nume"
+
+msgid "comments.inResponseTo"
+msgstr "Ca raspuns la <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.enterComment"
+msgstr "Introducere comentarii"
+
+msgid "comments.emailReply"
+msgstr "Email de răspuns"
+
+msgid "comments.email"
+msgstr "Afișare e-mail"
+
+msgid "comments.delete"
+msgstr "Ștergeți acest comentariu"
+
+msgid "comments.body"
+msgstr "Corp"
+
+msgid "comments.anonymous"
+msgstr "Utilizator anonim"

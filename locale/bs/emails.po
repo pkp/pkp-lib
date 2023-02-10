@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02T16:17:19-08:00\n"
+"PO-Revision-Date: 2020-12-25 11:52+0000\n"
+"Last-Translator: Haris Dulic <dulicharis@gmail.com>\n"
+"Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/ojs/emails/"
+"bs_BA/>\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+#, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Prilog zaprimljen"
+
+#, fuzzy
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"Poštovana/i {$recipientName},<br />\n"
+"<br />\n"
+"zahvaljujemo što ste prijavili prilog &quot;{$submissionTitle}&quot; našem časopisu {$contextName}. Pomoću sustava upravljanja časopisom koji koristimo, moći ćete aktivno pratiti kretanje članka kroz postupak uređivanja prijavljujući se na mrežnu stranicu časopisa:<br />\n"
+"<br />\n"
+"URL rukopisa: {$submissionUrl}<br />\n"
+"Korisničko ime: {$recipientUsername}<br />\n"
+"<br />\n"
+"U slučaju da imate bilo kakvih pitanja, molimo vas da nam se obratite.<br />\n"
+"<br />\n"
+"Srdačno,<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Zaprimljena recenzija članka"
+
+#, fuzzy
+msgid "emails.reviewAck.body"
+msgstr ""
+"Poštovana/i {$recipientName},<br />\n"
+"<br />\n"
+"hvala vam što ste izradili recenziju članka &quot;{$submissionTitle}&quot; za časopis {$contextName}. Cijenimo vaš doprinos kvaliteti radova objavljenih u našem časopisu.<br />\n"
+"<br />\n"
+"Srdačno,"
+
+#, fuzzy
+msgid "emails.reviewAck.description"
+msgstr "Ovim obrascem e-pošte  urednik rubrike potvrđuje recenzentu primitak završene recenzije."
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Zamolba za lekturu"
+
+#, fuzzy
+msgid "emails.copyeditRequest.body"
+msgstr ""
+"Poštovana/i {$recipientName},<br />\n"
+"<br />\n"
+"željeli bismo vas zamoliti da prihvatite lekturu rukopisa &quot;{$submissionTitle}&quot; za časopis {$contextName}. Prijavljeni rukopis, kao i upute za lektoriranje možete pronaći na mrežnim stranicama časopisa.<br />\n"
+"<br />\n"
+"URL rukopisa: {$submissionUrl}<br />\n"
+"Korisničko ime: {$recipientUsername}<br />\n"
+"<br />\n"
+"U slučaju da trenutačno niste u mogućnosti preuzeti lekturu ili da imate bilo kakvih dodatnih pitanja, molimo vas da nam se obratite.<br />\n"
+"<br />\n"
+"Srdačno,"
+
+#, fuzzy

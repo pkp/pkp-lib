@@ -1,0 +1,40 @@
+# John Kungura <jkungura@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-27 11:07+0000\n"
+"Last-Translator: John Kungura <jkungura@gmail.com>\n"
+"Language-Team: Swahili <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/sw/>\n"
+"Language: sw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Faili za mhariri"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Pitia taarifa ya kazi zote zilizokusanywa"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Hongera! Umecheguliwa kuwa mhariri mhimu katika kazi hii iliyo wasilishwa. "
+"Sehemu ifuatayo itaonyesha muhtasari wa kazi iliyo wasilishwa pamoja na "
+"muongozo wa uhariri. Tunaamini kuwa utashiriki kikamilifu."
+
+msgid "reviewer.step1.request"
+msgstr "Omba kuhariri"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "Kamilisha"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "Pakua na hariri (pitia)"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "Muongozo"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "Ombi"

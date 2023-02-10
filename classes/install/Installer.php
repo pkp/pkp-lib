@@ -39,6 +39,7 @@ use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
 
 use PKP\site\VersionCheck;
@@ -169,7 +170,8 @@ class Installer
         }
 
         if (!isset($this->installedLocales)) {
-            $this->installedLocales = array_keys(Locale::getLocales());
+            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+            $this->installedLocales = array_keys($siteDao->getSite()->getInstalledLocales());
         }
 
         if (!isset($this->dataXMLParser)) {

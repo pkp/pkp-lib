@@ -2453,7 +2453,7 @@ msgstr ""
 "uporablja več."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Uporabi privzet vzorec"
+msgstr "Privzeto - Avtomatično generiraj unikatno osem-znakovno pripono"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2890,7 +2890,7 @@ msgid "doi.authorization.enabledRequired"
 msgstr "Ta operacija ni možna, če nimate omogočene DOI-je."
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Uporabniško določen vzorec (ni priporočljivo)"
+msgstr "Uporabniško določen vzorec - (ni priporočljivo)"
 
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr "DOI pripona po meri"
@@ -3598,3 +3598,44 @@ msgstr ""
 
 msgid "manager.dois.status.error.description"
 msgstr "Objekti, pri katerih je prišlo do napake v postopku registracije."
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Da, dodaj polje za kategorijo med oddajo prispevka."
+
+msgid "manager.submitWithCategories.no"
+msgstr "Ne, ne prikaži tega polja avtorjem."
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Naj avtor med oddajo prispevka izbere kategorijo v katero spada prispevek?"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Noben - Pripone morajo biti ročno vnešene na <a href="
+"\"{$doiManagementUrl}\">Strani za upravljanje DOI</a> in ne bodo generirane "
+"avtomatično"
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Kratka izjava, ki opisuje, ali je avtor svoje raziskovalne podatke javno "
+"objavil in kako lahko bralci dostopajo do njih."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "V metapodatkih omogočite izjavo o dostopnosti podatkov"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+"Ne zahtevaj izjave o dostopnosti podatkov od avtorjev med oddajo prispevka."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Zahtevaj od avtorjev, da podajo izjavo o dostopnosti podatkov med oddajo "
+"prispevka."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Zahtevaj od avtorjev izjavo o dostopnosti podatkov, preden končajo z oddajo "
+"prispevka."
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Dodeli urednika"

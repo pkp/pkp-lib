@@ -735,7 +735,7 @@ class GridHandler extends PKPHandler
 
         // Assign constants.
         $templateMgr->assign('gridConstants', $this->_constants);
-        ray($templateMgr->getTemplateVars());
+        
         // Let the view render the grid.
         return new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
     }

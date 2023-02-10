@@ -2388,19 +2388,15 @@ msgstr ""
 "informacije o prispevku kot so naslov in izvleček, datum do dokončanja "
 "recenzije ter dostopom do prispevka."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Faza uredniškega postopka v kateri je bila sprejeta odločitev."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Opis sprejete odločitve."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Ime sprejete odločitve."
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "URL za pregled vseh prispevkov dodeljenih enemu uporabniku."
 
@@ -2556,7 +2552,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Zapisi uspešno izvoženi"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Nekateri DOI-ji se niso posodobili."
+msgstr "Nekateri DOI-ji se niso mogli posodobiti"
 
 msgid "manager.dois.status.stale"
 msgstr "Obviselo"
@@ -2656,7 +2652,6 @@ msgstr "Deponirajte DOI-je"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Deponirajte vse"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Krog recenzije v katerem je bila sprejeta odločitev, če je faza recenzije "
@@ -2820,7 +2815,6 @@ msgstr "Odločili smo se, da prispevek zavrnemo."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Odločili smo se, da sprejmemo prispevek brez sprememb."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Kratek opis te uredniške odločitve, ki bo poslana v emailu recenzentom z "
@@ -2854,7 +2848,6 @@ msgstr ""
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
 msgstr "Avtorjev URL do prispevka"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Skrajšana oblika imen avtorjev"
 
@@ -2883,7 +2876,6 @@ msgstr ""
 "vaših soavtorjev. Podobno, vi ne boste vedeli kdo je opravil recenzijo "
 "vašega prispevka in ne bo ste direktno v stiku z recenzenti."
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."
@@ -2941,7 +2933,6 @@ msgstr "Število prispevkov dodeljenih temu uredniku"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Seznam prispevkov z odprtimi nalogami"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL za uporabnika, da lahko vidi in ureja uporabniški račun."
 
@@ -3082,7 +3073,6 @@ msgstr "Število prejetih prispevkov ta mesec"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identifikacija številke, vključuje zvezek, številko, leto in naslov"
-
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Registracija recenzenta"
@@ -3515,3 +3505,96 @@ msgstr "Pripravljeno za produkcijo"
 
 msgid "mailable.editorAssign.name"
 msgstr "Dodeljen urednik"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum do kdaj mora biti recenzija končana"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+"Datum do kdaj mora recenzent potrditi ali zavrniti opravljanje recenzije"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Poštni naslov revije"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ta email je vsak mesec avtomatično poslan urednikom in glavnim urednikom, da "
+"vidijo stanje sistema."
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Povezava do strani statistik objavljenih člakov"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"Upravljanje z DOI-ji je premaknjeno. Prosimo poglejte strani <a href="
+"\"{$doiManagementUrl}\">Upravljanje z DOI-ji</a> in <a href="
+"\"{$doiSettingsUrl}\">DOI nastavitve</a>."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Ta postavka je bila ročno registrirana pri registracijski agenciji."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Obstaja {$count} verzij."
+
+msgid "doi.manager.versions.view"
+msgstr "Poglej vse"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI-ji za vse verzije"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Naj bo vsaj ena datoteka zahtevana ob vsaki oddaji novega prispevka? Če "
+"izberete da, potem avtorji ne bodo mogli končati oddaje prispevka, dokler ne "
+"bodo naložili vsaj ene datoteke tega tipa."
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Verzije DOI"
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Zahtevano ob oddaji"
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr "Da, zahtevaj, da avtorji naložijo eno ali več datotek tega tipa."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Ne, novi prispevke je možno oddati tudi brez datotek tega tipa."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Masovne akcije"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Vsak objavljen ali neobjavljen objekt, ki 1) ima podobjekt brez dodeljenega "
+"DOI-ja, kjer je 2) DOI za podobjekt omogočen (npr. prelom brez DOI-ja ne bo "
+"tukaj viden, če DOI-ji za prelome niso omogočeni)"
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Objekti, pri katerih so bili metapodatki lokalno spremenjeni in so potrebni "
+"ponovne registracije in posodobitve pri konfigurirani regisracijski "
+"agenciji, da se zagotovi, da bodo vsi predhodno poslani podatki posodobljeni."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Status DOI-jev"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Objek, ki 1) ima DOI-je dodeljene za vse omogočene DOI tipe in 2) še ni bil "
+"objavljen"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Objekti, ki 1) imajo DOI-je dodeljene za vse omogočene tipov DOI-jev, 2) so "
+"objavljeni in 3) še niso bili registrirani pri registracijski agenciji."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Objekti, ki so bili poslani na konfigurirano registracijsko agencijo."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Objekti, ki so bili uspešno registrirani pri registracijski agenciji ali "
+"ročno označeni kot registrirani."
+
+msgid "manager.dois.status.error.description"
+msgstr "Objekti, pri katerih je prišlo do napake v postopku registracije."

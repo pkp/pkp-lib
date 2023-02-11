@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-10 16:18+0000\n"
+"PO-Revision-Date: 2023-02-11 17:48+0000\n"
 "Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
@@ -529,43 +529,49 @@ msgstr "Ovim obrascem e-pošte recenzent potvrđuje uredniku rubrike da prihvać
 msgid "mailable.reviewDecline.description"
 msgstr "Ovim obrascem e-pošte recenzent odgovara uredniku rubrike da ne prihvaća zahtjev za recenzijom."
 
-#, fuzzy
 msgid "mailable.reviewRemind.description"
-msgstr "Ovim obrascem e-pošte urednik rubrike podsjeća recenzenta da rok za izradu recenzije istekao."
+msgstr ""
+"Ovom porukom e-pošte urednik podsjeća recenzenta na rok za dovršenje "
+"recenzije."
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
-msgstr "Ovaj se obrazac e-pošte automatski šalje recenzentu kada datum naveden kao rok za izradu recenzije istekao (pogledajte Opcije recenzije unutar Postavljanja časopisa, 2. korak), a recenzentu nije omogućen pristup jednim klikom. Za ovu funkciju Raspoređeni zadaci moraju biti aktivirani i namješteni (pogledajte konfiguracijsku datoteku stranice)."
+msgstr ""
+"Ova se poruka e-pošte automatski šalje ako recenzent nije dovršio recenziju "
+"do zadanog roka."
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li prihvatiti zadatak recenziranja članka. Zamolba sadrži osnovne informacije u vidu naslova i kratkog sadržaja članka, datum do kojeg bi recenzija trebala biti napisana te načina na koji se recenzent može prijaviti u sustav. Ova poruka se koristi kada je odabran standardni recenzijski postupak u 2. koraku Postavljanja časopisa (Ako nije, koristi se Zamolba za recenziju članka u privitku)"
+msgstr ""
+"Ova se poruka e-pošte automatski šalje kada recenzentu istekne rok za "
+"odgovor na zahtjev za recenziju."
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
-msgstr "Ovim obrascem e-pošte urednik rubrike šalje upit recenzentu može li prihvatiti zadatak recenziranja članka. Zamolba sadrži osnovne informacije u vidu naslova i kratkog sadržaja članka, datum do kojeg bi recenzija trebala biti napisana te načina na koji se recenzent može prijaviti u sustav. Ova poruka se koristi kada je odabran standardni recenzijski postupak u 2. koraku Postavljanja časopisa (Ako nije, koristi se Zamolba za recenziju članka u privitku)"
+msgstr ""
+"Ova poruka e-pošte od urednika rubrike upućena recenzentu zahtijeva da "
+"recenzent prihvati ili odbije zadatak recenzije podneska. "
 
 msgid "mailable.passwordResetRequested.description"
 msgstr "Ovaj obrazac e-pošte šalje se registriranim korisnicima kada informiraju sustav da su zaboravili svoju lozinku ili da se ne mogu prijaviti u sustav. U poruci se nalazi URL koji mogu slijediti kao bi postavili svoju novu lozinku."
 
-#, fuzzy
 msgid "mailable.userRegister.description"
-msgstr "Ovaj se obrazac e-pošte šalje novoregistriranim korisnicima u sustavu i sadrži njihovo korisničko ime i lozinku."
+msgstr ""
+"Ova se poruka e-pošte šalje novoregistriranom korisniku kada voditelj "
+"uredništva stvori korisnika putem korisničkih postavki. Poruka bi im trebala "
+"poželjeti dobrodošlicu u sustav i informirati ih u vezi s korisničkim imenom "
+"i lozinkom."
 
 msgid "mailable.reviewerRegister.description"
 msgstr "Ova se poruka šalje recenzentima koje registriraju urednici. Njome se novoregistriranom recenzentu želi dobrodošlica te pružaju informacije o korisničkom imenu i lozinki."
 
-#, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
-msgstr "Ovaj se obrazac e-pošte automatski šalje autoru kada su on ili ona završili postupak prijave priloga časopisu. Poruka daje informacije o tome kako mogu pratiti prilog kroz uređivački postupak."
+msgstr ""
+"Ova se poruka e-pošte automatski šalje autoru kada pošalje podnesak. Pruža "
+"informacije o praćenju podneska kroz urednički proces i zahvaljuje autoru na "
+"slanju."
 
-#, fuzzy
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Ova e-pošta, kada je uključena, automatski se šalje ostalim autorima koji "
-"nisu korisnici u OJS-u, a koji su navedeni tijekom procesa prijave."
+"Ova se poruka e-pošte automatski šalje autorima koji su navedeni u podnesku, "
+"a koji nisu autori koji su ga poslali."
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -1512,3 +1518,530 @@ msgstr "Sadržaj nove rasprave ili odgovora"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
 msgstr "Datum kada recenzent treba prihvatiti ili odbiti zadatak"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da se njegov podnesak šalje izravno u fazu "
+"lekture i da neće proći kroz fazu recenzije."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Ponovno aktiviraj odbijeni podnesak"
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "Zakašnjeli odgovor na recenziju (automatski)"
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+"Automatizirana poruka e-pošte koja se šalje autorima kada spreme svoj "
+"podnesak da ga kasnije dovrše"
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr "Podnesak je spremljen za kasnije"
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Obavijest o statistističkom izvješću"
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+"<p><a href=\"{$url}\">Dodajte i uredite predloške</a> za sve e-poruke koje "
+"šalje sustav.</p>"
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+"Jeste li sigurni da želite ponovno postaviti predmet i tekst na zadane "
+"vrijednosti za predložak <strong>{$template}</strong>?"
+
+msgid "mailable.submissionAck.name"
+msgstr "Potvrda podneska"
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr "Potvrda podneska (drugi autori)"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Ova se poruka e-pošte šalje kada se stvori rasprava ili se na nju odgovori u "
+"fazi slanja podneska."
+
+msgid "mailable.discussionReview.name"
+msgstr "Rasprava (Recenzija)"
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Ova se poruka e-pošte šalje kada se stvori rasprava ili se na nju odgovori u "
+"fazi recenzije."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "Obavijest o revidiranoj verziji"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Ova se poruka e-pošte automatski šalje dodijeljenom uredniku kada autor "
+"učita revidiranu verziju članka."
+
+msgid "mailable.announcementNotify.description"
+msgstr "Ova se poruka e-pošte šalje kada se stvori nova najava."
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+"Dodajte i uredite predloške koje želite učiniti dostupnima korisniku kada "
+"šalje ovu poruku e-pošte. Zadani će se predložak automatski učitati, a "
+"korisnik će moći brzo učitati sve druge predloške koje ovdje dodate."
+
+msgid "manager.mailables.templates"
+msgstr "Predlošci"
+
+msgid "manager.mailables.editTemplate"
+msgstr "Uredi predložak"
+
+msgid "manager.mailables.removeTemplate"
+msgstr "Ukloni predložak"
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+"Jeste li sigurni da želite izbrisati predložak <strong>{$template}</strong>?"
+
+msgid "manager.mailables.resetTemplate"
+msgstr "Ponovno postavi predložak"
+
+msgid "manager.newSubmission.description"
+msgstr ""
+"Konfigurirajte slanje obavijesti e-poštom kada se pošalje novi podnesak."
+
+msgid "manager.editorialDecisions"
+msgstr "Uredničke odluke"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"Konfigurirajte obavijesti e-pošte za slanje autorima kada se zabilježi "
+"urednička odluka."
+
+msgid "manager.forEditors.description"
+msgstr "Konfigurirajte obavijesti putem e-pošte za slanje urednicima."
+
+msgid "manager.editorialStatistics"
+msgstr "Urednička statistika"
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"Treba li slati ili ne slati mjesečne e-poruke urednicima s uredničkom "
+"statistikom časopisa, kao što su stope prihvaćanja i odbijanja. Urednici "
+"mogu isključiti ove obavijesti u postavkama svog korisničkog profila."
+
+msgid "manager.mailables.search"
+msgstr "Pretražuj po imenu ili opisu"
+
+msgid "manager.emailTemplate.name.description"
+msgstr "Unesite kratak naziv kako biste lakše pronašli ovaj predložak."
+
+msgid "manager.newSubmission"
+msgstr "Novi podnesak"
+
+msgid "manager.editorialStatistics.on"
+msgstr "Mjesečno šaljite e-poruke urednicima."
+
+msgid "manager.editorialStatistics.off"
+msgstr "Nemojte slati e-poštu urednicima."
+
+msgid "emailTemplate.variable.password"
+msgstr "Nova nasumična korisnička lozinka"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "Puno ime korisnika koji je učitao datoteku podneska"
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr "Naslov najave"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Potvrda ponovnog postavljanja lozinke"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"Ova se poruka e-pošte automatski šalje dodijeljenim urednicima kada "
+"recenzent pošalje preporuku za recenziju"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Ova poruka e-pošte obavještava autora da je njegov podnesak poslan iz faze "
+"lekture."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Krug recenzije je otkazan"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "Pozvani recenzent podneska je poništen."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Podnesak poslan iz lekture"
+
+msgid "mailable.userRegister.name"
+msgstr "Korisnik je registriran"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da se poništava prethodna odluka za "
+"odbijanjem njegovog podneska bez recenzije."
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Recenzent je ponovno dodijeljen"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Odlučili smo odbiti ovaj podnesak."
+
+msgid "mailable.editorialReminder.name"
+msgstr "Urednički podsjetnik"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Pokrivenost obično označava prostornu lokaciju (naziv mjesta ili geografske "
+"koordinate), vremensko razdoblje (naziv razdoblja, datum ili datumsko "
+"razdoblje) ili nadležnost (npr. naziv administrativne jedinice)."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora o odluci da zatraži revizije tijekom "
+"recenzije."
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Ova se e-poruka šalje kada urednik ponovno dodijeli podnesak recenzentu koji "
+"je prvotno odbio podnesak."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da je njegov podnesak poslan u fazu lekture."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Ponovno pošalji na recenziju"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Podnesak je odbijen (prije recenzije)"
+
+msgid "mailable.reviewRequest.name"
+msgstr "Zahtjev za recenziju"
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Potvrdi e-poštu (web mjesto)"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Podnesak je poslan na lekturu"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL do podneska u uredničkom prikazu"
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Podsjetnik za recenziju (automatski)"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Skraćeni oblik imena autora"
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Kopija e-poruke koja je poslana autoru koji je poslao podnesak"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Podnesak je poslan natrag na slanje podneska"
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Pozvali smo autore da podnesu revizije."
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da je njegov podnesak odbijen nakon "
+"recenzije."
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"Raspršeni URL koji se šalje korisniku da potvrdi ponovno postavljanje zaporke"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+"Ova poruka e-pošte obavještava autora da je njegov podnesak poslan natrag u "
+"fazu recenzije."
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Obavijesti recenzente o odluci"
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Recenzija potvrđena"
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Preporuka poslana"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Poslano na recenziju"
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr "Broj podnesaka primljenih ovog mjeseca"
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Broj odbijenih podnesaka"
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "Broj podnesaka koji nisu uključeni u ostale ukupne brojeve"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "Godina izvješća"
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr "Identifikacija izdanja, uključujući svezak, broj, godinu i naslov"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Ovu e-poruku urednik šalje recenzentu kako bi ga obavijestio da je donesena "
+"odluka u vezi s podneskom koji je pregledao."
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr "Poveznica za stranicu uredničke aktivnosti"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Poveznica za stranicu statistike objavljenih članaka"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Recenzija odbijena"
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Podnesak prihvaćen (bez recenzije)"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Podnesak je poslan natrag na recenziju"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Odlučili smo prihvatiti ovaj podnesak bez revizije."
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Obrada podređenog elementa {$child} nije uspjela"
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Omogući metapodatke o pokrivenosti"
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "Recenzent je odbijen"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Ova se e-pošta automatski šalje novom korisniku kada se registrira putem web-"
+"mjesta ako je u postavkama potrebna potvrda adrese e-pošte."
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Ova poruka obavještava višeg urednika ili urednika rubrike da je data "
+"urednička preporuka u vezi s jednim od njihovih dodijeljenih podnesaka. Ova "
+"se poruka koristi kada je uredniku dopušteno samo preporučiti uredničku "
+"odluku i zahtijeva da ovlašteni urednik zabilježi uredničke odluke. Ova se "
+"opcija može odabrati prilikom dodjele sudionika podnesku."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Zatražite od autora da predloži metapodatke o pokrivenosti tijekom "
+"podnošenja."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Nedostaje aktualna objava podneska"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Nemojte tražiti metapodatke o pokrivenosti od autora tijekom podnošenja."
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Ovu poruku e-pošte urednik šalje recenzentu kako bi potvrdio da je njegova "
+"recenzija primljena i kako bi mu zahvalio na doprinosu."
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Pokrenut je novi krug recenzije"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora o odluci \"revidiraj i ponovno pošalji\" u "
+"vezi s njihovim podneskom."
+
+msgid "mailable.reviewRemind.name"
+msgstr "Podsjetnik za recenziju"
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Zahvala na recenziji"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Zahtijevajte od autora da predloži metapodatke o pokrivenosti prije "
+"prihvaćanja njihovog podneska."
+
+msgid "manager.people.authSource"
+msgstr "Izvor provjere autentičnosti"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Imena autora dodijeljenih radnom tijeku za podneske. Obično se radi o autoru "
+"koji šalje podnesak"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr "Pozvali smo autore da podnesu revidiranu verziju na daljnju recenziju."
+
+msgid "mailable.editorialReminder.description"
+msgstr "Automatizirana poruka e-pošte poslana urednicima s neizvršenim zadacima"
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Podnesak je odbijen"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Ova se poruka e-pošte šalje autorima koji nisu dodijeljeni kao sudionici "
+"kako bi ih obavijestila da je odluka donesena. Obično su to svi ostali osim "
+"autora koji šalje podnesak."
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Naknadni zahtjev za reviziju"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Ova poruka e-pošte obavještava autora da je njegov podnesak poslan natrag u "
+"fazu slanja podneska."
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "URL do podneska u čarobnjaku za podnošenje"
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr "Kratki opis najave"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "URL do najave"
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Broj prihvaćenih podnesaka"
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Ukupan broj primljenih podnesaka"
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Kratak opis ove odluke koji bi se trebao podijeliti putem obavijesti e-"
+"poštom koja se šalje recenzentima o ovoj odluci."
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "Mjesec izvješća"
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr "Godina izvješća"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr "Ova se e-poruka šalje kada urednik poništi dodjelu recenzenta."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Obavijesti druge autore"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da počinje novi krug recenzije za njegov "
+"podnesak."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Zatražene revizije"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da se poništava prethodna odluka za "
+"odbijanjem njegovog podneska nakon recenzije."
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"Ova se poruka e-pošte šalje kada se stvori rasprava ili se na nju odgovori u "
+"fazi produkcije."
+
+msgid "mailable.discussionProduction.name"
+msgstr "Rasprava (Produkcija)"
+
+msgid "mailable.announcementNotify.name"
+msgstr "Nova najava"
+
+msgid "manager.manageEmails"
+msgstr "Upravljanje e-poštom"
+
+msgid "manager.submissionAck.description"
+msgstr "Tko bi trebao primiti e-poruku kada je novo slanje podneska dovršeno."
+
+msgid "manager.submissionAck.off"
+msgstr "Nemojte slati poruku e-pošte."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "Pošaljite poruku e-pošte samo autoru koji je poslao podnesak."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "Pošalji poruku e-pošte svim autorima."
+
+msgid "manager.forEditors"
+msgstr "Za urednike"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Ova poruka e-pošte od urednika upućena recenzentu zahtijeva da recenzent "
+"prihvati ili odbije zadatak recenzije podneska za dodatni krug recenzije. "
+"Pruža informacije o podnesku kao što su naslov i sažetak,zadani rok za "
+"recenziju i kako pristupiti samom podnesku."
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Rasprava (Podnesak)"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Ponovno pošaljite zahtjev za recenziju recenzentu"
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+"Ovu poruku e-pošte urednik šalje recenzentu koji je odbio zahtjev za "
+"recenziju, kada urednik želi ponovno poslati zahtjev."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da se njegov podnesak šalje u fazu recenzije."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Poslano na produkciju"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da se njegov podnesak šalje u fazu "
+"produkcije."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Registracija recenzenta"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Ova se poruka e-pošte automatski šalje svaki mjesec urednicima i voditeljima "
+"časopisa kako bi im se pružio pregled stanja sustava."
+
+msgid "mailable.editReviewNotify.name"
+msgstr "Uredi obavijest o recenziji"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"Ova poruka e-pošte automatski obavještava recenzenta kada su pojedinosti "
+"njegovog zadatka recenzije promijenjene."
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "Obavijest urednicima o preporuci recenzenta"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr "Rasprava (Lektura)"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"Ova se poruka e-pošte šalje kada se stvori rasprava ili se na nju odgovori u "
+"fazi lekture teksta."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da je krug recenzije za njegov podnesak "
+"otkazan."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Ponovno aktiviranje podneska odbijeno je bez recenzije"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Ova e-poruka obavještava autora da je njegov podnesak prihvaćen za "
+"objavljivanje."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Podnesak je prihvaćen"

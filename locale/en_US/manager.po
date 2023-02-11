@@ -276,14 +276,26 @@ msgstr "Registered"
 msgid "manager.dois.status.error"
 msgstr "Error"
 
+msgid "manager.dois.status.error.filterTitle"
+msgstr "Has Error"
+
+msgid "manager.dois.status.stale.filterTitle"
+msgstr "Needs Sync"
+
 msgid "manager.dois.status.stale"
 msgstr "Stale"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "DOI Assigned"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr "Any published or unpublished item that does not have a DOI for all enabled published objects."
 
 msgid "manager.dois.status.unpublished.description"
-msgstr "Any unpublished items with assigned DOIs."
+msgstr "Any unpublished items."
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr "Any published or unpublished item that has a DOI for all enabled published objects."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr "Any published items with assigned DOIs that have not been deposited with a registration agency."

@@ -129,7 +129,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'submission.query.new.contents',
                     [
                         'queryTitle' => $query->getHeadNote()->getTitle(),
-                        'submissionTitle' => $submission->getLocalizedTitle(),
+                        'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
             case PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY:
@@ -137,7 +137,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
                     'submission.query.activity.contents',
                     [
                         'queryTitle' => $query->getHeadNote()->getTitle(),
-                        'submissionTitle' => $submission->getLocalizedTitle(),
+                        'submissionTitle' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html'),
                     ]
                 );
             default: assert(false);

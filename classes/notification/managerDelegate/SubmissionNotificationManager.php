@@ -17,6 +17,7 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\core\PKPApplication;
 use PKP\notification\NotificationManagerDelegate;
 
@@ -34,7 +35,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
 
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
-                return __('notification.type.submissionSubmitted', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.submissionSubmitted', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_NEW_VERSION:
                 return __('notification.type.submissionNewVersion');
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:

@@ -20,8 +20,8 @@ use Illuminate\Support\Arr;
 use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
-
 use Illuminate\Validation\Validator;
+use PKP\config\Config;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\i18n\LocaleMetadata;
@@ -49,6 +49,24 @@ class ValidatorFactory
         $translator = new Translator($loader, 'en');
         $validation = new Factory($translator, new Container());
 
+        // custom validation rules to check no new line
+        $validation->extend('no_new_line', function ($attribute, $value, $parameters, $validator) use ($validation) {
+            return strpos($value, PHP_EOL) === false;
+        });
+
+        // custom validation rules to check anything other that defined html tags 
+        // in title or sub title in config[allowed_title_html]
+        $validation->extend('allowable_title_html_tags', function ($attribute, $value, $parameters, $validator) use ($validation) {
+            $allowedTags = array_map(
+                'trim', 
+                explode(
+                    ',', 
+                    Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub')
+                )
+            );
+            return $value === strip_tags($value, $allowedTags);
+        });
+        
         // Add custom validation rule which extends Laravel's email rule to accept
         // @localhost addresses. @localhost addresses are only loosely validated
         // for allowed characters.
@@ -219,6 +237,8 @@ class ValidatorFactory
             'timezone' => __('validator.timezone'),
             'unique' => __('validator.unique'),
             'url' => __('validator.url'),
+            'no_new_line' => __('validator.no_new_line'),
+            'allowable_title_html_tags' => __('validator.allowable_title_html_tags', ['tags' => Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub')]),
         ];
 
         $messages = array_merge($defaultMessages, $messages);

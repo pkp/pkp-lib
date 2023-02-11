@@ -278,7 +278,9 @@
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
-				"nullable"
+				"nullable",
+				"allowable_title_html_tags",
+				"no_new_line"
 			]
 		},
 		"supportingAgencies": {
@@ -306,7 +308,9 @@
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
-				"nullable"
+				"nullable",
+				"allowable_title_html_tags",
+				"no_new_line"
 			]
 		},
 		"type": {

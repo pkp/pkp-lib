@@ -1,11 +1,12 @@
 # Boris Badurina <boris.badurina@gmail.com>, 2022.
+# Maria Češnik <mariaces237@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2022-10-13 16:20+0000\n"
-"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
+"PO-Revision-Date: 2023-02-11 17:48+0000\n"
+"Last-Translator: Maria Češnik <mariaces237@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr_HR/>\n"
 "Language: hr_HR\n"
@@ -777,3 +778,446 @@ msgstr "{$item}/{$afterSlash}"
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
 
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.details"
+msgstr "Pojedinosti"
+
+msgid "common.discardChanges"
+msgstr "Ne, odbaci nespremljene promjene"
+
+msgid "common.disconnected"
+msgstr "Isključeno"
+
+msgid "common.downloadReport"
+msgstr "Preuzmi izvješće"
+
+msgid "common.emailTemplates"
+msgstr "Predlošci e-pošte"
+
+msgid "common.geographic"
+msgstr "Geografski"
+
+msgid "common.insert"
+msgstr "Umetnuti"
+
+msgid "common.insertContentSearch"
+msgstr "Pronađite sadržaj za umetanje"
+
+msgid "common.itemsPerPage"
+msgstr "unosi po stranici"
+
+msgid "common.label"
+msgstr "Označiti"
+
+msgid "common.lastSaved"
+msgstr "Zadnji put spremljeno {$when}"
+
+msgid "common.noneSelected"
+msgstr "Ništa nije odabrano"
+
+msgid "common.noneProvided"
+msgstr "Nije navedeno"
+
+msgid "common.ok"
+msgstr "U redu"
+
+msgid "common.orderUp"
+msgstr "Postavite položaj {$itemTitle} gore"
+
+msgid "common.orderDown"
+msgstr "Postavite položaj {$itemTitle} dolje"
+
+msgid "common.pagination.previous"
+msgstr "prethodna stranica"
+
+msgid "common.pageNumber"
+msgstr "Stranica {$pageNumber}"
+
+msgid "common.prefix"
+msgstr "Prefiks"
+
+msgid "common.reconnecting"
+msgstr "Ponovno povezivanje"
+
+msgid "common.role"
+msgstr "Uloga"
+
+msgid "common.searchPhrase"
+msgstr "Izraz za pretraživanje"
+
+msgid "common.and"
+msgstr "i"
+
+msgid "common.completed.date"
+msgstr "Dovršeno: {$dateCompleted}"
+
+msgid "common.available"
+msgstr "Dostupno"
+
+msgid "common.addFiles"
+msgstr "Dodaj datoteke"
+
+msgid "common.declined"
+msgstr "Odbijeno"
+
+msgid "common.downloadPdf"
+msgstr "preuzeti PDF"
+
+msgid "common.attachedFiles"
+msgstr "Privici datoteka"
+
+msgid "common.findTemplate"
+msgstr "pronaći predložak"
+
+msgid "common.attachFiles"
+msgstr "Priložiti datoteke"
+
+msgid "common.notified"
+msgstr "Obaviješten"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width} x {$height} Pixel"
+
+msgid "common.dragAndDropHere"
+msgstr "Ovdje povucite i ispustite datoteke."
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Opišite sliku za korisnike koji posjećuju stranicu samo s tekstualnim "
+"preglednikom ili s pomoćnim uređajima. Na primjer: \"Naš urednik govori na "
+"PKP konferenciji.\""
+
+msgid "common.addCCBCC"
+msgstr "Dodaj CC/BCC"
+
+msgid "common.orUploadFile"
+msgstr "Ili prenesite datoteku ovdje"
+
+msgid "common.confirmed.date"
+msgstr "Potvrđeno: {$dateConfirmed}"
+
+msgid "common.enable"
+msgstr "Aktivirati"
+
+msgid "common.inactive"
+msgstr "Nekativan"
+
+msgid "common.finish"
+msgstr "Zaključiti"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Morate dovršiti provjeru valjanosti koja se koristi za sprječavanje slanja "
+"neželjene pošte."
+
+msgid "common.editItem"
+msgstr "Uredi {$name}"
+
+msgid "common.deselect"
+msgstr "Poništi odabir"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}\"&nbsp;x&nbsp;{$height}\" @ {$dpi} DPI/PPI"
+
+msgid "common.dateHijri"
+msgstr "Hidžretski kalendar"
+
+msgid "common.disable"
+msgstr "Isključiti"
+
+msgid "common.filterAdd"
+msgstr "Dodaj filtar: {$filterTitle}"
+
+msgid "common.closePanel"
+msgstr "Zatvori ploču"
+
+msgid "common.dateDecided"
+msgstr "Datum odluke"
+
+msgid "common.attachSelected"
+msgstr "Dodaj odabrano"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Trenutačni stil"
+
+msgid "about.description"
+msgstr "Opis"
+
+msgid "about.guidelines"
+msgstr "Smjernice"
+
+msgid "about.aboutSite"
+msgstr "O nama"
+
+msgid "announcement.announcements"
+msgstr "Objave"
+
+msgid "announcement.postedOn"
+msgstr "Objavljeno na {$postDate}"
+
+msgid "common.allDownloads"
+msgstr "Sva preuzimanja"
+
+msgid "common.navigation.sidebar"
+msgstr "Bočna traka"
+
+msgid "common.navigation.site"
+msgstr "Navigacija web stranice"
+
+msgid "common.navigation.siteContext"
+msgstr "Navigacija kontekstom stranice"
+
+msgid "common.navigation.user"
+msgstr "Korisnička navigacija"
+
+msgid "common.tasks"
+msgstr "Zadaci"
+
+msgid "common.list"
+msgstr "Lista"
+
+msgid "common.grid"
+msgstr "Rešetka"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Jeste li sigurni da želite izbrisati ovaj unos? Operacija se ne može "
+"poništiti."
+
+msgid "common.abstract"
+msgstr "Sažetak"
+
+msgid "common.accepted"
+msgstr "Prihvaćeno"
+
+msgid "common.acknowledged"
+msgstr "Potvrđeno"
+
+msgid "common.manage"
+msgstr "Administrirati"
+
+msgid "common.lastActivity"
+msgstr "Zadnja aktivnost zabilježena {$date}."
+
+msgid "common.less"
+msgstr "Manje"
+
+msgid "common.lessThan"
+msgstr "{$value} ili manje"
+
+msgid "common.lessThanOnly"
+msgstr "Manje od"
+
+msgid "common.keepWorking"
+msgstr "nastaviti s radom"
+
+msgid "common.billingAddress"
+msgstr "Adresa za naplatu (ako se razlikuje)"
+
+msgid "common.moreThan"
+msgstr "{$value} ili više"
+
+msgid "common.moreThanOnly"
+msgstr "Više od"
+
+msgid "common.noItemsFound"
+msgstr "Nema pronađenih stavki."
+
+msgid "common.noComments"
+msgstr "Bez komentara"
+
+msgid "common.noTemporaryFile"
+msgstr ""
+"Učitanu datoteku nije moguće pronaći. Pokušajte ponovno učitati datoteku."
+
+msgid "common.notified.date"
+msgstr "Obavijest: {$dateNotified}"
+
+msgid "common.notes.tooltip"
+msgstr "Bilješke (žuto: novo; plavo: viđeno; sivo: ništa)"
+
+msgid "common.noMatches"
+msgstr "Nema podudaranja"
+
+msgid "common.numberedMore"
+msgstr "još {$number}"
+
+msgid "common.pagination.next"
+msgstr "sljedeća stranica"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} od {$total}"
+
+msgid "common.quality"
+msgstr "Kvaliteta"
+
+msgid "common.queue.long.active"
+msgstr "Svi aktivni"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.refresh"
+msgstr "Ažurirati"
+
+msgid "common.reminder"
+msgstr "Podsjetnik"
+
+msgid "common.remote"
+msgstr "Daljinski"
+
+msgid "common.removeItem"
+msgstr "Ukloni {$item}"
+
+msgid "common.reset"
+msgstr "Vrati na zadano"
+
+msgid "common.searchQuery"
+msgstr "upit za pretraživanje"
+
+msgid "common.clearSearch"
+msgstr "Izbriši tekst pretraživanja"
+
+msgid "common.saving"
+msgstr "Spremanje"
+
+msgid "common.selectWithName"
+msgstr "Odaberite {$name}"
+
+msgid "common.selectedPrefix"
+msgstr "Odabrano:"
+
+msgid "common.sendEmail"
+msgstr "Pošalji e-mail"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br />\n"
+"<br /><br />\n"
+"<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"<img alt=\"Licenca Creative Commons\" style=\"border-width:0\" src=\"//i."
+"creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"</a>\n"
+"<br />\n"
+"Ovo je djelo licencirano pod <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Licencom Creative Commons "
+"Attribution 3.0</a>.\n"
+"\t"
+
+msgid "common.confirm"
+msgstr "Potvrdi"
+
+msgid "common.content"
+msgstr "Sadržaj"
+
+msgid "common.contents"
+msgstr "Sadržaji"
+
+msgid "common.deleting"
+msgstr "Izbrisati"
+
+msgid "common.designation"
+msgstr "Oznaka"
+
+msgid "common.error.databaseError"
+msgstr "Došlo je do greške u bazi podataka: {$error}"
+
+msgid "common.fullscreen"
+msgstr "puni zaslon"
+
+msgid "common.fullscreenOff"
+msgstr "puni zaslon isključen"
+
+msgid "common.false"
+msgstr "Netočno"
+
+msgid "common.filter"
+msgstr "Filtar"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Pokrenut će se učitavač sistemskih datoteka. Ako se ne pojavi, to je "
+"vjerojatno zato što taj preglednik ne podržava njegova vremena izvođenja. "
+"Molimo kontaktirajte administratore."
+
+msgid "common.filterRemove"
+msgstr "Očisti filtar: {$filterTitle}"
+
+msgid "common.notice"
+msgstr "Anotacija"
+
+msgid "common.pagination.label"
+msgstr "Pregledajte dodatne stranice"
+
+msgid "common.pagination.goToPage"
+msgstr "Idi na {$page}"
+
+msgid "common.pluginEnabled"
+msgstr "Aktiviran je dodatak \"{$pluginName}\"."
+
+msgid "common.remoteURL"
+msgstr "Udaljeni URL"
+
+msgid "common.go"
+msgstr "Kreni"
+
+msgid "common.more"
+msgstr "Više"
+
+msgid "common.overdue"
+msgstr "Zakašnjelo"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Primjeri: A, The"
+
+msgid "common.searching"
+msgstr "traženje"
+
+msgid "common.assigned.date"
+msgstr "Dodijeljeno: {$dateAssigned}"
+
+msgid "common.reminded.date"
+msgstr "Podsjetnik: {$dateReminded}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.pluginDisabled"
+msgstr "Dodatak \"{$pluginName}\" je deaktiviran."
+
+msgid "common.name"
+msgstr "Ime"
+
+msgid "common.warning"
+msgstr "Upozorenje"
+
+msgid "common.error"
+msgstr "Greška"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"<br />\n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Licenca Creative Commons\" style=\"border-width:"
+"0 \" src =\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"<br />\n"
+"Ovo je djelo licencirano pod <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licencom "
+"Creative Commons Attribution 3.0</a>.\n"
+"</div>\n"
+"\t"
+
+msgid "common.override"
+msgstr "Prepraviti"
+
+msgid "common.insertContent"
+msgstr "umetnuti sadržaj"

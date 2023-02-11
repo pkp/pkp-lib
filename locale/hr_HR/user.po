@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-02-10 15:53+0000\n"
+"PO-Revision-Date: 2023-02-11 17:48+0000\n"
 "Last-Translator: Tadej Grlić <tadejgrlic@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "hr_HR/>\n"
@@ -29,10 +29,10 @@ msgid "user.biography.description"
 msgstr "(npr. institucija i zvanje)"
 
 msgid "user.changeMyPassword"
-msgstr "Promjena moje lozinke"
+msgstr "Promjeni moju lozinku"
 
 msgid "user.changePassword"
-msgstr "Promjena lozinke"
+msgstr "Promjeni lozinku"
 
 msgid "user.dateLastLogin"
 msgstr "Zadnja prijava"
@@ -56,7 +56,10 @@ msgid "user.login.accountDisabled"
 msgstr "Vaš korisnički račun je onemogućen. Molimo kontaktirajte administratora za više informacija."
 
 msgid "user.login.accountNotValidated"
-msgstr "Vaša adresa e-pošte nije validirana. Molimo provjerite vašu zaprimljenu e-poštu i slijedite zadane naputke. Ukoliko niste zaprimili poruku, pokušajte sa drugom adresom ili kontaktirajte administratora ove stranice."
+msgstr ""
+"Poslali smo vam potvrdnu e-poruku na {$email}. Slijedite upute u toj e-"
+"poruci kako biste aktivirali novi račun. Ako ne vidite e-poruku, provjerite "
+"nalazi li se u neželjenoj pošti."
 
 msgid "user.login.activate"
 msgstr "Aktivirajte korisnički račun"
@@ -88,7 +91,7 @@ msgid "user.login.registeredEmail"
 msgstr "Registrirana e-pošta korisnika"
 
 msgid "user.login.resetPassword"
-msgstr "Izdaj novu lozinku"
+msgstr "Ponovno postavljanje lozinke"
 
 msgid "user.logOut"
 msgstr "Odjava"
@@ -97,7 +100,7 @@ msgid "user.mailingAddress"
 msgstr "Adresa"
 
 msgid "user.myAccount"
-msgstr "Moji podaci"
+msgstr "Moj račun"
 
 msgid "user.name"
 msgstr "Ime"
@@ -106,10 +109,10 @@ msgid "user.password"
 msgstr "Lozinka"
 
 msgid "user.repeatPassword"
-msgstr "Ponovite lozinku"
+msgstr "Ponovno unesite lozinku"
 
 msgid "user.phone"
-msgstr "Telefon"
+msgstr "Broj telefona"
 
 msgid "user.profile.form.emailRequired"
 msgstr "Važeća adresa e-pošte je obavezna."
@@ -154,7 +157,7 @@ msgid "user.profile.publicProfile"
 msgstr "Korisnički profil"
 
 msgid "user.profile.repeatNewPassword"
-msgstr "Ponovite novu lozinku"
+msgstr "Ponovno unesite novu lozinku"
 
 msgid "user.register.completeForm"
 msgstr "Ispunite ovaj formular kako biste se registrirali na ovaj časopis."
@@ -205,7 +208,7 @@ msgid "user.sendPassword.description"
 msgstr "Pošaljite mi e-poštom potvrdu registracije sa mojim korisničkim imenom i lozinkom"
 
 msgid "user.signature"
-msgstr "Signatura"
+msgstr "Potpis"
 
 msgid "user.title"
 msgstr "Titula"
@@ -266,7 +269,7 @@ msgstr ""
 "lozinku za svoj račun."
 
 msgid "user.userHome"
-msgstr "Početna stranica korisnika"
+msgstr "Početna stranica"
 
 msgid "user.hello"
 msgstr "Zdravo, "
@@ -281,10 +284,10 @@ msgid "user.register.form.passwordLengthRestriction"
 msgstr "Lozinka mora imati najmanje {$length} znakova."
 
 msgid "user.role.copyeditor"
-msgstr "Urednik"
+msgstr "Urednik kopija"
 
 msgid "user.profile.form.givenNameRequired"
-msgstr "Potrebno je dati ime."
+msgstr "Potrebno je ime."
 
 msgid "user.authorization.submissionQuery"
 msgstr "Nemate dozvolu za pristup ovoj raspravi."
@@ -310,7 +313,7 @@ msgid "user.role.layoutEditors"
 msgstr "Urednici"
 
 msgid "user.givenName"
-msgstr "Dodjeljeno ime"
+msgstr "Ime"
 
 msgid "user.role.assistant"
 msgstr "Pomoćnik"
@@ -363,7 +366,7 @@ msgid "user.login.loginError"
 msgstr "Neispravno korisničko ime ili lozinka. Molim pokušajte ponovno."
 
 msgid "user.role.copyeditors"
-msgstr "Urednici"
+msgstr "Urednici kopija"
 
 msgid "user.role.layoutEditor"
 msgstr "Urednik"
@@ -434,8 +437,8 @@ msgstr "Pregledajte prijave"
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
-"Dodali ste obiteljsko ime za jezik kojemu nedostaje navedeno ime. Dodajte "
-"ime za ovaj jezik."
+"Dodali ste prezime za jezik kojemu nedostaje navedeno ime. Dodajte ime za "
+"ovaj jezik."
 
 msgid "user.profile.form.passwordSameAsOld"
 msgstr "Vaša nova lozinka je ista kao vaša stara lozinka."
@@ -445,3 +448,67 @@ msgstr "Polja adrese e-pošte se ne podudaraju."
 
 msgid "user.role.author_s"
 msgstr "Autor(i)"
+
+msgid "user.profile.identity"
+msgstr "Identitet"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Generiranje novog API ključa poništit će sve postojeće ključeve za ovog "
+"korisnika."
+
+msgid "user.apiKeyEnabled"
+msgstr "Omogućite vanjske aplikacije s API ključem za pristup ovom računu"
+
+msgid "user.profile.contact"
+msgstr "Kontakt"
+
+msgid "user.apiKey.generate"
+msgstr "Stvorite API ključ"
+
+msgid "user.orcid"
+msgstr "ORCID ID"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Prije generiranja API ključa, vaš administrator stranice mora postaviti "
+"tajnu u konfiguracijskoj datoteci (\"api_key_secret\")."
+
+msgid "user.apiKey"
+msgstr "API ključ"
+
+msgid "user.privacyLink"
+msgstr ""
+"Vaši se podaci pohranjuju u skladu s našom <a href=\"{$privacyUrl}\" target="
+"\"_blank\">izjavom o privatnosti</a>."
+
+msgid "user.profile.public"
+msgstr "Javnost"
+
+msgid "user.apiKey.remove"
+msgstr "Obriši"
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+"Brisanjem ključa poništit ćete pristup svim aplikacijama koje ga koriste."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Jeste li sigurni da želite izbrisati ovaj API ključ?"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"ORCID ID koji ste naveli je nevažeći. Uključite puni URI (npr. \"https"
+"://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Nije moguće dovršiti zahtjev za ponovno postavljanje zaporke jer {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Unesite novu lozinku za ažuriranje lozinke za prijavu."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Lozinka je uspješno ažurirana. Prijavite se s novom lozinkom."

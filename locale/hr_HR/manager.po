@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2023-02-11 17:48+0000\n"
-"Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
+"Last-Translator: Maja Jurić <maja-juric@windowslive.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
 "Language: hr_HR\n"
@@ -573,13 +573,17 @@ msgstr ""
 "Ova se poruka e-pošte automatski šalje autorima koji su navedeni u podnesku, "
 "a koji nisu autori koji su ga poslali."
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Uvjeti za predaju članka"
+msgstr "Uvjeti za predaju kontrolne liste"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "Pri prijavljivanju priloga za časopis, od autora se prvo traži da potvrde kako njihov prilog zadovoljava svaku stavku \"uvjeta za predaju priloga\" prije nego što mogu nastaviti s postupkom prijave. Uvjeti za predaju priloga se također navode i kod \"smjernica za autore\", unutar rubrike \"o časopisu\". Popis uvjeta se može nadopuniti ili prilagoditi, a autori će uz svaku navedenu stavku svoju suglasnost morati označiti kvačicom."
+msgstr ""
+"Pri prijavljivanju priloga za časopis, od autora se prvo traži da potvrde "
+"kako njihov prilog zadovoljava svaku stavku \"uvjeta za predaju priloga\" "
+"prije nego što mogu nastaviti s postupkom prijave. Uvjeti za predaju priloga "
+"se također navode i kod \"smjernica za autore\", unutar rubrike \"o "
+"časopisu\". Popis uvjeta se može nadopuniti ili prilagoditi, a autori će uz "
+"svaku navedenu stavku svoju suglasnost morati označiti kvačicom."
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
@@ -1310,8 +1314,7 @@ msgid "stats.totalWithinDateRange"
 msgstr "Ukupno unutar datumskog razdoblja"
 
 msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Zatražite od autora da unese jezike podneska prije prihvaćanja svog podneska."
+msgstr "Zamolite autora da tijekom slanja navede jezike podneska."
 
 msgid "plugins.importexport.publication.exportFailed"
 msgstr "Proces nije uspio analizirati publikacije"
@@ -2045,3 +2048,1398 @@ msgstr ""
 
 msgid "mailable.decision.accept.notifyAuthor.name"
 msgstr "Podnesak je prihvaćen"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Adresa e-pošte pošiljatelja"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Potpis e-pošte pošiljatelja"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Puno ime primarnog kontakta web stranice"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "Potpis e-pošte web stranice za automatiziranu e-poštu"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Naslov podneska"
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Ovaj časopis provodi otvoreno recenziranje. Recenzenti će vidjeti vaše ime i "
+"afilijaciju, kao i imena i afilijacije vaših koautora. Slično tome, vidjet "
+"ćete imena i pripadnost recenzentima."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Autorsko vodstvo"
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima tijekom koraka suradnika. Navedite kratko "
+"objašnjenje koje bi informacije autor trebao dati o sebi, koautorima i "
+"drugim suradnicima."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima tijekom koraka detalja, kada se od njih traži "
+"da navedu naslov, sažetak i druge ključne informacije o svom podnesku."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima prije nego počnu s podnosenjem. Ukratko "
+"objasnite postupak podnošenja kako bi autor znao što može očekivati."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima tijekom koraka Za urednike, kada se od njih "
+"traži da daju metapodatke kao što su ključne riječi, komentari uredniku i "
+"druge pojedinosti za pomoć u uredničkom pregledu."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima tijekom posljednjeg koraka pomoćnika za "
+"podnošenje, kada se od njih traži da pregledaju sve informacije koje su dali "
+"prije podnošenja svog rada."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"Sljedeće se prikazuje autorima tijekom koraka učitavanja datoteka. Navedite "
+"kratko objašnjenje koje datoteke autori trebaju podijeliti sa svojim "
+"podneskom."
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Urednički zadaci"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Omogućite institucionalnu statistiku ako želite prikupljati statistiku "
+"korištenja po instituciji. Ako je omogućeno, morat ćete konfigurirati IP "
+"raspone za svaku instituciju koju želite pratiti."
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI sadrži nevažeće znakove."
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Prilikom podnošenja nemojte tražiti ključne riječi od autora."
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Tijekom podnošenja nemojte od autora tražiti organizacije za potporu."
+
+msgid "grid.action.createReviewForm"
+msgstr "Izradite novi obrazac za recenziju"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Mogućnosti pristupa stranici"
+
+msgid "grid.action.deleteGenre"
+msgstr "Ukloni ovaj žanr"
+
+msgid "plugins.categories.pubIds"
+msgstr "Dodaci za javni identifikator"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Traži korisnika po imenu"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Dodatak već postoji, ali je noviji od instalirane verzije. Odaberite "
+"\"Nadogradnja\""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Puna imena autora"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Obavijesti sve autore"
+
+msgid "notification.localeUninstalled"
+msgstr "Deinstalirana je regionalna postavka {$locale}."
+
+msgid "manager.distribution.title"
+msgstr "Distribucijske postavke"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Došlo je do pogreške prilikom brisanja ovog unosa."
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Ovaj dodatak je razvio i održava tim Public Knowledge Project."
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Upravo ćete poslati e-poruku {$total} korisniku. Jeste li sigurni da želite "
+"poslati ovu e-poruku?"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Ovi dodaci formata odnose se na metapodatke za OAI komunikaciju."
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Predstavite vezu na <button type=\"button\">kako osigurati da su sve "
+"datoteke anonimizirane</button> tijekom prijenosa"
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Zamolite autora da navede vrstu tijekom podnošenja."
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Jeste li sigurni da želite ukloniti ovaj dodatak iz sustava?"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Prilikom podnošenja ne tražite jezik autora."
+
+msgid "manager.paymentMethod.method"
+msgstr "Način plaćanja"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Dodaci za metapodatke implementiraju dodatne standarde za metapodatke."
+
+msgid "manager.setup.dateTime.time"
+msgstr "Vrijeme"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Dodatak za OAI format metapodataka"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Prvo odaberite datoteku"
+
+msgid "manager.language.submissions"
+msgstr "Podnesci"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Ovaj vam obrazac omogućuje učitavanje i instaliranje novog dodatka. "
+"Provjerite je li dodatak komprimiran kao .tar.gz datoteka."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Ključne riječi obično su fraze od jedne do tri riječi koje označavaju "
+"predmet podneska."
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-pošta primarnog kontakta web stranice"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Kontakt za tehnička pitanja"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Dodatak \"{$pluginName}\" ne postoji"
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Zatražite od autora da predloži ključne riječi prije nego što prihvati "
+"njihovo podnošenje."
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Uklonit ćete ovu ulogu iz ovog konteksta. Ovo će također izbrisati povezane "
+"postavke i sve dodjele korisnika ovoj ulozi. Želite li nastaviti?"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "Verzija {$version} objavljena {$date}"
+
+msgid "manager.setup.principalContact"
+msgstr "Glavni kontakt"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Neobavezni kratki identifikator za ovaj žanr."
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Autorov URL za podnesak"
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Zatražite od autora da pruži reference prije nego što prihvati njihov "
+"podnesak."
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"To su ovisne datoteke, kao što su slike prikazane HTML datotekom, i neće "
+"biti prikazane s objavljenim sadržajem."
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Sažetak podneska"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "Dodatak već postoji, ali je stariji ili isti kao instalirana verzija."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL web-stranice koja opisuje licencu, ako je dostupna."
+
+msgid "manager.reviewFormElements.included"
+msgstr "Uključeno u poruku autoru"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nikad ne podsjećaj"
+
+msgid "manager.setup.theme.description"
+msgstr "Odaberite grafičku temu među dostupnim dodacima za temu."
+
+msgid "settings.roles.from"
+msgstr "Razina dopuštenja"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Morate definirati skraćenicu uloge."
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrirani korisnici"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Zadani rok za završetak"
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Zahtijevajte od autora da navede vrstu prije prihvaćanja njihovog podneska."
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Primjeri: stručne udruge, sveučilišni odsjeci, zadruge itd. Sponzori su "
+"javno prikazani."
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Upravljanje dodacima"
+
+msgid "manager.emails.enable.message"
+msgstr "Upravo ćete aktivirati ovaj predložak. Želite li potvrditi ovu radnju?"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Navedite podatke za kontakt, obično za glavno uredništvo, uredništvo ili "
+"radno mjesto administrativnog osoblja, koji mogu biti prikazani na vašoj "
+"javnoj web stranici."
+
+msgid "manager.plugins.settings"
+msgstr "Postavke"
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Zamolite autora da navede reference tijekom podnošenja."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Zamolite autora da navede sve organizacije za potporu tijekom podnošenja."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Potreban je naziv za ovu datoteku knjižnice."
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Dodatak nije uspješno kopiran. Ovo bi mogao biti problem s dozvolama. "
+"Provjerite je li web-poslužitelju dopušteno pisati u direktorij dodataka ("
+"uključujući poddirektorije) i ne zaboravite ih kasnije sigurnosno kopirati."
+
+msgid "plugins.categories.metadata"
+msgstr "Dodaci za metapodatke"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Potvrdite brisanje objavljenog polja obrasca..."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Zatražite od autora da navede sve organizacije za potoporu prije nego što "
+"prihvati njihov podnesak."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Omogući metapodatke za teme"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Pošalji e-poštu"
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"To su pomoćne datoteke, poput skupova podataka i istraživačkih materijala, "
+"koje se pojavljuju odvojeno od glavnih datoteka publikacije."
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Tražite recenzente po imenu"
+
+msgid "manager.setup.dateTime"
+msgstr "Datum & vrijeme"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Standardi se mogu prilagoditi za svako izvješće kao dio uredničkog procesa."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI se može automatski predati agenciji za registraciju. Za korištenje ove "
+"značajke pronađite i instalirajte dodatak relevantne agencije za "
+"registraciju."
+
+msgid "settings.roles.assignedStages"
+msgstr "Dodijeljene faze"
+
+msgid "notification.localeEnabled"
+msgstr "Regionalna postavka aktivirana."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Dodatak je već instaliran i ažuriran."
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Učitajte sliku koja će se istaknuti na početnoj stranici."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Pošalji drugu e-poštu"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Ovaj ključ već postoji."
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Početna stranica"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Jeste li sigurni da želite onemogućiti ovaj obrazac za recenziju? Više neće "
+"biti dostupan za nove zahtjeve za recenziranje."
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Izvještaji"
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Pošaljite mi kopiju ove e-pošte na {$email}."
+
+msgid "plugins.categories.generic"
+msgstr "Generički dodaci"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Ne možete pozvati ovu operaciju bez omogućenog DOI-ja."
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI sufiks"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Ova se izjava prikazuje tijekom registracije novog korisnika, autorskih "
+"prijava i na javnoj stranici o privatnosti. U nekim ste državama zakonski "
+"dužni u ovoj izjavi navesti kako postupate s korisničkim podacima."
+
+msgid "manager.setup.sponsors.note"
+msgstr "Opis odnosa sa sponzorima i politike"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Omogućite metapodatke za tip"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Teme će biti ključne riječi, ključne fraze ili klasifikacijski kodovi koji "
+"opisuju temu podneska."
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks {$dir}"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Ponovno učitaj zadane postavke"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Prilagođen"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Partner"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Ova uloga može samo preporučiti odluke o pregledu i zahtijeva ovlaštenog "
+"urednika da donese konačnu odluku."
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Sadržaj časopisa"
+
+msgid "manager.setup.metadata.submission"
+msgstr "Obrazac za podnošenje"
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Učitani dodatak ne odgovara kategoriji ažuriranog dodatka."
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Dodatak \"{$pluginName}\" ne može se izbrisati iz datotečnog sustava. Možda "
+"postoji problem s dopuštenjima. Provjerite može li web poslužitelj pisati u "
+"direktorij dodataka (uključujući poddirektorije). Ali ne zaboravite kasnije "
+"osigurati pristup."
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatska isporuka"
+
+msgid "settings.roles.uniqueName"
+msgstr "Morate postaviti jedinstveni naziv za ulogu."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Oraganizacije za potporu mogu ovdje navesti izvor financiranja istraživanja "
+"ili druge vrste potpore za istraživanje."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Zadano vrijeme odgovora"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Trenutno nema dostupne kompatibilne verzije ovog dodatka."
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "U toku"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Omogući jezične metapodatke"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blok {$name} nije pronađen. Provjerite je li dodatak instaliran i aktiviran."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI prefiks dodjeljuju registracijske agencije (npr. <a href=\"http://www."
+"crossref.org\" target=\"_new\">Crossref</a>) i ima format 10.xxxx (npr. 10."
+"1234):"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Pošaljite podsjetnik ako recenzent nije odgovorio na zahtjev u navedenom "
+"roku (u danima)."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Obavijestite sve"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Prilikom podnošenja ne tražite od autora podatke o temama."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Zamolite autora da navede teme tijekom podnošenja."
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Skraćenica"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Službeno"
+
+msgid "manager.groups.editTitle"
+msgstr "Uredi naslov"
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Izvor može biti ID, kao što je DOI, drugog djela ili izvora iz kojeg je "
+"podnesak izveden."
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Pošaljite kopiju na ovu adresu e-pošte"
+
+msgid "manager.statistics.reports"
+msgstr "Izvještaji"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI prefiks je obavezan i mora biti u obliku 10.xxxx."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definiran kao primarni jezik."
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Za predložak e-pošte potreban je jedinstveni identifikator e-pošte."
+
+msgid "manager.emails.otherTemplates"
+msgstr "Ostali predlošci"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Prilagođeni uzorak - (ne preporučuje se)"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Jeste li sigurni da želite izbrisati ovaj obrazac za recenziju?"
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Opisi"
+
+msgid "notification.localeDisabled"
+msgstr "Regionalna postavka onemogućena."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Nisu korišteni obrasci za recenziranje."
+
+msgid "grid.action.editGenre"
+msgstr "Uredi ovaj žanr"
+
+msgid "manager.people.signedInAs"
+msgstr "Trenutno ste prijavljeni kao {$username}"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Dozvole"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Provjerite jeste li odabrali datoteku za učitavanje."
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Politika otvorenog pristupa"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Ako poništite ovaj predložak, svi podaci ovog predloška vratit će se na "
+"zadane vrijednosti, a sve promjene bit će izgubljene. Želite li potvrditi "
+"ovu radnju?"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Odaberite uredničke korisnike koji bi trebali biti automatski dodijeljeni "
+"svim novim podnescima u ovom odjeljku."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Dodijeli {$ime} kao {$uloga}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Odaberite uredničke korisnike koji bi trebali biti automatski dodijeljeni "
+"svim novim podnescima u ovoj kategoriji."
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formati datuma i vremena"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Odaberite agenciju za registraciju kojoj želite predati DOI."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Dopusti izmjenu metapodataka ovog podneska."
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Ovaj obrazac omogućuje nadogradnju za dodatak. Provjerite je li dodatak "
+"komprimiran kao .tar.gz datoteka."
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Ne zahtijevajte reference od autora tijekom podnošenja."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Zamolite autora za informacije o disciplinama prilikom podnošenja."
+
+msgid "manager.emails.emailTemplates"
+msgstr "Predlošci e-pošte"
+
+msgid "manager.workflow.title"
+msgstr "Postavke tijeka rada"
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-pošta je uspješno poslana svim primateljima."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "Možete prenijeti dodatnu CSS datoteku kako biste prilagodili izgled."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Omogući metapodatke ključne riječi"
+
+msgid "manager.setup.dois.setup"
+msgstr "Postavke"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Uvjeti licence"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Jeste li sigurni da želite instalirati ovaj dodatak?"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Prilagođeni uzorak DOI sufiksa"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Da, pošaljite kopiju na {$email}"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Tematsko područje"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Nadogradnja nije uspjela. {$errorString}"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galerija dodataka"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Vrijeme za odgovor na zahtjev za pregled (tjedni)."
+
+msgid "settings.roles.roleName"
+msgstr "Naziv uloge"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Obavijestite glavni kontakt"
+
+msgid "manager.language.forms"
+msgstr "Formulari"
+
+msgid "manager.plugins.installed"
+msgstr "Instalirani dodaci"
+
+msgid "manager.emails.sentFrom"
+msgstr "Poslano od"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "notification.localeInstalled"
+msgstr "Sve odabrane regionalne postavke su instalirane i aktivirane."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Zahtijevati od autora da otkrije sva prethodna prava pristupa prije nego što "
+"prihvati svoj podnesak."
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Instalacija"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Dopusti samoregistraciju korisnika"
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Omogući metapodatke o referencama"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Dodatak nije dostupan. Odaberite \"Instaliraj\""
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Ovaj časopis provodi dvostruku anonimnu recenziju. Recenzenti neće vidjeti "
+"nikakve identifikacijske informacije o vama ili vašim koautorima. Slično "
+"tome, nećete znati tko je pregledao vaš podnesak i nećete se izravno čuti s "
+"recenzentima."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Pogreške pri provjeri valjanosti:"
+
+msgid "manager.workflow"
+msgstr "Tijek rada"
+
+msgid "manager.paymentMethod.none"
+msgstr "Nije odabran način plaćanja"
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Omogući metapodatke za izvore"
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Zatražite od autora informacije o jeziku prilikom podnošenja."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "Dodatak je već instaliran i noviji je od verzije dostupne u galeriji."
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Marketing"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Autori će automatski primiti e-poruku kojom se potvrđuje primitak njihovog "
+"podneska. Osim toga, kopije potvrdne e-pošte mogu se poslati na sljedeće "
+"adrese:"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Jeste li sigurni da želite omogućiti ovaj obrazac za recenziju? Nakon što je "
+"dodijeljen procjeni, nećete ga moći deaktivirati."
+
+msgid "settings.roles.nameRequired"
+msgstr "Morate definirati naziv uloge."
+
+msgid "notification.localeReloaded"
+msgstr "Ponovno učitana regionalna postavka {$locale}."
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI prefiks"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Noviji od dostupne verzije"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum i vrijeme (kratko)"
+
+msgid "manager.plugins.upgrade"
+msgstr "dodatak za nadogradnju"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Pregled"
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Ovaj časopis provodi recenziju \"anonimnog recenzenta\". Vaše ime i ime "
+"vaših koautora bit će vidljivo recenzentima; međutim, identitet recenzenata "
+"ostat će anoniman."
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Osoba za kontakt koja može pomoći urednicima, autorima i recenzentima s bilo "
+"kakvim problemima koje mogu imati s prijavom, postupkom uređivanja, "
+"recenziranjem ili rukovanjem objavljenim materijalom."
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Pošaljite obavijest e-poštom svim autorima podneska."
+
+msgid "manager.distribution"
+msgstr "Distribucija"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Blok {$name} nije pronađen. Provjerite je li dodatak instaliran i aktiviran."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Pošaljite e-poštu samo autorima koji su dodijeljeni tijeku rada za "
+"podnošenje. Obično je to autor koji podnosi."
+
+msgid "manager.paymentMethod"
+msgstr "Plaćanja"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Tko bi trebao primiti obavijest e-poštom kada se zabilježi urednička odluka?"
+
+msgid "settings.roles.roleDetails"
+msgstr "Pojedinosti o ulozi"
+
+msgid "manager.setup.theme.notFound"
+msgstr "Odabrana tema nije instalirana ili nije aktivirana."
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Odaberite datoteku dodatka"
+
+msgid "manager.importExport"
+msgstr "Uvoz/izvoz podataka"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Odaberite datoteke knjižnice koje želite priložiti"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Pitajte autora za izvorni URL prilikom podnošenja."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Vrsta ili žanr glavnog sadržaja podneska. Tip je obično \"tekst\", ali "
+"također može biti \"skup podataka\", \"slika\" ili bilo koji od <a target="
+"\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/#"
+"section -7-dcmi-type-vocabulary\">Dublin Core Vrste</a>."
+
+msgid "grid.action.addGenre"
+msgstr "Dodajte žanr"
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metapodaci datoteke"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Pošaljite podsjetnik ako recenzent nije dostavio preporuku u navedenom roku ("
+"u danima)."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Morate postaviti jedinstvenu skraćenicu za ulogu."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Jeste li sigurni da želite napraviti kopiju ovog obrasca za recenziju?"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Najnovije kompatibilno izdanje"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopija e-poruke potvrde slanja bit će poslana na svaku od ovdje unesenih "
+"adresa e-pošte. Više adresa e-pošte odvojite zarezom. Primjer: one@example."
+"com,two@example.com"
+
+msgid "plugins.importexport.common.id"
+msgstr "ID: {$id}"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr "Treba li se DOI automatski predati navedenoj registracijskoj agenciji."
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Potreban je prefiks DOI"
+
+msgid "manager.setup.homepageImage"
+msgstr "Slika početne stranice"
+
+msgid "manager.distribution.license.other"
+msgstr "Drugi URL licence"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Podsjetnik za pregled"
+
+msgid "manager.setup.competingInterests"
+msgstr "Suprotstavljeni interesi"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Ovaj je dodatak pregledao i odobrio tim projekta Public Knowledge Project."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Ne"
+
+msgid "settings.roles.stages"
+msgstr "Faze"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Uspješna nadogradnja na verziju {$versionString}"
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Jeste li sigurni da želite deaktivirati ovaj odjeljak?"
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Omogući metapodatke za discipline"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Urednici koji mogu donositi odluke o ovom podnesku"
+
+msgid "manager.plugins.uploadError"
+msgstr "Pogreška pri učitavanju datoteke"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Verzija {$versionNumber} uspješno je instalirana"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Obavijesti"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nije aktivirana agencija za registraciju"
+
+msgid "settings.roles.roleOptions"
+msgstr "Opcije uloge"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Ključ može sadržavati samo alfanumeričke znakove, podvlake i crtice te mora "
+"započeti i završiti alfanumeričkim znakom."
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & vrijeme"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Zadano - automatski generira jedinstveni sufiks od osam znakova"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Opis"
+
+msgid "manager.setup.logo"
+msgstr "Logotip"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Održavač"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Pojavile su se pogreške:"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nijedan"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Morate definirati razinu dopuštenja uloge."
+
+msgid "manager.plugins.upload"
+msgstr "Učitajte novi dodatak"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Zadani način pregleda"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Ako poništite sve predloške, sve promjene napravljene u predlošcima e-pošte "
+"bit će izgubljene. Želite li potvrditi ovu radnju?"
+
+msgid "manager.setup.privacyStatement"
+msgstr "Izjava o privatnosti"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nikada"
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Pitajte autora za informacije o pravima prilikom podnošenja."
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Učitana arhiva dodatka ne sadrži mapu koja odgovara nazivu dodatka."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Regionalne postavke spremljene."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ako pružate neposredan besplatan pristup svim objavljenim sadržajima, "
+"navedite opis svoje politike otvorenog pristupa."
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Puno ime pošiljatelja"
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Zahtijevajte od autora da navede teme prije nego što prihvati njihov "
+"podnesak."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Pitajte autora za informacije o ključnim riječima prilikom podnošenja."
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Promjena vrste stavke obrasca..."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Postavka jezika nije mogla biti spremljena. Najmanje jedan jezik mora biti "
+"omogućen za svaku opciju"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Sustav generira izvješća koja prate detalje obrade objava iz perspektive "
+"objava, urednika, recenzenata i odjeljaka tijekom određenog vremenskog "
+"razdoblja. Izvješća se generiraju u CSV formatu, koji se može pregledavati u "
+"proračunskoj tablici."
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Odaberite korisnike koji bi trebali primiti vašu obavijest e-poštom."
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Može se ažurirati"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Ovaj dodatak je osigurao jedan od naših razvojnih partnera."
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Prilikom podnošenja ne tražite podatke o disciplinama autora."
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Traži po imenu"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Bočna traka"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Jeste li sigurni da želite ažurirati ovaj dodatak?"
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+"Zatražite izjavu o bilo kakvom sukobu interesa koji bi mogao postojati "
+"tijekom recenzije."
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Jedna ili više od ovih adresa e-pošte nisu važeće."
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Ostalo"
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Obavijesti"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Odaberite vrstu metapodataka koje te datoteke mogu primiti. Dokument treba "
+"odabrati za glavne datoteke publikacije, kao što je PDF koji se može "
+"preuzeti, tako da te datoteke nasljeđuju svoje metapodatke iz publikacije. U "
+"suprotnom odaberite Dodatni sadržaj za većinu vrsta datoteka. Ilustracija je "
+"prikladna za datoteke koje zahtijevaju jedinstvene metapodatke za autore, "
+"titlove i licence."
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Podaci obrasca za recenziranje"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Mora se unijeti postojeći korisnik."
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml u direktoriju dodataka sadrži nevažeće podatke."
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agencija za registraciju"
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Zahtijevajte od autora da navede discipline prije nego što prihvati njihov "
+"podnesak."
+
+msgid "notification.editedUser"
+msgstr "Uredio korisnik."
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Prilikom dodavanja predloška e-pošte mora se navesti ID konteksta."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponzor"
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Ako kliknete \"Izbriši\", dodatak će biti uklonjen iz datotečnog sustava "
+"poslužitelja."
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (Kratak)"
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Prikupite reference podneska u zasebnom polju. Ovo može biti potrebno kako "
+"bi se zadovoljile potrebe usluga brojanja citata kao što je Crossref."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.pageFooter"
+msgstr "Podnožje stranice"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Ova datoteka knjižnice može biti dostupna za preuzimanje ako je \"Javni "
+"pristup\" omogućen pod <blockquote>{$downloadUrl}</blockquote>.</p>"
+
+msgid "manager.paymentMethod.title"
+msgstr "Načini plaćanja"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Ova stranica omogućuje administratoru časopisa da provjeri trenutno "
+"instalirane dodatke i da ih konfigurira ako je potrebno. Dodaci su "
+"podijeljeni u kategorije prema svojim funkcijama. Odgovarajuće kategorije "
+"klasifikacije navedene su u nastavku, uključujući trenutno korištene dodatke."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Morate definirati fazu kojoj ćete dodijeliti."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Benutzen Sie das YYYYMMDD-Format."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Dodatak \"{$pluginName}\" je uspješno izbrisan"
+
+msgid "grid.action.installPlugin"
+msgstr "Instalirajte ili ažurirajte ovaj dodatak"
+
+msgid "manager.emails.sentTo"
+msgstr "Poslano na"
+
+msgid "manager.plugins.installFailed"
+msgstr "Instalacija nije uspjela. {$errorString}"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Jeste li sigurni da želite aktivirati ovaj odjeljak?"
+
+msgid "manager.settings.wizard"
+msgstr "Pomoćnik za postavke"
+
+msgid "manager.setup.notifications"
+msgstr "Potvrda predaje priloga od strane autora"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Slanje e-pošte. Molimo nemojte pregledavati dok slanje ne završi."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Prije prihvaćanja podneska, pitajte autora za izvorni URL."
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Odaberite željeni format datuma i vremena. Prilagođeni format može se "
+"unijeti pomoću posebnih <a href='http://php.net/manual/en/function.strftime."
+"php#refsect1-function.strftime-parameters'>znakova formata</a>."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Vrijeme za dovršetak izvješća (tjedni)"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Morate odabrati barem jednu ulogu koja će biti povezana s ovim korisnikom."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Discipline su vrste studija ili znanstvene grane kako ih opisuju sveučilišni "
+"fakulteti i stručna društva."
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Izdana su upozorenja:"
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Zahtijevaj s podnescima"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"Treba li barem jedna od ovih datoteka biti potrebna sa svakim novim "
+"podneskom? Ako odaberete da, autorima neće biti dopušteno slanje dok ne "
+"učitaju barem jednu datoteku ove vrste."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+"Da, zahtijevati od autora koji podnose da učitaju jednu ili više ovih "
+"datoteka."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "Ne, dopusti nove podneske bez ovih datoteka."
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "URL objavljenog podneska"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Ne tražite tip od autora tijekom podnošenja."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Omogućite metapodatke za organizacije za potporu"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Onemogućite ovaj odjeljak i ne dopustite nove prijave u ovaj odjeljak."
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Ovi dodaci pružaju podršku za javne identifikatore."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Recenzirano"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Ovaj dodatak nije instaliran."
+
+msgid "manager.distribution.license"
+msgstr "Dozvola"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Unesite uvjete javne licence za koje želite da se pojavljuju pored "
+"objavljenog djela."
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Dodajte prilagođene HTML oznake, poznate i kao meta oznake, koje ćete "
+"umetnuti na vrh svake stranice. Konzultirajte se s tehničkim savjetnikom "
+"prije nego što ovdje dodate oznake."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Potrebna je specifikacija datoteke knjižnice. Provjerite jeste li odabrali i "
+"prenijeli datoteku."
+
+msgid "grid.action.restoreGenres"
+msgstr "Vrati žanrove na zadane"
+
+msgid "manager.setup.genres.label"
+msgstr "Vrsta datoteke"
+
+msgid "manager.setup.genres.key"
+msgstr "Ključ"
+
+msgid "manager.website.title"
+msgstr "Postavke web stranice"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Ne možete izbrisati ovog predstavnika. Dodjeljuje se tržišnim metapodacima "
+"jednog ili više formata publikacije."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Promjena"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Pregled interesa"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "Javni API"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Treba li ili ne ograničiti pristup krajnjim točkama API-ja za statistiku "
+"COUNTER SUSHI. Ako nije označeno, API će biti dostupan samo korisnicima s "
+"ulogama administratora ili upravitelja."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Verzija.xml u učitanom dodatku sadrži naziv dodatka koji ne odgovara nazivu "
+"ažuriranog dodatka."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Opišite smjernice i postupke recenziranja za čitatelje i autore. Ovaj opis "
+"obično uključuje broj recenzenata koji obično recenziraju podnesak, "
+"kriterije koje bi recenzenti trebali koristiti za ocjenjivanje, očekivano "
+"trajanje recenzije i načela odabira recenzenata."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Koristite format YYYYMM."
+
+msgid "manager.setup.dois.registration"
+msgstr "Registracija"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI prefiks"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Omogući automatsku isporuku"
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatsko kreiranje DOI"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "U kojem trenutku u procesu objavljivanja treba izraditi DOI?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Po objavi"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI format"
+
+msgid "manager.setup.additionalContent"
+msgstr "Dodatni sadržaj"
+
+msgid "manager.setup.additionalContent.description"
+msgstr ""
+"Sav sadržaj koji ovdje unesete pojavit će se na vašoj početnoj stranici."
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Izvoz u Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Odaberite korisnike za izvoz u Excel/CSV datoteku."
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Obavijest o autorskim pravima"
+
+msgid "manager.setup.advanced"
+msgstr "Napredno"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Autorske smjernice"
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Omogući institucionalnu statistiku"
+
+msgid "manager.emails.details"
+msgstr "Detalji predloška e-pošte"
+
+msgid "manager.emails.data"
+msgstr "Podaci o predlošku e-pošte"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Upravo ćete onemogućiti ovaj predložak e-pošte. Ako postoje sistemski "
+"procesi koji koriste ovaj predložak, prestat će ga koristiti. Želite li "
+"potvrditi ovu radnju?"
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Onemogući podnošenja"
+
+msgid "manager.setup.checklist"
+msgstr "Kontrolna lista"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Prikupite zemlju i regiju posjetitelja"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Nijedan - sufiksi se moraju unijeti ručno na <a href=\"{$doiManagementUrl}\""
+">stranici za upravljanje DOI</a> i neće se generirati automatski"
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Jezik označava primarni jezik djela upotrebom jezičnog koda (\"hr\") s "
+"neobaveznim kodom zemlje (\"he_HR\")."
+
+msgid "manager.setup.statistics"
+msgstr "Statistika"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geografska statistika"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Prikupite državu posjetitelja"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Koristite donji obrazac za unos maksimalnih vrijednosti za planirana "
+"pretraživanja. Obrazac je unaprijed ispunjen izračunatim prosječnim "
+"vrijednostima ovih polja."
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Odaberite vrstu geografske statistike korištenja koju želite prikupiti. "
+"Detaljnija geografska statistika može značajno povećati veličinu vaše baze "
+"podataka i, u nekim rijetkim slučajevima, može potkopati anonimnost vaših "
+"posjetitelja."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Nemojte prikupljati nikakve geografske podatke"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Prikupite zemlju, regiju i grad posjetitelja"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institucionalna statistika"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "DOI verzija"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Postoji {$count} verzija."
+
+msgid "doi.manager.versions.view"
+msgstr "Pogledaj sve"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOI za sve verzije"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Unesite bilo koju sliku, tekst ili HTML kod koji želite da se pojavi na dnu "
+"vaše web stranice."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Učinite statistiku COUNTER SUSHI javno dostupnom"
+
+msgid "manager.setup.institutions"
+msgstr "Institucije"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Nije dostupno"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Za ovu datoteku knjižnice potrebna je vrsta datoteke."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"Kratka izjava koja opisuje jesu li autor(i) svoje istraživačke podatke "
+"učinili dostupnima i, ako jesu, gdje im čitatelji mogu pristupiti."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "Omogući metapodatke izjave o dostupnosti podataka"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "Ne tražite izjavu o dostupnosti podataka od autora tijekom podnošenja."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+"Zamolite autora da prilikom slanja dostavi izjavu o dostupnosti podataka."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"Zahtijevajte od autora da dostavi izjavu o dostupnosti podataka prije "
+"prihvaćanja njihovog podneska."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Ugovori"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Vidljivo (za autore)"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Jedinstveni ID broj podneska"
+
+msgid "manager.website"
+msgstr "Web stranica"
+
+msgid "manager.emails.resetAll"
+msgstr "Resetiraj sve"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Podsjetnik za odgovor"
+
+msgid "manager.plugins.delete"
+msgstr "Izbriši dodatak"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Sažetak"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml nije pronađen u direktoriju dodataka"
+
+msgid "manager.distribution.customHeaders"
+msgstr "Prilagođene oznake"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "settings.roles.showTitles"
+msgstr "Prikaži naslov uloge na popisu suradnika"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Ne tražite od autora izvorni URL prilikom slanja."
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Opis zadane metode pregleda, kao što je dvostruko anonimno ili otvoreno."

@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-11 17:48+0000\n"
-"Last-Translator: Maja Jurić <maja-juric@windowslive.com>\n"
+"PO-Revision-Date: 2023-02-12 06:11+0000\n"
+"Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/hr_HR/>\n"
 "Language: hr_HR\n"
@@ -3443,3 +3443,54 @@ msgstr "Ne tražite od autora izvorni URL prilikom slanja."
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis zadane metode pregleda, kao što je dvostruko anonimno ili otvoreno."
+
+msgid "manager.submitWithCategories.yes"
+msgstr "Da, dodaj polje kategorije u čarobnjak za podnošenje."
+
+msgid "mailable.copyeditRequest.name"
+msgstr "Zahtjev za lekturu"
+
+msgid "mailable.layoutRequest.name"
+msgstr "Spremno za produkciju"
+
+msgid "mailable.system"
+msgstr "Sustav"
+
+msgid "mailable.versionCreated.name"
+msgstr "Verzija je stvorena"
+
+msgid "mailable.reviewComplete.name"
+msgstr "Recenzija dovršena"
+
+msgid "mailable.reviewEdit.name"
+msgstr "Recenzija je uređena"
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "Zahvala za slanje podneska drugim autorima"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Urednik je dodijeljen (automatski)"
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "Potreban je urednik podneska"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Ova se poruka e-pošte šalje uredniku kada mu se automatski dodijeli podnesak."
+
+msgid "mailable.editorAssign.name"
+msgstr "Urednik dodijeljen"
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+"Treba li autor koji šalje podnesak odabrati kategoriju pri slanju novog "
+"podneska?"
+
+msgid "manager.submitWithCategories.no"
+msgstr "Ne, ne prikazuj ovo polje autorima."
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr "Pitanje o citiranju"
+
+msgid "mailable.editorAssignedManual.name"
+msgstr "Dodijeli urednika"

@@ -150,7 +150,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         parent::setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $user = $request->getUser();
         $submissionContext = $request->getContext();
         if ($submission->getContextId() !== $submissionContext->getId()) {
@@ -342,7 +342,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'pageComponent' => 'WorkflowPage',
             'pageTitle' => implode(__('common.titleSeparator'), array_filter([
                 $latestPublication->getShortAuthorString(),
-                $submission->getLocalizedTitle()
+                $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')
             ])),
             'submission' => $submission,
             'workflowStages' => $workflowStages,

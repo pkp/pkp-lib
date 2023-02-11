@@ -51,7 +51,7 @@ class ReviewNotesLinkAction extends LinkAction
                 null,
                 $actionArgs
             ),
-            __('editor.review') . ': ' . htmlspecialchars($submission->getLocalizedTitle()),
+            __('editor.review') . ': ' . htmlspecialchars($submission->getCurrentPublication()->getLocalizedTitle(null, 'html')),
             'modal_information'
         );
 

@@ -138,23 +138,23 @@ class PKPNotificationManager extends PKPNotificationOperationManager
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
                 $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
-                return __('notification.type.reviewerComment', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.reviewerComment', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGN:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = Repo::submission()->get($notification->getAssocId());
-                return __('notification.type.editorAssign', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.editorAssign', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_COPYEDIT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = Repo::submission()->get($notification->getAssocId());
-                return __('notification.type.copyeditorRequest', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.copyeditorRequest', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_LAYOUT_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = Repo::submission()->get($notification->getAssocId());
-                return __('notification.type.layouteditorRequest', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.layouteditorRequest', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_INDEX_ASSIGNMENT:
                 assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 $submission = Repo::submission()->get($notification->getAssocId());
-                return __('notification.type.indexRequest', ['title' => $submission->getLocalizedTitle()]);
+                return __('notification.type.indexRequest', ['title' => $submission->getCurrentPublication()->getLocalizedTitle(null, 'html')]);
             case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT:
                 return __('notification.type.reviewAssignment');
             case PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED:

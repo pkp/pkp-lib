@@ -2360,7 +2360,7 @@ msgid "manager.dois.actions.deposit.all"
 msgstr "إيداع الكل"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "القياسي."
+msgstr "الافتراضي - يقوم تلقائًا بتوليد بادئة من ثمانية أحرف فريدة"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2737,7 +2737,7 @@ msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "النشر الحالي لطلب التقديم مفقود"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "النمط المخصص (غير موصى به)"
+msgstr "النمط المخصص - (غير موصى به)"
 
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr "النمط المخصص للاحقة معرف المكون الرقمي"
@@ -3490,3 +3490,8 @@ msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "العنصر الذي 1) يمتلك DOIs لجميع أنواع DOI الممكّنة 2) لم يتم نشره 3) لم يتم "
 "تسجيله مع وكالة مسجلة."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"بلا - ينبغي إدخال البادئات يدويًا في <a href=\"{$doiManagementUrl}\">صفحة "
+"إدارة مُعرف المكون الرقمي</a> ولن يتم توليدها تلقائيًا"

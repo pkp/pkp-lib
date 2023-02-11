@@ -27,9 +27,5 @@
         {assign var=_labelTitle value=$action->getTitle()|strip_unsafe_html}
     {/if}
 
-    {if $html}
-        {$_labelTitle|strip_unsafe_html|unescape:'html'}
-    {else}
-        {$_labelTitle|escape}
-    {/if}
+    {$_labelTitle|strip_unsafe_html|unescape:'html'}
 </a>

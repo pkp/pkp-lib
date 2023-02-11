@@ -60,7 +60,8 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('#startSubmission-locale-error').contains('This field is required.');
 		cy.get('#startSubmission-submissionRequirements-error').contains('This field is required.');
 		cy.get('#startSubmission-privacyConsent-error').contains('This field is required.');
-		cy.get('input[name="title"]').type(submission.title, {delay: 0});
+		// cy.get('input[name="title"]').type(submission.title, {delay: 0});
+		cy.setTinyMceContent('startSubmission-title-control', submission.title);
 		cy.get('label:contains("English")').click();
 		cy.get('input[name="submissionRequirements"]').check();
 		cy.get('input[name="privacyConsent"]').check();

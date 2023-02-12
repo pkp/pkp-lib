@@ -294,6 +294,13 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             $defaultLocale = $updatedLocaleRet[$updatedLocale];
 
             if (!is_null($defaultLocale)) {
+                DB::table($table)
+                    ->where('email_key', '=', $email_key)
+                    ->where('locale', '=', $localevalue)
+                    ->where('subject', '')
+                    ->where('body', '')
+                    ->delete();
+
                 if ($defaultLocale == $localevalue) {
                     DB::table($table)
                         ->where('email_key', '=', $email_key)
@@ -344,7 +351,16 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
         // In case there is an explicit transformation from code_XX to code_CC 
         if ($affectedLocales->keys()->contains($localeValue)) {
-            return collect([$affectedLocales->get($localeValue) => null]);
+            if ($affectedLocales->get($localeValue) instanceof Collection) {
+                // The first locale is going to be the default one
+                $defaultLocale = $affectedLocales->get($localeValue)->first();
+
+                // return a collection of the specific transformation as key and the default locale as value
+                return collect(["${localeValue}" => "${defaultLocale}"]);
+            } else {
+                return collect([$affectedLocales->get($localeValue) => null]);
+            }
+            
         } else { //in case there is not an explixit transformation from code_XX to code_CC 
             // find the two letter locale code
             $localeCode = substr($localeValue, 0, 2);

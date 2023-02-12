@@ -16,6 +16,7 @@
 
 use Exception;
 use Illuminate\Support\Arr;
+use PKP\config\Config;
 use PKP\core\PKPString;
 
 class Sanitizer 
@@ -43,6 +44,20 @@ class Sanitizer
     protected bool $allowEmptySanization = false;
 
     /**
+     * The entity code to number conversion to update
+     * As TinyMCE do a force entity conversion even when defined the 'entity_encoding' as 'raw'
+     * @see 5.0+ : https://www.tiny.cloud/docs/configure/content-filtering/#entity_encoding
+     * @see 6.0+ : https://www.tiny.cloud/docs/tinymce/6/content-filtering/#entity_encoding
+     */
+    protected array $entityCodeToCharMapping = [
+        '&' => '&amp;',
+        '>' => '&gt;',
+        '<' => '&lt;',
+        '"' => '&quot;',
+        "'" => '&apos;',
+    ];
+
+    /**
      * Apply the sanitization process for given attribute
      */
     protected function runSanitizationProcess(string $method, mixed $paramKey, mixed $beforeSanitizevalue): void
@@ -57,15 +72,30 @@ class Sanitizer
      */
     public function title(string|array $param): string|array
     {
+        $allowedTagList = array_map(
+            'trim', 
+            explode(',', Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub'))
+        );
+
         if(is_array($param)) {
             foreach($param as $localeKey => $localizedSubmissionTitle) {
-                $param[$localeKey] = PKPString::stripUnsafeHtml($localizedSubmissionTitle, 'allowed_title_html');
+                // Can not use HTMLPurifier though stripUnsafeHtml as it's convery specials
+                // e.g '&' turned into '&amp;'
+                $param[$localeKey] = str_replace(
+                    array_values($this->entityCodeToCharMapping),
+                    array_keys($this->entityCodeToCharMapping),
+                    strip_tags($localizedSubmissionTitle, $allowedTagList)
+                );
             }
 
             return $param;
         }
 
-        return PKPString::stripUnsafeHtml($param, 'allowed_title_html');
+        return str_replace(
+            array_values($this->entityCodeToCharMapping),
+            array_keys($this->entityCodeToCharMapping),
+            strip_tags($param, $allowedTagList)
+        );
     }
 
     /**

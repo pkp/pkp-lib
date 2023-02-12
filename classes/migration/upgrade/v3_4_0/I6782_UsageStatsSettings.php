@@ -50,11 +50,18 @@ class I6782_UsageStatsSettings extends Migration
             ->where('plugin_name', '=', 'usagestatsplugin')
             ->where('setting_name', '=', 'compressArchives')
             ->value('setting_value');
+        $compressStatsLogs = !is_null($compressArchives) ? $compressArchives : false;
+        // Other, default site settings
+        $enableInstitutionUsageStats = $isSiteSushiPlatform = false;
+        $isSushiApiPublic = true;
         // Migrate site settings
         DB::table('site_settings')->insertOrIgnore([
-            ['setting_name' => 'compressStatsLogs', 'setting_value' => $compressArchives],
+            ['setting_name' => 'compressStatsLogs', 'setting_value' => $compressStatsLogs],
             ['setting_name' => 'enableGeoUsageStats', 'setting_value' => $enableGeoUsageStats],
-            ['setting_name' => 'keepDailyUsageStats', 'setting_value' => $keepDailyUsageStats]
+            ['setting_name' => 'keepDailyUsageStats', 'setting_value' => $keepDailyUsageStats],
+            ['setting_name' => 'enableInstitutionUsageStats', 'setting_value' => $enableInstitutionUsageStats],
+            ['setting_name' => 'isSushiApiPublic', 'setting_value' => $isSushiApiPublic],
+            ['setting_name' => 'isSiteSushiPlatform', 'setting_value' => $isSiteSushiPlatform]
         ]);
 
         // Display site settings

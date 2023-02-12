@@ -40,6 +40,9 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
     /** Include records for these cities */
     protected array $cities = [];
 
+    /** Application specific name of the section column  */
+    abstract public function getSectionColumn(): string;
+
     /**
      * Set the sections/series to get records for
      */
@@ -165,7 +168,7 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
             $q->where(function ($q) use ($country, $region, $city) {
                 $q->where(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY, $country)
                     ->where(StatisticsHelper::STATISTICS_DIMENSION_REGION, $region)
-                    ->where(StatisticsHelper::STATISTICS_DIMENSION_CITY, $city);
+                    ->where(StatisticsHelper::STATISTICS_DIMENSION_CITY, 'like', $city . '%');
             });
             foreach ($this->cities as $countryRegionCity) {
                 // cities must be in a form countryCode-regionCode-cityName
@@ -173,7 +176,7 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
                 $q->orWhere(function ($q) use ($country, $region, $city) {
                     $q->where(StatisticsHelper::STATISTICS_DIMENSION_COUNTRY, $country)
                         ->where(StatisticsHelper::STATISTICS_DIMENSION_REGION, $region)
-                        ->where(StatisticsHelper::STATISTICS_DIMENSION_CITY, $city);
+                        ->where(StatisticsHelper::STATISTICS_DIMENSION_CITY, 'like', $city . '%');
                 });
             }
         }
@@ -181,7 +184,7 @@ abstract class PKPStatsGeoQueryBuilder extends PKPStatsQueryBuilder
         $q->whereBetween(StatisticsHelper::STATISTICS_DIMENSION_MONTH, [date_format(date_create($this->dateStart), 'Ym'), date_format(date_create($this->dateEnd), 'Ym')]);
 
         if (!empty($this->pkpSectionIds)) {
-            $sectionColumn = 'p.' . $this->sectionColumn;
+            $sectionColumn = 'p.' . $this->getSectionColumn();
             $sectionSubmissionIds = DB::table('publications as p')->select('p.submission_id')->distinct()
                 ->from('publications as p')
                 ->where('p.status', Submission::STATUS_PUBLISHED)

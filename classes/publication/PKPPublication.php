@@ -180,6 +180,25 @@ class PKPPublication extends \PKP\core\DataObject
     }
 
     /**
+     * Return all the sub titles
+     *
+     * @param  string $format Define the return data format as text or html
+     * @return array
+     */
+    public function getSubTitles(string $format = 'text')
+    {
+        $allSubTitles = $this->getData('subtitle');
+        $return = [];
+        foreach ($allSubTitles as $locale => $subTitle) {
+            if (!$subTitle) {
+                continue;
+            }
+            $return[$locale] = $this->getLocalizedSubTitle($locale, $format);
+        }
+        return $return;
+    }
+
+    /**
      * Combine author names and roles into a string
      *
      * Eg - Daniel Barnes, Carlo Corino (Author); Alan Mwandenga (Translator)

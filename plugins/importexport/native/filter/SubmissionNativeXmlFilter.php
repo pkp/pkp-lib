@@ -198,7 +198,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
                 $deployment = $this->getDeployment();
                 $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.publication.exportFailed'));
 
-                throw new Exception(__('plugins.importexport.publication.exportFailed'));
+                throw new \Exception(__('plugins.importexport.publication.exportFailed'));
             }
         }
     }

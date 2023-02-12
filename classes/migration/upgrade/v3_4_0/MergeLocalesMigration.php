@@ -37,20 +37,70 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
         // All _settings tables.
         $settingsTables = $this->getSettingsTables();
-        foreach($settingsTables as $settingsTable) {
+        foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
             if (Schema::hasColumn($settingsTable, 'locale')) {
-                $affectedLocales = $this->getAffectedLocales();
-                foreach($affectedLocales as $affectedLocale => $toLocale) {
-                    if (!isset($toLocale)) {
-                        DB::table($settingsTable)
-                            ->where('locale', 'like', $affectedLocale . '_%')
-                            ->update(['locale' => $affectedLocale]);
-                    } else {
-                        DB::table($settingsTable)
-                            ->where('locale', 'like', $affectedLocale)
-                            ->update(['locale' => $toLocale]);
+                $settingsValues = DB::table($settingsTable)
+                    ->select([$settingsTableIdColumn, 'locale', 'setting_name'])
+                    ->get();
+                
+                foreach ($settingsValues as $settingsValue) {
+                    $updatedLocaleRet = $this->getUpdatedLocale($settingsValue->locale);
+
+                    if (!is_null($updatedLocaleRet)) {
+                        $updatedLocale = $updatedLocaleRet->keys()->first();
+                        $defaultLocale = $updatedLocaleRet[$updatedLocale];
+
+                        if (!is_null($defaultLocale)) {
+                            if ($defaultLocale == $settingsValue->locale) {
+                                DB::table($settingsTable)
+                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                    ->where('setting_name', '=', $settingsValue->setting_name)
+                                    ->where('locale', '=', $settingsValue->locale)
+                                    ->update(['locale' => $updatedLocale]);
+                            } else {
+                                $existingDefaultLocaleValue = $settingsValues
+                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                    ->where('setting_name', '=', $settingsValue->setting_name)
+                                    ->where('locale', '=', $defaultLocale)
+                                    ->first();
+                                
+                                if (is_null($existingDefaultLocaleValue)) {
+                                    DB::table($settingsTable)
+                                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                        ->where('setting_name', '=', $settingsValue->setting_name)
+                                        ->where('locale', '=', $settingsValue->locale)
+                                        ->update(['locale' => $updatedLocale]);
+                                } else {
+                                    DB::table($settingsTable)
+                                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                        ->where('setting_name', '=', $settingsValue->setting_name)
+                                        ->where('locale', '=', $settingsValue->locale)
+                                        ->delete();
+                                }
+                            }
+                        } else {
+                            $existingDefaultLocaleValue = $settingsValues
+                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                ->where('setting_name', '=', $settingsValue->setting_name)
+                                ->where('locale', '=', $updatedLocale)
+                                ->first();
+                            
+                            if (is_null($existingDefaultLocaleValue)) {
+                                DB::table($settingsTable)
+                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                    ->where('setting_name', '=', $settingsValue->setting_name)
+                                    ->where('locale', '=', $settingsValue->locale)
+                                    ->update(['locale' => $updatedLocale]);
+                            } else {
+                                DB::table($settingsTable)
+                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                    ->where('setting_name', '=', $settingsValue->setting_name)
+                                    ->where('locale', '=', $settingsValue->locale)
+                                    ->delete();
+                            }
+                        }
+                        
                     }
-                    
                 }
             }
         }
@@ -86,7 +136,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             ->get();
 
         foreach ($emailTemplatesDefaultData as $emailTemplatesDefaultDataCurrent) {
-            $this->updateSingleValueLocaleEmailData($emailTemplatesDefaultDataCurrent->locale, 'email_templates_default_data', 'locale', 'email_key', $emailTemplatesDefaultDataCurrent->email_key);
+            $this->updateSingleValueLocaleEmailData($emailTemplatesDefaultDataCurrent->locale, 'email_templates_default_data', $emailTemplatesDefaultDataCurrent->email_key, $emailTemplatesDefaultData);
         }
 
         // Context
@@ -129,9 +179,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         if ($siteSupportedLocales !== false) {
             $newLocales = [];
             foreach ($siteSupportedLocales as $siteSupportedLocale) {
-                $updatedLocale = $this->getUpdatedLocale($siteSupportedLocale);
+                $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
                 
-                if ($updatedLocale) {
+                if (!is_null($updatedLocaleRet)) {
+                    $updatedLocale = $updatedLocaleRet->keys()->first();
+
                     if (!in_array($updatedLocale, $newLocales)) {
                         $newLocales[] = $updatedLocale;
                     }
@@ -154,9 +206,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         if ($siteSupportedLocales !== false) {
             $newLocales = [];
             foreach ($siteSupportedLocales as $siteSupportedLocale) {
-                $updatedLocale = $this->getUpdatedLocale($siteSupportedLocale);
+                $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
 
-                if ($updatedLocale) {
+                if (!is_null($updatedLocaleRet)) {
+                    $updatedLocale = $updatedLocaleRet->keys()->first();
+
                     if (!in_array($updatedLocale, $newLocales)) {
                         $newLocales[] = $updatedLocale;
                     }
@@ -180,9 +234,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         if ($siteSupportedLocales !== false) {
             $newLocales = [];
             foreach ($siteSupportedLocales as $siteSupportedLocale) {
-                $updatedLocale = $this->getUpdatedLocale($siteSupportedLocale);
+                $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
 
-                if ($updatedLocale) {
+                if (!is_null($updatedLocaleRet)) {
+                    $updatedLocale = $updatedLocaleRet->keys()->first();
+
                     if (!in_array($updatedLocale, $newLocales)) {
                         $newLocales[] = $updatedLocale;
                     }
@@ -202,9 +258,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id) 
     {
-        $updatedLocale = $this->getUpdatedLocale($localevalue);
+        $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
+        
+        if (!is_null($updatedLocaleRet)) {
+            $updatedLocale = $updatedLocaleRet->keys()->first();
 
-        if ($updatedLocale) {
             DB::table($table)
                 ->where($tableKeyColumn, '=', $id)
                 ->update([
@@ -215,9 +273,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     function updateSingleValueLocaleNoId(string $localevalue, string $table, string $column) 
     {
-        $updatedLocale = $this->getUpdatedLocale($localevalue);
+        $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
+        
+        if (!is_null($updatedLocaleRet)) {
+            $updatedLocale = $updatedLocaleRet->keys()->first();
 
-        if ($updatedLocale) {
             DB::table($table)
                 ->update([
                     $column => $updatedLocale
@@ -225,38 +285,85 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $column, string $tableKeyColumn, string $id) 
+    function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData) 
     {
-        $updatedLocale = $this->getUpdatedLocale($localevalue);
+        $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
-        if ($updatedLocale) {
-            DB::table($table)
-                ->where($tableKeyColumn, '=', $id)
-                ->where($column, '=', $localevalue)
-                ->update([
-                    $column => $updatedLocale
-                ]);
+        if (!is_null($updatedLocaleRet)) {
+            $updatedLocale = $updatedLocaleRet->keys()->first();
+            $defaultLocale = $updatedLocaleRet[$updatedLocale];
+
+            if (!is_null($defaultLocale)) {
+                if ($defaultLocale == $localevalue) {
+                    DB::table($table)
+                        ->where('email_key', '=', $email_key)
+                        ->where('locale', '=', $localevalue)
+                        ->update(['locale' => $updatedLocale]);
+                } else {
+                    $existingDefaultLocaleValue = $allEmailTemplateData
+                        ->where('email_key', '=', $email_key)
+                        ->where('locale', '=', $defaultLocale)
+                        ->first();
+                    
+                    if (is_null($existingDefaultLocaleValue)) {
+                        DB::table($table)
+                            ->where('email_key', '=', $email_key)
+                            ->where('locale', '=', $localevalue)
+                            ->update(['locale' => $updatedLocale]);
+                    } else {
+                        DB::table($table)
+                            ->where('email_key', '=', $email_key)
+                            ->where('locale', '=', $localevalue)
+                            ->delete();
+                    }
+                }
+            } else {
+                $existingDefaultLocaleValue = $allEmailTemplateData
+                    ->where('email_key', '=', $email_key)
+                    ->where('locale', '=', $updatedLocale)
+                    ->first();
+                
+                if (is_null($existingDefaultLocaleValue)) {
+                    DB::table($table)
+                        ->where('email_key', '=', $email_key)
+                        ->where('locale', '=', $localevalue)
+                        ->update(['locale' => $updatedLocale]);
+                } else {
+                    DB::table($table)
+                        ->where('email_key', '=', $email_key)
+                        ->where('locale', '=', $localevalue)
+                        ->delete();
+                }
+            }
         }
     }
 
-    function getUpdatedLocale(string $localeValue) : ?string 
+    function getUpdatedLocale(string $localeValue) : ?Collection 
     {
         $affectedLocales = $this->getAffectedLocales();
 
+        // In case there is an explicit transformation from code_XX to code_CC 
         if ($affectedLocales->keys()->contains($localeValue)) {
-            return $affectedLocales->get($localeValue);
-        } else {
+            return collect([$affectedLocales->get($localeValue) => null]);
+        } else { //in case there is not an explixit transformation from code_XX to code_CC 
+            // find the two letter locale code
             $localeCode = substr($localeValue, 0, 2);
 
+            // if this locale code is affected
             if ($affectedLocales->keys()->contains($localeCode)) {
-                if ($affectedLocales->get($localeCode) == null) {
+                // check if it will affect all code_XX locales
+                if ($affectedLocales->get($localeCode) instanceof Collection) {
+                    // The first locale is going to be the default one
+                    $defaultLocale = $affectedLocales->get($localeCode)->first();
+
+                    // Check for cases like code_XX@latin
                     $extension = "";
                     if (strpos($localeValue, '@') !== false) {
                         $extension = substr($localeValue, strpos($localeValue, '@'));
                     }
-                    return $localeCode . $extension;
-                } else {
-                    return $affectedLocales->get($localeCode);
+
+                    // return a collection of the specific transformation as key and the default locale as value
+                    return collect(["${localeCode}${extension}" => "${defaultLocale}${extension}"]);
                 }
             }
         }
@@ -277,89 +384,88 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
     protected function getSettingsTables(): Collection
     {
         return collect([
-            'announcement_settings',
-            'announcement_type_settings',
-            'author_settings',
-            'category_settings',
-            'citation_settings',
-            'controlled_vocab_entry_settings',
-            'data_object_tombstone_settings',
-            'doi_settings',
-            'email_templates_settings',
-            'filter_settings',
-            'genre_settings',
-            'institution_settings',
-            'library_file_settings',
-            'navigation_menu_item_assignment_settings',
-            'navigation_menu_item_settings',
-            'notification_settings',
-            'notification_subscription_settings',
-            'plugin_settings',
-            'publication_settings',
-            'review_form_element_settings',
-            'review_form_settings',
-            'site_settings',
-            'submission_file_settings',
-            'submission_settings',
-            'user_group_settings',
-            'user_settings'
+            'announcement_settings' => 'announcement_id',
+            'announcement_type_settings' => 'type_id',
+            'author_settings' => 'author_id',
+            'category_settings' => 'category_id',
+            'citation_settings' => 'citation_id',
+            'controlled_vocab_entry_settings' => 'controlled_vocab_entry_id',
+            'data_object_tombstone_settings' => 'tombstone_id',
+            'doi_settings' => 'doi_id',
+            'email_templates_settings' => 'email_id',
+            'event_log_settings' => 'log_id',
+            'filter_settings' => 'filter_id',
+            'genre_settings' => 'genre_id',
+            'institution_settings' => 'institution_id',
+            'library_file_settings' => 'file_id',
+            'navigation_menu_item_assignment_settings' => 'navigation_menu_item_assignment_id',
+            'navigation_menu_item_settings' => 'navigation_menu_item_id',
+            'notification_subscription_settings' => 'setting_id',
+            'plugin_settings' => 'context_id',
+            'publication_settings' => 'publication_id',
+            'review_form_element_settings' => 'review_form_element_id',
+            'review_form_settings' => 'review_form_id',
+            'submission_file_settings' => 'submission_file_id',
+            'submission_settings' => 'submission_id',
+            'user_group_settings' => 'user_group_id',
+            'user_settings' => 'user_id',
         ]);
     }
 
-    protected function getAffectedLocales(): Collection
+    public static function getAffectedLocales(): Collection
     {
         return collect([
-            'es' => null,
-            'en' => null,
-            'sr' => null,
-            'el' => null,
-            'de' => null,
-            'da' => null,
-            'cs' => null,
-            'ca' => null,
-            'bs' => null,
-            'bg' => null,
-            'be' => null,
-            'az' => null,
-            'ar' => null,
-            'fa' => null,
-            'fi' => null,
-            'gd' => null,
-            'gl' => null,
-            'he' => null,
-            'hi' => null,
-            'hr' => null,
-            'hu' => null,
-            'hy' => null,
-            'id' => null,
-            'is' => null,
-            'it' => null,
-            'ja' => null,
-            'ka' => null,
-            'kk' => null,
-            'ko' => null,
-            'ku' => null,
-            'lt' => null,
-            'lv' => null,
-            'mk' => null,
-            'mn' => null,
-            'ms' => null,
-            'nb' => null,
-            'nl' => null,
-            'pl' => null,
-            'ro' => null,
-            'ru' => null,
-            'si' => null,
-            'sk' => null,
-            'sl' => null,
-            'sv' => null,
-            'tr' => null,
-            'uk' => null,
-            'ur' => null,
-            'uz' => null,
-            'vi' => null,
-            'eu' => null,
-            'sw' => null,
+            'es' => collect(['es_ES']),
+            'en' => collect(['en_US']),
+            'sr' => collect(['sr_RS']),
+            'el' => collect(['el_GR']),
+            'de' => collect(['de_DE']),
+            'da' => collect(['da_DK']),
+            'cs' => collect(['cs_CZ']),
+            'ca' => collect(['ca_ES']),
+            'bs' => collect(['bs_BA']),
+            'bg' => collect(['bg_BG']),
+            'be' => collect(['be_BY']),
+            'az' => collect(['az_AZ']),
+            'ar' => collect(['ar_IQ']),
+            'fa' => collect(['fa_IR']),
+            'fi' => collect(['fi_FI']),
+            'gd' => collect(['gd_GB']),
+            'gl' => collect(['gl_ES']),
+            'he' => collect(['he_IL']),
+            'hi' => collect(['hi_IN']),
+            'hr' => collect(['hr_HR']),
+            'hu' => collect(['hu_HU']),
+            'hy' => collect(['hy_AM']),
+            'id' => collect(['id_ID']),
+            'is' => collect(['is_IS']),
+            'it' => collect(['it_IT']),
+            'ja' => collect(['ja_JP']),
+            'ka' => collect(['ka_GE']),
+            'kk' => collect(['kk_KZ']),
+            'ko' => collect(['ko_KR']),
+            'ku' => collect(['ku_IQ']),
+            'lt' => collect(['lt_LT']),
+            'lv' => collect(['lv_LV']),
+            'mk' => collect(['mk_MK']),
+            'mn' => collect(['mn_MN']),
+            'ms' => collect(['ms_MY']),
+            'nb' => collect(['nb_NO']),
+            'nl' => collect(['nl_NL']),
+            'pl' => collect(['pl_PL']),
+            'ro' => collect(['ro_RO']),
+            'ru' => collect(['ru_RU']),
+            'si' => collect(['si_LK']),
+            'sk' => collect(['sk_SK']),
+            'sl' => collect(['sl_SI']),
+            'sv' => collect(['sv_SE']),
+            'tr' => collect(['tr_TR']),
+            'uk' => collect(['uk_UA']),
+            'ur' => collect(['ur_PK']),
+            'uz' => collect(['uz_UZ']),
+            'vi' => collect(['vi_VN']),
+            'eu' => collect(['eu_ES']),
+            'sw' => collect(['sw_KE']),
             'zh_TW' => 'zh_Hant'
         ]);
     }

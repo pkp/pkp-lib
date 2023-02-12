@@ -33,6 +33,48 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+            // email_templates_default_data keys should not conflict after locale migration
+            // See MergeLocalesMigration (#8598)
+            // TODO: Should I consider outputting all errors, for all locales, by declaring $exceptionMessage out of the iteration?
+            $affectedLocales = MergeLocalesMigration::getAffectedLocales();
+            $conflictingEmailKeys = collect();
+            $exceptionMessage = "";
+            foreach ($affectedLocales as $localeCode => $localeTarget) {
+                if ($localeTarget == null) {
+                    $conflictingEmailKeys = DB::table('email_templates_default_data')
+                        ->select('email_key', DB::raw('count(*) as count'))
+                        ->where('locale', 'like', $localeCode . '_%')
+                        ->orWhere('locale', $localeCode)
+                        ->groupBy('email_key')
+                        ->havingRaw('count(*) >= 2')
+                        ->get();
+                    
+                    if (!$conflictingEmailKeys->isEmpty()) {
+                        foreach ($conflictingEmailKeys as $conflictingEmailKey) {
+                            $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                        }
+                        
+                        throw new \Exception($exceptionMessage);
+                    }
+                } else {
+                    $conflictingEmailKeys = DB::table('email_templates_default_data')
+                        ->select('email_key', DB::raw('count(*) as count'))
+                        ->where('locale', $localeCode)
+                        ->orWhere('locale', $localeTarget)
+                        ->groupBy('email_key')
+                        ->havingRaw('count(*) >= 2')
+                        ->get();
+                }
+
+                if (!$conflictingEmailKeys->isEmpty()) {
+                    $exceptionMessage = "";
+                    foreach ($conflictingEmailKeys as $conflictingEmailKey) {
+                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                    }
+                    
+                    throw new \Exception($exceptionMessage);
+                }
+            }
 
             // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
             $this->checkContactSetting();
@@ -553,6 +595,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                         throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
                     }
                 });
+            
+            
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

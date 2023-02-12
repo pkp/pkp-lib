@@ -34,7 +34,7 @@
 		cy.contains('Make a New Submission').click();
 
 		// All required fields in the start submission form
-		cy.get('input[name="title"]').type(title, {delay: 0});
+		cy.setTinyMceContent('startSubmission-title-control', title);
 		if (Cypress.env('defaultGenre') === 'Article Text') { // OJS only
 			cy.get('label:contains("Articles")').click();
 		}

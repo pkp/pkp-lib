@@ -24,7 +24,7 @@ describe('Multilingual configurations', function() {
 		cy.visit('index.php/publicknowledge/workflow/access/1');
 		cy.get('#publication-button').click();
 		cy.get('button.pkpFormLocales__locale').eq(0).contains('French').click();
-		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire");
+		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire", {force: true});
 		cy.get('#titleAbstract button').contains('Save').click();
 		cy.get('#titleAbstract [role="status"]').contains('Saved');
 	});

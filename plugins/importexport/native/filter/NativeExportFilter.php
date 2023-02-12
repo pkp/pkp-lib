@@ -84,16 +84,29 @@ class NativeExportFilter extends PKPImportExportFilter
      * @param string $name Node name
      * @param array $values Array of locale key => value mappings
      */
-    public function createLocalizedNodes($doc, $parentNode, $name, $values)
+    public function createLocalizedNodes($doc, $parentNode, $name, $values, $format = 'text')
     {
+        $format = strtolower($format);
         $deployment = $this->getDeployment();
         if (is_array($values)) {
             foreach ($values as $locale => $value) {
-                if ($value === '') {
+                if ($value === '') { // Skip empty values
                     continue;
-                } // Skip empty values
-                $parentNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), $name, htmlspecialchars($value, ENT_COMPAT, 'UTF-8')));
+                }
+
+                $node = $doc->createElementNS(
+                    $deployment->getNamespace(), 
+                    $name, 
+                    $format === 'html' ? $value : htmlspecialchars($value, ENT_COMPAT, 'UTF-8')
+                );
+
+                $parentNode->appendChild($node);
+
                 $node->setAttribute('locale', $locale);
+
+                // if ( $format === 'html' ) {
+                //     $node->setAttribute('type', 'text/html');
+                // }
             }
         }
     }

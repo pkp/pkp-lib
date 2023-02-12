@@ -845,9 +845,9 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 				// For some reason this is locating two references to the button,
 				// so just click the last one, which should be the most recently
 				// uploaded file.
-				$row.get('button:contains("' + file.genre + '")').last().click();
+				$row.get('button:contains("' + file.genre + '")').last().click({force: true});
 			} else {
-				$row.get('button:contains("Other")').last().click();
+				$row.get('button:contains("Other")').last().click({force: true});
 				cy.get('.pkpFormField--options__optionLabel').contains(file.genre).click();
 				cy.get('.modal button').contains('Save').click();
 			}

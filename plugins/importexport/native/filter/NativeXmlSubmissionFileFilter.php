@@ -376,6 +376,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
     public function parseIdentifier($element, $submissionFile)
     {
         $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
         $advice = $element->getAttribute('advice');
         switch ($element->getAttribute('type')) {
             case 'internal':
@@ -389,9 +390,24 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                 break;
             default:
                 if ($advice == 'update') {
-                    // Load pub id plugins
-                    $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-                    $submissionFile->setStoredPubId($element->getAttribute('type'), $element->textContent);
+                    if ($element->getAttribute('type') == 'doi') {
+                        if ($doiObject = $submissionFile->getData('doiObject')) {
+                            Repo::doi()->edit($doiObject, ['doi' => $element->textContent]);
+                        } else {
+                            $newDoiObject = Repo::doi()->newDataObject(
+                                [
+                                    'doi' => $element->textContent,
+                                    'contextId' => $context->getId()
+                                ]
+                            );
+                            $doiId = Repo::doi()->add($newDoiObject);
+                            $submissionFile->setData('doiId', $doiId);
+                        }
+                    } else {
+                        // Load pub id plugins
+                        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
+                        $submissionFile->setStoredPubId($element->getAttribute('type'), $element->textContent);
+                    }
                 }
         }
     }

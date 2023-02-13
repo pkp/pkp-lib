@@ -567,6 +567,9 @@ msgstr "An email about the decision was sent to {$recipientCount} reviewer(s) wi
 msgid "submission.event.submissionSubmitted"
 msgstr "Initial submission completed."
 
+msgid "submission.event.copyrightAgreed"
+msgstr "{$name} ({$username}) agreed to the copyright terms for submission."
+
 msgid "submission.event.fileRevised"
 msgstr "Revision \"{$name}\" was uploaded for file {$submissionFileId}."
 

@@ -20,6 +20,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\section\Section;
@@ -31,7 +32,9 @@ use PKP\core\APIResponse;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
+use PKP\facades\Locale;
 use PKP\handler\APIHandler;
+use PKP\log\SubmissionLog;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -704,6 +707,20 @@ class PKPSubmissionHandler extends APIHandler
         Repo::submission()->submit($submission, $context);
 
         $submission = Repo::submission()->get($submission->getId());
+
+        if ($slimRequest->getParsedBodyParam('confirmCopyright')) {
+            SubmissionLog::logEvent(
+                Application::get()->getRequest(),
+                $submission,
+                SubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
+                'submission.event.copyrightAgreed',
+                [
+                    'username' => $request->getUser()->getUsername(),
+                    'name' => $request->getUser()->getFullName(Locale::getLocale()),
+                    'copyrightNotice' => $context->getLocalizedData('copyrightNotice', Locale::getLocale()),
+                ]
+            );
+        }
 
         $userGroups = Repo::userGroup()
             ->getCollector()

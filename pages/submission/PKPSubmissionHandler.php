@@ -45,6 +45,7 @@ use PKP\user\User;
 
 abstract class PKPSubmissionHandler extends Handler
 {
+    public const SECTION_TYPE_CONFIRM = 'confirm';
     public const SECTION_TYPE_CONTRIBUTORS = 'contributors';
     public const SECTION_TYPE_FILES = 'files';
     public const SECTION_TYPE_FORM = 'form';
@@ -690,7 +691,7 @@ abstract class PKPSubmissionHandler extends Handler
         ];
 
         $confirmForm = new ConfirmSubmission(
-            Repo::submission()->getUrlApi($request->getContext(), $submission->getId()),
+            FormComponent::ACTION_EMIT,
             $request->getContext()
         );
 
@@ -699,7 +700,7 @@ abstract class PKPSubmissionHandler extends Handler
             $sections[] = [
                 'id' => $confirmForm->id,
                 'name' => __('author.submit.confirmation'),
-                'type' => self::SECTION_TYPE_FORM,
+                'type' => self::SECTION_TYPE_CONFIRM,
                 'description' => '<p>' . __('submission.wizard.confirm') . '</p>',
                 'form' => $confirmForm->getConfig(),
             ];

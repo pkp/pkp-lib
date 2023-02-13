@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-01 18:48+0000\n"
+"PO-Revision-Date: 2023-02-14 02:02+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -925,3 +925,19 @@ msgstr ""
 
 #~ msgid "doi.manager.settings.enablePublicationDoi"
 #~ msgstr "Preprints"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que seu preprint foi aceito para publicação."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este e-mail é enviado automaticamente mensalmente para moderadores e "
+"gerentes de servidor para fornecer a eles uma visão geral da integridade do "
+"sistema."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "O endereço de correspondência do servidor"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "O link para a página de estatísticas de preprints"

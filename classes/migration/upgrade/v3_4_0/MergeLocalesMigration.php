@@ -482,7 +482,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'vi' => collect(['vi_VN']),
             'eu' => collect(['eu_ES']),
             'sw' => collect(['sw_KE']),
-            'zh_TW' => 'zh_Hant'
+            // 'zh_TW' => 'zh_Hant'
         ]);
     }
 }

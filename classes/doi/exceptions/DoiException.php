@@ -1,19 +1,19 @@
 <?php
 /**
- * @file classes/doi/exceptions/DoiActionException.php
+ * @file classes/doi/exceptions/DoiException.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DoiActionException
+ * @class DoiException
  *
- * @brief Exception for failure to perform creation/edit actions on a DOI
+ * @brief Exception for failure to perform any action on a DOI
  */
 
 namespace PKP\doi\exceptions;
 
-class DoiActionException extends \Exception
+class DoiException extends \Exception
 {
     public const PUBLICATION_MISSING_ISSUE = 'doi.submission.issueMissing.publication';
     public const REPRESENTATION_MISSING_ISSUE = 'doi.submission.issueMissing.representation';
@@ -23,9 +23,14 @@ class DoiActionException extends \Exception
     public const SUBMISSION_NOT_PUBLISHED = 'doi.submission.notPublished';
     public const ISSUE_NOT_PUBLISHED = 'doi.issue.notPublished';
 
-    public function __construct(string $itemTitle, string $pubObjectTitle, string $error)
+    /**
+     * @param string $errorKey Locale key for message to send in exception
+     * @param string|null $itemTitle Top-level object title (submission or issue)
+     * @param string|null $pubObjectTitle Publication object title (publication, galley, chapter, etc.)
+     */
+    public function __construct(string $errorKey, ?string $itemTitle = null, ?string $pubObjectTitle = null)
     {
-        $errorMessage = __($error, ['itemTitle' => $itemTitle, 'pubObjectTitle' => $pubObjectTitle]);
+        $errorMessage = __($errorKey, ['itemTitle' => $itemTitle, 'pubObjectTitle' => $pubObjectTitle]);
         parent::__construct($errorMessage);
     }
 }

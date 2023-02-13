@@ -330,6 +330,12 @@ msgstr "DOI Statuses"
 msgid "manager.dois.settings.relocated"
 msgstr "DOI management has moved. Please see the <a href=\"{$doiManagementUrl}\">DOI management</a> and <a href=\"{$doiSettingsUrl}\">DOI settings</a> pages."
 
+msgid "manager.dois.settings.prefixRequired"
+msgstr "DOIs cannot be assigned unless you provide your assigned DOI prefix. <a href=\"{$doiSettingsUrl}\">Add DOI prefix</a>."
+
+msgid "doi.exceptions.missingPrefix"
+msgstr "Tried to create a DOI, but a DOI prefix is required for the context to create one."
+
 msgid "manager.genres.alertDelete"
 msgstr ""
 "Before this component can be deleted, you must associate all related "

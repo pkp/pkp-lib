@@ -28,7 +28,7 @@ use Illuminate\Support\LazyCollection;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
-use PKP\doi\exceptions\DoiActionException;
+use PKP\doi\exceptions\DoiException;
 use PKP\facades\Locale;
 use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
@@ -403,7 +403,7 @@ abstract class Repository
                 ->filterBySubmissionIds([$submission->getId()])
                 ->filterByGenreIds(
                     $requiredGenres->map(
-                        function(Genre $genre) {
+                        function (Genre $genre) {
                             return $genre->getId();
                         }
                     )->toArray()
@@ -412,9 +412,9 @@ abstract class Repository
             $missingGenres = $submissionFiles->isEmpty()
                 ? clone $requiredGenres
                 : $requiredGenres->filter(
-                    function(Genre $genre) use ($submissionFiles) {
+                    function (Genre $genre) use ($submissionFiles) {
                         $exists = $submissionFiles->first(
-                            function(SubmissionFile $submissionFile) use ($genre) {
+                            function (SubmissionFile $submissionFile) use ($genre) {
                                 return $submissionFile->getData('genreId') === $genre->getId();
                             }
                         );
@@ -423,7 +423,7 @@ abstract class Repository
                 );
             if ($missingGenres->count()) {
                 $missingGenreNames = $missingGenres->map(
-                    function(Genre $genre) {
+                    function (Genre $genre) {
                         return $genre->getLocalizedName();
                     }
                 );
@@ -777,7 +777,7 @@ abstract class Repository
      * 1) the suffix pattern can currently be created, and
      * 2) it does not already exist.
      *
-     * @return DoiActionException[]
+     * @return DoiException[]
      */
     abstract public function createDois(Submission $submission): array;
 

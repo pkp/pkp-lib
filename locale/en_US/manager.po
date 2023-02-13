@@ -579,6 +579,9 @@ msgstr "The server's email signature for automated emails"
 msgid "emailTemplate.variable.context.contactEmail"
 msgstr "The email address of the server's primary contact"
 
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "The mailing address of the server"
+
 msgid "emailTemplate.variable.queuedPayment.itemName"
 msgstr "The name of the type of payment"
 
@@ -590,6 +593,19 @@ msgstr "The currency of the payment amount, such as USD"
 
 msgid "emailTemplate.variable.site.siteTitle"
 msgstr "Name of the website when more than one server is hosted"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "The link to the preprints statistics page"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"This email notifies the author that their preprint has been accepted for "
+"posting."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"This email is automatically sent monthly to moderators and server managers to "
+"provide them a system health overview."
 
 msgid "mailable.validateEmailContext.name"
 msgstr "Validate Email (Server Registration)"

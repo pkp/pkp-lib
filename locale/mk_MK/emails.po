@@ -102,12 +102,11 @@ msgstr ""
 msgid "emails.submissionAckCanPost.subject"
 msgstr ""
 
-msgid "emails.submissionAckCanPost.body"
-msgstr ""
-
+#, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Потврда за поднесување"
 
+#, fuzzy
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
 "Добар ден,<br />\n"

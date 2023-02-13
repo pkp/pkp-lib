@@ -24,7 +24,8 @@
 				"validation": [
 					"in:publication,representation"
 				]
-			}
+			},
+		  	"default": ["publication"]
 		},
 		"enablePublisherId": {
 			"type": "array",

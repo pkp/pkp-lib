@@ -1460,6 +1460,7 @@ msgstr "Vefslóð á innsendinguna í bakenda ritstjórnar"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Fullt nafn höfunda"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Nöfn höfundar í styttum streng"
 
@@ -1492,12 +1493,6 @@ msgstr "Fullt nafn sendanda"
 
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "Vefslóð á ritrýniverkefnið"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Dagsetning þegar ritrýni á að vera lokið"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Dagsetning þegar ritrýnir á að samþykkja eða hafna verkefninu"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Notendanafn viðtakanda eða allra viðtakenda"

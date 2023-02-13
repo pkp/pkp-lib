@@ -2332,13 +2332,6 @@ msgstr "Polno ime pošiljatelja"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "URL do recenzentske zadolžitve"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Datum do kdaj mora biti recenzija končana"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
-"Datum do kdaj mora recenzent potrditi ali zavrniti opravljanje recenzije"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Uporabniško ime naslovnika ali naslovnikov"
 
@@ -2395,20 +2388,21 @@ msgstr ""
 "informacije o prispevku kot so naslov in izvleček, datum do dokončanja "
 "recenzije ter dostopom do prispevka."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Faza uredniškega postopka v kateri je bila sprejeta odločitev."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Opis sprejete odločitve."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Ime sprejete odločitve."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "URL za pregled vseh prispevkov dodeljenih enemu uporabniku."
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Poštni naslov revije"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2662,6 +2656,7 @@ msgstr "Deponirajte DOI-je"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Deponirajte vse"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Krog recenzije v katerem je bila sprejeta odločitev, če je faza recenzije "
@@ -2825,6 +2820,7 @@ msgstr "Odločili smo se, da prispevek zavrnemo."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Odločili smo se, da sprejmemo prispevek brez sprememb."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Kratek opis te uredniške odločitve, ki bo poslana v emailu recenzentom z "
@@ -2858,6 +2854,7 @@ msgstr ""
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
 msgstr "Avtorjev URL do prispevka"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Skrajšana oblika imen avtorjev"
 
@@ -2886,6 +2883,7 @@ msgstr ""
 "vaših soavtorjev. Podobno, vi ne boste vedeli kdo je opravil recenzijo "
 "vašega prispevka in ne bo ste direktno v stiku z recenzenti."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Opis privzetega načina recenzije, kot je dvojno slepa recenzija ali odprta."
@@ -2943,6 +2941,7 @@ msgstr "Število prispevkov dodeljenih temu uredniku"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Seznam prispevkov z odprtimi nalogami"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "URL za uporabnika, da lahko vidi in ureja uporabniški račun."
 
@@ -2982,11 +2981,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Email je poslan, ko je objavljeno novo obvestilo."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Ta email je vsak mesec avtomatično poslan urednikom in glavnim urednikom, da "
-"vidijo stanje sistema."
-
 msgid "manager.people.authSource"
 msgstr "Vir avtentikacije"
 
@@ -3019,9 +3013,6 @@ msgstr "Leto poročila"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Povezava do strani z uredniškimi aktivnostmi"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Povezava do strani statistik objavljenih člakov"
 
 msgid "mailable.passwordResetRequested.name"
 msgstr "Potrditev ponastavitve gesla"

@@ -137,12 +137,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Tento email je posielaný, ak je vytvorené nové oznámenie."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Tento e-mail je automaticky zasielaný mesačne editorom a správcom časopisov, "
-"aby im poskytol prehľad o stave systému."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Zaškrtávací zoznam pre prípravu príspevku"
 

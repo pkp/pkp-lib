@@ -2156,12 +2156,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Ce courriel est envoyé lorsqu'une nouvelle annonce est créée."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Ce courriel est envoyé automatiquement chaque mois aux rédacteurs et "
-"rédactrices en chef et aux directeurs et directrices de revues pour leur "
-"fournir un aperçu de l'intégrité du système."
-
 msgid "stats.name.submissionsSkipped"
 msgstr "Autres soumissions"
 

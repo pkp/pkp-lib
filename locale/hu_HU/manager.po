@@ -2317,6 +2317,7 @@ msgstr "A kézirat URL-címe a szerkesztői rendszerben"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Szerzők teljes neve"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Szerzői nevek rövidített karakterlánc formájában"
 
@@ -2348,14 +2349,6 @@ msgstr "A feladó teljes neve"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "A bírálói felkérés URL-e"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Az az időpont, ameddig a bírálatot el kell készíteni"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
-"Az az időpont ameddig a bírálónak el kell fogadnia vagy vissza kell "
-"utasítania a felkérést"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "A címzett vagy az összes címzett felhasználóneve"
@@ -2525,10 +2518,6 @@ msgstr "Ha be van kapcsolva ez az email, akkor automatikusan értesítést küld
 msgid "mailable.revisedVersionNotify.description"
 msgstr "Ez az email automatikus értesítést küld a kijelölt szerkesztőnek, amikor a szerző a cikk átdolgozott változatát feltöltötte."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "Ez az email automatikusan kerül kiküldésre a szerkesztőknek és folyóirat menedzsereknek a folyóiratukkal kapcsolatos tájékoztatásul."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "A benyújtás előkészítésének ellenőrzőlistája"
 

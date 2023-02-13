@@ -674,12 +674,6 @@ msgstr "URL untuk tugasan ulasan"
 msgid "manager.reviewFormElements.viewable"
 msgstr "Boleh dilihat (untuk pengarang)"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Tarikh ulasan perlu disiapkan"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Tarikh apabila pengulas harus menerima atau menolak tugasan"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Nama pengguna penerima atau semua penerima"
 
@@ -2402,12 +2396,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "E-mel ini dihantar semasa pengumuman baru dibuat."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"E-mel ini dihantar secara automatik setiap bulan kepada editor dan pengurus "
-"jurnal untuk memberi mereka gambaran keseluruhan kesihatan sistem."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Senarai Semak Penyediaan Penyerahan"
 

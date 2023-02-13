@@ -2304,6 +2304,7 @@ msgstr "УРЛ од поднесокот во уредничкиот приод"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Целосно име на авторите"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Имиња на авторите во облик на скратен наслов"
 
@@ -2333,12 +2334,6 @@ msgstr "Целосно име на испраќачот"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "УРЛ кон назначување рецензент"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Дата кога рецензијата треба да се комплетира"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Дата кога рецензентот треба да го прифати или одбие назначувањето"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Корисничко име од примателот или примателите"
@@ -2457,12 +2452,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Оваа е-пошта се испраќа кога ќе се креира ново соопштение."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Оваа е-пошта автоматски се испраќа месечно до уредниците и менаџерите на "
-"списанија за да им се обезбеди преглед на здравјето на системот."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Список за подготовка на поднесување"
 

@@ -84,12 +84,6 @@ msgstr "送信者のフルネーム"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "査読者任命のURL"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "査読を終えるべき日付"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "査読者が任命を承諾または辞退すべき日付"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "受信者または全受信者のユーザー名"
 
@@ -2149,10 +2143,6 @@ msgstr "このメールは、著者が投稿の改訂版をアップロードし
 msgid "mailable.announcementNotify.description"
 msgstr "このメールは、新しいお知らせが作成された際に送信されます。"
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr "このメールは、編集者や雑誌管理者に毎月自動的に送信され、システムの健全性の概要を提供します。"
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "提出準備チェックリスト"
 

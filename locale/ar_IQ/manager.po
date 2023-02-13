@@ -2002,6 +2002,7 @@ msgstr "الرابط المؤدي إلى طلب التقديم من وجهة ه�
 msgid "emailTemplate.variable.submission.authors"
 msgstr "الأسماء الكاملة للمؤلفين"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
 
@@ -2031,12 +2032,6 @@ msgstr "الاسم الكامل للمرسل"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "رابط مهمة التحكيم"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "التاريخ الذي ينبغي فيه إكمال التحكيم"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "التاريخ الذي على المحكم فيه قبول المهمة أو رفضها"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "اسم المستخدم للمتلقي أو كل المتلقين"
@@ -2299,26 +2294,32 @@ msgstr ""
 "من شأنها التعريف بك أو زملائك من مؤلفي العمل. بشكل مشابه، لن تعرف من قام "
 "بتحكيم طلب تقديمك ولن تتلقى أي رسائل من المحكمين بشكل مباشر."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
 
 msgid "emailTemplate.variable.recommendation"
 msgstr "القرار الموصى به، مثل قبول طلب التقديم"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
 "تحكيم."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "وصف القرار الذي تم اتخاذه."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "اسم القرار الذي تم اتخاذه."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
 
@@ -2381,6 +2382,7 @@ msgstr ""
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr "التحكيم متخطى"
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
@@ -2513,9 +2515,6 @@ msgstr ""
 "الحال بالنسبة إلى زملائك المشاركين في التأليف. بشكل مشابه، سترى أسماء "
 "المحكمين وانتماءاتهم."
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "عنوان المراسلة للمجلة"
-
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد "
@@ -2616,6 +2615,7 @@ msgstr "عدد طلبات التقديم المعينة لهذا المحرر"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "قائمة بطلبات التقديم التي لها مهام معلقة"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
 
@@ -2646,9 +2646,6 @@ msgstr "هذه الرسالة تُرسل تلقائياً إلى المحرر ا
 
 msgid "mailable.announcementNotify.description"
 msgstr "هذه الرسالة تُرسل إلى المشتركين في الموقع عند إنشاء إعلان جديد."
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr "هذه الرسالة تُرسل شهرياً إلى مدراء التحرير ورؤسائه لتزويدهم بنظرة عامة على حالة النظام."
 
 msgid "emailTemplate.variable.password"
 msgstr "كلمة مرور جديدة عشوائية للمستخدم"
@@ -2757,9 +2754,6 @@ msgstr "موضوع المناقشة"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "محتوى المناقشة أو الرد الجديدين"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "الشهر في التقرير"

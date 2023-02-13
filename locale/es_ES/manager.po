@@ -2235,12 +2235,6 @@ msgstr "El nombre completo del remitente"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "La URL a la asignación de revisión"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Fecha en que la revisión debería haberse completado"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Fecha en que el revisor/a debería aceptar o rechazar la asignación"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "El nombre de usuario/a del destinatario/a o todos los destinatarios/as"
 
@@ -2329,13 +2323,6 @@ msgstr "Este correo electrónico se envía de forma automática al editor/a asig
 msgid "mailable.announcementNotify.description"
 msgstr "Se mandará este email tras la creación de un nuevo anuncio."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Este correo electrónico es enviado mensualmente y de manera automática a los "
-"editores y administradores de publicaciones para suministrarles una visión "
-"general de la publicación."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Lista de comprobación para la preparación de envíos"
 

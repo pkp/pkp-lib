@@ -2307,12 +2307,6 @@ msgstr "Email ini dikirim secara otomatis ke editor yang ditugaskan saat penulis
 msgid "mailable.announcementNotify.description"
 msgstr "Surel ini dikirim ketika terdapat pengumuman baru."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Email ini dikirim secara otomatis per bulan kepada editor dan manajer jurnal "
-"untuk menyediakan pratinjau kestabilan sistem."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Daftar Tilik Pra-Penyerahan Naskah"
 

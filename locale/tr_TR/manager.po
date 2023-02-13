@@ -2150,6 +2150,7 @@ msgstr "Editör ekranında aday makalenin URL'si"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Yazarların tam isimleri"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Kısaltılmış bir dize biçimindeki yazar adları"
 
@@ -2179,12 +2180,6 @@ msgstr "Gönderenin tam adı"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Hakem atamasının URL'si"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Değerlendirmenin tamamlanması gereken tarih"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Hakemin değerlendirmeyi kabul etmesi veya reddetmesi gereken tarih"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Alıcının veya tüm alıcıların kullanıcı adı"
@@ -2348,11 +2343,6 @@ msgstr ""
 
 msgid "mailable.announcementNotify.description"
 msgstr "Bu e-posta, yeni bir duyuru oluşturulduğunda gönderilir."
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Bu e-posta editörler ve dergi yöneticilerine sistem durumu ve istatistikler "
-"hakkında genel bir bakış sağlamak için aylık olarak otomatik gönderilir."
 
 msgid "manager.dois.actions.markRegistered.label"
 msgstr "DOI'leri Kayıtlı Olarak İşaretle"
@@ -2605,9 +2595,6 @@ msgstr ""
 "Tamamlanan değerlendirmelerdeki tüm yorumlar. Hakem isimleri anonim "
 "değerlendirme için gizlenir"
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Derginin yazışma adresi"
-
 msgid "manager.institutions.form.ror.description"
 msgstr "Kurumunuzun Research Organization Registry ID."
 
@@ -2692,9 +2679,6 @@ msgstr "Raporun yılı"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Editoryal etkinlik sayfasının bağlantısı"
 
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Yayımlanan makale istatistikleri sayfasına bağlantı"
-
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "Duyuru başlığı"
 
@@ -2709,18 +2693,23 @@ msgstr ""
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Her şehir, bölge veya ülke için görüntüleme ve indirme sayısı."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "Bir kullanıcıya atanan tüm gönderileri görüntülemek için URL."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "Kullanıcının profilini görüntülemesi ve düzenlemesi için URL."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Alınan kararın adı."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Alınan kararın açıklaması."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Bu kararın alındığı iş akış aşaması."
 
@@ -2787,6 +2776,7 @@ msgstr "Tarihe göre toplam görüntüleme"
 msgid "stats.downloads.timelineInterval"
 msgstr "Tarihe göre toplam indirme"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Değerlendirme turu, kararın bir değerlendirme aşamasıyla ilgili olması "

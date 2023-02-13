@@ -906,6 +906,7 @@ msgstr "Жіберуге автордың URL мекенжайы"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Авторлардың толық аты-жөні"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Қысқа жол түріндегі автор есімдері"
 
@@ -955,6 +956,7 @@ msgstr ""
 "жіберуіңізді кім қарағанын білмейсіз және рецензенттерден тікелей естімейтін "
 "боласыз."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Қос анонимді немесе жалпыға бірдей сияқты әдепкі тексеру әдісінің "
@@ -966,41 +968,37 @@ msgstr "Ұсынылған шешім, мысалы, жіберуді қабыл
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "Тексеру тапсырмасының URL мекенжайы"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Рецензиялауды аяқтау керек күн"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Рецензент шолу тапсырмасын қабылдау немесе қабылдамау керек күні"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Алушының немесе барлық алушылардың логині"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Алушының немесе барлық алушылардың аты-жөні"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Шешім қайта қарау қадамымен байланысты болса, бұл шешім қабылданған шолу "
 "кезеңі."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Шешім қабылданған редакциялық жұмыс үрдісіндегі қадам."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Қабылданған шешімнің сипаттамасы."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Қабылданған шешімнің атауы."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "Барлық пайдаланушы тағайындаған жіберулерді көру үшін URL мекенжайы."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
 "Пайдаланушы жоғалған құпия сөзді қалпына келтіре алатын беттің URL мекенжайы"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Журналдың пошталық мекенжайы"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2724,6 +2722,7 @@ msgstr "Біз бұл материалды қабылдамау туралы ш�
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Біз бұл материалды түзетусіз қабылдауды таңдадық."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Осы шешім туралы рецензенттерге жіберілген электрондық пошта хабарламасында "
@@ -2907,12 +2906,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Бұл электрондық пошта жаңа тізім жасалған кезде жіберіледі."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Бұл хат журналдың редакторлары мен менеджерлеріне жүйенің қалай жұмыс "
-"істейтіні туралы түсінік алу үшін автоматты түрде ай сайын жіберіледі."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Контрольный список подготовки материала к отправке"
 

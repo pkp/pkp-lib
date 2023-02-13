@@ -2118,13 +2118,6 @@ msgstr "This email is automatically sent to the assigned editor when author uplo
 msgid "mailable.announcementNotify.description"
 msgstr "Tämä sähköpostiviesti lähetetään, kun uusi ilmoitus on luotu."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Tämä sähköposti lähetetään joka kuukausi automaattisesti toimittajille ja "
-"julkaisun hallinnoijille ja he näkevät siitä julkaisun toimitustyötä "
-"koskevan tilanteen."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
 

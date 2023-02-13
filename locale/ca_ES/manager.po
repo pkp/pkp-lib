@@ -2381,12 +2381,6 @@ msgstr "El nom complet del remitent"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "L'URL a l'assignació de revisió"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Data en què la revisió hauria d'haver-se completat"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Data en què el revisor/a hauria d'acceptar o rebutjar l'assignació"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "El nom d'usuari/ària del destinatari/ària o tots els destinataris/àries"
 
@@ -2485,13 +2479,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Aquest correu electrònic s'envia quan es crea un avís nou."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Aquest correu electrònic s'envia automàticament cada mes a editors/ores i "
-"administradors/ores de revistes per donar-los una visió general de la salut "
-"del sistema."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Llista de verificació per preparar trameses"
 

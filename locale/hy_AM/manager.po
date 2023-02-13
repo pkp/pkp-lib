@@ -2633,6 +2633,7 @@ msgstr "Մենք որոշել ենք մերժել այս ներկայացում�
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Մենք որոշել ենք ընդունել այս ներկայացումը առանց վերանայումների:"
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Այս որոշման համառոտ նկարագրությունը, որը նախատեսվում է համօգտագործել այս "
@@ -2701,6 +2702,7 @@ msgstr "Հեղինակի URL-ը այս ներկայացմանը"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Հեղինակների լրիվ անունները"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Հեղինակների անունները կրճատված տողի տեսքով"
 
@@ -2752,6 +2754,7 @@ msgstr ""
 "տեղեկություն: Նմանապես, դուք չեք իմանա, թե ով է գրախոսել ձեր ներկայացումը, և "
 "ուղղակիորեն չեք լսի գրախոսներից:"
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Կանխադրված գրախոսման մեթոդի նկարագրությունը, օրինակ՝ կրկնակի անանուն կամ բաց:"
@@ -2762,32 +2765,31 @@ msgstr "Առաջարկվող որոշումը, օրինակ՝ Ընդունել �
 msgid "emailTemplate.variable.recipient.submissionReviewUrl"
 msgstr "Գրախոսության առաջադրանքի URL-ը"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Ամսաթիվ, երբ գրախոսությունը պետք է ավարտվի"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Ամսաթիվը, երբ գրախոսը պետք է ընդունի կամ մերժի հանձնարարությունը"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Ստացողի կամ բոլոր ստացողների օգտանունը"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Ստացողի կամ բոլոր ստացողների լրիվ անունները"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Սույն որոշումն ընդունվել է գրախոսման փուլում, եթե որոշումը կապված է "
 "գրախոսման փուլի հետ։"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "Այս որոշումն ընդունվել է խմբագրական աշխատանքի փուլում։"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Ընդունված որոշման նկարագրությունը."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "Ընդունված որոշման անվանումը."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայացումները դիտելու URL-ը:"
 
@@ -2796,9 +2798,6 @@ msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վե�
 
 msgid "manager.dois.status.needsDoi"
 msgstr "Անհրաժեշտ է DOI"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Ամսագրի փոստային հասցեն"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -2927,6 +2926,7 @@ msgstr "Այս խմբագրին նշանակված ներկայացումներ�
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Չկատարված առաջադրանքների համար ներկայացումների ցանկը"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "Օգտատիրոջ՝ իր պրոֆիլը դիտելու և խմբագրելու URL-ը:"
 
@@ -3067,9 +3067,6 @@ msgstr "Հաշվետվության տարին"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Հղում դեպի խմբագրական գործունեության էջին"
 
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "Հրապարակված հոդվածների վիճակագրության էջի հղումը"
-
 msgid "mailable.userRegister.name"
 msgstr "Օգտագործողը ստեղծվել է"
 
@@ -3194,12 +3191,6 @@ msgid "mailable.revisedVersionNotify.description"
 msgstr ""
 "Այս էլ․ նամակն ինքնաշխատ կերպով ուղարկվում է նշանակված խմբագրին, երբ "
 "հեղինակը վերբեռնում է հոդվածի վերանայված տարբերակը:"
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Այս էլ․ նամակն ամեն ամիս ինքնաշխատ կերպով ուղարկվում է խմբագիրներին և "
-"ամսագրի մենեջերներին՝ նրանց համակարգի վիճակի մասին հաշվետվություն "
-"տրամադրելու համար:"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""

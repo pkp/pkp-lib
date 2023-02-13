@@ -2289,12 +2289,6 @@ msgstr "O nome completo do remetente"
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "O URL para a tarefa de revisão"
 
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Data em que a revisão deve estar concluída"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Data em que o revisor deve aceitar ou recusar a tarefa"
-
 msgid "emailTemplate.variable.recipient.username"
 msgstr "O nome de utilizador do destinatário ou de todos os destinatários"
 
@@ -2308,6 +2302,7 @@ msgstr ""
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Nomes completos dos autores"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Nomes dos autores de forma abreviada"
 
@@ -2594,6 +2589,7 @@ msgstr ""
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
 
+#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Uma descrição do método de revisão padrão, tal como duplamente cega ou "
@@ -2602,20 +2598,25 @@ msgstr ""
 msgid "emailTemplate.variable.recommendation"
 msgstr "A decisão recomendada, tal como Aceitar Submissão"
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
 "relacionada com uma etapa de revisão."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Uma descrição da decisão que foi tomada."
 
+#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "O nome da decisão que foi tomada."
 
+#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
 
@@ -2801,6 +2802,7 @@ msgstr "Decidimos rejeitar esta submissão."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Decidimos aceitar esta submissão sem revisões."
 
+#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Uma breve descrição desta decisão que se destina a ser partilhada através de "
@@ -2808,9 +2810,6 @@ msgstr ""
 
 msgid "manager.dois.status.needsDoi"
 msgstr "Necessita de DOI"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "O endereço de correspondência da revista"
 
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
@@ -2912,6 +2911,7 @@ msgstr "O número de submissão designado a este editor"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Uma lista e submissões com tarefas pendentes"
 
+#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "O URL para um utilizador visualizar e editar o seu perfil."
 
@@ -2953,11 +2953,6 @@ msgstr ""
 
 msgid "mailable.announcementNotify.description"
 msgstr "Este email é enviado quando uma nova notícia é criada."
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Este email é enviado automaticamente todos os meses aos editores e editores-"
-"gestores para os informar do estado da revista."
 
 msgid "emailTemplate.variable.password"
 msgstr "Nova senha aleatória do utilizador"
@@ -3090,9 +3085,6 @@ msgstr "O número total de submissões recebidas"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "O mês do relatório"
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "O link para a página de estatísticas de artigos publicados"
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"

@@ -1683,12 +1683,6 @@ msgid "mailable.announcementNotify.description"
 msgstr ""
 "Deze e-mail wordt verzonden wanneer er een nieuwe aankondiging is gemaakt."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Deze e-mail wordt maandelijks automatisch naar redacteuren en "
-"tijdschriftbeheerders gestuurd om hen een overzicht van de systeemgezondheid "
-"te geven."
-
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist voor het voorbereiden van een inzending"
 

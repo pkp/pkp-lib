@@ -2045,6 +2045,7 @@ msgstr "L'URL della sottomissione nel backend editoriale"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "I nomi completi degli autori"
 
+#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Nomi di autori in forma di stringa abbreviata"
 
@@ -2079,12 +2080,6 @@ msgstr "Il nome completo del mittente"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "L'URL del compito di revisione"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Data in cui la revisione dovrebbe essere completata"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Data in cui il revisore dovrebbe accettare o rifiutare l'incarico"
 
 msgid "emailTemplate.variable.recipient.username"
 msgstr "Il nome utente del destinatario o di tutti i destinatari"
@@ -2378,12 +2373,6 @@ msgstr ""
 msgid "mailable.announcementNotify.description"
 msgstr "Questo messaggio è inviato quando viene creata una nuova notizia."
 
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"Questo report sull'attività del sistema è inviato via email  mensilmente in "
-"automatico agli editors."
-
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checklist per la preparazione dell'invio di una proposta"
 

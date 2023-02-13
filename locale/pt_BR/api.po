@@ -1,7 +1,7 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-02-26 20:26+0000\n"
+"PO-Revision-Date: 2023-02-14 02:02+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "api/pt_BR/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.announcements.400.contextsNotMatched"
 msgstr "A notícia solicitada não faz parte deste servidor."
@@ -47,7 +47,7 @@ msgid "api.contexts.404.contextNotFound"
 msgstr "O servidor que você requisitou não foi encontrado."
 
 msgid "api.dois.400.contextsNotMatched"
-msgstr "O DOI solicitado não faz parte deste servidor"
+msgstr "O DOI solicitado não faz parte deste servidor."
 
 msgid "api.dois.400.noRegistrationAgencyConfigured"
 msgstr "Nenhuma agência de registro de DOI foi configurada para este servidor."

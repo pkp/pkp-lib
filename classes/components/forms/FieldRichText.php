@@ -38,6 +38,8 @@ class FieldRichText extends Field
     {
         $config = parent::getConfig();
 
+        $config['i18nFormattingLabel'] = __('common.formatting');
+
         $config['toolbar']  = $this->toolbar;
         $config['plugins']  = $this->plugins;
         $config['size']     = $this->size;

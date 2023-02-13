@@ -447,6 +447,9 @@ msgstr "Clear filter: {$filterTitle}"
 msgid "common.findTemplate"
 msgstr "Find Template"
 
+msgid "common.formatting"
+msgstr "Formatting"
+
 msgid "common.geographic"
 msgstr "Geographic"
 

@@ -28,20 +28,13 @@ describe('Crossref tests', function () {
 		cy.get('button#doisRegistration-button').click();
 
 		cy.get('select#doiRegistrationSettings-registrationAgency-control').select('crossrefplugin');
+		cy.get('input[name=depositorName]').focus().clear().type('admin');
+		cy.get('input[name=depositorEmail]').focus().clear().type('pkpadmin@mailinator.com');
 
 		// Save
 		cy.get('#doisRegistration button').contains('Save').click();
 		cy.get('#doisRegistration [role="status"]').contains('Saved');
 		cy.get('select#doiRegistrationSettings-registrationAgency-control').should('have.value', 'crossrefplugin');
-
-		// Configure Crossref settings
-		cy.get('a:contains("DOIs")').click();
-		cy.get('button#crossref-settings-button').click();
-
-		cy.get('input[name=depositorName]').focus().clear().type('admin');
-		cy.get('input[name=depositorEmail]').focus().clear().type('pkpadmin@mailinator.com');
-		cy.get('form#crossrefSettingsForm button:contains("Save")').click();
-		cy.get('div:contains("Your changes have been saved.")');
 	});
 
 	it('Check Crossref Export', function() {

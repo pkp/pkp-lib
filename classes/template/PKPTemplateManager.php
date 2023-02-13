@@ -1030,7 +1030,7 @@ class PKPTemplateManager extends Smarty
                             ];
                         }
 
-                        if ($request->getContext()->getData(Context::SETTING_ENABLE_DOIS)) {
+                        if ($request->getContext()->getData(Context::SETTING_ENABLE_DOIS) && !empty($request->getContext()->getData(Context::SETTING_ENABLED_DOI_TYPES))) {
                             $menu['dois'] = [
                                 'name' => __('doi.manager.displayName'),
                                 'url' => $router->url($request, null, 'dois'),

@@ -30,8 +30,9 @@ class DoisEnabledPolicy extends AuthorizationPolicy
     public function effect()
     {
         $doisEnabled = $this->context->getData(Context::SETTING_ENABLE_DOIS);
+        $anyDoiTypesEnabled = !empty($this->context->getData(Context::SETTING_ENABLED_DOI_TYPES));
 
-        if ($doisEnabled) {
+        if ($doisEnabled && $anyDoiTypesEnabled) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

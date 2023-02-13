@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/api/cs_CZ/"
 ">\n"
@@ -326,3 +326,6 @@ msgstr "Požadovaný objekt publikace nebyl nalezen."
 
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "Typ publikace nebyl rozpoznán"
+
+msgid "api.dois.400.invalidPluginType"
+msgstr "Aktuálně nakonfigurovaný plugin musí být plugin registrační agentury."

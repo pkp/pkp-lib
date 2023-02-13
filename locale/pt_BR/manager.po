@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-02-02 21:29+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
@@ -2286,9 +2286,8 @@ msgstr "Link para a submissão no sistema editorial"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Nomes completos dos autores"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Nomes dos autores na forma encurtada"
+msgstr "Os nomes dos autores na forma encurtada, como \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Resumo da submissão"
@@ -2501,7 +2500,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Itens exportados com sucesso"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Não foi possível atualizar algum(ns) DOI(s)."
+msgstr "Não foi possível atualizar algum(ns) DOI(s)"
 
 msgid "manager.dois.status.stale"
 msgstr "Obsoleto"
@@ -2739,11 +2738,10 @@ msgstr "Optamos por recusar esta submissão."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Optamos por aceitar esta submissão sem revisões."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Uma breve descrição dessa decisão que deve ser compartilhada em uma "
-"notificação por e-mail enviada aos avaliadores sobre essa decisão."
+"notificação por e-mail enviada aos avaliadores sobre essa decisão"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -2797,28 +2795,22 @@ msgstr ""
 msgid "emailTemplate.variable.recommendation"
 msgstr "A decisão recomendada, como Aceitar Submissão"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "A rodada de avaliação em que esta decisão foi tomada, se a decisão estiver "
-"relacionada a um estágio de avaliação."
+"relacionada a um estágio de avaliação"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
-"O estágio do fluxo de trabalho editorial em que essa decisão foi tomada."
+msgstr "O estágio do fluxo de trabalho editorial em que essa decisão foi tomada"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "Uma descrição da decisão que foi tomada."
+msgstr "Uma descrição da decisão que foi tomada"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "O nome da decisão que foi tomada."
+msgstr "O nome da decisão que foi tomada"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "A URL para visualizar todos as submissões atribuídas a um usuário."
+msgstr "A URL para visualizar todas as submissões atribuídas a um usuário"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2938,9 +2930,8 @@ msgstr "O número de submissões atribuídas a este editor"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Uma lista de submissões com tarefas pendentes"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "A URL para um usuário visualizar e editar seu perfil."
+msgstr "A URL para um usuário visualizar e editar seu perfil"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3157,7 +3148,7 @@ msgstr "Discussão da Avaliação"
 msgid "mailable.discussionReview.description"
 msgstr ""
 "Este e-mail é enviado no estágio de avaliação no fluxo de trabalho para "
-"notificar um usuário sobre a submissão"
+"notificar um usuário sobre a submissão."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Discussão da Edição de Texto"
@@ -3168,7 +3159,7 @@ msgstr "Discussão da Editoração"
 msgid "mailable.discussionProduction.description"
 msgstr ""
 "Este e-mail é enviado no estágio de editoração para notificar um usuário "
-"sobre a submissão"
+"sobre a submissão."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Notificação da Versão Revisada"
@@ -3185,7 +3176,7 @@ msgstr "Editar Notificação de Avaliação"
 msgid "mailable.editReviewNotify.description"
 msgstr ""
 "Este e-mail notifica automaticamente o avaliador sobre os detalhes "
-"modificados da avaliação"
+"modificados da avaliação."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Comentários do Avaliador Notificar Editores"
@@ -3202,12 +3193,12 @@ msgstr ""
 msgid "mailable.discussionSubmission.description"
 msgstr ""
 "Este e-mail é enviado no estágio de submissão para notificar um usuário "
-"sobre a submissão"
+"sobre a submissão."
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
 "Este e-mail é enviado no estágio de edição de texto para notificar um "
-"usuário sobre a submissão"
+"usuário sobre a submissão."
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""
@@ -3572,9 +3563,7 @@ msgid "doi.manager.versions.modalTitle"
 msgstr "DOI de todas as versões"
 
 msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Um item que 1) tem DOIs atribuídos para todos os tipos de DOI ativados e 2) "
-"não foi publicado"
+msgstr "Qualquer item não publicado."
 
 msgid "manager.dois.status.submitted.description"
 msgstr "Itens que foram submetidos à agência de registro configurada."
@@ -3653,3 +3642,42 @@ msgstr ""
 "Pelo menos um desses arquivos deve ser exigido a cada nova submissão? Se "
 "você selecionar sim, os autores não terão permissão para submeter até que "
 "tenham carregado pelo menos um arquivo desse tipo."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "Testando"
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"Os DOIs não podem ser atribuídos a menos que você forneça seu prefixo DOI "
+"atribuído. <a href=\"{$doiSettingsUrl}\">Adicionar prefixo DOI</a>."
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+"Tentei criar um DOI, mas é necessário um prefixo DOI para que o contexto "
+"crie um."
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "Tem Erro"
+
+msgid "manager.dois.status.stale.filterTitle"
+msgstr "Necessita de Sincronização"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "DOI Atribuído"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+"Qualquer item publicado ou não publicado que tenha um DOI para todos os "
+"objetos publicados ativados."
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data em que a avaliação deve ser concluída"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Nenhum - Os sufixos devem ser inseridos manualmente na <a href=\""
+"{$doiManagementUrl}\">Página de gerenciamento DOI</a> e não serão gerados "
+"automaticamente"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data em que o avaliador deve aceitar ou recusar a atribuição"

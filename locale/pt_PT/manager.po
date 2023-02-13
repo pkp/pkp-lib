@@ -2515,7 +2515,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Itens exportados com sucesso"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Algum(s) DOI(s) falharam a atualizar."
+msgstr "Não foi possível atualizar algum(s) DOI(s)"
 
 msgid "manager.dois.status.stale"
 msgstr "Obsoleto"

@@ -2124,7 +2124,7 @@ msgid "validator.no_new_line"
 msgstr "No new line allowed."
 
 msgid "validator.allowable_title_html_tags"
-msgstr "Only [{tags}] html tags are allowed."
+msgstr "Only [{$tags}] html tags are allowed."
 
 msgid "filter.input.error.notSupported"
 msgstr "Filter ({$displayName}) supports input {$inputTypeName} - {$typeofInput} given"

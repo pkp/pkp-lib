@@ -22,9 +22,11 @@ use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
 use Illuminate\Validation\Validator;
 use PKP\config\Config;
+use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\file\TemporaryFileManager;
 use PKP\i18n\LocaleMetadata;
+use PKP\submission\Sanitizer;
 
 class ValidatorFactory
 {
@@ -57,14 +59,15 @@ class ValidatorFactory
         // custom validation rules to check anything other that defined html tags 
         // in title or sub title in config[allowed_title_html]
         $validation->extend('allowable_title_html_tags', function ($attribute, $value, $parameters, $validator) use ($validation) {
-            $allowedTags = array_map(
-                'trim', 
-                explode(
-                    ',', 
-                    Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub')
-                )
+
+            // TinyMCE sometimes converts special chars to entity code and some times not
+            // A very weird quirk by tinyMCE
+            // e.g '&' turned into '&amp;'
+            $purifiedValue = Sanitizer::replaceSpecialCharEntityValueWithCharacter(
+                PKPString::stripUnsafeHtml($value, 'allowed_title_html')
             );
-            return $value === strip_tags($value, $allowedTags);
+            
+            return Sanitizer::replaceSpecialCharEntityValueWithCharacter($value) === $purifiedValue;
         });
         
         // Add custom validation rule which extends Laravel's email rule to accept

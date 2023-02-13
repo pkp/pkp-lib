@@ -49,13 +49,25 @@ class Sanitizer
      * @see 5.0+ : https://www.tiny.cloud/docs/configure/content-filtering/#entity_encoding
      * @see 6.0+ : https://www.tiny.cloud/docs/tinymce/6/content-filtering/#entity_encoding
      */
-    protected array $entityCodeToCharMapping = [
+    protected static array $entityCodeToCharMapping = [
         '&' => '&amp;',
         '>' => '&gt;',
         '<' => '&lt;',
         '"' => '&quot;',
         "'" => '&apos;',
     ];
+    
+    /**
+     * Convert the TinyMCE/HTMLPurify based converted entity codes to actual character
+     */
+    public static function replaceSpecialCharEntityValueWithCharacter(string $string): string
+    {
+        return str_replace(
+            array_values(static::$entityCodeToCharMapping),
+            array_keys(static::$entityCodeToCharMapping),
+            $string
+        );
+    }
 
     /**
      * Apply the sanitization process for given attribute
@@ -72,29 +84,21 @@ class Sanitizer
      */
     public function title(string|array $param): string|array
     {
-        $allowedTagList = array_map(
-            'trim', 
-            explode(',', Config::getVar('security', 'allowed_title_html', 'b,i,u,sup,sub'))
-        );
-
         if(is_array($param)) {
             foreach($param as $localeKey => $localizedSubmissionTitle) {
-                // Can not use HTMLPurifier though stripUnsafeHtml as it's convery specials
+                // TinyMCE sometimes converts special chars to entity code and some times not
+                // A very weird quirk by tinyMCE
                 // e.g '&' turned into '&amp;'
-                $param[$localeKey] = str_replace(
-                    array_values($this->entityCodeToCharMapping),
-                    array_keys($this->entityCodeToCharMapping),
-                    strip_tags($localizedSubmissionTitle, $allowedTagList)
+                $param[$localeKey] = self::replaceSpecialCharEntityValueWithCharacter(
+                    PKPString::stripUnsafeHtml($localizedSubmissionTitle, 'allowed_title_html')
                 );
             }
 
             return $param;
         }
 
-        return str_replace(
-            array_values($this->entityCodeToCharMapping),
-            array_keys($this->entityCodeToCharMapping),
-            strip_tags($param, $allowedTagList)
+        return self::replaceSpecialCharEntityValueWithCharacter(
+            PKPString::stripUnsafeHtml($param, 'allowed_title_html')
         );
     }
 

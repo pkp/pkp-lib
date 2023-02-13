@@ -131,6 +131,7 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+#, fuzzy
 msgid "emails.editorAssign.subject"
 msgstr "Moderatoren-Zuweisung"
 
@@ -148,9 +149,11 @@ msgstr ""
 "<br />\n"
 "Vielen Dank!"
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Moderator Entscheidung"
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 "{$authors}:<br />\n"

@@ -113,15 +113,18 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+#, fuzzy
 msgid "emails.editorAssign.subject"
 msgstr ""
 
 msgid "emails.editorAssign.body"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
 msgstr ""
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 

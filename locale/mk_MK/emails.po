@@ -119,6 +119,7 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+#, fuzzy
 msgid "emails.editorAssign.subject"
 msgstr "Доделување модератор"
 
@@ -136,9 +137,11 @@ msgstr ""
 "<br />\n"
 "Ви благодариме."
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.subject"
 msgstr "Одлука на модераторот"
 
+#, fuzzy
 msgid "emails.editorDecisionAccept.body"
 msgstr ""
 "{$authors}:<br />\n"

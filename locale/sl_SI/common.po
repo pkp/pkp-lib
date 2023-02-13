@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-13 10:12+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/sl_SI/>\n"
@@ -2151,3 +2151,49 @@ msgstr "Avtor je bil urejen."
 
 msgid "common.details"
 msgstr "Podrobnosti"
+
+msgid "common.disconnected"
+msgstr "Odklopljeno"
+
+msgid "common.emailTemplates"
+msgstr "Predloge emailov"
+
+msgid "common.noneSelected"
+msgstr "Noben izbran"
+
+msgid "common.noneProvided"
+msgstr "Nič ni na voljo"
+
+msgid "common.reconnecting"
+msgstr "Ponovno povezovanje"
+
+msgid "common.role"
+msgstr "Vloga"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} korakov"
+
+msgid "common.uploadedBy"
+msgstr "Naložil {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Naložil {$name}, dne {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Neshranjene spremembe"
+
+msgid "common.discardChanges"
+msgstr "Ne, zavrzi neshranjene spremembe"
+
+msgid "common.label"
+msgstr "Oznaka"
+
+msgid "common.lastSaved"
+msgstr "Nazadnje shranjeno {$when}"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Najdene so neshranjene spremembe od {$when}. To se lahko zgodi, če izgubite "
+"povezavo s strečnikom med delom. Povrnitev teh sprememb lahko povzroči, da "
+"se prepišejo spremembe, ki ste jih naredili od takrat. Ste prepričani, da "
+"želite povrniti te spremembe?"

@@ -26,6 +26,9 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
     /** @var string The pkp-lib file to move the keys to */
     public $targetFile = '';
 
+    /** @var bool Whether to move locale keys from lib/pkp to the app */
+    public $reverse = false;
+
     /**
      * Constructor
      */
@@ -41,6 +44,11 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
             exit(1);
         }
 
+        if ($argv[0] === '-r') {
+            $this->reverse = true;
+            array_shift($argv);
+        }
+
         $this->msgidMatch = array_shift($argv);
         $this->sourceFile = array_shift($argv);
         $this->targetFile = array_shift($argv);
@@ -54,9 +62,11 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
         echo "\nMove matching locale keys from one file to another.\n\n"
             . "All matching locale keys will be moved from the source file to the target file. This will\n"
             . "effect all locales.\n\n"
-            . "  Usage: php {$this->scriptName} [match] [sourceFile] [targetFile]\n\n"
-            . "  [match]    The string to match in the locale key's msgid, Supports partial\n"
-            . "             matches from start of msgid. `example.key.` will match `msgid \"example.key.anything\"`.\n\n"
+            . "  Usage: php {$this->scriptName} (options) [match] [sourceFile] [targetFile]\n\n"
+            . "  (options)    Optional flags:\n"
+            . "               -r     Move locale keys from lib/pkp into the app.\n"
+            . "  [match]      The string to match in the locale key's msgid, Supports partial\n"
+            . "               matches from start of msgid. `example.key.` will match `msgid \"example.key.anything\"`.\n\n"
             . "  [sourceFile] The file to look for keys to move, such as `emails.po`.\n\n"
             . "  [targetFile] The file to move keys to, such as `emails.po`. Usually the same as `sourceFile`.\n\n";
     }
@@ -76,9 +86,16 @@ class MoveLocaleKeysToLib extends \PKP\cliTool\CommandLineTool
             return $localeDir !== '.' && $localeDir !== '..';
         });
 
+        $fromDir = $this->reverse
+            ? 'lib/pkp/locale/'
+            : 'locale/';
+        $toDir = $this->reverse
+            ? 'locale/'
+            : 'lib/pkp/locale/';
+
         foreach (array_values($localeDirs) as $localeDir) {
-            $localeSourceFile = 'locale/' . $localeDir . '/' . $this->sourceFile;
-            $localeTargetFile = 'lib/pkp/locale/' . $localeDir . '/' . $this->targetFile;
+            $localeSourceFile = $fromDir . $localeDir . '/' . $this->sourceFile;
+            $localeTargetFile = $toDir . $localeDir . '/' . $this->targetFile;
             if (!file_exists($localeSourceFile)) {
                 $this->output('No file exists at ' . $localeSourceFile . ' to move locale keys from. Skipping this locale.');
                 continue;

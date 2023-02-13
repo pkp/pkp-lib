@@ -76,6 +76,7 @@ abstract class PKPDoiListPanel extends ListPanel
         $config['registrationAgencyInfo'] = $this->registrationAgencyInfo;
         $config['doiPrefix'] = $this->doiPrefix;
         $config['filters'][] = [
+            'heading' => __('common.status'),
             'filters' => [
                 [
                     'title' => __('manager.dois.status.needsDoi'),
@@ -87,6 +88,16 @@ abstract class PKPDoiListPanel extends ListPanel
                     'param' => 'unpublished',
                     'value' => 'true'
                 ],
+                [
+                    'title' => __('manager.dois.filters.doiAssigned'),
+                    'param' => 'hasDois',
+                    'value' => '1',
+                ],
+            ],
+        ];
+        $config['filters'][] = [
+            'heading' => __('manager.setup.dois.registration'),
+            'filters' => [
                 [
                     'title' => __('manager.dois.status.unregistered'),
                     'param' => 'unregistered',
@@ -103,16 +114,16 @@ abstract class PKPDoiListPanel extends ListPanel
                     'value' => Doi::STATUS_REGISTERED
                 ],
                 [
-                    'title' => __('manager.dois.status.error'),
+                    'title' => __('manager.dois.status.error.filterTitle'),
                     'param' => 'doiStatus',
                     'value' => Doi::STATUS_ERROR
                 ],
                 [
-                    'title' => __('manager.dois.status.stale'),
+                    'title' => __('manager.dois.status.stale.filterTitle'),
                     'param' => 'doiStatus',
                     'value' => Doi::STATUS_STALE
                 ],
-            ]
+            ],
         ];
         $config['publishedStatuses'] = [
             'name' => 'status',
@@ -163,7 +174,6 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.status.registered',
             'manager.dois.status.error',
             'manager.dois.status.stale',
-            'manager.dois.status.needsDoi',
             'manager.dois.notification.assignDoisSuccess',
             'manager.dois.notification.depositQueuedSuccess',
             'manager.dois.actions.depositAll.label',
@@ -199,6 +209,8 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.status.error.description',
             'manager.dois.status.stale.description',
             'manager.dois.registration.manuallyMarkedRegistered',
+            'manager.dois.filters.doiAssigned',
+            'manager.dois.filters.doiAssigned.description',
         ]);
 
         $this->setAppConfig($config);

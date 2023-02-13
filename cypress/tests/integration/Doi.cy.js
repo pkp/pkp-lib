@@ -20,7 +20,11 @@ describe('DOI tests', function() {
 	};
 
 	const clearFilter = () => {
-		cy.get('#submission-doi-management button:contains("Clear filter")').click();
+		cy.get('#submission-doi-management button:contains("Clear filter")').each(
+			($el, index, $list) => {
+				cy.wrap($el).click();
+			}
+		);
 	};
 
 	it('Check DOI Configuration', function() {
@@ -50,7 +54,13 @@ describe('DOI tests', function() {
 		loginAndGoToDoiPage();
 
 		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 18);
-		cy.checkDoiFilterResults('Unpublished', 'No items found.', 0);
+		cy.checkDoiFilterResults('Unpublished', 'Corino — The influence of lactation on the quantity and quality of cashmere production', 1);
+		clearFilter();
+		cy.checkDoiFilterResults('Unpublished', 'Corino — The influence of lactation on the quantity and quality of cashmere production', 1);
+		cy.checkDoiFilterResults('DOI Assigned', 'No items found.', 0);
+		clearFilter();
+		cy.checkDoiFilterResults('DOI Assigned', 'Woods — Finocchiaro: Arguments About Arguments', 1);
+		clearFilter();
 		cy.checkDoiFilterResults('Unregistered', 'Woods — Finocchiaro: Arguments About Arguments', 1);
 		clearFilter();
 

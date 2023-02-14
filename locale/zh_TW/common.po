@@ -3,7 +3,7 @@
 # Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_TW/>\n"
@@ -212,3 +212,6 @@ msgstr "評審員對\"{$title}\"發表了評論。"
 
 msgid "notification.addedAuthor"
 msgstr ""
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "您必須完成驗證以防止濫發投遞。"

@@ -24,7 +24,7 @@ use PKP\db\DAORegistry;
 use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use Throwable;
 
-abstract class PreflightCheckMigration // extends \PKP\migration\Migration
+abstract class PreflightCheckMigration extends \PKP\migration\Migration
 {
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
@@ -82,26 +82,39 @@ abstract class PreflightCheckMigration // extends \PKP\migration\Migration
             foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
                 if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
                     foreach ($affectedLocales as $localeCode => $localeTarget) {
-                        if ($localeCode == 'ar' && $settingsTable == 'journal_settings') {
-                            $k = 1;
-                        }
                         $defaultLocale = $localeTarget;
                         if ($localeTarget instanceof Collection) {
                             $defaultLocale = $localeTarget->first();
 
                             $conflictingSettings = DB::table($settingsTable)
-                                ->select($settingsTableIdColumn, 'setting_name', DB::raw('COUNT(*)'))
+                                ->select('setting_name', DB::raw('COUNT(*)'))
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->addSelect($settingsTableIdColumn);
+                                })
                                 ->where('locale', 'LIKE', $localeCode .'_%')
                                 ->orWhere('locale', $localeCode)
-                                ->groupBy($settingsTableIdColumn, 'setting_name')
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
+                                })
+                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy('setting_name');
+                                })
                                 ->havingRaw('COUNT(*) >= 2')
                                 ->get();
                         } else {
                             $conflictingSettings = DB::table($settingsTable)
-                                ->select($settingsTableIdColumn, 'setting_name', DB::raw('COUNT(*)'))
+                                ->select('setting_name', DB::raw('COUNT(*)'))
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->addSelect($settingsTableIdColumn);
+                                })
                                 ->where('locale', $localeCode)
                                 ->orWhere('locale', $localeTarget)
-                                ->groupBy($settingsTableIdColumn, 'setting_name')
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
+                                })
+                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy('setting_name');
+                                })
                                 ->havingRaw('COUNT(*) >= 2')
                                 ->get();
                         }

@@ -40,12 +40,17 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
             if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
                 $settingsValues = DB::table($settingsTable)
-                    ->select([$settingsTableIdColumn, 'locale', 'setting_name', 'setting_value'])
+                    ->select(['locale', 'setting_name', 'setting_value'])
+                    ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                        return $query->addSelect($settingsTableIdColumn);
+                    })
                     ->get();
                 
                 foreach ($settingsValues as $settingsValue) {
                     $stillExists = DB::table($settingsTable)
-                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                        ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                            return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                        })
                         ->where('setting_name', '=', $settingsValue->setting_name)
                         ->where('locale', '=', $settingsValue->locale)
                         ->exists();
@@ -64,7 +69,9 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                 
                                 // Check if the database already has an updated locale with the same value -
                                 $hasAlreadyExistingUpdatedLocale = DB::table($settingsTable)
-                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                    ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                        return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                    })
                                     ->where('setting_name', '=', $settingsValue->setting_name)
                                     ->where('locale', '=', $updatedLocale)
                                     ->where('setting_value', '=', $settingsValue->setting_value)
@@ -73,7 +80,9 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                 // if so, it is safe to delete the currently processed value.
                                 if ($hasAlreadyExistingUpdatedLocale) {
                                     DB::table($settingsTable)
-                                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                        ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                            return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                        })
                                         ->where('setting_name', '=', $settingsValue->setting_name)
                                         ->where('locale', '=', $settingsValue->locale)
                                         ->delete();
@@ -81,7 +90,9 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                     // If we are managing the defaultLocale then we can update the value to the $updatedLocale
                                     if ($defaultLocale == $settingsValue->locale) {
                                         DB::table($settingsTable)
-                                            ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                            ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                                return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                            })
                                             ->where('setting_name', '=', $settingsValue->setting_name)
                                             ->where('locale', '=', $settingsValue->locale)
                                             ->update(['locale' => $updatedLocale]);
@@ -90,7 +101,9 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
                                         // we must first check if there is the default locale in the dataset
                                         $hasExistingDefaultLocale = $settingsValues
-                                            ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                            ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                                return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                            })
                                             ->where('setting_name', '=', $settingsValue->setting_name)
                                             ->where('locale', '=', $defaultLocale)
                                             ->exists();
@@ -98,14 +111,18 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                         // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
                                         if (!$hasExistingDefaultLocale) {
                                             DB::table($settingsTable)
-                                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                                    return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                                })
                                                 ->where('setting_name', '=', $settingsValue->setting_name)
                                                 ->where('locale', '=', $settingsValue->locale)
                                                 ->update(['locale' => $updatedLocale]);
                                         } else {
                                             // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
                                             DB::table($settingsTable)
-                                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
+                                                    return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
+                                                })
                                                 ->where('setting_name', '=', $settingsValue->setting_name)
                                                 ->where('locale', '=', $settingsValue->locale)
                                                 ->delete();
@@ -445,6 +462,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'submission_settings' => 'submission_id',
             'user_group_settings' => 'user_group_id',
             'user_settings' => 'user_id',
+            'site_settings' => null
         ]);
     }
 

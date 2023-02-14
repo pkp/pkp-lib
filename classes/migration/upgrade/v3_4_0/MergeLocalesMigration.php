@@ -38,7 +38,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         // All _settings tables.
         $settingsTables = $this->getSettingsTables();
         foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
-            if (Schema::hasColumn($settingsTable, 'locale')) {
+            if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
                 $settingsValues = DB::table($settingsTable)
                     ->select([$settingsTableIdColumn, 'locale', 'setting_name'])
                     ->get();
@@ -63,7 +63,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                     ->where('setting_name', '=', $settingsValue->setting_name)
                                     ->where('locale', '=', $defaultLocale)
                                     ->first();
-                                
+
                                 if (is_null($existingDefaultLocaleValue)) {
                                     DB::table($settingsTable)
                                         ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
@@ -416,6 +416,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'library_file_settings' => 'file_id',
             'navigation_menu_item_assignment_settings' => 'navigation_menu_item_assignment_id',
             'navigation_menu_item_settings' => 'navigation_menu_item_id',
+            'notification_settings' => 'notification_id',
             'notification_subscription_settings' => 'setting_id',
             'plugin_settings' => 'context_id',
             'publication_settings' => 'publication_id',

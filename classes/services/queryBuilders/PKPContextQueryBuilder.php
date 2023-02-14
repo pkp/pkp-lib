@@ -132,7 +132,6 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
                     ->where('cst.locale', '=', DB::raw('c.primary_locale'));
             })
             ->orderBy('c.seq')
-            ->distinct()
             ->get()
             ->toArray();
     }
@@ -151,17 +150,22 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
             $q->where('c.enabled', '!=', 1);
         }
 
-        if (!empty($this->userId)) {
-            $q->leftJoin('user_groups as ug', 'ug.context_id', '=', 'c.' . $this->dbIdColumn)
-                ->leftJoin('user_user_groups as uug', 'uug.user_group_id', '=', 'ug.user_group_id')
-                ->where(function ($q) {
-                    $q->where('uug.user_id', '=', $this->userId)
-                        ->where(function ($q) {
-                            $q->where('ug.role_id', '=', Role::ROLE_ID_MANAGER)
-                                ->orWhere('c.enabled', '=', 1);
-                        });
-                });
-        }
+        // Filter for user id if present
+        $q->when(!empty($this->userId), function($q){
+            $q->whereIn('c.' . $this->dbIdColumn, function($q){
+                $q->select('context_id')
+                    ->from('user_groups')
+                    ->where(function($q){
+                        $q->where('role_id', '=', Role::ROLE_ID_MANAGER)
+                            ->orWhere('c.enabled', '=', 1);
+                    })
+                    ->whereIn('user_group_id', function($q){
+                        $q->select('user_group_id')
+                            ->from('user_user_groups')
+                            ->where('user_id', '=', $this->userId);
+                    });
+            });
+        });
 
         // search phrase
         $q->when($this->searchPhrase !== null, function ($query) {

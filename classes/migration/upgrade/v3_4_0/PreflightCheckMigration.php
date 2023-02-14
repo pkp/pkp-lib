@@ -15,6 +15,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
 use Exception;
+use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -550,6 +551,31 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                         throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
                     }
                 });
+
+            // Check if database engine supports foreign key constraints, see pkp/pkp-lib#6732
+            if (DB::connection() instanceof MySqlConnection) {
+                $defaultEngine = DB::scalar('SELECT ENGINE FROM INFORMATION_SCHEMA.ENGINES WHERE SUPPORT = "DEFAULT"');
+                if ($defaultEngine !== 'InnoDB') {
+                    throw new Exception(
+                        'A default database engine ' . $defaultEngine . ' isn\'t supported, expecting InnoDB. ' .
+                        'Please change the default database engine to InnoDB to run the upgrade.'
+                    );
+                }
+
+                $result = DB::select(
+                    'SELECT t.table_name, t.engine AS table_engine
+                    FROM information_schema.tables AS t
+                    WHERE t.table_schema = :databaseName AND t.engine <> "InnoDB"',
+                    ['databaseName' => DB::connection()->getDatabaseName()]
+                );
+
+                if (count($result) > 0) {
+                    throw new Exception(
+                        'Storage engine that doesn\'t support foreign key constraints detected in one or more tables. ' .
+                        'Change to InnoDB before running the upgrade.'
+                    );
+                }
+            }
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
                 $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');

@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Prilog zaprimljen"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Poštovana/i {$recipientName},<br />\n"
@@ -70,3 +69,9 @@ msgstr ""
 "Srdačno,"
 
 #, fuzzy
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr ""
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""

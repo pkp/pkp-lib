@@ -19,7 +19,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Vi har mottatt innleveringen din"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -178,3 +177,18 @@ msgstr "En beskjed angående {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Skriv inn beskjeden din her."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Bekreftelse på innlevering"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Kjære {$recipientName}</p><p>Du er angitt som medforfatter på et "
+"manuskript innsendt til {$contextName}. Innsenderen, {$submitterName}, har "
+"oppgitt følgende information:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Hvis noen av disse opplysningene er "
+"feil, eller du ikke ønsker å være angitt som medforfatter på dette "
+"manuskript, vær vennlig å kontakte mig.</p><p>Takk for at du vurderer dette "
+"tidsskrift til for arbeidet ditt.</p><p>Med vennlig hilsen</"
+"p>{$contextSignature}"

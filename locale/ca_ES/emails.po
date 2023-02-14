@@ -19,7 +19,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Justificant de recepció de la tramesa"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Benvolgut/uda {$recipientName},<br />\n"
@@ -170,3 +169,19 @@ msgstr "Missatge sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Introduïu el vostre missatge."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Confirmació de tramesa"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Hola,<br />\n"
+"<br />\n"
+"{$submitterName} ha tramès el manuscrit «{$submissionTitle}» a "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Si teniu cap pregunta, contacteu amb mi. Gràcies per tenir en compte aquesta "
+"publicació per desenvolupar la vostra feina.<br />\n"
+"<br />\n"
+"{$contextSignature}"

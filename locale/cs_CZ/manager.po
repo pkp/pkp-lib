@@ -2803,7 +2803,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Připomenutí recenze (automatizované)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Tento e-mail zasílá editor, aby připomněl recenzentovi, že uplynul termín "
 "pro dodání recenze"

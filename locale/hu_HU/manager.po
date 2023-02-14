@@ -2476,7 +2476,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Ezt az emailt a Szakmai Lektor küldi a Rovatszerkesztőnek a lektori felkérésre válaszolva és jelezve, hogy a lektorálási munkát nem tudja elvállalni."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Ezt az emailt a Rovatszerkesztő küldi a Szakmai Lektornak, hogy emlékeztesse a lektorálási határidőre."
 
 #, fuzzy
@@ -2506,11 +2506,9 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ez az email az újonnan regisztrált lektoroknak kerül kiküldésre, köszöntésként és a felhasználónevük, jelszavuk elküldéséhez."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "Ez az email, ha be van kapcsolva, akkor automatikusan kiküldésre kerül a Szerzőnek, amikor a folyóirathoz beküldte kéziratát. Információt ad a benyújtási folyamatról és megköszöni a Szerzőnek a benyújtott kéziratot."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ha be van kapcsolva ez az email, akkor automatikusan értesítést küld azoknak a Szerzőknek, akik a benyújtás idején nem szerepelnek aktívan ennek a beküldésnek a munkafolyamatában."

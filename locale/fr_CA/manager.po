@@ -2088,7 +2088,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Ce courriel est envoyé par l'évaluateur-trice au,à la rédacteur-trice de rubrique en réponse à la demande d'évaluation, pour l'aviser qu'il ou elle ne peut effectuer l'évaluation."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Ce courriel est envoyé par le,la rédacteur-trice de rubrique pour rappeler à un,une évaluateur-trice que son évaluation est due."
 
 #, fuzzy
@@ -2135,7 +2135,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ce courriel est envoyé à un,une évaluateur-trice nouvellement inscrit-e, afin de lui souhaiter la bienvenue dans le système et l'informer de son nom d'utilisateur-trice et de son mot de passe."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Ce courriel, lorsqu'activé, est envoyé automatiquement à un-e auteur-e quand "
@@ -2143,7 +2142,6 @@ msgstr ""
 "Il fournit les informations sur comment suivre la soumission à travers le "
 "processus éditorial, et remercie l'auteur-e pour sa soumission."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteur-e-s qui ne sont pas des utilisateurs-trices de OJS signalés-es comme effectuant la soumission."

@@ -2296,7 +2296,8 @@ msgstr ""
 "Det här e-postmeddelandet skickas när en granskare avböjer en "
 "granskningsförfrågan"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Det här e-postmeddelandet skickas från en sektionsredaktör som en påminnelse "
 "till granskaren att deadline för granskningen har passerat"

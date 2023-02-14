@@ -59,6 +59,7 @@ msgstr ""
 msgid "emails.reviewerRegister.subject"
 msgstr "{$contextName} aldizkarian Ebaluatzaile gisa erregistratzea"
 
+#, fuzzy
 msgid "emails.reviewerRegister.body"
 msgstr ""
 "{$contextName} aldizkarian lantzen dugun jakintza-arloan aditua zarenez, zure izena ebaluatzaileen datu-basean erregistratzeko atrebentzia izan dugu. Horrek ez zaitu ezertara konprometitzen, baina zuregana jotzeko aukera emango digu bidalketaren baten ebaluazioa egiteko prest egongo zinatekeen galdetzeko. Ebaluazioa egiteko gonbitarekin batera, artikuluaren edo paperaren titulua eta laburpena bidaliko dizkizugu, eta beti izango duzu gonbita onartzeko edo ez onartzeko aukera. Edozein unetan eska dezakezu zure izena ebaluatzaileen zerrendatik kentzeko.<br />\n"
@@ -88,7 +89,6 @@ msgstr ""
 msgid "emails.submissionAck.subject"
 msgstr "Bidalketaren hartu-agiria"
 
-#, fuzzy
 #, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
@@ -216,6 +216,7 @@ msgstr "Mezu hau Ataleko editoreak bidaltzen dio Ebaluatzaile bati, artikulu bat
 msgid "emails.reviewCancel.subject"
 msgstr "Ebaluazio-eskaera bertan behera uztea"
 
+#, fuzzy
 msgid "emails.reviewCancel.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -284,7 +285,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Mezu hau Ataleko editoreak Ebaluatzaileari bidaltzen dio, ebaluazioa egiteko epea pasatu dela gogorarazteko."
 
 msgid "emails.reviewRemindAuto.subject"
@@ -785,16 +786,6 @@ msgstr "Atalen Editoreak Berrikusleari bidalitako mezu honetan berrikusleari esk
 msgid "emails.revisedVersionNotify.subject"
 msgstr "Bertsio errebisatua gora kargatu da"
 
-msgid "emails.revisedVersionNotify.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"&quot;{$submissionTitle}&quot; artikuluaren bertsio berrikusia gora kargatu du {$submitterName} egileak.<br />\n"
-"<br />\n"
-"URL aurkezpena: {$submissionUrl}<br />\n"
-"<br />\n"
-"{$signature}"
-
 msgid "emails.revisedVersionNotify.description"
 msgstr "Mezu hau automatikoki bidaltzen zaio dagokion editoreari, egileak artikulu baten bertsio berrikusia gora kargatzen duenean."
 
@@ -802,7 +793,6 @@ msgstr "Mezu hau automatikoki bidaltzen zaio dagokion editoreari, egileak artiku
 msgid "emails.submissionAck.subject"
 msgstr "Bidalketaren hartu-agiria"
 
-#, fuzzy
 #, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
@@ -897,3 +887,10 @@ msgstr ""
 #, fuzzy
 msgid "emails.copyeditRequest.description"
 msgstr "Mezu hau Ataleko editoreak Zuzentzaileari bidaltzen dio, artikuluaren zuzenketa-prozesua egin dezala eskatzeko. Artikuluari buruzko informazioa eta fitxategia hartzeko datuak ematen ditu."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr ""
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""

@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "{$contextName} için gönderdiğiniz aday makale için teşekkürler"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Sayın {$recipientName},<br />\n"
@@ -174,3 +173,17 @@ msgstr "{$contextName} ile ilgili bir mesaj"
 
 msgid "emails.discussion.body"
 msgstr "Lütfen mesajınızı giriniz."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Gönderme onayı"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Sayın {$recipientName},</p><p>{$contextName} için gönderilen aday "
+"makaleye ortak yazar olarak eklendiniz. Aday makaleyi gönderen, "
+"{$submitterName} aşağıdaki ayrıntıları sundu:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Bu detaylardan herhangi biri yanlış ise "
+"ya da bu aday makalede adınızın geçmesini istemiyorsanız, lütfen benimle "
+"iletişime geçin.</p><p>Dergimizi tercih ettiğiniz için teşekkür ederiz.</"
+"p><p>Saygılarımla,</p>{$contextSignature}"

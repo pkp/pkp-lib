@@ -2969,6 +2969,9 @@ msgstr "The year of the report"
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Issue identification, including volume, number, year, and title"
 
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "The URL to the published issue"
+
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "The year of the report"
 
@@ -3178,7 +3181,7 @@ msgstr "Review Reminder"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
-"This email is sent by an Editor to remind a reviewer that their review is due"
+"This email is sent by an Editor to remind a reviewer that their review is due."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Review Reminder (Automated)"

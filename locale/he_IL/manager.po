@@ -29,7 +29,7 @@ msgstr ""
 "המדור כי בקשת הביקורת נדחתה."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "דוא\"ל זה נשלח על ידי עורך מדור להזכיר מבקר שהביקורת שלהם נובעת."
 
 #, fuzzy
@@ -72,14 +72,12 @@ msgstr ""
 "שם המשתמש והסיסמה שלהם."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "דוא\"ל זה, כאשר הוא מופעל, נשלח אוטומטית למחבר כאשר הם משלימים את תהליך הגשת "
 "כתב היד לכתב העת. הוא מספק מידע על מעקב אחר ההגשה בתהליך ומודה למחבר על "
 "המסירה."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

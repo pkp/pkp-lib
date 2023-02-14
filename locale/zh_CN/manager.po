@@ -1551,7 +1551,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "这封电子邮件是由一位审查人寄给区段编辑以回复一份审查邀请，并通知区段编辑要婉谢审查邀请。"
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "这封电子邮件是由区段编辑发出，提醒一位审查人他们的审查工作已经到期。"
 
 #, fuzzy
@@ -1583,11 +1583,9 @@ msgid "mailable.reviewerRegister.description"
 msgstr "这封电子邮件发送给新注册的审稿人，欢迎他们的加入并提供关于他们的用户名和密码的记录。"
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr "这封电子邮件，一旦启用，就会在作者完成投稿一份稿件到期刊的流程之后，会自动地寄发给作者。邮件中提供了有关追踪稿件编辑进度的信息，以及感谢作者的投稿。"
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "启用此电子邮件后，它将自动发送给不是提交过程中指定的OJS中用户的其他作者。"

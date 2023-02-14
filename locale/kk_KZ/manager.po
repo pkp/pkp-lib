@@ -2798,7 +2798,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Қарап шығу туралы еске салғыш (Automated)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Бұл электрондық хатты Редактор рецензентке материалдардың қарастырылуы тиіс "
 "екенін еске салу үшін жібереді"
@@ -2883,7 +2884,6 @@ msgstr ""
 "қарсы алады және сайтқа кіру үшін пайдаланушы аты мен құпия сөзді береді."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Бұл хат (егер қосылған болса) журналға материалды жіберу процесін аяқтаған "
@@ -2891,7 +2891,6 @@ msgstr ""
 "процесс арқылы өтуін қадағалау туралы ақпарат бар және жіберілген материал "
 "үшін авторға алғыс айтылады."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

@@ -11,3 +11,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr ""
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""

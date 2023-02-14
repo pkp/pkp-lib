@@ -2134,7 +2134,7 @@ msgstr ""
 "rằng yêu cầu đánh giá đã bị từ chối."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Email này được gửi bởi một Biên tập viên để nhắc nhở người review rằng "
 "review của họ đến hạn nộp. Email này được sử dụng khi Biên tập viên gửi nhắc "
@@ -2190,14 +2190,12 @@ msgstr ""
 "thống và cung cấp cho họ một username và mật khẩu của họ."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Email này, khi được bật, sẽ tự động được gửi cho tác giả khi người đó hoàn "
 "thành quá trình gửi bản thảo cho tạp chí. Nó cung cấp thông tin về việc theo "
 "dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

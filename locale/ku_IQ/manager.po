@@ -557,7 +557,7 @@ msgstr ""
 "ئاگادارکردنەوەیان لە ڕەتکردنەوەی هەڵسەنگاندنەکە."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "ئەم ئیمەیڵە لە لایەن سەرنوسەری بەشەوە بۆ هەڵسەنگێنەر دەنێردرێت وەک "
 "بیرخەرەوەیەکی کاتی هەڵسەنگاندنەکە."
@@ -614,7 +614,6 @@ msgstr ""
 "دابینکردنی ناوی بەکارهێنەر و وشەی نهێنییەکەیان."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "کاتێک ئەم ئیمەیڵە کارا کرابێت، بە شێوەیەکی تۆماتیکی دەچێت بۆ توێژەر بۆ "
@@ -622,7 +621,6 @@ msgstr ""
 "پێشکەشکردنەکەی و هەنگاوەکانی تێدایە، هەروەها سوپاسی توێژەر دەکات بۆ "
 "پێشکەشکردنی توێژینەوەکەی."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

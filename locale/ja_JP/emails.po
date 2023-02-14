@@ -19,7 +19,6 @@ msgstr ""
 "ことを伝える同時に、著者に投稿に対するお礼をしています。"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}様<br />\n"
@@ -166,3 +165,19 @@ msgstr "{$contextName}に関するメッセージ"
 
 msgid "emails.discussion.body"
 msgstr "メッセージを入力してください。"
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "投稿のお礼"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"拝啓<br />\n"
+"<br />\n"
+"{$submitterName}が雑誌『{$journalName}』に原稿「{$contextName}」をご投稿され"
+"ました。 <br />\n"
+"<br />\n"
+"何かご不明な点がございましたら、ご連絡ください。研究成果の発表の場として、本"
+"誌をご検討いただき、誠にありがとうございました。<br />\n"
+"<br />\n"
+"{$contextSignature}"

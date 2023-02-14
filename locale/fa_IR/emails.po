@@ -58,6 +58,7 @@ msgstr ""
 msgid "emails.reviewerRegister.subject"
 msgstr "ثبت نام به عنوان کارشناس {$contextName}"
 
+#, fuzzy
 msgid "emails.reviewerRegister.body"
 msgstr ""
 "با توجه با تجارب جنابعالی, {$contextName} فرصت را مغتنم شمرده و نام شما را در زمره کارشناسان مجله ثبت کرده است. لازم به تذکر است که صرف این عمل هیچگونه مسئولیت و تعهدی را متوجه جنابعالی نمی سازد و فقط ما را قادر می سازد تا جهت ارسال مقاله برای کارشناسی احتمالی توسط جنابعالی براحتی با شما تماس بگیریم. هنگامی که از شما برای انجام کارشناسی یک مقاله دعوت به عمل می آید شما مختار خواهید بود که پس از دیدن عنوان و چکیده مقاله دعوت را بپذیرید یا از انجام کارشناسی خودداری کنید. بعلاوه در هر زمان که اراده کنید میتوانید از ما بخواهید تا نام شما را از لیست کارشناسان مجله حذف کنیم.<br />\n"
@@ -87,7 +88,6 @@ msgstr ""
 msgid "emails.submissionAck.subject"
 msgstr "قدردانی برای ارسال مقاله"
 
-#, fuzzy
 #, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
@@ -192,6 +192,7 @@ msgstr "This email from the Section Editor to a Reviewer requests that the revie
 msgid "emails.reviewCancel.subject"
 msgstr "درخواست لغو کارشناسی"
 
+#, fuzzy
 msgid "emails.reviewCancel.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -655,7 +656,7 @@ msgstr ""
 "{$signature}"
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور برای یادآوری انجام داوری"
 
 msgid "emails.editorDecisionAccept.subject"
@@ -959,16 +960,6 @@ msgstr "ایمیلی از طرف دبیر یا دبیر بخش به داور ب�
 msgid "emails.revisedVersionNotify.subject"
 msgstr "آپلود نسخه اصلاح شده"
 
-msgid "emails.revisedVersionNotify.body"
-msgstr ""
-"دبیر محترم:<br />\n"
-"<br />\n"
-"نسخه اصلاح شده مقاله &quot;{$submissionTitle}&quot; توسط {$submitterName} در سامانه آپلود شد..<br />\n"
-"<br />\n"
-"لینک مقاله: {$submissionUrl}<br />\n"
-"<br />\n"
-"{$signature}"
-
 msgid "mailable.revisedVersionNotify.description"
 msgstr "ایمیلی که خودکار پس از آپلود نسخه اصلاحی توسط نویسنده  برای دبیر ارسال می شود"
 
@@ -1154,3 +1145,19 @@ msgstr ""
 "در مورد مقاله ارسالی شما (&quot;{$submissionTitle}&quot;) در {$contextName} تصمصم نهایی اتخاذ شده است.<br />\n"
 "<br />\n"
 "تصمیم نهایی: عدم پذیرش"
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "قدردانی برای ارسال مقاله"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"با سلام,<br />\n"
+"<br />\n"
+"مقاله {$submitterName} مقاله &quot;{$submissionTitle}&quot; را به مجله "
+"{$contextName} ارسال نمودند <br />\n"
+"<br />\n"
+"در صورت داشتن هر گونه سوالی با من تماس حاصل فرمایید. از اینکه نتیجه پژوهش "
+"خود را برای این مجله ارسال نمودید، سپاسگذاریم<br />\n"
+"<br />\n"
+"{$contextSignature}"

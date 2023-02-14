@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Obrigado pela sua submissão a {$contextName}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName},<br />\n"
@@ -190,3 +189,17 @@ msgstr "Uma mensagem relativa {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Escreva a sua mensagem."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Confirmação da submissão"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Caro {$recipientName},</p><p>Foi nomeado como coautor da submissão à "
+"{$contextName}. A pessoa que submeteu, {$submitterName} forneceu os "
+"seguintes detalhes:</p><p>{$submissionTitle}<br>{$authorsWithAffiliation}</"
+"p><p> Se alguma destas informações estiver incorreta, ou desejar ser "
+"designado para esta submissão, entre em contacto connosco.</p><p>Agradecemos "
+"a escolhada da nossa revista para publicar o seu trabalho.</p><br /"
+"><p>Atentamente,</p>{$contextSignature}"

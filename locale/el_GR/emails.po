@@ -18,7 +18,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Επιβεβαίωση υποβολής"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -163,3 +162,20 @@ msgstr "Ένα μήνυμα σχετικά με το περιοδικό {$contex
 
 msgid "emails.discussion.body"
 msgstr "Παρακαλούμε εισάγετε το μήνυμά σας."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Επιβεβαίωση υποβολής"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Αγαπητέ/η<br />\n"
+"<br />\n"
+"Ο/Η {$submitterName} έχει υποβάλει την εργασία &quot;{$submissionTitle}"
+"&quot; στο περιοδικό {$contextName}. <br />\n"
+"<br />\n"
+"Εάν έχετε ερωτήσεις, παρακαλούμε επικοινωνήστε μαζί μας. Σας ευχαριστούμε "
+"που θεωρήσατε το περιοδικό μας κατάλληλο για δημοσίευση της εργασίας σας."
+"<br />\n"
+"<br />\n"
+"{$contextSignature}"

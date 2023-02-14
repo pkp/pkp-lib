@@ -2850,7 +2850,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Påmindelse om bedømmelse (automatisk)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Denne e-mail sendes af en redaktør for at påminde en bedømmer om at "
 "vedkommendes bedømmelse skulle have været afleveret"

@@ -2523,7 +2523,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "تذكير التحكيم (مؤتمت)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "هذا البريد الالكتروني يُرسل من قبل المحرر لتذكير المحكم باستيجاب موعد تسليم "
 "التحكيم"

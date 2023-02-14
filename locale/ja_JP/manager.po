@@ -2085,7 +2085,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "このメールは、査読者からセクション編集者に査読依頼を受けることができない旨を通知するものです。"
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "このメールは、セクション編集者から査読者に査読期限日が過ぎたことを督促するものです。"
 
 #, fuzzy
@@ -2126,13 +2126,11 @@ msgid "mailable.reviewerRegister.description"
 msgstr "このメールは新規に登録された査読者に送付され、ユーザー名とパスワードが通知されます。"
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "このメールは（設定で有効になっていれば）著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。メールでは、投稿物の処理状況を追跡できる"
 "ことを伝える同時に、著者に投稿に対するお礼をしています。"
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "このメールは（設定で有効になっていれば）OJSに登録していない著者がこの雑誌への投稿プロセスを終了した時に、自動的に送信されるものです。"

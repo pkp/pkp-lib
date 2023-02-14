@@ -18,7 +18,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Ucapan Terima Kasih"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}: <br />\n"
@@ -174,3 +173,17 @@ msgstr "Mesej mengenai {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Sila masukkan mesej anda."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Pengesahan penyerahan"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Hello {$recipientName},</p><p>Anda telah dinamakan sebagai pengarang "
+"bersama atas penyerahan kepada {$contextName}. Yang menghantar, "
+"{$submitterName} memberikan butiran seperti berikut:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Jika mana-mana butiran ini tidak betul, "
+"atau anda tidak mahu dinamakan pada penyerahan ini, sila hubungi saya.</"
+"p><p> Terima kasih kerana mempertimbangkan jurnal ini sebagai tempat kerja "
+"anda.</p>{$contextSignature}"

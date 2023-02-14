@@ -2377,7 +2377,7 @@ msgstr ""
 "за рецензија е одбиено."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Овој и-меил е испратен од уредник како потсетник до рецензентот дека рокот "
 "за нивната рецензија е достигнат. Овој и-меил се користи кога уредникот "
@@ -2429,7 +2429,6 @@ msgstr ""
 "системот и да им обезбеди запис за нивното корисничко име и лозинка."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Овој и-меил, кога овозможен, автоматски е испратен до авторот кога ќе го "
@@ -2437,7 +2436,6 @@ msgstr ""
 "информации за следење на поднесокот низ процесот на уредување и изразува "
 "благодарност до авторот за поднесокот."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

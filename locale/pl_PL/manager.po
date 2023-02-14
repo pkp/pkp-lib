@@ -2123,7 +2123,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera odrzucenie prośby o wykonanie recenzji."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera przypomnienie o terminie wykonania recenzji."
 
 #, fuzzy
@@ -2161,7 +2161,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Wiadomość jest wysyłana do nowych recenzentów, celem powitania ich i przesłania danych do logowania."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
@@ -2169,7 +2168,6 @@ msgstr ""
 "redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
 "zgłoszenia."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych autorów, którzy nie posiadają kont w OJS."

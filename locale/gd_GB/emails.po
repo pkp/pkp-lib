@@ -17,7 +17,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Dearbhadh air tagradh"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -184,3 +183,19 @@ msgstr "Teachdaireachd a thaobh {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Cuir a-steach do theachdaireachd."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Dearbhadh air tagradh"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Shin thu,<br />\n"
+"<br />\n"
+"Chuir {$submitterName} an sgrìobhainn “{$submissionTitle}” gu "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Ma tha ceist sam bith agad, cuir fios thugam. Mòran taing airson an t-iris-"
+"leabhar seo a thaghadh mar dhòigh foillseachaidh dha d’ obair.<br />\n"
+"<br />\n"
+"{$contextSignature}"

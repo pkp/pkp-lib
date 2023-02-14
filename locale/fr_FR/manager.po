@@ -2353,7 +2353,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Ce courriel est envoyé par le rapporteur au rédacteur de rubrique en réponse à la demande d'évaluation, pour aviser ce dernier qu'il ne peut effectuer l'évaluation."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Ce courriel est envoyé par le Rédacteur de rubrique pour rappeler à un rapporteur que son évaluation est due."
 
 #, fuzzy
@@ -2390,7 +2390,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Ce courriel est envoyé à un rapporteur nouvellement inscrit, afin de l'accueillir dans le système et lui offrir un enregistrement de son nom d'utilisateur et mot de passe."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Ce courriel, lorsqu'activé, est envoyé automatiquement à un auteur ou une "
@@ -2399,7 +2398,6 @@ msgstr ""
 "soumission à travers le processus éditorial, et remercie l'auteur ou "
 "l'auteure pour sa soumission."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Ce courriel, lorsque activé, est envoyé automatiquement aux autres auteurs, i.e. ceux qui ne sont pas l'utilisateur enregistré faisant la soumission."

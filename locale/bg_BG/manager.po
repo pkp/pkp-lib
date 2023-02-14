@@ -2883,7 +2883,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Напомняне за рецензиране (автоматично)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Този имейл е изпратен от редактор, за да напомни на рецензента, че е изтекло "
 "времето за рецензиране"

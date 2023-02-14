@@ -19,7 +19,6 @@ msgstr ""
 "dõi bài gửi qua quy trình và cảm ơn tác giả đã gửi."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Kính gửi {$recipientName},<br />\n"
@@ -181,3 +180,19 @@ msgstr "Một thông báo liên quan đến {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Vui lòng nhập tin nhắn của bạn."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Xác nhận gửi bài"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Xin chào,<br />\n"
+"<br />\n"
+"{$submitterName} đã nộp bản thảo, &quot;{$submissionTitle}&quot; tới "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Nếu bạn có bất kỳ câu hỏi, xin vui lòng liên hệ với chúng tôi. Cảm ơn bạn đã "
+"coi tạp chí này là công bố nghiên cứu của bạn.<br />\n"
+"<br />\n"
+"{$contextSignature}"

@@ -2245,7 +2245,7 @@ msgstr ""
 "avslått."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Denne e-posten sendes av en redaktør til en fagfelle for å minne om "
 "at fagfellevurderingen ventes ferdigstilt innen fristen."
@@ -2297,7 +2297,6 @@ msgstr ""
 "til systemet og tildele dem brukernavn og passord."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Når denne funksjonen er slått på, sendes denne e-posten automatisk til "
@@ -2305,7 +2304,6 @@ msgstr ""
 "gir informasjon om hvordan innleveringen kan følges gjennom den "
 "redaksjonelle prosessen og takker forfatteren for bidraget."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

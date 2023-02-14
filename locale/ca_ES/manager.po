@@ -2417,7 +2417,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Aquest missatge de correu electrònic té un revisor com a remitent i s'envia a l'editor de secció en resposta a una sol·licitud de revisió per a notificar-li que rebutja encarregar-se d'aquesta tasca."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Aquest missatge de correu electrònic té un editor de secció com a remitent i s'envia a un revisor per a recordar-li que ha superat la data de venciment per a lliurar la revisió."
 
 #, fuzzy
@@ -2458,7 +2458,6 @@ msgid "mailable.reviewerRegister.description"
 msgstr "Aquest missatge de correu electrònic s'envia a un revisor que s'acaba de registrar per a donar-li la benvinguda al sistema i fer-li arribar el seu nom d'usuari i la seva contrasenya."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Si està activat, aquest correu electrònic s'envia automàticament als autors/"
@@ -2466,7 +2465,6 @@ msgstr ""
 "Proporciona informació sobre el seguiment de la tramesa durant el procés "
 "editorial i agraeix a l'autor/a la seva contribució a la revista."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr "Aquest correu electrònic, quan està habilitat, s'envia automàticament als altres autors/ores que no són usuaris/àries a l'OMP especificats durant el procés de tramesa."

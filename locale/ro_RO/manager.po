@@ -2190,7 +2190,7 @@ msgstr ""
 "revizuire a fost respinsă."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Acest email este trimis de un editor pentru a reaminti evaluatorului că "
 "evaluarea sa trebuia trimisă. Acest email este utilizat atunci când un "
@@ -2251,7 +2251,6 @@ msgstr ""
 "parolei."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Acest e-mail, atunci când este activat, este trimis automat unui autor "
@@ -2259,7 +2258,6 @@ msgstr ""
 "Oferă informații despre urmărirea procesului de înregistrare și mulțumește "
 "autorului pentru depunere."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

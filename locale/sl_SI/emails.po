@@ -20,7 +20,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Potrditev oddaje prispevka"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
@@ -173,3 +172,19 @@ msgstr "Sporočilo v zvezi s publikacijo {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Prosimo, vnesite vaše sporočilo."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Potrditev oddaje prispevka"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Spoštovani {$recipientName},<br />\n"
+"<br />\n"
+"{$submitterName} je oddal rokopis &quot;{$submissionTitle}&quot; v revijo "
+"{$contextName}. <br />\n"
+"<br />\n"
+"Če imate kakršnokoli vprašanje, se lahko obrnete name. Hvala, da ste izbrali "
+"našo revijo za objavo vašega dela.<br />\n"
+"<br />\n"
+"{$contextSignature}"

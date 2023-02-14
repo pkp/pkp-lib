@@ -2807,7 +2807,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Վերանայման հիշեցում (ինքնաշխատ դարձված)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "Այս նամակն ուղարկվում է Խմբագրի կողմից՝ գրախոսին հիշեցնելու, որ իր "
 "վերանայումն ենթակա է ավարտվի"

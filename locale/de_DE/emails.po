@@ -19,7 +19,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Eingangsbestätigung"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName},<br />\n"
@@ -167,3 +166,19 @@ msgstr "Eine Nachricht bezüglich {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Bitte geben Sie Ihre Nachricht ein."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Eingangsbestätigung"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Liebe/r Autor/in,<br />\n"
+"<br />\n"
+"{$submitterName} hat das Manuskript &quot;{$submissionTitle}&quot; bei "
+"{$contextName} eingereicht. <br />\n"
+"<br />\n"
+"Für weitere Fragen stehen wir Ihnen gern zur Verfügung. Danke für Ihr "
+"Interesse an einer Veröffentlichung in unserer Zeitschrift.<br />\n"
+"<br />\n"
+"{$contextSignature}"

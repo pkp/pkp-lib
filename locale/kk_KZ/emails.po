@@ -21,7 +21,6 @@ msgstr ""
 "үшін авторға алғыс айтылады."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "Сәлеметсіз бе {$recipientName}! <br />\n"
@@ -226,3 +225,19 @@ msgstr "«{$contextName}» журнал хабарламасы"
 
 msgid "emails.discussion.body"
 msgstr "Хабарламаңызды енгізіңіз."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Жіберуді растау"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"Сәлем!<br />\n"
+"<br />\n"
+"{$submitterName} пайдаланушысы «{$submissionTitle}» материалын "
+"«{$contextName}» журналына жіберді.<br />\n"
+"<br />\n"
+"Егер сізде сұрақтар туындаса, маған хабарласыңыз. Шығармаңызды жариялау үшін "
+"біздің журналды таңдағаныңызға рахмет.<br />\n"
+"<br />\n"
+"{$contextSignature}"

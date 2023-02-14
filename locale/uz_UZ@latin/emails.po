@@ -21,7 +21,6 @@ msgstr ""
 "kuzatib borish haqida ma'lumot beradi va muallifga rahmat."
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Hurmatli {$recipientName},</p><p>{$contextName} ga yuborganingiz uchun "
@@ -176,3 +175,18 @@ msgstr "{$ ContextName} haqida xabar"
 
 msgid "emails.discussion.body"
 msgstr "Xabaringizni kiriting."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Taqdim etishni tasdiqlash"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Hurmatli {$recipientName},</p><p>Siz {$contextName} ga yuborilgan xabarda "
+"hammuallif sifatida nom oldingiz. Yuboruvchi {$submitterName} quyidagi "
+"ma’lumotlarni taqdim etdi:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Agar bu ma’lumotlardan birortasi "
+"noto‘g‘ri bo‘lsa yoki siz noto‘g‘ri bo‘lsangiz ushbu arizada o‘z nomini "
+"qo‘shishni istasangiz, men bilan bog‘laning.</p><p>Ushbu jurnalni ish "
+"joyingiz sifatida ko‘rganingiz uchun tashakkur.</p><p>Hurmat bilan,</"
+"p>{$contextSignature}"

@@ -2672,7 +2672,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Opomnik za recenzijo (avtomatski)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr "Ta email pošlje urednik, da opomni recenzenta, da opravi recenzijo"
 
 msgid "mailable.reviewRemind.name"

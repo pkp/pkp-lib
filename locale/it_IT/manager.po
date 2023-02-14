@@ -2260,7 +2260,7 @@ msgid "mailable.reviewDecline.description"
 msgstr "Questa email viene mandata dal revisore al section editor in risposta a una richiesta di revisione per far sapere a quest'ultimo che la richiesta è stata declinata."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr "Questa email viene mandata da un editor per ricordare al revisore che è attesa la revisione."
 
 #, fuzzy
@@ -2350,7 +2350,6 @@ msgstr ""
 "la prima volta, inviandogli username e password."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "Questa email, quando è abilitata, viene inviata automaticamente all'autore "
@@ -2358,7 +2357,6 @@ msgstr ""
 "manoscritto. Fornisce informazioni su come tracciare il manoscritto e "
 "ringrazia l'autore per la proposta."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

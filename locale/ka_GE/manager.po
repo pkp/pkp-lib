@@ -2564,7 +2564,8 @@ msgstr ""
 msgid "mailable.reviewRemindAuto.name"
 msgstr "მიმოხილვის შეხსენება (ავტომატური)"
 
-msgid "mailable.reviewRemind.description"
+#, fuzzy
+msgid "emails.reviewRemind.body"
 msgstr ""
 "ეს ელფოსტა იგზავნება რედაქტორის მიერ, რათა შეახსენოს მიმომხილველს, რომ მათი "
 "განხილვა დასრულებულია"
@@ -2897,7 +2898,6 @@ msgstr ""
 "და ატყობინებს მას მომხმარებლის სახელსა და პაროლს, საიტზე წვდომისათვის."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "ეს წერილი (თუ ეს შესაძლებლობა ჩართულია) ავტომატურად გაეგზავნება ავტორს, "
@@ -2905,7 +2905,6 @@ msgstr ""
 "მოცემულია ინფორმაცია მასალების გავლის შესახებ სარედაქციო პროცესში და "
 "სამადლობელო სიტყვები გამოგზავნილი მასალების შესახებ."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

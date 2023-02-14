@@ -21,7 +21,6 @@ msgid "emails.submissionAck.subject"
 msgstr "Obrigado pela submissão para {$contextName}"
 
 #, fuzzy
-#, fuzzy
 msgid "emails.submissionAck.body"
 msgstr ""
 "<p>Prezado(a) {$recipientName},</p>\n"
@@ -195,3 +194,19 @@ msgstr ""
 "Quando habilitada, esta mensagem é enviado automaticamente para os autores "
 "informados durante o processo de submissão, que não seja o autor que está "
 "submetendo o manuscrito."
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Confirmação de submissão"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Prezado(a) {$recipientName},</p>\n"
+"<br />\n"
+"<p>Você foi designado coautor em uma submissão ao periódico {$contextName}. "
+"O remetente, {$submitterName}, forneceu os seguintes detalhes:</"
+"p><p>{$submissionTitle}<br />{$authorsWithAffiliation}</p><p>Se algum desses "
+"detalhes estiver incorreto ou você não deseja ser designado nesta submissão, "
+"entre em contato conosco.</p><p>Agradecemos por considerar este periódico "
+"para publicar o seu trabalho.</p><br /><p>Atenciosamente,</"
+"p>{$contextSignature}"

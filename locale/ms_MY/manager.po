@@ -2314,7 +2314,7 @@ msgstr ""
 "ulasan telah ditolak."
 
 #, fuzzy
-msgid "mailable.reviewRemind.description"
+msgid "emails.reviewRemind.body"
 msgstr ""
 "E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas bahawa "
 "ulasan tamat."
@@ -2373,7 +2373,6 @@ msgstr ""
 "laluan mereka."
 
 #, fuzzy
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
 "E-mel ini, apabila didayakan, secara automatik dikirimkan kepada pengarang "
@@ -2381,7 +2380,6 @@ msgstr ""
 "memberikan maklumat tentang mengesan penyerahan melalui proses dan berterima "
 "kasih pengarang atas penyerahannya."
 
-#, fuzzy
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""

@@ -18,3 +18,10 @@ msgstr "有關{$contextName}的訊息"
 
 msgid "emails.discussion.body"
 msgstr "請輸入您的訊息。"
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "投稿確認"
+
+#, fuzzy
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""

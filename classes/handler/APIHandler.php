@@ -196,10 +196,9 @@ class APIHandler extends PKPHandler
      * Compiles the URI path pattern from the context, api version and the
      * unique string for the this handler.
      *
-     * @param  bool  $contextualApi
      * @return string
      */
-    public function getEndpointPattern(bool $contextualApi = true)
+    public function getEndpointPattern()
     {
         if (isset($this->_pathPattern)) {
             return $this->_pathPattern;
@@ -210,7 +209,7 @@ class APIHandler extends PKPHandler
             return $this->_pathPattern;
         }
 
-        $this->_pathPattern = '/' . ($contextualApi ? '{contextPath}' : self::ADMIN_API_PREFIX) . '/api/{version}/' . $this->_handlerPath;
+        $this->_pathPattern = '/{contextPath}/api/{version}/' . $this->_handlerPath;
         return $this->_pathPattern;
     }
 

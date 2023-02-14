@@ -40,66 +40,80 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
             if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
                 $settingsValues = DB::table($settingsTable)
-                    ->select([$settingsTableIdColumn, 'locale', 'setting_name'])
+                    ->select([$settingsTableIdColumn, 'locale', 'setting_name', 'setting_value'])
                     ->get();
                 
                 foreach ($settingsValues as $settingsValue) {
-                    $updatedLocaleRet = $this->getUpdatedLocale($settingsValue->locale);
+                    $stillExists = DB::table($settingsTable)
+                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                        ->where('setting_name', '=', $settingsValue->setting_name)
+                        ->where('locale', '=', $settingsValue->locale)
+                        ->exists();
+                    
+                    // if it does not exist we should do nothing
+                    if ($stillExists) {
+                        $updatedLocaleRet = $this->getUpdatedLocale($settingsValue->locale);
 
-                    if (!is_null($updatedLocaleRet)) {
-                        $updatedLocale = $updatedLocaleRet->keys()->first();
-                        $defaultLocale = $updatedLocaleRet[$updatedLocale];
+                        // if this is null we should do nothing - we are not handling this locale
+                        if (!is_null($updatedLocaleRet)) {
+                            $updatedLocale = $updatedLocaleRet->keys()->first();
+                            $defaultLocale = $updatedLocaleRet[$updatedLocale];
 
-                        if (!is_null($defaultLocale)) {
-                            if ($defaultLocale == $settingsValue->locale) {
-                                DB::table($settingsTable)
+                            // if the updatedLocale is the same as the setting's locale we should do nothing
+                            if ($updatedLocale != $settingsValue->locale) {
+                                
+                                // Check if the database already has an updated locale with the same value -
+                                $hasAlreadyExistingUpdatedLocale = DB::table($settingsTable)
                                     ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
                                     ->where('setting_name', '=', $settingsValue->setting_name)
-                                    ->where('locale', '=', $settingsValue->locale)
-                                    ->update(['locale' => $updatedLocale]);
-                            } else {
-                                $existingDefaultLocaleValue = $settingsValues
-                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
-                                    ->where('setting_name', '=', $settingsValue->setting_name)
-                                    ->where('locale', '=', $defaultLocale)
-                                    ->first();
-
-                                if (is_null($existingDefaultLocaleValue)) {
-                                    DB::table($settingsTable)
-                                        ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
-                                        ->where('setting_name', '=', $settingsValue->setting_name)
-                                        ->where('locale', '=', $settingsValue->locale)
-                                        ->update(['locale' => $updatedLocale]);
-                                } else {
+                                    ->where('locale', '=', $updatedLocale)
+                                    ->where('setting_value', '=', $settingsValue->setting_value)
+                                    ->exists();
+                                
+                                // if so, it is safe to delete the currently processed value.
+                                if ($hasAlreadyExistingUpdatedLocale) {
                                     DB::table($settingsTable)
                                         ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
                                         ->where('setting_name', '=', $settingsValue->setting_name)
                                         ->where('locale', '=', $settingsValue->locale)
                                         ->delete();
+                                } else {
+                                    // If we are managing the defaultLocale then we can update the value to the $updatedLocale
+                                    if ($defaultLocale == $settingsValue->locale) {
+                                        DB::table($settingsTable)
+                                            ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                            ->where('setting_name', '=', $settingsValue->setting_name)
+                                            ->where('locale', '=', $settingsValue->locale)
+                                            ->update(['locale' => $updatedLocale]);
+                                    } else {
+                                        // If we are not managing the defaultLocale
+
+                                        // we must first check if there is the default locale in the dataset
+                                        $hasExistingDefaultLocale = $settingsValues
+                                            ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                            ->where('setting_name', '=', $settingsValue->setting_name)
+                                            ->where('locale', '=', $defaultLocale)
+                                            ->exists();
+
+                                        // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
+                                        if (!$hasExistingDefaultLocale) {
+                                            DB::table($settingsTable)
+                                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                                ->where('setting_name', '=', $settingsValue->setting_name)
+                                                ->where('locale', '=', $settingsValue->locale)
+                                                ->update(['locale' => $updatedLocale]);
+                                        } else {
+                                            // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
+                                            DB::table($settingsTable)
+                                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
+                                                ->where('setting_name', '=', $settingsValue->setting_name)
+                                                ->where('locale', '=', $settingsValue->locale)
+                                                ->delete();
+                                        }
+                                    }
                                 }
                             }
-                        } else {
-                            $existingDefaultLocaleValue = $settingsValues
-                                ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
-                                ->where('setting_name', '=', $settingsValue->setting_name)
-                                ->where('locale', '=', $updatedLocale)
-                                ->first();
-                            
-                            if (is_null($existingDefaultLocaleValue)) {
-                                DB::table($settingsTable)
-                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
-                                    ->where('setting_name', '=', $settingsValue->setting_name)
-                                    ->where('locale', '=', $settingsValue->locale)
-                                    ->update(['locale' => $updatedLocale]);
-                            } else {
-                                DB::table($settingsTable)
-                                    ->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn})
-                                    ->where('setting_name', '=', $settingsValue->setting_name)
-                                    ->where('locale', '=', $settingsValue->locale)
-                                    ->delete();
-                            }
                         }
-                        
                     }
                 }
             }
@@ -295,100 +309,97 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData) 
     {
-        $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
+        $stillExists = DB::table($table)
+            ->where('email_key', '=', $email_key)
+            ->where('locale', '=', $localevalue)
+            ->exists();
+        
+        if ($stillExists) {
+            $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
-        if (!is_null($updatedLocaleRet)) {
-            $updatedLocale = $updatedLocaleRet->keys()->first();
-            $defaultLocale = $updatedLocaleRet[$updatedLocale];
+            // if this is null we should do nothing - we are not handling this locale
+            if (!is_null($updatedLocaleRet)) {
+                $updatedLocale = $updatedLocaleRet->keys()->first();
+                $defaultLocale = $updatedLocaleRet[$updatedLocale];
 
-            if (!is_null($defaultLocale)) {
-                DB::table($table)
-                    ->where('email_key', '=', $email_key)
-                    ->where('locale', '=', $localevalue)
-                    ->where('subject', '')
-                    ->where('body', '')
-                    ->delete();
-
-                if ($defaultLocale == $localevalue) {
-                    DB::table($table)
+                // if the updatedLocale is the same as the setting's locale we should do nothing
+                if ($updatedLocale != $localevalue) {
+                    // Check if the database already has an updated locale with the same value -
+                    $hasAlreadyExistingUpdatedLocale = DB::table($table)
                         ->where('email_key', '=', $email_key)
-                        ->where('locale', '=', $localevalue)
-                        ->update(['locale' => $updatedLocale]);
-                } else {
-                    $existingDefaultLocaleValue = $allEmailTemplateData
-                        ->where('email_key', '=', $email_key)
-                        ->where('locale', '=', $defaultLocale)
-                        ->first();
+                        ->where('locale', '=', $updatedLocale)
+                        ->exists();
                     
-                    if (is_null($existingDefaultLocaleValue)) {
-                        DB::table($table)
-                            ->where('email_key', '=', $email_key)
-                            ->where('locale', '=', $localevalue)
-                            ->update(['locale' => $updatedLocale]);
-                    } else {
+                    // if so, it is safe to delete the currently processed value.
+                    if ($hasAlreadyExistingUpdatedLocale) {
                         DB::table($table)
                             ->where('email_key', '=', $email_key)
                             ->where('locale', '=', $localevalue)
                             ->delete();
+                    } else {
+                        // If we are managing the defaultLocale then we can update the value to the $updatedLocale
+                        if ($defaultLocale == $localevalue) {
+                            DB::table($table)
+                                ->where('email_key', '=', $email_key)
+                                ->where('locale', '=', $localevalue)
+                                ->update(['locale' => $updatedLocale]);
+                        } else {
+                            // If we are not managing the defaultLocale
+
+                            // we must first check if there is the default locale in the dataset
+                            $hasExistingDefaultLocale = $allEmailTemplateData
+                                ->where('email_key', '=', $email_key)
+                                ->where('locale', '=', $defaultLocale)
+                                ->exists();
+
+                            // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
+                            if (!$hasExistingDefaultLocale) {
+                                DB::table($table)
+                                    ->where('email_key', '=', $email_key)
+                                    ->where('locale', '=', $localevalue)
+                                    ->update(['locale' => $updatedLocale]);
+                            } else {
+                                // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
+                                DB::table($table)
+                                    ->where('email_key', '=', $email_key)
+                                    ->where('locale', '=', $localevalue)
+                                    ->delete();
+                            }
+                        }
                     }
-                }
-            } else {
-                $existingDefaultLocaleValue = $allEmailTemplateData
-                    ->where('email_key', '=', $email_key)
-                    ->where('locale', '=', $updatedLocale)
-                    ->first();
-                
-                if (is_null($existingDefaultLocaleValue)) {
-                    DB::table($table)
-                        ->where('email_key', '=', $email_key)
-                        ->where('locale', '=', $localevalue)
-                        ->update(['locale' => $updatedLocale]);
-                } else {
-                    DB::table($table)
-                        ->where('email_key', '=', $email_key)
-                        ->where('locale', '=', $localevalue)
-                        ->delete();
                 }
             }
         }
     }
 
+    /**
+     * Returns null if no conversion is available or 
+     * a key value pair collection that the key is the output locale and the value is the defaultLocale.
+     */ 
     function getUpdatedLocale(string $localeValue) : ?Collection 
     {
         $affectedLocales = $this->getAffectedLocales();
 
-        // In case there is an explicit transformation from code_XX to code_CC 
-        if ($affectedLocales->keys()->contains($localeValue)) {
-            if ($affectedLocales->get($localeValue) instanceof Collection) {
-                // The first locale is going to be the default one
-                $defaultLocale = $affectedLocales->get($localeValue)->first();
+        $localeCode = substr($localeValue, 0, 2);
 
-                // return a collection of the specific transformation as key and the default locale as value
-                return collect(["${localeValue}" => "${defaultLocale}"]);
-            } else {
-                return collect([$affectedLocales->get($localeValue) => null]);
+        if ($affectedLocales->keys()->contains($localeValue) || $affectedLocales->keys()->contains($localeCode)) {
+            $localeTransformation = $affectedLocales->get($localeValue);
+            if (is_null($localeTransformation)) {
+                $localeTransformation = $affectedLocales->get($localeCode);
             }
-            
-        } else { //in case there is not an explixit transformation from code_XX to code_CC 
-            // find the two letter locale code
-            $localeCode = substr($localeValue, 0, 2);
 
-            // if this locale code is affected
-            if ($affectedLocales->keys()->contains($localeCode)) {
-                // check if it will affect all code_XX locales
-                if ($affectedLocales->get($localeCode) instanceof Collection) {
-                    // The first locale is going to be the default one
-                    $defaultLocale = $affectedLocales->get($localeCode)->first();
+            if ($localeTransformation instanceof Collection) {
+                $defaultLocale = $affectedLocales->get($localeCode)->first();
 
-                    // Check for cases like code_XX@latin
-                    $extension = "";
-                    if (strpos($localeValue, '@') !== false) {
-                        $extension = substr($localeValue, strpos($localeValue, '@'));
-                    }
-
-                    // return a collection of the specific transformation as key and the default locale as value
-                    return collect(["${localeCode}${extension}" => "${defaultLocale}${extension}"]);
+                // Check for cases like code_XX@latin
+                $extension = "";
+                if (strpos($localeValue, '@') !== false) {
+                    $extension = substr($localeValue, strpos($localeValue, '@'));
                 }
+
+                return collect(["${localeCode}${extension}" => "${defaultLocale}${extension}"]);
+            } else {
+                return collect([$localeTransformation => $localeTransformation]);
             }
         }
 
@@ -405,7 +416,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         throw new DowngradeNotSupportedException();
     }
 
-    protected function getSettingsTables(): Collection
+    protected static function getSettingsTables(): Collection
     {
         return collect([
             'announcement_settings' => 'announcement_id',
@@ -491,7 +502,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'vi' => collect(['vi_VN']),
             'eu' => collect(['eu_ES']),
             'sw' => collect(['sw_KE']),
-            // 'zh_TW' => 'zh_Hant'
+            'zh_TW' => 'zh_Hant'
         ]);
     }
 }

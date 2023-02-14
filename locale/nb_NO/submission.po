@@ -1607,10 +1607,10 @@ msgstr "Bidragsytere"
 msgid "publication.citations.success"
 msgstr "Referansene har blitt oppdatert."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Underkategorier"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Ingenting er publisert i denne kategorien ennå."
 
 msgid "submission.currentCoverImage"

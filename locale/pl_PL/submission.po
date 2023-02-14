@@ -1651,10 +1651,10 @@ msgstr "Kategorie"
 msgid "submission.currentCoverImage"
 msgstr "Obecny obraz"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Nic nie zostało dotychczas opublikowane w tej kategorii."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subkategorie"
 
 msgid "submission.event.fileEdited"

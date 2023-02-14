@@ -1793,10 +1793,10 @@ msgstr "Contributeurs(-trices)"
 msgid "publication.citations.success"
 msgstr "Les références ont été mises à jour."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Sous-catégories"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Rien n'a encore été publié dans cette catégorie."
 
 msgid "submission.currentCoverImage"

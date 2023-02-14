@@ -46,6 +46,16 @@ class PKPSection extends \PKP\core\DataObject
         $this->setData('contextId', $contextId);
     }
 
+    public function getUrlPath(): string
+    {
+        return $this->getData('urlPath');
+    }
+
+    public function setUrlPath(string $urlPath): void
+    {
+        $this->setData('urlPath', $urlPath);
+    }
+
     public function getSequence(): float
     {
         return $this->getData('sequence');
@@ -70,6 +80,21 @@ class PKPSection extends \PKP\core\DataObject
     public function setTitle(string|array $title, string $locale = null): void
     {
         $this->setData('title', $title, $locale);
+    }
+
+    public function getLocalizedDescription(): ?string
+    {
+        return $this->getLocalizedData('description');
+    }
+
+    public function getDescription(?string $locale): string|array|null
+    {
+        return $this->getData('description', $locale);
+    }
+
+    public function setDescription(string|array $description, string $locale = null): void
+    {
+        $this->setData('description', $description, $locale);
     }
 
     /**

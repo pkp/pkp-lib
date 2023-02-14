@@ -1648,10 +1648,10 @@ msgstr "Kategorier"
 msgid "submission.currentCoverImage"
 msgstr "Nyeste billede"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Intet er endnu blevet offentliggjort i denne kategori."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Underkategorier"
 
 msgid "publication.wordCount"

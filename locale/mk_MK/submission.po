@@ -1901,10 +1901,10 @@ msgstr "Создади нова верзија"
 msgid "publication.contributors"
 msgstr "Соработници"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Подкатегории"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Нема објави во оваа категорија досега."
 
 msgid "submission.currentCoverImage"

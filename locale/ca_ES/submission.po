@@ -1444,10 +1444,10 @@ msgstr "Col·laboradors/ores"
 msgid "publication.citations.success"
 msgstr "Les referències s'han actualitzat."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategories"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Encara no s'ha publicat res en aquesta categoria."
 
 msgid "category.coverImage"

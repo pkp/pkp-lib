@@ -1762,10 +1762,10 @@ msgstr "Категории"
 msgid "submission.currentCoverImage"
 msgstr "Текущее изображение"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "В этой категории пока ничего не опубликовано."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Подкатегории"
 
 msgid "publication.contributors"

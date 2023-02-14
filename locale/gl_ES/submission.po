@@ -1915,10 +1915,10 @@ msgstr "Crear unha nova versión"
 msgid "publication.contributors"
 msgstr "Colaboradores/as"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategorías"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Aínda non se publicou nada nesta categoría."
 
 msgid "submission.currentCoverImage"

@@ -2494,6 +2494,12 @@ msgstr "Please enter a category name."
 msgid "grid.category.categoryDetails"
 msgstr "Category Details"
 
+msgid "grid.section.urlPathAlphaNumeric"
+msgstr "The url path must consist of only letters and numbers."
+
+msgid "grid.section.urlPathExists"
+msgstr "The url path already exists. Please enter a unique path."
+
 msgid "stats.allUsers"
 msgstr "All Users"
 

@@ -1732,10 +1732,10 @@ msgstr "Tekijät"
 msgid "publication.citations.success"
 msgstr "Viitteet on päivitetty."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Alakategoriat"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Tässä kategoriassa ei ole vielä julkaistu mitään."
 
 msgid "submission.list.daysSinceLastActivity"

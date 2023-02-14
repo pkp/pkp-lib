@@ -1900,10 +1900,10 @@ msgstr "Categorias"
 msgid "submission.currentCoverImage"
 msgstr "Imagem atual"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Sem publicações para esta categoria no momento."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategorias"
 
 msgid "catalog.browseTitles"

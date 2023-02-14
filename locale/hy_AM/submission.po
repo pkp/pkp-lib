@@ -1724,10 +1724,10 @@ msgstr "Ստեոծեք նոր տարբերակ"
 msgid "publication.contributors"
 msgstr "Աջակիցներ"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Ենթադասեր"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Այս դասում դեռ ոչինչ չի հրապարակվել։"
 
 msgid "submission.currentCoverImage"

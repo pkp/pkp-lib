@@ -1202,10 +1202,10 @@ msgstr "新しいバージョンを作成"
 msgid "publication.contributors"
 msgstr "寄稿者"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "サブカテゴリー"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "このカテゴリーにはまだ何も公開されていません。"
 
 msgid "submission.currentCoverImage"

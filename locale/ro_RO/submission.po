@@ -611,10 +611,10 @@ msgstr "Categorii"
 msgid "submission.currentCoverImage"
 msgstr "Imagine curentă"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Nu a fost publicat încă nimic în această categorie."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategorii"
 
 msgid "publication.citations.success"

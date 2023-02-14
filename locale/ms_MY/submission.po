@@ -24,10 +24,10 @@ msgstr "Cipta Versi Baharu"
 msgid "publication.contributors"
 msgstr "Penyumbang"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subkategori"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Tiada apa-apa lagi yang diterbitkan dalam kategori ini."
 
 msgid "submission.currentCoverImage"

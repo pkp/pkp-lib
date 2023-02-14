@@ -952,10 +952,10 @@ msgstr "Συντελεστές"
 msgid "publication.citations.success"
 msgstr "Οι αναφορές ενημερώθηκαν."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Υποκατηγορίες"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Τίποτα δεν έχει δημοσιευτεί ακόμη σε αυτήν την κατηγορία."
 
 msgid "category.coverImage"

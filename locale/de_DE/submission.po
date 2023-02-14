@@ -1664,10 +1664,10 @@ msgstr "Erstelle eine neue Version"
 msgid "publication.contributors"
 msgstr "Beitragende"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Unterkategorien"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "In dieser Kategorie wurde noch nichts veröffentlicht."
 
 msgid "submission.list.reviewCancelled"

@@ -1680,10 +1680,10 @@ msgstr "Catégories"
 msgid "submission.currentCoverImage"
 msgstr "Image actuelle"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Rien n'a encore été publié dans cette catégorie."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Sous-categories"
 
 #, fuzzy

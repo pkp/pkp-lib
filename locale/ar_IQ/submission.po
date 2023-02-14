@@ -1738,10 +1738,10 @@ msgstr "الفئات"
 msgid "submission.currentCoverImage"
 msgstr "الصورة الحالية"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "لم يتم نشر أي شيء من هذه الفئة بعد."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "الفئات الفرعية"
 
 msgid "publication.contributors"

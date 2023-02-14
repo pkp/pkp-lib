@@ -1684,10 +1684,10 @@ msgstr "Katkıda Bulunanlar"
 msgid "publication.citations.success"
 msgstr "Referanslar güncellendi."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Alt Kategoriler"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Bu kategoride henüz hiçbir şey yayınlanmadı."
 
 msgid "submission.currentCoverImage"

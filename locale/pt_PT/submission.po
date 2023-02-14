@@ -1734,10 +1734,10 @@ msgstr "Criar Nova Versão"
 msgid "publication.contributors"
 msgstr "Contribuidores"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategorias"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Esta categoria ainda não tem publicações."
 
 msgid "submission.currentCoverImage"

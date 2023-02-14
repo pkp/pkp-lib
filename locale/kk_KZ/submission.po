@@ -2336,10 +2336,10 @@ msgstr "Жаңа нұсқа жасаңыз"
 msgid "publication.contributors"
 msgstr "Авторлар"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Ішкі категориялар"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Бұл категорияда әлі ештеңе жарияланған жоқ."
 
 msgid "submission.currentCoverImage"

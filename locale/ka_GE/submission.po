@@ -141,7 +141,7 @@ msgstr "ყდის სურათი"
 msgid "submission.submit.placement.categories"
 msgstr "კატეგორიები"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "ქვეკატეგორიები"
 
 msgid "publication.contributors"
@@ -319,7 +319,7 @@ msgstr "გამოქვეყნების თარიღი (ჯერ �
 msgid "catalog.sortBy.datePublishedDesc"
 msgstr "გამოქვეყნების თარიღი (ჯერ უფრო ახალი)"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "ამ განყოფილებაში ჯერ არაფერი გამოქვეყნებულა."
 
 msgid "submissions.noSubmissions"

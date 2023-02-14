@@ -1792,10 +1792,10 @@ msgstr "Người đóng góp"
 msgid "publication.citations.success"
 msgstr "Các tài liệu tham khảo đã được cập nhật."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Các thể loại phụ"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Chưa có gì được xuất bản trong danh mục này."
 
 msgid "submission.currentCoverImage"

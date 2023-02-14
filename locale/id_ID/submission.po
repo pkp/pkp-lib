@@ -932,10 +932,10 @@ msgstr "Buat Versi Baru"
 msgid "publication.contributors"
 msgstr "Kontributor"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subkategori"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Belum ada yang diterbitkan dalam kategori ini."
 
 msgid "submission.currentCoverImage"

@@ -1840,7 +1840,7 @@ msgstr "Beküldés mint"
 msgid "submission.citations.description"
 msgstr "Minden hivatkozást új sorba írjon be, hogy az másolható maradjon."
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Ebben a kategóriában még nincs cikk publikálva."
 
 msgid "submission.list.assignEditor"
@@ -1858,7 +1858,7 @@ msgstr "Ehhez  beküldéshez több szerepkörben került hozzárendelésre. Vál
 msgid "submission.currentCoverImage"
 msgstr "Jelenlegi kép"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Alkategóriák"
 
 msgid "editor.submission.roundStatus.resubmitForReview"

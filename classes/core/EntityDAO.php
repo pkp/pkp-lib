@@ -79,7 +79,6 @@ abstract class EntityDAO
     public function fromRow(object $row): DataObject
     {
         $schema = $this->schemaService->get($this->schema);
-
         $object = $this->newDataObject();
 
         foreach ($this->primaryTableColumns as $propName => $column) {

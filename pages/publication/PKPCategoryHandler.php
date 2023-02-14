@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @file pages/catalog/PKPCatalogHandler.php
+ * @file pages/publication/PKPCategoryHandler.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPCatalogHandler
- * @ingroup pages_catalog
+ * @class PKPCategoryHandler
+ * @ingroup pages_publication
  *
- * @brief Handle requests for the public-facing catalog.
+ * @brief Handle requests for the public-facing category listing.
  */
 
-namespace PKP\pages\catalog;
+namespace PKP\pages\publication;
 
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -24,7 +24,7 @@ use PKP\config\Config;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 
-class PKPCatalogHandler extends Handler
+class PKPCategoryHandler extends Handler
 {
     //
     // Overridden methods from Handler
@@ -52,19 +52,41 @@ class PKPCatalogHandler extends Handler
      */
     public function category($args, $request)
     {
-        $page = isset($args[1]) ? (int) $args[1] : 1;
         $templateMgr = TemplateManager::getManager($request);
         $context = $request->getContext();
+        $categoryPath = empty($args) ? '' : array_shift($args);
+        $subPath = empty($args) ? '' : array_shift($args);
+        $page = 0;
+
+        if ($subPath !== 'page') {
+            $subCategoryPath = $subPath;
+        }
+        if ($subPath === 'page') {
+            $page = (int) array_shift($args);
+        }
 
         // Get the category
-        $category = Repo::category()->getCollector()
-            ->filterByPaths([$args[0]])
-            ->filterByContextIds([$context->getId()])
-            ->getMany()
-            ->first();
+        $parentCategory = Repo::category()->getCollector()
+                ->filterByPaths([$categoryPath])
+                ->filterByContextIds([$context->getId()])
+                ->getMany()
+                ->first();
 
-        if (!$category) {
-            $this->getDispatcher()->handle404();
+        // If subcategory exists, fetch that as well
+        if ($subCategoryPath){
+            $category = Repo::category()->getCollector()
+                    ->filterByPaths([$subCategoryPath])
+                    ->filterByContextIds([$context->getId()])
+                    ->getMany()
+                    ->first();
+            if (!$category || !$parentCategory || $category->getParentId() != $parentCategory->getId()) {
+                $this->getDispatcher()->handle404();
+            }
+        } else {
+            $category = $parentCategory;
+            if (!$category) {
+                $this->getDispatcher()->handle404();
+            }
         }
 
         $this->setupTemplate($request);
@@ -74,10 +96,22 @@ class PKPCatalogHandler extends Handler
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
         $offset = $page > 1 ? ($page - 1) * $count : 0;
 
+        // Provide the parent category and a list of subcategories
+        $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;
+        $subcategories = Repo::category()->getCollector()
+            ->filterByParentIds([$category->getId()])
+            ->getMany();
+
+        // Get category id's for parent and subcategories
+        $categoryIds[] = $category->getId();
+        foreach ($subcategories as $subcategory) {
+            $categoryIds[] = $subcategory->getId();
+        }
+
         $collector = Repo::submission()
             ->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->filterByCategoryIds([$category->getId()])
+            ->filterByCategoryIds($categoryIds)
             ->filterByStatus([Submission::STATUS_PUBLISHED])
             ->orderBy($orderBy, $orderDir === SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
 
@@ -89,22 +123,19 @@ class PKPCatalogHandler extends Handler
         $total = $collector->getCount();
         $submissions = $collector->limit($count)->offset($offset)->getMany();
 
-        // Provide the parent category and a list of subcategories
-        $parentCategory = $category->getParentId() ? Repo::category()->get($category->getParentId()) : null;
-        $subcategories = Repo::category()->getCollector()
-            ->filterByParentIds([$category->getId()])
-            ->getMany();
-
         $this->_setupPaginationTemplate($request, count($submissions), $page, $count, $offset, $total);
 
+        $authorUserGroups = Repo::userGroup()->getCollector()->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])->getMany();
+
         $templateMgr->assign([
+            'authorUserGroups' => $authorUserGroups,
             'category' => $category,
             'parentCategory' => $parentCategory,
             'subcategories' => iterator_to_array($subcategories),
             'publishedSubmissions' => $submissions->toArray(),
         ]);
 
-        return $templateMgr->display('frontend/pages/catalogCategory.tpl');
+        return $templateMgr->display('frontend/pages/category.tpl');
     }
 
     /**
@@ -159,11 +190,11 @@ class PKPCatalogHandler extends Handler
      * Assign the pagination template variables
      *
      * @param PKPRequest $request
-     * @param int $submissionsCount Number of monographs being shown
+     * @param int $submissionsCount Number of submission being shown
      * @param int $page Page number being shown
-     * @param int $count Max number of monographs being shown
-     * @param int $offset Starting position of monographs
-     * @param int $total Total number of monographs available
+     * @param int $count Max number of submission being shown
+     * @param int $offset Starting position of submission
+     * @param int $total Total number of submission available
      */
     protected function _setupPaginationTemplate($request, $submissionsCount, $page, $count, $offset, $total)
     {

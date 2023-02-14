@@ -1681,10 +1681,10 @@ msgstr "Categorie"
 msgid "submission.currentCoverImage"
 msgstr "Immagine corrente"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "In questa categoria non è ancora stato pubblicato niente."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Sottocategorie"
 
 msgid "submission.parsedCitations.DOI"

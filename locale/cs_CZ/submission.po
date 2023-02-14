@@ -1830,10 +1830,10 @@ msgstr "Přispěvatelé"
 msgid "publication.citations.success"
 msgstr "Reference byly aktualizovány."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Podkategorie"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "V této kategorii zatím nebylo nic publikováno."
 
 msgid "submission.currentCoverImage"

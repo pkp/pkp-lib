@@ -1615,10 +1615,10 @@ msgstr "Skapa en ny version"
 msgid "publication.contributors"
 msgstr "Medarbetare"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Underkategorier"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Ingenting har publicerats i kategorin ännu."
 
 msgid "submission.currentCoverImage"

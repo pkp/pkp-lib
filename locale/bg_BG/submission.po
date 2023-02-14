@@ -2150,10 +2150,10 @@ msgstr "Създаване на нова версия"
 msgid "publication.contributors"
 msgstr "Съавтори"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Подкатегории"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Все още нищо не е публикувано в тази категория."
 
 msgid "submission.currentCoverImage"

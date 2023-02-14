@@ -1962,10 +1962,10 @@ msgstr "Búa til nýja útgáfu"
 msgid "publication.contributors"
 msgstr "Framlagsgefendur"
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Undirflokkar"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Ekkert hefur enn verið gefið út í þessum flokki."
 
 msgid "submission.currentCoverImage"

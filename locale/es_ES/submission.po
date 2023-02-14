@@ -1726,10 +1726,10 @@ msgstr "Asignar Editor"
 msgid "category.coverImage"
 msgstr "Imagen de cubierta"
 
-msgid "catalog.category.noItems"
+msgid "category.noItems"
 msgstr "Aún no se ha publicado nada en esta categoría."
 
-msgid "catalog.category.subcategories"
+msgid "category.subcategories"
 msgstr "Subcategorías"
 
 msgid "submission.parsedCitations.DOI"

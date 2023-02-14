@@ -147,28 +147,28 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             $this->updateSingleValueLocale($context->primary_locale, $this->CONTEXT_TABLE, 'primary_locale', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
         }
 
-        $journalSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
+        $contextSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
             ->where('setting_name', '=', 'supportedFormLocales')
             ->get();
 
-        foreach ($journalSettingsFormLocales as $journalSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($journalSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedFormLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+        foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedFormLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
         }
 
-        $journalSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
+        $contextSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
             ->where('setting_name', '=', 'supportedLocales')
             ->get();
 
-        foreach ($journalSettingsFormLocales as $journalSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($journalSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+        foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
         }
 
-        $journalSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
+        $contextSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
             ->where('setting_name', '=', 'supportedSubmissionLocales')
             ->get();
 
-        foreach ($journalSettingsFormLocales as $journalSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($journalSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedSubmissionLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+        foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedSubmissionLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
         }
     }
 

@@ -1,7 +1,7 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-20 17:01+0000\n"
+"PO-Revision-Date: 2023-02-14 02:02+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -45,12 +45,15 @@ msgstr "Ao chegar à fase de editoração"
 
 msgid "doi.manager.settings.doiVersioning.description"
 msgstr ""
+"Atribuir um novo DOI a cada versão de publicação? A maioria dos servidores "
+"de preprint deseja usar a opção padrão (sim) para garantir que as versões de "
+"preprint tenham DOIs atribuídos corretamente."
 
 msgid "doi.manager.settings.doiVersioning.yes"
-msgstr ""
+msgstr "Sim, atribua um DOI exclusivo a cada versão de um preprint."
 
 msgid "doi.manager.settings.doiVersioning.no"
-msgstr ""
+msgstr "Não, todas as versões de um preprint devem ter o mesmo DOI."
 
 msgid "manager.language.ui"
 msgstr "UI"
@@ -213,9 +216,13 @@ msgstr ""
 "Permitir que Identificadores de Objetos Digitais (DOIs) sejam atribuídos a "
 "trabalhos publicados neste servidor."
 
-#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Por favor, escolha os objetos aos quais os DOIs devem ser atribuídos."
+msgstr ""
+"Por favor, escolha os objetos aos quais os DOIs devem ser atribuídos.\n"
+"Selecione os tipos de trabalhos publicados neste servidor aos quais devem "
+"ser atribuídos DOIs. A maioria dos servidores de preprint atribui DOIs a "
+"prprints, mas você também pode querer atribuir DOIs a composições de "
+"preprint."
 
 msgid "manager.setup.enableUserRegistration"
 msgstr "Os visitantes podem registrar uma conta de usuário com o servidor."
@@ -526,19 +533,21 @@ msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "Os objetos especificados não foram encontrados."
 
 msgid "stats.contextStats"
-msgstr ""
+msgstr "Estatísticas do Servidor"
 
 msgid "stats.context.tooltip.text"
-msgstr ""
+msgstr "Número de visitantes visualizando a página index do servidor."
 
 msgid "stats.context.tooltip.label"
-msgstr ""
+msgstr "Sobre as estatísticas do servidor"
 
 msgid "stats.context.downloadReport.description"
 msgstr ""
+"Baixe uma planilha CSV/Excel com estatísticas de uso para este servidor que "
+"correspondam aos seguintes parâmetros."
 
 msgid "stats.context.downloadReport.downloadContext.description"
-msgstr ""
+msgstr "O número de exibições da página index do servidor."
 
 msgid "stats.context.downloadReport.downloadContext"
 msgstr ""
@@ -836,7 +845,7 @@ msgid "manager.institutions.noContext"
 msgstr "A editora desta instituição não foi encontrada."
 
 msgid "manager.manageEmails.description"
-msgstr ""
+msgstr "Edite as mensagens enviadas nos e-mails deste servidor."
 
 msgid "mailable.postedAck.name"
 msgstr ""
@@ -847,52 +856,88 @@ msgstr ""
 "o preprint é postado online no servidor."
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Moderador atribuído (automático)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Este e-mail é enviado a um moderador quando ele é automaticamente atribuído "
+"a uma submissão."
 
 msgid "manager.preprintPosted"
-msgstr ""
+msgstr "Preprint postado"
 
 msgid "manager.preprintPosted.description"
 msgstr ""
+"Configure as notificações por e-mail a serem enviadas quando um novo "
+"preprint for publicado."
 
 msgid "manager.preprintPosted.fieldDescription"
 msgstr ""
+"Se deve ou não enviar um e-mail aos autores do preprint quando ela for "
+"postada."
 
 msgid "mailable.publicationVersionNotify.name"
-msgstr ""
+msgstr "Nova Versão Criada"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""
+"Este e-mail notifica automaticamente os moderadores designados quando uma "
+"nova versão de um preprint é criado."
 
 msgid "mailable.submissionAck.name"
 msgstr ""
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Este e-mail é enviado automaticamente a um autor quando ele faz uma "
+"submissão e um moderador deve aprová-lo."
 
 msgid "mailable.submissionAckCanPost.name"
 msgstr ""
 
 msgid "mailable.submissionAckCanPost.description"
 msgstr ""
+"Este e-mail é enviado automaticamente a um autor quando ele faz uma "
+"submissão e nenhuma moderação é necessária. O autor pode postar seu preprint "
+"imediatamente."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"O seguinte é mostrado aos autores durante a etapa Para leitores, quando eles "
+"são solicitados a fornecer metadados, como palavras-chave, informações de "
+"licenciamento e outros detalhes para auxiliar na descoberta e moderação."
 
 msgid "mailable.postedNewVersionAck.name"
-msgstr ""
+msgstr "Nova Versão Postada"
 
 msgid "mailable.postedNewVersionAck.description"
 msgstr ""
+"Este e-mail é enviado ao autor quando uma nova versão de seu preprint é "
+"publicado."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Submissão recusada"
 
 msgid "mailable.decision.initialDecline.notifyAuthor.description"
 msgstr ""
+"Este e-mail notifica o autor de que suaseu preprint foi recusada e não será "
+"postada."
 
 #~ msgid "doi.manager.settings.enablePublicationDoi"
 #~ msgstr "Preprints"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que seu preprint foi aceito para publicação."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este e-mail é enviado automaticamente mensalmente para moderadores e "
+"gerentes de servidor para fornecer a eles uma visão geral da integridade do "
+"sistema."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "O endereço de correspondência do servidor"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "O link para a página de estatísticas de preprints"

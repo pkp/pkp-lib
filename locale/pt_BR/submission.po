@@ -1,7 +1,7 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-20 17:01+0000\n"
+"PO-Revision-Date: 2023-02-01 18:48+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
@@ -94,6 +94,8 @@ msgstr "Submetido para publicação"
 
 msgid "publication.relation.description"
 msgstr ""
+"Indique se este preprint foi publicado ou enviado para publicação em outro "
+"lugar."
 
 #, fuzzy
 msgid "publication.relation.none"
@@ -242,27 +244,45 @@ msgstr "Esta composição não pode ser editada porque já foi publicada."
 
 msgid "submission.licenseSection.description"
 msgstr ""
+"Selecione a licença a ser aplicada à seu preprint quando ele for publicado."
 
 msgid "submission.licenseUrl.missing"
-msgstr ""
+msgstr "Nenhuma licença selecionada."
 
 msgid "submission.submit.complete.canPost"
 msgstr ""
+"Obrigado por submeter seu preprint. Agora você pode <a href=\"{$workflowUrl}"
+"\">postar seu preprint</a> publicamente."
 
 msgid "submission.submit.complete.canNotPost"
 msgstr ""
+"Obrigado por enviar seu preprint. O servidor foi notificado de sua submissão "
+"e você recebeu uma confirmação por e-mail para seus registros. Depois que o "
+"moderador revisar sua submissão, ele publicará seu preprint ou entrará em "
+"contato com você."
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Tem certeza de que deseja submeter <strong>{$title}</strong> para "
+"<strong>{$context}</strong>? Depois de submeter, um moderador revisará o "
+"preprint antes de publicá-lo online."
 
 msgid "submission.wizard.confirmSubmit.canPublish"
 msgstr ""
+"Tem certeza de que deseja submeter <strong>{$title}</strong> para "
+"<strong>{$context}</strong>? Depois de submeter, você poderá revisar sua "
+"submissão e publicá-lo online."
 
 msgid "submission.wizard.sectionClosed.message"
 msgstr ""
+"{$contextName} não está aceitando submissões para a seção {$section}. Se "
+"precisar de ajuda para recuperar sua submissão, entre em contato com <a href="
+"\"mailto:{$email}\">{$name}</a>."
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Para Leitores"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Adicione qualquer informação que você acha que nossos moderadores devem "
+"saber antes de postar seu preprint."

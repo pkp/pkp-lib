@@ -19,10 +19,12 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Collection;
 use PKP\db\DAORegistry;
+use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use Throwable;
 
-abstract class PreflightCheckMigration extends \PKP\migration\Migration
+abstract class PreflightCheckMigration // extends \PKP\migration\Migration
 {
     abstract protected function getContextTable(): string;
     abstract protected function getContextSettingsTable(): string;
@@ -36,12 +38,14 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
         try {
             // email_templates_default_data keys should not conflict after locale migration
             // See MergeLocalesMigration (#8598)
-            // TODO: Should I consider outputting all errors, for all locales, by declaring $exceptionMessage out of the iteration?
             $affectedLocales = MergeLocalesMigration::getAffectedLocales();
             $conflictingEmailKeys = collect();
             $exceptionMessage = "";
             foreach ($affectedLocales as $localeCode => $localeTarget) {
-                if ($localeTarget == null) {
+                $defaultLocale = $localeTarget;
+                if ($localeTarget instanceof Collection) {
+                    $defaultLocale = $localeTarget->first();
+
                     $conflictingEmailKeys = DB::table('email_templates_default_data')
                         ->select('email_key', DB::raw('count(*) as count'))
                         ->where('locale', 'like', $localeCode . '_%')
@@ -49,14 +53,6 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                         ->groupBy('email_key')
                         ->havingRaw('count(*) >= 2')
                         ->get();
-                    
-                    if (!$conflictingEmailKeys->isEmpty()) {
-                        foreach ($conflictingEmailKeys as $conflictingEmailKey) {
-                            $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
-                        }
-                        
-                        throw new \Exception($exceptionMessage);
-                    }
                 } else {
                     $conflictingEmailKeys = DB::table('email_templates_default_data')
                         ->select('email_key', DB::raw('count(*) as count'))
@@ -68,14 +64,61 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 }
 
                 if (!$conflictingEmailKeys->isEmpty()) {
-                    $exceptionMessage = "";
                     foreach ($conflictingEmailKeys as $conflictingEmailKey) {
-                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading. Consider keeping only the '. $defaultLocale . ' locale in the installation' . PHP_EOL;
                     }
-                    
-                    throw new \Exception($exceptionMessage);
                 }
             }
+
+            if (!empty($exceptionMessage)) {
+                throw new \Exception($exceptionMessage);
+            }
+
+            // _settings tables locales should not conflict after locale migration
+            // See MergeLocalesMigration (#8598)
+            $settingsTables = MergeLocalesMigration::getSettingsTables();
+            $conflictingSettings = collect();
+            $settingsExceptionMessage = "";
+            foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
+                if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
+                    foreach ($affectedLocales as $localeCode => $localeTarget) {
+                        if ($localeCode == 'ar' && $settingsTable == 'journal_settings') {
+                            $k = 1;
+                        }
+                        $defaultLocale = $localeTarget;
+                        if ($localeTarget instanceof Collection) {
+                            $defaultLocale = $localeTarget->first();
+
+                            $conflictingSettings = DB::table($settingsTable)
+                                ->select($settingsTableIdColumn, 'setting_name', DB::raw('COUNT(*)'))
+                                ->where('locale', 'LIKE', $localeCode .'_%')
+                                ->orWhere('locale', $localeCode)
+                                ->groupBy($settingsTableIdColumn, 'setting_name')
+                                ->havingRaw('COUNT(*) >= 2')
+                                ->get();
+                        } else {
+                            $conflictingSettings = DB::table($settingsTable)
+                                ->select($settingsTableIdColumn, 'setting_name', DB::raw('COUNT(*)'))
+                                ->where('locale', $localeCode)
+                                ->orWhere('locale', $localeTarget)
+                                ->groupBy($settingsTableIdColumn, 'setting_name')
+                                ->havingRaw('COUNT(*) >= 2')
+                                ->get();
+                        }
+
+                        if (!$conflictingSettings->isEmpty()) {
+                            foreach ($conflictingSettings as $conflictingSetting) {
+                                $settingsExceptionMessage .= 'A row with "' . $settingsTableIdColumn . '"="' . $conflictingSetting->{$settingsTableIdColumn} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $settingsTable . '" which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!empty($settingsExceptionMessage)) {
+                throw new \Exception($settingsExceptionMessage);
+            }
+            
 
             // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
             $this->checkContactSetting();

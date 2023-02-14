@@ -3,7 +3,7 @@
 # Katie Cheng <ckykatie@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-14 01:59+0000\n"
+"PO-Revision-Date: 2023-02-14 10:10+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_TW/>\n"
@@ -215,3 +215,9 @@ msgstr ""
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "您必須完成驗證以防止濫發投遞。"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"選擇您希望接收的系統通知，未勾選的項目將不會顯示於您的訂閱通知，亦不會透過電"
+"子郵件發送給您。已勾選的項目將顯示於系統中，您亦可選擇是否以電郵方式接收相同"
+"通知。"

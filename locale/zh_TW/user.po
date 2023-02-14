@@ -2,7 +2,7 @@
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-01 11:28+0000\n"
+"PO-Revision-Date: 2023-02-14 10:10+0000\n"
 "Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
 "Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/zh_TW/>\n"
@@ -225,3 +225,6 @@ msgstr "使用API金鑰啟用外部應用程式以訪問此帳戶"
 
 msgid "user.privacyLink"
 msgstr "您的個人資料會按照《私隱聲明》來儲存。"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr "請於下方輸入您的電郵地址，系統將會傳送一封電郵給您以助您重設密碼。"

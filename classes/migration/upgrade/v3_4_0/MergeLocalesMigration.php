@@ -114,6 +114,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         $this->updateArrayLocaleNoId($site->supported_locales, 'site', 'supported_locales');
         $this->updateArrayLocaleNoId($site->installed_locales, 'site', 'installed_locales');
         $this->updateSingleValueLocaleNoId($site->primary_locale, 'site', 'primary_locale');
+
+        Schema::table('site', function (Blueprint $table) {
+            $table->string('installed_locales')->default('en')->change();
+        });
         
         // users
         $users = DB::table('users')
@@ -138,6 +142,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         foreach ($emailTemplatesDefaultData as $emailTemplatesDefaultDataCurrent) {
             $this->updateSingleValueLocaleEmailData($emailTemplatesDefaultDataCurrent->locale, 'email_templates_default_data', $emailTemplatesDefaultDataCurrent->email_key, $emailTemplatesDefaultData);
         }
+
+        Schema::table('email_templates_default_data', function (Blueprint $table) {
+            $table->string('locale')->default('en')->change();
+        });
 
         // Context
         $contexts = DB::table($this->CONTEXT_TABLE)

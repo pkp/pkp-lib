@@ -221,8 +221,9 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
             default:
                 if ($advice == 'update') {
                     if ($element->getAttribute('type') == 'doi') {
-                        if ($doiObject = $publication->getData('doiObject')) {
-                            Repo::doi()->edit($doiObject, ['doi' => $element->textContent]);
+                        $doiFound = Repo::doi()->getCollector()->filterByIdentifier($element->textContent)->getMany()->first();
+                        if ($doiFound) {
+                            $publication->setData('doiId', $doiFound->getId());
                         } else {
                             $newDoiObject = Repo::doi()->newDataObject(
                                 [

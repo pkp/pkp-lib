@@ -116,8 +116,9 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
             default:
                 if ($advice == 'update') {
                     if ($element->getAttribute('type') == 'doi') {
-                        if ($doiObject = $representation->getData('doiObject')) {
-                            Repo::doi()->edit($doiObject, ['doi' => $element->textContent]);
+                        $doiFound = Repo::doi()->getCollector()->filterByIdentifier($element->textContent)->getMany()->first();
+                        if ($doiFound) {
+                            $representation->setData('doiId', $doiFound->getId());
                         } else {
                             $newDoiObject = Repo::doi()->newDataObject(
                                 [

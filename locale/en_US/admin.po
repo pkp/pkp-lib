@@ -635,6 +635,9 @@ msgstr "Created at {$createdAt}"
 msgid "admin.jobs.failed.action.redispatch"
 msgstr "Try Again"
 
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Requeue All Failed Jobs"
+
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr "Job that loads the usage stats data from the file {$file} failed, and the file could not be moved from {$archivedFilePath} to {$stagingPath}."
 

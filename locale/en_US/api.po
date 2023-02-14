@@ -269,11 +269,17 @@ msgstr "The failed job not found in failed list."
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr "The failed job missing the payload to be redispatched."
 
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "No failed job found in the list."
+
 msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr "Unable to redispatch failed job."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr "Failed job redispatched successfully."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr "All redispatchable failed jobs with valid payload have been requeued successfully."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr "Unable to delete failed job from failed list."

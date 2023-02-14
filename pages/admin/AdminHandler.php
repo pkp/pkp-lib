@@ -521,6 +521,7 @@ class AdminHandler extends Handler
     protected function getJobsTableState(PKPRequest $request): array
     {
         return [
+            'i18nDescription' => __('admin.jobs.totalCount'),
             'label' => __('admin.jobs.viewQueuedJobs'),
             'columns' => [
                 [
@@ -588,6 +589,7 @@ class AdminHandler extends Handler
     protected function getFailedJobsTableState(PKPRequest $request): array
     {
         return [
+            'i18nDescription' => __('admin.jobs.failed.totalCount'),
             'label' => __('navigation.tools.jobs.failed.view'),
             'columns' => [
                 [
@@ -622,6 +624,7 @@ class AdminHandler extends Handler
                 ],
             ],
             'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/failed/all'),
+            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/redispatch/all'),
         ];
     }
 

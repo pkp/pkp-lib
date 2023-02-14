@@ -56,14 +56,19 @@ class PKPJobHandler extends APIHandler
             ],
             'POST' => [
                 [
-                    'pattern' => $this->getEndpointPattern() . '/redispatch/{jobId}',
+                    'pattern' => $this->getEndpointPattern() . '/redispatch/{jobId:\d+}',
                     'handler' => [$this, 'redispatchFailedJob'],
+                    'roles' => $roles,
+                ],
+                [
+                    'pattern' => $this->getEndpointPattern() . '/redispatch/all',
+                    'handler' => [$this, 'redispatchAllFailedJob'],
                     'roles' => $roles,
                 ],
             ],
             'DELETE' => [
                 [
-                    'pattern' => $this->getEndpointPattern() . '/failed/delete/{jobId}',
+                    'pattern' => $this->getEndpointPattern() . '/failed/delete/{jobId:\d+}',
                     'handler' => [$this, 'deleteFailedJob'],
                     'roles' => $roles,
                 ],
@@ -135,6 +140,25 @@ class PKPJobHandler extends APIHandler
                 'currentPage' => $failedJobs->currentPage(),
             ],
         ], 200);
+    }
+
+    /**
+     * Redispatch all failed jobs back to queue
+     * It will only redispatch failed jobs that has valid payload attribute
+     */
+    public function redispatchAllFailedJob(SlimRequest $slimRequest, APIResponse $response, array $args): Response
+    {
+        if (Repo::failedJob()->total() <= 0) {
+            return $response->withStatus(406)->withJson([
+                'errorMessage' => __('api.jobs.406.failedJobEmpty')
+            ]);
+        }
+
+        $redispatableFailedJobs = Repo::failedJob()->getRedispatchableJobsInQueue(null, ['id']);
+
+        return Repo::failedJob()->redispatchToQueue(null ,$redispatableFailedJobs->pluck('id')->toArray())
+            ? $response->withJson(['message' => __('api.jobs.200.allFailedJobRedispatchedSucceed')], 200)
+            : $response->withStatus(400)->withJson(['errorMessage' => __('api.jobs.400.failedJobRedispatchedFailed')]);
     }
 
     /**

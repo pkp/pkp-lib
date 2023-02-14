@@ -20,6 +20,18 @@
 			:description="description"
 			:label="label"
 		>
+            <template v-slot:label v-if="total > 0">
+                <div>
+                    <span class="pkp_helpers_half pkp_helpers_align_left">{{ label }}</span>
+                    <span class="pkp_helpers_half pkp_helpers_align_right pkp_helpers_text_right">
+                    <spinner v-if="isLoadingItems"></spinner>
+                        <pkp-button @click="requeueAll">
+                            {translate key="admin.jobs.failed.action.redispatch.all"}
+                        </pkp-button>
+                    </span>
+                </div>
+            </template>
+
             <template slot-scope="{ row, rowIndex }">
                 <table-cell
                     v-for="(column, columnIndex) in columns"

@@ -1,12 +1,12 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
-# José Carvalho <jcarvalho@keep.pt>, 2022.
+# José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"PO-Revision-Date: 2023-02-13 15:47+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/user/pt_PT/>\n"
@@ -464,3 +464,18 @@ msgstr "Apagar uma chave irá revogar o acesso de qualquer aplicação que a use
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Deseja apagar esta chave da API?"
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Não existe nenhum utilizador com o endereço de e-mail especificado."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Não foi possível concluir o pedido de redefinição de senha porque {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Digite a nova senha para atualizar a senha de login."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"A senha foi atualizada com sucesso. Por favor, faça inicie sessão com a nova "
+"senha."

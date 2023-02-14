@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-02-02 21:29+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs_CZ/>\n"
@@ -2257,9 +2257,8 @@ msgstr "URL adresa příspěvku v redakčním backendu"
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Plná jména autorů"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Jména autorů ve zkrácené formě"
+msgstr "Jména autorů ve zkrácené formě, například „Barnes, et al“"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Abstrakt příspěvku"
@@ -2368,7 +2367,7 @@ msgid "doi.manager.settings.doiSuffixLegacyUser"
 msgstr "Dříve dostupný vlastní, uživatelem definovaný vzor. Již se nepoužívá."
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Výchozí"
+msgstr "Výchozí – Automaticky generuje jedinečnou osmimístnou příponu"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2691,11 +2690,10 @@ msgstr "Rozhodli jsme se tento příspěvek odmítnout."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Rozhodli jsme se přijmout tento příspěvek bez úprav."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Krátký popis tohoto rozhodnutí, který má být sdílen v e-mailovém oznámení "
-"zaslaném recenzentům o tomto rozhodnutí."
+"zaslaném recenzentům o tomto rozhodnutí"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -2740,7 +2738,6 @@ msgstr ""
 "žádné identifikační údaje o vás ani o vašich spoluautorech. Stejně tak se "
 "nedozvíte, kdo váš příspěvek recenzoval, a recenzenti se vám přímo neozvou."
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Popis výchozí metody recenzí, například dvojitá anonymní nebo otevřená."
@@ -2748,28 +2745,23 @@ msgstr ""
 msgid "emailTemplate.variable.recommendation"
 msgstr "Doporučené rozhodnutí, například Přijmout příspěvek"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Kolo recenzí, v němž bylo toto rozhodnutí přijato, pokud se rozhodnutí týká "
-"fáze recenze."
+"fáze recenze"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr ""
-"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato."
+"Fáze redakčního pracovního postupu, ve které bylo toto rozhodnutí přijato"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "Popis přijatého rozhodnutí."
+msgstr "Popis přijatého rozhodnutí"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "Název přijatého rozhodnutí."
+msgstr "Název přijatého rozhodnutí"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "Adresa URL pro zobrazení všech přiřazených příspěvků uživatele."
+msgstr "Adresa URL pro zobrazení všech přiřazených příspěvků uživatele"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
@@ -2847,7 +2839,7 @@ msgstr ""
 "které jsou stále v procesu, a ty, které se zdají být importovány."
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Vlastní vzor (nedoporučuje se)"
+msgstr "Vlastní vzor – (nedoporučuje se)"
 
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr "Vlastní vzor suffixu DOI"
@@ -2899,9 +2891,8 @@ msgstr "Počet příspěvků přidělených tomuto redaktorovi"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Seznam příspěvků s nevyřízenými úkoly"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele."
+msgstr "Adresa URL pro zobrazení a úpravu profilu uživatele"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3536,9 +3527,8 @@ msgstr "Přiřadit redaktora"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
-"Jakákoli publikovaná nebo nepublikovaná položka, která 1) má dílčí objekt "
-"bez přiřazeného DOI, kde 2) je povolen typ DOI dílčího objektu (např. "
-"sazebnice bez DOI se zde nezobrazí, pokud není povoleno DOI pro sazebnice)"
+"Jakákoli zveřejněná nebo nezveřejněná položka, která nemá DOI pro všechny "
+"povolené zveřejněné objekty."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
@@ -3547,9 +3537,7 @@ msgstr ""
 "aby se zajistila aktuálnost všech dříve předložených metadat."
 
 msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Položka, která 1) má přiřazeny všechny povolené typy DOI a 2) nebyla "
-"publikována"
+msgstr "Jakékoli nepublikované položky."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -3583,15 +3571,16 @@ msgstr "Ano, přidejte do průvodce odesláním pole kategorie."
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
-"Správa DOI se přestěhovala. Podívejte se prosím na stránky <a href=\""
-"{$doiManagementUrl}\">Správa DOI</a> a <a href=\"{$doiSettingsUrl}\""
-">Nastavení DOI</a>."
+"Správa DOI se přestěhovala. Podívejte se prosím na stránky <a href="
+"\"{$doiManagementUrl}\">Správa DOI</a> a <a href="
+"\"{$doiSettingsUrl}\">Nastavení DOI</a>."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
 msgstr "Tato položka byla manuálně zaregistrována u registrační agentury."
 
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr "Ano, požadujte po autorech, aby nahráli jeden nebo více těchto souborů."
+msgstr ""
+"Ano, požadujte po autorech, aby nahráli jeden nebo více těchto souborů."
 
 msgid "manager.setup.genres.submitRequired.no"
 msgstr "Ne, povolte nové příspěvky bez těchto souborů."
@@ -3604,3 +3593,52 @@ msgstr ""
 "Měl by být při každém novém podání příspěvku vyžadován alespoň jeden z "
 "těchto souborů? Pokud zvolíte ano, autoři nebudou moci odesílat příspěvky, "
 "dokud nenahrají alespoň jeden soubor tohoto typu."
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Datum, kdy by měl recenzent úkol přijmout nebo odmítnout"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Datum, kdy má být recenze dokončena"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Mailová adresa časopisu"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tento e-mail je automaticky zasílán měsíčně editorům a správcům časopisů, "
+"aby jim poskytl přehled o stavu systému."
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Odkaz na stránku se statistikami publikovaných článků"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Žádné – Přípony je třeba zadat ručně na <a href="
+"\"{$doiManagementUrl}\">stránce pro správu DOI</a> a nebudou generovány "
+"automaticky"
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "Testování"
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"DOI nelze přidělit, pokud neuvedete přidělený prefix DOI. <a href=\""
+"{$doiSettingsUrl}\">Přidat prefix DOI</a>."
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "Má chybu"
+
+msgid "manager.dois.status.stale.filterTitle"
+msgstr "Potřebuje synchronizaci"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "Přidělené DOI"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+"Jakákoli zveřejněná nebo nezveřejněná položka, která má DOI pro všechny "
+"povolené zveřejněné objekty."
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+"Pokusil se vytvořit DOI, ale pro vytvoření kontextu je vyžadován prefix DOI."

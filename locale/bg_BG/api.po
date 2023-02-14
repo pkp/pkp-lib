@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-16 17:02+0000\n"
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bg_BG/>\n"
@@ -314,3 +314,9 @@ msgstr "Това не е имейл шаблон по подразбиране �
 
 msgid "api.emailTemplates.400.invalidContext"
 msgstr "Това не е валиден контекст."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Типът публикация не беше разпознат"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Обектът за публикуване, който поискахте, не беше намерен."

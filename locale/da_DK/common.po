@@ -1,12 +1,12 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2022-10-13 16:16+0000\n"
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "da_DK/>\n"
@@ -2233,3 +2233,51 @@ msgstr "Forfatter tilføjet."
 msgid "notification.editedAuthor"
 msgstr "Forfatter redigeret."
 
+msgid "common.details"
+msgstr "Detaljer"
+
+msgid "common.discardChanges"
+msgstr "Nej, kassér ikke-gemte ændringer"
+
+msgid "common.disconnected"
+msgstr "Afbrudt"
+
+msgid "common.emailTemplates"
+msgstr "E-mail-skabelon"
+
+msgid "common.label"
+msgstr "Mærke"
+
+msgid "common.lastSaved"
+msgstr "Sidst gemt d. {$when}"
+
+msgid "common.noneSelected"
+msgstr "Ingen valgt"
+
+msgid "common.noneProvided"
+msgstr "Ingen angivet"
+
+msgid "common.reconnecting"
+msgstr "Genopretter forbindelse"
+
+msgid "common.role"
+msgstr "Rolle"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} trin"
+
+msgid "common.uploadedBy"
+msgstr "Uploaded af {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Uploaded af {$name} d. {$date}"
+
+msgid "common.unsavedChanges"
+msgstr "Ikke-gemte ændringer"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Vi fandt ikke-gemte ændringer fra {$when}. Dette kan ske, hvis du mister "
+"forbindelsen til serveren, imens du arbejder. Hvis du gendanner disse "
+"ændringer, kan du risikere at overskrive ændringer, som du har lavet "
+"efterfølgende. Vil du gerne gendanne disse ændringer nu?"

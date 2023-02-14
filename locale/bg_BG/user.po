@@ -1,7 +1,7 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-05 15:57+0000\n"
+"PO-Revision-Date: 2023-02-09 10:50+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "bg_BG/>\n"
@@ -508,3 +508,19 @@ msgstr ""
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Сигурни ли сте, че искате да изтриете този API ключ?"
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Не съществува потребител с посочения имейл адрес."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Не може да се изпълни заявката за повторно задаване на парола, защото "
+"{$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Въведете нова парола, за да актуализирате паролата за вход."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Паролата е актуализирана успешно. Моля, влезте в системата с актуализираната "
+"парола."

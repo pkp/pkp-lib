@@ -1,11 +1,12 @@
 # M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
+# Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-02-04 04:48+0000\n"
-"Last-Translator: M. Ali <vorteem@gmail.com>\n"
+"PO-Revision-Date: 2023-02-08 06:59+0000\n"
+"Last-Translator: Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "ar_IQ/>\n"
 "Language: ar_IQ\n"
@@ -137,7 +138,7 @@ msgid "common.all"
 msgstr "الكل"
 
 msgid "common.alphaList"
-msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
+msgstr "أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
 
 msgid "common.titleSmallWords"
 msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
@@ -1911,7 +1912,7 @@ msgid "user.authorization.invalidReviewRound"
 msgstr "جولة تحكيم خاطئة."
 
 msgid "user.email"
-msgstr "عنوان البريد الالكتروني"
+msgstr "البريد الالكتروني"
 
 msgid "review.anonymousPeerReview.title"
 msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
@@ -2076,7 +2077,7 @@ msgid "common.attachedFiles"
 msgstr "الملفات المرفقة"
 
 msgid "common.addCCBCC"
-msgstr "إضافة نسخة/نسخة سرية"
+msgstr "إضافة نسخة /مخفية"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""

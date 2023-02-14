@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-01-08 12:02+0000\n"
+"PO-Revision-Date: 2023-02-14 10:10+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/cs_CZ/>\n"
@@ -2686,10 +2686,37 @@ msgstr ""
 "<strong>{$language}</strong>."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "U jednoho nebo více přispěvatelů chybí údaje v {$jazyce}."
+msgstr "U jednoho nebo více přispěvatelů chybí křestní jméno v {$jazyce}."
 
 msgid "submission.wizard.saved.description"
 msgstr ""
 "Údaje o vašem příspěvku byly uloženy do našeho systému, ale ještě nebylo "
 "odesláno k posouzení. Kdykoli se můžete vrátit k dokončení svého příspěvku "
 "pomocí níže uvedeného odkazu."
+
+msgid "submission.firstPublished"
+msgstr "Prvně publikováno"
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Zadejte prohlášení o dostupnosti údajů."
+
+msgid "submission.dataAvailability"
+msgstr "Prohlášení o dostupnosti dat"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Uveďte, zda jste zpřístupnili podklady pro tuto práci, a pokud ano, kde a "
+"jak je lze získat"
+
+msgid "submission.files.required.genres"
+msgstr "Musíte nahrát alespoň jeden z následujících typů souborů: {$genres}."
+
+msgid "submission.files.required.genre"
+msgstr "Musíte nahrát alespoň jeden soubor typu {$genre}."
+
+msgid "publication.version"
+msgstr "Verze {$version}"
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+"{$name} ({$username}) souhlasil/a s podmínkami autorských práv pro příspěvek."

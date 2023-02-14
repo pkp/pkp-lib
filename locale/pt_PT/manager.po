@@ -2302,7 +2302,6 @@ msgstr ""
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Nomes completos dos autores"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Nomes dos autores de forma abreviada"
 
@@ -2516,7 +2515,7 @@ msgid "manager.dois.notification.exportSuccess"
 msgstr "Itens exportados com sucesso"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Algum(s) DOI(s) falharam a atualizar."
+msgstr "Não foi possível atualizar algum(s) DOI(s)"
 
 msgid "manager.dois.status.stale"
 msgstr "Obsoleto"
@@ -2589,7 +2588,6 @@ msgstr ""
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
 
-#, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 "Uma descrição do método de revisão padrão, tal como duplamente cega ou "
@@ -2598,25 +2596,20 @@ msgstr ""
 msgid "emailTemplate.variable.recommendation"
 msgstr "A decisão recomendada, tal como Aceitar Submissão"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
 "relacionada com uma etapa de revisão."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
 msgstr "Uma descrição da decisão que foi tomada."
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
 msgstr "O nome da decisão que foi tomada."
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
 
@@ -2802,7 +2795,6 @@ msgstr "Decidimos rejeitar esta submissão."
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Decidimos aceitar esta submissão sem revisões."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Uma breve descrição desta decisão que se destina a ser partilhada através de "
@@ -2912,7 +2904,6 @@ msgstr "O número de submissão designado a este editor"
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Uma lista e submissões com tarefas pendentes"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr "O URL para um utilizador visualizar e editar o seu perfil."
 
@@ -3298,15 +3289,11 @@ msgstr "Ficheiro Suplementar"
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Normas de Submissão"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Ao submeter um trabalho para a revista, os autores devem ler, aceitar e "
-"marcar como realizados cada Item de Verificação nas Normas de Submissão, "
-"antes de proceder. A lista de Itens de Verificação também é apresentada em "
-"Instruções para Autores, na secção Sobre a Revista. A lista pode ser "
-"modificada, porém todos os itens requerem a marcação dos autores para "
-"procederem à submissão."
+"O seguinte é apresentado aos autores quando iniciam a sua submissão. É "
+"pedido aos autores que confirmem que a sua submissão cumpre com todos os "
+"critérios aqui especificados antes de iniciar a sua submissão."
 
 msgid "mailable.decision.notifyReviewer.name"
 msgstr "Agradecimento ao Revisor"
@@ -3347,3 +3334,106 @@ msgstr "Designar {$name} como {$role}"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
 msgstr "O ano do relatório"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data em que a revisão deve estar concluída"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data em que o revisor deve aceitar ou recusar a tarefa"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "O endereço de correspondência da revista"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Este email é enviado automaticamente todos os meses aos editores e editores-"
+"gestores para os informar do estado da revista."
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "O link para a página de estatísticas de artigos publicados"
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Este item foi registado manualmente numa agência de registo."
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Versionamento do DOI"
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Existem {$count} versões."
+
+msgid "doi.manager.versions.view"
+msgstr "Ver todos"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOIs para todas as versões"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"A gestão do DOI foi alterada. Veja a <a href=\"{$doiManagementUrl}\">gestão "
+"do DOI</a> e as páginas de <a href=\"{$doiSettingsUrl}\">configurações do "
+"DOI</a>."
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Selecione os utilizadores editoriais que devem ser designados "
+"automaticamente para todas as novas submissões desta secção."
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Selecione os utilizadores editoriais que devem ser designados "
+"automaticamente a todas as submissões desta categoria."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"O seguinte é apresentado aos autores durante a etapa Para os Editores, "
+"quando lhes é pedido que forneçam os metadados como palavraschave, "
+"comentários ao editor, e outros detalhes que auxiliam a revisão editorial."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Exigir com as Submissões"
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Ações em Massa"
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"O seguinte é apresentado aos autores durante a etapa final do processo de "
+"submissão, quando lhes é pedido que revejam toda a informação que forneceram "
+"antes de submeter o seu trabalho."
+
+msgid "manager.dois.status.error.description"
+msgstr "Itens com erro no processo de registo."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Itens que tiveram os seus metadados atualizados localmente e será necessário "
+"ser reenviados ou atualizados na agência de registo configurada para "
+"garantir que todos os metadados enviados anteriormente estejam atualizados."
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Estados do DOI"
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Qualquer item publicado ou não publicado que 1) tenha um sub-objeto sem um "
+"DOI atribuído onde 2) o tipo de DOI do sub-objeto esteja ativado (por "
+"exemplo, uma composição sem um DOI não aparecerá aqui se o tipo de DOI de "
+"composição não estiver ativado)"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr ""
+"Um item que 1) tem DOIs atribuídos para todos os tipos de DOI ativados e 2) "
+"não foi publicado"
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Itens que 1) possuem DOIs atribuídos para todos os tipos de DOI ativados, 2) "
+"são publicados e 3) ainda não foram registados numa agência de registo."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Itens que foram submetidos à agência de registo configurada."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Itens que foram registados com sucesso numa agência de registo ou "
+"manualmente marcados como registados."

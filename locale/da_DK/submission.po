@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:43+00:00\n"
-"PO-Revision-Date: 2023-02-02 14:59+0000\n"
+"PO-Revision-Date: 2023-02-08 15:40+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/da_DK/>\n"
@@ -2540,7 +2540,7 @@ msgstr ""
 "du vil fuldføre denne indsendelse?"
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "En eller flere af bidragyderne mangler detaljer på {$language}."
+msgstr "Fornavnet på en eller flere bidragydere mangler på {$language}."
 
 msgid "submission.wizard.saved.description"
 msgstr ""
@@ -2564,3 +2564,23 @@ msgid "submission.wizard.unableToSave"
 msgstr ""
 "Der opstod en fejl, og vi kunne ikke gemme din indsendelse. Du har muligvis "
 "været afbrudt."
+
+msgid "submission.dataAvailability"
+msgstr "Data Tilgængeligheds-Erklæring"
+
+msgid "submission.files.required.genre"
+msgstr "Du skal uploade mindst en {$genre} fil."
+
+msgid "submission.files.required.genres"
+msgstr "Du skal uploade mindst en af hver af følgende filtyper: {$genres}."
+
+msgid "publication.version"
+msgstr "Version {$version}"
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Indtast venligst Data Tilgængeligheds-Erklæring."
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Angiv hvorvidt du har gjort data, der bakker op om dette arbejde, "
+"tilgængelige, og i så fald hvor og hvordan disse kan tilgås"

@@ -1,11 +1,11 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2022-10-18 07:27+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
@@ -772,7 +772,7 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Opção de job de teste inválida. Só pode levar 'failed' ou 'success' para a "
-"opção '--only='"
+"opção '--only='."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
 msgstr "Nenhum job encontrado para excluir."

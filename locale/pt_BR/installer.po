@@ -1,10 +1,10 @@
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2022-08-09 07:17+0000\n"
+"PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/installer/pt_BR/>\n"
@@ -211,7 +211,7 @@ msgstr ""
 
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
-"Selecione quaisquer idiomas adicionais para suporte neste sistema.  Idiomas "
+"Selecione quaisquer idiomas adicionais para suporte neste sistema. Idiomas "
 "adicionais também podem ser instalados a qualquer momento a partir da "
 "interface de administração do site.<br>* = Denomina idiomas que não estão "
 "totalmente traduzidos (> 90% dos termos traduzidos)"

@@ -1,10 +1,11 @@
-# M. Ali <vorteem@gmail.com>, 2021, 2022.
+# M. Ali <vorteem@gmail.com>, 2021, 2022, 2023.
+# Salam Al-Khammasi <salam.alshemmari@uokufa.edu.iq>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2022-11-20 07:02+0000\n"
+"PO-Revision-Date: 2023-02-13 06:04+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/ar_IQ/>\n"
@@ -17,13 +18,15 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
-msgstr "مؤلفوا هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
+msgstr "مؤلفو هذه المقالة لا يمكن تعديلهم لأنها سبق وأن تم نشرها."
 
 msgid "author.publicationNotFound"
 msgstr "تعذر العثور على عمل هذا المؤلف."
 
 msgid "author.submit.submissionCitations"
-msgstr "إدرج قائمة منسقة من المراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل بين المراجع بسطر فارغ."
+msgstr ""
+"أعطِ قائمة منسقة بالمراجع للأعمال المقتبس منها ضمن هذا المؤلَّف. لطفاً، إفصل "
+"بين المراجع بسطر فارغ."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "لقد تم تسليم تحكيمات جديدة وقد تم الأخذ بها من قبل المحرر."
@@ -37,12 +40,11 @@ msgstr "إختر الدور الذي يقدم أفضل وصف لمساهمتك �
 msgid "submission.submit.submissionChecklist"
 msgstr "متطلبات طلب النشر"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "عليك قراءة المتطلبات أدناه والإقرار بها قبل المتابعة."
+msgstr "كل طلبات التقديم ينبغي ان تستوفي المتطلبات التالية."
 
 msgid "submission.submit.submissionComplete"
-msgstr "إنهاء طلب النشر"
+msgstr "إنهاء طلب التقديم"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "حالياً، بإمكانك:"
@@ -246,7 +248,7 @@ msgid "metadata.property.validationMessage.issn"
 msgstr "لطفاً، أدخل قيمة صحيحة للرمز الطباعي ISSN."
 
 msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
+msgstr "الرقم المعياري الدولي (الكتروني)"
 
 msgid "metadata.property.validationMessage.eissn"
 msgstr "لطفاً، أدخل قيمة صحيحة للرمز eISSN."
@@ -1277,7 +1279,6 @@ msgstr "المصادقة على التصحيحات"
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr "إن هذا الملف لن يكون متاحاً للعامة لأغراض التنزيل أو الشراء. هل تريد رفع المصادقة منه؟"
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "عيِّن محرراً لتمكين قرارات التحرير لهذه المرحلة."
 
@@ -1537,22 +1538,22 @@ msgid "submission.licenseURL"
 msgstr "رابط الرخصة"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+msgstr "نَسب المُصنَّف - غير تجاري - منع الاشتقاق 4.0 دولي"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "CC Attribution-NonCommercial 4.0"
+msgstr "غير تجاري - منع الاشتقاق 4.0 دولي"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+msgstr "نَسب المُصنَّف - غير تجاري - الترخيص بالمثل 4.0 دولي"
 
 msgid "submission.license.cc.by-nd4"
-msgstr "CC Attribution-NoDerivatives 4.0"
+msgstr "نَسب المُصنّف - منع الاشتقاق 4.0 دولي"
 
 msgid "submission.license.cc.by4"
 msgstr "CC Attribution 4.0"
 
 msgid "submission.license.cc.by-sa4"
-msgstr "CC Attribution-ShareAlike 4.0"
+msgstr "نَسب المُصنَّف - غير تجاري - الترخيص بالمثل 4.0 دولي"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr "<a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>هذا العمل مرخص بموجب <a rel=\"الرخصة\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>"
@@ -1802,7 +1803,7 @@ msgstr "أي نوع من الملفات هذا؟"
 
 msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"واحد أو أكثر من المحكمين قد تأخروا عن موعدهم. تم إشعار فريق هيئة التحرير "
+"واحد أو أكثر من المحكمين قد تأخر عن موعده. تم إشعار فريق هيئة التحرير "
 "وسيقومون باتخاذ الإجراء الذي يضمن إكمال التحكيمات. لست بحاجة إلى القيام بأي "
 "شيء حالياً. سيتم إشعارك عند التوصل إلى قرار."
 
@@ -1875,14 +1876,15 @@ msgstr "إعادته إلى مرحلة التقديم"
 msgid "editor.submission.decision.backToSubmission"
 msgstr "عودة إلى طلب التقديم"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
-"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم قبوله للنشر."
+"إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم قبوله للنشر. "
+"لن يتم إرسال هذا البريد الالكتروني حتى يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
-msgstr "طلب التقديم، {$title}، قد تم قبوله للنشر وأرسِل إلى مرحلة التدقيق."
+msgstr ""
+"طلب التقديم، {$title}، قد تم قبوله للنشر وأرسِل إلى مرحلة التدقيق. تم إرسال "
+"جميع الإشعارات باستثناء أي إشعارات اخترت تخطيها."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "طلب التقديم قد قُبِل"
@@ -1893,7 +1895,6 @@ msgstr "{$editorName} قبِل طلب التقديم هذا وأرسله إلى 
 msgid "editor.submission.decision.accept.description"
 msgstr "طلب التقديم هذا سيتم قبوله للنشر وسيُرسل إلى مرحلة التدقيق."
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "إرسال بريد الكتروني إلى المحكمين لشكرهم على مجهوداتهم في التحكيم وإبلاغهم "
@@ -1957,9 +1958,10 @@ msgstr ""
 "إرسال رسالة إلى المحررين أصحاب القرار لإبلاغهم بشأن التوصية. أعطِ تفسيرًا عن "
 "أسباب تقديم تلك التوصية في ضوء التوصيات والتعليقات التي قدمها المحكمون."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
-msgstr "طلب التقديم، {$title}، عاد الآن إلى مرحلة التقديم."
+msgstr ""
+"طلب التقديم، {$title}، عاد الآن إلى مرحلة التقديم. تم إخطار المؤلف ، إلا إذا "
+"اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
@@ -1976,20 +1978,21 @@ msgstr "طلب التقديم أُعيد إلى التحرير"
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} عكس قرار رفض طلب التقديم هذا."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
-msgstr "التراجع عن قرار رفض طلب التقديم هذا وإعادته إلى خط أعمال التحرير."
+msgstr ""
+"التراجع عن قرار رفض طلب التقديم هذا وإعادته إلى خط أعمال التحرير. تم إخطار "
+"المؤلف ، إلا إذا اخترت تخطي هذا البريد الإلكتروني."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بقبول طلب التقديم هذا للنشر "
-"وإرساله إلى مرحلة التدقيق بدون تحكيم."
+"وإرساله إلى مرحلة التدقيق بدون تحكيم. لن يتم إرسال هذا البريد الإلكتروني حتى "
+"يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
-"طلب التقديم، {$title}، تجاوز مرحلة التحكيم وتم إرساله إلى مرحلة التدقيق."
+"طلب التقديم، {$title}، تجاوز مرحلة التحكيم وتم إرساله إلى مرحلة التدقيق. تم "
+"إخطار المؤلف ، إلا إذا اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "تجاوز التحكيم"
@@ -2008,9 +2011,10 @@ msgstr ""
 "مرحلة التدقيق. أعطِ تبريرًا لهذا القرار وبين للمؤلف ما توجب القيام به من "
 "تعديلات إضافية قبل اعتبار العمل جاهزًا للإنتاج."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
-msgstr "طلب التقديم، {$title}، قد أُعيد إلى مرحلة التدقيق."
+msgstr ""
+"طلب التقديم، {$title}، قد أُعيد إلى مرحلة التدقيق. تم إخطار المؤلف ، إلا إذا "
+"اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "أُعيد إلى التدقيق"
@@ -2024,15 +2028,15 @@ msgstr "أرجع طلب التقديم هذا إلى مرحلة التدقيق."
 msgid "editor.submission.decision.backToCopyediting"
 msgstr "إعادة إلى التدقيق"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب التقديم هذا قد أُرسل إلى "
-"مرحلة الإنتاج."
+"مرحلة الإنتاج. لن يتم إرسال هذا البريد الإلكتروني حتى يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
-msgstr "طلب التقديم، {$title}، تم إرساله إلى مرحلة الإنتاج."
+msgstr ""
+"طلب التقديم، {$title}، تم إرساله إلى مرحلة الإنتاج. تم إخطار المؤلف ، إلا "
+"إذا اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "مُرسل إلى الإنتاج"
@@ -2043,9 +2047,10 @@ msgstr "{$editorName} أرسل طلب التقديم هذا إلى مرحلة ا
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr "إرسال طلب التقديم هذا إلى مرحلة الإنتاج لتحضيره للنشر."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
-msgstr "طلب التقديم، {$title}، قد تم إرساله إلى مرحلة التحكيم."
+msgstr ""
+"طلب التقديم، {$title}، قد تم إرساله إلى مرحلة التحكيم. تم إخطار المؤلف ، إلا "
+"إذا اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "مُرسل إلى التحكيم"
@@ -2066,11 +2071,10 @@ msgstr ""
 "يحتاجها المؤلف لتنقيح عمله. حيثما وجب الأمر، تذكر إخفاء هويات المحكمين في "
 "تعليقاتهم."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "تم طلب إجراء تنقيحات في طلب التقديم، {$title}. تم تسجيل القرار بإرساله إلى "
-"جولة تحكيم أخرى."
+"جولة تحكيم أخرى. تم إرسال جميع الإشعارات ، باستثناء أي إشعارات اخترت تخطيها."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "التنقيحات مطلوبة"
@@ -2085,17 +2089,17 @@ msgstr ""
 "{$editorName} إلتمسَ إجراء تنقيحات لطلب التقديم هذا لإرساله إلى جولة تحكيم "
 "أخرى."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بأن التنقيحات ستكون مطلوبة قبل أن "
 "يتسنى قبول طلب التقديم هذا للنشر. قم بتضمين كل التفاصيل التي قد يحتاجها "
 "المؤلف لمراجعة عمله. حيثما يتطلب الأمر، تذكر إخفاء هويات المحكمين من "
-"تعليقاتهم."
+"تعليقاتهم. لن يتم إرسال هذا البريد الإلكتروني حتى يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "تم التماس التنقيحات لطلب التقديم، {$title}."
+msgstr ""
+"تم التماس التنقيحات لطلب التقديم، {$title}. تم إرسال جميع الإشعارات ، "
+"باستثناء أي إشعارات اخترت تخطيها."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "التنقيحات مطلوبة"
@@ -2115,15 +2119,15 @@ msgstr "إختر الملفات التي ينبغي إرسالها إلى الت
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "إختر الملفات التي ينبغي إرسالها إلى مرحلة التدقيق."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم بأن طلب تقديمهم قد تم إخضاعه إلى "
-"جولة تحكيم جديدة."
+"جولة تحكيم جديدة. لن يتم إرسال هذا البريد الإلكتروني حتى يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "تم إنشاء جولة تحكيم جديدة لطلب التقديم، {$title}."
+msgstr ""
+"تم إنشاء جولة تحكيم جديدة لطلب التقديم، {$title}. تم إخطار المؤلف ، إلا إذا "
+"اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "جولة التحكيم أنشِئت"
@@ -2142,13 +2146,15 @@ msgstr ""
 "سيتم رفض طلب التقديم هذا ولن يتم نشره. لن يتم إجراء أي تحكيم إضافي وسيذهب "
 "طلب التقديم إلى المحفوظات."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
-msgstr "أرسل بريد الكتروني إلى المؤلفين لإبلاغهم برفض طلب تقديمهم."
+msgstr ""
+"أرسل بريد الكتروني إلى المؤلفين لإبلاغهم برفض طلب تقديمهم. لن يتم إرسال هذا "
+"البريد الإلكتروني حتى يتم تسجيل القرار."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "طلب التقديم، {$title}، قد تم رفضه وأُرسل إلى المحفوظات."
+msgstr ""
+"طلب التقديم، {$title}، قد تم رفضه وأُرسل إلى المحفوظات. باستثناء أي شيء "
+"اخترت تخطيه."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "طلب التقديم مرفوض"
@@ -2172,10 +2178,10 @@ msgstr ""
 "أرسل بريدًا الكترونيًا إلى المحكمين المعينين لإبلاغهم بأن مهمة تحكيمهم قد "
 "أُلغيت."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
-"أرسل بريدًا الكترونيًا إلى المؤلفين لإبلاغهم بأن جولة التحكيم قد أُغلقت."
+"أرسل بريدًا الكترونيًا إلى المؤلفين لإبلاغهم بأن جولة التحكيم قد أُغلقت. لن "
+"يتم إرسال هذا البريد الإلكتروني حتى يتم تسجيل القرار."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "إلغاء جولة التحكيم"
@@ -2195,9 +2201,10 @@ msgstr "المنشور أولاً"
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "الإرجاع من مرحلة التدقيق"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
-msgstr "طلب التقديم {$title}، تم إرجاعه من مرحلة التدقيق."
+msgstr ""
+"طلب التقديم {$title}، تم إرجاعه من مرحلة التدقيق. تم إخطار المؤلف ، إلا إذا "
+"اخترت تخطي هذا البريد الإلكتروني."
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
@@ -2227,9 +2234,10 @@ msgstr ""
 msgid "editor.submission.decision.backFromCopyediting.description"
 msgstr "إرجاع طلب التقديم هذا من مرحلة التدقيق."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "جولة تحكيم عائدة لطلب التقديم {$title}، قد تم إلغاؤها."
+msgstr ""
+"جولة تحكيم عائدة لطلب التقديم {$title}، قد تم إلغاؤها. تم إرسال جميع "
+"الإشعارات ، باستثناء أي إشعارات اخترت تخطيها."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr "{$editorName} قد أرجع طلب التقديم هذا من مرحلة التدقيق."
@@ -2239,10 +2247,9 @@ msgstr ""
 "إرسال بريد الكتروني إلى المؤلفين لإبلاغهم بإلغاء التدقيق وبأن طلب تقديمهم "
 "سيخضع للمزيد من مراجعات التحرير."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"هذه معاينة استعراضية ولم يتم نشرها بعد. <a href=\"{$url}\">View ""submission</a>"
+"هذه معاينة استعراضية ولم يتم نشرها بعد. <a href=\"{$url}\">راجع طلب النشر</a>"
 
 msgid "author.submit.noFiles"
 msgstr "لم يتم ربط أي مرفقات بطلب النشر هذا."
@@ -2284,9 +2291,8 @@ msgid "submission.type.tip"
 msgstr ""
 "نوع التقديم عادة ما يكون واحداً من: صورة، نص، أو غيرهما من متعددات الوسائط "
 "التي بضمنها: البرامجات أو الملفات التفاعلية. لطفاً، إختر ما تجده أنسبها "
-"لطلبك.\n"
-"أمثلة ذلك قد تجدها في <a target=\"_blank\" href=\"https://www.dublincore.org/"
-"specifications/dublin-core/usageguide/2001-04-12/generic/\""
+"لطلبك. أمثلة ذلك قد تجدها في <a target=\"_blank\" href=\"https://www."
+"dublincore.org/specifications/dublin-core/usageguide/2001-04-12/generic/\""
 ">https://www.dublincore.org/specifications/dublin-core/usageguide/2001-04-12/"
 "generic/</a>"
 
@@ -2299,9 +2305,136 @@ msgstr "إذا رغبت، بإمكانك إدخال عبارة موجزة عن �
 msgid "submission.submit.metadataForm.tip"
 msgstr "أضف معلومات أخرى عن مؤلَّفِك. إضغط 'enter' بعد كل عبارة."
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "نقبل نشر المؤلفات بعدة لغات. لطفاً إختر اللغة الأساسية لمؤلَّفِك من القائمة المنسدلة."
+msgstr "إختر اللغة الأساسية لطلب التقديم."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "هذا عنوان الاتصال الرئيسي فيما يتعلق بمهام التحرير."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr "حدد دورًا تحريريًا إذا كنت تريد تحرير ونشر هذا المؤلَّف بنفسك."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "نعم ، طلب التقديم الخاص بي مستوفٍ لجميع هذه المتطلبات."
+
+msgid "submission.details"
+msgstr "تفاصيل طلب التقديم"
+
+msgid "submission.forTheEditors"
+msgstr "للمحررين"
+
+msgid "submission.reviewAndSubmit"
+msgstr "مراجعة الطلب وتسليمه"
+
+msgid "submission.copyright.agree"
+msgstr "نعم ، أوافق على بيان حقوق النشر."
+
+msgid "submission.wizard.beforeStart"
+msgstr "قبل لا تبدء"
+
+msgid "submission.wizard.changeSubmission"
+msgstr "تغيير إعدادت طلب النشر"
+
+msgid "submission.wizard.titleWithStep"
+msgstr "تقديم طلب نشر: {$step}"
+
+msgid "submission.wizard.noContributors"
+msgstr "لم تتم إضافة مساهمين لطلب النشر هذا."
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr "الاسم المعطى مفقود في {$ language} لواحد أو أكثر من المساهمين."
+
+msgid "submission.wizard.notAllowed"
+msgstr "غير مسموح"
+
+msgid "submission.wizard.privacyConsent"
+msgstr "موافقة الخصوصية"
+
+msgid "submission.wizard.saved"
+msgstr "محفوظ لإكماله لاحقا"
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr "لقد أرسلنا إليك نسخة من هذا الرابط عبر البريد الإلكتروني {$email}."
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr "التقديم ب <strong>{$language}</strong>."
+
+msgid "submission.wizard.completeSteps"
+msgstr "أكمل الخطوات لتقديم طلب النشر"
+
+msgid "submission.wizard.validating"
+msgstr "يجري التحقق من طلب تقديمك"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"أضف أي معلومات تعتقد أن فريق التحرير يجب أن يعرفها عند تقييم طلب تقديمك."
+
+msgid "submission.wizard.confirm"
+msgstr "يرجى تأكيد ما يلي قبل الإرسال."
+
+msgid "submission.wizard.title"
+msgstr "تقديم طلب نشر"
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+"تم حفظ تفاصيل تقديمك في نظامنا، ولكن لم يتم إرسالها بعد للنظر فيها. يمكنك "
+"العودة لإكمال طلب تقديمك في أي وقت باتباع الرابط أدناه."
+
+msgid "submission.wizard.sectionClosed"
+msgstr "القسم مغلق"
+
+msgid "submission.wizard.start"
+msgstr "بدء التقديم"
+
+msgid "submission.wizard.startingStatus"
+msgstr "بدء طلب نشر جديد"
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+"التقديم الى قسم ال <strong>{$section}</strong> ب "
+"<strong>{$language}</strong>."
+
+msgid "submission.files.required.genre"
+msgstr "يجب عليك تحميل ملف {$ genre} واحد على الأقل."
+
+msgid "submission.files.required.genres"
+msgstr "يجب تحميل واحد على الأقل من أنواع الملفات التالية: {$ genres}."
+
+msgid "publication.version"
+msgstr "إصدار {$version}"
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "الرجاء إدخال إفادة توفر البيانات."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"سيتم إرسال طلب النشر ، <strong> {$ title} </strong> ، إلى <strong> {$ "
+"Context} </strong> لمراجعته من قبل المحرر. هل أنت متأكد أنك تريد إكمال هذا "
+"الطلب؟"
+
+msgid "submission.dataAvailability"
+msgstr "خطاب توفر البيانات"
+
+msgid "submission.wizard.errors"
+msgstr ""
+"هناك مشكلة واحدة أو أكثر تحتاج إلى الإصلاح قبل أن تتمكن من إرسال طلب "
+"التقديم. ترجى مراجعة المعلومات أدناه وإجراء التغييرات المطلوبة."
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"اذكر ما إذا كنت قد قدمت أدلة تدعم توفر هذا العمل ، وإذا كان الأمر كذلك ، "
+"فأين وكيف يمكن الوصول إليه"
+
+msgid "submission.wizard.unableToSave"
+msgstr "تم اكتشاف خطأ ولم نتمكن من حفظ طلب النشر الخاص بك. ربما تم قطع اتصالك."
+
+msgid "submission.wizard.submittingToSection"
+msgstr "التقديم الى قسم ال <strong>{$section}</strong> ."
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+"تم تقديم هذا التقديم بالفعل. يرجى زيارة <a href=\"{$url}\"> لوحة طلبات النشر "
+"</a> لمشاهدتها."
+
+msgid "submission.wizard.categories.description"
+msgstr "أختر فقط الفئات التي تكون مناسبة لطلب النشر الخاص بك."

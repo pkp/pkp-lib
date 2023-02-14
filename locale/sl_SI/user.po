@@ -1,10 +1,10 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-08-26 18:25+0000\n"
+"PO-Revision-Date: 2023-02-13 10:12+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "sl_SI/>\n"
@@ -83,7 +83,7 @@ msgid "user.editMyProfile"
 msgstr "Uredi moj račun"
 
 msgid "user.email"
-msgstr "E-pošta"
+msgstr "Email"
 
 msgid "user.interests"
 msgstr "Recenzijski interesi"
@@ -460,3 +460,17 @@ msgstr "Odstrani"
 msgid "user.apiKey.removeWarning"
 msgstr ""
 "Odstranitev ključa bo oneomogčila dostop vsem aplikacijam, ki ga uporabljajo."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ne obstaja uporabnik s podanim emailom."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Povrnitev gesla ni bila mogoča zaradi {$reason}."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Vnesite novo geslo za spremembo gesla."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Geslo je bilo uspešno spremenjeno. Prosimo, da se prijavite s spremenjenim "
+"geslom."

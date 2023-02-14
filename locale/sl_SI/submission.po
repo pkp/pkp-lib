@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-10 15:53+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/sl_SI/>\n"
@@ -2505,7 +2505,7 @@ msgid "submission.wizard.categories.description"
 msgstr "Izberite le kategorije, ki ustrezajo vašemu prispevku."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr "Enemu ali več sodelavcem manjkajo podrobnosti v jeziku {$language}."
+msgstr "Enemu ali več sodelavcem manjka ime v jeziku {$language}."
 
 msgid "submission.wizard.saved"
 msgstr "Shranjeno za pozneje"
@@ -2515,3 +2515,23 @@ msgstr ""
 "Vaš prispevek je bil shranjen v sistem, a še ni bil oddan v uredniški "
 "postopek. Pozneje se lahko kadarkoli vrnete in dokončate oddajo prispveka "
 "preko spodnje povezave."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr "Prosimo vnesite izjavo o dostopnosti podatkov."
+
+msgid "submission.dataAvailability"
+msgstr "Izjava o dostopnosti podatkov"
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+"Navedite ali so dokazi, ki podpirajo to delo, na voljo in kako je mogoče "
+"dostopati do njih"
+
+msgid "submission.files.required.genre"
+msgstr "Naložiti morate vsaj eno {$genre} datoteko."
+
+msgid "submission.files.required.genres"
+msgstr "Naložiti morate vsaj eno datoteko za vsak naslednji tip: {$genres}."
+
+msgid "publication.version"
+msgstr "Verzija {$version}"

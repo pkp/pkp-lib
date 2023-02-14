@@ -1,10 +1,10 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2023-02-09 21:27+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "tr_TR/>\n"
@@ -484,3 +484,15 @@ msgstr "Bir anahtarın silinmesi, onu kullanan uygulamalara erişimi iptal eder.
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Bu API anahtarını silmek istediğinizden emin misiniz?"
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Belirtilen e-posta adresine sahip bir kullanıcı yok."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "{$reason} nedeniyle şifre sıfırlama isteği yapılamıyor."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Oturum açma parolasını güncellemek için yeni parolayı girin."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr "Şifre başarıyla güncellendi. Lütfen güncel şifre ile giriş yapın."

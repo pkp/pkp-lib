@@ -12,7 +12,6 @@
  */
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Builder;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
@@ -120,15 +119,11 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 		Capsule::schema()->table('submissions', function (Blueprint $table) {
 			$table->string('locale', 14)->nullable();
 		});
-		$currentPublicationIds = Capsule::table('submissions')->pluck('current_publication_id');
-		$submissionLocales = Capsule::table('publications')
-			->whereIn('publication_id', $currentPublicationIds)
-			->pluck('locale', 'submission_id');
-		foreach ($submissionLocales as $submissionId => $locale) {
-			Capsule::table('submissions as s')
-				->where('s.submission_id', '=', $submissionId)
-				->update(['locale' => $locale]);
-		}
+
+		Capsule::table('submissions as s')
+			->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
+			->update(['s.locale' => Capsule::raw('p.locale')]);
+
 		Capsule::schema()->table('publications', function (Blueprint $table) {
 			$table->dropColumn('locale');
 		});

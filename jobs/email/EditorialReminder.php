@@ -182,7 +182,7 @@ class EditorialReminder extends BaseJob
      * Returns the context's primary locale, or the first locale
      * supported by the context and the user.
      *
-     * @return string Locale key. Example: en_US
+     * @return string Locale key. Example: en
      */
     protected function getLocale(User $editor, Context $context): string
     {

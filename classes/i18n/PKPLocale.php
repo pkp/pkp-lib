@@ -31,7 +31,7 @@ if (!PKP_STRICT_MODE) {
     {
         /**
          * Return the key name of the user's currently selected locale (default
-         * is "en_US" for U.S. English).
+         * is "en" for U.S. English).
          *
          * @return string
          *
@@ -57,7 +57,7 @@ if (!PKP_STRICT_MODE) {
         /**
          * Load a set of locale components. Parameters of mixed length may
          * be supplied, each a LOCALE_COMPONENT_... constant. An optional final
-         * parameter may be supplied to specify the locale (e.g. 'en_US').
+         * parameter may be supplied to specify the locale (e.g. 'en').
          *
          * @deprecated 3.4.0.0 All the available locale keys are already loaded
          */

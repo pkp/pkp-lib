@@ -1455,7 +1455,7 @@ class PKPTemplateManager extends Smarty
      *
      * The params named "key", "count", "locale" and "params" are reserved. If you need to pass one of them as a translation variable specify them using the "params":
      * $smarty->assign('params', ['key' => "Golden key"]);
-     * {translate key="pluralized.key" locale="en_US" count="10" params=$params}
+     * {translate key="pluralized.key" locale="en" count="10" params=$params}
      *
      * @param array $params associative array, must contain "key" parameter for string to translate plus zero or more named parameters for substitution.
      * 	Translation variables can be specified also as an optional associative array named "params".

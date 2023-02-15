@@ -48,7 +48,7 @@ class LocaleTest extends PKPTestCase
                     'en' => $this->_createMetadataMock('en', true),
                     'pt_BR' => $this->_createMetadataMock('pt_BR'),
                     'pt_PT' => $this->_createMetadataMock('pt_PT'),
-                    'de_DE' => $this->_createMetadataMock('de_DE')
+                    'de' => $this->_createMetadataMock('de')
                 ]
             )
             // Forward get() calls to the real locale, in order to use the already loaded translations
@@ -100,7 +100,7 @@ class LocaleTest extends PKPTestCase
             'en' => 'English',
             'pt_BR' => 'Portuguese',
             'pt_PT' => 'Portuguese',
-            'de_DE' => 'German'
+            'de' => 'German'
         ];
         $locales = array_map(fn(LocaleMetadata $locale) => $locale->getDisplayName(), Locale::getLocales());
         self::assertEquals($expectedLocales, $locales);
@@ -115,7 +115,7 @@ class LocaleTest extends PKPTestCase
             'en' => 'English (United States)',
             'pt_BR' => 'Portuguese (Brazil)',
             'pt_PT' => 'Portuguese (Portugal)',
-            'de_DE' => 'German (Germany)'
+            'de' => 'German (Germany)'
         ];
         $locales = array_map(fn(LocaleMetadata $locale) => $locale->getDisplayName(null, true), Locale::getLocales());
         self::assertEquals($expectedLocalesWithCountry, $locales);

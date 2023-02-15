@@ -118,18 +118,18 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         $this->checkedValues = [];
 
         // Check locale data
-        $this->form->setData('testData', ['en' => 'abc', 'de_DE' => 'def']);
+        $this->form->setData('testData', ['en' => 'abc', 'de' => 'def']);
         $validator = new FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, [], true);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
-        self::assertSame(['en' => ['abc'], 'de_DE' => ['def']], $this->checkedValues);
+        self::assertSame(['en' => ['abc'], 'de' => ['def']], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid locale data
         $validator = new FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [false], false, [], true);
         self::assertFalse($validator->isValid());
-        self::assertEquals(['en' => 'testData[en]', 'de_DE' => 'testData[de_DE]'], $validator->getErrorFields());
-        self::assertSame(['en' => ['abc'], 'de_DE' => ['def']], $this->checkedValues);
+        self::assertEquals(['en' => 'testData[en]', 'de' => 'testData[de]'], $validator->getErrorFields());
+        self::assertSame(['en' => ['abc'], 'de' => ['def']], $this->checkedValues);
         $this->checkedValues = [];
     }
 
@@ -174,13 +174,13 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         // Check locale data
         $testArray = [
             'en' => ['subsubfield1' => 'abc', 'subsubfield2' => 'def'],
-            'de_DE' => ['subsubfield1' => 'uvw', 'subsubfield2' => 'xyz']
+            'de' => ['subsubfield1' => 'uvw', 'subsubfield2' => 'xyz']
         ];
         $this->form->setData('testData', $testArray);
         $validator = new FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield1', 'subsubfield2'], true);
         self::assertTrue($validator->isValid());
         self::assertEquals([], $validator->getErrorFields());
-        self::assertSame(['en' => ['abc', 'def'], 'de_DE' => ['uvw', 'xyz']], $this->checkedValues);
+        self::assertSame(['en' => ['abc', 'def'], 'de' => ['uvw', 'xyz']], $this->checkedValues);
         $this->checkedValues = [];
 
         // Simulate invalid locale data
@@ -190,12 +190,12 @@ class FormValidatorArrayCustomTest extends PKPTestCase
             'en' => [
                 'testData[en][subsubfield1]', 'testData[en][subsubfield2]'
             ],
-            'de_DE' => [
-                'testData[de_DE][subsubfield1]', 'testData[de_DE][subsubfield2]'
+            'de' => [
+                'testData[de][subsubfield1]', 'testData[de][subsubfield2]'
             ]
         ];
         self::assertEquals($expectedErrors, $validator->getErrorFields());
-        self::assertSame(['en' => ['abc', 'def'], 'de_DE' => ['uvw', 'xyz']], $this->checkedValues);
+        self::assertSame(['en' => ['abc', 'def'], 'de' => ['uvw', 'xyz']], $this->checkedValues);
         $this->checkedValues = [];
     }
 
@@ -230,11 +230,11 @@ class FormValidatorArrayCustomTest extends PKPTestCase
         $this->checkedValues = [];
 
         // Pass in a one-dimensional locale array where a two-dimensional array is expected
-        $testArray = ['en' => 'abc', 'de_DE' => 'def'];
+        $testArray = ['en' => 'abc', 'de' => 'def'];
         $this->form->setData('testData', $testArray);
         $validator = new FormValidatorArrayCustom($this->form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key', $this->localeFieldValidation, [true], false, ['subsubfield'], true);
         self::assertFalse($validator->isValid());
-        self::assertEquals(['en' => 'testData[en]', 'de_DE' => 'testData[de_DE]'], $validator->getErrorFields());
+        self::assertEquals(['en' => 'testData[en]', 'de' => 'testData[de]'], $validator->getErrorFields());
         self::assertSame([], $this->checkedValues);
         $this->checkedValues = [];
     }

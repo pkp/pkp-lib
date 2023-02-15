@@ -40,12 +40,12 @@ class DataObjectTest extends PKPTestCase
         // Set data with and without locale
         $this->dataObject->setData('testVar1', 'testVal1');
         $this->dataObject->setData('testVar2', 'testVal2_US', 'en');
-        $this->dataObject->setData('testVar2', 'testVal2_DE', 'de_DE');
+        $this->dataObject->setData('testVar2', 'testVal2_DE', 'de');
         $expectedResult = [
             'testVar1' => 'testVal1',
             'testVar2' => [
                 'en' => 'testVal2_US',
-                'de_DE' => 'testVal2_DE'
+                'de' => 'testVal2_DE'
             ]
         ];
         self::assertEquals($expectedResult, $this->dataObject->getAllData());
@@ -58,7 +58,7 @@ class DataObjectTest extends PKPTestCase
         $this->dataObject->unsetData('testVar2', 'en');
         $expectedResult = [
             'testVar2' => [
-                'de_DE' => 'testVal2_DE'
+                'de' => 'testVal2_DE'
             ]
         ];
         self::assertEquals($expectedResult, $this->dataObject->getAllData());
@@ -137,7 +137,7 @@ class DataObjectTest extends PKPTestCase
         self::assertTrue($this->dataObject->hasData('testVar2'));
         self::assertTrue($this->dataObject->hasData('testVar2', 'en'));
         self::assertFalse($this->dataObject->hasData('testVar1', 'en'));
-        self::assertFalse($this->dataObject->hasData('testVar2', 'de_DE'));
+        self::assertFalse($this->dataObject->hasData('testVar2', 'de'));
         self::assertFalse($this->dataObject->hasData('testVar3'));
         self::assertFalse($this->dataObject->hasData('testVar3', 'en'));
     }

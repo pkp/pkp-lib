@@ -31,12 +31,12 @@ class MetadataDescriptionTest extends PKPTestCase
         ['not-translated-many', 'ntm2', null],
 
         ['translated-one', 'to_en', 'en'],
-        ['translated-one', 'to_de', 'de_DE'],
+        ['translated-one', 'to_de', 'de'],
 
         ['translated-many', 'tm1_en', 'en'],
-        ['translated-many', 'tm1_de', 'de_DE'],
+        ['translated-many', 'tm1_de', 'de'],
         ['translated-many', 'tm2_en', 'en'],
-        ['translated-many', 'tm2_de', 'de_DE']
+        ['translated-many', 'tm2_de', 'de']
     ];
     private static array $testStatementsData = [
         'not-translated-one' => 'nto',
@@ -46,14 +46,14 @@ class MetadataDescriptionTest extends PKPTestCase
         ],
         'translated-one' => [
             'en' => 'to_en',
-            'de_DE' => 'to_de'
+            'de' => 'to_de'
         ],
         'translated-many' => [
             'en' => [
                 0 => 'tm1_en',
                 1 => 'tm2_en'
             ],
-            'de_DE' => [
+            'de' => [
                 0 => 'tm1_de',
                 1 => 'tm2_de'
             ]
@@ -92,14 +92,14 @@ class MetadataDescriptionTest extends PKPTestCase
             ],
             'translated-one' => [
                 'en' => 'to_en-new',
-                'de_DE' => 'to_de-new'
+                'de' => 'to_de-new'
             ],
             'translated-many' => [
                 'en' => [
                     0 => 'tm1_en-new',
                     1 => 'tm2_en-new'
                 ],
-                'de_DE' => [
+                'de' => [
                     0 => 'tm1_de-new',
                     1 => 'tm2_de-new'
                 ]
@@ -122,11 +122,11 @@ class MetadataDescriptionTest extends PKPTestCase
         $expectedResult['not-translated-many'][] = 'ntm2-new';
         unset($expectedResult['translated-one']);
         $expectedResult['translated-one']['en'] = 'to_en-new';
-        $expectedResult['translated-one']['de_DE'] = 'to_de-new';
+        $expectedResult['translated-one']['de'] = 'to_de-new';
         $expectedResult['translated-many']['en'][] = 'tm1_en-new';
         $expectedResult['translated-many']['en'][] = 'tm2_en-new';
-        $expectedResult['translated-many']['de_DE'][] = 'tm1_de-new';
-        $expectedResult['translated-many']['de_DE'][] = 'tm2_de-new';
+        $expectedResult['translated-many']['de'][] = 'tm1_de-new';
+        $expectedResult['translated-many']['de'][] = 'tm2_de-new';
         unset($expectedResult['not-translated-one']);
         $expectedResult['not-translated-one'] = 'nto-new';
         self::assertTrue($this->metadataDescription->setStatements($testStatements, MetadataDescription::METADATA_DESCRIPTION_REPLACE_NOTHING));

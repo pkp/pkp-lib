@@ -63,7 +63,7 @@ class FormValidatorLocaleTest extends PKPTestCase
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['de_DE' => ' some text ']);
+        $form->setData('testData', ['de' => ' some text ']);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 

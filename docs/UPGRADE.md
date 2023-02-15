@@ -1,7 +1,7 @@
 # Upgrading an OPS Installation
 
 Note: Before upgrading your installation, perform a complete backup of your
-data files and database. If the upgrade process fails, you will need to recover
+data files and database. If the upgrade process fails, you may need to recover
 from backup before continuing.
 
 If you are using PHP Safe Mode, please ensure that the max_execution_time
@@ -15,8 +15,8 @@ Upgrading to the latest version of OPS involves two steps:
 - [Obtaining the latest OPS code](#obtaining-the-latest-ops-code)
 - [Upgrading the OPS database](#upgrading-the-ops-database)
 
-It is highly recommended that you also review the release notes ([docs/RELEASE](RELEASE))
-and other documentation in the docs directory before performing an upgrade.
+It is highly recommended that you also review the release notes ([RELEASE](RELEASE))
+and [How to Upgrade](https://docs.pkp.sfu.ca/dev/upgrade-guide/en/) before performing an upgrade.
 
 
 ### Obtaining the latest OPS code
@@ -33,15 +33,12 @@ downloading the complete package for the latest release of OPS:
 	directory (NOT over top of your current OPS installation)
 - Move or copy the following files and directories into it from your current
 	OPS installation:
-	
+
 		- config.inc.php
-		- public/
-		- Your uploaded files directory ("files_dir" in config.inc.php), if it
-			resides within your OPS directory
-			
-- Synchronize new changes from config.TEMPLATE.inc.php to config.inc.php
-- Replace the current OPS directory with the new OPS directory, moving the
-	old one to a safe location as a backup
+		- public
+
+- Move the old OJS installation directory to a safe location and move the new one into
+	its place
 - Be sure to review the Configuration Changes section of the release notes
 	in docs/release-notes/README-(version) for all versions between your
 	original version and the new version. You may need to manually add
@@ -98,7 +95,6 @@ Then, install and update dependencies via Composer:
 
 ```
 composer --working-dir=lib/pkp install
-composer --working-dir=plugins/paymethod/paypal install
 composer --working-dir=plugins/generic/citationStyleLanguage install
 ```
 
@@ -114,9 +110,6 @@ npm run build
 
 After updating your OPS installation, an additional script must be run to
 upgrade the OPS database.
-
-NOTE: Patches to the included ADODB library may be required for PostgreSQL
-upgrades; see https://forum.pkp.sfu.ca/t/upgrade-failure-postgresql/19215
 
 This script can be executed from the command-line or via the OPS web interface.
 

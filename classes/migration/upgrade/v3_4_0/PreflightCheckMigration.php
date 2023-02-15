@@ -570,9 +570,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 );
 
                 if (count($result) > 0) {
+                    $tableNames = data_get($result, '*.TABLE_NAME');
                     throw new Exception(
-                        'Storage engine that doesn\'t support foreign key constraints detected in one or more tables. ' .
-                        'Change to InnoDB before running the upgrade.'
+                        'Storage engine that doesn\'t support foreign key constraints detected in one or more tables: ' .
+                        implode(', ', $tableNames) . '. Change to InnoDB before running the upgrade.'
                     );
                 }
             }

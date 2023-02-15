@@ -16,6 +16,7 @@ namespace PKP\migration\upgrade;
 use APP\core\Services;
 use APP\facades\Repo;
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -434,15 +435,15 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             ]);
 
             // Update revision data in event logs
-            $eventLogIds = DB::table('event_log_settings')
-                ->where('setting_name', '=', 'fileId')
-                ->where('setting_value', '=', strval($row->file_id))
-                ->pluck('log_id');
-            DB::table('event_log_settings')
-                ->whereIn('log_id', $eventLogIds)
-                ->where('setting_name', 'fileRevision')
-                ->where('setting_value', '=', $row->revision)
-                ->update(['setting_value' => $newFileId]);
+            DB::table('event_log_settings as els')
+                ->join('event_log_settings as file_setting', fn (JoinClause $join) =>
+                    $join->on('file_setting.log_id', '=', 'els.log_id')
+                        ->where('file_setting.setting_name', '=', 'fileId')
+                        ->where('file_setting.setting_value', '=', (string) $row->file_id)
+                )
+                ->where('els.setting_name', 'fileRevision')
+                ->where('els.setting_value', '=', $row->revision)
+                ->update(['els.setting_value' => $newFileId]);
         }
 
         // Collect rows that will be deleted because they are old revisions

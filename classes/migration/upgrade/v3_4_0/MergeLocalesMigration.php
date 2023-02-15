@@ -62,7 +62,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         // if this is null we should do nothing - we are not handling this locale
                         if (!is_null($updatedLocaleRet)) {
                             $updatedLocale = $updatedLocaleRet->keys()->first();
-                            $defaultLocale = $updatedLocaleRet[$updatedLocale];
+                            $defaultLocale = $updatedLocaleRet->get($updatedLocale);
 
                             // if the updatedLocale is the same as the setting's locale we should do nothing
                             if ($updatedLocale != $settingsValue->locale) {
@@ -337,7 +337,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             // if this is null we should do nothing - we are not handling this locale
             if (!is_null($updatedLocaleRet)) {
                 $updatedLocale = $updatedLocaleRet->keys()->first();
-                $defaultLocale = $updatedLocaleRet[$updatedLocale];
+                $defaultLocale = $updatedLocaleRet->get($updatedLocale);
 
                 // if the updatedLocale is the same as the setting's locale we should do nothing
                 if ($updatedLocale != $localevalue) {

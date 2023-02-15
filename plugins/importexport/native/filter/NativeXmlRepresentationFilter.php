@@ -16,6 +16,7 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\plugins\PluginRegistry;
 
 class NativeXmlRepresentationFilter extends NativeImportFilter
@@ -100,6 +101,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
     public function parseIdentifier($element, $representation)
     {
         $deployment = $this->getDeployment();
+        $context = $deployment->getContext();
         $advice = $element->getAttribute('advice');
         switch ($element->getAttribute('type')) {
             case 'internal':
@@ -113,9 +115,25 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
                 break;
             default:
                 if ($advice == 'update') {
-                    // Load pub id plugins
-                    $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $deployment->getContext()->getId());
-                    $representation->setStoredPubId($element->getAttribute('type'), $element->textContent);
+                    if ($element->getAttribute('type') == 'doi') {
+                        $doiFound = Repo::doi()->getCollector()->filterByIdentifier($element->textContent)->getMany()->first();
+                        if ($doiFound) {
+                            $representation->setData('doiId', $doiFound->getId());
+                        } else {
+                            $newDoiObject = Repo::doi()->newDataObject(
+                                [
+                                    'doi' => $element->textContent,
+                                    'contextId' => $context->getId()
+                                ]
+                            );
+                            $doiId = Repo::doi()->add($newDoiObject);
+                            $representation->setData('doiId', $doiId);
+                        }
+                    } else {
+                        // Load pub id plugins
+                        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
+                        $representation->setStoredPubId($element->getAttribute('type'), $element->textContent);
+                    }
                 }
         }
     }

@@ -147,15 +147,11 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         Schema::table('submissions', function (Blueprint $table) {
             $table->string('locale', 14)->nullable();
         });
-        $currentPublicationIds = DB::table('submissions')->pluck('current_publication_id');
-        $submissionLocales = DB::table('publications')
-            ->whereIn('publication_id', $currentPublicationIds)
-            ->pluck('locale', 'submission_id');
-        foreach ($submissionLocales as $submissionId => $locale) {
-            DB::table('submissions as s')
-                ->where('s.submission_id', '=', $submissionId)
-                ->update(['locale' => $locale]);
-        }
+
+        DB::table('submissions as s')
+            ->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
+            ->update(['s.locale' => DB::raw('p.locale')]);
+
         Schema::table('publications', function (Blueprint $table) {
             $table->dropColumn('locale');
         });

@@ -14,6 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Query\JoinClause;
 
 class PKPv3_3_0UpgradeMigration extends Migration {
 	/**
@@ -376,15 +377,15 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			]);
 
 			// Update revision data in event logs
-			$eventLogIds = Capsule::table('event_log_settings')
-				->where('setting_name', '=', 'fileId')
-				->where('setting_value', '=', $row->file_id)
-				->pluck('log_id');
-			Capsule::table('event_log_settings')
-				->whereIn('log_id', $eventLogIds)
-				->where('setting_name', 'fileRevision')
-				->where('setting_value', '=', $row->revision)
-				->update(['setting_value' => $newFileId]);
+			Capsule::table('event_log_settings as els')
+				->join('event_log_settings as file_setting', function (JoinClause $join) use ($row) {
+					$join->on('file_setting.log_id', '=', 'els.log_id')
+						->where('file_setting.setting_name', '=', 'fileId')
+						->where('file_setting.setting_value', '=', $row->file_id);
+				})
+				->where('els.setting_name', 'fileRevision')
+				->where('els.setting_value', '=', $row->revision)
+				->update(['els.setting_value' => $newFileId]);
 		}
 
 		// Collect rows that will be deleted because they are old revisions

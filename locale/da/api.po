@@ -1,0 +1,319 @@
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
+"PO-Revision-Date: 2023-02-02 10:35+0000\n"
+"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"da_DK/>\n"
+"Language: da_DK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Din anmodning blev ikke accepteret. Det kan skyldes, at dit login er udløbet. Prøv at genindlæse siden og prøv igen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Du kan kun se de ikke-publicerede indlæg, som du er blevet tildelt."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Du kan ikke slette en indsendelse, der ikke er indsat i denne kontekst."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Du har ikke tilladelse til at slette denne indsendelse."
+
+msgid "api.404.resourceNotFound"
+msgstr "Den ønskede ressource blev ikke fundet."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Din anmodning kunne ikke imødekommes, da de nødvendige oplysninger mangler."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Den ønskede årgang, nummer eller år er ikke gyldigt."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parameteren {$param} understøttes ikke."
+
+msgid "api.403.unauthorized"
+msgstr "Du er ikke bemyndiget til at få adgang til den ønskede ressource."
+
+msgid "api.404.endpointNotFound"
+msgstr "Den angivne URL blev ikke genkendt."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datoen skal være i formatet ÅÅÅÅ-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Startdatoen kan ikke være senere end slutdatoen."
+
+msgid "api.stats.400.wrongTimeSegmentDaily"
+msgstr "Din anmodning var ikke gyldig. Tidssegmentet 'daily' kan kun bruges sammen med et datointerval (dateStart og datoEnd) inden for de sidste 90 dage."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Vokabulariet {$vocab} understøttes ikke."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Sproget {$locale} understøttes ikke."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Det aktive tema, {$themePluginPath}, er ikke aktiveret og er muligvis ikke "
+"installeret."
+
+msgid "api.files.400.config"
+msgstr ""
+"Filen kunne ikke uploades på grund af en serverkonfigurationsfejl. Kontakt "
+"systemadministratoren."
+
+msgid "api.files.400.fileSize"
+msgstr "Filer, der er større end {$maxSize}, kan ikke uploades."
+
+msgid "api.files.400.uploadFailed"
+msgstr "En eller flere filer kunne ikke uploades."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+"Ingen af de filer, der skal uploades, blev fundet på baggrund af anmodningen."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dette grænsepunkt er ikke tilgængeligt fra en kontekst. Det skal tilgås fra "
+"hele webstedets navnerum."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Din anmodning var ikke gyldig. The timelineInterval skal være 'dag' eller "
+"'måned'."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Din anmodning var ikke gyldig. OrderDirection skal være `ned` eller `op`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Slutdatoen kan ikke være senere end i går."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Startdatoen kan ikke være tidligere end 2001-01-01."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Du har ikke tilladelse til at redigere denne publikation."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Det offentlige filkatalog blev ikke fundet, eller filer kan ikke gemmes i "
+"det. Kontakt din administrator for at løse dette problem."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Du har ikke nok plads i dit brugerkatalog. Den fil, du uploader, er på "
+"{$fileUploadSize} kb, og du har {$dirSizeLeft} kb tilbage."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Du har ikke tilladelse til at uploade filer."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Filen, du uploadede, stemte ikke overens med filtypenavnet. Dette kan ske, "
+"når en fil er blevet omdøbt til en inkompatibel type, for eksempel når "
+"photo.png ændres til photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Det billede, du uploadede, er ikke gyldigt."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Du kan kun uploade følgende filtyper: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Du skal trække denne publikation tilbage, før du kan slette den."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Du kan ikke ændre status direkte via API'en. I stedet skal du bruge / "
+"publicere og / træk tilbage grænsepunkterne."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Du kan ikke redigere denne publikation, da den allerede er publiceret."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Den publikation som du ønsker at trække tilbage er ikke publiceret."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Den publikation, du vil udgive, er allerede publiceret."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Den e-mail-skabelon, du anmodede om, blev ikke fundet."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Du kan ikke ændre filtilknytningen uden at foretage en assocType og assocId."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Du har ikke tilladelse til at sende en e-mail til brugere i en eller flere "
+"af de valgte roller."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Du skal angive de brugerroller, der skal modtage denne e-mail."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Du skal angive et emne til e-mailen."
+
+msgid "api.emails.400.missingBody"
+msgstr "Du skal inkludere en e-mail, der skal sendes."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Den meddelelse, du søgte efter, blev ikke fundet."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Det er ikke muligt at ændre det tidspunkt, hvor det blev oprettet."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Du har ikke adgang til filer tilknyttet denne bedømmelsesrunde."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Du har ikke tilladelse til at redigere disse filer."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Du har ikke adgang til disse filer."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Den bedømmelsesrunde, du har angivet, er ikke en del af denne indsendelse."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Du skal angive et trin."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Du skal angive en bedømmelsesrunde, når du anmoder om filer på et "
+"bedømmelsestrin."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en bedømmelsesrunde."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en bedømmelsesstildeling."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Du kan ikke knytte en fil fra dette trin til en diskussions-/drøftelses-"
+"notat."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Du kan ikke knytte en fil fra dette trin til en anden indsendelsesfil."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Der er ingen ændringer i anmodningen om at redigere denne fil."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API-token kan ikke bruges til at få adgang til dette websted, fordi "
+"webstedsadministratoren ikke har konfigureret en hemmelig nøgle."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken kunne ikke afkodes på grund af følgende fejl: {$ error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API-token kunne ikke valideres. Dette kan indikere en fejl i API-token, "
+"eller at API-token ikke længere er gyldigt."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Følgende sprog understøttes ikke: {$locales}."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Upublicerede elementer kan ikke eksporteres/deponeres. Fravælg de "
+"upublicerede elementer og prøv igen."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Der blev inkluderet et eller flere ugyldige puklikationsobjekter sammen med "
+"anmodningen."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+"Der blev ikke inkluderet nogen gyldige publikationsposter sammen med "
+"anmodningen."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Nogle poster blev ikke deponeret korrekt. Tjek venligst de individuelle "
+"poster for at se deres specifikke fejlmeddelelser."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Der opstod en fejl, og nogle af de indsendte poster blev ikke markeret som "
+"registrerede."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Der opstod en fejl med validering af XML, og XML kunne ikke eksporteres."
+
+msgid "api.dois.400.creationFailed"
+msgstr "En fejl opstod, og DOI objektet kunne ikke skabes."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Den DOI, du efterspurgte, blev ikke fundet."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Du kan ikke redigere et emnes DOI, som ikke findes i denne kontekst."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Dette grænsepunkt er ikke tilgængeligt fra hele webstedets navnerum, og der "
+"skal anmodes om det i en given kontekst."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Du skal angive et ID for bedømmelsesrunden, når du flytter en fil til dette "
+"trin."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Det trin, du har angivet for filen, er ikke gyldigt."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Du kan ikke angive eller anbefale en beslutning til denne indsendelse, da "
+"den allerede er blevet publiceret."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Du skal angive et emne og en beskedtekst i e-mailen."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Et DOI prefiks er påkrævet for at generere DOI'er."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Den e-mail, du anmodede om, blev ikke fundet."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Den institution, du efterspurgte, blev ikke fundet."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Din anmodning var ikke gyldig. TimelineInterval skal være 'dag' eller "
+"'måned'."
+
+msgid "api.400.propReadOnly"
+msgstr "Egenskaben {$prop} kan ikke ændres."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Du har ikke tilladelse til at indsende til denne rolle."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Dette er ikke en standard e-mail skabelon for en kendt e-mail."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Dette er ikke en gyldig kontekst."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Publikationstypen blev ikke genkendt"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Det udgivelsesobjekt, du anmodede om, blev ikke fundet."

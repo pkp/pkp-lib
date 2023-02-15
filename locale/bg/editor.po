@@ -1,0 +1,622 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-09-27 12:01+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/bg_BG/>\n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "editor.submissionLibrary"
+msgstr "Библиотека"
+
+msgid "editor.activityLog"
+msgstr "Дневник на дейностите (log)"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr ""
+"Наистина ли искате да изтриете за постоянно това изпращане на материали?"
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Изпратените материали са публикувани."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Изпратените материали са приети."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Изпратените материали не са приети (отказани)."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Решението е записано"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Съобщение до потребителя"
+
+msgid "editor.review.notInitiated"
+msgstr "Процесът по рецензиране все още не е започнал."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Това решение не може да бъде намерено. Моля, посочете познат тип решение."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Не можа да се вземе решение по това подаване на материали. "
+"Идентификационният номер на подаването на материали липсва или не съвпада с "
+"исканото подаване на материали."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Не може да се направи препоръка, освен ако на този етап не е назначен "
+"редактор, който може да вземе окончателно решение."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Трябва да се предостави идентификатор на кръга за рецензия, за да се вземе "
+"това решение."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Трябва да бъдете асоциирани за това подаване на материали, за да запишете "
+"редакционно решение."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Подаването на материали не е на подходящия етап от работния процес за "
+"вземане на това решение."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Този кръг на рецензиране не е част от това подаване на материали."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Предоставен е кръг за рецензиране, но това решение не се взема по време на "
+"етап на рецензиране."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Този кръг от рецензирането не можа да бъде намерен."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Не можете да изпратите имейл до следните получатели: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Редакторът не е разпознат и може да няма права да запише решение относно "
+"това подаване на материали."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Нямате права да запишете това решение в това подаване на материали."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Промяна на решението"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Изпратените материали са приети за рецензиране."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Изпратено за продукция (публикуване)."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Изпратено за нов кръг от рецензиране."
+
+msgid "editor.decision.stepError"
+msgstr "Имаше проблем със стъпка {$stepName}."
+
+msgid "editor.decision.skipEmail"
+msgstr "Пропускане на този имейл"
+
+msgid "editor.decision.recordDecision"
+msgstr "Записване на решението"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Тази стъпка е пропусната и няма да бъде изпратен имейл."
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Не пропускайте този имейл"
+
+msgid "editor.decision.completeSteps"
+msgstr "Изпълнете следните стъпки, за да вземете това решение"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Наистина ли искате да отмените това решение?"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Отмяна на решението"
+
+msgid "reviewer.list.empty"
+msgstr "Не са намерени рецензенти"
+
+msgid "reviewer.list.biography"
+msgstr "Биография"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Интереси към рецензиране"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Отключване"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Този рецензент е заключен, защото му е назначена роля, която му позволява да "
+"виждат самоличността на автора. Анонимното рецензиране не може да бъде "
+"гарантирано. Искате ли все пак да отключите този рецензент?"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Този рецензент вече е асоцииран да рецензира в този кръг."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Никога не е асоцииран като рецензент"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Среден брой дни за завършване на рецензия"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Дни от последната възложена рецензия"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Вчера"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Преди {$days} дни"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Рейтинг на рецензента: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Отменени заявки за рецензиране"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Отхвърлени заявки за рецензиране"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Завършени рецензии"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "В момента са възложени активни рецензии"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} активни рецензии"
+
+msgid "reviewer.list.filterRating"
+msgstr "Най-малко оценен като"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Моделът {$pattern} не е разрешен за публичния идентификатор."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Публичният идентификатор '{$publicIdentifier}' не трябва да е число."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Наистина ли искате да отмените решението за отхвърляне на това изпращане на "
+"материали?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Отменете одобрението за тази коректура, за да посочите, че корекцията вече "
+"не е завършена и файлът не е готов за публикуване."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Одобрете тази коректура за да посочите, че корекцията е завършена и файлът е "
+"готов за публикуване."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Отказване на одобрението на коректура"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Одобряване на коректура"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Избран (асоцииран) рецензент"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Файлове могат да бъдат прикачени за включване в тази дискусия от списъка "
+"по-долу."
+
+msgid "grid.action.editQuery"
+msgstr "Редакция на дискусия"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Прикрепени файлове"
+
+msgid "submission.queries.messageRequired"
+msgstr "Изисква се съобщение за дискусия."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Изисква се тема за дискусия."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Не сте избрали никакви файлове за преглед от рецензента."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Няма избрани файлове"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Предупреждение: Промяната на формуляра за рецензиране ще засегне всички "
+"отговори, които рецензентите са дали чрез този формуляр. Сигурни ли сте, че "
+"искате да продължите?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Изберете формуляр за рецензиране"
+
+msgid "editor.article.reviewForms"
+msgstr "Формуляри за рецензиране"
+
+msgid "editor.submission.createNewRound"
+msgstr "Създаване на нов кръг за рецензиране"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"На път сте да създадете нов кръг за рецензиране за това подаване на "
+"материали. Файловете, които не са били използвани в други кръгове на "
+"рецензиране, са изброени по-долу."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Не създавайте дискусия за рецензирането."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Създайте дискусия за рецензирането относно тази препоръка."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Да не се изпраща имейл на редакторите."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Известяване на редакторите"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Запис на редакторската препоръка"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Запис да редакторското решение"
+
+msgid "editor.submission.newRound"
+msgstr "Нов кръг на рецензиране"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Файлове готови за продукция (публикуване)"
+
+msgid "editor.review.emailReviewer"
+msgstr "Имейл до рецензента"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Не сте качили никакви файлове за рецензиране."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Няма качени файлове"
+
+msgid "editor.review.reviewDetails"
+msgstr "Детайли за рецензията"
+
+msgid "editor.review"
+msgstr "Рецензия"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Всички файлове, които вече са били качени на всеки етап на подаването на "
+"материали, могат да бъдат добавени към списъка за стилова корекция на "
+"файлове, като поставите отметка в квадратчето \"Включване\" по-долу и "
+"щракнете върху \"Търсене\": всички налични файлове ще бъдат изброени и могат "
+"да бъдат избрани за включване. Допълнителни файлове, които все още не са "
+"качени на етап, могат да бъдат добавени към списъка, като щракнете върху "
+"връзката \"Качване на файл\"."
+
+msgid "editor.submission.addAuditor"
+msgstr "Асоцииране на одитор"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Неодобрението на този стилово коригиран файл ще го направи недостъпен за "
+"изпращане към производствения етап. Искате ли да не одобрите този файл?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Стилово коригираният файл трябва да бъде одобрен, преди да може да бъде "
+"изпратен към етапа на производство. Искате ли да одобрите този файл?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Напомняне за коректура"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Имейл за изпращане на потребителя"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Няма искане за одит за този файл"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Регистриране на съществуващ потребител като рецензент"
+
+msgid "editor.submission.taskSchedule"
+msgstr "График на задачата"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Краен срок (дата) на задачата"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Избиране на рецензент"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Файлове от стилово редактиране"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Планиране за публикация"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Избраният участник не е асоцииран към този етап."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Не може да се създаде дискусия с избраните участници, тъй като това би "
+"повлияло на анонимността на процеса на рецензиране."
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"След като тази рецензия бъде прочетена, натиснете \"Потвърди\", за да "
+"посочите, че процесът на преглед може да продължи. Ако рецензентът е "
+"изпратил своята рецензия на друго място, можете да качите файла по-долу и "
+"след това да натиснете „Потвърди“, за да продължите."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Тази рецензия няма да бъде взета под внимание"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Искате ли да отбележите тази рецензия като не взета под внимание? Историята "
+"на рецензията ще бъде запазена."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Запишете потребителя в тази потребителска група за рецензенти"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Възникна грешка при възстановяването на рецензента. Моля, опитайте отново."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Възникна грешка при изтриването на рецензента. Моля, опитайте отново."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "При добавянето на рецензента възникна грешка. Моля, опитайте отново."
+
+msgid "editor.review.mustSelect"
+msgstr "Трябва да изберете рецензент"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Няма рейтинг"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Оцяване на качеството на предоставената рецензия. Тази оценка не се споделя "
+"с рецензента."
+
+msgid "editor.review.rateReviewer"
+msgstr "Рейтинг на резензента"
+
+msgid "editor.review.reviewerComments"
+msgstr "Коментари на рецензента"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Изпратени са благодарности на рецензента"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Рецензията е изпратена"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Рецензията е потвърдена"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Рецензията е завършена"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Краен срок (дата) за изготвянето на рецензия"
+
+msgid "editor.review.reviewDue"
+msgstr "Рецензия до: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Отмяна на решението"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Редакторът отмени тази молба (заявка) за рецензия."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Рецензентът отказа тази молба (заявка) за рецензия."
+
+msgid "editor.review.requestCancelled"
+msgstr "Молбата (заявката) е отменена"
+
+msgid "editor.review.requestDeclined"
+msgstr "Молбата (заявката) е отказана"
+
+msgid "editor.review.requestAccepted"
+msgstr "Молбата (заявката) е приета"
+
+msgid "editor.review.requestSent"
+msgstr "Молбата (заявката) е изпратена"
+
+msgid "editor.review.responseDue"
+msgstr "Отговор до: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Преглед на нова рецензия"
+
+msgid "editor.review.readReview"
+msgstr "Преглед на резензията"
+
+msgid "editor.review.sendReminder"
+msgstr "Изпращане на напомнящ имейл"
+
+msgid "editor.review.skipEmail"
+msgstr "Да не се изпраща имейл до рецензента."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Грешка при изпращане на благодарности до рецензента"
+
+msgid "editor.review.reminderError"
+msgstr "Грешка при изпращане на напомняне за резензия"
+
+msgid "editor.review.thankReviewer"
+msgstr "Благодарност към рецензента"
+
+msgid "editor.review.reminder"
+msgstr "Напомняне за рецензия"
+
+msgid "editor.review.noReviews"
+msgstr "Няма рецензии за импортиране"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Рецензиите са добавени към текста на съобщението."
+
+msgid "editor.review.dateAccepted"
+msgstr "Дата на приемане за рецензиране"
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Ревизиите (версиите) следва да подлежат на нов кръг от рецензиране."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Ревизиите (версиите) следва да не подлежат на нов кръг от рецензиране."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Ревизиите (версиите) ще подлежат на нов кръг от рецензиране."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Ревизиите (версиите) няма да подлежат на нов кръг от рецензиране."
+
+msgid "editor.review.newReviewRound"
+msgstr "Изискване на нов кръг за рецензиране"
+
+msgid "editor.review.uploadRevision"
+msgstr "Качване на ревизия (версия)"
+
+msgid "editor.review.importantDates"
+msgstr "Важни дати"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Имейл за изпращане на рецензента"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Анонимен рецензент"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Редактиране на рецензия"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Затваряне на селекцията на файл/ове"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Файлове за преглед/рецензия"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Анонимен рецензент/Анонимен автор"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Анонимен рецензент/Разкрит автор"
+
+msgid "editor.submissionReview.open"
+msgstr "Отваряне"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Да не се изпраща известие по имейл"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Изпращане на известие по имейл до редактора/редакторите: {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Изпращане на известие по имейл до автора/авторите: {$authorName}"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Тип на рецензията"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Възстановяване на асоциирането към рецензент"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Отмяна на молбата за рецензия към рецензент"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Отписване на асоциирания рецензент"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Записване на съществуващ потребител за тази роля"
+
+msgid "editor.review.createReviewer"
+msgstr "Създаване на нов рецензент"
+
+msgid "editor.submission.backToSearch"
+msgstr "Обратно към търсенето"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Текущи файлове за преглед за кръг {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Показване на файлове от всички достъпни етапи на работния процес."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Намиране на потребител"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Намиране на рецензент"
+
+msgid "editor.submission.addReviewer"
+msgstr "Добавяне на рецензент"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Използвайте <em>+Добавяне на рецензент</em>, за да поканите читателите да "
+"рецензират изпратените файлове. Иконата на бележника показва, че е изпратена "
+"рецензия, към която след това се поставя отметка <em>Потвърдено</em>, след "
+"като е прегледана. Когато рецензиите са просрочени, се появява червена икона "
+"на плик, за да напомня на рецензентите."
+
+msgid "editor.submission.revisions"
+msgstr "Версии (ревизии)"
+
+msgid "editor.submission.selectFiles"
+msgstr "Избиране на файлове"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Качване/Избиране на файлове"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Трябва да изберете потребител за присвояване/асоцииране."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Не изпращайте имейл до одитора"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Трябва да добавите лично съобщение."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Трябва да изберете поне един файл, към който да присвоите потребителя."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Изберете файлове по-долу, за да ги изпратите на етап за рецензиране."
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Асоцииран в предишен кръг"
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Повторно асоцииране {$name}"
+
+msgid "reviewer.list.reassign"
+msgstr "Повторно асоцииране"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Този рецензент завърши рецензията в последния кръг."
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Заявка за повторно изпращане"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Повторно изпращане на молба за рецензия"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Възникна грешка при повторната молба към рецензента да преразгледа поканата "
+"за рецензия. Моля, опитайте отново."

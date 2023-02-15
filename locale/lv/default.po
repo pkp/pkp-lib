@@ -1,0 +1,147 @@
+# Ieva Tiltina <pastala@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-11-09 17:03+0000\n"
+"Last-Translator: Ieva Tiltina <pastala@gmail.com>\n"
+"Language-Team: Latvian <http://translate.pkp.sfu.ca/projects/pkp-lib/default/"
+"lv_LV/>\n"
+"Language: lv_LV\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= "
+"19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "default.groups.name.siteAdmin"
+msgstr "Vietnes pārvaldnieks"
+
+msgid "default.groups.plural.siteAdmin"
+msgstr "Vietnes pārvaldnieki"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Literārais redaktors"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Literārie redaktori"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "LitRed"
+
+msgid "default.groups.name.proofreader"
+msgstr "Korektors"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Korektori"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Kor"
+
+msgid "default.groups.name.designer"
+msgstr "Noformētājs"
+
+msgid "default.groups.plural.designer"
+msgstr "Noformētāji"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Iekšējais recenzents"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Iekšējie recenzenti"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Produkcijas redaktori"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdRed"
+
+msgid "default.groups.name.productionEditor"
+msgstr "Produkcijas redaktors"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Noformējums"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IeRec"
+
+msgid "default.groups.name.marketing"
+msgstr "Mārketinga un pārdošanas koordinators"
+
+msgid "default.groups.plural.marketing"
+msgstr "Mārketinga un pārdošanas koordinators"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "MPK"
+
+msgid "default.groups.name.funding"
+msgstr "Finansējuma koordinators"
+
+msgid "default.groups.plural.funding"
+msgstr "Finansējuma koordinatori"
+
+msgid "default.groups.abbrev.funding"
+msgstr "FK"
+
+msgid "default.groups.name.indexer"
+msgstr "Indeksētājs"
+
+msgid "default.groups.plural.indexer"
+msgstr "Indeksētāji"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Maketētājs"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Maketētāji"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "Mak"
+
+msgid "default.groups.name.author"
+msgstr "Autors"
+
+msgid "default.groups.plural.author"
+msgstr "Autori"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Tulkotājs"
+
+msgid "default.groups.plural.translator"
+msgstr "Tulkotāji"
+
+msgid "default.groups.abbrev.translator"
+msgstr "TU"
+
+msgid "default.groups.name.reader"
+msgstr "Lasītājs"
+
+msgid "default.groups.plural.reader"
+msgstr "Lasītāji"
+
+msgid "default.groups.abbrev.reader"
+msgstr "LAS"
+
+msgid "default.genres.other"
+msgstr "Cits"
+
+msgid "default.genres.multimedia"
+msgstr "Multimediji"
+
+msgid "default.genres.image"
+msgstr "Attēls"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML stilu lapa"
+
+#, fuzzy
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
+">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href="
+"\"mailto: {$contactEmail}\">{$contactEmail}</a></p>"

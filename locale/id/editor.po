@@ -1,0 +1,514 @@
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2021-07-14 11:03+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
+"Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/id_ID/>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Anda yakin ingin menghapus naskah ini secara permanen?"
+
+msgid "editor.review.rateReviewer"
+msgstr "Peringkat peninjau"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Jadwalkan Untuk Publikasi"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Buat diskusi ulasan tentang rekomendasi ini."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Jangan mengirim surel kepada Editor."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Beritahu Editor"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Rekam Rekomendasi Editorial"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Rekam Keputusan Editorial"
+
+msgid "editor.submission.newRound"
+msgstr "Tahapan Review Baru"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "File Siap Produksi"
+
+msgid "editor.review.emailReviewer"
+msgstr "Kirim Surel ke Peninjau"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Anda belum mengunggah file review apa pun."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Tidak Ada File Yang Diunggah"
+
+msgid "editor.review.reviewDetails"
+msgstr "Rincian Review"
+
+msgid "editor.review"
+msgstr "Review"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"File apa pun yang telah diunggah ke tahap penyerahan naskah dapat "
+"ditambahkan ke daftar File Copyedit dengan mencentang kotak Sertakan di "
+"bawah ini dan mengklik Cari: semua file yang tersedia akan terdaftar dan "
+"dapat dipilih untuk dimasukkan. File tambahan yang belum diunggah ke tahapan "
+"penyerahan naskah dapat ditambahkan ke daftar dengan mengklik tautan Unggah "
+"File."
+
+msgid "editor.submission.addAuditor"
+msgstr "Tugaskan Auditor"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Menolak file pasca-copyedit ini akan membuatnya tidak dapat dikirim ke tahap "
+"produksi. Apakah Anda ingin menolak file ini?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"File pasca-copyedit harus disetujui sebelum dapat dikirim ke tahap Produksi. "
+"Apakah Anda ingin menyetujui file ini?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Pengingat Proof"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Surel untuk dikirim ke pengguna"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Tidak ada audit yang diminta untuk file ini"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Daftarkan Pengguna Sebagai Peninjau"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Jadwal Tugas"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Tanggal Berakhir Tugas"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Pilih Peninjau"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "File Copyediting"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Setelah ulasan ini dibaca, tekan \"Konfirmasi\" untuk memulai proses review. "
+"Jika peninjau telah mengirimkan ulasannya di tempat lain, Anda dapat "
+"mengunggah file-nya di bawah ini dan kemudian tekan \"Konfirmasi\" untuk "
+"melanjutkan."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Review ini tidak dipertimbangkan"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Apakah Anda ingin menandai review ini sebagai tidak dipertimbangkan?  "
+"Riwayat tinjauan akan disimpan."
+
+msgid "editor.review.userGroupSelect"
+msgstr "Daftarkan pengguna ke dalam grup peninjau ini"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Terjadi kesalahan saat mengembalikan peninjau.  Mohon coba lagi."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Terjadi kesalahan saat menghapus peninjau.  Mohon coba kembali."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Terjadi kesalahan saat menambah peninjau.  Mohon coba kembali."
+
+msgid "editor.review.mustSelect"
+msgstr "Anda wajib memilih peninjau"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Tidak ada peringkat"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Nilai kualitas review yang diberikan. Peringkat ini tidak dibagikan dengan "
+"peninjau."
+
+msgid "editor.review.reviewerComments"
+msgstr "Tanggapan Peninjau"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Peninjau Sudah Diucapkan Terima Kasih"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Review Diserahkan"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Review Dikonfirmasi"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Review Selesai"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Tanggal Jatuh Tempo Review"
+
+msgid "editor.review.reviewDue"
+msgstr "Jatuh tempo review: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Kembalikan Keputusan"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editor membatalkan permintaan review ini."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Peninjau menolak permintaan review ini."
+
+msgid "editor.review.requestCancelled"
+msgstr "Permintaan Dibatalkan"
+
+msgid "editor.review.requestDeclined"
+msgstr "Permintaan Ditolak"
+
+msgid "editor.review.requestAccepted"
+msgstr "Permintaan Diterima"
+
+msgid "editor.review.requestSent"
+msgstr "Permintaan Dikirim"
+
+msgid "editor.review.responseDue"
+msgstr "Batas waktu respons: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Baca Review Baru"
+
+msgid "editor.review.readReview"
+msgstr "Baca Review"
+
+msgid "editor.review.sendReminder"
+msgstr "Kirim Pengingat"
+
+msgid "editor.review.skipEmail"
+msgstr "Jangan kirim surel untuk Peninjau."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Gagal mengirimkan terima kasih untuk peninjau"
+
+msgid "editor.review.reminderError"
+msgstr "Gagal mengirimkan pengingat untuk review"
+
+msgid "editor.review.thankReviewer"
+msgstr "Terima Kasih Peninjau"
+
+msgid "editor.review.reminder"
+msgstr "Pengingat Review"
+
+msgid "editor.review.noReviews"
+msgstr "Tidak ada ulasan sejawat untuk diimpor"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Review disertakan dalam pesan."
+
+msgid "editor.review.dateAccepted"
+msgstr "Tanggal Penerimaan Review"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Revisi akan dimasukkan ke putaran baru ulasan sejawat."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Revisi tidak akan dimasukkan ke putaran baru ulasan sejawat."
+
+msgid "editor.review.newReviewRound"
+msgstr "Memerlukan Tahapan Review Baru"
+
+msgid "editor.review.uploadRevision"
+msgstr "Unggah Revisi"
+
+msgid "editor.review.importantDates"
+msgstr "Tanggal Penting"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Surel akan dikirimkan ke peninjau"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Peninjau Anonim"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Sunting Review"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Tutup Pilihan File"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "File Yang Akan Di-review"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Reviewer Anonim/Penulis Anonim"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Reviewer Anonim/Penulis Terbuka"
+
+msgid "editor.submissionReview.open"
+msgstr "Terbuka"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Jangan kirim notifikasi surel"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Kirim notifikasi surel ke editor: {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Kirim notifikasi surel ke penulis: {$authorName}"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Tipe Review"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Kembalikan Peninjau"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Batalkan Peninjau"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Bebastugaskan Peninjau"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Daftarkan Pengguna Yang Ada"
+
+msgid "editor.review.createReviewer"
+msgstr "Buat Peninjau Baru"
+
+msgid "editor.submission.backToSearch"
+msgstr "Kembali ke Pencarian"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "File review Saat Ini Untuk Putaran {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Tampilkan file dari semua tahapan alur kerja yang dapat diakses."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Temukan Pengguna"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Gunakan <em>+Tambah Peninjau</em> untuk mengundang pembaca meninjau naskah. "
+"Ikon buku catatan menunjukkan bahwa review telah dikirimkan, yang kemudian "
+"centang <em>Diterima</em> setelah diperiksa. Ketika ulasan terlambat, ikon "
+"amplop merah muncul untuk mengingatkan peninjau."
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Temukan Peninjau"
+
+msgid "editor.submission.addReviewer"
+msgstr "Tambah Peninjau"
+
+msgid "editor.submission.revisions"
+msgstr "Revisi"
+
+msgid "editor.submission.selectFiles"
+msgstr "Pilih File"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Unggah/Pilih File"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Anda harus memilih pengguna untuk ditugaskan."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Jangan mengirimkan surel ke Auditor"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Anda harus menyertakan pesan pribadi."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Anda harus memilih setidaknya satu file untuk ditugaskan ke pengguna."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Dikirim untuk review putaran baru."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Pilih file di bawah ini untuk masuk ke tahap review."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Kirim pesan ke pengguna"
+
+msgid "editor.review.notInitiated"
+msgstr "Proses review belum dimulai."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Ubah keputusan"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Naskah diterima untuk di-review."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Kirim ke bagian produksi."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Naskah diterbitkan."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Naskah diterima."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Naskah ditolak."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Keputusan direkam"
+
+msgid "editor.submissionLibrary"
+msgstr "Pustaka"
+
+msgid "editor.activityLog"
+msgstr "Log Kegiatan"
+
+msgid "reviewer.list.empty"
+msgstr "Tidak ada mitra bestari"
+
+msgid "reviewer.list.biography"
+msgstr "Biografi"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Minat Mereview pada Disiplin Ilmu"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Buka"
+
+#, fuzzy
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Mitra bestari ini dikunci karena telah diberi peran yang memungkinkannya "
+"untuk melihat identitas penulis. Blind peer review tidak terjamin. Apakah "
+"Anda ingin membuka akses mitra bestari ini?"
+
+msgid "reviewer.list.reassign"
+msgstr "Tugaskan ulang"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Mitra bestari ini telah ditugaskan mereview naskah ini."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Tidak pernah ditugaskan"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Rerata jumalh hari menyelesaikan review"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Hari sejak penugasan review terakhir"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Kemarin"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} hari yang lalu"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Nilai mitra bestari: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Permintaan review dibatalkan"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Permintaan review ditolak"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Review rampung"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Review aktif yang sedang ditugaskan"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktif"
+
+msgid "reviewer.list.filterRating"
+msgstr "Nilai minimal"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Pola {$pattern} tidak diperbolehkan untuk identifier publik."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Identifier publik '{$publicIdentifier}' tidak boleh berisi angka."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Cabut kembali pengesahan proof ini untuk menandai bahwa proofreading belum "
+"selesai dan file belum siap diterbitkan."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Sahkan proof ini untuk menandai bahwa proofreading telah selesai dan file "
+"siap diterbitkan."
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Cabut Kembali Persetujuan Proof"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Sahkan Proof"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Mitra Bestari yang Dipilih"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "File dapat dilampirkan dalam diskusi ini dari daftar di bawan ini."
+
+msgid "grid.action.editQuery"
+msgstr "Sunting Diskusi"
+
+msgid "submission.queries.attachedFiles"
+msgstr "File Terlampir"
+
+msgid "submission.queries.messageRequired"
+msgstr "Pesan diskusi perlu ditambahkan."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Subjek diskusi perlu ditambahkan."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Anda belum memilih file untu ditelaah oleh mitra bestari."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Tidak Ada File Yang Dipilih"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Peringatan: Mengubah borang review akan mempengaruhi jawaban yang telah "
+"diserahkan oleh mitra bestari?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Pilih Borang Review"
+
+msgid "editor.article.reviewForms"
+msgstr "Borang Review"
+
+msgid "editor.submission.createNewRound"
+msgstr "Buat Tahapan Review Baru"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Anda akan membuat ronde review baru untuk naskah ini. File yang belum "
+"digunakan pada review lain ditampilkan di bawah ini."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Jangan buat diskusi tentang review."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Yakin ingin membatalkan keputusan untuk menolak naskah ini?"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Partiipan yang dipilih tidak ditugaskan pada tahap ini."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Diskusi tidak bisa dibuat dengan partisipan yang dipilih karena akan "
+"mempengaruhi keanoniman proses review."

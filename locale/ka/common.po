@@ -1,0 +1,2180 @@
+# Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-04-22 08:57+0000\n"
+"Last-Translator: Dimitri Gogelia <dimitri.gogelia@iliauni.edu.ge>\n"
+"Language-Team: Georgian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
+"ka_GE/>\n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "კონფიდენციალურობის პარამეტრი"
+
+msgid "user.email"
+msgstr "ელფოსტის მისამართი"
+
+msgid "navigation.goBack"
+msgstr "უკან გადასვლა"
+
+msgid "validator.required"
+msgstr "ეს ველი სავალდებულოა."
+
+msgid "validator.filled"
+msgstr "ეს ველი სავალდებულოა."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "გაუქმება"
+
+msgid "context.path"
+msgstr "მდებარეობა"
+
+msgid "search.title"
+msgstr "სათაური"
+
+msgid "search.searchResults"
+msgstr "ძებნის შედეგები"
+
+msgid "search.SearchFor"
+msgstr "მოძებნე"
+
+msgid "search.operator.or"
+msgstr "ან"
+
+msgid "search.operator.and"
+msgstr "და"
+
+msgid "search.noResults"
+msgstr "შედეგი არ არის"
+
+msgid "search.deleteFilter"
+msgstr "წაშლა"
+
+msgid "notification.notifications"
+msgstr "შეტყობინებები"
+
+msgid "notification.notification"
+msgstr "შეტყობინება"
+
+msgid "navigation.viewFrontend"
+msgstr "საიტის ნახვა"
+
+msgid "navigation.userManagement"
+msgstr "მომხმარებლების მართვა"
+
+msgid "navigation.user"
+msgstr "მომხმარებელი"
+
+msgid "navigation.submissions"
+msgstr "გაგზავნილი მასალები"
+
+msgid "navigation.skip.main"
+msgstr "გადასვლა ძირითად შიგთავსზე"
+
+msgid "navigation.setup"
+msgstr "ინსტალაცია"
+
+msgid "navigation.settings"
+msgstr "პარამეტრები"
+
+msgid "navigation.search"
+msgstr "ძებნა"
+
+msgid "navigation.register"
+msgstr "რეგისტრაცია"
+
+msgid "navigation.nextStep"
+msgstr "შემდეგი ბიჯი"
+
+msgid "navigation.login"
+msgstr "შესვლა"
+
+msgid "navigation.home"
+msgstr "საწყისი"
+
+msgid "navigation.data"
+msgstr "მონაცემები"
+
+msgid "navigation.dashboard"
+msgstr "კონსოლი"
+
+msgid "navigation.browse"
+msgstr "დათვალიერება"
+
+msgid "navigation.tools"
+msgstr "ხელსაწყოები"
+
+msgid "navigation.archives"
+msgstr "არქივები"
+
+msgid "navigation.admin"
+msgstr "ადმინისტრირება"
+
+msgid "navigation.about"
+msgstr "შესახებ"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "წვდომის უფლებები"
+
+msgid "stageParticipants.notify.message"
+msgstr "წერილი"
+
+msgid "icon.view.alt"
+msgstr "ნახვა"
+
+msgid "icon.unchecked.alt"
+msgstr "გადაუმოწმებელი"
+
+msgid "icon.letter.alt"
+msgstr "სიმბოლო"
+
+msgid "icon.info.alt"
+msgstr "ინფორმაცია"
+
+msgid "icon.font_small.alt"
+msgstr "პატარა"
+
+msgid "icon.font_medium.alt"
+msgstr "საშუალო"
+
+msgid "icon.font_large.alt"
+msgstr "დიდი"
+
+msgid "icon.edit.alt"
+msgstr "ჩასწორება"
+
+msgid "icon.delete.alt"
+msgstr "წაშლა"
+
+msgid "icon.comment.alt"
+msgstr "კომენტარი"
+
+msgid "help.next"
+msgstr "შემდეგი"
+
+msgid "help.previous"
+msgstr "წინა"
+
+msgid "help.toc"
+msgstr "თავფურცელი"
+
+msgid "help.help"
+msgstr "დახმარება"
+
+msgid "form.submit"
+msgstr "გაგზავნა"
+
+msgid "form.send"
+msgstr "გაგზავნა"
+
+msgid "form.saved"
+msgstr "შენახულია"
+
+msgid "form.confirmSubmit.title"
+msgstr "დადასტურება"
+
+msgid "email.to"
+msgstr "მიმღები"
+
+msgid "email.subject"
+msgstr "თემა"
+
+msgid "email.send"
+msgstr "გაგზავნა"
+
+msgid "email.from"
+msgstr "გამგზავნი"
+
+msgid "email.email"
+msgstr "ელფოსტა"
+
+msgid "email.compose"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "email.body"
+msgstr "ძირითადი ნაწილი"
+
+msgid "email.attachments"
+msgstr "დანართები"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "ფაილის ატვირთვა"
+
+msgid "debug.notes"
+msgstr "შენიშვნები:"
+
+msgid "common.count"
+msgstr "რაოდენობა"
+
+msgid "common.plugins"
+msgstr "პლაგინები"
+
+msgid "common.loading"
+msgstr "ჩატვირთვა"
+
+msgid "common.yes"
+msgstr "დიახ"
+
+msgid "common.year"
+msgstr "წელი"
+
+msgid "common.width"
+msgstr "სიგანე"
+
+msgid "common.weeks"
+msgstr "კვირები"
+
+msgid "common.viewProfile"
+msgstr "პროფილის ნახვა"
+
+msgid "common.view"
+msgstr "ნახვა"
+
+msgid "common.user"
+msgstr "მომხმარებელი"
+
+msgid "common.url"
+msgstr "URL-მისამართი"
+
+msgid "common.upload.addFile"
+msgstr "ფაილი"
+
+msgid "common.up"
+msgstr "ზემოთ"
+
+msgid "common.upload"
+msgstr "ატვირთვა"
+
+msgid "common.updated"
+msgstr "განახლებული"
+
+msgid "common.untitled"
+msgstr "უსათაურო"
+
+msgid "common.unread"
+msgstr "წაუკითხავი"
+
+msgid "common.component"
+msgstr "კომპონენტი"
+
+msgid "common.type"
+msgstr "ტიპი"
+
+msgid "common.true"
+msgstr "ჭეშმარიტი"
+
+msgid "common.top"
+msgstr "ზემოთ"
+
+msgid "common.title"
+msgstr "სათაური"
+
+msgid "common.submenu"
+msgstr "ქვემენიუ"
+
+msgid "common.subject"
+msgstr "თემა"
+
+msgid "common.status"
+msgstr "სტატუსი"
+
+msgid "common.source"
+msgstr "წყარო"
+
+msgid "common.size"
+msgstr "ზომა"
+
+msgid "common.sendEmail"
+msgstr "ელფოსტის გაგზავნა"
+
+msgid "common.select"
+msgstr "მონიშვნა"
+
+msgid "common.selectAll"
+msgstr "ყველას მონიშვნა"
+
+msgid "common.search"
+msgstr "ძებნა"
+
+msgid "common.saving"
+msgstr "შენახვა"
+
+msgid "common.save"
+msgstr "დამახსოვრება"
+
+msgid "common.reset"
+msgstr "ჩამოყრა"
+
+msgid "common.required"
+msgstr "სავალდებულო"
+
+msgid "common.remove"
+msgstr "წაშლა"
+
+msgid "common.related"
+msgstr "მსგავსი"
+
+msgid "common.refresh"
+msgstr "განახლება"
+
+msgid "common.readMore"
+msgstr "დაწვრილებით"
+
+msgid "common.preview"
+msgstr "გადახედვა"
+
+msgid "common.prefix"
+msgstr "პრეფიქსი"
+
+msgid "common.plugin"
+msgstr "პლაგინი"
+
+msgid "common.pagination.previous"
+msgstr "წინა გვერდი"
+
+msgid "common.pagination.next"
+msgstr "შემდეგი გვერდი"
+
+msgid "common.other"
+msgstr "სხვა"
+
+msgid "common.or"
+msgstr "ან"
+
+msgid "common.order"
+msgstr "დალაგება"
+
+msgid "common.options"
+msgstr "პარამეტრები"
+
+msgid "common.ok"
+msgstr "კარგი"
+
+msgid "common.off"
+msgstr "გამორთვა"
+
+msgid "common.notes"
+msgstr "შენიშვნები"
+
+msgid "common.note"
+msgstr "შენიშვნა"
+
+msgid "common.notAvailable"
+msgstr "მიუწვდომელი"
+
+msgid "common.notApplicableShort"
+msgstr "არ არის"
+
+msgid "common.noComments"
+msgstr "კომენტარები ჯერ არ არის"
+
+msgid "common.noItemsFound"
+msgstr "ელემენტები ვერ მოიძებნა."
+
+msgid "common.no"
+msgstr "არა"
+
+msgid "common.none"
+msgstr "არაფერი"
+
+msgid "common.more"
+msgstr "მეტი პარამეტრი"
+
+msgid "common.month"
+msgstr "თვე"
+
+msgid "common.manage"
+msgstr "მართვა"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.less"
+msgstr "ნაკლები"
+
+msgid "common.languages"
+msgstr "ენები"
+
+msgid "common.language"
+msgstr "ენა"
+
+msgid "common.keywords"
+msgstr "საკვანძო სიტყვები"
+
+msgid "common.import"
+msgstr "იმპორტი"
+
+msgid "common.id"
+msgstr "იდენტიფიკატორი"
+
+msgid "common.hour"
+msgstr "საათი"
+
+msgid "common.homepageNavigationLabel"
+msgstr "საწყისი"
+
+msgid "common.height"
+msgstr "სიმაღლე"
+
+msgid "common.fileType"
+msgstr "ფაილის ტიპი"
+
+msgid "common.file"
+msgstr "ფაილი"
+
+msgid "common.false"
+msgstr "მცდარი"
+
+msgid "common.fullscreen"
+msgstr "მთელ ეკრანზე"
+
+msgid "common.finish"
+msgstr "დასრულება"
+
+msgid "common.export"
+msgstr "ექსპორტი"
+
+msgid "common.event"
+msgstr "ღონისძიება"
+
+msgid "common.enabled"
+msgstr "ჩართული"
+
+msgid "common.enable"
+msgstr "ჩართვა"
+
+msgid "common.edit"
+msgstr "ჩასწორება"
+
+msgid "common.download"
+msgstr "ჩამოტვირთვა"
+
+msgid "common.done"
+msgstr "მზადაა"
+
+msgid "common.disabled"
+msgstr "გამორთული"
+
+msgid "common.disable"
+msgstr "გამორთვა"
+
+msgid "common.description"
+msgstr "აღწერა"
+
+msgid "common.delete"
+msgstr "წაშლა"
+
+msgid "common.declined"
+msgstr "უარყოფილია"
+
+msgid "common.default"
+msgstr "ნაგულისხმევი"
+
+msgid "common.deactivate"
+msgstr "გამორთვა"
+
+msgid "common.day"
+msgstr "დღე"
+
+msgid "common.date"
+msgstr "თარიღი"
+
+msgid "common.create"
+msgstr "შექმნა"
+
+msgid "common.country"
+msgstr "ქვეყანა"
+
+msgid "common.copy"
+msgstr "კოპირება"
+
+msgid "common.continue"
+msgstr "გაგრძელება"
+
+msgid "common.content"
+msgstr "შიგთავსი"
+
+msgid "common.confirm"
+msgstr "დადასტურება"
+
+msgid "common.completed"
+msgstr "შესრულდა"
+
+msgid "common.complete"
+msgstr "დასრულებულია"
+
+msgid "common.close"
+msgstr "დახურვა"
+
+msgid "common.changesSaved"
+msgstr "თქვენი ცვლილებები დამახსოვრებულია."
+
+msgid "common.notice"
+msgstr "შენიშვნა"
+
+msgid "common.error"
+msgstr "შეცდომა"
+
+msgid "common.warning"
+msgstr "გაფრთხილება"
+
+msgid "common.cancelled"
+msgstr "გაუქმებული"
+
+msgid "common.cancel"
+msgstr "გაუქმება"
+
+msgid "common.back"
+msgstr "უკან"
+
+msgid "common.available"
+msgstr "ხელმისაწვდომი"
+
+msgid "common.and"
+msgstr "და"
+
+msgid "common.all"
+msgstr "ყველა"
+
+msgid "common.name"
+msgstr "სახელი"
+
+msgid "common.add"
+msgstr "დამატება"
+
+msgid "common.inactive"
+msgstr "არააქტიური"
+
+msgid "common.active"
+msgstr "აქტიური"
+
+msgid "common.activate"
+msgstr "გააქტიურება"
+
+msgid "common.action"
+msgstr "მოქმედება"
+
+msgid "common.accepted"
+msgstr "მიღებულია"
+
+msgid "common.grid"
+msgstr "ცხრილი"
+
+msgid "common.list"
+msgstr "სია"
+
+msgid "common.navigation.sidebar"
+msgstr "გვერდითი პანელი"
+
+msgid "announcement.posted"
+msgstr "გამოქვეყნებულია"
+
+msgid "announcement.announcementsHome"
+msgstr "განცხადებები"
+
+msgid "announcement.announcements"
+msgstr "განცხადებები"
+
+msgid "about.policies"
+msgstr "პოლიტიკები"
+
+msgid "about.people"
+msgstr "მომხმარებლები"
+
+msgid "about.other"
+msgstr "სხვა"
+
+msgid "about.contact.phone"
+msgstr "ტელეფონი"
+
+msgid "about.contact.email"
+msgstr "ელფოსტა"
+
+msgid "about.contact"
+msgstr "კონტაქტი"
+
+msgid "about.description"
+msgstr "აღწერა"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.remoteURL"
+msgstr "RemoteURL"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "list.viewLess"
+msgstr "გაფართოებული დეტალების დამალვა {$name}"
+
+msgid "list.viewMore"
+msgstr "მეტი ინფორმაციის ჩვენება {$name}"
+
+msgid "dashboard.myQueue"
+msgstr "ჩემი რიგი"
+
+msgid "dashboard.tasks"
+msgstr "ამოცანები"
+
+msgid "grid.action.markRead"
+msgstr "წაკითხულად მონიშვნა"
+
+msgid "grid.action.markNew"
+msgstr "მონიშნე ახალი"
+
+msgid "grid.action.deleteNotification"
+msgstr "ამოცანის წაშლა"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "წაიკითხეთ განხილვის მიმდინარე პოლიტიკა"
+
+msgid "grid.action.downloadFile"
+msgstr "ამ ფაილის ჩამოტვირთვა"
+
+msgid "navigation.backTo"
+msgstr "⟵ დაბრუნება {$page}"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "თქვენ იმყოფებით აქ:"
+
+msgid "navigation.access"
+msgstr "მომხმარებლები და როლები"
+
+msgid "locale.supported"
+msgstr "მხარდაჭერილი ენები"
+
+msgid "locale.primary"
+msgstr "ძირითადი ენა"
+
+msgid "informationCenter.history.messageSent"
+msgstr "შეტყობინება გაგზავნილია მომხმარებლებისთვის."
+
+msgid "informationCenter.history.notePosted"
+msgstr "გამოქვეყნდა ახალი შენიშვნა."
+
+msgid "informationCenter.history.noItems"
+msgstr "არანაირი მოვლენა არ არის რეგისტრირებული."
+
+msgid "informationCenter.pastHistory"
+msgstr "ადრინდელი ვერსიები"
+
+msgid "informationCenter.currentHistory"
+msgstr "მიმდინარე ვერსია"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ წაშალოთ ეს შენიშვნა?"
+
+msgid "informationCenter.pastNotes"
+msgstr "ადრინდელი ვერსიების შენიშვნები"
+
+msgid "informationCenter.noNotes"
+msgstr "არ არის შენიშვნები საჩვენებლად."
+
+msgid "informationCenter.addNote"
+msgstr "შენიშვნის დამატება"
+
+msgid "informationCenter.editorialHistory"
+msgstr "ჩასწორების ისტორია"
+
+msgid "informationCenter.informationCenter"
+msgstr "საინფორმაციო ცენტრი"
+
+msgid "icon.mail.alt"
+msgstr "ფოსტა"
+
+msgid "icon.folder.alt"
+msgstr "საქაღალდე"
+
+msgid "icon.checked.alt"
+msgstr "შემოწმებული"
+
+msgid "help.upALevel"
+msgstr "დონის ამაღლება"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} ენა დასრულებულია"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} — {$localeName}"
+
+msgid "form.invalidImage"
+msgstr "აიტვირთა არასწორი სურათი. მიღებული ფორმატებია .png, .gif ან .jpg."
+
+msgid "form.saveToUpload"
+msgstr "გამოიყენეთ შენახვა ფაილის ასატვირთად."
+
+msgid "form.resubmit"
+msgstr "ხელახლა გაგზავნა"
+
+msgid "form.requireId"
+msgstr "თქვენ უნდა მიუთითოთ მოქმედი იდენტიფიკატორი."
+
+msgid "form.requirePrimaryLocale"
+msgstr "თქვენ უნდა შეავსოთ ეს ველი: {$language}."
+
+msgid "form.required"
+msgstr "(* მოთხოვნილი)"
+
+msgid "form.fileRequired"
+msgstr "ფაილის ატვირთვა აუცილებელია."
+
+msgid "form.csrfInvalid"
+msgstr ""
+"ფორმის წარდგენა ვერ მოხერხდა. თქვენ შეიძლება გამოსული ხართ. გთხოვთ, "
+"გადატვირთოთ გვერდი და ისევ სცადოთ."
+
+msgid "form.postRequired"
+msgstr "ფორმა სათანადოდ არ იქნა წარდგენილი."
+
+msgid "form.startsWith"
+msgstr "იწყება"
+
+msgid "form.is"
+msgstr "არის"
+
+msgid "form.contains"
+msgstr "შეიცავს"
+
+msgid "form.formLanguage"
+msgstr "ფორმის ენა"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"ქვემოთ მოცემული ინფორმაციის დამატებით ენებზე შესაყვანად, ჯერ აირჩიეთ ენა."
+
+msgid "form.errorsOccurred"
+msgstr "ამ ფორმის დამუშავებისას მოხდა შეცდომები"
+
+msgid "form.errors"
+msgstr ""
+"ფორმა არ იქნა შენახული, რადგან მოხდა {$count} შეცდომა. გთხოვთ, შეასწოროთ ეს "
+"შეცდომები და ისევ სცადოთ."
+
+msgid "form.errorMany"
+msgstr "გთხოვთ, შეასწოროთ {$count} შეცდომა."
+
+msgid "form.errorOne"
+msgstr "გთხოვთ, გამოასწოროთ ერთი შეცდომა."
+
+msgid "form.errorGoTo"
+msgstr "შემდეგ შეცდომაზე გადასვლა"
+
+msgid "form.errorA11y"
+msgstr "გადასვლა {$fieldLabel}: {$errorMessage}"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "თქვენ აღარ შეგიძლიათ ფაილების ატვირთვა."
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "ფაილის წაშლა"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ატვირთვის გაუქმება?"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "ატვირთვა გაუქმებულია"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "ატვირთვის გაუქმება"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"სერვერმა უპასუხა {{statusCode}} კოდით. თუ ეს პრობლემა გამეორდება, გთხოვთ, "
+"დაუკავშირდეთ სისტემის ადმინისტრატორს."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "ამ ტიპის ფაილების ატვირთვა შეუძლებელია."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"ფაილი ძალიან დიდია ({{filesize}}mb). {{maxFilesize}} მბაიტზე მეტი ფაილების "
+"ატვირთვა შეუძლებელია."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"თქვენი ფაილების ატვირთვისთვის გთხოვთ გამოიყენოთ ქვემოთ მოცემული მითითებული "
+"ფორმა."
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"თქვენს ბრაუზერს არ აქვს ფაილის ატვირთვის გადათრევის და დაგდების მხარდაჭერა."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "დაყარეთ ფაილები აქ ასატვირთად"
+
+msgid "form.disallowedProp"
+msgstr "ეს საგანი დაუშვებელია."
+
+msgid "form.disallowedLocales"
+msgstr "დასაშვებია მხოლოდ შემდეგი ენები: {$languages}."
+
+msgid "form.dataHasChanged"
+msgstr "ამ ფორმის მონაცემები შეიცვალა. გსურთ გააგრძელოთ შენახვის გარეშე?"
+
+msgid "form.confirmSubmit"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ამ ფორმის წარდგენა?"
+
+msgid "form.url.invalid"
+msgstr "მითითებული URL არასწორია. გთხოვთ, შეამოწმოთ ის და ისევ სცადოთ."
+
+msgid "email.bodyRequired"
+msgstr "გთხოვთ, მიუთითოთ ელფოსტის ტექსტი."
+
+msgid "email.subjectRequired"
+msgstr "გთხოვთ მიუთითოთ ელფოსტის თემა."
+
+msgid "email.skip"
+msgstr "ელფოსტის გამოტოვება"
+
+msgid "email.senderEmail"
+msgstr "გამგზავნის ელფოსტა"
+
+msgid "email.senderName"
+msgstr "გამგზავნის სახელი"
+
+msgid "email.sender"
+msgstr "გამგზავნი"
+
+msgid "email.recipients"
+msgstr "მიმღები"
+
+msgid "email.recipient"
+msgstr "მიმღები"
+
+msgid "email.multipart"
+msgstr "ეს არის მრავალმხრივი შეტყობინება MIME ფორმატში."
+
+msgid "email.invalid"
+msgstr "ელფოსტის მისამართი {$email} არასწორია."
+
+msgid "email.compose.error"
+msgstr ""
+"ელფოსტის გაგზავნისას პრობლემა წარმოიშვა. გთხოვთ, სცადოთ მოგვიანებით, ან "
+"დაუკავშირდეთ თქვენი სისტემის ადმინისტრატორს."
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"თქვენი წერილის გაგზავნის შემდეგ თქვენ ცდილობთ ძალიან მალე გაგზავნოთ "
+"შეტყობინება. გთხოვთ, დაელოდოთ სხვა შეტყობინების გაგზავნამდე."
+
+msgid "email.compose.tooManyRecipients"
+msgstr "შეტყობინებას, რომლის გაგზავნაცსაც ცდილობთ, ძალიან ბევრი ადრესატია."
+
+msgid "email.cc"
+msgstr "ასლი"
+
+msgid "email.bccSender"
+msgstr "გაგზავნეთ ამ წერილის ასლი ჩემს მისამართზე ({$address})"
+
+msgid "email.bcc"
+msgstr "უხილავი ასლი"
+
+msgid "email.addToRecipient"
+msgstr "ადრესატის დამატება"
+
+msgid "email.addCcRecipient"
+msgstr "ასლის დამატება"
+
+msgid "email.addBccRecipient"
+msgstr "უხილავი ასლის დამატება"
+
+msgid "email.addAttachment"
+msgstr "დანართის დამატება"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "განხილვის ფაილის ატვირთვა"
+
+msgid "defaultMetric.title"
+msgstr "ნაგულისხმევი მეტრიკა"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "ენის გასაღები არ არის \"{$key}\"."
+
+msgid "debug.notes.localeLoad"
+msgstr "ჩატვირთულია ენების ფაილი \"{$localeFile}\" XML-ფაილიდან"
+
+msgid "debug.notes.localeListLoad"
+msgstr "ჩატვირთულია ენების სია \"{$localeList}\" XML-ფაილიდან"
+
+msgid "debug.memoryUsage"
+msgstr "მეხსიერების გამოყენება"
+
+msgid "debug.executionTime"
+msgstr "გვერდი დაგენერირებულია"
+
+msgid "debug.databaseQueries"
+msgstr "მონაცემთა ბაზის მოთხოვნების რაოდენობა"
+
+msgid "common.publicAccess"
+msgstr "საჯარო წვდომა"
+
+msgid "common.viewWithName"
+msgstr "ნახვა {$name}"
+
+msgid "common.user.nonexistent"
+msgstr "[არარსებული მომხმარებელი]"
+
+msgid "common.upload.dragFile"
+msgstr "გადათრიეთ და დააგდეთ ფაილი აქ ატვირთვის დასაწყებად"
+
+msgid "common.upload.changeFile"
+msgstr "ფაილის შეცვლა"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "ამჟამად შერჩეული სურათის გადახედვა."
+
+msgid "common.upload.restore"
+msgstr "ორიგინალის აღდგენა"
+
+msgid "common.addFile"
+msgstr "ფაილის დამატება"
+
+msgid "common.uploadFailed"
+msgstr "ფაილის ატვირთვა, ან გადასინჯვა ვერ მოხერხდა."
+
+msgid "common.uploadedDate"
+msgstr "ატვირთვის თარიღი"
+
+msgid "common.unknownError"
+msgstr "მოხდა მოულოდნელი შეცდომა. გთხოვთ, გადატვირთოთ გვერდი და ისევ სცადოთ."
+
+msgid "common.uninitiated"
+msgstr "გაუცნობიერებელი"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.suggest"
+msgstr "შემოთავაზება"
+
+msgid "common.subtitle"
+msgstr "ქვესათაური"
+
+msgid "common.subjects"
+msgstr "თემები"
+
+msgid "common.selectWithName"
+msgstr "მონიშნული {$name}"
+
+msgid "common.selectNone"
+msgstr "არცერთია მონიშნული"
+
+msgid "common.selectedPrefix"
+msgstr "მონიშნული:"
+
+msgid "common.second"
+msgstr "წამ(ებ)ი"
+
+msgid "common.clearSearch"
+msgstr "საძიებო ფრაზის გასუფთავება"
+
+msgid "common.searchQuery"
+msgstr "ძებნის მოთხოვნა"
+
+msgid "common.saveAndEmail"
+msgstr "შენახვა და ელფოსტით გაგზავნა"
+
+msgid "common.saveAndContinue"
+msgstr "შენახვა და გაგრძელება"
+
+msgid "common.requiredField"
+msgstr "* აღნიშნავს სავალდებულო ველს"
+
+msgid "common.replaceFile"
+msgstr "ფაილის ჩანაცვლება"
+
+msgid "common.replaced"
+msgstr "ჩანაცვლებული"
+
+msgid "common.removeSelection"
+msgstr "მონიშვნულის ამოღება"
+
+msgid "common.removeItem"
+msgstr "ამოღება: {$item}"
+
+msgid "common.remote"
+msgstr "დისტანციური"
+
+msgid "common.reminded.date"
+msgstr "შეხსენებული: {$dateReminded}"
+
+msgid "common.reminder"
+msgstr "შემხსენებელი"
+
+msgid "common.record"
+msgstr "ჩაწერა"
+
+msgid "common.readMoreWithTitle"
+msgstr "წაიკითხეთ მეტი {$title}"
+
+msgid "common.re"
+msgstr "გამოხმაურება:"
+
+msgid "common.queue.long.active"
+msgstr "ყველა აქტიური"
+
+msgid "common.quality"
+msgstr "ხარისხი"
+
+msgid "common.publisher"
+msgstr "გამომცემელი"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "მაგალითები: A, The"
+
+msgid "common.pluginDisabled"
+msgstr "პლაგინი \"{$pluginName}\" გამორთულია."
+
+msgid "common.pluginEnabled"
+msgstr "პლაგინი “{$pluginName}” ჩართულია."
+
+msgid "common.pageNumber"
+msgstr "გვერდი {$pageNumber}"
+
+msgid "common.pagination.goToPage"
+msgstr "გადასვლა {$page}"
+
+msgid "common.pagination.label"
+msgstr "დამატებითი გვერდების ნახვა"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} — {$total}"
+
+msgid "common.override"
+msgstr "გადაწერილი"
+
+msgid "common.overdue"
+msgstr "ვადაგადაცილებული"
+
+msgid "common.originalFileName"
+msgstr "ფაილის საწყისი სახელი"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle} პოზიციის შემცირება"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle} პოზიციის გაზრდა"
+
+msgid "common.on"
+msgstr "ჩართული"
+
+msgid "common.noMatches"
+msgstr "დამხთვევა არ არის"
+
+msgid "common.notified.date"
+msgstr "შეატყობინებული: {$dateNotified}"
+
+msgid "common.notified"
+msgstr "შეატყობინებული"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"შენიშვნები (ყვითელი: აქვს ახალი შენიშვნები; ლურჯი: ნანახი აქვს შენიშვნები; "
+"ნაცრისფერი: შენიშვნები არ არის)"
+
+msgid "common.noTemporaryFile"
+msgstr "თქვენ ატვირთული ფაილი ვერ მოიძებნა. გთხოვთ, ხელახლა ატვირთოთ იგი."
+
+msgid "common.notApplicable"
+msgstr "არ არის შესაბამისი"
+
+msgid "common.noneAssigned"
+msgstr "არცერთი არ არის მინიჭებული"
+
+msgid "common.moreThanOnly"
+msgstr "Მეტი ვიდრე"
+
+msgid "common.moreThan"
+msgstr "{$value}, ან მეტი"
+
+msgid "common.modify"
+msgstr "შეცვლა"
+
+msgid "common.minute"
+msgstr "წუთ(ებ)ი"
+
+msgid "common.billingAddress"
+msgstr "გადახდის მისამართი (თუ განსხვავებულია)"
+
+msgid "common.mailingAddress"
+msgstr "Საფოსტო მისამართი"
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.lessThanOnly"
+msgstr "ნაკლები, ვიდრე"
+
+msgid "common.lessThan"
+msgstr "{$value}, ან უფრო ნაკლები"
+
+msgid "common.lastActivity"
+msgstr "ბოლო აქტივობა ჩაწერილია {$date}."
+
+msgid "common.itemsPerPage"
+msgstr "ელემენტი ყოველ გვერდზე"
+
+msgid "common.inProgress"
+msgstr "მიმდინარეობს"
+
+msgid "common.initiate"
+msgstr "წამოწყება"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "მთავარი გვერდის სათაური"
+
+msgid "common.go"
+msgstr "გადასვლა"
+
+msgid "common.filterRemove"
+msgstr "ფილტრის გასუფთავება: {$filterTitle}"
+
+msgid "common.filterAdd"
+msgstr "ფილტრის დამატება: {$filterTitle}"
+
+msgid "common.filter"
+msgstr "ფილტრები"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"იტვირთება სისტემის ფაილების ამტვირთავი. თუ ის არ გამოჩნდება, სავარაუდოდ "
+"არცერთი მისი შესრულების დრო არ არის მხარდაჭერილი ამ ბრაუზერის მიერ. "
+"დახმარების მისაღებად დაუკავშირდით ადმინისტრაციას."
+
+msgid "common.fileSize"
+msgstr "ფაილი ზომა"
+
+msgid "common.fileName"
+msgstr "ფაილის სახელი"
+
+msgid "common.file.namingPattern"
+msgstr "დადასტურებულია"
+
+msgid "common.fullscreenOff"
+msgstr "მთლიანი ეკრანი გამორთულია"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"ამ გვერდზე საჭიროა ჩარჩოები. არა-ჩარჩოების ვერსიისთვის <a href=\"{$url}\">"
+"დააჭირეთ აქ</a>."
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "მოხდა მონაცემთა ბაზასთან კავშირის უცნობი შეცდომა."
+
+msgid "common.error.databaseError"
+msgstr "მოხდა მონაცემთა ბაზის შეცდომა: {$error}"
+
+msgid "common.editItem"
+msgstr "ჩასწორება {$name}"
+
+msgid "common.downloadPdf"
+msgstr "PDF-ფაილის ჩამოტვირთვა"
+
+msgid "common.discipline"
+msgstr "დისციპლინა"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} პიქსელი"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; — {$dpi} DPI/PPI"
+
+msgid "common.designation"
+msgstr "დანიშნულება"
+
+msgid "common.deleteSelection"
+msgstr "მონშნულის წაშლა"
+
+msgid "common.deleting"
+msgstr "წაშლა"
+
+msgid "common.dateHijri"
+msgstr "ჰიჯრის კალენდარი"
+
+msgid "common.dateUploaded"
+msgstr "ატვირთვის თარიღი"
+
+msgid "common.dateSubmitted"
+msgstr "გაგზავნის თარიღი"
+
+msgid "common.dateRequested"
+msgstr "მოთხოვნის თარიღი"
+
+msgid "common.dateModified"
+msgstr "ცვლილების თარიღი"
+
+msgid "common.dateDecided"
+msgstr "გადაწყვეტის თარიღი"
+
+msgid "common.dateCompleted"
+msgstr "დასრულების თარიღი"
+
+msgid "common.contents"
+msgstr "შინაარსი"
+
+msgid "common.confirmed.date"
+msgstr "დადასტურებულია: {$dateConfirmed}"
+
+msgid "common.completed.date"
+msgstr "დასრულებული: {$dateCompleted}"
+
+msgid "common.closeWindow"
+msgstr "ფანჯრის დახურვა"
+
+msgid "common.closePanel"
+msgstr "პანელის დახურვა"
+
+msgid "common.chooseOne"
+msgstr "აირჩიეთ ერთი"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tეს ნამუშევარი ვრცელდება <a rel=\"license\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
+"Commons Attribution 3.0 ლიცენზიით</a>.\n"
+"\t</div>\n"
+"\t"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tეს სამუშაო ვრცელდება <a rel=\"license\" target=\"_blank\" href=\""
+"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
+"3.0  ლიცენზიით</a>.\n"
+"\t"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"თქვენ უნდა დაასრულოთ ვალიდაციის შემოწმება, რომელიც გამოიყენება სპამის "
+"გაგზავნის თავიდან ასაცილებლად."
+
+msgid "common.between"
+msgstr "შორის"
+
+msgid "common.assigned.date"
+msgstr "მინიჭებული: {$dateAssigned}"
+
+msgid "common.assigned"
+msgstr "მინიჭებული"
+
+msgid "common.assign"
+msgstr "მინიჭება"
+
+msgid "common.applyAction"
+msgstr "მოქმედების მისადაგება"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"აღწერეთ ეს სურათი სტუმრებისთვის, რომლებიც ნახულობენ საიტს მხოლოდ ტექსტური "
+"ბრაუზერით ან დამხმარე მოწყობილობებით. მაგალითი: \"ჩვენი რედაქტორი, რომელიც "
+"PKP კონფერენციაზე საუბრობს.\""
+
+msgid "common.altText"
+msgstr "ალტერნატიული ტექსტი"
+
+msgid "common.alreadyAssigned"
+msgstr "მინიჭებული"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.addSelf"
+msgstr "თვითდამატება"
+
+msgid "common.acknowledged"
+msgstr "აღიარებული"
+
+msgid "common.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "common.confirmDelete"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ ამ ერთეულის წაშლა? ამ მოქმედების გაუქმება "
+"შეუძლებელია."
+
+msgid "common.tasks"
+msgstr "ამოცანები"
+
+msgid "common.navigation.user"
+msgstr "მომხმარებლის ნავიგაცია"
+
+msgid "common.navigation.siteContext"
+msgstr "საიტის კონტექსტში ნავიგაცია"
+
+msgid "common.navigation.site"
+msgstr "საიტის ნავიგაცია"
+
+msgid "common.allDownloads"
+msgstr "ყველა გადმოტვირთვა"
+
+msgid "announcement.view"
+msgstr "განცხადების ნახვა"
+
+msgid "announcement.postedOn"
+msgstr "გამოქვეყნებულია: {$postDate}"
+
+msgid "announcement.noneExist"
+msgstr "განცხადებები ჯერ არ არის გამოქვეყნებული."
+
+msgid "announcement.moreAnnouncements"
+msgstr "მეტი განცხადება…"
+
+msgid "about.siteMap"
+msgstr "საიტის რუკა"
+
+msgid "about.contact.supportContact"
+msgstr "ტექნიკური მხარდაჭერის კონტაქტი"
+
+msgid "about.contact.principalContact"
+msgstr "ძირითადი კონტაქტი"
+
+msgid "about.aboutSite"
+msgstr "საიტის შესახებ"
+
+msgid "about.guidelines"
+msgstr "სახელმძღვანელოები"
+
+msgid "common.currentStyleSheet"
+msgstr "ამჟამინდელი სტილის ფაილი"
+
+msgid "common.publicKnowledgeProject"
+msgstr "საზოგადოებრივი ცოდნის პროექტი"
+
+msgid "validator.required_with"
+msgstr "ეს ველი საჭიროა, როდესაც არსებობს {$values}."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.type.editorialReport"
+msgstr "სტატისტიკის ანგარიშის შეჯამება."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} რაუნდის სტატუსი"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "ლიტერატურული რედაქტირების მოლოდინში."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "დანიშნეთ კოპირება, მონაწილეთა სიაში მიკუთვნებული ბმულის გამოყენებით."
+
+msgid "notification.type.queryAdded"
+msgstr "დისკუსია დაემატა."
+
+msgid "notification.type.queryActivity"
+msgstr "სადისკუსიო აქტივობა."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"ამჟამინდელი მომხმარებელი არ არის მოთხოვნილი წარდგენის ავტორი. გთხოვთ, "
+"გადაამოწმოთ, რომ სისტემაში შესული ხართ მომხმარებლის სწორი ანგარიშით."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"ამჟამად არ გაქვთ საკმარისი პრივილეგიები წარდგენის სანახავად. გთხოვთ, "
+"შეცვალოთ თქვენი პროფილი, რათა დარწმუნდეთ, რომ მიენიჭათ შესაბამისი როლები \""
+"რეგისტრაცია როგორც\"."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "თქვენ არ გაქვთ წვდომა ამ მიმოხილვის დავალებაზე."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "თქვენ არ გაქვთ წვდომა ამ სადისკუსიო შეტყობინებაზე."
+
+msgid "user.authorization.invalidQuery"
+msgstr "არასწორი დისკუსია."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "განხილვის არასწორი რაუნდი."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "არასწორი წარმომადგენლობა."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "არასწორი წარდგენა."
+
+msgid "user.authorization.invalidPublication"
+msgstr "არასწორი გამოცემა."
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"ამჟამინდელ მომხმარებელს არა აქვს უფლებამოსილება წვდომის მითითებულ წარსადგენ "
+"ფაილზე."
+
+msgid "notification.signedFile"
+msgstr "ფაილი განიხილება."
+
+msgid "notification.type.reviewerComment"
+msgstr "რეცენზენტმა კომენტარი გააკეთა \"{$title}\"-ზე."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "შესწორებები შეტანილია {$stage}-ზე."
+
+msgid "notification.type.pendingRevisions"
+msgstr "შესწორებები, რომელთა განხილვაც შესაძლებელია {$stage}-ზე."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "შესწორებული ფაილი აიტვირთა თქვენი სარედაქციო განხილვისთვის {$stage}-ზე."
+
+msgid "notification.type.allReviewsIn"
+msgstr "ყველა მიმომხილველმა უპასუხა და გადაწყვეტილება საჭიროა {$stage}-ზე."
+
+msgid "notification.type.auditorRequest"
+msgstr "აუდიტის მოთხოვნა \"{$file}\"-ისთვის"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "მიმოხილვის დავალება განახლდა."
+
+msgid "notification.type.reviewAssignment"
+msgstr "განხილვა მოლოდინის რეჟიმში."
+
+msgid "notification.type.newAnnouncement"
+msgstr "ახალი განცხადება."
+
+msgid "notification.editStageParticipant"
+msgstr "შეიცვალა სასცენო დავალება."
+
+msgid "notification.addedStageParticipant"
+msgstr "მომხმარებელმა დაამატა, როგორც სცენის მონაწილე."
+
+msgid "notification.reinstatedReviewer"
+msgstr "მიმომხილველი აღდგა."
+
+msgid "notification.cancelledReviewer"
+msgstr "რეცენზენტი გაუქმდა."
+
+msgid "notification.removedReviewer"
+msgstr "რეფერენტი წაიშალა."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName}-ს დაევალა ამ წარდგინების განსახილველად და მას არ გაუგზავნეს "
+"ელ.ფოსტის შეტყობინება."
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName}-ს დაევალა ამ წარდგინების განსახილველად და გაგზავნა "
+"შეტყობინება ელფოსტით."
+
+msgid "submission.task.responseDueDate"
+msgstr "პასუხის ვადის თარიღი"
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr "განხილვის ვადის თარიღი"
+
+msgid "reviewer.submission.responseDueDate"
+msgstr "პასუხის ვადის თარიღი"
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "რედაქტორის მოთხოვნა"
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr "რეცენზირების გრაფიკი"
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+"<p>ანონიმური რეფერირების მთლიანობის უზრუნველსაყოფად, ყველაფერი უნდა "
+"გაკეთდეს, რომ ავტორებისა და რეცენზენტების ვინაობა არ იყოს ცნობილი "
+"ერთმანეთისთვის. ეს მოიცავს ავტორებს, რედაქტორებსა და რეცენზენტებს (რომლებიც "
+"ატვირთავენ დოკუმენტებს მათი მიმოხილვის ფარგლებში), რათა შეამოწმონ, "
+"გადადგმულია თუ არა შემდეგი ნაბიჯები ტექსტისა და ფაილის მახასიათებლებთან "
+"დაკავშირებით: </ p>\n"
+"<ul><li>დოკუმენტის ავტორებმა წაშალეს თავიანთი სახელები ტექსტიდან, ავტორების "
+"სახელით, სტატიის სათაურისა და სხვათა ნაცვლად, მითითებებში და სქოლიოებში "
+"გამოიყენეს “ავტორი” და წელი. </li>\n"
+"<li>დოკუმენტის ავტორებმა ფაილის თვისებებიდან წაშალეს პირადი ინფორმაცია "
+"შემდეგი ნაბიჯებით:\n"
+"<ul> <li> Microsoft Word Windows- ისთვის:\n"
+"<ul> <li> გადადით ფაილზე </ li>\n"
+"<li> აირჩიეთ ინფორმაცია </ li>\n"
+"<li> დააჭირეთ საკითხის შემოწმებას </ li>\n"
+"<li> დააჭირეთ დოკუმენტის შემოწმებას </ li>\n"
+"<li> დოკუმენტის ინსპექტორის დიალოგურ ფანჯარაში მონიშნეთ მონიშნეთ ველები, რომ "
+"აირჩიოთ თქვენთვის სასურველი გადასაფარებელი შინაარსის ტიპი.\n"
+"<li> დააჭირეთ ყველას წაშლა </ li>\n"
+"<li> დააჭირეთ დახურვას </ li>\n"
+"<li> შეინახეთ დოკუმენტი </ li> </ul>\n"
+"<li> Microsoft Word for MacOS:\n"
+"<ul> <li> გადადით ინსტრუმენტებზე </ li>\n"
+"<li> დააჭირეთ დოკუმენტის დაცვას </ li>\n"
+"<li> შეარჩიეთ ამ ფაილის პირადი ინფორმაციის ამოღება </ li>\n"
+"<li> დააჭირეთ ღილაკს OK და შეინახეთ ფაილი </ li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> გადადით ფაილზე </ li>\n"
+"<li> აირჩიეთ თვისებები </ li>\n"
+"<li> წაშალეთ ნებისმიერი სახელი ავტორის ველში </ li>\n"
+"<li> დააჭირეთ ღილაკს “კარგი”\n"
+"<li> შეინახეთ დოკუმენტი </li> </ul> </li> </ul>\n"
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"ელფოსტის მისამართი {$email} წარმატებით გაიხსნა. ამ ელწერილებს აღარ "
+"გამოგიგზავნით. <a href=\"{$profileNotificationUrl}\">თქვენი მომხმარებლის</a> "
+"პროფილიდან შეგიძლიათ ნებისმიერ დროს ხელახლა გამოიწეროთ ელფოსტის "
+"შეტყობინებები."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\">თქვენი მომხმარებლის</a> პროფილიდან "
+"შეგიძლიათ ნებისმიერ დროს ხელახლა გამოიწეროთ ელფოსტის შეტყობინებები."
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"აირჩიეთ ელფოსტა, რომლის მიღება აღარ გსურთ {$email}-ზე, {$contextName}-დან."
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "თქვენი გამოწერის გაუქმება ვერ მოხერხდა"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "თქვენ გააუქმეთ გამოწერა"
+
+msgid "notification.removedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით წაიშალა"
+
+msgid "notification.editedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით განახლდა"
+
+msgid "notification.addedNavigationMenu"
+msgstr "ნავიგაციის მენიუ წარმატებით დაემატა"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით დაემატა"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით წაიშალა"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "ნავიგაციის მენიუს ელემენტი წარმატებით განახლდა"
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"ეს არის ერთგვარი შეხსენება, რომ შეამოწმოთ თქვენი ჟურნალის ჯანმრთელობა "
+"სარედაქციო ანგარიშის საშუალებით."
+
+msgid "validator.url"
+msgstr "მოწოდებულია უვარგისი ბმული."
+
+msgid "validator.unique"
+msgstr "{$attribute} უკვე აღებულია."
+
+msgid "validator.timezone"
+msgstr "ეს არ არის მართებული დროის სარტყელი."
+
+msgid "validator.string"
+msgstr "ეს არ არის სწორი მწკრივი."
+
+msgid "validator.size.array"
+msgstr "ეს უნდა შეიცავდეს {$size} ელემენტს."
+
+msgid "validator.size.string"
+msgstr "ეს უნდა იყოს {$size} სიმბოლო."
+
+msgid "validator.size.file"
+msgstr "ეს უნდა იყოს {$size} კილობაიტი."
+
+msgid "validator.size.numeric"
+msgstr "ეს უნდა იყოს {$size}."
+
+msgid "validator.same"
+msgstr "{$attribute} და {$other} უნდა ემთხვეოდეს."
+
+msgid "validator.required_without_all"
+msgstr "ეს ველი საჭიროა, როდესაც არცერთი {$values} არ არის წარმოდგენილი."
+
+msgid "validator.required_without"
+msgstr "ეს ველი საჭიროა, როდესაც {$values} არ არის."
+
+msgid "validator.required_with_all"
+msgstr "ეს ველი საჭიროა, როდესაც არსებობს {$values}."
+
+msgid "validator.required_unless"
+msgstr "ეს ველი აუცილებელია, თუ {$other} არ არის {$values}."
+
+msgid "validator.required_if"
+msgstr "ეს ველი საჭიროა, როდესაც {$other} არის {$value}."
+
+msgid "validator.regex"
+msgstr "ეს არ არის ფორმატირებული სწორად."
+
+msgid "validator.present"
+msgstr "{$attribute} ველი უნდა იყოს წარმოდგენილი."
+
+msgid "validator.orcid"
+msgstr "ეს არ არის სწორი ORCID."
+
+msgid "validator.numeric"
+msgstr "ეს არ არის სწორი ნომერი."
+
+msgid "validator.not_in"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.min.array"
+msgstr "ამას უნდა ჰქონდეს მინიმუმ {$min} ერთეული."
+
+msgid "validator.min.string"
+msgstr "ეს უნდა იყოს მინიმუმ {$min} სიმბოლო."
+
+msgid "validator.min.file"
+msgstr "ეს უნდა იყოს მინიმუმ {$min} კილობაიტი."
+
+msgid "validator.min.numeric"
+msgstr "ამას უნდა ჰქონდეს მინიმუმ {$min} ერთეული."
+
+msgid "validator.mimes"
+msgstr "ეს უნდა იყოს ფაილის ტიპი {$values}."
+
+msgid "validator.max.array"
+msgstr "ამას შეიძლება არ ჰქონდეს {$max} ერთზე მეტი."
+
+msgid "validator.max.string"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max} სიმბოლოს."
+
+msgid "validator.max.file"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max} კილობაიტს."
+
+msgid "validator.max.numeric"
+msgstr "ეს შეიძლება არ აღემატებოდეს {$max}-ს."
+
+msgid "validator.localeKey"
+msgstr ""
+"ენები უნდა იყოს მითითებული ლოკალურ კოდის გამოყენებით. მაგალითები: en_US, "
+"fr_CA, sr_RS@cyrillic."
+
+msgid "validator.localeExpected"
+msgstr ""
+"ეს ველი არის მრავალენოვანი. ცალკეული მნიშვნელობები უნდა იყოს მითითებული "
+"თითოეული მხარდაჭერილი ენისთვის."
+
+msgid "validator.locale"
+msgstr "ეს ენა არ არის მიღებული."
+
+msgid "validator.json"
+msgstr "ეს არ არის სწორი JSON მწკრივი."
+
+msgid "validator.issn"
+msgstr "ეს არ არის სწორი ISSN."
+
+msgid "validator.ip"
+msgstr "ეს არ არის მართებული IP-მისამართი."
+
+msgid "validator.integer"
+msgstr "ეს არ არის სწორი მთელი რიცხვი."
+
+msgid "validator.in"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.image"
+msgstr "ეს უნდა იყოს გამოსახულება."
+
+msgid "validator.exists"
+msgstr "არჩეული {$attribute} არასწორია."
+
+msgid "validator.email"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
+
+msgid "validator.digits_between"
+msgstr "ეს უნდა იყოს {$min} და {$max} შორის."
+
+msgid "validator.digits"
+msgstr "ეს უნდა იყოს {$digits} ციფრის სიგრძე."
+
+msgid "validator.different"
+msgstr "{$attribute} და {$other} უნდა იყოს სხვადასხვა."
+
+msgid "validator.date_format"
+msgstr "ეს არ ემთხვევა ფორმატს {$format}."
+
+msgid "validator.date"
+msgstr "ეს არ არის სწორი თარიღი."
+
+msgid "validator.currency"
+msgstr "გთხოვთ, აირჩიოთ სწორი ვალუტა."
+
+msgid "validator.confirmed"
+msgstr "ამ ველის დადასტურება არ ემთხვევა."
+
+msgid "validator.boolean"
+msgstr "ეს ველი უნდა იყოს ჭეშმარიტი ან მცდარი."
+
+msgid "validator.between.array"
+msgstr "ამას უნდა ჰქონდეს {$min} და {$max} ელემენტს შორის."
+
+msgid "validator.between.string"
+msgstr "ეს უნდა იყოს {$min} და {$max} სიმბოლოს შორის."
+
+msgid "validator.between.file"
+msgstr "ეს უნდა იყოს {$min} და {$max} კილობაიტს შორის."
+
+msgid "validator.between.numeric"
+msgstr "ეს უნდა იყოს {$min} და {$max} შორის."
+
+msgid "validator.before"
+msgstr "ეს თარიღი უნდა იყოს {$date}-მდე."
+
+msgid "validator.array"
+msgstr "ეს არ არის მართებული მასივი."
+
+msgid "validator.alpha_num"
+msgstr "ეს შეიძლება შეიცავდეს მხოლოდ ასოებსა და ციფრებს."
+
+msgid "validator.alpha_dash"
+msgstr "ეს შეიძლება შეიცავდეს მხოლოდ ასოებს, ციფრებს, ტირეებს და ქვედა ხაზებს."
+
+msgid "validator.alpha"
+msgstr "ეს შეიძლება მხოლოდ ასოებს შეიცავდეს."
+
+msgid "validator.after"
+msgstr "ეს თარიღი უნდა იყოს {$date}-ის შემდეგ."
+
+msgid "validator.active_url"
+msgstr "მოწოდებულია უვარგისი ბმული."
+
+msgid "validator.accepted"
+msgstr "გთხოვთ, დაეთანხმოთ ამ ელემენტს.."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"მოხდა მოულოდნელი შეცდომა და ვერ გამოვწერეთ ელექტრონული ფოსტის მისამართი "
+"{$email}. <a href=\"{$profileNotificationUrl}\">შეგიძლიათ გააუქმოთ თქვენი "
+"მომხმარებლის პროფილში</a> გაგზავნილი ყველა ელფოსტის შეტყობინებიდან ან "
+"პირდაპირ დაგვიკავშირდეთ დახმარებისთვის."
+
+msgid "review.anonymousPeerReview.title"
+msgstr "როგორ უზრუნველვყოთ, რომ ყველა ფაილი იყოს ანონიმური"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "როგორ უზრუნველვყოთ, რომ ყველა ფაილი იყოს ანონიმური"
+
+msgid "search.typeMethodApproach"
+msgstr "ტიპი (მეთოდი/მიდგომა)"
+
+msgid "search.titleIndex"
+msgstr "სათაურის ინდექსის დათვალიერება"
+
+msgid "search.subject"
+msgstr "საკვანძო სიტყვ(ებ)ი"
+
+msgid "search.searchResults.foundPlural"
+msgstr "ნაპოვნია {$count} ერთეული."
+
+msgid "search.searchResults.foundSingle"
+msgstr "ნაპოვნია ერთი ერთეული."
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.matchAll"
+msgstr "ემთხვევა ყველა კატეგორიას"
+
+msgid "search.indexTermsLong"
+msgstr "ინდექსის ტერმინების ყველა ველი"
+
+msgid "search.indexTerms"
+msgstr "ინდექსის ტერმინები"
+
+msgid "search.fullText"
+msgstr "სრული ტექსტი"
+
+msgid "search.discipline"
+msgstr "დისციპლინები"
+
+msgid "search.dateTo"
+msgstr "გამოქვეყნებულია მანამდე"
+
+msgid "search.dateFrom"
+msgstr "გამოქვეყნდა"
+
+msgid "search.date"
+msgstr "გამოქვეყნების თარიღი"
+
+msgid "search.coverage"
+msgstr "დაფარვა"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "ინდექსირებულია {$numIndexed} სტატია"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "შეცდომა"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "დასრულებულია"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "გაწმენდის ინდექსი"
+
+msgid "search.searchAgain"
+msgstr "ხელახალი ძიება"
+
+msgid "search.advancedSearchLess"
+msgstr "ძიების მეტი ვარიანტის დამალვა"
+
+msgid "search.advancedSearchMore"
+msgstr "ძიების პარამეტრები"
+
+msgid "search.advancedFilters"
+msgstr "გაფართოებული ფილტრები"
+
+msgid "search.abstract"
+msgstr "აბსტრაქტი"
+
+msgid "search.author"
+msgstr "ავტორის მიხედვით"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "გაუგზავნეთ ელწერილი ამის შესახებ ყველა რეგისტრირებულ მომხმარებელს."
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "გაგზავნის მეტამონაცემები შენახულია."
+
+msgid "notification.reminderSent"
+msgstr "თქვენი ახალი პაროლი გაიგზავნა მითითებულ ელფოსტაზე."
+
+msgid "notification.reminderError"
+msgstr ""
+"თქვენი პაროლის გაგზავნისას მოხდა შეცდომა. დარწმუნდით, რომ სწორად შეიყვანეთ "
+"თქვენი ელფოსტის მისამართი."
+
+msgid "notification.settingsDescription"
+msgstr ""
+"აირჩიეთ სისტემის მოვლენები, რომელთა შესახებაც გსურთ გეცნობოთ. ელემენტის "
+"მონიშვნის მოხსნა ხელს შეუშლის ღონისძიების შესახებ შეტყობინებების სისტემაში "
+"ჩვენებას და ასევე ელფოსტით გაგზავნას. შემოწმებული მოვლენები გამოჩნდება "
+"სისტემაში და თქვენ გაქვთ დამატებითი ვარიანტი ელფოსტით მიიღოთ თუ არა იგივე "
+"შეტყობინება."
+
+msgid "notification.settings"
+msgstr "შეტყობინების პარამეტრები"
+
+msgid "notification.sentNotification"
+msgstr "შეტყობინება გაგზავნილია."
+
+msgid "notification.removedSubmission"
+msgstr "წარდგენა წაიშალა."
+
+msgid "notification.removedFile"
+msgstr "ფაილი წაიშალა."
+
+msgid "notification.removedNote"
+msgstr "შენიშვნა წაიშალა."
+
+msgid "notification.addedNote"
+msgstr "შენიშვნა განთავსებულია."
+
+msgid "notification.noneExist"
+msgstr "ამ დროისთვის შეტყობინებები არ გაქვთ."
+
+msgid "notification.email"
+msgstr "არ გამომიგზავნოთ ელწერილი ამ ტიპის შეტყობინებებისთვის."
+
+msgid "notification.confirmSuccess"
+msgstr "თქვენ წარმატებით გამოიწერეთ."
+
+msgid "notification.confirmError"
+msgstr "თქვენი გამოწერის დადასტურებისას მოხდა შეცდომა."
+
+msgid "notification.removedAnnouncement"
+msgstr "განცხადება წაიშალა."
+
+msgid "notification.removedAnnouncementType"
+msgstr "განცხადების ტიპი წაიშალა."
+
+msgid "notification.editedAnnouncementType"
+msgstr "განცხადების ტიპი შესწორებულია."
+
+msgid "notification.addedAnnouncementType"
+msgstr "განცხადების ტიპი დამატებულია."
+
+msgid "notification.allow"
+msgstr "ჩართეთ ამ ტიპის შეტყობინებები."
+
+msgid "notification.updatedReviewFiles"
+msgstr "ფაილების გადახედვა განახლდა."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "მადლობის ელწერილი, რომელიც გაგზავნილია მიმომხილველისთვის."
+
+msgid "notification.reviewAcknowledged"
+msgstr "მიმოხილვა აღინიშნა, როგორც აღიარებული. ელფოსტა არ გაიგზავნა."
+
+msgid "notification.addedQuery"
+msgstr "დაემატა დისკუსია"
+
+msgid "notification.removedAuditor"
+msgstr "აუდიტორი ამოღებულია."
+
+msgid "notification.addedAuditor"
+msgstr "აუდიტორმა დამატებულია."
+
+msgid "navigation.userHome"
+msgstr "მომხმარებლის მთავარი გვერდი"
+
+msgid "navigation.system"
+msgstr "სისტემა"
+
+msgid "navigation.stepNumber"
+msgstr "ბიჯი {$step}"
+
+msgid "navigation.skip.footer"
+msgstr "საიტის სარდაფზე გადასვლა"
+
+msgid "navigation.skip.nav"
+msgstr "მთვარ მენიუზე გადასვლა"
+
+msgid "navigation.skip.announcements"
+msgstr "განცხადებებზე გადასვლა"
+
+msgid "navigation.skip.description"
+msgstr "შინაარსის ბმულებზე გადასვლა"
+
+msgid "navigation.sitemap"
+msgstr "საიტის რუკა"
+
+msgid "navigation.publicMenu"
+msgstr "საჯარო მენიუ"
+
+msgid "navigation.previousStep"
+msgstr "წინა ბიჯი"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown}, სულ {$total} ელემენტი"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to}, სულ {$total} ელემენტი"
+
+msgid "navigation.infoForReaders.long"
+msgstr "ინფორმაცია მკითხველთათვის"
+
+msgid "navigation.infoForReaders"
+msgstr "მკითხველთათვის"
+
+msgid "navigation.browseByTitle"
+msgstr "სათაურის მიხედვით"
+
+msgid "navigation.browseByAuthor"
+msgstr "ავტორის მიხედვით"
+
+msgid "navigation.tools.statistics"
+msgstr "სტატისტიკა"
+
+msgid "navigation.tools.importExport"
+msgstr "იმპორტი/ექსპორტი"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "ამ მონაწილისთვის ცვლილებების შეტანა არ შეიძლება"
+
+msgid "stageParticipants.selectedUser"
+msgstr "მონაწილე"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"ამ პირს მიეცით საშუალება შეიტანოს ცვლილებები პუბლიკაციაში, როგორიცაა "
+"სათაური, რეზიუმე, მეტამონაცემები და პუბლიკაციის სხვა დეტალები. თქვენ "
+"შეიძლება მოისურვოთ ამ პრივილეგიის გაუქმება, თუ წარდგენამ მიიღო საბოლოო "
+"შემოწმება და მზადაა გამოსაქვეყნებლად."
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"ამ მონაწილეს მხოლოდ სარედაქციო გადაწყვეტილების რეკომენდაცია აქვს და "
+"საჭიროებს უფლებამოსილ რედაქტორს სარედაქციო გადაწყვეტილებების ჩაწერაში."
+
+msgid "stageParticipants.options"
+msgstr "დანიშვნის პრივილეგიები"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"გთხოვთ, დარწმუნდეთ, რომ შეავსეთ შეტყობინებების ველი და დისკუსიაში შეიყვანეთ "
+"თქვენს გარდა სხვებიც."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+"აირჩიეთ წინასწარ განსაზღვრული შეტყობინება გამოსაყენებლად, ან შეავსეთ ქვემოთ "
+"მოცემული ფორმა."
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "დაიწყეთ დისკუსია თქვენსსა და {$userFullName}-ს შორის."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "დისკუსიის დაწყება"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "შეტყობინება გაგზავნილია მომხმარებლებისთვის."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML კვანძის იმპორტი ვერ ხერხდება"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"ცდილობთ ტრანსფორმაციის განხორციელებას, რომელიც არ არის მხარდაჭერილი თქვენს "
+"ინსტალაციის გარემოში."
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"ფილტრი ({$displayName}) მხარს უჭერს შეყვანას {$inputTypeName} — მოცემულია "
+"{$typeofInput}"
+
+msgid "common.addCCBCC"
+msgstr "დაამატეთ CC/BCC"
+
+msgid "common.findTemplate"
+msgstr "იპოვეთ შაბლონი"
+
+msgid "common.insert"
+msgstr "ჩასმა"
+
+msgid "common.addFiles"
+msgstr "დაამატეთ ფაილები"
+
+msgid "common.attachedFiles"
+msgstr "Მიმაგრებული ფაილები"
+
+msgid "common.attachFiles"
+msgstr "ფაილების მიმაგრება"
+
+msgid "common.attachSelected"
+msgstr "მიამაგრეთ არჩეული"
+
+msgid "common.deselect"
+msgstr "არჩევის გაუქმება"
+
+msgid "common.dragAndDropHere"
+msgstr "გადაიტანეთ და ჩამოაგდეთ ფაილები აქ."
+
+msgid "common.orUploadFile"
+msgstr "ან ატვირთეთ ფაილი"
+
+msgid "common.insertContent"
+msgstr "კონტენტის ჩასმა"
+
+msgid "common.insertContentSearch"
+msgstr "იპოვნეთ ჩასასმელი შიგთავსი"
+
+msgid "common.keepWorking"
+msgstr "გააგრძელეთ მუშაობა"
+
+msgid "common.numberedMore"
+msgstr "კიდევ {$number}"
+
+msgid "common.searching"
+msgstr "ძებნა"
+
+msgid "common.showAllSteps"
+msgstr "ყველა ნაბიჯის ჩვენება"
+
+msgid "common.switchTo"
+msgstr "გადართვა"
+
+msgid "common.switchToNamedItem"
+msgstr "გადართვა {$name}"
+
+msgid "common.upload.addFile.description"
+msgstr "ატვირთეთ ფაილი თქვენი კომპიუტერიდან."
+
+msgid "common.viewError"
+msgstr "ნახვის შეცდომა"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "მიამაგრეთ წარდგენის ფაილები"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "მიამაგრეთ ავტორის მიერ ატვირთული ფაილები წარდგენის ეტაპზე."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"მიამაგრეთ წარდგენის სამუშაო პროცესის დროს ატვირთული ფაილები, როგორიცაა "
+"რევიზიები ან განსახილველი ფაილები."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "ბიბლიოთეკის ფაილები"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "მიამაგრეთ ბიბლიოთეკის ფაილები"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "მიამაგრეთ ფაილები წარდგენისა და გამომცემლის ბიბლიოთეკებიდან."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "მიამაგრეთ მიმოხილვის ფაილები"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "მიამაგრეთ ფაილები, რომლებიც ატვირთულია მიმომხილველების მიერ"
+
+msgid "email.attachmentNotFound"
+msgstr "ფაილის {$fileName} მიმაგრება ვერ მოხერხდა."
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ შეცვალოთ {$localeName} ამ ელფოსტის დასაწერად? "
+"ელ. ფოსტის საგანსა და ტექსტში განხორციელებული ნებისმიერი ცვლილება დაიკარგება."
+
+msgid "timeZone"
+msgstr "დროის სარტყელი"
+
+msgid "list.expandAll"
+msgstr "ყველას გაშლა"
+
+msgid "list.collapseAll"
+msgstr "ყველას აკეცვა"
+
+msgid "validation.invalidOption"
+msgstr "ეს არ არის სწორი ვარიანტი."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"ეს შეიძლება შეიცავდეს მხოლოდ ასოებს, რიცხვებს, ტირეებს, ხაზს და წერტილებს."
+
+msgid "validator.country"
+msgstr "გთხოვთ, აირჩიოთ სწორი ქვეყანა."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "უცნობი ბრძანება {$command}"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.withForwardSlash"
+msgstr "{$item}/{$afterSlash}"
+
+msgid "common.categorySeparator"
+msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr "ავტორი დამატებულია."
+
+msgid "notification.editedAuthor"
+msgstr "ავტორი ჩასწორებულია."

@@ -1,0 +1,2699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjects SYSTEM "../../dtd/bic21subjects.dtd">
+<!--
+  * locale/sl_SI/bic21subjects.xml
+  *
+  * Copyright BIC and Nielsen Book Services Ltd 2010
+  *
+  * localized list of BIC 2.1 Subjects
+  * Reference:  http://www.bic.org.uk/7/BIC-Standard-Subject-Categories
+  -->
+<subjects>
+	<subject code="A" text="Umetnosti" />
+	<subject code="AB" text="Umetnost: splošna vprašanja" />
+	<subject code="ABA" text="Teorija umetnosti" />
+	<subject code="ABC" text="Ohranjanje, restavriranje in nega umetniških del" />
+	<subject code="ABK" text="Ponarejanje, poneverba in kraja umetniških del" />
+	<subject code="ABQ" text="Umetnost: finančni vidiki" />
+	<subject code="AC" text="Zgodovina umetnosti/umetnostni in oblikovalski slogi" />
+	<subject code="ACB" text="Umetnostni slogi, ki niso časovno določeni" />
+	<subject code="ACBK" text="Umetnost avtohtonih ljudstev" />
+	<subject code="ACBN" text="Naivna umetnost" />
+	<subject code="ACBP" text="Orientalska umetnost" />
+	<subject code="ACBS" text="Kolonialna umetnost" />
+	<subject code="ACC" text="Zgodovina umetnosti: prazgodovina" />
+	<subject code="ACG" text="Zgodovina umetnosti: starodavna in klasična umetnost, od pred našega štetja do leta 500" />
+	<subject code="ACK" text="Zgodovina umetnosti: Bizantinska in srednjeveška umetnost: od leta 500 do leta 1400" />
+	<subject code="ACN" text="Zgodovina umetnostnih in oblikovalskih slogov: od leta 1400 do leta 1600" />
+	<subject code="ACND" text="Renesančna umetnost" />
+	<subject code="ACNH" text="Umetnostni in oblikovalski slogi: Manerizem" />
+	<subject code="ACQ" text="Zgodovina umetnostnih in oblikovalskih slogov: od leta 1600 do leta 1800" />
+	<subject code="ACQB" text="Umetnostni in oblikovalski slogi: Barok" />
+	<subject code="ACQH" text="Umetnostni in oblikovalski slogi: Klasicizem" />
+	<subject code="ACV" text="Zgodovina umetnostnih in oblikovalskih slogov: od leta 1800 do leta 1900" />
+	<subject code="ACVC" text="Umetnostni in oblikovalski slogi: Romantika" />
+	<subject code="ACVM" text="Umetnostni in oblikovalski slogi: Prerafaelitska umetnost" />
+	<subject code="ACVN" text="Umetnostni in oblikovalski slogi: Umetnostni in obrtni slog" />
+	<subject code="ACVT" text="Umetnostni in oblikovalski slogi: Impresionizem in postimpresionizem" />
+	<subject code="ACVY" text="Umetnostni in oblikovalski slogi: Art nouveau" />
+	<subject code="ACX" text="Zgodovina umetnostnih in oblikovalskih slogov: od leta 1900 naprej" />
+	<subject code="ACXD" text="Umetnostni in oblikovalski slogi: od leta 1900 do leta 1960" />
+	<subject code="ACXD1" text="Umetnostni in oblikovalski slogi: Ekspresionizem" />
+	<subject code="ACXD2" text="Umetnostni in oblikovalski slogi: Modernistično oblikovanje in Bauhaus" />
+	<subject code="ACXD3" text="Umetnostni in oblikovalski slogi: Art deco" />
+	<subject code="ACXD5" text="Umetnostni in oblikovalski slogi: Kubizem" />
+	<subject code="ACXD7" text="Umetnostni in oblikovalski slogi: Nadrealizem in dadaizem" />
+	<subject code="ACXD9" text="Umetnostni in oblikovalski slogi: Abstraktni ekspresionizem" />
+	<subject code="ACXJ" text="Umetnostni in oblikovalski slogi: od leta 1960" />
+	<subject code="ACXJ1" text="Umetnostni in oblikovalski slogi: Popart" />
+	<subject code="ACXJ4" text="Umetnostni in oblikovalski slogi: Minimalizem" />
+	<subject code="ACXJ5" text="Umetnostni in oblikovalski slogi: Konceptualna umetnost" />
+	<subject code="ACXJ8" text="Umetnostni in oblikovalski slogi: Postmodernizem" />
+	<subject code="AF" text="Oblike umetnosti" />
+	<subject code="AFC" text="Slikarstvo in slike" />
+	<subject code="AFCC" text="Akvareli" />
+	<subject code="AFCL" text="Olja" />
+	<subject code="AFF" text="Risanje in risbe" />
+	<subject code="AFH" text="Tisk in tiskanje" />
+	<subject code="AFJ" text="Druge oblike grafične umetnosti" />
+	<subject code="AFJD" text="Kolaž in fotomontaža" />
+	<subject code="AFJG" text="Grafiti in ulična umetnost" />
+	<subject code="AFK" text="Oblike negrafične umetnosti" />
+	<subject code="AFKB" text="Kiparstvo" />
+	<subject code="AFKC" text="Rezbarije: umetniška dela" />
+	<subject code="AFKG" text="Žlahtne kovine, dragi kamni in nakit: umetniška dela in oblikovanje" />
+	<subject code="AFKN" text="Instalacija" />
+	<subject code="AFKP" text="Performans" />
+	<subject code="AFKV" text="Elektronska, holografska in videoumetnost" />
+	<subject code="AFP" text="Keramična umetnost, lončenina, steklo" />
+	<subject code="AFPC" text="Keramika: umetniška dela" />
+	<subject code="AFPM" text="Mozaiki: umetniška dela" />
+	<subject code="AFPS" text="Vitraž: umetniška dela" />
+	<subject code="AFT" text="Dekorativne umetnosti" />
+	<subject code="AFTB" text="Ljudska umetnost" />
+	<subject code="AFTC" text="Keltske umetnosti in obrti" />
+	<subject code="AFW" text="Tekstilne umetnine" />
+	<subject code="AFWD" text="Tekstilne umetnine: preproge" />
+	<subject code="AFWH" text="Tekstilne umetnine: tapiserije, obloge in prešite odeje" />
+	<subject code="AFY" text="Body art in tetoviranje" />
+	<subject code="AG" text="Umetniška obdelava in teme" />
+	<subject code="AGB" text="Posamezni umetniki, umetniške monografije" />
+	<subject code="AGC" text="Razstavni katalogi in posebne zbirke" />
+	<subject code="AGH" text="Človeške figure, upodobljene v umetnosti" />
+	<subject code="AGHF" text="Portreti v umetnosti" />
+	<subject code="AGHN" text="Akti, upodobljeni v umetnosti" />
+	<subject code="AGHX" text="Erotična umetnost" />
+	<subject code="AGK" text="Manjši, svetovni in domači prizori v umetnosti" />
+	<subject code="AGN" text="Živali in narava v umetnosti (tihožitje, pokrajine in morske pokrajine itd.)" />
+	<subject code="AGNB" text="Botanična umetnost" />
+	<subject code="AGP" text="Človeške stvaritve, upodobljene v umetnosti (mestne vedute, stroji itd.)" />
+	<subject code="AGR" text="Verski predmeti, upodobljeni v umetnosti" />
+	<subject code="AGZ" text="Tehnike in načela umetnosti" />
+	<subject code="AJ" text="Fotografija in fotografije" />
+	<subject code="AJB" text="Posamezni fotografi" />
+	<subject code="AJC" text="Fotografije: zbirke" />
+	<subject code="AJCP" text="Fotografije: portreti" />
+	<subject code="AJCR" text="Fotografska reportaža" />
+	<subject code="AJCX" text="Erotična fotografija in akt" />
+	<subject code="AJG" text="Fotografska oprema in tehnike" />
+	<subject code="AJR" text="Posebne vrste fotografije" />
+	<subject code="AJRD" text="Kinematografija, televizijska kamera" />
+	<subject code="AJRH" text="Videoposnetki" />
+	<subject code="AJRK" text="Aerofotografija" />
+	<subject code="AK" text="Industrijska/komercialna umetnost in oblikovanje" />
+	<subject code="AKB" text="Posamezni oblikovalci" />
+	<subject code="AKC" text="Grafično oblikovanje" />
+	<subject code="AKD" text="Tipografija in črkovanje" />
+	<subject code="AKH" text="Oblikovanje knjig" />
+	<subject code="AKL" text="Ilustracija in komercialna umetnost" />
+	<subject code="AKLB" text="Ilustracija" />
+	<subject code="AKLC" text="Stripi in risanke" />
+	<subject code="AKLC1" text="Grafični roman in manga" />
+	<subject code="AKLP" text="Plakatna umetnost" />
+	<subject code="AKP" text="Oblikovanje izdelkov" />
+	<subject code="AKR" text="Oblikovanje pohištva" />
+	<subject code="AKT" text="Moda in tekstil: oblikovanje" />
+	<subject code="AKTA" text="Modno oblikovanje in teorija" />
+	<subject code="AKTH" text="Zgodovina mode" />
+	<subject code="AKTX" text="Tekstilno oblikovanje in teorija" />
+	<subject code="AM" text="Arhitektura" />
+	<subject code="AMA" text="Teorija arhitekture" />
+	<subject code="AMB" text="Posamezni arhitekti in arhitekturna podjetja" />
+	<subject code="AMC" text="Arhitekturna struktura in oblikovanje" />
+	<subject code="AMCR" text="Okolju prijazna arhitektura in oblikovanje" />
+	<subject code="AMD" text="Arhitektura: strokovna praksa" />
+	<subject code="AMG" text="Javne stavbe: mestne, komercialne, industrijske itd." />
+	<subject code="AMGC" text="Koncertne dvorane, arene, stadioni" />
+	<subject code="AMGD" text="Spomeniki" />
+	<subject code="AMK" text="Stanovanjske stavbe" />
+	<subject code="AMKD" text="Hiše, stanovanja itd." />
+	<subject code="AMKH" text="Palače, dvorci, podeželski dvorci" />
+	<subject code="AMKL" text="Gradovi in utrdbe" />
+	<subject code="AMN" text="Verske stavbe" />
+	<subject code="AMR" text="Poklicno notranje oblikovanje" />
+	<subject code="AMV" text="Krajinska umetnost in arhitektura" />
+	<subject code="AMVD" text="Mestno načrtovanje - arhitekturni vidiki" />
+	<subject code="AMX" text="Zgodovina arhitekture" />
+	<subject code="AN" text="Gledališke študije" />
+	<subject code="ANB" text="Gledališče: posamezni igralci in režiserji" />
+	<subject code="ANC" text="Igralske tehnike" />
+	<subject code="ANF" text="Gledališka režija in produkcija" />
+	<subject code="ANH" text="Gledališče: tehnične spretnosti in osnovne veščine" />
+	<subject code="ANS" text="Upravljanje gledališča" />
+	<subject code="AP" text="Film, televizija in radio" />
+	<subject code="APB" text="Posamezni igralci in izvajalci" />
+	<subject code="APF" text="Filmi, kino" />
+	<subject code="APFA" text="Filmska teorija in kritike" />
+	<subject code="APFB" text="Posamezni filmski režiserji, filmski ustvarjalci" />
+	<subject code="APFD" text="Filmski scenariji" />
+	<subject code="APFG" text="Filmski vodniki in recenzije" />
+	<subject code="APFN" text="Film: slogi in zvrsti" />
+	<subject code="APFR" text="Dokumentarni filmi" />
+	<subject code="APFV" text="Animirani filmi" />
+	<subject code="APFX" text="Filmska produkcija: tehnične spretnosti in osnovne veščine" />
+	<subject code="APT" text="Televizija" />
+	<subject code="APTD" text="Televizijski scenariji" />
+	<subject code="APTS" text="Televizijske telenovele" />
+	<subject code="APTX" text="Televizijska produkcija: tehnične spretnosti in osnovne veščine" />
+	<subject code="APW" text="Radio" />
+	<subject code="APWD" text="Radijski scenariji" />
+	<subject code="AS" text="Ples in druge uprizoritvene umetnosti" />
+	<subject code="ASD" text="Ples" />
+	<subject code="ASDC" text="Koreografija" />
+	<subject code="ASDL" text="Balet" />
+	<subject code="ASDR" text="Družabni ples" />
+	<subject code="ASDT" text="Sodobni ples" />
+	<subject code="ASDX" text="Narodni ples" />
+	<subject code="ASZ" text="Druge uprizoritvene umetnosti" />
+	<subject code="ASZB" text="Uprizoritvena umetnost: komedija" />
+	<subject code="ASZC" text="Pantomima" />
+	<subject code="ASZD" text="Ulično gledališče" />
+	<subject code="ASZG" text="Čaranje in čarovništvo" />
+	<subject code="ASZH" text="Različne predstave, variete, kabaret" />
+	<subject code="ASZJ" text="Žongliranje" />
+	<subject code="ASZM" text="Lutkovno, miniaturno in papirno gledališče" />
+	<subject code="ASZP" text="Povorke, parade, festivali" />
+	<subject code="ASZW" text="Cirkus" />
+	<subject code="ASZX" text="Živalski spektakli" />
+	<subject code="AV" text="Glasba" />
+	<subject code="AVA" text="Teorija glasbe in muzikologija" />
+	<subject code="AVC" text="Glasbene recenzije in kritike" />
+	<subject code="AVD" text="Diskografije in vodniki za kupce" />
+	<subject code="AVG" text="Glasba: slogi in zvrsti" />
+	<subject code="AVGC" text="Zahodna &quot;klasična&quot; glasba" />
+	<subject code="AVGC1" text="Zgodnja glasba (do leta 1000)" />
+	<subject code="AVGC2" text="Srednjeveška in renesančna glasba (od leta 1000 do leta 1600)" />
+	<subject code="AVGC3" text="Baročna glasba (od leta 1600 do leta 1750)" />
+	<subject code="AVGC4" text="Klasična glasba (od leta 1750 do leta 1830)" />
+	<subject code="AVGC5" text="Romantična glasba (od leta 1830 do leta 1900)" />
+	<subject code="AVGC6" text="Sodobna klasična glasba in klasična glasba 20. stoletja" />
+	<subject code="AVGC8" text="Zborovska glasba" />
+	<subject code="AVGC9" text="Opera" />
+	<subject code="AVGD" text="Sakralna in verska glasba" />
+	<subject code="AVGE" text="Nezahodna glasba: tradicionalna in &quot;klasična&quot;" />
+	<subject code="AVGF" text="Lahka orkestralna glasba in glasba za big band orkester" />
+	<subject code="AVGG" text="Pihalna godba, vojaška glasba in vojaška godba" />
+	<subject code="AVGH" text="Ljudska in tradicionalna glasba" />
+	<subject code="AVGJ" text="Jazz" />
+	<subject code="AVGK" text="Blues" />
+	<subject code="AVGL" text="Country in zahodna glasba" />
+	<subject code="AVGM" text="Mjuzikli" />
+	<subject code="AVGN" text="Popularna glasba, lahka glasba" />
+	<subject code="AVGP" text="Rock in pop glasba" />
+	<subject code="AVGQ" text="Soul in R'n'B" />
+	<subject code="AVGR" text="Rap in hiphop" />
+	<subject code="AVGS" text="Reggae" />
+	<subject code="AVGT" text="Heavy metal glasba" />
+	<subject code="AVGU" text="Punk, new wave in indie" />
+	<subject code="AVGV" text="Elektronska glasba" />
+	<subject code="AVGW" text="Svetovna glasba" />
+	<subject code="AVGZ" text="Ambientalna glasba in glasba new age" />
+	<subject code="AVH" text="Posamezni skladatelji in glasbeniki, določene skupine" />
+	<subject code="AVQ" text="Glasbene partiture, besedila in libreti" />
+	<subject code="AVQS" text="Pesmarice" />
+	<subject code="AVR" text="Glasbeni instrumenti in instrumentalni ansambli" />
+	<subject code="AVRB" text="Orkestri" />
+	<subject code="AVRD" text="Komorni ansambli" />
+	<subject code="AVRG" text="Instrumenti s tipkami" />
+	<subject code="AVRJ" text="Tolkala" />
+	<subject code="AVRL" text="Godala" />
+	<subject code="AVRL1" text="Kitara" />
+	<subject code="AVRN" text="Pihala" />
+	<subject code="AVRQ" text="Mehanska glasbila" />
+	<subject code="AVRS" text="Elektronska glasbila" />
+	<subject code="AVS" text="Glasbene tehnike/glasbene vaje" />
+	<subject code="AVX" text="Snemanje in reprodukcija glasbe" />
+	<subject code="B" text="Biografija in resnične zgodbe" />
+	<subject code="BG" text="Biografija: splošno" />
+	<subject code="BGA" text="Avtobiografija: splošno" />
+	<subject code="BGB" text="Biografija: poslovanje in industrija" />
+	<subject code="BGBA" text="Avtobiografija: poslovanje in industrija" />
+	<subject code="BGF" text="Biografija: umetnost in zabava" />
+	<subject code="BGFA" text="Avtobiografija: umetnost in zabava" />
+	<subject code="BGH" text="Biografija: zgodovinska, politična in vojaška" />
+	<subject code="BGHA" text="Avtobiografija: zgodovinska, politična in vojaška" />
+	<subject code="BGL" text="Biografija: literarna" />
+	<subject code="BGLA" text="Avtobiografija: literarna" />
+	<subject code="BGR" text="Biografija: kraljeva družina" />
+	<subject code="BGRA" text="Avtobiografija: kraljeva družina" />
+	<subject code="BGS" text="Biografija: šport" />
+	<subject code="BGSA" text="Avtobiografija: šport" />
+	<subject code="BGT" text="Biografija: znanost, tehnologija in medicina" />
+	<subject code="BGTA" text="Avtobiografija: znanost, tehnologija in medicina" />
+	<subject code="BGX" text="Biografija: verska in duhovna" />
+	<subject code="BGXA" text="Avtobiografija: verska in duhovna" />
+	<subject code="BJ" text="Dnevniki in pisma" />
+	<subject code="BK" text="Zbrane biografije" />
+	<subject code="BM" text="Spomini" />
+	<subject code="BT" text="Resnične zgodbe" />
+	<subject code="BTC" text="Resnični zločin" />
+	<subject code="BTH" text="Resnične zgodbe: odkritja/zgodovina/znanost" />
+	<subject code="BTM" text="Resnične vojne in bojne zgodbe" />
+	<subject code="BTP" text="Resnične zgodbe o herojstvu, vzdržljivosti in preživetju" />
+	<subject code="BTX" text="Erotična priznanja in resnične zgodbe" />
+	<subject code="C" text="Jezik" />
+	<subject code="CB" text="Jezik: referenčni viri in splošno" />
+	<subject code="CBD" text="Slovarji" />
+	<subject code="CBDX" text="Dvojezični in večjezični slovarji" />
+	<subject code="CBF" text="Tezavri" />
+	<subject code="CBG" text="Priročniki za jezikovno rabo in slovnico" />
+	<subject code="CBP" text="Priročniki za javni govor" />
+	<subject code="CBV" text="Kreativno pisanje in priročniki za kreativno pisanje" />
+	<subject code="CBVS" text="Tehnike pisanja scenarijev" />
+	<subject code="CBW" text="Priročniki za pisanje in urejanje" />
+	<subject code="CBWJ" text="Priročniki za novinarsko pisanje" />
+	<subject code="CBWT" text="Tehnično pisanje" />
+	<subject code="CBX" text="Jezik: zgodovina in splošna dela" />
+	<subject code="CF" text="Jezikoslovje" />
+	<subject code="CFA" text="Filozofija jezika" />
+	<subject code="CFB" text="Sociolingvistika" />
+	<subject code="CFC" text="Pismenost" />
+	<subject code="CFD" text="Psiholingvistika" />
+	<subject code="CFDC" text="Usvajanje jezika" />
+	<subject code="CFDM" text="Dvojezičnost in večjezičnost" />
+	<subject code="CFF" text="Zgodovinsko in primerjalno jezikoslovje" />
+	<subject code="CFFD" text="Dialekt, sleng in žargon" />
+	<subject code="CFG" text="Semantika, analiza diskurza itd." />
+	<subject code="CFGA" text="Semantika in pragmatika" />
+	<subject code="CFGR" text="Analiza diskurza" />
+	<subject code="CFH" text="Fonetika, fonologija" />
+	<subject code="CFK" text="Slovnica, sintaksa in morfologija" />
+	<subject code="CFL" text="Paleografija (zgodovina pisanja)" />
+	<subject code="CFLA" text="Pisave, abecede" />
+	<subject code="CFM" text="Leksikografija" />
+	<subject code="CFP" text="Prevajanje in tolmačenje" />
+	<subject code="CFX" text="Računalniško jezikoslovje" />
+	<subject code="CFZ" text="Znakovni jezik, Braillova pisava in druga jezikovna komunikacija" />
+	<subject code="CJ" text="Učenje in poučevanje jezikov (razen ELT)" />
+	<subject code="CJA" text="Teorija in metode poučevanja jezikov" />
+	<subject code="CJB" text="Poučevanje jezikov, učni material in naloge" />
+	<subject code="CJBG" text="Slovnica in besedišče" />
+	<subject code="CJBR" text="Jezikovni bralniki" />
+	<subject code="CJBT" text="Besedila za samostojno učenje jezika" />
+	<subject code="CJBV" text="Učenje jezikov: avdiovizualne vsebine in multimedija" />
+	<subject code="CJC" text="Učenje jezikov: specifične veščine" />
+	<subject code="CJCK" text="Govorne spretnosti in izgovorjava" />
+	<subject code="CJCL" text="Spretnosti poslušanja" />
+	<subject code="CJCR" text="Bralne spretnosti" />
+	<subject code="CJCW" text="Spretnosti pisanja" />
+	<subject code="D" text="Literatura in literarne študije" />
+	<subject code="DB" text="Klasična literatura" />
+	<subject code="DC" text="Poezija" />
+	<subject code="DCF" text="Poezija posameznih pesnikov" />
+	<subject code="DCQ" text="Poetične antologije (različni pesniki)" />
+	<subject code="DD" text="Igre, scenariji" />
+	<subject code="DDS" text="Shakespearove igre" />
+	<subject code="DN" text="Proza: stvarna literatura" />
+	<subject code="DNF" text="Literarni eseji" />
+	<subject code="DNJ" text="Reportaže in zbrana novinarska dela" />
+	<subject code="DNS" text="Govori" />
+	<subject code="DQ" text="Antologije (nepesniške)" />
+	<subject code="DS" text="Literatura: zgodovina in kritika" />
+	<subject code="DSA" text="Literarna teorija" />
+	<subject code="DSB" text="Literarne študije: splošno" />
+	<subject code="DSBB" text="Literarne študije: klasične, zgodnje in srednjeveške" />
+	<subject code="DSBD" text="Literarne študije: od leta 1500 do leta 1800" />
+	<subject code="DSBF" text="Literarne študije: od leta 1800 do leta 1900 " />
+	<subject code="DSBH" text="Literarne študije: od leta 1900 naprej" />
+	<subject code="DSBH5" text="Literarne študije: postkolonialna literatura" />
+	<subject code="DSC" text="Literarne študije: poezija in pesniki" />
+	<subject code="DSG" text="Literarne študije: dramske igre in dramatiki" />
+	<subject code="DSGS" text="Študije in kritika Shakespearja" />
+	<subject code="DSK" text="Literarne študije: leposlovje, romanopisci in pisci proze" />
+	<subject code="DSR" text="Literarna referenčna dela" />
+	<subject code="DSRC" text="Literarni vodniki, knjižne recenzije in priročniki" />
+	<subject code="DSY" text="Študije otroške in mladinske literature" />
+	<subject code="DSYC" text="Recenzije in vodniki po otroških in mladinskih knjigah" />
+	<subject code="E" text="Poučevanje angleškega jezika (ELT)" />
+	<subject code="EB" text="Osnove in referenčno gradivo ELT" />
+	<subject code="EBA" text="ELT: teorija in metode poučevanja" />
+	<subject code="EBAL" text="Uporabno jezikoslovje za ELT" />
+	<subject code="EBAR" text="Viri ELT za učitelje" />
+	<subject code="EBD" text="Slovarji in priročniki ELT" />
+	<subject code="EL" text="ELT: učni material in naloge" />
+	<subject code="ELG" text="Slovnica, besedišče in izgovorjava ELT" />
+	<subject code="ELGG" text="Slovnica ELT" />
+	<subject code="ELGP" text="Izgovorjava ELT" />
+	<subject code="ELGV  " text="Besedišče ELT" />
+	<subject code="ELH" text="Knjige ELT, prirejene za različne nivoje znanja jezika" />
+	<subject code="ELHB" text="Stvarna in druga literatura ELT" />
+	<subject code="ELHF" text="Literarne in fikcijske čitanke ELT" />
+	<subject code="ELM" text="Neknjižna gradiva in viri ELT" />
+	<subject code="ELP" text="Delovni zvezki, vadnice in vaje ELT" />
+	<subject code="ELS" text="Besedila za samostojno učenje ELT" />
+	<subject code="ELV" text="Preizkusi znanja za priprave na izpit ELT" />
+	<subject code="ELX" text="ELT: specifične veščine" />
+	<subject code="ELXD" text="ELT: govorno znanje" />
+	<subject code="ELXG" text="ELT: spretnosti poslušanja" />
+	<subject code="ELXJ" text="ELT: bralne spretnosti" />
+	<subject code="ELXN" text="ELT: spretnosti pisanja" />
+	<subject code="ES" text="ELT: Angleščina za posebne namene" />
+	<subject code="ESB" text="ELT: Angleščina za poslovne namene" />
+	<subject code="ESF" text="ELT: Angleščina za akademske namene" />
+	<subject code="EST" text="ELT: Angleščina za tehnične in znanstvene namene" />
+	<subject code="ESV" text="ELT: Angleščina za potovanja in sporazumevanje" />
+	<subject code="F" text="Leposlovje in sorodne teme" />
+	<subject code="FA" text="Moderno in sodobno leposlovje (po letu 1945)" />
+	<subject code="FC" text="Klasično leposlovje (pred letom 1945)" />
+	<subject code="FF" text="Kriminalni in detektivski romani" />
+	<subject code="FFC" text="Klasične kriminalke" />
+	<subject code="FFH" text="Zgodovinske skrivnosti" />
+	<subject code="FH" text="Triler/srhljivi roman" />
+	<subject code="FHD" text="Špijonski in vohunski triler" />
+	<subject code="FHP" text="Politični/pravni triler" />
+	<subject code="FJ" text="Pustolovščina" />
+	<subject code="FJH" text="Zgodovinska pustolovščina" />
+	<subject code="FJM" text="Leposlovje o vojni in bojevanju" />
+	<subject code="FJMC" text="Leposlovje o napoleonskih vojnah" />
+	<subject code="FJMF" text="Leposlovje o prvi svetovni vojni" />
+	<subject code="FJMS" text="Leposlovje o drugi svetovni vojni" />
+	<subject code="FJMV" text="Leposlovje o vietnamski vojni" />
+	<subject code="FJW" text="Vesterni" />
+	<subject code="FK" text="Grozljivke in zgodbe o duhovih" />
+	<subject code="FKC" text="Klasične grozljivke in zgodbe o duhovih" />
+	<subject code="FL" text="Znanstvena fantastika" />
+	<subject code="FLC" text="Klasična znanstvena fantastika" />
+	<subject code="FLS" text="Vesoljska opera" />
+	<subject code="FM" text="Fantastika" />
+	<subject code="FMR" text="Fantazijska romanca" />
+	<subject code="FP" text="Erotično leposlovje" />
+	<subject code="FQ" text="Miti in legende v obliki leposlovja" />
+	<subject code="FR" text="Ljubezenski romani" />
+	<subject code="FRD" text="Odrasli in sodobni ljubezenski romani" />
+	<subject code="FRH" text="Zgodovinska romanca" />
+	<subject code="FT" text="Sage" />
+	<subject code="FV" text="Zgodovinsko leposlovje" />
+	<subject code="FW" text="Versko in duhovno leposlovje" />
+	<subject code="FX" text="Grafični romani" />
+	<subject code="FXA" text="Grafični romani: Manga" />
+	<subject code="FXL" text="Grafični romani: literarni in spominski" />
+	<subject code="FXS" text="Grafični romani: superheroji in superzlobneži" />
+	<subject code="FXZ" text="Grafični romani: resnične zgodbe in stvarna literatura" />
+	<subject code="FY" text="Leposlovje: posebnosti" />
+	<subject code="FYB" text="Kratke zgodbe" />
+	<subject code="FYT" text="Leposlovje v prevodu" />
+	<subject code="FZ" text="Knjige, povezane z leposlovjem" />
+	<subject code="FZC" text="Vodniki po leposlovju" />
+	<subject code="FZG" text="Grafični romani: zgodovina in kritika" />
+	<subject code="G" text="Referenčni, informacijski in interdisciplinarni predmeti" />
+	<subject code="GB" text="Enciklopedije in referenčna dela" />
+	<subject code="GBA" text="Splošne enciklopedije" />
+	<subject code="GBC" text="Referenčna dela" />
+	<subject code="GBCB" text="Slovarji biografij (Kdo je kdo)" />
+	<subject code="GBCQ" text="Slovarji citatov" />
+	<subject code="GBCR" text="Bibliografije, katalogi" />
+	<subject code="GBCS" text="Serijske publikacije, periodične publikacije, povzetki, indeksi" />
+	<subject code="GBCT" text="Imeniki" />
+	<subject code="GBCY" text="Zborniki, letopisi, almanahi" />
+	<subject code="GBG" text="Geografija: referenčna dela" />
+	<subject code="GBGM" text="Svetovni atlasi/zemljevidi sveta" />
+	<subject code="GBGP" text="Imena krajev in geografski indeksi" />
+	<subject code="GL" text="Bibliotekarstvo in informacijska znanost" />
+	<subject code="GLC" text="Upravljanje knjižnic, arhivov in informacij" />
+	<subject code="GLF" text="IT, internetni in elektronski viri v knjižnicah" />
+	<subject code="GLH" text="Izgradnja knjižnične zbirke" />
+	<subject code="GLK" text="Bibliografski in predmetni nadzor" />
+	<subject code="GLM" text="Knjižnične in informacijske storitve" />
+	<subject code="GLMA" text="Akademske in specializirane knjižnice " />
+	<subject code="GLMB" text="Javne knjižnice" />
+	<subject code="GLMC" text="Šolske knjižnice in storitve za mlade bralce " />
+	<subject code="GLMG" text="Referenčne storitve" />
+	<subject code="GLML" text="Pretok storitev (npr. medknjižnična izposoja)" />
+	<subject code="GLMX" text="Storitve za skupnost in ozaveščanje" />
+	<subject code="GLP" text="Arhiviranje, ohranjanje in digitalizacija " />
+	<subject code="GM" text="Študije muzeologije in dediščine" />
+	<subject code="GP" text="Raziskave in informacije: splošno" />
+	<subject code="GPF" text="Teorija informacij" />
+	<subject code="GPFC" text="Teorija kibernetike in sistemov" />
+	<subject code="GPH" text="Analiza podatkov: splošno" />
+	<subject code="GPJ" text="Teorija kodiranja in kriptologija" />
+	<subject code="GPQ" text="Teorija odločanja: splošno" />
+	<subject code="GPQD" text="Ocena tveganja" />
+	<subject code="GPS" text="Raziskovalne metode: splošno" />
+	<subject code="GT" text="Interdisciplinarne študije" />
+	<subject code="GTB" text="Regionalne študije" />
+	<subject code="GTC" text="Komunikacijske študije" />
+	<subject code="GTE" text="Semiotika/semiologija" />
+	<subject code="GTF" text="Razvojne študije" />
+	<subject code="GTG" text="Splošne študije" />
+	<subject code="GTH" text="Zastave, emblemi, simboli, logotipi" />
+	<subject code="GTJ" text="Mirovne študije in reševanje sporov" />
+	<subject code="GTN" text="Institucije in znanstvene skupnosti: splošno" />
+	<subject code="GTR" text="Kognitivna znanost" />
+	<subject code="H" text="Humanistične vede" />
+	<subject code="HB" text="Zgodovina" />
+	<subject code="HBA" text="Zgodovina: teorija in metode" />
+	<subject code="HBAH" text="Historiografija" />
+	<subject code="HBG" text="Splošna in svetovna zgodovina" />
+	<subject code="HBJ" text="Regionalna in narodna zgodovina" />
+	<subject code="HBJD" text="Evropska zgodovina" />
+	<subject code="HBJD1" text="Britanska in irska zgodovina" />
+	<subject code="HBJF" text="Azijska zgodovina" />
+	<subject code="HBJF1" text="Zgodovina Bližnjega vzhoda" />
+	<subject code="HBJH" text="Afriška zgodovina" />
+	<subject code="HBJK" text="Zgodovina Amerike" />
+	<subject code="HBJM" text="Avstralska in pacifiška zgodovina" />
+	<subject code="HBJQ" text="Zgodovina drugih dežel" />
+	<subject code="HBL" text="Zgodovina: od davnih časov do danes" />
+	<subject code="HBLA" text="Stari vek: do leta 500" />
+	<subject code="HBLA1" text="Klasična zgodovina/klasična civilizacija" />
+	<subject code="HBLC" text="Zgodnja zgodovina: od leta 500 do leta 1450/1500" />
+	<subject code="HBLC1" text="Srednjeveška zgodovina" />
+	<subject code="HBLH" text="Zgodnja moderna zgodovina: od leta 1450/1500 do leta 1700" />
+	<subject code="HBLL" text="Moderna zgodovina do 20. stoletja: od leta 1700 do leta 1900" />
+	<subject code="HBLW" text="Zgodovina 20. stoletja: od leta 1900 do leta 2000" />
+	<subject code="HBLW3" text="Povojna zgodovina 20. stoletja, od leta 1945 do leta 2000" />
+	<subject code="HBLX" text="Zgodovina 21. stoletja: od leta 2000 naprej" />
+	<subject code="HBT" text="Zgodovina: določeni dogodki in teme" />
+	<subject code="HBTB" text="Družbena in kulturna zgodovina" />
+	<subject code="HBTD" text="Ustna zgodovina" />
+	<subject code="HBTG" text="Genealogija, heraldika, imena in čast" />
+	<subject code="HBTK" text="Industrializacija in industrijska zgodovina" />
+	<subject code="HBTM" text="Pomorska zgodovina" />
+	<subject code="HBTP" text="Zgodovinska geografija" />
+	<subject code="HBTP1" text="Zgodovinske karte in atlasi" />
+	<subject code="HBTQ" text="Kolonializem in imperializem" />
+	<subject code="HBTR" text="Narodna osvoboditev in neodvisnost, postkolonializem" />
+	<subject code="HBTS" text="Suženjstvo in ukinitev suženjstva" />
+	<subject code="HBTV" text="Revolucije, vstaje, upori" />
+	<subject code="HBTV2" text="Francoska revolucija" />
+	<subject code="HBTV4" text="Ruska revolucija" />
+	<subject code="HBTW" text="Hladna vojna" />
+	<subject code="HBTZ" text="Genocid in etnično čiščenje" />
+	<subject code="HBTZ1" text="Holokavst" />
+	<subject code="HBW" text="Vojaška zgodovina" />
+	<subject code="HBWC" text="Križarske vojne" />
+	<subject code="HBWE" text="Angleška državljanska vojna" />
+	<subject code="HBWF" text="Ameriška vojna za neodvisnost" />
+	<subject code="HBWH" text="Napoleonske vojne" />
+	<subject code="HBWJ" text="Ameriška državljanska vojna" />
+	<subject code="HBWL" text="Krimska vojna" />
+	<subject code="HBWM" text="Burske vojne" />
+	<subject code="HBWN" text="Prva svetovna vojna" />
+	<subject code="HBWP" text="Španska državljanska vojna" />
+	<subject code="HBWQ" text="Druga svetovna vojna" />
+	<subject code="HBWS" text="Vojaška zgodovina: konflikti po drugi svetovni vojni" />
+	<subject code="HBWS1" text="Korejska vojna" />
+	<subject code="HBWS2" text="Vietnamska vojna" />
+	<subject code="HBWS3" text="Zalivska vojna" />
+	<subject code="HBWS4" text="Afganistanska vojna" />
+	<subject code="HBWS5" text="Iraška vojna" />
+	<subject code="HD" text="Arheologija" />
+	<subject code="HDA" text="Arheološka teorija" />
+	<subject code="HDD" text="Arheologija po obdobjih/regijah" />
+	<subject code="HDDA" text="Prazgodovinska arheologija" />
+	<subject code="HDDC" text="Arheologija Srednjega in Bližnjega vzhoda" />
+	<subject code="HDDG" text="Arheologija Egipta/egiptologija" />
+	<subject code="HDDH" text="Biblijska arheologija" />
+	<subject code="HDDK" text="Klasična grška in rimska arheologija" />
+	<subject code="HDDM" text="Srednjeveška evropska arheologija" />
+	<subject code="HDL" text="Krajinska arheologija" />
+	<subject code="HDP" text="Okoljska arheologija" />
+	<subject code="HDR" text="Podvodna arheologija" />
+	<subject code="HDT" text="Industrijska arheologija" />
+	<subject code="HDW" text="Arheološka znanost, metodologija in tehnike" />
+	<subject code="HP" text="Filozofija" />
+	<subject code="HPC" text="Zgodovina zahodne filozofije" />
+	<subject code="HPCA" text="Zahodna filozofija: Starodavna, do leta 500" />
+	<subject code="HPCB" text="Zahodna filozofija: Srednjeveška in renesančna, od leta 500 do leta 1600" />
+	<subject code="HPCD" text="Zahodna filozofija: od leta 1600 do leta 1900" />
+	<subject code="HPCD1" text="Zahodna filozofija: Razsvetljenstvo" />
+	<subject code="HPCF" text="Zahodna filozofija, od leta 1900 naprej" />
+	<subject code="HPCF3" text="Fenomenologija in eksistencializem" />
+	<subject code="HPCF5" text="Analitična filozofija in logični pozitivizem" />
+	<subject code="HPCF7" text="Dekonstrukcionizem, strukturalizem, poststrukturalizem" />
+	<subject code="HPD" text="Nezahodna filozofija" />
+	<subject code="HPDC" text="Islamska in arabska filozofija" />
+	<subject code="HPDF" text="Orientalska in indijska filozofija" />
+	<subject code="HPJ" text="Filozofija: metafizika in ontologija" />
+	<subject code="HPK" text="Filozofija: epistemologija in teorija znanja" />
+	<subject code="HPL" text="Filozofija: logika" />
+	<subject code="HPM" text="Filozofija uma" />
+	<subject code="HPN" text="Filozofija: estetika" />
+	<subject code="HPQ" text="Etika in moralna filozofija" />
+	<subject code="HPS" text="Družbena in politična filozofija" />
+	<subject code="HPX" text="Popularna filozofija" />
+	<subject code="HR" text="Religija in prepričanja" />
+	<subject code="HRA" text="Religija: splošno" />
+	<subject code="HRAB" text="Filozofija religije" />
+	<subject code="HRAB1" text="Narava in obstoj boga" />
+	<subject code="HRAC" text="Primerjava religij" />
+	<subject code="HRAF" text="Medverski odnosi" />
+	<subject code="HRAM" text="Verska vprašanja in razprave" />
+	<subject code="HRAM1" text="Verska etika" />
+	<subject code="HRAM2" text="Religija in politika" />
+	<subject code="HRAM3" text="Religija in znanost" />
+	<subject code="HRAM6" text="Verski fundamentalizem" />
+	<subject code="HRAM7 " text="Blasfemija, herezija, apostazija" />
+	<subject code="HRAM9" text="Verska nestrpnost, preganjanje in konflikt" />
+	<subject code="HRAX" text="Zgodovina religije" />
+	<subject code="HRC" text="Krščanstvo" />
+	<subject code="HRCA" text="Zgodovinski Jezus" />
+	<subject code="HRCC" text="Krščanske cerkve in verske skupnosti" />
+	<subject code="HRCC1" text="Zgodnja Cerkev" />
+	<subject code="HRCC2" text="Zgodovina Cerkve" />
+	<subject code="HRCC7" text="Rimokatolicizem, Rimokatoliška cerkev" />
+	<subject code="HRCC8" text="Pravoslavne in Orientalske cerkve" />
+	<subject code="HRCC9" text="Protestantizem in Protestantske cerkve" />
+	<subject code="HRCC91" text="Anglikanske in Episkopalne cerkve, Anglikanska cerkev" />
+	<subject code="HRCC92" text="Baptistične cerkve" />
+	<subject code="HRCC93" text="Kalvinistične, Reformirane in Prezbiterijske cerkve" />
+	<subject code="HRCC95" text="Metodistične cerkve" />
+	<subject code="HRCC96" text="Binkoštne cerkve" />
+	<subject code="HRCC97" text="Kvekerji (Prijateljska družba)" />
+	<subject code="HRCC99" text="Druge nestandardne in Evangelistične cerkve" />
+	<subject code="HRCF" text="Biblije" />
+	<subject code="HRCF1" text="Stara zaveza" />
+	<subject code="HRCF2" text="Nova zaveza" />
+	<subject code="HRCG " text="Biblijske študije in eksegeza" />
+	<subject code="HRCG1 " text="Biblijski komentarji" />
+	<subject code="HRCG2" text="Biblijske konkordance" />
+	<subject code="HRCG3 " text="Biblijska eksegeza in hermenevtika" />
+	<subject code="HRCG7 " text="Biblijske študije: za samostojno učenje ali manjše skupine" />
+	<subject code="HRCG9" text="Biblijske čitanke, nabori in razmišljanja" />
+	<subject code="HRCJ" text="Ekumenizem" />
+	<subject code="HRCL" text="Krščanska liturgija, molitvene knjige in pesmarice" />
+	<subject code="HRCL1" text="Krščanske molitvene knjige" />
+	<subject code="HRCL2" text="Krščanske pesmarice" />
+	<subject code="HRCM" text="Krščanska teologija" />
+	<subject code="HRCP" text="Krščanske pridige" />
+	<subject code="HRCR" text="Krščansko bogoslužje, obredi in svečanosti" />
+	<subject code="HRCR1" text="Krščanska molitev" />
+	<subject code="HRCS" text="Krščanska duhovnost in verska izkušnja" />
+	<subject code="HRCS1" text="Krščanska mistika" />
+	<subject code="HRCV" text="Krščansko življenje in običaji" />
+	<subject code="HRCV1" text="Krščanski zakramenti" />
+	<subject code="HRCV2" text="Krščanska poučevanje" />
+	<subject code="HRCV3" text="Krščansko svetovanje" />
+	<subject code="HRCV4" text="Krščanska stališča do spolnosti, spola in odnosov" />
+	<subject code="HRCV9" text="Osebna krščanska pričevanja in priljubljena inspirativna dela" />
+	<subject code="HRCX" text="Krščanske ustanove in organizacije" />
+	<subject code="HRCX1" text="Krščanski voditelji in vodstvo" />
+	<subject code="HRCX4" text="Krščanska duhovniška in pastoralna dejavnost" />
+	<subject code="HRCX6" text="Krščanska družbena misel in aktivnost" />
+	<subject code="HRCX7" text="Krščansko poslanstvo in evangelizacija" />
+	<subject code="HRCX8" text="Krščanske skupnosti in redovništvo" />
+	<subject code="HRCZ" text="Krščanski in kvazi-krščanski kulti in sekte" />
+	<subject code="HRE" text="Budizem" />
+	<subject code="HREC" text="Budistično bogoslužje, obredi in svečanosti" />
+	<subject code="HREP" text="Budistično življenje in običaji" />
+	<subject code="HRES" text="Budistična sveta besedila" />
+	<subject code="HREX" text="Tibetanski budizem" />
+	<subject code="HREZ" text="Zen budizem" />
+	<subject code="HRG" text="Hinduizem" />
+	<subject code="HRGC" text="Hindujsko bogoslužje, obredi in svečanosti" />
+	<subject code="HRGP" text="Hindujsko življenje in običaji" />
+	<subject code="HRGS" text="Hindujska sveta besedila" />
+	<subject code="HRH" text="Islam" />
+	<subject code="HRHC" text="Islamsko bogoslužje, obredi in svečanosti" />
+	<subject code="HRHP" text="Islamsko življenje in običaji" />
+	<subject code="HRHS" text="Koran" />
+	<subject code="HRHT" text="Islamska teologija" />
+	<subject code="HRHX" text="Sufizem in islamska mistika" />
+	<subject code="HRJ" text="Judovstvo" />
+	<subject code="HRJC" text="Judovstvo: bogoslužje, obredi in svečanosti" />
+	<subject code="HRJP" text="Judovstvo: življenje in običaji" />
+	<subject code="HRJS" text="Judovstvo: sveta besedila" />
+	<subject code="HRJT" text="Judovstvo: teologija" />
+	<subject code="HRJX" text="Judovstvo: mistika" />
+	<subject code="HRK" text="Druge nekrščanske religije" />
+	<subject code="HRKB" text="Baha'i" />
+	<subject code="HRKJ" text="Jainizem" />
+	<subject code="HRKN" text="Orientalske religije" />
+	<subject code="HRKN1" text="Konfucijanizem" />
+	<subject code="HRKN3" text="Šintoizem" />
+	<subject code="HRKN5" text="Taoizem" />
+	<subject code="HRKP" text="Starodavne religije in mitologije" />
+	<subject code="HRKP1" text="Stara egipčanska religija in mitologija" />
+	<subject code="HRKP2" text="Keltska religija in mitologija" />
+	<subject code="HRKP3" text="Starogrška religija in mitologija" />
+	<subject code="HRKP4" text="Rimska religija in mitologija" />
+	<subject code="HRKP5" text="Nordijska religija in mitologija" />
+	<subject code="HRKS" text="Sikhizem" />
+	<subject code="HRKT" text="Plemenske religije" />
+	<subject code="HRKZ" text="Zaratustrstvo" />
+	<subject code="HRL" text="Vidiki vere (nekrščanski)" />
+	<subject code="HRLB" text="Teologija" />
+	<subject code="HRLC" text="Sveta besedila" />
+	<subject code="HRLC1" text="Kritika in eksegeza svetih besedil" />
+	<subject code="HRLD" text="Molitve in liturgično gradivo" />
+	<subject code="HRLF" text="Bogoslužje, obredi in svečanosti" />
+	<subject code="HRLF9" text="Molitev" />
+	<subject code="HRLK" text="Duhovnost in verska izkušnja" />
+	<subject code="HRLK2" text="Misticizem" />
+	<subject code="HRLM" text="Versko življenje in običaji" />
+	<subject code="HRLM3" text="Versko poučevanje" />
+	<subject code="HRLM5" text="Versko svetovanje" />
+	<subject code="HRLM7" text="Verska stališča do spolnosti, spola in odnosov" />
+	<subject code="HRLP" text="Verske ustanove in organizacije" />
+	<subject code="HRLP1" text="Verski in duhovni voditelji" />
+	<subject code="HRLP5" text="Verska družbena in pastoralna misel in aktivnost" />
+	<subject code="HRLP7" text="Verske skupnosti in redovništvo" />
+	<subject code="HRQ" text="Alternativni sistemi prepričanj" />
+	<subject code="HRQA" text="Humanistične in sekularne alternative religiji" />
+	<subject code="HRQA5" text="Agnosticizem in ateizem" />
+	<subject code="HRQC" text="Eklektične in ezoterične religije in verski sistemi" />
+	<subject code="HRQC1" text="Gnosticizem" />
+	<subject code="HRQC5" text="Teozofija in antropozofija" />
+	<subject code="HRQM" text="Sodobni nekrščanski in parakrščanski kulti in sekte" />
+	<subject code="HRQM2" text="Spiritualizem" />
+	<subject code="HRQX" text="Okultne študije" />
+	<subject code="HRQX2" text="Magična, alkimiatična in hermetična misel" />
+	<subject code="HRQX5" text="Čarovništvo" />
+	<subject code="HRQX9" text="Satanizem in nauk o demonih" />
+	<subject code="J" text="Družba in družboslovje" />
+	<subject code="JF" text="Družba in kultura: splošno" />
+	<subject code="JFC" text="Kulturne študije" />
+	<subject code="JFCA" text="Popularna kultura" />
+	<subject code="JFCD" text="Materialna kultura" />
+	<subject code="JFCK" text="Moda in družba" />
+	<subject code="JFCV" text="Hrana in družba" />
+	<subject code="JFCX" text="Zgodovina idej" />
+	<subject code="JFD" text="Medijske študije" />
+	<subject code="JFDT" text="Televizija in družba" />
+	<subject code="JFDV" text="Oglaševanje in družba" />
+	<subject code="JFF" text="Družbena vprašanja in procesi" />
+	<subject code="JFFA" text="Revščina in brezposelnost" />
+	<subject code="JFFB" text="Zavetišča in brezdomstvo" />
+	<subject code="JFFC" text="Socialne posledice nesreč" />
+	<subject code="JFFC1" text="Lakota" />
+	<subject code="JFFD" text="Begunci in politični azil" />
+	<subject code="JFFE" text="Nasilje v družbi" />
+	<subject code="JFFE1" text="Zloraba otrok" />
+	<subject code="JFFE2" text="Spolna zloraba in nadlegovanje" />
+	<subject code="JFFE3" text="Nasilje v družini" />
+	<subject code="JFFG" text="Invalidnost: socialni vidiki" />
+	<subject code="JFFH" text="Bolezen in odvisnost: socialni vidiki" />
+	<subject code="JFFH1" text="Zloraba zdravil in substanc: socialni vidiki" />
+	<subject code="JFFH2" text="HIV/AIDS: socialni vidiki" />
+	<subject code="JFFJ" text="Družbena diskriminacija in neenakost" />
+	<subject code="JFFK" text="Feminizem in feministična teorija" />
+	<subject code="JFFL" text="Politična korektnost" />
+	<subject code="JFFM" text="Družbena mobilnost" />
+	<subject code="JFFN" text="Preseljevanje, priseljevanje in izseljevanje" />
+	<subject code="JFFP" text="Družbena interakcija" />
+	<subject code="JFFR" text="Socialno napovedovanje, prihodnje študije" />
+	<subject code="JFFS" text="Globalizacija" />
+	<subject code="JFFT" text="Potrošništvo" />
+	<subject code="JFFU" text="Vprašanja javne varnosti" />
+	<subject code="JFFX" text="Korupcija v družbi" />
+	<subject code="JFFZ" text="Živali in družba" />
+	<subject code="JFH" text="Splošna prepričanja in sporno znanje" />
+	<subject code="JFHC" text="Teorije zarote" />
+	<subject code="JFHF" text="Folklora, miti in legende" />
+	<subject code="JFHX" text="Potegavščina in prevare" />
+	<subject code="JFM" text="Etična vprašanja in razprave" />
+	<subject code="JFMA" text="Etična vprašanja: splav in nadzor rojstev" />
+	<subject code="JFMC" text="Etična vprašanja: smrtna kazen" />
+	<subject code="JFMD" text="Etična vprašanja: cenzura" />
+	<subject code="JFME" text="Etična vprašanja: evtanazija in pravica do smrti" />
+	<subject code="JFMG" text="Etična vprašanja: znanstveni in tehnološki razvoj" />
+	<subject code="JFMP" text="Etična vprašanja: pornografija in obscenost" />
+	<subject code="JFMX" text="Etična vprašanja: prostitucija in industrija seksa" />
+	<subject code="JFS" text="Družbene skupine" />
+	<subject code="JFSC" text="Družabni razredi" />
+	<subject code="JFSF" text="Podeželske skupnosti" />
+	<subject code="JFSG" text="Mestne skupnosti" />
+	<subject code="JFSJ" text="Študije spolov, spolne skupine" />
+	<subject code="JFSJ1" text="Študije spolov: ženske" />
+	<subject code="JFSJ2" text="Študije spolov: moški" />
+	<subject code="JFSJ5" text="Študije spolov: transseksualnost in hermafroditizem" />
+	<subject code="JFSK" text="Gejevske in lezbične študije" />
+	<subject code="JFSK1" text="Lezbične študije" />
+	<subject code="JFSK2" text="Gejevske študije (gej moški)" />
+	<subject code="JFSL" text="Etnične študije" />
+	<subject code="JFSL1" text="Študije etničnih manjšin in večkulturne študije" />
+	<subject code="JFSL3" text="Afriške in azijske študije" />
+	<subject code="JFSL4" text="Hispanske in latinoameriške študije" />
+	<subject code="JFSL9" text="Avtohtona ljudstva" />
+	<subject code="JFSP" text="Starostne skupine" />
+	<subject code="JFSP1" text="Starostne skupine: otroci" />
+	<subject code="JFSP2" text="Starostne skupine: mladostniki" />
+	<subject code="JFSP3" text="Starostne skupine: odrasli" />
+	<subject code="JFSP31" text="Starostne skupine: starejši" />
+	<subject code="JFSR" text="Verske skupine: družbeni in kulturni vidiki" />
+	<subject code="JFSR1" text="Judovske študije" />
+	<subject code="JFSR2" text="Islamske študije" />
+	<subject code="JFSS" text="Alternativni načini življenja" />
+	<subject code="JFSV" text="Družbene skupine: klubi in društva" />
+	<subject code="JFSV1" text="Prostozidarstvo in tajne družbe" />
+	<subject code="JH" text="Sociologija in antropologija" />
+	<subject code="JHB" text="Sociologija" />
+	<subject code="JHBA" text="Družbena teorija" />
+	<subject code="JHBC" text="Socialne raziskave in statistika" />
+	<subject code="JHBD" text="Prebivalstvo in demografija" />
+	<subject code="JHBF" text="Sociologija: rojstvo" />
+	<subject code="JHBK" text="Sociologija: družina in odnosi" />
+	<subject code="JHBK5" text="Sociologija: spolni odnosi" />
+	<subject code="JHBL" text="Sociologija: zaposlitev in delo" />
+	<subject code="JHBS" text="Sociologija: šport in prosti čas" />
+	<subject code="JHBT" text="Sociologija: običaji in tradicije" />
+	<subject code="JHBZ" text="Sociologija: smrt in umiranje" />
+	<subject code="JHM" text="Antropologija" />
+	<subject code="JHMC" text="Socialna in kulturna antropologija, etnografija" />
+	<subject code="JHMP" text="Fizična antropologija" />
+	<subject code="JK" text="Storitve socialne varnosti in družbena blaginja, kriminologija" />
+	<subject code="JKS" text="Socialno varstvo in socialne storitve" />
+	<subject code="JKSB" text="Sistemi blaginje in koristi" />
+	<subject code="JKSB1" text="Dobro počutje otrok" />
+	<subject code="JKSF" text="Posvojitev in rejništvo" />
+	<subject code="JKSG" text="Skrb za starejše" />
+	<subject code="JKSM" text="Skrb za duševno bolne" />
+	<subject code="JKSN" text="Socialno delo" />
+	<subject code="JKSN1" text="Dobrodelne organizacije, prostovoljstvo in človekoljubje" />
+	<subject code="JKSN2" text="Svetovanje in nasveti" />
+	<subject code="JKSR" text="Programi za pomoč" />
+	<subject code="JKSW" text="Reševalne službe" />
+	<subject code="JKSW1" text="Policijske in varnostne službe" />
+	<subject code="JKSW2" text="Požarne storitve" />
+	<subject code="JKSW3" text="Reševalne službe" />
+	<subject code="JKV" text="Kriminal in kriminologija" />
+	<subject code="JKVC" text="Vzroki in preprečevanje kriminala" />
+	<subject code="JKVF" text="Kazenske preiskave in odkrivanje" />
+	<subject code="JKVF1" text="Forenzična znanost" />
+	<subject code="JKVG" text="Trgovina z mamili/prekupčevanje z mamili" />
+	<subject code="JKVJ" text="Ulični kriminal/zločini s strelnim orožjem" />
+	<subject code="JKVK" text="Korporacijski kriminal" />
+	<subject code="JKVM" text="Organizirani kriminal" />
+	<subject code="JKVP" text="Penologija in kaznovanje" />
+	<subject code="JKVP1" text="Zapori" />
+	<subject code="JKVQ" text="Prestopniki" />
+	<subject code="JKVQ1" text="Rehabilitacija storilcev kaznivih dejanj" />
+	<subject code="JKVQ2" text="Mladoletni storilci kaznivih dejanj" />
+	<subject code="JKVS" text="Pogojni odpust kazni" />
+	<subject code="JM" text="Psihologija" />
+	<subject code="JMA" text="Psihološka teorija in šole mišljenja" />
+	<subject code="JMAF" text="Psihoanalitična teorija (Freudova psihologija)" />
+	<subject code="JMAJ" text="Analitična in Jungova psihologija" />
+	<subject code="JMAL" text="Vedenjska teorija (behaviorizem)" />
+	<subject code="JMAN" text="Humanistična psihologija" />
+	<subject code="JMAQ" text="Kognitivizem, kognitivna teorija" />
+	<subject code="JMB" text="Psihološka metodologija" />
+	<subject code="JMBT" text="Psihološko testiranje in merjenje" />
+	<subject code="JMC" text="Otroška in razvojna psihologija" />
+	<subject code="JMD" text="Psihologija staranja" />
+	<subject code="JMF" text="Družinska psihologija" />
+	<subject code="JMG" text="Psihologija spolov" />
+	<subject code="JMH" text="Družbena, skupinska ali kolektivna psihologija" />
+	<subject code="JMJ" text="Poklicna in industrijska psihologija" />
+	<subject code="JMK" text="Kriminalna ali forenzična psihologija" />
+	<subject code="JML" text="Eksperimentalna psihologija" />
+	<subject code="JMM" text="Fiziološka in nevropsihologija, biopsihologija" />
+	<subject code="JMP" text="Abnormalna psihologija" />
+	<subject code="JMQ" text="Psihologija: čustva" />
+	<subject code="JMR" text="Kognitivnost in kognitivna psihologija" />
+	<subject code="JMRL" text="Učenje" />
+	<subject code="JMRM" text="Spomin" />
+	<subject code="JMRN" text="Inteligentnost in sklepanje" />
+	<subject code="JMRP" text="Zaznavanje" />
+	<subject code="JMS" text="Svoj jaz, ego, identiteta, osebnost" />
+	<subject code="JMT" text="Stanja zavedanja" />
+	<subject code="JMTC" text="Zavedno in nezavedno" />
+	<subject code="JMTD" text="Spanje in sanje" />
+	<subject code="JMTH" text="Hipnoza" />
+	<subject code="JMTK" text="Stanja pod vplivom drog" />
+	<subject code="JMU" text="Spolno vedenje" />
+	<subject code="JMX" text="Parapsihološke študije" />
+	<subject code="JN" text="Izobraževanje" />
+	<subject code="JNA" text="Filozofija in teorija izobraževanja" />
+	<subject code="JNAM" text="Moralni in socialni namen izobraževanja" />
+	<subject code="JNB" text="Zgodovina izobraževanja" />
+	<subject code="JNC" text="Izobraževalna psihologija" />
+	<subject code="JNF" text="Izobraževalne strategije in politika" />
+	<subject code="JNFD" text="Strategije pismenosti" />
+	<subject code="JNFG" text="Numerične strategije" />
+	<subject code="JNFN" text="Integrativna vzgoja/vključevanje" />
+	<subject code="JNFR" text="Multikulturna vzgoja" />
+	<subject code="JNH" text="Izobraževanje: oskrba in svetovanje študentom" />
+	<subject code="JNHB" text="Nasilje in strategije za boj proti nasilju" />
+	<subject code="JNHT" text="Namerno izostajanje iz šole in strategije proti temu" />
+	<subject code="JNHX" text="Izključitve/opustitev šole" />
+	<subject code="JNK" text="Organizacija in upravljanje izobraževanja" />
+	<subject code="JNKA" text="Sprejemni postopki" />
+	<subject code="JNKC" text="Načrtovanje in razvoj kurikuluma" />
+	<subject code="JNKD" text="Izpiti in ocenjevanje" />
+	<subject code="JNKF" text="Nadzor šol (in priprava na nadzor)" />
+	<subject code="JNKG" text="Financiranje izobraževanja in študija" />
+	<subject code="JNKH" text="Učitelji" />
+	<subject code="JNKH1" text="Ocenjevanje učiteljev" />
+	<subject code="JNKN" text="Neučiteljsko in podporno osebje" />
+	<subject code="JNKP" text="Odnosi med šolo in skupnostjo ter med šolo in starši" />
+	<subject code="JNKR" text="Vodstvo šole in sveti šole" />
+	<subject code="JNKS" text="Študentje in študentske organizacije" />
+	<subject code="JNL" text="Šole" />
+	<subject code="JNLA" text="Predšolska vzgoja in vrtec" />
+	<subject code="JNLB" text="Osnovne in srednje šole" />
+	<subject code="JNLC" text="Srednje šole" />
+	<subject code="JNLP" text="Neodvisne šole, zasebno izobraževanje" />
+	<subject code="JNLR" text="Verske šole" />
+	<subject code="JNM" text="Višje in nadaljnje izobraževanje, terciarno izobraževanje" />
+	<subject code="JNMF" text="Višje šole" />
+	<subject code="JNMH" text="Visoke šole" />
+	<subject code="JNMN" text="Univerze" />
+	<subject code="JNMT" text="Usposabljanje učiteljev" />
+	<subject code="JNP" text="Izobraževanje odraslih, vseživljenjsko učenje" />
+	<subject code="JNQ" text="Odprta učna okolja, učenje doma, izobraževanje na daljavo" />
+	<subject code="JNR" text="Karierno svetovanje" />
+	<subject code="JNRV" text="Industrijsko ali poklicno usposabljanje" />
+	<subject code="JNS" text="Poučevanje posebnih skupin in oseb s posebnimi izobraževalnimi potrebami" />
+	<subject code="JNSC" text="Poučevanje telesno prizadetih študentov" />
+	<subject code="JNSC1" text="Poučevanje učencev z motnjami sluha" />
+	<subject code="JNSC2" text="Poučevanje slabovidnih študentov" />
+	<subject code="JNSG" text="Poučevanje študentov s posebnimi učnimi težavami/potrebami" />
+	<subject code="JNSG1" text="Poučevanje študentov z disleksijo" />
+	<subject code="JNSG2" text="Poučevanje avtističnih študentov" />
+	<subject code="JNSL" text="Poučevanje študentov s čustvenimi in vedenjskimi težavami" />
+	<subject code="JNSP" text="Poučevanje nadarjenih študentov" />
+	<subject code="JNSV" text="Poučevanje študentov z angleščino kot drugim jezikom (TESOL)" />
+	<subject code="JNT" text="Poučevalne spretnosti in tehnike" />
+	<subject code="JNU" text="Poučevanje določenega predmeta" />
+	<subject code="JNUM" text="Izobraževalni učni pripomočki in gradivo" />
+	<subject code="JNV" text="Izobraževalna oprema in tehnologija, računalniško podprto učenje (CAL)" />
+	<subject code="JNW" text="Izvenšolske dejavnosti" />
+	<subject code="JNWT" text="Izobraževalni obiski in ekskurzije" />
+	<subject code="JNZ" text="Študijske in učne spretnosti: splošno" />
+	<subject code="JP" text="Politika in vladne ustanove" />
+	<subject code="JPA" text="Politična znanost in teorija" />
+	<subject code="JPB" text="Primerjalna politika" />
+	<subject code="JPF" text="Politične ideologije" />
+	<subject code="JPFB" text="Anarhizem" />
+	<subject code="JPFC" text="Marksizem in komunizem" />
+	<subject code="JPFF" text="Socializem in levosredinske demokratične ideologije" />
+	<subject code="JPFK" text="Liberalizem in sredinske demokratične ideologije" />
+	<subject code="JPFM" text="Konzervatizem in desnosredinske demokratične ideologije" />
+	<subject code="JPFN" text="Nacionalizem" />
+	<subject code="JPFQ" text="Fašizem in nacizem" />
+	<subject code="JPFR" text="Verske in teokratične ideologije" />
+	<subject code="JPH" text="Politična struktura in procesi" />
+	<subject code="JPHC" text="Ustava: vlada in država" />
+	<subject code="JPHF" text="Volitve in referendumi" />
+	<subject code="JPHL" text="Politični voditelji in vodstvo" />
+	<subject code="JPHV" text="Politične strukture: demokracija" />
+	<subject code="JPHX" text="Politične strukture: totalitarizem in diktatura" />
+	<subject code="JPL" text="Politične stranke" />
+	<subject code="JPLM" text="Politični manifesti" />
+	<subject code="JPP" text="Javna uprava" />
+	<subject code="JPQ" text="Centralna vlada" />
+	<subject code="JPQB" text="Politika centralne vlade" />
+	<subject code="JPR" text="Regionalna vlada" />
+	<subject code="JPRB" text="Politika regionalne vlade" />
+	<subject code="JPS" text="Mednarodni odnosi" />
+	<subject code="JPSD" text="Diplomacija" />
+	<subject code="JPSF" text="Pogajanja o orožju in nadzor" />
+	<subject code="JPSH" text="Špijonaža in tajne službe" />
+	<subject code="JPSL" text="Geopolitika" />
+	<subject code="JPSN" text="Mednarodne institucije" />
+	<subject code="JPSN1" text="Združeni narodi in agencije ZN" />
+	<subject code="JPSN2" text="EU in evropske institucije" />
+	<subject code="JPV" text="Politični nadzor in svoboščine" />
+	<subject code="JPVH" text="Človekove pravice" />
+	<subject code="JPVH1" text="Državljanske pravice in državljanstvo" />
+	<subject code="JPVH2" text="Svoboda obveščanja in svoboda govora" />
+	<subject code="JPVH3" text="Zemljiške pravice" />
+	<subject code="JPVH4" text="Verska svoboda/svoboda bogoslužja" />
+	<subject code="JPVK" text="Javno mnenje in ankete" />
+	<subject code="JPVL" text="Politična kampanja in oglaševanje" />
+	<subject code="JPVN" text="Propaganda" />
+	<subject code="JPVR" text="Politično zatiranje in preganjanje" />
+	<subject code="JPW" text="Politični aktivizem" />
+	<subject code="JPWD" text="Interesne skupine in lobiranje" />
+	<subject code="JPWF" text="Demonstracije in protestna gibanja" />
+	<subject code="JPWH" text="Nevladne organizacije" />
+	<subject code="JPWJ" text="Politična subverzija" />
+	<subject code="JPWL" text="Terorizem, oboroženi boj" />
+	<subject code="JPWL1" text="Politični atentati" />
+	<subject code="JPWL2" text="Teroristični napad" />
+	<subject code="JPWQ" text="Revolucionarne skupine in gibanja" />
+	<subject code="JPWS" text="Oboroženi konflikt" />
+	<subject code="JPZ" text="Politična korupcija" />
+	<subject code="JW" text="Vojna in obramba" />
+	<subject code="JWA" text="Teorija vojskovanja in vojaške znanosti" />
+	<subject code="JWD" text="Kopenske sile in vojskovanje" />
+	<subject code="JWDG" text="Iregularne ali gverilske sile in vojskovanje" />
+	<subject code="JWF" text="Pomorske sile in vojskovanje" />
+	<subject code="JWG" text="Zračne sile in vojskovanje" />
+	<subject code="JWH" text="Specialne in elitne sile" />
+	<subject code="JWJ" text="Vojaška uprava" />
+	<subject code="JWK" text="Obrambna strategija, načrtovanje in raziskave" />
+	<subject code="JWKF" text="Vojaška obveščevalna služba" />
+	<subject code="JWKT" text="Vojaška taktika" />
+	<subject code="JWKW" text="Civilna obramba" />
+	<subject code="JWL" text="Vojne in obrambne operacije" />
+	<subject code="JWLF" text="Bitke in kampanje" />
+	<subject code="JWLP" text="Mirovne operacije" />
+	<subject code="JWM" text="Orožje in oprema" />
+	<subject code="JWMC" text="Kemijsko in biološko orožje" />
+	<subject code="JWMN" text="Jedrska orožja" />
+	<subject code="JWMV" text="Vojaška vozila" />
+	<subject code="JWMV1" text="Tanki in vojaška kopenska vozila" />
+	<subject code="JWMV2" text="Vojaške in pomorske ladje" />
+	<subject code="JWMV3" text="Vojaška letala" />
+	<subject code="JWT" text="Vojaško življenje in institucije" />
+	<subject code="JWTR" text="Polki" />
+	<subject code="JWTU" text="Uniforme in insignije" />
+	<subject code="JWTY" text="Spomeniki in častni seznami" />
+	<subject code="JWX" text="Ostala vojna in obrambna vprašanja" />
+	<subject code="JWXF" text="Trgovina z orožjem" />
+	<subject code="JWXK" text="Vojni zločini" />
+	<subject code="JWXN" text="Plačanci" />
+	<subject code="JWXR" text="Vojni zaporniki" />
+	<subject code="JWXT" text="Vojaški upori" />
+	<subject code="JWXV" text="Vojaški veterani" />
+	<subject code="JWXZ" text="Borbene/obrambne veščine in priročniki" />
+	<subject code="K" text="Ekonomija, finance, poslovanje in menedžment" />
+	<subject code="KC" text="Ekonomija" />
+	<subject code="KCA" text="Ekonomska teorija in filozofija" />
+	<subject code="KCB" text="Makroekonomija" />
+	<subject code="KCBM" text="Monetarna ekonomija" />
+	<subject code="KCC" text="Mikroekonomija" />
+	<subject code="KCCD" text="Domača trgovina" />
+	<subject code="KCD" text="Ekonomika industrijske organizacije" />
+	<subject code="KCF" text="Ekonomija dela" />
+	<subject code="KCFM" text="Zaposlenost in brezposelnost" />
+	<subject code="KCG" text="Gospodarska rast" />
+	<subject code="KCH" text="Ekonometrija" />
+	<subject code="KCHS" text="Gospodarska statistika" />
+	<subject code="KCJ" text="Gospodarske napovedi" />
+	<subject code="KCK" text="Vedenjska ekonomija" />
+	<subject code="KCL" text="Mednarodna ekonomija" />
+	<subject code="KCLF" text="Mednarodne finance" />
+	<subject code="KCLT" text="Mednarodna trgovina" />
+	<subject code="KCLT1" text="Trgovinski sporazumi" />
+	<subject code="KCM" text="Razvojna ekonomija in nastajajoča gospodarstva" />
+	<subject code="KCN" text="Okoljska ekonomija" />
+	<subject code="KCP" text="Politična ekonomija" />
+	<subject code="KCQ" text="Zdravstvena ekonomija" />
+	<subject code="KCR" text="Ekonomija blaginje" />
+	<subject code="KCS" text="Gospodarski sistemi in strukture" />
+	<subject code="KCT" text="Kmetijska ekonomija" />
+	<subject code="KCU" text="Urbana ekonomija" />
+	<subject code="KCX" text="Gospodarske in finančne krize in nesreče" />
+	<subject code="KCY" text="Popularna ekonomija" />
+	<subject code="KCZ" text="Ekonomska zgodovina" />
+	<subject code="KF" text="Finance in računovodstvo" />
+	<subject code="KFC" text="Računovodstvo" />
+	<subject code="KFCC" text="Stroškovno računovodstvo" />
+	<subject code="KFCF" text="Finančno računovodstvo" />
+	<subject code="KFCM" text="Poslovodno računovodstvo in knjigovodstvo" />
+	<subject code="KFCP" text="Računovodstvo javnih financ" />
+	<subject code="KFCR" text="Računovodsko poročanje, računovodski izkazi" />
+	<subject code="KFCX" text="Računovodstvo: študijski in revizijski priročniki" />
+	<subject code="KFF" text="Finance" />
+	<subject code="KFFD" text="Javne finance" />
+	<subject code="KFFD1" text="Obdavčitev" />
+	<subject code="KFFH" text="Korporativne finance" />
+	<subject code="KFFK" text="Bančništvo" />
+	<subject code="KFFL" text="Kredit in kreditne institucije" />
+	<subject code="KFFM" text="Naložbe in vrednostni papirji" />
+	<subject code="KFFM1" text="Surovine" />
+	<subject code="KFFM2" text="Delnice in vrednostni papirji" />
+	<subject code="KFFN" text="Zavarovalne in aktuarske študije" />
+	<subject code="KFFP" text="Pokojnine" />
+	<subject code="KFFR" text="Lastnina in nepremičnine" />
+	<subject code="KFFX" text="Bančništvo in finance: študijski in revizijski priročniki" />
+	<subject code="KJ" text="Podjetništvo in menedžment" />
+	<subject code="KJB" text="Poslovne študije: splošno" />
+	<subject code="KJBX" text="Podjetništvo in menedžment: študijski in revizijski priročniki" />
+	<subject code="KJC" text="Poslovna strategija" />
+	<subject code="KJD" text="Poslovne inovacije" />
+	<subject code="KJE" text="E-trgovina: poslovni vidiki" />
+	<subject code="KJF" text="Poslovna konkurenca" />
+	<subject code="KJG" text="Poslovna etika in družbena odgovornost" />
+	<subject code="KJH" text="Podjetništvo" />
+	<subject code="KJJ" text="Podjetništvo in okolje, &quot;zeleni&quot; pristopi k poslovanju" />
+	<subject code="KJK" text="Mednarodno poslovanje" />
+	<subject code="KJL" text="Svetovanje in subvencije za podjetja" />
+	<subject code="KJM" text="Menedžment in tehnike menedžmenta" />
+	<subject code="KJMB" text="Menedžment: vodstvo in motivacija" />
+	<subject code="KJMD" text="Odločanje v menedžmentu" />
+	<subject code="KJMP" text="Projektni menedžment" />
+	<subject code="KJMQ" text="Zagotavljanje kakovosti (QA) in popolno zagotavljanje kakovosti (TQM)" />
+	<subject code="KJMT" text="Časovni menedžment" />
+	<subject code="KJMV" text="Menedžment določenih območij" />
+	<subject code="KJMV1" text="Načrtovanje stroškov in finančni menedžment" />
+	<subject code="KJMV2" text="Menedžment osebja in človeških virov" />
+	<subject code="KJMV3" text="Menedžment znanja" />
+	<subject code="KJMV4" text="Upravljanje nepremičnin, lastnine in obratov" />
+	<subject code="KJMV5" text="Proizvodnja in menedžment kakovosti" />
+	<subject code="KJMV6" text="Raziskovalni in razvojni menedžment" />
+	<subject code="KJMV7" text="Menedžment prodaje in trženja" />
+	<subject code="KJMV8" text="Nabavni in dobavni menedžment" />
+	<subject code="KJMV9" text="Distribucijski in skladiščni menedžment" />
+	<subject code="KJN" text="Poslovna pogajanja" />
+	<subject code="KJP" text="Poslovna komunikacija in predstavitev" />
+	<subject code="KJQ" text="Poslovna matematika in sistemi" />
+	<subject code="KJR" text="Korporativno upravljanje" />
+	<subject code="KJRD" text="Odbori in direktorji: vloga in odgovornosti" />
+	<subject code="KJRS" text="Sekretar družbe: vloga in odgovornosti" />
+	<subject code="KJS" text="Prodaja in trženje" />
+	<subject code="KJSA" text="Oglaševanje" />
+	<subject code="KJSM" text="Tržna raziskava" />
+	<subject code="KJSP" text="Odnosi z javnostjo" />
+	<subject code="KJSU" text="Storitve za stranke" />
+	<subject code="KJT" text="Operacijske raziskave" />
+	<subject code="KJU" text="Organizacijska teorija in vedenje" />
+	<subject code="KJV" text="Lastništvo in organizacija podjetij" />
+	<subject code="KJVB" text="Prevzemi, združitve in odkupi" />
+	<subject code="KJVD" text="Privatizacija" />
+	<subject code="KJVF" text="Franšize" />
+	<subject code="KJVG" text="Multinacionalke" />
+	<subject code="KJVN" text="Javno lastništvo/nacionalizacija" />
+	<subject code="KJVP" text="Monopoli" />
+	<subject code="KJVS" text="Mala podjetja in samozaposlitev" />
+	<subject code="KJVT" text="Zunanje izvajanje dejavnosti" />
+	<subject code="KJVV" text="Skupna vlaganja" />
+	<subject code="KJVW" text="Lastništvo zaposlenih in zadružništvo" />
+	<subject code="KJVX" text="Neprofitne organizacije" />
+	<subject code="KJW" text="Pisarna in delovno mesto" />
+	<subject code="KJWB" text="Pisarniški menedžment" />
+	<subject code="KJWF" text="Pisarniški sistemi in oprema" />
+	<subject code="KJWS" text="Sekretarske, uradniške in pisarniške spretnosti" />
+	<subject code="KJWX" text="Delovni vzorci in praksa" />
+	<subject code="KJZ" text="Zgodovina določenih podjetij/podjetniška zgodovina" />
+	<subject code="KN" text="Industrija in industrijske študije" />
+	<subject code="KNA" text="Primarna industrija" />
+	<subject code="KNAC" text="Kmetijstvo in sorodne industrije" />
+	<subject code="KNAF" text="Ribištvo in sorodne industrije" />
+	<subject code="KNAL" text="Gozdarstvo in sorodne industrije" />
+	<subject code="KNAT" text="Rudarska industrija" />
+	<subject code="KNB" text="Energetska industrija in podjetja za oskrbo z energijo" />
+	<subject code="KNBC" text="Industrija premoga in trdnega goriva" />
+	<subject code="KNBG" text="Plinska industrija" />
+	<subject code="KNBL" text="Elektroindustrija" />
+	<subject code="KNBN" text="Jedrska industrija" />
+	<subject code="KNBP" text="Naftna industrija" />
+	<subject code="KNBT" text="Energetska industrija alternativnih in obnovljivih virov" />
+	<subject code="KNBW" text="Vodna industrija" />
+	<subject code="KND" text="Proizvodna industrija" />
+	<subject code="KNDC" text="Kemična industrija" />
+	<subject code="KNDD" text="Tekstilna industrija" />
+	<subject code="KNDF" text="Proizvodnja hrane in sorodne industrije" />
+	<subject code="KNDF1" text="Tobačna industrija" />
+	<subject code="KNDH" text="Industrija proizvodnje visoke tehnologije" />
+	<subject code="KNDH1" text="Biotehnološka industrija" />
+	<subject code="KNDM" text="Oborožitvena industrija" />
+	<subject code="KNDP" text="Farmacevtska industrija" />
+	<subject code="KNDR" text="Industrija motornih vozil" />
+	<subject code="KNDS" text="Ladjedelniška industrija" />
+	<subject code="KNDV" text="Letalska proizvodna industrija" />
+	<subject code="KNG" text="Transportna industrija" />
+	<subject code="KNGR" text="Industrija cestnega transporta" />
+	<subject code="KNGS" text="Pomorska industrija" />
+	<subject code="KNGT" text="Industrija železniškega prometa" />
+	<subject code="KNGV" text="Industrija zračnega in letalskega prometa" />
+	<subject code="KNGV1" text="Letališča" />
+	<subject code="KNJ" text="Gradbena in težka industrija" />
+	<subject code="KNJC" text="Gradbena industrija" />
+	<subject code="KNJH" text="Železarska, jeklarska in kovinska industrija" />
+	<subject code="KNP" text="Distribucijska industrija" />
+	<subject code="KNPR" text="Maloprodajni sektor" />
+	<subject code="KNPW" text="Sektor trgovine na debelo" />
+	<subject code="KNS" text="Storitvena industrija" />
+	<subject code="KNSG" text="Turizem" />
+	<subject code="KNSH" text="Gostinska industrija" />
+	<subject code="KNSJ" text="Industrija upravljanja dogodkov" />
+	<subject code="KNSP" text="Industrija športa in prostega časa" />
+	<subject code="KNSS" text="Varnostne storitve" />
+	<subject code="KNSS1" text="Nadzorne storitve" />
+	<subject code="KNST" text="Industrija finančnih storitev" />
+	<subject code="KNSX" text="Modna in lepotna industrija" />
+	<subject code="KNSZ" text="Pogrebne storitve" />
+	<subject code="KNT" text="Medijska, informacijska in komunikacijska industrija" />
+	<subject code="KNTC" text="Kinematografska industrija" />
+	<subject code="KNTD" text="Radijska in televizijska industrija" />
+	<subject code="KNTF" text="Glasbena industrija" />
+	<subject code="KNTJ" text="Mediji in novinarstvo" />
+	<subject code="KNTP" text="Založniška industrija in knjigotrštvo" />
+	<subject code="KNTR" text="Industrija tiskanja, pakiranja in reprografije" />
+	<subject code="KNTT" text="Poštna in telekomunikacijska industrija" />
+	<subject code="KNTX" text="Industrija informacijske tehnologije" />
+	<subject code="KNTX1" text="Spletna in internetna tehnologija" />
+	<subject code="KNTY" text="Oglaševalska industrija" />
+	<subject code="KNV" text="Državne službe in javni sektor" />
+	<subject code="KNX" text="Industrijski odnosi, zdravje in varnost" />
+	<subject code="KNXB" text="Industrijski odnosi" />
+	<subject code="KNXB1" text="Stavke" />
+	<subject code="KNXB2" text="Sindikati" />
+	<subject code="KNXB3" text="Industrijska arbitraža in pogajanja" />
+	<subject code="KNXC" text="Zdravstvena in varnostna vprašanja" />
+	<subject code="L" text="Pravo" />
+	<subject code="LA" text="Sodna praksa in splošna vprašanja" />
+	<subject code="LAB" text="Sodna praksa in filozofija prava" />
+	<subject code="LAF" text="Pravni sistemi" />
+	<subject code="LAFC" text="Angloameriško pravo" />
+	<subject code="LAFD" text="Civilni kodeksi/civilno pravo" />
+	<subject code="LAFR" text="Rimsko pravo" />
+	<subject code="LAFS" text="Islamsko pravo" />
+	<subject code="LAFX" text="Cerkveno (kanonsko) pravo" />
+	<subject code="LAM" text="Primerjalno pravo" />
+	<subject code="LAQ" text="Pravo in družba" />
+	<subject code="LAQG" text="Spol in pravo" />
+	<subject code="LAR" text="Kriminologija: pravni vidiki" />
+	<subject code="LAS" text="Pravno znanje in praksa" />
+	<subject code="LASD" text="Odvetništvo" />
+	<subject code="LASP" text="Pravni pomočniki in pravna pomoč" />
+	<subject code="LAT" text="Pravni poklic: splošno" />
+	<subject code="LATC" text="Pravna etika in poklicno ravnanje" />
+	<subject code="LAY" text="Pravo, kot velja za druge poklice" />
+	<subject code="LAZ" text="Pravna zgodovina" />
+	<subject code="LB" text="Mednarodno pravo" />
+	<subject code="LBB" text="Mednarodno javno pravo" />
+	<subject code="LBBC" text="Pogodbe in drugi viri mednarodnega prava" />
+	<subject code="LBBC1" text="Običajno pravo" />
+	<subject code="LBBD" text="Diplomatsko pravo" />
+	<subject code="LBBF" text="Pristojnost in imunitete" />
+	<subject code="LBBJ" text="Mednarodno ozemeljsko pravo in suverenost" />
+	<subject code="LBBK" text="Pomorsko pravo" />
+	<subject code="LBBM" text="Mednarodno gospodarsko in trgovinsko pravo" />
+	<subject code="LBBM1" text="Pristojbine" />
+	<subject code="LBBM3" text="Naložbene pogodbe in spori" />
+	<subject code="LBBP" text="Mednarodno okoljsko pravo" />
+	<subject code="LBBR" text="Mednarodno pravo človekovih pravic" />
+	<subject code="LBBS" text="Mednarodno humanitarno pravo" />
+	<subject code="LBBU" text="Mednarodne organizacije in institucije" />
+	<subject code="LBBV" text="Odgovornost držav in drugih subjektov" />
+	<subject code="LBBZ" text="Mednarodno kazensko pravo" />
+	<subject code="LBD" text="Mednarodno pravo prometa, komunikacij in trgovine" />
+	<subject code="LBDA" text="Mednarodno vesoljsko in letalsko pravo" />
+	<subject code="LBDK" text="Mednarodno gospodarsko pravo" />
+	<subject code="LBDM" text="Mednarodno pomorsko pravo" />
+	<subject code="LBDT" text="Mednarodno pravo na področju komunikacij in telekomunikacij" />
+	<subject code="LBG" text="Zasebno mednarodno pravo in navzrkižje zakonov" />
+	<subject code="LBH" text="Reševanje mednarodnih sporov" />
+	<subject code="LBHG" text="Mednarodna sodišča in postopki" />
+	<subject code="LBHT" text="Mednarodna arbitraža" />
+	<subject code="LBL" text="Poročila mednarodnega prava" />
+	<subject code="LN" text="Zakoni o posebnih pristojnostih" />
+	<subject code="LNA" text="Pravni sistem: splošno" />
+	<subject code="LNAA" text="Sodišča in postopek" />
+	<subject code="LNAA1" text="Pravosodne pristojnosti" />
+	<subject code="LNAA2" text="Pravni sistem: pravo nespoštljivosti pred sodiščem" />
+	<subject code="LNAC" text="Civilni postopek, sodni postopek in reševanje sporov" />
+	<subject code="LNAC1" text="Civilna pravna sredstva" />
+	<subject code="LNAC12" text="Restitucija" />
+	<subject code="LNAC14" text="Škoda in odškodnina" />
+	<subject code="LNAC16" text="Odredbe in drugi sklepi" />
+	<subject code="LNAC3" text="Civilni postopek: pravo dokazov" />
+	<subject code="LNAC5" text="Arbitraža, mediacija in alternativno reševanje sporov" />
+	<subject code="LNAF" text="Pravni sistem: stroški in financiranje" />
+	<subject code="LNAL" text="Reguliranje pravnega poklica" />
+	<subject code="LNB" text="Zasebno/civilno pravo: splošna dela" />
+	<subject code="LNC" text="Pravo podjetij, gospodarsko in konkurenčno pravo" />
+	<subject code="LNCB" text="Gospodarsko pravo" />
+	<subject code="LNCB1" text="Franšizno pravo" />
+	<subject code="LNCB2" text="Pravo elektronskega poslovanja" />
+	<subject code="LNCB3" text="Pravo prodaje blaga" />
+	<subject code="LNCB4" text="Pravo izvajanja zunanje dejavnosti" />
+	<subject code="LNCB5" text="Ladijsko pravo" />
+	<subject code="LNCB6" text="Letalsko pravo" />
+	<subject code="LNCD" text="Pravo družb" />
+	<subject code="LNCD1" text="Pravo združevanja in prevzemov" />
+	<subject code="LNCF" text="Pravo partnerstva" />
+	<subject code="LNCH" text="Konkurenčno pravo/protimonopolno pravo" />
+	<subject code="LNCJ" text="Pogodbeno pravo" />
+	<subject code="LNCL" text="Pravo uradov" />
+	<subject code="LNCN" text="Pravo oskrbe" />
+	<subject code="LNCQ" text="Gradbeno in inženirsko pravo" />
+	<subject code="LNCR" text="Pravo o energetiki in naravnih virih" />
+	<subject code="LND" text="Ustavno in upravno pravo" />
+	<subject code="LNDA" text="Pravo o državljanstvu" />
+	<subject code="LNDA1" text="Pravo tujcev" />
+	<subject code="LNDA3" text="Pravo azila" />
+	<subject code="LNDC" text="Pravo človekovih pravic in državljanskih svoboščin" />
+	<subject code="LNDC2" text="Pravo zasebnosti" />
+	<subject code="LNDC4" text="Pravo svobode izražanja" />
+	<subject code="LNDF" text="Pravo svobode obveščanja" />
+	<subject code="LNDH" text="Vladna oblast" />
+	<subject code="LNDK" text="Vojaško in obrambno pravo" />
+	<subject code="LNDM" text="Sodni nadzor" />
+	<subject code="LNDP" text="Parlamentarna in zakonodajna praksa" />
+	<subject code="LNDS" text="Volilna zakonodaja" />
+	<subject code="LNDU" text="Pravo lokalne uprave" />
+	<subject code="LNF" text="Kazensko pravo in kazenski postopek" />
+	<subject code="LNFB" text="Kazensko pravosodno pravo" />
+	<subject code="LNFG" text="Kazniva dejanja zoper vlado" />
+	<subject code="LNFJ" text="Kazniva dejanja zoper osebo" />
+	<subject code="LNFJ1" text="Pravo o nadlegovanju" />
+	<subject code="LNFL" text="Kazniva dejanja zoper premoženje" />
+	<subject code="LNFN" text="Goljufije" />
+	<subject code="LNFQ" text="Mladoletniško kazensko pravo" />
+	<subject code="LNFR" text="Kazniva dejanja zoper javno zdravje, varnost, red" />
+	<subject code="LNFT" text="Pravo o cestnem prometu, prekrški voznikov motornih vozil" />
+	<subject code="LNFV" text="Pravo o terorizmu" />
+	<subject code="LNFX" text="Kazenski postopek" />
+	<subject code="LNFX1" text="Kazen in kaznovanje" />
+	<subject code="LNFX3" text="Kazenski postopek: dokazno pravo" />
+	<subject code="LNFX5" text="Policijsko pravo in policijski postopki" />
+	<subject code="LNH" text="Zaposlitveno in delovno pravo" />
+	<subject code="LNHD" text="Pravo o diskriminaciji pri zaposlovanju" />
+	<subject code="LNHH" text="Pravo o varnosti in zdravju pri delu" />
+	<subject code="LNHR" text="Pravo o industrijskih odnosih in sindikatih" />
+	<subject code="LNHU" text="Pogodbe o zaposlitvi" />
+	<subject code="LNJ" text="Medijsko pravo" />
+	<subject code="LNJD" text="Zakon o obrekovanju (obrekovanje in opravljanje)" />
+	<subject code="LNJS" text="Šport in pravo" />
+	<subject code="LNJX" text="Oglaševalsko, tržno in sponzorsko pravo" />
+	<subject code="LNK" text="Okoljsko, transportno pravo in pravo prostorskega planiranja" />
+	<subject code="LNKF" text="Kmetijsko pravo" />
+	<subject code="LNKG" text="Pravo o zaščiti živali" />
+	<subject code="LNKJ" text="Okoljsko pravo" />
+	<subject code="LNKN" text="Zakon o ohranjanju narave" />
+	<subject code="LNKT" text="Transportno pravo" />
+	<subject code="LNKV" text="Avtoceste" />
+	<subject code="LNKW" text="Pravo prostorskega planiranja" />
+	<subject code="LNL" text="Lastniški kapital in skladi" />
+	<subject code="LNM" text="Družinsko pravo" />
+	<subject code="LNMB" text="Družinsko pravo: poroka in ločitev" />
+	<subject code="LNMC" text="Družinsko pravo: zunajzakonska skupnost" />
+	<subject code="LNMF" text="Družinsko pravo: istospolno partnerstvo" />
+	<subject code="LNMK" text="Družinsko pravo: otroci" />
+	<subject code="LNP" text="Finančno pravo" />
+	<subject code="LNPA" text="Računovodsko pravo" />
+	<subject code="LNPB" text="Bančno pravo" />
+	<subject code="LNPC" text="Stečaj in plačilna nesposobnost" />
+	<subject code="LNPD" text="Pravo in predpisi kapitalskih trgov in vrednostnih papirjev" />
+	<subject code="LNPF" text="Pravo in predpisi o finančnih storitvah" />
+	<subject code="LNPN" text="Zavarovalno pravo" />
+	<subject code="LNPP" text="Pokojninsko pravo" />
+	<subject code="LNQ" text="Pravo o informacijskih tehnologijah in komunikaciji" />
+	<subject code="LNQD" text="Pravo o varstvu podatkov" />
+	<subject code="LNR" text="Pravo intelektualne lastnine" />
+	<subject code="LNRC" text="Avtorsko pravo" />
+	<subject code="LNRD" text="Patentno pravo" />
+	<subject code="LNRF" text="Pravo o blagovnih znamkah" />
+	<subject code="LNRL" text="Pravo o dizajnu" />
+	<subject code="LNRV" text="Pravo o zaupnih informacijah" />
+	<subject code="LNS" text="Lastninsko pravo" />
+	<subject code="LNSH" text="Zemljiško in nepremičninsko pravo" />
+	<subject code="LNSH1" text="Pravo o lastništvu in hipoteki" />
+	<subject code="LNSH3" text="Pravo o najemodajalcu in najemniku" />
+	<subject code="LNSH5" text="Pravo o prenosu lastništva" />
+	<subject code="LNSH7" text="Zakon o ocenjevanju in vrednotenju" />
+	<subject code="LNSH9" text="Stanovanjsko pravo" />
+	<subject code="LNSP" text="Pravo o osebni lastnini" />
+	<subject code="LNT" text="Socialno pravo" />
+	<subject code="LNTC" text="Dobrodelno pravo" />
+	<subject code="LNTD" text="Izobraževanje in pravo" />
+	<subject code="LNTH" text="Socialna varnost in socialno pravo" />
+	<subject code="LNTH1" text="Pravo o socialnem zavarovanju" />
+	<subject code="LNTJ" text="Zakon o javnem zdravju in varnosti" />
+	<subject code="LNTM" text="Zdravstveno pravo" />
+	<subject code="LNTM1" text="Pravo o duševnem zdravju" />
+	<subject code="LNTM2" text="Nadzor zdravil in medicinskih pripomočkov" />
+	<subject code="LNTQ" text="Invalidnost in pravo" />
+	<subject code="LNTS" text="Pravo in starejši" />
+	<subject code="LNTU" text="Pravo o varstvu potrošnikov" />
+	<subject code="LNTX" text="Licenčno pravo, pravo igralnic in klubov" />
+	<subject code="LNU" text="Davčno pravo" />
+	<subject code="LNUC" text="Davek od dobička" />
+	<subject code="LNUP" text="Osebni davek" />
+	<subject code="LNUS" text="Davek na prodajo in carinske dajatve" />
+	<subject code="LNUT" text="Obdavčitve skladov in premoženja" />
+	<subject code="LNV" text="Delikti" />
+	<subject code="LNVC" text="Malomarnost" />
+	<subject code="LNVF" text="Kaljenje miru" />
+	<subject code="LNVJ" text="Osebna poškodba" />
+	<subject code="LNW" text="Oporoke/nasledstvo" />
+	<subject code="LNZ" text="Primarni viri prava" />
+	<subject code="LNZC" text="Sodna praksa" />
+	<subject code="LNZL" text="Legalizacija" />
+	<subject code="LR" text="Pravo: študijski in revizijski priročniki" />
+	<subject code="M" text="Medicina" />
+	<subject code="MB" text="Medicina: splošna vprašanja" />
+	<subject code="MBD" text="Medicinski poklic" />
+	<subject code="MBDC" text="Medicinska etika in poklicno vedenje" />
+	<subject code="MBDP" text="Odnos med zdravnikom in bolnikom" />
+	<subject code="MBF" text="Medicinska bioinformatika" />
+	<subject code="MBG" text="Medicinska oprema in tehnike" />
+	<subject code="MBGL" text="Medicinsko laboratorijsko testiranje in tehnike" />
+	<subject code="MBGR" text="Medicinske raziskave" />
+	<subject code="MBGR1" text="Klinično preskušanje" />
+	<subject code="MBGT" text="Telemedicina" />
+	<subject code="MBN" text="Javno zdravje in preventiva" />
+	<subject code="MBNC" text="Zdravstveni pregled" />
+	<subject code="MBNH" text="Osebno in javno zdravje" />
+	<subject code="MBNH1" text="Higiena" />
+	<subject code="MBNH2" text="Okoljski dejavniki" />
+	<subject code="MBNH3" text="Dietetika in prehrana" />
+	<subject code="MBNH4" text="Nadzor rojstev, kontracepcija, načrtovanje družine" />
+	<subject code="MBNH9" text="Psihologija zdravja" />
+	<subject code="MBNS" text="Epidemiologija in medicinska statistika" />
+	<subject code="MBP" text="Zdravstveni sistemi in storitve" />
+	<subject code="MBPC" text="Splošna praksa" />
+	<subject code="MBPK" text="Storitve na področju duševnega zdravja" />
+	<subject code="MBPM" text="Zdravstvena uprava in menedžment" />
+	<subject code="MBPR" text="Zdravstveno zavarovanje" />
+	<subject code="MBQ" text="Zdravstveno-pravna vprašanja" />
+	<subject code="MBS" text="Medicinska sociologija" />
+	<subject code="MBX" text="Zgodovina medicine" />
+	<subject code="MF" text="Predklinična medicina: osnovne vede" />
+	<subject code="MFC" text="Anatomija" />
+	<subject code="MFCC" text="Citologija" />
+	<subject code="MFCH" text="Histologija" />
+	<subject code="MFCR" text="Regionalna anatomija" />
+	<subject code="MFCX" text="Seciranje" />
+	<subject code="MFG" text="Fiziologija" />
+	<subject code="MFGC" text="Celična fiziologija" />
+	<subject code="MFGG" text="Regionalna fiziologija" />
+	<subject code="MFGM" text="Presnova" />
+	<subject code="MFGV" text="Biomehanika, človeška kinetika" />
+	<subject code="MFK" text="Človeška razmnoževanje, rast in razvoj" />
+	<subject code="MFKC" text="Reproduktivna medicina" />
+	<subject code="MFKC1" text="Neplodnost in oploditev" />
+	<subject code="MFKC3" text="Embriologija" />
+	<subject code="MFKH" text="Človeška rast in razvoj" />
+	<subject code="MFKH3" text="Zorenje in staranje" />
+	<subject code="MFN" text="Medicinska genetika" />
+	<subject code="MJ" text="Klinična in interna medicina" />
+	<subject code="MJA" text="Medicinska diagnoza" />
+	<subject code="MJAD" text="Pregled bolnikov" />
+	<subject code="MJC" text="Bolezni in motnje" />
+	<subject code="MJCG" text="Prirojene bolezni in motnje" />
+	<subject code="MJCG1" text="Dedne bolezni in motnje" />
+	<subject code="MJCJ" text="Nalezljive bolezni" />
+	<subject code="MJCJ1" text="Spolno prenosljive bolezni" />
+	<subject code="MJCJ2" text="HIV/AIDS" />
+	<subject code="MJCJ3" text="Bolnišnične okužbe" />
+	<subject code="MJCL" text="Onkologija" />
+	<subject code="MJCL1" text="Radioterapija" />
+	<subject code="MJCL2" text="Kemoterapija" />
+	<subject code="MJCM" text="Imunologija" />
+	<subject code="MJCM1" text="Alergije" />
+	<subject code="MJD" text="Kardiovaskularna medicina" />
+	<subject code="MJE" text="Mišično-skeletna medicina" />
+	<subject code="MJF" text="Hematologija" />
+	<subject code="MJG" text="Endokrinologija" />
+	<subject code="MJGD" text="Diabetes" />
+	<subject code="MJH" text="Gastroenterologija" />
+	<subject code="MJJ" text="Hepatologija" />
+	<subject code="MJK" text="Dermatologija" />
+	<subject code="MJL" text="Respiratorna medicina" />
+	<subject code="MJM" text="Revmatologija" />
+	<subject code="MJN" text="Nevrologija in klinična nevrofiziologija" />
+	<subject code="MJNA" text="Avtizem in aspergerjev sindrom" />
+	<subject code="MJND" text="Alzheimerjeva bolezen in demenca" />
+	<subject code="MJP" text="Otorinolaringologija (ENT)" />
+	<subject code="MJPD" text="Avdiologija in otologija" />
+	<subject code="MJQ" text="Oftalmologija" />
+	<subject code="MJR" text="Nefrologija" />
+	<subject code="MJRD" text="Hemodializa" />
+	<subject code="MJS" text="Urologija in urogenitalna medicina" />
+	<subject code="MJT" text="Ginekologija in porodništvo" />
+	<subject code="MJTF" text="Perinatalna medicina" />
+	<subject code="MJW" text="Pediatrija" />
+	<subject code="MJWN" text="Neonatalna medicina" />
+	<subject code="MJX" text="Geriatrična medicina" />
+	<subject code="MJZ" text="Genska terapija" />
+	<subject code="MM" text="Druge veje medicine" />
+	<subject code="MMB" text="Anestetiki" />
+	<subject code="MMBP" text="Bolečina in lajšanje bolečin" />
+	<subject code="MMC" text="Paliativna medicina" />
+	<subject code="MMD" text="Zobozdravstvo" />
+	<subject code="MMDS" text="Oralna in maksilofacijalna kirurgija" />
+	<subject code="MMF" text="Patologija" />
+	<subject code="MMFC" text="Citopatologija" />
+	<subject code="MMFH" text="Histopatologija" />
+	<subject code="MMFM" text="Medicinska mikrobiologija in virologija" />
+	<subject code="MMFP" text="Medicinska parazitologija" />
+	<subject code="MMG" text="Farmakologija" />
+	<subject code="MMGT" text="Medicinska toksikologija" />
+	<subject code="MMGW" text="Psihofarmakologija" />
+	<subject code="MMH" text="Psihiatrija" />
+	<subject code="MMJ" text="Klinična psihologija" />
+	<subject code="MMJT" text="Psihoterapija" />
+	<subject code="MMJT1" text="Kognitivno-vedenjska terapija" />
+	<subject code="MMK" text="Nesreča in urgentna medicina" />
+	<subject code="MMKB" text="Travma in šok" />
+	<subject code="MMKD" text="Opekline" />
+	<subject code="MMKL" text="Medicina intenzivne nege" />
+	<subject code="MMN" text="Jedrska medicina" />
+	<subject code="MMP" text="Medicinsko slikanje" />
+	<subject code="MMPF" text="Ultrazvok" />
+	<subject code="MMPG" text="Jedrska magnetna resonanca (NMR/MRI)" />
+	<subject code="MMPH" text="Radiologija" />
+	<subject code="MMPJ" text="Tomografija" />
+	<subject code="MMQ" text="Forenzična medicina" />
+	<subject code="MMR" text="Okoljska medicina" />
+	<subject code="MMRB" text="Letalska in vesoljska medicina" />
+	<subject code="MMRD" text="Potapljaška in hiperbarična medicina" />
+	<subject code="MMRP" text="Poklicna medicina" />
+	<subject code="MMRT" text="Tropska medicina" />
+	<subject code="MMS" text="Športne poškodbe in medicina" />
+	<subject code="MMZ" text="Terapija in terapevtika" />
+	<subject code="MMZD" text="Motnje prehranjevanja in terapija" />
+	<subject code="MMZF" text="Debelost: zdravljenje in terapija" />
+	<subject code="MMZL" text="Govorno-jezikovne motnje in terapija" />
+	<subject code="MMZR" text="Odvisnost in terapija" />
+	<subject code="MMZS" text="Motnje spanja in terapija" />
+	<subject code="MN" text="Operacija" />
+	<subject code="MNB" text="Kirurške tehnike" />
+	<subject code="MNC" text="Splošna kirurgija" />
+	<subject code="MNG" text="Gastrointestinalna in kolorektalna kirurgija" />
+	<subject code="MNH" text="Kardiotorična kirurgija" />
+	<subject code="MNJ" text="Vaskularna kirurgija" />
+	<subject code="MNK" text="Kirurška onkologija" />
+	<subject code="MNL" text="Operacija za kritično oskrbo" />
+	<subject code="MNN" text="Nevrokirurgija" />
+	<subject code="MNP" text="Plastična in rekonstruktivna kirurgija" />
+	<subject code="MNPC" text="Kozmetična kirurgija" />
+	<subject code="MNQ" text="Transplantacijska kirurgija" />
+	<subject code="MNS" text="Ortopedija in zlomi" />
+	<subject code="MNZ" text="Perioperativna nega" />
+	<subject code="MQ" text="Nega in druge storitve" />
+	<subject code="MQC" text="Zdravstvena nega" />
+	<subject code="MQCA" text="Osnove in veščine zdravstvene nege" />
+	<subject code="MQCB" text="Raziskave in teorija zdravstvene nege" />
+	<subject code="MQCH" text="Odnos med medicinskim tehnikom in bolnikom" />
+	<subject code="MQCL" text="Posebnosti zdravstvene nege" />
+	<subject code="MQCL1" text="Nujna zdravstvena nega in zdravstvena nega ob nesreči" />
+	<subject code="MQCL2" text="Intenzivna nega" />
+	<subject code="MQCL3" text="Pediatrična nega" />
+	<subject code="MQCL4" text="Geriatrična nega" />
+	<subject code="MQCL5" text="Psihiatrična nega" />
+	<subject code="MQCL6" text="Kirurška nega" />
+	<subject code="MQCL9" text="Terminalna nega" />
+	<subject code="MQCM" text="Farmakologija nege" />
+	<subject code="MQCW" text="Sociologija nege" />
+	<subject code="MQCX" text="Zdravstvena nega za skupnost" />
+	<subject code="MQCZ" text="Menedžment in vodstvo zdravstvene nege" />
+	<subject code="MQD" text="Babištvo" />
+	<subject code="MQDB" text="Metode rojevanja" />
+	<subject code="MQF" text="Prva pomoč in paramedicinske storitve" />
+	<subject code="MQH" text="Radiografija" />
+	<subject code="MQK" text="Pedikura in podiatrija" />
+	<subject code="MQP" text="Lekarna/izdaja zdravil" />
+	<subject code="MQR" text="Optometrija/optiki" />
+	<subject code="MQS" text="Fizioterapija" />
+	<subject code="MQT" text="Delovna terapija" />
+	<subject code="MQTC" text="Kreativna terapija (npr. umetnost, glasba, drama)" />
+	<subject code="MQU" text="Zdravstveno svetovanje" />
+	<subject code="MQV" text="Rehabilitacija" />
+	<subject code="MQVB" text="Rehabilitacija: poškodbe možganov in hrbtenice" />
+	<subject code="MQW" text="Biomedicinsko inženirstvo" />
+	<subject code="MQWB" text="Ortotika" />
+	<subject code="MQWP" text="Protetika" />
+	<subject code="MQZ" text="Delo v mrtvašnici" />
+	<subject code="MR" text="Medicinski študijski in revizijski priročniki ter referenčno gradivo" />
+	<subject code="MRG" text="Medicinski študijski in revizijski priročniki" />
+	<subject code="MRGD" text="Medicinski revizijski pripomočki: MRCP" />
+	<subject code="MRGK" text="Medicinski revizijski pripomočki: MRCS" />
+	<subject code="MRGL" text="Medicinski revizijski pripomočki: PLAB" />
+	<subject code="MRT" text="Medicinski posterji, barvni atlasi" />
+	<subject code="MX" text="Ostala področja medicine" />
+	<subject code="MXH" text="Kiropraktika in osteopatija" />
+	<subject code="MZ" text="Veterina" />
+	<subject code="MZC" text="Veterina: majhne živali (domače živali)" />
+	<subject code="MZD" text="Veterina: velike živali (domače/kmetijske)" />
+	<subject code="MZDH" text="Veterina za konje" />
+	<subject code="MZF" text="Veterina: laboratorijske živali" />
+	<subject code="MZG" text="Veterina: eksotične živali in živali iz živalskih vrtov" />
+	<subject code="MZH" text="Veterinarska anatomija in fiziologija" />
+	<subject code="MZK" text="Veterinarska patologija in histologija" />
+	<subject code="MZL" text="Veterinarska prehrana" />
+	<subject code="MZM" text="Veterinarska medicina: nalezljive bolezni in terapevtika" />
+	<subject code="MZMP" text="Veterinarska bakteriologija, virologija, parazitologija" />
+	<subject code="MZP" text="Veterinarska farmakologija" />
+	<subject code="MZR" text="Veterinarska radiologija" />
+	<subject code="MZS" text="Veterinarska kirurgija" />
+	<subject code="MZSN" text="Veterinarski anestetiki" />
+	<subject code="MZT" text="Veterinarsko zobozdravstvo" />
+	<subject code="MZV" text="Veterinarska nega" />
+	<subject code="MZX" text="Dopolnilna zdravila za živali" />
+	<subject code="P" text="Matematika in znanost" />
+	<subject code="PB" text="Matematika" />
+	<subject code="PBB" text="Filozofija matematike" />
+	<subject code="PBC" text="Matematične osnove" />
+	<subject code="PBCD" text="Matematična logika" />
+	<subject code="PBCH" text="Teorija množic" />
+	<subject code="PBCN" text="Številski sistemi" />
+	<subject code="PBD" text="Diskretna matematika" />
+	<subject code="PBF" text="Algebra" />
+	<subject code="PBG" text="Grupe in teorja grup" />
+	<subject code="PBH" text="Teorija števil" />
+	<subject code="PBJ" text="Uvod v kalkulus" />
+	<subject code="PBK" text="Kalkulus in matematična analiza" />
+	<subject code="PBKA" text="Kalkulus" />
+	<subject code="PBKB" text="Realna analiza, realne spremenljivke" />
+	<subject code="PBKD" text="Kompleksna analiza, kompleksne spremenljivke" />
+	<subject code="PBKF" text="Funkcionalna analiza in integralske transformacije" />
+	<subject code="PBKJ" text="Diferencialni račun in enačbe" />
+	<subject code="PBKL" text="Integralni račun in enačbe" />
+	<subject code="PBKQ" text="Izračun variacij" />
+	<subject code="PBKS" text="Numerična analiza" />
+	<subject code="PBM" text="Geometrija" />
+	<subject code="PBMB" text="Trigonometrija" />
+	<subject code="PBMH" text="Evklidska geometrija" />
+	<subject code="PBML" text="Neevklidska geometrija" />
+	<subject code="PBMP" text="Diferencialna in Riemannova geometrija" />
+	<subject code="PBMS" text="Analitična geometrija" />
+	<subject code="PBMW" text="Algebraična geometrija" />
+	<subject code="PBMX" text="Fraktalna geometrija" />
+	<subject code="PBP" text="Topologija" />
+	<subject code="PBPD" text="Algebrska topologija" />
+	<subject code="PBPH" text="Analitična topologija" />
+	<subject code="PBT" text="Verjetnost in statistika" />
+	<subject code="PBTB" text="Bayesovo sklepanje" />
+	<subject code="PBU" text="Optimizacija" />
+	<subject code="PBUD" text="Teorija iger" />
+	<subject code="PBUH" text="Linearno programiranje" />
+	<subject code="PBV" text="Kombinatorika in teorija grafov" />
+	<subject code="PBW" text="Uporabna matematika" />
+	<subject code="PBWH" text="Matematično modeliranje" />
+	<subject code="PBWL" text="Stohastika" />
+	<subject code="PBWR" text="Nelinearna znanost" />
+	<subject code="PBWS" text="Teorija kaosa" />
+	<subject code="PBWX" text="Teorija nejasno opredeljenih sistemov" />
+	<subject code="PBX" text="Zgodovina matematike" />
+	<subject code="PD" text="Znanost: splošna vprašanja" />
+	<subject code="PDA" text="Filozofija znanosti" />
+	<subject code="PDC" text="Znanstvena nomenklatura in klasifikacija" />
+	<subject code="PDD" text="Znanstveni standardi" />
+	<subject code="PDDM" text="Menzura in merilni sistemi" />
+	<subject code="PDE" text="Matematika za znanstvenike" />
+	<subject code="PDG" text="Industrijske aplikacije znanstvenih raziskav in tehnoloških inovacij" />
+	<subject code="PDK" text="Znanstveno financiranje in politika" />
+	<subject code="PDN" text="Znanstvena oprema, eksperimenti in tehnike" />
+	<subject code="PDND" text="Mikroskopija" />
+	<subject code="PDR" text="Vpliv znanosti in tehnologije na družbo" />
+	<subject code="PDX" text="Zgodovina znanosti" />
+	<subject code="PDZ" text="Poljudna znanost" />
+	<subject code="PDZM" text="Popularna matematika" />
+	<subject code="PG" text="Astronomija, prostor in čas" />
+	<subject code="PGC" text="Teoretična in matematična astronomija" />
+	<subject code="PGG" text="Astronomska opazovanja: observatoriji, oprema in metode" />
+	<subject code="PGK" text="Kozmologija in vesolje" />
+	<subject code="PGM" text="Galaksije in zvezde" />
+	<subject code="PGS" text="Sončni sistem: Sonce in planeti" />
+	<subject code="PGT" text="Zvezdne karte in atlasi" />
+	<subject code="PGZ" text="Čas (kronologija), časovni sistemi in standardi" />
+	<subject code="PH" text="Fizika" />
+	<subject code="PHD" text="Klasična mehanika" />
+	<subject code="PHDB" text="Elementarna mehanika" />
+	<subject code="PHDD" text="Analitična mehanika" />
+	<subject code="PHDF" text="Mehanika tekočin" />
+	<subject code="PHDS" text="Mehanika valov (vibracije in akustika)" />
+	<subject code="PHDT" text="Dinamika in statika" />
+	<subject code="PHDV" text="Gravitacija" />
+	<subject code="PHDY" text="Energija" />
+	<subject code="PHF" text="Materiali/stanja snovi" />
+	<subject code="PHFB" text="Fizika nizke temperature" />
+	<subject code="PHFC" text="Fizika kondenzirane snovi (fizikalno stanje in fizika v trdnem stanju)" />
+	<subject code="PHFC1" text="Fizika mehke snovi" />
+	<subject code="PHFC2" text="Mezoskopska fizika" />
+	<subject code="PHFG" text="Fizika plinov" />
+	<subject code="PHFP" text="Fizika plazme" />
+	<subject code="PHH" text="Termodinamika in toplota" />
+	<subject code="PHJ" text="Optična fizika" />
+	<subject code="PHJL" text="Laserska fizika" />
+	<subject code="PHK" text="Elektrika, elektromagnetizem in magnetizem" />
+	<subject code="PHM" text="Atomska in molekularna fizika" />
+	<subject code="PHN" text="Jedrska fizika" />
+	<subject code="PHP" text="Fizika delcev in visoke energije" />
+	<subject code="PHQ" text="Kvantna fizika (kvantna mehanika in kvantna teorija polja)" />
+	<subject code="PHR" text="Relativnost" />
+	<subject code="PHS" text="Statistična fizika" />
+	<subject code="PHU" text="Matematična fizika" />
+	<subject code="PHV" text="Uporabna fizika" />
+	<subject code="PHVB" text="Astrofizika" />
+	<subject code="PHVD" text="Medicinska fizika" />
+	<subject code="PHVG" text="Geofizika" />
+	<subject code="PHVJ" text="Atmosferska fizika" />
+	<subject code="PHVN" text="Biofizika" />
+	<subject code="PHVQ" text="Kemijska fizika" />
+	<subject code="PHVS" text="Kriogeneza" />
+	<subject code="PN" text="Kemija" />
+	<subject code="PNF" text="Analizna kemija" />
+	<subject code="PNFC" text="Kromatografija" />
+	<subject code="PNFR" text="Magnetna resonanca" />
+	<subject code="PNFS" text="Analiza spektra, spektrokemija, masna spektrometrija" />
+	<subject code="PNK" text="Anorganska kemija" />
+	<subject code="PNN" text="Organska kemija" />
+	<subject code="PNND" text="Organokovinska kemija" />
+	<subject code="PNNP" text="Polimerna kemija" />
+	<subject code="PNR" text="Fizikalna kemija" />
+	<subject code="PNRC" text="Koloidna kemija" />
+	<subject code="PNRD" text="Kataliza" />
+	<subject code="PNRH" text="Elektrokemija in magnetokemija" />
+	<subject code="PNRL" text="Jedrska kemija, fotokemija in sevanje" />
+	<subject code="PNRP" text="Kvantna in teoretična kemija" />
+	<subject code="PNRS" text="Kemija trdne snovi" />
+	<subject code="PNRW" text="Termokemija in kemijska termodinamika" />
+	<subject code="PNRX" text="Kemija površin in adsorpcija" />
+	<subject code="PNT" text="Kristalografija" />
+	<subject code="PNV" text="Mineralogija in dragi kamni" />
+	<subject code="PS" text="Biologija, znanosti o življenju" />
+	<subject code="PSA" text="Znanosti o življenju: splošna vprašanja" />
+	<subject code="PSAB" text="Taksonomija in sistematika" />
+	<subject code="PSAD" text="Bioetika" />
+	<subject code="PSAF" text="Ekološka znanost, biosfera" />
+	<subject code="PSAG" text="Ksenobiotiki" />
+	<subject code="PSAJ" text="Evolucija" />
+	<subject code="PSAK" text="Genetika (nemedicinska)" />
+	<subject code="PSAK1" text="DNK in genom" />
+	<subject code="PSAN" text="Nevroznanosti" />
+	<subject code="PSB" text="Biokemija" />
+	<subject code="PSBC" text="Beljakovine" />
+	<subject code="PSBF" text="Ogljikovi hidrati" />
+	<subject code="PSBH" text="Lipidi" />
+	<subject code="PSBM" text="Biokemijska imunologija" />
+	<subject code="PSBT" text="Toksikologija (nemedicinska)" />
+	<subject code="PSBZ" text="Encimologija" />
+	<subject code="PSC" text="Razvojna biologija" />
+	<subject code="PSD" text="Molekularna biologija" />
+	<subject code="PSF" text="Celična biologija (citologija)" />
+	<subject code="PSG" text="Mikrobiologija (nemedicinska)" />
+	<subject code="PSGD" text="Bakteriologija (nemedicinska)" />
+	<subject code="PSGH" text="Parazitologija (nemedicinska)" />
+	<subject code="PSGL" text="Virologija (nemedicinska)" />
+	<subject code="PSGN" text="Praživali" />
+	<subject code="PSP" text="Hidrobiologija" />
+	<subject code="PSPF" text="Sladkovodna biologija" />
+	<subject code="PSPM" text="Morska biologija" />
+	<subject code="PSQ" text="Mikologija, glive (nemedicinska)" />
+	<subject code="PST" text="Botanika in rastlinstvo" />
+	<subject code="PSTD" text="Rastlinska fiziologija" />
+	<subject code="PSTL" text="Razmnoževanje in širjenje rastlin" />
+	<subject code="PSTP" text="Rastlinska patologija in bolezni" />
+	<subject code="PSTS" text="Rastlinska ekologija" />
+	<subject code="PSTV" text="Fikologija, alge in lišaji" />
+	<subject code="PSV" text="Zoologija in znanosti o živalih" />
+	<subject code="PSVD" text="Fiziologija živali" />
+	<subject code="PSVH" text="Razmnoževanje živali" />
+	<subject code="PSVL" text="Patologija živali in bolezni" />
+	<subject code="PSVP" text="Vedenje živali" />
+	<subject code="PSVS" text="Ekologija živali" />
+	<subject code="PSVT" text="Zoologija: Nevretenčarji" />
+	<subject code="PSVT3" text="Mehkužci" />
+	<subject code="PSVT5" text="Raki" />
+	<subject code="PSVT6" text="Pajkovci" />
+	<subject code="PSVT7" text="Insekti (entomologija)" />
+	<subject code="PSVW" text="Zoologija: Vretenčarji" />
+	<subject code="PSVW1" text="Ribe (ihtiologija)" />
+	<subject code="PSVW3" text="Dvoživke" />
+	<subject code="PSVW5" text="Plazilci" />
+	<subject code="PSVW6" text="Ptice (ornitologija)" />
+	<subject code="PSVW7" text="Zoologija: Sesalci" />
+	<subject code="PSVW71" text="Vrečarji in stokovci" />
+	<subject code="PSVW73" text="Morski in sladkovodni sesalci" />
+	<subject code="PSVW79" text="Prvaki" />
+	<subject code="PSX" text="Biologija človeka" />
+	<subject code="PSXE" text="Pračlovek" />
+	<subject code="PSXM" text="Medicinska antropologija" />
+	<subject code="R" text="Zemeljske znanosti, geografija, okolje, prostorsko planiranje" />
+	<subject code="RB" text="Zemeljske znanosti" />
+	<subject code="RBC" text="Vulkanologija in seizmologija" />
+	<subject code="RBG" text="Geologija in litosfera" />
+	<subject code="RBGB" text="Znanost o prsti, sedimentologija" />
+	<subject code="RBGD" text="Geološki površinski procesi (geomorfologija)" />
+	<subject code="RBGF" text="Zgodovinska geologija" />
+	<subject code="RBGG" text="Petrologija" />
+	<subject code="RBGH" text="Stratigrafija" />
+	<subject code="RBGK" text="Geokemija" />
+	<subject code="RBGL" text="Ekonomska geologija" />
+	<subject code="RBK" text="Hidrologija in hidrosfera" />
+	<subject code="RBKC" text="Oceanografija (morja)" />
+	<subject code="RBKF" text="Limnologija (sladke vode)" />
+	<subject code="RBP" text="Meteorologija in klimatologija" />
+	<subject code="RBX" text="Paleontologija" />
+	<subject code="RG" text="Geografija" />
+	<subject code="RGB" text="Fizična geografija in topografija" />
+	<subject code="RGBA" text="Sušna območja, puščave" />
+	<subject code="RGBC" text="Travišča, resave, prerije, tundra" />
+	<subject code="RGBF" text="Mokrišča, močvirja, barja" />
+	<subject code="RGBL" text="Gozdovi, deževni gozdovi" />
+	<subject code="RGBP" text="Delte, estuariji, obalna območja" />
+	<subject code="RGBR" text="Koralni grebeni" />
+	<subject code="RGBS" text="Gore" />
+	<subject code="RGC" text="Družbena geografija" />
+	<subject code="RGCM" text="Gospodarska geografija" />
+	<subject code="RGCP" text="Politična geografija" />
+	<subject code="RGL" text="Regionalna geografija" />
+	<subject code="RGM" text="Biogeografija" />
+	<subject code="RGR" text="Geografska odkritja in raziskovanja" />
+	<subject code="RGS" text="Geografske karte (strokovne)" />
+	<subject code="RGV" text="Kartografija, izdelava zemljevidov in projekcije" />
+	<subject code="RGW" text="Geografski informacijski sistemi (GIS) in daljinsko zaznavanje" />
+	<subject code="RGY" text="Geodezija za zemljevide in grafikone" />
+	<subject code="RN" text="Okolje" />
+	<subject code="RNA" text="Okoljska misel in ideologija" />
+	<subject code="RNB" text="Okoljske, konservatorske in zelene organizacije" />
+	<subject code="RNC" text="Uporabna ekologija" />
+	<subject code="RNCB" text="Biotska raznovrstnost" />
+	<subject code="RND" text="Okoljska politika in protokoli" />
+	<subject code="RNF" text="Okoljski menedžment" />
+	<subject code="RNFD" text="Suša in oskrba z vodo" />
+	<subject code="RNFF" text="Varnost hrane in oskrba s hrano" />
+	<subject code="RNFY" text="Energetski viri" />
+	<subject code="RNH" text="Ravnanje z odpadki" />
+	<subject code="RNK" text="Ohranjanje okolja" />
+	<subject code="RNKH" text="Ohranjanje prostoživečih živali in habitatov" />
+	<subject code="RNKH1" text="Ogrožene vrste in izumrtje vrst" />
+	<subject code="RNP" text="Onesnaženje in grožnje za okolje" />
+	<subject code="RNPD" text="Krčenje gozdov" />
+	<subject code="RNPG" text="Podnebne spremembe" />
+	<subject code="RNQ" text="Jedrska vprašanja" />
+	<subject code="RNR" text="Naravne nesreče" />
+	<subject code="RNT" text="Socialni vpliv okoljskih vprašanj" />
+	<subject code="RNU" text="Trajnost" />
+	<subject code="RP" text="Regionalno in prostorsko načrtovanje" />
+	<subject code="RPC" text="Urbano in mestno načrtovanje" />
+	<subject code="RPG" text="Podeželsko načrtovanje" />
+	<subject code="RPT" text="Načrtovanje in politika prometa" />
+	<subject code="T" text="Tehnologija, inženirstvo, kmetijstvo" />
+	<subject code="TB" text="Tehnologija: splošna vprašanja" />
+	<subject code="TBC" text="Inženirstvo: splošno" />
+	<subject code="TBD" text="Tehnična zasnova" />
+	<subject code="TBDG" text="Ergonomija" />
+	<subject code="TBG" text="Inženirska grafika in tehnično risanje" />
+	<subject code="TBJ" text="Matematika za inženirje" />
+	<subject code="TBM" text="Instrumenti in instrumentalno inženirstvo" />
+	<subject code="TBMM" text="Merjenje in kalibracija v inženirstvu" />
+	<subject code="TBN" text="Nanotehnologija" />
+	<subject code="TBR" text="Vmesna tehnologija" />
+	<subject code="TBX" text="Zgodovina inženirstva in tehnologije" />
+	<subject code="TBY" text="Izumi in izumitelji" />
+	<subject code="TC" text="Biokemijsko inženirstvo" />
+	<subject code="TCB" text="Biotehnologija" />
+	<subject code="TCBG" text="Gensko inženirstvo" />
+	<subject code="TCBS" text="Biosenzorji" />
+	<subject code="TD" text="Industrijska kemija in proizvodne tehnologije" />
+	<subject code="TDC" text="Industrijska kemija" />
+	<subject code="TDCB" text="Kemijska tehnologija" />
+	<subject code="TDCC" text="Težke kemikalije" />
+	<subject code="TDCD" text="Tehnologija detergentov" />
+	<subject code="TDCG" text="Tehnologija praška" />
+	<subject code="TDCH" text="Insekticidna in herbicidna tehnologija" />
+	<subject code="TDCJ" text="Tehnologija pigmentov, barvil in barv" />
+	<subject code="TDCJ1" text="Kozmetična tehnologija" />
+	<subject code="TDCK" text="Tehnologija površinskega premaza" />
+	<subject code="TDCP" text="Tehnologija plastike in polimerov" />
+	<subject code="TDCQ" text="Tehnologija keramike in stekla" />
+	<subject code="TDCR" text="Tehnologija gume" />
+	<subject code="TDCT" text="Tehnologija hrane in pijače" />
+	<subject code="TDCT1" text="Pivovarska tehnologija" />
+	<subject code="TDCT2" text="Vinarska tehnologija" />
+	<subject code="TDCW" text="Farmacevtska tehnologija" />
+	<subject code="TDG" text="Tehnologija usnja in krzna" />
+	<subject code="TDH" text="Tehnologija tekstila in vlaken" />
+	<subject code="TDJ" text="Les in predelava lesa" />
+	<subject code="TDJP" text="Celulozna in papirna tehnologija" />
+	<subject code="TDM" text="Tehnologija kovin/metalurgija" />
+	<subject code="TDP" text="Druge proizvodne tehnologije" />
+	<subject code="TDPB" text="Izdelava preciznih instrumentov" />
+	<subject code="TDPB1" text="Ure in kronometri (urarstvo)" />
+	<subject code="TDPD" text="Izdelava gospodinjskih aparatov" />
+	<subject code="TDPF" text="Proizvodnja pohištva in opreme" />
+	<subject code="TDPH" text="Proizvodnja oblačil in obutve" />
+	<subject code="TDPP" text="Tiskarska in reprografska tehnologija" />
+	<subject code="TG" text="Strojništvo in materiali" />
+	<subject code="TGB" text="Strojništvo" />
+	<subject code="TGBF" text="Tribologija (trenje in mazanje)" />
+	<subject code="TGBN" text="Motorji in prenos energije" />
+	<subject code="TGBN1" text="Parni stroji" />
+	<subject code="TGM" text="Znanost o materialih" />
+	<subject code="TGMB" text="Inženirska termodinamika" />
+	<subject code="TGMD" text="Mehanika trdnih snovi" />
+	<subject code="TGMD4" text="Dinamika in vibracije" />
+	<subject code="TGMD5" text="Stres in zlom" />
+	<subject code="TGMF" text="Mehanika tekočin" />
+	<subject code="TGMF1" text="Aerodinamika" />
+	<subject code="TGMF2" text="Hidravlika in pnevmatika" />
+	<subject code="TGMF3" text="Tok, turbulenca, reologija" />
+	<subject code="TGMT" text="Preskušanje materialov" />
+	<subject code="TGMT1" text="Nedestruktivno testiranje" />
+	<subject code="TGP" text="Proizvodno inženirstvo" />
+	<subject code="TGPC" text="Računalniško podprta proizvodnja (CAM)" />
+	<subject code="TGPQ" text="Nadzor industrijske kakovosti" />
+	<subject code="TGPR" text="Inženirstvo zanesljivosti" />
+	<subject code="TGX" text="Inženirske spretnosti in poklici" />
+	<subject code="TGXT" text="Izdelava orodij" />
+	<subject code="TGXW" text="Varjenje" />
+	<subject code="TH" text="Energetska tehnologija in inženirstvo" />
+	<subject code="THF" text="Tehnologije fosilnih goriv" />
+	<subject code="THFG" text="Plinska tehnologija" />
+	<subject code="THFP" text="Naftna tehnologija" />
+	<subject code="THFS" text="Tehnologija trdega goriva" />
+	<subject code="THK" text="Jedrska energija in inženirstvo" />
+	<subject code="THN" text="Postopki prenosa toplote" />
+	<subject code="THR" text="Elektrotehnika" />
+	<subject code="THRB" text="Proizvodnja in distribucija električne energije" />
+	<subject code="THRD" text="Električna omrežja, sistemi, postaje in naprave" />
+	<subject code="THRF" text="Izkoristek in uporaba moči" />
+	<subject code="THRH" text="Pretvorba in shranjevanje energije" />
+	<subject code="THRM" text="Elektromotorji" />
+	<subject code="THRS" text="Spretnosti električarja" />
+	<subject code="THT" text="Energetska učinkovitost" />
+	<subject code="THX" text="Alternativni in obnovljivi viri energije in tehnologija" />
+	<subject code="TJ" text="Inženirstvo elektronike in komunikacijskih omrežij" />
+	<subject code="TJF" text="Elektronsko inženirstvo" />
+	<subject code="TJFC" text="Vezja in komponente" />
+	<subject code="TJFD" text="Elektronske naprave in materiali" />
+	<subject code="TJFD1" text="Mikroprocesorji" />
+	<subject code="TJFD3" text="Tranzistorji" />
+	<subject code="TJFD5" text="Polprevodniki in superprevodniki" />
+	<subject code="TJFM" text="Avtomatsko krmiljenje" />
+	<subject code="TJFM1" text="Robotika" />
+	<subject code="TJFN" text="Mikrovalovna tehnologija" />
+	<subject code="TJK" text="Komunikacijsko inženirstvo/telekomunikacije" />
+	<subject code="TJKD" text="Radar" />
+	<subject code="TJKR" text="Radijska tehnologija" />
+	<subject code="TJKS" text="Satelitska komunikacija" />
+	<subject code="TJKT" text="Telefonska tehnologija" />
+	<subject code="TJKT1" text="Mobilna tehnologija" />
+	<subject code="TJKV" text="Televizijska tehnologija" />
+	<subject code="TJKW" text="Tehnologija WAP (brezžična tehnologija)" />
+	<subject code="TN" text="Gradbeno inženirstvo, geodezija in gradbeništvo" />
+	<subject code="TNC" text="Gradbeno inženirstvo" />
+	<subject code="TNCB" text="Pregledovanje" />
+	<subject code="TNCB1" text="Pregledovanje količine" />
+	<subject code="TNCC" text="Mehanika prsti in kamnin" />
+	<subject code="TNCE" text="Potresno inženirstvo" />
+	<subject code="TNCJ" text="Mostovi" />
+	<subject code="TNF" text="Hidravlično inženirstvo" />
+	<subject code="TNFD" text="Jezovi in rezervoarji" />
+	<subject code="TNFH" text="Pristanišča in luke" />
+	<subject code="TNFL" text="Nadzor poplav" />
+	<subject code="TNFR" text="Mestna obnova in drenaža" />
+	<subject code="TNH" text="Avtocestno in prometno inženirstvo" />
+	<subject code="TNK" text="Gradbeništvo in materiali" />
+	<subject code="TNKF" text="Požarna zaščita in varnost" />
+	<subject code="TNKH" text="Ogrevanje, razsvetljava, prezračevanje" />
+	<subject code="TNKS" text="Varnostni in požarni alarmni sistemi" />
+	<subject code="TNKX" text="Ohranjanje zgradb in gradbenih materialov" />
+	<subject code="TNT" text="Znanja in poklici s področja gradbeništva" />
+	<subject code="TNTB" text="Zidarstvo in ometavanje" />
+	<subject code="TNTC" text="Tesarstvo" />
+	<subject code="TNTP" text="Vodovod" />
+	<subject code="TNTR" text="Krovstvo" />
+	<subject code="TQ" text="Okoljska znanost, inženirstvo in tehnologija" />
+	<subject code="TQD" text="Spremljanje okolja" />
+	<subject code="TQK" text="Nadzor onesnaževanja" />
+	<subject code="TQS" text="Sanitarno in komunalno inženirstvo" />
+	<subject code="TQSR" text="Obdelava in odstranjevanje odpadkov" />
+	<subject code="TQSR1" text="Obdelava in odstranjevanje odpadne vode" />
+	<subject code="TQSR3" text="Obdelava in odstranjevanje nevarnih odpadkov" />
+	<subject code="TQSW" text="Oskrba z vodo in zdravljenje" />
+	<subject code="TQSW1" text="Čiščenje vode in desalinizacija" />
+	<subject code="TR" text="Transportna tehnologija in trgovina" />
+	<subject code="TRC" text="Avtomobilska tehnologija in trgovina" />
+	<subject code="TRCS" text="Avtomobilske spretnosti (mehanika motorja)" />
+	<subject code="TRCT" text="Cestni promet in prevoz blaga" />
+	<subject code="TRF" text="Železniška tehnologija, inženirstvo in trgovina" />
+	<subject code="TRFT" text="Železniška trgovina" />
+	<subject code="TRL" text="Ladjedelniška tehnologija, inženirstvo in trgovina" />
+	<subject code="TRLD" text="Oblikovanje ladij in pomorska arhitektura" />
+	<subject code="TRLN" text="Navigacija in pomorstvo" />
+	<subject code="TRLT" text="Pomorski/navtični promet" />
+	<subject code="TRP" text="Zračna in letalska tehnologija" />
+	<subject code="TRPS" text="Letalske veščine/pilotiranje" />
+	<subject code="TRT" text="Inteligentna in avtomatizirana tehnologija transportnega sistema" />
+	<subject code="TT" text="Druge tehnologije in uporabne znanosti" />
+	<subject code="TTA" text="Akustično in zvočno inženirstvo" />
+	<subject code="TTB" text="Uporabna optika" />
+	<subject code="TTBF" text="Optična vlakna" />
+	<subject code="TTBL" text="Laserska tehnologija in holografija" />
+	<subject code="TTBM" text="Sistemi za slikanje in tehnologijo" />
+	<subject code="TTBS" text="Sistemi in tehnologija skeniranja" />
+	<subject code="TTD" text="Vesoljska znanost" />
+	<subject code="TTDS" text="Astronavtika" />
+	<subject code="TTM" text="Vojaško inženirstvo" />
+	<subject code="TTMW" text="Uničenje, orožna tehnologija" />
+	<subject code="TTP" text="Tehnologija eksplozivov in pirotehnika" />
+	<subject code="TTS" text="Pomorsko inženirstvo" />
+	<subject code="TTSH" text="Obalno inženirstvo" />
+	<subject code="TTSX" text="Sonar" />
+	<subject code="TTU" text="Rudarska tehnologija in inženirstvo" />
+	<subject code="TTV" text="Druge poklicne tehnologije in trgovine" />
+	<subject code="TTVC" text="Hotelska in gostinska trgovina" />
+	<subject code="TTVH" text="Frizerske in salonske veščine" />
+	<subject code="TTVR" text="Tradicionalne trgovine in veščine" />
+	<subject code="TTX" text="Taksidermija" />
+	<subject code="TV" text="Kmetijstvo in kmetovanje" />
+	<subject code="TVB" text="Kmetijska znanost" />
+	<subject code="TVD" text="Kmetijsko inženirstvo in stroji" />
+	<subject code="TVDR" text="Namakanje" />
+	<subject code="TVF" text="Trajnostno kmetijstvo" />
+	<subject code="TVG" text="Organsko kmetovanje" />
+	<subject code="TVH" text="Živinoreja" />
+	<subject code="TVHB" text="Živalska vzreja" />
+	<subject code="TVHF" text="Mlekarstvo" />
+	<subject code="TVHH" text="Čebelarstvo" />
+	<subject code="TVHP" text="Perutninarstvo" />
+	<subject code="TVK" text="Agronomija in rastlinska pridelava" />
+	<subject code="TVKC" text="Žito" />
+	<subject code="TVKF" text="Gnojila" />
+	<subject code="TVM" text="Male kmetije" />
+	<subject code="TVP" text="Zatiranje škodljivcev" />
+	<subject code="TVQ" text="Tropsko kmetijstvo: prakse in tehnike" />
+	<subject code="TVR" text="Gozdarstvo: prakse in tehnike" />
+	<subject code="TVS" text="Vrtnarstvo" />
+	<subject code="TVSW" text="Vinogradništvo" />
+	<subject code="TVT" text="Ribogojstvo in ribištvo: prakse in tehnike" />
+	<subject code="U" text="Računalništvo in informacijska tehnologija" />
+	<subject code="UB" text="Informacijska tehnologija: splošna vprašanja" />
+	<subject code="UBH" text="Zdravstveni in varnostni vidiki IT" />
+	<subject code="UBJ" text="Etični in socialni vidiki IT" />
+	<subject code="UBL" text="Pravni vidiki IT" />
+	<subject code="UBW" text="Internet: splošna dela " />
+	<subject code="UD" text="Digitalni način življenja" />
+	<subject code="UDA" text="Programska oprema in aplikacije za osebno organizacijo" />
+	<subject code="UDB" text="Spletni vodniki in spletne storitve" />
+	<subject code="UDBA" text="Spletno nakupovanje in dražbe" />
+	<subject code="UDBD" text="Iskanje po internetu" />
+	<subject code="UDBG" text="Internetne igre na srečo" />
+	<subject code="UDBM" text="Spletne finance in naložbe" />
+	<subject code="UDBR" text="Internetni brskalniki" />
+	<subject code="UDBS" text="Družabna omrežja" />
+	<subject code="UDBV" text="Virtualni svetovi " />
+	<subject code="UDF" text="E-pošta: priročniki za potrošnike/uporabnike" />
+	<subject code="UDH" text="Prenosne in ročne naprave: priročniki za potrošnike/uporabnike" />
+	<subject code="UDM" text="Digitalna glasba: priročniki za potrošnike/uporabnike" />
+	<subject code="UDP" text="Digitalna fotografija: priročniki za potrošnike/uporabnike" />
+	<subject code="UDQ" text="Digitalni video: priročniki za potrošnike/uporabnike" />
+	<subject code="UDT" text="Mobilni telefoni: priročniki za potrošnike/uporabnike" />
+	<subject code="UDV" text="Digitalni televizijski in medijski centri: priročniki za potrošnike/uporabnike" />
+	<subject code="UDX" text="Računalniške igre/spletne igre: strateški vodniki" />
+	<subject code="UF" text="Poslovne aplikacije" />
+	<subject code="UFB" text="Integrirani programski paketi" />
+	<subject code="UFBC" text="Microsoft Office" />
+	<subject code="UFBF" text="Microsoft Works" />
+	<subject code="UFBL" text="Lotus Smartsuite" />
+	<subject code="UFBP" text="OpenOffice" />
+	<subject code="UFBS" text="StarOffice" />
+	<subject code="UFBW" text="iWork" />
+	<subject code="UFC" text="Programska oprema za preglednice" />
+	<subject code="UFCE" text="Excel" />
+	<subject code="UFCL" text="Lotus 1-2-3" />
+	<subject code="UFD" text="Programska oprema za obdelavo besedil" />
+	<subject code="UFDM" text="Microsoft Word" />
+	<subject code="UFG" text="Predstavitvena grafična programska oprema" />
+	<subject code="UFGP" text="PowerPoint" />
+	<subject code="UFK" text="Računovodska programska oprema" />
+	<subject code="UFL" text="Programska oprema za podjetja" />
+	<subject code="UFLS" text="SAP (sistemi, aplikacije in izdelki v podatkovnih bazah)" />
+	<subject code="UFM" text="Matematična in statistična programska oprema" />
+	<subject code="UFP" text="Programska oprema za upravljanje projektov" />
+	<subject code="UFS" text="Sodelovanje in skupinska programska oprema" />
+	<subject code="UG" text="Grafične in digitalne medijske aplikacije" />
+	<subject code="UGB" text="Spletna grafika in oblikovanje" />
+	<subject code="UGC" text="Računalniško podprto oblikovanje (CAD)" />
+	<subject code="UGD" text="Namizno založništvo" />
+	<subject code="UGG " text="Oblikovanje računalniških iger" />
+	<subject code="UGK" text="3D-grafika in modeliranje" />
+	<subject code="UGL" text="Programska oprema za ilustracijo in risanje" />
+	<subject code="UGM" text="Digitalna glasba: profesionalna" />
+	<subject code="UGN" text="Digitalna animacija" />
+	<subject code="UGP" text="Urejanje fotografij in slik" />
+	<subject code="UGV" text="Digitalni video: profesionalni" />
+	<subject code="UK" text="Računalniška strojna oprema" />
+	<subject code="UKC" text="Superračunalniki" />
+	<subject code="UKD" text="Glavni računalniki in mini računalniki" />
+	<subject code="UKF" text="Strežniki" />
+	<subject code="UKG" text="Mrežno in vzporedno računanje" />
+	<subject code="UKM" text="Vgrajeni sistemi" />
+	<subject code="UKN" text="Omrežna strojna oprema" />
+	<subject code="UKP" text="Osebni računalniki" />
+	<subject code="UKPC" text="Osebni računalniki (združljivi z IBM-om)" />
+	<subject code="UKPM" text="Macintosh" />
+	<subject code="UKR" text="Vzdrževanje in popravila" />
+	<subject code="UKS" text="Mediji za shranjevanje in zunanje naprave" />
+	<subject code="UKX" text="Pripomočki in orodja" />
+	<subject code="UL" text="Operacijski sistemi" />
+	<subject code="ULD" text="Windows in različice" />
+	<subject code="ULDF" text="Windows 7" />
+	<subject code="ULDG" text="Windows Vista" />
+	<subject code="ULDL" text="Windows 2003" />
+	<subject code="ULDP" text="Windows XP" />
+	<subject code="ULDT" text="Windows 2000" />
+	<subject code="ULDX" text="Windows NT" />
+	<subject code="ULH" text="Macintosh OS" />
+	<subject code="ULL" text="Linux" />
+	<subject code="ULLD" text="Debian" />
+	<subject code="ULLR" text="Red Hat" />
+	<subject code="ULLS" text="SUSE" />
+	<subject code="ULLU" text="UBUNTU" />
+	<subject code="ULN" text="UNIX" />
+	<subject code="ULNB" text="BSD/FreeBSD" />
+	<subject code="ULNH" text="HP-UX" />
+	<subject code="ULNM" text="IBM AIX" />
+	<subject code="ULNS" text="Sun Solaris" />
+	<subject code="ULP" text="Ročni operacijski sistemi" />
+	<subject code="ULQ" text="IBM-ovi operacijski sistemi" />
+	<subject code="ULR" text="Operacijski sistemi v realnem času" />
+	<subject code="UM" text="Računalniško programiranje/razvoj programske opreme" />
+	<subject code="UMA" text="Programski koncepti/učenje programiranja" />
+	<subject code="UMB" text="Algoritmi in strukture podatkov" />
+	<subject code="UMC" text="Prevajalniki" />
+	<subject code="UMF" text="Agilno programiranje" />
+	<subject code="UMG" text="Aspektno usmerjeno programiranje/AOP" />
+	<subject code="UMH" text="Ekstremno programiranje" />
+	<subject code="UMJ" text="Funkcionalno programiranje" />
+	<subject code="UMK" text="Razvoj in programiranje iger" />
+	<subject code="UMKB" text="2D-grafika: programiranje iger" />
+	<subject code="UMKC" text="3D-grafika: programiranje iger" />
+	<subject code="UMKL" text="Načrtovanje iger: programiranje iger" />
+	<subject code="UML" text="Grafično programiranje" />
+	<subject code="UMN" text="Objektno usmerjeno programiranje (OOP)" />
+	<subject code="UMP" text="Programiranje Microsoft" />
+	<subject code="UMPN" text="Programiranje .Net" />
+	<subject code="UMPW" text="Programiranje Windows" />
+	<subject code="UMQ" text="Programiranje Macintosh" />
+	<subject code="UMR" text="Programiranje omrežja" />
+	<subject code="UMS" text="Programiranje mobilnih in ročnih naprav/Programiranje aplikacij" />
+	<subject code="UMT" text="Programiranje podatkovnih baz" />
+	<subject code="UMW" text="Spletno programiranje" />
+	<subject code="UMWS" text="Spletne storitve" />
+	<subject code="UMX" text="Programiranje in skriptni jeziki: splošno" />
+	<subject code="UMZ" text="Programsko inženirstvo" />
+	<subject code="UMZL" text="Poenoteni jezik programiranja (UML)" />
+	<subject code="UMZT" text="Preizkušanje in preverjanje programske opreme" />
+	<subject code="UMZW" text="Objektno usmerjeno programsko inženirstvo" />
+	<subject code="UN" text="Podatkovne baze" />
+	<subject code="UNA" text="Oblikovanje in teorija podatkovnih baz" />
+	<subject code="UNAR" text="Relacijske podatkovne baze" />
+	<subject code="UNC" text="Prikaz in analiza podatkov" />
+	<subject code="UND" text="Skladiščenje podatkov" />
+	<subject code="UNF" text="Podatkovno rudarjenje" />
+	<subject code="UNH" text="Pridobivanje informacij" />
+	<subject code="UNJ" text="Objektno usmerjene podatkovne baze" />
+	<subject code="UNK" text="Porazdeljene podatkovne baze" />
+	<subject code="UNN" text="Podatkovne baze in splet" />
+	<subject code="UNS" text="Programska oprema za podatkovno bazo" />
+	<subject code="UNSB" text="Oracle" />
+	<subject code="UNSC" text="Dostop" />
+	<subject code="UNSF" text="FileMaker" />
+	<subject code="UNSJ" text="SQL Server/MS SQL" />
+	<subject code="UNSK" text="SQLite" />
+	<subject code="UNSM" text="MySQL" />
+	<subject code="UNSP" text="PostgreSQL" />
+	<subject code="UNSX" text="IBM DB2" />
+	<subject code="UNSY" text="Sybase" />
+	<subject code="UQ" text="Računalniško certificiranje" />
+	<subject code="UQF" text="Računalniško certificiranje: Microsoft" />
+	<subject code="UQJ" text="Računalniško certificiranje: Cisco" />
+	<subject code="UQL" text="Računalniško certificiranje: ECDL" />
+	<subject code="UQR" text="Računalniško certificiranje: CompTia" />
+	<subject code="UQT" text="Računalniško certificiranje: CLAiT" />
+	<subject code="UR" text="Računalniška varnost" />
+	<subject code="URD" text="Zasebnost in varstvo podatkov" />
+	<subject code="URH" text="Računalniške goljufije in vdiranje" />
+	<subject code="URJ" text="Računalniški virusi, trojanci in črvi" />
+	<subject code="URQ" text="Požarni zidovi" />
+	<subject code="URS" text="Nezaželena pošta" />
+	<subject code="URW" text="Vohunska programska oprema" />
+	<subject code="URY" text="Šifriranje podatkov" />
+	<subject code="UT" text="Računalniška omrežja in komunikacije" />
+	<subject code="UTC" text="Računalništvo v oblaku" />
+	<subject code="UTD" text="Omrežje odjemalec-strežnik" />
+	<subject code="UTF" text="Upravljanje omrežja" />
+	<subject code="UTFB" text="Računalniški sistemi za varnostno kopiranje in obnovitev podatkov" />
+	<subject code="UTG" text="Mrežno računalništvo" />
+	<subject code="UTM" text="Elektronska pošta (e-pošta): strokovna" />
+	<subject code="UTN" text="Varnost omrežja" />
+	<subject code="UTP" text="Mrežni standardi in protokoli" />
+	<subject code="UTR" text="Distribuirani sistemi" />
+	<subject code="UTS" text="Omrežni paketi" />
+	<subject code="UTV" text="Virtualizacija" />
+	<subject code="UTW" text="Omrežje in aplikacije WAP" />
+	<subject code="UTX" text="EDI (elektronska izmenjava podatkov)" />
+	<subject code="UY" text="Računalništvo" />
+	<subject code="UYA" text="Matematična teorija računanja" />
+	<subject code="UYAM" text="Matematika za računalničarje" />
+	<subject code="UYD" text="Analiza in načrtovanje sistemov" />
+	<subject code="UYF" text="Računalniška arhitektura in logični dizajn" />
+	<subject code="UYFL" text="Zbirni jeziki" />
+	<subject code="UYFP" text="Vzporedna obdelava" />
+	<subject code="UYM" text="Računalniško modeliranje in simulacija" />
+	<subject code="UYQ" text="Umetna inteligenca" />
+	<subject code="UYQE" text="Strokovni sistemi/sistemi, ki temeljijo na znanju" />
+	<subject code="UYQL" text="Naravni jezik in strojni prevod" />
+	<subject code="UYQM" text="Strojno učenje" />
+	<subject code="UYQN" text="Nevronske mreže in mehki sistemi" />
+	<subject code="UYQP" text="Prepoznavanje vzorcev" />
+	<subject code="UYQS" text="Prepoznavanje govora" />
+	<subject code="UYQV" text="Računalniška vizija" />
+	<subject code="UYS" text="Obdelava signala" />
+	<subject code="UYT" text="Obdelava slike" />
+	<subject code="UYU" text="Obdelava avdiodatotek" />
+	<subject code="UYV" text="Virtualna resničnost" />
+	<subject code="UYZ" text="Interakcija med človekom in računalnikom" />
+	<subject code="UYZF" text="Vizualizacija informacij" />
+	<subject code="UYZG" text="Oblikovanje in uporabnost uporabniškega vmesnika" />
+	<subject code="UYZM" text="Informacijska arhitektura" />
+	<subject code="V" text="Zdravje in osebnostni razvoj" />
+	<subject code="VF" text="Družina in zdravje" />
+	<subject code="VFB" text="Osebna varnost" />
+	<subject code="VFD" text="Popularna medicina in zdravje" />
+	<subject code="VFDF" text="Prva pomoč za dom" />
+	<subject code="VFDM" text="Moško zdravje" />
+	<subject code="VFDW" text="Žensko zdravje" />
+	<subject code="VFG" text="Nega in oskrba na domu" />
+	<subject code="VFJ" text="Spopadanje z osebnimi težavami" />
+	<subject code="VFJB" text="Obvladovanje bolezni in posebnih stanj" />
+	<subject code="VFJD" text="Obvladovanje invalidnosti" />
+	<subject code="VFJG" text="Spopadanje s starostjo" />
+	<subject code="VFJJ" text="Spopadanje z motnjami prehranjevanja" />
+	<subject code="VFJK" text="Spopadanje z zlorabo drog in alkohola" />
+	<subject code="VFJP" text="Spopadanje s tesnobo in fobijami" />
+	<subject code="VFJS" text="Obvladovanje stresa" />
+	<subject code="VFJX" text="Spopadanje s smrtjo in žalostjo" />
+	<subject code="VFL" text="Opustitev kajenja" />
+	<subject code="VFM" text="Fitnes in prehrana" />
+	<subject code="VFMD" text="Prehrana in diete" />
+	<subject code="VFMG" text="Knjige za telovadbo" />
+	<subject code="VFMS" text="Masaža" />
+	<subject code="VFV" text="Družina in odnosi" />
+	<subject code="VFVC" text="Spolni odnosi in spolnost, spolni priročniki" />
+	<subject code="VFVG" text="Zmenki, odnosi, življenje skupaj in poroka" />
+	<subject code="VFVK" text="Posvojitev" />
+	<subject code="VFVS" text="Razveza in ločitev" />
+	<subject code="VFVX" text="Medgeneracijski odnosi" />
+	<subject code="VFX" text="Nasveti o starševstvu" />
+	<subject code="VFXB" text="Nosečnost, porod in skrb za otroke" />
+	<subject code="VFXB1" text="Otroška imena" />
+	<subject code="VFXC" text="Nega in vzgoja otrok" />
+	<subject code="VFXC1" text="Najstniki: nasveti za starše" />
+	<subject code="VS" text="Samopomoč in osebni razvoj" />
+	<subject code="VSB" text="Osebne finance" />
+	<subject code="VSC" text="Svetovanje o karieri in doseganju uspeha" />
+	<subject code="VSD" text="Zakon, državljanstvo in pravice za laike" />
+	<subject code="VSF" text="Vožnja in cestnoprometni zakonik" />
+	<subject code="VSG" text="Svetovanje potrošnikom" />
+	<subject code="VSH" text="Stanovanje in lastnina za posameznika – nakup/prodaja in pravni vidiki" />
+	<subject code="VSK" text="Svetovanje o izobraževanju" />
+	<subject code="VSL" text="Vodniki in priročniki za pismenost odraslih" />
+	<subject code="VSN" text="Vodniki in priročniki za računanje za odrasle" />
+	<subject code="VSP" text="Priljubljena psihologija" />
+	<subject code="VSPM" text="Odločnost, motivacija in samozavest" />
+	<subject code="VSPT" text="Tehnike za izboljšanje spomina in razmišljanja" />
+	<subject code="VSPX" text="Nevrolingvistično programiranje (NLP)" />
+	<subject code="VSR" text="Upokojitev" />
+	<subject code="VSW" text="Življenje in delo v tujini" />
+	<subject code="VSZ" text="Zeleni življenjski slog in samozadostnost" />
+	<subject code="VX" text="Um, telo, duh" />
+	<subject code="VXA" text="Um, telo, duh: razmišljanje in praksa" />
+	<subject code="VXF" text="Napovedovanje prihodnosti in vedeževanje" />
+	<subject code="VXFA" text="Astrologija" />
+	<subject code="VXFA1" text="Zvezdni znaki in horoskopi" />
+	<subject code="VXFC" text="Vedeževanje po kartah (kartomancija)" />
+	<subject code="VXFC1" text="Tarot" />
+	<subject code="VXFD" text="I Čing" />
+	<subject code="VXFG" text="Grafologija" />
+	<subject code="VXFJ" text="Palmistrija, frenologija in fiziognomija" />
+	<subject code="VXFN" text="Numerologija" />
+	<subject code="VXFT" text="Jasnovidnost in prekognicija" />
+	<subject code="VXH" text="Dopolnilne terapije, zdravljenje in zdravje" />
+	<subject code="VXHA" text="Aleksandrova tehnika" />
+	<subject code="VXHC" text="Aromaterapija in eterična olja" />
+	<subject code="VXHH" text="Homeopatija" />
+	<subject code="VXHJ" text="Refleksologija" />
+	<subject code="VXHK" text="Reiki" />
+	<subject code="VXHT" text="Tradicionalna medicina in zeliščna zdravila" />
+	<subject code="VXHT1" text="Kitajska medicina in akupunktura" />
+	<subject code="VXHT2" text="Ajurvedske terapije" />
+	<subject code="VXM" text="Um, telo, duh: meditacija in vizualizacija" />
+	<subject code="VXN" text="Sanje in njihova interpretacija" />
+	<subject code="VXP" text="Nadnaravne moči in nadnaravni pojavi" />
+	<subject code="VXPC" text="Kristali in zdravljenje z barvami" />
+	<subject code="VXPH" text="Čakre, avre in duhovna energija" />
+	<subject code="VXPJ" text="Astralna projekcija in izkušnje izven telesa" />
+	<subject code="VXPR" text="Posmrtno življenje, reinkarnacija in pretekla življenja" />
+	<subject code="VXPS" text="Duhovni vodniki, angeli in kanaliziranje" />
+	<subject code="VXQ" text="Nepojasnjeni/paranormalni pojavi" />
+	<subject code="VXQB" text="NLP in nezemeljska bitja" />
+	<subject code="VXQG" text="Duhovi in poltergeisti" />
+	<subject code="VXQM" text="Pošasti in legendarna bitja" />
+	<subject code="VXV" text="Feng šuj" />
+	<subject code="VXW" text="Misticizem, magija in ritual" />
+	<subject code="VXWK" text="Kabala: priljubljena dela" />
+	<subject code="VXWM" text="Čarovnija, uroki in alkimija" />
+	<subject code="VXWS" text="Šamanizem, poganstvo in druidi" />
+	<subject code="VXWT" text="Čarovništvo in Wicca" />
+	<subject code="W" text="Življenjski slog, šport in prosti čas" />
+	<subject code="WB" text="Kuhanje/hrana in pijača itd." />
+	<subject code="WBA" text="Splošno kuhanje in recepti" />
+	<subject code="WBB" text="Kuharske knjige televizijskih/slavnih kuharjev" />
+	<subject code="WBC" text="Kuhanje za enega" />
+	<subject code="WBD" text="Ugodno kuhanje" />
+	<subject code="WBF" text="Hitro in enostavno kuhanje" />
+	<subject code="WBH" text="Zdravo in polnovredno kuhanje" />
+	<subject code="WBHS" text="Kuhanje za posebne diete in stanja" />
+	<subject code="WBJ" text="Vegetarijanska kuhinja" />
+	<subject code="WBN" text="Nacionalna in regionalna kuhinja" />
+	<subject code="WBQ" text="Kuhanje z/za otroke" />
+	<subject code="WBR" text="Kuhanje za zabave" />
+	<subject code="WBS" text="Kuhanje s posebnimi pripomočki" />
+	<subject code="WBT" text="Kuhanje po sestavinah" />
+	<subject code="WBTB" text="Kuhanje z mesom in divjačino" />
+	<subject code="WBTC" text="Kuhanje s piščancem in drugo perutnino" />
+	<subject code="WBTF" text="Kuhanje z ribami in morskimi sadeži" />
+	<subject code="WBTH" text="Kuhanje z zelišči in začimbami" />
+	<subject code="WBTP" text="Jedi iz testenin" />
+	<subject code="WBTR" text="Kuhanje z mlečnimi izdelki" />
+	<subject code="WBTX" text="Kuhanje s čokolado" />
+	<subject code="WBV" text="Kuharske jedi in tečaji" />
+	<subject code="WBVD" text="Juhe in predjedi" />
+	<subject code="WBVG" text="Solate" />
+	<subject code="WBVM" text="Glavne jedi" />
+	<subject code="WBVQ" text="Sladice" />
+	<subject code="WBVS" text="Pecivo, pečenje, glaziranje in okraševanje slaščic s sladkorjem" />
+	<subject code="WBW" text="Ohranjanje in zamrzovanje" />
+	<subject code="WBX" text="Pijače" />
+	<subject code="WBXD" text="Alkoholne pijače" />
+	<subject code="WBXD1" text="Vina" />
+	<subject code="WBXD2" text="Piva" />
+	<subject code="WBXD3" text="Žganja in koktajli" />
+	<subject code="WBXN" text="Brezalkoholne pijače" />
+	<subject code="WBZ" text="Cigare in kajenje" />
+	<subject code="WC" text="Starine in zbirateljski predmeti" />
+	<subject code="WCB" text="Starine in zbirateljski predmeti: vodnik za kupce" />
+	<subject code="WCC" text="Nega in obnova starin" />
+	<subject code="WCF" text="Kovanci, bankovci, medalje, pečati (numizmatiki)" />
+	<subject code="WCG" text="Žigi, filatelija" />
+	<subject code="WCJ" text="Antične stenske in ročne ure, glasbene skrinjice in avtomati" />
+	<subject code="WCK" text="Militarija, orožje in oklepi" />
+	<subject code="WCL" text="Starinsko pohištvo/zbiranje pohištva" />
+	<subject code="WCN" text="Starine in zbirateljski predmeti: keramika in steklo" />
+	<subject code="WCP" text="Starine in zbirateljski predmeti: nakit" />
+	<subject code="WCR" text="Starine in zbirateljski predmeti: zlato in srebro (brez nakita)" />
+	<subject code="WCS" text="Starine in zbirateljski predmeti: knjige, rokopisi, efemera in tiskovine" />
+	<subject code="WCU" text="Starine in zbirateljski predmeti: slike, natisni in zemljevidi" />
+	<subject code="WCV" text="Starine in zbirateljski predmeti: preproge, odeje in tekstil" />
+	<subject code="WCW" text="Starine in zbirateljski predmeti: igrače, igre in figure" />
+	<subject code="WCX" text="Starine in zbirateljski predmeti: znanstveni in glasbeni instrumenti" />
+	<subject code="WD" text="Hobiji, kvizi in igre" />
+	<subject code="WDH" text="Hobiji" />
+	<subject code="WDHM" text="Modelne železnice" />
+	<subject code="WDHR" text="Radijsko nadzorovani modeli" />
+	<subject code="WDHW" text="Igranje vlog, vojne igre in fantazijski športi" />
+	<subject code="WDJ" text="3D-slike in optične iluzije" />
+	<subject code="WDK" text="Uganke in kvizi" />
+	<subject code="WDKC" text="Križanke" />
+	<subject code="WDKN" text="Sudoku in številske uganke" />
+	<subject code="WDKX" text="Knjižice s trivialnimi vprašanji in vprašanji za kviz" />
+	<subject code="WDM" text="Notranje igre" />
+	<subject code="WDMC" text="Igre s kartami" />
+	<subject code="WDMC1" text="Bridž" />
+	<subject code="WDMC2" text="Poker" />
+	<subject code="WDMG" text="Namizne igre" />
+	<subject code="WDMG1" text="Šah" />
+	<subject code="WDP" text="Igre na srečo: teorije in metode" />
+	<subject code="WF" text="Rokodelstvo, dekorativne umetnosti in obrti" />
+	<subject code="WFA" text="Priročniki za slikanje in umetnost" />
+	<subject code="WFB" text="Vezenje in spretnosti s tkaninami" />
+	<subject code="WFBC" text="Vezenje" />
+	<subject code="WFBL" text="Čipke in čipkanje" />
+	<subject code="WFBQ" text="Izdelovanje prešitih odej, krpank in našitih okraskov" />
+	<subject code="WFBS" text="Pletenje in kvačkanje" />
+	<subject code="WFBV" text="Batik &amp; tehnika barvanja 'tie-dye'" />
+	<subject code="WFC" text="Izdelki iz vrvi, vozli in makrame" />
+	<subject code="WFF" text="Preproga in izdelovanje preprog" />
+	<subject code="WFG" text="Predenje in tkanje" />
+	<subject code="WFH" text="Igrače: izdelovanje in dekoriranje" />
+	<subject code="WFJ" text="Nakit in nizanje perl" />
+	<subject code="WFK" text="Dekorativne obloge in površine" />
+	<subject code="WFL" text="Okrasni les in kovine" />
+	<subject code="WFLF" text="Okvirjanje slik" />
+	<subject code="WFN" text="Lončarstvo, keramika in steklarske spretnosti" />
+	<subject code="WFS" text="Rezljanje in modeliranje, oblikovanje in litje" />
+	<subject code="WFT" text="Knjige in papirna obrt" />
+	<subject code="WFTG" text="Voščilnice" />
+	<subject code="WFTM" text="Origami in izdelovanje iz papirja" />
+	<subject code="WFTS" text="Knjige s kolaži" />
+	<subject code="WFU" text="Tipografija in kaligrafija" />
+	<subject code="WFV" text="Podeželske obrti" />
+	<subject code="WFW" text="Aranžiranje svetja in cvetlične obrti" />
+	<subject code="WG" text="Promet: splošni interes" />
+	<subject code="WGC" text="Cestna in motorna vozila: splošni interes" />
+	<subject code="WGCB" text="Motorna vozila: splošni interes" />
+	<subject code="WGCF" text="Avtobusi, tramvaji in gospodarska vozila: splošni interes" />
+	<subject code="WGCK" text="Motorji: splošni interes" />
+	<subject code="WGCT" text="Traktorji in kmetijska vozila: splošni interes" />
+	<subject code="WGCV" text="Vzdrževanje vozil in priročniki za vozila" />
+	<subject code="WGF" text="Vlaki in železnice: splošni interes" />
+	<subject code="WGG" text="Ladje in čolni: splošni interes" />
+	<subject code="WGGN" text="Kanalski čolni in kanali" />
+	<subject code="WGGV" text="Ladjedelništvo in vzdrževanje" />
+	<subject code="WGM" text="Letala: splošni interes" />
+	<subject code="WH" text="Humor" />
+	<subject code="WHC" text="Risanke in stripi" />
+	<subject code="WHG" text="Knjige, povezane s TV-oddajami" />
+	<subject code="WHJ" text="Šale in uganke" />
+	<subject code="WHL" text="Slengovski in narečni humor" />
+	<subject code="WHP" text="Parodije in potegavščine" />
+	<subject code="WHX" text="Humoristične zbirke in antologije" />
+	<subject code="WJ" text="Priročniki o življenjskem in osebnem slogu" />
+	<subject code="WJF" text="Modni in stilski priročniki" />
+	<subject code="WJH" text="Kozmetika, lasje in lepota" />
+	<subject code="WJK" text="Priročniki o notranjem dizajnu, dekoraciji in stilu" />
+	<subject code="WJS" text="Nakupovalni priročniki" />
+	<subject code="WJW" text="Poroke, načrtovalci porok" />
+	<subject code="WJX" text="Zabave, bonton in razvedrilo" />
+	<subject code="WK" text="Dom in vzdrževanje hiše" />
+	<subject code="WKD" text="Naredi sam: splošno" />
+	<subject code="WKDM" text="Naredi sam: priročniki za vzdrževanje hiše" />
+	<subject code="WKDW" text="Naredi sam: tesarstvo in obdelava lesa" />
+	<subject code="WKH" text="Namigi za gospodinjstvo" />
+	<subject code="WKR" text="Obnova in izboljšave doma" />
+	<subject code="WM" text="Vrtnarjenje" />
+	<subject code="WMB" text="Vrtovi (opisi, zgodovina itd.)" />
+	<subject code="WMD" text="Oblikovanje in načrtovanje vrtov" />
+	<subject code="WMF" text="Rastlinjaki, zimski vrtovi, notranja dvorišča" />
+	<subject code="WMP" text="Vrtnarjenje: rastline" />
+	<subject code="WMPC" text="Vrtnarjenje: cvetje" />
+	<subject code="WMPF" text="Vrtnarjenje: gojenje sadja in zelenjave" />
+	<subject code="WMPH" text="Vrtnarjenje: zelišča" />
+	<subject code="WMPM" text="Sočnice in kaktusi" />
+	<subject code="WMPS" text="Vrtnarjenje: grmičevje in drevesa" />
+	<subject code="WMPX" text="Hišne rastline" />
+	<subject code="WMQ" text="Specializirane vrtnarske metode" />
+	<subject code="WMQB" text="Bonsai" />
+	<subject code="WMQF" text="Organsko vrtnarstvo" />
+	<subject code="WMQL" text="Krajinsko vrtnarjenje" />
+	<subject code="WMQN" text="Naravno in divje vrtnarjenje" />
+	<subject code="WMQP" text="Vrtnarjenje z domačimi rastlinami" />
+	<subject code="WMQR" text="Vrtnarjenje v loncih in koritih" />
+	<subject code="WMQW" text="Vodni vrtovi, bazeni" />
+	<subject code="WMT" text="Vrtički" />
+	<subject code="WN" text="Naravna zgodovina" />
+	<subject code="WNA" text="Dinozavri in prazgodovinski svet" />
+	<subject code="WNC" text="Prostoživeče živali: splošni interes" />
+	<subject code="WNCB" text="Prostoživeče živali: ptice in opazovanje ptic" />
+	<subject code="WNCF" text="Prostoživeče živali: sesalci" />
+	<subject code="WNCK" text="Prostoživeče živali: plazilci in dvoživke" />
+	<subject code="WNCN" text="Prostoživeče živali: metulji, drugi insekti in pajki" />
+	<subject code="WNCS" text="Prostoživeče živali: vodna bitja" />
+	<subject code="WNCS1" text="Morsko življenje in morje" />
+	<subject code="WNCS2" text="Sladkovodno življenje" />
+	<subject code="WND" text="Podeželje, podeželsko življenje" />
+	<subject code="WNF" text="Kmetijske in delovne živali" />
+	<subject code="WNG" text="Domače in hišne živali" />
+	<subject code="WNGC" text="Mačke kot hišni ljubljenčki" />
+	<subject code="WNGD" text="Psi kot hišni ljubljenčki" />
+	<subject code="WNGD1" text="Ubogljivost in šolanje psov" />
+	<subject code="WNGF" text="Ribe in akvariji" />
+	<subject code="WNGH" text="Konji in poniji" />
+	<subject code="WNGK" text="Ptice (vključno s pticami iz kletke) kot hišni ljubljenčki" />
+	<subject code="WNGR" text="Kunci in glodalci kot hišni ljubljenčki" />
+	<subject code="WNGS" text="Plazilci in dvoživke kot hišni ljubljenčki" />
+	<subject code="WNGX" text="Žuželke in pajki kot hišni ljubljenčki" />
+	<subject code="WNH" text="Živalski vrtovi in parki s prostoživečimi živalmi" />
+	<subject code="WNP" text="Drevesa, divje cvetlice in rastline" />
+	<subject code="WNR" text="Kamnine, minerali in fosili" />
+	<subject code="WNW" text="Zemlja: splošna naravna zgodovina" />
+	<subject code="WNWM" text="Vreme" />
+	<subject code="WNX" text="Priljubljena astronomija in vesolje" />
+	<subject code="WQ" text="Lokalni interes, družinska zgodovina in nostalgija" />
+	<subject code="WQH" text="Lokalna zgodovina" />
+	<subject code="WQN" text="Nostalgija: splošno" />
+	<subject code="WQP" text="Mesta na starih fotografijah" />
+	<subject code="WQY" text="Družinska zgodovina, sledenje prednikom" />
+	<subject code="WS" text="Šport in rekreacija na prostem" />
+	<subject code="WSB" text="Športne prireditve in menedžment" />
+	<subject code="WSBB" text="Olimpijske in paraolimpijske igre" />
+	<subject code="WSBG" text="Športni organi" />
+	<subject code="WSBM" text="Športni menedžment in objekti" />
+	<subject code="WSBT" text="Športne ekipe in klubi" />
+	<subject code="WSBV" text="Športna prizorišča" />
+	<subject code="WSBX" text="Zgodovina športa" />
+	<subject code="WSC" text="Športi za invalide" />
+	<subject code="WSD" text="Športno usposabljanje in treniranje" />
+	<subject code="WSDF" text="Znanost športa, telesna vzgoja" />
+	<subject code="WSDP" text="Športna psihologija" />
+	<subject code="WSDX" text="Zloraba drog v športu" />
+	<subject code="WSE" text="Ekstremni športi" />
+	<subject code="WSF" text="Zračni športi in rekreacija" />
+	<subject code="WSJ" text="Igre z žogo" />
+	<subject code="WSJA" text="Nogomet" />
+	<subject code="WSJA1" text="Svetovni pokal" />
+	<subject code="WSJC" text="Kriket" />
+	<subject code="WSJF" text="Ragbi" />
+	<subject code="WSJF1" text="Rugby Union" />
+	<subject code="WSJF2" text="Ragbi liga" />
+	<subject code="WSJG" text="Golf" />
+	<subject code="WSJH" text="Hokej" />
+	<subject code="WSJJ" text="Lacrosse" />
+	<subject code="WSJK" text="Hurling" />
+	<subject code="WSJL" text="Gaelski nogomet" />
+	<subject code="WSJM" text="Košarka" />
+	<subject code="WSJN" text="Netball" />
+	<subject code="WSJQ" text="Avstralski nogomet" />
+	<subject code="WSJR" text="Igre z loparji" />
+	<subject code="WSJR2" text="Tenis" />
+	<subject code="WSJR3" text="Badminton" />
+	<subject code="WSJR4" text="Skvoš &amp; loparji" />
+	<subject code="WSJR5" text="Namizni tenis" />
+	<subject code="WSJS" text="Ameriški nogomet" />
+	<subject code="WSJT" text="Baseball" />
+	<subject code="WSJV" text="Odbojka" />
+	<subject code="WSJY" text="Balinanje, kegljanje, petanka" />
+	<subject code="WSJZ" text="Snooker, biljard, pool" />
+	<subject code="WSK" text="Atletika" />
+	<subject code="WSKC" text="Maraton in tek na smučeh" />
+	<subject code="WSKQ" text="Večdisciplinski športi" />
+	<subject code="WSL" text="Gimnastika" />
+	<subject code="WSM" text="Dvigovanje uteži" />
+	<subject code="WSN" text="Konjeniški in živalski športi" />
+	<subject code="WSNB" text="Konjske dirke" />
+	<subject code="WSNF" text="Jahanje, skoki in konjarstvo" />
+	<subject code="WSNP" text="Dirke greyhoundov" />
+	<subject code="WSP" text="Motorni športi" />
+	<subject code="WSPC" text="Avtomobilske dirke" />
+	<subject code="WSPC1" text="Formula 1 in Grand Prix" />
+	<subject code="WSPG" text="Motorni rally/rally vožnja" />
+	<subject code="WSPM" text="Dirke z motorji" />
+	<subject code="WSQ" text="Kolesarjenje" />
+	<subject code="WSR" text="Rolanje, rolkanje itd." />
+	<subject code="WSS" text="Vodni športi in rekreacija" />
+	<subject code="WSSC" text="Plavanje in potapljanje" />
+	<subject code="WSSC1" text="Podvodno plavanje" />
+	<subject code="WSSG" text="Surfanje, jadranje na deski, smučanje na vodi" />
+	<subject code="WSSN" text="Čolnarjenje" />
+	<subject code="WSSN1" text="Motorna plovila in križarjenje" />
+	<subject code="WSSN3" text="Jadranje" />
+	<subject code="WSSN5" text="Kanujanje in kajakaštvo" />
+	<subject code="WSSN7" text="Veslanje" />
+	<subject code="WST" text="Borilni športi in samoobramba" />
+	<subject code="WSTB" text="Boks" />
+	<subject code="WSTC" text="Rokoborba" />
+	<subject code="WSTF" text="Sabljanje" />
+	<subject code="WSTM" text="Orientalske borilne veščine" />
+	<subject code="WSU" text="Bodybuilding" />
+	<subject code="WSW" text="Zimski športi" />
+	<subject code="WSWK" text="Smučanje" />
+	<subject code="WSWM" text="Deskanje na snegu" />
+	<subject code="WSWS" text="Drsanje" />
+	<subject code="WSWY" text="Hokej na ledu" />
+	<subject code="WSX" text="Pokrajinski športi: ribolov, lov, streljanje" />
+	<subject code="WSXF" text="Ribolov, trnkarjenje" />
+	<subject code="WSXH" text="Lov ali streljanje živali in igre" />
+	<subject code="WSXR" text="Lokostrelstvo" />
+	<subject code="WSXS" text="Majhno strelno orožje, pištole in druga oprema" />
+	<subject code="WSXT" text="Streljanje na tarčo" />
+	<subject code="WSZ" text="Aktivnosti na prostem" />
+	<subject code="WSZC" text="Hoja, pohodništvo, treking" />
+	<subject code="WSZG" text="Plezanje in planinarjenje" />
+	<subject code="WSZK" text="Orientacijski tek" />
+	<subject code="WSZN" text="Jamarstvo" />
+	<subject code="WSZR" text="Kampiranje in gozdarstvo" />
+	<subject code="WSZV" text="Spretnosti za preživetje na prostem" />
+	<subject code="WT" text="Potovanja in počitnice" />
+	<subject code="WTD" text="Potovalni nasveti in namigi: splošno" />
+	<subject code="WTH" text="Vodniki za potovanje in počitnice" />
+	<subject code="WTHA" text="Avanturistične počitnice" />
+	<subject code="WTHB" text="Poslovno potovanje" />
+	<subject code="WTHC" text="Eko-turistični vodniki" />
+	<subject code="WTHF" text="Potovati z otroki/družinske počitnice" />
+	<subject code="WTHH" text="Vodniki po hotelih in počitniških nastanitvah" />
+	<subject code="WTHH1" text="Vodniki za kampiranje in taborišča" />
+	<subject code="WTHM" text="Vodniki po muzejih, zgodovinskih znamenitostih, galerijah in umetnosti" />
+	<subject code="WTHR" text="Vodniki po restavracijah, kavarnah in pubih" />
+	<subject code="WTHT" text="Tematski parki in sejmi" />
+	<subject code="WTHX" text="Križarjenja" />
+	<subject code="WTK" text="Jezikovni vodniki" />
+	<subject code="WTL" text="Potopisi" />
+	<subject code="WTLC" text="Klasično pisanje potopisov" />
+	<subject code="WTLP" text="Ekspedicije" />
+	<subject code="WTM" text="Mesta in ljudstva: splošna in slikovna dela" />
+	<subject code="WTR" text="Potovalne karte in atlasi" />
+	<subject code="WTRD" text="Atlasi in zemljevidi cest" />
+	<subject code="WTRM" text="Potovalne karte" />
+	<subject code="WTRS" text="Zemljevidi ulic in mestni načrti" />
+	<subject code="WZ" text="Razno" />
+	<subject code="WZG" text="Darilne knjige" />
+	<subject code="WZS" text="Pisarniške potrebščine" />
+	<subject code="Y" text="Otroško, mladinsko in izobraževalno" />
+	<subject code="YB" text="Slikovne knjige, knjige z aktivnostmi in gradivo za zgodnje učenje" />
+	<subject code="YBC" text="Slikovne knjige" />
+	<subject code="YBCB" text="Otroške knjige" />
+	<subject code="YBCH" text="Slikovne knjige: knjige z znaki" />
+	<subject code="YBCS" text="Slikanice" />
+	<subject code="YBG" text="Interaktivne knjige in kompleti ter knjige in kompleti z aktivnostmi" />
+	<subject code="YBGC" text="Knjige za barvanje in slikanje" />
+	<subject code="YBGK" text="Otroške knjige z igrami" />
+	<subject code="YBGP" text="Knjige z zavihki in pop-up knjige" />
+	<subject code="YBGS" text="Knjige z nalepkami in štampiljkami" />
+	<subject code="YBGT" text="Interaktivne otroške knjige" />
+	<subject code="YBGT1" text="Zvočne zgodbe, glasne knjige, glasbene knjige" />
+	<subject code="YBGT3" text="Knjige na otip" />
+	<subject code="YBGT5" text="Magnetne knjige" />
+	<subject code="YBGT7" text="Knjige s sestavljankami" />
+	<subject code="YBL" text="Zgodnje učenje/koncepti zgodnjega učenja" />
+	<subject code="YBLA" text="Zgodnje učenje: Knjige ABC/abecede knjige" />
+	<subject code="YBLA1" text="Zgodnje učenje: knjige s prvimi besedami" />
+	<subject code="YBLB" text="Zgodnje učenje: knjige za rimanje in besedne igre" />
+	<subject code="YBLB1" text="Zgodnje učenje: verzi in rime" />
+	<subject code="YBLC" text="Zgodnje učenje: številke in štetje" />
+	<subject code="YBLD" text="Zgodnje učenje: barve" />
+	<subject code="YBLF" text="Zgodnje učenje: nasprotja" />
+	<subject code="YBLH" text="Zgodnje učenje: velikost, oblike in vzorci" />
+	<subject code="YBLJ" text="Zgodnje učenje: čas in letni časi" />
+	<subject code="YBLJ1" text="Zgodnje učenje: koliko je ura" />
+	<subject code="YBLN" text="Zgodnje učenje: prve izkušnje" />
+	<subject code="YBLN1" text="Zgodnje učenje: čutila" />
+	<subject code="YBLP" text="Zgodnje učenje: ljudje, ki nam pomagajo" />
+	<subject code="YBLT" text="Zgodnje učenje: stvari, ki gredo" />
+	<subject code="YD" text="Otroška/mladinska poezija, antologije, letopisi" />
+	<subject code="YDA" text="Letopisi (otroški/mladinski)" />
+	<subject code="YDC" text="Antologije (otroške/mladinske)" />
+	<subject code="YDP" text="Poezija (otroška/mladinska)" />
+	<subject code="YF" text="Otroško/mladinsko leposlovje in resnične zgodbe" />
+	<subject code="YFA" text="Klasično leposlovje (otroško/mladinsko)" />
+	<subject code="YFB" text="Splošno leposlovje (otroško/mladinsko)" />
+	<subject code="YFC" text="Zgodbe o dogodivščinah (otroške/mladinske)" />
+	<subject code="YFCB" text="Trilerji (otroški/mladinski)" />
+	<subject code="YFCF" text="Leposlovje o kriminalu in skrivnostih (otroško/mladinsko)" />
+	<subject code="YFD" text="Grozljivke in zgodbe o duhovih, srhljivke (otroške/mladinske)" />
+	<subject code="YFG" text="Znanstvena fantastika (otroška/mladinska)" />
+	<subject code="YFH" text="Fantastika in magični realizem (otroška/mladinska)" />
+	<subject code="YFHR" text="Fantazijska romanca (mladinska)" />
+	<subject code="YFJ" text="Tradicionalne zgodbe (otroške/mladinske)" />
+	<subject code="YFM" text="Zgodbe o romancah in razmerjih (otroške/mladinske)" />
+	<subject code="YFN" text="Družinske in domače zgodbe (otroške/mladinske)" />
+	<subject code="YFP" text="Živalske zgodbe (otroške/mladinske)" />
+	<subject code="YFQ" text="Humoristične zgodbe (otroške/mladinske)" />
+	<subject code="YFR" text="Športne zgodbe (otroške/mladinske)" />
+	<subject code="YFS" text="Šolske zgodbe (otroške/mladinske)" />
+	<subject code="YFT" text="Zgodovinsko leposlovje (otroško/mladinsko)" />
+	<subject code="YFU" text="Kratke zgodbe (otroške/mladinske)" />
+	<subject code="YFW" text="Leposlovje v stripu/grafični romani (otroški/mladinski)" />
+	<subject code="YFY" text="Resnične zgodbe (otroške/mladinske)" />
+	<subject code="YN" text="Otroci in mladina: splošna stvarna literatura" />
+	<subject code="YNA" text="Umetnost: splošni interes (otroški/mladinski)" />
+	<subject code="YNC" text="Glasba: splošni interes (otroški/mladinski)" />
+	<subject code="YNCP" text="Pop glasba (otroška/mladinska)" />
+	<subject code="YND" text="Drama in uprizoritev (otroška/mladinska)" />
+	<subject code="YNDB" text="Ples, balet (otroški/mladinski)" />
+	<subject code="YNDS" text="Scenariji (otroški/mladinski)" />
+	<subject code="YNF" text="Televizija in film (otroški/mladinski)" />
+	<subject code="YNG" text="Splošno in trivialno znanje (otroško/mladinsko)" />
+	<subject code="YNGL" text="Knjižnice, muzeji, šole (otroške/mladinske)" />
+	<subject code="YNH" text="Zgodovina in preteklost: splošni interes (otroška/mladinska)" />
+	<subject code="YNJ" text="Borba, bitke, oborožene sile (otroške/mladinske)" />
+	<subject code="YNK" text="Delo in industrija/svet dela (otroško/mladinsko)" />
+	<subject code="YNL" text="Literatura, knjige in pisatelji (otroško/mladinsko)" />
+	<subject code="YNM" text="Ljudje in kraji (otroško/mladinsko)" />
+	<subject code="YNN" text="Naravna zgodovina (otroška/mladinska)" />
+	<subject code="YNNA" text="Dinozavri in prazgodovinski svet (otroško/mladinsko)" />
+	<subject code="YNND" text="Hišni ljubljenčki (otroško/mladinsko)" />
+	<subject code="YNNF" text="Kmetijske živali (otroško/mladinsko)" />
+	<subject code="YNNR" text="Divje živali (otroško/mladinsko)" />
+	<subject code="YNP" text="Praktični interesi (otroško/mladinsko)" />
+	<subject code="YNPC" text="Kuhanje in hrana (otroško/mladinsko)" />
+	<subject code="YNPG" text="Vrtnarjenje (otroško/mladinsko)" />
+	<subject code="YNPH" text="Ročne spretnosti (otroško/mladinsko)" />
+	<subject code="YNPK" text="Denar (otroško/mladinsko)" />
+	<subject code="YNR" text="Religija in prepričanja: splošni interes (otroško/mladinsko)" />
+	<subject code="YNRB" text="Biblije in biblijske zgodbe (otroške/mladinske)" />
+	<subject code="YNT" text="Znanost in tehnologija: splošni interes (otroško/mladinsko)" />
+	<subject code="YNTB" text="Zgradbe in gradbeništvo (otroško/mladinsko)" />
+	<subject code="YNTR" text="Prevoz (otroško/mladinsko)" />
+	<subject code="YNTS" text="Vesolje (otroško/mladinsko)" />
+	<subject code="YNU" text="Humor in šale (otroško/mladinsko)" />
+	<subject code="YNUC" text="Risanke in stripi (otroško/mladinsko)" />
+	<subject code="YNV" text="Hobiji, kvizi in igre (otroški/mladinski)" />
+	<subject code="YNVP" text="Knjige ugank (otroške/mladinske)" />
+	<subject code="YNVU" text="Vodniki za računalniške igre (otroški/mladinski)" />
+	<subject code="YNW" text="Šport in rekreacija na prostem (otroško/mladinsko)" />
+	<subject code="YNWA" text="Ameriški nogomet/nogomet (otroško/mladinsko)" />
+	<subject code="YNWB" text="Ragbi (otroško/mladinsko)" />
+	<subject code="YNWC" text="Kriket (otroško/mladinsko)" />
+	<subject code="YNWG" text="Atletika in gimnastika (otroško/mladinsko)" />
+	<subject code="YNWW" text="Plavanje in vodni športi (otroško/mladinsko)" />
+	<subject code="YNWY" text="Kolesarjenje, deskanje in drsanje (otroško/mladinsko)" />
+	<subject code="YNX" text="Skrivnosti, nadnaravno, pošasti in mitološka bitja (otroško/mladinsko)" />
+	<subject code="YNXF" text="NLP in zunajzemeljska bitja (otroško/mladinsko)" />
+	<subject code="YNXW" text="Čarovnice in duhovi (otroško/mladinsko)" />
+	<subject code="YQ" text="Izobraževalni material" />
+	<subject code="YQA" text="Izobraževanje: Umetnost in oblikovanje" />
+	<subject code="YQB" text="Izobraževanje: Glasba" />
+	<subject code="YQC" text="Izobraževanje: Angleški jezik in pismenost" />
+	<subject code="YQCR" text="Izobraževanje: Angleški jezik: čitanke in bralni programi" />
+	<subject code="YQCR5" text="Izobraževanje: Angleški jezik: čitanke in bralni programi Sintetična fonetika" />
+	<subject code="YQCS" text="Izobraževanje: Angleški jezik: veščine branja in pisanja" />
+	<subject code="YQCS1" text="Izobraževanje: spretnosti pisanja: rokopis" />
+	<subject code="YQCS5" text="Izobraževanje: Angleščina: spretnosti branja: Sintetična fonetika" />
+	<subject code="YQD" text="Izobraževanje: dramske študije" />
+	<subject code="YQE" text="Izobraževanje: Angleška literatura" />
+	<subject code="YQEF" text="Šolske izdaje angleških književnih besedil" />
+	<subject code="YQES" text="Šolske izdaje Shakespeareja" />
+	<subject code="YQF" text="Izobraževanje: Drugi jeziki, ki niso angleščina" />
+	<subject code="YQFL" text="Izobraževanje: literatura v drugih jezikih, razen angleščine" />
+	<subject code="YQG" text="Izobraževanje: Geografija" />
+	<subject code="YQH" text="Izobraževanje: Zgodovina" />
+	<subject code="YQJ" text="Izobraževanje: Družbene vede" />
+	<subject code="YQJP" text="Izobraževanje: Psihologija" />
+	<subject code="YQM" text="Izobraževanje: Matematika in računanje" />
+	<subject code="YQMT" text="Izobraževanje: Matematika in računanje: poštevanka" />
+	<subject code="YQN" text="Izobraževanje: Državljanstvo in socialno izobraževanje" />
+	<subject code="YQNP" text="Izobraževanje: Osebna, socialna in zdravstvena vzgoja (PSHE)" />
+	<subject code="YQR" text="Izobraževanje: Verske študije" />
+	<subject code="YQRA" text="Izobraževanje: raziskovalna gradiva za šolski zbor" />
+	<subject code="YQRC" text="Izobraževanje: Verske študije: Krščanstvo" />
+	<subject code="YQRN" text="Izobraževanje: Verske študije: Nekrščanske religije" />
+	<subject code="YQRN1" text="Izobraževanje: Verske študije: Judovstvo" />
+	<subject code="YQRN2" text="Izobraževanje: Verske študije: Islam" />
+	<subject code="YQRN3" text="Izobraževanje: Verske študije: Hinduizem" />
+	<subject code="YQRN4" text="Izobraževanje: Verske študije: Budizem" />
+	<subject code="YQS" text="Izobraževanje: Znanosti, splošna znanost" />
+	<subject code="YQSB" text="Izobraževanje: Biologija" />
+	<subject code="YQSC" text="Izobraževanje: Kemija" />
+	<subject code="YQSP" text="Izobraževanje: Fizika" />
+	<subject code="YQT" text="Izobraževanje: Tehnologija" />
+	<subject code="YQTD" text="Izobraževanje: Oblikovanje in tehnologija" />
+	<subject code="YQTF" text="Izobraževanje: Živilska tehnologija" />
+	<subject code="YQTU" text="Izobraževanje: IT in računalništvo, informacijsko-komunikacijska tehnologija" />
+	<subject code="YQV" text="Izobraževanje: Poslovne študije in ekonomija" />
+	<subject code="YQW" text="Izobraževanje: Fizično izobraževanje (vključno s plesom)" />
+	<subject code="YQX" text="Izobraževanje: Splošne študije/splošne študijske spretnosti" />
+	<subject code="YQY" text="Izobraževanje: Poklicni predmeti" />
+	<subject code="YQZ" text="Izobraževalni: študijski in revizijski priročniki" />
+	<subject code="YR" text="Referenčno gradivo (otroško/mladinsko)" />
+	<subject code="YRD" text="Slovarji, šolski slovarji (otroški/mladinski)" />
+	<subject code="YRDC" text="Slikovni slovarji (otroški/mladinski)" />
+	<subject code="YRDL" text="Dvojezični/večjezični slovarji (otroški/mladinski)" />
+	<subject code="YRE" text="Enciklopedije (otroške/mladinske)" />
+	<subject code="YRG" text="Referenčna gradiva (otroška/mladinska)" />
+	<subject code="YRW" text="Atlasi in zemljevidi (otroški/mladinski)" />
+	<subject code="YX" text="Osebna in družbena vprašanja (otroška/mladinska)" />
+	<subject code="YXA" text="Osebna in družbena vprašanja: telo in zdravje (otroška/mladinska)" />
+	<subject code="YXAX" text="Osebna in družbena vprašanja: spolna vzgoja in življenjska dejstva (otroška/mladinska)" />
+	<subject code="YXC" text="Osebna in družbena vprašanja: ustrahovanje, nasilje in zloraba (otroška/mladinska)" />
+	<subject code="YXF" text="Osebna in družbena vprašanja: družinska vprašanja (otroška/mladinska)" />
+	<subject code="YXFD" text="Osebna in družbena vprašanja: razveza, ločitev, razpad družine (otroška/mladinska)" />
+	<subject code="YXFM" text="Osebna in družbena vprašanja: sorojenci (otroška/mladinska)" />
+	<subject code="YXFT" text="Osebna in družbena vprašanja: nosečnost v najstniških letih (otroška/mladinska)" />
+	<subject code="YXG" text="Osebna in družbena vprašanja: smrt in izguba (otroška/mladinska)" />
+	<subject code="YXJ" text="Osebna in družbena vprašanja: droge in zasvojenost (otroška/mladinska)" />
+	<subject code="YXK" text="Osebna in družbena vprašanja: invalidnost in posebne potrebe (otroška/mladinska)" />
+	<subject code="YXL" text="Osebna in družbena vprašanja: samozavedanje in samozavest (otroška/mladinska)" />
+	<subject code="YXN" text="Osebna in družbena vprašanja: rasizem in večkulturnost (otroška/mladinska)" />
+	<subject code="YXS" text="Osebna in družbena vprašanja: spolnost in odnosi (otroška/mladinska)" />
+	<subject code="YXT" text="Osebna in družbena vprašanja: namerno izostajanje iz šole in šolske težave (otroška/mladinska)" />
+	<subject code="YXV" text="Osebna in družbena vprašanja: poklicna orientacija (mladinska)" />
+	<subject code="YXZ" text="Družbena vprašanja (otroška/mladinska)" />
+	<subject code="YXZG" text="Družbena vprašanja: okolju prijazne in zelene teme (otroška/mladinska)" />
+	<subject code="YXZR" text="Družbena vprašanja: verska vprašanja (otroška/mladinska)" />
+	<subject code="YXZW" text="Družbena vprašanja: vprašanja vojne in konfliktov (otroška/mladinska)" />
+	<subject code="YZ" text="Pisarniške potrebščine in razni predmeti (otroški/mladinski)" />
+</subjects>

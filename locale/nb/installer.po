@@ -1,0 +1,233 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
+"PO-Revision-Date: 2021-01-26 14:05+0000\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-"
+"info@journals.uio.no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/installer/nb_NO/>\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "installer.additionalLocales"
+msgstr "Flere språkpakker"
+
+msgid "installer.administratorAccount"
+msgstr "Administratorkonto"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Denne brukerkontoen kommer til å bli nettstedsadministrator. Den får full "
+"tilgang til systemet. Flere brukerkontoer kan opprettes etter installasjon."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NEI</span>"
+
+msgid "installer.checkYes"
+msgstr "Ja"
+
+msgid "installer.clientCharset"
+msgstr "Tegnsett"
+
+msgid "installer.clientCharsetInstructions"
+msgstr "Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere."
+
+msgid "installer.configFileError"
+msgstr ""
+"Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke eller kan ikke leses."
+
+msgid "installer.connectionCharset"
+msgstr "Tegnsett for databasekoblingen"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Innholdet i konfigurasjonsfilen"
+
+msgid "installer.databaseDriver"
+msgstr "Databasedriver"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Databasedriverne som er oppført i hakeparenteser ser ikke ut til å "
+"ha den nødvendige PHP-utvidelsen lastet. Installeringen vil trolig feile om "
+"databasedriverne er valgt.</strong><br /> Databasedrivere som ikke er "
+"støttet, er oppført over er kun til informasjon og vil trolig ikke fungere."
+
+msgid "installer.databaseHost"
+msgstr "Vert"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"La vertsnavnet stå tomt for å opprette forbindelsen gjennom «domene sockets» "
+"i stedet for TCP/IP. Dette er ikke nødvendig med MySQL, som kommer til å "
+"bruke «sockets» automatisk hvis «localhost» er skrevet inn, men er nødvendig "
+"med enkelte andre databaseservere, f.eks. PostgreSQL."
+
+msgid "installer.databaseName"
+msgstr "Databasenavn"
+
+msgid "installer.databasePassword"
+msgstr "Passord"
+
+msgid "installer.databaseSettings"
+msgstr "Databaseinnstillinger"
+
+msgid "installer.databaseUsername"
+msgstr "Brukernavn"
+
+msgid "installer.encryption"
+msgstr "Krypteringsalgoritme for passord"
+
+msgid "installer.filesDir"
+msgstr "Mappe for opplastede filer"
+
+msgid "installer.fileSettings"
+msgstr "Filinnstillinger"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Du må velge et tegnsett."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Du må velge en databasedriver."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Du må legge inn et navn på databasen."
+
+msgid "installer.form.emailRequired"
+msgstr "Du må ha en gyldig e-postadresse for administratorkontoen."
+
+msgid "installer.form.encryptionRequired"
+msgstr "En algoritme til bruk ved kryptering av brukerpassord må være valgt."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Du må ha en mappe for lagring av opplastede filer."
+
+msgid "installer.form.localeRequired"
+msgstr "Du må velge en språkpakke."
+
+msgid "installer.form.passwordRequired"
+msgstr "Du må ha et passord for administratorkontoen."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Passordene er ikke like."
+
+msgid "installer.form.separateMultiple"
+msgstr "Skill verdiene med komma"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Brukernavnet kan bare inneholde bokstaver, tall, understrek og bindestrek. "
+"Det må dessuten begynne og slutte med en bokstav eller et tall."
+
+msgid "installer.form.usernameRequired"
+msgstr "Du må ha et brukernavn for administratorkontoen."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>ADVARSEL: Du bør oppgradere til en nyere utgave av PHP. Den "
+"nåværende PHP-versjonen tilfredsstiller ikke minstekravene for "
+"installeringen. </strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Det oppsto feil under installeringen"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL -setninger for installeringen"
+
+msgid "installer.installFileError"
+msgstr "Installasjonsfilen <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er ikke lesbar."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Mappen du spesifiserte for opplastede filer finnes ikke eller er ikke "
+"overskrivbar."
+
+msgid "installer.installParseDBFileError"
+msgstr "Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>."
+
+msgid "installer.locale"
+msgstr "Språkpakke"
+
+msgid "installer.localeSettings"
+msgstr "Språkpakkeinnstillinger"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"En unik identifikator til å identifisere metadataposter indeksert fra dette "
+"nettstedet ved bruk av <a href=\"http://www.openarchives.org/\" target=\""
+"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+
+msgid "installer.oaiRepositoryId"
+msgstr "OAI-arkividentifikator"
+
+msgid "installer.publicFilesDirError"
+msgstr "Mappen for offentlige filer finnes ikke eller er ikke overskrivbar."
+
+msgid "installer.releaseNotes"
+msgstr "Lanseringsnotater"
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Feil ved parsing av e-postmal <tt>{$file}</tt>."
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "De merkede språkpakkefilene kan være mangelfulle."
+
+msgid "installer.oaiSettings"
+msgstr "OAI-innstillinger"
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Feil ved lesing av filterkonfigureringsfil <tt>{$file}</tt>."
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Legg til en unik nettsteds-ID og OAI base-URL til PKP for statistikk og "
+"sikkerhetsvarsler."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Oppgraderingen er ikke støttet. Se detaljer i: docs/UPGRADE-UNSUPPORTED"
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"PhP versjonen på serveren din støttes ikke av denne programvaren. "
+"Dobbeltsjekk installasjonskrav i docs/README."
+
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p> PHP-innstallasjonen din har ikke aktivert den nødvendige XSL-modulen. Du "
+"kan enten skru den på eller konfigurere xslt_command parameter i "
+"config.inc.php file.</p>"
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"\n"
+"\t\t<p>1. De følgende filene og mappene (og deres innhold) må være "
+"overskrivbare:</p>\n"
+"\t<ul>\n"
+"\t\t<li><tt>config.inc.php</tt> er overskrivbar (valgfritt): "
+"{$writable_config}</li>\n"
+"\t\t<li><tt>public/</tt> er overskrivbar: {$writable_public}</li>\n"
+"\t\t<li><tt>cache/</tt> er overskrivbar: {$writable_cache}</li>\n"
+"\t\t<li><tt>cache/t_cache/</tt> er overskrivbar: "
+"{$writable_templates_cache}</li>\n"
+"\t\t<li><tt>cache/t_compile/</tt> er overskrivbar: "
+"{$writable_templates_compile}</li>\n"
+"\t\t<li><tt>cache/_db</tt> er overskrivbar: {$writable_db_cache}</li>\n"
+"\t</ul>\n"
+"<p>2. Det må lages en mappe for å lagre opplastede filer. Mappen må være "
+"overskrivbar. (Se «Filinnstillinger» under).</p>\n"
+"\t"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Steg før installasjon"
+
+#, fuzzy
+msgid "installer.installMigrationError"
+msgstr "Feil ved utførelse av migreringsklassen <tt>{$class}</tt>."

@@ -1,0 +1,454 @@
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
+"PO-Revision-Date: 2022-11-08 03:46+0000\n"
+"Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"tr_TR/>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "admin.adminFunctions"
+msgstr "Yönetsel İşlevler"
+
+msgid "admin.clearDataCache"
+msgstr "Önbellek Verilerini Sil"
+
+msgid "admin.clearTemplateCache"
+msgstr "Tema Önbelleğini Sil"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Yapılandırma dosyanız başarı ile güncellendi. Sitenizin işlevlerinin düzgün "
+"şekilde çalışmaması durumunda doğrudan <tt>config.inc.php</tt> dosyasında "
+"gerekli düzenlemeleri yaparak sorunu giderebilirsiniz."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Derlenmiş şablonları önbellekten silmek istediğinizden emin misiniz?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Tüm kullanıcı oturumlarını kapatmak istediğinizden emin misiniz? Siz dahil "
+"şu anda sitede oturum açmış olan tüm kullanıcılar sistemden çıkış "
+"yaptırılacak."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Yapılandırma dosyasının içeriği"
+
+msgid "admin.currentVersion"
+msgstr "Mevcut sürüm"
+
+msgid "admin.dateInstalled"
+msgstr "Kurulum tarihi"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Güncellenmiş yapılandırmanızın içeriği aşağıda gösterilmiştir. Yapılandırma "
+"değişikliklerini uygulayabilmek için <tt>config.inc.php</tt> dosyasını uygun "
+"bir metin editörü ile açmanız ve içeriğini aşağıda belirtilen içerikle "
+"değiştirmeniz gerekmektedir."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Yeni Yapılandırmayı Görüntüle"
+
+msgid "admin.expireSessions"
+msgstr "Kullanıcı Oturumlarını Sonlandır"
+
+msgid "admin.languages.confirmReload"
+msgstr "Bu dili yeniden yüklemek istediğinizden emin misiniz? Yeniden yükleme dile özgü hazırlanmış özelleştirilmiş e-posta şablonlarını silecektir."
+
+msgid "admin.languages.installedLocales"
+msgstr "Yüklü Diller"
+
+msgid "admin.languages.installLanguages"
+msgstr "Dilleri Yönet"
+
+msgid "admin.languages.installLocales"
+msgstr "Yükle"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Yeni Dilleri Yükle"
+
+msgid "admin.languages.languageSettings"
+msgstr "Dil Ayarları"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Yüklenecek herhangi bir ek dil bulunmuyor."
+
+msgid "admin.languages.reload"
+msgstr "Dili Yeniden Yükle"
+
+msgid "admin.languages.uninstall"
+msgstr "Dili Kaldır"
+
+msgid "admin.phpInfo"
+msgstr "Genişletilmiş PHP Bilgisi"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache sürümü"
+
+msgid "admin.server.dbDriver"
+msgstr "Veri tabanı sürücüsü"
+
+msgid "admin.server.dbVersion"
+msgstr "Veri tabanı sunucusu sürümü"
+
+msgid "admin.serverInformation"
+msgstr "Sunucu Bilgisi"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP sürümü"
+
+msgid "admin.server.platform"
+msgstr "İşletim Sistemi Platformu"
+
+msgid "admin.settings.about"
+msgstr "Site Hakkında"
+
+msgid "admin.settings.contactEmail"
+msgstr "Temel iletişim e-posta adresi"
+
+msgid "admin.settings.contactName"
+msgstr "İletişim için temel kişi adı"
+
+msgid "admin.settings.introduction"
+msgstr "Giriş"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Şifre için en az karakter sayısı"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Site Dili"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Geçersiz site sitil dosyası formatı. .css formatında olan sitil dosyası "
+"kabul edilmektedir."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Site sitil dosyası"
+
+msgid "admin.settings.siteTitle"
+msgstr "Site Başlığı"
+
+msgid "admin.siteAdmin"
+msgstr "Site Yönetimi"
+
+msgid "admin.siteManagement"
+msgstr "Site Yönetimi"
+
+msgid "admin.siteSettings"
+msgstr "Site Ayarları"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "<tt>config.inc.php</tt> adlı konfigürasyon dosyası bulunamıyor, okunabilir değil veya geçersiz."
+
+msgid "admin.systemInformation"
+msgstr "Sistem Bilgisi"
+
+msgid "admin.versionBuild"
+msgstr "Derleme"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Güncellemeleri kontrol et"
+
+msgid "admin.version.downloadPackage"
+msgstr "İndir"
+
+msgid "admin.version.downloadPatch"
+msgstr "Yama İndir"
+
+msgid "admin.versionHistory"
+msgstr "Sürüm geçmişi"
+
+msgid "admin.version.latest"
+msgstr "Son sürüm"
+
+msgid "admin.versionMajor"
+msgstr "Büyük"
+
+msgid "admin.versionMinor"
+msgstr "Küçük"
+
+msgid "admin.version.moreInfo"
+msgstr "Daha Fazla Bilgi"
+
+msgid "admin.versionRevision"
+msgstr "Düzeltme"
+
+msgid "admin.version.updateAvailable"
+msgstr "Güncellenmiş bir sürüm mevcut"
+
+msgid "admin.version.upToDate"
+msgstr "Sisteminiz güncel"
+
+msgid "admin.version"
+msgstr "Sürüm"
+
+msgid "admin.settings"
+msgstr "Ayarlar"
+
+msgid "admin.settings.siteTheme"
+msgstr "Site Teması"
+
+msgid "admin.siteSetup"
+msgstr "Site Kurulum"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Ayar Adı"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Ayar Değeri"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "{$contextName} ve tüm  içeriklerini kalıcı olarak silmek istediğinizden emin misiniz?"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "İndirilecek herhangi bir dil bulunmuyor."
+
+msgid "admin.languages.availableLocales"
+msgstr "Kullanılabilir Diller"
+
+msgid "admin.languages.installLocale"
+msgstr "Dil Yükle"
+
+msgid "admin.scheduledTask"
+msgstr "Zamanlanmış görevler"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Görev süreci başlatıldı."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Görev süreci durduruldu."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Görev günlüğü oluşturulmadı."
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Tüm zamanlanmış görev yürütme günlüklerini silmek istediğinizden emin "
+"misiniz?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Zamanlanmış Görev Kayıtlarını Temizle"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Değerlendirme hatırlatıcısı"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Abonelik sona erme hatırlatıcısı"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Kullanım istatistikleri dosya yükleyici görevi"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "{$file} dosyası açılamadı ve reddedildi."
+
+msgid "admin.settings.siteLogo"
+msgstr "Site Logosu"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$path} bir klasör değil veya okunabilir değil."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Dosya yükleyici"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} kurulumu bu görevi otomatik olarak yürüttü ve tamamladı. "
+"Günlük dosyasını buradan indirebilirsiniz: {$url}"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "{$path} temel yolu ortak dosyalar dizini içinde bulunmalıdır."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} dosyası {$currentFilePath} konumundan {$destinationPath} "
+"konumuna taşınamadı"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} dosyası işlendi ve arşivlendi."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bu dil sitenin birincil dilidir. Başka bir dili birincil dil olarak seçmeden "
+"önce bunu silemezsiniz."
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Yayın için planlanmış gönderileri yayımla"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Sitenin birincil dilini değiştirmek istediğinizden emin misiniz? "
+"Kullanıcıların sitenin birincil dilinde bulunması zorunlu olan isimleri, "
+"eğer eksik ise mevcut birincil dilden kopyalanacak."
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Bu ayarı yalnızca yöneticinin değiştirmesine izin verilir."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Rolleri Devre Dışı Bırak"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Toplu E-postaları Kısıtla"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Toplu E-posta"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Editöryal Raporlama Bildirimi"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "`{$namespace}` alanı için mevcut komutlar:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "komut [argümanlar]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Kullanım:"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Sonraki"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Önceki"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Son Sayı"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Sayfalandırma"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Kuyruğa alınmış tüm işleri listeleyin. Sonuçları sayfalara ayırmak "
+"istiyorsanız ---page= and --perPage= parametrelerini kullanabilirsiniz."
+
+msgid "admin.systemInformation.view"
+msgstr "Sistem Bilgilerini Görüntüle"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Sistemin ve çalıştığı sunucunun sürümü ve yapılandırma ayarları hakkındaki "
+"bilgileri görüntüleyin."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Görev Kayıtlarını Sil"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Çalışan tüm zamanlanmış görev süreçlerinin kayıtlarını silin."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Yapılandırılmış ayarlarınız ile DOI'leri gönderin"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Siz de dahil tüm sistem kullanıcılarının oturumları kapatılacak ve tekrar "
+"giriş yapmaları gerekecek."
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Önbellek dosyalarını sistemden silin. Bu yalnızca geliştirme ortamlarında "
+"yapılmalıdır."
+
+msgid "admin.deleteCache"
+msgstr "Önbelleği Sil"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "{$contextId} bağlamında editörlere hatırlatılacak durumları belirleyin"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Doğrulanmamış, süresi dolmuş kullanıcıları silin"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Editörlere bekleyen görevlerini hatırlatan bir e-posta gönderin"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "DB-IP city lite veritabanını güncelleyin"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Zaman geçersiz bir formatta."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Aşağıdakilerden birini mi demek istediniz?"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Seçenek boş bırakılamaz! Kullanım yöntemini kontrol edin."
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "{$option} seçeneği mevcut değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Context ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "Aday makale ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "Kurum kimlikleri bir dizi değildir."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Günlük ve aylık istatistikleri takip edin"
+
+msgid "admin.settings.statistics.collection"
+msgstr "Veri Toplama"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Ne tür kullanım istatistiklerinin toplanması gerektiğini yapılandırın."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Veri Depolama"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+"Sunucuda hangi kullanım istatistiklerinin depolanması gerektiğini "
+"yapılandırın."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Sushi Protokol"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platform"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "Representation ID bir tam sayı değil."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Bağlantı türü desteklenmiyor."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Dosya türü desteklenmiyor."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Ülke, iki alfabetik karakterden oluşan bir dize değildir."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Aylık veya Günlük İstatistikler"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Yalnızca aylık istatistikleri izleyin"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Kayıtları Sıkıştır"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Platform ID"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Bölge, en fazla üç alfanumerik karakter uzunluğunda olmalıdır."
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Log dosyalarını sıkıştır"

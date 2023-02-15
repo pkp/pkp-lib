@@ -1,0 +1,282 @@
+# TAKASHI IMAGIRE <imagire@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-12-10 15:20+0000\n"
+"Last-Translator: TAKASHI IMAGIRE <imagire@gmail.com>\n"
+"Language-Team: Japanese <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"ja_JP/>\n"
+"Language: ja_JP\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ダウンロードできる言語はありません。"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "ファイル・ローダー"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "ファイル{$filename}は処理され、アーカイブされました。"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "ファイル{$filename}を{$currentFilePath}から{$destinationPath}に移動できませんでした"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "フォルダ{$path}はディレクトリではないか、読み取りできません。"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "ベースパス{$path}は公開ファイルディレクトリ内にある必要があります。"
+
+msgid "admin.version"
+msgstr "バージョン"
+
+msgid "admin.version.upToDate"
+msgstr "このシステムは最新版です"
+
+msgid "admin.version.updateAvailable"
+msgstr "新バージョンが利用できます"
+
+msgid "admin.versionRevision"
+msgstr "リビジョン"
+
+msgid "admin.version.moreInfo"
+msgstr "さらなる情報"
+
+msgid "admin.versionMinor"
+msgstr "マイナー"
+
+msgid "admin.versionMajor"
+msgstr "メジャー"
+
+msgid "admin.version.latest"
+msgstr "最新バージョン"
+
+msgid "admin.versionHistory"
+msgstr "バージョン履歴"
+
+msgid "admin.version.downloadPatch"
+msgstr "パッチのダウンロード"
+
+msgid "admin.version.downloadPackage"
+msgstr "ダウンロード"
+
+msgid "admin.version.checkForUpdates"
+msgstr "更新チェック"
+
+msgid "admin.versionBuild"
+msgstr "ビルド"
+
+msgid "admin.systemInformation"
+msgstr "システム情報"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "設定ファイル <tt>config.inc.php</tt> が存在しないか，読み込めない，あるいは無効です。"
+
+msgid "admin.siteSetup"
+msgstr "サイトセットアップ"
+
+msgid "admin.siteSettings"
+msgstr "サイト設定"
+
+msgid "admin.siteManagement"
+msgstr "サイト管理"
+
+msgid "admin.siteAdmin"
+msgstr "サイト管理"
+
+msgid "admin.settings.siteTheme"
+msgstr "サイトシーム"
+
+msgid "admin.settings.siteTitle"
+msgstr "サイト名"
+
+msgid "admin.settings.siteLogo"
+msgstr "サイトロゴ"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "サイトのスタイルシート"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "サイトのスタイルシートのフォーマットが不正です。使用できるフォーマットは、.css です。"
+
+msgid "admin.settings.siteLanguage"
+msgstr "サイトの言語"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "この設定を変更できるのは管理者だけです。"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "役割の無効化"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "一括メールを制限する"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "最小パスワード長"
+
+msgid "admin.settings.introduction"
+msgstr "あいさつ文"
+
+msgid "admin.settings.contactName"
+msgstr "連絡担当者名"
+
+msgid "admin.settings.contactEmail"
+msgstr "連絡担当者メールアドレス"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "一括メール"
+
+msgid "admin.settings.about"
+msgstr "このサイトについて"
+
+msgid "admin.settings"
+msgstr "設定"
+
+msgid "admin.server.platform"
+msgstr "OS"
+
+msgid "admin.server.phpVersion"
+msgstr "PHPバージョン"
+
+msgid "admin.serverInformation"
+msgstr "サーバ情報"
+
+msgid "admin.server.dbVersion"
+msgstr "データベースサーババージョン"
+
+msgid "admin.server.dbDriver"
+msgstr "データベースドライバ"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apacheバージョン"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "読期間終了リマインダー"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "査読リマインダー"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "予約済み投稿の発行"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "スケジュールされたタスク実行ログをクリア"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "スケジュールされたタスク実行ログをすべて削除してもよろしいですか。"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName}のインストールが自動的にこのタスクを実行され、完了しました。ログファイルは "
+"下記のリンクからダウンロードできます：{$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "タスクはログを生成しませんでした。"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "タスクプロセスが停止しました。"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "タスクプロセスが開始されました。"
+
+msgid "admin.scheduledTask"
+msgstr "スケジュールされたタスク"
+
+msgid "admin.phpInfo"
+msgstr "PHP環境設定情報"
+
+msgid "admin.languages.uninstall"
+msgstr "言語のアンインストール"
+
+msgid "admin.languages.reload"
+msgstr "言語のリロード"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "インストールできる言語はありません。"
+
+msgid "admin.languages.languageSettings"
+msgstr "言語設定"
+
+msgid "admin.languages.installNewLocales"
+msgstr "新規言語のインストール"
+
+msgid "admin.languages.installLocales"
+msgstr "インストール"
+
+msgid "admin.languages.installLocale"
+msgstr "言語のインストール"
+
+msgid "admin.languages.availableLocales"
+msgstr "使用可能な言語"
+
+msgid "admin.languages.installLanguages"
+msgstr "言語の管理"
+
+msgid "admin.languages.installedLocales"
+msgstr "インストールされている言語"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"この言語をリロードしてもよいですか。これを実行すると、サイトで修正した各言語の既存データ（メールテンプレートなど）が消去され、システム提供のデフォルトに戻"
+"されます。"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"サイトのプライマリ言語を変更してもよろしいですか 。サイトのプライマリ言語で必要なユーザーの名前は存在しない既存のプライマリ言語からコピーされます。"
+
+msgid "admin.languages.cantDisable"
+msgstr "この言語は、サイトのプライマリ言語です。 別のプライマリ言語を選択するまで無効にすることはできません。"
+
+msgid "admin.expireSessions"
+msgstr "ユーザーセッションの破棄"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "設定を表示"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"アップデートされる設定内容は下記のとおりです。設定の変更を適用するために <tt>config.inc.php</tt> "
+"をテキストエディタで開き，下記のテキストフィールドの記述と置き換えてください。"
+
+msgid "admin.dateInstalled"
+msgstr "インストール日"
+
+msgid "admin.currentVersion"
+msgstr "現在のバージョン"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "{$contextName}とそのすべてのコンテンツを完全に削除してもよろしいですか。"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "設定ファイルの内容"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"全てのユーザのセッションを破棄してもよいですか。これを実行すると、現在、システムにログインしているユーザは（あなたを含めて）すべて再ログインが必要になりま"
+"す。"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "コンパイル済テンプレートのキャッシュをクリアしてもよいですか？"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"あなたの設定ファイルは正常にアップデートされました。もしあなたのサイトがまだ正常に機能していない場合は，<tt>config.inc.php</tt> "
+"を直接編集して設定を修正する必要があるかもしれません。"
+
+msgid "admin.clearTemplateCache"
+msgstr "テンプレートキャッシュのクリア"
+
+msgid "admin.clearDataCache"
+msgstr "データキャッシュのクリア"
+
+msgid "admin.adminFunctions"
+msgstr "管理機能"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "設定値"
+
+msgid "admin.systemInfo.settingName"
+msgstr "設定名"

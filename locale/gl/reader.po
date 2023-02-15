@@ -1,0 +1,80 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-02-10 21:53+0000\n"
+"Last-Translator: Real Academia Galega <reacagal@gmail.com>\n"
+"Language-Team: Galician <http://translate.pkp.sfu.ca/projects/pkp-lib/reader/"
+"gl_ES/>\n"
+"Language: gl_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "reader.fullText"
+msgstr "Texto completo:"
+
+msgid "comments.viewAllComments"
+msgstr "Ver todos os comentarios"
+
+msgid "comments.title"
+msgstr "Título"
+
+msgid "comments.replies"
+msgstr "Respostas"
+
+msgid "comments.readMore"
+msgstr "Ler máis"
+
+msgid "comments.readerComments"
+msgstr "Comentarios dos lectores"
+
+msgid "comments.postReply"
+msgstr "Enviar resposta"
+
+msgid "comments.postAnonymously"
+msgstr "Publicar este comentario de forma anónima"
+
+msgid "comments.oneReply"
+msgstr "(1 resposta)"
+
+msgid "comments.nReplies"
+msgstr "({$num} respostas)"
+
+msgid "comments.noComments"
+msgstr "Non se publicaron comentarios dos lectores."
+
+msgid "comments.name"
+msgstr "Nome"
+
+msgid "comments.inResponseTo"
+msgstr "En resposta a <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.enterComment"
+msgstr "Escribir comentario"
+
+msgid "comments.emailReply"
+msgstr "Resposta por correo electrónico"
+
+msgid "comments.email"
+msgstr "Correo electrónico"
+
+msgid "comments.delete"
+msgstr "Eliminar este comentario"
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+"Ao eliminar este comentario, tamén se eliminarán as respostas ao mesmo. "
+"Estás seguro/a de que desexas facelo?"
+
+msgid "comments.titleRequired"
+msgstr "É necesario un título para o comentario."
+
+msgid "comments.body"
+msgstr "Texto"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.anonymous"
+msgstr "Usuario/a anónimo/a"

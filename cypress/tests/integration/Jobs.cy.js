@@ -110,7 +110,7 @@
 
       // Requeue all remaining failed jobs at once
       cy.get('button:contains("Requeue All Failed Jobs")').click();
-      cy.waitJQuery(2000); // Wait for UI to update and complete ajax request
+      cy.wait(2000); // Wait for UI to update and complete ajax request
 
       // check for 0 failed job rows after requeue all action
       cy.get('.pkpTable')

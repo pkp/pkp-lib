@@ -39,23 +39,23 @@ class DataObjectTest extends PKPTestCase
     {
         // Set data with and without locale
         $this->dataObject->setData('testVar1', 'testVal1');
-        $this->dataObject->setData('testVar2', 'testVal2_US', 'en_US');
+        $this->dataObject->setData('testVar2', 'testVal2_US', 'en');
         $this->dataObject->setData('testVar2', 'testVal2_DE', 'de_DE');
         $expectedResult = [
             'testVar1' => 'testVal1',
             'testVar2' => [
-                'en_US' => 'testVal2_US',
+                'en' => 'testVal2_US',
                 'de_DE' => 'testVal2_DE'
             ]
         ];
         self::assertEquals($expectedResult, $this->dataObject->getAllData());
         self::assertEquals('testVal1', $this->dataObject->getData('testVar1'));
-        self::assertNull($this->dataObject->getData('testVar1', 'en_US'));
-        self::assertEquals('testVal2_US', $this->dataObject->getData('testVar2', 'en_US'));
+        self::assertNull($this->dataObject->getData('testVar1', 'en'));
+        self::assertEquals('testVal2_US', $this->dataObject->getData('testVar2', 'en'));
 
         // Unset a few values
         $this->dataObject->unsetData('testVar1');
-        $this->dataObject->unsetData('testVar2', 'en_US');
+        $this->dataObject->unsetData('testVar2', 'en');
         $expectedResult = [
             'testVar2' => [
                 'de_DE' => 'testVal2_DE'
@@ -65,13 +65,13 @@ class DataObjectTest extends PKPTestCase
 
         // Make sure that un-setting a non-existent value doesn't hurt
         $this->dataObject->unsetData('testVar1');
-        $this->dataObject->unsetData('testVar2', 'en_US');
+        $this->dataObject->unsetData('testVar2', 'en');
         self::assertEquals($expectedResult, $this->dataObject->getAllData());
 
         // Make sure that getting a non-existent value doesn't hurt
         self::assertNull($this->dataObject->getData('testVar1'));
-        self::assertNull($this->dataObject->getData('testVar1', 'en_US'));
-        self::assertNull($this->dataObject->getData('testVar2', 'en_US'));
+        self::assertNull($this->dataObject->getData('testVar1', 'en'));
+        self::assertNull($this->dataObject->getData('testVar2', 'en'));
 
         // Unsetting the whole translation set will kill the variable
         $this->dataObject->unsetData('testVar2');
@@ -81,12 +81,12 @@ class DataObjectTest extends PKPTestCase
         $testVal1 = 'testVal1';
         $testVal2 = 'testVal2';
         $this->dataObject->setData('testVar1', $testVal1);
-        $this->dataObject->setData('testVar2', $testVal2, 'en_US');
+        $this->dataObject->setData('testVar2', $testVal2, 'en');
         $testVal1 = $testVal2 = 'something else';
         $expectedResult = [
             'testVar1' => 'testVal1',
             'testVar2' => [
-                'en_US' => 'testVal2'
+                'en' => 'testVal2'
             ]
         ];
         $result = & $this->dataObject->getAllData();
@@ -94,12 +94,12 @@ class DataObjectTest extends PKPTestCase
 
         // Should be returned by-ref:
         $testVal1 = & $this->dataObject->getData('testVar1');
-        $testVal2 = & $this->dataObject->getData('testVar2', 'en_US');
+        $testVal2 = & $this->dataObject->getData('testVar2', 'en');
         $testVal1 = $testVal2 = 'something else';
         $expectedResult = [
             'testVar1' => 'something else',
             'testVar2' => [
-                'en_US' => 'something else'
+                'en' => 'something else'
             ]
         ];
         $result = & $this->dataObject->getAllData();
@@ -129,16 +129,16 @@ class DataObjectTest extends PKPTestCase
         $testData = [
             'testVar1' => 'testVal1',
             'testVar2' => [
-                'en_US' => 'testVal2'
+                'en' => 'testVal2'
             ]
         ];
         $this->dataObject->setAllData($testData);
         self::assertTrue($this->dataObject->hasData('testVar1'));
         self::assertTrue($this->dataObject->hasData('testVar2'));
-        self::assertTrue($this->dataObject->hasData('testVar2', 'en_US'));
-        self::assertFalse($this->dataObject->hasData('testVar1', 'en_US'));
+        self::assertTrue($this->dataObject->hasData('testVar2', 'en'));
+        self::assertFalse($this->dataObject->hasData('testVar1', 'en'));
         self::assertFalse($this->dataObject->hasData('testVar2', 'de_DE'));
         self::assertFalse($this->dataObject->hasData('testVar3'));
-        self::assertFalse($this->dataObject->hasData('testVar3', 'en_US'));
+        self::assertFalse($this->dataObject->hasData('testVar3', 'en'));
     }
 }

@@ -99,7 +99,7 @@
 		</field>
 		<field name="installed_locales" type="C2" size="1024">
 			<NOTNULL/>
-			<DEFAULT VALUE="en_US"/>
+			<DEFAULT VALUE="en"/>
 			<descr>Locales for which support has been installed.</descr>
 		</field>
 		<field name="supported_locales" type="C2" size="1024">

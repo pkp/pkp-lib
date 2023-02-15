@@ -62,34 +62,6 @@ class ReviewRemind extends Mailable
     public function recipients(User $recipient, ?string $locale = null): Mailable
     {
         $this->traitRecipients([$recipient], $locale);
-        $request = Application::get()->getRequest();
-        $dispatcher = $request->getDispatcher();
-
-        if ($this->context->getData('reviewerAccessKeysEnabled')) {
-            $accessKeyManager = new AccessKeyManager();
-            $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey(
-                $this->context->getId(),
-                $recipient->getId(),
-                $this->reviewAssignment->getId(), $expiryDays
-            );
-            $reviewUrlArgs = [
-                'submissionId' => $this->reviewAssignment->getSubmissionId(),
-                'reviewId' => $this->reviewAssignment->getId(),
-                'key' => $accessKey,
-            ];
-
-            $this->viewData[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] =
-                $dispatcher->url(
-                    $request,
-                    Application::ROUTE_PAGE,
-                    $this->context->getData('urlPath'),
-                    'reviewer',
-                    'submission',
-                    null,
-                    $reviewUrlArgs
-                );
-        }
 
         // Old REVIEW_REMIND template contains additional variable not supplied by _Variable classes
         $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));

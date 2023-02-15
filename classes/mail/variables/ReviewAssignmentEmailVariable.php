@@ -19,6 +19,7 @@ use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\core\PKPString;
 use PKP\mail\Mailable;
+use PKP\security\AccessKeyManager;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewAssignmentEmailVariable extends Variable
@@ -59,7 +60,7 @@ class ReviewAssignmentEmailVariable extends Variable
         [
             self::REVIEW_DUE_DATE => $this->getReviewDueDate($locale, $context),
             self::RESPONSE_DUE_DATE => $this->getResponseDueDate($locale, $context),
-            self::REVIEW_ASSIGNMENT_URL => $this->getSubmissionUrl($context),
+            self::REVIEW_ASSIGNMENT_URL => $this->getReviewAssignmentUrl($context),
         ];
     }
 
@@ -87,12 +88,43 @@ class ReviewAssignmentEmailVariable extends Variable
 
     /**
      * URL of the submission for the assigned reviewer
+     *
+     * Returns the one-click access URL if the journal has
+     * configured this and the recipient matches the assigned
+     * reviewer.
      */
-    protected function getSubmissionUrl(Context $context): string
+    protected function getReviewAssignmentUrl(Context $context): string
     {
         $application = PKPApplication::get();
         $request = $application->getRequest();
         $dispatcher = $application->getDispatcher();
+
+        if ($this->useOneClickUrl()) {
+            $accessKeyManager = new AccessKeyManager();
+            $expiryDays = ($context->getData('numWeeksPerReview') + 4) * 7;
+            $recipient = $this->mailable->getRecipients()[0];
+            $accessKey = $accessKeyManager->createKey(
+                $context->getId(),
+                $recipient->getId(),
+                $this->reviewAssignment->getId(),
+                $expiryDays
+            );
+
+            return $dispatcher->url(
+                $request,
+                PKPApplication::ROUTE_PAGE,
+                $context->getData('urlPath'),
+                'reviewer',
+                'submission',
+                null,
+                [
+                    'submissionId' => $this->reviewAssignment->getSubmissionId(),
+                    'reviewId' => $this->reviewAssignment->getId(),
+                    'key' => $accessKey,
+                ]
+            );
+        }
+
         return $dispatcher->url(
             $request,
             PKPApplication::ROUTE_PAGE,
@@ -102,5 +134,29 @@ class ReviewAssignmentEmailVariable extends Variable
             null,
             ['submissionId' => $this->reviewAssignment->getSubmissionId()]
         );
+    }
+
+    /**
+     * Whether or not to use the one-click access URL to the review assignment
+     */
+    protected function useOneClickUrl(): bool
+    {
+        return $this->getContext()->getData('reviewerAccessKeysEnabled') && $this->isReviewerRecipient();
+    }
+
+    /**
+     * Whether or not the assigned reviewew is the only recipient
+     * of this email
+     */
+    protected function isReviewerRecipient(): bool
+    {
+        if (!method_exists($this->mailable, 'getRecipients')) {
+            return false;
+        }
+
+        $recipients = $this->mailable->getRecipients();
+
+        return count($recipients) === 1
+            && $recipients[0]->getId() === $this->reviewAssignment->getReviewerId();
     }
 }

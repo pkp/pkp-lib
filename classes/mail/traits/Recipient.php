@@ -23,6 +23,8 @@ use PKP\mail\variables\RecipientEmailVariable;
 
 trait Recipient
 {
+    protected array $_recipients = [];
+
     /**
      * @copydoc Illuminate\Mail\Mailable::setAddress()
      *
@@ -48,6 +50,7 @@ trait Recipient
      */
     public function recipients(array $recipients, ?string $locale = null): Mailable
     {
+        $this->_recipients = [];
         $to = [];
         foreach ($recipients as $recipient) {
             if (!is_a($recipient, Identity::class)) {
@@ -57,6 +60,7 @@ trait Recipient
                 'email' => $recipient->getEmail(),
                 'name' => $recipient->getFullName(true, false, $locale),
             ];
+            $this->_recipients[] = $recipient;
         }
 
         // Override the existing recipient data
@@ -68,5 +72,15 @@ trait Recipient
         $this->setAddress($to);
         $this->variables[] = new RecipientEmailVariable($recipients, $this);
         return $this;
+    }
+
+    /**
+     * Get the recipients
+     *
+     * @return Identity[]
+     */
+    public function getRecipients(): array
+    {
+        return $this->_recipients;
     }
 }

@@ -5,8 +5,7 @@
 		"fileId",
 		"fileStage",
 		"name",
-		"submissionId",
-		"uploaderUserId"
+		"submissionId"
 	],
 	"properties": {
 		"_href": {
@@ -260,7 +259,10 @@
 		},
 		"uploaderUserId": {
 			"type": "integer",
-			"apiSummary": true
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
 		},
 		"uploaderUserName": {
 			"type": "string",

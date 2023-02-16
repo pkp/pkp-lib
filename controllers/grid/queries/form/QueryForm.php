@@ -92,14 +92,15 @@ class QueryForm extends Form
             $headNote->setDateCreated(Core::getCurrentDate());
             $noteDao->insertObject($headNote);
 
-            // Edit time limit notice 
-            $this->_allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
             assert(isset($query));
             // New queries will not have a head note.
             $this->_isNew = !$query->getHeadNote();
         }
+
+        // Edit time limit notice 
+        $this->_allowedEditTimeNotice = ['show' => false, 'limit' => 60];
 
         $this->setQuery($query);
 
@@ -384,6 +385,7 @@ class QueryForm extends Form
         // Notify assistants, authors and reviewers that they have x minutes to update their own discussion
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
             $this->_allowedEditTimeNotice['show'] = true;
+            $this->_allowedEditTimeNotice['limit'] = (int) ($this->_allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
         }
 
         $templateMgr->assign([

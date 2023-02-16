@@ -1,0 +1,419 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
+"PO-Revision-Date: 2022-11-04 17:21+0000\n"
+"Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
+"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"ru_RU/>\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Задаем название"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Задаем значение"
+
+msgid "admin.adminFunctions"
+msgstr "Административные функции"
+
+msgid "admin.clearDataCache"
+msgstr "Очистить кэши данных"
+
+msgid "admin.clearTemplateCache"
+msgstr "Очистить кэш шаблонов"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам может быть необходимо вручную исправить вашу конфигурацию, отредактировав <tt>config.inc.php</tt> напрямую."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Вы уверены, что хотите очистить кэш скомпилированных шаблонов?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Содержимое конфигурационного файла"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Вы уверены, что хотите навсегда удалить {$contextName} и все содержимое?"
+
+msgid "admin.currentVersion"
+msgstr "Текущая версия"
+
+msgid "admin.dateInstalled"
+msgstr "Дата установки"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения к конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем текстовом редакторе и заменить его содержимое содержимым текстового поля, расположенного ниже."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Показать новую конфигурацию"
+
+msgid "admin.expireSessions"
+msgstr "Прекратить сессии пользователей"
+
+msgid "admin.languages.cantDisable"
+msgstr "Этот язык является основным языком сайта. Вы не можете отключить его до тех пор, пока не выберете другой основной язык."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Вы уверены, что хотите изменить основной язык сайта? Имена пользователей, которые обязательно должны быть указаны на основном языке сайта, будут скопированы из текущего основного языка в новый, если такие имена отсутствуют на новом основном языке сайта."
+
+msgid "admin.languages.confirmReload"
+msgstr "Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению всех данных пользователя, связанных с этим языком, например, изменений в шаблонах писем электронной почты."
+
+msgid "admin.languages.installedLocales"
+msgstr "Установленные языки"
+
+msgid "admin.languages.installLanguages"
+msgstr "Управление языками"
+
+msgid "admin.languages.availableLocales"
+msgstr "Доступные языки"
+
+msgid "admin.languages.installLocale"
+msgstr "Установить язык"
+
+msgid "admin.languages.installLocales"
+msgstr "Установить"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Установить новые языки"
+
+msgid "admin.languages.languageSettings"
+msgstr "Настройки языка"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Нет доступных дополнительных языков для установки."
+
+msgid "admin.languages.reload"
+msgstr "Заново загрузить язык"
+
+msgid "admin.languages.uninstall"
+msgstr "Удалить язык"
+
+msgid "admin.phpInfo"
+msgstr "Расширенная информация PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Запланированная задача"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Начато выполнение задачи."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Закончено выполнение задачи."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Задача не создавала записей для журнала событий."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ваша инсталляция {$softwareName} автоматически выполнила и завершила эту задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Вы уверены, что хотите удалить все журналы событий, содержащие информацию о выполнении запланированных задач?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Удалить журналы событий с информацией о выполнении запланированных задач"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Опубликовать материалы, запланированные к публикации"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Напоминание рецензенту"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Напоминание об окончании подписки"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Задача загрузчика файлов статистики использования"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Файл «{$file}» не может быть открыт и был отклонен."
+
+msgid "admin.server.apacheVersion"
+msgstr "Версия Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Драйвер базы данных"
+
+msgid "admin.server.dbVersion"
+msgstr "Версия СУБД"
+
+msgid "admin.serverInformation"
+msgstr "Информация о сервере"
+
+msgid "admin.server.phpVersion"
+msgstr "Версия PHP"
+
+msgid "admin.server.platform"
+msgstr "ОС платформы"
+
+msgid "admin.settings"
+msgstr "Настройки"
+
+msgid "admin.settings.about"
+msgstr "О сайте"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail контактного лица"
+
+msgid "admin.settings.contactName"
+msgstr "Имя контактного лица"
+
+msgid "admin.settings.introduction"
+msgstr "Преамбула"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Минимальная длина пароля (в символах)"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Язык сайта"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Неверный формат таблицы стилей сайта. Разрешенный формат — .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Таблица стилей сайта"
+
+msgid "admin.settings.siteLogo"
+msgstr "Логотип сайта"
+
+msgid "admin.settings.siteTitle"
+msgstr "Название сайта"
+
+msgid "admin.settings.siteTheme"
+msgstr "Тема оформления сайта"
+
+msgid "admin.siteAdmin"
+msgstr "Администрирование сайта"
+
+msgid "admin.siteManagement"
+msgstr "Управление сайтом"
+
+msgid "admin.siteSettings"
+msgstr "Настройки сайта"
+
+msgid "admin.siteSetup"
+msgstr "Установка сайта"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Конфигурационный файл <tt>config.inc.php</tt> не существует, не доступен для чтения или является неправильным."
+
+msgid "admin.systemInformation"
+msgstr "Информация о системе"
+
+msgid "admin.versionBuild"
+msgstr "Сборка"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Проверить наличие обновлений"
+
+msgid "admin.version.downloadPackage"
+msgstr "Скачать"
+
+msgid "admin.version.downloadPatch"
+msgstr "Скачать исправление"
+
+msgid "admin.versionHistory"
+msgstr "История версий"
+
+msgid "admin.version.latest"
+msgstr "Последняя версия"
+
+msgid "admin.versionMajor"
+msgstr "Старшая"
+
+msgid "admin.versionMinor"
+msgstr "Младшая"
+
+msgid "admin.version.moreInfo"
+msgstr "Дополнительная информация"
+
+msgid "admin.versionRevision"
+msgstr "Ревизия"
+
+msgid "admin.version.updateAvailable"
+msgstr "Доступна обновленная версия"
+
+msgid "admin.version.upToDate"
+msgstr "Ваша система актуальна"
+
+msgid "admin.version"
+msgstr "Версия"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Папка {$path} не является каталогом или не доступна для чтения."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Файл {$filename} был обработан и помещен в архив."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Загрузчик файлов"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Нет доступных языков для скачивания."
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Только администратор может изменять эту настройку."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Отключить роли"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Ограничить множественную рассылку писем"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Множественная рассылка писем"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Уведомление о редакционном отчёте"
+
+msgid "admin.jobs.createdAt"
+msgstr "Создана в {$createdAt}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Создана"
+
+msgid "admin.jobs.list.attempts"
+msgstr "Попытки"
+
+msgid "admin.jobs.list.queueName"
+msgstr "Очередь"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Задача"
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "navigation.tools.jobs"
+msgstr "Задачи"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Показать задачи в очереди"
+
+msgid "admin.jobs.totalCount"
+msgstr "Всего в очереди <strong>{$total}</strong> задач"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Вы имели в виду один из следующих вариантов?"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Параметр {$option} не существует."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "У нас {$total} задач в очереди"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Все задачи удалены!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Не удалось удалить все задачи."
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Для использования этой команды вы должны передать как минимум ID задачи, '--"
+"all' или '--queue='"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Задача была удалена!"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Неправильный ID задачи"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Следующая"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Предыдущая"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Текущая"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Разбивка на страницы"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Создана"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Доступна"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Зарезервирована"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Попытки"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Отображаемое название задачи"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Очередь"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Задачи в очереди"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Параметр не может быть пустым! Проверьте использование метода."
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Показать параметры, используемые в команде Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Показать использование команды Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Показать количество задач в очереди"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Добавить тестовую задачу в очередь по умолчанию"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Удалить конкретную задачу из очереди по её Id. Если вы хотите удалить все "
+"задачи, используйте параметр  --all. Если вы хотите удалить все задачи из "
+"конкретной очереди, используйте параметр --queue="
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Список всех задач в очереди. Если вы хотите разбить результат по страницам, "
+"используйте параметры --page= и --perPage="
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Доступные команды для пространства имён `{$namespace}`:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "команда [аргументы]"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Использование:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Депонировать DOI в настроенном агентстве регистрации"
+
+msgid "admin.deleteCache"
+msgstr "Удалить кэши"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Удаляет файлы кэша из системы. Это стоит делать только на серверах, "
+"использующихся для разработки."

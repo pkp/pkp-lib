@@ -1,0 +1,299 @@
+# Studiorimau <studiorimau@gmail.com>, 2021.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-10-29 06:57+0000\n"
+"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ms/>"
+"\n"
+"Language: ms\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.expireSessions"
+msgstr "Tamat tempoh Sesi Pengguna"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Paparkan Konfigurasi Baharu"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Kandungan konfigurasi anda yang dikemas kini dipaparkan di bawah. Untuk "
+"menggunakan perubahan konfigurasi anda mesti membuka <tt>config.inc.php</tt> "
+"dalam teks editor yang sesuai dan menggantikan kandungannya dengan kandungan "
+"medan teks di bawah."
+
+msgid "admin.dateInstalled"
+msgstr "Tarikh dipasang"
+
+msgid "admin.currentVersion"
+msgstr "Versi terkini"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Adakah anda pasti mahu memadam {$contextName} dan semua kandungannya secara "
+"kekal?"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Kandungan fail konfigurasi"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Adakah anda pasti mahu tamat tempoh semua sesi pengguna? Semua pengguna yang "
+"sedang log masuk ke sistem akan dipaksa untuk log masuk semula (termasuk "
+"anda sendiri)."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Adakah anda pasti mahu mengosongkan cache templat yang disusun?"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Fail konfigurasi anda telah berjaya dikemas kini. Sila ambil perhatian "
+"bahawa jika laman anda tidak lagi berfungsi dengan betul, anda mungkin perlu "
+"membetulkan konfigurasi anda secara manual dengan mengedit "
+"<tt>config.inc.php</tt> secara langsung."
+
+msgid "admin.clearTemplateCache"
+msgstr "Kosongkan Cache Templat"
+
+msgid "admin.clearDataCache"
+msgstr "Kosongkan Cache Data"
+
+msgid "admin.adminFunctions"
+msgstr "Fungsi Pentadbiran"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Tetapan Nilai"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Nama Tetapan"
+
+msgid "admin.server.dbDriver"
+msgstr "Pemandu pangkalan data"
+
+msgid "admin.server.apacheVersion"
+msgstr "versi Apache"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Peringatan tamat tempoh langganan"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Peringatan ulasan"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Terbitkan penyerahan yang dijadualkan untuk diterbitkan"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Kosongkan Log Pelaksanaan Tugasan Berjadual"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Adakah anda pasti mahu memadam semua log pelaksanaan tugas yang dijadualkan?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Pemasangan {$softwareName} anda secara automatik dilaksanakan dan "
+"menyelesaikan tugasan ini dan anda boleh memuat turun fail log di sini: "
+"{$url}"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tugasan tidak menghasilkan log."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proses tugas dihentikan."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proses tugasan bermula."
+
+msgid "admin.scheduledTask"
+msgstr "Tugas yang dijadualkan"
+
+msgid "admin.phpInfo"
+msgstr "Maklumat PHP Lanjutan"
+
+msgid "admin.languages.uninstall"
+msgstr "Nyahpasang Bahasa/Locale"
+
+msgid "admin.languages.reload"
+msgstr "Muat semula Bahasa/Locale"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Tiada bahasa/locales tambahan tersedia untuk pemasangan."
+
+msgid "admin.languages.languageSettings"
+msgstr "Tetapan bahasa"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Pasang Bahasa/Locales Baharu"
+
+msgid "admin.languages.installLocales"
+msgstr "Pasang"
+
+msgid "admin.languages.installLocale"
+msgstr "Pasang Bahasa/Locale"
+
+msgid "admin.languages.availableLocales"
+msgstr "Bahasa/Locales Tersedia"
+
+msgid "admin.languages.installLanguages"
+msgstr "Urus Bahasa/Locales"
+
+msgid "admin.languages.installedLocales"
+msgstr "Bahasa/Locales yang Dipasang"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Adakah anda pasti mahu memuatkan semula bahasa ini? Ini akan memadam "
+"sebarang data khusus bahasa yang sedia ada seperti templat e-mel custom."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Adakah anda pasti mahu menukar bahasa/locale utama laman? Nama pengguna, "
+"yang diperlukan dalam bahasa/locale utama laman, akan disalin daripada "
+"bahasa utama sedia ada di mana mereka tiada."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bahasa/locale ini ialah bahasa utama laman. Anda tidak boleh "
+"menyahdayakannya sehingga anda memilih bahasa/locale utama yang lain."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Pemuat fail"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Fail {$filename} telah diproses dan diarkibkan."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Fail {$filename} tidak dapat dialihkan daripada {$currentFilePath} ke "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} bukan direktori atau tidak boleh dibaca."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Laluan url {$path} mesti berada di dalam direktori fail awam."
+
+msgid "admin.version"
+msgstr "Versi"
+
+msgid "admin.version.upToDate"
+msgstr "Sistem anda adalah terkini"
+
+msgid "admin.version.updateAvailable"
+msgstr "Versi yang dikemas kini tersedia"
+
+msgid "admin.versionRevision"
+msgstr "Semakan"
+
+msgid "admin.version.moreInfo"
+msgstr "Maklumat lanjut"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.version.latest"
+msgstr "Versi terkini"
+
+msgid "admin.versionHistory"
+msgstr "Sejarah versi"
+
+msgid "admin.version.downloadPatch"
+msgstr "Muat turun Patch"
+
+msgid "admin.version.downloadPackage"
+msgstr "Muat turun"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Semak kemas kini"
+
+msgid "admin.versionBuild"
+msgstr "Bina"
+
+msgid "admin.systemInformation"
+msgstr "Maklumat Sistem"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Fail konfigurasi <tt>config.inc.php</tt> tidak wujud, tidak boleh dibaca "
+"atau tidak sah."
+
+msgid "admin.siteSetup"
+msgstr "Persediaan Laman"
+
+msgid "admin.siteSettings"
+msgstr "Tetapan Laman"
+
+msgid "admin.siteManagement"
+msgstr "Pengurusan Laman"
+
+msgid "admin.siteAdmin"
+msgstr "Pentadbir Laman"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema Laman"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nama Laman"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo Laman"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Lembaran gaya laman"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Format lembaran gaya laman tidak sah. Format yang diterima ialah .css."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Bahasa laman"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Hanya pentadbir dibenarkan mengubah suai tetapan ini."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Nyahdayakan Peranan"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Hadkan E-mel Pukal"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Panjang kata laluan minimum (aksara)"
+
+msgid "admin.settings.introduction"
+msgstr "Pengenalan"
+
+msgid "admin.settings.contactName"
+msgstr "Nama kenalan utama"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mel kenalan utama"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "E-mel Pukal"
+
+msgid "admin.settings.about"
+msgstr "Mengenai Laman"
+
+msgid "admin.settings"
+msgstr "Tetapan"
+
+msgid "admin.server.platform"
+msgstr "platform OS"
+
+msgid "admin.server.phpVersion"
+msgstr "versi PHP"
+
+msgid "admin.serverInformation"
+msgstr "Maklumat Pelayan"
+
+msgid "admin.server.dbVersion"
+msgstr "Versi pelayan pangkalan data"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Tiada bahasa/locales yang tersedia untuk dimuat turun."

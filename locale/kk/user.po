@@ -1,0 +1,501 @@
+# Beibarys <beibarys_sultan@mail.ru>, 2022.
+# Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-03 06:20+0000\n"
+"Last-Translator: Gabit Aitbayev <gabit.aitbayev@ayu.edu.kz>\n"
+"Language-Team: Kazakh <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
+"kk_KZ/>\n"
+"Language: kk_KZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.profile.form.profileImage"
+msgstr "Профиль суреті"
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Сіздің жаңа пароліңіз ескі парольмен бірдей."
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Құпиясөзді енгізу қажет."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Электрондық пошта арқылы ашық қол жеткізу туралы хабарлама беру"
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Сіз енгізген ағымдағы пароль дұрыс болмады."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Жаңа құпия сөзді енгізу керек."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Пошта мекенжайын көрсету қажет."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Сіз аты жоқ тілге фамилияны қостыңыз. Осы тілге атау қосыңыз."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Бұл атауды көрсету қажет."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Жарамды электрондық пошта мекенжайы қажет."
+
+msgid "user.profile.form.countryRequired"
+msgstr "Елді көрсету қажет."
+
+msgid "user.profile.editProfile"
+msgstr "Профильді өңдеу"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Тіркелгіңіздің құпия сөзін өзгерту үшін төмендегі ағымдағы және жаңа құпия "
+"сөздерді енгізіңіз."
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Толық аты-жөніңізді көрсетіңіз, себебі автор жарияланған жұмыста көрсетілуі "
+"керек. Мысал: Доктор Алан П. Мванденга"
+
+msgid "user.preferredPublicName"
+msgstr "Қалаған қоғамдық атау"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.repeatPassword"
+msgstr "Құпиясөзді қайталаңыз"
+
+msgid "user.password"
+msgstr "Құпиясөз"
+
+msgid "user.name"
+msgstr "Аты"
+
+msgid "user.myAccount"
+msgstr "Менің аккаунтым"
+
+msgid "user.mailingAddress"
+msgstr "Поштасы"
+
+msgid "user.hello"
+msgstr "Cәлеметсіз бе, "
+
+msgid "user.logOutAs"
+msgstr "Жүйеден {$username} ретінде шығу"
+
+msgid "user.logOut"
+msgstr "Жүйеден шығу"
+
+msgid "user.login.resetPassword"
+msgstr "Құпиясөзді қалпына келтіру"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Мені жүйеде ұстаңыз"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Растауды күтетін тіркеу"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Көруді жалғастыру"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Жаңа материалды жасаңыз"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Ұсынылған материалдарды қарау"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Тіркелгеніңіз үшін рахмет! Әрі қарай не істегіңіз келеді?"
+
+msgid "user.login.registrationComplete"
+msgstr "Тіркеу аяқталды"
+
+msgid "user.login.registeredEmail"
+msgstr "Тіркелген пайдаланушының электрондық поштасы"
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Сіздің электрондық пошта мекенжайыңызға жаңа пароль жіберілді. Енді сіз "
+"сайтқа жаңа парольмен кіре аласыз."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Кешіріңіз, сіз өткен сілтеменің мерзімі аяқталды немесе жарамсыз. Құпия "
+"сөзді қайта қалпына келтіріп көріңіз."
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Егер тиісті есептік жазба табылса, растау электрондық пошта мекенжайына "
+"жіберіледі. Құпия сөзді қалпына келтіру үшін электрондық поштадағы "
+"нұсқауларды орындаңыз."
+
+msgid "user.login"
+msgstr "Кіру"
+
+msgid "user.login.loginError"
+msgstr "Пайдаланушы аты немесе пароль дұрыс емес. Көріңіз тағы да."
+
+msgid "user.login.forgotPassword"
+msgstr "Құпия сөзіңізді ұмыттыңыз ба?"
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Осы веб-сайтқа кірмес бұрын жаңа құпия сөзді таңдау керек.<br /><br /> "
+"Есептік жазбаңыздың құпия сөзін өзгерту үшін төменде пайдаланушы атыңызды "
+"және ағымдағы және жаңа құпия сөздерді енгізіңіз."
+
+msgid "user.login.activated"
+msgstr ""
+"Есептік жазбаңызды іске қосқаныңыз үшін рахмет. Енді сіз өзіңіздің есептік "
+"жазбаңызды жасау кезінде көрсеткен тіркелгі деректерін пайдаланып кіре "
+"аласыз."
+
+msgid "user.login.activate"
+msgstr "Есептік жазбаны іске қосу"
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+"Біз сізге растау хатын {$email} мекен-жайына жібердік. Жаңа есептік "
+"жазбаңызды іске қосу үшін осы электрондық поштадағы нұсқауларды орындаңыз. "
+"Егер сіз электрондық поштаны көрмесеңіз, оның спам қалтасына салынғанын "
+"тексеріңіз."
+
+msgid "user.login.accountDisabled"
+msgstr ""
+"Есептік жазбаңыз өшірілді. Қосымша ақпарат алу үшін әкімшіге хабарласыңыз."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Есептік жазбаңыз келесі себеппен өшірілді: {$reason}"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Профиль кескінінің дұрыс емес пішімі немесе тым үлкен кескін. Рұқсат етілген "
+"форматтар .gif, .jpg немесе .png және кескін өлшемі 150X150 пиксельден "
+"аспауы керек."
+
+msgid "user.familyName"
+msgstr "Тегі"
+
+msgid "user.group"
+msgstr "Пайдаланушылар тобы"
+
+msgid "user.gossip.description"
+msgstr ""
+"Осы шолушының жазбаларын басқа әкімшілерге, менеджерлерге және барлық "
+"редакторларға көрінетін етіп жазыңыз. Жазбалар болашақ тексеру тапсырмалары "
+"үшін көрінетін болады."
+
+msgid "user.gossip"
+msgstr "Редакциялық ескертпелер"
+
+msgid "user.interests"
+msgstr "Мүдделерді қарау"
+
+msgid "user.givenName"
+msgstr "Берілген аты"
+
+msgid "user.email"
+msgstr "Электрондық пошта"
+
+msgid "user.editMyProfile"
+msgstr "Менің профилімді өңдеу"
+
+msgid "user.dateRegistered"
+msgstr "Тіркелген күні"
+
+msgid "user.dateLastLogin"
+msgstr "Соңғы кіру"
+
+msgid "user.changePassword"
+msgstr "Құпиясөзді ауыстыру"
+
+msgid "user.changeMyPassword"
+msgstr "Менің құпиясөзімді ауыстыру"
+
+msgid "user.biography"
+msgstr "Оқу жоспары (мысалы, бөлім және атақ)"
+
+msgid "user.authorization.submissionQuery"
+msgstr "Сізде бұл талқылауға рұқсат жоқ."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Бұл тексеру тапсырмасына кіруге рұқсатыңыз жоқ."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Плагин көрсетілмеген және міндетті болып табылады."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Жұмыс процесінің кезеңі көрсетілмеген."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+"Қазіргі уақытта сізде жұмыс процесінің осы кезеңіне кіру мүмкіндігі жоқ."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Менеджер рөлі бар пайдаланушы (яғни өндіріс редакторы) жалғастырмас бұрын "
+"кезеңге тағайындалуы керек."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Бұл операцияға кіру үшін рұқсат етілген пайдаланушылар тобын орнату керек."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Сізге осы операцияға қол жеткізуге рұқсат етілген рөл тағайындалмады."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Ағымдағы рөл бұл операцияға қол жеткізе алмайды."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Сізге бас тартылды қол жеткізу. Қазіргі уақытта бұл сайтқа кіру шектеулі."
+
+msgid "user.authorization.privateOperation"
+msgstr "Сіз қол жеткізгіңіз келген операция жеке немесе жоқ."
+
+msgid "user.authorization.loginRequired"
+msgstr "Логин қажет."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Сіз бұл әрекетті контекстсіз шақыра алмайсыз (баспасөз, журнал, конференция "
+"және т.б.)."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Процестің аутентификация белгісі жоқ немесе жарамсыз."
+
+msgid "user.authorization.accessDenied"
+msgstr "Кіруге тыйым салынады."
+
+msgid "user.affiliations"
+msgstr "Мүшелік"
+
+msgid "user.affiliation.description"
+msgstr "(Сіздің оқу орныңыз, мысалы, \"Саймон Фрейзер университеті\")"
+
+msgid "user.affiliation"
+msgstr "Қосылу"
+
+msgid "user.accountInformation"
+msgstr "Есептік жазба туралы ақпарат"
+
+msgid "user.privacyLink"
+msgstr ""
+"Сіздің деректеріңіз біздің <a href=\"{$privacyUrl}\" target=\"_blank\">"
+"құпиялылық туралы мәлімдемеге</a> сәйкес сақталады."
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"API кілтін жасамас бұрын, веб-сайтыңыздың әкімшісі құпияны конфигурация "
+"файлына орнатуы керек (\"api_key_secret\")."
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Жаңа API кілтін жасау сол пайдаланушы үшін кез-келген қолданыстағы кілттің "
+"күшін жояды."
+
+msgid "user.apiKey.generate"
+msgstr "Жаңа API кілтін жасаңыз"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Осы тіркелгіге кіру үшін API кілтін пайдаланып сыртқы бағдарламаларды қосыңыз"
+
+msgid "user.apiKey"
+msgstr "API кілті"
+
+msgid "user.profile.public"
+msgstr "Қоғамдық"
+
+msgid "user.profile.contact"
+msgstr "Байланыс"
+
+msgid "user.profile.identity"
+msgstr "Сәйкестілік"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Сіз көрсеткен ORCID идентификаторы жарамсыз. Толық URL мекенжайын көрсетіңіз "
+"(мысалы, \"https://orcid.org/0000-0002-1825-0097 \")."
+
+msgid "user.orcid"
+msgstr "ORCID идентификаторы"
+
+msgid "user.workingLanguages"
+msgstr "Жұмыс тілдері"
+
+msgid "user.username"
+msgstr "Пайдаланушы аты"
+
+msgid "user.userHome"
+msgstr "Пайдаланушының басты беті"
+
+msgid "user.url"
+msgstr "Басты беттің URL мекенжайы"
+
+msgid "user.title"
+msgstr "Тақырыбы"
+
+msgid "user.signature"
+msgstr "Қолы"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Маған растау электрондық поштасын, соның ішінде менің атым мен паролімді "
+"жіберіңіз"
+
+msgid "user.sendPassword"
+msgstr "Растау"
+
+msgid "user.roles"
+msgstr "Рөлдер"
+
+msgid "user.role.layoutEditors"
+msgstr "Орналасу редакторлары"
+
+msgid "user.role.layoutEditor"
+msgstr "Орналасу редакторы"
+
+msgid "user.role.proofreaders"
+msgstr "Корректорлар"
+
+msgid "user.role.proofreader"
+msgstr "Корректор"
+
+msgid "user.role.copyeditors"
+msgstr "Көшірушілер"
+
+msgid "user.role.copyeditor"
+msgstr "Көшіруші"
+
+msgid "user.role.siteAdmins"
+msgstr "Сайт әкімшіліктері"
+
+msgid "user.role.siteAdmin"
+msgstr "Сайт әкімшілігі"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенттер"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.readers"
+msgstr "Оқырмандар"
+
+msgid "user.role.reader"
+msgstr "Оқырман"
+
+msgid "user.role.editors"
+msgstr "Редакторлар"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.authors"
+msgstr "Авторлар"
+
+msgid "user.role.author_s"
+msgstr "Авторлар"
+
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.assistant"
+msgstr "Көмекшісі"
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Сіз сәтті тіркелдіңіз. Пайдаланушы профилін толтыру үшін <a href=\""
+"{$profileUrl}\">мына</a> сілтемені басыңыз."
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Пайдаланушы аты тек кіші әріптерді, сандарды және сызықшаларды / астын "
+"сызуды қамтуы керек."
+
+msgid "user.register"
+msgstr "Тіркелу"
+
+msgid "user.register.registerAs"
+msgstr "{$contextName} ретінде тіркеліңіз..."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Парольде кемінде {$length} таңбадан болуы керек."
+
+msgid "user.register.form.usernameExists"
+msgstr "Таңдалған пайдаланушы атын басқа пайдаланушы қолданады."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Кем дегенде бір рөлді таңдау керек."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Пайдаланушы аты тек кіші әріптік-сандық таңбаларды, астын сызу таңбаларын "
+"және сызықшаларды қамтуы мүмкін және әріптік-сандық таңбадан басталып, "
+"аяқталуы керек."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Электрондық пошта мекенжайының өрістері бірдей емес."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Құпиясөздер бірдей емес."
+
+msgid "user.register.form.emailExists"
+msgstr "Таңдалған электрондық пошта мекенжайын басқа пайдаланушы пайдаланады."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Ия, мен жаңа жарияланымдар мен хабарландырулар туралы хабарлама алғым келеді."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ия, мен <a href=\"{$privacyUrl}\" target=\"_blank\">құпиялылық туралы</a> "
+"мәлімдемеге сәйкес деректерді жинауға және сақтауға келісемін."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Төмендегі есептік жазбаңыздың электрондық пошта мекенжайын енгізіңіз және "
+"сізге парольді қалпына келтіру туралы нұсқаулары бар электрондық пошта "
+"жіберіледі."
+
+msgid "user.login.registerNewAccount"
+msgstr "Тіркелу"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Жаңа құпиясөзді қайталаңыз"
+
+msgid "user.profile.publicProfile"
+msgstr "Пайдаланушы профилі"
+
+msgid "user.profile"
+msgstr "Профиль"
+
+msgid "user.profile.oldPassword"
+msgstr "Ағымдағы құпиясөз"
+
+msgid "user.profile.newPassword"
+msgstr "Жаңа құпиясөз"
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Ағымдағы құпия сөзді сақтау үшін пароль өрістерін бос қалдырыңыз."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Сіз құпиялылық туралы мәлімдеменің шарттарымен келісуіңіз керек."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Пайдаланушы аты қажет."
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Пайдаланушы тобы қажет."
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Көрсетілген URL мекен-жайы жарамсыз. URL мекенжайын екі рет тексеріп, "
+"әрекетті қайталаңыз. (Кеңес: URL мекен-жайының басына http:// қосып көріңіз.)"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Жаңа шығарылымда электрондық пошта хабарламалары жарияланды"

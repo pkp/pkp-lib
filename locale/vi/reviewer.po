@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-08-14 13:48+0000\n"
+"Last-Translator: Tran Ngoc Trung <khuchatthienduong@gmail.com>\n"
+"Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/vi_VN/>\n"
+"Language: vi_VN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""
+"Người dùng hiện tại không được chỉ định làm người phản biện cho tài liệu "
+"được yêu cầu."
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Chỉ cho biên tập viên"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Cho tác giả và biên tập viên"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Biên tập viên yêu cầu bạn chấp nhận hoặc từ chối lời mời đánh giá trước Ngày "
+"đến hạn phản hồi và hoàn thành việc đánh giá trước Ngày đến hạn đánh giá."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Về thời hạn phản biện"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Cảm ơn bạn đã hoàn thành việc xem xét bài gửi này. Đánh giá của bạn đã được "
+"gửi thành công. Chúng tôi đánh giá cao sự đóng góp của bạn đối với chất "
+"lượng của công bố mà chúng tôi xuất bản; biên tập viên có thể liên hệ lại "
+"với bạn để biết thêm thông tin nếu cần."
+
+msgid "reviewer.confirmSubmit"
+msgstr "Bạn có chắc chắn muốn gửi đánh giá này không?"
+
+msgid "reviewer.complete"
+msgstr "Đánh giá đã được gửi"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Tải lên các tập tin mà bạn muốn biên tập viên hoặc tác giả tham khảo, bao "
+"gồm các phiên bản sửa đổi của (các) tập tin gốc."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Nhập (hoặc dán) nhận xét của bạn về bài gửi này vào biểu mẫu bên dưới."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Nhấp vào tên tập tin bên dưới để tải xuống các tập tin được liên kết với nội "
+"dung bài gửi này."
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Nhà xuất bản này đã không có hướng dẫn nào dành cho người phản biện."
+
+msgid "reviewer.submission.guidelines"
+msgstr "Hướng dẫn đánh giá"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Xung đột lợi ích"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Tôi có thể có xung đột lợi ích (Ghi rõ bên dưới)"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Tôi không có bất kỳ xung đột lợi ích nào"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Nhà xuất bản này có một chính sách để tiết lộ những xung đột lợi ích từ nhận "
+"xét của bạn. Vui lòng dành một chút thời gian để xem lại chính sách này."
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Hướng dẫn phản biện"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Lưu để sử dụng sau"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Gửi đánh giá"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Tiếp tục đến Bước #3"
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Chấp nhận đánh giá, tiếp tục sang Bước #2"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Bạn có thể cung cấp cho biên tập viên bất kỳ lý do nào khiến bạn từ chối "
+"đánh giá này ở trường bên dưới."
+
+msgid "reviewer.submission.declineReview"
+msgstr "Từ chối yêu cầu đánh giá"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Các tập tin gửi bởi người phản biện"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Xem tất cả chi tiết bài gửi"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Bạn đã được chọn làm người đánh giá tiềm năng của bài gửi dưới đây sau. Dưới "
+"đây là tổng quan về bài gửi, cũng như thời gian dự kiến cho bài đánh giá "
+"này. Chúng tôi hy vọng rằng bạn có thể tham gia."
+
+msgid "reviewer.step1.request"
+msgstr "Yêu cầu đánh giá"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Hoàn thành"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Tải xuống & Đánh giá"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Hướng dẫn"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Yêu cầu"

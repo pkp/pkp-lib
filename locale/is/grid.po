@@ -1,0 +1,716 @@
+# Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-03-20 16:56+0000\n"
+"Last-Translator: Kolbrun Reynisdottir <kolla@probus.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
+"is_IS/>\n"
+"Language: is_IS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "grid.action.addContributor"
+msgstr "Bæta við framlagsaðila"
+
+msgid "grid.contributor.title"
+msgstr "Uppruni stuðnings"
+
+msgid "grid.action.deleteCategory"
+msgstr "Eyða flokk"
+
+msgid "grid.action.editCategory"
+msgstr "Breyta flokk"
+
+msgid "grid.action.addCategory"
+msgstr "Bæta við flokk"
+
+msgid "grid.action.deleteSeries"
+msgstr "Eyða ritröð"
+
+msgid "grid.action.editSeries"
+msgstr "Breyta ritröð"
+
+msgid "grid.action.addSeries"
+msgstr "Bæta við ritröð"
+
+msgid "grid.action.editSponsor"
+msgstr "Breyta styrktaraðila"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Eyða styrktaraðila"
+
+msgid "grid.action.addSponsor"
+msgstr "Bæta við styrktaraðila"
+
+msgid "grid.sponsor.title"
+msgstr "Styrktaraðilar"
+
+msgid "grid.columns.locale"
+msgstr "Tungumál"
+
+msgid "grid.columns.auditor"
+msgstr "Endurskoðandi"
+
+msgid "grid.columns.url"
+msgstr "Vefslóð"
+
+msgid "grid.columns.institution"
+msgstr "Stofnun"
+
+msgid "grid.columns.actions"
+msgstr "Aðgerðir"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Þessi ritrýni er tilbúin. Smelltu á minnispunktamerkið til vinstri til að "
+"lesa ritrýnina."
+
+msgid "grid.task.status.unfinished"
+msgstr "Verki ólokið"
+
+msgid "grid.task.status.uploaded"
+msgstr "Dálkurinn \"Titill\" gefur til kynna hver hlóð upp skránni"
+
+msgid "grid.task.status.new"
+msgstr "Merkt þegar búið er að taka til skoðunar"
+
+msgid "grid.task.status.completed"
+msgstr "Þessu verki er lokið"
+
+msgid "grid.action.users"
+msgstr "Skoða/velja notendur"
+
+msgid "grid.action.moreItems"
+msgstr "Hlaða meiru"
+
+msgid "grid.action.install"
+msgstr "Setja upp"
+
+msgid "grid.action.preview"
+msgstr "Forskoða"
+
+msgid "grid.action.copy"
+msgstr "Afrita"
+
+msgid "grid.action.deactivate"
+msgstr "Afvirkja"
+
+msgid "grid.action.activate"
+msgstr "Virkja"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Ertu viss um að þú viljir flytja út alla notendur?"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Flytja út alla notendur"
+
+msgid "grid.action.logInAs"
+msgstr "Skrá inn sem"
+
+msgid "grid.action.bookInfo"
+msgstr "Upplýsingar um handrit"
+
+msgid "grid.action.enable"
+msgstr "Virkja"
+
+msgid "grid.action.unconsiderReview"
+msgstr ""
+"Þessari ritrýni er lokið, en þú gætir valið að taka hana ekki til greina"
+
+msgid "grid.action.history"
+msgstr "Skoða sögu"
+
+msgid "grid.action.unassignUser"
+msgstr "Afskrá notanda"
+
+msgid "grid.action.mergeUser"
+msgstr "Sameina notendur"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Bæta við tilkynningu"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Bæta við tegund tilkynningar"
+
+msgid "grid.action.uploadFile"
+msgstr "Hlaða upp skrá"
+
+msgid "grid.action.thankReviewer"
+msgstr "Senda ritrýni þakkarskilaboð"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Skoða stefnu um hagsmunaárekstra"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Skoða ritrýnileiðbeiningar"
+
+msgid "grid.action.newRound"
+msgstr "Stofna nýja umferð"
+
+msgid "grid.action.sendReminder"
+msgstr "Senda notanda verkáminningu"
+
+msgid "grid.action.viewMetadata"
+msgstr "Skoða lýsigögn þessa handrits"
+
+msgid "grid.action.viewLibrary"
+msgstr "Skoða skjalasafn"
+
+msgid "grid.action.advancedSearch"
+msgstr "Ýtarleg leit"
+
+msgid "grid.action.search"
+msgstr "Leita"
+
+msgid "grid.action.selectCreate"
+msgstr "Stofna nýjan ritrýni"
+
+msgid "grid.action.enrolExisting"
+msgstr "Skrá notanda sem ritrýni"
+
+msgid "grid.action.details"
+msgstr "Skoða þetta atriði"
+
+msgid "grid.action.disable"
+msgstr "Afvirkja"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Fjarlægja þennan notendahóp"
+
+msgid "grid.action.editUserGroup"
+msgstr "Breyta þessum notendahóp"
+
+msgid "grid.action.addUserGroup"
+msgstr "Bæta við nýjum notendahóp"
+
+msgid "grid.action.notify"
+msgstr "Tilkynna notanda"
+
+msgid "grid.action.expand"
+msgstr "Þysja út"
+
+msgid "grid.action.requestAccount"
+msgstr "Bæta við þátttakanda"
+
+msgid "grid.action.expandAll"
+msgstr "Þysja allt út"
+
+msgid "grid.action.resetEmail"
+msgstr "Endurstilla þetta tölvupóstssniðmát"
+
+msgid "grid.action.disableEmail"
+msgstr "Afvirkja þetta tölvupóstssniðmát"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "Breyta þessu tölvupósts-sniðmáti"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "Bæta við nýju sniðmáti fyrir tölvupóst"
+
+msgid "grid.action.resetAll"
+msgstr "Endurstilla öll atriði á sjálfgefin gildi"
+
+msgid "grid.action.orderItems"
+msgstr "Virkja pöntunarham"
+
+msgid "grid.action.importexport"
+msgstr "Flytja inn eða út innihald eða gögn vefsíðu"
+
+msgid "grid.action.settings"
+msgstr "Stillingar"
+
+msgid "grid.action.sendToProduction"
+msgstr "Senda þetta handrit í framleiðslu"
+
+msgid "grid.action.requestRevisions"
+msgstr "Biðja um endurskoðun fyrir þetta handrit"
+
+msgid "grid.action.externalReview"
+msgstr "Senda þetta handrit í ytri ritrýni"
+
+msgid "grid.action.internalReview"
+msgstr "Senda þetta handrit í innri ritrýni"
+
+msgid "grid.action.decline"
+msgstr "Hafna þessu handriti"
+
+msgid "grid.action.accept"
+msgstr "Samþykkja þetta handrit"
+
+msgid "grid.action.selectFiles"
+msgstr "Velja skrár til að sjá um"
+
+msgid "grid.action.editFile"
+msgstr "Breyta skrá"
+
+msgid "grid.action.addFile"
+msgstr "Bæta við skrá"
+
+msgid "grid.action.addReviewer"
+msgstr "Bæta við ritrýni"
+
+msgid "grid.action.email"
+msgstr "Senda tölvupóst"
+
+msgid "grid.action.readReview"
+msgstr "Lesa þessa ritrýni"
+
+msgid "grid.action.downloadAll"
+msgstr "Hlaða niður öllum skrám sem safni"
+
+msgid "grid.action.moveItem"
+msgstr "Flytja atriði"
+
+msgid "grid.action.wizard"
+msgstr "Stillingaforrit"
+
+msgid "grid.action.collapseAll"
+msgstr "Fella allt saman"
+
+msgid "grid.action.collapse"
+msgstr "Fella saman"
+
+msgid "grid.action.extendAll"
+msgstr "Lengja allt"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Hætta við röðun"
+
+msgid "grid.action.saveOrdering"
+msgstr "Vista röð"
+
+msgid "grid.action.order"
+msgstr "Röð"
+
+msgid "grid.action.upgrade"
+msgstr "Uppfæra"
+
+msgid "grid.action.addAuditor"
+msgstr "Bæta við endurskoðanda"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Eyða höfundi"
+
+msgid "grid.action.editAuthor"
+msgstr "Breyta höfundi"
+
+msgid "grid.action.addAuthor"
+msgstr "Bæta við höfundi"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Ertu viss um að þú viljir endurheimta sjálfgefin gildi?"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Endurheimta sjálfgefin gildi"
+
+msgid "grid.action.moreInformation"
+msgstr "Nánari upplýsingar"
+
+msgid "grid.action.setApproval"
+msgstr "Setja samþykki"
+
+msgid "grid.action.disapprove"
+msgstr "Hafna"
+
+msgid "grid.action.approve"
+msgstr "Samþykkja"
+
+msgid "grid.action.edit"
+msgstr "Breyta"
+
+msgid "grid.action.remove"
+msgstr "Fjarlægja"
+
+msgid "grid.action.editorialHistory"
+msgstr "Ritstjórnarsaga"
+
+msgid "grid.action.deleteSection"
+msgstr "Eyða kafla"
+
+msgid "grid.action.export"
+msgstr "Flytja út"
+
+msgid "grid.action.editSection"
+msgstr "Breyta kafla"
+
+msgid "grid.action.editMedia"
+msgstr "Breyta miðli"
+
+msgid "grid.action.deleteMedia"
+msgstr "Eyða miðli"
+
+msgid "grid.action.deleteFile"
+msgstr "Eyða skrá"
+
+msgid "grid.action.delete"
+msgstr "Eyða"
+
+msgid "grid.action.reload"
+msgstr "Endurhlaða"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Samþykkja próförk og senda á næsta þrep"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Aftengja þennan ritrýni"
+
+msgid "grid.action.addUser"
+msgstr "Bæta við notanda"
+
+msgid "grid.action.updateQuery"
+msgstr "Uppfæra umræðu"
+
+msgid "grid.action.deleteQuery"
+msgstr "Eyða umræðu"
+
+msgid "grid.action.readQuery"
+msgstr "Lesa umræðu"
+
+msgid "grid.action.addQuery"
+msgstr "Bæta við umræðu"
+
+msgid "grid.action.addNote"
+msgstr "Bæta við minnispunkti"
+
+msgid "grid.action.addItem"
+msgstr "Bæta við atriði"
+
+msgid "grid.action.sort"
+msgstr "Flokka/raða"
+
+msgid "grid.action.manageAccess"
+msgstr "Stýra aðgangi"
+
+msgid "grid.action.uninstall"
+msgstr "Fjarlægja"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Þessi hlutur er í fjar-vistun."
+
+msgid "grid.noAuditors"
+msgstr "Enginn endurskoðandi"
+
+msgid "grid.settings"
+msgstr "Stillingar"
+
+msgid "grid.noItems"
+msgstr "Engin atriði"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Gátlistaatriði"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Gátlisti handrita"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Handritasafn"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"Prófarkalestri og lagfæringum er lokið.  Þú gætir viljað sleppa þessu verki"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Veldu tegund..."
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Engar valmyndir"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Engin atriði á valmynd"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "Bæta við atriði"
+
+msgid "grid.action.addNavigationMenu"
+msgstr "Bæta við valmynd"
+
+msgid "grid.submission.itemTitle"
+msgstr "Höfundur; Titill"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr "Hlutverkið {$userGroupName} aftengt frá þrepi {$stageName}."
+
+msgid "grid.userGroup.removed"
+msgstr "Hlutverkið {$userGroupName} fjarlægt."
+
+msgid "grid.userGroup.assignedStage"
+msgstr "Hlutverkið {$userGroupName} tengt við þrep {$stageName}."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Ekki hægt að fjarlægja hlutverkið {$userGroupName}. Núna er(u) {$usersCount} "
+"notandi/notendur með það úthlutað."
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+"Hlutverkið {$userGroupName} er sjálfgefið og ekki hægt að fjarlægja það."
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "Aðgangsheimild stillt á"
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Hlutverki af lista úthlutað til"
+
+msgid "grid.userGroup.allStages"
+msgstr "Öll verkflæðisþrep"
+
+msgid "grid.userGroup.unassignStage"
+msgstr "Aftengja þrep"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Úthluta þrepi"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Leyfisskilmálar"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Tengiliður (ef annar en höfundur/útgefandi)"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Eigandi höfundaréttar"
+
+msgid "grid.artworkFile.credit"
+msgstr "Kredit"
+
+msgid "grid.artworkFile.caption"
+msgstr "Skýringartexti"
+
+msgid "grid.plugin.disable"
+msgstr "Ertu viss um að þú viljir afvirkja viðbótar-/tengiforritið?"
+
+msgid "grid.plugin.allCategories"
+msgstr "Allir flokkar"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Núverandi listi"
+
+msgid "grid.preparedEmails.title"
+msgstr "Tilbúin tölvupóstssniðmát"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Ertu viss um að þú viljir sameina notendareikninginn \"{$oldUsername}\" við "
+"reikning með notendanafninu \"{$newUsername}\"?  Notendareikningur  \""
+"{$oldUsername}\" verður ekki til eftir það. Aðgerðina er ekki hægt að "
+"afturkalla."
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Allir skráðir notendur"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Sameina við þennan notanda"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Sameina notanda"
+
+msgid "grid.user.mergeUsers"
+msgstr "Sameina notendur"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Innskráning sem þessi notandi? Allar aðgerðir sem þú framkvæmir verða "
+"eignaðar þessum notanda."
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "Vinsamlega veldu notanda"
+
+msgid "grid.user.selectUser"
+msgstr "Velja notanda"
+
+msgid "grid.user.addRole"
+msgstr "Bæta við hlutverki"
+
+msgid "grid.user.addRoles"
+msgstr "Bæta við hlutverkum"
+
+msgid "grid.user.step2"
+msgstr "Skref #2: Setja notendahlutverk á {$userFullName}"
+
+msgid "grid.user.step1"
+msgstr "Skref #1: Skrá upplýsingar um notanda"
+
+msgid "grid.user.userNoRoles"
+msgstr "Notandinn hefur ekkert hlutverk."
+
+msgid "grid.user.userRoles"
+msgstr "Hlutverk notanda"
+
+msgid "grid.user.userDetails"
+msgstr "Upplýsingar um notanda"
+
+msgid "grid.user.lessDetails"
+msgstr "Minni upplýsingar um notanda"
+
+msgid "grid.user.moreDetails"
+msgstr "Meiri upplýsingar um notanda"
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr "Fara fram á að notendur breyti lykilorði við næstu innskráningu."
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Notandi verður að breyta lykilorði við næstu innskráningu."
+
+msgid "grid.user.mustChangePassword"
+msgstr "Breyta lykilorði"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "Bjóða notanda velkominn með tölvupósti."
+
+msgid "grid.user.notifyUser"
+msgstr "Tilkynna notanda"
+
+msgid "grid.user.generatePasswordDescription"
+msgstr "Búa til slembi-lykilorð fyrir þennan notanda."
+
+msgid "grid.user.generatePassword"
+msgstr "Búa til lykilorð"
+
+msgid "grid.user.mustProvideName"
+msgstr "Vinsamlega skráðu fyrst a.m.k. eftirnafn notandans."
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+"Þú hefur ekki heimild til að sýsla með þennan notanda. Til að geta unnið með "
+"notendur þarftu annað hvort að vera vefstjóri eða með réttindi til sýsla með "
+"allt það sem notandinn er skráður í."
+
+msgid "grid.user.errorEmail"
+msgstr ""
+"Villa kom upp við sendingu tölvupóstsins. Vinsamlega athugaðu hvort "
+"uppsetning á póstþjóni virki og/eða hafðu samband við kerfisstjóra."
+
+msgid "grid.user.error"
+msgstr "Villa kom upp við umsýslu á þessum notanda. Vinsamlega reyndu aftur."
+
+msgid "grid.user.enableReason"
+msgstr "Ástæða þess að notandi er gerður virkur"
+
+msgid "grid.user.disableReason"
+msgstr "Ástæða fyrir afvirkjun notanda"
+
+msgid "grid.user.disable"
+msgstr "Afvirkja"
+
+msgid "grid.user.enable"
+msgstr "Virkja"
+
+msgid "grid.user.email"
+msgstr "Netfang"
+
+msgid "grid.user.edit"
+msgstr "Breyta notanda"
+
+msgid "grid.user.enroll"
+msgstr "Skrá notanda"
+
+msgid "grid.user.add"
+msgstr "Bæta við notanda"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Allar aðgangsheimildir"
+
+msgid "grid.user.allRoles"
+msgstr "Öll hlutverk"
+
+msgid "grid.user.currentEnrollment"
+msgstr "Núverandi skráningar"
+
+msgid "grid.user.currentUsers"
+msgstr "Núverandi notendur"
+
+msgid "grid.roles.stageAssignment"
+msgstr "Úthlutun þrepa"
+
+msgid "grid.roles.add"
+msgstr "Stofna nýtt hlutverk"
+
+msgid "grid.roles.currentRoles"
+msgstr "Núverandi hlutverk"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Fullt"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Útgáfulistar"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Skammstafað"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Sýna"
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Form"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Í tímaritinu verða framlagsaðilar til útgáfunnar skilgreindir á eftirfarandi "
+"formi."
+
+msgid "contributor.listPanel.preview"
+msgstr "Forskoða"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Skrá aðaltengilið"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Aðal tengiliður"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Safn framleiðslusniðmáta"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Framleiðslusafn"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Ritrýnisafn"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Ritstjórnarsafn"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Skrár"
+
+msgid "grid.noFiles"
+msgstr "Engar skrár"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Svarmöguleikar"
+
+msgid "grid.reviewForm.title"
+msgstr "Ritrýnieyðublöð"
+
+msgid "grid.action.newVersion"
+msgstr "Stofna nýja útgáfu"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ertu viss um að þú viljir fjarlægja {$name} sem framlagsaðila? Það er ekki "
+"hægt að afturkalla þessa aðgerð."
+
+msgid "grid.action.deleteContributor"
+msgstr "Eyða framlagsaðila"
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr "Taka með ókláruð handrit sem ekki voru send inn af höfundi."
+
+msgid "grid.artworkFile.placement"
+msgstr "Staðsetning í handriti"
+
+msgid "author.users.contributor.name"
+msgstr "Nafn"
+
+msgid "author.users.contributor.email"
+msgstr "Netfang"
+
+msgid "author.users.contributor.role"
+msgstr "Hlutverk"
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr "Á vafralistum"
+
+msgid "grid.action.editContributor"
+msgstr "Breyta framlagsaðila"

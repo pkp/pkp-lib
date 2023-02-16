@@ -1,0 +1,294 @@
+# Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
+"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"de_DE/>\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Name der Einstellung"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Wert der Einstellung"
+
+msgid "admin.adminFunctions"
+msgstr "Administrationsaufgaben"
+
+msgid "admin.clearDataCache"
+msgstr "Den Datenspeicher leeren"
+
+msgid "admin.clearTemplateCache"
+msgstr "Den Vorlagenspeicher leeren"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?"
+
+msgid "admin.confirmExpireSessions"
+msgstr "Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Inhalt der Konfigurationsdatei"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt dauerhaft löschen wollen?"
+
+msgid "admin.currentVersion"
+msgstr "Aktuelle Version"
+
+msgid "admin.dateInstalled"
+msgstr "Installiert am"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr "Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Neue Konfiguration anzeigen"
+
+msgid "admin.expireSessions"
+msgstr "Benutzer/innensitzungen schließen"
+
+msgid "admin.languages.cantDisable"
+msgstr "Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt haben."
+
+msgid "admin.languages.confirmReload"
+msgstr "Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-Vorlagen) gelöscht."
+
+msgid "admin.languages.installedLocales"
+msgstr "Eingerichtete Regionaleinstellungen"
+
+msgid "admin.languages.installLanguages"
+msgstr "Regionaleinstellungen verwalten"
+
+msgid "admin.languages.availableLocales"
+msgstr "Verfügbare Regionaleinstellungen"
+
+msgid "admin.languages.installLocale"
+msgstr "Regionaleinstellungen installieren"
+
+msgid "admin.languages.installLocales"
+msgstr "Installieren"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Neue Regionaleinstellungen installieren"
+
+msgid "admin.languages.languageSettings"
+msgstr "Spracheinstellungen"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Keine weiteren Regionaleinstellungen verfügbar."
+
+msgid "admin.languages.reload"
+msgstr "Regionaleinstellung neu laden"
+
+msgid "admin.languages.uninstall"
+msgstr "Regionaleinstellung deinstallieren"
+
+msgid "admin.phpInfo"
+msgstr "Ausführliche Informationen zu PHP"
+
+msgid "admin.scheduledTask"
+msgstr "Geplante Aufgabe"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Geplante Aufgabe wurde gestartet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Geplante Aufgabe wurde beendet."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Geplante Aufgabe hat keine Logdatei erzeugt."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr "Ihre {$softwareName}-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Logdateien zur Ausführung geplanter Aufgaben löschen"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Erinnerung an Begutachtung"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Erinnerung an Ende des Abonnements"
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Task zum Laden der Nutzungsstatistik-Datei"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Die Datei {$file} konnte nicht geöffnet werden und wurde zurückgewiesen."
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache-Version"
+
+msgid "admin.server.dbDriver"
+msgstr "Datenbanktreiber"
+
+msgid "admin.server.dbVersion"
+msgstr "Version des Datenbankservers"
+
+msgid "admin.serverInformation"
+msgstr "Serverinformationen"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP-Version"
+
+msgid "admin.server.platform"
+msgstr "OS-Plattform"
+
+msgid "admin.settings"
+msgstr "Einstellungen"
+
+msgid "admin.settings.about"
+msgstr "Beschreibung Über uns"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-Mail-Adresse des Hauptkontakts"
+
+msgid "admin.settings.contactName"
+msgstr "Name des Hauptkontakts"
+
+msgid "admin.settings.introduction"
+msgstr "Einführung"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Mindestlänge des Passworts"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Sprache der Website"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Formatvorlage der Website"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo der Website"
+
+msgid "admin.settings.siteTitle"
+msgstr "Titel der Website"
+
+msgid "admin.settings.siteTheme"
+msgstr "Thema der Website"
+
+msgid "admin.siteAdmin"
+msgstr "Administration der Website"
+
+msgid "admin.siteManagement"
+msgstr "Management der Website"
+
+msgid "admin.siteSettings"
+msgstr "Einstellungen der Website"
+
+msgid "admin.siteSetup"
+msgstr "Einrichtung der Website"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht lesbar oder ungültig."
+
+msgid "admin.systemInformation"
+msgstr "Systeminformationen"
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Nach Aktualisierungen suchen"
+
+msgid "admin.version.downloadPackage"
+msgstr "Herunterladen"
+
+msgid "admin.version.downloadPatch"
+msgstr "Patch herunterladen"
+
+msgid "admin.versionHistory"
+msgstr "Bisherige Versionen"
+
+msgid "admin.version.latest"
+msgstr "Neueste Version"
+
+msgid "admin.versionMajor"
+msgstr "Hauptversion"
+
+msgid "admin.versionMinor"
+msgstr "Unterversion"
+
+msgid "admin.version.moreInfo"
+msgstr "Nähere Informationen"
+
+msgid "admin.versionRevision"
+msgstr "Revision"
+
+msgid "admin.version.updateAvailable"
+msgstr "Eine aktuellere Version ist verfügbar."
+
+msgid "admin.version.upToDate"
+msgstr "Ihr System ist auf dem aktuellen Stand."
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden."
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fileloader"
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Die zur Veröffentlichung vorgesehenen Beiträge jetzt veröffentlichen"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Sind Sie sicher, dass Sie die primäre Regionaleinstellung der Seite ändern "
+"wollen? Nutzernamen, die für die primäre Regionaleinstellung der Seite "
+"benötigt werden, werden dort, wo sie fehlen, von der bestehenden primären "
+"Regionaleinstellung übernommen."
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Nur ein Administrator darf diese Einstellung ändern."
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Rollen deaktivieren"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Massen-E-Mails einschränken"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Massen-E-Mails"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Redaktionsreport Benachrichtigung"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Benutzung:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOIs über die angegebene Registrierungsagentur abliefern"

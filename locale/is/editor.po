@@ -1,0 +1,559 @@
+# Kolbrun Reynisdottir <kolla@probus.is>, 2022.
+# Þórný Barðadóttir <thorny@rmf.is>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-09-19 14:48+0000\n"
+"Last-Translator: Þórný Barðadóttir <thorny@rmf.is>\n"
+"Language-Team: Icelandic <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"editor/is_IS/>\n"
+"Language: is_IS\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Afturkalla samþykkt prófarkar"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Samþykkja próförk"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Valinn ritrýnir"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Við þessa umræðu er hægt að tengja skrár af lista hér fyrir neðan."
+
+msgid "grid.action.editQuery"
+msgstr "Breyta umræðu"
+
+msgid "submission.queries.attachedFiles"
+msgstr "Viðhengi"
+
+msgid "submission.queries.messageRequired"
+msgstr "Tilgreina þarf skilaboð til umræðu."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Tilgreina þarf efni til umræðu."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Þú hefur ekki valið skrá fyrir ritrýninn til að ritrýna."
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Engar skrár valdar"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Viðvörun: Breyting á eyðublaði fyrir ritrýni mun hafa áhrif á svör ritrýna "
+"sem þegar hafa notað þetta eyðublað. Ertu viss um að þú viljir halda áfram?"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Velja eyðublað fyrir ritrýni"
+
+msgid "editor.article.reviewForms"
+msgstr "Eyðublöð fyrir ritrýni"
+
+msgid "editor.submission.createNewRound"
+msgstr "Stofna nýja umferð ritrýni"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Þú ert við það að stofna nýja umferð ritrýni fyrir handritið. Skrár sem ekki "
+"er búið að nota í öðrum umferðum ritrýni má sjá í lista hér að neðan."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Ekki stofna til umræðu um ritrýni."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Stofna umræður ritrýna um þessar ráðleggingar."
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Ekki senda ritstjórum tölvupóst."
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Upplýsa ritstjóra"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Skrá ritstjórnarlegar ráðleggingar"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Skrá ritstjórnarlega ákvörðun"
+
+msgid "editor.submission.newRound"
+msgstr "Endurtekin ritrýni"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Skrár tilbúnar í framleiðslu"
+
+msgid "editor.review.emailReviewer"
+msgstr "Senda tölvupóst til ritrýnis"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Þú hefur ekki hlaðið upp neinum ritrýniskrám."
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Engum skrám hefur verið hlaðið upp"
+
+msgid "editor.review.reviewDetails"
+msgstr "Ritrýniupplýsingar"
+
+msgid "editor.review"
+msgstr "Ritrýni"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Öllum skrám sem hlaðið hefur verið inn, óháð þrepi innsendingar,  má bæta á "
+"lista handrita til yfirferðar. Það er gert með því að merkja gátreitinn \""
+"Velja\" og smella á \"Leita\".  Við það birtast allar innsendar skrár og "
+"velja má þær sem á að hengja við. Viðbótarskrám sem ekki hefur verið hlaðið "
+"inn má bæta við með því að smella á tengilinn \"Hlaða inn skrá\"."
+
+msgid "editor.submission.addAuditor"
+msgstr "Útlhuta endurskoðanda"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Ósamþykkt yfirfarið handrit er ekki hægt að senda í framleiðslu.  Viltu "
+"merkja handritið sem ósamþykkt?"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Yfirfarið handrit þarf að samþykkja áður en hægt er að senda það í "
+"framleiðslu.  Samþykkir þú handritið?"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Próförk - áminning"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "Tölvupóstur til notanda"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Ekki beðið um endurskoðun fyrir þessa skrá"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Verkáætlun"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Skiladagur verks"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Velja ritrýni"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Yfirfara handrit"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Setja í verkröð fyrir útgáfu"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Völdum þáttakanda hefur ekki verði úthlutað á þrep."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Ekki er hægt að stofna til umræðu með völdum þátttakendum þar sem það hefur "
+"áhrif á nafnleynd ritrýniferlis."
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Eftir lestur ritrýninnar, smelltu þá á \"Staðfesta\" til að halda áfram með "
+"ritrýniferlið. Hafi ritrýnir sent þér ritrýnina eftir öðrum leiðum (t.d. í "
+"tölvupósti), þarftu að hlaða þeirri skrá upp og smella síðan á \"Staðfesta\" "
+"til að halda áfram."
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Viltu merkja þessa ritrýni sem \"ekki tekin til athugunar\"? Ferill ritrýni "
+"verður varðveittur."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Ritrýni ekki tekin til athugunar"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Úthluta ritrýni á skráðan notanda"
+
+msgid "editor.review.userGroupSelect"
+msgstr "Skráðu notandann með þessum hóp ritrýna"
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Það kom upp villa við að setja ritrýni aftur inn. Vinsamlega reyndu aftur."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "Það kom upp villa við að eyða ritrýni. Vinsamlega reyndu aftur."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "Það kom upp villa við að bæta við ritrýni. Vinsamlega reyndu aftur."
+
+msgid "editor.review.mustSelect"
+msgstr "Þú verður að velja ritrýni"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Ekkert mat"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Leggðu mat á gæði ritrýninnar. Matinu verður ekki deilt með ritrýni."
+
+msgid "editor.review.rateReviewer"
+msgstr "Stigagjöf ritrýnis"
+
+msgid "editor.review.reviewerComments"
+msgstr "Athugasemdir ritrýnis"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Ritrýni hefur verið þakkað"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Ritrýni skilað inn"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Ritrýni staðfest"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Ritrýni lokið"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Skiladagur ritrýni"
+
+msgid "editor.review.reviewDue"
+msgstr "Skiladagur ritrýni: {$date}"
+
+msgid "editor.review.revertDecision"
+msgstr "Endurskoða ákvörðun"
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Ritstjóri hætti við beiðni um ritrýni."
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Ritrýnir hafnar beiðni um ritrýni."
+
+msgid "editor.review.requestCancelled"
+msgstr "Hætt við beiðni"
+
+msgid "editor.review.requestDeclined"
+msgstr "Beiðni hafnað"
+
+msgid "editor.review.requestAccepted"
+msgstr "Beiðni samþykkt"
+
+msgid "editor.review.requestSent"
+msgstr "Beiðni send"
+
+msgid "editor.review.responseDue"
+msgstr "Svar óskast í síðasta lagi: {$date}"
+
+msgid "editor.review.readNewReview"
+msgstr "Lesa nýja ritrýni"
+
+msgid "editor.review.readReview"
+msgstr "Lesa ritrýni"
+
+msgid "editor.review.sendReminder"
+msgstr "Senda áminningu"
+
+msgid "editor.review.skipEmail"
+msgstr "Sendið ekki tölvupóst til ritrýnis."
+
+msgid "editor.review.thankReviewerError"
+msgstr "Villa við að senda þakkir til ritrýnis"
+
+msgid "editor.review.reminderError"
+msgstr "Villa við að senda áminningu til ritrýnis"
+
+msgid "editor.review.thankReviewer"
+msgstr "Þakkir til ritrýnis"
+
+msgid "editor.review.reminder"
+msgstr "Áminning um ritrýni"
+
+msgid "editor.review.noReviews"
+msgstr "Engin ritrýni til að hlaða upp"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Ritrýni bætt við meginmál skilaboða."
+
+msgid "editor.review.dateAccepted"
+msgstr "Dags. samþykktar ritrýni"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Endurskoðun kallar á nýja umferð ritrýni."
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Endurskoðun kallar ekki á nýja umferð ritrýni."
+
+msgid "editor.review.newReviewRound"
+msgstr "Krefst endurtekinnar ritrýni"
+
+msgid "editor.review.uploadRevision"
+msgstr "Hlaða inn endurskoðaðri útgáfu"
+
+msgid "editor.review.importantDates"
+msgstr "Mikilvægar dagsetningar"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "Tölvupóstur til ritrýnis"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "Óþekktur ritrýnir"
+
+msgid "editor.submissionReview.editReview"
+msgstr "Breyta ritrýni"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Loka vali á skrám"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Handrit sem á að ritrýna"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Óþekktur ritrýnir/Óþekktur höfundur"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "Óþekktur ritrýnir/ Þekktur höfundur"
+
+msgid "editor.submissionReview.open"
+msgstr "Opið"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "Ekki senda tilkynningu í tölvupósti"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Senda tilkynningu í tölvupósti til ritstjóra: {$editorNames}"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Senda tilkynningu í tölvupósti til höfunda(r): {$authorName}"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "Tegund ritrýni"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Ritrýnir endurskráður"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Skráningu ritrýnis eytt"
+
+msgid "editor.review.unassignReviewer"
+msgstr "Afskrá ritrýni"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "Skrá notanda sem er til"
+
+msgid "editor.review.createReviewer"
+msgstr "Stofna nýjan ritrýni"
+
+msgid "editor.submission.backToSearch"
+msgstr "Til baka í leit"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Virkar skrár í ritrýni {$round}"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Sýna skrár frá öllum aðgengilegum verkferlaþrepum."
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Finna notanda"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Finna ritrýni"
+
+msgid "editor.submission.addReviewer"
+msgstr "Bæta við ritrýni"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Notaðu <em>+Bæta við ritrýni</em> til að bjóða lesendum að ritrýna innsent "
+"handrit. Minnisbókarmerkið gefur til kynna að ritrýni hafi verið skilað inn  "
+"og er hún þá er merkt  <em>Acknowledged</em> eftir skoðun. Þegar ritrýni er "
+"komin fram yfir skiladag, birtist merki með rauðu umslagi til áminningar "
+"fyrir ritrýna."
+
+msgid "editor.submission.revisions"
+msgstr "Endurskoðun"
+
+msgid "editor.submission.selectFiles"
+msgstr "Velja skrár"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Hlaða upp/velja skrár"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Þú verður að velja notanda til að úthluta."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Ekki senda tölvupóst til höfundar"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Þú þarft að skrá skilaboð frá þér persónulega."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Þú verður að velja a.m.k. eina skrá til úthlutunar á notanda."
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "Veldu skrár hér fyrir neðan til að senda í ritrýniferli."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Skilaboð til notanda"
+
+msgid "editor.review.notInitiated"
+msgstr "Ritrýniferli er ekki hafið."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Breyta ákvörðun"
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Handrit samþykkt til ritrýni."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Sent í framleiðslu."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Sent í nýja ritrýniumferð."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Innsending birt."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Innsending samþykkt."
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Innsendingu hafnað."
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Ákvörðun skráð"
+
+msgid "editor.submissionLibrary"
+msgstr "Safn"
+
+msgid "editor.activityLog"
+msgstr "Aðgerðaskrá"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "Ertu viss um að þú viljir endanlega eyða þessu handriti?"
+
+msgid "reviewer.list.empty"
+msgstr "Engir ritrýnar fundust"
+
+msgid "reviewer.list.biography"
+msgstr "Ágrip (bio)"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Áhugasvið ritrýnis"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Opna"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"Ekki er hægt að úthluta á þennan ritrýni þar sem hann hefur hlutverk sem "
+"gerir honum kleift að sjá hver höfundur er.  Þar með er ekki hægt að tryggja "
+"nafnlausa ritrýni. Viltu samt opna á úthlutun til ritrýnis?"
+
+msgid "reviewer.list.reassign"
+msgstr "Endurúthluta"
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Þessi ritrýnir hefur nú fengið handritið til ritrýni."
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Aldrei úthlutað"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Meðalfjöldi daga við að ljúka ritrýni"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dagar síðan ritrýni var síðast úthlutað"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Í gær"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Fyrir {$days} dögum/degi síðan"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Mat ritrýnis: {$rating}"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Beiðnir um ritrýni afturkallaðar"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Beiðnum um ritrýni hafnað"
+
+msgid "reviewer.list.completedReviews"
+msgstr "Ritrýni lokið"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Úthlutuð ritrýni í vinnslu"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} virk"
+
+msgid "reviewer.list.filterRating"
+msgstr "Metið að lágmarki"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Ekki er leyfilegt að nota sniðið {$pattern} sem almennt auðkenni."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Almenna auðkennið  '{$publicIdentifier}' má ekki vera númer."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Ertu viss um að þú viljir snúa við ákvörðun um að hafna þessu handriti?"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Afturkalla samþykkt prófarkar til að gefa til kynna að prófarkarlestri sé "
+"ólokið og skrá því ekki tilbúin til birtingar."
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Samþykkja próförkina til að gefa til kynna að prófarkalestri sé lokið og "
+"skráin tilbúin til birtingar."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Þú hefur ekki leyfi til að skrá þessa ákvörðun fyrir innsendinguna."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Þú getur ekki sent tölvupóst til: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Viðkomandi ritstjóri var ekki viðurkenndur og hefur hugsanlega ekki leyfi "
+"til að skrá ákvörðun um innsendinguna."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Viðkomandi ritrýniumferð fannst ekki."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"The submission is not at the appropriate stage of the workflow to take this "
+"decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "This review round is not part of this submission."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"This decision could not be found. Please provide a recognized decision type."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"You must be assigned to this submission in order to record an editorial "
+"decision."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "A review round id must be provided in order to take this decision."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"A review round was provided but this decision is not taken during a review "
+"stage."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"A recommendation can not be made unless an editor is assigned to this stage "
+"who can take a final decision."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"A decision could not be taken on this submission. The submission id is "
+"missing or does not match the requested submission."

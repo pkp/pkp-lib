@@ -1,0 +1,235 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2021-04-07 23:27+0000\n"
+"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"fi_FI/>\n"
+"Language: fi_FI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "Pyyntösi on hylätty. Tämä voi johtua vanhentuneesta istunnosta. Ole hyvä ja yritä uudelleen."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Voit tarkastella ainoastaan sellaisia julkaisemattomia käsikirjoituksia, jotka on osoitettu sinulle."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Et voi poistaa käsikirjoitusta, joka ei liity tähän julkaisuun."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Sinulla ei ole lupaa poistaa tätä käsikirjoitusta."
+
+msgid "api.404.resourceNotFound"
+msgstr "Pyydettyä resurssia ei löytynyt."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Pyyntöäsi ei voitu suorittaa, koska siitä puuttuu pakollisia tietoja."
+
+msgid "api.submissions.400.stageNotValid"
+msgstr "Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on virheellinen."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Julkaistu versio jonka haluat julkaista on jo julkinen."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Julkaistu versio jonka julkaisun haluat perua ei ole julkinen."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Et voi muokata julkaistua versiota koska se on julkinen."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Et voi muokata tilaa tämän rajapinnan kautta, käytä /publish ja /unpublish "
+"päätepisteitä."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Lataamasi kuva ei ole kelvollinen."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Voit ladata vain seuraavanlaisia tiedostoja: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Julkaistun version poistamiseksi sinun pitää ensin perua sen julkaisu."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Sinulla ei ole lupaa muokata tätä julkaistua versiota."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Omassa hakemistossasi ei ole riittävästi tilaa. Lataamasi tiedosto on "
+"{$fileUploadSize}kb ja sinulla on {$dirSizeLeft}kb jäljellä."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Sinulla ei ole lupaa ladata tiedostoja."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Lataamasi tiedosto ei vastannut tiedostopäätettä. Näin voi tapahtua, jos "
+"tiedoston on nimetty uudelleen ja myös tiedostopääte on vaihdettu."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Etsimääsi sähköpostipohjaa ei löytynyt."
+
+msgid "api.404.endpointNotFound"
+msgstr "Pyydettyä URL-polkua ei tunnistettu."
+
+msgid "api.403.unauthorized"
+msgstr "Sinulla ei ole pääsyä pyydettyyn resurssiin."
+
+msgid "api.400.paramNotSupported"
+msgstr "Parametria {$param} ei tueta."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Sanastoa {$vocab} ei tueta."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Kielialuetta {$locale} ei tueta."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Käytettävää teema {$themePluginPath} ei ole otettu käyttöön, eikä sitä voi "
+"asentaa."
+
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Palvelimen määritysvirheen vuoksi tiedostoa ei voitu ladata. Ota yhteys "
+"järjestelmän ylläpitäjään."
+
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Tiedostokooltaan {$maxSize} suurempia tiedostoja ei voi ladata."
+
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Yhtä tai useampaa tiedostoa ei voitu ladata."
+
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Pyynnöstä ei löytynyt ladattavaa tiedostoa."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Pyydetty vuosikerta, numero tai vuosi ei ole kelvollinen."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Tätä päätepistettä ei ole saatavilla. Se on käytettävissä vain koko sivuston "
+"nimiavaruudesta."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Pyyntösi ei ollut kelvollinen. Lajittelujärjestyksen tulee olla `laskeva` "
+"(desc) tai `nouseva` (asc)."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Pyyntösi ei ollut kelvollinen. Aikajakson tulee olla `päivä` tai `kuukausi`."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Lopetuspäivä ei voi olla eilisen jälkeen."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Aloituspäivämäärä ei voi olla aiempi kuin 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Aloituspäivä ei voi olla myöhempi kuin lopetuspäivä."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Päiväyksen tulee olla muodossa YYYY-MM-DD."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Kohdehakemistoa ei löytynyt tai tiedostoja ei voi tallentaa sinne. Ota "
+"yhteyttä ylläpitoon."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Sinulla ei ole lupaa lähettää sähköpostia yhdelle tai useammalle valituista "
+"käyttäjärooleista."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Et voi muokata tiedoston assosiaatiota ilman assocType ja assocId arvoja."
+
+msgid "api.files.400.config"
+msgstr ""
+"Tiedostoa ei voitu ladata palvelimen virheestä johtuen. Ota yhteyttä "
+"järjestelmäsi ylläpitäjään."
+
+msgid "api.files.400.fileSize"
+msgstr "Suurin sallittu tiedostokoko on {$maxSize}."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Yhtä tai useampaa tiedostoa ei voitu ladata."
+
+msgid "api.files.400.noUpload"
+msgstr "Pyynnöstä ei löytynyt ladattavaa tiedostoa."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Sinun täytyy valita käyttäjäroolit, joille sähköposti lähetetään."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Sinun täytyy antaa sähköpostille aihe."
+
+msgid "api.emails.400.missingBody"
+msgstr "Sinun täytyy lisätä lähetettävä sähköposti."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Etsimääsi ilmoitusta ei löytynyt."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Ajankohtaa ei voi muuttaa."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Sinulla ei ole pääsyä tämän arviointikierroksen tiedostoihin."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Sinulla ei ole lupaa lisätä tai muokata näitä tiedostoja."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Sinulla ei ole pääsyä näihin tiedostoihin."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Antamasi arviointikierros ei kuulu tähän käsikirjoitukseen."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Muokkauspyyntö ei sisältänyt muutoksia tiedostoon."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Sinun täytyy antaa tiedostojen vaihe."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Sinun täytyy määritellä arviointikierros, kun pyydät arviointivaiheen "
+"tiedostoja."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Tämän vaiheen tiedostoa ei voi liittää arviointikierrokseen."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Tämän vaiheen tiedostoa ei voi liittää arviointipyyntöön."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Tämän vaiheen tiedostoa ei voi liittää keskusteluun."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Tämän vaiheen tiedostoa ei voi liittää toiseen käsikirjoitustiedostoon."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Seuraavia kielialueita ei tueta: {$locales}."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API-avainta ei voinut käyttää, koska ylläpitäjä ei ole määrittänyt "
+"salausavainta."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "API-avain aiheutti seuraavan virheen: {$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API-avainta ei voitu vahvistaa. API-avaimessa voi olla virhe tai se voi olla "
+"vanhentunut."

@@ -1,0 +1,136 @@
+# Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-07-15 15:49+0000\n"
+"Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
+"Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"reviewer/hy_AM/>\n"
+"Language: hy_AM\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.4.2\n"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Այս օգտատերը նշանակված չէ որպես հայցվող փաստաթղթի գրախոսող։"
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Ուղարկել գրախոսողներին"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Ուղարկել այս էլփոստի ծանուցման պատճենը (BCC) հետևյալ գրախոսողներին:"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Խմբագրի համար"
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Հեղինակի և գրախոսողի համար"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Խմբագիրը խնդրում է, որ դուք կամ ընդունեք կամ մերժեք գրախոսումը մինչև "
+"պատասխանի վերջնաժամկետը և ավարտեք վերանայումը մինչև վերանայման վերջնաժամկետը:"
+
+msgid "reviewer.aboutDueDates"
+msgstr "Ժամկետների մասին"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Շնորհակալություն այս նյութը գրախոսելու համար: Ձեր կարծիքը հաջողությամբ "
+"ուղարկվել է: Մենք բարձր ենք գնահատում ձեր ներդրումը մեր հրապարակած աշխատանքի "
+"որակի մեջ։ Անհրաժեշտության դեպքում խմբագիրը կարող է կրկին կապվել ձեզ հետ "
+"լրացուցիչ տեղեկությունների համար:"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Վստա՞հ եք, որ ցանկանում եք ներկայացնել այս գրախոսումը?"
+
+msgid "reviewer.complete"
+msgstr "Գրախոսումը ուղարկված է"
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Ներբեռնեք ֆայլեր, որոնց հետ կուզենայիք, որ խմբագրողը և/կամ հեղինակը "
+"ծանոթանա, ներառյալ գրախոսման բնօրինակ ֆայլ(ների) վերանայված տարբերակները:"
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Մուտքագրեք (կամ տեղադրեք) այս նյութի վերաբերյալ Ձեր գրախոսականը ստորև բերված "
+"ձևանմուշի մեջ:"
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Սեղմեք ստորև ներկայացված ֆայլերի անունների վրա՝ այս նյութի հետ կապված "
+"ֆայլերը ներբեռնելու համար:"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Այս հրատարակիչը չի սահմանել գրախոսման որևէ ուղեցույց:"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Գրախոսման ուղեցույցներ"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Մրցակցող շահեր"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Ես կարող եմ ունենալ մրցակցային շահեր (Նշեք ստորև)"
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Ես մրցակցող որևէ շահ չունեմ"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Այս հրատարակիչն ունի իր գրախոսողների կողմից պոտենցիալ մրցակցային շահերի "
+"բացահայտման քաղաքականություն: Խնդրում ենք մի պահ տրամադրել այս "
+"քաղաքականությանը ծանոթանալու համար:"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Գրախոսի ուղեցույցներ"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Պահպանել հետագայի համար"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Ներկայացնել գրախոսումը"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Շարունակեք քայլ #3"
+
+msgid "reviewer.submission.acceptReview"
+msgstr "Ընդունեք գրախոսման առաջարկը, շարունակեք քայլ #2"
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Դուք կարող եք խմբագրին ներկայացնել պատճառները, թե ինչու եք մերժում այս "
+"վերանայումը ստորև նշված դաշտում:"
+
+msgid "reviewer.submission.declineReview"
+msgstr "Մերժել գրախոսման առաջարկը"
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Գրախոսողի ֆայլեր"
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Դիտել նյութի բոլոր մանրամասները"
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+"Դուք ընտրվել եք որպես հետևյալ նյութի հավանական գրախոս: Ստորև ներկայացված է "
+"նյութի ծանոթագիրը, ինչպես նաև դրա գրախոսման ժամանակացույցը: Հուսով ենք, որ "
+"դուք կհամաձայնվեք գրախոսել:"
+
+msgid "reviewer.step1.request"
+msgstr "Վերանայման խնդրանք"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Վերջնականացում"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Ներբեռնեք և վերանայեք"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Ուղեցույցներ"
+
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Հայց"

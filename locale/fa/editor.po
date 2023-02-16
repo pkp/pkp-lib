@@ -1,0 +1,353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2020-09-25 17:49+0000\n"
+"Last-Translator: Hamid Sadeghieh <sadeghieh@gmail.com>\n"
+"Language-Team: Persian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
+"fa_IR/>\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "editor.submissionArchive.confirmDelete"
+msgstr "آیا می‌خواهید برای همیشه این مقاله ارسالی را حذف کنید؟"
+
+msgid "editor.submissionLibrary"
+msgstr "مجموعه مقالات ارسالی"
+
+msgid "editor.review.notInitiated"
+msgstr "پروسه داوری هنوز آغاز نشده است."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "پیام به کاربر"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "یکی از فایل‌های زیر را جهت ارسال برای داوری انتخاب کنید"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "حداقل یک فایل باید انتخاب شود تا بتوان برای آن، کاربری انتساب کرد"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "باید یک پیام شخصی وارد کنید"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "عدم ارسال ایمیل به حسابرس "
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "باید یک کاربر برای انتساب، انتخاب شود"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "آپلود/انتخاب فایل"
+
+msgid "editor.submission.selectFiles"
+msgstr "انتخاب فایل"
+
+msgid "editor.submission.revisions"
+msgstr "اصلاحات"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr "از گزینه <em>افزودن داور</em> برای دعوت از خوانندگان برای داوری مقالات ارسالی استفاده کنید. آیکون دفترچه بیانگر آن است که یک داور ثبت شده است و چنانچه داور، انجام داوری را بپذیرد، آیکون تیک خواهد خورد. زمانی که مهلت داوری به اتمام رسد آیکون قرمز رنگی برای ارسال یادآوری به داور نمایان می‌شود."
+
+msgid "editor.submission.addReviewer"
+msgstr "افزودن داور"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "انتخاب داور"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "انتخاب کاربر"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "نمایش همه‌ی فایل‌های قابل دسترسی روند کار این مقاله"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "داوری کنونی این فایل‌ها  در دور {$round}"
+
+msgid "editor.submission.backToSearch"
+msgstr "بازگشت به جستجو"
+
+msgid "editor.review.createReviewer"
+msgstr "ایجاد داور جدید"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "عضویت کاربر موجود"
+
+msgid "editor.review.unassignReviewer"
+msgstr "لغو انتساب داور"
+
+msgid "editor.submissionReview.reviewType"
+msgstr "نوع داوری"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "ارسال ایمیل اطلاع‌رسانی به نویسنده(گان): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "ارسال ایمیل اطلاع‌رسانی به دبیر(ان): {$editorNames}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "عدم ارسال ایمیل به نویسندگان"
+
+msgid "editor.submissionReview.open"
+msgstr "باز کردن"
+
+#, fuzzy
+msgid "editor.submissionReview.anonymous"
+msgstr "محرمانگی"
+
+#, fuzzy
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "محرمانگی شدید"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "فایل‌هایی که باید داوری شود"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "بستن انتخاب‌گر فایل"
+
+msgid "editor.submissionReview.editReview"
+msgstr "ویرایش داوری"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "ایمیلی که باید برای داور ارسال شود"
+
+msgid "editor.review.importantDates"
+msgstr "تاریخ‌های مهم"
+
+msgid "editor.review.uploadRevision"
+msgstr "آپلود نسخه بازنگری شده"
+
+msgid "editor.review.newReviewRound"
+msgstr "درخواست دور جدید داوری"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "درخواست انجام اصلاحات از نویسنده"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "درخواست انجام اصلاح از نویسنده که مورد بررسی بیشتر قرار خواهد گرفت."
+
+msgid "editor.review.dateAccepted"
+msgstr "تاریخ پذیرش داوری"
+
+msgid "editor.review.reviewsAdded"
+msgstr "داوری به محتوای پیام اضافه شد"
+
+msgid "editor.review.noReviews"
+msgstr "بدون بررسی همکار برای درون‌ریزی"
+
+msgid "editor.review.reminder"
+msgstr "یادآوری داوری"
+
+msgid "editor.review.thankReviewer"
+msgstr "تشکر از داور"
+
+msgid "editor.review.reminderError"
+msgstr "خطا در ارسال یادآوری به داوری"
+
+msgid "editor.review.thankReviewerError"
+msgstr "خطا در ارسال تشکر به داور"
+
+msgid "editor.review.skipEmail"
+msgstr "عدم ارسال ایمیل به داور"
+
+msgid "editor.review.sendReminder"
+msgstr "ارسال یادآوری"
+
+msgid "editor.review.readReview"
+msgstr "مشاهده داوری"
+
+msgid "editor.review.readNewReview"
+msgstr "خواندن داوری جدید"
+
+msgid "editor.review.responseDue"
+msgstr "مهلت پاسخ: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "درخواست ارسال شد."
+
+msgid "editor.review.requestAccepted"
+msgstr "درخواست پذیرفته شد."
+
+msgid "editor.review.revertDecision"
+msgstr "تقاضای تجدیدنظر"
+
+msgid "editor.review.reviewDue"
+msgstr "مهلت انجام داوری: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "مهلت زمان داوری"
+
+msgid "editor.review.reviewCompleted"
+msgstr "داوری تکمیل شد."
+
+msgid "editor.review.reviewConfirmed"
+msgstr "داوری تأیید شد."
+
+msgid "editor.review.reviewSubmitted"
+msgstr "داوری ارسال شد."
+
+msgid "editor.review.reviewerComments"
+msgstr "نظرات داور"
+
+msgid "editor.review.mustSelect"
+msgstr "باید یک داور انتخاب کنید."
+
+msgid "editor.review.errorAddingReviewer"
+msgstr "در افزودن داور خطایی رخ داد. لطفاً دوباره تلاش کنید."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr "در حذف داور خطایی رخ داد. لطفاً دوباره تلاش کنید."
+
+msgid "editor.review.userGroupSelect"
+msgstr "کاربری را به عضویت گروه کاربری داور در آورید"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr "مایلید این داوری را به عنوان داوری بی‌اعتبار علامت‌گذاری کنید؟ تاریخچه داوری حفظ خواهد شد."
+
+msgid "editor.review.unconsiderReview"
+msgstr "نادیده گرفتن این داوری"
+
+msgid "editor.review.readConfirmation"
+msgstr "هنگامی که این داوری خواندن شد، «تأیید» را فشار دهید تا نشان دهید که روند داوری انجام یافته است. اگر داور، داوری خود را در جای دیگر ارسال کرده باشد، می‌توانید فایل را در قسمت زیر آپلود کرده و سپس  «تأیید» را انجام دهید."
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "ویراستاری فایل"
+
+msgid "editor.submission.selectReviewer"
+msgstr "انتخاب داور"
+
+msgid "editor.submission.taskDueDate"
+msgstr "مهلت زمان انجام وظیفه"
+
+msgid "editor.submission.taskSchedule"
+msgstr "زمان‌بندی داوری"
+
+msgid "editor.review.enrollReviewer"
+msgstr "افزودن یکی از کاربران را به عضویت گروه داوری"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "هیچ حسابرسی برای این فایل درخواست نشده است"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "ایمیلی که به کاربر ارسال می‌شود."
+
+msgid "editor.submission.proof.reminder"
+msgstr "یادآوری تأیید نسخه بازبینی نهایی"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr "فایل ویراستاری شده قبل از ارسال به مرحله انتشار باید تأیید شود. آیا مایل به تأیید این فایل هستید؟"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr "عدم تأیید این فایل ویراستاری شده، باعث عدم انتقال به مرحله انتشار خواهد شد. آیا مطمئن به عدم تأیید این فایل هستید؟"
+
+msgid "editor.submission.addAuditor"
+msgstr "انتساب حسابرس"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr "هر فایلی که تاکنون در هر مرحله از ارسال مقاله آپلود شده است می‌تواند به مرحله ویراستاری اضافه شود. با انجام جستجو و انتخاب از لیست حاصل می‌توان این کار را انجام داد. می‌توان همچنان از گزینه آپلود برای آپلود فایل در این مرحله استفاده کرد."
+
+msgid "editor.submission.schedulePublication"
+msgstr "برنامه چاپ"
+
+msgid "editor.review"
+msgstr "مرور"
+
+msgid "editor.review.reviewDetails"
+msgstr "جزییات"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "فایلی آپلود نشده است."
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "شما هیچ فایل داوری آپلود نکرده‌اید."
+
+msgid "editor.review.emailReviewer"
+msgstr "ایمیل  به داور"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "فایل‌های آماده‌ی چاپ"
+
+msgid "editor.submission.newRound"
+msgstr "دور جدید داوری"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "ثبت نظر تیم سردبیری"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "ثبت توصیه "
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "اطلاع‌رسانی به دبیر"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "عدم ارسال ایمیل به دبیر"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "اتخاذ تصمیم داوری درباره این توصیه"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "عدم اتخاذ تصمیم داوری"
+
+msgid "editor.submission.newRoundDescription"
+msgstr "شما در حال ایجاد یک دور داوری جدید برای این مقاله هستید. فایل‌هایی که در دور داوری قبل مورد استفاده قرار نگرفته‌اند در زیر لیست شده‌اند."
+
+msgid "editor.submission.createNewRound"
+msgstr "ایجاد دور جدید داوری"
+
+msgid "editor.article.reviewForms"
+msgstr "فرم‌های داوری"
+
+msgid "editor.article.selectReviewForm"
+msgstr "انتخاب فرم داوری"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr "اخطار: تغییر در فرم داوری باعث تأثیر در تمام فرم‌های داوری که پیشتر بر اساس این فرم ایجاد شده‌اند خواهد شد. آیا مطمئنید که می‌خواهید ادامه دهید؟"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "هیچ فایلی انتخاب نشده است."
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "هیچ فایلی برای داور مشخص نشده است."
+
+msgid "submission.queries.subjectRequired"
+msgstr "وارد کردن موضوع گفتگو الزامی است"
+
+msgid "submission.queries.messageRequired"
+msgstr "وارد کردن پیام گفتگو الزامی است"
+
+msgid "submission.queries.attachedFiles"
+msgstr "ضمیمه کردن فایل"
+
+msgid "grid.action.editQuery"
+msgstr "ویرایش گفتگو"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "فایل‌ها را می‌توان برای بررسی این مقاله اضافه کرد"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "داور انتخاب شده"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "تأیید نسخه بازبینی نهایی"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "لغو تأیید بازبینی نهایی"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل بوده و آماده  چاپ است."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr "عدم تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل نبوده و هنوز آماده به چاپ نیست."
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "شناسه عمومی «{$publicIdentifier}» نباید یک عدد باشد."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "استفاده از الگوی {$pattern} به عنوان یک شناسه عمومی مجاز نیست."
+
+msgid "editor.activityLog"
+msgstr "سوابق اقدامات"

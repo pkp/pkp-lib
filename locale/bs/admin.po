@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2021-01-06 13:52+0000\n"
+"Last-Translator: Kazimir Hrastek <kazimir3385@gmail.com>\n"
+"Language-Team: Bosnian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
+"bs_BA/>\n"
+"Language: bs_BA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.adminFunctions"
+msgstr "Administrativne funkcije"
+
+msgid "admin.clearDataCache"
+msgstr "Očisti predmemoriju podataka"
+
+msgid "admin.clearTemplateCache"
+msgstr "Očisti predmemoriju predložka"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr "Vaša konfiguracijska datoteka je uspješno ažurirana. Imajte na umu da ukoliko vaša stranica više ne radi ispravno, tada ćete morati ručno podesiti svoju konfiguraciju prilikom direktnog uređivanja <tt>config.inc.php</tt> datoteke."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr ""
+"Jeste li sigurni da želite očistiti predmemoriju kompajliranih predložaka?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Jeste li sigurni da želite da sesije svih korisnika isteknu? Svi korisnici "
+"koji su trenutno prijavljeni u sistem bit će prisiljeni da se ponovo prijave "
+"(Vi također)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Sadržaj konfiguracijske datoteke"
+
+msgid "admin.currentVersion"
+msgstr "Trenutna verzija"
+
+msgid "admin.dateInstalled"
+msgstr "Datum instalacije"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Sadržaj vaše ažurirane konfiguracije prikazan je u nastavku. Da biste "
+"primijenili promjene konfiguracije, morate otvoriti <tt>config.inc.php</tt> "
+"u odgovarajućem uređivaču teksta i zamijeniti njegov sadržaj sadržajem "
+"donjeg tekstualnog polja."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Prikaži novu konfiguraciju"
+
+msgid "admin.expireSessions"
+msgstr "Istek korisničkih sesija"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Jeste li sigurni da želite ponovo učitati ovu lokalizaciju? Ovo će izbrisati "
+"sve postojeće podatke specifične za lokalni jezik, poput prilagođenih e-mail "
+"predložaka."
+
+msgid "admin.languages.installedLocales"
+msgstr "Instalirani prevodi"
+
+msgid "admin.languages.installLanguages"
+msgstr "Upravljanje lokalizacijama"
+
+msgid "admin.languages.installLocales"
+msgstr "Instaliraj"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instaliraj nove lokalizacije"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nema dodatnih lokalizacija na raspolaganju za instalaciju."
+
+msgid "admin.languages.reload"
+msgstr "Ponovo učitaj lokalizaciju"
+
+msgid "admin.languages.uninstall"
+msgstr "Deinstalacija lokalizacije"
+
+msgid "admin.phpInfo"
+msgstr "Proširene PHP informacije"
+
+msgid "admin.server.apacheVersion"
+msgstr "Verzija Apache-a"
+
+msgid "admin.server.dbDriver"
+msgstr "Tip baze podataka"
+
+msgid "admin.server.dbVersion"
+msgstr "Verzija servera baze podataka"
+
+msgid "admin.serverInformationDescription"
+msgstr "Osnovni operacijski sustav i verzije programske opreme poslužitelja. Kliknite na \"proširena  PHP informacija\" kako biste vidjeli dodatne detalje PHP konfiguracije ovoga poslužitelja."
+
+msgid "admin.serverInformation"
+msgstr "Informacije o serveru"
+
+msgid "admin.server.phpVersion"
+msgstr "Verzija PHP-a"
+
+msgid "admin.server.platform"
+msgstr "Platforma OS-a"
+
+msgid "admin.settings.about"
+msgstr "Opis stranice"
+
+msgid "admin.settings.contactEmail"
+msgstr "E-mail glavnog kontakta"
+
+msgid "admin.settings.contactName"
+msgstr "Ime glavnog kontakta"
+
+msgid "admin.settings.introduction"
+msgstr "Uvod"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimalna dužina šifre (znakova)"
+
+msgid "admin.settings.passwordCharacters"
+msgstr "znakova"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Jezik stranice"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Neispravan style sheet format. Sistem prihvata samo .css format."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Style sheet (CSS) stranice"
+
+msgid "admin.settings.siteTitle"
+msgstr "Naziv stranice"
+
+msgid "admin.siteManagement"
+msgstr "Upravljanje stranicom"
+
+msgid "admin.siteSettings"
+msgstr "Postavke stranice"
+
+msgid "admin.systemConfigFileReadError"
+msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji, nije čitljiva ili je neispravna."
+
+msgid "admin.systemInformation"
+msgstr "Informacije o sistemu"
+
+msgid "admin.versionBuild"
+msgstr "Izgradi"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Provjerite postoje li nove verzije"
+
+msgid "admin.version.downloadPackage"
+msgstr "Preuzmite"
+
+msgid "admin.version.downloadPatch"
+msgstr "Preuzmite zakrpu"
+
+msgid "admin.versionHistory"
+msgstr "Prijašnje verzije"
+
+msgid "admin.version.latest"
+msgstr "Zadnja verzija"
+
+msgid "admin.versionMajor"
+msgstr "Glavna"
+
+msgid "admin.versionMinor"
+msgstr "Sporedna"
+
+msgid "admin.version.moreInfo"
+msgstr "Više informacija"
+
+msgid "admin.versionRevision"
+msgstr "Revizija"
+
+msgid "admin.version.updateAvailable"
+msgstr "Ažurirana verzija je dostupna"
+
+msgid "admin.version.upToDate"
+msgstr "Vaš sustav je ažuran"
+
+msgid "admin.version"
+msgstr "Verzija"
+
+msgid "admin.siteSetup"
+msgstr "Postavljanje stranice"
+
+msgid "admin.siteAdmin"
+msgstr "Administracija stranice"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema stranice"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo stranice"
+
+msgid "admin.settings"
+msgstr "Postavke"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Podsjetnik za istek pretplate"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Podsjetnik za pregled"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Objavite predaje rada predviđene za objavljivanje"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Očistite dnevnike izvršenja planiranih zadataka"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Jeste li sigurni da želite izbrisati sve zapisnike izvršenja planiranih "
+"zadataka?"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Vaša instalacija {$softwareName} je automatski izvršila i dovršila ovaj "
+"zadatak, a datoteku dnevnika možete preuzeti ovdje: {$url}"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces zadatka je zaustavljen."
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces zadatka je započet."
+
+msgid "admin.scheduledTask"
+msgstr "Planirani zadatak"
+
+msgid "admin.languages.languageSettings"
+msgstr "Postavke jezika"
+
+msgid "admin.languages.installLocale"
+msgstr "Instaliraj lokalizaciju"
+
+msgid "admin.languages.availableLocales"
+msgstr "Dostupne lokalizacije"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Jeste li sigurni da želite promijeniti primarni jezik stranice? Imena "
+"korisnika, koja su potrebna u primarnoj lokalizaciji web stranice, kopirat "
+"će se iz postojeće primarne lokalizacije tamo gdje nedostaju."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Ovaj je jezik primarni jezik web stranice. Ne možete ga onemogućiti dok ne "
+"odaberete drugu primarnu lokalizaciju."
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Jeste li sigurni da želite trajno izbrisati {$contextName} i sav njegov "
+"sadržaj?"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Vrijednost postavke"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Naziv postavke"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Osnovna putanja {$path} mora biti unutar direktorija javnih datoteka."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Učitavač datoteka"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Datoteka {$filename} je obrađena i arhivirana."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Zadatak nije proizveo log zapis."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nema dostupnih lokalizacija za preuzimanje."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Datoteka {$filename} se ne može premjestiti iz {$currentFilePath} u "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} nije direktorij ili nije čitljiv."

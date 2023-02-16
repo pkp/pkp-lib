@@ -1,0 +1,313 @@
+# Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
+"PO-Revision-Date: 2022-08-17 17:36+0000\n"
+"Last-Translator: Fulvio Delle Donne <fulviodelledonne@libero.it>\n"
+"Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"it_IT/>\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr "La tua richiesta è stata rifiutata. Questo perchè il tuo login è scaduto. Ricarica la pagina e prova di nuovo."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Puoi vedere solo le proposte non pubblicate che ti sono state assegnate."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Non puoi cancellare una proposta che non sia assegnata a questo contesto."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Non puoi cancellare questa proposta."
+
+msgid "api.submissions.404.resourceNotFound"
+msgstr "La risorsa richiesta non è stata trovata."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "La tua richiesta non può essere completata perchè mancano le informazioni richieste."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Il richiesto volume, numero o anno non è valido."
+
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Il vocabolario {$vocab}  non è supportato."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La lingua {$locale} non è supportata."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Il tema attivo, {$themePluginPath}, non è abilitato e non può essere "
+"installato."
+
+msgid "api.files.400.config"
+msgstr ""
+"Non è stato possibile importare il file per un errore di configurazione del "
+"server. Contattare l'amministratore di sistema."
+
+msgid "api.files.400.fileSize"
+msgstr "Non è possibile importare file di dimensioni superiori a {$maxSize}."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Non è stato possibile importare uno o più files."
+
+msgid "api.files.400.noUpload"
+msgstr "Non è stato trovato alcun file da importare per questa richiesta."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Questo endpoint non è disponibile nel contest. E' necessario accedervi dal "
+"namespace dell'intero sito."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"La richiesta non è valida. L'ordine dei risultati deve essere 'desc' or "
+"'asc'."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"La richiesta non è valida. l'intervallo timelineInterval deve essere "
+"'giorno' o 'mese'."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La data di termine non può essere oltre ieri."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La data di inizio non può essere prima del 2001-01-01."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La data di inizio deve anticipare la data di scadenza."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La data deve essere nel formato YYYY-MM-DD."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Non hai i permessi per modificare questa pubblicazione."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Non è possibile trovare la directory pubblica o non è possibile salvarvi i "
+"file. Contattre l'amministratore per risolvere questo problema."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Non si dispone di spazio sufficiente nella user directory. Il file che si "
+"sta importando è di {$fileUploadSize}kb mentre sono disponibili "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Non hai i permessi per caricare file."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Il file che hai importato non corrisponde alla sua estensione. Potrebbe "
+"essere stato rinominato utilizzando un nome incompatibile, ad esempio "
+"modificare photo.png in photo.jpg."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "L'immagine che hai caricato non è valida."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "E' possibile solo caricare i seguenti tipi di file: {$fileTypes}."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Per poter eliminare questa uscita è necessario prima terminarne la "
+"pubblicazione."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Non è possibile modificare lo status direttamente attraverso l'API. "
+"Utilizzare gli endpoints /publish e /unpublish."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Non è possibile modificare questo articolo perché è già stato pubblicato."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "L'uscita di cui vuoi terminare la pubblicazione non è pubblicata."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "L'uscita che vuoi pubblicare è già stata pubblicata."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Non è possibile trovare il template email richiesto."
+
+msgid "api.404.endpointNotFound"
+msgstr "l'URL richiesto non è riconosciuto."
+
+msgid "api.404.resourceNotFound"
+msgstr "Non è possibile trovare la risorsa richiesta."
+
+msgid "api.403.unauthorized"
+msgstr "Non hai i permessi necessari per accedere a questa risorsa."
+
+msgid "api.400.paramNotSupported"
+msgstr "Il parametro {$param} non è supportato."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+"Non è possibile cambiare il momento in cui questo elemento è stato creato."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"Il token API non ha potuto essere decodificato per via dell'errore seguente: "
+"{$error}"
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Il token API non ha potuto essere validato. Questo può indicare un errore "
+"nel token APPI o che il token API non è più valido."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Per generare i DOI è necessario un prefisso DOI."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Non è possibile modificare l'associazione di file senza passare un assocType "
+"e un assocId."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "È necessario fornire un oggetto e un corpo per l'e-mail."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Il token API non può essere utilizzato per accedere a questo sito perché "
+"l'amministratore del sito non ha configurato una chiave segreta."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "L'avviso richiesto non è stato trovato."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Non è possibile registrare una decisione o raccomandare una decisione per "
+"questa richiesta perché è già stata pubblicata."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "È necessario definire una fase del file."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "L'istituzione richiesta non è stata trovata."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Le seguenti lingue non sono supportate: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"Non è possibile modificare il DOI di un elemento che non si trova in questo "
+"contesto."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Questo endpoint non è disponibile nello spazio dei nomi del sito e deve "
+"essere richiesto per un determinato contesto."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Il DOI richiesto non è stato trovato."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Gli articoli non pubblicati non possono essere esportati/depositati. "
+"Deselezionare gli articoli non pubblicati e riprovare."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Si è verificato un errore e non è stato possibile creare l'oggetto DOI."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Si è verificato un errore e alcuni degli elementi inviati non sono stati "
+"contrassegnati come registrati."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Alcuni articoli non sono stati depositati correttamente. Controllare i "
+"messaggi di errore specifici dei singoli articoli."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "La richiesta non contiene oggetti di pubblicazione validi."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Uno o più oggetti di pubblicazione non validi sono stati inclusi nella "
+"richiesta."
+
+msgid "api.emails.400.missingBody"
+msgstr "È necessario includere un'e-mail per l'invio."
+
+msgid "api.emails.400.missingSubject"
+msgstr "È necessario fornire un oggetto per l'e-mail."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"La richiesta non è valida. L'intervallo di tempo deve essere `giorno` o "
+"`mese`."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Non è possibile associare un file di questa fase a un altro file di invio."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Non è possibile associare un file di questa fase a un'assegnazione di "
+"revisione."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Non è possibile associare un file di questa fase a un giro di revisione."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"È necessario specificare un giro di revisione quando si richiedono file in "
+"una fase di revisione."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Non sono state trovate modifiche nella richiesta di modifica di questo file."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "La fase del file definita non è valida."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Quando si sposta un file in questa fase è necessario fornire l'id del giro "
+"di revisione."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Non è possibile accedere a questi file."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Non è consentito aggiungere e modificare questi file."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Non è possibile accedere ai file in questo turno di revisione."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "L'e-mail richiesta non è stata trovata."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Il giro di revisione da voi fornito non appartiene a questa proposta."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"È necessario indicare i ruoli degli utenti che devono ricevere questa e-mail."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Non è consentito inviare un'e-mail agli utenti che ricoprono uno o più ruoli "
+"selezionati."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Non è possibile associare un file di questa fase alla nota di discussione."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+"Si è verificato un errore di convalida XML e non è stato possibile esportare "
+"l'XML."

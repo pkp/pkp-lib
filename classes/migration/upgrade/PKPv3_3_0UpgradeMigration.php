@@ -149,9 +149,13 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
             $table->string('locale', 14)->nullable();
         });
 
-        DB::table('submissions as s')
-            ->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
-            ->update(['s.locale' => DB::raw('p.locale')]);
+        $updateQuery = DB::table('submissions as s')
+            ->join('publications as p', 'p.publication_id', '=', 's.current_publication_id');
+        if (DB::connection() instanceof PostgresConnection) {
+            $updateQuery->updateFrom(['s.locale' => DB::raw('p.locale')]);
+        } else {
+            $updateQuery->update(['s.locale' => DB::raw('p.locale')]);
+        }
 
         Schema::table('publications', function (Blueprint $table) {
             $table->dropColumn('locale');

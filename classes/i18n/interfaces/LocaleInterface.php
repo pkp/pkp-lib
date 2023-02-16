@@ -47,7 +47,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     /**
      * Register a locale folder
      *
-     * @param string $path The given folder is expected to have sub-folders, each one representing a locale (e.g. "./en_US").
+     * @param string $path The given folder is expected to have sub-folders, each one representing a locale (e.g. "./en").
      * The application will then look for .po files and attempt to lazy load them when requested.
      * @param int $priority The priority controls which locale should be loaded first, higher priorities overwrite smaller ones (in case of locale key conflicts), the default is 0
      */

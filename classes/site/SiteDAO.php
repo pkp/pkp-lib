@@ -76,7 +76,7 @@ class SiteDAO extends \PKP\db\DAO
             if (isset($primaryRow[$column])) {
                 // Backwards-compatible handling of the installedLocales and
                 // supportedLocales data. Before 3.2, these were stored as colon-separated
-                // strings (eg - en_US:fr_CA:ar_IQ). In 3.2, these are migrated to
+                // strings (eg - en:fr_CA:ar). In 3.2, these are migrated to
                 // serialized arrays defined by the site.json schema. However, some of the
                 // older upgrade scripts use site data before the migration is performed,
                 // so SiteDAO must be able to return the correct array before the data

@@ -134,7 +134,7 @@ class DataObject
      *  an array of of localized values in the form:
      *   array(
      *     'fr_FR' => 'en français',
-     *     'en_US' => 'in English',
+     *     'en' => 'in English',
      *     ...
      *   )
      * @param string $locale (optional) non-null for a single

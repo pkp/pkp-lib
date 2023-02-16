@@ -892,6 +892,9 @@ msgstr "DOI Suffix"
 msgid "doi.manager.settings.doiSuffix.custom"
 msgstr "Custom DOI Suffix Pattern"
 
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr "One or more selected DOI types are not allowed for the configured DOI registration agency."
+
 #, fuzzy
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Select the format to use when the application generates a DOI."

@@ -593,6 +593,27 @@ class PKPContextHandler extends APIHandler
             return $response->withStatus(400)->withJsonError('api.dois.400.invalidPluginType');
         }
 
+        // If it's a new/different registration agency plugin, update the enabled DOI types based on
+        // allowed types per the registration agency plugin
+        if (
+            $context->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY) !== $contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] &&
+            $contextParams[Context::SETTING_CONFIGURED_REGISTRATION_AGENCY] !== null
+        ) {
+            /** @var Context $newContext */
+            $newContext = $contextService->get($contextId);
+            $enabledPubObjectTypes = $newContext->getEnabledDoiTypes();
+            $allowedPubObjectTypes = $selectedPlugin->getAllowedDoiTypes();
+            $filteredPubObjectTypes = array_intersect($enabledPubObjectTypes, $allowedPubObjectTypes);
+
+            if ($filteredPubObjectTypes != $enabledPubObjectTypes) {
+                $contextService->edit(
+                    $newContext,
+                    [Context::SETTING_ENABLED_DOI_TYPES => $filteredPubObjectTypes],
+                    $request
+                );
+            }
+        }
+
         $settingsObject = $selectedPlugin->getSettingsObject();
         $params = $this->convertStringsToSchema($settingsObject::class, $slimRequest->getParsedBody());
         $pluginParams = array_intersect_key(

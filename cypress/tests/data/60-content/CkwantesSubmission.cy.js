@@ -60,7 +60,8 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('#startSubmission-locale-error').contains('This field is required.');
 		cy.get('#startSubmission-submissionRequirements-error').contains('This field is required.');
 		cy.get('#startSubmission-privacyConsent-error').contains('This field is required.');
-		cy.get('input[name="title"]').type(submission.title, {delay: 0});
+		// cy.get('input[name="title"]').type(submission.title, {delay: 0});
+		cy.setTinyMceContent('startSubmission-title-control', submission.title);
 		cy.get('label:contains("English")').click();
 		cy.get('input[name="submissionRequirements"]').check();
 		cy.get('input[name="privacyConsent"]').check();
@@ -95,7 +96,7 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('#titleAbstract-keywords-control-en_US').type('{enter}');
 		cy.get('#titleAbstract-keywords-selected-en_US .pkpBadge:contains(\'survey\')');
 		cy.setTinyMceContent('titleAbstract-abstract-control-en_US', submission.abstract);
-		cy.get('#titleAbstract-title-control-en_US').click(); // Ensure blur event is fired
+		cy.get('#titleAbstract-title-control-en_US').click({force: true}); // Ensure blur event is fired
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 

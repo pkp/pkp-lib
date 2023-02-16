@@ -13,6 +13,8 @@
  * @brief Handle exportable published submissions list grid requests.
  */
 
+use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridCellProvider;
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
@@ -22,7 +24,6 @@ use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridCellProvider;
 
 class ExportPublishedSubmissionsListGridHandler extends GridHandler
 {
@@ -274,7 +275,7 @@ class ExportPublishedSubmissionsListGridHandler extends GridHandler
     public function getGridCellProvider()
     {
         // Fetch the authorized roles.
-        $authorizedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $authorizedRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         return new ExportPublishedSubmissionsListGridCellProvider($this->_plugin, $authorizedRoles);
     }
 }

@@ -40,10 +40,11 @@
 
 	<{$heading} class="title">
 		<a id="preprint-{$preprint->getId()}" {if $server}href="{url server=$server->getPath() page="preprint" op="view" path=$preprintPath}"{else}href="{url page="preprint" op="view" path=$preprintPath}"{/if}>
-			{$preprint->getLocalizedTitle()|strip_unsafe_html}
-			{if $preprint->getLocalizedSubtitle()}
+			{assign var=publication value=$preprint->getCurrentPublication()}
+			{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
+			{if $publication->getLocalizedSubtitle()}
 				<span class="subtitle">
-					{$preprint->getLocalizedSubtitle()|escape}
+					{$publication->getLocalizedSubtitle(null, 'html')|strip_unsafe_html}
 				</span>
 			{/if}
 		</a>

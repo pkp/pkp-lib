@@ -16,7 +16,7 @@
  * @uses $primaryGalleys array List of preprint galleys that are not supplementary or dependent
  * @uses $supplementaryGalleys array List of preprint galleys that are supplementary
  *}
-{include file="frontend/components/header.tpl" pageTitleTranslated=$preprint->getLocalizedFullTitle()|escape}
+{include file="frontend/components/header.tpl" pageTitleTranslated=$preprint->getCurrentPublication()->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
 
 <div class="page page_preprint">
 	{if $section}

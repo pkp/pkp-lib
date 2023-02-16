@@ -14,6 +14,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Database\Query\JoinClause;
 
 class PKPv3_3_0UpgradeMigration extends Migration {
@@ -121,9 +122,18 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 			$table->string('locale', 14)->nullable();
 		});
 
-		Capsule::table('submissions as s')
-			->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
-			->update(['s.locale' => Capsule::raw('p.locale')]);
+		if (Capsule::connection() instanceof PostgresConnection) {
+			Capsule::connection()->unprepared(
+				'UPDATE submissions AS s
+				SET locale = p.locale
+				FROM publications AS p
+				WHERE p.publication_id = s.current_publication_id'
+			);
+		} else {
+			Capsule::table('submissions as s')
+				->join('publications as p', 'p.publication_id', '=', 's.current_publication_id')
+				->update(['s.locale' => Capsule::raw('p.locale')]);
+		}
 
 		Capsule::schema()->table('publications', function (Blueprint $table) {
 			$table->dropColumn('locale');
@@ -381,7 +391,7 @@ class PKPv3_3_0UpgradeMigration extends Migration {
 				->join('event_log_settings as file_setting', function (JoinClause $join) use ($row) {
 					$join->on('file_setting.log_id', '=', 'els.log_id')
 						->where('file_setting.setting_name', '=', 'fileId')
-						->where('file_setting.setting_value', '=', $row->file_id);
+						->where('file_setting.setting_value', '=', (string) $row->file_id);
 				})
 				->where('els.setting_name', 'fileRevision')
 				->where('els.setting_value', '=', $row->revision)

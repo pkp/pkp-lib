@@ -644,7 +644,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      *
      * @param Context $context The context to restore default values for
      * @param Request $request
-     * @param string $locale Locale key to restore defaults for. Example: `en_US`
+     * @param string $locale Locale key to restore defaults for. Example: `en`
      */
     public function restoreLocaleDefaults($context, $request, $locale)
     {
@@ -689,7 +689,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * @param string $fileNameBase Unique identifier to use for the filename. The
      *  Extension and locale will be appended.
      * @param int $userId ID of the user who uploaded the temporary file
-     * @param string $localeKey Example: en_US. Leave empty for a file that is
+     * @param string $localeKey Example: en. Leave empty for a file that is
      *  not localized.
      *
      * @return string|boolean The new filename or false on failure

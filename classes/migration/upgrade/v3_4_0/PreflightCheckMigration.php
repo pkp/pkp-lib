@@ -19,7 +19,9 @@ use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Collection;
 use PKP\db\DAORegistry;
+use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
@@ -34,6 +36,102 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+            // email_templates_default_data keys should not conflict after locale migration
+            // See MergeLocalesMigration (#8598)
+            $affectedLocales = MergeLocalesMigration::getAffectedLocales();
+            $conflictingEmailKeys = collect();
+            $exceptionMessage = "";
+            foreach ($affectedLocales as $localeCode => $localeTarget) {
+                $defaultLocale = $localeTarget;
+                if ($localeTarget instanceof Collection) {
+                    $defaultLocale = $localeTarget->first();
+
+                    $conflictingEmailKeys = DB::table('email_templates_default_data')
+                        ->select('email_key', DB::raw('count(*) as count'))
+                        ->where('locale', 'like', $localeCode . '_%')
+                        ->orWhere('locale', $localeCode)
+                        ->groupBy('email_key')
+                        ->havingRaw('count(*) >= 2')
+                        ->get();
+                } else {
+                    $conflictingEmailKeys = DB::table('email_templates_default_data')
+                        ->select('email_key', DB::raw('count(*) as count'))
+                        ->where('locale', $localeCode)
+                        ->orWhere('locale', $localeTarget)
+                        ->groupBy('email_key')
+                        ->havingRaw('count(*) >= 2')
+                        ->get();
+                }
+
+                if (!$conflictingEmailKeys->isEmpty()) {
+                    foreach ($conflictingEmailKeys as $conflictingEmailKey) {
+                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading. Consider keeping only the '. $defaultLocale . ' locale in the installation' . PHP_EOL;
+                    }
+                }
+            }
+
+            if (!empty($exceptionMessage)) {
+                throw new \Exception($exceptionMessage);
+            }
+
+            // _settings tables locales should not conflict after locale migration
+            // See MergeLocalesMigration (#8598)
+            $settingsTables = MergeLocalesMigration::getSettingsTables();
+            $conflictingSettings = collect();
+            $settingsExceptionMessage = "";
+            foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
+                if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
+                    foreach ($affectedLocales as $localeCode => $localeTarget) {
+                        $defaultLocale = $localeTarget;
+                        if ($localeTarget instanceof Collection) {
+                            $defaultLocale = $localeTarget->first();
+
+                            $conflictingSettings = DB::table($settingsTable)
+                                ->select('setting_name', DB::raw('COUNT(*)'))
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->addSelect($settingsTableIdColumn);
+                                })
+                                ->where('locale', 'LIKE', $localeCode .'_%')
+                                ->orWhere('locale', $localeCode)
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
+                                })
+                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy('setting_name');
+                                })
+                                ->havingRaw('COUNT(*) >= 2')
+                                ->get();
+                        } else {
+                            $conflictingSettings = DB::table($settingsTable)
+                                ->select('setting_name', DB::raw('COUNT(*)'))
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->addSelect($settingsTableIdColumn);
+                                })
+                                ->where('locale', $localeCode)
+                                ->orWhere('locale', $localeTarget)
+                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
+                                })
+                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
+                                    return $query->groupBy('setting_name');
+                                })
+                                ->havingRaw('COUNT(*) >= 2')
+                                ->get();
+                        }
+
+                        if (!$conflictingSettings->isEmpty()) {
+                            foreach ($conflictingSettings as $conflictingSetting) {
+                                $settingsExceptionMessage .= 'A row with "' . $settingsTableIdColumn . '"="' . $conflictingSetting->{$settingsTableIdColumn} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $settingsTable . '" which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!empty($settingsExceptionMessage)) {
+                throw new \Exception($settingsExceptionMessage);
+            }
+            
 
             // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
             $this->checkContactSetting();

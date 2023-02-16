@@ -321,7 +321,7 @@ class ListbuilderHandler extends GridHandler
                 }
 
                 // $changes should now contain e.g.:
-                // array ('localizedColumnName' => array('en_US' => 'englishValue'),
+                // array ('localizedColumnName' => array('en' => 'englishValue'),
                 // 'nonLocalizedColumnName' => 'someNonLocalizedValue');
                 if (is_null($rowId)) {
                     if (!call_user_func($insertionCallback, $request, $changes)) {

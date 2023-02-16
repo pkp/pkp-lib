@@ -34,7 +34,7 @@ web_cache = Off
 web_cache_hours = 1
 
 [i18n]
-locale = en_US
+locale = en
 connection_charset = utf8
 
 [files]

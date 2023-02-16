@@ -395,7 +395,7 @@ class PKPSchemaService
      * objects and arrays:
      *
      * [
-     *   foo.en_US: ['Error message'],
+     *   foo.en: ['Error message'],
      *   foo.fr_CA: ['Error message'],
      *   bar.0.baz: ['Error message'],
      * ]
@@ -404,7 +404,7 @@ class PKPSchemaService
      *
      * [
      *   foo: [
-     *     en_US: ['Error message'],
+     *     en: ['Error message'],
      *     fr_CA: ['Error message'],
      *   ],
      *   bar: ['Error message'],
@@ -437,8 +437,8 @@ class PKPSchemaService
      * @param string $schemaName One of the SCHEMA_... constants
      * @param \PKP\core\DataObject $object The object to be modified
      * @param array $supportedLocales List of locale keys that shoud receive
-     *  default content. Example: ['en_US', 'fr_CA']
-     * @param string $primaryLocale Example: `en_US`
+     *  default content. Example: ['en', 'fr_CA']
+     * @param string $primaryLocale Example: `en`
      * @param array $localeParams Key/value params for the translation strings
      *
      * @return DataObject
@@ -472,7 +472,7 @@ class PKPSchemaService
      * Get the default values for a specific locale
      *
      * @param string $schemaName One of the SCHEMA_... constants
-     * @param string $locale The locale key to get values for. Example: `en_US`
+     * @param string $locale The locale key to get values for. Example: `en`
      * @param array $localeParams Key/value params for the translation strings
      *
      * @return array Key/value of property defaults for the specified locale
@@ -552,15 +552,15 @@ class PKPSchemaService
      *
      * $values = [
      *	'title' => [
-     *		'en_US' => 'The Journal of Public Knowledge',
+     *		'en' => 'The Journal of Public Knowledge',
      *	]
      * ]
      *
-     * If the locales en_US and fr_CA are requested, it will return the following:
+     * If the locales en and fr_CA are requested, it will return the following:
      *
      * $values = [
      *	'title' => [
-     *		'en_US' => 'The Journal of Public Knowledge',
+     *		'en' => 'The Journal of Public Knowledge',
      *		'fr_CA' => '',
      *	]
      * ]

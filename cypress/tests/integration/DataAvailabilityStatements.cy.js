@@ -19,7 +19,7 @@ describe('DataAvailabilityStatements', function () {
 		cy.findSubmissionAsEditor('dbarnes', null, config.submission.authorFamilyName);
 		cy.get('#publication-button').click();
 		cy.get('#metadata-button').click();
-		cy.setTinyMceContent('metadata-dataAvailability-control-en_US', statement);
+		cy.setTinyMceContent('metadata-dataAvailability-control-en', statement);
 		cy.get('#metadata button').contains('Save').click();
 		cy.get('#metadata [role="status"]').contains('Saved');
 	});

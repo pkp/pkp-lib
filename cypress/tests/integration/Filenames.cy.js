@@ -11,7 +11,7 @@
 		var name = 'edição-£$L<->/4/ch 丹尼爾 a دانيال1d line \\n break.pdf';
 		var encodedName = 'edi%C3%A7%C3%A3o-%C2%A3%24L%3C-%3E%2F4%2Fch+%E4%B8%B9%E5%B0%BC%E7%88%BE+a+%D8%AF%D8%A7%D9%86%D9%8A%D8%A7%D9%841d+line+%5Cn+break.pdf';
 		var responseHeader = 'attachment;filename="' + encodedName + '";filename*=UTF-8\'\'' + encodedName;
-		var stageId = Cypress.env('contextTitles').en_US === 'Public Knowledge Preprint Server' ? 5 : 1;
+		var stageId = Cypress.env('contextTitles').en === 'Public Knowledge Preprint Server' ? 5 : 1;
 		var downloadUrl = 'index.php/publicknowledge/$$$call$$$/api/file/file-api/download-file?submissionFileId=1&submissionId=1&stageId=' + stageId;
 
 		cy.login('dbarnes');
@@ -32,7 +32,7 @@
 						},
 						body: {
 							name: {
-								en_US: name,
+								en: name,
 								fr_CA: name
 							}
 						}

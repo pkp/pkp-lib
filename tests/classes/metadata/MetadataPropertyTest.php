@@ -187,7 +187,7 @@ class MetadataPropertyTest extends PKPTestCase
         /** @var ControlledVocabEntryDAO */
         $controlledVocabEntryDao = DAORegistry::getDAO('ControlledVocabEntryDAO');
         $testControlledVocabEntry = $controlledVocabEntryDao->newDataObject();
-        $testControlledVocabEntry->setName('testEntry', 'en_US');
+        $testControlledVocabEntry->setName('testEntry', 'en');
         $testControlledVocabEntry->setControlledVocabId($testControlledVocab->getId());
         $controlledVocabEntryId = $controlledVocabEntryDao->insertObject($testControlledVocabEntry);
 

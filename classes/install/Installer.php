@@ -52,7 +52,7 @@ class Installer
     public const INSTALLER_ERROR_DB = 2;
 
     public const INSTALLER_DATA_DIR = 'dbscripts/xml';
-    public const INSTALLER_DEFAULT_LOCALE = 'en_US';
+    public const INSTALLER_DEFAULT_LOCALE = 'en';
 
     /** @var string descriptor path (relative to INSTALLER_DATA_DIR) */
     public $descriptor;
@@ -739,7 +739,7 @@ class Installer
      * @param object $installer
      * @param array $attr Attributes: array containing
      *  'key' => 'EMAIL_KEY_HERE',
-     *  'locales' => 'en_US,fr_CA,...'
+     *  'locales' => 'en,fr_CA,...'
      */
     public function installEmailTemplate($installer, $attr)
     {

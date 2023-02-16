@@ -22,6 +22,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
+use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPEmailSetupForm;
 use PKP\components\forms\context\PKPInformationForm;
 use PKP\components\forms\context\PKPNotifyUsersForm;
@@ -31,8 +32,6 @@ use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\facades\Locale;
-use PKP\i18n\LocaleMetadata;
 use PKP\mail\Mailable;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;
@@ -315,6 +314,7 @@ class ManagementHandler extends Handler
         $templateMgr->setConstants([
             'FORM_PAYMENT_SETTINGS' => FORM_PAYMENT_SETTINGS,
             'FORM_CONTEXT_STATISTICS' => FORM_CONTEXT_STATISTICS,
+            'FORM_DOI_REGISTRATION_SETTINGS' => PKPDoiRegistrationSettingsForm::FORM_DOI_REGISTRATION_SETTINGS,
         ]);
 
         $templateMgr->setState([

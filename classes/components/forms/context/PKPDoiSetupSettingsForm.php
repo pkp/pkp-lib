@@ -32,6 +32,11 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
     /** @copydoc FormComponent::$method */
     public $method = 'PUT';
 
+    /** @var ?string Name of registration agency for checking allowed pub object types for DOI registration  */
+    public ?string $enabledRegistrationAgency = null;
+    /** @var array Default list of all possible pubObject types for DOI registration */
+    public array $objectTypeOptions = [];
+
     protected const DOI_SETTINGS_GROUP = 'doiSettingsGroup';
     protected const DOI_DEFAULT_GROUP = 'doiDefaultGroup';
     protected const DOI_CUSTOM_SUFFIX_GROUP = 'doiCustomSuffixGroup';
@@ -47,6 +52,7 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
     {
         $this->action = $action;
         $this->locales = $locales;
+        $this->enabledRegistrationAgency = $context->getConfiguredDoiAgency()?->getName();
 
         $doiManagementUrl = Application::get()->getDispatcher()->url(
             Application::get()->getRequest(),
@@ -140,5 +146,14 @@ abstract class PKPDoiSetupSettingsForm extends FormComponent
                 'groupId' => self::DOI_CUSTOM_SUFFIX_GROUP,
                 'value' => $context->getData(Repo::doi()::CUSTOM_REPRESENTATION_PATTERN),
             ]));
+    }
+
+    public function getConfig()
+    {
+        $config = parent::getConfig();
+        $config['enabledRegistrationAgency'] = $this->enabledRegistrationAgency;
+        $config['objectTypeOptions'] = $this->objectTypeOptions;
+
+        return $config;
     }
 }

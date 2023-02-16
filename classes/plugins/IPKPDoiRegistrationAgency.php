@@ -59,4 +59,11 @@ interface IPKPDoiRegistrationAgency
      *
      */
     public function getSettingsObject(): RegistrationAgencySettings;
+
+    /**
+     * Get an array of which types of pub objects are allowed to have DOIs assigned.
+     * Should be composed of Repo::doi()::TYPE_* constants.
+     * This will only dictate which pub object types are enabled and will not delete already assigned DOIs.
+     */
+    public function getAllowedDoiTypes(): array;
 }

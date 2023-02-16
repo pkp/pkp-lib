@@ -485,7 +485,7 @@ class PKPDoiHandler extends APIHandler
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
             $failedDoiActions = array_map(function (int $id) {
-                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
+                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? '[' . __('api.dois.404.submissionNotFound') . ']';
                 return new DoiException(DoiException::SUBMISSION_NOT_PUBLISHED, $submissionTitle, $submissionTitle);
             }, $invalidIds);
 
@@ -593,7 +593,7 @@ class PKPDoiHandler extends APIHandler
         $invalidIds = array_diff($requestIds, $validIds);
         if (count($invalidIds)) {
             $failedDoiActions = array_map(function (int $id) {
-                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? 'Submission not found';
+                $submissionTitle = Repo::submission()->get($id)?->getCurrentPublication()->getLocalizedFullTitle() ?? '[' . __('api.dois.404.submissionNotFound') . ']';
                 return new DoiException(DoiException::INCORRECT_STALE_STATUS, $submissionTitle, $submissionTitle);
             }, $invalidIds);
 

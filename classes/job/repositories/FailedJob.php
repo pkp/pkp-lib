@@ -64,7 +64,7 @@ class FailedJob extends BaseRepository
 
         return $failedJobs->where(fn($query) => $query
             ->whereNotNull('payload')
-            ->whereRaw('payload <> ""')
+            ->whereRaw("payload <> ''")
         )->get();
     }
 

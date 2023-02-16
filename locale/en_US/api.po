@@ -71,6 +71,9 @@ msgstr "The DOI you requested was not found."
 msgid "api.dois.404.pubObjectNotFound"
 msgstr "The publication object you requested was not found."
 
+msgid "api.dois.404.submissionNotFound"
+msgstr "The submission you requested was not found."
+
 msgid "api.dois.400.noUnpublishedItems"
 msgstr "Unpublished items cannot be exported/deposited. Please deselect unpublished items and try again."
 

@@ -49,6 +49,9 @@ class QueryForm extends Form
     /** @var bool True iff this is a newly-created query */
     public $_isNew;
 
+    /** @var array Show notice and time limit; some users have limited time to edit a discussion */
+    public $_allowedEditTimeNotice;
+
     /**
      * Constructor.
      *
@@ -88,6 +91,9 @@ class QueryForm extends Form
             $headNote->setAssocId($query->getId());
             $headNote->setDateCreated(Core::getCurrentDate());
             $noteDao->insertObject($headNote);
+
+            // Edit time limit notice 
+            $this->_allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
             assert(isset($query));
@@ -291,19 +297,22 @@ class QueryForm extends Form
 
         // When in review stage, include/exclude users depending on the current users role
         $reviewAssignments = [];
-        if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
-
-            // Get all review assignments for current submission
-            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
-
-            // Get current users roles
+        // Get current users roles
+        $assignedRoles = (function () use ($stageAssignmentDao, $query, $user) {
             $assignedRoles = [];
             $usersAssignments = $stageAssignmentDao->getBySubmissionAndStageId($query->getAssocId(), $query->getStageId(), null, $user->getId());
             while ($usersAssignment = $usersAssignments->next()) {
                 $userGroup = Repo::userGroup()->get($usersAssignment->getUserGroupId());
                 $assignedRoles[] = $userGroup->getRoleId();
             }
+            return $assignedRoles;
+        })();
+
+        if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
+
+            // Get all review assignments for current submission
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 
             // if current user is editor/journal manager/site admin and not have author role , add all reviewers
             if ( array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || ( empty($assignedRoles) && ( $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) ) ) ) {
@@ -372,9 +381,15 @@ class QueryForm extends Form
             ]);
         }
 
+        // Notify assistants, authors and reviewers that they have x minutes to update their own discussion
+        if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
+            $this->_allowedEditTimeNotice['show'] = true;
+        }
+
         $templateMgr->assign([
             'allParticipants' => $allParticipants,
             'assignedParticipants' => $assignedParticipants,
+            'allowedEditTimeNotice' => $this->_allowedEditTimeNotice,
         ]);
 
         return parent::fetch($request, $template, $display);

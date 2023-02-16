@@ -121,9 +121,10 @@ class QueriesAccessHelper
             return false;
         }
 
-        // Assistants, authors and reviewers are allowed, if they created the query
-        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
-            if ($query->getHeadNote()->getUserId() == $this->_user->getId()) {
+        // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
+            $headNote = $query->getHeadNote();
+            if ($headNote->getUserId() === $this->_user->getId() && (time() - strtotime($headNote->getDateCreated()) < 3600)) {
                 return true;
             }
         }

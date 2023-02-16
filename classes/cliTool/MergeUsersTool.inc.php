@@ -50,14 +50,14 @@ class MergeUsersTool extends CommandLineTool {
 			. "mergeUsername1: The username for the account to be merged. All assets (e.g.\n"
 			. "                submissions) associated with this user account will be\n"
 			. "                transferred to the user account that corresponds to\n"
-			. "                targetUsernameusername1. The user account that corresponds\n"
-			. "                to username2 will be deleted.\n\n"
+			. "                targetUsername. The user account that corresponds\n"
+			. "                to mergeUsername1 will be deleted.\n\n"
 			. "Multiple users to merge can be specified in the same command, e.g.:\n\n"
 			. "{$this->scriptName} myUsername spamUser1 spamUser2 spamUser3\n\n"
 			. "This will merge users with username \"spamUser1\", \"spamUser2\", and\n"
 			. "\"spamUser3\" into the account with username \"myUsername\".\n\n"
 			. "Users can be specified by ID by entering usernames of the form \"id=x\"\n"
-			. "with the username in place of \"x\", e.g.:\n\n"
+			. "with the user ID in place of \"x\", e.g.:\n\n"
 			. "{$this->scriptName} myUsername id=234 id=456\n\n"
 			. "Usernames and IDs may be mixed as desired.\n";
 	}

@@ -641,14 +641,14 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 	cy.get('button.pkpDateRange__button').click();
 	cy.get('button:contains("Last 90 days")').click();
 	cy.waitJQuery();
-	cy.get('span:contains("' + daysAgo90.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + ' — ' + yesterday.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + '")');
+	cy.get('span:contains("' + daysAgo90.toISOString().split('T')[0] + ' — ' + yesterday.toISOString().split('T')[0] + '")');
 	cy.get('button.pkpDateRange__button').click();
 	cy.get('.pkpDateRange__input--start');
-	cy.get('input.pkpDateRange__input--start').clear().type(daysAgo50.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}));
-	cy.get('input.pkpDateRange__input--end').clear().type(daysAgo10.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}));
+	cy.get('input.pkpDateRange__input--start').clear().type(daysAgo50.toISOString().split('T')[0]);
+	cy.get('input.pkpDateRange__input--end').clear().type(daysAgo10.toISOString().split('T')[0]);
 	cy.get('button:contains("Apply")').click();
 	cy.get('.pkpDateRange__options').should('not.exist');
-	cy.get('span:contains("' + daysAgo50.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + ' — ' + daysAgo10.toLocaleDateString(['en-CA'], {timeZone: 'UTC'}) + '")');
+	cy.get('span:contains("' + daysAgo50.toISOString().split('T')[0] + ' — ' + daysAgo10.toISOString().split('T')[0] + '")');
 
 	// Test that the hidden timeline table for screen readers is getting populated
 	// with rows of content.

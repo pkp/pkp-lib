@@ -137,8 +137,14 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		// Create the revision nodes
 		$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+		$hasRevision = false;
 		foreach ($revisions as $revision) {
 			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
+			if (!file_exists($localPath)) {
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileMissing', ['id' => $submissionFile->getId(), 'path' => $localPath]));
+				continue;
+			}
+			$hasRevision = true;
 			$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
 			$revisionNode->setAttribute('id', $revision->fileId);
 			$revisionNode->setAttribute('filesize', filesize($localPath));
@@ -170,7 +176,11 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 			$submissionFileNode->appendChild($revisionNode);
 		}
-
+		// If no revision has been added, report and retrieve an "empty node"
+		if (!$hasRevision) {
+			$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId()]));
+			return $doc->createDocumentFragment();
+		}
 
 		return $submissionFileNode;
 	}

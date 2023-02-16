@@ -13,7 +13,7 @@
  * @see https://github.com/pkp/pkp-lib/issues/7245
  */
 
-// en_US:fr_CA:fr_FR
+// en:fr_CA:fr_FR
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;

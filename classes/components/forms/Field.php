@@ -22,7 +22,7 @@ abstract class Field
     /** @var string The form input name for this field */
     public $name;
 
-    /** @var string|object Field label or multilingual object matching locales to labels, eg  ['en_US' => 'Label', 'fr_CA' => 'Étiquette'] */
+    /** @var string|object Field label or multilingual object matching locales to labels, eg  ['en' => 'Label', 'fr_CA' => 'Étiquette'] */
     public $label = '';
 
     /** @var string Field description */
@@ -46,7 +46,7 @@ abstract class Field
     /** @var bool Is this field multilingual? */
     public $isMultilingual = false;
 
-    /** @var mixed The value of this field. If multilingual, expects a key/value array: ['en_US', => 'English value', 'fr_CA' => 'French value'] */
+    /** @var mixed The value of this field. If multilingual, expects a key/value array: ['en', => 'English value', 'fr_CA' => 'French value'] */
     public $value;
 
     /** @var mixed A default for this field when no value is specified. */

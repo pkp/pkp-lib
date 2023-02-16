@@ -127,7 +127,7 @@ Cypress.Commands.add('install', function() {
 	cy.get('input[id^=filesDir-]').clear().type(Cypress.env('FILESDIR'), {delay: 0});
 
 	// Locale configuration
-	cy.get('input[id=additionalLocales-en_US').check();
+	cy.get('input[id=additionalLocales-en').check();
 	cy.get('input[id=additionalLocales-fr_CA').check();
 
 	// Complete the installation
@@ -227,11 +227,11 @@ Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 	const hasWorkType = typeof data.workType !== 'undefined'; // OMP: Monograph or Edited Volume
 
 	let body = {
-		title: {en_US: data.title},
-		abstract: {en_US: data.abstract},
+		title: {en: data.title},
+		abstract: {en: data.abstract},
 	};
 	if (hasKeywords) {
-		body.keywords = {en_US: data.keywords}
+		body.keywords = {en: data.keywords}
 	}
 	if (hasWorkType) {
 		body.workType = data.workType;
@@ -248,12 +248,12 @@ Cypress.Commands.add('putMetadataWithApi', (data, csrfToken) => {
 			timeout: 60000
 		}).then(xhr => {
 			expect(xhr.status).to.eq(200);
-			expect(xhr.body.title.en_US).to.eq(data.title);
-			expect(xhr.body.abstract.en_US).to.eq(data.abstract);
+			expect(xhr.body.title.en).to.eq(data.title);
+			expect(xhr.body.abstract.en).to.eq(data.abstract);
 			if (hasKeywords) {
-				expect(xhr.body.keywords.en_US.length).to.eq(data.keywords.length);
+				expect(xhr.body.keywords.en.length).to.eq(data.keywords.length);
 				data.keywords.forEach((keyword, i) => {
-					expect(xhr.body.keywords.en_US[i]).to.eq(keyword);
+					expect(xhr.body.keywords.en[i]).to.eq(keyword);
 				});
 			}
 		});
@@ -284,9 +284,9 @@ Cypress.Commands.add('addSubmissionAuthorsWithApi', (api, data, csrfToken) => {
 				method: 'GET'
 			}).then(xhr => {
 				data.additionalAuthors.forEach(author => {
-					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en_US === pAuthor.givenName.en_US && author.familyName.en_US === pAuthor.familyName.en_US);
+					let publicationAuthor = xhr.body.authors.find(pAuthor => author.givenName.en === pAuthor.givenName.en && author.familyName.en === pAuthor.familyName.en);
 					if (typeof author.affiliation !== 'undefined') {
-						expect(publicationAuthor.affiliation.en_US).to.equal(author.affiliation.en_US);
+						expect(publicationAuthor.affiliation.en).to.equal(author.affiliation.en);
 					}
 					expect(publicationAuthor.email).to.equal(author.email);
 					expect(publicationAuthor.country).to.equal(author.country);
@@ -586,8 +586,8 @@ Cypress.Commands.add('createUser', user => {
 	if (!('roles' in user)) user.roles = [];
 	cy.get('div[id=userGridContainer] a:contains("Add User")').click();
 	cy.wait(2000); // Avoid occasional glitches with given name field
-	cy.get('input[id^="givenName-en_US"]').type(user.givenName, {delay: 0});
-	cy.get('input[id^="familyName-en_US"]').type(user.familyName, {delay: 0});
+	cy.get('input[id^="givenName-en"]').type(user.givenName, {delay: 0});
+	cy.get('input[id^="familyName-en"]').type(user.familyName, {delay: 0});
 	cy.get('input[name=email]').type(user.email, {delay: 0});
 	cy.get('input[name=username]').type(user.username, {delay: 0});
 	cy.get('input[name=password]').type(user.password, {delay: 0});
@@ -598,7 +598,7 @@ Cypress.Commands.add('createUser', user => {
 	cy.get('select[name=country]').select(user.country);
 	cy.contains('More User Details').click();
 	cy.get('span:contains("Less User Details"):visible');
-	cy.get('input[id^="affiliation-en_US"]').type(user.affiliation, {delay: 0});
+	cy.get('input[id^="affiliation-en"]').type(user.affiliation, {delay: 0});
 	cy.get('form[id=userDetailsForm]').find('button[id^=submitFormButton]').click();
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();

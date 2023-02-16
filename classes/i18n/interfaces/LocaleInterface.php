@@ -32,7 +32,7 @@ use Sokil\IsoCodes\Database\Scripts;
 interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
 {
     /** Keeps the default locale of the application */
-    public const DEFAULT_LOCALE = 'en_US';
+    public const DEFAULT_LOCALE = 'en';
 
     /** Regular expression to validate and extract pieces of a locale, variants can be composed of five to eight letters, or of four characters starting with a digit */
     public const LOCALE_EXPRESSION = '/^(?P<language>[a-z]{2})(?:_(?P<country>[A-Z]{2}))?(?:@(?P<script>[A-Za-z\d]{5,8}|\d[A-Za-z\d]{3}))?$/';
@@ -47,7 +47,7 @@ interface LocaleInterface extends \Illuminate\Contracts\Translation\Translator
     /**
      * Register a locale folder
      *
-     * @param string $path The given folder is expected to have sub-folders, each one representing a locale (e.g. "./en_US").
+     * @param string $path The given folder is expected to have sub-folders, each one representing a locale (e.g. "./en").
      * The application will then look for .po files and attempt to lazy load them when requested.
      * @param int $priority The priority controls which locale should be loaded first, higher priorities overwrite smaller ones (in case of locale key conflicts), the default is 0
      */

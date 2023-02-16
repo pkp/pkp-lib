@@ -430,7 +430,7 @@ class Locale implements LocaleInterface
             return $value;
         }
 
-        // In order to reduce the noise, we're only logging missing entries for the en_US locale
+        // In order to reduce the noise, we're only logging missing entries for the en locale
         // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
         if ($locale === LocaleInterface::DEFAULT_LOCALE) {
             error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");

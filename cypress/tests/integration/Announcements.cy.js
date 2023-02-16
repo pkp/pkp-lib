@@ -31,9 +31,9 @@ describe('Announcements', function() {
 		var title = newAnnouncementTitle;
 		var desc = '<p>The Journal of Public Knowledge is issuing a call for papers on making knowledge public in scholarly communications. We are soliciting submissions to be published in a special issue to be published in 2021.</p>';
 		cy.wait(500);
-		cy.get('#announcement-title-control-en_US').type(title, {delay: 0});
-		cy.setTinyMceContent('announcement-descriptionShort-control-en_US', desc);
-		cy.setTinyMceContent('announcement-description-control-en_US', desc.repeat(5));
+		cy.get('#announcement-title-control-en').type(title, {delay: 0});
+		cy.setTinyMceContent('announcement-descriptionShort-control-en', desc);
+		cy.setTinyMceContent('announcement-description-control-en', desc.repeat(5));
 		cy.get('#announcements .pkpForm button').contains('Save').click();
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title + '")')
 			.parents('.listPanel__itemSummary').find('a').contains('View').click();
@@ -54,13 +54,13 @@ describe('Announcements', function() {
 		cy.get('button:contains("Add Announcement")').click();
 		var title = 'Example announcement';
 		cy.wait(500);
-		cy.get('#announcement-title-control-en_US').type(title, {delay: 0});
+		cy.get('#announcement-title-control-en').type(title, {delay: 0});
 		cy.get('#announcements .pkpForm button').contains('Save').click();
 
 		// Edit announcement
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title + '")')
 			.parents('.listPanel__itemSummary').find('button').contains('Edit').click();
-		cy.get('#announcement-title-control-en_US').type('2');
+		cy.get('#announcement-title-control-en').type('2');
 		cy.get('#announcements .pkpForm button').contains('Save').click();
 		cy.get('#announcements .listPanel__itemTitle:contains("' + title  + '2")');
 

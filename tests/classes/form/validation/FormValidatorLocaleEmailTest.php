@@ -33,7 +33,7 @@ class FormValidatorLocaleEmailTest extends PKPTestCase
     {
         $form = new Form('some template');
 
-        $form->setData('testData', ['en_US' => 'some.address@gmail.com']);
+        $form->setData('testData', ['en' => 'some.address@gmail.com']);
         $validator = new FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertTrue($validator->isValid());
 
@@ -41,7 +41,7 @@ class FormValidatorLocaleEmailTest extends PKPTestCase
         $validator = new FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
 
-        $form->setData('testData', ['en_US' => 'anything else']);
+        $form->setData('testData', ['en' => 'anything else']);
         $validator = new FormValidatorLocaleEmail($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertFalse($validator->isValid());
     }

@@ -47,15 +47,15 @@ class FormValidatorLocaleTest extends PKPTestCase
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['en_US' => null]);
+        $form->setData('testData', ['en' => null]);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['en_US' => 0]);
+        $form->setData('testData', ['en' => 0]);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('0', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['en_US' => '0']);
+        $form->setData('testData', ['en' => '0']);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('0', $formValidator->getFieldValue());
 
@@ -63,15 +63,15 @@ class FormValidatorLocaleTest extends PKPTestCase
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['de_DE' => ' some text ']);
+        $form->setData('testData', ['de' => ' some text ']);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['en_US' => ' some text ']);
+        $form->setData('testData', ['en' => ' some text ']);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame('some text', $formValidator->getFieldValue());
 
-        $form->setData('testData', ['en_US' => [' some text ']]);
+        $form->setData('testData', ['en' => [' some text ']]);
         $formValidator = new FormValidatorLocale($form, 'testData', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE, 'some.message.key');
         self::assertSame([' some text '], $formValidator->getFieldValue());
     }

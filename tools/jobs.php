@@ -20,12 +20,12 @@ namespace PKP\tools;
 use APP\core\Application;
 use APP\facades\Repo;
 use Carbon\Carbon;
+use Illuminate\Console\Concerns\InteractsWithIO;
+use Illuminate\Console\OutputStyle;
+use Illuminate\Contracts\Queue\Job;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Queue\Events\JobProcessing;
-use Illuminate\Contracts\Queue\Job;
-use Illuminate\Console\Concerns\InteractsWithIO;
-use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
@@ -34,7 +34,6 @@ use PKP\jobs\testJobs\TestJobSuccess;
 use PKP\queue\WorkerConfiguration;
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Exception\InvalidArgumentException as CommandInvalidArgumentException;
-use Symfony\Component\Console\Exception\LogicException;
 use Symfony\Component\Console\Helper\Helper;
 use Symfony\Component\Console\Helper\TableCell;
 use Symfony\Component\Console\Helper\TableCellStyle;
@@ -168,7 +167,6 @@ class commandJobs extends CommandLineTool
     /**
      * Get the parameter list passed on CLI
      *
-     * @return array|null
      */
     public function getParameterList(): ?array
     {
@@ -178,10 +176,8 @@ class commandJobs extends CommandLineTool
     /**
      * Get the value of a specific parameter
      *
-     * @param string $parameter
      * @param mixed $default
      *
-     * @return mixed
      */
     protected function getParameterValue(string $parameter, mixed $default = null): mixed
     {
@@ -227,30 +223,30 @@ class commandJobs extends CommandLineTool
     }
 
     /**
-     * Failed jobs list/redispatch/remove 
+     * Failed jobs list/redispatch/remove
      */
     protected function failed(): void
     {
         $parameterList = $this->getParameterList();
 
-        if ( in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch')) ) {
+        if (in_array('--redispatch', $parameterList) || ($jobIds = $this->getParameterValue('redispatch'))) {
             $jobsCount = Repo::failedJob()->redispatchToQueue(
                 $this->getParameterValue('--queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
-                    ->map(fn($item) => (int)$item)
+                    ->map(fn ($item) => (int)$item)
                     ->toArray()
             );
             $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.failed.redispatch.successful', ['jobsCount' => $jobsCount]));
             return;
         }
 
-        if ( in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear')) ) {
+        if (in_array('--clear', $parameterList) || ($jobIds = $this->getParameterValue('clear'))) {
             $jobsCount = Repo::failedJob()->deleteJobs(
                 $this->getParameterValue('--queue'),
                 collect(explode(',', $jobIds ?? ''))
                     ->filter()
-                    ->map(fn($item) => (int)$item)
+                    ->map(fn ($item) => (int)$item)
                     ->toArray()
             );
             $this->getCommandInterface()->getOutput()->success(__('admin.cli.tool.jobs.failed.clear.successful', ['jobsCount' => $jobsCount]));
@@ -279,7 +275,7 @@ class commandJobs extends CommandLineTool
             ->perPage((int) $perPage)
             ->setPage((int) $page)
             ->showJobs();
-        
+
         $this->total();
 
         $this->getCommandInterface()->table($this->getListTableFromat(), $data->all());
@@ -317,7 +313,7 @@ class commandJobs extends CommandLineTool
                 $pagination
             );
     }
-    
+
     /**
      * Get table format for list view
      */
@@ -345,7 +341,7 @@ class commandJobs extends CommandLineTool
                 __('admin.cli.tool.jobs.queued.jobs.fields.connection'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.failed.at'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.exception'),
-            ]: [
+            ] : [
                 __('admin.cli.tool.jobs.queued.jobs.fields.attempts'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.reserved.at'),
                 __('admin.cli.tool.jobs.queued.jobs.fields.available.at'),
@@ -366,7 +362,7 @@ class commandJobs extends CommandLineTool
             return;
         }
 
-        if ( Application::isUnderMaintenance() ) {
+        if (Application::isUnderMaintenance()) {
             $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.maintenance.message'));
             return;
         }
@@ -392,7 +388,7 @@ class commandJobs extends CommandLineTool
      */
     protected function run(): void
     {
-        if ( Application::isUnderMaintenance() ) {
+        if (Application::isUnderMaintenance()) {
             $this->getCommandInterface()->getOutput()->error(__('admin.cli.tool.jobs.maintenance.message'));
             return;
         }
@@ -429,7 +425,7 @@ class commandJobs extends CommandLineTool
         while ($jobBuilder->count()) {
             $jobQueue->runJobInQueue();
 
-            if ( in_array('--once', $parameterList) ) {
+            if (in_array('--once', $parameterList)) {
                 $jobCount = 1;
                 break;
             }
@@ -454,9 +450,8 @@ class commandJobs extends CommandLineTool
 
         $parameterList = $this->getParameterList();
 
-        if ( in_array('--all', $parameterList) || ($queue = $this->getParameterValue('queue')) ) {
-
-            if (!Repo::job()->deleteJobs($queue)) {
+        if (in_array('--all', $parameterList) || ($queue = $this->getParameterValue('queue'))) {
+            if (!Repo::job()->deleteJobs($queue ?? null)) {
                 $this->getCommandInterface()->getOutput()->warning(__('admin.cli.tool.jobs.purge.impossible.to.purge.empty'));
                 return;
             }
@@ -502,32 +497,29 @@ class commandJobs extends CommandLineTool
     /**
      * Gather worker daemon options
      *
-     * @param array $parameters
-     * @return array
      */
     protected function gatherWorkerOptions(array $parameters = []): array
     {
-        $workerConfig = new WorkerConfiguration;
+        $workerConfig = new WorkerConfiguration();
 
         return [
-            'name'          => $this->getParameterValue('--name', $workerConfig->getName()),
-            'backoff'       => $this->getParameterValue('--backoff', $workerConfig->getBackoff()),
-            'memory'        => $this->getParameterValue('--memory', $workerConfig->getMemory()),
-            'timeout'       => $this->getParameterValue('--timeout', $workerConfig->getTimeout()),
-            'sleep'         => $this->getParameterValue('--sleep', $workerConfig->getSleep()),
-            'maxTries'      => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
-            'force'         => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
+            'name' => $this->getParameterValue('--name', $workerConfig->getName()),
+            'backoff' => $this->getParameterValue('--backoff', $workerConfig->getBackoff()),
+            'memory' => $this->getParameterValue('--memory', $workerConfig->getMemory()),
+            'timeout' => $this->getParameterValue('--timeout', $workerConfig->getTimeout()),
+            'sleep' => $this->getParameterValue('--sleep', $workerConfig->getSleep()),
+            'maxTries' => $this->getParameterValue('--tries', $workerConfig->getMaxTries()),
+            'force' => $this->getParameterValue('--force', in_array('--force', $parameters) ? true : $workerConfig->getForce()),
             'stopWhenEmpty' => $this->getParameterValue('--stop-when-empty', in_array('--stop-when-empty', $parameters) ? true : $workerConfig->getStopWhenEmpty()),
-            'maxJobs'       => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
-            'maxTime'       => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
-            'rest'          => $this->getParameterValue('--rest', $workerConfig->getRest()),
+            'maxJobs' => $this->getParameterValue('--max-jobs', $workerConfig->getMaxJobs()),
+            'maxTime' => $this->getParameterValue('--max-time', $workerConfig->getMaxTime()),
+            'rest' => $this->getParameterValue('--rest', $workerConfig->getRest()),
         ];
     }
 
     /**
      * Listen for the queue events in order to update the console output.
      *
-     * @return void
      */
     protected function listenForEvents(): void
     {
@@ -549,27 +541,23 @@ class commandJobs extends CommandLineTool
     /**
      * Write the status output for the queue worker.
      *
-     * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  string  $status
      *
-     * @return void
      */
     protected function writeOutput(Job $job, $status): void
     {
-        match($status) {
-            'starting'  => $this->writeStatus($job, 'Processing', 'comment'),
-            'success'   => $this->writeStatus($job, 'Processed', 'info'),
-            'failed'    => $this->writeStatus($job, 'Failed', 'error'),
+        match ($status) {
+            'starting' => $this->writeStatus($job, 'Processing', 'comment'),
+            'success' => $this->writeStatus($job, 'Processed', 'info'),
+            'failed' => $this->writeStatus($job, 'Failed', 'error'),
         };
     }
 
     /**
      * Format the status output for the queue worker.
      *
-     * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  string  $status
      * @param  string  $type
-     * @return void
      */
     protected function writeStatus(Job $job, $status, $type): void
     {
@@ -577,7 +565,8 @@ class commandJobs extends CommandLineTool
             "<{$type}>[%s][%s] %s</{$type}> %s",
             Carbon::now()->format('Y-m-d H:i:s'),
             $job->getJobId(),
-            str_pad("{$status}:", 11), $job->resolveName()
+            str_pad("{$status}:", 11),
+            $job->resolveName()
         ));
     }
 
@@ -590,23 +579,23 @@ class commandJobs extends CommandLineTool
         $this->getCommandInterface()->line(__('admin.cli.tool.jobs.work.options.usage') . PHP_EOL);
         $this->getCommandInterface()->line('<comment>' . __('admin.cli.tool.jobs.work.options.description') . '</comment>');
 
-        $workerConfig = new WorkerConfiguration;
+        $workerConfig = new WorkerConfiguration();
 
         $options = [
-            '--connection[=CONNECTION]' => __('admin.cli.tool.jobs.work.option.connection.description',     ['default' => Config::getVar('queue', 'default_connection', 'database')]),
-            '--queue[=QUEUE]'           => __('admin.cli.tool.jobs.work.option.queue.description',          ['default' => Config::getVar('queue', 'default_queue', 'queue')]),
-            '--name[=NAME]'             => __('admin.cli.tool.jobs.work.option.name.description',           ['default' => $workerConfig->getName()]),
-            '--backoff[=BACKOFF]'       => __('admin.cli.tool.jobs.work.option.backoff.description',        ['default' => $workerConfig->getBackoff()]),
-            '--memory[=MEMORY]'         => __('admin.cli.tool.jobs.work.option.memory.description',         ['default' => $workerConfig->getMemory()]),
-            '--timeout[=TIMEOUT]'       => __('admin.cli.tool.jobs.work.option.timeout.description',        ['default' => $workerConfig->getTimeout()]),
-            '--sleep[=SLEEP]'           => __('admin.cli.tool.jobs.work.option.sleep.description',          ['default' => $workerConfig->getSleep()]),
-            '--tries[=TRIES]'           => __('admin.cli.tool.jobs.work.option.tries.description',          ['default' => $workerConfig->getMaxTries()]),
-            '--force'                   => __('admin.cli.tool.jobs.work.option.force.description',          ['default' => $workerConfig->getForce() ? 'true' : 'false']),
-            '--stop-when-empty'         => __('admin.cli.tool.jobs.work.option.stopWhenEmpty.description',  ['default' => $workerConfig->getStopWhenEmpty() ? 'true' : 'false']),
-            '--max-jobs[=MAX-JOBS]'     => __('admin.cli.tool.jobs.work.option.maxJobs.description',        ['default' => $workerConfig->getMaxJobs()]),
-            '--max-time[=MAX-TIME]'     => __('admin.cli.tool.jobs.work.option.maxTime.description',        ['default' => $workerConfig->getMaxTime()]),
-            '--rest[=REST]'             => __('admin.cli.tool.jobs.work.option.rest.description',           ['default' => $workerConfig->getRest()]),
-            '--test'                    => __('admin.cli.tool.jobs.work.option.test.description'),
+            '--connection[=CONNECTION]' => __('admin.cli.tool.jobs.work.option.connection.description', ['default' => Config::getVar('queue', 'default_connection', 'database')]),
+            '--queue[=QUEUE]' => __('admin.cli.tool.jobs.work.option.queue.description', ['default' => Config::getVar('queue', 'default_queue', 'queue')]),
+            '--name[=NAME]' => __('admin.cli.tool.jobs.work.option.name.description', ['default' => $workerConfig->getName()]),
+            '--backoff[=BACKOFF]' => __('admin.cli.tool.jobs.work.option.backoff.description', ['default' => $workerConfig->getBackoff()]),
+            '--memory[=MEMORY]' => __('admin.cli.tool.jobs.work.option.memory.description', ['default' => $workerConfig->getMemory()]),
+            '--timeout[=TIMEOUT]' => __('admin.cli.tool.jobs.work.option.timeout.description', ['default' => $workerConfig->getTimeout()]),
+            '--sleep[=SLEEP]' => __('admin.cli.tool.jobs.work.option.sleep.description', ['default' => $workerConfig->getSleep()]),
+            '--tries[=TRIES]' => __('admin.cli.tool.jobs.work.option.tries.description', ['default' => $workerConfig->getMaxTries()]),
+            '--force' => __('admin.cli.tool.jobs.work.option.force.description', ['default' => $workerConfig->getForce() ? 'true' : 'false']),
+            '--stop-when-empty' => __('admin.cli.tool.jobs.work.option.stopWhenEmpty.description', ['default' => $workerConfig->getStopWhenEmpty() ? 'true' : 'false']),
+            '--max-jobs[=MAX-JOBS]' => __('admin.cli.tool.jobs.work.option.maxJobs.description', ['default' => $workerConfig->getMaxJobs()]),
+            '--max-time[=MAX-TIME]' => __('admin.cli.tool.jobs.work.option.maxTime.description', ['default' => $workerConfig->getMaxTime()]),
+            '--rest[=REST]' => __('admin.cli.tool.jobs.work.option.rest.description', ['default' => $workerConfig->getRest()]),
+            '--test' => __('admin.cli.tool.jobs.work.option.test.description'),
         ];
 
         $this->printUsage($options, false);
@@ -645,9 +634,9 @@ class commandJobs extends CommandLineTool
 
         $outputInterface = $this->getCommandInterface()->getOutput();
 
-        if (in_array('--failed', $parameterList)){
+        if (in_array('--failed', $parameterList)) {
             $method = $total > 0 ? 'error' : 'success';
-            $outputInterface->{$method}(__('admin.cli.tool.jobs.total.failed.jobs', ['total' => $total]));    
+            $outputInterface->{$method}(__('admin.cli.tool.jobs.total.failed.jobs', ['total' => $total]));
             return;
         }
 

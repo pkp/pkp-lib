@@ -463,7 +463,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'submission_settings' => 'submission_id',
             'user_group_settings' => 'user_group_id',
             'user_settings' => 'user_id',
-            'site_settings' => null
+            'site_settings' => null,
+            'funder_settings' => 'funder_id',
+            'funder_award_settings' => 'funder_award_id',
+            'static_page_settings' => 'static_page_id',
         ]);
     }
 

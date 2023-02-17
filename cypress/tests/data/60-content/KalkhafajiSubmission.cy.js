@@ -25,10 +25,10 @@ describe('Data suite: Kalkhafaji', function() {
 			assignedAuthorNames: ['Karim Al-Khafaji'],
 			additionalAuthors: [
 				{
-					givenName: {en_US: 'Margaret'},
-					familyName: {en_US: 'Morse'},
+					givenName: {en: 'Margaret'},
+					familyName: {en: 'Morse'},
 					country: 'US',
-					affiliation: {en_US: 'Stanford University'},
+					affiliation: {en: 'Stanford University'},
 					email: 'mmorse@mailinator.com',
 					userGroupId: Cypress.env('authorUserGroupId')
 				}

@@ -86,17 +86,17 @@ describe('Data suite: Ckwantes', function() {
 
 		// Enter details
 		cy.get('h2').contains('Submission Details');
-		cy.get('#titleAbstract-keywords-control-en_US').type('employees');
+		cy.get('#titleAbstract-keywords-control-en').type('employees');
 		cy.wait(500);
-		cy.get('#titleAbstract-keywords-control-en_US').type('{enter}');
-		cy.get('#titleAbstract-keywords-selected-en_US .pkpBadge:contains(\'employees\')');
+		cy.get('#titleAbstract-keywords-control-en').type('{enter}');
+		cy.get('#titleAbstract-keywords-selected-en .pkpBadge:contains(\'employees\')');
 
-		cy.get('#titleAbstract-keywords-control-en_US').type('survey');
+		cy.get('#titleAbstract-keywords-control-en').type('survey');
 		cy.wait(500);
-		cy.get('#titleAbstract-keywords-control-en_US').type('{enter}');
-		cy.get('#titleAbstract-keywords-selected-en_US .pkpBadge:contains(\'survey\')');
-		cy.setTinyMceContent('titleAbstract-abstract-control-en_US', submission.abstract);
-		cy.get('#titleAbstract-title-control-en_US').click({force: true}); // Ensure blur event is fired
+		cy.get('#titleAbstract-keywords-control-en').type('{enter}');
+		cy.get('#titleAbstract-keywords-selected-en .pkpBadge:contains(\'survey\')');
+		cy.setTinyMceContent('titleAbstract-abstract-control-en', submission.abstract);
+		cy.get('#titleAbstract-title-control-en').click({force: true}); // Ensure blur event is fired
 
 		cy.get('.submissionWizard__footer button').contains('Continue').click();
 
@@ -115,11 +115,11 @@ describe('Data suite: Ckwantes', function() {
 		cy.get('.listPanel__item:contains("Catherine Kwantes")');
 		cy.get('button').contains('Add Contributor').click();
 		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
-		cy.get('#contributor-givenName-error-en_US').contains('This field is required.');
+		cy.get('#contributor-givenName-error-en').contains('This field is required.');
 		cy.get('#contributor-email-error').contains('This field is required.');
 		cy.get('#contributor-country-error').contains('This field is required.');
-		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="en_US"]').type(submission.authors[0].givenName);
-		cy.get('.pkpFormField:contains("Family Name")').find('input[name*="en_US"]').type(submission.authors[0].familyName);
+		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="givenName-en"]').type(submission.authors[0].givenName);
+		cy.get('.pkpFormField:contains("Family Name")').find('input[name*="familyName-en"]').type(submission.authors[0].familyName);
 		cy.get('.pkpFormField:contains("Country")').find('select').select(submission.authors[0].country)
 		cy.get('.pkpFormField:contains("Email")').find('input').type('notanemail');
 		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
@@ -145,7 +145,7 @@ describe('Data suite: Ckwantes', function() {
 
 		// Delete a contributor
 		cy.get('.listPanel:contains("Contributors")').find('button').contains('Add Contributor').click();
-		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="en_US"]').type('Fake Author Name');
+		cy.get('.pkpFormField:contains("Given Name")').find('input[name*="givenName-en"]').type('Fake Author Name');
 		cy.get('.pkpFormField:contains("Email")').find('input').type('delete@mailinator.com');
 		cy.get('.pkpFormField:contains("Country")').find('select').select('Barbados');
 		cy.get('.modal__panel:contains("Add Contributor")').find('button').contains('Save').click();
@@ -212,7 +212,7 @@ describe('Data suite: Ckwantes', function() {
 		// Submit
 		cy.contains('Make a Submission: Review');
 		cy.get('button:contains("Submit")').click();
-		const message = 'Are you sure you want to submit ' + submission.title + ' to ' + Cypress.env('contextTitles').en_US + '? Once you submit, a moderator will review the preprint before posting it online.';
+		const message = 'Are you sure you want to submit ' + submission.title + ' to ' + Cypress.env('contextTitles').en + '? Once you submit, a moderator will review the preprint before posting it online.';
 		cy.get('.modal__panel:contains("' + message + '")').find('button').contains('Submit').click();
 		cy.contains('Submission complete');
 		cy.get('a').contains('Create a new submission');

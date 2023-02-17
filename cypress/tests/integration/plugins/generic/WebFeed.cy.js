@@ -62,7 +62,7 @@ describe('Web Feed plugin tests', () => {
 				const id = $entry.find('id').text().match(/\d+$/).pop();
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
-					expect($entry.find('title').text()).to.contain(publication.title.en_US);
+					expect($entry.find('title').text()).to.contain(publication.title.en);
 					$entry.find('author name').each((index, name) => expect(publication.authorsString).to.contain(cy.$$(name).text()));
 				});
 			});
@@ -80,7 +80,7 @@ describe('Web Feed plugin tests', () => {
 				const id = $entry.find('link').text().match(/\d+$/).pop();
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
-					expect($entry.find('title').text()).to.contain(publication.title.en_US);
+					expect($entry.find('title').text()).to.contain(publication.title.en);
 					$entry.find('dc:creator').each((index, name) => expect(publication.authorsString).to.contain(cy.$$(name).text()));
 				});
 			});
@@ -98,7 +98,7 @@ describe('Web Feed plugin tests', () => {
 				const id = $entry.find('link').text().match(/\d+$/).pop();
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
-					expect($entry.find('title').text()).to.contain(publication.title.en_US);
+					expect($entry.find('title').text()).to.contain(publication.title.en);
 					$entry.find('dc:creator').each((index, name) => expect(publication.authorsString).to.contain(cy.$$(name).text()));
 				});
 			});

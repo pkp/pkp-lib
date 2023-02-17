@@ -39,7 +39,7 @@ describe('Data suite tests', function() {
 		// Create a Cultural History subcategory
 		cy.get('a[id^=component-grid-settings-category-categorycategorygrid-addCategory-button-]').click();
 		cy.wait(1000); // Avoid occasional failure due to form init taking time
-		cy.get('input[id^="name-en_US-"]').type('Cultural History', {delay: 0});
+		cy.get('input[id^="name-en-"]').type('Cultural History', {delay: 0});
 		cy.get('select[id="parentId"],select[id="parentId"]').select('History');
 		cy.get('input[id^="path-"]').type('cultural-history', {delay: 0});
 		cy.get('form[id=categoryForm]').contains('OK').click();

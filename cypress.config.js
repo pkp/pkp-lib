@@ -3,17 +3,17 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   env: {
     contextTitles: {
-      en_US: 'Public Knowledge Preprint Server',
+      en: 'Public Knowledge Preprint Server',
       fr_CA: 'Serveur de prépublication de la connaissance du public',
     },
     contextDescriptions: {
-      en_US:
+      en:
         'The Public Knowledge Preprint Server is a preprint service on the subject of public access to science.',
       fr_CA:
         "Le Serveur de prépublication de la connaissance du public est une service trimestrielle évaluée par les pairs sur le thème de l'accès du public à la science.",
     },
     contextAcronyms: {
-      en_US: 'PKP',
+      en: 'PKP',
     },
     defaultGenre: 'Preprint Text',
     authorUserGroupId: 4,

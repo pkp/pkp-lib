@@ -26,10 +26,10 @@ describe('Data suite: Cmontgomerie', function() {
 			assignedAuthorNames: ['Craig Montgomerie'],
 			additionalAuthors: [
 				{
-					givenName: {en_US: 'Mark'},
-					familyName: {en_US: 'Irvine'},
+					givenName: {en: 'Mark'},
+					familyName: {en: 'Irvine'},
 					country: 'CA',
-					affiliation: {en_US: 'University of Victoria'},
+					affiliation: {en: 'University of Victoria'},
 					email: 'mirvine@mailinator.com',
 					userGroupId: Cypress.env('authorUserGroupId')
 				}
@@ -90,12 +90,12 @@ describe('Data suite: Cmontgomerie', function() {
 
 		// Edit metadata in 1st version
 		cy.get('#metadata-button').click();
-		cy.get('#metadata-keywords-control-en_US').type('employees{enter}', {delay: 0});
+		cy.get('#metadata-keywords-control-en').type('employees{enter}', {delay: 0});
 		cy.wait(500);
-		cy.get('#metadata-keywords-control-en_US').type('{enter}', {delay: 0});
+		cy.get('#metadata-keywords-control-en').type('{enter}', {delay: 0});
 		cy.get('#metadata button').contains('Save').click();
 		cy.get('#metadata [role="status"]').contains('Saved');
-		cy.get('#metadata-keywords-selected-en_US').contains('employees');
+		cy.get('#metadata-keywords-selected-en').contains('employees');
 		cy.wait(1500);
 
 		// Publish 1st version again
@@ -108,8 +108,8 @@ describe('Data suite: Cmontgomerie', function() {
 		cy.get('div:contains("Are you sure you want to create a new version?")');
 		cy.get('.modal__footer button').contains('Yes').click();
 		cy.get('#license-button').click();
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').clear()
-		cy.get('input[id^="publicationLicense-copyrightHolder-control-en_US"').type('Craig Montgomerie', {delay: 0});
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').clear()
+		cy.get('input[id^="publicationLicense-copyrightHolder-control-en"').type('Craig Montgomerie', {delay: 0});
 		cy.get('#license button').contains('Save').click();
 		cy.get('#license [role="status"]').contains('Saved');
 		cy.wait(1500);

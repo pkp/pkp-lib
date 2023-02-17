@@ -12,6 +12,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormat_DCTest
+ *
  * @ingroup plugins_oaiMetadataFormats_dc_tests
  *
  * @see OAIMetadataFormat_DC
@@ -83,9 +84,9 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
 
         // Author
         $author = new Author();
-        $author->setGivenName('author-firstname', 'en_US');
-        $author->setFamilyName('author-lastname', 'en_US');
-        $author->setAffiliation('author-affiliation', 'en_US');
+        $author->setGivenName('author-firstname', 'en');
+        $author->setFamilyName('author-lastname', 'en');
+        $author->setAffiliation('author-affiliation', 'en');
         $author->setEmail('someone@example.com');
 
         /** @var Publication|MockObject */
@@ -93,14 +94,14 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->onlyMethods([])
             ->getMock();
         $publication->setData('pages', 15);
-        $publication->setData('type', 'art-type', 'en_US');
-        $publication->setData('title', 'preprint-title-en', 'en_US');
-        $publication->setData('title', 'preprint-title-de', 'de_DE');
-        $publication->setData('coverage', ['en_US' => ['preprint-coverage-geo', 'preprint-coverage-chron', 'preprint-coverage-sample']]);
-        $publication->setData('abstract', 'preprint-abstract', 'en_US');
-        $publication->setData('sponsor', 'preprint-sponsor', 'en_US');
+        $publication->setData('type', 'art-type', 'en');
+        $publication->setData('title', 'preprint-title-en', 'en');
+        $publication->setData('title', 'preprint-title-de', 'de');
+        $publication->setData('coverage', ['en' => ['preprint-coverage-geo', 'preprint-coverage-chron', 'preprint-coverage-sample']]);
+        $publication->setData('abstract', 'preprint-abstract', 'en');
+        $publication->setData('sponsor', 'preprint-sponsor', 'en');
         $publication->setData('doiObject', $publicationDoiObject);
-        $publication->setData('languages', 'en_US');
+        $publication->setData('languages', 'en');
         $publication->setData('copyrightHolder', 'preprint-copyright');
         $publication->setData('copyrightYear', 'year');
         $publication->setData('datePublished', '2010-11-05');
@@ -154,9 +155,9 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->method('getSetting')
             ->with('publishingMode')
             ->will($this->returnValue(\APP\server\Server::PUBLISHING_MODE_OPEN));
-        $server->setName('server-title', 'en_US');
+        $server->setName('server-title', 'en');
         $server->setData('publisherInstitution', 'server-publisher');
-        $server->setPrimaryLocale('en_US');
+        $server->setPrimaryLocale('en');
         $server->setPath('server-path');
         $server->setData('onlineIssn', 'onlineIssn');
         $server->setData('printIssn', null);
@@ -165,7 +166,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
 
         // Section
         $section = new Section();
-        $section->setIdentifyType('section-identify-type', 'en_US');
+        $section->setIdentifyType('section-identify-type', 'en');
 
         //
         // Create infrastructural support objects
@@ -224,7 +225,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->getMock();
         $submissionSubjectDao->expects($this->any())
             ->method('getSubjects')
-            ->will($this->returnValue(['en_US' => ['preprint-subject', 'preprint-subject-class']]));
+            ->will($this->returnValue(['en' => ['preprint-subject', 'preprint-subject-class']]));
         DAORegistry::registerDAO('SubmissionSubjectDAO', $submissionSubjectDao);
 
         // Mocked DAO to return the keywords
@@ -233,7 +234,7 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
             ->getMock();
         $submissionKeywordDao->expects($this->any())
             ->method('getKeywords')
-            ->will($this->returnValue(['en_US' => ['preprint-keyword']]));
+            ->will($this->returnValue(['en' => ['preprint-keyword']]));
         DAORegistry::registerDAO('SubmissionKeywordDAO', $submissionKeywordDao);
 
         //

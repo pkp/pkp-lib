@@ -25,10 +25,10 @@ describe('Data suite: Eostrom', function() {
 			assignedAuthorNames: ['Elinor Ostrom'],
 			additionalAuthors: [
 				{
-					givenName: {en_US: 'Frank'},
-					familyName: {en_US: 'van Laerhoven'},
+					givenName: {en: 'Frank'},
+					familyName: {en: 'van Laerhoven'},
 					country: 'US',
-					affiliation: {en_US: 'Indiana University'},
+					affiliation: {en: 'Indiana University'},
 					email: 'fvanlaerhoven@mailinator.com',
 					userGroupId: Cypress.env('authorUserGroupId')
 				}

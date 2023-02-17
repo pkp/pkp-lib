@@ -397,7 +397,8 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
     {
         $affectedLocales = $this->getAffectedLocales();
 
-        $localeCode = substr($localeValue, 0, 2);
+        $localeParts = explode('_', $localeValue);
+        $localeCode = $localeParts[0];
 
         if ($affectedLocales->keys()->contains($localeValue) || $affectedLocales->keys()->contains($localeCode)) {
             $localeTransformation = $affectedLocales->get($localeValue);

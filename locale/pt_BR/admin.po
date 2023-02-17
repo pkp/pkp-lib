@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -860,3 +860,75 @@ msgstr "Número de segundos para descanso entre jobs [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Execute o daemon do worker para a fila de teste"
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""

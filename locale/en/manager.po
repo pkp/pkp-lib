@@ -2254,6 +2254,9 @@ msgstr "The submission file {$id} was skipped because it does not have a valid r
 msgid "plugins.importexport.native.error.submissionFileMissing"
 msgstr "The submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
 
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr "The cover image of the publication {$id} was not exported, its file was not found at the path \"{$path}\"."
+
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/Export errors:"
 

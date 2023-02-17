@@ -52,7 +52,6 @@ class LocaleConversion
      */
     public static function get3LetterIsoFromLocale(?string $locale): ?string
     {
-        assert(strlen($locale) >= 5);
         $iso2Letter = substr($locale, 0, 2);
         return static::get3LetterFrom2LetterIsoLanguage($iso2Letter);
     }
@@ -107,7 +106,6 @@ class LocaleConversion
      */
     public static function getIso3FromLocale(?string $locale): ?string
     {
-        assert(strlen($locale) >= 5);
         $iso1 = substr($locale, 0, 2);
         return static::getIso3FromIso1($iso1);
     }
@@ -117,7 +115,6 @@ class LocaleConversion
      */
     public static function getIso1FromLocale(?string $locale): string
     {
-        assert(strlen($locale) >= 5);
         return substr($locale, 0, 2);
     }
 }

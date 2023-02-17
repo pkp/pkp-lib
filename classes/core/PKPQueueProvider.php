@@ -139,11 +139,13 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
         $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
 
-        if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', false)) {
+        if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', true)) {
             register_shutdown_function(function () {
                 (new JobRunner())
+                    ->withMaxExecutionTimeConstrain()
                     ->withMaxJobsConstrain()
-                    ->setMaxJobsToProcess(1)
+                    ->withMaxMemoryConstrain()
+                    ->withEstimatedTimeToProcessNextJobConstrain()
                     ->processJobs();
             });
         }

@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2023-02-17 03:48+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -26,13 +26,19 @@ msgid "admin.clearTemplateCache"
 msgstr "Limpar Cache do Template"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "O documento de configuração foi actualizado com sucesso. Caso as alterações incorram em erros no sistema, será necessário actualizar manualmente o ficheiro <tt>config.inc.php</tt>."
+msgstr ""
+"O documento de configuração foi actualizado com sucesso. Caso as alterações "
+"incorram em erros no sistema, será necessário actualizar manualmente o "
+"ficheiro <tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Deseja realmente limpar o Cache das templates compiladas?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Deseja realmente expirar todas as sessões de todos os utlizadores? Todos os utlizadores ligados serão forçados a aceder novamente ao sistema (incluindo o utilizador actual)."
+msgstr ""
+"Deseja realmente expirar todas as sessões de todos os utlizadores? Todos os "
+"utlizadores ligados serão forçados a aceder novamente ao sistema (incluindo "
+"o utilizador actual)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do ficheiro de configuração"
@@ -44,7 +50,11 @@ msgid "admin.dateInstalled"
 msgstr "Data de instalação"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "As configurações actualizadas são exibidas abaixo. Para aplicar as alterações, é necessário editar o ficheiro <tt>config.inc.php</tt> manualmente em algum editor de texto, substituindo-o com o conteúdo do campo a seguir."
+msgstr ""
+"As configurações actualizadas são exibidas abaixo. Para aplicar as "
+"alterações, é necessário editar o ficheiro <tt>config.inc.php</tt> "
+"manualmente em algum editor de texto, substituindo-o com o conteúdo do campo "
+"a seguir."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Exibir Configuração Actual"
@@ -53,7 +63,9 @@ msgid "admin.expireSessions"
 msgstr "Expirar Sessões de Utilizadores"
 
 msgid "admin.languages.confirmReload"
-msgstr "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer informação de idioma específico como customização de e-mails."
+msgstr ""
+"Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer "
+"informação de idioma específico como customização de e-mails."
 
 msgid "admin.languages.installedLocales"
 msgstr "Idiomas Instalados"
@@ -137,7 +149,9 @@ msgid "admin.siteSettings"
 msgstr "Configurações do Portal"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "O ficheiro de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido."
+msgstr ""
+"O ficheiro de configuração <tt>config.inc.php</tt> não existe, não possui "
+"permissão de leitura ou está corrompido."
 
 msgid "admin.systemInformation"
 msgstr "Informações sobre o Sistema"
@@ -188,7 +202,9 @@ msgid "admin.systemInfo.settingValue"
 msgstr "Valor configuração"
 
 msgid "admin.languages.cantDisable"
-msgstr "Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser que escolha outro idioma."
+msgstr ""
+"Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser "
+"que escolha outro idioma."
 
 msgid "admin.languages.availableLocales"
 msgstr "Idiomas Disponíveis"
@@ -209,10 +225,14 @@ msgid "admin.scheduledTask.noLog"
 msgstr "A tarefa não gerou nenhum registo/log."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "A {$softwareName} instalação foi executada e concluída automaticamente, sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
+msgstr ""
+"A {$softwareName} instalação foi executada e concluída automaticamente, "
+"sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Tem a certeza que pretende eliminar todos os registos das tarefas agendadas executadas?"
+msgstr ""
+"Tem a certeza que pretende eliminar todos os registos das tarefas agendadas "
+"executadas?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Limpar Registos/Logs das Tarefas"
@@ -248,7 +268,9 @@ msgid "admin.fileLoader.pathNotAccessible"
 msgstr "A pasta {$path} não existe ou não está acessível."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "O ficheiro {$filename} não pôde ser movido de {$currentFilePath} para {$destinationPath}"
+msgstr ""
+"O ficheiro {$filename} não pôde ser movido de {$currentFilePath} para "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "O ficheiro {$filename} foi processado e arquivado."
@@ -814,3 +836,75 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Execute o daemon do worker para a fila de teste"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""

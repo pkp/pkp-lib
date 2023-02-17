@@ -49,9 +49,6 @@ class QueryForm extends Form
     /** @var bool True iff this is a newly-created query */
     public $_isNew;
 
-    /** @var array Show notice and time limit; some users have limited time to edit a discussion */
-    public $_allowedEditTimeNotice;
-
     /**
      * Constructor.
      *
@@ -91,16 +88,12 @@ class QueryForm extends Form
             $headNote->setAssocId($query->getId());
             $headNote->setDateCreated(Core::getCurrentDate());
             $noteDao->insertObject($headNote);
-
         } else {
             $query = $queryDao->getById($queryId, $assocType, $assocId);
             assert(isset($query));
             // New queries will not have a head note.
             $this->_isNew = !$query->getHeadNote();
         }
-
-        // Edit time limit notice 
-        $this->_allowedEditTimeNotice = ['show' => false, 'limit' => 60];
 
         $this->setQuery($query);
 
@@ -383,15 +376,16 @@ class QueryForm extends Form
         }
 
         // Notify assistants, authors and reviewers that they have x minutes to update their own discussion
+        $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
         if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
-            $this->_allowedEditTimeNotice['show'] = true;
-            $this->_allowedEditTimeNotice['limit'] = (int) ($this->_allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
+            $allowedEditTimeNotice['show'] = true;
+            $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
         }
 
         $templateMgr->assign([
             'allParticipants' => $allParticipants,
             'assignedParticipants' => $assignedParticipants,
-            'allowedEditTimeNotice' => $this->_allowedEditTimeNotice,
+            'allowedEditTimeNotice' => $allowedEditTimeNotice,
         ]);
 
         return parent::fetch($request, $template, $display);

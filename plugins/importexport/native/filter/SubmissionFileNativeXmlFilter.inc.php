@@ -53,6 +53,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 		$rootNode = $this->createSubmissionFileNode($doc, $submissionFile);
+
+		if (!$rootNode) {
+			return null;
+		}
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
@@ -176,10 +180,11 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 			$submissionFileNode->appendChild($revisionNode);
 		}
-		// If no revision has been added, report and retrieve an "empty node"
+
+		// Report if no revision has been added
 		if (!$hasRevision) {
 			$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId()]));
-			return $doc->createDocumentFragment();
+			return null;
 		}
 
 		return $submissionFileNode;

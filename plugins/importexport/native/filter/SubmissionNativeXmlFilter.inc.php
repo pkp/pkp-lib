@@ -159,8 +159,10 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 
 			$exportFilter->setOpts($this->opts);
 			$submissionFileDoc = $exportFilter->execute($submissionFile, true);
-			$clone = $doc->importNode($submissionFileDoc->documentElement, true);
-			$submissionNode->appendChild($clone);
+			if ($submissionFileDoc) {
+				$clone = $doc->importNode($submissionFileDoc->documentElement, true);
+				$submissionNode->appendChild($clone);
+			}
 		}
 	}
 

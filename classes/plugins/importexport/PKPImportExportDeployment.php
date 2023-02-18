@@ -28,6 +28,7 @@ use PKP\core\PKPApplication;
 use PKP\context\Context;
 use APP\submission\Submission;
 use APP\publication\Publication;
+use InvalidArgumentException;
 
 class PKPImportExportDeployment
 {
@@ -179,7 +180,7 @@ class PKPImportExportDeployment
     {
         $this->_submission = $submission;
         if ($submission) {
-            $this->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
+            $this->addProcessedObjectId(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId());
         }
     }
 
@@ -198,7 +199,7 @@ class PKPImportExportDeployment
     {
         $this->_publication = $publication;
         if ($publication) {
-            $this->addProcessedObjectId(ASSOC_TYPE_PUBLICATION, $publication->getId());
+            $this->addProcessedObjectId(PKPApplication::ASSOC_TYPE_PUBLICATION, $publication->getId());
         }
     }
 
@@ -232,6 +233,9 @@ class PKPImportExportDeployment
      */
     public function addError($assocType, $assocId, $errorMsg)
     {
+        if (($this->getObjectTypes()[$assocType] ?? null) === null) {
+            error_log(new InvalidArgumentException("Invalid assocType \"{$assocType}\""));
+        }
         $this->_processedObjectsErrors[$assocType][$assocId][] = $errorMsg;
     }
 
@@ -244,6 +248,9 @@ class PKPImportExportDeployment
      */
     public function addWarning($assocType, $assocId, $warningMsg)
     {
+        if (($this->getObjectTypes()[$assocType] ?? null) === null) {
+            error_log(new InvalidArgumentException("Invalid assocType \"{$assocType}\""));
+        }
         $this->_processedObjectsWarnings[$assocType][$assocId][] = $warningMsg;
     }
 
@@ -300,8 +307,8 @@ class PKPImportExportDeployment
     public function removeImportedObjects($assocType)
     {
         switch ($assocType) {
-            case ASSOC_TYPE_SUBMISSION:
-                $processedSubmissionsIds = $this->getProcessedObjectsIds(ASSOC_TYPE_SUBMISSION);
+            case PKPApplication::ASSOC_TYPE_SUBMISSION:
+                $processedSubmissionsIds = $this->getProcessedObjectsIds(PKPApplication::ASSOC_TYPE_SUBMISSION);
                 if (!empty($processedSubmissionsIds)) {
                     foreach ($processedSubmissionsIds as $submissionId) {
                         if ($submissionId) {
@@ -625,6 +632,8 @@ class PKPImportExportDeployment
             PKPApplication::ASSOC_TYPE_SUBMISSION => __('submission.submission'),
             PKPApplication::ASSOC_TYPE_AUTHOR => __('user.role.author'),
             PKPApplication::ASSOC_TYPE_PUBLICATION => __('submission.publication'),
+            PKPApplication::ASSOC_TYPE_SECTION => __('section.section'),
+            PKPApplication::ASSOC_TYPE_SUBMISSION_FILE => __('author.submit.submissionFile'),
         ];
 
         return $objectTypes;

@@ -4,15 +4,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/
 	http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
-	<dc:title xml:lang="en-US">preprint-title-en</dc:title>
-	<dc:title xml:lang="de-DE">preprint-title-de</dc:title>
+	<dc:title xml:lang="en">preprint-title-en</dc:title>
+	<dc:title xml:lang="de">preprint-title-de</dc:title>
 	<dc:creator>author-lastname, author-firstname</dc:creator>
-	<dc:subject xml:lang="en-US">preprint-keyword</dc:subject>
-	<dc:subject xml:lang="en-US">preprint-subject</dc:subject>
-	<dc:subject xml:lang="en-US">preprint-subject-class</dc:subject>
-	<dc:description xml:lang="en-US">preprint-abstract</dc:description>
-	<dc:publisher xml:lang="en-US">server-publisher</dc:publisher>
-	<dc:contributor xml:lang="en-US">preprint-sponsor</dc:contributor>
+	<dc:subject xml:lang="en">preprint-keyword</dc:subject>
+	<dc:subject xml:lang="en">preprint-subject</dc:subject>
+	<dc:subject xml:lang="en">preprint-subject-class</dc:subject>
+	<dc:description xml:lang="en">preprint-abstract</dc:description>
+	<dc:publisher xml:lang="en">server-publisher</dc:publisher>
+	<dc:contributor xml:lang="en">preprint-sponsor</dc:contributor>
 	<dc:date>2010-11-05</dc:date>
 	<dc:type>info:eu-repo/semantics/preprint</dc:type>
 	<dc:type>info:eu-repo/semantics/draft</dc:type>
@@ -22,8 +22,8 @@
 	<dc:language>en</dc:language>
 	<dc:relation>preprint-view-9-98</dc:relation>
 	<dc:relation>galley-doi</dc:relation>
-	<dc:coverage xml:lang="en-US">preprint-coverage-geo</dc:coverage>
-	<dc:coverage xml:lang="en-US">preprint-coverage-chron</dc:coverage>
-	<dc:coverage xml:lang="en-US">preprint-coverage-sample</dc:coverage>
-	<dc:rights xml:lang="en-US">Copyright (c) year preprint-copyright</dc:rights>
+	<dc:coverage xml:lang="en">preprint-coverage-geo</dc:coverage>
+	<dc:coverage xml:lang="en">preprint-coverage-chron</dc:coverage>
+	<dc:coverage xml:lang="en">preprint-coverage-sample</dc:coverage>
+	<dc:rights xml:lang="en">Copyright (c) year preprint-copyright</dc:rights>
 </oai_dc:dc>

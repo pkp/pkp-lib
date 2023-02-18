@@ -17,11 +17,14 @@ namespace PKP\plugins\importexport;
 
 // FIXME: Add namespacing
 
+use APP\plugins\importexport\native\NativeImportExportDeployment;
 use Exception;
-use NativeExportFilter;
-
 use PKP\db\DAORegistry;
+use PKP\filter\Filter;
+use PKP\filter\FilterDAO;
 use PKP\filter\PersistableFilter;
+use PKP\plugins\importexport\native\filter\NativeExportFilter;
+use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 
 class PKPImportExportFilter extends PersistableFilter
 {

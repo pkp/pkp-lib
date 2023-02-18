@@ -69,7 +69,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $deployment = $this->getDeployment();
         $rootNode = $this->createSubmissionFileNode($doc, $submissionFile);
         if (!$rootNode) {
-            return null;
+            return $rootNode;
         }
 
         $doc->appendChild($rootNode);
@@ -159,7 +159,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         foreach ($revisions as $revision) {
             $localPath = $basePath . $revision->path;
             if (!file_exists($localPath)) {
-                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileMissing', ['id' => $submissionFile->getId(), 'path' => $localPath]));
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $revision->revision_id, 'path' => $localPath]));
                 continue;
             }
             $hasRevision = true;
@@ -200,8 +200,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
 
         // Report if no revision has been added
         if (!$hasRevision) {
-            /** @var DOMDocument $doc */
-            $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId()]));
+            $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileWithoutRevision', ['id' => $submissionFile->getId()]));
             return null;
         }
 

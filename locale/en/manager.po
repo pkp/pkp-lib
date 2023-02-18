@@ -2248,11 +2248,11 @@ msgstr ""
 "The submission file {$id} was skipped because it is attached to a record "
 "that will not be imported, such as a review assignment or discussion."
 
-msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "The submission file {$id} was skipped because it does not have a valid revision."
 
-msgid "plugins.importexport.native.error.submissionFileMissing"
-msgstr "The submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr "A revision of the submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
 
 msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr "The cover image of the publication {$id} was not exported, its file was not found at the path \"{$path}\"."

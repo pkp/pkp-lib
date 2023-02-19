@@ -671,7 +671,7 @@ abstract class Repository
     {
         $submissions = Repo::submission()->getCollector()->filterByContextIds([$contextId])->getMany();
         while ($submission = $submissions->next()) {
-            $publications = (array) $submission->getData('publications');
+            $publications = $submission->getData('publications');
             if (empty($publications)) {
                 continue;
             }

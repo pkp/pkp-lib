@@ -72,7 +72,7 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
      * @param  string $format           Define the return data format as text or html
-     * 
+     *
      * @return string
      */
     public function getLocalizedFullTitle($preferredLocale = null, string $format = 'text')
@@ -111,7 +111,7 @@ class PKPPublication extends \PKP\core\DataObject
      *
      * @param  string $preferredLocale  Override the publication's default locale and return the title in a specified locale.
      * @param  string $format           Define the return data format as text or html
-     * 
+     *
      * @return string
      */
     public function getLocalizedTitle($preferredLocale = null, string $format = 'text')
@@ -133,7 +133,7 @@ class PKPPublication extends \PKP\core\DataObject
                 break;
             default: throw new \Exception('Invalid format!');
         }
-        
+
         if ($prefix) {
             $title = $prefix . ' ' . $title;
         }
@@ -189,7 +189,7 @@ class PKPPublication extends \PKP\core\DataObject
     {
         $allSubTitles = $this->getData('subtitle');
         $return = [];
-        foreach ($allSubTitles as $locale => $subTitle) {
+        foreach ($allSubTitles ?? [] as $locale => $subTitle) {
             if (!$subTitle) {
                 continue;
             }

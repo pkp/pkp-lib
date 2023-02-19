@@ -159,7 +159,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         foreach ($revisions as $revision) {
             $localPath = $basePath . $revision->path;
             if (!file_exists($localPath)) {
-                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $revision->revision_id, 'path' => $localPath]));
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId(), 'revision' => $revision->revision_id, 'path' => $localPath]));
                 continue;
             }
             $hasRevision = true;

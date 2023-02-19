@@ -2252,7 +2252,7 @@ msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
 msgstr "The submission file {$id} was skipped because it does not have a valid revision."
 
 msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
-msgstr "A revision of the submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
+msgstr "The revision {$revision} of the submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
 
 msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr "The cover image of the publication {$id} was not exported, its file was not found at the path \"{$path}\"."

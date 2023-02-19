@@ -145,7 +145,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		foreach ($revisions as $revision) {
 			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
 			if (!file_exists($localPath)) {
-				$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileMissing', ['id' => $submissionFile->getId(), 'path' => $localPath]));
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId(), 'revision' => $revision->revision_id, 'path' => $localPath]));
 				continue;
 			}
 			$hasRevision = true;
@@ -184,7 +184,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		// Report if no revision has been added
 		if (!$hasRevision) {
-			$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId()]));
+			$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileWithoutRevision', ['id' => $submissionFile->getId()]));
 			return null;
 		}
 

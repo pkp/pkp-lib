@@ -55,7 +55,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$rootNode = $this->createSubmissionFileNode($doc, $submissionFile);
 
 		if (!$rootNode) {
-			return null;
+			return $rootNode;
 		}
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');

@@ -98,8 +98,6 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 		$workflowStageDao = DAORegistry::getDAO('WorkflowStageDAO'); /** @var $workflowStageDao WorkflowStageDAO */
 		$submissionNode->setAttribute('stage', WorkflowStageDAO::getPathFromId($submission->getData('stageId')));
 
-		// FIXME: language attribute (from old DTD). Necessary? Data migration needed?
-
 		$this->addIdentifiers($doc, $submissionNode, $submission);
 		$this->addFiles($doc, $submissionNode, $submission);
 		$this->addPublications($doc, $submissionNode, $submission);

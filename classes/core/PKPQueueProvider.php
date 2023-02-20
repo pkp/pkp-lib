@@ -112,6 +112,25 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      */
     public function boot()
     {
+        if (Config::getVar('queues', 'job_runner', true)) {
+            register_shutdown_function(function() { 
+                
+                // As this runs at the current request's end but the 'register_shutdown_function' registered
+                // at the service provider's registration time at application initial bootstrapping, 
+                // need to check the maintenance status within the 'register_shutdown_function'
+                if (Application::get()->isUnderMaintenance()) {
+                    return;
+                }
+
+                (new JobRunner($this))
+                    ->withMaxExecutionTimeConstrain()
+                    ->withMaxJobsConstrain()
+                    ->withMaxMemoryConstrain()
+                    ->withEstimatedTimeToProcessNextJobConstrain()
+                    ->processJobs();
+            });
+        }
+        
         Queue::failing(function (JobFailed $event) {
             error_log($event->exception->__toString());
 
@@ -139,17 +158,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         parent::register();
 
         $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
-
-        if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', true)) {
-            register_shutdown_function(function () {
-                (new JobRunner())
-                    ->withMaxExecutionTimeConstrain()
-                    ->withMaxJobsConstrain()
-                    ->withMaxMemoryConstrain()
-                    ->withEstimatedTimeToProcessNextJobConstrain()
-                    ->processJobs();
-            });
-        }
     }
 
     /**

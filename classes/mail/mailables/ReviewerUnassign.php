@@ -68,7 +68,7 @@ class ReviewerUnassign extends Mailable
         return $variables;
     }
 
-    public function setData(?string $locale = null)
+    public function setData(?string $locale = null): void
     {
         parent::setData($locale);
 

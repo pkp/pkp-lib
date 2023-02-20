@@ -61,7 +61,7 @@ class DecisionNotifyReviewer extends Mailable
         return $variables;
     }
 
-    public function setData(?string $locale = null)
+    public function setData(?string $locale = null): void
     {
         parent::setData($locale);
         $this->viewData[self::DECISION_DESCRIPTION] = $this->getDecisionDescription($locale);

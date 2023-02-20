@@ -215,7 +215,7 @@ class Mailable extends IlluminateMailable
     /**
      * Set the data for this email
      */
-    public function setData(?string $locale = null)
+    public function setData(?string $locale = null): void
     {
         if (is_null($locale)) {
             $locale = Locale::getLocale();

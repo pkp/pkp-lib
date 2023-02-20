@@ -291,6 +291,7 @@ abstract class I7264_UpdateEmailTemplates extends \PKP\migration\Migration
                 'contextName' => 'contextName',
                 'submissionReviewUrl' => 'reviewAssignmentUrl',
                 'editorialContactSignature' => 'signature',
+                'passwordResetUrl' => 'passwordLostUrl',
             ],
             'REVIEW_REMIND_AUTO' => [
                 'reviewerName' => 'recipientName',

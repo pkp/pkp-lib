@@ -17,11 +17,13 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
@@ -62,7 +64,7 @@ class ReviewReminder extends ScheduledTask
         $mailable->subject($emailTemplate->getLocalizedData('subject', $primaryLocale))
             ->body($emailTemplate->getLocalizedData('body', $primaryLocale))
             ->from($context->getData('contactEmail'), $context->getData('contactName'))
-            ->recipients($reviewer);
+            ->recipients([$reviewer]);
 
         $mailable->setData($primaryLocale);
 
@@ -93,6 +95,17 @@ class ReviewReminder extends ScheduledTask
         $reviewAssignment->setDateReminded(Core::getCurrentDate());
         $reviewAssignment->setReminderWasAutomatic(1);
         $reviewAssignmentDao->updateObject($reviewAssignment);
+
+        SubmissionLog::logEvent(
+            $request,
+            $submission,
+            SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND_AUTO,
+            'submission.event.reviewer.reviewerRemindedAuto',
+            [
+                'recipientId' => $reviewer->getId(),
+                'recipientName' => $reviewer->getFullName(),
+            ]
+        );
     }
 
     /**
@@ -141,13 +154,13 @@ class ReviewReminder extends ScheduledTask
             if ($submitReminderDays >= 1 && $reviewAssignment->getDateDue() != null) {
                 $checkDate = strtotime($reviewAssignment->getDateDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $submitReminderDays) {
-                    $mailable = new ReviewRemindAuto($reviewAssignment, $submission, $context);
+                    $mailable = new ReviewRemindAuto($context, $submission, $reviewAssignment);
                 }
             }
             if ($inviteReminderDays >= 1 && $reviewAssignment->getDateConfirmed() == null) {
                 $checkDate = strtotime($reviewAssignment->getDateResponseDue());
                 if (time() - $checkDate > 60 * 60 * 24 * $inviteReminderDays) {
-                    $mailable = new ReviewResponseRemindAuto($reviewAssignment, $submission, $context);
+                    $mailable = new ReviewResponseRemindAuto($context, $submission, $reviewAssignment);
                 }
             }
 

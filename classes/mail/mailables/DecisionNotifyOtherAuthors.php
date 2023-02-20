@@ -67,7 +67,7 @@ class DecisionNotifyOtherAuthors extends Mailable
     /**
      * Set submitting author name email template variable
      */
-    public function setData(?string $locale = null)
+    public function setData(?string $locale = null): void
     {
         parent::setData($locale);
 

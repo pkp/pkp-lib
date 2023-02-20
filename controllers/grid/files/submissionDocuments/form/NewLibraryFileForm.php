@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\files\submissionDocuments\form;
 
 use APP\core\Application;
+use APP\file\LibraryFileManager;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\db\DAORegistry;

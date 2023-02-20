@@ -17,6 +17,7 @@ namespace PKP\controllers\grid\files\submissionDocuments;
 
 use APP\template\TemplateManager;
 use PKP\controllers\grid\files\LibraryFileGridHandler;
+use PKP\controllers\grid\files\LibraryFileGridRow;
 use PKP\controllers\grid\files\submissionDocuments\form\EditLibraryFileForm;
 use PKP\controllers\grid\files\submissionDocuments\form\NewLibraryFileForm;
 use PKP\linkAction\LinkAction;

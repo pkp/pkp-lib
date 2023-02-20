@@ -13,7 +13,7 @@
  * @brief Submission document library modal handler.
  */
 
-namespace PKP\controllers\modals\docuemntLibrary;
+namespace PKP\controllers\modals\documentLibrary;
 
 use APP\handler\Handler;
 use APP\template\TemplateManager;

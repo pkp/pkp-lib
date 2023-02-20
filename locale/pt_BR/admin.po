@@ -1,12 +1,13 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
-# cicilia conceiçao de maria <ccmaria@uem.br>, 2022.
+# cicilia conceiçao de maria <ccmaria@uem.br>, 2022, 2023.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2023-02-14 01:59+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-02-17 03:48+0000\n"
+"Last-Translator: cicilia conceiçao de maria <ccmaria@uem.br>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -495,8 +496,7 @@ msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr "Identificando editores para lembrar no contexto {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
-"Envie um e-mail para cada editor lembrando-os de suas tarefas pendentes"
+msgstr "Envie um e-mail para cada editor lembrando-os de suas tarefas pendentes"
 
 msgid "admin.auth.confirmDelete"
 msgstr "Deseja realmente excluir permanentemente esta fonte de autenticação?"
@@ -563,8 +563,8 @@ msgstr ""
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
-"O arquivo não pôde ser descompactado. O arquivo de destino aberto "
-"{$filePath} não pôde ser fechado com fclose."
+"O arquivo não pôde ser descompactado. O arquivo de destino aberto {$filePath}"
+" não pôde ser fechado com fclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
@@ -593,8 +593,8 @@ msgstr ""
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
-"O arquivo não pôde ser compactado. O arquivo de origem compactado "
-"{$filePath} não pôde ser removido com unlink."
+"O arquivo não pôde ser compactado. O arquivo de origem compactado {$filePath}"
+" não pôde ser removido com unlink."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
@@ -625,8 +625,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
-"Ocorreu um erro ao processar o arquivo de log {$file} na linha "
-"{$lineNumber}: {$msg}"
+"Ocorreu um erro ao processar o arquivo de log {$file} na linha {$lineNumber}:"
+" {$msg}"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
@@ -861,3 +861,75 @@ msgstr "Número de segundos para descanso entre jobs [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Execute o daemon do worker para a fila de teste"
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""

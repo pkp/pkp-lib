@@ -29,6 +29,8 @@ class ReviewCompleteNotifyEditors extends Mailable
     use Recipient;
     use Unsubscribe;
 
+    public const REVIEWER_FILES = 'reviewerFiles';
+
     protected static ?string $name = 'mailable.reviewCompleteNotifyEditors.name';
     protected static ?string $description = 'mailable.reviewCompleteNotifyEditors.description';
     protected static ?string $emailTemplateKey = 'REVIEW_COMPLETE';
@@ -45,12 +47,13 @@ class ReviewCompleteNotifyEditors extends Mailable
     )
     {
         parent::__construct(func_get_args());
+
         $this->context = $context;
     }
 
     protected function addFooter(string $locale): self
     {
-        $this->setupUnsubscribeFooter($locale, $this->context);
+        $this->setupUnsubscribeFooter($locale, $this->context, 'emails.footer.unsubscribe.automated');
         return $this;
     }
 }

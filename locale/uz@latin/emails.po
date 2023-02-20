@@ -190,3 +190,18 @@ msgstr ""
 "qo‘shishni istasangiz, men bilan bog‘laning.</p><p>Ushbu jurnalni ish "
 "joyingiz sifatida ko‘rganingiz uchun tashakkur.</p><p>Hurmat bilan,</"
 "p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Tahrirlovchilar: <br />\n"
+"<br/>\n"
+"Men &quot; {$submissionTitle}, &quot; {$contextName} uchun. Men haqimda "
+"o'ylaganingiz uchun tashakkur va men ko'rib chiqishni o'z vaqtida tugatishni "
+"rejalashtiryapman, {$reviewDueDate}, agar oldin bo'lmasa. <br />\n"
+"<br/>\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Ko'rib chiqish imkoniyati"

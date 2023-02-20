@@ -191,3 +191,19 @@ msgstr ""
 "گۆڤارەکەمان.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"بەڕێزان، سەرنوسەران:<br />\n"
+"<br />\n"
+"من لە توانام دایە و حەزدەکەم هەڵسەنگاندن بۆ توێژینەوەی&quot;"
+"{$submissionTitle},&quot; بکەم بۆ{$contextName}. سوپاس بۆ بیرکردنەوە لە من و "
+"من لە پلانم دایە کە هەڵسەنگاندنەکە هەتا{$reviewDueDate} تەواو بکەم، ئەگەر "
+"پێشتر نەبێت.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "توانای هەڵسەنگاندن هەیە"

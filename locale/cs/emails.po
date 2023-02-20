@@ -197,3 +197,19 @@ msgstr ""
 "nesprávné nebo si nepřejete být v tomto příspěvku uvedeni, kontaktujte mě "
 "prosím.</p><p>Děkuji, že zvažujete náš časopis jako místo pro publikaci své "
 "práce.</p><p>S pozdravem,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editoři:<br />\n"
+"<br />\n"
+"Mohu a jsem ochotný zpracovat recenzi příspěvku &quot;{$submissionTitle}"
+"&quot; pro {$contextName}. Děkuji, že jste mě oslovili. Plánuji dokončit "
+"zpracování recenze ve stanoveném termínu {$reviewDueDate}, případně dříve."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Mohu zpracovat recenzi"

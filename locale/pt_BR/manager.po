@@ -3179,6 +3179,7 @@ msgstr ""
 "Este e-mail notifica automaticamente o avaliador sobre os detalhes "
 "modificados da avaliação."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Comentários do Avaliador Notificar Editores"
 

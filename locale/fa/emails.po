@@ -201,9 +201,11 @@ msgstr ""
 "<br />\n"
 "لطفا چنانچه در این رابطه سوالی دارید، با من تماس بگیرید."
 
+#, fuzzy
 msgid "emails.reviewConfirm.subject"
 msgstr "داوری را قبول می کنم"
 
+#, fuzzy
 msgid "emails.reviewConfirm.body"
 msgstr ""
 "دبیر محترم:<br />\n"
@@ -1161,3 +1163,18 @@ msgstr ""
 "خود را برای این مجله ارسال نمودید، سپاسگذاریم<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"دبیر محترم:<br />\n"
+"<br />\n"
+"اینجانب داوری مقاله ارسالی &quot;{$submissionTitle}&quot;مربوط به "
+"{$contextName} را قبول می نمایم. از توجه شما متشکرم و بررسی آنرا در موعد "
+"مقرر ( {$reviewDueDate}) انجام خواهد داد.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "داوری را قبول می کنم"

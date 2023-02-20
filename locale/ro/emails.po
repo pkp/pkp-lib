@@ -199,3 +199,19 @@ msgstr ""
 "<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editorilor:<br />\n"
+"<br />\n"
+"Sunt dispus să revizuiesc manuscrisul, &quot;{$submissionTitle},&quot; "
+"pentru {$contextName}. Vă mulțumesc că v-ați gândit la mine și intenționez "
+"să finalizez examinarea până la data scadenței, {$reviewDueDate}, dacă nu, "
+"chiar mai repede.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Bun de revizuit"

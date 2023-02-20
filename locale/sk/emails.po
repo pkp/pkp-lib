@@ -193,3 +193,19 @@ msgstr ""
 "nášho príspevku pre vaše práce.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editori:<br />\n"
+"<br />\n"
+"Môžem a som ochotný spracovať recenziu príspevku &quot;{$submissionTitle}"
+"&quot; pre {$contextName}. Dakujem, že ste ma oslovili. Plánujem dokončiť "
+"spracovanie recenzie v stanovenom termíne {$reviewDueDate}, prípadne skôr."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Môžem spracovať recenziu"

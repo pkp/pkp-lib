@@ -2026,6 +2026,7 @@ msgstr ""
 "Ova poruka e-pošte automatski obavještava recenzenta kada su pojedinosti "
 "njegovog zadatka recenzije promijenjene."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obavijest urednicima o preporuci recenzenta"
 

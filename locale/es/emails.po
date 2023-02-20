@@ -188,3 +188,19 @@ msgstr ""
 "elegido esta revista para dar a conocer su obra.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editores/as:<br />\n"
+"<br />\n"
+"Tengo la capacidad y deseo revisar el envío &quot;{$submissionTitle},&quot; "
+"para {$contextName}. Gracias por acordarse de mí, es mi intención tener la "
+"revisión completa en el plazo indicado: {$reviewDueDate}, a ser posible "
+"antes.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Acepto la revisión"

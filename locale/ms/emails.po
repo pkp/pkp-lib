@@ -187,3 +187,19 @@ msgstr ""
 "atau anda tidak mahu dinamakan pada penyerahan ini, sila hubungi saya.</"
 "p><p> Terima kasih kerana mempertimbangkan jurnal ini sebagai tempat kerja "
 "anda.</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Penyunting:<br />\n"
+"<br />\n"
+"Saya mampu dan bersedia menyemak penyerahan, &quot;{$submissionTitle},&quot; "
+"untuk {$contextName}. Terima kasih untuk pemakluman dan saya bercadang untuk "
+"menyelesaikan semakan sebelum tarikh tamatnya, {$reviewDueDate}, jika tidak "
+"sebelum ini.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Mampu Mengulas"

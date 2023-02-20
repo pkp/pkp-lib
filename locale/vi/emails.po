@@ -196,3 +196,18 @@ msgstr ""
 "coi tạp chí này là công bố nghiên cứu của bạn.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Kính gửi Biên tập viên,<br />\n"
+"<br />\n"
+"Tôi có thể và sẵn sàng đánh giá bài gửi, &quot;{$submissionTitle},&quot; cho "
+"{$contextName}. Cảm ơn bạn đã nghĩ đến tôi và tôi dự định hoàn thành bản "
+"đánh giá trước ngày {$reviewDueDate}.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Đồng ý đánh giá"

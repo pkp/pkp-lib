@@ -3136,6 +3136,7 @@ msgstr ""
 msgid "mailable.editReviewNotify.name"
 msgstr "Editovat oznámení o recenzi"
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Komentář recenzenta: Upozornit redakci"
 

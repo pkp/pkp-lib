@@ -187,3 +187,22 @@ msgstr ""
 "ya da bu aday makalede adınızın geçmesini istemiyorsanız, lütfen benimle "
 "iletişime geçin.</p><p>Dergimizi tercih ettiğiniz için teşekkür ederiz.</"
 "p><p>Saygılarımla,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Sayın {$recipientName},<br />\n"
+"<br />\n"
+"{$contextName} adlı dergide yayımlanması için değerlendirilmek üzere "
+"gönderilen &quot;{$submissionTitle}&quot; başlıklı makalenin değerlendirme "
+"talebini kabul ediyorum. Değerlendirme raporunu en geç {$reviewDueDate} "
+"tarihine kadar göndereceğim.<br />\n"
+"<br />\n"
+"Çalışmayı değerlendirmek üzere tarafıma gönderdiğiniz için teşekkür ederim."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Değerlendirmeyi Yapacağım"

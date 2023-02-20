@@ -164,3 +164,19 @@ msgstr ""
 "розглянули цей журнал як місце для публікації вашої роботи.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Я маю можливість та бажання працювати над рецензією подання &quot;"
+"{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;. Дякую за "
+"довіру. Я планую закінчити роботу над рецензією не пізніше {$reviewDueDate}."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Погоджуюсь здійснити рецензування"

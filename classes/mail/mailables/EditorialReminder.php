@@ -117,7 +117,7 @@ class EditorialReminder extends Mailable
      */
     protected function addFooter(string $locale): Mailable
     {
-        $this->setupUnsubscribeFooter($locale, $this->context, __('emails.footer.unsubscribe.editorialReminder'));
+        $this->setupUnsubscribeFooter($locale, $this->context, __('emails.footer.unsubscribe.automated'));
         return $this;
     }
 }

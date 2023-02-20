@@ -185,3 +185,19 @@ msgstr ""
 "publicació per desenvolupar la vostra feina.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Benvolgut/uda {$recipientName},<br />\n"
+"<br />\n"
+"Accepto revisar la tramesa &quot;{$submissionTitle}&quot; per a "
+"{$contextName}, i us agraeixo que m'hàgiu tingut en compte per a aquesta "
+"tasca. La meva intenció és tenir-la acabada per a la data de venciment "
+"prevista ({$reviewDueDate}), o abans si és possible.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Accepto la revisió"

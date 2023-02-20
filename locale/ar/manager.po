@@ -3010,6 +3010,7 @@ msgstr ""
 "رسالة البريد الالكتروني هذه تُرسل تلقائيًا إلى المحررين المعينين عندما يُرسل "
 "المحكم توصياته"
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "إشعار المحررين بتعليق المحكم"
 

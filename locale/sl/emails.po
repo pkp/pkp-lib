@@ -188,3 +188,19 @@ msgstr ""
 "našo revijo za objavo vašega dela.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"Pripravljen sem opraviti recenzijo prispevka, &quot;{$submissionTitle},"
+"&quot; za revijo {$contextName}. Hvala za povabilo. Sporočam vam, da "
+"nameravam recenzijo dokončati do predvidenega datuma, {$reviewDueDate}, če "
+"ne prej.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Potrditev recenzije"

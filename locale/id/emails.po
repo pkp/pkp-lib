@@ -179,3 +179,19 @@ msgstr ""
 "ada kekeliruan, atau tidak ingin nama Anda tercantum dalam naskah, silakan "
 "hubungi saya.</p><p>Terima kasih atas pertimbangannya memilih jurnal ini "
 "untuk menerbitkan karya Anda.</p><p>Salam Hormat,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editor:<br />\n"
+"<br />\n"
+"Saya dapat dan bersedia melakukan review terhadap naskah, &quot;"
+"{$submissionTitle},&quot; untuk {$contextName}. Terimakasih telah "
+"mempercayakan kepada saya, dan saya berencana untuk menyelesaikan review ini "
+"sesuai tenggat, {$reviewDueDate}, atau sebelumnya.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Dapat Melakukan Review"

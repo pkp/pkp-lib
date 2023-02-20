@@ -192,3 +192,19 @@ msgstr ""
 "des questions, n'hésitez pas à communiquer avec nous. Nous vous remercions "
 "d'avoir pensé à la revue {$contextName} pour la publication de vos travaux.</"
 "p><p>Cordialement,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Rédacteurs-trices,<br />\n"
+"<br />\n"
+"Je suis en mesure d'évaluer la soumission intitulée « {$submissionTitle} » "
+"pour la revue {$contextName}. Je vous remercie d'avoir pensé à moi. Je "
+"devrais être en mesure de compléter l'évaluation pour la date du "
+"{$reviewDueDate}, voire avant.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Acceptation d'évaluation"

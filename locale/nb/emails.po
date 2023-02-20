@@ -192,3 +192,19 @@ msgstr ""
 "manuskript, vær vennlig å kontakte mig.</p><p>Takk for at du vurderer dette "
 "tidsskrift til for arbeidet ditt.</p><p>Med vennlig hilsen</"
 "p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Redaktorer:<br />\n"
+"<br />\n"
+"Takk for forespørselen om å vurdere innleveringen &quot;{$submissionTitle},"
+"&quot; for {$contextName}. Jeg har tid og anledning til å vurdere "
+"manuskriptet, og tar sikte på å ferdigstille vurderingen innen "
+"{$reviewDueDate}, om ikke før.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Aksepter forespørsel om fagfellevurdering"

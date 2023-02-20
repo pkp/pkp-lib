@@ -179,3 +179,19 @@ msgstr ""
 "<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"Θα ήθελα να σας ενημερώσω ότι μπορώ να αναλάβω την αξιολόγηση της εργασίας "
+"&quot;{$submissionTitle},&quot; για το περιοδικό {$contextName}. Σας "
+"ευχαριστώ για την εμπιστοσύνη σας και σκοπεύω να έχω την αξιολόγηση έτοιμη "
+"μέχρι τη λήξη της προθεσμίας, στις {$reviewDueDate}, αν όχι νωρίτερα.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Αποδοχή αιτήματος αξιολόγησης"

@@ -753,6 +753,9 @@ msgstr "Required"
 msgid "common.reset"
 msgstr "Reset"
 
+msgid "common.reviewRoundNumber"
+msgstr "Round {$round}"
+
 msgid "common.role"
 msgstr "Role"
 

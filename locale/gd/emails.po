@@ -199,3 +199,19 @@ msgstr ""
 "leabhar seo a thaghadh mar dhòigh foillseachaidh dha d’ obair.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Deasaichean:<br />\n"
+"<br />\n"
+"Tha mi deiseil is deònach lèirmheas a dhèanamh air an tagradh "
+"“{$submissionTitle},” airson {$contextName}. Mòran taing airson an cothrom "
+"seo a thoirt dhomh agus tha mi an dòchas an lèirmheas a choileanadh ron "
+"{$reviewDueDate}.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Bidh e comasach lèirmheas a dhèanamh air"

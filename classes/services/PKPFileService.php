@@ -121,8 +121,12 @@ class PKPFileService
             throw new Exception("Unable to locate file ${id}.");
         }
         $path = $file->path;
-        if ($this->fs->has($path) && !$this->fs->delete($path)) {
-            throw new Exception("Unable to delete file ${id} at ${path}.");
+        if ($this->fs->has($path)) {
+            try {
+                $this->fs->delete($path);
+            } catch (Exception $e) {
+                throw new Exception("Unable to delete file ${id} at ${path}.");
+            }
         }
         DB::table('files')
             ->where('file_id', '=', $file->id)

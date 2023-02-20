@@ -14,14 +14,14 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
+use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Collection;
 use PKP\db\DAORegistry;
-use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
 use Throwable;
 
 abstract class PreflightCheckMigration extends \PKP\migration\Migration
@@ -40,7 +40,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // See MergeLocalesMigration (#8598)
             $affectedLocales = MergeLocalesMigration::getAffectedLocales();
             $conflictingEmailKeys = collect();
-            $exceptionMessage = "";
+            $exceptionMessage = '';
             foreach ($affectedLocales as $localeCode => $localeTarget) {
                 $defaultLocale = $localeTarget;
                 if ($localeTarget instanceof Collection) {
@@ -65,7 +65,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
                 if (!$conflictingEmailKeys->isEmpty()) {
                     foreach ($conflictingEmailKeys as $conflictingEmailKey) {
-                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading. Consider keeping only the '. $defaultLocale . ' locale in the installation' . PHP_EOL;
+                        $exceptionMessage .= 'A row with email_key="' . $conflictingEmailKey->email_key . '" found in table email_templates_default_data which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading. Consider keeping only the ' . $defaultLocale . ' locale in the installation' . PHP_EOL;
                     }
                 }
             }
@@ -78,7 +78,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // See MergeLocalesMigration (#8598)
             $settingsTables = MergeLocalesMigration::getSettingsTables();
             $conflictingSettings = collect();
-            $settingsExceptionMessage = "";
+            $settingsExceptionMessage = '';
             foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
                 if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
                     foreach ($affectedLocales as $localeCode => $localeTarget) {
@@ -91,7 +91,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                                 ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
                                     return $query->addSelect($settingsTableIdColumn);
                                 })
-                                ->where('locale', 'LIKE', $localeCode .'_%')
+                                ->where('locale', 'LIKE', $localeCode . '_%')
                                 ->orWhere('locale', $localeCode)
                                 ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
                                     return $query->groupBy($settingsTableIdColumn, 'setting_name');
@@ -131,7 +131,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             if (!empty($settingsExceptionMessage)) {
                 throw new \Exception($settingsExceptionMessage);
             }
-            
+
 
             // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
             $this->checkContactSetting();
@@ -286,7 +286,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('library_files')->where('context_id', '=', $contextId)->delete();
             }
             // Clean orphaned library_files entries by submission_id
-            $orphanedIds = DB::table('library_files AS lf')->leftJoin('submissions AS s', 's.submission_id', '=', 'lf.submission_id')->whereNull('s.submission_id')->distinct()->pluck('lf.submission_id');
+            $orphanedIds = DB::table('library_files AS lf')->leftJoin('submissions AS s', 's.submission_id', '=', 'lf.submission_id')->where('lf.submission_id', '<>', 0)->whereNull('s.submission_id')->distinct()->pluck('lf.submission_id');
             foreach ($orphanedIds as $submissionId) {
                 $this->_installer->log("Removing orphaned library_files for missing submission_id ${submissionId}");
                 DB::table('library_files')->where('submission_id', '=', $submissionId)->delete();

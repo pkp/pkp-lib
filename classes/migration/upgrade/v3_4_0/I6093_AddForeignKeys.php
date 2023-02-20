@@ -122,10 +122,17 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
             $table->foreign('email_id', 'email_templates_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
             $table->index(['email_id'], 'email_templates_settings_email_id');
         });
+
+        // Permit nullable submission_ids where previously 0 was used for context library
+        Schema::table('library_files', function (Blueprint $table) {
+            $table->bigInteger('submission_id')->nullable()->change();
+        });
+        DB::table('library_files')->where('submission_id', '=', 0)->update(['submission_id' => null]);
         Schema::table('library_files', function (Blueprint $table) {
             $table->foreign('context_id', 'library_files_context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
         });
+
         Schema::table('library_file_settings', function (Blueprint $table) {
             $table->foreign('file_id')->references('file_id')->on('library_files')->onDelete('cascade');
         });

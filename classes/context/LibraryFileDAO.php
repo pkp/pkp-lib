@@ -64,7 +64,7 @@ class LibraryFileDAO extends \PKP\db\DAO
         $result = $this->retrieve(
             'SELECT	*
 			FROM	library_files
-			WHERE	context_id = ? AND submission_id = 0 ' . (isset($type) ? ' AND type = ?' : ''),
+			WHERE	context_id = ? AND submission_id IS NULL ' . (isset($type) ? ' AND type = ?' : ''),
             $params
         );
         return new DAOResultFactory($result, $this, '_fromRow', ['id']);
@@ -73,13 +73,12 @@ class LibraryFileDAO extends \PKP\db\DAO
     /**
      * Retrieve all library files for a submission.
      *
-     * @param int $submissionId
      * @param string $type (optional)
      * @param int $contextId (optional)
      *
      * @return array LibraryFiles
      */
-    public function getBySubmissionId($submissionId, $type = null, $contextId = null)
+    public function getBySubmissionId(int $submissionId, $type = null, $contextId = null)
     {
         $params = [(int) $submissionId];
         if (isset($type)) {
@@ -178,7 +177,7 @@ class LibraryFileDAO extends \PKP\db\DAO
             $libraryFile->getFileType(),
             (int) $libraryFile->getFileSize(),
             (int) $libraryFile->getType(),
-            (int) $libraryFile->getSubmissionId(),
+            $libraryFile->getSubmissionId() ? (int) $libraryFile->getSubmissionId() : null,
             (int) $libraryFile->getPublicAccess()
         ];
 
@@ -237,7 +236,7 @@ class LibraryFileDAO extends \PKP\db\DAO
                 $libraryFile->getFileType(),
                 (int) $libraryFile->getFileSize(),
                 (int) $libraryFile->getType(),
-                (int) $libraryFile->getSubmissionId(),
+                $libraryFile->getSubmissionId() ? (int) $libraryFile->getSubmissionId() : null,
                 (int) $libraryFile->getPublicAccess(),
                 (int) $libraryFile->getId()
             ]

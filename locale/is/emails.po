@@ -26,3 +26,11 @@ msgstr ""
 "þessu er rangt, eða ef þú vilt ekki vera tilgreind(ur/t) á þessari "
 "innsendingu.</p><p> Annars þökkum við fyrir áhuga ykkar á að birta verk "
 "ykkar í tímaritinu okkar.</p><p>Kærar kveðjur,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr ""

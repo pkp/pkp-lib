@@ -3145,6 +3145,7 @@ msgstr "Հրապարակման տարբերակի ծանուցում"
 msgid "mailable.editReviewNotify.name"
 msgstr "Խմբագրել գրախոսման ծանուցումը"
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Գրախոսը մեկնաբանել է Տեղեկացնել խմբագիրներին"
 

@@ -3197,6 +3197,7 @@ msgstr ""
 "Denne e-mail meddeler automatisk bedømmeren om ændrede detaljer for "
 "bedømmelsen."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Bedømmer kommenterede, meddel redaktører"
 

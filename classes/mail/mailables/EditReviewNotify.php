@@ -52,7 +52,7 @@ class EditReviewNotify extends Mailable
 
     protected function addFooter(string $locale): self
     {
-        $this->setupUnsubscribeFooter($locale, $this->context);
+        $this->setupUnsubscribeFooter($locale, $this->context, 'emails.footer.unsubscribe.automated');
         return $this;
     }
 }

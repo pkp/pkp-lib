@@ -197,3 +197,19 @@ msgstr ""
 "tämän julkaisun työllenne.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Hyvät toimittajat,<br />\n"
+"<br />\n"
+"Olen halukas arvioimaan käsikirjoituksen &quot;{$submissionTitle}&quot; "
+"julkaisulle {$contextName}. Kiitos, että pyysitte minua tähän tehtävään. "
+"Suoritan arvioinnin viimeistään sen määräaikaan {$reviewDueDate} mennessä."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Arvioinnin hyväksyminen"

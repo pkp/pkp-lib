@@ -3057,6 +3057,7 @@ msgstr ""
 "Ta email avtomatično obvešča recenzenta o spremenjenih podrobnostih "
 "dodeljene recenzije."
 
+#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
 

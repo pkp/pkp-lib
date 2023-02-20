@@ -241,3 +241,19 @@ msgstr ""
 "біздің журналды таңдағаныңызға рахмет.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Құрметті редакторлар!<br />\n"
+"<br />\n"
+"Мен «{$contextName}» журналына арналған «{$submissionTitle}» материалына "
+"шолу жасауға дайынмын. Маған хабарласқаныңыз үшін рахмет; Мен қарастыруды "
+"белгіленген мерзімге дейін аяқтауды жоспарлап отырмын, {$reviewDueDate}, "
+"мүмкін, тезірек.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Мен шолуға келісемін"

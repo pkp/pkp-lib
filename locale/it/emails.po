@@ -189,3 +189,19 @@ msgstr ""
 "<p>Se non fossero corretti la prego di contattarci. Siamo a disposizione per "
 "qualsiasi chiarimento e la ringraziamo per la sua collaborazione.</p>\n"
 "<p>{$contextSignature}</p>"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Gentile Editor,<br />\n"
+"<br />\n"
+"Accetto l'incarico di revisionare &quot;{$submissionTitle},&quot; per "
+"{$contextName}.<br />\n"
+"Penso di completare la revisione per la data che mi avete comunicato, "
+"{$reviewDueDate}, se non prima.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Accettazione incarico di revisione"

@@ -182,3 +182,19 @@ msgstr ""
 "van dit tijdschrift als podium voor u werk.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Ik ben bereid en in staat om een review te doen van de inzending &quot;"
+"{$submissionTitle}&quot; voor {$contextName}. Dank u dat u aan mij gedacht "
+"heeft. Ik verwacht de review gereed te hebben op of voor de afloopdatum, "
+"{$reviewDueDate}.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Review mogelijk"

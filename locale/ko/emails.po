@@ -18,3 +18,11 @@ msgstr ""
 #, fuzzy
 msgid "emails.submissionAckNotAuthor.body"
 msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr ""

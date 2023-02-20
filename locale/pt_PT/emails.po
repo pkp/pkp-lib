@@ -203,3 +203,18 @@ msgstr ""
 "designado para esta submissão, entre em contacto connosco.</p><p>Agradecemos "
 "a escolhada da nossa revista para publicar o seu trabalho.</p><br /"
 "><p>Atentamente,</p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Cara(o) Editor:<br />\n"
+"<br />\n"
+"Estou disponível e interessado em rever a submissão &quot;{$submissionTitle}"
+"&quot; a {$contextName}. Agradeço a consideração e estimo concluir a revisão "
+"até à data definida, {$reviewDueDate}, ou antes do prazo.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Disponível para realizar a revisão"

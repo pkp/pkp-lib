@@ -2847,6 +2847,24 @@ msgstr "The URL to the review assignment"
 msgid "emailTemplate.variable.recommendation"
 msgstr "The recommended decision, such as Accept Submission"
 
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "The date this review was assigned"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "The type of review, such as anonymous, double anonymous or open"
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "The reviewer's recommendation, such as Accept Submission or Decline"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "The round of review, such as Round 1 or Round 2"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "The files uploaded by the reviewer"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "The name of the reviewer"
+
 #, fuzzy
 msgid "emailTemplate.variable.reviewType"
 msgstr ""

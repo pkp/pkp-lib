@@ -176,3 +176,19 @@ msgstr ""
 "oss om detta behöver korrigeras, eller om du inte vill vara angiven som "
 "medförfattare till detta bidrag.</p><p>Vänliga hälsningar,</"
 "p>{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Redaktörer:<br />\n"
+"<br />\n"
+"Jag har möjlighet och åtar mig gärna uppdraget att granska bidraget &quot;"
+"{$submissionTitle}&quot; för {$contextName}. Tack för att ni tänkte på mig. "
+"Jag kommer att ha granskningen färdig till deadline {$reviewDueDate}, om "
+"inte förr.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Accepterar granskningsuppdrag"

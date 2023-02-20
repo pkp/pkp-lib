@@ -71,3 +71,17 @@ msgstr ""
 "בכל שאלה ניתן לפנות אלי. תודה על פנייתך לכתב עת זה.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"לעורכים:<br />\n"
+"<br />\n"
+"אני מסכים לבדוק ההגשה \"{$submissionTitle}\" ל{$contextName}. תודה שפניתם "
+"אלי ואני מתכנן להחזיר את חוות הדעת עד {$reviewDueDate}, אם לא לפני.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "יכול לבדוק"

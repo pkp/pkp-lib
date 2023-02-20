@@ -196,3 +196,19 @@ msgstr ""
 "W razie dodatkowych pytań proszę o kontakt. Dziękujemy za zgłoszenie.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Szanowni Państwo,<br />\n"
+"<br />\n"
+"zgadzam się na wykonanie recenzji tekstu \"{$submissionTitle}\", zgłoszonego "
+"do czasopisma \"{$contextName}\". Recenzja będzie gotowa do dnia "
+"{$reviewDueDate}.<br />\n"
+"<br />\n"
+"Z wyrazami szacunku,\n"
+"{$senderName}"
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Zgoda na wykonanie recenzji"

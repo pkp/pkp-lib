@@ -17,6 +17,7 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
@@ -24,8 +25,7 @@ use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\log\SubmissionEmailLogDAO;
-use PKP\log\SubmissionEmailLogEntry;
+use PKP\log\SubmissionLog;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
@@ -82,9 +82,12 @@ class ReviewReminderForm extends Form
 
         $submission = Repo::submission()->get($reviewAssignment->getSubmissionId());
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $mailable->sender($user)->recipients($reviewer);
+        $mailable->sender($user)->recipients([$reviewer]);
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-        $body = Mail::compileParams($template->getLocalizedData('body'), $mailable->getData(Locale::getLocale()));
+        $data = $mailable->getData(Locale::getLocale());
+        // Don't expose the reviewer's one-click access URL to editors
+        $data[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] = '{$' . ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL . '}';
+        $body = Mail::compileParams($template->getLocalizedData('body'), $data);
 
         $this->setData('stageId', $reviewAssignment->getStageId());
         $this->setData('reviewAssignmentId', $reviewAssignment->getId());
@@ -137,20 +140,35 @@ class ReviewReminderForm extends Form
 
         // Create ReviewRemind email and populate with data
         $mailable = new ReviewRemind($context, $submission, $reviewAssignment);
-        $mailable->sender($user)->recipients($reviewer);
         $template = Repo::emailTemplate()->getByKey($context->getId(), $mailable::getEmailTemplateKey());
-        $mailable->subject($template->getLocalizedData('subject'))->body($this->getData('message'));
+        $mailable
+            ->subject($template->getLocalizedData('subject'))
+            ->body($this->getData('message'))
+            ->sender($user)
+            ->recipients([$reviewer]);
 
         // Finally, send email and handle Symfony transport exceptions
         try {
             Mail::send($mailable);
-            $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
-            $submissionEmailLogDao->logMailable(
-                SubmissionEmailLogEntry::SUBMISSION_EMAIL_REVIEW_REMIND,
-                $mailable,
+
+            SubmissionLog::logEvent(
+                $request,
                 $submission,
-                $user,
+                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND,
+                'submission.event.reviewer.reviewerReminded',
+                [
+                    'recipientId' => $reviewer->getId(),
+                    'recipientName' => $reviewer->getFullName(),
+                    'senderId' => $user->getId(),
+                    'senderName' => $user->getFullName(),
+                ]
             );
+
+            $reviewAssignment->setDateReminded(Core::getCurrentDate());
+            $reviewAssignment->stampModified();
+            $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            $reviewAssignmentDao->updateObject($reviewAssignment);
+
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
@@ -160,12 +178,6 @@ class ReviewReminderForm extends Form
             );
             trigger_error($e->getMessage(), E_USER_WARNING);
         }
-
-        // Update the ReviewAssignment with the reminded and modified dates
-        $reviewAssignment->setDateReminded(Core::getCurrentDate());
-        $reviewAssignment->stampModified();
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
-        $reviewAssignmentDao->updateObject($reviewAssignment);
 
         parent::execute(...$functionArgs);
     }

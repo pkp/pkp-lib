@@ -44,6 +44,8 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
     public const SUBMISSION_LOG_REVIEW_CLEAR = 0x40000014;
     public const SUBMISSION_LOG_REVIEW_READY = 0x40000018;
     public const SUBMISSION_LOG_REVIEW_CONFIRMED = 0x40000019;
+    public const SUBMISSION_LOG_REVIEW_REMIND = 0x40000020;
+    public const SUBMISSION_LOG_REVIEW_REMIND_AUTO = 0x40000020;
 
 
     //

@@ -15,23 +15,20 @@
 
 namespace PKP\mail\mailables;
 
+use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;
 use PKP\mail\traits\Configurable;
-use PKP\mail\traits\PasswordResetUrl;
+use PKP\mail\traits\OneClickReviewerAccess;
 use PKP\mail\traits\Recipient;
 use PKP\security\Role;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\user\User;
 
 class ReviewRemindAuto extends Mailable
 {
     use Configurable;
-    use Recipient {
-        recipients as traitRecipients;
-    }
-    use PasswordResetUrl;
+    use OneClickReviewerAccess;
+    use Recipient;
 
     protected static ?string $name = 'mailable.reviewRemindAuto.name';
     protected static ?string $description = 'mailable.reviewRemindAuto.description';
@@ -41,29 +38,24 @@ class ReviewRemindAuto extends Mailable
     protected static array $toRoleIds = [Role::ROLE_ID_REVIEWER];
 
     protected Context $context;
+    protected ReviewAssignment $reviewAssignment;
 
-    public function __construct(ReviewAssignment $reviewAssignment, PKPSubmission $submission, Context $context)
+    public function __construct(Context $context, Submission $submission, ReviewAssignment $reviewAssignment)
     {
         parent::__construct(func_get_args());
+
         $this->context = $context;
+        $this->reviewAssignment = $reviewAssignment;
     }
 
     /**
-     * @copydoc Mailable::getDataDescriptions()
+     * Override the setData method to add the one-click access
+     * URL for the reviewer
      */
-    public static function getDataDescriptions(): array
+    public function setData(?string $locale = null): void
     {
-        $variables = parent::getDataDescriptions();
-        return self::addPasswordResetUrlDescription($variables);
-    }
+        parent::setData($locale);
 
-    /**
-     * Old REVIEW_REMIND_AUTO template contains additional variable not supplied by _Variable classes
-     */
-    public function recipients(User $recipient, ?string $locale = null): Mailable
-    {
-        $this->traitRecipients([$recipient], $locale);
-        $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));
-        return $this;
+        $this->setOneClickAccessUrl($this->context, $this->reviewAssignment);
     }
 }

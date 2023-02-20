@@ -618,6 +618,12 @@ msgstr "Review resubmitted"
 msgid "submission.event.reviewer.reviewRevision"
 msgstr "Reviewer revisions file updated"
 
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr "{$senderName} sent a reminder to {$recipientName} regarding their review assignment"
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr "An automatic reminder email was sent to to {$recipientName} regarding their review assignment"
+
 msgid "submission.event.subjectPrefix"
 msgstr "An email has been sent:"
 

@@ -16,27 +16,24 @@
 namespace PKP\mail\mailables;
 
 use APP\core\Application;
+use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
-use PKP\mail\traits\PasswordResetUrl;
+use PKP\mail\traits\OneClickReviewerAccess;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\security\AccessKeyManager;
 use PKP\security\Role;
-use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\user\User;
 
 class ReviewRemind extends Mailable
 {
-    use Sender;
-    use Recipient {
-        recipients as traitRecipients;
-    }
     use Configurable;
-    use PasswordResetUrl;
+    use OneClickReviewerAccess;
+    use Sender;
+    use Recipient;
 
     protected static ?string $name = 'mailable.reviewRemind.name';
     protected static ?string $description = 'mailable.reviewRemind.description';
@@ -49,60 +46,22 @@ class ReviewRemind extends Mailable
     protected Context $context;
     protected ReviewAssignment $reviewAssignment;
 
-    public function __construct(Context $context, PKPSubmission $submission, ReviewAssignment $reviewAssignment)
+    public function __construct(Context $context, Submission $submission, ReviewAssignment $reviewAssignment)
     {
         parent::__construct(func_get_args());
+
         $this->context = $context;
         $this->reviewAssignment = $reviewAssignment;
     }
 
-    /*
-     * Override reviewAssignmentUrl template variable if one-click reviewer access is enabled and add passwordResetUrl
-     */
-    public function recipients(User $recipient, ?string $locale = null): Mailable
-    {
-        $this->traitRecipients([$recipient], $locale);
-        $request = Application::get()->getRequest();
-        $dispatcher = $request->getDispatcher();
-
-        if ($this->context->getData('reviewerAccessKeysEnabled')) {
-            $accessKeyManager = new AccessKeyManager();
-            $expiryDays = ($this->context->getData('numWeeksPerReview') + 4) * 7;
-            $accessKey = $accessKeyManager->createKey(
-                $this->context->getId(),
-                $recipient->getId(),
-                $this->reviewAssignment->getId(), $expiryDays
-            );
-            $reviewUrlArgs = [
-                'submissionId' => $this->reviewAssignment->getSubmissionId(),
-                'reviewId' => $this->reviewAssignment->getId(),
-                'key' => $accessKey,
-            ];
-
-            $this->viewData[ReviewAssignmentEmailVariable::REVIEW_ASSIGNMENT_URL] =
-                $dispatcher->url(
-                    $request,
-                    Application::ROUTE_PAGE,
-                    $this->context->getData('urlPath'),
-                    'reviewer',
-                    'submission',
-                    null,
-                    $reviewUrlArgs
-                );
-        }
-
-        // Old REVIEW_REMIND template contains additional variable not supplied by _Variable classes
-        $this->setPasswordResetUrl($recipient, $this->context->getData('urlPath'));
-
-        return $this;
-    }
-
     /**
-     * @copydoc Mailable::getDataDescriptions()
+     * Override the setData method to add the one-click access
+     * URL for the reviewer
      */
-    public static function getDataDescriptions(): array
+    public function setData(?string $locale = null): void
     {
-        $variables = parent::getDataDescriptions();
-        return self::addPasswordResetUrlDescription($variables);
+        parent::setData($locale);
+
+        $this->setOneClickAccessUrl($this->context, $this->reviewAssignment);
     }
 }

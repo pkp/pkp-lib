@@ -141,14 +141,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
 
         if (!Application::get()->isUnderMaintenance() && Config::getVar('queues', 'job_runner', true)) {
-            
-            // This is required to make the upgrade test pass when updaring from 3.2.1 and 3.2.0
-            // As for those version we did not have any queue related functionality 
-            // and jobs related tables are missing
-            if (!Schema::hasTable('jobs')) {
-                return;
-            }
-            
             register_shutdown_function(function () {
                 (new JobRunner())
                     ->withMaxExecutionTimeConstrain()

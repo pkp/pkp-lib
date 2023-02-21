@@ -24,7 +24,7 @@ case "$DBTYPE" in
 		pg_dump --clean --username=$DBUSERNAME --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
 		;;
 	MySQL|MySQLi)
-		mysqldump --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
+		mysqldump --no-tablespaces --user=$DBUSERNAME --password=$DBPASSWORD --host=$DBHOST $DBNAME | gzip -9 > $DATABASEDUMP
 		;;
 	*)
 		echo "Unknown DBTYPE \"${DBTYPE}\"!"

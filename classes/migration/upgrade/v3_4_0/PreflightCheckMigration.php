@@ -439,7 +439,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
 
             // Flag orphaned authors entries by user_group_id
-            $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->distinct()->select('a.author_id AS author_id, a.publication_id AS publication_id, a.user_group_id AS user_group_id, p.submission_id AS submission_id')->get();
+            $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->select('a.author_id AS author_id', 'a.publication_id AS publication_id', 'a.user_group_id AS user_group_id', 'p.submission_id AS submission_id')->get();
             foreach ($result as $row) {
                 $this->_installer->log("Found an orphaned authors entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
             }
@@ -601,7 +601,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                         $join->on(DB::Raw('LOWER(a.email)'), '=', DB::Raw('LOWER(b.email)'));
                         $join->on('a.user_id', '<>', 'b.user_id');
                     })
-                    ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                    ->select('a.user_id as user_id', 'b.user_id as paired_user_id')
                     ->get();
                 foreach ($result as $row) {
                     $this->_installer->log("The user with user_id {$row->user_id} and email {$row->email} collides with user_id {$row->paired_user_id} and email {$row->paired_email}.");
@@ -619,7 +619,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                         $join->on(DB::Raw('LOWER(a.username)'), '=', DB::Raw('LOWER(b.username)'));
                         $join->on('a.user_id', '<>', 'b.user_id');
                     })
-                    ->select('a.user_id as user_id, b.user_id as paired_user_id')
+                    ->select('a.user_id as user_id', 'b.user_id as paired_user_id')
                     ->get();
                 foreach ($result as $row) {
                     $this->_installer->log("The user with user_id {$row->user_id} and username {$row->username} collides with user_id {$row->paired_user_id} and username {$row->username}.");

@@ -851,7 +851,7 @@
 		"enableGeoUsageStats": {
 			"type": "string",
 			"description": "Whether to track usage statistics by location, and whether to track at the country, region or city level.",
-			"default": "",
+			"default": "disabled",
 			"validation": [
 				"in:disabled,country,country+region,country+region+city"
 			]

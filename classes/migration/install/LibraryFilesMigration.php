@@ -40,8 +40,8 @@ class LibraryFilesMigration extends \PKP\migration\Migration
             $table->datetime('date_uploaded');
             $table->datetime('date_modified');
 
-            $table->bigInteger('submission_id');
-            $table->foreign('submission_id')->nullable()->references('submission_id')->on('submissions')->onDelete('cascade');
+            $table->bigInteger('submission_id')->nullable();
+            $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'library_files_submission_id');
 
             $table->smallInteger('public_access')->default(0)->nullable();

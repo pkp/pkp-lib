@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:12-07:00\n"
-"PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: cicilia conceiçao de maria <ccmaria@uem.br>\n"
+"PO-Revision-Date: 2023-02-23 08:16+0000\n"
+"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -864,72 +864,77 @@ msgstr "Execute o daemon do worker para a fila de teste"
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Liste todas as tarefas com falha. Defina o parâmetro --queue=QUEUE_NAME e --"
+"connection=CONNECTION_NAME para filtrar a lista. Passe também o parâmetro/"
+"sinalizador --redispatch e --clear para reenviar de volta à fila ou limpar "
+"todas/específicas tarefas com falha."
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Conexão"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Falhou em"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Mensagem de Exceção"
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Temos {$total} tarefas com falha"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Há um total de <strong>{$total}</strong> tarefa(s) com falha(s)."
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Tarefas com Falha"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detalhes da tarefa com falha"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Exibir tarefas com falha"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Visualizar tarefa com falha:{$id} detalhes"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atributo"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valor do Atributo"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Conexão"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Falhou em"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Carga"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Exceção"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Ações"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Criada em {$failedAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Tente Novamente"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Reordenar todas as tarefas com falha"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Remova as tarefas com falha muito mais antigas da lista de tarefas com falha."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Tarefas em Fila com Falha"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "{$jobsCount} tarefas com falha removidas da lista de falha com sucesso."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} tarefas reenviadas com sucesso para a fila."

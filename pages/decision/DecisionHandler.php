@@ -128,7 +128,6 @@ class DecisionHandler extends Handler
         );
 
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('pageComponent', 'DecisionPage');
 
         $templateMgr->setState([
             'abandonDecisionLabel' => __('editor.decision.cancelDecision'),
@@ -175,7 +174,17 @@ class DecisionHandler extends Handler
         $templateMgr->assign([
             'breadcrumbs' => $this->getBreadcrumb($this->submission, $context, $request, $dispatcher),
             'decisionType' => $this->decisionType,
+            'pageComponent' => 'DecisionPage',
             'pageWidth' => TemplateManager::PAGE_WIDTH_WIDE,
+            'pageTitle' => join(
+                __('common.titleSeparator'),
+                [
+                    $this->decisionType->getLabel(),
+                    $this->submission->getCurrentPublication()->getShortAuthorString()
+                        ? $this->submission->getCurrentPublication()->getShortAuthorString()
+                        : $this->submission->getCurrentPublication()->getLocalizedFullTitle(),
+                ]
+            ),
             'reviewRound' => $this->reviewRound,
             'submission' => $this->submission,
         ]);

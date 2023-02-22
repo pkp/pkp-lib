@@ -1,14 +1,14 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:07+00:00\n"
-"PO-Revision-Date: 2022-10-27 11:08+0000\n"
+"PO-Revision-Date: 2023-02-23 08:16+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"tr_TR/>\n"
-"Language: tr_TR\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/tr/"
+">\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -445,7 +445,7 @@ msgid "grid.task.status.unfinished"
 msgstr "Değerlendirme tamamlanmadı"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Bu değerlendirme hazır.  Okumak için soldaki not simgesine tıklayınız."
+msgstr "Bu değerlendirme hazır. Okumak için soldaki not simgesine tıklayınız."
 
 msgid "grid.noAuditors"
 msgstr "Denetçi Yok"
@@ -511,7 +511,7 @@ msgid "grid.action.viewLibrary"
 msgstr "Doküman Kütüphanesini Görüntüle"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Düzeltmen düzeltmeleri yapıldı. Bu görevi değerlendiremezsiniz."
+msgstr "Prova düzeltmeleri yapıldı. Bu görevi göz ardı edebilirsiniz"
 
 msgid "grid.artworkFile.caption"
 msgstr "Alt yazı"
@@ -711,4 +711,3 @@ msgstr "Gözatma Listelerinde"
 
 msgid "grid.action.editContributor"
 msgstr "Katkıda Bulunan Kişi Düzelt"
-

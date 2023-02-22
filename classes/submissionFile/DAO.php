@@ -27,6 +27,7 @@ use PKP\core\EntityDAO;
 use PKP\db\DAORegistry;
 use PKP\plugins\PKPPubIdPluginDAO;
 use PKP\services\PKPSchemaService;
+use PKP\submission\ReviewFilesDAO;
 use PKP\submission\reviewRound\ReviewRound;
 
 class DAO extends EntityDAO implements PKPPubIdPluginDAO
@@ -219,8 +220,8 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
             ->where('submission_file_id', '=', $submissionFileId)
             ->delete();
 
-        $reviewFilesDAO = DAORegistry::getDAO('ReviewFilesDAO');
-        $reviewFilesDAO->revokeBySubmissionFileId($submissionFileId);
+        $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
+        $reviewFilesDao->revokeBySubmissionFileId($submissionFileId);
 
         parent::deleteById($submissionFileId);
     }
@@ -306,33 +307,25 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
 
     /**
      * Assign file to a review round.
-     *
-     * @param int $submissionFileId The file to be assigned.
      */
     public function assignRevisionToReviewRound(
-        int $submissionFileId,
+        SubmissionFile $submissionFile,
         ReviewRound $reviewRound
     ): void {
-        // Avoid duplication errors -- clear out any existing entries
-        $this->deleteReviewRoundAssignment($submissionFileId);
 
-        DB::table('review_round_files')->insert([
-            'submission_id' => (int) $reviewRound->getSubmissionId(),
-            'review_round_id' => (int) $reviewRound->getId(),
-            'stage_id' => (int) $reviewRound->getStageId(),
-            'submission_file_id' => $submissionFileId,
-        ]);
-    }
-
-    /**
-     * Remove a specific file assignment from a review round.
-     */
-    public function deleteReviewRoundAssignment(int $submissionFileId): void
-    {
-        // Remove currently assigned review files.
-        DB::table('review_round_files')->where([
-            'submission_file_id' => (int) $submissionFileId
-        ])->delete();
+        DB::table('...')->updateOrInsert(
+            [
+                'submission_id' => $reviewRound->getSubmissionId(),
+                'review_round_id' => $reviewRound->getId(),
+                'submission_file_id' => $submissionFile->getId(),
+            ],
+            [
+                'submission_id' => $reviewRound->getSubmissionId(),
+                'review_round_id' => $reviewRound->getId(),
+                'stage_id' => $reviewRound->getStageId(),
+                'submission_file_id' => $submissionFile->getId(),
+            ],
+        );
     }
 
     /**

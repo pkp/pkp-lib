@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\files\review\form;
 use APP\facades\Repo;
 use PKP\controllers\grid\files\form\ManageSubmissionFilesForm;
 use PKP\db\DAORegistry;
+use PKP\submission\reviewRound\ReviewRound;
 use PKP\submissionFile\SubmissionFile;
 
 class ManageReviewFilesForm extends ManageSubmissionFilesForm
@@ -117,7 +118,7 @@ class ManageReviewFilesForm extends ManageSubmissionFilesForm
         Repo::submissionFile()
             ->dao
             ->assignRevisionToReviewRound(
-                $newSubmissionFile->getId(),
+                $newSubmissionFile,
                 $this->getReviewRound()
             );
 

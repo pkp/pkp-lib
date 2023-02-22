@@ -23,6 +23,7 @@ use APP\template\TemplateManager;
 use PKP\config\Config;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
+use PKP\security\Role;
 
 class PKPCatalogHandler extends Handler
 {
@@ -102,6 +103,9 @@ class PKPCatalogHandler extends Handler
             'parentCategory' => $parentCategory,
             'subcategories' => iterator_to_array($subcategories),
             'publishedSubmissions' => $submissions->toArray(),
+            'authorUserGroups' => Repo::userGroup()->getCollector()
+                ->filterByRoleIds([Role::ROLE_ID_AUTHOR])
+                ->filterByContextIds([$context->getId()])->getMany(),
         ]);
 
         return $templateMgr->display('frontend/pages/catalogCategory.tpl');

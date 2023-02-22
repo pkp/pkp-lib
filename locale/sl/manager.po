@@ -3580,11 +3580,6 @@ msgstr ""
 msgid "manager.dois.help.statuses.title"
 msgstr "Status DOI-jev"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Objek, ki 1) ima DOI-je dodeljene za vse omogočene DOI tipe in 2) še ni bil "
-"objavljen"
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "Objekti, ki 1) imajo DOI-je dodeljene za vse omogočene tipov DOI-jev, 2) so "

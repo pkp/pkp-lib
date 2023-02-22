@@ -865,11 +865,6 @@ msgstr ""
 "bez DOI-ja gdje je 2) omogućena vrsta DOI-ja pod-objekta (npr. tarifa bez "
 "DOI-ja neće se pojaviti ovdje osim ako je DOI za tarifu omogućen)"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Stavka koja 1) ima DOI dodijeljene za sve omogućene vrste DOI i 2) nije "
-"objavljena"
-
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Vrsta navigacijskog izbornika"
 

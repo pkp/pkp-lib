@@ -3485,9 +3485,6 @@ msgstr ""
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr "اطلب من المؤلف تقديم بيان توفر البيانات أثناء عملية تقديم طلب النشر."
 
-msgid "manager.dois.status.unpublished.description"
-msgstr "العنصر الذي 1) يمتلك DOIs لجميع أنواع DOI الممكّنة 2) لم يتم نشره"
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "العنصر الذي 1) يمتلك DOIs لجميع أنواع DOI الممكّنة 2) لم يتم نشره 3) لم يتم "

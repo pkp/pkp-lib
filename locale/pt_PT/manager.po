@@ -3421,11 +3421,6 @@ msgstr ""
 "exemplo, uma composição sem um DOI não aparecerá aqui se o tipo de DOI de "
 "composição não estiver ativado)"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Um item que 1) tem DOIs atribuídos para todos os tipos de DOI ativados e 2) "
-"não foi publicado"
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "Itens que 1) possuem DOIs atribuídos para todos os tipos de DOI ativados, 2) "

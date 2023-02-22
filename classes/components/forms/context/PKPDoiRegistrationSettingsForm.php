@@ -117,7 +117,7 @@ class PKPDoiRegistrationSettingsForm extends FormComponent
         $activeAgencyField = array_filter($this->fields, function ($field) {
             return $field->name === Context::SETTING_CONFIGURED_REGISTRATION_AGENCY;
         });
-        $activeAgency = $activeAgencyField[0]->value;
+        $activeAgency = empty($activeAgencyField) ? '' : $activeAgencyField[0]->value;
         if (!empty($this->agencyFields[$activeAgency])) {
             $this->fields = array_merge($this->fields, $this->agencyFields[$activeAgency]);
         }

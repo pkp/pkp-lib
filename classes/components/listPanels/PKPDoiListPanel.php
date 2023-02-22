@@ -84,11 +84,6 @@ abstract class PKPDoiListPanel extends ListPanel
                     'value' => '0'
                 ],
                 [
-                    'title' => __('publication.status.unpublished'),
-                    'param' => 'unpublished',
-                    'value' => 'true'
-                ],
-                [
                     'title' => __('manager.dois.filters.doiAssigned'),
                     'param' => 'hasDois',
                     'value' => '1',
@@ -119,7 +114,7 @@ abstract class PKPDoiListPanel extends ListPanel
                     'value' => Doi::STATUS_ERROR
                 ],
                 [
-                    'title' => __('manager.dois.status.stale.filterTitle'),
+                    'title' => __('manager.dois.status.stale'),
                     'param' => 'doiStatus',
                     'value' => Doi::STATUS_STALE
                 ],
@@ -202,7 +197,6 @@ abstract class PKPDoiListPanel extends ListPanel
             'doi.manager.versions.modalTitle',
             'manager.dois.help.statuses.title',
             'manager.dois.status.needsDoi.description',
-            'manager.dois.status.unpublished.description',
             'manager.dois.status.unregistered.description',
             'manager.dois.status.submitted.description',
             'manager.dois.status.registered.description',
@@ -211,6 +205,7 @@ abstract class PKPDoiListPanel extends ListPanel
             'manager.dois.registration.manuallyMarkedRegistered',
             'manager.dois.filters.doiAssigned',
             'manager.dois.filters.doiAssigned.description',
+            'manager.dois.status.error.filterTitle',
         ]);
 
         $this->setAppConfig($config);

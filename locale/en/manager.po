@@ -181,12 +181,12 @@ msgstr ""
 "unregistered. Are you sure you want to mark these records as unregistered?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr "Mark DOIs Stale"
+msgstr "Mark DOIs Needs Sync"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
-"You are about to mark DOI metadata records for {$count} item(s) as stale. "
-"The stale status can only be applied to previously submitted DOIs. Are you "
+"You are about to mark DOI metadata records for {$count} item(s) as needing to be synced. "
+"The Needs Sync status can only be applied to previously submitted DOIs. Are you "
 "sure you want to mark these records as stale?"
 
 msgid "manager.dois.actions.export.label"
@@ -279,38 +279,32 @@ msgstr "Error"
 msgid "manager.dois.status.error.filterTitle"
 msgstr "Has Error"
 
-msgid "manager.dois.status.stale.filterTitle"
-msgstr "Needs Sync"
-
 msgid "manager.dois.status.stale"
-msgstr "Stale"
+msgstr "Needs Sync"
 
 msgid "manager.dois.filters.doiAssigned"
 msgstr "DOI Assigned"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr "Any published or unpublished item that does not have a DOI for all enabled published objects."
-
-msgid "manager.dois.status.unpublished.description"
-msgstr "Any unpublished items."
+msgstr "All items missing a DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr "Any published or unpublished item that has a DOI for all enabled published objects."
+msgstr "All items assigned a DOI."
 
 msgid "manager.dois.status.unregistered.description"
-msgstr "Any published items with assigned DOIs that have not been deposited with a registration agency."
+msgstr "All items with a DOI that have been published but not yet deposited with a registration agency."
 
 msgid "manager.dois.status.submitted.description"
-msgstr "Items that have been submitted to the configured registration agency."
+msgstr "All items that have been submitted to a registration agency."
 
 msgid "manager.dois.status.registered.description"
-msgstr "Items that have successfully been registered with a registration agency or manually marked as registered."
+msgstr "All items that have been registered with a registration agency or manually marked as registered."
 
 msgid "manager.dois.status.error.description"
-msgstr "Items that have encountered an error in the registration process."
+msgstr "All items that have encountered an error in the registration process."
 
 msgid "manager.dois.status.stale.description"
-msgstr "Any items that have been republished since they were last deposited with a registration agency. They need to be resubmitted to the registration agency to update their metadata records."
+msgstr "All items that have been republished since they were last deposited with a registration agency. They need to be resubmitted to the registration agency to update their metadata records."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI Updates Failed"
@@ -328,7 +322,7 @@ msgid "manager.dois.notification.markUnregisteredSuccess"
 msgstr "Items successfully marked unregistered"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr "Items successfully marked stale"
+msgstr "Items successfully marked needs sync"
 
 msgid "manager.dois.notification.assignDoisSuccess"
 msgstr "Items successfully assigned new DOIs"

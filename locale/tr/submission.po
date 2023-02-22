@@ -1,14 +1,14 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2022-11-21 05:44+0000\n"
+"PO-Revision-Date: 2023-02-23 08:16+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
 "Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/tr_TR/>\n"
-"Language: tr_TR\n"
+"submission/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -821,9 +821,8 @@ msgstr "Yeni değerlendirmeler gönderilmiştir ve editör tarafından incelenme
 msgid "submission.submit.submissionChecklist"
 msgstr "Gönderi Gereksinimleri"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Devam etmeden önce aşağıdaki koşulları tamamladığınızı okumalı ve kabul etmelisiniz."
+msgstr "Tüm aday makaleler aşağıdaki gereksinimleri karşılamalıdır."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Gönderi tamamlandı"
@@ -2411,3 +2410,11 @@ msgstr "Editör yazışmaları için ana iletişim."
 
 msgid "publication.version"
 msgstr "Sürüm {$version}"
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+"Bu gönderimi kendiniz düzenlemek ve yayınlamak istiyorsanız bir editoryal "
+"rol seçin."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr "Evet, aday makalem bu gereksinimlerin tümünü karşılıyor."

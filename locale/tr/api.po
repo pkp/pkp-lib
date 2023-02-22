@@ -1,11 +1,11 @@
-# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022.
+# Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-24 16:34+0000\n"
+"PO-Revision-Date: 2023-02-23 08:16+0000\n"
 "Last-Translator: Hüseyin Körpeoğlu <yoruyenturk@hotmail.com>\n"
-"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"tr_TR/>\n"
-"Language: tr_TR\n"
+"Language-Team: Turkish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/tr/>"
+"\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -291,3 +291,28 @@ msgstr "Sağladığınız dosya aşaması geçerli değil."
 
 msgid "api.dois.403.prefixRequired"
 msgstr "DOI'leri oluşturmak için bir DOI öneki gereklidir."
+
+msgid "api.400.propReadOnly"
+msgstr "{$prop} özelliği değiştirilemez."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "İstediğiniz aday makale bulunamadı."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Halihazırda yapılandırılan eklenti, bir kayıt ajansı eklentisi olmalıdır."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Yayın türü tanınmadı"
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "İstediğiniz nesne bulunamadı."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Bu, bilinen bir e-posta için varsayılan bir e-posta şablonu değildir."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Bu geçerli bir bağlam değil."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Bu kullanıcı rolünde aday makale göndermenize izin verilmiyor."

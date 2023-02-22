@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-02-14 01:59+0000\n"
+"PO-Revision-Date: 2023-02-23 08:16+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/api/pt_BR/>\n"
@@ -321,3 +321,32 @@ msgstr "O objeto de publicação solicitado não foi encontrado."
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "O plugin atualmente configurado deve ser um plugin de agência de registro."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "A submissão solicitada não foi encontrada."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "A tarefa com falha não foi encontrada na lista de falhas."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "A tarefa com falha não possui a carga a ser reenviada."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Nenhuma tarefa com falha encontrada na lista."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Não é possível reenviar a tarefa com falha."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "A tarefa com falha foi reenviada com sucesso."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Todas as tarefas com falha reencaminháveis com carga útil válida foram "
+"reenfileiradas com sucesso."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Não foi possível excluir a tarefa com falha da lista de falhas."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Tarefa com falha excluída com sucesso da lista de falhas."

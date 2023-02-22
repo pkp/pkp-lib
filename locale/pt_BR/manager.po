@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2023-02-14 01:59+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/manager/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1324,8 +1324,8 @@ msgstr "Arquivo temporário {$dest} não pode ser criado por {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
-"O tamanho de arquivo informado \"{$expected}\" e o tamanho real \"{$actual}\""
-" não conferem"
+"O tamanho de arquivo informado \"{$expected}\" e o tamanho real "
+"\"{$actual}\" não conferem"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "O arquivo da submissão não pode ser importado"
@@ -2801,7 +2801,8 @@ msgstr ""
 "relacionada a um estágio de avaliação"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "O estágio do fluxo de trabalho editorial em que essa decisão foi tomada"
+msgstr ""
+"O estágio do fluxo de trabalho editorial em que essa decisão foi tomada"
 
 msgid "emailTemplate.variable.decision.description"
 msgstr "Uma descrição da decisão que foi tomada"
@@ -3244,7 +3245,8 @@ msgid "stats.publications.downloadReport.betweenDates"
 msgstr "{$startDate} a {$endDate}"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr "O número de visualizações e downloads para cada cidade, região ou país."
+msgstr ""
+"O número de visualizações e downloads para cada cidade, região ou país."
 
 msgid "stats.publications.downloadReport.allFilters"
 msgstr "Todos {$filter}"
@@ -3263,7 +3265,12 @@ msgstr "Condições para a submissão"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "Ao submeter um trabalho para a revista, os autores devem ler, aceitar e marcar como realizados cada condição para a submissão, antes de proceder. A lista de condições também é apresentada em Diretrizes para autores, na página Sobre a revista. A lista pode ser modificada, porém todos os itens requerem a marcação dos autores para procederem à submissão."
+msgstr ""
+"Ao submeter um trabalho para a revista, os autores devem ler, aceitar e "
+"marcar como realizados cada condição para a submissão, antes de proceder. A "
+"lista de condições também é apresentada em Diretrizes para autores, na "
+"página Sobre a revista. A lista pode ser modificada, porém todos os itens "
+"requerem a marcação dos autores para procederem à submissão."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
@@ -3581,8 +3588,8 @@ msgstr "Status DOI"
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
 "Uma breve declaração descrevendo se o(s) autor(es) disponibilizou ou não "
-"seus dados de pesquisa e, em caso afirmativo, onde os leitores podem "
-"acessá-los."
+"seus dados de pesquisa e, em caso afirmativo, onde os leitores podem acessá-"
+"los."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr "Habilitar metadados da declaração de disponibilidade de dados"
@@ -3618,9 +3625,9 @@ msgstr "Não, não mostre aos autores este campo."
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
-"O gerenciamento do DOI mudou. Consulte as páginas <a href=\""
-"{$doiManagementUrl}\">Gerenciamento de DOI</a> e <a href=\"{$doiSettingsUrl}"
-"\">Configurações de DOI</a>."
+"O gerenciamento do DOI mudou. Consulte as páginas <a href="
+"\"{$doiManagementUrl}\">Gerenciamento de DOI</a> e <a href="
+"\"{$doiSettingsUrl}\">Configurações de DOI</a>."
 
 msgid "manager.setup.genres.submitRequired.label"
 msgstr "Exigir com Submissões"
@@ -3671,9 +3678,46 @@ msgstr "Data em que a avaliação deve ser concluída"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
-"Nenhum - Os sufixos devem ser inseridos manualmente na <a href=\""
-"{$doiManagementUrl}\">Página de gerenciamento DOI</a> e não serão gerados "
+"Nenhum - Os sufixos devem ser inseridos manualmente na <a href="
+"\"{$doiManagementUrl}\">Página de gerenciamento DOI</a> e não serão gerados "
 "automaticamente"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr "Data em que o avaliador deve aceitar ou recusar a atribuição"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr "Qualquer item não publicado."
+
+msgid "manager.dois.status.stale.filterTitle"
+msgstr "Necessita de Sincronização"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "A URL para a edição publicada"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Este e-mail é enviado por um editor para lembrar um avaliador de que sua "
+"avaliação está atrasada."
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr "A recomendação do avaliador, como Aceitar ou Recusar a submissão"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "A rodada de avaliação, como Rodada 1 ou Rodada 2"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "Os arquivos enviados pelo avaliador"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "O nome do avaliador"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "A data em que esta avaliação foi designada"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "O tipo de avaliação, como cega, duplamente cega ou aberta"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+"Um ou mais tipos de DOI selecionados não são permitidos para a agência de "
+"registro de DOI configurada."

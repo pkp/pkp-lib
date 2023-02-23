@@ -500,12 +500,8 @@ abstract class Repository
     /**
      * Checks if this user is granted reader access to pre-publication submissions
      * based on their roles in the context (i.e. Manager, Editor, etc).
-     *
-     * @param $user User
-     * @param $submission Submission
-     *
      */
-    public function canPreview(User $user, Submission $submission): bool
+    public function canPreview(?User $user, Submission $submission): bool
     {
         // Only grant access when in copyediting or production stage
         if (!in_array($submission->getData('stageId'), [WORKFLOW_STAGE_ID_EDITING, WORKFLOW_STAGE_ID_PRODUCTION])) {
@@ -880,22 +876,24 @@ abstract class Repository
      * @param $submission Submission
      *
      */
-    protected function _roleCanPreview(User $user, Submission $submission): bool
+    protected function _roleCanPreview(?User $user, Submission $submission): bool
     {
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
-        if ($user && $submission) {
-            $subscriptionAssumedRoles = [
-                Role::ROLE_ID_MANAGER,
-                Role::ROLE_ID_SUB_EDITOR,
-                Role::ROLE_ID_ASSISTANT,
-                Role::ROLE_ID_SUBSCRIPTION_MANAGER
-            ];
+        if (!$user) {
+            return false;
+        }
 
-            $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
-            foreach ($roles as $role) {
-                if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) {
-                    return true;
-                }
+        $subscriptionAssumedRoles = [
+            Role::ROLE_ID_MANAGER,
+            Role::ROLE_ID_SUB_EDITOR,
+            Role::ROLE_ID_ASSISTANT,
+            Role::ROLE_ID_SUBSCRIPTION_MANAGER
+        ];
+
+        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+        $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
+        foreach ($roles as $role) {
+            if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) {
+                return true;
             }
         }
         return false;

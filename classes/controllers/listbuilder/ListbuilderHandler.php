@@ -303,7 +303,7 @@ class ListbuilderHandler extends GridHandler
                 $changes = [];
                 foreach ($entry as $key => $value) {
                     // Match the column name and localization data, if any.
-                    if (!preg_match('/^newRowId\[([a-zA-Z]+)\](\[([a-z][a-z]_[A-Z][A-Z](@([A-Za-z0-9]{5,8}|\d[A-Za-z0-9]{3}))?)\])?$/', $key, $matches)) {
+                    if (!preg_match('/^newRowId\[([a-zA-Z]+)\](\[([a-z][a-z](_[A-Z][A-Z])?(@([A-Za-z0-9]{5,8}|\d[A-Za-z0-9]{3}))?)\])?$/', $key, $matches)) {
                         assert(false);
                     }
 

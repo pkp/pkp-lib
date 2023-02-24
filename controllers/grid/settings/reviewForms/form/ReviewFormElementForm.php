@@ -20,6 +20,7 @@ namespace PKP\controllers\grid\settings\reviewForms\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\reviewForm\ReviewFormElement;

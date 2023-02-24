@@ -18,9 +18,12 @@
 namespace PKP\search;
 
 use Illuminate\Support\Facades\DB;
+use PKP\core\PKPString;
 
 class SubmissionSearchDAO extends \PKP\db\DAO
 {
+    public const MAX_KEYWORD_LENGTH = 60;
+
     /**
      * Add a word to the keyword list (if it doesn't already exist).
      *
@@ -30,6 +33,10 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function insertKeyword($keyword)
     {
+        if (PKPString::strlen($keyword) > self::MAX_KEYWORD_LENGTH) {
+            return null;
+        }
+
         static $submissionSearchKeywordIds = [];
         if (isset($submissionSearchKeywordIds[$keyword])) {
             return $submissionSearchKeywordIds[$keyword];

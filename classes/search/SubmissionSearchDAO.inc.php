@@ -15,6 +15,7 @@
  */
 
 class SubmissionSearchDAO extends DAO {
+	public const MAX_KEYWORD_LENGTH = 60;
 
 	/**
 	 * Add a word to the keyword list (if it doesn't already exist).
@@ -22,6 +23,8 @@ class SubmissionSearchDAO extends DAO {
 	 * @return int the keyword ID
 	 */
 	function insertKeyword($keyword) {
+		if (PKPString::strlen($keyword) > self::MAX_KEYWORD_LENGTH) return null;
+
 		static $submissionSearchKeywordIds = [];
 		if (isset($submissionSearchKeywordIds[$keyword])) return $submissionSearchKeywordIds[$keyword];
 		$result = $this->retrieve(

@@ -26,7 +26,6 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
-use PKP\security\UserGroupDAO;
 use PKP\submission\GenreDAO;
 
 use Slim\Http\Request as SlimRequest;
@@ -112,6 +111,6 @@ class PKPBackendDoiHandler extends APIHandler
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($submission->getData('contextId'))->toArray();
 
-        return $response->withJson(Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication));
+        return $response->withJson(Repo::publication()->getSchemaMap($submission, $userGroups, $genres)->map($publication), 200);
     }
 }

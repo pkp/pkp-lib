@@ -60,7 +60,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "You cannot edit an item's DOI that is not in this context."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "The publication type was not recognized"
+msgstr "The publication type was not recognized."
 
 msgid "api.dois.404.contextNotFound"
 msgstr "This endpoint is not available from the site-wide namespace, and must be requested for a given context."

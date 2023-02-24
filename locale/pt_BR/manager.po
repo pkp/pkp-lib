@@ -2153,7 +2153,7 @@ msgstr ""
 "Escolha o formato de preferência para datas e horas. Um formato customizado "
 "pode ser inserido usando os <a href='https://www.php.net/manual/pt_BR/"
 "function.strftime.php#refsect1-function.strftime-parameters'>caracteres de "
-"formato</a> especiais."
+"formato especiais</a> ."
 
 msgid "manager.setup.dateTime.descriptionTitle"
 msgstr "Formatos de Data e Hora"

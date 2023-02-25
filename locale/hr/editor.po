@@ -1,14 +1,15 @@
 # Tadej Grlić <tadejgrlic@gmail.com>, 2023.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-11 17:48+0000\n"
-"Last-Translator: Tadej Grlić <tadejgrlic@gmail.com>\n"
+"PO-Revision-Date: 2023-02-26 13:48+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"hr_HR/>\n"
-"Language: hr_HR\n"
+"hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -116,7 +117,7 @@ msgid "editor.review.noReviewFilesUploaded"
 msgstr "Nema prenesenih datoteka"
 
 msgid "editor.review.reviewerThanked"
-msgstr "Recenzent se zahvalio"
+msgstr "Poslana zahvala recenzentu"
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Morate odabrati barem jednu datoteku kojoj želite dodijeliti korisnika."

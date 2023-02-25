@@ -4,11 +4,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-26 13:48+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"sl_SI/>\n"
-"Language: sl_SI\n"
+"sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -351,7 +351,9 @@ msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Prikači način uporabe ukaza Jobs"
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Prikaži število opravil v čakalni vrsti"
+msgstr ""
+"Prikaži število opravil v čakalni vrsti. uporabite parameter --failed za "
+"število vseh neuspešnih opravil."
 
 msgid "admin.jobs.createdAt"
 msgstr "Ustvarjeno {$createdAt}"
@@ -435,7 +437,8 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Prikaži seznam opravil v čakalni vrsti. Če želite rezultate paginirati, "
-"uporabite parametre --page= in --perPage="
+"uporabite parametre --page= in --perPage=. Za seznam neuspešnih opravil "
+"uporabite parameter --failed ."
 
 msgid "admin.cli.tool.available.commands"
 msgstr "Ukazi za namespace `{$namespace}`, ki so na voljo:"
@@ -850,3 +853,80 @@ msgstr ""
 "opravila v točno določeno čakalno vrsto, uporabite parameter --"
 "queue=QUEUE_NAME. Lahko uporabite tudi parameter --test za testni zagon "
 "opravila ali --once za zagon le enega opravila hkrati"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "Odstrani zelo stara neuspešna opravila iz liste."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"Prikaži vsa neuspešna opravila. Uporabite parameter --queue=QUEUE_NAME in --"
+"connection=CONNECTION_NAME za filtriranje seznama. Uporabite parametra --"
+"redispatch in --clear za ponovno uvrstitev v opravilno vrsto ali brisanje "
+"enega/vseh neuspešnih opravil."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Neuspešna opravila iz čakalne vrste"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Povezava"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Ni uspelo pri"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "Sporočilo o izjemi"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "{$jobsCount} neuspešnih opravil je bilo odstranjenih iz seznama."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+"{$jobsCount} opravil je bilo uspešno ponovno vstavljenih v čakalno vrsto."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "Skupno število neuspešnih opravil: {$total}"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "Skupaj je <strong>{$total}</strong> neuspešnih opravil."
+
+msgid "navigation.tools.jobs.failed"
+msgstr "Neuspešna opravila"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Podrobnosti neuspešnega opravila"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "Poglej neuspešna opravila"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "Poglej podrobnosti neuspešnega opravila {$id}"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "Atribut"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Vrednost atributa"
+
+msgid "admin.jobs.list.connection"
+msgstr "Povezava"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "Neuspelo pri"
+
+msgid "admin.jobs.list.payload"
+msgstr "Podatki"
+
+msgid "admin.jobs.list.exception"
+msgstr "Izjema"
+
+msgid "admin.jobs.list.actions"
+msgstr "Akcije"
+
+msgid "admin.jobs.failedAt"
+msgstr "Ustvarjeno pri {$failedAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "Poskusi ponovno"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Vsa neuspešna opravila ponovno vstavi v čakalno vrsto"

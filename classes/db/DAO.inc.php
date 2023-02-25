@@ -595,7 +595,7 @@ class DAO {
 	 * Retrieves a SELECT statement without the SELECT and ORDER BY clauses for optimization purposes
 	 * @return array The SQL query at the index 0 and the updated parameters at the index 1
 	 */
-	private static function _optimizeCountQuery(string $s, array $params): array {
+	private static function _optimizeCountQuery(string $sql, array $params): array {
 		$findTopLevelExpression = static function (string $s, string $expression, int $index, ?int &$foundParams = null): int {
 			static
 				$beginLevel = '(',
@@ -606,7 +606,9 @@ class DAO {
 			if ($index < 0) {
 				return -1;
 			}
+			// Keeps the current level (0 means we are not inside a sub-query/function/etc)
 			$levels = 0;
+			// Keeps the current opened delimiter
 			$delimiter = null;
 			for ($l = strlen($s), $i = $index; $i < $l; ) {
 				$c = $s[$i];
@@ -614,10 +616,10 @@ class DAO {
 					++$levels;
 				} elseif ($c === $endLevel) {
 					if (!$levels--) {
-						return -1;
+						throw new Exception('Unexpected ")" on the SQL statement');
 					}
-				} elseif (($newDelimiter = $delimiters[$c] ?? null)) {
-					if ($delimiter === $newDelimiter) {
+				} elseif ($delimiters[$c] ?? null) {
+					if ($delimiter === $c) {
 						$delimiter = null;
 					} elseif (!$delimiter) {
 						$delimiter = $c;
@@ -632,16 +634,31 @@ class DAO {
 				}
 				++$i;
 			}
+			if ($levels) {
+				throw new Exception("Missing {$levels} closing \")\" at the end of the SQL statement");
+			}
+			if ($delimiter) {
+				throw new Exception("Missing \"{$delimiter}\" at the end of the SQL statement");
+			}
 			return -1;
 		};
 
-		$selectParams = 0;
-		// Abort if there's a UNION clause or if there's no "FROM"
-		if (~$findTopLevelExpression($s, 'UNION', 0) || !~($from = $findTopLevelExpression($s, '\bFROM\b', 0, $selectParams))) {
-			return [$s, $params];
+		$paramsSkippedFromTop = 0;
+		// Abort if there's a "UNION" clause or if there's no "FROM"
+		if (~$findTopLevelExpression($sql, '\bUNION\b', 0) || !~($from = $findTopLevelExpression($sql, '\bFROM\b', 0, $paramsSkippedFromTop))) {
+			return [$sql, $params];
 		}
-		// Slice the statement up to the ORDER BY clause
-		$order = ~($order = $findTopLevelExpression($s, '\bORDER\s+BY\b', $from)) ? $order - $from : null;
-		return ['SELECT 0 ' . substr($s, $from, $order), array_slice($params, $selectParams)];
+		// Find the "ORDER BY" clause
+		$orderBy = $findTopLevelExpression($sql, '\bORDER\s+BY\b', $from);
+		$paramsSkippedFromBottom = 0;
+		// Look for the end of the query, just to retrieve the skipped params
+		$findTopLevelExpression($sql, '$', $orderBy, $paramsSkippedFromBottom);
+		$length = ~$orderBy ? $orderBy - $from : strlen($sql);
+		return [
+			// Slice the statement from the "FROM" clause up to the "ORDER BY" clause
+			'SELECT 0 ' . substr($sql, $from, $length),
+			// Slice the params which were dropped
+			array_slice($params, $paramsSkippedFromTop, $paramsSkippedFromBottom ? -$paramsSkippedFromBottom : count($params))
+		];
 	}
 }

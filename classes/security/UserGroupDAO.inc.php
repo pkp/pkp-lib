@@ -910,7 +910,7 @@ class UserGroupDAO extends DAO {
 			}
 		}
 
-		$searchSql .= $this->userDao->getOrderBy(); // FIXME Add "sort field" parameter?
+		$searchSql .= ' ORDER BY u.user_id'; // FIXME Add "sort field" parameter?
 
 		return $searchSql;
 	}

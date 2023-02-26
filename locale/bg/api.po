@@ -1,11 +1,11 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 10:50+0000\n"
+"PO-Revision-Date: 2023-02-27 07:24+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"bg_BG/>\n"
-"Language: bg_BG\n"
+"bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -320,3 +320,39 @@ msgstr "Типът публикация не беше разпознат"
 
 msgid "api.dois.404.pubObjectNotFound"
 msgstr "Обектът за публикуване, който поискахте, не беше намерен."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Текущо конфигурираният плъгин трябва да е плъгин на агенция за регистрация."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+"Неуспешно изпълнаната задача не е намерена в списъка с неуспешни задачи."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "В списъка не е намерена неуспешна задача."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Всички неуспешни задания с възможност за повторно изпращане с валиден "
+"полезен товар са поставени успешно в опашката за изпълнение."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "Исканото от вас изпращане на материали не беше намерено."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+"Неуспешната задача, в която липсва полезният товар, който трябва да бъде "
+"изпратен повторно."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Неуспешно повторно изпращане на задача."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Неуспешната задача е повторно изпратена успешно."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Не може да се изтрие неуспешна задача от списъка с неуспешни."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Неуспешната задача е изтрита успешно от списъка с неуспешни."

@@ -1907,7 +1907,7 @@ msgstr "Избрахме да приемем това подаване на ма
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Кратко описание на това решение, което е предназначено да бъде споделено в "
-"известие по имейл, изпратено до рецензентите относно това решение."
+"известие по имейл, изпратено до рецензентите относно това решение"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
@@ -2045,21 +2045,21 @@ msgstr "Пълното име на получателя или на всички
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "В кръга на рецензиране е взето това решение, ако решението е свързано с етап "
-"на рецензиране."
+"на рецензиране"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "На етапа на редакционния работен процес е взето това решение."
+msgstr "На етапа на редакционния работен процес е взето това решение"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr "Описание на взетото решение."
+msgstr "Описание на взетото решение"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr "Име (заглавие) на взетото решение."
+msgstr "Име (заглавие) на взетото решение"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
-"URL адресът за преглед на всички присвоени от потребителя заявки за подаване "
-"на материали."
+"URL адресът за преглед на всички присвоени на потребителя изпращания на "
+"материали"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
@@ -3070,7 +3070,7 @@ msgid "stats.unknown"
 msgstr "неизвестен"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "URL адресът за потребителя, за да преглежда и редактира своя профил."
+msgstr "URL адресът за потребителя, за да преглежда и редактира своя профил"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Списък с изпратени материали с неизпълнени задачи"
@@ -3220,7 +3220,6 @@ msgstr ""
 "Този имейл автоматично уведомява асоциираните редактори за нова версия на "
 "публикацията"
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Уведомления на редакторите за коментар на рецензента"
 
@@ -3704,9 +3703,8 @@ msgstr "DOI статуси"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
-"Всеки публикуван или непубликуван елемент, който 1) има присвоен подобект "
-"без DOI, където 2) типът DOI на подобекта е активиран (напр. типография без "
-"DOI няма да се появи тук, ако типът DOI на типографията не е активиран)"
+"Всеки публикуван или непубликуван елемент, който няма DOI за всички "
+"разрешени публикувани обекти."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -3719,3 +3717,71 @@ msgstr ""
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "Присвояване на редактор"
+
+msgid "manager.dois.status.unpublished.description"
+msgstr "Всички непубликувани елементи."
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+"Всеки публикуван или непубликуван елемент, който има DOI за всички разрешени "
+"публикувани обекти."
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+"DOI не може да бъде присвоен, освен ако не предоставите присвоения префикс "
+"DOI. <a href=\"{$doiSettingsUrl}\">Добавяне на DOI префикс</a>."
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+"Един или повече избрани типове DOI не са разрешени за конфигурираната "
+"агенция за регистрация на DOI."
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr "Датата, на която е назначена тази рецензия"
+
+msgid "emailTemplate.variable.review.method"
+msgstr "Типът резензия, като анонимен, двойно анонимен или отворен"
+
+msgid "emailTemplate.variable.review.round"
+msgstr "Кръг на преглед, като Кръг 1 или Кръг 2"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr "URL адресът към публикувания брой"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Този имейл е изпратен от редактор, за да напомни на рецензент, че рецензията "
+"трябва да бъде извършена."
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+"Препоръка на рецензента, като приемане на изпратените материали или отказ"
+
+msgid "emailTemplate.variable.review.files"
+msgstr "Файловете, качени от рецензента"
+
+msgid "emailTemplate.variable.review.name"
+msgstr "Име на рецензента"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr "Има грешка"
+
+msgid "manager.dois.status.stale.filterTitle"
+msgstr "Нуждае се от синхронизиране"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr "Присвоен DOI"
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+"Опит за създаване на DOI, но се изисква DOI префикс за контекста, за да бъде "
+"създаден."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"Няма – суфиксите трябва да се въвеждат ръчно на <a href="
+"\"{$doiManagementUrl}\">страницата за управление на DOI</a> и няма да се "
+"генерират автоматично"
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr "Тестване"

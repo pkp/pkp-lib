@@ -1,8 +1,64 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-02-27 11:59+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/api/bg/>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Не можете да промените сървъра на изпращането."
+
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Можете да видите само сървъри, които са активирани."
+
+msgid "api.contexts.403.notAllowed"
+msgstr "Нямате права да видите този сървър."
+
+msgid "api.contexts.403.requiresContext"
+msgstr "Не можете да редактирате този сървър от API за целия сайт."
+
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Нямате права да редактирате този сървър."
+
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "Нямате права да изтриете този сървър."
+
+msgid "api.contexts.404.contextNotFound"
+msgstr "Сървърът, който поискахте, не беше намерен."
+
+msgid "api.dois.400.contextsNotMatched"
+msgstr "DOI, който поискахте, не е част от този сървър."
+
+msgid "api.emails.403.disabled"
+msgstr "Функцията за известяване по имейл не е активирана за този сървър."
+
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr "Нямате права да преместите този имейл шаблон на друг сървър."
+
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "Версията, която поискахте, не е част от това изпращане."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr "Не можете да свържете файл от този файлов етап с типография."
+
+msgid "api.announcements.400.contextsNotMatched"
+msgstr "Съобщението, което поискахте, не е част от този сървър."
+
+msgid "api.submissions.403.contextRequired"
+msgstr ""
+"За да направите или редактирате подаване, трябва да направите заявка до "
+"крайната точка на API на сървъра."
+
+msgid "api.contexts.403.contextsDidNotMatch"
+msgstr ""
+"Не можете да преглеждате или редактирате този сървър, освен ако не направите "
+"заявка към API на сървъра или API за целия сайт."
+
+msgid "api.dois.400.noRegistrationAgencyConfigured"
+msgstr "За този сървър не е конфигурирана агенция за регистрация на DOI."

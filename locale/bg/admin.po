@@ -2,11 +2,11 @@
 # Albena Vassileva <albena.ava@gmail.com>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-27 07:24+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"bg_BG/>\n"
-"Language: bg_BG\n"
+"bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -409,7 +409,9 @@ msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Покажете използването на командата Jobs"
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Показване на количеството задания на опашката"
+msgstr ""
+"Показване на общия брой задачи в опашка. Преминете флага --failed, за да "
+"видите всички неуспешни задания."
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
@@ -425,8 +427,9 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
-"Избройте всички задания на опашка. Ако искате да ранжирате резултатите, "
-"използвайте параметрите --page= и --perPage="
+"Избройте всички задания в опашка. Ако искате да пагинирате резултатите, "
+"използвайте параметрите --page= и --perPage=. Флаг за преминаване -- "
+"неуспешно изброяване на неуспешни задачи."
 
 msgid "admin.cli.tool.available.commands"
 msgstr "Налични команди за пространството от имена `{$namespace}`:"
@@ -850,3 +853,80 @@ msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "Максималният брой секунди, в които обработващия процес трябва да бъде "
 "изпълнен [default : '{$default}']"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+"Премахнете много по-стари неуспешни задачи от списъка с неуспешни задачи."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"Избройте всички неуспешни задачи. Задайте параметър --queue=QUEUE_NAME и --"
+"connection=CONNECTION_NAME, за да филтрирате списъка. Също така подайте "
+"параметър/флаг --redispatch и --clear за повторно изпращане обратно в "
+"опашката или за изчистване на всички/конкретни неуспешни задачи."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "Неуспешни задачи в опашка"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "Връзка"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "Неуспешно при"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "Съобщение за изключение"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "{$jobsCount} неуспешни задачи са премахнати успешно от списъка."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "{$jobsCount} задания бяха повторно изпратени обратно в опашката."
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "Има {$total} неуспешни задачи"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "Има общо <strong>{$total}</strong> неуспешни задачи)."
+
+msgid "navigation.tools.jobs.failed"
+msgstr "Неуспешно изпълнени задачи"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "Подробности за неуспешно изпълнените задачи"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "Преглед на неуспешно изпълнените задачи"
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "Преглед на неуспешно изпълнена задача: {$id}"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "Атрибут"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "Стойност на атрибута"
+
+msgid "admin.jobs.list.connection"
+msgstr "Връзка"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "Неуспешно при"
+
+msgid "admin.jobs.list.payload"
+msgstr "Полезен товар"
+
+msgid "admin.jobs.list.exception"
+msgstr "Изключение"
+
+msgid "admin.jobs.list.actions"
+msgstr "Действия"
+
+msgid "admin.jobs.failedAt"
+msgstr "Създадено в {$failedAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "Нов опит"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "Повторно поставяне в опашката на всички неуспешно изпълнени задачи"

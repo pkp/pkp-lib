@@ -394,8 +394,10 @@ Cypress.Commands.add('createUser', user => {
 	user.roles.forEach(role => {
 		cy.get('form[id=userRoleForm]').contains(role).click();
 	});
+	cy.server();
+	cy.route('POST', '**/grid/settings/user/user-grid/update-user-roles*').as('rolesSaved');
 	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.get('span[id$="-username"]:contains("' + Cypress.$.escapeSelector(user.username) + '")');
+	cy.wait('@rolesSaved').its('status').should('eq', 200);
 });
 
 Cypress.Commands.add('flushNotifications', function() {

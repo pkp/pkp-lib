@@ -1,18 +1,19 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2021-06-11 14:09+0000\n"
+"PO-Revision-Date: 2023-02-27 15:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -208,13 +209,31 @@ msgstr "Vahvistus"
 msgid "common.ccLicense"
 msgstr ""
 "\n"
-"\t\t<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/> </a> <br/> Tämä työ on lisensoitu <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License -lisenssillä</a>.\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
+"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tTämä työ on lisensoitu <a rel=\"license\" target=\"_blank\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 "
+"License -lisenssillä</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
-"\t<div class=\"rtBlock\"> <br /> <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Tämä työ on lisensoitu <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
+"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tTämä työ on lisensoitu <a rel=\"license\" href=\"https://creativecommons."
+"org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
+"License -lisenssillä</a>.\n"
+"\t</div>\n"
 "\t"
 
 msgid "common.changesSaved"
@@ -1348,7 +1367,7 @@ msgstr ""
 "<li>Valitse Asiakirjan tarkastaminen ‑valintaikkunassa niiden piilotettujen "
 "sisältötyyppien valintaruudut, jotka asiakirjasta on tarkoitus "
 "tarkastaa.</li>\n"
-"<li>Valitse  Remove All / Poista kaikki</li>\n"
+"<li>Valitse Remove All / Poista kaikki</li>\n"
 "<li>Valitse Close / Sulle</li>\n"
 "<li>Tallenna tiedosto</li></ul>\n"
 "<li>Microsoft Word / MacOS:\n"
@@ -1555,7 +1574,7 @@ msgid "validator.string"
 msgstr "Tämä ei ole kelvollinen arvo."
 
 msgid "validator.size.array"
-msgstr "Tämän pitää sisältää  {$size} kohdetta."
+msgstr "Tämän pitää sisältää {$size} kohdetta."
 
 msgid "validator.size.string"
 msgstr "Tämän pitää olla {$size} merkkiä."
@@ -1760,9 +1779,12 @@ msgstr "Tätä osallistujaa koskevia muutoksia ei voi tehdä"
 msgid "stageParticipants.selectedUser"
 msgstr "Osallistuja"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Salli käyttäjän muokata käsikirjoituksen tietoja."
+msgstr ""
+"Salli käyttäjän muokata käsikirjoituksen tietoja, kuten otsikkoa, "
+"abstraktia, kuvailutietoja tai muita julkaistavia tietoja. Tätä oikeutta ei "
+"todennäköisesti kannata antaa mikäli käsikirjoitus on käynyt jo läpi kaikki "
+"tarkistukset ja on valmis julkaistavaksi."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Luvat"
@@ -1786,8 +1808,8 @@ msgstr ""
 
 msgid "form.errors"
 msgstr ""
-"Lomaketta ei tallennettu, koska tapahtui {$count} virhe(ttä).  Korjaa "
-"virheet ja yritä uudelleen."
+"Lomaketta ei tallennettu, koska tapahtui {$count} virhe(ttä). Korjaa virheet "
+"ja yritä uudelleen."
 
 msgid "form.errorMany"
 msgstr "Korjaa {$count} virhettä."
@@ -2012,3 +2034,201 @@ msgstr "Kirjoittaja lisätty."
 
 msgid "notification.editedAuthor"
 msgstr "Kirjoittajaa muokattu."
+
+msgid "common.attachFiles"
+msgstr "Liitä tiedostoja"
+
+msgid "common.deselect"
+msgstr "Poista valinta"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Liitä tiedostoja käsikirjoituksen tai julkaisijan kirjastoista."
+
+msgid "common.emailTemplates"
+msgstr "Sähköpostipohjat"
+
+msgid "common.numberedMore"
+msgstr "{$number} lisää"
+
+msgid "common.showAllSteps"
+msgstr "Näytä kaikki askeleet"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Haluatko varmasti vaihtaa kieleen {$localeName} tässä sähköpostissa? Kaikki "
+"tekemäsi muutokset otsikkoon ja tekstiin menetetään."
+
+msgid "common.uploadedByAndWhen"
+msgstr "Ladannut {$name} {$date}"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Löysimme {$when} tehtyjä tallentamattomia muutoksia. Näin voi tapahtua, jos "
+"yhteys palvelimeen katkeaa kesken työskentelyn. Näiden muutosten "
+"palauttaminen voi kumota myöhemmin tekemäsi muutokset. Haluatko palauttaa "
+"muutokset?"
+
+msgid "validator.no_new_line"
+msgstr "Uusi rivi ei ole sallittu."
+
+msgid "common.viewError"
+msgstr "Näytä virhe"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Lisää käsikirjoitustiedostoja"
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Vain seuraavat html-elementit ovat sallittuja [{$tags}]."
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Liitä kirjoittajan lataamia tiedostoja."
+
+msgid "common.reviewRoundNumber"
+msgstr "Kierros {$round}"
+
+msgid "common.searchPhrase"
+msgstr "Hakulauseke"
+
+msgid "common.searching"
+msgstr "Haetaan"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} askelta"
+
+msgid "common.uploadedBy"
+msgstr "Ladannut {$name}"
+
+msgid "common.unsavedChanges"
+msgstr "Tallentamattomat muutokset"
+
+msgid "common.upload.addFile.description"
+msgstr "Lataa tiedosto tietokoneeltasi."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Liitä käsikirjoituksen työnkulun aikana ladattuja tiedostoja, kuten "
+"korjattuja versioita tai arvioitavaksi lähetettyjä tiedostoja."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Kirjaston tiedostot"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Liitä kirjaston tiedostoja"
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Liitä arviointitiedostoja"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Liitä arvioijien lataamia tiedostoja"
+
+msgid "email.attachmentNotFound"
+msgstr "Tiedostoa {$fileName} ei voitu liittää."
+
+msgid "institution.institutions"
+msgstr "Instituutiot"
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Voi sisältää vain kirjaimia, numeroita, väliviivoja, alaviivoja ja pisteitä."
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Tuntematon komento {$command}"
+
+msgid "common.addCCBCC"
+msgstr "Lisää kopio/piilokopio"
+
+msgid "common.addFiles"
+msgstr "Lisää tiedostoja"
+
+msgid "common.attachedFiles"
+msgstr "Liitetyt tiedostot"
+
+msgid "common.attachSelected"
+msgstr "Liitä valitut"
+
+msgid "common.details"
+msgstr "Tiedot"
+
+msgid "common.discardChanges"
+msgstr "Ei, hylkää tallentamattomat muutokset"
+
+msgid "common.disconnected"
+msgstr "Ei yhteyttä"
+
+msgid "common.downloadReport"
+msgstr "Lataa raportti"
+
+msgid "common.dragAndDropHere"
+msgstr "Vedä ja pudota tiedostoja tähän."
+
+msgid "common.orUploadFile"
+msgstr "Tai lataa tiedosto"
+
+msgid "common.findTemplate"
+msgstr "Etsi pohja"
+
+msgid "common.formatting"
+msgstr "Muotoilu"
+
+msgid "common.geographic"
+msgstr "Maantieteellinen"
+
+msgid "common.insert"
+msgstr "Lisää"
+
+msgid "common.insertContent"
+msgstr "Lisää sisältöä"
+
+msgid "common.insertContentSearch"
+msgstr "Etsi lisättävää sisältöä"
+
+msgid "common.label"
+msgstr "Nimike"
+
+msgid "common.lastSaved"
+msgstr "Tallennettu viimeksi {$when}"
+
+msgid "common.keepWorking"
+msgstr "Jatka työskentelyä"
+
+msgid "common.noneSelected"
+msgstr "Ei valittuja kohteita"
+
+msgid "common.noneProvided"
+msgstr "Ei annettuja kohteita"
+
+msgid "common.reconnecting"
+msgstr "Yhdistetään uudelleen"
+
+msgid "common.role"
+msgstr "Rooli"
+
+msgid "common.switchTo"
+msgstr "Siirry"
+
+msgid "common.switchToNamedItem"
+msgstr "Siirry {$name}"
+
+msgid "notification.reviewerResendRequest"
+msgstr "Pyyntö harkita uudelleen arviointipyyntöä lähetettiin."
+
+msgid "timeZone"
+msgstr "Aikavyöhyke"
+
+msgid "notification.type.editorialReminder"
+msgstr "Viikottainen sähköposti keskeneräisistä tehtävistä"
+
+msgid "list.expandAll"
+msgstr "Laajenna kaikki"
+
+msgid "list.collapseAll"
+msgstr "Sulje kaikki"
+
+msgid "validation.invalidOption"
+msgstr "Tämä ei ole kelvollinen vaihtoehto."
+
+msgid "validator.country.regex"
+msgstr ""
+"Tämä ei ole kelvollinen maa. Maan pitää olla jokin 2-kirjaimisista "
+"kansainvälisistä maakoodeista. Katso kaikki koodit https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."

@@ -1,14 +1,15 @@
 # Ljiljana Brkić <ljilja96@outlook.com>, 2023.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2023-02-11 17:48+0000\n"
-"Last-Translator: Ljiljana Brkić <ljilja96@outlook.com>\n"
+"PO-Revision-Date: 2023-02-22 18:21+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/hr_HR/>\n"
-"Language: hr_HR\n"
+"submission/hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1061,7 +1062,7 @@ msgid "metadata.property.validationMessage.partNumber"
 msgstr "Unesite važeći broj dijela."
 
 msgid "metadata.property.displayName.subTitle"
-msgstr "Titl"
+msgstr "Podnaslov"
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Poslano u produkcijsku fazu"
@@ -1253,7 +1254,7 @@ msgid "editor.submission.decision.requestRevisions.log"
 msgstr "{$editorName} je zatražio revizije za ovaj podnesak."
 
 msgid "submission.list.reviewComplete"
-msgstr "Pregled je poslan"
+msgstr "Recenzija poslana"
 
 msgid "submission.submit.placement.categories"
 msgstr "Kategorije"
@@ -1951,7 +1952,7 @@ msgid "grid.action.openNoteForm"
 msgstr "Dodajte novi odgovor u raspravu"
 
 msgid "submission.list.responseDue"
-msgstr "Rok za odgovor: { $datum}"
+msgstr "Rok za odgovor: {$date}"
 
 msgid "publication.unschedule"
 msgstr "Poništi raspored"

@@ -1,0 +1,92 @@
+# Emma U <emmaupkp@gmail.com>, 2023.
+# HKBU Library <libms@hkbu.edu.hk>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-22 04:18+0000\n"
+"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"Language-Team: Chinese (Traditional) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/zh_Hant/>\n"
+"Language: zh_Hant\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "metadata.property.displayName.author"
+msgstr "作者"
+
+msgid "metadata.property.displayName.date"
+msgstr "出版日期"
+
+msgid "metadata.property.displayName.issue"
+msgstr "期數"
+
+msgid "metadata.property.displayName.volume"
+msgstr "卷號"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "末頁"
+
+msgid "metadata.property.displayName.size"
+msgstr "頁數"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "submission.authorBiography"
+msgstr "作者簡介"
+
+msgid "submission.authorBiographies"
+msgstr "作者簡介"
+
+msgid "submission.dueDate"
+msgstr "到期日"
+
+msgid "submission.license"
+msgstr "授權條款"
+
+msgid "submission.permissions"
+msgstr "許可"
+
+msgid "submission.copyright"
+msgstr "版權"
+
+msgid "submission.licenseURL"
+msgstr "授權條款網址"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Attribution-NonCommercial-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Attribution-NonCommercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Attribution-NonCommercial-ShareAlike 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Attribution-NoDerivatives 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Attribution 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Attribution-ShareAlike 4.0"
+
+msgid "submission.status.published"
+msgstr "出版日期"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "第一頁"
+
+msgid "publication.publicationLicense"
+msgstr "許可及披露"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "出版地"
+
+msgid "submission.authors"
+msgstr "作者"
+
+msgid "submission.downloads"
+msgstr "下載"

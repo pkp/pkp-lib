@@ -1,11 +1,11 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-09 13:14+0000\n"
+"PO-Revision-Date: 2023-02-27 07:24+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/bg_BG/>\n"
-"Language: bg_BG\n"
+"common/bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2259,3 +2259,15 @@ msgstr ""
 "връзка със сървъра по време на работа. Възстановяването на тези промени може "
 "да презапише всички промени, които сте направили оттогава. Искате ли да "
 "възстановите тези промени сега?"
+
+msgid "common.reviewRoundNumber"
+msgstr "Кръг {$round}"
+
+msgid "validator.allowable_title_html_tags"
+msgstr "Разрешени са само [{$tags}] html тагове."
+
+msgid "common.formatting"
+msgstr "Форматиране"
+
+msgid "validator.no_new_line"
+msgstr "Не е разрешен нов ред."

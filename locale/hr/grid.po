@@ -1,9 +1,10 @@
 # Ljiljana Brkić <ljilja96@outlook.com>, 2023.
 # Jula Dakić <juladakic@gmail.com>, 2023.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-09 10:50+0000\n"
-"Last-Translator: Ljiljana Brkić <ljilja96@outlook.com>\n"
+"PO-Revision-Date: 2023-02-22 18:21+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "hr/>\n"
 "Language: hr\n"
@@ -339,7 +340,7 @@ msgstr ""
 "{$usersCount} korisnika."
 
 msgid "grid.noItems"
-msgstr "Nema stvari"
+msgstr "Nema stavaka"
 
 msgid "grid.settings"
 msgstr "Postavke"
@@ -453,13 +454,13 @@ msgid "grid.action.upgrade"
 msgstr "Nadogradnja"
 
 msgid "grid.action.order"
-msgstr "Narudžba"
+msgstr "Redoslijed"
 
 msgid "grid.action.saveOrdering"
-msgstr "Spremi narudžbu"
+msgstr "Spremi redoslijed"
 
 msgid "grid.action.cancelOrdering"
-msgstr "Otkaži narudžbu"
+msgstr "Otkaži izmjenu redoslijeda"
 
 msgid "grid.action.collapse"
 msgstr "Kolaps"

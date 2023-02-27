@@ -1,18 +1,19 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2021-04-07 23:27+0000\n"
+"PO-Revision-Date: 2023-02-27 15:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Haluatko varmasti poistaa tämän käsikirjoituksen pysyvästi?"
@@ -327,7 +328,7 @@ msgid "editor.submissionReview.sendEmail"
 msgstr "Lähetä sähköposti-ilmoitus kirjoittajalle: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Lähetä sähköposti-ilmoitus toimittajalle:  {$editorNames}"
+msgstr "Lähetä sähköposti-ilmoitus toimittajalle: {$editorNames}"
 
 msgid "editor.review.newReviewRound"
 msgstr "Vaadi uusi arviointikierros"
@@ -478,3 +479,100 @@ msgid "editor.discussion.errorAnonymousParticipants"
 msgstr ""
 "Keskustelua ei voi luoda valittujen osallistujien kesken, koska se "
 "vaikuttaisi arvioinnin anonymiteettiin."
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+"Sinulla ei ole oikeutta tallentaa tätä muutosta tässä käsikirjoituksessa."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Toimittajalla ei ole oikeutta tallentaa päätöstä tätä käsikirjoitusta "
+"koskien."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Et voi lähettää sähköpostia seuraaville vastaanottajille: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Tätä arviointikierrosta ei löytynyt."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Arviointikierros annettiin, mutta tätä päätöstä ei voi tehdä "
+"arviointivaiheessa."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Tämä arviointikierros ei liity tähän käsikirjoitukseen."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr "Käsikirjoitus ei ole tälle päätökselle oikeassa työvaiheessa."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Sinun pitää olla osoitettuna käsikirjoitukseen, jotta voit tallentaa "
+"toimituksellisen päätöksen."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Arviointikierroksen ID-tunniste vaaditaan tälle päätökselle."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Suositusta ei voi antaa, koska työvaiheeseen ei ole osoitettu toimittajaa, "
+"joka voi tehdä lopullisen päätöksen."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Käsikirjoitusta koskevaa päätöstä ei voitu tehdä. Käsikirjoituksen ID-"
+"tunniste puuttuu tai ei täsmää käsikirjoitukseen."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Tätä päätöstä ei löytynyt. Anna tunnistettava päätöksen tyyppi."
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Lähetä arviointipyyntö uudelleen"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Korjaukset eivät mene tarkistettavaksi uudelle arviointikierrokselle."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Korjaukset menevät tarkistettavaksi uudelle arviointikierrokselle."
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Arviointipyyntö lähetetty uudelleen"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Uuden arviointipyynnön lähettämisessä tapahtui virhe. Ole hyvä ja yritä "
+"uudelleen."
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Tämä arvioija lähetti arvion viime kierroksella."
+
+msgid "reviewer.list.reassign.withName"
+msgstr "Osoita uudelleen {$name}"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr "Osoitettu aikaisemmalla kierroksella"
+
+msgid "editor.decision.cancelDecision"
+msgstr "Peru päätös"
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Oletko varma, että haluat perua tämän päätöksen?"
+
+msgid "editor.decision.completeSteps"
+msgstr "Tee päätös viimeistelemällä seuraavat askeleet"
+
+msgid "editor.decision.dontSkipEmail"
+msgstr "Älä ohita tätä sähköpostia"
+
+msgid "editor.decision.emailSkipped"
+msgstr "Tämä askel on ohitettu ja sähköpostia ei lähetetä."
+
+msgid "editor.decision.recordDecision"
+msgstr "Tallenna päätös"
+
+msgid "editor.decision.skipEmail"
+msgstr "Ohita tämä sähköposti"
+
+msgid "editor.decision.stepError"
+msgstr "Askeleen {$stepName} kanssa oli ongelma."

@@ -163,6 +163,8 @@ msgstr "Tunnistetaan muistutettavat toimittajat kontekstissa {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Toimitettu {$count} tehtävää, lähetetty sähköpostimuistutukset käyttäjille "
+"{$userIds} kontekstissa {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Haluatko varmasti poistaa kaikki ajoitettujen tehtävien suorituslokit?"
@@ -171,10 +173,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Poista ajoitettujen tehtävien suorituslokit"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Poista kaikki suoritettuja ajoitettuja tehtäviä koskeva lokitiedot."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Tyhjennä tehtävälokit"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Julkaise käsikirjoitukset, jotka on ajastettu julkaistavaksi"
@@ -183,67 +185,83 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Muistutus arvioinnista"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Toimitustyön raportin ilmoitus"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Muistutus tilauksen päättymisestä"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Poista vahvistamattomat ja vanhentuneet käyttäjät"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Poista paljon vanhemmat epäonnistuneet tehtävät epäonnistuneiden tehtävien "
+"listasta."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Käsittele odottavat tehtävät jonosta"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Päivitä DB-IP city lite -tietokanta"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"DB-IP city lite -tietokantatiedoston {$sourceFilename} uudelleennimeäminen "
+"muotoon {$targetFilename} epäonnistui."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Kävijätilastotiedostojen ajoitettu tehtävä"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Hakemisto {$directory} ei ole tyhjä. Tämä voi viitata aiempaan "
+"epäonnistuneeseen käsittelyyn tai parhaillaan meneillään olevaan "
+"käsittelyyn. Tämä tiedosto käsitellään automaattisesti uudelleen."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Tiedostoa {$file} ei voitu avata ja se hylättiin."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Tiedosto {$file} käyttää vanhaa tiedostomuotoa, jota ei voida käsitellä. "
+"Tiedosto siirretään takaisin stage-hakemistoon."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Ohitettiin lokitiedosto {$file}, koska kyseisen kuukauden tilastot on jo "
+"laskettu. Jos haluat käsitellä uudelleen kyseisen kuun tilastot, sinun tulee "
+"palauttaa kaikki kuun lokitiedostot ja käyttää komentorivityökalua "
+"tilastojen uudelleenkäsittelyyn."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Rivi {$lineNumber} lokitiedostossa {$file} on väärässä muodossa ja ohitetaan."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Virheellinen lokimerkintä rivillä {$lineNumber} lokitiedostossa {$file}: "
+"{$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Aika ei ole kelvollinen päiväyksen muoto."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Kontekstin ID-tunnus ei ole kokonaisluku."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Käsikirjoituksen ID-tunnus ei ole kokonaisluku."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Julkaisumuodon ID-tunnus ei ole kokonaisluku."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assosiaatiotyyppiä ei tueta."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Tiedoston tyyppiä ei tueta."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Maakoodi ei ole kaksikirjaiminen arvo."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr ""

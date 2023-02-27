@@ -313,7 +313,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         ReviewRound $reviewRound
     ): void {
 
-        DB::table('...')->updateOrInsert(
+        DB::table('review_round_files')->updateOrInsert(
             [
                 'submission_id' => $reviewRound->getSubmissionId(),
                 'review_round_id' => $reviewRound->getId(),

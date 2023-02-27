@@ -447,7 +447,7 @@ abstract class Repository
             case SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION:
                 $authorUserIds = [];
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [ROLE_ID_AUTHOR]);
+                $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submissionFile->getData('submissionId'), [Role::ROLE_ID_AUTHOR]);
                 while ($assignment = $submitterAssignments->next()) {
                     $authorUserIds[] = $assignment->getUserId();
                 }

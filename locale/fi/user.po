@@ -1,18 +1,19 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-12-12 08:52+0000\n"
+"PO-Revision-Date: 2023-02-27 15:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
-"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/user/fi/"
+">\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Tilin tiedot"
@@ -439,10 +440,36 @@ msgid "user.preferredPublicName"
 msgstr "Ensisijainen julkinen nimi"
 
 msgid "user.preferredPublicName.description"
-msgstr "Mitä nimeä toivot sinusta käytettävän? Tähän nimeen voi liittää esimerkiksi erilasia etu- ja takaliitteitä."
+msgstr ""
+"Anna koko nimi, jota kirjoittajasta tulee käyttää. Tähän nimeen voi liittää "
+"esimerkiksi erilaisia etu- ja takaliitteitä. Esimerkiksi: Dr. Alan P. "
+"Mwandenga"
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "Etunimi vaaditaan."
 
 msgid "user.profile.form.givenNameRequired.locale"
 msgstr "Olet antanut sukunimen, mutta saman kielen mukaisesta asetuksesta puuttuu etunimi. Ole hyvä ja annan kielen mukaiseen asetukseen myös etunimi."
+
+msgid "user.apiKey.remove"
+msgstr "Poista"
+
+msgid "user.apiKey.removeWarning"
+msgstr "Avaimen poisto peruu pääsyn kaikille avainta käyttäville sovelluksille."
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Salasanan uusiminen ei onnistunut, koska {$reason}."
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+"Salasana on päivitetty onnistuneesti. Ole hyvä ja kirjaudu sisään uudella "
+"salasanallasi."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Oletko varma, että haluat poistaa tämän API-avaimen?"
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Sähköpostia vastaavaa käyttäjää ei löydy."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Anna uusi salasana kirjautumiseen käytettävän salasanan uusimiseksi."

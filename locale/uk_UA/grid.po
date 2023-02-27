@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
@@ -61,7 +61,9 @@ msgid "grid.action.unassignReviewer"
 msgstr "Скасувати призначення цього рецензента"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Схвалити цей файл, що пройшов літературне редагування, для передачі його на наступний етап"
+msgstr ""
+"Схвалити цей файл, що пройшов літературне редагування, для передачі його на "
+"наступний етап"
 
 msgid "grid.action.reload"
 msgstr "Перезавантажити"
@@ -237,6 +239,9 @@ msgstr "Додати нову групу користувачів"
 msgid "grid.action.editUserGroup"
 msgstr "Редагувати цю групу користувачів"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Видалити цю групу користувачів"
+
 msgid "grid.action.disable"
 msgstr "Вимкнути"
 
@@ -330,6 +335,9 @@ msgstr "Встановити"
 msgid "grid.action.moreItems"
 msgstr "Завантажити ще"
 
+msgid "grid.action.users"
+msgstr "Переглянути/Обрати користувачів"
+
 msgid "grid.task.status.completed"
 msgstr "Це завдання виконане"
 
@@ -343,7 +351,8 @@ msgid "grid.task.status.unfinished"
 msgstr "Завдання не виконане"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Ця рецензія готова. Натисніть значок нотатки ліворуч, щоб прочитати її."
+msgstr ""
+"Ця рецензія готова. Натисніть значок нотатки ліворуч, щоб прочитати її."
 
 msgid "grid.columns.actions"
 msgstr "Дії"
@@ -393,11 +402,17 @@ msgstr "Видалити категорію"
 msgid "grid.contributor.title"
 msgstr "Учасник"
 
+msgid "grid.action.addContributor"
+msgstr "Додати учасника"
+
 msgid "grid.action.editContributor"
 msgstr "Редагувати учасника"
 
 msgid "grid.action.deleteContributor"
 msgstr "Видалити учасника"
+
+msgid "grid.action.newVersion"
+msgstr "Створити нову версію"
 
 msgid "grid.reviewForm.title"
 msgstr "Форми рецензування"
@@ -493,13 +508,19 @@ msgid "grid.user.enableReason"
 msgstr "Причина включення користувача"
 
 msgid "grid.user.error"
-msgstr "Під час адміністрування цього користувача виникла помилка. Будь ласка, спробуйте знову."
+msgstr ""
+"Під час адміністрування цього користувача виникла помилка. Будь ласка, "
+"спробуйте знову."
 
 msgid "grid.user.errorEmail"
-msgstr "Під час надсилання цього листа виникла помилка. Будь ласка, переконайтеся, що поштовий сервер функціонує належним чином та/або зверніться до системного адміністратора."
+msgstr ""
+"Під час надсилання цього листа виникла помилка. Будь ласка, переконайтеся, "
+"що поштовий сервер функціонує належним чином та/або зверніться до системного "
+"адміністратора."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Ви не маєте достатніх повноважень, щоб редагувати дані цього користувача."
+msgstr ""
+"Ви не маєте достатніх повноважень, щоб редагувати дані цього користувача."
 
 msgid "grid.user.authSource"
 msgstr "Джерело аутентифікації"
@@ -526,7 +547,9 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Користувач повинен змінити пароль під час наступного входу до системи."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Вимагати, щоб користувач змінив свій пароль під час наступного входу до системи."
+msgstr ""
+"Вимагати, щоб користувач змінив свій пароль під час наступного входу до "
+"системи."
 
 msgid "grid.user.moreDetails"
 msgstr "Детальніше про користувача"
@@ -562,7 +585,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Будь ласка, оберіть користувача"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Увійти як цей користувач? Усі ваші дії будуть виконуватись від імені цього користувача."
+msgstr ""
+"Увійти як цей користувач? Усі ваші дії будуть виконуватись від імені цього "
+"користувача."
 
 msgid "grid.user.mergeUsers"
 msgstr "Об'єднати користувачів"
@@ -577,7 +602,11 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Всі користувачі, які мають ролі"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Ви впевнені, що хочете об'єднати обліковий запис з іменем користувача \"{$oldUsername}\" в обліковий запис з ім'ям користувача \"{$newUsername}\"? Обліковий запис з ім'ям користувача \"{$oldUsername}\" зникне. Цю дію неможливо відмінити."
+msgstr ""
+"Ви впевнені, що хочете об'єднати обліковий запис з іменем користувача "
+"\"{$oldUsername}\" в обліковий запис з ім'ям користувача \"{$newUsername}\"? "
+"Обліковий запис з ім'ям користувача \"{$oldUsername}\" зникне. Цю дію "
+"неможливо відмінити."
 
 msgid "grid.preparedEmails.title"
 msgstr "Шаблони підготовлених електронних листів"
@@ -631,7 +660,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Роль {$userGroupName} є усталеною і не може бути видалена."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Неможливо видалити роль {$userGroupName}. Зараз вона призначена {$usersCount} користувачу(ам)."
+msgstr ""
+"Неможливо видалити роль {$userGroupName}. Зараз вона призначена "
+"{$usersCount} користувачу(ам)."
 
 msgid "grid.userGroup.removed"
 msgstr "Роль {$userGroupName} видалена."
@@ -663,14 +694,5 @@ msgstr "Немає меню навігації"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Оберіть тип..."
 
-msgid "grid.action.addContributor"
-msgstr "Додати учасника"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Видалити цю групу користувачів"
-
-msgid "grid.action.users"
-msgstr "Переглянути/Обрати користувачів"
-
-msgid "grid.action.newVersion"
-msgstr "Створити нову версію"
+msgid "grid.action.view"
+msgstr ""

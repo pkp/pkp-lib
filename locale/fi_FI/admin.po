@@ -42,16 +42,27 @@ msgid "admin.clearTemplateCache"
 msgstr "Tyhjennä mallipohjien välimuisti"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Määritystiedostosi on päivitetty onnistuneesti. Huomioithan, että jos sivustosi ei enää toimi oikein, saatat joutua korjaamaan määrityksiä manuaalisesti muokkaamalla suoraan <tt>config.inc.php</tt>-tiedostoa."
+msgstr ""
+"Määritystiedostosi on päivitetty onnistuneesti. Huomioithan, että jos "
+"sivustosi ei enää toimi oikein, saatat joutua korjaamaan määrityksiä "
+"manuaalisesti muokkaamalla suoraan <tt>config.inc.php</tt>-tiedostoa."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Haluatko varmasti tyhjentää koostettujen mallipohjien välimuistin?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Haluatko varmasti päättää kaikki käyttäjien istunnot? Kaikkien käyttäjien, jotka ovat parhaillaan kirjautuneena järjestelmään, on pakko kirjautua uudelleen (myös sinun)."
+msgstr ""
+"Haluatko varmasti päättää kaikki käyttäjien istunnot? Kaikkien käyttäjien, "
+"jotka ovat parhaillaan kirjautuneena järjestelmään, on pakko kirjautua "
+"uudelleen (myös sinun)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Määritystiedoston sisältö"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen "
+"liittyvät sisällöt?"
 
 msgid "admin.currentVersion"
 msgstr "Nykyinen versio"
@@ -60,7 +71,10 @@ msgid "admin.dateInstalled"
 msgstr "Asennuspäivä"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Päivitetyn määrityksen sisältö näkyy alla. Ottaaksesi määritysmuutokset käyttöön avaa <tt>config.inc.php</tt> sopivassa tekstieditorissa ja korvaa sen sisältö alla olevan tekstikentän sisällöllä."
+msgstr ""
+"Päivitetyn määrityksen sisältö näkyy alla. Ottaaksesi määritysmuutokset "
+"käyttöön avaa <tt>config.inc.php</tt> sopivassa tekstieditorissa ja korvaa "
+"sen sisältö alla olevan tekstikentän sisällöllä."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Näytä uusi määritys"
@@ -69,10 +83,21 @@ msgid "admin.expireSessions"
 msgstr "Päätä käyttäjäistunnot"
 
 msgid "admin.languages.cantDisable"
-msgstr "Tämä kielialue on sivuston pääkieli. Et voi poistaa sitä käytöstä, ennen kuin valitset toisen ensisijainen kielialueen."
+msgstr ""
+"Tämä kielialue on sivuston pääkieli. Et voi poistaa sitä käytöstä, ennen "
+"kuin valitset toisen ensisijainen kielialueen."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Oletko varma, että haluat muuttaa sivuston pääasiallista kieltä? Käyttäjien "
+"nimet, jotka vaaditaan pääasiallisen kielen osalta, kopioidaan "
+"automaattisesti nykyisen kieliasetuksen mukaisista arvoista mikäli ne "
+"puuttuvat uudesta kielestä."
 
 msgid "admin.languages.confirmReload"
-msgstr "Haluatko varmasti ladata tämän kielialueen uudelleen? Tämä poistaa kaikki aiemmat kielialuekohtaiset tiedot, kuten mukautetut sähköpostipohjat."
+msgstr ""
+"Haluatko varmasti ladata tämän kielialueen uudelleen? Tämä poistaa kaikki "
+"aiemmat kielialuekohtaiset tiedot, kuten mukautetut sähköpostipohjat."
 
 msgid "admin.languages.installedLocales"
 msgstr "Asennetut kielialueet"
@@ -120,13 +145,18 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Tehtävä ei tuottanut lokia."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "{$softwareName}-asennuksesi suoritti ja lopetti tämän tehtävän automaattisesti. Voit ladata lokitiedoston täällä: {$url}"
+msgstr ""
+"{$softwareName}-asennuksesi suoritti ja lopetti tämän tehtävän "
+"automaattisesti. Voit ladata lokitiedoston täällä: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Haluatko varmasti poistaa kaikki ajoitettujen tehtävien suorituslokit?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Poista ajoitettujen tehtävien suorituslokit"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Julkaise käsikirjoitukset, jotka on ajastettu julkaistavaksi"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Muistutus arvioinnista"
@@ -158,6 +188,9 @@ msgstr "Asetukset"
 msgid "admin.settings.about"
 msgstr "Tietoa sivustosta"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
+
 msgid "admin.settings.contactEmail"
 msgstr "Pääasiallisen yhteyshenkilön sähköposti"
 
@@ -167,7 +200,12 @@ msgstr "Pääasiallinen yhteyshenkilön nimi"
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\tAsennuksesi on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
+"\t\tAsennuksesi on määritetty tallentamaan useita käytön mittareita. "
+"Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on "
+"käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään "
+"käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa "
+"hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista "
+"oletukseksi.\n"
 "\t"
 
 msgid "admin.settings.introduction"
@@ -175,6 +213,15 @@ msgstr "Esittely"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Salasanan vähimmäispituus (merkkiä)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Sivuston kieli"
@@ -207,7 +254,9 @@ msgid "admin.siteSetup"
 msgstr "Sivuston asetukset"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "Määritystiedostoa <tt>config.inc.php</tt> ei ole olemassa, ei voi lukea tai se on viallinen."
+msgstr ""
+"Määritystiedostoa <tt>config.inc.php</tt> ei ole olemassa, ei voi lukea tai "
+"se on viallinen."
 
 msgid "admin.systemInformation"
 msgstr "Järjestelmätiedot"
@@ -258,7 +307,9 @@ msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Kansio {$path} ei ole hakemisto tai se ei ole luettavissa."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "Tiedostoa {$filename} ei voitu siirtää sijainnista {$currentFilePath} sijaintiin {$destinationPath}"
+msgstr ""
+"Tiedostoa {$filename} ei voitu siirtää sijainnista {$currentFilePath} "
+"sijaintiin {$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Tiedosto {$filename} käsiteltiin ja arkistoitiin."
@@ -268,7 +319,14 @@ msgstr "Tiedostojen latausohjelma"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"Kopioi suoritetut Apachen käyttölokitiedostot, tähän asennukseen liittyvät merkinnät suodattaen, nykyiseen tiedostohakemistoon UsageStatsPlugin-vaihehakemiston sisällä. Ajettava sellaisen käyttäjän toimesta, jolla on lukuoikeudet Apachen lokitiedostoihin. Tämä työkalu kopioi ainoastaan tiedostot, jotka eivät vielä ole usageStats tiedostojen latausohjelman hakemistoissa (vaihe, käsittely, arkisto, hylkää). Käyttö: {$scriptName} path/to/apache/log/file.log Käyttö (käsitellään kaikki hakemiston sisällä olevat tiedostot): {$scriptName} path/to/apache/directory\n"
+"Kopioi suoritetut Apachen käyttölokitiedostot, tähän asennukseen liittyvät "
+"merkinnät suodattaen, nykyiseen tiedostohakemistoon UsageStatsPlugin-"
+"vaihehakemiston sisällä. Ajettava sellaisen käyttäjän toimesta, jolla on "
+"lukuoikeudet Apachen lokitiedostoihin. Tämä työkalu kopioi ainoastaan "
+"tiedostot, jotka eivät vielä ole usageStats tiedostojen latausohjelman "
+"hakemistoissa (vaihe, käsittely, arkisto, hylkää). Käyttö: {$scriptName} "
+"path/to/apache/log/file.log Käyttö (käsitellään kaikki hakemiston sisällä "
+"olevat tiedostot): {$scriptName} path/to/apache/directory\n"
 "\t"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
@@ -278,7 +336,9 @@ msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr "Virhe: Tiedostoa {$filePath} ei ole olemassa tai sitä ei voi käyttää."
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Virhe: tiedostoa ei voi kopioida sijainnista {$filePath} sijaintiin {$tmpFilePath}"
+msgstr ""
+"Virhe: tiedostoa ei voi kopioida sijainnista {$filePath} sijaintiin "
+"{$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.error.deletingFile"
 msgstr "Virhe: tiedostoa {$tmpFilePath} ei voi poistaa"
@@ -293,20 +353,9 @@ msgid "admin.error.utilExecutionProblem"
 msgstr "\"{$utilPath}\" ohjelman suoritus tuotti seuraavan virheen: {$output}"
 
 msgid "admin.error.executingUtil"
-msgstr "Virhe: ei voi suorittaa \"{$utilPath}\". Tarkista {$utilVar}-asetuksesi config.inc.php -tiedostosta."
+msgstr ""
+"Virhe: ei voi suorittaa \"{$utilPath}\". Tarkista {$utilVar}-asetuksesi "
+"config.inc.php -tiedostosta."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Kielialueita ei ole ladattavissa."
-
-msgid "admin.contexts.confirmDelete"
-msgstr "Haluatko varmasti pysyvästi poistaa {$contextName} ja kaikki siihen liittyvät sisällöt?"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Julkaise käsikirjoitukset, jotka on ajastettu julkaistavaksi"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Oletko varma, että haluat muuttaa sivuston pääasiallista kieltä? Käyttäjien "
-"nimet, jotka vaaditaan pääasiallisen kielen osalta, kopioidaan "
-"automaattisesti nykyisen kieliasetuksen mukaisista arvoista mikäli ne "
-"puuttuvat uudesta kielestä."

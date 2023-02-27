@@ -14,11 +14,69 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "user.accountInformation"
+msgstr "Informação sobre Conta"
+
 msgid "user.affiliation"
 msgstr "Afiliação"
 
+msgid "user.affiliation.description"
+msgstr "(A sua instituição, e.g. \"ISPA - Instituto Universitário\")"
+
 msgid "user.affiliations"
 msgstr "Outras Afiliações"
+
+msgid "user.authorization.accessDenied"
+msgstr "Acesso recusado."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "O token de autenticação de processo não existe ou é inválido."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Não é possível executar esta operação sem um contexto (editora, revista, "
+"conferência, etc)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Login obrigatório."
+
+msgid "user.authorization.privateOperation"
+msgstr "A operação que tentou aceder é privada ou não existe."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Acesso recusado. O acesso a este portal está actualmente restrito."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "O actual papel não tem acesso a esta operação."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"O papel que lhe foi atribuído relativamente a esta submissão não lhe permite "
+"aceder a esta operação."
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Deve configurar um grupo de utilizadores válido para aceder a esta operação."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Um utilizador com uma função de Administrador (ou seja, Editor de Produção) "
+"deve ser atribuído à fase antes de poder prosseguir."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Actualmente não tem acesso a esta fase do fluxo de trabalho."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Não foi especificada uma fase de fluxo de trabalho."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Não foi especificado um plugin e é obrigatório."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Não tem permissão para aceder a esta atribuição de revisão."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Não tem permissão para aceder a esta discussão."
 
 msgid "user.biography"
 msgstr "Resumo da Biografia Pessoal"
@@ -41,26 +99,59 @@ msgstr "Editar Perfil"
 msgid "user.email"
 msgstr "E-mail"
 
+msgid "user.givenName"
+msgstr "Nome próprio"
+
 msgid "user.interests"
 msgstr "Área de Interesse para Revisão"
+
+msgid "user.gossip"
+msgstr "Notas Privadas"
+
+msgid "user.gossip.description"
+msgstr ""
+"As notas aqui introduzidas só serão visíveis aos administradores, gestões de "
+"revista, editores e sub-editores."
+
+msgid "user.group"
+msgstr "Grupo"
+
+msgid "user.familyName"
+msgstr "Apelido"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são ."
+"gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "A sua conta foi desactivada pelo seguinte motivo: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "A sua conta foi desactivada. Entre em contacto com o administrador para obter mais informações."
+msgstr ""
+"A sua conta foi desactivada. Entre em contacto com o administrador para "
+"obter mais informações."
 
 msgid "user.login.accountNotValidated"
-msgstr "É necessário validar o seu endereço de e-mail em {$email}. Verifique a sua caixa de correio electrónico e siga as instruções fornecidas na mensagem recebida. Na eventualidade de não ter recebido a notificação, entre em contacto com o administrador para suporte."
+msgstr ""
+"É necessário validar o seu endereço de e-mail em {$email}. Verifique a sua "
+"caixa de correio electrónico e siga as instruções fornecidas na mensagem "
+"recebida. Na eventualidade de não ter recebido a notificação, entre em "
+"contacto com o administrador para suporte."
 
 msgid "user.login.activate"
 msgstr "Activar Registo"
 
 msgid "user.login.activated"
-msgstr "O seu registo foi activado, permitindo aceder à revista com as credenciais fornecidas."
+msgstr ""
+"O seu registo foi activado, permitindo aceder à revista com as credenciais "
+"fornecidas."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Deve ser definida uma nova senha  antes de registar-se na revista.<br /><br />Insira o nome de utilizador e senhas actual e nova para alterar a senha de acesso à sua conta."
+msgstr ""
+"Deve ser definida uma nova senha  antes de registar-se na revista.<br /><br /"
+">Insira o nome de utilizador e senhas actual e nova para alterar a senha de "
+"acesso à sua conta."
 
 msgid "user.login.forgotPassword"
 msgstr "Esqueceu a sua senha?"
@@ -72,26 +163,65 @@ msgid "user.login"
 msgstr "Autenticação"
 
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Foi enviado um e-mail de confirmação. Siga as instruções para criar uma nova senha."
+msgstr ""
+"Foi enviado um e-mail de confirmação. Siga as instruções para criar uma nova "
+"senha."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Não foi possível concluir a solicitação de redefinição de senha porque "
+"{$reason}."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "O link acedido expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
+msgstr ""
+"O link acedido expirou ou é inválido. Lamentamos o inconveniente. Tente "
+"criar uma senha novamente."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Nenhum utilizador registado com o e-mail especificado."
 
 #, fuzzy
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr "A senha foi atualizada com sucesso. Por favor, faça o login com a senha atualizada."
+msgstr ""
+"A senha foi atualizada com sucesso. Por favor, faça o login com a senha "
+"atualizada."
 
 msgid "user.login.registeredEmail"
 msgstr "E-mail de utilizador registado"
+
+msgid "user.login.registrationComplete"
+msgstr "Registo concluído"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Obrigado pelo registo! O que gostaria de fazer a seguir?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Ver Submissões"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Submeter Artigo"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continuar a Navegar"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Aguardando verificação do registo"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Manter-me conectado"
 
 msgid "user.login.resetPassword"
 msgstr "Nova Senha"
 
 msgid "user.logOut"
 msgstr "Sair do Sistema"
+
+msgid "user.logOutAs"
+msgstr "Sair como {$username}"
+
+msgid "user.hello"
+msgstr "Olá, "
 
 msgid "user.mailingAddress"
 msgstr "Endereço Postal"
@@ -111,14 +241,36 @@ msgstr "Repetir Senha"
 msgid "user.phone"
 msgstr "Telefone"
 
+msgid "user.preferredPublicName"
+msgstr "Nome Público Preferencial"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Como prefere ser tratado(a)? Pode adicionar aqui saudações, nomes do meio e "
+"sufixos se o desejar."
+
 msgid "user.profile.changePasswordInstructions"
 msgstr "Insira as senhas actual e nova para alterar a senha de acesso à conta."
 
 msgid "user.profile.editProfile"
 msgstr "Editar Perfil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "O país é obrigatório."
+
 msgid "user.profile.form.emailRequired"
 msgstr "Obrigatório endereço e-mail válido ."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "É obrigatório inserir o nome próprio."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Adicionou um apelido a um idioma a que falta o nome próprio. Adicione o nome "
+"próprio para este idioma."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "O endereço de e-mail é obrigatório."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Nova Senha obrigatória."
@@ -132,6 +284,9 @@ msgstr "Notificações via e-mail de Edição de Acesso Livre"
 msgid "user.profile.form.passwordRequired"
 msgstr "Senha obrigatória."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "A sua nova senha é a mesma que a antiga."
+
 msgid "user.profile.form.profileImage"
 msgstr "Fotografia"
 
@@ -139,10 +294,18 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Notificações via e-mail de Nova Edição publicada"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "URL inválido. Verifique a informação e tente novamente (Ajuda: Inclua o protocolo http:// no início da URL.)"
+msgstr ""
+"URL inválido. Verifique a informação e tente novamente (Ajuda: Inclua o "
+"protocolo http:// no início da URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "É obrigatório um grupo de utilizadores."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Autenticação obrigatória."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Deverá concordar com os termos de privacidade."
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "Deixe os campos da senha em branco para manter a senha actual."
@@ -162,14 +325,49 @@ msgstr "Perfil do utilizador"
 msgid "user.profile.repeatNewPassword"
 msgstr "Repetir Nova Senha"
 
+msgid "user.login.registerNewAccount"
+msgstr "Registar-se"
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Digite a nova senha para atualizar a senha de login."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Insira o endereço de e-mail da sua conta abaixo e será enviado um e-mail com "
+"instruções sobre como alterar a sua senha."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com "
+"os <a href=\"{$privacyUrl}\" target=\"_blank\"> termos de privacidade</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Sim, quero ser notificado de novas publicações e outros anúncios."
+
 msgid "user.register.form.emailExists"
 msgstr "O endereço de e-mail inserido já se encontra registado."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "As senhas inseridas são diferentes."
 
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Os campos e-mail não coincidem."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"O nome de utilizador deve conter apenas caracteres alfanuméricos em "
+"minúsculas, sublinhados e hifens, e deve começar e terminar com um caracter "
+"alfanumérico."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Deve ser seleccionado pelo menos um papel ."
+
 msgid "user.register.form.usernameExists"
 msgstr "O nome de utilizador inserido já se encontra registado."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "A senha deve ter pelo menos {$length} caracteres."
 
 msgid "user.register.registerAs"
 msgstr "Registar-se na {$contextName} como..."
@@ -178,7 +376,32 @@ msgid "user.register"
 msgstr "Registo"
 
 msgid "user.register.usernameRestriction"
-msgstr "O nome de utilizador deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-)."
+msgstr ""
+"O nome de utilizador deve conter apenas letras minúsculas (a-z), "
+"números(0-9), sublinhados(_) e hífens(-)."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Registou-se com sucesso. <a href=\"{$profileUrl}\"> Clique aqui </a> para "
+"completar o seu perfil de utilizador."
+
+msgid "user.role.assistant"
+msgstr "Assistente"
+
+msgid "user.role.author"
+msgstr "Autor"
+
+msgid "user.role.author_s"
+msgstr "Autor(s)"
+
+msgid "user.role.authors"
+msgstr "Autores"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Editores"
 
 msgid "user.role.reader"
 msgstr "Leitor"
@@ -197,6 +420,24 @@ msgstr "Administrador do Portal"
 
 msgid "user.role.siteAdmins"
 msgstr "Administradores do Portal"
+
+msgid "user.role.copyeditor"
+msgstr "Editor de cópia"
+
+msgid "user.role.copyeditors"
+msgstr "Editores de cópia"
+
+msgid "user.role.proofreader"
+msgstr "Leitor de prova"
+
+msgid "user.role.proofreaders"
+msgstr "Leitores de prova"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor Layout"
+
+msgid "user.role.layoutEditors"
+msgstr "Editores Layout"
 
 msgid "user.roles"
 msgstr "Funções"
@@ -225,38 +466,13 @@ msgstr "Nome de utilizador"
 msgid "user.workingLanguages"
 msgstr "Idiomas Conhecidos"
 
-msgid "user.profile.form.profileImageInvalid"
-msgstr "Formato ou tamanho de imagem inválido para o perfil. Formatos aceites são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels."
-
-msgid "user.affiliation.description"
-msgstr "(A sua instituição, e.g. \"ISPA - Instituto Universitário\")"
-
-msgid "user.gossip"
-msgstr "Notas Privadas"
-
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "Os campos e-mail não coincidem."
-
-msgid "user.group"
-msgstr "Grupo"
-
-msgid "user.login.registrationComplete"
-msgstr "Registo concluído"
-
-msgid "user.authorization.accessDenied"
-msgstr "Acesso recusado."
-
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "O token de autenticação de processo não existe ou é inválido."
-
-msgid "user.accountInformation"
-msgstr "Informação sobre Conta"
-
 msgid "user.orcid"
 msgstr "iD ORCID"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"O ORCID iD fornecido é inválido. Inclua o URI completo (por exemplo, "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Identidade"
@@ -266,139 +482,6 @@ msgstr "Contacto"
 
 msgid "user.profile.public"
 msgstr "Público"
-
-msgid "user.authorization.contextRequired"
-msgstr ""
-"Não é possível executar esta operação sem um contexto (editora, revista, "
-"conferência, etc)."
-
-msgid "user.authorization.loginRequired"
-msgstr "Login obrigatório."
-
-msgid "user.authorization.privateOperation"
-msgstr "A operação que tentou aceder é privada ou não existe."
-
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "Acesso recusado. O acesso a este portal está actualmente restrito."
-
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "O actual papel não tem acesso a esta operação."
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Obrigado pelo registo! O que gostaria de fazer a seguir?"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Ver Submissões"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Submeter Artigo"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Continuar a Navegar"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Aguardando verificação do registo"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Manter-me conectado"
-
-msgid "user.logOutAs"
-msgstr "Sair como {$username}"
-
-msgid "user.hello"
-msgstr "Olá, "
-
-msgid "user.profile.form.countryRequired"
-msgstr "O país é obrigatório."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "O endereço de e-mail é obrigatório."
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "A sua nova senha é a mesma que a antiga."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "É obrigatório um grupo de utilizadores."
-
-msgid "user.authorization.userGroupRequired"
-msgstr "Deve configurar um grupo de utilizadores válido para aceder a esta operação."
-
-msgid "user.authorization.managerRequired"
-msgstr "Um utilizador com uma função de Administrador (ou seja, Editor de Produção) deve ser atribuído à fase antes de poder prosseguir."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Actualmente não tem acesso a esta fase do fluxo de trabalho."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Não foi especificada uma fase de fluxo de trabalho."
-
-msgid "user.login.registerNewAccount"
-msgstr "Registar-se"
-
-#, fuzzy
-msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr "Não foi possível concluir a solicitação de redefinição de senha porque {$reason}."
-
-#, fuzzy
-msgid "user.login.passwordResetProcessInstructions"
-msgstr "Digite a nova senha para atualizar a senha de login."
-
-msgid "user.login.resetPasswordInstructions"
-msgstr "Insira o endereço de e-mail da sua conta abaixo e será enviado um e-mail com instruções sobre como alterar a sua senha."
-
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr "O nome de utilizador deve conter apenas caracteres alfanuméricos em minúsculas, sublinhados e hifens, e deve começar e terminar com um caracter alfanumérico."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Deve ser seleccionado pelo menos um papel ."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "A senha deve ter pelo menos {$length} caracteres."
-
-msgid "user.register.registrationCompleted"
-msgstr "Registou-se com sucesso. <a href=\"{$profileUrl}\"> Clique aqui </a> para completar o seu perfil de utilizador."
-
-msgid "user.role.author"
-msgstr "Autor"
-
-msgid "user.role.author_s"
-msgstr "Autor(s)"
-
-msgid "user.role.authors"
-msgstr "Autores"
-
-msgid "user.role.editor"
-msgstr "Editor"
-
-msgid "user.role.editors"
-msgstr "Editores"
-
-msgid "user.role.copyeditor"
-msgstr "Editor de cópia"
-
-msgid "user.role.copyeditors"
-msgstr "Editores de cópia"
-
-msgid "user.role.proofreader"
-msgstr "Leitor de prova"
-
-msgid "user.role.proofreaders"
-msgstr "Leitores de prova"
-
-msgid "user.role.layoutEditor"
-msgstr "Editor Layout"
-
-msgid "user.authorization.pluginRequired"
-msgstr "Não foi especificado um plugin e é obrigatório."
-
-msgid "user.role.layoutEditors"
-msgstr "Editores Layout"
-
-msgid "user.gossip.description"
-msgstr "As notas aqui introduzidas só serão visíveis aos administradores, gestões de revista, editores e sub-editores."
-
-msgid "user.role.assistant"
-msgstr "Assistente"
 
 msgid "user.apiKey"
 msgstr "Chave da API"
@@ -410,50 +493,16 @@ msgid "user.apiKey.generate"
 msgstr "Gerar uma nova chave da API"
 
 msgid "user.apiKey.generateWarning"
-msgstr "A geração de uma nova chave de API irá invalidar qualquer chave existente para este utilizador."
+msgstr ""
+"A geração de uma nova chave de API irá invalidar qualquer chave existente "
+"para este utilizador."
 
 msgid "user.apiKey.secretRequired"
-msgstr "Antes de gerar uma chave da API, o seu administrador terá de criar um \"segredo\" no ficheiro de configuração (\"api_key_secret\")."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "O papel que lhe foi atribuído relativamente a esta submissão não lhe permite aceder a esta operação."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Não tem permissão para aceder a esta atribuição de revisão."
-
-msgid "user.authorization.submissionQuery"
-msgstr "Não tem permissão para aceder a esta discussão."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Deverá concordar com os termos de privacidade."
-
-msgid "user.register.form.privacyConsent"
-msgstr "Sim, concordo que os meus dados sejam recolhidos e armazenados de acordo com os <a href=\"{$privacyUrl}\" target=\"_blank\"> termos de privacidade</a>."
-
-msgid "user.register.form.emailConsent"
-msgstr "Sim, quero ser notificado de novas publicações e outros anúncios."
+msgstr ""
+"Antes de gerar uma chave da API, o seu administrador terá de criar um "
+"\"segredo\" no ficheiro de configuração (\"api_key_secret\")."
 
 msgid "user.privacyLink"
-msgstr "Os seus dados estão armazenados de acordo com os nossos  <a href=\"{$privacyUrl}\" target=\"_blank\">termos de privacidade</a>."
-
-msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
-"Adicionou um apelido a um idioma a que falta o nome próprio. Adicione o nome "
-"próprio para este idioma."
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "É obrigatório inserir o nome próprio."
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Como prefere ser tratado(a)? Pode adicionar aqui saudações, nomes do meio e "
-"sufixos se o desejar."
-
-msgid "user.preferredPublicName"
-msgstr "Nome Público Preferencial"
-
-msgid "user.familyName"
-msgstr "Apelido"
-
-msgid "user.givenName"
-msgstr "Nome próprio"
+"Os seus dados estão armazenados de acordo com os nossos  <a href="
+"\"{$privacyUrl}\" target=\"_blank\">termos de privacidade</a>."

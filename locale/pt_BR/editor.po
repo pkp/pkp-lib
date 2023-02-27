@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2020-11-05 07:22+0000\n"
 "Last-Translator: Luiz Borges <luizbgomide@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/editor/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/editor/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,8 +17,35 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Você tem certeza que deseja excluir esta submissão?"
 
+msgid "editor.activityLog"
+msgstr "Histórico de Atividades"
+
 msgid "editor.submissionLibrary"
 msgstr "Biblioteca da Submissão"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisão registrada"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Submissão recusada."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Submissão aceita."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Submissão publicada."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviada para uma nova rodada de avaliações."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviado para editoração."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Submissão aceita para avaliação."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Alterar decisão"
 
 msgid "editor.review.notInitiated"
 msgstr "A avaliação não foi iniciada."
@@ -28,6 +55,15 @@ msgstr "Mensagem ao usuário"
 
 msgid "editor.submission.externalReviewDescription"
 msgstr "Selecione os arquivos abaixo a serem enviados a etapa de avaliação."
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Você deve selecionar ao menos um arquivo para designar o usuário."
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Você deve incluir uma mensagem pessoal."
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Não enviar mensagem para o Auditor"
 
 msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Você deve selecionar um usuário para designar."
@@ -41,14 +77,28 @@ msgstr "Selecionar Arquivos"
 msgid "editor.submission.revisions"
 msgstr "Revisões"
 
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Use <em>+Adicionar Avaliador</em> para convidar avaliadores para revisar os "
+"arquivos da submissão. O ícone do bloco de notas indica que uma avaliação "
+"foi submetida, que depois é marcada como <em>Reconhecida</em> após ser "
+"consultada. Quando avaliações estiverem fora do prazo, clique no ícone do "
+"envelope vermelho para notificar os avaliadores."
+
 msgid "editor.submission.addReviewer"
 msgstr "Adicionar Avaliador"
 
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "Localizar um Avaliador"
 
+msgid "editor.submission.findAndSelectUser"
+msgstr "Localizar Usuário"
+
 msgid "editor.submission.fileList.includeAllStages"
 msgstr "Mostrar arquivos de todos os estágios do fluxo editorial."
+
+msgid "editor.submission.review.currentFiles"
+msgstr "Arquivos para avaliação na rodada {$round}"
 
 msgid "editor.submission.backToSearch"
 msgstr "Voltar a Busca"
@@ -62,8 +112,20 @@ msgstr "Designar Usuário Existente"
 msgid "editor.review.unassignReviewer"
 msgstr "Dispensar Avaliador"
 
+msgid "editor.review.cancelReviewer"
+msgstr "Cancelar Avaliador"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restituir Avaliador"
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipo de avaliação"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Enviar uma notificação por e-mail ao(s) autor(es): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Enviar uma notificação por e-mail para o(s) editor(es): {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Não enviar email ao autor"
@@ -88,6 +150,9 @@ msgstr "Fechar Seleção de Arquivos"
 msgid "editor.submissionReview.editReview"
 msgstr "Editar Avaliação"
 
+msgid "editor.review.anonymousReviewer"
+msgstr "Avaliador Anônimo"
+
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Email para o avaliador"
 
@@ -97,26 +162,21 @@ msgstr "Datas Importantes"
 msgid "editor.review.uploadRevision"
 msgstr "Envio da Avaliação"
 
-msgid "editor.review.NotifyAuthorAccept"
-msgstr "Notificar o autor que sua submissão foi aceita."
-
-msgid "editor.review.NotifyAuthorDecline"
-msgstr "Notificar o autor que sua submissão foi recusada."
+msgid "editor.review.newReviewRound"
+msgstr "Exigir Nova Rodada de Avaliação"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Solicitar modificações ao autor."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Solicitar modificações ao autor que estarão sujeitos a avaliação futura."
-
-msgid "editor.review.NotifyAuthorExternal"
-msgstr "Notifica o autora da decisão para iniciar uma avaliação externa."
-
-msgid "editor.review.personalMessageToAuthor"
-msgstr "Email a ser enviado ao autor"
+msgstr ""
+"Solicitar modificações ao autor que estarão sujeitos a avaliação futura."
 
 msgid "editor.review.dateAccepted"
 msgstr "Data de Recebimento da Avaliação"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Avaliações incluídas no corpo da mensagem."
 
 msgid "editor.review.noReviews"
 msgstr "Sem avaliações por pares para importar"
@@ -154,11 +214,26 @@ msgstr "Solicitação enviada"
 msgid "editor.review.requestAccepted"
 msgstr "Solicitação aceita"
 
+msgid "editor.review.requestDeclined"
+msgstr "Solicitação Recusada"
+
+msgid "editor.review.requestCancelled"
+msgstr "Solicitação Cancelada"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "O avaliador recusou esta solicitação de avaliação."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "O editor cancelou esta solicitação de avaliação."
+
 msgid "editor.review.revertDecision"
 msgstr "Reverter decisão"
 
 msgid "editor.review.reviewDue"
 msgstr "Prazo de avaliação: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Data limite para avaliação"
 
 msgid "editor.review.reviewCompleted"
 msgstr "Avaliação Completada"
@@ -169,11 +244,22 @@ msgstr "Avaliação Confirmada"
 msgid "editor.review.reviewSubmitted"
 msgstr "Avaliação Enviada"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Avaliador Recebeu Agradecimentos"
+
 msgid "editor.review.reviewerComments"
 msgstr "Comentários do Avaliador"
 
 msgid "editor.review.rateReviewer"
 msgstr "Classificação do avaliador"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Avalie a qualidade da avaliação fornecida. Esta avaliação não é "
+"compartilhada com o avaliador."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Sem avaliação"
 
 msgid "editor.review.mustSelect"
 msgstr "Você deve selecionar um avaliador"
@@ -181,59 +267,36 @@ msgstr "Você deve selecionar um avaliador"
 msgid "editor.review.errorAddingReviewer"
 msgstr "Houve um erro ao adicionar um avaliador. Por favor tente novamente."
 
-msgid "editor.submission.newRound"
-msgstr "Nova Rodada de Avaliação"
-
-msgid "editor.submission.newRoundDescription"
-msgstr ""
-"Você está prestes a criar uma nova rodada de avaliação para esta submissão. "
-"Os arquivos que não foram usados em outras rodadas de avaliação estão "
-"listados abaixo."
-
-msgid "editor.article.reviewForms"
-msgstr "Formulários de Avaliação"
-
-msgid "editor.article.selectReviewForm"
-msgstr "Selecionar Formulário de Avaliação"
-
-msgid "grid.action.editQuery"
-msgstr "Editar Comentários"
-
-msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Você deve selecionar ao menos um arquivo para designar o usuário."
-
-msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "Você deve incluir uma mensagem pessoal."
-
-msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Não enviar mensagem para o Auditor"
-
-msgid "editor.submission.review.reviewersDescription"
-msgstr "Use <em>+Adicionar Avaliador</em> para convidar avaliadores para revisar os arquivos da submissão. O ícone do bloco de notas indica que uma avaliação foi submetida, que depois é marcada como <em>Reconhecida</em> após ser consultada. Quando avaliações estiverem fora do prazo, clique no ícone do envelope vermelho para notificar os avaliadores."
-
-msgid "editor.submission.review.currentFiles"
-msgstr "Arquivos para avaliação na rodada {$round}"
-
-msgid "editor.review.reviewDueDate"
-msgstr "Data limite para avaliação"
-
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Ocorreu um erro ao excluir o avaliador. Tente novamente."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Houve um erro ao restituir o avaliador. Por favor tente novamente."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Inscrever usuário neste grupo de usuários avaliadores"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Você gostaria de marcar esta avaliação como não considerada? O histórico de avaliação será preservado."
+msgstr ""
+"Você gostaria de marcar esta avaliação como não considerada? O histórico de "
+"avaliação será preservado."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Desconsiderar esta avaliação"
 
-msgid "editor.review.errorUnconsideringReview"
-msgstr "Ocorreu um erro ao marcar esta avaliação como desconsiderada. Tente novamente."
-
 msgid "editor.review.readConfirmation"
-msgstr "Uma vez que a leitura da avaliação esteja completa, pressione \"Confirmar\" para sinalizar que o processo de avaliação pode prosseguir."
+msgstr ""
+"Uma vez que a leitura da avaliação esteja completa, pressione \"Confirmar\" "
+"para sinalizar que o processo de avaliação pode prosseguir."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Agendar para Publicação"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Arquivos da edição de texto"
@@ -260,28 +323,85 @@ msgid "editor.submission.proof.reminder"
 msgstr "Lembrete de prova"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "O arquivo da edição de texto precisa ser aprovado antes de ser enviado para a etapa de editoração. Você deseja aprovar este arquivo?"
+msgstr ""
+"O arquivo da edição de texto precisa ser aprovado antes de ser enviado para "
+"a etapa de editoração. Você deseja aprovar este arquivo?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Rejeitar este arquivo da edição de texto tornará o mesmo indisponível para envio à etapa de editoração. Você deseja rejeitar este arquivo?"
+msgstr ""
+"Rejeitar este arquivo da edição de texto tornará o mesmo indisponível para "
+"envio à etapa de editoração. Você deseja rejeitar este arquivo?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Designar auditor"
 
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Qualquer um dos arquivos que tenham sido carregados em qualquer etapa da "
+"submissão podem ser adicionados à listagem de Arquivos da Edição de Texto "
+"marcado-se a caixa de seleção Incluir abaixo e clicando-se em Busca: todos "
+"os arquivos disponíveis serão listados e podem ser selecionados para "
+"inclusão. Arquivos adicionais ainda não carregados para uma etapa podem ser "
+"adicionados à listagem clicando-se no link Enviar Arquivo."
+
 msgid "editor.review"
 msgstr "Avaliação"
+
+msgid "editor.review.reviewDetails"
+msgstr "Detalhes da avaliação"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Sem arquivos enviados"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Você não enviou nenhum arquivo da avaliação."
+
+msgid "editor.review.emailReviewer"
+msgstr "Email ao avaliador"
 
 msgid "editor.submission.production.productionReadyFiles"
 msgstr "Arquivos prontos para Editoração"
 
+msgid "editor.submission.newRound"
+msgstr "Nova Rodada de Avaliação"
+
 msgid "editor.submissionReview.recordDecision"
 msgstr "Gravar decisão editorial"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Registrar Recomendação Editorial"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar Editores"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Não enviar e-mail aos editores."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Criar uma discussão de avaliação para esta recomendação."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Não criar uma discussão de avaliação."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Você está prestes a criar uma nova rodada de avaliação para esta submissão. "
+"Os arquivos que não foram usados em outras rodadas de avaliação estão "
+"listados abaixo."
 
 msgid "editor.submission.createNewRound"
 msgstr "Criar nova rodada de avaliação"
 
+msgid "editor.article.reviewForms"
+msgstr "Formulários de Avaliação"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Selecionar Formulário de Avaliação"
+
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Atenção: Alterar o formulário de avaliação afetará as respostas dadas pelos avaliadores por meio deste formulário. Deseja continuar?"
+msgstr ""
+"Atenção: Alterar o formulário de avaliação afetará as respostas dadas pelos "
+"avaliadores por meio deste formulário. Deseja continuar?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nenhum arquivo selecionado"
@@ -298,26 +418,15 @@ msgstr "Uma mensagem para a discussão é requerida."
 msgid "submission.queries.attachedFiles"
 msgstr "Arquivos anexados"
 
+msgid "grid.action.editQuery"
+msgstr "Editar Comentários"
+
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Arquivos da lista baixo podem ser anexados para inclusão nesta discussão."
+msgstr ""
+"Arquivos da lista baixo podem ser anexados para inclusão nesta discussão."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Avaliador Selecionado"
-
-msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Qualquer um dos arquivos que tenham sido carregados em qualquer etapa da submissão podem ser adicionados à listagem de Arquivos da Edição de Texto marcado-se a caixa de seleção Incluir abaixo e clicando-se em Busca: todos os arquivos disponíveis serão listados e podem ser selecionados para inclusão. Arquivos adicionais ainda não carregados para uma etapa podem ser adicionados à listagem clicando-se no link Enviar Arquivo."
-
-msgid "editor.review.reviewDetails"
-msgstr "Detalhes da avaliação"
-
-msgid "editor.review.noReviewFilesUploaded"
-msgstr "Sem arquivos enviados"
-
-msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "Você não enviou nenhum arquivo da avaliação."
-
-msgid "editor.review.emailReviewer"
-msgstr "Email ao avaliador"
 
 msgid "editor.submission.proofreading.approveProof"
 msgstr "Aprovar Versão"
@@ -326,25 +435,23 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Revogar Aprovação"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Aprove essa versão para indicar que a leitura de prova está completa e o arquivo pode ser publicado."
+msgstr ""
+"Aprove essa versão para indicar que a leitura de prova está completa e o "
+"arquivo pode ser publicado."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Revogar a aprovação desta versão para indicar que a leitura de prova não está mais completa e que o arquivo não está pronto para ser publicado."
+msgstr ""
+"Revogar a aprovação desta versão para indicar que a leitura de prova não "
+"está mais completa e que o arquivo não está pronto para ser publicado."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "O identificador público '{$publicIdentifier}' não pode ser um número."
 
-msgid "editor.submission.findAndSelectUser"
-msgstr "Localizar Usuário"
-
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "O padrão {$pattern} não é permitido para o identificador público."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Agendar para Publicação"
-
-msgid "editor.review.reviewsAdded"
-msgstr "Avaliações incluídas no corpo da mensagem."
 
 msgid "reviewer.list.filterRating"
 msgstr "Classificação mínima"
@@ -360,6 +467,9 @@ msgstr "Avaliações completas"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Pedidos de avaliação recusados"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Solicitações de avaliação cancelada"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Classificação do avaliador: {$rating}"
@@ -384,7 +494,10 @@ msgstr "Esse avaliador já foi designado para avaliar essa submissão."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Esse avaliador está bloqueado porque lhe foi designado um papel que o permite ver a identidade do autor. A avaliação cega não poderá ser garantida. Gostaria de desbloquear esse avaliador mesmo assim?"
+msgstr ""
+"Esse avaliador está bloqueado porque lhe foi designado um papel que o "
+"permite ver a identidade do autor. A avaliação cega não poderá ser "
+"garantida. Gostaria de desbloquear esse avaliador mesmo assim?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Desbloquear"
@@ -398,91 +511,19 @@ msgstr "Biografia"
 msgid "reviewer.list.empty"
 msgstr "Não foram encontrados avaliadores"
 
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "Houve um erro ao restituir o avaliador. Por favor tente novamente."
+#~ msgid "editor.review.NotifyAuthorAccept"
+#~ msgstr "Notificar o autor que sua submissão foi aceita."
 
-msgid "editor.review.reinstateReviewer"
-msgstr "Restituir Avaliador"
+#~ msgid "editor.review.NotifyAuthorDecline"
+#~ msgstr "Notificar o autor que sua submissão foi recusada."
 
-msgid "reviewer.list.cancelledReviews"
-msgstr "Solicitações de avaliação cancelada"
+#~ msgid "editor.review.NotifyAuthorExternal"
+#~ msgstr "Notifica o autora da decisão para iniciar uma avaliação externa."
 
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Não criar uma discussão de avaliação."
+#~ msgid "editor.review.personalMessageToAuthor"
+#~ msgstr "Email a ser enviado ao autor"
 
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Criar uma discussão de avaliação para esta recomendação."
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Não enviar e-mail aos editores."
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Notificar Editores"
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "Registrar Recomendação Editorial"
-
-msgid "editor.review.reviewerRating.none"
-msgstr "Sem avaliação"
-
-msgid "editor.review.rateReviewer.description"
-msgstr ""
-"Avalie a qualidade da avaliação fornecida. Esta avaliação não é "
-"compartilhada com o avaliador."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Avaliador Recebeu Agradecimentos"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "O editor cancelou esta solicitação de avaliação."
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "O avaliador recusou esta solicitação de avaliação."
-
-msgid "editor.review.requestCancelled"
-msgstr "Solicitação Cancelada"
-
-msgid "editor.review.requestDeclined"
-msgstr "Solicitação Recusada"
-
-msgid "editor.review.newReviewRound"
-msgstr "Exigir Nova Rodada de Avaliação"
-
-msgid "editor.review.anonymousReviewer"
-msgstr "Avaliador Anônimo"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Enviar uma notificação por e-mail para o(s) editor(es): {$editorNames}"
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "Enviar uma notificação por e-mail ao(s) autor(es): {$authorName}"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Cancelar Avaliador"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Alterar decisão"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Submissão aceita para avaliação."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Enviado para editoração."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Enviada para uma nova rodada de avaliações."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Submissão publicada."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Submissão aceita."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Submissão recusada."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Decisão registrada"
-
-msgid "editor.activityLog"
-msgstr "Histórico de Atividades"
+#~ msgid "editor.review.errorUnconsideringReview"
+#~ msgstr ""
+#~ "Ocorreu um erro ao marcar esta avaliação como desconsiderada. Tente "
+#~ "novamente."

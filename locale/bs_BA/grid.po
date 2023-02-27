@@ -8,96 +8,669 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "grid.action.setApproval"
-msgstr "Postavi odobrenje"
-
-msgid "grid.action.disapprove"
-msgstr "Neodobri"
-
-msgid "grid.action.approve"
-msgstr "Odobri"
-
-msgid "grid.action.edit"
-msgstr "Uredi"
-
-msgid "grid.action.remove"
-msgstr "Ukloni"
-
-msgid "grid.action.editorialHistory"
-msgstr "Historija uređivanja"
-
-msgid "grid.action.deleteSection"
-msgstr "Izbriši sekciju"
-
-msgid "grid.action.export"
-msgstr "Izvoz"
-
-msgid "grid.action.editSection"
-msgstr "Uredi sekciju"
-
-msgid "grid.action.editMedia"
-msgstr "Uredi medij"
-
-msgid "grid.action.deleteMedia"
-msgstr "Izbriši medij"
-
-msgid "grid.action.deleteFile"
-msgstr "Izbriši datoteku"
-
-msgid "grid.action.delete"
-msgstr "Izbriši"
-
-msgid "grid.action.reload"
-msgstr "Ponovo učitaj"
-
-msgid "grid.action.approveCopyedit"
-msgstr "Odobrite ovu uređenu datoteku za slanje u sljedeću fazu"
-
-msgid "grid.action.unassignReviewer"
-msgstr "Poništite ovog recenzenta"
-
-msgid "grid.action.addUser"
-msgstr "Dodaj korisnika"
-
-msgid "grid.action.updateQuery"
-msgstr "Ažuriraj diskusiju"
-
-msgid "grid.action.deleteQuery"
-msgstr "Izbriši diskusiju"
-
-msgid "grid.action.readQuery"
-msgstr "Pročitaj diskusiju"
-
-msgid "grid.action.addQuery"
-msgstr "Dodaj diskusiju"
-
-msgid "grid.action.addNote"
-msgstr "Dodaj bilješku"
-
-msgid "grid.action.addItem"
-msgstr "Dodaj stavku"
-
-msgid "grid.action.sort"
-msgstr "Sortiraj"
-
-msgid "grid.action.manageAccess"
-msgstr "Upravljanje pristupom"
-
-msgid "grid.action.uninstall"
-msgstr "Deinstaliraj"
-
-msgid "grid.remotelyHostedItem"
-msgstr "Ova stavka je hostana izdaleka."
-
-msgid "grid.noAuditors"
-msgstr "Nema revizora"
+msgid "grid.noItems"
+msgstr "Nema stavki"
 
 msgid "grid.settings"
 msgstr "Postavke"
 
-msgid "grid.noItems"
-msgstr "Nema stavki"
+msgid "grid.noAuditors"
+msgstr "Nema revizora"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ova stavka je hostana izdaleka."
+
+msgid "grid.action.uninstall"
+msgstr "Deinstaliraj"
+
+msgid "grid.action.manageAccess"
+msgstr "Upravljanje pristupom"
+
+msgid "grid.action.sort"
+msgstr "Sortiraj"
+
+msgid "grid.action.addItem"
+msgstr "Dodaj stavku"
+
+msgid "grid.action.addNote"
+msgstr "Dodaj bilješku"
+
+msgid "grid.action.addQuery"
+msgstr "Dodaj diskusiju"
+
+msgid "grid.action.readQuery"
+msgstr "Pročitaj diskusiju"
+
+msgid "grid.action.deleteQuery"
+msgstr "Izbriši diskusiju"
+
+msgid "grid.action.updateQuery"
+msgstr "Ažuriraj diskusiju"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj korisnika"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Poništite ovog recenzenta"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Odobrite ovu uređenu datoteku za slanje u sljedeću fazu"
+
+msgid "grid.action.reload"
+msgstr "Ponovo učitaj"
+
+msgid "grid.action.delete"
+msgstr "Izbriši"
+
+msgid "grid.action.deleteFile"
+msgstr "Izbriši datoteku"
+
+msgid "grid.action.deleteMedia"
+msgstr "Izbriši medij"
+
+msgid "grid.action.editMedia"
+msgstr "Uredi medij"
+
+msgid "grid.action.editSection"
+msgstr "Uredi sekciju"
+
+msgid "grid.action.export"
+msgstr "Izvoz"
+
+msgid "grid.action.deleteSection"
+msgstr "Izbriši sekciju"
+
+msgid "grid.action.editorialHistory"
+msgstr "Historija uređivanja"
+
+msgid "grid.action.remove"
+msgstr "Ukloni"
+
+msgid "grid.action.edit"
+msgstr "Uredi"
+
+msgid "grid.action.approve"
+msgstr "Odobri"
+
+msgid "grid.action.disapprove"
+msgstr "Neodobri"
+
+msgid "grid.action.setApproval"
+msgstr "Postavi odobrenje"
+
+msgid "grid.action.moreInformation"
+msgstr ""
+
+msgid "grid.action.restoreDefaults"
+msgstr ""
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr ""
+
+msgid "grid.action.addAuthor"
+msgstr ""
+
+msgid "grid.action.editAuthor"
+msgstr ""
+
+msgid "grid.action.deleteAuthor"
+msgstr ""
+
+msgid "grid.action.addAuditor"
+msgstr ""
+
+msgid "grid.action.upgrade"
+msgstr ""
+
+msgid "grid.action.order"
+msgstr ""
+
+msgid "grid.action.cancelOrdering"
+msgstr ""
+
+msgid "grid.action.extendAll"
+msgstr ""
+
+msgid "grid.action.collapse"
+msgstr ""
+
+msgid "grid.action.collapseAll"
+msgstr ""
+
+msgid "grid.action.wizard"
+msgstr ""
+
+msgid "grid.action.moveItem"
+msgstr ""
+
+msgid "grid.action.downloadAll"
+msgstr ""
+
+msgid "grid.action.readReview"
+msgstr ""
+
+msgid "grid.action.email"
+msgstr ""
+
+msgid "grid.action.addReviewer"
+msgstr ""
+
+msgid "grid.action.addFile"
+msgstr ""
+
+msgid "grid.action.editFile"
+msgstr ""
+
+msgid "grid.action.selectFiles"
+msgstr ""
+
+msgid "grid.action.requestRevisions"
+msgstr ""
+
+msgid "grid.action.accept"
+msgstr ""
+
+msgid "grid.action.decline"
+msgstr ""
+
+msgid "grid.action.internalReview"
+msgstr ""
+
+msgid "grid.action.externalReview"
+msgstr ""
+
+msgid "grid.action.sendToProduction"
+msgstr ""
+
+msgid "grid.action.settings"
+msgstr ""
+
+msgid "grid.action.importexport"
+msgstr ""
+
+msgid "grid.action.orderItems"
+msgstr ""
+
+msgid "grid.action.editSubmissionChecklist"
+msgstr ""
+
+msgid "grid.action.deleteSubmissionChecklist"
+msgstr ""
+
+msgid "grid.action.resetAll"
+msgstr ""
+
+msgid "grid.action.addPreparedEmail"
+msgstr ""
+
+msgid "grid.action.editPreparedEmail"
+msgstr ""
+
+msgid "grid.action.disableEmail"
+msgstr ""
+
+msgid "grid.action.resetEmail"
+msgstr ""
+
+msgid "grid.action.expandAll"
+msgstr ""
+
+msgid "grid.action.requestAccount"
+msgstr ""
+
+msgid "grid.action.expand"
+msgstr ""
+
+msgid "grid.action.notify"
+msgstr ""
+
+msgid "grid.action.addUserGroup"
+msgstr ""
+
+msgid "grid.action.editUserGroup"
+msgstr ""
+
+msgid "grid.action.removeUserGroup"
+msgstr ""
+
+msgid "grid.action.disable"
+msgstr ""
+
+msgid "grid.action.details"
+msgstr ""
+
+msgid "grid.action.enrolExisting"
+msgstr ""
+
+msgid "grid.action.selectCreate"
+msgstr ""
+
+msgid "grid.action.search"
+msgstr ""
+
+msgid "grid.action.advancedSearch"
+msgstr ""
+
+msgid "grid.action.viewLibrary"
+msgstr ""
+
+msgid "grid.action.viewMetadata"
+msgstr ""
+
+msgid "grid.action.sendReminder"
+msgstr ""
+
+msgid "grid.action.newRound"
+msgstr ""
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr ""
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr ""
+
+msgid "grid.action.thankReviewer"
+msgstr ""
+
+msgid "grid.action.uploadFile"
+msgstr ""
+
+msgid "grid.action.addAnnouncementType"
+msgstr ""
+
+msgid "grid.action.addAnnouncement"
+msgstr ""
+
+msgid "grid.action.mergeUser"
+msgstr ""
+
+msgid "grid.action.unassignUser"
+msgstr ""
+
+msgid "grid.action.history"
+msgstr ""
+
+msgid "grid.action.unconsiderReview"
+msgstr ""
+
+msgid "grid.action.enable"
+msgstr ""
+
+msgid "grid.action.bookInfo"
+msgstr ""
+
+msgid "grid.action.logInAs"
+msgstr ""
+
+msgid "grid.action.exportAllUsers"
+msgstr ""
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr ""
+
+msgid "grid.action.activate"
+msgstr ""
+
+msgid "grid.action.deactivate"
+msgstr ""
+
+msgid "grid.action.copy"
+msgstr ""
+
+msgid "grid.action.preview"
+msgstr ""
+
+msgid "grid.action.install"
+msgstr ""
+
+msgid "grid.action.moreItems"
+msgstr ""
+
+msgid "grid.action.users"
+msgstr ""
+
+msgid "grid.task.status.completed"
+msgstr ""
+
+msgid "grid.task.status.new"
+msgstr ""
+
+msgid "grid.task.status.uploaded"
+msgstr ""
+
+msgid "grid.task.status.unfinished"
+msgstr ""
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+
+msgid "grid.columns.actions"
+msgstr ""
+
+msgid "grid.columns.institution"
+msgstr ""
+
+msgid "grid.columns.url"
+msgstr ""
+
+msgid "grid.columns.auditor"
+msgstr ""
+
+msgid "grid.columns.locale"
+msgstr ""
+
+msgid "grid.sponsor.title"
+msgstr ""
+
+msgid "grid.action.addSponsor"
+msgstr ""
+
+msgid "grid.action.deleteSponsor"
+msgstr ""
+
+msgid "grid.action.editSponsor"
+msgstr ""
+
+msgid "grid.action.addSeries"
+msgstr ""
+
+msgid "grid.action.editSeries"
+msgstr ""
+
+msgid "grid.action.deleteSeries"
+msgstr ""
+
+msgid "grid.action.addCategory"
+msgstr ""
+
+msgid "grid.action.editCategory"
+msgstr ""
+
+msgid "grid.action.deleteCategory"
+msgstr ""
+
+msgid "grid.contributor.title"
+msgstr ""
+
+msgid "grid.action.addContributor"
+msgstr ""
+
+msgid "grid.action.editContributor"
+msgstr ""
+
+msgid "grid.action.deleteContributor"
+msgstr ""
+
+msgid "grid.action.newVersion"
+msgstr ""
+
+msgid "grid.reviewForm.title"
+msgstr ""
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr ""
+
+msgid "grid.noFiles"
+msgstr ""
+
+msgid "grid.libraryFiles.column.files"
+msgstr ""
+
+msgid "grid.libraryFiles.submission.title"
+msgstr ""
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr ""
+
+msgid "grid.libraryFiles.review.title"
+msgstr ""
+
+msgid "grid.libraryFiles.production.title"
+msgstr ""
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr ""
+
+msgid "grid.submissionChecklist.title"
+msgstr ""
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr ""
+
+msgid "author.users.contributor.name"
+msgstr ""
+
+msgid "author.users.contributor.email"
+msgstr ""
+
+msgid "author.users.contributor.role"
+msgstr ""
+
+msgid "author.users.contributor.principalContact"
+msgstr ""
+
+msgid "author.users.contributor.includeInBrowse"
+msgstr ""
+
+msgid "grid.roles.currentRoles"
+msgstr ""
+
+msgid "grid.roles.add"
+msgstr ""
+
+msgid "grid.roles.stageAssignment"
+msgstr ""
+
+msgid "grid.user.currentUsers"
+msgstr ""
+
+msgid "grid.user.currentEnrollment"
+msgstr ""
+
+msgid "grid.user.allRoles"
+msgstr ""
+
+msgid "grid.user.allPermissionLevels"
+msgstr ""
+
+msgid "grid.user.add"
+msgstr ""
+
+msgid "grid.user.enroll"
+msgstr ""
+
+msgid "grid.user.edit"
+msgstr ""
+
+msgid "grid.user.email"
+msgstr ""
+
+msgid "grid.user.enable"
+msgstr ""
+
+msgid "grid.user.disable"
+msgstr ""
+
+msgid "grid.user.disableReason"
+msgstr ""
+
+msgid "grid.user.enableReason"
+msgstr ""
+
+msgid "grid.user.error"
+msgstr ""
+
+msgid "grid.user.errorEmail"
+msgstr ""
+
+msgid "grid.user.cannotAdminister"
+msgstr ""
+
+msgid "grid.user.authSource"
+msgstr ""
+
+msgid "grid.user.mustProvideName"
+msgstr ""
+
+msgid "grid.user.generatePassword"
+msgstr ""
+
+msgid "grid.user.generatePasswordDescription"
+msgstr ""
+
+msgid "grid.user.notifyUser"
+msgstr ""
+
+msgid "grid.user.notifyUserDescription"
+msgstr ""
+
+msgid "grid.user.mustChangePassword"
+msgstr ""
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr ""
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+
+msgid "grid.user.moreDetails"
+msgstr ""
+
+msgid "grid.user.lessDetails"
+msgstr ""
+
+msgid "grid.user.userDetails"
+msgstr ""
+
+msgid "grid.user.userRoles"
+msgstr ""
+
+msgid "grid.user.userNoRoles"
+msgstr ""
+
+msgid "grid.user.step1"
+msgstr ""
+
+msgid "grid.user.step2"
+msgstr ""
+
+msgid "grid.user.addRoles"
+msgstr ""
+
+msgid "grid.user.addRole"
+msgstr ""
+
+msgid "grid.user.selectUser"
+msgstr ""
+
+msgid "grid.user.pleaseSelectUser"
+msgstr ""
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+
+msgid "grid.user.mergeUsers"
+msgstr ""
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr ""
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr ""
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr ""
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+
+msgid "grid.preparedEmails.title"
+msgstr ""
+
+msgid "grid.preparedEmails.currentList"
+msgstr ""
+
+msgid "grid.plugin.allCategories"
+msgstr ""
+
+msgid "grid.plugin.disable"
+msgstr ""
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+
+msgid "grid.artworkFile.caption"
+msgstr ""
+
+msgid "grid.artworkFile.credit"
+msgstr ""
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr ""
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr ""
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr ""
+
+msgid "grid.artworkFile.placement"
+msgstr ""
+
+msgid "grid.userGroup.assignStage"
+msgstr ""
+
+msgid "grid.userGroup.unassignStage"
+msgstr ""
+
+msgid "grid.userGroup.allStages"
+msgstr ""
+
+msgid "grid.userGroup.filter.listRoles"
+msgstr ""
+
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr ""
+
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
+msgstr ""
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+
+msgid "grid.userGroup.removed"
+msgstr ""
+
+msgid "grid.userGroup.assignedStage"
+msgstr ""
+
+msgid "grid.userGroup.unassignedStage"
+msgstr ""
+
+msgid "grid.submission.itemTitle"
+msgstr ""
+
+msgid "grid.submission.active.selectOrphaned"
+msgstr ""
+
+msgid "grid.action.addNavigationMenu"
+msgstr ""
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr ""
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr ""
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr ""
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr ""
+
+msgid "grid.action.view"
+msgstr ""

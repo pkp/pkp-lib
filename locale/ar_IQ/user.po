@@ -34,7 +34,9 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "رمز المصادقة للعملية مفقود أو غير صالح."
 
 msgid "user.authorization.contextRequired"
-msgstr "لا يمكنك استدعاء هذه العملية خارج السياق المناسب (صحافة، مجلة، مؤتمر... إلخ.)."
+msgstr ""
+"لا يمكنك استدعاء هذه العملية خارج السياق المناسب (صحافة، مجلة، مؤتمر... "
+"إلخ.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "يتطلب الأمر تسجيل الدخول."
@@ -55,7 +57,9 @@ msgid "user.authorization.userGroupRequired"
 msgstr "عليك أن تعد مجموعة مستخدمين صحيحة للوصول إلى هذه العملية."
 
 msgid "user.authorization.managerRequired"
-msgstr "مستخدم بدور مدير (أي: محرر إنتاج) عليه أن يكون معيناً للمرحلة قبل أن تتمكن من المتابعة."
+msgstr ""
+"مستخدم بدور مدير (أي: محرر إنتاج) عليه أن يكون معيناً للمرحلة قبل أن تتمكن من "
+"المتابعة."
 
 msgid "user.authorization.accessibleWorkflowStage"
 msgstr "ليس لديك حالياً حق الوصول إلى هذه المرحلة من المخطط الانسيابي."
@@ -103,7 +107,10 @@ msgid "user.gossip"
 msgstr "ملاحظات التحرير"
 
 msgid "user.gossip.description"
-msgstr "سجل ملاحظاتك عن هذا المحكم والتي تريد إظهارها لغيرك من المشرفين، رؤساء التحرير، وكل المحررين. هذه الملاحظات ستكون ظاهرة من أجل مهام التحكيم المستقبلية."
+msgstr ""
+"سجل ملاحظاتك عن هذا المحكم والتي تريد إظهارها لغيرك من المشرفين، رؤساء "
+"التحرير، وكل المحررين. هذه الملاحظات ستكون ظاهرة من أجل مهام التحكيم "
+"المستقبلية."
 
 msgid "user.group"
 msgstr "مجموعة المستخدم"
@@ -112,7 +119,10 @@ msgid "user.familyName"
 msgstr "اسم العائلة"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "صيغة ملف الصورة الشخصية غير صحيحة أو أن ملف الصورة كبير الحجم جداً. الصيغ المقبولة هي: .gif، .jpg، أو .png، وحجم الصورة ينبغي أن لا يتجاوز 150 × 150 بكسل."
+msgstr ""
+"صيغة ملف الصورة الشخصية غير صحيحة أو أن ملف الصورة كبير الحجم جداً. الصيغ "
+"المقبولة هي: .gif، .jpg، أو .png، وحجم الصورة ينبغي أن لا يتجاوز 150 × 150 "
+"بكسل."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "حسابك تم تعطيله للسبب الآتي: {$reason}"
@@ -121,16 +131,24 @@ msgid "user.login.accountDisabled"
 msgstr "حسابك تم تعطيله. لطفاً، اتصل بالمشرف الإداري للمزيد من المعلومات."
 
 msgid "user.login.accountNotValidated"
-msgstr "عنوان بريدك الالكتروني لم يجر التحقق من صحته بنجاح. لطفاً، تأكد من إملائه بالشكل الصحيح واتبع التعليمات الظاهرة أمامك. إن لم تتلق أي رسالة الكترونية رغم كل ذلك، قد تحتاج إلى الاتصال بالمشرف الإداري للموقع لطلب المساعدة."
+msgstr ""
+"عنوان بريدك الالكتروني لم يجر التحقق من صحته بنجاح. لطفاً، تأكد من إملائه "
+"بالشكل الصحيح واتبع التعليمات الظاهرة أمامك. إن لم تتلق أي رسالة الكترونية "
+"رغم كل ذلك، قد تحتاج إلى الاتصال بالمشرف الإداري للموقع لطلب المساعدة."
 
 msgid "user.login.activate"
 msgstr "تفعيل الحساب"
 
 msgid "user.login.activated"
-msgstr "شكراً لقيامك بتفعيل الحساب. بإمكانك الآن الدخول إلى الموقع مستعملاً بيانات الدخول التي قدمتها عند تسجيلك في الموقع."
+msgstr ""
+"شكراً لقيامك بتفعيل الحساب. بإمكانك الآن الدخول إلى الموقع مستعملاً بيانات "
+"الدخول التي قدمتها عند تسجيلك في الموقع."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "عليك أن تختار لنفسك كلمة مرور أخرى قبل أن يتسنى لك الدخول إلى الموقع.<br /><br />لطفاً، أدخل اسم دخولك مع كلمة مرورك الحالية وكلمة مرورك الجديدة التي تريدها لتكون بديلة عن الحالية أدناه."
+msgstr ""
+"عليك أن تختار لنفسك كلمة مرور أخرى قبل أن يتسنى لك الدخول إلى الموقع.<br /"
+"><br />لطفاً، أدخل اسم دخولك مع كلمة مرورك الحالية وكلمة مرورك الجديدة التي "
+"تريدها لتكون بديلة عن الحالية أدناه."
 
 msgid "user.login.forgotPassword"
 msgstr "أنسيت كلمة مرورك؟"
@@ -142,10 +160,18 @@ msgid "user.login"
 msgstr "الدخول"
 
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "رسالة تأكيد أُرسلت إلى عنوان بريدك الالكتروني. لطفاً اتبع التعليمات التي تجدها في تلك الرسالة لإعادة تعيين كلمة مرورك."
+msgstr ""
+"رسالة تأكيد أُرسلت إلى عنوان بريدك الالكتروني. لطفاً اتبع التعليمات التي تجدها "
+"في تلك الرسالة لإعادة تعيين كلمة مرورك."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "تعذر إكمال طلب إعادة تعيين كلمة المرور بسبب {$reason}."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "عذراً، الرابط الذي اتبعته قد انتهت صلاحيته أو ليس صحيحاً. لطفاً، جرب إعادة تعيين كلمة مرورك مرة أخرى."
+msgstr ""
+"عذراً، الرابط الذي اتبعته قد انتهت صلاحيته أو ليس صحيحاً. لطفاً، جرب إعادة "
+"تعيين كلمة مرورك مرة أخرى."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "لا يوجد مستخدم مسجل في الموقع باستعمال هذا البريد الالكتروني."
@@ -212,10 +238,13 @@ msgid "user.preferredPublicName"
 msgstr "الاسم الشائع المفضل"
 
 msgid "user.preferredPublicName.description"
-msgstr "كيف تفضل أن تتم مخاطبتك؟ عبارة التحية، الاسم الأوسط واللواحق يمكن إضافتها هنا إذا كان ذلك يناسبك."
+msgstr ""
+"كيف تفضل أن تتم مخاطبتك؟ عبارة التحية، الاسم الأوسط واللواحق يمكن إضافتها "
+"هنا إذا كان ذلك يناسبك."
 
 msgid "user.profile.changePasswordInstructions"
-msgstr "أدخل كلمة مرورك الحالية والجديدة أدناه للتمكن من تغيير كلمة مرورك في الموقع."
+msgstr ""
+"أدخل كلمة مرورك الحالية والجديدة أدناه للتمكن من تغيير كلمة مرورك في الموقع."
 
 msgid "user.profile.editProfile"
 msgstr "تعديل الملف الشخصي"
@@ -230,7 +259,9 @@ msgid "user.profile.form.givenNameRequired"
 msgstr "الاسم مطلوب حتماً."
 
 msgid "user.profile.form.givenNameRequired.locale"
-msgstr "لقد أدخلت اسم العائلة ضمن لغة النظام التي تفتقر إلى الاسم الأول. لطفاً، أدخل ذلك الاسم لتلك اللغة."
+msgstr ""
+"لقد أدخلت اسم العائلة ضمن لغة النظام التي تفتقر إلى الاسم الأول. لطفاً، أدخل "
+"ذلك الاسم لتلك اللغة."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "عنوان البريد الالكتروني مطلوب حتماً."
@@ -257,7 +288,9 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "إشعار صدور العدد الجديد من المجلة"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "العنوان المحدد غير صحيح. لطفاً، تحقق من صحته جيداً وحاول مجدداً. (تلميح: حاول إضافة http:// إلى بداية العنوان.)"
+msgstr ""
+"العنوان المحدد غير صحيح. لطفاً، تحقق من صحته جيداً وحاول مجدداً. (تلميح: حاول "
+"إضافة http:// إلى بداية العنوان.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "مجموعة المستخدم مطلوبة حتماً."
@@ -290,18 +323,18 @@ msgid "user.login.registerNewAccount"
 msgstr "التسجيل"
 
 #, fuzzy
-msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr "تعذر إكمال طلب إعادة تعيين كلمة المرور بسبب {$reason}."
-
-#, fuzzy
 msgid "user.login.passwordResetProcessInstructions"
 msgstr "أدخل كلمة مرور جديدة لتحديث كلمة مرور تسجيل الدخول."
 
 msgid "user.login.resetPasswordInstructions"
-msgstr "أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن تعليمات توضح كيفية تصفير كلمة مرورك."
+msgstr ""
+"أدخل عنوان بريدك الالكتروني المتعلق بحسابك أدناه، وستتم مراسلتك برسالة تتضمن "
+"تعليمات توضح كيفية تصفير كلمة مرورك."
 
 msgid "user.register.form.privacyConsent"
-msgstr "نعم، أوافق على جمع بياناتي وخزنها وفق ما ورد في  <a href=\"{$privacyUrl}\" target=\"_blank\">بيان الخصوصية</a>."
+msgstr ""
+"نعم، أوافق على جمع بياناتي وخزنها وفق ما ورد في  <a href=\"{$privacyUrl}\" "
+"target=\"_blank\">بيان الخصوصية</a>."
 
 msgid "user.register.form.emailConsent"
 msgstr "نعم، أود الحصول على إشعارات بشأن الإصدارات والإعلانات الجديدة."
@@ -316,7 +349,9 @@ msgid "user.register.form.emailsDoNotMatch"
 msgstr "حقلا العنوان البريدي لا يتطابقان."
 
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr "اسم المستخدم يتكون من رموز حرفية ورقمية، خطوط تحتانية، شُرط، وينبغي أن يبدأ وينتهي بحرف أو رقم حصراً."
+msgstr ""
+"اسم المستخدم يتكون من رموز حرفية ورقمية، خطوط تحتانية، شُرط، وينبغي أن يبدأ "
+"وينتهي بحرف أو رقم حصراً."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "لا بد من اختيار دور واحد على الأقل."
@@ -341,7 +376,8 @@ msgstr ""
 "تحتانية."
 
 msgid "user.register.registrationCompleted"
-msgstr "لقد سجلت بنجاح. <a href=\"{$profileUrl}\">أنقر هنا</a> لإكمال ملفك الشخصي."
+msgstr ""
+"لقد سجلت بنجاح. <a href=\"{$profileUrl}\">أنقر هنا</a> لإكمال ملفك الشخصي."
 
 msgid "user.role.assistant"
 msgstr "مساعد"
@@ -428,7 +464,9 @@ msgid "user.orcid"
 msgstr "ORCID iD"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "إن رمز ORCID iD الذي حددته غير صحيح. لطفاً، أدرج الرابط كاملاً (مثلاً: \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"إن رمز ORCID iD الذي حددته غير صحيح. لطفاً، أدرج الرابط كاملاً (مثلاً: "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "الهوية"
@@ -443,7 +481,8 @@ msgid "user.apiKey"
 msgstr "مفتاح API"
 
 msgid "user.apiKeyEnabled"
-msgstr "تمكين التطبيقات الخارجية التي تملك مفتاح API هذا من الوصول إلى هذا الحساب"
+msgstr ""
+"تمكين التطبيقات الخارجية التي تملك مفتاح API هذا من الوصول إلى هذا الحساب"
 
 msgid "user.apiKey.generate"
 msgstr "توليد مفتاح API جديد"
@@ -452,7 +491,11 @@ msgid "user.apiKey.generateWarning"
 msgstr "توليد مفتاح API جديد سيؤدي إلى إبطال أي مفتاح حالي لهذا المستخدم."
 
 msgid "user.apiKey.secretRequired"
-msgstr "قبل توليد مفتاح API، لا بد للمشرف على موقعك من وضع كلمة سر في ملف التهيئة تحت مسمى (\"api_key_secret\")."
+msgstr ""
+"قبل توليد مفتاح API، لا بد للمشرف على موقعك من وضع كلمة سر في ملف التهيئة "
+"تحت مسمى (\"api_key_secret\")."
 
 msgid "user.privacyLink"
-msgstr "إن بياناتك محفوظة حسب <a href=\"{$privacyUrl}\" target=\"_blank\">بيان الخصوصية</a> الخاص بنا."
+msgstr ""
+"إن بياناتك محفوظة حسب <a href=\"{$privacyUrl}\" target=\"_blank\">بيان "
+"الخصوصية</a> الخاص بنا."

@@ -14,118 +14,95 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Ihr Auftrag wurde abgelehnt, möglicherweise weil Ihre Anmeldung abgelaufen ist. Laden Sie die Seite neu und versuchen Sie es noch einmal."
+msgid "api.400.paramNotSupported"
+msgstr "Der Parameter {$param} wird nicht unterstützt."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Sie können nur die Ihnen zugeordneten unveröffentlichten Einreichungen sehen."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Sie können keine Einreichung löschen, die nicht diesem Kontext zugeordnet ist."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Sie sind nicht berechtigt, diese Einreichung zu löschen."
-
-msgid "api.404.resourceNotFound"
-msgstr "Die angeforderte Ressource wurde nicht gefunden."
-
-msgid "api.submissions.400.missingRequired"
-msgstr "Ihre Anforderung konnte nicht ausgeführt werden, da notwendige Informationen fehlen."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Band, Nummer oder Jahr ist nicht nicht gültig."
-
-msgid "api.publication.403.cantEditPublished"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Sie können diesen Beitrag nicht ändern, denn er wurde bereits veröffentlicht."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Der Beitrag, den Sie zurückziehen wollen, ist nicht veröffentlicht."
-
-msgid "api.publication.403.alreadyPublished"
+msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"Der Beitrag, den Sie veröffentlichen wollen, ist bereits  veröffentlicht."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Die angeforderte E-Mail-Vorlage wurde nicht gefunden."
-
-msgid "api.404.endpointNotFound"
-msgstr "Die angeforderte URL wurde nicht erkannt."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Es ist nicht möglich die Zeit zu ändern, zu der dies erzeugt wurde."
 
 msgid "api.403.unauthorized"
 msgstr "Sie sind nicht berechtigt auf die angeforderte Quelle zuzugreifen."
 
-msgid "api.400.paramNotSupported"
-msgstr "Der Parameter {$param} wird nicht unterstützt."
+msgid "api.404.resourceNotFound"
+msgstr "Die angeforderte Ressource wurde nicht gefunden."
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Das {$vocab} Vokabular wird nicht unterstützt."
+msgid "api.404.endpointNotFound"
+msgstr "Die angeforderte URL wurde nicht erkannt."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Die {$locale} Regionaleinstellung wird nicht unterstützt."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Das aktive Theme, {$themePluginPath}, ist nicht angeschalten oder nicht "
-"installiert."
+
+msgid "api.500.badAuthorizationheader"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Die Mitteilung, die Sie angefragt haben, wurde nicht gefunden."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Sie müssen eine zu sendende E-Mail anfügen."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Sie müssen einen Betreff für die E-Mail angeben."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Sie müssen die Nutzerrolen angeben, welche diese E-Mail erhalten sollen."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Ihnen ist nicht gestattet eine E-Mail an Nutzer mit einer oder mehreren der "
+"ausgewählten Rollen zu senden."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Die angeforderte E-Mail-Vorlage wurde nicht gefunden."
+
+msgid "api.files.400.noUpload"
+msgstr "Mit dieser Anfrage konnte keine hochzuladende Datei gefunden werden."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Eine oder mehrere Dateien konnten nicht hochgeladen werden."
+
+msgid "api.files.400.fileSize"
+msgstr "Dateien größer als {$maxSize} können nicht hochgeladen werden."
 
 msgid "api.files.400.config"
 msgstr ""
 "Die Datei konnte aufgrund eines Fehlers in der Serverkonfiguration nicht "
 "hochgeladen werden. Bitte kontaktieren Sie den Systemadministrator."
 
-msgid "api.files.400.fileSize"
-msgstr "Dateien größer als {$maxSize} können nicht hochgeladen werden."
-
-msgid "api.files.400.uploadFailed"
-msgstr "Eine oder mehrere Dateien konnten nicht hochgeladen werden."
-
-msgid "api.files.400.noUpload"
-msgstr "Mit dieser Anfrage konnte keine hochzuladende Datei gefunden werden."
-
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.publication.403.alreadyPublished"
 msgstr ""
-"Dieser Endpoint ist nicht verfügbar in diesem Zusammenhang. Er muss aus dem "
-"Seiten-weiten Namensraum angefragt werden."
+"Der Beitrag, den Sie veröffentlichen wollen, ist bereits  veröffentlicht."
 
-msgid "api.stats.400.invalidOrderDirection"
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Der Beitrag, den Sie zurückziehen wollen, ist nicht veröffentlicht."
+
+msgid "api.publication.403.cantEditPublished"
 msgstr ""
-"Ihre Anfrage war ungültig. Die Sortierreihenfolge muss `desc` oder `asc` "
-"sein."
+"Sie können diesen Beitrag nicht ändern, denn er wurde bereits veröffentlicht."
 
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"Ihre Anfrage war ungültig. Der Zeitabschnitt muss `day` oder `month` sein."
+"Der Stats kann nicht direkt durch die API geändert werden. Bitte nutzen Sie "
+"die /publish und /unpubish endpoints."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Das Enddatum kann nicht später als gestern sein."
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Sie müssen diesen Beitrag zrückziehen, bevor er gelöscht werden kann."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Das Datum kann nicht vor dem 2001-01-01 liegen."
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Es können nur folgende Dateiformate hochgeladen werden: {$fileTypes}."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Das Startdatum kann nicht nach dem Enddatum liegen."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Das Datum muss in dem Format YYYY-MM-DD vorliegen."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "Sie sind nicht berechtigt diese Veröffentlichung zu ändern."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Das Verzeichnis für öffentliche Dokumente wurde nicht gefunden oder Dateien "
-"können nicht dorthin gespeichert werden. Bitte wenden Sie sich zur "
-"Problemlösung an Ihre/n Administrator/in."
-
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Sie haben nicht genug Platz in Ihrem Nutzerverzeichnis. Die hochzuladende "
-"Datei ist  {$fileUploadSize}kb groß und es stehen nur  {$dirSizeLeft}kb zur "
-"Verfügung."
-
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Sie sind nicht berechtigt Dateien hochzuladen."
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Das hochgeladene Bild ist ungültig."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -133,88 +110,133 @@ msgstr ""
 "kann passieren, wenn eine Datei in einen inkompatibles Format umbenannt "
 "wurde, z.B von photo.png in photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Das hochgeladene Bild ist ungültig."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Sie sind nicht berechtigt Dateien hochzuladen."
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Es können nur folgende Dateiformate hochgeladen werden: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Sie müssen diesen Beitrag zrückziehen, bevor er gelöscht werden kann."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Der Stats kann nicht direkt durch die API geändert werden. Bitte nutzen Sie "
-"die /publish und /unpubish endpoints."
+"Sie haben nicht genug Platz in Ihrem Nutzerverzeichnis. Die hochzuladende "
+"Datei ist  {$fileUploadSize}kb groß und es stehen nur  {$dirSizeLeft}kb zur "
+"Verfügung."
 
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Es ist nicht möglich die Zeit zu ändern, zu der dies erzeugt wurde."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Sie dürfen nicht auf Dateien in dieser Begutachtungsrunde  zugreifen."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Sie dürfen diese Dateien nicht hinzufügen und bearbeiten."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Der Zugriff auf diese Dateien ist Ihnen nicht erlaubt."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Die von Ihnen genannte Begutachtungsrunde ist nicht Teil dieser Einreichung."
+"Das Verzeichnis für öffentliche Dokumente wurde nicht gefunden oder Dateien "
+"können nicht dorthin gespeichert werden. Bitte wenden Sie sich zur "
+"Problemlösung an Ihre/n Administrator/in."
 
-msgid "api.submissionsFiles.400.noParams"
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Das Datum muss in dem Format YYYY-MM-DD vorliegen."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Das Startdatum kann nicht nach dem Enddatum liegen."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Das Datum kann nicht vor dem 2001-01-01 liegen."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Das Enddatum kann nicht später als gestern sein."
+
+msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"In der Anfrage zum Bearbeiten dieser Datei konnten keine Änderungen gefunden "
-"werden."
+"Ihre Anfrage war ungültig. Der Zeitabschnitt muss `day` oder `month` sein."
 
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Sie müssen eine Dateistufe angeben."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"Sie müssen eine Begutachtungsrunde angeben, wenn Sie Dateien der "
-"Begutachtungsstufe anfordern."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr ""
-"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
-"Begutachtungsrunde verknüpfen."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr ""
-"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
-"Gutachtenzuordnung verknüpfen."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr ""
-"Sie können eine Datei aus dieser Dateistufe nicht mit einer Diskussionsnotiz "
-"verknüpfen."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr ""
-"Sie können eine Datei aus dieser Dateistufe nicht mit einer anderen "
-"Einreichungsdatei verknüpfen."
+"Ihre Anfrage war ungültig. Die Sortierreihenfolge muss `desc` oder `asc` "
+"sein."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
 "Sie können den Dateizusammenhang nicht ändern, ohne assocType und assocId "
 "anzugeben."
 
-msgid "api.emails.403.notAllowedUserGroup"
+msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr ""
-"Ihnen ist nicht gestattet eine E-Mail an Nutzer mit einer oder mehreren der "
-"ausgewählten Rollen zu senden."
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer anderen "
+"Einreichungsdatei verknüpfen."
 
-msgid "api.emails.400.missingUserGroups"
+msgid "api.submissionFiles.400.badNoteAssocType"
 msgstr ""
-"Sie müssen die Nutzerrolen angeben, welche diese E-Mail erhalten sollen."
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer Diskussionsnotiz "
+"verknüpfen."
 
-msgid "api.emails.400.missingSubject"
-msgstr "Sie müssen einen Betreff für die E-Mail angeben."
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
+"Gutachtenzuordnung verknüpfen."
 
-msgid "api.emails.400.missingBody"
-msgstr "Sie müssen eine zu sendende E-Mail anfügen."
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Sie können eine Datei aus dieser Dateistufe nicht mit einer "
+"Begutachtungsrunde verknüpfen."
 
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Die Mitteilung, die Sie angefragt haben, wurde nicht gefunden."
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Sie müssen eine Begutachtungsrunde angeben, wenn Sie Dateien der "
+"Begutachtungsstufe anfordern."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Sie müssen eine Dateistufe angeben."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"In der Anfrage zum Bearbeiten dieser Datei konnten keine Änderungen gefunden "
+"werden."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Die von Ihnen genannte Begutachtungsrunde ist nicht Teil dieser Einreichung."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Der Zugriff auf diese Dateien ist Ihnen nicht erlaubt."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Sie dürfen diese Dateien nicht hinzufügen und bearbeiten."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Sie dürfen nicht auf Dateien in dieser Begutachtungsrunde  zugreifen."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Ihre Anforderung konnte nicht ausgeführt werden, da notwendige Informationen "
+"fehlen."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Band, Nummer oder Jahr ist nicht nicht gültig."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Ihr Auftrag wurde abgelehnt, möglicherweise weil Ihre Anmeldung abgelaufen "
+"ist. Laden Sie die Seite neu und versuchen Sie es noch einmal."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Sie können keine Einreichung löschen, die nicht diesem Kontext zugeordnet "
+"ist."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Sie können nur die Ihnen zugeordneten unveröffentlichten Einreichungen sehen."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Sie sind nicht berechtigt, diese Einreichung zu löschen."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Sie sind nicht berechtigt diese Veröffentlichung zu ändern."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Dieser Endpoint ist nicht verfügbar in diesem Zusammenhang. Er muss aus dem "
+"Seiten-weiten Namensraum angefragt werden."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Das aktive Theme, {$themePluginPath}, ist nicht angeschalten oder nicht "
+"installiert."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Die {$locale} Regionaleinstellung wird nicht unterstützt."
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Das {$vocab} Vokabular wird nicht unterstützt."

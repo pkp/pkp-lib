@@ -11,17 +11,193 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.website.appearance"
-msgstr "Изглед"
-
 msgid "manager.website.information"
 msgstr "Информација"
 
-msgid "manager.emails.editEmail.success"
-msgstr "Шаблонот за имејли е изменет."
+msgid "manager.website.appearance"
+msgstr "Изглед"
 
-msgid "manager.emails.editEmail"
-msgstr "Уреди имелј"
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Потребна е слика. Ве молиме, проверете дали сте одбрале и поставиле фајл."
+
+msgid "manager.announcements"
+msgstr "Известувања"
+
+msgid "manager.announcements.confirmDelete"
+msgstr ""
+"Дали сте сигурни дека сакате трајно да ја избришете оваа објава {$title}?"
+
+msgid "manager.announcements.create"
+msgstr "Создадете нова објава"
+
+msgid "manager.announcements.createTitle"
+msgstr "Креирај"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Истекува"
+
+msgid "manager.announcements.datePublish"
+msgstr "Објавено"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Избриши известување"
+
+msgid "manager.announcements.edit"
+msgstr "Уреди објава"
+
+msgid "manager.announcements.editTitle"
+msgstr "Уреди"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Изберете година и / или месец покрај  денот на крајниот датум."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Краен рок"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Објавата ќе биде прикажан на читателите до овој датум. Оставете празно ако "
+"објавата треба да биде прикажана на неодредено време."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Изберете година и / или ден во прилог на месецот крајниот рок."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Изберете важечки датум на истекување на објавата."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Ве молиме изберете месец и / или ден  годината од крајниот рок."
+
+msgid "manager.announcements.form.description"
+msgstr "Известување"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Целиот текст на објавата."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Потребен е опис на објавата."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Краток опис кој ќе стои покрај насловот на објавата."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Краток опис  на објавата е задолжителен."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Краток опис"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Зачувај и креирај друг"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Насловот на објавата е задолжителен."
+
+msgid "manager.announcements.form.title"
+msgstr "Наслов"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Вид"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Избери валиден вид на објава."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Објава не е создадена."
+
+msgid "manager.announcements.title"
+msgstr "Наслов"
+
+msgid "manager.announcements.type"
+msgstr "Вид"
+
+msgid "manager.announcementTypes"
+msgstr "Видови објави"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Предупредување! Ќе бидат избришани сите објависо овој вид . Дали сте сигурни "
+"дека сакате да продолжите и да го избришете овој вид на објави?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Креирај вид на објава"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Креирај"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Уреди вид на објави"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Уреди"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Сними и креирај друг"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Овој вид објава веќе постои."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Име"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Име на видот на објава е задолжително."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Не се креирани видови на објави."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Видови објави"
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr "Поднесок"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензија"
+
+msgid "manager.publication.editorialStage"
+msgstr "Уредништво"
+
+msgid "manager.publication.productionStage"
+msgstr "Продукција"
+
+msgid "manager.publication.emails"
+msgstr "Имејли"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Упатства за рецензирање"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Деталите за рецензија се ажурирани."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете овој образец за е-пошта?"
+
+msgid "manager.emails.confirmReset"
+msgstr ""
+"Дали сте сигурни дека сакате да го ресетирате овој образец за е-пошта на "
+"неговите основни вредности?"
+
+msgid "manager.emails.addEmail"
+msgstr "Додади шаблон"
+
+msgid "manager.emails.createEmail"
+msgstr "Креирај имејл"
+
+msgid "manager.emails.customTemplate"
+msgstr "Кориснички шаблон"
+
+msgid "manager.emails.data"
+msgstr "Податоци за шаблонот за порака"
+
+msgid "manager.emails.details"
+msgstr "Детали за шаблонот"
+
+msgid "manager.emails.disable"
+msgstr "Оневозможи"
 
 msgid "manager.emails.disable.message"
 msgstr ""
@@ -29,261 +205,73 @@ msgstr ""
 "користат овој образец, тие повеќе нема да го користат. Дали сакате да ја "
 "потврдите оваа операција?"
 
-msgid "manager.emails.disable"
-msgstr "Оневозможи"
+msgid "manager.emails.editEmail"
+msgstr "Уреди имелј"
 
-msgid "manager.emails.details"
-msgstr "Детали за шаблонот"
+msgid "manager.emails.editTestExample"
+msgstr "Уреди примерок за имејл тест"
 
-msgid "manager.emails.data"
-msgstr "Податоци за шаблонот за порака"
+msgid "manager.emails.emailKey"
+msgstr "Имејл клуч"
 
-msgid "manager.emails.customTemplate"
-msgstr "Кориснички шаблон"
+msgid "manager.emails.emailKey.description"
+msgstr "Клучот за имелј може да содржи само букви, броеви и дополнувања."
 
-msgid "manager.emails.createEmail"
-msgstr "Креирај имејл"
+msgid "manager.emails.emailKeyExists"
+msgstr "Клучот веќе постои. Клучот мора да бидат уникатни."
 
-msgid "manager.emails.addEmail.success"
-msgstr "Шаблонот за имејл е додаден."
+msgid "manager.emails.emailTemplate"
+msgstr "Шаблон за имејл"
 
-msgid "manager.emails.addEmail"
-msgstr "Додади шаблон"
+msgid "manager.emails.emailTemplates"
+msgstr "Шаблони за имејл"
 
-msgid "manager.emails.confirmReset"
+msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
-"Дали сте сигурни дека сакате да го ресетирате овој образец за е-пошта на "
-"неговите основни вредности?"
+"Мора да да дадете идентификација на контекст кога додавате образец за имејл."
 
-msgid "manager.emails.confirmDelete"
-msgstr "Дали сте сигурни дека сакате да го избришете овој образец за е-пошта?"
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Клучот што го дадовте е веќе во употреба."
 
-msgid "manager.publication.reviewReminders.success"
-msgstr "Деталите за рецензија се ажурирани."
+msgid "manager.emails.enabled"
+msgstr "Овозможи го овој шаблон за имелј"
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Нагодувањата за рецензија се ажурирани."
+msgid "manager.emails.enable"
+msgstr "Овозможи"
 
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Упатства за рецензирање се ажурирани."
+msgid "manager.emails.enable.message"
+msgstr "Го овозможивте овој имејл. Дали сакате да ја потврдите оваа операција?"
 
-msgid "manager.publication.reviewerGuidance"
-msgstr "Упатства за рецензирање"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Подесувањата за имејл се ажурирани."
-
-msgid "manager.publication.emails"
-msgstr "Имејли"
-
-msgid "manager.publication.productionStage"
-msgstr "Продукција"
-
-msgid "manager.publication.editorialStage"
-msgstr "Уредништво"
-
-msgid "manager.publication.reviewStage"
-msgstr "Рецензија"
-
-msgid "manager.publication.submissionStage"
-msgstr "Поднесок"
-
-msgid "manager.announcementTypes.typeName"
-msgstr "Видови објави"
-
-msgid "manager.announcementTypes.noneCreated"
-msgstr "Не се креирани видови на објави."
-
-msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Име на видот на објава е задолжително."
-
-msgid "manager.announcementTypes.form.typeName"
-msgstr "Име"
-
-msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Овој вид објава веќе постои."
-
-msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Сними и креирај друг"
-
-msgid "manager.announcementTypes.editTitle"
-msgstr "Уреди"
-
-msgid "manager.announcementTypes.edit"
-msgstr "Уреди вид на објави"
-
-msgid "manager.announcementTypes.createTitle"
-msgstr "Креирај"
-
-msgid "manager.announcementTypes.create"
-msgstr "Креирај вид на објава"
-
-msgid "manager.announcementTypes.confirmDelete"
+msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Предупредување! Ќе бидат избришани сите објависо овој вид . Дали сте сигурни "
-"дека сакате да продолжите и да го избришете овој вид на објави?"
+"За имејлот е потребен единствен клуч за имејлот што нема празни места или "
+"специјални карактери."
 
-msgid "manager.announcementTypes"
-msgstr "Видови објави"
+msgid "manager.emails.form.bodyRequired"
+msgstr "Потребен е текст во имејлот."
 
-msgid "manager.announcements.type"
-msgstr "Вид"
+msgid "manager.emails.form.subjectRequired"
+msgstr "Потребен е предмет за имејлот."
 
-msgid "manager.announcements.title"
-msgstr "Наслов"
+msgid "manager.emails"
+msgstr "Подготвени имејли"
 
-msgid "manager.announcements.noneCreated"
-msgstr "Објава не е создадена."
+msgid "manager.emails.resetAll"
+msgstr "Ресетирај сѐ"
 
-msgid "manager.announcements.form.typeIdValid"
-msgstr "Избери валиден вид на објава."
-
-msgid "manager.announcements.form.typeId"
-msgstr "Вид"
-
-msgid "manager.announcements.form.title"
-msgstr "Наслов"
-
-msgid "manager.announcements.form.titleRequired"
-msgstr "Насловот на објавата е задолжителен."
-
-msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Зачувај и креирај друг"
-
-msgid "manager.announcements.form.descriptionShort"
-msgstr "Краток опис"
-
-msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Краток опис  на објавата е задолжителен."
-
-msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Краток опис кој ќе стои покрај насловот на објавата."
-
-msgid "manager.announcements.form.descriptionRequired"
-msgstr "Потребен е опис на објавата."
-
-msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Целиот текст на објавата."
-
-msgid "manager.announcements.form.description"
-msgstr "Известување"
-
-msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Ве молиме изберете месец и / или ден  годината од крајниот рок."
-
-msgid "manager.announcements.form.dateExpireValid"
-msgstr "Изберете важечки датум на истекување на објавата."
-
-msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Изберете година и / или ден во прилог на месецот крајниот рок."
-
-msgid "manager.announcements.form.dateExpireInstructions"
+msgid "manager.emails.resetAll.message"
 msgstr ""
-"Објавата ќе биде прикажан на читателите до овој датум. Оставете празно ако "
-"објавата треба да биде прикажана на неодредено време."
+"Ако ги ресетирате сите шаблони, сите измени во шаблоните за е-пошта ќе бидат "
+"изгубени. Дали сакате да ја потврдите оваа операција?"
 
-msgid "manager.announcements.form.dateExpire"
-msgstr "Краен рок"
+msgid "manager.emails.resetAll.complete"
+msgstr "Стандардните обрасци за е-пошта се обновени."
 
-msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Изберете година и / или месец покрај  денот на крајниот датум."
+msgid "manager.emails.reset"
+msgstr "Ресет"
 
-msgid "manager.announcements.editTitle"
-msgstr "Уреди"
-
-msgid "manager.announcements.edit"
-msgstr "Уреди објава"
-
-msgid "manager.announcements.datePublish"
-msgstr "Објавено"
-
-msgid "manager.announcements.dateExpire"
-msgstr "Истекува"
-
-msgid "manager.announcements.createTitle"
-msgstr "Креирај"
-
-msgid "manager.announcements.create"
-msgstr "Создадете нова објава"
-
-msgid "manager.announcements.confirmDelete"
-msgstr ""
-"Дали сте сигурни дека сакате трајно да ја избришете оваа објава {$title}?"
-
-msgid "manager.announcements"
-msgstr "Известувања"
-
-msgid "manager.website.imageFileRequired"
-msgstr ""
-"Потребна е слика. Ве молиме, проверете дали сте одбрале и поставиле фајл."
-
-msgid "manager.groups.title"
-msgstr "Наслов"
-
-msgid "manager.groups.membership.noUsers"
-msgstr "Нема членови."
-
-msgid "manager.groups.membership.noneCreated"
-msgstr "Групата нема членови."
-
-msgid "manager.groups.membership"
-msgstr "Членство"
-
-msgid "manager.groups.membership.confirmDelete"
-msgstr "Дали сте сигурни дека сакате да го избришете членството во оваа група?"
-
-msgid "manager.groups.membership.addMember"
-msgstr "Додади член"
-
-msgid "manager.groups.form.groupTitleRequired"
-msgstr "Потребен наслов на групата."
-
-msgid "manager.groups.editTitle"
-msgstr "Уреди наслов"
-
-msgid "manager.groups.createTitle"
-msgstr "Креирај наслов"
-
-msgid "manager.groups.confirmDelete"
-msgstr "Дали сакате да ја избришите групата?"
-
-msgid "manager.files.uploadFile"
-msgstr "Уплодиран фајл"
-
-msgid "manager.files.uploadedFiles"
-msgstr "Аплодирани фајлови"
-
-msgid "manager.files.parentDir"
-msgstr "Надреден директориум"
-
-msgid "manager.files.indexOfDir"
-msgstr "Индекс {$dir}"
-
-msgid "manager.files.emptyDir"
-msgstr "Не се пронајдени датотеки во овој директориум."
-
-msgid "manager.files.createDir"
-msgstr "Креирај директориум"
-
-msgid "manager.files.confirmDelete"
-msgstr ""
-"Избришете ја оваа датотека или директориум? Забележете дека директориумот "
-"мора да биде празен пред да може да се избрише."
-
-msgid "manager.filesBrowser"
-msgstr "Прегледувач на фајлови"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Предмет {$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "Пратено на"
-
-msgid "manager.emails.sentFrom"
-msgstr "Пратено од"
-
-msgid "manager.emails.resetToDefault"
-msgstr "Ресетирај"
+msgid "manager.emails.resetComplete"
+msgstr "Образецот за имејл е успешно ресетиран."
 
 msgid "manager.emails.reset.message"
 msgstr ""
@@ -291,604 +279,299 @@ msgstr ""
 "ресетирани на неговата основна вредност, губејќи ги сите модификации. Дали "
 "сакате да ја потврдите оваа операција?"
 
-msgid "manager.emails.reset"
-msgstr "Ресет"
+msgid "manager.emails.resetToDefault"
+msgstr "Ресетирај"
 
-msgid "manager.emails.resetAll.message"
+msgid "manager.emails.sentFrom"
+msgstr "Пратено од"
+
+msgid "manager.emails.sentTo"
+msgstr "Пратено на"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Предмет {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Испрати во Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Избери корисници кои ќе бидат испратени во Excel/CSV фајл."
+
+msgid "manager.filesBrowser"
+msgstr "Прегледувач на фајлови"
+
+msgid "manager.files.confirmDelete"
 msgstr ""
-"Ако ги ресетирате сите шаблони, сите измени во шаблоните за е-пошта ќе бидат "
-"изгубени. Дали сакате да ја потврдите оваа операција?"
+"Избришете ја оваа датотека или директориум? Забележете дека директориумот "
+"мора да биде празен пред да може да се избрише."
 
-msgid "manager.emails.resetAll"
-msgstr "Ресетирај сѐ"
+msgid "manager.files.createDir"
+msgstr "Креирај директориум"
 
-msgid "manager.emails"
-msgstr "Подготвени имејли"
+msgid "manager.files.emptyDir"
+msgstr "Не се пронајдени датотеки во овој директориум."
 
-msgid "manager.emails.form.subjectRequired"
-msgstr "Потребен е предмет за имејлот."
+msgid "manager.files.indexOfDir"
+msgstr "Индекс {$dir}"
 
-msgid "manager.emails.form.bodyRequired"
-msgstr "Потребен е текст во имејлот."
+msgid "manager.files.parentDir"
+msgstr "Надреден директориум"
 
-msgid "manager.emails.form.emailKeyRequired"
+msgid "manager.files.uploadedFiles"
+msgstr "Аплодирани фајлови"
+
+msgid "manager.files.uploadFile"
+msgstr "Уплодиран фајл"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Дали сакате да ја избришите групата?"
+
+msgid "manager.groups.createTitle"
+msgstr "Креирај наслов"
+
+msgid "manager.groups.editTitle"
+msgstr "Уреди наслов"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Потребен наслов на групата."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Додади член"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Дали сте сигурни дека сакате да го избришете членството во оваа група?"
+
+msgid "manager.groups.membership"
+msgstr "Членство"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Групата нема членови."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Нема членови."
+
+msgid "manager.groups.title"
+msgstr "Наслов"
+
+msgid "manager.importExport"
+msgstr "Увези/извези податоци"
+
+msgid "manager.language.ui"
+msgstr "УИ"
+
+msgid "manager.language.submissions"
+msgstr "Поднесоци"
+
+msgid "manager.language.forms"
+msgstr "Формулари"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Превчитај ги основните"
+
+msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"За имејлот е потребен единствен клуч за имејлот што нема празни места или "
-"специјални карактери."
+"Овој систем по избор овозможува да се внесат одредени критични информации на "
+"неколку дополнителни јазици. За да ја користите оваа одлика, изберете "
+"алтернативни локализации и изберете од опциите наведени подолу."
 
-msgid "manager.emails.enable.message"
-msgstr "Го овозможивте овој имејл. Дали сакате да ја потврдите оваа операција?"
+msgid "manager.languages.supportedLocalesInstructions"
+msgstr ""
+"Изберете ги сите локализациите за поддршка на страницата преку менито за "
+"избирање јазик што ќе се појави на секоја страница. Менито ќе се појави само "
+"ако е избрано повеќе од една локализација."
 
-msgid "manager.emails.enable"
+msgid "manager.payment.timestamp"
+msgstr "Временски печат"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Мора да се внесе постоечки корисник."
+
+msgid "manager.people.authSource"
+msgstr "Извор на автентикација"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Тргнете го овој корисник?"
+
+msgid "manager.people.createUser"
+msgstr "Креирај нов корисник"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Генерирај случајна лозинка."
+
+msgid "manager.people.createUserSendNotify"
+msgstr "Испратете му на е-пошта на корисникот, со корисничко име и лозинка."
+
+msgid "manager.people.disable"
+msgstr "Оневозможи"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Нема улога"
+
+msgid "manager.people.editProfile"
+msgstr "Уреди профил"
+
+msgid "manager.people.editUser"
+msgstr "Уреди корисник"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Испрати имејл на селектираните корисници"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Испрати имелј на корисниците вклучени како"
+
+msgid "manager.people.emailUsers"
+msgstr "Испрати имејл до корисниците"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Избери локализација"
+
+msgid "manager.people.emailUsers.selectUsers"
+msgstr ""
+"Изберете ги корисниците на кои  што сакате да им испратите е-пошта со "
+"означување на полињата покрај нивните имиња"
+
+msgid "manager.people.enable"
 msgstr "Овозможи"
 
-msgid "manager.emails.enabled"
-msgstr "Овозможи го овој шаблон за имелј"
+msgid "manager.people.enroll"
+msgstr "Додади улога на корисник"
 
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Клучот што го дадовте е веќе во употреба."
+msgid "manager.people.enrollment"
+msgstr "Доделување улоги"
 
-msgid "manager.emails.emailTemplate.contextRequired"
+msgid "manager.people.enrollSelected"
+msgstr "Доделување улога на селектираните корисници"
+
+msgid "manager.people.enrollSyncRole"
+msgstr "Синхорнизирај ги улогите"
+
+msgid "manager.people.enrollSync"
+msgstr "Синхронизирај ги улогите"
+
+msgid "manager.people.enrollUserAsDescription"
 msgstr ""
-"Мора да да дадете идентификација на контекст кога додавате образец за имејл."
+"На корисниците може да им се додели или отстрани улога во кој било момент."
 
-msgid "manager.emails.emailTemplates"
-msgstr "Шаблони за имејл"
+msgid "manager.people.enrollUserAs"
+msgstr "Додели на корисникот улога на"
 
-msgid "manager.emails.emailTemplate"
-msgstr "Шаблон за имејл"
+msgid "manager.people.invalidUser"
+msgstr "Извинете, бараниот корисник не постои."
 
-msgid "manager.emails.emailKeyExists"
-msgstr "Клучот веќе постои. Клучот мора да бидат уникатни."
+msgid "manager.people.mergeUser"
+msgstr "Спои ги корисниците"
 
-msgid "manager.emails.emailKey.description"
-msgstr "Клучот за имелј може да содржи само букви, броеви и дополнувања."
-
-msgid "manager.emails.emailKey"
-msgstr "Имејл клуч"
-
-msgid "manager.emails.editTestExample"
-msgstr "Уреди примерок за имејл тест"
-
-msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "Партнер"
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Процент на одбиени по рецензирањето"
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Овој плагин е прегледан и одобрен од тимот на Public Knowledge Project."
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr "Рецензирано"
-
-msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Овој плагин е развиен и одржуван од тимот на Public Knowledge Project."
-
-msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr "Официјално"
-
-msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr "Најнови компатибилно издание"
-
-msgid "manager.plugins.pluginGallery.installation"
-msgstr "Инсталација"
-
-msgid "manager.plugins.pluginGallery.overview"
-msgstr "Преглед"
-
-msgid "manager.plugins.pluginGallery"
-msgstr "Галерија за плагини"
-
-msgid "manager.plugins.installed"
-msgstr "Инсталирани плагини"
-
-msgid "manager.plugins.uploadFailed"
-msgstr "Проверете дали датотеката е избрана за поставување."
-
-msgid "manager.plugins.uploadDescription"
+msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Оваа форма ви овозможува да испратите и инсталирате нов плагин. Ве молиме, "
-"проверете дали плагионот е компресиран како датотека .tar.gz."
+"225/5000\n"
+"Дали сте сигурни дека сакате да ги споите избраните {$oldAccountCount} "
+"сметката со корисничкото име \"{$newUsername}\"? Избраните "
+"{$oldAccountCount} сметки нема да постојат потоа. Оваа акција не е "
+"реверзибилна."
 
-msgid "manager.plugins.upload"
-msgstr "Аплодирај нов плагин"
+msgid "manager.people.mergeUsers"
+msgstr "Спои ги корисниците"
 
-msgid "manager.plugins.fileSelectError"
-msgstr "Прво  изберете фајл"
-
-msgid "manager.plugins.doesNotExist"
-msgstr "Плагинот \"{$pluginName}\" не постои"
-
-msgid "manager.plugins.description"
+msgid "manager.people.mustChooseRole"
 msgstr ""
-"Оваа страница му овозможува на Менаџерот да ги прегледува и потенцијално да "
-"ги конфигурира приклучоците што се моментално инсталирани. Приклучоците се "
-"поделени во категории, според нивната функција. Категориите се наведени "
-"подолу, и во рамките на секоја категорија, сегашниот сет на додатоци."
+"Изберете улога на горниот дел од страницата пред да кликнете на \"Запиши го "
+"корисникот\"."
 
-msgid "manager.plugins.deleteSuccess"
-msgstr "Плагинот \"{$pluginName}\" е успешно избришан"
+msgid "manager.people.mustProvideName"
+msgstr "Внесете барем презиме за корисникот."
 
-msgid "manager.plugins.deleteError"
+msgid "manager.people.noMatchingUsers"
+msgstr "Нема корисници што одговараат."
+
+msgid "manager.people.noneEnrolled"
+msgstr "Нема запишани корисници."
+
+msgid "manager.people"
+msgstr "Луѓе"
+
+msgid "manager.people.remove"
+msgstr "Отстрани"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Зачувај и креирај нов"
+
+msgid "manager.people.signedInAs"
+msgstr "Сега сте логиран како  {$username}"
+
+msgid "manager.people.signInAs"
+msgstr "Логирај се како"
+
+msgid "manager.people.signInAsUser"
+msgstr "Логирај се како корисник"
+
+msgid "manager.people.syncUsers"
+msgstr "Синхронизирајте го Уписот на корисници"
+
+msgid "manager.people.unenroll"
+msgstr "Отпиши"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Корисникот е креиран успешно."
+
+msgid "manager.people.userMustChangePassword"
 msgstr ""
-"Плагинот \"{$pluginName}\" не може да се избрише од датотечниот систем. Ова "
-"може да биде проблем со дозволите. Ве молиме, проверете дали веб-серверот е "
-"во состојба да напише до директориумот со додатоци (вклучително и "
-"поддиректориуми), но не заборавајте да го обезбедите повторно подоцна."
+"Барајте од корисникот да ја смени лозинката следниот пат кога ќе се најави."
 
-msgid "manager.plugins.deleteDescription"
+msgid "manager.plugins.action"
+msgstr "Акција:"
+
+msgid "manager.plugins.disable"
+msgstr "Оневозможи"
+
+msgid "manager.plugins.enable"
+msgstr "Овозможи"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Управување со плагини"
+
+msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Со кликнување на бришење, ќе го избришете плагинот од датотечниот систем на "
-"серверот."
+"Ова е плагин на страници. Само администраторот на страници може да управува "
+"со овој плагин."
 
-msgid "manager.plugins.deleteConfirm"
-msgstr "Дали сте сигурни дека сакате да го избришете овој плагин од системот?"
+msgid "manager.plugins"
+msgstr "Системски плагин"
 
-msgid "grid.action.installPlugin"
-msgstr "Инсталирајте или надградете го овој плагин"
+msgid "manager.readingTools"
+msgstr "Алатки за читање"
 
-msgid "manager.plugins.upgradeConfirm"
-msgstr "Дали сте сигурни дека сакате да го надградите овој плагин?"
+msgid "manager.userSearch.searchByName"
+msgstr "Пребарувај корисник по име"
 
-msgid "manager.plugins.installConfirm"
-msgstr "Дали сте сигурни дека сакате да го инсталирате овој плагин?"
-
-msgid "manager.plugins.delete"
-msgstr "Избриши плагин"
-
-msgid "manager.plugins.copyError"
+msgid "manager.representative.inUse"
 msgstr ""
-"Приклучокот не беше успешно копиран. Ова може да биде проблем со дозволите. "
-"Ве молиме, проверете дали веб-серверот е во состојба да напише до "
-"директориумот со додатоци (вклучително и поддиректориуми), но не заборавајте "
-"да го обезбедите повторно подоцна."
+"Не можете да го избришете овој претставник, бидејќи тие се доделени на "
+"метаподатоците на пазарот за еден или повеќе формати на објавување за овој "
+"поднесок."
 
-msgid "plugins.categories.pubIds.description"
-msgstr "Овие приклучоци спроведуваат поддршка за јавен идентификатор."
+msgid "manager.reviewerSearch.change"
+msgstr "Смени"
 
-msgid "plugins.categories.pubIds"
-msgstr "Приклучоци за јавни идентификатори"
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Пребарај рецензент по име"
 
-msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Овие додатоци на формат изразуваат метаподатоци во OAI комуникациите."
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Пребарај по име"
 
-msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Плаг ин за  OAI Metadata Format"
+msgid "manager.reviewerSearch.interests"
+msgstr "Интереси за рецензирање"
 
-msgid "plugins.categories.themes"
-msgstr "Плагин за теми"
-
-msgid "plugins.categories.themes.description"
+msgid "manager.reviewerSearch.form.instructions"
 msgstr ""
-"Плагини за теми можат да се користат за промена на изгледот на системот."
-
-msgid "plugins.categories.reports"
-msgstr "Плагин за извештаи"
-
-msgid "plugins.categories.reports.description"
-msgstr ""
-"Приклучоците за извештаи се користат за спроведување на разни видови "
-"извештаи и екстракти на податоци."
-
-msgid "plugins.categories.paymethod"
-msgstr "Плагин за плаќање"
-
-msgid "plugins.categories.paymethod.description"
-msgstr ""
-"Приклучоците за Метод на плаќање спроведуваат поддршка за различни начини на "
-"обработка на плаќања преку Интернет."
-
-msgid "plugins.categories.importexport"
-msgstr "Приклучоци за Увоз / извоз"
-
-msgid "plugins.categories.importexport.description"
-msgstr ""
-"Приклучоци за увоз / извоз може да се користат за пренесување на содржина од "
-"и од други системи."
-
-msgid "plugins.categories.generic"
-msgstr "Генерички плагини"
-
-msgid "plugins.categories.gateways"
-msgstr "Gateway  плагини"
-
-msgid "plugins.categories.gateways.description"
-msgstr "Gateway плагини обезбедуваат податоци во живо на надворешните системи."
-
-msgid "plugins.categories.blocks.description"
-msgstr ""
-"Блок-плагини се компоненти за UI-приклучок, како што се различните алатки за "
-"странични ленти."
-
-msgid "plugins.categories.blocks"
-msgstr "Блокирај плагини"
-
-msgid "plugins.categories.auth"
-msgstr "Плагини за авторизација"
-
-msgid "plugins.categories.metadata.description"
-msgstr "Плагини за метадата имплемнетира дополнителни метадата станбдарди."
-
-msgid "plugins.categories.metadata"
-msgstr "Плагин за метадата"
-
-msgid "manager.users"
-msgstr "Корисници"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Регистриран корисник"
-
-msgid "manager.statistics.statistics.totalNewValue"
-msgstr "{$numTotal} ({$numNew} нов)"
-
-msgid "manager.statistics.statistics.count.value"
-msgstr "{$count} ({$percentage}%)"
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Опции за пристап до страницата"
-
-msgid "manager.setup.userAccess.success"
-msgstr "Деталите за пристап до корисникот за оваа печатница се ажурирани."
-
-msgid "manager.setup.theme.notFound"
-msgstr "Темата што ја избравте не е инсталирана или вклучена."
-
-msgid "manager.setup.theme.description"
-msgstr ""
-"Може да се инсталираат нови теми од табулаторот Плагин на горниот дел од "
-"оваа страница."
-
-msgid "manager.setup.theme"
-msgstr "Тема"
-
-msgid "manager.setup.theme.success"
-msgstr "Темата  еажурирана. <a href=\"{$url}\" target=\"_blank\">Види сега</a>"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr ""
-"Контакт лице кое може да им помогне на уредниците, авторите и рецензентите "
-"за какви било проблеми што ги имаат со испраќање, уредување, преглед или "
-"објавување материјал."
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "Контакт за техничка поддршка"
-
-msgid "manager.setup.styleSheetDescription"
-msgstr ""
-"Искусните веб-развивачи можат да испраќаат CSS-датотека за дополнително да "
-"го прилагодат изгледот на веб-страницата."
-
-msgid "manager.setup.sponsors.description"
-msgstr ""
-"Примери: академски здруженија, универзитетски оддели, корпорации, итн. "
-"Спонзорите се прикажани јавно."
-
-msgid "manager.setup.sponsors.note"
-msgstr "Спонзорски односи и опис на политика"
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Презентирајте ја врската до<button type=\"button\">Обезбедување на слепи "
-"преглед </button> за време на поставувањето"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Стандарден режим за рецензирање"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Испратете потсетник за е-пошта ако рецензентот не достави препорака во рок "
-"од по датумот на преиспитување."
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Потсетник за рецензија"
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Испратете потсетник за е-пошта ако рецензентот не одговорил на барањето за "
-"прегледување многу дена по датумот на одговорот."
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Потсетување за одговор"
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr ""
-"Стандардите може да се изменат за секој преглед за време на уредувачкиот "
-"процес."
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Не потсетувај"
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Недели дозволени да се заврши прегледот"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Број на недели за прифаќање или одбивање на барање за рецензија."
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Стандарден краен рок за завршување"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Стандарден краен рок за одговор"
-
-msgid "manager.setup.privacyStatement.description"
-msgstr ""
-"Оваа изјава ќе се појави за време на регистрација на корисниците, поднесоци "
-"од автори и на јавно достапна страница за приватност. Во некои јурисдикции,  "
-"правно треба да откриете како управувате со податоците за корисниците во "
-"оваа политика за приватност."
-
-msgid "manager.setup.privacyStatement"
-msgstr "Изјава за приватност"
-
-msgid "manager.setup.principalContactDescription"
-msgstr ""
-"Внесете детали за контакт, обично за главно уредување, управување со "
-"уредување или позиција на административен персонал, што може да се прикаже "
-"на вашата јавно достапна веб-страница."
-
-msgid "manager.setup.principalContact"
-msgstr "Главен контакт"
-
-msgid "manager.setup.peerReview.description"
-msgstr ""
-"Опишете ја политиката и процесите за рецензирање за читателите и авторите. "
-"Овој опис честопати вклучува број на рецензенти што обично се користат при "
-"рецензирање на поднесок, критериуми со кои од рецензентите се бара да ги "
-"оценат поднесоците, очекувано време потребно за спроведување на рецензиите и "
-"принципи што се користат за избор на рецензенти."
-
-msgid "manager.setup.pageFooter.description"
-msgstr ""
-"Внесете какви било слики, текст или HTML код што сакате да се појават на "
-"дното на вашата веб-страница."
-
-msgid "manager.setup.pageFooter"
-msgstr "Подножје за страница"
-
-msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr ""
-"Невалиден формат на слика или ажурирање на заглавието на страницата не "
-"успеа. Прифатените формати се .gif, .jpg или .png."
-
-msgid "manager.setup.openAccessPolicy.description"
-msgstr ""
-"Ако обезбедите непосреден бесплатен пристап до целата објавена содржина, "
-"можете да внесете опис на вашата политика за отворен пристап."
-
-msgid "manager.setup.openAccessPolicy"
-msgstr "Политика на отворен пристап"
-
-msgid "manager.setup.notifications.description"
-msgstr ""
-"Авторите автоматски се добијат е-пошта со која се потврдува нивното "
-"поднесување. Може да  добите копии од оваа е-пошта испратени на следново:"
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Испратете копија на оваа е-пошта"
-
-msgid "manager.setup.notifications"
-msgstr "Известување за поднесокот на автор"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr ""
-"Датотеката што ја поставивте не може да се најде. Обидете се повторно да го "
-"поставите."
-
-msgid "manager.setup.logo"
-msgstr "Лого"
-
-msgid "manager.setup.loggingAndAuditing"
-msgstr "Логирање и ревизија"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"Блокот {$name}  не може да се најде. Ве молиме, проверете дали приклучокот е "
-"инсталиран и овозможен."
-
-msgid "manager.setup.layout.sidebar"
-msgstr "Странична лента"
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Описи"
-
-msgid "manager.setup.homeTitleImageInvalid"
-msgstr ""
-"Невалиден формат на слика или ажурирање на насловот на почетната страница не "
-"успеа. Прифатените формати се .gif, .jpg или .png."
-
-msgid "manager.setup.homepageImageInvalid"
-msgstr ""
-"Неправилен формат на слика на почетната страница или качувањето не успеа. "
-"Прифатените формати се .gif, .jpg или .png."
-
-msgid "manager.setup.homepageImage.description"
-msgstr "Поставете слика за да се прикаже видливо на почетната страница."
-
-msgid "manager.setup.homepageImage"
-msgstr "Слика за насловна страница"
-
-msgid "manager.setup.groupType"
-msgstr "Групирање документи според видот"
-
-msgid "manager.setup.favicon"
-msgstr "Favicon"
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "Имаше грешка при бришење на оваа ставка."
-
-msgid "manager.setup.competingInterests"
-msgstr "Конфликт на интереси"
-
-msgid "manager.setup.checklist"
-msgstr "Чек листа"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Упатствата за авторот беа успешно ажурирани."
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"Препорачаните упатства вклучуваат библиографски стандарди и стандарди за "
-"форматирање, заедно со примери на вообичаени формати за наведување што се "
-"користат во поднесоците."
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Упатства за авторот"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr ""
-"Барајте од авторите да се согласат со следното известување за авторски права "
-"како дел од процесот на поднесување."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Копирајт изјава"
-
-msgid "manager.setup.contact.success"
-msgstr "Деталите за контакт за оваа печатница се ажурирани."
-
-msgid "manager.setup.appearance.success"
-msgstr "Поставките за изглед се ажурирани."
-
-msgid "manager.setup.advanced"
-msgstr "Напредно"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "Сè што е внесено тука, ќе се појави на вашата почетна страница."
-
-msgid "manager.setup.additionalContent"
-msgstr "Додадена содржина"
-
-msgid "manager.affiliationAndSupport"
-msgstr "Спонзор"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Стесни ги резултати според земја, регион и / или град."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Според географска локација"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Или избери посег по:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Изберете опсег за извештаи"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Според типот на објектот и / или ИД на објектот"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "По содржина"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr ""
-"Следното урл може да се користи за генерирање на извештајот со тековните "
-"поставки за формата. Само копирајте го и отворете го во вашиот прелистувач. "
-"Можете исто така да го чувате како генератор на урл за кориснички извештаи "
-"во вашите обележувачи."
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "УРЛ на извештајот"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Треба да изберете најмалку една колона за да го генерирате извештајот."
-
-msgid "manager.statistics.reports.cities.label"
-msgstr ""
-"Едно или повеќе имиња на градови, одделени со запирки (на пр. Име на град 1, "
-"име на град 2)"
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Користи ГГГГMMДД формат."
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Користи ГГГГMM формат."
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Паѓачко"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Растечко"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "Насока"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "Нарачано од"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Тековниот месец"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "Вчера"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr ""
-"Дефинирајте една или повеќеИД на предмети, одделени со запирка (на пр. "
-"1,2,3,4,5)."
-
-msgid "manager.statistics.reports.objectId"
-msgstr "ИД на објект"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "Вид на објект"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Предметот не е пронајден во базата на податоци"
-
-msgid "manager.statistics.reports.filters"
-msgstr "Филтери"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"Дефинирајте ги колоните што ќе се користат за изградба на извештајот. "
-"Колумните што ќе ги изберете тука не само што дефинираат кои податоци ќе "
-"бидат презентирани во извештаите, туку го дефинира и нивото на агрегација на "
-"статистиката. На пример, ако изберете колони за ИД, тип и месец, извештајот "
-"ќе ги сумира сите прегледи од еден предмет од еден месец и ќе ги презентира "
-"тие податоци во еден ред. Ако изберете ден наместо месец, секој предмет ќе "
-"има ред за секој ден."
-
-msgid "manager.statistics.reports.columns"
-msgstr "Колони"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Сокриј ги напредните опции"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Напредни опции"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Генерирај прилагоден извештај"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Стандардни обрасци за извештаи"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr ""
-"Предметите во италик и обележана со * претставуваат податоци што се "
-"незадолжителни на тековниот начин на броење на статистиката во системот (тип "
-"на метрика). Можеби ги имате тие податоци или не, во зависност од "
-"конфигурацијата на вашиот плагин за статистика."
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Собери статистики по:"
-
-msgid "manager.statistics.reports.description"
-msgstr ""
-"Системот генерира извештаи што ги следат деталите поврзани со користењето на "
-"страниците и поднесоците за одреден временски период. Извештаите се "
-"генерираат во формат CSV за што е потребна апликација за табеларно "
-"прикажување."
-
-#, fuzzy
-msgid "manager.statistics.reports"
-msgstr "Генератор на извештаи"
-
-msgid "manager.statistics.region"
-msgstr "Регион"
-
-msgid "manager.statistics.city"
-msgstr "Град"
+"Користете го формуларот подолу за да поставите максимални вредности за "
+"поимите што сакате да ги барате. Образецот е пре-населен со пресметаните "
+"просеци на тие полиња."
+
+msgid "manager.roles"
+msgstr "Улоги"
+
+msgid "manager.statistics"
+msgstr "Статистики и Извештаи"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
@@ -903,422 +586,744 @@ msgstr ""
 "стандардна.\n"
 "\t"
 
-msgid "manager.statistics"
-msgstr "Статистики и Извештаи"
+msgid "manager.statistics.city"
+msgstr "Град"
 
-msgid "manager.roles"
-msgstr "Улоги"
+msgid "manager.statistics.region"
+msgstr "Регион"
 
-msgid "manager.reviewerSearch.form.instructions"
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Генератор на извештаи"
+
+msgid "manager.statistics.reports.description"
 msgstr ""
-"Користете го формуларот подолу за да поставите максимални вредности за "
-"поимите што сакате да ги барате. Образецот е пре-населен со пресметаните "
-"просеци на тие полиња."
+"Системот генерира извештаи што ги следат деталите поврзани со користењето на "
+"страниците и поднесоците за одреден временски период. Извештаите се "
+"генерираат во формат CSV за што е потребна апликација за табеларно "
+"прикажување."
 
-msgid "manager.reviewerSearch.interests"
-msgstr "Интереси за рецензирање"
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Собери статистики по:"
 
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Пребарај по име"
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Пребарај рецензент по име"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Смени"
-
-msgid "manager.representative.inUse"
+msgid "manager.statistics.reports.optionalColumns.description"
 msgstr ""
-"Не можете да го избришете овој претставник, бидејќи тие се доделени на "
-"метаподатоците на пазарот за еден или повеќе формати на објавување за овој "
-"поднесок."
+"Предметите во италик и обележана со * претставуваат податоци што се "
+"незадолжителни на тековниот начин на броење на статистиката во системот (тип "
+"на метрика). Можеби ги имате тие податоци или не, во зависност од "
+"конфигурацијата на вашиот плагин за статистика."
 
-msgid "manager.userSearch.searchByName"
-msgstr "Пребарувај корисник по име"
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Стандардни обрасци за извештаи"
 
-msgid "manager.readingTools"
-msgstr "Алатки за читање"
+msgid "manager.statistics.reports.generateReport"
+msgstr "Генерирај прилагоден извештај"
 
-msgid "manager.plugins"
-msgstr "Системски плагин"
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Генератор на избран извештај"
 
-msgid "manager.plugins.sitePlugin"
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Напредни опции"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Сокриј ги напредните опции"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Колони"
+
+msgid "manager.statistics.reports.columns.description"
 msgstr ""
-"Ова е плагин на страници. Само администраторот на страници може да управува "
-"со овој плагин."
+"Дефинирајте ги колоните што ќе се користат за изградба на извештајот. "
+"Колумните што ќе ги изберете тука не само што дефинираат кои податоци ќе "
+"бидат презентирани во извештаите, туку го дефинира и нивото на агрегација на "
+"статистиката. На пример, ако изберете колони за ИД, тип и месец, извештајот "
+"ќе ги сумира сите прегледи од еден предмет од еден месец и ќе ги презентира "
+"тие податоци во еден ред. Ако изберете ден наместо месец, секој предмет ќе "
+"има ред за секој ден."
 
-msgid "manager.plugins.pluginManagement"
-msgstr "Управување со плагини"
+msgid "manager.statistics.reports.filters"
+msgstr "Филтери"
 
-msgid "manager.plugins.enable"
-msgstr "Овозможи"
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Предметот не е пронајден во базата на податоци"
 
-msgid "manager.plugins.disable"
-msgstr "Оневозможи"
+msgid "manager.statistics.reports.objectType"
+msgstr "Вид на објект"
 
-msgid "manager.plugins.action"
-msgstr "Акција:"
+msgid "manager.statistics.reports.objectId"
+msgstr "ИД на објект"
 
-msgid "manager.people.userMustChangePassword"
+msgid "manager.statistics.reports.objectId.label"
 msgstr ""
-"Барајте од корисникот да ја смени лозинката следниот пат кога ќе се најави."
+"Дефинирајте една или повеќеИД на предмети, одделени со запирка (на пр. "
+"1,2,3,4,5)."
 
-msgid "manager.people.userCreatedSuccessfully"
-msgstr "Корисникот е креиран успешно."
+msgid "manager.statistics.reports.yesterday"
+msgstr "Вчера"
 
-msgid "manager.people.unenroll"
-msgstr "Отпиши"
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Тековниот месец"
 
-msgid "manager.people.syncUsers"
-msgstr "Синхронизирајте го Уписот на корисници"
+msgid "manager.statistics.reports.orderBy"
+msgstr "Нарачано од"
 
-msgid "manager.people.signInAsUser"
-msgstr "Логирај се како корисник"
+msgid "manager.statistics.reports.orderDir"
+msgstr "Насока"
 
-msgid "manager.people.signInAs"
-msgstr "Логирај се како"
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Растечко"
 
-msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Зачувај и креирај нов"
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Паѓачко"
 
-msgid "manager.people.remove"
-msgstr "Отстрани"
+msgid "manager.statistics.reports.month.label"
+msgstr "Користи ГГГГMM формат."
 
-msgid "manager.people"
-msgstr "Луѓе"
+msgid "manager.statistics.reports.day.label"
+msgstr "Користи ГГГГMMДД формат."
 
-msgid "manager.people.noneEnrolled"
-msgstr "Нема запишани корисници."
-
-msgid "manager.people.noMatchingUsers"
-msgstr "Нема корисници што одговараат."
-
-msgid "manager.people.mustProvideName"
-msgstr "Внесете барем презиме за корисникот."
-
-msgid "manager.people.mustChooseRole"
+msgid "manager.statistics.reports.cities.label"
 msgstr ""
-"Изберете улога на горниот дел од страницата пред да кликнете на \"Запиши го "
-"корисникот\"."
+"Едно или повеќе имиња на градови, одделени со запирки (на пр. Име на град 1, "
+"име на град 2)"
 
-msgid "manager.people.mergeUsers"
-msgstr "Спои ги корисниците"
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Треба да изберете најмалку една колона за да го генерирате извештајот."
 
-msgid "manager.people.mergeUsers.confirm"
+msgid "manager.statistics.reports.reportUrl"
+msgstr "УРЛ на извештајот"
+
+msgid "manager.statistics.reports.reportUrl.label"
 msgstr ""
-"225/5000\n"
-"Дали сте сигурни дека сакате да ги споите избраните {$oldAccountCount} "
-"сметката со корисничкото име \"{$newUsername}\"? Избраните {$oldAccountCount}"
-" сметки нема да постојат потоа. Оваа акција не е реверзибилна."
+"Следното урл може да се користи за генерирање на извештајот со тековните "
+"поставки за формата. Само копирајте го и отворете го во вашиот прелистувач. "
+"Можете исто така да го чувате како генератор на урл за кориснички извештаи "
+"во вашите обележувачи."
 
-msgid "manager.people.mergeUser"
-msgstr "Спои ги корисниците"
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "По содржина"
 
-msgid "manager.people.invalidUser"
-msgstr "Извинете, бараниот корисник не постои."
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Според типот на објектот и / или ИД на објектот"
 
-msgid "manager.people.enrollUserAs"
-msgstr "Додели на корисникот улога на"
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Изберете опсег за извештаи"
 
-msgid "manager.people.enrollUserAsDescription"
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Или избери посег по:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Според географска локација"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Стесни ги резултати според земја, регион и / или град."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонзор"
+
+msgid "manager.setup.additionalContent"
+msgstr "Додадена содржина"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Сè што е внесено тука, ќе се појави на вашата почетна страница."
+
+msgid "manager.setup.advanced"
+msgstr "Напредно"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Копирајт изјава"
+
+msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"На корисниците може да им се додели или отстрани улога во кој било момент."
+"Барајте од авторите да се согласат со следното известување за авторски права "
+"како дел од процесот на поднесување."
 
-msgid "manager.people.enrollSync"
-msgstr "Синхронизирај ги улогите"
+msgid "manager.setup.authorGuidelines"
+msgstr "Упатства за авторот"
 
-msgid "manager.people.enrollSyncRole"
-msgstr "Синхорнизирај ги улогите"
-
-msgid "manager.people.enrollSelected"
-msgstr "Доделување улога на селектираните корисници"
-
-msgid "manager.people.enrollment"
-msgstr "Доделување улоги"
-
-msgid "manager.people.enroll"
-msgstr "Додади улога на корисник"
-
-msgid "manager.people.enable"
-msgstr "Овозможи"
-
-msgid "manager.people.emailUsers.selectUsers"
+msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"Изберете ги корисниците на кои  што сакате да им испратите е-пошта со "
-"означување на полињата покрај нивните имиња"
+"Препорачаните упатства вклучуваат библиографски стандарди и стандарди за "
+"форматирање, заедно со примери на вообичаени формати за наведување што се "
+"користат во поднесоците."
 
-msgid "manager.people.emailUsers.selectLocale"
-msgstr "Избери локализација"
+msgid "manager.setup.disableSubmissions"
+msgstr "Оневозможи поднесок"
 
-msgid "manager.people.emailUsers"
-msgstr "Испрати имејл до корисниците"
+msgid "manager.setup.checklist"
+msgstr "Чек листа"
 
-msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Испрати имелј на корисниците вклучени како"
+msgid "manager.setup.competingInterests"
+msgstr "Конфликт на интереси"
 
-msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Испрати имејл на селектираните корисници"
+msgid "manager.setup.errorDeletingItem"
+msgstr "Имаше грешка при бришење на оваа ставка."
 
-msgid "manager.people.editUser"
-msgstr "Уреди корисник"
+msgid "manager.setup.favicon"
+msgstr "Favicon"
 
-msgid "manager.people.editProfile"
-msgstr "Уреди профил"
+msgid "manager.setup.homepageImage"
+msgstr "Слика за насловна страница"
 
-msgid "manager.people.doNotEnroll"
-msgstr "Нема улога"
+msgid "manager.setup.homepageImage.description"
+msgstr "Поставете слика за да се прикаже видливо на почетната страница."
 
-msgid "manager.people.disable"
-msgstr "Оневозможи"
-
-msgid "manager.people.createUserSendNotify"
-msgstr "Испратете му на е-пошта на корисникот, со корисничко име и лозинка."
-
-msgid "manager.people.createUserGeneratePassword"
-msgstr "Генерирај случајна лозинка."
-
-msgid "manager.people.createUser"
-msgstr "Креирај нов корисник"
-
-msgid "manager.people.confirmUnenroll"
-msgstr "Тргнете го овој корисник?"
-
-msgid "manager.people.authSource"
-msgstr "Извор на автентикација"
-
-msgid "manager.people.existingUserRequired"
-msgstr "Мора да се внесе постоечки корисник."
-
-msgid "manager.payment.timestamp"
-msgstr "Временски печат"
-
-msgid "manager.languages.supportedLocalesInstructions"
+msgid "manager.setup.homepageImageInvalid"
 msgstr ""
-"Изберете ги сите локализациите за поддршка на страницата преку менито за "
-"избирање јазик што ќе се појави на секоја страница. Менито ќе се појави само "
-"ако е избрано повеќе од една локализација."
+"Неправилен формат на слика на почетната страница или качувањето не успеа. "
+"Прифатените формати се .gif, .jpg или .png."
 
-msgid "manager.languages.alternateLocaleInstructions"
+msgid "manager.setup.homeTitleImageInvalid"
 msgstr ""
-"Овој систем по избор овозможува да се внесат одредени критични информации на "
-"неколку дополнителни јазици. За да ја користите оваа одлика, изберете "
-"алтернативни локализации и изберете од опциите наведени подолу."
+"Невалиден формат на слика или ажурирање на насловот на почетната страница не "
+"успеа. Прифатените формати се .gif, .jpg или .png."
 
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Превчитај ги основните"
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описи"
 
-msgid "manager.language.forms"
-msgstr "Формулари"
+msgid "manager.setup.layout.sidebar"
+msgstr "Странична лента"
 
-msgid "manager.language.submissions"
-msgstr "Поднесоци"
-
-msgid "manager.language.ui"
-msgstr "УИ"
-
-msgid "manager.importExport"
-msgstr "Увези/извези податоци"
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Процент на одбиени од дескот"
-
-msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} е дефинирано како стандардна локализација."
-
-msgid "notification.localeDisabled"
-msgstr "Локализацијата е оневозможена."
-
-msgid "notification.localeEnabled"
-msgstr "Локализацијата е овозможена."
-
-msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml не е најден во директориумот за плагини"
-
-msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml во директориумот со плагини содржи неважечки податоци."
-
-msgid "manager.plugins.uploadPluginDir"
-msgstr "Избери плагин"
-
-msgid "manager.plugins.uploadError"
-msgstr "Грешка при аплодирање на фајл"
-
-msgid "manager.plugins.upgradeSuccessful"
-msgstr "Успешно ажурирано до верзија {$versionString}"
-
-msgid "manager.plugins.upgradeFailed"
-msgstr "Ажурирањето не успеа. $errorString}"
-
-msgid "manager.plugins.upgradeDescription"
+msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"Оваа форма ви овозможува да ажурирате додаток. Ве молиме, проверете дали "
-"приклучокот е компресиран како датотека .tar.gz."
+"Блокот {$name}  не може да се најде. Ве молиме, проверете дали приклучокот е "
+"инсталиран и овозможен."
 
-msgid "manager.plugins.upgrade"
-msgstr "Ажурирај плагин"
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Логирање и ревизија"
 
-msgid "manager.plugins.tarCommandNotFound"
+msgid "manager.setup.logo"
+msgstr "Лого"
+
+msgid "manager.setup.noTemporaryFile"
 msgstr ""
-"Командата за тар не е достапна. Ве молиме, правилно конфигурирајте го во \""
-"config.inc.php\"."
+"Датотеката што ја поставивте не може да се најде. Обидете се повторно да го "
+"поставите."
 
-msgid "manager.plugins.settings"
-msgstr "Подесувања"
+msgid "manager.setup.notifications"
+msgstr "Известување за поднесокот на автор"
 
-msgid "manager.plugins.pleaseUpgrade"
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Испратете копија на оваа е-пошта"
+
+msgid "manager.setup.notifications.description"
 msgstr ""
-"Плагинот веќе постои, но е понова од инсталираната верзија. Ве молиме, "
-"ажурирајте наместо тоа"
+"Авторите автоматски се добијат е-пошта со која се потврдува нивното "
+"поднесување. Може да  добите копии од оваа е-пошта испратени на следново:"
 
-msgid "manager.plugins.pleaseInstall"
-msgstr "Плагинот не постои. Ве молиме, инсталирајте наместо тоа"
+msgid "manager.setup.notifyUsers"
+msgstr "Забележи"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Избери корисници кои кои треба да примат имејл нотификација."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Испрати копија од овој имејл за мане на {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Испрати имејл"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Треба да испратите и-мејл кон  {$total} корисници. Сигурен ли сте дека "
+"сакате да го испратите овој имејл?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Испраќање имејл. Волам не листај пред да се комплетира испраќањето."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Имејлот беше успешно испратен до сите примачи."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Испрати друг имејл"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Политика на отворен пристап"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ако обезбедите непосреден бесплатен пристап до целата објавена содржина, "
+"можете да внесете опис на вашата политика за отворен пристап."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Невалиден формат на слика или ажурирање на заглавието на страницата не "
+"успеа. Прифатените формати се .gif, .jpg или .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Подножје за страница"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Внесете какви било слики, текст или HTML код што сакате да се појават на "
+"дното на вашата веб-страница."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Опишете ја политиката и процесите за рецензирање за читателите и авторите. "
+"Овој опис честопати вклучува број на рецензенти што обично се користат при "
+"рецензирање на поднесок, критериуми со кои од рецензентите се бара да ги "
+"оценат поднесоците, очекувано време потребно за спроведување на рецензиите и "
+"принципи што се користат за избор на рецензенти."
+
+msgid "manager.setup.principalContact"
+msgstr "Главен контакт"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Внесете детали за контакт, обично за главно уредување, управување со "
+"уредување или позиција на административен персонал, што може да се прикаже "
+"на вашата јавно достапна веб-страница."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Изјава за приватност"
+
+msgid "manager.setup.dateTime"
+msgstr "Дата и време"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Фирмати за дата и за време"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Избери посакуван формат за дати и за времиња.  Избраниот формат може да се "
+"внесе со користење на специјален  <a href='http://php.net/manual/en/function."
+"strftime.php#refsect1-function.strftime-parameters'>формат на карактери</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Дата"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Дата (кратко)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Време"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Дата и време"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Дата и време (кратко)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Избрано"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Оваа изјава ќе се појави за време на регистрација на корисниците, поднесоци "
+"од автори и на јавно достапна страница за приватност. Во некои јурисдикции,  "
+"правно треба да откриете како управувате со податоците за корисниците во "
+"оваа политика за приватност."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Стандарден краен рок за одговор"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Стандарден краен рок за завршување"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Број на недели за прифаќање или одбивање на барање за рецензија."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Недели дозволени да се заврши прегледот"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Не потсетувај"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Стандардите може да се изменат за секој преглед за време на уредувачкиот "
+"процес."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Потсетување за одговор"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Испратете потсетник за е-пошта ако рецензентот не одговорил на барањето за "
+"прегледување многу дена по датумот на одговорот."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Потсетник за рецензија"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Испратете потсетник за е-пошта ако рецензентот не достави препорака во рок "
+"од по датумот на преиспитување."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Стандарден режим за рецензирање"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Презентирајте ја врската до<button type=\"button\">Обезбедување на слепи "
+"преглед </button> за време на поставувањето"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Спонзорски односи и опис на политика"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Примери: академски здруженија, универзитетски оддели, корпорации, итн. "
+"Спонзорите се прикажани јавно."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Искусните веб-развивачи можат да испраќаат CSS-датотека за дополнително да "
+"го прилагодат изгледот на веб-страницата."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Контакт за техничка поддршка"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Контакт лице кое може да им помогне на уредниците, авторите и рецензентите "
+"за какви било проблеми што ги имаат со испраќање, уредување, преглед или "
+"објавување материјал."
+
+msgid "manager.setup.theme"
+msgstr "Тема"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Може да се инсталираат нови теми од табулаторот Плагин на горниот дел од "
+"оваа страница."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Темата што ја избравте не е инсталирана или вклучена."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Деактивирај ја оваа секција и не дозволувај да биде внесен нов поднесок."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Сигурен ли сте дека сакате да ја деактивирате оваа секција?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Сигурен ли сте дека сакате да ја активирате оваа секција?"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Опции за пристап до страницата"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} нов)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Регистриран корисник"
+
+msgid "manager.users"
+msgstr "Корисници"
+
+msgid "plugins.categories.metadata"
+msgstr "Плагин за метадата"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Плагини за метадата имплемнетира дополнителни метадата станбдарди."
+
+msgid "plugins.categories.auth"
+msgstr "Плагини за авторизација"
+
+msgid "plugins.categories.blocks"
+msgstr "Блокирај плагини"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Блок-плагини се компоненти за UI-приклучок, како што се различните алатки за "
+"странични ленти."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Gateway плагини обезбедуваат податоци во живо на надворешните системи."
+
+msgid "plugins.categories.gateways"
+msgstr "Gateway  плагини"
+
+msgid "plugins.categories.generic"
+msgstr "Генерички плагини"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Приклучоци за увоз / извоз може да се користат за пренесување на содржина од "
+"и од други системи."
+
+msgid "plugins.categories.importexport"
+msgstr "Приклучоци за Увоз / извоз"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Приклучоците за Метод на плаќање спроведуваат поддршка за различни начини на "
+"обработка на плаќања преку Интернет."
+
+msgid "plugins.categories.paymethod"
+msgstr "Плагин за плаќање"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Приклучоците за извештаи се користат за спроведување на разни видови "
+"извештаи и екстракти на податоци."
+
+msgid "plugins.categories.reports"
+msgstr "Плагин за извештаи"
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+"Плагини за теми можат да се користат за промена на изгледот на системот."
+
+msgid "plugins.categories.themes"
+msgstr "Плагин за теми"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Плаг ин за  OAI Metadata Format"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Овие додатоци на формат изразуваат метаподатоци во OAI комуникациите."
+
+msgid "plugins.categories.pubIds"
+msgstr "Приклучоци за јавни идентификатори"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Овие приклучоци спроведуваат поддршка за јавен идентификатор."
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Приклучокот не беше успешно копиран. Ова може да биде проблем со дозволите. "
+"Ве молиме, проверете дали веб-серверот е во состојба да напише до "
+"директориумот со додатоци (вклучително и поддиректориуми), но не заборавајте "
+"да го обезбедите повторно подоцна."
+
+msgid "manager.plugins.delete"
+msgstr "Избриши плагин"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Дали сте сигурни дека сакате да го инсталирате овој плагин?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Дали сте сигурни дека сакате да го надградите овој плагин?"
+
+msgid "grid.action.installPlugin"
+msgstr "Инсталирајте или надградете го овој плагин"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Дали сте сигурни дека сакате да го избришете овој плагин од системот?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Со кликнување на бришење, ќе го избришете плагинот од датотечниот систем на "
+"серверот."
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Плагинот \"{$pluginName}\" не може да се избрише од датотечниот систем. Ова "
+"може да биде проблем со дозволите. Ве молиме, проверете дали веб-серверот е "
+"во состојба да напише до директориумот со додатоци (вклучително и "
+"поддиректориуми), но не заборавајте да го обезбедите повторно подоцна."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Плагинот \"{$pluginName}\" е успешно избришан"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Оваа страница му овозможува на Менаџерот да ги прегледува и потенцијално да "
+"ги конфигурира приклучоците што се моментално инсталирани. Приклучоците се "
+"поделени во категории, според нивната функција. Категориите се наведени "
+"подолу, и во рамките на секоја категорија, сегашниот сет на додатоци."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Плагинот \"{$pluginName}\" не постои"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Прво  изберете фајл"
+
+msgid "manager.plugins.upload"
+msgstr "Аплодирај нов плагин"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Оваа форма ви овозможува да испратите и инсталирате нов плагин. Ве молиме, "
+"проверете дали плагионот е компресиран како датотека .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Проверете дали датотеката е избрана за поставување."
+
+msgid "manager.plugins.installed"
+msgstr "Инсталирани плагини"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Галерија за плагини"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Преглед"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Инсталација"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Најнови компатибилно издание"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Официјално"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Овој плагин е развиен и одржуван од тимот на Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Рецензирано"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Овој плагин е прегледан и одобрен од тимот на Public Knowledge Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Партнер"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Овој плагин е обезбеден од еден од нашите партнери за развој."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Одржувач"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} од {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Главна страница"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Резиме"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Статус"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Плагинот сè уште не е инсталиран."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Во моментов нема достапна компатибилна верзија на овој плагин."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Плагинот веќе инсталиран и ажуриран."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Понова од достапната верзија"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Може да се надогради"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Ажурирано"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Не е достапно"
+
+msgid "manager.plugins.installFailed"
+msgstr "Инсталацијата е неуспешна. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Успешно инсталирана верзија {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "Архивата на плагини не содржи папка што одговара на името на плагинот."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Плагинот не одговара на категоријата на ажуриран плагин."
 
 msgid "manager.plugins.wrongName"
 msgstr ""
 "Верзијата.xml во поставениот плагин содржи име на додаток што не одговара на "
 "името на надградениот плагин."
 
-msgid "manager.plugins.wrongCategory"
-msgstr "Плагинот не одговара на категоријата на ажуриран плагин."
+msgid "manager.plugins.pleaseInstall"
+msgstr "Плагинот не постои. Ве молиме, инсталирајте наместо тоа"
 
-msgid "manager.plugins.invalidPluginArchive"
-msgstr "Архивата на плагини не содржи папка што одговара на името на плагинот."
-
-msgid "manager.plugins.installSuccessful"
-msgstr "Успешно инсталирана верзија {$versionNumber}"
-
-msgid "manager.plugins.installFailed"
-msgstr "Инсталацијата е неуспешна. {$errorString}"
-
-msgid "manager.plugins.noCompatibleVersion.short"
-msgstr "Не е достапно"
-
-msgid "manager.plugins.installedVersionNewest.short"
-msgstr "Ажурирано"
-
-msgid "manager.plugins.installedVersionOlder.short"
-msgstr "Може да се надогради"
-
-msgid "manager.plugins.installedVersionNewer.short"
-msgstr "Понова од достапната верзија"
-
-msgid "manager.plugins.installedVersionNewest"
-msgstr "Плагинот веќе инсталиран и ажуриран."
-
-msgid "manager.plugins.installedVersionOlder"
+msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
-"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+"Плагинот веќе постои, но е понова од инсталираната верзија. Ве молиме, "
+"ажурирајте наместо тоа"
 
-msgid "manager.plugins.installedVersionNewer"
+msgid "manager.plugins.settings"
+msgstr "Подесувања"
+
+msgid "manager.plugins.tarCommandNotFound"
 msgstr ""
-"Плагинот е веќе инсталиран и е понова од верзијата достапна во галеријата."
+"Командата за тар не е достапна. Ве молиме, правилно конфигурирајте го во "
+"\"config.inc.php\"."
 
-msgid "manager.plugins.noCompatibleVersion"
-msgstr "Во моментов нема достапна компатибилна верзија на овој плагин."
+msgid "manager.plugins.upgrade"
+msgstr "Ажурирај плагин"
 
-msgid "manager.plugins.noInstalledVersion"
-msgstr "Плагинот сè уште не е инсталиран."
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Оваа форма ви овозможува да ажурирате додаток. Ве молиме, проверете дали "
+"приклучокот е компресиран како датотека .tar.gz."
 
-msgid "manager.plugins.pluginGallery.status"
-msgstr "Статус"
+msgid "manager.plugins.upgradeFailed"
+msgstr "Ажурирањето не успеа. $errorString}"
 
-msgid "manager.plugins.pluginGallery.summary"
-msgstr "Резиме"
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Успешно ажурирано до верзија {$versionString}"
 
-msgid "manager.plugins.pluginGallery.homepage"
-msgstr "Главна страница"
+msgid "manager.plugins.uploadError"
+msgstr "Грешка при аплодирање на фајл"
 
-msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} од {$date}"
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Избери плагин"
 
-msgid "manager.plugins.pluginGallery.maintainer"
-msgstr "Одржувач"
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml во директориумот со плагини содржи неважечки податоци."
 
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Овој плагин е обезбеден од еден од нашите партнери за развој."
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml не е најден во директориумот за плагини"
 
-msgid "notification.editedUser"
-msgstr "Корисникот е изменет."
+msgid "notification.localeEnabled"
+msgstr "Локализацијата е овозможена."
 
-msgid "notification.localeSettingsSaved"
-msgstr "Поставките за локација се зачувани."
+msgid "notification.localeDisabled"
+msgstr "Локализацијата е оневозможена."
 
-msgid "notification.localeReloaded"
-msgstr "{$locale} локацијата е повторно вчитана за {$textName}."
-
-msgid "notification.localeUninstalled"
-msgstr "Деинсталирано е локално {$locale}."
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} е дефинирано како стандардна локализација."
 
 msgid "notification.localeInstalled"
 msgstr "Сите избрани локализации се инсталирани и активирани."
 
-msgid "settings.roles.roleIdRequired"
-msgstr "Мора да дефинирате ниво на дозвола."
+msgid "notification.localeUninstalled"
+msgstr "Деинсталирано е локално {$locale}."
 
-msgid "settings.roles.uniqueAbbrev"
-msgstr "Мора да определите уникатна кратенка за улогата."
+msgid "notification.localeReloaded"
+msgstr "{$locale} локацијата е повторно вчитана за {$textName}."
 
-msgid "settings.roles.uniqueName"
-msgstr "Мора да зададете уникатно име за улогата."
+msgid "notification.localeSettingsSaved"
+msgstr "Поставките за локација се зачувани."
 
-msgid "settings.roles.abbrevRequired"
-msgstr "Мора да дефинирате кратенка за улогата."
+msgid "notification.editedUser"
+msgstr "Корисникот е изменет."
 
-msgid "settings.roles.nameRequired"
-msgstr "Мора да дефинирате име на улогата."
+msgid "manager.distribution.license"
+msgstr "Лиценца"
 
-msgid "settings.roles.removeText"
+msgid "manager.distribution.license.other"
+msgstr "Друга URL на лиценцата"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Услови на лиценцата"
+
+msgid "manager.distribution.licenseTerms.description"
 msgstr ""
-"Ја отстранувате оваа улога од овој контекст. Оваа операција исто така ќе ги "
-"избрише поврзаните поставки и сите задачи на корисниците на оваа улога. Дали "
-"сакате да продолжите?"
+"Внесете јавни услови за лиценцирање што сакате да ги прикажете заедно со "
+"објавениот труд."
 
-msgid "settings.roles.from"
-msgstr "Ниво на дозволи"
-
-msgid "settings.roles.roleDetails"
-msgstr "Детали за улогата"
-
-msgid "settings.roles.stages"
-msgstr "Чекори"
-
-msgid "settings.roles.assignedStages"
-msgstr "Доделени чекори"
-
-msgid "settings.roles.roleAbbrev"
-msgstr "Кратенка"
-
-msgid "settings.roles.roleName"
-msgstr "Име на улогата"
-
-msgid "settings.roles.recommendOnly"
-msgstr ""
-"Оваа улога е дозволено само да препорача одлука за рецензија и ќе бара "
-"овластен уредник да запише конечна одлука."
-
-msgid "settings.roles.permitSelfRegistration"
-msgstr "Дозволи корисниците самии да се регистрираат"
-
-msgid "settings.roles.showTitles"
-msgstr "Покажете наслов на улога во списокот на соработници"
-
-msgid "settings.roles.roleOptions"
-msgstr "Опции за улога"
-
-msgid "manager.paymentMethod.currency"
-msgstr "Валута"
-
-msgid "manager.paymentMethod.method"
-msgstr "Метод за плаќање"
-
-msgid "manager.paymentMethod.none"
-msgstr "Не е избран метод за плаќање"
-
-msgid "manager.paymentMethod.title"
-msgstr "Методи за плаќање"
-
-msgid "manager.paymentMethod"
-msgstr "Плаќања"
+msgid "manager.distribution.customHeaders"
+msgstr "Прилагодени ознаки"
 
 msgid "manager.distribution.customHeaders.description"
 msgstr ""
@@ -1326,634 +1331,154 @@ msgstr ""
 "ги вметнете во главата на секоја страница. Консултирајте се со технички "
 "советник пред да додадете ознаки тука."
 
-msgid "manager.distribution.customHeaders"
-msgstr "Прилагодени ознаки"
+msgid "manager.paymentMethod"
+msgstr "Плаќања"
 
-msgid "manager.distribution.licenseTerms.description"
+msgid "manager.paymentMethod.title"
+msgstr "Методи за плаќање"
+
+msgid "manager.paymentMethod.none"
+msgstr "Не е избран метод за плаќање"
+
+msgid "manager.paymentMethod.method"
+msgstr "Метод за плаќање"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Валута"
+
+msgid "settings.roles.roleOptions"
+msgstr "Опции за улога"
+
+msgid "settings.roles.showTitles"
+msgstr "Покажете наслов на улога во списокот на соработници"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Дозволи корисниците самии да се регистрираат"
+
+msgid "settings.roles.recommendOnly"
 msgstr ""
-"Внесете јавни услови за лиценцирање што сакате да ги прикажете заедно со "
-"објавениот труд."
+"Оваа улога е дозволено само да препорача одлука за рецензија и ќе бара "
+"овластен уредник да запише конечна одлука."
 
-msgid "manager.distribution.licenseTerms"
-msgstr "Услови на лиценцата"
+msgid "settings.roles.roleName"
+msgstr "Име на улогата"
 
-msgid "manager.distribution.license.other"
-msgstr "Друга URL на лиценцата"
+msgid "settings.roles.roleAbbrev"
+msgstr "Кратенка"
 
-msgid "manager.distribution.license.success"
-msgstr "Деталите за лиценцата се ажурирани. "
+msgid "settings.roles.assignedStages"
+msgstr "Доделени чекори"
 
-msgid "manager.distribution.license"
-msgstr "Лиценца"
+msgid "settings.roles.stages"
+msgstr "Чекори"
 
-msgid "manager.emails.resetAll.complete"
-msgstr "Стандардните обрасци за е-пошта се обновени."
+msgid "settings.roles.roleDetails"
+msgstr "Детали за улогата"
 
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Избриши известување"
+msgid "settings.roles.from"
+msgstr "Ниво на дозволи"
 
-msgid "manager.setup.genres.label"
-msgstr "Тип на фајл"
+msgid "settings.roles.removeText"
+msgstr ""
+"Ја отстранувате оваа улога од овој контекст. Оваа операција исто така ќе ги "
+"избрише поврзаните поставки и сите задачи на корисниците на оваа улога. Дали "
+"сакате да продолжите?"
 
-msgid "grid.action.restoreGenres"
-msgstr "Врати ги компонентите во предодредено подесување"
+msgid "settings.roles.nameRequired"
+msgstr "Мора да дефинирате име на улогата."
 
-msgid "grid.action.deleteGenre"
-msgstr "Исфрли ја оваа компонента"
+msgid "settings.roles.abbrevRequired"
+msgstr "Мора да дефинирате кратенка за улогата."
 
-msgid "grid.action.editGenre"
-msgstr "Поправи ја оваа компонента"
+msgid "settings.roles.uniqueName"
+msgstr "Мора да зададете уникатно име за улогата."
 
-msgid "grid.action.addGenre"
-msgstr "Додади компонента"
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Мора да определите уникатна кратенка за улогата."
 
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Избери библиотечен фајл за прикачување"
+msgid "settings.roles.roleIdRequired"
+msgstr "Мора да дефинирате ниво на дозвола."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Потребно е да го дефинирате стадиумот за назначување."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Овозможи корекција на поднесените метаподатоци."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Потребен е фајл за библиотека. Молам забележи дека ти избра и внесе фајл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Потребно е име за овој библиотечен фајл."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Потребен е тип на фајл за овој библиотечен фајл."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Контакти"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Маркетинг"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Дозволи"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Извештаи"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Друго"
 
 msgid "settings.libraryFiles.public.viewInstructions"
 msgstr ""
 "<p>Овој библиотечен фајл мое да биде достапен за симнување, ако \"Public "
 "Access\" е овозможен, на: <blockquote>{$downloadUrl}</blockquote></p>"
 
-msgid "settings.libraryFiles.category.other"
-msgstr "Друго"
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Избери библиотечен фајл за прикачување"
 
-msgid "settings.libraryFiles.category.reports"
-msgstr "Извештаи"
+msgid "grid.action.addGenre"
+msgstr "Додади компонента"
 
-msgid "settings.libraryFiles.category.permissions"
-msgstr "Дозволи"
+msgid "grid.action.editGenre"
+msgstr "Поправи ја оваа компонента"
 
-msgid "settings.libraryFiles.category.marketing"
-msgstr "Маркетинг"
+msgid "grid.action.deleteGenre"
+msgstr "Исфрли ја оваа компонента"
 
-msgid "settings.libraryFiles.category.contracts"
-msgstr "Контакти"
+msgid "grid.action.restoreGenres"
+msgstr "Врати ги компонентите во предодредено подесување"
 
-msgid "settings.libraryFiles.typeRequired"
-msgstr "Потребен е тип на фајл за овој библиотечен фајл."
-
-msgid "settings.libraryFiles.nameRequired"
-msgstr "Потребно е име за овој библиотечен фајл."
-
-msgid "settings.libraryFiles.fileRequired"
-msgstr ""
-"Потребен е фајл за библиотека. Молам забележи дека ти избра и внесе фајл."
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Овозможи корекција на поднесените метаподатоци."
-
-msgid "settings.roles.stageIdRequired"
-msgstr "Потребно е да го дефинирате стадиумот за назначување."
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Сигурен ли сте дека сакате да ја активирате оваа секција?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Сигурен ли сте дека сакате да ја деактивирате оваа секција?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Деактивирај ја оваа секција и не дозволувај да биде внесен нов поднесок."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Избрано"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Дата и време (кратко)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Дата и време"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Време"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Дата (кратко)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Дата"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Избери посакуван формат за дати и за времиња.  Избраниот формат може да се "
-"внесе со користење на специјален  <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>формат на "
-"карактери</a>."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Фирмати за дата и за време"
-
-msgid "manager.setup.dateTime"
-msgstr "Дата и време"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Испрати друг имејл"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "Имејлот беше успешно испратен до сите примачи."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr "Испраќање имејл. Волам не листај пред да се комплетира испраќањето."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Треба да испратите и-мејл кон  {$total} корисници. Сигурен ли сте дека "
-"сакате да го испратите овој имејл?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Испрати имејл"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Испрати копија од овој имејл за мане на {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Избери корисници кои кои треба да примат имејл нотификација."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Забележи"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Оневозможи поднесок"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Генератор на избран извештај"
-
-msgid "manager.people.signedInAs"
-msgstr "Сега сте логиран како  {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Избери корисници кои ќе бидат испратени во Excel/CSV фајл."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Испрати во Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Образецот за имејл е успешно ресетиран."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Метаподатоци на датотеката"
-
-msgid "manager.setup.genres.key.alphaNumeric"
-msgstr ""
-"Клучот може да содржи само алфанумерички знаци, подвлеки и цртички, и мора "
-"да започне и да заврши со алфанумерички знак."
-
-msgid "manager.setup.genres.key.exists"
-msgstr "Клучот веќе постои."
-
-msgid "manager.setup.genres.key.description"
-msgstr "Незадолжителен краток симболичен идентификатор за овој жанр."
-
-msgid "manager.setup.genres.key"
-msgstr "Клуч"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Овие се додатни датотеки, како множества на податоци и истражувачки "
-"материјали, и ќе бидат прикажани одделно од главните датотеки за објавување."
+msgid "manager.setup.genres.label"
+msgstr "Тип на фајл"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
 "Овие се зависни датотеки, како слики кои ги прикажува HTML датотека, и нема "
 "да бидат прикажани заедно со објавената содржина."
 
-msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Назначени елементи на мени"
-
-msgid "manager.navigationMenuItems"
-msgstr "Елементи на навигациското мени"
-
-msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Насловот е задолжителен"
-
-msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr "Овој наслов веќе постои за друг елемент на навигациското мени."
-
-msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "Оваа патека веќе постои за друг елемент на навигациското мени."
-
-msgid "manager.navigationMenus.form.pathRegEx"
+msgid "manager.setup.genres.supplementary"
 msgstr ""
-"Полето за патека мора да содржи само алфанумерички знаци плус  '.', '/', '-"
-"', и '_'."
+"Овие се додатни датотеки, како множества на податоци и истражувачки "
+"материјали, и ќе бидат прикажани одделно од главните датотеки за објавување."
 
-msgid "manager.navigationMenus.form.content"
-msgstr "Содржина"
+msgid "manager.setup.genres.key"
+msgstr "Клуч"
 
-msgid "manager.navigationMenus.form.viewInstructions"
+msgid "manager.setup.genres.key.description"
+msgstr "Незадолжителен краток симболичен идентификатор за овој жанр."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Клучот веќе постои."
+
+msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
-"<p>Оваа страница ќе биде достапна на: <blockquote>{$pagesPath}</blockquote>"
-"...каде што %PATH% е погоре внесената патека. <strong>Забелешка:</strong> "
-"Две страници не можат да имаат иста патека. Користење на патеки вградени во "
-"системот може да доведе до губиток на пристап до важни функции.</p>"
-
-msgid "manager.navigationMenus"
-msgstr "Навигација"
-
-msgid "manager.navigationMenus.form.path"
-msgstr "Патека"
-
-msgid "manager.navigationMenus.form.title"
-msgstr "Наслов"
-
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr ""
-"Импортираниот корисник \"{$username}\" има едноставна лозинка која не е "
-"важечка. Корисникот не беше импортиран."
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Задржани се било какви права над поднесокот, што може да вклучува права на "
-"интелектуална сопственост (IPR), авторски права и разни права на сопственост."
-
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr ""
-"Лозинката на импортираниот корисник \"{$username}\" не може да се импортира "
-"како што е. Нова лозинка се испраќа на корисничкиот и-меил. Корисникот беше "
-"импортиран."
-
-msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr ""
-"Импортираниот корисник \"{$username}\" нема лозинка. Проверете го вашиот XML "
-"формат за импортирање. Корисникот не беше импортиран."
-
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Импортирај/Експортирај грешки:"
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Поднесокот {$id} беше прескокнат бидејќи е прикачен на запис кој нема да "
-"биде импортиран, како што се задача за рецензија или дискусија."
-
-msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "Поднесокот не можеше да се импортира"
-
-msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr ""
-"Промената \"{$revisionId}\" на поднесокот \"{$fileId}\" би создала дуплиран "
-"запис"
-
-msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr ""
-"Доставената големина на датотека \"{$expected}\" и вистинската големина на "
-"датотека \"{$actual}\" не се совпаѓаат"
-
-msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Не може да биде содадена привремена датотека {$dest} од {$source}"
-
-msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Непознат поставувач {$param}"
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"Авторот {$authorName} нема име на јазикот на поднесокот, {$localeName}. "
-"Поднесокот не може да биде импортиран без оваа информација."
-
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Непозната корисничка група {$param}"
-
-msgid "plugins.importexport.common.error.encodingError"
-msgstr "Содржината не е шифрирана како {$param}"
-
-msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Непознато шифрирање {$param}"
-
-msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Непознат жанр {$param}"
-
-msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Непознат елемент {$param}"
-
-msgid "plugins.importexport.common.errorsOccured"
-msgstr "Настанати грешки:"
-
-msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Предупредувања:"
-
-msgid "plugins.importexport.common.validationErrors"
-msgstr "Грешки при проверка:"
-
-msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"Барајте авторот да достави референци пред да биде прифатен нивниот поднесок."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "За време на поднесувањето, прашајте го авторот да достави референци."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "За време на поднесувањето, не барајте референци од авторот."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Овозможи метаподатоци за референци"
-
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Соберете ги референците на поднесокот во посебно поле. Ова може да биде "
-"потребно за да се усогласат со услугите за следење на цитати, како што е "
-"Crossref."
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Барајте авторот да достави дисциплини пред да биде прифатен нивниот поднесок."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "За време на поднесувањето, прашајте го авторот да достави дисциплини."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "За време на поднесувањето, не барајте дисциплини од авторот."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Овозможи метаподатоци за дисциплини"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Дисциплини се типови на студии или гранки на знаење, опишани од "
-"универзитетски факултети и научни друштва."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Барајте авторот да го достави типот пред да биде прифатен нивниот поднесок."
-
-msgid "manager.setup.metadata.type.request"
-msgstr "За време на поднесувањето, прашајте го авторот да го достави типот."
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "За време на поднесувањето, не барајте тип од авторот."
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Овозможете метаподатоци за тип"
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Барајте авторот да достави ставки пред да биде прифатен нивниот поднесок."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "За време на поднесувањето, прашајте го авторот да достави ставки."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "За време на поднесувањето, не барајте ставки од авторот."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Овозможете метаподатоци за ставки"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Ставките ќе бидат клучни зборови, клучни фрази или кодови за класификација "
-"кои ја опишуваат темата на поднесокот."
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Барајте авторот да достави изворна URL-адреса пред да биде прифатен нивниот "
-"поднесок."
-
-msgid "manager.setup.metadata.source.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да достави изворна URL-адреса."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"За време на поднесувањето, не барајте ја изворната URL-адреса од авторот."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Овозможи изворни метаподатоци"
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Барај авторот да открие било кави права за претходен пристап пред да биде "
-"прифатен нивниот поднесок."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да открие било какви права за "
-"претходен пристап."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Не барајте откривање на права од авторот за време на поднесувањето."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Овозможи метаподатоци за права"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Барај авторот да ги внесе јазиците на поднесокот пред да биде прифатен "
-"нивниот поднесок."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да ги посочи јазиците на "
-"поднесокот."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"За време на поднесувањето, не барајте метаподатоци за покриеност од авторот."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"За време на поднесувањето, не ги барајте јазиците на поднесокот од авторот."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Овозможи метаподатоци за јазик"
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Барај авторот да предложи клучни зборови пред да биде прифатен нивниот "
-"поднесок."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да предложи клучни зборови."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "За време на поднесувањето, не барајте клучни зборови од авторот."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Овозможи метаподатоци за клучни зборови"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Клучни зборови вообичаено се фрази од еден до три збора кои се користат за "
-"да се навестат главните теми на разговор на поднесокот."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Барај авторот да предложи метаподатоци за покриеност пред да биде прифатен "
-"нивниот поднесок."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"За време на поднесувањето, прашајте го авторот да предложи метаподатоци за "
-"покриеност."
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Овозможи метаподатоци за покриеност"
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Покриеност"
-
-msgid "manager.setup.metadata.submission"
-msgstr "Формулар за поднесување"
-
-msgid "manager.setup.licenseURLDescription"
-msgstr "URL-адреса на веб-страница која ја опишува лиценцата, доколку достапна."
-
-msgid "manager.setup.competingInterests.required"
-msgstr "Побарај изјава за судир на интереси за време на отворената рецензија."
-
-msgid "grid.action.createReviewForm"
-msgstr "Создади нов формулар за рецензија"
-
-msgid "manager.reviewFormElements.viewable"
-msgstr "Може да се види (за автори)"
-
-msgid "manager.reviewFormElements.textfield"
-msgstr "Кутија за текст со една линија"
-
-msgid "manager.reviewFormElements.textarea"
-msgstr "Продолжена кутија за текст"
-
-msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Кутија за текст со еден збор"
-
-msgid "manager.reviewFormElements.included"
-msgstr "Вклучено во пораката до авторот"
-
-msgid "manager.reviewFormElements.required"
-msgstr "Рецензенти потребни да го завршат елементот"
-
-msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Радио копчиња (може да изберете само едно)"
-
-msgid "manager.reviewFormElements.description"
-msgstr "Опис"
-
-msgid "manager.reviewFormElements.question"
-msgstr "Елемент"
-
-msgid "manager.reviewFormElements.possibleResponse"
-msgstr "Избор"
-
-msgid "manager.reviewFormElements.noneCreated"
-msgstr "Не се создадени елементи на формуларот."
-
-msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Потребно е прашање за елеметот на формулар."
-
-msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Потребен е тип на елемент за елементот на формулар."
-
-msgid "manager.reviewFormElements.elementType"
-msgstr "Тип на елемент"
-
-msgid "manager.reviewFormElements.edit"
-msgstr "Уреди елемент на формулар"
-
-msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Опаѓачко мени"
-
-msgid "manager.reviewFormElements.create"
-msgstr "Создади нов елемент"
-
-msgid "manager.reviewFormElements.copyTo"
-msgstr "Копирај до:"
-
-msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Потврдете бришење на објавен елемент на формулар..."
-
-msgid "manager.reviewFormElements.chooseType"
-msgstr "Иберете тип на елемент"
-
-msgid "manager.reviewFormElements.checkboxes"
-msgstr "Поле за избирање (може да изберете едно или повеќе)"
-
-msgid "manager.reviewFormElements.addResponseItem"
-msgstr "Додај избор"
-
-msgid "manager.reviewFormElements"
-msgstr "Елементи на формуларот"
-
-msgid "manager.reviewFormElement.changeType"
-msgstr "Се менува типот на елемент на формуларот..."
-
-msgid "manager.reviewForms.title"
-msgstr "Наслов"
-
-msgid "manager.reviewForms.reviewFormData"
-msgstr "Прегледај податоци на формуларот"
-
-msgid "manager.reviewForms.preview"
-msgstr "Преглед на формулар"
-
-msgid "manager.reviewForms.noneUsed"
-msgstr "Нема искористени формулари за рецензија."
-
-msgid "manager.reviewForms.noneCreated"
-msgstr "Нема создадени формулари за рецензија."
-
-msgid "manager.reviewForms.inReview"
-msgstr "Се рецензира"
-
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "Неопходен е наслов за формуларот за рецензија."
-
-msgid "manager.reviewForms.edit"
-msgstr "Формулар за рецензија"
-
-msgid "manager.reviewForms.description"
-msgstr "Опис и инструкции"
-
-msgid "manager.reviewForms.create"
-msgstr "Создади формулар за рецензија"
-
-msgid "manager.reviewForms.confirmDelete"
-msgstr ""
-"Дали сте сигурни дека сакате да го избришете овој формулар за рецензија?"
-
-msgid "manager.reviewForms.completed"
-msgstr "Завршено"
-
-msgid "manager.reviewForms.confirmCopy"
-msgstr ""
-"Дали сте сигурни дека сакате да направите копија на овој формулар за "
-"рецензија?"
-
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr ""
-"Дали сте сигурни дека сакате да го деактивирате овој формулар за рецензија? "
-"Повеќе нема да биде достапен за нови назначувања за рецензија."
-
-msgid "manager.reviewForms.confirmActivate"
-msgstr ""
-"Дали сте сигурни дека сакате да го активирате овој формулар за рецензија? "
-"Откако ќе биде доделен на рецензија повеќе нема да можете да го деактивирате."
-
-msgid "manager.reviewForms"
-msgstr "Формулари за рецензија"
-
-msgid "manager.distribution.title"
-msgstr "Поставки на распределба"
-
-msgid "manager.distribution"
-msgstr "Распределба"
-
-msgid "manager.workflow.title"
-msgstr "Поставки на работен тек"
-
-msgid "manager.workflow"
-msgstr "Работен тек"
-
-msgid "manager.website.title"
-msgstr "Поставки на веб-страница"
-
-msgid "manager.website"
-msgstr "Веб-страница"
-
-msgid "manager.users.roleRequired"
-msgstr ""
-"Мора да изберете барем една улога која ќе биде поврзана со овој корисник."
-
-msgid "manager.settings.wizard"
-msgstr "Волшебник за поставки"
+"Клучот може да содржи само алфанумерички знаци, подвлеки и цртички, и мора "
+"да започне и да заврши со алфанумерички знак."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Метаподатоци на датотеката"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
@@ -1965,363 +1490,70 @@ msgstr ""
 "Илустрација е соодветно за датотеки кои имаат потреба за посебни "
 "метаподатоци за кредитирање, наслови и лиценцирање."
 
-msgid "manager.navigationMenus.remoteUrl.description"
+msgid "manager.settings.wizard"
+msgstr "Волшебник за поставки"
+
+msgid "manager.users.roleRequired"
 msgstr ""
-"Поврзете се до било која УРЛ-адреса на друга веб-страница, како "
-"https://pkp.sfu.ca."
+"Мора да изберете барем една улога која ќе биде поврзана со овој корисник."
 
-msgid "manager.navigationMenus.remoteUrl"
-msgstr "Оддалечена УРЛ-адреса"
+msgid "manager.website"
+msgstr "Веб-страница"
 
-msgid "manager.navigationMenus.customPage.description"
+msgid "manager.website.title"
+msgstr "Поставки на веб-страница"
+
+msgid "manager.workflow"
+msgstr "Работен тек"
+
+msgid "manager.workflow.title"
+msgstr "Поставки на работен тек"
+
+msgid "manager.distribution"
+msgstr "Распределба"
+
+msgid "manager.distribution.title"
+msgstr "Поставки на распределба"
+
+msgid "manager.reviewForms"
+msgstr "Формулари за рецензија"
+
+msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Создадете сопствена страница на вашата веб-страница и поврзете се до неа "
-"преку навигациското мени."
+"Дали сте сигурни дека сакате да го активирате овој формулар за рецензија? "
+"Откако ќе биде доделен на рецензија повеќе нема да можете да го деактивирате."
 
-msgid "manager.navigationMenus.customPage"
-msgstr "Сопствена страница"
-
-msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Одберете Тип навигациско мени или Сопствен за да направите свое"
-
-msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "Тип навигациско мени"
-
-msgid "manager.navigationMenus.form.conditionalDisplay"
+msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Дознајте повеќе кога овој елемент на менито ќе биде прикажан или скриен."
+"Дали сте сигурни дека сакате да го деактивирате овој формулар за рецензија? "
+"Повеќе нема да биде достапен за нови назначувања за рецензија."
 
-msgid "manager.navigationMenus.form.customUrlError"
-msgstr "Мора да се обезбеди URL-адреса"
-
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "Оваа област веќе има назначено навигациско мени."
-
-msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "Изберете област за навигација"
-
-msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Области за навигација на активна тема"
-
-msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Неназначени елементи на мени"
-
-msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgid "manager.reviewForms.confirmCopy"
 msgstr ""
-"Овој линк ќе биде прикажан само доколку ги имате овозможено известувањата во "
-"Поставки > Веб-страница."
+"Дали сте сигурни дека сакате да направите копија на овој формулар за "
+"рецензија?"
 
-msgid "manager.navigationMenus.announcements.description"
-msgstr "Поврзете се до страницата која ги прикажува вашите известувања."
+msgid "manager.reviewForms.completed"
+msgstr "Завршено"
 
-msgid "manager.navigationMenus.archives.description"
-msgstr "Поврзете се до вашата архива со изданија."
-
-msgid "manager.navigationMenus.current.description"
-msgstr "Поврзете се до вашето тековно издание."
-
-msgid "manager.navigationMenus.submissions.description"
-msgstr "Поврзете се до страницата која ги прикажува упатствата за поднесување."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgid "manager.reviewForms.confirmDelete"
 msgstr ""
-"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата "
-"Уреднички тим во Поставки > Списание."
+"Дали сте сигурни дека сакате да го избришете овој формулар за рецензија?"
 
-msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата За "
-"списанието во Поставки > Списание."
+msgid "manager.reviewForms.create"
+msgstr "Создади формулар за рецензија"
 
-msgid "manager.navigationMenus.about.description"
-msgstr ""
-"Поврзете се до веб-страница која ја прикажува содржината на За списанието во "
-"Поставки > Списание"
+msgid "manager.reviewForms.description"
+msgstr "Опис и инструкции"
 
-msgid "manager.navigationMenus.register.description"
-msgstr "Поврзете се до корисничката страница за регистрација."
+msgid "manager.reviewForms.edit"
+msgstr "Формулар за рецензија"
 
-msgid "manager.navigationMenus.login.description"
-msgstr "Поврзете се до корисничката страница за најава."
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Неопходен е наслов за формуларот за рецензија."
 
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Одбиени поднесоци (одбиени од дескот)"
-
-msgid "stats.name.daysToReject"
-msgstr "Денови до отфрлање"
-
-msgid "stats.name.daysToAccept"
-msgstr "Денови до прифаќање"
-
-msgid "stats.trends"
-msgstr "Трендови"
-
-msgid "stats.dateRange.thisYear"
-msgstr "Година до дата"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Почетниот датум не може да биде пред {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Крајниот датум не може да биде по {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Почетниот датум мора да биде пред крајниот датум."
-
-msgid "grid.category.parentCategory"
-msgstr "Родителска категорија"
-
-msgid "manager.navigationMenus.dashboard.description"
-msgstr "Поврзете се до уредничката контролна табла."
-
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Линк до страницата која ја прикажува Главната содржина во Подесување > "
-"Списание."
-
-msgid "manager.navigationMenus.form.url"
-msgstr "УРЛ-адреса"
-
-msgid "manager.reviewForms.noneChosen"
-msgstr "Нушто / рецензирање со слободна форма"
-
-msgid "stats.name.declineRate"
-msgstr "Стапка на одбивање"
-
-msgid "stats.name.acceptanceRate"
-msgstr "Стапка на прифаќање"
-
-msgid "stats.name.daysToDecision"
-msgstr "Денови до прва уредничка одлука"
-
-msgid "stats.name.submissionsPublished"
-msgstr "Објавени поднесоци"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Одбиени поднесоци (по рецензија)"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Одбиени поднесоци"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Прифатени поднесоци"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Добиени поднесоци"
-
-msgid "stats.userStatistics"
-msgstr "Статистички податоци за корисник"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Вкупно во опсег на датуми"
-
-msgid "stats.total"
-msgstr "Вкупно"
-
-msgid "stats.submissionsActive"
-msgstr "Активни поднесоци"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Пребарај според наслов, автор и ИД"
-
-msgid "stats.pdf"
-msgstr "ПДФ"
-
-msgid "stats.monthly"
-msgstr "Месечно"
-
-msgid "stats.html"
-msgstr "ХТМЛ"
-
-msgid "stats.fileViews"
-msgstr "Прегледи на датотека"
-
-msgid "stats.editorialActivity"
-msgstr "Уредничка активност"
-
-msgid "stats.descriptionForStat"
-msgstr "Опис за {$stat}"
-
-msgid "stats.dateRange.untilDate"
-msgstr "До {$date}"
-
-msgid "stats.dateRange.to"
-msgstr "До"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Од {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Минатата година"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Последни две години"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Последни 90 дена"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Последни 30 дена"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Последни 12 месеци"
-
-msgid "stats.dateRange.invalidDate"
-msgstr ""
-"Форматот на датумот не е валиден. Внесете го секој датум во формат YYYY-MM-"
-"DD."
-
-msgid "stats.dateRange.instructions"
-msgstr ""
-"Внесете го секој датум како YYYY-MM-DD. На пример, доколку ви е потребен "
-"датумот за 15 Јануари, 2019, внесете 2019-01-15."
-
-msgid "stats.dateRange.from"
-msgstr "Од"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Еден од внесените датуми не постои."
-
-msgid "stats.dateRange.customRange"
-msgstr "Сопствен опсег"
-
-msgid "stats.dateRange.change"
-msgstr "Сменете го опсегот на датуми"
-
-msgid "stats.dateRange.apply"
-msgstr "Поднеси"
-
-msgid "stats.dateRange.allDates"
-msgstr "Сите датуми"
-
-msgid "stats.dateRange"
-msgstr "Опсег на датуми"
-
-msgid "stats.daily"
-msgstr "Дневно"
-
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/year)"
-
-msgid "stats.allUsers"
-msgstr "Сите корисници"
-
-msgid "grid.category.categoryDetails"
-msgstr "Детали на категорија"
-
-msgid "grid.category.nameRequired"
-msgstr "Ве молиме внесете име на категоријата."
-
-msgid "grid.category.removeText"
-msgstr "Дали сте сигурни дека сакате да ја отстраните оваа категорија?"
-
-msgid "grid.category.description"
-msgstr "Опис"
-
-msgid "grid.category.pathExists"
-msgstr ""
-"Патеката на категоријата веќе постои. Ве молиме внесете уникатна патека."
-
-msgid "grid.category.pathAlphaNumeric"
-msgstr "Патеката на категоријата мора да содржи само букви и броеви."
-
-msgid "grid.category.urlWillBe"
-msgstr "УРЛ-адресата на категоријата ќе биде: {$sampleUrl}"
-
-msgid "grid.category.path"
-msgstr "Патека"
-
-msgid "grid.category.name"
-msgstr "Име"
-
-msgid "grid.category.edit"
-msgstr "Изменете категорија"
-
-msgid "grid.category.add"
-msgstr "Додајте категорија"
-
-msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само ако имате внесено изјава за приватност во "
-"Поставки > Тек на работа > Поднесоци."
-
-msgid "manager.navigationMenus.privacyStatement.description"
-msgstr ""
-"Поврзете се до страницата која ја прикажува вашата изјава за приватност."
-
-msgid "manager.navigationMenus.search.description"
-msgstr "Поврзете се до страницата за пребарување."
-
-msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само ако посетителот е најавен, наплатите се "
-"овозможени во Поставки > Дистрибуција > Наплати и претплатите се "
-"задолжителни во Поставки > Дистрибуција > Пристап."
-
-msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само ако се овозможени наплати во Поставки > "
-"Дистрибуција > Наплати."
-
-msgid "manager.navigationMenus.form.typeMissing"
-msgstr "Ве молиме да одберете тип навигациско мени."
-
-msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr ""
-"Овој линк ќе биде прикажан само доколку ги имате пополнето информациите за "
-"контак во Поставки > Контакт."
-
-msgid "manager.navigationMenus.contact.description"
-msgstr ""
-"Поврзете се до страницата на која се прикажани вашите контакт информации."
-
-msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Овој линк ќе биде прикажан само кога посетителот нема да биде најавен."
-
-msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Овој линк ќе биде прикажан само кога посетителот ќе биде најавен."
-
-msgid "manager.navigationMenus.logOut.description"
-msgstr "Линк кој ќе го одјави корисникот."
-
-msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Овој линк ќе биде прикажан само на административни корисници."
-
-msgid "manager.navigationMenus.administration.description"
-msgstr "Поврзете се до административните алатки на целата веб-страница."
-
-msgid "manager.navigationMenus.profile.description"
-msgstr "Поврзете се до корисничката профилна страница."
-
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Поддржувачките агенции можат да укажат на изворот за финансирање на "
-"истражувањето или друга институционална помош која го помогнала "
-"истражувањето."
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Природата на потеклото на главната содржина на поднесокот. Типот е обиќно "
-"„текст“, но може да биде исто така и „податоци“, „слика“, или било што од <a "
-"target=\"_blank\" href=\"http://dublincore.org/documents/"
-"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core "
-"видови</a>."
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Изворот може да биде ИД, како што е ДОИ или друг извор на труд од којшто "
-"произлегува поднесокот."
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Јазикот укажува на примарен јазик за работа со користење на јазичен код (\""
-"en\") с опција за дополнителен код на земјата (\"en_US\")."
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Покривањето типично ќе укаже на просторна локација (име на местото или "
-"географски координати), временски период (означен период, дата или временско "
-"подрачје) или надлежност (како што е именувна административна единка)."
+msgid "manager.reviewForms.inReview"
+msgstr "Се рецензира"
 
 msgid "manager.reviewForms.list.description"
 msgstr ""
@@ -2333,26 +1565,454 @@ msgstr ""
 "рецензентот. Во секој случај, уредниците ќе имаат опција да изберат форамт "
 "за рецензирање во согласнст со авторот."
 
+msgid "manager.reviewForms.noneChosen"
+msgstr "Нушто / рецензирање со слободна форма"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Нема создадени формулари за рецензија."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Нема искористени формулари за рецензија."
+
+msgid "manager.reviewForms.preview"
+msgstr "Преглед на формулар"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Прегледај податоци на формуларот"
+
+msgid "manager.reviewForms.title"
+msgstr "Наслов"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Се менува типот на елемент на формуларот..."
+
+msgid "manager.reviewFormElements"
+msgstr "Елементи на формуларот"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Додај избор"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Поле за избирање (може да изберете едно или повеќе)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Иберете тип на елемент"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Потврдете бришење на објавен елемент на формулар..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Копирај до:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Создади нов елемент"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Опаѓачко мени"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Уреди елемент на формулар"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Тип на елемент"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Потребен е тип на елемент за елементот на формулар."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Потребно е прашање за елеметот на формулар."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Не се создадени елементи на формуларот."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Избор"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Елемент"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Опис"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Радио копчиња (може да изберете само едно)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Рецензенти потребни да го завршат елементот"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Вклучено во пораката до авторот"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Кутија за текст со еден збор"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Продолжена кутија за текст"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Кутија за текст со една линија"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Може да се види (за автори)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Создади нов формулар за рецензија"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Побарај изјава за судир на интереси за време на отворената рецензија."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
+"URL-адреса на веб-страница која ја опишува лиценцата, доколку достапна."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Формулар за поднесување"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Покриеност"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Покривањето типично ќе укаже на просторна локација (име на местото или "
+"географски координати), временски период (означен период, дата или временско "
+"подрачје) или надлежност (како што е именувна административна единка)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Овозможи метаподатоци за покриеност"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"За време на поднесувањето, не барајте метаподатоци за покриеност од авторот."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да предложи метаподатоци за "
+"покриеност."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Барај авторот да предложи метаподатоци за покриеност пред да биде прифатен "
+"нивниот поднесок."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Клучни зборови вообичаено се фрази од еден до три збора кои се користат за "
+"да се навестат главните теми на разговор на поднесокот."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Овозможи метаподатоци за клучни зборови"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "За време на поднесувањето, не барајте клучни зборови од авторот."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да предложи клучни зборови."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Барај авторот да предложи клучни зборови пред да биде прифатен нивниот "
+"поднесок."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Јазикот укажува на примарен јазик за работа со користење на јазичен код (\"en"
+"\") с опција за дополнителен код на земјата (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Овозможи метаподатоци за јазик"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"За време на поднесувањето, не ги барајте јазиците на поднесокот од авторот."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да ги посочи јазиците на "
+"поднесокот."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Барај авторот да ги внесе јазиците на поднесокот пред да биде прифатен "
+"нивниот поднесок."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Задржани се било какви права над поднесокот, што може да вклучува права на "
+"интелектуална сопственост (IPR), авторски права и разни права на сопственост."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Овозможи метаподатоци за права"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Не барајте откривање на права од авторот за време на поднесувањето."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да открие било какви права за "
+"претходен пристап."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Барај авторот да открие било кави права за претходен пристап пред да биде "
+"прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Изворот може да биде ИД, како што е ДОИ или друг извор на труд од којшто "
+"произлегува поднесокот."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Овозможи изворни метаподатоци"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"За време на поднесувањето, не барајте ја изворната URL-адреса од авторот."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"За време на поднесувањето, прашајте го авторот да достави изворна URL-адреса."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Барајте авторот да достави изворна URL-адреса пред да биде прифатен нивниот "
+"поднесок."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Ставките ќе бидат клучни зборови, клучни фрази или кодови за класификација "
+"кои ја опишуваат темата на поднесокот."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Овозможете метаподатоци за ставки"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "За време на поднесувањето, не барајте ставки од авторот."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави ставки."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Барајте авторот да достави ставки пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Природата на потеклото на главната содржина на поднесокот. Типот е обиќно "
+"„текст“, но може да биде исто така и „податоци“, „слика“, или било што од <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-"
+"vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core видови</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Овозможете метаподатоци за тип"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "За време на поднесувањето, не барајте тип од авторот."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "За време на поднесувањето, прашајте го авторот да го достави типот."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Барајте авторот да го достави типот пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Дисциплини се типови на студии или гранки на знаење, опишани од "
+"универзитетски факултети и научни друштва."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Овозможи метаподатоци за дисциплини"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "За време на поднесувањето, не барајте дисциплини од авторот."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави дисциплини."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Барајте авторот да достави дисциплини пред да биде прифатен нивниот поднесок."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Поддржувачките агенции можат да укажат на изворот за финансирање на "
+"истражувањето или друга институционална помош која го помогнала "
+"истражувањето."
+
 msgid "manager.setup.metadata.agencies.enable"
 msgstr "Овозможете метаподатоци  за поддршка за агенции"
 
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Се зема бројот на денови за најголемиот број поднесоци за да се добие првата "
-"одлуак на уредникот, како што е одбивање или праќање за рецензија. <br><br> "
-"Овие податоци укажуваат дека 80% од поднесоците достигнуваат одлука во "
-"дадениот број денови.<br><br> Оваа статистика се обидува да опише кога "
-"најголемиот број автори кога може да очекуваат одлука за нивните поднесоци."
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Не барај поддржувачки агенции од авторот за време на поднесувањето."
 
-msgid "stats.description.acceptRejectRate"
+msgid "manager.setup.metadata.agencies.request"
 msgstr ""
-"Процентот на избраните граници на дата се пресметуваат од поднесувањето кое "
-"било поднесено за време на овие граници од датата и примиле конечна "
-"одлука.<br><br> На пример, да земеме случај каде биле направени десет "
-"поднесоци во таа временска граница. Четири биле прифатени, четири виле "
-"одбиени, а два сеуште чекаат конечна одлука.<br><br> Процентот на рифаќање "
-"ќе биде 50% (4 од 8 поднесоци) бидејќи двата поднесоци за кои нема конечна "
-"одлука не се бројат."
+"Барај од авторот да се огради од поддржувачки агенции за време на "
+"поднесувањето."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Барај од авторот да се огради од било какви поддржувачки агенции пред "
+"прифаќањето на поднесокот."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Соберете ги референците на поднесокот во посебно поле. Ова може да биде "
+"потребно за да се усогласат со услугите за следење на цитати, како што е "
+"Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Овозможи метаподатоци за референци"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "За време на поднесувањето, не барајте референци од авторот."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "За време на поднесувањето, прашајте го авторот да достави референци."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Барајте авторот да достави референци пред да биде прифатен нивниот поднесок."
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Грешки при проверка:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Предупредувања:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Настанати грешки:"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Непознат елемент {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Непознат жанр {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Непознато шифрирање {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Содржината не е шифрирана како {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Непозната корисничка група {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Авторот {$authorName} нема име на јазикот на поднесокот, {$localeName}. "
+"Поднесокот не може да биде импортиран без оваа информација."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Непознат поставувач {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Не може да биде содадена привремена датотека {$dest} од {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Доставената големина на датотека \"{$expected}\" и вистинската големина на "
+"датотека \"{$actual}\" не се совпаѓаат"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Промената \"{$revisionId}\" на поднесокот \"{$fileId}\" би создала дуплиран "
+"запис"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Поднесокот не можеше да се импортира"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Поднесокот {$id} беше прескокнат бидејќи е прикачен на запис кој нема да "
+"биде импортиран, како што се задача за рецензија или дискусија."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Импортирај/Експортирај грешки:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Импортираниот корисник \"{$username}\" нема лозинка. Проверете го вашиот XML "
+"формат за импортирање. Корисникот не беше импортиран."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Лозинката на импортираниот корисник \"{$username}\" не може да се импортира "
+"како што е. Нова лозинка се испраќа на корисничкиот и-меил. Корисникот беше "
+"импортиран."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Импортираниот корисник \"{$username}\" има едноставна лозинка која не е "
+"важечка. Корисникот не беше импортиран."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Корисничкото име \"{$username}\" и и-мејлот \"{$email}\" не одговараат еден "
+"на друг и на постоечкиот корисник."
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Наслов"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Патека"
+
+msgid "manager.navigationMenus"
+msgstr "Навигација"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Оваа страница ќе биде достапна на: <blockquote>{$pagesPath}</"
+"blockquote>...каде што %PATH% е погоре внесената патека. <strong>Забелешка:</"
+"strong> Две страници не можат да имаат иста патека. Користење на патеки "
+"вградени во системот може да доведе до губиток на пристап до важни функции.</"
+"p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Содржина"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Полето за патека мора да содржи само алфанумерички знаци плус  '.', '/', "
+"'-', и '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Оваа патека веќе постои за друг елемент на навигациското мени."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Овој наслов веќе постои за друг елемент на навигациското мени."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Насловот е задолжителен"
+
+msgid "manager.navigationMenuItems"
+msgstr "Елементи на навигациското мени"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Назначени елементи на мени"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Неназначени елементи на мени"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Области за навигација на активна тема"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Изберете област за навигација"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Оваа област веќе има назначено навигациско мени."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "УРЛ-адреса"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Мора да се обезбеди URL-адреса"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Дознајте повеќе кога овој елемент на менито ќе биде прикажан или скриен."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
@@ -2363,20 +2023,378 @@ msgstr ""
 "остварува со користење на секундарно мени, \"За списанието\", кое се јавува "
 "во подменито."
 
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr ""
-"Корисничкото име \"{$username}\" и и-мејлот \"{$email}\" не одговараат еден "
-"на друг и на постоечкиот корисник."
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Тип навигациско мени"
 
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Барај од авторот да се огради од било какви поддржувачки агенции пред "
-"прифаќањето на поднесокот."
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Одберете Тип навигациско мени или Сопствен за да направите свое"
 
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Барај од авторот да се огради од поддржувачки агенции за време на "
-"поднесувањето."
+msgid "manager.navigationMenus.customPage"
+msgstr "Сопствена страница"
 
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr "Не барај поддржувачки агенции од авторот за време на поднесувањето."
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Создадете сопствена страница на вашата веб-страница и поврзете се до неа "
+"преку навигациското мени."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "Оддалечена УРЛ-адреса"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+"Поврзете се до било која УРЛ-адреса на друга веб-страница, како https://pkp."
+"sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Поврзете се до веб-страница која ја прикажува содржината на За списанието во "
+"Поставки > Списание"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата За "
+"списанието во Поставки > Списание."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Линк до страницата која ја прикажува Главната содржина во Подесување > "
+"Списание."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ја имате пополнето секцијата "
+"Уреднички тим во Поставки > Списание."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Поврзете се до страницата која ги прикажува упатствата за поднесување."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Поврзете се до вашето тековно издание."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Поврзете се до вашата архива со изданија."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Поврзете се до страницата која ги прикажува вашите известувања."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ги имате овозможено известувањата во "
+"Поставки > Веб-страница."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Поврзете се до корисничката страница за најава."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Поврзете се до корисничката страница за регистрација."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Поврзете се до уредничката контролна табла."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Поврзете се до корисничката профилна страница."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Поврзете се до административните алатки на целата веб-страница."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само на административни корисници."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Линк кој ќе го одјави корисникот."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само кога посетителот ќе биде најавен."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Овој линк ќе биде прикажан само кога посетителот нема да биде најавен."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+"Поврзете се до страницата на која се прикажани вашите контакт информации."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само доколку ги имате пополнето информациите за "
+"контак во Поставки > Контакт."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Ве молиме да одберете тип навигациско мени."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако се овозможени наплати во Поставки > "
+"Дистрибуција > Наплати."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако посетителот е најавен, наплатите се "
+"овозможени во Поставки > Дистрибуција > Наплати и претплатите се "
+"задолжителни во Поставки > Дистрибуција > Пристап."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Поврзете се до страницата за пребарување."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+"Поврзете се до страницата која ја прикажува вашата изјава за приватност."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Овој линк ќе биде прикажан само ако имате внесено изјава за приватност во "
+"Поставки > Тек на работа > Поднесоци."
+
+msgid "grid.category.add"
+msgstr "Додајте категорија"
+
+msgid "grid.category.edit"
+msgstr "Изменете категорија"
+
+msgid "grid.category.name"
+msgstr "Име"
+
+msgid "grid.category.path"
+msgstr "Патека"
+
+msgid "grid.category.urlWillBe"
+msgstr "УРЛ-адресата на категоријата ќе биде: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Патеката на категоријата мора да содржи само букви и броеви."
+
+msgid "grid.category.pathExists"
+msgstr ""
+"Патеката на категоријата веќе постои. Ве молиме внесете уникатна патека."
+
+msgid "grid.category.description"
+msgstr "Опис"
+
+msgid "grid.category.parentCategory"
+msgstr "Родителска категорија"
+
+msgid "grid.category.removeText"
+msgstr "Дали сте сигурни дека сакате да ја отстраните оваа категорија?"
+
+msgid "grid.category.nameRequired"
+msgstr "Ве молиме внесете име на категоријата."
+
+msgid "grid.category.categoryDetails"
+msgstr "Детали на категорија"
+
+msgid "stats.allUsers"
+msgstr "Сите корисници"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.daily"
+msgstr "Дневно"
+
+msgid "stats.dateRange"
+msgstr "Опсег на датуми"
+
+msgid "stats.dateRange.allDates"
+msgstr "Сите датуми"
+
+msgid "stats.dateRange.apply"
+msgstr "Поднеси"
+
+msgid "stats.dateRange.change"
+msgstr "Сменете го опсегот на датуми"
+
+msgid "stats.dateRange.customRange"
+msgstr "Сопствен опсег"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Еден од внесените датуми не постои."
+
+msgid "stats.dateRange.from"
+msgstr "Од"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Внесете го секој датум како YYYY-MM-DD. На пример, доколку ви е потребен "
+"датумот за 15 Јануари, 2019, внесете 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Форматот на датумот не е валиден. Внесете го секој датум во формат YYYY-MM-"
+"DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Почетниот датум мора да биде пред крајниот датум."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Крајниот датум не може да биде по {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Почетниот датум не може да биде пред {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Последни 12 месеци"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Последни 30 дена"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Последни 90 дена"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Последни две години"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Минатата година"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Од {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Година до дата"
+
+msgid "stats.dateRange.to"
+msgstr "До"
+
+msgid "stats.dateRange.untilDate"
+msgstr "До {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Процентот на избраните граници на дата се пресметуваат од поднесувањето кое "
+"било поднесено за време на овие граници од датата и примиле конечна одлука."
+"<br><br> На пример, да земеме случај каде биле направени десет поднесоци во "
+"таа временска граница. Четири биле прифатени, четири виле одбиени, а два "
+"сеуште чекаат конечна одлука.<br><br> Процентот на рифаќање ќе биде 50% (4 "
+"од 8 поднесоци) бидејќи двата поднесоци за кои нема конечна одлука не се "
+"бројат."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Се зема бројот на денови за најголемиот број поднесоци за да се добие првата "
+"одлуак на уредникот, како што е одбивање или праќање за рецензија. <br><br> "
+"Овие податоци укажуваат дека 80% од поднесоците достигнуваат одлука во "
+"дадениот број денови.<br><br> Оваа статистика се обидува да опише кога "
+"најголемиот број автори кога може да очекуваат одлука за нивните поднесоци."
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr "Опис за {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Уредничка активност"
+
+msgid "stats.fileViews"
+msgstr "Прегледи на датотека"
+
+msgid "stats.html"
+msgstr "ХТМЛ"
+
+msgid "stats.monthly"
+msgstr "Месечно"
+
+msgid "stats.pdf"
+msgstr "ПДФ"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Пребарај според наслов, автор и ИД"
+
+msgid "stats.submissionsActive"
+msgstr "Активни поднесоци"
+
+msgid "stats.total"
+msgstr "Вкупно"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Вкупно во опсег на датуми"
+
+msgid "stats.trends"
+msgstr "Трендови"
+
+msgid "stats.userStatistics"
+msgstr "Статистички податоци за корисник"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Добиени поднесоци"
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Прифатени поднесоци"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Одбиени поднесоци"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Одбиени поднесоци (одбиени од дескот)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Одбиени поднесоци (по рецензија)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Објавени поднесоци"
+
+msgid "stats.name.daysToDecision"
+msgstr "Денови до прва уредничка одлука"
+
+msgid "stats.name.daysToAccept"
+msgstr "Денови до прифаќање"
+
+msgid "stats.name.daysToReject"
+msgstr "Денови до отфрлање"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Стапка на прифаќање"
+
+msgid "stats.name.declineRate"
+msgstr "Стапка на одбивање"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Процент на одбиени од дескот"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Процент на одбиени по рецензирањето"
+
+#~ msgid "manager.emails.editEmail.success"
+#~ msgstr "Шаблонот за имејли е изменет."
+
+#~ msgid "manager.emails.addEmail.success"
+#~ msgstr "Шаблонот за имејл е додаден."
+
+#~ msgid "manager.publication.reviewSetup.success"
+#~ msgstr "Нагодувањата за рецензија се ажурирани."
+
+#~ msgid "manager.publication.reviewerGuidance.success"
+#~ msgstr "Упатства за рецензирање се ажурирани."
+
+#~ msgid "manager.publication.emailSetup.success"
+#~ msgstr "Подесувањата за имејл се ажурирани."
+
+#~ msgid "manager.setup.userAccess.success"
+#~ msgstr "Деталите за пристап до корисникот за оваа печатница се ажурирани."
+
+#~ msgid "manager.setup.theme.success"
+#~ msgstr ""
+#~ "Темата  еажурирана. <a href=\"{$url}\" target=\"_blank\">Види сега</a>"
+
+#~ msgid "manager.setup.groupType"
+#~ msgstr "Групирање документи според видот"
+
+#~ msgid "manager.setup.authorGuidelines.success"
+#~ msgstr "Упатствата за авторот беа успешно ажурирани."
+
+#~ msgid "manager.setup.contact.success"
+#~ msgstr "Деталите за контакт за оваа печатница се ажурирани."
+
+#~ msgid "manager.setup.appearance.success"
+#~ msgstr "Поставките за изглед се ажурирани."
+
+#~ msgid "manager.distribution.license.success"
+#~ msgstr "Деталите за лиценцата се ажурирани. "

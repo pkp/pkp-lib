@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2020-06-07 13:56+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/grid/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/grid/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,6 +25,9 @@ msgstr "Sem auditores"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Este item é armazenado remotamente."
+
+msgid "grid.action.uninstall"
+msgstr "Desinstalar"
 
 msgid "grid.action.manageAccess"
 msgstr "Gerenciar Acesso"
@@ -233,6 +236,9 @@ msgstr "Incluir novo grupo de usuários"
 msgid "grid.action.editUserGroup"
 msgstr "Editar este grupo de usuários"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Remover este grupo de usuários"
+
 msgid "grid.action.disable"
 msgstr "Desabilitar"
 
@@ -326,6 +332,9 @@ msgstr "Instalar"
 msgid "grid.action.moreItems"
 msgstr "Carregar mais"
 
+msgid "grid.action.users"
+msgstr "Visualizar/Selecionar usuários"
+
 msgid "grid.task.status.completed"
 msgstr "Tarefa concluída"
 
@@ -398,6 +407,9 @@ msgstr "Editar coautor"
 
 msgid "grid.action.deleteContributor"
 msgstr "Excluir Coautor"
+
+msgid "grid.action.newVersion"
+msgstr "Criar uma nova versão"
 
 msgid "grid.reviewForm.title"
 msgstr "Formulários de avaliação"
@@ -496,10 +508,16 @@ msgid "grid.user.error"
 msgstr "Erro encontrado ao gerenciar usuário. Tente novamente."
 
 msgid "grid.user.errorEmail"
-msgstr "Erro encontrado ao enviar mensagem. Verifique se as configurações do servidor de e-mail estão funcionando e/ou entre em contato com o administrador do sistema."
+msgstr ""
+"Erro encontrado ao enviar mensagem. Verifique se as configurações do "
+"servidor de e-mail estão funcionando e/ou entre em contato com o "
+"administrador do sistema."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Sem permisão para editar usuário. Para editar um usuário você deve ou ser administrador do site ou ser gerente em todas as revistas nas quais o usuário está cadastrado."
+msgstr ""
+"Sem permisão para editar usuário. Para editar um usuário você deve ou ser "
+"administrador do site ou ser gerente em todas as revistas nas quais o "
+"usuário está cadastrado."
 
 msgid "grid.user.authSource"
 msgstr "Fonte de autenticação"
@@ -526,7 +544,8 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Usuário deverá alterar senha no próximo acesso."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Exigir que o usuário mude sua senha ao acessar o sistema da próxima vez."
+msgstr ""
+"Exigir que o usuário mude sua senha ao acessar o sistema da próxima vez."
 
 msgid "grid.user.moreDetails"
 msgstr "Mais detalhes"
@@ -562,7 +581,8 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Escolha um usuário"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Acessar como este usuário? Todas as ações realizadas serão atribuídas a ele."
+msgstr ""
+"Acessar como este usuário? Todas as ações realizadas serão atribuídas a ele."
 
 msgid "grid.user.mergeUsers"
 msgstr "Mesclar usuários"
@@ -573,23 +593,15 @@ msgstr "Mesclar usuário"
 msgid "grid.user.mergeUsers.mergeIntoUser"
 msgstr "Mesclar neste usuário"
 
-msgid "grid.user.mergeUsers.into.description"
-msgstr "Agora você deve selecionar um usuário ao qual serão atribuídos o histórico de revisão, autorias, etc, do usuário anterior."
-
-msgid "grid.user.mergeUsers.from.description"
-msgstr "Selecione um usuário para mesclar em outra conta de usuário (por exemplo, quando alguém tem duas contas de usuário). A conta selecionada em primeiro lugar será eliminada e suas submissões, atribuições, etc, serão atribuídos à segunda conta."
-
 msgid "grid.user.mergeUsers.allUsers"
 msgstr "Todos os usuários registrados"
 
-msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
-msgstr "Tem certeza de que deseja mesclar este usuário com outro? Você vai escolher o próximo usuário na tela seguinte."
-
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Tem certeza de que deseja mesclar a conta com o nome de usuário \"{$oldUsername}\" para a conta com o nome de usuário \"{$newUsername}\"? A conta com o nome de usuário \"{$oldUsername}\" não existirá depois. Essa ação não é reversível."
-
-msgid "grid.user.mergeUsers.noneEnrolled"
-msgstr "Nenhum usuário com este papel."
+msgstr ""
+"Tem certeza de que deseja mesclar a conta com o nome de usuário "
+"\"{$oldUsername}\" para a conta com o nome de usuário \"{$newUsername}\"? A "
+"conta com o nome de usuário \"{$oldUsername}\" não existirá depois. Essa "
+"ação não é reversível."
 
 msgid "grid.preparedEmails.title"
 msgstr "Modelos prontos de mensagens"
@@ -643,7 +655,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "O papel {$userGroupName} é padrão do sistema e não pode ser removido."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Não é possível remover o papel {$userGroupName}. Atualmente {$usersCount} usuário(s) está(ão) associados a ele."
+msgstr ""
+"Não é possível remover o papel {$userGroupName}. Atualmente {$usersCount} "
+"usuário(s) está(ão) associados a ele."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName} papel removido."
@@ -675,14 +689,25 @@ msgstr "Não há menus de navegação"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Escolha um tipo..."
 
-msgid "grid.action.newVersion"
-msgstr "Criar uma nova versão"
+msgid "grid.action.view"
+msgstr ""
 
-msgid "grid.action.users"
-msgstr "Visualizar/Selecionar usuários"
+#~ msgid "grid.user.mergeUsers.into.description"
+#~ msgstr ""
+#~ "Agora você deve selecionar um usuário ao qual serão atribuídos o "
+#~ "histórico de revisão, autorias, etc, do usuário anterior."
 
-msgid "grid.action.removeUserGroup"
-msgstr "Remover este grupo de usuários"
+#~ msgid "grid.user.mergeUsers.from.description"
+#~ msgstr ""
+#~ "Selecione um usuário para mesclar em outra conta de usuário (por exemplo, "
+#~ "quando alguém tem duas contas de usuário). A conta selecionada em "
+#~ "primeiro lugar será eliminada e suas submissões, atribuições, etc, serão "
+#~ "atribuídos à segunda conta."
 
-msgid "grid.action.uninstall"
-msgstr "Desinstalar"
+#~ msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
+#~ msgstr ""
+#~ "Tem certeza de que deseja mesclar este usuário com outro? Você vai "
+#~ "escolher o próximo usuário na tela seguinte."
+
+#~ msgid "grid.user.mergeUsers.noneEnrolled"
+#~ msgstr "Nenhum usuário com este papel."

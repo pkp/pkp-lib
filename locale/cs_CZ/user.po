@@ -14,6 +14,9 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "user.accountInformation"
+msgstr "Informace o účtu"
+
 msgid "user.affiliation"
 msgstr "Pracoviště"
 
@@ -22,6 +25,57 @@ msgstr "(Vaše instituce, např. \"Simon Fraser University\")"
 
 msgid "user.affiliations"
 msgstr "Pracoviště"
+
+msgid "user.authorization.accessDenied"
+msgstr "Přístup zakázán."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Token pro proces ověření chybí, nebo je neplatný."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Nemůžete volat tuto operaci bez obsahu (tisk, časopis, konference, atd.)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Je vyžadováno přihlášení."
+
+msgid "user.authorization.privateOperation"
+msgstr "Operace, kterou se snažíte použít je buď soukromá, nebo neexistuje."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Byl vám zakázán přístup. Přístup na tyto stránky je v současnosti omezen."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Současná role nemá přístup k této operaci."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Pro tento příspěvek nemáte přiřazenu roli, která by umožňovala přístup k "
+"této operaci."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Musíte zvolit platnou uživatelskou skupinu pro přístup k této operaci."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Uživatel s úlohou Manažera (např. Produkční Editor) musí být přiřazen k této "
+"fázi, než bude moci pokračovat."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "V současnosti nemáte přístup do této etapy workflow."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Etapa workflow není specifikována."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Plugin nebyl specifikován a je vyžadován."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Nemáte oprávnění přistupovat k přiřazení recenzních úloh."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nemáte oprávnění přistupovat do této diskuse."
 
 msgid "user.biography"
 msgstr "Biografické údaje"
@@ -44,14 +98,8 @@ msgstr "Upravit můj profil"
 msgid "user.email"
 msgstr "E-mail"
 
-msgid "user.firstName"
-msgstr "Jméno"
-
-msgid "user.initialsExample"
-msgstr "Jan Novák = JN"
-
-msgid "user.initials"
-msgstr "Iniciály"
+msgid "user.givenName"
+msgstr "Křestní jméno"
 
 msgid "user.interests"
 msgstr "Zájem o recenzování"
@@ -59,29 +107,50 @@ msgstr "Zájem o recenzování"
 msgid "user.gossip"
 msgstr "Soukromé poznámky"
 
-msgid "user.lastName"
+msgid "user.gossip.description"
+msgstr ""
+"Nahrajte poznámky o tomto recenzentovi, které chcete, aby viděli ostatní "
+"správci, manažeři a všichni redaktoři. Poznámky budou viditelné pro budoucí "
+"přiřazení recenzí."
+
+msgid "user.group"
+msgstr "Uživatelská skupina"
+
+msgid "user.familyName"
 msgstr "Příjmení"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Neplatný formát obrázku profilu nebo příliš velký obrázek. Akceptované formáty jsou .gif, .jpg nebo .png a obrázek nesmí překročit 150x150 pixelů."
+msgstr ""
+"Neplatný formát obrázku profilu nebo příliš velký obrázek. Akceptované "
+"formáty jsou .gif, .jpg nebo .png a obrázek nesmí překročit 150x150 pixelů."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Váš účet byl zablokován z následujícího důvodu: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "Váš účet byl zablokován. Pro více informací kontaktujte prosím administrátora."
+msgstr ""
+"Váš účet byl zablokován. Pro více informací kontaktujte prosím "
+"administrátora."
 
 msgid "user.login.accountNotValidated"
-msgstr "Na email {$email} jsme vám zaslali potvrzovací e-mail. Pro aktivaci nového účtu postupujte podle pokynů v tomto emailu. Pokud email nevidíte, zkontrolujte, zda nebyl uložen do složky s nevyžádanou poštou."
+msgstr ""
+"Na email {$email} jsme vám zaslali potvrzovací e-mail. Pro aktivaci nového "
+"účtu postupujte podle pokynů v tomto emailu. Pokud email nevidíte, "
+"zkontrolujte, zda nebyl uložen do složky s nevyžádanou poštou."
 
 msgid "user.login.activate"
 msgstr "Aktivovat účet"
 
 msgid "user.login.activated"
-msgstr "Děkujeme za aktivaci Vašeho účtu. Nyní se můžete pomocí údajů poskytnutých při vyváření Vašeho účtu přihlásit."
+msgstr ""
+"Děkujeme za aktivaci Vašeho účtu. Nyní se můžete pomocí údajů poskytnutých "
+"při vyváření Vašeho účtu přihlásit."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Musíte si zvolit nové heslo před tím, než se budete moci přihlásit na tuto stránku.<br /><br />Pro změnu hesla k Vašemu účet vložte prosím níže Vaše uživatelské jméno a Vaše současné a nové heslo."
+msgstr ""
+"Musíte si zvolit nové heslo před tím, než se budete moci přihlásit na tuto "
+"stránku.<br /><br />Pro změnu hesla k Vašemu účet vložte prosím níže Vaše "
+"uživatelské jméno a Vaše současné a nové heslo."
 
 msgid "user.login.forgotPassword"
 msgstr "Zapomenuté heslo?"
@@ -93,20 +162,51 @@ msgid "user.login"
 msgstr "Přihlášení"
 
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Na Vaši emailovou adresu bylo odesláno potvrzení. Následujte prosím instrukce pro resetování Vašeho hesla uvedené v emailu."
+msgstr ""
+"Na Vaši emailovou adresu bylo odesláno potvrzení. Následujte prosím "
+"instrukce pro resetování Vašeho hesla uvedené v emailu."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr "Požadavek na resetování hesla nelze dokončit, protože {$reason}."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "Promiňte, odkaz, na který jste kliknul, vypršel nebo není platný. Pokuste se prosím znovu resetovat heslo."
+msgstr ""
+"Promiňte, odkaz, na který jste kliknul, vypršel nebo není platný. Pokuste se "
+"prosím znovu resetovat heslo."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Neexistuje žádný uživatel s uvedenou emailovou adresou."
 
 #, fuzzy
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr "Heslo bylo úspěšně aktualizováno. Přihlaste se prosím pomocí aktualizovaného hesla."
+msgstr ""
+"Heslo bylo úspěšně aktualizováno. Přihlaste se prosím pomocí aktualizovaného "
+"hesla."
 
 msgid "user.login.registeredEmail"
 msgstr "Email registrovaného uživatele"
+
+msgid "user.login.registrationComplete"
+msgstr "Registrace je dokončena"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Díky za registraci! Co chcete dělat nyní?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Prohlédnout příspěvek"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Nahrát nový příspěvek"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Pokračovat v procházení"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registrace očekává potvrzení"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Neodhlašovat mne"
 
 msgid "user.login.resetPassword"
 msgstr "Resetovat heslo"
@@ -114,11 +214,14 @@ msgstr "Resetovat heslo"
 msgid "user.logOut"
 msgstr "Odhlásit"
 
+msgid "user.logOutAs"
+msgstr "Odlášení z {$username}"
+
+msgid "user.hello"
+msgstr "Dobrý den, "
+
 msgid "user.mailingAddress"
 msgstr "Poštovní adresa"
-
-msgid "user.middleName"
-msgstr "Druhé jméno"
 
 msgid "user.myAccount"
 msgstr "Můj účet"
@@ -129,8 +232,19 @@ msgstr "Jméno"
 msgid "user.password"
 msgstr "Heslo"
 
+msgid "user.repeatPassword"
+msgstr "Opakujte heslo"
+
 msgid "user.phone"
 msgstr "Telefon"
+
+msgid "user.preferredPublicName"
+msgstr "Upřednostňované veřejné jméno"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Jak si přejete být oslovován? Pokud chcete, můžete sem přidat pozdravy, "
+"prostřední jména a tituly."
 
 msgid "user.profile.changePasswordInstructions"
 msgstr "Pro změnu hesla k Vašemu účtu vložte níže Vaše současné a nové heslo."
@@ -138,14 +252,22 @@ msgstr "Pro změnu hesla k Vašemu účtu vložte níže Vaše současné a nov�
 msgid "user.profile.editProfile"
 msgstr "Editovat profil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "Stát je vyžadován."
+
 msgid "user.profile.form.emailRequired"
 msgstr "Je vyžadována platná emailová adresa."
 
-msgid "user.profile.form.firstNameRequired"
-msgstr "Je vyžadováno jméno."
+msgid "user.profile.form.givenNameRequired"
+msgstr "Je nutné zadat jméno."
 
-msgid "user.profile.form.lastNameRequired"
-msgstr "Je vyžadováno příjmení."
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Přidali jste příjmení pro jazyk, kterému chybí jméno. Přidejte prosím jméno "
+"i do tohoto jazyka."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Emailová adresa je vyžadována."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Musíte vložit Vaše nové heslo."
@@ -159,6 +281,9 @@ msgstr "Emailová oznámení o otevřeném přístupu k číslu"
 msgid "user.profile.form.passwordRequired"
 msgstr "Je vyžadováno heslo."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Vaše nové heslo je shodné s původním."
+
 msgid "user.profile.form.profileImage"
 msgstr "Obrázek profilu"
 
@@ -166,13 +291,22 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Emailová oznámení o vydání nového čísla"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "Specifikovaná URL není platná. Překontrolujte URL a zkuste to znovu. (Tip: Zkuste přidat http:// na začátek URL.)"
+msgstr ""
+"Specifikovaná URL není platná. Překontrolujte URL a zkuste to znovu. (Tip: "
+"Zkuste přidat http:// na začátek URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Je vyžadováno zadání uživatelské skupiny."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Je vyžadováno uživatelské jméno."
 
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Musíte souhlasit s naším prohlášení o ochraně soukromí."
+
 msgid "user.profile.leavePasswordBlank"
-msgstr "Aby bylo zachováno současné heslo, nechte políčka pro zadání hesla prázdná."
+msgstr ""
+"Aby bylo zachováno současné heslo, nechte políčka pro zadání hesla prázdná."
 
 msgid "user.profile.newPassword"
 msgstr "Nové heslo"
@@ -189,14 +323,51 @@ msgstr "Profil uživatele"
 msgid "user.profile.repeatNewPassword"
 msgstr "Nové heslo znovu"
 
+msgid "user.login.registerNewAccount"
+msgstr "Registrovat"
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Pro aktualizaci přihlašovacího hesla zadejte nové heslo."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Vložte email k vašemu účtu. Na tento email budou poslány pokyny v případě "
+"potřeby obnovení hesla."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ano, souhlasím s tím, že moje osobní údaje budou shromažďovány a ukládány "
+"podle <a href=\"{$privacyUrl}\" target=\"_blank\">Prohlášení o ochraně "
+"soukromí</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Ano, rád bych byl informován o nově publikovaných článcích a dostával "
+"oznámení časopisu."
+
 msgid "user.register.form.emailExists"
 msgstr "Zvolenou emailovou adresu již používá jiný uživatel."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Hesla nejsou totožná."
 
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Emailové adresy v obou polích nesouhlasí."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Uživatelské jméno může obsahovat pouze malá písmena, čísla, podtržítko a "
+"pomlčku a musí začínat a končit alfanumerickým znakem."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Minimálně jedna role musí být vybrána."
+
 msgid "user.register.form.usernameExists"
 msgstr "Zvolené uživatelské jméno již používá jiný uživatel."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Heslo musí mít minimálně {$length} znaků."
 
 msgid "user.register.registerAs"
 msgstr "Zaregistrovat v {$contextName} jako..."
@@ -205,7 +376,32 @@ msgid "user.register"
 msgstr "Registrovat"
 
 msgid "user.register.usernameRestriction"
-msgstr "Uživatelské jméno může obsahovat pouze malá písmena, číslice a pomlčky/podtržítka."
+msgstr ""
+"Uživatelské jméno může obsahovat pouze malá písmena, číslice a pomlčky/"
+"podtržítka."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Úspěšně jste se zaregistrovali. <a href=\"{$profileUrl}\">Klikněte zde</a> k "
+"dokončení vašeho uživatelského profilu."
+
+msgid "user.role.assistant"
+msgstr "Asistent"
+
+msgid "user.role.author"
+msgstr "Autor"
+
+msgid "user.role.author_s"
+msgstr "Autor(ři)"
+
+msgid "user.role.authors"
+msgstr "Autoři"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Editoři"
 
 msgid "user.role.reader"
 msgstr "Čtenář"
@@ -225,11 +421,26 @@ msgstr "Administrátor stránky"
 msgid "user.role.siteAdmins"
 msgstr "Administrátoři stránky"
 
+msgid "user.role.copyeditor"
+msgstr "Redaktor"
+
+msgid "user.role.copyeditors"
+msgstr "Redaktoři"
+
+msgid "user.role.proofreader"
+msgstr "Korektor"
+
+msgid "user.role.proofreaders"
+msgstr "Korektoři"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor sazby"
+
+msgid "user.role.layoutEditors"
+msgstr "Editoři sazby"
+
 msgid "user.roles"
 msgstr "Role"
-
-msgid "user.salutation"
-msgstr "Oslovení"
 
 msgid "user.sendPassword"
 msgstr "Potvrzení"
@@ -255,155 +466,13 @@ msgstr "Uživatelské jméno"
 msgid "user.workingLanguages"
 msgstr "Pracovní jazyky"
 
-msgid "user.accountInformation"
-msgstr "Informace o účtu"
-
-msgid "user.authorization.accessDenied"
-msgstr "Přístup zakázán."
-
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Token pro proces ověření chybí, nebo je neplatný."
-
-msgid "user.authorization.contextRequired"
-msgstr ""
-"Nemůžete volat tuto operaci bez obsahu (tisk, časopis, konference, atd.)."
-
-msgid "user.authorization.loginRequired"
-msgstr "Je vyžadováno přihlášení."
-
-msgid "user.authorization.privateOperation"
-msgstr "Operace, kterou se snažíte použít je buď soukromá, nebo neexistuje."
-
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "Byl vám zakázán přístup. Přístup na tyto stránky je v současnosti omezen."
-
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Současná role nemá přístup k této operaci."
-
-msgid "user.authorization.userGroupRequired"
-msgstr "Musíte zvolit platnou uživatelskou skupinu pro přístup k této operaci."
-
-msgid "user.authorization.managerRequired"
-msgstr "Uživatel s úlohou Manažera (např. Produkční Editor) musí být přiřazen k této fázi, než bude moci pokračovat."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "V současnosti nemáte přístup do této etapy workflow."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Etapa workflow není specifikována."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Plugin nebyl specifikován a je vyžadován."
-
-msgid "user.group"
-msgstr "Uživatelská skupina"
-
-msgid "user.login.registrationComplete"
-msgstr "Registrace je dokončena"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Díky za registraci! Co chcete dělat nyní?"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Prohlédnout příspěvek"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Nahrát nový příspěvek"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Pokračovat v procházení"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Registrace očekává potvrzení"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Neodhlašovat mne"
-
-msgid "user.logOutAs"
-msgstr "Odlášení z {$username}"
-
-msgid "user.hello"
-msgstr "Dobrý den, "
-
-msgid "user.repeatPassword"
-msgstr "Opakujte heslo"
-
-msgid "user.profile.form.countryRequired"
-msgstr "Stát je vyžadován."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Emailová adresa je vyžadována."
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Vaše nové heslo je shodné s původním."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Je vyžadováno zadání uživatelské skupiny."
-
-msgid "user.login.registerNewAccount"
-msgstr "Registrovat"
-
-#, fuzzy
-msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr "Požadavek na resetování hesla nelze dokončit, protože {$reason}."
-
-#, fuzzy
-msgid "user.login.passwordResetProcessInstructions"
-msgstr "Pro aktualizaci přihlašovacího hesla zadejte nové heslo."
-
-msgid "user.login.resetPasswordInstructions"
-msgstr "Vložte email k vašemu účtu. Na tento email budou poslány pokyny v případě potřeby obnovení hesla."
-
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "Emailové adresy v obou polích nesouhlasí."
-
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr "Uživatelské jméno může obsahovat pouze malá písmena, čísla, podtržítko a pomlčku a musí začínat a končit alfanumerickým znakem."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Minimálně jedna role musí být vybrána."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Heslo musí mít minimálně {$length} znaků."
-
-msgid "user.register.registrationCompleted"
-msgstr "Úspěšně jste se zaregistrovali. <a href=\"{$profileUrl}\">Klikněte zde</a> k dokončení vašeho uživatelského profilu."
-
-msgid "user.role.author"
-msgstr "Autor"
-
-msgid "user.role.author_s"
-msgstr "Autor(ři)"
-
-msgid "user.role.authors"
-msgstr "Autoři"
-
-msgid "user.role.editor"
-msgstr "Editor"
-
-msgid "user.role.editors"
-msgstr "Editoři"
-
-msgid "user.role.copyeditor"
-msgstr "Redaktor"
-
-msgid "user.role.copyeditors"
-msgstr "Redaktoři"
-
-msgid "user.role.proofreader"
-msgstr "Korektor"
-
-msgid "user.role.proofreaders"
-msgstr "Korektoři"
-
-msgid "user.suffix"
-msgstr "Za jménem"
-
 msgid "user.orcid"
 msgstr "ORCID iD"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "ORCID iD, které jste zadali není platné. Vložte, prosím plné URI (např. \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"ORCID iD, které jste zadali není platné. Vložte, prosím plné URI (např. "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Identita"
@@ -413,15 +482,6 @@ msgstr "Kontakt"
 
 msgid "user.profile.public"
 msgstr "Veřejný"
-
-msgid "user.role.layoutEditor"
-msgstr "Editor sazby"
-
-msgid "user.role.layoutEditors"
-msgstr "Editoři sazby"
-
-msgid "user.role.assistant"
-msgstr "Asistent"
 
 msgid "user.apiKey"
 msgstr "API klíč"
@@ -433,53 +493,42 @@ msgid "user.apiKey.generate"
 msgstr "Vygenerovat nový API klíč"
 
 msgid "user.apiKey.generateWarning"
-msgstr "Vytvoření nového API klíče zneplatní původní API klíč tohoto uživatele."
+msgstr ""
+"Vytvoření nového API klíče zneplatní původní API klíč tohoto uživatele."
 
 msgid "user.apiKey.secretRequired"
-msgstr "Před vytvořením API klíče musí správce webu nastavit \"tajemství\"  (\"api_key_secret\") v konfiguračním souboru."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "Pro tento příspěvek nemáte přiřazenu roli, která by umožňovala přístup k této operaci."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Nemáte oprávnění přistupovat k přiřazení recenzních úloh."
-
-msgid "user.authorization.submissionQuery"
-msgstr "Nemáte oprávnění přistupovat do této diskuse."
-
-msgid "user.gossip.description"
-msgstr "Nahrajte poznámky o tomto recenzentovi, které chcete, aby viděli ostatní správci, manažeři a všichni redaktoři. Poznámky budou viditelné pro budoucí přiřazení recenzí."
-
-msgid "user.register.form.privacyConsent"
-msgstr "Ano, souhlasím s tím, že moje osobní údaje budou shromažďovány a ukládány podle <a href=\"{$privacyUrl}\" target=\"_blank\">Prohlášení o ochraně soukromí</a>."
-
-msgid "user.register.form.emailConsent"
-msgstr "Ano, rád bych byl informován o nově publikovaných článcích a dostával oznámení časopisu."
+msgstr ""
+"Před vytvořením API klíče musí správce webu nastavit \"tajemství"
+"\"  (\"api_key_secret\") v konfiguračním souboru."
 
 msgid "user.privacyLink"
-msgstr "Vaše data jsou ukládána v souladu s naším <a href=\"{$privacyUrl}\" target=\"_blank\">prohlášením o ochraně soukromí</a>."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Musíte souhlasit s naším prohlášení o ochraně soukromí."
-
-msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
-"Přidali jste příjmení pro jazyk, kterému chybí jméno. Přidejte prosím jméno "
-"i do tohoto jazyka."
+"Vaše data jsou ukládána v souladu s naším <a href=\"{$privacyUrl}\" target="
+"\"_blank\">prohlášením o ochraně soukromí</a>."
 
-msgid "user.profile.form.givenNameRequired"
-msgstr "Je nutné zadat jméno."
+#~ msgid "user.firstName"
+#~ msgstr "Jméno"
 
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Jak si přejete být oslovován? Pokud chcete, můžete sem přidat pozdravy, "
-"prostřední jména a tituly."
+#~ msgid "user.initialsExample"
+#~ msgstr "Jan Novák = JN"
 
-msgid "user.preferredPublicName"
-msgstr "Upřednostňované veřejné jméno"
+#~ msgid "user.initials"
+#~ msgstr "Iniciály"
 
-msgid "user.familyName"
-msgstr "Příjmení"
+#~ msgid "user.lastName"
+#~ msgstr "Příjmení"
 
-msgid "user.givenName"
-msgstr "Křestní jméno"
+#~ msgid "user.middleName"
+#~ msgstr "Druhé jméno"
+
+#~ msgid "user.profile.form.firstNameRequired"
+#~ msgstr "Je vyžadováno jméno."
+
+#~ msgid "user.profile.form.lastNameRequired"
+#~ msgstr "Je vyžadováno příjmení."
+
+#~ msgid "user.salutation"
+#~ msgstr "Oslovení"
+
+#~ msgid "user.suffix"
+#~ msgstr "Za jménem"

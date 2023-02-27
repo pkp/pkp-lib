@@ -2,32 +2,193 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
-"Language: \n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "درخواست شما نادیده گرفته شد. شاید به دلیل آن است که ورود شما به سیستم منقشی شده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"
+msgid "api.400.paramNotSupported"
+msgstr ""
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "شما تنها مجاز به دیدن مقالات چاپ نشده‌ای هستید که به شما انتساب داده شده است."
+msgid "api.400.invalidApiToken"
+msgstr ""
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "شما نمی‌توانید مقاله ارسالی که به این محتوا منتسب نشده است را حذف کنید"
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "شما مجاز به حذف این مقاله ارسالی نیستید."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr ""
 
 msgid "api.404.resourceNotFound"
 msgstr "منابع درخواستی یافت نشد."
 
+msgid "api.404.endpointNotFound"
+msgstr ""
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.500.badAuthorizationheader"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr ""
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr ""
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr ""
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr ""
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr ""
+
+msgid "api.stats.400.wrongDateRange"
+msgstr ""
+
+msgid "api.stats.400.earlyDateRange"
+msgstr ""
+
+msgid "api.stats.400.lateDateRange"
+msgstr ""
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
 msgid "api.submissions.400.missingRequired"
-msgstr "به دلیل آنکه برخی از اطلاعات ضروری در دسترس نیست، درخواست شما قابل اجرا نمی‌باشد"
+msgstr ""
+"به دلیل آنکه برخی از اطلاعات ضروری در دسترس نیست، درخواست شما قابل اجرا "
+"نمی‌باشد"
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "شماره، دوره و یا سال درخواستی معتبر نمی‌باشد"
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"درخواست شما نادیده گرفته شد. شاید به دلیل آن است که ورود شما به سیستم منقشی "
+"شده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "شما نمی‌توانید مقاله ارسالی که به این محتوا منتسب نشده است را حذف کنید"
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"شما تنها مجاز به دیدن مقالات چاپ نشده‌ای هستید که به شما انتساب داده شده است."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "شما مجاز به حذف این مقاله ارسالی نیستید."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr ""
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr ""

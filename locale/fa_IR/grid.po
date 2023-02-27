@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
-"Language: \n"
 
 msgid "grid.noItems"
 msgstr "هیچ موردی وجود ندارد"
@@ -22,6 +22,9 @@ msgstr "بدون حسابرس"
 
 msgid "grid.remotelyHostedItem"
 msgstr "این مورد از راه دور کنترل می‌شود"
+
+msgid "grid.action.uninstall"
+msgstr ""
 
 msgid "grid.action.manageAccess"
 msgstr "مدیریت دسترسی"
@@ -230,6 +233,9 @@ msgstr "افزودن گروه کاربری جدید"
 msgid "grid.action.editUserGroup"
 msgstr "ویرایش این گروه کاربری"
 
+msgid "grid.action.removeUserGroup"
+msgstr ""
+
 msgid "grid.action.disable"
 msgstr "غیرفعال کردن"
 
@@ -323,6 +329,9 @@ msgstr "نصب"
 msgid "grid.action.moreItems"
 msgstr "ادامه"
 
+msgid "grid.action.users"
+msgstr ""
+
 msgid "grid.task.status.completed"
 msgstr "این وظیفه تکمیل شد."
 
@@ -336,7 +345,8 @@ msgid "grid.task.status.unfinished"
 msgstr "وظیفه تمام نشده است"
 
 msgid "grid.task.status.reviewReady"
-msgstr "داوری آماده است. آیکون یادداشت را به سمت چپ ببرید تا آن را مشاهده کنید."
+msgstr ""
+"داوری آماده است. آیکون یادداشت را به سمت چپ ببرید تا آن را مشاهده کنید."
 
 msgid "grid.columns.actions"
 msgstr "اقدامات"
@@ -394,6 +404,9 @@ msgstr "ویرایش پدیدآورنده"
 
 msgid "grid.action.deleteContributor"
 msgstr "حذف پدیدآورنده"
+
+msgid "grid.action.newVersion"
+msgstr ""
 
 msgid "grid.reviewForm.title"
 msgstr "فرم‌های داوری"
@@ -492,10 +505,14 @@ msgid "grid.user.error"
 msgstr "در مدیریت این کاربر خطایی رخ داد. لطفاً دوباره تلاش کنید."
 
 msgid "grid.user.errorEmail"
-msgstr "در ارسال ایمیل خطایی رخ داد. مطمئن شوید که سرور ایمیلتان درست کار می‌کند. در صورت لزوم با مدیر سایت این موضوع را در میان بگذارید."
+msgstr ""
+"در ارسال ایمیل خطایی رخ داد. مطمئن شوید که سرور ایمیلتان درست کار می‌کند. در "
+"صورت لزوم با مدیر سایت این موضوع را در میان بگذارید."
 
 msgid "grid.user.cannotAdminister"
-msgstr "شما مجوز کافی برای مدیریت این کاربر را ندارید. برای مدیریت کاربر باید دارای سطح دسترسی مدیر سایت باشید."
+msgstr ""
+"شما مجوز کافی برای مدیریت این کاربر را ندارید. برای مدیریت کاربر باید دارای "
+"سطح دسترسی مدیر سایت باشید."
 
 msgid "grid.user.authSource"
 msgstr "منبع احراز هویت"
@@ -558,7 +575,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "لطفاً یک کاربر انتخاب کنید."
 
 msgid "grid.user.confirmLogInAs"
-msgstr "آیا می‌خواهید به عنوان این کاربر وارد شوید؟ همه کارهایی که انجام می‌دهید به عنوان این کاربر ثبت خواهد شد"
+msgstr ""
+"آیا می‌خواهید به عنوان این کاربر وارد شوید؟ همه کارهایی که انجام می‌دهید به "
+"عنوان این کاربر ثبت خواهد شد"
 
 msgid "grid.user.mergeUsers"
 msgstr "ادغام کاربران"
@@ -573,7 +592,10 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "تمامی کاربران دارای نقش"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "آیا مطمئنید که حساب کاربری «{$oldUsername}» را می‌خواهید با حساب کاربری «{$newUsername}» ادغام کنید؟ بعد از ادغام، حساب کاربری «{$oldUsername}» دیگر در دسترس نخواهد بود. عمل ادغام بازگشت ناپذیر است."
+msgstr ""
+"آیا مطمئنید که حساب کاربری «{$oldUsername}» را می‌خواهید با حساب کاربری "
+"«{$newUsername}» ادغام کنید؟ بعد از ادغام، حساب کاربری «{$oldUsername}» دیگر "
+"در دسترس نخواهد بود. عمل ادغام بازگشت ناپذیر است."
 
 msgid "grid.preparedEmails.title"
 msgstr "آماده‌سازی الگوهای متن ایمیل"
@@ -627,7 +649,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "نقش {$userGroupName}، نقش پیش‌فرض بوده و قابل حذف نمی‌باشد."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "نقش {$userGroupName} قابل حذف نیست. هم اکنون به {$usersCount} کاربر این نقش انتساب داده شده است.."
+msgstr ""
+"نقش {$userGroupName} قابل حذف نیست. هم اکنون به {$usersCount} کاربر این نقش "
+"انتساب داده شده است.."
 
 msgid "grid.userGroup.removed"
 msgstr "نقش {$userGroupName} حذف شد"
@@ -655,3 +679,9 @@ msgstr "بدون المان برای منوی گشت‌وگذار"
 
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "بدون منوی گشت‌وگذار"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr ""
+
+msgid "grid.action.view"
+msgstr ""

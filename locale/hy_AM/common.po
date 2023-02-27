@@ -11,386 +11,144 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "about.contact.phone"
-msgstr "Հեռախոս"
-
-msgid "about.contact.email"
-msgstr "Էլ-հասցե"
-
-msgid "about.contact"
-msgstr "Կապ"
-
-msgid "about.aboutSite"
-msgstr "Կայքի մասին"
-
-msgid "about.guidelines"
-msgstr "Ուղեցույցներ"
-
-msgid "about.description"
-msgstr "Նկարագրություն"
+msgid "common.publicKnowledgeProject"
+msgstr "Հրապարակային գիտական լեզու"
 
 msgid "common.currentStyleSheet"
 msgstr "Գործող դիզայն"
 
-msgid "common.publicKnowledgeProject"
-msgstr "Հրապարակային գիտական լեզու"
+msgid "about.description"
+msgstr "Նկարագրություն"
 
-msgid "common.cancel"
-msgstr "Չեղյալ"
+msgid "about.guidelines"
+msgstr "Ուղեցույցներ"
 
-msgid "common.between"
-msgstr "միջև"
+msgid "about.aboutSite"
+msgstr "Կայքի մասին"
 
-msgid "common.back"
-msgstr "Հետ"
+msgid "about.contact"
+msgstr "Կապ"
 
-msgid "common.available"
-msgstr "Հասանելի"
+msgid "about.contact.email"
+msgstr "Էլ-հասցե"
 
-msgid "common.assigned.date"
-msgstr "Նշանակված է՝ {$dateAssigned}"
+msgid "about.contact.phone"
+msgstr "Հեռախոս"
 
-msgid "common.assigned"
-msgstr "Նշանակված"
+msgid "about.contact.principalContact"
+msgstr ""
 
-msgid "common.assign"
-msgstr "Նշանակել"
+msgid "about.contact.supportContact"
+msgstr "Օգնություն"
 
-msgid "common.applyAction"
-msgstr "Կատարել գործողություն"
+msgid "about.other"
+msgstr "Այլ"
 
-msgid "common.all"
-msgstr "Բոլորը"
+msgid "about.people"
+msgstr "Մարդիկ"
 
-msgid "common.name"
-msgstr "Անուն"
+msgid "about.policies"
+msgstr "Քաղաքականություններ"
 
-msgid "common.add"
-msgstr "Ավելացնել"
+msgid "about.siteMap"
+msgstr "Կայքի քարտեզ"
 
-msgid "common.active"
-msgstr "Ակտիվ"
+msgid "announcement.announcements"
+msgstr "Հայտարարություններ"
 
-msgid "common.activate"
-msgstr "Ակտիվացնել"
+msgid "announcement.announcementsHome"
+msgstr "Հայտարարություններ"
 
-msgid "common.action"
-msgstr "Գործողություն"
+msgid "announcement.moreAnnouncements"
+msgstr "Ավելի շատ հայտարարություններ"
 
-msgid "common.acknowledged"
-msgstr "Ընդունված է"
+msgid "announcement.noneExist"
+msgstr "Հայտարարություն չի հրապարակվել"
 
-msgid "common.accepted"
-msgstr "Ընդունված է"
+msgid "announcement.posted"
+msgstr "Հրապարակաված է"
 
-msgid "common.abstract"
-msgstr "Աբստրակտ"
+msgid "announcement.postedOn"
+msgstr "Հրապարակված է {$postDate}"
+
+msgid "announcement.view"
+msgstr "Տեսնել հայտարարությունը"
+
+msgid "common.allDownloads"
+msgstr "Բոլոր ներբեռնումները"
+
+msgid "common.navigation.sidebar"
+msgstr "Կողմնային մենյու"
+
+msgid "common.navigation.site"
+msgstr "Կայքի նավիգացիա"
+
+msgid "common.navigation.siteContext"
+msgstr "Կայքի բովանդակության նավիգացիա"
+
+msgid "common.navigation.user"
+msgstr "Օգտագործողի նավիգացիա"
+
+msgid "common.tasks"
+msgstr "Առաջադրանքներ"
+
+msgid "common.list"
+msgstr "Ցուցակ"
+
+msgid "common.grid"
+msgstr "Grid"
 
 msgid "common.confirmDelete"
 msgstr ""
 "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել սա: Այս գործողությունը չի կարող "
 "չեղարկվել:"
 
-msgid "common.grid"
-msgstr "Grid"
+msgid "common.abstract"
+msgstr "Աբստրակտ"
 
-msgid "common.list"
-msgstr "Ցուցակ"
+msgid "common.accepted"
+msgstr "Ընդունված է"
 
-msgid "common.tasks"
-msgstr "Առաջադրանքներ"
+msgid "common.acknowledged"
+msgstr "Ընդունված է"
 
-msgid "common.navigation.user"
-msgstr "Օգտագործողի նավիգացիա"
+msgid "common.action"
+msgstr "Գործողություն"
 
-msgid "common.navigation.siteContext"
-msgstr "Կայքի բովանդակության նավիգացիա"
+msgid "common.activate"
+msgstr "Ակտիվացնել"
 
-msgid "common.navigation.site"
-msgstr "Կայքի նավիգացիա"
+msgid "common.active"
+msgstr "Ակտիվ"
 
-msgid "common.navigation.sidebar"
-msgstr "Կողմնային մենյու"
-
-msgid "common.allDownloads"
-msgstr "Բոլոր ներբեռնումները"
-
-msgid "announcement.view"
-msgstr "Տեսնել հայտարարությունը"
-
-msgid "announcement.postedOn"
-msgstr "Հրապարակված է {$postDate}"
-
-msgid "announcement.posted"
-msgstr "Հրապարակաված է"
-
-msgid "announcement.noneExist"
-msgstr "Հայտարարություն չի հրապարակվել"
-
-msgid "announcement.moreAnnouncements"
-msgstr "Ավելի շատ հայտարարություններ"
-
-msgid "announcement.announcementsHome"
-msgstr "Հայտարարություններ"
-
-msgid "announcement.announcements"
-msgstr "Հայտարարություններ"
-
-msgid "about.siteMap"
-msgstr "Կայքի քարտեզ"
-
-msgid "about.policies"
-msgstr "Քաղաքականություններ"
-
-msgid "about.people"
-msgstr "Մարդիկ"
-
-msgid "about.other"
-msgstr "Այլ"
-
-msgid "about.contact.supportContact"
-msgstr "Օգնություն"
-
-msgid "common.inProgress"
-msgstr "Ընթացքի մեջ է"
-
-msgid "common.initiate"
-msgstr "Թողարկել"
-
-msgid "common.import"
-msgstr "Ներմուծել"
-
-msgid "common.id"
-msgstr "ID"
-
-msgid "common.hour"
-msgstr "Ժամ"
-
-msgid "common.homePageHeaderLogo.altText"
-msgstr "Գլխավոր էջի վերևի մասի լոգո"
-
-msgid "common.homepageNavigationLabel"
-msgstr "Գլխավոր"
-
-msgid "common.height"
-msgstr "Բարձրություն"
-
-msgid "common.until"
-msgstr "Մինչև"
-
-msgid "common.fromWithValue"
-msgstr "Սկսած: {$value}"
-
-msgid "common.filterRemove"
-msgstr "Հեռացնել զտիչը: {$filterTitle}"
-
-msgid "common.filterAdd"
-msgstr "Ավելացնել զտիչ: {$filterTitle}"
-
-msgid "common.filter"
-msgstr "Զտիչներ"
-
-msgid "common.fileType"
-msgstr "Ֆայլի տիպ"
-
-msgid "common.fileSize"
-msgstr "Ֆայլի չափ"
-
-msgid "common.fileName"
-msgstr "Ֆայլի անվանում"
-
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
-
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
-
-msgid "common.file"
-msgstr "Ֆայլ"
-
-msgid "common.fullscreenOff"
-msgstr "Անջատել ամբողջական էկրանը"
-
-msgid "common.fullscreen"
-msgstr "Ամբողջ էկրան"
-
-msgid "common.finish"
-msgstr "Ավարտել"
-
-msgid "common.export"
-msgstr "Արտահանել"
-
-msgid "common.event"
-msgstr "Միջոցառում"
-
-msgid "common.error.databaseErrorUnknown"
-msgstr "Տեղի է ունեցել անհայտ տվյալների բազայի կապի խնդիր:"
-
-msgid "common.error.databaseError"
-msgstr "Տվյալների բազայի հետ կապված խնդիր է տեղի ունեցել:"
-
-msgid "common.enabled"
-msgstr "Միացված է"
-
-msgid "common.enable"
-msgstr "Միացնել"
-
-msgid "common.edit"
-msgstr "Խմբագրել"
-
-msgid "common.downloadPdf"
-msgstr "Ներբեռնել PDF"
-
-msgid "common.download"
-msgstr "Ներբեռնել"
-
-msgid "common.done"
-msgstr "Կատարված է"
-
-msgid "common.disabled"
-msgstr "Անջատված է"
-
-msgid "common.disable"
-msgstr "Անջատել"
-
-msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixels"
-
-msgid "common.description"
-msgstr "Նկարագրություն"
-
-msgid "common.designation"
-msgstr "Նշանակում"
-
-msgid "common.deleteSelection"
-msgstr "Ջնջել բաժինը"
-
-msgid "common.deleting"
-msgstr "Ջնջվում է"
-
-msgid "common.delete"
-msgstr "Ջնջել"
-
-msgid "common.declined"
-msgstr "Չեղարկված է"
-
-msgid "common.default"
-msgstr "Լռելյայն"
-
-msgid "common.deactivate"
-msgstr "Ապաակտիվացնել"
-
-msgid "common.day"
-msgstr "Օր"
-
-msgid "common.dateHijri"
-msgstr "Hijri օրացույց"
-
-msgid "common.dateUploaded"
-msgstr "Ներբեռնման ամսաթիվ"
-
-msgid "common.dateSubmitted"
-msgstr "Դիմելու ամսաթիվ"
-
-msgid "common.dateRequested"
-msgstr "Պահանջվում է ամսաթիվ"
-
-msgid "common.dateModified"
-msgstr "Ամսաթիվը փոփոխված է"
-
-msgid "common.date"
-msgstr "Ամսաթիվ"
-
-msgid "common.dateDecided"
-msgstr "Օրը որոշված է"
-
-msgid "common.create"
-msgstr "Ստեղծել"
-
-msgid "common.country"
-msgstr "Երկիր"
-
-msgid "common.copy"
-msgstr "Պատճեն"
-
-msgid "common.continue"
-msgstr "Շարունակել"
-
-msgid "common.contents"
-msgstr "Բովանդակություններ"
-
-msgid "common.content"
-msgstr "Բովանդակություն"
-
-msgid "common.confirmed.date"
-msgstr "Հաստատված է՝  {$dateConfirmed}"
-
-msgid "common.confirm"
-msgstr "Հաստատել"
-
-msgid "common.completed.date"
-msgstr "{$dateCompleted} - կատարված է:"
-
-msgid "common.completed"
-msgstr "Կատարված է"
-
-msgid "common.complete"
-msgstr "Կատարել"
-
-msgid "common.closeWindow"
-msgstr "Փակել պատուհանը"
-
-msgid "common.closePanel"
-msgstr "Փակել վահանը"
-
-msgid "common.close"
-msgstr "Փակել"
-
-msgid "common.chooseOne"
-msgstr "Ընտրեք մեկը"
-
-msgid "common.changesSaved"
-msgstr "Ձեր կողմից կատարված փոփոխությունները պահպանված են:"
-
-msgid "common.captchaField"
-msgstr "Վավերականություն"
-
-msgid "common.captchaField.description"
-msgstr "Մուտքագրեք վերևի նկարում հայտնված տառերը:"
-
-msgid "common.captcha.error.invalid-input-response"
+msgid "common.inactive"
 msgstr ""
-"Դուք չեք հաղթահարել վավերացման ստուգումը սպամ հայտերի ներկայացումը կանխելու "
-"համար:"
 
-msgid "common.captcha.error.missing-input-response"
+msgid "common.add"
+msgstr "Ավելացնել"
+
+msgid "common.addSelf"
 msgstr ""
-"Դուք պետք է ավարտեք վավերացման ստուգումը, որն օգտագործվել է սպամ հայտերի "
-"ներկայացումը կանխելու համար:"
 
-msgid "common.captcha.error.invalid-input-secret"
+msgid "common.name"
+msgstr "Անուն"
+
+msgid "common.all"
+msgstr "Բոլորը"
+
+msgid "common.alphaList"
 msgstr ""
-"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին վավեր չէ:"
+"Ա Բ Գ Դ Ե Զ Է Ը Թ Ժ Ի Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Ո Չ Պ Ջ Ռ Ս Վ Տ Ր Ց ՈՒ Փ Ք և Օ "
+"Ֆ"
 
-msgid "common.captcha.error.missing-input-secret"
+msgid "common.titleSmallWords"
 msgstr ""
-"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին բացակայում "
-"է:"
 
-msgid "common.notice"
-msgstr "Նկատել"
+msgid "common.alreadyAssigned"
+msgstr "Նշանակված"
 
-msgid "common.error"
-msgstr "Սխալ"
-
-msgid "common.warning"
-msgstr "Զգուշացում"
-
-msgid "common.cancelled"
-msgstr "Չեղարկված"
-
-msgid "common.and"
-msgstr "և"
+msgid "common.altText"
+msgstr "Այլընտրանքային տեքստ"
 
 msgid "common.altTextInstructions"
 msgstr ""
@@ -398,816 +156,72 @@ msgstr ""
 "տեքստային դիտարկչում կամ օժանդակ սարքերով: Օրինակ. «Մեր խմբագիրը PKP "
 "համաժողովում ելույթ ունենալիս»:"
 
-msgid "common.altText"
-msgstr "Այլընտրանքային տեքստ"
+msgid "common.and"
+msgstr "և"
 
-msgid "common.alreadyAssigned"
+msgid "common.applyAction"
+msgstr "Կատարել գործողություն"
+
+msgid "common.assign"
+msgstr "Նշանակել"
+
+msgid "common.assigned"
 msgstr "Նշանակված"
 
-msgid "common.alphaList"
-msgstr ""
-"Ա Բ Գ Դ Ե Զ Է Ը Թ Ժ Ի Լ Խ Ծ Կ Հ Ձ Ղ Ճ Մ Յ Ն Շ Ո Չ Պ Ջ Ռ Ս Վ Տ Ր Ց ՈՒ Փ Ք և Օ "
-"Ֆ"
+msgid "common.assigned.date"
+msgstr "Նշանակված է՝ {$dateAssigned}"
 
-msgid "common.other"
-msgstr "այլ"
+msgid "common.available"
+msgstr "Հասանելի"
 
-msgid "common.or"
-msgstr "կամ"
+msgid "common.back"
+msgstr "Հետ"
 
-msgid "common.originalFileName"
-msgstr "Ֆայլի օրիգինալ անուն"
+msgid "common.between"
+msgstr "միջև"
 
-msgid "common.order"
-msgstr "Հրաման"
+msgid "common.cancel"
+msgstr "Չեղյալ"
 
-msgid "common.options"
-msgstr "Տարբերակներ"
+msgid "common.cancelled"
+msgstr "Չեղարկված"
 
-msgid "common.ok"
-msgstr "Լավ"
+msgid "common.warning"
+msgstr "Զգուշացում"
 
-msgid "common.noMatches"
-msgstr "Համընկնումներ չկան"
-
-msgid "common.notified.date"
-msgstr "Տեղեկացված: {$dateNotified}"
-
-msgid "common.notified"
-msgstr "Տեղեկացված"
-
-msgid "common.notes.tooltip"
-msgstr ""
-"Նշում (դեղին: կա նոր նշում; կապույտ: կան դիտված նշումներ; մոխրագույն: չկան "
-"նշումներ)"
-
-msgid "common.notes"
-msgstr "Նշումներ"
-
-msgid "common.noTemporaryFile"
-msgstr "Ձեր ներբեռնած ֆայլը չի գտնվել: Խնդրում ենք փորձել ներբեռնել կրկին:"
-
-msgid "common.note"
-msgstr "Նշում"
-
-msgid "common.notAvailable"
-msgstr "Հասանելի չէ"
-
-msgid "common.notApplicableShort"
-msgstr "Ոչ կիրառ."
-
-msgid "common.notApplicable"
-msgstr "Ոչ կիրառելի"
-
-msgid "common.noComments"
-msgstr "Մեկնաբանություն չկա"
-
-msgid "common.noItemsFound"
-msgstr "Ոչինչ չի գտնվել"
-
-msgid "common.no"
-msgstr "Ոչ"
-
-msgid "common.none"
-msgstr "Չկա"
-
-msgid "common.noneAssigned"
-msgstr "Նշանակված չէ"
-
-msgid "common.moreThanOnly"
-msgstr "Ավելի քան"
-
-msgid "common.moreThan"
-msgstr "{$value} կամ ավել"
-
-msgid "common.more"
-msgstr "Ավել"
-
-msgid "common.month"
-msgstr "Ամիս"
-
-msgid "common.modify"
-msgstr "Ձևափոխել"
-
-msgid "common.minute"
-msgstr "Րոպե(ներ)"
-
-msgid "common.billingAddress"
-msgstr "Վճարման հասցեն (եթե տարբերվում է)"
-
-msgid "common.mailingAddress"
-msgstr "Էլ. փոստի հասցե"
-
-msgid "common.manage"
-msgstr "Կառավարել"
-
-msgid "common.semicolonListSeparator"
-msgstr "; "
-
-msgid "common.commaListSeparator"
-msgstr ", "
-
-msgid "common.lessThanOnly"
-msgstr "Պակաս քան"
-
-msgid "common.lessThan"
-msgstr "{$value} կամ պակաս"
-
-msgid "common.less"
-msgstr "Պակաս"
-
-msgid "common.lastActivity"
-msgstr "Վերջին գրանցված գործողության պահ՝  {$date}."
-
-msgid "common.languages"
-msgstr "Լեզուներ"
-
-msgid "common.language"
-msgstr "Լեզու"
-
-msgid "common.keywords"
-msgstr "Բանալի բառեր"
-
-msgid "common.itemsPerPage"
-msgstr "Քանակը յուրաքանչյուր էջում"
-
-msgid "common.upload.restore"
-msgstr "Վերականգնել բնօրինակը"
-
-msgid "common.upload.addFile"
-msgstr "Ներբեռնել ֆայլը"
-
-msgid "common.uploadFailed"
-msgstr "Ֆայլը չի կարող ներբեռնվել կամ խմբագրվել:"
-
-msgid "common.upload"
-msgstr "Ներբեռնել"
-
-msgid "common.uploadedDate"
-msgstr "Ներբեռնման ամսաթիվ"
-
-msgid "common.updated"
-msgstr "Թարմացված"
-
-msgid "common.untitled"
-msgstr "Չվերնագրված"
-
-msgid "common.unread"
-msgstr "Չկարդացված"
-
-msgid "common.uninitiated"
-msgstr "Անտեղյակ"
-
-msgid "common.component"
-msgstr "Բաղադրիչ"
-
-msgid "common.type"
-msgstr "Տիպ"
-
-msgid "common.true"
-msgstr "Ճիշտ"
-
-msgid "common.toWithValue"
-msgstr "To: {$value}"
-
-msgid "common.top"
-msgstr "Գագաթ"
-
-msgid "common.title"
-msgstr "Վերնագիր"
-
-msgid "common.suggest"
-msgstr "Խորհուրդ տալ"
-
-msgid "common.subtitle"
-msgstr "Ենթագիր"
-
-msgid "common.submenu"
-msgstr "Սաբմենյու"
-
-msgid "common.subjects"
-msgstr "Թեմաներ"
-
-msgid "common.subject"
-msgstr "Թեմա"
-
-msgid "common.status"
-msgstr "Կարգավիճակ"
-
-msgid "common.source"
-msgstr "Աղբյուր"
-
-msgid "common.size"
-msgstr "Չափ"
-
-msgid "common.sendEmail"
-msgstr "Ուղարկել նամակ"
-
-msgid "common.select"
-msgstr "Ընտրել"
-
-msgid "common.selectNone"
-msgstr "Ոչ մեկը չընտրել"
-
-msgid "common.selectedPrefix"
-msgstr "Ընտրված է"
-
-msgid "common.selectAll"
-msgstr "Ընտրել բոլորը"
-
-msgid "common.second"
-msgstr "Վայրկյան(ներ)"
-
-msgid "common.clearSearch"
-msgstr "Հեռացնել որոնվող արտահայտությունը"
-
-msgid "common.searchQuery"
-msgstr "Որոնման հարցում"
-
-msgid "common.search"
-msgstr "Որոնել"
-
-msgid "common.saving"
-msgstr "Պահպանվում է"
-
-msgid "common.save"
-msgstr "Պահպանել"
-
-msgid "common.saveAndEmail"
-msgstr "Պահպանել և հաղորդագրություն ուղարկել"
-
-msgid "common.saveAndContinue"
-msgstr "Պահպանել և շարունակել"
-
-msgid "common.reset"
-msgstr "Վերատեղադրել"
-
-msgid "common.required"
-msgstr "Պահանջված"
-
-msgid "common.requiredField"
-msgstr "* Պահանջվող դաշտ"
-
-msgid "common.replaceFile"
-msgstr "Տեղափոխել ֆայլը"
-
-msgid "common.replaced"
-msgstr "Տեղափոխված"
-
-msgid "common.removeSelection"
-msgstr "Հեռացնել ընտրությունը"
-
-msgid "common.removeItem"
-msgstr "Հեռացնել {$item}ը"
-
-msgid "common.remove"
-msgstr "Հեռացնել"
-
-msgid "common.remoteURL"
-msgstr "Հեռավար URL"
-
-msgid "common.remote"
-msgstr "Հեռավար"
-
-msgid "common.reminded.date"
-msgstr "Հիշեցում: {$dateReminded}"
-
-msgid "common.reminder"
-msgstr "Հիշեցնող"
-
-msgid "common.related"
-msgstr "Կապ ունեցող"
-
-msgid "common.refresh"
-msgstr "Թարմացնել"
-
-msgid "common.record"
-msgstr "Ձայնագրություն"
-
-msgid "common.readMoreWithTitle"
-msgstr "Կարդալ ավելին {$title}ի մասին"
-
-msgid "common.readMore"
-msgstr "Կարդալ ավելին"
-
-msgid "common.re"
-msgstr "Հտն:"
-
-msgid "common.range"
-msgstr "{$min}-{$max}"
-
-msgid "common.queue.long.active"
-msgstr "Ամբողջապես ակտիվ"
-
-msgid "common.quality"
-msgstr "Որակ"
-
-msgid "common.publisher"
-msgstr "Թողարկիչ"
-
-msgid "common.preview"
-msgstr "Նախադիտում"
-
-msgid "common.prefixAndTitle.tip"
-msgstr "Օրինակ՝ A, The"
-
-msgid "common.prefix"
-msgstr "Նախածանց"
-
-msgid "common.pluginDisabled"
-msgstr "\"{$pluginName}\" պլագինը անջատված է:"
-
-msgid "common.pluginEnabled"
-msgstr "\"{$pluginName}\"  պլագնիը միացված է:"
-
-msgid "common.plugin"
-msgstr "Պլագին"
-
-msgid "common.percentage"
-msgstr "{$percentage}%"
-
-msgid "common.pageNumber"
-msgstr "Էջ համար {$pageNumber}"
-
-msgid "common.pagination.previous"
-msgstr "Նախորդ էջ"
-
-msgid "common.pagination.next"
-msgstr "Հաջորդ էջ"
-
-msgid "common.pagination.goToPage"
-msgstr "Գնալ {$page} էջ"
-
-msgid "common.pagination.label"
-msgstr "Տեսնել լրացուցիչ էջեր"
-
-msgid "common.pagination"
-msgstr "{$start}-{$end} of {$total}"
-
-msgid "common.override"
-msgstr "Չեղարկել"
-
-msgid "common.overdue"
-msgstr "Ժամկետնանց"
-
-msgid "common.orderDown"
-msgstr "{$itemTitle}ը իջեցնել"
-
-msgid "common.orderUp"
-msgstr "{$itemTitle}ի տեղը բարձրացնել"
-
-msgid "common.go"
-msgstr "Գնացինք"
-
-msgid "common.fileUploaderError"
-msgstr ""
-"Համակարգի ֆայլերի վերբեռնիչը բեռնում է: Եթե այն չհայտնվի, հավանական է, որ իր "
-"աշխատաժամանակներից ոչ մեկը խորհուրդ չի տրվում: Աջակցության համար դիմեք "
-"ադմինիստրայիա:"
-
-msgid "common.false"
+msgid "common.error"
 msgstr "Սխալ"
 
-msgid "common.error.framesRequired"
+msgid "common.notice"
+msgstr "Նկատել"
+
+msgid "common.captcha.error.missing-input-secret"
 msgstr ""
-"Այս էջը պահանջում է շրջանակ: <a href=\"{$url}\">Սեղմեք այստեղ </a> առանց "
-"շրջանակ օգտագործելու համար:"
+"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին բացակայում "
+"է:"
 
-msgid "common.discipline"
-msgstr "Կարգ"
-
-msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
-
-msgid "common.dateCompleted"
-msgstr "ժամկետը լրացել է"
-
-msgid "navigation.infoForReaders.long"
-msgstr "Տեղեկատվություն կարդացողների համար"
-
-msgid "navigation.infoForReaders"
-msgstr "Հետազոտողների համար"
-
-msgid "navigation.home"
-msgstr "Գլխավոր"
-
-msgid "navigation.data"
-msgstr "Տվյալներ"
-
-msgid "navigation.dashboard"
-msgstr "Վահան"
-
-msgid "navigation.browseByTitle"
-msgstr "Ըստ վերնագրի"
-
-msgid "navigation.browseByAuthor"
-msgstr "Ըստ հեղինակի"
-
-msgid "navigation.tools.statistics"
-msgstr "Վիճակագրություն"
-
-msgid "navigation.tools.importExport"
-msgstr "Ներմուծել/Արտահանել"
-
-msgid "navigation.tools"
-msgstr "Գործիքներ"
-
-msgid "navigation.breadcrumbSeparator"
-msgstr "/"
-
-msgid "navigation.breadcrumbLabel"
-msgstr "Դուք այստեղ եք."
-
-msgid "navigation.archives"
-msgstr "Արխիվներ"
-
-msgid "navigation.admin"
-msgstr "Ադմինիստրացիա"
-
-msgid "navigation.access"
-msgstr "Օգտագործողներ &amp; Դերեր"
-
-msgid "locale.supported"
-msgstr "Մասնավոր աջակցությամբ լեզու"
-
-msgid "locale.primary"
-msgstr "Հիմնական լեզու"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Այս մասնակցի համար փոփոխություն կատարել հնարավոր չէ:"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Մասնակից"
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Թույլտվություններ"
-
-msgid "stageParticipants.options"
-msgstr "Նշանակման արտոնություններ"
-
-msgid "stageParticipants.notify.warning"
+msgid "common.captcha.error.invalid-input-secret"
 msgstr ""
-"Խնդրում ենք հաստատեք, որ Դուք լրացրել եք հաղորդագրության հատվածը և քննարկման "
-"մեջ ներառել եք բացի Ձեզանից որևէ մեկին ևս:"
+"Այս կայքի captcha վավերացումը ճիշտ չէ կարգավորված: Գաղտնի բանալին վավեր չէ:"
 
-msgid "stageParticipants.notify.message"
-msgstr "Հաղորդագրություն"
-
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Քննարկում սկսել Ձեր և {$userFullName}ի միջև:"
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Սկսել քննարկում"
-
-msgid "stageParticipants.history.messageSent"
-msgstr "Ծանուցումն ուղարկվել է օգտագործողներին:"
-
-msgid "informationCenter.history.messageSent"
-msgstr "Ծանուցումն ուղարկվել է օգտագործողին:"
-
-msgid "informationCenter.history.notePosted"
-msgstr "Հրապարակված նոր նշում:"
-
-msgid "informationCenter.history.noItems"
-msgstr "Մուտքագրված միջոցառումներ չկան:"
-
-msgid "informationCenter.pastHistory"
-msgstr "Նախկին նախադիտումներ"
-
-msgid "informationCenter.currentHistory"
-msgstr "Ընթացիկ նախադիտում"
-
-msgid "informationCenter.deleteConfirm"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս նշումը:"
-
-msgid "informationCenter.noNotes"
-msgstr "Չկան նշումներ ցուցադրելու համար:"
-
-msgid "informationCenter.addNote"
-msgstr "Ավելացնել նշում"
-
-msgid "informationCenter.editorialHistory"
-msgstr "Խմբագրման պատմություն"
-
-msgid "informationCenter.informationCenter"
-msgstr "Տեղեկատվական կենտրոն"
-
-msgid "icon.view.alt"
-msgstr "Տեսնել"
-
-msgid "icon.unchecked.alt"
-msgstr "Չստուգված"
-
-msgid "icon.mail.alt"
-msgstr "էլ. փոստ"
-
-msgid "icon.letter.alt"
-msgstr "Տառ"
-
-msgid "icon.info.alt"
-msgstr "Տեղեկատվություն"
-
-msgid "icon.font_small.alt"
-msgstr "Փոքր"
-
-msgid "icon.font_medium.alt"
-msgstr "Միջին"
-
-msgid "icon.font_large.alt"
-msgstr "Մեծ"
-
-msgid "icon.folder.alt"
-msgstr "Պանակ"
-
-msgid "icon.edit.alt"
-msgstr "Խմբագրել"
-
-msgid "icon.delete.alt"
-msgstr "Ջնջել"
-
-msgid "icon.comment.alt"
-msgstr "Մեկնաբանություն"
-
-msgid "icon.checked.alt"
-msgstr "Ստուգված"
-
-msgid "help.next"
-msgstr "Հաջորդ"
-
-msgid "help.previous"
-msgstr "Նախորդ"
-
-msgid "help.help"
-msgstr "Օգնություն"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} լրացված լեզուներ"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} in {$localeName}"
-
-msgid "form.invalidImage"
-msgstr "Անվավեր նկար է բեռնվել: Ընդունելի ձևաչափերն են  .png, .gif, or .jpg:"
-
-msgid "form.submit"
-msgstr "Ներկայացնել"
-
-msgid "form.send"
-msgstr "Ուղարկել"
-
-msgid "form.resubmit"
-msgstr "Կրկին ներկայացնել"
-
-msgid "form.requireId"
-msgstr "Դուք պետք է տրամադրեք վավեր ID:"
-
-msgid "form.requirePrimaryLocale"
-msgstr "Դուք պետք է լրացնեք էջը {$language} լեզվով:"
-
-msgid "form.required"
-msgstr "(* պարտադիր)"
-
-msgid "form.fileRequired"
-msgstr "Ֆայլի ներբեռնումը պարտադիր է:"
-
-msgid "form.csrfInvalid"
+msgid "common.captcha.error.missing-input-response"
 msgstr ""
-"Ձևաչափը չի կարող ներկայացվել: Դուք, գուցե, համակարգից դուրս եք եկել: Խնդրում "
-"ենք թարմացնել էջը և կրկին փորձել:"
+"Դուք պետք է ավարտեք վավերացման ստուգումը, որն օգտագործվել է սպամ հայտերի "
+"ներկայացումը կանխելու համար:"
 
-msgid "form.postRequired"
-msgstr "Ձևաչափը չի ներկայացվել պատշաճ:"
-
-msgid "form.startsWith"
-msgstr "սկսվում է"
-
-msgid "form.missingRequired"
-msgstr "Այս դաշտը լրացնելը պարտադիր է:"
-
-msgid "form.contains"
-msgstr "պարունակում է"
-
-msgid "form.formLanguage"
-msgstr "Ձևավորել լեզուն"
-
-msgid "form.formLanguage.description"
+msgid "common.captcha.error.invalid-input-response"
 msgstr ""
-"Ստորև նշված տեղեկատվությունը լրացուցիչ լեզվով մուտքագրելու համար նախ ընտրեք "
-"լեզուն:"
+"Դուք չեք հաղթահարել վավերացման ստուգումը սպամ հայտերի ներկայացումը կանխելու "
+"համար:"
 
-msgid "form.errorsOccurred"
-msgstr "Ընթացքում տեղի է ունեցել սխալ"
+msgid "common.captchaField.description"
+msgstr "Մուտքագրեք վերևի նկարում հայտնված տառերը:"
 
-msgid "form.errorUnknown"
+msgid "common.captchaField"
+msgstr "Վավերականություն"
+
+msgid "common.ccLicense"
 msgstr ""
-"Չկանխատեսված սխալ է տեղի ունեցել: Գուցե Դուք դուրս եք եկել համակարգից: "
-"Խնդրում ենք թարմացնել էջը և փորձել կրկին:"
-
-msgid "form.errorMany"
-msgstr "Խնդրում ենք ուղղել  {$count} հատ սխալները:"
-
-msgid "form.errorOne"
-msgstr "Խնդրում ենք ուղղել մի սխալը:"
-
-msgid "form.errorGoTo"
-msgstr "Անցնել հաջորդ սխալին"
-
-msgid "form.errorA11y"
-msgstr "Գնալ {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Դուք ֆայլ ներբեռնել  այլևս չեք կարող :"
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Հեռացնել ֆայլը"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք չեղարկել այս ներբեռնումը:"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Ներբեռնումը չեղարկվեց"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Չեղարկել ներբեռնումը"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Սերվերը պատասխանեց  {{statusCode}} կոդով:  Խնդրում ենք, կապ հաստատեք Ձեր "
-"ադմինիստրատորի հետ, եթե խնդիրը դեռ առկա է:"
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Այս ձևաչափի ֆայլերը չեն կարող ներբեռնվել:"
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Ֆայլը թույլատրված չափից ավելի մեծ է  ({{filesize}}ՄԲ): Ֆայլերը, որոնք ավելի "
-"մեծ են, քան  {{maxFilesize}} ՄԲ-ը, չեն կարող ներբեռնվել:"
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Ներբեռնելու համար Ֆայլերը տեղափոխեք այստեղ:"
-
-msgid "form.disallowedProp"
-msgstr "Հասանելի են միայն հետևյալ հնարավորություները:"
-
-msgid "form.disallowedLocales"
-msgstr "Թույլատրվում են միայն հետևյալ լեզուներն են՝   {$languages}:"
-
-msgid "email.multipart"
-msgstr "Սա MIME ֆորմատի  բազմամաս նամակ է:"
-
-msgid "form.dataHasChanged"
-msgstr ""
-"Այս ձևաչափի տվյալները փոփոխվել են: Դուք ցանկանու՞մ եք շարունակել առանց "
-"պահպանելու:"
-
-msgid "form.emailRequired"
-msgstr "Պահանջվում է Էլ. հասցե:"
-
-msgid "form.confirmSubmit.title"
-msgstr "Հաստատել"
-
-msgid "form.confirmSubmit"
-msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ներկայացնել այս ձևաչափը:"
-
-msgid "email.bodyRequired"
-msgstr "Խնդրում ենք տրամադրել էլ. նամակի տեքստը:"
-
-msgid "email.subjectRequired"
-msgstr "Խնդրում ենք տրամադրել էլ. փոստի հասցեն:"
-
-msgid "email.subject"
-msgstr "Թեմա"
-
-msgid "email.skip"
-msgstr "Բաց թողնել էլ. հասցեն"
-
-msgid "email.send"
-msgstr "Ուղարկել"
-
-msgid "email.senderEmail"
-msgstr "Ուղարկողի էլ. հասցե"
-
-msgid "email.senderName"
-msgstr "Ուղարկողի անուն"
-
-msgid "email.sender"
-msgstr "Ուղարկող"
-
-msgid "email.recipients"
-msgstr "Հասցեատերեր"
-
-msgid "email.recipient"
-msgstr "Ստացող"
-
-msgid "email.invalid"
-msgstr "{$email} էլ. հասցեն անվավեր է:"
-
-msgid "email.email"
-msgstr "էլ. հասցե"
-
-msgid "email.compose.error"
-msgstr ""
-"Նամակը ուղարկելու հետ կապված խնդիր կա: Խնդրում ենք կրկին փորձել մի քիչ ուշ "
-"կամ կապ հաստատեք Ձեր ադմինիստրարտորի հետ:"
-
-msgid "email.compose.tooManyRecipients"
-msgstr "Նամակը, որը Դուք փորձում եք ուղարկել, ունի թույլատրելիից շատ ստացող:"
-
-msgid "email.compose"
-msgstr "Ուղարկել նամակ"
-
-msgid "email.cc"
-msgstr "CC"
-
-msgid "email.bccSender"
-msgstr "Այս նամակի կրկնօրինակը ուղարկել ({$address}) հասցեին:"
-
-msgid "email.bcc"
-msgstr "BCC"
-
-msgid "email.attachments"
-msgstr "Կցորդներ"
-
-msgid "email.addToRecipient"
-msgstr "Ավելացնել ստացող"
-
-msgid "email.addCcRecipient"
-msgstr "Ավելացնել CC"
-
-msgid "email.addBccRecipient"
-msgstr "Ավելացնել BCC"
-
-msgid "email.addAttachment"
-msgstr "Ավելացնել կցորդ"
-
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "Ներբեռնել ֆայլը"
-
-msgid "editor.submissionReview.uploadFile"
-msgstr "Ներբեռնել գրախոսման ֆայլը"
-
-msgid "debug.notes"
-msgstr "Նշումներ."
-
-msgid "debug.notes.localeLoad"
-msgstr "XML-ից բեռնված լեզուների ֆայլ \"{$localeFile}\""
-
-msgid "debug.notes.localeListLoad"
-msgstr "Բեռնված լեզուների ցանկ \"{$localeList}\"  XML-ից:"
-
-msgid "debug.memoryUsage"
-msgstr "Օգտագործված հիշողություն"
-
-msgid "debug.executionTime"
-msgstr "Էջը գեներացված է"
-
-msgid "debug.databaseQueries"
-msgstr "Տվյալների բազայի հարցումների թիվ"
-
-msgid "common.publicAccess"
-msgstr "Հանրային հասանելիություն"
-
-msgid "common.count"
-msgstr "Հաշվել"
-
-msgid "common.plugins"
-msgstr "Պլագիններ"
-
-msgid "common.loading"
-msgstr "Բեռնում"
-
-msgid "common.yes"
-msgstr "Այո"
-
-msgid "common.year"
-msgstr "Տարի"
-
-msgid "common.width"
-msgstr "Լայնություն"
-
-msgid "common.weeks"
-msgstr "շաբաթներ"
-
-msgid "common.viewProfile"
-msgstr "Տեսնել պրոֆիլը"
-
-msgid "common.view"
-msgstr "Դիտել"
-
-msgid "common.user"
-msgstr "Օգտագործող"
-
-msgid "common.url"
-msgstr "URL"
-
-msgid "common.upload.dragFile"
-msgstr "Ֆայլը քաշեք և դրեք այստեղ, որպեսզի սկսի ներբեռնումը"
-
-msgid "common.upload.changeFile"
-msgstr "Փոխել ֆայլը"
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Ընտրված նկարի նախադիտում"
 
 msgid "common.ccLicense.rt"
 msgstr ""
@@ -1215,11 +229,1756 @@ msgstr ""
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tThis work is licensed under a <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
-"Commons Attribution 3.0 License</a>.\n"
+"\t\tThis work is licensed under a <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t</div>\n"
 "\t"
+
+msgid "common.changesSaved"
+msgstr "Ձեր կողմից կատարված փոփոխությունները պահպանված են:"
+
+msgid "common.chooseOne"
+msgstr "Ընտրեք մեկը"
+
+msgid "common.close"
+msgstr "Փակել"
+
+msgid "common.closePanel"
+msgstr "Փակել վահանը"
+
+msgid "common.closeWindow"
+msgstr "Փակել պատուհանը"
+
+msgid "common.complete"
+msgstr "Կատարել"
+
+msgid "common.completed"
+msgstr "Կատարված է"
+
+msgid "common.completed.date"
+msgstr "{$dateCompleted} - կատարված է:"
+
+msgid "common.confirm"
+msgstr "Հաստատել"
+
+msgid "common.confirmed.date"
+msgstr "Հաստատված է՝  {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Բովանդակություն"
+
+msgid "common.contents"
+msgstr "Բովանդակություններ"
+
+msgid "common.continue"
+msgstr "Շարունակել"
+
+msgid "common.copy"
+msgstr "Պատճեն"
+
+msgid "common.country"
+msgstr "Երկիր"
+
+msgid "common.create"
+msgstr "Ստեղծել"
+
+msgid "common.dateCompleted"
+msgstr "ժամկետը լրացել է"
+
+msgid "common.dateDecided"
+msgstr "Օրը որոշված է"
+
+msgid "common.date"
+msgstr "Ամսաթիվ"
+
+msgid "common.dateModified"
+msgstr "Ամսաթիվը փոփոխված է"
+
+msgid "common.dateRequested"
+msgstr "Պահանջվում է ամսաթիվ"
+
+msgid "common.dateSubmitted"
+msgstr "Դիմելու ամսաթիվ"
+
+msgid "common.dateUploaded"
+msgstr "Ներբեռնման ամսաթիվ"
+
+msgid "common.dateHijri"
+msgstr "Hijri օրացույց"
+
+msgid "common.day"
+msgstr "Օր"
+
+msgid "common.deactivate"
+msgstr "Ապաակտիվացնել"
+
+msgid "common.default"
+msgstr "Լռելյայն"
+
+msgid "common.declined"
+msgstr "Չեղարկված է"
+
+msgid "common.delete"
+msgstr "Ջնջել"
+
+msgid "common.deleting"
+msgstr "Ջնջվում է"
+
+msgid "common.deleteSelection"
+msgstr "Ջնջել բաժինը"
+
+msgid "common.designation"
+msgstr "Նշանակում"
+
+msgid "common.description"
+msgstr "Նկարագրություն"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixels"
+
+msgid "common.disable"
+msgstr "Անջատել"
+
+msgid "common.disabled"
+msgstr "Անջատված է"
+
+msgid "common.discipline"
+msgstr "Կարգ"
+
+msgid "common.done"
+msgstr "Կատարված է"
+
+msgid "common.download"
+msgstr "Ներբեռնել"
+
+msgid "common.downloadPdf"
+msgstr "Ներբեռնել PDF"
+
+msgid "common.edit"
+msgstr "Խմբագրել"
+
+msgid "common.editItem"
+msgstr ""
+
+msgid "common.enable"
+msgstr "Միացնել"
+
+msgid "common.enabled"
+msgstr "Միացված է"
+
+msgid "common.error.databaseError"
+msgstr "Տվյալների բազայի հետ կապված խնդիր է տեղի ունեցել:"
+
+msgid "common.error.databaseErrorUnknown"
+msgstr "Տեղի է ունեցել անհայտ տվյալների բազայի կապի խնդիր:"
+
+msgid "common.error.framesRequired"
+msgstr ""
+"Այս էջը պահանջում է շրջանակ: <a href=\"{$url}\">Սեղմեք այստեղ </a> առանց "
+"շրջանակ օգտագործելու համար:"
+
+msgid "common.event"
+msgstr "Միջոցառում"
+
+msgid "common.export"
+msgstr "Արտահանել"
+
+msgid "common.finish"
+msgstr "Ավարտել"
+
+msgid "common.fullscreen"
+msgstr "Ամբողջ էկրան"
+
+msgid "common.fullscreenOff"
+msgstr "Անջատել ամբողջական էկրանը"
+
+msgid "common.false"
+msgstr "Սխալ"
+
+msgid "common.file"
+msgstr "Ֆայլ"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Ֆայլի անվանում"
+
+msgid "common.fileSize"
+msgstr "Ֆայլի չափ"
+
+msgid "common.fileType"
+msgstr "Ֆայլի տիպ"
+
+msgid "common.fileUploaderError"
+msgstr ""
+"Համակարգի ֆայլերի վերբեռնիչը բեռնում է: Եթե այն չհայտնվի, հավանական է, որ իր "
+"աշխատաժամանակներից ոչ մեկը խորհուրդ չի տրվում: Աջակցության համար դիմեք "
+"ադմինիստրայիա:"
+
+msgid "common.filter"
+msgstr "Զտիչներ"
+
+msgid "common.filterAdd"
+msgstr "Ավելացնել զտիչ: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Հեռացնել զտիչը: {$filterTitle}"
+
+msgid "common.from"
+msgstr ""
+
+msgid "common.fromWithValue"
+msgstr "Սկսած: {$value}"
+
+msgid "common.until"
+msgstr "Մինչև"
+
+msgid "common.go"
+msgstr "Գնացինք"
+
+msgid "common.height"
+msgstr "Բարձրություն"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Գլխավոր"
+
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Գլխավոր էջի վերևի մասի լոգո"
+
+msgid "common.hour"
+msgstr "Ժամ"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Ներմուծել"
+
+msgid "common.initiate"
+msgstr "Թողարկել"
+
+msgid "common.inProgress"
+msgstr "Ընթացքի մեջ է"
+
+msgid "common.itemsPerPage"
+msgstr "Քանակը յուրաքանչյուր էջում"
+
+msgid "common.keywords"
+msgstr "Բանալի բառեր"
+
+msgid "common.language"
+msgstr "Լեզու"
+
+msgid "common.languages"
+msgstr "Լեզուներ"
+
+msgid "common.lastActivity"
+msgstr "Վերջին գրանցված գործողության պահ՝  {$date}."
+
+msgid "common.less"
+msgstr "Պակաս"
+
+msgid "common.lessThan"
+msgstr "{$value} կամ պակաս"
+
+msgid "common.lessThanOnly"
+msgstr "Պակաս քան"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Կառավարել"
+
+msgid "common.mailingAddress"
+msgstr "Էլ. փոստի հասցե"
+
+msgid "common.billingAddress"
+msgstr "Վճարման հասցեն (եթե տարբերվում է)"
+
+msgid "common.minute"
+msgstr "Րոպե(ներ)"
+
+msgid "common.modify"
+msgstr "Ձևափոխել"
+
+msgid "common.month"
+msgstr "Ամիս"
+
+msgid "common.more"
+msgstr "Ավել"
+
+msgid "common.moreThan"
+msgstr "{$value} կամ ավել"
+
+msgid "common.moreThanOnly"
+msgstr "Ավելի քան"
+
+msgid "common.noneAssigned"
+msgstr "Նշանակված չէ"
+
+msgid "common.none"
+msgstr "Չկա"
+
+msgid "common.no"
+msgstr "Ոչ"
+
+msgid "common.noItemsFound"
+msgstr "Ոչինչ չի գտնվել"
+
+msgid "common.noComments"
+msgstr "Մեկնաբանություն չկա"
+
+msgid "common.notApplicable"
+msgstr "Ոչ կիրառելի"
+
+msgid "common.notApplicableShort"
+msgstr "Ոչ կիրառ."
+
+msgid "common.notAvailable"
+msgstr "Հասանելի չէ"
+
+msgid "common.note"
+msgstr "Նշում"
+
+msgid "common.noTemporaryFile"
+msgstr "Ձեր ներբեռնած ֆայլը չի գտնվել: Խնդրում ենք փորձել ներբեռնել կրկին:"
+
+msgid "common.notes"
+msgstr "Նշումներ"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Նշում (դեղին: կա նոր նշում; կապույտ: կան դիտված նշումներ; մոխրագույն: չկան "
+"նշումներ)"
+
+msgid "common.notified"
+msgstr "Տեղեկացված"
+
+msgid "common.notified.date"
+msgstr "Տեղեկացված: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Համընկնումներ չկան"
+
+msgid "common.off"
+msgstr ""
+
+msgid "common.on"
+msgstr ""
+
+msgid "common.ok"
+msgstr "Լավ"
+
+msgid "common.options"
+msgstr "Տարբերակներ"
+
+msgid "common.order"
+msgstr "Հրաման"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle}ի տեղը բարձրացնել"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle}ը իջեցնել"
+
+msgid "common.originalFileName"
+msgstr "Ֆայլի օրիգինալ անուն"
+
+msgid "common.or"
+msgstr "կամ"
+
+msgid "common.other"
+msgstr "այլ"
+
+msgid "common.overdue"
+msgstr "Ժամկետնանց"
+
+msgid "common.override"
+msgstr "Չեղարկել"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} of {$total}"
+
+msgid "common.pagination.label"
+msgstr "Տեսնել լրացուցիչ էջեր"
+
+msgid "common.pagination.goToPage"
+msgstr "Գնալ {$page} էջ"
+
+msgid "common.pagination.next"
+msgstr "Հաջորդ էջ"
+
+msgid "common.pagination.previous"
+msgstr "Նախորդ էջ"
+
+msgid "common.pageNumber"
+msgstr "Էջ համար {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "Պլագին"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\"  պլագնիը միացված է:"
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" պլագինը անջատված է:"
+
+msgid "common.prefix"
+msgstr "Նախածանց"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Օրինակ՝ A, The"
+
+msgid "common.preview"
+msgstr "Նախադիտում"
+
+msgid "common.publisher"
+msgstr "Թողարկիչ"
+
+msgid "common.quality"
+msgstr "Որակ"
+
+msgid "common.queue.long.active"
+msgstr "Ամբողջապես ակտիվ"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Հտն:"
+
+msgid "common.readMore"
+msgstr "Կարդալ ավելին"
+
+msgid "common.readMoreWithTitle"
+msgstr "Կարդալ ավելին {$title}ի մասին"
+
+msgid "common.record"
+msgstr "Ձայնագրություն"
+
+msgid "common.refresh"
+msgstr "Թարմացնել"
+
+msgid "common.related"
+msgstr "Կապ ունեցող"
+
+msgid "common.reminder"
+msgstr "Հիշեցնող"
+
+msgid "common.reminded.date"
+msgstr "Հիշեցում: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Հեռավար"
+
+msgid "common.remoteURL"
+msgstr "Հեռավար URL"
+
+msgid "common.remove"
+msgstr "Հեռացնել"
+
+msgid "common.removeItem"
+msgstr "Հեռացնել {$item}ը"
+
+msgid "common.removeSelection"
+msgstr "Հեռացնել ընտրությունը"
+
+msgid "common.replaced"
+msgstr "Տեղափոխված"
+
+msgid "common.replaceFile"
+msgstr "Տեղափոխել ֆայլը"
+
+msgid "common.requiredField"
+msgstr "* Պահանջվող դաշտ"
+
+msgid "common.required"
+msgstr "Պահանջված"
+
+msgid "common.reset"
+msgstr "Վերատեղադրել"
+
+msgid "common.saveAndContinue"
+msgstr "Պահպանել և շարունակել"
+
+msgid "common.saveAndEmail"
+msgstr "Պահպանել և հաղորդագրություն ուղարկել"
+
+msgid "common.save"
+msgstr "Պահպանել"
+
+msgid "common.saving"
+msgstr "Պահպանվում է"
+
+msgid "common.search"
+msgstr "Որոնել"
+
+msgid "common.searchQuery"
+msgstr "Որոնման հարցում"
+
+msgid "common.clearSearch"
+msgstr "Հեռացնել որոնվող արտահայտությունը"
+
+msgid "common.second"
+msgstr "Վայրկյան(ներ)"
+
+msgid "common.selectAll"
+msgstr "Ընտրել բոլորը"
+
+msgid "common.selectedPrefix"
+msgstr "Ընտրված է"
+
+msgid "common.selectNone"
+msgstr "Ոչ մեկը չընտրել"
+
+msgid "common.select"
+msgstr "Ընտրել"
+
+msgid "common.selectWithName"
+msgstr ""
+
+msgid "common.sendEmail"
+msgstr "Ուղարկել նամակ"
+
+msgid "common.size"
+msgstr "Չափ"
+
+msgid "common.source"
+msgstr "Աղբյուր"
+
+msgid "common.status"
+msgstr "Կարգավիճակ"
+
+msgid "common.subject"
+msgstr "Թեմա"
+
+msgid "common.subjects"
+msgstr "Թեմաներ"
+
+msgid "common.submenu"
+msgstr "Սաբմենյու"
+
+msgid "common.subtitle"
+msgstr "Ենթագիր"
+
+msgid "common.suggest"
+msgstr "Խորհուրդ տալ"
+
+msgid "common.title"
+msgstr "Վերնագիր"
+
+msgid "common.titleSeparator"
+msgstr ""
+
+msgid "common.top"
+msgstr "Գագաթ"
+
+msgid "common.toWithValue"
+msgstr "To: {$value}"
+
+msgid "common.true"
+msgstr "Ճիշտ"
+
+msgid "common.type"
+msgstr "Տիպ"
+
+msgid "common.component"
+msgstr "Բաղադրիչ"
+
+msgid "common.uninitiated"
+msgstr "Անտեղյակ"
+
+msgid "common.unknownError"
+msgstr ""
+
+msgid "common.unread"
+msgstr "Չկարդացված"
+
+msgid "common.untitled"
+msgstr "Չվերնագրված"
+
+msgid "common.updated"
+msgstr "Թարմացված"
+
+msgid "common.uploadedDate"
+msgstr "Ներբեռնման ամսաթիվ"
+
+msgid "common.upload"
+msgstr "Ներբեռնել"
+
+msgid "common.uploadFailed"
+msgstr "Ֆայլը չի կարող ներբեռնվել կամ խմբագրվել:"
+
+msgid "common.up"
+msgstr ""
+
+msgid "common.addFile"
+msgstr ""
+
+msgid "common.upload.addFile"
+msgstr "Ներբեռնել ֆայլը"
+
+msgid "common.upload.restore"
+msgstr "Վերականգնել բնօրինակը"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Ընտրված նկարի նախադիտում"
+
+msgid "common.upload.changeFile"
+msgstr "Փոխել ֆայլը"
+
+msgid "common.upload.dragFile"
+msgstr "Ֆայլը քաշեք և դրեք այստեղ, որպեսզի սկսի ներբեռնումը"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Օգտագործող"
+
+msgid "common.user.nonexistent"
+msgstr ""
+
+msgid "common.view"
+msgstr "Դիտել"
+
+msgid "common.viewWithName"
+msgstr ""
+
+msgid "common.viewProfile"
+msgstr "Տեսնել պրոֆիլը"
+
+msgid "common.weeks"
+msgstr "շաբաթներ"
+
+msgid "common.width"
+msgstr "Լայնություն"
+
+msgid "common.year"
+msgstr "Տարի"
+
+msgid "common.yes"
+msgstr "Այո"
+
+msgid "common.loading"
+msgstr "Բեռնում"
+
+msgid "common.plugins"
+msgstr "Պլագիններ"
+
+msgid "common.metric"
+msgstr ""
+
+msgid "common.count"
+msgstr "Հաշվել"
+
+msgid "common.publicAccess"
+msgstr "Հանրային հասանելիություն"
+
+msgid "debug.databaseQueries"
+msgstr "Տվյալների բազայի հարցումների թիվ"
+
+msgid "debug.executionTime"
+msgstr "Էջը գեներացված է"
+
+msgid "debug.memoryUsage"
+msgstr "Օգտագործված հիշողություն"
+
+msgid "debug.notes.localeListLoad"
+msgstr "Բեռնված լեզուների ցանկ \"{$localeList}\"  XML-ից:"
+
+msgid "debug.notes.localeLoad"
+msgstr "XML-ից բեռնված լեզուների ֆայլ \"{$localeFile}\""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr ""
+
+msgid "debug.notes"
+msgstr "Նշումներ."
+
+msgid "defaultMetric.title"
+msgstr ""
+
+msgid "defaultMetric.availableMetrics"
+msgstr ""
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Ներբեռնել գրախոսման ֆայլը"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Ներբեռնել ֆայլը"
+
+msgid "email.addAttachment"
+msgstr "Ավելացնել կցորդ"
+
+msgid "email.addBccRecipient"
+msgstr "Ավելացնել BCC"
+
+msgid "email.addCcRecipient"
+msgstr "Ավելացնել CC"
+
+msgid "email.addToRecipient"
+msgstr "Ավելացնել ստացող"
+
+msgid "email.attachments"
+msgstr "Կցորդներ"
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Այս նամակի կրկնօրինակը ուղարկել ({$address}) հասցեին:"
+
+msgid "email.body"
+msgstr ""
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.compose"
+msgstr "Ուղարկել նամակ"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Նամակը, որը Դուք փորձում եք ուղարկել, ունի թույլատրելիից շատ ստացող:"
+
+msgid "email.compose.tooSoon"
+msgstr ""
+
+msgid "email.compose.error"
+msgstr ""
+"Նամակը ուղարկելու հետ կապված խնդիր կա: Խնդրում ենք կրկին փորձել մի քիչ ուշ "
+"կամ կապ հաստատեք Ձեր ադմինիստրարտորի հետ:"
+
+msgid "email.email"
+msgstr "էլ. հասցե"
+
+msgid "email.from"
+msgstr ""
+
+msgid "email.invalid"
+msgstr "{$email} էլ. հասցեն անվավեր է:"
+
+msgid "email.multipart"
+msgstr "Սա MIME ֆորմատի  բազմամաս նամակ է:"
+
+msgid "email.recipient"
+msgstr "Ստացող"
+
+msgid "email.recipients"
+msgstr "Հասցեատերեր"
+
+msgid "email.sender"
+msgstr "Ուղարկող"
+
+msgid "email.senderName"
+msgstr "Ուղարկողի անուն"
+
+msgid "email.senderEmail"
+msgstr "Ուղարկողի էլ. հասցե"
+
+msgid "email.send"
+msgstr "Ուղարկել"
+
+msgid "email.skip"
+msgstr "Բաց թողնել էլ. հասցեն"
+
+msgid "email.subject"
+msgstr "Թեմա"
+
+msgid "email.subjectRequired"
+msgstr "Խնդրում ենք տրամադրել էլ. փոստի հասցեն:"
+
+msgid "email.bodyRequired"
+msgstr "Խնդրում ենք տրամադրել էլ. նամակի տեքստը:"
+
+msgid "email.to"
+msgstr ""
+
+msgid "form.url.invalid"
+msgstr ""
+
+msgid "form.confirmSubmit"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ներկայացնել այս ձևաչափը:"
+
+msgid "form.confirmSubmit.title"
+msgstr "Հաստատել"
+
+msgid "form.emailRequired"
+msgstr "Պահանջվում է Էլ. հասցե:"
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Այս ձևաչափի տվյալները փոփոխվել են: Դուք ցանկանու՞մ եք շարունակել առանց "
+"պահպանելու:"
+
+msgid "form.disallowedLocales"
+msgstr "Թույլատրվում են միայն հետևյալ լեզուներն են՝   {$languages}:"
+
+msgid "form.disallowedProp"
+msgstr "Հասանելի են միայն հետևյալ հնարավորություները:"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Ներբեռնելու համար Ֆայլերը տեղափոխեք այստեղ:"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Ֆայլը թույլատրված չափից ավելի մեծ է  ({{filesize}}ՄԲ): Ֆայլերը, որոնք ավելի "
+"մեծ են, քան  {{maxFilesize}} ՄԲ-ը, չեն կարող ներբեռնվել:"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Այս ձևաչափի ֆայլերը չեն կարող ներբեռնվել:"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Սերվերը պատասխանեց  {{statusCode}} կոդով:  Խնդրում ենք, կապ հաստատեք Ձեր "
+"ադմինիստրատորի հետ, եթե խնդիրը դեռ առկա է:"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Չեղարկել ներբեռնումը"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Ներբեռնումը չեղարկվեց"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք չեղարկել այս ներբեռնումը:"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Հեռացնել ֆայլը"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Դուք ֆայլ ներբեռնել  այլևս չեք կարող :"
+
+msgid "form.errorA11y"
+msgstr "Գնալ {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Անցնել հաջորդ սխալին"
+
+msgid "form.errorOne"
+msgstr "Խնդրում ենք ուղղել մի սխալը:"
+
+msgid "form.errorMany"
+msgstr "Խնդրում ենք ուղղել  {$count} հատ սխալները:"
+
+msgid "form.errors"
+msgstr ""
+
+msgid "form.errorsOccurred"
+msgstr "Ընթացքում տեղի է ունեցել սխալ"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"Ստորև նշված տեղեկատվությունը լրացուցիչ լեզվով մուտքագրելու համար նախ ընտրեք "
+"լեզուն:"
+
+msgid "form.formLanguage"
+msgstr "Ձևավորել լեզուն"
+
+msgid "form.contains"
+msgstr "պարունակում է"
+
+msgid "form.is"
+msgstr ""
+
+msgid "form.startsWith"
+msgstr "սկսվում է"
+
+msgid "form.postRequired"
+msgstr "Ձևաչափը չի ներկայացվել պատշաճ:"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"Ձևաչափը չի կարող ներկայացվել: Դուք, գուցե, համակարգից դուրս եք եկել: Խնդրում "
+"ենք թարմացնել էջը և կրկին փորձել:"
+
+msgid "form.fileRequired"
+msgstr "Ֆայլի ներբեռնումը պարտադիր է:"
+
+msgid "form.required"
+msgstr "(* պարտադիր)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Դուք պետք է լրացնեք էջը {$language} լեզվով:"
+
+msgid "form.requireId"
+msgstr "Դուք պետք է տրամադրեք վավեր ID:"
+
+msgid "form.resubmit"
+msgstr "Կրկին ներկայացնել"
+
+msgid "form.saved"
+msgstr ""
+
+msgid "form.saveToUpload"
+msgstr ""
+
+msgid "form.send"
+msgstr "Ուղարկել"
+
+msgid "form.submit"
+msgstr "Ներկայացնել"
+
+msgid "form.invalidImage"
+msgstr "Անվավեր նկար է բեռնվել: Ընդունելի ձևաչափերն են  .png, .gif, or .jpg:"
+
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} լրացված լեզուներ"
+
+msgid "help.help"
+msgstr "Օգնություն"
+
+msgid "help.toc"
+msgstr ""
+
+msgid "help.previous"
+msgstr "Նախորդ"
+
+msgid "help.next"
+msgstr "Հաջորդ"
+
+msgid "help.upALevel"
+msgstr ""
+
+msgid "icon.checked.alt"
+msgstr "Ստուգված"
+
+msgid "icon.comment.alt"
+msgstr "Մեկնաբանություն"
+
+msgid "icon.delete.alt"
+msgstr "Ջնջել"
+
+msgid "icon.edit.alt"
+msgstr "Խմբագրել"
+
+msgid "icon.folder.alt"
+msgstr "Պանակ"
+
+msgid "icon.font_large.alt"
+msgstr "Մեծ"
+
+msgid "icon.font_medium.alt"
+msgstr "Միջին"
+
+msgid "icon.font_small.alt"
+msgstr "Փոքր"
+
+msgid "icon.info.alt"
+msgstr "Տեղեկատվություն"
+
+msgid "icon.letter.alt"
+msgstr "Տառ"
+
+msgid "icon.mail.alt"
+msgstr "էլ. փոստ"
+
+msgid "icon.unchecked.alt"
+msgstr "Չստուգված"
+
+msgid "icon.view.alt"
+msgstr "Տեսնել"
+
+msgid "informationCenter.informationCenter"
+msgstr "Տեղեկատվական կենտրոն"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Խմբագրման պատմություն"
+
+msgid "informationCenter.addNote"
+msgstr "Ավելացնել նշում"
+
+msgid "informationCenter.noNotes"
+msgstr "Չկան նշումներ ցուցադրելու համար:"
+
+msgid "informationCenter.pastNotes"
+msgstr ""
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Դուք վստա՞հ եք, որ ցանկանում եք ջնջել այս նշումը:"
+
+msgid "informationCenter.currentHistory"
+msgstr "Ընթացիկ նախադիտում"
+
+msgid "informationCenter.pastHistory"
+msgstr "Նախկին նախադիտումներ"
+
+msgid "informationCenter.history.noItems"
+msgstr "Մուտքագրված միջոցառումներ չկան:"
+
+msgid "informationCenter.history.notePosted"
+msgstr "Հրապարակված նոր նշում:"
+
+msgid "informationCenter.history.messageSent"
+msgstr "Ծանուցումն ուղարկվել է օգտագործողին:"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Ծանուցումն ուղարկվել է օգտագործողներին:"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Սկսել քննարկում"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Քննարկում սկսել Ձեր և {$userFullName}ի միջև:"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+
+msgid "stageParticipants.notify.message"
+msgstr "Հաղորդագրություն"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Խնդրում ենք հաստատեք, որ Դուք լրացրել եք հաղորդագրության հատվածը և քննարկման "
+"մեջ ներառել եք բացի Ձեզանից որևէ մեկին ևս:"
+
+msgid "stageParticipants.options"
+msgstr "Նշանակման արտոնություններ"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Թույլտվություններ"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+
+msgid "stageParticipants.selectedUser"
+msgstr "Մասնակից"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Այս մասնակցի համար փոփոխություն կատարել հնարավոր չէ:"
+
+msgid "locale.primary"
+msgstr "Հիմնական լեզու"
+
+msgid "locale.supported"
+msgstr "Մասնավոր աջակցությամբ լեզու"
+
+msgid "navigation.access"
+msgstr "Օգտագործողներ &amp; Դերեր"
+
+msgid "navigation.about"
+msgstr ""
+
+msgid "navigation.admin"
+msgstr "Ադմինիստրացիա"
+
+msgid "navigation.archives"
+msgstr "Արխիվներ"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Դուք այստեղ եք."
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Գործիքներ"
+
+msgid "navigation.tools.importExport"
+msgstr "Ներմուծել/Արտահանել"
+
+msgid "navigation.tools.statistics"
+msgstr "Վիճակագրություն"
+
+msgid "navigation.browse"
+msgstr ""
+
+msgid "navigation.backTo"
+msgstr ""
+
+msgid "navigation.browseByAuthor"
+msgstr "Ըստ հեղինակի"
+
+msgid "navigation.browseByTitle"
+msgstr "Ըստ վերնագրի"
+
+msgid "navigation.dashboard"
+msgstr "Վահան"
+
+msgid "navigation.data"
+msgstr "Տվյալներ"
+
+msgid "navigation.home"
+msgstr "Գլխավոր"
+
+msgid "navigation.infoForReaders"
+msgstr "Հետազոտողների համար"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Տեղեկատվություն կարդացողների համար"
+
+msgid "navigation.items"
+msgstr ""
+
+msgid "navigation.items.shownTotal"
+msgstr ""
+
+msgid "navigation.login"
+msgstr ""
+
+msgid "navigation.nextPage"
+msgstr ""
+
+msgid "navigation.nextStep"
+msgstr ""
+
+msgid "navigation.previousPage"
+msgstr ""
+
+msgid "navigation.previousStep"
+msgstr ""
+
+msgid "navigation.publicMenu"
+msgstr ""
+
+msgid "navigation.register"
+msgstr ""
+
+msgid "navigation.search"
+msgstr ""
+
+msgid "navigation.settings"
+msgstr ""
+
+msgid "navigation.setup"
+msgstr ""
+
+msgid "navigation.sitemap"
+msgstr ""
+
+msgid "navigation.skip.description"
+msgstr ""
+
+msgid "navigation.skip.announcements"
+msgstr ""
+
+msgid "navigation.skip.main"
+msgstr ""
+
+msgid "navigation.skip.nav"
+msgstr ""
+
+msgid "navigation.skip.footer"
+msgstr ""
+
+msgid "navigation.stepNumber"
+msgstr ""
+
+msgid "navigation.submissions"
+msgstr ""
+
+msgid "navigation.system"
+msgstr ""
+
+msgid "navigation.userHome"
+msgstr ""
+
+msgid "navigation.user"
+msgstr ""
+
+msgid "navigation.userManagement"
+msgstr ""
+
+msgid "navigation.viewFrontend"
+msgstr ""
+
+msgid "notification.addedAuditor"
+msgstr ""
+
+msgid "notification.removedAuditor"
+msgstr ""
+
+msgid "notification.addedQuery"
+msgstr ""
+
+msgid "notification.reviewAcknowledged"
+msgstr ""
+
+msgid "notification.reviewerThankedEmail"
+msgstr ""
+
+msgid "notification.updatedReviewFiles"
+msgstr ""
+
+msgid "notification.allow"
+msgstr ""
+
+msgid "notification.addedAnnouncementType"
+msgstr ""
+
+msgid "notification.editedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncement"
+msgstr ""
+
+msgid "notification.addedAuthor"
+msgstr ""
+
+msgid "notification.editedAuthor"
+msgstr ""
+
+msgid "notification.confirmError"
+msgstr ""
+
+msgid "notification.confirmSuccess"
+msgstr ""
+
+msgid "notification.email"
+msgstr ""
+
+msgid "notification.noneExist"
+msgstr ""
+
+msgid "notification.addedNote"
+msgstr ""
+
+msgid "notification.removedNote"
+msgstr ""
+
+msgid "notification.removedFile"
+msgstr ""
+
+msgid "notification.removedSubmission"
+msgstr ""
+
+msgid "notification.notification"
+msgstr ""
+
+msgid "notification.notifications"
+msgstr ""
+
+msgid "notification.sentNotification"
+msgstr ""
+
+msgid "notification.settings"
+msgstr ""
+
+msgid "notification.settingsDescription"
+msgstr ""
+
+msgid "notification.reminderError"
+msgstr ""
+
+msgid "notification.reminderSent"
+msgstr ""
+
+msgid "notification.savedSubmissionMetadata"
+msgstr ""
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+
+msgid "search.author"
+msgstr ""
+
+msgid "search.abstract"
+msgstr ""
+
+msgid "search.advancedFilters"
+msgstr ""
+
+msgid "search.advancedSearchMore"
+msgstr ""
+
+msgid "search.advancedSearchLess"
+msgstr ""
+
+msgid "search.searchAgain"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.done"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.error"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.result"
+msgstr ""
+
+msgid "search.coverage"
+msgstr ""
+
+msgid "search.date"
+msgstr ""
+
+msgid "search.dateFrom"
+msgstr ""
+
+msgid "search.dateTo"
+msgstr ""
+
+msgid "search.deleteFilter"
+msgstr ""
+
+msgid "search.discipline"
+msgstr ""
+
+msgid "search.fullText"
+msgstr ""
+
+msgid "search.indexTerms"
+msgstr ""
+
+msgid "search.indexTermsLong"
+msgstr ""
+
+msgid "search.matchAll"
+msgstr ""
+
+msgid "search.noResults"
+msgstr ""
+
+msgid "search.operator.and"
+msgstr ""
+
+msgid "search.operator.not"
+msgstr ""
+
+msgid "search.operator.or"
+msgstr ""
+
+msgid "search.SearchFor"
+msgstr ""
+
+msgid "search.searchResults"
+msgstr ""
+
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
+msgid "search.subject"
+msgstr ""
+
+msgid "search.titleIndex"
+msgstr ""
+
+msgid "search.title"
+msgstr ""
+
+msgid "search.typeMethodApproach"
+msgstr ""
+
+msgid "grid.action.downloadFile"
+msgstr ""
+
+msgid "context.path"
+msgstr ""
+
+msgid "review.ensuringAnonymousReview"
+msgstr ""
+
+msgid "grid.action.showReviewPolicy"
+msgstr ""
+
+msgid "grid.action.deleteNotification"
+msgstr ""
+
+msgid "grid.action.markNew"
+msgstr ""
+
+msgid "grid.action.markRead"
+msgstr ""
+
+msgid "dashboard.tasks"
+msgstr ""
+
+msgid "dashboard.myQueue"
+msgstr ""
+
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr ""
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr ""
+
+msgid "reviewer.submission.responseDueDate"
+msgstr ""
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr ""
+
+msgid "submission.task.responseDueDate"
+msgstr ""
+
+msgid "navigation.goBack"
+msgstr ""
+
+msgid "notification.addedReviewer"
+msgstr ""
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+
+msgid "notification.removedReviewer"
+msgstr ""
+
+msgid "notification.cancelledReviewer"
+msgstr ""
+
+msgid "notification.reinstatedReviewer"
+msgstr ""
+
+msgid "notification.addedStageParticipant"
+msgstr ""
+
+msgid "notification.editStageParticipant"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewAssignment"
+msgstr ""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr ""
+
+msgid "notification.type.auditorRequest"
+msgstr ""
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+
+msgid "notification.type.pendingRevisions"
+msgstr ""
+
+msgid "notification.type.pendingRevisions.title"
+msgstr ""
+
+msgid "notification.type.metadataModified"
+msgstr ""
+
+msgid "notification.type.reviewerComment"
+msgstr ""
+
+msgid "notification.signedFile"
+msgstr ""
+
+msgid "user.email"
+msgstr ""
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+
+msgid "user.authorization.invalidPublication"
+msgstr ""
+
+msgid "user.authorization.invalidSubmission"
+msgstr ""
+
+msgid "user.authorization.invalidRepresentation"
+msgstr ""
+
+msgid "user.authorization.invalidReviewRound"
+msgstr ""
+
+msgid "user.authorization.invalidQuery"
+msgstr ""
+
+msgid "user.authorization.unauthorizedNote"
+msgstr ""
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr ""
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr ""
+
+msgid "notification.type.queryActivity"
+msgstr ""
+
+msgid "notification.type.queryAdded"
+msgstr ""
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+
+msgid "notification.type.awaitingCopyedits"
+msgstr ""
+
+msgid "notification.type.roundStatusTitle"
+msgstr ""
+
+msgid "notification.type.editorialReport"
+msgstr ""
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+
+msgid "semicolon"
+msgstr ""
+
+msgid "notification.editedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.removedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenu"
+msgstr ""
+
+msgid "notification.editedNavigationMenu"
+msgstr ""
+
+msgid "notification.removedNavigationMenu"
+msgstr ""
+
+msgid "list.viewMore"
+msgstr ""
+
+msgid "list.viewLess"
+msgstr ""
+
+msgid "validator.accepted"
+msgstr ""
+
+msgid "validator.active_url"
+msgstr ""
+
+msgid "validator.after"
+msgstr ""
+
+msgid "validator.alpha"
+msgstr ""
+
+msgid "validator.alpha_dash"
+msgstr ""
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+
+msgid "validator.alpha_num"
+msgstr ""
+
+msgid "validator.array"
+msgstr ""
+
+msgid "validator.before"
+msgstr ""
+
+msgid "validator.between.numeric"
+msgstr ""
+
+msgid "validator.between.file"
+msgstr ""
+
+msgid "validator.between.string"
+msgstr ""
+
+msgid "validator.between.array"
+msgstr ""
+
+msgid "validator.boolean"
+msgstr ""
+
+msgid "validator.confirmed"
+msgstr ""
+
+msgid "validator.currency"
+msgstr ""
+
+msgid "validator.date"
+msgstr ""
+
+msgid "validator.date_format"
+msgstr ""
+
+msgid "validator.different"
+msgstr ""
+
+msgid "validator.digits"
+msgstr ""
+
+msgid "validator.digits_between"
+msgstr ""
+
+msgid "validator.email"
+msgstr ""
+
+msgid "validator.exists"
+msgstr ""
+
+msgid "validator.filled"
+msgstr ""
+
+msgid "validator.image"
+msgstr ""
+
+msgid "validator.in"
+msgstr ""
+
+msgid "validator.integer"
+msgstr ""
+
+msgid "validator.ip"
+msgstr ""
+
+msgid "validator.issn"
+msgstr ""
+
+msgid "validator.json"
+msgstr ""
+
+msgid "validator.locale"
+msgstr ""
+
+msgid "validator.localeExpected"
+msgstr ""
+
+msgid "validator.localeKey"
+msgstr ""
+
+msgid "validator.max.numeric"
+msgstr ""
+
+msgid "validator.max.file"
+msgstr ""
+
+msgid "validator.max.string"
+msgstr ""
+
+msgid "validator.max.array"
+msgstr ""
+
+msgid "validator.mimes"
+msgstr ""
+
+msgid "validator.min.numeric"
+msgstr ""
+
+msgid "validator.min.file"
+msgstr ""
+
+msgid "validator.min.string"
+msgstr ""
+
+msgid "validator.min.array"
+msgstr ""
+
+msgid "validator.not_in"
+msgstr ""
+
+msgid "validator.numeric"
+msgstr ""
+
+msgid "validator.orcid"
+msgstr ""
+
+msgid "validator.present"
+msgstr ""
+
+msgid "validator.regex"
+msgstr ""
+
+msgid "validator.required"
+msgstr ""
+
+msgid "validator.required_if"
+msgstr ""
+
+msgid "validator.required_unless"
+msgstr ""
+
+msgid "validator.required_with"
+msgstr ""
+
+msgid "validator.required_with_all"
+msgstr ""
+
+msgid "validator.required_without"
+msgstr ""
+
+msgid "validator.required_without_all"
+msgstr ""
+
+msgid "validator.same"
+msgstr ""
+
+msgid "validator.size.numeric"
+msgstr ""
+
+msgid "validator.size.file"
+msgstr ""
+
+msgid "validator.size.string"
+msgstr ""
+
+msgid "validator.size.array"
+msgstr ""
+
+msgid "validator.string"
+msgstr ""
+
+msgid "validator.timezone"
+msgstr ""
+
+msgid "validator.unique"
+msgstr ""
+
+msgid "validator.url"
+msgstr ""
+
+#~ msgid "form.missingRequired"
+#~ msgstr "Այս դաշտը լրացնելը պարտադիր է:"
+
+#~ msgid "form.errorUnknown"
+#~ msgstr ""
+#~ "Չկանխատեսված սխալ է տեղի ունեցել: Գուցե Դուք դուրս եք եկել համակարգից: "
+#~ "Խնդրում ենք թարմացնել էջը և փորձել կրկին:"

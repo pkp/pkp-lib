@@ -122,6 +122,9 @@ msgstr "Aktivoi"
 msgid "common.active"
 msgstr "Aktiivinen"
 
+msgid "common.inactive"
+msgstr "Pois käytöstä"
+
 msgid "common.add"
 msgstr "Lisää"
 
@@ -147,6 +150,12 @@ msgstr "Valittu"
 
 msgid "common.altText"
 msgstr "Vaihtoehtoinen teksti"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Kuvaile kuva käyttäjille, jotka katsovat sivustoa tekstipohjaisella "
+"verkkoselaimella. Esimerkiksi \"Toimittajamme puhumassa PKP:n konferenssissa."
+"\""
 
 msgid "common.and"
 msgstr "ja"
@@ -188,16 +197,24 @@ msgid "common.notice"
 msgstr "Huomaa"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty oikein. Salainen avain puuttuu."
+msgstr ""
+"Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty "
+"oikein. Salainen avain puuttuu."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty oikein. Salainen avain on virheellinen."
+msgstr ""
+"Kuvavarmennuksen vahvistusta tälle verkkosivustolle ei ole määritelty "
+"oikein. Salainen avain on virheellinen."
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Sinun täytyy suorittaa tarkastus, jota käytetään roskapostin lähettämisen estämiseksi."
+msgstr ""
+"Sinun täytyy suorittaa tarkastus, jota käytetään roskapostin lähettämisen "
+"estämiseksi."
 
 msgid "common.captcha.error.invalid-input-response"
-msgstr "Et läpäissyt tarkastusta, jota käytetään roskapostin lähettämisen estämiseksi."
+msgstr ""
+"Et läpäissyt tarkastusta, jota käytetään roskapostin lähettämisen "
+"estämiseksi."
 
 msgid "common.captchaField.description"
 msgstr "Kirjoita kirjaimet, kuten ne näkyvät kuvassa."
@@ -208,13 +225,23 @@ msgstr "Vahvistus"
 msgid "common.ccLicense"
 msgstr ""
 "\n"
-"\t\t<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/> </a> <br/> Tämä työ on lisensoitu <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License -lisenssillä</a>.\n"
+"\t\t<br /><br /> <a target=\"_blank\" rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\"> <img alt=\"Creative Commons License"
+"\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png"
+"\"/> </a> <br/> Tämä työ on lisensoitu <a rel=\"license\" target=\"_blank\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 License -lisenssillä</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
-"\t<div class=\"rtBlock\"> <br /> <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Tämä työ on lisensoitu <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>\n"
+"\t<div class=\"rtBlock\"> <br /> <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative "
+"Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/"
+"by/3.0/80x15.png\" /></a> <br /> Tämä työ on lisensoitu <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank"
+"\">Creative Commons Attribution 3.0 License -lisenssillä</a>. </div>\n"
 "\t"
 
 msgid "common.changesSaved"
@@ -222,9 +249,6 @@ msgstr "Tekemäsi muutokset on tallennettu."
 
 msgid "common.chooseOne"
 msgstr "Valitse yksi"
-
-msgid "common.clearSearch"
-msgstr "Tyhjennä hakulauseke"
 
 msgid "common.close"
 msgstr "Sulje"
@@ -271,6 +295,9 @@ msgstr "Luo"
 msgid "common.dateCompleted"
 msgstr "Suoritettu (pvm)"
 
+msgid "common.dateDecided"
+msgstr "Päätetty (pvm)"
+
 msgid "common.date"
 msgstr "Päivämäärä"
 
@@ -304,6 +331,9 @@ msgstr "Hylätty"
 msgid "common.delete"
 msgstr "Poista"
 
+msgid "common.deleting"
+msgstr "Poistetaan"
+
 msgid "common.deleteSelection"
 msgstr "Poista valinta"
 
@@ -334,8 +364,14 @@ msgstr "Valmis"
 msgid "common.download"
 msgstr "Lataa"
 
+msgid "common.downloadPdf"
+msgstr "Lataa PDF"
+
 msgid "common.edit"
 msgstr "Muokkaa"
+
+msgid "common.editItem"
+msgstr "Muokkaa {$name}"
 
 msgid "common.enable"
 msgstr "Ota käyttöön"
@@ -350,7 +386,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Tapahtui tuntematon tietokannan yhteysvirhe."
 
 msgid "common.error.framesRequired"
-msgstr "Tämä sivu vaatii kehykset. <a href=\"{$url}\">Klikkaa tästä</a> kehyksettömään versioon."
+msgstr ""
+"Tämä sivu vaatii kehykset. <a href=\"{$url}\">Klikkaa tästä</a> "
+"kehyksettömään versioon."
 
 msgid "common.event"
 msgstr "Tapahtuma"
@@ -389,13 +427,28 @@ msgid "common.fileType"
 msgstr "Tiedostotyyppi"
 
 msgid "common.fileUploaderError"
-msgstr "Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota yhteys ylläpitoon."
+msgstr ""
+"Järjestelmän tiedostojen latausohjelma käynnistyy. Jos se ei ilmesty "
+"näkyviin, on todennäköistä, että tämä selain ei tue sen ajoaikoja. Ota "
+"yhteys ylläpitoon."
 
 msgid "common.filter"
 msgstr "Suodattimet"
 
+msgid "common.filterAdd"
+msgstr "Lisää suodatin: {$filterTitle}"
+
 msgid "common.filterRemove"
 msgstr "Poista suodatin: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Alkaen"
+
+msgid "common.fromWithValue"
+msgstr "Lähettäjä: {$value}"
+
+msgid "common.until"
+msgstr "Saakka"
 
 msgid "common.go"
 msgstr "Mene"
@@ -436,8 +489,23 @@ msgstr "Kieli"
 msgid "common.languages"
 msgstr "Kielet"
 
+msgid "common.lastActivity"
+msgstr "Viimeisin toiminta {$date}."
+
 msgid "common.less"
 msgstr "Vähemmän"
+
+msgid "common.lessThan"
+msgstr "{$value} tai vähemmän"
+
+msgid "common.lessThanOnly"
+msgstr "Vähemmän kuin"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
 
 msgid "common.manage"
 msgstr "Hallinnoi"
@@ -460,6 +528,12 @@ msgstr "Kuukausi"
 msgid "common.more"
 msgstr "Enemmän"
 
+msgid "common.moreThan"
+msgstr "{$value} tai enemmän"
+
+msgid "common.moreThanOnly"
+msgstr "Enemmän kuin"
+
 msgid "common.noneAssigned"
 msgstr "Ei osoitettuja"
 
@@ -468,6 +542,9 @@ msgstr "Ei yhtään"
 
 msgid "common.no"
 msgstr "Nro"
+
+msgid "common.noItemsFound"
+msgstr "Kohteita ei löytynyt."
 
 msgid "common.noComments"
 msgstr "Ei kommentteja"
@@ -484,11 +561,16 @@ msgstr "Ei saatavilla"
 msgid "common.note"
 msgstr "Muistiinpano"
 
+msgid "common.noTemporaryFile"
+msgstr "Lataamaasi tiedostoa ei löytynyt. Ole hyvä ja yritä uudelleen."
+
 msgid "common.notes"
 msgstr "Muistiinpanot"
 
 msgid "common.notes.tooltip"
-msgstr "Muistiinpanot (keltainen: uusia muistiinpanoja, sininen: katsotut muistiinpanot, harmaa: ei muistiinpanoja)"
+msgstr ""
+"Muistiinpanot (keltainen: uusia muistiinpanoja, sininen: katsotut "
+"muistiinpanot, harmaa: ei muistiinpanoja)"
 
 msgid "common.notified"
 msgstr "Ilmoitettu"
@@ -514,11 +596,11 @@ msgstr "Valinnat"
 msgid "common.order"
 msgstr "Järjestä"
 
-msgid "common.orderDown"
-msgstr "Siirrä {$itemTitle} alas"
-
 msgid "common.orderUp"
 msgstr "Siirrä {$itemTitle} ylös"
+
+msgid "common.orderDown"
+msgstr "Siirrä {$itemTitle} alas"
 
 msgid "common.originalFileName"
 msgstr "Alkuperäinen tiedostonimi"
@@ -531,6 +613,24 @@ msgstr "Muu"
 
 msgid "common.overdue"
 msgstr "Myöhässä"
+
+msgid "common.override"
+msgstr "Ohita"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} / {$total}"
+
+msgid "common.pagination.label"
+msgstr "Selaa sivuja"
+
+msgid "common.pagination.goToPage"
+msgstr "Siirry sivulle {$page}"
+
+msgid "common.pagination.next"
+msgstr "Seuraava sivu"
+
+msgid "common.pagination.previous"
+msgstr "Edellinen sivu"
 
 msgid "common.pageNumber"
 msgstr "Sivu {$pageNumber}"
@@ -601,6 +701,9 @@ msgstr "Etä-URL-osoite"
 msgid "common.remove"
 msgstr "Poista"
 
+msgid "common.removeItem"
+msgstr "Poista {$item}"
+
 msgid "common.removeSelection"
 msgstr "Poista valinta"
 
@@ -628,11 +731,17 @@ msgstr "Tallenna ja lähetä sähköpostilla"
 msgid "common.save"
 msgstr "Tallenna"
 
+msgid "common.saving"
+msgstr "Tallentaa"
+
 msgid "common.search"
 msgstr "Hae"
 
 msgid "common.searchQuery"
 msgstr "Hakukysely"
+
+msgid "common.clearSearch"
+msgstr "Tyhjennä hakulauseke"
 
 msgid "common.second"
 msgstr "Sekunti(a)"
@@ -640,11 +749,17 @@ msgstr "Sekunti(a)"
 msgid "common.selectAll"
 msgstr "Valitse kaikki"
 
+msgid "common.selectedPrefix"
+msgstr "Valitut:"
+
 msgid "common.selectNone"
 msgstr "Ei valintaa"
 
 msgid "common.select"
 msgstr "Valitse"
+
+msgid "common.selectWithName"
+msgstr "Valitse {$name}"
 
 msgid "common.sendEmail"
 msgstr "Lähetä sähköpostia"
@@ -664,6 +779,9 @@ msgstr "Aihe"
 msgid "common.subjects"
 msgstr "Aiheet"
 
+msgid "common.submenu"
+msgstr "Alavalikko"
+
 msgid "common.subtitle"
 msgstr "Alaotsikko"
 
@@ -673,8 +791,14 @@ msgstr "Ehdota"
 msgid "common.title"
 msgstr "Otsikko"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Alkuun"
+
+msgid "common.toWithValue"
+msgstr "Vastaanottaja: {$value}"
 
 msgid "common.true"
 msgstr "Tosi"
@@ -712,8 +836,17 @@ msgstr "Tiedostoa ei voitu ladata tai korjata."
 msgid "common.up"
 msgstr "Ylös"
 
+msgid "common.addFile"
+msgstr "Lisää tiedosto"
+
 msgid "common.upload.addFile"
 msgstr "Lataa tiedosto"
+
+msgid "common.upload.restore"
+msgstr "Palauta alkuperäinen"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Valitun kuvan esikatselu."
 
 msgid "common.upload.changeFile"
 msgstr "Vaihda tiedostoa"
@@ -727,8 +860,14 @@ msgstr "URL-osoite"
 msgid "common.user"
 msgstr "Käyttäjä"
 
+msgid "common.user.nonexistent"
+msgstr "[Ei käyttäjää]"
+
 msgid "common.view"
 msgstr "Näytä"
+
+msgid "common.viewWithName"
+msgstr "Näytä {$name}"
 
 msgid "common.viewProfile"
 msgstr "Näytä profiili"
@@ -756,6 +895,9 @@ msgstr "Mittari"
 
 msgid "common.count"
 msgstr "Määrä"
+
+msgid "common.publicAccess"
+msgstr "Julkinen saatavuus"
 
 msgid "debug.databaseQueries"
 msgstr "Tietokantakyselyiden määrä"
@@ -824,7 +966,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Viestissäsi on liikaa vastaanottajia."
 
 msgid "email.compose.tooSoon"
-msgstr "Yrität lähettää viestin liian pian edellisen jälkeen. Odota hetki ennen seuraavan viestin lähettämistä."
+msgstr ""
+"Yrität lähettää viestin liian pian edellisen jälkeen. Odota hetki ennen "
+"seuraavan viestin lähettämistä."
+
+msgid "email.compose.error"
+msgstr ""
+"Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota "
+"yhteyttä sivuston ylläpitäjään."
 
 msgid "email.email"
 msgstr "Sähköposti"
@@ -886,6 +1035,66 @@ msgstr "Sähköpostiosoite vaaditaan."
 msgid "form.dataHasChanged"
 msgstr "Tämän lomakkeen tiedot ovat muuttuneet. Haluatko jatkaa tallentamatta?"
 
+msgid "form.disallowedLocales"
+msgstr "Vain seuraavat kielet sallitaan: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Tämä ominaisuus ei ole sallittu."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Tiputa ladattavat tiedostot tähän"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Selaimesi ei tue tiedoston lataamista tiputtamalla."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Käytä alla olevaa lomaketta tiedostojen lataamiseen."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Tiedosto on liian suuri ({{filesize}}mt). Kooltaan {{maxFilesize}}mt "
+"suurempia tiedostoja ei voi ladata."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Tämän tyyppisiä tiedostoja ei voi ladata."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Palvelin vastasi tilakoodilla {{statusCode}}. Ole hyvä ja ota yhteyttä "
+"palvelun ylläpitäjään, jos ongelmat jatkuvat."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Peru lataus"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Lataus peruttu"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Oletko varma, että haluat peruuttaa latauksen?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Poista tiedosto"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Et voi ladata enempää tiedostoja."
+
+msgid "form.errorA11y"
+msgstr "Siirry kohtaan {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Siirry seuraavaan virheeseen"
+
+msgid "form.errorOne"
+msgstr "Korjaa yksi virhe."
+
+msgid "form.errorMany"
+msgstr "Korjaa {$count} virhettä."
+
+msgid "form.errors"
+msgstr ""
+"Lomaketta ei tallennettu, koska tapahtui {$count} virhe(ttä).  Korjaa "
+"virheet ja yritä uudelleen."
+
 msgid "form.errorsOccurred"
 msgstr "Tätä lomaketta käsiteltäessä tapahtui virheitä"
 
@@ -907,14 +1116,28 @@ msgstr "alkaa"
 msgid "form.postRequired"
 msgstr "Lomaketta ei lähetetty oikein."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"Lomaketta ei voitu lähettää. Sinut on mahdollisesti kirjattu ulos. Virkistä "
+"nykyinen sivu ja yritä uudelleen."
+
 msgid "form.fileRequired"
 msgstr "Tiedoston lataaminen vaaditaan."
 
 msgid "form.required"
 msgstr "(*Pakollinen tieto)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Tämä kenttä pitää täyttää kielellä {$language}."
+
+msgid "form.requireId"
+msgstr "Anna kelvollinen ID."
+
 msgid "form.resubmit"
 msgstr "Lähetä uudelleen"
+
+msgid "form.saved"
+msgstr "Tallennettu"
 
 msgid "form.saveToUpload"
 msgstr "Käytä Tallenna-painiketta ladataksesi tiedoston."
@@ -926,7 +1149,14 @@ msgid "form.submit"
 msgstr "Lähetä"
 
 msgid "form.invalidImage"
-msgstr "Virheellinen kuva ladattiin. Hyväksytyt muodot ovat .png, .gif ja .jpg."
+msgstr ""
+"Virheellinen kuva ladattiin. Hyväksytyt muodot ovat .png, .gif ja .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} / {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} kieltä valmiina"
 
 msgid "help.help"
 msgstr "Ohjeet"
@@ -1018,6 +1248,12 @@ msgstr "Ilmoitus lähetetty käyttäjille."
 msgid "stageParticipants.history.messageSent"
 msgstr "Ilmoitus lähetetty käyttäjille."
 
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Aloita keskustelu"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Aloita keskustelu käyttäjän {$userFullName} kanssa."
+
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "Valitse ennaltamäärätty viesti tai täytä alla oleva lomake."
 
@@ -1025,7 +1261,30 @@ msgid "stageParticipants.notify.message"
 msgstr "Viesti"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Varmista, että olet täyttänyt viestikentän ja valinnut vähintään yhden vastaanottajan."
+msgstr ""
+"Varmista, että olet täyttänyt viestikentän ja valinnut vähintään yhden "
+"vastaanottajan."
+
+msgid "stageParticipants.options"
+msgstr "Oikeudet"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii "
+"toisen toimittajan päätöksen vahvistamiseen."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Luvat"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Salli käyttäjän muokata käsikirjoituksen tietoja."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Osallistuja"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Tätä osallistujaa koskevia muutoksia ei voi tehdä"
 
 msgid "locale.primary"
 msgstr "Ensisijainen kielialue"
@@ -1041,6 +1300,9 @@ msgstr "Tietoa"
 
 msgid "navigation.admin"
 msgstr "Ylläpito"
+
+msgid "navigation.archives"
+msgstr "Arkistot"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Olet täällä:"
@@ -1059,6 +1321,9 @@ msgstr "Tilastot"
 
 msgid "navigation.browse"
 msgstr "Selaa"
+
+msgid "navigation.backTo"
+msgstr "⟵ Takaisin sivulle {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Kirjoittajan mukaan"
@@ -1120,6 +1385,21 @@ msgstr "Asetukset"
 msgid "navigation.sitemap"
 msgstr "Sivustokartta"
 
+msgid "navigation.skip.description"
+msgstr "Siirry sisältölinkkeihin"
+
+msgid "navigation.skip.announcements"
+msgstr "Siirry ilmoituksiin"
+
+msgid "navigation.skip.main"
+msgstr "Siirry sisältöalueeseen"
+
+msgid "navigation.skip.nav"
+msgstr "Siirry navigaatioon"
+
+msgid "navigation.skip.footer"
+msgstr "Siirry alatunnisteeseen"
+
 msgid "navigation.stepNumber"
 msgstr "Vaihe {$step}"
 
@@ -1152,6 +1432,9 @@ msgstr "Lisätty keskustelu"
 
 msgid "notification.reviewAcknowledged"
 msgstr "Arviointi merkitty vastaanotetuksi. Sähköpostiviestiä ei lähetetty."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Kiitosviesti lähetetty arvioijalle."
 
 msgid "notification.updatedReviewFiles"
 msgstr "Arviointitiedostot päivitetty."
@@ -1214,16 +1497,26 @@ msgid "notification.settings"
 msgstr "Ilmoitusten asetukset"
 
 msgid "notification.settingsDescription"
-msgstr "Valitse järjestelmän tapahtumat, joista haluat ilmoituksen. Valinnan poistaminen kohdasta estää tapahtumaan liittyvien ilmoitusten näkymisen järjestelmässä ja niiden lähettämisen sinulle sähköpostitse. Valitut tapahtumat näkyvät järjestelmässä ja lisäksi voit valita haluatko samat ilmoitukset sähköpostitse vai et."
+msgstr ""
+"Valitse järjestelmän tapahtumat, joista haluat ilmoituksen. Valinnan "
+"poistaminen kohdasta estää tapahtumaan liittyvien ilmoitusten näkymisen "
+"järjestelmässä ja niiden lähettämisen sinulle sähköpostitse. Valitut "
+"tapahtumat näkyvät järjestelmässä ja lisäksi voit valita haluatko samat "
+"ilmoitukset sähköpostitse vai et."
 
 msgid "notification.reminderError"
-msgstr "Salasanan lähettämisessä tapahtui virhe. Varmista, että kirjoitit sähköpostiosoitteesi oikein."
+msgstr ""
+"Salasanan lähettämisessä tapahtui virhe. Varmista, että kirjoitit "
+"sähköpostiosoitteesi oikein."
 
 msgid "notification.reminderSent"
 msgstr "Uusi salasanasi on lähetetty annettuun sähköpostiosoitteeseen."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Käsikirjoituksen metatiedot tallennettu."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Lähetä sähköposti kaikille rekisteröityneille käyttäjille."
 
 msgid "search.author"
 msgstr "Kirjoittajan mukaan"
@@ -1303,6 +1596,12 @@ msgstr "Hae"
 msgid "search.searchResults"
 msgstr "Hakutulokset"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Yksi kohde löytyi."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} kohdetta löytyi."
+
 msgid "search.subject"
 msgstr "Avainsana(t)"
 
@@ -1342,6 +1641,9 @@ msgstr "Tehtävät"
 msgid "dashboard.myQueue"
 msgstr "Oma jononi"
 
+msgid "review.anonymousPeerReview.title"
+msgstr "Miten varmistetaan, että kaikki tiedostot ovat anonymisoituja"
+
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Jotta lähetetyn käsikirjoituksen anonyymin vertaisarvioinnin rehellisyys "
@@ -1361,8 +1663,8 @@ msgstr ""
 "<li>Valitse Check for Issues / Tarkista ongelmien varalta</li>\n"
 "<li>Valitse Inspect Document / Tarkasta asiakirja</li>\n"
 "<li>Valitse Asiakirjan tarkastaminen ‑valintaikkunassa niiden piilotettujen "
-"sisältötyyppien valintaruudut, jotka asiakirjasta on tarkoitus "
-"tarkastaa.</li>\n"
+"sisältötyyppien valintaruudut, jotka asiakirjasta on tarkoitus tarkastaa.</"
+"li>\n"
 "<li>Valitse  Remove All / Poista kaikki</li>\n"
 "<li>Valitse Close / Sulle</li>\n"
 "<li>Tallenna tiedosto</li></ul>\n"
@@ -1393,13 +1695,29 @@ msgid "navigation.goBack"
 msgstr "Mene takaisin"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-ilmoitus lähetettiin."
+msgstr ""
+"{$reviewerName} valittiin käsikirjoituksen arvioijaksi ja sähköposti-"
+"ilmoitus lähetettiin."
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-"
+"ilmoitusta ei lähetetty."
 
 msgid "notification.removedReviewer"
 msgstr "Arvioija poistettu."
 
+msgid "notification.cancelledReviewer"
+msgstr "Arvioija perunut."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Arvioija palautettu."
+
 msgid "notification.addedStageParticipant"
 msgstr "Käyttäjä lisätty työvaiheeseen osallistujaksi."
+
+msgid "notification.editStageParticipant"
+msgstr "Työvaiheen osoitusta on muutettu."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Uusi ilmoitus."
@@ -1407,14 +1725,20 @@ msgstr "Uusi ilmoitus."
 msgid "notification.type.reviewAssignment"
 msgstr "Arviointia odotetaan."
 
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Arviointipyyntö päivitetty."
+
 msgid "notification.type.auditorRequest"
 msgstr "Tarkastuspyyntö tiedostoa \"{$file}\" koskien"
 
 msgid "notification.type.allReviewsIn"
-msgstr "Kaikki arvioinnit ovat saapuneet ja {$stage}-vaiheessa tarvitaan päätös."
+msgstr ""
+"Kaikki arvioinnit ovat saapuneet ja {$stage}-vaiheessa tarvitaan päätös."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Korjattu tiedosto on ladattu toimituksellista käsittelyäsi varten {$stage}-vaiheessa."
+msgstr ""
+"Korjattu tiedosto on ladattu toimituksellista käsittelyäsi varten {$stage}-"
+"vaiheessa."
 
 msgid "notification.type.pendingRevisions"
 msgstr "{$stage}-vaiheessa käsiteltävät korjaukset."
@@ -1431,8 +1755,16 @@ msgstr "Arvioija on kommentoinut käsikirjoitusta \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "Tiedosto käsitelty."
 
+msgid "user.email"
+msgstr "Sähköposti"
+
 msgid "user.authorization.submissionFile"
-msgstr "Nykyisellä käyttäjällä ei ole pääsyoikeutta kyseiseen käsikirjoitustiedostoon."
+msgstr ""
+"Nykyisellä käyttäjällä ei ole pääsyoikeutta kyseiseen "
+"käsikirjoitustiedostoon."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Virheellinen käsikirjoitusversio."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Virheellinen lähetys."
@@ -1440,14 +1772,31 @@ msgstr "Virheellinen lähetys."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Virheellinen esitysmuoto."
 
-msgid "navigation.archives"
-msgstr "Arkistot"
+msgid "user.authorization.invalidReviewRound"
+msgstr "Virheellinen arviointikierros."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Virheellinen keskustelu."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Sinulla ei ole oikeutta avata tätä keskustelua."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Sinulla ei ole oikeutta avata tätä arviointipyyntöä."
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "Sinulla ei tällä hetkellä ole riittäviä oikeuksia tarkastella käsikirjoitusta. Muokkaa profiiliasi varmistaaksesi, että sinulle on myönnetty oikeat roolit kohdassa “Rekisteröidy”."
+msgstr ""
+"Sinulla ei tällä hetkellä ole riittäviä oikeuksia tarkastella "
+"käsikirjoitusta. Muokkaa profiiliasi varmistaaksesi, että sinulle on "
+"myönnetty oikeat roolit kohdassa “Rekisteröidy”."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Nykyinen käyttäjä ei ole pyydetyn käsikirjoituksen kirjoittaja. Varmista, että olet kirjautunut oikealla käyttäjätilillä."
+msgstr ""
+"Nykyinen käyttäjä ei ole pyydetyn käsikirjoituksen kirjoittaja. Varmista, "
+"että olet kirjautunut oikealla käyttäjätilillä."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Tietosuojavalinnat"
 
 msgid "notification.type.queryActivity"
 msgstr "Keskustelutapahtumat."
@@ -1456,7 +1805,8 @@ msgid "notification.type.queryAdded"
 msgstr "Keskustelu lisätty."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen."
+msgstr ""
+"Valitse tekninen toimittaja Osallistujat-listan Lisää-linkkiä käyttäen."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Odottavat tekniset toimittamiset."
@@ -1464,35 +1814,11 @@ msgstr "Odottavat tekniset toimittamiset."
 msgid "notification.type.roundStatusTitle"
 msgstr "Kierroksen {$round} tila"
 
-msgid "navigation.skip.main"
-msgstr "Siirry sisältöalueeseen"
+msgid "notification.type.editorialReport"
+msgstr "Kävijäraportin yhteenveto."
 
-msgid "navigation.skip.nav"
-msgstr "Siirry navigaatioon"
-
-msgid "navigation.skip.footer"
-msgstr "Siirry alatunnisteeseen"
-
-msgid "common.downloadPdf"
-msgstr "Lataa PDF"
-
-msgid "common.from"
-msgstr "Alkaen"
-
-msgid "common.until"
-msgstr "Saakka"
-
-msgid "common.saving"
-msgstr "Tallentaa"
-
-msgid "notification.reviewerThankedEmail"
-msgstr "Kiitosviesti lähetetty arvioijalle."
-
-msgid "notification.sendNotificationConfirmation"
-msgstr "Lähetä sähköposti kaikille rekisteröityneille käyttäjille."
-
-msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} valittiin käsikirjoituksen arvioijaksi, mutta sähköposti-ilmoitusta ei lähetetty."
+msgid "notification.type.editorialReport.contents"
+msgstr "Muista tarkistaa julkaisusi toimitustyötä koskeva raportti."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1515,469 +1841,202 @@ msgstr "Navigaatiovalikko päivitettiin onnistuneesti"
 msgid "notification.removedNavigationMenu"
 msgstr "Navigaatiovalikko poistettiin onnistuneesti"
 
-msgid "stageParticipants.options"
-msgstr "Oikeudet"
-
-msgid "stageParticipants.recommendOnly"
-msgstr "Tämä käyttäjä voi ainostaan suositella toimituksellista päätöstä ja vaatii toisen toimittajan päätöksen vahvistamiseen."
-
-msgid "common.deleting"
-msgstr "Poistetaan"
-
-msgid "common.lessThan"
-msgstr "{$value} tai vähemmän"
-
-msgid "common.moreThan"
-msgstr "{$value} tai enemmän"
-
-msgid "common.pagination"
-msgstr "{$start}-{$end} / {$total}"
-
-msgid "common.pagination.label"
-msgstr "Selaa sivuja"
-
-msgid "common.publicAccess"
-msgstr "Julkinen saatavuus"
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Aloita keskustelu"
-
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Aloita keskustelu käyttäjän {$userFullName} kanssa."
-
 msgid "list.viewMore"
 msgstr "Näytä lisätietoja {$name}"
 
 msgid "list.viewLess"
 msgstr "Piilota lisätiedot {$name}"
 
-msgid "common.filterAdd"
-msgstr "Lisää suodatin: {$filterTitle}"
+msgid "validator.accepted"
+msgstr "Hyväksy tämä kohde..."
 
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Arviointipyyntö päivitetty."
-
-msgid "common.commaListSeparator"
-msgstr ", "
-
-msgid "common.semicolonListSeparator"
-msgstr "; "
-
-msgid "email.compose.error"
-msgstr "Sähköpostin lähetyksessä tapahtui virhe. Ole hyvä ja yritä uudelleen tai ota yhteyttä sivuston ylläpitäjään."
-
-msgid "validator.url"
+msgid "validator.active_url"
 msgstr "Tämä ei ole kelvollinen URL-osoite."
 
-msgid "validator.unique"
-msgstr "Arvo {$attribute} on jo käytössä."
+msgid "validator.after"
+msgstr "Päivämäärän pitää olla myöhäisempi kuin {$date}."
 
-msgid "validator.timezone"
-msgstr "Tämä ei ole kelvollinen aikavyöhyke."
+msgid "validator.alpha"
+msgstr "Voi sisältää vain kirjaimia."
 
-msgid "validator.string"
-msgstr "Tämä ei ole kelvollinen arvo."
+msgid "validator.alpha_dash"
+msgstr "Voi sisältää vain kirjaimia, numeroita, tavuviivoja tai alaviivoja."
 
-msgid "validator.size.array"
-msgstr "Tämän pitää sisältää  {$size} kohdetta."
-
-msgid "validator.size.string"
-msgstr "Tämän pitää olla {$size} merkkiä."
-
-msgid "validator.size.file"
-msgstr "Tämän pitää olla {$size} kilotavua."
-
-msgid "validator.size.numeric"
-msgstr "Tämän pitää olla kooltaan {$size}."
-
-msgid "validator.same"
-msgstr "Arvojen {$attribute} ja {$other} pitää täsmätä."
-
-msgid "validator.required_without_all"
+msgid "validator.alpha_dash_period"
 msgstr ""
-"Tämä kenttä on pakollinen, kun mitään arvoista {$values} ei ole annettu."
 
-msgid "validator.required_without"
-msgstr "Tämä kenttä on pakollinen, kun arvoa {$values} ei ole annettu."
+msgid "validator.alpha_num"
+msgstr "Voi sisältää vain kirjaimia tai numeroita."
 
-msgid "validator.required_with_all"
-msgstr "Tämä kenttä on pakollinen, kun arvot {$values} on annettu."
+msgid "validator.array"
+msgstr "Tämä ei ole kelvollinen taulukkomuuttuja."
 
-msgid "validator.required_with"
-msgstr "Tämä kenttä on pakollinen, kun arvo {$values} on annettu."
+msgid "validator.before"
+msgstr "Ajankohdan pitää olla ennen {$date}."
 
-msgid "validator.required_unless"
-msgstr "Tämä kenttä on pakollinen ellei kentän {$other} arvo ole {$values}."
+msgid "validator.between.numeric"
+msgstr "Pitää olla välillä {$min} - {$max}."
 
-msgid "validator.required_if"
-msgstr "Tämä kenttä on pakollinen, kun {$other} arvo on {$value}."
+msgid "validator.between.file"
+msgstr "Pitää olla {$min} - {$max} kilobittiä."
 
-msgid "validator.required"
-msgstr "Tämä kenttä on pakollinen."
+msgid "validator.between.string"
+msgstr "Pitää olla {$min} - {$max} merkkiä."
 
-msgid "validator.regex"
-msgstr "Tätä ei ole muotoiltu oikein."
+msgid "validator.between.array"
+msgstr "Pitää olla {$min} - {$max} kohdetta."
 
-msgid "validator.present"
-msgstr "{$attribute}-kenttä pitää olla olemassa."
+msgid "validator.boolean"
+msgstr "Kentän arvon pitää olla true tai false."
 
-msgid "validator.orcid"
-msgstr "Tämä ei ole kelvollinen ORCID-tunnus."
+msgid "validator.confirmed"
+msgstr "Kentän varmennus ei täsmää."
 
-msgid "validator.numeric"
-msgstr "Tämä ei ole kelvollinen numero."
+msgid "validator.currency"
+msgstr "Tämä ei ole kelvollinen valuutta."
 
-msgid "validator.not_in"
+msgid "validator.date"
+msgstr "Tämä ei ole kelvollinen ajankohta."
+
+msgid "validator.date_format"
+msgstr "Kentän arvo ei vastaa muotoa {$format}."
+
+msgid "validator.different"
+msgstr "Arvo {$attribute} ja {$other} eivät voi olla samoja."
+
+msgid "validator.digits"
+msgstr "Tämän pitää olla {$digits} numeron pituinen."
+
+msgid "validator.digits_between"
+msgstr "Pitää olla {$min} - {$max} numeroa."
+
+msgid "validator.email"
+msgstr "Tämä ei ole kelvollinen sähköpostiosoite."
+
+msgid "validator.exists"
 msgstr "Valittu {$attribute} on virheellinen."
 
-msgid "validator.min.array"
-msgstr "Tässä pitää olla vähintään {$min} kohdetta."
+msgid "validator.filled"
+msgstr "Tämä on pakollinen kenttä."
 
-msgid "validator.min.string"
-msgstr "Tämän pitää olla vähintään {$min} merkkiä."
+msgid "validator.image"
+msgstr "Tämän pitää olla kuva."
 
-msgid "validator.min.file"
-msgstr "Tämän pitää olla vähintään {$min} kilotavua."
+msgid "validator.in"
+msgstr "Valittu {$attribute} on virheellinen."
 
-msgid "validator.min.numeric"
-msgstr "Tämän pitää olla vähintään {$min}."
+msgid "validator.integer"
+msgstr "Tämä ei ole kelvollinen numero."
 
-msgid "validator.mimes"
-msgstr "Tämän tiedoston pitää olla tyyppiä {$values}."
+msgid "validator.ip"
+msgstr "Tämä ei ole kelvollinen IP-osoite."
 
-msgid "validator.max.array"
-msgstr "Ei voi sisältää enemmän kuin {$max} kohdetta."
+msgid "validator.issn"
+msgstr "Tämä ei ole kelvollinen ISSN-tunnus."
 
-msgid "validator.max.string"
-msgstr "Tämä ei voi olla suurempi kuin {$max} merkkiä."
+msgid "validator.json"
+msgstr "Tämä ei ole kelvollinen JSON-arvo."
 
-msgid "validator.max.file"
-msgstr "Tämä ei voi olla suurempi kuin {$max} kilotavua."
-
-msgid "validator.max.numeric"
-msgstr "Tämä ei voi olla suurempi kuin {$max}."
-
-msgid "validator.localeKey"
-msgstr ""
-"Kielet tulee määritellä käyttämällä koodia. Esimerkiksi: fi_FI, en_US, "
-"sr_RS@cyrillic."
+msgid "validator.locale"
+msgstr "Tätä kieltä ei hyväksytä."
 
 msgid "validator.localeExpected"
 msgstr ""
 "Tämä on monikielinen kenttä. Jokaiselle tuetulle kielelle tulee antaa oma "
 "sisältö."
 
-msgid "validator.locale"
-msgstr "Tätä kieltä ei hyväksytä."
+msgid "validator.localeKey"
+msgstr ""
+"Kielet tulee määritellä käyttämällä koodia. Esimerkiksi: fi_FI, en_US, "
+"sr_RS@cyrillic."
 
-msgid "validator.json"
-msgstr "Tämä ei ole kelvollinen JSON-arvo."
+msgid "validator.max.numeric"
+msgstr "Tämä ei voi olla suurempi kuin {$max}."
 
-msgid "validator.issn"
-msgstr "Tämä ei ole kelvollinen ISSN-tunnus."
+msgid "validator.max.file"
+msgstr "Tämä ei voi olla suurempi kuin {$max} kilotavua."
 
-msgid "validator.ip"
-msgstr "Tämä ei ole kelvollinen IP-osoite."
+msgid "validator.max.string"
+msgstr "Tämä ei voi olla suurempi kuin {$max} merkkiä."
 
-msgid "validator.integer"
+msgid "validator.max.array"
+msgstr "Ei voi sisältää enemmän kuin {$max} kohdetta."
+
+msgid "validator.mimes"
+msgstr "Tämän tiedoston pitää olla tyyppiä {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Tämän pitää olla vähintään {$min}."
+
+msgid "validator.min.file"
+msgstr "Tämän pitää olla vähintään {$min} kilotavua."
+
+msgid "validator.min.string"
+msgstr "Tämän pitää olla vähintään {$min} merkkiä."
+
+msgid "validator.min.array"
+msgstr "Tässä pitää olla vähintään {$min} kohdetta."
+
+msgid "validator.not_in"
+msgstr "Valittu {$attribute} on virheellinen."
+
+msgid "validator.numeric"
 msgstr "Tämä ei ole kelvollinen numero."
 
-msgid "validator.in"
-msgstr "Valittu {$attribute} on virheellinen."
+msgid "validator.orcid"
+msgstr "Tämä ei ole kelvollinen ORCID-tunnus."
 
-msgid "validator.image"
-msgstr "Tämän pitää olla kuva."
+msgid "validator.present"
+msgstr "{$attribute}-kenttä pitää olla olemassa."
 
-msgid "validator.filled"
-msgstr "Tämä on pakollinen kenttä."
+msgid "validator.regex"
+msgstr "Tätä ei ole muotoiltu oikein."
 
-msgid "validator.exists"
-msgstr "Valittu {$attribute} on virheellinen."
+msgid "validator.required"
+msgstr "Tämä kenttä on pakollinen."
 
-msgid "validator.email"
-msgstr "Tämä ei ole kelvollinen sähköpostiosoite."
+msgid "validator.required_if"
+msgstr "Tämä kenttä on pakollinen, kun {$other} arvo on {$value}."
 
-msgid "validator.digits_between"
-msgstr "Pitää olla {$min} - {$max} numeroa."
+msgid "validator.required_unless"
+msgstr "Tämä kenttä on pakollinen ellei kentän {$other} arvo ole {$values}."
 
-msgid "validator.digits"
-msgstr "Tämän pitää olla {$digits} numeron pituinen."
+msgid "validator.required_with"
+msgstr "Tämä kenttä on pakollinen, kun arvo {$values} on annettu."
 
-msgid "validator.different"
-msgstr "Arvo {$attribute} ja {$other} eivät voi olla samoja."
+msgid "validator.required_with_all"
+msgstr "Tämä kenttä on pakollinen, kun arvot {$values} on annettu."
 
-msgid "validator.date_format"
-msgstr "Kentän arvo ei vastaa muotoa {$format}."
+msgid "validator.required_without"
+msgstr "Tämä kenttä on pakollinen, kun arvoa {$values} ei ole annettu."
 
-msgid "validator.date"
-msgstr "Tämä ei ole kelvollinen ajankohta."
+msgid "validator.required_without_all"
+msgstr ""
+"Tämä kenttä on pakollinen, kun mitään arvoista {$values} ei ole annettu."
 
-msgid "validator.currency"
-msgstr "Tämä ei ole kelvollinen valuutta."
+msgid "validator.same"
+msgstr "Arvojen {$attribute} ja {$other} pitää täsmätä."
 
-msgid "validator.confirmed"
-msgstr "Kentän varmennus ei täsmää."
+msgid "validator.size.numeric"
+msgstr "Tämän pitää olla kooltaan {$size}."
 
-msgid "validator.boolean"
-msgstr "Kentän arvon pitää olla true tai false."
+msgid "validator.size.file"
+msgstr "Tämän pitää olla {$size} kilotavua."
 
-msgid "validator.between.array"
-msgstr "Pitää olla {$min} - {$max} kohdetta."
+msgid "validator.size.string"
+msgstr "Tämän pitää olla {$size} merkkiä."
 
-msgid "validator.between.string"
-msgstr "Pitää olla {$min} - {$max} merkkiä."
+msgid "validator.size.array"
+msgstr "Tämän pitää sisältää  {$size} kohdetta."
 
-msgid "validator.between.file"
-msgstr "Pitää olla {$min} - {$max} kilobittiä."
+msgid "validator.string"
+msgstr "Tämä ei ole kelvollinen arvo."
 
-msgid "validator.between.numeric"
-msgstr "Pitää olla välillä {$min} - {$max}."
+msgid "validator.timezone"
+msgstr "Tämä ei ole kelvollinen aikavyöhyke."
 
-msgid "validator.before"
-msgstr "Ajankohdan pitää olla ennen {$date}."
+msgid "validator.unique"
+msgstr "Arvo {$attribute} on jo käytössä."
 
-msgid "validator.array"
-msgstr "Tämä ei ole kelvollinen taulukkomuuttuja."
-
-msgid "validator.alpha_num"
-msgstr "Voi sisältää vain kirjaimia tai numeroita."
-
-msgid "validator.alpha_dash"
-msgstr "Voi sisältää vain kirjaimia, numeroita, tavuviivoja tai alaviivoja."
-
-msgid "validator.alpha"
-msgstr "Voi sisältää vain kirjaimia."
-
-msgid "validator.after"
-msgstr "Päivämäärän pitää olla myöhäisempi kuin {$date}."
-
-msgid "validator.active_url"
+msgid "validator.url"
 msgstr "Tämä ei ole kelvollinen URL-osoite."
-
-msgid "validator.accepted"
-msgstr "Hyväksy tämä kohde..."
-
-msgid "notification.type.editorialReport.contents"
-msgstr "Muista tarkistaa julkaisusi toimitustyötä koskeva raportti."
-
-msgid "notification.type.editorialReport"
-msgstr "Kävijäraportin yhteenveto."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Virheellinen käsikirjoitusversio."
-
-msgid "notification.editStageParticipant"
-msgstr "Työvaiheen osoitusta on muutettu."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Arvioija palautettu."
-
-msgid "notification.cancelledReviewer"
-msgstr "Arvioija perunut."
-
-msgid "navigation.skip.announcements"
-msgstr "Siirry ilmoituksiin"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Tätä osallistujaa koskevia muutoksia ei voi tehdä"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Osallistuja"
-
-#, fuzzy
-msgid "stageParticipants.canChangeMetadata"
-msgstr "Salli käyttäjän muokata käsikirjoituksen tietoja."
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Luvat"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} kieltä valmiina"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} / {$localeName}"
-
-msgid "form.requireId"
-msgstr "Anna kelvollinen ID."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Tämä kenttä pitää täyttää kielellä {$language}."
-
-msgid "form.csrfInvalid"
-msgstr ""
-"Lomaketta ei voitu lähettää. Sinut on mahdollisesti kirjattu ulos. Virkistä "
-"nykyinen sivu ja yritä uudelleen."
-
-msgid "form.errors"
-msgstr ""
-"Lomaketta ei tallennettu, koska tapahtui {$count} virhe(ttä).  Korjaa "
-"virheet ja yritä uudelleen."
-
-msgid "form.errorMany"
-msgstr "Korjaa {$count} virhettä."
-
-msgid "form.errorOne"
-msgstr "Korjaa yksi virhe."
-
-msgid "form.errorGoTo"
-msgstr "Siirry seuraavaan virheeseen"
-
-msgid "form.errorA11y"
-msgstr "Siirry kohtaan {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Et voi ladata enempää tiedostoja."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Poista tiedosto"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Oletko varma, että haluat peruuttaa latauksen?"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Lataus peruttu"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Peru lataus"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Palvelin vastasi tilakoodilla {{statusCode}}. Ole hyvä ja ota yhteyttä "
-"palvelun ylläpitäjään, jos ongelmat jatkuvat."
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Tämän tyyppisiä tiedostoja ei voi ladata."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Tiedosto on liian suuri ({{filesize}}mt). Kooltaan {{maxFilesize}}mt "
-"suurempia tiedostoja ei voi ladata."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "Käytä alla olevaa lomaketta tiedostojen lataamiseen."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr "Selaimesi ei tue tiedoston lataamista tiputtamalla."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Tiputa ladattavat tiedostot tähän"
-
-msgid "form.disallowedProp"
-msgstr "Tämä ominaisuus ei ole sallittu."
-
-msgid "form.disallowedLocales"
-msgstr "Vain seuraavat kielet sallitaan: {$languages}."
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Valitun kuvan esikatselu."
-
-msgid "common.upload.restore"
-msgstr "Palauta alkuperäinen"
-
-msgid "common.toWithValue"
-msgstr "Vastaanottaja: {$value}"
-
-msgid "common.submenu"
-msgstr "Alavalikko"
-
-msgid "common.selectedPrefix"
-msgstr "Valitut:"
-
-msgid "common.removeItem"
-msgstr "Poista {$item}"
-
-msgid "common.pagination.previous"
-msgstr "Edellinen sivu"
-
-msgid "common.pagination.next"
-msgstr "Seuraava sivu"
-
-msgid "common.pagination.goToPage"
-msgstr "Siirry sivulle {$page}"
-
-msgid "common.override"
-msgstr "Ohita"
-
-msgid "common.noTemporaryFile"
-msgstr "Lataamaasi tiedostoa ei löytynyt. Ole hyvä ja yritä uudelleen."
-
-msgid "common.noItemsFound"
-msgstr "Kohteita ei löytynyt."
-
-msgid "common.lastActivity"
-msgstr "Viimeisin toiminta {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Lähettäjä: {$value}"
-
-msgid "common.dateDecided"
-msgstr "Päätetty (pvm)"
-
-msgid "common.altTextInstructions"
-msgstr ""
-"Kuvaile kuva käyttäjille, jotka katsovat sivustoa tekstipohjaisella "
-"verkkoselaimella. Esimerkiksi \"Toimittajamme puhumassa PKP:n konferenssissa."
-"\""
-
-msgid "navigation.skip.description"
-msgstr "Siirry sisältölinkkeihin"
-
-msgid "common.moreThanOnly"
-msgstr "Enemmän kuin"
-
-msgid "common.lessThanOnly"
-msgstr "Vähemmän kuin"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "Miten varmistetaan, että kaikki tiedostot ovat anonymisoituja"
-
-msgid "search.searchResults.foundPlural"
-msgstr "{$count} kohdetta löytyi."
-
-msgid "search.searchResults.foundSingle"
-msgstr "Yksi kohde löytyi."
-
-msgid "navigation.backTo"
-msgstr "⟵ Takaisin sivulle {$page}"
-
-msgid "form.saved"
-msgstr "Tallennettu"
-
-msgid "common.viewWithName"
-msgstr "Näytä {$name}"
-
-msgid "common.user.nonexistent"
-msgstr "[Ei käyttäjää]"
-
-msgid "common.addFile"
-msgstr "Lisää tiedosto"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.selectWithName"
-msgstr "Valitse {$name}"
-
-msgid "common.editItem"
-msgstr "Muokkaa {$name}"
-
-msgid "common.inactive"
-msgstr "Pois käytöstä"
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Tietosuojavalinnat"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Sinulla ei ole oikeutta avata tätä arviointipyyntöä."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Sinulla ei ole oikeutta avata tätä keskustelua."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Virheellinen keskustelu."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Virheellinen arviointikierros."
-
-msgid "user.email"
-msgstr "Sähköposti"

@@ -11,25 +11,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.acron.tasksReloaded"
-msgstr "Tugas Terjadwal dimuat ulang."
-
-msgid "plugins.generic.acron.reload"
-msgstr "Muat Ulang Tugas Terjadwal"
-
-msgid "plugins.generic.acron.reloadedCronTab"
-msgstr "Tab Cron berhasil dimuat ulang."
-
-msgid "plugins.generic.acron.disabled"
-msgstr "Plugin Acron telah dinonaktifkan."
-
-msgid "plugins.generic.acron.enabled"
-msgstr "Plugin Acron telah diaktifkan."
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
 
 msgid "plugins.generic.acron.description"
 msgstr ""
 "Plugin ini membantu mengurangi ketergantungan aplikasi pada perangkat "
 "pengaturan periodik seperti 'cron.'"
 
-msgid "plugins.generic.acron.name"
-msgstr "Plugin Acron"
+msgid "plugins.generic.acron.enabled"
+msgstr "Plugin Acron telah diaktifkan."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Plugin Acron telah dinonaktifkan."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Tab Cron berhasil dimuat ulang."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Muat Ulang Tugas Terjadwal"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Tugas Terjadwal dimuat ulang."

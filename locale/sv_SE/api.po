@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
 "PO-Revision-Date: 2020-02-26 09:36+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
-"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/sv/>"
-"\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/sv/"
+">\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,47 +14,192 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Din förfrågan nekades. Detta kan bero på att din inloggning förfallit. Prova att ladda om sidan och försöka igen."
+msgid "api.400.paramNotSupported"
+msgstr "{$param}-parametern stöds ej."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Du kan bara visa opublicerade bidrag som du själv blivit tilldelad."
+msgid "api.400.invalidApiToken"
+msgstr ""
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Du kan inte radera ett bidrag som inte är kopplat till den här kontexten."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Du har inte behörighet att ta bort det här bidraget."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr "Du har inte tillgång till den efterfrågade resursen."
 
 msgid "api.404.resourceNotFound"
 msgstr "Den efterfrågade resursen kunde inte hittas."
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Din förfrågan kunde inte fullföljas eftersom det saknar nödvändig information."
+msgid "api.404.endpointNotFound"
+msgstr "URL:en kunde inte hittas."
 
-msgid "api.submissions.400.stageNotValid"
-msgstr "Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget är ogiltigt."
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.500.badAuthorizationheader"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "E-postmeddelandemallen hittades ej."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr ""
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikationen du vill avpublicera är inte publicerad."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Du kan inte redigera denna publikation eftersom den redan är publicerad."
 
 msgid "api.publication.403.cantEditStatus"
 msgstr ""
 "Du kan inte ändra status direkt genom APIet. Använd istället /publish och /"
 "unpublish endpoints."
 
-msgid "api.publication.403.cantEditPublished"
+msgid "api.publication.403.cantDeletePublished"
 msgstr ""
-"Du kan inte redigera denna publikation eftersom den redan är publicerad."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikationen du vill avpublicera är inte publicerad."
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "E-postmeddelandemallen hittades ej."
+msgid "api.publicFiles.400.invalidImage"
+msgstr ""
 
-msgid "api.404.endpointNotFound"
-msgstr "URL:en kunde inte hittas."
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
 
-msgid "api.403.unauthorized"
-msgstr "Du har inte tillgång till den efterfrågade resursen."
+msgid "api.publicFiles.403.unauthorized"
+msgstr ""
 
-msgid "api.400.paramNotSupported"
-msgstr "{$param}-parametern stöds ej."
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr ""
+
+msgid "api.stats.400.wrongDateRange"
+msgstr ""
+
+msgid "api.stats.400.earlyDateRange"
+msgstr ""
+
+msgid "api.stats.400.lateDateRange"
+msgstr ""
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Din förfrågan kunde inte fullföljas eftersom det saknar nödvändig "
+"information."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Din förfrågan nekades. Detta kan bero på att din inloggning förfallit. Prova "
+"att ladda om sidan och försöka igen."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Du kan inte radera ett bidrag som inte är kopplat till den här kontexten."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Du kan bara visa opublicerade bidrag som du själv blivit tilldelad."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Du har inte behörighet att ta bort det här bidraget."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr ""
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr ""
+
+#~ msgid "api.submissions.400.stageNotValid"
+#~ msgstr ""
+#~ "Din förfrågan kunde inte fullföljas eftersom ID:t för bidragssteget är "
+#~ "ogiltigt."

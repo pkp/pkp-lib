@@ -14,9 +14,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.genres.other"
-msgstr "Andet"
-
 msgid "default.groups.name.siteAdmin"
 msgstr "Websted-admin"
 
@@ -130,6 +127,9 @@ msgstr "Læsere"
 
 msgid "default.groups.abbrev.reader"
 msgstr "Læs"
+
+msgid "default.genres.other"
+msgstr "Andet"
 
 msgid "default.genres.multimedia"
 msgstr "Multimedie"

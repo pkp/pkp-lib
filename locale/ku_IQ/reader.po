@@ -11,70 +11,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "reader.fullText"
-msgstr "تێکستی تەواو:"
+msgid "comments.anonymous"
+msgstr "بەکارهێنەرێکی نەناسراو"
 
-msgid "comments.viewAllComments"
-msgstr "هەمو تێچێنەکان ببینە"
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
 
-msgid "comments.title"
-msgstr "ناونیشان"
+msgid "comments.body"
+msgstr "ناوەڕۆک"
 
-msgid "comments.replies"
-msgstr "وەڵامدانەوەکان"
-
-msgid "comments.readMore"
-msgstr "زیاتر بخوێنەوە"
-
-msgid "comments.readerComments"
-msgstr "تێچێنەکانی خوێنەر"
-
-msgid "comments.postReply"
-msgstr "وەڵام بدەوە"
-
-msgid "comments.postAnonymously"
-msgstr "ئەم تێچێنە وەک بەکارهێنەرێکی نەناسراو بنوسە"
-
-msgid "comments.oneReply"
-msgstr "(یەک وەڵام)"
-
-msgid "comments.nReplies"
-msgstr "({$num} وەڵامدانەوەکان)"
-
-msgid "comments.noComments"
-msgstr "هیچ خوێنەرێک تێچێنی نەنوسیوە."
-
-msgid "comments.name"
-msgstr "ناوی خاوەن پێشنیاز"
-
-msgid "comments.inResponseTo"
-msgstr "لە وەڵامی  <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "تێچێنێک بنوسە"
-
-msgid "comments.emailReply"
-msgstr "وەڵامدانەوە بە ئیمەیڵ"
-
-msgid "comments.email"
-msgstr "ئیمەیڵی خاوەن پێشنیاز"
-
-msgid "comments.delete"
-msgstr "ئەم تێچێنە بسڕەوە"
+msgid "comments.titleRequired"
+msgstr "ناونیشانی تێچێنەکە داوا کراوە."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "سڕینەوەی ئەم تێچێنە دەبێتە هۆکاری سڕینەوەی وەڵامدانەوەکانیشی. ئایا تۆ لەم "
 "سڕینەوەیە دڵنیایت؟"
 
-msgid "comments.titleRequired"
-msgstr "ناونیشانی تێچێنەکە داوا کراوە."
+msgid "comments.delete"
+msgstr "ئەم تێچێنە بسڕەوە"
 
-msgid "comments.body"
-msgstr "ناوەڕۆک"
+msgid "comments.email"
+msgstr "ئیمەیڵی خاوەن پێشنیاز"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgid "comments.emailReply"
+msgstr "وەڵامدانەوە بە ئیمەیڵ"
 
-msgid "comments.anonymous"
-msgstr "بەکارهێنەرێکی نەناسراو"
+msgid "comments.enterComment"
+msgstr "تێچێنێک بنوسە"
+
+msgid "comments.inResponseTo"
+msgstr "لە وەڵامی  <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "ناوی خاوەن پێشنیاز"
+
+msgid "comments.noComments"
+msgstr "هیچ خوێنەرێک تێچێنی نەنوسیوە."
+
+msgid "comments.nReplies"
+msgstr "({$num} وەڵامدانەوەکان)"
+
+msgid "comments.oneReply"
+msgstr "(یەک وەڵام)"
+
+msgid "comments.postAnonymously"
+msgstr "ئەم تێچێنە وەک بەکارهێنەرێکی نەناسراو بنوسە"
+
+msgid "comments.postReply"
+msgstr "وەڵام بدەوە"
+
+msgid "comments.readerComments"
+msgstr "تێچێنەکانی خوێنەر"
+
+msgid "comments.readMore"
+msgstr "زیاتر بخوێنەوە"
+
+msgid "comments.replies"
+msgstr "وەڵامدانەوەکان"
+
+msgid "comments.title"
+msgstr "ناونیشان"
+
+msgid "comments.viewAllComments"
+msgstr "هەمو تێچێنەکان ببینە"
+
+msgid "reader.fullText"
+msgstr "تێکستی تەواو:"

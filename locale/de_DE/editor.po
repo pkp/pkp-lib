@@ -17,8 +17,35 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diesen Beitrag endgültig löschen wollen?"
 
+msgid "editor.activityLog"
+msgstr "Aktivitätsprotokoll"
+
 msgid "editor.submissionLibrary"
 msgstr "Einreichungsbibliothek"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Entscheidung aufgezeichnet"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Beitrag abgelehnt."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Beitrag akzeptiert."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Beitrag veröffentlicht."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "In eine neue Begutachtungsrunde geschickt."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Zur Herstellung gesendet."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Beitrag akzeptiert für Begutachtung."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Entscheidung ändern"
 
 msgid "editor.review.notInitiated"
 msgstr "Der Begutachtungsprozess ist noch nicht eingeleitet worden."
@@ -27,10 +54,15 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Nachricht an Benutzer/in"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Sie leiten eine externe Begutachtung für diese Einreichung ein.  Dateien, die zu dieser Einreichung gehören, sind unten aufgelistet und können zur Begutachtung ausgewählt werden."
+msgstr ""
+"Sie leiten eine externe Begutachtung für diese Einreichung ein.  Dateien, "
+"die zu dieser Einreichung gehören, sind unten aufgelistet und können zur "
+"Begutachtung ausgewählt werden."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Sie müssen mindestens eine Datei auswählen, der Sie den/die Benutzer/in zuordnen."
+msgstr ""
+"Sie müssen mindestens eine Datei auswählen, der Sie den/die Benutzer/in "
+"zuordnen."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Sie müssen ein persönliches Anschreiben verfassen."
@@ -51,7 +83,13 @@ msgid "editor.submission.revisions"
 msgstr "Überarbeitungen"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Benutzen Sie <em>+Gutachter/in hinzufügen</em>, um Leser/innen um Begutachtung der Einreichung zu bitten. Das Notizbuch-Symbol zeigt an, dass ein Gutachten eingereicht worden ist, das dann als <em>Berücksichtigt</em> markiert wird, nachdem es einbezogen worden ist. Wenn Gutachten überfällig sind, erscheint ein rotes Umschlagsymbol, um Gutachter/innen zu benachrichtigen."
+msgstr ""
+"Benutzen Sie <em>+Gutachter/in hinzufügen</em>, um Leser/innen um "
+"Begutachtung der Einreichung zu bitten. Das Notizbuch-Symbol zeigt an, dass "
+"ein Gutachten eingereicht worden ist, das dann als <em>Berücksichtigt</em> "
+"markiert wird, nachdem es einbezogen worden ist. Wenn Gutachten überfällig "
+"sind, erscheint ein rotes Umschlagsymbol, um Gutachter/innen zu "
+"benachrichtigen."
 
 msgid "editor.submission.addReviewer"
 msgstr "Gutachter/in hinzufügen"
@@ -80,14 +118,22 @@ msgstr "Existierende/n Benutzer/in als Gutachter/in eintragen"
 msgid "editor.review.unassignReviewer"
 msgstr "Zuteilung an Gutachter/in aufheben"
 
+msgid "editor.review.cancelReviewer"
+msgstr "Gutachter streichen"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Gutachter wiedereinsetzen"
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Begutachtungstyp"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "Eine E-Mail-Benachrichtigung an die Autor/innen schicken: {$authorName}"
+msgstr ""
+"Eine E-Mail-Benachrichtigung an die Autor/innen schicken: {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Eine E-Mail-Benachrichtigung an die Redakteur/innen schicken: {$editorNames}"
+msgstr ""
+"Eine E-Mail-Benachrichtigung an die Redakteur/innen schicken: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "E-Mail nicht an Autor/in schicken"
@@ -180,8 +226,14 @@ msgstr "Anfrage akzeptiert"
 msgid "editor.review.requestDeclined"
 msgstr "Anfrage abgelehnt"
 
+msgid "editor.review.requestCancelled"
+msgstr "Anfrage zurückgezogen"
+
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "Gutachter/in hat diese Anfrage abgelehnt."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Die Redaktion hat diese Anfrage nach einem Gutachten zurückgezogen."
 
 msgid "editor.review.revertDecision"
 msgstr "Entscheidung zurücksetzen"
@@ -201,6 +253,9 @@ msgstr "Gutachten bestätigt"
 msgid "editor.review.reviewSubmitted"
 msgstr "Gutachten eingereicht"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Dem Gutachter gedankt"
+
 msgid "editor.review.reviewerComments"
 msgstr "Begutachtungskommentare"
 
@@ -208,7 +263,9 @@ msgid "editor.review.rateReviewer"
 msgstr "Gutachter/in bewerten"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Die Qualität des eingereichten Gutachtens bewerten. Diese Bewertung ist nicht für die Gutachterin/den Gutachter sichtbar."
+msgstr ""
+"Die Qualität des eingereichten Gutachtens bewerten. Diese Bewertung ist "
+"nicht für die Gutachterin/den Gutachter sichtbar."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Keine Bewertung"
@@ -217,22 +274,44 @@ msgid "editor.review.mustSelect"
 msgstr "Sie müssen eine/n Gutachter/in auswählen"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr "Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen Sie es erneut."
+msgstr ""
+"Es gab einen Fehler beim Hinzufügen des/der Gutachter/in. Bitte versuchen "
+"Sie es erneut."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr "Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie es erneut."
+msgstr ""
+"Es gab einen Fehler beim Entfernen des/der Gutachter/in. Bitte versuchen Sie "
+"es erneut."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Es gab einen Fehler beim Wiedereinsetzen des/der Gutachter/in. Bitte "
+"versuchen Sie es erneut."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Diese/n Benutzer/in in diese Gutachter/innengruppe eintragen"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Möchten Sie dieses Gutachten als unberücksichtigt markieren? Die Begutachtungshistorie wird erhalten bleiben."
+msgstr ""
+"Möchten Sie dieses Gutachten als unberücksichtigt markieren? Die "
+"Begutachtungshistorie wird erhalten bleiben."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Dieses Gutachten nicht berücksichtigen"
 
 msgid "editor.review.readConfirmation"
-msgstr "Nachdem dieses Gutachten gelesen worden ist, drücken Sie bitte \"Bestätigen\", um anzuzeigen, dass der Begutachtungsprozess weitergehen kann."
+msgstr ""
+"Nachdem dieses Gutachten gelesen worden ist, drücken Sie bitte \"Bestätigen"
+"\", um anzuzeigen, dass der Begutachtungsprozess weitergehen kann."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Zur Veröffentlichung vorsehen"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Dateien für das Lektorat"
@@ -259,19 +338,27 @@ msgid "editor.submission.proof.reminder"
 msgstr "Erinnerung an Prüfung"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Die lektorierte Datei muss hier angenommen werden, bevor sie in die Herstellungsphase geschickt werden kann. Möchten Sie diese Datei annehmen?"
+msgstr ""
+"Die lektorierte Datei muss hier angenommen werden, bevor sie in die "
+"Herstellungsphase geschickt werden kann. Möchten Sie diese Datei annehmen?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Ablehnung dieser lektorierten Datei wird verhindern, dass sie in die Herstellungsphase geschickt werden kann. Möchten Sie diese Datei ablehnen?"
+msgstr ""
+"Ablehnung dieser lektorierten Datei wird verhindern, dass sie in die "
+"Herstellungsphase geschickt werden kann. Möchten Sie diese Datei ablehnen?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Prüfer/in hinzufügen"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Alle Dateien, die schon zu irgendeiner Einreichungsphase hochgeladen worden sind, können zur Liste der Dateien für das Lektorat hinzugefügt werden, indem Sie die Einschließen-Checkbox unten aktivieren und danach auf Suche klicken: Alle verfügbaren Dateien werden angezeigt und können ausgewählt werden, um sie in die Liste aufzunehmen. Zusätzliche Dateien, die noch nicht zu einer Phase hochgeladen worden sind, können der Liste durch Klicken des Datei-Hochladen-Links hinzugefügt werden."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Zur Veröffentlichung vorsehen"
+msgstr ""
+"Alle Dateien, die schon zu irgendeiner Einreichungsphase hochgeladen worden "
+"sind, können zur Liste der Dateien für das Lektorat hinzugefügt werden, "
+"indem Sie die Einschließen-Checkbox unten aktivieren und danach auf Suche "
+"klicken: Alle verfügbaren Dateien werden angezeigt und können ausgewählt "
+"werden, um sie in die Liste aufzunehmen. Zusätzliche Dateien, die noch nicht "
+"zu einer Phase hochgeladen worden sind, können der Liste durch Klicken des "
+"Datei-Hochladen-Links hinzugefügt werden."
 
 msgid "editor.review"
 msgstr "Überprüfen"
@@ -313,7 +400,11 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Keine Begutachtungsdiskussion anlegen."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Sie leiten eine neue Begutachtungsrunde für diese Einreichung ein. Dateien, die noch nicht in anderen Begutachtungsrunden benutzt worden sind, sind unten aufgelistet. Standardgemäß sind die Gutachter/innen der vorherigen Begutachtungsrunde als Gutachter/innen dieser neuen Runde ausgewählt worden."
+msgstr ""
+"Sie leiten eine neue Begutachtungsrunde für diese Einreichung ein. Dateien, "
+"die noch nicht in anderen Begutachtungsrunden benutzt worden sind, sind "
+"unten aufgelistet. Standardgemäß sind die Gutachter/innen der vorherigen "
+"Begutachtungsrunde als Gutachter/innen dieser neuen Runde ausgewählt worden."
 
 msgid "editor.submission.createNewRound"
 msgstr "Neue Begutachtungsrunde anlegen"
@@ -325,13 +416,18 @@ msgid "editor.article.selectReviewForm"
 msgstr "Begutachtungsformular auswählen"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Achtung: Ein Wechsel des Begutachtungsformular wird alle Antworten, die Gutachter/innen bisher mittels des Formulars eingetragen haben, beeinflussen. Sind Sie sicher, dass Sie fortfahren möchten?"
+msgstr ""
+"Achtung: Ein Wechsel des Begutachtungsformular wird alle Antworten, die "
+"Gutachter/innen bisher mittels des Formulars eingetragen haben, "
+"beeinflussen. Sind Sie sicher, dass Sie fortfahren möchten?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Keine Dateien ausgewählt"
 
 msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten soll."
+msgstr ""
+"Sie haben keine Dateien ausgewählt, die der/die Gutachter/in begutachten "
+"soll."
 
 msgid "submission.queries.subjectRequired"
 msgstr "Die Angabe eines Diskussionsthemas ist erforderlich."
@@ -346,7 +442,9 @@ msgid "grid.action.editQuery"
 msgstr "Diskussion bearbeiten"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Aus der Liste unten können Dateien für die Aufnahme in die Diskussion ausgewählt werden."
+msgstr ""
+"Aus der Liste unten können Dateien für die Aufnahme in die Diskussion "
+"ausgewählt werden."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Ausgewählte Gutachter/innen"
@@ -358,16 +456,28 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Freigabe der Korrekturfahne zurücknehmen"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Diese Korrekturfahne freigeben, um zu signalisieren, dass das Korrektorat abgeschlossen ist und die Datei publiziert werden kann."
+msgstr ""
+"Diese Korrekturfahne freigeben, um zu signalisieren, dass das Korrektorat "
+"abgeschlossen ist und die Datei publiziert werden kann."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Die Freigabe dieser Korrekturfahne zurücknehmen, um zu signalisieren, dass das Korrektorat nicht mehr abgeschlossen ist und dass die Datei noch nicht publiziert werden kann."
+msgstr ""
+"Die Freigabe dieser Korrekturfahne zurücknehmen, um zu signalisieren, dass "
+"das Korrektorat nicht mehr abgeschlossen ist und dass die Datei noch nicht "
+"publiziert werden kann."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Sind Sie sicher, dass Sie die Entscheidung diese Einreichung abzulehnen "
+"zurücknehmen wollen?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Die öffentliche Kennung '{$publicIdentifier}' darf keine Zahl sein."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht zulässig."
+msgstr ""
+"Das Muster {$pattern} ist für die Bildung der öffentlichen Kennung nicht "
+"zulässig."
 
 msgid "reviewer.list.filterRating"
 msgstr "Mindestens bewertet"
@@ -383,6 +493,9 @@ msgstr "Gutachten abgeschlossen"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Begutachtungsanfragen abgelehnt"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Begutachtungsanfragen zurückgezogen"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Gutachter/innenbewertung: {$rating}"
@@ -403,11 +516,17 @@ msgid "reviewer.list.neverAssigned"
 msgstr "Noch nie zugewiesen"
 
 msgid "reviewer.list.currentlyAssigned"
-msgstr "Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur Begutachtung zugewiesen worden."
+msgstr ""
+"Dieser Gutachterin/diesem Gutachter ist diese Einreichung bereits zur "
+"Begutachtung zugewiesen worden."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
+msgstr ""
+"Diese Gutachterin/dieser Gutachter ist gesperrt, weil sie eine Rolle "
+"zugewiesen bekommen haben, ind der sie die Identität der Autorin/des Autors "
+"einsehen dürfen. Eine blinde Begutachtung kann nicht garantiert werden. "
+"Möchten Sie diese Gutachterin bzw. diesen Gutachter dennoch freischalten?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Freischalten"
@@ -420,58 +539,3 @@ msgstr "Biographie"
 
 msgid "reviewer.list.empty"
 msgstr "Es wurden keine Gutachter/innen gefunden."
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Begutachtungsanfragen zurückgezogen"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr ""
-"Es gab einen Fehler beim Wiedereinsetzen des/der Gutachter/in. Bitte "
-"versuchen Sie es erneut."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Dem Gutachter gedankt"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Die Redaktion hat diese Anfrage nach einem Gutachten zurückgezogen."
-
-msgid "editor.review.requestCancelled"
-msgstr "Anfrage zurückgezogen"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Gutachter wiedereinsetzen"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Gutachter streichen"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Entscheidung ändern"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Beitrag akzeptiert für Begutachtung."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Zur Herstellung gesendet."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "In eine neue Begutachtungsrunde geschickt."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Beitrag veröffentlicht."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Beitrag akzeptiert."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Beitrag abgelehnt."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Entscheidung aufgezeichnet"
-
-msgid "editor.activityLog"
-msgstr "Aktivitätsprotokoll"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr ""
-"Sind Sie sicher, dass Sie die Entscheidung diese Einreichung abzulehnen "
-"zurücknehmen wollen?"

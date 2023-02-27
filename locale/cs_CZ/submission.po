@@ -14,6 +14,453 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "author.editPublishedDisabled"
+msgstr "Autory této publikace nelze upravovat, protože již byla publikována."
+
+msgid "author.publicationNotFound"
+msgstr "Publikace tohoto autora nebyla nalezena."
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+"Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku. "
+"Jednotlivé reference oddělujte, prosím, prázdným řádkem."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "Byly nahrány nové recenze a nyní je posuzuje redaktor."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
+"přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
+"podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."
+
+msgid "submission.confirm.message"
+msgstr ""
+"Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit zpět "
+"a upravit libovolnou informaci, kterou jste zadali v předchozích krocích. Po "
+"ukončení úprav klikněnte na \"Odeslat příspěvek\"."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Zaslat příspěvek jako"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Vyberte roli, které nejlépe popisuje vaši roli v rámci tohoto příspěvku."
+
+msgid "submission.submit.contactConsent"
+msgstr "Korespondenční kontakt"
+
+msgid "submission.submit.contactConsentDescription"
+msgstr "Ano, rád bych byl/a ohledně tohoto příspěvku kontaktován/a."
+
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a "
+"publikovat příspěvek sami: {$managerGroups}"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Požadavky na příspěvek"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Před pokračováním musíte přečíst a potvrdit, že jste splnili níže uvedené "
+"požadavky."
+
+msgid "submission.submit.submissionComplete"
+msgstr "Podání příspěvku bylo dokončeno"
+
+msgid "submission.submit.submissionCompleteThanks"
+msgstr "Děkujeme za váš zájem publikovat v časopisu {$contextName}."
+
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "Potvrďte prohlášení o autorských právech"
+
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "Souhlasím s dodržováním podmínek prohlášení o autorských právech."
+
+msgid "submission.submit.genre.label"
+msgstr "O jaký druh souboru se jedná?"
+
+msgid "submission.submit.genre.description"
+msgstr "Vyberte možnost, která nejlépe vystihuje tento soubor."
+
+msgid "submission.submit.genre.error"
+msgstr "Vyberte typ souboru pro každé nahrání."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Opravdu chcete tento soubor odstranit?"
+
+msgid "submission.submit.whatNext"
+msgstr "Co se bude dít dále?"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "V tomto okamžiku můžete:"
+
+msgid "submission.submit.whatNext.review"
+msgstr "Zkontrolovat tento příspěvek"
+
+msgid "submission.submit.whatNext.create"
+msgstr "Vytvořit nový příspěvek"
+
+msgid "submission.submit.whatNext.return"
+msgstr "Vrátit se na váš ovládací panel"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "Rozšířená metadata"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "Registrační email pro CrossRef"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"Zadejte platný registrační email pro CrossRef. Svůj email můžete bezplatně "
+"zaregistrovat na webových stránkách CrossRef."
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API klíč"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+"Zadejte prosím klíč API ISBNdb. Pokud klíč nemáte, můžete si od projektu "
+"ISBNdb zdarma vyžádat."
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "Registrační email PubMed"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "Zadejte, prosím, platný registrační email pro PubMed, pokud ho máte."
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API klíč"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "Zadejte, prosím, platný WorldCat API klíč, pokud ho máte."
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "Modul pro citace"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "Zvolte, prosím, jeden z uvedených citačních modulů."
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr ""
+"Ve výchozím nastavení nepoužívat (bude ale nadále k dispozici editorům)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+"Interní chyba. Neplatná hodnota byla odeslána pro nastavení \"volitelného "
+"filtru\". Oznamte to, prosím, jako chybu."
+
+msgid "metadata.property.displayName.author"
+msgstr "Autoři"
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"Pro nejlepší výsledky by autoři měli být zadáni v následujícím formátu: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.editor"
+msgstr "Editoři"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+"Pro nejlepší výsledky by editoři měli být zadáni v následujícím formátu: "
+"Coleman Jr, D. (Ralf) Dr."
+
+msgid "metadata.property.displayName.article-title"
+msgstr "Název článku"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "Vložte, prosím, platný název článku/příspěvku."
+
+msgid "metadata.property.displayName.source"
+msgstr "Název časopisu/knihy"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "Zadejte, prosím, platný název publikace."
+
+msgid "metadata.property.displayName.date"
+msgstr "Datum publikace"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "Zadejte, prosím, platné datum publikování (formát: RRRR-MM-DD)."
+
+msgid "metadata.property.displayName.access-date"
+msgstr "Přístupová data"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "Zadejte, prosím, platné datum přístupu (formát: RRRR-MM-DD)."
+
+msgid "metadata.property.displayName.issue"
+msgstr "Vydání"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "Zadejte, prosím, platné číslo."
+
+msgid "metadata.property.displayName.volume"
+msgstr "Svazek"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "Zadejte, prosím, platný svazek."
+
+msgid "metadata.property.displayName.season"
+msgstr "Ročník"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "Zadejte, prosím, platnou hodnotu pro období."
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "Název kapitoly"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "Zadejte, prosím, platný název kapitoly."
+
+msgid "metadata.property.displayName.edition"
+msgstr "Vydání"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "Zadejte, prosím, platnou hodnotu pro vydání."
+
+msgid "metadata.property.displayName.series"
+msgstr "Série"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "Zadejte, prosím, platnou hodnotu pro sérii."
+
+msgid "metadata.property.displayName.supplement"
+msgstr "Dodatek"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "Zadejte, prosím, platnou hodnotu pro doplněk."
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "Datum konference"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "Zadejte, prosím, platné datum konference (formát RRRR-MM-DD)."
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "Místo konání konference"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "Zadejte, prosím, místo konání konference."
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "Název konference"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "Zadejte, prosím, jméno konference."
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "Sponzor konference"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "Zadejte, prosím, jméno sponzora konference."
+
+msgid "metadata.property.displayName.institution"
+msgstr "Organizace"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "Zadejte, prosím, název instituce."
+
+msgid "metadata.property.displayName.fpage"
+msgstr "První stránka"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+"Zadejte, prosím, první stránku článku (musí jít o platnou numerickou "
+"hodnotu)."
+
+msgid "metadata.property.displayName.lpage"
+msgstr "Poslední stránka"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+"Zadejte, prosím, poslední stránku článku (musí jít o platnou numerickou "
+"hodnotu)."
+
+msgid "metadata.property.displayName.size"
+msgstr "Počet stránek"
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+"Zadejte, prosím, počet stránek (musí jít o platnou numerickou hodnotu)."
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "Místo vydání"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "Zadejte, prosím, místo vydání."
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "Vydavatel"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "Zadejte, prosím, jméno vydavatele."
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "Zadejte, prosím, platné ISBN (9 nebo 13 čísel)."
+
+msgid "metadata.property.displayName.issn"
+msgstr "Tisk ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "Zadejte, prosím, platné Print ISSN."
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "Zadejte, prosím, platné eISSN."
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "Zadejte, prosím, platné DOI."
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "ID vlastní publikace"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "Zadejte, prosím, platné vlastní ID publikace."
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "Zadejte, prosím, platné CODEN."
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "Zadejte, prosím, platné SICI."
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "Zadejte, prosím, platné PMID."
+
+msgid "metadata.property.displayName.uri"
+msgstr "Odkaz na publikaci"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "Zadejte, prosím, odkaz na on-line verzi publikace."
+
+msgid "metadata.property.displayName.comment"
+msgstr "Komentář"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "Zadejte, prosím, komentář."
+
+msgid "metadata.property.displayName.annotation"
+msgstr "Anotace"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "Zadejte, prosím, anotaci."
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "Typ publikace"
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"Ujistěte se, že jste vždy nastavili typ publikace. V současné době jsou "
+"podporované hodnoty \"book\" (pro knihy nebo kapitoly knih) a \"journal"
+"\" (články časopisů). V opačném případě nebude formátování výstupních citací "
+"správně fungovat."
+
+msgid "metadata.property.displayName.title-type"
+msgstr "Typ názvu"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"Ujistěte se, že jste nastavili platný typ titulu. Podporované hodnoty jsou "
+"'abbreviated', 'translated', 'alternative' a 'uniform'."
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "Část názvu bude při třídění ignorována"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+"Zadejte pouze počáteční znaky názvu, které by měly být při třídění titulu "
+"ignorovány."
+
+msgid "metadata.property.displayName.title"
+msgstr "Název"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "Zadejte, prosím, platný název."
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "Podtitulek"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "Zadejte, prosím, platný název podtitulku."
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "Část číslo"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "Zadejte, prosím, platné číslo části."
+
+msgid "metadata.property.displayName.partName"
+msgstr "Jméno části"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "Zadejte, prosím, platné jméno části."
+
+msgid "metadata.property.displayName.name-type"
+msgstr "Typ jména"
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+"Ujistěte se, že jste nastavili platný typ jména. Podporované hodnoty jsou "
+"'personal', 'corporate' a 'conference'."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstrakt"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "Nepřiřazeno"
+
+msgid "common.queue.long.myAssigned"
+msgstr "Přiřazeno mně"
+
+msgid "common.queue.long.submissionsArchived"
+msgstr "Archivované příspěvky"
+
+msgid "submission.authors"
+msgstr "Autoři"
+
+msgid "submission.authorBiography"
+msgstr "Biografie autora"
+
+msgid "submission.authorBiographies"
+msgstr "Biografie autora"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} z {$title}"
+
+msgid "submission.mySubmissions"
+msgstr "Mé příspěvky"
+
+msgid "submission.addFile"
+msgstr "Nahrát soubor"
+
+msgid "submission.additionalFiles"
+msgstr "Další soubory"
+
 msgid "submission.agencies"
 msgstr "Agentury"
 
@@ -29,119 +476,37 @@ msgstr "Poděkovat"
 msgid "submission.ask"
 msgstr "Vyžádáno"
 
+msgid "submission.attachedFile"
+msgstr "Připojený soubor"
+
 msgid "submission.backToSubmissionEditing"
 msgstr "Zpět na editaci příspěvku"
 
 msgid "submission.changeComments"
 msgstr "Změnit na"
 
+msgid "submission.changeFile"
+msgstr "Změnit soubor"
+
 msgid "submission.citations"
 msgstr "Reference"
 
-msgid "metadata.property.displayName.author"
-msgstr "Autoři"
+msgid "submission.citations.description"
+msgstr "Vložte každou referenci na nový řádek tak, aby mohla být extrahována."
 
-msgid "metadata.property.displayName.editor"
-msgstr "Editoři"
+msgid "submission.parsedCitations"
+msgstr "Extrahované reference"
 
-msgid "metadata.property.displayName.article-title"
-msgstr "Název článku"
-
-msgid "metadata.property.displayName.source"
-msgstr "Název časopisu/knihy"
-
-msgid "metadata.property.displayName.date"
-msgstr "Datum publikace"
-
-msgid "metadata.property.displayName.access-date"
-msgstr "Přístupová data"
-
-msgid "metadata.property.displayName.issue"
-msgstr "Vydání"
-
-msgid "metadata.property.displayName.volume"
-msgstr "Svazek"
-
-msgid "metadata.property.displayName.season"
-msgstr "Ročník"
-
-msgid "metadata.property.displayName.chapter-title"
-msgstr "Název kapitoly"
-
-msgid "metadata.property.displayName.edition"
-msgstr "Vydání"
-
-msgid "metadata.property.displayName.series"
-msgstr "Série"
-
-msgid "metadata.property.displayName.supplement"
-msgstr "Dodatek"
-
-msgid "metadata.property.displayName.conf-date"
-msgstr "Datum konference"
-
-msgid "metadata.property.displayName.conf-loc"
-msgstr "Místo konání konference"
-
-msgid "metadata.property.displayName.conf-name"
-msgstr "Název konference"
-
-msgid "metadata.property.displayName.conf-sponsor"
-msgstr "Sponzor konference"
-
-msgid "metadata.property.displayName.institution"
-msgstr "Organizace"
-
-msgid "metadata.property.displayName.fpage"
-msgstr "První stránka"
-
-msgid "metadata.property.displayName.lpage"
-msgstr "Poslední stránka"
-
-msgid "metadata.property.displayName.size"
-msgstr "Počet stránek"
-
-msgid "metadata.property.displayName.publisher-loc"
-msgstr "Místo vydání"
-
-msgid "metadata.property.displayName.publisher-name"
-msgstr "Vydavatel"
-
-msgid "metadata.property.displayName.isbn"
-msgstr "ISBN"
-
-msgid "metadata.property.displayName.issn"
-msgstr "Tisk ISSN"
-
-msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
-
-msgid "metadata.property.displayName.doi"
+msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
-msgid "metadata.property.displayName.publisher-id"
-msgstr "ID vlastní publikace"
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Následující reference byly extrahovány a budou připojeny k metadatům "
+"příspěvku."
 
-msgid "metadata.property.displayName.coden"
-msgstr "CODEN"
-
-msgid "metadata.property.displayName.sici"
-msgstr "SICI"
-
-msgid "metadata.property.displayName.pmid"
-msgstr "PMID"
-
-msgid "metadata.property.displayName.uri"
-msgstr "Odkaz na publikaci"
-
-msgid "metadata.property.displayName.comment"
-msgstr "Komentář"
-
-msgid "metadata.property.displayName.annotation"
-msgstr "Anotace"
-
-msgid "metadata.property.displayName.publication-type"
-msgstr "Typ publikace"
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extrahovat a uložit reference"
 
 msgid "submission.comments.addComment"
 msgstr "Přidat komentář"
@@ -160,6 +525,9 @@ msgstr "Upravit komentář"
 
 msgid "submission.comments.importPeerReviews"
 msgstr "Importovat recenzní posudky"
+
+msgid "submission.comments.addReviews"
+msgstr "Přidat do emailu recenze"
 
 msgid "submission.comments.importPeerReviews.reviewerLetter"
 msgstr "Recenzent {$reviewerLetter}:"
@@ -182,8 +550,26 @@ msgstr "Předmět"
 msgid "submission.complete"
 msgstr "Dokončit"
 
+msgid "submission.contributors"
+msgstr "Seznam autorů"
+
+msgid "submission.copyedited"
+msgstr "Soubory po redakčním zpracování"
+
+msgid "submission.copyediting"
+msgstr "Redakční úpravy"
+
+msgid "submission.queryNoteFiles"
+msgstr "Diskusní soubory"
+
+msgid "submission.coverage"
+msgstr "Informace o pokrytí (Coverage Information)"
+
 msgid "submission.done"
 msgstr "Hotovo"
+
+msgid "submission.downloads"
+msgstr "Stahování"
 
 msgid "submission.dueDate"
 msgstr "Termín splnění"
@@ -196,6 +582,9 @@ msgstr "Editování"
 
 msgid "submission.editMetadata"
 msgstr "Editovat metadata"
+
+msgid "submission.editorial"
+msgstr "Redakční úpravy"
 
 msgid "submission.email.backToEmailLog"
 msgstr "Zpět k protokolu emailů"
@@ -212,17 +601,32 @@ msgstr "Smazat záznam protokolu"
 msgid "submission.emailLog"
 msgstr "Log emailů"
 
+msgid "submission.event.participantAdded"
+msgstr ""
+"Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako "
+"{$userGroupName}."
+
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username}) byl odebrán/a z {$userGroupName}."
+
 msgid "submission.event.backToEventLog"
 msgstr "Zpět k protokolu událostí"
 
 msgid "submission.event.confirmClearLog"
-msgstr "Jste si jistý, že chcete vyčistit protokol událostí pro tento příspěvek?"
+msgstr ""
+"Jste si jistý, že chcete vyčistit protokol událostí pro tento příspěvek?"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "Jste si jistý, že chcete smazat tento záznam protokolu událostí?"
 
 msgid "submission.event.deleteLogEntry"
 msgstr "Smazat záznam protokolu"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Úvodní odeslání zakončeno."
+
+msgid "submission.event.fileRevised"
+msgstr "Revize \"{$name}\" souboru {$submissionFileId}) byla nahrána."
 
 msgid "submission.event.general.metadataUpdated"
 msgstr "Metadata příspěvku aktualizována"
@@ -269,8 +673,32 @@ msgstr "Recenze znovu odeslána"
 msgid "submission.event.reviewer.reviewRevision"
 msgstr "Recenzentův soubor s recenzí aktualizován"
 
+msgid "submission.event.subjectPrefix"
+msgstr "Email byl odeslán:"
+
+msgid "submission.event.viewEmail"
+msgstr "Zobrazit email"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoři mají nyní možnost editovat metadata při odesílání ve fázi {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Autoři nyní nemohou editovat metadata, když jsou odeslány ve fázi {stage}."
+
 msgid "submission.files"
 msgstr "Soubory"
+
+msgid "submission.files.downloadAll"
+msgstr "Stáhnout všechny soubory"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Záznam nahrávače souborů se uloží při vytvoření souboru a nelze jej změnit."
+
+msgid "submission.firstPublished"
+msgstr ""
 
 msgid "submission.galley"
 msgstr "Sazebnice"
@@ -299,8 +727,64 @@ msgstr "Poznámky k přípsěvku"
 msgid "submission.history.viewLog"
 msgstr "Zobrazit protokol"
 
+msgid "submission.howToCite"
+msgstr "Jak citovat"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Citační formáty"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Stánhout citace"
+
 msgid "submission.initiated"
 msgstr "Zahájeno"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} - Aktualizováno dne {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Verze"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Toto je zastaralá verze zveřejněná dne {$datePublished}. Přečtěte si <a href="
+"\"{$urlRecentVersion}\"> nejnovější verzi </a>."
+
+msgid "submission.identifiers"
+msgstr "Identifikátory"
+
+msgid "submission.publisherId"
+msgstr "ID vydavatele"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"ID vydavatele lze použít k záznamu ID z externí databáze. Například položky "
+"exportované k uložení do PubMed mohou zahrnovat ID vydavatele. To by se "
+"nemělo používat pro DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Povolit pro {$objects}"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "Informace o příspěvku"
+
+msgid "submission.informationCenter.metadata"
+msgstr "Metadata"
+
+msgid "submission.informationCenter.notes"
+msgstr "Poznámky"
+
+msgid "submission.informationCenter.history"
+msgstr "Historie"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "Ukázat všechny události předchozích verzí"
+
+msgid "submission.stageParticipants.notify"
+msgstr "Upozornit"
 
 msgid "submission.lastModified"
 msgstr "Naposledy změněno"
@@ -329,11 +813,13 @@ msgstr "HTML soubory sazebnice"
 msgid "submission.layout.galleyImages"
 msgstr "Obrázky"
 
-msgid "submission.layout.galleyLabelInstructions"
-msgstr "Popisek sazebnice je používán pro identifikaci formátu souboru (např. HTML, PDF atd.)."
-
 msgid "submission.layout.galleyLabel"
 msgstr "Popisek"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"Popisek sazebnice je používán pro identifikaci formátu souboru (např. HTML, "
+"PDF atd.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Je vyžadován popisek sazebnice."
@@ -343,6 +829,12 @@ msgstr "Je vyžadován jazyk sazebnice."
 
 msgid "submission.layout.galleyLocaleRequired"
 msgstr "Je vyžadováno umístění sazebnice."
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "Vzdálené URL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "Zadejte, prosím, platné vzdálené URL (včetně http://)."
 
 msgid "submission.layout.galleyNoImages"
 msgstr "Žádné obrázky"
@@ -458,6 +950,9 @@ msgstr "#{$id} Citace"
 msgid "submission.peerReview"
 msgstr "Recenzní&nbsp;řízení"
 
+msgid "submission.production"
+msgstr "Produkce"
+
 msgid "submission.recommendation"
 msgstr "Doporučení: {$recommendation}"
 
@@ -479,8 +974,19 @@ msgstr "Zkontrolovat metadata"
 msgid "submission.review"
 msgstr "Recenze"
 
+msgid "submission.reviewed"
+msgstr "Recenzováno"
+
 msgid "submission.reviewVersion"
 msgstr "Verze recenze"
+
+msgid "submission.rights"
+msgstr "Práva"
+
+msgid "submission.rights.tip"
+msgstr ""
+"Chcete-li, můžete zadat stručné prohlášení o přístupových právech obsažených "
+"v tomto příspěvku nebo v jeho rámci."
 
 msgid "submissions.active"
 msgstr "Aktivní"
@@ -515,11 +1021,25 @@ msgstr "K tomuto příspěvku nebyl přiřazen žádný editor."
 msgid "submissions.ruling"
 msgstr "Rozhodnuto"
 
+msgid "submission.source"
+msgstr "Zdroj"
+
+msgid "submission.source.tip"
+msgstr ""
+"Je tento příspěvek odvozen z jiného zdroje? Pokud ano, můžete zadat adresu "
+"URL nebo popis daného zdroje."
+
 msgid "submissions.submit"
 msgstr "Odeslat"
 
 msgid "submissions.submitted"
 msgstr "Odeslané"
+
+msgid "submission.submission"
+msgstr "Příspěvek"
+
+msgid "submission.submissionTitle"
+msgstr "Název příspěvku:"
 
 msgid "submission.start"
 msgstr "Zahájit"
@@ -535,345 +1055,6 @@ msgstr "Recenze příspěvku"
 
 msgid "submission.submitter"
 msgstr "Odesílatel"
-
-msgid "submission.summary"
-msgstr "Souhrn"
-
-msgid "submission.supportingAgencies"
-msgstr "Podporující instituce (granty)"
-
-msgid "submission.currentAgencies"
-msgstr "Současné agentury"
-
-msgid "submission.indexingInformation"
-msgstr "Informace o indexování"
-
-msgid "submission.titleAndAbstract"
-msgstr "Název a abstrakt"
-
-msgid "submission.underway"
-msgstr "Zpracovává se"
-
-msgid "submission.uploadFileTo"
-msgstr "Nahrát soubor k"
-
-msgid "submission.viewMetadata"
-msgstr "Zobrazit metadata"
-
-msgid "submission.views"
-msgstr "Zobrazení"
-
-msgid "submission.uploadSuccessful"
-msgstr "Váš soubor byl nahrán."
-
-msgid "submission.loadMessage"
-msgstr "Prosím čekejte, Váš soubor je nahráván na server."
-
-msgid "submission.fileDetails"
-msgstr "Detaily souboru"
-
-msgid "submission.nameRequired"
-msgstr "Prosím, vyplňte položku jméno."
-
-msgid "author.submit.submissionCitations"
-msgstr "Uveďte formátovaný seznam referencí pro práce citované v tomto příspěvku. Jednotlivé reference oddělujte, prosím, prázdným řádkem."
-
-msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName} byl přidělen pro recenzování příspěvku {$submissionId} v recenzním kole {$round}."
-
-msgid "log.review.reviewCleared"
-msgstr "Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo vyčíštěno."
-
-msgid "log.review.reviewReinstated"
-msgstr "Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek {$submissionId} bylo znovu zahájeno."
-
-msgid "submission.reviewForm"
-msgstr "Formulář posudku"
-
-msgid "submission.reviewFormResponse"
-msgstr "Odpovědi na formulář posudku"
-
-msgid "author.submission.roundStatus.reviewsReady"
-msgstr "Byly nahrány nové recenze a nyní je posuzuje redaktor."
-
-msgid "submission.confirm.message"
-msgstr "Váš příspěvek byl nahrán a jen připravený k odeslání. Můžete se vrátit zpět a upravit libovolnou informaci, kterou jste zadali v předchozích krocích. Po ukončení úprav klikněnte na \"Odeslat příspěvek\"."
-
-msgid "submission.submit.submissionChecklist"
-msgstr "Požadavky na příspěvek"
-
-msgid "submission.submit.submissionChecklistDescription"
-msgstr "Před pokračováním musíte přečíst a potvrdit, že jste splnili níže uvedené požadavky."
-
-msgid "submission.submit.submissionComplete"
-msgstr "Podání příspěvku bylo dokončeno"
-
-msgid "submission.submit.submissionCompleteThanks"
-msgstr "Děkujeme za váš zájem publikovat v časopisu {$contextName}."
-
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "Potvrďte prohlášení o autorských právech"
-
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "Souhlasím s dodržováním podmínek prohlášení o autorských právech."
-
-msgid "submission.submit.whatNext"
-msgstr "Co se bude dít dále?"
-
-msgid "submission.submit.whatNext.forNow"
-msgstr "V tomto okamžiku můžete:"
-
-msgid "submission.submit.whatNext.review"
-msgstr "Zkontrolovat tento příspěvek"
-
-msgid "submission.submit.whatNext.create"
-msgstr "Vytvořit nový příspěvek"
-
-msgid "submission.submit.whatNext.return"
-msgstr "Vrátit se na váš ovládací panel"
-
-msgid "submission.submit.extendedMetadata"
-msgstr "Rozšířená metadata"
-
-msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "Registrační email pro CrossRef"
-
-msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Zadejte platný registrační email pro CrossRef. Svůj email můžete bezplatně zaregistrovat na webových stránkách CrossRef."
-
-msgid "metadata.filters.isbndb.settings.apiKey.displayName"
-msgstr "ISBNdb API klíč"
-
-msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Zadejte prosím klíč API ISBNdb. Pokud klíč nemáte, můžete si od projektu ISBNdb zdarma vyžádat."
-
-msgid "metadata.filters.pubmed.settings.email.displayName"
-msgstr "Registrační email PubMed"
-
-msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Zadejte, prosím, platný registrační email pro PubMed, pokud ho máte."
-
-msgid "metadata.filters.worldcat.settings.apiKey.displayName"
-msgstr "WorldCat API klíč"
-
-msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
-msgstr "Zadejte, prosím, platný WorldCat API klíč, pokud ho máte."
-
-msgid "metadata.filters.paracite.settings.citationModule.displayName"
-msgstr "Modul pro citace"
-
-msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Zvolte, prosím, jeden z uvedených citačních modulů."
-
-msgid "metadata.filters.settings.isOptional.displayName"
-msgstr "Ve výchozím nastavení nepoužívat (bude ale nadále k dispozici editorům)"
-
-msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Interní chyba. Neplatná hodnota byla odeslána pro nastavení \"volitelného filtru\". Oznamte to, prosím, jako chybu."
-
-msgid "metadata.property.validationMessage.author"
-msgstr "Pro nejlepší výsledky by autoři měli být zadáni v následujícím formátu: Coleman Jr, D. (Ralf) Dr."
-
-msgid "metadata.property.validationMessage.editor"
-msgstr "Pro nejlepší výsledky by editoři měli být zadáni v následujícím formátu: Coleman Jr, D. (Ralf) Dr."
-
-msgid "metadata.property.validationMessage.article-title"
-msgstr "Vložte, prosím, platný název článku/příspěvku."
-
-msgid "metadata.property.validationMessage.source"
-msgstr "Zadejte, prosím, platný název publikace."
-
-msgid "metadata.property.validationMessage.date"
-msgstr "Zadejte, prosím, platné datum publikování (formát: RRRR-MM-DD)."
-
-msgid "metadata.property.validationMessage.access-date"
-msgstr "Zadejte, prosím, platné datum přístupu (formát: RRRR-MM-DD)."
-
-msgid "metadata.property.validationMessage.issue"
-msgstr "Zadejte, prosím, platné číslo."
-
-msgid "metadata.property.validationMessage.volume"
-msgstr "Zadejte, prosím, platný svazek."
-
-msgid "metadata.property.validationMessage.season"
-msgstr "Zadejte, prosím, platnou hodnotu pro období."
-
-msgid "metadata.property.validationMessage.chapter-title"
-msgstr "Zadejte, prosím, platný název kapitoly."
-
-msgid "metadata.property.validationMessage.edition"
-msgstr "Zadejte, prosím, platnou hodnotu pro vydání."
-
-msgid "metadata.property.validationMessage.series"
-msgstr "Zadejte, prosím, platnou hodnotu pro sérii."
-
-msgid "metadata.property.validationMessage.supplement"
-msgstr "Zadejte, prosím, platnou hodnotu pro doplněk."
-
-msgid "metadata.property.validationMessage.conf-date"
-msgstr "Zadejte, prosím, platné datum konference (formát RRRR-MM-DD)."
-
-msgid "metadata.property.validationMessage.conf-loc"
-msgstr "Zadejte, prosím, místo konání konference."
-
-msgid "metadata.property.validationMessage.conf-name"
-msgstr "Zadejte, prosím, jméno konference."
-
-msgid "metadata.property.validationMessage.conf-sponsor"
-msgstr "Zadejte, prosím, jméno sponzora konference."
-
-msgid "metadata.property.validationMessage.institution"
-msgstr "Zadejte, prosím, název instituce."
-
-msgid "metadata.property.validationMessage.fpage"
-msgstr "Zadejte, prosím, první stránku článku (musí jít o platnou numerickou hodnotu)."
-
-msgid "metadata.property.validationMessage.lpage"
-msgstr "Zadejte, prosím, poslední stránku článku (musí jít o platnou numerickou hodnotu)."
-
-msgid "metadata.property.validationMessage.size"
-msgstr "Zadejte, prosím, počet stránek (musí jít o platnou numerickou hodnotu)."
-
-msgid "metadata.property.validationMessage.publisher-loc"
-msgstr "Zadejte, prosím, místo vydání."
-
-msgid "metadata.property.validationMessage.publisher-name"
-msgstr "Zadejte, prosím, jméno vydavatele."
-
-msgid "metadata.property.validationMessage.isbn"
-msgstr "Zadejte, prosím, platné ISBN (9 nebo 13 čísel)."
-
-msgid "metadata.property.validationMessage.issn"
-msgstr "Zadejte, prosím, platné Print ISSN."
-
-msgid "metadata.property.validationMessage.eissn"
-msgstr "Zadejte, prosím, platné eISSN."
-
-msgid "metadata.property.validationMessage.doi"
-msgstr "Zadejte, prosím, platné DOI."
-
-msgid "metadata.property.validationMessage.publisher-id"
-msgstr "Zadejte, prosím, platné vlastní ID publikace."
-
-msgid "metadata.property.validationMessage.coden"
-msgstr "Zadejte, prosím, platné CODEN."
-
-msgid "metadata.property.validationMessage.sici"
-msgstr "Zadejte, prosím, platné SICI."
-
-msgid "metadata.property.validationMessage.pmid"
-msgstr "Zadejte, prosím, platné PMID."
-
-msgid "metadata.property.validationMessage.uri"
-msgstr "Zadejte, prosím, odkaz na on-line verzi publikace."
-
-msgid "metadata.property.validationMessage.comment"
-msgstr "Zadejte, prosím, komentář."
-
-msgid "metadata.property.validationMessage.annotation"
-msgstr "Zadejte, prosím, anotaci."
-
-msgid "metadata.property.validationMessage.publication-type"
-msgstr "Ujistěte se, že jste vždy nastavili typ publikace. V současné době jsou podporované hodnoty \"book\" (pro knihy nebo kapitoly knih) a \"journal\" (články časopisů). V opačném případě nebude formátování výstupních citací správně fungovat."
-
-msgid "metadata.property.displayName.title-type"
-msgstr "Typ názvu"
-
-msgid "metadata.property.validationMessage.title-type"
-msgstr "Ujistěte se, že jste nastavili platný typ titulu. Podporované hodnoty jsou 'abbreviated', 'translated', 'alternative' a 'uniform'."
-
-msgid "metadata.property.displayName.nonSort"
-msgstr "Část názvu bude při třídění ignorována"
-
-msgid "metadata.property.validationMessage.nonSort"
-msgstr "Zadejte pouze počáteční znaky názvu, které by měly být při třídění titulu ignorovány."
-
-msgid "metadata.property.displayName.title"
-msgstr "Název"
-
-msgid "metadata.property.validationMessage.title"
-msgstr "Zadejte, prosím, platný název."
-
-msgid "metadata.property.displayName.subTitle"
-msgstr "Podtitulek"
-
-msgid "metadata.property.validationMessage.subTitle"
-msgstr "Zadejte, prosím, platný název podtitulku."
-
-msgid "metadata.property.displayName.partNumber"
-msgstr "Část číslo"
-
-msgid "metadata.property.validationMessage.partNumber"
-msgstr "Zadejte, prosím, platné číslo části."
-
-msgid "metadata.property.displayName.partName"
-msgstr "Jméno části"
-
-msgid "metadata.property.validationMessage.partName"
-msgstr "Zadejte, prosím, platné jméno části."
-
-msgid "metadata.property.displayName.name-type"
-msgstr "Typ jména"
-
-msgid "metadata.property.validationMessage.name-type"
-msgstr "Ujistěte se, že jste nastavili platný typ jména. Podporované hodnoty jsou 'personal', 'corporate' a 'conference'."
-
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "Nepřiřazeno"
-
-msgid "common.queue.long.myAssigned"
-msgstr "Přiřazeno mně"
-
-msgid "common.queue.long.submissionsArchived"
-msgstr "Archivované příspěvky"
-
-msgid "submission.authors"
-msgstr "Autoři"
-
-msgid "submission.authorBiography"
-msgstr "Biografie autora"
-
-msgid "submission.authorBiographies"
-msgstr "Biografie autora"
-
-msgid "submission.authorWithAffiliation"
-msgstr "{$name}, {$affiliation}"
-
-msgid "submission.shortAuthor"
-msgstr "{$author} et al."
-
-msgid "submission.mySubmissions"
-msgstr "Mé příspěvky"
-
-msgid "submission.addFile"
-msgstr "Nahrát soubor"
-
-msgid "submission.attachedFile"
-msgstr "Připojený soubor"
-
-msgid "submission.production"
-msgstr "Produkce"
-
-msgid "submission.reviewed"
-msgstr "Recenzováno"
-
-msgid "submission.rights"
-msgstr "Práva"
-
-msgid "submission.rights.tip"
-msgstr "Chcete-li, můžete zadat stručné prohlášení o přístupových právech obsažených v tomto příspěvku nebo v jeho rámci."
-
-msgid "submission.source"
-msgstr "Zdroj"
-
-msgid "submission.source.tip"
-msgstr "Je tento příspěvek odvozen z jiného zdroje? Pokud ano, můžete zadat adresu URL nebo popis daného zdroje."
-
-msgid "submission.submission"
-msgstr "Příspěvek"
-
-msgid "submission.submissionTitle"
-msgstr "Název příspěvku:"
 
 msgid "submission.submit.finishSubmission"
 msgstr "Odeslat příspěvek"
@@ -897,13 +1078,17 @@ msgid "submission.submit.metadataForm"
 msgstr "Upřesnění metadat"
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na klávesu \"Enter\"."
+msgstr ""
+"Přidejte další informace k vašemu příspěvku. Po každém výrazu klikněte na "
+"klávesu \"Enter\"."
 
 msgid "submission.submit.submissionLocale"
 msgstr "Jazyk příspěvku"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím seznamu vyberte primární jazyk příspěvku."
+msgstr ""
+"Jsou přijímány příspěvky v několika jazycích. V níže uvedeném rozbalovacím "
+"seznamu vyberte primární jazyk příspěvku."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Soubory příspěvku"
@@ -914,20 +1099,73 @@ msgstr "Podřízené soubory"
 msgid "submission.manageDependentFiles"
 msgstr "Spravovat podřízené soubory"
 
+msgid "submission.upload.instructions"
+msgstr ""
+"Nahrajte všechny soubory, které redakční tým bude potřebovat k vyhodnocení "
+"vašeho příspěvku."
+
+msgid "submission.upload.percentComplete"
+msgstr "Nahrávání je z {$percent} % hotovo"
+
 msgid "submission.upload.dependent"
 msgstr "Nahrát podřízené soubory"
 
 msgid "submission.upload.query"
 msgstr "Nahrát diskusní soubor"
 
+msgid "submission.summary"
+msgstr "Souhrn"
+
+msgid "submission.supportingAgencies"
+msgstr "Podporující instituce (granty)"
+
+msgid "submission.currentAgencies"
+msgstr "Současné agentury"
+
+msgid "submission.indexingInformation"
+msgstr "Informace o indexování"
+
+msgid "submission.titleAndAbstract"
+msgstr "Název a abstrakt"
+
 msgid "submission.type.tip"
-msgstr "Typ příspěvku je obvykle jeden z 'image', 'text' nebo jiných multimediálních typů, včetně 'software' nebo 'interactive'. Zvolte prosím ten, který je pro váš příspěvek nejrelevantnější. Příklady lze nalézt na adrese <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\"> http://dublincore.org/documents/2001/04/12/useguide/generic.shtml#typ</a>"
+msgstr ""
+"Typ příspěvku je obvykle jeden z 'image', 'text' nebo jiných multimediálních "
+"typů, včetně 'software' nebo 'interactive'. Zvolte prosím ten, který je pro "
+"váš příspěvek nejrelevantnější. Příklady lze nalézt na adrese <a target="
+"\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\"> http://dublincore.org/documents/2001/04/12/useguide/"
+"generic.shtml#typ</a>"
+
+msgid "submission.underway"
+msgstr "Zpracovává se"
+
+msgid "submission.uploadFileTo"
+msgstr "Nahrát soubor k"
 
 msgid "submission.createRemote"
 msgstr "Vytvořit vzdálený"
 
+msgid "submission.viewMetadata"
+msgstr "Zobrazit metadata"
+
+msgid "submission.views"
+msgstr "Zobrazení"
+
+msgid "submission.uploadSuccessful"
+msgstr "Váš soubor byl nahrán."
+
+msgid "submission.loadMessage"
+msgstr "Prosím čekejte, Váš soubor je nahráván na server."
+
 msgid "submission.artworkFileDetails"
 msgstr "Detaily o souboru uměleckého díla"
+
+msgid "submission.fileDetails"
+msgstr "Detaily souboru"
+
+msgid "submission.nameRequired"
+msgstr "Prosím, vyplňte položku jméno."
 
 msgid "submission.date.mmdd"
 msgstr "MM-DD"
@@ -944,6 +1182,33 @@ msgstr "Role autora"
 msgid "submission.submit.addAuthor"
 msgstr "Přidat autora"
 
+msgid "submission.submit.form.languagesRequired"
+msgstr "Vložte, prosím, jazyk."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Vložte, prosím, předmět."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Vložte, prosím, disciplínu."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Vložte, prosím, klíčová slova."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Vložte, prosím, informace o pokrytí."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Vložte, prosím, typ."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Vložte, prosím, zdroj."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Vložte, prosím, autorská práva."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Vložte, prosím, reference."
+
 msgid "submission.form.name"
 msgstr "Jméno souboru (napr. Rukopis, Tabulka 1)"
 
@@ -952,87 +1217,6 @@ msgstr "Nahradit existující soubor?"
 
 msgid "workflow.review.internalReview"
 msgstr "Interní recenze"
-
-msgid "submission.changeFile"
-msgstr "Změnit soubor"
-
-msgid "submission.comments.addReviews"
-msgstr "Přidat do emailu recenze"
-
-msgid "submission.contributors"
-msgstr "Seznam autorů"
-
-msgid "submission.copyedited"
-msgstr "Soubory po redakčním zpracování"
-
-msgid "submission.copyediting"
-msgstr "Redakční úpravy"
-
-msgid "submission.queryNoteFiles"
-msgstr "Diskusní soubory"
-
-msgid "submission.coverage"
-msgstr "Informace o pokrytí (Coverage Information)"
-
-msgid "submission.editorial"
-msgstr "Redakční úpravy"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "Úvodní odeslání zakončeno."
-
-msgid "submission.event.fileUploaded"
-msgstr "Soubor \"{$originalFileName}\" byl nahrán pro příspěvek {$submissionId} uživatelem {$username}."
-
-msgid "submission.event.fileRevised"
-msgstr "Revize \"{$name}\" souboru {$submissionFileId}) byla nahrána."
-
-msgid "submission.event.participantAdded"
-msgstr "Uživatel {$name}  ({$username}) byl přiřazen k příspěvku jako {$userGroupName}."
-
-msgid "submission.event.subjectPrefix"
-msgstr "Email byl odeslán:"
-
-msgid "submission.event.viewEmail"
-msgstr "Zobrazit email"
-
-msgid "submission.files.downloadAll"
-msgstr "Stáhnout všechny soubory"
-
-msgid "submission.howToCite"
-msgstr "Jak citovat"
-
-msgid "submission.howToCite.citationFormats"
-msgstr "Citační formáty"
-
-msgid "submission.identifiers"
-msgstr "Identifikátory"
-
-msgid "submission.publisherId"
-msgstr "ID vydavatele"
-
-msgid "submission.informationCenter.submissionInfo"
-msgstr "Informace o příspěvku"
-
-msgid "submission.informationCenter.metadata"
-msgstr "Metadata"
-
-msgid "submission.informationCenter.notes"
-msgstr "Poznámky"
-
-msgid "submission.informationCenter.history"
-msgstr "Historie"
-
-msgid "submission.informationCenter.history.allEvents"
-msgstr "Ukázat všechny události předchozích verzí"
-
-msgid "submission.stageParticipants.notify"
-msgstr "Upozornit"
-
-msgid "submission.layout.galleyRemoteURL"
-msgstr "Vzdálené URL"
-
-msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Zadejte, prosím, platné vzdálené URL (včetně http://)."
 
 msgid "workflow.stage.any"
 msgstr "Libovolná etapa"
@@ -1086,7 +1270,12 @@ msgid "submission.upload.possibleRevision"
 msgstr "Byla detekována možná duplicita nebo revize"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Název nahraného souboru se podobá názvu dříve nahraného souboru\"{$revisedFileName}.\"  Je tento soubor určen k nahrazení \"{$revisedFileName}\"? Pokud ano, vyberte níže uvedený soubor. V opačném případě vyberte \"Nejedná se o revizi stávajícího souboru\", než budete pokračovat."
+msgstr ""
+"Název nahraného souboru se podobá názvu dříve nahraného souboru"
+"\"{$revisedFileName}.\"  Je tento soubor určen k nahrazení "
+"\"{$revisedFileName}\"? Pokud ano, vyberte níže uvedený soubor. V opačném "
+"případě vyberte \"Nejedná se o revizi stávajícího souboru\", než budete "
+"pokračovat."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Zvolte soubor, který chcete revidovat."
@@ -1101,7 +1290,9 @@ msgid "submission.upload.userGroup"
 msgstr "Nahrát tento soubor v rámci mé role..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "Pokud odesíláte Editovaný svazek, měli byste nahrát všechny kapitoly svazků jednotlivě pod svou roli jako editor svazků."
+msgstr ""
+"Pokud odesíláte Editovaný svazek, měli byste nahrát všechny kapitoly svazků "
+"jednotlivě pod svou roli jako editor svazků."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Nahrát knihovní soubor"
@@ -1119,7 +1310,9 @@ msgid "submission.upload.uploadFiles"
 msgstr "Nahrát soubory"
 
 msgid "submission.upload.response.description"
-msgstr "Po recenzi přiděleného souboru zaznamenejte všechny připomínky k souboru níže a/nebo nahrajte anotovanou kopii souboru (nebo jiný soubor)."
+msgstr ""
+"Po recenzi přiděleného souboru zaznamenejte všechny připomínky k souboru "
+"níže a/nebo nahrajte anotovanou kopii souboru (nebo jiný soubor)."
 
 msgid "submission.upload.productionReady"
 msgstr "Nahrát soubor pro produkční fázi"
@@ -1132,6 +1325,15 @@ msgstr "Nejsou pro vás dostupné žádné soubory ke recenzi."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Byly vyžádány recenze."
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "Recenze byly odevzdány."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "Příspěvek musí být znovu podán do dalšího recenzního kola."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "Příspěvek byl znovu nahrán pro další kolo recenzí."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Odesláno k externí recenzi."
@@ -1154,6 +1356,18 @@ msgstr "Byly odevzdány nové recenze."
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Recenze byly ukončeny."
 
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "Vypršel termín pro recenzi."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Očekávají se doporučení redaktorů."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "Byly odevzdány nová doporučení redaktorů."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "Všechna doporučení jsou odevzdána a očekává se rozhodnutí."
+
 msgid "editor.submission.stageParticipants"
 msgstr "Účastníci"
 
@@ -1166,20 +1380,51 @@ msgstr "Účastník"
 msgid "editor.submission.addStageParticipant"
 msgstr "Přidat účastníka"
 
+msgid "editor.submission.editStageParticipant"
+msgstr "Upravit přiřazení"
+
 msgid "editor.submission.addStageParticipant.userGroup"
-msgstr "Uživatelé jsou přiřazeni ke etapám pracovního postupu podle skupin uživatelů. Každý uživatel přiřazený k této etapě bude automaticky přiřazen dalším etapám, kterým byla přiřazena uživatelská skupina. To je obvykle vyhrazeno pro editory, autory a překladatele."
+msgstr ""
+"Uživatelé jsou přiřazeni ke etapám pracovního postupu podle skupin "
+"uživatelů. Každý uživatel přiřazený k této etapě bude automaticky přiřazen "
+"dalším etapám, kterým byla přiřazena uživatelská skupina. To je obvykle "
+"vyhrazeno pro editory, autory a překladatele."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Odebrat uživatele"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Chystáte se tohoto účastníka odstranit z <strong> všech </strong> etap."
+msgstr ""
+"Chystáte se tohoto účastníka odstranit z <strong> všech </strong> etap."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Musíte vybrat uživatelskou skupinu."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Musíte vybrat uživatele ze specifické uživatelské skupiny."
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"Účastník, kterého jste vybrali, byl přidělen k provedení anonymní recenze. "
+"Pokud jej vyberete jako účastníka, bude mít přístup k identitě autora. "
+"Doporučuje se, abyste tomuto účastníka nepřidělili, abyste zajistili "
+"integritu procesu peer review."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Zakázat úpravy metadat"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Povolit úpravu metadat"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Opravdu chcete, aby autoři tohoto příspěvku nemohli v této fázi upravit "
+"metadata příspěvku?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Opravdu chcete, aby autoři tohoto příspěvku mohli v této fázi upravit "
+"metadata příspěvku?"
 
 msgid "editor.submission.decision"
 msgstr "Rozhodnutí"
@@ -1193,23 +1438,71 @@ msgstr "Požadovat úpravy příspěvku"
 msgid "editor.submission.decision.resubmit"
 msgstr "Znovu odeslat do recenzního procesu"
 
+msgid "editor.submission.decision.newRound"
+msgstr "Nové kolo revize"
+
 msgid "editor.submission.decision.decline"
 msgstr "Odmítnout příspěvek"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Odeslat do produkční fáze"
 
+msgid "editor.submission.decision.skipReview"
+msgstr "Přijmout a přeskočit recenzi"
+
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Odeslat k interním recenzím"
 
 msgid "editor.submission.decision.approveProofsDescription"
-msgstr "Soubor po korekturách musí být zatržen, aby byl přístupný. Chcete ho schválit?"
+msgstr ""
+"Soubor po korekturách musí být zatržen, aby byl přístupný. Chcete ho "
+"schválit?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Schválit korektury"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Tento soubor korektur již nebude dostupný ke stažení či koupi. Opravdu chcete zrušit jeho scvhálení?"
+msgstr ""
+"Tento soubor korektur již nebude dostupný ke stažení či koupi. Opravdu "
+"chcete zrušit jeho scvhálení?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Vrátit zamítnutí"
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Přidělte redaktora, aby bylo možné vytvořit redakční rozhodnutí pro tuto "
+"etapu."
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Vložit doporučení"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Změnit doporučení"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Doporučení:  {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Doporučení:  {$recommendations}"
+
+msgid "editor.submission.recommendation"
+msgstr "Doporučení"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Doporučte redakční rozhodnutí pro tento příspěvek."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Vložená doporučení"
+
+msgid "editor.submission.decision.nextButton"
+msgstr "Dále: Vyberte soubor pro {$stageName}"
+
+msgid "editor.submission.decision.selectFiles"
+msgstr "Vyberte soubory, které chcete předat do etapy {$stageName}."
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr "Předešlé: Upozornění autora"
 
 msgid "submission.currentStage"
 msgstr "Současná etapa"
@@ -1230,34 +1523,58 @@ msgid "submission.finalDraft"
 msgstr "Soubory před redakční úpravou"
 
 msgid "editor.submission.addAuditorError"
-msgstr "Při přiřazování posuzovatele došlo k chybě. Zkuste to, prosím, ještě jednou."
+msgstr ""
+"Při přiřazování posuzovatele došlo k chybě. Zkuste to, prosím, ještě jednou."
+
+msgid "submission.event.fileEdited"
+msgstr "Metadata souboru \"{$originalFileName}\" editoval {$username}."
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"Soubor \"{$originalFileName}\" byl nahrán pro příspěvek {$submissionId} "
+"uživatelem {$username}."
 
 msgid "submission.event.fileDeleted"
-msgstr "Soubor \"{$originalFileName}\" v rámci příspěvku {$submissionId} byl smazán uživatelm {$username}."
+msgstr ""
+"Soubor \"{$originalFileName}\" v rámci příspěvku {$submissionId} byl smazán "
+"uživatelm {$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Revize souboru \"{$originalFileName}\" byla nahrána k příspěvku {$submissionId} uživatelem {$username}."
+msgstr ""
+"Revize souboru \"{$originalFileName}\" byla nahrána k příspěvku "
+"{$submissionId} uživatelem {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Revize souboru \"{$originalFileName}\" v rámci příspěvku {$submissionId} byla smazána uživatelem {$username}."
+msgstr ""
+"Revize souboru \"{$originalFileName}\" v rámci příspěvku {$submissionId} "
+"byla smazána uživatelem {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Pro soubor \"{$title}\" byla jeho poslední revize odebrána uživatelem {$username}."
+msgstr ""
+"Pro soubor \"{$title}\" byla jeho poslední revize odebrána uživatelem "
+"{$username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "Uživatel \"{$name}\" ({$username}) byl přidán jako posuzovatel pro soubor \"{$file}.\""
+msgstr ""
+"Uživatel \"{$name}\" ({$username}) byl přidán jako posuzovatel pro soubor "
+"\"{$file}.\""
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "Uživateli \"{$name}\" ({$username}) byla odebrána role posuzovatele pro soubor \"{$file}.\""
+msgstr ""
+"Uživateli \"{$name}\" ({$username}) byla odebrána role posuzovatele pro "
+"soubor \"{$file}.\""
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "Uživatel \"{$name}\" ({$username}) ukončil a nahrál posouzení souboru \"{$file}.\""
+msgstr ""
+"Uživatel \"{$name}\" ({$username}) ukončil a nahrál posouzení souboru "
+"\"{$file}.\""
 
 msgid "submission.event.signoffSignoff"
 msgstr "Uživatel \"{$name}\" ({$username}) se odhlásil od souboru \"{$file}.\""
 
 msgid "submission.event.proofsApproved"
-msgstr "Uživatel \"{$name}\" ({$username}) schválil korektury pro \"{$formatName}.\""
+msgstr ""
+"Uživatel \"{$name}\" ({$username}) schválil korektury pro \"{$formatName}.\""
 
 msgid "submission.overview"
 msgstr "Přehled příspěvku"
@@ -1270,6 +1587,9 @@ msgstr "Etapa ještě nezačala."
 
 msgid "submission.documents"
 msgstr "Dokumenty příspěvku"
+
+msgid "notification.type.editorAssign"
+msgstr "Byl jste přidělen jako redaktor příspěvku \"{$title}\"."
 
 msgid "notification.type.copyeditorRequest"
 msgstr "Byl jste požádán(a) o kontrolu redakčních úprav pro  \"{$title}\"."
@@ -1295,26 +1615,95 @@ msgstr "Je třeba recenzovat."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Znovu podat k recenzi."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Bylo zahájeno nové kolo revizí."
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "Příspěvek byl odmítnut."
 
-msgid "notification.type.editorDecisionSendToProduction"
-msgstr "Začal proces produkce."
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Zamítnutý příspěvek byl znovu aktivován."
 
 msgid "notification.uploadedResponse"
 msgstr "Reakce byla nahrána."
 
 msgid "notification.type.editorAssignment"
-msgstr "Před zahájením recenze musí být přiřazen editor. Přidejte editora pomocí odkazu Účastníci výše."
+msgstr ""
+"Před zahájením recenze musí být přiřazen editor. Přidejte editora pomocí "
+"odkazu Účastníci výše."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Byla vytvořena nová verze příspěvku"
+
+msgid "notification.type.revertDecline"
+msgstr "Rozhodnutí odmítnout tento příspěvek bylo vráceno."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Přílohy pro recenzenta"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Zvolte soubory recenzí, které chcete sdílet s autorem/autory"
 
 msgid "submission.productionReady"
 msgstr "Kniha je dostupná"
 
 msgid "submission.review.uploadRevisionToRound"
 msgstr "Nahrát zrecenzovaný soubor"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName} byl přidělen pro recenzování příspěvku {$submissionId} v "
+"recenzním kole {$round}."
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek "
+"{$submissionId} bylo vyčíštěno."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} označil kolo {$round} hodnocení k příspěvku {$submitId} za "
+"nezohledněné."
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"Recenzní kolo {$round} prováděné recenzentem {$reviewerName} pro příspěvek "
+"{$submissionId} bylo znovu zahájeno."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Editor {$userName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
+"{$submitId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} dokončil recenzi pro {$round}. recenzní kolo příspěvku "
+"{$submitId}."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Čeká se na odpověď recenzenta."
+
+msgid "submission.review.status.declined"
+msgstr "Recenzent odmítnul požadavek na recenzi."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "Recenzent nedodržel termín pro odpověď."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "Recenzent nedodržel termín pro recenzi."
+
+msgid "submission.review.status.accepted"
+msgstr "Recenze byla přijata."
+
+msgid "submission.review.status.received"
+msgstr "Recenzent nahrál recenzi."
+
+msgid "submission.review.status.complete"
+msgstr "Recenze byla ukončena."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"Recenze byla ukončena a recenzentovi bylo zasláno poděkování za příspěvek."
 
 msgid "submission.document"
 msgstr "Dokument"
@@ -1340,11 +1729,24 @@ msgstr "Autorská či sponzorská agentura"
 msgid "grid.action.itemWorkflow"
 msgstr "Jít na workflow tohoto příspěvku"
 
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "Začal proces produkce."
+
 msgid "notification.type.editorAssignmentProduction"
-msgstr "Je třeba přidělit editora produkce před započetím produkční fáze. Přidejte editora produkce pomocí odkazu Účastníci výše."
+msgstr ""
+"Je třeba přidělit editora produkce před započetím produkční fáze. Přidejte "
+"editora produkce pomocí odkazu Účastníci výše."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "Je třeba přidělit editora produkce před započetím editační fáze. Přidejte editora produkce pomocí odkazu Účastníci výše."
+msgstr ""
+"Je třeba přidělit editora produkce před započetím editační fáze. Přidejte "
+"editora produkce pomocí odkazu Účastníci výše."
+
+msgid "submission.reviewForm"
+msgstr "Formulář posudku"
+
+msgid "submission.reviewFormResponse"
+msgstr "Odpovědi na formulář posudku"
 
 msgid "grid.action.createReviewFormElement"
 msgstr "Vytvořit nový formulář recenzenta pro tento prvek"
@@ -1366,6 +1768,12 @@ msgstr "Autorská práva"
 
 msgid "submission.copyrightHolder"
 msgstr "Držitel(é) autorských práv"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Vlastní prohlášení o autorských právech"
+
+msgid "submission.copyrightOther"
+msgstr "Prohlášení o autorských právech"
 
 msgid "submission.copyrightYear"
 msgstr "Rok autorských práv"
@@ -1398,22 +1806,102 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC Attribution-ShareAlike 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Mezinárodní licencí Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Mezinárodní "
+"licencí Creative Commons Attribution-NonCommercial-NoDerivatives 4.0</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Mezinárodní licencí Creative Commons Attribution-NonCommercial 4.0</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Mezinárodní licencí "
+"Creative Commons Attribution-NonCommercial 4.0</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Mezinárodní licencí Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Mezinárodní "
+"licencí Creative Commons Attribution-NonCommercial-ShareAlike 4.0</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Mezinárodní licencí Creative Commons Attribution-NoDerivatives 4.0</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Mezinárodní licencí "
+"Creative Commons Attribution-NoDerivatives 4.0</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Mezinárodní licencí Creative Commons Attribution 4.0 </a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/4.0/\">Mezinárodní licencí "
+"Creative Commons Attribution 4.0 </a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Mezinárodní licencí Creative Commons Attribution-ShareAlike 4.0</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>Tato práce je licencována pod <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Mezinárodní licencí "
+"Creative Commons Attribution-ShareAlike 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"> <img alt = \"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by-nc-nd/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
+"rel=\" licence\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
+"License</a>. </p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\"/></a> <p>Tato práce podléhá licenci na základě <a rel=\" "
+"licence\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
+"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"> <img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
+"rel=\"licence\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
+"License</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel="
+"\"licence\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\">Creative Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Attribution 3.0 Unported License</a>. </p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"> "
+"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel="
+"\"licence\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. </p>"
 
 msgid "submission.queries.submission"
 msgstr "Diskuse před recenzním procesem"
@@ -1445,6 +1933,14 @@ msgstr "Uzavřeno"
 msgid "submission.query.addNote"
 msgstr "Přidat zprávu"
 
+msgid "submission.query.leaveQuery"
+msgstr "Opustit diskusi"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Pokud tuto diskusi opustíte, nebudete již dostávat nové zprávy. Chtěli "
+"diskusi opustit?"
+
 msgid "grid.action.openNoteForm"
 msgstr "Přidat novou odpověď k diskusi"
 
@@ -1455,91 +1951,46 @@ msgid "submission.query.new"
 msgstr "{$creatorName} začal diskusi: {$noteTitle}: {$noteContents}"
 
 msgid "submission.query.activity.contents"
-msgstr "V duskusi \"{$queryTitle}\" ohledně příspěvku \"{$submissionTitle}\" došlo k nové aktivitě."
+msgstr ""
+"V duskusi \"{$queryTitle}\" ohledně příspěvku \"{$submissionTitle}\" došlo k "
+"nové aktivitě."
 
 msgid "submission.query.new.contents"
-msgstr "Byl(a) jste přidán(a) k diskusi nazvané \"{$queryTitle}\" ohledně příspěvku \"{$submissionTitle}\"."
+msgstr ""
+"Byl(a) jste přidán(a) k diskusi nazvané \"{$queryTitle}\" ohledně příspěvku "
+"\"{$submissionTitle}\"."
 
-msgid "submission.howToCite.downloadCitation"
-msgstr "Stánhout citace"
-
-msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Recenze byly odevzdány."
-
-msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr "Vypršel termín pro recenzi."
-
-msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "Očekávají se doporučení redaktorů."
-
-msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "Byly odevzdány nová doporučení redaktorů."
-
-msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "Všechna doporučení jsou odevzdána a očekává se rozhodnutí."
-
-msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Přidělte redaktora, aby bylo možné vytvořit redakční rozhodnutí pro tuto etapu."
-
-msgid "editor.submission.makeRecommendation"
-msgstr "Vložit doporučení"
-
-msgid "editor.submission.changeRecommendation"
-msgstr "Změnit doporučení"
-
-msgid "editor.submission.recommendation.display"
-msgstr "Doporučení:  {$recommendation}"
-
-msgid "editor.submission.allRecommendations.display"
-msgstr "Doporučení:  {$recommendations}"
-
-msgid "editor.submission.recommendation"
-msgstr "Doporučení"
-
-msgid "editor.submission.recommendation.description"
-msgstr "Doporučte redakční rozhodnutí pro tento příspěvek."
-
-msgid "editor.submission.recordedRecommendations"
-msgstr "Vložená doporučení"
-
-msgid "editor.submission.decision.nextButton"
-msgstr "Dále: Vyberte soubor pro {$stageName}"
-
-msgid "editor.submission.decision.selectFiles"
-msgstr "Vyberte soubory, které chcete předat do etapy {$stageName}."
-
-msgid "editor.submission.decision.previousAuthorNotification"
-msgstr "Předešlé: Upozornění autora"
-
-msgid "notification.type.editorAssign"
-msgstr "Byl jste přidělen jako redaktor příspěvku \"{$title}\"."
-
-msgid "grid.reviewAttachments.send.title"
-msgstr "Zvolte soubory recenzí, které chcete sdílet s autorem/autory"
-
-msgid "submission.review.status.awaitingResponse"
-msgstr "Čeká se na odpověď recenzenta."
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "Musíte přidělit jednoho účastníka k tomuto příspěvku aby mohla být zahájena diskuse."
+msgstr ""
+"Musíte přidělit jednoho účastníka k tomuto příspěvku aby mohla být zahájena "
+"diskuse."
 
 msgid "submission.list.infoCenter"
 msgstr "Záznam aktivit a poznámek"
 
+msgid "submission.list.empty"
+msgstr "Nebyly nalezeny žádné příspěvky."
+
 msgid "submission.list.responseDue"
 msgstr "Je třeba odpovědět do: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Přiřazení recenze"
 
 msgid "submission.list.reviewDue"
 msgstr "Recenzi je třeba odevzdat do: {$date}"
 
+msgid "submission.list.reviewComplete"
+msgstr "Recenze byla nahrána"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Recenze byla zrušena"
+
 msgid "submission.list.confirmDelete"
 msgstr "Smazat příspěvek?"
-
-msgid "submission.list.itemOrdererUp"
-msgstr "Posunout položku {$itemTitle} nahoru"
-
-msgid "submission.list.itemOrdererDown"
-msgstr "Posunout položku {$itemTitle} dolů"
 
 msgid "submission.list.viewSubmission"
 msgstr "Zobrazit příspěvek"
@@ -1562,437 +2013,144 @@ msgstr "Připravené soubory"
 msgid "submission.list.discussions"
 msgstr "Otevřené diskuse"
 
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"K tomuto příspěvku vám bylo přiřazeno několik rolí. Chcete pokračovat v "
+"rámci <a href=\"{$urlAuthorWorkflow}\">Role autora</a> nebo <a href="
+"\"{$urlEditorialWorkflow}\">role editora</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Byla vám přiřazena editorská role pro tento příspěvek. Chcete pokračovat v "
+"rámci <a href=\"{$urlEditorialWorkflow}\">editorské role</a>?"
+
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Příspěvky musí být dokončené před kontrolou redaktorem."
-
-msgid "submission.review.status.declined"
-msgstr "Recenzent odmítnul požadavek na recenzi."
-
-msgid "submission.review.status.responseOverdue"
-msgstr "Recenzent nedodržel termín pro odpověď."
-
-msgid "submission.review.status.reviewOverdue"
-msgstr "Recenzent nedodržel termín pro recenzi."
-
-msgid "submission.review.status.accepted"
-msgstr "Recenze byla přijata."
-
-msgid "submission.review.status.received"
-msgstr "Recenzent nahrál recenzi."
-
-msgid "submission.review.status.complete"
-msgstr "Recenze byla ukončena."
-
-msgid "submission.review.status.thanked"
-msgstr "Recenze byla ukončena a recenzentovi bylo zasláno poděkování za příspěvek."
-
-msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username}) byl odebrán/a z {$userGroupName}."
-
-msgid "editor.submission.decision.skipReview"
-msgstr "Přijmout a přeskočit recenzi"
-
-msgid "submission.submit.availableUserGroups"
-msgstr "Zaslat příspěvek jako"
-
-msgid "submission.submit.availableUserGroupsDescription"
-msgstr "Vyberte roli, které nejlépe popisuje vaši roli v rámci tohoto příspěvku."
-
-msgid "submission.submit.contactConsent"
-msgstr "Korespondenční kontakt"
-
-msgid "submission.submit.contactConsentDescription"
-msgstr "Ano, rád bych byl/a ohledně tohoto příspěvku kontaktován/a."
 
 msgid "submission.list.currentStage"
 msgstr "V tomto momentě je v etapě {$stage}."
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Vložte, prosím, jazyk."
+msgid "submission.list.activity"
+msgstr "Aktivita"
 
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Vložte, prosím, předmět."
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dny od poslední aktivity"
 
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Vložte, prosím, disciplínu."
+msgid "submission.list.assignEditor"
+msgstr "Přiřadit editora"
 
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Vložte, prosím, klíčová slova."
+msgid "grid.category.categories"
+msgstr "Kategorie"
 
-msgid "submission.submit.form.agenciesRequired"
-msgstr "Vložte, prosím, podporující agenturu."
+msgid "catalog.sortBy.titleAsc"
+msgstr "Název (A-Z)"
 
-msgid "submission.submit.form.coverageRequired"
-msgstr "Vložte, prosím, informace o pokrytí."
+msgid "catalog.sortBy.titleDesc"
+msgstr "Název (Z-A)"
 
-msgid "submission.submit.form.typeRequired"
-msgstr "Vložte, prosím, typ."
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Datum vydání (nejstarší první)"
 
-msgid "submission.submit.form.sourceRequired"
-msgstr "Vložte, prosím, zdroj."
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Datum zveřejnění (nejnovější první)"
 
-msgid "submission.submit.form.rightsRequired"
-msgstr "Vložte, prosím, autorská práva."
+msgid "category.coverImage"
+msgstr "Titulní obrázek"
 
-msgid "submission.submit.form.citationsRequired"
-msgstr "Vložte, prosím, reference."
+msgid "submission.submit.placement.categories"
+msgstr "Kategorie"
 
-msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "Příspěvek musí být znovu podán do dalšího recenzního kola."
+msgid "submission.currentCoverImage"
+msgstr "Aktuální obrázek"
 
-msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "Příspěvek byl znovu nahrán pro další kolo recenzí."
+msgid "catalog.category.noItems"
+msgstr "V této kategorii zatím nebylo nic publikováno."
 
-msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr ""
-"Účastník, kterého jste vybrali, byl přidělen k provedení anonymní recenze. "
-"Pokud jej vyberete jako účastníka, bude mít přístup k identitě autora. "
-"Doporučuje se, abyste tomuto účastníka nepřidělili, abyste zajistili "
-"integritu procesu peer review."
+msgid "catalog.category.subcategories"
+msgstr "Podkategorie"
 
-msgid "submission.query.participantTitle"
-msgstr "{$fullName}, {$userGroup}"
+msgid "publication.contributors"
+msgstr "Autoři"
 
-msgid "submission.list.reviewComplete"
-msgstr "Recenze byla nahrána"
+msgid "publication.createVersion"
+msgstr "Vytvořit novou verzi"
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Odešlete v libovolné z následujících rolí, pokud bude chtít editovat a publikovat příspěvek sami: {$managerGroups}"
+msgid "publication.datePublished.errorFormat"
+msgstr "Datum musí být ve formátu RRRR-MM-DD, například 2019-01-01."
 
-msgid "submission.citations.description"
-msgstr "Vložte každou referenci na nový řádek tak, aby mohla být extrahována."
+msgid "publication.event.versionCreated"
+msgstr "Byla vytvořena nová verze."
 
-msgid "submission.parsedCitations"
-msgstr "Extrahované reference"
+msgid "publication.publicationLicense"
+msgstr "Oprávnění a zveřejnění"
 
-msgid "submission.parsedCitations.description"
-msgstr "Následující reference byly extrahovány a budou připojeny k metadatům příspěvku."
+msgid "publication.status.scheduled"
+msgstr "Naplánováno"
 
-msgid "submission.parsedAndSaveCitations"
-msgstr "Extrahovat a uložit reference"
+msgid "publication.status.unpublished"
+msgstr "Nepublikovaný"
 
-msgid "submission.list.dualWorkflowLinks"
-msgstr "K tomuto příspěvku vám bylo přiřazeno několik rolí. Chcete pokračovat v rámci <a href=\"{$urlAuthorWorkflow}\">Role autora</a> nebo <a href=\"{$urlEditorialWorkflow}\">role editora</a>?"
+msgid "publication.titleAbstract"
+msgstr "Název a abstrakt"
 
-msgid "submission.list.reviewerWorkflowLink"
-msgstr "Byla vám přiřazena editorská role pro tento příspěvek. Chcete pokračovat v rámci <a href=\"{$urlEditorialWorkflow}\">editorské role</a>?"
+msgid "publication.unschedule"
+msgstr "Neplánovaný"
 
-msgid "publication.wordCount"
-msgstr "Počet slov: {$count}/{$limit}"
+msgid "publication.urlPath"
+msgstr "Cesta URL"
+
+msgid "publication.urlPath.description"
+msgstr "Volitelná cesta k použití v adrese URL namísto ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr "Cesta URL již byla použita a nelze ji znovu použít."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "Cesta URL nemůže být číslo."
+
+msgid "publication.version.all"
+msgstr "Všechny verze"
+
+msgid "publication.version.confirm"
+msgstr "Opravdu chcete vytvořit novou verzi?"
 
 msgid "publication.wordCountLong"
 msgstr ""
 "Abstrakt je příliš dlouhý. Může být dlouhý maximálně {$limit} slov nebo "
 "méně. V současné době je {$count} slov dlouhý."
 
-msgid "publication.version.confirm"
-msgstr "Opravdu chcete vytvořit novou verzi?"
+msgid "publication.wordCount"
+msgstr "Počet slov: {$count}/{$limit}"
 
-msgid "publication.version.all"
-msgstr "Všechny verze"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "Cesta URL nemůže být číslo."
-
-msgid "publication.urlPath.duplicate"
-msgstr "Cesta URL již byla použita a nelze ji znovu použít."
-
-msgid "publication.urlPath.description"
-msgstr "Volitelná cesta k použití v adrese URL namísto ID."
-
-msgid "publication.urlPath"
-msgstr "Cesta URL"
-
-msgid "publication.unschedule"
-msgstr "Neplánovaný"
-
-msgid "publication.titleAbstract.success"
-msgstr "Název a abstrakt byly aktualizovány."
-
-msgid "publication.titleAbstract"
-msgstr "Název a abstrakt"
-
-msgid "publication.status.unpublished"
-msgstr "Nepublikovaný"
-
-msgid "publication.status.scheduled"
-msgstr "Naplánováno"
-
-msgid "publication.publish.success"
-msgstr "Stav publikace byl úspěšně změněn."
-
-msgid "publication.publicationLicense.success"
-msgstr "Informace o autorských právech a licencích byly aktualizovány."
-
-msgid "publication.publicationLicense"
-msgstr "Oprávnění a zveřejnění"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "Identifikátory byly aktualizovány."
-
-msgid "publication.metadata.success"
-msgstr "Metadata byla aktualizována."
-
-msgid "publication.event.versionCreated"
-msgstr "Byla vytvořena nová verze."
-
-msgid "publication.datePublished.errorFormat"
-msgstr "Datum musí být ve formátu RRRR-MM-DD, například 2019-01-01."
-
-msgid "publication.createVersion"
-msgstr "Vytvořit novou verzi"
-
-msgid "publication.contributors"
-msgstr "Autoři"
-
-msgid "publication.citations.success"
-msgstr "Reference byly aktualizovány."
-
-msgid "catalog.category.subcategories"
-msgstr "Podkategorie"
-
-msgid "catalog.category.noItems"
-msgstr "V této kategorii zatím nebylo nic publikováno."
-
-msgid "submission.currentCoverImage"
-msgstr "Aktuální obrázek"
-
-msgid "submission.submit.placement.categories"
-msgstr "Kategorie"
-
-msgid "category.coverImage"
-msgstr "Titulní obrázek"
-
-msgid "catalog.sortBy.datePublishedDesc"
-msgstr "Datum zveřejnění (nejnovější první)"
-
-msgid "catalog.sortBy.datePublishedAsc"
-msgstr "Datum vydání (nejstarší první)"
-
-msgid "catalog.sortBy.titleDesc"
-msgstr "Název (Z-A)"
-
-msgid "catalog.sortBy.titleAsc"
-msgstr "Název (A-Z)"
-
-msgid "grid.category.categories"
-msgstr "Kategorie"
-
-msgid "submission.list.assignEditor"
-msgstr "Přiřadit editora"
-
-msgid "submission.list.reviewCancelled"
-msgstr "Recenze byla zrušena"
-
-msgid "submission.list.reviewAssignment"
-msgstr "Přiřazení recenze"
-
-msgid "submission.list.empty"
-msgstr "Nebyly nalezeny žádné příspěvky."
-
-msgid "submission.query.leaveQuery.confirm"
+msgid "submission.layout.viewGalley"
 msgstr ""
-"Pokud tuto diskusi opustíte, nebudete již dostávat nové zprávy. Chtěli "
-"diskusi opustit?"
 
-msgid "submission.query.leaveQuery"
-msgstr "Opustit diskusi"
-
-msgid "submission.license.cc.by-sa3.footer"
+msgid "galley.cantEditPublished"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"> "
-"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/"
-"3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
-"licence\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
-"Commons Attribution-ShareAlike 3.0 Unported License</a>. </p>"
 
-msgid "submission.license.cc.by3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"> <"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
-"Commons Attribution 3.0 Unported License</a>. </p>"
+#~ msgid "submission.list.itemOrdererUp"
+#~ msgstr "Posunout položku {$itemTitle} nahoru"
 
-msgid "submission.license.cc.by-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"> "
-"<img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/"
-"3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a rel=\""
-"licence\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
-"Commons Attribution-NoDerivatives 3.0 Unported License</a>.</p>"
+#~ msgid "submission.list.itemOrdererDown"
+#~ msgstr "Posunout položku {$itemTitle} dolů"
 
-msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\"> <img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
-"rel=\"licence\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
-"Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported "
-"License</a>.</p>"
+#~ msgid "submission.submit.form.agenciesRequired"
+#~ msgstr "Vložte, prosím, podporující agenturu."
 
-msgid "submission.license.cc.by-nc3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\"/></a> <p>Tato práce podléhá licenci na základě <a rel=\" "
-"licence\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative "
-"Commons Attribution-NonCommercial 3.0 Unported License</a>.</p>"
+#~ msgid "publication.titleAbstract.success"
+#~ msgstr "Název a abstrakt byly aktualizovány."
 
-msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"> <img alt = \"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\"/> </a> <p> Tato práce podléhá licenci na základě <a "
-"rel=\" licence\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
-"Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 Unported "
-"License</a>. </p>"
+#~ msgid "publication.publish.success"
+#~ msgstr "Stav publikace byl úspěšně změněn."
 
-msgid "submission.copyrightOther"
-msgstr "Prohlášení o autorských právech"
+#~ msgid "publication.publicationLicense.success"
+#~ msgstr "Informace o autorských právech a licencích byly aktualizovány."
 
-msgid "submission.copyrightHolder.other"
-msgstr "Vlastní prohlášení o autorských právech"
+#~ msgid "publication.publicationIdentifiers.success"
+#~ msgstr "Identifikátory byly aktualizovány."
 
-msgid "log.review.reviewReady"
-msgstr ""
-"{$reviewerName} dokončil recenzi pro {$round}. recenzní kolo příspěvku "
-"{$submitId}."
+#~ msgid "publication.metadata.success"
+#~ msgstr "Metadata byla aktualizována."
 
-msgid "log.review.reviewConfirmed"
-msgstr ""
-"Editor {$userName} potvrdil recenzi pro {$round}. recenzní kolo příspěvku "
-"{$submitId}."
-
-msgid "log.review.reviewUnconsidered"
-msgstr ""
-"{$editorName} označil kolo {$round} hodnocení k příspěvku {$submitId} za "
-"nezohledněné."
-
-msgid "editor.submission.addPermissionToEditDescription"
-msgstr ""
-"Opravdu chcete, aby autoři tohoto příspěvku mohli v této fázi upravit "
-"metadata příspěvku?"
-
-msgid "editor.submission.removePermissionToEditDescription"
-msgstr ""
-"Opravdu chcete, aby autoři tohoto příspěvku nemohli v této fázi upravit "
-"metadata příspěvku?"
-
-msgid "editor.submission.addPermissionToEdit"
-msgstr "Povolit úpravu metadat"
-
-msgid "editor.submission.removePermissionToEdit"
-msgstr "Zakázat úpravy metadat"
-
-msgid "editor.submission.editStageParticipant"
-msgstr "Upravit přiřazení"
-
-msgid "submission.publisherId.enable"
-msgstr "Povolit pro {$objects}"
-
-msgid "submission.publisherId.description"
-msgstr ""
-"ID vydavatele lze použít k záznamu ID z externí databáze. Například položky "
-"exportované k uložení do PubMed mohou zahrnovat ID vydavatele. To by se "
-"nemělo používat pro DOI."
-
-msgid "submission.outdatedVersion"
-msgstr ""
-"Toto je zastaralá verze zveřejněná dne {$datePublished}. Přečtěte si <a href="
-"\"{$urlRecentVersion}\"> nejnovější verzi </a>."
-
-msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
-
-msgid "submission.versions"
-msgstr "Verze"
-
-msgid "submission.updatedOn"
-msgstr "{$datePublished} - Aktualizováno dne {$dateUpdated}"
-
-msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Autoři nyní nemohou editovat metadata, když jsou odeslány ve fázi {stage}."
-
-msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Autoři mají nyní možnost editovat metadata při odesílání ve fázi {stage}."
-
-msgid "submission.parsedCitations.DOI"
-msgstr "DOI"
-
-msgid "metadata.property.displayName.abstract"
-msgstr "Abstrakt"
-
-msgid "author.publicationNotFound"
-msgstr "Publikace tohoto autora nebyla nalezena."
-
-msgid "author.editPublishedDisabled"
-msgstr "Autory této publikace nelze upravovat, protože již byla publikována."
-
-msgid "submission.list.daysSinceLastActivity"
-msgstr "Dny od poslední aktivity"
-
-msgid "submission.list.activity"
-msgstr "Aktivita"
-
-msgid "notification.type.editorDecisionNewRound"
-msgstr "Bylo zahájeno nové kolo revizí."
-
-msgid "editor.submission.decision.newRound"
-msgstr "Nové kolo revize"
-
-msgid "submission.downloads"
-msgstr "Stahování"
-
-msgid "submission.additionalFiles"
-msgstr "Další soubory"
-
-msgid "submission.representationOfTitle"
-msgstr "{$representation} z {$title}"
-
-msgid "notification.type.submissionNewVersion"
-msgstr "Byla vytvořena nová verze příspěvku"
-
-msgid "notification.type.revertDecline"
-msgstr "Rozhodnutí odmítnout tento příspěvek bylo vráceno."
-
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Zamítnutý příspěvek byl znovu aktivován."
-
-msgid "submission.event.fileEdited"
-msgstr "Metadata souboru \"{$originalFileName}\" editoval {$username}."
-
-msgid "editor.submission.decision.revertDecline"
-msgstr "Vrátit zamítnutí"
-
-msgid "submission.upload.percentComplete"
-msgstr "Nahrávání je z {$percent} % hotovo"
-
-msgid "submission.upload.instructions"
-msgstr ""
-"Nahrajte všechny soubory, které redakční tým bude potřebovat k vyhodnocení "
-"vašeho příspěvku."
-
-msgid "submission.file.notAllowedUploaderUserId"
-msgstr ""
-"Záznam nahrávače souborů se uloží při vytvoření souboru a nelze jej změnit."
-
-msgid "submission.submit.removeConfirm"
-msgstr "Opravdu chcete tento soubor odstranit?"
-
-msgid "submission.submit.genre.error"
-msgstr "Vyberte typ souboru pro každé nahrání."
-
-msgid "submission.submit.genre.description"
-msgstr "Vyberte možnost, která nejlépe vystihuje tento soubor."
-
-msgid "submission.submit.genre.label"
-msgstr "O jaký druh souboru se jedná?"
-
-msgid "author.submission.roundStatus.reviewOverdue"
-msgstr ""
-"Jeden nebo více recenzentů zmeškalo termín. Redakční tým byl upozorněn a "
-"přijme opatření, aby zajistil dokončení recenzí. V tuto chvíli nemusíte "
-"podnikat žádné kroky. Až bude učiněno rozhodnutí, budete upozorněni."
+#~ msgid "publication.citations.success"
+#~ msgstr "Reference byly aktualizovány."

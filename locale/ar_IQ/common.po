@@ -103,7 +103,8 @@ msgid "common.grid"
 msgstr "شبكة"
 
 msgid "common.confirmDelete"
-msgstr "هل أنت متأكد من رغبتك في حذف هذه الفقرة؟ هذا الإجراء لا يمكن التراجع عنه."
+msgstr ""
+"هل أنت متأكد من رغبتك في حذف هذه الفقرة؟ هذا الإجراء لا يمكن التراجع عنه."
 
 msgid "common.abstract"
 msgstr "الملخص"
@@ -123,6 +124,9 @@ msgstr "تفعيل"
 msgid "common.active"
 msgstr "نشط"
 
+msgid "common.inactive"
+msgstr "غير فعال"
+
 msgid "common.add"
 msgstr "أضف"
 
@@ -136,10 +140,14 @@ msgid "common.all"
 msgstr "الكل"
 
 msgid "common.alphaList"
-msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
+msgstr ""
+"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z أ ب  ت ث  ج ح خ د ذ ر ز "
+"س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
 
 msgid "common.titleSmallWords"
-msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
 
 msgid "common.alreadyAssigned"
 msgstr "معيَّن سابقاً"
@@ -148,7 +156,10 @@ msgid "common.altText"
 msgstr "النص البديل"
 
 msgid "common.altTextInstructions"
-msgstr "أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: \"محررنا يتحدث في المؤتمر.\""
+msgstr ""
+"أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا "
+"تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: "
+"\"محررنا يتحدث في المؤتمر.\""
 
 msgid "common.and"
 msgstr "و"
@@ -211,11 +222,15 @@ msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -223,9 +238,13 @@ msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -355,6 +374,9 @@ msgstr "تنزيل بصيغة PDF"
 msgid "common.edit"
 msgstr "تعديل"
 
+msgid "common.editItem"
+msgstr "تحرير {$name}"
+
 msgid "common.enable"
 msgstr "تمكين"
 
@@ -368,7 +390,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "حدث خطأ غير معروف لدى الاتصال بقاعدة البيانات."
 
 msgid "common.error.framesRequired"
-msgstr "هذه الصفحة تتطلب وجود إطارات. <a href=\"{$url}\">أنقر هنا</a> للنسخة التي بلا إطارات."
+msgstr ""
+"هذه الصفحة تتطلب وجود إطارات. <a href=\"{$url}\">أنقر هنا</a> للنسخة التي "
+"بلا إطارات."
 
 msgid "common.event"
 msgstr "الحدث"
@@ -407,7 +431,10 @@ msgid "common.fileType"
 msgstr "نوع الملف"
 
 msgid "common.fileUploaderError"
-msgstr "إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة."
+msgstr ""
+"إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني "
+"أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول "
+"استحصال الدعم من الإدارة."
 
 msgid "common.filter"
 msgstr "التصفيات"
@@ -545,7 +572,9 @@ msgid "common.notes"
 msgstr "ملاحظات"
 
 msgid "common.notes.tooltip"
-msgstr "ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: لا ملاحظات عليه)"
+msgstr ""
+"ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: "
+"لا ملاحظات عليه)"
 
 msgid "common.notified"
 msgstr "مُبَلَّغ"
@@ -733,6 +762,9 @@ msgstr "لا تختر شيئاً"
 msgid "common.select"
 msgstr "إختر"
 
+msgid "common.selectWithName"
+msgstr "إختر {$name}"
+
 msgid "common.sendEmail"
 msgstr "أرسل الرسالة"
 
@@ -762,6 +794,9 @@ msgstr "إقترح"
 
 msgid "common.title"
 msgstr "العنوان"
+
+msgid "common.titleSeparator"
+msgstr " | "
 
 msgid "common.top"
 msgstr "أعلى"
@@ -805,6 +840,9 @@ msgstr "تعذر رفع الملف أو تنقيحه."
 msgid "common.up"
 msgstr "أعلى"
 
+msgid "common.addFile"
+msgstr "إضافة الملف"
+
 msgid "common.upload.addFile"
 msgstr "رفع الملف"
 
@@ -826,8 +864,14 @@ msgstr "الرابط"
 msgid "common.user"
 msgstr "المستخدم"
 
+msgid "common.user.nonexistent"
+msgstr "[مستخدم غبير موجود]"
+
 msgid "common.view"
 msgstr "معاينة"
+
+msgid "common.viewWithName"
+msgstr "معاينة {$name}"
 
 msgid "common.viewProfile"
 msgstr "معاينة الملف الشخصي"
@@ -926,10 +970,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "الرسالة التي تحاول إرسالها تتضمن العديد من العناوين."
 
 msgid "email.compose.tooSoon"
-msgstr "لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد من الرسائل."
+msgstr ""
+"لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد "
+"من الرسائل."
 
 msgid "email.compose.error"
-msgstr "حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على النظام."
+msgstr ""
+"حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على "
+"النظام."
 
 msgid "email.email"
 msgstr "البريد الالكتروني"
@@ -1007,13 +1055,17 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "لطفاً، استعمل النموذج البديل أدناه لرفع ملفاتك."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا يمكن رفعها إلى الموقع."
+msgstr ""
+"حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا "
+"يمكن رفعها إلى الموقع."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "الملفات من هذا النوع لا يمكن رفعها هنا."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على النظام إذا تكرر هذا الخطأ مراراً."
+msgstr ""
+"أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على "
+"النظام إذا تكرر هذا الخطأ مراراً."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "إلغاء الرفع"
@@ -1043,7 +1095,9 @@ msgid "form.errorMany"
 msgstr "لطفاً، صحح {$count} خطأ/أخطاء."
 
 msgid "form.errors"
-msgstr "تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم حاول مجدداً."
+msgstr ""
+"تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم "
+"حاول مجدداً."
 
 msgid "form.errorsOccurred"
 msgstr "حدثت أخطاء عند معالجة هذا النموذج"
@@ -1067,7 +1121,9 @@ msgid "form.postRequired"
 msgstr "لم يتم تقديم النموذج بالشكل الصحيح."
 
 msgid "form.csrfInvalid"
-msgstr "تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً."
+msgstr ""
+"تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم "
+"حاول مجدداً."
 
 msgid "form.fileRequired"
 msgstr "لا بد من تحميل ملف."
@@ -1083,6 +1139,9 @@ msgstr "لا بد لك من تقديم رمز تعريف صحيح."
 
 msgid "form.resubmit"
 msgstr "إعادة التقديم"
+
+msgid "form.saved"
+msgstr "تم الحفظ"
 
 msgid "form.saveToUpload"
 msgstr "استعمل (حفظ) لرفع الملف."
@@ -1205,13 +1264,16 @@ msgid "stageParticipants.notify.message"
 msgstr "الرسالة"
 
 msgid "stageParticipants.notify.warning"
-msgstr "لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته."
+msgstr ""
+"لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته."
 
 msgid "stageParticipants.options"
 msgstr "صلاحيات التعيين"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير."
+msgstr ""
+"هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى "
+"الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "صلاحيات تعديل البيانات الوصفية لطلب التقديم"
@@ -1263,6 +1325,9 @@ msgstr "الإحصائيات"
 
 msgid "navigation.browse"
 msgstr "التصفح"
+
+msgid "navigation.backTo"
+msgstr "⟵ عودة إلى {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "حسب المؤلف"
@@ -1436,10 +1501,13 @@ msgid "notification.settings"
 msgstr "إعدادات الإشعارات"
 
 msgid "notification.settingsDescription"
-msgstr "إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع ظهورها في مجهز الإشعارات لديك."
+msgstr ""
+"إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع "
+"ظهورها في مجهز الإشعارات لديك."
 
 msgid "notification.reminderError"
-msgstr "حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك ."
+msgstr ""
+"حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك ."
 
 msgid "notification.reminderSent"
 msgstr "كلمة مرورك الجديدة قد أرسلت إلى العنوان البريدي الذي حددته."
@@ -1528,6 +1596,12 @@ msgstr "البحث عن"
 msgid "search.searchResults"
 msgstr "إبحث ضمن النتائج"
 
+msgid "search.searchResults.foundSingle"
+msgstr "تم العثور على عنصر واحد."
+
+msgid "search.searchResults.foundPlural"
+msgstr "تم العثور على {$count} من العناصر."
+
 msgid "search.subject"
 msgstr "كلمة/كلمات مفتاحية"
 
@@ -1566,6 +1640,9 @@ msgstr "المهام"
 
 msgid "dashboard.myQueue"
 msgstr "مساراتي"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1619,10 +1696,14 @@ msgid "navigation.goBack"
 msgstr "عودة"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا الشأن."
+msgstr ""
+"{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا "
+"الشأن."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد."
+msgstr ""
+"{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا "
+"الشأن بعد."
 
 msgid "notification.removedReviewer"
 msgstr "المحكم أُزيل."
@@ -1672,6 +1753,9 @@ msgstr "علق أحد المحكمين على \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "الملف أُخذ به."
 
+msgid "user.email"
+msgstr "عنوان البريد الالكتروني"
+
 msgid "user.authorization.submissionFile"
 msgstr "المستخدم الحالي ليس مخولاً بالوصول إلى هذا الملف."
 
@@ -1684,11 +1768,30 @@ msgstr "طلب نشر خاطئ."
 msgid "user.authorization.invalidRepresentation"
 msgstr "تمثيل خاطئ."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "جولة تحكيم خاطئة."
+
+msgid "user.authorization.invalidQuery"
+msgstr "مناقشة خاطئة."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي للتأكد من كونك تمتلك الدور المناسب تحت باب \"مسجل بصفة\"."
+msgstr ""
+"ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي "
+"للتأكد من كونك تمتلك الدور المناسب تحت باب \"مسجل بصفة\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل الموقع بحساب المستخدم الصحيح المقصود."
+msgstr ""
+"المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل "
+"الموقع بحساب المستخدم الصحيح المقصود."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "خيارات الخصوصية"
 
 msgid "notification.type.queryActivity"
 msgstr "نشاط المناقشة."
@@ -1752,6 +1855,9 @@ msgstr "هذا ينبغي أن يحتوي حروفاً فقط."
 
 msgid "validator.alpha_dash"
 msgstr "هذا ينبغي أن يحتوي حروفاً، أرقاماً، شُرطاً وخطوطاً تحتانية فقط."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
 
 msgid "validator.alpha_num"
 msgstr "هذا ينبغي أن يحتوي حروفاً وأرقاماً فقط."
@@ -1829,10 +1935,13 @@ msgid "validator.locale"
 msgstr "هذه اللغة غير مقبولة."
 
 msgid "validator.localeExpected"
-msgstr "هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة."
+msgstr ""
+"هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة."
 
 msgid "validator.localeKey"
-msgstr "لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، sr_RS@cyrillic."
+msgstr ""
+"لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "هذا ليس له أن يكون أكبر من {$max}."
@@ -1923,57 +2032,3 @@ msgstr "إن {$attribute} قد سبق اختياره."
 
 msgid "validator.url"
 msgstr "هذا ليس رابطاً صحيحاً."
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "خيارات الخصوصية"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
-
-msgid "user.authorization.invalidQuery"
-msgstr "مناقشة خاطئة."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "جولة تحكيم خاطئة."
-
-msgid "user.email"
-msgstr "عنوان البريد الالكتروني"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
-
-msgid "search.searchResults.foundPlural"
-msgstr "تم العثور على {$count} من العناصر."
-
-msgid "search.searchResults.foundSingle"
-msgstr "تم العثور على عنصر واحد."
-
-msgid "navigation.backTo"
-msgstr "⟵ عودة إلى {$page}"
-
-msgid "form.saved"
-msgstr "تم الحفظ"
-
-msgid "common.viewWithName"
-msgstr "معاينة {$name}"
-
-msgid "common.user.nonexistent"
-msgstr "[مستخدم غبير موجود]"
-
-msgid "common.addFile"
-msgstr "إضافة الملف"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.selectWithName"
-msgstr "إختر {$name}"
-
-msgid "common.editItem"
-msgstr "تحرير {$name}"
-
-msgid "common.inactive"
-msgstr "غير فعال"

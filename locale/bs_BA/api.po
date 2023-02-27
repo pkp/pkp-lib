@@ -8,27 +8,48 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr ""
-"Ne možete modifikovati pridruživanje fajla bez dodavanja assocType i assocId."
+msgid "api.400.paramNotSupported"
+msgstr "Parametar {$param} nije podržan."
 
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Direktorij javnih datoteka nije pronađen ili datoteke nije moguće spremiti u "
-"njega. Molimo vas kontaktirajte svog administratora da biste riješili ovaj "
-"problem."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"Nemate dovoljno prostora u korisničkom imeniku. Datoteka koju prenosite ima "
-"{$fileUploadSize}kb, a preostalo vam je {$dirSizeLeft}kb."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Nije moguće promijeniti vrijeme kada je ovo kreirano."
+
+msgid "api.403.unauthorized"
+msgstr "Niste ovlašteni za pristup traženom resursu."
 
 msgid "api.404.resourceNotFound"
 msgstr "Traženi resurs nije pronađen."
+
+msgid "api.404.endpointNotFound"
+msgstr "Traženi URL nije prepoznat."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.500.badAuthorizationheader"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Obavijest koju ste tražili nije pronađena."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Morate uključiti e-mail koji ćete poslati."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Morate navesti predmet za e-mail."
 
 msgid "api.emails.400.missingUserGroups"
 msgstr "Morate navesti korisničke uloge koje bi trebale primiti ovaj e-mail."
@@ -36,6 +57,48 @@ msgstr "Morate navesti korisničke uloge koje bi trebale primiti ovaj e-mail."
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
 "Nije dozvoljeno slanje e-maila korisnicima u jednoj ili više odabranih uloga."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Predložak e-maila koji ste tražili nije pronađen."
+
+msgid "api.files.400.noUpload"
+msgstr "Uz zahtjev nije pronađen nijedan fajl za učitavanje."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Jedan ili više fajlova nije se mogao prenijeti."
+
+msgid "api.files.400.fileSize"
+msgstr "Fajlovi veći od {$maxSize} ne mogu se prenijeti."
+
+msgid "api.files.400.config"
+msgstr ""
+"Fajl se ne može učitati zbog greške u konfiguraciji servera. Molimo "
+"kontaktirajte administratora sistema."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikacija koju želite objaviti je već objavljena."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikacija koju želite poništiti nije objavljena."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Ne možete uređivati ovu publikaciju jer je već objavljena."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Ne možete izmijeniti status direktno putem API-ja. Umjesto toga, "
+"upotrijebite /objavite i /poništite krajnje tačke."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Morate poništiti objavljivanje ove publikacije prije nego što je možete "
+"izbrisati."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Možete prenijeti samo sljedeće vrste fajlova: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Slika koju ste prenijeli nije validna."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -46,137 +109,107 @@ msgstr ""
 msgid "api.publicFiles.403.unauthorized"
 msgstr "Nije vam dozvoljeno da prenesete fajlove."
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Možete prenijeti samo sljedeće vrste fajlova: {$fileTypes}."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Morate navesti predmet za e-mail."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Obavijest koju ste tražili nije pronađena."
-
-msgid "api.files.400.noUpload"
-msgstr "Uz zahtjev nije pronađen nijedan fajl za učitavanje."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Predložak e-maila koji ste tražili nije pronađen."
-
-msgid "api.files.400.fileSize"
-msgstr "Fajlovi veći od {$maxSize} ne mogu se prenijeti."
-
-msgid "api.403.unauthorized"
-msgstr "Niste ovlašteni za pristup traženom resursu."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Publikacija koju želite objaviti je već objavljena."
-
-msgid "api.emails.400.missingBody"
-msgstr "Morate uključiti e-mail koji ćete poslati."
-
-msgid "api.400.paramNotSupported"
-msgstr "Parametar {$param} nije podržan."
-
-msgid "api.files.400.config"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Fajl se ne može učitati zbog greške u konfiguraciji servera. Molimo "
-"kontaktirajte administratora sistema."
+"Nemate dovoljno prostora u korisničkom imeniku. Datoteka koju prenosite ima "
+"{$fileUploadSize}kb, a preostalo vam je {$dirSizeLeft}kb."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Jedan ili više fajlova nije se mogao prenijeti."
-
-msgid "api.publication.403.cantDeletePublished"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Morate poništiti objavljivanje ove publikacije prije nego što je možete "
-"izbrisati."
+"Direktorij javnih datoteka nije pronađen ili datoteke nije moguće spremiti u "
+"njega. Molimo vas kontaktirajte svog administratora da biste riješili ovaj "
+"problem."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikacija koju želite poništiti nije objavljena."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datum mora biti u formatu YYYY-MM-DD."
 
-msgid "api.publication.403.cantEditStatus"
+msgid "api.stats.400.wrongDateRange"
+msgstr "Datum početka ne može biti kasniji od datuma završetka."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Datum početka ne može biti raniji od 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Datum završetka ne može biti kasniji od jučer."
+
+msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"Ne možete izmijeniti status direktno putem API-ja. Umjesto toga, "
-"upotrijebite /objavite i /poništite krajnje tačke."
+"Zahtjev nije validan. Interval vremenske trake mora biti `dan` ili ` mjesec`."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Ne možete uređivati ovu publikaciju jer je već objavljena."
-
-msgid "api.404.endpointNotFound"
-msgstr "Traženi URL nije prepoznat."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Nije moguće promijeniti vrijeme kada je ovo kreirano."
-
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Slika koju ste prenijeli nije validna."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Lokalizacija {$locale} nije podržana."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"Aktivna tema, {$themePluginPath}, nije omogućena i možda neće biti "
-"instalirana."
+"Vaš zahtjev nije validan. Smjer naloga mora biti `silazno` ili` uzlazno`."
 
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
-"Ova krajnja tačka nije dostupna iz konteksta. Mora mu se pristupiti iz "
-"prostora imena na cijeloj web stranici."
+"Ne možete modifikovati pridruživanje fajla bez dodavanja assocType i assocId."
 
-msgid "api.submissions.403.userCantEdit"
-msgstr "Nije vam dozvoljeno uređivanje ove publikacije."
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Ne možete povezati fajl iz ove faze fajla s napomenom za raspravu."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Ne možete povezati fajl iz ove faze sa zadatkom pregleda."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Ne možete povezati fajl iz ove faze fajla s serijom pregleda."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Morate navesti seriju pregleda kada tražite fajlove u fazi pregleda."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Morate osigurati fazu fajla."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "U zahtjevu za uređivanje ovog fajla nisu pronađene promjene."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nije vam dozvoljen pristup ovim fajlovima."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nije vam dozvoljeno dodavanje i uređivanje ovih fajlova."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nije vam dozvoljen pristup fajlovima u ovoj seriji pregleda."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Vaš zahtjev nije mogao biti ispunjen jer nedostaju potrebne informacije."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr ""
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
 "Vaš zahtjev je odbijen. To je možda zato što je vaša prijava istekla. "
 "Pokušajte ponovo učitati stranicu i pokušajte ponovo."
 
-msgid "api.submissions.400.missingRequired"
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr ""
-"Vaš zahtjev nije mogao biti ispunjen jer nedostaju potrebne informacije."
 
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Nije vam dozvoljen pristup fajlovima u ovoj seriji pregleda."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Nije vam dozvoljeno dodavanje i uređivanje ovih fajlova."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Nije vam dozvoljen pristup ovim fajlovima."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr "U zahtjevu za uređivanje ovog fajla nisu pronađene promjene."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Morate osigurati fazu fajla."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "Morate navesti seriju pregleda kada tražite fajlove u fazi pregleda."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "Ne možete povezati fajl iz ove faze fajla s serijom pregleda."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Ne možete povezati fajl iz ove faze sa zadatkom pregleda."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Ne možete povezati fajl iz ove faze fajla s napomenom za raspravu."
-
-msgid "api.stats.400.invalidOrderDirection"
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr ""
-"Vaš zahtjev nije validan. Smjer naloga mora biti `silazno` ili` uzlazno`."
 
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
 msgstr ""
-"Zahtjev nije validan. Interval vremenske trake mora biti `dan` ili ` mjesec`."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Datum završetka ne može biti kasniji od jučer."
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nije vam dozvoljeno uređivanje ove publikacije."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Datum početka ne može biti raniji od 2001-01-01."
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ova krajnja tačka nije dostupna iz konteksta. Mora mu se pristupiti iz "
+"prostora imena na cijeloj web stranici."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Datum početka ne može biti kasniji od datuma završetka."
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Aktivna tema, {$themePluginPath}, nije omogućena i možda neće biti "
+"instalirana."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Datum mora biti u formatu YYYY-MM-DD."
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Lokalizacija {$locale} nije podržana."

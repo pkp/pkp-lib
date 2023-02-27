@@ -4,16 +4,28 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
 "PO-Revision-Date: 2021-01-22 13:30+0000\n"
-"Last-Translator: FRITT, University of Oslo Library <fritt-"
-"info@journals.uio.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/common/nb_NO/>\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
+"no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/common/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr "Gjeldende stilark"
+
+msgid "about.description"
+msgstr "Beskrivelse"
+
+msgid "about.guidelines"
+msgstr "Retningslinjer"
 
 msgid "about.aboutSite"
 msgstr "Om nettstedet"
@@ -60,29 +72,60 @@ msgstr "Ingen oppslag er publisert."
 msgid "announcement.posted"
 msgstr "Publisert"
 
-msgid "announcement.viewLink"
-msgstr "Mer ..."
+msgid "announcement.postedOn"
+msgstr "Publisert {$postDate}"
 
 msgid "announcement.view"
 msgstr "Vis oppslag"
 
-msgid "common.copy"
-msgstr "Kopier"
+msgid "common.allDownloads"
+msgstr "Alle nedlastinger"
 
-msgid "common.preview"
-msgstr "Forhåndsvis"
+msgid "common.navigation.sidebar"
+msgstr "Sidemeny"
 
-msgid "common.activate"
-msgstr "Slå på"
+msgid "common.navigation.site"
+msgstr "Navigering"
 
-msgid "common.deactivate"
-msgstr "Slå av"
+msgid "common.navigation.siteContext"
+msgstr "Navigere nettstedkontekst"
+
+msgid "common.navigation.user"
+msgstr "Brukernavigering"
+
+msgid "common.tasks"
+msgstr "Oppgaver"
+
+msgid "common.list"
+msgstr "Liste"
+
+msgid "common.grid"
+msgstr "Nett"
+
+msgid "common.confirmDelete"
+msgstr ""
+"Er du sikker på at du vil slette dette elementet? Det kan ikke gjøres om."
+
+msgid "common.abstract"
+msgstr "Sammendrag"
+
+msgid "common.accepted"
+msgstr "Godtatt"
+
+msgid "common.acknowledged"
+msgstr "Bekreftet"
 
 msgid "common.action"
 msgstr "Handling"
 
+msgid "common.activate"
+msgstr "Slå på"
+
 msgid "common.active"
 msgstr "Aktive"
+
+msgid "common.inactive"
+msgstr "Inaktiv"
 
 msgid "common.add"
 msgstr "Legg til"
@@ -90,17 +133,31 @@ msgstr "Legg til"
 msgid "common.addSelf"
 msgstr "Legg til deg selv"
 
+msgid "common.name"
+msgstr "Navn"
+
 msgid "common.all"
 msgstr "Alle"
 
 msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Æ Ø Å"
 
+msgid "common.titleSmallWords"
+msgstr ""
+"og en ei et i av med for på men så fra til inn med over hvis er det den de"
+
 msgid "common.alreadyAssigned"
 msgstr "Oppnevnt"
 
 msgid "common.altText"
 msgstr "Alternativ tekst"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"En alternativ tekst beskriver informasjonen som gis i bildet.  Eksempel: "
+"«Her presenterer redaktøren vår et paper på  PKP-konferansen.» Slik blir "
+"innholdet blir mer synlig i søkemotorer og du sikrer universal utforming for "
+"de som bruker leseprogram uten bildefunksjon eller ulike hjelpemidler."
 
 msgid "common.and"
 msgstr "og"
@@ -114,6 +171,12 @@ msgstr "Oppnevn"
 msgid "common.assigned"
 msgstr "Oppnevnt"
 
+msgid "common.assigned.date"
+msgstr "Oppnevnt: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Tilgjengelig"
+
 msgid "common.back"
 msgstr "Tilbake"
 
@@ -126,17 +189,66 @@ msgstr "Avbryt"
 msgid "common.cancelled"
 msgstr "Avbrutt"
 
-msgid "common.captchaField.altText"
-msgstr "Valideringsbilde"
+msgid "common.warning"
+msgstr "Advarsel"
 
-msgid "common.captchaField.badCaptcha"
-msgstr "Tegnene du skrev inn stemte ikke overens med tegnene i bildet. Vennligst prøv en gang til."
+msgid "common.error"
+msgstr "Feil"
+
+msgid "common.notice"
+msgstr "Merknad"
+
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"Captcha-valideringen for nettstedet er ikke konfigurert riktig. Koden "
+"mangler."
+
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"Captcha-valideringen for nettstedet er ikke konfigurert riktig. Koden er "
+"ikke gyldig."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Fullfør valideringen. Den forhindrer at nettsøppel blir sendt inn."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr "Du besto ikke valideringssjekken."
 
 msgid "common.captchaField.description"
 msgstr "Skriv inn tegnene du ser i bildet ovenfor."
 
 msgid "common.captchaField"
 msgstr "Validering"
+
+msgid "common.ccLicense"
+msgstr ""
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br/>\n"
+"\t\tDette verket er lisensiert med en <a rel=\"license\" target=\"_blank\" "
+"href=\"http://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0-lisens</a>.\n"
+"\t"
+
+msgid "common.ccLicense.rt"
+msgstr ""
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tDette verket er lisensiert med en <a rel=\"license\" href=\"http://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0-lisens</a>.\n"
+"\t</div>\n"
+"\t"
 
 msgid "common.changesSaved"
 msgstr "Endringene dine ble lagret."
@@ -147,6 +259,9 @@ msgstr "Velg en"
 msgid "common.close"
 msgstr "Lukk"
 
+msgid "common.closePanel"
+msgstr "Lukk felt"
+
 msgid "common.closeWindow"
 msgstr "Lukk vindu"
 
@@ -156,8 +271,26 @@ msgstr "Fullført"
 msgid "common.completed"
 msgstr "Fullført"
 
+msgid "common.completed.date"
+msgstr "Fullført: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Bekreft"
+
+msgid "common.confirmed.date"
+msgstr "Bekreftet: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Innhold"
+
+msgid "common.contents"
+msgstr "Innhold"
+
 msgid "common.continue"
 msgstr "Fortsett"
+
+msgid "common.copy"
+msgstr "Kopier"
 
 msgid "common.country"
 msgstr "Land"
@@ -167,6 +300,9 @@ msgstr "Opprett"
 
 msgid "common.dateCompleted"
 msgstr "Utført dato"
+
+msgid "common.dateDecided"
+msgstr "Beslutningsdato"
 
 msgid "common.date"
 msgstr "Dato"
@@ -183,20 +319,44 @@ msgstr "Innsendingsdato"
 msgid "common.dateUploaded"
 msgstr "Opplastingsdato"
 
+msgid "common.dateHijri"
+msgstr "Islamsk kalendar"
+
 msgid "common.day"
 msgstr "Dag"
+
+msgid "common.deactivate"
+msgstr "Slå av"
 
 msgid "common.default"
 msgstr "Standard"
 
+msgid "common.declined"
+msgstr "Avvist"
+
 msgid "common.delete"
 msgstr "Slett"
+
+msgid "common.deleting"
+msgstr "Sletter"
 
 msgid "common.deleteSelection"
 msgstr "Slett valgte"
 
+msgid "common.designation"
+msgstr "Betegnelse"
+
 msgid "common.description"
 msgstr "Beskrivelse"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixles"
+
+msgid "common.disable"
+msgstr "Slå av"
 
 msgid "common.disabled"
 msgstr "Er slått av"
@@ -210,8 +370,17 @@ msgstr "Ferdig"
 msgid "common.download"
 msgstr "Last ned"
 
+msgid "common.downloadPdf"
+msgstr "Last ned PDF"
+
 msgid "common.edit"
 msgstr "Rediger"
+
+msgid "common.editItem"
+msgstr "Rediger {$name}"
+
+msgid "common.enable"
+msgstr "Slå på"
 
 msgid "common.enabled"
 msgstr "Er slått på"
@@ -233,8 +402,26 @@ msgstr "Aktivitet"
 msgid "common.export"
 msgstr "Eksporter"
 
+msgid "common.finish"
+msgstr "Avslutt"
+
+msgid "common.fullscreen"
+msgstr "Fullskjerm"
+
+msgid "common.fullscreenOff"
+msgstr "Fullskjerm av"
+
+msgid "common.false"
+msgstr "Feil"
+
 msgid "common.file"
 msgstr "Fil"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
 
 msgid "common.fileName"
 msgstr "Filnavn"
@@ -245,14 +432,38 @@ msgstr "Filstørrelse"
 msgid "common.fileType"
 msgstr "Filtype"
 
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
+msgid "common.fileUploaderError"
+msgstr ""
+"Systemfilopplasteren jobber. Om du ikke ser det, kan det hende at ingen av "
+"kjøretidene er støttet av nettleseren din. Ta kontakt med administrator for "
+"hjelp."
 
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgid "common.filter"
+msgstr "Filtre"
+
+msgid "common.filterAdd"
+msgstr "Legg til filter: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Fjern filter: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Fra"
+
+msgid "common.fromWithValue"
+msgstr "Fra: {$value}"
+
+msgid "common.until"
+msgstr "Til"
+
+msgid "common.go"
+msgstr "Fortsett"
 
 msgid "common.height"
 msgstr "Høyde"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Hjem"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "Topplogo på hjemmesiden"
@@ -272,6 +483,9 @@ msgstr "Sett i gang"
 msgid "common.inProgress"
 msgstr "Under arbeid"
 
+msgid "common.itemsPerPage"
+msgstr "Elementer per side"
+
 msgid "common.keywords"
 msgstr "Nøkkelord"
 
@@ -281,8 +495,32 @@ msgstr "Språk"
 msgid "common.languages"
 msgstr "Språk"
 
+msgid "common.lastActivity"
+msgstr "Siste aktivitet registrert {$date}."
+
+msgid "common.less"
+msgstr "Mindre"
+
+msgid "common.lessThan"
+msgstr "{$value} eller mindre"
+
+msgid "common.lessThanOnly"
+msgstr "Mindre enn"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Administrer"
+
 msgid "common.mailingAddress"
 msgstr "Postadresse"
+
+msgid "common.billingAddress"
+msgstr "Fakturaadresse (om annen)"
 
 msgid "common.minute"
 msgstr "Minutt(er)"
@@ -293,6 +531,15 @@ msgstr "Endre"
 msgid "common.month"
 msgstr "Måned"
 
+msgid "common.more"
+msgstr "Mer"
+
+msgid "common.moreThan"
+msgstr "{$value} eller mer"
+
+msgid "common.moreThanOnly"
+msgstr "Mer enn"
+
 msgid "common.noneAssigned"
 msgstr "Ingen oppnevnt"
 
@@ -301,6 +548,12 @@ msgstr "Ingen"
 
 msgid "common.no"
 msgstr "Nei"
+
+msgid "common.noItemsFound"
+msgstr "Ingen elementer ble funnet."
+
+msgid "common.noComments"
+msgstr "Ingen kommentar"
 
 msgid "common.notApplicable"
 msgstr "Kan ikke brukes"
@@ -314,8 +567,25 @@ msgstr "Ikke tilgjengelig"
 msgid "common.note"
 msgstr "Notat"
 
+msgid "common.noTemporaryFile"
+msgstr "Filen du lastet opp, ble ikke funnet. Prøv å laste den opp igjen."
+
 msgid "common.notes"
 msgstr "Merknad"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Merknader (gul: har nye merknader; blå: har sett merknadene; grå: ingen "
+"merknader)"
+
+msgid "common.notified"
+msgstr "Informert"
+
+msgid "common.notified.date"
+msgstr "Informert: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Ingen treff"
 
 msgid "common.off"
 msgstr "Av"
@@ -323,11 +593,20 @@ msgstr "Av"
 msgid "common.on"
 msgstr "På"
 
+msgid "common.ok"
+msgstr "OK"
+
 msgid "common.options"
 msgstr "Valg"
 
 msgid "common.order"
 msgstr "Ordne"
+
+msgid "common.orderUp"
+msgstr "Flytt {$itemTitle} opp i listen"
+
+msgid "common.orderDown"
+msgstr "Flytt {$itemTitle} ned i listen"
 
 msgid "common.originalFileName"
 msgstr "Opprinnelig filnavn"
@@ -338,20 +617,98 @@ msgstr "eller"
 msgid "common.other"
 msgstr "Andre"
 
+msgid "common.overdue"
+msgstr "Forfalt"
+
+msgid "common.override"
+msgstr "Overstyr"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} av {$total}"
+
+msgid "common.pagination.label"
+msgstr "Vis flere sider"
+
+msgid "common.pagination.goToPage"
+msgstr "Gå til {$page}"
+
+msgid "common.pagination.next"
+msgstr "Neste side"
+
+msgid "common.pagination.previous"
+msgstr "Forrige side"
+
+msgid "common.pageNumber"
+msgstr "Side {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage} %"
+
 msgid "common.plugin"
 msgstr "Programtillegg"
+
+msgid "common.pluginEnabled"
+msgstr "Programtillegget «{$pluginName}» er aktivert."
+
+msgid "common.pluginDisabled"
+msgstr "Programtillegget «{$pluginName}» er deaktivert."
+
+msgid "common.prefix"
+msgstr "Prefiks"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Eksempler: En, Et, Den, De"
+
+msgid "common.preview"
+msgstr "Forhåndsvis"
 
 msgid "common.publisher"
 msgstr "Utgiver"
 
+msgid "common.quality"
+msgstr "Kvalitet"
+
+msgid "common.queue.long.active"
+msgstr "Alle aktive"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Ad:"
+
+msgid "common.readMore"
+msgstr "Les mer"
+
+msgid "common.readMoreWithTitle"
+msgstr "Les mer om {$title}"
+
 msgid "common.record"
 msgstr "Journalfør"
+
+msgid "common.refresh"
+msgstr "Oppdater"
 
 msgid "common.related"
 msgstr "Relaterte"
 
+msgid "common.reminder"
+msgstr "Påminnelse"
+
+msgid "common.reminded.date"
+msgstr "Påminnet: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Ekstern"
+
+msgid "common.remoteURL"
+msgstr "Ekstern URL"
+
 msgid "common.remove"
 msgstr "Fjern"
+
+msgid "common.removeItem"
+msgstr "Fjern {$item}"
 
 msgid "common.removeSelection"
 msgstr "Fjern valgte"
@@ -368,6 +725,9 @@ msgstr "(* må fylles ut)"
 msgid "common.required"
 msgstr "Obligatorisk"
 
+msgid "common.reset"
+msgstr "Tilbakestill"
+
 msgid "common.saveAndContinue"
 msgstr "Lagre og fortsett"
 
@@ -377,8 +737,17 @@ msgstr "Lagre og send e-post"
 msgid "common.save"
 msgstr "Lagre"
 
+msgid "common.saving"
+msgstr "Lagrer"
+
 msgid "common.search"
 msgstr "Søk"
+
+msgid "common.searchQuery"
+msgstr "Søkeord"
+
+msgid "common.clearSearch"
+msgstr "Nullstill søkefrasen"
 
 msgid "common.second"
 msgstr "Sekund(er)"
@@ -386,11 +755,20 @@ msgstr "Sekund(er)"
 msgid "common.selectAll"
 msgstr "Velg alle"
 
+msgid "common.selectedPrefix"
+msgstr "Valgte:"
+
 msgid "common.selectNone"
 msgstr "Velg ingen"
 
 msgid "common.select"
 msgstr "Velg"
+
+msgid "common.selectWithName"
+msgstr "Velg {$name}"
+
+msgid "common.sendEmail"
+msgstr "Send e-post"
 
 msgid "common.size"
 msgstr "Størrelse"
@@ -404,20 +782,47 @@ msgstr "Status"
 msgid "common.subject"
 msgstr "Emne"
 
+msgid "common.subjects"
+msgstr "Emner"
+
+msgid "common.submenu"
+msgstr "Undermeny"
+
+msgid "common.subtitle"
+msgstr "Undertittel"
+
 msgid "common.suggest"
 msgstr "Foreslå"
 
 msgid "common.title"
 msgstr "Tittel"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Til topps"
+
+msgid "common.toWithValue"
+msgstr "Til: {$value}"
+
+msgid "common.true"
+msgstr "Korrekt"
 
 msgid "common.type"
 msgstr "Type"
 
+msgid "common.component"
+msgstr "Komponent"
+
 msgid "common.uninitiated"
 msgstr "Ikke satt i gang"
+
+msgid "common.unknownError"
+msgstr "En uventet feil oppstod. Last siden på nytt og prøv igjen."
+
+msgid "common.unread"
+msgstr "Ulest"
 
 msgid "common.untitled"
 msgstr "Uten tittel"
@@ -425,11 +830,35 @@ msgstr "Uten tittel"
 msgid "common.updated"
 msgstr "Oppdatert"
 
+msgid "common.uploadedDate"
+msgstr "Opplastningsdato"
+
 msgid "common.upload"
 msgstr "Last opp"
 
+msgid "common.uploadFailed"
+msgstr "Filen kunne ikke lastes opp eller revideres."
+
 msgid "common.up"
 msgstr "Opp"
+
+msgid "common.addFile"
+msgstr "Legg til fil"
+
+msgid "common.upload.addFile"
+msgstr "Last opp fil"
+
+msgid "common.upload.restore"
+msgstr "Gjenopprett original"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Forhåndsvisning av det valgte bildet."
+
+msgid "common.upload.changeFile"
+msgstr "Endre fil"
+
+msgid "common.upload.dragFile"
+msgstr "Dra og slipp en fil her for opplasting"
 
 msgid "common.url"
 msgstr "URL"
@@ -437,8 +866,17 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Bruker"
 
+msgid "common.user.nonexistent"
+msgstr "[Bruker finnes ikke]"
+
 msgid "common.view"
 msgstr "Vis"
+
+msgid "common.viewWithName"
+msgstr "Se {$name}"
+
+msgid "common.viewProfile"
+msgstr "Se profil"
 
 msgid "common.weeks"
 msgstr "uker"
@@ -451,6 +889,21 @@ msgstr "År"
 
 msgid "common.yes"
 msgstr "Ja"
+
+msgid "common.loading"
+msgstr "Laster"
+
+msgid "common.plugins"
+msgstr "Programtillegg"
+
+msgid "common.metric"
+msgstr "Verdi"
+
+msgid "common.count"
+msgstr "Antall"
+
+msgid "common.publicAccess"
+msgstr "Offentlig tilgang"
 
 msgid "debug.databaseQueries"
 msgstr "Antall søk i databasen(e)"
@@ -472,6 +925,18 @@ msgstr "Mangler språkpakkenøkkelen «{$key}»."
 
 msgid "debug.notes"
 msgstr "Merknader:"
+
+msgid "defaultMetric.title"
+msgstr "Standardverdi"
+
+msgid "defaultMetric.availableMetrics"
+msgstr "Tilgjengelige verdier"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Last opp fil"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Last opp"
 
 msgid "email.addAttachment"
 msgstr "Legg til vedlegg"
@@ -511,6 +976,11 @@ msgstr ""
 "Det er for kort tid siden du sendte den forrige meldingen din. Vent litt før "
 "du prøver å sende en til."
 
+msgid "email.compose.error"
+msgstr ""
+"Det oppstod et problem ved sending av epost. Prøv igjen senere, eller "
+"kontakt din systemadministrator."
+
 msgid "email.email"
 msgstr "E-post"
 
@@ -532,6 +1002,12 @@ msgstr "Mottakere"
 msgid "email.sender"
 msgstr "Sender"
 
+msgid "email.senderName"
+msgstr "Avsender"
+
+msgid "email.senderEmail"
+msgstr "Avsenders e-post"
+
 msgid "email.send"
 msgstr "Send"
 
@@ -541,11 +1017,89 @@ msgstr "Hopp over e-post"
 msgid "email.subject"
 msgstr "Emne"
 
+msgid "email.subjectRequired"
+msgstr "Fyll ut emnefeltet."
+
+msgid "email.bodyRequired"
+msgstr "Skriv inn brødteksten."
+
 msgid "email.to"
 msgstr "Til"
 
-msgid "form.contains"
-msgstr "inneholder"
+msgid "form.url.invalid"
+msgstr "URL-en er ikke gyldig. Sjekk nettadressen og prøv igjen."
+
+msgid "form.confirmSubmit"
+msgstr "Er du sikker på at du vil sende inn dette skjemaet?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Bekreft"
+
+msgid "form.emailRequired"
+msgstr "Du må oppgi en e-postadresse."
+
+msgid "form.dataHasChanged"
+msgstr "Data i skjemaet har blitt endret. Vil du fortsette uten å lagre?"
+
+msgid "form.disallowedLocales"
+msgstr "Bare følgende språk er tillatt: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Denne egenskapen er ikke tillatt."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Slipp filer her for å laste opp"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Din nettleser støtter ikke opplasting av filer med dra og slipp."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Bruk skjemaet under til å laste opp filene dine."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Filen er for stor ({{filesize}}mb). Filer større enn {{maxFilesize}}mb kan "
+"ikke lastes opp."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Filer av denne typen kan ikke lastes opp."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Serveren svarte med {{statusCode}}-kode. Kontakt systemadministratoren hvis "
+"dette vedvarer."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Avbryt opplasting"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Opplasting avbrutt"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Er du sikker på om du vil avbryte denne opplastingen?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Fjern fil"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Du kan ikke laste opp flere filer."
+
+msgid "form.errorA11y"
+msgstr "Gå til {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Gå til neste feil"
+
+msgid "form.errorOne"
+msgstr "Rett en feil."
+
+msgid "form.errorMany"
+msgstr "Rett {$count} feil."
+
+msgid "form.errors"
+msgstr ""
+"Skjemaet ble ikke lagret fordi det ble funnet {$count} feil. Rett opp disse "
+"feilene, og prøv på nytt."
 
 msgid "form.errorsOccurred"
 msgstr "Det oppsto feil ved behandlingen av dette skjemaet"
@@ -556,17 +1110,40 @@ msgstr "Velg språk her om du vil skrive inn informasjonen på flere språk."
 msgid "form.formLanguage"
 msgstr "Språk for skjema"
 
+msgid "form.contains"
+msgstr "inneholder"
+
 msgid "form.is"
 msgstr "er"
+
+msgid "form.startsWith"
+msgstr "begynner med"
 
 msgid "form.postRequired"
 msgstr "Skjemaet ble ikke levert riktig."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"Dette skjemaet ble ikke levert inn riktig. Du kan ha blitt logget ut. Last "
+"siden på nytt og prøv igjen."
+
+msgid "form.fileRequired"
+msgstr "Du må laste opp en fil."
+
 msgid "form.required"
 msgstr "(* må fylles ut)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Du må fylle ut dette feltet på {$language}."
+
+msgid "form.requireId"
+msgstr "Du må oppgi et gyldig ID."
+
 msgid "form.resubmit"
 msgstr "Send inn igjen"
+
+msgid "form.saved"
+msgstr "Lagret"
 
 msgid "form.saveToUpload"
 msgstr "Bruk «Lagre» for å laste opp filen."
@@ -577,38 +1154,26 @@ msgstr "Send"
 msgid "form.submit"
 msgstr "Send inn"
 
-msgid "help.contents"
-msgstr "Innhold"
+msgid "form.invalidImage"
+msgstr "Ugyldig bildeformat. Gyldige formater: .png, .gif eller .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} på {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} språk fullført"
 
 msgid "help.help"
 msgstr "Hjelp"
 
-msgid "help.helpIndex"
-msgstr "Hjelp - emneindeks"
-
-msgid "help.matchesFound"
-msgstr "{$matches} treff"
-
-msgid "help.noMatchingTopics"
-msgstr "Ingen tilsvarende emner i Hjelp ble funnet."
-
-msgid "help.relatedTopics"
-msgstr "Relaterte emner"
-
-msgid "help.searchFor"
-msgstr "Søk emner i Hjelp for"
-
-msgid "help.searchResultsFor"
-msgstr "Resultat for"
-
-msgid "help.searchResults"
-msgstr "Søkeresultat"
-
-msgid "help.search"
-msgstr "Søk i hjelp"
-
 msgid "help.toc"
 msgstr "Innhold"
+
+msgid "help.previous"
+msgstr "Forrige"
+
+msgid "help.next"
+msgstr "Neste"
 
 msgid "help.upALevel"
 msgstr "Opp et nivå"
@@ -652,20 +1217,132 @@ msgstr "Umerket"
 msgid "icon.view.alt"
 msgstr "Vis"
 
+msgid "informationCenter.informationCenter"
+msgstr "Informasjonssenter"
+
+msgid "informationCenter.editorialHistory"
+msgstr "Historikk"
+
+msgid "informationCenter.addNote"
+msgstr "Legg til notater"
+
+msgid "informationCenter.noNotes"
+msgstr "Ingen notater er lagt inn."
+
+msgid "informationCenter.pastNotes"
+msgstr "Notater om tidligere revideringer"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "Er du sikker på at du vil slette disse notatene?"
+
+msgid "informationCenter.currentHistory"
+msgstr "Pågående revidering"
+
+msgid "informationCenter.pastHistory"
+msgstr "Tidligere revideringer"
+
+msgid "informationCenter.history.noItems"
+msgstr "Ingen aktiviteter er loggført."
+
+msgid "informationCenter.history.notePosted"
+msgstr "La ut nye notater."
+
+msgid "informationCenter.history.messageSent"
+msgstr "Varsel sendt til brukere."
+
+msgid "stageParticipants.history.messageSent"
+msgstr "Varsel sendt til brukere."
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Start diskusjon"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Start en diskusjon mellom deg og {$userFullName}."
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "Velg en e-postmal, eller fyll ut skjemaet under."
+
+msgid "stageParticipants.notify.message"
+msgstr "Beskjed"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Pass på at du har fylt ut feltet under og at du har valgt minst en mottaker."
+
+msgid "stageParticipants.options"
+msgstr "Privilegier knyttet til oppgaven"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Deltakeren har kun anledning til å anbefale en redaksjonell avgjørelse. Kun "
+"redaktører kan registrere redaksjonelle avgjørelser."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Tillatelser"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Tillat denne personen å redigere publikasjonsopplysningene som tittel, "
+"sammendrag, metadata og andre detaljer. Hvis innleveringen har blitt "
+"godkjent for og er klar for publisering kan det være du ønsker å fjerne "
+"denne rettigheten igjen."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Deltaker"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Ingen endringer kan gjøres på denne deltakeren"
+
 msgid "locale.primary"
 msgstr "Primær språkpakke"
 
 msgid "locale.supported"
 msgstr "Støttede språkpakker"
 
+msgid "navigation.access"
+msgstr "Brukere og roller"
+
 msgid "navigation.about"
 msgstr "Om"
+
+msgid "navigation.admin"
+msgstr "Administrasjon"
+
+msgid "navigation.archives"
+msgstr "Arkiv"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Du er her:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Verktøy"
+
+msgid "navigation.tools.importExport"
+msgstr "Import/eksport"
+
+msgid "navigation.tools.statistics"
+msgstr "Statistikk"
 
 msgid "navigation.browse"
 msgstr "Finn fram"
 
+msgid "navigation.backTo"
+msgstr "⟵ Tilbage til {$page}"
+
+msgid "navigation.browseByAuthor"
+msgstr "Etter forfatter"
+
 msgid "navigation.browseByTitle"
 msgstr "i titler"
+
+msgid "navigation.dashboard"
+msgstr "Navigasjonsmeny"
+
+msgid "navigation.data"
+msgstr "Data"
 
 msgid "navigation.home"
 msgstr "Hjem"
@@ -678,6 +1355,9 @@ msgstr "Informasjon for lesere"
 
 msgid "navigation.items"
 msgstr "{$from} - {$to} av {$total} elementer"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} av {$total} elementer"
 
 msgid "navigation.login"
 msgstr "Logg inn"
@@ -694,14 +1374,47 @@ msgstr "&lt;&lt;"
 msgid "navigation.previousStep"
 msgstr "Forrige steg"
 
+msgid "navigation.publicMenu"
+msgstr "Offentlig meny"
+
 msgid "navigation.register"
 msgstr "Registrer"
 
 msgid "navigation.search"
 msgstr "Søk"
 
+msgid "navigation.settings"
+msgstr "Innstillinger"
+
+msgid "navigation.setup"
+msgstr "Oppsett"
+
+msgid "navigation.sitemap"
+msgstr "Nettstedskart"
+
+msgid "navigation.skip.description"
+msgstr "Gå til innholdslenker"
+
+msgid "navigation.skip.announcements"
+msgstr "Gå til kunngjøringer"
+
+msgid "navigation.skip.main"
+msgstr "Gå til hovedinnholdet"
+
+msgid "navigation.skip.nav"
+msgstr "Gå til navigasjonsmenyen"
+
+msgid "navigation.skip.footer"
+msgstr "Gå til bunnteksten"
+
 msgid "navigation.stepNumber"
 msgstr "Steg {$step}"
+
+msgid "navigation.submissions"
+msgstr "Innleveringer"
+
+msgid "navigation.system"
+msgstr "System"
 
 msgid "navigation.userHome"
 msgstr "Min side"
@@ -709,137 +1422,50 @@ msgstr "Min side"
 msgid "navigation.user"
 msgstr "Bruker"
 
-msgid "search.abstract"
-msgstr "Sammendrag"
+msgid "navigation.userManagement"
+msgstr "Brukeradministrasjon"
 
-msgid "search.author"
-msgstr "Forfatter"
+msgid "navigation.viewFrontend"
+msgstr "Se nettside"
 
-msgid "search.coverage"
-msgstr "Dekning"
+msgid "notification.addedAuditor"
+msgstr "Sluttkontrollør lagt til."
 
-msgid "search.date"
-msgstr "Dato"
+msgid "notification.removedAuditor"
+msgstr "Sluttkontrollør fjernet."
 
-msgid "search.dateFrom"
-msgstr "Fra"
+msgid "notification.addedQuery"
+msgstr "Diskusjon lagt til"
 
-msgid "search.dateTo"
-msgstr "Til"
+msgid "notification.reviewAcknowledged"
+msgstr "Fagfellevurdering markert som bekreftet. E-post ikke sendt."
 
-msgid "search.discipline"
-msgstr "Fagdisiplin(er)"
+msgid "notification.reviewerThankedEmail"
+msgstr "E-post med takk sendt til fagfelle."
 
-msgid "search.fullText"
-msgstr "Fulltekst"
-
-msgid "search.indexTerms"
-msgstr "Emneord"
-
-msgid "search.matchAll"
-msgstr "Treff i alle kategorier"
-
-msgid "search.noResults"
-msgstr "Ingen resultat"
-
-msgid "search.operator.and"
-msgstr "AND"
-
-msgid "search.operator.not"
-msgstr "NOT"
-
-msgid "search.operator.or"
-msgstr "OR"
-
-msgid "search.reviseSearch"
-msgstr "Revider søk"
-
-msgid "search.searchAllCategories"
-msgstr "Søk i alle kategorier"
-
-msgid "search.searchCategories"
-msgstr "Søk i kategorier"
-
-msgid "search.searchResults"
-msgstr "Søkeresultat"
-
-msgid "search.subject"
-msgstr "Emneord"
-
-msgid "search.titleIndex"
-msgstr "Finn fram i tittelregisteret"
-
-msgid "search.title"
-msgstr "Tittel"
-
-msgid "search.typeMethodApproach"
-msgstr "Type (metode/innfallsvinkel)"
-
-msgid "notification.notification"
-msgstr "Varsling"
-
-msgid "notification.notifications"
-msgstr "Varslinger"
-
-msgid "common.ccLicense"
-msgstr ""
-"\n"
-"\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"http://creativecommons.org/"
-"licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
-"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
-"\t\t</a>\n"
-"\t\t<br/>\n"
-"\t\tDette verket er lisensiert med en <a rel=\"license\" target=\"_blank\" "
-"href=\"http://creativecommons.org/licenses/by/3.0/\">Creative Commons "
-"Attribution 3.0-lisens</a>.\n"
-"\t"
-
-msgid "common.ccLicense.rt"
-msgstr ""
-"\n"
-"\t<div class=\"rtBlock\">\n"
-"\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
-"\t\t<br />\n"
-"\t\tDette verket er lisensiert med en <a rel=\"license\" href=\""
-"http://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
-"Commons Attribution 3.0-lisens</a>.\n"
-"\t</div>\n"
-"\t"
-
-msgid "common.re"
-msgstr "Ad:"
-
-msgid "common.false"
-msgstr "Feil"
-
-msgid "common.manage"
-msgstr "Administrer"
-
-msgid "common.noComments"
-msgstr "Ingen kommentar"
-
-msgid "common.ok"
-msgstr "OK"
-
-msgid "common.true"
-msgstr "Korrekt"
-
-msgid "common.uploadFailed"
-msgstr "Filen kunne ikke lastes opp eller revideres."
-
-msgid "form.startsWith"
-msgstr "begynner med"
-
-msgid "navigation.dashboard"
-msgstr "Navigasjonsmeny"
+msgid "notification.updatedReviewFiles"
+msgstr "Vurderingsfiler oppdatert."
 
 msgid "notification.allow"
 msgstr "Slå på denne typen varslinger."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Type oppslag lagt til."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Type oppslag redigert."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Type oppslag fjernet."
+
+msgid "notification.removedAnnouncement"
+msgstr "Oppslag fjernet."
+
+msgid "notification.addedAuthor"
+msgstr "Forfatter lagt til."
+
+msgid "notification.editedAuthor"
+msgstr "Forfatter redigert."
 
 msgid "notification.confirmError"
 msgstr "Det oppstod en feil i behandlingen av varslingsabonnementet ditt."
@@ -847,8 +1473,32 @@ msgstr "Det oppstod en feil i behandlingen av varslingsabonnementet ditt."
 msgid "notification.confirmSuccess"
 msgstr "Varslingsabonnementet ditt er nå i orden."
 
+msgid "notification.email"
+msgstr "Ikke send meg en e-post for disse varslingstypene."
+
 msgid "notification.noneExist"
 msgstr "Du har ingen varslinger for øyeblikket."
+
+msgid "notification.addedNote"
+msgstr "Notater lagt ut."
+
+msgid "notification.removedNote"
+msgstr "Notater slettet."
+
+msgid "notification.removedFile"
+msgstr "Fil fjernet."
+
+msgid "notification.removedSubmission"
+msgstr "Innlevering fjernet."
+
+msgid "notification.notification"
+msgstr "Varsling"
+
+msgid "notification.notifications"
+msgstr "Varslinger"
+
+msgid "notification.sentNotification"
+msgstr "Varsling sendt."
 
 msgid "notification.settings"
 msgstr "Varslingsinnstillinger"
@@ -868,1195 +1518,137 @@ msgstr ""
 msgid "notification.reminderSent"
 msgstr "Det nye passordet ditt har blitt sendt til e-postadressen du oppga."
 
-msgid "common.disable"
-msgstr "Slå av"
-
-msgid "common.enable"
-msgstr "Slå på"
-
-msgid "common.fullscreen"
-msgstr "Fullskjerm"
-
-msgid "common.fullscreenOff"
-msgstr "Fullskjerm av"
-
-msgid "common.pluginEnabled"
-msgstr "Programtillegget «{$pluginName}» er aktivert."
-
-msgid "common.pluginDisabled"
-msgstr "Programtillegget «{$pluginName}» er deaktivert."
-
-msgid "common.refresh"
-msgstr "Oppdater"
-
-msgid "common.loading"
-msgstr "Laster"
-
-msgid "announcement.postedOn"
-msgstr "Publisert {$postDate}"
-
-msgid "common.accepted"
-msgstr "Godtatt"
-
-msgid "common.titleSmallWords"
-msgstr ""
-"og en ei et i av med for på men så fra til inn med over hvis er det den de"
-
-msgid "common.warning"
-msgstr "Advarsel"
-
-msgid "common.confirm"
-msgstr "Bekreft"
-
-msgid "common.content"
-msgstr "Innhold"
-
-msgid "common.declined"
-msgstr "Avvist"
-
-msgid "common.finish"
-msgstr "Avslutt"
-
-msgid "common.go"
-msgstr "Fortsett"
-
-msgid "common.less"
-msgstr "Mindre"
-
-msgid "common.commaListSeparator"
-msgstr ", "
-
-msgid "common.semicolonListSeparator"
-msgstr "; "
-
-msgid "common.billingAddress"
-msgstr "Fakturaadresse (om annen)"
-
-msgid "common.more"
-msgstr "Mer"
-
-msgid "common.noMatches"
-msgstr "Ingen treff"
-
-msgid "common.overdue"
-msgstr "Forfalt"
-
-msgid "common.reminder"
-msgstr "Påminnelse"
-
-msgid "common.signoff"
-msgstr "Logg av"
-
-msgid "common.unread"
-msgstr "Ulest"
-
-msgid "common.plugins"
-msgstr "Programtillegg"
-
-msgid "form.confirmSubmit.title"
-msgstr "Bekreft"
-
-msgid "navigation.access"
-msgstr "Brukere og roller"
-
-msgid "navigation.admin"
-msgstr "Administrasjon"
-
-msgid "navigation.settings"
-msgstr "Innstillinger"
-
-msgid "navigation.setup"
-msgstr "Oppsett"
-
-msgid "common.element"
-msgstr "Element"
-
-msgid "email.subjectRequired"
-msgstr "Fyll ut emnefeltet."
-
-msgid "email.bodyRequired"
-msgstr "Skriv inn brødteksten."
-
-msgid "form.confirmSubmit"
-msgstr "Er du sikker på at du vil sende inn dette skjemaet?"
-
-msgid "form.emailRequired"
-msgstr "Du må oppgi en e-postadresse."
-
-msgid "form.dataHasChanged"
-msgstr "Data i skjemaet har blitt endret. Vil du fortsette uten å lagre?"
-
-msgid "form.invalidImage"
-msgstr "Ugyldig bildeformat. Gyldige formater: .png, .gif eller .jpg."
-
-msgid "navigation.browseByAuthor"
-msgstr "Etter forfatter"
-
-msgid "navigation.data"
-msgstr "Data"
-
-msgid "navigation.submissions"
-msgstr "Innleveringer"
-
-msgid "navigation.system"
-msgstr "System"
-
-msgid "navigation.userManagement"
-msgstr "Brukeradministrasjon"
-
-msgid "common.remote"
-msgstr "Ekstern"
-
-msgid "common.remoteURL"
-msgstr "Ekstern URL"
-
-msgid "navigation.sitemap"
-msgstr "Nettstedskart"
-
-msgid "common.reset"
-msgstr "Tilbakestill"
-
-msgid "about.guidelines"
-msgstr "Retningslinjer"
-
-msgid "common.name"
-msgstr "Navn"
-
-msgid "navigation.archives"
-msgstr "Arkiv"
-
-msgid "semicolon"
-msgstr "{$label}:"
-
-msgid "notification.updatedReviewFiles"
-msgstr "Vurderingsfiler oppdatert."
-
-msgid "validator.url"
-msgstr "Dette er ikke en gyldig URL."
-
-msgid "validator.unique"
-msgstr "Denne {$attribute} er allerede opptatt."
-
-msgid "validator.timezone"
-msgstr "Dette er ikke en gyldig tidssone."
-
-msgid "validator.string"
-msgstr "Dette er ikke en gyldig streng."
-
-msgid "validator.size.array"
-msgstr "Dette må inneholde {$size} elementer."
-
-msgid "validator.size.string"
-msgstr "Dette må være {$size} tegn."
-
-msgid "validator.size.file"
-msgstr "Dette må være {$size} kilobytes."
-
-msgid "validator.size.numeric"
-msgstr "Dette må være {$size}."
-
-msgid "validator.same"
-msgstr "{$attribute} og {$other} må matche."
-
-msgid "validator.required_without_all"
-msgstr "Dette feltet er obligatorisk når ingen av {$values} er til stede."
-
-msgid "validator.required_without"
-msgstr "Dette feltet er obligatorisk når {$values} ikke er tilgjengelig."
-
-msgid "validator.required_with_all"
-msgstr "Dette feltet er obligatorisk når {$values} er til stede."
-
-msgid "validator.required_with"
-msgstr "Dette feltet er obligatorisk når {$values} foreligger."
-
-msgid "validator.required_unless"
-msgstr "Dette feltet er obligatorisk med mindre {$other} er i {$values}."
-
-msgid "validator.required_if"
-msgstr "Dette feltet er obligatorisk når {$other} er {$value}."
-
-msgid "validator.required"
-msgstr "Dette feltet er obligatorisk."
-
-msgid "validator.regex"
-msgstr "Dette er ikke formatert korrekt."
-
-msgid "validator.present"
-msgstr "Feltet {$attribute} må være til stede."
-
-msgid "validator.orcid"
-msgstr "Dette er ikke en gyldig ORCiD."
-
-msgid "validator.numeric"
-msgstr "Dette er ikke et gyldig nummer."
-
-msgid "validator.not_in"
-msgstr "Den valgte {$attribute} er ugyldig."
-
-msgid "validator.min.array"
-msgstr "Dette skal være minst {$min} elementer."
-
-msgid "validator.min.string"
-msgstr "Dette skal være minst {$min} tegn."
-
-msgid "validator.min.file"
-msgstr "Dette skal være minst {$min} kilobytes."
-
-msgid "validator.min.numeric"
-msgstr "Dette skal være minst {$min}."
-
-msgid "validator.mimes"
-msgstr "Dette skal være en fil av typen {$values}."
-
-msgid "validator.max.array"
-msgstr "Dette må ikke være større enn {$max} elementer."
-
-msgid "validator.max.string"
-msgstr "Dette må ikke være større enn {$max} tegn."
-
-msgid "validator.max.file"
-msgstr "Dette må ikke være større enn {$max} kilobytes."
-
-msgid "validator.max.numeric"
-msgstr "Dette må ikke overstige {$max}."
-
-msgid "validator.localeKey"
-msgstr ""
-"Språk må spesifiseres ved hjelp av landskoden. Eksempler: no_US, fr_CA, "
-"sr_RS@cyrillic."
-
-msgid "validator.localeExpected"
-msgstr ""
-"Dette feltet er flerspråklig. Det må angis separate verdier for hvert språk "
-"som støttes."
-
-msgid "validator.locale"
-msgstr "Dette språket aksepteres ikke."
-
-msgid "validator.json"
-msgstr "Dette er ikke en gyldig JSON-streng."
-
-msgid "validator.issn"
-msgstr "Dette er ikke et gyldig ISSN."
-
-msgid "validator.ip"
-msgstr "Dette er ikke en gyldig IP-adresse."
-
-msgid "validator.integer"
-msgstr "Dette er ikke et gyldig heltall."
-
-msgid "validator.in"
-msgstr "Det valgte {$attribute} er ugyldig."
-
-msgid "validator.image"
-msgstr "Dette må være et bilde."
-
-msgid "validator.filled"
-msgstr "Dette feltet er obligatorisk."
-
-msgid "validator.exists"
-msgstr "Det valgte {$attribute} er ugyldig."
-
-msgid "validator.email"
-msgstr "Dette er ikke en gyldig e-post-adresse."
-
-msgid "validator.digits_between"
-msgstr "Dette skal være mellem {$min} og {$max} siffer."
-
-msgid "validator.digits"
-msgstr "Dette skal være {$digits} siffer langt."
-
-msgid "validator.different"
-msgstr "$attribute} og {$other} må være forskellige."
-
-msgid "validator.date_format"
-msgstr "Dette matcher ikke formatet {$format}."
-
-msgid "validator.date"
-msgstr "Dette er ikke en gyldig dato."
-
-msgid "validator.currency"
-msgstr "Dette er ikke en gyldig valuta."
-
-msgid "validator.confirmed"
-msgstr "Bekreftelsen for dette feltet stemmer ikke overens."
-
-msgid "validator.boolean"
-msgstr "Dette feltet skal være sant eller usant."
-
-msgid "validator.between.array"
-msgstr "Dette må være mellom {$min} og {$max} elementer."
-
-msgid "validator.between.string"
-msgstr "Dette må være mellom {$min} og {$max} tegn."
-
-msgid "validator.between.file"
-msgstr "Dette må være mellom {$min} og {$max} kilobyte."
-
-msgid "validator.between.numeric"
-msgstr "Dette må være mellom {$min} og {$max}."
-
-msgid "validator.before"
-msgstr "Denne datoen må være før {$date}."
-
-msgid "validator.array"
-msgstr "Dette er ikke en gyldig array."
-
-msgid "validator.alpha_num"
-msgstr "Dette kan kun inneholde bokstaver og tall."
-
-msgid "validator.alpha_dash"
-msgstr ""
-"Dette kan bare inneholde bokstaver, tall, bindestrek og understrekninger."
-
-msgid "validator.alpha"
-msgstr "Dette kan bare inneholde bokstaver."
-
-msgid "validator.after"
-msgstr "Denne dato må være etter {$date}."
-
-msgid "validator.active_url"
-msgstr "Dette er ikke en gyldig URL."
-
-msgid "validator.accepted"
-msgstr "Aksepter dette elementet.."
-
-msgid "list.viewLess"
-msgstr "Skjul detaljer om {$name}"
-
-msgid "list.viewMore"
-msgstr "Vis flere detaljer om {$name}"
-
-msgid "notification.removedNavigationMenu"
-msgstr "Navigasjonsmenyen ble fjernet"
-
-msgid "notification.editedNavigationMenu"
-msgstr "Navigasjonsmenyen ble oppdatert"
-
-msgid "notification.addedNavigationMenu"
-msgstr "Navigasjonsmenyen ble lagt til"
-
-msgid "notification.addedNavigationMenuItem"
-msgstr "Elementet ble lagt til navigasjonsmenyen"
-
-msgid "notification.removedNavigationMenuItem"
-msgstr "Elementet på navigasjonsmenyen ble fjernet"
-
-msgid "notification.editedNavigationMenuItem"
-msgstr "Navigasjonsmenyen ble oppdatert"
-
-msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Dette er en vennlig påminnelse til deg om å sjekke statusen til tidsskriftet "
-"ditt via redaksjonen."
-
-msgid "notification.type.editorialReport"
-msgstr "Sammendrag av statistikkrapporten."
-
-msgid "notification.type.roundStatusTitle"
-msgstr "Status for vurderingsrunde {$round}"
-
-msgid "notification.type.awaitingCopyedits"
-msgstr "Avventer språkvask."
-
-msgid "notification.type.assignCopyeditors"
-msgstr ""
-"Oppnevn en språkvasker ved å klikke på lenken «Oppnevn», som du finner ved "
-"listen over deltakere."
-
-msgid "notification.type.queryAdded"
-msgstr "Diskusjon lagt til."
-
-msgid "notification.type.queryActivity"
-msgstr "Diskusjoner i gang."
-
-msgid "user.authorization.submissionAuthor"
-msgstr ""
-"Du er ikke forfatteren av denne teksten. Sjekk om du er logget inn med "
-"riktig brukernavn og passord."
-
-msgid "user.authorization.authorRoleMissing"
-msgstr ""
-"Du har ikke adgang til å se teksten. Gå til profilen din for å se om du har "
-"fått tildelt riktig rolle under «Registrer som»."
-
-msgid "user.authorization.invalidRepresentation"
-msgstr "Ugyldig representasjon."
-
-msgid "user.authorization.invalidSubmission"
-msgstr "Ugyldig innlevering."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Ugyldig publikasjon."
-
-msgid "user.authorization.submissionFile"
-msgstr "Brukeren har ikke fått tilgang til innleveringsfilen."
-
-msgid "notification.signedFile"
-msgstr "Fil tatt stilling til."
-
-msgid "notification.type.reviewerComment"
-msgstr "En fagfelle har kommentert «{$title}»."
-
-msgid "notification.type.metadataModified"
-msgstr "Metadataene til «{$title}» har blitt modifisert."
-
-msgid "notification.type.pendingRevisions.title"
-msgstr "Revidering sendt inn til {$stage}."
-
-msgid "notification.type.pendingRevisions"
-msgstr "Revideringer å ta stilling til i {$stage}."
-
-msgid "notification.type.allRevisionsIn"
-msgstr ""
-"En revidert fil har blitt lastet opp for redaksjonell vurdering i {$stage}."
-
-msgid "notification.type.allReviewsIn"
-msgstr ""
-"Alle fagfellevurderingene er sendt inn og en avgjørelse må tas i {$stage}."
-
-msgid "notification.type.auditorRequest"
-msgstr "Forespørsel om sluttkontroll av «{$file}»"
-
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Fagfellevurdering oppdatert."
-
-msgid "notification.type.reviewAssignment"
-msgstr "Fagfellevurdering underveis."
-
-msgid "notification.type.newAnnouncement"
-msgstr "Nytt oppslag."
-
-msgid "notification.editStageParticipant"
-msgstr "Stegets oppgave har blitt endret."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Fagfelle gjenopptatt."
-
-msgid "notification.cancelledReviewer"
-msgstr "Fagfelle avbrutt."
-
-msgid "notification.removedReviewer"
-msgstr "Fagfelle fjernet."
-
-msgid "notification.addedReviewerNoEmail"
-msgstr ""
-"{$reviewerName} fikk i oppdrag å fagfellevurdere denne innleveringen og ble "
-"ikke sendt en e-post med varsel."
-
-msgid "navigation.goBack"
-msgstr "Gå tilbake"
-
-msgid "submission.task.responseDueDate"
-msgstr "Svarfrist"
-
-msgid "reviewer.submission.reviewDueDate"
-msgstr "Frist for fagfellevurdering"
-
-msgid "reviewer.submission.responseDueDate"
-msgstr "Svarfrist"
-
-msgid "reviewer.submission.reviewRequestDate"
-msgstr "Redaktørens forespørsel"
-
-msgid "reviewer.submission.reviewSchedule"
-msgstr "Planlagte fagfellevurderinger"
-
-msgid "review.blindPeerReview"
-msgstr ""
-"<p>For å sikre en blind fagfellevurdering av innleveringen, bør alle "
-"forhåndsregler tas for å hindre at forfatterne og fagfellene får kjennskap "
-"til hverandres identitet. Forfattere, redaktører og fagfeller (som laster "
-"opp dokumenter i forbindelse med fagfellevurderingen) må sjekke om de "
-"følgene stegene har blitt tatt i behandlingen av teksten og filens "
-"egenskaper:</p>\n"
-"\t\t\t<ul><li>Forfatterne har slettet navnene sine fra teksten, med "
-"«Forfatter» og år brukt i referansene og fotnotene, i stedet for "
-"forfatterens navn, tittelen på artikkelen osv.</li>\n"
-"\t\t\t<li>Ved bruk av dokumenter skapt i Microsoft Office, bør "
-"forfatteridentiteten også fjernes fra filens egenskaper (se under «Fil» i "
-"Word). Det gjør du slik: Begynn med «Fil» i hovedmenyen i Microsoft-"
-"programmet. «Fil» &gt; «Lagre som» &gt; «Verktøy» (eller «Alternativer» på "
-"Mac), &gt; «Sikkerhet» &gt; «Fjern personlige opplysninger fra filens "
-"egenskaper ved lagring» &gt; «Lagre».</li>\n"
-"\t\t\t<li>Ved bruk av PDF-filer, bør forfatterenes navn også fjernes fra "
-"dokumentegenskapene under «Fil» i Adobe Acrobats hovedmeny.</li>\n"
-"\t\t</ul>\n"
-
-msgid "dashboard.myQueue"
-msgstr "Mine oppgaver"
-
-msgid "dashboard.tasks"
-msgstr "Oppgaver"
-
-msgid "grid.action.markRead"
-msgstr "Merk lest"
-
-msgid "grid.action.markNew"
-msgstr "Merk ny"
-
-msgid "grid.action.deleteNotification"
-msgstr "Slett oppgave"
-
-msgid "grid.action.showReviewPolicy"
-msgstr "Les gjeldene retningslinjer"
-
-msgid "review.ensuringBlindReview"
-msgstr "Hvordan sikre blind fagfellevurdering"
-
-msgid "context.path"
-msgstr "Sti"
-
-msgid "grid.action.downloadFile"
-msgstr "Last ned denne filen"
-
-msgid "search.SearchFor"
-msgstr "Søk etter"
-
-msgid "search.indexTermsLong"
-msgstr "Alle termer i indeks"
-
-msgid "search.deleteFilter"
-msgstr "Slett"
-
-msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} artikler indeksert"
-
-msgid "search.cli.rebuildIndex.error"
-msgstr "feil"
-
-msgid "search.cli.rebuildIndex.done"
-msgstr "utført"
-
-msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr "Fjern indeks"
-
-msgid "search.searchAgain"
-msgstr "Søk på nytt"
-
-msgid "search.advancedSearchLess"
-msgstr "Gjem flere søkealternativer"
-
-msgid "search.advancedSearchMore"
-msgstr "Flere søkealternativer"
-
-msgid "search.advancedFilters"
-msgstr "Avanserte filtre"
+msgid "notification.savedSubmissionMetadata"
+msgstr "Metadata ble lagret."
 
 msgid "notification.sendNotificationConfirmation"
 msgstr "Send en e-post med varsel til alle registrerte brukere."
 
-msgid "notification.savedSubmissionMetadata"
-msgstr "Metadata ble lagret."
+msgid "search.author"
+msgstr "Forfatter"
 
-msgid "notification.sentNotification"
-msgstr "Varsling sendt."
-
-msgid "notification.removedSubmission"
-msgstr "Innlevering fjernet."
-
-msgid "notification.removedFile"
-msgstr "Fil fjernet."
-
-msgid "notification.removedNote"
-msgstr "Notater slettet."
-
-msgid "notification.addedNote"
-msgstr "Notater lagt ut."
-
-msgid "notification.email"
-msgstr "Ikke send meg en e-post for disse varslingstypene."
-
-msgid "notification.editedAuthor"
-msgstr "Forfatter redigert."
-
-msgid "notification.addedAuthor"
-msgstr "Forfatter lagt til."
-
-msgid "notification.removedAnnouncement"
-msgstr "Oppslag fjernet."
-
-msgid "notification.editedAnnouncement"
-msgstr "Oppslag redigert."
-
-msgid "notification.addedAnnouncement"
-msgstr "Oppslag lagt til."
-
-msgid "notification.removedAnnouncementType"
-msgstr "Type oppslag fjernet."
-
-msgid "notification.editedAnnouncementType"
-msgstr "Type oppslag redigert."
-
-msgid "notification.addedAnnouncementType"
-msgstr "Type oppslag lagt til."
-
-msgid "notification.reviewerThankedEmail"
-msgstr "E-post med takk sendt til fagfelle."
-
-msgid "notification.reviewAcknowledged"
-msgstr "Fagfellevurdering markert som bekreftet. E-post ikke sendt."
-
-msgid "notification.addedQuery"
-msgstr "Diskusjon lagt til"
-
-msgid "notification.removedAuditor"
-msgstr "Sluttkontrollør fjernet."
-
-msgid "notification.addedAuditor"
-msgstr "Sluttkontrollør lagt til."
-
-msgid "navigation.viewFrontend"
-msgstr "Se nettside"
-
-msgid "navigation.skip.footer"
-msgstr "Gå til bunnteksten"
-
-msgid "navigation.skip.nav"
-msgstr "Gå til navigasjonsmenyen"
-
-msgid "navigation.skip.main"
-msgstr "Gå til hovedinnholdet"
-
-msgid "navigation.skip.announcements"
-msgstr "Gå til kunngjøringer"
-
-msgid "navigation.skip.description"
-msgstr "Gå til innholdslenker"
-
-msgid "navigation.publicMenu"
-msgstr "Offentlig meny"
-
-msgid "navigation.items.shownTotal"
-msgstr "{$shown} av {$total} elementer"
-
-msgid "navigation.tools.statistics"
-msgstr "Statistikk"
-
-msgid "navigation.tools.importExport"
-msgstr "Import/eksport"
-
-msgid "navigation.tools"
-msgstr "Verktøy"
-
-msgid "navigation.breadcrumbSeparator"
-msgstr "/"
-
-msgid "navigation.breadcrumbLabel"
-msgstr "Du er her:"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Ingen endringer kan gjøres på denne deltakeren"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Deltaker"
-
-msgid "stageParticipants.canChangeMetadata"
-msgstr ""
-"Tillat denne personen å redigere publikasjonsopplysningene som tittel, "
-"sammendrag, metadata og andre detaljer. Hvis innleveringen har blitt "
-"godkjent for og er klar for publisering kan det være du ønsker å fjerne "
-"denne rettigheten igjen."
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Tillatelser"
-
-msgid "stageParticipants.recommendOnly"
-msgstr ""
-"Deltakeren har kun anledning til å anbefale en redaksjonell avgjørelse. Kun "
-"redaktører kan registrere redaksjonelle avgjørelser."
-
-msgid "stageParticipants.options"
-msgstr "Privilegier knyttet til oppgaven"
-
-msgid "stageParticipants.notify.warning"
-msgstr ""
-"Pass på at du har fylt ut feltet under og at du har valgt minst en mottaker."
-
-msgid "stageParticipants.notify.message"
-msgstr "Beskjed"
-
-msgid "stageParticipants.notify.chooseMessage"
-msgstr "Velg en e-postmal, eller fyll ut skjemaet under."
-
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Start en diskusjon mellom deg og {$userFullName}."
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Start diskusjon"
-
-msgid "stageParticipants.history.messageSent"
-msgstr "Varsel sendt til brukere."
-
-msgid "informationCenter.history.messageSent"
-msgstr "Varsel sendt til brukere."
-
-msgid "informationCenter.history.notePosted"
-msgstr "La ut nye notater."
-
-msgid "informationCenter.history.noItems"
-msgstr "Ingen aktiviteter er loggført."
-
-msgid "informationCenter.pastHistory"
-msgstr "Tidligere revideringer"
-
-msgid "informationCenter.currentHistory"
-msgstr "Pågående revidering"
-
-msgid "informationCenter.deleteConfirm"
-msgstr "Er du sikker på at du vil slette disse notatene?"
-
-msgid "informationCenter.pastNotes"
-msgstr "Notater om tidligere revideringer"
-
-msgid "informationCenter.noNotes"
-msgstr "Ingen notater er lagt inn."
-
-msgid "informationCenter.addNote"
-msgstr "Legg til notater"
-
-msgid "informationCenter.editorialHistory"
-msgstr "Historikk"
-
-msgid "informationCenter.informationCenter"
-msgstr "Informasjonssenter"
-
-msgid "help.next"
-msgstr "Neste"
-
-msgid "help.previous"
-msgstr "Forrige"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} språk fullført"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} på {$localeName}"
-
-msgid "form.requireId"
-msgstr "Du må oppgi et gyldig ID."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Du må fylle ut dette feltet på {$language}."
-
-msgid "form.fileRequired"
-msgstr "Du må laste opp en fil."
-
-msgid "form.csrfInvalid"
-msgstr ""
-"Dette skjemaet ble ikke levert inn riktig. Du kan ha blitt logget ut. Last "
-"siden på nytt og prøv igjen."
-
-msgid "form.missingRequired"
-msgstr "Dette feltet er obligatorisk."
-
-msgid "form.errorUnknown"
-msgstr ""
-"En uventet feil oppstod. Du kan ha blitt logget av. Last siden på nytt, og "
-"prøv på nytt."
-
-msgid "form.errors"
-msgstr ""
-"Skjemaet ble ikke lagret fordi det ble funnet {$count} feil. Rett opp disse "
-"feilene, og prøv på nytt."
-
-msgid "form.errorMany"
-msgstr "Rett {$count} feil."
-
-msgid "form.errorOne"
-msgstr "Rett en feil."
-
-msgid "form.errorGoTo"
-msgstr "Gå til neste feil"
-
-msgid "form.errorA11y"
-msgstr "Gå til {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Du kan ikke laste opp flere filer."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Fjern fil"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Er du sikker på om du vil avbryte denne opplastingen?"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Opplasting avbrutt"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Avbryt opplasting"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Serveren svarte med {{statusCode}}-kode. Kontakt systemadministratoren hvis "
-"dette vedvarer."
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Filer av denne typen kan ikke lastes opp."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Filen er for stor ({{filesize}}mb). Filer større enn {{maxFilesize}}mb kan "
-"ikke lastes opp."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "Bruk skjemaet under til å laste opp filene dine."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr "Din nettleser støtter ikke opplasting av filer med dra og slipp."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Slipp filer her for å laste opp"
-
-msgid "form.disallowedProp"
-msgstr "Denne egenskapen er ikke tillatt."
-
-msgid "form.disallowedLocales"
-msgstr "Bare følgende språk er tillatt: {$languages}."
-
-msgid "form.url.invalid"
-msgstr "URL-en er ikke gyldig. Sjekk nettadressen og prøv igjen."
-
-msgid "email.senderEmail"
-msgstr "Avsenders e-post"
-
-msgid "email.senderName"
-msgstr "Avsender"
-
-msgid "email.compose.error"
-msgstr ""
-"Det oppstod et problem ved sending av epost. Prøv igjen senere, eller "
-"kontakt din systemadministrator."
-
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "Last opp"
-
-msgid "editor.submissionReview.uploadFile"
-msgstr "Last opp fil"
-
-msgid "defaultMetric.availableMetrics"
-msgstr "Tilgjengelige verdier"
-
-msgid "defaultMetric.title"
-msgstr "Standardverdi"
-
-msgid "common.publicAccess"
-msgstr "Offentlig tilgang"
-
-msgid "common.count"
-msgstr "Antall"
-
-msgid "common.metric"
-msgstr "Verdi"
-
-msgid "common.viewProfile"
-msgstr "Se profil"
-
-msgid "common.upload.dragFile"
-msgstr "Dra og slipp en fil her for opplasting"
-
-msgid "common.upload.changeFile"
-msgstr "Endre fil"
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Forhåndsvisning av det valgte bildet."
-
-msgid "common.upload.restore"
-msgstr "Gjenopprett original"
-
-msgid "notification.addedStageParticipant"
-msgstr "Bruker lagt til som deltaker på et bestemt stadie."
-
-msgid "notification.addedReviewer"
-msgstr ""
-"{$reviewerName} fikk i oppdrag å fagfellevurdere denne innleveringen og ble "
-"sendt en e-post med varsel."
-
-msgid "common.upload.addFile"
-msgstr "Last opp fil"
-
-msgid "common.uploadedDate"
-msgstr "Opplastningsdato"
-
-msgid "common.component"
-msgstr "Komponent"
-
-msgid "common.toWithValue"
-msgstr "Til: {$value}"
-
-msgid "common.subtitle"
-msgstr "Undertittel"
-
-msgid "common.submenu"
-msgstr "Undermeny"
-
-msgid "common.subjects"
-msgstr "Emner"
-
-msgid "common.sendEmail"
-msgstr "Send e-post"
-
-msgid "common.selectedPrefix"
-msgstr "Valgte:"
-
-msgid "common.clearSearch"
-msgstr "Nullstill søkefrasen"
-
-msgid "common.searchQuery"
-msgstr "Søkeord"
-
-msgid "common.saving"
-msgstr "Lagrer"
-
-msgid "common.removeItem"
-msgstr "Fjern {$item}"
-
-msgid "common.reminded.date"
-msgstr "Påminnet: {$dateReminded}"
-
-msgid "common.readMoreWithTitle"
-msgstr "Les mer om {$title}"
-
-msgid "common.readMore"
-msgstr "Les mer"
-
-msgid "common.range"
-msgstr "{$min}-{$max}"
-
-msgid "common.queue.long.active"
-msgstr "Alle aktive"
-
-msgid "common.quality"
-msgstr "Kvalitet"
-
-msgid "common.prefixAndTitle.tip"
-msgstr "Eksempler: En, Et, Den, De"
-
-msgid "common.prefix"
-msgstr "Prefiks"
-
-msgid "common.percentage"
-msgstr "{$percentage} %"
-
-msgid "common.pageNumber"
-msgstr "Side {$pageNumber}"
-
-msgid "common.pagination.previous"
-msgstr "Forrige side"
-
-msgid "common.pagination.next"
-msgstr "Neste side"
-
-msgid "common.pagination.goToPage"
-msgstr "Gå til {$page}"
-
-msgid "common.pagination.label"
-msgstr "Vis flere sider"
-
-msgid "common.pagination"
-msgstr "{$start}-{$end} av {$total}"
-
-msgid "common.override"
-msgstr "Overstyr"
-
-msgid "common.orderDown"
-msgstr "Flytt {$itemTitle} ned i listen"
-
-msgid "common.orderUp"
-msgstr "Flytt {$itemTitle} opp i listen"
-
-msgid "common.notified.date"
-msgstr "Informert: {$dateNotified}"
-
-msgid "common.notified"
-msgstr "Informert"
-
-msgid "common.notes.tooltip"
-msgstr ""
-"Merknader (gul: har nye merknader; blå: har sett merknadene; grå: ingen "
-"merknader)"
-
-msgid "common.noTemporaryFile"
-msgstr "Filen du lastet opp, ble ikke funnet. Prøv å laste den opp igjen."
-
-msgid "common.noItemsFound"
-msgstr "Ingen elementer ble funnet."
-
-msgid "common.moreThanOnly"
-msgstr "Mer enn"
-
-msgid "common.moreThan"
-msgstr "{$value} eller mer"
-
-msgid "common.lessThanOnly"
-msgstr "Mindre enn"
-
-msgid "common.lessThan"
-msgstr "{$value} eller mindre"
-
-msgid "common.lastActivity"
-msgstr "Siste aktivitet registrert {$date}."
-
-msgid "common.itemsPerPage"
-msgstr "Elementer per side"
-
-msgid "common.homepageNavigationLabel"
-msgstr "Hjem"
-
-msgid "common.until"
-msgstr "Til"
-
-msgid "common.fromWithValue"
-msgstr "Fra: {$value}"
-
-msgid "common.from"
-msgstr "Fra"
-
-msgid "common.filterRemove"
-msgstr "Fjern filter: {$filterTitle}"
-
-msgid "common.filterAdd"
-msgstr "Legg til filter: {$filterTitle}"
-
-msgid "common.filter"
-msgstr "Filtre"
-
-msgid "common.fileUploaderError"
-msgstr ""
-"Systemfilopplasteren jobber. Om du ikke ser det, kan det hende at ingen av "
-"kjøretidene er støttet av nettleseren din. Ta kontakt med administrator for "
-"hjelp."
-
-msgid "common.downloadPdf"
-msgstr "Last ned PDF"
-
-msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixles"
-
-msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
-
-msgid "common.designation"
-msgstr "Betegnelse"
-
-msgid "common.deleting"
-msgstr "Sletter"
-
-msgid "common.dateHijri"
-msgstr "Islamsk kalendar"
-
-msgid "common.dateDecided"
-msgstr "Beslutningsdato"
-
-msgid "common.contents"
-msgstr "Innhold"
-
-msgid "common.confirmed.date"
-msgstr "Bekreftet: {$dateConfirmed}"
-
-msgid "common.completed.date"
-msgstr "Fullført: {$dateCompleted}"
-
-msgid "common.closePanel"
-msgstr "Lukk felt"
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "Du besto ikke valideringssjekken."
-
-msgid "common.captcha.error.missing-input-response"
-msgstr "Fullfør valideringen. Den forhindrer at nettsøppel blir sendt inn."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr ""
-"Captcha-valideringen for nettstedet er ikke konfigurert riktig. Koden er "
-"ikke gyldig."
-
-msgid "common.captcha.error.missing-input-secret"
-msgstr ""
-"Captcha-valideringen for nettstedet er ikke konfigurert riktig. Koden "
-"mangler."
-
-msgid "common.notice"
-msgstr "Merknad"
-
-msgid "common.error"
-msgstr "Feil"
-
-msgid "common.available"
-msgstr "Tilgjengelig"
-
-msgid "common.assigned.date"
-msgstr "Oppnevnt: {$dateAssigned}"
-
-msgid "common.altTextInstructions"
-msgstr ""
-"En alternativ tekst beskriver informasjonen som gis i bildet.  Eksempel: «"
-"Her presenterer redaktøren vår et paper på  PKP-konferansen.» Slik blir "
-"innholdet blir mer synlig i søkemotorer og du sikrer universal utforming for "
-"de som bruker leseprogram uten bildefunksjon eller ulike hjelpemidler."
-
-msgid "common.acknowledged"
-msgstr "Bekreftet"
-
-msgid "common.abstract"
+msgid "search.abstract"
 msgstr "Sammendrag"
 
-msgid "common.confirmDelete"
-msgstr ""
-"Er du sikker på at du vil slette dette elementet? Det kan ikke gjøres om."
+msgid "search.advancedFilters"
+msgstr "Avanserte filtre"
 
-msgid "common.grid"
-msgstr "Nett"
+msgid "search.advancedSearchMore"
+msgstr "Flere søkealternativer"
 
-msgid "common.list"
-msgstr "Liste"
+msgid "search.advancedSearchLess"
+msgstr "Gjem flere søkealternativer"
 
-msgid "common.tasks"
+msgid "search.searchAgain"
+msgstr "Søk på nytt"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Fjern indeks"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "utført"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "feil"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} artikler indeksert"
+
+msgid "search.coverage"
+msgstr "Dekning"
+
+msgid "search.date"
+msgstr "Dato"
+
+msgid "search.dateFrom"
+msgstr "Fra"
+
+msgid "search.dateTo"
+msgstr "Til"
+
+msgid "search.deleteFilter"
+msgstr "Slett"
+
+msgid "search.discipline"
+msgstr "Fagdisiplin(er)"
+
+msgid "search.fullText"
+msgstr "Fulltekst"
+
+msgid "search.indexTerms"
+msgstr "Emneord"
+
+msgid "search.indexTermsLong"
+msgstr "Alle termer i indeks"
+
+msgid "search.matchAll"
+msgstr "Treff i alle kategorier"
+
+msgid "search.noResults"
+msgstr "Ingen resultat"
+
+msgid "search.operator.and"
+msgstr "AND"
+
+msgid "search.operator.not"
+msgstr "NOT"
+
+msgid "search.operator.or"
+msgstr "OR"
+
+msgid "search.SearchFor"
+msgstr "Søk etter"
+
+msgid "search.searchResults"
+msgstr "Søkeresultat"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Fant en post."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Fant {$count} poster."
+
+msgid "search.subject"
+msgstr "Emneord"
+
+msgid "search.titleIndex"
+msgstr "Finn fram i tittelregisteret"
+
+msgid "search.title"
+msgstr "Tittel"
+
+msgid "search.typeMethodApproach"
+msgstr "Type (metode/innfallsvinkel)"
+
+msgid "grid.action.downloadFile"
+msgstr "Last ned denne filen"
+
+msgid "context.path"
+msgstr "Sti"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Hvordan sikre at alle filer er anonymisert"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Les gjeldene retningslinjer"
+
+msgid "grid.action.deleteNotification"
+msgstr "Slett oppgave"
+
+msgid "grid.action.markNew"
+msgstr "Merk ny"
+
+msgid "grid.action.markRead"
+msgstr "Merk lest"
+
+msgid "dashboard.tasks"
 msgstr "Oppgaver"
 
-msgid "common.navigation.user"
-msgstr "Brukernavigering"
+msgid "dashboard.myQueue"
+msgstr "Mine oppgaver"
 
-msgid "common.navigation.siteContext"
-msgstr "Navigere nettstedkontekst"
-
-msgid "common.navigation.site"
-msgstr "Navigering"
-
-msgid "common.navigation.sidebar"
-msgstr "Sidemeny"
-
-msgid "common.allDownloads"
-msgstr "Alle nedlastinger"
-
-msgid "about.description"
-msgstr "Beskrivelse"
-
-msgid "common.currentStyleSheet"
-msgstr "Gjeldende stilark"
-
-msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Personverninnstillinger"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Du har ikke tilgang til dette vurderingsoppdraget."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Du har ikke tilgang til denne diskusjonsmeldingen."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Ugyldig diskusjon."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Ugyldig vurderingsrunde."
-
-msgid "user.email"
-msgstr "E-post"
+msgid "review.anonymousPeerReview.title"
+msgstr "Hvordan sikre at alle filer er anonymisert"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -2092,44 +1684,457 @@ msgstr ""
 "<li> Klikk OK </li>\n"
 "<li> Lagre dokumentet </li> </ul> </li> </ul>\n"
 
-msgid "review.anonymousPeerReview.title"
-msgstr "Hvordan sikre at alle filer er anonymisert"
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Planlagte fagfellevurderinger"
 
-msgid "review.ensuringAnonymousReview"
-msgstr "Hvordan sikre at alle filer er anonymisert"
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Redaktørens forespørsel"
 
-msgid "search.searchResults.foundPlural"
-msgstr "Fant {$count} poster."
+msgid "reviewer.submission.responseDueDate"
+msgstr "Svarfrist"
 
-msgid "search.searchResults.foundSingle"
-msgstr "Fant en post."
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Frist for fagfellevurdering"
 
-msgid "navigation.backTo"
-msgstr "⟵ Tilbage til {$page}"
+msgid "submission.task.responseDueDate"
+msgstr "Svarfrist"
 
-msgid "form.saved"
-msgstr "Lagret"
+msgid "navigation.goBack"
+msgstr "Gå tilbake"
 
-msgid "common.viewWithName"
-msgstr "Se {$name}"
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} fikk i oppdrag å fagfellevurdere denne innleveringen og ble "
+"sendt en e-post med varsel."
 
-msgid "common.user.nonexistent"
-msgstr "[Bruker finnes ikke]"
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} fikk i oppdrag å fagfellevurdere denne innleveringen og ble "
+"ikke sendt en e-post med varsel."
 
-msgid "common.addFile"
-msgstr "Legg til fil"
+msgid "notification.removedReviewer"
+msgstr "Fagfelle fjernet."
 
-msgid "common.unknownError"
-msgstr "En uventet feil oppstod. Last siden på nytt og prøv igjen."
+msgid "notification.cancelledReviewer"
+msgstr "Fagfelle avbrutt."
 
-msgid "common.titleSeparator"
-msgstr " | "
+msgid "notification.reinstatedReviewer"
+msgstr "Fagfelle gjenopptatt."
 
-msgid "common.selectWithName"
-msgstr "Velg {$name}"
+msgid "notification.addedStageParticipant"
+msgstr "Bruker lagt til som deltaker på et bestemt stadie."
 
-msgid "common.editItem"
-msgstr "Rediger {$name}"
+msgid "notification.editStageParticipant"
+msgstr "Stegets oppgave har blitt endret."
 
-msgid "common.inactive"
-msgstr "Inaktiv"
+msgid "notification.type.newAnnouncement"
+msgstr "Nytt oppslag."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Fagfellevurdering underveis."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Fagfellevurdering oppdatert."
+
+msgid "notification.type.auditorRequest"
+msgstr "Forespørsel om sluttkontroll av «{$file}»"
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+"Alle fagfellevurderingene er sendt inn og en avgjørelse må tas i {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr ""
+"En revidert fil har blitt lastet opp for redaksjonell vurdering i {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Revideringer å ta stilling til i {$stage}."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Revidering sendt inn til {$stage}."
+
+msgid "notification.type.metadataModified"
+msgstr "Metadataene til «{$title}» har blitt modifisert."
+
+msgid "notification.type.reviewerComment"
+msgstr "En fagfelle har kommentert «{$title}»."
+
+msgid "notification.signedFile"
+msgstr "Fil tatt stilling til."
+
+msgid "user.email"
+msgstr "E-post"
+
+msgid "user.authorization.submissionFile"
+msgstr "Brukeren har ikke fått tilgang til innleveringsfilen."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ugyldig publikasjon."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Ugyldig innlevering."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Ugyldig representasjon."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ugyldig vurderingsrunde."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ugyldig diskusjon."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Du har ikke tilgang til denne diskusjonsmeldingen."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Du har ikke tilgang til dette vurderingsoppdraget."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Du har ikke adgang til å se teksten. Gå til profilen din for å se om du har "
+"fått tildelt riktig rolle under «Registrer som»."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Du er ikke forfatteren av denne teksten. Sjekk om du er logget inn med "
+"riktig brukernavn og passord."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Personverninnstillinger"
+
+msgid "notification.type.queryActivity"
+msgstr "Diskusjoner i gang."
+
+msgid "notification.type.queryAdded"
+msgstr "Diskusjon lagt til."
+
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+"Oppnevn en språkvasker ved å klikke på lenken «Oppnevn», som du finner ved "
+"listen over deltakere."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Avventer språkvask."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status for vurderingsrunde {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "Sammendrag av statistikkrapporten."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dette er en vennlig påminnelse til deg om å sjekke statusen til tidsskriftet "
+"ditt via redaksjonen."
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Navigasjonsmenyen ble oppdatert"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Elementet på navigasjonsmenyen ble fjernet"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Elementet ble lagt til navigasjonsmenyen"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Navigasjonsmenyen ble lagt til"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Navigasjonsmenyen ble oppdatert"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Navigasjonsmenyen ble fjernet"
+
+msgid "list.viewMore"
+msgstr "Vis flere detaljer om {$name}"
+
+msgid "list.viewLess"
+msgstr "Skjul detaljer om {$name}"
+
+msgid "validator.accepted"
+msgstr "Aksepter dette elementet.."
+
+msgid "validator.active_url"
+msgstr "Dette er ikke en gyldig URL."
+
+msgid "validator.after"
+msgstr "Denne dato må være etter {$date}."
+
+msgid "validator.alpha"
+msgstr "Dette kan bare inneholde bokstaver."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Dette kan bare inneholde bokstaver, tall, bindestrek og understrekninger."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+
+msgid "validator.alpha_num"
+msgstr "Dette kan kun inneholde bokstaver og tall."
+
+msgid "validator.array"
+msgstr "Dette er ikke en gyldig array."
+
+msgid "validator.before"
+msgstr "Denne datoen må være før {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Dette må være mellom {$min} og {$max}."
+
+msgid "validator.between.file"
+msgstr "Dette må være mellom {$min} og {$max} kilobyte."
+
+msgid "validator.between.string"
+msgstr "Dette må være mellom {$min} og {$max} tegn."
+
+msgid "validator.between.array"
+msgstr "Dette må være mellom {$min} og {$max} elementer."
+
+msgid "validator.boolean"
+msgstr "Dette feltet skal være sant eller usant."
+
+msgid "validator.confirmed"
+msgstr "Bekreftelsen for dette feltet stemmer ikke overens."
+
+msgid "validator.currency"
+msgstr "Dette er ikke en gyldig valuta."
+
+msgid "validator.date"
+msgstr "Dette er ikke en gyldig dato."
+
+msgid "validator.date_format"
+msgstr "Dette matcher ikke formatet {$format}."
+
+msgid "validator.different"
+msgstr "$attribute} og {$other} må være forskellige."
+
+msgid "validator.digits"
+msgstr "Dette skal være {$digits} siffer langt."
+
+msgid "validator.digits_between"
+msgstr "Dette skal være mellem {$min} og {$max} siffer."
+
+msgid "validator.email"
+msgstr "Dette er ikke en gyldig e-post-adresse."
+
+msgid "validator.exists"
+msgstr "Det valgte {$attribute} er ugyldig."
+
+msgid "validator.filled"
+msgstr "Dette feltet er obligatorisk."
+
+msgid "validator.image"
+msgstr "Dette må være et bilde."
+
+msgid "validator.in"
+msgstr "Det valgte {$attribute} er ugyldig."
+
+msgid "validator.integer"
+msgstr "Dette er ikke et gyldig heltall."
+
+msgid "validator.ip"
+msgstr "Dette er ikke en gyldig IP-adresse."
+
+msgid "validator.issn"
+msgstr "Dette er ikke et gyldig ISSN."
+
+msgid "validator.json"
+msgstr "Dette er ikke en gyldig JSON-streng."
+
+msgid "validator.locale"
+msgstr "Dette språket aksepteres ikke."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dette feltet er flerspråklig. Det må angis separate verdier for hvert språk "
+"som støttes."
+
+msgid "validator.localeKey"
+msgstr ""
+"Språk må spesifiseres ved hjelp av landskoden. Eksempler: no_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Dette må ikke overstige {$max}."
+
+msgid "validator.max.file"
+msgstr "Dette må ikke være større enn {$max} kilobytes."
+
+msgid "validator.max.string"
+msgstr "Dette må ikke være større enn {$max} tegn."
+
+msgid "validator.max.array"
+msgstr "Dette må ikke være større enn {$max} elementer."
+
+msgid "validator.mimes"
+msgstr "Dette skal være en fil av typen {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Dette skal være minst {$min}."
+
+msgid "validator.min.file"
+msgstr "Dette skal være minst {$min} kilobytes."
+
+msgid "validator.min.string"
+msgstr "Dette skal være minst {$min} tegn."
+
+msgid "validator.min.array"
+msgstr "Dette skal være minst {$min} elementer."
+
+msgid "validator.not_in"
+msgstr "Den valgte {$attribute} er ugyldig."
+
+msgid "validator.numeric"
+msgstr "Dette er ikke et gyldig nummer."
+
+msgid "validator.orcid"
+msgstr "Dette er ikke en gyldig ORCiD."
+
+msgid "validator.present"
+msgstr "Feltet {$attribute} må være til stede."
+
+msgid "validator.regex"
+msgstr "Dette er ikke formatert korrekt."
+
+msgid "validator.required"
+msgstr "Dette feltet er obligatorisk."
+
+msgid "validator.required_if"
+msgstr "Dette feltet er obligatorisk når {$other} er {$value}."
+
+msgid "validator.required_unless"
+msgstr "Dette feltet er obligatorisk med mindre {$other} er i {$values}."
+
+msgid "validator.required_with"
+msgstr "Dette feltet er obligatorisk når {$values} foreligger."
+
+msgid "validator.required_with_all"
+msgstr "Dette feltet er obligatorisk når {$values} er til stede."
+
+msgid "validator.required_without"
+msgstr "Dette feltet er obligatorisk når {$values} ikke er tilgjengelig."
+
+msgid "validator.required_without_all"
+msgstr "Dette feltet er obligatorisk når ingen av {$values} er til stede."
+
+msgid "validator.same"
+msgstr "{$attribute} og {$other} må matche."
+
+msgid "validator.size.numeric"
+msgstr "Dette må være {$size}."
+
+msgid "validator.size.file"
+msgstr "Dette må være {$size} kilobytes."
+
+msgid "validator.size.string"
+msgstr "Dette må være {$size} tegn."
+
+msgid "validator.size.array"
+msgstr "Dette må inneholde {$size} elementer."
+
+msgid "validator.string"
+msgstr "Dette er ikke en gyldig streng."
+
+msgid "validator.timezone"
+msgstr "Dette er ikke en gyldig tidssone."
+
+msgid "validator.unique"
+msgstr "Denne {$attribute} er allerede opptatt."
+
+msgid "validator.url"
+msgstr "Dette er ikke en gyldig URL."
+
+#~ msgid "announcement.viewLink"
+#~ msgstr "Mer ..."
+
+#~ msgid "common.captchaField.altText"
+#~ msgstr "Valideringsbilde"
+
+#~ msgid "common.captchaField.badCaptcha"
+#~ msgstr ""
+#~ "Tegnene du skrev inn stemte ikke overens med tegnene i bildet. Vennligst "
+#~ "prøv en gang til."
+
+#~ msgid "help.contents"
+#~ msgstr "Innhold"
+
+#~ msgid "help.helpIndex"
+#~ msgstr "Hjelp - emneindeks"
+
+#~ msgid "help.matchesFound"
+#~ msgstr "{$matches} treff"
+
+#~ msgid "help.noMatchingTopics"
+#~ msgstr "Ingen tilsvarende emner i Hjelp ble funnet."
+
+#~ msgid "help.relatedTopics"
+#~ msgstr "Relaterte emner"
+
+#~ msgid "help.searchFor"
+#~ msgstr "Søk emner i Hjelp for"
+
+#~ msgid "help.searchResultsFor"
+#~ msgstr "Resultat for"
+
+#~ msgid "help.searchResults"
+#~ msgstr "Søkeresultat"
+
+#~ msgid "help.search"
+#~ msgstr "Søk i hjelp"
+
+#~ msgid "search.reviseSearch"
+#~ msgstr "Revider søk"
+
+#~ msgid "search.searchAllCategories"
+#~ msgstr "Søk i alle kategorier"
+
+#~ msgid "search.searchCategories"
+#~ msgstr "Søk i kategorier"
+
+#~ msgid "common.signoff"
+#~ msgstr "Logg av"
+
+#~ msgid "common.element"
+#~ msgstr "Element"
+
+#~ msgid "review.blindPeerReview"
+#~ msgstr ""
+#~ "<p>For å sikre en blind fagfellevurdering av innleveringen, bør alle "
+#~ "forhåndsregler tas for å hindre at forfatterne og fagfellene får "
+#~ "kjennskap til hverandres identitet. Forfattere, redaktører og fagfeller "
+#~ "(som laster opp dokumenter i forbindelse med fagfellevurderingen) må "
+#~ "sjekke om de følgene stegene har blitt tatt i behandlingen av teksten og "
+#~ "filens egenskaper:</p>\n"
+#~ "\t\t\t<ul><li>Forfatterne har slettet navnene sine fra teksten, med "
+#~ "«Forfatter» og år brukt i referansene og fotnotene, i stedet for "
+#~ "forfatterens navn, tittelen på artikkelen osv.</li>\n"
+#~ "\t\t\t<li>Ved bruk av dokumenter skapt i Microsoft Office, bør "
+#~ "forfatteridentiteten også fjernes fra filens egenskaper (se under «Fil» i "
+#~ "Word). Det gjør du slik: Begynn med «Fil» i hovedmenyen i Microsoft-"
+#~ "programmet. «Fil» &gt; «Lagre som» &gt; «Verktøy» (eller «Alternativer» "
+#~ "på Mac), &gt; «Sikkerhet» &gt; «Fjern personlige opplysninger fra filens "
+#~ "egenskaper ved lagring» &gt; «Lagre».</li>\n"
+#~ "\t\t\t<li>Ved bruk av PDF-filer, bør forfatterenes navn også fjernes fra "
+#~ "dokumentegenskapene under «Fil» i Adobe Acrobats hovedmeny.</li>\n"
+#~ "\t\t</ul>\n"
+
+#~ msgid "review.ensuringBlindReview"
+#~ msgstr "Hvordan sikre blind fagfellevurdering"
+
+#~ msgid "notification.editedAnnouncement"
+#~ msgstr "Oppslag redigert."
+
+#~ msgid "notification.addedAnnouncement"
+#~ msgstr "Oppslag lagt til."
+
+#~ msgid "form.missingRequired"
+#~ msgstr "Dette feltet er obligatorisk."
+
+#~ msgid "form.errorUnknown"
+#~ msgstr ""
+#~ "En uventet feil oppstod. Du kan ha blitt logget av. Last siden på nytt, "
+#~ "og prøv på nytt."

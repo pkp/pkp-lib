@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "grid.noItems"
@@ -26,6 +26,9 @@ msgstr "Ni revizorjev"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Ta element gostuje drugje."
+
+msgid "grid.action.uninstall"
+msgstr "Odstrani"
 
 msgid "grid.action.manageAccess"
 msgstr "Upravljaj dostope"
@@ -234,6 +237,9 @@ msgstr "Dodaj novo uporabniško skupino"
 msgid "grid.action.editUserGroup"
 msgstr "Uredi to uporabniško skupino"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Odstrani to uporabniško skupino"
+
 msgid "grid.action.disable"
 msgstr "Onemogoči"
 
@@ -327,6 +333,9 @@ msgstr "Namesti"
 msgid "grid.action.moreItems"
 msgstr "Naloži več"
 
+msgid "grid.action.users"
+msgstr "Poglej/izberi uporabnike"
+
 msgid "grid.task.status.completed"
 msgstr "Ta naloga je opravljena"
 
@@ -398,6 +407,9 @@ msgstr "Uredi sodelavca"
 
 msgid "grid.action.deleteContributor"
 msgstr "Odstrani sodelavca"
+
+msgid "grid.action.newVersion"
+msgstr "Ustvari novo verzijo"
 
 msgid "grid.reviewForm.title"
 msgstr "Recenzijski obrazci"
@@ -493,13 +505,20 @@ msgid "grid.user.enableReason"
 msgstr "Razlog za omogočitev"
 
 msgid "grid.user.error"
-msgstr "Prišlo je do napake pri urejanju tega uporabnnika. Prosimo, poskusite ponovno."
+msgstr ""
+"Prišlo je do napake pri urejanju tega uporabnnika. Prosimo, poskusite "
+"ponovno."
 
 msgid "grid.user.errorEmail"
-msgstr "Prišlo je do napake pri pošiljanju emaila. Prosimo preverite, da so email nastavitve pravilne in /ali se obrnite na vašega sistemskega adminisratorja."
+msgstr ""
+"Prišlo je do napake pri pošiljanju emaila. Prosimo preverite, da so email "
+"nastavitve pravilne in /ali se obrnite na vašega sistemskega adminisratorja."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Nimate dovolj pravic za urejanje tega uporabnika. Za urejanje tega uporabnika morate biti ali administrator spletišča ali  administrator vseh revij, pri katerih je ta uporabnik registriran."
+msgstr ""
+"Nimate dovolj pravic za urejanje tega uporabnika. Za urejanje tega "
+"uporabnika morate biti ali administrator spletišča ali  administrator vseh "
+"revij, pri katerih je ta uporabnik registriran."
 
 msgid "grid.user.authSource"
 msgstr "Avtentikacijski vir"
@@ -562,7 +581,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Prosim izberite uporabnika"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Prijavi se kot ta uporabnik? Vse akcije, ki jih boste naredili, bodo pripisane temu uporabniku."
+msgstr ""
+"Prijavi se kot ta uporabnik? Vse akcije, ki jih boste naredili, bodo "
+"pripisane temu uporabniku."
 
 msgid "grid.user.mergeUsers"
 msgstr "Združi uporabnike"
@@ -577,7 +598,10 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Vsi registrirani uporabniki"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Ste prepričani, da želite združiti uporabniški račun z imenom \"{$oldUsername}\" v uporabniški rčaun \"{$newUsername}\"? Uporabniški račun \"{$oldUsername}\" po tem ne bo več obstajal. To akcije se ne da preklicati."
+msgstr ""
+"Ste prepričani, da želite združiti uporabniški račun z imenom "
+"\"{$oldUsername}\" v uporabniški rčaun \"{$newUsername}\"? Uporabniški račun "
+"\"{$oldUsername}\" po tem ne bo več obstajal. To akcije se ne da preklicati."
 
 msgid "grid.preparedEmails.title"
 msgstr "Pripravljene email predloge"
@@ -628,10 +652,13 @@ msgid "grid.userGroup.filter.permissionLevel"
 msgstr "Z nivojem pravic na"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
-msgstr "Uporabniška vloga {$userGroupName} je privzeta in je ni možno odstraniti."
+msgstr ""
+"Uporabniška vloga {$userGroupName} je privzeta in je ni možno odstraniti."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Uporabniško vlogo {$userGroupName} ni mogoče odstraniti. V njej je še {$usersCount} uporabnikov."
+msgstr ""
+"Uporabniško vlogo {$userGroupName} ni mogoče odstraniti. V njej je še "
+"{$usersCount} uporabnikov."
 
 msgid "grid.userGroup.removed"
 msgstr "Uporabniška vloga {$userGroupName} je odstranjena."
@@ -640,7 +667,8 @@ msgid "grid.userGroup.assignedStage"
 msgstr "Uporabniška vloga {$userGroupName} je dodeljena fazi {$stageName}."
 
 msgid "grid.userGroup.unassignedStage"
-msgstr "Uporabniška vloga {$userGroupName} je odstranjena iz faze {$stageName}."
+msgstr ""
+"Uporabniška vloga {$userGroupName} je odstranjena iz faze {$stageName}."
 
 msgid "grid.submission.itemTitle"
 msgstr "Avtor; Naslov"
@@ -663,14 +691,5 @@ msgstr "Ni navigacijskih menijev"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Izberite tip..."
 
-msgid "grid.action.uninstall"
-msgstr "Odstrani"
-
-msgid "grid.action.users"
-msgstr "Poglej/izberi uporabnike"
-
-msgid "grid.action.newVersion"
-msgstr "Ustvari novo verzijo"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Odstrani to uporabniško skupino"
+msgid "grid.action.view"
+msgstr ""

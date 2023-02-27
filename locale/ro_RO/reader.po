@@ -12,70 +12,70 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "comments.anonymous"
+msgstr "Utilizator anonim"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Corp"
+
+msgid "comments.titleRequired"
+msgstr "Este necesar un titlu pentru comentariu."
+
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Ștergerea acestui comentariu va șterge, de asemenea, orice răspuns la "
 "acesta. Sunteți sigur că vreți să faceți asta?"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
-
-msgid "comments.titleRequired"
-msgstr "Este necesar un titlu pentru comentariu."
-
-msgid "reader.fullText"
-msgstr "Text integral:"
-
-msgid "comments.viewAllComments"
-msgstr "Vizualizați toate comentariile"
-
-msgid "comments.title"
-msgstr "Titlu"
-
-msgid "comments.replies"
-msgstr "Răspunsuri"
-
-msgid "comments.readMore"
-msgstr "Citește mai mult"
-
-msgid "comments.readerComments"
-msgstr "Comentariile cititorilor"
-
-msgid "comments.postReply"
-msgstr "Postare răspuns"
-
-msgid "comments.postAnonymously"
-msgstr "Postați acest comentariu în mod anonim"
-
-msgid "comments.oneReply"
-msgstr "(Răspunde)"
-
-msgid "comments.nReplies"
-msgstr "({$num} Răspunsuri)"
-
-msgid "comments.noComments"
-msgstr "Nu au fost postate comentarii pentru cititori."
-
-msgid "comments.name"
-msgstr "Afișare nume"
-
-msgid "comments.inResponseTo"
-msgstr "Ca raspuns la <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Introducere comentarii"
-
-msgid "comments.emailReply"
-msgstr "Email de răspuns"
+msgid "comments.delete"
+msgstr "Ștergeți acest comentariu"
 
 msgid "comments.email"
 msgstr "Afișare e-mail"
 
-msgid "comments.delete"
-msgstr "Ștergeți acest comentariu"
+msgid "comments.emailReply"
+msgstr "Email de răspuns"
 
-msgid "comments.body"
-msgstr "Corp"
+msgid "comments.enterComment"
+msgstr "Introducere comentarii"
 
-msgid "comments.anonymous"
-msgstr "Utilizator anonim"
+msgid "comments.inResponseTo"
+msgstr "Ca raspuns la <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Afișare nume"
+
+msgid "comments.noComments"
+msgstr "Nu au fost postate comentarii pentru cititori."
+
+msgid "comments.nReplies"
+msgstr "({$num} Răspunsuri)"
+
+msgid "comments.oneReply"
+msgstr "(Răspunde)"
+
+msgid "comments.postAnonymously"
+msgstr "Postați acest comentariu în mod anonim"
+
+msgid "comments.postReply"
+msgstr "Postare răspuns"
+
+msgid "comments.readerComments"
+msgstr "Comentariile cititorilor"
+
+msgid "comments.readMore"
+msgstr "Citește mai mult"
+
+msgid "comments.replies"
+msgstr "Răspunsuri"
+
+msgid "comments.title"
+msgstr "Titlu"
+
+msgid "comments.viewAllComments"
+msgstr "Vizualizați toate comentariile"
+
+msgid "reader.fullText"
+msgstr "Text integral:"

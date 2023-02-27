@@ -17,8 +17,35 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "آیا می‌خواهید برای همیشه این مقاله ارسالی را حذف کنید؟"
 
+msgid "editor.activityLog"
+msgstr "سوابق اقدامات"
+
 msgid "editor.submissionLibrary"
 msgstr "مجموعه مقالات ارسالی"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr ""
 
 msgid "editor.review.notInitiated"
 msgstr "پروسه داوری هنوز آغاز نشده است."
@@ -51,7 +78,11 @@ msgid "editor.submission.revisions"
 msgstr "اصلاحات"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "از گزینه <em>افزودن داور</em> برای دعوت از خوانندگان برای داوری مقالات ارسالی استفاده کنید. آیکون دفترچه بیانگر آن است که یک داور ثبت شده است و چنانچه داور، انجام داوری را بپذیرد، آیکون تیک خواهد خورد. زمانی که مهلت داوری به اتمام رسد آیکون قرمز رنگی برای ارسال یادآوری به داور نمایان می‌شود."
+msgstr ""
+"از گزینه <em>افزودن داور</em> برای دعوت از خوانندگان برای داوری مقالات "
+"ارسالی استفاده کنید. آیکون دفترچه بیانگر آن است که یک داور ثبت شده است و "
+"چنانچه داور، انجام داوری را بپذیرد، آیکون تیک خواهد خورد. زمانی که مهلت "
+"داوری به اتمام رسد آیکون قرمز رنگی برای ارسال یادآوری به داور نمایان می‌شود."
 
 msgid "editor.submission.addReviewer"
 msgstr "افزودن داور"
@@ -79,6 +110,12 @@ msgstr "عضویت کاربر موجود"
 
 msgid "editor.review.unassignReviewer"
 msgstr "لغو انتساب داور"
+
+msgid "editor.review.cancelReviewer"
+msgstr ""
+
+msgid "editor.review.reinstateReviewer"
+msgstr ""
 
 msgid "editor.submissionReview.reviewType"
 msgstr "نوع داوری"
@@ -111,6 +148,9 @@ msgstr "بستن انتخاب‌گر فایل"
 
 msgid "editor.submissionReview.editReview"
 msgstr "ویرایش داوری"
+
+msgid "editor.review.anonymousReviewer"
+msgstr ""
 
 msgid "editor.review.personalMessageToReviewer"
 msgstr "ایمیلی که باید برای داور ارسال شود"
@@ -172,6 +212,18 @@ msgstr "درخواست ارسال شد."
 msgid "editor.review.requestAccepted"
 msgstr "درخواست پذیرفته شد."
 
+msgid "editor.review.requestDeclined"
+msgstr ""
+
+msgid "editor.review.requestCancelled"
+msgstr ""
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr ""
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr ""
+
 msgid "editor.review.revertDecision"
 msgstr "تقاضای تجدیدنظر"
 
@@ -190,8 +242,20 @@ msgstr "داوری تأیید شد."
 msgid "editor.review.reviewSubmitted"
 msgstr "داوری ارسال شد."
 
+msgid "editor.review.reviewerThanked"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "نظرات داور"
+
+msgid "editor.review.rateReviewer"
+msgstr ""
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+
+msgid "editor.review.reviewerRating.none"
+msgstr ""
 
 msgid "editor.review.mustSelect"
 msgstr "باید یک داور انتخاب کنید."
@@ -202,17 +266,34 @@ msgstr "در افزودن داور خطایی رخ داد. لطفاً دوبار
 msgid "editor.review.errorDeletingReviewer"
 msgstr "در حذف داور خطایی رخ داد. لطفاً دوباره تلاش کنید."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+
 msgid "editor.review.userGroupSelect"
 msgstr "کاربری را به عضویت گروه کاربری داور در آورید"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "مایلید این داوری را به عنوان داوری بی‌اعتبار علامت‌گذاری کنید؟ تاریخچه داوری حفظ خواهد شد."
+msgstr ""
+"مایلید این داوری را به عنوان داوری بی‌اعتبار علامت‌گذاری کنید؟ تاریخچه داوری "
+"حفظ خواهد شد."
 
 msgid "editor.review.unconsiderReview"
 msgstr "نادیده گرفتن این داوری"
 
 msgid "editor.review.readConfirmation"
-msgstr "هنگامی که این داوری خواندن شد، «تأیید» را فشار دهید تا نشان دهید که روند داوری انجام یافته است. اگر داور، داوری خود را در جای دیگر ارسال کرده باشد، می‌توانید فایل را در قسمت زیر آپلود کرده و سپس  «تأیید» را انجام دهید."
+msgstr ""
+"هنگامی که این داوری خواندن شد، «تأیید» را فشار دهید تا نشان دهید که روند "
+"داوری انجام یافته است. اگر داور، داوری خود را در جای دیگر ارسال کرده باشد، "
+"می‌توانید فایل را در قسمت زیر آپلود کرده و سپس  «تأیید» را انجام دهید."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "برنامه چاپ"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "ویراستاری فایل"
@@ -239,19 +320,24 @@ msgid "editor.submission.proof.reminder"
 msgstr "یادآوری تأیید نسخه بازبینی نهایی"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "فایل ویراستاری شده قبل از ارسال به مرحله انتشار باید تأیید شود. آیا مایل به تأیید این فایل هستید؟"
+msgstr ""
+"فایل ویراستاری شده قبل از ارسال به مرحله انتشار باید تأیید شود. آیا مایل به "
+"تأیید این فایل هستید؟"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "عدم تأیید این فایل ویراستاری شده، باعث عدم انتقال به مرحله انتشار خواهد شد. آیا مطمئن به عدم تأیید این فایل هستید؟"
+msgstr ""
+"عدم تأیید این فایل ویراستاری شده، باعث عدم انتقال به مرحله انتشار خواهد شد. "
+"آیا مطمئن به عدم تأیید این فایل هستید؟"
 
 msgid "editor.submission.addAuditor"
 msgstr "انتساب حسابرس"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "هر فایلی که تاکنون در هر مرحله از ارسال مقاله آپلود شده است می‌تواند به مرحله ویراستاری اضافه شود. با انجام جستجو و انتخاب از لیست حاصل می‌توان این کار را انجام داد. می‌توان همچنان از گزینه آپلود برای آپلود فایل در این مرحله استفاده کرد."
-
-msgid "editor.submission.schedulePublication"
-msgstr "برنامه چاپ"
+msgstr ""
+"هر فایلی که تاکنون در هر مرحله از ارسال مقاله آپلود شده است می‌تواند به مرحله "
+"ویراستاری اضافه شود. با انجام جستجو و انتخاب از لیست حاصل می‌توان این کار را "
+"انجام داد. می‌توان همچنان از گزینه آپلود برای آپلود فایل در این مرحله استفاده "
+"کرد."
 
 msgid "editor.review"
 msgstr "مرور"
@@ -293,7 +379,9 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "عدم اتخاذ تصمیم داوری"
 
 msgid "editor.submission.newRoundDescription"
-msgstr "شما در حال ایجاد یک دور داوری جدید برای این مقاله هستید. فایل‌هایی که در دور داوری قبل مورد استفاده قرار نگرفته‌اند در زیر لیست شده‌اند."
+msgstr ""
+"شما در حال ایجاد یک دور داوری جدید برای این مقاله هستید. فایل‌هایی که در دور "
+"داوری قبل مورد استفاده قرار نگرفته‌اند در زیر لیست شده‌اند."
 
 msgid "editor.submission.createNewRound"
 msgstr "ایجاد دور جدید داوری"
@@ -305,7 +393,9 @@ msgid "editor.article.selectReviewForm"
 msgstr "انتخاب فرم داوری"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "اخطار: تغییر در فرم داوری باعث تأثیر در تمام فرم‌های داوری که پیشتر بر اساس این فرم ایجاد شده‌اند خواهد شد. آیا مطمئنید که می‌خواهید ادامه دهید؟"
+msgstr ""
+"اخطار: تغییر در فرم داوری باعث تأثیر در تمام فرم‌های داوری که پیشتر بر اساس "
+"این فرم ایجاد شده‌اند خواهد شد. آیا مطمئنید که می‌خواهید ادامه دهید؟"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "هیچ فایلی انتخاب نشده است."
@@ -338,10 +428,16 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "لغو تأیید بازبینی نهایی"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل بوده و آماده  چاپ است."
+msgstr ""
+"تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل بوده و آماده  چاپ است."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "عدم تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل نبوده و هنوز آماده به چاپ نیست."
+msgstr ""
+"عدم تأیید نسخه بازبینی نهایی، برای بیان آنکه این نسخه کامل نبوده و هنوز "
+"آماده به چاپ نیست."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "شناسه عمومی «{$publicIdentifier}» نباید یک عدد باشد."
@@ -349,5 +445,56 @@ msgstr "شناسه عمومی «{$publicIdentifier}» نباید یک عدد ب�
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "استفاده از الگوی {$pattern} به عنوان یک شناسه عمومی مجاز نیست."
 
-msgid "editor.activityLog"
-msgstr "سوابق اقدامات"
+msgid "reviewer.list.filterRating"
+msgstr ""
+
+msgid "reviewer.list.activeReviews"
+msgstr ""
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr ""
+
+msgid "reviewer.list.completedReviews"
+msgstr ""
+
+msgid "reviewer.list.declinedReviews"
+msgstr ""
+
+msgid "reviewer.list.cancelledReviews"
+msgstr ""
+
+msgid "reviewer.list.reviewerRating"
+msgstr ""
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr ""
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr ""
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr ""
+
+msgid "reviewer.list.averageCompletion"
+msgstr ""
+
+msgid "reviewer.list.neverAssigned"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr ""
+
+msgid "reviewer.list.reviewInterests"
+msgstr ""
+
+msgid "reviewer.list.biography"
+msgstr ""
+
+msgid "reviewer.list.empty"
+msgstr ""

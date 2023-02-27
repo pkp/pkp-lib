@@ -11,10 +11,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.oaiMetadata.dc.displayName"
+msgstr "Format de metadades DC"
+
 msgid "plugins.oaiMetadata.dc.description"
 msgstr ""
 "Estructura les metadades de manera que siguin consistents amb el format "
 "Dublin Core."
-
-msgid "plugins.oaiMetadata.dc.displayName"
-msgstr "Format de metadades DC"

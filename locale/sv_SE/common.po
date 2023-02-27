@@ -102,7 +102,9 @@ msgid "common.grid"
 msgstr "Rutnät"
 
 msgid "common.confirmDelete"
-msgstr "Är du säker på att du vill ta bort det här objektet? Åtgärden går inte att ångra."
+msgstr ""
+"Är du säker på att du vill ta bort det här objektet? Åtgärden går inte att "
+"ångra."
 
 msgid "common.abstract"
 msgstr "Abstract"
@@ -122,6 +124,9 @@ msgstr "Aktivera"
 msgid "common.active"
 msgstr "Aktiv"
 
+msgid "common.inactive"
+msgstr "Inaktiv"
+
 msgid "common.add"
 msgstr "Lägg till"
 
@@ -138,13 +143,20 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Å Ä Ö"
 
 msgid "common.titleSmallWords"
-msgstr "av en det och eller men är om de annars när från av på av i ut över i med"
+msgstr ""
+"av en det och eller men är om de annars när från av på av i ut över i med"
 
 msgid "common.alreadyAssigned"
 msgstr "Tilldelat"
 
 msgid "common.altText"
 msgstr "Alternativ text"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beskriv bilden för besökare som använder en textbaserad webbläsare eller som "
+"använder tillgänglighetsverktyg. Till exempel: \"Vår redaktör håller ett tal "
+"på PKP-konferensen.\""
 
 msgid "common.and"
 msgstr "och"
@@ -186,16 +198,24 @@ msgid "common.notice"
 msgstr "Anmärkning"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "Captcha-valideringen för den här webbplatsen är inte ordentligt konfigurerad. Den hemliga nyckeln saknas."
+msgstr ""
+"Captcha-valideringen för den här webbplatsen är inte ordentligt "
+"konfigurerad. Den hemliga nyckeln saknas."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "Captcha-valideringen för den här webbplatsen är inte ordentligt konfigurerad. Den hemliga nyckeln är ogiltig."
+msgstr ""
+"Captcha-valideringen för den här webbplatsen är inte ordentligt "
+"konfigurerad. Den hemliga nyckeln är ogiltig."
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Du måste komma igenom valideringskontrollen, som används för att förhindra spambidrag."
+msgstr ""
+"Du måste komma igenom valideringskontrollen, som används för att förhindra "
+"spambidrag."
 
 msgid "common.captcha.error.invalid-input-response"
-msgstr "Du kom inte igenom valideringskontrollen, som används för att förhindra spambidrag."
+msgstr ""
+"Du kom inte igenom valideringskontrollen, som används för att förhindra "
+"spambidrag."
 
 msgid "common.captchaField.description"
 msgstr "Skriv in bokstäverna som du ser dem i bilden ovan."
@@ -207,11 +227,15 @@ msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons-licens\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons-licens\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tDetta verk är licensierat under en <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Erkännande Attribution 3.0-licens</a>.\n"
+"\t\tDetta verk är licensierat under en <a rel=\"license\" target=\"_blank\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Erkännande Attribution 3.0-licens</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -220,12 +244,12 @@ msgstr ""
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tDetta verk är licensierat under en <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
-"Commons Erkännande Attribution 3.0-licens</a>.\n"
+"\t\tDetta verk är licensierat under en <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Erkännande Attribution 3.0-licens</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -279,6 +303,9 @@ msgstr "Skapa"
 
 msgid "common.dateCompleted"
 msgstr "Datum för slutförande"
+
+msgid "common.dateDecided"
+msgstr "Datum bestämt"
 
 msgid "common.date"
 msgstr "Datum"
@@ -352,6 +379,9 @@ msgstr "Ladda ned PDF"
 msgid "common.edit"
 msgstr "Redigera"
 
+msgid "common.editItem"
+msgstr "Redigera {$name}"
+
 msgid "common.enable"
 msgstr "Aktivera"
 
@@ -365,7 +395,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Ett okänt fel vid anslutning till databasen inträffade."
 
 msgid "common.error.framesRequired"
-msgstr "Den här sidan kräver frames. <a href=\"{$url}\">Klicka här</a> för en version utan frames."
+msgstr ""
+"Den här sidan kräver frames. <a href=\"{$url}\">Klicka här</a> för en "
+"version utan frames."
 
 msgid "common.event"
 msgstr "Händelse"
@@ -404,7 +436,10 @@ msgid "common.fileType"
 msgstr "Filtyp"
 
 msgid "common.fileUploaderError"
-msgstr "Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. Vänligen kontakta din administratör för support."
+msgstr ""
+"Systemets filuppladdningsverktyg laddas in. Om det inte dyker upp är det "
+"förmodligen så att den här webbläsaren inte stödjer några av dess runtimes. "
+"Vänligen kontakta din administratör för support."
 
 msgid "common.filter"
 msgstr "Filter"
@@ -417,6 +452,9 @@ msgstr "Rensa filter: {$filterTitle}"
 
 msgid "common.from"
 msgstr "Från"
+
+msgid "common.fromWithValue"
+msgstr "Från: {$value}"
 
 msgid "common.until"
 msgstr "Till"
@@ -460,11 +498,17 @@ msgstr "Språk"
 msgid "common.languages"
 msgstr "Språk"
 
+msgid "common.lastActivity"
+msgstr "Senaste aktivitet {$date}."
+
 msgid "common.less"
 msgstr "Färre"
 
 msgid "common.lessThan"
 msgstr "{$value} eller färre"
+
+msgid "common.lessThanOnly"
+msgstr "Färre än"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -496,6 +540,9 @@ msgstr "Fler"
 msgid "common.moreThan"
 msgstr "{$value} or fler"
 
+msgid "common.moreThanOnly"
+msgstr "Fler än"
+
 msgid "common.noneAssigned"
 msgstr "Ingen utsedd"
 
@@ -504,6 +551,9 @@ msgstr "Ingen"
 
 msgid "common.no"
 msgstr "Nej"
+
+msgid "common.noItemsFound"
+msgstr "Inga objekt hittades."
 
 msgid "common.noComments"
 msgstr "Inga kommentarer"
@@ -520,11 +570,16 @@ msgstr "Ej tillgängligt"
 msgid "common.note"
 msgstr "Anteckning"
 
+msgid "common.noTemporaryFile"
+msgstr "Filen kunde inte hittas. Försök att ladda upp den igen."
+
 msgid "common.notes"
 msgstr "Anteckningar"
 
 msgid "common.notes.tooltip"
-msgstr "Anteckningar (gul: har nya anteckningar; blå: har lästa anteckningar; grå: inga anteckningar)"
+msgstr ""
+"Anteckningar (gul: har nya anteckningar; blå: har lästa anteckningar; grå: "
+"inga anteckningar)"
 
 msgid "common.notified"
 msgstr "Meddelad"
@@ -568,11 +623,23 @@ msgstr "Annat"
 msgid "common.overdue"
 msgstr "Försenad"
 
+msgid "common.override"
+msgstr "Förbigå"
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} av {$total}"
 
 msgid "common.pagination.label"
 msgstr "Bläddra bland ytterligare sidor"
+
+msgid "common.pagination.goToPage"
+msgstr "Gå till {$page}"
+
+msgid "common.pagination.next"
+msgstr "Nästa sida"
+
+msgid "common.pagination.previous"
+msgstr "Förra sidan"
 
 msgid "common.pageNumber"
 msgstr "Sida {$pageNumber}"
@@ -643,6 +710,9 @@ msgstr "Extern URL"
 msgid "common.remove"
 msgstr "Ta bort"
 
+msgid "common.removeItem"
+msgstr "Radera {$item}"
+
 msgid "common.removeSelection"
 msgstr "Ta bort markerad(e)"
 
@@ -688,11 +758,17 @@ msgstr "Sekund(er)"
 msgid "common.selectAll"
 msgstr "Välj alla"
 
+msgid "common.selectedPrefix"
+msgstr "Vald:"
+
 msgid "common.selectNone"
 msgstr "Välj ingen"
 
 msgid "common.select"
 msgstr "Välj"
+
+msgid "common.selectWithName"
+msgstr "Välj {$name}"
 
 msgid "common.sendEmail"
 msgstr "Skicka e-postmeddelande"
@@ -712,6 +788,9 @@ msgstr "Ämne"
 msgid "common.subjects"
 msgstr "Ämnen"
 
+msgid "common.submenu"
+msgstr "Undermeny"
+
 msgid "common.subtitle"
 msgstr "Undertitel"
 
@@ -721,8 +800,14 @@ msgstr "Föreslå"
 msgid "common.title"
 msgstr "Titel"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Till början"
+
+msgid "common.toWithValue"
+msgstr "Till: {$value}"
 
 msgid "common.true"
 msgstr "Sant"
@@ -760,8 +845,17 @@ msgstr "Filen kunde inte laddas upp eller ändras."
 msgid "common.up"
 msgstr "Upp"
 
+msgid "common.addFile"
+msgstr "Lägg till fil"
+
 msgid "common.upload.addFile"
 msgstr "Ladda upp fil"
+
+msgid "common.upload.restore"
+msgstr "Återställ original"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Förhandsvisning av den valda bilden."
 
 msgid "common.upload.changeFile"
 msgstr "Ändra fil"
@@ -775,8 +869,14 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Användare"
 
+msgid "common.user.nonexistent"
+msgstr "[Användare finns ej]"
+
 msgid "common.view"
 msgstr "Visa"
+
+msgid "common.viewWithName"
+msgstr "Visa {$name}"
 
 msgid "common.viewProfile"
 msgstr "Visa profil"
@@ -875,7 +975,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Meddelandet du försöker skicka har för många mottagare."
 
 msgid "email.compose.tooSoon"
-msgstr "Det har gått för kort tid sedan du senast skickade ett meddelande. Vänligen vänta innan du skickar meddelandet på nytt."
+msgstr ""
+"Det har gått för kort tid sedan du senast skickade ett meddelande. Vänligen "
+"vänta innan du skickar meddelandet på nytt."
+
+msgid "email.compose.error"
+msgstr ""
+"Ett problem uppstod när e-postmeddelandet skulle skickas. Försök igen "
+"senare, eller kontakta din systemadministratör."
 
 msgid "email.email"
 msgstr "Skicka e-postmeddelande"
@@ -935,13 +1042,76 @@ msgid "form.emailRequired"
 msgstr "En e-postadress krävs."
 
 msgid "form.dataHasChanged"
-msgstr "Informationen i formuläret har ändrats. Vill du fortsätta utan att spara?"
+msgstr ""
+"Informationen i formuläret har ändrats. Vill du fortsätta utan att spara?"
+
+msgid "form.disallowedLocales"
+msgstr "Endast följande språk är tillåtna: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Denna egenskap är inte tillåten."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Släpp filer du vill ladda upp här"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Din webbläsare stödjer inte dra-och-släpp-teknik vid uppladdning av filer."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Använd reservformuläret nedan för att ladda upp dina filer."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Filen är för stor ({{filesize}}mb). Filer större än {{maxFilesize}}mb kan "
+"inte laddas upp."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Denna filtyp kan inte laddas upp."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Servern svarade med koden {{statusCode}}. Kontakta systemadministratören "
+"ifall detta problem kvarstår."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Avbryt uppladdning"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Uppladdningen avbruten"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Är du säker på att du vill avbryta uppladdningen?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Ta bort fil"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Du kan inte ladda upp fler filer."
+
+msgid "form.errorA11y"
+msgstr "Gå till {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Gå till nästa fel"
+
+msgid "form.errorOne"
+msgstr "Korrigera ett fel."
+
+msgid "form.errorMany"
+msgstr "Korrigera {$count} fel."
+
+msgid "form.errors"
+msgstr ""
+"Formuläret kunde inte sparas eftersom {$count} fel hittades. Korrigera dessa "
+"fel och försök igen."
 
 msgid "form.errorsOccurred"
 msgstr "Det uppstod ett fel när formuläret behandlades"
 
 msgid "form.formLanguage.description"
-msgstr "För att fylla i informationen nedan på ytterligare språk, ange språk först."
+msgstr ""
+"För att fylla i informationen nedan på ytterligare språk, ange språk först."
 
 msgid "form.formLanguage"
 msgstr "Formulärspråk"
@@ -958,14 +1128,28 @@ msgstr "börjar med"
 msgid "form.postRequired"
 msgstr "Formuläret var inte korrekt ifyllt."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"Formuläret kunde inte skickas in. Du kan ha blivit utloggad ur systemet. "
+"Ladda om sidan och försök igen."
+
 msgid "form.fileRequired"
 msgstr "Filuppladdning är obligatorisk."
 
 msgid "form.required"
 msgstr "(* obligatorisk)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Du måste fylla i detta fält under {$language}."
+
+msgid "form.requireId"
+msgstr "Du måste ange ett giltigt ID."
+
 msgid "form.resubmit"
 msgstr "Skicka in igen"
+
+msgid "form.saved"
+msgstr "Sparad"
 
 msgid "form.saveToUpload"
 msgstr "Använd Spara för att ladda upp filen."
@@ -977,7 +1161,14 @@ msgid "form.submit"
 msgstr "Skicka in"
 
 msgid "form.invalidImage"
-msgstr "En ogiltig bildfil laddades upp. Tillåtna format är .png, .gif eller .jpg."
+msgstr ""
+"En ogiltig bildfil laddades upp. Tillåtna format är .png, .gif eller .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} på {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} färdiga språk"
 
 msgid "help.help"
 msgstr "Hjälp"
@@ -1076,19 +1267,39 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Påbörja en diskussion mellan dig själv och {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan."
+msgstr ""
+"Välj ett fördefinierat meddelande att använda eller fyll i formuläret nedan."
 
 msgid "stageParticipants.notify.message"
 msgstr "Meddelande"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Vänligen se till att du har fyllt i meddelandefältet och valt minst en mottagare."
+msgstr ""
+"Vänligen se till att du har fyllt i meddelandefältet och valt minst en "
+"mottagare."
 
 msgid "stageParticipants.options"
 msgstr "Behörigheter"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en behörig redaktör krävs för att registrera redaktörsbeslut."
+msgstr ""
+"Den här deltagaren tillåts endast rekommendera ett redaktörsbeslut, en "
+"behörig redaktör krävs för att registrera redaktörsbeslut."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Behörigheter"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Ge den här personen behörighet att ändra t.ex. abstract, metadata och andra "
+"detaljer om publikationen. Du kan dra tillbaka behörigheten när bidraget är "
+"färdigställt för publicering."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Deltagare"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Ändringar kan inte genomföras för denna användare"
 
 msgid "locale.primary"
 msgstr "Primärt språk"
@@ -1125,6 +1336,9 @@ msgstr "Statistik"
 
 msgid "navigation.browse"
 msgstr "Bläddra"
+
+msgid "navigation.backTo"
+msgstr "⟵ Tillbaka till {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Per författare"
@@ -1185,6 +1399,12 @@ msgstr "Inställning"
 
 msgid "navigation.sitemap"
 msgstr "Site map"
+
+msgid "navigation.skip.description"
+msgstr "Gå till innehållslänkar"
+
+msgid "navigation.skip.announcements"
+msgstr "Gå till meddelanden"
 
 msgid "navigation.skip.main"
 msgstr "Hoppa till huvudinnehåll"
@@ -1292,10 +1512,16 @@ msgid "notification.settings"
 msgstr "Inställningar för aviseringar"
 
 msgid "notification.settingsDescription"
-msgstr "Välj de systemhändelser som du vill bli aviserad om. Om du kryssar ur en händelse dyker inga aviseringar för den händelsen upp i systemet eller via e-post. Ikryssade händelser dyker upp i systemet och du kan välja om du vill få aviseringen även via e-post eller inte."
+msgstr ""
+"Välj de systemhändelser som du vill bli aviserad om. Om du kryssar ur en "
+"händelse dyker inga aviseringar för den händelsen upp i systemet eller via e-"
+"post. Ikryssade händelser dyker upp i systemet och du kan välja om du vill "
+"få aviseringen även via e-post eller inte."
 
 msgid "notification.reminderError"
-msgstr "Det uppstod ett fel vid utskick av lösenord till dig, vänligen dubbelkolla att den e-postadress du angivit verkligen stämmer."
+msgstr ""
+"Det uppstod ett fel vid utskick av lösenord till dig, vänligen dubbelkolla "
+"att den e-postadress du angivit verkligen stämmer."
 
 msgid "notification.reminderSent"
 msgstr "Ditt nya lösenord har skickats till e-postadressen du angivit."
@@ -1304,7 +1530,8 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metadata för bidrag sparat."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Skicka e-postmeddelande med avisering till alla registrerade användare."
+msgstr ""
+"Skicka e-postmeddelande med avisering till alla registrerade användare."
 
 msgid "search.author"
 msgstr "Författare"
@@ -1384,6 +1611,12 @@ msgstr "Sök efter"
 msgid "search.searchResults"
 msgstr "Sökresultat"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Hittade ett objekt."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Hittade {$count} objekt."
+
 msgid "search.subject"
 msgstr "Nyckelord"
 
@@ -1423,6 +1656,9 @@ msgstr "Uppgifter"
 msgid "dashboard.myQueue"
 msgstr "Min kö"
 
+msgid "review.anonymousPeerReview.title"
+msgstr "Hur säkerställs anonym granskning"
+
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>För att säkerställa den anonyma granskningsprocessen som används för "
@@ -1437,8 +1673,8 @@ msgstr ""
 "\t\t\t<li>För Microsoft Office-dokument ska element som identifierar "
 "författaren också tas bort från filens metadata (se under Arkiv i Word) "
 "genom att klicka på följande, med start i Arkiv i huvudmenyn på Microsoft-"
-"programmet: Arkiv (eller Microsoft Office-knappen) &gt; Info &gt; Felsök &gt;"
-" Kontrollera dokument &gt; Ta bort dold och personlig information &gt; "
+"programmet: Arkiv (eller Microsoft Office-knappen) &gt; Info &gt; Felsök "
+"&gt; Kontrollera dokument &gt; Ta bort dold och personlig information &gt; "
 "Spara. (Word 2007–2016.)</li>\n"
 "\t\t\t<li>För PDF:er ska författarnamn också tas bort från PDF-metadatan, "
 "exempelvis via Egenskaper under Arkiv i Adobe Acrobats huvudmeny.</li>\n"
@@ -1463,16 +1699,29 @@ msgid "navigation.goBack"
 msgstr "Gå tillbaka"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} har utsetts till granskare för det här bidraget och har meddelats via e-post."
+msgstr ""
+"{$reviewerName} har utsetts till granskare för det här bidraget och har "
+"meddelats via e-post."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} har utsetts som granskare för det här bidraget men har inte meddelats via e-post."
+msgstr ""
+"{$reviewerName} har utsetts som granskare för det här bidraget men har inte "
+"meddelats via e-post."
 
 msgid "notification.removedReviewer"
 msgstr "Granskare borttagen."
 
+msgid "notification.cancelledReviewer"
+msgstr "Granskare avbruten."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Granskare återinsatt."
+
 msgid "notification.addedStageParticipant"
 msgstr "Användaren tillagd som deltagare i steget."
+
+msgid "notification.editStageParticipant"
+msgstr "Stegets uppdrag har ändrats."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Nytt meddelande."
@@ -1490,7 +1739,9 @@ msgid "notification.type.allReviewsIn"
 msgstr "Alla granskningar har kommit in och ett beslut behövs vid {$stage}."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "En bearbetad fil har laddats upp för redaktionell bedömning av dig vid {$stage}."
+msgstr ""
+"En bearbetad fil har laddats upp för redaktionell bedömning av dig vid "
+"{$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Bearbetningar att ta ställning till vid {$stage}."
@@ -1507,8 +1758,16 @@ msgstr "En granskare har kommenterat \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "Fil bedömd."
 
+msgid "user.email"
+msgstr "E-post"
+
 msgid "user.authorization.submissionFile"
-msgstr "Aktuell användare har inte behörighet att få tillgång till den specificerade bidragsfilen."
+msgstr ""
+"Aktuell användare har inte behörighet att få tillgång till den specificerade "
+"bidragsfilen."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ogiltig publikation."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Ogiltigt bidrag."
@@ -1516,11 +1775,31 @@ msgstr "Ogiltigt bidrag."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Ogiltig representation."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ogiltig granskningsomgång."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ogiltig diskussion."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Du har inte behörighet till detta meddelande."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Du har inte behörighet till detta granskningsuppdrag."
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen se över din profil för att säkerställa att du har fått alla roller du behöver under \"Registrera som\"."
+msgstr ""
+"I nuläget har du inte tillräcklig behörighet för att se bidraget. Vänligen "
+"se över din profil för att säkerställa att du har fått alla roller du "
+"behöver under \"Registrera som\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Aktuell användare är inte författare till det begärda bidraget. Vänligen kontrollera att du är inloggad på rätt användarkonto."
+msgstr ""
+"Aktuell användare är inte författare till det begärda bidraget. Vänligen "
+"kontrollera att du är inloggad på rätt användarkonto."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Integritetsalternativ"
 
 msgid "notification.type.queryActivity"
 msgstr "Diskussionsaktivitet."
@@ -1536,6 +1815,14 @@ msgstr "Väntar på manusredigeringar."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Status för omgång {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "Sammanfattning av statistikrapporten."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Kom ihåg att du kan kontrollera statistik som rör de redaktionella "
+"aspekterna av din tidskrift under Statistik -> Redaktion."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1564,430 +1851,198 @@ msgstr "Visa mer detaljer om {$name}"
 msgid "list.viewLess"
 msgstr "Göm visade detaljer om {$name}"
 
-msgid "validator.locale"
-msgstr "Detta språk accepteras ej."
-
-msgid "validator.json"
-msgstr "Detta är inte en giltig JSON-sträng."
-
-msgid "validator.issn"
-msgstr "Detta är inte ett giltigt ISSN-nummer."
-
-msgid "validator.ip"
-msgstr "Detta är inte en giltig IP-adress."
-
-msgid "validator.in"
-msgstr "Det valda {$attribute} är ogiltigt."
-
-msgid "validator.image"
-msgstr "Det måste finnas en bild."
-
-msgid "validator.filled"
-msgstr "Detta fält är obligatoriskt."
-
-msgid "validator.exists"
-msgstr "Det valda {$attribute} är ogiltigt."
-
-msgid "validator.email"
-msgstr "Detta är inte en giltig e-postadress."
-
-msgid "validator.digits_between"
-msgstr "Detta ska vara mellan {$min} och {$max} siffror."
-
-msgid "validator.digits"
-msgstr "Detta ska vara {$digits} siffror långt."
-
-msgid "validator.different"
-msgstr "{$attribute} och {$other} måste skilja sig åt."
-
-msgid "validator.date_format"
-msgstr "Detta matchar inte formatet {$format}."
-
-msgid "validator.date"
-msgstr "Detta är inte ett giltigt datum."
-
-msgid "validator.currency"
-msgstr "Detta är inte en giltig  valuta."
-
-msgid "validator.confirmed"
-msgstr "Bekräftelsen för detta fält matchar inte."
-
-msgid "validator.boolean"
-msgstr "Detta fält måste vara sant eller falskt."
-
-msgid "validator.between.array"
-msgstr "Detta ska vara mellan {$min} och {$max} objekt."
-
-msgid "validator.between.string"
-msgstr "Detta ska vara mellan {$min} och {$max} tecken."
-
-msgid "validator.between.file"
-msgstr "Detta ska vara mellan {$min} och {$max} kilobyte."
-
-msgid "validator.between.numeric"
-msgstr "Detta ska vara mellan {$min} och {$max}."
-
-msgid "validator.alpha_dash"
-msgstr "Får bara innehålla bokstäver, siffror, bindestreck och understreck."
-
-msgid "validator.after"
-msgstr "Datumet måste vara efter {$date}."
+msgid "validator.accepted"
+msgstr "Acceptera detta objekt..."
 
 msgid "validator.active_url"
 msgstr "Detta är inte en giltig URL."
 
-msgid "notification.type.editorialReport"
-msgstr "Sammanfattning av statistikrapporten."
+msgid "validator.after"
+msgstr "Datumet måste vara efter {$date}."
 
-msgid "user.authorization.invalidPublication"
-msgstr "Ogiltig publikation."
+msgid "validator.alpha"
+msgstr "Får bara innehålla bokstäver."
 
-msgid "notification.editStageParticipant"
-msgstr "Stegets uppdrag har ändrats."
+msgid "validator.alpha_dash"
+msgstr "Får bara innehålla bokstäver, siffror, bindestreck och understreck."
 
-msgid "notification.reinstatedReviewer"
-msgstr "Granskare återinsatt."
-
-msgid "notification.cancelledReviewer"
-msgstr "Granskare avbruten."
-
-msgid "navigation.skip.announcements"
-msgstr "Gå till meddelanden"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Deltagare"
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Behörigheter"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} på {$localeName}"
-
-msgid "form.errors"
+msgid "validator.alpha_dash_period"
 msgstr ""
-"Formuläret kunde inte sparas eftersom {$count} fel hittades. Korrigera dessa "
-"fel och försök igen."
 
-msgid "form.errorMany"
-msgstr "Korrigera {$count} fel."
+msgid "validator.alpha_num"
+msgstr "Får bara innehålla bokstäver och siffror."
 
-msgid "form.errorOne"
-msgstr "Korrigera ett fel."
+msgid "validator.array"
+msgstr "Detta är inte en giltig tabell (array)."
 
-msgid "form.errorGoTo"
-msgstr "Gå till nästa fel"
+msgid "validator.before"
+msgstr "Datumet måste vara innan {$date}."
 
-msgid "form.errorA11y"
-msgstr "Gå till {$fieldLabel}: {$errorMessage}"
+msgid "validator.between.numeric"
+msgstr "Detta ska vara mellan {$min} och {$max}."
 
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Är du säker på att du vill avbryta uppladdningen?"
+msgid "validator.between.file"
+msgstr "Detta ska vara mellan {$min} och {$max} kilobyte."
 
-msgid "common.upload.restore"
-msgstr "Återställ original"
+msgid "validator.between.string"
+msgstr "Detta ska vara mellan {$min} och {$max} tecken."
 
-msgid "common.toWithValue"
-msgstr "Till: {$value}"
+msgid "validator.between.array"
+msgstr "Detta ska vara mellan {$min} och {$max} objekt."
 
-msgid "common.submenu"
-msgstr "Undermeny"
+msgid "validator.boolean"
+msgstr "Detta fält måste vara sant eller falskt."
 
-msgid "common.selectedPrefix"
-msgstr "Vald:"
+msgid "validator.confirmed"
+msgstr "Bekräftelsen för detta fält matchar inte."
 
-msgid "common.removeItem"
-msgstr "Radera {$item}"
+msgid "validator.currency"
+msgstr "Detta är inte en giltig  valuta."
 
-msgid "common.pagination.previous"
-msgstr "Förra sidan"
+msgid "validator.date"
+msgstr "Detta är inte ett giltigt datum."
 
-msgid "common.pagination.next"
-msgstr "Nästa sida"
+msgid "validator.date_format"
+msgstr "Detta matchar inte formatet {$format}."
 
-msgid "common.pagination.goToPage"
-msgstr "Gå till {$page}"
+msgid "validator.different"
+msgstr "{$attribute} och {$other} måste skilja sig åt."
 
-msgid "common.override"
-msgstr "Förbigå"
+msgid "validator.digits"
+msgstr "Detta ska vara {$digits} siffror långt."
 
-msgid "common.lastActivity"
-msgstr "Senaste aktivitet {$date}."
+msgid "validator.digits_between"
+msgstr "Detta ska vara mellan {$min} och {$max} siffror."
 
-msgid "common.fromWithValue"
-msgstr "Från: {$value}"
+msgid "validator.email"
+msgstr "Detta är inte en giltig e-postadress."
 
-msgid "common.dateDecided"
-msgstr "Datum bestämt"
+msgid "validator.exists"
+msgstr "Det valda {$attribute} är ogiltigt."
 
-msgid "validator.url"
-msgstr "Detta är inte en giltig URL."
-
-msgid "validator.unique"
-msgstr "Detta {$attribute} är redan taget."
-
-msgid "validator.timezone"
-msgstr "Detta är inte en giltig tidszon."
-
-msgid "validator.size.array"
-msgstr "Måste innehålla {$size} objekt."
-
-msgid "validator.size.string"
-msgstr "Måste vara {$size} tecken."
-
-msgid "validator.size.file"
-msgstr "Måste vara {$size} kilobyte."
-
-msgid "validator.size.numeric"
-msgstr "Måste vara {$size}."
-
-msgid "validator.same"
-msgstr "{$attribute} och {$other} måste matcha."
-
-msgid "validator.required_without"
-msgstr "Detta fält är obligatoriskt när {$values} inte förekommer."
-
-msgid "validator.required_with_all"
-msgstr "Detta fält är obligatoriskt när {$values} förekommer."
-
-msgid "validator.required_with"
-msgstr "Detta fält är obligatoriskt när {$values} förekommer."
-
-msgid "validator.required_unless"
-msgstr "Detta fält är obligatoriskt om inte {$other} är i {$values}."
-
-msgid "validator.required_if"
-msgstr "Detta fält är obligatoriskt när {$other} är {$value}."
-
-msgid "validator.required"
+msgid "validator.filled"
 msgstr "Detta fält är obligatoriskt."
 
-msgid "validator.numeric"
-msgstr "Detta är inte ett giltigt nummer."
+msgid "validator.image"
+msgstr "Det måste finnas en bild."
 
-msgid "validator.not_in"
-msgstr "Det valda {$attribute} är ogitligt."
+msgid "validator.in"
+msgstr "Det valda {$attribute} är ogiltigt."
 
-msgid "validator.min.array"
-msgstr "Måste vara minst {$min} objekt."
+msgid "validator.integer"
+msgstr "Detta är inte en giltig enhet."
 
-msgid "validator.min.string"
-msgstr "Måste vara minst {$min} tecken."
+msgid "validator.ip"
+msgstr "Detta är inte en giltig IP-adress."
 
-msgid "validator.min.file"
-msgstr "Måste vara minst {$min} kilobyte."
+msgid "validator.issn"
+msgstr "Detta är inte ett giltigt ISSN-nummer."
 
-msgid "validator.min.numeric"
-msgstr "Måste vara minst {$min}."
+msgid "validator.json"
+msgstr "Detta är inte en giltig JSON-sträng."
 
-msgid "validator.mimes"
-msgstr "Måste var en fil av typen {$values}."
-
-msgid "validator.max.array"
-msgstr "Får inte vara mer än {$max} objekt."
-
-msgid "validator.max.string"
-msgstr "Får inte vara mer än {$max} tecken."
-
-msgid "validator.max.file"
-msgstr "Får inte vara mer än {$max} kilobyte."
-
-msgid "form.csrfInvalid"
-msgstr ""
-"Formuläret kunde inte skickas in. Du kan ha blivit utloggad ur systemet. "
-"Ladda om sidan och försök igen."
-
-msgid "form.missingRequired"
-msgstr "Detta fält är obligatoriskt."
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Du kan inte ladda upp fler filer."
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Uppladdningen avbruten"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Avbryt uppladdning"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Servern svarade med koden {{statusCode}}. Kontakta systemadministratören "
-"ifall detta problem kvarstår."
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Denna filtyp kan inte laddas upp."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Filen är för stor ({{filesize}}mb). Filer större än {{maxFilesize}}mb kan "
-"inte laddas upp."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "Använd reservformuläret nedan för att ladda upp dina filer."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"Din webbläsare stödjer inte dra-och-släpp-teknik vid uppladdning av filer."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Släpp filer du vill ladda upp här"
-
-msgid "form.disallowedProp"
-msgstr "Denna egenskap är inte tillåten."
-
-msgid "form.disallowedLocales"
-msgstr "Endast följande språk är tillåtna: {$languages}."
-
-msgid "email.compose.error"
-msgstr ""
-"Ett problem uppstod när e-postmeddelandet skulle skickas. Försök igen "
-"senare, eller kontakta din systemadministratör."
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Förhandsvisning av den valda bilden."
-
-msgid "common.noTemporaryFile"
-msgstr "Filen kunde inte hittas. Försök att ladda upp den igen."
-
-msgid "common.noItemsFound"
-msgstr "Inga objekt hittades."
-
-msgid "common.altTextInstructions"
-msgstr ""
-"Beskriv bilden för besökare som använder en textbaserad webbläsare eller som "
-"använder tillgänglighetsverktyg. Till exempel: \"Vår redaktör håller ett tal "
-"på PKP-konferensen.\""
-
-msgid "form.requireId"
-msgstr "Du måste ange ett giltigt ID."
-
-msgid "validator.accepted"
-msgstr "Acceptera detta objekt..."
-
-msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Kom ihåg att du kan kontrollera statistik som rör de redaktionella "
-"aspekterna av din tidskrift under Statistik -> Redaktion."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Ta bort fil"
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Integritetsalternativ"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "validator.string"
-msgstr "Detta är inte en giltig sträng."
-
-msgid "validator.required_without_all"
-msgstr "Detta fält är obligatoriskt när inga {$values} förekommer."
-
-msgid "validator.regex"
-msgstr "Detta är inte korrekt formaterat."
-
-msgid "validator.present"
-msgstr "Fältet {$attribute} måste vara på plats."
-
-msgid "validator.orcid"
-msgstr "Detta är inte ett giltigt ORCID."
-
-msgid "validator.max.numeric"
-msgstr "Får inte vara mer än {$max}."
-
-msgid "validator.localeKey"
-msgstr ""
-"Språk måste specificeras genom regionkoden, exempelvis: en_US, fr_CA, "
-"sr_RS@cyrillic."
+msgid "validator.locale"
+msgstr "Detta språk accepteras ej."
 
 msgid "validator.localeExpected"
 msgstr ""
 "Detta fält är flerspråkigt. Separata värden ska anges för varje enskilt "
 "accepterat språk."
 
-msgid "validator.integer"
-msgstr "Detta är inte en giltig enhet."
-
-msgid "validator.before"
-msgstr "Datumet måste vara innan {$date}."
-
-msgid "validator.array"
-msgstr "Detta är inte en giltig tabell (array)."
-
-msgid "validator.alpha_num"
-msgstr "Får bara innehålla bokstäver och siffror."
-
-msgid "validator.alpha"
-msgstr "Får bara innehålla bokstäver."
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Du har inte behörighet till detta granskningsuppdrag."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Du har inte behörighet till detta meddelande."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Ogiltig diskussion."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Ogiltig granskningsomgång."
-
-msgid "user.email"
-msgstr "E-post"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "Hur säkerställs anonym granskning"
-
-msgid "search.searchResults.foundPlural"
-msgstr "Hittade {$count} objekt."
-
-msgid "search.searchResults.foundSingle"
-msgstr "Hittade ett objekt."
-
-msgid "navigation.skip.description"
-msgstr "Gå till innehållslänkar"
-
-msgid "navigation.backTo"
-msgstr "⟵ Tillbaka till {$page}"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Ändringar kan inte genomföras för denna användare"
-
-msgid "stageParticipants.canChangeMetadata"
+msgid "validator.localeKey"
 msgstr ""
-"Ge den här personen behörighet att ändra t.ex. abstract, metadata och andra "
-"detaljer om publikationen. Du kan dra tillbaka behörigheten när bidraget är "
-"färdigställt för publicering."
+"Språk måste specificeras genom regionkoden, exempelvis: en_US, fr_CA, "
+"sr_RS@cyrillic."
 
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} färdiga språk"
+msgid "validator.max.numeric"
+msgstr "Får inte vara mer än {$max}."
 
-msgid "form.saved"
-msgstr "Sparad"
+msgid "validator.max.file"
+msgstr "Får inte vara mer än {$max} kilobyte."
 
-msgid "form.requirePrimaryLocale"
-msgstr "Du måste fylla i detta fält under {$language}."
+msgid "validator.max.string"
+msgstr "Får inte vara mer än {$max} tecken."
 
-msgid "common.viewWithName"
-msgstr "Visa {$name}"
+msgid "validator.max.array"
+msgstr "Får inte vara mer än {$max} objekt."
 
-msgid "common.user.nonexistent"
-msgstr "[Användare finns ej]"
+msgid "validator.mimes"
+msgstr "Måste var en fil av typen {$values}."
 
-msgid "common.addFile"
-msgstr "Lägg till fil"
+msgid "validator.min.numeric"
+msgstr "Måste vara minst {$min}."
 
-msgid "common.selectWithName"
-msgstr "Välj {$name}"
+msgid "validator.min.file"
+msgstr "Måste vara minst {$min} kilobyte."
 
-msgid "common.moreThanOnly"
-msgstr "Fler än"
+msgid "validator.min.string"
+msgstr "Måste vara minst {$min} tecken."
 
-msgid "common.lessThanOnly"
-msgstr "Färre än"
+msgid "validator.min.array"
+msgstr "Måste vara minst {$min} objekt."
 
-msgid "common.editItem"
-msgstr "Redigera {$name}"
+msgid "validator.not_in"
+msgstr "Det valda {$attribute} är ogitligt."
 
-msgid "common.inactive"
-msgstr "Inaktiv"
+msgid "validator.numeric"
+msgstr "Detta är inte ett giltigt nummer."
+
+msgid "validator.orcid"
+msgstr "Detta är inte ett giltigt ORCID."
+
+msgid "validator.present"
+msgstr "Fältet {$attribute} måste vara på plats."
+
+msgid "validator.regex"
+msgstr "Detta är inte korrekt formaterat."
+
+msgid "validator.required"
+msgstr "Detta fält är obligatoriskt."
+
+msgid "validator.required_if"
+msgstr "Detta fält är obligatoriskt när {$other} är {$value}."
+
+msgid "validator.required_unless"
+msgstr "Detta fält är obligatoriskt om inte {$other} är i {$values}."
+
+msgid "validator.required_with"
+msgstr "Detta fält är obligatoriskt när {$values} förekommer."
+
+msgid "validator.required_with_all"
+msgstr "Detta fält är obligatoriskt när {$values} förekommer."
+
+msgid "validator.required_without"
+msgstr "Detta fält är obligatoriskt när {$values} inte förekommer."
+
+msgid "validator.required_without_all"
+msgstr "Detta fält är obligatoriskt när inga {$values} förekommer."
+
+msgid "validator.same"
+msgstr "{$attribute} och {$other} måste matcha."
+
+msgid "validator.size.numeric"
+msgstr "Måste vara {$size}."
+
+msgid "validator.size.file"
+msgstr "Måste vara {$size} kilobyte."
+
+msgid "validator.size.string"
+msgstr "Måste vara {$size} tecken."
+
+msgid "validator.size.array"
+msgstr "Måste innehålla {$size} objekt."
+
+msgid "validator.string"
+msgstr "Detta är inte en giltig sträng."
+
+msgid "validator.timezone"
+msgstr "Detta är inte en giltig tidszon."
+
+msgid "validator.unique"
+msgstr "Detta {$attribute} är redan taget."
+
+msgid "validator.url"
+msgstr "Detta är inte en giltig URL."
+
+#~ msgid "form.missingRequired"
+#~ msgstr "Detta fält är obligatoriskt."

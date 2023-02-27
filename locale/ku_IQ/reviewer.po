@@ -11,92 +11,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "user.authorization.submissionReviewer"
-msgstr "ئەم بەکارهێنەرە وەک هەڵسەنگێنەر بۆ ئەم فایلە دیاری نەکراوە."
+msgid "reviewer.reviewSteps.request"
+msgstr "1. داواکاری"
 
-msgid "submission.comments.cannotShareWithAuthor"
-msgstr "تەنیا بۆ سەرنوسەر"
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. پەیڕەوەکان"
 
-msgid "submission.comments.canShareWithAuthor"
-msgstr "بۆ توێژەر و سەرنوسەر"
+msgid "reviewer.reviewSteps.download"
+msgstr "3. دابەزاندن & هەڵسەنگاندن"
 
-msgid "reviewer.aboutDueDates.text"
-msgstr ""
-"سەرنوسەر داوا دەکات کە هەڵسەنگاندنەکە قبوڵ یان ڕەت بکەوە پێش تەواوبونی کاتی "
-"دیاریکراو."
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. تەواوکردن"
 
-msgid "reviewer.aboutDueDates"
-msgstr "دەربارەی کۆتا ڕۆژەکان"
-
-msgid "reviewer.complete.whatNext"
-msgstr ""
-"سوپاس بۆ تەواوکردنی هەڵسەنگاندنەکەت بۆ ئەم توێژینەوەیە. هەڵسەنگاندنەکەت بە "
-"سەرکەوتویی پێشکەش کرا. ئێمە کارەکەی تۆ بەرز دەنرخێنین؛ سەرنوسەر لەوانەیە لە "
-"هەر کاتێکدا بۆ زانیاریی زیاتر لەگەڵتان لە پەیوەندیدا بێت."
-
-msgid "reviewer.confirmSubmit"
-msgstr "ئایا تۆ دڵنیایت لەوەی کە دەتەوێت ئەم هەڵسەنگاندنە پێشکەش بکەیت؟"
-
-msgid "reviewer.complete"
-msgstr "هەڵسەنگاندنەکە پێشکەش کرا"
-
-msgid "reviewer.submission.uploadDescription"
-msgstr ""
-"ئەو فایلانە بار بکە کە دەتەوێت دەربارەیان لەگەڵ سەرنوسەر یان توێژەر ڕاوێژ "
-"بکەیت، لەگەڵ فایلە چاککراوەکان."
-
-msgid "reviewer.submission.reviewDescription"
-msgstr "هەڵسەنگاندنەکەت بۆ توێژینەوەکە لەم فۆڕمەی خوارەوە بنوسە."
-
-msgid "reviewer.submission.downloadDescription"
-msgstr ""
-"کلیک لەسەر ناوی فایلەکانی خوارەوە بکە بۆ دابەزاندنی فایلەکانی پەیوەندیدار بە "
-"توێژینەوە پێشکەشکراوەکە."
-
-msgid "reviewer.submission.noGuidelines"
-msgstr "بڵاوکراوەکە هیچ پەیڕەوێکی هەڵسەنگێنەری دانەبەزاندووە."
-
-msgid "reviewer.submission.guidelines"
-msgstr "پەیڕەوی هەڵسەنگاندن"
-
-msgid "reviewer.submission.competingInterests"
-msgstr "بەرژەوەندییە دژبەرەکان"
-
-msgid "reviewer.submission.hasCompetingInterests"
-msgstr "من لەوانەیە بەرژەوەندیی دژبەرم هەبێت (لە خوارەوە دیاریم کردووە)"
-
-msgid "reviewer.submission.noCompetingInterests"
-msgstr "من هیچ بەرژەوەندییەکی دژبەرم نییە"
-
-msgid "reviewer.submission.enterCompetingInterests"
-msgstr ""
-"بڵاوکراوەکە کۆمەڵێک ڕێنمایی هەیە بۆ دڵنیابون لە نەبونی پەیوەندیی دژبەر کە "
-"کاریگەری لەسەر پرۆسەی هەڵسەنگاندن هەبیت. تکایە چاوێک بە ڕێنماییەکاندا "
-"بخشێنەوە."
-
-msgid "reviewer.submission.reviewerGuidelines"
-msgstr "پێڕەوی هەڵسەنگاندن"
-
-msgid "reviewer.submission.submitReview"
-msgstr "پێشکەشکردنی هەڵسەنگاندنەکە"
-
-msgid "reviewer.submission.continueToStepThree"
-msgstr "بچۆ هەنگاوی #3"
-
-msgid "reviewer.submission.acceptReview"
-msgstr "هەڵسەنگاندنەکە قبوڵ بکە، بچۆ هەنگاوی #2"
-
-msgid "reviewer.submission.declineReviewMessage"
-msgstr "لە خوارەوە هۆکارەکانی ڕەتکردنەوەی هەڵسەنگاندنەکە بۆ سەرنوسەر بنوسە."
-
-msgid "reviewer.submission.declineReview"
-msgstr "ڕەتکردنەوەی داواکاریی هەڵسەنگاندن"
-
-msgid "reviewer.submission.reviewerFiles"
-msgstr "فایلەکانی هەڵسەنگێنەر"
-
-msgid "reviewer.step1.viewAllDetails"
-msgstr "هەمو زانیارییەکانی توێژینەوە پێشکەشکراوەکە پیشان بدە"
+msgid "reviewer.step1.request"
+msgstr "داواکاری بۆ هەڵسەنگاندن"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
@@ -104,17 +32,98 @@ msgstr ""
 "کراویت. لە خوارەوە زانیارییەکانی توێژینەوەکە و ڕێنماییەکانی هەڵسەنگاندن "
 "بەردەستن. ئێمە هیواخوازین کە بەڕێزتان ئەم ئەرکە قبوڵ بکەن."
 
-msgid "reviewer.step1.request"
-msgstr "داواکاری بۆ هەڵسەنگاندن"
+msgid "reviewer.step1.viewAllDetails"
+msgstr "هەمو زانیارییەکانی توێژینەوە پێشکەشکراوەکە پیشان بدە"
 
-msgid "reviewer.reviewSteps.completion"
-msgstr "4. تەواوکردن"
+msgid "reviewer.submission.reviewerFiles"
+msgstr "فایلەکانی هەڵسەنگێنەر"
 
-msgid "reviewer.reviewSteps.download"
-msgstr "3. دابەزاندن & هەڵسەنگاندن"
+msgid "reviewer.submission.declineReview"
+msgstr "ڕەتکردنەوەی داواکاریی هەڵسەنگاندن"
 
-msgid "reviewer.reviewSteps.guidelines"
-msgstr "2. پەیڕەوەکان"
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "لە خوارەوە هۆکارەکانی ڕەتکردنەوەی هەڵسەنگاندنەکە بۆ سەرنوسەر بنوسە."
 
-msgid "reviewer.reviewSteps.request"
-msgstr "1. داواکاری"
+msgid "reviewer.submission.acceptReview"
+msgstr "هەڵسەنگاندنەکە قبوڵ بکە، بچۆ هەنگاوی #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "بچۆ هەنگاوی #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "پێشکەشکردنی هەڵسەنگاندنەکە"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr ""
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "پێڕەوی هەڵسەنگاندن"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"بڵاوکراوەکە کۆمەڵێک ڕێنمایی هەیە بۆ دڵنیابون لە نەبونی پەیوەندیی دژبەر کە "
+"کاریگەری لەسەر پرۆسەی هەڵسەنگاندن هەبیت. تکایە چاوێک بە ڕێنماییەکاندا "
+"بخشێنەوە."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "من هیچ بەرژەوەندییەکی دژبەرم نییە"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "من لەوانەیە بەرژەوەندیی دژبەرم هەبێت (لە خوارەوە دیاریم کردووە)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "بەرژەوەندییە دژبەرەکان"
+
+msgid "reviewer.submission.guidelines"
+msgstr "پەیڕەوی هەڵسەنگاندن"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "بڵاوکراوەکە هیچ پەیڕەوێکی هەڵسەنگێنەری دانەبەزاندووە."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"کلیک لەسەر ناوی فایلەکانی خوارەوە بکە بۆ دابەزاندنی فایلەکانی پەیوەندیدار بە "
+"توێژینەوە پێشکەشکراوەکە."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "هەڵسەنگاندنەکەت بۆ توێژینەوەکە لەم فۆڕمەی خوارەوە بنوسە."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"ئەو فایلانە بار بکە کە دەتەوێت دەربارەیان لەگەڵ سەرنوسەر یان توێژەر ڕاوێژ "
+"بکەیت، لەگەڵ فایلە چاککراوەکان."
+
+msgid "reviewer.complete"
+msgstr "هەڵسەنگاندنەکە پێشکەش کرا"
+
+msgid "reviewer.confirmSubmit"
+msgstr "ئایا تۆ دڵنیایت لەوەی کە دەتەوێت ئەم هەڵسەنگاندنە پێشکەش بکەیت؟"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"سوپاس بۆ تەواوکردنی هەڵسەنگاندنەکەت بۆ ئەم توێژینەوەیە. هەڵسەنگاندنەکەت بە "
+"سەرکەوتویی پێشکەش کرا. ئێمە کارەکەی تۆ بەرز دەنرخێنین؛ سەرنوسەر لەوانەیە لە "
+"هەر کاتێکدا بۆ زانیاریی زیاتر لەگەڵتان لە پەیوەندیدا بێت."
+
+msgid "reviewer.aboutDueDates"
+msgstr "دەربارەی کۆتا ڕۆژەکان"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"سەرنوسەر داوا دەکات کە هەڵسەنگاندنەکە قبوڵ یان ڕەت بکەوە پێش تەواوبونی کاتی "
+"دیاریکراو."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "بۆ توێژەر و سەرنوسەر"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "تەنیا بۆ سەرنوسەر"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+
+msgid "submission.comments.sendToReviewers"
+msgstr ""
+
+msgid "user.authorization.submissionReviewer"
+msgstr "ئەم بەکارهێنەرە وەک هەڵسەنگێنەر بۆ ئەم فایلە دیاری نەکراوە."

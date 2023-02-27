@@ -11,25 +11,25 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.acron.tasksReloaded"
-msgstr "As tarefas programadas volveron cargarse."
-
-msgid "plugins.generic.acron.reload"
-msgstr "Recargar as tarefas programadas"
-
-msgid "plugins.generic.acron.reloadedCronTab"
-msgstr "A pestana Cron volveuse a cargar."
-
-msgid "plugins.generic.acron.disabled"
-msgstr "O complemento Acron está desabilitado."
-
-msgid "plugins.generic.acron.enabled"
-msgstr "O complemento Acron está habilitado."
+msgid "plugins.generic.acron.name"
+msgstr "Módulo Acron"
 
 msgid "plugins.generic.acron.description"
 msgstr ""
 "Este complemento tenta reducir a dependencia da aplicación de ferramentas de "
 "programación periódicas como \"cron\"."
 
-msgid "plugins.generic.acron.name"
-msgstr "Módulo Acron"
+msgid "plugins.generic.acron.enabled"
+msgstr "O complemento Acron está habilitado."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "O complemento Acron está desabilitado."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "A pestana Cron volveuse a cargar."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recargar as tarefas programadas"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "As tarefas programadas volveron cargarse."

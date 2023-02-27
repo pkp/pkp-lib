@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:39+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:39+00:00\n"
-"Language: \n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Administrador/a del lloc web"
@@ -61,15 +61,6 @@ msgstr "Revisors/ores interns"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IR"
-
-msgid "default.groups.name.externalReviewer"
-msgstr "Revisor/a extern"
-
-msgid "default.groups.plural.externalReviewer"
-msgstr "Revisors/ores externs"
-
-msgid "default.groups.abbrev.externalReviewer"
-msgstr "ER"
 
 msgid "default.groups.name.marketing"
 msgstr "Coordinador/a de màrqueting i vendes"
@@ -145,3 +136,12 @@ msgstr "Imatge"
 
 msgid "default.genres.styleSheet"
 msgstr "Full d'estil HTML"
+
+#~ msgid "default.groups.name.externalReviewer"
+#~ msgstr "Revisor/a extern"
+
+#~ msgid "default.groups.plural.externalReviewer"
+#~ msgstr "Revisors/ores externs"
+
+#~ msgid "default.groups.abbrev.externalReviewer"
+#~ msgstr "ER"

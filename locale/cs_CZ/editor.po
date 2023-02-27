@@ -17,8 +17,35 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Jste si jisti, že chcete trvale smazat tento příspěvek?"
 
+msgid "editor.activityLog"
+msgstr "Historie"
+
 msgid "editor.submissionLibrary"
 msgstr "Knihovna příspěvku"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Rozhodnutí bylo zaznamenáno"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Příspěvek byl odmítnut."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Příspěvek byl přijat k publikaci."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Příspěvek byl publikován."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Odesláno do nového recenzního kola."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Odesláno do produkce."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Příspěvek byl přijat k recenzi."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Změnit rozhodnutí"
 
 msgid "editor.review.notInitiated"
 msgstr "Recenzní proces doposud nezačal."
@@ -27,7 +54,8 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Zpráva uživateli"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Vyberte z níže uvedených souborů ty, které se odešlou do recenzní fáze."
+msgstr ""
+"Vyberte z níže uvedených souborů ty, které se odešlou do recenzní fáze."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Musíte vybrat alespoň jeden soubor, kterému chcete přiřadit uživatele."
@@ -85,8 +113,20 @@ msgstr "Zapojit existujícího uživatele"
 msgid "editor.review.unassignReviewer"
 msgstr "Zrušit přiřazení recenzenta"
 
+msgid "editor.review.cancelReviewer"
+msgstr "Zrušit recenzenta"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Znovu přiřadit recenzenta"
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Typ recenze"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Odeslání emailového upozornění autorovi/autorům: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Odeslání emailového upozornění redaktorovi/redaktorům: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Neposílat autorovi email"
@@ -109,6 +149,9 @@ msgstr "Uzavřít sekci souborů"
 msgid "editor.submissionReview.editReview"
 msgstr "Editovat recenzenta"
 
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonymní recenzent"
+
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Email, který má být zaslán recenzentovi"
 
@@ -118,6 +161,9 @@ msgstr "Důležité termíny"
 msgid "editor.review.uploadRevision"
 msgstr "Nahrát recenze"
 
+msgid "editor.review.newReviewRound"
+msgstr "Požadovat nové kolo recenzí"
+
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Požadovat od autora úpravy."
 
@@ -126,6 +172,9 @@ msgstr "Požadovat od autora úpravy, které budou předmětem další recenze."
 
 msgid "editor.review.dateAccepted"
 msgstr "Datum souhlasu recenzenta s provedením recenze"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzenti přidáni do těla zprávy."
 
 msgid "editor.review.noReviews"
 msgstr "Nejsou žádní recenzenti k importu"
@@ -163,6 +212,18 @@ msgstr "Požadavek odeslán"
 msgid "editor.review.requestAccepted"
 msgstr "Požadavek přijat"
 
+msgid "editor.review.requestDeclined"
+msgstr "Žádost zamítnuta"
+
+msgid "editor.review.requestCancelled"
+msgstr "Žádost byla zrušena"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent tuto žádost o kontrolu odmítl."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editor žádost o kontrolu zrušil."
+
 msgid "editor.review.revertDecision"
 msgstr "Vrátit rozhodnutí"
 
@@ -181,8 +242,20 @@ msgstr "Recenze potvrzena"
 msgid "editor.review.reviewSubmitted"
 msgstr "Recenze odeslána"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzentovi odesláno poděkování"
+
 msgid "editor.review.reviewerComments"
 msgstr "Recenzentovy komentáře"
+
+msgid "editor.review.rateReviewer"
+msgstr "Hodnocení recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr "Ohodnoťe kvalitu recenze. Ohodnocení nebude sdíleno s recenzentem."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Bez hodnocení"
 
 msgid "editor.review.mustSelect"
 msgstr "Je třeba vybrat recenzenta"
@@ -193,17 +266,37 @@ msgstr "Při vybírání recenzenta došlo k chybě. Zkuste to, prosím, znovu."
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Při odebírání recenzenta došlo k chybě. Zkuste to, prosím, znovu."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Při obnovování recenzenta došlo k chybě. Prosím zkuste to znovu."
+
 msgid "editor.review.userGroupSelect"
 msgstr "Zapsat uživatele ze uživatelské skupiny \"Recenzenti\""
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Chtěli byste tuto recenzi označit za nedostatečnou? Historie recenzí bude zachována."
+msgstr ""
+"Chtěli byste tuto recenzi označit za nedostatečnou? Historie recenzí bude "
+"zachována."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Označit tuto recenzi za nedostatečnou"
 
 msgid "editor.review.readConfirmation"
-msgstr "Po přečtení této recenze stiskněte tlačítko \"Potvrdit\" a označte, že proces přezkoumání může pokračovat. Pokud recenzent podal recenzi jiným způsobem, můžete nahrát níže uvedený soubor a pak pokračovat stisknutím tlačítka \"Potvrdit\"."
+msgstr ""
+"Po přečtení této recenze stiskněte tlačítko \"Potvrdit\" a označte, že "
+"proces přezkoumání může pokračovat. Pokud recenzent podal recenzi jiným "
+"způsobem, můžete nahrát níže uvedený soubor a pak pokračovat stisknutím "
+"tlačítka \"Potvrdit\"."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"S vybranými účastníky nelze vytvořit diskusi, protože by to mělo dopad na "
+"anonymitu recenzního procesu."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Vybraný účastník není přiřazen k této fázi."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Naplánovat k publikování"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Soubory k redakční úpravě"
@@ -229,20 +322,26 @@ msgstr "Email, který má být odeslán autorovi"
 msgid "editor.submission.proof.reminder"
 msgstr "Připomínka korektury"
 
-msgid "editor.submission.schedulePublication"
-msgstr "Naplánovat k publikování"
-
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Soubor po redakční úpravě musí být potvrzen před odesláním do produkční fáze. Chcete tento soubor potvrdit?"
+msgstr ""
+"Soubor po redakční úpravě musí být potvrzen před odesláním do produkční "
+"fáze. Chcete tento soubor potvrdit?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Zrušení potvrzení redakční úpravy souboru způsobí, že nebude možné ho poslat do produkční fáze. Chcete skutečně zrušit potvrzení tohoto souboru?"
+msgstr ""
+"Zrušení potvrzení redakční úpravy souboru způsobí, že nebude možné ho poslat "
+"do produkční fáze. Chcete skutečně zrušit potvrzení tohoto souboru?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Přiřadit posuzovatele"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Všechny soubory, které již byly nahrány do libovolné fáze odeslání, lze přidat do seznamu souborů pro redakční úpravy zaškrtnutím políčka Zahrnout a klepnutím na tlačítko Hledat: budou uvedeny všechny dostupné soubory a mohou být vybrány k zařazení. Další soubory, které ještě nebyly nahrané do této fáze, lze přidat do seznamu kliknutím na odkaz Nahrát soubor."
+msgstr ""
+"Všechny soubory, které již byly nahrány do libovolné fáze odeslání, lze "
+"přidat do seznamu souborů pro redakční úpravy zaškrtnutím políčka Zahrnout a "
+"klepnutím na tlačítko Hledat: budou uvedeny všechny dostupné soubory a mohou "
+"být vybrány k zařazení. Další soubory, které ještě nebyly nahrané do této "
+"fáze, lze přidat do seznamu kliknutím na odkaz Nahrát soubor."
 
 msgid "editor.review"
 msgstr "Recenze"
@@ -268,8 +367,25 @@ msgstr "Nové kolo recenzí"
 msgid "editor.submissionReview.recordDecision"
 msgstr "Nahrát rozhodnutí editora"
 
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Záznam doporučení redakce"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Upozornit redaktory"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Neposílat email redaktorům."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Vytvořit diskusi recenzentů o tomto doporučení."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Diskusi recenzentů nezahajovat."
+
 msgid "editor.submission.newRoundDescription"
-msgstr "Pro tento příspěvek se chystáte vytvořit nové kolo recenzí. Soubory, které nebyly použity v jiných kolech recenzí, jsou uvedeny níže."
+msgstr ""
+"Pro tento příspěvek se chystáte vytvořit nové kolo recenzí. Soubory, které "
+"nebyly použity v jiných kolech recenzí, jsou uvedeny níže."
 
 msgid "editor.submission.createNewRound"
 msgstr "Vytvořit nové kolo recenzí"
@@ -281,7 +397,9 @@ msgid "editor.article.selectReviewForm"
 msgstr "Vybrat recenzní formulář"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Upozornění: Změna recenzního formuláře  ovlivní všechny odpovědi, které recenzenti provedli pomocí tohoto formuláře. Opravdu chcete pokračovat?"
+msgstr ""
+"Upozornění: Změna recenzního formuláře  ovlivní všechny odpovědi, které "
+"recenzenti provedli pomocí tohoto formuláře. Opravdu chcete pokračovat?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nebyly vybrány žádné soubory"
@@ -314,55 +432,24 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Odvolat potvrzení korektury"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Potvrdit tuto korekturu, aby bylo indikováno, že korektura byla ukončena a soubor je připravený k publikaci."
+msgstr ""
+"Potvrdit tuto korekturu, aby bylo indikováno, že korektura byla ukončena a "
+"soubor je připravený k publikaci."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Odstranit potvrzení tuto korektury, aby bylo indikováno, že korektura není ukončena a soubor není připravený k publikaci."
+msgstr ""
+"Odstranit potvrzení tuto korektury, aby bylo indikováno, že korektura není "
+"ukončena a soubor není připravený k publikaci."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Jste si jisti, že chcete vrátit rozhodnutí o odmítnutí tohoto příspěvku?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Veřejný identifikátor '{$publicIdentifier}' nesmí být číslo."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Vzor {$pattern} není povolen jako veřejný identifikátor."
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "Odeslání emailového upozornění autorovi/autorům: {$authorName}"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Odeslání emailového upozornění redaktorovi/redaktorům: {$editorNames}"
-
-msgid "editor.review.newReviewRound"
-msgstr "Požadovat nové kolo recenzí"
-
-msgid "editor.review.reviewsAdded"
-msgstr "Recenzenti přidáni do těla zprávy."
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "Záznam doporučení redakce"
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Upozornit redaktory"
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Neposílat email redaktorům."
-
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Vytvořit diskusi recenzentů o tomto doporučení."
-
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Diskusi recenzentů nezahajovat."
-
-msgid "editor.review.anonymousReviewer"
-msgstr "Anonymní recenzent"
-
-msgid "editor.review.rateReviewer"
-msgstr "Hodnocení recenzenta"
-
-msgid "editor.review.rateReviewer.description"
-msgstr "Ohodnoťe kvalitu recenze. Ohodnocení nebude sdíleno s recenzentem."
-
-msgid "editor.review.reviewerRating.none"
-msgstr "Bez hodnocení"
 
 msgid "reviewer.list.filterRating"
 msgstr "Hodnocení je nejméně"
@@ -378,6 +465,9 @@ msgstr "Hotové recenze"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Odmítnuté požadavky na recenzi"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Žádosti o recenzi byly zrušeny"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Hodnocení recenzenta: {$rating}"
@@ -402,7 +492,10 @@ msgstr "Recenzentovi již byla přidělen tento příspěvek."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Tento recenzent je uzamčen, protože mu byla přidělena role, která mu umožňuje zobrazit totožnost autora. Slepé peer review nelze zaručit. Chcete přesto tohoto recenzenta odemknout?"
+msgstr ""
+"Tento recenzent je uzamčen, protože mu byla přidělena role, která mu "
+"umožňuje zobrazit totožnost autora. Slepé peer review nelze zaručit. Chcete "
+"přesto tohoto recenzenta odemknout?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Odmčen/a"
@@ -415,69 +508,3 @@ msgstr "Biografie"
 
 msgid "reviewer.list.empty"
 msgstr "Nebyli nalezeni žádní recenzenti"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Žádosti o recenzi byly zrušeny"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "Při obnovování recenzenta došlo k chybě. Prosím zkuste to znovu."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Recenzentovi odesláno poděkování"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Editor žádost o kontrolu zrušil."
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Recenzent tuto žádost o kontrolu odmítl."
-
-msgid "editor.review.requestCancelled"
-msgstr "Žádost byla zrušena"
-
-msgid "editor.review.requestDeclined"
-msgstr "Žádost zamítnuta"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Znovu přiřadit recenzenta"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Zrušit recenzenta"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Změnit rozhodnutí"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Příspěvek byl přijat k recenzi."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Odesláno do produkce."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Odesláno do nového recenzního kola."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Příspěvek byl publikován."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Příspěvek byl přijat k publikaci."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Příspěvek byl odmítnut."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Rozhodnutí bylo zaznamenáno"
-
-msgid "editor.activityLog"
-msgstr "Historie"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr ""
-"Jste si jisti, že chcete vrátit rozhodnutí o odmítnutí tohoto příspěvku?"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Vybraný účastník není přiřazen k této fázi."
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr ""
-"S vybranými účastníky nelze vytvořit diskusi, protože by to mělo dopad na "
-"anonymitu recenzního procesu."

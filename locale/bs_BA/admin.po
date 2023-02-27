@@ -11,9 +11,15 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Naziv postavke"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Vrijednost postavke"
 
 msgid "admin.adminFunctions"
 msgstr "Administrativne funkcije"
@@ -37,7 +43,11 @@ msgid "admin.clearTemplateCache"
 msgstr "Očisti predmemoriju predložka"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Vaša konfiguracijska datoteka je uspješno ažurirana. Imajte na umu da ukoliko vaša stranica više ne radi ispravno, tada ćete morati ručno podesiti svoju konfiguraciju prilikom direktnog uređivanja <tt>config.inc.php</tt> datoteke."
+msgstr ""
+"Vaša konfiguracijska datoteka je uspješno ažurirana. Imajte na umu da "
+"ukoliko vaša stranica više ne radi ispravno, tada ćete morati ručno podesiti "
+"svoju konfiguraciju prilikom direktnog uređivanja <tt>config.inc.php</tt> "
+"datoteke."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr ""
@@ -51,6 +61,11 @@ msgstr ""
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Sadržaj konfiguracijske datoteke"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Jeste li sigurni da želite trajno izbrisati {$contextName} i sav njegov "
+"sadržaj?"
 
 msgid "admin.currentVersion"
 msgstr "Trenutna verzija"
@@ -71,6 +86,17 @@ msgstr "Prikaži novu konfiguraciju"
 msgid "admin.expireSessions"
 msgstr "Istek korisničkih sesija"
 
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Ovaj je jezik primarni jezik web stranice. Ne možete ga onemogućiti dok ne "
+"odaberete drugu primarnu lokalizaciju."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Jeste li sigurni da želite promijeniti primarni jezik stranice? Imena "
+"korisnika, koja su potrebna u primarnoj lokalizaciji web stranice, kopirat "
+"će se iz postojeće primarne lokalizacije tamo gdje nedostaju."
+
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Jeste li sigurni da želite ponovo učitati ovu lokalizaciju? Ovo će izbrisati "
@@ -83,11 +109,20 @@ msgstr "Instalirani prevodi"
 msgid "admin.languages.installLanguages"
 msgstr "Upravljanje lokalizacijama"
 
+msgid "admin.languages.availableLocales"
+msgstr "Dostupne lokalizacije"
+
+msgid "admin.languages.installLocale"
+msgstr "Instaliraj lokalizaciju"
+
 msgid "admin.languages.installLocales"
 msgstr "Instaliraj"
 
 msgid "admin.languages.installNewLocales"
 msgstr "Instaliraj nove lokalizacije"
+
+msgid "admin.languages.languageSettings"
+msgstr "Postavke jezika"
 
 msgid "admin.languages.noLocalesAvailable"
 msgstr "Nema dodatnih lokalizacija na raspolaganju za instalaciju."
@@ -101,6 +136,40 @@ msgstr "Deinstalacija lokalizacije"
 msgid "admin.phpInfo"
 msgstr "Proširene PHP informacije"
 
+msgid "admin.scheduledTask"
+msgstr "Planirani zadatak"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proces zadatka je započet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proces zadatka je zaustavljen."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Zadatak nije proizveo log zapis."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Vaša instalacija {$softwareName} je automatski izvršila i dovršila ovaj "
+"zadatak, a datoteku dnevnika možete preuzeti ovdje: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Jeste li sigurni da želite izbrisati sve zapisnike izvršenja planiranih "
+"zadataka?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Očistite dnevnike izvršenja planiranih zadataka"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Objavite predaje rada predviđene za objavljivanje"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Podsjetnik za pregled"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Podsjetnik za istek pretplate"
+
 msgid "admin.server.apacheVersion"
 msgstr "Verzija Apache-a"
 
@@ -109,9 +178,6 @@ msgstr "Tip baze podataka"
 
 msgid "admin.server.dbVersion"
 msgstr "Verzija servera baze podataka"
-
-msgid "admin.serverInformationDescription"
-msgstr "Osnovni operacijski sustav i verzije programske opreme poslužitelja. Kliknite na \"proširena  PHP informacija\" kako biste vidjeli dodatne detalje PHP konfiguracije ovoga poslužitelja."
 
 msgid "admin.serverInformation"
 msgstr "Informacije o serveru"
@@ -122,8 +188,14 @@ msgstr "Verzija PHP-a"
 msgid "admin.server.platform"
 msgstr "Platforma OS-a"
 
+msgid "admin.settings"
+msgstr "Postavke"
+
 msgid "admin.settings.about"
 msgstr "Opis stranice"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mail glavnog kontakta"
@@ -131,14 +203,32 @@ msgstr "E-mail glavnog kontakta"
 msgid "admin.settings.contactName"
 msgstr "Ime glavnog kontakta"
 
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tVaša instalacija je konfigurisana za bilježenje više mjernih podataka. "
+"Statistika upotrebe prikazat će se u nekoliko konteksta.\n"
+"  Postoje slučajevi u kojima se mora koristiti jedna statistika upotrebe, "
+"npr. za prikaz uređene liste najčešće korištenih predatih radova ili za "
+"rangiranja\n"
+"  rezultata pretrage. Molimo odaberite jednu od konfigurisanih mjernih "
+"vrijednosti kao zadanu.\n"
+"\t"
+
 msgid "admin.settings.introduction"
 msgstr "Uvod"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimalna dužina šifre (znakova)"
 
-msgid "admin.settings.passwordCharacters"
-msgstr "znakova"
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Jezik stranice"
@@ -149,8 +239,17 @@ msgstr "Neispravan style sheet format. Sistem prihvata samo .css format."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Style sheet (CSS) stranice"
 
+msgid "admin.settings.siteLogo"
+msgstr "Logo stranice"
+
 msgid "admin.settings.siteTitle"
 msgstr "Naziv stranice"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema stranice"
+
+msgid "admin.siteAdmin"
+msgstr "Administracija stranice"
 
 msgid "admin.siteManagement"
 msgstr "Upravljanje stranicom"
@@ -158,8 +257,13 @@ msgstr "Upravljanje stranicom"
 msgid "admin.siteSettings"
 msgstr "Postavke stranice"
 
+msgid "admin.siteSetup"
+msgstr "Postavljanje stranice"
+
 msgid "admin.systemConfigFileReadError"
-msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji, nije čitljiva ili je neispravna."
+msgstr ""
+"Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji, nije čitljiva "
+"ili je neispravna."
 
 msgid "admin.systemInformation"
 msgstr "Informacije o sistemu"
@@ -203,138 +307,22 @@ msgstr "Vaš sustav je ažuran"
 msgid "admin.version"
 msgstr "Verzija"
 
-msgid "admin.siteSetup"
-msgstr "Postavljanje stranice"
-
-msgid "admin.siteAdmin"
-msgstr "Administracija stranice"
-
-msgid "admin.settings.siteTheme"
-msgstr "Tema stranice"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo stranice"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tVaša instalacija je konfigurisana za bilježenje više mjernih podataka. "
-"Statistika upotrebe prikazat će se u nekoliko konteksta.\n"
-"  Postoje slučajevi u kojima se mora koristiti jedna statistika upotrebe, "
-"npr. za prikaz uređene liste najčešće korištenih predatih radova ili za "
-"rangiranja\n"
-"  rezultata pretrage. Molimo odaberite jednu od konfigurisanih mjernih "
-"vrijednosti kao zadanu.\n"
-"\t"
-
-msgid "admin.settings"
-msgstr "Postavke"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Podsjetnik za istek pretplate"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Podsjetnik za pregled"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Objavite predaje rada predviđene za objavljivanje"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Očistite dnevnike izvršenja planiranih zadataka"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
-"Jeste li sigurni da želite izbrisati sve zapisnike izvršenja planiranih "
-"zadataka?"
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Vaša instalacija {$softwareName} je automatski izvršila i dovršila ovaj "
-"zadatak, a datoteku dnevnika možete preuzeti ovdje: {$url}"
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Proces zadatka je zaustavljen."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Proces zadatka je započet."
-
-msgid "admin.scheduledTask"
-msgstr "Planirani zadatak"
-
-msgid "admin.languages.languageSettings"
-msgstr "Postavke jezika"
-
-msgid "admin.languages.installLocale"
-msgstr "Instaliraj lokalizaciju"
-
-msgid "admin.languages.availableLocales"
-msgstr "Dostupne lokalizacije"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Jeste li sigurni da želite promijeniti primarni jezik stranice? Imena "
-"korisnika, koja su potrebna u primarnoj lokalizaciji web stranice, kopirat "
-"će se iz postojeće primarne lokalizacije tamo gdje nedostaju."
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Ovaj je jezik primarni jezik web stranice. Ne možete ga onemogućiti dok ne "
-"odaberete drugu primarnu lokalizaciju."
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Jeste li sigurni da želite trajno izbrisati {$contextName} i sav njegov "
-"sadržaj?"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Vrijednost postavke"
-
-msgid "admin.systemInfo.settingName"
-msgstr "Naziv postavke"
-
-msgid "admin.error.utilExecutionProblem"
-msgstr ""
-"Izvršenje programa \"{$utilPath}\" vratilo je sljedeću grešku: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Uspjeh: {$filePath} do {$destinationPath}"
-
-msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr ""
-"Upozorenje: datoteka {$filePath} već postoji unutar direktorija statistike "
-"upotrebe."
-
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Greška: nije moguće izbrisati datoteku {$tmpFilePath}"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "Osnovna putanja {$path} mora biti unutar direktorija javnih datoteka."
 
-msgid "admin.fileLoader.emailSubject"
-msgstr "Učitavač datoteka"
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} nije direktorij ili nije čitljiv."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Datoteka {$filename} se ne može premjestiti iz {$currentFilePath} u "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Datoteka {$filename} je obrađena i arhivirana."
 
-msgid "admin.scheduledTask.noLog"
-msgstr "Zadatak nije proizveo log zapis."
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Nema dostupnih lokalizacija za preuzimanje."
-
-msgid "admin.error.executingUtil"
-msgstr ""
-"Greška: nije moguće izvršiti \"{$utilPath}\". Provjerite postavku {$utilVar} "
-"u config.inc.php."
-
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Greška: ne mogu kopirati datoteku iz {$filePath} u {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Greška: Datoteka {$filePath} ne postoji ili joj se ne može pristupiti."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Greška: nije moguće kreirati privremeni folder {$tmpDir}"
+msgid "admin.fileLoader.emailSubject"
+msgstr "Učitavač datoteka"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
@@ -352,10 +340,43 @@ msgstr ""
 "apache/directory\n"
 "\t"
 
-msgid "admin.fileLoader.moveFileFailed"
-msgstr ""
-"Datoteka {$filename} se ne može premjestiti iz {$currentFilePath} u "
-"{$destinationPath}"
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Greška: nije moguće kreirati privremeni folder {$tmpDir}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Folder {$path} nije direktorij ili nije čitljiv."
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Greška: Datoteka {$filePath} ne postoji ili joj se ne može pristupiti."
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Greška: ne mogu kopirati datoteku iz {$filePath} u {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Greška: nije moguće izbrisati datoteku {$tmpFilePath}"
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+"Upozorenje: datoteka {$filePath} već postoji unutar direktorija statistike "
+"upotrebe."
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Uspjeh: {$filePath} do {$destinationPath}"
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+"Izvršenje programa \"{$utilPath}\" vratilo je sljedeću grešku: {$output}"
+
+msgid "admin.error.executingUtil"
+msgstr ""
+"Greška: nije moguće izvršiti \"{$utilPath}\". Provjerite postavku {$utilVar} "
+"u config.inc.php."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nema dostupnih lokalizacija za preuzimanje."
+
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Osnovni operacijski sustav i verzije programske opreme poslužitelja. "
+#~ "Kliknite na \"proširena  PHP informacija\" kako biste vidjeli dodatne "
+#~ "detalje PHP konfiguracije ovoga poslužitelja."
+
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "znakova"

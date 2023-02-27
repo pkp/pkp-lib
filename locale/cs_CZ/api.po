@@ -11,99 +11,191 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.userCantEdit"
-msgstr "Nemáte povolení editovat tuto publikaci."
+msgid "api.400.paramNotSupported"
+msgstr "Parametr {$param} není podporován."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Nemáte povoleno nahrávat soubory."
-
-msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Soubor, který jste nahrály neodpovídá koncovce souboru. To se může stát, "
-"pokud byl soubor přejmenován na nekompatibilní typ, například změnou "
-"photo.png na photo.jpg."
+"Token API se nepodařilo ověřit. To může znamenat chybu v tokenu API nebo to, "
+"že token API již není platný."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Nahraný obrázek není platný."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Api token nelze dekódovat z důvodu následující chyby: {$error}"
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Není možné změnit čas, kdy bylo toto vytvořeno."
+
+msgid "api.403.unauthorized"
+msgstr "Nemáte oprávnění pro přístup k požadovanému zdroji."
+
+msgid "api.404.resourceNotFound"
+msgstr "Požadovaný zdroj nebyl nalezen."
+
+msgid "api.404.endpointNotFound"
+msgstr "Požadované URL nebylo rozpoznáno."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API nelze použít pro přístup k tomuto webu, protože správce webu "
+"nenakonfiguroval tajný klíč."
+
+msgid "api.500.badAuthorizationheader"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Požadované oznámení nebylo nalezeno."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Následující lokalizace nejsou podporovány:  {$locales}."
+
+msgid "api.emails.400.missingBody"
+msgstr "Musíte zahrnout email, který má být odeslán."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Musíte uvést předmět emailu."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Musíte uvést uživatelské role, které mají dostat tento email."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nemáte oprávnění odeslat email uživatelům s jednou, nebo více vybranými "
+"rolemi."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Požadovaná šablona emailu nebyla nalezena."
+
+msgid "api.files.400.noUpload"
+msgstr "S požadavkem nebyl nalezen žádný soubor k nahrání."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nebylo možné nahrát jeden, nebo více souborů."
+
+msgid "api.files.400.fileSize"
+msgstr "Soubory větší, než {$maxSize} nemohou být nahrány."
+
+msgid "api.files.400.config"
+msgstr ""
+"Soubor se nepodařilo nahrát kvůli chybě konfigurace serveru. Obraťte se na "
+"správce systému."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikace, kterou chcete publikovat již byla publikována."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a /"
+"unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr ""
 "Nejprve je třeba zrušit publikování této publikace, než ji budete moci "
 "smazat."
 
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Můžete nahrávat pouze soubory následujících typů: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Nahraný obrázek není platný."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
-"Status nejde změni přímo pomocí API. Místo toho použijte funkce /publish a "
-"/unpublish."
+"Soubor, který jste nahrály neodpovídá koncovce souboru. To se může stát, "
+"pokud byl soubor přejmenován na nekompatibilní typ, například změnou photo."
+"png na photo.jpg."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Tuto publikaci nejde editovat, protože již byla publikována."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nemáte povoleno nahrávat soubory."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikace, u které chcete zrušit publikování, nebyla publikována."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Publikace, kterou chcete publikovat již byla publikována."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Požadovaná šablona emailu nebyla nalezena."
-
-msgid "api.404.endpointNotFound"
-msgstr "Požadované URL nebylo rozpoznáno."
-
-msgid "api.404.resourceNotFound"
-msgstr "Požadovaný zdroj nebyl nalezen."
-
-msgid "api.403.unauthorized"
-msgstr "Nemáte oprávnění pro přístup k požadovanému zdroji."
-
-msgid "api.400.paramNotSupported"
-msgstr "Parametr {$param} není podporován."
-
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Slovník {$vocab} není podporován."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Lokalizace {$locale} není podporována."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Aktivní téma {$themePluginPath} není povoleno, je možné, že není vůbec "
-"nainstalováno."
+"Nemáte dostatek prostoru v uživatelské knihovně. Nahráváte soubor s "
+"velikostí {$fileUploadSize}kb a v knihovně vám zbývá {$dirSizeLeft}kb."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Soubor nejde nahrát kvůli chybě konfigurace serveru. Kontaktujte, prosím, "
-"administrátora serveru."
+"Nebyla nalezena veřejná knihovna, nebo do ní nelze ukládat soubory. "
+"Kontaktujte, prosím, správce serveru, pokud chcete tento problém vyřešit."
 
-msgid "api.temporaryFiles.400.fileSize"
-msgstr "Nelze nahrát soubory větší, než {$maxSize}."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Datum musí být ve formátu RRRR-MM-DD."
 
-msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "Nelze nahrát jeden, či více souborů."
+msgid "api.stats.400.wrongDateRange"
+msgstr "Počáteční datum nesmí být pozdější, než datum ukončení."
 
-msgid "api.temporaryFiles.400.noUpload"
-msgstr "V požadavku nebyl zadán soubor k nahrání."
+msgid "api.stats.400.earlyDateRange"
+msgstr "Počáteční datum nemůže být dřívější, než 2001-01-01."
 
-msgid "api.submissions.unknownError"
-msgstr "Vznikla neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."
+msgid "api.stats.400.lateDateRange"
+msgstr "Datum ukončení nemůže být později, než včera."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Požadovaný svazek, číslo či ročník nejsou platné."
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Váš požadavek nebyl platný. Zadaný časový interval musí být \"dny\", nebo "
+"\"měsíce\"."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Váš požadavek nebyl platný. Směr řazení musí být  \"sestupně\", nebo "
+"\"vzestupně\"."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "Přidružení souboru nemůžete upravit bez předání assocType a assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k jinému souboru "
+"příspěvku."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k diskusní poznámce."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k zadání recenze."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Soubor z této fáze zpracování souborů nemůžete přidružit k recenznímu kolu."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Při žádosti o soubory v recenzím kole musíte určit recenzní kolo."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Musíte zadat fázi souboru."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "V požadavku na úpravu tohoto souboru nebyly nalezeny žádné změny."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Recenzní kolo, které jste zadali není součástí tohoto příspěvku."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nemáte oprávnění  k přístupu k tomuto souboru."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nemáte oprávnění přidávat a upravovat tyto soubory."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nemáte oprávnění k přístupu k souborům tohoto recenzního kola."
 
 msgid "api.submissions.400.missingRequired"
 msgstr "Váš požadavek nemůže být splněn protože chybí požadovaná informace."
 
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Tento koncový bod není přístupný z kontextu. Musí se k němu přistupovat z "
-"jmenného prostoru pro všechny stránky."
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Požadovaný svazek, číslo či ročník nejsou platné."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Nemáte oprávnění smazat tento příspěvek."
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Váš požadavek byl zamítnut. K tomu mohlo dojít z důvodu vypršení doby vašeho "
+"přihlášení. Obnovte, prosím, stránku a zkuste to znovu."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "Nemůžete smazat příspěvek, který není přiřazen v této souvislosti."
@@ -113,130 +205,42 @@ msgstr ""
 "Můžete vidět pouze nepublikované příspěvky, u kterých vám byla přiřazena "
 "nějaká role."
 
-msgid "api.submissions.403.csrfTokenFailure"
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nemáte oprávnění smazat tento příspěvek."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nemáte povolení editovat tuto publikaci."
+
+msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Váš požadavek byl zamítnut. K tomu mohlo dojít z důvodu vypršení doby vašeho "
-"přihlášení. Obnovte, prosím, stránku a zkuste to znovu."
+"Tento koncový bod není přístupný z kontextu. Musí se k němu přistupovat z "
+"jmenného prostoru pro všechny stránky."
 
-msgid "api.stats.400.invalidOrderDirection"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Váš požadavek nebyl platný. Směr řazení musí být  \"sestupně\", nebo \""
-"vzestupně\"."
+"Aktivní téma {$themePluginPath} není povoleno, je možné, že není vůbec "
+"nainstalováno."
 
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr ""
-"Váš požadavek nebyl platný. Zadaný časový interval musí být \"dny\", nebo \""
-"měsíce\"."
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Lokalizace {$locale} není podporována."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Datum ukončení nemůže být později, než včera."
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Slovník {$vocab} není podporován."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Počáteční datum nemůže být dřívější, než 2001-01-01."
+#~ msgid "api.temporaryFiles.400.config"
+#~ msgstr ""
+#~ "Soubor nejde nahrát kvůli chybě konfigurace serveru. Kontaktujte, prosím, "
+#~ "administrátora serveru."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Počáteční datum nesmí být pozdější, než datum ukončení."
+#~ msgid "api.temporaryFiles.400.fileSize"
+#~ msgstr "Nelze nahrát soubory větší, než {$maxSize}."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Datum musí být ve formátu RRRR-MM-DD."
+#~ msgid "api.temporaryFiles.409.uploadFailed"
+#~ msgstr "Nelze nahrát jeden, či více souborů."
 
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Nebyla nalezena veřejná knihovna, nebo do ní nelze ukládat soubory. "
-"Kontaktujte, prosím, správce serveru, pokud chcete tento problém vyřešit."
+#~ msgid "api.temporaryFiles.400.noUpload"
+#~ msgstr "V požadavku nebyl zadán soubor k nahrání."
 
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Nemáte dostatek prostoru v uživatelské knihovně. Nahráváte soubor s "
-"velikostí {$fileUploadSize}kb a v knihovně vám zbývá {$dirSizeLeft}kb."
-
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr "Přidružení souboru nemůžete upravit bez předání assocType a assocId."
-
-msgid "api.files.400.config"
-msgstr ""
-"Soubor se nepodařilo nahrát kvůli chybě konfigurace serveru. Obraťte se na "
-"správce systému."
-
-msgid "api.files.400.fileSize"
-msgstr "Soubory větší, než {$maxSize} nemohou být nahrány."
-
-msgid "api.files.400.uploadFailed"
-msgstr "Nebylo možné nahrát jeden, nebo více souborů."
-
-msgid "api.files.400.noUpload"
-msgstr "S požadavkem nebyl nalezen žádný soubor k nahrání."
-
-msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"Nemáte oprávnění odeslat email uživatelům s jednou, nebo více vybranými "
-"rolemi."
-
-msgid "api.emails.400.missingUserGroups"
-msgstr "Musíte uvést uživatelské role, které mají dostat tento email."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Musíte uvést předmět emailu."
-
-msgid "api.emails.400.missingBody"
-msgstr "Musíte zahrnout email, který má být odeslán."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Požadované oznámení nebylo nalezeno."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Není možné změnit čas, kdy bylo toto vytvořeno."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Nemáte oprávnění k přístupu k souborům tohoto recenzního kola."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Nemáte oprávnění přidávat a upravovat tyto soubory."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Nemáte oprávnění  k přístupu k tomuto souboru."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Recenzní kolo, které jste zadali není součástí tohoto příspěvku."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Musíte zadat fázi souboru."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "Při žádosti o soubory v recenzím kole musíte určit recenzní kolo."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr ""
-"Soubor z této fáze zpracování souborů nemůžete přidružit k recenznímu kolu."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr ""
-"Soubor z této fáze zpracování souborů nemůžete přidružit k zadání recenze."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr ""
-"Soubor z této fáze zpracování souborů nemůžete přidružit k diskusní poznámce."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr ""
-"Soubor z této fáze zpracování souborů nemůžete přidružit k jinému souboru "
-"příspěvku."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr "V požadavku na úpravu tohoto souboru nebyly nalezeny žádné změny."
-
-msgid "api.500.apiSecretKeyMissing"
-msgstr ""
-"Token API nelze použít pro přístup k tomuto webu, protože správce webu "
-"nenakonfiguroval tajný klíč."
-
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "Api token nelze dekódovat z důvodu následující chyby: {$error}"
-
-msgid "api.400.invalidApiToken"
-msgstr ""
-"Token API se nepodařilo ověřit. To může znamenat chybu v tokenu API nebo to, "
-"že token API již není platný."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Následující lokalizace nejsou podporovány:  {$locales}."
+#~ msgid "api.submissions.unknownError"
+#~ msgstr ""
+#~ "Vznikla neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."

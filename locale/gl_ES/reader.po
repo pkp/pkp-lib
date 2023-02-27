@@ -1,2 +1,72 @@
 msgid ""
-msgstr "X-Generator: Weblate\nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit"
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Weblate\n"
+
+msgid "comments.anonymous"
+msgstr ""
+
+msgid "comments.anonymousNamed"
+msgstr ""
+
+msgid "comments.body"
+msgstr ""
+
+msgid "comments.titleRequired"
+msgstr ""
+
+msgid "comments.confirmDeleteChildren"
+msgstr ""
+
+msgid "comments.delete"
+msgstr ""
+
+msgid "comments.email"
+msgstr ""
+
+msgid "comments.emailReply"
+msgstr ""
+
+msgid "comments.enterComment"
+msgstr ""
+
+msgid "comments.inResponseTo"
+msgstr ""
+
+msgid "comments.name"
+msgstr ""
+
+msgid "comments.noComments"
+msgstr ""
+
+msgid "comments.nReplies"
+msgstr ""
+
+msgid "comments.oneReply"
+msgstr ""
+
+msgid "comments.postAnonymously"
+msgstr ""
+
+msgid "comments.postReply"
+msgstr ""
+
+msgid "comments.readerComments"
+msgstr ""
+
+msgid "comments.readMore"
+msgstr ""
+
+msgid "comments.replies"
+msgstr ""
+
+msgid "comments.title"
+msgstr ""
+
+msgid "comments.viewAllComments"
+msgstr ""
+
+msgid "reader.fullText"
+msgstr ""

@@ -35,9 +35,6 @@ msgstr "Contacte de la revista"
 msgid "about.contact.email"
 msgstr "Adreça electrònica"
 
-msgid "about.contact.fax"
-msgstr "Fax"
-
 msgid "about.contact.phone"
 msgstr "Telèfon"
 
@@ -77,14 +74,23 @@ msgstr "Enviat"
 msgid "announcement.postedOn"
 msgstr "Publicat a {$postDate}"
 
-msgid "announcement.viewLink"
-msgstr "Més..."
-
 msgid "announcement.view"
 msgstr "Visualitza l’avís"
 
-msgid "common.navigation"
-msgstr "Navegació"
+msgid "common.allDownloads"
+msgstr "Totes les descàrregues"
+
+msgid "common.navigation.sidebar"
+msgstr "Barra lateral"
+
+msgid "common.navigation.site"
+msgstr "Navegació del lloc"
+
+msgid "common.navigation.siteContext"
+msgstr "Navegació contextual del lloc"
+
+msgid "common.navigation.user"
+msgstr "Navegació de l'usuari/ària"
 
 msgid "common.tasks"
 msgstr "Tasques"
@@ -96,7 +102,9 @@ msgid "common.grid"
 msgstr "Graella"
 
 msgid "common.confirmDelete"
-msgstr "Esteu segur/a que voleu eliminar aquest element? Aquesta acció no es pot desfer."
+msgstr ""
+"Esteu segur/a que voleu eliminar aquest element? Aquesta acció no es pot "
+"desfer."
 
 msgid "common.abstract"
 msgstr "Resum"
@@ -116,6 +124,9 @@ msgstr "Activa"
 msgid "common.active"
 msgstr "Activa"
 
+msgid "common.inactive"
+msgstr "Inactiu"
+
 msgid "common.add"
 msgstr "Afegeix"
 
@@ -132,13 +143,21 @@ msgid "common.alphaList"
 msgstr "A B C Ç D E F G H I J K L L·L M N O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr "de un una el la els les i o ni però és si llavors altre altra quan en des de per dins fora"
+msgstr ""
+"de un una el la els les i o ni però és si llavors altre altra quan en des de "
+"per dins fora"
 
 msgid "common.alreadyAssigned"
 msgstr "Assignat"
 
 msgid "common.altText"
 msgstr "Text alternatiu"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Descriviu aquesta imatge per a visitants del lloc amb un navegador només de "
+"text o amb dispositius d'assistència. Per exemple, \"El nostre editor "
+"parlant a la conferència PKP\"."
 
 msgid "common.and"
 msgstr "i"
@@ -151,6 +170,9 @@ msgstr "Assigna"
 
 msgid "common.assigned"
 msgstr "Assignat"
+
+msgid "common.assigned.date"
+msgstr "Assignat: {$dateAssigned}"
 
 msgid "common.available"
 msgstr "Disponibles"
@@ -176,11 +198,25 @@ msgstr "Error"
 msgid "common.notice"
 msgstr "Notificació"
 
-msgid "common.captchaField.altText"
-msgstr "Imatge de validació"
+msgid "common.captcha.error.missing-input-secret"
+msgstr ""
+"La validació captcha no està ben configurada en aquest lloc web. Falta la "
+"clau secreta."
 
-msgid "common.captchaField.badCaptcha"
-msgstr "Els caracters que heu introduit no coincideixen amb els de la imatge. Comproveu els caracters i torneu-ho a intentar."
+msgid "common.captcha.error.invalid-input-secret"
+msgstr ""
+"La validació captcha no està ben configurada en aquest lloc web. La clau "
+"secreta no és vàlida."
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Heu de completar la comprovació de validació utilitzada per prevenir "
+"trameses brossa."
+
+msgid "common.captcha.error.invalid-input-response"
+msgstr ""
+"No heu superat la comprovació de validació utilitzada per prevenir trameses "
+"brossa."
 
 msgid "common.captchaField.description"
 msgstr "Introduïu les lletres que apareixen a la imatge superior."
@@ -194,19 +230,25 @@ msgstr ""
 "\t\t<br /><br />\n"
 "\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
-"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tAquesta obra està sota una llicència <a rel=\"license\" target=\"_blank\""
-" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"\t\tAquesta obra està sota una llicència <a rel=\"license\" target=\"_blank"
+"\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
 "Reconeixement 3.0</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
-"\t<div class=\"rtBlock\"><br /> <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Llicència Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Aquesta obra està sota llicència de <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0</a>.</div>\n"
+"\t<div class=\"rtBlock\"><br /> <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt="
+"\"Llicència Creative Commons\" style=\"border-width:0\" src=\"//i."
+"creativecommons.org/l/by/3.0/80x15.png\" /></a> <br /> Aquesta obra està "
+"sota llicència de <a rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0</a>.</"
+"div>\n"
 "\t"
 
 msgid "common.changesSaved"
@@ -218,6 +260,9 @@ msgstr "Trieu-ne un"
 msgid "common.close"
 msgstr "Tanca"
 
+msgid "common.closePanel"
+msgstr "Tanca el panell"
+
 msgid "common.closeWindow"
 msgstr "Tanca la finestra"
 
@@ -227,17 +272,20 @@ msgstr "Completa"
 msgid "common.completed"
 msgstr "Completada"
 
+msgid "common.completed.date"
+msgstr "Completat: {$dateCompleted}"
+
 msgid "common.confirm"
 msgstr "Confirmeu el correu electrònic"
+
+msgid "common.confirmed.date"
+msgstr "Confirmat: {$dateConfirmed}"
 
 msgid "common.content"
 msgstr "Contingut"
 
 msgid "common.contents"
 msgstr "Continguts"
-
-msgid "common.considered"
-msgstr "Considerat"
 
 msgid "common.continue"
 msgstr "Continua"
@@ -253,6 +301,9 @@ msgstr "Crea"
 
 msgid "common.dateCompleted"
 msgstr "Data de finalització"
+
+msgid "common.dateDecided"
+msgstr "Data decidida"
 
 msgid "common.date"
 msgstr "Data"
@@ -287,6 +338,9 @@ msgstr "Rebutjada"
 msgid "common.delete"
 msgstr "Suprimeix"
 
+msgid "common.deleting"
+msgstr "Eliminant"
+
 msgid "common.deleteSelection"
 msgstr "Suprimeix la selecció"
 
@@ -317,8 +371,14 @@ msgstr "Acabada"
 msgid "common.download"
 msgstr "Baixa"
 
+msgid "common.downloadPdf"
+msgstr "Descarrega el PDF"
+
 msgid "common.edit"
 msgstr "Edita"
+
+msgid "common.editItem"
+msgstr "Editar {$name}"
 
 msgid "common.enable"
 msgstr "Habilita"
@@ -333,7 +393,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "S’ha produït un error desconegut de connexió a la base de dades."
 
 msgid "common.error.framesRequired"
-msgstr "Aquesta pàgina requereix marcs. <a href=\"{$url}\">Feu clic aquí</a> per a la versió sense marcs."
+msgstr ""
+"Aquesta pàgina requereix marcs. <a href=\"{$url}\">Feu clic aquí</a> per a "
+"la versió sense marcs."
 
 msgid "common.event"
 msgstr "Esdeveniment"
@@ -356,6 +418,12 @@ msgstr "Fals"
 msgid "common.file"
 msgstr "Fitxer"
 
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
 msgid "common.fileName"
 msgstr "Nom del fitxer"
 
@@ -366,19 +434,37 @@ msgid "common.fileType"
 msgstr "Tipus de fitxer"
 
 msgid "common.fileUploaderError"
-msgstr "El fitxer de sistema s'està carregant. Si no apareix, és possible que cap dels seus entorns d'execució sigui compatible amb aquest navegador. Contacteu amb l'administrador/a per obtenir ajuda."
+msgstr ""
+"El fitxer de sistema s'està carregant. Si no apareix, és possible que cap "
+"dels seus entorns d'execució sigui compatible amb aquest navegador. "
+"Contacteu amb l'administrador/a per obtenir ajuda."
 
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
+msgid "common.filter"
+msgstr "Filtres"
 
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgid "common.filterAdd"
+msgstr "Afegir filtre: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Netejar filtre: {$filterTitle}"
+
+msgid "common.from"
+msgstr "Des de"
+
+msgid "common.fromWithValue"
+msgstr "Des de: {$value}"
+
+msgid "common.until"
+msgstr "Fins a"
 
 msgid "common.go"
 msgstr "Vés-hi"
 
 msgid "common.height"
 msgstr "Alçada"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Pàgina d'inici"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "Logotip per a la capçalera de la pàgina inicial"
@@ -410,8 +496,17 @@ msgstr "Llengua"
 msgid "common.languages"
 msgstr "Llengües"
 
+msgid "common.lastActivity"
+msgstr "Darrera activitat registrada el {$date}."
+
 msgid "common.less"
 msgstr "Menys"
+
+msgid "common.lessThan"
+msgstr "{$value} o menys"
+
+msgid "common.lessThanOnly"
+msgstr "Menys que"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -440,6 +535,12 @@ msgstr "Mes"
 msgid "common.more"
 msgstr "Més"
 
+msgid "common.moreThan"
+msgstr "{$value} o més"
+
+msgid "common.moreThanOnly"
+msgstr "Més que"
+
 msgid "common.noneAssigned"
 msgstr "No n’hi ha cap d’assignat"
 
@@ -448,6 +549,9 @@ msgstr "Cap"
 
 msgid "common.no"
 msgstr "No"
+
+msgid "common.noItemsFound"
+msgstr "No s'ha trobat cap element."
 
 msgid "common.noComments"
 msgstr "No hi ha comentaris"
@@ -464,14 +568,23 @@ msgstr "No disponible"
 msgid "common.note"
 msgstr "Nota"
 
+msgid "common.noTemporaryFile"
+msgstr ""
+"No s'ha pogut trobar l'arxiu que heu carregat . Proveu de carregar-lo de nou."
+
 msgid "common.notes"
 msgstr "Notes"
 
 msgid "common.notes.tooltip"
-msgstr "Notes (groc: hi ha notes noves; blau: hi ha notes vistes; gris: no hi ha notes)"
+msgstr ""
+"Notes (groc: hi ha notes noves; blau: hi ha notes vistes; gris: no hi ha "
+"notes)"
 
 msgid "common.notified"
 msgstr "Notificat"
+
+msgid "common.notified.date"
+msgstr "Notificat: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "No s’han trobat coincidències"
@@ -491,6 +604,12 @@ msgstr "Opcions"
 msgid "common.order"
 msgstr "Ordena"
 
+msgid "common.orderUp"
+msgstr "Pujar la posició de {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Baixar la posició de {$itemTitle}"
+
 msgid "common.originalFileName"
 msgstr "Nom del fitxer original"
 
@@ -502,6 +621,30 @@ msgstr "Altres"
 
 msgid "common.overdue"
 msgstr "Endarrerit"
+
+msgid "common.override"
+msgstr "Anul·lar"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} de {$total}"
+
+msgid "common.pagination.label"
+msgstr "Veure les pàgines addicionals"
+
+msgid "common.pagination.goToPage"
+msgstr "Anar a {$page}"
+
+msgid "common.pagination.next"
+msgstr "Pàgina següent"
+
+msgid "common.pagination.previous"
+msgstr "Pàgina anterior"
+
+msgid "common.pageNumber"
+msgstr "Pàgina {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
 
 msgid "common.plugin"
 msgstr "Connector"
@@ -527,8 +670,20 @@ msgstr "Institució editora"
 msgid "common.quality"
 msgstr "Qualitat"
 
+msgid "common.queue.long.active"
+msgstr "Tot actiu"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
 msgid "common.re"
 msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Llegir més"
+
+msgid "common.readMoreWithTitle"
+msgstr "Llegir més sobre {$title}"
 
 msgid "common.record"
 msgstr "Enregistra"
@@ -542,6 +697,9 @@ msgstr "Relacionat"
 msgid "common.reminder"
 msgstr "Recordatori"
 
+msgid "common.reminded.date"
+msgstr "Recordatori: {$dateReminded}"
+
 msgid "common.remote"
 msgstr "Remot"
 
@@ -550,6 +708,9 @@ msgstr "URL remot"
 
 msgid "common.remove"
 msgstr "Suprimeix"
+
+msgid "common.removeItem"
+msgstr "Eliminar {$item}"
 
 msgid "common.removeSelection"
 msgstr "Treu la selecció"
@@ -578,8 +739,17 @@ msgstr "Desa i envia per correu electrònic"
 msgid "common.save"
 msgstr "Desa"
 
+msgid "common.saving"
+msgstr "Guardant"
+
 msgid "common.search"
 msgstr "Cerca"
+
+msgid "common.searchQuery"
+msgstr "Cerca"
+
+msgid "common.clearSearch"
+msgstr "Neteja la frase de la cerca"
 
 msgid "common.second"
 msgstr "Segon(s)"
@@ -587,17 +757,20 @@ msgstr "Segon(s)"
 msgid "common.selectAll"
 msgstr "Selecciona-ho tot"
 
+msgid "common.selectedPrefix"
+msgstr "Seleccionat:"
+
 msgid "common.selectNone"
 msgstr "No en seleccionis cap"
 
 msgid "common.select"
 msgstr "Selecciona"
 
+msgid "common.selectWithName"
+msgstr "Seleccionar {$name}"
+
 msgid "common.sendEmail"
 msgstr "Envia el missatge de correu electrònic"
-
-msgid "common.signoff"
-msgstr "Tanca"
 
 msgid "common.size"
 msgstr "Mida"
@@ -614,6 +787,9 @@ msgstr "Matèria"
 msgid "common.subjects"
 msgstr "Temes"
 
+msgid "common.submenu"
+msgstr "Submenú"
+
 msgid "common.subtitle"
 msgstr "Subtítol"
 
@@ -623,8 +799,14 @@ msgstr "Suggereix"
 msgid "common.title"
 msgstr "Títol"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Part superior"
+
+msgid "common.toWithValue"
+msgstr "Fins a: {$value}"
 
 msgid "common.true"
 msgstr "Vertader"
@@ -632,11 +814,15 @@ msgstr "Vertader"
 msgid "common.type"
 msgstr "Tipus"
 
-msgid "common.element"
-msgstr "Element"
+msgid "common.component"
+msgstr "Component"
 
 msgid "common.uninitiated"
 msgstr "No iniciat"
+
+msgid "common.unknownError"
+msgstr ""
+"Ha ocorregut un error inesperat. Recarregueu la pàgina i torneu-ho a provar."
 
 msgid "common.unread"
 msgstr "No llegit"
@@ -647,17 +833,35 @@ msgstr "Sense títol"
 msgid "common.updated"
 msgstr "Actualitzat"
 
+msgid "common.uploadedDate"
+msgstr "Data carregada"
+
 msgid "common.upload"
 msgstr "Penja"
 
 msgid "common.uploadFailed"
 msgstr "El fitxer no s’ha pogut carregar ni revisar."
 
-msgid "common.pageHeader.altText"
-msgstr "Capçalera de la pàgina"
-
 msgid "common.up"
 msgstr "Amunt"
+
+msgid "common.addFile"
+msgstr "Afegir arxiu"
+
+msgid "common.upload.addFile"
+msgstr "Carregar arxiu"
+
+msgid "common.upload.restore"
+msgstr "Restaurar l'original"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Vista prèvia de la imatge seleccionada actualment."
+
+msgid "common.upload.changeFile"
+msgstr "Canviar arxiu"
+
+msgid "common.upload.dragFile"
+msgstr "Arrossega i deixa anar aquí l'arxiu per començar la càrrega"
 
 msgid "common.url"
 msgstr "URL"
@@ -665,8 +869,17 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Usuari/Usuària"
 
+msgid "common.user.nonexistent"
+msgstr "[Usuari/ària inexistent]"
+
 msgid "common.view"
 msgstr "Visualitza"
+
+msgid "common.viewWithName"
+msgstr "Veure {$name}"
+
+msgid "common.viewProfile"
+msgstr "Veure el perfil"
 
 msgid "common.weeks"
 msgstr "setmanes"
@@ -692,6 +905,9 @@ msgstr "Mètrica"
 msgid "common.count"
 msgstr "Recompte"
 
+msgid "common.publicAccess"
+msgstr "Accés públic"
+
 msgid "debug.databaseQueries"
 msgstr "Nombre de consultes a la base de dades"
 
@@ -702,10 +918,12 @@ msgid "debug.memoryUsage"
 msgstr "Ús de la memòria"
 
 msgid "debug.notes.localeListLoad"
-msgstr "S'ha carregat la llista de configuracions regionals «{$localeList}» des d'XML"
+msgstr ""
+"S'ha carregat la llista de configuracions regionals «{$localeList}» des d'XML"
 
 msgid "debug.notes.localeLoad"
-msgstr "S'ha carregat el fitxer de configuració regional «{$localeFile}» des d'XML"
+msgstr ""
+"S'ha carregat el fitxer de configuració regional «{$localeFile}» des d'XML"
 
 msgid "debug.notes.missingLocaleKey"
 msgstr "Falta la clau de configuració regional «{$key}» ."
@@ -759,7 +977,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "El missatge que intenteu enviar té massa destinataris."
 
 msgid "email.compose.tooSoon"
-msgstr "Esteu provant d'enviar un missatge de correu massa seguit de l'anterior. Espereu abans d'enviar un altre missatge."
+msgstr ""
+"Esteu provant d'enviar un missatge de correu massa seguit de l'anterior. "
+"Espereu abans d'enviar un altre missatge."
+
+msgid "email.compose.error"
+msgstr ""
+"S'ha produït un problema en enviar el missatge de correu electrònic. "
+"Intenteu-ho més tard o contacteu amb el vostre administrador/a de sistemes."
 
 msgid "email.email"
 msgstr "Adreça electrònica"
@@ -782,6 +1007,12 @@ msgstr "Destinataris"
 msgid "email.sender"
 msgstr "Remitent"
 
+msgid "email.senderName"
+msgstr "Nom del remitent"
+
+msgid "email.senderEmail"
+msgstr "Correu electrònic del remitent"
+
 msgid "email.send"
 msgstr "Envia"
 
@@ -800,6 +1031,11 @@ msgstr "Escriviu el cos del correu electrònic."
 msgid "email.to"
 msgstr "Per a"
 
+msgid "form.url.invalid"
+msgstr ""
+"La URL especificada no és vàlida. Comprovi-la i torni a intentar-ho, si us "
+"plau."
+
 msgid "form.confirmSubmit"
 msgstr "Esteu segur que voleu enviar aquest formulari?"
 
@@ -812,11 +1048,77 @@ msgstr "Cal que introduïu un correu electrònic."
 msgid "form.dataHasChanged"
 msgstr "Les dades d'aquest formulari han canviat. Voleu continuar sense desar?"
 
+msgid "form.disallowedLocales"
+msgstr "Només estan permesos els següents idiomes: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Aquesta propietat no està permesa."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Deixeu anar els arxius aquí per carregar-los"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"El vostre navegador no és compatible amb les càrregues d'arxiu \"arrossegar "
+"i deixar anar\"."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Utilitzeu el formulari alternatiu que hi ha a continuació per carregar els "
+"vostres arxius."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"L'arxiu és massa gran ({{filesize}}mb). Els arxius superiors a "
+"{{maxFilesize}}mb no es poden carregar."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Els arxius d'aquest tipus no es poden carregar."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"El servidor ha respòs amb el codi {{statusCode}}. Contacteu amb "
+"l'administrador/a de sistemes si el problema persisteix."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Cancel·lar la càrrega"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Càrrega cancel·lada"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Segur que voleu cancel·lar aquesta càrrega?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Eliminar arxiu"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "No podeu carregar més arxius."
+
+msgid "form.errorA11y"
+msgstr "Anar a {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Passar al següent error"
+
+msgid "form.errorOne"
+msgstr "Corregiu un error."
+
+msgid "form.errorMany"
+msgstr "Corregiu {$count} errors."
+
+msgid "form.errors"
+msgstr ""
+"El formulari no s'ha guardat perquè s'han trobat {$count} errors. Corregiu "
+"aquests errors i torneu-ho a provar."
+
 msgid "form.errorsOccurred"
 msgstr "S’han produït els errors següents en processar aquest formulari"
 
 msgid "form.formLanguage.description"
-msgstr "Per a introduir la informació en altres llengües, en primer lloc heu de seleccionar la llengua corresponent."
+msgstr ""
+"Per a introduir la informació en altres llengües, en primer lloc heu de "
+"seleccionar la llengua corresponent."
 
 msgid "form.formLanguage"
 msgstr "Llengua del formulari"
@@ -833,14 +1135,28 @@ msgstr "comença per"
 msgid "form.postRequired"
 msgstr "El formulari no s’ha enviat correctament."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"El formulari no s'ha pogut enviar. És possible que hagueu estat "
+"desconnectat. Torneu a carregar la pàgina i torneu-ho a provar."
+
 msgid "form.fileRequired"
 msgstr "Cal que carregueu un fitxer."
 
 msgid "form.required"
 msgstr "(* obligatori)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Heu de completar aquest camp en {$language}."
+
+msgid "form.requireId"
+msgstr "Heu de proporcionar un ID vàlid."
+
 msgid "form.resubmit"
 msgstr "Torna a trametre"
+
+msgid "form.saved"
+msgstr "Guardat"
 
 msgid "form.saveToUpload"
 msgstr "Utilitzeu «Desa» per a penjar el fitxer."
@@ -852,46 +1168,27 @@ msgid "form.submit"
 msgstr "Tramet"
 
 msgid "form.invalidImage"
-msgstr "S'ha carregat una imatge no vàlida. Els formats acceptats són .png, .gif, o bé .jpg."
+msgstr ""
+"S'ha carregat una imatge no vàlida. Els formats acceptats són .png, .gif, o "
+"bé .jpg."
 
-msgid "help.contents"
-msgstr "Continguts"
+msgid "form.multilingualLabel"
+msgstr "{$label} a {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} idiomes completats"
 
 msgid "help.help"
 msgstr "Ajuda (en anglès)"
 
-msgid "help.toggleInlineHelpOn"
-msgstr "Activa l'ajuda"
-
-msgid "help.toggleInlineHelpOff"
-msgstr "Desactiva l'ajuda"
-
-msgid "help.helpIndex"
-msgstr "Índex d'ajuda"
-
-msgid "help.matchesFound"
-msgstr "S'han trobat {$matches} resultats"
-
-msgid "help.noMatchingTopics"
-msgstr "No s’ha trobat cap tema d’ajuda coincident."
-
-msgid "help.relatedTopics"
-msgstr "Temes relacionats"
-
-msgid "help.searchFor"
-msgstr "Cerca temes d’ajuda per"
-
-msgid "help.searchResultsFor"
-msgstr "Resultats per"
-
-msgid "help.searchResults"
-msgstr "Resultats de la cerca"
-
-msgid "help.search"
-msgstr "Cerca a l’Ajuda"
-
 msgid "help.toc"
 msgstr "Taula de continguts"
+
+msgid "help.previous"
+msgstr "Previ"
+
+msgid "help.next"
+msgstr "Següent"
 
 msgid "help.upALevel"
 msgstr "Puja un nivell"
@@ -941,26 +1238,14 @@ msgstr "Centre d'informació"
 msgid "informationCenter.editorialHistory"
 msgstr "Historial d'editorial"
 
-msgid "informationCenter.composeNote"
-msgstr "Compon una nota"
-
-msgid "informationCenter.addFileNote"
-msgstr "Afegeix al fitxer"
-
-msgid "informationCenter.addSubmissionNote"
-msgstr "Afegeix a la tramesa"
+msgid "informationCenter.addNote"
+msgstr "Afegeix nota"
 
 msgid "informationCenter.noNotes"
 msgstr "No hi ha cap nota per mostrar."
 
-msgid "informationCenter.currentNotes"
-msgstr "Notes actuals"
-
 msgid "informationCenter.pastNotes"
 msgstr "Notes anteriors"
-
-msgid "informationCenter.lastUpdated"
-msgstr "Darrera actualització"
 
 msgid "informationCenter.deleteConfirm"
 msgstr "Esteu segur/a que voleu eliminar aquesta nota?"
@@ -983,6 +1268,12 @@ msgstr "S'ha enviat la notificació als usuaris/àries."
 msgid "stageParticipants.history.messageSent"
 msgstr "S'ha enviat la notificació als usuaris/àries."
 
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Iniciar una discussió"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Iniciar una discussió amb {$userFullName}."
+
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "Trieu un missatge predefinit o bé empleneu el formulari següent."
 
@@ -990,16 +1281,36 @@ msgid "stageParticipants.notify.message"
 msgstr "Missatge"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Assegureu-vos que heu emplenat el camp de text del missatge i que heu seleccionat un destinatari."
+msgstr ""
+"Assegureu-vos que heu emplenat el camp de text del missatge i que heu "
+"seleccionat un destinatari."
+
+msgid "stageParticipants.options"
+msgstr "Assignació de privilegis"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Aquest participant només pot recomanar una decisió editorial, per tant "
+"necessitarà que un editor/a autoritzat registri les decisions editorials."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Permisos"
+
+#, fuzzy
+msgid "stageParticipants.canChangeMetadata"
+msgstr "Permetre que aquesta persona editi els detalls de publicació."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Participant"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "No poden fer-se canvis en aquest participant"
 
 msgid "locale.primary"
 msgstr "Configuració regional principal"
 
 msgid "locale.supported"
 msgstr "Configuracions regionals admeses"
-
-msgid "navigation.management"
-msgstr "Gestió"
 
 msgid "navigation.access"
 msgstr "Usuaris/àries i rols"
@@ -1009,6 +1320,15 @@ msgstr "Quant a"
 
 msgid "navigation.admin"
 msgstr "Gestió"
+
+msgid "navigation.archives"
+msgstr "Arxius"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Sou aquí:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
 
 msgid "navigation.tools"
 msgstr "Eines"
@@ -1021,6 +1341,9 @@ msgstr "Estadístiques"
 
 msgid "navigation.browse"
 msgstr "Navega"
+
+msgid "navigation.backTo"
+msgstr "⟵ Tornar a {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Per autor/a"
@@ -1045,6 +1368,9 @@ msgstr "Informació per a lectors/es"
 
 msgid "navigation.items"
 msgstr "{$from} - {$to} de {$total} elements"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$shown} de {$total} elements"
 
 msgid "navigation.login"
 msgstr "Inici de la sessió"
@@ -1079,6 +1405,21 @@ msgstr "Configuració"
 msgid "navigation.sitemap"
 msgstr "Mapa del lloc web"
 
+msgid "navigation.skip.description"
+msgstr "Salta als enllaços de contingut"
+
+msgid "navigation.skip.announcements"
+msgstr "Passar als avisos"
+
+msgid "navigation.skip.main"
+msgstr "Passar al contingut principal"
+
+msgid "navigation.skip.nav"
+msgstr "Passar al menú de navegació principal"
+
+msgid "navigation.skip.footer"
+msgstr "Passar al peu de pàgina del lloc"
+
 msgid "navigation.stepNumber"
 msgstr "Pas {$step}"
 
@@ -1097,14 +1438,24 @@ msgstr "Usuari/Usuària"
 msgid "navigation.userManagement"
 msgstr "Administració d'usuaris/àries"
 
+msgid "navigation.viewFrontend"
+msgstr "Veure el lloc"
+
 msgid "notification.addedAuditor"
 msgstr "S'ha afegit un auditor."
 
 msgid "notification.removedAuditor"
 msgstr "S'ha eliminat un auditor."
 
+msgid "notification.addedQuery"
+msgstr "Discussió afegida"
+
 msgid "notification.reviewAcknowledged"
-msgstr "La revisió s'ha marcat com a rebuda. No s'ha enviat el correu electrònic."
+msgstr ""
+"La revisió s'ha marcat com a rebuda. No s'ha enviat el correu electrònic."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Correu electrònic d'agraïment enviat al revisor/a."
 
 msgid "notification.updatedReviewFiles"
 msgstr "S'han actualitzat els fitxers de revisió."
@@ -1151,6 +1502,9 @@ msgstr "S'ha eliminat una nota."
 msgid "notification.removedFile"
 msgstr "S'ha eliminat un fitxer."
 
+msgid "notification.removedSubmission"
+msgstr "Tramesa eliminada."
+
 msgid "notification.notification"
 msgstr "Notificació"
 
@@ -1164,10 +1518,17 @@ msgid "notification.settings"
 msgstr "Configuració de les notificacions"
 
 msgid "notification.settingsDescription"
-msgstr "Seleccioneu els esdeveniments del sistema dels quals en voleu rebre notificacions. Si desactiveu un element, evitareu rebre notificacions de l'esdeveniment per correu electrònic i també evitareu veure-les al sistema. Els esdeveniments comprovats apareixeran al sistema i tindreu una opció addicional per rebre o no la mateixa notificació per correu electrònic."
+msgstr ""
+"Seleccioneu els esdeveniments del sistema dels quals en voleu rebre "
+"notificacions. Si desactiveu un element, evitareu rebre notificacions de "
+"l'esdeveniment per correu electrònic i també evitareu veure-les al sistema. "
+"Els esdeveniments comprovats apareixeran al sistema i tindreu una opció "
+"addicional per rebre o no la mateixa notificació per correu electrònic."
 
 msgid "notification.reminderError"
-msgstr "S’ha produït un error en enviar la vostra contrasenya. Comproveu que heu introduït correctament el vostre correu electrònic."
+msgstr ""
+"S’ha produït un error en enviar la vostra contrasenya. Comproveu que heu "
+"introduït correctament el vostre correu electrònic."
 
 msgid "notification.reminderSent"
 msgstr "S’ha enviat una contrasenya nova al vostre correu electrònic."
@@ -1175,11 +1536,15 @@ msgstr "S’ha enviat una contrasenya nova al vostre correu electrònic."
 msgid "notification.savedSubmissionMetadata"
 msgstr "S'han desat les metadades de la tramesa."
 
-msgid "search.abstract"
-msgstr "Resum"
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+"Enviar un correu electrònic d'informació a tots els usuaris/àries registrats."
 
 msgid "search.author"
 msgstr "Autors/ores"
+
+msgid "search.abstract"
+msgstr "Resum"
 
 msgid "search.advancedFilters"
 msgstr "Filtres avançats"
@@ -1189,6 +1554,9 @@ msgstr "Opcions de cerca addicionals (feu clic per mostrar-les)"
 
 msgid "search.advancedSearchLess"
 msgstr "Opcions de cerca addicionals (feu clic per amagar-les)"
+
+msgid "search.searchAgain"
+msgstr "Tornar a cercar"
 
 msgid "search.cli.rebuildIndex.clearingIndex"
 msgstr "Neteja de l'índex"
@@ -1244,14 +1612,17 @@ msgstr "no"
 msgid "search.operator.or"
 msgstr "o"
 
-msgid "search.searchAllCategories"
-msgstr "Cerca totes les categories per"
-
-msgid "search.searchCategories"
-msgstr "Categories de cerca"
+msgid "search.SearchFor"
+msgstr "Cercar"
 
 msgid "search.searchResults"
 msgstr "Resultats de la cerca"
+
+msgid "search.searchResults.foundSingle"
+msgstr "S'ha trobat un element."
+
+msgid "search.searchResults.foundPlural"
+msgstr "S'han trobat {$count} elements."
 
 msgid "search.subject"
 msgstr "Paraules clau"
@@ -1277,11 +1648,23 @@ msgstr "Com assegurar que tots els arxius s'han anonimitzat"
 msgid "grid.action.showReviewPolicy"
 msgstr "Llegiu la política de revisió actual"
 
+msgid "grid.action.deleteNotification"
+msgstr "Eliminar tasca"
+
+msgid "grid.action.markNew"
+msgstr "Marcar com a nou"
+
+msgid "grid.action.markRead"
+msgstr "Marcar com a llegit"
+
 msgid "dashboard.tasks"
 msgstr "Tasques"
 
-msgid "dashboard.submissions"
-msgstr "Trameses"
+msgid "dashboard.myQueue"
+msgstr "La meva llista"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Com assegurar que tots els arxius s'han anonimitzat"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1302,16 +1685,16 @@ msgstr ""
 "<li>Fer clic a \"Comprova si hi ha problemes\"</li>\n"
 "<li>Fer clic a \"Inspecciona el document\"</li>\n"
 "<li>En el quadre de diàleg de l'inspector de documents, seleccionar les "
-"caselles per triar el tipus d'informació oculta que vulgueu "
-"inspeccionar.</li>\n"
+"caselles per triar el tipus d'informació oculta que vulgueu inspeccionar.</"
+"li>\n"
 "<li>Fer clic a \"Suprimeix-ho tot\"</li>\n"
 "<li>Fer clic a \"Tancar\"</li>\n"
 "<li>Desar el document</li></ul>\n"
 "<li>Microsoft Word per a MacOS:\n"
 "<ul><li>Anar a \"Eines\"</li>\n"
 "<li>Fer clic a \"Protegir document\"</li>\n"
-"<li>Seleccionar \"Eliminar la informació personal en guardar aquest arxiu\""
-"</li>\n"
+"<li>Seleccionar \"Eliminar la informació personal en guardar aquest arxiu\"</"
+"li>\n"
 "<li>Fer clic a OK i guardar l'arxiu</li></ul></li>\n"
 "<li>PDF:\n"
 "<ul><li>Anar a \"Arxiu\"</li>\n"
@@ -1341,14 +1724,34 @@ msgstr "Torna enrere"
 msgid "notification.addedReviewer"
 msgstr "S'ha afegit un revisor/a."
 
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+"{$reviewerName} ha estat assignat per revisar aquesta tramesa i no se li ha "
+"enviat cap correu electrònic de notificació."
+
 msgid "notification.removedReviewer"
 msgstr "S'ha eliminat un revisor/a."
+
+msgid "notification.cancelledReviewer"
+msgstr "Revisor/a cancel·lat."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Revisor/a restablert."
 
 msgid "notification.addedStageParticipant"
 msgstr "L'usuari/ària s'ha afegit com a participant en aquesta fase."
 
+msgid "notification.editStageParticipant"
+msgstr "L'assignació de fase ha canviat."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nou avís."
+
 msgid "notification.type.reviewAssignment"
 msgstr "Teniu una revisió pendent."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Assignació de revisió actualitzada."
 
 msgid "notification.type.auditorRequest"
 msgstr "Sol·licitud d'auditoria per a \"{$file}\""
@@ -1357,7 +1760,8 @@ msgid "notification.type.allReviewsIn"
 msgstr "Tots els revisors/ores hi són i cal una decisió a {$stage}."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "S'ha carregat un fitxer per a la vostra acceptació editorial a {$stage}."
+msgstr ""
+"S'ha carregat un fitxer per a la vostra acceptació editorial a {$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Teniu revisions pendents d'acceptar a {$stage}."
@@ -1365,83 +1769,57 @@ msgstr "Teniu revisions pendents d'acceptar a {$stage}."
 msgid "notification.type.pendingRevisions.title"
 msgstr "Les revisions s'han enviat a {$stage}."
 
-msgid "notification.type.roundStatusTitle"
-msgstr "Ronda {$round} Estat"
-
-msgid "notification.signedFile"
-msgstr "S'ha acceptat el fitxer."
-
-msgid "user.authorization.submissionFile"
-msgstr "L'usuari/ària actual no està autoritzat per accedir al fitxer de tramesa especificat."
-
-msgid "user.authorization.invalidSubmission"
-msgstr "La tramesa no és vàlida."
-
-msgid "navigation.archives"
-msgstr "Arxius"
-
-msgid "user.authorization.authorRoleMissing"
-msgstr "No teniu privilegis suficients per visualitzar aquesta tramesa. Editeu el vostre perfil per assegurar-vos que heu proporcionat els rols adequats fent clic a «Registra'm com a»."
-
-msgid "user.authorization.submissionAuthor"
-msgstr "L'autor/a actual no és l'autor/a de la tramesa sol·licitada. Comproveu que heu iniciat sessió amb el compte d'usuari correcte."
-
-msgid "semicolon"
-msgstr "{$label}:"
-
-msgid "common.allDownloads"
-msgstr "Totes les descàrregues"
-
-msgid "common.navigation.sidebar"
-msgstr "Barra lateral"
-
-msgid "common.navigation.site"
-msgstr "Navegació del lloc"
-
-msgid "common.navigation.siteContext"
-msgstr "Navegació contextual del lloc"
-
-msgid "common.navigation.user"
-msgstr "Navegació de l'usuari/ària"
-
-msgid "common.assigned.date"
-msgstr "Assignat: {$dateAssigned}"
-
-msgid "common.captcha.error.missing-input-secret"
-msgstr "La validació captcha no està ben configurada en aquest lloc web. Falta la clau secreta."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr "La validació captcha no està ben configurada en aquest lloc web. La clau secreta no és vàlida."
-
-msgid "common.captcha.error.missing-input-response"
-msgstr "Heu de completar la comprovació de validació utilitzada per prevenir trameses brossa."
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "No heu superat la comprovació de validació utilitzada per prevenir trameses brossa."
-
-msgid "common.closePanel"
-msgstr "Tanca el panell"
-
-msgid "common.completed.date"
-msgstr "Completat: {$dateCompleted}"
-
-msgid "common.confirmed.date"
-msgstr "Confirmat: {$dateConfirmed}"
-
-msgid "common.downloadPdf"
-msgstr "Descarrega el PDF"
-
-msgid "common.homepageNavigationLabel"
-msgstr "Pàgina d'inici"
-
 msgid "notification.type.metadataModified"
 msgstr "S'han modificat les metadades de \"{$title}\"."
 
 msgid "notification.type.reviewerComment"
 msgstr "Un revisor/a ha fet comentaris sobre \"{$title}\"."
 
+msgid "notification.signedFile"
+msgstr "S'ha acceptat el fitxer."
+
+msgid "user.email"
+msgstr "Adreça de correu electrònic"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"L'usuari/ària actual no està autoritzat per accedir al fitxer de tramesa "
+"especificat."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Publicació no vàlida."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "La tramesa no és vàlida."
+
 msgid "user.authorization.invalidRepresentation"
 msgstr "Representació no vàlida."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ronda de revisió no vàlida."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Discussió no vàlida."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "No teniu accés a aquest missatge de la discussió."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "No teniu accés a aquesta assignació de la revisió."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"No teniu privilegis suficients per visualitzar aquesta tramesa. Editeu el "
+"vostre perfil per assegurar-vos que heu proporcionat els rols adequats fent "
+"clic a «Registra'm com a»."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"L'autor/a actual no és l'autor/a de la tramesa sol·licitada. Comproveu que "
+"heu iniciat sessió amb el compte d'usuari correcte."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Opcions de privacitat"
 
 msgid "notification.type.queryActivity"
 msgstr "Activitat de la discussió."
@@ -1450,645 +1828,329 @@ msgid "notification.type.queryAdded"
 msgstr "Discussió afegida."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Assigna un corrector/a d'originals mitjançant l'opció \"Afegir\" de la llista de participants."
-
-msgid "common.notified.date"
-msgstr "Notificat: {$dateNotified}"
-
-msgid "common.pageNumber"
-msgstr "Pàgina {$pageNumber}"
-
-msgid "common.percentage"
-msgstr "{$percentage}%"
-
-msgid "common.queue.long.active"
-msgstr "Tot actiu"
-
-msgid "common.range"
-msgstr "{$min}-{$max}"
-
-msgid "common.readMore"
-msgstr "Llegir més"
-
-msgid "common.readMoreWithTitle"
-msgstr "Llegir més sobre {$title}"
-
-msgid "common.reminded.date"
-msgstr "Recordatori: {$dateReminded}"
-
-msgid "common.searchQuery"
-msgstr "Cerca"
-
-msgid "common.component"
-msgstr "Component"
-
-msgid "common.uploadedDate"
-msgstr "Data carregada"
-
-msgid "common.upload.addFile"
-msgstr "Carregar arxiu"
-
-msgid "common.upload.changeFile"
-msgstr "Canviar arxiu"
-
-msgid "common.upload.dragFile"
-msgstr "Arrossega i deixa anar aquí l'arxiu per començar la càrrega"
-
-msgid "common.viewProfile"
-msgstr "Veure el perfil"
-
-msgid "email.senderName"
-msgstr "Nom del remitent"
-
-msgid "email.senderEmail"
-msgstr "Correu electrònic del remitent"
-
-msgid "form.url.invalid"
-msgstr "La URL especificada no és vàlida. Comprovi-la i torni a intentar-ho, si us plau."
-
-msgid "help.previous"
-msgstr "Previ"
-
-msgid "help.next"
-msgstr "Següent"
-
-msgid "informationCenter.addNote"
-msgstr "Afegeix nota"
-
-msgid "navigation.breadcrumbLabel"
-msgstr "Sou aquí:"
-
-msgid "navigation.breadcrumbSeparator"
-msgstr "/"
-
-msgid "navigation.items.shownTotal"
-msgstr "{$shown} de {$total} elements"
-
-msgid "navigation.skip.main"
-msgstr "Passar al contingut principal"
-
-msgid "navigation.skip.nav"
-msgstr "Passar al menú de navegació principal"
-
-msgid "navigation.skip.footer"
-msgstr "Passar al peu de pàgina del lloc"
-
-msgid "navigation.viewFrontend"
-msgstr "Veure el lloc"
-
-msgid "notification.addedQuery"
-msgstr "Discussió afegida"
-
-msgid "notification.removedSubmission"
-msgstr "Tramesa eliminada."
-
-msgid "search.searchAgain"
-msgstr "Tornar a cercar"
-
-msgid "search.SearchFor"
-msgstr "Cercar"
-
-msgid "grid.action.deleteNotification"
-msgstr "Eliminar tasca"
-
-msgid "grid.action.markNew"
-msgstr "Marcar com a nou"
-
-msgid "grid.action.markRead"
-msgstr "Marcar com a llegit"
-
-msgid "dashboard.myQueue"
-msgstr "La meva llista"
-
-msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} ha estat assignat per revisar aquesta tramesa i no se li ha enviat cap correu electrònic de notificació."
-
-msgid "notification.type.newAnnouncement"
-msgstr "Nou avís."
+msgstr ""
+"Assigna un corrector/a d'originals mitjançant l'opció \"Afegir\" de la "
+"llista de participants."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Esperant les correccions."
 
-msgid "common.altTextInstructions"
-msgstr ""
-"Descriviu aquesta imatge per a visitants del lloc amb un navegador només de "
-"text o amb dispositius d'assistència. Per exemple, \"El nostre editor "
-"parlant a la conferència PKP\"."
-
-msgid "validator.url"
-msgstr "Aquesta URL no és vàlida."
-
-msgid "validator.unique"
-msgstr "{$attribute} ja està en ús."
-
-msgid "validator.timezone"
-msgstr "Aquesta zona horària no és vàlida."
-
-msgid "validator.string"
-msgstr "Aquesta cadena no és vàlida."
-
-msgid "validator.size.array"
-msgstr "Això ha de contenir {$size} elements."
-
-msgid "validator.size.string"
-msgstr "Això ha de tenir {$size} caràcters."
-
-msgid "validator.size.file"
-msgstr "Això ha de tenir {$size} kilobytes."
-
-msgid "validator.size.numeric"
-msgstr "Això ha de tenir {$size}."
-
-msgid "validator.same"
-msgstr "{$attribute} i {$other} han de coincidir."
-
-msgid "validator.required_without_all"
-msgstr "Aquest camp és obligatori quan cap dels {$values} està present."
-
-msgid "validator.required_without"
-msgstr "Aquest camp és obligatori quan {$values} no està present."
-
-msgid "validator.required_with_all"
-msgstr "Aquest camp és obligatori quan {$values} està present."
-
-msgid "validator.required_with"
-msgstr "Aquest camp és obligatori quan {$values} està present."
-
-msgid "validator.required_unless"
-msgstr "Aquest camp és obligatori tret que {$other} estigui en {$values}."
-
-msgid "validator.required_if"
-msgstr "Aquest camp és obligatori quan {$other} és {$value}."
-
-msgid "validator.required"
-msgstr "Aquest camp és obligatori."
-
-msgid "validator.regex"
-msgstr "Això no esta formatat correctament."
-
-msgid "validator.present"
-msgstr "El camp {$attribute} ha d'estar present."
-
-msgid "validator.orcid"
-msgstr "Aquest ORCID no és vàlid."
-
-msgid "validator.numeric"
-msgstr "Aquest número no és vàlid."
-
-msgid "validator.not_in"
-msgstr "El {$attribute} seleccionat no és vàlid."
-
-msgid "validator.min.array"
-msgstr "Això ha de tenir com a mínim {$min} elements."
-
-msgid "validator.min.string"
-msgstr "Això ha de tenir com a mínim {$min} caràcters."
-
-msgid "validator.min.file"
-msgstr "Això ha de tenir com a mínim {$min} kilobytes."
-
-msgid "validator.min.numeric"
-msgstr "Això ha de tenir com a mínim {$min}."
-
-msgid "validator.mimes"
-msgstr "Això ha de ser un arxiu de tipus {$values}."
-
-msgid "validator.max.array"
-msgstr "Això no pot tenir més de {$max} elements."
-
-msgid "validator.max.string"
-msgstr "Això no pot ser més gran de {$max} caràcters."
-
-msgid "validator.max.file"
-msgstr "Això no pot ser més gran de {$max} kilobytes."
-
-msgid "validator.max.numeric"
-msgstr "Això no pot ser més gran que {$max}."
-
-msgid "validator.localeKey"
-msgstr ""
-"Els idiomes han d'especificar-se a través dels codis de configuració "
-"regional. Exemples: en_US, fr_CA, sr_RS@cyrillic."
-
-msgid "validator.localeExpected"
-msgstr ""
-"Aquest camp és multilingüe. S'han de proporcionar valors independents per a "
-"cada idioma compatible."
-
-msgid "validator.locale"
-msgstr "Aquest idioma no està acceptat."
-
-msgid "validator.json"
-msgstr "Aquesta cadena JSON no és vàlida."
-
-msgid "validator.issn"
-msgstr "Aquest ISSN no és vàlid."
-
-msgid "validator.ip"
-msgstr "Aquesta adreça IP no és vàlida."
-
-msgid "validator.integer"
-msgstr "Això no és un nombre enter vàlid."
-
-msgid "validator.in"
-msgstr "El {$attribute} seleccionat no és vàlid."
-
-msgid "validator.image"
-msgstr "Això ha de ser una imatge."
-
-msgid "validator.filled"
-msgstr "Aquest camp és obligatori."
-
-msgid "validator.exists"
-msgstr "El {$attribute} seleccionat no és vàlid."
-
-msgid "validator.email"
-msgstr "Aquesta adreça de correu electrònic no és vàlida."
-
-msgid "validator.digits_between"
-msgstr "Això ha de tenir entre {$min} i {$max} dígits."
-
-msgid "validator.digits"
-msgstr "Això ha de tenir {$digits} dígits."
-
-msgid "validator.different"
-msgstr "{$attribute} i {$other} han de ser diferents."
-
-msgid "validator.date_format"
-msgstr "Aquest no coincideix amb el format {$format}."
-
-msgid "validator.date"
-msgstr "Aquesta no és una data vàlida."
-
-msgid "validator.currency"
-msgstr "Aquesta no és una moneda vàlida."
-
-msgid "validator.confirmed"
-msgstr "La confirmació per a aquest camp no coincideix."
-
-msgid "validator.boolean"
-msgstr "Aquest camp ha de ser verdader o fals."
-
-msgid "validator.between.array"
-msgstr "Ha de tenir entre {$min} i {$max} elements."
-
-msgid "validator.between.string"
-msgstr "Ha de tenir entre {$min} i {$max} caràcters."
-
-msgid "validator.between.file"
-msgstr "Ha d'estar entre {$min} i {$max} kilobytes."
-
-msgid "validator.between.numeric"
-msgstr "Ha d'estar entre {$min} i {$max}."
-
-msgid "validator.before"
-msgstr "La data ha de ser anterior a {$date}."
-
-msgid "validator.array"
-msgstr "Aquesta no és una matriu vàlida."
-
-msgid "validator.alpha_num"
-msgstr "Això només pot contenir lletres i números."
-
-msgid "validator.alpha_dash"
-msgstr "Això només pot contenir lletres, números, ratlles i guions baixos."
-
-msgid "validator.alpha"
-msgstr "Això només pot contenir lletres."
-
-msgid "validator.after"
-msgstr "Aquesta data ha de ser posterior a  {$date}."
-
-msgid "validator.active_url"
-msgstr "Aquesta URL no és vàlida."
-
-msgid "validator.accepted"
-msgstr "Accepteu aquest element."
-
-msgid "list.viewLess"
-msgstr "Amagar els detalls de {$name}"
-
-msgid "list.viewMore"
-msgstr "Mostrar més detalls de {$name}"
-
-msgid "notification.removedNavigationMenu"
-msgstr "El menú de navegació s'ha eliminat correctament"
-
-msgid "notification.editedNavigationMenu"
-msgstr "El menú de navegació s'ha actualitzat correctament"
-
-msgid "notification.addedNavigationMenu"
-msgstr "El menú de navegació s'ha afegit correctament"
-
-msgid "notification.addedNavigationMenuItem"
-msgstr "L'element del menú de navegació s'ha afegit correctament"
-
-msgid "notification.removedNavigationMenuItem"
-msgstr "L'element del menú de navegació s'ha eliminat correctament"
-
-msgid "notification.editedNavigationMenuItem"
-msgstr "L'element del menú de navegació s'ha actualitzat correctament"
+msgid "notification.type.roundStatusTitle"
+msgstr "Ronda {$round} Estat"
+
+msgid "notification.type.editorialReport"
+msgstr "Resum de l'informe d'estadístiques."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
 "Això és un amable recordatori perquè comproveu la salut de la vostra revista "
 "mitjançant l'informe editorial."
 
-msgid "notification.type.editorialReport"
-msgstr "Resum de l'informe d'estadístiques."
+msgid "semicolon"
+msgstr "{$label}:"
 
-msgid "user.authorization.invalidPublication"
-msgstr "Publicació no vàlida."
+msgid "notification.editedNavigationMenuItem"
+msgstr "L'element del menú de navegació s'ha actualitzat correctament"
 
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Assignació de revisió actualitzada."
+msgid "notification.removedNavigationMenuItem"
+msgstr "L'element del menú de navegació s'ha eliminat correctament"
 
-msgid "notification.editStageParticipant"
-msgstr "L'assignació de fase ha canviat."
+msgid "notification.addedNavigationMenuItem"
+msgstr "L'element del menú de navegació s'ha afegit correctament"
 
-msgid "notification.reinstatedReviewer"
-msgstr "Revisor/a restablert."
+msgid "notification.addedNavigationMenu"
+msgstr "El menú de navegació s'ha afegit correctament"
 
-msgid "notification.cancelledReviewer"
-msgstr "Revisor/a cancel·lat."
+msgid "notification.editedNavigationMenu"
+msgstr "El menú de navegació s'ha actualitzat correctament"
 
-msgid "notification.sendNotificationConfirmation"
+msgid "notification.removedNavigationMenu"
+msgstr "El menú de navegació s'ha eliminat correctament"
+
+msgid "list.viewMore"
+msgstr "Mostrar més detalls de {$name}"
+
+msgid "list.viewLess"
+msgstr "Amagar els detalls de {$name}"
+
+msgid "validator.accepted"
+msgstr "Accepteu aquest element."
+
+msgid "validator.active_url"
+msgstr "Aquesta URL no és vàlida."
+
+msgid "validator.after"
+msgstr "Aquesta data ha de ser posterior a  {$date}."
+
+msgid "validator.alpha"
+msgstr "Això només pot contenir lletres."
+
+msgid "validator.alpha_dash"
+msgstr "Això només pot contenir lletres, números, ratlles i guions baixos."
+
+msgid "validator.alpha_dash_period"
 msgstr ""
-"Enviar un correu electrònic d'informació a tots els usuaris/àries registrats."
 
-msgid "notification.reviewerThankedEmail"
-msgstr "Correu electrònic d'agraïment enviat al revisor/a."
+msgid "validator.alpha_num"
+msgstr "Això només pot contenir lletres i números."
 
-msgid "navigation.skip.announcements"
-msgstr "Passar als avisos"
+msgid "validator.array"
+msgstr "Aquesta no és una matriu vàlida."
 
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "No poden fer-se canvis en aquest participant"
+msgid "validator.before"
+msgstr "La data ha de ser anterior a {$date}."
 
-msgid "stageParticipants.selectedUser"
-msgstr "Participant"
+msgid "validator.between.numeric"
+msgstr "Ha d'estar entre {$min} i {$max}."
 
-#, fuzzy
-msgid "stageParticipants.canChangeMetadata"
-msgstr "Permetre que aquesta persona editi els detalls de publicació."
+msgid "validator.between.file"
+msgstr "Ha d'estar entre {$min} i {$max} kilobytes."
 
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Permisos"
+msgid "validator.between.string"
+msgstr "Ha de tenir entre {$min} i {$max} caràcters."
 
-msgid "stageParticipants.recommendOnly"
+msgid "validator.between.array"
+msgstr "Ha de tenir entre {$min} i {$max} elements."
+
+msgid "validator.boolean"
+msgstr "Aquest camp ha de ser verdader o fals."
+
+msgid "validator.confirmed"
+msgstr "La confirmació per a aquest camp no coincideix."
+
+msgid "validator.currency"
+msgstr "Aquesta no és una moneda vàlida."
+
+msgid "validator.date"
+msgstr "Aquesta no és una data vàlida."
+
+msgid "validator.date_format"
+msgstr "Aquest no coincideix amb el format {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} i {$other} han de ser diferents."
+
+msgid "validator.digits"
+msgstr "Això ha de tenir {$digits} dígits."
+
+msgid "validator.digits_between"
+msgstr "Això ha de tenir entre {$min} i {$max} dígits."
+
+msgid "validator.email"
+msgstr "Aquesta adreça de correu electrònic no és vàlida."
+
+msgid "validator.exists"
+msgstr "El {$attribute} seleccionat no és vàlid."
+
+msgid "validator.filled"
+msgstr "Aquest camp és obligatori."
+
+msgid "validator.image"
+msgstr "Això ha de ser una imatge."
+
+msgid "validator.in"
+msgstr "El {$attribute} seleccionat no és vàlid."
+
+msgid "validator.integer"
+msgstr "Això no és un nombre enter vàlid."
+
+msgid "validator.ip"
+msgstr "Aquesta adreça IP no és vàlida."
+
+msgid "validator.issn"
+msgstr "Aquest ISSN no és vàlid."
+
+msgid "validator.json"
+msgstr "Aquesta cadena JSON no és vàlida."
+
+msgid "validator.locale"
+msgstr "Aquest idioma no està acceptat."
+
+msgid "validator.localeExpected"
 msgstr ""
-"Aquest participant només pot recomanar una decisió editorial, per tant "
-"necessitarà que un editor/a autoritzat registri les decisions editorials."
+"Aquest camp és multilingüe. S'han de proporcionar valors independents per a "
+"cada idioma compatible."
 
-msgid "stageParticipants.options"
-msgstr "Assignació de privilegis"
-
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Iniciar una discussió amb {$userFullName}."
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Iniciar una discussió"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} idiomes completats"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} a {$localeName}"
-
-msgid "form.requireId"
-msgstr "Heu de proporcionar un ID vàlid."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Heu de completar aquest camp en {$language}."
-
-msgid "form.csrfInvalid"
+msgid "validator.localeKey"
 msgstr ""
-"El formulari no s'ha pogut enviar. És possible que hagueu estat "
-"desconnectat. Torneu a carregar la pàgina i torneu-ho a provar."
+"Els idiomes han d'especificar-se a través dels codis de configuració "
+"regional. Exemples: en_US, fr_CA, sr_RS@cyrillic."
 
-msgid "form.errors"
-msgstr ""
-"El formulari no s'ha guardat perquè s'han trobat {$count} errors. Corregiu "
-"aquests errors i torneu-ho a provar."
+msgid "validator.max.numeric"
+msgstr "Això no pot ser més gran que {$max}."
 
-msgid "form.errorMany"
-msgstr "Corregiu {$count} errors."
+msgid "validator.max.file"
+msgstr "Això no pot ser més gran de {$max} kilobytes."
 
-msgid "form.errorOne"
-msgstr "Corregiu un error."
+msgid "validator.max.string"
+msgstr "Això no pot ser més gran de {$max} caràcters."
 
-msgid "form.errorGoTo"
-msgstr "Passar al següent error"
+msgid "validator.max.array"
+msgstr "Això no pot tenir més de {$max} elements."
 
-msgid "form.errorA11y"
-msgstr "Anar a {$fieldLabel}: {$errorMessage}"
+msgid "validator.mimes"
+msgstr "Això ha de ser un arxiu de tipus {$values}."
 
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "No podeu carregar més arxius."
+msgid "validator.min.numeric"
+msgstr "Això ha de tenir com a mínim {$min}."
 
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Eliminar arxiu"
+msgid "validator.min.file"
+msgstr "Això ha de tenir com a mínim {$min} kilobytes."
 
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Segur que voleu cancel·lar aquesta càrrega?"
+msgid "validator.min.string"
+msgstr "Això ha de tenir com a mínim {$min} caràcters."
 
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Càrrega cancel·lada"
+msgid "validator.min.array"
+msgstr "Això ha de tenir com a mínim {$min} elements."
 
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Cancel·lar la càrrega"
+msgid "validator.not_in"
+msgstr "El {$attribute} seleccionat no és vàlid."
 
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"El servidor ha respòs amb el codi {{statusCode}}. Contacteu amb l'"
-"administrador/a de sistemes si el problema persisteix."
+msgid "validator.numeric"
+msgstr "Aquest número no és vàlid."
 
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Els arxius d'aquest tipus no es poden carregar."
+msgid "validator.orcid"
+msgstr "Aquest ORCID no és vàlid."
 
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"L'arxiu és massa gran ({{filesize}}mb). Els arxius superiors a "
-"{{maxFilesize}}mb no es poden carregar."
+msgid "validator.present"
+msgstr "El camp {$attribute} ha d'estar present."
 
-msgid "form.dropzone.dictFallbackText"
-msgstr ""
-"Utilitzeu el formulari alternatiu que hi ha a continuació per carregar els "
-"vostres arxius."
+msgid "validator.regex"
+msgstr "Això no esta formatat correctament."
 
-msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"El vostre navegador no és compatible amb les càrregues d'arxiu \"arrossegar "
-"i deixar anar\"."
+msgid "validator.required"
+msgstr "Aquest camp és obligatori."
 
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Deixeu anar els arxius aquí per carregar-los"
+msgid "validator.required_if"
+msgstr "Aquest camp és obligatori quan {$other} és {$value}."
 
-msgid "form.disallowedProp"
-msgstr "Aquesta propietat no està permesa."
+msgid "validator.required_unless"
+msgstr "Aquest camp és obligatori tret que {$other} estigui en {$values}."
 
-msgid "form.disallowedLocales"
-msgstr "Només estan permesos els següents idiomes: {$languages}."
+msgid "validator.required_with"
+msgstr "Aquest camp és obligatori quan {$values} està present."
 
-msgid "email.compose.error"
-msgstr ""
-"S'ha produït un problema en enviar el missatge de correu electrònic. "
-"Intenteu-ho més tard o contacteu amb el vostre administrador/a de sistemes."
+msgid "validator.required_with_all"
+msgstr "Aquest camp és obligatori quan {$values} està present."
 
-msgid "common.publicAccess"
-msgstr "Accés públic"
+msgid "validator.required_without"
+msgstr "Aquest camp és obligatori quan {$values} no està present."
 
-msgid "common.upload.thumbnailPreview"
-msgstr "Vista prèvia de la imatge seleccionada actualment."
+msgid "validator.required_without_all"
+msgstr "Aquest camp és obligatori quan cap dels {$values} està present."
 
-msgid "common.upload.restore"
-msgstr "Restaurar l'original"
+msgid "validator.same"
+msgstr "{$attribute} i {$other} han de coincidir."
 
-msgid "common.toWithValue"
-msgstr "Fins a: {$value}"
+msgid "validator.size.numeric"
+msgstr "Això ha de tenir {$size}."
 
-msgid "common.submenu"
-msgstr "Submenú"
+msgid "validator.size.file"
+msgstr "Això ha de tenir {$size} kilobytes."
 
-msgid "common.selectedPrefix"
-msgstr "Seleccionat:"
+msgid "validator.size.string"
+msgstr "Això ha de tenir {$size} caràcters."
 
-msgid "common.clearSearch"
-msgstr "Neteja la frase de la cerca"
+msgid "validator.size.array"
+msgstr "Això ha de contenir {$size} elements."
 
-msgid "common.saving"
-msgstr "Guardant"
+msgid "validator.string"
+msgstr "Aquesta cadena no és vàlida."
 
-msgid "common.removeItem"
-msgstr "Eliminar {$item}"
+msgid "validator.timezone"
+msgstr "Aquesta zona horària no és vàlida."
 
-msgid "common.pagination.previous"
-msgstr "Pàgina anterior"
+msgid "validator.unique"
+msgstr "{$attribute} ja està en ús."
 
-msgid "common.pagination.next"
-msgstr "Pàgina següent"
+msgid "validator.url"
+msgstr "Aquesta URL no és vàlida."
 
-msgid "common.pagination.goToPage"
-msgstr "Anar a {$page}"
+#~ msgid "about.contact.fax"
+#~ msgstr "Fax"
 
-msgid "common.pagination.label"
-msgstr "Veure les pàgines addicionals"
+#~ msgid "announcement.viewLink"
+#~ msgstr "Més..."
 
-msgid "common.pagination"
-msgstr "{$start}-{$end} de {$total}"
+#~ msgid "common.navigation"
+#~ msgstr "Navegació"
 
-msgid "common.override"
-msgstr "Anul·lar"
+#~ msgid "common.captchaField.altText"
+#~ msgstr "Imatge de validació"
 
-msgid "common.orderDown"
-msgstr "Baixar la posició de {$itemTitle}"
+#~ msgid "common.captchaField.badCaptcha"
+#~ msgstr ""
+#~ "Els caracters que heu introduit no coincideixen amb els de la imatge. "
+#~ "Comproveu els caracters i torneu-ho a intentar."
 
-msgid "common.orderUp"
-msgstr "Pujar la posició de {$itemTitle}"
+#~ msgid "common.considered"
+#~ msgstr "Considerat"
 
-msgid "common.noTemporaryFile"
-msgstr ""
-"No s'ha pogut trobar l'arxiu que heu carregat . Proveu de carregar-lo de nou."
+#~ msgid "common.signoff"
+#~ msgstr "Tanca"
 
-msgid "common.noItemsFound"
-msgstr "No s'ha trobat cap element."
+#~ msgid "common.element"
+#~ msgstr "Element"
 
-msgid "common.moreThan"
-msgstr "{$value} o més"
+#~ msgid "common.pageHeader.altText"
+#~ msgstr "Capçalera de la pàgina"
 
-msgid "common.lessThan"
-msgstr "{$value} o menys"
+#~ msgid "help.contents"
+#~ msgstr "Continguts"
 
-msgid "common.lastActivity"
-msgstr "Darrera activitat registrada el {$date}."
+#~ msgid "help.toggleInlineHelpOn"
+#~ msgstr "Activa l'ajuda"
 
-msgid "common.until"
-msgstr "Fins a"
+#~ msgid "help.toggleInlineHelpOff"
+#~ msgstr "Desactiva l'ajuda"
 
-msgid "common.fromWithValue"
-msgstr "Des de: {$value}"
+#~ msgid "help.helpIndex"
+#~ msgstr "Índex d'ajuda"
 
-msgid "common.from"
-msgstr "Des de"
+#~ msgid "help.matchesFound"
+#~ msgstr "S'han trobat {$matches} resultats"
 
-msgid "common.filterRemove"
-msgstr "Netejar filtre: {$filterTitle}"
+#~ msgid "help.noMatchingTopics"
+#~ msgstr "No s’ha trobat cap tema d’ajuda coincident."
 
-msgid "common.filterAdd"
-msgstr "Afegir filtre: {$filterTitle}"
+#~ msgid "help.relatedTopics"
+#~ msgstr "Temes relacionats"
 
-msgid "common.filter"
-msgstr "Filtres"
+#~ msgid "help.searchFor"
+#~ msgstr "Cerca temes d’ajuda per"
 
-msgid "common.deleting"
-msgstr "Eliminant"
+#~ msgid "help.searchResultsFor"
+#~ msgstr "Resultats per"
 
-msgid "common.dateDecided"
-msgstr "Data decidida"
+#~ msgid "help.searchResults"
+#~ msgstr "Resultats de la cerca"
 
-msgid "common.lessThanOnly"
-msgstr "Menys que"
+#~ msgid "help.search"
+#~ msgstr "Cerca a l’Ajuda"
 
-msgid "navigation.skip.description"
-msgstr "Salta als enllaços de contingut"
+#~ msgid "informationCenter.composeNote"
+#~ msgstr "Compon una nota"
 
-msgid "common.moreThanOnly"
-msgstr "Més que"
+#~ msgid "informationCenter.addFileNote"
+#~ msgstr "Afegeix al fitxer"
 
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Opcions de privacitat"
+#~ msgid "informationCenter.addSubmissionNote"
+#~ msgstr "Afegeix a la tramesa"
 
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "No teniu accés a aquesta assignació de la revisió."
+#~ msgid "informationCenter.currentNotes"
+#~ msgstr "Notes actuals"
 
-msgid "user.authorization.unauthorizedNote"
-msgstr "No teniu accés a aquest missatge de la discussió."
+#~ msgid "informationCenter.lastUpdated"
+#~ msgstr "Darrera actualització"
 
-msgid "user.authorization.invalidQuery"
-msgstr "Discussió no vàlida."
+#~ msgid "navigation.management"
+#~ msgstr "Gestió"
 
-msgid "user.authorization.invalidReviewRound"
-msgstr "Ronda de revisió no vàlida."
+#~ msgid "search.searchAllCategories"
+#~ msgstr "Cerca totes les categories per"
 
-msgid "user.email"
-msgstr "Adreça de correu electrònic"
+#~ msgid "search.searchCategories"
+#~ msgstr "Categories de cerca"
 
-msgid "review.anonymousPeerReview.title"
-msgstr "Com assegurar que tots els arxius s'han anonimitzat"
-
-msgid "search.searchResults.foundPlural"
-msgstr "S'han trobat {$count} elements."
-
-msgid "search.searchResults.foundSingle"
-msgstr "S'ha trobat un element."
-
-msgid "navigation.backTo"
-msgstr "⟵ Tornar a {$page}"
-
-msgid "form.saved"
-msgstr "Guardat"
-
-msgid "common.viewWithName"
-msgstr "Veure {$name}"
-
-msgid "common.user.nonexistent"
-msgstr "[Usuari/ària inexistent]"
-
-msgid "common.addFile"
-msgstr "Afegir arxiu"
-
-msgid "common.unknownError"
-msgstr ""
-"Ha ocorregut un error inesperat. Recarregueu la pàgina i torneu-ho a provar."
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.selectWithName"
-msgstr "Seleccionar {$name}"
-
-msgid "common.editItem"
-msgstr "Editar {$name}"
-
-msgid "common.inactive"
-msgstr "Inactiu"
+#~ msgid "dashboard.submissions"
+#~ msgstr "Trameses"

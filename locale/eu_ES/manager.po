@@ -2,14 +2,23 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:45+00:00\n"
-"Language: \n"
+
+msgid "manager.website.information"
+msgstr ""
+
+msgid "manager.website.appearance"
+msgstr ""
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
 
 msgid "manager.announcements"
 msgstr "Anuntzioak"
@@ -26,6 +35,12 @@ msgstr "Sortu"
 msgid "manager.announcements.dateExpire"
 msgstr "Iraungitze-data"
 
+msgid "manager.announcements.datePublish"
+msgstr "Argitaratua"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr ""
+
 msgid "manager.announcements.edit"
 msgstr "Editatu anuntzioa"
 
@@ -39,7 +54,9 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Iraungitze-data"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Egun horretara arte bistaratuko da anuntzioa. Utzi hutsik anuntzioak denbora-mugarik ez badu."
+msgstr ""
+"Egun horretara arte bistaratuko da anuntzioa. Utzi hutsik anuntzioak denbora-"
+"mugarik ez badu."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Iraungitze-hilaz gain, urtea eta eguna hautatu behar dira."
@@ -96,7 +113,9 @@ msgid "manager.announcementTypes"
 msgstr "Anuntzio motak"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Kontuz! Mota honetako anuntzio guztiak ezabatu egingo dira. Ziur zaude anuntzio mota hau ezabatu nahi duzula?"
+msgstr ""
+"Kontuz! Mota honetako anuntzio guztiak ezabatu egingo dira. Ziur zaude "
+"anuntzio mota hau ezabatu nahi duzula?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Sortu anuntzio mota"
@@ -128,17 +147,60 @@ msgstr "Ez da anuntzio motarik sortu."
 msgid "manager.announcementTypes.typeName"
 msgstr "Anuntzio mota"
 
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr ""
+
+msgid "manager.publication.reviewStage"
+msgstr ""
+
+msgid "manager.publication.editorialStage"
+msgstr ""
+
+msgid "manager.publication.productionStage"
+msgstr ""
+
+msgid "manager.publication.emails"
+msgstr ""
+
+msgid "manager.publication.reviewerGuidance"
+msgstr ""
+
+msgid "manager.publication.reviewReminders.success"
+msgstr ""
+
 msgid "manager.emails.confirmDelete"
 msgstr "Ziur zaude mezu-txantiloi hau ezabatu nahi duzula?"
 
 msgid "manager.emails.confirmReset"
-msgstr "Ziur zaude mezu-txantiloi hau berrezarri nahi duzula balio lehenetsiekin?"
+msgstr ""
+"Ziur zaude mezu-txantiloi hau berrezarri nahi duzula balio lehenetsiekin?"
+
+msgid "manager.emails.addEmail"
+msgstr ""
 
 msgid "manager.emails.createEmail"
 msgstr "Sortu mezu elektronikoa"
 
+msgid "manager.emails.customTemplate"
+msgstr ""
+
+msgid "manager.emails.data"
+msgstr "Txantiloiko mezuaren datuak"
+
+msgid "manager.emails.details"
+msgstr "Txantiloiaren xehetasunak"
+
 msgid "manager.emails.disable"
 msgstr "Desgaitu"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren "
+"prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean "
+"erabiliko. Eragiketa baieztatu nahi duzu?"
 
 msgid "manager.emails.editEmail"
 msgstr "Editatu mezu elektronikoa"
@@ -149,17 +211,39 @@ msgstr "Editatu mezua probatzeko adibidea"
 msgid "manager.emails.emailKey"
 msgstr "Posta elektronikoko gakoa"
 
+msgid "manager.emails.emailKey.description"
+msgstr ""
+
 msgid "manager.emails.emailKeyExists"
-msgstr "Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan behar du."
+msgstr ""
+"Gako hori beste posta elektroniko batek erabiltzen du. Gako unibokoa izan "
+"behar du."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Mezu elektronikoen txantiloia"
+
+msgid "manager.emails.emailTemplates"
+msgstr ""
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr ""
 
 msgid "manager.emails.enabled"
 msgstr "Gaitu mezu-txantiloi hau"
 
 msgid "manager.emails.enable"
 msgstr "Gaitu"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Posta elektroniko hau aktibatzeko zorian zaude. Eragiketa baieztatu nahi "
+"duzu?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "Posta elektronikoko gako bakarra behar da posta elektronikorako."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "Mezuak gorputza eduki behar du."
@@ -170,17 +254,54 @@ msgstr "Mezuak gaia eduki behar du."
 msgid "manager.emails"
 msgstr "Prestatutako mezu elektronikoak"
 
+msgid "manager.emails.resetAll"
+msgstr ""
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Txantiloi guztiak berrezartzen badituzu, posta elektronikoaren txantiloi "
+"guztien aldaketak galduko dira. Eragiketa baieztatu nahi duzu?"
+
+msgid "manager.emails.resetAll.complete"
+msgstr ""
+
 msgid "manager.emails.reset"
 msgstr "Berrezarri"
 
+msgid "manager.emails.resetComplete"
+msgstr ""
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira "
+"lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa "
+"baieztatu nahi duzu?"
+
 msgid "manager.emails.resetToDefault"
 msgstr "Berrezarri lehenetsia"
+
+msgid "manager.emails.sentFrom"
+msgstr ""
+
+msgid "manager.emails.sentTo"
+msgstr ""
+
+msgid "manager.emails.subjectWithValue"
+msgstr ""
+
+msgid "manager.export.usersToCsv.label"
+msgstr ""
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
 
 msgid "manager.filesBrowser"
 msgstr "Fitxategi-arakatzailea"
 
 msgid "manager.files.confirmDelete"
-msgstr "Fitxategi edo direktorio hau ezabatu nahi duzu? Kontuan izan, direktorio bat ezabatu ahal izateko, hutsik egon behar dela."
+msgstr ""
+"Fitxategi edo direktorio hau ezabatu nahi duzu? Kontuan izan, direktorio bat "
+"ezabatu ahal izateko, hutsik egon behar dela."
 
 msgid "manager.files.createDir"
 msgstr "Sortu direktorioa"
@@ -233,14 +354,35 @@ msgstr "Kargua"
 msgid "manager.importExport"
 msgstr "Inportatu/Esportatu datuak"
 
+msgid "manager.language.ui"
+msgstr ""
+
+msgid "manager.language.submissions"
+msgstr ""
+
+msgid "manager.language.forms"
+msgstr ""
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr ""
+
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Sistemak aukera ematen du, gainera, informazio garrantzitsua hainbat hizkuntzatan sartzeko. Eginbide hori erabiltzeko, hautatu localeak eta aukeratu beheko aukeren artean."
+msgstr ""
+"Sistemak aukera ematen du, gainera, informazio garrantzitsua hainbat "
+"hizkuntzatan sartzeko. Eginbide hori erabiltzeko, hautatu localeak eta "
+"aukeratu beheko aukeren artean."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo diren locale hizkuntza-paketeak. Hizkuntza bat  baino gehiago hautatzen bada bakarrik agertuko da hizkuntzen menua."
+msgstr ""
+"Hautatu orri bakoitzean hizkuntza aukeratzeko menuan erabilgarri egongo "
+"diren locale hizkuntza-paketeak. Hizkuntza bat  baino gehiago hautatzen bada "
+"bakarrik agertuko da hizkuntzen menua."
 
 msgid "manager.payment.timestamp"
 msgstr "Data"
+
+msgid "manager.people.existingUserRequired"
+msgstr ""
 
 msgid "manager.people.authSource"
 msgstr "Autentifikazio-iturburua"
@@ -282,7 +424,9 @@ msgid "manager.people.emailUsers.selectLocale"
 msgstr "Hautatu locale hizkuntza-pakete bat"
 
 msgid "manager.people.emailUsers.selectUsers"
-msgstr "Mezua bidali nahi diezun erabiltzaileak hautatzeko, markatu izenaren ondoko laukia"
+msgstr ""
+"Mezua bidali nahi diezun erabiltzaileak hautatzeko, markatu izenaren ondoko "
+"laukia"
 
 msgid "manager.people.enable"
 msgstr "Gaitu"
@@ -315,10 +459,18 @@ msgid "manager.people.mergeUser"
 msgstr "Batu erabiltzailea"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Ziur zaude \"{$oldUsername}\" erabiltzaile-izena duen kontua ezabatu eta \"{$newUsername}\" erabiltzaile-izena duen kontuarekin batu nahi duzula? \"{$oldUsername}\" kontua galdu egingo da. Ekintza hau ezingo da desegin."
+msgstr ""
+"Ziur zaude \"{$oldUsername}\" erabiltzaile-izena duen kontua ezabatu eta "
+"\"{$newUsername}\" erabiltzaile-izena duen kontuarekin batu nahi duzula? "
+"\"{$oldUsername}\" kontua galdu egingo da. Ekintza hau ezingo da desegin."
 
 msgid "manager.people.mergeUsers"
 msgstr "Batu erabiltzaileak"
+
+msgid "manager.people.mustChooseRole"
+msgstr ""
+"Hautatu funtzio bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik "
+"egin aurretik."
 
 msgid "manager.people.mustProvideName"
 msgstr "Lehenengo, erabiltzailearen abizen bat eman behar duzu."
@@ -338,6 +490,9 @@ msgstr "Kendu"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Gorde eta sortu beste bat"
 
+msgid "manager.people.signedInAs"
+msgstr ""
+
 msgid "manager.people.signInAs"
 msgstr "Hasi erabiltzaile-saioa"
 
@@ -354,7 +509,9 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Erabiltzailea ondo sortu da."
 
 msgid "manager.people.userMustChangePassword"
-msgstr "Esan erabiltzaileari pasahitza aldatu behar duela hurrengo sartzen den aldian."
+msgstr ""
+"Esan erabiltzaileari pasahitza aldatu behar duela hurrengo sartzen den "
+"aldian."
 
 msgid "manager.plugins.action"
 msgstr "Ekintza:"
@@ -369,7 +526,8 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Pluginen kudeaketa"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Plugin hau gune osorako da. Gune-administratzaileak bakarrik kudea dezake."
+msgstr ""
+"Plugin hau gune osorako da. Gune-administratzaileak bakarrik kudea dezake."
 
 msgid "manager.plugins"
 msgstr "Sistemaren pluginak"
@@ -377,26 +535,382 @@ msgstr "Sistemaren pluginak"
 msgid "manager.readingTools"
 msgstr "Irakurtzeko tresnak"
 
+msgid "manager.userSearch.searchByName"
+msgstr ""
+
+msgid "manager.representative.inUse"
+msgstr ""
+
+msgid "manager.reviewerSearch.change"
+msgstr ""
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Ebaluatzailea izenez bilatu"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Izenaren araberako bilaketa"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interesak ebaluatzen"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak "
+"ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu."
+
 msgid "manager.roles"
 msgstr "Funtzioak"
 
+msgid "manager.statistics"
+msgstr "Estatistikak eta txostenak"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+
+msgid "manager.statistics.city"
+msgstr ""
+
+msgid "manager.statistics.region"
+msgstr ""
+
+msgid "manager.statistics.reports"
+msgstr ""
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr ""
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr ""
+
+msgid "manager.statistics.reports.generateReport"
+msgstr ""
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr ""
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr ""
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr ""
+
+msgid "manager.statistics.reports.columns"
+msgstr ""
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+
+msgid "manager.statistics.reports.filters"
+msgstr ""
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr ""
+
+msgid "manager.statistics.reports.objectType"
+msgstr ""
+
+msgid "manager.statistics.reports.objectId"
+msgstr ""
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr ""
+
+msgid "manager.statistics.reports.yesterday"
+msgstr ""
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr ""
+
+msgid "manager.statistics.reports.orderBy"
+msgstr ""
+
+msgid "manager.statistics.reports.orderDir"
+msgstr ""
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr ""
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr ""
+
+msgid "manager.statistics.reports.month.label"
+msgstr ""
+
+msgid "manager.statistics.reports.day.label"
+msgstr ""
+
+msgid "manager.statistics.reports.cities.label"
+msgstr ""
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr ""
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr ""
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr ""
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr ""
+
+msgid "manager.affiliationAndSupport"
+msgstr ""
+
+msgid "manager.setup.additionalContent"
+msgstr ""
+
+msgid "manager.setup.additionalContent.description"
+msgstr ""
+
+msgid "manager.setup.advanced"
+msgstr ""
+
+msgid "manager.setup.copyrightNotice"
+msgstr ""
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+
+msgid "manager.setup.authorGuidelines"
+msgstr ""
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+
+msgid "manager.setup.disableSubmissions"
+msgstr ""
+
+msgid "manager.setup.checklist"
+msgstr ""
+
+msgid "manager.setup.competingInterests"
+msgstr ""
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Errorea elementu hau ezabatzean."
+
+msgid "manager.setup.favicon"
+msgstr ""
+
+msgid "manager.setup.homepageImage"
+msgstr ""
+
+msgid "manager.setup.homepageImage.description"
+msgstr ""
+
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+msgstr ""
+"Hasierako orriaren goiburuko irudi-formatua ez da baliozkoa: .gif, .jpg, "
+"edo .png formatuak bakarrik onartzen dira."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+msgstr ""
+"Hasierako orriaren goiburuko tituluaren irudi-formatua ez da baliozkoa: ."
+"gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr ""
+
+msgid "manager.setup.layout.sidebar"
+msgstr ""
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Log-erregistroa eta kontrola"
 
+msgid "manager.setup.logo"
+msgstr ""
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+
+msgid "manager.setup.notifications"
+msgstr ""
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr ""
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+
+msgid "manager.setup.notifyUsers"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.send"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr ""
+
+msgid "manager.setup.openAccessPolicy"
+msgstr ""
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png formatuak bakarrik onartzen dira."
+msgstr ""
+"Orri-buruko logoaren irudi-formatua ez da baliozkoa: .gif, .jpg, edo .png "
+"formatuak bakarrik onartzen dira."
 
-msgid "manager.setup.selectOne"
-msgstr "Hautatu bat"
+msgid "manager.setup.pageFooter"
+msgstr ""
 
-msgid "manager.statistics"
-msgstr "Estatistikak eta txostenak"
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+
+msgid "manager.setup.principalContact"
+msgstr ""
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+
+msgid "manager.setup.privacyStatement"
+msgstr ""
+
+msgid "manager.setup.dateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr ""
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.time"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.custom"
+msgstr ""
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+
+msgid "manager.setup.sponsors.note"
+msgstr ""
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+
+msgid "manager.setup.technicalSupportContact"
+msgstr ""
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+
+msgid "manager.setup.theme"
+msgstr ""
+
+msgid "manager.setup.theme.description"
+msgstr ""
+
+msgid "manager.setup.theme.notFound"
+msgstr ""
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmActivateSection"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr ""
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} (% {$percentage})"
@@ -404,8 +918,18 @@ msgstr "{$count} (% {$percentage})"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} berri)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr ""
+
 msgid "manager.users"
 msgstr "Erabiltzaileak"
+
+msgid "plugins.categories.metadata"
+msgstr "Metadatuen pluginak"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,"
 
 msgid "plugins.categories.auth"
 msgstr "Baimena emateko pluginak"
@@ -414,7 +938,9 @@ msgid "plugins.categories.blocks"
 msgstr "Blokeko pluginak"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Blokeko pluginak, erabiltzaile-interfazearen osagai gehigarriak dira, esate baterako, alboko barrako tresnak."
+msgstr ""
+"Blokeko pluginak, erabiltzaile-interfazearen osagai gehigarriak dira, esate "
+"baterako, alboko barrako tresnak."
 
 msgid "plugins.categories.gateways.description"
 msgstr "Atebide-pluginek zuzeneko datuak pasatzen dituzte kanpoko sistemetara"
@@ -426,19 +952,25 @@ msgid "plugins.categories.generic"
 msgstr "Plugin generikoak"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Inportatu eta Esportatzeko pluginak edukia beste sistema batzuetatik eta batzuetara transferitzeko erabiltzen dira."
+msgstr ""
+"Inportatu eta Esportatzeko pluginak edukia beste sistema batzuetatik eta "
+"batzuetara transferitzeko erabiltzen dira."
 
 msgid "plugins.categories.importexport"
 msgstr "Inportatu eta Esportatzeko pluginak"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Ordaintzeko moduen pluginekin, lineako ordainketak hainbat modutan prozesatu ahal izango dira."
+msgstr ""
+"Ordaintzeko moduen pluginekin, lineako ordainketak hainbat modutan prozesatu "
+"ahal izango dira."
 
 msgid "plugins.categories.paymethod"
 msgstr "Ordainketen pluginak"
 
 msgid "plugins.categories.reports.description"
-msgstr "Txostenen pluginak Konferentzia-kudeatzaileentzako txostenak eta datu-aterakinak prestatzeko erabiltzen dira."
+msgstr ""
+"Txostenen pluginak Konferentzia-kudeatzaileentzako txostenak eta datu-"
+"aterakinak prestatzeko erabiltzen dira."
 
 msgid "plugins.categories.reports"
 msgstr "Txostenen pluginak"
@@ -449,65 +981,459 @@ msgstr "Sistemaren itxura aldatzeko erabiltzen dira Temen pluginak."
 msgid "plugins.categories.themes"
 msgstr "Temen pluginak"
 
-msgid "manager.people.mustChooseRole"
-msgstr "Hautatu funtzio bat orriaren goialdean \"Inskribatu erabiltzailea\"n klik egin aurretik."
-
-msgid "manager.emails.form.emailKeyRequired"
-msgstr "Posta elektronikoko gako bakarra behar da posta elektronikorako."
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "Errorea elementu hau ezabatzean."
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Ebaluatzailea izenez bilatu"
-
-msgid "manager.reviewerSearch.interests"
-msgstr "Interesak ebaluatzen"
-
-msgid "manager.announcements.datePublish"
-msgstr "Argitaratua"
-
-msgid "manager.emails.details"
-msgstr "Txantiloiaren xehetasunak"
-
-msgid "manager.emails.data"
-msgstr "Txantiloiko mezuaren datuak"
-
-msgid "manager.emails.disable.message"
-msgstr "Posta elektronikoaren txantiloi hau desaktibatzeko zorian zaude. Sistemaren prozesu batzuk baleude txantiloi hau erabiltzen, ez lukete aurrerantzean erabiliko. Eragiketa baieztatu nahi duzu?"
-
-msgid "manager.emails.enable.message"
-msgstr "Posta elektroniko hau aktibatzeko zorian zaude. Eragiketa baieztatu nahi duzu?"
-
-msgid "manager.emails.resetAll.message"
-msgstr "Txantiloi guztiak berrezartzen badituzu, posta elektronikoaren txantiloi guztien aldaketak galduko dira. Eragiketa baieztatu nahi duzu?"
-
-msgid "manager.emails.reset.message"
-msgstr "Txantiloi hau berrezartzen baduzu, mezuko datu guztiak berrezarriko dira lehenetsitako balioetan, eta aldaketa guztiak galduko dira. Eragiketa baieztatu nahi duzu?"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Izenaren araberako bilaketa"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr "Erabili beheko inprimakia bilatu nahi dituzun hitzentzako gehienezko balioak ezartzeko. Inprimakiak eremu horietako batez besteko kalkulatuak ditu."
-
-msgid "plugins.categories.metadata"
-msgstr "Metadatuen pluginak"
-
-msgid "plugins.categories.metadata.description"
-msgstr "Metadatuen pluginek metadatu estandar gehigarriak inplementatzen dituzte,"
-
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "OAI Metadatuen Formatuen Pluginak"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan."
+msgstr ""
+"Formatuen plugin horiek metadatuak adierazten dituzte OAI komunikazioetan."
+
+msgid "plugins.categories.pubIds"
+msgstr ""
+
+msgid "plugins.categories.pubIds.description"
+msgstr ""
+
+msgid "manager.plugins.copyError"
+msgstr ""
+
+msgid "manager.plugins.delete"
+msgstr ""
+
+msgid "manager.plugins.installConfirm"
+msgstr ""
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr ""
+
+msgid "grid.action.installPlugin"
+msgstr ""
+
+msgid "manager.plugins.deleteConfirm"
+msgstr ""
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+
+msgid "manager.plugins.deleteSuccess"
+msgstr ""
+
+msgid "manager.plugins.description"
+msgstr ""
+
+msgid "manager.plugins.doesNotExist"
+msgstr ""
+
+msgid "manager.plugins.fileSelectError"
+msgstr ""
+
+msgid "manager.plugins.upload"
+msgstr ""
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+
+msgid "manager.plugins.uploadFailed"
+msgstr ""
+
+msgid "manager.plugins.installed"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr ""
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr ""
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr ""
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr ""
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr ""
+
+msgid "manager.plugins.installFailed"
+msgstr ""
+
+msgid "manager.plugins.installSuccessful"
+msgstr ""
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+
+msgid "manager.plugins.pleaseInstall"
+msgstr ""
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+
+msgid "manager.plugins.settings"
+msgstr ""
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+
+msgid "manager.plugins.upgrade"
+msgstr ""
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+
+msgid "manager.plugins.upgradeFailed"
+msgstr ""
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr ""
+
+msgid "manager.plugins.uploadError"
+msgstr ""
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr ""
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr ""
+
+msgid "notification.localeEnabled"
+msgstr ""
+
+msgid "notification.localeDisabled"
+msgstr ""
+
+msgid "notification.primaryLocaleDefined"
+msgstr ""
+
+msgid "notification.localeInstalled"
+msgstr ""
+
+msgid "notification.localeUninstalled"
+msgstr ""
+
+msgid "notification.localeReloaded"
+msgstr ""
+
+msgid "notification.localeSettingsSaved"
+msgstr ""
+
+msgid "notification.editedUser"
+msgstr ""
+
+msgid "manager.distribution.license"
+msgstr ""
+
+msgid "manager.distribution.license.other"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+
+msgid "manager.distribution.customHeaders"
+msgstr ""
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+
+msgid "manager.paymentMethod"
+msgstr ""
+
+msgid "manager.paymentMethod.title"
+msgstr ""
+
+msgid "manager.paymentMethod.none"
+msgstr ""
+
+msgid "manager.paymentMethod.method"
+msgstr ""
+
+msgid "manager.paymentMethod.currency"
+msgstr ""
+
+msgid "settings.roles.roleOptions"
+msgstr ""
+
+msgid "settings.roles.showTitles"
+msgstr ""
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr ""
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+
+msgid "settings.roles.roleName"
+msgstr ""
+
+msgid "settings.roles.roleAbbrev"
+msgstr ""
+
+msgid "settings.roles.assignedStages"
+msgstr ""
+
+msgid "settings.roles.stages"
+msgstr ""
+
+msgid "settings.roles.roleDetails"
+msgstr ""
+
+msgid "settings.roles.from"
+msgstr ""
+
+msgid "settings.roles.removeText"
+msgstr ""
+
+msgid "settings.roles.nameRequired"
+msgstr ""
+
+msgid "settings.roles.abbrevRequired"
+msgstr ""
+
+msgid "settings.roles.uniqueName"
+msgstr ""
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr ""
+
+msgid "settings.roles.roleIdRequired"
+msgstr ""
+
+msgid "settings.roles.stageIdRequired"
+msgstr ""
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr ""
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr ""
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr ""
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr ""
+
+msgid "settings.libraryFiles.category.reports"
+msgstr ""
+
+msgid "settings.libraryFiles.category.other"
+msgstr ""
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr ""
+
+msgid "grid.action.addGenre"
+msgstr ""
+
+msgid "grid.action.editGenre"
+msgstr ""
+
+msgid "grid.action.deleteGenre"
+msgstr ""
+
+msgid "grid.action.restoreGenres"
+msgstr ""
+
+msgid "manager.setup.genres.label"
+msgstr ""
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+
+msgid "manager.setup.genres.key"
+msgstr ""
+
+msgid "manager.setup.genres.key.description"
+msgstr ""
+
+msgid "manager.setup.genres.key.exists"
+msgstr ""
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+
+msgid "manager.settings.wizard"
+msgstr ""
+
+msgid "manager.users.roleRequired"
+msgstr ""
 
 msgid "manager.website"
 msgstr "Webgunea"
 
+msgid "manager.website.title"
+msgstr ""
+
+msgid "manager.workflow"
+msgstr ""
+
+msgid "manager.workflow.title"
+msgstr ""
+
+msgid "manager.distribution"
+msgstr ""
+
+msgid "manager.distribution.title"
+msgstr ""
+
+msgid "manager.reviewForms"
+msgstr "Ebaluazio-inprimakiak"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+
+msgid "manager.reviewForms.completed"
+msgstr "Bukatuta"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr ""
+
+msgid "manager.reviewForms.create"
+msgstr "Sortu Ebaluazio-inprimakia"
+
+msgid "manager.reviewForms.description"
+msgstr "Azalpena eta Instrukzioak"
+
+msgid "manager.reviewForms.edit"
+msgstr "Ebaluazio-inprimakia"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Titulua eman behar zaio ebaluazio-inprimakiari."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Ebaluatzen"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Hemen sortzen diren ebaluazio-inprimakiak emango zaizkie adituei ebaluazioa "
+"egiteko, bi testu-koadroz (\"egilearentzat eta editorearentzat\" lehenengoa "
+"eta \"editorearentzat\" bigarrena) osatutako inprimaki lehenetsiaren ordez. "
+"Ebaluazio-inprimakiak aldizkariaren atal jakin batean erabiltzeko jar "
+"daitezke, eta ataleko editoreek zein inprimaki erabili aukeratu ahal izango "
+"dute ebaluazioa esleitzean. Kasu guzietan, editoreek ebaluazio-txostenak "
+"sartzeko aukera izango dute egilearekin izaten duten korrespondentzian."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Bat ere ez / Inprimaki librea"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Ez da ebaluazio-inprimakirik sortu"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr ""
+
+msgid "manager.reviewForms.preview"
+msgstr "Inprimakiaren aurrebista"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr ""
+
+msgid "manager.reviewForms.title"
+msgstr "Titulua"
+
 msgid "manager.reviewFormElement.changeType"
-msgstr "Kontuz: Ebaluazio-inprimakiko elementu mota aldatzen baduzu aukera multzo bat izatetik irekia izatera, aukera multzoa ezabatu egingo da."
+msgstr ""
+"Kontuz: Ebaluazio-inprimakiko elementu mota aldatzen baduzu aukera multzo "
+"bat izatetik irekia izatera, aukera multzoa ezabatu egingo da."
 
 msgid "manager.reviewFormElements"
 msgstr "Inprimakiko elementuak"
@@ -522,7 +1448,9 @@ msgid "manager.reviewFormElements.chooseType"
 msgstr "Aukeratu elementu mota"
 
 msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Ziur zaude ebaluazio-inprimaki argitaratu bateko elementu bat ezabatu nahi duzula?"
+msgstr ""
+"Ziur zaude ebaluazio-inprimaki argitaratu bateko elementu bat ezabatu nahi "
+"duzula?"
 
 msgid "manager.reviewFormElements.copyTo"
 msgstr "Kopiatu hona:"
@@ -554,11 +1482,17 @@ msgstr "Hautapena"
 msgid "manager.reviewFormElements.question"
 msgstr "Elementua"
 
+msgid "manager.reviewFormElements.description"
+msgstr ""
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Aukera-botoiak (bakarra aukera daiteke)"
 
 msgid "manager.reviewFormElements.required"
 msgstr "Ebaluatzaileek bete egin behar dute elementua"
+
+msgid "manager.reviewFormElements.included"
+msgstr ""
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "Hitz bakarreko testu-koadroa"
@@ -569,38 +1503,587 @@ msgstr "Testu-koadro hedatua"
 msgid "manager.reviewFormElements.textfield"
 msgstr "Lerro bakarreko testu-koadroa"
 
-msgid "manager.reviewForms"
-msgstr "Ebaluazio-inprimakiak"
+msgid "manager.reviewFormElements.viewable"
+msgstr ""
 
-msgid "manager.reviewForms.completed"
-msgstr "Bukatuta"
+msgid "grid.action.createReviewForm"
+msgstr ""
 
-msgid "manager.reviewForms.create"
-msgstr "Sortu Ebaluazio-inprimakia"
+msgid "manager.setup.competingInterests.required"
+msgstr ""
 
-msgid "manager.reviewForms.description"
-msgstr "Azalpena eta Instrukzioak"
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
 
-msgid "manager.reviewForms.edit"
-msgstr "Ebaluazio-inprimakia"
+msgid "manager.setup.metadata.submission"
+msgstr ""
 
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "Titulua eman behar zaio ebaluazio-inprimakiari."
+msgid "manager.setup.metadata.coverage"
+msgstr ""
 
-msgid "manager.reviewForms.inReview"
-msgstr "Ebaluatzen"
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
 
-msgid "manager.reviewForms.list.description"
-msgstr "Hemen sortzen diren ebaluazio-inprimakiak emango zaizkie adituei ebaluazioa egiteko, bi testu-koadroz (\"egilearentzat eta editorearentzat\" lehenengoa eta \"editorearentzat\" bigarrena) osatutako inprimaki lehenetsiaren ordez. Ebaluazio-inprimakiak aldizkariaren atal jakin batean erabiltzeko jar daitezke, eta ataleko editoreek zein inprimaki erabili aukeratu ahal izango dute ebaluazioa esleitzean. Kasu guzietan, editoreek ebaluazio-txostenak sartzeko aukera izango dute egilearekin izaten duten korrespondentzian."
+msgid "manager.setup.metadata.coverage.enable"
+msgstr ""
 
-msgid "manager.reviewForms.noneChosen"
-msgstr "Bat ere ez / Inprimaki librea"
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
 
-msgid "manager.reviewForms.noneCreated"
-msgstr "Ez da ebaluazio-inprimakirik sortu"
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
 
-msgid "manager.reviewForms.preview"
-msgstr "Inprimakiaren aurrebista"
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
 
-msgid "manager.reviewForms.title"
-msgstr "Titulua"
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+
+msgid "manager.setup.metadata.source.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+
+msgid "manager.setup.metadata.type.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr ""
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr ""
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr ""
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr ""
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr ""
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr ""
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+
+msgid "manager.navigationMenus.form.title"
+msgstr ""
+
+msgid "manager.navigationMenus.form.path"
+msgstr ""
+
+msgid "manager.navigationMenus"
+msgstr ""
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+
+msgid "manager.navigationMenus.form.content"
+msgstr ""
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr ""
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr ""
+
+msgid "manager.navigationMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr ""
+
+msgid "manager.navigationMenus.form.url"
+msgstr ""
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr ""
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr ""
+
+msgid "manager.navigationMenus.current.description"
+msgstr ""
+
+msgid "manager.navigationMenus.archives.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.login.description"
+msgstr ""
+
+msgid "manager.navigationMenus.register.description"
+msgstr ""
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr ""
+
+msgid "manager.navigationMenus.profile.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr ""
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.search.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+
+msgid "grid.category.add"
+msgstr ""
+
+msgid "grid.category.edit"
+msgstr ""
+
+msgid "grid.category.name"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "grid.category.urlWillBe"
+msgstr ""
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+
+msgid "grid.category.pathExists"
+msgstr ""
+
+msgid "grid.category.description"
+msgstr ""
+
+msgid "grid.category.parentCategory"
+msgstr ""
+
+msgid "grid.category.removeText"
+msgstr ""
+
+msgid "grid.category.nameRequired"
+msgstr ""
+
+msgid "grid.category.categoryDetails"
+msgstr ""
+
+msgid "stats.allUsers"
+msgstr ""
+
+msgid "stats.countWithYearlyAverage"
+msgstr ""
+
+msgid "stats.daily"
+msgstr ""
+
+msgid "stats.dateRange"
+msgstr ""
+
+msgid "stats.dateRange.allDates"
+msgstr ""
+
+msgid "stats.dateRange.apply"
+msgstr ""
+
+msgid "stats.dateRange.change"
+msgstr ""
+
+msgid "stats.dateRange.customRange"
+msgstr ""
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr ""
+
+msgid "stats.dateRange.from"
+msgstr ""
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr ""
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr ""
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr ""
+
+msgid "stats.dateRange.last12Months"
+msgstr ""
+
+msgid "stats.dateRange.last30Days"
+msgstr ""
+
+msgid "stats.dateRange.last90Days"
+msgstr ""
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr ""
+
+msgid "stats.dateRange.lastYear"
+msgstr ""
+
+msgid "stats.dateRange.sinceDate"
+msgstr ""
+
+msgid "stats.dateRange.thisYear"
+msgstr ""
+
+msgid "stats.dateRange.to"
+msgstr ""
+
+msgid "stats.dateRange.untilDate"
+msgstr ""
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr ""
+
+msgid "stats.editorialActivity"
+msgstr ""
+
+msgid "stats.fileViews"
+msgstr ""
+
+msgid "stats.html"
+msgstr ""
+
+msgid "stats.monthly"
+msgstr ""
+
+msgid "stats.pdf"
+msgstr ""
+
+msgid "stats.searchSubmissionDescription"
+msgstr ""
+
+msgid "stats.submissionsActive"
+msgstr ""
+
+msgid "stats.total"
+msgstr ""
+
+msgid "stats.totalWithinDateRange"
+msgstr ""
+
+msgid "stats.trends"
+msgstr ""
+
+msgid "stats.userStatistics"
+msgstr ""
+
+msgid "stats.name.submissionsReceived"
+msgstr ""
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr ""
+
+msgid "stats.name.submissionsDeclined"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr ""
+
+msgid "stats.name.submissionsPublished"
+msgstr ""
+
+msgid "stats.name.daysToDecision"
+msgstr ""
+
+msgid "stats.name.daysToAccept"
+msgstr ""
+
+msgid "stats.name.daysToReject"
+msgstr ""
+
+msgid "stats.name.acceptanceRate"
+msgstr ""
+
+msgid "stats.name.declineRate"
+msgstr ""
+
+msgid "stats.name.declinedDeskRate"
+msgstr ""
+
+msgid "stats.name.declinedReviewRate"
+msgstr ""
+
+#~ msgid "manager.setup.selectOne"
+#~ msgstr "Hautatu bat"

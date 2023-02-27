@@ -2,17 +2,470 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:50+00:00\n"
-"Language: \n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Jeste li sigurni da želite trajno obrisati ovu prijavu?"
 
+msgid "editor.activityLog"
+msgstr ""
+
+msgid "editor.submissionLibrary"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr ""
+
+msgid "editor.review.notInitiated"
+msgstr ""
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr ""
+
+msgid "editor.submission.externalReviewDescription"
+msgstr ""
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr ""
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr ""
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr ""
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr ""
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr ""
+
+msgid "editor.submission.selectFiles"
+msgstr ""
+
+msgid "editor.submission.revisions"
+msgstr ""
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+
+msgid "editor.submission.addReviewer"
+msgstr ""
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr ""
+
+msgid "editor.submission.findAndSelectUser"
+msgstr ""
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr ""
+
+msgid "editor.submission.review.currentFiles"
+msgstr ""
+
+msgid "editor.submission.backToSearch"
+msgstr ""
+
+msgid "editor.review.createReviewer"
+msgstr ""
+
+msgid "editor.review.enrollReviewer.short"
+msgstr ""
+
+msgid "editor.review.unassignReviewer"
+msgstr ""
+
+msgid "editor.review.cancelReviewer"
+msgstr ""
+
+msgid "editor.review.reinstateReviewer"
+msgstr ""
+
+msgid "editor.submissionReview.reviewType"
+msgstr ""
+
+msgid "editor.submissionReview.sendEmail"
+msgstr ""
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr ""
+
+msgid "editor.submissionReview.skipEmail"
+msgstr ""
+
+msgid "editor.submissionReview.open"
+msgstr ""
+
+msgid "editor.submissionReview.anonymous"
+msgstr ""
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr ""
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr ""
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr ""
+
+msgid "editor.submissionReview.editReview"
+msgstr ""
+
+msgid "editor.review.anonymousReviewer"
+msgstr ""
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr ""
+
+msgid "editor.review.importantDates"
+msgstr ""
+
+msgid "editor.review.uploadRevision"
+msgstr ""
+
+msgid "editor.review.newReviewRound"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr ""
+
+msgid "editor.review.dateAccepted"
+msgstr ""
+
+msgid "editor.review.reviewsAdded"
+msgstr ""
+
+msgid "editor.review.noReviews"
+msgstr ""
+
+msgid "editor.review.reminder"
+msgstr ""
+
+msgid "editor.review.thankReviewer"
+msgstr ""
+
+msgid "editor.review.reminderError"
+msgstr ""
+
+msgid "editor.review.thankReviewerError"
+msgstr ""
+
+msgid "editor.review.skipEmail"
+msgstr ""
+
+msgid "editor.review.sendReminder"
+msgstr ""
+
+msgid "editor.review.readReview"
+msgstr ""
+
+msgid "editor.review.readNewReview"
+msgstr ""
+
+msgid "editor.review.responseDue"
+msgstr ""
+
+msgid "editor.review.requestSent"
+msgstr ""
+
+msgid "editor.review.requestAccepted"
+msgstr ""
+
+msgid "editor.review.requestDeclined"
+msgstr ""
+
+msgid "editor.review.requestCancelled"
+msgstr ""
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr ""
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr ""
+
+msgid "editor.review.revertDecision"
+msgstr ""
+
+msgid "editor.review.reviewDue"
+msgstr ""
+
+msgid "editor.review.reviewDueDate"
+msgstr ""
+
+msgid "editor.review.reviewCompleted"
+msgstr ""
+
+msgid "editor.review.reviewConfirmed"
+msgstr ""
+
+msgid "editor.review.reviewSubmitted"
+msgstr ""
+
+msgid "editor.review.reviewerThanked"
+msgstr ""
+
+msgid "editor.review.reviewerComments"
+msgstr ""
+
 msgid "editor.review.rateReviewer"
 msgstr "Ocjena recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+
+msgid "editor.review.reviewerRating.none"
+msgstr ""
+
+msgid "editor.review.mustSelect"
+msgstr ""
+
+msgid "editor.review.errorAddingReviewer"
+msgstr ""
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr ""
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+
+msgid "editor.review.userGroupSelect"
+msgstr ""
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+
+msgid "editor.review.unconsiderReview"
+msgstr ""
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr ""
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr ""
+
+msgid "editor.submission.selectReviewer"
+msgstr ""
+
+msgid "editor.submission.taskDueDate"
+msgstr ""
+
+msgid "editor.submission.taskSchedule"
+msgstr ""
+
+msgid "editor.review.enrollReviewer"
+msgstr ""
+
+msgid "editor.submission.noAuditRequested"
+msgstr ""
+
+msgid "editor.submission.personalMessageToUser"
+msgstr ""
+
+msgid "editor.submission.proof.reminder"
+msgstr ""
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+
+msgid "editor.submission.addAuditor"
+msgstr ""
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+
+msgid "editor.review"
+msgstr ""
+
+msgid "editor.review.reviewDetails"
+msgstr ""
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr ""
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr ""
+
+msgid "editor.review.emailReviewer"
+msgstr ""
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr ""
+
+msgid "editor.submission.newRound"
+msgstr ""
+
+msgid "editor.submissionReview.recordDecision"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr ""
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+
+msgid "editor.submission.createNewRound"
+msgstr ""
+
+msgid "editor.article.reviewForms"
+msgstr ""
+
+msgid "editor.article.selectReviewForm"
+msgstr ""
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr ""
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr ""
+
+msgid "submission.queries.subjectRequired"
+msgstr ""
+
+msgid "submission.queries.messageRequired"
+msgstr ""
+
+msgid "submission.queries.attachedFiles"
+msgstr ""
+
+msgid "grid.action.editQuery"
+msgstr ""
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+
+msgid "editor.submission.selectedReviewer"
+msgstr ""
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr ""
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr ""
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr ""
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr ""
+
+msgid "reviewer.list.filterRating"
+msgstr ""
+
+msgid "reviewer.list.activeReviews"
+msgstr ""
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr ""
+
+msgid "reviewer.list.completedReviews"
+msgstr ""
+
+msgid "reviewer.list.declinedReviews"
+msgstr ""
+
+msgid "reviewer.list.cancelledReviews"
+msgstr ""
+
+msgid "reviewer.list.reviewerRating"
+msgstr ""
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr ""
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr ""
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr ""
+
+msgid "reviewer.list.averageCompletion"
+msgstr ""
+
+msgid "reviewer.list.neverAssigned"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr ""
+
+msgid "reviewer.list.reviewInterests"
+msgstr ""
+
+msgid "reviewer.list.biography"
+msgstr ""
+
+msgid "reviewer.list.empty"
+msgstr ""

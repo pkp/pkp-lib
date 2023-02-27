@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
 "PO-Revision-Date: 2020-10-19 09:01+0000\n"
 "Last-Translator: Eirik Hanssen <eirikh@oslomet.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/reviewer/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/reviewer/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,6 +55,9 @@ msgstr "Gå til Trinn 3"
 
 msgid "reviewer.submission.submitReview"
 msgstr "Send inn fagfellevurdering"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Lagre til senere"
 
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Retningslinjer for fagfellevurderingen"
@@ -120,9 +123,12 @@ msgstr "For forfatter og redaktør"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "Kun for redaktør"
 
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+
+msgid "submission.comments.sendToReviewers"
+msgstr ""
+
 msgid "user.authorization.submissionReviewer"
 msgstr ""
 "Denne brukeren er ikke satt opp som fagfelle for det forespurte dokumentet."
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Lagre til senere"

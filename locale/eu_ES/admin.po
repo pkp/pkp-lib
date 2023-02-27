@@ -2,14 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:44+00:00\n"
-"Language: \n"
+
+msgid "admin.systemInfo.settingName"
+msgstr ""
+
+msgid "admin.systemInfo.settingValue"
+msgstr ""
 
 msgid "admin.adminFunctions"
 msgstr "Funtzio administratiboak"
@@ -33,16 +39,25 @@ msgid "admin.clearTemplateCache"
 msgstr "Garbitu txantiloi-cachea"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Zure konfigurazio-fitxategia ondo eguneratu da. Kontuan izan, zure guneak ez badu ondo funtzionatzen, behar bada eskuz konpondu beharko duzula konfigurazioa, zuzenean <tt>config.inc.php</tt>editatuz."
+msgstr ""
+"Zure konfigurazio-fitxategia ondo eguneratu da. Kontuan izan, zure guneak ez "
+"badu ondo funtzionatzen, behar bada eskuz konpondu beharko duzula "
+"konfigurazioa, zuzenean <tt>config.inc.php</tt>editatuz."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Ziur zaude konpilatutako txantiloien cachea garbitu nahi duzula?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Ziur zaude erabiltzaile-saio guztiak iraungi nahi dituzula? Sisteman sartuta dauden erabiltzaile guztiak berriro sartzera behartuko dituzu (zeure burua barne)."
+msgstr ""
+"Ziur zaude erabiltzaile-saio guztiak iraungi nahi dituzula? Sisteman sartuta "
+"dauden erabiltzaile guztiak berriro sartzera behartuko dituzu (zeure burua "
+"barne)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Konfigurazio-fitxategiaren edukia"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
 
 msgid "admin.currentVersion"
 msgstr "Uneko bertsioa"
@@ -51,7 +66,10 @@ msgid "admin.dateInstalled"
 msgstr "Instalatze-data"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Zure konfigurazio eguneratua behean bistaratzen da. Konfigurazio-aldaketak aplikatzeko, testu-editore egoki batekin ireki beharko duzu <tt>config.inc.php</tt> eta bertako edukia aldatu beheko testu-eremuaren edukiarekin."
+msgstr ""
+"Zure konfigurazio eguneratua behean bistaratzen da. Konfigurazio-aldaketak "
+"aplikatzeko, testu-editore egoki batekin ireki beharko duzu <tt>config.inc."
+"php</tt> eta bertako edukia aldatu beheko testu-eremuaren edukiarekin."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Bistaratu konfigurazio berria"
@@ -59,14 +77,29 @@ msgstr "Bistaratu konfigurazio berria"
 msgid "admin.expireSessions"
 msgstr "Iraungi erabiltzaileen saioak"
 
+msgid "admin.languages.cantDisable"
+msgstr ""
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+
 msgid "admin.languages.confirmReload"
-msgstr "Ziur zaude hizkuntza hau birkargatu nahi duzula? Hizkuntza horretan definitutako datu guztiak borratu egingo dira, esate baterako, posta elektronikoko txantiloi pertsonalizatuak."
+msgstr ""
+"Ziur zaude hizkuntza hau birkargatu nahi duzula? Hizkuntza horretan "
+"definitutako datu guztiak borratu egingo dira, esate baterako, posta "
+"elektronikoko txantiloi pertsonalizatuak."
 
 msgid "admin.languages.installedLocales"
 msgstr "Instalatutako hizkuntzak"
 
 msgid "admin.languages.installLanguages"
 msgstr "Kudeatu localeak"
+
+msgid "admin.languages.availableLocales"
+msgstr ""
+
+msgid "admin.languages.installLocale"
+msgstr ""
 
 msgid "admin.languages.installLocales"
 msgstr "Instalatu"
@@ -89,6 +122,36 @@ msgstr "Desinstalatu hizkuntza"
 msgid "admin.phpInfo"
 msgstr "PHP informazio xehea"
 
+msgid "admin.scheduledTask"
+msgstr ""
+
+msgid "admin.scheduledTask.startTime"
+msgstr ""
+
+msgid "admin.scheduledTask.stopTime"
+msgstr ""
+
+msgid "admin.scheduledTask.noLog"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr ""
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr ""
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache bertsioa"
 
@@ -97,9 +160,6 @@ msgstr "Datu-basearen kontrolatzailea"
 
 msgid "admin.server.dbVersion"
 msgstr "Datu-base zerbitzariaren bertsioa"
-
-msgid "admin.serverInformationDescription"
-msgstr "Oinarrizko sistema eragilearen eta zerbitzari-softwarearen bertsioak. Zerbitzari honen PHP konfigurazioaren xehetasunak ikusteko, egin klik <span class=\"highlight\">PHP Informazio xehean</span>."
 
 msgid "admin.serverInformation"
 msgstr "Zerbitzariari buruzko informazioa"
@@ -110,8 +170,14 @@ msgstr "PHP bertsioa"
 msgid "admin.server.platform"
 msgstr "SE plataforma"
 
+msgid "admin.settings"
+msgstr "Ezarpenak"
+
 msgid "admin.settings.about"
 msgstr "Guneari buruz"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
 
 msgid "admin.settings.contactEmail"
 msgstr "Kontaktu nagusiaren helb. el."
@@ -119,26 +185,43 @@ msgstr "Kontaktu nagusiaren helb. el."
 msgid "admin.settings.contactName"
 msgstr "Kontaktu nagusiaren izena"
 
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+
 msgid "admin.settings.introduction"
 msgstr "Aurkezpenaa"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Pasahitzaren gutxieneko luzera"
 
-msgid "admin.settings.passwordCharacters"
-msgstr "karaktere"
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Gunearen hizkuntza"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Gunearen estilo-orriaren formatua ez da baliozkoa: .css formatua izan behar du."
+msgstr ""
+"Gunearen estilo-orriaren formatua ez da baliozkoa: .css formatua izan behar "
+"du."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Gunearen estilo-orria"
 
+msgid "admin.settings.siteLogo"
+msgstr ""
+
 msgid "admin.settings.siteTitle"
 msgstr "Gunearen titulua"
+
+msgid "admin.settings.siteTheme"
+msgstr "Gunearen gaia"
 
 msgid "admin.siteAdmin"
 msgstr "Gune-administrazioa"
@@ -149,8 +232,13 @@ msgstr "Gunearen kudeaketa"
 msgid "admin.siteSettings"
 msgstr "Gunearen ezarpenak"
 
+msgid "admin.siteSetup"
+msgstr "Gunearen konfigurazioa"
+
 msgid "admin.systemConfigFileReadError"
-msgstr "<tt>config.inc.php</tt> konfigurazio-fitxategia ez dago, ezin da irakurri, edo ez da baliozkoa."
+msgstr ""
+"<tt>config.inc.php</tt> konfigurazio-fitxategia ez dago, ezin da irakurri, "
+"edo ez da baliozkoa."
 
 msgid "admin.systemInformation"
 msgstr "Sistema-informazioa"
@@ -194,11 +282,56 @@ msgstr "Zure sistema eguneratuta dago"
 msgid "admin.version"
 msgstr "Bertsioa"
 
-msgid "admin.settings"
-msgstr "Ezarpenak"
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
 
-msgid "admin.settings.siteTheme"
-msgstr "Gunearen gaia"
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr ""
 
-msgid "admin.siteSetup"
-msgstr "Gunearen konfigurazioa"
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr ""
+
+msgid "admin.fileLoader.emailSubject"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.usage"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
+msgstr ""
+
+msgid "admin.copyAccessLogFileTool.success"
+msgstr ""
+
+msgid "admin.error.utilExecutionProblem"
+msgstr ""
+
+msgid "admin.error.executingUtil"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr ""
+
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Oinarrizko sistema eragilearen eta zerbitzari-softwarearen bertsioak. "
+#~ "Zerbitzari honen PHP konfigurazioaren xehetasunak ikusteko, egin klik "
+#~ "<span class=\"highlight\">PHP Informazio xehean</span>."
+
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "karaktere"

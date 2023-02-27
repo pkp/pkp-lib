@@ -14,434 +14,104 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.abstractViews"
-msgstr "在要审查"
+msgid "author.editPublishedDisabled"
+msgstr "由于该出版物已经出版，因此无法对其进行编辑。"
 
-msgid "submission.accepted"
-msgstr "已经接受的"
+msgid "author.publicationNotFound"
+msgstr "找不到该作者的出版物。"
 
-msgid "submission.acknowledge"
-msgstr "致谢"
+msgid "author.submit.submissionCitations"
+msgstr "给文章提供一个格式化好的参考文献列表。请用一个空行分开个别引用"
 
-msgid "submission.ask"
-msgstr "Ask"
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "新的评论已提交，编辑正在考虑中。"
 
-msgid "submission.backToSubmissionEditing"
-msgstr "回到投稿编辑"
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
 
-msgid "submission.changeComments"
-msgstr "修改为"
+msgid "submission.confirm.message"
+msgstr ""
+"您的提交已上传，可以发送了。 您可以返回以查看并调整您输入的任何信息，然后再继"
+"续。 准备就绪后，单击“完成提交”。"
 
-msgid "submission.comments.addComment"
-msgstr "天骄注释"
+msgid "submission.submit.availableUserGroups"
+msgstr "提交为"
 
-msgid "submission.comments.comments"
-msgstr "注释"
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "选择最能描述您对此提交内容的贡献的角色。"
 
-msgid "submission.comments.confirmDelete"
-msgstr "您确认删除这个注释?"
+msgid "submission.submit.contactConsent"
+msgstr "通讯联系"
 
-msgid "submission.comments.corrections"
-msgstr "更正"
+msgid "submission.submit.contactConsentDescription"
+msgstr "是的，我希望就此提交与我们联系。"
 
-msgid "submission.comments.editComment"
-msgstr "编辑注释"
+msgid "submission.submit.userGroupDescriptionManagers"
+msgstr ""
+"如果您希望自己编辑和发布此提交内容，请以以下任何一种角色提交："
+"{$managerGroups}"
 
-msgid "submission.comments.importPeerReviews"
-msgstr "导入同行评议"
+msgid "submission.submit.submissionChecklist"
+msgstr "提交要求"
 
-msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "审稿人 {$reviewerLetter}:"
+msgid "submission.submit.submissionChecklistDescription"
+msgstr "您必须先阅读并确认您已完成以下要求，然后再继续。"
 
-msgid "submission.comments.noComments"
-msgstr "没有注释"
+msgid "submission.submit.submissionComplete"
+msgstr "提交完成"
 
-msgid "submission.comments.noReviews"
-msgstr "没有评论"
+msgid "submission.submit.submissionCompleteThanks"
+msgstr ""
 
-msgid "submission.comments.review"
-msgstr "审阅"
+msgid "submission.submit.copyrightNoticeAgreementLabel"
+msgstr "确认版权声明"
 
-msgid "submission.comments.sendDecisionToReviewers"
-msgstr "发送编辑决定给审稿人"
+msgid "submission.submit.copyrightNoticeAgree"
+msgstr "是的，我同意遵守版权声明的条款。"
 
-msgid "submission.comments.subject"
-msgstr "主题"
+msgid "submission.submit.genre.label"
+msgstr ""
 
-msgid "submission.complete"
-msgstr "完成"
+msgid "submission.submit.genre.description"
+msgstr ""
 
-msgid "submission.done"
-msgstr "完成"
+msgid "submission.submit.genre.error"
+msgstr ""
 
-msgid "submission.dueDate"
-msgstr "截止日期"
+msgid "submission.submit.removeConfirm"
+msgstr ""
 
-msgid "submission.due"
-msgstr "截止"
+msgid "submission.submit.whatNext"
+msgstr "接下来发生什么？"
 
-msgid "submission.editing"
-msgstr "编辑中"
+msgid "submission.submit.whatNext.forNow"
+msgstr "现在，您可以："
 
-msgid "submission.editMetadata"
-msgstr "编辑元数据"
+msgid "submission.submit.whatNext.review"
+msgstr "审阅此提交"
 
-msgid "submission.email.backToEmailLog"
-msgstr "回到电子邮件日志"
+msgid "submission.submit.whatNext.create"
+msgstr "创建一个新的提交"
 
-msgid "submission.email.confirmClearLog"
-msgstr "您确认清楚这个投稿的邮件日志?"
+msgid "submission.submit.whatNext.return"
+msgstr "返回您的仪表板"
 
-msgid "submission.email.confirmDeleteLogEntry"
-msgstr "您确定要删除此电子邮件日志项?"
-
-msgid "submission.email.deleteLogEntry"
-msgstr "删除日志项"
-
-msgid "submission.emailLog"
-msgstr "电子邮件日志"
-
-msgid "submission.event.backToEventLog"
-msgstr "反回到事件日志"
-
-msgid "submission.event.confirmClearLog"
-msgstr "您确认清楚这个投稿的事件日志?"
-
-msgid "submission.event.confirmDeleteLogEntry"
-msgstr "您确认清楚这个投稿的事件日志项?"
-
-msgid "submission.event.deleteLogEntry"
-msgstr "删除事件日志项"
-
-msgid "submission.event.general.metadataUpdated"
-msgstr "投稿元数据已更新"
-
-msgid "submission.event.general.suppFileUpdated"
-msgstr "投稿元文件已更新"
-
-msgid "submission.event.reviewer.reviewAcceptedByProxy"
-msgstr "通过代理接受的审查指派"
-
-msgid "submission.event.reviewer.reviewAccepted"
-msgstr "已经接受的审查指派"
-
-msgid "submission.event.reviewer.reviewDeclined"
-msgstr "已经拒绝的审查指派"
-
-msgid "submission.event.reviewer.reviewDueDate"
-msgstr "已修改的审阅截至日期"
-
-msgid "submission.event.reviewer.reviewerAssigned"
-msgstr "已指派给投稿的审稿人"
-
-msgid "submission.event.reviewer.reviewerRated"
-msgstr "已提交的审稿人评价"
-
-msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "未指派给投稿的审稿人"
-
-msgid "submission.event.reviewer.reviewFile"
-msgstr "已更新的审查文件"
-
-msgid "submission.event.reviewer.reviewInitiated"
-msgstr "已开始的审稿指派"
-
-msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "审查建议文件"
-
-msgid "submission.event.reviewer.reviewReinitiated"
-msgstr "重新开始的审稿指派"
-
-msgid "submission.event.reviewer.reviewResubmitted"
-msgstr "重新提交的审阅"
-
-msgid "submission.event.reviewer.reviewRevision"
-msgstr "已经上传的审稿人修订文件"
-
-msgid "submission.files"
-msgstr "文件"
-
-msgid "submission.galley"
-msgstr "样稿"
-
-msgid "submission.history.clearLog"
-msgstr "清除日志"
-
-msgid "submission.history"
-msgstr "历史"
-
-msgid "submission.history.noLogEntries"
-msgstr "没有日志项."
-
-msgid "submission.history.recentLogEntries"
-msgstr "最近的日志项目"
-
-msgid "submission.history.submissionEmailLog"
-msgstr "邮件日志"
-
-msgid "submission.history.submissionEventLog"
-msgstr "事件日志"
-
-msgid "submission.history.submissionNotes"
-msgstr "投稿须知"
-
-msgid "submission.history.viewLog"
-msgstr "查看日志"
-
-msgid "submission.initiated"
-msgstr "已经开始的"
-
-msgid "submission.lastModified"
-msgstr "最后的修改"
-
-msgid "submission.layout.addGalley"
-msgstr "添加一个排版样稿"
-
-msgid "submission.layout.confirmDeleteGalley"
-msgstr "您确认将永久删除这个样稿?"
-
-msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "您确认将从样稿里删除这个图片?"
-
-msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "删除这个样式."
-
-msgid "submission.layout.editGalley"
-msgstr "编辑这个排版样稿"
-
-msgid "submission.layout.galleyFormat"
-msgstr "样稿文件格式"
-
-msgid "submission.layout.galleyHTMLData"
-msgstr "HTML样稿格式"
-
-msgid "submission.layout.galleyImages"
-msgstr "图片"
-
-msgid "submission.layout.galleyLabelInstructions"
-msgstr "样稿标签被用于标识项目的文件格式(例如HTML、PDF等)."
-
-msgid "submission.layout.galleyLabel"
-msgstr "标签"
-
-msgid "submission.layout.galleyLabelRequired"
-msgstr "一个样稿标签是必须的."
-
-msgid "submission.layout.galleyLanguageRequired"
-msgstr "一个样稿语言是必须的."
-
-msgid "submission.layout.galleyLocaleRequired"
-msgstr "一个样稿语言环境是必须的."
-
-msgid "submission.layout.galleyNoImages"
-msgstr "没有图片"
-
-msgid "submission.layout.galleys"
-msgstr "样稿"
-
-msgid "submission.layout.galleyStylesheet"
-msgstr "样式表文件"
-
-msgid "submission.layout.galleyStyle"
-msgstr "风格"
-
-msgid "submission.layout.initialGalleyCreation"
-msgstr "开始创建样稿"
-
-msgid "submission.layout.layoutFile"
-msgstr "排版文件"
-
-msgid "submission.layout"
-msgstr "排版"
-
-msgid "submission.layout.layoutVersion"
-msgstr "排版版本"
-
-msgid "submission.layout.newGalley"
-msgstr "创建新的样稿"
-
-msgid "submission.layout.noStyleFile"
-msgstr "没有样式表文件被添加到这个样稿里."
-
-msgid "submission.layout.viewingGalley"
-msgstr "预览投稿样稿"
-
-msgid "submission.layout.viewProof"
-msgstr "预览校对"
-
-msgid "submission.metadata"
-msgstr "投稿元数据"
-
-msgid "submission.noReviewAssignments"
-msgstr "没有审查指派"
-
-msgid "submission.notes.addNewNote"
-msgstr "添加一个新的注释"
-
-msgid "submission.notes.attachedFile"
-msgstr "文件附件"
-
-msgid "submission.notes.backToSubmissionNotes"
-msgstr "反回到投稿注释"
-
-msgid "submission.notes.breadcrumb"
-msgstr "注释"
-
-msgid "submission.notes.clearAllNotes"
-msgstr "清除所有注释"
-
-msgid "submission.notes.collapseNotes"
-msgstr "文件附件"
-
-msgid "submission.notes.confirmDeleteAll"
-msgstr "删除所有投稿注释?"
-
-msgid "submission.notes.confirmDelete"
-msgstr "删除这个投稿注释?"
-
-msgid "submission.notes.createNewNote"
-msgstr "创建新的注释"
-
-msgid "submission.notes.deleteNote"
-msgstr "删除注释"
-
-msgid "submission.notes.editNote"
-msgstr "编辑注释"
-
-msgid "submission.notes.expandNotes"
-msgstr "扩展注释"
-
-msgid "submission.notes.noSubmissionNotes"
-msgstr "没有投稿注释"
-
-msgid "submission.notes.removeUploadedFile"
-msgstr "删除已经上传的文件"
-
-msgid "submission.notes"
-msgstr "投稿注释"
-
-msgid "submission.notes.updateNote"
-msgstr "更新注释"
-
-msgid "submission.notes.viewNotes"
-msgstr "查看注释"
-
-msgid "submission.originalFile"
-msgstr "源文件"
-
-msgid "submission.page.editing"
-msgstr "#{$id} 编辑中"
-
-msgid "submission.page.history"
-msgstr "#{$id} 历史"
-
-msgid "submission.page.review"
-msgstr "#{$id} 审查"
-
-msgid "submission.page.summary"
-msgstr "#{$id} 摘要"
-
-msgid "submission.peerReview"
-msgstr "Peer&nbsp;审查"
-
-msgid "submission.recommendation"
-msgstr "建议: {$recommendation}"
-
-msgid "submission.rejected"
-msgstr "已经拒绝的"
-
-msgid "submission.request"
-msgstr "请求"
-
-msgid "submission.response"
-msgstr "回复"
-
-msgid "submission.restrictions"
-msgstr "限制"
-
-msgid "submission.reviewMetadata"
-msgstr "审查元数据"
-
-msgid "submission.review"
-msgstr "审查"
-
-msgid "submission.reviewVersion"
-msgstr "审查版本"
-
-msgid "submissions.active"
-msgstr "活动的"
-
-msgid "submissions.archived"
-msgstr "存档的"
-
-msgid "submission.saveMetadata"
-msgstr "保存元数据"
-
-msgid "submissions.completed"
-msgstr "已经完成的"
-
-msgid "submissions.declined"
-msgstr "已经拒绝的"
-
-msgid "submissions.incomplete"
-msgstr "未完成的"
-
-msgid "submissions.noSubmissions"
-msgstr "没有投稿"
-
-msgid "submissions.queuedEditing"
-msgstr "编辑中"
-
-msgid "submissions.queued"
-msgstr "排队"
-
-msgid "submissions.queuedUnassigned"
-msgstr "等待分配工作"
-
-msgid "submissions.ruling"
-msgstr "裁决"
-
-msgid "submissions.submit"
-msgstr "提交"
-
-msgid "submissions.submitted"
-msgstr "已经提交"
-
-msgid "submission.start"
-msgstr "开始"
-
-msgid "submission.submissionHistory"
-msgstr "投稿历史"
-
-msgid "submission.submissionManuscript"
-msgstr "投稿草稿"
-
-msgid "submission.submissionReview"
-msgstr "投稿审阅"
-
-msgid "submission.submitter"
-msgstr "提交人"
-
-msgid "submission.summary"
-msgstr "摘要"
-
-msgid "submission.titleAndAbstract"
-msgstr "标题和摘要"
-
-msgid "submission.underway"
-msgstr "进行"
-
-msgid "submission.uploadFileTo"
-msgstr "上传文件到"
-
-msgid "submission.viewMetadata"
-msgstr "查看元数据"
-
-msgid "submission.views"
-msgstr "查看"
+msgid "submission.submit.extendedMetadata"
+msgstr "扩展元数据"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "CrossRef 注册电子邮件"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+"请输入一个有效的CrossRef注册电子邮件。你可以注册你的网站上为CrossRef免费电子"
+"邮件。"
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb API 键"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr "请输入您的ISBNdb API 键，如有您还没有，您可以想ISBNdb项目申请"
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "PubMed 注册电邮"
@@ -449,17 +119,39 @@ msgstr "PubMed 注册电邮"
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
 msgstr "如果您有一个有效的PumMed注册电邮，请输入至此"
 
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat API 键"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "如果您有一个有效的WorldCat API 键，请输入"
+
 msgid "metadata.filters.paracite.settings.citationModule.displayName"
 msgstr "引文模块"
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
 msgstr "请在我们提供引文模块里选择一个"
 
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "请不要作为默认使用（这仍将被编辑使用）"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr "内部错误，一个无效的值被提交给“可选过滤器”设置，请作为Bug提交这个错误"
+
 msgid "metadata.property.displayName.author"
 msgstr "作者"
 
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+"为了达到最佳效果，作者输入必须按照如下格式： Coleman Jr, D. (Ralf) Dr。"
+
 msgid "metadata.property.displayName.editor"
 msgstr "编辑"
+
+msgid "metadata.property.validationMessage.editor"
+msgstr "为了达到最佳效果，编辑输入必须按照如下格式：Coleman Jr, D. (Ralf) Dr。"
+
+msgid "metadata.property.displayName.article-title"
+msgstr "文章标题"
 
 msgid "metadata.property.validationMessage.article-title"
 msgstr "请输入一个有效的文章标题"
@@ -473,29 +165,14 @@ msgstr "请输入一个有效的期刊（书）标题"
 msgid "metadata.property.displayName.date"
 msgstr "出版日期"
 
-msgid "metadata.filters.isbndb.settings.apiKey.displayName"
-msgstr "ISBNdb API 键"
-
-msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "请输入您的ISBNdb API 键，如有您还没有，您可以想ISBNdb项目申请"
-
-msgid "metadata.filters.worldcat.settings.apiKey.displayName"
-msgstr "WorldCat API 键"
-
-msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
-msgstr "如果您有一个有效的WorldCat API 键，请输入"
-
-msgid "metadata.filters.settings.isOptional.displayName"
-msgstr "请不要作为默认使用（这仍将被编辑使用）"
-
-msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "内部错误，一个无效的值被提交给“可选过滤器”设置，请作为Bug提交这个错误"
-
 msgid "metadata.property.validationMessage.date"
 msgstr "请输入一个有效的出版日期（格式为YYYY-MM-DD）"
 
 msgid "metadata.property.displayName.access-date"
 msgstr "获取日期"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "请输入一个有效的获取日期（格式：YYYY-MM-DD）"
 
 msgid "metadata.property.displayName.issue"
 msgstr "期"
@@ -520,27 +197,6 @@ msgstr "章节标题"
 
 msgid "metadata.property.validationMessage.chapter-title"
 msgstr "请输入一个有效的章节标题"
-
-msgid "metadata.property.displayName.coden"
-msgstr "CODEN"
-
-msgid "metadata.property.displayName.sici"
-msgstr "SICI"
-
-msgid "metadata.property.displayName.pmid"
-msgstr "PMID"
-
-msgid "author.submit.submissionCitations"
-msgstr "给文章提供一个格式化好的参考文献列表。请用一个空行分开个别引用"
-
-msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "请输入一个有效的CrossRef注册电子邮件。你可以注册你的网站上为CrossRef免费电子邮件。"
-
-msgid "metadata.property.displayName.article-title"
-msgstr "文章标题"
-
-msgid "metadata.property.validationMessage.access-date"
-msgstr "请输入一个有效的获取日期（格式：YYYY-MM-DD）"
 
 msgid "metadata.property.displayName.edition"
 msgstr "版本"
@@ -650,17 +306,29 @@ msgstr "定制出版ID"
 msgid "metadata.property.validationMessage.publisher-id"
 msgstr "请输入一个有效的定制出版ID"
 
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
 msgid "metadata.property.validationMessage.coden"
 msgstr "请输入一个有效的CODEN"
 
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
 msgid "metadata.property.validationMessage.sici"
 msgstr "请输入一个有效的SICI"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
 
 msgid "metadata.property.validationMessage.pmid"
 msgstr "请输入一个有效的PMID"
 
 msgid "metadata.property.displayName.uri"
 msgstr "链接到出版物"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "请输入一个有效的替代链接指向出版物."
 
 msgid "metadata.property.displayName.comment"
 msgstr "评论"
@@ -677,47 +345,24 @@ msgstr "请输入一个有效的注释。"
 msgid "metadata.property.displayName.publication-type"
 msgstr "出版类型"
 
-msgid "submission.citations"
-msgstr "参考"
-
-msgid "submission.page.citations"
-msgstr "#{$id} 引文"
-
-msgid "submission.currentAgencies"
-msgstr "当前机构"
-
-msgid "submission.indexingInformation"
-msgstr "索引信息"
-
-msgid "submission.uploadSuccessful"
-msgstr "文件已上传"
-
-msgid "submission.loadMessage"
-msgstr "请稍等，你的文件正被上传到服务器"
-
-msgid "submission.fileDetails"
-msgstr "文件详细"
-
-msgid "submission.nameRequired"
-msgstr "项目名是必须的"
-
-msgid "submission.date.mmdd"
-msgstr "月-日"
-
-msgid "submission.date.yyyymmdd"
-msgstr "年-月-日"
-
-msgid "metadata.property.validationMessage.author"
-msgstr "为了达到最佳效果，作者输入必须按照如下格式： Coleman Jr, D. (Ralf) Dr。"
-
-msgid "metadata.property.validationMessage.editor"
-msgstr "为了达到最佳效果，编辑输入必须按照如下格式：Coleman Jr, D. (Ralf) Dr。"
-
-msgid "metadata.property.validationMessage.uri"
-msgstr "请输入一个有效的替代链接指向出版物."
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+"请确保您总是设置了出版物类型。目前支持的值为书籍（书本或书籍章节）和期刊（期"
+"刊文章）。否则，引用输出格式将不能正确工作。"
 
 msgid "metadata.property.displayName.title-type"
 msgstr "标题类型"
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+"请确保您设立了有效的题目类型。支持的值包括“缩写”，“翻译”，“二选一”和“统一标"
+"准”的。"
+
+msgid "metadata.property.displayName.nonSort"
+msgstr "分类时忽略的标题部分"
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr "请只输入在分类时应予以忽略的标题的初始字符。"
 
 msgid "metadata.property.displayName.title"
 msgstr "标题"
@@ -746,23 +391,401 @@ msgstr "请输入一个有效的部分名称"
 msgid "metadata.property.displayName.name-type"
 msgstr "名称类型"
 
+msgid "metadata.property.validationMessage.name-type"
+msgstr "请确保您设置了有效的名称类型。支持的值包括“个人”，“团体”和“会议”。"
+
+msgid "metadata.property.displayName.abstract"
+msgstr "摘要"
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "未分配"
+
+msgid "common.queue.long.myAssigned"
+msgstr ""
+
+msgid "common.queue.long.submissionsArchived"
+msgstr ""
+
+msgid "submission.authors"
+msgstr ""
+
+msgid "submission.authorBiography"
+msgstr ""
+
+msgid "submission.authorBiographies"
+msgstr ""
+
+msgid "submission.authorWithAffiliation"
+msgstr ""
+
+msgid "submission.shortAuthor"
+msgstr ""
+
+msgid "submission.representationOfTitle"
+msgstr ""
+
+msgid "submission.mySubmissions"
+msgstr ""
+
+msgid "submission.addFile"
+msgstr "上传文件"
+
+msgid "submission.additionalFiles"
+msgstr ""
+
 msgid "submission.agencies"
 msgstr "机构"
 
-msgid "metadata.property.validationMessage.publication-type"
-msgstr "请确保您总是设置了出版物类型。目前支持的值为书籍（书本或书籍章节）和期刊（期刊文章）。否则，引用输出格式将不能正确工作。"
+msgid "submission.abstractViews"
+msgstr "在要审查"
 
-msgid "metadata.property.validationMessage.title-type"
-msgstr "请确保您设立了有效的题目类型。支持的值包括“缩写”，“翻译”，“二选一”和“统一标准”的。"
+msgid "submission.accepted"
+msgstr "已经接受的"
 
-msgid "metadata.property.displayName.nonSort"
-msgstr "分类时忽略的标题部分"
+msgid "submission.acknowledge"
+msgstr "致谢"
 
-msgid "metadata.property.validationMessage.nonSort"
-msgstr "请只输入在分类时应予以忽略的标题的初始字符。"
+msgid "submission.ask"
+msgstr "Ask"
 
-msgid "metadata.property.validationMessage.name-type"
-msgstr "请确保您设置了有效的名称类型。支持的值包括“个人”，“团体”和“会议”。"
+msgid "submission.attachedFile"
+msgstr ""
+
+msgid "submission.backToSubmissionEditing"
+msgstr "回到投稿编辑"
+
+msgid "submission.changeComments"
+msgstr "修改为"
+
+msgid "submission.changeFile"
+msgstr ""
+
+msgid "submission.citations"
+msgstr "参考"
+
+msgid "submission.citations.description"
+msgstr ""
+
+msgid "submission.parsedCitations"
+msgstr ""
+
+msgid "submission.parsedCitations.DOI"
+msgstr ""
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+
+msgid "submission.parsedAndSaveCitations"
+msgstr ""
+
+msgid "submission.comments.addComment"
+msgstr "天骄注释"
+
+msgid "submission.comments.comments"
+msgstr "注释"
+
+msgid "submission.comments.confirmDelete"
+msgstr "您确认删除这个注释?"
+
+msgid "submission.comments.corrections"
+msgstr "更正"
+
+msgid "submission.comments.editComment"
+msgstr "编辑注释"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "导入同行评议"
+
+msgid "submission.comments.addReviews"
+msgstr "添加到电子邮件的评论"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "审稿人 {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "没有注释"
+
+msgid "submission.comments.noReviews"
+msgstr "没有评论"
+
+msgid "submission.comments.review"
+msgstr "审阅"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "发送编辑决定给审稿人"
+
+msgid "submission.comments.subject"
+msgstr "主题"
+
+msgid "submission.complete"
+msgstr "完成"
+
+msgid "submission.contributors"
+msgstr ""
+
+msgid "submission.copyedited"
+msgstr "文本已编辑完"
+
+msgid "submission.copyediting"
+msgstr ""
+
+msgid "submission.queryNoteFiles"
+msgstr ""
+
+msgid "submission.coverage"
+msgstr ""
+
+msgid "submission.done"
+msgstr "完成"
+
+msgid "submission.downloads"
+msgstr ""
+
+msgid "submission.dueDate"
+msgstr "截止日期"
+
+msgid "submission.due"
+msgstr "截止"
+
+msgid "submission.editing"
+msgstr "编辑中"
+
+msgid "submission.editMetadata"
+msgstr "编辑元数据"
+
+msgid "submission.editorial"
+msgstr ""
+
+msgid "submission.email.backToEmailLog"
+msgstr "回到电子邮件日志"
+
+msgid "submission.email.confirmClearLog"
+msgstr "您确认清楚这个投稿的邮件日志?"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "您确定要删除此电子邮件日志项?"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "删除日志项"
+
+msgid "submission.emailLog"
+msgstr "电子邮件日志"
+
+msgid "submission.event.participantAdded"
+msgstr ""
+
+msgid "submission.event.participantRemoved"
+msgstr ""
+
+msgid "submission.event.backToEventLog"
+msgstr "反回到事件日志"
+
+msgid "submission.event.confirmClearLog"
+msgstr "您确认清楚这个投稿的事件日志?"
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "您确认清楚这个投稿的事件日志项?"
+
+msgid "submission.event.deleteLogEntry"
+msgstr "删除事件日志项"
+
+msgid "submission.event.submissionSubmitted"
+msgstr ""
+
+msgid "submission.event.fileRevised"
+msgstr ""
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "投稿元数据已更新"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "投稿元文件已更新"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "通过代理接受的审查指派"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "已经接受的审查指派"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "已经拒绝的审查指派"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "已修改的审阅截至日期"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "已指派给投稿的审稿人"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "已提交的审稿人评价"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "未指派给投稿的审稿人"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "已更新的审查文件"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "已开始的审稿指派"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "审查建议文件"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "重新开始的审稿指派"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "重新提交的审阅"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "已经上传的审稿人修订文件"
+
+msgid "submission.event.subjectPrefix"
+msgstr ""
+
+msgid "submission.event.viewEmail"
+msgstr ""
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+
+msgid "submission.files"
+msgstr "文件"
+
+msgid "submission.files.downloadAll"
+msgstr ""
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+
+msgid "submission.firstPublished"
+msgstr ""
+
+msgid "submission.galley"
+msgstr "样稿"
+
+msgid "submission.history.clearLog"
+msgstr "清除日志"
+
+msgid "submission.history"
+msgstr "历史"
+
+msgid "submission.history.noLogEntries"
+msgstr "没有日志项."
+
+msgid "submission.history.recentLogEntries"
+msgstr "最近的日志项目"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "邮件日志"
+
+msgid "submission.history.submissionEventLog"
+msgstr "事件日志"
+
+msgid "submission.history.submissionNotes"
+msgstr "投稿须知"
+
+msgid "submission.history.viewLog"
+msgstr "查看日志"
+
+msgid "submission.howToCite"
+msgstr ""
+
+msgid "submission.howToCite.citationFormats"
+msgstr ""
+
+msgid "submission.howToCite.downloadCitation"
+msgstr ""
+
+msgid "submission.initiated"
+msgstr "已经开始的"
+
+msgid "submission.updatedOn"
+msgstr ""
+
+msgid "submission.versions"
+msgstr ""
+
+msgid "submission.versionIdentity"
+msgstr ""
+
+msgid "submission.outdatedVersion"
+msgstr ""
+
+msgid "submission.identifiers"
+msgstr ""
+
+msgid "submission.publisherId"
+msgstr ""
+
+msgid "submission.publisherId.description"
+msgstr ""
+
+msgid "submission.publisherId.enable"
+msgstr ""
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr ""
+
+msgid "submission.informationCenter.metadata"
+msgstr ""
+
+msgid "submission.informationCenter.notes"
+msgstr ""
+
+msgid "submission.informationCenter.history"
+msgstr ""
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr ""
+
+msgid "submission.stageParticipants.notify"
+msgstr ""
+
+msgid "submission.lastModified"
+msgstr "最后的修改"
+
+msgid "submission.layout.addGalley"
+msgstr "添加一个排版样稿"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "您确认将永久删除这个样稿?"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "您确认将从样稿里删除这个图片?"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "删除这个样式."
+
+msgid "submission.layout.editGalley"
+msgstr "编辑这个排版样稿"
+
+msgid "submission.layout.galleyFormat"
+msgstr "样稿文件格式"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTML样稿格式"
+
+msgid "submission.layout.galleyImages"
+msgstr "图片"
+
+msgid "submission.layout.galleyLabel"
+msgstr "标签"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr "样稿标签被用于标识项目的文件格式(例如HTML、PDF等)."
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "一个样稿标签是必须的."
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "一个样稿语言是必须的."
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "一个样稿语言环境是必须的."
 
 msgid "submission.layout.galleyRemoteURL"
 msgstr "远程URL"
@@ -770,23 +793,362 @@ msgstr "远程URL"
 msgid "submission.layout.galleyRemoteURLValid"
 msgstr "请提供一个有效的远程URL（包含http://）"
 
+msgid "submission.layout.galleyNoImages"
+msgstr "没有图片"
+
+msgid "submission.layout.galleys"
+msgstr "样稿"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "样式表文件"
+
+msgid "submission.layout.galleyStyle"
+msgstr "风格"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "开始创建样稿"
+
+msgid "submission.layout.layoutFile"
+msgstr "排版文件"
+
+msgid "submission.layout"
+msgstr "排版"
+
+msgid "submission.layout.layoutVersion"
+msgstr "排版版本"
+
+msgid "submission.layout.newGalley"
+msgstr "创建新的样稿"
+
+msgid "submission.layout.noStyleFile"
+msgstr "没有样式表文件被添加到这个样稿里."
+
+msgid "submission.layout.viewingGalley"
+msgstr "预览投稿样稿"
+
+msgid "submission.layout.viewProof"
+msgstr "预览校对"
+
+msgid "submission.metadata"
+msgstr "投稿元数据"
+
+msgid "submission.noReviewAssignments"
+msgstr "没有审查指派"
+
+msgid "submission.notes.addNewNote"
+msgstr "添加一个新的注释"
+
+msgid "submission.notes.attachedFile"
+msgstr "文件附件"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "反回到投稿注释"
+
+msgid "submission.notes.breadcrumb"
+msgstr "注释"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "清除所有注释"
+
+msgid "submission.notes.collapseNotes"
+msgstr "文件附件"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "删除所有投稿注释?"
+
+msgid "submission.notes.confirmDelete"
+msgstr "删除这个投稿注释?"
+
+msgid "submission.notes.createNewNote"
+msgstr "创建新的注释"
+
+msgid "submission.notes.deleteNote"
+msgstr "删除注释"
+
+msgid "submission.notes.editNote"
+msgstr "编辑注释"
+
+msgid "submission.notes.expandNotes"
+msgstr "扩展注释"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "没有投稿注释"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "删除已经上传的文件"
+
+msgid "submission.notes"
+msgstr "投稿注释"
+
+msgid "submission.notes.updateNote"
+msgstr "更新注释"
+
+msgid "submission.notes.viewNotes"
+msgstr "查看注释"
+
+msgid "submission.originalFile"
+msgstr "源文件"
+
+msgid "submission.page.editing"
+msgstr "#{$id} 编辑中"
+
+msgid "submission.page.history"
+msgstr "#{$id} 历史"
+
+msgid "submission.page.review"
+msgstr "#{$id} 审查"
+
+msgid "submission.page.summary"
+msgstr "#{$id} 摘要"
+
+msgid "submission.page.citations"
+msgstr "#{$id} 引文"
+
+msgid "submission.peerReview"
+msgstr "Peer&nbsp;审查"
+
+msgid "submission.production"
+msgstr ""
+
+msgid "submission.recommendation"
+msgstr "建议: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "已经拒绝的"
+
+msgid "submission.request"
+msgstr "请求"
+
+msgid "submission.response"
+msgstr "回复"
+
+msgid "submission.restrictions"
+msgstr "限制"
+
+msgid "submission.reviewMetadata"
+msgstr "审查元数据"
+
+msgid "submission.review"
+msgstr "审查"
+
 msgid "submission.reviewed"
 msgstr "已审阅的"
+
+msgid "submission.reviewVersion"
+msgstr "审查版本"
+
+msgid "submission.rights"
+msgstr ""
+
+msgid "submission.rights.tip"
+msgstr ""
+
+msgid "submissions.active"
+msgstr "活动的"
+
+msgid "submissions.archived"
+msgstr "存档的"
+
+msgid "submission.saveMetadata"
+msgstr "保存元数据"
+
+msgid "submissions.completed"
+msgstr "已经完成的"
+
+msgid "submissions.declined"
+msgstr "已经拒绝的"
+
+msgid "submissions.incomplete"
+msgstr "未完成的"
+
+msgid "submissions.noSubmissions"
+msgstr "没有投稿"
+
+msgid "submissions.queuedEditing"
+msgstr "编辑中"
+
+msgid "submissions.queued"
+msgstr "排队"
+
+msgid "submissions.queuedUnassigned"
+msgstr "等待分配工作"
+
+msgid "submissions.ruling"
+msgstr "裁决"
+
+msgid "submission.source"
+msgstr ""
+
+msgid "submission.source.tip"
+msgstr ""
+
+msgid "submissions.submit"
+msgstr "提交"
+
+msgid "submissions.submitted"
+msgstr "已经提交"
+
+msgid "submission.submission"
+msgstr ""
+
+msgid "submission.submissionTitle"
+msgstr ""
+
+msgid "submission.start"
+msgstr "开始"
+
+msgid "submission.submissionHistory"
+msgstr "投稿历史"
+
+msgid "submission.submissionManuscript"
+msgstr "投稿草稿"
+
+msgid "submission.submissionReview"
+msgstr "投稿审阅"
+
+msgid "submission.submitter"
+msgstr "提交人"
+
+msgid "submission.submit.finishSubmission"
+msgstr ""
+
+msgid "submission.submit.selectFile"
+msgstr ""
+
+msgid "submission.submit.fileInformation"
+msgstr ""
+
+msgid "submission.submit.fileAdded"
+msgstr ""
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+
+msgid "submission.submit.newFile"
+msgstr ""
+
+msgid "submission.submit.metadataForm"
+msgstr ""
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+
+msgid "submission.submit.submissionLocale"
+msgstr ""
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+
+msgid "submission.submit.submissionFiles"
+msgstr ""
+
+msgid "submission.submit.dependentFiles"
+msgstr ""
+
+msgid "submission.manageDependentFiles"
+msgstr ""
+
+msgid "submission.upload.instructions"
+msgstr ""
+
+msgid "submission.upload.percentComplete"
+msgstr ""
+
+msgid "submission.upload.dependent"
+msgstr ""
+
+msgid "submission.upload.query"
+msgstr ""
+
+msgid "submission.summary"
+msgstr "摘要"
 
 msgid "submission.supportingAgencies"
 msgstr "支持代理"
 
-msgid "submission.comments.addReviews"
-msgstr "添加到电子邮件的评论"
+msgid "submission.currentAgencies"
+msgstr "当前机构"
 
-msgid "submission.copyedited"
-msgstr "文本已编辑完"
+msgid "submission.indexingInformation"
+msgstr "索引信息"
+
+msgid "submission.titleAndAbstract"
+msgstr "标题和摘要"
+
+msgid "submission.type.tip"
+msgstr ""
+
+msgid "submission.underway"
+msgstr "进行"
+
+msgid "submission.uploadFileTo"
+msgstr "上传文件到"
 
 msgid "submission.createRemote"
 msgstr "创建远程"
 
+msgid "submission.viewMetadata"
+msgstr "查看元数据"
+
+msgid "submission.views"
+msgstr "查看"
+
+msgid "submission.uploadSuccessful"
+msgstr "文件已上传"
+
+msgid "submission.loadMessage"
+msgstr "请稍等，你的文件正被上传到服务器"
+
 msgid "submission.artworkFileDetails"
 msgstr "艺术品文件详细信息"
+
+msgid "submission.fileDetails"
+msgstr "文件详细"
+
+msgid "submission.nameRequired"
+msgstr "项目名是必须的"
+
+msgid "submission.date.mmdd"
+msgstr "月-日"
+
+msgid "submission.date.yyyymmdd"
+msgstr "年-月-日"
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr ""
+
+msgid "submission.submit.contributorRole"
+msgstr ""
+
+msgid "submission.submit.addAuthor"
+msgstr ""
+
+msgid "submission.submit.form.languagesRequired"
+msgstr ""
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr ""
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr ""
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr ""
+
+msgid "submission.submit.form.coverageRequired"
+msgstr ""
+
+msgid "submission.submit.form.typeRequired"
+msgstr ""
+
+msgid "submission.submit.form.sourceRequired"
+msgstr ""
+
+msgid "submission.submit.form.rightsRequired"
+msgstr ""
+
+msgid "submission.submit.form.citationsRequired"
+msgstr ""
 
 msgid "submission.form.name"
 msgstr "给这个文件一个有用的名称"
@@ -794,8 +1156,392 @@ msgstr "给这个文件一个有用的名称"
 msgid "submission.form.replaceExisting"
 msgstr "替换现有的文件吗？"
 
-msgid "submission.addFile"
-msgstr "上传文件"
+msgid "workflow.review.internalReview"
+msgstr ""
+
+msgid "workflow.stage.any"
+msgstr ""
+
+msgid "workflow.stage"
+msgstr ""
+
+msgid "submission.status.editorial"
+msgstr ""
+
+msgid "submission.status.production"
+msgstr ""
+
+msgid "submission.status.review"
+msgstr ""
+
+msgid "submission.status.submission"
+msgstr ""
+
+msgid "submission.status.unassigned"
+msgstr ""
+
+msgid "submission.status.declined"
+msgstr ""
+
+msgid "submission.status.published"
+msgstr ""
+
+msgid "submission.submit.uploadStep"
+msgstr ""
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr ""
+
+msgid "submission.submit.metadataStep"
+msgstr ""
+
+msgid "submission.submit.finishingUpStep"
+msgstr ""
+
+msgid "submission.submit.fileNameRequired"
+msgstr ""
+
+msgid "submission.upload.noGenre"
+msgstr ""
+
+msgid "submission.upload.invalidUserGroup"
+msgstr ""
+
+msgid "submission.upload.possibleRevision"
+msgstr ""
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr ""
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+
+msgid "submission.upload.uploadNewFile"
+msgstr ""
+
+msgid "submission.upload.userGroup"
+msgstr ""
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr ""
+
+msgid "submission.upload.libraryCategory"
+msgstr ""
+
+msgid "submission.upload.finalDraft"
+msgstr ""
+
+msgid "submission.upload.copyeditedVersion"
+msgstr ""
+
+msgid "submission.upload.uploadFiles"
+msgstr ""
+
+msgid "submission.upload.response.description"
+msgstr ""
+
+msgid "submission.upload.productionReady"
+msgstr ""
+
+msgid "submission.upload.proof"
+msgstr ""
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr ""
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr ""
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr ""
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.declined"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr ""
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr ""
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr ""
+
+msgid "editor.submission.stageParticipants"
+msgstr ""
+
+msgid "editor.submission.noneAssigned"
+msgstr ""
+
+msgid "editor.submission.participant"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant"
+msgstr ""
+
+msgid "editor.submission.editStageParticipant"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+
+msgid "editor.submission.removeStageParticipant"
+msgstr ""
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr ""
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr ""
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+
+msgid "editor.submission.decision"
+msgstr ""
+
+msgid "editor.submission.decision.accept"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr ""
+
+msgid "editor.submission.decision.decline"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview"
+msgstr ""
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.approveProofs"
+msgstr ""
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline"
+msgstr ""
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+
+msgid "editor.submission.makeRecommendation"
+msgstr ""
+
+msgid "editor.submission.changeRecommendation"
+msgstr ""
+
+msgid "editor.submission.recommendation.display"
+msgstr ""
+
+msgid "editor.submission.allRecommendations.display"
+msgstr ""
+
+msgid "editor.submission.recommendation"
+msgstr ""
+
+msgid "editor.submission.recommendation.description"
+msgstr ""
+
+msgid "editor.submission.recordedRecommendations"
+msgstr ""
+
+msgid "editor.submission.decision.nextButton"
+msgstr ""
+
+msgid "editor.submission.decision.selectFiles"
+msgstr ""
+
+msgid "editor.submission.decision.previousAuthorNotification"
+msgstr ""
+
+msgid "submission.currentStage"
+msgstr ""
+
+msgid "submission.noActionRequired"
+msgstr ""
+
+msgid "submission.actionNeeded"
+msgstr ""
+
+msgid "reviewer.submission.reviewFiles"
+msgstr ""
+
+msgid "submission.submit.currentFile"
+msgstr ""
+
+msgid "submission.finalDraft"
+msgstr ""
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+
+msgid "submission.event.fileEdited"
+msgstr ""
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+
+msgid "submission.overview"
+msgstr ""
+
+msgid "submission.description"
+msgstr ""
+
+msgid "submission.stageNotInitiated"
+msgstr ""
+
+msgid "submission.documents"
+msgstr ""
+
+msgid "notification.type.editorAssign"
+msgstr ""
+
+msgid "notification.type.copyeditorRequest"
+msgstr ""
+
+msgid "notification.type.layouteditorRequest"
+msgstr ""
+
+msgid "notification.type.indexRequest"
+msgstr ""
+
+msgid "notification.type.editorDecisionTitle"
+msgstr ""
+
+msgid "notification.type.editorDecisionAccept"
+msgstr ""
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr ""
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr ""
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr ""
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr ""
+
+msgid "notification.type.editorDecisionDecline"
+msgstr ""
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr ""
+
+msgid "notification.uploadedResponse"
+msgstr ""
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+
+msgid "notification.type.submissionNewVersion"
+msgstr ""
+
+msgid "notification.type.revertDecline"
+msgstr ""
+
+msgid "grid.reviewAttachments.title"
+msgstr ""
+
+msgid "grid.reviewAttachments.send.title"
+msgstr ""
+
+msgid "submission.productionReady"
+msgstr ""
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr ""
 
 msgid "log.review.reviewerAssigned"
 msgstr "{$reviewerName}已经被指派审稿稿件{$submissionId} ，进行{$round}审."
@@ -803,8 +1549,75 @@ msgstr "{$reviewerName}已经被指派审稿稿件{$submissionId} ，进行{$rou
 msgid "log.review.reviewCleared"
 msgstr "{$reviewerName}对稿件{$submissionId}进行{$round}审的工作已经被清除."
 
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+
 msgid "log.review.reviewReinstated"
-msgstr "{$reviewerName}对稿件{$submissionId}进行{$round}审的工作已经重新开始进行."
+msgstr ""
+"{$reviewerName}对稿件{$submissionId}进行{$round}审的工作已经重新开始进行."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+
+msgid "log.review.reviewReady"
+msgstr ""
+
+msgid "submission.review.status.awaitingResponse"
+msgstr ""
+
+msgid "submission.review.status.declined"
+msgstr ""
+
+msgid "submission.review.status.responseOverdue"
+msgstr ""
+
+msgid "submission.review.status.reviewOverdue"
+msgstr ""
+
+msgid "submission.review.status.accepted"
+msgstr ""
+
+msgid "submission.review.status.received"
+msgstr ""
+
+msgid "submission.review.status.complete"
+msgstr ""
+
+msgid "submission.review.status.thanked"
+msgstr ""
+
+msgid "submission.document"
+msgstr ""
+
+msgid "submission.art"
+msgstr ""
+
+msgid "submission.supplementary"
+msgstr ""
+
+msgid "submission.supplementary.creator"
+msgstr ""
+
+msgid "submission.supplementary.subject"
+msgstr ""
+
+msgid "submission.supplementary.publisher"
+msgstr ""
+
+msgid "submission.supplementary.sponsor"
+msgstr ""
+
+msgid "grid.action.itemWorkflow"
+msgstr ""
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr ""
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
 
 msgid "submission.reviewForm"
 msgstr "审稿单"
@@ -812,68 +1625,305 @@ msgstr "审稿单"
 msgid "submission.reviewFormResponse"
 msgstr "审稿单答复"
 
-msgid "submission.submit.availableUserGroupsDescription"
-msgstr "选择最能描述您对此提交内容的贡献的角色。"
+msgid "grid.action.createReviewFormElement"
+msgstr ""
 
-msgid "submission.submit.availableUserGroups"
-msgstr "提交为"
+msgid "grid.action.editMetadata"
+msgstr ""
 
-msgid "submission.confirm.message"
-msgstr "您的提交已上传，可以发送了。 您可以返回以查看并调整您输入的任何信息，然后再继续。 准备就绪后，单击“完成提交”。"
+msgid "submission.permissions"
+msgstr ""
 
-msgid "author.submission.roundStatus.reviewsReady"
-msgstr "新的评论已提交，编辑正在考虑中。"
+msgid "submission.attachPermissions"
+msgstr ""
 
-msgid "author.publicationNotFound"
-msgstr "找不到该作者的出版物。"
+msgid "submission.license"
+msgstr ""
 
-msgid "author.editPublishedDisabled"
-msgstr "由于该出版物已经出版，因此无法对其进行编辑。"
+msgid "submission.copyright"
+msgstr ""
 
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "未分配"
+msgid "submission.copyrightHolder"
+msgstr ""
 
-msgid "metadata.property.displayName.abstract"
-msgstr "摘要"
+msgid "submission.copyrightHolder.other"
+msgstr ""
 
-msgid "submission.submit.extendedMetadata"
-msgstr "扩展元数据"
+msgid "submission.copyrightOther"
+msgstr ""
 
-msgid "submission.submit.whatNext.return"
-msgstr "返回您的仪表板"
+msgid "submission.copyrightYear"
+msgstr ""
 
-msgid "submission.submit.whatNext.create"
-msgstr "创建一个新的提交"
+msgid "submission.copyrightStatement"
+msgstr ""
 
-msgid "submission.submit.whatNext.review"
-msgstr "审阅此提交"
+msgid "submission.licenseURLValid"
+msgstr ""
 
-msgid "submission.submit.whatNext.forNow"
-msgstr "现在，您可以："
+msgid "submission.licenseURL"
+msgstr ""
 
-msgid "submission.submit.whatNext"
-msgstr "接下来发生什么？"
+msgid "submission.license.cc.by-nc-nd4"
+msgstr ""
 
-msgid "submission.submit.copyrightNoticeAgree"
-msgstr "是的，我同意遵守版权声明的条款。"
+msgid "submission.license.cc.by-nc4"
+msgstr ""
 
-msgid "submission.submit.copyrightNoticeAgreementLabel"
-msgstr "确认版权声明"
+msgid "submission.license.cc.by-nc-sa4"
+msgstr ""
 
-msgid "submission.submit.submissionComplete"
-msgstr "提交完成"
+msgid "submission.license.cc.by-nd4"
+msgstr ""
 
-msgid "submission.submit.submissionChecklistDescription"
-msgstr "您必须先阅读并确认您已完成以下要求，然后再继续。"
+msgid "submission.license.cc.by4"
+msgstr ""
 
-msgid "submission.submit.submissionChecklist"
-msgstr "提交要求"
+msgid "submission.license.cc.by-sa4"
+msgstr ""
 
-msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "如果您希望自己编辑和发布此提交内容，请以以下任何一种角色提交：{$managerGroups}"
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
 
-msgid "submission.submit.contactConsentDescription"
-msgstr "是的，我希望就此提交与我们联系。"
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
 
-msgid "submission.submit.contactConsent"
-msgstr "通讯联系"
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+
+msgid "submission.queries.submission"
+msgstr ""
+
+msgid "submission.queries.review"
+msgstr ""
+
+msgid "submission.queries.editorial"
+msgstr ""
+
+msgid "submission.query.subject"
+msgstr ""
+
+msgid "submission.query.messages"
+msgstr ""
+
+msgid "submission.query.replies"
+msgstr ""
+
+msgid "submission.query.from"
+msgstr ""
+
+msgid "submission.query.lastReply"
+msgstr ""
+
+msgid "submission.query.closed"
+msgstr ""
+
+msgid "submission.query.addNote"
+msgstr ""
+
+msgid "submission.query.leaveQuery"
+msgstr ""
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+
+msgid "grid.action.openNoteForm"
+msgstr ""
+
+msgid "submission.query.activity"
+msgstr ""
+
+msgid "submission.query.new"
+msgstr ""
+
+msgid "submission.query.activity.contents"
+msgstr ""
+
+msgid "submission.query.new.contents"
+msgstr ""
+
+msgid "submission.query.participantTitle"
+msgstr ""
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+
+msgid "submission.list.infoCenter"
+msgstr ""
+
+msgid "submission.list.empty"
+msgstr ""
+
+msgid "submission.list.responseDue"
+msgstr ""
+
+msgid "submission.list.reviewAssignment"
+msgstr ""
+
+msgid "submission.list.reviewDue"
+msgstr ""
+
+msgid "submission.list.reviewComplete"
+msgstr ""
+
+msgid "submission.list.reviewCancelled"
+msgstr ""
+
+msgid "submission.list.confirmDelete"
+msgstr ""
+
+msgid "submission.list.viewSubmission"
+msgstr ""
+
+msgid "submission.list.reviewsCompleted"
+msgstr ""
+
+msgid "submission.list.revisionsSubmitted"
+msgstr ""
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr ""
+
+msgid "submission.list.galleysCreated"
+msgstr ""
+
+msgid "submission.list.filesPrepared"
+msgstr ""
+
+msgid "submission.list.discussions"
+msgstr ""
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+
+msgid "submission.list.currentStage"
+msgstr ""
+
+msgid "submission.list.activity"
+msgstr ""
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr ""
+
+msgid "submission.list.assignEditor"
+msgstr ""
+
+msgid "grid.category.categories"
+msgstr ""
+
+msgid "catalog.sortBy.titleAsc"
+msgstr ""
+
+msgid "catalog.sortBy.titleDesc"
+msgstr ""
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr ""
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr ""
+
+msgid "category.coverImage"
+msgstr ""
+
+msgid "submission.submit.placement.categories"
+msgstr ""
+
+msgid "submission.currentCoverImage"
+msgstr ""
+
+msgid "catalog.category.noItems"
+msgstr ""
+
+msgid "catalog.category.subcategories"
+msgstr ""
+
+msgid "publication.contributors"
+msgstr ""
+
+msgid "publication.createVersion"
+msgstr ""
+
+msgid "publication.datePublished.errorFormat"
+msgstr ""
+
+msgid "publication.event.versionCreated"
+msgstr ""
+
+msgid "publication.publicationLicense"
+msgstr ""
+
+msgid "publication.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unpublished"
+msgstr ""
+
+msgid "publication.titleAbstract"
+msgstr ""
+
+msgid "publication.unschedule"
+msgstr ""
+
+msgid "publication.urlPath"
+msgstr ""
+
+msgid "publication.urlPath.description"
+msgstr ""
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+
+msgid "publication.urlPath.numberInvalid"
+msgstr ""
+
+msgid "publication.version.all"
+msgstr ""
+
+msgid "publication.version.confirm"
+msgstr ""
+
+msgid "publication.wordCountLong"
+msgstr ""
+
+msgid "publication.wordCount"
+msgstr ""
+
+msgid "submission.layout.viewGalley"
+msgstr ""
+
+msgid "galley.cantEditPublished"
+msgstr ""

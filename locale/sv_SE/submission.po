@@ -14,14 +14,29 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Publikationen kan inte redigeras av författarna eftersom den är publicerad."
+
+msgid "author.publicationNotFound"
+msgstr "Författarens publikation kan inte hittas."
+
 msgid "author.submit.submissionCitations"
-msgstr "Lägg till en formaterad lista av referenser för verk som citeras i bidraget. Separera varje referens med blankrad."
+msgstr ""
+"Lägg till en formaterad lista av referenser för verk som citeras i bidraget. "
+"Separera varje referens med blankrad."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Nya granskningar har inkommit och är under övervägande hos redaktör."
 
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+
 msgid "submission.confirm.message"
-msgstr "Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att granska och justera informationen du har lagt in innan du skickar in. När du är färdig, klicka på \"Skicka in bidrag\"."
+msgstr ""
+"Ditt bidrag har laddats upp och kan skickas in. Du kan gå tillbaka för att "
+"granska och justera informationen du har lagt in innan du skickar in. När du "
+"är färdig, klicka på \"Skicka in bidrag\"."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Skicka in som"
@@ -36,7 +51,9 @@ msgid "submission.submit.contactConsentDescription"
 msgstr "Ja, jag vil bli kontaktad i frågor angående det här bidraget."
 
 msgid "submission.submit.userGroupDescriptionManagers"
-msgstr "Skicka in i någon av följande roller för att redigera och publicera det här bidraget själv: {$managerGroups}"
+msgstr ""
+"Skicka in i någon av följande roller för att redigera och publicera det här "
+"bidraget själv: {$managerGroups}"
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Kravlista för bidrag"
@@ -55,6 +72,18 @@ msgstr "Acceptera upphovsrättsdeklaration"
 
 msgid "submission.submit.copyrightNoticeAgree"
 msgstr "Ja, jag accepterar att följa villkoren i upphovsrättsdeklarationen."
+
+msgid "submission.submit.genre.label"
+msgstr ""
+
+msgid "submission.submit.genre.description"
+msgstr ""
+
+msgid "submission.submit.genre.error"
+msgstr ""
+
+msgid "submission.submit.removeConfirm"
+msgstr ""
 
 msgid "submission.submit.whatNext"
 msgstr "Vad händer nu?"
@@ -78,19 +107,24 @@ msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "E-postadress för CrossRef-registrering"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Skriv in en giltig e-postadress för CrossRef-registrering. Du kan utan kostnad registrera din e-postadress fpå CrossRefs webbplats."
+msgstr ""
+"Skriv in en giltig e-postadress för CrossRef-registrering. Du kan utan "
+"kostnad registrera din e-postadress fpå CrossRefs webbplats."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "API-nyckel för ISBNdb"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Skriv in din API-nyckel för ISBNdb. Om du saknar en sådan kan du begära en från ISBNdb-projektet utan kostnad."
+msgstr ""
+"Skriv in din API-nyckel för ISBNdb. Om du saknar en sådan kan du begära en "
+"från ISBNdb-projektet utan kostnad."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "E-postadress för PubMed-registrering"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Skriv in en giltig e-postadress för PubMed-registrering om du har en sådan."
+msgstr ""
+"Skriv in en giltig e-postadress för PubMed-registrering om du har en sådan."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "API-nyckel för WorldCat"
@@ -108,19 +142,25 @@ msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "Använd inte i första hand (fortfarande tillgängligt genom redigeraren)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Internt fel. Ett ogiltigt värde angavs för \"valbart filter\"-inställningen. Vänligen rapportera detta som en bugg."
+msgstr ""
+"Internt fel. Ett ogiltigt värde angavs för \"valbart filter\"-inställningen. "
+"Vänligen rapportera detta som en bugg."
 
 msgid "metadata.property.displayName.author"
 msgstr "Författare"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "För bästa resultat ska författare anges i följande format: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"För bästa resultat ska författare anges i följande format: Coleman Jr, D. "
+"(Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Redaktörer"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "För bästa resultat ska redaktörer anges i följande format: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"För bästa resultat ska redaktörer anges i följande format: Coleman Jr, D. "
+"(Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "Artikeltitel"
@@ -234,7 +274,9 @@ msgid "metadata.property.displayName.size"
 msgstr "Antal sidor"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "Vänligen ange ett giltigt omfång på totalt antal sidor (måste vara ett numeriskt värde)."
+msgstr ""
+"Vänligen ange ett giltigt omfång på totalt antal sidor (måste vara ett "
+"numeriskt värde)."
 
 msgid "metadata.property.displayName.publisher-loc"
 msgstr "Utgivningsort"
@@ -318,13 +360,19 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Publikationstyp"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Se till så att du alltid väljer en publikationstyp. Giltiga värden är för närvarande bok (för böcker och bokkapitel) och tidskrift (för tidskriftsartiklar). Om publikationstyp saknas blir inte citeringsformatteringen korrekt."
+msgstr ""
+"Se till så att du alltid väljer en publikationstyp. Giltiga värden är för "
+"närvarande bok (för böcker och bokkapitel) och tidskrift (för "
+"tidskriftsartiklar). Om publikationstyp saknas blir inte "
+"citeringsformatteringen korrekt."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Titeltyp"
 
 msgid "metadata.property.validationMessage.title-type"
-msgstr "Se till att du sätter en giltig titeltyp. Giltiga värden är 'abbreviated', 'translated', 'alternative' or 'uniform'."
+msgstr ""
+"Se till att du sätter en giltig titeltyp. Giltiga värden är 'abbreviated', "
+"'translated', 'alternative' or 'uniform'."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Del av titel att ignorera vid sortering"
@@ -360,7 +408,12 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Namntyp"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "Se till att du sätter en giltig namntyp. Giltiga värden är 'personal', 'corporate' och 'conference'."
+msgstr ""
+"Se till att du sätter en giltig namntyp. Giltiga värden är 'personal', "
+"'corporate' och 'conference'."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Abstract"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Ej tilldelat"
@@ -386,11 +439,17 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} m.fl."
 
+msgid "submission.representationOfTitle"
+msgstr ""
+
 msgid "submission.mySubmissions"
 msgstr "Bidrag med mig som författare"
 
 msgid "submission.addFile"
 msgstr "Ladda upp fil"
+
+msgid "submission.additionalFiles"
+msgstr ""
 
 msgid "submission.agencies"
 msgstr "Organisationer"
@@ -428,8 +487,13 @@ msgstr "Skriv in varje referens på på en ny rad så att den kan bli extraherad
 msgid "submission.parsedCitations"
 msgstr "Extraherade referenser"
 
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
 msgid "submission.parsedCitations.description"
-msgstr "Följande referenser har extraherats och kommer att länkas till bidragets metadata."
+msgstr ""
+"Följande referenser har extraherats och kommer att länkas till bidragets "
+"metadata."
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Extrahera och spara referenser"
@@ -494,6 +558,9 @@ msgstr "Information om täckning"
 msgid "submission.done"
 msgstr "Klar"
 
+msgid "submission.downloads"
+msgstr ""
+
 msgid "submission.dueDate"
 msgstr "Deadline"
 
@@ -525,7 +592,8 @@ msgid "submission.emailLog"
 msgstr "E-postlogg"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) tilldelades det här bidraget som {$userGroupName}."
+msgstr ""
+"{$name} ({$username}) tilldelades det här bidraget som {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "\"{$name}\" ({$username}) togs bort som {$userGroupName}."
@@ -534,7 +602,8 @@ msgid "submission.event.backToEventLog"
 msgstr "Tillbaka till Händelselogg"
 
 msgid "submission.event.confirmClearLog"
-msgstr "Är du säker på att du vill ta bort händelseloggen för det här bidraget?"
+msgstr ""
+"Är du säker på att du vill ta bort händelseloggen för det här bidraget?"
 
 msgid "submission.event.confirmDeleteLogEntry"
 msgstr "Är du säker på att du vill ta bort den här händelsen ur loggen?"
@@ -600,11 +669,25 @@ msgstr "Ett e-postmeddelande skickades:"
 msgid "submission.event.viewEmail"
 msgstr "Visa e-postmeddelande"
 
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+
 msgid "submission.files"
 msgstr "Filer"
 
 msgid "submission.files.downloadAll"
 msgstr "Ladda ned samtliga filer"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+
+msgid "submission.firstPublished"
+msgstr ""
 
 msgid "submission.galley"
 msgstr "Publiceringsversion"
@@ -645,11 +728,31 @@ msgstr "Ladda ned referens"
 msgid "submission.initiated"
 msgstr "Påbörjad"
 
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Uppdaterad {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versioner"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Det här är en gammal version publicerad {$datePublished}. Läs <a href="
+"\"{$urlRecentVersion}\">senaste versionen</a>."
+
 msgid "submission.identifiers"
 msgstr "Identifikatorer"
 
 msgid "submission.publisherId"
 msgstr "Utgivar-ID"
+
+msgid "submission.publisherId.description"
+msgstr ""
+
+msgid "submission.publisherId.enable"
+msgstr "Använd för {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Information om bidraget"
@@ -676,10 +779,12 @@ msgid "submission.layout.addGalley"
 msgstr "Lägg till en layout-publiceringsversion"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "Är du säker på att du vill ta bort den här publiceringsversionen permanent?"
+msgstr ""
+"Är du säker på att du vill ta bort den här publiceringsversionen permanent?"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "Är du säker på att du vill ta bort den här bilden från publiceringsversionen?"
+msgstr ""
+"Är du säker på att du vill ta bort den här bilden från publiceringsversionen?"
 
 msgid "submission.layout.deleteGalleyStylesheet"
 msgstr "Ta bort den här stilmallen."
@@ -700,7 +805,9 @@ msgid "submission.layout.galleyLabel"
 msgstr "Etikett för publiceringsversion"
 
 msgid "submission.layout.galleyLabelInstructions"
-msgstr "Den här etiketten används vanligen för att identifiera filens filformat (t.ex. PDF, HTML, etc.)."
+msgstr ""
+"Den här etiketten används vanligen för att identifiera filens filformat (t."
+"ex. PDF, HTML, etc.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Det krävs en etikett för publiceringsversion är obligatorisk."
@@ -745,7 +852,8 @@ msgid "submission.layout.newGalley"
 msgstr "Skapa ny publiceringsversion"
 
 msgid "submission.layout.noStyleFile"
-msgstr "Ingen stilmall i separat fil tillagd för den här publiceringsversionen."
+msgstr ""
+"Ingen stilmall i separat fil tillagd för den här publiceringsversionen."
 
 msgid "submission.layout.viewingGalley"
 msgstr "Visar bidragets publiceringsversion"
@@ -865,7 +973,9 @@ msgid "submission.rights"
 msgstr "Rättigheter"
 
 msgid "submission.rights.tip"
-msgstr "Om du vill kan du ange en kort beskrivning för vilka rättigheter för tillgång som gäller för det här bidraget."
+msgstr ""
+"Om du vill kan du ange en kort beskrivning för vilka rättigheter för "
+"tillgång som gäller för det här bidraget."
 
 msgid "submissions.active"
 msgstr "Aktiv"
@@ -904,7 +1014,9 @@ msgid "submission.source"
 msgstr "Källa"
 
 msgid "submission.source.tip"
-msgstr "Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL eller en beskriving av den resursen."
+msgstr ""
+"Härstammar det här bidraget från en annan resurs? Om ja, mata in en URL "
+"eller en beskriving av den resursen."
 
 msgid "submissions.submit"
 msgstr "Skicka in"
@@ -955,13 +1067,17 @@ msgid "submission.submit.metadataForm"
 msgstr "Ytterligare information"
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter varje bit."
+msgstr ""
+"Lägg till ytterligare information om ditt bidrag. Tryck \"enter\" efter "
+"varje bit."
 
 msgid "submission.submit.submissionLocale"
 msgstr "Bidragets språk"
 
 msgid "submission.submit.submissionLocaleDescription"
-msgstr "Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten nedan."
+msgstr ""
+"Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten "
+"nedan."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bidragsfiler"
@@ -971,6 +1087,12 @@ msgstr "Relaterade filer"
 
 msgid "submission.manageDependentFiles"
 msgstr "Hantera relaterade filer"
+
+msgid "submission.upload.instructions"
+msgstr ""
+
+msgid "submission.upload.percentComplete"
+msgstr ""
 
 msgid "submission.upload.dependent"
 msgstr "Ladda upp en relaterad fil"
@@ -994,7 +1116,12 @@ msgid "submission.titleAndAbstract"
 msgstr "Titel och abstract"
 
 msgid "submission.type.tip"
-msgstr "Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+msgstr ""
+"Bidragstypen är vanligen någon av 'bild', 'text', eller andra multimedia-"
+"typer som 'mjukvara' eller 'interaktiv'. Välj den som är mest relevant för "
+"ditt bidrag. Det finns exempel på <a target=\"_blank\" href=\"http://"
+"dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://"
+"dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.underway"
 msgstr "På väg"
@@ -1129,13 +1256,18 @@ msgid "submission.upload.possibleRevision"
 msgstr "Potentiell kopia eller bearbetning upptäckt"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Namnet på den uppladdade filen påminner om en tidigare uppladdad fil, \"{$revisedFileName}\". Ska den här filen ersätta \"{$revisedFileName}\"? Om den ska det, välj filen nedan. Om inte, välj \"Det här är inte en bearbetning av en redan existerande fil\" innan du fortsätter."
+msgstr ""
+"Namnet på den uppladdade filen påminner om en tidigare uppladdad fil, "
+"\"{$revisedFileName}\". Ska den här filen ersätta \"{$revisedFileName}\"? Om "
+"den ska det, välj filen nedan. Om inte, välj \"Det här är inte en "
+"bearbetning av en redan existerande fil\" innan du fortsätter."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Välj filen du vill uppdatera."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Om du laddar upp en bearbetning av en redan existerande fil, ange vilken fil."
+msgstr ""
+"Om du laddar upp en bearbetning av en redan existerande fil, ange vilken fil."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Det här är inte en bearbetning av en existerande fil"
@@ -1144,7 +1276,9 @@ msgid "submission.upload.userGroup"
 msgstr "Ladda upp den här filen i egenskap av min roll som..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "Om du hanterar en Antologi ska alla volymens kapitel laddas upp individuellt, i din roll som volymredaktör."
+msgstr ""
+"Om du hanterar en Antologi ska alla volymens kapitel laddas upp "
+"individuellt, i din roll som volymredaktör."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Ladda upp en biblioteksfil"
@@ -1162,7 +1296,10 @@ msgid "submission.upload.uploadFiles"
 msgstr "Ladda upp filer"
 
 msgid "submission.upload.response.description"
-msgstr "När du granskat filen du fått tilldelad dig, mata in samtliga kommentarer till filen nedan och/eller ladda upp en annoterad kopia av filen (eller en annan fil)."
+msgstr ""
+"När du granskat filen du fått tilldelad dig, mata in samtliga kommentarer "
+"till filen nedan och/eller ladda upp en annoterad kopia av filen (eller en "
+"annan fil)."
 
 msgid "submission.upload.productionReady"
 msgstr "Ladda upp en produktionsklar fil"
@@ -1230,14 +1367,24 @@ msgstr "Deltagare"
 msgid "editor.submission.addStageParticipant"
 msgstr "Lägg till deltagare"
 
+msgid "editor.submission.editStageParticipant"
+msgstr "Redigeringsuppdag"
+
 msgid "editor.submission.addStageParticipant.userGroup"
-msgstr "Användare knyts till steg i arbetsflödet utifrån användargrupp. Alla användare knutna till det här steget kommer automatiskt knytas till de andra steg användargruppen är knuten till. Detta är vanligen reserverat för redaktörer, författare och översättare."
+msgstr ""
+"Användare knyts till steg i arbetsflödet utifrån användargrupp. Alla "
+"användare knutna till det här steget kommer automatiskt knytas till de andra "
+"steg användargruppen är knuten till. Detta är vanligen reserverat för "
+"redaktörer, författare och översättare."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Ta bort deltagare"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Du håller på att ta bort den här deltagaren från <strong>alla</strong> steg. Om användaren också har utestående manusgranskningar kommer dessa också att tas bort."
+msgstr ""
+"Du håller på att ta bort den här deltagaren från <strong>alla</strong> steg. "
+"Om användaren också har utestående manusgranskningar kommer dessa också att "
+"tas bort."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Du måste välja en användargrupp."
@@ -1246,7 +1393,27 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Du måste välja en användare för den specificerade användargruppen."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Deltagaren du valt har blivit utsedd att utföra en anonym granskning. Om du lägger till hen som deltagare kommer hen att kunna se författarens identitet. Vi uppmanar dig att inte utse den här deltagaren om du inte oavsett kan garantera integriteten i sakkunniggranskningsprocessen."
+msgstr ""
+"Deltagaren du valt har blivit utsedd att utföra en anonym granskning. Om du "
+"lägger till hen som deltagare kommer hen att kunna se författarens "
+"identitet. Vi uppmanar dig att inte utse den här deltagaren om du inte "
+"oavsett kan garantera integriteten i sakkunniggranskningsprocessen."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Tillåt inte redigering av metadata"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Tillåt redigering av metadata"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget inte ska kunna redigera bidragets "
+"metadata i det här steget?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Vill du att författarna till bidraget ska kunna redigera bidragets metadata "
+"i det här steget?"
 
 msgid "editor.submission.decision"
 msgstr "Beslut"
@@ -1259,6 +1426,9 @@ msgstr "Begär bearbetningar"
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Skicka in för granskning på nytt"
+
+msgid "editor.submission.decision.newRound"
+msgstr ""
 
 msgid "editor.submission.decision.decline"
 msgstr "Refusera bidrag"
@@ -1273,16 +1443,24 @@ msgid "editor.submission.decision.sendInternalReview"
 msgstr "Skicka till intern granskning"
 
 msgid "editor.submission.decision.approveProofsDescription"
-msgstr "Korrekturet måste godkännas för att göras tillgängligt. Vill du godkänna det?"
+msgstr ""
+"Korrekturet måste godkännas för att göras tillgängligt. Vill du godkänna det?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Godkänn korrektur"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Den här korrekturfilen kommer inte längre vara publikt tillgänglig för nedladdning eller köp. Vill du avslå det?"
+msgstr ""
+"Den här korrekturfilen kommer inte längre vara publikt tillgänglig för "
+"nedladdning eller köp. Vill du avslå det?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr ""
 
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Tilldela bidraget en redaktör för att möjliggöra redaktionella beslut i det här steget."
+msgstr ""
+"Tilldela bidraget en redaktör för att möjliggöra redaktionella beslut i det "
+"här steget."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Rekommendation"
@@ -1335,20 +1513,32 @@ msgstr "Utkastfiler"
 msgid "editor.submission.addAuditorError"
 msgstr "Det blev ett fel när manusgranskare skulle registreras."
 
+msgid "submission.event.fileEdited"
+msgstr ""
+
 msgid "submission.event.fileUploaded"
-msgstr "Filen \"{$originalFileName}\" laddas upp till bidrag {$submissionId} av {$username}."
+msgstr ""
+"Filen \"{$originalFileName}\" laddas upp till bidrag {$submissionId} av "
+"{$username}."
 
 msgid "submission.event.fileDeleted"
-msgstr "Filen \"{$originalFileName}\" raderades från bidrag {$submissionId} av {$username}."
+msgstr ""
+"Filen \"{$originalFileName}\" raderades från bidrag {$submissionId} av "
+"{$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Den bearbetade filen \"{$originalFileName}\" laddades upp till bidrag {$submissionId} av {$username}."
+msgstr ""
+"Den bearbetade filen \"{$originalFileName}\" laddades upp till bidrag "
+"{$submissionId} av {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Den bearbetade filen \"{$originalFileName}\" raderades från bidrag {$submissionId} av {$username}."
+msgstr ""
+"Den bearbetade filen \"{$originalFileName}\" raderades från bidrag "
+"{$submissionId} av {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "Filen \"{$title}\" fick sin senaste bearbetning borttagen av {$username}."
+msgstr ""
+"Filen \"{$title}\" fick sin senaste bearbetning borttagen av {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
@@ -1410,14 +1600,28 @@ msgstr "Ändringar krävs."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Skicka in för granskning på nytt."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr ""
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "Bidrag refuserat."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr ""
 
 msgid "notification.uploadedResponse"
 msgstr "Svar uppladdat."
 
 msgid "notification.type.editorAssignment"
-msgstr "En redaktör måste tilldelas bidraget innan granskningsprocessen kan påbörjas. Lägg till en redaktör via Deltagarlistan."
+msgstr ""
+"En redaktör måste tilldelas bidraget innan granskningsprocessen kan "
+"påbörjas. Lägg till en redaktör via Deltagarlistan."
+
+msgid "notification.type.submissionNewVersion"
+msgstr ""
+
+msgid "notification.type.revertDecline"
+msgstr ""
 
 msgid "grid.reviewAttachments.title"
 msgstr "Granskares bifogade filer"
@@ -1432,13 +1636,34 @@ msgid "submission.review.uploadRevisionToRound"
 msgstr "Ladda upp bearbetad fil"
 
 msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, granskningsomgång {$round}."
+msgstr ""
+"{$reviewerName} har fått uppdraget att granska bidrag {$submissionId}, "
+"granskningsomgång {$round}."
 
 msgid "log.review.reviewCleared"
-msgstr "Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har tagits bort."
+msgstr ""
+"Omgång {$round}, med {$reviewerName} som granskare för bidrag "
+"{$submissionId}, har tagits bort."
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"{$editorName} har markerat att granskningsomgång {$round} för bidraget "
+"{$submissionId} inte är aktuellt."
 
 msgid "log.review.reviewReinstated"
-msgstr "Omgång {$round}, med {$reviewerName} som granskare för bidrag {$submissionId}, har börjat om på nytt."
+msgstr ""
+"Omgång {$round}, med {$reviewerName} som granskare för bidrag "
+"{$submissionId}, har börjat om på nytt."
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
+"för granskningsomgång {$round}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} har granskat bidraget {$submissionId}, granskningsomgång "
+"{$round}."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Väntar på svar från granskaren."
@@ -1462,7 +1687,9 @@ msgid "submission.review.status.complete"
 msgstr "Den här granskningen är slutförd."
 
 msgid "submission.review.status.thanked"
-msgstr "Den här granskningen är slutförd och granskaren har tackats för sin medverkan."
+msgstr ""
+"Den här granskningen är slutförd och granskaren har tackats för sin "
+"medverkan."
 
 msgid "submission.document"
 msgstr "Dokument"
@@ -1492,10 +1719,14 @@ msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Produktionsprocessen påbörjad."
 
 msgid "notification.type.editorAssignmentProduction"
-msgstr "En produktionsredaktör måste registreras innan produktionsprocessen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
+msgstr ""
+"En produktionsredaktör måste registreras innan produktionsprocessen kan "
+"påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "En produktionsredaktör måste registreras innan den redaktionella processen kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
+msgstr ""
+"En produktionsredaktör måste registreras innan den redaktionella processen "
+"kan påbörjas. Lägg till en produktionsredaktör via Deltagarlistan."
 
 msgid "submission.reviewForm"
 msgstr "Granskningsformulär"
@@ -1523,6 +1754,12 @@ msgstr "Upphovsrätt"
 
 msgid "submission.copyrightHolder"
 msgstr "Upphovsrättsinnehavare"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Anpassad upphovsrättsdeklaration"
+
+msgid "submission.copyrightOther"
+msgstr "Upphovsrättsdeklaration"
 
 msgid "submission.copyrightYear"
 msgstr "Upphovsrättsår"
@@ -1555,22 +1792,114 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC Erkännande-DelaLika 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 Internationell-licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\">Creative Commons Erkännande-Ickekommersiell-IngaBearbetningar 4.0 "
+"Internationell-licens</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\">Creative Commons Erkännande-IckeKommersiell 4.0 Internationell-licens</a>."
+"</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell Licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\">Creative Commons Erkännande-IckeKommersiell-DelaLika 4.0 Internationell "
+"Licens</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons Erkännande-IngaBearbetningar 4.0 Internationell-licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\">Creative Commons Erkännande-IngaBearbetningar 4.0 Internationell-licens</"
+"a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Creative Commons-license\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons Erkännande 4.0 Internationell-licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Creative Commons-license\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">Creative "
+"Commons Erkännande 4.0 Internationell-licens</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Erkännande-DelaLika 4.0 Internationell-licens</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Creative Commons-licens\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\">Creative Commons Erkännande-DelaLika 4.0 Internationell-licens</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\">Creative Commons Erkännande-IckeKommersiell-IngaBearbetningar 3.0 "
+"Internationell licens</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en  <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\">Creative Commons Erkännande-IckeKommersiell 3.0 Internationell licens</a>."
+"</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\">Creative Commons Erkännande-IckeKommersiell-DelaLika 3.0 Internationell "
+"License</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\">Creative Commons Erkännande-IngaBearbetningar 3.0 Internationell license</"
+"a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Det här verket är licensierad under en  <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
+"Commons Erkännande 3.0 Internationell licens</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>Det här verket är licensierad under en <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\">Creative Commons Erkännande-DelaLika 3.0 Internationell licens</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Diskussioner före granskning"
@@ -1602,6 +1931,14 @@ msgstr "Stängd"
 msgid "submission.query.addNote"
 msgstr "Lägg till ett meddelande"
 
+msgid "submission.query.leaveQuery"
+msgstr "Lämna diskussionen"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Om du lämnar diskussionen kommer du inte längre få meddelande om nya inlägg. "
+"Vill du lämna diskussionen?"
+
 msgid "grid.action.openNoteForm"
 msgstr "Lägg till ett nytt svar i diskussionen"
 
@@ -1612,28 +1949,43 @@ msgid "submission.query.new"
 msgstr "{$creatorName} startade en diskussion: {$noteTitle}: {$noteContents}"
 
 msgid "submission.query.activity.contents"
-msgstr "Det har varit ny aktivitet i diskussionen med namnet \"{$queryTitle}\" angående bidraget \"{$submissionTitle}\"."
+msgstr ""
+"Det har varit ny aktivitet i diskussionen med namnet \"{$queryTitle}\" "
+"angående bidraget \"{$submissionTitle}\"."
 
 msgid "submission.query.new.contents"
-msgstr "Du har blivit tillagd i diskussionen med namnet \"{$queryTitle}\" angående bidraget \"{$submissionTitle}\"."
+msgstr ""
+"Du har blivit tillagd i diskussionen med namnet \"{$queryTitle}\" angående "
+"bidraget \"{$submissionTitle}\"."
 
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "De måste lägga till minst en deltagare till det här bidraget innan du kan påbörja en diskussion."
+msgstr ""
+"De måste lägga till minst en deltagare till det här bidraget innan du kan "
+"påbörja en diskussion."
 
 msgid "submission.list.infoCenter"
 msgstr "Aktivitetslogg & anteckningar"
 
+msgid "submission.list.empty"
+msgstr "Inget bidrag hittas."
+
 msgid "submission.list.responseDue"
 msgstr "Deadline för svar"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Granskningsuppdrag"
 
 msgid "submission.list.reviewDue"
 msgstr "Deadline för granskning"
 
 msgid "submission.list.reviewComplete"
 msgstr "Granskning inskickad"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Granskning avbruten"
 
 msgid "submission.list.confirmDelete"
 msgstr "Radera bidrag?"
@@ -1660,10 +2012,16 @@ msgid "submission.list.discussions"
 msgstr "Öppna diskussioner"
 
 msgid "submission.list.dualWorkflowLinks"
-msgstr "Du har blivit tilldelad flera olika roller för det här bidraget. Vill du ha tillgång till <a href=\"{$urlAuthorWorkflow}\">arbetsflödet för författare</a> eller <a href=\"{$urlEditorialWorkflow}\">arbetsflödet för redaktionen?</a>?"
+msgstr ""
+"Du har blivit tilldelad flera olika roller för det här bidraget. Vill du ha "
+"tillgång till <a href=\"{$urlAuthorWorkflow}\">arbetsflödet för författare</"
+"a> eller <a href=\"{$urlEditorialWorkflow}\">arbetsflödet för redaktionen?</"
+"a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå till <a href=\"{$urlEditorialWorkflow}\">det redaktionella arbetsflödet</a>?"
+msgstr ""
+"Du har blivit tilldelad en redaktörsroll för det här bidraget. Vill du gå "
+"till <a href=\"{$urlEditorialWorkflow}\">det redaktionella arbetsflödet</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Det här bidraget måste vara färdigt innan en redaktör granskar det."
@@ -1671,234 +2029,100 @@ msgstr "Det här bidraget måste vara färdigt innan en redaktör granskar det."
 msgid "submission.list.currentStage"
 msgstr "För närvarande i {$stage}-steget."
 
+msgid "submission.list.activity"
+msgstr ""
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr ""
+
 msgid "submission.list.assignEditor"
 msgstr "Tilldela redaktör"
-
-#, fuzzy
-msgid "submission.license.cc.by-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
-"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>Det här verket är licensierat under en <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative "
-"Commons Erkännande-IngaBearbetningar 3.0 Internationell license</a>.</p>"
-
-msgid "publication.version.confirm"
-msgstr "Vill du skapa en ny version?"
-
-msgid "publication.version.all"
-msgstr "Alla versioner"
-
-msgid "publication.createVersion"
-msgstr "Skapa en ny version"
-
-msgid "publication.contributors"
-msgstr "Medarbetare"
-
-msgid "catalog.category.subcategories"
-msgstr "Underkategorier"
-
-msgid "catalog.category.noItems"
-msgstr "Ingenting har publicerats i kategorin ännu."
-
-msgid "submission.currentCoverImage"
-msgstr "Nuvarande bild"
-
-msgid "submission.submit.placement.categories"
-msgstr "Kategorier"
-
-msgid "category.coverImage"
-msgstr "Omslagsbild"
-
-msgid "catalog.sortBy.datePublishedDesc"
-msgstr "Publiceringsdatum (nyaste först)"
-
-msgid "catalog.sortBy.datePublishedAsc"
-msgstr "Publiceringsdatum (äldsta först)"
-
-msgid "catalog.sortBy.titleDesc"
-msgstr "Titel (Z-A)"
-
-msgid "catalog.sortBy.titleAsc"
-msgstr "Titel (A-Z)"
 
 msgid "grid.category.categories"
 msgstr "Kategorier"
 
-#, fuzzy
-msgid "submission.license.cc.by3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
-"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Det här verket är licensierad under en  <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative "
-"Commons Erkännande 3.0 Internationell licens</a>.</p>"
+msgid "catalog.sortBy.titleAsc"
+msgstr "Titel (A-Z)"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "Titel (Z-A)"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Publiceringsdatum (äldsta först)"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Publiceringsdatum (nyaste först)"
+
+msgid "category.coverImage"
+msgstr "Omslagsbild"
+
+msgid "submission.submit.placement.categories"
+msgstr "Kategorier"
+
+msgid "submission.currentCoverImage"
+msgstr "Nuvarande bild"
+
+msgid "catalog.category.noItems"
+msgstr "Ingenting har publicerats i kategorin ännu."
+
+msgid "catalog.category.subcategories"
+msgstr "Underkategorier"
+
+msgid "publication.contributors"
+msgstr "Medarbetare"
+
+msgid "publication.createVersion"
+msgstr "Skapa en ny version"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "Datumet måste skrivas i formatet YYYY-MM-DD, som t ex 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "En ny version har skapats."
+
+msgid "publication.publicationLicense"
+msgstr "Behörigheter & tillgänglighet"
+
+msgid "publication.status.scheduled"
+msgstr "Planerad"
+
+msgid "publication.status.unpublished"
+msgstr "Inte publicerad"
 
 msgid "publication.titleAbstract"
 msgstr "Titel & Abstract"
 
-msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
+msgid "publication.unschedule"
+msgstr "Ta bort från publiceringsplan"
 
-msgid "submission.versions"
-msgstr "Versioner"
+msgid "publication.urlPath"
+msgstr "URL-sökväg"
 
-msgid "submission.parsedCitations.DOI"
-msgstr "DOI"
-
-msgid "metadata.property.displayName.abstract"
-msgstr "Abstract"
-
-msgid "editor.submission.addPermissionToEdit"
-msgstr "Tillåt redigering av metadata"
-
-msgid "editor.submission.removePermissionToEdit"
-msgstr "Tillåt inte redigering av metadata"
-
-msgid "editor.submission.editStageParticipant"
-msgstr "Redigeringsuppdag"
-
-msgid "submission.outdatedVersion"
+msgid "publication.urlPath.description"
 msgstr ""
-"Det här är en gammal version publicerad {$datePublished}. Läs <a href=\""
-"{$urlRecentVersion}\">senaste versionen</a>."
 
-msgid "submission.updatedOn"
-msgstr "{$datePublished} — Uppdaterad {$dateUpdated}"
+msgid "publication.urlPath.duplicate"
+msgstr "URL-sökvägen används redan och kan inte återanvändas."
 
-msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL-sökvägen kan inte vara ett siffera."
 
-msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr "Författarna kan inte redigera metadatan när bidraget är i steg {stage}."
+msgid "publication.version.all"
+msgstr "Alla versioner"
 
-msgid "author.publicationNotFound"
-msgstr "Författarens publikation kan inte hittas."
-
-msgid "submission.copyrightOther"
-msgstr "Upphovsrättsdeklaration"
-
-msgid "submission.publisherId.enable"
-msgstr "Använd för {$objects}"
-
-msgid "publication.wordCount"
-msgstr "Antal ord:{$count}/{$limit}"
+msgid "publication.version.confirm"
+msgstr "Vill du skapa en ny version?"
 
 msgid "publication.wordCountLong"
 msgstr ""
 "Abstractet är för långt.  Det får inte vara mer än {$limit}. Nu är det "
 "{$count} ord."
 
-msgid "publication.status.unpublished"
-msgstr "Inte publicerad"
+msgid "publication.wordCount"
+msgstr "Antal ord:{$count}/{$limit}"
 
-msgid "publication.status.scheduled"
-msgstr "Planerad"
-
-msgid "publication.event.versionCreated"
-msgstr "En ny version har skapats."
-
-msgid "publication.datePublished.errorFormat"
-msgstr "Datumet måste skrivas i formatet YYYY-MM-DD, som t ex 2019-01-01."
-
-msgid "submission.list.reviewAssignment"
-msgstr "Granskningsuppdrag"
-
-msgid "submission.list.empty"
-msgstr "Inget bidrag hittas."
-
-msgid "submission.query.leaveQuery.confirm"
+msgid "submission.layout.viewGalley"
 msgstr ""
-"Om du lämnar diskussionen kommer du inte längre få meddelande om nya inlägg. "
-"Vill du lämna diskussionen?"
 
-msgid "submission.query.leaveQuery"
-msgstr "Lämna diskussionen"
-
-#, fuzzy
-msgid "submission.license.cc.by-sa3.footer"
+msgid "galley.cantEditPublished"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
-"img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>Det här verket är licensierad under en <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative "
-"Commons Erkännande-DelaLika 3.0 Internationell licens</a>.</p>"
-
-#, fuzzy
-msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\"><img alt=\"Creative Commons licens\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
-"Creative Commons Erkännande-IckeKommersiell-DelaLika 3.0 Internationell "
-"License</a>.</p>"
-
-#, fuzzy
-msgid "submission.license.cc.by-nc3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>Detta verk är licensierat under en  <a rel=\"license\""
-" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
-"Erkännande-IckeKommersiell 3.0 Internationell licens</a>.</p>"
-
-#, fuzzy
-msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>Detta verk är licensierat under en <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
-"Creative Commons Erkännande-IckeKommersiell-IngaBearbetningar 3.0 "
-"Internationell licens</a>.</p>"
-
-msgid "log.review.reviewReady"
-msgstr ""
-"{$reviewerName} har granskat bidraget {$submissionId}, granskningsomgång "
-"{$round}."
-
-msgid "log.review.reviewConfirmed"
-msgstr ""
-"Redaktören {$userName} har bekräftat granskning av bidraget {$submissionId} "
-"för granskningsomgång {$round}."
-
-msgid "log.review.reviewUnconsidered"
-msgstr ""
-"{$editorName} har markerat att granskningsomgång {$round} för bidraget "
-"{$submissionId} inte är aktuellt."
-
-msgid "editor.submission.addPermissionToEditDescription"
-msgstr ""
-"Vill du att författarna till bidraget ska kunna redigera bidragets metadata "
-"i det här steget?"
-
-msgid "editor.submission.removePermissionToEditDescription"
-msgstr ""
-"Vill du att författarna till bidraget inte ska kunna redigera bidragets "
-"metadata i det här steget?"
-
-msgid "submission.list.reviewCancelled"
-msgstr "Granskning avbruten"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "URL-sökvägen kan inte vara ett siffera."
-
-msgid "publication.urlPath.duplicate"
-msgstr "URL-sökvägen används redan och kan inte återanvändas."
-
-msgid "publication.urlPath"
-msgstr "URL-sökväg"
-
-msgid "publication.unschedule"
-msgstr "Ta bort från publiceringsplan"
-
-msgid "submission.copyrightHolder.other"
-msgstr "Anpassad upphovsrättsdeklaration"
-
-msgid "author.editPublishedDisabled"
-msgstr ""
-"Publikationen kan inte redigeras av författarna eftersom den är publicerad."
-
-msgid "publication.publicationLicense"
-msgstr "Behörigheter & tillgänglighet"

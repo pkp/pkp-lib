@@ -12,70 +12,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "comments.anonymous"
+msgstr "Óþekktur notandi"
+
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
+
+msgid "comments.body"
+msgstr "Meginmál"
+
 msgid "comments.titleRequired"
 msgstr "Það þarf að vera titill á athugasemd."
-
-msgid "reader.fullText"
-msgstr "Heildartexti:"
-
-msgid "comments.viewAllComments"
-msgstr "Skoða allar athugasemdir"
-
-msgid "comments.title"
-msgstr "Titill"
-
-msgid "comments.replies"
-msgstr "Svör"
-
-msgid "comments.readMore"
-msgstr "Lesa meira"
-
-msgid "comments.readerComments"
-msgstr "Athugasemdir lesanda"
-
-msgid "comments.postReply"
-msgstr "Svara"
-
-msgid "comments.postAnonymously"
-msgstr "Birta þessa athugasemd nafnlaust"
-
-msgid "comments.oneReply"
-msgstr "(1 svar)"
-
-msgid "comments.nReplies"
-msgstr "({$num} svör)"
-
-msgid "comments.noComments"
-msgstr "Engar athugasemdir frá lesendum hafa verið skráðar."
-
-msgid "comments.name"
-msgstr "Nafn póstanda"
-
-msgid "comments.inResponseTo"
-msgstr "Svar við <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Skrifa athugasemd"
-
-msgid "comments.emailReply"
-msgstr "Senda svar í tölvupósti"
-
-msgid "comments.email"
-msgstr "Netfang þess sem póstar"
-
-msgid "comments.delete"
-msgstr "Eyða þessari athugasemd"
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Með því að eyða þessari athugasemd þá eyðast öll svör við henni.  Ertu viss "
 "um að þú viljir gera þetta?"
 
-msgid "comments.body"
-msgstr "Meginmál"
+msgid "comments.delete"
+msgstr "Eyða þessari athugasemd"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgid "comments.email"
+msgstr "Netfang þess sem póstar"
 
-msgid "comments.anonymous"
-msgstr "Óþekktur notandi"
+msgid "comments.emailReply"
+msgstr "Senda svar í tölvupósti"
+
+msgid "comments.enterComment"
+msgstr "Skrifa athugasemd"
+
+msgid "comments.inResponseTo"
+msgstr "Svar við <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nafn póstanda"
+
+msgid "comments.noComments"
+msgstr "Engar athugasemdir frá lesendum hafa verið skráðar."
+
+msgid "comments.nReplies"
+msgstr "({$num} svör)"
+
+msgid "comments.oneReply"
+msgstr "(1 svar)"
+
+msgid "comments.postAnonymously"
+msgstr "Birta þessa athugasemd nafnlaust"
+
+msgid "comments.postReply"
+msgstr "Svara"
+
+msgid "comments.readerComments"
+msgstr "Athugasemdir lesanda"
+
+msgid "comments.readMore"
+msgstr "Lesa meira"
+
+msgid "comments.replies"
+msgstr "Svör"
+
+msgid "comments.title"
+msgstr "Titill"
+
+msgid "comments.viewAllComments"
+msgstr "Skoða allar athugasemdir"
+
+msgid "reader.fullText"
+msgstr "Heildartexti:"

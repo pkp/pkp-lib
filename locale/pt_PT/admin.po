@@ -14,6 +14,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "admin.systemInfo.settingName"
+msgstr "Nome configuração"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor configuração"
+
 msgid "admin.adminFunctions"
 msgstr "Funções Administrativas"
 
@@ -36,16 +42,25 @@ msgid "admin.clearTemplateCache"
 msgstr "Limpar Cache do Template"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "O documento de configuração foi actualizado com sucesso. Caso as alterações incorram em erros no sistema, será necessário actualizar manualmente o ficheiro <tt>config.inc.php</tt>."
+msgstr ""
+"O documento de configuração foi actualizado com sucesso. Caso as alterações "
+"incorram em erros no sistema, será necessário actualizar manualmente o "
+"ficheiro <tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Deseja realmente limpar o Cache das templates compiladas?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Deseja realmente expirar todas as sessões de todos os utlizadores? Todos os utlizadores ligados serão forçados a aceder novamente ao sistema (incluindo o utilizador actual)."
+msgstr ""
+"Deseja realmente expirar todas as sessões de todos os utlizadores? Todos os "
+"utlizadores ligados serão forçados a aceder novamente ao sistema (incluindo "
+"o utilizador actual)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do ficheiro de configuração"
+
+msgid "admin.contexts.confirmDelete"
+msgstr "Confirma que pretende apagar {$contextName} e todo o seu conteúdo?"
 
 msgid "admin.currentVersion"
 msgstr "Versão Actual"
@@ -54,7 +69,11 @@ msgid "admin.dateInstalled"
 msgstr "Data de instalação"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "As configurações actualizadas são exibidas abaixo. Para aplicar as alterações, é necessário editar o ficheiro <tt>config.inc.php</tt> manualmente em algum editor de texto, substituindo-o com o conteúdo do campo a seguir."
+msgstr ""
+"As configurações actualizadas são exibidas abaixo. Para aplicar as "
+"alterações, é necessário editar o ficheiro <tt>config.inc.php</tt> "
+"manualmente em algum editor de texto, substituindo-o com o conteúdo do campo "
+"a seguir."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Exibir Configuração Actual"
@@ -62,14 +81,33 @@ msgstr "Exibir Configuração Actual"
 msgid "admin.expireSessions"
 msgstr "Expirar Sessões de Utilizadores"
 
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser "
+"que escolha outro idioma."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Deseja realmente alterar o idioma principal? Os nomes de utilizadores, que "
+"são necessários para o idioma principal do site, serão copiados do idioma "
+"principal existente onde estes não existirem."
+
 msgid "admin.languages.confirmReload"
-msgstr "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer informação de idioma específico como customização de e-mails."
+msgstr ""
+"Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer "
+"informação de idioma específico como customização de e-mails."
 
 msgid "admin.languages.installedLocales"
 msgstr "Idiomas Instalados"
 
 msgid "admin.languages.installLanguages"
 msgstr "Administrar Idiomas"
+
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas Disponíveis"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar Idioma"
 
 msgid "admin.languages.installLocales"
 msgstr "Instalar"
@@ -92,6 +130,40 @@ msgstr "Desinstalar Idioma"
 msgid "admin.phpInfo"
 msgstr "Informações sobre PHP"
 
+msgid "admin.scheduledTask"
+msgstr "Tarefa agendada"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Tarefa agendada iniciada."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tarefa agendada interrrompida."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "A tarefa não gerou nenhum registo/log."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"A {$softwareName} instalação foi executada e concluída automaticamente, "
+"sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Tem a certeza que pretende eliminar todos os registos das tarefas agendadas "
+"executadas?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpar Registos/Logs das Tarefas Eexecutadas"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicar submissões agendadas para publicação"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Lembrete Revisão"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Lembrete expiração da assinatura"
+
 msgid "admin.server.apacheVersion"
 msgstr "Versão do Apache"
 
@@ -110,8 +182,14 @@ msgstr "Versão do PHP"
 msgid "admin.server.platform"
 msgstr "Sistema Operativo"
 
+msgid "admin.settings"
+msgstr "Configurações"
+
 msgid "admin.settings.about"
 msgstr "Acerca do Portal"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "E-mails em massa"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mail do Contacto Principal"
@@ -119,11 +197,31 @@ msgstr "E-mail do Contacto Principal"
 msgid "admin.settings.contactName"
 msgstr "Nome do Contacto Principal"
 
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tA sua instalação foi configurada para registar mais do que uma métrica "
+"de uso. As métricas de uso serão disponibilizadas em vários contextos.\n"
+"  Existem casos onde deve ser usada apenas uma métrica de uso, por exemplo, "
+"para exibir uma lista ordenada das submissões mais usadas ou\n"
+"  classificar os resultados da pesquisa. Selecione uma das métricas "
+"configuradas como padrão.\n"
+"\t"
+
 msgid "admin.settings.introduction"
 msgstr "Introdução"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Tamanho mínimo de senha"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restringir E-mails em massa"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desativar Papéis"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Apenas o administrador pode alterar esta configuração."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Idioma do Portal"
@@ -134,8 +232,14 @@ msgstr "Formato de folha de estilos inválido. Formato aceite é .css."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Folha de Estilos do Portal (CSS)"
 
+msgid "admin.settings.siteLogo"
+msgstr "Logo Portal"
+
 msgid "admin.settings.siteTitle"
 msgstr "Título do Portal"
+
+msgid "admin.settings.siteTheme"
+msgstr "Template Portal"
 
 msgid "admin.siteAdmin"
 msgstr "Administração do Portal"
@@ -146,8 +250,13 @@ msgstr "Administração da Revista"
 msgid "admin.siteSettings"
 msgstr "Configurações do Portal"
 
+msgid "admin.siteSetup"
+msgstr "Configuração do Portal"
+
 msgid "admin.systemConfigFileReadError"
-msgstr "O ficheiro de configuração <tt>config.inc.php</tt> não existe, não possui permissão de leitura ou está corrompido."
+msgstr ""
+"O ficheiro de configuração <tt>config.inc.php</tt> não existe, não possui "
+"permissão de leitura ou está corrompido."
 
 msgid "admin.systemInformation"
 msgstr "Informações sobre o Sistema"
@@ -191,71 +300,6 @@ msgstr "Sistema está actualizado"
 msgid "admin.version"
 msgstr "Versão"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Nome configuração"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Valor configuração"
-
-msgid "admin.languages.cantDisable"
-msgstr "Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser que escolha outro idioma."
-
-msgid "admin.languages.availableLocales"
-msgstr "Idiomas Disponíveis"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalar Idioma"
-
-msgid "admin.scheduledTask"
-msgstr "Tarefa agendada"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Tarefa agendada iniciada."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Tarefa agendada interrrompida."
-
-msgid "admin.scheduledTask.noLog"
-msgstr "A tarefa não gerou nenhum registo/log."
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr "A {$softwareName} instalação foi executada e concluída automaticamente, sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Tem a certeza que pretende eliminar todos os registos das tarefas agendadas executadas?"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Limpar Registos/Logs das Tarefas Eexecutadas"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Lembrete Revisão"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Lembrete expiração da assinatura"
-
-msgid "admin.settings"
-msgstr "Configurações"
-
-msgid "admin.settings.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\tA sua instalação foi configurada para registar mais do que uma métrica "
-"de uso. As métricas de uso serão disponibilizadas em vários contextos.\n"
-"  Existem casos onde deve ser usada apenas uma métrica de uso, por exemplo, "
-"para exibir uma lista ordenada das submissões mais usadas ou\n"
-"  classificar os resultados da pesquisa. Selecione uma das métricas "
-"configuradas como padrão.\n"
-"\t"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo Portal"
-
-msgid "admin.settings.siteTheme"
-msgstr "Template Portal"
-
-msgid "admin.siteSetup"
-msgstr "Configuração do Portal"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "O caminho {$path} deve estar dentto da pasta pública de ficheiros."
 
@@ -263,7 +307,9 @@ msgid "admin.fileLoader.pathNotAccessible"
 msgstr "A pasta {$path} não existe ou não está acessível."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "O ficheiro {$filename} não pôde ser movido de {$currentFilePath} para {$destinationPath}"
+msgstr ""
+"O ficheiro {$filename} não pôde ser movido de {$currentFilePath} para "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "O ficheiro {$filename} foi processado e arquivado."
@@ -273,13 +319,18 @@ msgstr "Uploader do ficheiro"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"Copie o(s) ficheiro(s) de registo/log do apache, filtrando as entradas relacionadas com este portal,\n"
-"para a pasta de ficheiros actual, dentro da pasta stage do UsageStatsPlugin. Deve ser executado por um utilizadro com permissões para ler os registos/logs do apache.\n"
+"Copie o(s) ficheiro(s) de registo/log do apache, filtrando as entradas "
+"relacionadas com este portal,\n"
+"para a pasta de ficheiros actual, dentro da pasta stage do UsageStatsPlugin. "
+"Deve ser executado por um utilizadro com permissões para ler os registos/"
+"logs do apache.\n"
 "\n"
-"Esta ferramenta irá apenas copiar os ficheiros que já não estão dentro das pastas do usageStats (stage, processing, archive, reject).\n"
+"Esta ferramenta irá apenas copiar os ficheiros que já não estão dentro das "
+"pastas do usageStats (stage, processing, archive, reject).\n"
 "\n"
 "Uso: {$scriptName} caminho/para/ficheiro/de/log/doapache.log\n"
-"Uso (processando todos os ficheiros dentro de uma pasta): {$scriptName} caminho/para/pasta/doapache"
+"Uso (processando todos os ficheiros dentro de uma pasta): {$scriptName} "
+"caminho/para/pasta/doapache"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
 msgstr "Erro: não foi possível criar a pasta temporária {$tmpDir}"
@@ -288,46 +339,28 @@ msgid "admin.copyAccessLogFileTool.error.acessingFile"
 msgstr "Erro: O ficheiro {$filePath} não existe ou não está acessível."
 
 msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Erro: não é possível copiar o ficheiro de {$filePath} para {$tmpFilePath}"
+msgstr ""
+"Erro: não é possível copiar o ficheiro de {$filePath} para {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.error.deletingFile"
 msgstr "Erro: não é possível eliminar o ficheiro {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Advertência: o ficheiro {$filePath} já existe na pasta de estatísticas de uso."
+msgstr ""
+"Advertência: o ficheiro {$filePath} já existe na pasta de estatísticas de "
+"uso."
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sucesso: {$filePath} para {$destinationPath}"
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "A \"{$utilPath}\" execução do programa devolveu o seguinte erro: {$output}"
+msgstr ""
+"A \"{$utilPath}\" execução do programa devolveu o seguinte erro: {$output}"
 
 msgid "admin.error.executingUtil"
-msgstr "Erro: não foi possível executar \"{$utilPath}\".  Verifique {$utilVar} as configurações em config.inc.php."
+msgstr ""
+"Erro: não foi possível executar \"{$utilPath}\".  Verifique {$utilVar} as "
+"configurações em config.inc.php."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Não estão disponíveis idiomas para download."
-
-msgid "admin.contexts.confirmDelete"
-msgstr "Confirma que pretende apagar {$contextName} e todo o seu conteúdo?"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicar submissões agendadas para publicação"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Deseja realmente alterar o idioma principal? Os nomes de utilizadores, que "
-"são necessários para o idioma principal do site, serão copiados do idioma "
-"principal existente onde estes não existirem."
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Apenas o administrador pode alterar esta configuração."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Desativar Papéis"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Restringir E-mails em massa"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "E-mails em massa"

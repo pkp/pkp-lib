@@ -2,20 +2,47 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:04+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:04+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:04+00:00\n"
-"Language: \n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Da li želite da trajno obrišete predaje?"
 
+msgid "editor.activityLog"
+msgstr ""
+
 msgid "editor.submissionLibrary"
 msgstr "Biblioteka predaja"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr ""
 
 msgid "editor.review.notInitiated"
 msgstr "Proces recenziranja još nije započet."
@@ -48,7 +75,12 @@ msgid "editor.submission.revisions"
 msgstr "Revizije"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Koristite <em>+Dodaj recenzenta</em> da bi pozvali čitaoce da recenziraju predate fajlove. Ikona napomene ukazuje da je recenzija predata i koja je nakon toga označena kao <em>Primljeno</em> nakon što je konsultovana. Kada recenzija kasni, ikonica crvene koverte se pojavljuje kako bi podsetila recenzente ."
+msgstr ""
+"Koristite <em>+Dodaj recenzenta</em> da bi pozvali čitaoce da recenziraju "
+"predate fajlove. Ikona napomene ukazuje da je recenzija predata i koja je "
+"nakon toga označena kao <em>Primljeno</em> nakon što je konsultovana. Kada "
+"recenzija kasni, ikonica crvene koverte se pojavljuje kako bi podsetila "
+"recenzente ."
 
 msgid "editor.submission.addReviewer"
 msgstr "Dodaj recenzenta"
@@ -77,8 +109,20 @@ msgstr "Uključi postojećeg korisnika"
 msgid "editor.review.unassignReviewer"
 msgstr "Otkaži recenzenta"
 
+msgid "editor.review.cancelReviewer"
+msgstr ""
+
+msgid "editor.review.reinstateReviewer"
+msgstr ""
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Tip recenzije"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr ""
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr ""
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Ne šalji imejl autoru"
@@ -103,6 +147,9 @@ msgstr "Zatvori selekciju fajlova"
 msgid "editor.submissionReview.editReview"
 msgstr "Uredi recenziju"
 
+msgid "editor.review.anonymousReviewer"
+msgstr ""
+
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Poruka koja će biti poslata recenzentu"
 
@@ -112,11 +159,8 @@ msgstr "Važni datumi"
 msgid "editor.review.uploadRevision"
 msgstr "Dodaj reviziju"
 
-msgid "editor.review.NotifyAuthorAccept"
-msgstr "Obavesti autora da je njegov rad prihvaćen."
-
-msgid "editor.review.NotifyAuthorDecline"
-msgstr "Obavesti autora da njegov rad nije prihvaćen."
+msgid "editor.review.newReviewRound"
+msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Zahtevaj reviziju od autora."
@@ -124,14 +168,11 @@ msgstr "Zahtevaj reviziju od autora."
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Zahtevaj reviziju od autora koja će biti tema narednih recenziranja."
 
-msgid "editor.review.NotifyAuthorExternal"
-msgstr "Obavesti autora o odluci da se pokrene recenziranje spoljašnjih recenzenata."
-
-msgid "editor.review.personalMessageToAuthor"
-msgstr "Imejl poruka koja će biti poslata autoru"
-
 msgid "editor.review.dateAccepted"
 msgstr "Razmotri datume prihvatanja"
+
+msgid "editor.review.reviewsAdded"
+msgstr ""
 
 msgid "editor.review.noReviews"
 msgstr "Nema stručnih recenzija za uvoz"
@@ -169,6 +210,18 @@ msgstr "Zahtev poslat"
 msgid "editor.review.requestAccepted"
 msgstr "Zahtev prihvaćen"
 
+msgid "editor.review.requestDeclined"
+msgstr ""
+
+msgid "editor.review.requestCancelled"
+msgstr ""
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr ""
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr ""
+
 msgid "editor.review.revertDecision"
 msgstr "Opovrgni odluku"
 
@@ -187,11 +240,20 @@ msgstr "Recenzija potvrđena"
 msgid "editor.review.reviewSubmitted"
 msgstr "Recenzija predata"
 
+msgid "editor.review.reviewerThanked"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "Komentari recenzenata"
 
 msgid "editor.review.rateReviewer"
 msgstr "Rangiranje recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+
+msgid "editor.review.reviewerRating.none"
+msgstr ""
 
 msgid "editor.review.mustSelect"
 msgstr "Morate odabrati recenzenta"
@@ -202,11 +264,38 @@ msgstr "Došlo je do greške prilikom dodavanja recenzenta, pokušajte ponovo."
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Došlo je do greške prilikom brisanja recenzenta, pokušajte ponovo."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+
+msgid "editor.review.userGroupSelect"
+msgstr "Uključi korisnika u ovu grupu recenzenata"
+
 msgid "editor.review.unconsiderReviewText"
-msgstr "Da li želite da označite ovu recenziju kao neuvaženu? Istorija recenziranja će biti sačuvana."
+msgstr ""
+"Da li želite da označite ovu recenziju kao neuvaženu? Istorija recenziranja "
+"će biti sačuvana."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Označi recenziju kao neuvaženu"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Kada ste pročitali ovu recenziju pritisnite \"Potvrdi\" kako bi naznačili da "
+"proces recenziranja može da nastavi. Ukoliko je recenzent poslao recenziju "
+"negde drugde možete je dostaviti ovde i nakon toga pritisnuti \"Potvrdi\" za "
+"nastavak."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Dodeli za objavljivanje"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Korektorski fajlovi"
 
 msgid "editor.submission.selectReviewer"
 msgstr "Odaberi recenzenta"
@@ -229,8 +318,26 @@ msgstr "Imejl koji će biti poslat korisniku"
 msgid "editor.submission.proof.reminder"
 msgstr "Podsetnik za finalnu proveru"
 
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Fajl korekture mora biti odobren pre no što može biti poslat u fazu "
+"produkcije. Da li želite da odobrite ovaj fajl?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Ne odobravanje ovog korektorskog fajla učiniće ga nedostupnim za slanje u "
+"fazu produkcije. Da li želite da ga ne odobrite?"
+
 msgid "editor.submission.addAuditor"
 msgstr "Dodeli revizora"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Svi fajlovi koji su već dodatiu bilo koju fazu predaje mogu da se dodaju u "
+"listu fajlova za korekturu označavanjem \"Uključi\" oznake ispod i "
+"\"Pretragom:\" svi raspoloživi fajlovi će biti izlistani i dostupni za "
+"izbor. Dodatni fajlovi koji još nisu dostavljeni mogu se dodatu opcijom "
+"\"Dostavi fajl\"."
 
 msgid "editor.review"
 msgstr "Recenziraj"
@@ -256,6 +363,26 @@ msgstr "Nova runda recenziranja"
 msgid "editor.submissionReview.recordDecision"
 msgstr "Zabeleži odluku urednika"
 
+msgid "editor.submissionReview.recordRecommendation"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr ""
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr ""
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Na putu ste da napravite novi krug recenziranja za ovu predaju. Fajlovi koji "
+"nisu korišćeni u prethodnim krugovima su izlistani niže."
+
 msgid "editor.submission.createNewRound"
 msgstr "Napravi novi krug recenziranja"
 
@@ -264,6 +391,11 @@ msgstr "Obrasci recenzije"
 
 msgid "editor.article.selectReviewForm"
 msgstr "Odaberi obrazac recenzije"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Upozorenje: Menjanje obrasca recenzije uticaće na sve odgovore koje su dali "
+"recenzenti koristeći ovaj obrazac. Da li želite da nastavite?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nema odabranih fajlova"
@@ -283,6 +415,9 @@ msgstr "Dodati fajlovi"
 msgid "grid.action.editQuery"
 msgstr "Izmeni diskusiju"
 
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "Fajlovi mogu biti dodati uz diskusiju iz liste niže."
+
 msgid "editor.submission.selectedReviewer"
 msgstr "Odabrani recenzent"
 
@@ -292,8 +427,18 @@ msgstr "Odobri probnu kopiju"
 msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Ukini odobrenje probne kopije"
 
-msgid "editor.publicIdentificationExistsForTheSameType"
-msgstr "Javni identifikator '{$publicIdentifier}' već postoji i dodeljen je drugom objektu istog tipa. Odaberite jedinstvene identifikatore za objekte istog tipa u časopisu."
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Odobrite ovaj pruf kako bu naznačili da je korektura kompletna i da je fajl "
+"spreman za objavljivanje."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Ukinite odobrenje za ovu finalnu proveru kako bi naznačili da korektura nije "
+"više kompletna i da fajl nije spreman za objavljivanje."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Javni identifikator '{$publicIdentifier}' ne sme biti broj."
@@ -301,38 +446,76 @@ msgstr "Javni identifikator '{$publicIdentifier}' ne sme biti broj."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Šema {$pattern} nije dozvoljena za javni identifikator."
 
-msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Odobrite ovaj pruf kako bu naznačili da je korektura kompletna i da je fajl spreman za objavljivanje."
+msgid "reviewer.list.filterRating"
+msgstr ""
 
-msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Ukinite odobrenje za ovu finalnu proveru kako bi naznačili da korektura nije više kompletna i da fajl nije spreman za objavljivanje."
+msgid "reviewer.list.activeReviews"
+msgstr ""
 
-msgid "editor.review.userGroupSelect"
-msgstr "Uključi korisnika u ovu grupu recenzenata"
+msgid "reviewer.list.activeReviewsDescription"
+msgstr ""
 
-msgid "editor.review.readConfirmation"
-msgstr "Kada ste pročitali ovu recenziju pritisnite \"Potvrdi\" kako bi naznačili da proces recenziranja može da nastavi. Ukoliko je recenzent poslao recenziju negde drugde možete je dostaviti ovde i nakon toga pritisnuti \"Potvrdi\" za nastavak."
+msgid "reviewer.list.completedReviews"
+msgstr ""
 
-msgid "editor.submission.selectCopyedingFiles"
-msgstr "Korektorski fajlovi"
+msgid "reviewer.list.declinedReviews"
+msgstr ""
 
-msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Fajl korekture mora biti odobren pre no što može biti poslat u fazu produkcije. Da li želite da odobrite ovaj fajl?"
+msgid "reviewer.list.cancelledReviews"
+msgstr ""
 
-msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Ne odobravanje ovog korektorskog fajla učiniće ga nedostupnim za slanje u fazu produkcije. Da li želite da ga ne odobrite?"
+msgid "reviewer.list.reviewerRating"
+msgstr ""
 
-msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Svi fajlovi koji su već dodatiu bilo koju fazu predaje mogu da se dodaju u listu fajlova za korekturu označavanjem \"Uključi\" oznake ispod i \"Pretragom:\" svi raspoloživi fajlovi će biti izlistani i dostupni za izbor. Dodatni fajlovi koji još nisu dostavljeni mogu se dodatu opcijom \"Dostavi fajl\"."
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr ""
 
-msgid "editor.submission.newRoundDescription"
-msgstr "Na putu ste da napravite novi krug recenziranja za ovu predaju. Fajlovi koji nisu korišćeni u prethodnim krugovima su izlistani niže."
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr ""
 
-msgid "editor.article.confirmChangeReviewForm"
-msgstr "Upozorenje: Menjanje obrasca recenzije uticaće na sve odgovore koje su dali recenzenti koristeći ovaj obrazac. Da li želite da nastavite?"
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr ""
 
-msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Fajlovi mogu biti dodati uz diskusiju iz liste niže."
+msgid "reviewer.list.averageCompletion"
+msgstr ""
 
-msgid "editor.submission.schedulePublication"
-msgstr "Dodeli za objavljivanje"
+msgid "reviewer.list.neverAssigned"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr ""
+
+msgid "reviewer.list.reviewInterests"
+msgstr ""
+
+msgid "reviewer.list.biography"
+msgstr ""
+
+msgid "reviewer.list.empty"
+msgstr ""
+
+#~ msgid "editor.review.NotifyAuthorAccept"
+#~ msgstr "Obavesti autora da je njegov rad prihvaćen."
+
+#~ msgid "editor.review.NotifyAuthorDecline"
+#~ msgstr "Obavesti autora da njegov rad nije prihvaćen."
+
+#~ msgid "editor.review.NotifyAuthorExternal"
+#~ msgstr ""
+#~ "Obavesti autora o odluci da se pokrene recenziranje spoljašnjih "
+#~ "recenzenata."
+
+#~ msgid "editor.review.personalMessageToAuthor"
+#~ msgstr "Imejl poruka koja će biti poslata autoru"
+
+#~ msgid "editor.publicIdentificationExistsForTheSameType"
+#~ msgstr ""
+#~ "Javni identifikator '{$publicIdentifier}' već postoji i dodeljen je "
+#~ "drugom objektu istog tipa. Odaberite jedinstvene identifikatore za "
+#~ "objekte istog tipa u časopisu."

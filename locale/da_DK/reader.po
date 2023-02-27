@@ -23,8 +23,13 @@ msgstr "\"{$userName}\""
 msgid "comments.body"
 msgstr "Brødtekst"
 
+msgid "comments.titleRequired"
+msgstr "En kommentartitel er påkrævet."
+
 msgid "comments.confirmDeleteChildren"
-msgstr "Hvis du sletter denne kommentar, slettes eventuelle svar også. Er du sikker på, at du vil gøre dette?"
+msgstr ""
+"Hvis du sletter denne kommentar, slettes eventuelle svar også. Er du sikker "
+"på, at du vil gøre dette?"
 
 msgid "comments.delete"
 msgstr "Slet denne kommentar"
@@ -76,6 +81,3 @@ msgstr "Vis alle kommentarer"
 
 msgid "reader.fullText"
 msgstr "Fuld tekst:"
-
-msgid "comments.titleRequired"
-msgstr "En kommentartitel er påkrævet."

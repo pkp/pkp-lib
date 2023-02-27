@@ -21,7 +21,9 @@ msgid "installer.administratorAccount"
 msgstr "Účet administrátora"
 
 msgid "installer.administratorAccountInstructions"
-msgstr "Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci."
+msgstr ""
+"Tento uživatelský účet se stane administrátorem stránek a bude mít kompletní "
+"přístup do systému. Další uživatelské účty mohou být vytvořeny po instalaci."
 
 msgid "installer.checkNo"
 msgstr "<span class=\"pkp_form_error formError\">NE</span>"
@@ -33,10 +35,12 @@ msgid "installer.clientCharset"
 msgstr "Znaková sada klienta"
 
 msgid "installer.clientCharsetInstructions"
-msgstr "Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů."
+msgstr ""
+"Kódování, které má být použito pro data posílaná a přijímaná z prohlížečů."
 
 msgid "installer.configFileError"
-msgstr "Konfigurační soubor <tt>config.inc.php</tt> neexistuje nebo není čitelný."
+msgstr ""
+"Konfigurační soubor <tt>config.inc.php</tt> neexistuje nebo není čitelný."
 
 msgid "installer.connectionCharset"
 msgstr "Znaková sada pro připojení"
@@ -48,13 +52,21 @@ msgid "installer.databaseDriver"
 msgstr "Ovladač databáze"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Ovladače databází uvedené v závorkách zřejmě nemají nahrané požadované PHP rozšíření a instalace pravděpodobně selže.</strong><br />Jakékoliv nepodporované ovladače databází uvedené výše, jsou uvedeny pouze pro akademické účely a nebudou pravděpodobně pracovat."
+msgstr ""
+"<strong>Ovladače databází uvedené v závorkách zřejmě nemají nahrané "
+"požadované PHP rozšíření a instalace pravděpodobně selže.</strong><br /"
+">Jakékoliv nepodporované ovladače databází uvedené výše, jsou uvedeny pouze "
+"pro akademické účely a nebudou pravděpodobně pracovat."
 
 msgid "installer.databaseHost"
 msgstr "Host"
 
 msgid "installer.databaseHostInstructions"
-msgstr "Nechejte hostname prázdné pro připojení s použitím domain sockets namísto přes TCP/IP. Toto není nutné s MySQL, které použije automaticky sockets pokud je vložen \"localhost\", ale je vyžadováno jinými databázovými servery jako např. PostgreSQL."
+msgstr ""
+"Nechejte hostname prázdné pro připojení s použitím domain sockets namísto "
+"přes TCP/IP. Toto není nutné s MySQL, které použije automaticky sockets "
+"pokud je vložen \"localhost\", ale je vyžadováno jinými databázovými servery "
+"jako např. PostgreSQL."
 
 msgid "installer.databaseName"
 msgstr "Název databáze"
@@ -102,13 +114,17 @@ msgid "installer.form.separateMultiple"
 msgstr "Více hodnot oddělte čárkami"
 
 msgid "installer.form.usernameAlphaNumeric"
-msgstr "Uživatelské jméno administrátora může obsahovat pouze alfanumerické znaky, podtržítka a pomlčky a musí začínat a končit alfanumerickým znakem."
+msgstr ""
+"Uživatelské jméno administrátora může obsahovat pouze alfanumerické znaky, "
+"podtržítka a pomlčky a musí začínat a končit alfanumerickým znakem."
 
 msgid "installer.form.usernameRequired"
 msgstr "Je vyžadováno uživatelské jméno pro účet administrátora."
 
 msgid "installer.installationWrongPhp"
-msgstr "<br/><strong>VAROVÁNÍ: Vaše současná verze PHP nesplňuje minimální požadavky pro instalaci. Doporučuje se upgrade na novější vydání PHP.</strong>"
+msgstr ""
+"<br/><strong>VAROVÁNÍ: Vaše současná verze PHP nesplňuje minimální požadavky "
+"pro instalaci. Doporučuje se upgrade na novější vydání PHP.</strong>"
 
 msgid "installer.installErrorsOccurred"
 msgstr "Chyby, ke kterým došlo v průběhu instalace"
@@ -117,7 +133,9 @@ msgid "installer.installerSQLStatements"
 msgstr "SQL příkazy pro instalaci"
 
 msgid "installer.installFileError"
-msgstr "Instalační soubor <tt>dbscripts/xml/install.xml</tt> neexistuje nebo není čitelný."
+msgstr ""
+"Instalační soubor <tt>dbscripts/xml/install.xml</tt> neexistuje nebo není "
+"čitelný."
 
 msgid "installer.installFilesDirError"
 msgstr "Adresář určený pro nahrané soubory neexistuje nebo není zapsatelný."
@@ -125,8 +143,19 @@ msgstr "Adresář určený pro nahrané soubory neexistuje nebo není zapsateln�
 msgid "installer.installParseDBFileError"
 msgstr "Chyba při parsování instalačního souboru databáze <tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr "Chyba při provádění migrace třídy <tt>{$class}</tt>."
+
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Chyba při parsování souboru šablony emailu <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro "
+"další informace."
 
 msgid "installer.locale"
 msgstr "Lokalizace"
@@ -137,8 +166,15 @@ msgstr "Označené soubory lokalizace mohou být nekompletní."
 msgid "installer.localeSettings"
 msgstr "Nastavení lokalizace"
 
+msgid "installer.oaiSettings"
+msgstr "Nastavení OAI"
+
 msgid "installer.oaiRepositoryIdInstructions"
-msgstr "Jedinečný identifikátor použitý pro identifikaci záznamů metadat indexovaných z těchto stránek s využitím <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> protokolu pro shromažďování metadat (Protocol for Metadata Harvesting)."
+msgstr ""
+"Jedinečný identifikátor použitý pro identifikaci záznamů metadat "
+"indexovaných z těchto stránek s využitím <a href=\"https://www.openarchives."
+"org/\" target=\"_blank\">Open Archives Initiative</a> protokolu pro "
+"shromažďování metadat (Protocol for Metadata Harvesting)."
 
 msgid "installer.oaiRepositoryId"
 msgstr "Identifikátor OAI úložiště"
@@ -148,15 +184,6 @@ msgstr "Adresář veřejných souborů (public) neexistuje nebo není zapsateln�
 
 msgid "installer.releaseNotes"
 msgstr "Poznámky k vydání"
-
-msgid "installer.installParseFilterConfigFileError"
-msgstr "Chyba při parsování filtru konfiguračního souboru <tt>{$file}</tt>."
-
-msgid "installer.unsupportedUpgradeError"
-msgstr "Upgrade není podporován. Přečtěte si, prosím, docs/UPGRADE-UNSUPPORTED pro další informace."
-
-msgid "installer.oaiSettings"
-msgstr "Nastavení OAI"
 
 msgid "installer.preInstallationInstructionsTitle"
 msgstr "Předinstalační kroky"
@@ -183,19 +210,23 @@ msgstr ""
 "\t"
 
 msgid "installer.configureXSLMessage"
-msgstr "<p>Váše instalace PHP nemá povolený modul XSL. Buď ho povolte, nebo změňte parametr xslt_command parameter ve vašem konfiguračním souboru config.inc.php.</p>"
+msgstr ""
+"<p>Váše instalace PHP nemá povolený modul XSL. Buď ho povolte, nebo změňte "
+"parametr xslt_command parameter ve vašem konfiguračním souboru config.inc."
+"php.</p>"
 
 msgid "installer.beacon"
 msgstr "Signál"
 
 msgid "installer.beacon.enable"
-msgstr "Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - budou využity pouze pro statistické účely a bezpečnostní varování."
+msgstr ""
+"Poskytněte, prosím, unikátní ID a OAI base URL vašich stránek pro PKP - "
+"budou využity pouze pro statistické účely a bezpečnostní varování."
 
 msgid "installer.unsupportedPhpError"
-msgstr "Verze PHP vašeho serveru není podporována tímto software. Zkontrolujte, prosím, znovu požadavky na konfiguraci serveru v docs/README."
+msgstr ""
+"Verze PHP vašeho serveru není podporována tímto software. Zkontrolujte, "
+"prosím, znovu požadavky na konfiguraci serveru v docs/README."
 
-msgid "installer.miscSettings"
-msgstr "Různá nastavení"
-
-msgid "installer.installMigrationError"
-msgstr "Chyba při provádění migrace třídy <tt>{$class}</tt>."
+#~ msgid "installer.miscSettings"
+#~ msgstr "Různá nastavení"

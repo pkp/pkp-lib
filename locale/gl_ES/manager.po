@@ -11,292 +11,573 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.setup.principalContactDescription"
+msgid "manager.website.information"
+msgstr "Información"
+
+msgid "manager.website.appearance"
+msgstr "Apariencia"
+
+msgid "manager.website.imageFileRequired"
 msgstr ""
-"Introduza os datos de contacto habituais para a dirección editorial, a "
-"dirección de administración ou para o persoal administrativo, que se pode "
-"amosar no seu sitio web de acceso público."
+"É necesario un arquivo de imaxe. Asegúrese de que escolleu e cargou un."
 
-msgid "manager.setup.principalContact"
-msgstr "Contacto principal"
+msgid "manager.announcements"
+msgstr "Avisos"
 
-msgid "manager.setup.peerReview.description"
+msgid "manager.announcements.confirmDelete"
+msgstr "Seguro que queres eliminar permanentemente o aviso {$title}?"
+
+msgid "manager.announcements.create"
+msgstr "Crear un novo aviso"
+
+msgid "manager.announcements.createTitle"
+msgstr "Crear"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Caducidade"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicado"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar aviso"
+
+msgid "manager.announcements.edit"
+msgstr "Editar aviso"
+
+msgid "manager.announcements.editTitle"
+msgstr "Editar"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr "Seleccione un ano e/ou un mes ademais do día da data de caducidade."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Data de caducidade"
+
+msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
-"Describa a política de revisións por pares e os procesos para lectores e "
-"autores. Esta descrición inclúe a miúdo o número de revisores que se adoitan "
-"empregar na revisión dun envío, os criterios polos que se lles pide aos "
-"revisores que xulguen os envíos, o tempo esperado necesario para realizar as "
-"revisións e os principios empregados para seleccionar aos revisores."
+"O anuncio amosarase aos lectores ata esa data. Déixeo en branco se o anuncio "
+"debe amosarse de xeito indefinido."
 
-msgid "manager.setup.pageFooter.description"
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr "Seleccione un ano e/ou un día ademais do mes da data de caducidade."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Elixa unha data de caducidade válida."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr "Seleccione un mes e/ou un día ademais do ano da data de caducidade."
+
+msgid "manager.announcements.form.description"
+msgstr "Aviso"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Texto completo do aviso."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "É necesaria unha descrición do aviso."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Unha breve descrición que aparecerá xunto co título do aviso."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "É necesaria unha breve descrición do aviso."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Breve descrición"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Gardar e crear outro/a"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "É necesario un título do aviso."
+
+msgid "manager.announcements.form.title"
+msgstr "Título"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Tipo"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Selecciona un tipo de aviso válido."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Non se crearon avisos."
+
+msgid "manager.announcements.title"
+msgstr "Título"
+
+msgid "manager.announcements.type"
+msgstr "Tipo"
+
+msgid "manager.announcementTypes"
+msgstr "Tipos de aviso"
+
+msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"Insira as imaxes, texto ou código HTML que desexe que aparezan na parte "
-"inferior do seu sitio web."
+"Atención! Se eliminarán todos os avisos con este tipo de aviso. Seguro que "
+"queres continuar e eliminar este tipo de aviso?"
 
-msgid "manager.setup.pageFooter"
-msgstr "Pé de páxina"
+msgid "manager.announcementTypes.create"
+msgstr "Crear tipo de aviso"
 
-msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgid "manager.announcementTypes.createTitle"
+msgstr "Crear"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Editar tipo de aviso"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Editar"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Gardar e crear outro/a"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Xa existe un tipo de anuncio con este nome."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nome"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "É necesario un nome de tipo de aviso."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Non se creou ningún tipo de aviso."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Tipo de aviso"
+
+msgid "manager.genres.alertDelete"
 msgstr ""
-"Erro no formato de imaxe do logotipo da cabeceira ou erro na carga da imaxe. "
-"Os formatos axeitados son .gif, .jpg ou .png."
 
-msgid "manager.setup.openAccessPolicy.description"
+msgid "manager.publication.submissionStage"
+msgstr "Envío"
+
+msgid "manager.publication.reviewStage"
+msgstr "Revisión"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.productionStage"
+msgstr "Produción"
+
+msgid "manager.publication.emails"
+msgstr "Correos electrónicos"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Guía para os revisores/as"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Actualizáronse os detalles do recordatorio de revisión."
+
+msgid "manager.emails.confirmDelete"
+msgstr "Seguro que queres eliminar este modelo de correo electrónico?"
+
+msgid "manager.emails.confirmReset"
 msgstr ""
-"Se proporciona acceso libre inmediato a todo o contido publicado, pode "
-"inserir unha descrición da súa política de acceso aberto."
+"Seguro que queres restablecer aos valores predeterminados este modelo de "
+"correo electrónico?"
 
-msgid "manager.setup.openAccessPolicy"
-msgstr "Política de acceso aberto"
+msgid "manager.emails.addEmail"
+msgstr "Engadir modelo"
 
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Enviar outro correo electrónico"
+msgid "manager.emails.createEmail"
+msgstr "Crear correo electrónico"
 
-msgid "manager.setup.notifyUsers.sent"
-msgstr "O correo electrónico enviouse correctamente a todos os destinatarios."
+msgid "manager.emails.customTemplate"
+msgstr "Modelo personalizado"
 
-msgid "manager.setup.notifyUsers.sending"
+msgid "manager.emails.data"
+msgstr "Modelo de datos de mensaxe"
+
+msgid "manager.emails.details"
+msgstr "Detalles do modelo"
+
+msgid "manager.emails.disable"
+msgstr "Desactivar"
+
+msgid "manager.emails.disable.message"
 msgstr ""
-"Enviando o correo electrónico. Non abandone a páxina ata completar o envío."
+"Estás a piques de desactivar este modelo de correo electrónico. Se houbese "
+"procesos do sistema usando este modelo, xa non o usarán. ¿Queres confirmar "
+"esta operación?"
 
-msgid "manager.setup.notifyUsers.confirm"
+msgid "manager.emails.editEmail"
+msgstr "Editar correo electrónico"
+
+msgid "manager.emails.editTestExample"
+msgstr "Editar exemplo de proba de correo electrónico"
+
+msgid "manager.emails.emailKey"
+msgstr "Chave de correo electrónico"
+
+msgid "manager.emails.emailKey.description"
 msgstr ""
-"Está a piques de enviar un correo electrónico a {$total} usuarios. Seguro "
-"que queres envialo?"
+"O contrasinal do correo electrónico só pode conter letras, números e guións "
+"baixos."
 
-msgid "manager.setup.notifyUsers.send"
-msgstr "Enviar correo electrónico"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Envíarme unha copia deste correo electrónico a {$email}."
-
-msgid "manager.setup.notifyUsers.description"
+msgid "manager.emails.emailKeyExists"
 msgstr ""
-"Selecciona os usuarios que deberían recibir a túa notificación por correo "
+"Xa existe un correo electrónico co contrasinal indicado. As chaves do correo "
+"electrónico deben ser únicas."
+
+msgid "manager.emails.emailTemplate"
+msgstr "Modelo de correo electrónico"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Modelos de correo electrónico"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Debe proporcionar un ID de contexto ao engadir un modelo de correo "
 "electrónico."
 
-msgid "manager.setup.notifyUsers"
-msgstr "Notificar"
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "O contrasinal que proporcionou xa está en uso."
 
-msgid "manager.setup.notifications.description"
+msgid "manager.emails.enabled"
+msgstr "Habilitar este modelo de correo electrónico"
+
+msgid "manager.emails.enable"
+msgstr "Habilitar"
+
+msgid "manager.emails.enable.message"
 msgstr ""
-"Os autores reciben automaticamente un correo electrónico no que se recoñece "
-"o seu envío. É posible que envíes copias deste correo electrónico as "
-"seguintes persoas:"
+"Estás a piques de habilitar este correo electrónico. ¿Queres confirmar esta "
+"operación?"
 
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Envía unha copia a este enderezo de correo electrónico"
-
-msgid "manager.setup.notifications"
-msgstr "Notificación do envío do autor"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Non se puido atopar o ficheiro que cargou. Tenta cargalo de novo."
-
-msgid "manager.setup.logo"
-msgstr "Logotipo"
-
-msgid "manager.setup.loggingAndAuditing"
-msgstr "Rexistro e auditoría"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
+msgid "manager.emails.form.emailKeyRequired"
 msgstr ""
-"Non se pode atopar o bloque {$name}. Asegúrese de que o complemento está "
-"instalado e habilitado."
+"Para o correo electrónico é necesario un contrasinal único que non conteña "
+"espazos nin caracteres especiais."
 
-msgid "manager.setup.layout.sidebar"
-msgstr "Barra lateral"
+msgid "manager.emails.form.bodyRequired"
+msgstr "É necesario o corpo do correo electrónico."
 
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Descricións"
+msgid "manager.emails.form.subjectRequired"
+msgstr "É necesario o asunto para o correo electrónico."
 
-msgid "manager.setup.homeTitleImageInvalid"
+msgid "manager.emails"
+msgstr "Correos electrónicos preparados"
+
+msgid "manager.emails.resetAll"
+msgstr "Restaurar todos os modelos"
+
+msgid "manager.emails.resetAll.message"
 msgstr ""
-"O formato de imaxe do título da cabeceira da páxina de inicio non é válido "
-"ou houbo un erro na carga. Os formatos axeitados son .gif, .jpg ou .png."
+"Se restableces todos os modelos, perderanse todas as modificacións dos "
+"modelos de correo electrónico. Queres confirmar esta operación?"
 
-msgid "manager.setup.homepageImageInvalid"
+msgid "manager.emails.resetAll.complete"
+msgstr "Restauráronse os modelos de correo electrónico predeterminados."
+
+msgid "manager.emails.reset"
+msgstr "Restaurar"
+
+msgid "manager.emails.resetComplete"
+msgstr "Restableceuse correctamente o modelo de correo electrónico."
+
+msgid "manager.emails.reset.message"
 msgstr ""
-"Produciuse un erro no formato da imaxe da páxina de inicio ou na carga da "
-"mesma. Os formatos axeitados son .gif, .jpg ou .png."
+"Se restableces este modelo, todos os datos das mensaxes restableceranse ao "
+"seu valor predeterminado, perdendo todas as modificacións. ¿Queres confirmar "
+"esta operación?"
 
-msgid "manager.setup.homepageImage.description"
-msgstr "Cargue unha imaxe para amosala de xeito destacado na páxina de inicio."
+msgid "manager.emails.resetToDefault"
+msgstr "Restaurar aos valores por defecto"
 
-msgid "manager.setup.homepageImage"
-msgstr "Imaxe da páxina de inicio"
+msgid "manager.emails.sentFrom"
+msgstr "Enviado desde"
 
-msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgid "manager.emails.sentTo"
+msgstr "Enviado a"
 
-msgid "manager.setup.errorDeletingItem"
-msgstr "Produciuse un erro ao eliminar este elemento."
+msgid "manager.emails.subjectWithValue"
+msgstr "Asunto: {$subject}"
 
-msgid "manager.setup.competingInterests"
-msgstr "Conflito de intereses"
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportar a Excel/CSV"
 
-msgid "manager.setup.checklist"
-msgstr "Lista de comprobación"
+msgid "manager.export.usersToCsv.description"
+msgstr "Seleccione os usuarios que se exportarán a un arquivo Excel/CSV."
 
-msgid "manager.setup.disableSubmissions"
-msgstr "Deshabilitar envíos"
+msgid "manager.filesBrowser"
+msgstr "Navegación de arquivos"
 
-msgid "manager.setup.authorGuidelines.description"
+msgid "manager.files.confirmDelete"
 msgstr ""
-"As pautas recomendadas inclúen estándares bibliográficos e de formato xunto "
-"con exemplos de formatos de citas comúns que se utilizarán nos envíos."
+"Queres eliminar este arquivo ou cartafol? Ten en conta que o cartafol debe "
+"estar baleiro para poder eliminalo."
 
-msgid "manager.setup.authorGuidelines"
-msgstr "Directrices para o autor"
+msgid "manager.files.createDir"
+msgstr "Crear cartafol"
 
-msgid "manager.setup.copyrightNotice.description"
+msgid "manager.files.emptyDir"
+msgstr "Non se atoparon arquivos neste directorio."
+
+msgid "manager.files.indexOfDir"
+msgstr "Índice de {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Cartafol pai"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Arquivos cargados"
+
+msgid "manager.files.uploadFile"
+msgstr "Cargar arquivo"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Estás seguro de que desexas eliminar este grupo?"
+
+msgid "manager.groups.createTitle"
+msgstr "Crear título"
+
+msgid "manager.groups.editTitle"
+msgstr "Editar título"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "É necesario un título para o grupo."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Engadir membro"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Seguro que desexas eliminar aos membro deste grupo?"
+
+msgid "manager.groups.membership"
+msgstr "Membros"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Este grupo non ten membros."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Non se atoparon usuarios/as."
+
+msgid "manager.groups.title"
+msgstr "Título"
+
+msgid "manager.importExport"
+msgstr "Importar/exportar información"
+
+msgid "manager.language.ui"
+msgstr "IU"
+
+msgid "manager.language.submissions"
+msgstr "Envíos"
+
+msgid "manager.language.forms"
+msgstr "Formularios"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Restaurar valores predeterminados"
+
+msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
-"Esixir aos autores/as que acepten o seguinte aviso de dereitos de autor como "
-"parte do proceso de envío."
+"Este sistema permite opcionalmente introducir certa información crítica en "
+"varios idiomas adicionais. Para usar esta función, seleccione outras "
+"configuracións rexionais e escolla entre as opcións listadas a continuación."
 
-msgid "manager.setup.copyrightNotice"
-msgstr "Aviso de dereitos de autor"
-
-msgid "manager.setup.advanced"
-msgstr "Avanzado"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "Calquera cousa introducida aquí aparecerá na páxina de inicio."
-
-msgid "manager.setup.additionalContent"
-msgstr "Contido adicional"
-
-msgid "manager.affiliationAndSupport"
-msgstr "Patrocinador"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "Resultados estreitos por país, rexión e/ou cidade."
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "Por situación xeográfica"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "Ou selecciona rago por:"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "Selecciona o rango do informe"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "Por tipo de obxecto e/ou identificador de obxecto"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "Por contexto"
-
-msgid "manager.statistics.reports.reportUrl.label"
+msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"A seguinte URL pode usarse para xerar o informe coa configuración actual do "
-"formulario. Só tes que copiala e abrila no teu navegador. Tamén podes "
-"gardala nos teus marcadores."
+"Seleccione todas as configuracións locais que admita o sitio a través dun "
+"menú de selección de idioma para que apareza en cada páxina. O menú só "
+"aparecerá se se seleccionan máis dunha configuración rexional."
 
-msgid "manager.statistics.reports.reportUrl"
-msgstr "URL do informe"
+msgid "manager.payment.timestamp"
+msgstr "Data da operación"
 
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Tes que seleccionar polo menos unha columna para xerar o informe."
+msgid "manager.people.existingUserRequired"
+msgstr "Debe introducirse un usuario existente."
 
-msgid "manager.statistics.reports.cities.label"
+msgid "manager.people.authSource"
+msgstr "Fonte de autenticación"
+
+msgid "manager.people.confirmUnenroll"
+msgstr "Dar de baixa a este usuario/a?"
+
+msgid "manager.people.createUser"
+msgstr "Crear un novo usuario/a"
+
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Xerar un contrasinal aleatorio."
+
+msgid "manager.people.createUserSendNotify"
 msgstr ""
-"Un ou máis nomes de cidade, separados por comas (por exemplo, cidade 1, "
-"cidade 2)"
+"Envía ao usuario/a un correo electrónico de benvida co seu nome de usuario/a "
+"e o contrasinal."
 
-msgid "manager.statistics.reports.day.label"
-msgstr "Poña a data no formato AAAAMMDD."
+msgid "manager.people.disable"
+msgstr "Deshabilitar"
 
-msgid "manager.statistics.reports.month.label"
-msgstr "Poña a data no formato AAAAMM."
+msgid "manager.people.doNotEnroll"
+msgstr "Sen rol"
 
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "Descendente"
+msgid "manager.people.editProfile"
+msgstr "Editar perfil"
 
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "Ascendente"
+msgid "manager.people.editUser"
+msgstr "Editar usuario/a"
 
-msgid "manager.statistics.reports.orderDir"
-msgstr "Enderezo"
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "Envíar por correo aos usuarios seleccionados"
 
-msgid "manager.statistics.reports.orderBy"
-msgstr "Ordenar por"
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Enviar correo electrónico aos usuarios rexistrados como"
 
-msgid "manager.statistics.reports.currentMonth"
-msgstr "Mes actual"
+msgid "manager.people.emailUsers"
+msgstr "Enviar correo electrónico"
 
-msgid "manager.statistics.reports.yesterday"
-msgstr "Onte"
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Seleccione un idioma"
 
-msgid "manager.statistics.reports.objectId.label"
+msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Define un ou máis identificadores de obxecto, separados por comas (por "
-"exemplo, 1,2,3,4,5)."
+"Seleccione os usuarios aos que desexa enviar un correo electrónico marcando "
+"as caixas ao carón dos seus nomes"
 
-msgid "manager.statistics.reports.objectId"
-msgstr "Id. do obxecto"
+msgid "manager.people.enable"
+msgstr "Habilitar"
 
-msgid "manager.statistics.reports.objectType"
-msgstr "Tipo de obxecto"
+msgid "manager.people.enroll"
+msgstr "Inscribir usuario/a"
 
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "Obxecto non atopado na base de datos"
+msgid "manager.people.enrollment"
+msgstr "Inscrición"
 
-msgid "manager.statistics.reports.filters"
-msgstr "Filtros"
+msgid "manager.people.enrollSelected"
+msgstr "Inscribir usuarios/as seleccionados"
 
-msgid "manager.statistics.reports.columns.description"
+msgid "manager.people.enrollSyncRole"
+msgstr "Sincronizar rol"
+
+msgid "manager.people.enrollSync"
+msgstr "Sincronizar a inscrición"
+
+msgid "manager.people.enrollUserAsDescription"
 msgstr ""
-"Define as columnas que se usarán para construír o informe. As columnas que "
-"selecciones aquí non só definen que datos se presentarán dentro dos "
-"informes, senón que tamén definen o nivel de agregación das estatísticas. "
-"Por exemplo, se escolle columnas ID, Tipo e Mes, o informe sumará todas as "
-"vistas dun obxecto dun mes e presentará eses datos nunha fila. Se escolle "
-"Día en lugar de Mes, cada obxecto terá unha fila para cada día."
+"Os usuarios poden ser asignados ou eliminados dun rol en calquera momento."
 
-msgid "manager.statistics.reports.columns"
-msgstr "Columnas"
+msgid "manager.people.enrollUserAs"
+msgstr "Inscribir usuario/a como"
 
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "Ocultar opcións avanzadas"
+msgid "manager.people.invalidUser"
+msgstr "Sentímolo, o usuario solicitado non existe."
 
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "Opcións avanzadas"
+msgid "manager.people.mergeUser"
+msgstr "Fusionar usuario/a"
 
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Xerador de informes personalizado"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "Xerar informe personalizado"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "Modelos de informe predeterminados"
-
-msgid "manager.statistics.reports.optionalColumns.description"
+msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"Os elementos en cursiva e marcados con * representan datos que son opcionais "
-"ao xeito actual de contar as estatísticas no sistema (tipo métrico). É "
-"posible que teña ou non eses datos, dependendo da configuración do "
-"complemento estatístico."
+"Estás seguro de que desexas combinar a conta {$oldAccountCount} coa conta "
+"\"{$newUsername}\"? A conta {$ oldAccountCount} eliminarase. Esta acción non "
+"é reversible."
 
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "Estatísticas agregadas por:"
+msgid "manager.people.mergeUsers"
+msgstr "Fusionar usuarios/as"
 
-msgid "manager.statistics.reports.description"
+msgid "manager.people.mustChooseRole"
 msgstr ""
-"O sistema xera informes que rastrexan os detalles asociados ao uso e envíos "
-"do sitio durante un determinado período de tempo. Os informes xéranse en "
-"formato CSV que require unha aplicación de folla de cálculo para "
-"visualizalos."
+"Seleccione un rol na parte superior da páxina antes de premer en \"Rexistrar "
+"usuario\"."
 
-msgid "manager.statistics.reports"
-msgstr "Informes"
+msgid "manager.people.mustProvideName"
+msgstr "Proporcione polo menos un apelido para o usuario."
 
-msgid "manager.statistics.region"
-msgstr "Rexión"
+msgid "manager.people.noMatchingUsers"
+msgstr "Non se atoparon usuarios/as."
 
-msgid "manager.statistics.city"
-msgstr "Cidade"
+msgid "manager.people.noneEnrolled"
+msgstr "Non hai usuarios rexistrados."
+
+msgid "manager.people"
+msgstr "Persoas"
+
+msgid "manager.people.remove"
+msgstr "Eliminar"
+
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Gardar e crear outro/a"
+
+msgid "manager.people.signedInAs"
+msgstr "Iniciaches sesión como {$username}"
+
+msgid "manager.people.signInAs"
+msgstr "Iniciar sesión como"
+
+msgid "manager.people.signInAsUser"
+msgstr "Iniciar sesión como usuario/a"
+
+msgid "manager.people.syncUsers"
+msgstr "Sincronizar a inscrición do usuario/a"
+
+msgid "manager.people.unenroll"
+msgstr "Anular a inscrición"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "O usuario creouse correctamente."
+
+msgid "manager.people.userMustChangePassword"
+msgstr ""
+"Esixir ao usuario/a que cambie o seu contrasinal a próxima vez que inicie "
+"sesión."
+
+msgid "manager.plugins.action"
+msgstr "Acción:"
+
+msgid "manager.plugins.disable"
+msgstr "Deshabilitar"
+
+msgid "manager.plugins.enable"
+msgstr "Habilitar"
+
+msgid "manager.plugins.pluginManagement"
+msgstr "Xestión de complementos"
+
+msgid "manager.plugins.sitePlugin"
+msgstr ""
+"Este é un complemento para todo o sitio. Só o administrador do sitio pode "
+"xestionar este complemento."
+
+msgid "manager.plugins"
+msgstr "Complementos do sistema"
+
+msgid "manager.readingTools"
+msgstr "Ferramentas de lectura"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Buscar usuario/a polo nome"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Non podes eliminar este representante porque están asignados aos metadatos "
+"do mercado para un ou máis formatos de publicación deste envío."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Cambiar"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Buscar revisores/as polo nome"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Buscar polo nome"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Intereses de revisión"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Use o seguinte formulario para establecer os valores máximos para os termos "
+"que desexa buscar. O formulario está enchido coas medias calculadas deses "
+"campos."
+
+msgid "manager.roles"
+msgstr "Tarefas"
+
+msgid "manager.statistics"
+msgstr "Estatísticas e informes"
 
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
@@ -309,622 +590,326 @@ msgstr ""
 "configuradas como predeterminada.\n"
 "\t"
 
-msgid "manager.statistics"
-msgstr "Estatísticas e informes"
+msgid "manager.statistics.city"
+msgstr "Cidade"
 
-msgid "manager.roles"
-msgstr "Tarefas"
+msgid "manager.statistics.region"
+msgstr "Rexión"
 
-msgid "manager.reviewerSearch.form.instructions"
+msgid "manager.statistics.reports"
+msgstr "Informes"
+
+msgid "manager.statistics.reports.description"
 msgstr ""
-"Use o seguinte formulario para establecer os valores máximos para os termos "
-"que desexa buscar. O formulario está enchido coas medias calculadas deses "
-"campos."
+"O sistema xera informes que rastrexan os detalles asociados ao uso e envíos "
+"do sitio durante un determinado período de tempo. Os informes xéranse en "
+"formato CSV que require unha aplicación de folla de cálculo para "
+"visualizalos."
 
-msgid "manager.reviewerSearch.interests"
-msgstr "Intereses de revisión"
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "Estatísticas agregadas por:"
 
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Buscar polo nome"
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Buscar revisores/as polo nome"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Cambiar"
-
-msgid "manager.representative.inUse"
+msgid "manager.statistics.reports.optionalColumns.description"
 msgstr ""
-"Non podes eliminar este representante porque están asignados aos metadatos "
-"do mercado para un ou máis formatos de publicación deste envío."
+"Os elementos en cursiva e marcados con * representan datos que son opcionais "
+"ao xeito actual de contar as estatísticas no sistema (tipo métrico). É "
+"posible que teña ou non eses datos, dependendo da configuración do "
+"complemento estatístico."
 
-msgid "manager.userSearch.searchByName"
-msgstr "Buscar usuario/a polo nome"
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "Modelos de informe predeterminados"
 
-msgid "manager.readingTools"
-msgstr "Ferramentas de lectura"
+msgid "manager.statistics.reports.generateReport"
+msgstr "Xerar informe personalizado"
 
-msgid "manager.plugins"
-msgstr "Complementos do sistema"
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Xerador de informes personalizado"
 
-msgid "manager.plugins.sitePlugin"
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "Opcións avanzadas"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "Ocultar opcións avanzadas"
+
+msgid "manager.statistics.reports.columns"
+msgstr "Columnas"
+
+msgid "manager.statistics.reports.columns.description"
 msgstr ""
-"Este é un complemento para todo o sitio. Só o administrador do sitio pode "
-"xestionar este complemento."
+"Define as columnas que se usarán para construír o informe. As columnas que "
+"selecciones aquí non só definen que datos se presentarán dentro dos "
+"informes, senón que tamén definen o nivel de agregación das estatísticas. "
+"Por exemplo, se escolle columnas ID, Tipo e Mes, o informe sumará todas as "
+"vistas dun obxecto dun mes e presentará eses datos nunha fila. Se escolle "
+"Día en lugar de Mes, cada obxecto terá unha fila para cada día."
 
-msgid "manager.plugins.pluginManagement"
-msgstr "Xestión de complementos"
+msgid "manager.statistics.reports.filters"
+msgstr "Filtros"
 
-msgid "manager.plugins.enable"
-msgstr "Habilitar"
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "Obxecto non atopado na base de datos"
 
-msgid "manager.plugins.disable"
-msgstr "Deshabilitar"
+msgid "manager.statistics.reports.objectType"
+msgstr "Tipo de obxecto"
 
-msgid "manager.plugins.action"
-msgstr "Acción:"
+msgid "manager.statistics.reports.objectId"
+msgstr "Id. do obxecto"
 
-msgid "manager.people.userMustChangePassword"
+msgid "manager.statistics.reports.objectId.label"
 msgstr ""
-"Esixir ao usuario/a que cambie o seu contrasinal a próxima vez que inicie "
-"sesión."
+"Define un ou máis identificadores de obxecto, separados por comas (por "
+"exemplo, 1,2,3,4,5)."
 
-msgid "manager.people.userCreatedSuccessfully"
-msgstr "O usuario creouse correctamente."
+msgid "manager.statistics.reports.yesterday"
+msgstr "Onte"
 
-msgid "manager.people.unenroll"
-msgstr "Anular a inscrición"
+msgid "manager.statistics.reports.currentMonth"
+msgstr "Mes actual"
 
-msgid "manager.people.syncUsers"
-msgstr "Sincronizar a inscrición do usuario/a"
+msgid "manager.statistics.reports.orderBy"
+msgstr "Ordenar por"
 
-msgid "manager.people.signInAsUser"
-msgstr "Iniciar sesión como usuario/a"
+msgid "manager.statistics.reports.orderDir"
+msgstr "Enderezo"
 
-msgid "manager.people.signInAs"
-msgstr "Iniciar sesión como"
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "Ascendente"
 
-msgid "manager.people.signedInAs"
-msgstr "Iniciaches sesión como {$username}"
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "Descendente"
 
-msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Gardar e crear outro/a"
+msgid "manager.statistics.reports.month.label"
+msgstr "Poña a data no formato AAAAMM."
 
-msgid "manager.people.remove"
-msgstr "Eliminar"
+msgid "manager.statistics.reports.day.label"
+msgstr "Poña a data no formato AAAAMMDD."
 
-msgid "manager.people"
-msgstr "Persoas"
-
-msgid "manager.people.noneEnrolled"
-msgstr "Non hai usuarios rexistrados."
-
-msgid "manager.people.noMatchingUsers"
-msgstr "Non se atoparon usuarios/as."
-
-msgid "manager.people.mustProvideName"
-msgstr "Proporcione polo menos un apelido para o usuario."
-
-msgid "manager.people.mustChooseRole"
+msgid "manager.statistics.reports.cities.label"
 msgstr ""
-"Seleccione un rol na parte superior da páxina antes de premer en \"Rexistrar "
-"usuario\"."
+"Un ou máis nomes de cidade, separados por comas (por exemplo, cidade 1, "
+"cidade 2)"
 
-msgid "manager.people.mergeUsers"
-msgstr "Fusionar usuarios/as"
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "Tes que seleccionar polo menos unha columna para xerar o informe."
 
-msgid "manager.people.mergeUsers.confirm"
+msgid "manager.statistics.reports.reportUrl"
+msgstr "URL do informe"
+
+msgid "manager.statistics.reports.reportUrl.label"
 msgstr ""
-"Estás seguro de que desexas combinar a conta {$oldAccountCount} coa conta \""
-"{$newUsername}\"? A conta {$ oldAccountCount} eliminarase. Esta acción non é "
-"reversible."
+"A seguinte URL pode usarse para xerar o informe coa configuración actual do "
+"formulario. Só tes que copiala e abrila no teu navegador. Tamén podes "
+"gardala nos teus marcadores."
 
-msgid "manager.people.mergeUser"
-msgstr "Fusionar usuario/a"
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "Por contexto"
 
-msgid "manager.people.invalidUser"
-msgstr "Sentímolo, o usuario solicitado non existe."
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "Por tipo de obxecto e/ou identificador de obxecto"
 
-msgid "manager.people.enrollUserAs"
-msgstr "Inscribir usuario/a como"
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "Selecciona o rango do informe"
 
-msgid "manager.people.enrollUserAsDescription"
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "Ou selecciona rago por:"
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "Por situación xeográfica"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "Resultados estreitos por país, rexión e/ou cidade."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Patrocinador"
+
+msgid "manager.setup.additionalContent"
+msgstr "Contido adicional"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Calquera cousa introducida aquí aparecerá na páxina de inicio."
+
+msgid "manager.setup.advanced"
+msgstr "Avanzado"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Aviso de dereitos de autor"
+
+msgid "manager.setup.copyrightNotice.description"
 msgstr ""
-"Os usuarios poden ser asignados ou eliminados dun rol en calquera momento."
+"Esixir aos autores/as que acepten o seguinte aviso de dereitos de autor como "
+"parte do proceso de envío."
 
-msgid "manager.people.enrollSync"
-msgstr "Sincronizar a inscrición"
+msgid "manager.setup.authorGuidelines"
+msgstr "Directrices para o autor"
 
-msgid "manager.people.enrollSyncRole"
-msgstr "Sincronizar rol"
-
-msgid "manager.people.enrollSelected"
-msgstr "Inscribir usuarios/as seleccionados"
-
-msgid "manager.people.enrollment"
-msgstr "Inscrición"
-
-msgid "manager.people.enroll"
-msgstr "Inscribir usuario/a"
-
-msgid "manager.people.enable"
-msgstr "Habilitar"
-
-msgid "manager.people.emailUsers.selectUsers"
+msgid "manager.setup.authorGuidelines.description"
 msgstr ""
-"Seleccione os usuarios aos que desexa enviar un correo electrónico marcando "
-"as caixas ao carón dos seus nomes"
+"As pautas recomendadas inclúen estándares bibliográficos e de formato xunto "
+"con exemplos de formatos de citas comúns que se utilizarán nos envíos."
 
-msgid "manager.people.emailUsers.selectLocale"
-msgstr "Seleccione un idioma"
+msgid "manager.setup.disableSubmissions"
+msgstr "Deshabilitar envíos"
 
-msgid "manager.people.emailUsers"
-msgstr "Enviar correo electrónico"
+msgid "manager.setup.checklist"
+msgstr "Lista de comprobación"
 
-msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Enviar correo electrónico aos usuarios rexistrados como"
+msgid "manager.setup.competingInterests"
+msgstr "Conflito de intereses"
 
-msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Envíar por correo aos usuarios seleccionados"
+msgid "manager.setup.errorDeletingItem"
+msgstr "Produciuse un erro ao eliminar este elemento."
 
-msgid "manager.people.editUser"
-msgstr "Editar usuario/a"
+msgid "manager.setup.favicon"
+msgstr "Favicon"
 
-msgid "manager.people.editProfile"
-msgstr "Editar perfil"
+msgid "manager.setup.homepageImage"
+msgstr "Imaxe da páxina de inicio"
 
-msgid "manager.people.doNotEnroll"
-msgstr "Sen rol"
+msgid "manager.setup.homepageImage.description"
+msgstr "Cargue unha imaxe para amosala de xeito destacado na páxina de inicio."
 
-msgid "manager.people.disable"
-msgstr "Deshabilitar"
-
-msgid "manager.people.createUserSendNotify"
+msgid "manager.setup.homepageImageInvalid"
 msgstr ""
-"Envía ao usuario/a un correo electrónico de benvida co seu nome de usuario/a "
-"e o contrasinal."
+"Produciuse un erro no formato da imaxe da páxina de inicio ou na carga da "
+"mesma. Os formatos axeitados son .gif, .jpg ou .png."
 
-msgid "manager.people.createUserGeneratePassword"
-msgstr "Xerar un contrasinal aleatorio."
-
-msgid "manager.people.createUser"
-msgstr "Crear un novo usuario/a"
-
-msgid "manager.people.confirmUnenroll"
-msgstr "Dar de baixa a este usuario/a?"
-
-msgid "manager.people.authSource"
-msgstr "Fonte de autenticación"
-
-msgid "manager.people.existingUserRequired"
-msgstr "Debe introducirse un usuario existente."
-
-msgid "manager.payment.timestamp"
-msgstr "Data da operación"
-
-msgid "manager.languages.supportedLocalesInstructions"
+msgid "manager.setup.homeTitleImageInvalid"
 msgstr ""
-"Seleccione todas as configuracións locais que admita o sitio a través dun "
-"menú de selección de idioma para que apareza en cada páxina. O menú só "
-"aparecerá se se seleccionan máis dunha configuración rexional."
+"O formato de imaxe do título da cabeceira da páxina de inicio non é válido "
+"ou houbo un erro na carga. Os formatos axeitados son .gif, .jpg ou .png."
 
-msgid "manager.languages.alternateLocaleInstructions"
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descricións"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Barra lateral"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"Este sistema permite opcionalmente introducir certa información crítica en "
-"varios idiomas adicionais. Para usar esta función, seleccione outras "
-"configuracións rexionais e escolla entre as opcións listadas a continuación."
+"Non se pode atopar o bloque {$name}. Asegúrese de que o complemento está "
+"instalado e habilitado."
 
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Restaurar valores predeterminados"
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Rexistro e auditoría"
 
-msgid "manager.language.forms"
-msgstr "Formularios"
+msgid "manager.setup.logo"
+msgstr "Logotipo"
 
-msgid "manager.language.submissions"
-msgstr "Envíos"
+msgid "manager.setup.noTemporaryFile"
+msgstr "Non se puido atopar o ficheiro que cargou. Tenta cargalo de novo."
 
-msgid "manager.language.ui"
-msgstr "IU"
+msgid "manager.setup.notifications"
+msgstr "Notificación do envío do autor"
 
-msgid "manager.importExport"
-msgstr "Importar/exportar información"
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Envía unha copia a este enderezo de correo electrónico"
 
-msgid "manager.groups.title"
-msgstr "Título"
-
-msgid "manager.groups.membership.noUsers"
-msgstr "Non se atoparon usuarios/as."
-
-msgid "manager.groups.membership.noneCreated"
-msgstr "Este grupo non ten membros."
-
-msgid "manager.groups.membership"
-msgstr "Membros"
-
-msgid "manager.groups.membership.confirmDelete"
-msgstr "Seguro que desexas eliminar aos membro deste grupo?"
-
-msgid "manager.groups.membership.addMember"
-msgstr "Engadir membro"
-
-msgid "manager.groups.form.groupTitleRequired"
-msgstr "É necesario un título para o grupo."
-
-msgid "manager.groups.editTitle"
-msgstr "Editar título"
-
-msgid "manager.groups.createTitle"
-msgstr "Crear título"
-
-msgid "manager.groups.confirmDelete"
-msgstr "Estás seguro de que desexas eliminar este grupo?"
-
-msgid "manager.files.uploadFile"
-msgstr "Cargar arquivo"
-
-msgid "manager.files.uploadedFiles"
-msgstr "Arquivos cargados"
-
-msgid "manager.files.parentDir"
-msgstr "Cartafol pai"
-
-msgid "manager.files.indexOfDir"
-msgstr "Índice de {$dir}"
-
-msgid "manager.files.emptyDir"
-msgstr "Non se atoparon arquivos neste directorio."
-
-msgid "manager.files.createDir"
-msgstr "Crear cartafol"
-
-msgid "manager.files.confirmDelete"
+msgid "manager.setup.notifications.description"
 msgstr ""
-"Queres eliminar este arquivo ou cartafol? Ten en conta que o cartafol debe "
-"estar baleiro para poder eliminalo."
+"Os autores reciben automaticamente un correo electrónico no que se recoñece "
+"o seu envío. É posible que envíes copias deste correo electrónico as "
+"seguintes persoas:"
 
-msgid "manager.filesBrowser"
-msgstr "Navegación de arquivos"
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
 
-msgid "manager.export.usersToCsv.description"
-msgstr "Seleccione os usuarios que se exportarán a un arquivo Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Exportar a Excel/CSV"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Asunto: {$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "Enviado a"
-
-msgid "manager.emails.sentFrom"
-msgstr "Enviado desde"
-
-msgid "manager.emails.resetToDefault"
-msgstr "Restaurar aos valores por defecto"
-
-msgid "manager.emails.reset.message"
+msgid "manager.setup.notifyUsers.description"
 msgstr ""
-"Se restableces este modelo, todos os datos das mensaxes restableceranse ao "
-"seu valor predeterminado, perdendo todas as modificacións. ¿Queres confirmar "
-"esta operación?"
-
-msgid "manager.emails.resetComplete"
-msgstr "Restableceuse correctamente o modelo de correo electrónico."
-
-msgid "manager.emails.reset"
-msgstr "Restaurar"
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Restauráronse os modelos de correo electrónico predeterminados."
-
-msgid "manager.emails.resetAll.message"
-msgstr ""
-"Se restableces todos os modelos, perderanse todas as modificacións dos "
-"modelos de correo electrónico. Queres confirmar esta operación?"
-
-msgid "manager.emails.resetAll"
-msgstr "Restaurar todos os modelos"
-
-msgid "manager.emails"
-msgstr "Correos electrónicos preparados"
-
-msgid "manager.emails.form.subjectRequired"
-msgstr "É necesario o asunto para o correo electrónico."
-
-msgid "manager.emails.form.bodyRequired"
-msgstr "É necesario o corpo do correo electrónico."
-
-msgid "manager.emails.form.emailKeyRequired"
-msgstr ""
-"Para o correo electrónico é necesario un contrasinal único que non conteña "
-"espazos nin caracteres especiais."
-
-msgid "manager.emails.enable.message"
-msgstr ""
-"Estás a piques de habilitar este correo electrónico. ¿Queres confirmar esta "
-"operación?"
-
-msgid "manager.emails.enable"
-msgstr "Habilitar"
-
-msgid "manager.emails.enabled"
-msgstr "Habilitar este modelo de correo electrónico"
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "O contrasinal que proporcionou xa está en uso."
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
-"Debe proporcionar un ID de contexto ao engadir un modelo de correo "
+"Selecciona os usuarios que deberían recibir a túa notificación por correo "
 "electrónico."
 
-msgid "manager.emails.emailTemplates"
-msgstr "Modelos de correo electrónico"
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Envíarme unha copia deste correo electrónico a {$email}."
 
-msgid "manager.emails.emailTemplate"
-msgstr "Modelo de correo electrónico"
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar correo electrónico"
 
-msgid "manager.emails.emailKeyExists"
+msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
-"Xa existe un correo electrónico co contrasinal indicado. As chaves do correo "
-"electrónico deben ser únicas."
+"Está a piques de enviar un correo electrónico a {$total} usuarios. Seguro "
+"que queres envialo?"
 
-msgid "manager.emails.emailKey.description"
+msgid "manager.setup.notifyUsers.sending"
 msgstr ""
-"O contrasinal do correo electrónico só pode conter letras, números e guións "
-"baixos."
+"Enviando o correo electrónico. Non abandone a páxina ata completar o envío."
 
-msgid "manager.emails.emailKey"
-msgstr "Chave de correo electrónico"
+msgid "manager.setup.notifyUsers.sent"
+msgstr "O correo electrónico enviouse correctamente a todos os destinatarios."
 
-msgid "manager.emails.editTestExample"
-msgstr "Editar exemplo de proba de correo electrónico"
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar outro correo electrónico"
 
-msgid "manager.emails.editEmail"
-msgstr "Editar correo electrónico"
+msgid "manager.setup.openAccessPolicy"
+msgstr "Política de acceso aberto"
 
-msgid "manager.emails.disable.message"
+msgid "manager.setup.openAccessPolicy.description"
 msgstr ""
-"Estás a piques de desactivar este modelo de correo electrónico. Se houbese "
-"procesos do sistema usando este modelo, xa non o usarán. ¿Queres confirmar "
-"esta operación?"
+"Se proporciona acceso libre inmediato a todo o contido publicado, pode "
+"inserir unha descrición da súa política de acceso aberto."
 
-msgid "manager.emails.disable"
-msgstr "Desactivar"
-
-msgid "manager.emails.details"
-msgstr "Detalles do modelo"
-
-msgid "manager.emails.data"
-msgstr "Modelo de datos de mensaxe"
-
-msgid "manager.emails.customTemplate"
-msgstr "Modelo personalizado"
-
-msgid "manager.emails.createEmail"
-msgstr "Crear correo electrónico"
-
-msgid "manager.emails.addEmail"
-msgstr "Engadir modelo"
-
-msgid "manager.emails.confirmReset"
+msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
-"Seguro que queres restablecer aos valores predeterminados este modelo de "
-"correo electrónico?"
+"Erro no formato de imaxe do logotipo da cabeceira ou erro na carga da imaxe. "
+"Os formatos axeitados son .gif, .jpg ou .png."
 
-msgid "manager.emails.confirmDelete"
-msgstr "Seguro que queres eliminar este modelo de correo electrónico?"
+msgid "manager.setup.pageFooter"
+msgstr "Pé de páxina"
 
-msgid "manager.publication.reviewReminders.success"
-msgstr "Actualizáronse os detalles do recordatorio de revisión."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Guía para os revisores/as"
-
-msgid "manager.publication.emails"
-msgstr "Correos electrónicos"
-
-msgid "manager.publication.productionStage"
-msgstr "Produción"
-
-msgid "manager.publication.editorialStage"
-msgstr "Editorial"
-
-msgid "manager.publication.reviewStage"
-msgstr "Revisión"
-
-msgid "manager.publication.submissionStage"
-msgstr "Envío"
-
-msgid "manager.announcementTypes.typeName"
-msgstr "Tipo de aviso"
-
-msgid "manager.announcementTypes.noneCreated"
-msgstr "Non se creou ningún tipo de aviso."
-
-msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "É necesario un nome de tipo de aviso."
-
-msgid "manager.announcementTypes.form.typeName"
-msgstr "Nome"
-
-msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Xa existe un tipo de anuncio con este nome."
-
-msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Gardar e crear outro/a"
-
-msgid "manager.announcementTypes.editTitle"
-msgstr "Editar"
-
-msgid "manager.announcementTypes.edit"
-msgstr "Editar tipo de aviso"
-
-msgid "manager.announcementTypes.createTitle"
-msgstr "Crear"
-
-msgid "manager.announcementTypes.create"
-msgstr "Crear tipo de aviso"
-
-msgid "manager.announcementTypes.confirmDelete"
+msgid "manager.setup.pageFooter.description"
 msgstr ""
-"Atención! Se eliminarán todos os avisos con este tipo de aviso. Seguro que "
-"queres continuar e eliminar este tipo de aviso?"
+"Insira as imaxes, texto ou código HTML que desexe que aparezan na parte "
+"inferior do seu sitio web."
 
-msgid "manager.announcementTypes"
-msgstr "Tipos de aviso"
-
-msgid "manager.announcements.type"
-msgstr "Tipo"
-
-msgid "manager.announcements.title"
-msgstr "Título"
-
-msgid "manager.announcements.noneCreated"
-msgstr "Non se crearon avisos."
-
-msgid "manager.announcements.form.typeIdValid"
-msgstr "Selecciona un tipo de aviso válido."
-
-msgid "manager.announcements.form.typeId"
-msgstr "Tipo"
-
-msgid "manager.announcements.form.title"
-msgstr "Título"
-
-msgid "manager.announcements.form.titleRequired"
-msgstr "É necesario un título do aviso."
-
-msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Gardar e crear outro/a"
-
-msgid "manager.announcements.form.descriptionShort"
-msgstr "Breve descrición"
-
-msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "É necesaria unha breve descrición do aviso."
-
-msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Unha breve descrición que aparecerá xunto co título do aviso."
-
-msgid "manager.announcements.form.descriptionRequired"
-msgstr "É necesaria unha descrición do aviso."
-
-msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Texto completo do aviso."
-
-msgid "manager.announcements.form.description"
-msgstr "Aviso"
-
-msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Seleccione un mes e/ou un día ademais do ano da data de caducidade."
-
-msgid "manager.announcements.form.dateExpireValid"
-msgstr "Elixa unha data de caducidade válida."
-
-msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Seleccione un ano e/ou un día ademais do mes da data de caducidade."
-
-msgid "manager.announcements.form.dateExpireInstructions"
+msgid "manager.setup.peerReview.description"
 msgstr ""
-"O anuncio amosarase aos lectores ata esa data. Déixeo en branco se o anuncio "
-"debe amosarse de xeito indefinido."
+"Describa a política de revisións por pares e os procesos para lectores e "
+"autores. Esta descrición inclúe a miúdo o número de revisores que se adoitan "
+"empregar na revisión dun envío, os criterios polos que se lles pide aos "
+"revisores que xulguen os envíos, o tempo esperado necesario para realizar as "
+"revisións e os principios empregados para seleccionar aos revisores."
 
-msgid "manager.announcements.form.dateExpire"
-msgstr "Data de caducidade"
+msgid "manager.setup.principalContact"
+msgstr "Contacto principal"
 
-msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Seleccione un ano e/ou un mes ademais do día da data de caducidade."
-
-msgid "manager.announcements.editTitle"
-msgstr "Editar"
-
-msgid "manager.announcements.edit"
-msgstr "Editar aviso"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Eliminar aviso"
-
-msgid "manager.announcements.datePublish"
-msgstr "Publicado"
-
-msgid "manager.announcements.dateExpire"
-msgstr "Caducidade"
-
-msgid "manager.announcements.createTitle"
-msgstr "Crear"
-
-msgid "manager.announcements.create"
-msgstr "Crear un novo aviso"
-
-msgid "manager.announcements.confirmDelete"
-msgstr "Seguro que queres eliminar permanentemente o aviso {$title}?"
-
-msgid "manager.announcements"
-msgstr "Avisos"
-
-msgid "manager.website.imageFileRequired"
-msgstr "É necesario un arquivo de imaxe. Asegúrese de que escolleu e cargou un."
-
-msgid "manager.website.appearance"
-msgstr "Apariencia"
-
-msgid "manager.website.information"
-msgstr "Información"
-
-msgid "manager.setup.sponsors.description"
+msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Exemplos: asociacións académicas, departamentos universitarios, "
-"cooperativas, etc. Os patrocinadores amósanse publicamente."
+"Introduza os datos de contacto habituais para a dirección editorial, a "
+"dirección de administración ou para o persoal administrativo, que se pode "
+"amosar no seu sitio web de acceso público."
 
-msgid "manager.setup.sponsors.note"
-msgstr "Relación cos patrocinadores e descrición da política"
+msgid "manager.setup.privacyStatement"
+msgstr "Declaración de privacidade"
 
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgid "manager.setup.dateTime"
+msgstr "Data e hora"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formatos de data e hora"
+
+msgid "manager.setup.dateTime.description"
 msgstr ""
-"Presente unha ligazón a <button type = \"button\">como asegurar que todos os "
-"arquivos sexan anónimos</button> durante a carga"
+"Escolla o formato preferido para datas e horas. Pódese introducir un formato "
+"personalizado empregando os <a href='http://php.net/manual/en/function."
+"strftime.php#refsect1-function.strftime-parameters'>caracteres especiais do "
+"formato</a>."
 
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Modo de revisión predeterminado"
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
 
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Envía un recordatorio por correo electrónico se un revisor/a non enviou "
-"ningunha recomendación días despois da data de vencemento da revisión."
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (curta)"
 
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Recordatorio de revisión"
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
 
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Envía un recordatorio por correo electrónico se un revisor/a non respondeu a "
-"unha solicitude de revisión varios días despois da data de vencemento da "
-"resposta."
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data e hora"
 
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Recordatorio de resposta"
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data e hora (curtas)"
 
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr ""
-"Os valores predeterminados poden modificarse para cada revisión durante o "
-"proceso editorial."
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Non lembrar máis"
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Semanas permitidas para completar a revisión"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Número de semanas para aceptar ou rexeitar unha solicitude de revisión."
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Prazo de finalización por defecto"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Prazo de resposta por defecto"
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalizado"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
@@ -932,50 +917,67 @@ msgstr ""
 "e na páxina de privacidade. Nalgunhas xurisdicións, está obrigado legalmente "
 "a explicar como manexa os datos do usuario/a nesta política de privacidade."
 
-msgid "manager.setup.dateTime.custom"
-msgstr "Personalizado"
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de resposta por defecto"
 
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Data e hora (curtas)"
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de finalización por defecto"
 
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Data e hora"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Hora"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Data (curta)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Data"
-
-msgid "manager.setup.dateTime.description"
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
-"Escolla o formato preferido para datas e horas. Pódese introducir un formato "
-"personalizado empregando os <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>caracteres "
-"especiais do formato</a>."
+"Número de semanas para aceptar ou rexeitar unha solicitude de revisión."
 
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Formatos de data e hora"
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Semanas permitidas para completar a revisión"
 
-msgid "manager.setup.dateTime"
-msgstr "Data e hora"
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Non lembrar máis"
 
-msgid "manager.setup.privacyStatement"
-msgstr "Declaración de privacidade"
-
-msgid "manager.setup.theme.notFound"
-msgstr "O tema que seleccionou non está instalado ou habilitado."
-
-msgid "manager.setup.theme.description"
+msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
-"Pódense instalar novos temas desde a lapela Complementos na parte superior "
-"desta páxina."
+"Os valores predeterminados poden modificarse para cada revisión durante o "
+"proceso editorial."
 
-msgid "manager.setup.theme"
-msgstr "Tema"
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Recordatorio de resposta"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Envía un recordatorio por correo electrónico se un revisor/a non respondeu a "
+"unha solicitude de revisión varios días despois da data de vencemento da "
+"resposta."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Recordatorio de revisión"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Envía un recordatorio por correo electrónico se un revisor/a non enviou "
+"ningunha recomendación días despois da data de vencemento da revisión."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modo de revisión predeterminado"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Presente unha ligazón a <button type = \"button\">como asegurar que todos os "
+"arquivos sexan anónimos</button> durante a carga"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Relación cos patrocinadores e descrición da política"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Exemplos: asociacións académicas, departamentos universitarios, "
+"cooperativas, etc. Os patrocinadores amósanse publicamente."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Podes cargar un arquivo CSS para personalizar aínda máis o aspecto do sitio "
+"web."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contacto de soporte técnico"
 
 msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
@@ -983,13 +985,16 @@ msgstr ""
 "con calquera problema que teñan ao enviar, editar, revisar ou publicar "
 "material."
 
-msgid "manager.setup.technicalSupportContact"
-msgstr "Contacto de soporte técnico"
+msgid "manager.setup.theme"
+msgstr "Tema"
 
-msgid "manager.setup.styleSheetDescription"
+msgid "manager.setup.theme.description"
 msgstr ""
-"Podes cargar un arquivo CSS para personalizar aínda máis o aspecto do sitio "
-"web."
+"Pódense instalar novos temas desde a lapela Complementos na parte superior "
+"desta páxina."
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema que seleccionou non está instalado ou habilitado."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr "Desactive esta sección e non permita que se lle fagan novas entregas."
@@ -997,12 +1002,1161 @@ msgstr "Desactive esta sección e non permita que se lle fagan novas entregas."
 msgid "manager.sections.confirmDeactivateSection"
 msgstr "Seguro que desexas desactivar esta sección?"
 
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Opcións de acceso ao sitio"
-
 msgid "manager.sections.confirmActivateSection"
 msgstr "Estás seguro de que desexas activar esta sección?"
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Opcións de acceso ao sitio"
 
 #, fuzzy
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr ""
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr ""
+
+msgid "manager.users"
+msgstr ""
+
+msgid "plugins.categories.metadata"
+msgstr ""
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+
+msgid "plugins.categories.auth"
+msgstr ""
+
+msgid "plugins.categories.blocks"
+msgstr ""
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+
+msgid "plugins.categories.gateways.description"
+msgstr ""
+
+msgid "plugins.categories.gateways"
+msgstr ""
+
+msgid "plugins.categories.generic"
+msgstr ""
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+
+msgid "plugins.categories.importexport"
+msgstr ""
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+
+msgid "plugins.categories.paymethod"
+msgstr ""
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+
+msgid "plugins.categories.reports"
+msgstr ""
+
+msgid "plugins.categories.themes.description"
+msgstr ""
+
+msgid "plugins.categories.themes"
+msgstr ""
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr ""
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr ""
+
+msgid "plugins.categories.pubIds"
+msgstr ""
+
+msgid "plugins.categories.pubIds.description"
+msgstr ""
+
+msgid "manager.plugins.copyError"
+msgstr ""
+
+msgid "manager.plugins.delete"
+msgstr ""
+
+msgid "manager.plugins.installConfirm"
+msgstr ""
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr ""
+
+msgid "grid.action.installPlugin"
+msgstr ""
+
+msgid "manager.plugins.deleteConfirm"
+msgstr ""
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+
+msgid "manager.plugins.deleteSuccess"
+msgstr ""
+
+msgid "manager.plugins.description"
+msgstr ""
+
+msgid "manager.plugins.doesNotExist"
+msgstr ""
+
+msgid "manager.plugins.fileSelectError"
+msgstr ""
+
+msgid "manager.plugins.upload"
+msgstr ""
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+
+msgid "manager.plugins.uploadFailed"
+msgstr ""
+
+msgid "manager.plugins.installed"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr ""
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr ""
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr ""
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr ""
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr ""
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr ""
+
+msgid "manager.plugins.installFailed"
+msgstr ""
+
+msgid "manager.plugins.installSuccessful"
+msgstr ""
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+
+msgid "manager.plugins.pleaseInstall"
+msgstr ""
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+
+msgid "manager.plugins.settings"
+msgstr ""
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr ""
+
+msgid "manager.plugins.upgrade"
+msgstr ""
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+
+msgid "manager.plugins.upgradeFailed"
+msgstr ""
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr ""
+
+msgid "manager.plugins.uploadError"
+msgstr ""
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr ""
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr ""
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr ""
+
+msgid "notification.localeEnabled"
+msgstr ""
+
+msgid "notification.localeDisabled"
+msgstr ""
+
+msgid "notification.primaryLocaleDefined"
+msgstr ""
+
+msgid "notification.localeInstalled"
+msgstr ""
+
+msgid "notification.localeUninstalled"
+msgstr ""
+
+msgid "notification.localeReloaded"
+msgstr ""
+
+msgid "notification.localeSettingsSaved"
+msgstr ""
+
+msgid "notification.editedUser"
+msgstr ""
+
+msgid "manager.distribution.license"
+msgstr ""
+
+msgid "manager.distribution.license.other"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+
+msgid "manager.distribution.customHeaders"
+msgstr ""
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+
+msgid "manager.paymentMethod"
+msgstr ""
+
+msgid "manager.paymentMethod.title"
+msgstr ""
+
+msgid "manager.paymentMethod.none"
+msgstr ""
+
+msgid "manager.paymentMethod.method"
+msgstr ""
+
+msgid "manager.paymentMethod.currency"
+msgstr ""
+
+msgid "settings.roles.roleOptions"
+msgstr ""
+
+msgid "settings.roles.showTitles"
+msgstr ""
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr ""
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+
+msgid "settings.roles.roleName"
+msgstr ""
+
+msgid "settings.roles.roleAbbrev"
+msgstr ""
+
+msgid "settings.roles.assignedStages"
+msgstr ""
+
+msgid "settings.roles.stages"
+msgstr ""
+
+msgid "settings.roles.roleDetails"
+msgstr ""
+
+msgid "settings.roles.from"
+msgstr ""
+
+msgid "settings.roles.removeText"
+msgstr ""
+
+msgid "settings.roles.nameRequired"
+msgstr ""
+
+msgid "settings.roles.abbrevRequired"
+msgstr ""
+
+msgid "settings.roles.uniqueName"
+msgstr ""
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr ""
+
+msgid "settings.roles.roleIdRequired"
+msgstr ""
+
+msgid "settings.roles.stageIdRequired"
+msgstr ""
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr ""
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr ""
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr ""
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr ""
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr ""
+
+msgid "settings.libraryFiles.category.reports"
+msgstr ""
+
+msgid "settings.libraryFiles.category.other"
+msgstr ""
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr ""
+
+msgid "grid.action.addGenre"
+msgstr ""
+
+msgid "grid.action.editGenre"
+msgstr ""
+
+msgid "grid.action.deleteGenre"
+msgstr ""
+
+msgid "grid.action.restoreGenres"
+msgstr ""
+
+msgid "manager.setup.genres.label"
+msgstr ""
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+
+msgid "manager.setup.genres.key"
+msgstr ""
+
+msgid "manager.setup.genres.key.description"
+msgstr ""
+
+msgid "manager.setup.genres.key.exists"
+msgstr ""
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+
+msgid "manager.settings.wizard"
+msgstr ""
+
+msgid "manager.users.roleRequired"
+msgstr ""
+
+msgid "manager.website"
+msgstr ""
+
+msgid "manager.website.title"
+msgstr ""
+
+msgid "manager.workflow"
+msgstr ""
+
+msgid "manager.workflow.title"
+msgstr ""
+
+msgid "manager.distribution"
+msgstr ""
+
+msgid "manager.distribution.title"
+msgstr ""
+
+msgid "manager.reviewForms"
+msgstr ""
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+
+msgid "manager.reviewForms.completed"
+msgstr ""
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr ""
+
+msgid "manager.reviewForms.create"
+msgstr ""
+
+msgid "manager.reviewForms.description"
+msgstr ""
+
+msgid "manager.reviewForms.edit"
+msgstr ""
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr ""
+
+msgid "manager.reviewForms.inReview"
+msgstr ""
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+
+msgid "manager.reviewForms.noneChosen"
+msgstr ""
+
+msgid "manager.reviewForms.noneCreated"
+msgstr ""
+
+msgid "manager.reviewForms.noneUsed"
+msgstr ""
+
+msgid "manager.reviewForms.preview"
+msgstr ""
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr ""
+
+msgid "manager.reviewForms.title"
+msgstr ""
+
+msgid "manager.reviewFormElement.changeType"
+msgstr ""
+
+msgid "manager.reviewFormElements"
+msgstr ""
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr ""
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr ""
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr ""
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr ""
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr ""
+
+msgid "manager.reviewFormElements.create"
+msgstr ""
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr ""
+
+msgid "manager.reviewFormElements.edit"
+msgstr ""
+
+msgid "manager.reviewFormElements.elementType"
+msgstr ""
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr ""
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr ""
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr ""
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr ""
+
+msgid "manager.reviewFormElements.question"
+msgstr ""
+
+msgid "manager.reviewFormElements.description"
+msgstr ""
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr ""
+
+msgid "manager.reviewFormElements.required"
+msgstr ""
+
+msgid "manager.reviewFormElements.included"
+msgstr ""
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr ""
+
+msgid "manager.reviewFormElements.textarea"
+msgstr ""
+
+msgid "manager.reviewFormElements.textfield"
+msgstr ""
+
+msgid "manager.reviewFormElements.viewable"
+msgstr ""
+
+msgid "grid.action.createReviewForm"
+msgstr ""
+
+msgid "manager.setup.competingInterests.required"
+msgstr ""
+
+msgid "manager.setup.licenseURLDescription"
+msgstr ""
+
+msgid "manager.setup.metadata.submission"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+
+msgid "manager.setup.metadata.source.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+
+msgid "manager.setup.metadata.type.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr ""
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr ""
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr ""
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr ""
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr ""
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr ""
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+
+msgid "manager.navigationMenus.form.title"
+msgstr ""
+
+msgid "manager.navigationMenus.form.path"
+msgstr ""
+
+msgid "manager.navigationMenus"
+msgstr ""
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+
+msgid "manager.navigationMenus.form.content"
+msgstr ""
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr ""
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr ""
+
+msgid "manager.navigationMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr ""
+
+msgid "manager.navigationMenus.form.url"
+msgstr ""
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr ""
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr ""
+
+msgid "manager.navigationMenus.current.description"
+msgstr ""
+
+msgid "manager.navigationMenus.archives.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.login.description"
+msgstr ""
+
+msgid "manager.navigationMenus.register.description"
+msgstr ""
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr ""
+
+msgid "manager.navigationMenus.profile.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr ""
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.search.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+
+msgid "grid.category.add"
+msgstr ""
+
+msgid "grid.category.edit"
+msgstr ""
+
+msgid "grid.category.name"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "grid.category.urlWillBe"
+msgstr ""
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+
+msgid "grid.category.pathExists"
+msgstr ""
+
+msgid "grid.category.description"
+msgstr ""
+
+msgid "grid.category.parentCategory"
+msgstr ""
+
+msgid "grid.category.removeText"
+msgstr ""
+
+msgid "grid.category.nameRequired"
+msgstr ""
+
+msgid "grid.category.categoryDetails"
+msgstr ""
+
+msgid "stats.allUsers"
+msgstr ""
+
+msgid "stats.countWithYearlyAverage"
+msgstr ""
+
+msgid "stats.daily"
+msgstr ""
+
+msgid "stats.dateRange"
+msgstr ""
+
+msgid "stats.dateRange.allDates"
+msgstr ""
+
+msgid "stats.dateRange.apply"
+msgstr ""
+
+msgid "stats.dateRange.change"
+msgstr ""
+
+msgid "stats.dateRange.customRange"
+msgstr ""
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr ""
+
+msgid "stats.dateRange.from"
+msgstr ""
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr ""
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr ""
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr ""
+
+msgid "stats.dateRange.last12Months"
+msgstr ""
+
+msgid "stats.dateRange.last30Days"
+msgstr ""
+
+msgid "stats.dateRange.last90Days"
+msgstr ""
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr ""
+
+msgid "stats.dateRange.lastYear"
+msgstr ""
+
+msgid "stats.dateRange.sinceDate"
+msgstr ""
+
+msgid "stats.dateRange.thisYear"
+msgstr ""
+
+msgid "stats.dateRange.to"
+msgstr ""
+
+msgid "stats.dateRange.untilDate"
+msgstr ""
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr ""
+
+msgid "stats.editorialActivity"
+msgstr ""
+
+msgid "stats.fileViews"
+msgstr ""
+
+msgid "stats.html"
+msgstr ""
+
+msgid "stats.monthly"
+msgstr ""
+
+msgid "stats.pdf"
+msgstr ""
+
+msgid "stats.searchSubmissionDescription"
+msgstr ""
+
+msgid "stats.submissionsActive"
+msgstr ""
+
+msgid "stats.total"
+msgstr ""
+
+msgid "stats.totalWithinDateRange"
+msgstr ""
+
+msgid "stats.trends"
+msgstr ""
+
+msgid "stats.userStatistics"
+msgstr ""
+
+msgid "stats.name.submissionsReceived"
+msgstr ""
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr ""
+
+msgid "stats.name.submissionsDeclined"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr ""
+
+msgid "stats.name.submissionsPublished"
+msgstr ""
+
+msgid "stats.name.daysToDecision"
+msgstr ""
+
+msgid "stats.name.daysToAccept"
+msgstr ""
+
+msgid "stats.name.daysToReject"
+msgstr ""
+
+msgid "stats.name.acceptanceRate"
+msgstr ""
+
+msgid "stats.name.declineRate"
+msgstr ""
+
+msgid "stats.name.declinedDeskRate"
+msgstr ""
+
+msgid "stats.name.declinedReviewRate"
+msgstr ""

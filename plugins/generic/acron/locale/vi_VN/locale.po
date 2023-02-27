@@ -11,25 +11,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.generic.acron.tasksReloaded"
-msgstr "Công việc đã lên lịch đã được nạp lại."
-
-msgid "plugins.generic.acron.reload"
-msgstr "Tải lại các công việc đã lên lịch"
-
-msgid "plugins.generic.acron.reloadedCronTab"
-msgstr "Đã tải lại thành công bảng Cron."
-
-msgid "plugins.generic.acron.disabled"
-msgstr "Plugin Acorn đã bị vô hiệu hóa."
-
-msgid "plugins.generic.acron.enabled"
-msgstr "Plugin Acron đã được kích hoạt."
+msgid "plugins.generic.acron.name"
+msgstr "Plugin Acron"
 
 msgid "plugins.generic.acron.description"
 msgstr ""
 "Plugin này cố gắng giảm sự phụ thuộc của ứng dụng vào các công cụ lập lịch "
 "định kỳ như 'cron'."
 
-msgid "plugins.generic.acron.name"
-msgstr "Plugin Acron"
+msgid "plugins.generic.acron.enabled"
+msgstr "Plugin Acron đã được kích hoạt."
+
+msgid "plugins.generic.acron.disabled"
+msgstr "Plugin Acorn đã bị vô hiệu hóa."
+
+msgid "plugins.generic.acron.reloadedCronTab"
+msgstr "Đã tải lại thành công bảng Cron."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Tải lại các công việc đã lên lịch"
+
+msgid "plugins.generic.acron.tasksReloaded"
+msgstr "Công việc đã lên lịch đã được nạp lại."

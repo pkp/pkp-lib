@@ -44,7 +44,11 @@ msgid "admin.clearTemplateCache"
 msgstr "Vider le cache de modèles"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Votre fichier de configuration a été mis à jour avec succès. Noter que si votre site ne fonctionne plus correctement, vous aurez peut être à réparer manuellement votre configuration en modifiant directement le <tt>config.inc.php</tt>."
+msgstr ""
+"Votre fichier de configuration a été mis à jour avec succès. Noter que si "
+"votre site ne fonctionne plus correctement, vous aurez peut être à réparer "
+"manuellement votre configuration en modifiant directement le <tt>config.inc."
+"php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr ""
@@ -59,6 +63,11 @@ msgstr ""
 msgid "admin.contentsOfConfigFile"
 msgstr "Contenu du fichier de configuration"
 
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Voulez vous de manière permanente supprimer {$contextName} et tout son "
+"contenu ?"
+
 msgid "admin.currentVersion"
 msgstr "Version actuelle"
 
@@ -66,13 +75,29 @@ msgid "admin.dateInstalled"
 msgstr "Date d'installation"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour appliquer les modifications affectées à cette configuration, vous devez ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et remplacer son contenu par le contenu de la zone de texte ci-dessous."
+msgstr ""
+"Le contenu de votre configuration mise à jour est affiché ci-dessous. Pour "
+"appliquer les modifications affectées à cette configuration, vous devez "
+"ouvrir le <tt>config.inc.php</tt> dans un éditeur de texte adéquat et "
+"remplacer son contenu par le contenu de la zone de texte ci-dessous."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Afficher la nouvelle configuration"
 
 msgid "admin.expireSessions"
 msgstr "Fermer les sessions utilisateurs"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Ce paramètre régional est la langue principale du site. Vous ne pouvez pas "
+"le désactiver avant d'avoir choisi un autre paramètre régional principal."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Êtes-vous certain ou certaine de vouloir changer le paramètre régional "
+"principal du site ? Les noms des utilisateurs et utilisatrices, requis dans "
+"le paramètre régional principal du site, seront copiés, lorsque manquants, à "
+"partir du paramètre régional principal existant."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -85,6 +110,12 @@ msgstr "Langues installées"
 
 msgid "admin.languages.installLanguages"
 msgstr "Gérer les langues"
+
+msgid "admin.languages.availableLocales"
+msgstr "Paramètres régionaux disponibles"
+
+msgid "admin.languages.installLocale"
+msgstr "Installer le paramètre régional"
 
 msgid "admin.languages.installLocales"
 msgstr "Installer"
@@ -107,6 +138,9 @@ msgstr "Désinstaller la langue"
 msgid "admin.phpInfo"
 msgstr "Information détaillée concernant PHP"
 
+msgid "admin.scheduledTask"
+msgstr "Tâche programmée"
+
 msgid "admin.scheduledTask.startTime"
 msgstr "Début du processus."
 
@@ -115,6 +149,22 @@ msgstr "Arrêt du processus."
 
 msgid "admin.scheduledTask.noLog"
 msgstr "La tâche n'a produit aucun journal d'événement."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Votre installation de {$softwareName} a complété l'exécution de cette tâche. "
+"Vous pouvez télécharger le journal d'exécution ici : {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches "
+"planifiées ?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Supprimer le journal d'exécution des tâches planifiées"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publier les soumissions dont la publication est planifiée"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Rappel d'examen"
@@ -131,9 +181,6 @@ msgstr "Pilote de base de données"
 msgid "admin.server.dbVersion"
 msgstr "Version du serveur de bases de données"
 
-msgid "admin.serverInformationDescription"
-msgstr "Versions du système d'exploitation de base et du logiciel serveur. Cliquer sur <span class=\"highlight\">Information détaillée concernant PHP</span> pour avoir plus de détails sur la configuration PHP de ce serveur."
-
 msgid "admin.serverInformation"
 msgstr "Information sur le serveur"
 
@@ -143,8 +190,14 @@ msgstr "Version PHP"
 msgid "admin.server.platform"
 msgstr "Système d'exploitation"
 
+msgid "admin.settings"
+msgstr "Paramètres"
+
 msgid "admin.settings.about"
 msgstr "Description \"À propos du site\""
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
 
 msgid "admin.settings.contactEmail"
 msgstr "Courriel du contact principal"
@@ -171,17 +224,21 @@ msgstr "Introduction"
 msgid "admin.settings.minPasswordLength"
 msgstr "Longueur minimum du mot de passe"
 
-msgid "admin.settings.oaiRegistration"
-msgstr "Enregistrer le site pour l'indexation (collecte de métadonnées)"
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
 
-msgid "admin.settings.passwordCharacters"
-msgstr "caractères"
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Langue du site"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Format de la feuille de style du site invalide. Le format accepté est .css."
+msgstr ""
+"Format de la feuille de style du site invalide. Le format accepté est .css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Feuille de style du site"
@@ -192,6 +249,9 @@ msgstr "Logo du site"
 msgid "admin.settings.siteTitle"
 msgstr "Titre du site"
 
+msgid "admin.settings.siteTheme"
+msgstr "Thème du site"
+
 msgid "admin.siteAdmin"
 msgstr "Administration du site"
 
@@ -201,8 +261,13 @@ msgstr "Gestion du site"
 msgid "admin.siteSettings"
 msgstr "Paramètres du site"
 
+msgid "admin.siteSetup"
+msgstr "Réglage du site"
+
 msgid "admin.systemConfigFileReadError"
-msgstr "Le fichier de configuration <tt>config.inc.php</tt> n'existe pas, n'est pas lisible, ou n'est pas valide."
+msgstr ""
+"Le fichier de configuration <tt>config.inc.php</tt> n'existe pas, n'est pas "
+"lisible, ou n'est pas valide."
 
 msgid "admin.systemInformation"
 msgstr "Information sur le système"
@@ -246,6 +311,25 @@ msgstr "Votre système est à jour"
 msgid "admin.version"
 msgstr "Version"
 
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"Le chemin d'accès de base {$path} doit se trouver à l'intérieur du "
+"répertoire des fichiers publics."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Le dossier {$path} n'est pas un répertoire ou ne peut être lu."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Le fichier {$filename} a été traité et archivé."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Chargeur de fichier"
+
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
 "Copier le(s) fichier(s) journal(aux) d'accès Apache, en filtrant les entrées "
@@ -255,8 +339,8 @@ msgstr ""
 "d'accès Apache.\n"
 "\n"
 "Cet outil ne copiera que les fichiers qui ne sont pas déjà dans les "
-"répertoires chargeurs usageStats file/n (étape, traitement, archive, rejet)."
-"\n"
+"répertoires chargeurs usageStats file/n (étape, traitement, archive, "
+"rejet).\n"
 "\n"
 "Utilisation : {$scriptName} path/to/apache/log/file.log\n"
 "Utilisation (traitement de tous les fichiers dans le répertoire) : "
@@ -283,53 +367,6 @@ msgstr ""
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Succès : {$filePath} dans {$destinationPath}"
 
-msgid "admin.languages.cantDisable"
-msgstr "Ce paramètre régional est la langue principale du site. Vous ne pouvez pas le désactiver avant d'avoir choisi un autre paramètre régional principal."
-
-msgid "admin.languages.availableLocales"
-msgstr "Paramètres régionaux disponibles"
-
-msgid "admin.languages.installLocale"
-msgstr "Installer le paramètre régional"
-
-msgid "admin.scheduledTask"
-msgstr "Tâche programmée"
-
-msgid "admin.settings"
-msgstr "Paramètres"
-
-msgid "admin.settings.siteTheme"
-msgstr "Thème du site"
-
-msgid "admin.siteSetup"
-msgstr "Réglage du site"
-
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Le chemin d'accès de base {$path} doit se trouver à l'intérieur du répertoire des fichiers publics."
-
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Le dossier {$path} n'est pas un répertoire ou ne peut être lu."
-
-msgid "admin.fileLoader.moveFileFailed"
-msgstr "Le fichier {$filename} ne peut être déplacé de {$currentFilePath} à {$destinationPath}"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "Le fichier {$filename} a été traité et archivé."
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "Chargeur de fichier"
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Votre installation de {$softwareName} a complété l'exécution de cette tâche. "
-"Vous pouvez télécharger le journal d'exécution ici : {$url}"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Êtes-vous certain de vouloir supprimer le journal d'exécution des tâches planifiées ?"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Supprimer le journal d'exécution des tâches planifiées"
-
 msgid "admin.error.utilExecutionProblem"
 msgstr ""
 "L'exécution de « {$utilPath} » s'est terminée avec l'erreur suivante : "
@@ -340,15 +377,18 @@ msgstr ""
 "Erreur : impossible de lancer \"{$utilPath}\". Veuillez vérifier la "
 "configuration de {$utilVar} dans le fichier config.inc.php."
 
-msgid "admin.contexts.confirmDelete"
-msgstr "Voulez vous de manière permanente supprimer {$contextName} et tout son contenu ?"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publier les soumissions dont la publication est planifiée"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.languages.noLocalesToDownload"
 msgstr ""
-"Êtes-vous certain ou certaine de vouloir changer le paramètre régional "
-"principal du site ? Les noms des utilisateurs et utilisatrices, requis dans "
-"le paramètre régional principal du site, seront copiés, lorsque manquants, à "
-"partir du paramètre régional principal existant."
+
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Versions du système d'exploitation de base et du logiciel serveur. "
+#~ "Cliquer sur <span class=\"highlight\">Information détaillée concernant "
+#~ "PHP</span> pour avoir plus de détails sur la configuration PHP de ce "
+#~ "serveur."
+
+#~ msgid "admin.settings.oaiRegistration"
+#~ msgstr "Enregistrer le site pour l'indexation (collecte de métadonnées)"
+
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "caractères"

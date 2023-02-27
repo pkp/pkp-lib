@@ -5,8 +5,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2020-06-16 13:39+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/api/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/api/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,60 +14,92 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. Recarregue a página."
+msgid "api.400.paramNotSupported"
+msgstr "O parâmetro {$param} não é suportado."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Você pode ver apenas submissões não publicadas as quais foi designada."
+msgid "api.400.invalidApiToken"
+msgstr ""
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Você não pode apagar uma submissão que não está associada a esse contexto."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Você não tem permissões para apagar essa submissão."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr "Você não está autorizado para acessar o recurso solicitado."
 
 msgid "api.404.resourceNotFound"
 msgstr "O recurso requisitado não foi encontrado."
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Seu pedido não pode ser atendido pois informação requerida está faltando."
+msgid "api.404.endpointNotFound"
+msgstr "A URL solicitada não foi reconhecida."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "O volume requisitado, número ou ano não é válido."
-
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Sua solicitação não é válida. O intervalo de tempo deve ser 'dia' ou ' mês'."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "A data final não pode ser posterior a ontem."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "A data de início não pode ser anterior a 01-01-2001."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "A data de início não pode ser posterior à data de término."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "A data deve estar no formato AAAA-MM-DD."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "Você não tem permissão para editar esta publicação."
-
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.500.badAuthorizationheader"
 msgstr ""
-"O diretório de arquivos públicos não foi encontrado ou os arquivos não podem "
-"ser salvos nele. Entre em contato com seu administrador para resolver esse "
-"problema."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.announcements.404.announcementNotFound"
 msgstr ""
-"Você não possui espaço suficiente no diretório do usuário. O arquivo que "
-"você está carregando tem {$fileUploadSize} kb e você tem {$dirSizeLeft} kb "
-"restantes."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Você não tem permissão para transferir arquivos."
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "O modelo de e-mail solicitado não foi encontrado."
+
+msgid "api.files.400.noUpload"
+msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Um ou mais arquivos não foram enviados."
+
+msgid "api.files.400.fileSize"
+msgstr "Arquivos maiores do que {$maxSize} não podem ser enviados."
+
+msgid "api.files.400.config"
+msgstr ""
+"O arquivo não pôde ser enviado por causa de um erro de configuração no "
+"servidor. Por favor, entre em contato com o administrador do sistema."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "A publicação que você deseja publicar já está publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "A publicação que você deseja despublicar não está publicada."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Você não pode editar esta publicação, porque ela já está publicada."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Você não pode modificar o status diretamente através da API. Em vez disso, "
+"use os pontos de extremidade /publish e /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Você deve despublicar esta publicação antes de poder excluí-la."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Você pode fazer transferência apenas dos seguintes tipos de arquivos: "
+"{$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A imagem que você transferiu não é válida."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -75,74 +107,115 @@ msgstr ""
 "acontecer quando um arquivo foi renomeado para um tipo incompatível, por "
 "exemplo, alterando photo.png para photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "A imagem que você transferiu não é válida."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Você não tem permissão para transferir arquivos."
 
-msgid "api.publicFiles.400.extensionNotSupported"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Você pode fazer transferência apenas dos seguintes tipos de arquivos: "
-"{$fileTypes}."
+"Você não possui espaço suficiente no diretório do usuário. O arquivo que "
+"você está carregando tem {$fileUploadSize} kb e você tem {$dirSizeLeft} kb "
+"restantes."
 
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Você deve despublicar esta publicação antes de poder excluí-la."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Você não pode modificar o status diretamente através da API. Em vez disso, "
-"use os pontos de extremidade /publish e /unpublish."
+"O diretório de arquivos públicos não foi encontrado ou os arquivos não podem "
+"ser salvos nele. Entre em contato com seu administrador para resolver esse "
+"problema."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Você não pode editar esta publicação, porque ela já está publicada."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "A data deve estar no formato AAAA-MM-DD."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "A publicação que você deseja despublicar não está publicada."
+msgid "api.stats.400.wrongDateRange"
+msgstr "A data de início não pode ser posterior à data de término."
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "A publicação que você deseja publicar já está publicada."
+msgid "api.stats.400.earlyDateRange"
+msgstr "A data de início não pode ser anterior a 01-01-2001."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "O modelo de e-mail solicitado não foi encontrado."
+msgid "api.stats.400.lateDateRange"
+msgstr "A data final não pode ser posterior a ontem."
 
-msgid "api.404.endpointNotFound"
-msgstr "A URL solicitada não foi reconhecida."
-
-msgid "api.403.unauthorized"
-msgstr "Você não está autorizado para acessar o recurso solicitado."
-
-msgid "api.400.paramNotSupported"
-msgstr "O parâmetro {$param} não é suportado."
-
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "O vocabulário {$vocab} não é suportado."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "O idioma {$locale} não é suportado."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"O tema ativo, {$themePluginPath}, não está habilitado e pode não ter sido "
-"instalado."
+"Sua solicitação não é válida. O intervalo de tempo deve ser 'dia' ou ' mês'."
 
-msgid "api.files.400.config"
+msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
-"O arquivo não pôde ser enviado por causa de um erro de configuração no "
-"servidor. Por favor, entre em contato com o administrador do sistema."
+"Requisição inválida. O valor orderDirection precisa ser `desc` (descendente) "
+"ou `asc` (ascendente) ."
 
-msgid "api.files.400.fileSize"
-msgstr "Arquivos maiores do que {$maxSize} não podem ser enviados."
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
 
-msgid "api.files.400.uploadFailed"
-msgstr "Um ou mais arquivos não foram enviados."
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
 
-msgid "api.files.400.noUpload"
-msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Seu pedido não pode ser atendido pois informação requerida está faltando."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "O volume requisitado, número ou ano não é válido."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. "
+"Recarregue a página."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Você não pode apagar uma submissão que não está associada a esse contexto."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Você pode ver apenas submissões não publicadas as quais foi designada."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Você não tem permissões para apagar essa submissão."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Você não tem permissão para editar esta publicação."
 
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Este terminal não está disponível em um contexto. Ele deve ser acessado no "
 "namespace de todo o site."
 
-msgid "api.stats.400.invalidOrderDirection"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Requisição inválida. O valor orderDirection precisa ser `desc` (descendente) "
-"ou `asc` (ascendente) ."
+"O tema ativo, {$themePluginPath}, não está habilitado e pode não ter sido "
+"instalado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "O idioma {$locale} não é suportado."
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "O vocabulário {$vocab} não é suportado."

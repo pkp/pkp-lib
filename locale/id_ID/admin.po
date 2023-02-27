@@ -14,6 +14,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "admin.systemInfo.settingName"
+msgstr "Pengaturan Nama"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Pengaturan Nilai"
+
 msgid "admin.adminFunctions"
 msgstr "Fungsi Administratif"
 
@@ -37,7 +43,10 @@ msgid "admin.clearTemplateCache"
 msgstr "Hapus Template Cache"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "File konfigurasi Anda telah sukses diupdate. Jika situs Anda tidak lagi berfungsi dengan benar, Anda mungkin perlu memperbaiki konfigurasi Anda secara manual dengan mengedit <tt>config.inc.php</tt> secara langsung."
+msgstr ""
+"File konfigurasi Anda telah sukses diupdate. Jika situs Anda tidak lagi "
+"berfungsi dengan benar, Anda mungkin perlu memperbaiki konfigurasi Anda "
+"secara manual dengan mengedit <tt>config.inc.php</tt> secara langsung."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Apakah Anda yakin ingin membersihkan template cache yang disusun?"
@@ -51,6 +60,10 @@ msgstr ""
 msgid "admin.contentsOfConfigFile"
 msgstr "File konfigurasi isi"
 
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Yakin ingin menghapus secara permanen {$contextName} dan seluruh isinya?"
+
 msgid "admin.currentVersion"
 msgstr "Versi Terkini"
 
@@ -58,7 +71,11 @@ msgid "admin.dateInstalled"
 msgstr "Tanggal penginstalan"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Isi dari konfigurasi yang sudah diupdate milik Anda ditampilkan sekarang. Untuk menerapkan perubahan konfigurasi Anda harus membuka <tt>config.inc.php</tt> di text editor yang sesuai dan mengganti isinya dengan isi text editor di bawah ini."
+msgstr ""
+"Isi dari konfigurasi yang sudah diupdate milik Anda ditampilkan sekarang. "
+"Untuk menerapkan perubahan konfigurasi Anda harus membuka <tt>config.inc."
+"php</tt> di text editor yang sesuai dan mengganti isinya dengan isi text "
+"editor di bawah ini."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Tampilkan Konfigurasi Baru"
@@ -66,14 +83,33 @@ msgstr "Tampilkan Konfigurasi Baru"
 msgid "admin.expireSessions"
 msgstr "Akhiri Sesi Pengguna"
 
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bahasa ini adalah bahasa utama situs web. Anda tidak bisa menonaktifkannya "
+"sebelum memilih bahasa utama lain."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Yakin ingin mengganti bahasa utama situs web? Nama pengguna, yang diperlukan "
+"dalam bahasa utama situs, akan disalin dari bahasa utama yang ada apabila "
+"belum ditemukan."
+
 msgid "admin.languages.confirmReload"
-msgstr "Apakah Anda yakin ingin memuat ulang locale ini? Ini akan menghapus semua data spesifik-locale yang sudah ada seperti template email yang disesuaikan."
+msgstr ""
+"Apakah Anda yakin ingin memuat ulang locale ini? Ini akan menghapus semua "
+"data spesifik-locale yang sudah ada seperti template email yang disesuaikan."
 
 msgid "admin.languages.installedLocales"
 msgstr "Locale yang diinstal"
 
 msgid "admin.languages.installLanguages"
 msgstr "Mengatur Locale"
+
+msgid "admin.languages.availableLocales"
+msgstr "Bahasa yang Tersedia"
+
+msgid "admin.languages.installLocale"
+msgstr "Install Bahasa"
 
 msgid "admin.languages.installLocales"
 msgstr "Instal"
@@ -96,8 +132,37 @@ msgstr "Uninstal locale"
 msgid "admin.phpInfo"
 msgstr "Informasi PHP Selengkapnya"
 
-msgid "admin.saveSystemConfig"
-msgstr "Simpan Konfigurasi"
+msgid "admin.scheduledTask"
+msgstr "Tugas Terjadwal"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Proses tugas dimulai."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Proses tugas dihentikan."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tugas tidak menghasilkan log."
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Instalasi {$softwareName} Anda secara otomatis menjalankan dan menyelesaikan "
+"tugas ini dan Anda dapat mengunduh file lognya di sini: {$url}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Anda yakin ingin menghapus semua log pelaksanaan tugas terjadwal?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Bersihkan Log Eksekusi Tugas Terjadwal"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Pengingat Review"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Pengingat masa habis berlangganan"
 
 msgid "admin.server.apacheVersion"
 msgstr "Versi Apache"
@@ -108,9 +173,6 @@ msgstr "Database driver"
 msgid "admin.server.dbVersion"
 msgstr "Versi server database"
 
-msgid "admin.serverInformationDescription"
-msgstr "Informasi mengenai sistem operasi dan versi perangkat lunak server. Klik <span class=\"highlight\">Informasi Detail PHP</span> untuk melihat detail konfigurasi server PHP."
-
 msgid "admin.serverInformation"
 msgstr "Informasi Server"
 
@@ -120,8 +182,14 @@ msgstr "Versi PHP"
 msgid "admin.server.platform"
 msgstr "Platform OS"
 
+msgid "admin.settings"
+msgstr "Pengaturan"
+
 msgid "admin.settings.about"
 msgstr "Deskripsi Situs"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
 
 msgid "admin.settings.contactEmail"
 msgstr "Email Kontak Utama"
@@ -129,14 +197,31 @@ msgstr "Email Kontak Utama"
 msgid "admin.settings.contactName"
 msgstr "Nama Kontak Utama"
 
+msgid "admin.settings.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\tInstalasi Anda diatur untuk mencatat lebih dari satu metrik pemakaian. "
+"statistik pemakaian akan ditampilkan dalam beberapa konteks.\n"
+"\t\tAda beberapa kasus di mana hanya satu statistik penggunakan yang boleh "
+"digunakan, misalnya untuk menampilkan daftar urut naskah yang paling banyak "
+"digunakan atau untuk mengurutkan\n"
+"\t\thasil pencarian. Pilih satu metrik sebagai pengaturan bawaan.\n"
+"\t"
+
 msgid "admin.settings.introduction"
 msgstr "Pendahuluan"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Panjang Kata Sandi Min"
 
-msgid "admin.settings.passwordCharacters"
-msgstr "Karakter"
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Bahasa Situs"
@@ -147,8 +232,14 @@ msgstr "Format Stylesheet situs tidak valid. Format yang diterima adalah .css."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Style Sheet"
 
+msgid "admin.settings.siteLogo"
+msgstr "Logo Situs"
+
 msgid "admin.settings.siteTitle"
 msgstr "Nama Situs"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema Situs"
 
 msgid "admin.siteAdmin"
 msgstr "Administrasi Situs"
@@ -159,8 +250,13 @@ msgstr "Manajemen Situs"
 msgid "admin.siteSettings"
 msgstr "Pengaturan Situs"
 
+msgid "admin.siteSetup"
+msgstr "Pengaturan Situs"
+
 msgid "admin.systemConfigFileReadError"
-msgstr "File konfigurasi <tt>config.inc.php</tt> tidak ada, tidak terbaca, atau invalid."
+msgstr ""
+"File konfigurasi <tt>config.inc.php</tt> tidak ada, tidak terbaca, atau "
+"invalid."
 
 msgid "admin.systemInformation"
 msgstr "Informasi Sistem"
@@ -204,6 +300,23 @@ msgstr "Sistem Anda up-to-date"
 msgid "admin.version"
 msgstr "Versi"
 
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Alamat utama {$path} harus berada di direktori file publik."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} bukan sebuah direktori atau tidak dapat dibaca."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"File {$filename} tidak bisa dipindahkan dari {$currentFilePath} ke "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "File {$filename} telah diproses dan disimpan."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Pemuat File"
+
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
 "Salin file log akses apache yang dilewati, yang menyaring entri berkaitan "
@@ -220,132 +333,46 @@ msgstr ""
 "to/apache/directory\n"
 "\t"
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Terbitkan naskah yang telah dijadwalkan terbit"
+msgid "admin.copyAccessLogFileTool.error.creatingFolder"
+msgstr "Error: tidak dapat membuat foledr temporer {$tmpDir}"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Tidak ada bahasa yang dapat diunduh."
+msgid "admin.copyAccessLogFileTool.error.acessingFile"
+msgstr "Error: File {$filePath} tidak dapat diakses atau tidak ada."
 
-msgid "admin.error.executingUtil"
-msgstr ""
-"Error: tidak dapat mejalankan \"{$utilPath}\".  Periksa pengaturan {$utilVar}"
-" dalam file config.inc.php."
+msgid "admin.copyAccessLogFileTool.error.copyingFile"
+msgstr "Error: tidak dapat menyalin file dari {$filePath} ke {$tmpFilePath}"
 
-msgid "admin.error.utilExecutionProblem"
-msgstr "Eksekusi program \"{$utilPath}\" mengembalikan galat berikut: {$output}"
-
-msgid "admin.copyAccessLogFileTool.success"
-msgstr "Berhasil: {$filePath} ke {$destinationPath}"
+msgid "admin.copyAccessLogFileTool.error.deletingFile"
+msgstr "Error: tidak bisa menghapus file {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
 msgstr ""
 "Peringatan: file {$filePath} sudah ada di dalam direktori statistik "
 "pemakaian."
 
-msgid "admin.copyAccessLogFileTool.error.deletingFile"
-msgstr "Error: tidak bisa menghapus file {$tmpFilePath}"
+msgid "admin.copyAccessLogFileTool.success"
+msgstr "Berhasil: {$filePath} ke {$destinationPath}"
 
-msgid "admin.copyAccessLogFileTool.error.copyingFile"
-msgstr "Error: tidak dapat menyalin file dari {$filePath} ke {$tmpFilePath}"
-
-msgid "admin.copyAccessLogFileTool.error.acessingFile"
-msgstr "Error: File {$filePath} tidak dapat diakses atau tidak ada."
-
-msgid "admin.copyAccessLogFileTool.error.creatingFolder"
-msgstr "Error: tidak dapat membuat foledr temporer {$tmpDir}"
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "Pemuat File"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "File {$filename} telah diproses dan disimpan."
-
-msgid "admin.fileLoader.moveFileFailed"
+msgid "admin.error.utilExecutionProblem"
 msgstr ""
-"File {$filename} tidak bisa dipindahkan dari {$currentFilePath} ke "
-"{$destinationPath}"
+"Eksekusi program \"{$utilPath}\" mengembalikan galat berikut: {$output}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Folder {$path} bukan sebuah direktori atau tidak dapat dibaca."
-
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Alamat utama {$path} harus berada di direktori file publik."
-
-msgid "admin.siteSetup"
-msgstr "Pengaturan Situs"
-
-msgid "admin.settings.siteTheme"
-msgstr "Tema Situs"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo Situs"
-
-msgid "admin.settings.defaultMetricDescription"
+msgid "admin.error.executingUtil"
 msgstr ""
-"\n"
-"\t\tInstalasi Anda diatur untuk mencatat lebih dari satu metrik pemakaian. "
-"statistik pemakaian akan ditampilkan dalam beberapa konteks.\n"
-"\t\tAda beberapa kasus di mana hanya satu statistik penggunakan yang boleh "
-"digunakan, misalnya untuk menampilkan daftar urut naskah yang paling banyak "
-"digunakan atau untuk mengurutkan\n"
-"\t\thasil pencarian. Pilih satu metrik sebagai pengaturan bawaan.\n"
-"\t"
+"Error: tidak dapat mejalankan \"{$utilPath}\".  Periksa pengaturan "
+"{$utilVar} dalam file config.inc.php."
 
-msgid "admin.settings"
-msgstr "Pengaturan"
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Tidak ada bahasa yang dapat diunduh."
 
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Pengingat masa habis berlangganan"
+#~ msgid "admin.saveSystemConfig"
+#~ msgstr "Simpan Konfigurasi"
 
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Pengingat Review"
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Informasi mengenai sistem operasi dan versi perangkat lunak server. Klik "
+#~ "<span class=\"highlight\">Informasi Detail PHP</span> untuk melihat "
+#~ "detail konfigurasi server PHP."
 
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Bersihkan Log Eksekusi Tugas Terjadwal"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Anda yakin ingin menghapus semua log pelaksanaan tugas terjadwal?"
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Instalasi {$softwareName} Anda secara otomatis menjalankan dan menyelesaikan "
-"tugas ini dan Anda dapat mengunduh file lognya di sini: {$url}"
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Tugas tidak menghasilkan log."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Proses tugas dihentikan."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Proses tugas dimulai."
-
-msgid "admin.scheduledTask"
-msgstr "Tugas Terjadwal"
-
-msgid "admin.languages.installLocale"
-msgstr "Install Bahasa"
-
-msgid "admin.languages.availableLocales"
-msgstr "Bahasa yang Tersedia"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Yakin ingin mengganti bahasa utama situs web? Nama pengguna, yang diperlukan "
-"dalam bahasa utama situs, akan disalin dari bahasa utama yang ada apabila "
-"belum ditemukan."
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Bahasa ini adalah bahasa utama situs web. Anda tidak bisa menonaktifkannya "
-"sebelum memilih bahasa utama lain."
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Yakin ingin menghapus secara permanen {$contextName} dan seluruh isinya?"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Pengaturan Nilai"
-
-msgid "admin.systemInfo.settingName"
-msgstr "Pengaturan Nama"
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "Karakter"

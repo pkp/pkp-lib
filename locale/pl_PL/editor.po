@@ -18,8 +18,35 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Czy na pewno chcesz usunąć przesłane teksty?"
 
+msgid "editor.activityLog"
+msgstr "Historia aktywności"
+
 msgid "editor.submissionLibrary"
 msgstr "Biblioteka zgłoszeń"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decyzja zarejestrowana"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Zgłoszenie odrzucone."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Zgłoszenie zaakceptowane."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Zgłoszenie zostało opublikowane."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Rozpocznij nową rundę recenzji."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Wyślij do etapu produkcji."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Zgłoszenie zaakceptowane do recenzji."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Zmień decyzję"
 
 msgid "editor.review.notInitiated"
 msgstr "Proces recenzji nie został jeszcze rozpoczęty."
@@ -31,7 +58,9 @@ msgid "editor.submission.externalReviewDescription"
 msgstr "Wybierz pliki, które zostaną wysłane do recenzji."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Musisz wybrać przynajmniej jeden plik, do którego zostanie przypisany użytkownik."
+msgstr ""
+"Musisz wybrać przynajmniej jeden plik, do którego zostanie przypisany "
+"użytkownik."
 
 msgid "editor.submission.fileAuditor.form.messageRequired"
 msgstr "Wiadomość jest wymagana."
@@ -52,7 +81,13 @@ msgid "editor.submission.revisions"
 msgstr "Wersje tekstu poprawione przez autora"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Użyj <em>+Dodaj recenzenta</em> aby zaprosić czytelników do recenzji zgłoszonych tekstów. Ikona notatnika oznacza, że recenzja została przesłana, a następnie jest oznaczona jako <em>Potwierdzone</em> po sprawdzeniu i skonsultowaniu. Jeżeli recenzenci przekraczają czas przeznaczony na wykonanie recenzji, czerwona ikona koperty pojawia się umożliwiając wysłanie ponaglenia recenzentom."
+msgstr ""
+"Użyj <em>+Dodaj recenzenta</em> aby zaprosić czytelników do recenzji "
+"zgłoszonych tekstów. Ikona notatnika oznacza, że recenzja została przesłana, "
+"a następnie jest oznaczona jako <em>Potwierdzone</em> po sprawdzeniu i "
+"skonsultowaniu. Jeżeli recenzenci przekraczają czas przeznaczony na "
+"wykonanie recenzji, czerwona ikona koperty pojawia się umożliwiając wysłanie "
+"ponaglenia recenzentom."
 
 msgid "editor.submission.addReviewer"
 msgstr "Dodaj recenzenta"
@@ -81,8 +116,20 @@ msgstr "Przypisz istniejącego użytkownika"
 msgid "editor.review.unassignReviewer"
 msgstr "Cofnij przypisanie recenzenta"
 
+msgid "editor.review.cancelReviewer"
+msgstr "Usuń recenzenta"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Przywróć recenzenta"
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Rodzaj recenzji"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Wyślij e-mail z powiadomieniem do redaktora(ów): {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Nie wysyłaj wiadomości e-mail z powiadomieniem"
@@ -105,6 +152,9 @@ msgstr "Zamknij dział plików"
 msgid "editor.submissionReview.editReview"
 msgstr "Edytuj recenzję"
 
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonimowy recenzent"
+
 msgid "editor.review.personalMessageToReviewer"
 msgstr "E-mail, który zostanie wysłany do recenzenta"
 
@@ -114,6 +164,9 @@ msgstr "Ważne terminy"
 msgid "editor.review.uploadRevision"
 msgstr "Prześlij poprawiony tekst"
 
+msgid "editor.review.newReviewRound"
+msgstr "Wymagaj kolejnej rundy recenzji"
+
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Tekst wymaga poprawek, ale nie wymaga kolejnej rundy recenzji."
 
@@ -122,6 +175,9 @@ msgstr "Tekst wymaga poprawek oraz kolejnej rundy recenzji."
 
 msgid "editor.review.dateAccepted"
 msgstr "Termin akceptacji recenzji"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Recenzje dodane do treści wiadomości."
 
 msgid "editor.review.noReviews"
 msgstr "Brak recenzji do zaimportowania"
@@ -159,6 +215,18 @@ msgstr "Zapytanie wysłane"
 msgid "editor.review.requestAccepted"
 msgstr "Zapytanie zaakceptowane"
 
+msgid "editor.review.requestDeclined"
+msgstr "Zapytanie odrzucone"
+
+msgid "editor.review.requestCancelled"
+msgstr "Prośba skasowana"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent odrzucił zapytanie o wykonanie recenzji."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktor odwołał prośbę o recenzję."
+
 msgid "editor.review.revertDecision"
 msgstr "Przywróć decyzję"
 
@@ -177,8 +245,22 @@ msgstr "Recenzja potwierdzona"
 msgid "editor.review.reviewSubmitted"
 msgstr "Recenzja przesłana"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzent otrzymał podziękowanie"
+
 msgid "editor.review.reviewerComments"
 msgstr "Komentarze recenzenta"
+
+msgid "editor.review.rateReviewer"
+msgstr "Ocena recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Oceń jakość dostarczonej recenzji. Ocena recenzenta nie jest widoczna dla "
+"recenzenta."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Brak oceny"
 
 msgid "editor.review.mustSelect"
 msgstr "Musisz wybrać recenzenta"
@@ -189,17 +271,36 @@ msgstr "Wystąpił błąd podczas dodawania recenzenta. Spróbuj ponownie późn
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Wystąpił błąd podczas usuwania recenzenta. Spróbuj ponownie później."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Wystąpił błąd w trakcie przywracania recenzenta. Proszę spróbować ponownie."
+
 msgid "editor.review.userGroupSelect"
 msgstr "Przypisz użytkownika do tej grupy recenzentów"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Czy oznaczyć tą recenzję jako nierozpatrzoną? Historia recenzji zostanie zachowana."
+msgstr ""
+"Czy oznaczyć tą recenzję jako nierozpatrzoną? Historia recenzji zostanie "
+"zachowana."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Cofnij rozpatrzenie recenzji"
 
 msgid "editor.review.readConfirmation"
-msgstr "Po przeczytaniu recenzji kliknij \"Potwierdź\", aby oznaczyć, że proces recenzji może zostać kontynuowany. Jeżeli recenzent przesłał swoją recenzję w inne miejsce, możesz przesłać plik recenzji poniżej i kliknąć \"Akceptuj\", aby przejść dalej."
+msgstr ""
+"Po przeczytaniu recenzji kliknij \"Potwierdź\", aby oznaczyć, że proces "
+"recenzji może zostać kontynuowany. Jeżeli recenzent przesłał swoją recenzję "
+"w inne miejsce, możesz przesłać plik recenzji poniżej i kliknąć \"Akceptuj"
+"\", aby przejść dalej."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Zaplanuj publikację"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Pliki korekty"
@@ -226,16 +327,25 @@ msgid "editor.submission.proof.reminder"
 msgstr "Przypomnienie o wykonaniu korekty pliku do publikacji"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Plik musi zostać zatwierdzony przed wysłaniem do etapu produkcji. Czy zatwierdzasz plik?"
+msgstr ""
+"Plik musi zostać zatwierdzony przed wysłaniem do etapu produkcji. Czy "
+"zatwierdzasz plik?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Odrzucenie pliku uniemożliwi jego przesłanie do etapu produkcji. Czy chcesz odrzucić plik?"
+msgstr ""
+"Odrzucenie pliku uniemożliwi jego przesłanie do etapu produkcji. Czy chcesz "
+"odrzucić plik?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Dodaj kontrolera"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Wszystkie pliki, które zostały przesłane do dowolnego etapu zgłoszenia mogą zostać dodane do listy plików korekty poprzez oznaczenie pola wyboru poniżej oraz kliknięcie Szukaj. Wszystkie znalezione pliki będą możliwe do uwzględnienia. Dodatkowe pliki, które nie zostały jeszcze przesłane, mogą zostać uwzględnione w liście poprzez kliknięcie w link Prześlij plik."
+msgstr ""
+"Wszystkie pliki, które zostały przesłane do dowolnego etapu zgłoszenia mogą "
+"zostać dodane do listy plików korekty poprzez oznaczenie pola wyboru poniżej "
+"oraz kliknięcie Szukaj. Wszystkie znalezione pliki będą możliwe do "
+"uwzględnienia. Dodatkowe pliki, które nie zostały jeszcze przesłane, mogą "
+"zostać uwzględnione w liście poprzez kliknięcie w link Prześlij plik."
 
 msgid "editor.review"
 msgstr "Recenzja"
@@ -261,8 +371,25 @@ msgstr "Nowa runda recenzji"
 msgid "editor.submissionReview.recordDecision"
 msgstr "Zapisz decyzję redaktora"
 
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Zapisz rekomendację redaktora"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Powiadom redaktorów"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Nie wysyłaj redaktorom wiadomości e-mail."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Utwórz dyskusję poświęconą tej rekomendacji."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Nie twórz dyskusji poświęconej tej rekomendacji."
+
 msgid "editor.submission.newRoundDescription"
-msgstr "Masz zamiar utworzyć nową rundę recenzji dla tego zgłoszenia. Pliki, które nie zostały wykorzystane w poprzednich rundach są dostępne poniżej."
+msgstr ""
+"Masz zamiar utworzyć nową rundę recenzji dla tego zgłoszenia. Pliki, które "
+"nie zostały wykorzystane w poprzednich rundach są dostępne poniżej."
 
 msgid "editor.submission.createNewRound"
 msgstr "Utwórz nową rundę recenzji"
@@ -274,7 +401,10 @@ msgid "editor.article.selectReviewForm"
 msgstr "Wybierz formularz recenzji"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy na pewno chcesz kontynuować?"
+msgstr ""
+"Uwaga: Wprowadzenie zmian w formularzu recenzji będzie miało wpływ na "
+"odpowiedzi, które recenzenci już złożyli korzystając z tego formularza. Czy "
+"na pewno chcesz kontynuować?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nie wybrano plików"
@@ -295,7 +425,8 @@ msgid "grid.action.editQuery"
 msgstr "Edytuj dyskusję"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Pliki mogą zostać dołączone do dyskusji za pomocą listy widocznej poniżej."
+msgstr ""
+"Pliki mogą zostać dołączone do dyskusji za pomocą listy widocznej poniżej."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Wybrany recenzent"
@@ -307,61 +438,22 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Cofnij zatwierdzenie korekty pliku do publikacji"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Zatwierdź korektę pliku, aby oznaczyć, że plik jest już gotowy do publikacji."
+msgstr ""
+"Zatwierdź korektę pliku, aby oznaczyć, że plik jest już gotowy do publikacji."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Cofnij zatwierdzenie korekty pliku, aby oznaczyć, że plik nie jest gotowy do publikacji."
+msgstr ""
+"Cofnij zatwierdzenie korekty pliku, aby oznaczyć, że plik nie jest gotowy do "
+"publikacji."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Czy na pewno chcesz zmienić decyzje i nie odrzucać tego zgłoszenia?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Publiczny identyfikator '{$publicIdentifier}' nie może być liczbą."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Publiczny identyfikator nie może posiadać wzoru {$pattern}."
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "Wyślij e-mail z powiadomieniem do autora(ów): {$authorName}"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Wyślij e-mail z powiadomieniem do redaktora(ów): {$editorNames}"
-
-msgid "editor.review.newReviewRound"
-msgstr "Wymagaj kolejnej rundy recenzji"
-
-msgid "editor.review.reviewsAdded"
-msgstr "Recenzje dodane do treści wiadomości."
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "Zapisz rekomendację redaktora"
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Powiadom redaktorów"
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Nie wysyłaj redaktorom wiadomości e-mail."
-
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Utwórz dyskusję poświęconą tej rekomendacji."
-
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Nie twórz dyskusji poświęconej tej rekomendacji."
-
-msgid "editor.review.anonymousReviewer"
-msgstr "Anonimowy recenzent"
-
-msgid "editor.review.requestDeclined"
-msgstr "Zapytanie odrzucone"
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Recenzent odrzucił zapytanie o wykonanie recenzji."
-
-msgid "editor.review.rateReviewer"
-msgstr "Ocena recenzenta"
-
-msgid "editor.review.rateReviewer.description"
-msgstr "Oceń jakość dostarczonej recenzji. Ocena recenzenta nie jest widoczna dla recenzenta."
-
-msgid "editor.review.reviewerRating.none"
-msgstr "Brak oceny"
 
 msgid "reviewer.list.filterRating"
 msgstr "Oceniono przynajmniej na"
@@ -377,6 +469,9 @@ msgstr "Ukończone recenzje"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Odrzucone zapytania o wykonania recenzji"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Odwołane prośby o recenzję"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Ocena recenzenta: {$rating}"
@@ -401,7 +496,11 @@ msgstr "Recenzent został już przypisany do zrecenzowania tego tekstu."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Recenzent jest zablokowany ponieważ został przypisany z rolą, która pozwala na identyfikację danych autora. Niemożliwe jest zapewnienie ślepej recenzji. Czy mimo to chcesz odblokować możliwość wykonania recenzji przez tego użytkownika?"
+msgstr ""
+"Recenzent jest zablokowany ponieważ został przypisany z rolą, która pozwala "
+"na identyfikację danych autora. Niemożliwe jest zapewnienie ślepej recenzji. "
+"Czy mimo to chcesz odblokować możliwość wykonania recenzji przez tego "
+"użytkownika?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Odblokuj"
@@ -414,58 +513,3 @@ msgstr "Biografia"
 
 msgid "reviewer.list.empty"
 msgstr "Brak znalezionych recenzentów"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Odwołane prośby o recenzję"
-
-msgid "editor.submission.schedulePublication"
-msgstr "Zaplanuj publikację"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr ""
-"Wystąpił błąd w trakcie przywracania recenzenta. Proszę spróbować ponownie."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Recenzent otrzymał podziękowanie"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Redaktor odwołał prośbę o recenzję."
-
-msgid "editor.review.requestCancelled"
-msgstr "Prośba skasowana"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Przywróć recenzenta"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Usuń recenzenta"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Zmień decyzję"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Zgłoszenie zaakceptowane do recenzji."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Wyślij do etapu produkcji."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Rozpocznij nową rundę recenzji."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Zgłoszenie zostało opublikowane."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Zgłoszenie zaakceptowane."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Zgłoszenie odrzucone."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Decyzja zarejestrowana"
-
-msgid "editor.activityLog"
-msgstr "Historia aktywności"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "Czy na pewno chcesz zmienić decyzje i nie odrzucać tego zgłoszenia?"

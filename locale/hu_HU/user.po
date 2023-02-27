@@ -33,7 +33,9 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "A hitelesítési információ hiányos vagy érvénytelen."
 
 msgid "user.authorization.contextRequired"
-msgstr "Környezet hiányában ezt a műveletet nem lehet meghívni (nyomdai termék, folyóirat, konferencia, stb)."
+msgstr ""
+"Környezet hiányában ezt a műveletet nem lehet meghívni (nyomdai termék, "
+"folyóirat, konferencia, stb)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Bejelentkezés szükséges."
@@ -42,16 +44,27 @@ msgid "user.authorization.privateOperation"
 msgstr "A művelet, amihez megpróbál hozzáférni nem nyilvános vagy nem létezik."
 
 msgid "user.authorization.restrictedSiteAccess"
-msgstr "Az ön hozzáférése megtagadva. Ehhez az oldalhoz való hozzáférése jelenleg korlátozott."
+msgstr ""
+"Az ön hozzáférése megtagadva. Ehhez az oldalhoz való hozzáférése jelenleg "
+"korlátozott."
 
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "Az aktuális szerepkörrel nem tud hozzáférni ehhez a művelethez."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Ehhez a beküldéshez olyan szerepkörrel került hozzárendelésre, ami nem "
+"elégséges a művelethez.  "
+
 msgid "user.authorization.userGroupRequired"
-msgstr "Érvényes felhasználói csoportot kell beállítania, hogy ehhez a művelethez hozzáférhessen."
+msgstr ""
+"Érvényes felhasználói csoportot kell beállítania, hogy ehhez a művelethez "
+"hozzáférhessen."
 
 msgid "user.authorization.managerRequired"
-msgstr "Egy menedzseri szerepkörrel rendelkező felhasználót (pl. Megjelentetési szerkesztő) hozzá kell rendelni ehhez a szakaszhoz mielőtt folytatná."
+msgstr ""
+"Egy menedzseri szerepkörrel rendelkező felhasználót (pl. Megjelentetési "
+"szerkesztő) hozzá kell rendelni ehhez a szakaszhoz mielőtt folytatná."
 
 msgid "user.authorization.accessibleWorkflowStage"
 msgstr "Jelenleg nincs jogosultsága a munkafolyamat ezen szakaszához."
@@ -61,6 +74,13 @@ msgstr "Egy munkafolyamat szakasz nincs meghatározva."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Egy szükséges bővítmény nincs meghatározva."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr ""
+"Nem rendelkezik hozzáférési jogosultsággal ehhez a lektorálási feladathoz. "
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nem rendelkezik hozzáférési jogosultsággal ehhez a konzultációhoz. "
 
 msgid "user.biography"
 msgstr "Életrajzi adat (pl. osztály és beosztás)"
@@ -83,20 +103,8 @@ msgstr "Felhasználói adataim szerkesztése"
 msgid "user.email"
 msgstr "Email"
 
-msgid "user.feminine"
-msgstr "N"
-
-msgid "user.firstName"
+msgid "user.givenName"
 msgstr "Keresztnév"
-
-msgid "user.gender"
-msgstr "nem"
-
-msgid "user.initialsExample"
-msgstr "Joan Alice Smith = JAS"
-
-msgid "user.initials"
-msgstr "Kezdőbetűk"
 
 msgid "user.interests"
 msgstr "Érdeklődési körök"
@@ -104,32 +112,50 @@ msgstr "Érdeklődési körök"
 msgid "user.gossip"
 msgstr "Személyes megjegyzések"
 
+msgid "user.gossip.description"
+msgstr ""
+"Tegyen megjegyzést ehhez a lektoráláshoz, ha szeretné, hogy azt más "
+"adminisztrátorok, menedzserek és az összes szerkesztő lássa. A megjegyzések "
+"a jövőbeli lektorálási felkérésekben lesznek láthatók.   "
+
 msgid "user.group"
 msgstr "Felhasználói csoport"
 
-msgid "user.lastName"
-msgstr "Vezetéknév"
+msgid "user.familyName"
+msgstr "Családnév"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Érvénytelen profilképformátum vagy a kép túl nagy. Elfogadott formátumok .gif, .jpg, vagy .png, és a kép, ne legyen több mint 150x150 pixels."
+msgstr ""
+"Érvénytelen profilképformátum vagy a kép túl nagy. Elfogadott formátumok ."
+"gif, .jpg, vagy .png, és a kép, ne legyen több mint 150x150 pixels."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "A fiókja le lett tiltva a következő okok miatt: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "A fiókja letiltott. További információért kérem, vegye fel a kapcsolatot az adminisztrátorral."
+msgstr ""
+"A fiókja letiltott. További információért kérem, vegye fel a kapcsolatot az "
+"adminisztrátorral."
 
 msgid "user.login.accountNotValidated"
-msgstr "Egy megerősítő levél ment az email címére {$email}. Kérjük, kövesse az emailben lévő instrukciókat, hogy aktiválja a felhasználói fiókját. Ha nem látja a levelet, akkor kérjük, ellenőrizze a spam mappáját."
+msgstr ""
+"Egy megerősítő levél ment az email címére {$email}. Kérjük, kövesse az "
+"emailben lévő instrukciókat, hogy aktiválja a felhasználói fiókját. Ha nem "
+"látja a levelet, akkor kérjük, ellenőrizze a spam mappáját."
 
 msgid "user.login.activate"
 msgstr "Fiók aktiválása"
 
 msgid "user.login.activated"
-msgstr "Köszönjük, hogy aktiválta a fiókját. Most már be tud jelentkezni a fiók létrehozásakor megadott adatokkal."
+msgstr ""
+"Köszönjük, hogy aktiválta a fiókját. Most már be tud jelentkezni a fiók "
+"létrehozásakor megadott adatokkal."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Új jelszót kell választania mielőtt bejelentkezik erre az oldalra.<br /><br />Kérem, adja meg a felhasználónevét, valamint a jelenlegi és az új jelszavát, hogy megváltoztathassa a fiókjához tartozó jelszót."
+msgstr ""
+"Új jelszót kell választania mielőtt bejelentkezik erre az oldalra.<br /><br /"
+">Kérem, adja meg a felhasználónevét, valamint a jelenlegi és az új "
+"jelszavát, hogy megváltoztathassa a fiókjához tartozó jelszót."
 
 msgid "user.login.forgotPassword"
 msgstr "Elfelejtette a jelszavát?"
@@ -141,17 +167,27 @@ msgid "user.login"
 msgstr "Belépés"
 
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Egy visszaigazoló emailt küldtünk az email címére. Kérem, kövesse az abban lévő utasításokat a jelszava visszaállításához."
+msgstr ""
+"Egy visszaigazoló emailt küldtünk az email címére. Kérem, kövesse az abban "
+"lévő utasításokat a jelszava visszaállításához."
+
+#, fuzzy
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+"Nem sikerült végrehajtani a jelszó-visszaállítási kérelmet, mert {$reason}."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "Elnézést, a link, amire kattintott már elévült vagy nem érvényes. Kérem, próbálja meg a jelszó visszaállítást még egyszer."
+msgstr ""
+"Elnézést, a link, amire kattintott már elévült vagy nem érvényes. Kérem, "
+"próbálja meg a jelszó visszaállítást még egyszer."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Ezzel az email címmel nincs felhasználó."
 
 #, fuzzy
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr "A jelszó sikeresen frissítve. Kérjük, jelentkezzen be frissített jelszóval."
+msgstr ""
+"A jelszó sikeresen frissítve. Kérjük, jelentkezzen be frissített jelszóval."
 
 msgid "user.login.registeredEmail"
 msgstr "Regisztrált felhasználói email"
@@ -192,20 +228,11 @@ msgstr "Üdvözlet, "
 msgid "user.mailingAddress"
 msgstr "Levelezési cím"
 
-msgid "user.masculine"
-msgstr "F"
-
-msgid "user.middleName"
-msgstr "Középső név"
-
 msgid "user.myAccount"
 msgstr "Fiókom"
 
 msgid "user.name"
 msgstr "Név"
-
-msgid "user.other"
-msgstr "Egyéb"
 
 msgid "user.password"
 msgstr "Jelszó"
@@ -216,8 +243,16 @@ msgstr "Jelszó megismétlése"
 msgid "user.phone"
 msgstr "Telefon"
 
+msgid "user.preferredPublicName"
+msgstr "Preferált megszólítás"
+
+msgid "user.preferredPublicName.description"
+msgstr "Hogy szólíthatjuk? Ide megadható titulus és középső név is. "
+
 msgid "user.profile.changePasswordInstructions"
-msgstr "Adja meg a jelenlegi és az új jelszavát, hogy megváltoztassa a fiókjához tartozó jelszót."
+msgstr ""
+"Adja meg a jelenlegi és az új jelszavát, hogy megváltoztassa a fiókjához "
+"tartozó jelszót."
 
 msgid "user.profile.editProfile"
 msgstr "Profil szerkesztése"
@@ -228,11 +263,13 @@ msgstr "Ország név kötelező."
 msgid "user.profile.form.emailRequired"
 msgstr "Érvényes email címet kell megadni."
 
-msgid "user.profile.form.firstNameRequired"
-msgstr "A keresztnév megadása kötelező."
+msgid "user.profile.form.givenNameRequired"
+msgstr "Keresztnév megadása szükséges."
 
-msgid "user.profile.form.lastNameRequired"
-msgstr "A vezetéknév megadása kötelező."
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Családi nevet adott meg egy olyan nyelvhez, melyben nem szerepel a "
+"keresztnév. Kérjük, adja meg a keresztnevet ehhez a nyelvhez. "
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Levelezési cím megadása kötelező."
@@ -259,7 +296,9 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Újonnan megjelent számokról email értesítések"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "A megadott URL érvénytelen. Kérjük, még egyszer ellenőrizze az URL-t és próbálja újra. (Tipp: Próbálja hozzáadni a  http:// az URL elejéhez.)"
+msgstr ""
+"A megadott URL érvénytelen. Kérjük, még egyszer ellenőrizze az URL-t és "
+"próbálja újra. (Tipp: Próbálja hozzáadni a  http:// az URL elejéhez.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "Felhasználói csoport megadása kötelező."
@@ -267,8 +306,12 @@ msgstr "Felhasználói csoport megadása kötelező."
 msgid "user.profile.form.usernameRequired"
 msgstr "Felhasználói név megadása kötelező."
 
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Fogadja el az adatkezelési nyilatkozatot. "
+
 msgid "user.profile.leavePasswordBlank"
-msgstr "Hagyja a jelszó mezőt üresen, ha meg akarja tartani az aktuális jelszót."
+msgstr ""
+"Hagyja a jelszó mezőt üresen, ha meg akarja tartani az aktuális jelszót."
 
 msgid "user.profile.newPassword"
 msgstr "Új jelszó"
@@ -289,15 +332,23 @@ msgid "user.login.registerNewAccount"
 msgstr "Regisztráció"
 
 #, fuzzy
-msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr "Nem sikerült végrehajtani a jelszó-visszaállítási kérelmet, mert {$reason}."
-
-#, fuzzy
 msgid "user.login.passwordResetProcessInstructions"
 msgstr "Adja meg az új jelszót a bejelentkezési jelszó frissítéséhez."
 
 msgid "user.login.resetPasswordInstructions"
-msgstr "Adja meg a fiókjához tartozó email címét és egy emailben megkapja a jelszótörléshez szükséges információkat."
+msgstr ""
+"Adja meg a fiókjához tartozó email címét és egy emailben megkapja a "
+"jelszótörléshez szükséges információkat."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Hozzájárulok adataim kezeléséhez az <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">Adatvédelmi nyilatkozat</a> szerint."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Szeretnék értesítést kapni új publikációkról, illetve a folyóirat "
+"közleményeiről. "
 
 msgid "user.register.form.emailExists"
 msgstr "A megadott email címét már használja egy másik felhasználó."
@@ -309,7 +360,10 @@ msgid "user.register.form.emailsDoNotMatch"
 msgstr "Az email cím mezők nem egyeznek."
 
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr "A felhasználónév csak alfanumerikus karaktereket, betű esetén kisbetűket, alávonást és kötőjelet tartalmazhat. Az elején és a végén egy-egy alfanumerikus karakternek kell lennie."
+msgstr ""
+"A felhasználónév csak alfanumerikus karaktereket, betű esetén kisbetűket, "
+"alávonást és kötőjelet tartalmazhat. Az elején és a végén egy-egy "
+"alfanumerikus karakternek kell lennie."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "Legalább egy szerepkört ki kell választania."
@@ -327,10 +381,14 @@ msgid "user.register"
 msgstr "Regisztráció"
 
 msgid "user.register.usernameRestriction"
-msgstr "A felhasználónév csak kisbetűket, számokat és alulvonást/ kötőjelet tartalmazhat."
+msgstr ""
+"A felhasználónév csak kisbetűket, számokat és alulvonást/ kötőjelet "
+"tartalmazhat."
 
 msgid "user.register.registrationCompleted"
-msgstr "Sikeresen regisztrált. <a href=\"{$profileUrl}\">Kattintson ide</a> hogy befejezze a profilja létrehozását."
+msgstr ""
+"Sikeresen regisztrált. <a href=\"{$profileUrl}\">Kattintson ide</a> hogy "
+"befejezze a profilja létrehozását."
 
 msgid "user.role.assistant"
 msgstr "Helyettes"
@@ -389,9 +447,6 @@ msgstr "Tördelőszerkesztők"
 msgid "user.roles"
 msgstr "Szerepkörök"
 
-msgid "user.salutation"
-msgstr "Üdvözlés"
-
 msgid "user.sendPassword"
 msgstr "Megerősítés"
 
@@ -402,9 +457,6 @@ msgstr ""
 
 msgid "user.signature"
 msgstr "Aláírás"
-
-msgid "user.suffix"
-msgstr "Utótag"
 
 msgid "user.title"
 msgstr "Cím"
@@ -442,58 +494,63 @@ msgid "user.apiKey"
 msgstr "API kulcs"
 
 msgid "user.apiKeyEnabled"
-msgstr "Képessé teszi a külső alkalmazásokat, hogy az API kulccsal elérjék ezt a felhasználói fiókot"
+msgstr ""
+"Képessé teszi a külső alkalmazásokat, hogy az API kulccsal elérjék ezt a "
+"felhasználói fiókot"
 
 msgid "user.apiKey.generate"
 msgstr "Új API kulcs generálása"
 
 msgid "user.apiKey.generateWarning"
-msgstr "Új API kulcs generálása érvénytelenné teszi ennek a felhasználónak létező kulcsát."
+msgstr ""
+"Új API kulcs generálása érvénytelenné teszi ennek a felhasználónak létező "
+"kulcsát."
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
 "Mielőtt új API kulcsot generálna, kötelező egy secret értéket beállítani a "
 "konfig fájlban (\"api_key_secret\")."
 
-msgid "user.register.form.privacyConsent"
-msgstr "Hozzájárulok adataim kezeléséhez az <a href=\"{$privacyUrl}\" target=\"_blank\">Adatvédelmi nyilatkozat</a> szerint."
-
-msgid "user.givenName"
-msgstr "Keresztnév"
-
-msgid "user.familyName"
-msgstr "Családnév"
-
-msgid "user.preferredPublicName"
-msgstr "Preferált megszólítás"
-
-
-msgid "user.preferredPublicName.description"
-msgstr "Hogy szólíthatjuk? Ide megadható titulus és középső név is. "
-
 msgid "user.privacyLink"
-msgstr "Az adatokat az <a href=\"{$privacyUrl}\" target=\"_blank\">adatkezelési nyilatkozatunk</a> irányelvei szerint kezeljük. "
+msgstr ""
+"Az adatokat az <a href=\"{$privacyUrl}\" target=\"_blank\">adatkezelési "
+"nyilatkozatunk</a> irányelvei szerint kezeljük. "
 
-msgid "user.register.form.emailConsent"
-msgstr "Szeretnék értesítést kapni új publikációkról, illetve a folyóirat közleményeiről. "
+#~ msgid "user.feminine"
+#~ msgstr "N"
 
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Nem rendelkezik hozzáférési jogosultsággal ehhez a lektorálási feladathoz. "
+#~ msgid "user.firstName"
+#~ msgstr "Keresztnév"
 
-msgid "user.authorization.submissionQuery"
-msgstr "Nem rendelkezik hozzáférési jogosultsággal ehhez a konzultációhoz. "
+#~ msgid "user.gender"
+#~ msgstr "nem"
 
-msgid "user.profile.form.givenNameRequired"
-msgstr "Keresztnév megadása szükséges."
+#~ msgid "user.initialsExample"
+#~ msgstr "Joan Alice Smith = JAS"
 
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Fogadja el az adatkezelési nyilatkozatot. "
+#~ msgid "user.initials"
+#~ msgstr "Kezdőbetűk"
 
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "Ehhez a beküldéshez olyan szerepkörrel került hozzárendelésre, ami nem elégséges a művelethez.  "
+#~ msgid "user.lastName"
+#~ msgstr "Vezetéknév"
 
-msgid "user.gossip.description"
-msgstr "Tegyen megjegyzést ehhez a lektoráláshoz, ha szeretné, hogy azt más adminisztrátorok, menedzserek és az összes szerkesztő lássa. A megjegyzések a jövőbeli lektorálási felkérésekben lesznek láthatók.   "
+#~ msgid "user.masculine"
+#~ msgstr "F"
 
-msgid "user.profile.form.givenNameRequired.locale"
-msgstr "Családi nevet adott meg egy olyan nyelvhez, melyben nem szerepel a keresztnév. Kérjük, adja meg a keresztnevet ehhez a nyelvhez. "
+#~ msgid "user.middleName"
+#~ msgstr "Középső név"
+
+#~ msgid "user.other"
+#~ msgstr "Egyéb"
+
+#~ msgid "user.profile.form.firstNameRequired"
+#~ msgstr "A keresztnév megadása kötelező."
+
+#~ msgid "user.profile.form.lastNameRequired"
+#~ msgstr "A vezetéknév megadása kötelező."
+
+#~ msgid "user.salutation"
+#~ msgstr "Üdvözlés"
+
+#~ msgid "user.suffix"
+#~ msgstr "Utótag"

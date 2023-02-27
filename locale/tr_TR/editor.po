@@ -17,35 +17,41 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Bu kaydı tamamen silmek istediğinizden emin misiniz?"
 
-msgid "editor.review.rateReviewer"
-msgstr "Hakem Puanlama"
+msgid "editor.activityLog"
+msgstr "Etkinlik Günlüğü"
 
 msgid "editor.submissionLibrary"
 msgstr "Gönderi Kütüphanesi"
 
-msgid "editor.submission.copyediting.personalMessageToUser"
-msgstr "Kullanıcıya mesaj gönder"
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Karar kaydedildi"
 
-msgid "editor.submission.uploadSelectFiles"
-msgstr "Dosyaları Seç/Yükle"
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Gönderi reddedildi."
 
-msgid "editor.submission.selectFiles"
-msgstr "Dosyaları Seç"
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Gönderi kabul edildi."
 
-msgid "editor.submission.selectedReviewer"
-msgstr "Seçilen Hakem"
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Gönderi yayınlandı."
 
-msgid "reviewer.list.completedReviews"
-msgstr "Değerlendirme tamamlandı"
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Yeni bir değerlendirme turu için gönderildi."
 
-msgid "reviewer.list.daySinceLastAssignment"
-msgstr "Dün"
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Basıma gönderildi."
 
-msgid "reviewer.list.biography"
-msgstr "Biyografi"
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Gönderi değerlendirme için kabul edildi."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Kararı değiştir"
 
 msgid "editor.review.notInitiated"
 msgstr "Değerlendirme süreci henüz başlatılmamıştır."
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Kullanıcıya mesaj gönder"
 
 msgid "editor.submission.externalReviewDescription"
 msgstr "Değerlendirme aşamasına göndermek için aşağıdaki dosyaları seçin."
@@ -62,8 +68,22 @@ msgstr "Denetçiye e-posta gönderme"
 msgid "editor.submission.fileAuditor.form.userRequired"
 msgstr "Atamak için bir kullanıcı seçmelisiniz."
 
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Dosyaları Seç/Yükle"
+
+msgid "editor.submission.selectFiles"
+msgstr "Dosyaları Seç"
+
 msgid "editor.submission.revisions"
 msgstr "Düzeltmeler"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"Okuyucuları gönderileri değerlendirmeye davet etmek için <em>+Hakem Ekle</"
+"em>'yi kullanın. Dizüstü bilgisayar simgesi, bir değerlendirmenin "
+"gönderildiğini ve ardından da <em>Onaylandığını</em> gösterir. "
+"Değerlendirmeler geciktiğinde, hakemlere hatırlatmak için kırmızı bir zarf "
+"simgesi görüntülenir."
 
 msgid "editor.submission.addReviewer"
 msgstr "Hakem Ekle"
@@ -91,6 +111,12 @@ msgstr "Mevcut Kullanıcıyı Yetkilendir"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Hakem Atamasını İptal Et"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Hakemi İptal Et"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Hakemi Yeniden Ata"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Değerlendirme Türü"
@@ -137,6 +163,12 @@ msgstr "Revizyon Yükle"
 msgid "editor.review.newReviewRound"
 msgstr "Yeni Değerlendirme Turu Gerekir"
 
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Düzeltmeler, yeni bir hakem değerlendirmesine tabi tutulmayacaktır."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Düzeltmeler yeni bir hakem değerlendirme turuna tabi olacaktır."
+
 msgid "editor.review.dateAccepted"
 msgstr "Değerlendirme Kabul Tarihi"
 
@@ -179,6 +211,18 @@ msgstr "İstek gönderildi"
 msgid "editor.review.requestAccepted"
 msgstr "İstek Kabul Edildi"
 
+msgid "editor.review.requestDeclined"
+msgstr "Talep Reddedildi"
+
+msgid "editor.review.requestCancelled"
+msgstr "Talep İptal Edildi"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Hakem, bu değerlendirme talebini reddetti."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Editör, bu değerlendirme talebini iptal etti."
+
 msgid "editor.review.revertDecision"
 msgstr "İade Nedeni"
 
@@ -197,11 +241,19 @@ msgstr "Değerlendirme Onaylandı"
 msgid "editor.review.reviewSubmitted"
 msgstr "Değerlendirme Gönderildi"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Hakeme Teşekkür Edildi"
+
 msgid "editor.review.reviewerComments"
 msgstr "Değerlendirme Yorumları"
 
+msgid "editor.review.rateReviewer"
+msgstr "Hakem Puanlama"
+
 msgid "editor.review.rateReviewer.description"
-msgstr "Yapılan değerlendirmenin kalitesini inceleyin. Bu değerlendirme, hakemle paylaşılmamaktadır."
+msgstr ""
+"Yapılan değerlendirmenin kalitesini inceleyin. Bu değerlendirme, hakemle "
+"paylaşılmamaktadır."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Derecelendirme yok"
@@ -215,38 +267,37 @@ msgstr "Hakem eklerken bir hata oluştu. Lütfen yeniden deneyin."
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Hakem silerken bir hata oluştu. Lütfen yeniden deneyin."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Hakem yeniden atanırken bir hata oluştu.  Lütfen tekrar deneyin."
+
 msgid "editor.review.userGroupSelect"
 msgstr "Bu hakem grubunda mevcut bir hakem yetkilendirin"
 
-msgid "editor.submission.createNewRound"
-msgstr "Yeni bir değerlendirme turu oluştur"
-
-msgid "reviewer.list.neverAssigned"
-msgstr "Atanma yapılmadı"
-
 msgid "editor.review.unconsiderReviewText"
-msgstr "Bu yorumu değerlendirilmemiş olarak işaretlemek ister misiniz? eğerlendirme geçmişi korunacaktır."
+msgstr ""
+"Bu yorumu değerlendirilmemiş olarak işaretlemek ister misiniz? eğerlendirme "
+"geçmişi korunacaktır."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Bu Yorumu İnceleme"
 
 msgid "editor.review.readConfirmation"
-msgstr "Bu değerlendirmeyi okunduktan sonra, değerlendirme sürecine devam edebilmek için \"Onayla\"ya basın. Değerlendirme yapan, başka bir yerde incelemesini yapmışsa, aşağıda dosya yükleyebilir ve devam etmek için \"Onayla\"ya basabilir."
+msgstr ""
+"Bu değerlendirmeyi okunduktan sonra, değerlendirme sürecine devam edebilmek "
+"için \"Onayla\"ya basın. Değerlendirme yapan, başka bir yerde incelemesini "
+"yapmışsa, aşağıda dosya yükleyebilir ve devam etmek için \"Onayla\"ya "
+"basabilir."
 
-msgid "reviewer.list.reviewInterests"
-msgstr "Hakem İlgi Alanları"
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Değerlendirme sürecinin körleme hakemlik sürecini etkileyeceği için seçilen "
+"kişilerle tartışma oluşturulamaz."
 
-msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "İzin Ver"
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Seçilen kişi bu aşamaya atanmaz."
 
-msgid "editor.submission.review.reviewersDescription"
-msgstr "Okuyucuları gönderileri değerlendirmeye davet etmek için <em>+Hakem Ekle</em>'yi kullanın. Dizüstü bilgisayar simgesi, bir değerlendirmenin gönderildiğini ve ardından da <em>Onaylandığını</em> gösterir. Değerlendirmeler geciktiğinde, hakemlere hatırlatmak için kırmızı bir zarf simgesi görüntülenir."
-
-msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Düzeltmeler, yeni bir hakem değerlendirmesine tabi tutulmayacaktır."
-
-msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Düzeltmeler yeni bir hakem değerlendirme turuna tabi olacaktır."
+msgid "editor.submission.schedulePublication"
+msgstr "Yayın İçin Planla"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Düzeltme Kopyası Dosyaları"
@@ -273,16 +324,25 @@ msgid "editor.submission.proof.reminder"
 msgstr "Düzeltmen Hatırlatması"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Değerlendirme dosyasının basım aşamasına gönderilmeden önce onaylanması gerekir. Bu dosyayı onaylamak istiyor musunuz?"
+msgstr ""
+"Değerlendirme dosyasının basım aşamasına gönderilmeden önce onaylanması "
+"gerekir. Bu dosyayı onaylamak istiyor musunuz?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Bu değerlendirme dosyasının reddedilmesi halinde, basım aşamasına gönderilmesi mümkün olmayacaktır. Bu dosyayı reddetmek istiyor musunuz?"
+msgstr ""
+"Bu değerlendirme dosyasının reddedilmesi halinde, basım aşamasına "
+"gönderilmesi mümkün olmayacaktır. Bu dosyayı reddetmek istiyor musunuz?"
 
 msgid "editor.submission.addAuditor"
 msgstr "İnceleme Yapacak Kişi Ata"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Herhangi bir gönderi aşamasına önceden yüklenmiş olan tüm dosyalar aşağıdaki İçeriği Ekle kutucuğunu işaretleyerek ve Ara'yı tıklayıp Değerlendirme Dosyaları listesine eklenebilir: Tüm mevcut dosyalar listelenir ve eklenecek şekilde seçilebilir. Bir dosyaya zaten yüklenmemiş ek dosyalar, Dosya Yükle bağlantısını tıklayarak listeye eklenebilir."
+msgstr ""
+"Herhangi bir gönderi aşamasına önceden yüklenmiş olan tüm dosyalar aşağıdaki "
+"İçeriği Ekle kutucuğunu işaretleyerek ve Ara'yı tıklayıp Değerlendirme "
+"Dosyaları listesine eklenebilir: Tüm mevcut dosyalar listelenir ve eklenecek "
+"şekilde seçilebilir. Bir dosyaya zaten yüklenmemiş ek dosyalar, Dosya Yükle "
+"bağlantısını tıklayarak listeye eklenebilir."
 
 msgid "editor.review"
 msgstr "Değerlendir"
@@ -324,7 +384,12 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Değerlendirme tartışması oluşturma."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Bu gönderi için yeni bir değerlendirme turu oluşturmak üzeresiniz. Diğer değerlendirme turlarında kullanılmayan dosyalar aşağıda listelenmiştir."
+msgstr ""
+"Bu gönderi için yeni bir değerlendirme turu oluşturmak üzeresiniz. Diğer "
+"değerlendirme turlarında kullanılmayan dosyalar aşağıda listelenmiştir."
+
+msgid "editor.submission.createNewRound"
+msgstr "Yeni bir değerlendirme turu oluştur"
 
 msgid "editor.article.reviewForms"
 msgstr "Değerlendirme Formları"
@@ -333,7 +398,9 @@ msgid "editor.article.selectReviewForm"
 msgstr "Değerlendirme Formu Seç"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Uyarı: Değerlendirme formunun değiştirilmesi, hakemlerin bu formu kullanarak yaptıkları cevapları etkileyecektir. Devam etmek istediğine emin misin?"
+msgstr ""
+"Uyarı: Değerlendirme formunun değiştirilmesi, hakemlerin bu formu kullanarak "
+"yaptıkları cevapları etkileyecektir. Devam etmek istediğine emin misin?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Herhangi Bir Dosya Seçilmedi"
@@ -356,6 +423,9 @@ msgstr "Tartışmayı Düzelt"
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
 msgstr "Aşağıdaki listeden bu tartışmaya eklenmek üzere dosyalar eklenebilir."
 
+msgid "editor.submission.selectedReviewer"
+msgstr "Seçilen Hakem"
+
 msgid "editor.submission.proofreading.approveProof"
 msgstr "Düzeltmeyi Onayla"
 
@@ -363,19 +433,24 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Düzeltme Onayını İptal Et"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Düzeltme işleminin tamamlandığını ve dosyanın yayınlanmaya hazır olduğunu göstermek için bu düzeltmeyi onayla."
+msgstr ""
+"Düzeltme işleminin tamamlandığını ve dosyanın yayınlanmaya hazır olduğunu "
+"göstermek için bu düzeltmeyi onayla."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Düzeltme işleminin tamamlanmadığını ve dosyanın yayınlanmaya hazır olmadığını göstermek için bu düzeltme onayını iptal edin."
+msgstr ""
+"Düzeltme işleminin tamamlanmadığını ve dosyanın yayınlanmaya hazır "
+"olmadığını göstermek için bu düzeltme onayını iptal edin."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Bu aday makalenin reddetme kararını geri almak istediğinizden emin misiniz?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "'{$publicIdentifier}' genel belirleyici bir sayı olmamalıdır."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Ortak tanımlayıcı için {$pattern} modeline izin verilmez."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Yayın İçin Planla"
 
 msgid "reviewer.list.filterRating"
 msgstr "En az reyting"
@@ -386,11 +461,23 @@ msgstr "Aktif {$count}"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Şu anda atanmış aktif hakemler"
 
+msgid "reviewer.list.completedReviews"
+msgstr "Değerlendirme tamamlandı"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Değerlendirme istekleri reddedildi"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Değerlendirme talebi iptal edildi"
+
 msgid "reviewer.list.reviewerRating"
 msgstr "Hakem reytingi: {$rating}"
 
 msgid "reviewer.list.daysSinceLastAssignment"
 msgstr "{$days} gün önce"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Dün"
 
 msgid "reviewer.list.daysSinceLastAssignmentDescription"
 msgstr "Son değerlendirme tarihinden bu yana geçen gün sayısı"
@@ -398,81 +485,27 @@ msgstr "Son değerlendirme tarihinden bu yana geçen gün sayısı"
 msgid "reviewer.list.averageCompletion"
 msgstr "Ortalama değerlendirme gün sayısı"
 
+msgid "reviewer.list.neverAssigned"
+msgstr "Atanma yapılmadı"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Bu hakem, bu gönderiyi değerlendirmek için zaten atandı."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. Yine de bu hakeme izin vermek ister misiniz?"
+msgstr ""
+"Bu hakeme, yazarın kimliğini görmesine izin veren bir rol verilmiş "
+"olduğundan kilitlenmiştir. Körlenmiş hakem değerlendirmesi garanti edilemez. "
+"Yine de bu hakeme izin vermek ister misiniz?"
 
-msgid "reviewer.list.declinedReviews"
-msgstr "Değerlendirme istekleri reddedildi"
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "İzin Ver"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "Hakem İlgi Alanları"
+
+msgid "reviewer.list.biography"
+msgstr "Biyografi"
 
 msgid "reviewer.list.empty"
 msgstr "Hiç hakem bulunmuyor"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Değerlendirme talebi iptal edildi"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "Hakem yeniden atanırken bir hata oluştu.  Lütfen tekrar deneyin."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Hakeme Teşekkür Edildi"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Editör, bu değerlendirme talebini iptal etti."
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Hakem, bu değerlendirme talebini reddetti."
-
-msgid "editor.review.requestCancelled"
-msgstr "Talep İptal Edildi"
-
-msgid "editor.review.requestDeclined"
-msgstr "Talep Reddedildi"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Hakemi Yeniden Ata"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Hakemi İptal Et"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Kararı değiştir"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Gönderi değerlendirme için kabul edildi."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Basıma gönderildi."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Yeni bir değerlendirme turu için gönderildi."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Gönderi yayınlandı."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Gönderi kabul edildi."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Gönderi reddedildi."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Karar kaydedildi"
-
-msgid "editor.activityLog"
-msgstr "Etkinlik Günlüğü"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr ""
-"Bu aday makalenin reddetme kararını geri almak istediğinizden emin misiniz?"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Seçilen kişi bu aşamaya atanmaz."
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr ""
-"Değerlendirme sürecinin körleme hakemlik sürecini etkileyeceği için seçilen "
-"kişilerle tartışma oluşturulamaz."

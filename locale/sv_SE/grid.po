@@ -60,7 +60,8 @@ msgid "grid.action.unassignReviewer"
 msgstr "Ta bort den här granskaren"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Godkänn den här manusredigeringsfilen för vidaresändning till nästa steg"
+msgstr ""
+"Godkänn den här manusredigeringsfilen för vidaresändning till nästa steg"
 
 msgid "grid.action.reload"
 msgstr "Uppdatera"
@@ -236,6 +237,9 @@ msgstr "Lägg till en ny användargrupp"
 msgid "grid.action.editUserGroup"
 msgstr "Redigera den här användargruppen"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Radera den här användargruppen"
+
 msgid "grid.action.disable"
 msgstr "Inaktivera"
 
@@ -329,6 +333,9 @@ msgstr "Installera"
 msgid "grid.action.moreItems"
 msgstr "Ladda fler"
 
+msgid "grid.action.users"
+msgstr "Visa/välj användare"
+
 msgid "grid.task.status.completed"
 msgstr "Den här uppgiften är klar"
 
@@ -342,7 +349,9 @@ msgid "grid.task.status.unfinished"
 msgstr "Uppgift ej slutförd"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Den här granskningen är färdig. Klicka på antecknings-ikonen till vänster för att läsa den."
+msgstr ""
+"Den här granskningen är färdig. Klicka på antecknings-ikonen till vänster "
+"för att läsa den."
 
 msgid "grid.columns.actions"
 msgstr "Händelser"
@@ -400,6 +409,9 @@ msgstr "Redigera medarbetare"
 
 msgid "grid.action.deleteContributor"
 msgstr "Ta bort medarbetare"
+
+msgid "grid.action.newVersion"
+msgstr "Skapa en ny version"
 
 msgid "grid.reviewForm.title"
 msgstr "Granskningsformulär"
@@ -495,13 +507,22 @@ msgid "grid.user.enableReason"
 msgstr "Anledning till aktivering av användare"
 
 msgid "grid.user.error"
-msgstr "Det uppstod ett fel vid hanteringen av den här användaren. Vänligen försök igen."
+msgstr ""
+"Det uppstod ett fel vid hanteringen av den här användaren. Vänligen försök "
+"igen."
 
 msgid "grid.user.errorEmail"
-msgstr "Det uppstod ett fel när det här e-postmeddelandet skulle skickas. Vänligen verifiera att din e-postserver är korrekt konfigurerad och/eller kontakta din systemadministratör."
+msgstr ""
+"Det uppstod ett fel när det här e-postmeddelandet skulle skickas. Vänligen "
+"verifiera att din e-postserver är korrekt konfigurerad och/eller kontakta "
+"din systemadministratör."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Dina behörigheter räcker inte för att administrera den här användaren. För att administrera en användare behöver du vara antingen webbplatsadministratör eller ha administrationsbehörighet för samtliga kontexter som användaren är inblandad i."
+msgstr ""
+"Dina behörigheter räcker inte för att administrera den här användaren. För "
+"att administrera en användare behöver du vara antingen "
+"webbplatsadministratör eller ha administrationsbehörighet för samtliga "
+"kontexter som användaren är inblandad i."
 
 msgid "grid.user.authSource"
 msgstr "Autentiseringskälla"
@@ -564,7 +585,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Vänligen välj en användare"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Logga in som den här användaren? Allt du gör kommer att ske i egenskap av den här användaren."
+msgstr ""
+"Logga in som den här användaren? Allt du gör kommer att ske i egenskap av "
+"den här användaren."
 
 msgid "grid.user.mergeUsers"
 msgstr "Slå ihop användare"
@@ -579,7 +602,11 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Alla registrerade användare"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Är du säker på att du vill slå ihop kontot med användarnamnet \"{$oldUsername}\" med kontot med användarnamnet \"{$newUsername}\"? Kontot med användarnamnet \"{$oldUsername}\" kommer inte längre att existera efteråt. Åtgärden kan inte ångras."
+msgstr ""
+"Är du säker på att du vill slå ihop kontot med användarnamnet "
+"\"{$oldUsername}\" med kontot med användarnamnet \"{$newUsername}\"? Kontot "
+"med användarnamnet \"{$oldUsername}\" kommer inte längre att existera "
+"efteråt. Åtgärden kan inte ångras."
 
 msgid "grid.preparedEmails.title"
 msgstr "Färdiga e-postmallar"
@@ -594,7 +621,8 @@ msgid "grid.plugin.disable"
 msgstr "Är du säker på att du vill inaktivera det här pluginet?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Korrekturändringar gjorda. Du kan välja att bortse från den här uppgiften"
+msgstr ""
+"Korrekturändringar gjorda. Du kan välja att bortse från den här uppgiften"
 
 msgid "grid.artworkFile.caption"
 msgstr "Bildtext"
@@ -633,7 +661,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Rollen {$userGroupName} är en defaultroll och kan inte tas bort."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Kan inte ta bort rollen {$userGroupName}. För närvarande har {$usersCount} användare den rollen."
+msgstr ""
+"Kan inte ta bort rollen {$userGroupName}. För närvarande har {$usersCount} "
+"användare den rollen."
 
 msgid "grid.userGroup.removed"
 msgstr "Rollen {$userGroupName} borttagen."
@@ -665,11 +695,5 @@ msgstr "Inga navigationsmenyer"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Välj typ..."
 
-msgid "grid.action.newVersion"
-msgstr "Skapa en ny version"
-
-msgid "grid.action.users"
-msgstr "Visa/välj användare"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Radera den här användargruppen"
+msgid "grid.action.view"
+msgstr ""

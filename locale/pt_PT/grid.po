@@ -20,128 +20,23 @@ msgstr "Sem Itens"
 msgid "grid.settings"
 msgstr "Configurações"
 
-msgid "grid.action.sort"
-msgstr "Ordenar"
-
-msgid "grid.action.addItem"
-msgstr "Adicionar Item"
-
-msgid "grid.action.delete"
-msgstr "Eliminar"
-
-msgid "grid.action.remove"
-msgstr "Remover"
-
-msgid "grid.action.edit"
-msgstr "Editar"
-
-msgid "grid.action.approve"
-msgstr "Aprovar"
-
-msgid "grid.action.decline"
-msgstr "Rejeitar"
-
-msgid "grid.action.moreInformation"
-msgstr "Mais Informação"
-
-msgid "grid.action.restoreDefaults"
-msgstr "Restaurar Padrão"
-
-msgid "grid.columns.actions"
-msgstr "Acções"
-
-msgid "grid.columns.institution"
-msgstr "Instituição"
-
-msgid "grid.columns.url"
-msgstr "URL"
-
-msgid "grid.sponsor.title"
-msgstr "Patrocinadores"
-
-msgid "grid.contributor.title"
-msgstr "Colaborador"
-
-msgid "grid.action.addAuthor"
-msgstr "Adicionar Autor"
-
-msgid "grid.reviewForm.title"
-msgstr "Formulários de Revisão"
-
-msgid "grid.artworkFile.caption"
-msgstr "Legenda"
-
-msgid "grid.artworkFile.credit"
-msgstr "Crédito"
-
-msgid "grid.artworkFile.copyrightOwner"
-msgstr "Proprietário do Copyright"
-
-msgid "grid.artworkFile.copyrightContact"
-msgstr "Contacto (se não for autor/editor)"
-
-msgid "grid.artworkFile.permissionTerms"
-msgstr "Termos de Permissão"
-
-msgid "grid.artworkFile.placement"
-msgstr "Colocação em submissão"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "Ficheiros"
-
-msgid "grid.libraryFiles.submission.title"
-msgstr "Livraria Submissão"
-
-msgid "grid.libraryFiles.editorial.title"
-msgstr "Livraria Editorial"
-
-msgid "grid.libraryFiles.review.title"
-msgstr "Livraria Revisão"
-
-msgid "grid.libraryFiles.production.title"
-msgstr "Livraria Produção"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Template da Livraria de Produção"
-
-msgid "grid.submissionChecklist.title"
-msgstr "Checklist da Submissão"
-
-msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Item da Checklist"
-
-msgid "author.users.contributor.name"
-msgstr "Nome"
-
-msgid "author.users.contributor.email"
-msgstr "E-mail"
-
-msgid "author.users.contributor.role"
-msgstr "Papel"
-
-msgid "author.users.contributor.principalContact"
-msgstr "Contacto Principal"
-
-msgid "grid.userGroup.assignStage"
-msgstr "Etapa Designação"
-
-msgid "grid.action.addContributor"
-msgstr "Adicionar Colaborador"
-
-msgid "grid.action.editContributor"
-msgstr "Editar Colaborador"
-
-msgid "grid.action.deleteContributor"
-msgstr "Eliminar Colaborador"
-
 msgid "grid.noAuditors"
 msgstr "Sem Auditores"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Este item é hospedado remotamente."
 
+msgid "grid.action.uninstall"
+msgstr "Desinstalar"
+
 msgid "grid.action.manageAccess"
 msgstr "Gerir Acesso"
+
+msgid "grid.action.sort"
+msgstr "Ordenar"
+
+msgid "grid.action.addItem"
+msgstr "Adicionar Item"
 
 msgid "grid.action.addNote"
 msgstr "Adicionar Nota"
@@ -170,6 +65,9 @@ msgstr "Aprovar esta cópia para ser enviada para a próxima etapa"
 msgid "grid.action.reload"
 msgstr "Recarregar"
 
+msgid "grid.action.delete"
+msgstr "Eliminar"
+
 msgid "grid.action.deleteFile"
 msgstr "Eliminar Ficheiro"
 
@@ -191,14 +89,32 @@ msgstr "Eliminar Secção"
 msgid "grid.action.editorialHistory"
 msgstr "Histórico Editorial"
 
+msgid "grid.action.remove"
+msgstr "Remover"
+
+msgid "grid.action.edit"
+msgstr "Editar"
+
+msgid "grid.action.approve"
+msgstr "Aprovar"
+
 msgid "grid.action.disapprove"
 msgstr "Desaprovar"
 
 msgid "grid.action.setApproval"
 msgstr "Definir aprovação"
 
+msgid "grid.action.moreInformation"
+msgstr "Mais Informação"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Restaurar Padrão"
+
 msgid "grid.action.restoreDefaults.confirm"
 msgstr "Tem certeza de que deseja restaurar os padrões?"
+
+msgid "grid.action.addAuthor"
+msgstr "Adicionar Autor"
 
 msgid "grid.action.editAuthor"
 msgstr "Editar Autor"
@@ -260,6 +176,9 @@ msgstr "Solicitar revisões para esta submissão"
 msgid "grid.action.accept"
 msgstr "Aceitar esta submissão"
 
+msgid "grid.action.decline"
+msgstr "Rejeitar"
+
 msgid "grid.action.internalReview"
 msgstr "Enviar esta submissão para revisão interna"
 
@@ -316,6 +235,9 @@ msgstr "Adicionar um novo grupo de utilizadores"
 
 msgid "grid.action.editUserGroup"
 msgstr "Editar este grupo de utilizadores"
+
+msgid "grid.action.removeUserGroup"
+msgstr "Remover este grupo de utilizadores"
 
 msgid "grid.action.disable"
 msgstr "Desactivar"
@@ -410,6 +332,9 @@ msgstr "Instalar"
 msgid "grid.action.moreItems"
 msgstr "Carregar mais"
 
+msgid "grid.action.users"
+msgstr "Ver/Selecionar utilizadores"
+
 msgid "grid.task.status.completed"
 msgstr "Esta tarefa está concluída"
 
@@ -423,13 +348,26 @@ msgid "grid.task.status.unfinished"
 msgstr "Tarefa por concluir"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Esta revisão está pronta. Clique no ícone da nota para a esquerda para lê-la."
+msgstr ""
+"Esta revisão está pronta. Clique no ícone da nota para a esquerda para lê-la."
+
+msgid "grid.columns.actions"
+msgstr "Acções"
+
+msgid "grid.columns.institution"
+msgstr "Instituição"
+
+msgid "grid.columns.url"
+msgstr "URL"
 
 msgid "grid.columns.auditor"
 msgstr "Auditor"
 
 msgid "grid.columns.locale"
 msgstr "Idioma"
+
+msgid "grid.sponsor.title"
+msgstr "Patrocinadores"
 
 msgid "grid.action.addSponsor"
 msgstr "Adicionar Patrocinador"
@@ -458,11 +396,65 @@ msgstr "Editar Categoria"
 msgid "grid.action.deleteCategory"
 msgstr "Eliminar Categoria"
 
+msgid "grid.contributor.title"
+msgstr "Colaborador"
+
+msgid "grid.action.addContributor"
+msgstr "Adicionar Colaborador"
+
+msgid "grid.action.editContributor"
+msgstr "Editar Colaborador"
+
+msgid "grid.action.deleteContributor"
+msgstr "Eliminar Colaborador"
+
+msgid "grid.action.newVersion"
+msgstr "Criar uma nova versão"
+
+msgid "grid.reviewForm.title"
+msgstr "Formulários de Revisão"
+
 msgid "grid.reviewFormElement.responseItems"
 msgstr "Opções Resposta"
 
 msgid "grid.noFiles"
 msgstr "Nenhum Ficheiro"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Ficheiros"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Livraria Submissão"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Livraria Editorial"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Livraria Revisão"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Livraria Produção"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Template da Livraria de Produção"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Checklist da Submissão"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Item da Checklist"
+
+msgid "author.users.contributor.name"
+msgstr "Nome"
+
+msgid "author.users.contributor.email"
+msgstr "E-mail"
+
+msgid "author.users.contributor.role"
+msgstr "Papel"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Contacto Principal"
 
 msgid "author.users.contributor.includeInBrowse"
 msgstr "Nas Listas de Navegação"
@@ -513,13 +505,20 @@ msgid "grid.user.enableReason"
 msgstr "Razão para activar utilizador"
 
 msgid "grid.user.error"
-msgstr "Ocorreu um erro ao administrar este utilizador. Por favor, tente novamente."
+msgstr ""
+"Ocorreu um erro ao administrar este utilizador. Por favor, tente novamente."
 
 msgid "grid.user.errorEmail"
-msgstr "Ocorreu um erro ao enviar este e-mail. Certifique-se de que a configuração do servidor de e-mail está a funcionar e / ou entre em contacto com o administrador do sistema."
+msgstr ""
+"Ocorreu um erro ao enviar este e-mail. Certifique-se de que a configuração "
+"do servidor de e-mail está a funcionar e / ou entre em contacto com o "
+"administrador do sistema."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Não tem permissões suficientes para administrar este utilizador. Para administrar um utilizador, deve ser administrador do site ou administrar todos os contextos em que este utilizador está inscrito."
+msgstr ""
+"Não tem permissões suficientes para administrar este utilizador. Para "
+"administrar um utilizador, deve ser administrador do site ou administrar "
+"todos os contextos em que este utilizador está inscrito."
 
 msgid "grid.user.authSource"
 msgstr "Fonte Autenticação"
@@ -546,7 +545,8 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "O utilizador deve alterar a senha na próxima autenticação."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Exigir que o utilizador altere a sua senha na próxima vez que aceda ao site."
+msgstr ""
+"Exigir que o utilizador altere a sua senha na próxima vez que aceda ao site."
 
 msgid "grid.user.moreDetails"
 msgstr "Mais Detalhes do Utilizador"
@@ -582,7 +582,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Seleccionar um utilizador"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Entrar com a conta do utilizador? Todas as ações que executar serão atribuídas a esse utilizador."
+msgstr ""
+"Entrar com a conta do utilizador? Todas as ações que executar serão "
+"atribuídas a esse utilizador."
 
 msgid "grid.user.mergeUsers"
 msgstr "Fundir Utilizadores"
@@ -597,7 +599,11 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Todos os Utilizadores Inscritos"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Tem certeza de que deseja fundir a conta com o nome de utilizador \"{$oldUsername}\" na conta com o nome de utilizador\"{$newUsername}\"? A conta com o nome de utilizador \"{$oldUsername}\" não existirá depois. Esta ação não é reversível."
+msgstr ""
+"Tem certeza de que deseja fundir a conta com o nome de utilizador "
+"\"{$oldUsername}\" na conta com o nome de utilizador\"{$newUsername}\"? A "
+"conta com o nome de utilizador \"{$oldUsername}\" não existirá depois. Esta "
+"ação não é reversível."
 
 msgid "grid.preparedEmails.title"
 msgstr "Modelos de E-mail"
@@ -613,6 +619,27 @@ msgstr "Tem certeza que pretende desactivar este plugin?"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Correções de provas feitas. Pode ignorar esta tarefa"
+
+msgid "grid.artworkFile.caption"
+msgstr "Legenda"
+
+msgid "grid.artworkFile.credit"
+msgstr "Crédito"
+
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Proprietário do Copyright"
+
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Contacto (se não for autor/editor)"
+
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Termos de Permissão"
+
+msgid "grid.artworkFile.placement"
+msgstr "Colocação em submissão"
+
+msgid "grid.userGroup.assignStage"
+msgstr "Etapa Designação"
 
 msgid "grid.userGroup.unassignStage"
 msgstr "Não Atribuir Etapa"
@@ -630,7 +657,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "O papel {$userGroupName} é padrão e não pode ser removido."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Não é possível remover o papel {$userGroupName}. Actualmente, {$usersCount} utilizador(s) é/são atribuídos a este."
+msgstr ""
+"Não é possível remover o papel {$userGroupName}. Actualmente, {$usersCount} "
+"utilizador(s) é/são atribuídos a este."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName} papel removido."
@@ -647,9 +676,6 @@ msgstr "Autor; Título"
 msgid "grid.submission.active.selectOrphaned"
 msgstr "Inclur submissões incompletas não enviadas por um autor."
 
-msgid "grid.action.uninstall"
-msgstr "Desinstalar"
-
 msgid "grid.action.addNavigationMenu"
 msgstr "Adicionar Menu"
 
@@ -665,11 +691,5 @@ msgstr "Nenhum Menu de Navegação"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Selecione um tipo..."
 
-msgid "grid.action.newVersion"
-msgstr "Criar uma nova versão"
-
-msgid "grid.action.users"
-msgstr "Ver/Selecionar utilizadores"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Remover este grupo de utilizadores"
+msgid "grid.action.view"
+msgstr ""

@@ -102,7 +102,8 @@ msgid "common.grid"
 msgstr "Πίνακας"
 
 msgid "common.confirmDelete"
-msgstr "Επιβεβαιώνετε τη διαγραφή του αντικειμένου; Η ενέργεια είναι μη αναστρέψιμη."
+msgstr ""
+"Επιβεβαιώνετε τη διαγραφή του αντικειμένου; Η ενέργεια είναι μη αναστρέψιμη."
 
 msgid "common.abstract"
 msgstr "Περίληψη"
@@ -122,6 +123,9 @@ msgstr "Ενεργοποίηση"
 msgid "common.active"
 msgstr "Ενεργό"
 
+msgid "common.inactive"
+msgstr "Αδρανής"
+
 msgid "common.add"
 msgstr "Προσθήκη"
 
@@ -135,10 +139,14 @@ msgid "common.all"
 msgstr "Όλα"
 
 msgid "common.alphaList"
-msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
+msgstr ""
+"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ "
+"Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω"
 
 msgid "common.titleSmallWords"
-msgstr "ένας/ένα/μία το και ή ούτε αλλά είναι αν τότε αλλιώς όταν στο από για μέσα έξω πάνω μαζί"
+msgstr ""
+"ένας/ένα/μία το και ή ούτε αλλά είναι αν τότε αλλιώς όταν στο από για μέσα "
+"έξω πάνω μαζί"
 
 msgid "common.alreadyAssigned"
 msgstr "Ανατέθηκε"
@@ -147,7 +155,10 @@ msgid "common.altText"
 msgstr "Εναλλακτικό κείμενο"
 
 msgid "common.altTextInstructions"
-msgstr "Παρακαλούμε εισάγετε ένα εναλλακτικό κείμενο για την εικόνα αυτή, ώστε να διασφαλιστεί η προσβασιμότητα σε Χρήστες που χρησιμοποιούν επιλογές \"μόνο κείμενο\" στους φυλλομετρητές τους ή βοηθητικές συσκευές."
+msgstr ""
+"Παρακαλούμε εισάγετε ένα εναλλακτικό κείμενο για την εικόνα αυτή, ώστε να "
+"διασφαλιστεί η προσβασιμότητα σε Χρήστες που χρησιμοποιούν επιλογές \"μόνο "
+"κείμενο\" στους φυλλομετρητές τους ή βοηθητικές συσκευές."
 
 msgid "common.and"
 msgstr "και"
@@ -189,28 +200,54 @@ msgid "common.notice"
 msgstr "Σημείωση"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Λείπει το μυστικό κλειδί."
+msgstr ""
+"Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Λείπει το "
+"μυστικό κλειδί."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Το μυστικό κλειδί είναι άκυρο."
+msgstr ""
+"Το captcha για αυτόν τον ιστότοπο δεν έχει ρυθμιστεί σωστά. Το μυστικό "
+"κλειδί είναι άκυρο."
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Πρέπει να ολοκληρώσετε τον έλεγχο ασφαλείας για την αποφυγή υποβολών spam."
+msgstr ""
+"Πρέπει να ολοκληρώσετε τον έλεγχο ασφαλείας για την αποφυγή υποβολών spam."
 
 msgid "common.captcha.error.invalid-input-response"
 msgstr "Δεν περάσατε τον έλεγχο ασφαλείας για την αποφυγή υποβολών spam."
 
 msgid "common.captchaField.description"
-msgstr "Σας παρακαλούμε εισάγετε τους χαρακτήρες όπως εμφανίζονται στην παραπάνω εικόνα."
+msgstr ""
+"Σας παρακαλούμε εισάγετε τους χαρακτήρες όπως εμφανίζονται στην παραπάνω "
+"εικόνα."
 
 msgid "common.captchaField"
 msgstr "Επικύρωση"
 
 msgid "common.ccLicense"
-msgstr "\n\t\t&lt;a target=\"_new\" rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\"&gt;\n\t\t\t&lt;img alt=\"Creative Commons License\" class=\"EKT_CreativeCommons_IMG\" src=\"https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png\"/&gt;\n\t\t&lt;/a&gt;\n\t\t&lt;br/&gt;\n\t\t&lt;span&gt;\n  Η χρήση του περιεχομένου καθορίζεται από την άδεια &lt;a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\"&gt;Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές&lt;/a&gt; &lt;/span&gt;"
+msgstr ""
+"\n"
+"\t\t&lt;a target=\"_new\" rel=\"license\" href=\"http://creativecommons.org/"
+"licenses/by-nc-sa/4.0/deed.el\"&gt;\n"
+"\t\t\t&lt;img alt=\"Creative Commons License\" class="
+"\"EKT_CreativeCommons_IMG\" src=\"https://licensebuttons.net/l/by-nc-"
+"sa/4.0/88x31.png\"/&gt;\n"
+"\t\t&lt;/a&gt;\n"
+"\t\t&lt;br/&gt;\n"
+"\t\t&lt;span&gt;\n"
+"  Η χρήση του περιεχομένου καθορίζεται από την άδεια &lt;a rel=\"license\" "
+"href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target="
+"\"_new\"&gt;Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - "
+"Παρόμοια Διανομή 4.0 Διεθνές&lt;/a&gt; &lt;/span&gt;"
 
 msgid "common.ccLicense.rt"
-msgstr "\n\t\tΗ χρήση του περιεχομένου καθορίζεται από την άδεια <a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target=\"_new\">Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια Διανομή 4.0 Διεθνές</a>\n\t\t"
+msgstr ""
+"\n"
+"\t\tΗ χρήση του περιεχομένου καθορίζεται από την άδεια <a rel=\"license\" "
+"href=\"http://creativecommons.org/licenses/by-nc-sa/4.0/deed.el\" target="
+"\"_new\">Creative Commons Αναφορά Δημιουργού - Μη Εμπορική Χρήση - Παρόμοια "
+"Διανομή 4.0 Διεθνές</a>\n"
+"\t\t"
 
 msgid "common.changesSaved"
 msgstr "Οι αλλαγές σας αποθηκεύτηκαν."
@@ -338,6 +375,9 @@ msgstr "Μεταφόρτωση PDF"
 msgid "common.edit"
 msgstr "Επεξεργασία"
 
+msgid "common.editItem"
+msgstr "Επεξεργασία {$name}"
+
 msgid "common.enable"
 msgstr "Ενεργοποίηση"
 
@@ -351,7 +391,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Προέκυψε άγνωστο σφάλμα στη σύνδεση της βάσης δεδομένων."
 
 msgid "common.error.framesRequired"
-msgstr "Αυτή η σελίδα απαιτεί πλαίσια. &lt;a href=\"{$url}\"&gt;Πατήστε εδώ&lt;/a&gt; για την έκδοση χωρίς πλαίσια."
+msgstr ""
+"Αυτή η σελίδα απαιτεί πλαίσια. &lt;a href=\"{$url}\"&gt;Πατήστε εδώ&lt;/"
+"a&gt; για την έκδοση χωρίς πλαίσια."
 
 msgid "common.event"
 msgstr "Συμβάν"
@@ -390,7 +432,11 @@ msgid "common.fileType"
 msgstr "Τύπος αρχείου"
 
 msgid "common.fileUploaderError"
-msgstr "Ο μεταφορτωτής αρχείων συστήματος ενεργοποιείται. Μη εμφάνιση του μεταφορτωτή, οφείλεται πιθανώς σε αδυναμία υποστήριξης του χρόνου εκτέλεσής του από τον φυλλομετρητή. Παρακαλούμε επικοινωνήστε με τους Διαχειριστές του ιστοτόπου."
+msgstr ""
+"Ο μεταφορτωτής αρχείων συστήματος ενεργοποιείται. Μη εμφάνιση του "
+"μεταφορτωτή, οφείλεται πιθανώς σε αδυναμία υποστήριξης του χρόνου εκτέλεσής "
+"του από τον φυλλομετρητή. Παρακαλούμε επικοινωνήστε με τους Διαχειριστές του "
+"ιστοτόπου."
 
 msgid "common.filter"
 msgstr "Φίλτρα"
@@ -403,6 +449,9 @@ msgstr "Καθαρισμός φίλτρου: {$filterTitle}"
 
 msgid "common.from"
 msgstr "Από"
+
+msgid "common.fromWithValue"
+msgstr "Από: {$value}"
 
 msgid "common.until"
 msgstr "Έως"
@@ -446,11 +495,17 @@ msgstr "Γλώσσα/Language"
 msgid "common.languages"
 msgstr "Γλώσσες"
 
+msgid "common.lastActivity"
+msgstr "Η τελευταία δραστηριότητα καταγράφηκε στις {$date}."
+
 msgid "common.less"
 msgstr "Λιγότερο"
 
 msgid "common.lessThan"
 msgstr "{$value} ή λιγότερο"
+
+msgid "common.lessThanOnly"
+msgstr "Λιγότερο από"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -482,6 +537,9 @@ msgstr "Περισσότερο"
 msgid "common.moreThan"
 msgstr "{$value} ή περισσότερο"
 
+msgid "common.moreThanOnly"
+msgstr "Περισσότερο από"
+
 msgid "common.noneAssigned"
 msgstr "Καμία ανάθεση"
 
@@ -490,6 +548,9 @@ msgstr "Κανένα"
 
 msgid "common.no"
 msgstr "Οχι"
+
+msgid "common.noItemsFound"
+msgstr "Δεν βρέθηκαν αντικείμενα."
 
 msgid "common.noComments"
 msgstr "Κανένα σχόλιο"
@@ -506,11 +567,18 @@ msgstr "Μη διαθέσιμο"
 msgid "common.note"
 msgstr "Σημείωση"
 
+msgid "common.noTemporaryFile"
+msgstr ""
+"Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το "
+"ανεβάσετε ξανά."
+
 msgid "common.notes"
 msgstr "Σημειώσεις"
 
 msgid "common.notes.tooltip"
-msgstr "Σημειώσεις (κίτρινο:νέες σημειώσεις, μπλε:αναγνωσμένες σημειώσεις, γκρι:χωρίς σημειώσεις)"
+msgstr ""
+"Σημειώσεις (κίτρινο:νέες σημειώσεις, μπλε:αναγνωσμένες σημειώσεις, γκρι:"
+"χωρίς σημειώσεις)"
 
 msgid "common.notified"
 msgstr "Ενημερώθηκε"
@@ -536,6 +604,14 @@ msgstr "Επιλογές"
 msgid "common.order"
 msgstr "Διάταξη"
 
+#, fuzzy
+msgid "common.orderUp"
+msgstr "Αυξήστε τη θέση του {$itemTitle}"
+
+#, fuzzy
+msgid "common.orderDown"
+msgstr "Μειώστε τη θέση του {$itemTitle}"
+
 msgid "common.originalFileName"
 msgstr "Όνομα πρωτότυπου αρχείου"
 
@@ -547,6 +623,9 @@ msgstr "Άλλο"
 
 msgid "common.overdue"
 msgstr "Εκπρόθεσμο"
+
+msgid "common.override"
+msgstr "Παράκαμψη"
 
 msgid "common.pagination"
 msgstr "{$start}-{$end} των {$total}"
@@ -632,6 +711,9 @@ msgstr "Απομακρυσμένο URL"
 msgid "common.remove"
 msgstr "Αφαίρεση"
 
+msgid "common.removeItem"
+msgstr "Αφαίρεση του {$item}"
+
 msgid "common.removeSelection"
 msgstr "Αφαίρεση επιλογής"
 
@@ -677,11 +759,17 @@ msgstr "Δευτερόλεπτο(-α)"
 msgid "common.selectAll"
 msgstr "Επιλογή όλων"
 
+msgid "common.selectedPrefix"
+msgstr "Επιλεγμένα:"
+
 msgid "common.selectNone"
 msgstr "Καμία επιλογή"
 
 msgid "common.select"
 msgstr "Επιλέξτε"
+
+msgid "common.selectWithName"
+msgstr "Επιλογή {$name}"
 
 msgid "common.sendEmail"
 msgstr "Αποστολή μηνύματος"
@@ -701,6 +789,9 @@ msgstr "Θέμα"
 msgid "common.subjects"
 msgstr "Θέματα"
 
+msgid "common.submenu"
+msgstr "Υπομενού"
+
 msgid "common.subtitle"
 msgstr "Υπότιτλος"
 
@@ -710,8 +801,14 @@ msgstr "Πρόταση"
 msgid "common.title"
 msgstr "Τίτλος"
 
+msgid "common.titleSeparator"
+msgstr " | "
+
 msgid "common.top"
 msgstr "Κορυφή"
+
+msgid "common.toWithValue"
+msgstr "Μέχρι: {$value}"
 
 msgid "common.true"
 msgstr "Αληθές"
@@ -744,13 +841,24 @@ msgid "common.upload"
 msgstr "Μεταφόρτωση"
 
 msgid "common.uploadFailed"
-msgstr "Το αρχείο δεν μεταφορτώθηκε. Παρακαλούμε προσπαθήστε ξανά, ή επικοινωνήστε με τον Διαχειριστή αν το πρόβλημα παραμένει."
+msgstr ""
+"Το αρχείο δεν μεταφορτώθηκε. Παρακαλούμε προσπαθήστε ξανά, ή επικοινωνήστε "
+"με τον Διαχειριστή αν το πρόβλημα παραμένει."
 
 msgid "common.up"
 msgstr "Πάνω"
 
+msgid "common.addFile"
+msgstr "Προσθήκη αρχείου"
+
 msgid "common.upload.addFile"
 msgstr "Μεταφόρτωση αρχείου"
+
+msgid "common.upload.restore"
+msgstr "Επαναφορά αρχικού"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Προεπισκόπηση της επιλεγμένης εικόνας."
 
 msgid "common.upload.changeFile"
 msgstr "Αλλαγή αρχείου"
@@ -764,8 +872,14 @@ msgstr "Σύνδεσμος"
 msgid "common.user"
 msgstr "Χρήστης"
 
+msgid "common.user.nonexistent"
+msgstr "[Ανύπαρκτος χρήστης]"
+
 msgid "common.view"
 msgstr "Προβολή"
+
+msgid "common.viewWithName"
+msgstr "Προβολή {$name}"
 
 msgid "common.viewProfile"
 msgstr "Προβολή προφίλ"
@@ -849,7 +963,8 @@ msgid "email.bcc"
 msgstr "Αφανές αντίγραφο(BCC)"
 
 msgid "email.bccSender"
-msgstr "Αποστολή αντίγραφου του μηνύματος στην ηλεκτρονική διεύθυνσή μου({$address})."
+msgstr ""
+"Αποστολή αντίγραφου του μηνύματος στην ηλεκτρονική διεύθυνσή μου({$address})."
 
 msgid "email.body"
 msgstr "Κείμενο μηνύματος"
@@ -864,10 +979,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Τo μήνυμα που προσπαθείτε να στείλετε έχει μεγάλο αριθμό παραληπτών."
 
 msgid "email.compose.tooSoon"
-msgstr "Προσπαθείτε να στείλετε διαδοχικά μηνύματα σε πολύ σύντομο χρόνο. Παρακαλούμε περιμένετε πριν την αποστολή νέου μηνύματος."
+msgstr ""
+"Προσπαθείτε να στείλετε διαδοχικά μηνύματα σε πολύ σύντομο χρόνο. "
+"Παρακαλούμε περιμένετε πριν την αποστολή νέου μηνύματος."
 
 msgid "email.compose.error"
-msgstr "Υπήρξε πρόβλημα κατά την αποστολή ηλεκτρονικού μηνύματος. Παρακαλούμε δοκιμάστε αργότερα, ή επικοινωνήστε με τον Διαχειριστή του ιστοτόπου."
+msgstr ""
+"Υπήρξε πρόβλημα κατά την αποστολή ηλεκτρονικού μηνύματος. Παρακαλούμε "
+"δοκιμάστε αργότερα, ή επικοινωνήστε με τον Διαχειριστή του ιστοτόπου."
 
 msgid "email.email"
 msgstr "Μήνυμα"
@@ -915,7 +1034,9 @@ msgid "email.to"
 msgstr "Προς"
 
 msgid "form.url.invalid"
-msgstr "Ο επιλεγμένος σύνδεσμος URL δεν είναι έγκυρος. Παρακαλούμε ελέξτε τον σύνδεσμο και προσπαθήστε ξανά."
+msgstr ""
+"Ο επιλεγμένος σύνδεσμος URL δεν είναι έγκυρος. Παρακαλούμε ελέξτε τον "
+"σύνδεσμο και προσπαθήστε ξανά."
 
 msgid "form.confirmSubmit"
 msgstr "Επιβεβαιώνετε την υποβολή της φόρμας;"
@@ -927,13 +1048,79 @@ msgid "form.emailRequired"
 msgstr "Απαιτείται μια διεύθυνση ηλεκτρονικού ταχυδρομείου."
 
 msgid "form.dataHasChanged"
-msgstr "Τα δεδομένα αυτής της φόρμας έχουν αλλάξει. Θέλετε να συνεχίσετε σε κάθε περίπτωση;"
+msgstr ""
+"Τα δεδομένα αυτής της φόρμας έχουν αλλάξει. Θέλετε να συνεχίσετε σε κάθε "
+"περίπτωση;"
+
+msgid "form.disallowedLocales"
+msgstr "Επιτρέπονται μόνο οι ακόλουθες γλώσσες: {$Languages}."
+
+msgid "form.disallowedProp"
+msgstr "Αυτή η ιδιότητα δεν επιτρέπεται."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Αποθέστε εδώ τα αρχεία για μεταφόρτωση"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει μεταφορτώσεις αρχείων με "
+"απόθεση."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "Χρησιμοποιήστε την ακόλουθη φόρμα για να ανεβάσετε τα αρχεία σας."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Το αρχείο είναι πολύ μεγάλο  ({{filesize}}mb). Δεν είναι δυνατή η "
+"μεταφόρτωση αρχείων μεγαλύτερων από {{maxFilesize}}mb."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων αυτού του τύπου."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Ο διακομιστής απάντησε με κωδικό σφάλματος {{statusCode}}. Επικοινωνήστε με "
+"το διαχειριστή του συστήματος εάν το πρόβλημα παραμένει."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Ακύρωση μεταφόρτωσης"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Η μεταφόρτωση ακυρώθηκε"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Επιβεβαιώστε ότι θέλετε να ακυρώσετε αυτήν τη μεταφόρτωση"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Κατάργηση αρχείου"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Δεν μπορείτε να ανεβάσετε επιπλέον αρχεία."
+
+msgid "form.errorA11y"
+msgstr "Μετάβαση στο  {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Μετάβαση στο επόμενο σφάλμα"
+
+msgid "form.errorOne"
+msgstr "Διορθώστε ένα σφάλμα."
+
+msgid "form.errorMany"
+msgstr "Διορθώστε {$count} σφάλματα."
+
+msgid "form.errors"
+msgstr ""
+"Η φόρμα δεν αποθηκεύτηκε επειδή παρουσιάστηκαν {$count} σφάλματα. Διορθώστε "
+"αυτά τα σφάλματα και δοκιμάστε ξανά."
 
 msgid "form.errorsOccurred"
 msgstr "Παρουσιάστηκαν σφάλματα κατά την επεξεργασία της φόρμας."
 
 msgid "form.formLanguage.description"
-msgstr "Για να εισάγετε την παρακάτω πληροφορία σε επιπλέον γλώσσα, θα πρέπει πρώτα να επιλέξετε τη γλώσσα."
+msgstr ""
+"Για να εισάγετε την παρακάτω πληροφορία σε επιπλέον γλώσσα, θα πρέπει πρώτα "
+"να επιλέξετε τη γλώσσα."
 
 msgid "form.formLanguage"
 msgstr "Γλώσσα φόρμας"
@@ -959,8 +1146,19 @@ msgstr "Απαιτείται η μεταφόρτωση αρχείου."
 msgid "form.required"
 msgstr "(*) Απαιτείται"
 
+msgid "form.requirePrimaryLocale"
+msgstr ""
+"Πρέπει να συμπληρώσετε αυτό το πεδίο στα {$language}.τη σελίδα και "
+"ξαναπροσπαθήστε."
+
+msgid "form.requireId"
+msgstr "Πρέπει να δώσετε ένα έγκυρο αναγνωριστικό (ID)."
+
 msgid "form.resubmit"
 msgstr "Επανυποβολή"
+
+msgid "form.saved"
+msgstr "Αποθηκεύτηκε"
 
 msgid "form.saveToUpload"
 msgstr "Χρησιμοποιήστε την εντολή Αποθήκευση για να μεταφορτώσετε το αρχείο."
@@ -972,7 +1170,15 @@ msgid "form.submit"
 msgstr "Υποβολή"
 
 msgid "form.invalidImage"
-msgstr "Μη έγκυρος τύπος αρχείου εικόνας προς μεταφόρτωση. Αποδεκτοί τύποι είναι οι .png, .gif, ή .jpg."
+msgstr ""
+"Μη έγκυρος τύπος αρχείου εικόνας προς μεταφόρτωση. Αποδεκτοί τύποι είναι οι ."
+"png, .gif, ή .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} στο {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "Ολοκληρώθηκαν {$count} από τις {$total} γλώσσες"
 
 msgid "help.help"
 msgstr "Βοήθεια"
@@ -1071,19 +1277,41 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Ξεκινήστε μια συζήτηση με τον Χρήστη {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε τη φόρμα που ακολουθεί."
+msgstr ""
+"Επιλέξτε ένα προκαθορισμένο μήνυμα ή συμπληρώστε τη φόρμα που ακολουθεί."
 
 msgid "stageParticipants.notify.message"
 msgstr "Μήνυμα"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Βεβαιωθείτε ότι έχετε καταχωρήσει το μήνυμά σας και επιλέξατε έναν τουλάχιστον παραλήπτη."
+msgstr ""
+"Βεβαιωθείτε ότι έχετε καταχωρήσει το μήνυμά σας και επιλέξατε έναν "
+"τουλάχιστον παραλήπτη."
 
 msgid "stageParticipants.options"
 msgstr "Διαβαθμισμένα δικαιώματα"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Τα δικαιώματα του συγκεκριμένου συντελεστή περιορίζονται στην υποβολή συστάσεων προς τον Επιμελητή. Η καταγραφή της απόφασης για το άρθρο γίνεται από τον Επιμελητή."
+msgstr ""
+"Τα δικαιώματα του συγκεκριμένου συντελεστή περιορίζονται στην υποβολή "
+"συστάσεων προς τον Επιμελητή. Η καταγραφή της απόφασης για το άρθρο γίνεται "
+"από τον Επιμελητή."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Δικαιώματα"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Επιτρέψτε σε αυτό το άτομο να κάνει αλλαγές στη δημοσίευση, όπως ο τίτλος, η "
+"περίληψη, τα μεταδεδομένα και άλλες λεπτομέρειες δημοσίευσης. Μπορεί να "
+"θέλετε να ανακαλέσετε αυτό το προνόμιο εάν η υποβολή περάσει τον τελικό "
+"ελεγχο και είναι έτοιμη για δημοσίευση."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Μετέχων"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Δεν μπορούν να γίνουν αλλαγές σε αυτόν τον μετέχοντα"
 
 msgid "locale.primary"
 msgstr "Κύρια γλώσσα"
@@ -1120,6 +1348,9 @@ msgstr "Στατιστικά"
 
 msgid "navigation.browse"
 msgstr "Περιήγηση"
+
+msgid "navigation.backTo"
+msgstr "⟵ Πίσω στην {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Κατά Συγγραφέα"
@@ -1181,6 +1412,12 @@ msgstr "Παραμετροποίηση λειτουργιών"
 msgid "navigation.sitemap"
 msgstr "Χάρτης ιστοτόπου"
 
+msgid "navigation.skip.description"
+msgstr "Μετάβαση στους συνδέσμους περιεχομένου"
+
+msgid "navigation.skip.announcements"
+msgstr "Μετάβαση στις ανακοινώσεις"
+
 msgid "navigation.skip.main"
 msgstr "Μετάβαση στο κύριο περιεχόμενο"
 
@@ -1230,7 +1467,8 @@ msgid "notification.updatedReviewFiles"
 msgstr "Τα αρχεία αξιολόγησης ενημερώθηκαν."
 
 msgid "notification.allow"
-msgstr "Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων"
+msgstr ""
+"Εμφάνιση αυτών των τύπων ειδοποιήσεων στην προσωπική μου ροή ειδοποιήσεων"
 
 msgid "notification.addedAnnouncementType"
 msgstr "Ο τύπος αναζήτησης προστέθηκε."
@@ -1287,13 +1525,19 @@ msgid "notification.settings"
 msgstr "Ρυθμίσεις ειδοποιήσεων"
 
 msgid "notification.settingsDescription"
-msgstr "Επιλέξτε/αποεπιλέξτε τα συμβάντα για τα οποία επιθυμείτε/δεν επιθυμείτε να λαμβάνετε ειδοποιήσεις."
+msgstr ""
+"Επιλέξτε/αποεπιλέξτε τα συμβάντα για τα οποία επιθυμείτε/δεν επιθυμείτε να "
+"λαμβάνετε ειδοποιήσεις."
 
 msgid "notification.reminderError"
-msgstr "Παρουσιάστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. Παρακαλούμε επιβεβαιώστε ότι καταχωρήσατε σωστά τη διεύθυνσή σας."
+msgstr ""
+"Παρουσιάστηκε ένα σφάλμα κατά την αποστολή του κωδικού πρόσβασης. "
+"Παρακαλούμε επιβεβαιώστε ότι καταχωρήσατε σωστά τη διεύθυνσή σας."
 
 msgid "notification.reminderSent"
-msgstr "Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που υποδείξατε."
+msgstr ""
+"Ο καινούργιος σας κωδικός πρόσβασης έχει σταλεί στην διεύθυνση που "
+"υποδείξατε."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Τα μεταδεδομένα της υποβολής έχουν αποθηκευτεί."
@@ -1379,6 +1623,12 @@ msgstr "Αναζήτηση για"
 msgid "search.searchResults"
 msgstr "Αποτελέσματα αναζήτησης"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Βρέθηκε ένα αντικείμενο."
+
+msgid "search.searchResults.foundPlural"
+msgstr "Βρέθηκαν {$count} αντικείμενα."
+
 msgid "search.subject"
 msgstr "Λέξεις-κλειδιά"
 
@@ -1419,9 +1669,46 @@ msgstr "Εργασίες"
 msgid "dashboard.myQueue"
 msgstr "Η λίστα μου"
 
+msgid "review.anonymousPeerReview.title"
+msgstr "Πώς να διασφαλίσετε ότι όλα τα αρχεία είναι ανώνυμα"
+
 #, fuzzy
 msgid "review.anonymousPeerReview"
-msgstr "<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που μεταφορτώνονται:</p>\n<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν υπάρχουν παραπομπές σε προηγούμενες εργασίες των Συγγραφέων, τα ονόματά τους αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται και παραμένει μόνο το έτος έκδοσης.</li>\n<li> Οι συντάκτες του εγγράφου έχουν αφαιρέσει προσωπικές πληροφορίες από τις ιδιότητες του αρχείου ακολουθώντας τα ακόλουθα βήματα:\n<ul> <li> Microsoft Word για Windows:\n<ul> <li> Μετάβαση στο αρχείο </li>\n<li> Επιλέξτε Πληροφορίες </li>\n<li> Κάντε κλικ στην επιλογή Έλεγχος ζητημάτων </li>\n<li> Κάντε κλικ στο Επιθεώρηση εγγράφου </li>\n<li> Στο πλαίσιο διαλόγου Document Inspector, επιλέξτε τους τύπους του κρυφού περιεχομένου που θέλετε να επιθεωρήσετε. </li>\n<li> Κάντε κλικ στην επιλογή Κατάργηση όλων </li>\n<li> Κάντε κλικ στο Κλείσιμο </li>\n<li> Αποθηκεύστε το έγγραφο </li> </ul>\n<li> Microsoft Word για MacOS:\n<ul> <li> Μεταβείτε στα Εργαλεία </li>\n<li> Κάντε κλικ στην Προστασία εγγράφου </li>\n<li> Επιλέξτε Κατάργηση προσωπικών πληροφοριών για αυτό το αρχείο στην αποθήκευση </li>\n<li> Κάντε κλικ στο OK και αποθηκεύστε το αρχείο </li> </ul> </li>\n<li> PDF:\n<ul> <li> Μετάβαση στο αρχείο </li>\n<li> Επιλέξτε Ιδιότητες </li>\n<li> Κατάργηση οποιουδήποτε ονόματος στο πεδίο συγγραφέα </li>\n<li> Κάντε κλικ στο OK </li>\n<li> Αποθήκευση εγγράφου </li> </ul> </li> </ul>\n"
+msgstr ""
+"<p>Η διασφάλιση της διαφάνειας κατά τη διαδικασία τυφλής αξιολόγησης "
+"εξαρτάται από την απόκρυψη της ταυτότητας των Συγγραφέων στους Αξιολογητές "
+"και αντιστρόφως. Οι Συγγραφείς, οι Επιμελητές και οι Αξιολογητές (οι οποίοι "
+"μεταφορτώνουν αρχεία κατά την αξιολόγηση) πρέπει να ελέγχουν τα ακόλουθα "
+"σημεία σε σχέση με τις ιδιότητες των κειμένων και των αρχείων που "
+"μεταφορτώνονται:</p>\n"
+"<ul><li>Οι Συγγραφείς έχουν διαγράψει τα ονόματά τους από το κείμενο. Εάν "
+"υπάρχουν παραπομπές σε προηγούμενες εργασίες των Συγγραφέων, τα ονόματά τους "
+"αντικαθίστανται με τη λέξη \"Συγγραφέας\", ο τίτλος των εργασιών αφαιρείται "
+"και παραμένει μόνο το έτος έκδοσης.</li>\n"
+"<li> Οι συντάκτες του εγγράφου έχουν αφαιρέσει προσωπικές πληροφορίες από "
+"τις ιδιότητες του αρχείου ακολουθώντας τα ακόλουθα βήματα:\n"
+"<ul> <li> Microsoft Word για Windows:\n"
+"<ul> <li> Μετάβαση στο αρχείο </li>\n"
+"<li> Επιλέξτε Πληροφορίες </li>\n"
+"<li> Κάντε κλικ στην επιλογή Έλεγχος ζητημάτων </li>\n"
+"<li> Κάντε κλικ στο Επιθεώρηση εγγράφου </li>\n"
+"<li> Στο πλαίσιο διαλόγου Document Inspector, επιλέξτε τους τύπους του "
+"κρυφού περιεχομένου που θέλετε να επιθεωρήσετε. </li>\n"
+"<li> Κάντε κλικ στην επιλογή Κατάργηση όλων </li>\n"
+"<li> Κάντε κλικ στο Κλείσιμο </li>\n"
+"<li> Αποθηκεύστε το έγγραφο </li> </ul>\n"
+"<li> Microsoft Word για MacOS:\n"
+"<ul> <li> Μεταβείτε στα Εργαλεία </li>\n"
+"<li> Κάντε κλικ στην Προστασία εγγράφου </li>\n"
+"<li> Επιλέξτε Κατάργηση προσωπικών πληροφοριών για αυτό το αρχείο στην "
+"αποθήκευση </li>\n"
+"<li> Κάντε κλικ στο OK και αποθηκεύστε το αρχείο </li> </ul> </li>\n"
+"<li> PDF:\n"
+"<ul> <li> Μετάβαση στο αρχείο </li>\n"
+"<li> Επιλέξτε Ιδιότητες </li>\n"
+"<li> Κατάργηση οποιουδήποτε ονόματος στο πεδίο συγγραφέα </li>\n"
+"<li> Κάντε κλικ στο OK </li>\n"
+"<li> Αποθήκευση εγγράφου </li> </ul> </li> </ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Χρονοδιάγραμμα αξιολόγησης"
@@ -1442,16 +1729,29 @@ msgid "navigation.goBack"
 msgstr "Επιστροφή"
 
 msgid "notification.addedReviewer"
-msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε σχετική ενημέρωση."
+msgstr ""
+"Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, στον οποίο στάλθηκε "
+"σχετική ενημέρωση."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει αποσταλεί σχετική ενημέρωση."
+msgstr ""
+"Η αξιολόγηση ανατέθηκε στον Αξιολογητή {$reviewerName}, χωρίς να έχει "
+"αποσταλεί σχετική ενημέρωση."
 
 msgid "notification.removedReviewer"
 msgstr "Ο Αξιολογητής αφαιρέθηκε"
 
+msgid "notification.cancelledReviewer"
+msgstr "Ο Αξιολογητής ακυρώθηκε."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Έγινε επαναφορά του Αξιολογητή."
+
 msgid "notification.addedStageParticipant"
 msgstr "Ο Χρήστης προστέθηκε ως συμμετέχων σε κάποιο στάδιο."
+
+msgid "notification.editStageParticipant"
+msgstr "Το στάδιο ανάθεσης έχει αλλάξει."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Νέα ανακοίνωση"
@@ -1469,7 +1769,8 @@ msgid "notification.type.allReviewsIn"
 msgstr "Όλες οι αξιολογήσεις και η απόφαση Επιμελητή χρειάζονται στο {$stage}."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Ένα αναθεωρημένο αρχείο προς επιμέλεια έχει μεταφορτωθεί στο στάδιο {$stage}."
+msgstr ""
+"Ένα αναθεωρημένο αρχείο προς επιμέλεια έχει μεταφορτωθεί στο στάδιο {$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Απαιτούνται αναθεωρήσεις στο στάδιο {$stage}."
@@ -1486,8 +1787,16 @@ msgstr "Ένας Αξιολογητής έχει καταθέσει σχόλια
 msgid "notification.signedFile"
 msgstr "Το αρχείο έχει θεωρηθεί"
 
+msgid "user.email"
+msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
+
 msgid "user.authorization.submissionFile"
-msgstr "Ο παρών Χρήστης δεν έχει δικαιώματα πρόσβασης στο συγκεκριμένο αρχείο υποβολής."
+msgstr ""
+"Ο παρών Χρήστης δεν έχει δικαιώματα πρόσβασης στο συγκεκριμένο αρχείο "
+"υποβολής."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Μη έγκυρη δημοσίευση."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Μη έγκυρη υποβολή"
@@ -1495,11 +1804,31 @@ msgstr "Μη έγκυρη υποβολή"
 msgid "user.authorization.invalidRepresentation"
 msgstr "Μη έγκυρη αναπαράσταση"
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "Μη έγκυρος γύρος ελέγχου."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Μη έγκυρη συζήτηση."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Δεν έχετε πρόσβαση σε αυτό το μήνυμα συζήτησης."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Δεν έχετε πρόσβαση σε αυτήν την εργασία αξιολόγησης."
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "Δεν σας έχουν δοθεί δικαιώματα προβολής της υποβολής. Παρακαλούμε ελέγξτε το προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι μέσω της λειτουργίας \"Σύνδεση Ως\"."
+msgstr ""
+"Δεν σας έχουν δοθεί δικαιώματα προβολής της υποβολής. Παρακαλούμε ελέγξτε το "
+"προφίλ σας για να βεβαιωθείτε ότι σας έχουν εκχωρηθεί οι κατάλληλοι ρόλοι "
+"μέσω της λειτουργίας \"Σύνδεση Ως\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Ο παρών Χρήστης δεν είναι ο Συγγραφέας της εργασίας. Βεβαιωθείτε ότι έχετε συνδεθεί με τον κατάλληλο λογαριασμό Χρήστη."
+msgstr ""
+"Ο παρών Χρήστης δεν είναι ο Συγγραφέας της εργασίας. Βεβαιωθείτε ότι έχετε "
+"συνδεθεί με τον κατάλληλο λογαριασμό Χρήστη."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Επιλογές απορρήτου"
 
 msgid "notification.type.queryActivity"
 msgstr "Δραστηριότητα συζητήσεων"
@@ -1508,13 +1837,23 @@ msgid "notification.type.queryAdded"
 msgstr "Η συζήτηση προστέθηκε."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Ανάθεση σε Επιμελητή Κειμένων μέσω του σχετικού συνδέσμου στη λίστα συντελεστών."
+msgstr ""
+"Ανάθεση σε Επιμελητή Κειμένων μέσω του σχετικού συνδέσμου στη λίστα "
+"συντελεστών."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Σε αναμονή επιμελημένων κειμένων."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Κατάσταση γύρου {$round}."
+
+msgid "notification.type.editorialReport"
+msgstr "Περίληψη αναφοράς στατιστικών."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της "
+"συντακτικής έκθεσης."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1543,398 +1882,203 @@ msgstr "Προβολή πρόσθετων πληροφοριών για το {$n
 msgid "list.viewLess"
 msgstr "Απόκρυψη πρόσθετων πληροφοριών για το {$name}"
 
-msgid "validator.url"
-msgstr "Μη έγκυρο URL."
+msgid "validator.accepted"
+msgstr "Αποδεχτείτε αυτό το αντικείμενο .."
 
-msgid "validator.timezone"
-msgstr "Δεν είναι έγκυρη η ζώνη ώρας."
+msgid "validator.active_url"
+msgstr "Αυτό δεν είναι έγκυρο URL."
 
-msgid "validator.string"
-msgstr "Μη έγκυρη συμβολοσειρά."
+msgid "validator.after"
+msgstr "Αυτή η ημερομηνία πρέπει να είναι μεταγενέστερη από {$date}."
 
-msgid "validator.size.array"
-msgstr "Πρέπει να περιέχει {$size} στοιχεία."
+msgid "validator.alpha"
+msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα."
 
-msgid "validator.size.string"
-msgstr "Πρέπει να έχει {$size} χαρακτήρες."
+msgid "validator.alpha_dash"
+msgstr ""
+"Πρέπει να περιλαμβάνονται μόνο γράμματα, αριθμοί, παύλες και κάτω_παύλες."
 
-msgid "validator.size.file"
-msgstr "Πρέπει να έχει μέγεθος {$size} ΚΒ."
+msgid "validator.alpha_dash_period"
+msgstr ""
+"Αυτό μπορεί να περιέχει μόνο γράμματα, αριθμούς, παύλες, κάτω παύλες και "
+"τελείες."
 
-msgid "validator.size.numeric"
-msgstr "Πρέπει να έχει μέγεθος {$size}."
+msgid "validator.alpha_num"
+msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα και αριθμοί."
 
-msgid "validator.same"
-msgstr "Τα χαρακτηριστικά {$attribute} και {$ other} πρέπει να ταιριάζουν."
+msgid "validator.array"
+msgstr "Αυτός δεν είναι έγκυρος πίνακας."
 
-msgid "validator.required_without_all"
-msgstr "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
+msgid "validator.before"
+msgstr "Αυτή η ημερομηνία πρέπει να είναι πριν από {$date}."
+
+msgid "validator.between.numeric"
+msgstr "Αυτό πρέπει να κυμαίνεται μεταξύ {$min} και {$max}."
+
+msgid "validator.between.file"
+msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} kilobytes."
+
+msgid "validator.between.string"
+msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} χαρακτήρες."
+
+msgid "validator.between.array"
+msgstr "Αυτό πρέπει να έχει από {$ min} ως {$ max} στοιχεί."
+
+msgid "validator.boolean"
+msgstr "Αυτό το πεδίο πρέπει να ισχύει ή όχι."
+
+msgid "validator.confirmed"
+msgstr "Η επιβεβαίωση για αυτό το πεδίο δεν ταιριάζει."
+
+msgid "validator.currency"
+msgstr "Δεν είναι έγκυρο αυτό το νόμισμα."
+
+msgid "validator.date"
+msgstr "Η ημερομηνία δεν είναι έγκυρη."
+
+msgid "validator.date_format"
+msgstr "Αυτό δεν ταιριάζει με τη μορφή {$format}."
+
+msgid "validator.different"
+msgstr "Το {$attribute} και το {$other} πρέπει να είναι διαφορετικά."
+
+msgid "validator.digits"
+msgstr "Πρέπει να έχει μήκος {$digits} ψηφία."
+
+msgid "validator.digits_between"
+msgstr "Πρέπει να έχει από {$min} και {$max} ψηφία."
+
+msgid "validator.email"
+msgstr "Αυτή δεν είναι έγκυρη διεύθυνση email."
+
+msgid "validator.exists"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.filled"
+msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
+
+msgid "validator.image"
+msgstr "Πρέπει να είναι μια εικόνα."
+
+msgid "validator.in"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.integer"
+msgstr "Αυτός δεν είναι έγκυρος ακέραιος."
+
+msgid "validator.ip"
+msgstr "Αυτή δεν είναι έγκυρη διεύθυνση IP."
+
+msgid "validator.issn"
+msgstr "Αυτό δεν είναι έγκυρο ISSN."
+
+msgid "validator.json"
+msgstr "Αυτή δεν είναι έγκυρη συμβολοσειρά JSON."
+
+msgid "validator.locale"
+msgstr "Αυτή η γλώσσα δεν είναι αποδεκτή."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Αυτό το πεδίο είναι πολύγλωσσο. Πρέπει να παρέχονται ξεχωριστές τιμές για "
+"κάθε υποστηριζόμενη γλώσσα."
+
+msgid "validator.localeKey"
+msgstr ""
+"Οι γλώσσες πρέπει να καθοριστούν χρησιμοποιώντας τον τοπικό κωδικό. "
+"Παραδείγματα: en_US, fr_CA, el_GR, sr_RS @ cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max}."
+
+msgid "validator.max.file"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} ΚΒ."
+
+msgid "validator.max.string"
+msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} χαρακτήρες."
+
+msgid "validator.max.array"
+msgstr "Δεν επιτρέπεται να υπάρχουν περισσότερα από {$max} στοιχεία."
+
+msgid "validator.mimes"
+msgstr "Πρέπει να είναι αρχείο τύπου {$Values}."
+
+msgid "validator.min.numeric"
+msgstr "Πρέπει να είναι τουλάχιστον {$min}."
+
+msgid "validator.min.file"
+msgstr "Πρέπει να είναι τουλάχιστον {$min} ΚΒ."
+
+msgid "validator.min.string"
+msgstr "Πρέπει να περιέχει τουλάχιστον {$min} χαρακτήρες."
+
+msgid "validator.min.array"
+msgstr "Πρέπει να υπάρχουν τουλάχιστον {$max} στοιχεία."
+
+msgid "validator.not_in"
+msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
+
+msgid "validator.numeric"
+msgstr "Μη έγκυρος αριθμός."
+
+msgid "validator.orcid"
+msgstr "Μη έγκυρο ORCID."
+
+msgid "validator.present"
+msgstr "Το πεδίο {$attribute} πρέπει να υπάρχει."
+
+msgid "validator.regex"
+msgstr "Δεν έχει μορφοποιηθεί σωστά."
+
+msgid "validator.required"
+msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
+
+msgid "validator.required_if"
+msgstr "Αυτό το πεδίο απαιτείται όταν το {$other} είναι {$value}."
 
 #, fuzzy
-msgid "validator.required_without"
-msgstr "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει το {$values}."
-
-#, fuzzy
-msgid "validator.required_with_all"
-msgstr "Αυτό το πεδίο απαιτείται όταν υπάρχει το {$values}."
+msgid "validator.required_unless"
+msgstr "Αυτό το πεδίο απαιτείται, εκτός εάν το {$other} είναι στο {$values}."
 
 #, fuzzy
 msgid "validator.required_with"
 msgstr "Αυτό το πεδίο απαιτείται όταν υπάρχει το {$values}."
 
 #, fuzzy
-msgid "validator.required_unless"
-msgstr "Αυτό το πεδίο απαιτείται, εκτός εάν το {$other} είναι στο {$values}."
-
-msgid "validator.required_if"
-msgstr "Αυτό το πεδίο απαιτείται όταν το {$other} είναι {$value}."
-
-msgid "validator.required"
-msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
-
-msgid "validator.regex"
-msgstr "Δεν έχει μορφοποιηθεί σωστά."
-
-msgid "validator.present"
-msgstr "Το πεδίο {$attribute} πρέπει να υπάρχει."
-
-msgid "validator.orcid"
-msgstr "Μη έγκυρο ORCID."
-
-msgid "validator.numeric"
-msgstr "Μη έγκυρος αριθμός."
-
-msgid "validator.not_in"
-msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
-
-msgid "validator.min.array"
-msgstr "Πρέπει να υπάρχουν τουλάχιστον {$max} στοιχεία."
-
-msgid "validator.min.string"
-msgstr "Πρέπει να περιέχει τουλάχιστον {$min} χαρακτήρες."
-
-msgid "validator.min.file"
-msgstr "Πρέπει να είναι τουλάχιστον {$min} ΚΒ."
-
-msgid "validator.min.numeric"
-msgstr "Πρέπει να είναι τουλάχιστον {$min}."
-
-msgid "validator.mimes"
-msgstr "Πρέπει να είναι αρχείο τύπου {$Values}."
-
-msgid "validator.max.array"
-msgstr "Δεν επιτρέπεται να υπάρχουν περισσότερα από {$max} στοιχεία."
-
-msgid "validator.max.string"
-msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} χαρακτήρες."
-
-msgid "validator.max.file"
-msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max} ΚΒ."
-
-msgid "validator.max.numeric"
-msgstr "Δεν μπορεί να είναι μεγαλύτερο από {$max}."
-
-msgid "validator.localeKey"
-msgstr "Οι γλώσσες πρέπει να καθοριστούν χρησιμοποιώντας τον τοπικό κωδικό. Παραδείγματα: en_US, fr_CA, el_GR, sr_RS @ cyrillic."
-
-msgid "validator.localeExpected"
-msgstr "Αυτό το πεδίο είναι πολύγλωσσο. Πρέπει να παρέχονται ξεχωριστές τιμές για κάθε υποστηριζόμενη γλώσσα."
-
-msgid "validator.locale"
-msgstr "Αυτή η γλώσσα δεν είναι αποδεκτή."
-
-msgid "validator.json"
-msgstr "Αυτή δεν είναι έγκυρη συμβολοσειρά JSON."
-
-msgid "validator.issn"
-msgstr "Αυτό δεν είναι έγκυρο ISSN."
-
-msgid "validator.ip"
-msgstr "Αυτή δεν είναι έγκυρη διεύθυνση IP."
-
-msgid "validator.integer"
-msgstr "Αυτός δεν είναι έγκυρος ακέραιος."
-
-msgid "validator.in"
-msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
-
-msgid "validator.image"
-msgstr "Πρέπει να είναι μια εικόνα."
-
-msgid "validator.filled"
-msgstr "Αυτό το πεδίο είναι υποχρεωτικό."
-
-msgid "validator.exists"
-msgstr "Το επιλεγμένο χαρακτηριστικό {$attribute} δεν είναι έγκυρο."
-
-msgid "validator.email"
-msgstr "Αυτή δεν είναι έγκυρη διεύθυνση email."
-
-msgid "validator.digits_between"
-msgstr "Πρέπει να έχει από {$min} και {$max} ψηφία."
-
-msgid "validator.digits"
-msgstr "Πρέπει να έχει μήκος {$digits} ψηφία."
-
-msgid "validator.different"
-msgstr "Το {$attribute} και το {$other} πρέπει να είναι διαφορετικά."
-
-msgid "validator.date_format"
-msgstr "Αυτό δεν ταιριάζει με τη μορφή {$format}."
-
-msgid "validator.date"
-msgstr "Η ημερομηνία δεν είναι έγκυρη."
-
-msgid "validator.currency"
-msgstr "Δεν είναι έγκυρο αυτό το νόμισμα."
-
-msgid "validator.confirmed"
-msgstr "Η επιβεβαίωση για αυτό το πεδίο δεν ταιριάζει."
-
-msgid "validator.boolean"
-msgstr "Αυτό το πεδίο πρέπει να ισχύει ή όχι."
-
-msgid "validator.between.array"
-msgstr "Αυτό πρέπει να έχει από {$ min} ως {$ max} στοιχεί."
-
-msgid "validator.between.string"
-msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} χαρακτήρες."
-
-msgid "validator.between.file"
-msgstr "Πρέπει να κυμαίνεται μεταξύ {$min} και {$max} kilobytes."
-
-msgid "validator.between.numeric"
-msgstr "Αυτό πρέπει να κυμαίνεται μεταξύ {$min} και {$max}."
-
-msgid "validator.before"
-msgstr "Αυτή η ημερομηνία πρέπει να είναι πριν από {$date}."
-
-msgid "validator.alpha_num"
-msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα και αριθμοί."
-
-msgid "validator.alpha_dash"
-msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα, αριθμοί, παύλες και κάτω_παύλες."
-
-msgid "validator.alpha"
-msgstr "Πρέπει να περιλαμβάνονται μόνο γράμματα."
-
-msgid "validator.after"
-msgstr "Αυτή η ημερομηνία πρέπει να είναι μεταγενέστερη από {$date}."
-
-msgid "validator.active_url"
-msgstr "Αυτό δεν είναι έγκυρο URL."
-
-msgid "validator.accepted"
-msgstr "Αποδεχτείτε αυτό το αντικείμενο .."
-
-msgid "notification.type.editorialReport.contents"
-msgstr "Μια υπενθύμιση για να ελέγξετε την υγεία του περιοδικού σας μέσω της συντακτικής έκθεσης."
-
-msgid "notification.type.editorialReport"
-msgstr "Περίληψη αναφοράς στατιστικών."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Μη έγκυρη δημοσίευση."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Έγινε επαναφορά του Αξιολογητή."
-
-msgid "notification.cancelledReviewer"
-msgstr "Ο Αξιολογητής ακυρώθηκε."
-
-msgid "navigation.skip.announcements"
-msgstr "Μετάβαση στις ανακοινώσεις"
-
-msgid "navigation.skip.description"
-msgstr "Μετάβαση στους συνδέσμους περιεχομένου"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Δεν μπορούν να γίνουν αλλαγές σε αυτόν τον μετέχοντα"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Μετέχων"
-
-msgid "stageParticipants.canChangeMetadata"
-msgstr "Επιτρέψτε σε αυτό το άτομο να κάνει αλλαγές στη δημοσίευση, όπως ο τίτλος, η περίληψη, τα μεταδεδομένα και άλλες λεπτομέρειες δημοσίευσης. Μπορεί να θέλετε να ανακαλέσετε αυτό το προνόμιο εάν η υποβολή περάσει τον τελικό ελεγχο και είναι έτοιμη για δημοσίευση."
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Δικαιώματα"
-
-msgid "form.multilingualProgress"
-msgstr "Ολοκληρώθηκαν {$count} από τις {$total} γλώσσες"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} στο {$localeName}"
-
-msgid "form.requireId"
-msgstr "Πρέπει να δώσετε ένα έγκυρο αναγνωριστικό (ID)."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Πρέπει να συμπληρώσετε αυτό το πεδίο στα {$language}.""τη σελίδα και ξαναπροσπαθήστε."
-
-msgid "form.errors"
-msgstr "Η φόρμα δεν αποθηκεύτηκε επειδή παρουσιάστηκαν {$count} σφάλματα. Διορθώστε αυτά τα σφάλματα και δοκιμάστε ξανά."
-
-msgid "form.errorMany"
-msgstr "Διορθώστε {$count} σφάλματα."
-
-msgid "form.errorOne"
-msgstr "Διορθώστε ένα σφάλμα."
-
-msgid "form.errorGoTo"
-msgstr "Μετάβαση στο επόμενο σφάλμα"
-
-msgid "form.errorA11y"
-msgstr "Μετάβαση στο  {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Δεν μπορείτε να ανεβάσετε επιπλέον αρχεία."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Κατάργηση αρχείου"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Επιβεβαιώστε ότι θέλετε να ακυρώσετε αυτήν τη μεταφόρτωση"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Η μεταφόρτωση ακυρώθηκε"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Ακύρωση μεταφόρτωσης"
-
-msgid "form.dropzone.dictResponseError"
-msgstr "Ο διακομιστής απάντησε με κωδικό σφάλματος {{statusCode}}. Επικοινωνήστε με το διαχειριστή του συστήματος εάν το πρόβλημα παραμένει."
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων αυτού του τύπου."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr "Το αρχείο είναι πολύ μεγάλο  ({{filesize}}mb). Δεν είναι δυνατή η μεταφόρτωση αρχείων μεγαλύτερων από {{maxFilesize}}mb."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "Χρησιμοποιήστε την ακόλουθη φόρμα για να ανεβάσετε τα αρχεία σας."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr "Αυτό το πρόγραμμα περιήγησης δεν υποστηρίζει μεταφορτώσεις αρχείων με απόθεση."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Αποθέστε εδώ τα αρχεία για μεταφόρτωση"
-
-msgid "form.disallowedProp"
-msgstr "Αυτή η ιδιότητα δεν επιτρέπεται."
-
-msgid "form.disallowedLocales"
-msgstr "Επιτρέπονται μόνο οι ακόλουθες γλώσσες: {$Languages}."
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Προεπισκόπηση της επιλεγμένης εικόνας."
-
-msgid "common.upload.restore"
-msgstr "Επαναφορά αρχικού"
-
-msgid "common.toWithValue"
-msgstr "Μέχρι: {$value}"
-
-msgid "common.submenu"
-msgstr "Υπομενού"
-
-msgid "common.selectedPrefix"
-msgstr "Επιλεγμένα:"
-
-msgid "common.removeItem"
-msgstr "Αφαίρεση του {$item}"
+msgid "validator.required_with_all"
+msgstr "Αυτό το πεδίο απαιτείται όταν υπάρχει το {$values}."
 
 #, fuzzy
-msgid "common.orderDown"
-msgstr "Μειώστε τη θέση του {$itemTitle}"
+msgid "validator.required_without"
+msgstr "Αυτό το πεδίο απαιτείται όταν δεν υπάρχει το {$values}."
 
-#, fuzzy
-msgid "common.orderUp"
-msgstr "Αυξήστε τη θέση του {$itemTitle}"
+msgid "validator.required_without_all"
+msgstr ""
+"Αυτό το πεδίο απαιτείται όταν δεν υπάρχει καμία από τις τιμές {$values}."
 
-msgid "common.override"
-msgstr "Παράκαμψη"
+msgid "validator.same"
+msgstr "Τα χαρακτηριστικά {$attribute} και {$ other} πρέπει να ταιριάζουν."
 
-msgid "common.noTemporaryFile"
-msgstr "Δεν ήταν δυνατή η εύρεση του αρχείου που ανεβάσατε. Προσπαθήστε να το ανεβάσετε ξανά."
+msgid "validator.size.numeric"
+msgstr "Πρέπει να έχει μέγεθος {$size}."
 
-msgid "common.noItemsFound"
-msgstr "Δεν βρέθηκαν αντικείμενα."
+msgid "validator.size.file"
+msgstr "Πρέπει να έχει μέγεθος {$size} ΚΒ."
 
-msgid "common.moreThanOnly"
-msgstr "Περισσότερο από"
+msgid "validator.size.string"
+msgstr "Πρέπει να έχει {$size} χαρακτήρες."
 
-msgid "common.lessThanOnly"
-msgstr "Λιγότερο από"
+msgid "validator.size.array"
+msgstr "Πρέπει να περιέχει {$size} στοιχεία."
 
-msgid "common.lastActivity"
-msgstr "Η τελευταία δραστηριότητα καταγράφηκε στις {$date}."
+msgid "validator.string"
+msgstr "Μη έγκυρη συμβολοσειρά."
 
-msgid "common.fromWithValue"
-msgstr "Από: {$value}"
-
-msgid "common.inactive"
-msgstr "Αδρανής"
-
-msgid "common.editItem"
-msgstr "Επεξεργασία {$name}"
-
-msgid "common.selectWithName"
-msgstr "Επιλογή {$name}"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.addFile"
-msgstr "Προσθήκη αρχείου"
-
-msgid "common.user.nonexistent"
-msgstr "[Ανύπαρκτος χρήστης]"
-
-msgid "common.viewWithName"
-msgstr "Προβολή {$name}"
-
-msgid "form.saved"
-msgstr "Αποθηκεύτηκε"
-
-msgid "navigation.backTo"
-msgstr "⟵ Πίσω στην {$page}"
-
-msgid "search.searchResults.foundSingle"
-msgstr "Βρέθηκε ένα αντικείμενο."
-
-msgid "search.searchResults.foundPlural"
-msgstr "Βρέθηκαν {$count} αντικείμενα."
-
-msgid "review.anonymousPeerReview.title"
-msgstr "Πώς να διασφαλίσετε ότι όλα τα αρχεία είναι ανώνυμα"
-
-msgid "notification.editStageParticipant"
-msgstr "Το στάδιο ανάθεσης έχει αλλάξει."
-
-msgid "user.email"
-msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου"
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Μη έγκυρος γύρος ελέγχου."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Μη έγκυρη συζήτηση."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Δεν έχετε πρόσβαση σε αυτό το μήνυμα συζήτησης."
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Δεν έχετε πρόσβαση σε αυτήν την εργασία αξιολόγησης."
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Επιλογές απορρήτου"
-
-msgid "validator.alpha_dash_period"
-msgstr "Αυτό μπορεί να περιέχει μόνο γράμματα, αριθμούς, παύλες, κάτω παύλες και τελείες."
-
-msgid "validator.array"
-msgstr "Αυτός δεν είναι έγκυρος πίνακας."
+msgid "validator.timezone"
+msgstr "Δεν είναι έγκυρη η ζώνη ώρας."
 
 msgid "validator.unique"
 msgstr "Το {$attribute} έχει ήδη ληφθεί."
+
+msgid "validator.url"
+msgstr "Μη έγκυρο URL."

@@ -4,10 +4,10 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
 "PO-Revision-Date: 2021-01-26 14:05+0000\n"
-"Last-Translator: FRITT, University of Oslo Library <fritt-"
-"info@journals.uio.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/installer/nb_NO/>\n"
+"Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
+"no>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/installer/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,9 @@ msgid "installer.clientCharset"
 msgstr "Tegnsett"
 
 msgid "installer.clientCharsetInstructions"
-msgstr "Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra nettlesere."
+msgstr ""
+"Tegnkodingen som skal brukes for data som blir sendt til og mottatt fra "
+"nettlesere."
 
 msgid "installer.configFileError"
 msgstr ""
@@ -80,9 +82,6 @@ msgstr "Databaseinnstillinger"
 msgid "installer.databaseUsername"
 msgstr "Brukernavn"
 
-msgid "installer.encryption"
-msgstr "Krypteringsalgoritme for passord"
-
 msgid "installer.filesDir"
 msgstr "Mappe for opplastede filer"
 
@@ -100,9 +99,6 @@ msgstr "Du må legge inn et navn på databasen."
 
 msgid "installer.form.emailRequired"
 msgstr "Du må ha en gyldig e-postadresse for administratorkontoen."
-
-msgid "installer.form.encryptionRequired"
-msgstr "En algoritme til bruk ved kryptering av brukerpassord må være valgt."
 
 msgid "installer.form.filesDirRequired"
 msgstr "Du må ha en mappe for lagring av opplastede filer."
@@ -140,7 +136,9 @@ msgid "installer.installerSQLStatements"
 msgstr "SQL -setninger for installeringen"
 
 msgid "installer.installFileError"
-msgstr "Installasjonsfilen <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er ikke lesbar."
+msgstr ""
+"Installasjonsfilen <tt>dbscripts/xml/install.xml</tt> finnes ikke eller er "
+"ikke lesbar."
 
 msgid "installer.installFilesDirError"
 msgstr ""
@@ -150,17 +148,36 @@ msgstr ""
 msgid "installer.installParseDBFileError"
 msgstr "Feil ved lesing av databaseinstallasjonsfilen <tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr "Feil ved utførelse av migreringsklassen <tt>{$class}</tt>."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Feil ved parsing av e-postmal <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Feil ved lesing av filterkonfigureringsfil <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Oppgraderingen er ikke støttet. Se detaljer i: docs/UPGRADE-UNSUPPORTED"
+
 msgid "installer.locale"
 msgstr "Språkpakke"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "De merkede språkpakkefilene kan være mangelfulle."
 
 msgid "installer.localeSettings"
 msgstr "Språkpakkeinnstillinger"
 
+msgid "installer.oaiSettings"
+msgstr "OAI-innstillinger"
+
 msgid "installer.oaiRepositoryIdInstructions"
 msgstr ""
 "En unik identifikator til å identifisere metadataposter indeksert fra dette "
-"nettstedet ved bruk av <a href=\"http://www.openarchives.org/\" target=\""
-"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
+"nettstedet ved bruk av <a href=\"http://www.openarchives.org/\" target="
+"\"_blank\">Open Archives Initiative</a> Protocol for Metadata Harvesting."
 
 msgid "installer.oaiRepositoryId"
 msgstr "OAI-arkividentifikator"
@@ -171,39 +188,8 @@ msgstr "Mappen for offentlige filer finnes ikke eller er ikke overskrivbar."
 msgid "installer.releaseNotes"
 msgstr "Lanseringsnotater"
 
-msgid "installer.installParseEmailTemplatesFileError"
-msgstr "Feil ved parsing av e-postmal <tt>{$file}</tt>."
-
-msgid "installer.locale.maybeIncomplete"
-msgstr "De merkede språkpakkefilene kan være mangelfulle."
-
-msgid "installer.oaiSettings"
-msgstr "OAI-innstillinger"
-
-msgid "installer.installParseFilterConfigFileError"
-msgstr "Feil ved lesing av filterkonfigureringsfil <tt>{$file}</tt>."
-
-msgid "installer.beacon.enable"
-msgstr ""
-"Legg til en unik nettsteds-ID og OAI base-URL til PKP for statistikk og "
-"sikkerhetsvarsler."
-
-msgid "installer.unsupportedUpgradeError"
-msgstr "Oppgraderingen er ikke støttet. Se detaljer i: docs/UPGRADE-UNSUPPORTED"
-
-msgid "installer.unsupportedPhpError"
-msgstr ""
-"PhP versjonen på serveren din støttes ikke av denne programvaren. "
-"Dobbeltsjekk installasjonskrav i docs/README."
-
-msgid "installer.beacon"
-msgstr "Beacon"
-
-msgid "installer.configureXSLMessage"
-msgstr ""
-"<p> PHP-innstallasjonen din har ikke aktivert den nødvendige XSL-modulen. Du "
-"kan enten skru den på eller konfigurere xslt_command parameter i "
-"config.inc.php file.</p>"
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Steg før installasjon"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
@@ -215,8 +201,8 @@ msgstr ""
 "{$writable_config}</li>\n"
 "\t\t<li><tt>public/</tt> er overskrivbar: {$writable_public}</li>\n"
 "\t\t<li><tt>cache/</tt> er overskrivbar: {$writable_cache}</li>\n"
-"\t\t<li><tt>cache/t_cache/</tt> er overskrivbar: "
-"{$writable_templates_cache}</li>\n"
+"\t\t<li><tt>cache/t_cache/</tt> er overskrivbar: {$writable_templates_cache}"
+"</li>\n"
 "\t\t<li><tt>cache/t_compile/</tt> er overskrivbar: "
 "{$writable_templates_compile}</li>\n"
 "\t\t<li><tt>cache/_db</tt> er overskrivbar: {$writable_db_cache}</li>\n"
@@ -225,8 +211,28 @@ msgstr ""
 "overskrivbar. (Se «Filinnstillinger» under).</p>\n"
 "\t"
 
-msgid "installer.preInstallationInstructionsTitle"
-msgstr "Steg før installasjon"
+msgid "installer.configureXSLMessage"
+msgstr ""
+"<p> PHP-innstallasjonen din har ikke aktivert den nødvendige XSL-modulen. Du "
+"kan enten skru den på eller konfigurere xslt_command parameter i config.inc."
+"php file.</p>"
 
-msgid "installer.installMigrationError"
-msgstr "Feil ved utførelse av migreringsklassen <tt>{$class}</tt>."
+msgid "installer.beacon"
+msgstr "Beacon"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Legg til en unik nettsteds-ID og OAI base-URL til PKP for statistikk og "
+"sikkerhetsvarsler."
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"PhP versjonen på serveren din støttes ikke av denne programvaren. "
+"Dobbeltsjekk installasjonskrav i docs/README."
+
+#~ msgid "installer.encryption"
+#~ msgstr "Krypteringsalgoritme for passord"
+
+#~ msgid "installer.form.encryptionRequired"
+#~ msgstr ""
+#~ "En algoritme til bruk ved kryptering av brukerpassord må være valgt."

@@ -30,7 +30,10 @@ msgid "reviewer.step1.request"
 msgstr "Değerlendirme İsteği"
 
 msgid "reviewer.step1.requestBoilerplate"
-msgstr "Aşağıdaki gönderinin potansiyel hakemi olarak seçildiniz. Aşağıda, bu hakemlik isteğinin zaman çizelgesinin yanı sıra değerlendirme için genel bir bilgilendirme sunulmaktadır. Değerlendirmeyi kabul edeceğinizi umuyoruz."
+msgstr ""
+"Aşağıdaki gönderinin potansiyel hakemi olarak seçildiniz. Aşağıda, bu "
+"hakemlik isteğinin zaman çizelgesinin yanı sıra değerlendirme için genel bir "
+"bilgilendirme sunulmaktadır. Değerlendirmeyi kabul edeceğinizi umuyoruz."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Tüm Aday Makalelerin Detaylarını Görüntüle"
@@ -42,7 +45,8 @@ msgid "reviewer.submission.declineReview"
 msgstr "Değerlendirme İsteğini Reddet"
 
 msgid "reviewer.submission.declineReviewMessage"
-msgstr "Aşağıdaki alanda bu isteği reddetme nedeninizi editöre bildirebilirsiniz."
+msgstr ""
+"Aşağıdaki alanda bu isteği reddetme nedeninizi editöre bildirebilirsiniz."
 
 msgid "reviewer.submission.acceptReview"
 msgstr "Adım #2'ye geçebilmek için Değerlendirmeyi Kabul Et"
@@ -53,11 +57,17 @@ msgstr "Adım #3 için devam edin"
 msgid "reviewer.submission.submitReview"
 msgstr "Değerlendirmeyi Gönder"
 
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Sonrası için sakla"
+
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Hakem Rehberleri"
 
 msgid "reviewer.submission.enterCompetingInterests"
-msgstr "Bu yayıncı, hakemlerden potansiyel çıkar çatışması açıklanması için bir politikaya sahiptir. Lütfen bu politikayı gözden geçirmek için bir dakikanızı ayırın."
+msgstr ""
+"Bu yayıncı, hakemlerden potansiyel çıkar çatışması açıklanması için bir "
+"politikaya sahiptir. Lütfen bu politikayı gözden geçirmek için bir "
+"dakikanızı ayırın."
 
 msgid "reviewer.submission.noCompetingInterests"
 msgstr "Herhangi bir çıkar çatışmam yoktur"
@@ -75,13 +85,20 @@ msgid "reviewer.submission.noGuidelines"
 msgstr "Bu yayıncı hakem rehberleri için herhangi bir düzenleme yapmadı."
 
 msgid "reviewer.submission.downloadDescription"
-msgstr "Bu gönderi ile ilgili dosyaları indirmek için aşağıdaki dosya adlarına tıklayınız."
+msgstr ""
+"Bu gönderi ile ilgili dosyaları indirmek için aşağıdaki dosya adlarına "
+"tıklayınız."
 
 msgid "reviewer.submission.reviewDescription"
-msgstr "Bu gönderi ile ilgili değerlendirmenizi aşağıdaki forma girin (veya yapıştırın)."
+msgstr ""
+"Bu gönderi ile ilgili değerlendirmenizi aşağıdaki forma girin (veya "
+"yapıştırın)."
 
 msgid "reviewer.submission.uploadDescription"
-msgstr "Orijinal inceleme dosyasının / dosyalarının gözden geçirilmiş sürümleri de dahil olmak üzere editör ve / veya yazarın istemesini istediğiniz dosyaları yükleyin."
+msgstr ""
+"Orijinal inceleme dosyasının / dosyalarının gözden geçirilmiş sürümleri de "
+"dahil olmak üzere editör ve / veya yazarın istemesini istediğiniz dosyaları "
+"yükleyin."
 
 msgid "reviewer.complete"
 msgstr "Değerlendirme Gönderildi"
@@ -90,13 +107,20 @@ msgid "reviewer.confirmSubmit"
 msgstr "Bu değerlendirmeyi göndermek istediğinizden emin misiniz?"
 
 msgid "reviewer.complete.whatNext"
-msgstr "Bu gönderimin değerlendirmesini tamamladığınız için teşekkür ederiz. Değerlendirmeniz başarıyla gönderildi. Dergimizin kalitesine katkınız için teşekkür ederiz; editör, gerekirse daha fazla bilgi için sizinle tekrar iletişime geçebilir."
+msgstr ""
+"Bu gönderimin değerlendirmesini tamamladığınız için teşekkür ederiz. "
+"Değerlendirmeniz başarıyla gönderildi. Dergimizin kalitesine katkınız için "
+"teşekkür ederiz; editör, gerekirse daha fazla bilgi için sizinle tekrar "
+"iletişime geçebilir."
 
 msgid "reviewer.aboutDueDates"
 msgstr "Son Tarihler Hakkında"
 
 msgid "reviewer.aboutDueDates.text"
-msgstr "Editör, Değerlendirme Son Tarihi'nden önce incelemeyi kabul ettiğinizi veya reddettiğinizi ve Değerlendirme Son Tarihine kadar değerlendirmeyi tamamlamanızı beklemektedir."
+msgstr ""
+"Editör, Değerlendirme Son Tarihi'nden önce incelemeyi kabul ettiğinizi veya "
+"reddettiğinizi ve Değerlendirme Son Tarihine kadar değerlendirmeyi "
+"tamamlamanızı beklemektedir."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Editör ve yazar için"
@@ -104,8 +128,11 @@ msgstr "Editör ve yazar için"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "Yalnızca editör için"
 
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+
+msgid "submission.comments.sendToReviewers"
+msgstr ""
+
 msgid "user.authorization.submissionReviewer"
 msgstr "Mevcut kullanıcı istenen doküman için hakem olarak atanmadı."
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Sonrası için sakla"

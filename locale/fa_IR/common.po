@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:46+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:46+00:00\n"
-"Language: \n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "پروژه دانش عمومی"
@@ -99,7 +99,8 @@ msgid "common.grid"
 msgstr "شبکه"
 
 msgid "common.confirmDelete"
-msgstr "آیا مطمئنید که می‌خواهید این مورد را حذف کنید؟ این عمل بازگشت ناپذیر است"
+msgstr ""
+"آیا مطمئنید که می‌خواهید این مورد را حذف کنید؟ این عمل بازگشت ناپذیر است"
 
 msgid "common.abstract"
 msgstr "چکیده"
@@ -118,6 +119,9 @@ msgstr "فعال‌سازی"
 
 msgid "common.active"
 msgstr "تعداد داوری‌های فعال"
+
+msgid "common.inactive"
+msgstr ""
 
 msgid "common.add"
 msgstr "افزودن"
@@ -142,6 +146,9 @@ msgstr "منتسب شده"
 
 msgid "common.altText"
 msgstr "متن جایگزین"
+
+msgid "common.altTextInstructions"
+msgstr ""
 
 msgid "common.and"
 msgstr "و"
@@ -183,28 +190,47 @@ msgid "common.notice"
 msgstr "توجه"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) وارد نشده است."
+msgstr ""
+"تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) "
+"وارد نشده است."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) نامعتبر است."
+msgstr ""
+"تنظیمات کپچای این سایت به درستی انجام نگرفته است. کلید مخفی (Secret key) "
+"نامعتبر است."
 
 msgid "common.captcha.error.missing-input-response"
 msgstr "برای جلوگیری از ارسال هرزنامه بایستی مرحله اعتبار سنجی را بگذرانید."
 
 msgid "common.captcha.error.invalid-input-response"
-msgstr "شما مرحله اعتبار سنجی را که برای جلوگیری از ارسال هرزنامه است نگذراندید"
+msgstr ""
+"شما مرحله اعتبار سنجی را که برای جلوگیری از ارسال هرزنامه است نگذراندید"
 
 msgid "common.captchaField.description"
-msgstr "لطفاً حروف موجود در تصویر فوق را به ترتیبی که می‌بینید وارد کنید. به بزرگی و کوچکی حروف توجه کنید."
+msgstr ""
+"لطفاً حروف موجود در تصویر فوق را به ترتیبی که می‌بینید وارد کنید. به بزرگی و "
+"کوچکی حروف توجه کنید."
 
 msgid "common.captchaField"
 msgstr "اعتبار سنجی"
 
 msgid "common.ccLicense"
-msgstr "<br /><br />  <a target=\"_new\" rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  <img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/80x15.png\"/>  </a>  <br/>  کار حاضر تحت مجوز   <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  Creative Commons Attribution 3.0  </a>  می‌باشد."
+msgstr ""
+"<br /><br />  <a target=\"_new\" rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by-nc/3.0/\">  <img alt=\"Creative Commons "
+"License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-"
+"nc/3.0/80x15.png\"/>  </a>  <br/>  کار حاضر تحت مجوز   <a rel=\"license\" "
+"target=\"_new\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  "
+"Creative Commons Attribution 3.0  </a>  می‌باشد."
 
 msgid "common.ccLicense.rt"
-msgstr "<div class=\"rtBlock\">  <br />  <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\" target=\"_new\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by-nc/3.0/80x15.png\" /></a>  <br />  کار حاضر تحت مجوز   <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">  Creative Commons Attribution 3.0  </a>  می‌باشد."
+msgstr ""
+"<div class=\"rtBlock\">  <br />  <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by-nc/3.0/\" target=\"_new\"><img alt="
+"\"Creative Commons License\" style=\"border-width:0\" src=\"http://i."
+"creativecommons.org/l/by-nc/3.0/80x15.png\" /></a>  <br />  کار حاضر تحت "
+"مجوز   <a rel=\"license\" target=\"_new\" href=\"https://creativecommons.org/"
+"licenses/by-nc/3.0/\">  Creative Commons Attribution 3.0  </a>  می‌باشد."
 
 msgid "common.changesSaved"
 msgstr "تغییرات ذخیره شد"
@@ -256,6 +282,9 @@ msgstr "ایجاد"
 
 msgid "common.dateCompleted"
 msgstr "تاریخ تکمیل"
+
+msgid "common.dateDecided"
+msgstr ""
 
 msgid "common.date"
 msgstr "تاریخ"
@@ -329,6 +358,9 @@ msgstr "دانلود PDF"
 msgid "common.edit"
 msgstr "ویرایش"
 
+msgid "common.editItem"
+msgstr ""
+
 msgid "common.enable"
 msgstr "فعال کردن"
 
@@ -342,7 +374,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "یک خطای اتصال پایگاه داده ناشناخته رخ داده است"
 
 msgid "common.error.framesRequired"
-msgstr "این صفحه نیاز به فریم دارد. برای مشاهده نسخه بدون فریم  <a href=\"{$url}\">  اینجا  </a>  را کلیک کنید."
+msgstr ""
+"این صفحه نیاز به فریم دارد. برای مشاهده نسخه بدون فریم  <a href=\"{$url}\">  "
+"اینجا  </a>  را کلیک کنید."
 
 msgid "common.event"
 msgstr "رویداد"
@@ -381,10 +415,25 @@ msgid "common.fileType"
 msgstr "نوع فایل"
 
 msgid "common.fileUploaderError"
-msgstr "سامانه آپلود فایل در حال بارگذاری است. در صورت عدم نمایش صحیح، احتمال آن می‌رود که این سامانه در مرورگر شما پشتیبانی نمی‌شود. برای حل این مشکل با مدیر سایت تماس حاصل فرمایید."
+msgstr ""
+"سامانه آپلود فایل در حال بارگذاری است. در صورت عدم نمایش صحیح، احتمال آن "
+"می‌رود که این سامانه در مرورگر شما پشتیبانی نمی‌شود. برای حل این مشکل با مدیر "
+"سایت تماس حاصل فرمایید."
+
+msgid "common.filter"
+msgstr ""
+
+msgid "common.filterAdd"
+msgstr ""
+
+msgid "common.filterRemove"
+msgstr ""
 
 msgid "common.from"
 msgstr "از"
+
+msgid "common.fromWithValue"
+msgstr ""
 
 msgid "common.until"
 msgstr "تا"
@@ -428,8 +477,17 @@ msgstr "زبان"
 msgid "common.languages"
 msgstr "زبان‌ها"
 
+msgid "common.lastActivity"
+msgstr ""
+
 msgid "common.less"
 msgstr "کمتر"
+
+msgid "common.lessThan"
+msgstr ""
+
+msgid "common.lessThanOnly"
+msgstr ""
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -458,6 +516,12 @@ msgstr "ماه"
 msgid "common.more"
 msgstr "بیشتر"
 
+msgid "common.moreThan"
+msgstr ""
+
+msgid "common.moreThanOnly"
+msgstr ""
+
 msgid "common.noneAssigned"
 msgstr "هیچ موردی انتساب داده نشده"
 
@@ -466,6 +530,9 @@ msgstr "هیچکدام"
 
 msgid "common.no"
 msgstr "خیر"
+
+msgid "common.noItemsFound"
+msgstr ""
 
 msgid "common.noComments"
 msgstr "بدون نظر"
@@ -482,11 +549,16 @@ msgstr "موجود نیست"
 msgid "common.note"
 msgstr "یادداشت"
 
+msgid "common.noTemporaryFile"
+msgstr ""
+
 msgid "common.notes"
 msgstr "یادداشت‌ها"
 
 msgid "common.notes.tooltip"
-msgstr "یادداشت‌ها (زرد: یادداشت جدید؛ آبی: یادداشت‌های مشاهده شده؛ خاکستری: بدون یادداشت)"
+msgstr ""
+"یادداشت‌ها (زرد: یادداشت جدید؛ آبی: یادداشت‌های مشاهده شده؛ خاکستری: بدون "
+"یادداشت)"
 
 msgid "common.notified"
 msgstr "اعلام شده"
@@ -529,6 +601,24 @@ msgstr "دیگر"
 
 msgid "common.overdue"
 msgstr "به تأخیر افتاده"
+
+msgid "common.override"
+msgstr ""
+
+msgid "common.pagination"
+msgstr ""
+
+msgid "common.pagination.label"
+msgstr ""
+
+msgid "common.pagination.goToPage"
+msgstr ""
+
+msgid "common.pagination.next"
+msgstr ""
+
+msgid "common.pagination.previous"
+msgstr ""
 
 msgid "common.pageNumber"
 msgstr "صفحه {$pageNumber}"
@@ -599,6 +689,9 @@ msgstr "آدرس URL"
 msgid "common.remove"
 msgstr "حذف"
 
+msgid "common.removeItem"
+msgstr ""
+
 msgid "common.removeSelection"
 msgstr "حذف انتخاب  شده‌ها"
 
@@ -635,17 +728,26 @@ msgstr "جستجو"
 msgid "common.searchQuery"
 msgstr "عبارت مورد جستجو"
 
+msgid "common.clearSearch"
+msgstr ""
+
 msgid "common.second"
 msgstr "ثانیه(ها)"
 
 msgid "common.selectAll"
 msgstr "انتخاب همه"
 
+msgid "common.selectedPrefix"
+msgstr ""
+
 msgid "common.selectNone"
 msgstr "انتخاب هیچکدام"
 
 msgid "common.select"
 msgstr "انتخاب"
+
+msgid "common.selectWithName"
+msgstr ""
 
 msgid "common.sendEmail"
 msgstr "ارسال ایمیل"
@@ -665,6 +767,9 @@ msgstr "موضوع"
 msgid "common.subjects"
 msgstr "موضوعات"
 
+msgid "common.submenu"
+msgstr ""
+
 msgid "common.subtitle"
 msgstr "زیر عنوان"
 
@@ -674,8 +779,14 @@ msgstr "پیشنهاد دادن"
 msgid "common.title"
 msgstr "عنوان"
 
+msgid "common.titleSeparator"
+msgstr ""
+
 msgid "common.top"
 msgstr "فوق"
+
+msgid "common.toWithValue"
+msgstr ""
 
 msgid "common.true"
 msgstr "صحیح"
@@ -690,7 +801,9 @@ msgid "common.uninitiated"
 msgstr "آغاز نشده است"
 
 msgid "common.unknownError"
-msgstr "خطای غیرمنتظره‌ای رخ داده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره تلاش کنید"
+msgstr ""
+"خطای غیرمنتظره‌ای رخ داده است. لطفاً صفحه را از اول بارگذاری کرده و دوباره "
+"تلاش کنید"
 
 msgid "common.unread"
 msgstr "خوانده نشده"
@@ -708,10 +821,23 @@ msgid "common.upload"
 msgstr "آپلود"
 
 msgid "common.uploadFailed"
-msgstr "فایل قابل آپلود نیست. لطفاً دوباره امتحان کنید و یا با مدیر سایت تماس بگیرید"
+msgstr ""
+"فایل قابل آپلود نیست. لطفاً دوباره امتحان کنید و یا با مدیر سایت تماس بگیرید"
+
+msgid "common.up"
+msgstr ""
+
+msgid "common.addFile"
+msgstr ""
 
 msgid "common.upload.addFile"
 msgstr "آپلود فایل"
+
+msgid "common.upload.restore"
+msgstr ""
+
+msgid "common.upload.thumbnailPreview"
+msgstr ""
 
 msgid "common.upload.changeFile"
 msgstr "تغییر فایل"
@@ -725,8 +851,14 @@ msgstr "URL"
 msgid "common.user"
 msgstr "کاربر"
 
+msgid "common.user.nonexistent"
+msgstr ""
+
 msgid "common.view"
 msgstr "مشاهده"
+
+msgid "common.viewWithName"
+msgstr ""
 
 msgid "common.viewProfile"
 msgstr "مشاهده پروفایل"
@@ -754,6 +886,9 @@ msgstr "معیار اندازه‌گیری"
 
 msgid "common.count"
 msgstr "تعداد"
+
+msgid "common.publicAccess"
+msgstr ""
 
 msgid "debug.databaseQueries"
 msgstr "تعداد query در بانک اطلاعاتی"
@@ -822,7 +957,11 @@ msgid "email.compose.tooManyRecipients"
 msgstr "تعداد گیرنده‌های این پیام بیش از حد مجاز است."
 
 msgid "email.compose.tooSoon"
-msgstr "ارسال ایمیل مجدد در حال حاضر مقدور نیست. لطفاً اندکی بعد، مجدداً اقدام کنید."
+msgstr ""
+"ارسال ایمیل مجدد در حال حاضر مقدور نیست. لطفاً اندکی بعد، مجدداً اقدام کنید."
+
+msgid "email.compose.error"
+msgstr ""
 
 msgid "email.email"
 msgstr "ایمیل"
@@ -882,13 +1021,70 @@ msgid "form.emailRequired"
 msgstr "وارد کردن آدرس ایمیل الزامی است."
 
 msgid "form.dataHasChanged"
-msgstr "داده‌های موجود در این فرم تغییر داده شده‌اند. آیا مطمئنید که می‌خواهید بدون ذخیره آن‌ها ادامه دهید؟"
+msgstr ""
+"داده‌های موجود در این فرم تغییر داده شده‌اند. آیا مطمئنید که می‌خواهید بدون "
+"ذخیره آن‌ها ادامه دهید؟"
+
+msgid "form.disallowedLocales"
+msgstr ""
+
+msgid "form.disallowedProp"
+msgstr ""
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr ""
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr ""
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr ""
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr ""
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr ""
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr ""
+
+msgid "form.errorA11y"
+msgstr ""
+
+msgid "form.errorGoTo"
+msgstr ""
+
+msgid "form.errorOne"
+msgstr ""
+
+msgid "form.errorMany"
+msgstr ""
+
+msgid "form.errors"
+msgstr ""
 
 msgid "form.errorsOccurred"
 msgstr "هنگام پردازش فرم خطاهایی رخ داد"
 
 msgid "form.formLanguage.description"
-msgstr "برای وارد کردن اطلاعات زیر به زبان دیگر ابتدا زبان مورد نظر را انتخاب کنید"
+msgstr ""
+"برای وارد کردن اطلاعات زیر به زبان دیگر ابتدا زبان مورد نظر را انتخاب کنید"
 
 msgid "form.formLanguage"
 msgstr "زبان فرم"
@@ -905,14 +1101,26 @@ msgstr "شروع با"
 msgid "form.postRequired"
 msgstr "داده‌های فرم به صورت صحیحی وارد نشده است"
 
+msgid "form.csrfInvalid"
+msgstr ""
+
 msgid "form.fileRequired"
 msgstr "آپلود کردن فایل الزامی است."
 
 msgid "form.required"
 msgstr "(* الزامی)"
 
+msgid "form.requirePrimaryLocale"
+msgstr ""
+
+msgid "form.requireId"
+msgstr ""
+
 msgid "form.resubmit"
 msgstr "ارائه مجدد"
+
+msgid "form.saved"
+msgstr ""
 
 msgid "form.saveToUpload"
 msgstr "برای آپلود فایل بر روی ذخیره کلیک کنید"
@@ -925,6 +1133,12 @@ msgstr "ثبت"
 
 msgid "form.invalidImage"
 msgstr "تصویر آپلود شده معتبر نیست. فرمت‌های معتبر شامل jpg، png و gif می‌باشد."
+
+msgid "form.multilingualLabel"
+msgstr ""
+
+msgid "form.multilingualProgress"
+msgstr ""
 
 msgid "help.help"
 msgstr "راهنما"
@@ -1016,6 +1230,12 @@ msgstr "ارسال اطلاع‌رسانی به کاربران"
 msgid "stageParticipants.history.messageSent"
 msgstr "اطلاع‌رسانی ها به کاربر ارسال شود"
 
+msgid "stageParticipants.notify.startDiscussion"
+msgstr ""
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr ""
+
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "انتخاب پیام های آماده"
 
@@ -1023,13 +1243,29 @@ msgid "stageParticipants.notify.message"
 msgstr "پیام"
 
 msgid "stageParticipants.notify.warning"
-msgstr "مطمئن شوید که پیام را وارد کرده باشید و حداقل یک دریافت کننده را انتخاب نموده باشید."
+msgstr ""
+"مطمئن شوید که پیام را وارد کرده باشید و حداقل یک دریافت کننده را انتخاب "
+"نموده باشید."
 
 msgid "stageParticipants.options"
 msgstr "مجوزهای انتساب"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "این همکار فقط اجازه توصیه یک تصمیم را دارد. برای اتخاذ تصمیم نهایی نقشی با سطح دسترسی دبیر نیاز است."
+msgstr ""
+"این همکار فقط اجازه توصیه یک تصمیم را دارد. برای اتخاذ تصمیم نهایی نقشی با "
+"سطح دسترسی دبیر نیاز است."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr ""
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+
+msgid "stageParticipants.selectedUser"
+msgstr ""
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr ""
 
 msgid "locale.primary"
 msgstr "زبان اصلی"
@@ -1066,6 +1302,9 @@ msgstr "آمار"
 
 msgid "navigation.browse"
 msgstr "پیمایش"
+
+msgid "navigation.backTo"
+msgstr ""
 
 msgid "navigation.browseByAuthor"
 msgstr "مرور بر اساس نویسنده"
@@ -1126,6 +1365,12 @@ msgstr "نصب"
 
 msgid "navigation.sitemap"
 msgstr "نقشه سایت"
+
+msgid "navigation.skip.description"
+msgstr ""
+
+msgid "navigation.skip.announcements"
+msgstr ""
 
 msgid "navigation.skip.main"
 msgstr "رفتن به محتوای اصلی"
@@ -1202,6 +1447,9 @@ msgstr "بروز خطا هنگام تأیید اشتراک شما"
 msgid "notification.confirmSuccess"
 msgstr "اشتراک شما فعال شد"
 
+msgid "notification.email"
+msgstr ""
+
 msgid "notification.noneExist"
 msgstr "هیچ موردی برای اطلاع‌رسانی وجود ندارد"
 
@@ -1230,10 +1478,15 @@ msgid "notification.settings"
 msgstr "تنظیمات اطلاع‌رسانی"
 
 msgid "notification.settingsDescription"
-msgstr "لطفاً رویدادی از سیستم را که مایلید در مورد آن به شما اطلاع‌رسانی شود انتخاب نمایید. عدم انتخاب یک رویداد سبب می‌گردد که اطلاع‌رسانی آن در فیلد اطلاع‌رسانی شما ظاهر نشود."
+msgstr ""
+"لطفاً رویدادی از سیستم را که مایلید در مورد آن به شما اطلاع‌رسانی شود انتخاب "
+"نمایید. عدم انتخاب یک رویداد سبب می‌گردد که اطلاع‌رسانی آن در فیلد اطلاع‌رسانی "
+"شما ظاهر نشود."
 
 msgid "notification.reminderError"
-msgstr "بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد کرده‌اید."
+msgstr ""
+"بروز خطا هنگام ارسال رمز عبور شما، مطمئن شوید که آدرس ایمیل را صحیح وارد "
+"کرده‌اید."
 
 msgid "notification.reminderSent"
 msgstr "رمز عبور جدیدی برایتان به آدرس ایمیلی که وارد کردید ارسال شد."
@@ -1322,6 +1575,12 @@ msgstr "جستجو برای"
 msgid "search.searchResults"
 msgstr "نتایج جستجو"
 
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
 msgid "search.subject"
 msgstr "کلید واژه"
 
@@ -1362,9 +1621,19 @@ msgstr "وظایف"
 msgid "dashboard.myQueue"
 msgstr "وظایف من"
 
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
 #, fuzzy
 msgid "review.anonymousPeerReview"
-msgstr "<p>برای دستیابی به اهداف سیاست‌های داوری محرمانه، باید تمامی تلاش‌ها برای عدم آگاهی نویسنده و داور از هویت همدیگر انجام گیرد. که نیازمند بررسی موارد زیر توسط سردبیر، ویراستیار و داور است:</p>\t <ul>\t   <li>نام نویسنده از داخل مقاله (قسمت نویسنده و پاورقی) و همچنین از نام فایل حذف شود.</li>\t   <li>در فایل‌های Microsoft Word نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t   <li>در مورد فایل‌های PDF نیز نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</li>\t </ul>"
+msgstr ""
+"<p>برای دستیابی به اهداف سیاست‌های داوری محرمانه، باید تمامی تلاش‌ها برای عدم "
+"آگاهی نویسنده و داور از هویت همدیگر انجام گیرد. که نیازمند بررسی موارد زیر "
+"توسط سردبیر، ویراستیار و داور است:</p>\t <ul>\t   <li>نام نویسنده از داخل "
+"مقاله (قسمت نویسنده و پاورقی) و همچنین از نام فایل حذف شود.</li>\t   <li>در "
+"فایل‌های Microsoft Word نام نویسنده از خصوصیات و فراداده‌های فایل حذف گردد.</"
+"li>\t   <li>در مورد فایل‌های PDF نیز نام نویسنده از خصوصیات و فراداده‌های فایل "
+"حذف گردد.</li>\t </ul>"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "زمان‌بندی داوری"
@@ -1385,22 +1654,38 @@ msgid "navigation.goBack"
 msgstr "بازگشت"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} به عنوان داور به این مقاله ارسالی انتساب داده شده و ایمیلی برای اطلاع رسانی به آنها ارسال شد."
+msgstr ""
+"{$reviewerName} به عنوان داور به این مقاله ارسالی انتساب داده شده و ایمیلی "
+"برای اطلاع رسانی به آنها ارسال شد."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} برای داوری این مقاله ارسالی، انتساب داده شد و ایمیل اطلاع‌رسانی ارسال نشد."
+msgstr ""
+"{$reviewerName} برای داوری این مقاله ارسالی، انتساب داده شد و ایمیل "
+"اطلاع‌رسانی ارسال نشد."
 
 msgid "notification.removedReviewer"
 msgstr "داور حذف شد"
 
+msgid "notification.cancelledReviewer"
+msgstr ""
+
+msgid "notification.reinstatedReviewer"
+msgstr ""
+
 msgid "notification.addedStageParticipant"
 msgstr "کاربر به عنوان همکار به این مرحله افزوده شد"
+
+msgid "notification.editStageParticipant"
+msgstr ""
 
 msgid "notification.type.newAnnouncement"
 msgstr "یک اطلاعیه جدید ایجاد شده است"
 
 msgid "notification.type.reviewAssignment"
 msgstr "در انتظار داوری"
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr ""
 
 msgid "notification.type.auditorRequest"
 msgstr "درخواست حسابرسی برای \"{$file}\""
@@ -1426,8 +1711,14 @@ msgstr "داور برای \"{$title}\" نظری داده است"
 msgid "notification.signedFile"
 msgstr "فایل در نظر گرفته شد."
 
+msgid "user.email"
+msgstr ""
+
 msgid "user.authorization.submissionFile"
 msgstr "این کاربر اجازه دسترسی به این فایل‌ها را ندارد."
+
+msgid "user.authorization.invalidPublication"
+msgstr ""
 
 msgid "user.authorization.invalidSubmission"
 msgstr "مقاله ارسالی نامعتبر"
@@ -1435,11 +1726,30 @@ msgstr "مقاله ارسالی نامعتبر"
 msgid "user.authorization.invalidRepresentation"
 msgstr "ارائه نامعتبر"
 
+msgid "user.authorization.invalidReviewRound"
+msgstr ""
+
+msgid "user.authorization.invalidQuery"
+msgstr ""
+
+msgid "user.authorization.unauthorizedNote"
+msgstr ""
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr ""
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "شما مجوز دسترسی کافی برای مشاهده این مقاله را ندارید. مطمئن شوید که دسترسی مناسبی در قسمت نقش‌ها برای شما اختصاص داده شده است."
+msgstr ""
+"شما مجوز دسترسی کافی برای مشاهده این مقاله را ندارید. مطمئن شوید که دسترسی "
+"مناسبی در قسمت نقش‌ها برای شما اختصاص داده شده است."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "این کاربر نویسنده این مقاله نیست. لطفاً مطمئن شویدکه با حساب کاربری صحیحی وارد شده اید."
+msgstr ""
+"این کاربر نویسنده این مقاله نیست. لطفاً مطمئن شویدکه با حساب کاربری صحیحی "
+"وارد شده اید."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr ""
 
 msgid "notification.type.queryActivity"
 msgstr "روند تصمیم گیری"
@@ -1455,6 +1765,12 @@ msgstr "در انتظار ویراستاری"
 
 msgid "notification.type.roundStatusTitle"
 msgstr "وضعیت دور {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr ""
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1476,3 +1792,198 @@ msgstr "منوی گشت‌وگذار با موفقیت به‌روزرسانی �
 
 msgid "notification.removedNavigationMenu"
 msgstr "منوی گشت‌وگذار با موفقیت حذف شد"
+
+msgid "list.viewMore"
+msgstr ""
+
+msgid "list.viewLess"
+msgstr ""
+
+msgid "validator.accepted"
+msgstr ""
+
+msgid "validator.active_url"
+msgstr ""
+
+msgid "validator.after"
+msgstr ""
+
+msgid "validator.alpha"
+msgstr ""
+
+msgid "validator.alpha_dash"
+msgstr ""
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+
+msgid "validator.alpha_num"
+msgstr ""
+
+msgid "validator.array"
+msgstr ""
+
+msgid "validator.before"
+msgstr ""
+
+msgid "validator.between.numeric"
+msgstr ""
+
+msgid "validator.between.file"
+msgstr ""
+
+msgid "validator.between.string"
+msgstr ""
+
+msgid "validator.between.array"
+msgstr ""
+
+msgid "validator.boolean"
+msgstr ""
+
+msgid "validator.confirmed"
+msgstr ""
+
+msgid "validator.currency"
+msgstr ""
+
+msgid "validator.date"
+msgstr ""
+
+msgid "validator.date_format"
+msgstr ""
+
+msgid "validator.different"
+msgstr ""
+
+msgid "validator.digits"
+msgstr ""
+
+msgid "validator.digits_between"
+msgstr ""
+
+msgid "validator.email"
+msgstr ""
+
+msgid "validator.exists"
+msgstr ""
+
+msgid "validator.filled"
+msgstr ""
+
+msgid "validator.image"
+msgstr ""
+
+msgid "validator.in"
+msgstr ""
+
+msgid "validator.integer"
+msgstr ""
+
+msgid "validator.ip"
+msgstr ""
+
+msgid "validator.issn"
+msgstr ""
+
+msgid "validator.json"
+msgstr ""
+
+msgid "validator.locale"
+msgstr ""
+
+msgid "validator.localeExpected"
+msgstr ""
+
+msgid "validator.localeKey"
+msgstr ""
+
+msgid "validator.max.numeric"
+msgstr ""
+
+msgid "validator.max.file"
+msgstr ""
+
+msgid "validator.max.string"
+msgstr ""
+
+msgid "validator.max.array"
+msgstr ""
+
+msgid "validator.mimes"
+msgstr ""
+
+msgid "validator.min.numeric"
+msgstr ""
+
+msgid "validator.min.file"
+msgstr ""
+
+msgid "validator.min.string"
+msgstr ""
+
+msgid "validator.min.array"
+msgstr ""
+
+msgid "validator.not_in"
+msgstr ""
+
+msgid "validator.numeric"
+msgstr ""
+
+msgid "validator.orcid"
+msgstr ""
+
+msgid "validator.present"
+msgstr ""
+
+msgid "validator.regex"
+msgstr ""
+
+msgid "validator.required"
+msgstr ""
+
+msgid "validator.required_if"
+msgstr ""
+
+msgid "validator.required_unless"
+msgstr ""
+
+msgid "validator.required_with"
+msgstr ""
+
+msgid "validator.required_with_all"
+msgstr ""
+
+msgid "validator.required_without"
+msgstr ""
+
+msgid "validator.required_without_all"
+msgstr ""
+
+msgid "validator.same"
+msgstr ""
+
+msgid "validator.size.numeric"
+msgstr ""
+
+msgid "validator.size.file"
+msgstr ""
+
+msgid "validator.size.string"
+msgstr ""
+
+msgid "validator.size.array"
+msgstr ""
+
+msgid "validator.string"
+msgstr ""
+
+msgid "validator.timezone"
+msgstr ""
+
+msgid "validator.unique"
+msgstr ""
+
+msgid "validator.url"
+msgstr ""

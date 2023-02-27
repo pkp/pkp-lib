@@ -41,6 +41,9 @@ msgstr "Förfallodatum"
 msgid "manager.announcements.datePublish"
 msgstr "Publicerat"
 
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Ta bort meddelande"
+
 msgid "manager.announcements.edit"
 msgstr "Redigera meddelande"
 
@@ -54,7 +57,9 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Förfaller den"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Meddelandet kommer att vara publikt till och med detta datum. Lämna blankt om meddelandet ska visas permanent."
+msgstr ""
+"Meddelandet kommer att vara publikt till och med detta datum. Lämna blankt "
+"om meddelandet ska visas permanent."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Utöver månad, välj även år och/eller dag för förfallande."
@@ -111,7 +116,9 @@ msgid "manager.announcementTypes"
 msgstr "Meddelandetyper"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Varning! Alla meddelanden under den här meddelandetypen kommer att tas bort. Är du säker på att du vill ta bort meddelandetypen?"
+msgstr ""
+"Varning! Alla meddelanden under den här meddelandetypen kommer att tas bort. "
+"Är du säker på att du vill ta bort meddelandetypen?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Skapa meddelandetyp"
@@ -143,6 +150,9 @@ msgstr "Inga meddelandetyper har skapats."
 msgid "manager.announcementTypes.typeName"
 msgstr "Meddelandetyp"
 
+msgid "manager.genres.alertDelete"
+msgstr ""
+
 msgid "manager.publication.submissionStage"
 msgstr "Bidrag"
 
@@ -158,14 +168,27 @@ msgstr "Produktion"
 msgid "manager.publication.emails"
 msgstr "E-post"
 
+msgid "manager.publication.reviewerGuidance"
+msgstr "Guide för granskare"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Granskningspåminnelsens detaljer har uppdaterats."
+
 msgid "manager.emails.confirmDelete"
 msgstr "Är du säker på att du vill ta bort e-postmallen?"
 
 msgid "manager.emails.confirmReset"
-msgstr "Är du säker på att du vill återställa e-postmallen till dess defaultvärde?"
+msgstr ""
+"Är du säker på att du vill återställa e-postmallen till dess defaultvärde?"
+
+msgid "manager.emails.addEmail"
+msgstr "Lägg till mall"
 
 msgid "manager.emails.createEmail"
 msgstr "Skapa e-postmeddelande"
+
+msgid "manager.emails.customTemplate"
+msgstr "Specialmall"
 
 msgid "manager.emails.data"
 msgstr "Mallens meddelandedata"
@@ -177,7 +200,9 @@ msgid "manager.emails.disable"
 msgstr "Inaktivera"
 
 msgid "manager.emails.disable.message"
-msgstr "Du är på väg att inaktivera den här e-postmallen. Systemprocesser som använder mallen kommer inte längre kunna göra det. Vill du fortsätta?"
+msgstr ""
+"Du är på väg att inaktivera den här e-postmallen. Systemprocesser som "
+"använder mallen kommer inte längre kunna göra det. Vill du fortsätta?"
 
 msgid "manager.emails.editEmail"
 msgstr "Redigera e-postmeddelande"
@@ -188,11 +213,25 @@ msgstr "Redigera e-postexemplet"
 msgid "manager.emails.emailKey"
 msgstr "Kod för e-postadress"
 
+msgid "manager.emails.emailKey.description"
+msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
+
 msgid "manager.emails.emailKeyExists"
-msgstr "En e-postadress med angiven kod existerar redan. Koder för e-postadresser måste vara unika."
+msgstr ""
+"En e-postadress med angiven kod existerar redan. Koder för e-postadresser "
+"måste vara unika."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-postmall"
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-postmallar"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du måste ange ett ID när en e-postmall läggs till."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Nyckeln du angav används redan."
 
 msgid "manager.emails.enabled"
 msgstr "Aktivera den här e-postmallen"
@@ -204,7 +243,8 @@ msgid "manager.emails.enable.message"
 msgstr "Du är på väg att aktivera det här e-postmeddelandet.  Är du säker?"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "Unik e-postadress som inte innehåller mellanslag eller specialtecken krävs."
+msgstr ""
+"Unik e-postadress som inte innehåller mellanslag eller specialtecken krävs."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "E-postmeddelandet måste innehålla text."
@@ -215,23 +255,53 @@ msgstr "Ämne krävs."
 msgid "manager.emails"
 msgstr "E-postmallar"
 
+msgid "manager.emails.resetAll"
+msgstr "Återställ alla"
+
 msgid "manager.emails.resetAll.message"
-msgstr "Alla ändringar som gjorts i e-postmallarna kommer att försvinna. Vill du fortsätta?"
+msgstr ""
+"Alla ändringar som gjorts i e-postmallarna kommer att försvinna. Vill du "
+"fortsätta?"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Default e-postmall har återställts."
 
 msgid "manager.emails.reset"
 msgstr "Återställ"
 
+msgid "manager.emails.resetComplete"
+msgstr "E-postmallen har återställts."
+
 msgid "manager.emails.reset.message"
-msgstr "Om du återställer den här mallen kommer alla ändringar i den att försvinna. Vill du fortsätta?"
+msgstr ""
+"Om du återställer den här mallen kommer alla ändringar i den att försvinna. "
+"Vill du fortsätta?"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Återställ till defaultutseende"
+
+msgid "manager.emails.sentFrom"
+msgstr "Skickats från"
+
+msgid "manager.emails.sentTo"
+msgstr "Skickats till"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Ämne: {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportera till Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Filutforskare"
 
 msgid "manager.files.confirmDelete"
-msgstr "Vill du radera den här filen eller mappen? Observera att mappar måste vara tomma innan de kan raderas."
+msgstr ""
+"Vill du radera den här filen eller mappen? Observera att mappar måste vara "
+"tomma innan de kan raderas."
 
 msgid "manager.files.createDir"
 msgstr "Skapa mapp"
@@ -297,10 +367,14 @@ msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Återställ till default"
 
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Systemet tillåter att viss viktig information kan fyllas i på flera språk. Välj ytterligare språk/regioner och gör inställningar nedan."
+msgstr ""
+"Systemet tillåter att viss viktig information kan fyllas i på flera språk. "
+"Välj ytterligare språk/regioner och gör inställningar nedan."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Välj de språk/regioner som ska gå att byta mellan på varje sida på webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts."
+msgstr ""
+"Välj de språk/regioner som ska gå att byta mellan på varje sida på "
+"webbplatsen. Språkvalsmenyn kommer bara synas om fler än ett språk valts."
 
 msgid "manager.payment.timestamp"
 msgstr "Tidsstämpel"
@@ -321,7 +395,9 @@ msgid "manager.people.createUserGeneratePassword"
 msgstr "Generera ett slumpmässigt lösenord."
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Skicka ett välkomstmeddelande till användaren innehållandes användarnamn och lösenord."
+msgstr ""
+"Skicka ett välkomstmeddelande till användaren innehållandes användarnamn och "
+"lösenord."
 
 msgid "manager.people.disable"
 msgstr "Inaktivera"
@@ -348,7 +424,9 @@ msgid "manager.people.emailUsers.selectLocale"
 msgstr "Välj språk/region"
 
 msgid "manager.people.emailUsers.selectUsers"
-msgstr "Välj användare du vill skicka e-postmeddelande till genom att bocka i rutan vid respektive namn"
+msgstr ""
+"Välj användare du vill skicka e-postmeddelande till genom att bocka i rutan "
+"vid respektive namn"
 
 msgid "manager.people.enable"
 msgstr "Aktivera"
@@ -381,13 +459,17 @@ msgid "manager.people.mergeUser"
 msgstr "Slå ihop användare"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Är du säker på att du vill slå ihop kontot för \"{$oldUsername}\" med kontot för\"{$newUsername}\"? Kontot \"{$oldUsername}\" kommer att tas bort och kan inte återskapas."
+msgstr ""
+"Är du säker på att du vill slå ihop kontot för \"{$oldUsername}\" med kontot "
+"för\"{$newUsername}\"? Kontot \"{$oldUsername}\" kommer att tas bort och kan "
+"inte återskapas."
 
 msgid "manager.people.mergeUsers"
 msgstr "Slå ihop flera användare"
 
 msgid "manager.people.mustChooseRole"
-msgstr "Välj en roll längst upp på sidan innan du klickar på \"Tilldela roll\"."
+msgstr ""
+"Välj en roll längst upp på sidan innan du klickar på \"Tilldela roll\"."
 
 msgid "manager.people.mustProvideName"
 msgstr "Lägg åtminstone till ett efternamn."
@@ -406,6 +488,9 @@ msgstr "Ta bort"
 
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Spara och skapa ytterligare"
+
+msgid "manager.people.signedInAs"
+msgstr "Du är inloggad som {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Logga in som"
@@ -438,7 +523,9 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Administration av plugins"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Det här är ett plugin för hela webbplatsen. Endast webbplatsens administratör har behörighet att hantera den."
+msgstr ""
+"Det här är ett plugin för hela webbplatsen. Endast webbplatsens "
+"administratör har behörighet att hantera den."
 
 msgid "manager.plugins"
 msgstr "Systemplugins"
@@ -448,6 +535,11 @@ msgstr "Läsverktyg"
 
 msgid "manager.userSearch.searchByName"
 msgstr "Sök användare med namn"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan inte ta bort representanten eftersom hen har lagts till i "
+"marknadsmetadatan för ett eller flera av bidragets publiceringsformat."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Ändra"
@@ -462,7 +554,9 @@ msgid "manager.reviewerSearch.interests"
 msgstr "Intresseområden för granskning"
 
 msgid "manager.reviewerSearch.form.instructions"
-msgstr "Använd formuläret nedan för att välja maxvärde för termerna du vill söka efter. Formuläret är förifyllt med beräknat medel för respektive fält."
+msgstr ""
+"Använd formuläret nedan för att välja maxvärde för termerna du vill söka "
+"efter. Formuläret är förifyllt med beräknat medel för respektive fält."
 
 msgid "manager.roles"
 msgstr "Roller"
@@ -473,9 +567,13 @@ msgstr "Statistik &amp; Rapporter"
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\t{$contextObjectName} är konfigurerad för att registrera mer än ett mått på användning. Användningsstatistiken kommer att presenteras i flera sammanhang.\n"
-"\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. för att visa en sorterad lista över de mest använda bidragen eller för\n"
-"\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som default.\n"
+"\t\t{$contextObjectName} är konfigurerad för att registrera mer än ett mått "
+"på användning. Användningsstatistiken kommer att presenteras i flera "
+"sammanhang.\n"
+"\t\tDet finns fall där endast ett mått på användning måste användas, t.ex. "
+"för att visa en sorterad lista över de mest använda bidragen eller för\n"
+"\t\tatt rangordna sökresultat. Välj ett av de konfigurerade värdena som "
+"default.\n"
 "\t"
 
 msgid "manager.statistics.city"
@@ -489,19 +587,28 @@ msgid "manager.statistics.reports"
 msgstr "Rapportgenerator"
 
 msgid "manager.statistics.reports.description"
-msgstr "Systemet genererar rapporter som spårar detaljer kopplade till webbplatsens användande och inskickade bidrag för en given tidsperiod. Rapporterna genereras i CSV-format som kräver ett kalkylbladsprogram för att kunna visas."
+msgstr ""
+"Systemet genererar rapporter som spårar detaljer kopplade till webbplatsens "
+"användande och inskickade bidrag för en given tidsperiod. Rapporterna "
+"genereras i CSV-format som kräver ett kalkylbladsprogram för att kunna visas."
 
 msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Sammanställ statistik för:"
 
 msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Kursiverade objekt markerade med * representerar data som är valfria för det aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt ha datan, beroende på konfigurationen av ditt statistikplugin."
+msgstr ""
+"Kursiverade objekt markerade med * representerar data som är valfria för det "
+"aktuella sättet att räkna statistik i systemet (metrisk). Du kan eventuellt "
+"ha datan, beroende på konfigurationen av ditt statistikplugin."
 
 msgid "manager.statistics.reports.defaultReportTemplates"
 msgstr "Rapportmallar, default"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Generera anpassad rapport"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Anpassad rapport"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Avancerade alternativ"
@@ -513,7 +620,13 @@ msgid "manager.statistics.reports.columns"
 msgstr "Kolumner"
 
 msgid "manager.statistics.reports.columns.description"
-msgstr "Definiera kolumnerna som kommer användas för att skapa rapporten. Kolumnerna du väljer här definierar vilka data och hur data presenteras i rapporterna. Till exempel, om du väljer kolumnerna ID, Typ och Månad kommer rapporten att sammanställa alla visningar av ett objekt från en månad och presentera dessa data i en rad. Om du väljer Dag i stället för Månad kommer varje objekt ha en rad för varje dag."
+msgstr ""
+"Definiera kolumnerna som kommer användas för att skapa rapporten. Kolumnerna "
+"du väljer här definierar vilka data och hur data presenteras i rapporterna. "
+"Till exempel, om du väljer kolumnerna ID, Typ och Månad kommer rapporten att "
+"sammanställa alla visningar av ett objekt från en månad och presentera dessa "
+"data i en rad. Om du väljer Dag i stället för Månad kommer varje objekt ha "
+"en rad för varje dag."
 
 msgid "manager.statistics.reports.filters"
 msgstr "Filter"
@@ -564,7 +677,10 @@ msgid "manager.statistics.reports.reportUrl"
 msgstr "Rapport-URL"
 
 msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Följande URL kan användas för att generera rapporten med nuvarande inställningar. Kopiera och klistra in den i din webbläsare. Du kan också spara den bland dina favoriter."
+msgstr ""
+"Följande URL kan användas för att generera rapporten med nuvarande "
+"inställningar. Kopiera och klistra in den i din webbläsare. Du kan också "
+"spara den bland dina favoriter."
 
 msgid "manager.statistics.reports.filters.byContext"
 msgstr "Efter sammanhang"
@@ -593,17 +709,31 @@ msgstr "Ytterligare innehåll"
 msgid "manager.setup.additionalContent.description"
 msgstr "Det som fylls i här kommer att synas på din förstasida."
 
+msgid "manager.setup.advanced"
+msgstr "Avancerad"
+
 msgid "manager.setup.copyrightNotice"
 msgstr "Upphovsrättsdeklaration"
 
 msgid "manager.setup.copyrightNotice.description"
-msgstr "Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas in."
+msgstr ""
+"Kräv att författare godkänner upphovsrättsdeklarationen när bidrag skickas "
+"in."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Riktlinjer för författare"
 
 msgid "manager.setup.authorGuidelines.description"
-msgstr "Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder tillsammans med exempel på vanliga referensformat att använda vid inlämning av bidrag."
+msgstr ""
+"Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder "
+"tillsammans med exempel på vanliga referensformat att använda vid inlämning "
+"av bidrag."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Inaktivera bidrag"
+
+msgid "manager.setup.checklist"
+msgstr "Checklista"
 
 msgid "manager.setup.competingInterests"
 msgstr "Intressekonflikter"
@@ -621,28 +751,34 @@ msgid "manager.setup.homepageImage.description"
 msgstr "Ladda upp en bild som får en framträdande plats på förstasidan."
 
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Ogiltigt format för bild på förstasidan, eller misslyckad uppladdning. Godkända format är .gif, .jpg, och .png."
+msgstr ""
+"Ogiltigt format för bild på förstasidan, eller misslyckad uppladdning. "
+"Godkända format är .gif, .jpg, och .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Ogiltigt format för titelbild på förstasidans sidhuvud. Godkända format är .gif, .jpg, och .png."
+msgstr ""
+"Ogiltigt format för titelbild på förstasidans sidhuvud. Godkända format är ."
+"gif, .jpg, och .png."
 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Beskrivningar"
 
-msgid "manager.setup.theme"
-msgstr "Tema"
-
-msgid "manager.setup.theme.description"
-msgstr "Nya teman kan installeras från fliken Plugins högst upp på den här sidan."
-
 msgid "manager.setup.layout.sidebar"
 msgstr "Sidomeny"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blocket {$name} kan inte hittas. Kontrollera att pluginet är installerat och "
+"aktiverat."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Loggning och revidering"
 
 msgid "manager.setup.logo"
 msgstr "Logotyp"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
 
 msgid "manager.setup.notifications"
 msgstr "Avisering om bidrag från författare"
@@ -651,40 +787,125 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Skicka en kopia till den här e-postadressen"
 
 msgid "manager.setup.notifications.description"
-msgstr "Författare får automatiskt ett e-postmeddelande som bekräftar deras inskickade bidrag. Du kan få kopior av detta meddelande skickade till följande:"
+msgstr ""
+"Författare får automatiskt ett e-postmeddelande som bekräftar deras "
+"inskickade bidrag. Du kan få kopior av detta meddelande skickade till "
+"följande:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Meddela användare"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Välj vilka användare som ska få era e-postmeddelanden."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Skicka en kopia av detta meddelande till {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Skicka e-post"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du kommer skicka e-post till {$total} användare. Är du säker på att du vill "
+"skicka?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Skickar e-postmeddelande. Stanna kvar på sidan tills den är färdig med att "
+"skicka."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-postmeddelande har skickats till samtliga mottagare."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Skicka ytterligare ett e-postmeddelande"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open access-policy"
 
 msgid "manager.setup.openAccessPolicy.description"
-msgstr "Om du ger omedelbar fri tillgång till allt publicerat innehåll, kan du fylla i open access-policy."
+msgstr ""
+"Om du ger omedelbar fri tillgång till allt publicerat innehåll, kan du fylla "
+"i open access-policy."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Ogiltigt format för logotyp på sidhuvudet. Godkända format är .gif, .jpg, och .png."
+msgstr ""
+"Ogiltigt format för logotyp på sidhuvudet. Godkända format är .gif, .jpg, "
+"och .png."
 
 msgid "manager.setup.pageFooter"
 msgstr "Sidfot"
 
 msgid "manager.setup.pageFooter.description"
-msgstr "Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på din webbplats."
+msgstr ""
+"Lägg till bilder, text eller HTML-kod som du vill ska synas längst ned på "
+"din webbplats."
 
 msgid "manager.setup.peerReview.description"
-msgstr "Sammanfatta granskningspolicyn och -processen för läsare och författare. Den här beskrivningen innehåller ofta antal granskare som normalt används när ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, och principerna som används för att välja granskare."
+msgstr ""
+"Sammanfatta granskningspolicyn och -processen för läsare och författare. Den "
+"här beskrivningen innehåller ofta antal granskare som normalt används när "
+"ett bidrag granskas, kriterier som granskarna ombeds gå efter när de bedömer "
+"inskickade bidrag, förväntad tid som krävs för att genomföra granskningar, "
+"och principerna som används för att välja granskare."
 
 msgid "manager.setup.principalContact"
 msgstr "Primär kontakt"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller administratör, som kan visas på din publika webbplats."
+msgstr ""
+"Kontaktinformation till ex. primär redaktör, ansvarig redaktör eller "
+"administratör, som kan visas på din publika webbplats."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Integritetspolicy"
 
+msgid "manager.setup.dateTime"
+msgstr "Tid & Datum"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Datum- och tidformat"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Välj format för tid och datum. Ett anpassat format kan anges genom att "
+"använda  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
+"function.strftime-parameters'>specialtecken för format</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kort)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & tid"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & tid (kort)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Anpassat"
+
 msgid "manager.setup.privacyStatement.description"
-msgstr "Den här texten kommer att synas vid användarregistrering, när författare skickar in bidrag och på den publika sidan Integritet. I vissa jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata i en integritetspolicy."
+msgstr ""
+"Den här texten kommer att synas vid användarregistrering, när författare "
+"skickar in bidrag och på den publika sidan Integritet. I vissa "
+"jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata "
+"i en integritetspolicy."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Default svarsdatum"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Defaultvärde för sista datum för kompletteringar"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan."
+msgstr ""
+"Antal veckor tillåtna att acceptera eller avböja en granskningsförfrågan."
 
 msgid "manager.setup.reviewOptions.numWeeksPerReview"
 msgstr "Antal veckor tillåtna för granskning"
@@ -693,35 +914,75 @@ msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Påminn aldrig"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "Defaultvärden kan ändras för varje granskning under redaktionsprocessen."
+msgstr ""
+"Defaultvärden kan ändras för varje granskning under redaktionsprocessen."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Påminnelse"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Skicka en påminnelse om granskaren inte har svarat på en "
 "granskningsförfrågan inom följande antal dagar efter deadline."
 
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Granskningspåminnelse"
+
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom "
 "följande antal dagar efter deadline."
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Default-deadlines för granskning"
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Default granskningsläge"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Visa länken <button type=\"button\">Garantera anonym granskning</button> "
+"under uppladdning"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsorrelation och policybeskrivning"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ etc. Sponsorer visas publikt."
+msgstr ""
+"Exempel: vetenskapliga organisationer, universitetsinstitutioner, kooperativ "
+"etc. Sponsorer visas publikt."
 
 msgid "manager.setup.styleSheetDescription"
-msgstr "Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa webbplatsens utseende."
+msgstr ""
+"Erfarna webbutvecklare kan ladda upp en CSS-fil för att ytterligare anpassa "
+"webbplatsens utseende."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Kontakt för teknisk support"
 
 msgid "manager.setup.technicalSupportContactDescription"
-msgstr "Kontaktperson som kan assistera redaktörer, författare och granskare vid eventuella problem med insändning av bidrag, redaktionellt arbete, granskning eller publicering."
+msgstr ""
+"Kontaktperson som kan assistera redaktörer, författare och granskare vid "
+"eventuella problem med insändning av bidrag, redaktionellt arbete, "
+"granskning eller publicering."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Nya teman kan installeras från fliken Plugins högst upp på den här sidan."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Det tema som du valde är inte installerat eller aktiverat."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Är du säker på att du vill avaktivera sektionen?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Är du säker på att du vill aktivera denna sektion?"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Alternativ för tillgång till webbplatsen"
@@ -731,6 +992,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nya)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerade användare"
 
 msgid "manager.users"
 msgstr "Användare"
@@ -748,7 +1012,9 @@ msgid "plugins.categories.blocks"
 msgstr "Block-plugins"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Block är komponenter av användargränssnittet, t.ex. de olika verktygen i sidomenyn."
+msgstr ""
+"Block är komponenter av användargränssnittet, t.ex. de olika verktygen i "
+"sidomenyn."
 
 msgid "plugins.categories.gateways.description"
 msgstr "Gateway-plugins tillhandahåller live-data till externa system."
@@ -760,19 +1026,25 @@ msgid "plugins.categories.generic"
 msgstr "Allmänna plugins"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Import/export-plugins kan användas för att överföra innehåll från och till andra system."
+msgstr ""
+"Import/export-plugins kan användas för att överföra innehåll från och till "
+"andra system."
 
 msgid "plugins.categories.importexport"
 msgstr "Import/export-plugins"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Plugins för betalningsmetod implementerar stöd för olika sätt att göra betalningar online."
+msgstr ""
+"Plugins för betalningsmetod implementerar stöd för olika sätt att göra "
+"betalningar online."
 
 msgid "plugins.categories.paymethod"
 msgstr "Plugins för betalningsmetod"
 
 msgid "plugins.categories.reports.description"
-msgstr "Rapport-plugins används för att implementera olika typer av rapporter och dataextrahering."
+msgstr ""
+"Rapport-plugins används för att implementera olika typer av rapporter och "
+"dataextrahering."
 
 msgid "plugins.categories.reports"
 msgstr "Rapport-plugins"
@@ -787,7 +1059,8 @@ msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Plugins för OAI-metadataformat"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "De här format-pluginsen exponerar metadata i OAI-baserad kommunikation."
+msgstr ""
+"De här format-pluginsen exponerar metadata i OAI-baserad kommunikation."
 
 msgid "plugins.categories.pubIds"
 msgstr "Plugins för publika identifikatorer"
@@ -796,7 +1069,10 @@ msgid "plugins.categories.pubIds.description"
 msgstr "De här pluginsen implementerar stöd för publika identifikatorer."
 
 msgid "manager.plugins.copyError"
-msgstr "Pluginet kopierades inte. Detta kan bero på problem med behörigheter. Se till att webbservern kan skriva till katalogen för plugins (underkataloger inkluderade) men glöm inte att säkra den igen."
+msgstr ""
+"Pluginet kopierades inte. Detta kan bero på problem med behörigheter. Se "
+"till att webbservern kan skriva till katalogen för plugins (underkataloger "
+"inkluderade) men glöm inte att säkra den igen."
 
 msgid "manager.plugins.delete"
 msgstr "Ta bort plugin"
@@ -817,13 +1093,21 @@ msgid "manager.plugins.deleteDescription"
 msgstr "När du trycker på Ta bort kommer du att ta bort pluginet från servern."
 
 msgid "manager.plugins.deleteError"
-msgstr "Pluginet \"{$pluginName}\" kunde inte tas bort från filsystemet. Detta kan bero på problem med behörigheter. Se till att webbservern kan skriva till katalogen för plugins (underkataloger inkluderade) men glöm inte att säkra den igen."
+msgstr ""
+"Pluginet \"{$pluginName}\" kunde inte tas bort från filsystemet. Detta kan "
+"bero på problem med behörigheter. Se till att webbservern kan skriva till "
+"katalogen för plugins (underkataloger inkluderade) men glöm inte att säkra "
+"den igen."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "Pluginet \"{$pluginName}\" togs bort"
 
 msgid "manager.plugins.description"
-msgstr "Den här sidan gör det möjligt för den ansvariga att granska och eventuellt konfigurera de installerade pluginen. Pluginen är uppdelade i kategorier efter funktion. Kategorierna listas nedan och i varje kategori ligger pluginen."
+msgstr ""
+"Den här sidan gör det möjligt för den ansvariga att granska och eventuellt "
+"konfigurera de installerade pluginen. Pluginen är uppdelade i kategorier "
+"efter funktion. Kategorierna listas nedan och i varje kategori ligger "
+"pluginen."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "Pluginet \"{$pluginName}\" finns inte"
@@ -835,7 +1119,9 @@ msgid "manager.plugins.upload"
 msgstr "Ladda upp ett nytt plugin"
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Det här formuläret tillåter dig att ladda upp och installera ett nytt plugin. Se till att pluginet är komprimerat till en .tar.gz-fil."
+msgstr ""
+"Det här formuläret tillåter dig att ladda upp och installera ett nytt "
+"plugin. Se till att pluginet är komprimerat till en .tar.gz-fil."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Se till att en fil för uppladdning valts."
@@ -859,13 +1145,15 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Officiell"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Det här pluginet är utvecklat och underhålls av Public Knowledge Project."
+msgstr ""
+"Det här pluginet är utvecklat och underhålls av Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Granskad"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Det här pluginet har granskats och godkänts av Public Knowledge Project."
+msgstr ""
+"Det här pluginet har granskats och godkänts av Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
@@ -895,10 +1183,13 @@ msgid "manager.plugins.noCompatibleVersion"
 msgstr "För närvarande finns ingen kompatibel version av pluginet tillgänglig."
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "Pluginet har redan installerats och är nyare än den version som finns tillgänglig i galleriet."
+msgstr ""
+"Pluginet har redan installerats och är nyare än den version som finns "
+"tillgänglig i galleriet."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Pluginet har redan installerats men kan uppdateras till en nyare version."
+msgstr ""
+"Pluginet har redan installerats men kan uppdateras till en nyare version."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Pluginet är redan installerat och uppdaterat."
@@ -922,14 +1213,18 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Installation av version {$versionNumber} lyckades"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Den uppladdade filen innehåller inte en mapp som överensstämmer med pluginets namn."
+msgstr ""
+"Den uppladdade filen innehåller inte en mapp som överensstämmer med "
+"pluginets namn."
 
 msgid "manager.plugins.wrongCategory"
 msgstr ""
 "Det uppladdade pluginet passar inte det uppgraderade pluginets kategori."
 
 msgid "manager.plugins.wrongName"
-msgstr "Filen version.xml i det uppladdade pluginet innehåller ett namn som inte stämmer överens med namnet på det uppgraderade pluginet."
+msgstr ""
+"Filen version.xml i det uppladdade pluginet innehåller ett namn som inte "
+"stämmer överens med namnet på det uppgraderade pluginet."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Pluginet finns inte. Installera i stället"
@@ -943,13 +1238,17 @@ msgid "manager.plugins.settings"
 msgstr "Inställningar"
 
 msgid "manager.plugins.tarCommandNotFound"
-msgstr "Kommandot tar är inte tillgängligt. Konfigurera det korrekt i \"config.inc.php\"."
+msgstr ""
+"Kommandot tar är inte tillgängligt. Konfigurera det korrekt i \"config.inc."
+"php\"."
 
 msgid "manager.plugins.upgrade"
 msgstr "Uppgradera plugin"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Det här formuläret tillåter dig att uppgradera ett plugin. Se till att pluginet är komprimerat till en .tar.gz-fil."
+msgstr ""
+"Det här formuläret tillåter dig att uppgradera ett plugin. Se till att "
+"pluginet är komprimerat till en .tar.gz-fil."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Uppgradering misslyckades. {$errorString}"
@@ -993,6 +1292,27 @@ msgstr "Språk/region-inställningar sparade."
 msgid "notification.editedUser"
 msgstr "Användare ändrades."
 
+msgid "manager.distribution.license"
+msgstr "Licens"
+
+msgid "manager.distribution.license.other"
+msgstr "Annan licens-URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licensvillkor"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Ange licensvillkor som du vill visa vid det publicerade verket."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Anpassade taggar"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Lägg till anpassade HTML taggar, kallas även metataggar, som du vill ska "
+"läggas in i sidhuvudet på varje sida. Rådfråga en tekniker innan taggarna "
+"matas in."
+
 msgid "manager.paymentMethod"
 msgstr "Betalningar"
 
@@ -1018,7 +1338,9 @@ msgid "settings.roles.permitSelfRegistration"
 msgstr "Tillåt användare att registrera sig själva"
 
 msgid "settings.roles.recommendOnly"
-msgstr "Den här rollen tillåts bara rekommendera ett granskningsbeslut, en behörig redaktör krävs för att registrera ett slutgiltigt beslut."
+msgstr ""
+"Den här rollen tillåts bara rekommendera ett granskningsbeslut, en behörig "
+"redaktör krävs för att registrera ett slutgiltigt beslut."
 
 msgid "settings.roles.roleName"
 msgstr "Rollnamn"
@@ -1039,7 +1361,10 @@ msgid "settings.roles.from"
 msgstr "Behörighetsnivå"
 
 msgid "settings.roles.removeText"
-msgstr "Du är på väg att ta bort den här rollen från det här sammanhanget. Du kommer också att ta bort relaterade inställningar och alla användares uppgifter i den här rollen. Vill du fortsätta?"
+msgstr ""
+"Du är på väg att ta bort den här rollen från det här sammanhanget. Du kommer "
+"också att ta bort relaterade inställningar och alla användares uppgifter i "
+"den här rollen. Vill du fortsätta?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Du måste fylla i ett rollnamn."
@@ -1058,6 +1383,9 @@ msgstr "Du måste välja behörighetsnivå."
 
 msgid "settings.roles.stageIdRequired"
 msgstr "Du måste välja ett steg."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillåt redigering av bidragets metadata."
 
 msgid "settings.libraryFiles.fileRequired"
 msgstr "En fil krävs. Se till att du har valt och laddat upp en fil."
@@ -1084,7 +1412,9 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Övrigt"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Om \"Publik tillgång\" aktiveras kan den här biblioteksfilen bli tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>"
+msgstr ""
+"<p>Om \"Publik tillgång\" aktiveras kan den här biblioteksfilen bli "
+"tillgänglig för nedladdning på: <blockquote>{$downloadUrl}</blockquote></p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Välj biblioteksfiler att bifoga"
@@ -1101,6 +1431,19 @@ msgstr "Ta bort kompontenten"
 msgid "grid.action.restoreGenres"
 msgstr "Återställ komponenterna till defaultinställningar"
 
+msgid "manager.setup.genres.label"
+msgstr "Filtyp"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Detta är underordnade filer, t.ex. bilder som visas i en HTML-fil. De kommer "
+"inte visas för sig."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Detta är bilagor, t.ex. dataset och forskningsmaterial. De kommer visas vid "
+"sidan om de huvudsakliga filerna för publikationen."
+
 msgid "manager.setup.genres.key"
 msgstr "Kod"
 
@@ -1111,7 +1454,15 @@ msgid "manager.setup.genres.key.exists"
 msgstr "Koden finns redan."
 
 msgid "manager.setup.genres.key.alphaNumeric"
-msgstr "Koden kan innehålla alfanumeriska tecken, understreck och bindestreck. Den måste börja och sluta med ett alfanumeriskt tecken."
+msgstr ""
+"Koden kan innehålla alfanumeriska tecken, understreck och bindestreck. Den "
+"måste börja och sluta med ett alfanumeriskt tecken."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Filens metadata"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
 
 msgid "manager.settings.wizard"
 msgstr "Inställningsguide"
@@ -1141,13 +1492,18 @@ msgid "manager.reviewForms"
 msgstr "Granskningsformulär"
 
 msgid "manager.reviewForms.confirmActivate"
-msgstr "Är du säker på att du vill aktivera det här granskningsformuläret? När ett granskningsuppdrag tilldelats det kommer du inte längre kunna inaktivera det."
+msgstr ""
+"Är du säker på att du vill aktivera det här granskningsformuläret? När ett "
+"granskningsuppdrag tilldelats det kommer du inte längre kunna inaktivera det."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Är du säker på att du vill inaktivera det här granskningsformuläret? Det kommer inte längre finnas tillgängligt för nya granskningsuppdrag."
+msgstr ""
+"Är du säker på att du vill inaktivera det här granskningsformuläret? Det "
+"kommer inte längre finnas tillgängligt för nya granskningsuppdrag."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "Är du säker på att du vill skapa en kopia av detta granskningsformulär?"
+msgstr ""
+"Är du säker på att du vill skapa en kopia av detta granskningsformulär?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Avslutade"
@@ -1171,7 +1527,13 @@ msgid "manager.reviewForms.inReview"
 msgstr "Under granskning"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Formulären för sakkunniggranskning som skapas här kommer att visas för granskare i stället för standardformuläret som består av två fritextrutor, \"till författare och redaktör\" och \"till redaktör\". Granskningsformulär kan vara gjorda för en specifik typ av press, och redaktörer har möjlighet att välja vilket formulär som ska användas. I samtliga fall kan redaktörer välja att inkludera utlåtanden i kommunikation med författaren."
+msgstr ""
+"Formulären för sakkunniggranskning som skapas här kommer att visas för "
+"granskare i stället för standardformuläret som består av två fritextrutor, "
+"\"till författare och redaktör\" och \"till redaktör\". Granskningsformulär "
+"kan vara gjorda för en specifik typ av press, och redaktörer har möjlighet "
+"att välja vilket formulär som ska användas. I samtliga fall kan redaktörer "
+"välja att inkludera utlåtanden i kommunikation med författaren."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Inget / Fritext"
@@ -1239,6 +1601,9 @@ msgstr "Svarsalternativ"
 msgid "manager.reviewFormElements.question"
 msgstr "Fråga"
 
+msgid "manager.reviewFormElements.description"
+msgstr "Beskrivning"
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Alternativknappar (endast ett val är möjligt)"
 
@@ -1267,10 +1632,207 @@ msgid "manager.setup.competingInterests.required"
 msgstr "Begär redovisning av intressekonflikter vid sakkunniggranskning."
 
 msgid "manager.setup.licenseURLDescription"
-msgstr "URL till webbsida som beskriver licensen, om en sådan finns tillgänglig."
+msgstr ""
+"URL till webbsida som beskriver licensen, om en sådan finns tillgänglig."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Formulär för insändning av bidrag"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Täckning"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Täckning beskriver arbetets rumsliga plats (platsnamn eller geografiska "
+"koordinater), tidsmässig period (periodbeteckning, datum eller "
+"datumintervall), eller jurisdiktion (såsom ett land eller administrativ "
+"enhet)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Gör det möjligt att lägga in metadata om täckning"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Kräv inte metadata om täckning från författare vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Be författaren att föreslå metadata om täckning vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Begär att författare föreslår metadata om täckning innan bidraget accepteras."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Nyckelord är vanligtvis en- till tre-ordsfraser som beskriver bidragets ämne."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Gör det möjligt att lägga in nyckelordsmetadata"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Kräv inte nyckelord från författaren vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
+"en frivillig landkod (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Gör det möjligt att lägga till metadata om språk"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Be författaren att ange bidragets språk vid inskickandet."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Kräv att författaren anger bidragets språk innan bidraget accepteras."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Bidragets upphovsrättsvillkor som t ex Intellectual Property Rights (IPR), "
+"Copyright, och andra olika upphovsrättsvillkor."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Gör det möjligt att ange upphovsrättsmetadata"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Be författaren att ange tidigare upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Kräv att författaren anger tidigare upphovsrättsvillkor innan bidraget "
+"accepteras."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Källan kan vara ett ID, som t ex DOI, som tillhör ett annat arbete eller "
+"resurs som bidraget härstammar från."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Gör det möjligt att lägga metadata för en källa"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Kräv inte en URL för källan från författarna vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Be författaren att lägga in en URL för källan vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Kräv att författaren lägger till en URL för källan innan bidraget accepteras."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Ämnesmetadata är nyckelord, nyckelfraser eller klassifikationskoder som "
+"beskriver innehållet i bidraget."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Gör det möjligt att lägga in metadata för ämne"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Kräv inte ämnen av författare under inskickandet av bidrag."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Be författaren att ange ämnen vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Kräv att författaren anger ämnen innan bidraget accepteras."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Bidragets typ. Vanligtvis \"Text\", men kan också vara \"Dataset\", \"Bild\" "
+"eller någon av <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Aktivera metadata om typ"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Kräv inte metadatatyper av författaren vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+"Be författaren att ange metadata om bidragets typ vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Kräv att författaren ska ange metadata om bidragets typ innan bidraget "
+"accepteras."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Discipliner är typer av studier eller kunskapsområden som beskrivs av "
+"universitetens fakulteter och lärda sällskap."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Gör det möjligt att ange metadata för discipliner"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Be författaren att ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Kräv att författaren anger discipliner innan bidraget accepteras."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Beskriver vilken forskningsfinansiär eller annat institutionellt stöd som "
+"har gjort forskningen möjlig."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Gör det möjligt att ange metadata för forskningsfinansiärer"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange forskningsfinansiärer vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Be författaren att ange forskningsfinansiär(er) vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Kräv att författaren anger forskningsfinansiär(er) innan bidraget accepteras."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Skriv referenserna i ett separat fält. Det underlättar för "
+"korsciteringstjänster som Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Gör det möjligt att ange referensmetadata"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Kräv inte referenser av författarna vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Be författaren ange referenser vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Kräv att författaren registrerar bidragets referenser innan det accepteras."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Valideringsfel:"
@@ -1296,6 +1858,11 @@ msgstr "Innehållet är inte kodat som {$param}"
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Okänd användargrupp {$param}"
 
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Författaren {$authorName} har inget förnamn inlagt på bidragets språk, "
+"{$localeName}. Bidraget kan inte importeras utan den informationen."
+
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Okänd uppladdare {$param}"
 
@@ -1303,25 +1870,46 @@ msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Temporär fil {$dest} kunde inte skapas från {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr "Den angivna filstorleken \"{$expected}\" och den faktiska filstorleken \"{$actual}\" stämmer inte överens"
+msgstr ""
+"Den angivna filstorleken \"{$expected}\" och den faktiska filstorleken "
+"\"{$actual}\" stämmer inte överens"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "Bearbetningen \"{$revisionId}\" för bidragsfil \"{$fileId}\" skulle skapa en dublettpost"
+msgstr ""
+"Bearbetningen \"{$revisionId}\" för bidragsfil \"{$fileId}\" skulle skapa en "
+"dublettpost"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Bidragsfilen kunde inte importeras"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Hoppade över filen {$id}, eftersom den hör till en post som inte kommer "
+"importeras, t.ex. ett granskningsuppdrag eller en diskussion."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Fel under import/export:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr "Den importerade användaren \"{$username}\" saknar lösenord. Kolla formatet på din import-XML. Användaren importerades inte."
+msgstr ""
+"Den importerade användaren \"{$username}\" saknar lösenord. Kolla formatet "
+"på din import-XML. Användaren importerades inte."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr "Lösenordet för den importerade användaren \"{$username}\" kunde inte importerad i sin befintliga form. Användaren har fått ett nytt vlösenord via e-post. Användaren är importerad."
+msgstr ""
+"Lösenordet för den importerade användaren \"{$username}\" kunde inte "
+"importerad i sin befintliga form. Användaren har fått ett nytt vlösenord via "
+"e-post. Användaren är importerad."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr "Den importerade användaren \"{$username}\" har ett okrypterat lösenord, vilket inte är giltigt. Användaren importerades inte."
+msgstr ""
+"Den importerade användaren \"{$username}\" har ett okrypterat lösenord, "
+"vilket inte är giltigt. Användaren importerades inte."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Användarnamn \"{$username}\" och e-postadress \"{$email}\" stämmer inte "
+"överens med en och samma användare."
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -1333,16 +1921,24 @@ msgid "manager.navigationMenus"
 msgstr "Navigationsmenyer"
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr "<p>Den här sidan kommer att bli tillgänglig på: <blockquote>{$pagesPath}</blockquote>...där %PATH% är sökvägen som angivits ovan. <strong>Note:</strong> Fler än en sida kan inte ha samma sökväg. Att använda sökvägar som redan används av systemet kan göra så att du förlorar tillgången till viktiga funktioner.</p>"
+msgstr ""
+"<p>Den här sidan kommer att bli tillgänglig på: <blockquote>{$pagesPath}</"
+"blockquote>...där %PATH% är sökvägen som angivits ovan. <strong>Note:</"
+"strong> Fler än en sida kan inte ha samma sökväg. Att använda sökvägar som "
+"redan används av systemet kan göra så att du förlorar tillgången till "
+"viktiga funktioner.</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Innehåll"
 
 msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "Sökvägsfältet får bara innehålla alfanumeriska tecken samt '.', '/', '-', och '_'."
+msgstr ""
+"Sökvägsfältet får bara innehålla alfanumeriska tecken samt '.', '/', '-', "
+"och '_'."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "Den här sökvägen används redan för ett annat element i navigationsmenyn."
+msgstr ""
+"Den här sökvägen används redan för ett annat element i navigationsmenyn."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Den här titeln används redan för ett annat element i navigationsmenyn."
@@ -1375,10 +1971,18 @@ msgid "manager.navigationMenus.form.customUrlError"
 msgstr "En URL måste anges"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "Läs mer om när det här menyelementet kommer att vara synligt och respektive dolt."
+msgstr ""
+"Läs mer om när det här menyelementet kommer att vara synligt och respektive "
+"dolt."
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr "När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla enheter. Om det till exempel finns ett \"Om\"-element som öppnar en undermeny med \"Kontakt\" och \"Redaktion\" är det inte säkert att \"Om\"-länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den skapar ytterligare ett menyelement, \"Om tidskriften\", som visas i undermenyn."
+msgstr ""
+"När ett element i menyn öppnar en undermeny kan inte dess länk ses på alla "
+"enheter. Om det till exempel finns ett \"Om\"-element som öppnar en "
+"undermeny med \"Kontakt\" och \"Redaktion\" är det inte säkert att \"Om\"-"
+"länken kan ses på alla enheter. I defaultmenyn hanteras detta genom att den "
+"skapar ytterligare ett menyelement, \"Om tidskriften\", som visas i "
+"undermenyn."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Typ av navigationsmeny"
@@ -1390,25 +1994,37 @@ msgid "manager.navigationMenus.customPage"
 msgstr "Anpassad sida"
 
 msgid "manager.navigationMenus.customPage.description"
-msgstr "Skapa en anpassad sida på din webbplats och länka till den från en navigationsmeny."
+msgstr ""
+"Skapa en anpassad sida på din webbplats och länka till den från en "
+"navigationsmeny."
 
 msgid "manager.navigationMenus.remoteUrl"
 msgstr "Extern URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "Länka till vilken URL som helst utanför webbplatsen, till exempel https://pkp.sfu.ca."
+msgstr ""
+"Länka till vilken URL som helst utanför webbplatsen, till exempel https://"
+"pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
-msgstr "Länka till en sida som visar innehållet i Om tidskriften från Inställningar > Tidskrift"
+msgstr ""
+"Länka till en sida som visar innehållet i Om tidskriften från Inställningar "
+"> Tidskrift"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr "Den här länken visas bara om du har fyllt i sektionen Om tidskriften under Inställningar > Tidskrift."
+msgstr ""
+"Den här länken visas bara om du har fyllt i sektionen Om tidskriften under "
+"Inställningar > Tidskrift."
 
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > Tidskrift."
+msgstr ""
+"Länka till en sida som visar innehållet i Redaktionsruta i Inställningar > "
+"Tidskrift."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr "Den här länken visas bara om du har fyllt i sektionen Redaktionsruta under Inställningar > Tidskrift."
+msgstr ""
+"Den här länken visas bara om du har fyllt i sektionen Redaktionsruta under "
+"Inställningar > Tidskrift."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Länka till sidan som visar instruktioner för att skicka in bidrag."
@@ -1423,7 +2039,9 @@ msgid "manager.navigationMenus.announcements.description"
 msgstr "Länka till en sida som visar era meddelanden."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Den här länken visas bara om meddelanden är aktiverate under Inställningar > Webbplats."
+msgstr ""
+"Den här länken visas bara om meddelanden är aktiverate under Inställningar > "
+"Webbplats."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Länka till sidan för användarinloggning."
@@ -1456,16 +2074,23 @@ msgid "manager.navigationMenus.contact.description"
 msgstr "Länka till en sida som visar er kontaktinformation."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr "Den här länken visas bara om du har fyllt i kontaktinformationen under Inställningar > Kontakt."
+msgstr ""
+"Den här länken visas bara om du har fyllt i kontaktinformationen under "
+"Inställningar > Kontakt."
 
 msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Välj en navigationsmeny-typ."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr "Den här länken visas bara om betalningar är aktiverade under Inställningar > Distribution > Betalningar."
+msgstr ""
+"Den här länken visas bara om betalningar är aktiverade under Inställningar > "
+"Distribution > Betalningar."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr "Den här länken visas bara om besökaren är inloggad, betalningar är aktiverade under Inställningar > Distribution > Betalningar och prenumerationer krävs enligt Inställningar > Distribution > Tillgång."
+msgstr ""
+"Den här länken visas bara om besökaren är inloggad, betalningar är "
+"aktiverade under Inställningar > Distribution > Betalningar och "
+"prenumerationer krävs enligt Inställningar > Distribution > Tillgång."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Länk till söksidan."
@@ -1474,111 +2099,24 @@ msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Länk till sidan som visar er integritetspolicy."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr "Den här länken visas enbart om det finns en integritetspolicy inmatad under Inställningar > Arbetsflöde > Bidrag."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Guide för granskare"
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Täckning"
-
-msgid "manager.reviewFormElements.description"
-msgstr "Beskrivning"
-
-msgid "manager.distribution.customHeaders"
-msgstr "Anpassade taggar"
-
-msgid "manager.distribution.license"
-msgstr "Licens"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Registrerade användare"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"Blocket {$name} kan inte hittas. Kontrollera att pluginet är installerat och "
-"aktiverat."
+"Den här länken visas enbart om det finns en integritetspolicy inmatad under "
+"Inställningar > Arbetsflöde > Bidrag."
 
-msgid "manager.setup.advanced"
-msgstr "Avancerad"
+msgid "grid.category.add"
+msgstr "Lägg till kategori"
 
-msgid "manager.emails.emailTemplates"
-msgstr "E-postmallar"
+msgid "grid.category.edit"
+msgstr "Redigera kategori"
 
-msgid "stats.name.submissionsPublished"
-msgstr "Bidraget är publicerat"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Bidraget är accepterat"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Bidraget är mottaget"
-
-msgid "stats.userStatistics"
-msgstr "Användarstatistik"
-
-msgid "stats.trends"
-msgstr "Trender"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Totalt inom datum intervallet"
-
-msgid "stats.total"
-msgstr "Totalt"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Månadsvis"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.editorialActivity"
-msgstr "Redaktionell aktivitet"
-
-msgid "stats.descriptionForStat"
-msgstr "Beskrivning för {$stat}"
-
-msgid "stats.dateRange.to"
-msgstr "Till"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Sedan {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Förra året"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Senaste 2 åren"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Senaste 90 dagarna"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Senaste 30 dagarna"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Senaste 12 månaderna"
-
-msgid "stats.dateRange.from"
-msgstr "Från"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Ett av de inlagda datumen finns inte."
-
-msgid "stats.daily"
-msgstr "Dagligen"
-
-msgid "stats.allUsers"
-msgstr "Alla användare"
-
-msgid "grid.category.description"
-msgstr "Beskrivning"
+msgid "grid.category.name"
+msgstr "Namn"
 
 msgid "grid.category.path"
 msgstr "Sökväg"
+
+msgid "grid.category.urlWillBe"
+msgstr "Kategorins URL kommer att vara: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
@@ -1586,58 +2124,104 @@ msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
 msgid "grid.category.pathExists"
 msgstr "Kategorins sökväg finns redan. Lägg till en unik sökväg."
 
-msgid "grid.category.urlWillBe"
-msgstr "Kategorins URL kommer att vara: {$sampleUrl}"
+msgid "grid.category.description"
+msgstr "Beskrivning"
 
-msgid "grid.category.name"
-msgstr "Namn"
+msgid "grid.category.parentCategory"
+msgstr "Föräldrakategori"
 
-msgid "grid.category.edit"
-msgstr "Redigera kategori"
+msgid "grid.category.removeText"
+msgstr "Vill du ta bort den här kategorin?"
 
-msgid "grid.category.add"
-msgstr "Lägg till kategori"
+msgid "grid.category.nameRequired"
+msgstr "Lägg till ett namn för kategorin."
 
-msgid "manager.setup.metadata.agencies.description"
+msgid "grid.category.categoryDetails"
+msgstr "Information om kategorin"
+
+msgid "stats.allUsers"
+msgstr "Alla användare"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/år)"
+
+msgid "stats.daily"
+msgstr "Dagligen"
+
+msgid "stats.dateRange"
+msgstr "Datumintervall"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alla datum"
+
+msgid "stats.dateRange.apply"
+msgstr "Använd"
+
+msgid "stats.dateRange.change"
+msgstr "Ändra datumintervallet"
+
+msgid "stats.dateRange.customRange"
+msgstr "Anpassa intervall"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Ett av de inlagda datumen finns inte."
+
+msgid "stats.dateRange.from"
+msgstr "Från"
+
+msgid "stats.dateRange.instructions"
 msgstr ""
-"Beskriver vilken forskningsfinansiär eller annat institutionellt stöd som "
-"har gjort forskningen möjlig."
+"Skriv in datum i formatet YYYY-MM-DD. Till exempel, om du ska skriva 15 "
+"januari, 2019, skriv 2019-01-15."
 
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Gör det möjligt att lägga in metadata om täckning"
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Formatet för datum är inte giltigt. Skriv varje datum i formatet YYYY-MM-DD."
 
-msgid "stats.name.declinedReviewRate"
-msgstr "Avslagsprocent efter granskning"
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Startdatumet måste vara före slutdatumet."
 
-msgid "stats.name.declinedDeskRate"
-msgstr "Redaktionell avslagsprocent"
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Slutdatumet kan inte vara senare än {$date}."
 
-msgid "stats.name.declineRate"
-msgstr "Avslagsprocent"
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Startdatumet kan inte vara tidigare än {$date}."
 
-msgid "stats.name.acceptanceRate"
-msgstr "Accepteringsprocent"
+msgid "stats.dateRange.last12Months"
+msgstr "Senaste 12 månaderna"
 
-msgid "stats.name.daysToReject"
-msgstr "Dagar till avslag"
+msgid "stats.dateRange.last30Days"
+msgstr "Senaste 30 dagarna"
 
-msgid "stats.name.daysToAccept"
-msgstr "Dagar till accepterande"
+msgid "stats.dateRange.last90Days"
+msgstr "Senaste 90 dagarna"
 
-msgid "stats.name.daysToDecision"
-msgstr "Dagar till det första redaktionella beslutet"
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Senaste 2 åren"
 
-msgid "stats.name.submissionsDeclined"
-msgstr "Refuserade bidrag"
+msgid "stats.dateRange.lastYear"
+msgstr "Förra året"
 
-msgid "stats.submissionsActive"
-msgstr "Aktiva bidrag"
+msgid "stats.dateRange.sinceDate"
+msgstr "Sedan {$date}"
 
-msgid "stats.searchSubmissionDescription"
-msgstr "Sök efter titel, författare och ID"
+msgid "stats.dateRange.thisYear"
+msgstr "Nuvarande år"
 
-msgid "stats.fileViews"
-msgstr "Filvisningar"
+msgid "stats.dateRange.to"
+msgstr "Till"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Till {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Procentsatsen är baserad på antal bidrag som har skickats in under "
+"tidsintervallet och har mottagit ett slutgiltigt beslut.<br><br> Till "
+"exempel, antag att tio bidrag har skickats in under tidsintervallet. Fyra "
+"accepterades, fyra fick avslag och två väntar på slutgiltigt beslut. "
+"<br><br> Andel bidrag som har accepterats blir 50 % (4 av 8 bidrag) eftersom "
+"två av bidragen väntar på beslut."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
@@ -1647,463 +2231,92 @@ msgstr ""
 "<br><br> Statistiken försöker visa när majoriteten av inskickade bidrag till "
 "din tidskrift kan förvänta sig ett beslut."
 
-msgid "stats.description.acceptRejectRate"
+msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Procentsatsen är baserad på antal bidrag som har skickats in under "
-"tidsintervallet och har mottagit ett slutgiltigt beslut.<br><br> Till "
-"exempel, antag att tio bidrag har skickats in under tidsintervallet. Fyra "
-"accepterades, fyra fick avslag och två väntar på slutgiltigt beslut. <br><br>"
-" Andel bidrag som har accepterats blir 50 % (4 av 8 bidrag) eftersom två av "
-"bidragen väntar på beslut."
 
-msgid "stats.dateRange.untilDate"
-msgstr "Till {$date}"
+msgid "stats.descriptionForStat"
+msgstr "Beskrivning för {$stat}"
 
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Startdatumet kan inte vara tidigare än {$date}."
+msgid "stats.editorialActivity"
+msgstr "Redaktionell aktivitet"
 
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Slutdatumet kan inte vara senare än {$date}."
+msgid "stats.fileViews"
+msgstr "Filvisningar"
 
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Startdatumet måste vara före slutdatumet."
+msgid "stats.html"
+msgstr "HTML"
 
-msgid "stats.dateRange.invalidDate"
+msgid "stats.monthly"
+msgstr "Månadsvis"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Sök efter titel, författare och ID"
+
+msgid "stats.submissionsActive"
+msgstr "Aktiva bidrag"
+
+msgid "stats.total"
+msgstr "Totalt"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Totalt inom datum intervallet"
+
+msgid "stats.trends"
+msgstr "Trender"
+
+msgid "stats.userStatistics"
+msgstr "Användarstatistik"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Bidraget är mottaget"
+
+msgid "stats.name.submissionsSkipped"
 msgstr ""
-"Formatet för datum är inte giltigt. Skriv varje datum i formatet YYYY-MM-DD."
 
-msgid "stats.dateRange.instructions"
+msgid "stats.name.submissionsInProgress"
 msgstr ""
-"Skriv in datum i formatet YYYY-MM-DD. Till exempel, om du ska skriva 15 "
-"januari, 2019, skriv 2019-01-15."
 
-msgid "stats.dateRange.customRange"
-msgstr "Anpassa intervall"
-
-msgid "stats.dateRange.change"
-msgstr "Ändra datumintervallet"
-
-msgid "stats.dateRange.apply"
-msgstr "Använd"
-
-msgid "stats.dateRange.allDates"
-msgstr "Alla datum"
-
-msgid "stats.dateRange"
-msgstr "Datumintervall"
-
-msgid "grid.category.categoryDetails"
-msgstr "Information om kategorin"
-
-msgid "grid.category.nameRequired"
-msgstr "Lägg till ett namn för kategorin."
-
-msgid "grid.category.removeText"
-msgstr "Vill du ta bort den här kategorin?"
-
-msgid "grid.category.parentCategory"
-msgstr "Föräldrakategori"
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgid "stats.name.submissionsImported"
 msgstr ""
-"Användarnamn \"{$username}\" och e-postadress \"{$email}\" stämmer inte "
-"överens med en och samma användare."
 
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"Författaren {$authorName} har inget förnamn inlagt på bidragets språk, "
-"{$localeName}. Bidraget kan inte importeras utan den informationen."
+msgid "stats.name.submissionsAccepted"
+msgstr "Bidraget är accepterat"
 
-msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"Kräv att författaren registrerar bidragets referenser innan det accepteras."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "Be författaren ange referenser vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Kräv inte referenser av författarna vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Gör det möjligt att ange referensmetadata"
-
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Skriv referenserna i ett separat fält. Det underlättar för "
-"korsciteringstjänster som Crossref."
-
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Kräv att författaren anger forskningsfinansiär(er) innan bidraget accepteras."
-
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Be författaren att ange forskningsfinansiär(er) vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
-"Kräv inte att författaren ska ange forskningsfinansiärer vid inskickandet av "
-"bidrag."
-
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Gör det möjligt att ange metadata för forskningsfinansiärer"
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr "Kräv att författaren anger discipliner innan bidraget accepteras."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Be författaren att ange discipliner vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
-"Kräv inte att författaren ska ange discipliner vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Gör det möjligt att ange metadata för discipliner"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Discipliner är typer av studier eller kunskapsområden som beskrivs av "
-"universitetens fakulteter och lärda sällskap."
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Kräv inte metadatatyper av författaren vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Bidragets typ. Vanligtvis \"Text\", men kan också vara \"Dataset\", \"Bild\" "
-"eller någon av <a target=\"_blank\" href=\"http://dublincore.org/documents/"
-"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr "Kräv att författaren anger ämnen innan bidraget accepteras."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Be författaren att ange ämnen vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Kräv inte ämnen av författare under inskickandet av bidrag."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Gör det möjligt att lägga in metadata för ämne"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Ämnesmetadata är nyckelord, nyckelfraser eller klassifikationskoder som "
-"beskriver innehållet i bidraget."
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Källan kan vara ett ID, som t ex DOI, som tillhör ett annat arbete eller "
-"resurs som bidraget härstammar från."
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Kräv att författaren anger tidigare upphovsrättsvillkor innan bidraget "
-"accepteras."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Be författaren att ange tidigare upphovsrättsvillkor vid inskickandet av "
-"bidrag."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
-"Kräv inte att författaren ska ange upphovsrättsvillkor vid inskickandet av "
-"bidrag."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Gör det möjligt att ange upphovsrättsmetadata"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Kräv att författaren anger bidragets språk innan bidraget accepteras."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Be författaren att ange bidragets språk vid inskickandet."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Gör det möjligt att lägga till metadata om språk"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
-"en frivillig landkod (\"en_US\")."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Kräv inte nyckelord från författaren vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Gör det möjligt att lägga in nyckelordsmetadata"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Nyckelord är vanligtvis en- till tre-ordsfraser som beskriver bidragets ämne."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Begär att författare föreslår metadata om täckning innan bidraget accepteras."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Be författaren att föreslå metadata om täckning vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"Kräv inte metadata om täckning från författare vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Täckning beskriver arbetets rumsliga plats (platsnamn eller geografiska "
-"koordinater), tidsmässig period (periodbeteckning, datum eller "
-"datumintervall), eller jurisdiktion (såsom ett land eller administrativ "
-"enhet)."
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Tillåt redigering av bidragets metadata."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Lägg till anpassade HTML taggar, kallas även metataggar, som du vill ska "
-"läggas in i sidhuvudet på varje sida. Rådfråga en tekniker innan taggarna "
-"matas in."
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr "Ange licensvillkor som du vill visa vid det publicerade verket."
-
-msgid "manager.distribution.licenseTerms"
-msgstr "Licensvillkor"
-
-msgid "manager.distribution.license.other"
-msgstr "Annan licens-URL"
-
-msgid "manager.setup.theme.notFound"
-msgstr "Det tema som du valde är inte installerat eller aktiverat."
-
-#, fuzzy
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Visa länken <button type=\"button\">Garantera anonym granskning</button> "
-"under uppladdning"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Default granskningsläge"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Granskningspåminnelse"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Påminnelse"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Defaultvärde för sista datum för kompletteringar"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Default svarsdatum"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
-
-msgid "manager.setup.checklist"
-msgstr "Checklista"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Ämne: {$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "Skickats till"
-
-msgid "manager.emails.sentFrom"
-msgstr "Skickats från"
-
-msgid "manager.emails.resetAll"
-msgstr "Återställ alla"
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Nyckeln du angav används redan."
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Du måste ange ett ID när en e-postmall läggs till."
-
-msgid "manager.emails.emailKey.description"
-msgstr "E-postnyckeln kan bara innehålla bokstäver, nummer eller understreck."
-
-msgid "manager.emails.customTemplate"
-msgstr "Specialmall"
-
-msgid "manager.emails.addEmail"
-msgstr "Lägg till mall"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Granskningspåminnelsens detaljer har uppdaterats."
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Bidraget är refuserat efter granskning"
+msgid "stats.name.submissionsDeclined"
+msgstr "Refuserade bidrag"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
 msgstr "Bidraget är refuserat av redaktionen"
 
-msgid "manager.setup.metadata.type.request"
-msgstr ""
-"Be författaren att ange metadata om bidragets typ vid inskickandet av bidrag."
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Bidraget är refuserat efter granskning"
 
-msgid "manager.setup.metadata.type.enable"
-msgstr "Aktivera metadata om typ"
+msgid "stats.name.submissionsPublished"
+msgstr "Bidraget är publicerat"
 
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Kräv att författaren lägger till en URL för källan innan bidraget accepteras."
+msgid "stats.name.daysToDecision"
+msgstr "Dagar till det första redaktionella beslutet"
 
-msgid "manager.setup.metadata.source.request"
-msgstr ""
-"Be författaren att lägga in en URL för källan vid inskickandet av bidrag."
+msgid "stats.name.daysToAccept"
+msgstr "Dagar till accepterande"
 
-msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"Kräv inte en URL för källan från författarna vid inskickandet av bidrag."
+msgid "stats.name.daysToReject"
+msgstr "Dagar till avslag"
 
-msgid "manager.setup.metadata.source.enable"
-msgstr "Gör det möjligt att lägga metadata för en källa"
+msgid "stats.name.acceptanceRate"
+msgstr "Accepteringsprocent"
 
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Bidragets upphovsrättsvillkor som t ex Intellectual Property Rights (IPR), "
-"Copyright, och andra olika upphovsrättsvillkor."
+msgid "stats.name.declineRate"
+msgstr "Avslagsprocent"
 
-msgid "stats.dateRange.thisYear"
-msgstr "Nuvarande år"
+msgid "stats.name.declinedDeskRate"
+msgstr "Redaktionell avslagsprocent"
 
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/år)"
+msgid "stats.name.declinedReviewRate"
+msgstr "Avslagsprocent efter granskning"
 
-msgid "manager.representative.inUse"
-msgstr ""
-"Du kan inte ta bort representanten eftersom hen har lagts till i "
-"marknadsmetadatan för ett eller flera av bidragets publiceringsformat."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Kräv att författaren ska ange metadata om bidragets typ innan bidraget "
-"accepteras."
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Hoppade över filen {$id}, eftersom den hör till en post som inte kommer "
-"importeras, t.ex. ett granskningsuppdrag eller en diskussion."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Filens metadata"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Detta är bilagor, t.ex. dataset och forskningsmaterial. De kommer visas vid "
-"sidan om de huvudsakliga filerna för publikationen."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Detta är underordnade filer, t.ex. bilder som visas i en HTML-fil. De kommer "
-"inte visas för sig."
-
-msgid "manager.setup.genres.label"
-msgstr "Filtyp"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Är du säker på att du vill aktivera denna sektion?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Är du säker på att du vill avaktivera sektionen?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Anpassat"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Datum & tid (kort)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Datum & tid"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Tid"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Datum (kort)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Datum"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Välj format för tid och datum. Ett anpassat format kan anges genom att "
-"använda  <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>specialtecken "
-"för format</a>."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Datum- och tidformat"
-
-msgid "manager.setup.dateTime"
-msgstr "Tid & Datum"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Skicka ytterligare ett e-postmeddelande"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "E-postmeddelande har skickats till samtliga mottagare."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Skickar e-postmeddelande. Stanna kvar på sidan tills den är färdig med att "
-"skicka."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Du kommer skicka e-post till {$total} användare. Är du säker på att du vill "
-"skicka?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Skicka e-post"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Skicka en kopia av detta meddelande till {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Välj vilka användare som ska få era e-postmeddelanden."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Meddela användare"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Inaktivera bidrag"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Anpassad rapport"
-
-msgid "manager.people.signedInAs"
-msgstr "Du är inloggad som {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Exportera till Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "E-postmallen har återställts."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Default e-postmall har återställts."
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Ta bort meddelande"
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Default-deadlines för granskning"

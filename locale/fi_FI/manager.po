@@ -21,7 +21,8 @@ msgid "manager.website.appearance"
 msgstr "Ulkoasu"
 
 msgid "manager.website.imageFileRequired"
-msgstr "Kuvatiedosto vaaditaan. Varmista, että olet valinnut ja ladannut tiedoston."
+msgstr ""
+"Kuvatiedosto vaaditaan. Varmista, että olet valinnut ja ladannut tiedoston."
 
 msgid "manager.announcements"
 msgstr "Ilmoitukset"
@@ -41,6 +42,9 @@ msgstr "Voimassaolon päättyminen"
 msgid "manager.announcements.datePublish"
 msgstr "Julkaistu"
 
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Poista ilmoitus"
+
 msgid "manager.announcements.edit"
 msgstr "Muokkaa ilmoitusta"
 
@@ -54,7 +58,9 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Voimassaolon päättymispäivämäärä"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Ilmoitus näkyy lukijoille tähän päivään asti. Jätä tyhjäksi, mikäli ilmoituksen tulee näkyä toistaiseksi."
+msgstr ""
+"Ilmoitus näkyy lukijoille tähän päivään asti. Jätä tyhjäksi, mikäli "
+"ilmoituksen tulee näkyä toistaiseksi."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Valitse vuosi ja/tai päivä voimassaolon päättymiskuukauden lisäksi."
@@ -111,7 +117,9 @@ msgid "manager.announcementTypes"
 msgstr "Ilmoitustyypit"
 
 msgid "manager.announcementTypes.confirmDelete"
-msgstr "Varoitus! Kaikki tämän ilmoitustyypin ilmoitukset poistetaan samalla. Haluatko varmasti jatkaa ja poistaa tämän ilmoitustyypin?"
+msgstr ""
+"Varoitus! Kaikki tämän ilmoitustyypin ilmoitukset poistetaan samalla. "
+"Haluatko varmasti jatkaa ja poistaa tämän ilmoitustyypin?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Luo ilmoitustyyppi"
@@ -143,6 +151,9 @@ msgstr "Yhtään ilmoitustyyppiä ei ole luotu."
 msgid "manager.announcementTypes.typeName"
 msgstr "Ilmoitustyyppi"
 
+msgid "manager.genres.alertDelete"
+msgstr ""
+
 msgid "manager.publication.submissionStage"
 msgstr "Käsikirjoituksen vastaanotto"
 
@@ -158,14 +169,26 @@ msgstr "Tuotanto"
 msgid "manager.publication.emails"
 msgstr "Sähköpostit"
 
+msgid "manager.publication.reviewerGuidance"
+msgstr "Arvioijan opastus"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Arviointimuistutuksen tiedot on päivitetty."
+
 msgid "manager.emails.confirmDelete"
 msgstr "Haluatko varmasti poistaa tämän sähköpostipohjan?"
 
 msgid "manager.emails.confirmReset"
 msgstr "Haluatko varmasti palauttaa tähän sähköpostipohjaan sen oletusarvot?"
 
+msgid "manager.emails.addEmail"
+msgstr "Lisää sähköpostipohja"
+
 msgid "manager.emails.createEmail"
 msgstr "Luo sähköposti"
+
+msgid "manager.emails.customTemplate"
+msgstr "Räätälöity sähköpostipohja"
 
 msgid "manager.emails.data"
 msgstr "Mallipohjan viestitiedot"
@@ -177,7 +200,10 @@ msgid "manager.emails.disable"
 msgstr "Poista käytöstä"
 
 msgid "manager.emails.disable.message"
-msgstr "Olet poistamassa tämän sähköpostipohjan käytöstä. Jos jotkin järjestelmäprosessit käyttivät tätä pohjaa, ne eivät käytä sitä enää. Haluatko vahvistaa tämän toimenpiteen?"
+msgstr ""
+"Olet poistamassa tämän sähköpostipohjan käytöstä. Jos jotkin "
+"järjestelmäprosessit käyttivät tätä pohjaa, ne eivät käytä sitä enää. "
+"Haluatko vahvistaa tämän toimenpiteen?"
 
 msgid "manager.emails.editEmail"
 msgstr "Muokkaa sähköpostia"
@@ -188,11 +214,25 @@ msgstr "Muokkaa sähköpostin testiesimerkkiä"
 msgid "manager.emails.emailKey"
 msgstr "Sähköpostiavain"
 
+msgid "manager.emails.emailKey.description"
+msgstr "Sähköpostiavain voi sisältää vain kirjaimia, numeroita ja alaviivan."
+
 msgid "manager.emails.emailKeyExists"
-msgstr "Sähköposti, jolla on kyseinen avain, on jo olemassa. Sähköpostiavainten on oltava uniikkeja."
+msgstr ""
+"Sähköposti, jolla on kyseinen avain, on jo olemassa. Sähköpostiavainten on "
+"oltava uniikkeja."
 
 msgid "manager.emails.emailTemplate"
 msgstr "Sähköpostipohja"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Sähköpostipohjat"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Sähköpostipohjaa lisättäessä täytyy antaa kontekstin tunniste."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Avain on jo käytössä."
 
 msgid "manager.emails.enabled"
 msgstr "Ota tämä sähköpostipohja käyttöön"
@@ -201,10 +241,14 @@ msgid "manager.emails.enable"
 msgstr "Ota käyttöön"
 
 msgid "manager.emails.enable.message"
-msgstr "Olet ottamassa tämän sähköpostipohjan käyttöön. Haluatko vahvistaa tämän toimenpiteen?"
+msgstr ""
+"Olet ottamassa tämän sähköpostipohjan käyttöön. Haluatko vahvistaa tämän "
+"toimenpiteen?"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "Sähköpostille vaaditaan uniikki sähköpostiavain, joka ei sisällä välilyöntejä tai erikoismerkkejä."
+msgstr ""
+"Sähköpostille vaaditaan uniikki sähköpostiavain, joka ei sisällä "
+"välilyöntejä tai erikoismerkkejä."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "Sähköpostin leipäteksti vaaditaan."
@@ -215,23 +259,54 @@ msgstr "Sähköpostin aihe vaaditaan."
 msgid "manager.emails"
 msgstr "Valmiit sähköpostit"
 
+msgid "manager.emails.resetAll"
+msgstr "Palauta kaikki"
+
 msgid "manager.emails.resetAll.message"
-msgstr "Jos palautat kaikki mallipohjat oletusarvoisiksi, kaikki sähköpostipohjiin tehdyt muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
+msgstr ""
+"Jos palautat kaikki mallipohjat oletusarvoisiksi, kaikki sähköpostipohjiin "
+"tehdyt muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Alkuperäiset sähköpostipohjat palautettu."
 
 msgid "manager.emails.reset"
 msgstr "Palauta"
 
+msgid "manager.emails.resetComplete"
+msgstr "Sähköpostipohja tallennettiin onnistuneesti."
+
 msgid "manager.emails.reset.message"
-msgstr "Jos palautat tämän mallipohjan, kaikki viestitiedot palautetaan oletusarvoisiksi ja kaikki muutokset menetetään. Haluatko vahvistaa tämän toimenpiteen?"
+msgstr ""
+"Jos palautat tämän mallipohjan, kaikki viestitiedot palautetaan "
+"oletusarvoisiksi ja kaikki muutokset menetetään. Haluatko vahvistaa tämän "
+"toimenpiteen?"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Palauta oletusarvot"
+
+msgid "manager.emails.sentFrom"
+msgstr "Lähettäjä"
+
+msgid "manager.emails.sentTo"
+msgstr "Vastaanottaja"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Aihe: {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Vie Excel/CSV-muotoon"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Valitse Excel/CSV-tiedostoon vietävät käyttäjät."
 
 msgid "manager.filesBrowser"
 msgstr "Tiedostoselain"
 
 msgid "manager.files.confirmDelete"
-msgstr "Poistetaanko tämä tiedosto tai hakemisto? Huomaa, että hakemiston on oltava tyhjä, ennen kuin se voidaan poistaa."
+msgstr ""
+"Poistetaanko tämä tiedosto tai hakemisto? Huomaa, että hakemiston on oltava "
+"tyhjä, ennen kuin se voidaan poistaa."
 
 msgid "manager.files.createDir"
 msgstr "Luo hakemisto"
@@ -297,13 +372,22 @@ msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Lataa oletusarvot uudelleen"
 
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Tämä järjestelmä sallii halutessasi tiettyjen tärkeiden tietojen syöttämisen useilla lisäkielillä. Käyttääksesi tätä ominaisuutta valitse vaihtoehtoiset kielialueet ja vaihtoehdot alla olevasta listasta."
+msgstr ""
+"Tämä järjestelmä sallii halutessasi tiettyjen tärkeiden tietojen syöttämisen "
+"useilla lisäkielillä. Käyttääksesi tätä ominaisuutta valitse vaihtoehtoiset "
+"kielialueet ja vaihtoehdot alla olevasta listasta."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Valitse kaikki sivustolla tuettavat kielialueet kielivalikosta, joka tulee näkymään jokaisella sivulla. Valikko näkyy vain, jos useampi kuin yksi kielialue on valittuna."
+msgstr ""
+"Valitse kaikki sivustolla tuettavat kielialueet kielivalikosta, joka tulee "
+"näkymään jokaisella sivulla. Valikko näkyy vain, jos useampi kuin yksi "
+"kielialue on valittuna."
 
 msgid "manager.payment.timestamp"
 msgstr "Aikaleima"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Vaaditaan rekisteröity käyttäjä."
 
 msgid "manager.people.authSource"
 msgstr "Todentamislähde"
@@ -318,7 +402,9 @@ msgid "manager.people.createUserGeneratePassword"
 msgstr "Luo satunnainen salasana."
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Lähetä käyttäjälle tervetulosähköposti, jossa on hänen käyttäjätunnuksensa ja salasanansa."
+msgstr ""
+"Lähetä käyttäjälle tervetulosähköposti, jossa on hänen käyttäjätunnuksensa "
+"ja salasanansa."
 
 msgid "manager.people.disable"
 msgstr "Poista käytöstä"
@@ -345,7 +431,9 @@ msgid "manager.people.emailUsers.selectLocale"
 msgstr "Valitse kielialue"
 
 msgid "manager.people.emailUsers.selectUsers"
-msgstr "Valitse käyttäjät, joille haluat lähettää sähköpostin, rastittamalla valintaruudut nimien vieressä"
+msgstr ""
+"Valitse käyttäjät, joille haluat lähettää sähköpostin, rastittamalla "
+"valintaruudut nimien vieressä"
 
 msgid "manager.people.enable"
 msgstr "Aktivoi"
@@ -378,13 +466,17 @@ msgid "manager.people.mergeUser"
 msgstr "Yhdistä käyttäjä"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Haluatko varmasti yhdistää valitut {$oldAccountCount} tiliä tiliin, jonka käyttäjätunnus on \"{$newUsername}\"? Valitut {$oldAccountCount} tiliä poistetaan kokonaan. Tätä toimintoa ei voi kumota."
+msgstr ""
+"Haluatko varmasti yhdistää valitut {$oldAccountCount} tiliä tiliin, jonka "
+"käyttäjätunnus on \"{$newUsername}\"? Valitut {$oldAccountCount} tiliä "
+"poistetaan kokonaan. Tätä toimintoa ei voi kumota."
 
 msgid "manager.people.mergeUsers"
 msgstr "Yhdistä käyttäjät"
 
 msgid "manager.people.mustChooseRole"
-msgstr "Valitse sivun yläosasta rooli, ennen kuin klikkaat “Lisää käyttäjälle rooli”."
+msgstr ""
+"Valitse sivun yläosasta rooli, ennen kuin klikkaat “Lisää käyttäjälle rooli”."
 
 msgid "manager.people.mustProvideName"
 msgstr "Anna käyttäjälle ensin ainakin sukunimi."
@@ -404,6 +496,9 @@ msgstr "Poista"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Tallenna ja luo uusi"
 
+msgid "manager.people.signedInAs"
+msgstr "Olet kirjautuneena tunnuksella {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Kirjaudu sisään"
 
@@ -420,7 +515,9 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Käyttäjä luotiin onnistuneesti."
 
 msgid "manager.people.userMustChangePassword"
-msgstr "Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan kerran."
+msgstr ""
+"Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan "
+"kerran."
 
 msgid "manager.plugins.action"
 msgstr "Toiminto:"
@@ -435,7 +532,9 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Lisäosien hallinnointi"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Tämä on sivustonlaajuinen lisäosa. Vain sivuston ylläpitäjä voi hallinnoida tätä lisäosaa."
+msgstr ""
+"Tämä on sivustonlaajuinen lisäosa. Vain sivuston ylläpitäjä voi hallinnoida "
+"tätä lisäosaa."
 
 msgid "manager.plugins"
 msgstr "Järjestelmän lisäosat"
@@ -445,6 +544,11 @@ msgstr "Lukutyökalut"
 
 msgid "manager.userSearch.searchByName"
 msgstr "Hae käyttäjää nimen mukaan"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Et voi poistaa tätä edustajaa, koska hänet on osoitettu yhden tai useamman "
+"julkaistun version markkinointia koskeviin kuvailutietoihin."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Muuta"
@@ -459,7 +563,10 @@ msgid "manager.reviewerSearch.interests"
 msgstr "Sisällölliset ja tutkimusmenetelmälliset osaamisalueet"
 
 msgid "manager.reviewerSearch.form.instructions"
-msgstr "Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset keskiarvot."
+msgstr ""
+"Käytä alla olevaa lomaketta asettaaksesi maksimiarvot termeille, joita "
+"haluat hakea. Lomakkeeseen on esitäytetty kyseisten kenttien laskennalliset "
+"keskiarvot."
 
 msgid "manager.roles"
 msgstr "Roolit"
@@ -470,7 +577,12 @@ msgstr "Tilastot &amp; Raportit"
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\tSinun {$contextObjectName}si on määritetty tallentamaan useita käytön mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista oletukseksi.\n"
+"\t\tSinun {$contextObjectName}si on määritetty tallentamaan useita käytön "
+"mittareita. Käyttötilastot näytetään useassa yhteydessä. Joissain "
+"tapauksissa on käytettävä yksittäistä käyttötilastoa, esim. silloin, kun "
+"näytetään käytetyimpien käsikirjoitusten järjestetty lista tai asetettaessa "
+"hakutuloksia paremmuusjärjestykseen. Valitse yksi määritetyistä mittareista "
+"oletukseksi.\n"
 "\t"
 
 msgid "manager.statistics.city"
@@ -484,19 +596,29 @@ msgid "manager.statistics.reports"
 msgstr "Raporttigeneraattori"
 
 msgid "manager.statistics.reports.description"
-msgstr "Järjestelmä luo raportteja, jotka jäljittävät sivuston käyttöön ja käsikirjoituksiin liittyviä tietoja tietyltä aikaväliltä. Raportit luodaan CSV-muodossa, jonka katseleminen edellyttää taulukkolaskentasovellusta."
+msgstr ""
+"Järjestelmä luo raportteja, jotka jäljittävät sivuston käyttöön ja "
+"käsikirjoituksiin liittyviä tietoja tietyltä aikaväliltä. Raportit luodaan "
+"CSV-muodossa, jonka katseleminen edellyttää taulukkolaskentasovellusta."
 
 msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Kokoa tilastot:"
 
 msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Kursivoidut ja tähdellä (*) merkityt kohdat ovat tietoja, jotka ovat vapaavalintaisia järjestelmän tämänhetkisessä tilastojen laskemistavassa (mittarityyppi). Sinulla joko on kyseiset tiedot tai ne saattavat puuttua tilastointilisäosasi määrityksistä riippuen."
+msgstr ""
+"Kursivoidut ja tähdellä (*) merkityt kohdat ovat tietoja, jotka ovat "
+"vapaavalintaisia järjestelmän tämänhetkisessä tilastojen laskemistavassa "
+"(mittarityyppi). Sinulla joko on kyseiset tiedot tai ne saattavat puuttua "
+"tilastointilisäosasi määrityksistä riippuen."
 
 msgid "manager.statistics.reports.defaultReportTemplates"
 msgstr "Raporttien oletusmallipohjat"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Luo mukautettu raportti"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Mukautettu raportti -työkalu"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Lisävalinnat"
@@ -508,7 +630,14 @@ msgid "manager.statistics.reports.columns"
 msgstr "Sarakkeet"
 
 msgid "manager.statistics.reports.columns.description"
-msgstr "Määritä sarakkeet, joita käytetään raportin muodostamiseen. Tässä valitsemasi sarakkeet määrittävät raporteissa esitettyjen tietojen lisäksi myös tilastojen koontitason. Jos esimerkiksi valitset tunniste-, tyyppi- ja kuukausisarakkeet, raportti laskee yhteen kaikki objektin katselukerrat yhdeltä kuukaudelta ja esittää tiedot yhdellä rivillä. Jos valitset kuukauden sijaan päivä-sarakkeen, kullakin objektilla on rivi jokaiselle päivälle."
+msgstr ""
+"Määritä sarakkeet, joita käytetään raportin muodostamiseen. Tässä "
+"valitsemasi sarakkeet määrittävät raporteissa esitettyjen tietojen lisäksi "
+"myös tilastojen koontitason. Jos esimerkiksi valitset tunniste-, tyyppi- ja "
+"kuukausisarakkeet, raportti laskee yhteen kaikki objektin katselukerrat "
+"yhdeltä kuukaudelta ja esittää tiedot yhdellä rivillä. Jos valitset "
+"kuukauden sijaan päivä-sarakkeen, kullakin objektilla on rivi jokaiselle "
+"päivälle."
 
 msgid "manager.statistics.reports.filters"
 msgstr "Suodattimet"
@@ -523,7 +652,8 @@ msgid "manager.statistics.reports.objectId"
 msgstr "Objektitunniste"
 
 msgid "manager.statistics.reports.objectId.label"
-msgstr "Määritä yksi tai useampi objektitunniste (erota pilkulla, esim. 1,2,3,4,5)."
+msgstr ""
+"Määritä yksi tai useampi objektitunniste (erota pilkulla, esim. 1,2,3,4,5)."
 
 msgid "manager.statistics.reports.yesterday"
 msgstr "Eilen"
@@ -550,7 +680,9 @@ msgid "manager.statistics.reports.day.label"
 msgstr "Käytä VVVVKKPP-muotoa."
 
 msgid "manager.statistics.reports.cities.label"
-msgstr "Yksi tai useampia kaupungin nimiä (erota pilkulla, esim. Kaupungin nimi 1,Kaupungin nimi 2)"
+msgstr ""
+"Yksi tai useampia kaupungin nimiä (erota pilkulla, esim. Kaupungin nimi 1,"
+"Kaupungin nimi 2)"
 
 msgid "manager.statistics.reports.form.columnsRequired"
 msgstr "Sinun on valittava vähintään yksi sarake luodaksesi raportin."
@@ -559,7 +691,11 @@ msgid "manager.statistics.reports.reportUrl"
 msgstr "Raportin URL-osoite"
 
 msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Seuraavaa URL-osoitetta voidaan käyttää raportin luomiseen tämänhetkisillä lomakkeen asetuksilla. Kopioi se, liitä selaimesi osoiteriville ja paina enteriä. Suosikkien avulla voit tallentaa mukautetun raportin URL-osoite-generaattorin."
+msgstr ""
+"Seuraavaa URL-osoitetta voidaan käyttää raportin luomiseen tämänhetkisillä "
+"lomakkeen asetuksilla. Kopioi se, liitä selaimesi osoiteriville ja paina "
+"enteriä. Suosikkien avulla voit tallentaa mukautetun raportin URL-osoite-"
+"generaattorin."
 
 msgid "manager.statistics.reports.filters.byContext"
 msgstr "Kontekstin mukaan"
@@ -588,17 +724,30 @@ msgstr "Lisäsisältö"
 msgid "manager.setup.additionalContent.description"
 msgstr "Kaikki tähän syötetty tieto näkyy etusivullasi."
 
+msgid "manager.setup.advanced"
+msgstr "Lisäasetukset"
+
 msgid "manager.setup.copyrightNotice"
 msgstr "Tekijänoikeushuomautus"
 
 msgid "manager.setup.copyrightNotice.description"
-msgstr "Vaadi kirjoittajia hyväksymään tekijänoikeushuomautus osana käsikirjoituksen lähetysprosessia."
+msgstr ""
+"Vaadi kirjoittajia hyväksymään tekijänoikeushuomautus osana käsikirjoituksen "
+"lähetysprosessia."
 
 msgid "manager.setup.authorGuidelines"
 msgstr "Kirjoittajan ohjeet"
 
 msgid "manager.setup.authorGuidelines.description"
-msgstr "Suositellut ohjeet sisältävät bibliografisten ja muotoilustandardien lisäksi esimerkkejä tavallisista, käsikirjoituksissa käytettävistä viittausmuodoista."
+msgstr ""
+"Suositellut ohjeet sisältävät bibliografisten ja muotoilustandardien lisäksi "
+"esimerkkejä tavallisista, käsikirjoituksissa käytettävistä viittausmuodoista."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Ota käsikirjoitusten lähetys pois päältä"
+
+msgid "manager.setup.checklist"
+msgstr "Tarkistuslista"
 
 msgid "manager.setup.competingInterests"
 msgstr "Sidonnaisuudet"
@@ -616,25 +765,33 @@ msgid "manager.setup.homepageImage.description"
 msgstr "Lataa kuva, joka näytetään näkyvästi etusivulla."
 
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Etusivun kuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+msgstr ""
+"Etusivun kuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt "
+"muodot ovat .gif, .jpg ja .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Etusivun ylätunnisteen otsikkokuvan muoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+msgstr ""
+"Etusivun ylätunnisteen otsikkokuvan muoto on virheellinen tai lataus "
+"epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Kuvaukset"
 
-msgid "manager.setup.theme"
-msgstr "Teema"
+msgid "manager.setup.layout.sidebar"
+msgstr "Sivupalkki"
 
-msgid "manager.setup.theme.description"
-msgstr "Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-välilehdeltä."
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Lohkoa {$name} ei löydy. Varmista, että lisäosa on asennettu ja päällä."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Kirjaaminen ja tarkastus"
 
 msgid "manager.setup.logo"
 msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Lataamaasi tiedostoa ei löydy. Lataa se ystävällisesti uudestaan."
 
 msgid "manager.setup.notifications"
 msgstr "Ilmoitus kirjoittajan tekemästä käsikirjoituksen lähetyksestä"
@@ -643,34 +800,121 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Lähetä kopio tähän sähköpostiosoitteeseen"
 
 msgid "manager.setup.notifications.description"
-msgstr "Kirjoittajille lähetetään automaattisesti sähköposti-ilmoitus käsikirjoituksen vastaanottamisesta. Sinulla saattaa olla kopiot tästä seuraaville henkilöille lähetetystä sähköpostista:"
+msgstr ""
+"Kirjoittajille lähetetään automaattisesti sähköposti-ilmoitus "
+"käsikirjoituksen vastaanottamisesta. Sinulla saattaa olla kopiot tästä "
+"seuraaville henkilöille lähetetystä sähköpostista:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Ilmoita"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Valitse käyttäjät joille haluat lähettää sähköposti-ilmoituksen."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Lähetä kopio minulle sähköpostiosoitteeseen {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Lähetä sähköposti"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Olet lähettämässä sähköpostin {$total} käyttäjälle. Oletko varma, että "
+"haluat lähettää sähköpostin?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Sähköpostia lähetetään. Älä siirry tältä sivulta pois ennen kuin lähetys on "
+"valmis."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Sähköposti lähetettiin onnistuneesti kaikille vastaanottajille."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Lähetä uusi sähköposti"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Avoimen saatavuuden periaate"
 
 msgid "manager.setup.openAccessPolicy.description"
-msgstr "Jos kaikki julkaistu sisältö on välittömästi vapaasti saatavilla, voit kirjoittaa kuvauksen soveltamastasi avoimen saatavuuden periaatteesta."
+msgstr ""
+"Jos kaikki julkaistu sisältö on välittömästi vapaasti saatavilla, voit "
+"kirjoittaa kuvauksen soveltamastasi avoimen saatavuuden periaatteesta."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Sivun ylätunnisteen logon kuvamuoto on virheellinen tai lataus epäonnistui. Hyväksytyt muodot ovat .gif, .jpg ja .png."
+msgstr ""
+"Sivun ylätunnisteen logon kuvamuoto on virheellinen tai lataus epäonnistui. "
+"Hyväksytyt muodot ovat .gif, .jpg ja .png."
 
 msgid "manager.setup.pageFooter"
 msgstr "Sivun alatunniste"
 
 msgid "manager.setup.pageFooter.description"
-msgstr "Anna kuvia, tekstiä tai HTML-koodi, joiden haluat näkyvän sivustosi alareunassa."
+msgstr ""
+"Anna kuvia, tekstiä tai HTML-koodi, joiden haluat näkyvän sivustosi "
+"alareunassa."
 
 msgid "manager.setup.peerReview.description"
-msgstr "Esitä vertaisarvioinnin periaatteiden ja prosessien pääpiirteet lukijoille ja kirjoittajille. Tämä kuvaus voi sisältää tyypillisen arvioijien määrän käsikirjoitusta kohti, sovellettavat arviointikriteerit, arviointiin oletettavasti kuluvan ajan ja arvioijien valintaa koskevat periaatteet."
+msgstr ""
+"Esitä vertaisarvioinnin periaatteiden ja prosessien pääpiirteet lukijoille "
+"ja kirjoittajille. Tämä kuvaus voi sisältää tyypillisen arvioijien määrän "
+"käsikirjoitusta kohti, sovellettavat arviointikriteerit, arviointiin "
+"oletettavasti kuluvan ajan ja arvioijien valintaa koskevat periaatteet."
 
 msgid "manager.setup.principalContact"
 msgstr "Pääasiallinen yhteyshenkilö"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimituspäällikön tai hallinnollisen työntekijän), jotka näytetään julkisella verkkosivustollasi."
+msgstr ""
+"Anna yhteystiedot (yleensä pääasiallisen päätoimittajan, toimituspäällikön "
+"tai hallinnollisen työntekijän), jotka näytetään julkisella "
+"verkkosivustollasi."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Tietosuojaseloste"
+
+msgid "manager.setup.dateTime"
+msgstr "Päivämäärä ja aika"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Päivämäärän ja ajan muotoilu"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Valitse haluttu muoto päivämäärille ja ajoille. Mukautetun muodon voi antaa "
+"käyttämällä ohjelmointikielessä määriteltyjä <a href='http://php.net/manual/"
+"en/function.strftime.php#refsect1-function.strftime-parameters'>muuttujia</"
+"a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Päivämäärä"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Päivämäärä (lyhyt)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Aika"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Päivämäärä ja aika"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Päivämäärä ja aika (lyhyt)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Mukautettu"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen "
+"yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden "
+"lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Oletusaika vastauksen takarajalle"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Oletusaika arvion takarajalle"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
@@ -683,35 +927,76 @@ msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Älä muistuta koskaan"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "Jokaisen arvioinnin oletusarvoja voidaan muokata toimitusprosessin aikana."
+msgstr ""
+"Jokaisen arvioinnin oletusarvoja voidaan muokata toimitusprosessin aikana."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Vastausten muistutukset"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Lähetä muistutus, jos arvioija ei ole vastannut arviointipyyntöön seuraavan "
 "ajan (pv) kuluttua vastauksen määräpäivästä."
 
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Muistutus arvioinnista"
+
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Lähetä muistutus jos arvioija ei ole lähettänyt suositusta seuraavan ajan "
 "(pv) kuluttua arvioinnin määräpäivästä."
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Arvioinnin oletusmääräajat"
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Arvioinnin oletusmuoto"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Näytä tiedostojen latauksen yhteydessä linkki <button type=\"button"
+"\">Varmista tiedostojen anonymiteetti</button>"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Tukijasuhteiden ja -periaatteiden kuvaus"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Esimerkkejä: tieteelliset yhdistykset, yliopistojen laitokset, osuuskunnat jne. Tukijat näytetään julkisesti."
+msgstr ""
+"Esimerkkejä: tieteelliset yhdistykset, yliopistojen laitokset, osuuskunnat "
+"jne. Tukijat näytetään julkisesti."
 
 msgid "manager.setup.styleSheetDescription"
-msgstr "Kokeneet www-kehittäjät voivat ladata CSS-tiedoston mukauttaakseen sivuston ulkoasua pidemmälle."
+msgstr ""
+"Kokeneet www-kehittäjät voivat ladata CSS-tiedoston mukauttaakseen sivuston "
+"ulkoasua pidemmälle."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Teknisen tuen yhteyshenkilö"
 
 msgid "manager.setup.technicalSupportContactDescription"
-msgstr "Yhteyshenkilö, joka osaa auttaa toimittajia, kirjoittajia ja arvioijia lähettämiseen, toimittamiseen, arviointiin tai aineiston julkaisemiseen liittyvissä ongelmissa."
+msgstr ""
+"Yhteyshenkilö, joka osaa auttaa toimittajia, kirjoittajia ja arvioijia "
+"lähettämiseen, toimittamiseen, arviointiin tai aineiston julkaisemiseen "
+"liittyvissä ongelmissa."
+
+msgid "manager.setup.theme"
+msgstr "Teema"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Uusia teemoja voidaan asentaa sivun yläreunasta löytyvältä Lisäosat-"
+"välilehdeltä."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Valitsemaasi teemaa ei ole asennettu tai sitä ei ole otettu käyttöön."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Ota tämä osasto pois käytöstä äläkä salli uusien käsikirjoitusten "
+"lähettämistä siihen."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Oletko varma, että haluat ottaa osaston pois käytöstä?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Oletko varma, että haluat ottaa osaston käyttöön?"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Sivuston pääsyoikeuksien valinnat"
@@ -721,6 +1006,9 @@ msgstr "{$count} ({$percentage} %)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} uutta)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Rekisteröityneet käyttäjät"
 
 msgid "manager.users"
 msgstr "Käyttäjät"
@@ -738,10 +1026,14 @@ msgid "plugins.categories.blocks"
 msgstr "Lohkolisäosat"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Lohkolisäosat ovat erillisiä käyttöliittymän osia, kuten erilaisia sivupalkkityökaluja."
+msgstr ""
+"Lohkolisäosat ovat erillisiä käyttöliittymän osia, kuten erilaisia "
+"sivupalkkityökaluja."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Yhdyskäytävälisäosat tarjoavat ulkoisille järjestelmille reaaliaikaisia tietoja."
+msgstr ""
+"Yhdyskäytävälisäosat tarjoavat ulkoisille järjestelmille reaaliaikaisia "
+"tietoja."
 
 msgid "plugins.categories.gateways"
 msgstr "Yhdyskäytävälisäosat"
@@ -750,19 +1042,25 @@ msgid "plugins.categories.generic"
 msgstr "Yleiset lisäosat"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Tuonti-/vientilisäosien avulla voidaan siirtää sisältöä muista järjestelmistä ja muihin järjestelmiin."
+msgstr ""
+"Tuonti-/vientilisäosien avulla voidaan siirtää sisältöä muista "
+"järjestelmistä ja muihin järjestelmiin."
 
 msgid "plugins.categories.importexport"
 msgstr "Tuonti-/vientilisäosat"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Maksutapalisäosilla otetaan käyttöön tuki erilaisille maksujen käsittelytavoille verkossa."
+msgstr ""
+"Maksutapalisäosilla otetaan käyttöön tuki erilaisille maksujen "
+"käsittelytavoille verkossa."
 
 msgid "plugins.categories.paymethod"
 msgstr "Maksulisäosat"
 
 msgid "plugins.categories.reports.description"
-msgstr "Raporttilisäosia käytetään erilaisten raporttien ja tietopoimintojen toteuttamiseen."
+msgstr ""
+"Raporttilisäosia käytetään erilaisten raporttien ja tietopoimintojen "
+"toteuttamiseen."
 
 msgid "plugins.categories.reports"
 msgstr "Raporttilisäosat"
@@ -786,7 +1084,11 @@ msgid "plugins.categories.pubIds.description"
 msgstr "Näillä lisäosilla otetaan käyttöön julkisen tunnisteen tuki."
 
 msgid "manager.plugins.copyError"
-msgstr "Lisäosaa ei kopioitu onnistuneesti. Tämä voi olla käyttöoikeuteen liittyvä ongelma. Varmista, että verkkopalvelin kykenee kirjoittamaan lisäosahakemiston (ja alihakemistot), mutta muista suojata se myöhemmin uudelleen."
+msgstr ""
+"Lisäosaa ei kopioitu onnistuneesti. Tämä voi olla käyttöoikeuteen liittyvä "
+"ongelma. Varmista, että verkkopalvelin kykenee kirjoittamaan "
+"lisäosahakemiston (ja alihakemistot), mutta muista suojata se myöhemmin "
+"uudelleen."
 
 msgid "manager.plugins.delete"
 msgstr "Poista lisäosa"
@@ -804,16 +1106,26 @@ msgid "manager.plugins.deleteConfirm"
 msgstr "Haluatko varmasti poistaa tämän lisäosan järjestelmästä?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Klikkaamalla poista-painiketta poistat lisäosan palvelimen tiedostojärjestelmästä."
+msgstr ""
+"Klikkaamalla poista-painiketta poistat lisäosan palvelimen "
+"tiedostojärjestelmästä."
 
 msgid "manager.plugins.deleteError"
-msgstr "Lisäosaa \"{$pluginName}\" ei voitu poistaa tiedostojärjestelmästä. Tämä voi olla käyttöoikeuteen liittyvä ongelma. Varmista, että verkkopalvelin kykenee kirjoittamaan lisäosahakemiston (ja alihakemistot), mutta muista suojata se myöhemmin uudelleen."
+msgstr ""
+"Lisäosaa \"{$pluginName}\" ei voitu poistaa tiedostojärjestelmästä. Tämä voi "
+"olla käyttöoikeuteen liittyvä ongelma. Varmista, että verkkopalvelin kykenee "
+"kirjoittamaan lisäosahakemiston (ja alihakemistot), mutta muista suojata se "
+"myöhemmin uudelleen."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "Lisäosa \"{$pluginName}\" poistettiin onnistuneesti"
 
 msgid "manager.plugins.description"
-msgstr "Tällä sivulla hallinnoija voi tarkistaa ja mahdollisesti määrittää jo asennetut lisäosat. Lisäosat on jaettu kategorioihin funktionsa mukaan. Kategoriat on lueteltu alla, ja joka kategoriassa on siihen tällä hetkellä kuuluvat lisäosat."
+msgstr ""
+"Tällä sivulla hallinnoija voi tarkistaa ja mahdollisesti määrittää jo "
+"asennetut lisäosat. Lisäosat on jaettu kategorioihin funktionsa mukaan. "
+"Kategoriat on lueteltu alla, ja joka kategoriassa on siihen tällä hetkellä "
+"kuuluvat lisäosat."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "Lisäosaa \"{$pluginName}\" ei ole olemassa"
@@ -825,7 +1137,9 @@ msgid "manager.plugins.upload"
 msgstr "Lataa uusi lisäosa"
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Tämän lomakkeen avulla voit ladata ja asentaa uuden lisäosan. Varmista, että lisäosa on pakattu .tar.gz-tiedostoksi."
+msgstr ""
+"Tämän lomakkeen avulla voit ladata ja asentaa uuden lisäosan. Varmista, että "
+"lisäosa on pakattu .tar.gz-tiedostoksi."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Varmista, että latausta varten on valittu tiedosto."
@@ -848,11 +1162,20 @@ msgstr "Viimeisin yhteensopiva julkaisuversio"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Virallinen"
 
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "Tätä lisäosaa kehittää ja ylläpitää Public Knowledge Project."
+
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Tarkistettu"
 
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "Tämä lisäosan on tarkistanut ja hyväksynyt Public Knowledge Project."
+
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Kumppani"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Tämän lisäosan tarjoaa kehitystyökumppani."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Ylläpitäjä"
@@ -873,13 +1196,17 @@ msgid "manager.plugins.noInstalledVersion"
 msgstr "Lisäosaa ei ole vielä asennettu."
 
 msgid "manager.plugins.noCompatibleVersion"
-msgstr "Tästä lisäosasta ei ole tällä hetkellä saatavilla yhteensopivaa versiota."
+msgstr ""
+"Tästä lisäosasta ei ole tällä hetkellä saatavilla yhteensopivaa versiota."
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "Lisäosa on jo asennettu, ja se on uudempi kuin galleriassa saatavilla oleva versio."
+msgstr ""
+"Lisäosa on jo asennettu, ja se on uudempi kuin galleriassa saatavilla oleva "
+"versio."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Lisäosa on jo asennettu, mutta se voidaan päivittää uudempaan versioon."
+msgstr ""
+"Lisäosa on jo asennettu, mutta se voidaan päivittää uudempaan versioon."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Lisäosa on jo asennettu ja ajan tasalla."
@@ -909,25 +1236,33 @@ msgid "manager.plugins.wrongCategory"
 msgstr "Ladattu lisäosa ei kuulu päivitetyn lisäosan kategoriaan."
 
 msgid "manager.plugins.wrongName"
-msgstr "Ladatun lisäosan version.xml sisältää lisäosan nimen, joka ei vastaa päivitetyn lisäosan nimeä."
+msgstr ""
+"Ladatun lisäosan version.xml sisältää lisäosan nimen, joka ei vastaa "
+"päivitetyn lisäosan nimeä."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Lisäosaa ei ole olemassa. Asenna sen sijaan"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Lisäosa on jo olemassa, mutta se on uudempi kuin asennettu versio. Päivitä sen sijaan"
+msgstr ""
+"Lisäosa on jo olemassa, mutta se on uudempi kuin asennettu versio. Päivitä "
+"sen sijaan"
 
 msgid "manager.plugins.settings"
 msgstr "Asetukset"
 
 msgid "manager.plugins.tarCommandNotFound"
-msgstr "Tar-komento ei ole käytettävissä. Määritä se oikein \"config.inc.php\"-tiedostossasi."
+msgstr ""
+"Tar-komento ei ole käytettävissä. Määritä se oikein \"config.inc.php\"-"
+"tiedostossasi."
 
 msgid "manager.plugins.upgrade"
 msgstr "Päivitä lisäosa"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Tämän lomakkeen avulla voit päivittää lisäosan. Varmista, että lisäosa on pakattu .tar.gz-tiedostoksi."
+msgstr ""
+"Tämän lomakkeen avulla voit päivittää lisäosan. Varmista, että lisäosa on "
+"pakattu .tar.gz-tiedostoksi."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Päivitys epäonnistui. {$errorString}"
@@ -971,6 +1306,28 @@ msgstr "Kielialueiden asetukset tallennettu."
 msgid "notification.editedUser"
 msgstr "Käyttäjää muokattu."
 
+msgid "manager.distribution.license"
+msgstr "Lisenssi"
+
+msgid "manager.distribution.license.other"
+msgstr "Muun lisenssin URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Lisenssin ehdot"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Anna julkisen lisenssin ehdot, jotka haluat esittää julkaistujen "
+"käsikirjoitusten yhteydessä."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Mukautetut tagit"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Lisää mukautettuja HTML-kuvailuelementtejä, jotka haluat esille jokaiselle "
+"sivulle. Ole yhteydessä tekniseen asiantuntijaan ennen sisällön lisäämistä."
+
 msgid "manager.paymentMethod"
 msgstr "Maksut"
 
@@ -995,6 +1352,11 @@ msgstr "Näytä roolin nimi tekijäluettelossa"
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Salli käyttäjän rekisteröityä itse"
 
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen "
+"vahvistamiseen vaaditaan varsinainen toimittaja."
+
 msgid "settings.roles.roleName"
 msgstr "Roolin nimi"
 
@@ -1014,7 +1376,10 @@ msgid "settings.roles.from"
 msgstr "Käyttöoikeustaso"
 
 msgid "settings.roles.removeText"
-msgstr "Olet poistamassa tätä roolia tästä kontekstista. Tämä toimenpide poistaa myös rooliin liittyvät asetukset ja kaikki käyttäjien valinnat tähän rooliin. Haluatko jatkaa?"
+msgstr ""
+"Olet poistamassa tätä roolia tästä kontekstista. Tämä toimenpide poistaa "
+"myös rooliin liittyvät asetukset ja kaikki käyttäjien valinnat tähän "
+"rooliin. Haluatko jatkaa?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Roolin nimi on määritettävä."
@@ -1034,8 +1399,13 @@ msgstr "Roolin käyttöoikeustaso on määritettävä."
 msgid "settings.roles.stageIdRequired"
 msgstr "Vaihe, johon valinta tehdään, on määritettävä."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Salli käsikirjoituksen kuvailutietojen muokkaus."
+
 msgid "settings.libraryFiles.fileRequired"
-msgstr "Kirjastotiedosto vaaditaan. Varmista, että olet valinnut ja ladannut tiedoston."
+msgstr ""
+"Kirjastotiedosto vaaditaan. Varmista, että olet valinnut ja ladannut "
+"tiedoston."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Tälle kirjastotiedostolle vaaditaan nimi."
@@ -1058,6 +1428,14 @@ msgstr "Raportit"
 msgid "settings.libraryFiles.category.other"
 msgstr "Muu"
 
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Jos \"Julkinen saatavuus\" on valittuna, tiedosto on ladattavissa "
+"osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Valitse liitettävät tiedostot"
+
 msgid "grid.action.addGenre"
 msgstr "Lisää osa"
 
@@ -1069,6 +1447,46 @@ msgstr "Poista tämä osa"
 
 msgid "grid.action.restoreGenres"
 msgstr "Palauta osien oletusasetukset"
+
+msgid "manager.setup.genres.label"
+msgstr "Tiedostotyyppi"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Nämä ovat avustavia tiedostoja, kuten kuvia HTML-tiedostossa, eikä niitä "
+"näytetä yksinään julkaistuna sisältönä."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Nämä ovat liitetiedostoja, kuten tietoaineistoja tai tutkimusaineistoja, "
+"jotka näytetään erillään julkaistusta kokotekstistä."
+
+msgid "manager.setup.genres.key"
+msgstr "Avain"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Vapaaehtoinen lyhyt tunniste lajityypille."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Avain on jo käytössä."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Avain voi sisältää vain alfanumeerisia merkkejä, alaviivoja ja väliviivoja "
+"ja sen pitää alkaa ja loppua alfanumeeriseen merkkiin."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Tiedoston kuvailutiedot"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Valitse minkä tyyppisiä kuvailutietoja tiedostoihin liittyen voi täyttää. "
+"Asiakirja on oikea valinta varsinaisille kokotekstitiedostoille, kuten "
+"julkaistut PDF-artikkelit, jotka saavat kuvailutietonsa koko "
+"käsikirjoituksen kuvailutiedoista. Muussa tapauksessa lisäsisältö sopii "
+"useimmille tiedostotyypeille. Teos sopii tiedostoille, joihin tarvitsee "
+"liittää tarkat tekijänoikeuteen ja lisensointiin liittyvät tiedot, kuten "
+"taideteokset, äänitteet ja valokuvat."
 
 msgid "manager.settings.wizard"
 msgstr "Ohjattu asetusten luonti"
@@ -1098,10 +1516,14 @@ msgid "manager.reviewForms"
 msgstr "Arviointilomakkeet"
 
 msgid "manager.reviewForms.confirmActivate"
-msgstr "Haluatko varmasti aktivoida tämän arviointilomakkeen? Aktivointia ei voi enää voi poistaa, kun lomake on valittu arviointiin."
+msgstr ""
+"Haluatko varmasti aktivoida tämän arviointilomakkeen? Aktivointia ei voi "
+"enää voi poistaa, kun lomake on valittu arviointiin."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Haluatko varmasti poistaa tämän arviointilomakkeen aktivoinnin? Lomake ei ole enää käytettävissä uusissa arviointitoimeksiannoissa."
+msgstr ""
+"Haluatko varmasti poistaa tämän arviointilomakkeen aktivoinnin? Lomake ei "
+"ole enää käytettävissä uusissa arviointitoimeksiannoissa."
 
 msgid "manager.reviewForms.confirmCopy"
 msgstr "Haluatko varmasti tehdä kopion tästä arviointilomakkeesta?"
@@ -1128,7 +1550,14 @@ msgid "manager.reviewForms.inReview"
 msgstr "Arvioinnissa"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Tässä luodut vertaisarviointilomakkeet annetaan arvioijien täytettäväksi, kahdesta avoimesta tekstikentästä (\"kirjoittajalle ja toimittajalle\" ja \"toimittajalle\") muodostuvan oletuslomakkeen sijaan. Arviointilomakkeita voidaan määrittää tiettyjä painon osastoja varten, ja toimittajilla on mahdollisuus valita käytettävä lomake arviointia osoitettaessa. Toimittajilla on kaikissa tapauksissa mahdollisuus sisällyttää arvioinnit kirjoittajan kanssa käytävään kirjeenvaihtoon."
+msgstr ""
+"Tässä luodut vertaisarviointilomakkeet annetaan arvioijien täytettäväksi, "
+"kahdesta avoimesta tekstikentästä (\"kirjoittajalle ja toimittajalle\" ja "
+"\"toimittajalle\") muodostuvan oletuslomakkeen sijaan. Arviointilomakkeita "
+"voidaan määrittää tiettyjä painon osastoja varten, ja toimittajilla on "
+"mahdollisuus valita käytettävä lomake arviointia osoitettaessa. "
+"Toimittajilla on kaikissa tapauksissa mahdollisuus sisällyttää arvioinnit "
+"kirjoittajan kanssa käytävään kirjeenvaihtoon."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Ei valintaa / Vapaamuotoinen arviointi"
@@ -1196,6 +1625,9 @@ msgstr "Valinta"
 msgid "manager.reviewFormElements.question"
 msgstr "Kohta"
 
+msgid "manager.reviewFormElements.description"
+msgstr "Kuvaus"
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Valintanapit (voit valita vain yhden)"
 
@@ -1220,17 +1652,225 @@ msgstr "Nähtävissä (kirjoittajille)"
 msgid "grid.action.createReviewForm"
 msgstr "Luo uusi arviointilomake"
 
+msgid "manager.setup.competingInterests.required"
+msgstr "Pyydä tiedot sidonnaisuuksista ennen vertaisarviointia."
+
 msgid "manager.setup.licenseURLDescription"
-msgstr "URL-osoite verkkosivulle, jossa kerrotaan lisenssistä (mikäli saatavilla)."
+msgstr ""
+"URL-osoite verkkosivulle, jossa kerrotaan lisenssistä (mikäli saatavilla)."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Käsikirjoituksen lähettämislomake"
 
+msgid "manager.setup.metadata.coverage"
+msgstr "Kattavuus"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Kattavuudella määritetään tavallisesti työn maantieteellinen sijainti "
+"(paikan nimi tai koordinaatit), ajallinen rajaus (aikakauden nimi, "
+"päivämäärä tai aikarajaus) tai toimivalta (hallinnollisen yksikön nimi)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Ota kattavuutta koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Vaadi kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Avainsanat ovat tavallisesti yhden tai muutaman sanan pituisia ilmaisuja, "
+"joilla kuvataan käsikirjoituksen keskeiset aiheet."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ota avainsanoja koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"Kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Vaadi kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Kieli ilmaisee työn pääasiallisen kielen. Käytä muotoa \"fi, en\" tai "
+"\"fi_FI, en_US\"."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ota kieltä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Kaikki käsikirjoitukseen liittyvät immateriaalioikeudet, tekijänoikeudet ja "
+"omistusoikeudet."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Ota oikeuksia koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen "
+"lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Vaadi kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Lähde voi olla toisen työn ID-tunnus, kuten DOI, josta lähetettävä työ on "
+"johdettu."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Ota lähteitä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Vaadi kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Aiheet ovat avainsanoja, fraaseja tai luokitteluja, jotka kuvaavat "
+"käsikirjoitukseen sisällön."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Ota aiheita koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Vaadi kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Julkaisun lajityyppi. Yleensä teksti (Text), mutta voi olla myös tietojoukko "
+"(dataset), kuva (Image) tai jokin <a target=\"_blank\" href=\"https://www."
+"dublincore.org/specifications/dublin-core/dcmi-terms/#section-7\">Dublin "
+"Coren tyyppisanastosta</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Ota tyyppiä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen tyyppiltä."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Kysy kirjoittajalta lähettävän käsikirjoituksen tyyppi."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen tyyppi."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Tieteenalat ovat yliopiston tiedekuntien ja tieteellisten seurojen kuvaamia "
+"tutkimusaloja tai tieteenhaaroja."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Ota tieteenaloja koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta tieteenaloja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Kysy kirjoittajalta tieteenalatietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Vaadi kirjoittajalta tieteenalatiedot käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Mitkä tutkimusrahastot tai -säätiöt ovat tukeneet tutkimuksen toteutumista."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Ota apurahoitusta koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Vaadi kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
+"yhteydessä."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Kerää käsikirjoituksen viittausohjeet erilliseen kenttään. Tätä tarvitaan "
+"lähdeviitteiden seurantapalvelujen, kuten Crossrefin, tarpeisiin."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Ota viitteitä koskeva kuvailutieto käyttöön"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+"Älä kysy kirjoittajalta viiitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Kysy kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Vaadi kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Vahvistusvirheitä:"
 
-msgid "manager.setup.layout.sidebar"
-msgstr "Sivupalkki"
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Varoituksia:"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Tapahtui virheitä:"
@@ -1244,41 +1884,65 @@ msgstr "Tuntematon osa {$param}"
 msgid "plugins.importexport.common.error.unknownEncoding"
 msgstr "Tuntematon merkistökoodaus {$param}"
 
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Sisältö on koodattu muotoon {$param}"
+
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Tuntematon käyttäjäryhmä {$param}"
 
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Kirjoittajalle {$authorName} ei ole annettu nimeä käsikirjoituksessa "
+"käytettävällä kielellä, {$localeName}. Käsikirjoitusta ei voida tuoda ilman "
+"tätä tietoa."
+
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Tuntematon lataaja {$param}"
-
-msgid "manager.people.existingUserRequired"
-msgstr "Vaaditaan rekisteröity käyttäjä."
-
-msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Tätä lisäosaa kehittää ja ylläpitää Public Knowledge Project."
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Tämä lisäosan on tarkistanut ja hyväksynyt Public Knowledge Project."
-
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Tämän lisäosan tarjoaa kehitystyökumppani."
-
-msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Varoituksia:"
-
-msgid "plugins.importexport.common.error.encodingError"
-msgstr "Sisältö on koodattu muotoon {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Väliaikaista tiedostoa {$dest} ei voitu luoda kohteesta {$source}"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr "Annettu tiedostokoko \"{$expected}\" ja varsinainen tiedostokoko \"{$actual}\" eivät täsmää"
+msgstr ""
+"Annettu tiedostokoko \"{$expected}\" ja varsinainen tiedostokoko "
+"\"{$actual}\" eivät täsmää"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "Revisio \"{$revisionId}\" käsikirjoitustiedostolle \"{$fileId}\" loisi duplikaatin"
+msgstr ""
+"Revisio \"{$revisionId}\" käsikirjoitustiedostolle \"{$fileId}\" loisi "
+"duplikaatin"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Käsikirjoitustiedostoa ei voitu tuoda"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Käsikirjoituksen tiedosto {$id} ohitettiin, koska se on liitetty tietueeseen "
+"jota ei viedä, kuten arviointipyyntö tai keskustelu."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Tuonti/Vienti-virheet:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Käyttäjällä \"{$username}\" ei ole salasanaa. Tarkista tuontiin käytetty XML-"
+"tiedosto. Käyttäjän tiedot jätettiin tuomatta."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Käyttäjän \"{$username}\" salasanaa ei voitu tuoda sellaisenaan. Käyttäjälle "
+"on lähetetty uusi salasana sähköpostitse. Muut käyttäjän tiedot on tuotu "
+"onnistuneesti."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Käyttäjällä \"{$username}\" on salaamaton salasana, jota ei sallita. "
+"Käyttäjän tiedot jätettiin tuomatta."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Käyttäjänimi \"{$username}\" ja sähköposti \"{$email}\" eivät täsmää saman "
+"olemassa olevan käyttäjän tietojen kanssa."
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Otsikko"
@@ -1290,13 +1954,19 @@ msgid "manager.navigationMenus"
 msgstr "Navigaatiovalikot"
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr "<p>Tämä sivu löytyy sijainnista <blockquote>{$pagesPath}</blockquote>...jossa %PATH% on yllä näkyvä polku. <strong>Huomaa:</strong> Kahdella sivulla ei voi olla samaa polkua. Mikäli annat polun, joka on jo järjestelmän käytössä, voi jokin toiminto poistua käytöstä.</p>"
+msgstr ""
+"<p>Tämä sivu löytyy sijainnista <blockquote>{$pagesPath}</blockquote>..."
+"jossa %PATH% on yllä näkyvä polku. <strong>Huomaa:</strong> Kahdella sivulla "
+"ei voi olla samaa polkua. Mikäli annat polun, joka on jo järjestelmän "
+"käytössä, voi jokin toiminto poistua käytöstä.</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Sisältö"
 
 msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "Polku voi sisältää vain alfanumeerisia merkkejä sekä merkit '.', '/', '-', ja '_'."
+msgstr ""
+"Polku voi sisältää vain alfanumeerisia merkkejä sekä merkit '.', '/', '-', "
+"ja '_'."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "Tämä polku on jo käytössä toisessa valikon kohteessa."
@@ -1322,6 +1992,9 @@ msgstr "Ulkoasuteeman aktiiviset navigaatioalueet"
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Valitse navigaatioalue"
 
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Tälle alueelle on jo osoitettu navigaatiovalikko."
+
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
 
@@ -1332,7 +2005,12 @@ msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Lisätietoja tämän kohteen näkyvyydestä."
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr "Kun valikon kohde avaa alavalikon, siinä olevaa linkkiä ei voi seurata kaikilla laitteilla. Esimerkiksi, mikäli sinulla on \"Tietoja\"-kohde, joka avaa \"Yhteistiedot\"-kohteen sisältävän alavalikon, ei \"Tietoja\"-kohteen linkki ole välttämättä avattavissa joillakin laitteilla. Tällöin alavalikkoon voi laittaa toisen kohteen, joka johtaa halutulle sivulle."
+msgstr ""
+"Kun valikon kohde avaa alavalikon, siinä olevaa linkkiä ei voi seurata "
+"kaikilla laitteilla. Esimerkiksi, mikäli sinulla on \"Tietoja\"-kohde, joka "
+"avaa \"Yhteistiedot\"-kohteen sisältävän alavalikon, ei \"Tietoja\"-kohteen "
+"linkki ole välttämättä avattavissa joillakin laitteilla. Tällöin "
+"alavalikkoon voi laittaa toisen kohteen, joka johtaa halutulle sivulle."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Navigaatiovalikon tyyppi"
@@ -1349,27 +2027,6 @@ msgstr "Luo muokattu sivu ja lisää siihen johtava linkki navigaatiovalikkoon."
 msgid "manager.navigationMenus.remoteUrl"
 msgstr "Ulkoinen URL"
 
-msgid "manager.navigationMenus.logOut.description"
-msgstr "Linkki, joka kirjaa vierailijan ulos."
-
-msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Tämä linkki näytetään vain, kun vierailija on kirjautunut sisään."
-
-msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Tämä linkki näytetään vain, kun vierailija ei ole kirjautuneena sisään."
-
-msgid "manager.navigationMenus.dashboard.description"
-msgstr "Linkki toimituksen hallintapaneeliin."
-
-msgid "manager.navigationMenus.profile.description"
-msgstr "Linkki käyttäjän profiiliin."
-
-msgid "manager.navigationMenus.administration.description"
-msgstr "Linkki sivuston ylläpitoasetuksiin."
-
-msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Tämä linkki näytetään vain ylläpitäjille."
-
 msgid "manager.navigationMenus.remoteUrl.description"
 msgstr "Linkki mihin tahansa ulkoiselle sivulle, kuten https://pkp.sfu.ca."
 
@@ -1377,13 +2034,17 @@ msgid "manager.navigationMenus.about.description"
 msgstr "Linkki \"Tietoja julkaisusta\" -sivulle"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr "Tämä linkki näkyy vain mikäli olet täyttänyt \"Tietoja julkaisusta\"-kohdan lehden asetuksista."
+msgstr ""
+"Tämä linkki näkyy vain mikäli olet täyttänyt \"Tietoja julkaisusta\"-kohdan "
+"lehden asetuksista."
 
 msgid "manager.navigationMenus.editorialTeam.description"
 msgstr "Linkki \"Toimituskunta\"-sivulle."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr "Tämä linkki näkyy vain mikäli olet täyttänyt \"Toimituskunta\"-kohdan lehden asetuksista."
+msgstr ""
+"Tämä linkki näkyy vain mikäli olet täyttänyt \"Toimituskunta\"-kohdan lehden "
+"asetuksista."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Linkki \"Käsikirjoitukset\"-sivulle."
@@ -1398,7 +2059,8 @@ msgid "manager.navigationMenus.announcements.description"
 msgstr "Linkki ilmoitusten arkistoon."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Tämä linkki näkyy vain mikäli olet aktivoinut ilmoitukset lehden asetuksista."
+msgstr ""
+"Tämä linkki näkyy vain mikäli olet aktivoinut ilmoitukset lehden asetuksista."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Linkki kirjautumissivulle."
@@ -1406,44 +2068,49 @@ msgstr "Linkki kirjautumissivulle."
 msgid "manager.navigationMenus.register.description"
 msgstr "Linkki rekisteröitymissivulle."
 
-msgid "settings.roles.recommendOnly"
-msgstr "Tällä roolilla voi tehdä vain toimituksellisia suosituksia. Suosituksen vahvistamiseen vaaditaan varsinainen toimittaja."
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Linkki toimituksen hallintapaneeliin."
 
-msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Jos \"Julkinen saatavuus\" on valittuna, tiedosto on ladattavissa osoitteesta: <blockquote>{$downloadUrl}</blockquote></p>"
+msgid "manager.navigationMenus.profile.description"
+msgstr "Linkki käyttäjän profiiliin."
 
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Valitse liitettävät tiedostot"
+msgid "manager.navigationMenus.administration.description"
+msgstr "Linkki sivuston ylläpitoasetuksiin."
 
-msgid "manager.setup.genres.key"
-msgstr "Avain"
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Tämä linkki näytetään vain ylläpitäjille."
 
-msgid "manager.setup.genres.key.description"
-msgstr "Vapaaehtoinen lyhyt tunniste lajityypille."
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Linkki, joka kirjaa vierailijan ulos."
 
-msgid "manager.setup.genres.key.exists"
-msgstr "Avain on jo käytössä."
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Tämä linkki näytetään vain, kun vierailija on kirjautunut sisään."
 
-msgid "manager.setup.genres.key.alphaNumeric"
-msgstr "Avain voi sisältää vain alfanumeerisia merkkejä, alaviivoja ja väliviivoja ja sen pitää alkaa ja loppua alfanumeeriseen merkkiin."
-
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "Tälle alueelle on jo osoitettu navigaatiovalikko."
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+"Tämä linkki näytetään vain, kun vierailija ei ole kirjautuneena sisään."
 
 msgid "manager.navigationMenus.contact.description"
 msgstr "Linkki yhteystiedosto-sivulle."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr "Tämä linkki näkyy vain, jos olet täyttänyt asetukset kohdasta Asetukset > Yhteystiedot."
+msgstr ""
+"Tämä linkki näkyy vain, jos olet täyttänyt asetukset kohdasta Asetukset > "
+"Yhteystiedot."
 
 msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Valitse navigaatiovalikon tyyppi."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr "Tämä linkki näkyy vain, jos olet ottanut maksut käyttöön kohdasta Asetukset > Jakelu > Maksut."
+msgstr ""
+"Tämä linkki näkyy vain, jos olet ottanut maksut käyttöön kohdasta Asetukset "
+"> Jakelu > Maksut."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr "Tämä linkki näkyy vain, jos käyttäjä on kirjautunut sisään, maksut on otettu käyttöön kohdasta Asetukset > Jakelu > Maksut ja lehti on ottanut käyttöön embargon kohdasta Asetukset > Jakelu > Saatavuus."
+msgstr ""
+"Tämä linkki näkyy vain, jos käyttäjä on kirjautunut sisään, maksut on otettu "
+"käyttöön kohdasta Asetukset > Jakelu > Maksut ja lehti on ottanut käyttöön "
+"embargon kohdasta Asetukset > Jakelu > Saatavuus."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Linkki hakusivulle."
@@ -1455,9 +2122,6 @@ msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
 "Tämä linkki näkyy ainoastaan, jos olet syöttänyt tietosuojaselosteen "
 "asetusten kohtaan Asetukset > Työnkulku > Käsikirjoituksen vastaanotto."
-
-msgid "manager.setup.privacyStatement.description"
-msgstr "Tietosuojaseloste näkyy rekisteröitymisen ja käsikirjoituksen lähetyksen yhteydessä sekä julkisella tietosuojaselostesivulla. Joidenkin maiden lainsäädäntö velvoittaa kuvaamaan miten kerättyjä henkilötietoja käytetään."
 
 msgid "grid.category.add"
 msgstr "Lisää kategoria"
@@ -1475,7 +2139,9 @@ msgid "grid.category.urlWillBe"
 msgstr "Kategorian URL-osoitteeksi tulee: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
-msgstr "Kategorian polussa voi olla vain kirjaimia ja numeroita. Kansalliset merkit, kuten ä, ö ja å, eivät ole sallittuja."
+msgstr ""
+"Kategorian polussa voi olla vain kirjaimia ja numeroita. Kansalliset merkit, "
+"kuten ä, ö ja å, eivät ole sallittuja."
 
 msgid "grid.category.pathExists"
 msgstr "Kategorian polku on jo käytössä. Anna toinen polku."
@@ -1495,458 +2161,77 @@ msgstr "Anna kategorian nimi."
 msgid "grid.category.categoryDetails"
 msgstr "Kategorian tiedot"
 
-msgid "manager.reviewFormElements.description"
-msgstr "Kuvaus"
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr "Kirjoittajalle {$authorName} ei ole annettu nimeä käsikirjoituksessa käytettävällä kielellä, {$localeName}. Käsikirjoitusta ei voida tuoda ilman tätä tietoa."
-
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Tuonti/Vienti-virheet:"
-
-msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr "Käyttäjällä \"{$username}\" ei ole salasanaa. Tarkista tuontiin käytetty XML-tiedosto. Käyttäjän tiedot jätettiin tuomatta."
-
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr "Käyttäjän \"{$username}\" salasanaa ei voitu tuoda sellaisenaan. Käyttäjälle on lähetetty uusi salasana sähköpostitse. Muut käyttäjän tiedot on tuotu onnistuneesti."
-
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr "Käyttäjällä \"{$username}\" on salaamaton salasana, jota ei sallita. Käyttäjän tiedot jätettiin tuomatta."
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr "Käyttäjänimi \"{$username}\" ja sähköposti \"{$email}\" eivät täsmää saman olemassa olevan käyttäjän tietojen kanssa."
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Avain on jo käytössä."
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Sähköpostipohjaa lisättäessä täytyy antaa kontekstin tunniste."
-
-msgid "manager.emails.emailKey.description"
-msgstr "Sähköpostiavain voi sisältää vain kirjaimia, numeroita ja alaviivan."
-
-msgid "stats.name.submissionsPublished"
-msgstr "Julkaistut käsikirjoitukset"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Arvioinnin perusteella hylätyt käsikirjoitukset"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Ilman arviointia hylätyt käsikirjoitukset"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Hylätyt käsikirjoitukset"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Hyväksytyt käsikirjoitukset"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Saadut käsikirjoitukset"
-
-msgid "stats.dateRange.untilDate"
-msgstr "{$date} asti"
-
-msgid "stats.dateRange.to"
-msgstr "Saakka"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "{$date} lähtien"
-
-msgid "stats.dateRange.from"
-msgstr "Alkaen"
-
 msgid "stats.allUsers"
 msgstr "Kaikki käyttäjät"
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen tyyppiltä."
-
-msgid "manager.setup.metadata.type.require"
-msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen tyyppi."
-
-msgid "manager.setup.metadata.type.request"
-msgstr "Kysy kirjoittajalta lähettävän käsikirjoituksen tyyppi."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "Vaadi kirjoittajalta lähetettävän käsikirjoituksen kieli."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Kysy kirjoittajalta lähetettävän käsikirjoituksen kieli."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Älä kysy kirjoittajalta lähetettävän käsikirjoituksen kieltä."
-
-msgid "manager.distribution.license"
-msgstr "Lisenssi"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Rekisteröityneet käyttäjät"
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Näytä tiedostojen latauksen yhteydessä linkki <button type=\"button\">"
-"Varmista tiedostojen anonymiteetti</button>"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Arvioinnin oletusmuoto"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Muistutus arvioinnista"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Oletusaika arvion takarajalle"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Oletusaika vastauksen takarajalle"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Lataamaasi tiedostoa ei löydy. Lataa se ystävällisesti uudestaan."
-
-msgid "manager.setup.checklist"
-msgstr "Tarkistuslista"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Kirjoittajan ohjeet on päivitetty."
-
-msgid "manager.setup.appearance.success"
-msgstr "Ulkoasuasetukset on päivitetty."
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Aihe: {$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "Vastaanottaja"
-
-msgid "manager.emails.sentFrom"
-msgstr "Lähettäjä"
-
-msgid "manager.emails.resetAll"
-msgstr "Palauta kaikki"
-
-msgid "manager.emails.emailTemplates"
-msgstr "Sähköpostipohjat"
-
-msgid "manager.emails.editEmail.success"
-msgstr "Sähköpostipohjaa muokattiin."
-
-msgid "manager.emails.customTemplate"
-msgstr "Räätälöity sähköpostipohja"
-
-msgid "manager.emails.addEmail.success"
-msgstr "Sähköpostipohja lisättiin."
-
-msgid "manager.emails.addEmail"
-msgstr "Lisää sähköpostipohja"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Arviointimuistutuksen tiedot on päivitetty."
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "Arviointiasetukset on päivitetty."
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Arvioijan opastus on päivitetty."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Arvioijan opastus"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "Sähköpostiasetukset on päivitetty."
-
-msgid "manager.setup.competingInterests.required"
-msgstr "Pyydä tiedot sidonnaisuuksista ennen vertaisarviointia."
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Salli käsikirjoituksen kuvailutietojen muokkaus."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Lisää mukautettuja HTML-kuvailuelementtejä, jotka haluat esille jokaiselle "
-"sivulle. Ole yhteydessä tekniseen asiantuntijaan ennen sisällön lisäämistä."
-
-msgid "manager.distribution.customHeaders"
-msgstr "Mukautetut tagit"
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr ""
-"Anna julkisen lisenssin ehdot, jotka haluat esittää julkaistujen "
-"käsikirjoitusten yhteydessä."
-
-msgid "manager.distribution.licenseTerms"
-msgstr "Lisenssin ehdot"
-
-msgid "manager.distribution.license.other"
-msgstr "Muun lisenssin URL"
-
-msgid "manager.distribution.license.success"
-msgstr "Lisenssejä koskevat asetukset on päivitetty. "
-
-msgid "manager.setup.userAccess.success"
-msgstr "Käyttäjien pääsyä koskevat asetukset on päivitetty."
-
-msgid "manager.setup.theme.notFound"
-msgstr "Valitsemaasi teemaa ei ole asennettu tai sitä ei ole otettu käyttöön."
-
-msgid "manager.setup.theme.success"
-msgstr "Teema on päivitetty. <a href=\"{$url}\" target=\"_blank\">Katso</a>"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Vastausten muistutukset"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr "Lohkoa {$name} ei löydy. Varmista, että lisäosa on asennettu ja päällä."
-
-msgid "manager.setup.contact.success"
-msgstr "Julkaisijan yhteystiedot päivitetty."
-
-msgid "manager.setup.advanced"
-msgstr "Lisäasetukset"
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Et voi poistaa tätä edustajaa, koska hänet on osoitettu yhden tai useamman "
-"julkaistun version markkinointia koskeviin kuvailutietoihin."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr "Vaadi kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Älä kysy kirjoittajalta aiheita käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Ota aiheita koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Aiheet ovat avainsanoja, fraaseja tai luokitteluja, jotka kuvaavat "
-"käsikirjoitukseen sisällön."
-
-msgid "manager.setup.metadata.source.request"
-msgstr "Kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Vaadi kirjoittajalta lähdetietoa käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Ota lähteitä koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Lähde voi olla toisen työn ID-tunnus, kuten DOI, josta lähetettävä työ on "
-"johdettu."
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Vaadi kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
-"yhteydessä."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen lähetyksen "
-"yhteydessä."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta oikeuksia koskevia tietoja käsikirjoituksen "
-"lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Ota oikeuksia koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Kaikki käsikirjoitukseen liittyvät immateriaalioikeudet, tekijänoikeudet ja "
-"omistusoikeudet."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Ota kieltä koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Kieli ilmaisee työn pääasiallisen kielen. Käytä muotoa \"fi, en\" tai \""
-"fi_FI, en_US\"."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Vaadi kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta avainsanoja käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Ota avainsanoja koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Avainsanat ovat tavallisesti yhden tai muutaman sanan pituisia ilmaisuja, "
-"joilla kuvataan käsikirjoituksen keskeiset aiheet."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Vaadi kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen yhteydessä."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta kattavuustietoja käsikirjoituksen lähetyksen "
-"yhteydessä."
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Ota kattavuutta koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Kattavuudella määritetään tavallisesti työn maantieteellinen sijainti ("
-"paikan nimi tai koordinaatit), ajallinen rajaus (aikakauden nimi, päivämäärä "
-"tai aikarajaus) tai toimivalta (hallinnollisen yksikön nimi)."
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Kattavuus"
-
-msgid "manager.setup.metadata.success"
-msgstr "Käsikirjoituksen kuvailutiedot päivitetty."
-
-msgid "stats.userStatistics"
-msgstr "Käyttäjätilastot"
-
-msgid "stats.trends"
-msgstr "Trendi"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Päivämääräväli yhteensä"
-
-msgid "stats.total"
-msgstr "Yhteensä"
-
-msgid "stats.submissionsActive"
-msgstr "Aktiiviset käsikirjoitukset"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Hae nimekkeen, tekijän ja ID:n mukaan"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Kuukausittain"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.dateRange.thisYear"
-msgstr "Kuluva vuosi"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Viimevuosi"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Viimeiset kaksi vuotta"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Viimeiset 90 päivää"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Viimeiset 30 päivää"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Viimeiset 12 kuukautta"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Aloitusajankohta on aikaisintaan  {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Päättymisajankohdan tulee olla ennen {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Aloituspäivämäärän tulee olla ennen päättymistä."
-
-msgid "stats.dateRange.invalidDate"
-msgstr "Anna kelvollinen päivämäärä (muodossa: VVVV-KK-PP)."
-
-msgid "stats.dateRange.instructions"
-msgstr "Päivämäärän pitää olla muodossa YYYY-MM-DD, esimerkiksi 2019-01-15."
-
-msgid "stats.dateRange.change"
-msgstr "Vaihda päivämääräväli"
-
-msgid "stats.dateRange.apply"
-msgstr "Käytä"
-
-msgid "stats.dateRange.allDates"
-msgstr "Kaikki päivät"
-
-msgid "stats.dateRange"
-msgstr "Päivämääräväli"
-
-msgid "stats.daily"
-msgstr "Päivittäin"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/vuosi)"
 
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Ota apurahoitusta koskeva kuvailutieto käyttöön"
+msgid "stats.daily"
+msgstr "Päivittäin"
 
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Vaadi kirjoittajalta tieteenalatiedot käsikirjoituksen lähetyksen yhteydessä."
+msgid "stats.dateRange"
+msgstr "Päivämääräväli"
 
-msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
-"Kysy kirjoittajalta tieteenalatietoja käsikirjoituksen lähetyksen yhteydessä."
+msgid "stats.dateRange.allDates"
+msgstr "Kaikki päivät"
 
-msgid "stats.name.declinedReviewRate"
-msgstr "Arvioinnin jälkeinen hylkäysaste"
+msgid "stats.dateRange.apply"
+msgstr "Käytä"
 
-msgid "stats.name.declinedDeskRate"
-msgstr "Arviointia edeltävä hylkäysaste"
+msgid "stats.dateRange.change"
+msgstr "Vaihda päivämääräväli"
 
-msgid "stats.name.declineRate"
-msgstr "Hylkäysprosentti"
+msgid "stats.dateRange.customRange"
+msgstr "Mukautettu väli"
 
-msgid "stats.name.acceptanceRate"
-msgstr "Hyväksymisaste"
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Yhtä päivämäärää ei löydy."
 
-msgid "stats.name.daysToReject"
-msgstr "Aikaa hylkäämiseen (pv)"
+msgid "stats.dateRange.from"
+msgstr "Alkaen"
 
-msgid "stats.name.daysToAccept"
-msgstr "Aikaa hyväksymiseen (pv)"
+msgid "stats.dateRange.instructions"
+msgstr "Päivämäärän pitää olla muodossa YYYY-MM-DD, esimerkiksi 2019-01-15."
 
-msgid "stats.name.daysToDecision"
-msgstr "Aikaa ensimmäiseen päätökseen (pv)"
+msgid "stats.dateRange.invalidDate"
+msgstr "Anna kelvollinen päivämäärä (muodossa: VVVV-KK-PP)."
 
-msgid "stats.fileViews"
-msgstr "Tiedostolatauksia"
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Aloituspäivämäärän tulee olla ennen päättymistä."
 
-msgid "stats.editorialActivity"
-msgstr "Toimituksellinen toiminta"
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Päättymisajankohdan tulee olla ennen {$date}."
 
-msgid "stats.descriptionForStat"
-msgstr "{$stat}:n kuvailutieto"
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Aloitusajankohta on aikaisintaan  {$date}."
 
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Päivien lukumäärä, jonka kuluessa useimmat julkaisut saavat päätöksen, kuten "
-"hylkääminen tai lähetä arvioitavaksi.<br /><br />Arvo ilmaisee, että 80% "
-"käsikirjoituksista on saanut päätöksen kyseisen päivälukeman aikana.<br /><"
-"br />Tilasto kuvailee ajanjaksoa, jonka aikana käsikirjoituksen lähettäneet "
-"kirjoittajat voivat olettaa saavansa  päätöksen."
+msgid "stats.dateRange.last12Months"
+msgstr "Viimeiset 12 kuukautta"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Viimeiset 30 päivää"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Viimeiset 90 päivää"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Viimeiset kaksi vuotta"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Viimevuosi"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "{$date} lähtien"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Kuluva vuosi"
+
+msgid "stats.dateRange.to"
+msgstr "Saakka"
+
+msgid "stats.dateRange.untilDate"
+msgstr "{$date} asti"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -1954,197 +2239,140 @@ msgstr ""
 "päätöksen saaneiden käsikirjoitusten määrästä.<br /><br />Esimerkkinä "
 "tilanne, jossa aikavälillä on kymmenen käsikirjoitusta. Näistä on neljä "
 "hyväksyttyä, neljä hylättyä ja kaksi odottaa lopullista päätöstä. "
-"Hyväksymisprosenttiluku on silloin 50% (neljä kahdeksasta käsikirjoituksesta)"
-" koska kahta, jotka odottavat vielä lopullista päätöstä, ei oteta huomioon."
+"Hyväksymisprosenttiluku on silloin 50% (neljä kahdeksasta "
+"käsikirjoituksesta) koska kahta, jotka odottavat vielä lopullista päätöstä, "
+"ei oteta huomioon."
 
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Yhtä päivämäärää ei löydy."
-
-msgid "stats.dateRange.customRange"
-msgstr "Mukautettu väli"
-
-msgid "manager.setup.metadata.citations.require"
+msgid "stats.description.daysToDecision"
 msgstr ""
-"Vaadi kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
+"Päivien lukumäärä, jonka kuluessa useimmat julkaisut saavat päätöksen, kuten "
+"hylkääminen tai lähetä arvioitavaksi.<br /><br />Arvo ilmaisee, että 80% "
+"käsikirjoituksista on saanut päätöksen kyseisen päivälukeman aikana.<br /"
+"><br />Tilasto kuvailee ajanjaksoa, jonka aikana käsikirjoituksen "
+"lähettäneet kirjoittajat voivat olettaa saavansa  päätöksen."
 
-msgid "manager.setup.metadata.citations.request"
+msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Kysy kirjoittajalta viitetietoja käsikirjoituksen lähetyksen yhteydessä."
 
-msgid "manager.setup.metadata.citations.noRequest"
+msgid "stats.descriptionForStat"
+msgstr "{$stat}:n kuvailutieto"
+
+msgid "stats.editorialActivity"
+msgstr "Toimituksellinen toiminta"
+
+msgid "stats.fileViews"
+msgstr "Tiedostolatauksia"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Kuukausittain"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Hae nimekkeen, tekijän ja ID:n mukaan"
+
+msgid "stats.submissionsActive"
+msgstr "Aktiiviset käsikirjoitukset"
+
+msgid "stats.total"
+msgstr "Yhteensä"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Päivämääräväli yhteensä"
+
+msgid "stats.trends"
+msgstr "Trendi"
+
+msgid "stats.userStatistics"
+msgstr "Käyttäjätilastot"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Saadut käsikirjoitukset"
+
+msgid "stats.name.submissionsSkipped"
 msgstr ""
-"Älä kysy kirjoittajalta viiitetietoja käsikirjoituksen lähetyksen yhteydessä."
 
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Ota viitteitä koskeva kuvailutieto käyttöön"
-
-msgid "manager.setup.metadata.citations.description"
+msgid "stats.name.submissionsInProgress"
 msgstr ""
-"Kerää käsikirjoituksen viittausohjeet erilliseen kenttään. Tätä tarvitaan "
-"lähdeviitteiden seurantapalvelujen, kuten Crossrefin, tarpeisiin."
 
-msgid "manager.setup.metadata.agencies.require"
+msgid "stats.name.submissionsImported"
 msgstr ""
-"Vaadi kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
-"yhteydessä."
 
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
-"yhteydessä."
+msgid "stats.name.submissionsAccepted"
+msgstr "Hyväksytyt käsikirjoitukset"
 
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta tietoja rahoittajista käsikirjoituksen lähetyksen "
-"yhteydessä."
+msgid "stats.name.submissionsDeclined"
+msgstr "Hylätyt käsikirjoitukset"
 
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Mitkä tutkimusrahastot tai -säätiöt ovat tukeneet tutkimuksen toteutumista."
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Ilman arviointia hylätyt käsikirjoitukset"
 
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
-"Älä kysy kirjoittajalta tieteenaloja käsikirjoituksen lähetyksen yhteydessä."
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Arvioinnin perusteella hylätyt käsikirjoitukset"
 
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Ota tieteenaloja koskeva kuvailutieto käyttöön"
+msgid "stats.name.submissionsPublished"
+msgstr "Julkaistut käsikirjoitukset"
 
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Tieteenalat ovat yliopiston tiedekuntien ja tieteellisten seurojen kuvaamia "
-"tutkimusaloja tai tieteenhaaroja."
+msgid "stats.name.daysToDecision"
+msgstr "Aikaa ensimmäiseen päätökseen (pv)"
 
-msgid "manager.setup.metadata.type.enable"
-msgstr "Ota tyyppiä koskeva kuvailutieto käyttöön"
+msgid "stats.name.daysToAccept"
+msgstr "Aikaa hyväksymiseen (pv)"
 
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Julkaisun lajityyppi. Yleensä teksti (Text), mutta voi olla myös tietojoukko "
-"(dataset), kuva (Image) tai jokin <a target=\"_blank\" href=\""
-"https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#section-7\""
-">Dublin Coren tyyppisanastosta</a>."
+msgid "stats.name.daysToReject"
+msgstr "Aikaa hylkäämiseen (pv)"
 
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Käsikirjoituksen tiedosto {$id} ohitettiin, koska se on liitetty tietueeseen "
-"jota ei viedä, kuten arviointipyyntö tai keskustelu."
+msgid "stats.name.acceptanceRate"
+msgstr "Hyväksymisaste"
 
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Valitse minkä tyyppisiä kuvailutietoja tiedostoihin liittyen voi täyttää. "
-"Asiakirja on oikea valinta varsinaisille kokotekstitiedostoille, kuten "
-"julkaistut PDF-artikkelit, jotka saavat kuvailutietonsa koko "
-"käsikirjoituksen kuvailutiedoista. Muussa tapauksessa lisäsisältö sopii "
-"useimmille tiedostotyypeille. Teos sopii tiedostoille, joihin tarvitsee "
-"liittää tarkat tekijänoikeuteen ja lisensointiin liittyvät tiedot, kuten "
-"taideteokset, äänitteet ja valokuvat."
+msgid "stats.name.declineRate"
+msgstr "Hylkäysprosentti"
 
-msgid "manager.setup.genres.metatadata"
-msgstr "Tiedoston kuvailutiedot"
+msgid "stats.name.declinedDeskRate"
+msgstr "Arviointia edeltävä hylkäysaste"
 
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Nämä ovat liitetiedostoja, kuten tietoaineistoja tai tutkimusaineistoja, "
-"jotka näytetään erillään julkaistusta kokotekstistä."
+msgid "stats.name.declinedReviewRate"
+msgstr "Arvioinnin jälkeinen hylkäysaste"
 
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Nämä ovat avustavia tiedostoja, kuten kuvia HTML-tiedostossa, eikä niitä "
-"näytetä yksinään julkaistuna sisältönä."
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Arvioinnin oletusmääräajat"
 
-msgid "manager.setup.genres.label"
-msgstr "Tiedostotyyppi"
+#~ msgid "manager.setup.authorGuidelines.success"
+#~ msgstr "Kirjoittajan ohjeet on päivitetty."
 
-msgid "manager.sections.confirmActivateSection"
-msgstr "Oletko varma, että haluat ottaa osaston käyttöön?"
+#~ msgid "manager.setup.appearance.success"
+#~ msgstr "Ulkoasuasetukset on päivitetty."
 
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Oletko varma, että haluat ottaa osaston pois käytöstä?"
+#~ msgid "manager.emails.editEmail.success"
+#~ msgstr "Sähköpostipohjaa muokattiin."
 
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Ota tämä osasto pois käytöstä äläkä salli uusien käsikirjoitusten "
-"lähettämistä siihen."
+#~ msgid "manager.emails.addEmail.success"
+#~ msgstr "Sähköpostipohja lisättiin."
 
-msgid "manager.setup.dateTime.custom"
-msgstr "Mukautettu"
+#~ msgid "manager.publication.reviewSetup.success"
+#~ msgstr "Arviointiasetukset on päivitetty."
 
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Päivämäärä ja aika (lyhyt)"
+#~ msgid "manager.publication.reviewerGuidance.success"
+#~ msgstr "Arvioijan opastus on päivitetty."
 
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Päivämäärä ja aika"
+#~ msgid "manager.publication.emailSetup.success"
+#~ msgstr "Sähköpostiasetukset on päivitetty."
 
-msgid "manager.setup.dateTime.time"
-msgstr "Aika"
+#~ msgid "manager.distribution.license.success"
+#~ msgstr "Lisenssejä koskevat asetukset on päivitetty. "
 
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Päivämäärä (lyhyt)"
+#~ msgid "manager.setup.userAccess.success"
+#~ msgstr "Käyttäjien pääsyä koskevat asetukset on päivitetty."
 
-msgid "manager.setup.dateTime.longDate"
-msgstr "Päivämäärä"
+#~ msgid "manager.setup.theme.success"
+#~ msgstr "Teema on päivitetty. <a href=\"{$url}\" target=\"_blank\">Katso</a>"
 
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Valitse haluttu muoto päivämäärille ja ajoille. Mukautetun muodon voi antaa "
-"käyttämällä ohjelmointikielessä määriteltyjä <a href='http://php.net/manual/"
-"en/function.strftime.php#refsect1-function.strftime-"
-"parameters'>muuttujia</a>."
+#~ msgid "manager.setup.contact.success"
+#~ msgstr "Julkaisijan yhteystiedot päivitetty."
 
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Päivämäärän ja ajan muotoilu"
-
-msgid "manager.setup.dateTime"
-msgstr "Päivämäärä ja aika"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Lähetä uusi sähköposti"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "Sähköposti lähetettiin onnistuneesti kaikille vastaanottajille."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Sähköpostia lähetetään. Älä siirry tältä sivulta pois ennen kuin lähetys on "
-"valmis."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Olet lähettämässä sähköpostin {$total} käyttäjälle. Oletko varma, että "
-"haluat lähettää sähköpostin?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Lähetä sähköposti"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Lähetä kopio minulle sähköpostiosoitteeseen {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Valitse käyttäjät joille haluat lähettää sähköposti-ilmoituksen."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Ilmoita"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Ota käsikirjoitusten lähetys pois päältä"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Mukautettu raportti -työkalu"
-
-msgid "manager.people.signedInAs"
-msgstr "Olet kirjautuneena tunnuksella {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Valitse Excel/CSV-tiedostoon vietävät käyttäjät."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Vie Excel/CSV-muotoon"
-
-msgid "manager.emails.resetComplete"
-msgstr "Sähköpostipohja tallennettiin onnistuneesti."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Alkuperäiset sähköpostipohjat palautettu."
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Poista ilmoitus"
+#~ msgid "manager.setup.metadata.success"
+#~ msgstr "Käsikirjoituksen kuvailutiedot päivitetty."

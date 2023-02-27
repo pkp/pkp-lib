@@ -50,13 +50,22 @@ msgid "installer.databaseDriver"
 msgstr "Database Driver"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Driver database yang tercantum dalam tanda kurung tidak memiliki ekstensi PHP yang diperlukan dan instalasi mungkin akan gagal.</strong><br />Setiap driver database yang tidak didukung diatas hanya untuk tujuan akademi dan tidak akan bekerja baik pada OJS."
+msgstr ""
+"<strong>Driver database yang tercantum dalam tanda kurung tidak memiliki "
+"ekstensi PHP yang diperlukan dan instalasi mungkin akan gagal.</strong><br /"
+">Setiap driver database yang tidak didukung diatas hanya untuk tujuan "
+"akademi dan tidak akan bekerja baik pada OJS."
 
 msgid "installer.databaseHost"
 msgstr "Host"
 
 msgid "installer.databaseHostInstructions"
-msgstr "Biarkan nama host kosong untuk terhubung menggunakan soket domain dan bukan melalui TCP/IP. Tidak perlu melakukan perubahan nama host jika Anda menggunakan MySQL yang secara otomatis menggunakan soket jika [localhost] dimasukkan, namun perubahan nama host diperlukan jika server database Anda adalah PostgreSQL atau yang lainnya."
+msgstr ""
+"Biarkan nama host kosong untuk terhubung menggunakan soket domain dan bukan "
+"melalui TCP/IP. Tidak perlu melakukan perubahan nama host jika Anda "
+"menggunakan MySQL yang secara otomatis menggunakan soket jika [localhost] "
+"dimasukkan, namun perubahan nama host diperlukan jika server database Anda "
+"adalah PostgreSQL atau yang lainnya."
 
 msgid "installer.databaseName"
 msgstr "Database"
@@ -69,9 +78,6 @@ msgstr "Pengaturan Database"
 
 msgid "installer.databaseUsername"
 msgstr "Nama Pengguna"
-
-msgid "installer.encryption"
-msgstr "Algoritma Enkripsi Kata Sandi"
 
 msgid "installer.filesDir"
 msgstr "Direktori untuk unggah"
@@ -91,9 +97,6 @@ msgstr "Nama database diperlukan."
 msgid "installer.form.emailRequired"
 msgstr "Alamat email yang valid untuk akun administrator diperlukan."
 
-msgid "installer.form.encryptionRequired"
-msgstr "Algoritma untuk enkripsi kata sandi harus dipilih."
-
 msgid "installer.form.filesDirRequired"
 msgstr "Direktori untuk menyimpan file unggahan."
 
@@ -110,13 +113,18 @@ msgid "installer.form.separateMultiple"
 msgstr "Pisahkan beberapa nilai dengan koma"
 
 msgid "installer.form.usernameAlphaNumeric"
-msgstr "Nama administrator hanya dapat berisi karakter alfanumeik, garis bawah, dan tanda hubung, dan harus dimulai dan diakhiri dengan karakter alfanumerik."
+msgstr ""
+"Nama administrator hanya dapat berisi karakter alfanumeik, garis bawah, dan "
+"tanda hubung, dan harus dimulai dan diakhiri dengan karakter alfanumerik."
 
 msgid "installer.form.usernameRequired"
 msgstr "Nama pengguna untuk akun administrator diperlukan."
 
 msgid "installer.installationWrongPhp"
-msgstr "<br/><strong>PERINGATAN: Versi PHP Anda saat ini tidak memenuhi persyaratan minimum untuk instalasi. Disarankan untuk memperbaharui menjadi versi PHP terbaru.</strong>"
+msgstr ""
+"<br/><strong>PERINGATAN: Versi PHP Anda saat ini tidak memenuhi persyaratan "
+"minimum untuk instalasi. Disarankan untuk memperbaharui menjadi versi PHP "
+"terbaru.</strong>"
 
 msgid "installer.installErrorsOccurred"
 msgstr "Kesalahan terjadi pada saat instalasi"
@@ -125,7 +133,9 @@ msgid "installer.installerSQLStatements"
 msgstr "Laporan SQL untuk instalasi"
 
 msgid "installer.installFileError"
-msgstr "File instalasi <tt>dbscripts/xml/install.xml</tt> Tidak ada atau tidak dapat terbaca."
+msgstr ""
+"File instalasi <tt>dbscripts/xml/install.xml</tt> Tidak ada atau tidak dapat "
+"terbaca."
 
 msgid "installer.installFilesDirError"
 msgstr ""
@@ -135,8 +145,19 @@ msgstr ""
 msgid "installer.installParseDBFileError"
 msgstr "Kesalahan penguraian file instalasi database<tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr "Error mengeksekusi kelas migrasi <tt>{$class}</tt>."
+
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr "Kesalahan penguraian file template email<tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Salah mengurai file konfigurasi filter <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Pembaruan tidak didukung. Lihat dokumen/UPGRADE-UNSUPPORTED untuk rincian "
+"lanjut."
 
 msgid "installer.locale"
 msgstr "Bahasa"
@@ -147,54 +168,39 @@ msgstr "Bahasa yang ditandai mungkin tidak lengkap."
 msgid "installer.localeSettings"
 msgstr "Setting Bahasa"
 
-msgid "installer.manualInstall"
-msgstr "Instal Manual"
-
-msgid "installer.miscSettings"
-msgstr "Pengaturan Lain"
+msgid "installer.oaiSettings"
+msgstr "Pengaturan OAI"
 
 msgid "installer.oaiRepositoryIdInstructions"
-msgstr "Repositori yang menyimpan OAI identifier untuk memudahkan metadata harvesting situs Anda oleh <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a> Protokol untuk Metadata Harvesting."
+msgstr ""
+"Repositori yang menyimpan OAI identifier untuk memudahkan metadata "
+"harvesting situs Anda oleh <a href=\"https://www.openarchives.org/\" target="
+"\"_blank\">Open Archives Initiative</a> Protokol untuk Metadata Harvesting."
 
 msgid "installer.oaiRepositoryId"
 msgstr "Repositori identifier OAI"
 
-msgid "installer.pleaseUpgradeAfterManualInstall"
-msgstr "Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi utama untuk upgrade ini."
-
 msgid "installer.publicFilesDirError"
 msgstr "Direktori file umum tidak ada atau tidak dapat diisi."
 
-msgid "installer.unsupportedPhpError"
-msgstr ""
-"Versi PHP server Anda tidak didukung oleh perangkat lunak ini. Periksa "
-"kembali persyaratan instalasi dalam dokumen/README."
+msgid "installer.releaseNotes"
+msgstr "Catatan Rilis"
 
-msgid "installer.beacon.enable"
-msgstr ""
-"Berikan ID situs yang unik dan URL berbasiskan OAI ke PKP untuk tujuan "
-"statistik dan peringatan keamanan saja."
-
-msgid "installer.beacon"
-msgstr "Suar"
-
-msgid "installer.configureXSLMessage"
-msgstr ""
-"<p>Instalasi PHP Anda tidak mengaktifkan modul XSL. Aktifkan, atau "
-"konfigurasikan parameter xslt_command di file config.inc.php Anda.</p>"
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Langkah Pra-Instalasi"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
 "\n"
-"\t\t<p>1. File dan direktori berikut (dan isinya) harus dibuat dapat "
-"ditulis:</p>\n"
+"\t\t<p>1. File dan direktori berikut (dan isinya) harus dibuat dapat ditulis:"
+"</p>\n"
 "\t\t<ul>\n"
 "\t\t\t<li><tt>config.inc.php</tt> dapat ditulis (opsional): "
 "{$writable_config}</li>\n"
 "\t\t\t<li><tt>public/</tt> dapat ditulis: {$writable_public}</li>\n"
 "\t\t\t<li><tt>cache/</tt> dapat ditulis: {$writable_cache}</li>\n"
-"\t\t\t<li><tt>cache/t_cache/</tt> dapat ditulis: "
-"{$writable_templates_cache}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> dapat ditulis: {$writable_templates_cache}"
+"</li>\n"
 "\t\t\t<li><tt>cache/t_compile/</tt> dapat ditulis: "
 "{$writable_templates_compile}</li>\n"
 "\t\t\t<li><tt>cache/_db</tt> dapat ditulis: {$writable_db_cache}</li>\n"
@@ -204,22 +210,38 @@ msgstr ""
 "dibuat dapat ditulis (lihat \"Pengaturan File\" di bawah).</p>\n"
 "\t"
 
-msgid "installer.preInstallationInstructionsTitle"
-msgstr "Langkah Pra-Instalasi"
-
-msgid "installer.releaseNotes"
-msgstr "Catatan Rilis"
-
-msgid "installer.oaiSettings"
-msgstr "Pengaturan OAI"
-
-msgid "installer.unsupportedUpgradeError"
+msgid "installer.configureXSLMessage"
 msgstr ""
-"Pembaruan tidak didukung. Lihat dokumen/UPGRADE-UNSUPPORTED untuk rincian "
-"lanjut."
+"<p>Instalasi PHP Anda tidak mengaktifkan modul XSL. Aktifkan, atau "
+"konfigurasikan parameter xslt_command di file config.inc.php Anda.</p>"
 
-msgid "installer.installParseFilterConfigFileError"
-msgstr "Salah mengurai file konfigurasi filter <tt>{$file}</tt>."
+msgid "installer.beacon"
+msgstr "Suar"
 
-msgid "installer.installMigrationError"
-msgstr "Error mengeksekusi kelas migrasi <tt>{$class}</tt>."
+msgid "installer.beacon.enable"
+msgstr ""
+"Berikan ID situs yang unik dan URL berbasiskan OAI ke PKP untuk tujuan "
+"statistik dan peringatan keamanan saja."
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Versi PHP server Anda tidak didukung oleh perangkat lunak ini. Periksa "
+"kembali persyaratan instalasi dalam dokumen/README."
+
+#~ msgid "installer.encryption"
+#~ msgstr "Algoritma Enkripsi Kata Sandi"
+
+#~ msgid "installer.form.encryptionRequired"
+#~ msgstr "Algoritma untuk enkripsi kata sandi harus dipilih."
+
+#~ msgid "installer.manualInstall"
+#~ msgstr "Instal Manual"
+
+#~ msgid "installer.miscSettings"
+#~ msgstr "Pengaturan Lain"
+
+#~ msgid "installer.pleaseUpgradeAfterManualInstall"
+#~ msgstr ""
+#~ "Silahkan jalankan alat upgrade setelah Anda menginstal database Anda. "
+#~ "Jalankan 'php tools/upgrade.php upgrade' dari dalam direktori instalasi "
+#~ "utama untuk upgrade ini."

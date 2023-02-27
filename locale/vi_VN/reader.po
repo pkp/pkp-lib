@@ -11,70 +11,70 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "reader.fullText"
-msgstr "Toàn văn:"
+msgid "comments.anonymous"
+msgstr "Người dùng ẩn danh"
 
-msgid "comments.viewAllComments"
-msgstr "Xem tất cả bình luận"
+msgid "comments.anonymousNamed"
+msgstr "bí danh \"{$userName}\""
 
-msgid "comments.title"
-msgstr "Tiêu đề"
+msgid "comments.body"
+msgstr "Nội dung bình luận"
 
-msgid "comments.replies"
-msgstr "Các trả lời"
-
-msgid "comments.readMore"
-msgstr "Đọc thêm"
-
-msgid "comments.readerComments"
-msgstr "Nhận xét của người đọc"
-
-msgid "comments.postReply"
-msgstr "Đăng trả lời"
-
-msgid "comments.postAnonymously"
-msgstr "Đăng nhận xét này ẩn danh"
-
-msgid "comments.oneReply"
-msgstr "(1 trả lời)"
-
-msgid "comments.nReplies"
-msgstr "({$num}  trả lời)"
-
-msgid "comments.noComments"
-msgstr "Không có bình luận của độc giả đã được đăng."
-
-msgid "comments.name"
-msgstr "Áp phích email"
-
-msgid "comments.inResponseTo"
-msgstr "Phản hồi lại <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Nhận xét của người đọc"
-
-msgid "comments.emailReply"
-msgstr "Đăng trả lời"
-
-msgid "comments.email"
-msgstr "Email áp phích"
-
-msgid "comments.delete"
-msgstr "Nhận xét của người đọc"
+msgid "comments.titleRequired"
+msgstr "Tiêu đề bình luận là bắt buộc."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Xóa nhận xét này cũng sẽ xóa mọi câu trả lời cho nó. Bạn có chắc bạn muốn "
 "làm điều này?"
 
-msgid "comments.titleRequired"
-msgstr "Tiêu đề bình luận là bắt buộc."
+msgid "comments.delete"
+msgstr "Nhận xét của người đọc"
 
-msgid "comments.body"
-msgstr "Nội dung bình luận"
+msgid "comments.email"
+msgstr "Email áp phích"
 
-msgid "comments.anonymousNamed"
-msgstr "bí danh \"{$userName}\""
+msgid "comments.emailReply"
+msgstr "Đăng trả lời"
 
-msgid "comments.anonymous"
-msgstr "Người dùng ẩn danh"
+msgid "comments.enterComment"
+msgstr "Nhận xét của người đọc"
+
+msgid "comments.inResponseTo"
+msgstr "Phản hồi lại <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Áp phích email"
+
+msgid "comments.noComments"
+msgstr "Không có bình luận của độc giả đã được đăng."
+
+msgid "comments.nReplies"
+msgstr "({$num}  trả lời)"
+
+msgid "comments.oneReply"
+msgstr "(1 trả lời)"
+
+msgid "comments.postAnonymously"
+msgstr "Đăng nhận xét này ẩn danh"
+
+msgid "comments.postReply"
+msgstr "Đăng trả lời"
+
+msgid "comments.readerComments"
+msgstr "Nhận xét của người đọc"
+
+msgid "comments.readMore"
+msgstr "Đọc thêm"
+
+msgid "comments.replies"
+msgstr "Các trả lời"
+
+msgid "comments.title"
+msgstr "Tiêu đề"
+
+msgid "comments.viewAllComments"
+msgstr "Xem tất cả bình luận"
+
+msgid "reader.fullText"
+msgstr "Toàn văn:"

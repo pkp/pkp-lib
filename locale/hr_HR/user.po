@@ -2,26 +2,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:51+00:00\n"
-"Language: \n"
+
+msgid "user.accountInformation"
+msgstr ""
 
 msgid "user.affiliation"
 msgstr "Ustanova"
 
+msgid "user.affiliation.description"
+msgstr ""
+
 msgid "user.affiliations"
 msgstr "Ustanove"
 
+msgid "user.authorization.accessDenied"
+msgstr ""
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr ""
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+
+msgid "user.authorization.loginRequired"
+msgstr ""
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr ""
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+
+msgid "user.authorization.workflowStageRequired"
+msgstr ""
+
+msgid "user.authorization.pluginRequired"
+msgstr ""
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr ""
+
+msgid "user.authorization.submissionQuery"
+msgstr ""
+
 msgid "user.biography"
 msgstr "Biografski podaci"
-
-msgid "user.biography.description"
-msgstr "(npr. institucija i zvanje)"
 
 msgid "user.changeMyPassword"
 msgstr "Promjena moje lozinke"
@@ -41,49 +89,81 @@ msgstr "Uređivanje mog profila"
 msgid "user.email"
 msgstr "E-pošta"
 
+msgid "user.givenName"
+msgstr ""
+
 msgid "user.interests"
 msgstr "Recenzentski interesi"
+
+msgid "user.gossip"
+msgstr ""
+
+msgid "user.gossip.description"
+msgstr ""
+
+msgid "user.group"
+msgstr ""
+
+msgid "user.familyName"
+msgstr ""
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Vaš korisnički račun je onemogućen zbog sljedećeg razloga: {$razlog}"
 
 msgid "user.login.accountDisabled"
-msgstr "Vaš korisnički račun je onemogućen. Molimo kontaktirajte administratora za više informacija."
+msgstr ""
+"Vaš korisnički račun je onemogućen. Molimo kontaktirajte administratora za "
+"više informacija."
 
 msgid "user.login.accountNotValidated"
-msgstr "Vaša adresa e-pošte nije validirana. Molimo provjerite vašu zaprimljenu e-poštu i slijedite zadane naputke. Ukoliko niste zaprimili poruku, pokušajte sa drugom adresom ili kontaktirajte administratora ove stranice."
+msgstr ""
+"Vaša adresa e-pošte nije validirana. Molimo provjerite vašu zaprimljenu e-"
+"poštu i slijedite zadane naputke. Ukoliko niste zaprimili poruku, pokušajte "
+"sa drugom adresom ili kontaktirajte administratora ove stranice."
 
 msgid "user.login.activate"
 msgstr "Aktivirajte korisnički račun"
 
 msgid "user.login.activated"
-msgstr "Hvala na aktivaciji vašeg korisničkog računa. Sada se možete prijavljivati u sustav korisničkim imenom i lozinkom koje ste prethodno unijeli."
+msgstr ""
+"Hvala na aktivaciji vašeg korisničkog računa. Sada se možete prijavljivati u "
+"sustav korisničkim imenom i lozinkom koje ste prethodno unijeli."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Morate odabrati novu lozinku prije nego što se prijavite na ovu stranicu.<br /><br />Molimo unesite ispod vaše korisničko ime i vašu sadašnju i novu lozinku kako biste promijenili lozinku za vaš korisnički račun."
+msgstr ""
+"Morate odabrati novu lozinku prije nego što se prijavite na ovu stranicu."
+"<br /><br />Molimo unesite ispod vaše korisničko ime i vašu sadašnju i novu "
+"lozinku kako biste promijenili lozinku za vaš korisnički račun."
 
 msgid "user.login.forgotPassword"
 msgstr "Zaboravili ste lozinku?"
+
+msgid "user.login.loginError"
+msgstr ""
 
 msgid "user.login"
 msgstr "Prijava"
 
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Potvrda je poslana na vašu adresu e-pošte. Molimo slijedite upute u  e-pošti zbog ponovnog uspostavljanja vaše lozinke."
-
-msgid "user.login.lostPassword.invalidHash"
-msgstr "Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana. Molimo pokušajte ponovno zatražiti izmjenu vaše lozinke."
-
-msgid "user.login.lostPassword.invalidUser"
-msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
+msgstr ""
+"Potvrda je poslana na vašu adresu e-pošte. Molimo slijedite upute u  e-pošti "
+"zbog ponovnog uspostavljanja vaše lozinke."
 
 #, fuzzy
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr "Nije moguće dovršiti zahtjev za ponovno postavljanje lozinke jer {$reason}."
+msgstr ""
+"Nije moguće dovršiti zahtjev za ponovno postavljanje lozinke jer {$reason}."
 
-#, fuzzy
-msgid "user.login.passwordResetProcessInstructions"
-msgstr "Unesite novu lozinku za ažuriranje lozinke za prijavu."
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Oprostite, poveznica na koju ste kliknuli nije važeća ili nije valjana. "
+"Molimo pokušajte ponovno zatražiti izmjenu vaše lozinke."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr "Ne postoji korisnik s navedenom adresom e-pošte."
 
 #, fuzzy
 msgid "user.login.resetPassword.passwordUpdated"
@@ -92,11 +172,38 @@ msgstr "Lozinka je uspješno ažurirana. Prijavite se ažuriranom lozinkom."
 msgid "user.login.registeredEmail"
 msgstr "Registrirana e-pošta korisnika"
 
+msgid "user.login.registrationComplete"
+msgstr ""
+
+msgid "user.login.registrationComplete.instructions"
+msgstr ""
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr ""
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr ""
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr ""
+
+msgid "user.login.registrationPendingValidation"
+msgstr ""
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr ""
+
 msgid "user.login.resetPassword"
 msgstr "Izdaj novu lozinku"
 
 msgid "user.logOut"
 msgstr "Odjava"
+
+msgid "user.logOutAs"
+msgstr ""
+
+msgid "user.hello"
+msgstr ""
 
 msgid "user.mailingAddress"
 msgstr "Adresa"
@@ -116,8 +223,32 @@ msgstr "Ponovite lozinku"
 msgid "user.phone"
 msgstr "Telefon"
 
+msgid "user.preferredPublicName"
+msgstr ""
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+
+msgid "user.profile.editProfile"
+msgstr ""
+
+msgid "user.profile.form.countryRequired"
+msgstr ""
+
 msgid "user.profile.form.emailRequired"
 msgstr "Važeća adresa e-pošte je obavezna."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr ""
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr ""
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Morate unijeti vašu novu lozinku."
@@ -131,6 +262,9 @@ msgstr "Obavijesti e-pošte o brojevima časopisa otvorenog pristupa"
 msgid "user.profile.form.passwordRequired"
 msgstr "Lozinka je obavezna."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr ""
+
 msgid "user.profile.form.profileImage"
 msgstr "Korisnička slika"
 
@@ -138,10 +272,18 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Želim e-poštom primati obavijesti o novim objavljenim brojevima"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "Navedena URL adresa nije valjana. Molimo vas da provjerite adresu i pokušate ponovno. (Savjet: Pokušajte dodati http:// na početak URL-a)"
+msgstr ""
+"Navedena URL adresa nije valjana. Molimo vas da provjerite adresu i pokušate "
+"ponovno. (Savjet: Pokušajte dodati http:// na početak URL-a)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr ""
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Korisničko ime je obavezno."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr ""
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "Ostavite polje za lozinku prazno da biste zadržali sadašnju lozinku."
@@ -161,8 +303,21 @@ msgstr "Korisnički profil"
 msgid "user.profile.repeatNewPassword"
 msgstr "Ponovite novu lozinku"
 
-msgid "user.register.completeForm"
-msgstr "Ispunite ovaj formular kako biste se registrirali na ovaj časopis."
+msgid "user.login.registerNewAccount"
+msgstr ""
+
+#, fuzzy
+msgid "user.login.passwordResetProcessInstructions"
+msgstr "Unesite novu lozinku za ažuriranje lozinke za prijavu."
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+
+msgid "user.register.form.emailConsent"
+msgstr ""
 
 msgid "user.register.form.emailExists"
 msgstr "Odabrana adresa e-pošte već postoji."
@@ -170,11 +325,20 @@ msgstr "Odabrana adresa e-pošte već postoji."
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Lozinke se ne podudaraju."
 
+msgid "user.register.form.emailsDoNotMatch"
+msgstr ""
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+
+msgid "user.register.form.userGroupRequired"
+msgstr ""
+
 msgid "user.register.form.usernameExists"
 msgstr "Odabrano korisničko ime već postoji."
 
-msgid "user.register.passwordLengthRestriction"
-msgstr "Lozinka mora imati najmanje {$length} znakova."
+msgid "user.register.form.passwordLengthRestriction"
+msgstr ""
 
 msgid "user.register.registerAs"
 msgstr "Registrirajte se kao"
@@ -183,7 +347,30 @@ msgid "user.register"
 msgstr "Registracija"
 
 msgid "user.register.usernameRestriction"
-msgstr "Korisničko ime mora sadržavati samo mala slova (a-ž), brojeve (0-9), crtice (-) i podvlake (_)."
+msgstr ""
+"Korisničko ime mora sadržavati samo mala slova (a-ž), brojeve (0-9), crtice "
+"(-) i podvlake (_)."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+
+msgid "user.role.assistant"
+msgstr ""
+
+msgid "user.role.author"
+msgstr ""
+
+msgid "user.role.author_s"
+msgstr ""
+
+msgid "user.role.authors"
+msgstr ""
+
+msgid "user.role.editor"
+msgstr ""
+
+msgid "user.role.editors"
+msgstr ""
 
 msgid "user.role.reader"
 msgstr "Čitatelj"
@@ -197,8 +384,29 @@ msgstr "Recenzent"
 msgid "user.role.reviewers"
 msgstr "Recenzenti"
 
+msgid "user.role.siteAdmin"
+msgstr ""
+
 msgid "user.role.siteAdmins"
 msgstr "Administratori stranice"
+
+msgid "user.role.copyeditor"
+msgstr ""
+
+msgid "user.role.copyeditors"
+msgstr ""
+
+msgid "user.role.proofreader"
+msgstr ""
+
+msgid "user.role.proofreaders"
+msgstr ""
+
+msgid "user.role.layoutEditor"
+msgstr ""
+
+msgid "user.role.layoutEditors"
+msgstr ""
 
 msgid "user.roles"
 msgstr "Uloge"
@@ -207,7 +415,9 @@ msgid "user.sendPassword"
 msgstr "Potvrda"
 
 msgid "user.sendPassword.description"
-msgstr "Pošaljite mi e-poštom potvrdu registracije sa mojim korisničkim imenom i lozinkom"
+msgstr ""
+"Pošaljite mi e-poštom potvrdu registracije sa mojim korisničkim imenom i "
+"lozinkom"
 
 msgid "user.signature"
 msgstr "Signatura"
@@ -218,8 +428,53 @@ msgstr "Titula"
 msgid "user.url"
 msgstr "URL"
 
+msgid "user.userHome"
+msgstr ""
+
 msgid "user.username"
 msgstr "Korisničko ime"
 
 msgid "user.workingLanguages"
 msgstr "Jezici sučelja"
+
+msgid "user.orcid"
+msgstr ""
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+
+msgid "user.profile.identity"
+msgstr ""
+
+msgid "user.profile.contact"
+msgstr ""
+
+msgid "user.profile.public"
+msgstr ""
+
+msgid "user.apiKey"
+msgstr ""
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+
+msgid "user.apiKey.generate"
+msgstr ""
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+
+msgid "user.privacyLink"
+msgstr ""
+
+#~ msgid "user.biography.description"
+#~ msgstr "(npr. institucija i zvanje)"
+
+#~ msgid "user.register.completeForm"
+#~ msgstr "Ispunite ovaj formular kako biste se registrirali na ovaj časopis."
+
+#~ msgid "user.register.passwordLengthRestriction"
+#~ msgstr "Lozinka mora imati najmanje {$length} znakova."

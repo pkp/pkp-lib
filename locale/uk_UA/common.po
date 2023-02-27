@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
@@ -123,6 +123,9 @@ msgstr "Активувати"
 msgid "common.active"
 msgstr "Активні"
 
+msgid "common.inactive"
+msgstr ""
+
 msgid "common.add"
 msgstr "Додати"
 
@@ -139,7 +142,9 @@ msgid "common.alphaList"
 msgstr "А Б В Г Ґ Д Е Є Ж З И І Ї К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ь Ю Я"
 
 msgid "common.titleSmallWords"
-msgstr "а або але бо в де для з з-під зі і із й коли крізь на не під при про у та там тоді що"
+msgstr ""
+"а або але бо в де для з з-під зі і із й коли крізь на не під при про у та "
+"там тоді що"
 
 msgid "common.alreadyAssigned"
 msgstr "Призначений"
@@ -196,10 +201,12 @@ msgid "common.captcha.error.missing-input-secret"
 msgstr "Captcha для цього сайту введена неправильно. Відсутній таємний ключ."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "Підтвердження для цього сайту введено неправильно.Таємний ключ неправильний."
+msgstr ""
+"Підтвердження для цього сайту введено неправильно.Таємний ключ неправильний."
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Ви повинні завершити підтвердження задля попередження розсилання спаму."
+msgstr ""
+"Ви повинні завершити підтвердження задля попередження розсилання спаму."
 
 msgid "common.captcha.error.invalid-input-response"
 msgstr "Ви не пройшли підтвердження задля попередження розсилання спаму."
@@ -214,11 +221,15 @@ msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t<br /><br />\n"
-"\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i."
+"creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t</a>\n"
 "\t<br />\n"
-"\tЦя робота ліцензована <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  License</a>.\n"
+"\tЦя робота ліцензована <a rel=\"license\" target=\"_blank\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  "
+"License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -226,9 +237,13 @@ msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tЦя робота ліцензована <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tЦя робота ліцензована <a rel=\"license\" href=\"https://creativecommons."
+"org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
+"License</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -256,8 +271,8 @@ msgstr "Завершено"
 msgid "common.completed.date"
 msgstr "Завершено: {$dateCompleted}"
 
-msgid "common.continue"
-msgstr "Продовжити"
+msgid "common.confirm"
+msgstr "Підтвердьте"
 
 msgid "common.confirmed.date"
 msgstr "Продовжити: {$dateConfirmed}"
@@ -267,6 +282,9 @@ msgstr "Вміст"
 
 msgid "common.contents"
 msgstr "Зміст"
+
+msgid "common.continue"
+msgstr "Продовжити"
 
 msgid "common.copy"
 msgstr "Копіювати"
@@ -279,6 +297,9 @@ msgstr "Створити"
 
 msgid "common.dateCompleted"
 msgstr "Дата завершення"
+
+msgid "common.dateDecided"
+msgstr "Дата вирішена"
 
 msgid "common.date"
 msgstr "Дата"
@@ -352,6 +373,9 @@ msgstr "Завантажити PDF"
 msgid "common.edit"
 msgstr "Редагувати"
 
+msgid "common.editItem"
+msgstr ""
+
 msgid "common.enable"
 msgstr "Включити"
 
@@ -365,7 +389,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Невідома помилка зв'язку з базою даних."
 
 msgid "common.error.framesRequired"
-msgstr "Ця сторінка потребує підтримки фреймів браузером. Для переходу до версії сторінки без фреймів <a href=\"{$url}\">натисніть сюди</a>."
+msgstr ""
+"Ця сторінка потребує підтримки фреймів браузером. Для переходу до версії "
+"сторінки без фреймів <a href=\"{$url}\">натисніть сюди</a>."
 
 msgid "common.event"
 msgstr "Подія"
@@ -404,7 +430,9 @@ msgid "common.fileType"
 msgstr "Тип файлу"
 
 msgid "common.fileUploaderError"
-msgstr "Системний файл завантажується. Якщо цього не відбулось, це означає що не підтримується браузером.Будь ласка зверніться до адміністратора."
+msgstr ""
+"Системний файл завантажується. Якщо цього не відбулось, це означає що не "
+"підтримується браузером.Будь ласка зверніться до адміністратора."
 
 msgid "common.filter"
 msgstr "Фільтри"
@@ -417,6 +445,9 @@ msgstr "Скасувати фільтр: {$filterTitle}"
 
 msgid "common.from"
 msgstr "З"
+
+msgid "common.fromWithValue"
+msgstr "Від: {$value}"
 
 msgid "common.until"
 msgstr "До"
@@ -451,9 +482,6 @@ msgstr "Триває"
 msgid "common.itemsPerPage"
 msgstr "Об'єкти на сторінці"
 
-msgid "common.favicon.altText"
-msgstr "Іконка"
-
 msgid "common.keywords"
 msgstr "Ключові слова"
 
@@ -463,11 +491,17 @@ msgstr "Мова"
 msgid "common.languages"
 msgstr "Мови"
 
+msgid "common.lastActivity"
+msgstr "Остання активність зафіксована {$date}."
+
 msgid "common.less"
 msgstr "Менше"
 
 msgid "common.lessThan"
 msgstr "{$value} або менше"
+
+msgid "common.lessThanOnly"
+msgstr ""
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -499,6 +533,9 @@ msgstr "Більше"
 msgid "common.moreThan"
 msgstr "{$value} або більше"
 
+msgid "common.moreThanOnly"
+msgstr ""
+
 msgid "common.noneAssigned"
 msgstr "Немає призначень"
 
@@ -526,11 +563,18 @@ msgstr "Недоступно"
 msgid "common.note"
 msgstr "Нотатка"
 
+msgid "common.noTemporaryFile"
+msgstr ""
+"Не вдається знайти файл який ви завантажили. Спробуйте завантажити його ще "
+"раз."
+
 msgid "common.notes"
 msgstr "Нотатки"
 
 msgid "common.notes.tooltip"
-msgstr "Нотатки (жовтий: є нові нотатки; блакитний: є переглянені нотатки; сірий: немає нотаток)"
+msgstr ""
+"Нотатки (жовтий: є нові нотатки; блакитний: є переглянені нотатки; сірий: "
+"немає нотаток)"
 
 msgid "common.notified"
 msgstr "Сповіщенний"
@@ -556,6 +600,14 @@ msgstr "Опції"
 msgid "common.order"
 msgstr "Порядок Сортування"
 
+#, fuzzy
+msgid "common.orderUp"
+msgstr "Підняти позицію {$itemTitle}"
+
+#, fuzzy
+msgid "common.orderDown"
+msgstr "Опустити позицію {$itemTitle}"
+
 msgid "common.originalFileName"
 msgstr "Оригінальне ім'я файлу"
 
@@ -568,17 +620,26 @@ msgstr "Інше"
 msgid "common.overdue"
 msgstr "Прострочений"
 
+msgid "common.override"
+msgstr "Перепризначити"
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} з {$total}"
 
 msgid "common.pagination.label"
 msgstr "Переглянути додаткові сторінки"
 
+msgid "common.pagination.goToPage"
+msgstr "Перейти до {$page}"
+
+msgid "common.pagination.next"
+msgstr "Наступна сторінка"
+
+msgid "common.pagination.previous"
+msgstr "Попередня сторінка"
+
 msgid "common.pageNumber"
 msgstr "Сторінка {$pageNumber}"
-
-msgid "common.pageHeaderLogo.altText"
-msgstr "Логотип заголовку сторінки"
 
 msgid "common.percentage"
 msgstr "{$percentage}%"
@@ -646,6 +707,9 @@ msgstr "Віддалений URL"
 msgid "common.remove"
 msgstr "Видалити"
 
+msgid "common.removeItem"
+msgstr "Видалити {$item}"
+
 msgid "common.removeSelection"
 msgstr "Прибрати вибране"
 
@@ -691,11 +755,17 @@ msgstr "секунд"
 msgid "common.selectAll"
 msgstr "Вибрати все"
 
+msgid "common.selectedPrefix"
+msgstr "Обрані:"
+
 msgid "common.selectNone"
 msgstr "Скасувати вибір"
 
 msgid "common.select"
 msgstr "Вибрати"
+
+msgid "common.selectWithName"
+msgstr ""
 
 msgid "common.sendEmail"
 msgstr "Відправити Email"
@@ -709,14 +779,15 @@ msgstr "Джерело"
 msgid "common.status"
 msgstr "Статус"
 
-msgid "common.startTyping"
-msgstr "Почати писати"
-
 msgid "common.subject"
 msgstr "Тема"
 
 msgid "common.subjects"
 msgstr "Теми"
+
+#, fuzzy
+msgid "common.submenu"
+msgstr "Субменю"
 
 msgid "common.subtitle"
 msgstr "Підзаголовок"
@@ -726,6 +797,9 @@ msgstr "Запропонувати"
 
 msgid "common.title"
 msgstr "Заголовок"
+
+msgid "common.titleSeparator"
+msgstr ""
 
 msgid "common.top"
 msgstr "До початку"
@@ -745,6 +819,9 @@ msgstr "Компонент"
 msgid "common.uninitiated"
 msgstr "Нерозпочате"
 
+msgid "common.unknownError"
+msgstr ""
+
 msgid "common.unread"
 msgstr "Непрочитане"
 
@@ -757,23 +834,17 @@ msgstr "Оновлено"
 msgid "common.uploadedDate"
 msgstr "Дата завантаження"
 
-msgid "common.uploadedFile"
-msgstr "Завантажений файл"
-
 msgid "common.upload"
 msgstr "Завантажити"
 
 msgid "common.uploadFailed"
 msgstr "Цей файл не може бути завантажений або змінений."
 
-msgid "common.invalidFileType"
-msgstr "Не завантажено жодного файлу або неправильний тип файлу!"
-
-msgid "common.homepageImage.altText"
-msgstr "Зображення домашньої сторінки"
-
 msgid "common.up"
 msgstr "Нагору"
+
+msgid "common.addFile"
+msgstr ""
 
 msgid "common.upload.addFile"
 msgstr "Завантажити файл"
@@ -796,8 +867,14 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Користувач"
 
+msgid "common.user.nonexistent"
+msgstr ""
+
 msgid "common.view"
 msgstr "Дивитися"
+
+msgid "common.viewWithName"
+msgstr ""
 
 msgid "common.viewProfile"
 msgstr "Переглянути профайл"
@@ -896,7 +973,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Ви намагаєтеся відправити листа надто великій кількості отримувачів."
 
 msgid "email.compose.tooSoon"
-msgstr "Ви намагаєтеся відправити листа надто швидко після надсилання попереднього. Будь ласка, зачекайте перед відправленням листа."
+msgstr ""
+"Ви намагаєтеся відправити листа надто швидко після надсилання попереднього. "
+"Будь ласка, зачекайте перед відправленням листа."
+
+msgid "email.compose.error"
+msgstr ""
+"Під час надсилання повідомлення електронної пошти виникла проблема. "
+"Повторіть спробу пізніше або зверніться до системного адміністратора."
 
 msgid "email.email"
 msgstr "Email"
@@ -908,7 +992,8 @@ msgid "email.invalid"
 msgstr "Адреса електронної пошти {$email} некоректна."
 
 msgid "email.multipart"
-msgstr "Це повідомлення складається з фрагментів даних різного типу у форматі MIME."
+msgstr ""
+"Це повідомлення складається з фрагментів даних різного типу у форматі MIME."
 
 msgid "email.recipient"
 msgstr "Отримувач"
@@ -974,13 +1059,17 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "Будь ласка, використовуйте форму нижче для завантаження ваших файлів."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "Файл занадато великий ({{filesize}}МБ). Файли більші, ніж {{maxFilesize}}МБ не можуть бути завантаженими."
+msgstr ""
+"Файл занадато великий ({{filesize}}МБ). Файли більші, ніж {{maxFilesize}}МБ "
+"не можуть бути завантаженими."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Файли цього типу не можуть бути завантаженими."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "Сервер відповів із кодом {{statusCode}}. Будь ласка, зконтактуйте із системним адміністратором, якщо ця проблема продовжується."
+msgstr ""
+"Сервер відповів із кодом {{statusCode}}. Будь ласка, зконтактуйте із "
+"системним адміністратором, якщо ця проблема продовжується."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Вімінити завантаження"
@@ -1010,13 +1099,17 @@ msgid "form.errorMany"
 msgstr "Будь ласка, виправте {$count} помил(ки/ок)."
 
 msgid "form.errors"
-msgstr "Форма не збереглася через {$count} помилк(у/и). Будь ласка, виправте її/їх та спробуйте знову."
+msgstr ""
+"Форма не збереглася через {$count} помилк(у/и). Будь ласка, виправте її/їх "
+"та спробуйте знову."
 
 msgid "form.errorsOccurred"
 msgstr "Під час обробки цієї форми виникли помилки"
 
 msgid "form.formLanguage.description"
-msgstr "Для того, щоб ввести інформацію нижче додатковими мовами, спершу оберіть мову."
+msgstr ""
+"Для того, щоб ввести інформацію нижче додатковими мовами, спершу оберіть "
+"мову."
 
 msgid "form.formLanguage"
 msgstr "Мова форми"
@@ -1050,6 +1143,9 @@ msgstr "Ви повинні надати валідний ID."
 
 msgid "form.resubmit"
 msgstr "Відправити знову"
+
+msgid "form.saved"
+msgstr ""
 
 msgid "form.saveToUpload"
 msgstr "Для завантаження файлу використовуйте кнопку \"Зберегти\"."
@@ -1166,19 +1262,24 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Почати обговорення між вами та {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Оберіть стандартне повідомлення для використання або заповніть форму нижче."
+msgstr ""
+"Оберіть стандартне повідомлення для використання або заповніть форму нижче."
 
 msgid "stageParticipants.notify.message"
 msgstr "Повідомлення"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Будь ласка, переконайтесь, що ви заповнили поле повідомлення та вибрали хоча б одного одержувача."
+msgstr ""
+"Будь ласка, переконайтесь, що ви заповнили поле повідомлення та вибрали хоча "
+"б одного одержувача."
 
 msgid "stageParticipants.options"
 msgstr "Назначення привілеїв"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Цей учасник має право лише рекомендувати редакційне рішення і необхідно бути авторизованим редактором,щоб записувати редакційні рішення."
+msgstr ""
+"Цей учасник має право лише рекомендувати редакційне рішення і необхідно бути "
+"авторизованим редактором,щоб записувати редакційні рішення."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Дозвіл на редагування метаданих подання"
@@ -1228,6 +1329,9 @@ msgstr "Статистика"
 
 msgid "navigation.browse"
 msgstr "Перегляд"
+
+msgid "navigation.backTo"
+msgstr ""
 
 msgid "navigation.browseByAuthor"
 msgstr "За автором"
@@ -1288,6 +1392,9 @@ msgstr "Налаштування"
 
 msgid "navigation.sitemap"
 msgstr "Мапа сайту"
+
+msgid "navigation.skip.description"
+msgstr ""
 
 msgid "navigation.skip.announcements"
 msgstr "Перейти до оголошень"
@@ -1398,10 +1505,15 @@ msgid "notification.settings"
 msgstr "Налаштування сповіщень"
 
 msgid "notification.settingsDescription"
-msgstr "Оберіть події системи, про які Ви хочете бути сповіщені.  У Вашій стрічці сповіщень не будуть з'являтися події, що відповідають типам, які Ви відключите."
+msgstr ""
+"Оберіть події системи, про які Ви хочете бути сповіщені.  У Вашій стрічці "
+"сповіщень не будуть з'являтися події, що відповідають типам, які Ви "
+"відключите."
 
 msgid "notification.reminderError"
-msgstr "Під час надсилання паролю сталася помилка. Будь ласка, перевірте коректність введеної вами адреси email."
+msgstr ""
+"Під час надсилання паролю сталася помилка. Будь ласка, перевірте коректність "
+"введеної вами адреси email."
 
 msgid "notification.reminderSent"
 msgstr "Ваш новий пароль був надісланий на зазначену Вами адресу email."
@@ -1490,6 +1602,12 @@ msgstr "Шукати"
 msgid "search.searchResults"
 msgstr "Результати пошуку"
 
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
 msgid "search.subject"
 msgstr "Ключові слова"
 
@@ -1530,7 +1648,9 @@ msgstr "Завдання"
 msgid "dashboard.myQueue"
 msgstr "Моя черга"
 
-#, fuzzy
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
 #, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1539,9 +1659,9 @@ msgstr ""
 "нічого знати один про одного. Це вимагає від авторів, рецензентів і "
 "редакторів (які завантажують файли) перевірити чи виконані наступні кроки "
 "щодо текстів і властивостях файлів:</p>\n"
-"<ul><li>Автори документа видалили свої імена з тексту, використовуючи \""
-"Автор\" і рік в бібліографічних посиланнях і зносках, замість імен авторі, "
-"назви статті, тощо</li>\n"
+"<ul><li>Автори документа видалили свої імена з тексту, використовуючи \"Автор"
+"\" і рік в бібліографічних посиланнях і зносках, замість імен авторі, назви "
+"статті, тощо</li>\n"
 "<li>Автори документа видалили персональні дані з властивостей файлу "
 "виконавши наступні кроки:\n"
 "<ul><li>Microsoft Word для Windows:\n"
@@ -1557,8 +1677,8 @@ msgstr ""
 "<li>Microsoft Word для MacOS:\n"
 "<ul><li>Перейдіть до \"Інструменти\"</li>\n"
 "<li>Натисність \"Захистити Документ\"</li>\n"
-"<li>Оберіть \"Видалити персональну інформацію при збереженні цього файлу\""
-"</li>\n"
+"<li>Оберіть \"Видалити персональну інформацію при збереженні цього файлу\"</"
+"li>\n"
 "<li>Клікніть \"OK\" і збережіть файл</li></ul></li>\n"
 "<li>PDF:\n"
 "<ul><li>Натисніть \"Файл\"</li>\n"
@@ -1586,22 +1706,38 @@ msgid "navigation.goBack"
 msgstr "Повернутись назад"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} було призначено рецензентом цього подання та надіслано повідомлення електронною поштою."
+msgstr ""
+"{$reviewerName} було призначено рецензентом цього подання та надіслано "
+"повідомлення електронною поштою."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} було призначено рецензентом цього подання але не було надіслано повідомлення електронною поштою."
+msgstr ""
+"{$reviewerName} було призначено рецензентом цього подання але не було "
+"надіслано повідомлення електронною поштою."
 
 msgid "notification.removedReviewer"
 msgstr "Рецензента видалено."
 
+msgid "notification.cancelledReviewer"
+msgstr "Рецензента відмінено."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензування розпочато заново."
+
 msgid "notification.addedStageParticipant"
 msgstr "Користувача додано як учасника етапу."
+
+msgid "notification.editStageParticipant"
+msgstr "Етап призначення було змінено."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Нове оголошення."
 
 msgid "notification.type.reviewAssignment"
 msgstr "Відгук очікує на розгляд."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Призначення для рецензування було оновлено."
 
 msgid "notification.type.auditorRequest"
 msgstr "Запит аудиту для \"{$file}\""
@@ -1610,7 +1746,9 @@ msgid "notification.type.allReviewsIn"
 msgstr "Усі рецензії є і необхідно прийняти рішення на етапі {$stage}."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Нова версія файлу була завантажена для редакційного розгляду на етапі {$stage}."
+msgstr ""
+"Нова версія файлу була завантажена для редакційного розгляду на етапі "
+"{$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Нові версії розглядаються на етапі {$stage}."
@@ -1627,8 +1765,14 @@ msgstr "Рецензент прокоментував \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "Файл розглянуто."
 
+msgid "user.email"
+msgstr ""
+
 msgid "user.authorization.submissionFile"
 msgstr "Поточний користувач не має права доступу до вказаного файлу подання."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Некоректна публікація."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Неправильне подання."
@@ -1636,11 +1780,31 @@ msgstr "Неправильне подання."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Недійсне представлення."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr ""
+
+msgid "user.authorization.invalidQuery"
+msgstr ""
+
+msgid "user.authorization.unauthorizedNote"
+msgstr ""
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr ""
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "Ви не маєте достатньо прав для перегляду подання. Будь ласка, відредагуйте свій профіль, щоб переконатися, що вам надано відповідні ролі у розділі \"Реєстрація як\"."
+msgstr ""
+"Ви не маєте достатньо прав для перегляду подання. Будь ласка, відредагуйте "
+"свій профіль, щоб переконатися, що вам надано відповідні ролі у розділі "
+"\"Реєстрація як\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Поточний користувач не є автором запитуваного подання. Переконайтеся, що ви ввійшли під правильним обліковим записом користувача."
+msgstr ""
+"Поточний користувач не є автором запитуваного подання. Переконайтеся, що ви "
+"ввійшли під правильним обліковим записом користувача."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr ""
 
 msgid "notification.type.queryActivity"
 msgstr "Активність обговорень."
@@ -1649,13 +1813,23 @@ msgid "notification.type.queryAdded"
 msgstr "Обговорення додано."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Призначте літературного редактора, використовуючи посилання «Додати» в списку «Учасники»."
+msgstr ""
+"Призначте літературного редактора, використовуючи посилання «Додати» в "
+"списку «Учасники»."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Очікується літературне редагування."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Статус раунду {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "Підсумковий звіт статистики."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Це нагадування про необхідность перевірки стану вашого Журналу, "
+"використовуючи редакційний звіт."
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1684,36 +1858,6 @@ msgstr "Показати подробиці щодо {$name}"
 msgid "list.viewLess"
 msgstr "Приховати подробиці щодо {$name}"
 
-msgid "common.pagination.goToPage"
-msgstr "Перейти до {$page}"
-
-msgid "common.pagination.next"
-msgstr "Наступна сторінка"
-
-msgid "common.pagination.previous"
-msgstr "Попередня сторінка"
-
-msgid "common.confirm"
-msgstr "Підтвердьте"
-
-msgid "common.dateDecided"
-msgstr "Дата вирішена"
-
-msgid "email.compose.error"
-msgstr "Під час надсилання повідомлення електронної пошти виникла проблема. Повторіть спробу пізніше або зверніться до системного адміністратора."
-
-msgid "notification.cancelledReviewer"
-msgstr "Рецензента відмінено."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Рецензування розпочато заново."
-
-msgid "notification.editStageParticipant"
-msgstr "Етап призначення було змінено."
-
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Призначення для рецензування було оновлено."
-
 msgid "validator.accepted"
 msgstr "Будь ласка, прийміть цей пункт."
 
@@ -1727,7 +1871,11 @@ msgid "validator.alpha"
 msgstr "Це може містити тільки букви."
 
 msgid "validator.alpha_dash"
-msgstr "Це може містити тільки букви, числа, дефіс, тире та нижнє підкреслення."
+msgstr ""
+"Це може містити тільки букви, числа, дефіс, тире та нижнє підкреслення."
+
+msgid "validator.alpha_dash_period"
+msgstr ""
 
 msgid "validator.alpha_num"
 msgstr "Це може містити тільки букви та числа."
@@ -1805,10 +1953,14 @@ msgid "validator.locale"
 msgstr "Ця мова не може бути прийнятою."
 
 msgid "validator.localeExpected"
-msgstr "Це поле є багатомовним. Окремі значення мають бути наданими для кожної мови, яка підтримується."
+msgstr ""
+"Це поле є багатомовним. Окремі значення мають бути наданими для кожної мови, "
+"яка підтримується."
 
 msgid "validator.localeKey"
-msgstr "Мови мають бути зазначені за допомогою мовних кодів. Приклади: en_US, fr_CA, sr_RS@cyrillic."
+msgstr ""
+"Мови мають бути зазначені за допомогою мовних кодів. Приклади: en_US, fr_CA, "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "Це не повинно бути більшим, ніж {$max}."
@@ -1859,7 +2011,8 @@ msgid "validator.required_if"
 msgstr "Це поле необхідно заповнити, коли {$other} складає {$value}."
 
 msgid "validator.required_unless"
-msgstr "Це поле необхідно заповнити тільки якщо {$other} у значеннях {$values}."
+msgstr ""
+"Це поле необхідно заповнити тільки якщо {$other} у значеннях {$values}."
 
 msgid "validator.required_with"
 msgstr "Це поле необхідно заповнити, коли {$values} є присутніми."
@@ -1900,45 +2053,20 @@ msgstr "{$attribute} уже є обраним."
 msgid "validator.url"
 msgstr "Це не є валідною URL адресою."
 
-msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Це нагадування про необхідность перевірки стану вашого Журналу, "
-"використовуючи редакційний звіт."
+#~ msgid "common.favicon.altText"
+#~ msgstr "Іконка"
 
-msgid "notification.type.editorialReport"
-msgstr "Підсумковий звіт статистики."
+#~ msgid "common.pageHeaderLogo.altText"
+#~ msgstr "Логотип заголовку сторінки"
 
-msgid "user.authorization.invalidPublication"
-msgstr "Некоректна публікація."
+#~ msgid "common.startTyping"
+#~ msgstr "Почати писати"
 
-#, fuzzy
-msgid "common.submenu"
-msgstr "Субменю"
+#~ msgid "common.uploadedFile"
+#~ msgstr "Завантажений файл"
 
-msgid "common.selectedPrefix"
-msgstr "Обрані:"
+#~ msgid "common.invalidFileType"
+#~ msgstr "Не завантажено жодного файлу або неправильний тип файлу!"
 
-msgid "common.removeItem"
-msgstr "Видалити {$item}"
-
-msgid "common.override"
-msgstr "Перепризначити"
-
-#, fuzzy
-msgid "common.orderDown"
-msgstr "Опустити позицію {$itemTitle}"
-
-#, fuzzy
-msgid "common.orderUp"
-msgstr "Підняти позицію {$itemTitle}"
-
-msgid "common.noTemporaryFile"
-msgstr ""
-"Не вдається знайти файл який ви завантажили. Спробуйте завантажити його ще "
-"раз."
-
-msgid "common.lastActivity"
-msgstr "Остання активність зафіксована {$date}."
-
-msgid "common.fromWithValue"
-msgstr "Від: {$value}"
+#~ msgid "common.homepageImage.altText"
+#~ msgstr "Зображення домашньої сторінки"

@@ -11,55 +11,96 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Vaša zahteva je bila zavrnjena. Morda vam je potekla seja. Ponovno naložite spletno stran in poskusite ponovno."
+msgid "api.400.paramNotSupported"
+msgstr "Parameter {$param} ni podprt."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Vidite lahko le neobjavljene prispevke, ki so vam bili dodeljeni."
+msgid "api.400.invalidApiToken"
+msgstr ""
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Ne morete odstraniti prispevka, ki ni dodeljen temu kontekstu."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Nimate pravice za odstranitev tega prispevka."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Časa, ko je bil ustvarjen, ni mogoče spremeniti."
 
-msgid "api.submissions.404.resourceNotFound"
+msgid "api.403.unauthorized"
+msgstr "Niste avtorizirani za dostop do zahtevanega vira."
+
+msgid "api.404.resourceNotFound"
 msgstr "Zahtevanega vira ni bilo mogoče najti."
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Vaša zahteva ni mogla biti izvršena zaradi pomanjkanja zahtevnih informacij."
+msgid "api.404.endpointNotFound"
+msgstr "Zahtevani URL ni bil prepoznan."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Zahtevan zvezek, številka ali leto je neveljaveno."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Zahteva je neveljavna. Datum mora biti v formatu YYYY-MM-DD."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "Zahteva je neveljavna. Začetni datum dateStart ne more biti kasnejši od končnega dateEnd."
-
-msgid "api.stats.400.wrongTimeSegmentDaily"
-msgstr "Zahteva je neveljavna. Dnevni segment (timeSegment 'daily') je lahko uporabljen samo, če je časovni razpon manjši od 90 dni (dateStart - dateEnd)."
-
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr "Datoteke ne morete spremeniti, če ne posredujete assocType in assocId."
-
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Mape z javnimi datotekami ni bilo mogoče najti ali pa datoteke ni bilo "
-"mogoče shraniti tja. Prosimo obrnite se na administratorja, da rešite težavo."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.500.badAuthorizationheader"
 msgstr ""
-"Nimate dovolj prostora v vaši mapi. Naložiti želite datoteko velikosti  "
-"{$fileUploadSize}kb in imate le {$dirSizeLeft}kb prostora."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Nimate pravide nalagati datotek."
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Zahtevanega obvestila ni bilo mogoče najti."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Za pošiljanje morate vključiti tudi email sporočilo."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Navedite zadevo email sporočila."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Navesti morate uporabniške vloge, ki naj dobijo to email sporočilo."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nimate pravice pošiljati emaila uporabnikom v eni ali več izbranih vlogah."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Zahtevane email predloge ni bilo mogoče najti."
+
+msgid "api.files.400.noUpload"
+msgstr "Nobene zahtevane datoteke za nalaganje ni bilo mogoče najti."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Ene ali več datotek ni bilo mogoče naložiti."
+
+msgid "api.files.400.fileSize"
+msgstr "Datoteke večje od {$maxSize} ni možno naložiti."
+
+msgid "api.files.400.config"
+msgstr ""
+"Datoteke ni bilo možno naložiti zaradi strežniških nastavitev. Prosimo "
+"obrnite se na administratorja strežnika."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Publikacija, ki jo želite objaviti, je že objavljena."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikacija, ki jo želite preklicati, ni objavljena."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Publikacije ne morete spreminjati, ker je že objavljena."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Status ne morete spreminjati direktno preko API-ja. Namesto tega uporabite /"
+"publish in /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Objavo publikacije morate najprej preklicati, preden jo lahko odstranite."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Naložite lahko samo naslednje tipe datotek: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Naložena datoteka ni veljavna."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -67,138 +108,120 @@ msgstr ""
 "bila datoteka preimenovana v napačen tip, npr. preimenovanje slika.png v "
 "slika.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Naložena datoteka ni veljavna."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nimate pravide nalagati datotek."
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Naložite lahko samo naslednje tipe datotek: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Objavo publikacije morate najprej preklicati, preden jo lahko odstranite."
+"Nimate dovolj prostora v vaši mapi. Naložiti želite datoteko velikosti  "
+"{$fileUploadSize}kb in imate le {$dirSizeLeft}kb prostora."
 
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Status ne morete spreminjati direktno preko API-ja. Namesto tega uporabite /"
-"publish in /unpublish."
+"Mape z javnimi datotekami ni bilo mogoče najti ali pa datoteke ni bilo "
+"mogoče shraniti tja. Prosimo obrnite se na administratorja, da rešite težavo."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Publikacije ne morete spreminjati, ker je že objavljena."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Zahteva je neveljavna. Datum mora biti v formatu YYYY-MM-DD."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikacija, ki jo želite preklicati, ni objavljena."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Publikacija, ki jo želite objaviti, je že objavljena."
-
-msgid "api.files.400.config"
+msgid "api.stats.400.wrongDateRange"
 msgstr ""
-"Datoteke ni bilo možno naložiti zaradi strežniških nastavitev. Prosimo "
-"obrnite se na administratorja strežnika."
+"Zahteva je neveljavna. Začetni datum dateStart ne more biti kasnejši od "
+"končnega dateEnd."
 
-msgid "api.files.400.fileSize"
-msgstr "Datoteke večje od {$maxSize} ni možno naložiti."
+msgid "api.stats.400.earlyDateRange"
+msgstr "Začetni datum ne sme biti pred 1.1.2001."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Ene ali več datotek ni bilo mogoče naložiti."
-
-msgid "api.files.400.noUpload"
-msgstr "Nobene zahtevane datoteke za nalaganje ni bilo mogoče najti."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Zahtevane email predloge ni bilo mogoče najti."
-
-msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"Nimate pravice pošiljati emaila uporabnikom v eni ali več izbranih vlogah."
-
-msgid "api.emails.400.missingUserGroups"
-msgstr "Navesti morate uporabniške vloge, ki naj dobijo to email sporočilo."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Navedite zadevo email sporočila."
-
-msgid "api.emails.400.missingBody"
-msgstr "Za pošiljanje morate vključiti tudi email sporočilo."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Zahtevanega obvestila ni bilo mogoče najti."
-
-msgid "api.404.endpointNotFound"
-msgstr "Zahtevani URL ni bil prepoznan."
-
-msgid "api.404.resourceNotFound"
-msgstr "Zahtevanega vira ni bilo mogoče najti."
-
-msgid "api.403.unauthorized"
-msgstr "Niste avtorizirani za dostop do zahtevanega vira."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Časa, ko je bil ustvarjen, ni mogoče spremeniti."
-
-msgid "api.400.paramNotSupported"
-msgstr "Parameter {$param} ni podprt."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Nimate pravic za dostop do datotek v tem krogu recenzije."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Nimate dovoljenja za dodajanje ali spreminjanje teh datotek."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Nimate dovoljenja za dostopanje to teh datotek."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Določeni recenzijski krog ni del tega prispevka."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Določiti morate fazo datoteke."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr ""
-"Da določite datoteke iz recenzijske faze, morate določiti krog recenzije."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "Datoteko iz te faze ne morete povezati s tem recenzijskim krogom."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Datoteko iz te faze ne morete povezati z recenzentsko zadolžitvijo."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Datoteke iz te faze ne morete povezati z diskusijo."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "Datoteke iz te faze ni mogoče povezati z drugo oddano datoteko."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Jezik {$locale} ni podprt."
-
-msgid "api.themes.404.themeUnavailable"
-msgstr "Aktivna tema, {$themePluginPath}, ni vključena ali ni nameščena."
-
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Ta  končna točka ni na voljo iz konteksta. Dostop je možen le iz \"site-wide "
-"namespace-a\"."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "Nimate pravice za urejanje te publikacije."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr ""
-"Najdenih ni bilo nobenih sprememb v zahtevi za spreminjanje te datoteke."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr ""
-"Zahteva je neveljavna. Vrednost orderDirection mora bit `desc` ali `asc`."
+msgid "api.stats.400.lateDateRange"
+msgstr "Končni datum ne sme biti starejši od včerajšnjega."
 
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Zahteva je neveljavna. Vrednost  timelineInterval mora biti `day` ali "
 "`month`."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Končni datum ne sme biti starejši od včerajšnjega."
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Zahteva je neveljavna. Vrednost orderDirection mora bit `desc` ali `asc`."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Začetni datum ne sme biti pred 1.1.2001."
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr "Datoteke ne morete spremeniti, če ne posredujete assocType in assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Datoteke iz te faze ni mogoče povezati z drugo oddano datoteko."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Datoteke iz te faze ne morete povezati z diskusijo."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Datoteko iz te faze ne morete povezati z recenzentsko zadolžitvijo."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Datoteko iz te faze ne morete povezati s tem recenzijskim krogom."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Da določite datoteke iz recenzijske faze, morate določiti krog recenzije."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Določiti morate fazo datoteke."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Najdenih ni bilo nobenih sprememb v zahtevi za spreminjanje te datoteke."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Določeni recenzijski krog ni del tega prispevka."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Nimate dovoljenja za dostopanje to teh datotek."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nimate dovoljenja za dodajanje ali spreminjanje teh datotek."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nimate pravic za dostop do datotek v tem krogu recenzije."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Vaša zahteva ni mogla biti izvršena zaradi pomanjkanja zahtevnih informacij."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Zahtevan zvezek, številka ali leto je neveljaveno."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Vaša zahteva je bila zavrnjena. Morda vam je potekla seja. Ponovno naložite "
+"spletno stran in poskusite ponovno."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Ne morete odstraniti prispevka, ki ni dodeljen temu kontekstu."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Vidite lahko le neobjavljene prispevke, ki so vam bili dodeljeni."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nimate pravice za odstranitev tega prispevka."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Nimate pravice za urejanje te publikacije."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ta  končna točka ni na voljo iz konteksta. Dostop je možen le iz \"site-wide "
+"namespace-a\"."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Aktivna tema, {$themePluginPath}, ni vključena ali ni nameščena."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Jezik {$locale} ni podprt."
+
+#~ msgid "api.submissions.404.resourceNotFound"
+#~ msgstr "Zahtevanega vira ni bilo mogoče najti."
+
+#~ msgid "api.stats.400.wrongTimeSegmentDaily"
+#~ msgstr ""
+#~ "Zahteva je neveljavna. Dnevni segment (timeSegment 'daily') je lahko "
+#~ "uporabljen samo, če je časovni razpon manjši od 90 dni (dateStart - "
+#~ "dateEnd)."

@@ -4,8 +4,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T07:05:57-07:00\n"
 "PO-Revision-Date: 2020-03-09 17:13+0000\n"
-"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-"
-"helene.vezina@umontreal.ca>\n"
+"Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
+"vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "generic-acron/fr_CA/>\n"
 "Language: fr_CA\n"
@@ -23,9 +23,6 @@ msgstr ""
 "Ce plugiciel a pour fonction de réduire la dépendance de l'application aux "
 "outils de planification périodique tel que « cron »."
 
-msgid "plugins.generic.acron.reload"
-msgstr "Recharger les tâches planifiées"
-
 msgid "plugins.generic.acron.enabled"
 msgstr "Le plugiciel Acron a été activé."
 
@@ -34,6 +31,9 @@ msgstr "Le plugiciel Acron a été désactivé."
 
 msgid "plugins.generic.acron.reloadedCronTab"
 msgstr "Le fichier de crontab a été rechargé avec succès."
+
+msgid "plugins.generic.acron.reload"
+msgstr "Recharger les tâches planifiées"
 
 msgid "plugins.generic.acron.tasksReloaded"
 msgstr "Les tâches planifiées ont été rechargées."

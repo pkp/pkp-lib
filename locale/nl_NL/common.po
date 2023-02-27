@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:55+00:00\n"
-"Language: \n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -99,7 +99,9 @@ msgid "common.grid"
 msgstr "Rooster"
 
 msgid "common.confirmDelete"
-msgstr "Weet u zeker dat u dit item wil verwijderen? Deze actie kan niet worden ongedaan gemaakt."
+msgstr ""
+"Weet u zeker dat u dit item wil verwijderen? Deze actie kan niet worden "
+"ongedaan gemaakt."
 
 msgid "common.abstract"
 msgstr "Samenvatting"
@@ -119,6 +121,9 @@ msgstr "Activeer"
 msgid "common.active"
 msgstr "Actief"
 
+msgid "common.inactive"
+msgstr ""
+
 msgid "common.add"
 msgstr "Voeg toe"
 
@@ -135,7 +140,9 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr "van een de en of noch maar is als dan anders als om van bij op uit voor in over tot in met"
+msgstr ""
+"van een de en of noch maar is als dan anders als om van bij op uit voor in "
+"over tot in met"
 
 msgid "common.alreadyAssigned"
 msgstr "Toegewezen"
@@ -144,7 +151,9 @@ msgid "common.altText"
 msgstr "Alternatieve tekst"
 
 msgid "common.altTextInstructions"
-msgstr "Geef de alternatieve tekst voor deze afbeelding om de toegankelijkheid voor gebruikers met tekst-browsers of hulpapparaten te waarborgen"
+msgstr ""
+"Geef de alternatieve tekst voor deze afbeelding om de toegankelijkheid voor "
+"gebruikers met tekst-browsers of hulpapparaten te waarborgen"
 
 msgid "common.and"
 msgstr "en"
@@ -186,16 +195,24 @@ msgid "common.notice"
 msgstr "Opmerking"
 
 msgid "common.captcha.error.missing-input-secret"
-msgstr "De captcha validering voor deze website is niet correct geconfigureerd. De geheime sleutel ontbreekt."
+msgstr ""
+"De captcha validering voor deze website is niet correct geconfigureerd. De "
+"geheime sleutel ontbreekt."
 
 msgid "common.captcha.error.invalid-input-secret"
-msgstr "De captcha validering voor deze website is niet correct geconfigureerd. De geheime sleutel is ongeldig."
+msgstr ""
+"De captcha validering voor deze website is niet correct geconfigureerd. De "
+"geheime sleutel is ongeldig."
 
 msgid "common.captcha.error.missing-input-response"
-msgstr "Voltooi de controle of u een echte gebruiker bent, om spam-inzendingen te vermijden."
+msgstr ""
+"Voltooi de controle of u een echte gebruiker bent, om spam-inzendingen te "
+"vermijden."
 
 msgid "common.captcha.error.invalid-input-response"
-msgstr "U heeft de controle of u een echte gebruiker bent, om spam-inzendingen te vermijden, niet voltooid."
+msgstr ""
+"U heeft de controle of u een echte gebruiker bent, om spam-inzendingen te "
+"vermijden, niet voltooid."
 
 msgid "common.captchaField.description"
 msgstr "Voer de letters uit de afbeelding hierboven in."
@@ -206,19 +223,27 @@ msgstr "Validatie"
 msgid "common.ccLicense"
 msgstr ""
 "<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
-"\t\t Dit werk wordt gepubliceerd onder een <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  licentie</a>."
+"\t\t Dit werk wordt gepubliceerd onder een <a rel=\"license\" target=\"_blank"
+"\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0  licentie</a>."
 
 msgid "common.ccLicense.rt"
 msgstr ""
 "<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tDit werk wordt gepubliceerd onder een <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 licentie</a>.\n"
+"\t\tDit werk wordt gepubliceerd onder een <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 licentie</a>.\n"
 "\t</div>"
 
 msgid "common.changesSaved"
@@ -271,6 +296,9 @@ msgstr "Maak aan"
 
 msgid "common.dateCompleted"
 msgstr "Datum van voltooiing"
+
+msgid "common.dateDecided"
+msgstr ""
 
 msgid "common.date"
 msgstr "Datum"
@@ -344,6 +372,9 @@ msgstr "Download PDF"
 msgid "common.edit"
 msgstr "Wijzig"
 
+msgid "common.editItem"
+msgstr ""
+
 msgid "common.enable"
 msgstr "Inschakelen"
 
@@ -357,7 +388,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Er is een onbekende fout in de databaseverbinding opgetreden."
 
 msgid "common.error.framesRequired"
-msgstr "Deze pagina vereist frames. <a href=\"{$url}\">Klik hier</a> voor een versie zonder frames."
+msgstr ""
+"Deze pagina vereist frames. <a href=\"{$url}\">Klik hier</a> voor een versie "
+"zonder frames."
 
 msgid "common.event"
 msgstr "Gebeurtenis"
@@ -396,7 +429,10 @@ msgid "common.fileType"
 msgstr "Bestandstype"
 
 msgid "common.fileUploaderError"
-msgstr "Het venster voor het opladen van een bestand is actief. Als het niet verschijnt, wordt de uitvoering waarschijnlijk niet ondersteund door deze webbrowser. Contacteer de beheerder voor hulp."
+msgstr ""
+"Het venster voor het opladen van een bestand is actief. Als het niet "
+"verschijnt, wordt de uitvoering waarschijnlijk niet ondersteund door deze "
+"webbrowser. Contacteer de beheerder voor hulp."
 
 msgid "common.filter"
 msgstr "Filters"
@@ -409,6 +445,9 @@ msgstr "Verwijder filter: {$filterTitle}"
 
 msgid "common.from"
 msgstr "Van"
+
+msgid "common.fromWithValue"
+msgstr ""
 
 msgid "common.until"
 msgstr "Tot"
@@ -452,11 +491,17 @@ msgstr "Taal"
 msgid "common.languages"
 msgstr "Talen"
 
+msgid "common.lastActivity"
+msgstr ""
+
 msgid "common.less"
 msgstr "Minder"
 
 msgid "common.lessThan"
 msgstr "{$value} of kleiner"
+
+msgid "common.lessThanOnly"
+msgstr ""
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -488,6 +533,9 @@ msgstr "Meer"
 msgid "common.moreThan"
 msgstr "{$value} of meer"
 
+msgid "common.moreThanOnly"
+msgstr ""
+
 msgid "common.noneAssigned"
 msgstr "Geen toegewezen"
 
@@ -496,6 +544,9 @@ msgstr "Geen"
 
 msgid "common.no"
 msgstr "Nee"
+
+msgid "common.noItemsFound"
+msgstr ""
 
 msgid "common.noComments"
 msgstr "Geen commentaren"
@@ -513,13 +564,17 @@ msgid "common.note"
 msgstr "Opmerking"
 
 msgid "common.noTemporaryFile"
-msgstr "Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het opnieuw op te laden."
+msgstr ""
+"Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het "
+"opnieuw op te laden."
 
 msgid "common.notes"
 msgstr "Opmerkingen"
 
 msgid "common.notes.tooltip"
-msgstr "Noten (geel: bevat nieuwe noten; blauw: bevat noten die al gezien waren; grijs: bevat geen noten)"
+msgstr ""
+"Noten (geel: bevat nieuwe noten; blauw: bevat noten die al gezien waren; "
+"grijs: bevat geen noten)"
 
 msgid "common.notified"
 msgstr "Bericht gegeven"
@@ -563,11 +618,23 @@ msgstr "Overig"
 msgid "common.overdue"
 msgstr "Te laat"
 
+msgid "common.override"
+msgstr ""
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} van {$total}"
 
 msgid "common.pagination.label"
 msgstr "Blader naar verdere pagina's"
+
+msgid "common.pagination.goToPage"
+msgstr ""
+
+msgid "common.pagination.next"
+msgstr ""
+
+msgid "common.pagination.previous"
+msgstr ""
 
 msgid "common.pageNumber"
 msgstr "Pagina {$pageNumber}"
@@ -588,7 +655,10 @@ msgid "common.prefix"
 msgstr "Prefix"
 
 msgid "common.prefixAndTitle.tip"
-msgstr "Zet korte niet-betekenisvolle woorden waarmee de titel begint, zoals \"een\" of \"de/het\" (of gelijkaardige korte woorden die de alfabetische volgorde verstoren) in Prefix."
+msgstr ""
+"Zet korte niet-betekenisvolle woorden waarmee de titel begint, zoals \"een\" "
+"of \"de/het\" (of gelijkaardige korte woorden die de alfabetische volgorde "
+"verstoren) in Prefix."
 
 msgid "common.preview"
 msgstr "Voorvertoning"
@@ -638,6 +708,9 @@ msgstr "RemoteURL"
 msgid "common.remove"
 msgstr "Verwijder"
 
+msgid "common.removeItem"
+msgstr ""
+
 msgid "common.removeSelection"
 msgstr "Selectie weghalen"
 
@@ -683,11 +756,17 @@ msgstr "Seconde(n)"
 msgid "common.selectAll"
 msgstr "Selecteer alle"
 
+msgid "common.selectedPrefix"
+msgstr ""
+
 msgid "common.selectNone"
 msgstr "Selecteer niets"
 
 msgid "common.select"
 msgstr "Selecteer"
+
+msgid "common.selectWithName"
+msgstr ""
 
 msgid "common.sendEmail"
 msgstr "Verstuur e-mail"
@@ -707,6 +786,9 @@ msgstr "Onderwerp"
 msgid "common.subjects"
 msgstr "Onderwerpen"
 
+msgid "common.submenu"
+msgstr ""
+
 msgid "common.subtitle"
 msgstr "Ondertitel"
 
@@ -716,8 +798,14 @@ msgstr "Suggereer"
 msgid "common.title"
 msgstr "Titel"
 
+msgid "common.titleSeparator"
+msgstr ""
+
 msgid "common.top"
 msgstr "Boven"
+
+msgid "common.toWithValue"
+msgstr ""
 
 msgid "common.true"
 msgstr "Waar"
@@ -730,6 +818,9 @@ msgstr "Onderdeel"
 
 msgid "common.uninitiated"
 msgstr "Onbekend"
+
+msgid "common.unknownError"
+msgstr ""
 
 msgid "common.unread"
 msgstr "Ongelezen"
@@ -747,10 +838,15 @@ msgid "common.upload"
 msgstr "Laden"
 
 msgid "common.uploadFailed"
-msgstr "Het bestand kon niet geladen worden. Probeer het opnieuw of neem contact op met de beheerder als het probleem niet verdwijnt."
+msgstr ""
+"Het bestand kon niet geladen worden. Probeer het opnieuw of neem contact op "
+"met de beheerder als het probleem niet verdwijnt."
 
 msgid "common.up"
 msgstr "Omhoog"
+
+msgid "common.addFile"
+msgstr ""
 
 msgid "common.upload.addFile"
 msgstr "Upload bestand"
@@ -773,8 +869,14 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Gebruiker"
 
+msgid "common.user.nonexistent"
+msgstr ""
+
 msgid "common.view"
 msgstr "Bekijk"
+
+msgid "common.viewWithName"
+msgstr ""
 
 msgid "common.viewProfile"
 msgstr "Bekijk profiel"
@@ -873,10 +975,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "U probeert een bericht naar teveel ontvangers te versturen."
 
 msgid "email.compose.tooSoon"
-msgstr "U probeert een bericht te snel na het laatste bericht te versturen. Wacht met het verzenden van nog een bericht."
+msgstr ""
+"U probeert een bericht te snel na het laatste bericht te versturen. Wacht "
+"met het verzenden van nog een bericht."
 
 msgid "email.compose.error"
-msgstr "Er was een probleem bij het versturen van een e-mailbericht. Probeer het later opnieuw, of contacteer uw systeembeheerder."
+msgstr ""
+"Er was een probleem bij het versturen van een e-mailbericht. Probeer het "
+"later opnieuw, of contacteer uw systeembeheerder."
 
 msgid "email.email"
 msgstr "E-mail"
@@ -954,13 +1060,17 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "Gebruik het formulier hieronder om uw bestanden op te laden."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "Het bestand is te groot ({{filesize}}mb). Bestanden groter dan {{maxFilesize}}mb kunnen niet worden opgeladen."
+msgstr ""
+"Het bestand is te groot ({{filesize}}mb). Bestanden groter dan "
+"{{maxFilesize}}mb kunnen niet worden opgeladen."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Bestanden van dit type kunnen niet worden opgeladen."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "De server antwoordde met een {{statusCode}} code. Contacteer de systeembeheerder als het probleem blijft duren."
+msgstr ""
+"De server antwoordde met een {{statusCode}} code. Contacteer de "
+"systeembeheerder als het probleem blijft duren."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Annuleer opladen"
@@ -990,13 +1100,17 @@ msgid "form.errorMany"
 msgstr "Verbeter {$count} fouten."
 
 msgid "form.errors"
-msgstr "Het formulier is niet opgeslagen omdat er {$count} fout(en) zijn opgetreden. Verbeter deze fouten en probeer het opnieuw."
+msgstr ""
+"Het formulier is niet opgeslagen omdat er {$count} fout(en) zijn opgetreden. "
+"Verbeter deze fouten en probeer het opnieuw."
 
 msgid "form.errorsOccurred"
 msgstr "Er zijn fouten opgetreden bij het verwerken van dit formulier"
 
 msgid "form.formLanguage.description"
-msgstr "Selecteer eerst de taal om de informatie hieronder in bijkomende talen in te voeren."
+msgstr ""
+"Selecteer eerst de taal om de informatie hieronder in bijkomende talen in te "
+"voeren."
 
 msgid "form.formLanguage"
 msgstr "Taal van het formulier"
@@ -1031,6 +1145,9 @@ msgstr "U moet een geldige ID invullen."
 msgid "form.resubmit"
 msgstr "Zend opnieuw in"
 
+msgid "form.saved"
+msgstr ""
+
 msgid "form.saveToUpload"
 msgstr "Gebruik Bewaar om het bestand te laden."
 
@@ -1041,7 +1158,8 @@ msgid "form.submit"
 msgstr "Zend in"
 
 msgid "form.invalidImage"
-msgstr "Er is een ongeldige afbeelding geladen. Toegestaan zijn .png, .gif en .jpg."
+msgstr ""
+"Er is een ongeldige afbeelding geladen. Toegestaan zijn .png, .gif en .jpg."
 
 msgid "form.multilingualLabel"
 msgstr "{$label} in {$localeName}"
@@ -1152,13 +1270,30 @@ msgid "stageParticipants.notify.message"
 msgstr "Bericht"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Zorg ervoor dat u een berichttekst heeft ingevuld en minstens één ontvanger heeft geselecteerd."
+msgstr ""
+"Zorg ervoor dat u een berichttekst heeft ingevuld en minstens één ontvanger "
+"heeft geselecteerd."
 
 msgid "stageParticipants.options"
 msgstr "Rechten die kunnen worden toegekend"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Deze persoon is slechts bevoegd om redactie-aanbevelingen te doen en zal een redacteur met voldoende rechten moeten vragen om editeursbeslissingen te maken."
+msgstr ""
+"Deze persoon is slechts bevoegd om redactie-aanbevelingen te doen en zal een "
+"redacteur met voldoende rechten moeten vragen om editeursbeslissingen te "
+"maken."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr ""
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+
+msgid "stageParticipants.selectedUser"
+msgstr ""
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr ""
 
 msgid "locale.primary"
 msgstr "Primaire taal"
@@ -1195,6 +1330,9 @@ msgstr "Statistieken"
 
 msgid "navigation.browse"
 msgstr "Blader"
+
+msgid "navigation.backTo"
+msgstr ""
 
 msgid "navigation.browseByAuthor"
 msgstr "Op auteur"
@@ -1255,6 +1393,12 @@ msgstr "Instellen"
 
 msgid "navigation.sitemap"
 msgstr "Site Map"
+
+msgid "navigation.skip.description"
+msgstr ""
+
+msgid "navigation.skip.announcements"
+msgstr ""
 
 msgid "navigation.skip.main"
 msgstr "Ga naar tekst"
@@ -1362,10 +1506,14 @@ msgid "notification.settings"
 msgstr "Attenderingsinstellingen"
 
 msgid "notification.settingsDescription"
-msgstr "Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken van een onderdeel voorkomt attenderingen daarop."
+msgstr ""
+"Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken "
+"van een onderdeel voorkomt attenderingen daarop."
 
 msgid "notification.reminderError"
-msgstr "Er is een fout opgetreden bij het verzenden van uw wachtwoord. Controleer het e-mailadres dat u hebt opgegeven."
+msgstr ""
+"Er is een fout opgetreden bij het verzenden van uw wachtwoord. Controleer "
+"het e-mailadres dat u hebt opgegeven."
 
 msgid "notification.reminderSent"
 msgstr "Uw nieuwe wachtwoord is verstuurd naar het opgegeven e-mailadres."
@@ -1454,6 +1602,12 @@ msgstr "Zoek naar"
 msgid "search.searchResults"
 msgstr "Zoekresultaten"
 
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
 msgid "search.subject"
 msgstr "Trefwoord(en"
 
@@ -1494,13 +1648,28 @@ msgstr "Taken"
 msgid "dashboard.myQueue"
 msgstr "Mijn wachtlijst"
 
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
 #, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Om de integriteit van het blinde peer-review proces te garanderen voor inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van het reviewproces) nagaan of de volgende stappen werden genomen om de tekst en bestandseigenschappen te zuiveren:</p>\n"
-"\t\t\t<ul><li>De auteurs van een document hebben hun namen uit de tekst verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties geanonymiseerd tot \"Auteur\" en publicatiejaar.</li>\n"
-"\t\t\t<li>Voor  Microsoft Office documenten moet eveneens auteursidentificatie worden verwijderd van de bestandseigenschappen, door volgende handelingen: Bestand > Opslaan als > Opties > Beveiligingscentrum > Verwijder persoonlijke gegevens bij opslaan van het bestand > Opslaan.</li>\n"
-"\t\t\t<li>Voor PDF bestanden moeten de auteursnamen eveneens worden verwijderd uit Documenteigenschappen, onder Bestand in het hoofdmenu van Adobe Acrobat.</li>\n"
+"<p>Om de integriteit van het blinde peer-review proces te garanderen voor "
+"inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om "
+"de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom "
+"moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van "
+"het reviewproces) nagaan of de volgende stappen werden genomen om de tekst "
+"en bestandseigenschappen te zuiveren:</p>\n"
+"\t\t\t<ul><li>De auteurs van een document hebben hun namen uit de tekst "
+"verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties "
+"geanonymiseerd tot \"Auteur\" en publicatiejaar.</li>\n"
+"\t\t\t<li>Voor  Microsoft Office documenten moet eveneens "
+"auteursidentificatie worden verwijderd van de bestandseigenschappen, door "
+"volgende handelingen: Bestand > Opslaan als > Opties > Beveiligingscentrum > "
+"Verwijder persoonlijke gegevens bij opslaan van het bestand > Opslaan.</li>\n"
+"\t\t\t<li>Voor PDF bestanden moeten de auteursnamen eveneens worden "
+"verwijderd uit Documenteigenschappen, onder Bestand in het hoofdmenu van "
+"Adobe Acrobat.</li>\n"
 "\t\t</ul>"
 
 msgid "reviewer.submission.reviewSchedule"
@@ -1522,16 +1691,29 @@ msgid "navigation.goBack"
 msgstr "Terug"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} werd toegewezen als reviewer voor deze inzending, en er werd een bevestigings-e-mail verstuurd."
+msgstr ""
+"{$reviewerName} werd toegewezen als reviewer voor deze inzending, en er werd "
+"een bevestigings-e-mail verstuurd."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} werd toegewezen als reviewer voor deze inzending, zonder dat een bevestigings-e-mail werd verstuurd."
+msgstr ""
+"{$reviewerName} werd toegewezen als reviewer voor deze inzending, zonder dat "
+"een bevestigings-e-mail werd verstuurd."
 
 msgid "notification.removedReviewer"
 msgstr "Reviewer verwijderd."
 
+msgid "notification.cancelledReviewer"
+msgstr ""
+
+msgid "notification.reinstatedReviewer"
+msgstr ""
+
 msgid "notification.addedStageParticipant"
 msgstr "Gebruiker toegevoegd als deelnemer."
+
+msgid "notification.editStageParticipant"
+msgstr ""
 
 msgid "notification.type.newAnnouncement"
 msgstr "Nieuw nieuwsbericht."
@@ -1546,10 +1728,13 @@ msgid "notification.type.auditorRequest"
 msgstr "Correctieverzoek voor \"{$file}\""
 
 msgid "notification.type.allReviewsIn"
-msgstr "Alle reviews zijn ingediend en er wordt een beslissing verwacht in {$stage}"
+msgstr ""
+"Alle reviews zijn ingediend en er wordt een beslissing verwacht in {$stage}"
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Een gereviseerde versie van een bestand is opgeladen voor redactionele beoordeling in {$stage}."
+msgstr ""
+"Een gereviseerde versie van een bestand is opgeladen voor redactionele "
+"beoordeling in {$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Er worden nog revisies verwacht in {$stage}."
@@ -1566,8 +1751,16 @@ msgstr "Een reviewer heeft opmerkingen toegevoegd voor \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "Bestand aanvaard."
 
+msgid "user.email"
+msgstr ""
+
 msgid "user.authorization.submissionFile"
-msgstr "De huidige gebruiker heeft onvoldoende rechten om het opgegeven bestand te bekijken."
+msgstr ""
+"De huidige gebruiker heeft onvoldoende rechten om het opgegeven bestand te "
+"bekijken."
+
+msgid "user.authorization.invalidPublication"
+msgstr ""
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Ongeldige inzending."
@@ -1575,11 +1768,30 @@ msgstr "Ongeldige inzending."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Ongeldige weergave."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr ""
+
+msgid "user.authorization.invalidQuery"
+msgstr ""
+
+msgid "user.authorization.unauthorizedNote"
+msgstr ""
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr ""
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "U heeft onvoldoende rechten om de inzending te bekijken. Bewerk uw profiel in \"Registreer als\", om ervoor te zorgen dat u voldoende rechten heeft."
+msgstr ""
+"U heeft onvoldoende rechten om de inzending te bekijken. Bewerk uw profiel "
+"in \"Registreer als\", om ervoor te zorgen dat u voldoende rechten heeft."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "De huidige gebruiker is niet de auteur van de opgevraagde inzending. Controleer of u ingelogd bent met het juiste gebruikersaccount."
+msgstr ""
+"De huidige gebruiker is niet de auteur van de opgevraagde inzending. "
+"Controleer of u ingelogd bent met het juiste gebruikersaccount."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr ""
 
 msgid "notification.type.queryActivity"
 msgstr "Activiteit in de discussie."
@@ -1588,13 +1800,21 @@ msgid "notification.type.queryAdded"
 msgstr "Discussie toegevoegd."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Wijs een tekstredacteur toe met de \"Wijs toe\" link in het overzicht van deelnemers."
+msgstr ""
+"Wijs een tekstredacteur toe met de \"Wijs toe\" link in het overzicht van "
+"deelnemers."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Wacht op tekstredactie."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Ronde {$round} status"
+
+msgid "notification.type.editorialReport"
+msgstr ""
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1638,6 +1858,9 @@ msgstr "Dit mag uitsluitend letters bevatten."
 msgid "validator.alpha_dash"
 msgstr "Dit mag uitsluitend letters, cijfers en liggende streepjes bevatten."
 
+msgid "validator.alpha_dash_period"
+msgstr ""
+
 msgid "validator.alpha_num"
 msgstr "Dit mag uitsluitend letters en cijfers bevatten."
 
@@ -1663,7 +1886,8 @@ msgid "validator.boolean"
 msgstr "Dit veld moet waar of onwaar zijn."
 
 msgid "validator.confirmed"
-msgstr "De bevestiging voor dit veld komt niet overeen met de waarde voor het veld."
+msgstr ""
+"De bevestiging voor dit veld komt niet overeen met de waarde voor het veld."
 
 msgid "validator.currency"
 msgstr "Dit is geen geldige munteenheid."
@@ -1714,10 +1938,14 @@ msgid "validator.locale"
 msgstr "Deze taal wordt niet aanvaard."
 
 msgid "validator.localeExpected"
-msgstr "Dit veld is meertalig. Voor elke ondersteunde taal moeten afzonderlijke waarden worden ingevuld."
+msgstr ""
+"Dit veld is meertalig. Voor elke ondersteunde taal moeten afzonderlijke "
+"waarden worden ingevuld."
 
 msgid "validator.localeKey"
-msgstr "Talen moeten worden aangeduid met de taalcode. Voorbeelden: en_US, fr_CA, sr_RS@cyrillic."
+msgstr ""
+"Talen moeten worden aangeduid met de taalcode. Voorbeelden: en_US, fr_CA, "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "Dit mag niet groter zijn dan {$max}."

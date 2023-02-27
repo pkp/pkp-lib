@@ -14,6 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "manager.website.information"
+msgstr "信息"
+
+msgid "manager.website.appearance"
+msgstr "外观"
+
+msgid "manager.website.imageFileRequired"
+msgstr "需要图像文件。 请确保您已选择并上传了文件。"
+
 msgid "manager.announcements"
 msgstr "公告"
 
@@ -28,6 +37,12 @@ msgstr "创建"
 
 msgid "manager.announcements.dateExpire"
 msgstr "到期"
+
+msgid "manager.announcements.datePublish"
+msgstr "已出版"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr ""
 
 msgid "manager.announcements.edit"
 msgstr "编辑公告"
@@ -131,17 +146,58 @@ msgstr "没有公告类别已经创建."
 msgid "manager.announcementTypes.typeName"
 msgstr "公告类别"
 
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr "投稿"
+
+msgid "manager.publication.reviewStage"
+msgstr "评审"
+
+msgid "manager.publication.editorialStage"
+msgstr "编辑"
+
+msgid "manager.publication.productionStage"
+msgstr "生产"
+
+msgid "manager.publication.emails"
+msgstr "电子邮件"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "评审人指导"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "评审提醒详细信息已更新。"
+
 msgid "manager.emails.confirmDelete"
 msgstr "你确定要删除此电子邮件范本?"
 
 msgid "manager.emails.confirmReset"
 msgstr "你确定要以默认值重置此电子邮件模板?"
 
+msgid "manager.emails.addEmail"
+msgstr "添加模板"
+
 msgid "manager.emails.createEmail"
 msgstr "创建邮件"
 
+msgid "manager.emails.customTemplate"
+msgstr "自定义模板"
+
+msgid "manager.emails.data"
+msgstr "模板信息数据"
+
+msgid "manager.emails.details"
+msgstr "模板详细"
+
 msgid "manager.emails.disable"
 msgstr "禁用"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"你是要禁用此电子邮件模板。如果有使用此模板的系统进程，他们不会用它了。你要确"
+"认此操作？"
 
 msgid "manager.emails.editEmail"
 msgstr "编辑电子邮件"
@@ -152,17 +208,32 @@ msgstr "编辑电子邮件测试例子"
 msgid "manager.emails.emailKey"
 msgstr "电子邮件键"
 
+msgid "manager.emails.emailKey.description"
+msgstr "电子邮件密钥只能包含字母，数字和下划线。"
+
 msgid "manager.emails.emailKeyExists"
 msgstr "一个给定的电子邮件键已经存在，电子邮件键必须是唯一的."
 
 msgid "manager.emails.emailTemplate"
 msgstr "电子邮件模板"
 
+msgid "manager.emails.emailTemplates"
+msgstr "电子邮件模板"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "添加电子邮件模板时，必须提供上下文ID。"
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "您提供的密钥已在使用中。"
+
 msgid "manager.emails.enabled"
 msgstr "启用此电子邮件模板"
 
 msgid "manager.emails.enable"
 msgstr "启用"
+
+msgid "manager.emails.enable.message"
+msgstr "你是即将启用此电子邮件。你要确认此操作？"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr "一个唯一的电子邮件键是必须的."
@@ -176,11 +247,43 @@ msgstr "这个电子邮件的主题是必须的."
 msgid "manager.emails"
 msgstr "编写电子邮件"
 
+msgid "manager.emails.resetAll"
+msgstr "重置所有"
+
+msgid "manager.emails.resetAll.message"
+msgstr "如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？"
+
+msgid "manager.emails.resetAll.complete"
+msgstr ""
+
 msgid "manager.emails.reset"
 msgstr "重置"
 
+msgid "manager.emails.resetComplete"
+msgstr ""
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确"
+"认此操作？"
+
 msgid "manager.emails.resetToDefault"
 msgstr "重置到默认"
+
+msgid "manager.emails.sentFrom"
+msgstr "来自"
+
+msgid "manager.emails.sentTo"
+msgstr "发给"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "主题：{$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr ""
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
 
 msgid "manager.filesBrowser"
 msgstr "文件浏览"
@@ -239,14 +342,33 @@ msgstr "标题"
 msgid "manager.importExport"
 msgstr "导入／导出 数据"
 
+msgid "manager.language.ui"
+msgstr "用户界面"
+
+msgid "manager.language.submissions"
+msgstr "提交"
+
+msgid "manager.language.forms"
+msgstr "表单"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "重新加载默认值"
+
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "这个系统可以选择性地允许某些重要信息，以额外的两个语言进行输入。要使用这个功能，请选择一个或两个额外的语系，并从下面列出的选项进行选择。"
+msgstr ""
+"这个系统可以选择性地允许某些重要信息，以额外的两个语言进行输入。要使用这个功"
+"能，请选择一个或两个额外的语系，并从下面列出的选项进行选择。"
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "选择支持本站的所有语系，可透过一个出现在每个页面上的语言选单来加以选择。只有在选择了两个语系以上的时候，这个选单才会显示出来。"
+msgstr ""
+"选择支持本站的所有语系，可透过一个出现在每个页面上的语言选单来加以选择。只有"
+"在选择了两个语系以上的时候，这个选单才会显示出来。"
 
 msgid "manager.payment.timestamp"
 msgstr "时间戳"
+
+msgid "manager.people.existingUserRequired"
+msgstr "必须输入一个现有用户。"
 
 msgid "manager.people.authSource"
 msgstr "验证源"
@@ -321,7 +443,9 @@ msgid "manager.people.mergeUser"
 msgstr "合并用户"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "您确认合并帐户名为 \"{$oldUsername}\" 到帐户名为 \"{$newUsername}\"? 帐户名为 \"{$oldUsername}\" 将不再存在，这个操作不可恢复."
+msgstr ""
+"您确认合并帐户名为 \"{$oldUsername}\" 到帐户名为 \"{$newUsername}\"? 帐户名"
+"为 \"{$oldUsername}\" 将不再存在，这个操作不可恢复."
 
 msgid "manager.people.mergeUsers"
 msgstr "合并用户"
@@ -346,6 +470,9 @@ msgstr "删除"
 
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "保存并创建其他"
+
+msgid "manager.people.signedInAs"
+msgstr ""
 
 msgid "manager.people.signInAs"
 msgstr "登录为"
@@ -386,26 +513,410 @@ msgstr "系统插件"
 msgid "manager.readingTools"
 msgstr "阅读工具"
 
+msgid "manager.userSearch.searchByName"
+msgstr "按名称搜索用户"
+
+msgid "manager.representative.inUse"
+msgstr ""
+
+msgid "manager.reviewerSearch.change"
+msgstr "修改"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "使用名字检索审稿人"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "根据名字检索"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "审阅兴趣"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均"
+"值。"
+
 msgid "manager.roles"
 msgstr "角色"
+
+msgid "manager.statistics"
+msgstr "状态 &amp; 报告"
+
+msgid "manager.statistics.defaultMetricDescription"
+msgstr ""
+"\n"
+"\t\t您的 {$contextObjectName} 已配置为记录多个使用量指标。 使用情况统计信息将"
+"在多个上下文中显示。\n"
+"\t\t在某些情况下，必须使用单个使用情况统计信息，例如 显示最常用提交的有序列表"
+"或对搜索结果进行排名。\n"
+"\t\t请选择一个配置的指标作为默认指标。\n"
+"\t"
+
+msgid "manager.statistics.city"
+msgstr "城市"
+
+msgid "manager.statistics.region"
+msgstr "地区"
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "报告生成器"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"系统生成报告，跟踪给定时间段内与网站使用情况和提交相关的详细信息。 报告以CSV"
+"格式生成，需要电子表格应用程序以查看。"
+
+msgid "manager.statistics.reports.aggregationColumns"
+msgstr "汇总统计信息："
+
+msgid "manager.statistics.reports.optionalColumns.description"
+msgstr ""
+"斜体并标有 * 的项目表示这些数据对于当前系统中统计信息计数方式（度量类型）而言"
+"是可选的。 您是否可以得到该数据，取决于您的统计信息插件配置。"
+
+msgid "manager.statistics.reports.defaultReportTemplates"
+msgstr "默认报告模板"
+
+msgid "manager.statistics.reports.generateReport"
+msgstr "生成自定义报告"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr ""
+
+msgid "manager.statistics.reports.advancedOptions"
+msgstr "高级选项"
+
+msgid "manager.statistics.reports.advancedOptions.hide"
+msgstr "隐藏高级选项"
+
+msgid "manager.statistics.reports.columns"
+msgstr "列"
+
+msgid "manager.statistics.reports.columns.description"
+msgstr ""
+"定义将用于生成报告的列。 您在此处选择的列不仅定义了将在报告内显示的数据，而且"
+"还定义了统计的汇总级别。 例如，如果选择“ ID”，“类型”和“月”列，则报告将汇总一"
+"个月内来自对象的所有视图，并将该数据显示在一行中。 如果选择“天”而不是“月”，则"
+"每个对象每天都有一行。"
+
+msgid "manager.statistics.reports.filters"
+msgstr "过滤器"
+
+msgid "manager.statistics.reports.objectNotFound"
+msgstr "在数据库中找不到对象"
+
+msgid "manager.statistics.reports.objectType"
+msgstr "对象类型"
+
+msgid "manager.statistics.reports.objectId"
+msgstr "对象 ID"
+
+msgid "manager.statistics.reports.objectId.label"
+msgstr "定义一个或多个对象ID，以逗号分隔（例如1,2,3,4,5）。"
+
+msgid "manager.statistics.reports.yesterday"
+msgstr "昨天"
+
+msgid "manager.statistics.reports.currentMonth"
+msgstr "当前月份"
+
+msgid "manager.statistics.reports.orderBy"
+msgstr "排序方式"
+
+msgid "manager.statistics.reports.orderDir"
+msgstr "方向"
+
+msgid "manager.statistics.reports.orderDir.asc"
+msgstr "递增"
+
+msgid "manager.statistics.reports.orderDir.desc"
+msgstr "递减"
+
+msgid "manager.statistics.reports.month.label"
+msgstr "使用 YYYYMM 格式。"
+
+msgid "manager.statistics.reports.day.label"
+msgstr "使用 YYYYMMDD 格式。"
+
+msgid "manager.statistics.reports.cities.label"
+msgstr "一个或多个城市名称，以逗号分隔（例如，城市名称1,城市名称2）"
+
+msgid "manager.statistics.reports.form.columnsRequired"
+msgstr "您必须至少选择一列才能生成报告。"
+
+msgid "manager.statistics.reports.reportUrl"
+msgstr "报告 URL"
+
+msgid "manager.statistics.reports.reportUrl.label"
+msgstr ""
+"以下网址可用于使用当前表单设置生成的报告。 只需将其复制并在浏览器中打开即"
+"可。 也可以将其作为自定义报告URL生成器存储在您的书签中。"
+
+msgid "manager.statistics.reports.filters.byContext"
+msgstr "根据上下文"
+
+msgid "manager.statistics.reports.filters.byObject"
+msgstr "按对象类型和/或对象ID"
+
+msgid "manager.statistics.reports.filters.byTime"
+msgstr "选择报告范围"
+
+msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
+msgstr "或选择范围："
+
+msgid "manager.statistics.reports.filters.byLocation"
+msgstr "按照地理位置"
+
+msgid "manager.statistics.reports.filters.byLocation.description"
+msgstr "按国家，地区和/或城市缩小结果范围。"
+
+msgid "manager.affiliationAndSupport"
+msgstr "赞助者"
+
+msgid "manager.setup.additionalContent"
+msgstr "附加内容"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "在此处输入的所有内容都会显示在您的主页上。"
+
+msgid "manager.setup.advanced"
+msgstr "高级"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "版权声明"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "在提交过程中，作者需要同意以下的版权声明。"
+
+msgid "manager.setup.authorGuidelines"
+msgstr "作者指南"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr "建议的指南包括引用文献和格式标准，以及在提交中使用的常见引文格式示例。"
+
+msgid "manager.setup.disableSubmissions"
+msgstr ""
+
+msgid "manager.setup.checklist"
+msgstr "检查清单"
+
+msgid "manager.setup.competingInterests"
+msgstr "利益冲突"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "在删除这个项目过程中发生了一个错误"
+
+msgid "manager.setup.favicon"
+msgstr "网站图标"
+
+msgid "manager.setup.homepageImage"
+msgstr "主页图片"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "上传一个在首页上突出显示的图片。"
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr "无效的首页图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "无效的首页头部标题图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+msgstr ""
+"无效的首页头部标题图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "描述"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "侧边栏"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr "找不到 {$name} 块。 请确保已安装并启用该插件。"
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "日志记录与审计"
 
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "找不到您上传的文件。 请尝试再次上传。"
+
+msgid "manager.setup.notifications"
+msgstr "作者提交的通知"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "发送副本到该电子邮件地址"
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"系统会自动向作者发送一封确认提交的电子邮件。 您可能将此电子邮件的副本发送到以"
+"下地址："
+
+msgid "manager.setup.notifyUsers"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.send"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr ""
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "开放存取政策"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"如果提供对所有已发布内容的即时免费访问，则可以输入“开放存取策略”的描述。"
+
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "无效的页面头部Logo图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
+msgstr ""
+"无效的页面头部Logo图片格式或者上传失败，有效的格式有 .gif, .jpg, or .png."
 
-msgid "manager.setup.selectOne"
-msgstr "选择"
+msgid "manager.setup.pageFooter"
+msgstr "页脚"
 
-msgid "manager.statistics"
-msgstr "状态 &amp; 报告"
+msgid "manager.setup.pageFooter.description"
+msgstr "输入您想要显示在网站底部的任何图像，文本或HTML代码。"
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"概述针对读者和作者的同行评审政策和流程。 该描述通常包括通常用于审阅提交内容的"
+"审阅者数量，要求审阅者判断提交内容的标准，进行审阅所需的预期时间以及用于选择"
+"审阅者的原则。"
+
+msgid "manager.setup.principalContact"
+msgstr "主要联系人"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"输入联系人详细信息，通常是主要编辑，管理编辑或行政人员职位的联系方式，这些信"
+"息可以显示在您的公共访问网站上。"
+
+msgid "manager.setup.privacyStatement"
+msgstr "隐私声明"
+
+msgid "manager.setup.dateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr ""
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.time"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.custom"
+msgstr ""
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"该声明将在用户注册，作者提交以及公开可用的“隐私”页面上显示。 在某些地区，法律"
+"要求您在此隐私政策中披露如何处理用户数据。"
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "默认回复期限"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "默认完成期限"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "接受或拒绝审核请求的周数。"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "审核完成所允许的周数"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "永不提醒"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "在编辑过程中，可以为每个评论修改默认值。"
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "回复提醒"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr "如果审阅者在回复到期日之后的许多天未回复审阅请求，则发送电子邮件提醒。"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "审阅提醒"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"如果审阅者在审阅截止日期之后的指定时间内仍未提交推荐，将发送电子邮件提醒。"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "默认审阅模式"
+
+#, fuzzy
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr "在上传过程中提供指向<button type =\"button\">确保盲审</button>的链接"
+
+msgid "manager.setup.sponsors.note"
+msgstr "赞助关系和政策说明"
+
+msgid "manager.setup.sponsors.description"
+msgstr "例如：学术协会，大学部门，合作者等。赞助者将会公开展示。"
+
+msgid "manager.setup.styleSheetDescription"
+msgstr "经验丰富的Web开发人员可以上传CSS文件，以进一步自定义网站的外观。"
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "技术支持联系方式"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"一个可以帮助编辑，作者和审稿人解决提交，编辑，审阅或出版材料方面的问题的联系"
+"人。"
+
+msgid "manager.setup.theme"
+msgstr "主题"
+
+msgid "manager.setup.theme.description"
+msgstr "新主题可以从此页面顶部的“插件”选项卡安装。"
+
+msgid "manager.setup.theme.notFound"
+msgstr "您选择的主题未安装或启用。"
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmActivateSection"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "网站访问选项"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
@@ -413,8 +924,17 @@ msgstr "{$count} ({$percentage}%)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} new)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "已注册用户"
+
 msgid "manager.users"
 msgstr "用户"
+
+msgid "plugins.categories.metadata"
+msgstr "元数据插件"
+
+msgid "plugins.categories.metadata.description"
+msgstr "元数据插件采用附加的元数据标准。"
 
 msgid "plugins.categories.auth"
 msgstr "验证插件"
@@ -458,59 +978,466 @@ msgstr "主题插件用户更改系统显示样式."
 msgid "plugins.categories.themes"
 msgstr "主题插件"
 
-msgid "manager.reviewerSearch.searchByName"
-msgstr "使用名字检索审稿人"
-
-msgid "manager.reviewerSearch.interests"
-msgstr "审阅兴趣"
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "在删除这个项目过程中发生了一个错误"
-
-msgid "manager.announcements.datePublish"
-msgstr "已出版"
-
-msgid "manager.emails.details"
-msgstr "模板详细"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "根据名字检索"
-
-msgid "manager.emails.data"
-msgstr "模板信息数据"
-
-msgid "manager.emails.disable.message"
-msgstr "你是要禁用此电子邮件模板。如果有使用此模板的系统进程，他们不会用它了。你要确认此操作？"
-
-msgid "manager.emails.enable.message"
-msgstr "你是即将启用此电子邮件。你要确认此操作？"
-
-msgid "manager.emails.resetAll.message"
-msgstr "如果您重置所有模板，所有的电子邮件模板的修改都将丢失。你要确认此操作？"
-
-msgid "manager.emails.reset.message"
-msgstr "如果重置这个模板，所有的消息数据将被重置为其默认值，失去了所有的修改。你要确认此操作？"
-
-msgid "plugins.categories.metadata"
-msgstr "元数据插件"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr "使用下表来设定您希望用来查询术语的最大值。此表已预先填充了这些领域的计算平均值。"
-
-msgid "plugins.categories.metadata.description"
-msgstr "元数据插件采用附加的元数据标准。"
-
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "OAI源数据插件"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "这些格式插件表达OAI通信的元数据."
 
+msgid "plugins.categories.pubIds"
+msgstr "公共标识符插件"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "这些插件实现了对公共标识符的支持。"
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"插件未成功复制。 这可能是权限问题。 请确保Web服务器能够写入插件目录（包括子目"
+"录），但不要忘记稍后再次对其进行保护。"
+
+msgid "manager.plugins.delete"
+msgstr "删除插件"
+
+msgid "manager.plugins.installConfirm"
+msgstr "您确定要安装此插件吗？"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "您确定要升级此插件吗？"
+
+msgid "grid.action.installPlugin"
+msgstr "安装或升级此插件"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "您确定要从系统中删除此插件吗？"
+
+msgid "manager.plugins.deleteDescription"
+msgstr "通过点击删除，您将从服务器的文件系统中删除此插件。"
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"无法从文件系统中删除插件\" {$pluginName}\"。 这可能是权限问题。 请确保Web服务"
+"器能够写入插件目录（包括子目录），但不要忘记稍后再次对其进行保护。"
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "插件 \"{$pluginName}\" 已成功删除"
+
+msgid "manager.plugins.description"
+msgstr ""
+"该页面允许Manager查看和配置当前安装的插件。 插件根据其功能分为几类。 下面列出"
+"了类别，并且在每个类别中列出了其当前的插件集。"
+
+msgid "manager.plugins.doesNotExist"
+msgstr "插件 \"{$pluginName}\" 不存在"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "请先选择一个文件"
+
+msgid "manager.plugins.upload"
+msgstr "上传新插件"
+
+msgid "manager.plugins.uploadDescription"
+msgstr "此表单可让您上载并安装新的插件。 请确保将插件压缩为 .tar.gz 文件。"
+
+msgid "manager.plugins.uploadFailed"
+msgstr "请确保选择了要上传的文件。"
+
+msgid "manager.plugins.installed"
+msgstr "已安装的插件"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "插件库"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "总览"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "安装"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "最新兼容版本"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "官方"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr "该插件由 Public Knowledge Project 团队开发和维护。"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "已审核"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr "该插件已通过 Public Knowledge Project 团队的审查和批准。"
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "合作伙伴"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "该插件由我们的开发合作伙伴之一提供。"
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "维护者"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} 于 {$date} 发布"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "主页"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "摘要"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "状态"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "该插件尚未安装。"
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "当前没有与此插件兼容的版本。"
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr "插件已安装，并且比库中可用的版本新。"
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr "插件已安装，但可以更新为较新版本。"
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "插件已安装并且是最新的。"
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "比可用的版本新"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "可以升级"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "最新"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "不可用"
+
+msgid "manager.plugins.installFailed"
+msgstr "安装失败。  {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "成功安装版本 {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr "上传的插件归档文件不包含与插件名称相对应的文件夹。"
+
+msgid "manager.plugins.wrongCategory"
+msgstr "上传的插件不对应升级后的插件类别。"
+
+msgid "manager.plugins.wrongName"
+msgstr "上传的插件中的 version.xml 包含与升级后的插件名称不匹配的插件名称。"
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "插件不存在。 请安装"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr "插件已经存在，但比已安装的版本新。 请升级"
+
+msgid "manager.plugins.settings"
+msgstr "设置"
+
+msgid "manager.plugins.tarCommandNotFound"
+msgstr "tar命令不可用。 请在 \"config.inc.php\" 中正确配置它。"
+
+msgid "manager.plugins.upgrade"
+msgstr "升级插件"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr "该表格允许您升级插件。 请确保将插件压缩为.tar.gz文件。"
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "升级失败。  {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "成功升级到版本 {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "上传文件时出错"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "选择插件文件"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "插件目录中的 version.xml 包含无效数据。"
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "在插件目录中找不到 version.xml"
+
+msgid "notification.localeEnabled"
+msgstr "语言环境已启用。"
+
+msgid "notification.localeDisabled"
+msgstr "语言环境已禁用。"
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} 被设定为首选语言环境。"
+
+msgid "notification.localeInstalled"
+msgstr "所有选定的语言环境均已安装并激活。"
+
+msgid "notification.localeUninstalled"
+msgstr "语言环境 {$locale} 已被卸载。"
+
+msgid "notification.localeReloaded"
+msgstr "已为 {$contextName} 重新加载 {$locale} 语言环境。"
+
+msgid "notification.localeSettingsSaved"
+msgstr "语言环境设置已保存。"
+
+msgid "notification.editedUser"
+msgstr "用户已编辑。"
+
+msgid "manager.distribution.license"
+msgstr "许可证"
+
+msgid "manager.distribution.license.other"
+msgstr "其他许可证URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "许可条款"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "输入要与已发布的作品一起显示的公共许可条款。"
+
+msgid "manager.distribution.customHeaders"
+msgstr "自定义标签"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"添加您希望插入每个页面顶部的自定义HTML标签，也称为元标签。 在此处添加标签之"
+"前，请咨询技术顾问。"
+
+msgid "manager.paymentMethod"
+msgstr "付款"
+
+msgid "manager.paymentMethod.title"
+msgstr "支付方式"
+
+msgid "manager.paymentMethod.none"
+msgstr "未选择付款方式"
+
+msgid "manager.paymentMethod.method"
+msgstr "付款方式"
+
+msgid "manager.paymentMethod.currency"
+msgstr "货币"
+
+msgid "settings.roles.roleOptions"
+msgstr "角色选项"
+
+msgid "settings.roles.showTitles"
+msgstr "在贡献者列表中显示角色标题"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "允许用户自行注册"
+
+msgid "settings.roles.recommendOnly"
+msgstr "仅允许该角色推荐审阅决定，并且将要求授权编辑记录最终决定。"
+
+msgid "settings.roles.roleName"
+msgstr "角色名称"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "缩写"
+
+msgid "settings.roles.assignedStages"
+msgstr "分配的阶段"
+
+msgid "settings.roles.stages"
+msgstr "阶段"
+
+msgid "settings.roles.roleDetails"
+msgstr "角色详细信息"
+
+msgid "settings.roles.from"
+msgstr "权限等级"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"您将要从此上下文中删除此角色。 此操作还将删除相关设置以及该角色的所有用户分"
+"配。 你想继续吗？"
+
+msgid "settings.roles.nameRequired"
+msgstr "您需要定义一个角色名称。"
+
+msgid "settings.roles.abbrevRequired"
+msgstr "您需要定义一个角色缩写。"
+
+msgid "settings.roles.uniqueName"
+msgstr "您需要定义一个唯一的角色名称。"
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "您需要定义一个唯一的角色缩写。"
+
+msgid "settings.roles.roleIdRequired"
+msgstr "您需要定义一个角色权限等级。"
+
+msgid "settings.roles.stageIdRequired"
+msgstr "您需要定义一个分配的阶段。"
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "允许提交元数据编辑。"
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr "需要一个库文件。 请确保您已选择并上传了文件。"
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "该库文件的名称是必需的。"
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "该库文件需要一个文件类型。"
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "合约"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "营销"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "权限"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "报告"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "其他"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> "
+"{$downloadUrl} </blockquote> </p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "选择要附加的库文件"
+
+msgid "grid.action.addGenre"
+msgstr "添加组件"
+
+msgid "grid.action.editGenre"
+msgstr "编辑此组件"
+
+msgid "grid.action.deleteGenre"
+msgstr "删除该组件"
+
+msgid "grid.action.restoreGenres"
+msgstr "将组件还原为默认设置"
+
+msgid "manager.setup.genres.label"
+msgstr ""
+
+msgid "manager.setup.genres.dependent"
+msgstr "将这种类型的文件标记为从属文件（例如，不要与已发布内容一起列出）"
+
+msgid "manager.setup.genres.supplementary"
+msgstr "将此类型的文件标记为补充文件（例如，不是主要提交内容）"
+
+msgid "manager.setup.genres.key"
+msgstr "键"
+
+msgid "manager.setup.genres.key.description"
+msgstr "此类型的可选短符号标识符。"
+
+msgid "manager.setup.genres.key.exists"
+msgstr "键已经存在。"
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"该键只能包含字母数字字符，下划线和连字符，并且必须以字母数字字符开头和结尾。"
+
+msgid "manager.setup.genres.metatadata"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+
+msgid "manager.settings.wizard"
+msgstr "设置向导"
+
+msgid "manager.users.roleRequired"
+msgstr "您需要选择至少一个与该用户关联的角色。"
+
 msgid "manager.website"
 msgstr "网站"
 
+msgid "manager.website.title"
+msgstr "网站设定"
+
+msgid "manager.workflow"
+msgstr "工作流程"
+
+msgid "manager.workflow.title"
+msgstr "工作流程设定"
+
+msgid "manager.distribution"
+msgstr "发行"
+
+msgid "manager.distribution.title"
+msgstr "发行设置"
+
+msgid "manager.reviewForms"
+msgstr "审稿表单管理"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr "您确定要激活此审阅表吗？ 将其分配给审阅后，您将无法再将其停用。"
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr "您确定要停用此审阅表吗？ 它将不再可用于新的审阅任务。"
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "您确定要创建此审阅表的副本吗？"
+
+msgid "manager.reviewForms.completed"
+msgstr "完成"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "您确定要删除此审阅表吗？"
+
+msgid "manager.reviewForms.create"
+msgstr "创建审阅表单"
+
+msgid "manager.reviewForms.description"
+msgstr "描述"
+
+msgid "manager.reviewForms.edit"
+msgstr "审稿表单"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "审稿表单的标题是必须的。"
+
+msgid "manager.reviewForms.inReview"
+msgstr "审阅中"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"在这里创建的审稿表单是专门为审稿人准备的。在这里可以创建专门为期刊的某个栏目"
+"而设计的审稿表单，编辑可以在指派审稿的时候选择不同的表单。所有的表单都提供了"
+"一个选择功能，让编辑可以根据需要把审稿表单的内容与作者分享。"
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "None / Free Form Review"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "无已创建表单"
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "没有使用任何审阅表格。"
+
+msgid "manager.reviewForms.preview"
+msgstr "预览表单"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "审阅表格数据"
+
+msgid "manager.reviewForms.title"
+msgstr "名称"
+
 msgid "manager.reviewFormElement.changeType"
-msgstr "警告：将审稿表单元素类型从一个多选修改为开放式类型，会导致多选选项被删除。"
+msgstr ""
+"警告：将审稿表单元素类型从一个多选修改为开放式类型，会导致多选选项被删除。"
 
 msgid "manager.reviewFormElements"
 msgstr "表单项目"
@@ -557,11 +1484,17 @@ msgstr "选择"
 msgid "manager.reviewFormElements.question"
 msgstr "项目"
 
+msgid "manager.reviewFormElements.description"
+msgstr "描述"
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "单选框 (你只能选择一个)"
 
 msgid "manager.reviewFormElements.required"
 msgstr "R要求审稿人完成项目"
+
+msgid "manager.reviewFormElements.included"
+msgstr "包含在发给作者的消息中"
 
 msgid "manager.reviewFormElements.smalltextfield"
 msgstr "单字文本框"
@@ -572,981 +1505,637 @@ msgstr "扩展文本框"
 msgid "manager.reviewFormElements.textfield"
 msgstr "单行文本框"
 
-msgid "manager.reviewForms"
-msgstr "审稿表单管理"
-
-msgid "manager.reviewForms.completed"
-msgstr "完成"
-
-msgid "manager.reviewForms.create"
-msgstr "创建审阅表单"
-
-msgid "manager.reviewForms.description"
-msgstr "描述"
-
-msgid "manager.reviewForms.edit"
-msgstr "审稿表单"
-
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "审稿表单的标题是必须的。"
-
-msgid "manager.reviewForms.inReview"
-msgstr "审阅中"
-
-msgid "manager.reviewForms.list.description"
-msgstr "在这里创建的审稿表单是专门为审稿人准备的。在这里可以创建专门为期刊的某个栏目而设计的审稿表单，编辑可以在指派审稿的时候选择不同的表单。所有的表单都提供了一个选择功能，让编辑可以根据需要把审稿表单的内容与作者分享。"
-
-msgid "manager.reviewForms.noneChosen"
-msgstr "None / Free Form Review"
-
-msgid "manager.reviewForms.noneCreated"
-msgstr "无已创建表单"
-
-msgid "manager.reviewForms.preview"
-msgstr "预览表单"
-
-msgid "manager.reviewForms.title"
-msgstr "名称"
-
-msgid "manager.userSearch.searchByName"
-msgstr "按名称搜索用户"
-
-msgid "manager.people.existingUserRequired"
-msgstr "必须输入一个现有用户。"
-
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "重新加载默认值"
-
-msgid "manager.language.forms"
-msgstr "表单"
-
-msgid "manager.language.submissions"
-msgstr "提交"
-
-msgid "manager.language.ui"
-msgstr "用户界面"
-
-msgid "manager.emails.subjectWithValue"
-msgstr "主题：{$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "发给"
-
-msgid "manager.emails.sentFrom"
-msgstr "来自"
-
-msgid "manager.emails.resetAll"
-msgstr "重置所有"
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "您提供的密钥已在使用中。"
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "添加电子邮件模板时，必须提供上下文ID。"
-
-msgid "manager.emails.emailTemplates"
-msgstr "电子邮件模板"
-
-msgid "manager.emails.emailKey.description"
-msgstr "电子邮件密钥只能包含字母，数字和下划线。"
-
-msgid "manager.emails.editEmail.success"
-msgstr "电子邮件模板已修改。"
-
-msgid "manager.emails.customTemplate"
-msgstr "自定义模板"
-
-msgid "manager.emails.addEmail.success"
-msgstr "电子邮件模板已添加。"
-
-msgid "manager.emails.addEmail"
-msgstr "添加模板"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "评审提醒详细信息已更新。"
-
-msgid "manager.publication.reviewSetup.success"
-msgstr "评审设置已更新。"
-
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "评审人指导已更新。"
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "评审人指导"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "电子邮件设置已更新。"
-
-msgid "manager.publication.emails"
-msgstr "电子邮件"
-
-msgid "manager.publication.productionStage"
-msgstr "生产"
-
-msgid "manager.publication.reviewStage"
-msgstr "评审"
-
-msgid "manager.publication.submissionStage"
-msgstr "投稿"
-
-msgid "manager.website.imageFileRequired"
-msgstr "需要图像文件。 请确保您已选择并上传了文件。"
-
-msgid "manager.website.appearance"
-msgstr "外观"
-
-msgid "manager.website.information"
-msgstr "信息"
-
-msgid "manager.statistics.reports.filters.byTime"
-msgstr "选择报告范围"
-
-msgid "manager.statistics.reports.filters.byObject"
-msgstr "按对象类型和/或对象ID"
-
-msgid "manager.statistics.reports.filters.byContext"
-msgstr "根据上下文"
-
-msgid "manager.statistics.reports.reportUrl.label"
-msgstr "以下网址可用于使用当前表单设置生成的报告。 只需将其复制并在浏览器中打开即可。 也可以将其作为自定义报告URL生成器存储在您的书签中。"
-
-msgid "manager.statistics.reports.reportUrl"
-msgstr "报告 URL"
-
-msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "您必须至少选择一列才能生成报告。"
-
-msgid "manager.statistics.reports.cities.label"
-msgstr "一个或多个城市名称，以逗号分隔（例如，城市名称1,城市名称2）"
-
-msgid "manager.statistics.reports.day.label"
-msgstr "使用 YYYYMMDD 格式。"
-
-msgid "manager.statistics.reports.month.label"
-msgstr "使用 YYYYMM 格式。"
-
-msgid "manager.statistics.reports.orderDir.desc"
-msgstr "递减"
-
-msgid "manager.statistics.reports.orderDir.asc"
-msgstr "递增"
-
-msgid "manager.statistics.reports.orderDir"
-msgstr "方向"
-
-msgid "manager.statistics.reports.orderBy"
-msgstr "排序方式"
-
-msgid "manager.statistics.reports.currentMonth"
-msgstr "当前月份"
-
-msgid "manager.statistics.reports.yesterday"
-msgstr "昨天"
-
-msgid "manager.statistics.reports.objectId.label"
-msgstr "定义一个或多个对象ID，以逗号分隔（例如1,2,3,4,5）。"
-
-msgid "manager.statistics.reports.objectId"
-msgstr "对象 ID"
-
-msgid "manager.statistics.reports.objectType"
-msgstr "对象类型"
-
-msgid "manager.statistics.reports.objectNotFound"
-msgstr "在数据库中找不到对象"
-
-msgid "manager.statistics.reports.filters"
-msgstr "过滤器"
-
-msgid "manager.statistics.reports.columns.description"
-msgstr ""
-"定义将用于生成报告的列。 您在此处选择的列不仅定义了将在报告内显示的数据，而且还定义了统计的汇总级别。 例如，如果选择“ "
-"ID”，“类型”和“月”列，则报告将汇总一个月内来自对象的所有视图，并将该数据显示在一行中。 如果选择“天”而不是“月”，则每个对象每天都有一行。"
-
-msgid "manager.statistics.reports.columns"
-msgstr "列"
-
-msgid "manager.statistics.reports.advancedOptions.hide"
-msgstr "隐藏高级选项"
-
-msgid "manager.statistics.reports.advancedOptions"
-msgstr "高级选项"
-
-msgid "manager.statistics.reports.generateReport"
-msgstr "生成自定义报告"
-
-msgid "manager.statistics.reports.defaultReportTemplates"
-msgstr "默认报告模板"
-
-msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "斜体并标有 * 的项目表示这些数据对于当前系统中统计信息计数方式（度量类型）而言是可选的。 您是否可以得到该数据，取决于您的统计信息插件配置。"
-
-msgid "manager.statistics.reports.aggregationColumns"
-msgstr "汇总统计信息："
-
-msgid "manager.statistics.reports.description"
-msgstr "系统生成报告，跟踪给定时间段内与网站使用情况和提交相关的详细信息。 报告以CSV格式生成，需要电子表格应用程序以查看。"
-
-#, fuzzy
-msgid "manager.statistics.reports"
-msgstr "报告生成器"
-
-msgid "manager.statistics.region"
-msgstr "地区"
-
-msgid "manager.statistics.city"
-msgstr "城市"
-
-msgid "manager.statistics.defaultMetricDescription"
-msgstr ""
-"\n"
-"\t\t您的 {$contextObjectName} 已配置为记录多个使用量指标。 使用情况统计信息将在多个上下文中显示。\n"
-"\t\t在某些情况下，必须使用单个使用情况统计信息，例如 显示最常用提交的有序列表或对搜索结果进行排名。\n"
-"\t\t请选择一个配置的指标作为默认指标。\n"
-"\t"
-
-msgid "manager.reviewerSearch.change"
-msgstr "修改"
-
-msgid "manager.plugins.versionFileNotFound"
-msgstr "在插件目录中找不到 version.xml"
-
-msgid "manager.plugins.versionFileInvalid"
-msgstr "插件目录中的 version.xml 包含无效数据。"
-
-msgid "manager.plugins.uploadPluginDir"
-msgstr "选择插件文件"
-
-msgid "manager.plugins.uploadError"
-msgstr "上传文件时出错"
-
-msgid "manager.plugins.upgradeSuccessful"
-msgstr "成功升级到版本 {$versionString}"
-
-msgid "manager.plugins.upgradeFailed"
-msgstr "升级失败。  {$errorString}"
-
-msgid "manager.plugins.upgradeDescription"
-msgstr "该表格允许您升级插件。 请确保将插件压缩为.tar.gz文件。"
-
-msgid "manager.plugins.upgrade"
-msgstr "升级插件"
-
-msgid "manager.plugins.tarCommandNotFound"
-msgstr "tar命令不可用。 请在 \"config.inc.php\" 中正确配置它。"
-
-msgid "manager.plugins.settings"
-msgstr "设置"
-
-msgid "manager.plugins.pleaseUpgrade"
-msgstr "插件已经存在，但比已安装的版本新。 请升级"
-
-msgid "manager.plugins.pleaseInstall"
-msgstr "插件不存在。 请安装"
-
-msgid "manager.plugins.wrongName"
-msgstr "上传的插件中的 version.xml 包含与升级后的插件名称不匹配的插件名称。"
-
-msgid "manager.plugins.wrongCategory"
-msgstr "上传的插件不对应升级后的插件类别。"
-
-msgid "manager.plugins.invalidPluginArchive"
-msgstr "上传的插件归档文件不包含与插件名称相对应的文件夹。"
-
-msgid "manager.plugins.installSuccessful"
-msgstr "成功安装版本 {$versionNumber}"
-
-msgid "manager.plugins.installFailed"
-msgstr "安装失败。  {$errorString}"
-
-msgid "manager.plugins.noCompatibleVersion.short"
-msgstr "不可用"
-
-msgid "manager.plugins.installedVersionNewest.short"
-msgstr "最新"
-
-msgid "manager.plugins.installedVersionOlder.short"
-msgstr "可以升级"
-
-msgid "manager.plugins.installedVersionNewer.short"
-msgstr "比可用的版本新"
-
-msgid "manager.plugins.installedVersionNewest"
-msgstr "插件已安装并且是最新的。"
-
-msgid "manager.plugins.installedVersionOlder"
-msgstr "插件已安装，但可以更新为较新版本。"
-
-msgid "manager.plugins.installedVersionNewer"
-msgstr "插件已安装，并且比库中可用的版本新。"
-
-msgid "manager.plugins.noCompatibleVersion"
-msgstr "当前没有与此插件兼容的版本。"
-
-msgid "manager.plugins.noInstalledVersion"
-msgstr "该插件尚未安装。"
-
-msgid "manager.plugins.pluginGallery.status"
-msgstr "状态"
-
-msgid "manager.plugins.pluginGallery.summary"
-msgstr "摘要"
-
-msgid "manager.plugins.pluginGallery.homepage"
-msgstr "主页"
-
-msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} 于 {$date} 发布"
-
-msgid "manager.plugins.pluginGallery.maintainer"
-msgstr "维护者"
-
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "该插件由我们的开发合作伙伴之一提供。"
-
-msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "合作伙伴"
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "该插件已通过 Public Knowledge Project 团队的审查和批准。"
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr "已审核"
-
-msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "该插件由 Public Knowledge Project 团队开发和维护。"
-
-msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr "官方"
-
-msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr "最新兼容版本"
-
-msgid "manager.plugins.pluginGallery.installation"
-msgstr "安装"
-
-msgid "manager.plugins.pluginGallery.overview"
-msgstr "总览"
-
-msgid "manager.plugins.pluginGallery"
-msgstr "插件库"
-
-msgid "manager.plugins.installed"
-msgstr "已安装的插件"
-
-msgid "manager.plugins.uploadFailed"
-msgstr "请确保选择了要上传的文件。"
-
-msgid "manager.plugins.uploadDescription"
-msgstr "此表单可让您上载并安装新的插件。 请确保将插件压缩为 .tar.gz 文件。"
-
-msgid "manager.plugins.upload"
-msgstr "上传新插件"
-
-msgid "manager.plugins.fileSelectError"
-msgstr "请先选择一个文件"
-
-msgid "manager.plugins.doesNotExist"
-msgstr "插件 \"{$pluginName}\" 不存在"
-
-msgid "manager.plugins.description"
-msgstr "该页面允许Manager查看和配置当前安装的插件。 插件根据其功能分为几类。 下面列出了类别，并且在每个类别中列出了其当前的插件集。"
-
-msgid "manager.plugins.deleteSuccess"
-msgstr "插件 \"{$pluginName}\" 已成功删除"
-
-msgid "manager.plugins.deleteError"
-msgstr ""
-"无法从文件系统中删除插件\" {$pluginName}\"。 这可能是权限问题。 "
-"请确保Web服务器能够写入插件目录（包括子目录），但不要忘记稍后再次对其进行保护。"
-
-msgid "manager.plugins.deleteDescription"
-msgstr "通过点击删除，您将从服务器的文件系统中删除此插件。"
-
-msgid "manager.plugins.deleteConfirm"
-msgstr "您确定要从系统中删除此插件吗？"
-
-msgid "grid.action.installPlugin"
-msgstr "安装或升级此插件"
-
-msgid "manager.plugins.upgradeConfirm"
-msgstr "您确定要升级此插件吗？"
-
-msgid "manager.plugins.installConfirm"
-msgstr "您确定要安装此插件吗？"
-
-msgid "manager.plugins.delete"
-msgstr "删除插件"
-
-msgid "manager.plugins.copyError"
-msgstr "插件未成功复制。 这可能是权限问题。 请确保Web服务器能够写入插件目录（包括子目录），但不要忘记稍后再次对其进行保护。"
-
-msgid "plugins.categories.pubIds.description"
-msgstr "这些插件实现了对公共标识符的支持。"
-
-msgid "plugins.categories.pubIds"
-msgstr "公共标识符插件"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "已注册用户"
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "网站访问选项"
-
-msgid "manager.setup.userAccess.success"
-msgstr "此出版社的用户访问详细信息已更新。"
-
-msgid "manager.setup.theme.notFound"
-msgstr "您选择的主题未安装或启用。"
-
-msgid "manager.setup.theme.description"
-msgstr "新主题可以从此页面顶部的“插件”选项卡安装。"
-
-msgid "manager.setup.theme"
-msgstr "主题"
-
-msgid "manager.setup.theme.success"
-msgstr "主题已更新。  <a href=\"{$url}\" target=\"_blank\">立即查看</a>"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr "一个可以帮助编辑，作者和审稿人解决提交，编辑，审阅或出版材料方面的问题的联系人。"
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "技术支持联系方式"
-
-msgid "manager.setup.styleSheetDescription"
-msgstr "经验丰富的Web开发人员可以上传CSS文件，以进一步自定义网站的外观。"
-
-msgid "manager.setup.sponsors.description"
-msgstr "例如：学术协会，大学部门，合作者等。赞助者将会公开展示。"
-
-msgid "manager.setup.sponsors.note"
-msgstr "赞助关系和政策说明"
-
-#, fuzzy
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr "在上传过程中提供指向<button type =\"button\">确保盲审</button>的链接"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "默认审阅模式"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "如果审阅者在审阅截止日期之后的指定时间内仍未提交推荐，将发送电子邮件提醒。"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "审阅提醒"
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "如果审阅者在回复到期日之后的许多天未回复审阅请求，则发送电子邮件提醒。"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "回复提醒"
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "在编辑过程中，可以为每个评论修改默认值。"
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "永不提醒"
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "审核完成所允许的周数"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "接受或拒绝审核请求的周数。"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "默认完成期限"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "默认回复期限"
-
-msgid "manager.setup.privacyStatement.description"
-msgstr "该声明将在用户注册，作者提交以及公开可用的“隐私”页面上显示。 在某些地区，法律要求您在此隐私政策中披露如何处理用户数据。"
-
-msgid "manager.setup.privacyStatement"
-msgstr "隐私声明"
-
-msgid "manager.setup.principalContactDescription"
-msgstr "输入联系人详细信息，通常是主要编辑，管理编辑或行政人员职位的联系方式，这些信息可以显示在您的公共访问网站上。"
-
-msgid "manager.setup.principalContact"
-msgstr "主要联系人"
-
-msgid "manager.setup.peerReview.description"
-msgstr ""
-"概述针对读者和作者的同行评审政策和流程。 "
-"该描述通常包括通常用于审阅提交内容的审阅者数量，要求审阅者判断提交内容的标准，进行审阅所需的预期时间以及用于选择审阅者的原则。"
-
-msgid "manager.setup.pageFooter.description"
-msgstr "输入您想要显示在网站底部的任何图像，文本或HTML代码。"
-
-msgid "manager.setup.pageFooter"
-msgstr "页脚"
-
-msgid "manager.setup.openAccessPolicy.description"
-msgstr "如果提供对所有已发布内容的即时免费访问，则可以输入“开放存取策略”的描述。"
-
-msgid "manager.setup.openAccessPolicy"
-msgstr "开放存取政策"
-
-msgid "manager.setup.notifications.description"
-msgstr "系统会自动向作者发送一封确认提交的电子邮件。 您可能将此电子邮件的副本发送到以下地址："
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "发送副本到该电子邮件地址"
-
-msgid "manager.setup.notifications"
-msgstr "作者提交的通知"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "找不到您上传的文件。 请尝试再次上传。"
-
-msgid "manager.setup.logo"
-msgstr "Logo"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr "找不到 {$name} 块。 请确保已安装并启用该插件。"
-
-msgid "manager.setup.layout.sidebar"
-msgstr "侧边栏"
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "描述"
-
-msgid "manager.setup.homepageImage.description"
-msgstr "上传一个在首页上突出显示的图片。"
-
-msgid "manager.setup.homepageImage"
-msgstr "主页图片"
-
-msgid "manager.setup.groupType"
-msgstr "文件类型分组"
-
-msgid "manager.setup.favicon"
-msgstr "网站图标"
-
-msgid "manager.setup.checklist"
-msgstr "检查清单"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "作者指南已成功更新。"
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr "建议的指南包括引用文献和格式标准，以及在提交中使用的常见引文格式示例。"
-
-msgid "manager.setup.authorGuidelines"
-msgstr "作者指南"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr "在提交过程中，作者需要同意以下的版权声明。"
-
-msgid "manager.setup.copyrightNotice"
-msgstr "版权声明"
-
-msgid "manager.setup.contact.success"
-msgstr "该出版社的联系方式已更新。"
-
-msgid "manager.setup.appearance.success"
-msgstr "外观设置已更新。"
-
-msgid "manager.setup.advanced"
-msgstr "高级"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "在此处输入的所有内容都会显示在您的主页上。"
-
-msgid "manager.setup.additionalContent"
-msgstr "附加内容"
-
-msgid "manager.affiliationAndSupport"
-msgstr "赞助者"
-
-msgid "manager.statistics.reports.filters.byLocation.description"
-msgstr "按国家，地区和/或城市缩小结果范围。"
-
-msgid "manager.statistics.reports.filters.byLocation"
-msgstr "按照地理位置"
-
-msgid "manager.statistics.reports.filters.byTime.dimensionSelector"
-msgstr "或选择范围："
-
-msgid "manager.publication.editorialStage"
-msgstr "编辑"
-
-msgid "manager.setup.licenseURLDescription"
-msgstr "描述许可证的网页的URL（如果有）。"
-
-msgid "manager.setup.competingInterests.required"
-msgstr "在同行评审中要求提供利益冲突声明。"
+msgid "manager.reviewFormElements.viewable"
+msgstr "可见的（对于作者）"
 
 msgid "grid.action.createReviewForm"
 msgstr "创建一个新的审阅表"
 
-msgid "manager.reviewFormElements.viewable"
-msgstr "可见的（对于作者）"
+msgid "manager.setup.competingInterests.required"
+msgstr "在同行评审中要求提供利益冲突声明。"
 
-msgid "manager.reviewFormElements.included"
-msgstr "包含在发给作者的消息中"
+msgid "manager.setup.licenseURLDescription"
+msgstr "描述许可证的网页的URL（如果有）。"
 
-msgid "manager.reviewFormElements.description"
-msgstr "描述"
-
-msgid "manager.reviewForms.reviewFormData"
-msgstr "审阅表格数据"
-
-msgid "manager.reviewForms.noneUsed"
-msgstr "没有使用任何审阅表格。"
-
-msgid "manager.reviewForms.confirmDelete"
-msgstr "您确定要删除此审阅表吗？"
-
-msgid "manager.reviewForms.confirmCopy"
-msgstr "您确定要创建此审阅表的副本吗？"
-
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr "您确定要停用此审阅表吗？ 它将不再可用于新的审阅任务。"
-
-msgid "manager.reviewForms.confirmActivate"
-msgstr "您确定要激活此审阅表吗？ 将其分配给审阅后，您将无法再将其停用。"
-
-msgid "manager.distribution.title"
-msgstr "发行设置"
-
-msgid "manager.distribution"
-msgstr "发行"
-
-msgid "manager.workflow.title"
-msgstr "工作流程设定"
-
-msgid "manager.workflow"
-msgstr "工作流程"
-
-msgid "manager.website.title"
-msgstr "网站设定"
-
-msgid "manager.users.roleRequired"
-msgstr "您需要选择至少一个与该用户关联的角色。"
-
-msgid "manager.settings.wizard"
-msgstr "设置向导"
-
-msgid "manager.setup.genres.key.alphaNumeric"
-msgstr "该键只能包含字母数字字符，下划线和连字符，并且必须以字母数字字符开头和结尾。"
-
-msgid "manager.setup.genres.key.exists"
-msgstr "键已经存在。"
-
-msgid "manager.setup.genres.key.description"
-msgstr "此类型的可选短符号标识符。"
-
-msgid "manager.setup.genres.key"
-msgstr "键"
-
-msgid "manager.setup.genres.supplementary"
-msgstr "将此类型的文件标记为补充文件（例如，不是主要提交内容）"
-
-msgid "manager.setup.genres.dependent"
-msgstr "将这种类型的文件标记为从属文件（例如，不要与已发布内容一起列出）"
-
-msgid "grid.action.restoreGenres"
-msgstr "将组件还原为默认设置"
-
-msgid "grid.action.deleteGenre"
-msgstr "删除该组件"
-
-msgid "grid.action.editGenre"
-msgstr "编辑此组件"
-
-msgid "grid.action.addGenre"
-msgstr "添加组件"
-
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "选择要附加的库文件"
-
-msgid "settings.libraryFiles.public.viewInstructions"
-msgstr ""
-"<p>如果启用了“公共访问”，则可以下载该库文件，网址为：<blockquote> {$downloadUrl} </blockquote> </p>"
-
-msgid "settings.libraryFiles.category.other"
-msgstr "其他"
-
-msgid "settings.libraryFiles.category.reports"
-msgstr "报告"
-
-msgid "settings.libraryFiles.category.permissions"
-msgstr "权限"
-
-msgid "settings.libraryFiles.category.marketing"
-msgstr "营销"
-
-msgid "settings.libraryFiles.category.contracts"
-msgstr "合约"
-
-msgid "settings.libraryFiles.typeRequired"
-msgstr "该库文件需要一个文件类型。"
-
-msgid "settings.libraryFiles.nameRequired"
-msgstr "该库文件的名称是必需的。"
-
-msgid "settings.libraryFiles.fileRequired"
-msgstr "需要一个库文件。 请确保您已选择并上传了文件。"
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "允许提交元数据编辑。"
-
-msgid "settings.roles.stageIdRequired"
-msgstr "您需要定义一个分配的阶段。"
-
-msgid "settings.roles.roleIdRequired"
-msgstr "您需要定义一个角色权限等级。"
-
-msgid "settings.roles.uniqueAbbrev"
-msgstr "您需要定义一个唯一的角色缩写。"
-
-msgid "settings.roles.uniqueName"
-msgstr "您需要定义一个唯一的角色名称。"
-
-msgid "settings.roles.abbrevRequired"
-msgstr "您需要定义一个角色缩写。"
-
-msgid "settings.roles.nameRequired"
-msgstr "您需要定义一个角色名称。"
-
-msgid "settings.roles.removeText"
-msgstr "您将要从此上下文中删除此角色。 此操作还将删除相关设置以及该角色的所有用户分配。 你想继续吗？"
-
-msgid "settings.roles.from"
-msgstr "权限等级"
-
-msgid "settings.roles.roleDetails"
-msgstr "角色详细信息"
-
-msgid "settings.roles.stages"
-msgstr "阶段"
-
-msgid "settings.roles.assignedStages"
-msgstr "分配的阶段"
-
-msgid "settings.roles.roleAbbrev"
-msgstr "缩写"
-
-msgid "settings.roles.roleName"
-msgstr "角色名称"
-
-msgid "settings.roles.recommendOnly"
-msgstr "仅允许该角色推荐审阅决定，并且将要求授权编辑记录最终决定。"
-
-msgid "settings.roles.permitSelfRegistration"
-msgstr "允许用户自行注册"
-
-msgid "settings.roles.showTitles"
-msgstr "在贡献者列表中显示角色标题"
-
-msgid "settings.roles.roleOptions"
-msgstr "角色选项"
-
-msgid "manager.paymentMethod.currency"
-msgstr "货币"
-
-msgid "manager.paymentMethod.method"
-msgstr "付款方式"
-
-msgid "manager.paymentMethod.none"
-msgstr "未选择付款方式"
-
-msgid "manager.paymentMethod.title"
-msgstr "支付方式"
-
-msgid "manager.paymentMethod"
-msgstr "付款"
-
-msgid "manager.distribution.customHeaders.description"
-msgstr "添加您希望插入每个页面顶部的自定义HTML标签，也称为元标签。 在此处添加标签之前，请咨询技术顾问。"
-
-msgid "manager.distribution.customHeaders"
-msgstr "自定义标签"
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr "输入要与已发布的作品一起显示的公共许可条款。"
-
-msgid "manager.distribution.licenseTerms"
-msgstr "许可条款"
-
-msgid "manager.distribution.license.other"
-msgstr "其他许可证URL"
-
-msgid "manager.distribution.license.success"
-msgstr "许可详细信息已更新。 "
-
-msgid "manager.distribution.license"
-msgstr "许可证"
-
-msgid "notification.editedUser"
-msgstr "用户已编辑。"
-
-msgid "notification.localeSettingsSaved"
-msgstr "语言环境设置已保存。"
-
-msgid "notification.localeReloaded"
-msgstr "已为 {$contextName} 重新加载 {$locale} 语言环境。"
-
-msgid "notification.localeUninstalled"
-msgstr "语言环境 {$locale} 已被卸载。"
-
-msgid "notification.localeInstalled"
-msgstr "所有选定的语言环境均已安装并激活。"
-
-msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} 被设定为首选语言环境。"
-
-msgid "notification.localeDisabled"
-msgstr "语言环境已禁用。"
-
-msgid "notification.localeEnabled"
-msgstr "语言环境已启用。"
-
-msgid "manager.setup.competingInterests"
-msgstr "利益冲突"
-
-msgid "manager.navigationMenus.about.description"
-msgstr "链接到在“设置”>“期刊”中显示“关于期刊”内容的页面"
-
-msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "链接到另一个站点上的任何URL，例如https://pkp.sfu.ca。"
-
-msgid "manager.navigationMenus.remoteUrl"
-msgstr "外部URL"
-
-msgid "manager.navigationMenus.customPage.description"
-msgstr "在您的站点上创建一个自定义页面，并从导航菜单链接到该页面。"
-
-msgid "manager.navigationMenus.customPage"
-msgstr "自定义页面"
-
-msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "选择导航菜单类型或自定义以制作自己的导航菜单"
-
-msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "导航菜单类型"
-
-msgid "manager.navigationMenus.form.submenuWarning"
-msgstr ""
-"当一个菜单项打开子菜单时，并非所有设备都会遵循其链接。 "
-"例如，如果您有一个“关于”项目，该项目通过“联系人”和“编辑团队”打开一个子菜单，则可能无法在所有设备上访问“关于”链接。 "
-"在默认菜单中，这是通过创建第二个菜单项“关于期刊”来处理的，该菜单项出现在子菜单中。"
-
-msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "了解有关何时显示或隐藏此菜单项的更多信息。"
-
-msgid "manager.navigationMenus.form.customUrlError"
-msgstr "必须提供一个URL"
-
-msgid "manager.navigationMenus.form.url"
-msgstr "URL"
-
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "一个导航菜单已经分配给了该区域。"
-
-msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "选择一个导航区域"
-
-msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "已激活主题的导航区域"
-
-msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "未分配的菜单项"
-
-msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "分配的菜单项"
-
-msgid "manager.navigationMenuItems"
-msgstr "导航菜单项"
-
-msgid "manager.navigationMenus.form.titleRequired"
-msgstr "标题为必填项"
-
-msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr "该标题已经存在于另一个导航菜单中。"
-
-msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "此路径已经存在于另一个导航菜单中。"
-
-msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "路径字段只能包含字母数字字符以及“.”，“ /”，“-”和“ _”。"
-
-msgid "manager.navigationMenus.form.viewInstructions"
-msgstr ""
-"<p>可以在以下页面访问此页面：<blockquote> {$pagesPath} </blockquote> ...其中％PATH％是在上面输入的路径。"
-" <strong>注意：</strong>不能有两个页面具有相同的路径。 使用系统内置的路径可能会导致您无法使用重要功能。</p>"
-
-msgid "manager.navigationMenus.form.content"
-msgstr "内容"
-
-msgid "manager.navigationMenus"
-msgstr "导航"
-
-msgid "manager.navigationMenus.form.path"
-msgstr "路径"
-
-msgid "manager.navigationMenus.form.title"
-msgstr "标题"
-
-msgid "manager.setup.metadata.type.description"
-msgstr "提交主要内容的性质或类型。 该类型通常为“文本”，但也可以为“数据集”，“图像”或任何都柏林核心类型</a>。"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr "主题将是描述提交主题的关键字，关键短语或分类代码。"
-
-msgid "manager.setup.metadata.source.require"
-msgstr "要求作者接受他们提交之前提供源URL。"
-
-msgid "manager.setup.metadata.source.request"
-msgstr "要求作者在提交过程中提供源URL。"
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr "在提交过程中，不向作者请求源URL。"
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "启用源元数据"
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "在提交过程中，不要求作者披露权利。"
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "启用权利元数据"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr "提交内容所拥有的任何权利，包括知识产权（IPR），版权和各种产权。"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr "要求作者在接受提交之前输入提交的语言。"
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "启用关键字元数据"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr "关键字通常是一到三个词的短语，用于指示提交的主要主题。"
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr "要求作者在接受他们的投稿之前，建议覆盖范围元数据。"
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr "要求作者在提交过程中建议覆盖范围元数据。"
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr "在提交过程中，请勿向作者请求覆盖范围元数据。"
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "启用覆盖范围元数据"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr "覆盖范围通常将指示作品的空间位置（地名或地理坐标），时间段（时间段标签，日期或日期范围）或辖区（例如指定的管理实体）。"
+msgid "manager.setup.metadata.submission"
+msgstr "提交表单"
 
 msgid "manager.setup.metadata.coverage"
 msgstr "覆盖范围"
 
-msgid "manager.setup.metadata.success"
-msgstr "提交元数据已成功更新。"
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"覆盖范围通常将指示作品的空间位置（地名或地理坐标），时间段（时间段标签，日期"
+"或日期范围）或辖区（例如指定的管理实体）。"
 
-msgid "manager.setup.metadata.submission"
-msgstr "提交表单"
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "启用覆盖范围元数据"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "在提交过程中，请勿向作者请求覆盖范围元数据。"
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "要求作者在提交过程中建议覆盖范围元数据。"
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr "要求作者在接受他们的投稿之前，建议覆盖范围元数据。"
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr "关键字通常是一到三个词的短语，用于指示提交的主要主题。"
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "启用关键字元数据"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "要求作者在接受提交之前输入提交的语言。"
+
+msgid "manager.setup.metadata.rights.description"
+msgstr "提交内容所拥有的任何权利，包括知识产权（IPR），版权和各种产权。"
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "启用权利元数据"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "在提交过程中，不要求作者披露权利。"
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "启用源元数据"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "在提交过程中，不向作者请求源URL。"
+
+msgid "manager.setup.metadata.source.request"
+msgstr "要求作者在提交过程中提供源URL。"
+
+msgid "manager.setup.metadata.source.require"
+msgstr "要求作者接受他们提交之前提供源URL。"
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr "主题将是描述提交主题的关键字，关键短语或分类代码。"
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"提交主要内容的性质或类型。 该类型通常为“文本”，但也可以为“数据集”，“图像”或任"
+"何都柏林核心类型</a>。"
+
+msgid "manager.setup.metadata.type.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr ""
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr ""
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr ""
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr ""
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr ""
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr ""
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+
+msgid "manager.navigationMenus.form.title"
+msgstr "标题"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "路径"
+
+msgid "manager.navigationMenus"
+msgstr "导航"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>可以在以下页面访问此页面：<blockquote> {$pagesPath} </blockquote> ...其"
+"中％PATH％是在上面输入的路径。 <strong>注意：</strong>不能有两个页面具有相同"
+"的路径。 使用系统内置的路径可能会导致您无法使用重要功能。</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "内容"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr "路径字段只能包含字母数字字符以及“.”，“ /”，“-”和“ _”。"
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "此路径已经存在于另一个导航菜单中。"
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "该标题已经存在于另一个导航菜单中。"
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "标题为必填项"
+
+msgid "manager.navigationMenuItems"
+msgstr "导航菜单项"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "分配的菜单项"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "未分配的菜单项"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "已激活主题的导航区域"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "选择一个导航区域"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "一个导航菜单已经分配给了该区域。"
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "必须提供一个URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "了解有关何时显示或隐藏此菜单项的更多信息。"
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"当一个菜单项打开子菜单时，并非所有设备都会遵循其链接。 例如，如果您有一个“关"
+"于”项目，该项目通过“联系人”和“编辑团队”打开一个子菜单，则可能无法在所有设备上"
+"访问“关于”链接。 在默认菜单中，这是通过创建第二个菜单项“关于期刊”来处理的，该"
+"菜单项出现在子菜单中。"
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "导航菜单类型"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "选择导航菜单类型或自定义以制作自己的导航菜单"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "自定义页面"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr "在您的站点上创建一个自定义页面，并从导航菜单链接到该页面。"
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "外部URL"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "链接到另一个站点上的任何URL，例如https://pkp.sfu.ca。"
+
+msgid "manager.navigationMenus.about.description"
+msgstr "链接到在“设置”>“期刊”中显示“关于期刊”内容的页面"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr ""
+
+msgid "manager.navigationMenus.current.description"
+msgstr ""
+
+msgid "manager.navigationMenus.archives.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.login.description"
+msgstr ""
+
+msgid "manager.navigationMenus.register.description"
+msgstr ""
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr ""
+
+msgid "manager.navigationMenus.profile.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr ""
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.search.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+
+msgid "grid.category.add"
+msgstr ""
+
+msgid "grid.category.edit"
+msgstr ""
+
+msgid "grid.category.name"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "grid.category.urlWillBe"
+msgstr ""
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+
+msgid "grid.category.pathExists"
+msgstr ""
+
+msgid "grid.category.description"
+msgstr ""
+
+msgid "grid.category.parentCategory"
+msgstr ""
+
+msgid "grid.category.removeText"
+msgstr ""
+
+msgid "grid.category.nameRequired"
+msgstr ""
+
+msgid "grid.category.categoryDetails"
+msgstr ""
+
+msgid "stats.allUsers"
+msgstr ""
+
+msgid "stats.countWithYearlyAverage"
+msgstr ""
+
+msgid "stats.daily"
+msgstr ""
+
+msgid "stats.dateRange"
+msgstr ""
+
+msgid "stats.dateRange.allDates"
+msgstr ""
+
+msgid "stats.dateRange.apply"
+msgstr ""
+
+msgid "stats.dateRange.change"
+msgstr ""
+
+msgid "stats.dateRange.customRange"
+msgstr ""
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr ""
+
+msgid "stats.dateRange.from"
+msgstr ""
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr ""
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr ""
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr ""
+
+msgid "stats.dateRange.last12Months"
+msgstr ""
+
+msgid "stats.dateRange.last30Days"
+msgstr ""
+
+msgid "stats.dateRange.last90Days"
+msgstr ""
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr ""
+
+msgid "stats.dateRange.lastYear"
+msgstr ""
+
+msgid "stats.dateRange.sinceDate"
+msgstr ""
+
+msgid "stats.dateRange.thisYear"
+msgstr ""
+
+msgid "stats.dateRange.to"
+msgstr ""
+
+msgid "stats.dateRange.untilDate"
+msgstr ""
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr ""
+
+msgid "stats.editorialActivity"
+msgstr ""
+
+msgid "stats.fileViews"
+msgstr ""
+
+msgid "stats.html"
+msgstr ""
+
+msgid "stats.monthly"
+msgstr ""
+
+msgid "stats.pdf"
+msgstr ""
+
+msgid "stats.searchSubmissionDescription"
+msgstr ""
+
+msgid "stats.submissionsActive"
+msgstr ""
+
+msgid "stats.total"
+msgstr ""
+
+msgid "stats.totalWithinDateRange"
+msgstr ""
+
+msgid "stats.trends"
+msgstr ""
+
+msgid "stats.userStatistics"
+msgstr ""
+
+msgid "stats.name.submissionsReceived"
+msgstr ""
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr ""
+
+msgid "stats.name.submissionsDeclined"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr ""
+
+msgid "stats.name.submissionsPublished"
+msgstr ""
+
+msgid "stats.name.daysToDecision"
+msgstr ""
+
+msgid "stats.name.daysToAccept"
+msgstr ""
+
+msgid "stats.name.daysToReject"
+msgstr ""
+
+msgid "stats.name.acceptanceRate"
+msgstr ""
+
+msgid "stats.name.declineRate"
+msgstr ""
+
+msgid "stats.name.declinedDeskRate"
+msgstr ""
+
+msgid "stats.name.declinedReviewRate"
+msgstr ""
+
+#~ msgid "manager.setup.selectOne"
+#~ msgstr "选择"
+
+#~ msgid "manager.emails.editEmail.success"
+#~ msgstr "电子邮件模板已修改。"
+
+#~ msgid "manager.emails.addEmail.success"
+#~ msgstr "电子邮件模板已添加。"
+
+#~ msgid "manager.publication.reviewSetup.success"
+#~ msgstr "评审设置已更新。"
+
+#~ msgid "manager.publication.reviewerGuidance.success"
+#~ msgstr "评审人指导已更新。"
+
+#~ msgid "manager.publication.emailSetup.success"
+#~ msgstr "电子邮件设置已更新。"
+
+#~ msgid "manager.setup.userAccess.success"
+#~ msgstr "此出版社的用户访问详细信息已更新。"
+
+#~ msgid "manager.setup.theme.success"
+#~ msgstr "主题已更新。  <a href=\"{$url}\" target=\"_blank\">立即查看</a>"
+
+#~ msgid "manager.setup.groupType"
+#~ msgstr "文件类型分组"
+
+#~ msgid "manager.setup.authorGuidelines.success"
+#~ msgstr "作者指南已成功更新。"
+
+#~ msgid "manager.setup.contact.success"
+#~ msgstr "该出版社的联系方式已更新。"
+
+#~ msgid "manager.setup.appearance.success"
+#~ msgstr "外观设置已更新。"
+
+#~ msgid "manager.distribution.license.success"
+#~ msgstr "许可详细信息已更新。 "
+
+#~ msgid "manager.setup.metadata.success"
+#~ msgstr "提交元数据已成功更新。"

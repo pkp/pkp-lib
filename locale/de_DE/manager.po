@@ -21,7 +21,9 @@ msgid "manager.website.appearance"
 msgstr "Aussehen"
 
 msgid "manager.website.imageFileRequired"
-msgstr "Eine Bilddatei wird benötigt. Bitte stellen Sie sicher, dass Sie eine Datei ausgewählt und hochgeladen haben."
+msgstr ""
+"Eine Bilddatei wird benötigt. Bitte stellen Sie sicher, dass Sie eine Datei "
+"ausgewählt und hochgeladen haben."
 
 msgid "manager.announcements"
 msgstr "Mitteilungen"
@@ -42,6 +44,9 @@ msgstr "Ablaufdatum"
 msgid "manager.announcements.datePublish"
 msgstr "Veröffentlichungsdatum"
 
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Mitteilung löschen"
+
 msgid "manager.announcements.edit"
 msgstr "Mitteilung bearbeiten"
 
@@ -55,7 +60,10 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Ablaufdatum"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Die Mitteilung wird Leser/innen bis zu diesem Datum angezeigt. Lassen Sie die Datumsangabe frei, wenn die Mitteilung ohne zeitliche Begrenzung erscheinen soll."
+msgstr ""
+"Die Mitteilung wird Leser/innen bis zu diesem Datum angezeigt. Lassen Sie "
+"die Datumsangabe frei, wenn die Mitteilung ohne zeitliche Begrenzung "
+"erscheinen soll."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Bitte wählen Sie ein Jahr und/oder einen Tag zum Auslaufmonat."
@@ -147,6 +155,9 @@ msgstr "Es wurde kein Mitteilungstyp erstellt."
 msgid "manager.announcementTypes.typeName"
 msgstr "Mitteilungstyp"
 
+msgid "manager.genres.alertDelete"
+msgstr ""
+
 msgid "manager.publication.submissionStage"
 msgstr "Einreichung"
 
@@ -162,14 +173,28 @@ msgstr "Herstellung"
 msgid "manager.publication.emails"
 msgstr "E-Mails"
 
+msgid "manager.publication.reviewerGuidance"
+msgstr "Richtlinien für Gutachter"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Die Details der Begutachtungserinnerungen wurden aktualisiert."
+
 msgid "manager.emails.confirmDelete"
 msgstr "Sind Sie sicher, dass Sie diese E-Mail-Vorlage löschen wollen?"
 
 msgid "manager.emails.confirmReset"
-msgstr "Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform zurücksetzen wollen?"
+msgstr ""
+"Sind Sie sicher, dass Sie diese E-Mail-Vorlage auf die Standardform "
+"zurücksetzen wollen?"
+
+msgid "manager.emails.addEmail"
+msgstr "Vorlage hinzufügen"
 
 msgid "manager.emails.createEmail"
 msgstr "E-Mail erstellen"
+
+msgid "manager.emails.customTemplate"
+msgstr "benutzerdefinierte Vorlage"
 
 msgid "manager.emails.data"
 msgstr "Daten der E-Mail-Vorlage"
@@ -181,7 +206,10 @@ msgid "manager.emails.disable"
 msgstr "Deaktivieren"
 
 msgid "manager.emails.disable.message"
-msgstr "Sie sind dabei, diese E-Mail-Vorlage zu deaktivieren. Wenn es Systemprozesse geben sollte, die diese Vorlage benutzen, werden sie sie nicht mehr benutzen. Möchten Sie diese Aktion bestätigen?"
+msgstr ""
+"Sie sind dabei, diese E-Mail-Vorlage zu deaktivieren. Wenn es Systemprozesse "
+"geben sollte, die diese Vorlage benutzen, werden sie sie nicht mehr "
+"benutzen. Möchten Sie diese Aktion bestätigen?"
 
 msgid "manager.emails.editEmail"
 msgstr "E-Mail bearbeiten"
@@ -192,11 +220,28 @@ msgstr "Das E-Mail-Testbeispiel bearbeiten"
 msgid "manager.emails.emailKey"
 msgstr "E-Mail-Kennung"
 
+msgid "manager.emails.emailKey.description"
+msgstr ""
+"Der E-Mail-Schlüssel darf nur Buchstaben, Zahlen und Unterstriche enthalten."
+
 msgid "manager.emails.emailKeyExists"
-msgstr "Eine E-Mail dieser Kennung existiert bereits. Die E-Mail-Kennungen müssen eindeutig sein."
+msgstr ""
+"Eine E-Mail dieser Kennung existiert bereits. Die E-Mail-Kennungen müssen "
+"eindeutig sein."
 
 msgid "manager.emails.emailTemplate"
 msgstr "E-Mail-Vorlage"
+
+msgid "manager.emails.emailTemplates"
+msgstr "E-Mail-Vorlagen"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+"Es muss eine Context ID zur Verfügung gestellt werden, wenn eine E-Mail-"
+"Vorlage hinzugefügt wird."
+
+msgid "manager.emails.emailTemplate.noDuplicateKeys"
+msgstr "Der Schlüssel, den Sie angeben, ist bereits in Benutzung."
 
 msgid "manager.emails.enabled"
 msgstr "Diese E-Mail-Vorlage aktivieren"
@@ -205,10 +250,13 @@ msgid "manager.emails.enable"
 msgstr "Aktivieren"
 
 msgid "manager.emails.enable.message"
-msgstr "Sie sind dabei, diese Vorlage zu aktivieren. Möchten Sie diese Aktion bestätigen?"
+msgstr ""
+"Sie sind dabei, diese Vorlage zu aktivieren. Möchten Sie diese Aktion "
+"bestätigen?"
 
 msgid "manager.emails.form.emailKeyRequired"
-msgstr "Ein eindeutiger E-Mail-Bezeichner ist für die E-Mail-Vorlage erforderlich."
+msgstr ""
+"Ein eindeutiger E-Mail-Bezeichner ist für die E-Mail-Vorlage erforderlich."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "Die E-Mail muss einen Text enthalten."
@@ -219,23 +267,56 @@ msgstr "Ein Betreff ist erforderlich."
 msgid "manager.emails"
 msgstr "E-Mail-Vorlagen"
 
+msgid "manager.emails.resetAll"
+msgstr "Alles zurücksetzen"
+
 msgid "manager.emails.resetAll.message"
-msgstr "Wenn Sie alle Vorlagen zurücksetzen, gehen alle Veränderungen an den E-Mail-Vorlagen verloren. Möchten Sie diese Aktion bestätigen?"
+msgstr ""
+"Wenn Sie alle Vorlagen zurücksetzen, gehen alle Veränderungen an den E-Mail-"
+"Vorlagen verloren. Möchten Sie diese Aktion bestätigen?"
+
+msgid "manager.emails.resetAll.complete"
+msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
 
 msgid "manager.emails.reset"
 msgstr "Zurücksetzen"
 
+msgid "manager.emails.resetComplete"
+msgstr "Die E-Mail-Vorlage wurde erfolgreich zurückgesetzt."
+
 msgid "manager.emails.reset.message"
-msgstr "Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten Sie diese Aktion bestätigen?"
+msgstr ""
+"Wenn Sie diese Vorlage zurücksetzen, werden alle Daten dieser Vorlage auf "
+"ihre Standardwerte zurückgesetzt, alle Veränderungen gehen verloren. Möchten "
+"Sie diese Aktion bestätigen?"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Auf Standard zurücksetzen"
+
+msgid "manager.emails.sentFrom"
+msgstr "Gesendet von"
+
+msgid "manager.emails.sentTo"
+msgstr "Gesendet an"
+
+msgid "manager.emails.subjectWithValue"
+msgstr "Betreff: {$subject}"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Export nach Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Wählen Sie die Benutzer aus, die in eine Excel/CSV-Datei exportiert werden "
+"sollen."
 
 msgid "manager.filesBrowser"
 msgstr "Dateinavigator"
 
 msgid "manager.files.confirmDelete"
-msgstr "Datei oder Verzeichnis löschen? Beachten Sie, dass nur ein leeres Verzeichnis gelöscht werden kann."
+msgstr ""
+"Datei oder Verzeichnis löschen? Beachten Sie, dass nur ein leeres "
+"Verzeichnis gelöscht werden kann."
 
 msgid "manager.files.createDir"
 msgstr "Verzeichnis anlegen"
@@ -301,16 +382,25 @@ msgid "manager.language.reloadLocalizedDefaultSettings"
 msgstr "Standard wiederherstellen"
 
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Dieses System bietet die Möglichkeit, wichtige Informationen in verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus der nachstehenden Liste eine andere Regionaleinstellung aus."
+msgstr ""
+"Dieses System bietet die Möglichkeit, wichtige Informationen in "
+"verschiedenen zusätzlichen Sprachen einzutragen. Dazu wählen Sie bitte aus "
+"der nachstehenden Liste eine andere Regionaleinstellung aus."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt werden können. Dieses Menü erscheint nur dann, wenn mehr als eine Regionaleinstellung ausgewählt wird."
+msgstr ""
+"Wählen Sie alle Regionaleinstellungen aus, die von der Website unterstützt "
+"werden sollen und die über ein Sprachenmenü auf jeder Seite ausgewählt "
+"werden können. Dieses Menü erscheint nur dann, wenn mehr als eine "
+"Regionaleinstellung ausgewählt wird."
 
 msgid "manager.payment.timestamp"
 msgstr "Zeitpunkt"
 
 msgid "manager.people.existingUserRequired"
-msgstr "Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen werden."
+msgstr ""
+"Ein existierender Benutzer/eine existierende Benutzerin muss eingetragen "
+"werden."
 
 msgid "manager.people.authSource"
 msgstr "Authentifizierungsquelle"
@@ -325,7 +415,9 @@ msgid "manager.people.createUserGeneratePassword"
 msgstr "Ein Zufallspasswort erstellen."
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Schicken Sie der Benutzerin/dem Benutzer eine Begrüßungs-E-Mail mit Benutzer/innen-Namen und Passwort."
+msgstr ""
+"Schicken Sie der Benutzerin/dem Benutzer eine Begrüßungs-E-Mail mit Benutzer/"
+"innen-Namen und Passwort."
 
 msgid "manager.people.disable"
 msgstr "Deaktivieren"
@@ -375,28 +467,39 @@ msgid "manager.people.enrollSync"
 msgstr "Synchronisiere Einträge"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr "Benutzer/innen können jederzeit eine Funktion zugewiesen bekommen, auch kann die Zuweisung jederzeit rückgängig gemacht werden."
+msgstr ""
+"Benutzer/innen können jederzeit eine Funktion zugewiesen bekommen, auch kann "
+"die Zuweisung jederzeit rückgängig gemacht werden."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Benutzer/in eintragen als"
 
 msgid "manager.people.invalidUser"
-msgstr "Leider existiert die Benutzerin/der Benutzer, nach der/dem Sie gesucht haben, nicht."
+msgstr ""
+"Leider existiert die Benutzerin/der Benutzer, nach der/dem Sie gesucht "
+"haben, nicht."
 
 msgid "manager.people.mergeUser"
 msgstr "Benutzer/in zusammenführen"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Sind Sie sicher, dass Sie die ausgewählten {$oldAccountCount} Benutzer/innenkonten in dem Konto mit dem Benutzer/innen-Namen \"{$newUsername}\" aufgehen lassen wollen? Die ausgewählten {$oldAccountCount} Konten werden dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden."
+msgstr ""
+"Sind Sie sicher, dass Sie die ausgewählten {$oldAccountCount} Benutzer/"
+"innenkonten in dem Konto mit dem Benutzer/innen-Namen \"{$newUsername}\" "
+"aufgehen lassen wollen? Die ausgewählten {$oldAccountCount} Konten werden "
+"dann nicht mehr existieren. Der Vorgang kann nicht rückgängig gemacht werden."
 
 msgid "manager.people.mergeUsers"
 msgstr "Benutzer/innen zusammenführen"
 
 msgid "manager.people.mustChooseRole"
-msgstr "Wählen Sie am Seitenanfang bitte eine Funktion aus, bevor Sie \"Benutzer/in eintragen\" anklicken."
+msgstr ""
+"Wählen Sie am Seitenanfang bitte eine Funktion aus, bevor Sie \"Benutzer/in "
+"eintragen\" anklicken."
 
 msgid "manager.people.mustProvideName"
-msgstr "Bitte geben Sie zumindest einen Nachnamen für die Benutzerin/den Benutzer an."
+msgstr ""
+"Bitte geben Sie zumindest einen Nachnamen für die Benutzerin/den Benutzer an."
 
 msgid "manager.people.noMatchingUsers"
 msgstr "Keine passenden Benutzer/innen."
@@ -412,6 +515,9 @@ msgstr "Entfernen"
 
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Speichern und eine/n weitere/n Benutzer/in anlegen"
+
+msgid "manager.people.signedInAs"
+msgstr "Sie sind derzeit als {$username} angemeldet"
 
 msgid "manager.people.signInAs"
 msgstr "Einloggen als"
@@ -429,7 +535,9 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Benutzer/in wurde erfolgreich erstellt."
 
 msgid "manager.people.userMustChangePassword"
-msgstr "Fordern Sie die Benutzerin/den Benutzer auf, beim nächsten Einloggen das Passwort zu ändern."
+msgstr ""
+"Fordern Sie die Benutzerin/den Benutzer auf, beim nächsten Einloggen das "
+"Passwort zu ändern."
 
 msgid "manager.plugins.action"
 msgstr "Aktion:"
@@ -444,7 +552,9 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Verwaltung der Plugins"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Dies ist ein Plugin für diese Website. Nur die/der Website-Administrator/in kann dieses Plugin verwalten."
+msgstr ""
+"Dies ist ein Plugin für diese Website. Nur die/der Website-Administrator/in "
+"kann dieses Plugin verwalten."
 
 msgid "manager.plugins"
 msgstr "Plugins"
@@ -454,6 +564,11 @@ msgstr "Lesewerkzeuge"
 
 msgid "manager.userSearch.searchByName"
 msgstr "Nutzer/in per Name suchen"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Sie können diesen Vertreter nicht löschen. Er ist  den market Metadaten "
+"eines oder mehrerer Puklikationsformate zugeordnet."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Wechseln"
@@ -468,7 +583,10 @@ msgid "manager.reviewerSearch.interests"
 msgstr "Begutachtungsinteressen"
 
 msgid "manager.reviewerSearch.form.instructions"
-msgstr "Benutzen Sie bitte das Formular unten, um Maximalwerte für die geplanten Suchen anzugeben. Das Formular ist vorausgefüllt mit den berechneten Durchschnittswerten dieser Felder."
+msgstr ""
+"Benutzen Sie bitte das Formular unten, um Maximalwerte für die geplanten "
+"Suchen anzugeben. Das Formular ist vorausgefüllt mit den berechneten "
+"Durchschnittswerten dieser Felder."
 
 msgid "manager.roles"
 msgstr "Rollen"
@@ -479,8 +597,12 @@ msgstr "Statistiken &amp; Berichte"
 msgid "manager.statistics.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\tIhr {$contextObjectName} ist so eingestellt, dass sie mehr als eine Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen Kontexten angezeigt.\n"
-"\t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Artikel angezeigt werden soll oder um Suchergebnisse zu gewichten.\n"
+"\t\tIhr {$contextObjectName} ist so eingestellt, dass sie mehr als eine "
+"Nutzungsstatistik aufzeichnet. Nutzungsstatistiken werden in verschiedenen "
+"Kontexten angezeigt.\n"
+"\t\tEs gibt Fälle, in denen eine einzige Nutzungsstatistik benutzt werden "
+"muss, z.B. wenn eine sortierte Liste der am häufigsten genutzten Artikel "
+"angezeigt werden soll oder um Suchergebnisse zu gewichten.\n"
 "\t\tBitte wählen Sie eine der Nutzungsmetriken als Standard aus.\n"
 "\t"
 
@@ -495,19 +617,31 @@ msgid "manager.statistics.reports"
 msgstr "Berichtserstellung"
 
 msgid "manager.statistics.reports.description"
-msgstr "Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden können."
+msgstr ""
+"Das System erstellt Berichte, die die Details der Verarbeitung von Beiträgen "
+"aus der Perspektive von Beiträgen, Redakteur/innen, Gutachter/innen sowie "
+"Rubriken über einen festgelegten Zeitraum nachzeichnen. Die Berichte werden "
+"im CSV-Format erstellt, die mit einer Tabellenkalkulation betrachtet werden "
+"können."
 
 msgid "manager.statistics.reports.aggregationColumns"
 msgstr "Erzeuge Statistiken nach:"
 
 msgid "manager.statistics.reports.optionalColumns.description"
-msgstr "Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). Abhängig von Ihrer Konfiguration des Statistik-Plugins haben Sie diese Daten oder nicht."
+msgstr ""
+"Elemente, die kursiv gesetzt und mit * markiert sind, stehen für optionale "
+"Daten für die momentane Statistikmethode in OJS sind (gewählte Metrik). "
+"Abhängig von Ihrer Konfiguration des Statistik-Plugins haben Sie diese Daten "
+"oder nicht."
 
 msgid "manager.statistics.reports.defaultReportTemplates"
 msgstr "Standard-Berichtsvorlagen"
 
 msgid "manager.statistics.reports.generateReport"
 msgstr "Benutzerdefinierten Bericht erzeugen"
+
+msgid "manager.statistics.reports.customReportGenerator"
+msgstr "Benutzerdefinierte Berichterstellung"
 
 msgid "manager.statistics.reports.advancedOptions"
 msgstr "Erweiterte Einstellungen"
@@ -519,7 +653,14 @@ msgid "manager.statistics.reports.columns"
 msgstr "Spalten"
 
 msgid "manager.statistics.reports.columns.description"
-msgstr "Definieren Sie die Spalten, die zum Erzeugen des Berichts benutzt werden. Die Spalten, die Sie auswählen legen nicht nur fest, welche Daten im Bericht angzeigt werden, sondern definieren auch die Aggregationsstufe der Statistik. Wenn Sie zum Beispiel die Spalten ID, Typ und Monat auswählen, wird der Repurt alle Aufrufe eines Objekts in einem Monat summieren und diese Information in einer Zeile anzeigen. Wenn Sie stattdessen Tag statt Monat auswählen, wird jedes Objekt eine Zeile für jeden Tag erhalten."
+msgstr ""
+"Definieren Sie die Spalten, die zum Erzeugen des Berichts benutzt werden. "
+"Die Spalten, die Sie auswählen legen nicht nur fest, welche Daten im Bericht "
+"angzeigt werden, sondern definieren auch die Aggregationsstufe der "
+"Statistik. Wenn Sie zum Beispiel die Spalten ID, Typ und Monat auswählen, "
+"wird der Repurt alle Aufrufe eines Objekts in einem Monat summieren und "
+"diese Information in einer Zeile anzeigen. Wenn Sie stattdessen Tag statt "
+"Monat auswählen, wird jedes Objekt eine Zeile für jeden Tag erhalten."
 
 msgid "manager.statistics.reports.filters"
 msgstr "Filter"
@@ -534,7 +675,9 @@ msgid "manager.statistics.reports.objectId"
 msgstr "Objekt-ID"
 
 msgid "manager.statistics.reports.objectId.label"
-msgstr "Definieren Sie eine oder mehrere Objekt-ID, jeweils mit Komma getrennt (z.B. 1,2,3,4,5)."
+msgstr ""
+"Definieren Sie eine oder mehrere Objekt-ID, jeweils mit Komma getrennt (z.B. "
+"1,2,3,4,5)."
 
 msgid "manager.statistics.reports.yesterday"
 msgstr "Gestern"
@@ -561,16 +704,23 @@ msgid "manager.statistics.reports.day.label"
 msgstr "Benutzen Sie das YYYYMMDD-Format."
 
 msgid "manager.statistics.reports.cities.label"
-msgstr "Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt 2)"
+msgstr ""
+"Ein oder mehrere Städtenamen, jeweils mit Komma getrennt (z.B. Stadt 1,Stadt "
+"2)"
 
 msgid "manager.statistics.reports.form.columnsRequired"
-msgstr "Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen."
+msgstr ""
+"Sie müssen mindestens eine Spalte auswählen, um den Bericht zu erzeugen."
 
 msgid "manager.statistics.reports.reportUrl"
 msgstr "Bericht-URL"
 
 msgid "manager.statistics.reports.reportUrl.label"
-msgstr "Die folgende URL kann benutzt werden, um den Bericht mit den aktuellen Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren Bookmarks speichern."
+msgstr ""
+"Die folgende URL kann benutzt werden, um den Bericht mit den aktuellen "
+"Einstellungen zu erzeugen. Kopieren Sie ihn einfach und geben Sie ihn in "
+"Ihren Browser ein. Sie können die URL zur Berichterzeugung in Ihren "
+"Bookmarks speichern."
 
 msgid "manager.statistics.reports.filters.byContext"
 msgstr "Nach Kontext"
@@ -599,6 +749,9 @@ msgstr "Weiterer Inhalt"
 msgid "manager.setup.additionalContent.description"
 msgstr "Alle hier eingegebenen Inhalte werden auf Ihrer Homepage erscheinen."
 
+msgid "manager.setup.advanced"
+msgstr "Fortgeschritten"
+
 msgid "manager.setup.copyrightNotice"
 msgstr "Copyright-Vermerk"
 
@@ -609,7 +762,16 @@ msgid "manager.setup.authorGuidelines"
 msgstr "Autor/innen-Richtlinien"
 
 msgid "manager.setup.authorGuidelines.description"
-msgstr "Für die Richtlinien werden Standards für Bibliografie und Format sowie Beispiele für gängige Zitierformate, die in Einreichungen benutzt werden sollen, vorgeschlagen."
+msgstr ""
+"Für die Richtlinien werden Standards für Bibliografie und Format sowie "
+"Beispiele für gängige Zitierformate, die in Einreichungen benutzt werden "
+"sollen, vorgeschlagen."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Einreichungen deaktivieren"
+
+msgid "manager.setup.checklist"
+msgstr "Checkliste"
 
 msgid "manager.setup.competingInterests"
 msgstr "Interessenkonflikte"
@@ -624,31 +786,41 @@ msgid "manager.setup.homepageImage"
 msgstr "Startseitengrafik"
 
 msgid "manager.setup.homepageImage.description"
-msgstr "Laden Sie eine Grafik hoch, die zentral auf Ihrer Homepage angezeigt werden soll."
+msgstr ""
+"Laden Sie eine Grafik hoch, die zentral auf Ihrer Homepage angezeigt werden "
+"soll."
 
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Das Format des Bildes auf der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png."
+msgstr ""
+"Das Format des Bildes auf der Startseite ist ungültig. Gültige Formate sind ."
+"gif, .jpg und .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Das Format des Titelbildes in der Kopfzeile der Startseite ist ungültig. Gültige Formate sind .gif, .jpg und .png."
+msgstr ""
+"Das Format des Titelbildes in der Kopfzeile der Startseite ist ungültig. "
+"Gültige Formate sind .gif, .jpg und .png."
 
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Beschreibungen"
 
-msgid "manager.setup.theme"
-msgstr "Grafisches Thema"
-
-msgid "manager.setup.theme.description"
-msgstr "Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus."
-
 msgid "manager.setup.layout.sidebar"
 msgstr "Seitenleiste"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Der {$name} Block konnte nicht gefunden werden. Bitte stellen Sie sicher, "
+"dass das Plugin installiert und aktiviert ist."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Protokollieren und prüfen"
 
 msgid "manager.setup.logo"
 msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+"Die Datei, die hochgeladen wurde, konnte nicht gefunden werden. Bitte "
+"versuchen Sie erneut sie hochzuladen."
 
 msgid "manager.setup.notifications"
 msgstr "Bestätigung der Beitragseinreichung durch die Autor/innen"
@@ -657,37 +829,125 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Eine Kopie an diese E-Mail-Adresse schicken."
 
 msgid "manager.setup.notifications.description"
-msgstr "Autor/innen erhalten automatisch eine E-Mail, die ihnen den Eingang ihrer Einreichung bestätigt. Darüber hinaus können Kopien der Bestätigungs-E-Mail an die folgenden Adressen verschickt werden:"
+msgstr ""
+"Autor/innen erhalten automatisch eine E-Mail, die ihnen den Eingang ihrer "
+"Einreichung bestätigt. Darüber hinaus können Kopien der Bestätigungs-E-Mail "
+"an die folgenden Adressen verschickt werden:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Benachrichtigen"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+"Wählen Sie die Benutzer aus, die Ihre E-Mail-Benachrichtigung erhalten "
+"sollen."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Sende eine Kopie dieser E-Mail an mich unter {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "E-Mail abschicken"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Sie sind im Begriff, eine E-Mail an {$total} Benutzer zu senden. Sind Sie "
+"sicher, dass Sie diese E-Mail senden möchten?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Versenden der E-Mail. Bitte blättern Sie nicht weg, bis das Senden "
+"abgeschlossen ist."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-Mail wurde erfolgreich an alle Empfänger gesendet."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Weitere E-Mail senden"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open-Access-Richtlinien"
 
 msgid "manager.setup.openAccessPolicy.description"
-msgstr "Wenn Sie sofortigen freien Zugang zu allen veröffentlichten Inhalten gewähren, geben Sie eine Beschreibung Ihrer Open-Access-Richtlinie ein."
+msgstr ""
+"Wenn Sie sofortigen freien Zugang zu allen veröffentlichten Inhalten "
+"gewähren, geben Sie eine Beschreibung Ihrer Open-Access-Richtlinie ein."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Ungültiges Format des Logos in der Kopfzeile. Gültige Formate sind .gif, .jpg und .png."
+msgstr ""
+"Ungültiges Format des Logos in der Kopfzeile. Gültige Formate sind .gif, ."
+"jpg und .png."
 
 msgid "manager.setup.pageFooter"
 msgstr "Fußzeile"
 
 msgid "manager.setup.pageFooter.description"
-msgstr "Geben Sie alle Grafiken, Text oder HTML-Code an, die Sie am Fuß Ihrer Website anzeigen möchten."
+msgstr ""
+"Geben Sie alle Grafiken, Text oder HTML-Code an, die Sie am Fuß Ihrer "
+"Website anzeigen möchten."
 
 msgid "manager.setup.peerReview.description"
-msgstr "Beschreiben Sie die Begutachtungsrichtlinien und die Abläufe für Leser/innen und Autor/innen. Diese Beschreibung enthält üblicherweise die Anzahl der Gutachter/innen, die typischerweise eine Einreichung begutachten, die Kriterien, anhand derer Gutachter/innen urteilen sollen, die erwartete Begutachtungsdauer und die Grundsätze der Gutachter/innenauswahl."
+msgstr ""
+"Beschreiben Sie die Begutachtungsrichtlinien und die Abläufe für Leser/innen "
+"und Autor/innen. Diese Beschreibung enthält üblicherweise die Anzahl der "
+"Gutachter/innen, die typischerweise eine Einreichung begutachten, die "
+"Kriterien, anhand derer Gutachter/innen urteilen sollen, die erwartete "
+"Begutachtungsdauer und die Grundsätze der Gutachter/innenauswahl."
 
 msgid "manager.setup.principalContact"
 msgstr "Hauptkontakt"
 
 msgid "manager.setup.principalContactDescription"
-msgstr "Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich zugänglichen Webseite angezeigt werden können."
+msgstr ""
+"Geben Sie Kontaktinformationen, üblicherweise für eine Hauptredaktion, "
+"Redaktionsleitung oder Redaktionsbüro, an, die auf Ihrer öffentlich "
+"zugänglichen Webseite angezeigt werden können."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Schutz personenbezogener Daten"
 
+msgid "manager.setup.dateTime"
+msgstr "Datum & Uhrzeit"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Datums- und Uhrzeitformate"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Wählen Sie das bevorzugte Format für Datum und Uhrzeit. Ein "
+"benutzerdefiniertes Format kann mit speziellen <a href='http://php.net/"
+"manual/en/function.strftime.php#refsect1-function.strftime-"
+"parameters'>format characters</a> eingegeben werden."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kurz)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Uhrzeit"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & Uhrzeit"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & Uhrzeit (kurz)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "benutzerdefiniert"
+
 msgid "manager.setup.privacyStatement.description"
-msgstr "Diese Erklärung wird während der Registrierung neuer Nutzer/innen, bei Autor/inneneinreichungen und auf der öffentlichen Seite zum Datenschutz angezeigt. In manchen Staaten sind Sie rechtlich verpflichtet, in dieser Erklärung anzugeben, wie Sie mit den Daten der Nutzer/innen verfahren."
+msgstr ""
+"Diese Erklärung wird während der Registrierung neuer Nutzer/innen, bei Autor/"
+"inneneinreichungen und auf der öffentlichen Seite zum Datenschutz angezeigt. "
+"In manchen Staaten sind Sie rechtlich verpflichtet, in dieser Erklärung "
+"anzugeben, wie Sie mit den Daten der Nutzer/innen verfahren."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standardfrist für Antwort"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist für Fertigstellung"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr "Zeit für Antwort auf Begutachtungsanfrage (Wochen)"
@@ -699,35 +959,75 @@ msgid "manager.setup.reviewOptions.neverSendReminder"
 msgstr "Nie erinnern"
 
 msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "Die Standards können für jedes Gutachten im Rahmen des redaktionellen Prozesses angepasst werden."
+msgstr ""
+"Die Standards können für jedes Gutachten im Rahmen des redaktionellen "
+"Prozesses angepasst werden."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Erinnerung an Antwort"
 
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in auf die Anfrage nicht "
 "innerhalb der genannten Zeit geantwortet hat."
 
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Erinnerung an Begutachtung"
+
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Eine Erinnerung schicken, wenn ein/e Gutachter/in nicht innerhalb der "
 "genannten Zeit eine Empfehlung eingereicht hat."
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Standard-Fristen für Begutachtung"
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standard-Reviewmodus"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Einen Link zum <button type=\"button\">Anonyme Begutachtung sicherstellen</"
+"button> -Knopf während des Hochladens zur Verfügung stellen"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Hinweise zu Sponsoren"
 
 msgid "manager.setup.sponsors.description"
-msgstr "Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden öffentlich angezeigt."
+msgstr ""
+"Beispiele: Fachgesellschaften, Fachbereiche, Konsortien etc. Spnsoren werden "
+"öffentlich angezeigt."
 
 msgid "manager.setup.styleSheetDescription"
-msgstr "Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen."
+msgstr ""
+"Sie können eine zusätzliche CSS-Datei hochladen, um das Aussehen anzupassen."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Kontakt bei technischen Fragen"
 
 msgid "manager.setup.technicalSupportContactDescription"
-msgstr "Eine Kontaktperson, die Herausgeber/innen, Autor/innen und Gutachter/innen bei allen Problemen unterstützen kann, die sie bei der Einreichung, beim redaktionellen Prozess, bei der Begutachtung oder beim Umgang mit veröffentlichtem Material haben."
+msgstr ""
+"Eine Kontaktperson, die Herausgeber/innen, Autor/innen und Gutachter/innen "
+"bei allen Problemen unterstützen kann, die sie bei der Einreichung, beim "
+"redaktionellen Prozess, bei der Begutachtung oder beim Umgang mit "
+"veröffentlichtem Material haben."
+
+msgid "manager.setup.theme"
+msgstr "Grafisches Thema"
+
+msgid "manager.setup.theme.description"
+msgstr "Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Diese Sektion deaktivieren und  keine neuen Einreichungen zu dieser Sektion "
+"zulassen."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Sind Sie sicher, dass Sie diese Sektion deaktivieren wollen?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Zugriffsoptionen"
@@ -737,6 +1037,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} Neue)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrierte Nutzer/innen"
 
 msgid "manager.users"
 msgstr "Benutzer/innen"
@@ -754,7 +1057,9 @@ msgid "plugins.categories.blocks"
 msgstr "Block-Plugins"
 
 msgid "plugins.categories.blocks.description"
-msgstr "Block-Plugins sind ein- und ausschaltbare Designelemente, z.B. die verschiedenen Instrumente für die Seitenleiste."
+msgstr ""
+"Block-Plugins sind ein- und ausschaltbare Designelemente, z.B. die "
+"verschiedenen Instrumente für die Seitenleiste."
 
 msgid "plugins.categories.gateways.description"
 msgstr "Gateways stellen externen Systemen Daten zur Verfügung."
@@ -766,25 +1071,33 @@ msgid "plugins.categories.generic"
 msgstr "Generische Plugins"
 
 msgid "plugins.categories.importexport.description"
-msgstr "Mit Import-/Export-Plugins lassen sich Inhalte zu bzw. von anderen Systemen transferieren."
+msgstr ""
+"Mit Import-/Export-Plugins lassen sich Inhalte zu bzw. von anderen Systemen "
+"transferieren."
 
 msgid "plugins.categories.importexport"
 msgstr "Import-/Export-Plugins"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Plugins für Zahlungsweisen bieten Unterstützung für unterschiedliche Formen des Online-Zahlungsverkehrs."
+msgstr ""
+"Plugins für Zahlungsweisen bieten Unterstützung für unterschiedliche Formen "
+"des Online-Zahlungsverkehrs."
 
 msgid "plugins.categories.paymethod"
 msgstr "Plugins für Zahlungsweisen"
 
 msgid "plugins.categories.reports.description"
-msgstr "Bericht-Plugins stellen verschiedene Arten von Berichten und Datenauszügen bereit."
+msgstr ""
+"Bericht-Plugins stellen verschiedene Arten von Berichten und Datenauszügen "
+"bereit."
 
 msgid "plugins.categories.reports"
 msgstr "Bericht-Plugins"
 
 msgid "plugins.categories.themes.description"
-msgstr "Designvorlagen-Plugins können verwendet werden, um das Aussehen des Systems zu verändern."
+msgstr ""
+"Designvorlagen-Plugins können verwendet werden, um das Aussehen des Systems "
+"zu verändern."
 
 msgid "plugins.categories.themes"
 msgstr "Designvorlagen-Plugins"
@@ -800,7 +1113,9 @@ msgid "plugins.categories.pubIds"
 msgstr "Plugins für öffentliche Kennungen"
 
 msgid "plugins.categories.pubIds.description"
-msgstr "Diese Plugins liefern Unterstützung für öffentliche Kennungen (public identifiers)."
+msgstr ""
+"Diese Plugins liefern Unterstützung für öffentliche Kennungen (public "
+"identifiers)."
 
 msgid "manager.plugins.copyError"
 msgstr ""
@@ -822,19 +1137,32 @@ msgid "grid.action.installPlugin"
 msgstr "Dieses Plugin installieren oder aktualisieren"
 
 msgid "manager.plugins.deleteConfirm"
-msgstr "Sind Sie sicher, dass dieses Plugin aus dem System entfernt werden soll?"
+msgstr ""
+"Sind Sie sicher, dass dieses Plugin aus dem System entfernt werden soll?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Wenn Sie \"Löschen\" anklicken, wird das Plugin aus dem Dateisystem des Servers entfernt."
+msgstr ""
+"Wenn Sie \"Löschen\" anklicken, wird das Plugin aus dem Dateisystem des "
+"Servers entfernt."
 
 msgid "manager.plugins.deleteError"
-msgstr "Das Plugin \"{$pluginName}\" konnte nicht aus dem Dateisystem gelöscht werden. Eventuell liegt ein Problem mit den Berechtigungen vor. Bitte stellen Sie sicher, dass der Webserver in das plugins-Verzeichnis (inklusive Unterverzeichnisse) schreiben kann. Vergessen Sie aber nicht, den Zugang später abzusichern."
+msgstr ""
+"Das Plugin \"{$pluginName}\" konnte nicht aus dem Dateisystem gelöscht "
+"werden. Eventuell liegt ein Problem mit den Berechtigungen vor. Bitte "
+"stellen Sie sicher, dass der Webserver in das plugins-Verzeichnis (inklusive "
+"Unterverzeichnisse) schreiben kann. Vergessen Sie aber nicht, den Zugang "
+"später abzusichern."
 
 msgid "manager.plugins.deleteSuccess"
 msgstr "Plugin \"{$pluginName}\" erfolgreich gelöscht"
 
 msgid "manager.plugins.description"
-msgstr "Diese Seite ermöglicht es der/dem Zeitschriftenverwalter/in, die aktuell installierten Plugins zu überprüfen und ggf. zu konfigurieren. Plugins sind nach ihren Funktionen in Kategorien eingeteilt. Die entsprechenden Ordnungskategorien sind unten aufgeführt, darunter jeweils die derzeitig eingesetzten Plugins."
+msgstr ""
+"Diese Seite ermöglicht es der/dem Zeitschriftenverwalter/in, die aktuell "
+"installierten Plugins zu überprüfen und ggf. zu konfigurieren. Plugins sind "
+"nach ihren Funktionen in Kategorien eingeteilt. Die entsprechenden "
+"Ordnungskategorien sind unten aufgeführt, darunter jeweils die derzeitig "
+"eingesetzten Plugins."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "Das Plugin \"{$pluginName}\" existiert nicht."
@@ -846,10 +1174,15 @@ msgid "manager.plugins.upload"
 msgstr "Ein neues Plugin hochladen"
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Dieses Formular erlaubt Ihnen, ein neues Plugin hochzuladen und zu installieren. Bitte stellen Sie sicher, dass das Plugin als eine .tar.gz-Datei komprimiert ist."
+msgstr ""
+"Dieses Formular erlaubt Ihnen, ein neues Plugin hochzuladen und zu "
+"installieren. Bitte stellen Sie sicher, dass das Plugin als eine .tar.gz-"
+"Datei komprimiert ist."
 
 msgid "manager.plugins.uploadFailed"
-msgstr "Bitte stellen Sie sicher, dass Sie eine Datei für das Hochladen ausgewählt haben."
+msgstr ""
+"Bitte stellen Sie sicher, dass Sie eine Datei für das Hochladen ausgewählt "
+"haben."
 
 msgid "manager.plugins.installed"
 msgstr "Installierte Plugins"
@@ -870,19 +1203,24 @@ msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Offiziell"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr "Dieses Plugin wird entwickelt und gepflegt durch das Team des Public Knowledge Project."
+msgstr ""
+"Dieses Plugin wird entwickelt und gepflegt durch das Team des Public "
+"Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Begutachtet"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr "Dieses Plugin ist durch Team des Public Knowledge Project begutachtet und genehmigt worden."
+msgstr ""
+"Dieses Plugin ist durch Team des Public Knowledge Project begutachtet und "
+"genehmigt worden."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
 
 msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Dieses Plugin wird von einem unserer Entwicklungspartner bereitgestellt."
+msgstr ""
+"Dieses Plugin wird von einem unserer Entwicklungspartner bereitgestellt."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Verwalter"
@@ -906,10 +1244,14 @@ msgid "manager.plugins.noCompatibleVersion"
 msgstr "Momentan ist keine kompatible Version dieses Plugins verfügbar."
 
 msgid "manager.plugins.installedVersionNewer"
-msgstr "Das Plugin ist bereits installiert und ist neuer als die in der Galerie verfügbare Version."
+msgstr ""
+"Das Plugin ist bereits installiert und ist neuer als die in der Galerie "
+"verfügbare Version."
 
 msgid "manager.plugins.installedVersionOlder"
-msgstr "Das Plugin existiert bereits, ist aber älter als oder genauso alt wie die installierte Version."
+msgstr ""
+"Das Plugin existiert bereits, ist aber älter als oder genauso alt wie die "
+"installierte Version."
 
 msgid "manager.plugins.installedVersionNewest"
 msgstr "Plugin bereits installiert und up-to-date."
@@ -933,31 +1275,43 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Version {$versionNumber} erfolgreich installiert"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Das hochgeladene Plugin-Archiv enthält keinen zum Plugin-Namen passenden Ordner."
+msgstr ""
+"Das hochgeladene Plugin-Archiv enthält keinen zum Plugin-Namen passenden "
+"Ordner."
 
 msgid "manager.plugins.wrongCategory"
-msgstr "Das hochgeladene Plugin passt nicht zu der Kategorie des aktualisierten Plugins."
+msgstr ""
+"Das hochgeladene Plugin passt nicht zu der Kategorie des aktualisierten "
+"Plugins."
 
 msgid "manager.plugins.wrongName"
-msgstr "Die version.xml in dem hochgeladenen Plugin enthält einen Plugin-Namen, der nicht zu dem Namen des aktualisierten Plugins passt."
+msgstr ""
+"Die version.xml in dem hochgeladenen Plugin enthält einen Plugin-Namen, der "
+"nicht zu dem Namen des aktualisierten Plugins passt."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Plugin nicht verfügbar. Bitte wählen Sie \"Installieren\"."
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Das Plugin existiert bereits, ist aber neuer als die installierte Version. Bitte wählen Sie \"Upgrade\"."
+msgstr ""
+"Das Plugin existiert bereits, ist aber neuer als die installierte Version. "
+"Bitte wählen Sie \"Upgrade\"."
 
 msgid "manager.plugins.settings"
 msgstr "Einstellungen"
 
 msgid "manager.plugins.tarCommandNotFound"
-msgstr "Der tar-Befehl ist nicht verfügbar. Bitte konfigurieren Sie ihn in Ihrer \"config.inc.php\"."
+msgstr ""
+"Der tar-Befehl ist nicht verfügbar. Bitte konfigurieren Sie ihn in Ihrer "
+"\"config.inc.php\"."
 
 msgid "manager.plugins.upgrade"
 msgstr "Upgrade Plugin"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Dieses Formular ermöglicht ein Upgrade für ein Plugin. Bitte stellen Sie sicher, das das Plugin als .tar.gz-Datei komprimiert ist."
+msgstr ""
+"Dieses Formular ermöglicht ein Upgrade für ein Plugin. Bitte stellen Sie "
+"sicher, das das Plugin als .tar.gz-Datei komprimiert ist."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Upgrade gescheitert. {$errorString}"
@@ -1001,6 +1355,29 @@ msgstr "Einstellungen zur Regionaleinstellung gespeichert."
 msgid "notification.editedUser"
 msgstr "Benutzer/in bearbeitet."
 
+msgid "manager.distribution.license"
+msgstr "Lizenz"
+
+msgid "manager.distribution.license.other"
+msgstr "Andere Lizenz-URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Lizenzbestimmungen"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Geben Sie die öffentlichen Lizenzbestimmungen ein, die neben "
+"veröffentlichten Arbeiten angezeigt werden sollen."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Benutzerdefinierte Tags"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Fügen Sie benutzerdefinierte HTML Tags, auch Meta Tags genannt, hinzu, die "
+"im Kopf jeder Seite eingefügt werden sollen. Fragen Sie einen technischen "
+"Ratgeber, bevor Sie hier Tags hinzufügen."
+
 msgid "manager.paymentMethod"
 msgstr "Zahlungen"
 
@@ -1026,7 +1403,9 @@ msgid "settings.roles.permitSelfRegistration"
 msgstr "Erlaube Selbstregistrierung von Benutzer/innen"
 
 msgid "settings.roles.recommendOnly"
-msgstr "Diese Rolle kann Begutachtungsentscheidungen nur empfehlen und benötigt eine/n autorisierte/n Redakteur/in, um eine finale Entscheidung festzulegen."
+msgstr ""
+"Diese Rolle kann Begutachtungsentscheidungen nur empfehlen und benötigt eine/"
+"n autorisierte/n Redakteur/in, um eine finale Entscheidung festzulegen."
 
 msgid "settings.roles.roleName"
 msgstr "Name der Rolle"
@@ -1047,7 +1426,10 @@ msgid "settings.roles.from"
 msgstr "Berechtigungsstufe"
 
 msgid "settings.roles.removeText"
-msgstr "Sie werden diese Rolle aus diesem Kontext enfernen. Dies wird auch verknüpfte Einstellungen und alle Zuordnungen von Benutzer/innen zu dieser Rolle löschen. Wollen Sie weitermachen?"
+msgstr ""
+"Sie werden diese Rolle aus diesem Kontext enfernen. Dies wird auch "
+"verknüpfte Einstellungen und alle Zuordnungen von Benutzer/innen zu dieser "
+"Rolle löschen. Wollen Sie weitermachen?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Sie müssen den Namen für die Rolle festlegen."
@@ -1067,8 +1449,13 @@ msgstr "Sie müssen eine Berechtigungsstufe für die Rolle festlegen."
 msgid "settings.roles.stageIdRequired"
 msgstr "Sie müssen eine Phase festlegen, der die Rolle zugeordnet werden soll."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Änderung der Metadaten dieser Einreichung erlauben."
+
 msgid "settings.libraryFiles.fileRequired"
-msgstr "Die Angabe einer Bibliotheksdatei ist erforderlich. Bitte stellen Sie sicher, dass Sie eine Datei ausgewählt und hochgeladen haben."
+msgstr ""
+"Die Angabe einer Bibliotheksdatei ist erforderlich. Bitte stellen Sie "
+"sicher, dass Sie eine Datei ausgewählt und hochgeladen haben."
 
 msgid "settings.libraryFiles.nameRequired"
 msgstr "Die Angabe eines Namens für diese Bibliotheksdatei ist erforderlich."
@@ -1092,7 +1479,10 @@ msgid "settings.libraryFiles.category.other"
 msgstr "Anderes"
 
 msgid "settings.libraryFiles.public.viewInstructions"
-msgstr "<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn \"Öffentlicher Zugang\" unter <blockquote>{$downloadUrl}</blockquote> aktiviert ist.</p>"
+msgstr ""
+"<p>Diese Bibliotheksdatei kann zum Download bereitgestellt werden, wenn "
+"\"Öffentlicher Zugang\" unter <blockquote>{$downloadUrl}</blockquote> "
+"aktiviert ist.</p>"
 
 msgid "settings.libraryFiles.public.selectLibraryFiles"
 msgstr "Wählen Sie Bibliotheksdateien aus, um sie anzuhängen"
@@ -1109,6 +1499,19 @@ msgstr "Dieses Genre entfernen"
 msgid "grid.action.restoreGenres"
 msgstr "Genres auf Standard zurücksetzen"
 
+msgid "manager.setup.genres.label"
+msgstr "Dateityp"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Dies sind abhängige Dateien, wie z. B. Bilder, die von einer HTML-Datei "
+"angezeigt werden, und werden nicht mit veröffentlichten Inhalten angezeigt."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Dies sind Zusatzdateien, wie z. B. Datensätze und Forschungsmaterialien, die "
+"getrennt von den Hauptveröffentlichungsdateien angezeigt werden."
+
 msgid "manager.setup.genres.key"
 msgstr "Schlüssel"
 
@@ -1119,13 +1522,30 @@ msgid "manager.setup.genres.key.exists"
 msgstr "Dieser Schlüssel existiert bereit."
 
 msgid "manager.setup.genres.key.alphaNumeric"
-msgstr "Der Schlüssel darf nur alphanumerische Zeichen, Unterstriche und Bindestriche enthalten und muss mit einem alphanumerischen Zeichen beginnen und enden."
+msgstr ""
+"Der Schlüssel darf nur alphanumerische Zeichen, Unterstriche und "
+"Bindestriche enthalten und muss mit einem alphanumerischen Zeichen beginnen "
+"und enden."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Dateimetadaten"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Wählen Sie die Art der Metadaten, die diese Dateien erhalten können. Für die "
+"Hauptdateien der Publikation, z. B. das herunterladbare PDF, sollte Dokument "
+"ausgewählt werden, damit diese Dateien ihre Metadaten von der Publikation "
+"erben. Wählen Sie andernfalls für die meisten Dateitypen Ergänzende Inhalte. "
+"Artwork ist für Dateien geeignet, die eindeutige Metadaten für Credits, "
+"Bildunterschriften und Lizenzierung benötigen."
 
 msgid "manager.settings.wizard"
 msgstr "Einstellungs-Assistent"
 
 msgid "manager.users.roleRequired"
-msgstr "Sie müssen wenigstens eine Rolle auswählen, die mit dieser Benutzerin/diesem Benutzer verknüpft wird."
+msgstr ""
+"Sie müssen wenigstens eine Rolle auswählen, die mit dieser Benutzerin/diesem "
+"Benutzer verknüpft wird."
 
 msgid "manager.website"
 msgstr "Website"
@@ -1149,13 +1569,20 @@ msgid "manager.reviewForms"
 msgstr "Begutachtungsformulare"
 
 msgid "manager.reviewForms.confirmActivate"
-msgstr "Sind Sie sicher, dass Sie dieses Peer-Review-Formular aktivieren möchten? Nachdem es einmal einem Gutachten zugewiesen worden ist, werden Sie es nicht mehr deaktivieren können."
+msgstr ""
+"Sind Sie sicher, dass Sie dieses Peer-Review-Formular aktivieren möchten? "
+"Nachdem es einmal einem Gutachten zugewiesen worden ist, werden Sie es nicht "
+"mehr deaktivieren können."
 
 msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Sind Sie sicher, dass Sie dieses Peer-Review-Formular deaktivieren möchten? Es wird für neue Peer-Review-Anfragen nicht mehr verfügbar sein."
+msgstr ""
+"Sind Sie sicher, dass Sie dieses Peer-Review-Formular deaktivieren möchten? "
+"Es wird für neue Peer-Review-Anfragen nicht mehr verfügbar sein."
 
 msgid "manager.reviewForms.confirmCopy"
-msgstr "Sind Sie sicher, dass Sie eine Kopie dieses Peer-Review-Formular anlegen möchten?"
+msgstr ""
+"Sind Sie sicher, dass Sie eine Kopie dieses Peer-Review-Formular anlegen "
+"möchten?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Beendet"
@@ -1173,13 +1600,22 @@ msgid "manager.reviewForms.edit"
 msgstr "Review Begutachtungsformular"
 
 msgid "manager.reviewForms.form.titleRequired"
-msgstr "Die Angabe eines Titels für das Begutachtungsformular ist erforderlich."
+msgstr ""
+"Die Angabe eines Titels für das Begutachtungsformular ist erforderlich."
 
 msgid "manager.reviewForms.inReview"
 msgstr "In Begutachtung"
 
 msgid "manager.reviewForms.list.description"
-msgstr "Die Peer-Review-Formulare, die hier erzeugt werden, werden Gutachter/innen zum Vervollständigen gezeigt (statt der Voreinstellung, die zwei leere Textfelder vorsieht, das erste \"für Autor/in und Redakteur/in\", das zweite \"für Redakteur/in\"). Peer-Review-Formulare können spezifischen Zeitschriftenrubriken zugewiesen werden, und Redakteur/innen können wählen, welches Formular benutzt werden soll, wenn sie einen Text zur Begutachtung zuweisen. In jedem Fall haben Redakteur/innen die Möglichkeit, bei der Korrespondenz mit Autor/innen die Gutachten anzufügen."
+msgstr ""
+"Die Peer-Review-Formulare, die hier erzeugt werden, werden Gutachter/innen "
+"zum Vervollständigen gezeigt (statt der Voreinstellung, die zwei leere "
+"Textfelder vorsieht, das erste \"für Autor/in und Redakteur/in\", das zweite "
+"\"für Redakteur/in\"). Peer-Review-Formulare können spezifischen "
+"Zeitschriftenrubriken zugewiesen werden, und Redakteur/innen können wählen, "
+"welches Formular benutzt werden soll, wenn sie einen Text zur Begutachtung "
+"zuweisen. In jedem Fall haben Redakteur/innen die Möglichkeit, bei der "
+"Korrespondenz mit Autor/innen die Gutachten anzufügen."
 
 msgid "manager.reviewForms.noneChosen"
 msgstr "Kein bzw. freies Formular"
@@ -1275,13 +1711,245 @@ msgid "grid.action.createReviewForm"
 msgstr "Ein neues Begutachtungsformular anlegen"
 
 msgid "manager.setup.competingInterests.required"
-msgstr "Während der Begutachtung die Angabe einer Erklärung zu möglicherweise bestehenden Interessenkonflikten verlangen."
+msgstr ""
+"Während der Begutachtung die Angabe einer Erklärung zu möglicherweise "
+"bestehenden Interessenkonflikten verlangen."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL zum Lizenztext, sofern verfügbar."
 
 msgid "manager.setup.metadata.submission"
 msgstr "Einreichungs-Formular"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Bereich"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Abdeckung gibt typischerweise Hinweise auf die räumliche Position (ein "
+"Ortsname oder Koordinaten), einen Zeitraum (z.B. eine Periode oder ein "
+"Datum) oder eine Zuständigkeit (z.B. eine administrative Einrichtung)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Metadaten für Abdeckung anschalten"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Metadaten zur Abdeckung vom Autor "
+"anfordern."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Den Autor während des Enreichprozesses um Vorschläge zu Metadaten zur "
+"Abdeckung bitten."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Während des Enreichprozesses Vorschläge zu Metadaten zur Abdeckung vom Autor "
+"verlangen."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Stichworte sind typischerweise ein bis drei Worte lange Phrasen, die auf das "
+"Fachgebiet der Einreichung hinweisen."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Metadaten zu Stichworten aktivieren"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Stichworte von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"Den Autor/dieAutorin während des Einreichprozesses um Vorschläge zu "
+"Stichworten bitten."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Vom/n Autor/in Vorschläge zu Stichworten verlangen, bevor der Beitrag "
+"angenommen wird."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"en\") "
+"mit einem optionalen Ländercode (\"en_US\") verwendet wird."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Metadaten für Sprache aktivieren"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
+"Die Sprache der Einreichung nicht von den Autoren/innen abfragen während des "
+"Einreichprozesses."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Die Sprache der Einreichung während des Einreichprozesse von den Autoren/"
+"innen abfragen."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Vom/n Autor/in Angaben zur Sprache verlangen, bevor der Beitrag angenommen "
+"wird."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Alle Rechte an diesem Beitrag einschließlich Schutz- und Urheberrechten "
+"sowie Eigentumsrechten."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Metadaten für Rechte aktivieren"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Angaben zu Rechten von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Den Autor/ die Autorin während des Enreichprozesses um Angaben zu "
+"bestehenden Rechten bitten."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Während des Enreichprozesses Angaben zu bestehenden Rechten vom Autor / der "
+"Autorin verlangen, bevor die Einreichung angenommen wird."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Die Quelle kann eine ID wie z.B. eine DOI eines anderen Werkes sein, welches "
+"Grundlage der vorliegenden Einreichung war."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Metadaten für Quellen aktivieren"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Während des Einreichprozesses keine Quellen-URL von der/dem Autor/in "
+"verlangen."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Den Autor/dieAutorin während des Einreichprozesses um eine Quellen-URL "
+"bitten."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Vom/n Autor/in eine Quellen-URL verlangen, bevor der Beitrag angenommen wird."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Themen sind Stichworte, Stichwortketten oder Klassifizierungscodes, die das "
+"Fachgebiet einer Einreichung beschreiben."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Themen-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
+"Während der Einreichung keine Angaben zu Themen von Autor/Autorin verlangen."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
+"Während der Einreichung den Autoren/die Autorin bitten Angaben zum Thema zu "
+"machen."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Während der Einreichung Angaben zum Thema vom Autor/von Autorin verlangen."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Art oder Genre vom Hauptteil der Einreichung. Der Typ ist normalerweise "
+"\"Text\", kann aber auch \"\"Datensatz\", \"Bild\" oder jedem anderen der <a "
+"target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-"
+"vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core Typen</a> "
+"entsprechen."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Typ-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+"Während der Einreichung den Autoren / die Autorin nicht nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Während der Einreichung den Autoren / die Autorin nach dem Typ fragen."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zum Typ vom Autor / von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disziplinen sind Arten von Studien oder Fachgebiete, wie sie von "
+"Universitätsfakultäten oder Fachgesellschaften beschrieben werden."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Disziplin-Metadaten aktivieren"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Während der Einreichung keine Angabe zur Disziplin vom Autor  von der "
+"Autorin verlangen."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+"Während der Einreichung eine Angabe zur Disziplin vom Autor  von der Autorin "
+"erfragen."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Vor Annahme der Einreichung Angaben zur Disziplin vom Autor/von der Autorin "
+"verlangen."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Unterstützende Institutionen können hier die Quelle der "
+"Forschungsfinanzierung oder andere Arten von Unterstützung für die Forschung "
+"angeben."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Metadaten für unterstützende Institutionen aktivieren"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nicht nach "
+"unterstützenden Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Den Autor/die Autorin während des Einreichprozesses nach unterstützenden "
+"Institutionen fragen."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Von dem Autor/der Autorin während des Einreichprozesses die Angabe von "
+"unterstützenden Institutionen verlangen."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Die Referenzen einer Einreichung in einem separaten Feld sammeln. Dies "
+"könnte erforderlich sein, um Erfordernissen von Services zu "
+"Zitationszählungen wie Crossref zu entsprechen."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Metadaten zu Referenzen aktivieren"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Während der Einreichung keine Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+"Während der Einreichung die Angabe von Referenzen von Autor/in erfragen."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Vor Annahme der Einreichung die Angaben von Referenzen von Autor/in "
+"verlangen."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validierungsfehler:"
@@ -1308,37 +1976,60 @@ msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Unbekannte Nutzergruppe {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
-msgstr "Autor/in {$authorName} hat keinen Vornamen in der in der Einreichung verwendeten Sprache, {$localeName}. Die Einreichung kann nicht importiert werden ohne diese Information."
+msgstr ""
+"Autor/in {$authorName} hat keinen Vornamen in der in der Einreichung "
+"verwendeten Sprache, {$localeName}. Die Einreichung kann nicht importiert "
+"werden ohne diese Information."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Unbekannter Uploader {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Temporäre Datei {$dest} konnte nicht aus der Quelle {$source} erzeugt werden"
+msgstr ""
+"Temporäre Datei {$dest} konnte nicht aus der Quelle {$source} erzeugt werden"
 
 msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr "Die übermittelte Dateigröße \"{$expected}\" und die tatsächliche Dateigröße \"{$actual}\" stimmen nicht überein"
+msgstr ""
+"Die übermittelte Dateigröße \"{$expected}\" und die tatsächliche Dateigröße "
+"\"{$actual}\" stimmen nicht überein"
 
 msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr "Die Überarbeitung \"{$revisionId}\" für die Einreichungsdatei \"{$fileId}\" würde einen doppelten Eintrag anlegen"
+msgstr ""
+"Die Überarbeitung \"{$revisionId}\" für die Einreichungsdatei \"{$fileId}\" "
+"würde einen doppelten Eintrag anlegen"
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Die Einreichungsdatei konnte nicht importiert werden"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Die Einreichungsdatei {$id} wurde übersprungen, weil sie an einen Datensatz "
+"angehängt ist, der nicht importiert wird, z. B. eine Begutachtung oder eine "
+"Diskussion."
 
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/Export-Fehler:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr "Importierte/r Nutzer/in \"{$username}\" besitzt kein Passwort. Bitte überprüfen Sie Ihr Import-XML-Format. Nutzer/in wurde nicht importiert."
+msgstr ""
+"Importierte/r Nutzer/in \"{$username}\" besitzt kein Passwort. Bitte "
+"überprüfen Sie Ihr Import-XML-Format. Nutzer/in wurde nicht importiert."
 
 msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr "Importierte/r Nutzer/in \"{$username}\" konnte nicht in der vorliegenden Form importiert werden. Ein neues Passwort wird an die E-Mail-Adresse der Nutzerin/des Nutzers geschickt. Nutzer/in wurde importiert."
+msgstr ""
+"Importierte/r Nutzer/in \"{$username}\" konnte nicht in der vorliegenden "
+"Form importiert werden. Ein neues Passwort wird an die E-Mail-Adresse der "
+"Nutzerin/des Nutzers geschickt. Nutzer/in wurde importiert."
 
 msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr "Importierte/r Nutzer/in \"{$username}\" hat ein ungültiges Klartext-Passwort. Nutzer/in wurde nicht importiert."
+msgstr ""
+"Importierte/r Nutzer/in \"{$username}\" hat ein ungültiges Klartext-"
+"Passwort. Nutzer/in wurde nicht importiert."
 
 msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr "Benutzer/innenname \"{$username}\" und die E-Mail-Adresse \"{$email}\" passen nicht zur selben Benutzerin/zum selben Benutzer."
+msgstr ""
+"Benutzer/innenname \"{$username}\" und die E-Mail-Adresse \"{$email}\" "
+"passen nicht zur selben Benutzerin/zum selben Benutzer."
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -1350,16 +2041,24 @@ msgid "manager.navigationMenus"
 msgstr "Navigationsmenüs"
 
 msgid "manager.navigationMenus.form.viewInstructions"
-msgstr "<p>Diese Seite ist verfügbar über: <blockquote>{$pagesPath}</blockquote>...wobei %PATH% der oben eingegebene Pfad ist. <strong>Hinweis:</strong> Keine zwei Seiten können denselben Pfad haben. Die Verwendung von Pfaden, die im System integriert sind, kann dazu führen, dass Sie den Zugriff auf wichtige Funktionen verlieren.</p>"
+msgstr ""
+"<p>Diese Seite ist verfügbar über: <blockquote>{$pagesPath}</blockquote>..."
+"wobei %PATH% der oben eingegebene Pfad ist. <strong>Hinweis:</strong> Keine "
+"zwei Seiten können denselben Pfad haben. Die Verwendung von Pfaden, die im "
+"System integriert sind, kann dazu führen, dass Sie den Zugriff auf wichtige "
+"Funktionen verlieren.</p>"
 
 msgid "manager.navigationMenus.form.content"
 msgstr "Inhalt"
 
 msgid "manager.navigationMenus.form.pathRegEx"
-msgstr "Der Pfad darf nur alphanumerische Zeichen sowie  '.', '/', '-' und '_' enthalten."
+msgstr ""
+"Der Pfad darf nur alphanumerische Zeichen sowie  '.', '/', '-' und '_' "
+"enthalten."
 
 msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "Dieser Pfad existiert bereits für einen anderen Eintrag im Navigationsmenü."
+msgstr ""
+"Dieser Pfad existiert bereits für einen anderen Eintrag im Navigationsmenü."
 
 msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Dieser Titel existiert bereits in einem anderen Navigationsmenü."
@@ -1395,25 +2094,34 @@ msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Erfahren Sie mehr, wann dieses Menü angezeigt bzw. versteckt wird."
 
 msgid "manager.navigationMenus.form.submenuWarning"
-msgstr "Falls ein Menüeintrag ein Untermenü öffnet, kann der Link nicht mit allen Geräten genutzt werden. Beispielsweise, falls Sie ein \"Über uns\" Eintrag haben mit einem Untermenü \"Kontakt\" und \"Redaktion\", können nicht unbedingt alle Geräte den \"Über uns\" Link aufrufen. Im Standardmenü wird dies dadurch behoben, dass ein zweiter Menüeintrag \"Über die Zeitschrift\" erstellt wird, welcher im Untermenü erscheint."
+msgstr ""
+"Falls ein Menüeintrag ein Untermenü öffnet, kann der Link nicht mit allen "
+"Geräten genutzt werden. Beispielsweise, falls Sie ein \"Über uns\" Eintrag "
+"haben mit einem Untermenü \"Kontakt\" und \"Redaktion\", können nicht "
+"unbedingt alle Geräte den \"Über uns\" Link aufrufen. Im Standardmenü wird "
+"dies dadurch behoben, dass ein zweiter Menüeintrag \"Über die Zeitschrift\" "
+"erstellt wird, welcher im Untermenü erscheint."
 
 msgid "manager.navigationMenus.form.navigationMenuItemType"
 msgstr "Typ des Navigationsmenü"
 
 msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Wählen Sie einen Typ des Navigationsmenü aus oder erstellen Sie einen eigenen"
+msgstr ""
+"Wählen Sie einen Typ des Navigationsmenü aus oder erstellen Sie einen eigenen"
 
 msgid "manager.navigationMenus.customPage"
 msgstr "Eigene Seite"
 
 msgid "manager.navigationMenus.customPage.description"
-msgstr "Erzeugen Sie eine eigene Seite und verlinken sie über das Navigationsmenü."
+msgstr ""
+"Erzeugen Sie eine eigene Seite und verlinken sie über das Navigationsmenü."
 
 msgid "manager.navigationMenus.remoteUrl"
 msgstr "Remote-URL"
 
 msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "Link zu einer beliebigen URL einer anderen Website, z.B. https://pkp.sfu.ca."
+msgstr ""
+"Link zu einer beliebigen URL einer anderen Website, z.B. https://pkp.sfu.ca."
 
 msgid "manager.navigationMenus.about.description"
 msgstr ""
@@ -1421,13 +2129,19 @@ msgstr ""
 "Zeitschrift anzeigt"
 
 msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den Einstellungen > Zeitschrift ausgefüllt haben."
+msgstr ""
+"Dieser Link wird nur angezeigt, falls Sie den Abschnitt Über uns in den "
+"Einstellungen > Zeitschrift ausgefüllt haben."
 
 msgid "manager.navigationMenus.editorialTeam.description"
-msgstr "Link zur Seite, welche den Inhalt des Impressums aus den Einstellungen > Zeitschrift anzeigt."
+msgstr ""
+"Link zur Seite, welche den Inhalt des Impressums aus den Einstellungen > "
+"Zeitschrift anzeigt."
 
 msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, falls Sie den Abschnitt Herausgeber-Team unter Einstellungen > Zeitschrift ausgefüllt haben."
+msgstr ""
+"Dieser Link wird nur angezeigt, falls Sie den Abschnitt Herausgeber-Team "
+"unter Einstellungen > Zeitschrift ausgefüllt haben."
 
 msgid "manager.navigationMenus.submissions.description"
 msgstr "Link zur den Einreichungsrichtlinien."
@@ -1442,7 +2156,9 @@ msgid "manager.navigationMenus.announcements.description"
 msgstr "Link zur Seite, welche Mitteilungen anzeigt."
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, falls Sie die Mitteilungen unter Einstellungen > Webseite aktiviert haben."
+msgstr ""
+"Dieser Link wird nur angezeigt, falls Sie die Mitteilungen unter "
+"Einstellungen > Webseite aktiviert haben."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Link zum Einloggen."
@@ -1466,31 +2182,43 @@ msgid "manager.navigationMenus.logOut.description"
 msgstr "Über diesen Link loggt sich die Benutzerin/der Benutzer aus."
 
 msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt ist."
+msgstr ""
+"Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher eingeloggt "
+"ist."
 
 msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht eingeloggt ist."
+msgstr ""
+"Dieser Link wird nur angezeigt, falls die Besucherin/der Besucher nicht "
+"eingeloggt ist."
 
 msgid "manager.navigationMenus.contact.description"
 msgstr "Link zu einer Seite, die Ihre Kontaktinformationen anzeigt."
 
 msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, wenn Sie die Kontaktinformationen unter Einstellungen > Kontakt ausgefüllt haben."
+msgstr ""
+"Dieser Link wird nur angezeigt, wenn Sie die Kontaktinformationen unter "
+"Einstellungen > Kontakt ausgefüllt haben."
 
 msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Bitte wählen Sie einen Navigationsmenü-Typ."
 
 msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, wenn Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind."
+msgstr ""
+"Dieser Link wird nur angezeigt, wenn Zahlungen unter Einstellungen > "
+"Vertrieb > Zahlungen aktiviert sind."
 
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr "Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingeloggt ist, Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind und ein Abonnement laut Einstellungen > Vertrieb > Zugriff erforderlich ist."
+msgstr ""
+"Dieser Link wird nur angezeigt, wenn die Besucherin/der Besucher eingeloggt "
+"ist, Zahlungen unter Einstellungen > Vertrieb > Zahlungen aktiviert sind und "
+"ein Abonnement laut Einstellungen > Vertrieb > Zugriff erforderlich ist."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Link zur Suchseite."
 
 msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Link zu der Seite mit der Erklärung zum Schutz personenbezogener Daten."
+msgstr ""
+"Link zu der Seite mit der Erklärung zum Schutz personenbezogener Daten."
 
 msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
 msgstr ""
@@ -1517,7 +2245,9 @@ msgid "grid.category.pathAlphaNumeric"
 msgstr "Der Kategorienpfad darf nur aus Buchstaben und Ziffern bestehen."
 
 msgid "grid.category.pathExists"
-msgstr "Der Kategorienpfad existiert bereits. Bitte geben Sie einen eindeutigen Pfad an."
+msgstr ""
+"Der Kategorienpfad existiert bereits. Bitte geben Sie einen eindeutigen Pfad "
+"an."
 
 msgid "grid.category.description"
 msgstr "Beschreibung"
@@ -1534,386 +2264,80 @@ msgstr "Bitte geben Sie einen Kategoriennamen an."
 msgid "grid.category.categoryDetails"
 msgstr "Kategoriendetails"
 
-msgid "stats.name.acceptanceRate"
-msgstr "Annahmequote"
+msgid "stats.allUsers"
+msgstr "Alle Nutzer/innen"
 
-msgid "stats.name.declineRate"
-msgstr "Ablehnquote"
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/Jahr)"
 
-msgid "manager.setup.metadata.source.require"
+msgid "stats.daily"
+msgstr "Täglich"
+
+msgid "stats.dateRange"
+msgstr "Datumsbereich"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alle Daten"
+
+msgid "stats.dateRange.apply"
+msgstr "Anwenden"
+
+msgid "stats.dateRange.change"
+msgstr "Datumsbereich ändern"
+
+msgid "stats.dateRange.customRange"
+msgstr "benutzerdefinierter Bereich"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Eines der eingegebenen Daten existiert nicht."
+
+msgid "stats.dateRange.from"
+msgstr "Von"
+
+msgid "stats.dateRange.instructions"
 msgstr ""
-"Vom/n Autor/in eine Quellen-URL verlangen, bevor der Beitrag angenommen wird."
+"Geben Sie das Datum im Format YYYY-MM-DD ein. Zum Beispiel geben Sie für das "
+"Datum 15. Januar 2019 folgendes ein: 2019-01-15."
 
-msgid "manager.setup.metadata.source.request"
+msgid "stats.dateRange.invalidDate"
 msgstr ""
-"Den Autor/dieAutorin während des Einreichprozesses um eine Quellen-URL "
-"bitten."
+"Das Datumsformat ist ungültig. Geben Sie jedes Datum im Format YYYY-MM-DD an."
 
-msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Quellen-URL von der/dem Autor/in "
-"verlangen."
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Das Startdatum muss vor dem Enddatum liegen."
 
-msgid "manager.setup.metadata.source.enable"
-msgstr "Metadaten für Quellen aktivieren"
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Das Enddatum sollte nicht nach dem {$date} liegen."
 
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Die Quelle kann eine ID wie z.B. eine DOI eines anderen Werkes sein, welches "
-"Grundlage der vorliegenden Einreichung war."
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Das Startdatum sollte nicht vor dem {$date} liegen."
 
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Während des Enreichprozesses Angaben zu bestehenden Rechten vom Autor / der "
-"Autorin verlangen, bevor die Einreichung angenommen wird."
+msgid "stats.dateRange.last12Months"
+msgstr "Letzte 12 Monate"
 
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Den Autor/ die Autorin während des Enreichprozesses um Angaben zu "
-"bestehenden Rechten bitten."
+msgid "stats.dateRange.last30Days"
+msgstr "Letzte 30 Tage"
 
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Angaben zu Rechten von der/dem Autor/in "
-"verlangen."
+msgid "stats.dateRange.last90Days"
+msgstr "Letzte 90 Tage"
 
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Metadaten für Rechte aktivieren"
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Letzte 2 Jahre"
 
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Alle Rechte an diesem Beitrag einschließlich Schutz- und Urheberrechten "
-"sowie Eigentumsrechten."
+msgid "stats.dateRange.lastYear"
+msgstr "Letztes Jahr"
 
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Vom/n Autor/in Angaben zur Sprache verlangen, bevor der Beitrag angenommen "
-"wird."
+msgid "stats.dateRange.sinceDate"
+msgstr "Seit {$date}"
 
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Die Sprache der Einreichung während des Einreichprozesse von den Autoren/"
-"innen abfragen."
+msgid "stats.dateRange.thisYear"
+msgstr "aktuelles Jahr"
 
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr ""
-"Die Sprache der Einreichung nicht von den Autoren/innen abfragen während des "
-"Einreichprozesses."
+msgid "stats.dateRange.to"
+msgstr "Bis"
 
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Metadaten für Sprache aktivieren"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Sprache weist die Hauptsprache der Arbeit aus, indem ein Sprachcode (\"en\") "
-"mit einem optionalen Ländercode (\"en_US\") verwendet wird."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Vom/n Autor/in Vorschläge zu Stichworten verlangen, bevor der Beitrag "
-"angenommen wird."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr ""
-"Den Autor/dieAutorin während des Einreichprozesses um Vorschläge zu "
-"Stichworten bitten."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Stichworte von der/dem Autor/in "
-"verlangen."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Metadaten zu Stichworten aktivieren"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Stichworte sind typischerweise ein bis drei Worte lange Phrasen, die auf das "
-"Fachgebiet der Einreichung hinweisen."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Während des Enreichprozesses Vorschläge zu Metadaten zur Abdeckung vom Autor "
-"verlangen."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Den Autor während des Enreichprozesses um Vorschläge zu Metadaten zur "
-"Abdeckung bitten."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"Während des Einreichprozesses keine Metadaten zur Abdeckung vom Autor "
-"anfordern."
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Metadaten für Abdeckung anschalten"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Abdeckung gibt typischerweise Hinweise auf die räumliche Position (ein "
-"Ortsname oder Koordinaten), einen Zeitraum (z.B. eine Periode oder ein Datum)"
-" oder eine Zuständigkeit (z.B. eine administrative Einrichtung)."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Fügen Sie benutzerdefinierte HTML Tags, auch Meta Tags genannt, hinzu, die "
-"im Kopf jeder Seite eingefügt werden sollen. Fragen Sie einen technischen "
-"Ratgeber, bevor Sie hier Tags hinzufügen."
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Bereich"
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Änderung der Metadaten dieser Einreichung erlauben."
-
-msgid "manager.distribution.customHeaders"
-msgstr "Benutzerdefinierte Tags"
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr ""
-"Geben Sie die öffentlichen Lizenzbestimmungen ein, die neben "
-"veröffentlichten Arbeiten angezeigt werden sollen."
-
-msgid "manager.distribution.licenseTerms"
-msgstr "Lizenzbestimmungen"
-
-msgid "manager.distribution.license.other"
-msgstr "Andere Lizenz-URL"
-
-msgid "manager.distribution.license"
-msgstr "Lizenz"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Registrierte Nutzer/innen"
-
-msgid "manager.setup.theme.notFound"
-msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Einen Link zum <button type=\"button\">Anonyme Begutachtung "
-"sicherstellen</button> -Knopf während des Hochladens zur Verfügung stellen"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Standard-Reviewmodus"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Erinnerung an Begutachtung"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Erinnerung an Antwort"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Standardfrist für Fertigstellung"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Standardfrist für Antwort"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr ""
-"Die Datei, die hochgeladen wurde, konnte nicht gefunden werden. Bitte "
-"versuchen Sie erneut sie hochzuladen."
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"Der {$name} Block konnte nicht gefunden werden. Bitte stellen Sie sicher, "
-"dass das Plugin installiert und aktiviert ist."
-
-msgid "manager.setup.checklist"
-msgstr "Checkliste"
-
-msgid "manager.setup.advanced"
-msgstr "Fortgeschritten"
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Sie können diesen Vertreter nicht löschen. Er ist  den market Metadaten "
-"eines oder mehrerer Puklikationsformate zugeordnet."
-
-msgid "manager.emails.subjectWithValue"
-msgstr "Betreff: {$subject}"
-
-msgid "manager.emails.sentTo"
-msgstr "Gesendet an"
-
-msgid "manager.emails.sentFrom"
-msgstr "Gesendet von"
-
-msgid "manager.emails.resetAll"
-msgstr "Alles zurücksetzen"
-
-msgid "manager.emails.emailTemplate.noDuplicateKeys"
-msgstr "Der Schlüssel, den Sie angeben, ist bereits in Benutzung."
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr ""
-"Es muss eine Context ID zur Verfügung gestellt werden, wenn eine E-Mail-"
-"Vorlage hinzugefügt wird."
-
-msgid "manager.emails.emailTemplates"
-msgstr "E-Mail-Vorlagen"
-
-msgid "manager.emails.emailKey.description"
-msgstr ""
-"Der E-Mail-Schlüssel darf nur Buchstaben, Zahlen und Unterstriche enthalten."
-
-msgid "manager.emails.customTemplate"
-msgstr "benutzerdefinierte Vorlage"
-
-msgid "manager.emails.addEmail"
-msgstr "Vorlage hinzufügen"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Die Details der Begutachtungserinnerungen wurden aktualisiert."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Richtlinien für Gutachter"
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Vor Annahme der Einreichung Angaben zur Disziplin vom Autor/von der Autorin "
-"verlangen."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr ""
-"Während der Einreichung eine Angabe zur Disziplin vom Autor  von der Autorin "
-"erfragen."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr ""
-"Während der Einreichung keine Angabe zur Disziplin vom Autor  von der "
-"Autorin verlangen."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Disziplin-Metadaten aktivieren"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Disziplinen sind Arten von Studien oder Fachgebiete, wie sie von "
-"Universitätsfakultäten oder Fachgesellschaften beschrieben werden."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Vor Annahme der Einreichung Angaben zum Typ vom Autor / von der Autorin "
-"verlangen."
-
-msgid "manager.setup.metadata.type.request"
-msgstr "Während der Einreichung den Autoren / die Autorin nach dem Typ fragen."
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr ""
-"Während der Einreichung den Autoren / die Autorin nicht nach dem Typ fragen."
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Typ-Metadaten aktivieren"
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Art oder Genre vom Hauptteil der Einreichung. Der Typ ist normalerweise \""
-"Text\", kann aber auch \"\"Datensatz\", \"Bild\" oder jedem anderen der <a "
-"target=\"_blank\" href=\"http://dublincore.org/documents/"
-"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core Typen</a> "
-"entsprechen."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Während der Einreichung Angaben zum Thema vom Autor/von Autorin verlangen."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr ""
-"Während der Einreichung den Autoren/die Autorin bitten Angaben zum Thema zu "
-"machen."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr ""
-"Während der Einreichung keine Angaben zu Themen von Autor/Autorin verlangen."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Themen-Metadaten aktivieren"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Themen sind Stichworte, Stichwortketten oder Klassifizierungscodes, die das "
-"Fachgebiet einer Einreichung beschreiben."
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Quote der Ablehnungen nach Peer Review"
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Quote direkter Ablehnungen (desk rejection)"
-
-msgid "stats.name.daysToReject"
-msgstr "Tage bis zur Ablehnung"
-
-msgid "stats.name.daysToAccept"
-msgstr "Tage bis zur Annahme"
-
-msgid "stats.name.daysToDecision"
-msgstr "Tage bis zur ersten redaktionellen Entscheidung"
-
-msgid "stats.name.submissionsPublished"
-msgstr "Veröffentlichte Einreichungen"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Abgelehnte Einreichungen (nach Peer Review)"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Abgelehnte Einreichungen (direkt ohne Peer Review, desk rejection)"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Abgelehnte Einreichungen"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Angenommene Einreichungen"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Erhaltene Einreichungen"
-
-msgid "stats.userStatistics"
-msgstr "Nutzerstatistiken"
-
-msgid "stats.trends"
-msgstr "Tendenzen"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Gesamt innerhalb des Datumsbereichs"
-
-msgid "stats.total"
-msgstr "Gesamt"
-
-msgid "stats.submissionsActive"
-msgstr "Aktive Einreichungen"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Suche nach Titel, Autor/in und ID"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Monatlich"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.fileViews"
-msgstr "Dateiansichten"
-
-msgid "stats.editorialActivity"
-msgstr "Redaktionelle Aktivität"
-
-msgid "stats.descriptionForStat"
-msgstr "Beschreibung für {$stat}"
-
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Die Anzahl der Tage, bis eine erste redaktionelle Entscheidung für eine "
-"Einreichung getroffen wird, wie zum Beispiel direkte Ablehnung oder "
-"Versenden zum Review.<br><br> Diese Zahlen zeigen, dass für 80% aller "
-"Einreichungen eine Entscheidung innerhalb der angegebenen Anzahl von Tagen "
-"getroffen wird.<br><br> Diese Statistik versucht anzugeben, wann die "
-"Mehrheit der Autoren dieser Zeitschrift eine Entscheidung erwarten können."
+msgid "stats.dateRange.untilDate"
+msgstr "Bis {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -1925,251 +2349,101 @@ msgstr ""
 "so liegt die Annahmerate bei 50% (vier von acht Einreichungen), denn über "
 "zwei Einreichungen wurde noch nicht abschließend entschieden."
 
-msgid "stats.dateRange.untilDate"
-msgstr "Bis {$date}"
-
-msgid "stats.dateRange.to"
-msgstr "Bis"
-
-msgid "stats.dateRange.thisYear"
-msgstr "aktuelles Jahr"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Seit {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Letztes Jahr"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Letzte 2 Jahre"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Letzte 90 Tage"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Letzte 30 Tage"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Letzte 12 Monate"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Das Startdatum sollte nicht vor dem {$date} liegen."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Das Enddatum sollte nicht nach dem {$date} liegen."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Das Startdatum muss vor dem Enddatum liegen."
-
-msgid "stats.dateRange.invalidDate"
+msgid "stats.description.daysToDecision"
 msgstr ""
-"Das Datumsformat ist ungültig. Geben Sie jedes Datum im Format YYYY-MM-DD an."
+"Die Anzahl der Tage, bis eine erste redaktionelle Entscheidung für eine "
+"Einreichung getroffen wird, wie zum Beispiel direkte Ablehnung oder "
+"Versenden zum Review.<br><br> Diese Zahlen zeigen, dass für 80% aller "
+"Einreichungen eine Entscheidung innerhalb der angegebenen Anzahl von Tagen "
+"getroffen wird.<br><br> Diese Statistik versucht anzugeben, wann die "
+"Mehrheit der Autoren dieser Zeitschrift eine Entscheidung erwarten können."
 
-msgid "stats.dateRange.instructions"
+msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Geben Sie das Datum im Format YYYY-MM-DD ein. Zum Beispiel geben Sie für das "
-"Datum 15. Januar 2019 folgendes ein: 2019-01-15."
 
-msgid "stats.dateRange.from"
-msgstr "Von"
+msgid "stats.descriptionForStat"
+msgstr "Beschreibung für {$stat}"
 
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Eines der eingegebenen Daten existiert nicht."
+msgid "stats.editorialActivity"
+msgstr "Redaktionelle Aktivität"
 
-msgid "stats.dateRange.customRange"
-msgstr "benutzerdefinierter Bereich"
+msgid "stats.fileViews"
+msgstr "Dateiansichten"
 
-msgid "stats.dateRange.change"
-msgstr "Datumsbereich ändern"
+msgid "stats.html"
+msgstr "HTML"
 
-msgid "stats.dateRange.apply"
-msgstr "Anwenden"
+msgid "stats.monthly"
+msgstr "Monatlich"
 
-msgid "stats.dateRange.allDates"
-msgstr "Alle Daten"
+msgid "stats.pdf"
+msgstr "PDF"
 
-msgid "stats.dateRange"
-msgstr "Datumsbereich"
+msgid "stats.searchSubmissionDescription"
+msgstr "Suche nach Titel, Autor/in und ID"
 
-msgid "stats.daily"
-msgstr "Täglich"
+msgid "stats.submissionsActive"
+msgstr "Aktive Einreichungen"
 
-msgid "stats.allUsers"
-msgstr "Alle Nutzer/innen"
+msgid "stats.total"
+msgstr "Gesamt"
 
-msgid "manager.setup.metadata.citations.require"
+msgid "stats.totalWithinDateRange"
+msgstr "Gesamt innerhalb des Datumsbereichs"
+
+msgid "stats.trends"
+msgstr "Tendenzen"
+
+msgid "stats.userStatistics"
+msgstr "Nutzerstatistiken"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Erhaltene Einreichungen"
+
+msgid "stats.name.submissionsSkipped"
 msgstr ""
-"Vor Annahme der Einreichung die Angaben von Referenzen von Autor/in "
-"verlangen."
 
-msgid "manager.setup.metadata.citations.request"
+msgid "stats.name.submissionsInProgress"
 msgstr ""
-"Während der Einreichung die Angabe von Referenzen von Autor/in erfragen."
 
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Während der Einreichung keine Referenzen von Autor/in erfragen."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Metadaten zu Referenzen aktivieren"
-
-msgid "manager.setup.metadata.citations.description"
+msgid "stats.name.submissionsImported"
 msgstr ""
-"Die Referenzen einer Einreichung in einem separaten Feld sammeln. Dies "
-"könnte erforderlich sein, um Erfordernissen von Services zu "
-"Zitationszählungen wie Crossref zu entsprechen."
 
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Von dem Autor/der Autorin während des Einreichprozesses die Angabe von "
-"unterstützenden Institutionen verlangen."
+msgid "stats.name.submissionsAccepted"
+msgstr "Angenommene Einreichungen"
 
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Den Autor/die Autorin während des Einreichprozesses nach unterstützenden "
-"Institutionen fragen."
+msgid "stats.name.submissionsDeclined"
+msgstr "Abgelehnte Einreichungen"
 
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
-"Den Autor/die Autorin während des Einreichprozesses nicht nach "
-"unterstützenden Institutionen fragen."
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Abgelehnte Einreichungen (direkt ohne Peer Review, desk rejection)"
 
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Metadaten für unterstützende Institutionen aktivieren"
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Abgelehnte Einreichungen (nach Peer Review)"
 
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Unterstützende Institutionen können hier die Quelle der "
-"Forschungsfinanzierung oder andere Arten von Unterstützung für die Forschung "
-"angeben."
+msgid "stats.name.submissionsPublished"
+msgstr "Veröffentlichte Einreichungen"
 
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/Jahr)"
+msgid "stats.name.daysToDecision"
+msgstr "Tage bis zur ersten redaktionellen Entscheidung"
 
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Die Einreichungsdatei {$id} wurde übersprungen, weil sie an einen Datensatz "
-"angehängt ist, der nicht importiert wird, z. B. eine Begutachtung oder eine "
-"Diskussion."
+msgid "stats.name.daysToAccept"
+msgstr "Tage bis zur Annahme"
 
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Wählen Sie die Art der Metadaten, die diese Dateien erhalten können. Für die "
-"Hauptdateien der Publikation, z. B. das herunterladbare PDF, sollte Dokument "
-"ausgewählt werden, damit diese Dateien ihre Metadaten von der Publikation "
-"erben. Wählen Sie andernfalls für die meisten Dateitypen Ergänzende Inhalte. "
-"Artwork ist für Dateien geeignet, die eindeutige Metadaten für Credits, "
-"Bildunterschriften und Lizenzierung benötigen."
+msgid "stats.name.daysToReject"
+msgstr "Tage bis zur Ablehnung"
 
-msgid "manager.setup.genres.metatadata"
-msgstr "Dateimetadaten"
+msgid "stats.name.acceptanceRate"
+msgstr "Annahmequote"
 
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Dies sind Zusatzdateien, wie z. B. Datensätze und Forschungsmaterialien, die "
-"getrennt von den Hauptveröffentlichungsdateien angezeigt werden."
+msgid "stats.name.declineRate"
+msgstr "Ablehnquote"
 
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Dies sind abhängige Dateien, wie z. B. Bilder, die von einer HTML-Datei "
-"angezeigt werden, und werden nicht mit veröffentlichten Inhalten angezeigt."
+msgid "stats.name.declinedDeskRate"
+msgstr "Quote direkter Ablehnungen (desk rejection)"
 
-msgid "manager.setup.genres.label"
-msgstr "Dateityp"
+msgid "stats.name.declinedReviewRate"
+msgstr "Quote der Ablehnungen nach Peer Review"
 
-msgid "manager.sections.confirmActivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Sind Sie sicher, dass Sie diese Sektion deaktivieren wollen?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Diese Sektion deaktivieren und  keine neuen Einreichungen zu dieser Sektion "
-"zulassen."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "benutzerdefiniert"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Datum & Uhrzeit (kurz)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Datum & Uhrzeit"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Uhrzeit"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Datum (kurz)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Datum"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Wählen Sie das bevorzugte Format für Datum und Uhrzeit. Ein "
-"benutzerdefiniertes Format kann mit speziellen <a href='http://php.net/"
-"manual/en/function.strftime.php#refsect1-function.strftime-parameters'>"
-"format characters</a> eingegeben werden."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Datums- und Uhrzeitformate"
-
-msgid "manager.setup.dateTime"
-msgstr "Datum & Uhrzeit"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Weitere E-Mail senden"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "E-Mail wurde erfolgreich an alle Empfänger gesendet."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Versenden der E-Mail. Bitte blättern Sie nicht weg, bis das Senden "
-"abgeschlossen ist."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Sie sind im Begriff, eine E-Mail an {$total} Benutzer zu senden. Sind Sie "
-"sicher, dass Sie diese E-Mail senden möchten?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "E-Mail abschicken"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Sende eine Kopie dieser E-Mail an mich unter {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr ""
-"Wählen Sie die Benutzer aus, die Ihre E-Mail-Benachrichtigung erhalten "
-"sollen."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Benachrichtigen"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Einreichungen deaktivieren"
-
-msgid "manager.statistics.reports.customReportGenerator"
-msgstr "Benutzerdefinierte Berichterstellung"
-
-msgid "manager.people.signedInAs"
-msgstr "Sie sind derzeit als {$username} angemeldet"
-
-msgid "manager.export.usersToCsv.description"
-msgstr ""
-"Wählen Sie die Benutzer aus, die in eine Excel/CSV-Datei exportiert werden "
-"sollen."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Export nach Excel/CSV"
-
-msgid "manager.emails.resetComplete"
-msgstr "Die E-Mail-Vorlage wurde erfolgreich zurückgesetzt."
-
-msgid "manager.emails.resetAll.complete"
-msgstr "Die Standard-E-Mail-Vorlagen wurden wiederhergestellt."
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Mitteilung löschen"
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Standard-Fristen für Begutachtung"

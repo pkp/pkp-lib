@@ -42,16 +42,28 @@ msgid "admin.clearTemplateCache"
 msgstr "Sablon Cache törlése"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "A konfigurációs fájlja sikeresen frissítve lett. Kérem, vegye figyelembe, hogyha a weboldal nem működik megfelelően, akkor előfordulhat, hogy kézzel kell javítania a konfigurációs fájl <tt>config.inc.php</tt> közvetlen szerkesztésével."
+msgstr ""
+"A konfigurációs fájlja sikeresen frissítve lett. Kérem, vegye figyelembe, "
+"hogyha a weboldal nem működik megfelelően, akkor előfordulhat, hogy kézzel "
+"kell javítania a konfigurációs fájl <tt>config.inc.php</tt> közvetlen "
+"szerkesztésével."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Biztosan törölni szeretné a betöltött sablonokat a cache-ből?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Biztosan lejárttá akarja tenni az összes felhasználói munkamenetet? Minden felhasználónak, aki bejelentkezett a rendszerbe újra be kell jelentkeznie (beleértve önt is)."
+msgstr ""
+"Biztosan lejárttá akarja tenni az összes felhasználói munkamenetet? Minden "
+"felhasználónak, aki bejelentkezett a rendszerbe újra be kell jelentkeznie "
+"(beleértve önt is)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "A konfigurációs fájl tartalma"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Biztosan véglegesen törölni akarja ezt {$contextName} annak minden "
+"tartalmával együtt?"
 
 msgid "admin.currentVersion"
 msgstr "Aktuális verzió"
@@ -60,7 +72,11 @@ msgid "admin.dateInstalled"
 msgstr "Telepítés dátuma"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Alább látható a frissített konfigurációs fájl tartalma. A konfigurációs változtatások elfogadásához meg kell nyitnia a <tt>config.inc.php</tt> fájlt egy alkalmas szerkesztőben és lecserélni az ottani tartalmat az alább láthatóra."
+msgstr ""
+"Alább látható a frissített konfigurációs fájl tartalma. A konfigurációs "
+"változtatások elfogadásához meg kell nyitnia a <tt>config.inc.php</tt> fájlt "
+"egy alkalmas szerkesztőben és lecserélni az ottani tartalmat az alább "
+"láthatóra."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Az új konfiguráció megjelenítése"
@@ -69,10 +85,21 @@ msgid "admin.expireSessions"
 msgstr "A lejárt felhasználói munkamenetek"
 
 msgid "admin.languages.cantDisable"
-msgstr "Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg nem állít be egy másik elsődleges nyelvet."
+msgstr ""
+"Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg nem "
+"állít be egy másik elsődleges nyelvet."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Biztosan meg akarja változtatni az oldal elsődleges nyelvét? A felhasználók "
+"nevei, melyek megadása szükséges minden elsődleges nyelvben, a hiányzó "
+"helyeken átmásolásra kerülnek majd a jelenlegi elsődleges nyelvből."
 
 msgid "admin.languages.confirmReload"
-msgstr "Biztos benne, hogy újratölti ezt a nyelvi beállítást? Ez törölni fogja a meglévő hely-specifikus adatokat, mint például az átalakított e-mail sablonokat."
+msgstr ""
+"Biztos benne, hogy újratölti ezt a nyelvi beállítást? Ez törölni fogja a "
+"meglévő hely-specifikus adatokat, mint például az átalakított e-mail "
+"sablonokat."
 
 msgid "admin.languages.installedLocales"
 msgstr "Telepített nyelvi fájlok"
@@ -120,13 +147,19 @@ msgid "admin.scheduledTask.noLog"
 msgstr "A feladat nem készített naplót."
 
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Az Ön {$softwareName} telepítése automatikusan lefutott és befejeződött, a naplófájlt innen töltheti le: {$url}"
+msgstr ""
+"Az Ön {$softwareName} telepítése automatikusan lefutott és befejeződött, a "
+"naplófájlt innen töltheti le: {$url}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Biztos benne, hogy törli az összes ütemezett feladat végrehajtásának naplóit?"
+msgstr ""
+"Biztos benne, hogy törli az összes ütemezett feladat végrehajtásának naplóit?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Az elvégzett ütemezett feladatok log fájljainak törlése"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Megjelentetésre ütemezve"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Lektori emlékeztető"
@@ -155,8 +188,11 @@ msgstr "Operációs rendszer változat"
 msgid "admin.settings"
 msgstr "Beállítások"
 
-msgid "admin.settings.aboutDescription"
-msgstr "A webhelyről"
+msgid "admin.settings.about"
+msgstr "Az oldalról"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
 
 msgid "admin.settings.contactEmail"
 msgstr "Email a fő kapcsolattartónak"
@@ -164,37 +200,32 @@ msgstr "Email a fő kapcsolattartónak"
 msgid "admin.settings.contactName"
 msgstr "A fő kapcsolattartó neve"
 
-msgid "admin.settings.form.contactEmailRequired"
-msgstr "A fő kapcsolattartó e-mail címét kötelező megadni."
-
-msgid "admin.settings.form.contactNameRequired"
-msgstr "A fő kapcsolattartó nevét kötelező megadni."
-
-msgid "admin.settings.form.minPasswordLengthRequired"
-msgstr "A minimális jelszó hosszúság legalább 4 karakter."
-
-msgid "admin.settings.form.titleRequired"
-msgstr "A cím kötelező"
-
 msgid "admin.settings.defaultMetricDescription"
 msgstr ""
 "\n"
-"\t\tA telepítése úgy van beállítva, hogy egynél több használati statisztikát tároljon. A használati statisztikák többféle összefüggésben jelennek meg.\n"
-"\t\tVannak esetek, amikor egyszeri statisztikát kell használnia, pl. egy rendezett listához a legtöbbet használt cikkekről vagy rangsorolni a találatokat.\n"
-"\t\tKérjük, válasszon egyet a beállított lehetőségek közül, amelyik az alapértelmezett lesz.\n"
+"\t\tA telepítése úgy van beállítva, hogy egynél több használati statisztikát "
+"tároljon. A használati statisztikák többféle összefüggésben jelennek meg.\n"
+"\t\tVannak esetek, amikor egyszeri statisztikát kell használnia, pl. egy "
+"rendezett listához a legtöbbet használt cikkekről vagy rangsorolni a "
+"találatokat.\n"
+"\t\tKérjük, válasszon egyet a beállított lehetőségek közül, amelyik az "
+"alapértelmezett lesz.\n"
 "\t"
-
-msgid "admin.settings.homeHeaderImage.altText"
-msgstr "Oldal logo"
-
-msgid "admin.settings.homeHeaderImageInvalid"
-msgstr "Érvénytelen az oldal logo képformátuma. Az elfogadott formátumok: .gif, .jpg vagy .png."
 
 msgid "admin.settings.introduction"
 msgstr "Bemutatkozás"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimális jelszó hosszúság (karakterszám) "
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Oldalnyelv"
@@ -227,7 +258,9 @@ msgid "admin.siteSetup"
 msgstr "Oldal beállítások"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "A konfigurációs fájl <tt>config.inc.php</tt> nem található, nem olvasható vagy érvénytelen."
+msgstr ""
+"A konfigurációs fájl <tt>config.inc.php</tt> nem található, nem olvasható "
+"vagy érvénytelen."
 
 msgid "admin.systemInformation"
 msgstr "Rendszer információ"
@@ -272,13 +305,17 @@ msgid "admin.version"
 msgstr "Verzió"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Az alap elérési útvonalnak {$path} a publikus fájlkönyvtáron belül kell lennie."
+msgstr ""
+"Az alap elérési útvonalnak {$path} a publikus fájlkönyvtáron belül kell "
+"lennie."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "A mappa {$path} nem egy könyvtár vagy nem olvasható."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "A fájlt {$filename} áthelyezték innen: {$currentFilePath} ide: {$destinationPath}"
+msgstr ""
+"A fájlt {$filename} áthelyezték innen: {$currentFilePath} ide: "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "A fájl {$filename} feldolgozásra került és archív."
@@ -288,12 +325,19 @@ msgstr "Fájltöltő"
 
 msgid "admin.copyAccessLogFileTool.usage"
 msgstr ""
-"Másolja a sikeres apache hozzáférési log fájlokat az aktuális könyvtárból, szűrje ki azokat, amelyek erre a telepítésre vonatkoznak, helyezze el a felhasználói statisztika bővítmény könyvtárában. Megfelelő jogokkal rendelkező felhasználó alatt tudja futtatni, aki hozzáfér az apache log fájljaihoz.\n"
+"Másolja a sikeres apache hozzáférési log fájlokat az aktuális könyvtárból, "
+"szűrje ki azokat, amelyek erre a telepítésre vonatkoznak, helyezze el a "
+"felhasználói statisztika bővítmény könyvtárában. Megfelelő jogokkal "
+"rendelkező felhasználó alatt tudja futtatni, aki hozzáfér az apache log "
+"fájljaihoz.\n"
 "\t\n"
-"\tEz az eszköz átmásolja azokat a fájlokat, amelyek nincsenek már benne a felhasználó statisztika könyvtárak egyikében sem (stage, processing, archive, reject).\n"
+"\tEz az eszköz átmásolja azokat a fájlokat, amelyek nincsenek már benne a "
+"felhasználó statisztika könyvtárak egyikében sem (stage, processing, "
+"archive, reject).\n"
 "\n"
 "Használat: {$scriptName} path/to/apache/log/file.log\n"
-"Használat (a könyvtár valamennyi fájlját feldolgozza): {$scriptName} path/to/apache/directory\n"
+"Használat (a könyvtár valamennyi fájlját feldolgozza): {$scriptName} path/to/"
+"apache/directory\n"
 "\t"
 
 msgid "admin.copyAccessLogFileTool.error.creatingFolder"
@@ -309,28 +353,44 @@ msgid "admin.copyAccessLogFileTool.error.deletingFile"
 msgstr "Hiba: a fájl nem törölhető {$tmpFilePath}"
 
 msgid "admin.copyAccessLogFileTool.warning.fileAlreadyExists"
-msgstr "Figyelmeztetés: a fájl {$filePath} már létezik a használati statisztika könyvtárban."
+msgstr ""
+"Figyelmeztetés: a fájl {$filePath} már létezik a használati statisztika "
+"könyvtárban."
 
 msgid "admin.copyAccessLogFileTool.success"
 msgstr "Sikerült: {$filePath} a(z) {$destinationPath} útvonalra"
 
 msgid "admin.error.utilExecutionProblem"
-msgstr "A \"{$utilPath}\" végrehajtása az alábbi hibaüzenettel tért véget: {$output}"
+msgstr ""
+"A \"{$utilPath}\" végrehajtása az alábbi hibaüzenettel tért véget: {$output}"
 
 msgid "admin.error.executingUtil"
-msgstr "Hiba: nem hajtható végre \"{$utilPath}\". Ellenőrizze a {$utilVar} config.inc.php beállításait."
+msgstr ""
+"Hiba: nem hajtható végre \"{$utilPath}\". Ellenőrizze a {$utilVar} config."
+"inc.php beállításait."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nincsenek elérhető nyelvi fájlok letöltésre."
 
-msgid "admin.contexts.confirmDelete"
-msgstr "Biztosan véglegesen törölni akarja ezt {$contextName} annak minden tartalmával együtt?"
+#~ msgid "admin.settings.aboutDescription"
+#~ msgstr "A webhelyről"
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "Biztosan meg akarja változtatni az oldal elsődleges nyelvét? A felhasználók nevei, melyek megadása szükséges minden elsődleges nyelvben, a hiányzó helyeken átmásolásra kerülnek majd a jelenlegi elsődleges nyelvből."
+#~ msgid "admin.settings.form.contactEmailRequired"
+#~ msgstr "A fő kapcsolattartó e-mail címét kötelező megadni."
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Megjelentetésre ütemezve"
+#~ msgid "admin.settings.form.contactNameRequired"
+#~ msgstr "A fő kapcsolattartó nevét kötelező megadni."
 
-msgid "admin.settings.about"
-msgstr "Az oldalról"
+#~ msgid "admin.settings.form.minPasswordLengthRequired"
+#~ msgstr "A minimális jelszó hosszúság legalább 4 karakter."
+
+#~ msgid "admin.settings.form.titleRequired"
+#~ msgstr "A cím kötelező"
+
+#~ msgid "admin.settings.homeHeaderImage.altText"
+#~ msgstr "Oldal logo"
+
+#~ msgid "admin.settings.homeHeaderImageInvalid"
+#~ msgstr ""
+#~ "Érvénytelen az oldal logo képformátuma. Az elfogadott formátumok: .gif, ."
+#~ "jpg vagy .png."

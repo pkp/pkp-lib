@@ -26,6 +26,9 @@ msgstr "Ei tarkastajia"
 msgid "grid.remotelyHostedItem"
 msgstr "Tämä on etäylläpidetty kohde."
 
+msgid "grid.action.uninstall"
+msgstr "Poista asennus"
+
 msgid "grid.action.manageAccess"
 msgstr "Hallinnoi saatavuutta"
 
@@ -57,7 +60,9 @@ msgid "grid.action.unassignReviewer"
 msgstr "Peru arviointipyyntö"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Hyväksy tämä teknisen toimittamisen tiedosto seuraavaan vaiheeseen lähetettäväksi"
+msgstr ""
+"Hyväksy tämä teknisen toimittamisen tiedosto seuraavaan vaiheeseen "
+"lähetettäväksi"
 
 msgid "grid.action.reload"
 msgstr "Lataa uudelleen"
@@ -233,6 +238,9 @@ msgstr "Lisää uusi käyttäjäryhmä"
 msgid "grid.action.editUserGroup"
 msgstr "Muokkaa tätä käyttäjäryhmää"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Poista tämä käyttäjäryhmä"
+
 msgid "grid.action.disable"
 msgstr "Poista käytöstä"
 
@@ -326,6 +334,9 @@ msgstr "Asenna"
 msgid "grid.action.moreItems"
 msgstr "Lataa lisää"
 
+msgid "grid.action.users"
+msgstr "Selaa/valitse käyttäjiä"
+
 msgid "grid.task.status.completed"
 msgstr "Tämä tehtävä on suoritettu"
 
@@ -339,7 +350,9 @@ msgid "grid.task.status.unfinished"
 msgstr "Tehtävä keskeneräinen"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Tämä arviointi on valmis. Klikkaa muistiinpanokuvaketta vasemmalle lukeaksesi sen."
+msgstr ""
+"Tämä arviointi on valmis. Klikkaa muistiinpanokuvaketta vasemmalle "
+"lukeaksesi sen."
 
 msgid "grid.columns.actions"
 msgstr "Toimenpiteet"
@@ -397,6 +410,9 @@ msgstr "Muokkaa tekijää"
 
 msgid "grid.action.deleteContributor"
 msgstr "Poista tekijä"
+
+msgid "grid.action.newVersion"
+msgstr "Luo uusi versio"
 
 msgid "grid.reviewForm.title"
 msgstr "Arviointilomakkeet"
@@ -495,10 +511,16 @@ msgid "grid.user.error"
 msgstr "Tätä käyttäjää hallinnoitaessa ilmeni virhe. Yritä uudelleen."
 
 msgid "grid.user.errorEmail"
-msgstr "Tätä sähköpostia lähetettäessä ilmeni virhe. Varmista, että sähköpostipalvelimesi määritykset toimivat ja/tai ota yhteyttä järjestelmäsi ylläpitäjään."
+msgstr ""
+"Tätä sähköpostia lähetettäessä ilmeni virhe. Varmista, että "
+"sähköpostipalvelimesi määritykset toimivat ja/tai ota yhteyttä järjestelmäsi "
+"ylläpitäjään."
 
 msgid "grid.user.cannotAdminister"
-msgstr "Sinulla ei ole riittäviä oikeuksia hallinnoida tätä käyttäjää. Hallinnoidaksesi käyttäjää sinun tulee olla sivuston ylläpitäjä tai hallinnoida kaikkia niitä konteksteja, joihin tämä käyttäjä on lisätty."
+msgstr ""
+"Sinulla ei ole riittäviä oikeuksia hallinnoida tätä käyttäjää. "
+"Hallinnoidaksesi käyttäjää sinun tulee olla sivuston ylläpitäjä tai "
+"hallinnoida kaikkia niitä konteksteja, joihin tämä käyttäjä on lisätty."
 
 msgid "grid.user.authSource"
 msgstr "Todentamislähde"
@@ -525,7 +547,9 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Käyttäjän on vaihdettava salasana seuraavan kirjautumisen yhteydessä."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan kerran."
+msgstr ""
+"Vaadi, että käyttäjä vaihtaa salasanansa kirjautuessaan sisään seuraavan "
+"kerran."
 
 msgid "grid.user.moreDetails"
 msgstr "Lisää tietoja käyttäjästä"
@@ -561,7 +585,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Valitse käyttäjä"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Kirjaudu sisään tällä käyttäjätunnuksella? Kaikkia toimenpiteitä, joita teet, pidetään tämän käyttäjän tekeminä."
+msgstr ""
+"Kirjaudu sisään tällä käyttäjätunnuksella? Kaikkia toimenpiteitä, joita "
+"teet, pidetään tämän käyttäjän tekeminä."
 
 msgid "grid.user.mergeUsers"
 msgstr "Yhdistä käyttäjät"
@@ -576,7 +602,11 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Kaikki käyttäjät, joilla on rooleja"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Haluatko varmasti yhdistää tilin käyttäjätunnuksella \"{$oldUsername}\" tiliin, jonka käyttäjätunnus on \"{$newUsername}\"? Tili, jonka käyttäjätunnus on \"{$oldUsername}\", poistetaan kokonaan. Tätä toimintoa ei voi kumota."
+msgstr ""
+"Haluatko varmasti yhdistää tilin käyttäjätunnuksella \"{$oldUsername}\" "
+"tiliin, jonka käyttäjätunnus on \"{$newUsername}\"? Tili, jonka "
+"käyttäjätunnus on \"{$oldUsername}\", poistetaan kokonaan. Tätä toimintoa ei "
+"voi kumota."
 
 msgid "grid.preparedEmails.title"
 msgstr "Valmiit sähköpostipohjat"
@@ -591,7 +621,8 @@ msgid "grid.plugin.disable"
 msgstr "Haluatko varmasti poistaa tämän lisäosan käytöstä?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Oikoluvun korjaukset tehty. Voit merkitä tämän tehtävän käsittelemättömäksi"
+msgstr ""
+"Oikoluvun korjaukset tehty. Voit merkitä tämän tehtävän käsittelemättömäksi"
 
 msgid "grid.artworkFile.caption"
 msgstr "Kuvateksti"
@@ -630,7 +661,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "{$userGroupName}-rooli on oletusasetus ja sitä ei voi poistaa."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "{$userGroupName}-roolia ei voi poistaa. Rooliin on tällä hetkellä valittu {$usersCount} käyttäjä(ä)."
+msgstr ""
+"{$userGroupName}-roolia ei voi poistaa. Rooliin on tällä hetkellä valittu "
+"{$usersCount} käyttäjä(ä)."
 
 msgid "grid.userGroup.removed"
 msgstr "{$userGroupName}-rooli poistettu."
@@ -649,29 +682,20 @@ msgstr ""
 "Sisällytä keskeneräiset käsikirjoitukset, jotka eivät ole kirjoittajan "
 "lähettämiä."
 
-msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr "Ei valikkoja"
-
-msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr "Ei kohteita"
+msgid "grid.action.addNavigationMenu"
+msgstr "Lisää valikko"
 
 msgid "grid.action.addNavigationMenuItem"
 msgstr "Lisää kohde"
 
-msgid "grid.action.addNavigationMenu"
-msgstr "Lisää valikko"
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "Ei kohteita"
 
-msgid "grid.action.uninstall"
-msgstr "Poista asennus"
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "Ei valikkoja"
 
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Valitse tyyppi..."
 
-msgid "grid.action.users"
-msgstr "Selaa/valitse käyttäjiä"
-
-msgid "grid.action.newVersion"
-msgstr "Luo uusi versio"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Poista tämä käyttäjäryhmä"
+msgid "grid.action.view"
+msgstr ""

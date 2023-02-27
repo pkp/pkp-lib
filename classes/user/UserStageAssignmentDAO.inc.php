@@ -104,7 +104,7 @@ class UserStageAssignmentDAO extends UserDAO {
 			(int) $userGroupId,
 		];
 		if ($name !== null) {
-			$params = array_merge($params, array_fill(0, 6, '%'.(string) $name.'%'));
+			$params = array_merge($params, array_fill(0, 6, (string) $name));
 		}
 		$result = $this->retrieveRange(
 			$sql = 'SELECT	u.*
@@ -119,7 +119,14 @@ class UserStageAssignmentDAO extends UserDAO {
 
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
-				. ($name !== null ? ' AND (usgs_pl.setting_value LIKE ? OR usgs_l.setting_value LIKE ? OR usfs_pl.setting_value LIKE ? OR usfs_l.setting_value LIKE ? OR u.username LIKE ? OR u.email LIKE ?)' : '')
+				. ($name !== null 
+					? ' AND (LOWER(usgs_pl.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
+						OR LOWER(usgs_l.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
+						OR LOWER(usfs_pl.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
+						OR LOWER(usfs_l.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
+						OR LOWER(u.username) LIKE CONCAT("%", LOWER(?), "%") 
+						OR LOWER(u.email) LIKE CONCAT("%", LOWER(?), "%"))' 
+					: '')
 			. ' ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)',
 				$params,
 				$rangeInfo);

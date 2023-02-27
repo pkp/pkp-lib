@@ -2503,7 +2503,7 @@ msgid "manager.dois.update.partialFailure"
 msgstr "Não foi possível atualizar algum(ns) DOI(s)"
 
 msgid "manager.dois.status.stale"
-msgstr "Obsoleto"
+msgstr "Necessita de Sincronização"
 
 msgid "manager.dois.status.error"
 msgstr "Erro"
@@ -3564,9 +3564,6 @@ msgstr "Ver todos"
 msgid "doi.manager.versions.modalTitle"
 msgstr "DOI de todas as versões"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr "Qualquer item não publicado."
-
 msgid "manager.dois.status.submitted.description"
 msgstr "Itens que foram submetidos à agência de registro configurada."
 
@@ -3660,9 +3657,6 @@ msgstr ""
 
 msgid "manager.dois.status.error.filterTitle"
 msgstr "Tem Erro"
-
-msgid "manager.dois.status.stale.filterTitle"
-msgstr "Necessita de Sincronização"
 
 msgid "manager.dois.filters.doiAssigned"
 msgstr "DOI Atribuído"

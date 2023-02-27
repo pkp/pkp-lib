@@ -3708,11 +3708,6 @@ msgstr ""
 "без DOI, където 2) типът DOI на подобекта е активиран (напр. типография без "
 "DOI няма да се появи тук, ако типът DOI на типографията не е активиран)"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Елемент, който 1) има присвоени DOI за всички разрешени типове DOI и 2) не е "
-"публикуван"
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "Елементи, които 1) имат присвоени DOI за всички разрешени типове DOI, 2) са "

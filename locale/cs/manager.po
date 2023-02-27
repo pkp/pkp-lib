@@ -2464,7 +2464,7 @@ msgid "manager.dois.update.partialFailure"
 msgstr "Některé DOI se nepodařilo aktualizovat"
 
 msgid "manager.dois.status.stale"
-msgstr "Zastaralé"
+msgstr "Potřebuje synchronizaci"
 
 msgid "manager.dois.status.error"
 msgstr "Chyba"
@@ -3537,9 +3537,6 @@ msgstr ""
 "třeba znovu předložit nebo aktualizovat u stanovené registrační agentury, "
 "aby se zajistila aktuálnost všech dříve předložených metadat."
 
-msgid "manager.dois.status.unpublished.description"
-msgstr "Jakékoli nepublikované položky."
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "Položky, které 1) mají přidělené DOI pro všechny povolené typy DOI, 2) jsou "
@@ -3628,9 +3625,6 @@ msgstr ""
 
 msgid "manager.dois.status.error.filterTitle"
 msgstr "Má chybu"
-
-msgid "manager.dois.status.stale.filterTitle"
-msgstr "Potřebuje synchronizaci"
 
 msgid "manager.dois.filters.doiAssigned"
 msgstr "Přidělené DOI"

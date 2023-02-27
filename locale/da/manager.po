@@ -3594,11 +3594,6 @@ msgstr "Se alle"
 msgid "doi.manager.versions.modalTitle"
 msgstr "DOI'er for alle versioner"
 
-msgid "manager.dois.status.unpublished.description"
-msgstr ""
-"Et element, der 1) har DOI'er tildelt for alle aktiverede DOI-typer, og 2) "
-"ikke er blevet offentliggjort"
-
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
 "Elementer, der 1) har DOI'er tildelt for alle aktiverede DOI-typer, 2) er "

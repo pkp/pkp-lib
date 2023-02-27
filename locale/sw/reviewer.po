@@ -12,11 +12,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "reviewer.submission.reviewerFiles"
-msgstr "Faili za mhariri"
+msgid "reviewer.reviewSteps.request"
+msgstr "Ombi"
 
-msgid "reviewer.step1.viewAllDetails"
-msgstr "Pitia taarifa ya kazi zote zilizokusanywa"
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "Muongozo"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "Pakua na hariri (pitia)"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "Kamilisha"
+
+msgid "reviewer.step1.request"
+msgstr "Omba kuhariri"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
@@ -24,17 +33,86 @@ msgstr ""
 "Sehemu ifuatayo itaonyesha muhtasari wa kazi iliyo wasilishwa pamoja na "
 "muongozo wa uhariri. Tunaamini kuwa utashiriki kikamilifu."
 
-msgid "reviewer.step1.request"
-msgstr "Omba kuhariri"
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Pitia taarifa ya kazi zote zilizokusanywa"
 
-msgid "reviewer.reviewSteps.completion"
-msgstr "Kamilisha"
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Faili za mhariri"
 
-msgid "reviewer.reviewSteps.download"
-msgstr "Pakua na hariri (pitia)"
+msgid "reviewer.submission.declineReview"
+msgstr ""
 
-msgid "reviewer.reviewSteps.guidelines"
-msgstr "Muongozo"
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
 
-msgid "reviewer.reviewSteps.request"
-msgstr "Ombi"
+msgid "reviewer.submission.acceptReview"
+msgstr ""
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr ""
+
+msgid "reviewer.submission.submitReview"
+msgstr ""
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr ""
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr ""
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.competingInterests"
+msgstr ""
+
+msgid "reviewer.submission.guidelines"
+msgstr ""
+
+msgid "reviewer.submission.noGuidelines"
+msgstr ""
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+
+msgid "reviewer.complete"
+msgstr ""
+
+msgid "reviewer.confirmSubmit"
+msgstr ""
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+
+msgid "reviewer.aboutDueDates"
+msgstr ""
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr ""
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr ""
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+
+msgid "submission.comments.sendToReviewers"
+msgstr ""
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""

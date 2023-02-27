@@ -16,8 +16,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "admin.systemInfo.settingName"
+msgstr "Nome configuração"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor configuração"
+
 msgid "admin.adminFunctions"
 msgstr "Funções Administrativas"
+
+msgid "admin.deleteCache"
+msgstr "Eliminar Caches"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Elimine os ficheiros de cache do sistema. Isto só poderá ser feito em "
+"ambientes de desenvolvimento."
 
 msgid "admin.clearDataCache"
 msgstr "Eliminar Cache de Dados"
@@ -43,6 +57,9 @@ msgstr ""
 msgid "admin.contentsOfConfigFile"
 msgstr "Conteúdo do ficheiro de configuração"
 
+msgid "admin.contexts.confirmDelete"
+msgstr "Confirma que pretende apagar {$contextName} e todo o seu conteúdo?"
+
 msgid "admin.currentVersion"
 msgstr "Versão Actual"
 
@@ -62,6 +79,22 @@ msgstr "Exibir Configuração Actual"
 msgid "admin.expireSessions"
 msgstr "Expirar Sessões de Utilizadores"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+"Todos os utilizadores serão imediatamente ser desligados do sistema, "
+"incluindo você, e terá que fazer login novamente."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser "
+"que escolha outro idioma."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Tem a certeza que deseja alterar o idioma principal do site? Os nomes de "
+"utilizadores, que são necessários no idioma principal do site, serão "
+"copiados do idioma principal existente onde estiverem em falta."
+
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Deseja realmente recarregar este idioma? A sua execução irá apagar qualquer "
@@ -72,6 +105,12 @@ msgstr "Idiomas Instalados"
 
 msgid "admin.languages.installLanguages"
 msgstr "Administrar Idiomas"
+
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas Disponíveis"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalar Idioma"
 
 msgid "admin.languages.installLocales"
 msgstr "Instalar"
@@ -94,6 +133,151 @@ msgstr "Desinstalar Idioma"
 msgid "admin.phpInfo"
 msgstr "Informações sobre PHP"
 
+msgid "admin.scheduledTask"
+msgstr "Tarefa agendada"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Tarefa agendada iniciada."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tarefa agendada interrrompida."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "A tarefa não gerou nenhum registo/log."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Depositar os DOIs na agência de registo configurada"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"A {$softwareName} instalação foi executada e concluída automaticamente, "
+"sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Envie um e-mail para cada editor a recordar as suas tarefas pendentes"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Identificar editores para recordar no contexto {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Foram enviados {$count} lembretes editoriais por e-mail para os utilizadores "
+"{$userIds} no contexto {$contextId}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Tem a certeza que pretende eliminar todos os registos das tarefas agendadas "
+"executadas?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpar Registos/Logs das Tarefas"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Elimine todos os registos de tarefas agendadas que foram executadas."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Eliminar registos de tarefas"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicar submissões agendadas para publicação"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Lembrete Revisão"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Notificação de Relatório Editorial"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Lembrete expiração da assinatura"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Remover utilizadores expirados não validados"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Processar tarefas pendentes da fila"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Atualizar base de dados DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Falha ao renomear o ficheiro da base de dados DB-IP city lite "
+"{$sourceFilename} para {$targetFilename}."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tarefa do carregador de ficheiro de Estatísticas de Uso"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"O diretório {$directory} não está vazio. Isso pode indicar que um processo "
+"falhou anteriormente ou está um processo em execução simultânea. Este "
+"ficheiro será reprocessado automaticamente."
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "O ficheiro {$file} não pode ser aberto e foi rejeitado."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"O ficheiro {$file} está no formato de ficheiro de log antigo que não pode "
+"ser processado e, portanto, será movido de volta para o diretório de estágio."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Ficheiro de log {$file} ignorado porque as estatísticas daquele mês já foram "
+"calculadas. Para recalcular as estatísticas de um mês anterior, deve "
+"restaurar todos os ficheiros de log desse mês e usar a ferramenta CLI para "
+"reprocessar as estatísticas."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"A linha {$lineNumber} no ficheiro de log {$file} está no formato errado e "
+"será ignorada."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Entrada de log inválida na linha {$lineNumber} no ficheiro de log {$file}: "
+"{$error}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Hora não é uma data válida."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "O ID de contexto não é um número inteiro."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "O ID de submissão não é um número inteiro."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "O ID de representação não é um número inteiro."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "O tipo Assoc não é suportado."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "O tipo de ficheiro não é suportado."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "País não é uma sequência de dois caracteres alfabéticos."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "A região não tem até três caracteres alfanuméricos."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "IDs de instituição não é um array."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Ocorreu um erro ao processar o ficheiro de log {$file} na linha "
+"{$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"A tarefa em segundo plano que processará o ficheiro de log {$file} e "
+"armazenará os dados estatísticos foi despachada."
+
 msgid "admin.server.apacheVersion"
 msgstr "Versão do Apache"
 
@@ -112,8 +296,14 @@ msgstr "Versão do PHP"
 msgid "admin.server.platform"
 msgstr "Sistema Operativo"
 
+msgid "admin.settings"
+msgstr "Configurações"
+
 msgid "admin.settings.about"
 msgstr "Acerca do Portal"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "E-mails em massa"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mail do Contacto Principal"
@@ -127,6 +317,15 @@ msgstr "Introdução"
 msgid "admin.settings.minPasswordLength"
 msgstr "Tamanho mínimo de senha"
 
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restringir E-mails em massa"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desativar Papéis"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Apenas o administrador pode alterar esta configuração."
+
 msgid "admin.settings.siteLanguage"
 msgstr "Idioma do Portal"
 
@@ -136,8 +335,14 @@ msgstr "Formato de folha de estilos inválido. Formato aceite é .css."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Folha de Estilos do Portal (CSS)"
 
+msgid "admin.settings.siteLogo"
+msgstr "Logo Portal"
+
 msgid "admin.settings.siteTitle"
 msgstr "Título do Portal"
+
+msgid "admin.settings.siteTheme"
+msgstr "Template Portal"
 
 msgid "admin.siteAdmin"
 msgstr "Administração do Portal"
@@ -148,6 +353,9 @@ msgstr "Administração da Revista"
 msgid "admin.siteSettings"
 msgstr "Configurações do Portal"
 
+msgid "admin.siteSetup"
+msgstr "Configuração do Portal"
+
 msgid "admin.systemConfigFileReadError"
 msgstr ""
 "O ficheiro de configuração <tt>config.inc.php</tt> não existe, não possui "
@@ -155,6 +363,14 @@ msgstr ""
 
 msgid "admin.systemInformation"
 msgstr "Informações sobre o Sistema"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Ver informação sobre a versão e as definições de configuração do sistema e "
+"do servidor."
+
+msgid "admin.systemInformation.view"
+msgstr "Ver Informação do sistema"
 
 msgid "admin.versionBuild"
 msgstr "Construção"
@@ -195,72 +411,6 @@ msgstr "Sistema está actualizado"
 msgid "admin.version"
 msgstr "Versão"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Nome configuração"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Valor configuração"
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Este é o principal idioma do portal. Não é possível desactivá-lo, a não ser "
-"que escolha outro idioma."
-
-msgid "admin.languages.availableLocales"
-msgstr "Idiomas Disponíveis"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalar Idioma"
-
-msgid "admin.scheduledTask"
-msgstr "Tarefa agendada"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Tarefa agendada iniciada."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Tarefa agendada interrrompida."
-
-msgid "admin.scheduledTask.noLog"
-msgstr "A tarefa não gerou nenhum registo/log."
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"A {$softwareName} instalação foi executada e concluída automaticamente, "
-"sendo possível fazer o download do ficheiro de registo/ log aqui: {$url}"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr ""
-"Tem a certeza que pretende eliminar todos os registos das tarefas agendadas "
-"executadas?"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Limpar Registos/Logs das Tarefas"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Lembrete Revisão"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Lembrete expiração da assinatura"
-
-msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Tarefa do carregador de ficheiro de Estatísticas de Uso"
-
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "O ficheiro {$file} não pode ser aberto e foi rejeitado."
-
-msgid "admin.settings"
-msgstr "Configurações"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo Portal"
-
-msgid "admin.settings.siteTheme"
-msgstr "Template Portal"
-
-msgid "admin.siteSetup"
-msgstr "Configuração do Portal"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "O caminho {$path} deve estar dentto da pasta pública de ficheiros."
 
@@ -278,318 +428,6 @@ msgstr "O ficheiro {$filename} foi processado e arquivado."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Uploader do ficheiro"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Não estão disponíveis idiomas para download."
-
-msgid "admin.contexts.confirmDelete"
-msgstr "Confirma que pretende apagar {$contextName} e todo o seu conteúdo?"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicar submissões agendadas para publicação"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Tem a certeza que deseja alterar o idioma principal do site? Os nomes de "
-"utilizadores, que são necessários no idioma principal do site, serão "
-"copiados do idioma principal existente onde estiverem em falta."
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Apenas o administrador pode alterar esta configuração."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Desativar Papéis"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Restringir E-mails em massa"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "E-mails em massa"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Notificação de Relatório Editorial"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Tentativas"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Nome da Tarefa Disponibilizado"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Fila"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Tarefas em lista de espera"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "A opção não pode estar vazia! Verifique o método de uso."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Disponiblizar os parâmetros de uso Tarefas"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Disponibilizar o comando de uso Tarefas"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Disponibilizar a quantidade de tarefas de cada fila"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr ""
-"Adicione um job de teste à fila de teste. use os parametros opcionais --"
-"only= e pass 'failed' ou 'success' para despachar um job com falha ou bem-"
-"sucedido."
-
-msgid "admin.cli.tool.jobs.available.options.purge.description"
-msgstr ""
-"Fazer purge a uma tarefa específica com base no seu Id. Se deseja fazer "
-"purge a todas as tarefas, passe o parâmento --all. Se deseja fazer purge a "
-"todas as tarefas de uma fila específica, passe o parâmetro --queue="
-
-msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
-"Lista de todas as tarefas em espera. Se desejar dividir por páginas, use os "
-"parâmetros --page= e --perPage="
-
-msgid "admin.cli.tool.available.commands"
-msgstr "Comandos disponíveis para o `{$namespace}` namespace:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "comando [argumentos]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Uso:"
-
-msgid "admin.jobs.createdAt"
-msgstr "Criado em {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Criado em"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Tentativas"
-
-msgid "admin.jobs.list.queue"
-msgstr "Lista"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Tarefa"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "navigation.tools.jobs"
-msgstr "Tarefas"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Ver tarefas em espera"
-
-msgid "admin.jobs.totalCount"
-msgstr "Existe um total de <strong>{$total}</strong> tarefa(s) em espera"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Quis dizer algum dos seguintes?"
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "A opção {$option} não existe."
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Existem {$total} tarefas em espera"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Todas as tarefas eliminadas!"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Foi impossível eliminar todas as tarefas."
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "A tarefa foi eliminada!"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Job ID inválido"
-
-msgid "admin.cli.tool.jobs.purge.without.id"
-msgstr ""
-"Deve passar pelo menos pelo Job ID '--all' ou '--queue=' para usar este "
-"comando"
-
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Seguinte"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Anterior"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Atual"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Paginação"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Criado em"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Disponível em"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Reservado a"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Depositar os DOIs na agência de registo configurada"
-
-msgid "navigation.tools.jobs.view"
-msgstr "Ver Tarefas"
-
-msgid "navigation.tools.jobs.description"
-msgstr "Ver todas as tarefas em fila no sistema e reveja as tarefas falhadas."
-
-msgid "admin.systemInformation.view"
-msgstr "Ver Informação do sistema"
-
-msgid "admin.systemInformation.description"
-msgstr ""
-"Ver informação sobre a versão e as definições de configuração do sistema e "
-"do servidor."
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Eliminar registos de tarefas"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr "Elimine todos os registos de tarefas agendadas que foram executadas."
-
-msgid "admin.expireSessions.description"
-msgstr ""
-"Todos os utilizadores serão imediatamente ser desligados do sistema, "
-"incluindo você, e terá que fazer login novamente."
-
-msgid "admin.deleteCache.description"
-msgstr ""
-"Elimine os ficheiros de cache do sistema. Isto só poderá ser feito em "
-"ambientes de desenvolvimento."
-
-msgid "admin.deleteCache"
-msgstr "Eliminar Caches"
-
-msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "Identificar editores para recordar no contexto {$contextId}"
-
-msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr "Remover utilizadores expirados não validados"
-
-msgid "admin.scheduledTask.editorialReminder"
-msgstr "Envie um e-mail para cada editor a recordar as suas tarefas pendentes"
-
-msgid "admin.scheduledTask.editorialReminder.logEnd"
-msgstr ""
-"Foram enviados {$count} lembretes editoriais por e-mail para os utilizadores "
-"{$userIds} no contexto {$contextId}"
-
-msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
-msgstr ""
-"Falha ao renomear o ficheiro da base de dados DB-IP city lite "
-"{$sourceFilename} para {$targetFilename}."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr "O ID de contexto não é um número inteiro."
-
-msgid "admin.error.gzCompressFile.gzopen"
-msgstr ""
-"O ficheiro não pode ser compactado. O ficheiro gz de destino {$filePath} não "
-"pode ser aberto com gzopen."
-
-msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
-msgstr ""
-"O diretório {$directory} não está vazio. Isso pode indicar que um processo "
-"falhou anteriormente ou está um processo em execução simultânea. Este "
-"ficheiro será reprocessado automaticamente."
-
-msgid "admin.scheduledTask.usageStatsLoader.monthExists"
-msgstr ""
-"Ficheiro de log {$file} ignorado porque as estatísticas daquele mês já foram "
-"calculadas. Para recalcular as estatísticas de um mês anterior, deve "
-"restaurar todos os ficheiros de log desse mês e usar a ferramenta CLI para "
-"reprocessar as estatísticas."
-
-msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
-msgstr ""
-"A tarefa em segundo plano que processará o ficheiro de log {$file} e "
-"armazenará os dados estatísticos foi despachada."
-
-msgid "admin.error.gzDecompressFile.fclose"
-msgstr ""
-"O ficheiro não pode ser descompactado. O ficheiro de destino aberto "
-"{$filePath} não pode ser fechado com fclose."
-
-msgid "admin.error.gzCompressFile.gzwrite"
-msgstr ""
-"O ficheiro não pode ser compactado. O ficheiro gz de destino {$filePath} não "
-"pode ser escrito com gzwrite."
-
-msgid "admin.cli.tool.jobs.available.options.work.description"
-msgstr ""
-"Execute um processo de trabalho de daemon infinito que continuará "
-"processando jobs. Use a flag --help para ver as opções disponíveis "
-"associadas a este comando."
-
-msgid "admin.cli.tool.jobs.available.options.run.description"
-msgstr ""
-"Envie os jobs disponíveis para a fila. se quiser despachar um job para uma "
-"fila específica, passe o parametro --queue=QUEUE_NAME. Também pode passar --"
-"test para executar o job de teste e --once para executar um job de cada vez"
-
-msgid "admin.cli.tool.jobs.test.invalid.option"
-msgstr ""
-"Opção de test job inválida. Só pode ser 'failed' ou 'success' para a opção '"
-"--only='."
-
-msgid "admin.job.compileMetrics.returnToStaging.error"
-msgstr ""
-"A tarefa que carrega os dados de estatísticas de uso do arquivo {$file} "
-"falhou e o ficheiro não pode ser movido de {$archivedFilePath} para "
-"{$stagingPath}."
-
-msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr ""
-"As estatísticas são geradas a partir de ficheiros de log de acesso que são "
-"movidos para <code>{$path}</code> depois de processados. Os ficheiros de log "
-"devem ser compactados em ficheiros <code>.gz</code> depois de processados? A "
-"compactação de ficheiros de log pode economizar espaço em disco no servidor."
-
-msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
-"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
-"padrão, a revista será designada como a plataforma para todas as "
-"estatísticas. No entanto, se todas as revistas neste site forem publicadas, "
-"de propriedade ou operadas pelo mesmo provedor, poderá designar o site como "
-"a plataforma."
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–9)"
-", sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE exceder "
-"17 caracteres. Observe que o ID da plataforma é usado em várias colunas e, "
-"portanto, deve ser o mais curto possível, mas ainda reconhecível. O ID da "
-"plataforma geralmente deve ser baseado no nome, em uma abreviatura exclusiva "
-"bem conhecida ou no domínio do editor ou da plataforma. Um identificador "
-"padrão curto como GRID ou ROR (sem o https://) também pode ser usado."
-
-msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr "Número de segundos para descanso entre jobs [default : '{$default}']"
-
-msgid "admin.scheduledTask.updateGeoDB"
-msgstr "Atualizar base de dados DB-IP city lite"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr "Hora não é uma data válida."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr "O tipo de ficheiro não é suportado."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr "IDs de instituição não é um array."
-
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
 "O ficheiro não pode ser descompactado. O ficheiro gz de origem {$filePath} "
@@ -600,10 +438,55 @@ msgstr ""
 "O ficheiro não pode ser descompactado. O ficheiro de destino {$filePath} não "
 "pode ser aberto com fopen."
 
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"O ficheiro não pode ser descompactado. O ficheiro gz de origem {$file} não "
+"pode ser lido com gzread."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"O ficheiro não pode ser descompactado. O ficheiro de destino {$filePath} não "
+"pode ser escrito com fwrite."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"O ficheiro não pode ser descompactado. O ficheiro de destino aberto "
+"{$filePath} não pode ser fechado com fclose."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"O ficheiro não pode ser descompactado. O ficheiro gz de código aberto "
+"{$filePath} não pode ser fechado com gzclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"O ficheiro não pode ser descompactado. O ficheiro gz de origem descompactado "
+"{$filePath} não pode ser removido com unlink."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"O ficheiro não pode ser compactado. O ficheiro gz de destino {$filePath} não "
+"pode ser aberto com gzopen."
+
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
 "O ficheiro não pode ser compactado. O ficheiro fonte {$filePath} não pode "
 "ser aberto com fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"O ficheiro não pode ser compactado. O ficheiro de origem {$filePath} não "
+"pode ser lido com fread."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"O ficheiro não pode ser compactado. O ficheiro gz de destino {$filePath} não "
+"pode ser escrito com gzwrite."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"O ficheiro não pode ser compactado. O ficheiro fonte aberto {$filePath} não "
+"pode ser fechado com fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
@@ -614,6 +497,263 @@ msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
 "O ficheiro não pode ser compactado. O ficheiro de origem compactado "
 "{$filePath} não pode ser removido com unlink."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Não estão disponíveis idiomas para download."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Uso:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "comando [argumentos]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Comandos disponíveis para o `{$namespace}` namespace:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Não é possível executar jobs da fila porque o modo de manutenção do sistema "
+"está ativo."
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Lista de todas as tarefas em espera. Se desejar dividir por páginas, use os "
+"parâmetros --page= e --perPage="
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Fazer purge a uma tarefa específica com base no seu Id. Se deseja fazer "
+"purge a todas as tarefas, passe o parâmento --all. Se deseja fazer purge a "
+"todas as tarefas de uma fila específica, passe o parâmetro --queue="
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Adicione um job de teste à fila de teste. use os parametros opcionais --"
+"only= e pass 'failed' ou 'success' para despachar um job com falha ou bem-"
+"sucedido."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Execute um processo de trabalho de daemon infinito que continuará "
+"processando jobs. Use a flag --help para ver as opções disponíveis "
+"associadas a este comando."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Envie os jobs disponíveis para a fila. se quiser despachar um job para uma "
+"fila específica, passe o parametro --queue=QUEUE_NAME. Também pode passar --"
+"test para executar o job de teste e --once para executar um job de cada vez"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Completou a execução de {$jobCount} jobs na fila chamada {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "Nenhum job disponível para execução na fila chamada {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Disponibilizar a quantidade de tarefas de cada fila"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Disponibilizar o comando de uso Tarefas"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Disponiblizar os parâmetros de uso Tarefas"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "A opção não pode estar vazia! Verifique o método de uso."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Tarefas em lista de espera"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Fila"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Nome da Tarefa Disponibilizado"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Tentativas"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Reservado a"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Disponível em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Criado em"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Paginação"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Atual"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Anterior"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Seguinte"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Deve passar pelo menos pelo Job ID '--all' ou '--queue=' para usar este "
+"comando"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Job de teste despachado que está destinado a falhar na fila chamada "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Job de teste despachado que está vinculado ao sucesso na fila chamada "
+"{$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Opção de test job inválida. Só pode ser 'failed' ou 'success' para a opção "
+"'--only='."
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Job ID inválido"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "A tarefa foi eliminada!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Nenhum job encontrado para excluir."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Foi impossível eliminar todas as tarefas."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Todas as tarefas eliminadas!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Existem {$total} tarefas em espera"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "A opção {$option} não existe."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Quis dizer algum dos seguintes?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Existe um total de <strong>{$total}</strong> tarefa(s) em espera"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Ver tarefas em espera"
+
+msgid "navigation.tools.jobs"
+msgstr "Tarefas"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr "Ver todas as tarefas em fila no sistema e reveja as tarefas falhadas."
+
+msgid "navigation.tools.jobs.view"
+msgstr "Ver Tarefas"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Tarefa"
+
+msgid "admin.jobs.list.queue"
+msgstr "Lista"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Tentativas"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Criado em"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "Criado em {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"A tarefa que carrega os dados de estatísticas de uso do arquivo {$file} "
+"falhou e o ficheiro não pode ser movido de {$archivedFilePath} para "
+"{$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Falha na tarefa que carrega os dados de estatísticas de uso do ficheiro "
+"{$file}. O ficheiro foi movido para o diretório stage."
 
 msgid "admin.settings.statistics.collection"
 msgstr "Coleção de Dados"
@@ -640,117 +780,27 @@ msgstr ""
 msgid "admin.settings.statistics.keepDaily"
 msgstr "Estatísticas Mensais ou Diárias"
 
-msgid "admin.settings.statistics.keepDaily.keep"
-msgstr "Acompanhe estatísticas diárias e mensais"
-
-msgid "admin.scheduledTask.processQueueJobs"
-msgstr "Processar tarefas pendentes da fila"
-
-msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
-msgstr ""
-"O ficheiro {$file} está no formato de ficheiro de log antigo que não pode "
-"ser processado e, portanto, será movido de volta para o diretório de estágio."
-
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
-msgstr ""
-"A linha {$lineNumber} no ficheiro de log {$file} está no formato errado e "
-"será ignorada."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
-msgstr ""
-"Entrada de log inválida na linha {$lineNumber} no ficheiro de log {$file}: "
-"{$error}"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr "O ID de submissão não é um número inteiro."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr "O ID de representação não é um número inteiro."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr "O tipo Assoc não é suportado."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr "País não é uma sequência de dois caracteres alfabéticos."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr "A região não tem até três caracteres alfanuméricos."
-
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
-msgstr ""
-"Ocorreu um erro ao processar o ficheiro de log {$file} na linha "
-"{$lineNumber}: {$msg}"
-
-msgid "admin.error.gzDecompressFile.gzread"
-msgstr ""
-"O ficheiro não pode ser descompactado. O ficheiro gz de origem {$file} não "
-"pode ser lido com gzread."
-
-msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
-"O ficheiro não pode ser descompactado. O ficheiro de destino {$filePath} não "
-"pode ser escrito com fwrite."
-
-msgid "admin.error.gzDecompressFile.gzclose"
-msgstr ""
-"O ficheiro não pode ser descompactado. O ficheiro gz de código aberto "
-"{$filePath} não pode ser fechado com gzclose."
-
-msgid "admin.error.gzDecompressFile.unlink"
-msgstr ""
-"O ficheiro não pode ser descompactado. O ficheiro gz de origem descompactado "
-"{$filePath} não pode ser removido com unlink."
-
-msgid "admin.error.gzCompressFile.fread"
-msgstr ""
-"O ficheiro não pode ser compactado. O ficheiro de origem {$filePath} não "
-"pode ser lido com fread."
-
-msgid "admin.error.gzCompressFile.fclose"
-msgstr ""
-"O ficheiro não pode ser compactado. O ficheiro fonte aberto {$filePath} não "
-"pode ser fechado com fclose."
-
-msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
-"Não é possível executar jobs da fila porque o modo de manutenção do sistema "
-"está ativo."
-
-msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr "Completou a execução de {$jobCount} jobs na fila chamada {$queueName}."
-
-msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr "Nenhum job disponível para execução na fila chamada {$queueName}."
-
-msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
-msgstr ""
-"Job de teste despachado que está destinado a falhar na fila chamada "
-"{$queueName}"
-
-msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
-"Job de teste despachado que está vinculado ao sucesso na fila chamada "
-"{$queueName}"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr "Nenhum job encontrado para excluir."
-
-msgid "admin.job.compileMetrics.error"
-msgstr ""
-"Falha na tarefa que carrega os dados de estatísticas de uso do ficheiro "
-"{$file}. O ficheiro foi movido para o diretório stage."
-
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
 "Se deve ou não registar estatísticas de uso diárias ou mensais. O registo de "
 "estatísticas diárias pode aumentar consideravelmente o tamanho da base de "
 "dados."
 
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Acompanhe estatísticas diárias e mensais"
+
 msgid "admin.settings.statistics.keepDaily.discard"
 msgstr "Acompanhe apenas estatísticas mensais"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
 msgstr "Compactar Logs"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"As estatísticas são geradas a partir de ficheiros de log de acesso que são "
+"movidos para <code>{$path}</code> depois de processados. Os ficheiros de log "
+"devem ser compactados em ficheiros <code>.gz</code> depois de processados? A "
+"compactação de ficheiros de log pode economizar espaço em disco no servidor."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr "Deixe os ficheiros de log arquivados como estão"
@@ -766,11 +816,31 @@ msgstr ""
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Plataforma para Estatísticas COUNTER SUSHI"
 
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Este software fornece estatísticas de uso de acordo com o protocolo COUNTER "
+"SUSHI. Este protocolo solicita que uma plataforma seja especificada. Por "
+"padrão, a revista será designada como a plataforma para todas as "
+"estatísticas. No entanto, se todas as revistas neste site forem publicadas, "
+"de propriedade ou operadas pelo mesmo provedor, poderá designar o site como "
+"a plataforma."
+
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr "Use o site como plataforma para todas as revistas."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
 msgstr "ID da plataforma"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"O ID da plataforma DEVE conter apenas letras ASCII (a–z, A–Z), dígitos (0–"
+"9), sublinhados (_), pontos (.) e barras (/), e o comprimento NÃO DEVE "
+"exceder 17 caracteres. Observe que o ID da plataforma é usado em várias "
+"colunas e, portanto, deve ser o mais curto possível, mas ainda reconhecível. "
+"O ID da plataforma geralmente deve ser baseado no nome, em uma abreviatura "
+"exclusiva bem conhecida ou no domínio do editor ou da plataforma. Um "
+"identificador padrão curto como GRID ou ROR (sem o https://) também pode ser "
+"usado."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
@@ -834,77 +904,8 @@ msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "O número máximo de segundos que o worker deve executar[default: '{$default}']"
 
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Número de segundos para descanso entre jobs [default : '{$default}']"
+
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Execute o daemon do worker para a fila de teste"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.failed.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
-
-msgid "admin.jobs.list.failedAt"
-msgstr ""
-
-msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
-
-msgid "admin.jobs.list.exception"
-msgstr ""
-
-msgid "admin.jobs.failedAt"
-msgstr ""
-
-msgid "navigation.tools.jobs.failed.view"
-msgstr ""
-
-msgid "navigation.tools.job.failed.details.view"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
-
-msgid "navigation.tools.jobs.failed"
-msgstr ""
-
-msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
-
-msgid "admin.jobs.list.actions"
-msgstr ""
-
-msgid "admin.jobs.list.payload"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
-
-msgid "admin.job.failed.list.attribute.value"
-msgstr ""
-
-msgid "admin.job.failed.list.attribute"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
-
-msgid "navigation.tools.jobs.failed.details"
-msgstr ""
-
-msgid "admin.jobs.failed.totalCount"
-msgstr ""
-
-msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
-
-msgid "admin.jobs.list.connection"
-msgstr ""

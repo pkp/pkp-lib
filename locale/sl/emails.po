@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
@@ -24,14 +24,21 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Hvala za oddajo rokopisa, &quot;{$submissionTitle}&quot; v {$contextName}. S sistemom za spletno urejanje revij, ki ga uporabljamo, lahko spremljate njegov napredek v procesu urejanja, če se prijavite na spletno stran revije:<br />\n"
+"Hvala za oddajo rokopisa, &quot;{$submissionTitle}&quot; v {$contextName}. S "
+"sistemom za spletno urejanje revij, ki ga uporabljamo, lahko spremljate "
+"njegov napredek v procesu urejanja, če se prijavite na spletno stran revije:"
+"<br />\n"
 "<br />\n"
 "URL povezava do prispevka: {$submissionUrl}<br />\n"
 "Uporabniško ime: {$recipientUsername}<br />\n"
 "<br />\n"
-"Če imate kakršnokoli vprašanje, se lahko obrnete name. Hvala, da ste izbrali našo revijo za objavo vašega dela.<br />\n"
+"Če imate kakršnokoli vprašanje, se lahko obrnete name. Hvala, da ste izbrali "
+"našo revijo za objavo vašega dela.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -42,11 +49,22 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Hvala za dokončanje recenzije prispevka, &quot;{$submissionTitle},&quot; za revijo {$contextName}. Zahvaljujemo se za vaš prispevek k kvaliteti del, ki jih objavljamo."
+"Hvala za dokončanje recenzije prispevka, &quot;{$submissionTitle},&quot; za "
+"revijo {$contextName}. Zahvaljujemo se za vaš prispevek k kvaliteti del, ki "
+"jih objavljamo."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Ta email pošlje uredenik rubrike recenzentu kot potrditev opravljene recenzije in zahvala zanjo."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Uredniška odločitev"
@@ -56,7 +74,8 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; za revijo {$contextName}.<br />\n"
+"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; "
+"za revijo {$contextName}.<br />\n"
 "<br />\n"
 "Naša odločitev je: Prispevek se pošlje v recenzijo<br />\n"
 "<br />\n"
@@ -71,7 +90,8 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Urejanje vašega prispevka, &quot;{$submissionTitle},&quot; je končano. Prispevek bom poslali v produkcijo.<br />\n"
+"Urejanje vašega prispevka, &quot;{$submissionTitle},&quot; je končano. "
+"Prispevek bom poslali v produkcijo.<br />\n"
 "<br />\n"
 "URL povezava do prispevka: {$submissionUrl}"
 
@@ -84,7 +104,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; za revijo {$contextName}.<br />\n"
+"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; "
+"za revijo {$contextName}.<br />\n"
 "<br />\n"
 "Naša odločitev je: Potrebni so popravki"
 
@@ -111,7 +132,8 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; za revijo {$contextName}.<br />\n"
+"Sprejeli smo odločitev glede vašega prispevka &quot;{$submissionTitle}&quot; "
+"za revijo {$contextName}.<br />\n"
 "<br />\n"
 "Naša odločitev je: Prispevek se zavrne"
 
@@ -124,7 +146,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Moje priporočilo glede prispevka &quot;{$submissionTitle}&quot; v reviji {$contextName}, je: {$recommendation}"
+"Moje priporočilo glede prispevka &quot;{$submissionTitle}&quot; v reviji "
+"{$contextName}, je: {$recommendation}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -135,9 +158,9 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Rad bi vas prosil, da opravite lektoriranje prispevka "
-"&quot;{$submissionTitle}&quot; za publikacijo {$contextName} po naslednjih "
-"korakih:<br />\n"
+"Rad bi vas prosil, da opravite lektoriranje prispevka &quot;"
+"{$submissionTitle}&quot; za publikacijo {$contextName} po naslednjih korakih:"
+"<br />\n"
 "1. Kliknite na URL povezavo do prispevka spodaj.<br />\n"
 "2. Odprite vse datoteke, ki so na voljo pod Osnutki datotek in opravite "
 "lektroranje ter hkrati dodajte tudi razprave za lektoriranje, kot se vam zdi "
@@ -150,6 +173,24 @@ msgstr ""
 "Povezava do publikacije {$contextName}: {$contextUrl}<br />\n"
 "Povezava do prispevka: $submissionUrl}<br />\n"
 "Uporabniško ime: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
@@ -166,12 +207,106 @@ msgstr ""
 "<br />\n"
 "Naša odločitev je: Prispevek se zavrne"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 #, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Sporočilo v zvezi s publikacijo {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Prosimo, vnesite vaše sporočilo."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Potrditev recenzije"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"Pripravljen sem opraviti recenzijo prispevka, &quot;{$submissionTitle},"
+"&quot; za revijo {$contextName}. Hvala za povabilo. Sporočam vam, da "
+"nameravam recenzijo dokončati do predvidenega datuma, {$reviewDueDate}, če "
+"ne prej.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Potrditev oddaje prispevka"
@@ -190,17 +325,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editors:<br />\n"
-"<br />\n"
-"Pripravljen sem opraviti recenzijo prispevka, &quot;{$submissionTitle},"
-"&quot; za revijo {$contextName}. Hvala za povabilo. Sporočam vam, da "
-"nameravam recenzijo dokončati do predvidenega datuma, {$reviewDueDate}, če "
-"ne prej.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Potrditev recenzije"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Ta email pošlje uredenik rubrike recenzentu kot potrditev opravljene "
+#~ "recenzije in zahvala zanjo."

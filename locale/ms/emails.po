@@ -35,11 +35,12 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.submissionAck.description"
 msgstr ""
-"E-mel ini dihantar oleh Editor Bahagian untuk mengesahkan penerimaan ulasan "
-"yang telah selesai dan terima kasih kepada pengulas atas sumbangan mereka."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Ucapan Terima Kasih atas Ulasan Artikel"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -50,9 +51,22 @@ msgstr ""
 "{$submissionTitle}, &quot; untuk {$contextName}. Kami menghargai sumbangan "
 "anda terhadap kualiti karya yang kami terbitkan."
 
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "Ucapan Terima Kasih atas Ulasan Artikel"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -66,8 +80,9 @@ msgstr ""
 "URL Penyerahan: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -79,8 +94,9 @@ msgstr ""
 "URL Penyerahan: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -92,8 +108,9 @@ msgstr ""
 "Keputusan kami adalah: Semakan Diperlukan"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -105,8 +122,9 @@ msgstr ""
 "Keputusan kami adalah untuk: Serah semula untuk Ulasan"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -117,19 +135,21 @@ msgstr ""
 "<br />\n"
 "Keputusan kami adalah untuk: Menolak Penyerahan"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Keputusan Editor"
+msgid "emails.editorRecommendation.subject"
+msgstr "Cadangan Editor"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editor}: <br />\n"
 "<br />\n"
-"Cadangan mengenai penyerahan kepada {$contextName}, &quot; {$submissionTitle}"
-" &quot; ialah: {$recommendation}"
+"Cadangan mengenai penyerahan kepada {$contextName}, &quot; "
+"{$submissionTitle} &quot; ialah: {$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Cadangan Editor"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Permintaan Copyediting"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
@@ -139,10 +159,10 @@ msgstr ""
 "untuk {$contextName} dengan mengikuti langkah-langkah ini. <br />\n"
 "1. Klik pada URL Penyerahan di bawah. <br />\n"
 "2. Buka mana-mana fail yang ada di bawah Fail  Draf dan lakukan copyediting "
-"anda, sambil menambahkan Perbincangan Copyediting mengikut keperluan. <br />"
-"\n"
-"3. Simpan fail yang copyedited , dan muat naik ke panel yang Copyedited. <br "
-"/>\n"
+"anda, sambil menambahkan Perbincangan Copyediting mengikut keperluan. <br /"
+">\n"
+"3. Simpan fail yang copyedited , dan muat naik ke panel yang Copyedited. "
+"<br />\n"
 "4. Maklumkan kepada Editor bahawa semua fail telah disiapkan, dan proses "
 "Produksi dapat dimulai. <br />\n"
 "<br />\n"
@@ -150,9 +170,28 @@ msgstr ""
 "URL Penyerahan:{$submissionUrl}<br />\n"
 "Nama pengguna: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Permintaan Copyediting"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Keputusan Editor"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
@@ -164,15 +203,105 @@ msgstr ""
 "<br />\n"
 "Keputusan kami adalah untuk: Menolak Penyerahan"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Keputusan Editor"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "Mesej mengenai {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Sila masukkan mesej anda."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Mampu Mengulas"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Penyunting:<br />\n"
+"<br />\n"
+"Saya mampu dan bersedia menyemak penyerahan, &quot;{$submissionTitle},&quot; "
+"untuk {$contextName}. Terima kasih untuk pemakluman dan saya bercadang untuk "
+"menyelesaikan semakan sebelum tarikh tamatnya, {$reviewDueDate}, jika tidak "
+"sebelum ini.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Pengesahan penyerahan"
@@ -189,17 +318,8 @@ msgstr ""
 "anda.</p>{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Penyunting:<br />\n"
-"<br />\n"
-"Saya mampu dan bersedia menyemak penyerahan, &quot;{$submissionTitle},&quot; "
-"untuk {$contextName}. Terima kasih untuk pemakluman dan saya bercadang untuk "
-"menyelesaikan semakan sebelum tarikh tamatnya, {$reviewDueDate}, jika tidak "
-"sebelum ini.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Mampu Mengulas"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "E-mel ini dihantar oleh Editor Bahagian untuk mengesahkan penerimaan "
+#~ "ulasan yang telah selesai dan terima kasih kepada pengulas atas sumbangan "
+#~ "mereka."

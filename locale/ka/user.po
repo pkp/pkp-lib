@@ -14,110 +14,6 @@ msgstr ""
 msgid "user.accountInformation"
 msgstr "ანგარიშის დეტალები"
 
-msgid "user.changePassword"
-msgstr "პაროლის შეცვლა"
-
-msgid "user.editMyProfile"
-msgstr "ჩემი პროფილის ჩასწორება"
-
-msgid "user.email"
-msgstr "ელფოსტა"
-
-msgid "user.group"
-msgstr "მომხმარებელთა ჯგუფები"
-
-msgid "user.login.forgotPassword"
-msgstr "დაგავიწყდათ პაროლი?"
-
-msgid "user.login"
-msgstr "შესვლა"
-
-msgid "user.login.resetPassword"
-msgstr "პაროლის ჩამოყრა"
-
-msgid "user.logOut"
-msgstr "გამოსვლა"
-
-msgid "user.myAccount"
-msgstr "ჩემი ანგარიში"
-
-msgid "user.name"
-msgstr "სახელი"
-
-msgid "user.password"
-msgstr "პაროლი"
-
-msgid "user.phone"
-msgstr "ტელეფონი"
-
-msgid "user.profile.editProfile"
-msgstr "პროფილის ჩასწორება"
-
-msgid "user.profile.form.emailRequired"
-msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
-
-msgid "user.profile.newPassword"
-msgstr "ახალი პაროლი"
-
-msgid "user.profile"
-msgstr "პროფილი"
-
-msgid "user.profile.publicProfile"
-msgstr "მომხმარებლის პროფილი"
-
-msgid "user.login.registerNewAccount"
-msgstr "რეგისტრაცია"
-
-msgid "user.register.form.passwordsDoNotMatch"
-msgstr "პაროლები არ ემთხვევა."
-
-msgid "user.register"
-msgstr "რეგისტრაცია"
-
-msgid "user.role.author"
-msgstr "ავტორი"
-
-msgid "user.role.authors"
-msgstr "ავტორები"
-
-msgid "user.role.editor"
-msgstr "რედაქტორი"
-
-msgid "user.role.reviewer"
-msgstr "რეცენზენტი"
-
-msgid "user.roles"
-msgstr "როლები"
-
-msgid "user.sendPassword"
-msgstr "დადასტურება"
-
-msgid "user.title"
-msgstr "სათაური"
-
-msgid "user.username"
-msgstr "მომხმარებლის სახელი"
-
-msgid "user.profile.contact"
-msgstr "კონტაქტი"
-
-msgid "user.profile.public"
-msgstr "საჯარო"
-
-msgid "user.orcid"
-msgstr "ORCID iD"
-
-msgid "user.register.registrationCompleted"
-msgstr ""
-"თქვენ წარმატებით დარეგისტრირდით. <a href=\"{$profileUrl}\">დააწკაპუნეთ აქ</a>"
-" თქვენი მომხმარებლის პროფილის დასასრულებლად."
-
-msgid "user.register.form.privacyConsent"
-msgstr ""
-"დიახ, მე ვეთანხმები ჩემს მონაცემების შეგროვებას და შენახვას, <a href=\""
-"{$privacyUrl}\" target=\"_blank\">კონფიდენციალურობის დებულების</a> "
-"შესაბამისად."
-
 msgid "user.affiliation"
 msgstr "კუთვნილება"
 
@@ -184,11 +80,20 @@ msgstr "ბიოგრაფიული განცხადება (მა
 msgid "user.changeMyPassword"
 msgstr "პაროლის შეცვლა"
 
+msgid "user.changePassword"
+msgstr "პაროლის შეცვლა"
+
 msgid "user.dateLastLogin"
 msgstr "ბოლო ავტორიზაცია"
 
 msgid "user.dateRegistered"
 msgstr "რეგისტრაციის თარიღი"
+
+msgid "user.editMyProfile"
+msgstr "ჩემი პროფილის ჩასწორება"
+
+msgid "user.email"
+msgstr "ელფოსტა"
 
 msgid "user.givenName"
 msgstr "სახელი"
@@ -204,6 +109,9 @@ msgstr ""
 "ჩაიწერეთ შენიშვნები ამ რეცენზენტის შესახებ, რომელთა გაკეთება გსურთ სხვა "
 "ადმინისტრატორებისთვის, მენეჯერებისთვის და ყველა რედაქტორისთვის. შენიშვნები "
 "ხილული იქნება მომავალი განხილვის დავალებებისთვის."
+
+msgid "user.group"
+msgstr "მომხმარებელთა ჯგუფები"
 
 msgid "user.familyName"
 msgstr "გვარი"
@@ -242,8 +150,14 @@ msgstr ""
 "თქვენი მომხმარებლის სახელი და თქვენი ამჟამინდელი და ახალი პაროლები, რომ "
 "შეცვალოთ თქვენი ანგარიშის პაროლი."
 
+msgid "user.login.forgotPassword"
+msgstr "დაგავიწყდათ პაროლი?"
+
 msgid "user.login.loginError"
 msgstr "პაროლი, ან მომხმარებლის სახელი არასწორია, გთხოვთ, სცადოთ ხელახლა."
+
+msgid "user.login"
+msgstr "შესვლა"
 
 #, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
@@ -285,6 +199,12 @@ msgstr "რეგისტრაცია ელოდება დადას�
 msgid "user.login.rememberUsernameAndPassword"
 msgstr "ცვლილების გარეშე დატოვება"
 
+msgid "user.login.resetPassword"
+msgstr "პაროლის ჩამოყრა"
+
+msgid "user.logOut"
+msgstr "გამოსვლა"
+
 msgid "user.logOutAs"
 msgstr "გამოსვლა, როგორც {$username}"
 
@@ -294,8 +214,20 @@ msgstr "გამარჯობა, "
 msgid "user.mailingAddress"
 msgstr "Საფოსტო მისამართი"
 
+msgid "user.myAccount"
+msgstr "ჩემი ანგარიში"
+
+msgid "user.name"
+msgstr "სახელი"
+
+msgid "user.password"
+msgstr "პაროლი"
+
 msgid "user.repeatPassword"
 msgstr "პაროლის გამეორება"
+
+msgid "user.phone"
+msgstr "ტელეფონი"
 
 msgid "user.preferredPublicName"
 msgstr "სასურველი საჯარო სახელი"
@@ -310,8 +242,14 @@ msgstr ""
 "შეიყვანეთ თქვენი მიმდინარე და ახალი პაროლები ქვემოთ, რომ შეცვალოთ თქვენი "
 "ანგარიშის პაროლი."
 
+msgid "user.profile.editProfile"
+msgstr "პროფილის ჩასწორება"
+
 msgid "user.profile.form.countryRequired"
 msgstr "ქვეყანა სავალდებულოა."
+
+msgid "user.profile.form.emailRequired"
+msgstr "აუცილებელია ელფოსტის სწორი მისამართი."
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "სახელი სავალდებულოა."
@@ -362,16 +300,34 @@ msgstr "თქვენ უნდა დაეთანხმოთ კონფ
 msgid "user.profile.leavePasswordBlank"
 msgstr "მიმდინარე პაროლის შესანარჩუნებლად დატოვეთ პაროლის ველები ცარიელი."
 
+msgid "user.profile.newPassword"
+msgstr "ახალი პაროლი"
+
 msgid "user.profile.oldPassword"
 msgstr "მიმდინარე პაროლი"
 
+msgid "user.profile"
+msgstr "პროფილი"
+
+msgid "user.profile.publicProfile"
+msgstr "მომხმარებლის პროფილი"
+
 msgid "user.profile.repeatNewPassword"
 msgstr "გაიმეორეთ ახალი პაროლი"
+
+msgid "user.login.registerNewAccount"
+msgstr "რეგისტრაცია"
 
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "გთხოვთ, შეიყვანოთ თქვენი ელფოსტის მისამართი. თქვენ მიიღებთ ელწერილს "
 "ინსტრუქციებით, თუ როგორ უნდა აღადგინოთ თქვენი პაროლი."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"დიახ, მე ვეთანხმები ჩემს მონაცემების შეგროვებას და შენახვას, <a href="
+"\"{$privacyUrl}\" target=\"_blank\">კონფიდენციალურობის დებულების</a> "
+"შესაბამისად."
 
 msgid "user.register.form.emailConsent"
 msgstr ""
@@ -380,6 +336,9 @@ msgstr ""
 
 msgid "user.register.form.emailExists"
 msgstr "არჩეული მომხმარებლის ელფოსტა უკვე გამოიყენება სხვა მომხმარებლის მიერ."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "პაროლები არ ემთხვევა."
 
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "ელფოსტის მისამართის ველები არ ემთხვევა."
@@ -402,16 +361,33 @@ msgstr "პაროლი უნდა შეიცავდეს მინი
 msgid "user.register.registerAs"
 msgstr "რეგისტრაცია {$contextName} როგორც…"
 
+msgid "user.register"
+msgstr "რეგისტრაცია"
+
 msgid "user.register.usernameRestriction"
 msgstr ""
 "მომხმარებლის სახელი უნდა შეიცავდეს მხოლოდ მცირე ასოებს, ციფრებს და დეფისებს/"
 "ქვედა ხაზებს."
 
+msgid "user.register.registrationCompleted"
+msgstr ""
+"თქვენ წარმატებით დარეგისტრირდით. <a href=\"{$profileUrl}\">დააწკაპუნეთ აქ</"
+"a> თქვენი მომხმარებლის პროფილის დასასრულებლად."
+
 msgid "user.role.assistant"
 msgstr "ასისტენტი"
 
+msgid "user.role.author"
+msgstr "ავტორი"
+
 msgid "user.role.author_s"
 msgstr "ავტორი(ებ)ი"
+
+msgid "user.role.authors"
+msgstr "ავტორები"
+
+msgid "user.role.editor"
+msgstr "რედაქტორი"
 
 msgid "user.role.editors"
 msgstr "რედაქტორები"
@@ -421,6 +397,9 @@ msgstr "მკითხველი"
 
 msgid "user.role.readers"
 msgstr "მკითხველები"
+
+msgid "user.role.reviewer"
+msgstr "რეცენზენტი"
 
 msgid "user.role.reviewers"
 msgstr "რეცენზენტები"
@@ -449,6 +428,12 @@ msgstr "განლაგების რედაქტორი"
 msgid "user.role.layoutEditors"
 msgstr "განლაგების რედაქტორები"
 
+msgid "user.roles"
+msgstr "როლები"
+
+msgid "user.sendPassword"
+msgstr "დადასტურება"
+
 msgid "user.sendPassword.description"
 msgstr ""
 "გამომიგზავნეთ დამადასტურებელი ელფოსტა, ჩემი მომხმარებლის სახელის და პაროლის "
@@ -457,14 +442,23 @@ msgstr ""
 msgid "user.signature"
 msgstr "ხელმოწერა"
 
+msgid "user.title"
+msgstr "სათაური"
+
 msgid "user.url"
 msgstr "მთავარი გვერდის URL"
 
 msgid "user.userHome"
 msgstr "მომხმარებლის მთავარი გვერდი"
 
+msgid "user.username"
+msgstr "მომხმარებლის სახელი"
+
 msgid "user.workingLanguages"
 msgstr "სამუშაო ენები"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
 
 msgid "user.orcid.orcidInvalid"
 msgstr ""
@@ -473,6 +467,12 @@ msgstr ""
 
 msgid "user.profile.identity"
 msgstr "იდენტურობა"
+
+msgid "user.profile.contact"
+msgstr "კონტაქტი"
+
+msgid "user.profile.public"
+msgstr "საჯარო"
 
 msgid "user.apiKey"
 msgstr "API გასაღები"
@@ -483,9 +483,18 @@ msgstr "გარე პროგრამების ჩართვა API �
 msgid "user.apiKey.generate"
 msgstr "ახალი API გასაღების შექმნა"
 
+msgid "user.apiKey.remove"
+msgstr ""
+
 msgid "user.apiKey.generateWarning"
 msgstr ""
 "ახალი API გასაღების გაუქმება გააუქმებს არსებულ გასაღებს ამ მომხმარებლისთვის."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr ""
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -494,5 +503,17 @@ msgstr ""
 
 msgid "user.privacyLink"
 msgstr ""
-"თქვენი მონაცემები ინახება ჩვენი <a href=\"{$privacyUrl}\" target=\"_blank\">"
-"კონფიდენციალურობის დებულების შესაბამისად</a> ."
+"თქვენი მონაცემები ინახება ჩვენი <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">კონფიდენციალურობის დებულების შესაბამისად</a> ."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

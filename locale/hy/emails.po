@@ -13,12 +13,198 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "emails.submissionAck.subject"
+msgstr ""
+
+msgid "emails.submissionAck.body"
+msgstr ""
+
+msgid "emails.submissionAck.description"
+msgstr ""
+
+msgid "emails.reviewAck.subject"
+msgstr ""
+
+msgid "emails.reviewAck.body"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.subject"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
+msgid "emails.copyeditRequest.subject"
+msgstr ""
+
+msgid "emails.copyeditRequest.body"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "Հաղորդագրություն {$contextName} -ի վերաբերյալ"
 
 msgid "emails.discussion.body"
 msgstr "Խնդրում ենք մուտքագրել ձեր հաղորդագրությունը:"
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Կարող է գրախոսել"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Խմբագիրներ:<br />\n"
+"<br />\n"
+"Ես կարող եմ և ցանկանում եմ գրախոսել &quot;{$submissionTitle},&raquo; "
+"ներկայացումը, {$contextName} -ի համար: Շնորհակալ եմ, որ մտածում եք իմ մասին, "
+"և ես նախատեսում եմ գրախոսությունն ավարտել մինչև իր վերջնաժամկետը` "
+"{$reviewDueDate}, եթե ոչ ավելի վաղ:<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Ներկայացման հաստատում"
@@ -33,19 +219,3 @@ msgstr ""
 "անունը նշվի այս ներկայացման մեջ, խնդրում եմ կապվեք ինձ հետ:</"
 "p><p>Շնորհակալություն այս ամսագիրը որպես ձեր աշխատանքի վայր ընտրելու համար:</"
 "p><p>Հարգանքով,</p>{$contextSignature}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Խմբագիրներ:<br />\n"
-"<br />\n"
-"Ես կարող եմ և ցանկանում եմ գրախոսել &quot;{$submissionTitle},&raquo; "
-"ներկայացումը, {$contextName} -ի համար: Շնորհակալ եմ, որ մտածում եք իմ մասին, "
-"և ես նախատեսում եմ գրախոսությունն ավարտել մինչև իր վերջնաժամկետը` "
-"{$reviewDueDate}, եթե ոչ ավելի վաղ:<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Կարող է գրախոսել"

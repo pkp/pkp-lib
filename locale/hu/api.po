@@ -15,38 +15,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Kérése megtagadva. Azért fordulhatott elő, mert a bejelentkezése lejárt. Próbálja újratölteni az oldalt, majd próbálkozzon még egyszer."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Csak azokat a meg nem jelent kéziratokat láthatja, amelyekhez Ön hozzá lett rendelve."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Nem tudja törölni a kéziratot, amely nincs hozzárendelve ehhez a szövegkörnyezethez."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Nincs engedélye ennek a kéziratnak a törléséhez."
-
-msgid "api.submissions.404.resourceNotFound"
-msgstr "A kért forrás nem található."
-
-msgid "api.submissions.400.missingRequired"
-msgstr "A kérése nem teljesíthető, mert hiányzik a szükséges információ."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "A kért évfolyam, szám vagy év nem érvényes."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "A kezdő dátum nem lehet későbbi, mint a befejező dátum."
-
-msgid "api.stats.400.wrongTimeSegmentDaily"
-msgstr "Nem megfelelő kérés. A 'napi' időszegmens csak 90 napon belüli időszakkal (kezdeti és vég dátum) együtt érvényes. "
-
 msgid "api.400.paramNotSupported"
 msgstr "A {$param} paraméter nem támogatott."
+
+msgid "api.400.propReadOnly"
+msgstr ""
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Az API-token nem volt érvényesíthető. Ez azt jelezheti, hogy az API-tokenben "
+"hiba van, vagy az API-token már nem érvényes."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Az apiToken nem volt dekódolható a következő hiba miatt: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Nem lehetséges a létrehozás időpontját megváltoztatni."
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
 
 msgid "api.403.unauthorized"
 msgstr "Nincs jogosultsága a hozzáféréshez."
@@ -57,65 +47,125 @@ msgstr "A kérés nem található."
 msgid "api.404.endpointNotFound"
 msgstr "Nem ismert URL."
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "A(z) {$vocab} nem támogatott."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "A(z) {$locale} területi beállítás nem támogatott."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Az aktív téma, {$themePluginPath}, nincs engedélyezve és lehet, hogy nincs "
-"telepítve sem."
+"Az API-token nem használható a webhely eléréséhez, mivel a webhely "
+"rendszergazdája nem állított be titkos kulcsot."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "A kért bejelentés nem található."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "A következő nyelvek nem támogatottak: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Meg kell adnia egy elküldendő e-mailt."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Meg kell adnia az e-mail tárgyát."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Meg kell jelölnie azokat a szerepköröket, akik kapnak ebből az e-maiből."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"A kiválasztott szerepkör(ök)ben lévő felhasználóknak nem küldhet e-mailt."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "A kért e-mail sablon nem található."
+
+msgid "api.files.400.noUpload"
+msgstr "A kéréssel egyetlen feltölthető fájl sem található."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Egy vagy több fájlt nem lehetett feltölteni."
+
+msgid "api.files.400.fileSize"
+msgstr "A(z) {$maxSize}-nél/nél nagyobb fájlokat nem lehet feltölteni."
 
 msgid "api.files.400.config"
 msgstr ""
 "A fájlt nem lehetett feltölteni szerverkonfigurációs hiba miatt. Vegye fel a "
 "kapcsolatot a rendszergazdával."
 
-msgid "api.files.400.fileSize"
-msgstr "A(z) {$maxSize}-nél/nél nagyobb fájlokat nem lehet feltölteni."
+msgid "api.publication.403.alreadyPublished"
+msgstr "A cikk, amit meg szeretne jeleníteni, már megjelentetett."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Egy vagy több fájlt nem lehetett feltölteni."
-
-msgid "api.files.400.noUpload"
-msgstr "A kéréssel egyetlen feltölthető fájl sem található."
-
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.publication.403.alreadyUnpublished"
 msgstr ""
-"Ez a végpont nem érhető el a 'context'-ből. Az egész webhelyre kiterjedő "
-"névtérből kell hozzáférni."
+"A cikk aminek megjelentetését vissza szeretné vonni, még nem megjelentetett."
 
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "Kérése érvénytelen. Az orderDirection legyen \"desc\" vagy \"asc\"."
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nem szerkeszthető a cikk, mert már megjelentetett."
 
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"Kérése érvénytelen. Az idővonal-intervallum \"nap\" vagy \"hónap\" kell, "
-"hogy legyen."
+"Az állapotot közvetlenül az API-n keresztül nem módosíthatja. Ehelyett "
+"használja a /megjelentetés és /megjelentetés visszavonása végpontokat."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "A befejezési dátum nem lehet későbbi, mint a tegnapi."
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Törlés előtt vissza kell vonnia a cikk publikáltságát."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "A kezdő dátum nem lehet korábbi mint 2001-01-01."
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Csak a következő típusú fájlokat töltheti fel: {$fileTypes}."
 
-msgid "api.submissions.403.userCantEdit"
-msgstr "Ön számára nem engedélyezett a cikk szerkesztése."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"A nyilvános fájlok könyvtárat nem találtuk, vagy a fájlokat nem lehet rá "
-"menteni. Vegye fel a kapcsolatot a rendszergazdával a probléma megoldásához."
-
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Nincs elég hely a felhasználói könyvtárban. Feltöltési file mérete: "
-"{$fileUploadSize}kb. Rendelkezésre álló tárterület: {$dirSizeLeft}kb"
-
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Nem tölthet fel fájlokat."
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A feltöltött kép érvénytelen."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -123,106 +173,166 @@ msgstr ""
 "fordulhat elő, ha egy fájlt átneveztek egy nem kompatibilis típusra, például "
 "a photo.png fájlt a photo.jpg fájlra."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "A feltöltött kép érvénytelen."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nem tölthet fel fájlokat."
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Csak a következő típusú fájlokat töltheti fel: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Törlés előtt vissza kell vonnia a cikk publikáltságát."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Az állapotot közvetlenül az API-n keresztül nem módosíthatja. Ehelyett "
-"használja a /megjelentetés és /megjelentetés visszavonása végpontokat."
+"Nincs elég hely a felhasználói könyvtárban. Feltöltési file mérete: "
+"{$fileUploadSize}kb. Rendelkezésre álló tárterület: {$dirSizeLeft}kb"
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nem szerkeszthető a cikk, mert már megjelentetett."
-
-msgid "api.publication.403.alreadyUnpublished"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"A cikk aminek megjelentetését vissza szeretné vonni, még nem megjelentetett."
+"A nyilvános fájlok könyvtárat nem találtuk, vagy a fájlokat nem lehet rá "
+"menteni. Vegye fel a kapcsolatot a rendszergazdával a probléma megoldásához."
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "A cikk, amit meg szeretne jeleníteni, már megjelentetett."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "A dátumnak az alábbi formátumban kell szerepelni:  ÉÉÉÉ-HH-NN."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "A kért e-mail sablon nem található."
+msgid "api.stats.400.wrongDateRange"
+msgstr "A kezdő dátum nem lehet későbbi, mint a befejező dátum."
 
-msgid "api.emails.400.missingUserGroups"
+msgid "api.stats.400.earlyDateRange"
+msgstr "A kezdő dátum nem lehet korábbi mint 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "A befejezési dátum nem lehet későbbi, mint a tegnapi."
+
+msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"Meg kell jelölnie azokat a szerepköröket, akik kapnak ebből az e-maiből."
+"Kérése érvénytelen. Az idővonal-intervallum \"nap\" vagy \"hónap\" kell, "
+"hogy legyen."
 
-msgid "api.emails.400.missingSubject"
-msgstr "Meg kell adnia az e-mail tárgyát."
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Kérése érvénytelen. Az orderDirection legyen \"desc\" vagy \"asc\"."
 
-msgid "api.emails.400.missingBody"
-msgstr "Meg kell adnia egy elküldendő e-mailt."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "A következő nyelvek nem támogatottak: {$locales}."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "A kért bejelentés nem található."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Nem lehetséges a létrehozás időpontját megváltoztatni."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Nincs joga elérni fájlokat ebben a bírálati fordulóban."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Nincs joga ezeket a fájlokat hozzáadni és szerkeszteni."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Ön nem férhet hozzá ezekhez a fájlokhoz."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Az a bírálati forduló, amit megadott nem tartozik ehhez a kézirathoz."
-
-msgid "api.submissionsFiles.400.noParams"
+msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
-"A fájl szerkesztésére irányuló kérelemben nem találtunk változtatásokat."
 
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Meg kell adnia egy fájlszakaszt."
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Az assocType és assocId megadása nélkül nem módosíthatja a fájl társítását."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Ebből a fájlszakaszból származó fájlt nem társíthat egy másik kéziratfájlhoz."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a vita jegyzethez."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói hozzárendeléshez."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói körrel."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
 "A bírálati szakaszban lévő fájlok bekérésekor meg kell adnia a bírálati "
 "fordulót."
 
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói körrel."
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Meg kell adnia egy fájlszakaszt."
 
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Ebből a fájlszakaszból nem társíthat fájlt a bírálói hozzárendeléshez."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Ebből a fájlszakaszból nem társíthat fájlt a vita jegyzethez."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgid "api.submissionFiles.400.invalidFileStage"
 msgstr ""
-"Ebből a fájlszakaszból származó fájlt nem társíthat egy másik kéziratfájlhoz."
 
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgid "api.submissionsFiles.400.noParams"
 msgstr ""
-"Az assocType és assocId megadása nélkül nem módosíthatja a fájl társítását."
+"A fájl szerkesztésére irányuló kérelemben nem találtunk változtatásokat."
 
-msgid "api.emails.403.notAllowedUserGroup"
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
-"A kiválasztott szerepkör(ök)ben lévő felhasználóknak nem küldhet e-mailt."
 
-msgid "api.500.apiSecretKeyMissing"
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Az a bírálati forduló, amit megadott nem tartozik ehhez a kézirathoz."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Ön nem férhet hozzá ezekhez a fájlokhoz."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nincs joga ezeket a fájlokat hozzáadni és szerkeszteni."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nincs joga elérni fájlokat ebben a bírálati fordulóban."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "A kérése nem teljesíthető, mert hiányzik a szükséges információ."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "A kért évfolyam, szám vagy év nem érvényes."
+
+msgid "api.submissions.400.invalidSubmitAs"
 msgstr ""
-"Az API-token nem használható a webhely eléréséhez, mivel a webhely "
-"rendszergazdája nem állított be titkos kulcsot."
 
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "Az apiToken nem volt dekódolható a következő hiba miatt: {$error}"
-
-msgid "api.400.invalidApiToken"
+msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
-"Az API-token nem volt érvényesíthető. Ez azt jelezheti, hogy az API-tokenben "
-"hiba van, vagy az API-token már nem érvényes."
+"Kérése megtagadva. Azért fordulhatott elő, mert a bejelentkezése lejárt. "
+"Próbálja újratölteni az oldalt, majd próbálkozzon még egyszer."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Nem tudja törölni a kéziratot, amely nincs hozzárendelve ehhez a "
+"szövegkörnyezethez."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Csak azokat a meg nem jelent kéziratokat láthatja, amelyekhez Ön hozzá lett "
+"rendelve."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nincs engedélye ennek a kéziratnak a törléséhez."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Ön számára nem engedélyezett a cikk szerkesztése."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ez a végpont nem érhető el a 'context'-ből. Az egész webhelyre kiterjedő "
+"névtérből kell hozzáférni."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Az aktív téma, {$themePluginPath}, nincs engedélyezve és lehet, hogy nincs "
+"telepítve sem."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "A(z) {$locale} területi beállítás nem támogatott."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr ""
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+
+#~ msgid "api.submissions.404.resourceNotFound"
+#~ msgstr "A kért forrás nem található."
+
+#~ msgid "api.stats.400.wrongTimeSegmentDaily"
+#~ msgstr ""
+#~ "Nem megfelelő kérés. A 'napi' időszegmens csak 90 napon belüli időszakkal "
+#~ "(kezdeti és vég dátum) együtt érvényes. "
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "A(z) {$vocab} nem támogatott."

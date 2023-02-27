@@ -11,56 +11,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.adminFunctions"
-msgstr "ئەرکە کارگێڕییەکان"
+msgid "admin.systemInfo.settingName"
+msgstr "ناوی ڕێکخستن"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "بەهای ڕێکخستن"
 
-msgid "admin.systemInfo.settingName"
-msgstr "ناوی ڕێکخستن"
+msgid "admin.adminFunctions"
+msgstr "ئەرکە کارگێڕییەکان"
 
-msgid "admin.clearTemplateCache"
-msgstr "قاڵبە لابەلاکان بسڕەوە"
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
 
 msgid "admin.clearDataCache"
 msgstr "داتا لابەلاکان بسڕەوە"
 
-msgid "admin.languages.cantDisable"
-msgstr ""
-"ئەمە زمانی سەرەکی پێگەکەیە)وێب سایەتەکە) یە  \n"
-"یا :ئەم زمانە زمانی سەرەکی پێگەکەیە، ناتوانی لەکاری بخەیت لەکاتێکدا زمانێکی "
-"ترت بە زمانی سەرەکی هەڵنەبژاردووە."
-
-msgid "admin.expireSessions"
-msgstr "کۆتایی هێنان بە کارپێکردنی بەکارهێنەران"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "پیشاندانی رێکخستنی نوێ"
-
-msgid "admin.dateInstalled"
-msgstr "رێککەوتی دامەزراندن"
-
-msgid "admin.currentVersion"
-msgstr "وێنەی بەردەست"
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"ئایا دڵنیای کەدەتەوێ {$contextName}\" و هەموو ئەوانەی پەیوەستن پێوەی، "
-"بەتەواوی بسڕیتەوە؟"
-
-msgid "admin.contentsOfConfigFile"
-msgstr "ناوەرۆکی فایلی زانیارییەکان"
-
-msgid "admin.confirmExpireSessions"
-msgstr ""
-"؟ ئایا تۆ دڵنیای کە دەتەوێت کۆتایی بەکارپێکردنی هەموو بەکارهێنەران بهێنیت لە "
-"کاتێکدا هەموو بەکارهێنەران  پێویستیانە جارێکی تر بچنەوە ناو پێگەکە (تەنانەت "
-"تۆش)."
-
-msgid "admin.confirmClearTemplateCache"
-msgstr ""
-"ئایا دڵنیاییت کە دەتەوێ زانیارییەشاراوەکانت بەشێوەیەکی کۆکراوەیی بسڕیتەوە"
+msgid "admin.clearTemplateCache"
+msgstr "قاڵبە لابەلاکان بسڕەوە"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -68,10 +38,29 @@ msgstr ""
 "پێگەکەت بەشێوەیەکی دروست کارانەبوو، دەتوانی زانیارییەکان بەدەستکارییەوە \n"
 "  راستبکەیەوە بەشیوەیەکی راستەوخۆ لەسەر فایلەکە"
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.confirmClearTemplateCache"
 msgstr ""
-"ئایا تۆ لە گۆڕینی زمانی سەرەکی دڵنیایت؟ دەبێت ناوی بەکارهینەران بە زمانی "
-"سەرەکی بێت و ئەمەش لە زمانی ئێستاوە کۆپی لێ هەڵ دەگیرێت."
+"ئایا دڵنیاییت کە دەتەوێ زانیارییەشاراوەکانت بەشێوەیەکی کۆکراوەیی بسڕیتەوە"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"؟ ئایا تۆ دڵنیای کە دەتەوێت کۆتایی بەکارپێکردنی هەموو بەکارهێنەران بهێنیت لە "
+"کاتێکدا هەموو بەکارهێنەران  پێویستیانە جارێکی تر بچنەوە ناو پێگەکە (تەنانەت "
+"تۆش)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "ناوەرۆکی فایلی زانیارییەکان"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"ئایا دڵنیای کەدەتەوێ {$contextName}\" و هەموو ئەوانەی پەیوەستن پێوەی، "
+"بەتەواوی بسڕیتەوە؟"
+
+msgid "admin.currentVersion"
+msgstr "وێنەی بەردەست"
+
+msgid "admin.dateInstalled"
+msgstr "رێککەوتی دامەزراندن"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
@@ -79,208 +68,716 @@ msgstr ""
 "دەبێت ئەم لینکە بکەیتەوە <tt>config.inc.php</tt>  و گۆڕانکاری لەو ناوەرۆکانە "
 "بکەیت کە پێویستە."
 
-msgid "admin.settings.contactEmail"
-msgstr "ئیمه‌یلی ناونیشانی په‌یوه‌ندیكردنی بنچینه‌یی"
+msgid "admin.displayNewSystemConfig"
+msgstr "پیشاندانی رێکخستنی نوێ"
 
-msgid "admin.settings.about"
-msgstr "ده‌رباره‌ی پێگه‌"
+msgid "admin.expireSessions"
+msgstr "کۆتایی هێنان بە کارپێکردنی بەکارهێنەران"
 
-msgid "admin.settings"
-msgstr "رێكخستنه‌كان"
-
-msgid "admin.server.platform"
-msgstr "سه‌كۆی سیسته‌می به‌كارخستن"
-
-msgid "admin.server.phpVersion"
-msgstr "ژماره‌ی وه‌شانی PHP"
-
-msgid "admin.serverInformation"
-msgstr "زانیارییه‌كانی سێرڤه‌ر"
-
-msgid "admin.server.dbDriver"
-msgstr "به‌كارخه‌ری بنكه‌ی زانیارییه‌كان"
-
-msgid "admin.server.apacheVersion"
-msgstr "ژماره‌ی وه‌شانی Apache"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "به‌بیرهێنانه‌وه‌ی به‌كۆۆتاهاتنی به‌شداریكردن"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "به‌بیرهێنانه‌وه‌ی پێداچونه‌وه‌"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "لابردنی زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ خشته‌كراوه‌كان"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.expireSessions.description"
 msgstr ""
-"ئایا تۆ دڵنیایت كه‌ ده‌ته‌وێ هه‌موو زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ "
-"نه‌خشه‌بۆكراوه‌كان  بسڕیته‌وه‌؟"
 
-msgid "admin.scheduledTask.noLog"
-msgstr "تۆمارێكی كار بۆ ئه‌ركه‌كه‌ پێشكه‌ش نه‌كرا."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "ئه‌ركه‌كه‌ وه‌ستا."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "ئه‌ركه‌كه‌ ده‌ستی پێكرد."
-
-msgid "admin.scheduledTask"
-msgstr "ئه‌ركێكی خشته‌ بۆكراو"
-
-msgid "admin.phpInfo"
-msgstr "زانیاریی PHP  زێتر"
-
-msgid "admin.languages.uninstall"
-msgstr "هه‌ڵوه‌شاندنه‌وه‌ی دانانی زمان"
-
-msgid "admin.languages.reload"
-msgstr "دووباره‌ باركردنه‌وه‌ زمان"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "زمانی زێتر نییه‌ بۆ دانان"
-
-msgid "admin.languages.languageSettings"
-msgstr "رێكخستنه‌كانی زمان"
-
-msgid "admin.languages.installNewLocales"
-msgstr "داناننی زمانی تر"
-
-msgid "admin.languages.installLocale"
-msgstr "دامه‌زراندنی زمان"
-
-msgid "admin.languages.availableLocales"
-msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
-
-msgid "admin.languages.installLanguages"
-msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
-
-msgid "admin.settings.contactName"
-msgstr "ناوی کەسی پەیوەندیكردنی سەرەکی"
-
-msgid "admin.server.dbVersion"
-msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "بڵاوکردنەوەی توێژینەوە دانراوەکان بۆ بڵاوکردنەوە"
-
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
-"تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
+"ئەمە زمانی سەرەکی پێگەکەیە)وێب سایەتەکە) یە  \n"
+"یا :ئەم زمانە زمانی سەرەکی پێگەکەیە، ناتوانی لەکاری بخەیت لەکاتێکدا زمانێکی "
+"ترت بە زمانی سەرەکی هەڵنەبژاردووە."
 
-msgid "admin.languages.installLocales"
-msgstr "دانان/دامه‌زراندن"
-
-msgid "admin.languages.installedLocales"
-msgstr "شوێنەکانی دابەزین"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"ئایا تۆ لە گۆڕینی زمانی سەرەکی دڵنیایت؟ دەبێت ناوی بەکارهینەران بە زمانی "
+"سەرەکی بێت و ئەمەش لە زمانی ئێستاوە کۆپی لێ هەڵ دەگیرێت."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
 "ئایا تۆ دڵنیایت لە دابەزاندنەوەی ئەم زمانە؟ ئەمە هەمو تایبەتمەندییەکانی زمان "
 "دەسڕێتەوە بۆ نمونە قاڵبە تایبەتییەکانی ئیمەیڵ."
 
-msgid "admin.settings.siteLanguage"
-msgstr "زمانی پێگه‌"
+msgid "admin.languages.installedLocales"
+msgstr "شوێنەکانی دابەزین"
 
-msgid "admin.settings.minPasswordLength"
-msgstr "كوررتترین تێپه‌ڕ وشه‌"
+msgid "admin.languages.installLanguages"
+msgstr "به‌ڕێوه‌بردنی زمانه‌كان"
+
+msgid "admin.languages.availableLocales"
+msgstr "زمانه‌ فه‌راهه‌مكراوه‌كان"
+
+msgid "admin.languages.installLocale"
+msgstr "دامه‌زراندنی زمان"
+
+msgid "admin.languages.installLocales"
+msgstr "دانان/دامه‌زراندن"
+
+msgid "admin.languages.installNewLocales"
+msgstr "داناننی زمانی تر"
+
+msgid "admin.languages.languageSettings"
+msgstr "رێكخستنه‌كانی زمان"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "زمانی زێتر نییه‌ بۆ دانان"
+
+msgid "admin.languages.reload"
+msgstr "دووباره‌ باركردنه‌وه‌ زمان"
+
+msgid "admin.languages.uninstall"
+msgstr "هه‌ڵوه‌شاندنه‌وه‌ی دانانی زمان"
+
+msgid "admin.phpInfo"
+msgstr "زانیاریی PHP  زێتر"
+
+msgid "admin.scheduledTask"
+msgstr "ئه‌ركێكی خشته‌ بۆكراو"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "ئه‌ركه‌كه‌ ده‌ستی پێكرد."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "ئه‌ركه‌كه‌ وه‌ستا."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "تۆمارێكی كار بۆ ئه‌ركه‌كه‌ پێشكه‌ش نه‌كرا."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"جێگیرکردنی بەرنامەی {$softwareName} بە تۆماتیکی جێبەجێ کرا و تەواو بو، ئێستا "
+"تۆ دەتوانیت فایلەکە لێرە داببەزێنیت:  {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"ئایا تۆ دڵنیایت كه‌ ده‌ته‌وێ هه‌موو زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ "
+"نه‌خشه‌بۆكراوه‌كان  بسڕیته‌وه‌؟"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "لابردنی زانیارییه‌كانی به‌به‌ڵگه‌كردنی ئه‌ركه‌ خشته‌كراوه‌كان"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "بڵاوکردنەوەی توێژینەوە دانراوەکان بۆ بڵاوکردنەوە"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی پێداچونه‌وه‌"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "به‌بیرهێنانه‌وه‌ی به‌كۆۆتاهاتنی به‌شداریكردن"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "ژماره‌ی وه‌شانی Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "به‌كارخه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.server.dbVersion"
+msgstr "وه‌شانی سێرڤه‌ری بنكه‌ی زانیارییه‌كان"
+
+msgid "admin.serverInformation"
+msgstr "زانیارییه‌كانی سێرڤه‌ر"
+
+msgid "admin.server.phpVersion"
+msgstr "ژماره‌ی وه‌شانی PHP"
+
+msgid "admin.server.platform"
+msgstr "سه‌كۆی سیسته‌می به‌كارخستن"
+
+msgid "admin.settings"
+msgstr "رێكخستنه‌كان"
+
+msgid "admin.settings.about"
+msgstr "ده‌رباره‌ی پێگه‌"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
+
+msgid "admin.settings.contactEmail"
+msgstr "ئیمه‌یلی ناونیشانی په‌یوه‌ندیكردنی بنچینه‌یی"
+
+msgid "admin.settings.contactName"
+msgstr "ناوی کەسی پەیوەندیكردنی سەرەکی"
 
 msgid "admin.settings.introduction"
 msgstr "پێشه‌كی"
 
-msgid "admin.version.updateAvailable"
-msgstr "وه‌شانی نوێكراوه‌ به‌رده‌سته‌"
+msgid "admin.settings.minPasswordLength"
+msgstr "كوررتترین تێپه‌ڕ وشه‌"
 
-msgid "admin.versionRevision"
-msgstr "پێداچونه‌وه‌"
-
-msgid "admin.version.moreInfo"
-msgstr "زانیاری زێتر"
-
-msgid "admin.versionMinor"
-msgstr "لاوه‌كی"
-
-msgid "admin.versionMajor"
-msgstr "سه‌ره‌كی"
-
-msgid "admin.version.latest"
-msgstr "وه‌شانی كۆتایی"
-
-msgid "admin.versionHistory"
-msgstr "رێككه‌وتی وه‌شان"
-
-msgid "admin.version.downloadPatch"
-msgstr "پاكێجی دابه‌زاندنی"
-
-msgid "admin.version.downloadPackage"
-msgstr "دابه‌زاندن"
-
-msgid "admin.version.checkForUpdates"
-msgstr "گه‌ڕان به‌ دوای نوێكردنه‌وه‌كان دا"
-
-msgid "admin.versionBuild"
-msgstr "بنیاتنان"
-
-msgid "admin.systemInformation"
-msgstr "زانیارییه‌كانی سیسته‌م"
-
-msgid "admin.systemConfigFileReadError"
+msgid "admin.settings.restrictBulkEmails"
 msgstr ""
-"دۆسییه‌ی رێكخستنه‌كان <tt>config.inc.php</tt> بوونى نییه‌، يان "
-"ناخوێندرێته‌وه‌، یان راست نییه‌."
 
-msgid "admin.siteSetup"
-msgstr "دامه‌زراندنی پێگه‌"
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
 
-msgid "admin.siteSettings"
-msgstr "رێكخستنه‌كانی پێگه‌"
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
-msgid "admin.siteManagement"
-msgstr "به‌ڕێوه‌بردنی پێگه‌"
+msgid "admin.settings.siteLanguage"
+msgstr "زمانی پێگه‌"
 
-msgid "admin.siteAdmin"
-msgstr "به‌ڕێوه‌بردنی پێگه‌"
-
-msgid "admin.settings.siteTheme"
-msgstr "جۆری پێگه‌"
-
-msgid "admin.settings.siteTitle"
-msgstr "ناونیشانی پێگه‌"
-
-msgid "admin.settings.siteLogo"
-msgstr "لۆگۆی پێگه‌"
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "داڕشته‌ی دۆسه‌ی جۆره‌كانی پێگه‌كه‌ ناڕاسته‌. دارشته‌ی په‌سه‌ند ئه‌مه‌یه‌.css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "دۆسیه‌ی جۆره‌كانی پێگه‌"
 
-msgid "admin.settings.siteStyleSheetInvalid"
+msgid "admin.settings.siteLogo"
+msgstr "لۆگۆی پێگه‌"
+
+msgid "admin.settings.siteTitle"
+msgstr "ناونیشانی پێگه‌"
+
+msgid "admin.settings.siteTheme"
+msgstr "جۆری پێگه‌"
+
+msgid "admin.siteAdmin"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.siteManagement"
+msgstr "به‌ڕێوه‌بردنی پێگه‌"
+
+msgid "admin.siteSettings"
+msgstr "رێكخستنه‌كانی پێگه‌"
+
+msgid "admin.siteSetup"
+msgstr "دامه‌زراندنی پێگه‌"
+
+msgid "admin.systemConfigFileReadError"
 msgstr ""
-"داڕشته‌ی دۆسه‌ی جۆره‌كانی پێگه‌كه‌ ناڕاسته‌. دارشته‌ی په‌سه‌ند ئه‌مه‌یه‌.css."
+"دۆسییه‌ی رێكخستنه‌كان <tt>config.inc.php</tt> بوونى نییه‌، يان ناخوێندرێته‌وه‌، "
+"یان راست نییه‌."
 
-msgid "admin.fileLoader.emailSubject"
-msgstr "هه‌ڵگری دۆسیه‌كان"
+msgid "admin.systemInformation"
+msgstr "زانیارییه‌كانی سیسته‌م"
 
-msgid "admin.fileLoader.fileProcessed"
-msgstr "دۆسیه‌ی {$filename} چاره‌سه‌ر كراو پارێزراوه‌."
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr "بنیاتنان"
+
+msgid "admin.version.checkForUpdates"
+msgstr "گه‌ڕان به‌ دوای نوێكردنه‌وه‌كان دا"
+
+msgid "admin.version.downloadPackage"
+msgstr "دابه‌زاندن"
+
+msgid "admin.version.downloadPatch"
+msgstr "پاكێجی دابه‌زاندنی"
+
+msgid "admin.versionHistory"
+msgstr "رێككه‌وتی وه‌شان"
+
+msgid "admin.version.latest"
+msgstr "وه‌شانی كۆتایی"
+
+msgid "admin.versionMajor"
+msgstr "سه‌ره‌كی"
+
+msgid "admin.versionMinor"
+msgstr "لاوه‌كی"
+
+msgid "admin.version.moreInfo"
+msgstr "زانیاری زێتر"
+
+msgid "admin.versionRevision"
+msgstr "پێداچونه‌وه‌"
+
+msgid "admin.version.updateAvailable"
+msgstr "وه‌شانی نوێكراوه‌ به‌رده‌سته‌"
+
+msgid "admin.version.upToDate"
+msgstr "سیسته‌مه‌كه‌ت نوێترین وه‌شانه‌"
+
+msgid "admin.version"
+msgstr "وه‌شان"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "پێویستە لە ناو فایلی گشتی ئاراستە کراوبێت {$path}  ڕێگای سەرەکی"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "فۆڵده‌ری دۆسییه‌كان {$path}ڕێڕه‌وێكی دروست نیه‌ یان ناخوێندرێته‌وه‌."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
 "ناتوانرێـت دۆسیه‌ی {$filename} له‌ {$currentFilePath} بگوێزرێته‌وه‌ بۆ "
 "{$destinationPath}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "فۆڵده‌ری دۆسییه‌كان {$path}ڕێڕه‌وێكی دروست نیه‌ یان ناخوێندرێته‌وه‌."
+msgid "admin.fileLoader.fileProcessed"
+msgstr "دۆسیه‌ی {$filename} چاره‌سه‌ر كراو پارێزراوه‌."
 
-msgid "admin.version"
-msgstr "وه‌شان"
+msgid "admin.fileLoader.emailSubject"
+msgstr "هه‌ڵگری دۆسیه‌كان"
 
-msgid "admin.version.upToDate"
-msgstr "سیسته‌مه‌كه‌ت نوێترین وه‌شانه‌"
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr ".هیچ شتێکی ناوەخۆ بەردەست نیە بۆ دابەزاندن"
 
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "پێویستە لە ناو فایلی گشتی ئاراستە کراوبێت {$path}  ڕێگای سەرەکی"
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

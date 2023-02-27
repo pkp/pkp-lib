@@ -22,14 +22,76 @@ msgstr "Intet element"
 msgid "grid.settings"
 msgstr "Indstillinger"
 
+msgid "grid.noAuditors"
+msgstr "Ingen auditører"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Dette nummer er eksternt hosted."
+
+msgid "grid.action.uninstall"
+msgstr "Afinstallér"
+
+msgid "grid.action.manageAccess"
+msgstr "Administrér adgang"
+
 msgid "grid.action.sort"
 msgstr "Sortér"
 
 msgid "grid.action.addItem"
 msgstr "Tilføj element"
 
+msgid "grid.action.addNote"
+msgstr "Tilføj note"
+
+msgid "grid.action.addQuery"
+msgstr "Tilføj indlæg"
+
+msgid "grid.action.readQuery"
+msgstr "Læs indlæg"
+
+msgid "grid.action.deleteQuery"
+msgstr "Slet indlæg"
+
+msgid "grid.action.updateQuery"
+msgstr "Opdatér indlæg"
+
+msgid "grid.action.addUser"
+msgstr "Tilføj bruger"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Afmeld denne bedømmer"
+
+msgid "grid.action.approveCopyedit"
+msgstr ""
+"Godkend denne manuskriptredigerede fil, så den kan sendes videre til næste "
+"trin"
+
+msgid "grid.action.reload"
+msgstr "Genindlæs"
+
 msgid "grid.action.delete"
 msgstr "Slet"
+
+msgid "grid.action.deleteFile"
+msgstr "Slet fil"
+
+msgid "grid.action.deleteMedia"
+msgstr "Slet medie"
+
+msgid "grid.action.editMedia"
+msgstr "Redigér medie"
+
+msgid "grid.action.editSection"
+msgstr "Redigér sektion"
+
+msgid "grid.action.export"
+msgstr "Eksportér"
+
+msgid "grid.action.deleteSection"
+msgstr "Slet sektion"
+
+msgid "grid.action.editorialHistory"
+msgstr "Redaktionel historik"
 
 msgid "grid.action.remove"
 msgstr "Fjern"
@@ -40,8 +102,11 @@ msgstr "Redigér"
 msgid "grid.action.approve"
 msgstr "Godkend"
 
-msgid "grid.action.decline"
-msgstr "Afvis denne indsendelse"
+msgid "grid.action.disapprove"
+msgstr "Afvis"
+
+msgid "grid.action.setApproval"
+msgstr "Indsæt godkendelse"
 
 msgid "grid.action.moreInformation"
 msgstr "Mere information"
@@ -49,62 +114,11 @@ msgstr "Mere information"
 msgid "grid.action.restoreDefaults"
 msgstr "Gendan standardindstillinger"
 
-msgid "grid.columns.actions"
-msgstr "Handlinger"
-
-msgid "grid.columns.institution"
-msgstr "Institution"
-
-msgid "grid.columns.url"
-msgstr "URL"
-
-msgid "grid.sponsor.title"
-msgstr "Sponsororganisationer"
-
-msgid "grid.contributor.title"
-msgstr "Bidragyder"
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Er du sikker på, at du vil genskabe standardinstillingerne?"
 
 msgid "grid.action.addAuthor"
 msgstr "Tilføj forfatter"
-
-msgid "grid.reviewForm.title"
-msgstr "Bedømmelsesformularer"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "Filer"
-
-msgid "grid.libraryFiles.submission.title"
-msgstr "Indsendelsesbibliotek"
-
-msgid "grid.libraryFiles.editorial.title"
-msgstr "Redaktionelt bibliotek"
-
-msgid "grid.libraryFiles.review.title"
-msgstr "Bedømmelsesbibliotek"
-
-msgid "grid.libraryFiles.production.title"
-msgstr "Produktionsbibliotek"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Produktionsskabelons-bibliotek"
-
-msgid "grid.submissionChecklist.title"
-msgstr "Indsendelses-tjekliste"
-
-msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Tjekliste-element"
-
-msgid "author.users.contributor.principalContact"
-msgstr "Primær kontaktperson"
-
-msgid "grid.action.addUser"
-msgstr "Tilføj bruger"
-
-msgid "grid.action.deleteFile"
-msgstr "Slet fil"
-
-msgid "grid.action.deleteMedia"
-msgstr "Slet medie"
 
 msgid "grid.action.editAuthor"
 msgstr "Redigér forfatter"
@@ -121,6 +135,9 @@ msgstr "Opgradér"
 msgid "grid.action.order"
 msgstr "Rækkefølge"
 
+msgid "grid.action.saveOrdering"
+msgstr "Gem rækkefølge"
+
 msgid "grid.action.cancelOrdering"
 msgstr "Annullér ændringer i rækkefølge"
 
@@ -135,9 +152,6 @@ msgstr "Sammenklap alle"
 
 msgid "grid.action.wizard"
 msgstr "Indstillingsguide"
-
-msgid "grid.action.editMedia"
-msgstr "Redigér medie"
 
 msgid "grid.action.moveItem"
 msgstr "Flyt element"
@@ -168,6 +182,9 @@ msgstr "Anmod om revidering af dette manuskript"
 
 msgid "grid.action.accept"
 msgstr "Acceptér dette manuskript"
+
+msgid "grid.action.decline"
+msgstr "Afvis denne indsendelse"
 
 msgid "grid.action.internalReview"
 msgstr "Send dette manuskript til intern bedømmelse"
@@ -220,6 +237,9 @@ msgstr "Tilføj en ny brugergruppe"
 msgid "grid.action.editUserGroup"
 msgstr "Redigér denne brugergruppe"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Fjern denne brugergruppe"
+
 msgid "grid.action.disable"
 msgstr "Deaktivér"
 
@@ -232,8 +252,14 @@ msgstr "Tilmeld en eksisterende bruger som bedømmer"
 msgid "grid.action.selectCreate"
 msgstr "Opret en ny bedømmer"
 
+msgid "grid.action.search"
+msgstr "Søg"
+
 msgid "grid.action.advancedSearch"
 msgstr "Udvidet søgning"
+
+msgid "grid.action.viewLibrary"
+msgstr "Se dokumentbibliotek"
 
 msgid "grid.action.viewMetadata"
 msgstr "Se dette manuskripts metadata"
@@ -262,6 +288,9 @@ msgstr "Tilføj meddelelsestype"
 msgid "grid.action.addAnnouncement"
 msgstr "Tilføj meddelelser"
 
+msgid "grid.action.addInstitution"
+msgstr "Tilføj institution"
+
 msgid "grid.action.mergeUser"
 msgstr "Flet brugere"
 
@@ -270,6 +299,45 @@ msgstr "Afmeld bruger"
 
 msgid "grid.action.history"
 msgstr "Se historik"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Denne bedømmelse er gennemført, men du kan ignorere den"
+
+msgid "grid.action.enable"
+msgstr "Aktivér"
+
+msgid "grid.action.bookInfo"
+msgstr "Indsendelses-information"
+
+msgid "grid.action.logInAs"
+msgstr "Login som"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Eksportér alle brugere"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Er du sikker på, at du vil eksportere alle brugere?"
+
+msgid "grid.action.activate"
+msgstr "Aktivér"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktivér"
+
+msgid "grid.action.copy"
+msgstr "Kopiér"
+
+msgid "grid.action.preview"
+msgstr "Vis"
+
+msgid "grid.action.install"
+msgstr "Installér"
+
+msgid "grid.action.moreItems"
+msgstr "Hent flere"
+
+msgid "grid.action.users"
+msgstr "Se/Vælg brugere"
 
 msgid "grid.task.status.completed"
 msgstr "Denne opgave er færdiggjort"
@@ -287,11 +355,26 @@ msgid "grid.task.status.reviewReady"
 msgstr ""
 "Denne bedømmelse er klar. Klik notat-ikonet til venstre for at læse den."
 
+msgid "grid.columns.actions"
+msgstr "Handlinger"
+
+msgid "grid.columns.institution"
+msgstr "Institution"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
 msgid "grid.columns.auditor"
 msgstr "Auditør"
 
 msgid "grid.columns.locale"
 msgstr "Sprog"
+
+msgid "grid.columns.locale.code"
+msgstr "Kode"
+
+msgid "grid.sponsor.title"
+msgstr "Sponsororganisationer"
 
 msgid "grid.action.addSponsor"
 msgstr "Tilføj sponsor"
@@ -320,14 +403,84 @@ msgstr "Redigér kategori"
 msgid "grid.action.deleteCategory"
 msgstr "Slet kategori"
 
+msgid "grid.contributor.title"
+msgstr "Bidragyder"
+
 msgid "grid.action.addContributor"
 msgstr "Tilføj bidragyder"
 
 msgid "grid.action.deleteContributor"
 msgstr "Slet bidragyder"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Er du sikker på, at du ønsker at fjerne {$name} som bidragyder? Denne "
+"handling kan ikke fortrydes."
+
+msgid "grid.action.newVersion"
+msgstr "Opret en ny udgave"
+
+msgid "grid.reviewForm.title"
+msgstr "Bedømmelsesformularer"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Svarmuligheder"
+
 msgid "grid.noFiles"
 msgstr "Ingen filer"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Filer"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Indsendelsesbibliotek"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Redaktionelt bibliotek"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Bedømmelsesbibliotek"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Produktionsbibliotek"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Produktionsskabelons-bibliotek"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Indsendelses-tjekliste"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Tjekliste-element"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Primær kontaktperson"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Vælg som primær kontakt"
+
+msgid "contributor.listPanel.preview"
+msgstr "Forhåndsvisning"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Bidragydere til denne publikation vil blive identificeret i dette tidsskrift "
+"i de følgende formater."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Vis"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Forkortet"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Lister over udgivelser"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Fuldt"
 
 msgid "grid.roles.currentRoles"
 msgstr "Nuværende roller"
@@ -346,6 +499,9 @@ msgstr "Nuværende tilmeldte"
 
 msgid "grid.user.allRoles"
 msgstr "Alle roller"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Alle adgangsniveauer"
 
 msgid "grid.user.add"
 msgstr "Tilføj bruger"
@@ -436,11 +592,38 @@ msgstr "Trin #2: Tilføj brugeroller til {$userFullName}"
 msgid "grid.user.addRoles"
 msgstr "Tilføj roller"
 
+msgid "grid.user.addRole"
+msgstr "Tilføj rolle"
+
 msgid "grid.user.selectUser"
 msgstr "Vælg bruger"
 
 msgid "grid.user.pleaseSelectUser"
 msgstr "Vælg en bruger"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"Login som denne bruger? Alle handlinger du udfører vil blive tillagt denne "
+"bruger."
+
+msgid "grid.user.mergeUsers"
+msgstr "Flet brugere"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "Flet bruger"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Flet ind under denne bruger"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "Alle registrerede brugere"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Er du sikker på, at du vil flette denne konto med brugernavnet "
+"\"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? "
+"Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan "
+"ikke fortrydes."
 
 msgid "grid.preparedEmails.title"
 msgstr "Forberedte e-mail-skabeloner"
@@ -453,133 +636,6 @@ msgstr "Alle kategorier"
 
 msgid "grid.plugin.disable"
 msgstr "Er du sikker på, at du vil deaktivere denne plugin?"
-
-msgid "grid.submission.itemTitle"
-msgstr "Forfatter; Titel"
-
-msgid "grid.action.restoreDefaults.confirm"
-msgstr "Er du sikker på, at du vil genskabe standardinstillingerne?"
-
-msgid "grid.action.addQuery"
-msgstr "Tilføj indlæg"
-
-msgid "grid.action.viewLibrary"
-msgstr "Se dokumentbibliotek"
-
-msgid "grid.action.logInAs"
-msgstr "Login som"
-
-msgid "grid.user.confirmLogInAs"
-msgstr ""
-"Login som denne bruger? Alle handlinger du udfører vil blive tillagt denne "
-"bruger."
-
-msgid "grid.action.moreItems"
-msgstr "Hent flere"
-
-msgid "grid.user.addRole"
-msgstr "Tilføj rolle"
-
-msgid "grid.user.mergeUsers.mergeUser"
-msgstr "Flet bruger"
-
-msgid "grid.noAuditors"
-msgstr "Ingen auditører"
-
-msgid "grid.remotelyHostedItem"
-msgstr "Dette nummer er eksternt hosted."
-
-msgid "grid.action.manageAccess"
-msgstr "Administrér adgang"
-
-msgid "grid.action.addNote"
-msgstr "Tilføj note"
-
-msgid "grid.action.readQuery"
-msgstr "Læs indlæg"
-
-msgid "grid.action.deleteQuery"
-msgstr "Slet indlæg"
-
-msgid "grid.action.updateQuery"
-msgstr "Opdatér indlæg"
-
-msgid "grid.action.unassignReviewer"
-msgstr "Afmeld denne bedømmer"
-
-msgid "grid.action.approveCopyedit"
-msgstr ""
-"Godkend denne manuskriptredigerede fil, så den kan sendes videre til næste "
-"trin"
-
-msgid "grid.action.reload"
-msgstr "Genindlæs"
-
-msgid "grid.action.editSection"
-msgstr "Redigér sektion"
-
-msgid "grid.action.export"
-msgstr "Eksportér"
-
-msgid "grid.action.deleteSection"
-msgstr "Slet sektion"
-
-msgid "grid.action.editorialHistory"
-msgstr "Redaktionel historik"
-
-msgid "grid.action.disapprove"
-msgstr "Afvis"
-
-msgid "grid.action.setApproval"
-msgstr "Indsæt godkendelse"
-
-msgid "grid.action.search"
-msgstr "Søg"
-
-msgid "grid.action.unconsiderReview"
-msgstr "Denne bedømmelse er gennemført, men du kan ignorere den"
-
-msgid "grid.action.enable"
-msgstr "Aktivér"
-
-msgid "grid.action.bookInfo"
-msgstr "Indsendelses-information"
-
-msgid "grid.action.exportAllUsers"
-msgstr "Eksportér alle brugere"
-
-msgid "grid.users.confirmExportAllUsers"
-msgstr "Er du sikker på, at du vil eksportere alle brugere?"
-
-msgid "grid.action.activate"
-msgstr "Aktivér"
-
-msgid "grid.action.deactivate"
-msgstr "Deaktivér"
-
-msgid "grid.action.copy"
-msgstr "Kopiér"
-
-msgid "grid.action.preview"
-msgstr "Vis"
-
-msgid "grid.action.install"
-msgstr "Installér"
-
-msgid "grid.reviewFormElement.responseItems"
-msgstr "Svarmuligheder"
-
-msgid "grid.user.allPermissionLevels"
-msgstr "Alle adgangsniveauer"
-
-msgid "grid.user.mergeUsers"
-msgstr "Flet brugere"
-
-msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr "Flet ind under denne bruger"
-
-msgid "grid.user.mergeUsers.allUsers"
-msgstr "Alle registrerede brugere"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Korrekturtilretninger gennemført. Du kan ignorer denne opgave"
@@ -634,12 +690,8 @@ msgstr "{$userGroupName} rolle knyttet til {$stageName} trin."
 msgid "grid.userGroup.unassignedStage"
 msgstr "{$userGroupName} rolle fjernet fra {$stageName} trin."
 
-msgid "grid.user.mergeUsers.confirm"
-msgstr ""
-"Er du sikker på, at du vil flette denne konto med brugernavnet "
-"\"{$oldUsername}\" ind under kontoen med brugernavnet \"{$newUsername}\"? "
-"Kontoen med brugernavnet \"{$oldUsername}\" ophører herefter. Handlingen kan "
-"ikke fortrydes."
+msgid "grid.submission.itemTitle"
+msgstr "Forfatter; Titel"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr ""
@@ -657,66 +709,11 @@ msgstr "Ingen navigationsmenu-elementer"
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Ingen navigationsmenuer"
 
-msgid "grid.action.uninstall"
-msgstr "Afinstallér"
-
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Vælg en type..."
 
-msgid "grid.action.users"
-msgstr "Se/Vælg brugere"
-
-msgid "grid.action.newVersion"
-msgstr "Opret en ny udgave"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Fjern denne brugergruppe"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Lister over udgivelser"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Forkortet"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Vis"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Bidragydere til denne publikation vil blive identificeret i dette tidsskrift "
-"i de følgende formater."
-
-msgid "contributor.listPanel.preview"
-msgstr "Forhåndsvisning"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Vælg som primær kontakt"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Er du sikker på, at du ønsker at fjerne {$name} som bidragyder? Denne "
-"handling kan ikke fortrydes."
-
-msgid "grid.action.saveOrdering"
-msgstr "Gem rækkefølge"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Fuldt"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Format"
-
-msgid "grid.user.authSource"
-msgstr "Godkendelseskilde"
-
-msgid "grid.action.addInstitution"
-msgstr "Tilføj institution"
-
 msgid "grid.action.view"
 msgstr "Vis"
-
-msgid "grid.columns.locale.code"
-msgstr "Kode"
 
 msgid "author.users.contributor.name"
 msgstr "Navn"
@@ -733,3 +730,5 @@ msgstr "I browse-liste"
 msgid "grid.action.editContributor"
 msgstr "Redigér bidragyder"
 
+#~ msgid "grid.user.authSource"
+#~ msgstr "Godkendelseskilde"

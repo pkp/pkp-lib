@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:50:08+00:00\n"
-"Language: uk_UA\n"
 
 msgid "default.groups.name.siteAdmin"
 msgstr "Адміністратор сайту"
@@ -136,3 +136,24 @@ msgstr "Зображення"
 
 msgid "default.genres.styleSheet"
 msgstr "Таблиця стилів HTML"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""

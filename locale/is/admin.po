@@ -12,234 +12,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.fileLoader.moveFileFailed"
-msgstr ""
-"File {$filename} could not be moved from {$currentFilePath} to "
-"{$destinationPath}"
-
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Folder {$path} is not a directory or is not readable."
-
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Base path {$path} must be inside the public files directory."
-
-msgid "admin.version"
-msgstr "Version"
-
-msgid "admin.version.upToDate"
-msgstr "Your system is up-to-date"
-
-msgid "admin.version.updateAvailable"
-msgstr "An updated version is available"
-
-msgid "admin.versionRevision"
-msgstr "Revision"
-
-msgid "admin.version.moreInfo"
-msgstr "More Information"
-
-msgid "admin.versionMinor"
-msgstr "Minor"
-
-msgid "admin.versionMajor"
-msgstr "Major"
-
-msgid "admin.version.latest"
-msgstr "Latest version"
-
-msgid "admin.versionHistory"
-msgstr "Version history"
-
-msgid "admin.version.downloadPatch"
-msgstr "Download Patch"
-
-msgid "admin.version.downloadPackage"
-msgstr "Download"
-
-msgid "admin.version.checkForUpdates"
-msgstr "Check for updates"
-
-msgid "admin.versionBuild"
-msgstr "Build"
-
-msgid "admin.systemInformation"
-msgstr "System Information"
-
-msgid "admin.systemConfigFileReadError"
-msgstr ""
-"The configuration file <tt>config.inc.php</tt> does not exist, is not "
-"readable, or is invalid."
-
-msgid "admin.siteSetup"
-msgstr "Site Setup"
-
-msgid "admin.siteSettings"
-msgstr "Site Settings"
-
-msgid "admin.siteManagement"
-msgstr "Site Management"
-
-msgid "admin.siteAdmin"
-msgstr "Site Administration"
-
-msgid "admin.settings.siteTheme"
-msgstr "Site Theme"
-
-msgid "admin.settings.siteTitle"
-msgstr "Site Name"
-
-msgid "admin.settings.siteLogo"
-msgstr "Site Logo"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "Site style sheet"
-
-msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Invalid site style sheet format. Accepted format is .css."
-
-msgid "admin.settings.siteLanguage"
-msgstr "Site language"
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Only an administrator is allowed to modify this setting."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Disable Roles"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Restrict Bulk Emails"
-
-msgid "admin.settings.minPasswordLength"
-msgstr "Minimum password length (characters)"
-
-msgid "admin.settings.introduction"
-msgstr "Introduction"
-
-msgid "admin.settings.contactName"
-msgstr "Name of principal contact"
-
-msgid "admin.settings.contactEmail"
-msgstr "Email of principal contact"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Bulk Emails"
-
-msgid "admin.settings.about"
-msgstr "About the Site"
-
-msgid "admin.settings"
-msgstr "Settings"
-
-msgid "admin.server.platform"
-msgstr "OS platform"
-
-msgid "admin.server.phpVersion"
-msgstr "PHP version"
-
-msgid "admin.serverInformation"
-msgstr "Server Information"
-
-msgid "admin.server.dbVersion"
-msgstr "Database server version"
-
-msgid "admin.server.dbDriver"
-msgstr "Database driver"
-
-msgid "admin.server.apacheVersion"
-msgstr "Apache version"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Editorial Report Notification"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Clear Scheduled Task Execution Logs"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Subscription expiry reminder"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Review reminder"
-
 msgid "admin.systemInfo.settingName"
 msgstr "Heiti stillingar"
 
-msgid "admin.languages.installNewLocales"
-msgstr "Install New Locales"
+msgid "admin.systemInfo.settingValue"
+msgstr "Gildi stillingar"
 
-msgid "admin.languages.installLocales"
-msgstr "Install"
+msgid "admin.adminFunctions"
+msgstr "Administrative Functions"
 
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.deleteCache"
 msgstr ""
-"Your {$softwareName} installation automatically executed and finished this "
-"task and you can download the log file here: {$url}"
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publish submissions scheduled for publication"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Are you sure you want to delete all scheduled task execution logs?"
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Task produced no log."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Task process stopped."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Task process started."
-
-msgid "admin.scheduledTask"
-msgstr "Scheduled task"
-
-msgid "admin.phpInfo"
-msgstr "Extended PHP Information"
-
-msgid "admin.languages.uninstall"
-msgstr "Uninstall Locale"
-
-msgid "admin.languages.reload"
-msgstr "Reload Locale"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "No additional locales are available for installation."
-
-msgid "admin.languages.languageSettings"
-msgstr "Language Settings"
-
-msgid "admin.languages.installLocale"
-msgstr "Install Locale"
-
-msgid "admin.languages.availableLocales"
-msgstr "Available Locales"
-
-msgid "admin.languages.installLanguages"
-msgstr "Manage Locales"
-
-msgid "admin.languages.installedLocales"
-msgstr "Installed Locales"
-
-msgid "admin.languages.confirmReload"
+msgid "admin.deleteCache.description"
 msgstr ""
-"Are you sure you want to reload this locale? This will erase any existing "
-"locale-specific data such as customized email templates."
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.clearDataCache"
+msgstr "Clear Data Caches"
+
+msgid "admin.clearTemplateCache"
+msgstr "Clear Template Cache"
+
+msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Are you sure you want to change the site primary locale? Users' names, which "
-"are required in the site's primary locale, will be copied from the existing "
-"primary locale where they are missing."
+"Your configuration file has been successfully updated. Please note that if "
+"your site no longer functions correctly you may need to manually fix your "
+"configuration by editing <tt>config.inc.php</tt> directly."
 
-msgid "admin.languages.cantDisable"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Are you sure you want to clear the cache of compiled templates?"
+
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"This locale is the primary language of the site. You can't disable it until "
-"you choose another primary locale."
+"Are you sure you want to expire all user sessions? All users who are "
+"currently logged into the system will be forced to log in again (yourself "
+"included)."
 
-msgid "admin.expireSessions"
-msgstr "Expire User Sessions"
+msgid "admin.contentsOfConfigFile"
+msgstr "Contents of configuration file"
 
-msgid "admin.displayNewSystemConfig"
-msgstr "Display New Configuration"
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Are you sure you want to permanently delete {$contextName} and all of its "
+"contents?"
+
+msgid "admin.currentVersion"
+msgstr "Current version"
+
+msgid "admin.dateInstalled"
+msgstr "Date installed"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
@@ -248,52 +69,714 @@ msgstr ""
 "text editor and replace its contents with the contents of the text field "
 "below."
 
-msgid "admin.dateInstalled"
-msgstr "Date installed"
+msgid "admin.displayNewSystemConfig"
+msgstr "Display New Configuration"
 
-msgid "admin.currentVersion"
-msgstr "Current version"
+msgid "admin.expireSessions"
+msgstr "Expire User Sessions"
 
-msgid "admin.contexts.confirmDelete"
+msgid "admin.expireSessions.description"
 msgstr ""
-"Are you sure you want to permanently delete {$contextName} and all of its "
-"contents?"
 
-msgid "admin.contentsOfConfigFile"
-msgstr "Contents of configuration file"
-
-msgid "admin.confirmExpireSessions"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"Are you sure you want to expire all user sessions? All users who are "
-"currently logged into the system will be forced to log in again (yourself "
-"included)."
+"This locale is the primary language of the site. You can't disable it until "
+"you choose another primary locale."
 
-msgid "admin.confirmClearTemplateCache"
-msgstr "Are you sure you want to clear the cache of compiled templates?"
-
-msgid "admin.configFileUpdatedInstructions"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Your configuration file has been successfully updated. Please note that if "
-"your site no longer functions correctly you may need to manually fix your "
-"configuration by editing <tt>config.inc.php</tt> directly."
+"Are you sure you want to change the site primary locale? Users' names, which "
+"are required in the site's primary locale, will be copied from the existing "
+"primary locale where they are missing."
 
-msgid "admin.clearTemplateCache"
-msgstr "Clear Template Cache"
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Are you sure you want to reload this locale? This will erase any existing "
+"locale-specific data such as customized email templates."
 
-msgid "admin.clearDataCache"
-msgstr "Clear Data Caches"
+msgid "admin.languages.installedLocales"
+msgstr "Installed Locales"
 
-msgid "admin.adminFunctions"
-msgstr "Administrative Functions"
+msgid "admin.languages.installLanguages"
+msgstr "Manage Locales"
 
-msgid "admin.systemInfo.settingValue"
-msgstr "Gildi stillingar"
+msgid "admin.languages.availableLocales"
+msgstr "Available Locales"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "There are no locales available for download."
+msgid "admin.languages.installLocale"
+msgstr "Install Locale"
+
+msgid "admin.languages.installLocales"
+msgstr "Install"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Install New Locales"
+
+msgid "admin.languages.languageSettings"
+msgstr "Language Settings"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "No additional locales are available for installation."
+
+msgid "admin.languages.reload"
+msgstr "Reload Locale"
+
+msgid "admin.languages.uninstall"
+msgstr "Uninstall Locale"
+
+msgid "admin.phpInfo"
+msgstr "Extended PHP Information"
+
+msgid "admin.scheduledTask"
+msgstr "Scheduled task"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Task process started."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Task process stopped."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Task produced no log."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Your {$softwareName} installation automatically executed and finished this "
+"task and you can download the log file here: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Are you sure you want to delete all scheduled task execution logs?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Clear Scheduled Task Execution Logs"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publish submissions scheduled for publication"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Review reminder"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Editorial Report Notification"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Subscription expiry reminder"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache version"
+
+msgid "admin.server.dbDriver"
+msgstr "Database driver"
+
+msgid "admin.server.dbVersion"
+msgstr "Database server version"
+
+msgid "admin.serverInformation"
+msgstr "Server Information"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP version"
+
+msgid "admin.server.platform"
+msgstr "OS platform"
+
+msgid "admin.settings"
+msgstr "Settings"
+
+msgid "admin.settings.about"
+msgstr "About the Site"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Bulk Emails"
+
+msgid "admin.settings.contactEmail"
+msgstr "Email of principal contact"
+
+msgid "admin.settings.contactName"
+msgstr "Name of principal contact"
+
+msgid "admin.settings.introduction"
+msgstr "Introduction"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Minimum password length (characters)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restrict Bulk Emails"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Disable Roles"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Only an administrator is allowed to modify this setting."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Site language"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Invalid site style sheet format. Accepted format is .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Site style sheet"
+
+msgid "admin.settings.siteLogo"
+msgstr "Site Logo"
+
+msgid "admin.settings.siteTitle"
+msgstr "Site Name"
+
+msgid "admin.settings.siteTheme"
+msgstr "Site Theme"
+
+msgid "admin.siteAdmin"
+msgstr "Site Administration"
+
+msgid "admin.siteManagement"
+msgstr "Site Management"
+
+msgid "admin.siteSettings"
+msgstr "Site Settings"
+
+msgid "admin.siteSetup"
+msgstr "Site Setup"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"The configuration file <tt>config.inc.php</tt> does not exist, is not "
+"readable, or is invalid."
+
+msgid "admin.systemInformation"
+msgstr "System Information"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr "Build"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Check for updates"
+
+msgid "admin.version.downloadPackage"
+msgstr "Download"
+
+msgid "admin.version.downloadPatch"
+msgstr "Download Patch"
+
+msgid "admin.versionHistory"
+msgstr "Version history"
+
+msgid "admin.version.latest"
+msgstr "Latest version"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "More Information"
+
+msgid "admin.versionRevision"
+msgstr "Revision"
+
+msgid "admin.version.updateAvailable"
+msgstr "An updated version is available"
+
+msgid "admin.version.upToDate"
+msgstr "Your system is up-to-date"
+
+msgid "admin.version"
+msgstr "Version"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Base path {$path} must be inside the public files directory."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Folder {$path} is not a directory or is not readable."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"File {$filename} could not be moved from {$currentFilePath} to "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "File {$filename} was processed and archived."
 
 msgid "admin.fileLoader.emailSubject"
 msgstr "File loader"
 
-msgid "admin.fileLoader.fileProcessed"
-msgstr "File {$filename} was processed and archived."
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "There are no locales available for download."
+
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

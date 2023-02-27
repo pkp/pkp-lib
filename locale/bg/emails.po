@@ -13,12 +13,8 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
-"приключи процеса на изпращане на ръкопис към списанието. Той предоставя "
-"информация за проследяване на подаването на ръкописа и благодари на автора "
-"за изпращането."
+msgid "emails.submissionAck.subject"
+msgstr "Потвърждение за подаване"
 
 msgid "emails.submissionAck.body"
 msgstr ""
@@ -38,26 +34,38 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "Потвърждение за подаване"
+msgid "emails.submissionAck.description"
+msgstr ""
+"Този имейл, когато е активиран, автоматично се изпраща на автор, когато "
+"приключи процеса на изпращане на ръкопис към списанието. Той предоставя "
+"информация за проследяване на подаването на ръкописа и благодари на автора "
+"за изпращането."
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Признание за рецензия на статия"
-
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr ""
-"Този имейл се изпраща от редактор на секции, за да потвърди получаването на "
-"завършена рецензия и да благодари на рецензента за неговия принос."
 
 #, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Благодарим Ви, че резензирахте изпратените материали, "
-"&quot;{$submissionTitle},&quot; за {$contextName}. Оценяваме приноса ви към "
+"Благодарим Ви, че резензирахте изпратените материали, &quot;"
+"{$submissionTitle},&quot; за {$contextName}. Оценяваме приноса ви към "
 "качеството на работата, която публикуваме."
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Решение на редактора"
@@ -73,6 +81,7 @@ msgstr ""
 "Нашето решение е да: Изпратим за рецензиране<br />\n"
 "<br />\n"
 "URL на изпратените материали: {$submissionUrl}"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Решение на редактора"
@@ -82,10 +91,11 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Редактирането на вашите изпратени материали , &quot;{$submissionTitle},&quot;"
-" е завършено.  В момента се подготвят за публикация.<br />\n"
+"Редактирането на вашите изпратени материали , &quot;{$submissionTitle},"
+"&quot; е завършено.  В момента се подготвят за публикация.<br />\n"
 "<br />\n"
 "URL на изпратените материали: {$submissionUrl}"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Решение на редактора"
@@ -99,6 +109,7 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Нашето решение е: Необходима е редакция"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "Решение на редактора"
@@ -112,6 +123,7 @@ msgstr ""
 "&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Нашето решение е: Повторно изпращане за резензия"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.subject"
 msgstr "Решение на редактора"
@@ -134,8 +146,13 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Препоръката относно подадените материали до {$contextName}, "
-"&quot;{$submissionTitle}&quot; е: {$recommendation}"
+"Препоръката относно подадените материали до {$contextName}, &quot;"
+"{$submissionTitle}&quot; е: {$recommendation}"
+
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Молба за стилистична проверка"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
@@ -155,9 +172,24 @@ msgstr ""
 "URL на изпратените материали: {$submissionUrl}<br />\n"
 "Потребител: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Молба за стилистична проверка"
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Решение на редактора"
@@ -173,11 +205,104 @@ msgstr ""
 "<br />\n"
 "Нашето решение е да: Отхвърлим изпратените материали"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 msgid "emails.discussion.subject"
 msgstr "Съобщение относно {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Моля, въведете вашето съобщение."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Съгласен/а да рецензира"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"До радакторите:<br />\n"
+"<br />\n"
+"Мога и желая да прегледам подадените материали, &quot;{$submissionTitle},"
+"&quot; за {$contextName}. Благодаря, че ме имате предвид и смятам да направя "
+"рецензията до крайния срок, {$reviewDueDate}, или преди това.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Потвърждение за подаване"
@@ -194,16 +319,7 @@ msgstr ""
 "вашата работа.</p><p>Сърдечни поздрави,</p>{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"До радакторите:<br />\n"
-"<br />\n"
-"Мога и желая да прегледам подадените материали, &quot;{$submissionTitle},"
-"&quot; за {$contextName}. Благодаря, че ме имате предвид и смятам да направя "
-"рецензията до крайния срок, {$reviewDueDate}, или преди това.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Съгласен/а да рецензира"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Този имейл се изпраща от редактор на секции, за да потвърди получаването "
+#~ "на завършена рецензия и да благодари на рецензента за неговия принос."

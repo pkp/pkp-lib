@@ -13,8 +13,170 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "installer.additionalLocales"
+msgstr ""
+
+msgid "installer.administratorAccount"
+msgstr ""
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+
+msgid "installer.checkNo"
+msgstr ""
+
+msgid "installer.checkYes"
+msgstr ""
+
+msgid "installer.configFileError"
+msgstr ""
+
+msgid "installer.connectionCharset"
+msgstr ""
+
+msgid "installer.contentsOfConfigFile"
+msgstr ""
+
+msgid "installer.databaseDriver"
+msgstr ""
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+
+msgid "installer.databaseHost"
+msgstr ""
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+
+msgid "installer.databaseName"
+msgstr ""
+
 msgid "installer.databasePassword"
 msgstr "密碼"
 
+msgid "installer.databaseSettings"
+msgstr ""
+
 msgid "installer.databaseUsername"
 msgstr "用戶名稱"
+
+msgid "installer.filesDir"
+msgstr ""
+
+msgid "installer.fileSettings"
+msgstr ""
+
+msgid "installer.form.clientCharsetRequired"
+msgstr ""
+
+msgid "installer.form.databaseDriverRequired"
+msgstr ""
+
+msgid "installer.form.databaseNameRequired"
+msgstr ""
+
+msgid "installer.form.emailRequired"
+msgstr ""
+
+msgid "installer.form.filesDirRequired"
+msgstr ""
+
+msgid "installer.form.localeRequired"
+msgstr ""
+
+msgid "installer.form.passwordRequired"
+msgstr ""
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr ""
+
+msgid "installer.form.separateMultiple"
+msgstr ""
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+
+msgid "installer.form.usernameRequired"
+msgstr ""
+
+msgid "installer.form.timeZoneRequired"
+msgstr ""
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+
+msgid "installer.installErrorsOccurred"
+msgstr ""
+
+msgid "installer.installerSQLStatements"
+msgstr ""
+
+msgid "installer.installFileError"
+msgstr ""
+
+msgid "installer.installFilesDirError"
+msgstr ""
+
+msgid "installer.installParseDBFileError"
+msgstr ""
+
+msgid "installer.installMigrationError"
+msgstr ""
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr ""
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+
+msgid "installer.timezoneInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.locale"
+msgstr ""
+
+msgid "installer.locale.maybeIncomplete"
+msgstr ""
+
+msgid "installer.localeSettings"
+msgstr ""
+
+msgid "installer.oaiSettings"
+msgstr ""
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+
+msgid "installer.oaiRepositoryId"
+msgstr ""
+
+msgid "installer.publicFilesDirError"
+msgstr ""
+
+msgid "installer.releaseNotes"
+msgstr ""
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr ""
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+
+msgid "installer.beacon"
+msgstr ""
+
+msgid "installer.beacon.enable"
+msgstr ""
+
+msgid "installer.unsupportedPhpError"
+msgstr ""

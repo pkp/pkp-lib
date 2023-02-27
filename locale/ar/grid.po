@@ -133,6 +133,9 @@ msgstr "ترقية"
 msgid "grid.action.order"
 msgstr "الفرز"
 
+msgid "grid.action.saveOrdering"
+msgstr "حفظ حالة الفرز"
+
 msgid "grid.action.cancelOrdering"
 msgstr "إلغاء الفرز"
 
@@ -283,6 +286,9 @@ msgstr "أضف نوعية إعلان"
 msgid "grid.action.addAnnouncement"
 msgstr "أضف إعلاناً"
 
+msgid "grid.action.addInstitution"
+msgstr "إضافة مؤسسة"
+
 msgid "grid.action.mergeUser"
 msgstr "دمج المستخدم"
 
@@ -361,6 +367,9 @@ msgstr "مدقق"
 msgid "grid.columns.locale"
 msgstr "اللغة"
 
+msgid "grid.columns.locale.code"
+msgstr "النص البرمجي"
+
 msgid "grid.sponsor.title"
 msgstr "الرعاة"
 
@@ -400,6 +409,11 @@ msgstr "إضافة مساهم"
 msgid "grid.action.deleteContributor"
 msgstr "حذف المساهم"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"هل أنت متأكد من رغبتك في إزالة {$name} من مجموعة المساهمين؟ هذا الإجراء لا "
+"يمكن التراجع عنه."
+
 msgid "grid.action.newVersion"
 msgstr "إنشاء نسخة جديدة"
 
@@ -438,6 +452,31 @@ msgstr "فقرة قائمة التأشير"
 
 msgid "author.users.contributor.principalContact"
 msgstr "عنوان الاتصال الرئيسي"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "تعيين جهة الاتصال الرئيسية"
+
+msgid "contributor.listPanel.preview"
+msgstr "استعراض"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"المساهمون في هذا المنشور سيتم التعريف عنهم في هذه المجلة بالأشكال الآتية."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "الشكل"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "العرض"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "المختصر"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "قوائم النشر"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "الكامل"
 
 msgid "grid.roles.currentRoles"
 msgstr "الأدوار الحالية"
@@ -488,7 +527,9 @@ msgid "grid.user.error"
 msgstr "حدث خطأ ما عند تنفيذ الإجراء الإداري لهذا المستخدم. لطفاً، حاول مجدداً."
 
 msgid "grid.user.errorEmail"
-msgstr "حدث خطأ ما عند إرسال هذه الرسالة. لطفاً، تحقق من كون إعدادات ملقم البريد الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام."
+msgstr ""
+"حدث خطأ ما عند إرسال هذه الرسالة. لطفاً، تحقق من كون إعدادات ملقم البريد "
+"الالكتروني عندك تعمل بالشكل الصحيح و/أو اتصل بالمشرف الإداري للنظام."
 
 msgid "grid.user.cannotAdminister"
 msgstr "ليس لديك الصلاحيات الكافية لتعديل هذا المستخدم."
@@ -551,7 +592,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "لطفاً، إختر مستخدماً"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "هل تريد دخول الموقع كأنك هذا المستخدم؟ كل ما ستقوم به من أفعال، سيتم إلحاقها بهذا المستخدم."
+msgstr ""
+"هل تريد دخول الموقع كأنك هذا المستخدم؟ كل ما ستقوم به من أفعال، سيتم إلحاقها "
+"بهذا المستخدم."
 
 msgid "grid.user.mergeUsers"
 msgstr "دمج المستخدمين"
@@ -566,7 +609,10 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "كل المستخدمين الممنوحين أدواراً"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول \"{$oldUsername}\" مع الحساب صاحب اسم الدخول \"{$newUsername}\"؟ إن الحساب ذو الاسم \"{$oldUsername}\" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه."
+msgstr ""
+"هل أنت متأكد من رغبتك في دمج هذا الحساب صاحب اسم الدخول \"{$oldUsername}\" "
+"مع الحساب صاحب اسم الدخول \"{$newUsername}\"؟ إن الحساب ذو الاسم "
+"\"{$oldUsername}\" لن يكون له وجود بعد ذلك. هذا الإجراء لا يمكن التراجع عنه."
 
 msgid "grid.preparedEmails.title"
 msgstr "قوالب الرسائل المحضرة"
@@ -620,7 +666,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "إن دور {$userGroupName} هو دور إفتراضي ولا يمكن حذفه."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "تعذر حذف دور {$userGroupName}. حالياً، {$usersCount} مستخدم/مستخدمون يضطلعون به."
+msgstr ""
+"تعذر حذف دور {$userGroupName}. حالياً، {$usersCount} مستخدم/مستخدمون يضطلعون "
+"به."
 
 msgid "grid.userGroup.removed"
 msgstr "دور {$userGroupName} تم حذفه."
@@ -652,47 +700,8 @@ msgstr "لا توجد قوائم تنقل بعد"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "إختر من القائمة..."
 
-msgid "contributor.listPanel.preview.full"
-msgstr "الكامل"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "قوائم النشر"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "المختصر"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "العرض"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "الشكل"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"المساهمون في هذا المنشور سيتم التعريف عنهم في هذه المجلة بالأشكال الآتية."
-
-msgid "contributor.listPanel.preview"
-msgstr "استعراض"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "تعيين جهة الاتصال الرئيسية"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"هل أنت متأكد من رغبتك في إزالة {$name} من مجموعة المساهمين؟ هذا الإجراء لا "
-"يمكن التراجع عنه."
-
-msgid "grid.action.saveOrdering"
-msgstr "حفظ حالة الفرز"
-
-msgid "grid.action.addInstitution"
-msgstr "إضافة مؤسسة"
-
 msgid "grid.action.view"
 msgstr "معاينة"
-
-msgid "grid.columns.locale.code"
-msgstr "النص البرمجي"
 
 msgid "author.users.contributor.name"
 msgstr "الاسم"
@@ -708,4 +717,3 @@ msgstr "ضمن قوائم التصفح"
 
 msgid "grid.action.editContributor"
 msgstr "تعديل المساهم"
-

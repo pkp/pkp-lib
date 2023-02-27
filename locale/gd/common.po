@@ -12,14 +12,11 @@ msgstr ""
 "(n > 2 && n < 20) ? 2 : 3;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "common.languages"
-msgstr "Cànain"
-
-msgid "common.language"
-msgstr "Cànan"
-
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
+
+msgid "common.currentStyleSheet"
+msgstr ""
 
 msgid "about.description"
 msgstr "Tuairisgeul"
@@ -45,11 +42,17 @@ msgstr "Prìomh neach-conaltraidh"
 msgid "about.contact.supportContact"
 msgstr "Neach-conaltraidh taice"
 
+msgid "about.other"
+msgstr "Eile"
+
 msgid "about.people"
 msgstr "Daoine"
 
 msgid "about.policies"
 msgstr "Poileasaidhean"
+
+msgid "about.siteMap"
+msgstr "Mapa na làraich"
 
 msgid "announcement.announcements"
 msgstr "Fiosan-naidheachd"
@@ -81,6 +84,9 @@ msgstr "Bàr-taoibh"
 msgid "common.navigation.site"
 msgstr "Seòladaireachd na làraich"
 
+msgid "common.navigation.siteContext"
+msgstr ""
+
 msgid "common.navigation.user"
 msgstr "Seòladaireachd nan cleachdaichean"
 
@@ -92,6 +98,11 @@ msgstr "Liosta"
 
 msgid "common.grid"
 msgstr "Griod"
+
+msgid "common.confirmDelete"
+msgstr ""
+"A bheil thu cinnteach gu bheil thu airson an nì seo a sguabadh às? Cha ghabh "
+"seo a neo-dhèanamh."
 
 msgid "common.abstract"
 msgstr "Geàrr-chunntas"
@@ -117,6 +128,24 @@ msgstr "Na thàmh"
 msgid "common.add"
 msgstr "Cuir ris"
 
+msgid "common.addCCBCC"
+msgstr ""
+
+msgid "common.addFiles"
+msgstr ""
+
+msgid "common.addSelf"
+msgstr ""
+
+msgid "common.attachedFiles"
+msgstr ""
+
+msgid "common.attachFiles"
+msgstr ""
+
+msgid "common.attachSelected"
+msgstr ""
+
 msgid "common.name"
 msgstr "Ainm"
 
@@ -126,297 +155,275 @@ msgstr "Na h-uile"
 msgid "common.alphaList"
 msgstr "A À B C D E È F G H I Ì J K L M N O Ò P Q R S T U Ù V W X Y Z"
 
-msgid "common.subtitle"
-msgstr "Fo-thiotal"
-
-msgid "common.suggest"
-msgstr "Mol"
-
-msgid "common.title"
-msgstr "Tiotal"
-
-msgid "common.top"
-msgstr "Bàrr"
-
-msgid "common.true"
-msgstr "True"
-
-msgid "common.type"
-msgstr "Seòrsa"
-
-msgid "common.component"
-msgstr "Co-phàirt"
-
-msgid "common.uninitiated"
-msgstr "Gun tòiseachadh"
-
-msgid "common.unread"
-msgstr "Gun leughadh"
-
-msgid "common.untitled"
-msgstr "Gun tiotal"
-
-msgid "common.updated"
-msgstr "Air ùrachadh"
-
-msgid "common.uploadedDate"
-msgstr "Chaidh a luchdadh suas"
-
-msgid "common.upload"
-msgstr "Luchdaich suas"
-
-msgid "common.uploadFailed"
-msgstr "Cha b’ urrainn dhuinn am faidhle a luchdadh suas no a sgrùdadh."
-
-msgid "common.up"
-msgstr "Suas"
-
-msgid "common.addFile"
-msgstr "Cuir faidhle ris"
-
-msgid "common.upload.addFile"
-msgstr "Luchdaich suas faidhle"
-
-msgid "common.upload.restore"
-msgstr "Aisig am fear tùsail"
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Ro-shealladh dhen dealbh a thagh thu."
-
-msgid "common.upload.changeFile"
-msgstr "Atharraich am faidhle"
-
-msgid "common.upload.dragFile"
+msgid "common.titleSmallWords"
 msgstr ""
-"Slaod faidhle an seo is leig às e airson tòiseachadh air a luchdadh suas"
 
-msgid "common.url"
-msgstr "URL"
-
-msgid "common.user"
-msgstr "Cleachdaiche"
-
-msgid "common.user.nonexistent"
-msgstr "[Chan eil an cleachdaiche seo ann]"
-
-msgid "common.view"
-msgstr "Sealladh"
-
-msgid "common.viewWithName"
-msgstr "Seall {$name}"
-
-msgid "common.viewProfile"
-msgstr "Seall a’ phròifil"
-
-msgid "common.weeks"
-msgstr "seachdain(ean)"
-
-msgid "common.width"
-msgstr "Leud"
-
-msgid "common.year"
-msgstr "Bliadhna"
-
-msgid "common.yes"
-msgstr "Tha"
-
-msgid "debug.notes"
-msgstr "An aire:"
-
-msgid "editor.submissionReview.uploadFile"
-msgstr "Luchdaich suas faidhle airson lèirmheas"
-
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "Luchdaich suas faidhle"
-
-msgid "email.addAttachment"
-msgstr "Cuir ceanglachan ris"
-
-msgid "email.addBccRecipient"
-msgstr "Cuir BCC ris"
-
-msgid "email.addCcRecipient"
-msgstr "Cuir CC ris"
-
-msgid "email.addToRecipient"
-msgstr "Cuir faightear ris"
-
-msgid "email.attachments"
-msgstr "Ceanglachain"
-
-msgid "email.bcc"
-msgstr "BCC"
-
-msgid "email.bccSender"
+msgid "common.alreadyAssigned"
 msgstr ""
-"Cuir lethbhreac dhen teachdaireachd seo gun t-seòladh agam fhìn ({$address})"
 
-msgid "email.body"
-msgstr "Bodhaig"
-
-msgid "email.cc"
-msgstr "CC"
-
-msgid "email.compose"
-msgstr "Cuir post-d"
-
-msgid "email.compose.tooManyRecipients"
-msgstr "Tha thu a’ cur na teachdaireachd seo gu cus dhaoine."
-
-msgid "email.email"
-msgstr "Post-d"
-
-msgid "email.invalid"
-msgstr "Chan eil an seòladh puist-d {$email} dligheach."
-
-msgid "email.multipart"
-msgstr "Seo teachdaireachd ioma-phàirteach san fhòrmat MIME."
-
-msgid "email.recipient"
-msgstr "Faightear"
-
-msgid "email.recipients"
-msgstr "Faightearan"
-
-msgid "email.sender"
-msgstr "Seòladair"
-
-msgid "email.senderName"
-msgstr "Ainm an t-seòladair"
-
-msgid "email.senderEmail"
-msgstr "Post-d an t-seòladair"
-
-msgid "email.send"
-msgstr "Cuir"
-
-msgid "email.subject"
-msgstr "Cuspair"
-
-msgid "email.subjectRequired"
-msgstr "Cuir rudeigin ann mar chuspair a’ phuist-d."
-
-msgid "email.bodyRequired"
-msgstr "Cuir rudeigin ann mar bhodhaig teacsa a’ phuist-d."
-
-msgid "email.to"
-msgstr "Gu"
-
-msgid "form.confirmSubmit"
-msgstr "A bheil thu cinnteach gu bheil thu airson am foirm seo a chur?"
-
-msgid "form.confirmSubmit.title"
-msgstr "Dearbh"
-
-msgid "form.disallowedProp"
-msgstr "Chan eil an roghainn seo ceadaichte."
-
-msgid "common.unknownError"
+msgid "common.altText"
 msgstr ""
-"Thachair mearachd ris nach robh dùil. Ath-luchdaich an duilleag is feuch ris "
-"a-rithist."
-
-msgid "common.titleSeparator"
-msgstr "|"
-
-msgid "common.confirmDelete"
-msgstr ""
-"A bheil thu cinnteach gu bheil thu airson an nì seo a sguabadh às? Cha ghabh "
-"seo a neo-dhèanamh."
-
-msgid "about.siteMap"
-msgstr "Mapa na làraich"
-
-msgid "about.other"
-msgstr "Eile"
-
-#, fuzzy
-msgid "email.compose.tooSoon"
-msgstr " "
-
-#, fuzzy
-msgid "email.compose.error"
-msgstr " "
-
-#, fuzzy
-msgid "email.from"
-msgstr "O"
-
-#, fuzzy
-msgid "form.url.invalid"
-msgstr " "
-
-#, fuzzy
-msgid "form.dataHasChanged"
-msgstr " "
-
-#, fuzzy
-msgid "form.disallowedLocales"
-msgstr " "
-
-#, fuzzy
-msgid "form.dropzone.dictFileTooBig"
-msgstr " "
-
-#, fuzzy
-msgid "form.dropzone.dictResponseError"
-msgstr " "
-
-#, fuzzy
-msgid "form.errorA11y"
-msgstr " "
-
-#, fuzzy
-msgid "form.errors"
-msgstr " "
-
-#, fuzzy
-msgid "form.csrfInvalid"
-msgstr "  "
-
-#, fuzzy
-msgid "form.invalidImage"
-msgstr " "
-
-#, fuzzy
-msgid "validator.localeExpected"
-msgstr " "
-
-#, fuzzy
-msgid "validator.localeKey"
-msgstr " "
 
 #, fuzzy
 msgid "common.altTextInstructions"
 msgstr "  "
 
+msgid "common.and"
+msgstr ""
+
+msgid "common.applyAction"
+msgstr ""
+
+msgid "common.assign"
+msgstr ""
+
+msgid "common.assigned"
+msgstr ""
+
 #, fuzzy
 msgid "common.assigned.date"
 msgstr " "
 
-#, fuzzy
-msgid "common.captcha.error.missing-input-secret"
-msgstr " "
+msgid "common.available"
+msgstr ""
 
-#, fuzzy
-msgid "common.captcha.error.invalid-input-secret"
-msgstr " "
+msgid "common.back"
+msgstr ""
+
+msgid "common.between"
+msgstr ""
+
+msgid "common.cancel"
+msgstr ""
+
+msgid "common.cancelled"
+msgstr ""
+
+msgid "common.warning"
+msgstr ""
+
+msgid "common.error"
+msgstr ""
+
+msgid "common.notice"
+msgstr ""
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+
+msgid "common.ccLicense"
+msgstr ""
+
+msgid "common.ccLicense.rt"
+msgstr ""
+
+msgid "common.changesSaved"
+msgstr ""
+
+msgid "common.chooseOne"
+msgstr ""
+
+msgid "common.close"
+msgstr ""
+
+msgid "common.closePanel"
+msgstr ""
+
+msgid "common.closeWindow"
+msgstr ""
+
+msgid "common.complete"
+msgstr ""
+
+msgid "common.completed"
+msgstr ""
 
 #, fuzzy
 msgid "common.completed.date"
 msgstr " "
 
+msgid "common.confirm"
+msgstr ""
+
 #, fuzzy
 msgid "common.confirmed.date"
 msgstr " "
+
+msgid "common.content"
+msgstr ""
+
+msgid "common.contents"
+msgstr ""
+
+msgid "common.continue"
+msgstr ""
+
+msgid "common.copy"
+msgstr ""
+
+msgid "common.country"
+msgstr ""
+
+msgid "common.create"
+msgstr ""
+
+msgid "common.dateCompleted"
+msgstr ""
+
+msgid "common.dateDecided"
+msgstr ""
+
+msgid "common.date"
+msgstr ""
+
+msgid "common.dateModified"
+msgstr ""
+
+msgid "common.dateRequested"
+msgstr ""
+
+msgid "common.dateSubmitted"
+msgstr ""
+
+msgid "common.dateUploaded"
+msgstr ""
+
+msgid "common.dateHijri"
+msgstr ""
+
+msgid "common.day"
+msgstr ""
+
+msgid "common.deactivate"
+msgstr ""
+
+msgid "common.default"
+msgstr ""
+
+msgid "common.declined"
+msgstr ""
+
+msgid "common.delete"
+msgstr ""
+
+msgid "common.deleting"
+msgstr ""
+
+msgid "common.deleteSelection"
+msgstr ""
+
+msgid "common.deselect"
+msgstr ""
+
+msgid "common.designation"
+msgstr ""
+
+msgid "common.description"
+msgstr ""
+
+msgid "common.details"
+msgstr ""
+
+msgid "common.dimensionsInches"
+msgstr ""
+
+msgid "common.dimensionsPixels"
+msgstr ""
+
+msgid "common.discardChanges"
+msgstr ""
+
+msgid "common.disconnected"
+msgstr ""
+
+msgid "common.disable"
+msgstr ""
+
+msgid "common.disabled"
+msgstr ""
+
+msgid "common.discipline"
+msgstr ""
+
+msgid "common.done"
+msgstr ""
+
+msgid "common.download"
+msgstr ""
+
+msgid "common.downloadPdf"
+msgstr ""
+
+msgid "common.downloadReport"
+msgstr ""
+
+msgid "common.dragAndDropHere"
+msgstr ""
+
+msgid "common.orUploadFile"
+msgstr ""
 
 #, fuzzy
 msgid "common.edit"
 msgstr "Deasaich"
 
+msgid "common.editItem"
+msgstr ""
+
+msgid "common.emailTemplates"
+msgstr ""
+
+msgid "common.enable"
+msgstr ""
+
+msgid "common.enabled"
+msgstr ""
+
 #, fuzzy
 msgid "common.error.databaseError"
 msgstr " "
+
+msgid "common.error.databaseErrorUnknown"
+msgstr ""
+
+msgid "common.error.framesRequired"
+msgstr ""
+
+msgid "common.event"
+msgstr ""
+
+msgid "common.export"
+msgstr ""
+
+msgid "common.finish"
+msgstr ""
+
+msgid "common.fullscreen"
+msgstr ""
+
+msgid "common.fullscreenOff"
+msgstr ""
+
+msgid "common.false"
+msgstr ""
+
+msgid "common.file"
+msgstr ""
+
+msgid "common.file.namingPattern"
+msgstr ""
+
+msgid "common.file.anonymousNamingPattern"
+msgstr ""
+
+msgid "common.fileName"
+msgstr ""
+
+msgid "common.fileSize"
+msgstr ""
+
+msgid "common.fileType"
+msgstr ""
 
 #, fuzzy
 msgid "common.fileUploaderError"
@@ -430,6 +437,15 @@ msgstr "Cuir criathrag ris: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "Falamhaich a’ chriathrag: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr ""
+
+msgid "common.formatting"
+msgstr ""
+
+msgid "common.geographic"
+msgstr ""
 
 msgid "common.go"
 msgstr "Siuthad"
@@ -458,11 +474,32 @@ msgstr "Cuir a dhol"
 msgid "common.inProgress"
 msgstr "A’ dol air adhart"
 
+msgid "common.insert"
+msgstr ""
+
+msgid "common.insertContent"
+msgstr ""
+
+msgid "common.insertContentSearch"
+msgstr ""
+
 msgid "common.itemsPerPage"
 msgstr "Nithean air gach duilleag"
 
 msgid "common.keywords"
 msgstr "Faclan-luirg"
+
+msgid "common.label"
+msgstr ""
+
+msgid "common.language"
+msgstr "Cànan"
+
+msgid "common.languages"
+msgstr "Cànain"
+
+msgid "common.lastSaved"
+msgstr ""
 
 msgid "common.lastActivity"
 msgstr "A’ ghnìomhachd mu dheireadh {$date}."
@@ -475,6 +512,9 @@ msgstr "{$value} no nas lugha"
 
 msgid "common.lessThanOnly"
 msgstr "A tha nas lugha na"
+
+msgid "common.keepWorking"
+msgstr ""
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -514,6 +554,12 @@ msgstr "Cha deach gin iomruineadh"
 
 msgid "common.none"
 msgstr "Chan eil gin"
+
+msgid "common.noneSelected"
+msgstr ""
+
+msgid "common.noneProvided"
+msgstr ""
 
 msgid "common.no"
 msgstr "Chan eil"
@@ -557,6 +603,9 @@ msgstr "Air fios a chur: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "Chan eil maids sam bith ann"
+
+msgid "common.numberedMore"
+msgstr ""
 
 msgid "common.off"
 msgstr "Dheth"
@@ -654,6 +703,9 @@ msgstr "Leugh an còrr"
 msgid "common.readMoreWithTitle"
 msgstr "Leugh barrachd mu dheidhinn {$title}"
 
+msgid "common.reconnecting"
+msgstr ""
+
 msgid "common.record"
 msgstr "Clàr"
 
@@ -699,6 +751,12 @@ msgstr "Riatanach"
 msgid "common.reset"
 msgstr "Ath-shuidhich"
 
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr ""
+
 msgid "common.saveAndContinue"
 msgstr "Sàbhail agus lean air adhart"
 
@@ -713,6 +771,12 @@ msgstr "Ga shàbhaladh"
 
 msgid "common.search"
 msgstr "Lorg"
+
+msgid "common.searchPhrase"
+msgstr ""
+
+msgid "common.searching"
+msgstr ""
 
 msgid "common.searchQuery"
 msgstr "Ceist luirg"
@@ -741,6 +805,12 @@ msgstr "Tagh {$name}"
 msgid "common.sendEmail"
 msgstr "Cuir post-d"
 
+msgid "common.showAllSteps"
+msgstr ""
+
+msgid "common.showingSteps"
+msgstr ""
+
 msgid "common.size"
 msgstr "Meud"
 
@@ -758,6 +828,448 @@ msgstr "Cuspairean"
 
 msgid "common.submenu"
 msgstr "Fo-chlàr-taice"
+
+msgid "common.subtitle"
+msgstr "Fo-thiotal"
+
+msgid "common.suggest"
+msgstr "Mol"
+
+msgid "common.switchTo"
+msgstr ""
+
+msgid "common.switchToNamedItem"
+msgstr ""
+
+msgid "common.title"
+msgstr "Tiotal"
+
+msgid "common.titleSeparator"
+msgstr "|"
+
+msgid "common.top"
+msgstr "Bàrr"
+
+msgid "common.true"
+msgstr "True"
+
+msgid "common.type"
+msgstr "Seòrsa"
+
+msgid "common.uploadedBy"
+msgstr ""
+
+msgid "common.uploadedByAndWhen"
+msgstr ""
+
+msgid "common.component"
+msgstr "Co-phàirt"
+
+msgid "common.uninitiated"
+msgstr "Gun tòiseachadh"
+
+msgid "common.unknownError"
+msgstr ""
+"Thachair mearachd ris nach robh dùil. Ath-luchdaich an duilleag is feuch ris "
+"a-rithist."
+
+msgid "common.unread"
+msgstr "Gun leughadh"
+
+msgid "common.unsavedChanges"
+msgstr ""
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+
+msgid "common.untitled"
+msgstr "Gun tiotal"
+
+msgid "common.updated"
+msgstr "Air ùrachadh"
+
+msgid "common.uploadedDate"
+msgstr "Chaidh a luchdadh suas"
+
+msgid "common.upload"
+msgstr "Luchdaich suas"
+
+msgid "common.uploadFailed"
+msgstr "Cha b’ urrainn dhuinn am faidhle a luchdadh suas no a sgrùdadh."
+
+msgid "common.up"
+msgstr "Suas"
+
+msgid "common.addFile"
+msgstr "Cuir faidhle ris"
+
+msgid "common.upload.addFile"
+msgstr "Luchdaich suas faidhle"
+
+msgid "common.upload.addFile.description"
+msgstr ""
+
+msgid "common.upload.restore"
+msgstr "Aisig am fear tùsail"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Ro-shealladh dhen dealbh a thagh thu."
+
+msgid "common.upload.changeFile"
+msgstr "Atharraich am faidhle"
+
+msgid "common.upload.dragFile"
+msgstr ""
+"Slaod faidhle an seo is leig às e airson tòiseachadh air a luchdadh suas"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Cleachdaiche"
+
+msgid "common.user.nonexistent"
+msgstr "[Chan eil an cleachdaiche seo ann]"
+
+msgid "common.view"
+msgstr "Sealladh"
+
+msgid "common.viewError"
+msgstr ""
+
+msgid "common.viewWithName"
+msgstr "Seall {$name}"
+
+msgid "common.viewProfile"
+msgstr "Seall a’ phròifil"
+
+msgid "common.weeks"
+msgstr "seachdain(ean)"
+
+msgid "common.width"
+msgstr "Leud"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "Bliadhna"
+
+msgid "common.yes"
+msgstr "Tha"
+
+msgid "common.loading"
+msgstr ""
+
+msgid "common.plugins"
+msgstr ""
+
+msgid "common.count"
+msgstr ""
+
+msgid "common.publicAccess"
+msgstr ""
+
+msgid "debug.databaseQueries"
+msgstr ""
+
+msgid "debug.executionTime"
+msgstr ""
+
+msgid "debug.memoryUsage"
+msgstr ""
+
+msgid "debug.notes.localeListLoad"
+msgstr ""
+
+msgid "debug.notes.localeLoad"
+msgstr ""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr ""
+
+msgid "debug.notes"
+msgstr "An aire:"
+
+msgid "defaultMetric.title"
+msgstr ""
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Luchdaich suas faidhle airson lèirmheas"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Luchdaich suas faidhle"
+
+msgid "email.addAttachment"
+msgstr "Cuir ceanglachan ris"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr ""
+
+msgid "email.addBccRecipient"
+msgstr "Cuir BCC ris"
+
+msgid "email.addCcRecipient"
+msgstr "Cuir CC ris"
+
+msgid "email.addToRecipient"
+msgstr "Cuir faightear ris"
+
+msgid "email.attachments"
+msgstr "Ceanglachain"
+
+msgid "email.attachmentNotFound"
+msgstr ""
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr ""
+"Cuir lethbhreac dhen teachdaireachd seo gun t-seòladh agam fhìn ({$address})"
+
+msgid "email.body"
+msgstr "Bodhaig"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+
+msgid "email.compose"
+msgstr "Cuir post-d"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "Tha thu a’ cur na teachdaireachd seo gu cus dhaoine."
+
+#, fuzzy
+msgid "email.compose.tooSoon"
+msgstr " "
+
+#, fuzzy
+msgid "email.compose.error"
+msgstr " "
+
+msgid "email.email"
+msgstr "Post-d"
+
+#, fuzzy
+msgid "email.from"
+msgstr "O"
+
+msgid "email.invalid"
+msgstr "Chan eil an seòladh puist-d {$email} dligheach."
+
+msgid "email.multipart"
+msgstr "Seo teachdaireachd ioma-phàirteach san fhòrmat MIME."
+
+msgid "email.recipient"
+msgstr "Faightear"
+
+msgid "email.recipients"
+msgstr "Faightearan"
+
+msgid "email.sender"
+msgstr "Seòladair"
+
+msgid "email.senderName"
+msgstr "Ainm an t-seòladair"
+
+msgid "email.senderEmail"
+msgstr "Post-d an t-seòladair"
+
+msgid "email.send"
+msgstr "Cuir"
+
+msgid "email.skip"
+msgstr ""
+
+msgid "email.subject"
+msgstr "Cuspair"
+
+msgid "email.subjectRequired"
+msgstr "Cuir rudeigin ann mar chuspair a’ phuist-d."
+
+msgid "email.bodyRequired"
+msgstr "Cuir rudeigin ann mar bhodhaig teacsa a’ phuist-d."
+
+msgid "email.to"
+msgstr "Gu"
+
+#, fuzzy
+msgid "form.url.invalid"
+msgstr " "
+
+msgid "form.confirmSubmit"
+msgstr "A bheil thu cinnteach gu bheil thu airson am foirm seo a chur?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Dearbh"
+
+#, fuzzy
+msgid "form.dataHasChanged"
+msgstr " "
+
+#, fuzzy
+msgid "form.disallowedLocales"
+msgstr " "
+
+msgid "form.disallowedProp"
+msgstr "Chan eil an roghainn seo ceadaichte."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+
+#, fuzzy
+msgid "form.dropzone.dictFileTooBig"
+msgstr " "
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr ""
+
+#, fuzzy
+msgid "form.dropzone.dictResponseError"
+msgstr " "
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr ""
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr ""
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr ""
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr ""
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr ""
+
+#, fuzzy
+msgid "form.errorA11y"
+msgstr " "
+
+msgid "form.errorGoTo"
+msgstr ""
+
+msgid "form.errorOne"
+msgstr ""
+
+msgid "form.errorMany"
+msgstr ""
+
+#, fuzzy
+msgid "form.errors"
+msgstr " "
+
+msgid "form.errorsOccurred"
+msgstr ""
+
+msgid "form.formLanguage.description"
+msgstr ""
+
+msgid "form.formLanguage"
+msgstr ""
+
+msgid "form.contains"
+msgstr ""
+
+msgid "form.is"
+msgstr ""
+
+msgid "form.startsWith"
+msgstr ""
+
+msgid "form.postRequired"
+msgstr ""
+
+#, fuzzy
+msgid "form.csrfInvalid"
+msgstr "  "
+
+msgid "form.fileRequired"
+msgstr ""
+
+msgid "form.required"
+msgstr ""
+
+msgid "form.requirePrimaryLocale"
+msgstr ""
+
+msgid "form.requireId"
+msgstr ""
+
+msgid "form.resubmit"
+msgstr ""
+
+msgid "form.saved"
+msgstr ""
+
+msgid "form.saveToUpload"
+msgstr ""
+
+msgid "form.send"
+msgstr ""
+
+msgid "form.submit"
+msgstr ""
+
+#, fuzzy
+msgid "form.invalidImage"
+msgstr " "
+
+msgid "form.multilingualLabel"
+msgstr ""
+
+msgid "form.multilingualProgress"
+msgstr ""
+
+msgid "help.help"
+msgstr ""
+
+msgid "help.toc"
+msgstr ""
+
+msgid "help.previous"
+msgstr ""
+
+msgid "help.next"
+msgstr ""
+
+msgid "help.upALevel"
+msgstr ""
+
+msgid "icon.checked.alt"
+msgstr ""
 
 msgid "icon.comment.alt"
 msgstr "Beachd"
@@ -798,9 +1310,69 @@ msgstr "Sealladh"
 msgid "informationCenter.informationCenter"
 msgstr "An t-ionad-fiosrachaidh"
 
+msgid "informationCenter.editorialHistory"
+msgstr ""
+
+msgid "informationCenter.addNote"
+msgstr ""
+
+msgid "informationCenter.noNotes"
+msgstr ""
+
+msgid "informationCenter.pastNotes"
+msgstr ""
+
+msgid "informationCenter.deleteConfirm"
+msgstr ""
+
+msgid "informationCenter.currentHistory"
+msgstr ""
+
+msgid "informationCenter.pastHistory"
+msgstr ""
+
+msgid "informationCenter.history.noItems"
+msgstr ""
+
+msgid "informationCenter.history.notePosted"
+msgstr ""
+
+msgid "informationCenter.history.messageSent"
+msgstr ""
+
+msgid "stageParticipants.history.messageSent"
+msgstr ""
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr ""
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr ""
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr ""
+
+msgid "stageParticipants.notify.message"
+msgstr ""
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+
+msgid "stageParticipants.options"
+msgstr ""
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr ""
+
 #, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr " "
+
+msgid "stageParticipants.selectedUser"
+msgstr ""
 
 #, fuzzy
 msgid "stageParticipants.noOptionsToHandle"
@@ -811,6 +1383,9 @@ msgstr "Am prìomh chànan"
 
 msgid "locale.supported"
 msgstr "Cànain ris a bheil taic"
+
+msgid "navigation.access"
+msgstr ""
 
 msgid "navigation.about"
 msgstr "Mu dhèidhinn"
@@ -872,8 +1447,14 @@ msgstr "{$shown} à {$total} uile gu lèir"
 msgid "navigation.login"
 msgstr "Clàraich a-steach"
 
+msgid "navigation.nextPage"
+msgstr ""
+
 msgid "navigation.nextStep"
 msgstr "An ath-cheum"
+
+msgid "navigation.previousPage"
+msgstr ""
 
 msgid "navigation.previousStep"
 msgstr "An ceum roimhe"
@@ -899,13 +1480,184 @@ msgstr "Mapa na làraich"
 msgid "navigation.skip.description"
 msgstr "Geàrr leum gu na ceanglaichean susbaint"
 
+msgid "navigation.skip.announcements"
+msgstr ""
+
+msgid "navigation.skip.main"
+msgstr ""
+
+msgid "navigation.skip.nav"
+msgstr ""
+
+msgid "navigation.skip.footer"
+msgstr ""
+
+msgid "navigation.stepNumber"
+msgstr ""
+
+msgid "navigation.submissions"
+msgstr ""
+
+msgid "navigation.system"
+msgstr ""
+
+msgid "navigation.userHome"
+msgstr ""
+
+msgid "navigation.user"
+msgstr ""
+
+msgid "navigation.userManagement"
+msgstr ""
+
+msgid "navigation.viewFrontend"
+msgstr ""
+
+msgid "institution.institutions"
+msgstr ""
+
+msgid "notification.addedAuditor"
+msgstr ""
+
+msgid "notification.removedAuditor"
+msgstr ""
+
+msgid "notification.addedQuery"
+msgstr ""
+
 #, fuzzy
 msgid "notification.reviewAcknowledged"
 msgstr " "
 
+msgid "notification.reviewerThankedEmail"
+msgstr ""
+
+msgid "notification.updatedReviewFiles"
+msgstr ""
+
+msgid "notification.allow"
+msgstr ""
+
+msgid "notification.addedAnnouncementType"
+msgstr ""
+
+msgid "notification.editedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncementType"
+msgstr ""
+
+msgid "notification.removedAnnouncement"
+msgstr ""
+
+msgid "notification.confirmError"
+msgstr ""
+
+msgid "notification.confirmSuccess"
+msgstr ""
+
+msgid "notification.email"
+msgstr ""
+
+msgid "notification.noneExist"
+msgstr ""
+
+msgid "notification.addedNote"
+msgstr ""
+
+msgid "notification.removedNote"
+msgstr ""
+
+msgid "notification.removedFile"
+msgstr ""
+
+msgid "notification.removedSubmission"
+msgstr ""
+
+msgid "notification.notification"
+msgstr ""
+
+msgid "notification.notifications"
+msgstr ""
+
+msgid "notification.sentNotification"
+msgstr ""
+
+msgid "notification.settings"
+msgstr ""
+
 #, fuzzy
 msgid "notification.settingsDescription"
 msgstr "  "
+
+msgid "notification.reminderError"
+msgstr ""
+
+msgid "notification.reminderSent"
+msgstr ""
+
+msgid "notification.savedSubmissionMetadata"
+msgstr ""
+
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+
+msgid "search.author"
+msgstr ""
+
+msgid "search.abstract"
+msgstr ""
+
+msgid "search.advancedFilters"
+msgstr ""
+
+msgid "search.advancedSearchMore"
+msgstr ""
+
+msgid "search.advancedSearchLess"
+msgstr ""
+
+msgid "search.searchAgain"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.done"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.error"
+msgstr ""
+
+msgid "search.cli.rebuildIndex.result"
+msgstr ""
+
+msgid "search.coverage"
+msgstr ""
+
+msgid "search.date"
+msgstr ""
+
+msgid "search.dateFrom"
+msgstr ""
+
+msgid "search.dateTo"
+msgstr ""
+
+msgid "search.deleteFilter"
+msgstr ""
+
+msgid "search.discipline"
+msgstr ""
+
+msgid "search.fullText"
+msgstr ""
+
+msgid "search.indexTerms"
+msgstr ""
+
+msgid "search.indexTermsLong"
+msgstr ""
 
 msgid "search.matchAll"
 msgstr "Maidsich gach roinn-seòrsa"
@@ -928,6 +1680,114 @@ msgstr "Lorg airson"
 msgid "search.searchResults"
 msgstr "Toraidhean luirg"
 
+msgid "search.searchResults.foundSingle"
+msgstr ""
+
+msgid "search.searchResults.foundPlural"
+msgstr ""
+
+msgid "search.subject"
+msgstr ""
+
+msgid "search.titleIndex"
+msgstr ""
+
+msgid "search.title"
+msgstr ""
+
+msgid "search.typeMethodApproach"
+msgstr ""
+
+msgid "grid.action.downloadFile"
+msgstr ""
+
+msgid "context.path"
+msgstr ""
+
+msgid "review.ensuringAnonymousReview"
+msgstr ""
+
+msgid "grid.action.showReviewPolicy"
+msgstr ""
+
+msgid "grid.action.deleteNotification"
+msgstr ""
+
+msgid "grid.action.markNew"
+msgstr ""
+
+msgid "grid.action.markRead"
+msgstr ""
+
+msgid "dashboard.tasks"
+msgstr ""
+
+msgid "dashboard.myQueue"
+msgstr ""
+
+msgid "review.anonymousPeerReview.title"
+msgstr ""
+
+msgid "review.anonymousPeerReview"
+msgstr ""
+
+msgid "reviewer.submission.reviewSchedule"
+msgstr ""
+
+msgid "reviewer.submission.reviewRequestDate"
+msgstr ""
+
+msgid "reviewer.submission.responseDueDate"
+msgstr ""
+
+msgid "reviewer.submission.reviewDueDate"
+msgstr ""
+
+msgid "submission.task.responseDueDate"
+msgstr ""
+
+msgid "navigation.goBack"
+msgstr ""
+
+msgid "notification.addedReviewer"
+msgstr ""
+
+msgid "notification.addedReviewerNoEmail"
+msgstr ""
+
+msgid "notification.removedReviewer"
+msgstr ""
+
+msgid "notification.cancelledReviewer"
+msgstr ""
+
+msgid "notification.reinstatedReviewer"
+msgstr ""
+
+msgid "notification.reviewerResendRequest"
+msgstr ""
+
+msgid "notification.addedStageParticipant"
+msgstr ""
+
+msgid "notification.editStageParticipant"
+msgstr ""
+
+msgid "notification.type.newAnnouncement"
+msgstr ""
+
+msgid "notification.type.reviewAssignment"
+msgstr ""
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr ""
+
+msgid "notification.type.auditorRequest"
+msgstr ""
+
+msgid "notification.type.allReviewsIn"
+msgstr ""
+
 msgid "notification.type.allRevisionsIn"
 msgstr ""
 "Chaidh faidhle ath-dheasaichte a luchdadh suas airson lèirmheas ann an "
@@ -942,6 +1802,12 @@ msgstr "Chaidh na lèirmheasan a shìneadh air adhart gu {$stage}."
 msgid "notification.type.reviewerComment"
 msgstr "Thug lèirmheasaiche seachad beachd air “{$title}”."
 
+msgid "notification.signedFile"
+msgstr ""
+
+msgid "timeZone"
+msgstr ""
+
 msgid "user.email"
 msgstr "Seòladh puist-d"
 
@@ -955,6 +1821,9 @@ msgstr "Foillseachadh mì-dhligheach."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Tagradh mì-dhligheach."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr ""
 
 msgid "user.authorization.invalidReviewRound"
 msgstr "Cuairt lèirmheis mhì-dhligheach."
@@ -971,8 +1840,8 @@ msgstr "Chan eil cead agad air an obair lèirmheis seo."
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
 "Chan eil ceadan gu leòr agad an tagradh fhaicinn. Deasaich a’ phròifil agad "
-"is dèan cinnteach gun deach na dreuchdan iomchaidh iomruineadh dhut fo “"
-"Clàraich mar”."
+"is dèan cinnteach gun deach na dreuchdan iomchaidh iomruineadh dhut fo "
+"“Clàraich mar”."
 
 msgid "user.authorization.submissionAuthor"
 msgstr ""
@@ -988,11 +1857,312 @@ msgstr "Gnìomhachd dheasbadan."
 msgid "notification.type.queryAdded"
 msgstr "Chaidh an deasbad a chur ris."
 
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
+msgid "notification.type.assignCopyeditors"
+msgstr ""
+
+msgid "notification.type.awaitingCopyedits"
+msgstr ""
+
+msgid "notification.type.roundStatusTitle"
+msgstr ""
+
+msgid "notification.type.editorialReport"
+msgstr ""
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+
+msgid "notification.type.editorialReminder"
+msgstr ""
+
+msgid "semicolon"
+msgstr ""
+
+msgid "notification.editedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.removedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenuItem"
+msgstr ""
+
+msgid "notification.addedNavigationMenu"
+msgstr ""
+
+msgid "notification.editedNavigationMenu"
+msgstr ""
+
+msgid "notification.removedNavigationMenu"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+
+msgid "notification.unsubscribeNotifications"
+msgstr ""
+
+msgid "list.viewMore"
+msgstr ""
+
+msgid "list.viewLess"
+msgstr ""
+
+msgid "list.expandAll"
+msgstr ""
+
+msgid "list.collapseAll"
+msgstr ""
+
+msgid "validation.invalidOption"
+msgstr ""
+
+msgid "validator.accepted"
+msgstr ""
+
+msgid "validator.active_url"
+msgstr ""
+
+msgid "validator.after"
+msgstr ""
+
+msgid "validator.alpha"
+msgstr ""
+
+msgid "validator.alpha_dash"
+msgstr ""
+
+msgid "validator.alpha_dash_period"
+msgstr ""
+
+msgid "validator.alpha_num"
+msgstr ""
+
+msgid "validator.array"
+msgstr ""
+
+msgid "validator.before"
+msgstr ""
+
+msgid "validator.between.numeric"
+msgstr ""
+
+msgid "validator.between.file"
+msgstr ""
+
+msgid "validator.between.string"
+msgstr ""
+
+msgid "validator.between.array"
+msgstr ""
+
+msgid "validator.boolean"
+msgstr ""
+
+msgid "validator.confirmed"
+msgstr ""
+
+msgid "validator.country"
+msgstr ""
+
+msgid "validator.country.regex"
+msgstr ""
+
+msgid "validator.currency"
+msgstr ""
+
+msgid "validator.date"
+msgstr ""
+
+msgid "validator.date_format"
+msgstr ""
+
+msgid "validator.different"
+msgstr ""
+
+msgid "validator.digits"
+msgstr ""
+
+msgid "validator.digits_between"
+msgstr ""
+
+msgid "validator.email"
+msgstr ""
+
+msgid "validator.exists"
+msgstr ""
+
+msgid "validator.filled"
+msgstr ""
+
+msgid "validator.image"
+msgstr ""
+
+msgid "validator.in"
+msgstr ""
+
+msgid "validator.integer"
+msgstr ""
+
+msgid "validator.ip"
+msgstr ""
+
+msgid "validator.issn"
+msgstr ""
+
+msgid "validator.json"
+msgstr ""
+
+msgid "validator.locale"
+msgstr ""
+
+#, fuzzy
+msgid "validator.localeExpected"
+msgstr " "
+
+#, fuzzy
+msgid "validator.localeKey"
+msgstr " "
+
+msgid "validator.max.numeric"
+msgstr ""
+
+msgid "validator.max.file"
+msgstr ""
+
+msgid "validator.max.string"
+msgstr ""
+
+msgid "validator.max.array"
+msgstr ""
+
+msgid "validator.mimes"
+msgstr ""
+
+msgid "validator.min.numeric"
+msgstr ""
+
+msgid "validator.min.file"
+msgstr ""
+
+msgid "validator.min.string"
+msgstr ""
+
+msgid "validator.min.array"
+msgstr ""
+
+msgid "validator.not_in"
+msgstr ""
+
+msgid "validator.numeric"
+msgstr ""
+
+msgid "validator.orcid"
+msgstr ""
+
+msgid "validator.present"
+msgstr ""
+
+msgid "validator.regex"
+msgstr ""
+
+msgid "validator.required"
+msgstr ""
+
+msgid "validator.required_if"
+msgstr ""
+
+msgid "validator.required_unless"
+msgstr ""
+
+msgid "validator.required_with"
+msgstr ""
+
+msgid "validator.required_with_all"
+msgstr ""
+
+msgid "validator.required_without"
+msgstr ""
+
+msgid "validator.required_without_all"
+msgstr ""
+
+msgid "validator.same"
+msgstr ""
+
+msgid "validator.size.numeric"
+msgstr ""
+
+msgid "validator.size.file"
+msgstr ""
+
+msgid "validator.size.string"
+msgstr ""
+
+msgid "validator.size.array"
+msgstr ""
+
+msgid "validator.string"
+msgstr ""
+
+msgid "validator.timezone"
+msgstr ""
+
+msgid "validator.unique"
+msgstr ""
+
+msgid "validator.url"
+msgstr ""
+
+msgid "validator.no_new_line"
+msgstr ""
+
+msgid "validator.allowable_title_html_tags"
+msgstr ""
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr ""
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
+
+msgid "notification.addedAuthor"
+msgstr ""
+
+msgid "notification.editedAuthor"
+msgstr ""
+
+#, fuzzy
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr " "
+
+#, fuzzy
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr " "

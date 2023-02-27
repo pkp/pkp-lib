@@ -25,6 +25,14 @@ msgstr "Задаем значение"
 msgid "admin.adminFunctions"
 msgstr "Административные функции"
 
+msgid "admin.deleteCache"
+msgstr "Удалить кэши"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Удаляет файлы кэша из системы. Это стоит делать только на серверах, "
+"использующихся для разработки."
+
 msgid "admin.clearDataCache"
 msgstr "Очистить кэши данных"
 
@@ -32,19 +40,27 @@ msgid "admin.clearTemplateCache"
 msgstr "Очистить кэш шаблонов"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите внимание на то, что если ваш сайт перестал правильно работать, вам может быть необходимо вручную исправить вашу конфигурацию, отредактировав <tt>config.inc.php</tt> напрямую."
+msgstr ""
+"Ваш конфигурационный файл был успешно обновлен. Пожалуйста, обратите "
+"внимание на то, что если ваш сайт перестал правильно работать, вам может "
+"быть необходимо вручную исправить вашу конфигурацию, отредактировав "
+"<tt>config.inc.php</tt> напрямую."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Вы уверены, что хотите очистить кэш скомпилированных шаблонов?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Вы уверены, что хотите прекратить все сессии пользователей? Все пользователи, которые сейчас работают в системе, должны будут заново войти в нее под своей учетной записью (в том числе и вы)."
+msgstr ""
+"Вы уверены, что хотите прекратить все сессии пользователей? Все "
+"пользователи, которые сейчас работают в системе, должны будут заново войти в "
+"нее под своей учетной записью (в том числе и вы)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Содержимое конфигурационного файла"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Вы уверены, что хотите навсегда удалить {$contextName} и все содержимое?"
+msgstr ""
+"Вы уверены, что хотите навсегда удалить {$contextName} и все содержимое?"
 
 msgid "admin.currentVersion"
 msgstr "Текущая версия"
@@ -53,7 +69,11 @@ msgid "admin.dateInstalled"
 msgstr "Дата установки"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения к конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем текстовом редакторе и заменить его содержимое содержимым текстового поля, расположенного ниже."
+msgstr ""
+"Содержимое обновленной конфигурации показано ниже. Чтобы применить изменения "
+"к конфигурации, вы должны открыть <tt>config.inc.php</tt> в подходящем "
+"текстовом редакторе и заменить его содержимое содержимым текстового поля, "
+"расположенного ниже."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Показать новую конфигурацию"
@@ -61,14 +81,26 @@ msgstr "Показать новую конфигурацию"
 msgid "admin.expireSessions"
 msgstr "Прекратить сессии пользователей"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "Этот язык является основным языком сайта. Вы не можете отключить его до тех пор, пока не выберете другой основной язык."
+msgstr ""
+"Этот язык является основным языком сайта. Вы не можете отключить его до тех "
+"пор, пока не выберете другой основной язык."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "Вы уверены, что хотите изменить основной язык сайта? Имена пользователей, которые обязательно должны быть указаны на основном языке сайта, будут скопированы из текущего основного языка в новый, если такие имена отсутствуют на новом основном языке сайта."
+msgstr ""
+"Вы уверены, что хотите изменить основной язык сайта? Имена пользователей, "
+"которые обязательно должны быть указаны на основном языке сайта, будут "
+"скопированы из текущего основного языка в новый, если такие имена "
+"отсутствуют на новом основном языке сайта."
 
 msgid "admin.languages.confirmReload"
-msgstr "Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению всех данных пользователя, связанных с этим языком, например, изменений в шаблонах писем электронной почты."
+msgstr ""
+"Вы уверены, что хотите заново загрузить этот язык? Это приведет к удалению "
+"всех данных пользователя, связанных с этим языком, например, изменений в "
+"шаблонах писем электронной почты."
 
 msgid "admin.languages.installedLocales"
 msgstr "Установленные языки"
@@ -115,14 +147,37 @@ msgstr "Закончено выполнение задачи."
 msgid "admin.scheduledTask.noLog"
 msgstr "Задача не создавала записей для журнала событий."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "Депонировать DOI в настроенном агентстве регистрации"
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Ваша инсталляция {$softwareName} автоматически выполнила и завершила эту задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}"
+msgstr ""
+"Ваша инсталляция {$softwareName} автоматически выполнила и завершила эту "
+"задачу, вы можете скачать файл с журналом событий по этой ссылке: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Вы уверены, что хотите удалить все журналы событий, содержащие информацию о выполнении запланированных задач?"
+msgstr ""
+"Вы уверены, что хотите удалить все журналы событий, содержащие информацию о "
+"выполнении запланированных задач?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Удалить журналы событий с информацией о выполнении запланированных задач"
+msgstr ""
+"Удалить журналы событий с информацией о выполнении запланированных задач"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Опубликовать материалы, запланированные к публикации"
@@ -130,14 +185,80 @@ msgstr "Опубликовать материалы, запланированн�
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Напоминание рецензенту"
 
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Уведомление о редакционном отчёте"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Напоминание об окончании подписки"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Задача загрузчика файлов статистики использования"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Файл «{$file}» не может быть открыт и был отклонен."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Версия Apache"
@@ -163,6 +284,9 @@ msgstr "Настройки"
 msgid "admin.settings.about"
 msgstr "О сайте"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Множественная рассылка писем"
+
 msgid "admin.settings.contactEmail"
 msgstr "E-mail контактного лица"
 
@@ -174,6 +298,15 @@ msgstr "Преамбула"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Минимальная длина пароля (в символах)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Ограничить множественную рассылку писем"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Отключить роли"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Только администратор может изменять эту настройку."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Язык сайта"
@@ -206,10 +339,18 @@ msgid "admin.siteSetup"
 msgstr "Установка сайта"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "Конфигурационный файл <tt>config.inc.php</tt> не существует, не доступен для чтения или является неправильным."
+msgstr ""
+"Конфигурационный файл <tt>config.inc.php</tt> не существует, не доступен для "
+"чтения или является неправильным."
 
 msgid "admin.systemInformation"
 msgstr "Информация о системе"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Сборка"
@@ -251,13 +392,17 @@ msgid "admin.version"
 msgstr "Версия"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Основной каталог {$path} должен быть внутри каталога с доступными для всех файлами."
+msgstr ""
+"Основной каталог {$path} должен быть внутри каталога с доступными для всех "
+"файлами."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Папка {$path} не является каталогом или не доступна для чтения."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "Файл {$filename} не может быть перемещен из {$currentFilePath} в {$destinationPath}"
+msgstr ""
+"Файл {$filename} не может быть перемещен из {$currentFilePath} в "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Файл {$filename} был обработан и помещен в архив."
@@ -265,127 +410,67 @@ msgstr "Файл {$filename} был обработан и помещен в ар
 msgid "admin.fileLoader.emailSubject"
 msgstr "Загрузчик файлов"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нет доступных языков для скачивания."
 
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Только администратор может изменять эту настройку."
+msgid "admin.cli.tool.usage.title"
+msgstr "Использование:"
 
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Отключить роли"
+msgid "admin.cli.tool.usage.parameters"
+msgstr "команда [аргументы]"
 
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Ограничить множественную рассылку писем"
+msgid "admin.cli.tool.available.commands"
+msgstr "Доступные команды для пространства имён `{$namespace}`:"
 
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Множественная рассылка писем"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Уведомление о редакционном отчёте"
-
-msgid "admin.jobs.createdAt"
-msgstr "Создана в {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Создана"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Попытки"
-
-msgid "admin.jobs.list.queue"
-msgstr "Очередь"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Задача"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "navigation.tools.jobs"
-msgstr "Задачи"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Показать задачи в очереди"
-
-msgid "admin.jobs.totalCount"
-msgstr "Всего в очереди <strong>{$total}</strong> задач"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Вы имели в виду один из следующих вариантов?"
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "Параметр {$option} не существует."
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "У нас {$total} задач в очереди"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Все задачи удалены!"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Не удалось удалить все задачи."
-
-msgid "admin.cli.tool.jobs.purge.without.id"
+msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
-"Для использования этой команды вы должны передать как минимум ID задачи, '--"
-"all' или '--queue='"
 
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "Задача была удалена!"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Неправильный ID задачи"
-
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Следующая"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Предыдущая"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Текущая"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Разбивка на страницы"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Создана"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Доступна"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Зарезервирована"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Попытки"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Отображаемое название задачи"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Очередь"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Задачи в очереди"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Параметр не может быть пустым! Проверьте использование метода."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Показать параметры, используемые в команде Jobs"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Показать использование команды Jobs"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Показать количество задач в очереди"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Добавить тестовую задачу в очередь по умолчанию"
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Список всех задач в очереди. Если вы хотите разбить результат по страницам, "
+"используйте параметры --page= и --perPage="
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -393,27 +478,325 @@ msgstr ""
 "задачи, используйте параметр  --all. Если вы хотите удалить все задачи из "
 "конкретной очереди, используйте параметр --queue="
 
-msgid "admin.cli.tool.jobs.available.options.list.description"
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Добавить тестовую задачу в очередь по умолчанию"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
-"Список всех задач в очереди. Если вы хотите разбить результат по страницам, "
-"используйте параметры --page= и --perPage="
 
-msgid "admin.cli.tool.available.commands"
-msgstr "Доступные команды для пространства имён `{$namespace}`:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "команда [аргументы]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Использование:"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Депонировать DOI в настроенном агентстве регистрации"
-
-msgid "admin.deleteCache"
-msgstr "Удалить кэши"
-
-msgid "admin.deleteCache.description"
+msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
-"Удаляет файлы кэша из системы. Это стоит делать только на серверах, "
-"использующихся для разработки."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Показать количество задач в очереди"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Показать использование команды Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Показать параметры, используемые в команде Jobs"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Параметр не может быть пустым! Проверьте использование метода."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Задачи в очереди"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Очередь"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Отображаемое название задачи"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Попытки"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Зарезервирована"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Доступна"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Создана"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Разбивка на страницы"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Текущая"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Предыдущая"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Следующая"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Для использования этой команды вы должны передать как минимум ID задачи, '--"
+"all' или '--queue='"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Неправильный ID задачи"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Задача была удалена!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Не удалось удалить все задачи."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Все задачи удалены!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "У нас {$total} задач в очереди"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Параметр {$option} не существует."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Вы имели в виду один из следующих вариантов?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Всего в очереди <strong>{$total}</strong> задач"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Показать задачи в очереди"
+
+msgid "navigation.tools.jobs"
+msgstr "Задачи"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Задача"
+
+msgid "admin.jobs.list.queue"
+msgstr "Очередь"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Попытки"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Создана"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "Создана в {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

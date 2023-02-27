@@ -24,6 +24,12 @@ msgstr "Configuració"
 msgid "grid.noAuditors"
 msgstr "No hi ha auditors"
 
+msgid "grid.remotelyHostedItem"
+msgstr "Aquest element està allotjat remotament."
+
+msgid "grid.action.uninstall"
+msgstr "Desinstal·lar"
+
 msgid "grid.action.manageAccess"
 msgstr "Administra l'accés"
 
@@ -33,8 +39,26 @@ msgstr "Ordena"
 msgid "grid.action.addItem"
 msgstr "Afegeix un element"
 
+msgid "grid.action.addNote"
+msgstr "Afegeix nota"
+
+msgid "grid.action.addQuery"
+msgstr "Afegeix discussió"
+
+msgid "grid.action.readQuery"
+msgstr "Llegeix la discussió"
+
+msgid "grid.action.deleteQuery"
+msgstr "Elimina la discussió"
+
+msgid "grid.action.updateQuery"
+msgstr "Actualitza la discussió"
+
 msgid "grid.action.addUser"
 msgstr "Afegeix usuaris/àries"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Cancel·lar l'assignació d'aquest revisor/a"
 
 msgid "grid.action.approveCopyedit"
 msgstr "Aprova aquest fitxer corregit per enviar-lo a la propera fase"
@@ -75,6 +99,12 @@ msgstr "Edita"
 msgid "grid.action.approve"
 msgstr "Accepta"
 
+msgid "grid.action.disapprove"
+msgstr "No accepta"
+
+msgid "grid.action.setApproval"
+msgstr "Ajustar acceptació"
+
 msgid "grid.action.moreInformation"
 msgstr "Més informació"
 
@@ -101,6 +131,9 @@ msgstr "Actualiza"
 
 msgid "grid.action.order"
 msgstr "Ordena"
+
+msgid "grid.action.saveOrdering"
+msgstr "Desar l'ordre"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Cancel·lar l'ordre"
@@ -144,9 +177,6 @@ msgstr "Tria fitxers per gestionar"
 msgid "grid.action.requestRevisions"
 msgstr "Demana revisions per a aquesta tramesa"
 
-msgid "grid.action.resubmit"
-msgstr "Sol·licita que aquesta tramesa es reenviï"
-
 msgid "grid.action.accept"
 msgstr "Acepta aquesta tramesa"
 
@@ -186,18 +216,6 @@ msgstr "Desactiva aquesta plantilla de correu"
 msgid "grid.action.resetEmail"
 msgstr "Restitueix aquesta plantilla de correu als valors per defecte"
 
-msgid "grid.action.addSignoff"
-msgstr "Afegeix una resposta auditada per a aquest fitxer"
-
-msgid "grid.action.deleteSignoff"
-msgstr "Elimina aquesta subscripció"
-
-msgid "grid.action.fileSignoff"
-msgstr "Subscriu aquest fitxer"
-
-msgid "grid.action.readSignoff"
-msgstr "Veure aquesta subscripció"
-
 msgid "grid.action.expandAll"
 msgstr "Expandir tot"
 
@@ -216,6 +234,9 @@ msgstr "Afegeix un nou grup d'usuaris"
 msgid "grid.action.editUserGroup"
 msgstr "Edita aquest grup d'usuaris"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Eliminar aquest grup d'usuaris/àries"
+
 msgid "grid.action.disable"
 msgstr "Inhabilita"
 
@@ -227,6 +248,9 @@ msgstr "Inscriure un usuari/ària existent"
 
 msgid "grid.action.selectCreate"
 msgstr "Crea un nou revisor/a"
+
+msgid "grid.action.search"
+msgstr "Cerca"
 
 msgid "grid.action.advancedSearch"
 msgstr "Cerca avançada"
@@ -261,6 +285,9 @@ msgstr "Afegeix un tipus d'anunci"
 msgid "grid.action.addAnnouncement"
 msgstr "Afegeix un anunci"
 
+msgid "grid.action.addInstitution"
+msgstr ""
+
 msgid "grid.action.mergeUser"
 msgstr "Fusiona l'usuari/ària"
 
@@ -288,6 +315,27 @@ msgstr "Exporta tots els usuaris"
 msgid "grid.users.confirmExportAllUsers"
 msgstr "Esteu segur/a que voleu exportar tots els usuaris/àries?"
 
+msgid "grid.action.activate"
+msgstr "Activa"
+
+msgid "grid.action.deactivate"
+msgstr "Desactiva"
+
+msgid "grid.action.copy"
+msgstr "Copia"
+
+msgid "grid.action.preview"
+msgstr "Previsualització"
+
+msgid "grid.action.install"
+msgstr "Instal·la"
+
+msgid "grid.action.moreItems"
+msgstr "Carrega més"
+
+msgid "grid.action.users"
+msgstr "Veure/Seleccionar usuaris/àries"
+
 msgid "grid.task.status.completed"
 msgstr "Aquesta tasca està completada"
 
@@ -301,7 +349,9 @@ msgid "grid.task.status.unfinished"
 msgstr "Tasca no finalitzada"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Aquesta revisió ja està preparada. Feu clic a la icona de la nota a l'esquerra per llegir-la."
+msgstr ""
+"Aquesta revisió ja està preparada. Feu clic a la icona de la nota a "
+"l'esquerra per llegir-la."
 
 msgid "grid.columns.actions"
 msgstr "Accions"
@@ -317,6 +367,9 @@ msgstr "Auditor/a"
 
 msgid "grid.columns.locale"
 msgstr "Configuració regional"
+
+msgid "grid.columns.locale.code"
+msgstr ""
 
 msgid "grid.sponsor.title"
 msgstr "Patrocinadors/ores"
@@ -357,14 +410,19 @@ msgstr "Afegeix un col·laborador"
 msgid "grid.action.deleteContributor"
 msgstr "Esborra col·laborador"
 
-msgid "grid.genres.title"
-msgstr "Gèneres"
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Segur que voleu eliminar {$name} com a colaborador/a? Aquesta acció no es "
+"pot desfer."
 
-msgid "grid.genres.description"
-msgstr "Aquests gèneres es fan servir per anomenar fitxers i es presenten en un menú desplegable quan carregueu fitxers. Els gèneres designats ## permeten els usuaris/àries associar el fitxer amb un llibre sencer 99Z o amb un capítol concret per número (p. ex. 02)."
+msgid "grid.action.newVersion"
+msgstr "Crear una versió nova"
 
 msgid "grid.reviewForm.title"
 msgstr "Formularis de revisió"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opcions de resposta"
 
 msgid "grid.noFiles"
 msgstr "Cap fitxer"
@@ -395,6 +453,32 @@ msgstr "Element de la llista de verificació"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Contacte principal"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Configureu el contacte principal"
+
+msgid "contributor.listPanel.preview"
+msgstr "Vista prèvia"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Els col·laboradors/ores d'aquesta publicació s'identificaran en aquesta "
+"revista en els següents formats."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Mostrar"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abreviat"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Llistes de publicació"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Complet"
 
 msgid "grid.roles.currentRoles"
 msgstr "Rols actuals"
@@ -442,10 +526,14 @@ msgid "grid.user.enableReason"
 msgstr "Motiu pel qual s'activa l'usuari/ària"
 
 msgid "grid.user.error"
-msgstr "Hi ha hagut un error quan es gestionava aquest usuari. Torneu-ho a intentar."
+msgstr ""
+"Hi ha hagut un error quan es gestionava aquest usuari. Torneu-ho a intentar."
 
 msgid "grid.user.errorEmail"
-msgstr "Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos que la configuració del servidor de correu electrònic funciona i/o contacteu amb l'administrador/a del sistema."
+msgstr ""
+"Ha aparegut un error en enviar aquest correu electrònic. Assegureu-vos que "
+"la configuració del servidor de correu electrònic funciona i/o contacteu amb "
+"l'administrador/a del sistema."
 
 msgid "grid.user.cannotAdminister"
 msgstr "No disposes dels permisos per editar aquest usuari/ària."
@@ -469,10 +557,13 @@ msgid "grid.user.mustChangePassword"
 msgstr "Canvia la contrasenya"
 
 msgid "grid.user.mustChangePasswordDescription"
-msgstr "L'usuari/ària haurà de canviar la contrasenya el pròxim cop que accedeixi."
+msgstr ""
+"L'usuari/ària haurà de canviar la contrasenya el pròxim cop que accedeixi."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la sessió."
+msgstr ""
+"Demana a l’usuari/usuària que canviï la contrasenya quan torni a iniciar la "
+"sessió."
 
 msgid "grid.user.moreDetails"
 msgstr "Més detalls de l'usuari/ària"
@@ -508,7 +599,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Seleccionar un usuari/ària"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu s'atribuïran a aquest usuari/ària."
+msgstr ""
+"Voleu iniciar sessió amb aquest usuari/ària? Totes les accions que realitzeu "
+"s'atribuïran a aquest usuari/ària."
 
 msgid "grid.user.mergeUsers"
 msgstr "Fusió d’usuaris/usuàries"
@@ -519,29 +612,18 @@ msgstr "Fusiona l’usuari/usuària"
 msgid "grid.user.mergeUsers.mergeIntoUser"
 msgstr "Fusiona amb aquest usuari/ària"
 
-msgid "grid.user.mergeUsers.into.description"
-msgstr "Ara heu de seleccionar un usuari/ària a qui atribuir l'autoria, l'edició de les assignacions, etc. de l'usuari/ària previ."
-
-msgid "grid.user.mergeUsers.from.description"
-msgstr "Seleccioneu un usuari/ària (o més d'un) que vulgueu fusionar amb un altre compte d’usuari/ària (p. ex. un usuari/ària que en tingui dos de diferents). Amb aquesta acció se suprimeix el primer compte que hàgiu seleccionat i les seves trameses, assignacions, etc., s’assignen al segon compte."
-
 msgid "grid.user.mergeUsers.allUsers"
 msgstr "Tots els usuaris/àries donats d’alta"
 
-msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
-msgstr "Esteu segur/a que voleu fusionar aquest usuari/ària amb un altre/a?  Trieu el segon usuari/ària a la pantalla següent."
-
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Esteu segur/a que voleu fusionar aquest compte, amb el nom d'usuari «{$oldUsername}», amb el compte amb el nom d'usuari «{$newUsername}»? Si ho feu, el compte amb nom d'usuari «{$oldUsername}» deixarà d'existir. Aquesta acció és irreversible."
-
-msgid "grid.user.mergeUsers.noneEnrolled"
-msgstr "No hi ha cap usuari/ària amb aquest rol."
+msgstr ""
+"Esteu segur/a que voleu fusionar aquest compte, amb el nom d'usuari "
+"«{$oldUsername}», amb el compte amb el nom d'usuari «{$newUsername}»? Si ho "
+"feu, el compte amb nom d'usuari «{$oldUsername}» deixarà d'existir. Aquesta "
+"acció és irreversible."
 
 msgid "grid.preparedEmails.title"
 msgstr "Plantilles de correu preestablertes"
-
-msgid "grid.preparedEmails.description"
-msgstr "La premsa facilita la comunicació al flux de treball mitjançant l'ús de correus electrònics preparats. El redactat per defecte d'aquestes plantilles de correu es pot modificar fàcilment a continuació."
 
 msgid "grid.preparedEmails.currentList"
 msgstr "Llista actual"
@@ -551,9 +633,6 @@ msgstr "Totes les categories"
 
 msgid "grid.plugin.disable"
 msgstr "Segur que voleu desactivar aquest mòdul?"
-
-msgid "grid.action.viewSignoffNotes"
-msgstr "Visualitza les notes de tancament de sessió"
 
 msgid "grid.action.fileUnconsider"
 msgstr "S'han fet les esmenes de correcció. Podeu rebutjar aquesta tasca"
@@ -568,7 +647,8 @@ msgid "grid.artworkFile.copyrightOwner"
 msgstr "Propietari de drets d'autor/a"
 
 msgid "grid.artworkFile.copyrightContact"
-msgstr "Informació de contacte (si no sou un autor/a ni una institució publicadora)"
+msgstr ""
+"Informació de contacte (si no sou un autor/a ni una institució publicadora)"
 
 msgid "grid.artworkFile.permissionTerms"
 msgstr "Condicions de permisos"
@@ -595,7 +675,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "El rol {$userGroupName} és predeterminat i no es pot eliminar."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "No es pot eliminar el rol {$userGroupName}. Actualment hi ha {$usersCount} usuaris/àries assignats."
+msgstr ""
+"No es pot eliminar el rol {$userGroupName}. Actualment hi ha {$usersCount} "
+"usuaris/àries assignats."
 
 msgid "grid.userGroup.removed"
 msgstr "S'ha eliminat el rol {$userGroupName}."
@@ -606,123 +688,29 @@ msgstr "S'ha assignat el rol {$userGroupName} a la fase de {$stageName}."
 msgid "grid.userGroup.unassignedStage"
 msgstr "El rol {$userGroupName} s'ha desassignat de la fase de {$stageName}."
 
-msgid "grid.remotelyHostedItem"
-msgstr "Aquest element està allotjat remotament."
-
-msgid "grid.action.addNote"
-msgstr "Afegeix nota"
-
-msgid "grid.action.addQuery"
-msgstr "Afegeix discussió"
-
-msgid "grid.action.readQuery"
-msgstr "Llegeix la discussió"
-
-msgid "grid.action.deleteQuery"
-msgstr "Elimina la discussió"
-
-msgid "grid.action.updateQuery"
-msgstr "Actualitza la discussió"
-
-msgid "grid.action.disapprove"
-msgstr "No accepta"
-
-msgid "grid.action.setApproval"
-msgstr "Ajustar acceptació"
-
-msgid "grid.action.search"
-msgstr "Cerca"
-
-msgid "grid.action.activate"
-msgstr "Activa"
-
-msgid "grid.action.deactivate"
-msgstr "Desactiva"
-
-msgid "grid.action.copy"
-msgstr "Copia"
-
-msgid "grid.action.preview"
-msgstr "Previsualització"
-
-msgid "grid.action.install"
-msgstr "Instal·la"
-
-msgid "grid.action.moreItems"
-msgstr "Carrega més"
-
 msgid "grid.submission.itemTitle"
 msgstr "Autor/a; Títol"
-
-msgid "grid.action.unassignReviewer"
-msgstr "Cancel·lar l'assignació d'aquest revisor/a"
-
-msgid "grid.reviewFormElement.responseItems"
-msgstr "Opcions de resposta"
 
 msgid "grid.submission.active.selectOrphaned"
 msgstr "Incloure trameses incompletes no enviades per un autor/a."
 
-msgid "grid.navigationMenus.navigationMenu.selectType"
-msgstr "Triar un tipus..."
-
-msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr "No hi ha menús de navegació"
-
-msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr "No hi ha elements del menú de navegació"
+msgid "grid.action.addNavigationMenu"
+msgstr "Afegir menú"
 
 msgid "grid.action.addNavigationMenuItem"
 msgstr "Afegir element"
 
-msgid "grid.action.addNavigationMenu"
-msgstr "Afegir menú"
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "No hi ha elements del menú de navegació"
 
-msgid "grid.action.newVersion"
-msgstr "Crear una versió nova"
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "No hi ha menús de navegació"
 
-msgid "grid.action.users"
-msgstr "Veure/Seleccionar usuaris/àries"
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "Triar un tipus..."
 
-msgid "grid.action.removeUserGroup"
-msgstr "Eliminar aquest grup d'usuaris/àries"
-
-msgid "grid.action.uninstall"
-msgstr "Desinstal·lar"
-
-msgid "contributor.listPanel.preview"
-msgstr "Vista prèvia"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Configureu el contacte principal"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
+msgid "grid.action.view"
 msgstr ""
-"Segur que voleu eliminar {$name} com a colaborador/a? Aquesta acció no es "
-"pot desfer."
-
-msgid "grid.action.saveOrdering"
-msgstr "Desar l'ordre"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Complet"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Llistes de publicació"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Abreviat"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Mostrar"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Format"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Els col·laboradors/ores d'aquesta publicació s'identificaran en aquesta "
-"revista en els següents formats."
 
 msgid "author.users.contributor.name"
 msgstr "Nom"
@@ -738,3 +726,58 @@ msgstr "En la llista de navegació"
 
 msgid "grid.action.editContributor"
 msgstr "Edita col·laborador"
+
+#~ msgid "grid.action.resubmit"
+#~ msgstr "Sol·licita que aquesta tramesa es reenviï"
+
+#~ msgid "grid.action.addSignoff"
+#~ msgstr "Afegeix una resposta auditada per a aquest fitxer"
+
+#~ msgid "grid.action.deleteSignoff"
+#~ msgstr "Elimina aquesta subscripció"
+
+#~ msgid "grid.action.fileSignoff"
+#~ msgstr "Subscriu aquest fitxer"
+
+#~ msgid "grid.action.readSignoff"
+#~ msgstr "Veure aquesta subscripció"
+
+#~ msgid "grid.genres.title"
+#~ msgstr "Gèneres"
+
+#~ msgid "grid.genres.description"
+#~ msgstr ""
+#~ "Aquests gèneres es fan servir per anomenar fitxers i es presenten en un "
+#~ "menú desplegable quan carregueu fitxers. Els gèneres designats ## "
+#~ "permeten els usuaris/àries associar el fitxer amb un llibre sencer 99Z o "
+#~ "amb un capítol concret per número (p. ex. 02)."
+
+#~ msgid "grid.user.mergeUsers.into.description"
+#~ msgstr ""
+#~ "Ara heu de seleccionar un usuari/ària a qui atribuir l'autoria, l'edició "
+#~ "de les assignacions, etc. de l'usuari/ària previ."
+
+#~ msgid "grid.user.mergeUsers.from.description"
+#~ msgstr ""
+#~ "Seleccioneu un usuari/ària (o més d'un) que vulgueu fusionar amb un altre "
+#~ "compte d’usuari/ària (p. ex. un usuari/ària que en tingui dos de "
+#~ "diferents). Amb aquesta acció se suprimeix el primer compte que hàgiu "
+#~ "seleccionat i les seves trameses, assignacions, etc., s’assignen al segon "
+#~ "compte."
+
+#~ msgid "grid.user.mergeUsers.mergeUserSelect.confirm"
+#~ msgstr ""
+#~ "Esteu segur/a que voleu fusionar aquest usuari/ària amb un altre/a?  "
+#~ "Trieu el segon usuari/ària a la pantalla següent."
+
+#~ msgid "grid.user.mergeUsers.noneEnrolled"
+#~ msgstr "No hi ha cap usuari/ària amb aquest rol."
+
+#~ msgid "grid.preparedEmails.description"
+#~ msgstr ""
+#~ "La premsa facilita la comunicació al flux de treball mitjançant l'ús de "
+#~ "correus electrònics preparats. El redactat per defecte d'aquestes "
+#~ "plantilles de correu es pot modificar fàcilment a continuació."
+
+#~ msgid "grid.action.viewSignoffNotes"
+#~ msgstr "Visualitza les notes de tancament de sessió"

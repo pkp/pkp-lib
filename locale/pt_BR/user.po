@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
 "PO-Revision-Date: 2023-01-31 17:03+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/user/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/user/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,8 +54,14 @@ msgstr "Seu acesso foi negado. Acesso a esta página está atualmente bloqueado.
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "O papel atual não possui permissão para realizar esta operação."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Você não foi designado para esta submissão com um papel que permite acesso a "
+"esta operação."
+
 msgid "user.authorization.userGroupRequired"
-msgstr "É necessário definir um grupo de usuário válido para acessar esta operação."
+msgstr ""
+"É necessário definir um grupo de usuário válido para acessar esta operação."
 
 msgid "user.authorization.managerRequired"
 msgstr ""
@@ -70,6 +76,12 @@ msgstr "Um estágio do fluxo de trabalho não foi especificado."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Um plugin não foi especificado mas é requerido."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Você não possui permissão para acessar esta designação de avaliação."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Você não possui permissão para acessar esta discussão."
 
 msgid "user.biography"
 msgstr "Resumo da Biografia"
@@ -101,6 +113,12 @@ msgstr "Área de interesse para avaliação"
 msgid "user.gossip"
 msgstr "Notas privadas"
 
+msgid "user.gossip.description"
+msgstr ""
+"Registre observações sobre esta avaliação que você gostaria de tornar "
+"visíveis a outros administradores, gerentes e todos os editores. As "
+"observações serão visíveis para futuras designações de avaliação."
+
 msgid "user.group"
 msgstr "Grupo de usuários"
 
@@ -108,13 +126,17 @@ msgid "user.familyName"
 msgstr "Sobrenome"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são .gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels."
+msgstr ""
+"Formato ou tamanho de imagem inválido para o perfil. Formatos aceitos são ."
+"gif, .jpg, ou .png, e a imagem não pode exceder 150x150 pixels."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Sua conta foi desabilitada pelo seguinte motivo: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "Sua conta foi desativada. Entre em contato com o administrador para maiores informações."
+msgstr ""
+"Sua conta foi desativada. Entre em contato com o administrador para maiores "
+"informações."
 
 msgid "user.login.accountNotValidated"
 msgstr ""
@@ -127,10 +149,15 @@ msgid "user.login.activate"
 msgstr "Ativar cadastro"
 
 msgid "user.login.activated"
-msgstr "Seu cadastro foi ativado, permitindo o acesso ao sistema com os dados informados no momento do cadastro."
+msgstr ""
+"Seu cadastro foi ativado, permitindo o acesso ao sistema com os dados "
+"informados no momento do cadastro."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Uma nova senha deve ser definida antes de cadastrar-se no sistema.<br /><br />Digite seu login e senhas atual e nova para alterar a senha de acesso à conta."
+msgstr ""
+"Uma nova senha deve ser definida antes de cadastrar-se no sistema.<br /><br /"
+">Digite seu login e senhas atual e nova para alterar a senha de acesso à "
+"conta."
 
 msgid "user.login.forgotPassword"
 msgstr "Esqueceu a senha?"
@@ -147,7 +174,9 @@ msgstr ""
 "mail para redefinir sua senha."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente criar uma senha novamente."
+msgstr ""
+"O link acessado expirou ou é inválido. Lamentamos o inconveniente. Tente "
+"criar uma senha novamente."
 
 msgid "user.login.lostPassword.passwordSent"
 msgstr "Uma nova senha foi enviada. Acesse o sistema com a nova senha."
@@ -215,7 +244,8 @@ msgstr ""
 "trabalho publicado. Exemplo: Dr. Alan P. Mwandenga"
 
 msgid "user.profile.changePasswordInstructions"
-msgstr "Digite as senhas atual e nova para alterar a senha de acesso ao cadastro."
+msgstr ""
+"Digite as senhas atual e nova para alterar a senha de acesso ao cadastro."
 
 msgid "user.profile.editProfile"
 msgstr "Editar perfil"
@@ -225,6 +255,14 @@ msgstr "O país é obrigatório."
 
 msgid "user.profile.form.emailRequired"
 msgstr "Endereço de e-mail válido obrigatório."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Um nome é exigido."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Você adicionou um sobrenome para um idioma cujo primeiro nome está faltando. "
+"Por favor, adicione um primeiro nome para este idioma."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Um endereço postal é obrigatório."
@@ -251,13 +289,18 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Notificações via e-mail de publicação de nova edição"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "URL inválida. Verifique a informação e tente novamente (Ajuda: Inclua o protocolo http:// no início da URL.)"
+msgstr ""
+"URL inválida. Verifique a informação e tente novamente (Ajuda: Inclua o "
+"protocolo http:// no início da URL.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "Um grupo de usuários é obrigatório."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Login obrigatório."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Você deve concordar com os termos da política de privacidade."
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "Deixe os campos de senha em branco para manter a senha atual."
@@ -281,10 +324,16 @@ msgid "user.login.registerNewAccount"
 msgstr "Não é um usuário? Registre-se no site"
 
 msgid "user.login.resetPasswordInstructions"
-msgstr "Por razões de segurança, este sistema envia por e-mail uma nova senha ao usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu email abaixo para redefinir sua senha. Uma confirmação será enviada para este endereço de e-mail."
+msgstr ""
+"Por razões de segurança, este sistema envia por e-mail uma nova senha ao "
+"usuário cadastrado, em vez de recordar a senha atual. <br/> <br/> Digite seu "
+"email abaixo para redefinir sua senha. Uma confirmação será enviada para "
+"este endereço de e-mail."
 
 msgid "user.register.form.privacyConsent"
-msgstr "Sim, eu concordo em ter meus dados coletados e armazenados de acordo com a <a href=\"{$privacyUrl}\" target=\"_blank\">declaração de privacidade</a>."
+msgstr ""
+"Sim, eu concordo em ter meus dados coletados e armazenados de acordo com a "
+"<a href=\"{$privacyUrl}\" target=\"_blank\">declaração de privacidade</a>."
 
 msgid "user.register.form.emailConsent"
 msgstr "Sim, eu gostaria de ser notificado(a) de publicações e notícias novas."
@@ -320,10 +369,14 @@ msgid "user.register"
 msgstr "Cadastrar"
 
 msgid "user.register.usernameRestriction"
-msgstr "O login deve conter apenas letras minúsculas (a-z), números(0-9), sublinhados(_) e hífens(-)."
+msgstr ""
+"O login deve conter apenas letras minúsculas (a-z), números(0-9), "
+"sublinhados(_) e hífens(-)."
 
 msgid "user.register.registrationCompleted"
-msgstr "Cadastro realizado com sucesso. <a href=\"{$profileUrl}\">Clique aqui</a> para completar seu perfil."
+msgstr ""
+"Cadastro realizado com sucesso. <a href=\"{$profileUrl}\">Clique aqui</a> "
+"para completar seu perfil."
 
 msgid "user.role.assistant"
 msgstr "Assistente de Adição"
@@ -410,7 +463,9 @@ msgid "user.orcid"
 msgstr "ORCID iD"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"O ORCID iD informado é inválido. Por favor inclua a URL completa (ex. "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Identificação"
@@ -425,13 +480,26 @@ msgid "user.apiKey"
 msgstr "Chave da API"
 
 msgid "user.apiKeyEnabled"
-msgstr "Permitir que aplicações externas com a chave da API tenham acesso a esta conta"
+msgstr ""
+"Permitir que aplicações externas com a chave da API tenham acesso a esta "
+"conta"
 
 msgid "user.apiKey.generate"
 msgstr "Criar chave API"
 
+msgid "user.apiKey.remove"
+msgstr "Apagar"
+
 msgid "user.apiKey.generateWarning"
-msgstr "Gerar uma nova chave da API irá invalidar qualquer chave já existente para este usuário."
+msgstr ""
+"Gerar uma nova chave da API irá invalidar qualquer chave já existente para "
+"este usuário."
+
+msgid "user.apiKey.removeWarning"
+msgstr "Apagar uma chave irá revogar o acesso de qualquer aplicação que a use."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Certeza que deseja apagar esta chave API?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -439,44 +507,9 @@ msgstr ""
 "configuração (\"api_key_secret\")."
 
 msgid "user.privacyLink"
-msgstr "Seus dados são armazenados em concordância com nossa <a href=\"{$privacyUrl}\" target=\"_blank\">política de privacidade</a>."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Você deve concordar com os termos da política de privacidade."
-
-msgid "user.profile.form.givenNameRequired.locale"
 msgstr ""
-"Você adicionou um sobrenome para um idioma cujo primeiro nome está faltando. "
-"Por favor, adicione um primeiro nome para este idioma."
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "Um nome é exigido."
-
-msgid "user.gossip.description"
-msgstr ""
-"Registre observações sobre esta avaliação que você gostaria de tornar "
-"visíveis a outros administradores, gerentes e todos os editores. As "
-"observações serão visíveis para futuras designações de avaliação."
-
-msgid "user.authorization.submissionQuery"
-msgstr "Você não possui permissão para acessar esta discussão."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Você não possui permissão para acessar esta designação de avaliação."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr ""
-"Você não foi designado para esta submissão com um papel que permite acesso a "
-"esta operação."
-
-msgid "user.apiKey.remove.confirmation.message"
-msgstr "Certeza que deseja apagar esta chave API?"
-
-msgid "user.apiKey.remove"
-msgstr "Apagar"
-
-msgid "user.apiKey.removeWarning"
-msgstr "Apagar uma chave irá revogar o acesso de qualquer aplicação que a use."
+"Seus dados são armazenados em concordância com nossa <a href="
+"\"{$privacyUrl}\" target=\"_blank\">política de privacidade</a>."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Não existe nenhum usuário com o endereço de e-mail especificado."

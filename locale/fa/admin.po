@@ -24,6 +24,12 @@ msgstr "مقدار تنظیم"
 msgid "admin.adminFunctions"
 msgstr "عملیات مدیریتی"
 
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
 msgid "admin.clearDataCache"
 msgstr "پاک کردن نهان گاه داده‌ها"
 
@@ -31,19 +37,27 @@ msgid "admin.clearTemplateCache"
 msgstr "پاک کردن نهان گاه الگوها"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "فایل پیکربندی شما با موفقیت به‌روزرسانی گردید. لطفاً به یاد داشته باشید که در صورت عدم کارکرد صحیح سایت ممکن است لازم شود که به‌طور دستی فایل <tt>config.inc.php</tt> را ویرایش کنید."
+msgstr ""
+"فایل پیکربندی شما با موفقیت به‌روزرسانی گردید. لطفاً به یاد داشته باشید که در "
+"صورت عدم کارکرد صحیح سایت ممکن است لازم شود که به‌طور دستی فایل <tt>config."
+"inc.php</tt> را ویرایش کنید."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "آیا مطمئن هستید که می‌خواهید نهان گاه الگوهای کامپایل شده را پاک کنید؟"
 
 msgid "admin.confirmExpireSessions"
-msgstr "مطمئن هستید که می‌خواهید نشست (session) همه کاربران را منقضی کنید؟ در این صورت تمام کاربرانی که هم اکنون در سیستم هستند، از جمله خودتان، از سامانه خارج خواهید شد."
+msgstr ""
+"مطمئن هستید که می‌خواهید نشست (session) همه کاربران را منقضی کنید؟ در این "
+"صورت تمام کاربرانی که هم اکنون در سیستم هستند، از جمله خودتان، از سامانه "
+"خارج خواهید شد."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "محتویات فایل پیکره‌بندی"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "آیا مطمئنید که می‌خواهید به‌طور دائم {$contextName} و تمام محتویات آن را پاک کنید؟"
+msgstr ""
+"آیا مطمئنید که می‌خواهید به‌طور دائم {$contextName} و تمام محتویات آن را پاک "
+"کنید؟"
 
 msgid "admin.currentVersion"
 msgstr "نسخه جاری"
@@ -52,7 +66,10 @@ msgid "admin.dateInstalled"
 msgstr "تاریخ نصب"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "محتوای فایل به‌روزرسانی شده پیکربندی شما در زیر نشان داده شده است. برای اعمال تغییرات باید فایل <tt>config.inc.php</tt> را در یک ویرایشگر متن مناسب باز کنید و محتوای آن را با محتوای زیر عوض کنید."
+msgstr ""
+"محتوای فایل به‌روزرسانی شده پیکربندی شما در زیر نشان داده شده است. برای اعمال "
+"تغییرات باید فایل <tt>config.inc.php</tt> را در یک ویرایشگر متن مناسب باز "
+"کنید و محتوای آن را با محتوای زیر عوض کنید."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "نمایش پیکره‌بندی جدید"
@@ -60,11 +77,23 @@ msgstr "نمایش پیکره‌بندی جدید"
 msgid "admin.expireSessions"
 msgstr "خارج کردن کاربران از سیستم"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "این زیان، زبان اصلی سایت است و تا زمانی که زبان دیگری را به‌عنوان زبان اصلی سایت انتخاب نکنید، اجازه حذف این زبان را ندارید."
+msgstr ""
+"این زیان، زبان اصلی سایت است و تا زمانی که زبان دیگری را به‌عنوان زبان اصلی "
+"سایت انتخاب نکنید، اجازه حذف این زبان را ندارید."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"آیا مطمئن هستید که می خواهید محلی اصلی سایت را تغییر دهید؟ نام کاربران ، که "
+"در محلی اصلی سایت مورد نیاز است ، از محلی که موجود نیست ، کپی خواهد شد."
 
 msgid "admin.languages.confirmReload"
-msgstr "آیا می‌خواهید این زبان را از نو بارگذاری کنید؟ این کار باعث می‌شود داده‌های مختص این زبان مانند ایمیل‌های اختصاصی شده پاک شود"
+msgstr ""
+"آیا می‌خواهید این زبان را از نو بارگذاری کنید؟ این کار باعث می‌شود داده‌های "
+"مختص این زبان مانند ایمیل‌های اختصاصی شده پاک شود"
 
 msgid "admin.languages.installedLocales"
 msgstr "زبان‌های نصب شده"
@@ -111,26 +140,116 @@ msgstr "پردازش وظیفه متوقف شد."
 msgid "admin.scheduledTask.noLog"
 msgstr "اجرای وظیفه هیچ log تولید نکرد"
 
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "نصب {$softwareName} به صورت خودکار انجام شده و به پایان رسید. می‌توانید فایل log مربوطه را از این آدرس دانلود کنید:  {$url}"
+msgstr ""
+"نصب {$softwareName} به صورت خودکار انجام شده و به پایان رسید. می‌توانید فایل "
+"log مربوطه را از این آدرس دانلود کنید:  {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "آیا مطمئنید که می‌خواهید فایل‌های log تمامی وظایف زمان‌بندی شده را حذف کنید؟"
+msgstr ""
+"آیا مطمئنید که می‌خواهید فایل‌های log تمامی وظایف زمان‌بندی شده را حذف کنید؟"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "پاک کردن فایل‌های log وظایف زمان‌بندی شده"
 
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "موارد ارسالی برنامه ریزی شده برای انتشار را منتشر کنید"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "یادآوری داوری"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "یادآوری اتمام اشتراک"
 
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "وظیفه بارگزار فایل آمار کارکرد"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "فایل {$file} نمیتواند باز شود و نادیده گرفته می شود."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "نسخه آپاچی"
@@ -156,6 +275,9 @@ msgstr "تنظیمات"
 msgid "admin.settings.about"
 msgstr "درباره سایت"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "ایمیل انبوه"
+
 msgid "admin.settings.contactEmail"
 msgstr "ایمیل اطلاعات تماس اصلی"
 
@@ -167,6 +289,15 @@ msgstr "معرفی"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "حداقل طول رمز ورود"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "محدودکردن ایمیل‌های انبوه"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "زبان سایت"
@@ -199,10 +330,18 @@ msgid "admin.siteSetup"
 msgstr "نصب سایت"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "فایل پیکربندی <tt>config.inc.php</tt> وجود ندارد، قابل خواندن نیست و یا بی‌اعتبار است."
+msgstr ""
+"فایل پیکربندی <tt>config.inc.php</tt> وجود ندارد، قابل خواندن نیست و یا "
+"بی‌اعتبار است."
 
 msgid "admin.systemInformation"
 msgstr "اطلاعات سیستم"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "ساخت"
@@ -250,7 +389,9 @@ msgid "admin.fileLoader.pathNotAccessible"
 msgstr "مسیر {$path} آدرس یک پوشه نیست یا این پوشه قبل خواندن نمی‌باشد."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "فایل {$filename} قابل انتقال از {$currentFilePath} به {$destinationPath} نمی‌باشد."
+msgstr ""
+"فایل {$filename} قابل انتقال از {$currentFilePath} به {$destinationPath} "
+"نمی‌باشد."
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "فایل {$filename} پردازش و بایگانی شد."
@@ -258,19 +399,386 @@ msgstr "فایل {$filename} پردازش و بایگانی شد."
 msgid "admin.fileLoader.emailSubject"
 msgstr "بارگزار فایل"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "زبانی برای دانلود وجود ندارد."
 
-msgid "admin.settings.restrictBulkEmails"
-msgstr "محدودکردن ایمیل‌های انبوه"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "ایمیل انبوه"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "موارد ارسالی برنامه ریزی شده برای انتشار را منتشر کنید"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.cli.tool.usage.title"
 msgstr ""
-"آیا مطمئن هستید که می خواهید محلی اصلی سایت را تغییر دهید؟ نام کاربران ، که "
-"در محلی اصلی سایت مورد نیاز است ، از محلی که موجود نیست ، کپی خواهد شد."
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

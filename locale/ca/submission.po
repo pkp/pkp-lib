@@ -15,11 +15,62 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "author.editPublishedDisabled"
+msgstr ""
+"No es poden editar els autors/es d'aquesta publicació perquè ja ha estat "
+"publicada."
+
+msgid "author.publicationNotFound"
+msgstr "No s'ha pogut trobar la publicació d'aquest autor/a."
+
 msgid "author.submit.submissionCitations"
-msgstr "Proporcioneu una llista de referències amb format per als treballs citats en aquesta tramesa. Separeu les referències individuals amb una línia en blanc."
+msgstr ""
+"Proporcioneu una llista de referències amb format per als treballs citats en "
+"aquesta tramesa. Separeu les referències individuals amb una línia en blanc."
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "S'han tramès noves revisions i l'editor/a les està considerant."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Un o més revisors/ores han excedit la data límit. L'equip editorial ha estat "
+"notificat i prendrà les accions oportunes perquè es completin les revisions. "
+"No heu de fer res més en aquest moment. Sereu notificat quan es prengui una "
+"decisió."
+
+msgid "submission.submit.availableUserGroups"
+msgstr "Enviar com a"
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+"Seleccioneu el rol que descrigui millor la vostra contribució a aquesta "
+"tramesa."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Requisits de la tramesa"
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+"Heu de llegir i confirmar que heu completat els següents requisits abans de "
+"continuar."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr ""
 
 msgid "submission.submit.submissionComplete"
 msgstr "S'ha completat la tramesa"
+
+msgid "submission.submit.genre.label"
+msgstr "Quin tipus d'arxiu és?"
+
+msgid "submission.submit.genre.description"
+msgstr "Trieu l'opció que descrigui millor aquest arxiu."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Segur que voleu eliminar aquest arxiu?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "En aquest moment, podeu:"
@@ -33,32 +84,31 @@ msgstr "Crear una nova tramesa"
 msgid "submission.submit.whatNext.return"
 msgstr "Tornar a l'escriptori"
 
-msgid "submission.submit.uploadExpeditedFiles"
-msgstr "Com a editor/a, podeu carregar un PDF i accelerar-ne la producció a l'últim pas de la tramesa."
-
 msgid "submission.submit.extendedMetadata"
 msgstr "Metadades avançades"
-
-msgid "submission.submit.expediteSubmission"
-msgstr "Accelera la tramesa"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "Correu electrònic de registre de Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Introduïu un correu electrònic de registre a Crossref vàlid. Podeu registrar el vostre correu electrònic gratuïtament al lloc web de Crossref."
+msgstr ""
+"Introduïu un correu electrònic de registre a Crossref vàlid. Podeu registrar "
+"el vostre correu electrònic gratuïtament al lloc web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clau API d'ISBNdb"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Introduïu la vostra clau d'ISBNdb API. Si encara no teniu cap clau, la podeu sol·licitar de manera gratuïta al projecte ISBNdb."
+msgstr ""
+"Introduïu la vostra clau d'ISBNdb API. Si encara no teniu cap clau, la podeu "
+"sol·licitar de manera gratuïta al projecte ISBNdb."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Correu electrònic de registre de PubMed"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Introduïu un correu electrònic de registre de PubMed vàlid si en teniu un."
+msgstr ""
+"Introduïu un correu electrònic de registre de PubMed vàlid si en teniu un."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "Clau API de Worldcat"
@@ -76,19 +126,25 @@ msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "No l'utilitzeu per defecte (encara està disponible per a l'editor/a)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Error intern. S'ha publicat un valor no vàlid per al paràmetre «filtre opcional». Informeu d'aquest error."
+msgstr ""
+"Error intern. S'ha publicat un valor no vàlid per al paràmetre «filtre "
+"opcional». Informeu d'aquest error."
 
 msgid "metadata.property.displayName.author"
 msgstr "Autors/ores"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "Per obtenir millors resultats, els autors/ores s'han d'introduir amb el format següent: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Per obtenir millors resultats, els autors/ores s'han d'introduir amb el "
+"format següent: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Editors/ores"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "Per obtenir millors resultats, els editors/ores s'han d'introduir amb el format següent: Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Per obtenir millors resultats, els editors/ores s'han d'introduir amb el "
+"format següent: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "Títol de l'article/document"
@@ -202,7 +258,8 @@ msgid "metadata.property.displayName.size"
 msgstr "Nombre de pàgines"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "Introduïu un nombre total de pàgines vàlid (ha de ser un valor numèric)."
+msgstr ""
+"Introduïu un nombre total de pàgines vàlid (ha de ser un valor numèric)."
 
 msgid "metadata.property.displayName.publisher-loc"
 msgstr "Ubicació de l'editorial"
@@ -286,19 +343,27 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Tipus de publicació"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Assegureu-vos d'establir sempre un tipus de publicació. Actualment, els valors admesos són «llibre» (per a llibres o capítols de llibres) i «revista» (per a articles de revista). En cas contrari, el format de sortida de la cita no funcionarà correctament."
+msgstr ""
+"Assegureu-vos d'establir sempre un tipus de publicació. Actualment, els "
+"valors admesos són «llibre» (per a llibres o capítols de llibres) i "
+"«revista» (per a articles de revista). En cas contrari, el format de sortida "
+"de la cita no funcionarà correctament."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Tipus de títol"
 
 msgid "metadata.property.validationMessage.title-type"
-msgstr "Comproveu que heu introduït un tipus de nom vàlid. Els valors admesos són «abreviat», «traduït», «alternatiu» i «uniforme»."
+msgstr ""
+"Comproveu que heu introduït un tipus de nom vàlid. Els valors admesos són "
+"«abreviat», «traduït», «alternatiu» i «uniforme»."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Una part del títol s'ha ignorat mentre s'estava ordenant"
 
 msgid "metadata.property.validationMessage.nonSort"
-msgstr "Introduïu només els caràcters inicials del títol que han de ser ignorats en ordenar-lo."
+msgstr ""
+"Introduïu només els caràcters inicials del títol que han de ser ignorats en "
+"ordenar-lo."
 
 msgid "metadata.property.displayName.title"
 msgstr "Títol"
@@ -328,7 +393,12 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Tipus de nom"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "Comproveu que heu introduït un tipus de nom vàlid. Els valors admesos són «personal», «corporatiu» i «conferència»."
+msgstr ""
+"Comproveu que heu introduït un tipus de nom vàlid. Els valors admesos són "
+"«personal», «corporatiu» i «conferència»."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Resum"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Trameses sense assignar"
@@ -342,11 +412,29 @@ msgstr "Trameses arxivades"
 msgid "submission.authors"
 msgstr "Autors/ores"
 
+msgid "submission.authorBiography"
+msgstr "Biografia de l'autor/a"
+
+msgid "submission.authorBiographies"
+msgstr "Biografies de l'autor/a"
+
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}, {$affiliation}"
+
+msgid "submission.shortAuthor"
+msgstr "{$author} et al."
+
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"
+
 msgid "submission.mySubmissions"
 msgstr "Les meves trameses d'autor/a"
 
 msgid "submission.addFile"
 msgstr "Puja un fitxer"
+
+msgid "submission.additionalFiles"
+msgstr "Arxius addicionals"
 
 msgid "submission.agencies"
 msgstr "Entitats"
@@ -372,8 +460,30 @@ msgstr "Torna a l’edició de la tramesa"
 msgid "submission.changeComments"
 msgstr "Canvia a"
 
+msgid "submission.changeFile"
+msgstr "Canviar l'arxiu"
+
 msgid "submission.citations"
 msgstr "Referències"
+
+msgid "submission.citations.description"
+msgstr ""
+"Introduïu cada referència en una línia nova, d'aquesta manera podran ser "
+"extretes i enregistrades per separat."
+
+msgid "submission.parsedCitations"
+msgstr "Referències extretes"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+"Les següents referències han estat extretes i s'enllaçaran amb les metadades "
+"de la tramesa."
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "Extreure i guardar les referències"
 
 msgid "submission.comments.addComment"
 msgstr "Vull afegir un comentari"
@@ -420,32 +530,26 @@ msgstr "Completa"
 msgid "submission.contributors"
 msgstr "Llista de contribuïdors/ores"
 
-msgid "submission.contributorsDescription"
-msgstr "La llista de contribuïdors/ores associada a aquesta tramesa pot incloure altres autors/ores, autors/ores de capítols individuals d'un volum editat, editors/ores de volums i/o traductors/ores. Es podria assignar un contribuïdor/a de la llista com a contacte principal per a la correspondència amb una editorial, atès que aquest contacte no ha de ser per força l'autor/a que l'ha enviat."
-
 msgid "submission.copyedited"
 msgstr "Original corregit"
 
 msgid "submission.copyediting"
 msgstr "Edició"
 
+msgid "submission.queryNoteFiles"
+msgstr "Arxius de discussió"
+
 msgid "submission.coverage"
 msgstr "Informació de la cobertura"
 
-msgid "submission.coverage.tip"
-msgstr "Els camps següents proporcionen informació sobre la cobertura de la vostra tramesa.  La cobertura pot incloure períodes cronològics (1920-1940, segle XVII) i ubicacions geogràfiques («Boston, Massachussets» o «Nord d'Anglaterra»).  Podeu fer servir el camp de cobertura de mostra per incloure un exemple important del vostre treball."
-
-msgid "submission.coverage.chron"
-msgstr "Cobertura cronològica o històrica"
-
-msgid "submission.coverage.geo"
-msgstr "Cobertura geoespacial"
-
-msgid "submission.coverage.sample"
-msgstr "Cobertura de mostra"
+msgid "submission.details"
+msgstr ""
 
 msgid "submission.done"
 msgstr "Acabada"
+
+msgid "submission.downloads"
+msgstr "Descàrregues"
 
 msgid "submission.dueDate"
 msgstr "Data de venciment"
@@ -466,10 +570,14 @@ msgid "submission.email.backToEmailLog"
 msgstr "Torna al registre del correu electrònic"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Esteu segur/a que voleu esborrar el registre del correu electrònic per a aquesta tramesa?"
+msgstr ""
+"Esteu segur/a que voleu esborrar el registre del correu electrònic per a "
+"aquesta tramesa?"
 
 msgid "submission.email.confirmDeleteLogEntry"
-msgstr "Esteu segur/a que voleu suprimir aquesta entrada del registre del correu electrònic?"
+msgstr ""
+"Esteu segur/a que voleu suprimir aquesta entrada del registre del correu "
+"electrònic?"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Suprimeix l’entrada del registre"
@@ -487,16 +595,26 @@ msgid "submission.event.backToEventLog"
 msgstr "Torna al registre d’esdeveniments"
 
 msgid "submission.event.confirmClearLog"
-msgstr "Esteu segur/a que voleu esborrar el registre d’esdeveniments per a aquesta tramesa?"
+msgstr ""
+"Esteu segur/a que voleu esborrar el registre d’esdeveniments per a aquesta "
+"tramesa?"
 
 msgid "submission.event.confirmDeleteLogEntry"
-msgstr "Esteu segur/a que voleu suprimir aquesta entrada del registre d’esdeveniments?"
+msgstr ""
+"Esteu segur/a que voleu suprimir aquesta entrada del registre "
+"d’esdeveniments?"
 
 msgid "submission.event.deleteLogEntry"
 msgstr "Suprimeix l’entrada del registre"
 
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+
 msgid "submission.event.submissionSubmitted"
 msgstr "La tramesa inicial s'ha completat."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr "S'ha carregat la revisió \"{$name}\" de l'arxiu {$submissionFileId}."
@@ -546,11 +664,44 @@ msgstr "Revisió tornada a trametre"
 msgid "submission.event.reviewer.reviewRevision"
 msgstr "Fitxer de revisions del revisor/a actualitzat"
 
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+
+msgid "submission.event.subjectPrefix"
+msgstr "S'ha enviat un correu electrònic:"
+
+msgid "submission.event.viewEmail"
+msgstr "Veure correu electrònic"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Els autors/es ja poden editar les metadades quan la tramesa està a la fase "
+"de {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Els autors/es ja no poden editar les metadades quan la tramesa està a la "
+"fase de {stage}."
+
 msgid "submission.files"
 msgstr "Fitxers"
 
 msgid "submission.files.downloadAll"
 msgstr "Descarrega tots els fitxers"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Es guarda un registre del carregador de l'arxiu quan es crea l'arxiu i no es "
+"pot canviar."
+
+msgid "submission.firstPublished"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
 
 msgid "submission.galley"
 msgstr "Galerades"
@@ -579,8 +730,47 @@ msgstr "Notes de la tramesa"
 msgid "submission.history.viewLog"
 msgstr "Visualitza el registre"
 
+msgid "submission.howToCite"
+msgstr "Com citar"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "Més formats de citació"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "Descarregar citació"
+
 msgid "submission.initiated"
 msgstr "Iniciada"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Actualitzat el {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versions"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Aquesta és una versió antiga publicada el {$datePublished}. Llegiu la <a "
+"href=\"{$urlRecentVersion}\">versió més recent</a>."
+
+msgid "submission.identifiers"
+msgstr "Identificadors"
+
+msgid "submission.publisherId"
+msgstr "ID de l'editorial"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"L'identificador de l'editorial pot utilitzar-se per enregistrar l'ID des "
+"d'una base de dades externa. Per exemple, els elements que s'exporten per "
+"dipositar-los a PubMed poden incloure l'identificador de l'editorial. En "
+"canvi, això no s'hauria de fer servir per als DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Habilitar per a {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Informació de la tramesa"
@@ -607,7 +797,8 @@ msgid "submission.layout.addGalley"
 msgstr "Afegeix galerades de maquetació"
 
 msgid "submission.layout.confirmDeleteGalley"
-msgstr "Esteu segur/a que voleu suprimir aquestes galerades de manera permanent?"
+msgstr ""
+"Esteu segur/a que voleu suprimir aquestes galerades de manera permanent?"
 
 msgid "submission.layout.confirmDeleteGalleyImage"
 msgstr "Esteu segur/a que voleu suprimir aquesta imatge de les galerades?"
@@ -627,11 +818,13 @@ msgstr "Fitxers HTML de les galerades"
 msgid "submission.layout.galleyImages"
 msgstr "Imatges"
 
-msgid "submission.layout.galleyLabelInstructions"
-msgstr "L’etiqueta de les galerades s’utilitza per a identificar el format de fitxer de l’element (p. ex. HTML, PDF, etc.)."
-
 msgid "submission.layout.galleyLabel"
 msgstr "Etiqueta"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"L’etiqueta de les galerades s’utilitza per a identificar el format de fitxer "
+"de l’element (p. ex. HTML, PDF, etc.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Heu d’introduir una etiqueta per a les galerades."
@@ -786,6 +979,9 @@ msgstr "Revisa les metadades"
 msgid "submission.review"
 msgstr "Revisió"
 
+msgid "submission.reviewAndSubmit"
+msgstr ""
+
 msgid "submission.reviewed"
 msgstr "Revisada"
 
@@ -831,12 +1027,6 @@ msgstr "Decisió"
 msgid "submission.source"
 msgstr "Font"
 
-msgid "submission.subjectClass"
-msgstr "Tema de la tramesa"
-
-msgid "submission.subjectClass.tip"
-msgstr "Descriviu la tramesa amb algunes frases clau.  Podeu redefinir-ne el tema amb paraules clau específiques al final del formulari."
-
 msgid "submissions.submit"
 msgstr "Tramet"
 
@@ -845,6 +1035,9 @@ msgstr "Tramesa"
 
 msgid "submission.submission"
 msgstr "Tramesa"
+
+msgid "submission.submissionTitle"
+msgstr "Títol de la tramesa:"
 
 msgid "submission.start"
 msgstr "Inicia"
@@ -873,17 +1066,23 @@ msgstr "Arxiu afegit"
 msgid "submission.submit.includeInBrowse"
 msgstr "Voleu incloure aquest contribuïdor/a a la llista de navegació?"
 
+msgid "submission.submit.includeInBrowse.title"
+msgstr ""
+
 msgid "submission.submit.newFile"
 msgstr "Envia un fitxer nou"
-
-msgid "submission.submit.errorDeletingAuthor"
-msgstr "S'ha produït un error en eliminar l'autor/a."
 
 msgid "submission.submit.metadataForm"
 msgstr "Ajustos addicionals"
 
 msgid "submission.submit.submissionLocale"
 msgstr "Llengua de la tramesa"
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
+"tramesa des del menú desplegable que hi ha a sobre."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Arxius de la tramesa"
@@ -894,11 +1093,19 @@ msgstr "Arxius dependents"
 msgid "submission.manageDependentFiles"
 msgstr "Administra els arxius dependents"
 
+msgid "submission.upload.instructions"
+msgstr ""
+"Carregueu tots els arxius que l'equip editorial necessitarà per avaluar la "
+"vostra tramesa."
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% de càrrega completat"
+
 msgid "submission.upload.dependent"
 msgstr "Carrega un fitxer dependent"
 
-msgid "submission.dependent.upload.description"
-msgstr "Carrega fitxers que aquest fitxer de producció necessita per mostrar-los correctament (HTML, CSS, etc.)"
+msgid "submission.upload.query"
+msgstr "Carregueu un arxiu de discussió"
 
 msgid "submission.summary"
 msgstr "Resum"
@@ -957,6 +1164,36 @@ msgstr "Rol del contribuïdor"
 msgid "submission.submit.addAuthor"
 msgstr "Afegeix col·laborador"
 
+msgid "submission.submit.form.languagesRequired"
+msgstr "Introduïu un idioma."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Introduïu un tema."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Introduïu una disciplina."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Introduïu una paraula clau."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Introduïu la informació de cobertura."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Introduïu la tipologia."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Introduïu la font."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Introduïu els drets."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Introduïu les referències."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr ""
+
 msgid "submission.form.name"
 msgstr "Poseu un nom al fitxer (p.ex., Tramesa Smith, Taula Smith 1)"
 
@@ -966,8 +1203,11 @@ msgstr "Voleu substituir un fitxer existent?"
 msgid "workflow.review.internalReview"
 msgstr "Revisió interna"
 
-msgid "workflow.review.externalReview"
-msgstr "Revisió externa"
+msgid "workflow.stage.any"
+msgstr "Qualsevol fase"
+
+msgid "workflow.stage"
+msgstr "Fase"
 
 msgid "submission.status.editorial"
 msgstr "En fase de correcció"
@@ -1005,15 +1245,6 @@ msgstr "3. Finalització"
 msgid "submission.submit.fileNameRequired"
 msgstr "Heu d'introduir un nom per a aquest arxiu"
 
-msgid "submission.submit.howToSubmit"
-msgstr "Si és necessari, contacteu amb <a href=\"mailto:{$supportEmail}\">{$supportName}</a> per obtenir ajuda ({$supportPhone})."
-
-msgid "submission.submit.howToSubmitNoPhone"
-msgstr "Si és necessari, contacteu amb <a href=\"mailto:{$supportEmail}\">{$supportName}</a> per obtenir ajuda."
-
-msgid "submission.upload.noteToAccompanyFile"
-msgstr "Nota per al fitxer d'acompanyament"
-
 msgid "submission.upload.noGenre"
 msgstr "Manca el component o el que hi ha no és vàlid!"
 
@@ -1025,29 +1256,30 @@ msgstr "S'ha detectat una possible revisió o un possible duplicat"
 
 msgid "submission.upload.possibleRevisionDescription"
 msgstr ""
-"El nom de l'arxiu carregat s'assembla al nom de l'arxiu \"{$revisedFileName}"
-"\" que heu carregat abans. Voleu substituir l'arxiu \"{$revisedFileName}\"? "
-"En aquest cas seleccioneu l'arxiu que apareix a sota. Si no és així, "
-"seleccioneu \"Això no és una revisió d'un arxiu existent\" abans de "
-"continuar."
+"El nom de l'arxiu carregat s'assembla al nom de l'arxiu "
+"\"{$revisedFileName}\" que heu carregat abans. Voleu substituir l'arxiu "
+"\"{$revisedFileName}\"? En aquest cas seleccioneu l'arxiu que apareix a "
+"sota. Si no és així, seleccioneu \"Això no és una revisió d'un arxiu existent"
+"\" abans de continuar."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Seleccioneu el fitxer que voleu revisar."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Si esteu carregant la revisió d'un fitxer existent, indiqueu a quin fitxer fa referència."
+msgstr ""
+"Si esteu carregant la revisió d'un fitxer existent, indiqueu a quin fitxer "
+"fa referència."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Això no és una revisió d'un arxiu existent"
-
-msgid "submission.upload.fileContents"
-msgstr "Continguts del fitxer"
 
 msgid "submission.upload.userGroup"
 msgstr "Carrega el fitxer amb el meu rol com a..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "Si esteu carregant un volum editat, haureu de carregar cadascun dels capítols individuals del volum amb el rol d'editor/a de volums."
+msgstr ""
+"Si esteu carregant un volum editat, haureu de carregar cadascun dels "
+"capítols individuals del volum amb el rol d'editor/a de volums."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Carrega un fitxer de biblioteca"
@@ -1064,20 +1296,33 @@ msgstr "Carrega un fitxer corregit"
 msgid "submission.upload.uploadFiles"
 msgstr "Carrega fitxers"
 
-msgid "submission.upload.signoff"
-msgstr "Carrega una resposta"
-
 msgid "submission.upload.response.description"
-msgstr "Després de revisar el fitxer assignat, deseu tots els comentaris al fitxer següent i/o carregueu una còpia anotada del fitxer (o d'un altre fitxer)."
+msgstr ""
+"Després de revisar el fitxer assignat, deseu tots els comentaris al fitxer "
+"següent i/o carregueu una còpia anotada del fitxer (o d'un altre fitxer)."
 
 msgid "submission.upload.productionReady"
 msgstr "Carrega un fitxer de producció llest"
+
+msgid "submission.upload.proof"
+msgstr "Carregueu un arxiu llest per a publicació"
 
 msgid "submission.upload.noAvailableReviewFiles"
 msgstr "No hi ha fitxers pendents de revisar en aquest moment."
 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "S'han sol·licitat les revisions."
+
+#, fuzzy
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "S'han tramès les revisions."
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+"La tramesa s'ha de tornar a enviar per fer-hi una altra ronda de revisió."
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "La tramesa s'ha tornat a enviar per fer-hi una altra ronda de revisió."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "S'ha enviat per a la revisió externa."
@@ -1100,6 +1345,24 @@ msgstr "Hi ha noves revisions preparades."
 msgid "editor.submission.roundStatus.reviewsCompleted"
 msgstr "Tots els revisors/ores han contestat i s'ha de prendre una decisió."
 
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "La revisió ha vençut."
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "Esperant recomanacions dels editors/es."
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "S'han tramès noves recomanacions editorials."
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "S'han rebut totes les recomanacions i s'ha de prendre una decisió."
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr ""
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+
 msgid "editor.submission.stageParticipants"
 msgstr "Participants"
 
@@ -1112,14 +1375,24 @@ msgstr "Participant"
 msgid "editor.submission.addStageParticipant"
 msgstr "Afegeix un participant"
 
-msgid "editor.submission.addStageParticipant.description"
-msgstr "Per afegir un participant a aquesta fase de la tramesa, seleccioneu un grup d'usuaris/àries del menú desplegable i després afegiu-hi un usuari/ària.<br /><br />Nota: l'usuari/ària s'afegirà a totes les fases a les quals el grup d'usuaris/àries estigui assignat."
+msgid "editor.submission.editStageParticipant"
+msgstr "Editar assignació"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"Els usuaris/àries són assignats a les fases del flux de treball segons el "
+"seu grup. Qualsevol usuari/ària assignat a aquesta fase ho serà també "
+"automàticament a les altres fases en què el seu grup d'usuari/ària hagi "
+"estat assignat. Això normalment es reserva per a editors/es, autors/es i "
+"traductors/ores."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Elimina el participant"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "S'eliminarà el participant de <strong>totes</strong> les fases. Si l'usuari/ària també té tasques d'auditoria pendents, també s'eliminaran."
+msgstr ""
+"S'eliminarà el participant de <strong>totes</strong> les fases. Si l'usuari/"
+"ària també té tasques d'auditoria pendents, també s'eliminaran."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Heu de seleccionar un grup d'usuaris."
@@ -1127,35 +1400,369 @@ msgstr "Heu de seleccionar un grup d'usuaris."
 msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Heu de seleccionar un usuari/ària per al grup d'usuaris especificat."
 
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"El participant que heu seleccionat ha estat assignat per dur a terme una "
+"avaluació anònima. Si l'assigneu com a participant tindrà accés a la "
+"identitat de l'autor/a. Per això us aconsellem que no assigneu aquest "
+"participant a menys que pugueu garantir la integritat del procés d'avaluació "
+"amb cegament."
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Deshabilitar l'edició de metadades"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Habilitar l'edició de metadades"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Segur que voleu que els autors/es d'aquesta tramesa no puguin editar-ne les "
+"metadades en aquesta fase?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Segur que voleu que els autors/es d'aquesta tramesa puguin editar-ne les "
+"metadades en aquesta fase?"
+
 msgid "editor.submission.decision"
 msgstr "Decisió"
 
-msgid "editor.submission.decision.requestRevisions"
-msgstr "Sol·licita revisions"
+msgid "editor.submission.decision.notifyAuthors"
+msgstr ""
 
-msgid "editor.submission.decision.resubmit"
-msgstr "Torna-ho a trametre per a revisió"
+msgid "editor.submission.decision.notifyReviewers"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept"
+msgstr "Acceptar la tramesa"
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completed"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.decline"
 msgstr "Rebutja la tramesa"
 
-msgid "editor.submission.decision.sendToProduction"
-msgstr "Enviar a producció"
+msgid "editor.submission.decision.decline.description"
+msgstr ""
 
-msgid "editor.submission.decision.sendInternalReview"
-msgstr "Envia a revisió interna"
+msgid "editor.submission.decision.decline.log"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Sol·licita revisions"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Torna-ho a trametre per a revisió"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Envia a revisió externa"
 
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nova ronda de revisió"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "Enviar a producció"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview"
+msgstr "Acceptar i ometre la revisió"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "Envia a revisió interna"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"El fitxer de galerades ha de comprovar-se i aprovar-se per passar a estar "
+"disponible. Voleu aprovar-lo?"
+
 msgid "editor.submission.decision.approveProofs"
 msgstr "Aprova galerades"
 
-msgid "editor.submission.decision.approveProofsDescription"
-msgstr "El fitxer de galerades ha de comprovar-se i aprovar-se per passar a estar disponible. Voleu aprovar-lo?"
-
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Aquest fitxer de galerades ja no es podrà descarregar o comprar. Voleu rebutjar-les?"
+msgstr ""
+"Aquest fitxer de galerades ja no es podrà descarregar o comprar. Voleu "
+"rebutjar-les?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Revertir el rebuig"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+
+#, fuzzy
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+"Assigneu un editor/a per habilitar les decisions editorials en aquesta fase."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+
+msgid "editor.submission.recommend.completed"
+msgstr ""
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.recommend.decline"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.description"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
+
+msgid "editor.submission.makeRecommendation"
+msgstr "Fer recomanació"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "Modificar recomanació"
+
+msgid "editor.submission.recommendation.display"
+msgstr "Recomanació: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "Recomanacions: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+
+msgid "editor.submission.recommendation"
+msgstr "Recomanació"
+
+msgid "editor.submission.recommendation.description"
+msgstr "Recomaneu una decisió editorial per a aquesta tramesa."
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "Recomanacions enregistrades"
 
 msgid "submission.currentStage"
 msgstr "Fase actual"
@@ -1176,22 +1783,37 @@ msgid "submission.finalDraft"
 msgstr "Esborranys finals"
 
 msgid "editor.submission.addAuditorError"
-msgstr "S'ha produït un error quan s'intentava assignar l'auditor/a. Torneu-ho a intentar."
+msgstr ""
+"S'ha produït un error quan s'intentava assignar l'auditor/a. Torneu-ho a "
+"intentar."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"{$username} ha editat les metadades de l'arxiu \"{$originalFileName}\"."
 
 msgid "submission.event.fileUploaded"
-msgstr "El fitxer «{$originalFileName}» s'ha carregat per a la tramesa {$submissionId} per {$username}."
+msgstr ""
+"El fitxer «{$originalFileName}» s'ha carregat per a la tramesa "
+"{$submissionId} per {$username}."
 
 msgid "submission.event.fileDeleted"
-msgstr "El fitxer «{$originalFileName}» s'ha eliminat per a la tramesa {$submissionId} per {$username}."
+msgstr ""
+"El fitxer «{$originalFileName}» s'ha eliminat per a la tramesa "
+"{$submissionId} per {$username}."
 
 msgid "submission.event.revisionUploaded"
-msgstr "S'ha carregat una revisió «{$originalFileName}» per a la tramesa {$submissionId} per {$username}."
+msgstr ""
+"S'ha carregat una revisió «{$originalFileName}» per a la tramesa "
+"{$submissionId} per {$username}."
 
 msgid "submission.event.revisionDeleted"
-msgstr "S'ha eliminat una revisió «{$originalFileName}» per a la tramesa {$submissionId} per {$username}."
+msgstr ""
+"S'ha eliminat una revisió «{$originalFileName}» per a la tramesa "
+"{$submissionId} per {$username}."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "S'ha eliminat la darrera revisió del fitxer «{$title}» per {$username}."
+msgstr ""
+"S'ha eliminat la darrera revisió del fitxer «{$title}» per {$username}."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr ""
@@ -1199,13 +1821,13 @@ msgstr ""
 
 msgid "submission.event.fileAuditorCleared"
 msgstr ""
-"\"{$name}\" ({$username}) s'ha eliminat com a auditor/a de l'arxiu \"{$file}"
-"\"."
+"\"{$name}\" ({$username}) s'ha eliminat com a auditor/a de l'arxiu "
+"\"{$file}\"."
 
 msgid "submission.event.fileAuditUploaded"
 msgstr ""
-"\"{$name}\" ({$username}) ha completat una auditoria i ha carregat \"{$file}"
-"\"."
+"\"{$name}\" ({$username}) ha completat una auditoria i ha carregat "
+"\"{$file}\"."
 
 msgid "submission.event.signoffSignoff"
 msgstr "\"{$name}\" ({$username}) ha tancat la sessió de \"{$file}\"."
@@ -1225,6 +1847,18 @@ msgstr "La fase no s'ha iniciat."
 msgid "submission.documents"
 msgstr "Documents de la tramesa"
 
+msgid "notification.type.editorAssign"
+msgstr "Heu estat assignat com a editor/a de la tramesa \"{$title}\"."
+
+msgid "notification.type.copyeditorRequest"
+msgstr "Se us ha demanat que reviseu les correccions de \"{$title}\"."
+
+msgid "notification.type.layouteditorRequest"
+msgstr "Se us ha demanat que reviseu les galerades de \"{$title}\"."
+
+msgid "notification.type.indexRequest"
+msgstr "Se us ha demanat que creeu un índex de \"{$title}\"."
+
 msgid "notification.type.editorDecisionTitle"
 msgstr "Darrera decisió de l'editor/a."
 
@@ -1240,41 +1874,34 @@ msgstr "Calen revisions."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Torna-ho a trametre per a revisió."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr "S'ha iniciat una nova ronda de revisions."
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "S'ha rebutjat la tramesa."
 
-msgid "notification.type.signoff"
-msgstr "Teniu una auditoria pendent."
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "S'ha reactivat la tramesa rebutjada."
 
 msgid "notification.uploadedResponse"
 msgstr "S'ha carregat la resposta."
 
-msgid "submission.authorDashboard.description"
-msgstr "En cada fase iniciada del circuit de treball que es mostra a continuació, trobareu informació de l'estat de la fase, així com els fitxers de la tramesa associats i la correspondència associada a cada fase. Se us demanarà que carregueu un fitxer revisat en una fase concreta o que auditeu un fitxer que ja es va carregar prèviament; aquestes accions es poden completar dins de la secció de la fase especificada."
-
-msgid "submission.signoff.selectFile"
-msgstr "Seleccioneu el fitxer que voleu tancar."
-
-msgid "submission.signoff.signoffOnFile"
-msgstr "Subscriu aquest fitxer"
-
-msgid "submission.signoff.signedOffOnFile"
-msgstr "S'ha tancat aquest fitxer."
-
-msgid "submission.signoff.noAvailableSignoffs"
-msgstr "No teniu cap fitxer pendent de respondre."
-
-msgid "submission.signoff.fileResponse"
-msgstr "Resposta del fitxer"
-
-msgid "grid.copyediting.deleteSignoff"
-msgstr "Dessasigna l'usuari/ària"
-
 msgid "notification.type.editorAssignment"
-msgstr "S'ha d'assignar un editor/a abans de començar la revisió. Afegiu un editor/a amb l'enllaç de participants anterior."
+msgstr ""
+"S'ha d'assignar un editor/a abans de començar la revisió. Afegiu un editor/a "
+"amb l'enllaç de participants anterior."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "S'ha creat una versió nova de la tramesa"
+
+msgid "notification.type.revertDecline"
+msgstr "S'ha revertit la decisió de rebutjar aquesta tramesa."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Fitxers adjunts del revisor/a"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "Seleccioneu els arxius de revisió per compartir-los amb els autors/es"
 
 msgid "submission.productionReady"
 msgstr "Llibre disponible"
@@ -1283,16 +1910,63 @@ msgid "submission.review.uploadRevisionToRound"
 msgstr "Carrega un fitxer de revisió"
 
 msgid "log.review.reviewerAssigned"
-msgstr "S'ha assignat a {$reviewerName} la revisió de la tramesa {$submissionId} per a la ronda de revisió {$round}."
+msgstr ""
+"S'ha assignat a {$reviewerName} la revisió de la tramesa {$submissionId} per "
+"a la ronda de revisió {$round}."
 
 msgid "log.review.reviewCleared"
-msgstr "S’ha esborrat la ronda {$round} de revisió feta per {$reviewerName} per a la tramesa {$submissionId}."
+msgstr ""
+"S’ha esborrat la ronda {$round} de revisió feta per {$reviewerName} per a la "
+"tramesa {$submissionId}."
 
 msgid "log.review.reviewUnconsidered"
-msgstr "{$editorName} ha marcat la ronda {$round} de revisió per a la tramesa {$submissionId} com a no considerada."
+msgstr ""
+"{$editorName} ha marcat la ronda {$round} de revisió per a la tramesa "
+"{$submissionId} com a no considerada."
 
 msgid "log.review.reviewReinstated"
-msgstr "S’ha reiniciat la ronda {$round} de revisió feta per {$reviewerName} per a la tramesa {$submissionId}."
+msgstr ""
+"S’ha reiniciat la ronda {$round} de revisió feta per {$reviewerName} per a "
+"la tramesa {$submissionId}."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"L'editor/a {$userName} ha confirmat una revisió per a la ronda {$round} de "
+"revisió de la tramesa {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} ha completat la revisió per a la ronda {$round} de revisió "
+"de la tramesa {$submissionId}."
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "Esperant la resposta del revisor/a."
+
+msgid "submission.review.status.declined"
+msgstr "El revisor/a ha rebutjat aquesta sol·licitud de revisió."
+
+msgid "submission.review.status.responseOverdue"
+msgstr "El revisor/a ha excedit la data límit de resposta."
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "El revisor/a ha excedit la data límit de revisió."
+
+msgid "submission.review.status.accepted"
+msgstr "S'ha acceptat la revisió."
+
+msgid "submission.review.status.received"
+msgstr "El revisor/a ha enviat la seva revisió."
+
+msgid "submission.review.status.complete"
+msgstr "S'ha completat la revisió."
+
+msgid "submission.review.status.thanked"
+msgstr ""
+"S'ha completat la revisió i el revisor/a ha rebut l'agraïment per la seva "
+"col·laboració."
 
 msgid "submission.document"
 msgstr "Document"
@@ -1300,62 +1974,433 @@ msgstr "Document"
 msgid "submission.art"
 msgstr "Il·lustració"
 
+msgid "submission.supplementary"
+msgstr "Contingut suplementari"
+
+msgid "submission.supplementary.creator"
+msgstr "Creador (o propietari) de l'arxiu"
+
+msgid "submission.supplementary.subject"
+msgstr "Assumpte"
+
+msgid "submission.supplementary.publisher"
+msgstr "Editorial"
+
+msgid "submission.supplementary.sponsor"
+msgstr "Col·laborador/a o agència patrocinadora"
+
 msgid "grid.action.itemWorkflow"
 msgstr "Aneu al circuit de treball d'aquesta tramesa"
-
-msgid "editor.review.personalMessageFromEditor"
-msgstr "Missatge per a l'editor/a"
-
-msgid "submission.previousAuthorMessages"
-msgstr "Missatges previs"
 
 msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Ha començat el procés de producció."
 
 msgid "notification.type.editorAssignmentProduction"
-msgstr "S'ha d'assignar un editor/a abans de començar el procés de producció. Afegiu un editor/a de producció amb l'enllaç de participants anterior."
+msgstr ""
+"S'ha d'assignar un editor/a abans de començar el procés de producció. Afegiu "
+"un editor/a de producció amb l'enllaç de participants anterior."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "S'ha d'assignar un editor/a de producció abans de començar el procés editorial. Afegiu un editor/a de producció amb l'enllaç de participants anterior."
+msgstr ""
+"S'ha d'assignar un editor/a de producció abans de començar el procés "
+"editorial. Afegiu un editor/a de producció amb l'enllaç de participants "
+"anterior."
+
+msgid "submission.reviewForm"
+msgstr "Formulari de revisió"
+
+msgid "submission.reviewFormResponse"
+msgstr "Formulari de resposta de revisió"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "Crear un nou formulari de revisió"
+
+msgid "grid.action.editMetadata"
+msgstr "Editar les metadades"
+
+msgid "submission.permissions"
+msgstr "Permisos"
+
+msgid "submission.attachPermissions"
+msgstr "Adjuntar els següents permisos a la tramesa:"
+
+msgid "submission.license"
+msgstr "Llicència"
+
+msgid "submission.copyright"
+msgstr "Drets d'autor"
+
+msgid "submission.copyright.agree"
+msgstr ""
+
+msgid "submission.copyrightHolder"
+msgstr "Titular dels drets d'autor"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Declaració de drets d'autor personalitzada"
+
+msgid "submission.copyrightOther"
+msgstr "Declaració de drets d'autor"
+
+msgid "submission.copyrightYear"
+msgstr "Any dels drets d'autor"
+
+msgid "submission.copyrightStatement"
+msgstr "Drets d'autor (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "Proporcioneu una URL remota vàlida (incloeu http://)."
+
+msgid "submission.licenseURL"
+msgstr "Llicència URL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC Reconeixement-NoComercial-SenseObraDerivada 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC Reconeixement-NoComercial 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC Reconeixement-NoComercial-CompartirIgual 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC Reconeixement-SenseObraDerivada 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC Reconeixement 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC Reconeixement-CompartirIgual 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/4.0/\">Creative Commons Reconeixement-NoComercial-SenseObraDerivada "
+"4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc/4.0/\">Creative Commons Reconeixement-NoComercial 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/4.0/\">Creative Commons Reconeixement-NoComercial-CompartirIgual "
+"4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nd/4.0/\">Creative Commons Reconeixement-SenseObraDerivada 4.0</a>.</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by/4.0/\">Creative Commons Reconeixement 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-sa/4.0/\">Creative Commons Reconeixement-CompartirIgual 4.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-nd/3.0/\">Creative Commons Reconeixement-NoComercial-SenseObraDerivada "
+"3.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc/3.0/\">Creative Commons Reconeixement-NoComercial 3.0</a>.</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nc-sa/3.0/\">Creative Commons Reconeixement-NoComercial-CompartirIgual "
+"3.0</a>.</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-nd/3.0/\">Creative Commons Reconeixement-SenseObraDerivada 3.0</a>.</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by/3.0/\">Creative Commons Reconeixement 3.0</a>.</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
+"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by-sa/3.0/\">Creative Commons Reconeixement-CompartirIgual 3.0</a>.</p>"
+
+msgid "submission.queries.submission"
+msgstr "Discussions prèvies a la revisió"
+
+msgid "submission.queries.review"
+msgstr "Discussions de revisió"
+
+msgid "submission.queries.editorial"
+msgstr "Discussions de correcció"
+
+msgid "submission.query.subject"
+msgstr "Tema"
+
+msgid "submission.query.messages"
+msgstr "Missatges"
+
+msgid "submission.query.replies"
+msgstr "Respostes"
+
+msgid "submission.query.from"
+msgstr "De"
+
+msgid "submission.query.lastReply"
+msgstr "Última resposta"
+
+msgid "submission.query.closed"
+msgstr "Tancat"
+
+msgid "submission.query.addNote"
+msgstr "Afegir missatge"
+
+msgid "submission.query.leaveQuery"
+msgstr "Abandonar la discussió"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si abandoneu la discussió ja no rebreu notificacions sobre nous missatges. "
+"Confirmeu que voleu abandonar la discussió?"
+
+msgid "grid.action.openNoteForm"
+msgstr "Afegiu una resposta nova a la discussió"
+
+msgid "submission.query.activity"
+msgstr "{$responderName} ha contestat a {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr ""
+"{$creatorName} ha començat una discussió: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"Hi ha activitat nova en la discussió titulada \"{$queryTitle}\" referent a "
+"la tramesa \"{$submissionTitle}\"."
+
+msgid "submission.query.new.contents"
+msgstr ""
+"Heu estat afegits a la discussió titulada \"{$queryTitle}\" referent a la "
+"tramesa \"{$submissionTitle}\"."
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}, {$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"Heu d'assignar com a mínim un participant a aquesta tramesa abans d'iniciar "
+"una discussió."
+
+msgid "submission.list.infoCenter"
+msgstr "Registre d'activitat i notes"
+
+msgid "submission.list.empty"
+msgstr "No s'ha trobat cap tramesa."
+
+msgid "submission.list.responseDue"
+msgstr "Termini de resposta: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Assignació de revisió"
+
+msgid "submission.list.reviewDue"
+msgstr "Termini de revisió: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "Revisió enviada"
+
+msgid "submission.list.reviewCancelled"
+msgstr "Revisió cancel·lada"
+
+msgid "submission.list.confirmDelete"
+msgstr "Eliminar tramesa?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr ""
+
+msgid "submission.list.viewSubmission"
+msgstr "Veure tramesa"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "Revisions assignades completades"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "Revisions enviades"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "Arxius corregits enviats"
+
+msgid "submission.list.galleysCreated"
+msgstr "Galerades de producció creades"
+
+msgid "submission.list.filesPrepared"
+msgstr "Arxius preparats"
+
+msgid "submission.list.discussions"
+msgstr "Discussions obertes"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"Teniu assignats múltiples rols per a aquesta tramesa. Voleu accedir al <a "
+"href=\"{$urlAuthorWorkflow}\">flux de treball d'autor/a</a> o al <a href="
+"\"{$urlEditorialWorkflow}\">flux de treball editorial</a>?"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"Teniu assignat un rol editorial per a aquesta tramesa. Voleu accedir al <a "
+"href=\"{$urlEditorialWorkflow}\">flux de treball editorial</a>?"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "Aquesta tramesa s'ha de completar abans que un editor/a la revisi."
+
+msgid "submission.list.currentStage"
+msgstr "Actualment a la fase de {$stage}."
+
+msgid "submission.list.activity"
+msgstr "Activitat"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Dies des de l'última activitat"
+
+msgid "submission.list.assignEditor"
+msgstr "Assignar editor/a"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+
+msgid "submission.wizard.beforeStart"
+msgstr ""
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+
+msgid "submission.wizard.changeSubmission"
+msgstr ""
+
+msgid "submission.wizard.completeSteps"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.errors"
+msgstr ""
+
+msgid "submission.wizard.validating"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+msgid "submission.wizard.confirm"
+msgstr ""
+
+msgid "submission.wizard.title"
+msgstr ""
+
+msgid "submission.wizard.titleWithStep"
+msgstr ""
+
+msgid "submission.wizard.noContributors"
+msgstr ""
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+
+msgid "submission.wizard.notAllowed"
+msgstr ""
+
+msgid "submission.wizard.privacyConsent"
+msgstr ""
+
+msgid "submission.wizard.saved"
+msgstr ""
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed"
+msgstr ""
+
+msgid "submission.wizard.start"
+msgstr ""
+
+msgid "submission.wizard.startingStatus"
+msgstr ""
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
 
 msgid "grid.category.categories"
 msgstr "Categories"
 
-msgid "grid.category.add"
-msgstr "Afegeix categoria"
+msgid "catalog.sortBy.titleAsc"
+msgstr "Títol (A-Z)"
 
-msgid "grid.category.edit"
-msgstr "Edita categoria"
+msgid "catalog.sortBy.titleDesc"
+msgstr "Títol (Z-A)"
 
-msgid "grid.category.name"
-msgstr "Nom"
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "Data de publicació (més antics primer)"
 
-msgid "grid.category.path"
-msgstr "Ruta"
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "Data de publicació (més nous primer)"
 
-msgid "grid.category.urlWillBe"
-msgstr "La categoria de l'URL serà {$sampleUrl}."
+msgid "category.category"
+msgstr ""
 
-msgid "grid.category.pathAlphaNumeric"
-msgstr "La ruta de la categoria només pot estar formada per números i lletres."
-
-msgid "grid.category.pathExists"
-msgstr "Ja existeix una ruta per a la categoria. Introduïu una ruta única."
-
-msgid "grid.category.description"
-msgstr "Descripció"
-
-msgid "grid.category.parentCategory"
-msgstr "Categoria principal"
-
-msgid "grid.category.removeText"
-msgstr "Esteu segur/a que voleu eliminar aquesta categoria?"
-
-msgid "grid.category.nameRequired"
-msgstr "Introduïu un nom vàlid per a la categoria."
-
-msgid "grid.category.categoryDetails"
-msgstr "Detalls de la categoria"
+msgid "category.coverImage"
+msgstr "Imatge de coberta"
 
 msgid "submission.submit.placement.categories"
 msgstr "Categories"
@@ -1363,752 +2408,71 @@ msgstr "Categories"
 msgid "submission.currentCoverImage"
 msgstr "Imatge actual"
 
-msgid "catalog.browseTitles"
-msgstr "Navega pels títols {$numTitles}"
+msgid "catalog.category.noItems"
+msgstr "Encara no s'ha publicat res en aquesta categoria."
 
-msgid "submission.shortAuthor"
-msgstr "{$author} et al."
+msgid "catalog.category.subcategories"
+msgstr "Subcategories"
 
-msgid "submission.authorWithAffiliation"
-msgstr "{$name}, {$affiliation}"
+msgid "publication.contributors"
+msgstr "Col·laboradors/ores"
 
-msgid "publication.wordCount"
-msgstr "Comptador de paraules: {$count}/{$limit}"
+msgid "publication.createVersion"
+msgstr "Crear una versió nova"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La data ha de tenir un format AAAA-MM-DD, per exemple 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "S'ha creat una versió nova."
+
+msgid "publication.publicationLicense"
+msgstr "Permisos i divulgació"
+
+msgid "publication.status.scheduled"
+msgstr "Programat"
+
+msgid "publication.status.unpublished"
+msgstr "Retirat de publicació"
+
+msgid "publication.titleAbstract"
+msgstr "Títol i resum"
+
+msgid "publication.unschedule"
+msgstr "Desprogramar"
+
+msgid "publication.urlPath"
+msgstr "Ruta URL"
+
+msgid "publication.urlPath.description"
+msgstr "Una ruta opcional per utilitzar a l'URL en lloc de l'ID."
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+"La ruta URL ja s'ha utilitzat prèviament i no pot tornar a utilitzar-se."
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "La ruta URL no pot ser un número."
+
+msgid "publication.version.all"
+msgstr "Totes les versions"
+
+msgid "publication.version.confirm"
+msgstr "Segur que voleu crear una versió nova?"
 
 msgid "publication.wordCountLong"
 msgstr ""
 "El resum és massa llarg. Hauria de tenir {$limit} paraules o menys. "
 "Actualment en té {$count}."
 
-msgid "publication.version.confirm"
-msgstr "Segur que voleu crear una versió nova?"
+msgid "publication.wordCount"
+msgstr "Comptador de paraules: {$count}/{$limit}"
 
-msgid "publication.version.all"
-msgstr "Totes les versions"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "La ruta URL no pot ser un número."
-
-msgid "publication.urlPath.duplicate"
+msgid "doi.incorrectStaleStatus"
 msgstr ""
-"La ruta URL ja s'ha utilitzat prèviament i no pot tornar a utilitzar-se."
 
-msgid "publication.urlPath.description"
-msgstr "Una ruta opcional per utilitzar a l'URL en lloc de l'ID."
-
-msgid "publication.urlPath"
-msgstr "Ruta URL"
-
-msgid "publication.unschedule"
-msgstr "Desprogramar"
-
-msgid "publication.titleAbstract.success"
-msgstr "El títol i el resum han estat actualitzats."
-
-msgid "publication.titleAbstract"
-msgstr "Títol i resum"
-
-msgid "publication.status.unpublished"
-msgstr "Retirat de publicació"
-
-msgid "publication.status.scheduled"
-msgstr "Programat"
-
-msgid "publication.publish.success"
-msgstr "L'estat de publicació s'ha modificat correctament."
-
-msgid "publication.publicationLicense.success"
-msgstr "S'ha actualitzat la informació de llicència i drets d'autor."
-
-msgid "publication.publicationLicense"
-msgstr "Permisos i divulgació"
-
-msgid "publication.publicationIdentifiers.success"
-msgstr "S'han actualitzat els identificadors."
-
-msgid "publication.metadata.success"
-msgstr "S'han actualitzat les metadades."
-
-msgid "publication.event.versionCreated"
-msgstr "S'ha creat una versió nova."
-
-msgid "publication.datePublished.errorFormat"
-msgstr "La data ha de tenir un format AAAA-MM-DD, per exemple 2019-01-01."
-
-msgid "publication.createVersion"
-msgstr "Crear una versió nova"
-
-msgid "publication.contributors"
-msgstr "Col·laboradors/ores"
-
-msgid "publication.citations.success"
-msgstr "Les referències s'han actualitzat."
-
-msgid "catalog.category.subcategories"
-msgstr "Subcategories"
-
-msgid "catalog.category.noItems"
-msgstr "Encara no s'ha publicat res en aquesta categoria."
-
-msgid "category.coverImage"
-msgstr "Imatge de coberta"
-
-msgid "catalog.sortBy.datePublishedDesc"
-msgstr "Data de publicació (més nous primer)"
-
-msgid "catalog.sortBy.datePublishedAsc"
-msgstr "Data de publicació (més antics primer)"
-
-msgid "catalog.sortBy.titleDesc"
-msgstr "Títol (Z-A)"
-
-msgid "catalog.sortBy.titleAsc"
-msgstr "Títol (A-Z)"
-
-msgid "submission.list.assignEditor"
-msgstr "Assignar editor/a"
-
-msgid "submission.list.currentStage"
-msgstr "Actualment a la fase de {$stage}."
-
-msgid "submission.list.incompleteSubmissionNotice"
-msgstr "Aquesta tramesa s'ha de completar abans que un editor/a la revisi."
-
-msgid "submission.list.reviewerWorkflowLink"
+msgid "doi.submission.notPublished"
 msgstr ""
-"Teniu assignat un rol editorial per a aquesta tramesa. Voleu accedir al <a "
-"href=\"{$urlEditorialWorkflow}\">flux de treball editorial</a>?"
-
-msgid "submission.list.dualWorkflowLinks"
-msgstr ""
-"Teniu assignats múltiples rols per a aquesta tramesa. Voleu accedir al <a "
-"href=\"{$urlAuthorWorkflow}\">flux de treball d'autor/a</a> o al <a href=\""
-"{$urlEditorialWorkflow}\">flux de treball editorial</a>?"
-
-msgid "submission.list.discussions"
-msgstr "Discussions obertes"
-
-msgid "submission.list.filesPrepared"
-msgstr "Arxius preparats"
-
-msgid "submission.list.galleysCreated"
-msgstr "Galerades de producció creades"
-
-msgid "submission.list.copyeditsSubmitted"
-msgstr "Arxius corregits enviats"
-
-msgid "submission.list.revisionsSubmitted"
-msgstr "Revisions enviades"
-
-msgid "submission.list.reviewsCompleted"
-msgstr "Revisions assignades completades"
-
-msgid "submission.list.viewSubmission"
-msgstr "Veure tramesa"
-
-msgid "submission.list.confirmDelete"
-msgstr "Eliminar tramesa?"
-
-msgid "submission.list.reviewCancelled"
-msgstr "Revisió cancel·lada"
-
-msgid "submission.list.reviewComplete"
-msgstr "Revisió enviada"
-
-msgid "submission.list.reviewDue"
-msgstr "Termini de revisió: {$date}"
-
-msgid "submission.list.reviewAssignment"
-msgstr "Assignació de revisió"
-
-msgid "submission.list.responseDue"
-msgstr "Termini de resposta: {$date}"
-
-msgid "submission.list.empty"
-msgstr "No s'ha trobat cap tramesa."
-
-msgid "submission.list.infoCenter"
-msgstr "Registre d'activitat i notes"
-
-msgid "submission.query.noParticipantOptions"
-msgstr ""
-"Heu d'assignar com a mínim un participant a aquesta tramesa abans d'iniciar "
-"una discussió."
-
-msgid "submission.query.participantTitle"
-msgstr "{$fullName}, {$userGroup}"
-
-msgid "submission.query.new.contents"
-msgstr ""
-"Heu estat afegits a la discussió titulada \"{$queryTitle}\" referent a la "
-"tramesa \"{$submissionTitle}\"."
-
-msgid "submission.query.activity.contents"
-msgstr ""
-"Hi ha activitat nova en la discussió titulada \"{$queryTitle}\" referent a "
-"la tramesa \"{$submissionTitle}\"."
-
-msgid "submission.query.new"
-msgstr "{$creatorName} ha començat una discussió: {$noteTitle}: {$noteContents}"
-
-msgid "submission.query.activity"
-msgstr "{$responderName} ha contestat a {$noteTitle}: {$noteContents}"
-
-msgid "grid.action.openNoteForm"
-msgstr "Afegiu una resposta nova a la discussió"
-
-msgid "submission.query.leaveQuery.confirm"
-msgstr ""
-"Si abandoneu la discussió ja no rebreu notificacions sobre nous missatges. "
-"Confirmeu que voleu abandonar la discussió?"
-
-msgid "submission.query.leaveQuery"
-msgstr "Abandonar la discussió"
-
-msgid "submission.query.addNote"
-msgstr "Afegir missatge"
-
-msgid "submission.query.closed"
-msgstr "Tancat"
-
-msgid "submission.query.lastReply"
-msgstr "Última resposta"
-
-msgid "submission.query.from"
-msgstr "De"
-
-msgid "submission.query.replies"
-msgstr "Respostes"
-
-msgid "submission.query.messages"
-msgstr "Missatges"
-
-msgid "submission.query.subject"
-msgstr "Tema"
-
-msgid "submission.queries.editorial"
-msgstr "Discussions de correcció"
-
-msgid "submission.queries.review"
-msgstr "Discussions de revisió"
-
-msgid "submission.queries.submission"
-msgstr "Discussions prèvies a la revisió"
-
-msgid "submission.license.cc.by-sa4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">"
-"Creative Commons Reconeixement-CompartirIgual 4.0</a>.</p>"
-
-msgid "submission.license.cc.by4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
-"88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">"
-"Creative Commons Reconeixement 4.0</a>.</p>"
-
-msgid "submission.license.cc.by-nd4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">"
-"Creative Commons Reconeixement-SenseObraDerivada 4.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
-"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
-"by-nc-sa/4.0/\">Creative Commons Reconeixement-NoComercial-CompartirIgual "
-"4.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">"
-"Creative Commons Reconeixement-NoComercial 4.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/4.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
-"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
-"by-nc-nd/4.0/\">Creative Commons Reconeixement-NoComercial-SenseObraDerivada "
-"4.0</a>.</p>"
-
-msgid "submission.license.cc.by-sa4"
-msgstr "CC Reconeixement-CompartirIgual 4.0"
-
-msgid "submission.license.cc.by4"
-msgstr "CC Reconeixement 4.0"
-
-msgid "submission.license.cc.by-nd4"
-msgstr "CC Reconeixement-SenseObraDerivada 4.0"
-
-msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC Reconeixement-NoComercial-CompartirIgual 4.0"
-
-msgid "submission.license.cc.by-nc4"
-msgstr "CC Reconeixement-NoComercial 4.0"
-
-msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC Reconeixement-NoComercial-SenseObraDerivada 4.0"
-
-msgid "submission.licenseURL"
-msgstr "Llicència URL"
-
-msgid "submission.licenseURLValid"
-msgstr "Proporcioneu una URL remota vàlida (incloeu http://)."
-
-msgid "submission.copyrightStatement"
-msgstr "Drets d'autor (c) {$copyrightYear} {$copyrightHolder}"
-
-msgid "submission.copyrightYear"
-msgstr "Any dels drets d'autor"
-
-msgid "submission.copyrightOther"
-msgstr "Declaració de drets d'autor"
-
-msgid "submission.copyrightHolder.other"
-msgstr "Declaració de drets d'autor personalitzada"
-
-msgid "submission.copyrightHolder"
-msgstr "Titular dels drets d'autor"
-
-msgid "submission.copyright"
-msgstr "Drets d'autor"
-
-msgid "submission.license"
-msgstr "Llicència"
-
-msgid "submission.attachPermissions"
-msgstr "Adjuntar els següents permisos a la tramesa:"
-
-msgid "submission.permissions"
-msgstr "Permisos"
-
-msgid "grid.action.editMetadata"
-msgstr "Editar les metadades"
-
-msgid "grid.action.createReviewFormElement"
-msgstr "Crear un nou formulari de revisió"
-
-msgid "submission.reviewFormResponse"
-msgstr "Formulari de resposta de revisió"
-
-msgid "submission.reviewForm"
-msgstr "Formulari de revisió"
-
-msgid "submission.supplementary.sponsor"
-msgstr "Col·laborador/a o agència patrocinadora"
-
-msgid "submission.supplementary.publisher"
-msgstr "Editorial"
-
-msgid "submission.supplementary.subject"
-msgstr "Assumpte"
-
-msgid "submission.supplementary.creator"
-msgstr "Creador (o propietari) de l'arxiu"
-
-msgid "submission.supplementary"
-msgstr "Contingut suplementari"
-
-msgid "submission.review.status.thanked"
-msgstr ""
-"S'ha completat la revisió i el revisor/a ha rebut l'agraïment per la seva "
-"col·laboració."
-
-msgid "submission.review.status.complete"
-msgstr "S'ha completat la revisió."
-
-msgid "submission.review.status.received"
-msgstr "El revisor/a ha enviat la seva revisió."
-
-msgid "submission.review.status.accepted"
-msgstr "S'ha acceptat la revisió."
-
-msgid "submission.review.status.reviewOverdue"
-msgstr "El revisor/a ha excedit la data límit de revisió."
-
-msgid "submission.review.status.responseOverdue"
-msgstr "El revisor/a ha excedit la data límit de resposta."
-
-msgid "submission.review.status.declined"
-msgstr "El revisor/a ha rebutjat aquesta sol·licitud de revisió."
-
-msgid "submission.review.status.awaitingResponse"
-msgstr "Esperant la resposta del revisor/a."
-
-msgid "log.review.reviewReady"
-msgstr ""
-"{$reviewerName} ha completat la revisió per a la ronda {$round} de revisió "
-"de la tramesa {$submissionId}."
-
-msgid "log.review.reviewConfirmed"
-msgstr ""
-"L'editor/a {$userName} ha confirmat una revisió per a la ronda {$round} de "
-"revisió de la tramesa {$submissionId}."
-
-msgid "grid.reviewAttachments.send.title"
-msgstr "Seleccioneu els arxius de revisió per compartir-los amb els autors/es"
-
-msgid "notification.type.indexRequest"
-msgstr "Se us ha demanat que creeu un índex de \"{$title}\"."
-
-msgid "notification.type.layouteditorRequest"
-msgstr "Se us ha demanat que reviseu les galerades de \"{$title}\"."
-
-msgid "notification.type.copyeditorRequest"
-msgstr "Se us ha demanat que reviseu les correccions de \"{$title}\"."
-
-msgid "notification.type.editorAssign"
-msgstr "Heu estat assignat com a editor/a de la tramesa \"{$title}\"."
-
-msgid "editor.submission.recordedRecommendations"
-msgstr "Recomanacions enregistrades"
-
-msgid "editor.submission.recommendation.description"
-msgstr "Recomaneu una decisió editorial per a aquesta tramesa."
-
-msgid "editor.submission.recommendation"
-msgstr "Recomanació"
-
-msgid "editor.submission.allRecommendations.display"
-msgstr "Recomanacions: {$recommendations}"
-
-msgid "editor.submission.recommendation.display"
-msgstr "Recomanació: {$recommendation}"
-
-msgid "editor.submission.changeRecommendation"
-msgstr "Modificar recomanació"
-
-msgid "editor.submission.makeRecommendation"
-msgstr "Fer recomanació"
-
-#, fuzzy
-msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr ""
-"Assigneu un editor/a per habilitar les decisions editorials en aquesta fase."
-
-msgid "editor.submission.decision.skipReview"
-msgstr "Acceptar i ometre la revisió"
-
-msgid "editor.submission.decision.accept"
-msgstr "Acceptar la tramesa"
-
-msgid "editor.submission.addPermissionToEditDescription"
-msgstr ""
-"Segur que voleu que els autors/es d'aquesta tramesa puguin editar-ne les "
-"metadades en aquesta fase?"
-
-msgid "editor.submission.removePermissionToEditDescription"
-msgstr ""
-"Segur que voleu que els autors/es d'aquesta tramesa no puguin editar-ne les "
-"metadades en aquesta fase?"
-
-msgid "editor.submission.addPermissionToEdit"
-msgstr "Habilitar l'edició de metadades"
-
-msgid "editor.submission.removePermissionToEdit"
-msgstr "Deshabilitar l'edició de metadades"
-
-msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr ""
-"El participant que heu seleccionat ha estat assignat per dur a terme una "
-"avaluació anònima. Si l'assigneu com a participant tindrà accés a la "
-"identitat de l'autor/a. Per això us aconsellem que no assigneu aquest "
-"participant a menys que pugueu garantir la integritat del procés d'avaluació "
-"amb cegament."
-
-msgid "editor.submission.addStageParticipant.userGroup"
-msgstr ""
-"Els usuaris/àries són assignats a les fases del flux de treball segons el "
-"seu grup. Qualsevol usuari/ària assignat a aquesta fase ho serà també "
-"automàticament a les altres fases en què el seu grup d'usuari/ària hagi "
-"estat assignat. Això normalment es reserva per a editors/es, autors/es i "
-"traductors/ores."
-
-msgid "editor.submission.editStageParticipant"
-msgstr "Editar assignació"
-
-msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "S'han rebut totes les recomanacions i s'ha de prendre una decisió."
-
-msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "S'han tramès noves recomanacions editorials."
-
-msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "Esperant recomanacions dels editors/es."
-
-msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr "La revisió ha vençut."
-
-msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "La tramesa s'ha tornat a enviar per fer-hi una altra ronda de revisió."
-
-msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr ""
-"La tramesa s'ha de tornar a enviar per fer-hi una altra ronda de revisió."
-
-#, fuzzy
-msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "S'han tramès les revisions."
-
-msgid "submission.upload.proof"
-msgstr "Carregueu un arxiu llest per a publicació"
-
-msgid "workflow.stage"
-msgstr "Fase"
-
-msgid "workflow.stage.any"
-msgstr "Qualsevol fase"
-
-msgid "submission.upload.query"
-msgstr "Carregueu un arxiu de discussió"
-
-msgid "submission.submissionTitle"
-msgstr "Títol de la tramesa:"
-
-msgid "submission.publisherId.enable"
-msgstr "Habilitar per a {$objects}"
-
-msgid "submission.publisherId.description"
-msgstr ""
-"L'identificador de l'editorial pot utilitzar-se per enregistrar l'ID des "
-"d'una base de dades externa. Per exemple, els elements que s'exporten per "
-"dipositar-los a PubMed poden incloure l'identificador de l'editorial. En "
-"canvi, això no s'hauria de fer servir per als DOI."
-
-msgid "submission.publisherId"
-msgstr "ID de l'editorial"
-
-msgid "submission.identifiers"
-msgstr "Identificadors"
-
-msgid "submission.outdatedVersion"
-msgstr ""
-"Aquesta és una versió antiga publicada el {$datePublished}. Llegiu la <a "
-"href=\"{$urlRecentVersion}\">versió més recent</a>."
-
-msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
-
-msgid "submission.versions"
-msgstr "Versions"
-
-msgid "submission.updatedOn"
-msgstr "{$datePublished} — Actualitzat el {$dateUpdated}"
-
-msgid "submission.howToCite.downloadCitation"
-msgstr "Descarregar citació"
-
-msgid "submission.howToCite.citationFormats"
-msgstr "Més formats de citació"
-
-msgid "submission.howToCite"
-msgstr "Com citar"
-
-msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Els autors/es ja no poden editar les metadades quan la tramesa està a la "
-"fase de {stage}."
-
-msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Els autors/es ja poden editar les metadades quan la tramesa està a la fase "
-"de {stage}."
-
-msgid "submission.event.viewEmail"
-msgstr "Veure correu electrònic"
-
-msgid "submission.event.subjectPrefix"
-msgstr "S'ha enviat un correu electrònic:"
-
-msgid "submission.queryNoteFiles"
-msgstr "Arxius de discussió"
-
-msgid "submission.parsedAndSaveCitations"
-msgstr "Extreure i guardar les referències"
-
-msgid "submission.parsedCitations.description"
-msgstr ""
-"Les següents referències han estat extretes i s'enllaçaran amb les metadades "
-"de la tramesa."
-
-msgid "submission.parsedCitations.DOI"
-msgstr "DOI"
-
-msgid "submission.parsedCitations"
-msgstr "Referències extretes"
-
-msgid "submission.citations.description"
-msgstr ""
-"Introduïu cada referència en una línia nova, d'aquesta manera podran ser "
-"extretes i enregistrades per separat."
-
-msgid "submission.changeFile"
-msgstr "Canviar l'arxiu"
-
-msgid "submission.authorBiographies"
-msgstr "Biografies de l'autor/a"
-
-msgid "submission.authorBiography"
-msgstr "Biografia de l'autor/a"
-
-msgid "metadata.property.displayName.abstract"
-msgstr "Resum"
-
-msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Heu de llegir i confirmar que heu completat els següents requisits abans de "
-"continuar."
-
-msgid "submission.submit.submissionChecklist"
-msgstr "Requisits de la tramesa"
-
-msgid "submission.submit.availableUserGroupsDescription"
-msgstr ""
-"Seleccioneu el rol que descrigui millor la vostra contribució a aquesta "
-"tramesa."
-
-msgid "submission.submit.availableUserGroups"
-msgstr "Enviar com a"
-
-msgid "author.submission.roundStatus.reviewsReady"
-msgstr "S'han tramès noves revisions i l'editor/a les està considerant."
-
-msgid "author.publicationNotFound"
-msgstr "No s'ha pogut trobar la publicació d'aquest autor/a."
-
-msgid "author.editPublishedDisabled"
-msgstr ""
-"No es poden editar els autors/es d'aquesta publicació perquè ja ha estat "
-"publicada."
-
-msgid "submission.license.cc.by-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">"
-"Creative Commons Reconeixement-CompartirIgual 3.0</a>.</p>"
-
-msgid "submission.license.cc.by3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">"
-"Creative Commons Reconeixement 3.0</a>.</p>"
-
-msgid "submission.license.cc.by-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">"
-"Creative Commons Reconeixement-SenseObraDerivada 3.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
-"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
-"by-nc-sa/3.0/\">Creative Commons Reconeixement-NoComercial-CompartirIgual "
-"3.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>Aquesta obra està sota una llicència internacional <a "
-"rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">"
-"Creative Commons Reconeixement-NoComercial 3.0</a>.</p>"
-
-msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>Aquesta obra està sota una llicència "
-"internacional <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
-"by-nc-nd/3.0/\">Creative Commons Reconeixement-NoComercial-SenseObraDerivada "
-"3.0</a>.</p>"
-
-msgid "submission.list.daysSinceLastActivity"
-msgstr "Dies des de l'última activitat"
-
-msgid "submission.list.activity"
-msgstr "Activitat"
-
-msgid "notification.type.editorDecisionNewRound"
-msgstr "S'ha iniciat una nova ronda de revisions."
-
-msgid "editor.submission.decision.newRound"
-msgstr "Nova ronda de revisió"
-
-msgid "submission.downloads"
-msgstr "Descàrregues"
-
-msgid "submission.additionalFiles"
-msgstr "Arxius addicionals"
-
-msgid "submission.representationOfTitle"
-msgstr "{$representation} de {$title}"
-
-msgid "notification.type.submissionNewVersion"
-msgstr "S'ha creat una versió nova de la tramesa"
-
-msgid "submission.event.fileEdited"
-msgstr "{$username} ha editat les metadades de l'arxiu \"{$originalFileName}\"."
-
-msgid "submission.upload.percentComplete"
-msgstr "{$percent}% de càrrega completat"
-
-msgid "submission.upload.instructions"
-msgstr ""
-"Carregueu tots els arxius que l'equip editorial necessitarà per avaluar la "
-"vostra tramesa."
-
-msgid "submission.file.notAllowedUploaderUserId"
-msgstr ""
-"Es guarda un registre del carregador de l'arxiu quan es crea l'arxiu i no es "
-"pot canviar."
-
-msgid "submission.submit.removeConfirm"
-msgstr "Segur que voleu eliminar aquest arxiu?"
-
-msgid "submission.submit.genre.description"
-msgstr "Trieu l'opció que descrigui millor aquest arxiu."
-
-msgid "submission.submit.genre.label"
-msgstr "Quin tipus d'arxiu és?"
-
-msgid "author.submission.roundStatus.reviewOverdue"
-msgstr ""
-"Un o més revisors/ores han excedit la data límit. L'equip editorial ha estat "
-"notificat i prendrà les accions oportunes perquè es completin les revisions. "
-"No heu de fer res més en aquest moment. Sereu notificat quan es prengui una "
-"decisió."
-
-msgid "notification.type.revertDecline"
-msgstr "S'ha revertit la decisió de rebutjar aquesta tramesa."
-
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "S'ha reactivat la tramesa rebutjada."
-
-msgid "editor.submission.decision.revertDecline"
-msgstr "Revertir el rebuig"
 
 #, fuzzy
 msgid "submission.viewingPreview"
@@ -2122,53 +2486,226 @@ msgstr "No s’ha adjuntat cap fitxer a aquesta tramesa."
 msgid "author.submit.confirmation"
 msgstr "Confirmació"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Introduïu un idioma."
+msgid "submission.wizard.submittingInLanguage"
+msgstr ""
 
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Introduïu un tema."
+msgid "submission.wizard.submittingToSection"
+msgstr ""
 
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Introduïu una disciplina."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Introduïu una paraula clau."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Introduïu la informació de cobertura."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Introduïu la tipologia."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Introduïu la font."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Introduïu els drets."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Introduïu les referències."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme."
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
 
 msgid "submission.type.tip"
-msgstr "El tipus de tramesa normalment és un tipus d'imatge, text o qualsevol altre tipus d'element multimèdia que pot ser programari o interactiu. Seleccioneu el més rellevant per a la tramesa. Podeu trobar-ne exemples a <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+msgstr ""
+"El tipus de tramesa normalment és un tipus d'imatge, text o qualsevol altre "
+"tipus d'element multimèdia que pot ser programari o interactiu. Seleccioneu "
+"el més rellevant per a la tramesa. Podeu trobar-ne exemples a <a target="
+"\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/"
+"generic.shtml#type</a>"
 
 msgid "submission.source.tip"
-msgstr "Aquesta tramesa deriva d'un altre recurs? Si és així, podeu introduir un URL o una descripció del recurs."
+msgstr ""
+"Aquesta tramesa deriva d'un altre recurs? Si és així, podeu introduir un URL "
+"o una descripció del recurs."
 
 msgid "submission.rights.tip"
-msgstr "Si ho voleu, podeu introduir una breu declaració sobre els drets d'accés a aquesta tramesa."
+msgstr ""
+"Si ho voleu, podeu introduir una breu declaració sobre els drets d'accés a "
+"aquesta tramesa."
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després de cada terme."
-
-#, fuzzy
-msgid "submission.submit.submissionLocaleDescription"
 msgstr ""
-"S'accepten trameses en diversos idiomes. Trieu l'idioma principal de la "
-"tramesa des del menú desplegable que hi ha a sobre."
+"Afegiu informació addicional a la tramesa.  Feu clic a «Introdueix» després "
+"de cada terme."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Contacte principal per a la correspondència editorial."
+
+msgid "submission.dataAvailability"
+msgstr ""
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+
+msgid "submission.files.required.genre"
+msgstr ""
+
+msgid "submission.files.required.genres"
+msgstr ""
+
+msgid "publication.version"
+msgstr ""
+
+#~ msgid "submission.submit.uploadExpeditedFiles"
+#~ msgstr ""
+#~ "Com a editor/a, podeu carregar un PDF i accelerar-ne la producció a "
+#~ "l'últim pas de la tramesa."
+
+#~ msgid "submission.submit.expediteSubmission"
+#~ msgstr "Accelera la tramesa"
+
+#~ msgid "submission.contributorsDescription"
+#~ msgstr ""
+#~ "La llista de contribuïdors/ores associada a aquesta tramesa pot incloure "
+#~ "altres autors/ores, autors/ores de capítols individuals d'un volum "
+#~ "editat, editors/ores de volums i/o traductors/ores. Es podria assignar un "
+#~ "contribuïdor/a de la llista com a contacte principal per a la "
+#~ "correspondència amb una editorial, atès que aquest contacte no ha de ser "
+#~ "per força l'autor/a que l'ha enviat."
+
+#~ msgid "submission.coverage.tip"
+#~ msgstr ""
+#~ "Els camps següents proporcionen informació sobre la cobertura de la "
+#~ "vostra tramesa.  La cobertura pot incloure períodes cronològics "
+#~ "(1920-1940, segle XVII) i ubicacions geogràfiques («Boston, "
+#~ "Massachussets» o «Nord d'Anglaterra»).  Podeu fer servir el camp de "
+#~ "cobertura de mostra per incloure un exemple important del vostre treball."
+
+#~ msgid "submission.coverage.chron"
+#~ msgstr "Cobertura cronològica o històrica"
+
+#~ msgid "submission.coverage.geo"
+#~ msgstr "Cobertura geoespacial"
+
+#~ msgid "submission.coverage.sample"
+#~ msgstr "Cobertura de mostra"
+
+#~ msgid "submission.subjectClass"
+#~ msgstr "Tema de la tramesa"
+
+#~ msgid "submission.subjectClass.tip"
+#~ msgstr ""
+#~ "Descriviu la tramesa amb algunes frases clau.  Podeu redefinir-ne el tema "
+#~ "amb paraules clau específiques al final del formulari."
+
+#~ msgid "submission.submit.errorDeletingAuthor"
+#~ msgstr "S'ha produït un error en eliminar l'autor/a."
+
+#~ msgid "submission.dependent.upload.description"
+#~ msgstr ""
+#~ "Carrega fitxers que aquest fitxer de producció necessita per mostrar-los "
+#~ "correctament (HTML, CSS, etc.)"
+
+#~ msgid "workflow.review.externalReview"
+#~ msgstr "Revisió externa"
+
+#~ msgid "submission.submit.howToSubmit"
+#~ msgstr ""
+#~ "Si és necessari, contacteu amb <a href=\"mailto:"
+#~ "{$supportEmail}\">{$supportName}</a> per obtenir ajuda ({$supportPhone})."
+
+#~ msgid "submission.submit.howToSubmitNoPhone"
+#~ msgstr ""
+#~ "Si és necessari, contacteu amb <a href=\"mailto:"
+#~ "{$supportEmail}\">{$supportName}</a> per obtenir ajuda."
+
+#~ msgid "submission.upload.noteToAccompanyFile"
+#~ msgstr "Nota per al fitxer d'acompanyament"
+
+#~ msgid "submission.upload.fileContents"
+#~ msgstr "Continguts del fitxer"
+
+#~ msgid "submission.upload.signoff"
+#~ msgstr "Carrega una resposta"
+
+#~ msgid "editor.submission.addStageParticipant.description"
+#~ msgstr ""
+#~ "Per afegir un participant a aquesta fase de la tramesa, seleccioneu un "
+#~ "grup d'usuaris/àries del menú desplegable i després afegiu-hi un usuari/"
+#~ "ària.<br /><br />Nota: l'usuari/ària s'afegirà a totes les fases a les "
+#~ "quals el grup d'usuaris/àries estigui assignat."
+
+#~ msgid "notification.type.signoff"
+#~ msgstr "Teniu una auditoria pendent."
+
+#~ msgid "submission.authorDashboard.description"
+#~ msgstr ""
+#~ "En cada fase iniciada del circuit de treball que es mostra a continuació, "
+#~ "trobareu informació de l'estat de la fase, així com els fitxers de la "
+#~ "tramesa associats i la correspondència associada a cada fase. Se us "
+#~ "demanarà que carregueu un fitxer revisat en una fase concreta o que "
+#~ "auditeu un fitxer que ja es va carregar prèviament; aquestes accions es "
+#~ "poden completar dins de la secció de la fase especificada."
+
+#~ msgid "submission.signoff.selectFile"
+#~ msgstr "Seleccioneu el fitxer que voleu tancar."
+
+#~ msgid "submission.signoff.signoffOnFile"
+#~ msgstr "Subscriu aquest fitxer"
+
+#~ msgid "submission.signoff.signedOffOnFile"
+#~ msgstr "S'ha tancat aquest fitxer."
+
+#~ msgid "submission.signoff.noAvailableSignoffs"
+#~ msgstr "No teniu cap fitxer pendent de respondre."
+
+#~ msgid "submission.signoff.fileResponse"
+#~ msgstr "Resposta del fitxer"
+
+#~ msgid "grid.copyediting.deleteSignoff"
+#~ msgstr "Dessasigna l'usuari/ària"
+
+#~ msgid "editor.review.personalMessageFromEditor"
+#~ msgstr "Missatge per a l'editor/a"
+
+#~ msgid "submission.previousAuthorMessages"
+#~ msgstr "Missatges previs"
+
+#~ msgid "grid.category.add"
+#~ msgstr "Afegeix categoria"
+
+#~ msgid "grid.category.edit"
+#~ msgstr "Edita categoria"
+
+#~ msgid "grid.category.name"
+#~ msgstr "Nom"
+
+#~ msgid "grid.category.path"
+#~ msgstr "Ruta"
+
+#~ msgid "grid.category.urlWillBe"
+#~ msgstr "La categoria de l'URL serà {$sampleUrl}."
+
+#~ msgid "grid.category.pathAlphaNumeric"
+#~ msgstr ""
+#~ "La ruta de la categoria només pot estar formada per números i lletres."
+
+#~ msgid "grid.category.pathExists"
+#~ msgstr "Ja existeix una ruta per a la categoria. Introduïu una ruta única."
+
+#~ msgid "grid.category.description"
+#~ msgstr "Descripció"
+
+#~ msgid "grid.category.parentCategory"
+#~ msgstr "Categoria principal"
+
+#~ msgid "grid.category.removeText"
+#~ msgstr "Esteu segur/a que voleu eliminar aquesta categoria?"
+
+#~ msgid "grid.category.nameRequired"
+#~ msgstr "Introduïu un nom vàlid per a la categoria."
+
+#~ msgid "grid.category.categoryDetails"
+#~ msgstr "Detalls de la categoria"
+
+#~ msgid "catalog.browseTitles"
+#~ msgstr "Navega pels títols {$numTitles}"
+
+#~ msgid "publication.titleAbstract.success"
+#~ msgstr "El títol i el resum han estat actualitzats."
+
+#~ msgid "publication.publish.success"
+#~ msgstr "L'estat de publicació s'ha modificat correctament."
+
+#~ msgid "publication.publicationLicense.success"
+#~ msgstr "S'ha actualitzat la informació de llicència i drets d'autor."
+
+#~ msgid "publication.publicationIdentifiers.success"
+#~ msgstr "S'han actualitzat els identificadors."
+
+#~ msgid "publication.metadata.success"
+#~ msgstr "S'han actualitzat les metadades."
+
+#~ msgid "publication.citations.success"
+#~ msgstr "Les referències s'han actualitzat."

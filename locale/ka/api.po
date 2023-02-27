@@ -12,22 +12,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr ""
-"არ შეგიძლიათ შეცვალოთ ფაილის კავშირი, assocType და assocId-ის გადაცემის "
-"გარეშე."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr "თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "დაწყების თარიღი არ უნდა იყოს უფრო გვიან, ვიდრე დასრულების თარიღი."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "თარიღი უნდა იყოს ფორმატში: YYYY-MM-DD."
-
 msgid "api.400.paramNotSupported"
 msgstr "პარამეტრი {$param} არ არის მხარდაჭერილი."
+
+msgid "api.400.propReadOnly"
+msgstr ""
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -38,8 +27,14 @@ msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
 "ვერ მოხერხდა apiToken-ის დეკოდირება, ვინაიდან მოხდა შემდეგი შეცდომა: {$error}"
 
+msgid "api.400.requireEmailSubjectBody"
+msgstr "თქვენ უნდა მიუთითოთ ელწერილის თემა და ტექსტი."
+
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "შეუძლებელია შექმნის დროს შეცვლა."
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
 
 msgid "api.403.unauthorized"
 msgstr "უკაცრავად, არ გაქვთ მოთხოვნილ მონაცემებზე წვდომის უფლება."
@@ -58,8 +53,66 @@ msgstr ""
 msgid "api.announcements.404.announcementNotFound"
 msgstr "მოთხოვნილი განცხადება ვერ მოიძებნა."
 
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
 msgid "api.contexts.400.localesNotSupported"
 msgstr "შემდეგი ენები არ არის მხარდაჭერილი: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"თქვენ არ შეგიძლიათ შეცვალოთ ელემენტის DOI, რომელიც არ არის ამ კონტექსტში"
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"ეს საბოლოო წერტილი მიუწვდომელია საიტის მასშტაბური სახელების სივრციდან და "
+"უნდა მოითხოვოს მოცემულ კონტექსტში."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "თქვენ მიერ მოთხოვნილი DOI ვერ მოიძებნა."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"გამოუქვეყნებელი ნივთების ექსპორტი/დეპონირება შეუძლებელია. გთხოვთ, გააუქმოთ "
+"გამოუქვეყნებელი ერთეულების არჩევა და სცადოთ ხელახლა."
+
+msgid "api.dois.400.creationFailed"
+msgstr "მოხდა შეცდომა და DOI ობიექტის შექმნა ვერ მოხერხდა."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "მოხდა XML ვალიდაციის შეცდომა და XML-ის ექსპორტი ვერ მოხერხდა."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"მოხდა შეცდომა და ზოგიერთი წარმოდგენილი ელემენტი არ მოინიშნა რეგისტრირებული."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"ზოგიერთი ელემენტი წარმატებით არ განთავსდა. გთხოვთ, შეამოწმოთ ცალკეული "
+"ელემენტები მათი კონკრეტული შეცდომის შეტყობინებებისთვის."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "მოთხოვნაში არ იყო მოქმედი გამოქვეყნების ობიექტი."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "მოთხოვნაში იყო ერთი ან მეტი არასწორი გამოცემის ობიექტი."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"თქვენ არ შეგიძლიათ ჩაწეროთ გადაწყვეტილება ან გირჩიოთ გადაწყვეტილება ამ "
+"წარდგენისთვის, რადგან ის უკვე გამოქვეყნებულია."
 
 msgid "api.emails.400.missingBody"
 msgstr "აუცილებელია ელფოსტის მისამართის შეტანა."
@@ -74,6 +127,12 @@ msgstr ""
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
 "თქვენ არ გაქვთ უფლება გააგზავნოთ ელფოსტა ერთ, ან რამდენიმე არჩეულ როლზე."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "მოთხოვნილი ელფოსტის შაბლონი ვერ მოიძებნა."
@@ -137,14 +196,33 @@ msgstr ""
 "შეუძლებელია. გთხოვთ, დაუკავშირდეთ თქვენს ადმინისტრატორს ამ საკითხის "
 "მოსაგვარებლად."
 
+msgid "api.stats.400.wrongDateFormat"
+msgstr "თარიღი უნდა იყოს ფორმატში: YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "დაწყების თარიღი არ უნდა იყოს უფრო გვიან, ვიდრე დასრულების თარიღი."
+
 msgid "api.stats.400.earlyDateRange"
 msgstr "დაწყების თარიღი არ შეიძლება იყოს 2001-01-01-ზე ადრე."
 
 msgid "api.stats.400.lateDateRange"
 msgstr "დასრულების თარიღი არ შეიძლება იყოს გუშინზე გვიან."
 
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
+
 msgid "api.stats.400.invalidOrderDirection"
-msgstr "თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
+msgstr ""
+"თქვენი მოთხოვნა არასწორი იყო. OrderDirection უნდა იყოს `desc` ან` asc`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"არ შეგიძლიათ შეცვალოთ ფაილის კავშირი, assocType და assocId-ის გადაცემის "
+"გარეშე."
 
 msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr ""
@@ -168,8 +246,15 @@ msgstr "განხილვის ეტაპზე ფაილების 
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "თქვენ უნდა მიუთითოთ ფაილის ეტაპი."
 
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "თქვენ მიერ მოწოდებული ფაილის ეტაპი არასწორია."
+
 msgid "api.submissionsFiles.400.noParams"
 msgstr "ამ ფაილის ჩასწორების მოთხოვნაში ცვლილებები ვერ მოიძებნა."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"ფაილის ამ ფაილის ეტაპზე გადატანისას უნდა მიუთითოთ მიმოხილვის რაუნდის ID."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "თქვენს მიერ მოწოდებული განხილვის რაუნდი ამ წარდგენის ნაწილი არ არის."
@@ -188,6 +273,9 @@ msgstr "თქვენი მოთხოვნა ვერ შესრულ
 
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "მოთხოვნილი ტომი, ნომერი, ან წელი არასწორია."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -221,55 +309,29 @@ msgstr ""
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "ენა {$locale} არ არის მხარდაჭერილი."
 
-msgid "api.400.requireEmailSubjectBody"
-msgstr "თქვენ უნდა მიუთითოთ ელწერილის თემა და ტექსტი."
-
-msgid "api.dois.403.editItemOutOfContext"
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"თქვენ არ შეგიძლიათ შეცვალოთ ელემენტის DOI, რომელიც არ არის ამ კონტექსტში"
 
-msgid "api.dois.404.contextNotFound"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"ეს საბოლოო წერტილი მიუწვდომელია საიტის მასშტაბური სახელების სივრციდან და "
-"უნდა მოითხოვოს მოცემულ კონტექსტში."
 
-msgid "api.dois.404.doiNotFound"
-msgstr "თქვენ მიერ მოთხოვნილი DOI ვერ მოიძებნა."
-
-msgid "api.dois.400.noUnpublishedItems"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"გამოუქვეყნებელი ნივთების ექსპორტი/დეპონირება შეუძლებელია. გთხოვთ, გააუქმოთ "
-"გამოუქვეყნებელი ერთეულების არჩევა და სცადოთ ხელახლა."
 
-msgid "api.dois.400.creationFailed"
-msgstr "მოხდა შეცდომა და DOI ობიექტის შექმნა ვერ მოხერხდა."
-
-msgid "api.dois.400.xmlExportFailed"
-msgstr "მოხდა XML ვალიდაციის შეცდომა და XML-ის ექსპორტი ვერ მოხერხდა."
-
-msgid "api.dois.400.markRegisteredFailed"
+msgid "api.jobs.406.failedJobEmpty"
 msgstr ""
-"მოხდა შეცდომა და ზოგიერთი წარმოდგენილი ელემენტი არ მოინიშნა რეგისტრირებული."
 
-msgid "api.dois.400.depositFailed"
+msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr ""
-"ზოგიერთი ელემენტი წარმატებით არ განთავსდა. გთხოვთ, შეამოწმოთ ცალკეული "
-"ელემენტები მათი კონკრეტული შეცდომის შეტყობინებებისთვის."
 
-msgid "api.dois.404.noPubObjectIncluded"
-msgstr "მოთხოვნაში არ იყო მოქმედი გამოქვეყნების ობიექტი."
-
-msgid "api.dois.400.invalidPubObjectIncluded"
-msgstr "მოთხოვნაში იყო ერთი ან მეტი არასწორი გამოცემის ობიექტი."
-
-msgid "api.decisions.403.alreadyPublished"
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr ""
-"თქვენ არ შეგიძლიათ ჩაწეროთ გადაწყვეტილება ან გირჩიოთ გადაწყვეტილება ამ "
-"წარდგენისთვის, რადგან ის უკვე გამოქვეყნებულია."
 
-msgid "api.submissionFiles.400.invalidFileStage"
-msgstr "თქვენ მიერ მოწოდებული ფაილის ეტაპი არასწორია."
-
-msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
-"ფაილის ამ ფაილის ეტაპზე გადატანისას უნდა მიუთითოთ მიმოხილვის რაუნდის ID."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""

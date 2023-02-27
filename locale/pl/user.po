@@ -16,11 +16,16 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "user.accountInformation"
+msgstr "Informacje o koncie"
+
 msgid "user.affiliation"
 msgstr "Afiliacja"
 
 msgid "user.affiliation.description"
-msgstr "(pełna nazwa instytucji naukowej, np. Uniwersytet im. Adama Mickiewicza w Poznaniu)"
+msgstr ""
+"(pełna nazwa instytucji naukowej, np. Uniwersytet im. Adama Mickiewicza w "
+"Poznaniu)"
 
 msgid "user.affiliations"
 msgstr "Afiliacje"
@@ -32,13 +37,16 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "Brak lub nieprawidłowy token do uwierzytelnienia procesu."
 
 msgid "user.authorization.contextRequired"
-msgstr "Nie możesz zakończyć tej operacji bez wprowadzenia wymaganych danych (wydawca, czasopismo, konferencja itd.)."
+msgstr ""
+"Nie możesz zakończyć tej operacji bez wprowadzenia wymaganych danych "
+"(wydawca, czasopismo, konferencja itd.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Wymagany login."
 
 msgid "user.authorization.privateOperation"
-msgstr "Działanie, do której starałeś(aś) się dostać jest prywatne lub nie istnieje."
+msgstr ""
+"Działanie, do której starałeś(aś) się dostać jest prywatne lub nie istnieje."
 
 msgid "user.authorization.restrictedSiteAccess"
 msgstr "Odmówiono dostępu. Dostęp do tej strony jest obecnie ograniczony."
@@ -46,8 +54,34 @@ msgstr "Odmówiono dostępu. Dostęp do tej strony jest obecnie ograniczony."
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "Obecna rola nie posiada dostępu do tego działania."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Nie przypisano Cię do tekstu z rolą, która pozwala na dostęp do tej operacji."
+
 msgid "user.authorization.userGroupRequired"
-msgstr "Musisz należeć do odpowiedniej grupy użytkowników, aby mieć dostęp do tego działania."
+msgstr ""
+"Musisz należeć do odpowiedniej grupy użytkowników, aby mieć dostęp do tego "
+"działania."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Użytkownik pełniący rolę redaktora musi być przydzielony do tego etapu, aby "
+"kontynuować."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Nie posiadasz uprawnień dostępu do tego etapu."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Etap nie został określony."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Wtyczka nie została określona i jest wymagana."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Nie posiadasz uprawnień dostępu do tego zadania recenzji."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Nie posiadasz uprawnień dostępu do tej dyskusji."
 
 msgid "user.biography"
 msgstr "Biogram"
@@ -70,11 +104,26 @@ msgstr "Edytuj mój profil"
 msgid "user.email"
 msgstr "E-mail"
 
+msgid "user.givenName"
+msgstr "Pierwsze imię"
+
 msgid "user.interests"
 msgstr "Zainteresowania"
 
 msgid "user.gossip"
 msgstr "Prywatne notatki"
+
+msgid "user.gossip.description"
+msgstr ""
+"Zapisz informacji o tym recenzencie, które chciałbyś(chciałabyś) udostępnić "
+"innym administratorom, menadżerom i redaktorom. Informacje będą dostępne w "
+"przyszłości przy zadaniach wykonania recenzji."
+
+msgid "user.group"
+msgstr "Grupa użytkowników"
+
+msgid "user.familyName"
+msgstr "Nazwisko"
 
 msgid "user.profile.form.profileImageInvalid"
 msgstr ""
@@ -85,19 +134,28 @@ msgid "user.login.accountDisabledWithReason"
 msgstr "Twoje konto zostało wyłączone z nastepujących powodów: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "Twoje konto zostało wyłączone. Aby dowiedzieć się więcej skontaktuj się z administratorem."
+msgstr ""
+"Twoje konto zostało wyłączone. Aby dowiedzieć się więcej skontaktuj się z "
+"administratorem."
 
 msgid "user.login.accountNotValidated"
-msgstr "Potwierdzenie zostało przesłane na adres e-mail {$email}. Proszę, odbierz e-mail i postępuj zgodnie z podanymi wskazówkami. Jeśli nie otrzymałeś(aś) wiadomości na swoją skrzynkę e-mail, skontaktuj się ze wsparciem technicznym."
+msgstr ""
+"Potwierdzenie zostało przesłane na adres e-mail {$email}. Proszę, odbierz e-"
+"mail i postępuj zgodnie z podanymi wskazówkami. Jeśli nie otrzymałeś(aś) "
+"wiadomości na swoją skrzynkę e-mail, skontaktuj się ze wsparciem technicznym."
 
 msgid "user.login.activate"
 msgstr "Aktywuj konto"
 
 msgid "user.login.activated"
-msgstr "Dziękujemy za aktywację konta. Teraz możesz zalogować się używając danych uwierzytelniających, które wprowadziłeś(aś) tworząc konto."
+msgstr ""
+"Dziękujemy za aktywację konta. Teraz możesz zalogować się używając danych "
+"uwierzytelniających, które wprowadziłeś(aś) tworząc konto."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Musisz wybrać nowe hasło zanim zalogujesz się na stronie.<br /><br />Proszę o podanie nazwy użytkownika oraz swojego dotychczasowego oraz nowego hasła."
+msgstr ""
+"Musisz wybrać nowe hasło zanim zalogujesz się na stronie.<br /><br />Proszę "
+"o podanie nazwy użytkownika oraz swojego dotychczasowego oraz nowego hasła."
 
 msgid "user.login.forgotPassword"
 msgstr "Zapomniałeś(aś) hasła?"
@@ -119,10 +177,30 @@ msgstr ""
 "ponownie."
 
 msgid "user.login.lostPassword.passwordSent"
-msgstr "Nowe hasło zostało przesłane na podany adres e-mail. Możesz zalogować się na witrynę używając nowego hasła."
+msgstr ""
+"Nowe hasło zostało przesłane na podany adres e-mail. Możesz zalogować się na "
+"witrynę używając nowego hasła."
 
 msgid "user.login.registeredEmail"
 msgstr "Zarejestruj e-mail użytkownika"
+
+msgid "user.login.registrationComplete"
+msgstr "Rejestracja zakończona"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Dziękujemy za rejestrację! Co chciałbyś(abyś) teraz zrobić?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Wyświetl zgłoszenia"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Utwórz zgłoszenie"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Przeglądaj czasopismo"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Rejestracja oczekuje na potwierdzenie"
 
 msgid "user.login.rememberUsernameAndPassword"
 msgstr "Zapamiętaj nazwę użytkownika i hasło"
@@ -132,6 +210,12 @@ msgstr "Zmień hasło"
 
 msgid "user.logOut"
 msgstr "Wyloguj się"
+
+msgid "user.logOutAs"
+msgstr "Wyloguj się jako"
+
+msgid "user.hello"
+msgstr "Witaj, "
 
 msgid "user.mailingAddress"
 msgstr "Adres"
@@ -151,13 +235,33 @@ msgstr "Powtórz hasło"
 msgid "user.phone"
 msgstr "Telefon"
 
+msgid "user.preferredPublicName"
+msgstr "Preferowana (publiczna) nazwa"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Jak chcesz aby oznaczono Cię jako autora? Jeżeli chcesz możesz dodać tutaj: "
+"zwrot, drugie imię lub sufiks. Np. Dr. Jan A. Kozłowski"
+
 msgid "user.profile.changePasswordInstructions"
 msgstr "Aby zmienić hasło, podaj swoje obecne oraz nowe hasło."
 
 msgid "user.profile.editProfile"
 msgstr "Edytuj profil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "Podanie kraju jest wymagane."
+
 msgid "user.profile.form.emailRequired"
+msgstr "Podanie adresu e-mail jest wymagane."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Podanie imienia/nazwiska jest wymagane."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr "Brakuje nazwiska rodowego dla języka. Dodaj nazwisko dla tego języka."
+
+msgid "user.profile.form.mailingAddressRequired"
 msgstr "Podanie adresu e-mail jest wymagane."
 
 msgid "user.profile.form.newPasswordRequired"
@@ -172,6 +276,9 @@ msgstr "Powiadomienia dotyczące numerów w otwartym dostępie"
 msgid "user.profile.form.passwordRequired"
 msgstr "Hasło jest wymagane."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Twoje nowe hasło jest identyczne jak stare hasło."
+
 msgid "user.profile.form.profileImage"
 msgstr "Zdjęcie profilowe"
 
@@ -183,11 +290,18 @@ msgstr ""
 "Podany adres nie istnieje. Sprawdź adres i spróbuj ponownie. (podpowiedź: "
 "spróbuj dodać http:// na początku URL.)"
 
+msgid "user.profile.form.usergroupRequired"
+msgstr "Podanie grupy użytkownika jest wymagane."
+
 msgid "user.profile.form.usernameRequired"
 msgstr "Nazwa użytkownika jest wymagana."
 
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Musisz zaakceptować politykę prywatności."
+
 msgid "user.profile.leavePasswordBlank"
-msgstr "Pozostaw pole hasła puste, aby w dalszym ciągu korzystać ze starego hasła."
+msgstr ""
+"Pozostaw pole hasła puste, aby w dalszym ciągu korzystać ze starego hasła."
 
 msgid "user.profile.newPassword"
 msgstr "Nowe hasło"
@@ -204,6 +318,24 @@ msgstr "Profil użytkownika"
 msgid "user.profile.repeatNewPassword"
 msgstr "Powtórz nowe hasło"
 
+msgid "user.login.registerNewAccount"
+msgstr "Zarejestruj"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami, jak zresetować "
+"swoje hasło."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Wyrażam zgodę na gromadzenie i przechowywanie moich danych zgodnie z <a href="
+"\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Tak, chciałbym(chciałabym) otrzymywać powiadomienia o nowych publikacjach i "
+"ogłoszeniach."
+
 msgid "user.register.form.emailExists"
 msgstr "Podany adres e-mail jest już w użyciu przez innego użytkownika."
 
@@ -214,10 +346,17 @@ msgid "user.register.form.emailsDoNotMatch"
 msgstr "Podane adresy e-mail są różne."
 
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr "Nazwa użytkownika może składać się jedynie z małych liter (np. jankowalski)."
+msgstr ""
+"Nazwa użytkownika może składać się jedynie z małych liter (np. jankowalski)."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Przynajmniej jedna rola musi zostać wybrana."
 
 msgid "user.register.form.usernameExists"
 msgstr "Wybrana nazwa użytkownika jest już w użyciu, wybierz inną nazwę."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Hasło musi posiadać co najmniej {$length} znaków."
 
 msgid "user.register.registerAs"
 msgstr "Zarejestruj się w {$contextName} jako..."
@@ -227,6 +366,29 @@ msgstr "Zarejestruj"
 
 msgid "user.register.usernameRestriction"
 msgstr "Dozwolone znaki to małe litery, cyfry oraz znaki (-) i (_)."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Rejestracja zakończona. <a href=\"{$profileUrl}\">Kliknij tutaj</a>, aby "
+"uzupełnić swój profil użytkownika."
+
+msgid "user.role.assistant"
+msgstr "Asystent"
+
+msgid "user.role.author"
+msgstr "Autor"
+
+msgid "user.role.author_s"
+msgstr "Autor/autorzy"
+
+msgid "user.role.authors"
+msgstr "Autorzy"
+
+msgid "user.role.editor"
+msgstr "Redaktor"
+
+msgid "user.role.editors"
+msgstr "Redaktorzy"
 
 msgid "user.role.reader"
 msgstr "Czytelnik"
@@ -245,6 +407,24 @@ msgstr "Administrator strony"
 
 msgid "user.role.siteAdmins"
 msgstr "Administratorzy strony"
+
+msgid "user.role.copyeditor"
+msgstr "Korektor"
+
+msgid "user.role.copyeditors"
+msgstr "Korektorzy"
+
+msgid "user.role.proofreader"
+msgstr "Korektor pliku do publikacji"
+
+msgid "user.role.proofreaders"
+msgstr "Korektorzy pliku do publikacji"
+
+msgid "user.role.layoutEditor"
+msgstr "Składacz"
+
+msgid "user.role.layoutEditors"
+msgstr "Składacze"
 
 msgid "user.roles"
 msgstr "Role"
@@ -274,113 +454,13 @@ msgstr "Nazwa użytkownika (np. jankowalski)"
 msgid "user.workingLanguages"
 msgstr "Wybrane języki"
 
-msgid "user.accountInformation"
-msgstr "Informacje o koncie"
-
-msgid "user.group"
-msgstr "Grupa użytkowników"
-
-msgid "user.hello"
-msgstr "Witaj, "
-
-msgid "user.profile.form.countryRequired"
-msgstr "Podanie kraju jest wymagane."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Podanie adresu e-mail jest wymagane."
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Twoje nowe hasło jest identyczne jak stare hasło."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Podanie grupy użytkownika jest wymagane."
-
-msgid "user.authorization.managerRequired"
-msgstr "Użytkownik pełniący rolę redaktora musi być przydzielony do tego etapu, aby kontynuować."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Nie posiadasz uprawnień dostępu do tego etapu."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Etap nie został określony."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Wtyczka nie została określona i jest wymagana."
-
-msgid "user.login.registrationComplete"
-msgstr "Rejestracja zakończona"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Dziękujemy za rejestrację! Co chciałbyś(abyś) teraz zrobić?"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Wyświetl zgłoszenia"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Utwórz zgłoszenie"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Przeglądaj czasopismo"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Rejestracja oczekuje na potwierdzenie"
-
-msgid "user.logOutAs"
-msgstr "Wyloguj się jako"
-
-msgid "user.login.registerNewAccount"
-msgstr "Zarejestruj"
-
-msgid "user.login.resetPasswordInstructions"
-msgstr "Podaj swój adres e-mail. Otrzymasz wiadomość z instrukcjami, jak zresetować swoje hasło."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Przynajmniej jedna rola musi zostać wybrana."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Hasło musi posiadać co najmniej {$length} znaków."
-
-msgid "user.register.registrationCompleted"
-msgstr "Rejestracja zakończona. <a href=\"{$profileUrl}\">Kliknij tutaj</a>, aby uzupełnić swój profil użytkownika."
-
-msgid "user.role.author"
-msgstr "Autor"
-
-msgid "user.role.author_s"
-msgstr "Autor/autorzy"
-
-msgid "user.role.authors"
-msgstr "Autorzy"
-
-msgid "user.role.editor"
-msgstr "Redaktor"
-
-msgid "user.role.editors"
-msgstr "Redaktorzy"
-
-msgid "user.role.copyeditor"
-msgstr "Korektor"
-
-msgid "user.role.copyeditors"
-msgstr "Korektorzy"
-
-msgid "user.role.proofreader"
-msgstr "Korektor pliku do publikacji"
-
-msgid "user.role.proofreaders"
-msgstr "Korektorzy pliku do publikacji"
-
-msgid "user.role.layoutEditor"
-msgstr "Składacz"
-
-msgid "user.role.layoutEditors"
-msgstr "Składacze"
-
 msgid "user.orcid"
 msgstr "ORCID"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "ORCID jest niepoprawne. Podaj pełny adres URI (np. \"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"ORCID jest niepoprawne. Podaj pełny adres URI (np. \"https://orcid."
+"org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Tożsamość"
@@ -395,71 +475,47 @@ msgid "user.apiKey"
 msgstr "Klucz API"
 
 msgid "user.apiKeyEnabled"
-msgstr "Umożliwiaj zewnętrznym aplikacjom wykorzystującym klucz API na dostęp do tego konta"
+msgstr ""
+"Umożliwiaj zewnętrznym aplikacjom wykorzystującym klucz API na dostęp do "
+"tego konta"
 
 msgid "user.apiKey.generate"
 msgstr "Generuj nowy klucz API"
 
-msgid "user.apiKey.generateWarning"
-msgstr "Wygenerowanie nowego klucza unieważni wszystkie istniejące klucze dla tego użytkownika."
-
-msgid "user.apiKey.secretRequired"
-msgstr "Przed wygenerowaniem klucza API, administrator strony musi ustalić klucz prywatny w pliku konfiguracyjnym (\"api_key_secret\")."
-
-msgid "user.role.assistant"
-msgstr "Asystent"
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "Nie przypisano Cię do tekstu z rolą, która pozwala na dostęp do tej operacji."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Nie posiadasz uprawnień dostępu do tego zadania recenzji."
-
-msgid "user.authorization.submissionQuery"
-msgstr "Nie posiadasz uprawnień dostępu do tej dyskusji."
-
-msgid "user.givenName"
-msgstr "Pierwsze imię"
-
-msgid "user.gossip.description"
-msgstr "Zapisz informacji o tym recenzencie, które chciałbyś(chciałabyś) udostępnić innym administratorom, menadżerom i redaktorom. Informacje będą dostępne w przyszłości przy zadaniach wykonania recenzji."
-
-msgid "user.familyName"
-msgstr "Nazwisko"
-
-msgid "user.preferredPublicName"
-msgstr "Preferowana (publiczna) nazwa"
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Jak chcesz aby oznaczono Cię jako autora? Jeżeli chcesz możesz dodać tutaj: "
-"zwrot, drugie imię lub sufiks. Np. Dr. Jan A. Kozłowski"
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "Podanie imienia/nazwiska jest wymagane."
-
-msgid "user.profile.form.givenNameRequired.locale"
-msgstr "Brakuje nazwiska rodowego dla języka. Dodaj nazwisko dla tego języka."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Musisz zaakceptować politykę prywatności."
-
-msgid "user.register.form.privacyConsent"
-msgstr "Wyrażam zgodę na gromadzenie i przechowywanie moich danych zgodnie z <a href=\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."
-
-msgid "user.register.form.emailConsent"
-msgstr "Tak, chciałbym(chciałabym) otrzymywać powiadomienia o nowych publikacjach i ogłoszeniach."
-
-msgid "user.privacyLink"
-msgstr "Twoje dane są gromadzone zgodnie z naszą <a href=\"{$privacyUrl}\" target=\"_blank\">polityką prywatności</a>."
-
-msgid "user.apiKey.remove.confirmation.message"
-msgstr "Czy na pewno chcesz skasować klucz API?"
-
 msgid "user.apiKey.remove"
 msgstr "Usuń"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Wygenerowanie nowego klucza unieważni wszystkie istniejące klucze dla tego "
+"użytkownika."
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
 "Skasowanie klucza spowoduje cofnięcie dostępu dla wszystkich aplikacji które "
 "go używają."
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr "Czy na pewno chcesz skasować klucz API?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Przed wygenerowaniem klucza API, administrator strony musi ustalić klucz "
+"prywatny w pliku konfiguracyjnym (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Twoje dane są gromadzone zgodnie z naszą <a href=\"{$privacyUrl}\" target="
+"\"_blank\">polityką prywatności</a>."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

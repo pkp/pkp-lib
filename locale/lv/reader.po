@@ -19,6 +19,12 @@ msgstr "Anonīms lietotājs"
 msgid "comments.anonymousNamed"
 msgstr "\"{$userName}\""
 
+msgid "comments.body"
+msgstr "Komentāra teksts"
+
+msgid "comments.titleRequired"
+msgstr "Ir jānorāda komentāra virsraksts."
+
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Dzēšot šo komentāru, tiks dzēstas arī visas atbildes uz to. Vai esat "
@@ -27,23 +33,17 @@ msgstr ""
 msgid "comments.delete"
 msgstr "Dzēst šo komentāru"
 
+msgid "comments.email"
+msgstr "Komentētāja e-pasts"
+
 msgid "comments.emailReply"
 msgstr "Atbildēt e-pastā"
 
 msgid "comments.enterComment"
 msgstr "Ievadīt komentāru"
 
-msgid "comments.body"
-msgstr "Komentāra teksts"
-
-msgid "comments.titleRequired"
-msgstr "Ir jānorāda komentāra virsraksts."
-
 msgid "comments.inResponseTo"
 msgstr "Atbildot uz <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.email"
-msgstr "Komentētāja e-pasts"
 
 msgid "comments.name"
 msgstr "Komentētāja vārds"

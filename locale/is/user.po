@@ -12,417 +12,102 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "user.accountInformation"
+msgstr "Notandareikningur"
+
+msgid "user.affiliation"
+msgstr "Stofnun/Tengsl"
+
+msgid "user.affiliation.description"
+msgstr "(Stofnunin þín, t.d. Háskólin á Akureyri)"
+
+msgid "user.affiliations"
+msgstr "Tengsl"
+
+msgid "user.authorization.accessDenied"
+msgstr "Aðgangur óheimill."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "The process authentication token is missing or invalid."
+
 msgid "user.authorization.contextRequired"
 msgstr ""
 "Þú getur ekki framkvæmt þessa aðgerð án samhengis (blað, tímarit, ráðstefnu "
 "o.s.frv)."
 
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "The process authentication token is missing or invalid."
-
-msgid "user.authorization.accessDenied"
-msgstr "Aðgangur óheimill."
-
-msgid "user.affiliations"
-msgstr "Tengsl"
-
-msgid "user.affiliation.description"
-msgstr "(Stofnunin þín, t.d. Háskólin á Akureyri)"
-
-msgid "user.affiliation"
-msgstr "Stofnun/Tengsl"
-
-msgid "user.accountInformation"
-msgstr "Notandareikningur"
-
 msgid "user.authorization.loginRequired"
 msgstr "Innskráningar krafist."
 
-msgid "user.privacyLink"
+msgid "user.authorization.privateOperation"
 msgstr ""
-"Gögn þín eru geymd í samræmi við yfirlýsingu okkar um <a href=\"{$privacyUrl}"
-"\" target=\"_blank\">perónuvernd</a>."
+"Virknin sem þú reyndir að nálgast er annað hvort leynileg eða ekki til."
 
-msgid "user.apiKey.secretRequired"
+msgid "user.authorization.restrictedSiteAccess"
 msgstr ""
-"Áður en API lykill er búinn til þarf umsjónarmaður síðunnar að stilla leynd "
-"í stillingum (config) skrá (\"api_key_secret\")."
+"Þér hefur verið neitað um aðgang.  Aðgangur að þessari síðu er takmarkaður."
 
-msgid "user.apiKey.generateWarning"
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Viðkomandi hlutverk hefur ekki aðgang að þessari aðgerð."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
 msgstr ""
-"Það að búa til nýjan API lykil mun ógilda lykla sem eru til fyrir þennan "
-"notanda."
+"Þér hefur ekki verið úthlutað þessu handriti með hlutverki sem hefur leyfi "
+"til að framkvæma umbeðna aðgerð."
 
-msgid "user.apiKey.generate"
-msgstr "Búa til nýjan API lykil"
-
-msgid "user.apiKeyEnabled"
+msgid "user.authorization.userGroupRequired"
 msgstr ""
-"Leyfa yrtri forritum með API lykil að hafa aðgang að þessum notendareikningi"
+"Þú verður að stilla á réttan notendahóp til að hljóta aðgang að þessari "
+"aðgerð."
 
-msgid "user.apiKey"
-msgstr "API lykill"
-
-msgid "user.profile.public"
-msgstr "Opinbert"
-
-msgid "user.profile.contact"
-msgstr "Hafa samband"
-
-msgid "user.profile.identity"
-msgstr "Kenni"
-
-msgid "user.orcid.orcidInvalid"
+msgid "user.authorization.managerRequired"
 msgstr ""
-"Uppgefið ORCID iD er ógilt . Vinsamlega sláðu inn fullt veffang (t.d. \""
-"https://orcid.org/0000-0002-1825-0097\")."
+"Það verður að úthluta notanda með stjórnendahlutverk (t.d. "
+"framleiðsluritstjóra) á þetta þrep áður en þú getur haldið áfram."
 
-msgid "user.orcid"
-msgstr "ORCID iD"
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Þú hefur ekki aðgang að þessu þrepi í verkflæðinu."
 
-msgid "user.workingLanguages"
-msgstr "Vinnutungumál"
+msgid "user.authorization.workflowStageRequired"
+msgstr "Þrep í verkflæðinu var ekki tilgreint."
 
-msgid "user.username"
-msgstr "Notandanafn"
+msgid "user.authorization.pluginRequired"
+msgstr "Viðbótarforrit var ekki tilgreint en þess er krafist."
 
-msgid "user.userHome"
-msgstr "Notandi - heim"
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Þú hefur ekki aðgang að  þessari ritrýniúthlutun."
 
-msgid "user.url"
-msgstr "Vefslóð heimasíðu"
+msgid "user.authorization.submissionQuery"
+msgstr "Þú hefur ekki aðgang að þessari umræðu."
 
-msgid "user.title"
-msgstr "Titill"
+msgid "user.biography"
+msgstr "Núverandi staða (t.d. deild og stöðuheiti)"
 
-msgid "user.signature"
-msgstr "Undirskrift"
+msgid "user.changeMyPassword"
+msgstr "Breyta eigin lykilorði"
 
-msgid "user.sendPassword.description"
-msgstr "Senda mér staðfestingu í tölvupósti með notandanafni og lykilorði"
+msgid "user.changePassword"
+msgstr "Breyta lykilorði"
 
-msgid "user.sendPassword"
-msgstr "Staðfesting"
+msgid "user.dateLastLogin"
+msgstr "Síðasta innskráning"
 
-msgid "user.roles"
-msgstr "Hlutverk"
+msgid "user.dateRegistered"
+msgstr "Skráð þann"
 
-msgid "user.role.layoutEditors"
-msgstr "Setjarar"
+msgid "user.editMyProfile"
+msgstr "Breyta mínum stillingum"
 
-msgid "user.role.layoutEditor"
-msgstr "Setjari"
+msgid "user.email"
+msgstr "Netfang"
 
-msgid "user.role.proofreaders"
-msgstr "Prófarkalesarar"
+msgid "user.givenName"
+msgstr "Fornafn"
 
-msgid "user.role.proofreader"
-msgstr "Prófarkalesari"
+msgid "user.interests"
+msgstr "Áhugasvið ritrýni"
 
-msgid "user.role.copyeditors"
-msgstr "Textatæknar"
-
-msgid "user.role.copyeditor"
-msgstr "Textatæknir"
-
-msgid "user.role.siteAdmins"
-msgstr "Umsjónarmenn síðu"
-
-msgid "user.role.siteAdmin"
-msgstr "Umsjónarmaður síðu"
-
-msgid "user.role.reviewers"
-msgstr "Ritrýnar"
-
-msgid "user.role.reviewer"
-msgstr "Ritrýnir"
-
-msgid "user.role.readers"
-msgstr "Lesendur"
-
-msgid "user.role.reader"
-msgstr "Lesandi"
-
-msgid "user.role.editors"
-msgstr "Ritstjórar"
-
-msgid "user.role.editor"
-msgstr "Ritstjóri"
-
-msgid "user.role.authors"
-msgstr "Höfundar"
-
-msgid "user.role.author_s"
-msgstr "Höfundur/ar"
-
-msgid "user.role.author"
-msgstr "Höfundur"
-
-msgid "user.role.assistant"
-msgstr "Aðstoðarmaður"
-
-msgid "user.register.registrationCompleted"
-msgstr ""
-"Þér tókst að skrá þig.  <a href=\"{$profileUrl}\">Smelltu hér</a> til að "
-"klára notandastillingar."
-
-msgid "user.register.usernameRestriction"
-msgstr ""
-"Notendanafnið má bara innihalda lágstafi, tölustafi og bandstrik/undirstrik."
-
-msgid "user.register"
-msgstr "Nýskráning"
-
-msgid "user.register.registerAs"
-msgstr "Innskráning í {$contextName} sem..."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Lykilorðið þarf að vera a.m.k. {$length} stafir."
-
-msgid "user.register.form.usernameExists"
-msgstr "Valið notendanafn er í notkun hjá öðrum notanda."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Það þarf að velja a.m.k. eitt hlutverk."
-
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr ""
-"Notendanafn getur bara innihaldið lágstafi, tölustafi, undirstrik og "
-"bandstrik.  Það þarf að byrja og enda á bókstaf eða tölustaf."
-
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "Svæðin fyrir netfang passa ekki saman."
-
-msgid "user.register.form.passwordsDoNotMatch"
-msgstr "Lykilorðin eru ekki eins."
-
-msgid "user.register.form.emailExists"
-msgstr "Valið netfang er í notkun hjá öðrum notanda."
-
-msgid "user.register.form.emailConsent"
-msgstr "Já, ég vil fá skilaboð um nýjar útgáfur og tilkynningar."
-
-msgid "user.register.form.privacyConsent"
-msgstr ""
-"Já, ég gef samþykki fyrir skráningu og geymslu á mínum perónuupplýsingum í "
-"samræmi við yfirlýsingu um <a href=\"{$privacyUrl}\" target=\"_blank\""
-">persónuvernd</a>."
-
-msgid "user.login.resetPasswordInstructions"
-msgstr ""
-"Sláðu inn netfangið þitt hér fyrir neðan og tölvupóstur verður sendur með "
-"leiðbeiningum um hvernig þú getur endurstillt lykilorðið þitt."
-
-msgid "user.login.registerNewAccount"
-msgstr "Nýskráning"
-
-msgid "user.profile.repeatNewPassword"
-msgstr "Endurtaktu nýtt lykilorð"
-
-msgid "user.profile.publicProfile"
-msgstr "Forstillingar notanda"
-
-msgid "user.profile"
-msgstr "Forstillingar notanda"
-
-msgid "user.profile.oldPassword"
-msgstr "Núverandi lykilorð"
-
-msgid "user.profile.newPassword"
-msgstr "Nýtt lykilorð"
-
-msgid "user.profile.leavePasswordBlank"
-msgstr "Hafðu svæðin fyrir lykilorð tóm til að halda núverandi lykilorði."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Þú verður að samþykkja skilmála um persónuvernd."
-
-msgid "user.profile.form.usernameRequired"
-msgstr "Notendanafn er áskilið."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Notendahópur er áskilinn."
-
-msgid "user.profile.form.urlInvalid"
-msgstr ""
-"Uppgefin vefslóð er ekki gild.  Vinsamlega athugaðu hvort vefslóðin sé rétt "
-"og reyndu aftur. (Vísbending: Prófaðu að bæta við http:// fremst á "
-"vefslóðina)"
-
-msgid "user.profile.form.publishedNotifications"
-msgstr "Tilkynning í tölvupósti um útgáfu nýs tölublaðs"
-
-msgid "user.profile.form.profileImage"
-msgstr "Prófílmynd"
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Nýja lykilorðið er það sama og það gamla."
-
-msgid "user.profile.form.passwordRequired"
-msgstr "Lykilorð er áskilið."
-
-msgid "user.profile.form.openAccessNotifications"
-msgstr "Senda út tilkynningu í tölvupósti um opinn aðgang"
-
-msgid "user.profile.form.oldPasswordInvalid"
-msgstr "Þú slóst inn rangt lykilorð."
-
-msgid "user.profile.form.newPasswordRequired"
-msgstr "Þú verður að slá nýja lykilorðið inn."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Póstfang er áskilið."
-
-msgid "user.profile.form.givenNameRequired.locale"
-msgstr ""
-"Þú hefur bætt við eftirnafni á tungumáli þar sem fornafn vantar.  Vinsamlega "
-"bættu við fornafni á þessu tungumáli."
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "Fornafn er áskilið."
-
-msgid "user.profile.form.emailRequired"
-msgstr "Gilt netfang er áskilið."
-
-msgid "user.profile.form.countryRequired"
-msgstr "Land er áskilið."
-
-msgid "user.profile.editProfile"
-msgstr "Breyta forstillingum notanda"
-
-msgid "user.profile.changePasswordInstructions"
-msgstr ""
-"Sláðu inn núverandi og nýtt lykilorð fyrir neðan til að breyta um lykilorð á "
-"notandareikningnum þínum."
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Vinsamlega skráðu fullt nafn höfundar eins og það á að birtast í útgefnu "
-"verki.  Dæmi: Dr. Egill S. Grímsson"
-
-msgid "user.preferredPublicName"
-msgstr "Opinber birting á nafni"
-
-msgid "user.phone"
-msgstr "Sími"
-
-msgid "user.repeatPassword"
-msgstr "Endurtaktu lykilorð"
-
-msgid "user.password"
-msgstr "Lykilorð"
-
-msgid "user.name"
-msgstr "Nafn"
-
-msgid "user.myAccount"
-msgstr "Notendareikningur minn"
-
-msgid "user.mailingAddress"
-msgstr "Póstfang"
-
-msgid "user.hello"
-msgstr "Halló, "
-
-msgid "user.logOutAs"
-msgstr "Skrá út {$username}"
-
-msgid "user.logOut"
-msgstr "Útskráning"
-
-msgid "user.login.resetPassword"
-msgstr "Endurstilla lykilorð"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Halda innskráningu virkri"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Skráning bíður staðfestingar"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Halda áfram að vafra"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Stofna nýja innsendingu"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Skoða innsendingar"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Takk fyrir að skrá þig!  Hvað má bjóða þér að gera næst?"
-
-msgid "user.login.registrationComplete"
-msgstr "Skráningu lokið"
-
-msgid "user.login.registeredEmail"
-msgstr "Netfang notanda"
-
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"Nýtt lykilorð var sent á netfangið þitt. Þú getur núna skráð þig inn með "
-"nýja lykilorðinu."
-
-msgid "user.login.lostPassword.invalidHash"
-msgstr ""
-"Því miður þá er tengillin sem þú smelltir á útrunnin eða ógildur. Vinsamlega "
-"reyndu aftur að endurstilla lykilorðið þitt."
-
-msgid "user.login.lostPassword.confirmationSent"
-msgstr ""
-"Staðfesting var send á netfang þitt, hafi fundist notandareiknignur sem "
-"passar.  Vinsamlega fylgdu leiðbeiningum í tölvupóstinum til að endurstilla "
-"lykilorð þitt."
-
-msgid "user.login"
-msgstr "Innskráning"
-
-msgid "user.login.loginError"
-msgstr "Rangt notendanafn eða lykilorð. Vinsamlega reyndu aftur."
-
-msgid "user.login.forgotPassword"
-msgstr "Gleymt lykilorð?"
-
-msgid "user.login.changePasswordInstructions"
-msgstr ""
-"Þú verður að skrá nýtt lykilorð áður en þú getur skáð þig inn á þessa síðu.<"
-"br /><br />Til að breyta lykilorði að notandareikning þínum, vinsamlega "
-"skráðu  notandanafn þitt, núverandi lykilorð  og því næst nýtt lykilorð þar "
-"fyrir neðan."
-
-msgid "user.login.activated"
-msgstr ""
-"Takk fyrir að virkja notandareikning þinn.  Þú getur núna skráð þig inn með "
-"notendanafninu sem þú valdir þegar þú skráðir þig."
-
-msgid "user.login.activate"
-msgstr "Virkja notandareikning"
-
-msgid "user.login.accountNotValidated"
-msgstr ""
-"Við höfum sent staðfestingarpóst til þín á netfangið {$email}. Vinsamlega "
-"fylgdu leiðbeiningum þar til að virkja notendareikninginn. Ef þú sérð ekki "
-"tölvupóstinn, vinsamlega athugaðu hvort hann hafi lent í ruslpósti."
-
-msgid "user.login.accountDisabled"
-msgstr ""
-"Notendareikningur þinn hefur verið afvirkjaður.  Vinsamlega hafðu samband "
-"við tæknilega aðstoð fyrir frekari upplýsingar."
-
-msgid "user.login.accountDisabledWithReason"
-msgstr ""
-"Notendareikningur þinn hefur verið afvirkjaður af eftirfarandi ástæðu: "
-"{$reason}"
-
-msgid "user.profile.form.profileImageInvalid"
-msgstr ""
-"Ógilt skráarsnið á prófílmynd eða myndin er of stór.  Leyfð skráarsnið eru "
-".gif, .jpg eða .png. Mynd má ekki vera stærri en 150x150 pixlar."
-
-msgid "user.familyName"
-msgstr "Eftirnafn"
-
-msgid "user.group"
-msgstr "Notendahópur"
+msgid "user.gossip"
+msgstr "Athugasemdir ritstjóra"
 
 msgid "user.gossip.description"
 msgstr ""
@@ -430,72 +115,409 @@ msgstr ""
 "kerfisstjórar og ritstjórar sjái. Athugasemdir munu vera sýnilegar fyrir "
 "komandi ritrýniúthlutanir."
 
-msgid "user.gossip"
-msgstr "Athugasemdir ritstjóra"
+msgid "user.group"
+msgstr "Notendahópur"
 
-msgid "user.interests"
-msgstr "Áhugasvið ritrýni"
+msgid "user.familyName"
+msgstr "Eftirnafn"
 
-msgid "user.givenName"
-msgstr "Fornafn"
-
-msgid "user.email"
-msgstr "Netfang"
-
-msgid "user.editMyProfile"
-msgstr "Breyta mínum stillingum"
-
-msgid "user.dateRegistered"
-msgstr "Skráð þann"
-
-msgid "user.dateLastLogin"
-msgstr "Síðasta innskráning"
-
-msgid "user.changePassword"
-msgstr "Breyta lykilorði"
-
-msgid "user.changeMyPassword"
-msgstr "Breyta eigin lykilorði"
-
-msgid "user.biography"
-msgstr "Núverandi staða (t.d. deild og stöðuheiti)"
-
-msgid "user.authorization.submissionQuery"
-msgstr "Þú hefur ekki aðgang að þessari umræðu."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Þú hefur ekki aðgang að  þessari ritrýniúthlutun."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Viðbótarforrit var ekki tilgreint en þess er krafist."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Þrep í verkflæðinu var ekki tilgreint."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Þú hefur ekki aðgang að þessu þrepi í verkflæðinu."
-
-msgid "user.authorization.managerRequired"
+msgid "user.profile.form.profileImageInvalid"
 msgstr ""
-"Það verður að úthluta notanda með stjórnendahlutverk (t.d. "
-"framleiðsluritstjóra) á þetta þrep áður en þú getur haldið áfram."
+"Ógilt skráarsnið á prófílmynd eða myndin er of stór.  Leyfð skráarsnið eru ."
+"gif, .jpg eða .png. Mynd má ekki vera stærri en 150x150 pixlar."
 
-msgid "user.authorization.userGroupRequired"
+msgid "user.login.accountDisabledWithReason"
 msgstr ""
-"Þú verður að stilla á réttan notendahóp til að hljóta aðgang að þessari "
-"aðgerð."
+"Notendareikningur þinn hefur verið afvirkjaður af eftirfarandi ástæðu: "
+"{$reason}"
 
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgid "user.login.accountDisabled"
 msgstr ""
-"Þér hefur ekki verið úthlutað þessu handriti með hlutverki sem hefur leyfi "
-"til að framkvæma umbeðna aðgerð."
+"Notendareikningur þinn hefur verið afvirkjaður.  Vinsamlega hafðu samband "
+"við tæknilega aðstoð fyrir frekari upplýsingar."
 
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Viðkomandi hlutverk hefur ekki aðgang að þessari aðgerð."
-
-msgid "user.authorization.restrictedSiteAccess"
+msgid "user.login.accountNotValidated"
 msgstr ""
-"Þér hefur verið neitað um aðgang.  Aðgangur að þessari síðu er takmarkaður."
+"Við höfum sent staðfestingarpóst til þín á netfangið {$email}. Vinsamlega "
+"fylgdu leiðbeiningum þar til að virkja notendareikninginn. Ef þú sérð ekki "
+"tölvupóstinn, vinsamlega athugaðu hvort hann hafi lent í ruslpósti."
 
-msgid "user.authorization.privateOperation"
-msgstr "Virknin sem þú reyndir að nálgast er annað hvort leynileg eða ekki til."
+msgid "user.login.activate"
+msgstr "Virkja notandareikning"
+
+msgid "user.login.activated"
+msgstr ""
+"Takk fyrir að virkja notandareikning þinn.  Þú getur núna skráð þig inn með "
+"notendanafninu sem þú valdir þegar þú skráðir þig."
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+"Þú verður að skrá nýtt lykilorð áður en þú getur skáð þig inn á þessa síðu."
+"<br /><br />Til að breyta lykilorði að notandareikning þínum, vinsamlega "
+"skráðu  notandanafn þitt, núverandi lykilorð  og því næst nýtt lykilorð þar "
+"fyrir neðan."
+
+msgid "user.login.forgotPassword"
+msgstr "Gleymt lykilorð?"
+
+msgid "user.login.loginError"
+msgstr "Rangt notendanafn eða lykilorð. Vinsamlega reyndu aftur."
+
+msgid "user.login"
+msgstr "Innskráning"
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+"Staðfesting var send á netfang þitt, hafi fundist notandareiknignur sem "
+"passar.  Vinsamlega fylgdu leiðbeiningum í tölvupóstinum til að endurstilla "
+"lykilorð þitt."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"Því miður þá er tengillin sem þú smelltir á útrunnin eða ógildur. Vinsamlega "
+"reyndu aftur að endurstilla lykilorðið þitt."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"Nýtt lykilorð var sent á netfangið þitt. Þú getur núna skráð þig inn með "
+"nýja lykilorðinu."
+
+msgid "user.login.registeredEmail"
+msgstr "Netfang notanda"
+
+msgid "user.login.registrationComplete"
+msgstr "Skráningu lokið"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Takk fyrir að skrá þig!  Hvað má bjóða þér að gera næst?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Skoða innsendingar"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Stofna nýja innsendingu"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Halda áfram að vafra"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Skráning bíður staðfestingar"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Halda innskráningu virkri"
+
+msgid "user.login.resetPassword"
+msgstr "Endurstilla lykilorð"
+
+msgid "user.logOut"
+msgstr "Útskráning"
+
+msgid "user.logOutAs"
+msgstr "Skrá út {$username}"
+
+msgid "user.hello"
+msgstr "Halló, "
+
+msgid "user.mailingAddress"
+msgstr "Póstfang"
+
+msgid "user.myAccount"
+msgstr "Notendareikningur minn"
+
+msgid "user.name"
+msgstr "Nafn"
+
+msgid "user.password"
+msgstr "Lykilorð"
+
+msgid "user.repeatPassword"
+msgstr "Endurtaktu lykilorð"
+
+msgid "user.phone"
+msgstr "Sími"
+
+msgid "user.preferredPublicName"
+msgstr "Opinber birting á nafni"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Vinsamlega skráðu fullt nafn höfundar eins og það á að birtast í útgefnu "
+"verki.  Dæmi: Dr. Egill S. Grímsson"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Sláðu inn núverandi og nýtt lykilorð fyrir neðan til að breyta um lykilorð á "
+"notandareikningnum þínum."
+
+msgid "user.profile.editProfile"
+msgstr "Breyta forstillingum notanda"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Land er áskilið."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Gilt netfang er áskilið."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Fornafn er áskilið."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Þú hefur bætt við eftirnafni á tungumáli þar sem fornafn vantar.  Vinsamlega "
+"bættu við fornafni á þessu tungumáli."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Póstfang er áskilið."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Þú verður að slá nýja lykilorðið inn."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Þú slóst inn rangt lykilorð."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Senda út tilkynningu í tölvupósti um opinn aðgang"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Lykilorð er áskilið."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Nýja lykilorðið er það sama og það gamla."
+
+msgid "user.profile.form.profileImage"
+msgstr "Prófílmynd"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Tilkynning í tölvupósti um útgáfu nýs tölublaðs"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Uppgefin vefslóð er ekki gild.  Vinsamlega athugaðu hvort vefslóðin sé rétt "
+"og reyndu aftur. (Vísbending: Prófaðu að bæta við http:// fremst á "
+"vefslóðina)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Notendahópur er áskilinn."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Notendanafn er áskilið."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Þú verður að samþykkja skilmála um persónuvernd."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Hafðu svæðin fyrir lykilorð tóm til að halda núverandi lykilorði."
+
+msgid "user.profile.newPassword"
+msgstr "Nýtt lykilorð"
+
+msgid "user.profile.oldPassword"
+msgstr "Núverandi lykilorð"
+
+msgid "user.profile"
+msgstr "Forstillingar notanda"
+
+msgid "user.profile.publicProfile"
+msgstr "Forstillingar notanda"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Endurtaktu nýtt lykilorð"
+
+msgid "user.login.registerNewAccount"
+msgstr "Nýskráning"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Sláðu inn netfangið þitt hér fyrir neðan og tölvupóstur verður sendur með "
+"leiðbeiningum um hvernig þú getur endurstillt lykilorðið þitt."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Já, ég gef samþykki fyrir skráningu og geymslu á mínum perónuupplýsingum í "
+"samræmi við yfirlýsingu um <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">persónuvernd</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Já, ég vil fá skilaboð um nýjar útgáfur og tilkynningar."
+
+msgid "user.register.form.emailExists"
+msgstr "Valið netfang er í notkun hjá öðrum notanda."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Lykilorðin eru ekki eins."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Svæðin fyrir netfang passa ekki saman."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Notendanafn getur bara innihaldið lágstafi, tölustafi, undirstrik og "
+"bandstrik.  Það þarf að byrja og enda á bókstaf eða tölustaf."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Það þarf að velja a.m.k. eitt hlutverk."
+
+msgid "user.register.form.usernameExists"
+msgstr "Valið notendanafn er í notkun hjá öðrum notanda."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Lykilorðið þarf að vera a.m.k. {$length} stafir."
+
+msgid "user.register.registerAs"
+msgstr "Innskráning í {$contextName} sem..."
+
+msgid "user.register"
+msgstr "Nýskráning"
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+"Notendanafnið má bara innihalda lágstafi, tölustafi og bandstrik/undirstrik."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Þér tókst að skrá þig.  <a href=\"{$profileUrl}\">Smelltu hér</a> til að "
+"klára notandastillingar."
+
+msgid "user.role.assistant"
+msgstr "Aðstoðarmaður"
+
+msgid "user.role.author"
+msgstr "Höfundur"
+
+msgid "user.role.author_s"
+msgstr "Höfundur/ar"
+
+msgid "user.role.authors"
+msgstr "Höfundar"
+
+msgid "user.role.editor"
+msgstr "Ritstjóri"
+
+msgid "user.role.editors"
+msgstr "Ritstjórar"
+
+msgid "user.role.reader"
+msgstr "Lesandi"
+
+msgid "user.role.readers"
+msgstr "Lesendur"
+
+msgid "user.role.reviewer"
+msgstr "Ritrýnir"
+
+msgid "user.role.reviewers"
+msgstr "Ritrýnar"
+
+msgid "user.role.siteAdmin"
+msgstr "Umsjónarmaður síðu"
+
+msgid "user.role.siteAdmins"
+msgstr "Umsjónarmenn síðu"
+
+msgid "user.role.copyeditor"
+msgstr "Textatæknir"
+
+msgid "user.role.copyeditors"
+msgstr "Textatæknar"
+
+msgid "user.role.proofreader"
+msgstr "Prófarkalesari"
+
+msgid "user.role.proofreaders"
+msgstr "Prófarkalesarar"
+
+msgid "user.role.layoutEditor"
+msgstr "Setjari"
+
+msgid "user.role.layoutEditors"
+msgstr "Setjarar"
+
+msgid "user.roles"
+msgstr "Hlutverk"
+
+msgid "user.sendPassword"
+msgstr "Staðfesting"
+
+msgid "user.sendPassword.description"
+msgstr "Senda mér staðfestingu í tölvupósti með notandanafni og lykilorði"
+
+msgid "user.signature"
+msgstr "Undirskrift"
+
+msgid "user.title"
+msgstr "Titill"
+
+msgid "user.url"
+msgstr "Vefslóð heimasíðu"
+
+msgid "user.userHome"
+msgstr "Notandi - heim"
+
+msgid "user.username"
+msgstr "Notandanafn"
+
+msgid "user.workingLanguages"
+msgstr "Vinnutungumál"
+
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Uppgefið ORCID iD er ógilt . Vinsamlega sláðu inn fullt veffang (t.d. "
+"\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Kenni"
+
+msgid "user.profile.contact"
+msgstr "Hafa samband"
+
+msgid "user.profile.public"
+msgstr "Opinbert"
+
+msgid "user.apiKey"
+msgstr "API lykill"
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+"Leyfa yrtri forritum með API lykil að hafa aðgang að þessum notendareikningi"
+
+msgid "user.apiKey.generate"
+msgstr "Búa til nýjan API lykil"
+
+msgid "user.apiKey.remove"
+msgstr ""
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Það að búa til nýjan API lykil mun ógilda lykla sem eru til fyrir þennan "
+"notanda."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr ""
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Áður en API lykill er búinn til þarf umsjónarmaður síðunnar að stilla leynd "
+"í stillingum (config) skrá (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Gögn þín eru geymd í samræmi við yfirlýsingu okkar um <a href="
+"\"{$privacyUrl}\" target=\"_blank\">perónuvernd</a>."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

@@ -15,29 +15,175 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
+msgid "api.400.paramNotSupported"
+msgstr "Η παράμετρος {$param} δεν υποστηρίζεται."
+
+msgid "api.400.propReadOnly"
 msgstr ""
-"Το αίτημά σας απορρίφθηκε, πιθανώς λόγω λήξης της σύνδεσής σας. Ανανεώστε τη "
-"σελίδα και ξαναπροσπαθήστε."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Μπορείτε να δείτε μόνο τις μη δημοσιευμένες υποβολές που σας έχουν ανατεθεί."
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Είναι αδύνατη η διαγραφή μιας υποβολής που δεν περιέχεται στο εν λόγω πλαίσιο."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Δεν έχετε δικαίωμα διαγραφής της υποβολής."
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Πρέπει να δώσετε θέμα και κείμενο για το email."
 
-msgid "api.submissions.404.resourceNotFound"
-msgstr "Ο ζητούμενος πόρος δε βρέθηκε."
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Το αίτημά σας δε μπορεί να πραγματοποιηθεί γιατί λείπουν οι απαιτούμενες πληροφορίες."
+msgid "api.dois.403.prefixRequired"
+msgstr ""
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Ο ζητούμενος τόμος, αριθμός τεύχους ή το έτος δεν είναι έγκυρα."
+msgid "api.403.unauthorized"
+msgstr "Δεν έχετε διακαιώματα πρόσβασης στον αιτούμενο πόρο."
+
+msgid "api.404.resourceNotFound"
+msgstr "Δεν βρέθηκε ο πόρος που ζητήθηκε."
+
+msgid "api.404.endpointNotFound"
+msgstr "Η ζητούμενη διεύθυνση URL δεν αναγνωρίστηκε."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Το πρότυπο email που ζητήσατε δεν βρέθηκε."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Η έκδοση που θέλετε να δημοσιεύσετε έχει ήδη δημοσιευτεί."
+
+#, fuzzy
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Η δημοσίευση που θέλετε να ακυρώσετε δεν έχει  δημοσιευτεί."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Δεν μπορείτε να επεξεργαστείτε αυτήν την έκδοση επειδή έχει ήδη δημοσιευτεί."
+
+#, fuzzy
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Δεν μπορείτε να τροποποιήσετε την κατάσταση δημοσίευσης απευθείας μέσω του "
+"API. Αντ 'αυτού, χρησιμοποιήστε τα τελικά σημεία /δημοσίευση και /κατάργηση "
+"δημοσίευσης."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Πρέπει να καταργήσετε τη δημοσίευση αυτής της έκδοσης για να μπορέσετε να τη "
+"διαγράψετε."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Μπορείτε να μεταφορτώσετε μόνο τους ακόλουθους τύπους αρχείων: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Η εικόνα που ανεβάσατε δεν είναι έγκυρη."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Το αρχείο που ανεβάσατε δεν ταιριάζει με την επέκτασή του. Αυτό μπορεί να "
+"συμβεί όταν ένα αρχείο έχει μετονομαστεί σε ασύμβατο τύπο, για παράδειγμα "
+"αλλαγή του photo.png σε photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Δεν έχετε διακαιώματα μεταφόρτωσης αρχείων."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Δεν έχετε αρκετό χώρο στον κατάλογο αρχείων σας. Το αρχείο που ανεβάζετε "
+"είναι {$ fileUploadSize} kb, ενώ σας απομένουν {$ dirSizeLeft} kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Ο κατάλογος δημόσιων αρχείων δεν βρέθηκε ή δεν είναι δυνατή η αποθήκευση "
+"αρχείων σε αυτόν. Επικοινωνήστε με τον διαχειριστή σας για να επιλύσετε αυτό "
+"το ζήτημα."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Η ημερομηνία πρέπει να έχει τη μορφή EEEE-MM-HH."
@@ -47,117 +193,157 @@ msgstr ""
 "Η ημερομηνία έναρξης δεν μπορεί να είναι μεταγενέστερη της ημερομηνίας "
 "ολοκλήρωσης."
 
-msgid "api.stats.400.wrongTimeSegmentDaily"
-msgstr "Μη έγκυρο αίτημα. Η επιλογή \"ημερησίως\" μπορεί να χρησιμοποιηθεί μόνο με εύρος ημερομηνιών εντός των τελευταίων 90 ημερών."
+msgid "api.stats.400.earlyDateRange"
+msgstr "Η ημερομηνία έναρξης δεν μπορεί να είναι προγενέστερη από 2001-01-01."
 
-msgid "api.stats.400.invalidOrderDirection"
-msgstr ""
-"Το αίτημά σας δεν ήταν έγκυρο. Η διάταξη πρέπει να είναι «φθίνουσα» ή "
-"«αύξουσα»."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Οι τοπικές ρυθμίσεις {$locale} δεν υποστηρίζονται."
-
-msgid "api.themes.404.themeUnavailable"
-msgstr ""
-"Το ενεργό θέμα, {$themePluginPath}, δεν είναι ενεργοποιημένο και ενδέχεται "
-"να μην είναι εγκατεστημένο."
-
-msgid "api.temporaryFiles.400.config"
-msgstr ""
-"Δεν ήταν δυνατή η μεταφόρτωση του αρχείου λόγω σφάλματος διαμόρφωσης "
-"διακομιστή. Επικοινωνήστε με τον διαχειριστή του συστήματος."
-
-msgid "api.temporaryFiles.400.fileSize"
-msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων μεγαλύτερων από {$maxSize}."
-
-msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "Δεν ήταν δυνατή η μεταφόρτωση ενός ή περισσότερων αρχείων."
-
-msgid "api.temporaryFiles.400.noUpload"
-msgstr "Δεν βρέθηκε κάποιο αρχείο προς μεταφόρτωση με αυτό το αίτημα."
+msgid "api.stats.400.lateDateRange"
+msgstr "Η ημερομηνία λήξης δεν μπορεί να είναι προγενέστερη από τη χθεσινή."
 
 msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Το αίτημά σας δεν ήταν έγκυρο. Το χρονικό διάστημα πρέπει να είναι «ημέρα» ή "
 "«μήνας»."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Η ημερομηνία λήξης δεν μπορεί να είναι προγενέστερη από τη χθεσινή."
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Το αίτημά σας δεν ήταν έγκυρο. Η διάταξη πρέπει να είναι «φθίνουσα» ή "
+"«αύξουσα»."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Η ημερομηνία έναρξης δεν μπορεί να είναι προγενέστερη από 2001-01-01."
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Το αίτημά σας δε μπορεί να πραγματοποιηθεί γιατί λείπουν οι απαιτούμενες "
+"πληροφορίες."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Ο ζητούμενος τόμος, αριθμός τεύχους ή το έτος δεν είναι έγκυρα."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Το αίτημά σας απορρίφθηκε, πιθανώς λόγω λήξης της σύνδεσής σας. Ανανεώστε τη "
+"σελίδα και ξαναπροσπαθήστε."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Είναι αδύνατη η διαγραφή μιας υποβολής που δεν περιέχεται στο εν λόγω "
+"πλαίσιο."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Μπορείτε να δείτε μόνο τις μη δημοσιευμένες υποβολές που σας έχουν ανατεθεί."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Δεν έχετε δικαίωμα διαγραφής της υποβολής."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Δεν έχετε διακαιώματα επεξεργασίας αυτής της δημοσίευσης."
 
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Ο κατάλογος δημόσιων αρχείων δεν βρέθηκε ή δεν είναι δυνατή η αποθήκευση "
-"αρχείων σε αυτόν. Επικοινωνήστε με τον διαχειριστή σας για να επιλύσετε αυτό "
-"το ζήτημα."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Δεν έχετε αρκετό χώρο στον κατάλογο αρχείων σας. Το αρχείο που ανεβάζετε "
-"είναι {$ fileUploadSize} kb, ενώ σας απομένουν {$ dirSizeLeft} kb."
+"Το ενεργό θέμα, {$themePluginPath}, δεν είναι ενεργοποιημένο και ενδέχεται "
+"να μην είναι εγκατεστημένο."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Δεν έχετε διακαιώματα μεταφόρτωσης αρχείων."
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Οι τοπικές ρυθμίσεις {$locale} δεν υποστηρίζονται."
 
-msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"Το αρχείο που ανεβάσατε δεν ταιριάζει με την επέκτασή του. Αυτό μπορεί να "
-"συμβεί όταν ένα αρχείο έχει μετονομαστεί σε ασύμβατο τύπο, για παράδειγμα "
-"αλλαγή του photo.png σε photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Η εικόνα που ανεβάσατε δεν είναι έγκυρη."
-
-msgid "api.publicFiles.400.extensionNotSupported"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"Μπορείτε να μεταφορτώσετε μόνο τους ακόλουθους τύπους αρχείων: {$fileTypes}."
 
-msgid "api.publication.403.cantDeletePublished"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Πρέπει να καταργήσετε τη δημοσίευση αυτής της έκδοσης για να μπορέσετε να τη "
-"διαγράψετε."
 
-#, fuzzy
-msgid "api.publication.403.cantEditStatus"
+msgid "api.jobs.406.failedJobEmpty"
 msgstr ""
-"Δεν μπορείτε να τροποποιήσετε την κατάσταση δημοσίευσης απευθείας μέσω του "
-"API. Αντ 'αυτού, χρησιμοποιήστε τα τελικά σημεία /δημοσίευση και /κατάργηση "
-"δημοσίευσης."
 
-msgid "api.publication.403.cantEditPublished"
+msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr ""
-"Δεν μπορείτε να επεξεργαστείτε αυτήν την έκδοση επειδή έχει ήδη δημοσιευτεί."
 
-#, fuzzy
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Η δημοσίευση που θέλετε να ακυρώσετε δεν έχει  δημοσιευτεί."
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "Η έκδοση που θέλετε να δημοσιεύσετε έχει ήδη δημοσιευτεί."
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Το πρότυπο email που ζητήσατε δεν βρέθηκε."
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
 
-msgid "api.404.endpointNotFound"
-msgstr "Η ζητούμενη διεύθυνση URL δεν αναγνωρίστηκε."
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
 
-msgid "api.404.resourceNotFound"
-msgstr "Δεν βρέθηκε ο πόρος που ζητήθηκε."
+#~ msgid "api.submissions.404.resourceNotFound"
+#~ msgstr "Ο ζητούμενος πόρος δε βρέθηκε."
 
-msgid "api.403.unauthorized"
-msgstr "Δεν έχετε διακαιώματα πρόσβασης στον αιτούμενο πόρο."
+#~ msgid "api.stats.400.wrongTimeSegmentDaily"
+#~ msgstr ""
+#~ "Μη έγκυρο αίτημα. Η επιλογή \"ημερησίως\" μπορεί να χρησιμοποιηθεί μόνο "
+#~ "με εύρος ημερομηνιών εντός των τελευταίων 90 ημερών."
 
-msgid "api.400.paramNotSupported"
-msgstr "Η παράμετρος {$param} δεν υποστηρίζεται."
+#~ msgid "api.temporaryFiles.400.config"
+#~ msgstr ""
+#~ "Δεν ήταν δυνατή η μεταφόρτωση του αρχείου λόγω σφάλματος διαμόρφωσης "
+#~ "διακομιστή. Επικοινωνήστε με τον διαχειριστή του συστήματος."
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Το λεξικό {$vocab} δεν υποστηρίζεται."
+#~ msgid "api.temporaryFiles.400.fileSize"
+#~ msgstr "Δεν είναι δυνατή η μεταφόρτωση αρχείων μεγαλύτερων από {$maxSize}."
 
-msgid "api.400.requireEmailSubjectBody"
-msgstr "Πρέπει να δώσετε θέμα και κείμενο για το email."
+#~ msgid "api.temporaryFiles.409.uploadFailed"
+#~ msgstr "Δεν ήταν δυνατή η μεταφόρτωση ενός ή περισσότερων αρχείων."
+
+#~ msgid "api.temporaryFiles.400.noUpload"
+#~ msgstr "Δεν βρέθηκε κάποιο αρχείο προς μεταφόρτωση με αυτό το αίτημα."
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Το λεξικό {$vocab} δεν υποστηρίζεται."

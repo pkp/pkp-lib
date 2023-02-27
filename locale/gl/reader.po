@@ -11,70 +11,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "reader.fullText"
-msgstr "Texto completo:"
+msgid "comments.anonymous"
+msgstr "Usuario/a anónimo/a"
 
-msgid "comments.viewAllComments"
-msgstr "Ver todos os comentarios"
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
 
-msgid "comments.title"
-msgstr "Título"
+msgid "comments.body"
+msgstr "Texto"
 
-msgid "comments.replies"
-msgstr "Respostas"
-
-msgid "comments.readMore"
-msgstr "Ler máis"
-
-msgid "comments.readerComments"
-msgstr "Comentarios dos lectores"
-
-msgid "comments.postReply"
-msgstr "Enviar resposta"
-
-msgid "comments.postAnonymously"
-msgstr "Publicar este comentario de forma anónima"
-
-msgid "comments.oneReply"
-msgstr "(1 resposta)"
-
-msgid "comments.nReplies"
-msgstr "({$num} respostas)"
-
-msgid "comments.noComments"
-msgstr "Non se publicaron comentarios dos lectores."
-
-msgid "comments.name"
-msgstr "Nome"
-
-msgid "comments.inResponseTo"
-msgstr "En resposta a <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Escribir comentario"
-
-msgid "comments.emailReply"
-msgstr "Resposta por correo electrónico"
-
-msgid "comments.email"
-msgstr "Correo electrónico"
-
-msgid "comments.delete"
-msgstr "Eliminar este comentario"
+msgid "comments.titleRequired"
+msgstr "É necesario un título para o comentario."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Ao eliminar este comentario, tamén se eliminarán as respostas ao mesmo. "
 "Estás seguro/a de que desexas facelo?"
 
-msgid "comments.titleRequired"
-msgstr "É necesario un título para o comentario."
+msgid "comments.delete"
+msgstr "Eliminar este comentario"
 
-msgid "comments.body"
-msgstr "Texto"
+msgid "comments.email"
+msgstr "Correo electrónico"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgid "comments.emailReply"
+msgstr "Resposta por correo electrónico"
 
-msgid "comments.anonymous"
-msgstr "Usuario/a anónimo/a"
+msgid "comments.enterComment"
+msgstr "Escribir comentario"
+
+msgid "comments.inResponseTo"
+msgstr "En resposta a <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nome"
+
+msgid "comments.noComments"
+msgstr "Non se publicaron comentarios dos lectores."
+
+msgid "comments.nReplies"
+msgstr "({$num} respostas)"
+
+msgid "comments.oneReply"
+msgstr "(1 resposta)"
+
+msgid "comments.postAnonymously"
+msgstr "Publicar este comentario de forma anónima"
+
+msgid "comments.postReply"
+msgstr "Enviar resposta"
+
+msgid "comments.readerComments"
+msgstr "Comentarios dos lectores"
+
+msgid "comments.readMore"
+msgstr "Ler máis"
+
+msgid "comments.replies"
+msgstr "Respostas"
+
+msgid "comments.title"
+msgstr "Título"
+
+msgid "comments.viewAllComments"
+msgstr "Ver todos os comentarios"
+
+msgid "reader.fullText"
+msgstr "Texto completo:"

@@ -12,107 +12,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.comments.sendCopyToReviewers"
-msgstr ""
-"Осы хабарландыру хатының көшірмесін жасырын көшірме (BCC) ретінде келесі "
-"рецензенттерге жіберу."
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Сұраныс"
 
-msgid "user.authorization.submissionReviewer"
-msgstr "Бұл пайдаланушы сұралған құжатқа рецензент болып тағайындалмаған."
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Әдістемелік нұсқаулар"
 
-msgid "submission.comments.sendToReviewers"
-msgstr "Рецензенттерге жіберу"
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Жүктеу және шолу"
 
-msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Тек редактор үшін"
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Аяқтау"
 
-msgid "submission.comments.canShareWithAuthor"
-msgstr "Автор мен редактор үшін"
-
-msgid "reviewer.aboutDueDates.text"
-msgstr ""
-"Редактор сізден сұранымға жауап беру күніне дейін рецензияға сұранымды "
-"қабылдауды немесе қабылдамауды және рецензия берілген күнге дейін рецензияны "
-"орындауды сұрайды."
-
-msgid "reviewer.aboutDueDates"
-msgstr "Орындалу мерзімі туралы"
-
-msgid "reviewer.complete.whatNext"
-msgstr ""
-"Осы мақаланы рецензиялағаныңыз үшін рахмет. Пікіріңіз сәтті жіберілді. Біз "
-"басып шығаратын жұмыстың сапасына қосқан үлесіңізді бағалаймыз; қажет болса, "
-"қосымша ақпарат алу үшін редактор сізбен қайта хабарласуы мүмкін."
-
-msgid "reviewer.confirmSubmit"
-msgstr "Сіз бұл рецензияны жіберуге сенімдісіз бе?"
-
-msgid "reviewer.complete"
-msgstr "Рецензия жіберілді"
-
-msgid "reviewer.submission.uploadDescription"
-msgstr ""
-"Редакторға және/немесе авторға қарауға тұрарлық файлдарды, соның ішінде "
-"рецензияның түпнұсқа файлдарының түзетілген нұсқаларын жүктеңіз."
-
-msgid "reviewer.submission.reviewDescription"
-msgstr ""
-"Осы хабарлама туралы пікіріңізді төмендегі пішінге енгізіңіз (немесе "
-"қойыңыз)."
-
-msgid "reviewer.submission.downloadDescription"
-msgstr ""
-"Осы материалға қатысты файлдарды жүктеу үшін төмендегі файл атауларын "
-"нұқыңыз."
-
-msgid "reviewer.submission.noGuidelines"
-msgstr "Бұл баспагер рецензенттер үшін ешқандай нұсқаулық орнатқан жоқ."
-
-msgid "reviewer.submission.guidelines"
-msgstr "Рецензенттерге арналған нұсқаулық"
-
-msgid "reviewer.submission.competingInterests"
-msgstr "Бәсекелес мүдделер"
-
-msgid "reviewer.submission.hasCompetingInterests"
-msgstr "Менің бәсекелес қызығушылықтарым болуы мүмкін (төменде көрсетілген)"
-
-msgid "reviewer.submission.noCompetingInterests"
-msgstr "Менің бәсекелес мүдделерім жоқ"
-
-msgid "reviewer.submission.enterCompetingInterests"
-msgstr ""
-"Бұл баспагерде рецензенттердің ықтимал бәсекелес мүдделерін ашу саясаты "
-"бар.  Осы ережелермен танысуыңызды сұраймыз."
-
-msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Рецензенттерге арналған нұсқаулық"
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Кейінге қалдыру"
-
-msgid "reviewer.submission.submitReview"
-msgstr "Рецензияны жіберу"
-
-msgid "reviewer.submission.continueToStepThree"
-msgstr "№3 қадамға өту"
-
-msgid "reviewer.submission.acceptReview"
-msgstr "Рецензиялауға келісу, №2 қадамға өту"
-
-msgid "reviewer.submission.declineReviewMessage"
-msgstr ""
-"Сіз редакторға осы материалды рецензиялаудан бас тарту себептерін төмендегі "
-"өрісте сипаттай аласыз."
-
-msgid "reviewer.submission.declineReview"
-msgstr "Рецензияға сұранысты қабылдамау"
-
-msgid "reviewer.submission.reviewerFiles"
-msgstr "Рецензент файлдары"
-
-msgid "reviewer.step1.viewAllDetails"
-msgstr "Материал туралы барлық ақпаратты көрсету"
+msgid "reviewer.step1.request"
+msgstr "Рецензияға сұраныс"
 
 msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
@@ -120,17 +33,104 @@ msgstr ""
 "материалдың сипаттамасы және рецензияны орындау мерзімі келтірілген.  Сіз "
 "рецензиялауға қатыса аласыз деп үміттенеміз."
 
-msgid "reviewer.step1.request"
-msgstr "Рецензияға сұраныс"
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Материал туралы барлық ақпаратты көрсету"
 
-msgid "reviewer.reviewSteps.completion"
-msgstr "4. Аяқтау"
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Рецензент файлдары"
 
-msgid "reviewer.reviewSteps.download"
-msgstr "3. Жүктеу және шолу"
+msgid "reviewer.submission.declineReview"
+msgstr "Рецензияға сұранысты қабылдамау"
 
-msgid "reviewer.reviewSteps.guidelines"
-msgstr "2. Әдістемелік нұсқаулар"
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Сіз редакторға осы материалды рецензиялаудан бас тарту себептерін төмендегі "
+"өрісте сипаттай аласыз."
 
-msgid "reviewer.reviewSteps.request"
-msgstr "1. Сұраныс"
+msgid "reviewer.submission.acceptReview"
+msgstr "Рецензиялауға келісу, №2 қадамға өту"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "№3 қадамға өту"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Рецензияны жіберу"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Кейінге қалдыру"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Рецензенттерге арналған нұсқаулық"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Бұл баспагерде рецензенттердің ықтимал бәсекелес мүдделерін ашу саясаты "
+"бар.  Осы ережелермен танысуыңызды сұраймыз."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Менің бәсекелес мүдделерім жоқ"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Менің бәсекелес қызығушылықтарым болуы мүмкін (төменде көрсетілген)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Бәсекелес мүдделер"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Рецензенттерге арналған нұсқаулық"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Бұл баспагер рецензенттер үшін ешқандай нұсқаулық орнатқан жоқ."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Осы материалға қатысты файлдарды жүктеу үшін төмендегі файл атауларын "
+"нұқыңыз."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Осы хабарлама туралы пікіріңізді төмендегі пішінге енгізіңіз (немесе "
+"қойыңыз)."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Редакторға және/немесе авторға қарауға тұрарлық файлдарды, соның ішінде "
+"рецензияның түпнұсқа файлдарының түзетілген нұсқаларын жүктеңіз."
+
+msgid "reviewer.complete"
+msgstr "Рецензия жіберілді"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Сіз бұл рецензияны жіберуге сенімдісіз бе?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Осы мақаланы рецензиялағаныңыз үшін рахмет. Пікіріңіз сәтті жіберілді. Біз "
+"басып шығаратын жұмыстың сапасына қосқан үлесіңізді бағалаймыз; қажет болса, "
+"қосымша ақпарат алу үшін редактор сізбен қайта хабарласуы мүмкін."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Орындалу мерзімі туралы"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Редактор сізден сұранымға жауап беру күніне дейін рецензияға сұранымды "
+"қабылдауды немесе қабылдамауды және рецензия берілген күнге дейін рецензияны "
+"орындауды сұрайды."
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Автор мен редактор үшін"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Тек редактор үшін"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Осы хабарландыру хатының көшірмесін жасырын көшірме (BCC) ретінде келесі "
+"рецензенттерге жіберу."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "Рецензенттерге жіберу"
+
+msgid "user.authorization.submissionReviewer"
+msgstr "Бұл пайдаланушы сұралған құжатқа рецензент болып тағайындалмаған."

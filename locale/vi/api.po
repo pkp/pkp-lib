@@ -11,94 +11,148 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Thông số {$vocab}  không được hỗ trợ."
+msgid "api.400.paramNotSupported"
+msgstr "Thông số {$param} không được hỗ trợ."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Thông số {$locale} không được hỗ trợ."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.400.propReadOnly"
 msgstr ""
-"Chủ đề đang hoạt động, {$themePluginPath}, chưa được bật và có thể không "
-"được cài đặt."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Không thể tải tệp lên do lỗi cấu hình máy chủ. Hãy liên hệ với quản trị hệ "
-"thống."
 
-msgid "api.temporaryFiles.400.fileSize"
-msgstr "Các tệp lớn hơn $maxSize} không thể được tải lên."
-
-msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "Không thể tải lên một hoặc nhiều tệp."
-
-msgid "api.temporaryFiles.400.noUpload"
-msgstr "Không tìm thấy tệp được tải lên với yêu cầu."
-
-msgid "api.submissions.unknownError"
-msgstr "Một lỗi không mong muốn đã xảy ra. Hãy tải lại trang và thử lại."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Tập, Số hoặc Năm được yêu cầu là không hợp lệ."
-
-msgid "api.submissions.400.missingRequired"
+msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"Yêu cầu của bạn không thể được thực hiện vì nó thiếu thông tin bắt buộc."
 
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.400.requireEmailSubjectBody"
 msgstr ""
-"Điểm cuối này không có sẵn từ ngữ cảnh. Nó phải được truy cập từ không gian "
-"tên trên toàn trang web."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Bạn không có quyền xóa bài nộp này."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Bạn không thể xóa một bài gửi không được chỉ định cho ngữ cảnh này."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Bạn chỉ có thể xem các bài chưa xuất bản mà bạn đã được chỉ định."
-
-msgid "api.submissions.403.csrfTokenFailure"
+msgid "api.files.400.notAllowedCreatedAt"
 msgstr ""
-"Yêu cầu của bạn đã bị từ chối. Điều này có thể là do đăng nhập của bạn đã "
-"hết hạn. Hãy thử tải lại trang và thử lại."
 
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "Yêu cầu của bạn không hợp lệ. Chiều sắp xếp phải là `tăng` hoặc` giảm`."
-
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.dois.403.prefixRequired"
 msgstr ""
-"Yêu cầu của bạn không hợp lệ. Khoảng thời gian phải là `ngày` hoặc` tháng`."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Ngày kết thúc không được muộn hơn ngày hôm qua."
+msgid "api.403.unauthorized"
+msgstr "Bạn không được phép truy cập tài nguyên được yêu cầu."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Ngày bắt đầu không được sớm hơn 2001-01-01."
+msgid "api.404.resourceNotFound"
+msgstr "Tài nguyên yêu cầu không được tìm thấy."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Ngày bắt đầu không được muộn hơn ngày kết thúc."
+msgid "api.404.endpointNotFound"
+msgstr "URL được yêu cầu đã không được nhận dạng."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Ngày phải ở định dạng YYYY-MM-DD."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "Bạn không được phép chỉnh sửa ấn phẩm này."
-
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Không tìm thấy thư mục tệp công khai hoặc không thể lưu tệp vào đó. Vui lòng "
-"liên hệ với quản trị viên của bạn để giải quyết vấn đề này."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.announcements.404.announcementNotFound"
 msgstr ""
-"Bạn không có đủ dung lượng trong thư mục người dùng của mình. Tệp bạn đang "
-"tải lên là {$fileUploadSize} kb và bạn còn lại {$dirSizeLeft} kb."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Bạn không được phép tải tệp lên."
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Không tìm thấy mẫu email bạn yêu cầu."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Ấn phẩm bạn muốn xuất bản đã được xuất bản."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Ấn phẩm bạn muốn hủy xuất bản chưa được xuất bản."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Bạn không thể chỉnh sửa ấn phẩm này vì nó đã được xuất bản."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Bạn không thể sửa đổi trạng thái trực tiếp thông qua API. Thay vào đó, hãy "
+"sử dụng  /xuất bản và /hủy xuất bản."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Bạn phải hủy xuất bản ấn phẩm này trước khi bạn có thể xóa nó."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Bạn chỉ có thể tải lên các loại tệp sau: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Hình ảnh bạn đã tải lên không hợp lệ."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -106,40 +160,167 @@ msgstr ""
 "khi một tệp đã được đổi tên thành một loại không tương thích, ví dụ: thay "
 "đổi photo.png thành photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Hình ảnh bạn đã tải lên không hợp lệ."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Bạn không được phép tải tệp lên."
 
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Bạn chỉ có thể tải lên các loại tệp sau: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Bạn phải hủy xuất bản ấn phẩm này trước khi bạn có thể xóa nó."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Bạn không thể sửa đổi trạng thái trực tiếp thông qua API. Thay vào đó, hãy "
-"sử dụng  /xuất bản và /hủy xuất bản."
+"Bạn không có đủ dung lượng trong thư mục người dùng của mình. Tệp bạn đang "
+"tải lên là {$fileUploadSize} kb và bạn còn lại {$dirSizeLeft} kb."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Bạn không thể chỉnh sửa ấn phẩm này vì nó đã được xuất bản."
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Không tìm thấy thư mục tệp công khai hoặc không thể lưu tệp vào đó. Vui lòng "
+"liên hệ với quản trị viên của bạn để giải quyết vấn đề này."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Ấn phẩm bạn muốn hủy xuất bản chưa được xuất bản."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Ngày phải ở định dạng YYYY-MM-DD."
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "Ấn phẩm bạn muốn xuất bản đã được xuất bản."
+msgid "api.stats.400.wrongDateRange"
+msgstr "Ngày bắt đầu không được muộn hơn ngày kết thúc."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Không tìm thấy mẫu email bạn yêu cầu."
+msgid "api.stats.400.earlyDateRange"
+msgstr "Ngày bắt đầu không được sớm hơn 2001-01-01."
 
-msgid "api.404.endpointNotFound"
-msgstr "URL được yêu cầu đã không được nhận dạng."
+msgid "api.stats.400.lateDateRange"
+msgstr "Ngày kết thúc không được muộn hơn ngày hôm qua."
 
-msgid "api.404.resourceNotFound"
-msgstr "Tài nguyên yêu cầu không được tìm thấy."
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Yêu cầu của bạn không hợp lệ. Khoảng thời gian phải là `ngày` hoặc` tháng`."
 
-msgid "api.403.unauthorized"
-msgstr "Bạn không được phép truy cập tài nguyên được yêu cầu."
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Yêu cầu của bạn không hợp lệ. Chiều sắp xếp phải là `tăng` hoặc` giảm`."
 
-msgid "api.400.paramNotSupported"
-msgstr "Thông số {$param} không được hỗ trợ."
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Yêu cầu của bạn không thể được thực hiện vì nó thiếu thông tin bắt buộc."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Tập, Số hoặc Năm được yêu cầu là không hợp lệ."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Yêu cầu của bạn đã bị từ chối. Điều này có thể là do đăng nhập của bạn đã "
+"hết hạn. Hãy thử tải lại trang và thử lại."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Bạn không thể xóa một bài gửi không được chỉ định cho ngữ cảnh này."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Bạn chỉ có thể xem các bài chưa xuất bản mà bạn đã được chỉ định."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Bạn không có quyền xóa bài nộp này."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Bạn không được phép chỉnh sửa ấn phẩm này."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Điểm cuối này không có sẵn từ ngữ cảnh. Nó phải được truy cập từ không gian "
+"tên trên toàn trang web."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Chủ đề đang hoạt động, {$themePluginPath}, chưa được bật và có thể không "
+"được cài đặt."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Thông số {$locale} không được hỗ trợ."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr ""
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Thông số {$vocab}  không được hỗ trợ."
+
+#~ msgid "api.temporaryFiles.400.config"
+#~ msgstr ""
+#~ "Không thể tải tệp lên do lỗi cấu hình máy chủ. Hãy liên hệ với quản trị "
+#~ "hệ thống."
+
+#~ msgid "api.temporaryFiles.400.fileSize"
+#~ msgstr "Các tệp lớn hơn $maxSize} không thể được tải lên."
+
+#~ msgid "api.temporaryFiles.409.uploadFailed"
+#~ msgstr "Không thể tải lên một hoặc nhiều tệp."
+
+#~ msgid "api.temporaryFiles.400.noUpload"
+#~ msgstr "Không tìm thấy tệp được tải lên với yêu cầu."
+
+#~ msgid "api.submissions.unknownError"
+#~ msgstr "Một lỗi không mong muốn đã xảy ra. Hãy tải lại trang và thử lại."

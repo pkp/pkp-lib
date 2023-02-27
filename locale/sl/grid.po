@@ -28,6 +28,9 @@ msgstr "Ni revizorjev"
 msgid "grid.remotelyHostedItem"
 msgstr "Ta element gostuje drugje."
 
+msgid "grid.action.uninstall"
+msgstr "Odstrani"
+
 msgid "grid.action.manageAccess"
 msgstr "Upravljaj dostope"
 
@@ -130,6 +133,9 @@ msgstr "Nadgradnja"
 msgid "grid.action.order"
 msgstr "Vrstni red"
 
+msgid "grid.action.saveOrdering"
+msgstr "Shrani vrstni red"
+
 msgid "grid.action.cancelOrdering"
 msgstr "Odstrani vrstni red"
 
@@ -229,6 +235,9 @@ msgstr "Dodaj novo uporabniško skupino"
 msgid "grid.action.editUserGroup"
 msgstr "Uredi to uporabniško skupino"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Odstrani to uporabniško skupino"
+
 msgid "grid.action.disable"
 msgstr "Onemogoči"
 
@@ -277,6 +286,9 @@ msgstr "Dodaj nov tip obvestil"
 msgid "grid.action.addAnnouncement"
 msgstr "Dodaj obvestilo"
 
+msgid "grid.action.addInstitution"
+msgstr "Dodaj institucijo"
+
 msgid "grid.action.mergeUser"
 msgstr "Združi uporabnika"
 
@@ -322,6 +334,9 @@ msgstr "Namesti"
 msgid "grid.action.moreItems"
 msgstr "Naloži več"
 
+msgid "grid.action.users"
+msgstr "Poglej/izberi uporabnike"
+
 msgid "grid.task.status.completed"
 msgstr "Ta naloga je opravljena"
 
@@ -351,6 +366,9 @@ msgstr "Revizor"
 
 msgid "grid.columns.locale"
 msgstr "Jezik"
+
+msgid "grid.columns.locale.code"
+msgstr "Koda"
 
 msgid "grid.sponsor.title"
 msgstr "Sponzorske organizacije"
@@ -391,6 +409,14 @@ msgstr "Dodaj sodelavca"
 msgid "grid.action.deleteContributor"
 msgstr "Odstrani sodelavca"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Ste prepričani, da želite odstraniti osebo {$name} kot sodelavca? Te akcije "
+"ni mogoče povrniti."
+
+msgid "grid.action.newVersion"
+msgstr "Ustvari novo verzijo"
+
 msgid "grid.reviewForm.title"
 msgstr "Recenzijski obrazci"
 
@@ -426,6 +452,32 @@ msgstr "Postavka kontrolnega seznama"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Primarni kontakt"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Določite primarni kontakt"
+
+msgid "contributor.listPanel.preview"
+msgstr "Predogled"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Sodelujoči v tej publikaciji bodo v tej reviji identificirani v spodnjih "
+"oblikah."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Oblika"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Prikaži"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Skrajšano"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Seznam publikacij"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Polno"
 
 msgid "grid.roles.currentRoles"
 msgstr "Trenutna vloga"
@@ -656,63 +708,8 @@ msgstr "Ni navigacijskih menijev"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Izberite tip..."
 
-msgid "grid.action.uninstall"
-msgstr "Odstrani"
-
-msgid "grid.action.users"
-msgstr "Poglej/izberi uporabnike"
-
-msgid "grid.action.newVersion"
-msgstr "Ustvari novo verzijo"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Odstrani to uporabniško skupino"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Polno"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Seznam publikacij"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Skrajšano"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Prikaži"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Oblika"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Sodelujoči v tej publikaciji bodo v tej reviji identificirani v spodnjih "
-"oblikah."
-
-msgid "contributor.listPanel.preview"
-msgstr "Predogled"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Določite primarni kontakt"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Ste prepričani, da želite odstraniti osebo {$name} kot sodelavca? Te akcije "
-"ni mogoče povrniti."
-
-msgid "grid.action.saveOrdering"
-msgstr "Shrani vrstni red"
-
-msgid "grid.user.authSource"
-msgstr "Avtentikacijski vir"
-
-msgid "grid.action.addInstitution"
-msgstr "Dodaj institucijo"
-
 msgid "grid.action.view"
 msgstr "Pogled"
-
-msgid "grid.columns.locale.code"
-msgstr "Koda"
 
 msgid "author.users.contributor.name"
 msgstr "Ime"
@@ -729,3 +726,5 @@ msgstr "Objavljen v seznamu"
 msgid "grid.action.editContributor"
 msgstr "Uredi sodelavca"
 
+#~ msgid "grid.user.authSource"
+#~ msgstr "Avtentikacijski vir"

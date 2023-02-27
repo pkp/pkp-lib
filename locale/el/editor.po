@@ -18,8 +18,71 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Επιβεβαιώνετε την οριστική διαγραφή της συγκεκριμένης υποβολής;"
 
+msgid "editor.activityLog"
+msgstr "Αρχείο Καταγραφής Δραστηριότητας"
+
 msgid "editor.submissionLibrary"
 msgstr "Αρχείο υποβολής"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Η απόφαση καταγράφηκε"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Η υποβολή απορρίφθηκε."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Η υποβολή έγινε αποδεκτή."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Η υποβολή δημοσιεύτηκε."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Στάλθηκε για έναν νέο γύρο αξιολογήσεων."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Στάλθηκε στην παραγωγή."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Η υποβολή έγινε αποδεκτή για αξιολόγηση."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Αλλαγή απόφασης"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
 
 msgid "editor.review.notInitiated"
 msgstr "Η διαδικασία αξιολόγησης δεν έχει ξεκινήσει."
@@ -52,7 +115,12 @@ msgid "editor.submission.revisions"
 msgstr "Αναθεωρήσεις"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Επιλέξτε <em>+Προσθήκη Αξιολογητή</em> για να προσκαλέσετε Αναγνώστες να αξιολογήσουν τα αρχεία της υποβολής. Το εικονίδιο υποδεικνύει ότι έχει υποβληθεί μια αξιολόγηση, που αφού αναγνωσθεί επισημαίνεται ως αναγνωσθείσα. Με την παρέλευση της προθεσμίας αξιολόγησης, εμφανίζεται ένα κόκκινο εικονίδιο για την αποστολή υπενθύμισης στους Αξιολογητές."
+msgstr ""
+"Επιλέξτε <em>+Προσθήκη Αξιολογητή</em> για να προσκαλέσετε Αναγνώστες να "
+"αξιολογήσουν τα αρχεία της υποβολής. Το εικονίδιο υποδεικνύει ότι έχει "
+"υποβληθεί μια αξιολόγηση, που αφού αναγνωσθεί επισημαίνεται ως αναγνωσθείσα. "
+"Με την παρέλευση της προθεσμίας αξιολόγησης, εμφανίζεται ένα κόκκινο "
+"εικονίδιο για την αποστολή υπενθύμισης στους Αξιολογητές."
 
 msgid "editor.submission.addReviewer"
 msgstr "Προσθήκη Αξιολογητή"
@@ -80,6 +148,15 @@ msgstr "Εγγραφή υπάρχοντα Χρήστη"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Αφαίρεση Αξιολογητή"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Ακύρωση Αξιολογητή"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Επαναφορά Αξιολογητή"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Τύπος αξιολόγησης"
@@ -134,6 +211,12 @@ msgstr "Τα αναθεωρημένα κείμενα δεν θα υποβληθ�
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Τα αναθεωρημένα κείμενα θα υποβληθούν σε νέο γύρο αξιολόγησης."
 
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+
 msgid "editor.review.dateAccepted"
 msgstr "Ημερομηνία αποδοχής αξιολόγησης"
 
@@ -179,8 +262,14 @@ msgstr "Το αίτημα έγινε αποδεκτό."
 msgid "editor.review.requestDeclined"
 msgstr "Το αίτημα απορρίφθηκε."
 
+msgid "editor.review.requestCancelled"
+msgstr "Το αίτημα ακυρώθηκε"
+
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "Ο Αξιολογητής απέρριψε το αίτημα αξιολόγησης."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr ""
 
 msgid "editor.review.revertDecision"
 msgstr "Αναίρεση απόφασης"
@@ -200,6 +289,12 @@ msgstr "Η αξιολόγηση επιβεβαιώθηκε"
 msgid "editor.review.reviewSubmitted"
 msgstr "Η αξιολόγηση υποβλήθηκε"
 
+msgid "editor.review.reviewerThanked"
+msgstr ""
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "Σχόλια Αξιολογητή"
 
@@ -207,7 +302,9 @@ msgid "editor.review.rateReviewer"
 msgstr "Βαθμολογία Αξιολογητή"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Βαθμολογήστε την ποιότητα της αξιολόγησης που υποβλήθηκε. Η βαθμολογία δεν κοινοποιείται στον Αξιολογητή."
+msgstr ""
+"Βαθμολογήστε την ποιότητα της αξιολόγησης που υποβλήθηκε. Η βαθμολογία δεν "
+"κοινοποιείται στον Αξιολογητή."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Δεν υπάρχει βαθμολογία"
@@ -216,22 +313,48 @@ msgid "editor.review.mustSelect"
 msgstr "Πρέπει να επιλέξετε έναν Αξιολογητή"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr "Παρουσιάστηκε λάθος κατά την καταχώρηση του Αξιολογητή. Παρακαλούμε προσπαθήστε ξανά."
+msgstr ""
+"Παρουσιάστηκε λάθος κατά την καταχώρηση του Αξιολογητή. Παρακαλούμε "
+"προσπαθήστε ξανά."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr "Παρουσιάστηκε λάθος κατά τη διαγραφή του Αξιολογητή. Παρακαλούμε προσπαθήστε ξανά."
+msgstr ""
+"Παρουσιάστηκε λάθος κατά τη διαγραφή του Αξιολογητή. Παρακαλούμε προσπαθήστε "
+"ξανά."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Παρουσιάστηκε σφάλμα κατά την επαναφορά του Αξιολογητή. Προσπαθήστε ξανά."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
 
 msgid "editor.review.userGroupSelect"
 msgstr "Ένταξη Χρήστη στη συγκεκριμένη ομάδα Αξιολογητών"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Θέλετε να επισημάνετε την αξιολόγηση ως μη ληφθείσα υπόψη; Το ιστορικό της αξιολόγησης θα διατηρηθεί."
+msgstr ""
+"Θέλετε να επισημάνετε την αξιολόγηση ως μη ληφθείσα υπόψη; Το ιστορικό της "
+"αξιολόγησης θα διατηρηθεί."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Σήμανση ως μη ληφθείσα υπόψη"
 
 msgid "editor.review.readConfirmation"
-msgstr "Όταν διαβάσετε αυτή την αξιολόγηση, επιλέξτε \"Επιβεβαίωση\", προκειμένου να συνεχιστεί η διαδικασία αξιολόγησης. Εάν ο Αξιολογητής έχει υποβάλει την αξιολόγησή του αλλού, μπορείτε να ανεβάσετε το σχετικό αρχείο και να επιλέξετε \"Επιβεβαίωση\"."
+msgstr ""
+"Όταν διαβάσετε αυτή την αξιολόγηση, επιλέξτε \"Επιβεβαίωση\", προκειμένου να "
+"συνεχιστεί η διαδικασία αξιολόγησης. Εάν ο Αξιολογητής έχει υποβάλει την "
+"αξιολόγησή του αλλού, μπορείτε να ανεβάσετε το σχετικό αρχείο και να "
+"επιλέξετε \"Επιβεβαίωση\"."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Πρόγραμματισμός δημοσίευσης"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Αρχεία επιμελημένων κειμένων"
@@ -258,16 +381,26 @@ msgid "editor.submission.proof.reminder"
 msgstr "Υπενθύμιση επιμέλειας κειμένου"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Πριν την αποστολή στο στάδιο παραγωγής, το επιμελημένο αρχείο πρέπει να γίνει αποδεκτό. Επιβεβαιώνετε την αποδοχή του αρχείου;"
+msgstr ""
+"Πριν την αποστολή στο στάδιο παραγωγής, το επιμελημένο αρχείο πρέπει να "
+"γίνει αποδεκτό. Επιβεβαιώνετε την αποδοχή του αρχείου;"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Η μη αποδοχή του επιμελημένου αρχείου καθιστά αδύνατη την αποστολή του στο στάδιο παραγωγής. Επιβεβαιώνετε την ενέργεια;"
+msgstr ""
+"Η μη αποδοχή του επιμελημένου αρχείου καθιστά αδύνατη την αποστολή του στο "
+"στάδιο παραγωγής. Επιβεβαιώνετε την ενέργεια;"
 
 msgid "editor.submission.addAuditor"
 msgstr "Ανάθεση σε Ελεγκτή (Auditor)"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Είναι δυνατή η προσθήκη αρχείων που μεταφορτώθηκαν σε οποιοδήποτε στάδιο της υποβολής στη λίστα των αρχείων προς επιμέλεια: επιλέξτε το κουτί ελέγχου \"Συμπερίληψη\" και στη συνέχεια \"Αναζήτηση\" για να εμφανιστούν όλα τα διαθέσιμα αρχεία. Πρόσθετα αρχεία που δεν έχουν μεταφορτωθεί σε κάποιο στάδιο μπορούν να συμπεριληφθούν επιλέγοντας τον σύνδεσμο \"Μεταφόρτωση αρχείου\"."
+msgstr ""
+"Είναι δυνατή η προσθήκη αρχείων που μεταφορτώθηκαν σε οποιοδήποτε στάδιο της "
+"υποβολής στη λίστα των αρχείων προς επιμέλεια: επιλέξτε το κουτί ελέγχου "
+"\"Συμπερίληψη\" και στη συνέχεια \"Αναζήτηση\" για να εμφανιστούν όλα τα "
+"διαθέσιμα αρχεία. Πρόσθετα αρχεία που δεν έχουν μεταφορτωθεί σε κάποιο "
+"στάδιο μπορούν να συμπεριληφθούν επιλέγοντας τον σύνδεσμο \"Μεταφόρτωση "
+"αρχείου\"."
 
 msgid "editor.review"
 msgstr "Αξιολόγηση"
@@ -286,9 +419,6 @@ msgstr "Αποστολή μηνύματος στον Αξιολογητή"
 
 msgid "editor.submission.production.productionReadyFiles"
 msgstr "Αρχεία έτοιμα για την παραγωγή"
-
-msgid "editor.submission.schedulePublication"
-msgstr "Πρόγραμματισμός δημοσίευσης"
 
 msgid "editor.submission.newRound"
 msgstr "Νέος γύρος αξιολόγησης"
@@ -312,7 +442,10 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Να μην πραγματοποιηθεί συζήτηση σχετικά με τη σύσταση."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Πρόκειται να ξεκινήσετε ένα νέο γύρο αξιολόγησης για αυτή την υποβολή. Τα αρχεία που δεν έχουν χρησιμοποιηθεί σε άλλους γύρους αξιολόγησης παρατίθενται παρακάτω."
+msgstr ""
+"Πρόκειται να ξεκινήσετε ένα νέο γύρο αξιολόγησης για αυτή την υποβολή. Τα "
+"αρχεία που δεν έχουν χρησιμοποιηθεί σε άλλους γύρους αξιολόγησης "
+"παρατίθενται παρακάτω."
 
 msgid "editor.submission.createNewRound"
 msgstr "Έναρξη νέου γύρου αξιολόγησης"
@@ -324,7 +457,10 @@ msgid "editor.article.selectReviewForm"
 msgstr "Επιλέξτε φόρμα αξιολόγησης"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Προσοχή: Η αλλαγή της φόρμας αξιολόγησης θα επηρεάσει όλες τις απαντήσεις των Αξιολογητών που έχουν γίνει με την χρήση αυτής της φόρμας. Επιβεβαιώνετε την αλλαγή;"
+msgstr ""
+"Προσοχή: Η αλλαγή της φόρμας αξιολόγησης θα επηρεάσει όλες τις απαντήσεις "
+"των Αξιολογητών που έχουν γίνει με την χρήση αυτής της φόρμας. Επιβεβαιώνετε "
+"την αλλαγή;"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Δεν έχουν επιλεγεί αρχεία"
@@ -357,13 +493,21 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Αναίρεση αποδοχής δοκιμίου"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Αποδεχθείτε αυτή την έκδοση του δοκιμίου για να ολοκληρωθεί η διαδικασία επιμέλειας και το αρχείο να είναι έτοιμο για δημοσίευση."
+msgstr ""
+"Αποδεχθείτε αυτή την έκδοση του δοκιμίου για να ολοκληρωθεί η διαδικασία "
+"επιμέλειας και το αρχείο να είναι έτοιμο για δημοσίευση."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Η αναίρεση αποδοχής δοκιμίου το επαναφέρει σε κατάσταση επιμέλειας και καθιστά αδύνατη την άμεση δημοσίευσή του."
+msgstr ""
+"Η αναίρεση αποδοχής δοκιμίου το επαναφέρει σε κατάσταση επιμέλειας και "
+"καθιστά αδύνατη την άμεση δημοσίευσή του."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
 
 msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "Το δημόσιο αναγνωριστικό '{$publicIdentifier}' δεν πρέπει να είναι αριθμός."
+msgstr ""
+"Το δημόσιο αναγνωριστικό '{$publicIdentifier}' δεν πρέπει να είναι αριθμός."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Το πρότυπο {$pattern} δεν επιτρέπεται για το δημόσιο αναγνωριστικό."
@@ -377,11 +521,17 @@ msgstr "{$count} ενεργοί"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Ανατεθειμένες ενεργές υποβολές"
 
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
+
 msgid "reviewer.list.completedReviews"
 msgstr "Ολοκληρωμένες αξιολογήσεις"
 
 msgid "reviewer.list.declinedReviews"
 msgstr "Απόρριψη αιτημάτων αξιολόγησης"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Ακύρωση αιτημάτων αξιολόγησης"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Βαθμολογία αξιολογήσεων: {$rating}"
@@ -404,12 +554,18 @@ msgstr "Χωρίς καμία ανάθεση"
 msgid "reviewer.list.reassign"
 msgstr "Aνάθεση εκ νέου"
 
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Η αξιολόγηση έχει ήδη ανατεθεί σε αυτόν τον Αξιολογητή."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "Αυτός ο Αξιολογητής έχει εξαιρεθεί, γιατί κατέχει έναν ρόλο που του επιτρέπει την πρόσβαση στην ταυτότητα του Συγγραφέα και δεν διασφαλίζεται η \"τυφλή\" Αξιολόγηση. Θέλετε να συμπεριληφθεί στους Αξιολογητές;"
+msgstr ""
+"Αυτός ο Αξιολογητής έχει εξαιρεθεί, γιατί κατέχει έναν ρόλο που του "
+"επιτρέπει την πρόσβαση στην ταυτότητα του Συγγραφέα και δεν διασφαλίζεται η "
+"\"τυφλή\" Αξιολόγηση. Θέλετε να συμπεριληφθεί στους Αξιολογητές;"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Ξεκλείδωμα"
@@ -423,48 +579,29 @@ msgstr "Βιογραφικό"
 msgid "reviewer.list.empty"
 msgstr "Δεν βρέθηκαν Αξιολογητές"
 
-msgid "reviewer.list.cancelledReviews"
-msgstr "Ακύρωση αιτημάτων αξιολόγησης"
-
-msgid "editor.review.errorReinstatingReviewer"
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
-"Παρουσιάστηκε σφάλμα κατά την επαναφορά του Αξιολογητή. Προσπαθήστε ξανά."
 
-msgid "editor.review.requestCancelled"
-msgstr "Το αίτημα ακυρώθηκε"
+msgid "editor.decision.cancelDecision"
+msgstr ""
 
-msgid "editor.review.reinstateReviewer"
-msgstr "Επαναφορά Αξιολογητή"
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr ""
 
-msgid "editor.review.cancelReviewer"
-msgstr "Ακύρωση Αξιολογητή"
+msgid "editor.decision.completeSteps"
+msgstr ""
 
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Αλλαγή απόφασης"
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
 
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Η υποβολή έγινε αποδεκτή για αξιολόγηση."
+msgid "editor.decision.emailSkipped"
+msgstr ""
 
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Στάλθηκε στην παραγωγή."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Στάλθηκε για έναν νέο γύρο αξιολογήσεων."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Η υποβολή δημοσιεύτηκε."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Η υποβολή έγινε αποδεκτή."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Η υποβολή απορρίφθηκε."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Η απόφαση καταγράφηκε"
-
-msgid "editor.activityLog"
-msgstr "Αρχείο Καταγραφής Δραστηριότητας"
+msgid "editor.decision.recordDecision"
+msgstr ""
 
 msgid "editor.decision.skipEmail"
 msgstr "Παραλείψτε αυτό το email"
+
+msgid "editor.decision.stepError"
+msgstr ""

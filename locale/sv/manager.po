@@ -43,6 +43,9 @@ msgstr "Förfallodatum"
 msgid "manager.announcements.datePublish"
 msgstr "Publicerat"
 
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Ta bort meddelande"
+
 msgid "manager.announcements.edit"
 msgstr "Redigera meddelande"
 
@@ -149,6 +152,220 @@ msgstr "Inga meddelandetyper har skapats."
 msgid "manager.announcementTypes.typeName"
 msgstr "Meddelandetyp"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponera alla"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponera DOI:er"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Du kommer skicka metadata för {$count} objekt till {$registrationAgency}. Är "
+"du säker på att du vill deponera de här posterna?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Markera DOI:er som registrerade"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr "Du kommer markera {$count} objekt som registerade. Är du säker på det?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Markera DOI:er som oregistrerade"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Du kommer markera DOI-metadataposter för {$count} objekt som oregistrerade. "
+"Är du säker på att du vill göra det?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr ""
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportera DOI:er"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Du kommer exportera metadata för {$count} objekt till {$registrationAgency}. "
+"Är du säker på att du vill exportera de här posterna?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Tilldela DOI:er"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Du kommer tilldela nya DOI:er till {$count} objekt, om dessa inte redan har "
+"tilldelats en DOI. Är du säker på att du vill tilldela DOI:er till dessa "
+"objekt?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Deponera alla DOI:er"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Du kommer schemalägga alla utestående metadataposter som ska deponeras hos "
+"{$registrationAgency}. Varje objekts enskilda status kommer uppdateras när "
+"svar ges. Är du säker på att du vill schemalägga deponeringar för samtliga "
+"dessa objekt?"
+
+msgid "manager.dois.actions.description"
+msgstr "Gör ändringar för {$count} objekt."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr ""
+
+msgid "manager.dois.depositStatus"
+msgstr "Deponera status"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Publiceringsstatus"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadata för detta objekt har skickats in till {$registrationAgency}."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+"Metadata för detta objekt har inte skickats till {$registrationAgency}."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Detta objekt kan inte deponeras förrän det har publicerats."
+
+msgid "manager.dois.registration.viewError"
+msgstr "Visa fel"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Felmeddelande för registrering"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Visa post"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Meddelande om avklarad registrering"
+
+msgid "manger.dois.update.success"
+msgstr "DOI:er har uppdaterats"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Deponera DOI(:er)"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "DOI saknas"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Oregistrerad"
+
+msgid "manager.dois.status.submitted"
+msgstr "Inskickad"
+
+msgid "manager.dois.status.registered"
+msgstr "Registrerad"
+
+msgid "manager.dois.status.error"
+msgstr "Fel"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+
+msgid "manager.dois.status.error.description"
+msgstr ""
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+
+msgid "manager.dois.update.failedCreation"
+msgstr "DOI-uppdatering misslyckades"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Vissa DOI:er kunde inte uppdateras."
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Objekt har exporterats"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Objekt har markerats som registrerade"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Objekten har markerats som oregistrerade"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Objekt har tilldelats DOI:er"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Objekt har skickats in för deponering"
+
+msgid "manager.dois.help.statuses.title"
+msgstr ""
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Innan detta objekt kan raderas måste du koppla alla relaterade filer till "
+"ett annat objekt."
+
+msgid "manager.institutions.edit"
+msgstr "Redigera institution"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry-ID för denna institution."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "IP-intervall"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Giltiga värden är IP-adresser (t.ex. 142.58.103.1), IP-intervall (t.ex. "
+"142.58.103.1 - 142.58.103.4), IP-intervall med trunkering '*' (t.ex. 142.58."
+"*.*), och IP-intervall med CIDR (t.ex. 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Ta bort institution"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Är du säker på att du vill ta bort institutionen?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Ogiltigt IP-intervall"
+
 msgid "manager.publication.submissionStage"
 msgstr "Bidrag"
 
@@ -163,6 +380,24 @@ msgstr "Produktion"
 
 msgid "manager.publication.emails"
 msgstr "E-post"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Guide för granskare"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Granskningspåminnelsens detaljer har uppdaterats."
+
+msgid "manager.dois.title"
+msgstr "DOI:er"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr "Följande fel har rapporterats av {$registrationAgency}:"
+
+msgid "manager.emails.addEmail"
+msgstr "Lägg till mall"
 
 msgid "manager.emails.createEmail"
 msgstr "Skapa e-postmeddelande"
@@ -187,6 +422,15 @@ msgstr "Redigera e-postexemplet"
 msgid "manager.emails.emailTemplate"
 msgstr "E-postmall"
 
+msgid "manager.emails.emailTemplates"
+msgstr "E-postmallar"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Andra mallar"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du måste ange ett ID när en e-postmall läggs till."
+
 msgid "manager.emails.enabled"
 msgstr "Aktivera den här e-postmallen"
 
@@ -209,6 +453,9 @@ msgstr "Ämne krävs."
 msgid "manager.emails"
 msgstr "E-postmallar"
 
+msgid "manager.emails.resetAll"
+msgstr "Återställ alla"
+
 msgid "manager.emails.resetAll.message"
 msgstr ""
 "Alla ändringar som gjorts i e-postmallarna kommer att försvinna. Vill du "
@@ -221,6 +468,18 @@ msgstr ""
 
 msgid "manager.emails.resetToDefault"
 msgstr "Återställ till defaultutseende"
+
+msgid "manager.emails.sentFrom"
+msgstr "Skickats från"
+
+msgid "manager.emails.sentTo"
+msgstr "Skickats till"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportera till Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Filutforskare"
@@ -413,6 +672,9 @@ msgstr "Ta bort"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Spara och skapa ytterligare"
 
+msgid "manager.people.signedInAs"
+msgstr "Du är inloggad som {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Logga in som"
 
@@ -457,6 +719,11 @@ msgstr "Läsverktyg"
 msgid "manager.userSearch.searchByName"
 msgstr "Sök användare med namn"
 
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan inte ta bort representanten eftersom hen har lagts till i "
+"marknadsmetadatan för ett eller flera av bidragets publiceringsformat."
+
 msgid "manager.reviewerSearch.change"
 msgstr "Ändra"
 
@@ -477,20 +744,57 @@ msgstr ""
 msgid "manager.roles"
 msgstr "Roller"
 
+msgid "manager.setup.statistics"
+msgstr "Statistik"
+
+#, fuzzy
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geografisk användningsstatistik"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+
+#, fuzzy
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Samla inte in geografisk data"
+
+#, fuzzy
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Land"
+
+#, fuzzy
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Land och region"
+
+#, fuzzy
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Land, region och stad"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Institutionens användningsstatistik"
+
+#, fuzzy
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Välj detta alternativ om du vill hantera institutioner och samla in deras "
+"användningsstatistik. Detta kommer påverka vilka statistikrapporter som kan "
+"hämtas ut, samt även storleken på databasen."
+
+#, fuzzy
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr ""
+
 msgid "manager.statistics"
 msgstr "Statistik &amp; Rapporter"
-
-msgid "stats.views"
-msgstr "Visningar av numrets innehållsförteckning"
-
-msgid "stats.downloads"
-msgstr "Visningar av numrets publiceringsversion"
-
-msgid "stats.city"
-msgstr "Stad"
-
-msgid "stats.region"
-msgstr "Region"
 
 msgid "manager.statistics.reports"
 msgstr "Rapporter"
@@ -510,6 +814,122 @@ msgstr "Använd formatet ÅÅÅÅMMDD."
 msgid "manager.affiliationAndSupport"
 msgstr "Sponsor"
 
+msgid "manager.setup.dois"
+msgstr "DOI:er"
+
+msgid "manager.setup.dois.setup"
+msgstr "Konfiguration"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registrering"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Automatisk deponering"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Aktivera automatisk deponering"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"DOI:n kan registreras automatiskt hos den valda organisationen när ett "
+"objekt med DOI publiceras. Automatisk registrering sker vid bestämda "
+"intervaller och varje DOI:s status kan kontrolleras genom sidan för DOI-"
+"hantering."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Detta tilldelas av en organisation som står för ett DOI-register, t.ex. <a "
+"href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> eller <a href="
+"\"https://datacite.org/\" target=\"new\">DataCite</a>. Exempel: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatisk tilldelning av DOI"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Vid vilken punkt i publiceringsprocessen ska DOI tilldelas?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Vid publicering"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Aldrig"
+
+msgid "manager.setup.doiPrefix"
+msgstr "DOI-prefix"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Objekt med DOI:er"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Ett DOI-prefix krävs"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffix"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "DOI-suffix"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Eget DOI-suffixmönster"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Ett DOI-suffix utformas hur som helst, men måste vara unikt för objekt med "
+"samma DOI-prefix:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Använd standardmönster."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Eget mönster (ej rekommenderat)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "DOI-organisation"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Välj DOI-organisationen du vill använda för att registrera DOI:er."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Ingen DOI-organisation aktiverad"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"DOI:er kan skapas och registreras hos en DOI-organisation. För att använda "
+"denna funktion, installera plugin för den organisation ni är anslutna till."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Ingen"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr ""
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Du kan inte utföra detta kommando utan att aktivera DOI:er"
+
+msgid "doi.manager.versions.countStatement"
+msgstr ""
+
+msgid "doi.manager.versions.view"
+msgstr ""
+
+msgid "doi.manager.versions.modalTitle"
+msgstr ""
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr ""
+
 msgid "manager.setup.publishing"
 msgstr "Publiceringsinformation"
 
@@ -523,6 +943,9 @@ msgstr "Ytterligare innehåll"
 
 msgid "manager.setup.additionalContent.description"
 msgstr "Det som fylls i här kommer att synas på din förstasida."
+
+msgid "manager.setup.advanced"
+msgstr "Avancerad"
 
 msgid "manager.setup.copyrightNotice"
 msgstr "Upphovsrättsdeklaration"
@@ -540,6 +963,12 @@ msgstr ""
 "Rekommenderade riktlinjer inkluderar bibliografi- och formateringsstandarder "
 "tillsammans med exempel på vanliga referensformat att använda vid inlämning "
 "av bidrag."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Inaktivera bidrag"
+
+msgid "manager.setup.checklist"
+msgstr "Checklista"
 
 msgid "manager.setup.competingInterests"
 msgstr "Intressekonflikter"
@@ -569,15 +998,13 @@ msgstr ""
 msgid "manager.setup.information.descriptionTitle"
 msgstr "Beskrivningar"
 
-msgid "manager.setup.theme"
-msgstr "Tema"
-
-msgid "manager.setup.theme.description"
-msgstr ""
-"Nya teman kan installeras från fliken Plugins högst upp på den här sidan."
-
 msgid "manager.setup.layout.sidebar"
 msgstr "Sidomeny"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blocket {$name} kan inte hittas. Kontrollera att pluginet är installerat och "
+"aktiverat."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Loggning och revidering"
@@ -585,17 +1012,88 @@ msgstr "Loggning och revidering"
 msgid "manager.setup.logo"
 msgstr "Logotyp"
 
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
+
 msgid "manager.setup.notifications"
 msgstr "Avisering om bidrag från författare"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Skicka en kopia till den här e-postadressen"
 
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Meddela alla författare"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Vem ska få en e-postavisering när beslut fattats?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Skicka en e-postavisering till bidragets samtliga författare."
+
+#, fuzzy
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Skicka enbart e-postavisering till författare som är knutna till "
+"arbetsflödet för bidraget. Detta är vanligtvis författaren som skickat in "
+"bidraget."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Meddelanden"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Informera primär kontakt"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ja, skicka en kopia till {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nej"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Informera alla"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"En kopia av bidragets bekräftelsemail kommer skickas till samtliga e-"
+"postadresser i detta fält. Avskilj e-postadresser med ett kommatecken. "
+"Exempelvis: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "En eller flera e-postadresser är ogilitg(a)."
+
 msgid "manager.setup.notifications.description"
 msgstr ""
 "Författare får automatiskt ett e-postmeddelande som bekräftar deras "
 "inskickade bidrag. Du kan få kopior av detta meddelande skickade till "
 "följande:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Meddela användare"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Välj vilka användare som ska få era e-postmeddelanden."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Skicka en kopia av detta meddelande till {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Skicka e-post"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du kommer skicka e-post till {$total} användare. Är du säker på att du vill "
+"skicka?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Skickar e-postmeddelande. Stanna kvar på sidan tills den är färdig med att "
+"skicka."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-postmeddelande har skickats till samtliga mottagare."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Skicka ytterligare ett e-postmeddelande"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Open access-policy"
@@ -637,12 +1135,48 @@ msgstr ""
 msgid "manager.setup.privacyStatement"
 msgstr "Integritetspolicy"
 
+msgid "manager.setup.dateTime"
+msgstr "Tid & Datum"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Datum- och tidformat"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Välj format för tid och datum. Ett anpassat format kan anges genom att "
+"använda  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
+"function.strftime-parameters'>specialtecken för format</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Datum"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Datum (kort)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Datum & tid"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Datum & tid (kort)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Anpassat"
+
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
 "Den här texten kommer att synas vid användarregistrering, när författare "
 "skickar in bidrag och på den publika sidan Integritet. I vissa "
 "jurisdiktioner är det ett lagkrav att publicera hur man hanterar persondata "
 "i en integritetspolicy."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Default svarsdatum"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Defaultvärde för sista datum för kompletteringar"
 
 msgid "manager.setup.reviewOptions.numWeeksPerResponse"
 msgstr ""
@@ -658,18 +1192,29 @@ msgid "manager.setup.reviewOptions.noteOnModification"
 msgstr ""
 "Defaultvärden kan ändras för varje granskning under redaktionsprocessen."
 
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Påminnelse"
+
 msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
 "Skicka en påminnelse om granskaren inte har svarat på en "
 "granskningsförfrågan inom följande antal dagar efter deadline."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Granskningspåminnelse"
 
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Skicka en påminnelse om granskaren inte har lämnat en rekommendation inom "
 "följande antal dagar efter deadline."
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Default-deadlines för granskning"
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Default granskningsläge"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Visa länken <button type=\"button\">Garantera anonym granskning</button> "
+"under uppladdning"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Sponsorrelation och policybeskrivning"
@@ -693,6 +1238,75 @@ msgstr ""
 "eventuella problem med insändning av bidrag, redaktionellt arbete, "
 "granskning eller publicering."
 
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.institutions"
+msgstr "Institutioner"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Nya teman kan installeras från fliken Plugins högst upp på den här sidan."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Det tema som du valde är inte installerat eller aktiverat."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.guidance"
+msgstr ""
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Checklista för insändning av bidrag"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"När ett bidrag skickas in till tidskriften måste författaren först "
+"kontrollera de olika momenten i Checklista för insändning av bidrag. "
+"Checklistan syns också i Författarinstruktioner under Om tidskriften. "
+"Checklistan kan redigeras nedan men alla delmoment på listan måste markeras "
+"av författaren innan bidraget skickas in."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Är du säker på att du vill avaktivera sektionen?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Är du säker på att du vill aktivera denna sektion?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr ""
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Alternativ för tillgång till webbplatsen"
 
@@ -701,6 +1315,9 @@ msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nya)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerade användare"
 
 msgid "manager.users"
 msgstr "Användare"
@@ -990,8 +1607,34 @@ msgstr "Språket/regionen {$locale} laddades om."
 msgid "notification.localeSettingsSaved"
 msgstr "Språk/region-inställningar sparade."
 
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Språkinställningen sparades inte. Minst ett språk måste vara aktiverat för "
+"varje alternativ"
+
 msgid "notification.editedUser"
 msgstr "Användare ändrades."
+
+msgid "manager.distribution.license"
+msgstr "Licens"
+
+msgid "manager.distribution.license.other"
+msgstr "Annan licens-URL"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Licensvillkor"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr "Ange licensvillkor som du vill visa vid det publicerade verket."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Anpassade taggar"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Lägg till anpassade HTML taggar, kallas även metataggar, som du vill ska "
+"läggas in i sidhuvudet på varje sida. Rådfråga en tekniker innan taggarna "
+"matas in."
 
 msgid "manager.paymentMethod"
 msgstr "Betalningar"
@@ -1064,6 +1707,9 @@ msgstr "Du måste välja behörighetsnivå."
 msgid "settings.roles.stageIdRequired"
 msgstr "Du måste välja ett steg."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillåt redigering av bidragets metadata."
+
 msgid "settings.libraryFiles.fileRequired"
 msgstr "En fil krävs. Se till att du har valt och laddat upp en fil."
 
@@ -1108,6 +1754,19 @@ msgstr "Ta bort kompontenten"
 msgid "grid.action.restoreGenres"
 msgstr "Återställ komponenterna till defaultinställningar"
 
+msgid "manager.setup.genres.label"
+msgstr "Filtyp"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Detta är underordnade filer, t.ex. bilder som visas i en HTML-fil. De kommer "
+"inte visas för sig."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Detta är bilagor, t.ex. dataset och forskningsmaterial. De kommer visas vid "
+"sidan om de huvudsakliga filerna för publikationen."
+
 msgid "manager.setup.genres.key"
 msgstr "Kod"
 
@@ -1121,6 +1780,29 @@ msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
 "Koden kan innehålla alfanumeriska tecken, understreck och bindestreck. Den "
 "måste börja och sluta med ett alfanumeriskt tecken."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Filens metadata"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Väl vilken typ av metadata dessa filer får. <em>Dokument</em> bör väljas för "
+"de huvudsakliga publikationsfilerna, t.ex. nedladdningsbara PDFer, så dessa "
+"filer tilldelas metadata från publikationen. Välj annars <em>Extramaterial</"
+"em> för de flesta övriga filtyper. <em>Grafik</em> är lämplig för filer som "
+"kräver särskild metadata för erkännande, bildtext eller licensiering."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
 
 msgid "manager.settings.wizard"
 msgstr "Inställningsguide"
@@ -1259,6 +1941,9 @@ msgstr "Svarsalternativ"
 msgid "manager.reviewFormElements.question"
 msgstr "Fråga"
 
+msgid "manager.reviewFormElements.description"
+msgstr "Beskrivning"
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Alternativknappar (endast ett val är möjligt)"
 
@@ -1293,6 +1978,215 @@ msgstr ""
 msgid "manager.setup.metadata.submission"
 msgstr "Formulär för insändning av bidrag"
 
+msgid "manager.setup.metadata.coverage"
+msgstr "Täckning"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Täckning beskriver arbetets rumsliga plats (platsnamn eller geografiska "
+"koordinater), tidsmässig period (periodbeteckning, datum eller "
+"datumintervall), eller jurisdiktion (såsom ett land eller administrativ "
+"enhet)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Gör det möjligt att lägga in metadata om täckning"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
+"Kräv inte metadata om täckning från författare vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Be författaren att föreslå metadata om täckning vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Begär att författare föreslår metadata om täckning innan bidraget accepteras."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Nyckelord är vanligtvis en- till tre-ordsfraser som beskriver bidragets ämne."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Gör det möjligt att lägga in nyckelordsmetadata"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Kräv inte nyckelord från författaren vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
+"en frivillig landkod (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Gör det möjligt att lägga in metadata om språk"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Be författaren att ange bidragets språk vid inskickandet."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr "Kräv att författaren anger bidragets språk innan bidraget accepteras."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Immateriella rättigheter till bidraget som t.ex. upphovsrätt, patent, eller "
+"övriga rättigheter."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Gör det möjligt att ange upphovsrättsmetadata"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Be författaren att ange tidigare upphovsrättsvillkor vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Kräv att författaren anger tidigare upphovsrättsvillkor innan bidraget "
+"accepteras."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Källan kan vara ett ID, som t ex DOI, som tillhör ett annat arbete eller "
+"resurs som bidraget härstammar från."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Gör det möjligt att ange metadata för källan"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
+"Kräv inte en URL för källan från författarna vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Be författaren att lägga in en URL för källan vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Kräv att författaren lägger till en URL för källan innan bidraget accepteras."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Ämnesmetadata är nyckelord, nyckelfraser eller klassifikationskoder som "
+"beskriver innehållet i bidraget."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Gör det möjligt att lägga in metadata för ämne"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Kräv inte ämnen av författare under inskickandet av bidrag."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Be författaren att ange ämnen vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Kräv att författaren anger ämnen innan bidraget accepteras."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Bidragets typ. Vanligtvis \"Text\", men kan också vara \"Dataset\", \"Bild\" "
+"eller någon av <a target=\"_blank\" href=\"http://dublincore.org/documents/"
+"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Gör det möjligt att ange metadata om bidragets typ"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Kräv inte metadatatyper av författaren vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+"Be författaren att ange metadata för materialtyper vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.type.require"
+msgstr "Kräv att författaren ska ange metadatatyoer innan bidraget accepteras."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Discipliner är typer av studier eller kunskapsområden som beskrivs av "
+"universitetens fakulteter och lärda sällskap."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Gör det möjligt att ange metadata för discipliner"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Be författaren att ange discipliner vid inskickande av bidrag."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr "Kräv att författaren anger discipliner innan bidraget accepteras."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Beskriver vilken forskningsfinansiär eller annat institutionellt stöd som "
+"har gjort forskningen möjlig."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Gör det möjligt att ange metadata för forskningsfinansiärer"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Kräv inte att författaren ska ange forskningsfinansiärer vid inskickandet av "
+"bidrag."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Be författaren att ange forskningsfinansiär(er) vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Kräv att författaren anger forskningsfinansiär(er) innan bidraget accepteras."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Skriv referenserna i ett separat fält. Det underlättar för "
+"korsciteringstjänster som Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Gör det möjligt att ange referensmetadata"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Kräv inte referenser av författarna vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Be författaren ange referenser vid inskickandet av bidrag."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Kräv att författaren registrerar bidragets referenser innan det accepteras."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Valideringsfel:"
 
@@ -1301,6 +2195,9 @@ msgstr "Påträffade varningar:"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Inträffade fel:"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Okänt element {$param}"
@@ -1319,6 +2216,14 @@ msgstr ""
 "Importfilen inkluderar en författare '{$authorName}' från användargruppen "
 "'{$userGroupName}'. Det finns ingen användargrupp med detta namn i den "
 "tilltänkta destinationen."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "UserGroup saknas för författarnamn {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Författaren {$authorName} har inget förnamn inlagt på bidragets språk, "
+"{$localeName}. Bidraget kan inte importeras utan den informationen."
 
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Okänd uppladdare {$param}"
@@ -1339,6 +2244,11 @@ msgstr ""
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Bidragsfilen kunde inte importeras"
 
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Hoppade över filen {$id}, eftersom den hör till en post som inte kommer "
+"importeras, t.ex. ett granskningsuppdrag eller en diskussion."
+
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Fel under import/export:"
 
@@ -1357,6 +2267,14 @@ msgid "plugins.importexport.user.error.plainPasswordNotValid"
 msgstr ""
 "Den importerade användaren \"{$username}\" har ett okrypterat lösenord, "
 "vilket inte är giltigt. Användaren importerades inte."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Användarnamn \"{$username}\" och e-postadress \"{$email}\" stämmer inte "
+"överens med en och samma användare."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -1550,109 +2468,20 @@ msgstr ""
 "Den här länken visas enbart om det finns en integritetspolicy inmatad under "
 "Inställningar > Arbetsflöde > Bidrag."
 
-msgid "manager.publication.reviewerGuidance"
-msgstr "Guide för granskare"
+msgid "grid.category.add"
+msgstr "Lägg till kategori"
 
-msgid "manager.setup.metadata.coverage"
-msgstr "Täckning"
+msgid "grid.category.edit"
+msgstr "Redigera kategori"
 
-msgid "manager.reviewFormElements.description"
-msgstr "Beskrivning"
-
-msgid "manager.distribution.customHeaders"
-msgstr "Anpassade taggar"
-
-msgid "manager.distribution.license"
-msgstr "Licens"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Registrerade användare"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"Blocket {$name} kan inte hittas. Kontrollera att pluginet är installerat och "
-"aktiverat."
-
-msgid "manager.setup.advanced"
-msgstr "Avancerad"
-
-msgid "manager.emails.emailTemplates"
-msgstr "E-postmallar"
-
-msgid "stats.name.submissionsPublished"
-msgstr "Publicerade bidrag"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Accepterade bidrag"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Mottagna bidrag"
-
-msgid "stats.userStatistics"
-msgstr "Användarstatistik"
-
-msgid "stats.trends"
-msgstr "Trender"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Totalt inom datum intervallet"
-
-msgid "stats.total"
-msgstr "Totalt"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Månadsvis"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.editorialActivity"
-msgstr "Redaktionell aktivitet"
-
-msgid "stats.descriptionForStat"
-msgstr "Beskrivning för {$stat}"
-
-msgid "stats.dateRange.to"
-msgstr "Till"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Sedan {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Förra året"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Senaste 2 åren"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Senaste 90 dagarna"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Senaste 30 dagarna"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Senaste 12 månaderna"
-
-msgid "stats.dateRange.from"
-msgstr "Från"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Ett av de inlagda datumen finns inte."
-
-msgid "stats.daily"
-msgstr "Dagligen"
-
-msgid "stats.allUsers"
-msgstr "Alla användare"
-
-msgid "grid.category.description"
-msgstr "Beskrivning"
+msgid "grid.category.name"
+msgstr "Namn"
 
 msgid "grid.category.path"
 msgstr "Sökväg"
+
+msgid "grid.category.urlWillBe"
+msgstr "Kategorins URL kommer att vara: {$sampleUrl}"
 
 msgid "grid.category.pathAlphaNumeric"
 msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
@@ -1660,66 +2489,110 @@ msgstr "Kategorins sökväg kan bara innehålla bara bokstäver och nummer."
 msgid "grid.category.pathExists"
 msgstr "Kategorins sökväg finns redan. Lägg till en unik sökväg."
 
-msgid "grid.category.urlWillBe"
-msgstr "Kategorins URL kommer att vara: {$sampleUrl}"
+msgid "grid.category.description"
+msgstr "Beskrivning"
 
-msgid "grid.category.name"
-msgstr "Namn"
+msgid "grid.category.parentCategory"
+msgstr "Föräldrakategori"
 
-msgid "grid.category.edit"
-msgstr "Redigera kategori"
+msgid "grid.category.removeText"
+msgstr "Vill du ta bort den här kategorin?"
 
-msgid "grid.category.add"
-msgstr "Lägg till kategori"
+msgid "grid.category.nameRequired"
+msgstr "Lägg till ett namn för kategorin."
 
-msgid "manager.setup.metadata.agencies.description"
+msgid "grid.category.categoryDetails"
+msgstr "Information om kategorin"
+
+msgid "stats.allUsers"
+msgstr "Alla användare"
+
+msgid "stats.city"
+msgstr "Stad"
+
+msgid "stats.views"
+msgstr "Visningar av numrets innehållsförteckning"
+
+msgid "stats.downloads"
+msgstr "Visningar av numrets publiceringsversion"
+
+msgid "stats.views.timelineInterval"
 msgstr ""
-"Beskriver vilken forskningsfinansiär eller annat institutionellt stöd som "
-"har gjort forskningen möjlig."
 
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Gör det möjligt att lägga in metadata om täckning"
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Avslagsfrekvens efter granskning"
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Redaktionell avslagsfrekvens"
-
-msgid "stats.name.declineRate"
-msgstr "Avslagsfrekvens"
-
-msgid "stats.name.acceptanceRate"
-msgstr "Acceptansprocent"
-
-msgid "stats.name.daysToReject"
-msgstr "Dagar till avslag"
-
-msgid "stats.name.daysToAccept"
-msgstr "Dagar till accepterande"
-
-msgid "stats.name.daysToDecision"
-msgstr "Dagar till det första redaktionella beslutet"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Refuserade bidrag"
-
-msgid "stats.submissionsActive"
-msgstr "Aktiva bidrag"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Sök efter titel, författare och ID"
-
-msgid "stats.fileViews"
-msgstr "Filvisningar"
-
-msgid "stats.description.daysToDecision"
+msgid "stats.downloads.timelineInterval"
 msgstr ""
-"Antal dagar det tar för de flesta bidragen att få ett första redaktionellt "
-"beslut, som avslag eller skickat för granskning. <br><br> Figurerna visat "
-"att 80 % av inskickade bidrag får ett beslut inom det angivna antalet dagar. "
-"<br><br> Statistiken försöker visa när majoriteten av inskickade bidrag till "
-"din tidskrift kan förvänta sig ett beslut."
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/år)"
+
+msgid "stats.daily"
+msgstr "Dagligen"
+
+msgid "stats.dateRange"
+msgstr "Datumintervall"
+
+msgid "stats.dateRange.allDates"
+msgstr "Alla datum"
+
+msgid "stats.dateRange.apply"
+msgstr "Använd"
+
+msgid "stats.dateRange.change"
+msgstr "Ändra datumintervallet"
+
+msgid "stats.dateRange.customRange"
+msgstr "Anpassa intervall"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Ett av de inlagda datumen finns inte."
+
+msgid "stats.dateRange.from"
+msgstr "Från"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Skriv in datum i formatet YYYY-MM-DD. Till exempel, om du ska skriva 15 "
+"januari, 2019, skriv 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Formatet för datum är inte giltigt. Skriv varje datum i formatet YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Startdatumet måste vara före slutdatumet."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Slutdatumet kan inte vara senare än {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Startdatumet kan inte vara tidigare än {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Senaste 12 månaderna"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Senaste 30 dagarna"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Senaste 90 dagarna"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Senaste 2 åren"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Förra året"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Sedan {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Nuvarande år"
+
+msgid "stats.dateRange.to"
+msgstr "Till"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Till {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -1730,448 +2603,179 @@ msgstr ""
 "<br><br> Andel bidrag som har accepterats blir 50 % (4 av 8 bidrag) eftersom "
 "två av bidragen väntar på beslut."
 
-msgid "stats.dateRange.untilDate"
-msgstr "Till {$date}"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Startdatumet kan inte vara tidigare än {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Slutdatumet kan inte vara senare än {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Startdatumet måste vara före slutdatumet."
-
-msgid "stats.dateRange.invalidDate"
+msgid "stats.description.daysToDecision"
 msgstr ""
-"Formatet för datum är inte giltigt. Skriv varje datum i formatet YYYY-MM-DD."
+"Antal dagar det tar för de flesta bidragen att få ett första redaktionellt "
+"beslut, som avslag eller skickat för granskning. <br><br> Figurerna visat "
+"att 80 % av inskickade bidrag får ett beslut inom det angivna antalet dagar. "
+"<br><br> Statistiken försöker visa när majoriteten av inskickade bidrag till "
+"din tidskrift kan förvänta sig ett beslut."
 
-msgid "stats.dateRange.instructions"
+msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Skriv in datum i formatet YYYY-MM-DD. Till exempel, om du ska skriva 15 "
-"januari, 2019, skriv 2019-01-15."
+"Detta inkluderar bidrag som inte räknas in i totalsummorna, t.ex. bidrag som "
+"är under bearbetning och bidrag som har importerats."
 
-msgid "stats.dateRange.customRange"
-msgstr "Anpassa intervall"
+msgid "stats.descriptionForStat"
+msgstr "Beskrivning för {$stat}"
 
-msgid "stats.dateRange.change"
-msgstr "Ändra datumintervallet"
+msgid "stats.editorialActivity"
+msgstr "Redaktionell aktivitet"
 
-msgid "stats.dateRange.apply"
-msgstr "Använd"
-
-msgid "stats.dateRange.allDates"
-msgstr "Alla datum"
-
-msgid "stats.dateRange"
-msgstr "Datumintervall"
-
-msgid "grid.category.categoryDetails"
-msgstr "Information om kategorin"
-
-msgid "grid.category.nameRequired"
-msgstr "Lägg till ett namn för kategorin."
-
-msgid "grid.category.removeText"
-msgstr "Vill du ta bort den här kategorin?"
-
-msgid "grid.category.parentCategory"
-msgstr "Föräldrakategori"
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgid "stats.file.type.primaryFile"
 msgstr ""
-"Användarnamn \"{$username}\" och e-postadress \"{$email}\" stämmer inte "
-"överens med en och samma användare."
 
-msgid "plugins.importexport.common.error.missingGivenName"
+msgid "stats.file.type.suppFile"
 msgstr ""
-"Författaren {$authorName} har inget förnamn inlagt på bidragets språk, "
-"{$localeName}. Bidraget kan inte importeras utan den informationen."
 
-msgid "manager.setup.metadata.citations.require"
+msgid "stats.fileViews"
+msgstr "Filvisningar"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Månadsvis"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
 msgstr ""
-"Kräv att författaren registrerar bidragets referenser innan det accepteras."
 
-msgid "manager.setup.metadata.citations.request"
-msgstr "Be författaren ange referenser vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Kräv inte referenser av författarna vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Gör det möjligt att ange referensmetadata"
-
-msgid "manager.setup.metadata.citations.description"
+msgid "stats.geographic.tooltip.label"
 msgstr ""
-"Skriv referenserna i ett separat fält. Det underlättar för "
-"korsciteringstjänster som Crossref."
 
-msgid "manager.setup.metadata.agencies.require"
+msgid "stats.downloadReport.betweenDates"
 msgstr ""
-"Kräv att författaren anger forskningsfinansiär(er) innan bidraget accepteras."
 
-msgid "manager.setup.metadata.agencies.request"
+msgid "stats.downloadReport.allFilters"
 msgstr ""
-"Be författaren att ange forskningsfinansiär(er) vid inskickandet av bidrag."
 
-msgid "manager.setup.metadata.agencies.noRequest"
+msgid "stats.publications.downloadReport.downloadFiles"
 msgstr ""
-"Kräv inte att författaren ska ange forskningsfinansiärer vid inskickandet av "
-"bidrag."
 
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Gör det möjligt att ange metadata för forskningsfinansiärer"
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr "Kräv att författaren anger discipliner innan bidraget accepteras."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Be författaren att ange discipliner vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
+msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr ""
-"Kräv inte att författaren ska ange discipliner vid inskickande av bidrag."
 
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Gör det möjligt att ange metadata för discipliner"
-
-msgid "manager.setup.metadata.disciplines.description"
+msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr ""
-"Discipliner är typer av studier eller kunskapsområden som beskrivs av "
-"universitetens fakulteter och lärda sällskap."
 
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Kräv inte metadatatyper av författaren vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.type.description"
+msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
-"Bidragets typ. Vanligtvis \"Text\", men kan också vara \"Dataset\", \"Bild\" "
-"eller någon av <a target=\"_blank\" href=\"http://dublincore.org/documents/"
-"dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin Core types</a>."
 
-msgid "manager.setup.metadata.subjects.require"
-msgstr "Kräv att författaren anger ämnen innan bidraget accepteras."
+msgid "stats.region"
+msgstr "Region"
 
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Be författaren att ange ämnen vid inskickande av bidrag."
+msgid "stats.searchSubmissionDescription"
+msgstr "Sök efter titel, författare och ID"
 
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Kräv inte ämnen av författare under inskickandet av bidrag."
+msgid "stats.submissionsActive"
+msgstr "Aktiva bidrag"
 
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Gör det möjligt att lägga in metadata för ämne"
-
-msgid "manager.setup.metadata.subjects.description"
+msgid "stats.timeline"
 msgstr ""
-"Ämnesmetadata är nyckelord, nyckelfraser eller klassifikationskoder som "
-"beskriver innehållet i bidraget."
 
-msgid "manager.setup.metadata.source.description"
+msgid "stats.timeline.downloadReport.description"
 msgstr ""
-"Källan kan vara ett ID, som t ex DOI, som tillhör ett annat arbete eller "
-"resurs som bidraget härstammar från."
 
-msgid "manager.setup.metadata.rights.require"
+msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr ""
-"Kräv att författaren anger tidigare upphovsrättsvillkor innan bidraget "
-"accepteras."
 
-msgid "manager.setup.metadata.rights.request"
+msgid "stats.timelineInterval"
 msgstr ""
-"Be författaren att ange tidigare upphovsrättsvillkor vid inskickandet av "
-"bidrag."
 
-msgid "manager.setup.metadata.rights.noRequest"
+msgid "stats.timelineType"
 msgstr ""
-"Kräv inte att författaren ska ange upphovsrättsvillkor vid inskickandet av "
-"bidrag."
 
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Gör det möjligt att ange upphovsrättsmetadata"
+msgid "stats.total"
+msgstr "Totalt"
 
-msgid "manager.setup.metadata.languages.require"
-msgstr "Kräv att författaren anger bidragets språk innan bidraget accepteras."
+msgid "stats.unique"
+msgstr "Unik"
 
-msgid "manager.setup.metadata.languages.request"
-msgstr "Be författaren att ange bidragets språk vid inskickandet."
+msgid "stats.totalWithinDateRange"
+msgstr "Totalt inom datum intervallet"
 
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Kräv inte att författaren ska ange språk vid inskickandet av bidrag."
+msgid "stats.trends"
+msgstr "Trender"
 
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Gör det möjligt att lägga in metadata om språk"
+msgid "stats.unknown"
+msgstr "okänd"
 
-msgid "manager.setup.metadata.languages.description"
+msgid "stats.userStatistics"
+msgstr "Användarstatistik"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Mottagna bidrag"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Övriga bidrag"
+
+msgid "stats.name.submissionsInProgress"
 msgstr ""
-"Språk anger arbetets primära språk, genom att använda språkkod (\"en\") med "
-"en frivillig landkod (\"en_US\")."
 
-msgid "manager.setup.metadata.keywords.require"
-msgstr "Kräv att författaren föreslår nyckelord innan bidraget accepteras."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Be författaren att föreslå nyckelord vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Kräv inte nyckelord från författaren vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Gör det möjligt att lägga in nyckelordsmetadata"
-
-msgid "manager.setup.metadata.keywords.description"
+msgid "stats.name.submissionsImported"
 msgstr ""
-"Nyckelord är vanligtvis en- till tre-ordsfraser som beskriver bidragets ämne."
 
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Begär att författare föreslår metadata om täckning innan bidraget accepteras."
+msgid "stats.name.submissionsAccepted"
+msgstr "Accepterade bidrag"
 
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Be författaren att föreslå metadata om täckning vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr ""
-"Kräv inte metadata om täckning från författare vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Täckning beskriver arbetets rumsliga plats (platsnamn eller geografiska "
-"koordinater), tidsmässig period (periodbeteckning, datum eller "
-"datumintervall), eller jurisdiktion (såsom ett land eller administrativ "
-"enhet)."
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Tillåt redigering av bidragets metadata."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Lägg till anpassade HTML taggar, kallas även metataggar, som du vill ska "
-"läggas in i sidhuvudet på varje sida. Rådfråga en tekniker innan taggarna "
-"matas in."
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr "Ange licensvillkor som du vill visa vid det publicerade verket."
-
-msgid "manager.distribution.licenseTerms"
-msgstr "Licensvillkor"
-
-msgid "manager.distribution.license.other"
-msgstr "Annan licens-URL"
-
-msgid "manager.setup.theme.notFound"
-msgstr "Det tema som du valde är inte installerat eller aktiverat."
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Visa länken <button type=\"button\">Garantera anonym granskning</button> "
-"under uppladdning"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Default granskningsläge"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Granskningspåminnelse"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Påminnelse"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Defaultvärde för sista datum för kompletteringar"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Default svarsdatum"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Filen som du laddade upp kan inte hittas. Försök att ladda upp igen."
-
-msgid "manager.setup.checklist"
-msgstr "Checklista"
-
-msgid "manager.emails.sentTo"
-msgstr "Skickats till"
-
-msgid "manager.emails.sentFrom"
-msgstr "Skickats från"
-
-msgid "manager.emails.resetAll"
-msgstr "Återställ alla"
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Du måste ange ett ID när en e-postmall läggs till."
-
-msgid "manager.emails.addEmail"
-msgstr "Lägg till mall"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Granskningspåminnelsens detaljer har uppdaterats."
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Refuserade efter granskning"
+msgid "stats.name.submissionsDeclined"
+msgstr "Refuserade bidrag"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
 msgstr "Refuserade av redaktionen"
 
-msgid "manager.setup.metadata.type.request"
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Refuserade efter granskning"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Publicerade bidrag"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dagar till det första redaktionella beslutet"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dagar till accepterande"
+
+msgid "stats.name.daysToReject"
+msgstr "Dagar till avslag"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Acceptansprocent"
+
+msgid "stats.name.declineRate"
+msgstr "Avslagsfrekvens"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Redaktionell avslagsfrekvens"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Avslagsfrekvens efter granskning"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Processen misslyckades. Kontrollera fel eller varningar nedan."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Resultat av bidragsexport"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Ladda ned exporterad fil"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Exporten är färdig."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Ladda ned den exporterade filen med knappen nedan."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Generiska objekt"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"Be författaren att ange metadata för materialtyper vid inskickande av bidrag."
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Gör det möjligt att ange metadata om bidragets typ"
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Kräv att författaren lägger till en URL för källan innan bidraget accepteras."
-
-msgid "manager.setup.metadata.source.request"
-msgstr ""
-"Be författaren att lägga in en URL för källan vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr ""
-"Kräv inte en URL för källan från författarna vid inskickandet av bidrag."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Gör det möjligt att ange metadata för källan"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Immateriella rättigheter till bidraget som t.ex. upphovsrätt, patent, eller "
-"övriga rättigheter."
-
-msgid "stats.dateRange.thisYear"
-msgstr "Nuvarande år"
-
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/år)"
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Du kan inte ta bort representanten eftersom hen har lagts till i "
-"marknadsmetadatan för ett eller flera av bidragets publiceringsformat."
-
-msgid "manager.setup.metadata.type.require"
-msgstr "Kräv att författaren ska ange metadatatyoer innan bidraget accepteras."
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Hoppade över filen {$id}, eftersom den hör till en post som inte kommer "
-"importeras, t.ex. ett granskningsuppdrag eller en diskussion."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Filens metadata"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Detta är bilagor, t.ex. dataset och forskningsmaterial. De kommer visas vid "
-"sidan om de huvudsakliga filerna för publikationen."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Detta är underordnade filer, t.ex. bilder som visas i en HTML-fil. De kommer "
-"inte visas för sig."
-
-msgid "manager.setup.genres.label"
-msgstr "Filtyp"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Är du säker på att du vill aktivera denna sektion?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Är du säker på att du vill avaktivera sektionen?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Avaktivera denna sektion och förbjud att nya bidrag skickas in till den."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Anpassat"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Datum & tid (kort)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Datum & tid"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Tid"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Datum (kort)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Datum"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Välj format för tid och datum. Ett anpassat format kan anges genom att "
-"använda  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
-"function.strftime-parameters'>specialtecken för format</a>."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Datum- och tidformat"
-
-msgid "manager.setup.dateTime"
-msgstr "Tid & Datum"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Skicka ytterligare ett e-postmeddelande"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "E-postmeddelande har skickats till samtliga mottagare."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Skickar e-postmeddelande. Stanna kvar på sidan tills den är färdig med att "
-"skicka."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Du kommer skicka e-post till {$total} användare. Är du säker på att du vill "
-"skicka?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Skicka e-post"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Skicka en kopia av detta meddelande till {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Välj vilka användare som ska få era e-postmeddelanden."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Meddela användare"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Inaktivera bidrag"
-
-msgid "manager.people.signedInAs"
-msgstr "Du är inloggad som {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Välj vilka användare som ska exporteras till Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Exportera till Excel/CSV"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Ta bort meddelande"
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Väl vilken typ av metadata dessa filer får. <em>Dokument</em> bör väljas för "
-"de huvudsakliga publikationsfilerna, t.ex. nedladdningsbara PDFer, så dessa "
-"filer tilldelas metadata från publikationen. Välj annars <em>Extramaterial</"
-"em> för de flesta övriga filtyper. <em>Grafik</em> är lämplig för filer som "
-"kräver särskild metadata för erkännande, bildtext eller licensiering."
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr ""
-"Språkinställningen sparades inte. Minst ett språk måste vara aktiverat för "
-"varje alternativ"
-
-msgid "manager.emails.otherTemplates"
-msgstr "Andra mallar"
+"Fel i filterinställningarna i [{$filterName}]: {$filterCount} förekomster. "
+"Får endast vara en."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "FEL:"
@@ -2179,491 +2783,45 @@ msgstr "FEL:"
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Sökvägen för tidskriften, \"{$contextPath}\", existerar inte."
 
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "Misslyckades med att tolka publikationer"
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
 msgstr "Misslyckades med att tolka författare"
 
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Misslyckades med att tolka publikationer"
 
-msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
-"Fel i filterinställningarna i [{$filterName}]: {$filterCount} förekomster. "
-"Får endast vara en."
+"Alla kommentarer från färdigställda granskningar. Granskares namn är dolda "
+"om granskningen är anonym"
 
-msgid "plugins.importexport.native.common.any"
-msgstr "Generiska objekt"
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Ladda ned den exporterade filen med knappen nedan."
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "Exporten är färdig."
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "Ladda ned exporterad fil"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Resultat av bidragsexport"
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "Processen misslyckades. Kontrollera fel eller varningar nedan."
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "UserGroup saknas för författarnamn {$param}"
-
-msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "En eller flera e-postadresser är ogilitg(a)."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr ""
-"En kopia av bidragets bekräftelsemail kommer skickas till samtliga e-"
-"postadresser i detta fält. Avskilj e-postadresser med ett kommatecken. "
-"Exempelvis: one@example.com,two@example.com"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "Informera alla"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "Nej"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Ja, skicka en kopia till {$email}"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Informera primär kontakt"
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "Meddelanden"
-
-msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "URL till bidragen i det redaktionella gränssnittet"
-
-msgid "emailTemplate.variable.submission.authorsFull"
-msgstr "Författarnas fullständiga namn"
-
-msgid "emailTemplate.variable.submission.authors"
-msgstr "Författarnas fullständiga namn"
-
-msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Bidragets abstract"
-
-msgid "emailTemplate.variable.submission.submissionId"
-msgstr "Bidragets unika ID-nummer"
-
-msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "Bidragets titel"
-
-msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr "Redaktörerna som tilldelats detta bidrag och kan fatta beslut"
-
-msgid "emailTemplate.variable.site.siteContactName"
-msgstr "Webbsidans primära kontakts fullständiga namn"
-
-msgid "emailTemplate.variable.sender.signature"
-msgstr "Avsändarens e-postsignatur"
-
-msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "Avsändarens e-postadress"
-
-msgid "emailTemplate.variable.sender.senderName"
-msgstr "Avsändarens fullständiga namn"
-
-msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "URL till granskningsuppdraget"
-
-msgid "emailTemplate.variable.recipient.username"
-msgstr "Mottagarens eller mottagarnas användarnamn"
-
-msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "Mottagarens eller mottagarnas fullständiga namn"
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL till en sida där användaren kan återställa sitt lösenord"
 
-msgid "mailable.reviewConfirm.description"
-msgstr ""
-"Detta e-postmeddelande skickas automatiskt när en granskare accepterar en "
-"granskningsförfrågan"
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Det här e-postmeddelandet skickas när en granskare avböjer en "
-"granskningsförfrågan"
+#, fuzzy
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "URL för att se en användares samtliga tilldelade bidrag."
 
 #, fuzzy
-msgid "emails.reviewRemind.body"
-msgstr ""
-"Det här e-postmeddelandet skickas från en sektionsredaktör som en påminnelse "
-"till granskaren att deadline för granskningen har passerat"
-
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Det här e-postmeddelandet skickas automatiskt när en granskares deadline "
-"löpt ut."
-
-msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr ""
-"Det här e-postmeddelandet skickas automatiskt när en granskares deadline för "
-"bekräftelse på granskningsförfrågan löpt ut."
-
-msgid "mailable.reviewRequest.description"
-msgstr ""
-"Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
-"granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
-"ett bidrag. "
-
-msgid "mailable.reviewRequestSubsequent.description"
-msgstr ""
-"Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
-"granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
-"ett bidrag en andra gång eller på nytt. Det innehåller information om "
-"bidraget i form av titel och abstract, en deadline för granskning och "
-"instruktioner för hur man kommer åt bidraget."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Använd standardmönster."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Ett DOI-suffix utformas hur som helst, men måste vara unikt för objekt med "
-"samma DOI-prefix:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-suffix"
-
-msgid "doi.manager.settings.enableFor"
-msgstr "{$objects} kommer tilldelas DOI"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Objekt med DOI:er"
-
-msgid "manager.setup.doiPrefix"
-msgstr "DOI-prefix"
-
-msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "Aldrig"
-
-msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "Vid publicering"
-
-msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Vid vilken punkt i publiceringsprocessen ska DOI tilldelas?"
-
-msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Automatisk tilldelning av DOI"
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "DOI-prefix krävs och måste vara i formatet 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Detta tilldelas av en organisation som står för ett DOI-register, t.ex. <a "
-"href=\"https://www.crossref.org\" target=\"_new\">Crossref</a> eller <a href="
-"\"https://datacite.org/\" target=\"new\">DataCite</a>. Exempel: 10.xxxx"
-
-msgid "doi.manager.setup.automaticDeposit.description"
-msgstr ""
-"DOI:n kan registreras automatiskt hos den valda organisationen när ett "
-"objekt med DOI publiceras. Automatisk registrering sker vid bestämda "
-"intervaller och varje DOI:s status kan kontrolleras genom sidan för DOI-"
-"hantering."
-
-msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "Aktivera automatisk deponering"
-
-msgid "doi.manager.setup.automaticDeposit"
-msgstr "Automatisk deponering"
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "DOI-prefix"
-
-msgid "manager.setup.enableDois.enable"
-msgstr "Aktivera DOI:er"
-
-msgid "manager.setup.dois.registration"
-msgstr "Registrering"
-
-msgid "manager.setup.dois.setup"
-msgstr "Konfiguration"
-
-msgid "manager.setup.dois"
-msgstr "DOI:er"
-
-msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr "Följande fel har rapporterats av {$registrationAgency}:"
-
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr "Följande fel har rapporterats av {$registrationAgency}:"
-
-msgid "manager.dois.title"
-msgstr "DOI:er"
-
-msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "Objekt har skickats in för deponering"
-
-msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "Objekt har tilldelats DOI:er"
-
-msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "Objekt har markerats som registrerade"
-
-msgid "manager.dois.notification.exportSuccess"
-msgstr "Objekt har exporterats"
-
-msgid "manager.dois.update.partialFailure"
-msgstr "Vissa DOI:er kunde inte uppdateras."
-
-msgid "manager.dois.status.error"
-msgstr "Fel"
-
-msgid "manager.dois.status.registered"
-msgstr "Registrerad"
-
-msgid "manager.dois.status.submitted"
-msgstr "Inskickad"
-
-msgid "manager.dois.status.unregistered"
-msgstr "Oregistrerad"
-
-msgid "manager.dois.registration.depositDois"
-msgstr "Deponera DOI(:er)"
-
-msgid "manger.dois.update.success"
-msgstr "DOI:er har uppdaterats"
-
-msgid "manager.dois.registration.viewRecord.title"
-msgstr "Meddelande om avklarad registrering"
-
-msgid "manager.dois.registration.viewRecord"
-msgstr "Visa post"
-
-msgid "manager.dois.registration.viewError.title"
-msgstr "Felmeddelande för registrering"
-
-msgid "manager.dois.registration.viewError"
-msgstr "Visa fel"
-
-msgid "manager.dois.registration.notPublishedDescription"
-msgstr "Detta objekt kan inte deponeras förrän det har publicerats."
-
-msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
-"Metadata för detta objekt har inte skickats till {$registrationAgency}."
-
-msgid "manager.dois.registration.submittedDescription"
-msgstr "Metadata för detta objekt har skickats in till {$registrationAgency}."
-
-msgid "manager.dois.publicationStatus"
-msgstr "Publiceringsstatus"
-
-msgid "manager.dois.depositStatus"
-msgstr "Deponera status"
-
-msgid "manager.dois.actions.depositAll.prompt"
-msgstr ""
-"Du kommer schemalägga alla utestående metadataposter som ska deponeras hos "
-"{$registrationAgency}. Varje objekts enskilda status kommer uppdateras när "
-"svar ges. Är du säker på att du vill schemalägga deponeringar för samtliga "
-"dessa objekt?"
-
-msgid "manager.dois.actions.depositAll.label"
-msgstr "Deponera alla DOI:er"
-
-msgid "manager.dois.actions.assign.prompt"
-msgstr ""
-"Du kommer tilldela nya DOI:er till {$count} objekt, om dessa inte redan har "
-"tilldelats en DOI. Är du säker på att du vill tilldela DOI:er till dessa "
-"objekt?"
-
-msgid "manager.dois.actions.assign.label"
-msgstr "Tilldela DOI:er"
-
-msgid "manager.dois.actions.export.prompt"
-msgstr ""
-"Du kommer exportera metadata för {$count} objekt till {$registrationAgency}. "
-"Är du säker på att du vill exportera de här posterna?"
-
-msgid "manager.dois.actions.export.label"
-msgstr "Exportera DOI:er"
-
-msgid "manager.dois.actions.markRegistered.prompt"
-msgstr "Du kommer markera {$count} objekt som registerade. Är du säker på det?"
-
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "Markera DOI:er som registrerade"
-
-msgid "manager.dois.actions.deposit.prompt"
-msgstr ""
-"Du kommer skicka metadata för {$count} objekt till {$registrationAgency}. Är "
-"du säker på att du vill deponera de här posterna?"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "Deponera DOI:er"
-
-msgid "manager.dois.actions.deposit.all"
-msgstr "Deponera alla"
-
-msgid "doi.manager.settings.doiSuffixLegacyUser"
-msgstr "Användardefinierat mönster för DOI-suffix som ej används längre."
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att bearbetning av bidraget "
-"krävs."
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "Bearbetning krävs"
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att en ny granskningsomgång har "
-"satts igång."
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr "Ny granskningsomgång har startats"
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "URL-länk för att visa och redigera användarprofil."
 
 #, fuzzy
-msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Bidraget har refuserats"
-
-msgid "mailable.decision.decline.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att deras bidrag har refuserats "
-"efter granskning."
-
-msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr "Bidraget har refuserats"
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
-"till inskickat-steget."
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Bidraget har skickats tillbaka till inskickat"
-
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
-"tillbaka till granskningssteget."
-
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Bidraget har skickats tillbaka till granskning"
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
-"till manusredigeringssteget."
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "Bidraget har skickats tillbaka till manusredigering"
-
-msgid "mailable.decision.accept.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att bidraget har accepterats."
-
-msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "Bidraget är accepterat"
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
-"Vi har bjudit in författare att skicka in en bearbetad version för "
-"ytterligare granskning."
-
-msgid ""
-"mailable.decision.notifyReviewer.variable.decisionDescription."
-"pendingRevisions"
-msgstr "Vi har bett författarna skicka in ändringar."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr "Vi har valt att refusera bidraget."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Vi har valt att acceptera bidraget utan ändringar."
+msgid "emailTemplate.variable.decision.name"
+msgstr "Benämningen av det fattade beslutet."
 
 #, fuzzy
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
-msgstr ""
-"En kort beskrivning av beslutet som kommer med i e-postmeddelandet till "
-"granskaren."
-
-msgid "mailable.decision.notifyReviewer.description"
-msgstr ""
-"Detta e-postmeddelande skickas från en redaktör till en granskare för att "
-"meddela att beslut fattats om ett bidrag som de granskat."
-
-msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
-"En kopia av e-postmeddelandet som skickades till författaren som skickade in "
-"bidraget"
-
-msgid "mailable.decision.notifyOtherAuthors.description"
-msgstr ""
-"Detta e-postmeddelande skickas för att meddela alla författare till ett "
-"bidrag som inte är med på deltagarlistan att ett beslut har fattats. Detta "
-"inkluderar vanligtvis alla författare förutom den som skickat in bidraget."
-
-msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr "Meddela andra författare"
-
-msgid "mailable.validateEmailSite.description"
-msgstr ""
-"Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
-"registrering, om inställningarna kräver att e-postadressen godkänns."
-
-msgid "mailable.reviewerUnassign.description"
-msgstr ""
-"Detta e-postmeddelande skickas när en redaktör tar bort ett "
-"granskningsuppdrag."
-
-msgid "mailable.reviewerUnassign.name"
-msgstr "Granskningsuppdrag borttaget"
-
-msgid "mailable.reviewerReinstate.description"
-msgstr ""
-"Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
-"återinsätts av en redaktör."
-
-msgid "mailable.reviewerReinstate.name"
-msgstr "Granskare återinsatt"
-
-msgid "mailable.discussionMessage.description"
-msgstr ""
-"Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen när "
-"ett nytt meddelande läggs till."
-
-msgid "mailable.discussionMessage.name"
-msgstr "Lägg till diskussion"
-
-msgid "emailTemplate.variable.submission.submittingAuthorName"
-msgstr ""
-"Författarnamnen som är tilldelade arbetsflödet för inskickning. Detta är "
-"oftast författaren som skickat in bidraget"
-
-msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "Författarens URL till bidraget"
+msgid "emailTemplate.variable.decision.description"
+msgstr "En beskrivning av det fattade beslutet."
 
 #, fuzzy
-msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Författarnamn i en förkortad version"
-
-msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr "E-postadress till sidans primära kontakt"
-
-#, fuzzy
-msgid "emailTemplate.variable.reviewType"
-msgstr ""
-"Beskrivning av standardmetoden för granskning, t.ex. anonym författare/"
-"anonym granskare eller öppen."
-
-msgid "emailTemplate.variable.recommendation"
-msgstr "Rekommenderat beslut, t.ex. acceptera bidrag"
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Arbetsflödessteget i vilket beslutet fattats."
 
 #, fuzzy
 msgid "emailTemplate.variable.decision.round"
@@ -2671,165 +2829,145 @@ msgstr ""
 "Vilken granskningsomgång beslutet fattats i, om beslutet hänger ihop med "
 "granskningssteget."
 
-#, fuzzy
-msgid "emailTemplate.variable.decision.stage"
-msgstr "Arbetsflödessteget i vilket beslutet fattats."
-
-#, fuzzy
-msgid "emailTemplate.variable.decision.description"
-msgstr "En beskrivning av det fattade beslutet."
-
-#, fuzzy
-msgid "emailTemplate.variable.decision.name"
-msgstr "Benämningen av det fattade beslutet."
-
-#, fuzzy
-msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "URL för att se en användares samtliga tilldelade bidrag."
-
-msgid "emailTemplate.variable.allReviewersComments"
+msgid "emailTemplate.variable.discussion.subject"
 msgstr ""
-"Alla kommentarer från färdigställda granskningar. Granskares namn är dolda "
-"om granskningen är anonym"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "En lista över bidrag med ofärdiga uppdrag"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Antal bidrag som tilldelats denna redaktör"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Mottagarens eller mottagarnas fullständiga namn"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Mottagarens eller mottagarnas användarnamn"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL till granskningsuppdraget"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "Rekommenderat beslut, t.ex. acceptera bidrag"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
 
 #, fuzzy
-msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgid "emailTemplate.variable.reviewType"
 msgstr ""
-"Skicka enbart e-postavisering till författare som är knutna till "
-"arbetsflödet för bidraget. Detta är vanligtvis författaren som skickat in "
-"bidraget."
+"Beskrivning av standardmetoden för granskning, t.ex. anonym författare/"
+"anonym granskare eller öppen."
 
-msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "Skicka en e-postavisering till bidragets samtliga författare."
-
-msgid "manager.setup.notifyAllAuthors.description"
-msgstr "Vem ska få en e-postavisering när beslut fattats?"
-
-msgid "manager.setup.notifyAllAuthors"
-msgstr "Meddela alla författare"
-
-msgid "doi.manager.settings.registrationAgency.none"
-msgstr "Ingen"
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
-"DOI:er kan skapas och registreras hos en DOI-organisation. För att använda "
-"denna funktion, installera plugin för den organisation ni är anslutna till."
+"Denna tidskrift tillämpar en dubbelt anonym sakkunniggranskning. Granskarna "
+"får inte tillgång till någon information som kan identifiera dig eller dina "
+"medförfattare. Du får inte heller inte reda på vem som har granskat till "
+"ditt bidrag, och du kommer inte hålla direkt kontakt med granskarna."
 
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "Ingen DOI-organisation aktiverad"
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Denna tidskrift tillämpar en \"anonym granskare\"-modell för "
+"sakkunniggranskning. Granskarnas identiteter kommer vara anonyma, men du och "
+"dina medförfattare kommer vara identifierbara för granskarna."
 
-msgid "doi.manager.settings.registrationAgency.description"
-msgstr "Välj DOI-organisationen du vill använda för att registrera DOI:er."
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Tidskriften tillämpar öppen sakkunniggranskning. Granskarna kommer kunna se "
+"ditt och dina medförfattares namn och affilieringar. Likaledes kommer ni "
+"kunna se granskarnas namn och affilieringar."
 
-msgid "doi.manager.settings.registrationAgency"
-msgstr "DOI-organisation"
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Avsändarens fullständiga namn"
 
-msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "Återinför refuserat bidrag"
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Avsändarens e-postadress"
 
-msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr "Skicka in igen för ny granskning"
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Avsändarens e-postsignatur"
 
-msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "En rekommendation finns nu"
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Webbsidans primära kontakts fullständiga namn"
 
-msgid "manager.dois.status.needsDoi"
-msgstr "DOI saknas"
-
-msgid "mailable.validateEmailSite.name"
-msgstr "Verifiera e-post (site)"
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "E-postadress till sidans primära kontakt"
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr "Webbsidans e-postsignatur för automatiska e-postmeddelanden"
 
-msgid "stats.name.submissionsSkipped"
-msgstr "Övriga bidrag"
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Redaktörerna som tilldelats detta bidrag och kan fatta beslut"
 
-msgid "stats.description.submissionsSkipped"
-msgstr ""
-"Detta inkluderar bidrag som inte räknas in i totalsummorna, t.ex. bidrag som "
-"är under bearbetning och bidrag som har importerats."
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Bidragets titel"
 
-msgid "doi.authorization.enabledRequired"
-msgstr "Du kan inte utföra detta kommando utan att aktivera DOI:er"
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Bidragets unika ID-nummer"
 
-msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Eget mönster (ej rekommenderat)"
-
-msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "Eget DOI-suffixmönster"
-
-msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "DOI-suffix"
-
-msgid "doi.manager.settings.doiPrefix.required"
-msgstr "Ett DOI-prefix krävs"
-
-msgid "manager.genres.alertDelete"
-msgstr ""
-"Innan detta objekt kan raderas måste du koppla alla relaterade filer till "
-"ett annat objekt."
-
-msgid "manager.dois.update.failedCreation"
-msgstr "DOI-uppdatering misslyckades"
-
-msgid "mailable.passwordResetRequested.description"
-msgstr ""
-"Det här meddelandet skickas till registrerade användare som meddelar att de "
-"har glömt sitt lösenord eller inte kan logga in. E-postmeddelandet "
-"innehåller en URL som leder till återställning av lösenordet."
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Bidragets abstract"
 
 #, fuzzy
-msgid "mailable.userRegister.description"
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Författarnamn i en förkortad version"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Författarnas fullständiga namn"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "Författarens URL till bidraget"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL till bidragen i det redaktionella gränssnittet"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
 msgstr ""
-"Det här e-postmeddelandet skickas till nyregistrerade användare för att "
-"välkomna dem till systemet och förse dem med dokumentation på deras "
-"användarnamn och lösenord."
 
-msgid "mailable.reviewerRegister.description"
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
 msgstr ""
-"Det här e-postmeddelandet skickas till nyregistrerade granskare för välkomna "
-"dem till systemet och förse dem med dokumentation på deras användarnamn och "
-"lösenord."
 
-#, fuzzy
-msgid "mailable.submissionAck.description"
+msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
-"Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
-"författare när de skickar in sina manuskript till tidskriften. Meddelandet "
-"innehåller information om hur författaren kan följa bidraget genom "
-"redaktionella processen samt ett tack för för inskickat bidrag."
+"Författarnamnen som är tilldelade arbetsflödet för inskickning. Detta är "
+"oftast författaren som skickat in bidraget"
 
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.description"
+msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
-"Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
-"författare knutna till bidraget som inte är den som skickat in bidraget."
-
-msgid "mailable.revisedVersionNotify.description"
-msgstr ""
-"Det här e-postmeddelandet skickas automatiskt till den tilldelade redaktören "
-"när författaren laddar upp en reviderad version av sin artikel."
-
-msgid "mailable.announcementNotify.description"
-msgstr ""
-"Detta e-post-meddelande skickas när ett nytt publicerat meddelande skapas."
-
-msgid "manager.people.authSource"
-msgstr "Autentiseringskälla"
-
-msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr "Antal refuserade bidrag"
-
-msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr "Antal accepterade bidrag"
-
-msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "Antal mottagna bidrag"
+"Hashat URL som skickas till en användare för att bekräfta återställt lösenord"
 
 msgid "emailTemplate.variable.password"
 msgstr "Nytt slumpmässigt lösenord"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Granskare återinsatt"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr ""
 
 msgid "emailTemplate.variable.submitterName"
 msgstr "Fullständigt namn på användare som laddat upp bidragsfil"
@@ -2846,104 +2984,29 @@ msgstr "URL till meddelandet"
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "Antal bidrag som mottagits senaste månaden"
 
-#, fuzzy
-msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Land"
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr "Antal refuserade bidrag"
 
-#, fuzzy
-msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Land och region"
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "Antal accepterade bidrag"
 
-#, fuzzy
-msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Land, region och stad"
-
-#, fuzzy
-msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Aktivera institutionsmässig hantering och användningsstatistik"
-
-msgid "manager.institutions.edit"
-msgstr "Redigera institution"
-
-msgid "manager.institutions.form.ror"
-msgstr "ROR"
-
-msgid "manager.institutions.form.ror.description"
-msgstr "Research Organization Registry-ID för denna institution."
-
-msgid "manager.institutions.form.ipRanges"
-msgstr "IP-intervall"
-
-msgid "manager.institutions.deleteInstitution"
-msgstr "Ta bort institution"
-
-msgid "manager.institutions.invalidIPRange"
-msgstr "Ogiltigt IP-intervall"
-
-msgid "manager.institutions.form.ipRangesInstructions"
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
 msgstr ""
-"Giltiga värden är IP-adresser (t.ex. 142.58.103.1), IP-intervall (t.ex. "
-"142.58.103.1 - 142.58.103.4), IP-intervall med trunkering '*' (t.ex. 142."
-"58.*.*), och IP-intervall med CIDR (t.ex. 142.58.100.0/24)."
 
-msgid "manager.institutions.confirmDelete"
-msgstr "Är du säker på att du vill ta bort institutionen?"
-
-msgid "manager.setup.statistics"
-msgstr "Statistik"
-
-msgid "stats.unique"
-msgstr "Unik"
-
-#, fuzzy
-msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "URL-länk för att visa och redigera användarprofil."
-
-msgid "emailTemplate.variable.passwordResetUrl"
-msgstr ""
-"Hashat URL som skickas till en användare för att bekräfta återställt lösenord"
-
-msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Markera DOI:er som oregistrerade"
-
-msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr "Objekten har markerats som oregistrerade"
-
-#, fuzzy
-msgid "manager.settings.statistics.institutionUsageStats.description"
-msgstr ""
-"Välj detta alternativ om du vill hantera institutioner och samla in deras "
-"användningsstatistik. Detta kommer påverka vilka statistikrapporter som kan "
-"hämtas ut, samt även storleken på databasen."
-
-msgid "manager.dois.actions.markUnregistered.prompt"
-msgstr ""
-"Du kommer markera DOI-metadataposter för {$count} objekt som oregistrerade. "
-"Är du säker på att du vill göra det?"
-
-msgid "manager.dois.actions.description"
-msgstr "Gör ändringar för {$count} objekt."
-
-msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Institutionens användningsstatistik"
-
-msgid "manager.setup.institutions"
-msgstr "Institutioner"
-
-msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "Antal bidrag som tilldelats denna redaktör"
-
-msgid "stats.unknown"
-msgstr "okänd"
-
-msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "En lista över bidrag med ofärdiga uppdrag"
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "Antal mottagna bidrag"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
 msgstr "Månaden för rapporten"
 
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Information om numret: volym, nummer, år, och titel"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Året för rapporten"
@@ -2951,12 +3014,100 @@ msgstr "Året för rapporten"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "Länken till redaktionell aktivitet"
 
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en granskare som tagits bort sedan "
+"återinsätts av en redaktör."
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.name"
+msgstr "Granskningsuppdrag borttaget"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+"Detta e-postmeddelande skickas när en redaktör tar bort ett "
+"granskningsuppdrag."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Verifiera e-post (site)"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Detta e-postmeddelande skickas automatiskt till nya användare i samband med "
+"registrering, om inställningarna kräver att e-postadressen godkänns."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Meddela andra författare"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Detta e-postmeddelande skickas för att meddela alla författare till ett "
+"bidrag som inte är med på deltagarlistan att ett beslut har fattats. Detta "
+"inkluderar vanligtvis alla författare förutom den som skickat in bidraget."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+"En kopia av e-postmeddelandet som skickades till författaren som skickade in "
+"bidraget"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Detta e-postmeddelande skickas från en redaktör till en granskare för att "
+"meddela att beslut fattats om ett bidrag som de granskat."
+
+#, fuzzy
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"En kort beskrivning av beslutet som kommer med i e-postmeddelandet till "
+"granskaren."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Vi har valt att acceptera bidraget utan ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Vi har valt att refusera bidraget."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Vi har bett författarna skicka in ändringar."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Vi har bjudit in författare att skicka in en bearbetad version för "
+"ytterligare granskning."
+
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr "Den inbjudna granskaren har tagits bort från bidraget."
 
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Bidraget är accepterat"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget har accepterats."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till manusredigering"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till manusredigeringssteget."
+
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr "Bidraget har skickats tillbaka till manusredigering"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"tillbaka till manusredigering."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
 msgstr "Granskningsomgång avbruten"
@@ -2966,84 +3117,84 @@ msgstr ""
 "Detta e-postmeddelande meddelar författaren att en granskningsrunda har "
 "avbrutits."
 
-msgid "mailable.reviewAcknowledgement.description"
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
-"Det här e-postmeddelandet skickas av en sektionsredaktör för att bekräfta "
-"att en granskning har slutförts och för att tacka granskaren för dennes "
-"arbete."
+"Detta e-postmeddelande meddelar författaren att deras bidrag har refuserats "
+"efter granskning."
 
-msgid "mailable.editorialReminder.description"
+#, fuzzy
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Bidraget har refuserats"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Ny granskningsomgång har startats"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
-"Ett automatiskt e-postmeddelande som skickas till redaktörer med ouppklarade "
-"uppgifter"
+"Detta e-postmeddelande meddelar författaren att en ny granskningsomgång har "
+"satts igång."
 
-msgid "mailable.passwordResetRequested.name"
-msgstr "Bekräfta återställt lösenord"
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Bearbetning krävs"
 
-msgid "mailable.discussionReview.description"
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
-"Det här e-postmeddelandet skickas under granskningssteget för att meddela en "
-"användare om bidraget"
+"Detta e-postmeddelande meddelar författaren att bearbetning av bidraget "
+"krävs."
 
-msgid "emailTemplate.variable.reviewType.open"
-msgstr ""
-"Tidskriften tillämpar öppen sakkunniggranskning. Granskarna kommer kunna se "
-"ditt och dina medförfattares namn och affilieringar. Likaledes kommer ni "
-"kunna se granskarnas namn och affilieringar."
-
-msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Hoppat över granskning"
-
-msgid "mailable.decision.revertDecline.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att det tidigare beslutet att "
-"refusera deras bidrag efter granskning har återtagits."
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Skicka in igen för ny granskning"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att beslut fattats om att deras "
 "bidrag behöver revideras och skickas in på nytt."
 
-msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr "Skickat till produktion"
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Återinför refuserat bidrag"
 
-msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att det tidigare beslutet att "
+"refusera deras bidrag efter granskning har återtagits."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Återinsätt refuserat bidrag innan granskning"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att ett tidigare beslut om "
+"refusering av deras bidrag innan granskning har återkallats."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Skickat till granskning"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
-"direkt till manusredigeringssteget utan att genomgå sakkunninggranskning."
+"till granskningssteget."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Skickat till produktion"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
 "till produktionssteget."
 
-msgid "mailable.reviewRemind.name"
-msgstr "Påminnelse om granskning"
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Hoppat över granskning"
 
-msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "Bidragets nuvarande publikation saknas"
-
-msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "Bidragets fil {$child} kunde inte behandlas"
-
-msgid "mailable.editorialReminder.name"
-msgstr "Påminnelse till redaktör"
-
-msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
 "Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
-"tillbaka till manusredigering."
+"direkt till manusredigeringssteget utan att genomgå sakkunninggranskning."
 
-msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
-"Denna tidskrift tillämpar en \"anonym granskare\"-modell för "
-"sakkunniggranskning. Granskarnas identiteter kommer vara anonyma, men du och "
-"dina medförfattare kommer vara identifierbara för granskarna."
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
-msgstr ""
-"Detta e-postmeddelande meddelar författaren att ett tidigare beslut om "
-"refusering av deras bidrag innan granskning har återkallats."
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "En rekommendation finns nu"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3054,47 +3205,167 @@ msgstr ""
 "beslutet. Detta alternativ väljs i samband med att redaktörer tilldelas ett "
 "bidrag."
 
-msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgid "mailable.reviewConfirm.name"
 msgstr ""
-"Denna tidskrift tillämpar en dubbelt anonym sakkunniggranskning. Granskarna "
-"får inte tillgång till någon information som kan identifiera dig eller dina "
-"medförfattare. Du får inte heller inte reda på vem som har granskat till "
-"ditt bidrag, och du kommer inte hålla direkt kontakt med granskarna."
 
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "Återinsätt refuserat bidrag innan granskning"
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
-"till granskningssteget."
+"Detta e-postmeddelande skickas automatiskt när en granskare accepterar en "
+"granskningsförfrågan"
+
+msgid "mailable.reviewDecline.name"
+msgstr ""
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Det här e-postmeddelandet skickas när en granskare avböjer en "
+"granskningsförfrågan"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Påminnelse om granskning"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Påminnelse om granskning (automatisk)"
 
-msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr "Skickat till granskning"
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Det här e-postmeddelandet skickas automatiskt när en granskares deadline "
+"löpt ut."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Det här e-postmeddelandet skickas av en sektionsredaktör för att bekräfta "
+"att en granskning har slutförts och för att tacka granskaren för dennes "
+"arbete."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Svar på granskning försenat (automatisk)"
 
-#, fuzzy
-msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geografisk användningsstatistik"
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Det här e-postmeddelandet skickas automatiskt när en granskares deadline för "
+"bekräftelse på granskningsförfrågan löpt ut."
+
+msgid "mailable.reviewRequest.name"
+msgstr ""
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
+"granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
+"ett bidrag. "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr ""
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Det här e-postmeddelandet från sektionsredaktören till en granskare ber "
+"granskaren att acceptera eller tacka nej till uppdraget att sakkunniggranska "
+"ett bidrag en andra gång eller på nytt. Det innehåller information om "
+"bidraget i form av titel och abstract, en deadline för granskning och "
+"instruktioner för hur man kommer åt bidraget."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "Bidragets nuvarande publikation saknas"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "Bidragets fil {$child} kunde inte behandlas"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Påminnelse till redaktör"
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+"Ett automatiskt e-postmeddelande som skickas till redaktörer med ouppklarade "
+"uppgifter"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Bekräfta återställt lösenord"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Det här meddelandet skickas till registrerade användare som meddelar att de "
+"har glömt sitt lösenord eller inte kan logga in. E-postmeddelandet "
+"innehåller en URL som leder till återställning av lösenordet."
+
+msgid "mailable.userRegister.name"
+msgstr ""
 
 #, fuzzy
-msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Samla inte in geografisk data"
+msgid "mailable.userRegister.description"
+msgstr ""
+"Det här e-postmeddelandet skickas till nyregistrerade användare för att "
+"välkomna dem till systemet och förse dem med dokumentation på deras "
+"användarnamn och lösenord."
+
+msgid "mailable.reviewerRegister.name"
+msgstr ""
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Det här e-postmeddelandet skickas till nyregistrerade granskare för välkomna "
+"dem till systemet och förse dem med dokumentation på deras användarnamn och "
+"lösenord."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
+"författare när de skickar in sina manuskript till tidskriften. Meddelandet "
+"innehåller information om hur författaren kan följa bidraget genom "
+"redaktionella processen samt ett tack för för inskickat bidrag."
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Det här e-postmeddelandet skickas, om det är aktiverat, automatiskt till "
+"författare knutna till bidraget som inte är den som skickat in bidraget."
+
+msgid "mailable.discussionSubmission.name"
+msgstr ""
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
 "Det är e-postmeddelandet skickas i inskickningssteget för att meddela en "
 "användare om ett bidrag"
 
+msgid "mailable.discussionReview.name"
+msgstr ""
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+"Det här e-postmeddelandet skickas under granskningssteget för att meddela en "
+"användare om bidraget"
+
+msgid "mailable.discussionCopyediting.name"
+msgstr ""
+
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
 "Det är e-postmeddelandet skickas i manusredigeringssteget för att meddela en "
 "användare om ett bidrag"
+
+msgid "mailable.discussionProduction.name"
+msgstr ""
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
@@ -3104,31 +3375,212 @@ msgstr ""
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Meddelande om reviderad version"
 
-msgid "mailable.publicationVersionNotify.name"
-msgstr "Meddelande om publiceringsversion"
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Det här e-postmeddelandet skickas automatiskt till den tilldelade redaktören "
+"när författaren laddar upp en reviderad version av sin artikel."
+
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
+msgid "mailable.announcementNotify.description"
+msgstr ""
+"Detta e-post-meddelande skickas när ett nytt publicerat meddelande skapas."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "Meddelande om statistikrapport"
+
+msgid "mailable.editReviewNotify.name"
+msgstr ""
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
 "Det här e-postmeddelandet meddelar automatiskt granskare om ändringar i "
 "granskningsdetaljerna"
 
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr ""
+
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
 "Det här e-postmeddelandet skickas automatiskt till anknutna redaktörer när "
 "en granskare lämnat en rekommendation"
 
-msgid "mailable.statisticsReportNotify.name"
-msgstr "Meddelande om statistikrapport"
+msgid "manager.people.authSource"
+msgstr "Autentiseringskälla"
 
-msgid "mailable.publicationVersionNotify.description"
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till granskning"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
-"Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en ny "
-"version av publikationen"
+"Detta e-postmeddelande meddelar författaren att deras bidrag har skickats "
+"tillbaka till granskningssteget."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Bidraget har skickats tillbaka till inskickat"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+"Detta e-postmeddelande meddelar författaren att bidraget skickats tillbaka "
+"till inskickat-steget."
+
+msgid "manager.manageEmails"
+msgstr ""
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+
+msgid "manager.mailables.templates"
+msgstr ""
+
+msgid "manager.mailables.editTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.search"
+msgstr ""
+
+msgid "manager.emailTemplate.name.description"
+msgstr ""
+
+msgid "manager.newSubmission"
+msgstr ""
+
+msgid "manager.newSubmission.description"
+msgstr ""
+
+msgid "manager.submissionAck.description"
+msgstr ""
+
+msgid "manager.submissionAck.off"
+msgstr ""
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr ""
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Default-deadlines för granskning"
+
+#~ msgid "emailTemplate.variable.submission.authorsFull"
+#~ msgstr "Författarnas fullständiga namn"
 
 #, fuzzy
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Checklista för insändning av bidrag"
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "Det här e-postmeddelandet skickas från en sektionsredaktör som en "
+#~ "påminnelse till granskaren att deadline för granskningen har passerat"
 
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "När ett bidrag skickas in till tidskriften måste författaren först kontrollera de olika momenten i Checklista för insändning av bidrag. Checklistan syns också i Författarinstruktioner under Om tidskriften. Checklistan kan redigeras nedan men alla delmoment på listan måste markeras av författaren innan bidraget skickas in."
+#~ msgid "doi.manager.settings.enableFor"
+#~ msgstr "{$objects} kommer tilldelas DOI"
+
+#~ msgid "manager.setup.enableDois.enable"
+#~ msgstr "Aktivera DOI:er"
+
+#~ msgid "doi.manager.settings.doiSuffixLegacyUser"
+#~ msgstr "Användardefinierat mönster för DOI-suffix som ej används längre."
+
+#~ msgid "mailable.discussionMessage.description"
+#~ msgstr ""
+#~ "Detta e-postmeddelande skickas automatiskt till deltagare i diskussionen "
+#~ "när ett nytt meddelande läggs till."
+
+#~ msgid "mailable.discussionMessage.name"
+#~ msgstr "Lägg till diskussion"
+
+#~ msgid "mailable.publicationVersionNotify.name"
+#~ msgstr "Meddelande om publiceringsversion"
+
+#~ msgid "mailable.publicationVersionNotify.description"
+#~ msgstr ""
+#~ "Det här e-postmeddelandet meddelar automatiskt anknutna redaktörer om en "
+#~ "ny version av publikationen"

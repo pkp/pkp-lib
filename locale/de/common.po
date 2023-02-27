@@ -104,7 +104,9 @@ msgid "common.grid"
 msgstr "Raster"
 
 msgid "common.confirmDelete"
-msgstr "Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann nicht rückgängig gemacht werden."
+msgstr ""
+"Sind Sie sicher, dass Sie diesen Eintrag löschen wollen? Der Vorgang kann "
+"nicht rückgängig gemacht werden."
 
 msgid "common.abstract"
 msgstr "Zusammenfassung"
@@ -124,11 +126,29 @@ msgstr "Aktivieren"
 msgid "common.active"
 msgstr "Aktiv"
 
+msgid "common.inactive"
+msgstr "Inaktiv"
+
 msgid "common.add"
 msgstr "Hinzufügen"
 
+msgid "common.addCCBCC"
+msgstr "CC/BCC hinzufügen"
+
+msgid "common.addFiles"
+msgstr "Dateien hinzufügen"
+
 msgid "common.addSelf"
 msgstr "Sich selbst hinzufügen"
+
+msgid "common.attachedFiles"
+msgstr "Dateianhänge"
+
+msgid "common.attachFiles"
+msgstr "Dateien anhängen"
+
+msgid "common.attachSelected"
+msgstr "Ausgewählte anhängen"
 
 msgid "common.name"
 msgstr "Name"
@@ -140,13 +160,21 @@ msgid "common.alphaList"
 msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
-msgstr "von ein eine einer eines der die das und oder weder aber ist wenn als dann sonst durch in aus über zu zum zur mit"
+msgstr ""
+"von ein eine einer eines der die das und oder weder aber ist wenn als dann "
+"sonst durch in aus über zu zum zur mit"
 
 msgid "common.alreadyAssigned"
 msgstr "Bereits zugewiesen"
 
 msgid "common.altText"
 msgstr "Alternativtext"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Beschreiben Sie das Bild für Benutzer/innen, die die Webseite mit einem nur-"
+"Text-Browser oder mit Hilfsgeräten besuchen. Beispielsweise: \"Unser "
+"Redakteur spricht auf der PKP Konferenz.\""
 
 msgid "common.and"
 msgstr "und"
@@ -187,33 +215,24 @@ msgstr "Fehler"
 msgid "common.notice"
 msgstr "Anmerkung"
 
-msgid "common.captcha.error.missing-input-secret"
-msgstr "Die Captcha-Validierung für diese Website ist nicht korrekt konfiguriert. Der geheime Schlüssel fehlt."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr "Die Captcha-Validierung für diese Website ist nicht korrekt konfiguriert. Der geheime Schlüssel ist ungültig."
-
 msgid "common.captcha.error.missing-input-response"
-msgstr "Sie müssen den Validierungs-Check abschließen, der Spam-Einreichungen verhindern soll."
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "Sie haben den Validierungs-Check, der Spam-Einreichungen verhindern soll, nicht erfolgreich abgeschlossen."
-
-msgid "common.captchaField.description"
-msgstr "Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik erscheinen."
-
-msgid "common.captchaField"
-msgstr "Validierung"
+msgstr ""
+"Sie müssen den Validierungs-Check abschließen, der Spam-Einreichungen "
+"verhindern soll."
 
 msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative-Commons-Lizenz\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative-Commons-Lizenz\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tDiese Arbeit steht unter einer <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tDiese Arbeit steht unter einer <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -221,9 +240,13 @@ msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative-Commons-Lizenz\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative-Commons-Lizenz\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tDiese Arbeit steht unter einer <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tDiese Arbeit steht unter einer <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -278,6 +301,9 @@ msgstr "Erstellen"
 msgid "common.dateCompleted"
 msgstr "Abgeschlossen am"
 
+msgid "common.dateDecided"
+msgstr "Entscheidungsdatum"
+
 msgid "common.date"
 msgstr "Datum"
 
@@ -317,17 +343,29 @@ msgstr "Lösche"
 msgid "common.deleteSelection"
 msgstr "Auswahl löschen"
 
+msgid "common.deselect"
+msgstr "Auswahl aufheben"
+
 msgid "common.designation"
 msgstr "Bezeichnung"
 
 msgid "common.description"
 msgstr "Beschreibung"
 
+msgid "common.details"
+msgstr ""
+
 msgid "common.dimensionsInches"
 msgstr "{$width}\"&nbsp;x&nbsp;{$height}\" @ {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} Pixel"
+
+msgid "common.discardChanges"
+msgstr ""
+
+msgid "common.disconnected"
+msgstr ""
 
 msgid "common.disable"
 msgstr "Ausschalten"
@@ -347,8 +385,23 @@ msgstr "Herunterladen"
 msgid "common.downloadPdf"
 msgstr "PDF herunterladen"
 
+msgid "common.downloadReport"
+msgstr ""
+
+msgid "common.dragAndDropHere"
+msgstr "Dateien hierher ziehen und ablegen."
+
+msgid "common.orUploadFile"
+msgstr "Oder eine Datei hier hochladen"
+
 msgid "common.edit"
 msgstr "Bearbeiten"
+
+msgid "common.editItem"
+msgstr "{$name} bearbeiten"
+
+msgid "common.emailTemplates"
+msgstr ""
 
 msgid "common.enable"
 msgstr "Aktivieren"
@@ -360,10 +413,13 @@ msgid "common.error.databaseError"
 msgstr "Ein Datenbankfehler ist aufgetreten: {$error}"
 
 msgid "common.error.databaseErrorUnknown"
-msgstr "Ein unbekannter Fehler bei der Verbindung mit der Datenbank ist aufgetreten."
+msgstr ""
+"Ein unbekannter Fehler bei der Verbindung mit der Datenbank ist aufgetreten."
 
 msgid "common.error.framesRequired"
-msgstr "Diese Seite enthält Frames. <a href=\"{$url}\">Hier</a> geht es zur Version ohne Frames."
+msgstr ""
+"Diese Seite enthält Frames. <a href=\"{$url}\">Hier</a> geht es zur Version "
+"ohne Frames."
 
 msgid "common.event"
 msgstr "Ereignis"
@@ -402,7 +458,10 @@ msgid "common.fileType"
 msgstr "Dateityp"
 
 msgid "common.fileUploaderError"
-msgstr "Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser unterstützt werden. Bitte kontaktieren Sie die Administrator/innen."
+msgstr ""
+"Der Dateiuploader des Systems wird gestartet. Wenn er nicht erschient, liegt "
+"dies vermutlich daran, dass seine Laufzeiten nicht von diesem Browser "
+"unterstützt werden. Bitte kontaktieren Sie die Administrator/innen."
 
 msgid "common.filter"
 msgstr "Filter"
@@ -412,6 +471,15 @@ msgstr "Filter hinzufügen: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "Filter löschen: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "Vorlage finden"
+
+msgid "common.formatting"
+msgstr ""
+
+msgid "common.geographic"
+msgstr ""
 
 msgid "common.go"
 msgstr "Los"
@@ -440,11 +508,23 @@ msgstr "Beginnen"
 msgid "common.inProgress"
 msgstr "In Arbeit"
 
+msgid "common.insert"
+msgstr "Einfügen"
+
+msgid "common.insertContent"
+msgstr "Inhalt einfügen"
+
+msgid "common.insertContentSearch"
+msgstr "Inhalt zum Einfügen suchen"
+
 msgid "common.itemsPerPage"
 msgstr "Einträge pro Seite"
 
 msgid "common.keywords"
 msgstr "Schlagworte"
+
+msgid "common.label"
+msgstr ""
 
 msgid "common.language"
 msgstr "Sprache"
@@ -452,11 +532,23 @@ msgstr "Sprache"
 msgid "common.languages"
 msgstr "Sprachen"
 
+msgid "common.lastSaved"
+msgstr ""
+
+msgid "common.lastActivity"
+msgstr "Letzte Aktivität verzeichnet am {$date}."
+
 msgid "common.less"
 msgstr "Weniger"
 
 msgid "common.lessThan"
 msgstr "{$value} oder weniger"
+
+msgid "common.lessThanOnly"
+msgstr "Weniger als"
+
+msgid "common.keepWorking"
+msgstr "Weiterarbeiten"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -488,14 +580,26 @@ msgstr "Mehr"
 msgid "common.moreThan"
 msgstr "{$value} oder mehr"
 
+msgid "common.moreThanOnly"
+msgstr "Mehr als"
+
 msgid "common.noneAssigned"
 msgstr "Nicht zugewiesen"
 
 msgid "common.none"
 msgstr "Keine"
 
+msgid "common.noneSelected"
+msgstr ""
+
+msgid "common.noneProvided"
+msgstr ""
+
 msgid "common.no"
 msgstr "Nein"
+
+msgid "common.noItemsFound"
+msgstr "Keine Elemente gefunden."
 
 msgid "common.noComments"
 msgstr "Keine Kommentare"
@@ -512,6 +616,11 @@ msgstr "Nicht bekannt"
 msgid "common.note"
 msgstr "Anmerkung"
 
+msgid "common.noTemporaryFile"
+msgstr ""
+"Die hochgeladene Datei konnte nicht gefunden werden. Bitte versuchen Sie "
+"erneut die Datei hochzuladen."
+
 msgid "common.notes"
 msgstr "Anmerkungen"
 
@@ -526,6 +635,9 @@ msgstr "Benachrichtigt: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "Keine Treffer"
+
+msgid "common.numberedMore"
+msgstr "{$number} mehr"
 
 msgid "common.off"
 msgstr "Aus"
@@ -560,11 +672,23 @@ msgstr "Andere"
 msgid "common.overdue"
 msgstr "Verspätet"
 
+msgid "common.override"
+msgstr "Überschreiben"
+
 msgid "common.pagination"
 msgstr "{$start}-{$end} von {$total}"
 
 msgid "common.pagination.label"
 msgstr "Zusätzliche Seiten durchstöbern"
+
+msgid "common.pagination.goToPage"
+msgstr "Gehe zu {$page}"
+
+msgid "common.pagination.next"
+msgstr "nächste Seite"
+
+msgid "common.pagination.previous"
+msgstr "vorherige Seite"
 
 msgid "common.pageNumber"
 msgstr "Seite {$pageNumber}"
@@ -611,6 +735,9 @@ msgstr "Mehr lesen"
 msgid "common.readMoreWithTitle"
 msgstr "Lesen Sie mehr über {$title}"
 
+msgid "common.reconnecting"
+msgstr ""
+
 msgid "common.record"
 msgstr "Protokollieren"
 
@@ -635,6 +762,9 @@ msgstr "Entlegener URL"
 msgid "common.remove"
 msgstr "Entfernen"
 
+msgid "common.removeItem"
+msgstr "Entferne {$item}"
+
 msgid "common.removeSelection"
 msgstr "Auswahl entfernen"
 
@@ -653,6 +783,12 @@ msgstr "Erforderlich"
 msgid "common.reset"
 msgstr "Zurücksetzen"
 
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr ""
+
 msgid "common.saveAndContinue"
 msgstr "Speichern und fortfahren"
 
@@ -668,6 +804,12 @@ msgstr "Speichere"
 msgid "common.search"
 msgstr "Suchen"
 
+msgid "common.searchPhrase"
+msgstr ""
+
+msgid "common.searching"
+msgstr "Suchend"
+
 msgid "common.searchQuery"
 msgstr "Suchanfrage"
 
@@ -680,14 +822,26 @@ msgstr "Sekunde(n)"
 msgid "common.selectAll"
 msgstr "Alle auswählen"
 
+msgid "common.selectedPrefix"
+msgstr "Ausgewählt:"
+
 msgid "common.selectNone"
 msgstr "Auswahl aufheben"
 
 msgid "common.select"
 msgstr "Auswählen"
 
+msgid "common.selectWithName"
+msgstr "{$name} auswählen"
+
 msgid "common.sendEmail"
 msgstr "E-Mail senden"
+
+msgid "common.showAllSteps"
+msgstr "Zeige alle Schritte"
+
+msgid "common.showingSteps"
+msgstr ""
 
 msgid "common.size"
 msgstr "Größe"
@@ -704,14 +858,26 @@ msgstr "Thema"
 msgid "common.subjects"
 msgstr "Themen"
 
+msgid "common.submenu"
+msgstr "Untermenü"
+
 msgid "common.subtitle"
 msgstr "Untertitel"
 
 msgid "common.suggest"
 msgstr "Vorschlagen"
 
+msgid "common.switchTo"
+msgstr "Wechseln zu"
+
+msgid "common.switchToNamedItem"
+msgstr "Wechseln zu {$name}"
+
 msgid "common.title"
 msgstr "Titel"
+
+msgid "common.titleSeparator"
+msgstr " | "
 
 msgid "common.top"
 msgstr "Zum Seitenanfang"
@@ -722,6 +888,12 @@ msgstr "Wahr"
 msgid "common.type"
 msgstr "Typ"
 
+msgid "common.uploadedBy"
+msgstr ""
+
+msgid "common.uploadedByAndWhen"
+msgstr ""
+
 msgid "common.component"
 msgstr "Komponente"
 
@@ -729,10 +901,18 @@ msgid "common.uninitiated"
 msgstr "Nicht begonnen"
 
 msgid "common.unknownError"
-msgstr "Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu und versuchen Sie es noch einmal."
+msgstr ""
+"Es ist ein unerwarteter Fehler aufgetreten. Bitte laden Sie die Seite neu "
+"und versuchen Sie es noch einmal."
 
 msgid "common.unread"
 msgstr "Ungelesen"
+
+msgid "common.unsavedChanges"
+msgstr ""
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
 
 msgid "common.untitled"
 msgstr "Ohne Titel"
@@ -747,19 +927,35 @@ msgid "common.upload"
 msgstr "Hochladen"
 
 msgid "common.uploadFailed"
-msgstr "Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter besteht."
+msgstr ""
+"Die Datei konnte nicht hochgeladen werden. Bitte probieren Sie es erneut "
+"oder benachrichtigen Sie den/die Administrator/in, wenn das Problem weiter "
+"besteht."
 
 msgid "common.up"
 msgstr "Aufwärts"
 
+msgid "common.addFile"
+msgstr "Datei hinzufügen"
+
 msgid "common.upload.addFile"
 msgstr "Datei hochladen"
+
+msgid "common.upload.addFile.description"
+msgstr "Datei vom Computer hochladen."
+
+msgid "common.upload.restore"
+msgstr "Original wiederherstellen"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Vorschau des derzeit ausgewählten Bildes."
 
 msgid "common.upload.changeFile"
 msgstr "Datei ändern"
 
 msgid "common.upload.dragFile"
-msgstr "Ziehen Sie eine Datei per Drag and drop hierher, um das Hochladen zu beginnen"
+msgstr ""
+"Ziehen Sie eine Datei per Drag and drop hierher, um das Hochladen zu beginnen"
 
 msgid "common.url"
 msgstr "URL"
@@ -767,8 +963,17 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Benutzer/in"
 
+msgid "common.user.nonexistent"
+msgstr "[Nutzer existiert nicht]"
+
 msgid "common.view"
 msgstr "Ansicht"
+
+msgid "common.viewError"
+msgstr "Fehler ansehen"
+
+msgid "common.viewWithName"
+msgstr "{$name} ansehen"
 
 msgid "common.viewProfile"
 msgstr "Profil ansehen"
@@ -778,6 +983,9 @@ msgstr "Wochen"
 
 msgid "common.width"
 msgstr "Breite"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.year"
 msgstr "Jahr"
@@ -830,6 +1038,33 @@ msgstr "Datei hochladen"
 msgid "email.addAttachment"
 msgstr "Anlage hinzufügen"
 
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Eingereichte Dateien anhängen"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, anhängen."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, wie "
+"beispielsweise Revisionen oder Dateien, anhängen."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Dateien aus der Bibliothek"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Dateien aus der Bibliothek anhängen"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Dateien aus der Einreichung und Herausgeberbibliothek anhängen."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Gutachtendateien anhängen"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Dateien, die von Gutachtenden hochgeladen wurden, anhängen"
+
 msgid "email.addBccRecipient"
 msgstr "Blindkopieempfänger/in hinzufügen"
 
@@ -842,17 +1077,27 @@ msgstr "Empfänger/in hinzufügen"
 msgid "email.attachments"
 msgstr "Anlagen"
 
+msgid "email.attachmentNotFound"
+msgstr "Die Datei {$fileName} konnte nicht angehangen werden."
+
 msgid "email.bcc"
 msgstr "BCC"
 
 msgid "email.bccSender"
-msgstr "Eine Blindkopie dieser Nachricht an meine E-Mail-Adresse schicken({$address})"
+msgstr ""
+"Eine Blindkopie dieser Nachricht an meine E-Mail-Adresse schicken({$address})"
 
 msgid "email.body"
 msgstr "Text"
 
 msgid "email.cc"
 msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Sind Sie sicher, dass Sie zu {$localeName} wechseln möchten, um diese E-Mail "
+"zu verfassen? Alle Änderungen, die Sie am Betreff und am Text der E-Mail "
+"vorgenommen haben, gehen verloren."
 
 msgid "email.compose"
 msgstr "Nachricht senden"
@@ -867,7 +1112,9 @@ msgstr ""
 "versenden."
 
 msgid "email.compose.error"
-msgstr "Beim Senden einer E-Mail ist ein Problem aufgetreten. Bitte versuchen Sie es später noch einmal oder benachrichtigen Sie Ihre/n Systemadministrator/in."
+msgstr ""
+"Beim Senden einer E-Mail ist ein Problem aufgetreten. Bitte versuchen Sie es "
+"später noch einmal oder benachrichtigen Sie Ihre/n Systemadministrator/in."
 
 msgid "email.email"
 msgstr "E-Mail"
@@ -915,7 +1162,9 @@ msgid "email.to"
 msgstr "An"
 
 msgid "form.url.invalid"
-msgstr "Die angegebene URL ist ungültig. Bitte überprüfen Sie die Adresse und versuchen es erneut."
+msgstr ""
+"Die angegebene URL ist ungültig. Bitte überprüfen Sie die Adresse und "
+"versuchen es erneut."
 
 msgid "form.confirmSubmit"
 msgstr "Sind Sie sicher, dass Sie dieses Formular übermitteln möchten?"
@@ -926,11 +1175,76 @@ msgstr "Bestätigen"
 msgid "form.dataHasChanged"
 msgstr "Die Daten in diesem Formular haben sich geändert. Trotzdem fortfahren?"
 
+msgid "form.disallowedLocales"
+msgstr "Nur die folgenden Sprachen sind zugelassen: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Diese Eigenschaft ist nicht zulässig."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Dateien hier ablegen zum Hochladen"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Hochladen von Dateien per Drag'n'Drop wird von Ihrem Browser nicht "
+"unterstützt."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"Bitte benutzen Sie das Ersatzformular unten zum Hochladen Ihrer Dateien."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Die Datei ist zu groß ({{filesize}}mb). Dateien größer als {{maxFilesize}}mb "
+"können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Dateien diesen Formats können nicht hochgeladen werden."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Der Server antwortete mit {{statusCode}}. Bitte kontaktieren Sie Ihre/n "
+"Systemadministrator/in, wenn dieses Problem länger bestehen bleibt."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Hochladen abbrechen"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Hochladen abgebrochen"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Sind Sie sicher, dass das Hochladen abgebrochen werden soll?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Datei entfernen"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Sie können keine weiteren Dateien hochladen."
+
+msgid "form.errorA11y"
+msgstr "Gehe zu {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Springe zum nächsten Fehler"
+
+msgid "form.errorOne"
+msgstr "Bitte beheben Sie einen Fehler."
+
+msgid "form.errorMany"
+msgstr "Bitte beheben Sie {$count} Fehler."
+
+msgid "form.errors"
+msgstr ""
+"Das Formular wurde nicht gespeichert, da {$count} Fehler aufgetreten sind. "
+"Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."
+
 msgid "form.errorsOccurred"
 msgstr "Es sind Fehler bei der Bearbeitung des Formulars aufgetreten."
 
 msgid "form.formLanguage.description"
-msgstr "Um die unten stehenden Angaben in einer weiteren Sprache einzugeben, wählen Sie bitte zunächst die gewünschte Sprache aus."
+msgstr ""
+"Um die unten stehenden Angaben in einer weiteren Sprache einzugeben, wählen "
+"Sie bitte zunächst die gewünschte Sprache aus."
 
 msgid "form.formLanguage"
 msgstr "Formularsprache"
@@ -947,14 +1261,28 @@ msgstr "beginnt mit"
 msgid "form.postRequired"
 msgstr "Das Formular wurde nicht ordnungsgemäß ausgefüllt."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"Dieses Formular konnte nicht abgeschickt werden. Sie wurden möglicherweise "
+"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
+
 msgid "form.fileRequired"
 msgstr "Dateiupload ist erforderlich."
 
 msgid "form.required"
 msgstr "(* Pflichtangabe)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Bitte füllen Sie dieses Feld in {$language} aus."
+
+msgid "form.requireId"
+msgstr "Bitte geben Sie eine gültige ID an."
+
 msgid "form.resubmit"
 msgstr "Erneut abschicken"
+
+msgid "form.saved"
+msgstr "Gespeichert"
 
 msgid "form.saveToUpload"
 msgstr "Verwenden Sie Speichern zum Hochladen der Datei."
@@ -966,7 +1294,15 @@ msgid "form.submit"
 msgstr "Abschicken"
 
 msgid "form.invalidImage"
-msgstr "Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, .gif und .jpg."
+msgstr ""
+"Es wurde ein ungültiges Bild hochgeladen. Akzeptierte Formate sind .png, ."
+"gif und .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} in {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} Sprachen vollständig"
 
 msgid "help.help"
 msgstr "Hilfe"
@@ -1065,19 +1401,42 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Eine Diskussion zwischen Ihnen und {$userFullName} beginnen."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das Formular unten aus."
+msgstr ""
+"Bitte wählen Sie eine vordefinierte Nachricht aus oder füllen Sie das "
+"Formular unten aus."
 
 msgid "stageParticipants.notify.message"
 msgstr "Nachricht"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und mindestens eine/n Empfänger/in ausgewählt haben."
+msgstr ""
+"Bitte stellen Sie sicher, dass Sie das Nachrichtenfeld ausgefüllt und "
+"mindestens eine/n Empfänger/in ausgewählt haben."
 
 msgid "stageParticipants.options"
 msgstr "Zuteilungsrechte"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Diese Person kann nur eine redaktionelle Entscheidung empfehlen und benötigt eine/n autorisierte/n Redakteur/in, um die redaktionelle Entscheidung festzulegen."
+msgstr ""
+"Diese Person kann nur eine redaktionelle Entscheidung empfehlen und benötigt "
+"eine/n autorisierte/n Redakteur/in, um die redaktionelle Entscheidung "
+"festzulegen."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Rechte"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Erlauben Sie dieser Person, Änderungen an der Publikation vorzunehmen, z. B. "
+"an Titel, Zusammenfassung, Metadaten und anderen Publikationsdetails. Sie "
+"können diese Berechtigung widerrufen, wenn die Einreichung eine "
+"abschließende Prüfung erhalten hat und zur Veröffentlichung bereit ist."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Beteiligte/r"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Dieser Beteiligte kann nicht geändert werden."
 
 msgid "locale.primary"
 msgstr "Primäre Regionaleinstellung"
@@ -1114,6 +1473,9 @@ msgstr "Statistiken"
 
 msgid "navigation.browse"
 msgstr "Durchblättern"
+
+msgid "navigation.backTo"
+msgstr "⟵ Zurück zu {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Nach Autor/in"
@@ -1175,6 +1537,12 @@ msgstr "Einrichtung"
 msgid "navigation.sitemap"
 msgstr "Übersichtsseite"
 
+msgid "navigation.skip.description"
+msgstr "Springe zu Inhalt-Links"
+
+msgid "navigation.skip.announcements"
+msgstr "Zu den Mitteilungen springen"
+
 msgid "navigation.skip.main"
 msgstr "Zum Inhalt springen"
 
@@ -1204,6 +1572,9 @@ msgstr "Nutzer/innenverwaltung"
 
 msgid "navigation.viewFrontend"
 msgstr "Website ansehen"
+
+msgid "institution.institutions"
+msgstr "Einrichtungen"
 
 msgid "notification.addedAuditor"
 msgstr "Prüfer/in hinzugefügt."
@@ -1276,10 +1647,15 @@ msgid "notification.settings"
 msgstr "Benachrichtigungseinstellungen"
 
 msgid "notification.settingsDescription"
-msgstr "Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse nicht in Ihrem Benachrichtigungs-Feed angezeigt werden."
+msgstr ""
+"Wählen Sie die System-Ereignisse aus, über die Sie benachrichtigt werden "
+"wollen. Nicht gewählte Elemente führen dazu, dass die jeweiligen Ereignisse "
+"nicht in Ihrem Benachrichtigungs-Feed angezeigt werden."
 
 msgid "notification.reminderError"
-msgstr "Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben."
+msgstr ""
+"Das Zusenden des Passworts verursachte einen Fehler; stellen Sie bitte "
+"sicher, dass Sie die E-Mail-Adresse richtig eingegeben haben."
 
 msgid "notification.reminderSent"
 msgstr "Ihr neues Passwort wurde an die angegebene E-Mail-Adresse geschickt."
@@ -1368,6 +1744,12 @@ msgstr "Suchen nach"
 msgid "search.searchResults"
 msgstr "Ergebnis der Suche"
 
+msgid "search.searchResults.foundSingle"
+msgstr "Ein Element gefunden."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} Elemente gefunden."
+
 msgid "search.subject"
 msgstr "Schlagworte"
 
@@ -1406,6 +1788,9 @@ msgstr "Aufgaben"
 
 msgid "dashboard.myQueue"
 msgstr "Meine Warteschlange"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Anonymisierung aller Dateien sicherstellen"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1462,16 +1847,32 @@ msgid "navigation.goBack"
 msgstr "Zurück"
 
 msgid "notification.addedReviewer"
-msgstr "Gutachter/in {$reviewerName} wurde mit der Begutachtung dieser Einreichung beauftragt und hat eine Benachrichtigung per E-Mail erhalten."
+msgstr ""
+"Gutachter/in {$reviewerName} wurde mit der Begutachtung dieser Einreichung "
+"beauftragt und hat eine Benachrichtigung per E-Mail erhalten."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} war nicht zur Begutachtung dieses Beitrags vorgesehen und hat keine E-Mail-Benachrichtigung erhalten."
+msgstr ""
+"{$reviewerName} war nicht zur Begutachtung dieses Beitrags vorgesehen und "
+"hat keine E-Mail-Benachrichtigung erhalten."
 
 msgid "notification.removedReviewer"
 msgstr "Gutachter/in entfernt."
 
+msgid "notification.cancelledReviewer"
+msgstr "Gutachter/in gestrichen."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Gutachter/in wiedereingesetzt."
+
+msgid "notification.reviewerResendRequest"
+msgstr ""
+
 msgid "notification.addedStageParticipant"
 msgstr "Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt."
+
+msgid "notification.editStageParticipant"
+msgstr "Die Zuordnung zu einem Bearbeitungsschritt wurde geändert."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Neue Ankündigung."
@@ -1486,10 +1887,14 @@ msgid "notification.type.auditorRequest"
 msgstr "Sie sind gebeten worden, die Datei \"{$file}\" zu prüfen."
 
 msgid "notification.type.allReviewsIn"
-msgstr "Alle Gutachten liegen vor, und eine Entscheidung wird in Phase {$stage} benötigt."
+msgstr ""
+"Alle Gutachten liegen vor, und eine Entscheidung wird in Phase {$stage} "
+"benötigt."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase {$stage} akzeptiert werden."
+msgstr ""
+"Eine überarbeitete Datei ist hochgeladen worden und muss von Ihnen in Phase "
+"{$stage} akzeptiert werden."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Sie sollen Überarbeitungen in Phase {$stage} akzeptieren."
@@ -1503,8 +1908,19 @@ msgstr "Gutachter/in hat \"{$title}\" kommentiert."
 msgid "notification.signedFile"
 msgstr "Datei akzeptiert."
 
+msgid "timeZone"
+msgstr "Zeitzone"
+
+msgid "user.email"
+msgstr "E-Mail-Adresse"
+
 msgid "user.authorization.submissionFile"
-msgstr "Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene eingereichte Datei zuzugreifen."
+msgstr ""
+"Der/die aktuelle Nutzer/in ist nicht berechtigt, auf die angegebene "
+"eingereichte Datei zuzugreifen."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Ungültige Veröffentlichung."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Ungültige Einreichung."
@@ -1512,11 +1928,32 @@ msgstr "Ungültige Einreichung."
 msgid "user.authorization.invalidRepresentation"
 msgstr "Ungültige Repräsentation."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "Ungültige Begutachtungsrunde."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Ungültige Diskussion."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Sie haben keinen Zugriff auf diese Diskussionsnachricht."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Sie haben keinen Zugriff auf diese Gutachterzuordnung."
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die entsprechenden Rollen registriert sind."
+msgstr ""
+"Sie verfügen nicht über ausreichende Rechte, um die Einreichung anzusehen. "
+"Bitte überarbeiten Sie Ihr Profil, um zu gewährleisten, dass Sie für die "
+"entsprechenden Rollen registriert sind."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Der/die aktuelle Nutzer/in ist nicht Autor/in der entsprechenden Einreichung. Bitte stellen Sie sicher, dass Sie mit dem richtigen Benutzer/innenkonto angemeldet sind."
+msgstr ""
+"Der/die aktuelle Nutzer/in ist nicht Autor/in der entsprechenden "
+"Einreichung. Bitte stellen Sie sicher, dass Sie mit dem richtigen Benutzer/"
+"innenkonto angemeldet sind."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Vertraulichkeitsoptionen"
 
 msgid "notification.type.queryActivity"
 msgstr "Gesprächsaktivität."
@@ -1525,13 +1962,26 @@ msgid "notification.type.queryAdded"
 msgstr "Gespräch ergänzt."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Weisen Sie eine/n Lektor/in über den Hinzufügen-Link in der Teilnehmer/innen-Liste zu."
+msgstr ""
+"Weisen Sie eine/n Lektor/in über den Hinzufügen-Link in der Teilnehmer/innen-"
+"Liste zu."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Warte auf Lektorat."
 
 msgid "notification.type.roundStatusTitle"
 msgstr "Durchgang {$round} Status"
+
+msgid "notification.type.editorialReport"
+msgstr "Zusammenfassung des Statistikberichts."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "
+"anhand des Redaktionsberichts zu überprüfen."
+
+msgid "notification.type.editorialReminder"
+msgstr "Wöchentliche E-Mail mit ausstehenden Aufgaben"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1554,457 +2004,21 @@ msgstr "Navigationsmenü erfolgreich aktualisiert"
 msgid "notification.removedNavigationMenu"
 msgstr "Navigationsmenü erfolgreich entfernt"
 
-msgid "list.viewMore"
-msgstr "Mehr Details über {$name} anzeigen"
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Benachrichtigungen wurden abbestellt"
 
-msgid "list.viewLess"
-msgstr "Details über {$name} verbergen"
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Wir konnten die Benachrichtigungen nicht abbestellen"
 
-msgid "form.errorMany"
-msgstr "Bitte beheben Sie {$count} Fehler."
-
-msgid "form.errorOne"
-msgstr "Bitte beheben Sie einen Fehler."
-
-msgid "form.errorGoTo"
-msgstr "Springe zum nächsten Fehler"
-
-msgid "form.errorA11y"
-msgstr "Gehe zu {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Sie können keine weiteren Dateien hochladen."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Datei entfernen"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Sind Sie sicher, dass das Hochladen abgebrochen werden soll?"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Hochladen abgebrochen"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Hochladen abbrechen"
-
-msgid "form.dropzone.dictResponseError"
+msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
-"Der Server antwortete mit {{statusCode}}. Bitte kontaktieren Sie Ihre/n "
-"Systemadministrator/in, wenn dieses Problem länger bestehen bleibt."
+"Wählen Sie die E-Mails aus, die Sie nicht mehr an {$email} von "
+"{$contextName} erhalten möchten."
 
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Dateien diesen Formats können nicht hochgeladen werden."
-
-msgid "form.dropzone.dictFileTooBig"
+msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"Die Datei ist zu groß ({{filesize}}mb). Dateien größer als {{maxFilesize}}mb "
-"können nicht hochgeladen werden."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr ""
-"Bitte benutzen Sie das Ersatzformular unten zum Hochladen Ihrer Dateien."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"Hochladen von Dateien per Drag'n'Drop wird von Ihrem Browser nicht "
-"unterstützt."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Dateien hier ablegen zum Hochladen"
-
-msgid "form.disallowedProp"
-msgstr "Diese Eigenschaft ist nicht zulässig."
-
-msgid "form.disallowedLocales"
-msgstr "Nur die folgenden Sprachen sind zugelassen: {$languages}."
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Vorschau des derzeit ausgewählten Bildes."
-
-msgid "common.upload.restore"
-msgstr "Original wiederherstellen"
-
-msgid "common.submenu"
-msgstr "Untermenü"
-
-msgid "common.selectedPrefix"
-msgstr "Ausgewählt:"
-
-msgid "common.removeItem"
-msgstr "Entferne {$item}"
-
-msgid "common.pagination.previous"
-msgstr "vorherige Seite"
-
-msgid "common.pagination.next"
-msgstr "nächste Seite"
-
-msgid "common.pagination.goToPage"
-msgstr "Gehe zu {$page}"
-
-msgid "common.override"
-msgstr "Überschreiben"
-
-msgid "common.noTemporaryFile"
-msgstr ""
-"Die hochgeladene Datei konnte nicht gefunden werden. Bitte versuchen Sie "
-"erneut die Datei hochzuladen."
-
-msgid "common.noItemsFound"
-msgstr "Keine Elemente gefunden."
-
-msgid "common.lastActivity"
-msgstr "Letzte Aktivität verzeichnet am {$date}."
-
-msgid "common.dateDecided"
-msgstr "Entscheidungsdatum"
-
-msgid "common.altTextInstructions"
-msgstr ""
-"Beschreiben Sie das Bild für Benutzer/innen, die die Webseite mit einem nur-"
-"Text-Browser oder mit Hilfsgeräten besuchen. Beispielsweise: \"Unser "
-"Redakteur spricht auf der PKP Konferenz.\""
-
-msgid "validator.alpha_num"
-msgstr "Dies darf nur Buchstaben und Zahlen enthalten."
-
-msgid "validator.alpha_dash"
-msgstr "Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten."
-
-msgid "validator.alpha"
-msgstr "Dies darf nur Buchstaben enthalten."
-
-msgid "validator.after"
-msgstr "Dieses Datum muss nach dem {$date} liegen."
-
-msgid "validator.active_url"
-msgstr "Dies ist keine gültige URL."
-
-msgid "validator.accepted"
-msgstr "Bitte akzeptieren Sie dieses Element."
-
-msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Dies ist eine freundliche Erinnerung daran, die Gesundheit der Zeitschrift "
-"anhand des Redaktionsberichts zu überprüfen."
-
-msgid "notification.type.editorialReport"
-msgstr "Zusammenfassung des Statistikberichts."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Ungültige Veröffentlichung."
-
-msgid "notification.editStageParticipant"
-msgstr "Die Zuordnung zu einem Bearbeitungsschritt wurde geändert."
-
-msgid "notification.cancelledReviewer"
-msgstr "Gutachter/in gestrichen."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Gutachter/in wiedereingesetzt."
-
-msgid "navigation.skip.announcements"
-msgstr "Zu den Mitteilungen springen"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Dieser Beteiligte kann nicht geändert werden."
-
-msgid "stageParticipants.selectedUser"
-msgstr "Beteiligte/r"
-
-msgid "stageParticipants.canChangeMetadata"
-msgstr ""
-"Erlauben Sie dieser Person, Änderungen an der Publikation vorzunehmen, z. B. "
-"an Titel, Zusammenfassung, Metadaten und anderen Publikationsdetails. Sie "
-"können diese Berechtigung widerrufen, wenn die Einreichung eine "
-"abschließende Prüfung erhalten hat und zur Veröffentlichung bereit ist."
-
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Rechte"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} Sprachen vollständig"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} in {$localeName}"
-
-msgid "form.csrfInvalid"
-msgstr ""
-"Dieses Formular konnte nicht abgeschickt werden. Sie wurden möglicherweise "
-"abgemeldet. Bitte laden Sie die Seite neu und versuchen Sie es erneut."
-
-msgid "form.requireId"
-msgstr "Bitte geben Sie eine gültige ID an."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Bitte füllen Sie dieses Feld in {$language} aus."
-
-msgid "form.errors"
-msgstr ""
-"Das Formular wurde nicht gespeichert, da {$count} Fehler aufgetreten sind. "
-"Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."
-
-msgid "validator.url"
-msgstr "Dies ist keine gültige URL."
-
-msgid "validator.unique"
-msgstr "{$attribute} ist bereits vergeben."
-
-msgid "validator.timezone"
-msgstr "Dies ist keine gültige Zeitzone."
-
-msgid "validator.string"
-msgstr "Dies ist keine gültige Zeichenkette."
-
-msgid "validator.size.array"
-msgstr "Dies muss {$min} Elemente enthalten."
-
-msgid "validator.size.string"
-msgstr "Dies muss {$size} Zeichen enthalten."
-
-msgid "validator.size.file"
-msgstr "Dies müssen {$size} Kilobyte sein."
-
-msgid "validator.size.numeric"
-msgstr "Dies muss {$size} groß sein."
-
-msgid "validator.same"
-msgstr "{$attribute} und {$other} müssen übereinstimmen."
-
-msgid "validator.required_without_all"
-msgstr "Dies ist ein Pflichtfeld, wenn keine {$values} vorhanden sind."
-
-msgid "validator.required_without"
-msgstr "Dies ist ein Pflichtfeld, wenn {$values} nicht vorhanden ist."
-
-msgid "validator.required_with_all"
-msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
-
-msgid "validator.required_with"
-msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
-
-msgid "validator.required_unless"
-msgstr ""
-"Dies ist ein Pflichtfeld, außer wenn {$other} in {$values} enthalten ist."
-
-msgid "validator.required_if"
-msgstr "Dies ist ein Pflichtfeld, wenn {$other} {$value} ist."
-
-msgid "validator.required"
-msgstr "Dies ist ein Pflichtfeld."
-
-msgid "validator.regex"
-msgstr "Dies ist nicht korrekt formatiert."
-
-msgid "validator.present"
-msgstr "Das Feld {$attribute} muss vorhanden sein."
-
-msgid "validator.orcid"
-msgstr "Dies ist keine gültige ORCID."
-
-msgid "validator.numeric"
-msgstr "Dies ist keine gültige Zahl."
-
-msgid "validator.not_in"
-msgstr "Das gewählte {$attribute} ist ungültig."
-
-msgid "validator.min.array"
-msgstr "Dies muss mindestens {$min} Elemente enthalten."
-
-msgid "validator.min.string"
-msgstr "Dies muss mindestens {$min} Zeichen lang sein."
-
-msgid "validator.min.file"
-msgstr "Dies müssen mindestens {$min} Kilobyte sein."
-
-msgid "validator.min.numeric"
-msgstr "Dies müssen mindestens {$min} sein."
-
-msgid "validator.mimes"
-msgstr "Dies muss eine Datei des Typs {$values} sein."
-
-msgid "validator.max.array"
-msgstr "Dies darf nicht mehr als {$max} Elemente enthalten."
-
-msgid "validator.max.string"
-msgstr "Dies darf nicht mehr als {$max} Zeichen lang sein."
-
-msgid "validator.max.file"
-msgstr "Dies darf nicht größer als {$max} Kilobyte sein."
-
-msgid "validator.max.numeric"
-msgstr "Dies darf nicht größer als {$max} sein."
-
-msgid "validator.localeKey"
-msgstr ""
-"Sprachen müssen über den Code für Regionaleinstellungen angegeben werden. "
-"Beispiele: en_US, fr_CA, sr_RS@cyrillic."
-
-msgid "validator.localeExpected"
-msgstr ""
-"Dies ist ein mehrsprachiges Feld. Werte müssen für jede unterstützte Sprache "
-"getrennt eingegeben werden."
-
-msgid "validator.locale"
-msgstr "Dies Sprache wird nicht akzeptiert."
-
-msgid "validator.json"
-msgstr "Dies ist keine gültige JSON Zeichenkette."
-
-msgid "validator.issn"
-msgstr "Dies ist keine gültige ISSN."
-
-msgid "validator.ip"
-msgstr "Dies ist keine gültige IP-Adresse."
-
-msgid "validator.integer"
-msgstr "Dies ist keine gültige Ganzzahl."
-
-msgid "validator.in"
-msgstr "Das gewählte {$attribute} ist ungültig."
-
-msgid "validator.image"
-msgstr "Dies muss ein Bild sein."
-
-msgid "validator.filled"
-msgstr "Dies ist ein Pflichtfeld."
-
-msgid "validator.exists"
-msgstr "Das gewählte {$attribute} ist ungültig."
-
-msgid "validator.email"
-msgstr "Dies ist keine gültige E-Mail-Adresse."
-
-msgid "validator.digits_between"
-msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
-
-msgid "validator.digits"
-msgstr "Dies muss {$digits} Zeichen lang sein."
-
-msgid "validator.different"
-msgstr "{$attribute} und {$other} müssen verschieden sein."
-
-msgid "validator.date_format"
-msgstr "Dies stimmt nicht mit dem Format {$format} überein."
-
-msgid "validator.date"
-msgstr "Dies ist kein gültiges Datum."
-
-msgid "validator.currency"
-msgstr "Dies ist keine gültige Währung."
-
-msgid "validator.confirmed"
-msgstr "Die Bestätigung dieses Feldes stimmt nicht mit dem Wert überein."
-
-msgid "validator.boolean"
-msgstr "Dieses Feld muss wahr oder falsch sein."
-
-msgid "validator.between.array"
-msgstr "Dies muss {$min} bis {$max} Elemente haben."
-
-msgid "validator.between.string"
-msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
-
-msgid "validator.between.file"
-msgstr "Dies muss zwischen {$min} und {$max} kilobytes groß sein."
-
-msgid "validator.between.numeric"
-msgstr "Dies muss zwischen {$min} und {$max} liegen."
-
-msgid "validator.before"
-msgstr "Dieses Datum muss vor dem {$date} liegen."
-
-msgid "validator.array"
-msgstr "Dies ist kein gültiger Bereich."
-
-msgid "navigation.skip.description"
-msgstr "Springe zu Inhalt-Links"
-
-msgid "common.moreThanOnly"
-msgstr "Mehr als"
-
-msgid "common.lessThanOnly"
-msgstr "Weniger als"
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Vertraulichkeitsoptionen"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Sie haben keinen Zugriff auf diese Gutachterzuordnung."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Sie haben keinen Zugriff auf diese Diskussionsnachricht."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Ungültige Diskussion."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Ungültige Begutachtungsrunde."
-
-msgid "user.email"
-msgstr "E-Mail-Adresse"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "Anonymisierung aller Dateien sicherstellen"
-
-msgid "search.searchResults.foundPlural"
-msgstr "{$count} Elemente gefunden."
-
-msgid "search.searchResults.foundSingle"
-msgstr "Ein Element gefunden."
-
-msgid "navigation.backTo"
-msgstr "⟵ Zurück zu {$page}"
-
-msgid "form.saved"
-msgstr "Gespeichert"
-
-msgid "common.viewWithName"
-msgstr "{$name} ansehen"
-
-msgid "common.user.nonexistent"
-msgstr "[Nutzer existiert nicht]"
-
-msgid "common.addFile"
-msgstr "Datei hinzufügen"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.selectWithName"
-msgstr "{$name} auswählen"
-
-msgid "common.editItem"
-msgstr "{$name} bearbeiten"
-
-msgid "common.inactive"
-msgstr "Inaktiv"
-
-msgid "filter.import.error.couldNotImportNode"
-msgstr "XML konnte nicht importiert werden"
-
-msgid "filter.error.missingRequirements"
-msgstr ""
-"Sie versuchen, eine Transformation auszuführen, die in Ihrer "
-"Installationsumgebung nicht unterstützt wird."
-
-msgid "filter.input.error.notSupported"
-msgstr ""
-"Filter ({$displayName}) unterstützt Eingabe {$inputTypeName} - {$typeofInput}"
-
-msgid "validator.country"
-msgstr "Dies ist kein gültiges Land."
-
-msgid "notification.unsubscribeNotifications"
-msgstr "Abbestellen"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
-msgstr ""
-"Es ist ein unerwarteter Fehler aufgetreten und wir konnten die "
-"Benachrichtigungen an die E-Mail-Adresse {$email} nicht abbestellen. Sie "
-"können alle E-Mail-Benachrichtigungen in Ihrem <a href=\""
-"{$profileNotificationUrl}\">Benutzerprofil</a> abbestellen oder uns direkt "
-"um Hilfe bitten."
+"Sie können E-Mail-Benachrichtigungen jederzeit über Ihr <a href="
+"\"{$profileNotificationUrl}\">Benutzerprofil</a> wieder aktivieren."
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
@@ -2013,145 +2027,253 @@ msgstr ""
 "Ihr <a href=\"{$profileNotificationUrl}\">Benutzerprofil</a> erneut "
 "aktivieren."
 
-msgid "notification.unsubscribeNotifications.resubscribe"
+msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
-"Sie können E-Mail-Benachrichtigungen jederzeit über Ihr <a href=\""
-"{$profileNotificationUrl}\">Benutzerprofil</a> wieder aktivieren."
+"Es ist ein unerwarteter Fehler aufgetreten und wir konnten die "
+"Benachrichtigungen an die E-Mail-Adresse {$email} nicht abbestellen. Sie "
+"können alle E-Mail-Benachrichtigungen in Ihrem <a href="
+"\"{$profileNotificationUrl}\">Benutzerprofil</a> abbestellen oder uns direkt "
+"um Hilfe bitten."
 
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"Wählen Sie die E-Mails aus, die Sie nicht mehr an {$email} von {$contextName}"
-" erhalten möchten."
+msgid "notification.unsubscribeNotifications"
+msgstr "Abbestellen"
 
-msgid "notification.unsubscribeNotifications.error"
-msgstr "Wir konnten die Benachrichtigungen nicht abbestellen"
+msgid "list.viewMore"
+msgstr "Mehr Details über {$name} anzeigen"
 
-msgid "notification.unsubscribeNotifications.success"
-msgstr "Benachrichtigungen wurden abbestellt"
+msgid "list.viewLess"
+msgstr "Details über {$name} verbergen"
+
+msgid "list.expandAll"
+msgstr "Alle ausklappen"
+
+msgid "list.collapseAll"
+msgstr "Alle einklappen"
+
+msgid "validation.invalidOption"
+msgstr "Dies ist keine gültige Option."
+
+msgid "validator.accepted"
+msgstr "Bitte akzeptieren Sie dieses Element."
+
+msgid "validator.active_url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.after"
+msgstr "Dieses Datum muss nach dem {$date} liegen."
+
+msgid "validator.alpha"
+msgstr "Dies darf nur Buchstaben enthalten."
+
+msgid "validator.alpha_dash"
+msgstr "Dies darf nur Buchstaben, Zahlen, Striche und Unterstriche enthalten."
 
 msgid "validator.alpha_dash_period"
 msgstr ""
 "Dies darf nur Buchstaben, Zahlen, Striche, Unterstriche und Punkte enthalten."
 
-msgid "validation.invalidOption"
-msgstr "Dies ist keine gültige Option."
+msgid "validator.alpha_num"
+msgstr "Dies darf nur Buchstaben und Zahlen enthalten."
 
-msgid "common.insert"
-msgstr "Einfügen"
+msgid "validator.array"
+msgstr "Dies ist kein gültiger Bereich."
 
-msgid "list.collapseAll"
-msgstr "Alle einklappen"
+msgid "validator.before"
+msgstr "Dieses Datum muss vor dem {$date} liegen."
 
-msgid "list.expandAll"
-msgstr "Alle ausklappen"
+msgid "validator.between.numeric"
+msgstr "Dies muss zwischen {$min} und {$max} liegen."
 
-msgid "timeZone"
-msgstr "Zeitzone"
+msgid "validator.between.file"
+msgstr "Dies muss zwischen {$min} und {$max} kilobytes groß sein."
 
-msgid "common.addFiles"
-msgstr "Dateien hinzufügen"
+msgid "validator.between.string"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
 
-msgid "common.attachedFiles"
-msgstr "Dateianhänge"
+msgid "validator.between.array"
+msgstr "Dies muss {$min} bis {$max} Elemente haben."
 
-msgid "common.findTemplate"
-msgstr "Vorlage finden"
+msgid "validator.boolean"
+msgstr "Dieses Feld muss wahr oder falsch sein."
 
-msgid "common.attachFiles"
-msgstr "Dateien anhängen"
+msgid "validator.confirmed"
+msgstr "Die Bestätigung dieses Feldes stimmt nicht mit dem Wert überein."
 
-msgid "common.dragAndDropHere"
-msgstr "Dateien hierher ziehen und ablegen."
+msgid "validator.country"
+msgstr "Dies ist kein gültiges Land."
 
-msgid "common.addCCBCC"
-msgstr "CC/BCC hinzufügen"
+msgid "validator.country.regex"
+msgstr ""
 
-msgid "common.orUploadFile"
-msgstr "Oder eine Datei hier hochladen"
+msgid "validator.currency"
+msgstr "Dies ist keine gültige Währung."
 
-msgid "common.deselect"
-msgstr "Auswahl aufheben"
+msgid "validator.date"
+msgstr "Dies ist kein gültiges Datum."
 
-msgid "common.attachSelected"
-msgstr "Ausgewählte anhängen"
+msgid "validator.date_format"
+msgstr "Dies stimmt nicht mit dem Format {$format} überein."
 
-msgid "email.addAttachment.reviewFiles.attach"
-msgstr "Gutachtendateien anhängen"
+msgid "validator.different"
+msgstr "{$attribute} und {$other} müssen verschieden sein."
 
-msgid "common.searching"
-msgstr "Suchend"
+msgid "validator.digits"
+msgstr "Dies muss {$digits} Zeichen lang sein."
 
-msgid "email.addAttachment.submissionFiles.attach"
-msgstr "Eingereichte Dateien anhängen"
+msgid "validator.digits_between"
+msgstr "Dies muss zwischen {$min} und {$max} Zeichen lang sein."
+
+msgid "validator.email"
+msgstr "Dies ist keine gültige E-Mail-Adresse."
+
+msgid "validator.exists"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.filled"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.image"
+msgstr "Dies muss ein Bild sein."
+
+msgid "validator.in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.integer"
+msgstr "Dies ist keine gültige Ganzzahl."
+
+msgid "validator.ip"
+msgstr "Dies ist keine gültige IP-Adresse."
+
+msgid "validator.issn"
+msgstr "Dies ist keine gültige ISSN."
+
+msgid "validator.json"
+msgstr "Dies ist keine gültige JSON Zeichenkette."
+
+msgid "validator.locale"
+msgstr "Dies Sprache wird nicht akzeptiert."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Dies ist ein mehrsprachiges Feld. Werte müssen für jede unterstützte Sprache "
+"getrennt eingegeben werden."
+
+msgid "validator.localeKey"
+msgstr ""
+"Sprachen müssen über den Code für Regionaleinstellungen angegeben werden. "
+"Beispiele: en_US, fr_CA, sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Dies darf nicht größer als {$max} sein."
+
+msgid "validator.max.file"
+msgstr "Dies darf nicht größer als {$max} Kilobyte sein."
+
+msgid "validator.max.string"
+msgstr "Dies darf nicht mehr als {$max} Zeichen lang sein."
+
+msgid "validator.max.array"
+msgstr "Dies darf nicht mehr als {$max} Elemente enthalten."
+
+msgid "validator.mimes"
+msgstr "Dies muss eine Datei des Typs {$values} sein."
+
+msgid "validator.min.numeric"
+msgstr "Dies müssen mindestens {$min} sein."
+
+msgid "validator.min.file"
+msgstr "Dies müssen mindestens {$min} Kilobyte sein."
+
+msgid "validator.min.string"
+msgstr "Dies muss mindestens {$min} Zeichen lang sein."
+
+msgid "validator.min.array"
+msgstr "Dies muss mindestens {$min} Elemente enthalten."
+
+msgid "validator.not_in"
+msgstr "Das gewählte {$attribute} ist ungültig."
+
+msgid "validator.numeric"
+msgstr "Dies ist keine gültige Zahl."
+
+msgid "validator.orcid"
+msgstr "Dies ist keine gültige ORCID."
+
+msgid "validator.present"
+msgstr "Das Feld {$attribute} muss vorhanden sein."
+
+msgid "validator.regex"
+msgstr "Dies ist nicht korrekt formatiert."
+
+msgid "validator.required"
+msgstr "Dies ist ein Pflichtfeld."
+
+msgid "validator.required_if"
+msgstr "Dies ist ein Pflichtfeld, wenn {$other} {$value} ist."
+
+msgid "validator.required_unless"
+msgstr ""
+"Dies ist ein Pflichtfeld, außer wenn {$other} in {$values} enthalten ist."
+
+msgid "validator.required_with"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_with_all"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} vorhanden ist."
+
+msgid "validator.required_without"
+msgstr "Dies ist ein Pflichtfeld, wenn {$values} nicht vorhanden ist."
+
+msgid "validator.required_without_all"
+msgstr "Dies ist ein Pflichtfeld, wenn keine {$values} vorhanden sind."
+
+msgid "validator.same"
+msgstr "{$attribute} und {$other} müssen übereinstimmen."
+
+msgid "validator.size.numeric"
+msgstr "Dies muss {$size} groß sein."
+
+msgid "validator.size.file"
+msgstr "Dies müssen {$size} Kilobyte sein."
+
+msgid "validator.size.string"
+msgstr "Dies muss {$size} Zeichen enthalten."
+
+msgid "validator.size.array"
+msgstr "Dies muss {$min} Elemente enthalten."
+
+msgid "validator.string"
+msgstr "Dies ist keine gültige Zeichenkette."
+
+msgid "validator.timezone"
+msgstr "Dies ist keine gültige Zeitzone."
+
+msgid "validator.unique"
+msgstr "{$attribute} ist bereits vergeben."
+
+msgid "validator.url"
+msgstr "Dies ist keine gültige URL."
+
+msgid "validator.no_new_line"
+msgstr ""
+
+msgid "validator.allowable_title_html_tags"
+msgstr ""
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filter ({$displayName}) unterstützt Eingabe {$inputTypeName} - {$typeofInput}"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Sie versuchen, eine Transformation auszuführen, die in Ihrer "
+"Installationsumgebung nicht unterstützt wird."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML konnte nicht importiert werden"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Unbekannter Befehl {$command}"
-
-msgid "email.addAttachment.reviewFiles.description"
-msgstr "Dateien, die von Gutachtenden hochgeladen wurden, anhängen"
-
-msgid "common.insertContent"
-msgstr "Inhalt einfügen"
-
-msgid "common.insertContentSearch"
-msgstr "Inhalt zum Einfügen suchen"
-
-msgid "common.keepWorking"
-msgstr "Weiterarbeiten"
-
-msgid "common.numberedMore"
-msgstr "{$number} mehr"
-
-msgid "common.switchTo"
-msgstr "Wechseln zu"
-
-msgid "common.switchToNamedItem"
-msgstr "Wechseln zu {$name}"
-
-msgid "common.upload.addFile.description"
-msgstr "Datei vom Computer hochladen."
-
-msgid "common.viewError"
-msgstr "Fehler ansehen"
-
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
-
-msgid "email.addAttachment.libraryFiles"
-msgstr "Dateien aus der Bibliothek"
-
-msgid "email.addAttachment.libraryFiles.attach"
-msgstr "Dateien aus der Bibliothek anhängen"
-
-msgid "email.addAttachment.libraryFiles.description"
-msgstr "Dateien aus der Einreichung und Herausgeberbibliothek anhängen."
-
-msgid "email.attachmentNotFound"
-msgstr "Die Datei {$fileName} konnte nicht angehangen werden."
-
-msgid "email.confirmSwitchLocale"
-msgstr ""
-"Sind Sie sicher, dass Sie zu {$localeName} wechseln möchten, um diese E-Mail "
-"zu verfassen? Alle Änderungen, die Sie am Betreff und am Text der E-Mail "
-"vorgenommen haben, gehen verloren."
-
-msgid "institution.institutions"
-msgstr "Einrichtungen"
-
-msgid "notification.type.editorialReminder"
-msgstr "Wöchentliche E-Mail mit ausstehenden Aufgaben"
-
-msgid "common.showAllSteps"
-msgstr "Zeige alle Schritte"
-
-msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
-"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, anhängen."
-
-msgid "email.addAttachment.submissionFiles.reviewDescription"
-msgstr ""
-"Dateien, die von Autor/in bei der Einreichung hochgeladen wurden, wie "
-"beispielsweise Revisionen oder Dateien, anhängen."
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2164,3 +2286,26 @@ msgstr "Autor/in hinzugefügt."
 
 msgid "notification.editedAuthor"
 msgstr "Autor/in bearbeitet."
+
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr ""
+#~ "Die Captcha-Validierung für diese Website ist nicht korrekt konfiguriert. "
+#~ "Der geheime Schlüssel fehlt."
+
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr ""
+#~ "Die Captcha-Validierung für diese Website ist nicht korrekt konfiguriert. "
+#~ "Der geheime Schlüssel ist ungültig."
+
+#~ msgid "common.captcha.error.invalid-input-response"
+#~ msgstr ""
+#~ "Sie haben den Validierungs-Check, der Spam-Einreichungen verhindern soll, "
+#~ "nicht erfolgreich abgeschlossen."
+
+#~ msgid "common.captchaField.description"
+#~ msgstr ""
+#~ "Geben Sie bitte die Zeichen so ein, wie Sie in der obigen Grafik "
+#~ "erscheinen."
+
+#~ msgid "common.captchaField"
+#~ msgstr "Validierung"

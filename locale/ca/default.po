@@ -65,15 +65,6 @@ msgstr "Revisors/ores interns"
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IR"
 
-msgid "default.groups.name.externalReviewer"
-msgstr "Revisor/a extern"
-
-msgid "default.groups.plural.externalReviewer"
-msgstr "Revisors/ores externs"
-
-msgid "default.groups.abbrev.externalReviewer"
-msgstr "ER"
-
 msgid "default.groups.name.marketing"
 msgstr "Coordinador/a de màrqueting i vendes"
 
@@ -152,6 +143,33 @@ msgstr "Full d'estil HTML"
 #, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
-"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
+"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
+"{$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""
+
+#~ msgid "default.groups.name.externalReviewer"
+#~ msgstr "Revisor/a extern"
+
+#~ msgid "default.groups.plural.externalReviewer"
+#~ msgstr "Revisors/ores externs"
+
+#~ msgid "default.groups.abbrev.externalReviewer"
+#~ msgstr "ER"

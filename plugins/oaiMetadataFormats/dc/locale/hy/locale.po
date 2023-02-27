@@ -12,8 +12,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "plugins.oaiMetadata.dc.description"
-msgstr "Մետատվյալների կազմությունը համապատասխանում է Dublin Core ձևաչափին:"
-
 msgid "plugins.oaiMetadata.dc.displayName"
 msgstr "DC մետատվյալների ձևաչափ"
+
+msgid "plugins.oaiMetadata.dc.description"
+msgstr "Մետատվյալների կազմությունը համապատասխանում է Dublin Core ձևաչափին:"

@@ -36,6 +36,9 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Artikkelin arviointi vastaanotettu"
@@ -49,9 +52,18 @@ msgstr ""
 "julkaisulle {$contextName}. Arvostamme panostanne julkaisemamme työn laadun "
 "hyväksi."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "This email is sent by a Section Editor to confirm receipt of a completed review and thank the reviewer for their contributions."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Toimittajan päätös"
@@ -145,9 +157,9 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "Hyvä {$recipientName},<br />\n"
 "<br />\n"
-"Pyytäisin teitä toimittamaan teknisesti käsikirjoituksen "
-"&quot;{$submissionTitle}&quot; julkaisulle {$contextName}, seuraavia "
-"vaiheita noudattaen:<br />\n"
+"Pyytäisin teitä toimittamaan teknisesti käsikirjoituksen &quot;"
+"{$submissionTitle}&quot; julkaisulle {$contextName}, seuraavia vaiheita "
+"noudattaen:<br />\n"
 "1. Klikatkaa alla olevaa käsikirjoituksen URL-osoitetta.<br />\n"
 "2. Avatkaa Luonnostiedostot-otsikon alla olevat tiedostot ja toimittakaa ne "
 "teknisesti. Voitte samalla lisätä tekniseen toimittamiseen liittyviä "
@@ -161,6 +173,24 @@ msgstr ""
 "Käsikirjoituksen URL: {$submissionUrl}<br />\n"
 "Käyttäjätunnus: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Toimittajan päätös"
@@ -171,9 +201,55 @@ msgstr ""
 "\n"
 "\t\t\tHyvä {$authors},<br />\n"
 "<br />\n"
-"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
+"Olemme tehneet päätöksen julkaisuun {$contextName} lähettämäänne "
+"käsikirjoitusta &quot;{$submissionTitle}&quot; koskien.<br />\n"
 "<br />\n"
 "Päätöksemme on: Käsikirjoitus on hylätty"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -181,6 +257,55 @@ msgstr "Viesti julkaisua {$contextName} koskien"
 
 msgid "emails.discussion.body"
 msgstr "Kirjoita viesti."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Arvioinnin hyväksyminen"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Hyvät toimittajat,<br />\n"
+"<br />\n"
+"Olen halukas arvioimaan käsikirjoituksen &quot;{$submissionTitle}&quot; "
+"julkaisulle {$contextName}. Kiitos, että pyysitte minua tähän tehtävään. "
+"Suoritan arvioinnin viimeistään sen määräaikaan {$reviewDueDate} mennessä."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Käsikirjoituksesi on vastaanotettu"
@@ -199,17 +324,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Hyvät toimittajat,<br />\n"
-"<br />\n"
-"Olen halukas arvioimaan käsikirjoituksen &quot;{$submissionTitle}&quot; "
-"julkaisulle {$contextName}. Kiitos, että pyysitte minua tähän tehtävään. "
-"Suoritan arvioinnin viimeistään sen määräaikaan {$reviewDueDate} mennessä."
-"<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Arvioinnin hyväksyminen"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "This email is sent by a Section Editor to confirm receipt of a completed "
+#~ "review and thank the reviewer for their contributions."

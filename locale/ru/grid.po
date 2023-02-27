@@ -62,7 +62,9 @@ msgid "grid.action.unassignReviewer"
 msgstr "Отменить назначение этого рецензента"
 
 msgid "grid.action.approveCopyedit"
-msgstr "Одобрить этот файл, прошедший литературное редактирование, для отправки на следующий этап"
+msgstr ""
+"Одобрить этот файл, прошедший литературное редактирование, для отправки на "
+"следующий этап"
 
 msgid "grid.action.reload"
 msgstr "Перезагрузить"
@@ -132,6 +134,9 @@ msgstr "Обновить"
 
 msgid "grid.action.order"
 msgstr "Упорядочить"
+
+msgid "grid.action.saveOrdering"
+msgstr "Сохранить порядок"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Отменить упорядочивание"
@@ -212,7 +217,8 @@ msgid "grid.action.disableEmail"
 msgstr "Отключить этот шаблон письма электронной почты"
 
 msgid "grid.action.resetEmail"
-msgstr "Восстановить значение по умолчанию для этого шаблона письма электронной почты"
+msgstr ""
+"Восстановить значение по умолчанию для этого шаблона письма электронной почты"
 
 msgid "grid.action.expandAll"
 msgstr "Развернуть все"
@@ -283,6 +289,9 @@ msgstr "Добавить тип объявления"
 msgid "grid.action.addAnnouncement"
 msgstr "Добавить объявление"
 
+msgid "grid.action.addInstitution"
+msgstr "Добавить организацию"
+
 msgid "grid.action.mergeUser"
 msgstr "Объединить пользователя"
 
@@ -344,7 +353,9 @@ msgid "grid.task.status.unfinished"
 msgstr "Задача не завершена"
 
 msgid "grid.task.status.reviewReady"
-msgstr "Эта рецензия готова. Щелкните на значке заметки слева, чтобы прочитать рецензию."
+msgstr ""
+"Эта рецензия готова. Щелкните на значке заметки слева, чтобы прочитать "
+"рецензию."
 
 msgid "grid.columns.actions"
 msgstr "Действия"
@@ -360,6 +371,9 @@ msgstr "Аудитор"
 
 msgid "grid.columns.locale"
 msgstr "Язык"
+
+msgid "grid.columns.locale.code"
+msgstr "Код"
 
 msgid "grid.sponsor.title"
 msgstr "Спонсоры"
@@ -400,6 +414,11 @@ msgstr "Добавить поддерживающего"
 msgid "grid.action.deleteContributor"
 msgstr "Удалить поддерживающего"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Вы уверены, что хотите удалить «{$name}» из списка авторов? Это действие "
+"нельзя будет отменить."
+
 msgid "grid.action.newVersion"
 msgstr "Создать новую версию"
 
@@ -438,6 +457,31 @@ msgstr "Элемент контрольного списка"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Контактное лицо"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Задать контактное лицо"
+
+msgid "contributor.listPanel.preview"
+msgstr "Просмотр"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Авторы этой публикации будут указаны в этом журнале в следующих форматах."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Формат"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Отображение"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Сокращенный"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Списки публикаций"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Полный"
 
 msgid "grid.roles.currentRoles"
 msgstr "Текущие роли"
@@ -485,13 +529,21 @@ msgid "grid.user.enableReason"
 msgstr "Причина включения пользователя"
 
 msgid "grid.user.error"
-msgstr "При администрировании этого пользователя произошла ошибка. Пожалуйста, попробуйте снова."
+msgstr ""
+"При администрировании этого пользователя произошла ошибка. Пожалуйста, "
+"попробуйте снова."
 
 msgid "grid.user.errorEmail"
-msgstr "При отправке этого письма произошла ошибка. Пожалуйста, убедитесь, что ваша настройка сервера электронной почты работает и/или свяжитесь с вашим системным администратором."
+msgstr ""
+"При отправке этого письма произошла ошибка. Пожалуйста, убедитесь, что ваша "
+"настройка сервера электронной почты работает и/или свяжитесь с вашим "
+"системным администратором."
 
 msgid "grid.user.cannotAdminister"
-msgstr "У вас нет достаточных прав для администрирования этого пользователя. Для администрирования пользователя вы должны быть либо администратором сайта, либо администрировать все контексты, в которые записан этот пользователь."
+msgstr ""
+"У вас нет достаточных прав для администрирования этого пользователя. Для "
+"администрирования пользователя вы должны быть либо администратором сайта, "
+"либо администрировать все контексты, в которые записан этот пользователь."
 
 msgid "grid.user.mustProvideName"
 msgstr "Пожалуйста, укажите сначала хотя бы фамилию пользователя."
@@ -515,7 +567,8 @@ msgid "grid.user.mustChangePasswordDescription"
 msgstr "Пользователь должен изменить пароль при следующем входе в систему."
 
 msgid "grid.user.mustChangePasswordDescriptionOld"
-msgstr "Требовать от пользователя изменить пароль при следующем входе в систему."
+msgstr ""
+"Требовать от пользователя изменить пароль при следующем входе в систему."
 
 msgid "grid.user.moreDetails"
 msgstr "Данные пользователя (подробней)"
@@ -551,7 +604,9 @@ msgid "grid.user.pleaseSelectUser"
 msgstr "Пожалуйста, выберите пользователя"
 
 msgid "grid.user.confirmLogInAs"
-msgstr "Войти в систему под этим пользователем? Все действия, которые вы сделаете, будут от лица этого пользователя."
+msgstr ""
+"Войти в систему под этим пользователем? Все действия, которые вы сделаете, "
+"будут от лица этого пользователя."
 
 msgid "grid.user.mergeUsers"
 msgstr "Объединить пользователей"
@@ -566,7 +621,11 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Все записанные пользователи"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Вы уверены, что хотите объединить учетную запись с именем пользователя «{$oldUsername}» в учетную запись с именем пользователя «{$newUsername}»? Учетная запись с именем пользователя «{$oldUsername}» перестанет существовать. Это действие нельзя отменить."
+msgstr ""
+"Вы уверены, что хотите объединить учетную запись с именем пользователя "
+"«{$oldUsername}» в учетную запись с именем пользователя «{$newUsername}»? "
+"Учетная запись с именем пользователя «{$oldUsername}» перестанет "
+"существовать. Это действие нельзя отменить."
 
 msgid "grid.preparedEmails.title"
 msgstr "Подготовленные шаблоны писем электронной почты"
@@ -581,7 +640,8 @@ msgid "grid.plugin.disable"
 msgstr "Вы уверены, что хотите отключить этот модуль?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Сделана корректурная правка. Вы можете убрать эту задачу с рассмотрения"
+msgstr ""
+"Сделана корректурная правка. Вы можете убрать эту задачу с рассмотрения"
 
 msgid "grid.artworkFile.caption"
 msgstr "Подпись"
@@ -620,7 +680,9 @@ msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Роль «{$userGroupName}» — роль по умолчанию и не может быть удалена."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Не могу удалить роль «{$userGroupName}». В настоящий момент она назначена {$usersCount} пользователям."
+msgstr ""
+"Не могу удалить роль «{$userGroupName}». В настоящий момент она назначена "
+"{$usersCount} пользователям."
 
 msgid "grid.userGroup.removed"
 msgstr "Роль «{$userGroupName}» удалена."
@@ -652,47 +714,8 @@ msgstr "Меню навигации отсутствуют"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Выберите тип..."
 
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Авторы этой публикации будут указаны в этом журнале в следующих форматах."
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Полный"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Списки публикаций"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Сокращенный"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Отображение"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Формат"
-
-msgid "contributor.listPanel.preview"
-msgstr "Просмотр"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Задать контактное лицо"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Вы уверены, что хотите удалить «{$name}» из списка авторов? Это действие "
-"нельзя будет отменить."
-
-msgid "grid.action.saveOrdering"
-msgstr "Сохранить порядок"
-
 msgid "grid.action.view"
 msgstr "Показать"
-
-msgid "grid.columns.locale.code"
-msgstr "Код"
-
-msgid "grid.action.addInstitution"
-msgstr "Добавить организацию"
 
 msgid "author.users.contributor.name"
 msgstr "Имя"

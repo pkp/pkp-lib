@@ -18,28 +18,66 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "author.editPublishedDisabled"
+msgstr ""
+"Les auteures et auteurs de cette publication ne peuvent être édités puisque "
+"celle-ci a déjà été publiée."
+
+msgid "author.publicationNotFound"
+msgstr "Aucune publication de cet auteur ou cette auteure n'a pu être trouvée."
+
 # localization file for fr_CA. Last revision 2019-10-23T04:40:30 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "author.submit.submissionCitations"
-msgstr "Fournir une liste structurée de références pour les travaux cités dans cette soumission. Veuillez séparer chaque référence par une ligne vide."
+msgstr ""
+"Fournir une liste structurée de références pour les travaux cités dans cette "
+"soumission. Veuillez séparer chaque référence par une ligne vide."
 
 msgid "author.submission.roundStatus.reviewsReady"
-msgstr "De nouvelles évaluations ont été soumises et sont examinées par le,la rédacteur-trice."
+msgstr ""
+"De nouvelles évaluations ont été soumises et sont examinées par le,la "
+"rédacteur-trice."
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+"Un ou plusieurs évaluateurs-trices ont outrepassé leur date limite. L'équipe "
+"éditoriale a été informée et prendra des mesures pour s'assurer que les "
+"évaluations soient complétées. Vous n'avez aucune action à effectuer pour le "
+"moment. Vous serez informé-e lorsqu'une décision aura été prise."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Soumis en tant que"
 
 msgid "submission.submit.availableUserGroupsDescription"
-msgstr "Sélectionner le rôle qui décrit le mieux votre contribution à cette soumission."
+msgstr ""
+"Sélectionner le rôle qui décrit le mieux votre contribution à cette "
+"soumission."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérification de la soumission"
 
 #, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Vous devez lire et reconnaître que vous avez rempli les conditions ci-dessous avant de poursuivre."
+msgstr ""
+"Vous devez lire et reconnaître que vous avez rempli les conditions ci-"
+"dessous avant de poursuivre."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr ""
 
 msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
+
+msgid "submission.submit.genre.label"
+msgstr "Quel type de fichier est-ce ?"
+
+msgid "submission.submit.genre.description"
+msgstr "Choisir l'option qui décrit le mieux ce fichier."
+
+msgid "submission.submit.removeConfirm"
+msgstr "Êtes-vous certain-e de vouloir retirer ce fichier ?"
 
 msgid "submission.submit.whatNext.forNow"
 msgstr "Pour le moment, vous pouvez :"
@@ -60,19 +98,24 @@ msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "Courriel d'inscription Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Veuillez saisir un courriel d'inscription Crossref valide. Vous pouvez inscrire votre courriel gratuitement sur le site Web de Crossref."
+msgstr ""
+"Veuillez saisir un courriel d'inscription Crossref valide. Vous pouvez "
+"inscrire votre courriel gratuitement sur le site Web de Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Clé API ISBNdb"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Veuillez saisir votre clé API ISBNdb. Si vous n'avez pas encore de clé, vous pouvez en demandez une gratuitement au projet ISBNdb."
+msgstr ""
+"Veuillez saisir votre clé API ISBNdb. Si vous n'avez pas encore de clé, vous "
+"pouvez en demandez une gratuitement au projet ISBNdb."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Courriel d'inscription PubMed"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Veuillez saisir un courriel d'inscription PubMed valide si vous en avez un."
+msgstr ""
+"Veuillez saisir un courriel d'inscription PubMed valide si vous en avez un."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "Clé API WorldCat"
@@ -87,22 +130,30 @@ msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
 msgstr "Veuillez sélectionner l'un des modules de références fournis."
 
 msgid "metadata.filters.settings.isOptional.displayName"
-msgstr "Ne pas utiliser par défaut (sera tout de même disponible pour le,la rédacteur-trice)"
+msgstr ""
+"Ne pas utiliser par défaut (sera tout de même disponible pour le,la "
+"rédacteur-trice)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Erreur interne. Une valeur non valide a été affectée au paramètre « optional filter ». Veuillez le signaler comme un bogue."
+msgstr ""
+"Erreur interne. Une valeur non valide a été affectée au paramètre « optional "
+"filter ». Veuillez le signaler comme un bogue."
 
 msgid "metadata.property.displayName.author"
 msgstr "Auteurs-es"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "Pour de meilleurs résultats, les auteurs-es devraient être saisis-es dans le format suivant : Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Pour de meilleurs résultats, les auteurs-es devraient être saisis-es dans le "
+"format suivant : Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Rédacteurs-trices"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "Pour de meilleurs résultats, les rédacteurs-trices devraient être saisis-es dans le format suivant : Coleman Jr, D. (Ralf) Dr."
+msgstr ""
+"Pour de meilleurs résultats, les rédacteurs-trices devraient être saisis-es "
+"dans le format suivant : Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "Titre de l'article"
@@ -204,19 +255,22 @@ msgid "metadata.property.displayName.fpage"
 msgstr "Première page"
 
 msgid "metadata.property.validationMessage.fpage"
-msgstr "Veuillez saisir une première page valide (doit être une valeur numérique)."
+msgstr ""
+"Veuillez saisir une première page valide (doit être une valeur numérique)."
 
 msgid "metadata.property.displayName.lpage"
 msgstr "Dernière page"
 
 msgid "metadata.property.validationMessage.lpage"
-msgstr "Veuillez saisir une dernière page valide (doit être une valeur numérique)."
+msgstr ""
+"Veuillez saisir une dernière page valide (doit être une valeur numérique)."
 
 msgid "metadata.property.displayName.size"
 msgstr "Nombre de pages"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "Veuillez saisir un nombre de pages valide (doit être une valeur numérique)."
+msgstr ""
+"Veuillez saisir un nombre de pages valide (doit être une valeur numérique)."
 
 msgid "metadata.property.displayName.publisher-loc"
 msgstr "Lieu d'édition"
@@ -300,19 +354,27 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Type de publication"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Veuillez vous assurer de toujours sélectionner un type de publication. Les valeurs présentement prises en charge sont « livre » (pour les livres et chapitres de livre) et « revue » (pour les articles de revue). Autrement, le formatage de la référence ne s'effectuera pas correctement."
+msgstr ""
+"Veuillez vous assurer de toujours sélectionner un type de publication. Les "
+"valeurs présentement prises en charge sont « livre » (pour les livres et "
+"chapitres de livre) et « revue » (pour les articles de revue). Autrement, le "
+"formatage de la référence ne s'effectuera pas correctement."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Type du titre"
 
 msgid "metadata.property.validationMessage.title-type"
-msgstr "Assurez-vous d'avoir établi un type de titre valide. Les valeurs acceptées sont « abrégé », « traduit », « alternatif » et « uniforme »."
+msgstr ""
+"Assurez-vous d'avoir établi un type de titre valide. Les valeurs acceptées "
+"sont « abrégé », « traduit », « alternatif » et « uniforme »."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Une portion du titre a été ignorée pendant le tri"
 
 msgid "metadata.property.validationMessage.nonSort"
-msgstr "Saisir seulement les premiers caractères du titre qui devraient être ignorés au moment du tri alphabétique du titre."
+msgstr ""
+"Saisir seulement les premiers caractères du titre qui devraient être ignorés "
+"au moment du tri alphabétique du titre."
 
 msgid "metadata.property.displayName.title"
 msgstr "Titre"
@@ -342,7 +404,12 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Type de nom"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont « personnel » , « corporatif » et « conférence »."
+msgstr ""
+"Assurez-vous de choisir un type de nom valide. Les valeurs acceptées sont « "
+"personnel » , « corporatif » et « conférence »."
+
+msgid "metadata.property.displayName.abstract"
+msgstr "Résumé"
 
 msgid "common.queue.long.submissionsUnassigned"
 msgstr "Non assignées"
@@ -368,11 +435,17 @@ msgstr "{$name}, {$affiliation}"
 msgid "submission.shortAuthor"
 msgstr "{$author} et al."
 
+msgid "submission.representationOfTitle"
+msgstr "{$representation} de {$title}"
+
 msgid "submission.mySubmissions"
 msgstr "Mes soumissions"
 
 msgid "submission.addFile"
 msgstr "Téléverser un fichier"
+
+msgid "submission.additionalFiles"
+msgstr "Fichiers supplémentaires"
 
 msgid "submission.agencies"
 msgstr "Organismes"
@@ -405,7 +478,9 @@ msgid "submission.citations"
 msgstr "Références"
 
 msgid "submission.citations.description"
-msgstr "Inscrire chacune des références sur une nouvelle ligne afin qu'elles puissent être extraites."
+msgstr ""
+"Inscrire chacune des références sur une nouvelle ligne afin qu'elles "
+"puissent être extraites."
 
 msgid "submission.parsedCitations"
 msgstr "Références extraites"
@@ -414,7 +489,9 @@ msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
-msgstr "Les références suivantes ont été extraites et seront liées aux métadonnées de la soumission."
+msgstr ""
+"Les références suivantes ont été extraites et seront liées aux métadonnées "
+"de la soumission."
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Références extraites et sauvegardées"
@@ -476,8 +553,14 @@ msgstr "Fichier(s) de discussion"
 msgid "submission.coverage"
 msgstr "Renseignements sur la couverture du contenu"
 
+msgid "submission.details"
+msgstr ""
+
 msgid "submission.done"
 msgstr "Terminé"
+
+msgid "submission.downloads"
+msgstr "Téléchargements"
 
 msgid "submission.dueDate"
 msgstr "Date d'échéance"
@@ -498,10 +581,14 @@ msgid "submission.email.backToEmailLog"
 msgstr "Retour au registre de courriels"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Êtes-vous certain-e de vouloir effacer le registre de courriels pour cette soumission ?"
+msgstr ""
+"Êtes-vous certain-e de vouloir effacer le registre de courriels pour cette "
+"soumission ?"
 
 msgid "submission.email.confirmDeleteLogEntry"
-msgstr "Êtes-vous certain-e de vouloir supprimer cette entrée du registre des courriels ?"
+msgstr ""
+"Êtes-vous certain-e de vouloir supprimer cette entrée du registre des "
+"courriels ?"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Supprimer l'entrée du registre"
@@ -510,25 +597,38 @@ msgid "submission.emailLog"
 msgstr "Registre de courriels"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) a été ajouté-e à cette soumission en tant que {$userGroupName}."
+msgstr ""
+"{$name} ({$username}) a été ajouté-e à cette soumission en tant que "
+"{$userGroupName}."
 
 msgid "submission.event.participantRemoved"
-msgstr "« {$name} » ({$username}) ne fait plus partie du groupe {$userGroupName}."
+msgstr ""
+"« {$name} » ({$username}) ne fait plus partie du groupe {$userGroupName}."
 
 msgid "submission.event.backToEventLog"
 msgstr "Retour au registre d'événements"
 
 msgid "submission.event.confirmClearLog"
-msgstr "Êtes-vous certain-e de vouloir effacer le registre d'évènements pour cette soumission ?"
+msgstr ""
+"Êtes-vous certain-e de vouloir effacer le registre d'évènements pour cette "
+"soumission ?"
 
 msgid "submission.event.confirmDeleteLogEntry"
-msgstr "Êtes-vous certain-e de vouloir supprimer cette entrée du registre d'événements ?"
+msgstr ""
+"Êtes-vous certain-e de vouloir supprimer cette entrée du registre "
+"d'événements ?"
 
 msgid "submission.event.deleteLogEntry"
 msgstr "Supprimer l'entrée du registre"
 
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+
 msgid "submission.event.submissionSubmitted"
 msgstr "Soumission initiale complétée."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -579,17 +679,44 @@ msgstr "Évaluation soumise de nouveau"
 msgid "submission.event.reviewer.reviewRevision"
 msgstr "Fichiers d'évaluation de l'évaluateur-trice mis à jour"
 
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+
 msgid "submission.event.subjectPrefix"
 msgstr "Un courriel a été envoyé :"
 
 msgid "submission.event.viewEmail"
 msgstr "Voir le courriel"
 
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Les auteures et auteurs sont désormais autorisés à modifier les métadonnées  "
+"lorsqu'à l'étape {stage}."
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"Les auteures et auteurs ne sont désormais pas autorisés à modifier les "
+"métadonnées lorsqu'à l'étape {stage}."
+
 msgid "submission.files"
 msgstr "Fichiers"
 
 msgid "submission.files.downloadAll"
 msgstr "Télécharger tous les fichiers"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"Un enregistrement du téléversement de fichiers est enregistré lors de la "
+"création du fichier et ne peut pas être modifié."
+
+msgid "submission.firstPublished"
+msgstr "Première publication"
+
+msgid "submission.forTheEditors"
+msgstr ""
 
 msgid "submission.galley"
 msgstr "Épreuves"
@@ -630,11 +757,35 @@ msgstr "Télécharger la référence"
 msgid "submission.initiated"
 msgstr "En cours"
 
+msgid "submission.updatedOn"
+msgstr "{$datePublished} — Mis(e) à jour {$dateUpdated}"
+
+msgid "submission.versions"
+msgstr "Versions"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "
+"href=\"{$urlRecentVersion}\">version la plus récente</a>."
+
 msgid "submission.identifiers"
 msgstr "Identifiants"
 
 msgid "submission.publisherId"
 msgstr "Identifiant de l'éditeur"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"L'identifiant de l'éditeur peut être utilisé pour enregistrer l'identifiant "
+"à partir d'une base de données externe. Par exemple, les éléments exportés "
+"pour dépôt dans PubMed peuvent inclure l'identifiant de l'éditeur. Ceci ne "
+"doit cependant pas être utilisé pour les DOI."
+
+msgid "submission.publisherId.enable"
+msgstr "Activé-e pour {$objects}"
 
 msgid "submission.informationCenter.submissionInfo"
 msgstr "Renseignements sur la soumission"
@@ -685,7 +836,9 @@ msgid "submission.layout.galleyLabel"
 msgstr "Libellé des épreuves"
 
 msgid "submission.layout.galleyLabelInstructions"
-msgstr "Le libellé des épreuves sert à identifier le format du fichier de l'article (par ex., HTML, PDF, etc.)."
+msgstr ""
+"Le libellé des épreuves sert à identifier le format du fichier de l'article "
+"(par ex., HTML, PDF, etc.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Le libellé des épreuves est obligatoire."
@@ -840,6 +993,9 @@ msgstr "Évaluer les métadonnées"
 msgid "submission.review"
 msgstr "Évaluation"
 
+msgid "submission.reviewAndSubmit"
+msgstr ""
+
 msgid "submission.reviewed"
 msgstr "Révisée"
 
@@ -924,6 +1080,9 @@ msgstr "Fichier ajouté"
 msgid "submission.submit.includeInBrowse"
 msgstr "Inclure ce ou cette contributeur-trice dans les index ?"
 
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Listes des publications"
+
 msgid "submission.submit.newFile"
 msgstr "Soumettre un autre fichier"
 
@@ -933,6 +1092,12 @@ msgstr "Métadonnées additionnelles"
 msgid "submission.submit.submissionLocale"
 msgstr "Langue de la soumission"
 
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Les soumissions dans plusieurs langues sont acceptées. Choisir la langue "
+"principale de la soumission parmi celles présentes dans le menu déroulant."
+
 msgid "submission.submit.submissionFiles"
 msgstr "Fichiers de la soumission"
 
@@ -941,6 +1106,14 @@ msgstr "Fichiers reliés"
 
 msgid "submission.manageDependentFiles"
 msgstr "Gestion des fichiers reliés"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"Téléverser tous les fichiers dont l'équipe éditoriale aura besoin pour "
+"évaluer votre soumission."
+
+msgid "submission.upload.percentComplete"
+msgstr "Téléversement complété à {$percent}%"
 
 msgid "submission.upload.dependent"
 msgstr "Téléverser un fichier relié"
@@ -982,7 +1155,8 @@ msgid "submission.uploadSuccessful"
 msgstr "Votre fichier a été téléversé."
 
 msgid "submission.loadMessage"
-msgstr "Veuillez patienter pendant le téléversement de votre fichier sur le serveur."
+msgstr ""
+"Veuillez patienter pendant le téléversement de votre fichier sur le serveur."
 
 msgid "submission.artworkFileDetails"
 msgstr "Informations sur le fichier de la maquette"
@@ -1004,6 +1178,36 @@ msgstr "Rôle du,de la contributeur-trice"
 
 msgid "submission.submit.addAuthor"
 msgstr "Ajouter un-e contributeur-trice"
+
+msgid "submission.submit.form.languagesRequired"
+msgstr "Veuillez indiquer une langue."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Veuillez inscrire un sujet."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Veuillez inscrire une discipline."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Veuillez inscrire un mot-clé."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Veuillez indiquer la couverture du contenu."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Veuillez inscrire le type."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Veuillez indiquer la source."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Veuillez indiquer les droits."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Veuillez inscrire les références."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr ""
 
 msgid "submission.form.name"
 msgstr "Nommer le fichier (par exemple « Tableau 1 ; manuscrit »)"
@@ -1071,14 +1275,16 @@ msgstr ""
 "préalablement téléversé, soit « {$revisedFileName} ». Ce nouveau fichier "
 "devrait-il remplacer le fichier « {$revisedFileName} » ? Dans l'affirmative, "
 "sélectionner le nom du fichier à remplacer dans le menu déroulant ci-"
-"dessous. Autrement, choisir « Ceci ne remplace pas un fichier déjà existant »"
-" avant de poursuivre."
+"dessous. Autrement, choisir « Ceci ne remplace pas un fichier déjà existant "
+"» avant de poursuivre."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Veuillez sélectionner le fichier que vous souhaitez réviser."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Si vous téléversez une révision d'un fichier existant, veuillez indiquer de quel fichier il s'agit."
+msgstr ""
+"Si vous téléversez une révision d'un fichier existant, veuillez indiquer de "
+"quel fichier il s'agit."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Ceci ne remplace pas un fichier déjà existant"
@@ -1108,7 +1314,10 @@ msgid "submission.upload.uploadFiles"
 msgstr "Téléverser les fichiers"
 
 msgid "submission.upload.response.description"
-msgstr "Après avoir évalué le fichier assigné, saisir vos commentaires sur le fichier ci-dessous, et/ou téléverser une copie annotée du fichier (ou un autre fichier)."
+msgstr ""
+"Après avoir évalué le fichier assigné, saisir vos commentaires sur le "
+"fichier ci-dessous, et/ou téléverser une copie annotée du fichier (ou un "
+"autre fichier)."
 
 msgid "submission.upload.productionReady"
 msgstr "Téléverser un fichier prêt pour la production"
@@ -1126,10 +1335,12 @@ msgid "editor.submission.roundStatus.revisionsSubmitted"
 msgstr "Les révisions ont été soumises et une décision est requise."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
+msgstr ""
+"La soumission doit être soumise à nouveau pour un autre cycle d'évaluation."
 
 msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "La soumission a été soumise à nouveau pour un autre cycle d'évaluation."
+msgstr ""
+"La soumission a été soumise à nouveau pour un autre cycle d'évaluation."
 
 msgid "editor.submission.roundStatus.sentToExternal"
 msgstr "Envoyée à un-e évaluateur-trice externe."
@@ -1150,7 +1361,8 @@ msgid "editor.submission.roundStatus.reviewsReady"
 msgstr "De nouvelles évaluations ont été soumises."
 
 msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "Les évaluateurs-trices ont complété leur tâche. Une décision est requise."
+msgstr ""
+"Les évaluateurs-trices ont complété leur tâche. Une décision est requise."
 
 msgid "editor.submission.roundStatus.reviewOverdue"
 msgstr "Une évaluation est en retard."
@@ -1164,6 +1376,12 @@ msgstr "De nouvelles recommandations éditoriales ont été soumises."
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Toutes les recommandations ont été soumises. Une décision est requise."
 
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr ""
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr "Une nouvelle soumission doit être envoyée à l'évaluation ou refusée."
+
 msgid "editor.submission.stageParticipants"
 msgstr "Participants-es"
 
@@ -1176,20 +1394,34 @@ msgstr "Participant-e"
 msgid "editor.submission.addStageParticipant"
 msgstr "Assigner un-e participant-e"
 
+msgid "editor.submission.editStageParticipant"
+msgstr "Modifier l'assignation"
+
 msgid "editor.submission.addStageParticipant.userGroup"
-msgstr "Les utilisateurs-trices sont assignés-es aux étapes du processus de publication en fonction de leur groupe d'utilisateurs-trices. Tout-e utilisateur-trice assigné-e à cette étape sera automatiquement affecté-e à d'autres étapes auxquelles son groupe d'utilisateurs-trices a été affecté. Ceci est communément réservé aux rédacteurs-trices, aux auteurs-es et aux traducteurs-trices."
+msgstr ""
+"Les utilisateurs-trices sont assignés-es aux étapes du processus de "
+"publication en fonction de leur groupe d'utilisateurs-trices. Tout-e "
+"utilisateur-trice assigné-e à cette étape sera automatiquement affecté-e à "
+"d'autres étapes auxquelles son groupe d'utilisateurs-trices a été affecté. "
+"Ceci est communément réservé aux rédacteurs-trices, aux auteurs-es et aux "
+"traducteurs-trices."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Supprimer un-e participant-e"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Souhaitez-vous que ce ou cette participant-e ne fasse plus partie de <strong>toutes</strong> les étapes ? Si cet ou cette utilisateur-trice a des tâches de vérification en cours, elles seront également supprimées."
+msgstr ""
+"Souhaitez-vous que ce ou cette participant-e ne fasse plus partie de "
+"<strong>toutes</strong> les étapes ? Si cet ou cette utilisateur-trice a des "
+"tâches de vérification en cours, elles seront également supprimées."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Vous devez choisir un groupe d'utilisateurs-trices."
 
 msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr "Vous devez choisir un-e utilisateur-trice pour le groupe d'utilisateurs-trices choisi."
+msgstr ""
+"Vous devez choisir un-e utilisateur-trice pour le groupe d'utilisateurs-"
+"trices choisi."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
 msgstr ""
@@ -1200,42 +1432,338 @@ msgstr ""
 "puissiez assurer de façon indépendante l'intégrité du processus d'évaluation "
 "par les pairs."
 
+msgid "editor.submission.removePermissionToEdit"
+msgstr "Interdire la modification des métadonnées"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "Permettre la modification des métadonnées"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission ne "
+"puissent pas modifier les métadonnées de la soumission à ce stade ?"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission "
+"puissent modifier les métadonnées de la soumission à ce stade ?"
+
 msgid "editor.submission.decision"
 msgstr "Décision"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr "Aviser les auteur.e.s"
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr "Aviser les évaluateur.trice.s"
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
 
 msgid "editor.submission.decision.accept"
 msgstr "Accepter la soumission"
 
-msgid "editor.submission.decision.requestRevisions"
-msgstr "Demande de révisions à l'auteur-e"
+msgid "editor.submission.decision.accept.description"
+msgstr ""
 
-msgid "editor.submission.decision.resubmit"
-msgstr "Resoumettre pour évaluation"
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completed"
+msgstr "Soumission acceptée"
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.decline"
 msgstr "Refuser la soumission"
 
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.log"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Demande de révisions à l'auteur-e"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Resoumettre pour évaluation"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr "Nouveau cycle d'évaluation"
+
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Envoyer au montage"
 
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+
 msgid "editor.submission.decision.skipReview"
 msgstr "Accepter sans évaluation"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Envoyer à l'évaluateur interne"
 
 msgid "editor.submission.decision.approveProofsDescription"
-msgstr "Le fichier d'épreuves mis en page doit être approuvé pour qu'il soit rendu disponible. Souhaitez-vous l'approuver ?"
+msgstr ""
+"Le fichier d'épreuves mis en page doit être approuvé pour qu'il soit rendu "
+"disponible. Souhaitez-vous l'approuver ?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Approuver les épreuves"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Ce fichier d'épreuves ne pourra plus être disponible publiquement pour téléchargement ou achat. Souhaitez-vous le désapprouver ?"
+msgstr ""
+"Ce fichier d'épreuves ne pourra plus être disponible publiquement pour "
+"téléchargement ou achat. Souhaitez-vous le désapprouver ?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Annuler le refus"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
 
 #, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Assigner un-e rédacteur-trice pour activer les décisions éditoriales à cette étape."
+msgstr ""
+"Assigner un-e rédacteur-trice pour activer les décisions éditoriales à cette "
+"étape."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+
+msgid "editor.submission.recommend.completed"
+msgstr ""
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.recommend.decline"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.description"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Faire une recommandation"
@@ -1248,6 +1776,9 @@ msgstr "Recommandation : {$recommendation}"
 
 msgid "editor.submission.allRecommendations.display"
 msgstr "Recommandations : {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
 
 msgid "editor.submission.recommendation"
 msgstr "Recommandation"
@@ -1277,13 +1808,24 @@ msgid "submission.finalDraft"
 msgstr "Fichiers des ébauches finales"
 
 msgid "editor.submission.addAuditorError"
-msgstr "Erreur : le,la vérificateur-trice n'a pas pu être assigné-e. Essayez de nouveau."
+msgstr ""
+"Erreur : le,la vérificateur-trice n'a pas pu être assigné-e. Essayez de "
+"nouveau."
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"Les métadonnées du fichier « {$originalFileName} » ont été modifiées par "
+"{$username}."
 
 msgid "submission.event.fileUploaded"
-msgstr "Le fichier « {$originalFileName} » pour la soumission {$submissionId} par {$username} a été téléversé."
+msgstr ""
+"Le fichier « {$originalFileName} » pour la soumission {$submissionId} par "
+"{$username} a été téléversé."
 
 msgid "submission.event.fileDeleted"
-msgstr "Le fichier « {$originalFileName} » pour la soumission {$submissionId} par {$username} a été supprimé."
+msgstr ""
+"Le fichier « {$originalFileName} » pour la soumission {$submissionId} par "
+"{$username} a été supprimé."
 
 msgid "submission.event.revisionUploaded"
 msgstr ""
@@ -1296,22 +1838,31 @@ msgstr ""
 "par {$username} a été supprimé ."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "La dernière révision du fichier  « {$title} » a été supprimée par {$username}."
+msgstr ""
+"La dernière révision du fichier  « {$title} » a été supprimée par "
+"{$username}."
 
 msgid "submission.event.fileAuditorAdded"
-msgstr "« {$name} » ({$username}) a été ajouté-e à titre de vérificateur-trice du fichier « {$file} »."
+msgstr ""
+"« {$name} » ({$username}) a été ajouté-e à titre de vérificateur-trice du "
+"fichier « {$file} »."
 
 msgid "submission.event.fileAuditorCleared"
-msgstr "« {$name} » ({$username}) n'est plus vérificateur-trice du fichier « {$file} »."
+msgstr ""
+"« {$name} » ({$username}) n'est plus vérificateur-trice du fichier « {$file} "
+"»."
 
 msgid "submission.event.fileAuditUploaded"
-msgstr "« {$name} » ({$username}) a terminé la vérification et téléversé le fichier « {$file} »."
+msgstr ""
+"« {$name} » ({$username}) a terminé la vérification et téléversé le fichier "
+"« {$file} »."
 
 msgid "submission.event.signoffSignoff"
 msgstr "« {$name} » ({$username}) a fermé la session pour « {$file} »."
 
 msgid "submission.event.proofsApproved"
-msgstr "« {$name} » ({$username}) a approuvé les épreuves pour « {$formatName} »."
+msgstr ""
+"« {$name} » ({$username}) a approuvé les épreuves pour « {$formatName} »."
 
 msgid "submission.overview"
 msgstr "Aperçu de la soumission"
@@ -1326,16 +1877,17 @@ msgid "submission.documents"
 msgstr "Documents de soumission"
 
 msgid "notification.type.editorAssign"
-msgstr "Vous avez été assigné-e comme rédacteur-trice pour la soumission « {$title} »."
-
-msgid "notification.type.submissionNewVersion"
-msgstr "Une nouvelle version d'une soumission a été créée"
+msgstr ""
+"Vous avez été assigné-e comme rédacteur-trice pour la soumission « {$title} "
+"»."
 
 msgid "notification.type.copyeditorRequest"
-msgstr "Vous avez été invité-e à valider les révisions pour le titre « {$title} »."
+msgstr ""
+"Vous avez été invité-e à valider les révisions pour le titre « {$title} »."
 
 msgid "notification.type.layouteditorRequest"
-msgstr "Vous avez été invité-e à valider la mise en page pour le titre « {$title} »."
+msgstr ""
+"Vous avez été invité-e à valider la mise en page pour le titre « {$title} »."
 
 msgid "notification.type.indexRequest"
 msgstr "On vous a demandé de créer un index pour « {$title} »."
@@ -1355,20 +1907,37 @@ msgstr "Demande de révisions."
 msgid "notification.type.editorDecisionResubmit"
 msgstr "Soumettre à nouveau pour l'évaluation."
 
+msgid "notification.type.editorDecisionNewRound"
+msgstr "Un nouveau cycle d'évaluation a débuté."
+
 msgid "notification.type.editorDecisionDecline"
 msgstr "Soumission refusée."
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Soumission refusée réactivée."
 
 msgid "notification.uploadedResponse"
 msgstr "La réponse a été téléversée."
 
 msgid "notification.type.editorAssignment"
-msgstr "Il faut choisir un-e rédacteur-trice afin de pouvoir entamer le processus d'évaluation. Veuillez ajouter un-e rédacteur-trice en utilisant le lien Participants-es ci-haut."
+msgstr ""
+"Il faut choisir un-e rédacteur-trice afin de pouvoir entamer le processus "
+"d'évaluation. Veuillez ajouter un-e rédacteur-trice en utilisant le lien "
+"Participants-es ci-haut."
+
+msgid "notification.type.submissionNewVersion"
+msgstr "Une nouvelle version d'une soumission a été créée"
+
+msgid "notification.type.revertDecline"
+msgstr "La décision de refuser cette soumission a été annulée."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Pièces jointes de l'évaluateur-trice"
 
 msgid "grid.reviewAttachments.send.title"
-msgstr "Sélectionner les fichiers d'évaluation à partager avec le,la ou les auteur-e-s."
+msgstr ""
+"Sélectionner les fichiers d'évaluation à partager avec le,la ou les auteur-e-"
+"s."
 
 msgid "submission.productionReady"
 msgstr "Livre disponible"
@@ -1377,16 +1946,37 @@ msgid "submission.review.uploadRevisionToRound"
 msgstr "Téléverser le fichier révisé"
 
 msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName} a été choisi-e pour évaluer la soumission {$submissionId} pour le {$round}e cycle d'évaluation."
+msgstr ""
+"{$reviewerName} a été choisi-e pour évaluer la soumission {$submissionId} "
+"pour le {$round}e cycle d'évaluation."
 
 msgid "log.review.reviewCleared"
-msgstr "Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été effacé."
+msgstr ""
+"Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission "
+"{$submissionId} a été effacé."
 
 msgid "log.review.reviewUnconsidered"
-msgstr "{$editorName} a indiqué que le {$round}e cycle d'évaluation de la soumission {$submissionId} n'est pas considéré."
+msgstr ""
+"{$editorName} a indiqué que le {$round}e cycle d'évaluation de la soumission "
+"{$submissionId} n'est pas considéré."
 
 msgid "log.review.reviewReinstated"
-msgstr "Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission {$submissionId} a été recommencé."
+msgstr ""
+"Le cycle {$round} d'évaluation par {$reviewerName} pour la soumission "
+"{$submissionId} a été recommencé."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"Le,la rédacteur-trice {$userName} a confirmé une évaluation pour le cycle "
+"d'évaluation {$round} pour la soumission {$submissionId}."
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} a complété l'évaluation du cycle {$round} d'évaluation pour "
+"la soumission {$submissionId}."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "En attente de la réponse de l'évaluateur-trice."
@@ -1410,7 +2000,9 @@ msgid "submission.review.status.complete"
 msgstr "L'évaluation a été complétée."
 
 msgid "submission.review.status.thanked"
-msgstr "L'évaluation a été complétée et l'évaluateur-trice a été remercié-e pour sa contribution."
+msgstr ""
+"L'évaluation a été complétée et l'évaluateur-trice a été remercié-e pour sa "
+"contribution."
 
 msgid "submission.document"
 msgstr "Document"
@@ -1440,10 +2032,16 @@ msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Le travail de production a débuté."
 
 msgid "notification.type.editorAssignmentProduction"
-msgstr "Un-e directeur-trice de production doit être nommé-e avant de pouvoir entamer la production. Veuillez ajouter un-e directeur-trice à partir de la liste des participants-es."
+msgstr ""
+"Un-e directeur-trice de production doit être nommé-e avant de pouvoir "
+"entamer la production. Veuillez ajouter un-e directeur-trice à partir de la "
+"liste des participants-es."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "Un-e directeur-trice de production doit être nommé-e avant de pouvoir entamer cette étape du processus éditorial. Veuillez ajouter un-e directeur-trice à partir de la liste des participants-es."
+msgstr ""
+"Un-e directeur-trice de production doit être nommé-e avant de pouvoir "
+"entamer cette étape du processus éditorial. Veuillez ajouter un-e directeur-"
+"trice à partir de la liste des participants-es."
 
 msgid "submission.reviewForm"
 msgstr "Formulaire d'évaluation"
@@ -1469,8 +2067,17 @@ msgstr "Licence"
 msgid "submission.copyright"
 msgstr "Droit d'auteur"
 
+msgid "submission.copyright.agree"
+msgstr ""
+
 msgid "submission.copyrightHolder"
 msgstr "Titulaire du droit d'auteur"
+
+msgid "submission.copyrightHolder.other"
+msgstr "Déclaration de droits d'auteur personnalisée"
+
+msgid "submission.copyrightOther"
+msgstr "Déclaration de droits d'auteur"
 
 msgid "submission.copyrightYear"
 msgstr "Année du copyright"
@@ -1485,13 +2092,18 @@ msgid "submission.licenseURL"
 msgstr "URL de la licence"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 International (CC BY-NC-ND 4.0)"
+msgstr ""
+"Attribution - Pas d'Utilisation Commerciale - Pas de Modification 4.0 "
+"International (CC BY-NC-ND 4.0)"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "Attribution - Pas d'Utilisation Commerciale 4.0 International (CC BY-NC 4.0)"
+msgstr ""
+"Attribution - Pas d'Utilisation Commerciale 4.0 International (CC BY-NC 4.0)"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)"
+msgstr ""
+"Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes "
+"Conditions 4.0 International (CC BY-NC-SA 4.0)"
 
 msgid "submission.license.cc.by-nd4"
 msgstr "Attribution - Pas de Modification 4.0 International (CC BY-ND 4.0)"
@@ -1500,24 +2112,26 @@ msgid "submission.license.cc.by4"
 msgstr "Attribution 4.0 International (CC BY 4.0)"
 
 msgid "submission.license.cc.by-sa4"
-msgstr "Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA 4.0)"
+msgstr ""
+"Attribution - Partage dans les Mêmes Conditions 4.0 International (CC BY-SA "
+"4.0)"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
 "deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
 "org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed."
-"fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de "
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr"
+"\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Pas de "
 "Modification 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
 "deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
-"org/l/by-nc/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr\">"
-"Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 "
+"org/l/by-nc/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/deed.fr"
+"\">Creative Commons Attribution - Pas d'Utilisation Commerciale 4.0 "
 "International</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
@@ -1525,22 +2139,23 @@ msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
 "deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
 "org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence  <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed."
-"fr\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage "
+"\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"
+"\">Creative Commons Attribution - Pas d'Utilisation Commerciale - Partage "
 "dans les Mêmes Conditions 4.0 International</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
 "deed.fr\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons."
-"org/l/by-nd/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.fr\">"
-"Creative Commons Attribution - Pas de Modification 4.0 International</a>.</p>"
+"org/l/by-nd/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel="
+"\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/deed.fr"
+"\">Creative Commons Attribution - Pas de Modification 4.0 International</a>."
+"</p>"
 
 msgid "submission.license.cc.by4.footer"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed."
-"fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/deed.fr"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
 "by/4.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
 "href=\"https://creativecommons.org/licenses/by/4.0/deed.fr\">Creative "
 "Commons Attribution 4.0 International</a>.</p>"
@@ -1549,10 +2164,66 @@ msgid "submission.license.cc.by-sa4.footer"
 msgstr ""
 "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
 "deed.fr\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons."
-"org/l/by-sa/4.0/88x31.png\" /></a><p>Cette œuvre est protégée sous licence <"
-"a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/deed."
-"fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions 4.0 "
-"International</a>.</p>"
+"org/l/by-sa/4.0/88x31.png\" /></a><p>Cette œuvre est protégée sous licence "
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"deed.fr\">Creative Commons Attribution - Partage dans les Mêmes Conditions "
+"4.0 International</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative "
+"Commons Attribution - Pas d’Utilisation Commerciale - Pas de Modification "
+"3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
+"Attribution - Pas d’Utilisation Commerciale 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative "
+"Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes "
+"Conditions 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
+"Attribution - Pas de Modification 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 non transposé</a>.</p>"
+
+#, fuzzy
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
+"Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Discussions préévaluation"
@@ -1584,6 +2255,14 @@ msgstr "Fermé"
 msgid "submission.query.addNote"
 msgstr "Ajouter un message"
 
+msgid "submission.query.leaveQuery"
+msgstr "Quitter la discussion"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"Si vous quittez cette discussion, vous ne serez plus informé des nouveaux "
+"messages. Souhaitez-vous quitter la discussion ?"
+
 msgid "grid.action.openNoteForm"
 msgstr "Ajouter une nouvelle réponse à la discussion"
 
@@ -1591,25 +2270,38 @@ msgid "submission.query.activity"
 msgstr "{$responderName} a répondu à « {$noteTitle} » : {$noteContents}"
 
 msgid "submission.query.new"
-msgstr "{$creatorName} a commencé une discussion : {$noteTitle} : {$noteContents}"
+msgstr ""
+"{$creatorName} a commencé une discussion : {$noteTitle} : {$noteContents}"
 
 msgid "submission.query.activity.contents"
-msgstr "Une nouvelle entrée vient d'être ajoutée dans la discussion intitulée « {$queryTitle} » au sujet de la soumission « {$submissionTitle} »."
+msgstr ""
+"Une nouvelle entrée vient d'être ajoutée dans la discussion intitulée "
+"« {$queryTitle} » au sujet de la soumission « {$submissionTitle} »."
 
 msgid "submission.query.new.contents"
-msgstr "Vous avez été ajouté-e à une discussion intitulée « {$queryTitle} » au sujet de la soumission « {$submissionTitle} »."
+msgstr ""
+"Vous avez été ajouté-e à une discussion intitulée « {$queryTitle} » au sujet "
+"de la soumission « {$submissionTitle} »."
 
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "Vous devez ajouter au moins un-e participant-e pour pouvoir initier une discussion."
+msgstr ""
+"Vous devez ajouter au moins un-e participant-e pour pouvoir initier une "
+"discussion."
 
 msgid "submission.list.infoCenter"
 msgstr "Historique et notes"
 
+msgid "submission.list.empty"
+msgstr "Aucune soumission trouvée."
+
 msgid "submission.list.responseDue"
 msgstr "Réponse due le : {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "Évaluation assignée"
 
 msgid "submission.list.reviewDue"
 msgstr "Évaluation due le : {$date}"
@@ -1617,8 +2309,14 @@ msgstr "Évaluation due le : {$date}"
 msgid "submission.list.reviewComplete"
 msgstr "Évaluation soumise"
 
+msgid "submission.list.reviewCancelled"
+msgstr "Évaluation annulée"
+
 msgid "submission.list.confirmDelete"
 msgstr "Supprimer la soumission ?"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr ""
 
 msgid "submission.list.viewSubmission"
 msgstr "Voir la soumission"
@@ -1642,19 +2340,102 @@ msgid "submission.list.discussions"
 msgstr "Discussions ouvertes"
 
 msgid "submission.list.dualWorkflowLinks"
-msgstr "Vous possédez plusieurs rôles pour cette soumission. Souhaitez-vous accéder à cette soumission en tant qu'<a href=\"{$urlAuthorWorkflow}\">auteur-e</a> ou en tant que <a href=\"{$urlEditorialWorkflow}\">rédacteur-trice</a> ?"
+msgstr ""
+"Vous possédez plusieurs rôles pour cette soumission. Souhaitez-vous accéder "
+"à cette soumission en tant qu'<a href=\"{$urlAuthorWorkflow}\">auteur-e</a> "
+"ou en tant que <a href=\"{$urlEditorialWorkflow}\">rédacteur-trice</a> ?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Vous avez reçu un rôle éditorial pour cette soumission. Souhaitez-vous accéder aux <a href=\"{$urlEditorialWorkflow}\">flux des travaux éditoriaux</a> ?"
+msgstr ""
+"Vous avez reçu un rôle éditorial pour cette soumission. Souhaitez-vous "
+"accéder aux <a href=\"{$urlEditorialWorkflow}\">flux des travaux éditoriaux</"
+"a> ?"
 
 msgid "submission.list.incompleteSubmissionNotice"
-msgstr "Cette soumission doit être complétée avant qu'un-e rédacteur-trice ne l'évalue."
+msgstr ""
+"Cette soumission doit être complétée avant qu'un-e rédacteur-trice ne "
+"l'évalue."
 
 msgid "submission.list.currentStage"
 msgstr "Présentement à l'étape {$stage}."
 
+msgid "submission.list.activity"
+msgstr "Activité"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "Nombre de jours depuis la dernière intervention"
+
 msgid "submission.list.assignEditor"
 msgstr "Assigner un rédacteur-trice"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+
+msgid "submission.wizard.beforeStart"
+msgstr ""
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+
+msgid "submission.wizard.changeSubmission"
+msgstr ""
+
+msgid "submission.wizard.completeSteps"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.errors"
+msgstr ""
+
+msgid "submission.wizard.validating"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+msgid "submission.wizard.confirm"
+msgstr ""
+
+msgid "submission.wizard.title"
+msgstr ""
+
+msgid "submission.wizard.titleWithStep"
+msgstr ""
+
+msgid "submission.wizard.noContributors"
+msgstr ""
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+
+msgid "submission.wizard.notAllowed"
+msgstr ""
+
+msgid "submission.wizard.privacyConsent"
+msgstr ""
+
+msgid "submission.wizard.saved"
+msgstr ""
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed"
+msgstr ""
+
+msgid "submission.wizard.start"
+msgstr ""
+
+msgid "submission.wizard.startingStatus"
+msgstr ""
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
 
 msgid "grid.category.categories"
 msgstr "Catégories"
@@ -1671,6 +2452,9 @@ msgstr "Date de publication (du plus ancien)"
 msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Date de publication (du plus récent)"
 
+msgid "category.category"
+msgstr ""
+
 msgid "category.coverImage"
 msgstr "Image de couverture pour la catégorie"
 
@@ -1686,294 +2470,65 @@ msgstr "Rien n'a encore été publié dans cette catégorie."
 msgid "catalog.category.subcategories"
 msgstr "Sous-categories"
 
-#, fuzzy
-msgid "submission.license.cc.by3.footer"
+msgid "publication.contributors"
+msgstr "Contributeurs-trices"
+
+msgid "publication.createVersion"
+msgstr "Créer une nouvelle version"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
+
+msgid "publication.event.versionCreated"
+msgstr "Une nouvelle version a été créée."
+
+msgid "publication.publicationLicense"
+msgstr "Autorisations et divulgation"
+
+msgid "publication.status.scheduled"
+msgstr "Planifié-e"
+
+msgid "publication.status.unpublished"
+msgstr "Dépublié-e"
+
+msgid "publication.titleAbstract"
+msgstr "Titre et résumé"
+
+msgid "publication.unschedule"
+msgstr "Retirer de la planification"
+
+msgid "publication.urlPath"
+msgstr "Chemin d'accès URL"
+
+msgid "publication.urlPath.description"
+msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
+
+msgid "publication.urlPath.duplicate"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
-"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
-"3.0 non transposé</a>.</p>"
+"Le chemin d'accès URL a déjà été utilisé et ne peut être utilisé à nouveau."
 
-#, fuzzy
-msgid "submission.license.cc.by-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
-"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons "
-"Attribution - Partage dans les Mêmes Conditions 3.0 non transposé</a>.</p>"
+msgid "publication.urlPath.numberInvalid"
+msgstr "Le chemin d'accès URL ne peut être un nombre."
 
-#, fuzzy
-msgid "submission.license.cc.by-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
-"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons "
-"Attribution - Pas de Modification 3.0 non transposé</a>.</p>"
+msgid "publication.version.all"
+msgstr "Toutes les versions"
 
-#, fuzzy
-msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">"
-"Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans "
-"les Mêmes Conditions 3.0 non transposé</a>.</p>"
-
-#, fuzzy
-msgid "submission.license.cc.by-nc3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\"license\" href="
-"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons "
-"Attribution - Pas d’Utilisation Commerciale 3.0 non transposé</a>.</p>"
-
-#, fuzzy
-msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"><img alt=\"Licence Creative Commons\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>Cette œuvre est sous licence <a rel=\""
-"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">"
-"Creative Commons Attribution - Pas d’Utilisation Commerciale - Pas de "
-"Modification 3.0 non transposé</a>.</p>"
-
-msgid "log.review.reviewReady"
-msgstr ""
-"{$reviewerName} a complété l'évaluation du cycle {$round} d'évaluation pour "
-"la soumission {$submissionId}."
-
-msgid "editor.submission.addPermissionToEditDescription"
-msgstr ""
-"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission "
-"puissent modifier les métadonnées de la soumission à ce stade ?"
-
-msgid "editor.submission.removePermissionToEditDescription"
-msgstr ""
-"Souhaitez-vous vraiment que les auteurs et auteures de cette soumission ne "
-"puissent pas modifier les métadonnées de la soumission à ce stade ?"
-
-msgid "editor.submission.addPermissionToEdit"
-msgstr "Permettre la modification des métadonnées"
-
-msgid "editor.submission.removePermissionToEdit"
-msgstr "Interdire la modification des métadonnées"
-
-msgid "editor.submission.editStageParticipant"
-msgstr "Modifier l'assignation"
-
-msgid "submission.outdatedVersion"
-msgstr ""
-"Ceci est une version obsolète publiée le {$datePublished}. Consulter la <a "
-"href=\"{$urlRecentVersion}\">version la plus récente</a>."
-
-msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
-
-msgid "submission.versions"
-msgstr "Versions"
-
-msgid "submission.updatedOn"
-msgstr "{$datePublished} — Mis(e) à jour {$dateUpdated}"
-
-msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Les auteures et auteurs ne sont désormais pas autorisés à modifier les "
-"métadonnées lorsqu'à l'étape {stage}."
-
-msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr ""
-"Les auteures et auteurs sont désormais autorisés à modifier les métadonnées  "
-"lorsqu'à l'étape {stage}."
-
-msgid "metadata.property.displayName.abstract"
-msgstr "Résumé"
-
-msgid "author.publicationNotFound"
-msgstr "Aucune publication de cet auteur ou cette auteure n'a pu être trouvée."
-
-msgid "author.editPublishedDisabled"
-msgstr ""
-"Les auteures et auteurs de cette publication ne peuvent être édités puisque "
-"celle-ci a déjà été publiée."
-
-msgid "log.review.reviewConfirmed"
-msgstr ""
-"Le,la rédacteur-trice {$userName} a confirmé une évaluation pour le cycle "
-"d'évaluation {$round} pour la soumission {$submissionId}."
-
-msgid "publication.wordCount"
-msgstr "Décompte de mots : {$count}/{$limit}"
+msgid "publication.version.confirm"
+msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
 
 msgid "publication.wordCountLong"
 msgstr ""
 "Le résumé est trop long. Il doit compter {$limit} mots ou moins et en compte "
 "actuellement {$count}."
 
-msgid "publication.version.confirm"
-msgstr "Êtes-vous certain-e de vouloir créer une nouvelle version ?"
+msgid "publication.wordCount"
+msgstr "Décompte de mots : {$count}/{$limit}"
 
-msgid "publication.version.all"
-msgstr "Toutes les versions"
-
-msgid "publication.unschedule"
-msgstr "Retirer de la planification"
-
-msgid "publication.titleAbstract"
-msgstr "Titre et résumé"
-
-msgid "publication.status.unpublished"
-msgstr "Dépublié-e"
-
-msgid "publication.status.scheduled"
-msgstr "Planifié-e"
-
-msgid "publication.publicationLicense"
-msgstr "Autorisations et divulgation"
-
-msgid "publication.event.versionCreated"
-msgstr "Une nouvelle version a été créée."
-
-msgid "publication.datePublished.errorFormat"
-msgstr "La date doit être au format AAAA-MM-JJ, par exemple 2019-01-01."
-
-msgid "publication.createVersion"
-msgstr "Créer une nouvelle version"
-
-msgid "publication.contributors"
-msgstr "Contributeurs-trices"
-
-msgid "submission.list.reviewAssignment"
-msgstr "Évaluation assignée"
-
-msgid "submission.list.reviewCancelled"
-msgstr "Évaluation annulée"
-
-msgid "submission.list.empty"
-msgstr "Aucune soumission trouvée."
-
-msgid "submission.query.leaveQuery.confirm"
+msgid "doi.incorrectStaleStatus"
 msgstr ""
-"Si vous quittez cette discussion, vous ne serez plus informé des nouveaux "
-"messages. Souhaitez-vous quitter la discussion ?"
 
-msgid "submission.query.leaveQuery"
-msgstr "Quitter la discussion"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "Le chemin d'accès URL ne peut être un nombre."
-
-msgid "publication.urlPath.duplicate"
+msgid "doi.submission.notPublished"
 msgstr ""
-"Le chemin d'accès URL a déjà été utilisé et ne peut être utilisé à nouveau."
-
-msgid "publication.urlPath.description"
-msgstr "Un chemin d'accès optionnel utilisant l'URL au lieu de l'identifiant."
-
-msgid "publication.urlPath"
-msgstr "Chemin d'accès URL"
-
-msgid "submission.copyrightOther"
-msgstr "Déclaration de droits d'auteur"
-
-msgid "submission.copyrightHolder.other"
-msgstr "Déclaration de droits d'auteur personnalisée"
-
-msgid "submission.publisherId.enable"
-msgstr "Activé-e pour {$objects}"
-
-msgid "submission.publisherId.description"
-msgstr ""
-"L'identifiant de l'éditeur peut être utilisé pour enregistrer l'identifiant "
-"à partir d'une base de données externe. Par exemple, les éléments exportés "
-"pour dépôt dans PubMed peuvent inclure l'identifiant de l'éditeur. Ceci ne "
-"doit cependant pas être utilisé pour les DOI."
-
-msgid "submission.list.daysSinceLastActivity"
-msgstr "Nombre de jours depuis la dernière intervention"
-
-msgid "submission.list.activity"
-msgstr "Activité"
-
-msgid "notification.type.editorDecisionNewRound"
-msgstr "Un nouveau cycle d'évaluation a débuté."
-
-msgid "editor.submission.decision.newRound"
-msgstr "Nouveau cycle d'évaluation"
-
-msgid "submission.downloads"
-msgstr "Téléchargements"
-
-msgid "submission.additionalFiles"
-msgstr "Fichiers supplémentaires"
-
-msgid "submission.representationOfTitle"
-msgstr "{$representation} de {$title}"
-
-msgid "submission.submit.removeConfirm"
-msgstr "Êtes-vous certain-e de vouloir retirer ce fichier ?"
-
-msgid "submission.submit.genre.description"
-msgstr "Choisir l'option qui décrit le mieux ce fichier."
-
-msgid "submission.submit.genre.label"
-msgstr "Quel type de fichier est-ce ?"
-
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Soumission refusée réactivée."
-
-msgid "submission.upload.instructions"
-msgstr ""
-"Téléverser tous les fichiers dont l'équipe éditoriale aura besoin pour "
-"évaluer votre soumission."
-
-msgid "submission.file.notAllowedUploaderUserId"
-msgstr ""
-"Un enregistrement du téléversement de fichiers est enregistré lors de la "
-"création du fichier et ne peut pas être modifié."
-
-msgid "author.submission.roundStatus.reviewOverdue"
-msgstr ""
-"Un ou plusieurs évaluateurs-trices ont outrepassé leur date limite. L'équipe "
-"éditoriale a été informée et prendra des mesures pour s'assurer que les "
-"évaluations soient complétées. Vous n'avez aucune action à effectuer pour le "
-"moment. Vous serez informé-e lorsqu'une décision aura été prise."
-
-msgid "notification.type.revertDecline"
-msgstr "La décision de refuser cette soumission a été annulée."
-
-msgid "submission.event.fileEdited"
-msgstr ""
-"Les métadonnées du fichier « {$originalFileName} » ont été modifiées par "
-"{$username}."
-
-msgid "editor.submission.decision.revertDecline"
-msgstr "Annuler le refus"
-
-msgid "submission.upload.percentComplete"
-msgstr "Téléversement complété à {$percent}%"
-
-msgid "editor.submission.status.waitingInitialReview"
-msgstr "Une nouvelle soumission doit être envoyée à l'évaluation ou refusée."
-
-msgid "editor.submission.decision.notifyAuthors"
-msgstr "Aviser les auteur.e.s"
-
-msgid "editor.submission.decision.notifyReviewers"
-msgstr "Aviser les évaluateur.trice.s"
-
-msgid "submission.submit.includeInBrowse.title"
-msgstr "Listes des publications"
-
-msgid "editor.submission.decision.accept.completed"
-msgstr "Soumission acceptée"
-
-msgid "submission.firstPublished"
-msgstr "Première publication"
 
 #, fuzzy
 msgid "submission.viewingPreview"
@@ -1987,54 +2542,53 @@ msgstr "Aucun fichier n'a été attaché à cette soumission."
 msgid "author.submit.confirmation"
 msgstr "Confirmation"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Veuillez indiquer une langue."
+msgid "submission.wizard.submittingInLanguage"
+msgstr ""
 
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Veuillez inscrire un sujet."
+msgid "submission.wizard.submittingToSection"
+msgstr ""
 
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Veuillez inscrire une discipline."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Veuillez inscrire un mot-clé."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Veuillez indiquer la couverture du contenu."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Veuillez inscrire le type."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Veuillez indiquer la source."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Veuillez indiquer les droits."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Veuillez inscrire les références."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme."
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
 
 msgid "submission.type.tip"
-msgstr "Par type de soumission, on entend « image », « texte » ou d'autres formats multimédias, y compris « logiciel » et « ressource interactive ». Veuillez choisir le type qui correspond le mieux à votre soumission. Vous trouverez des exemples au <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+msgstr ""
+"Par type de soumission, on entend « image », « texte » ou d'autres formats "
+"multimédias, y compris « logiciel » et « ressource interactive ». Veuillez "
+"choisir le type qui correspond le mieux à votre soumission. Vous trouverez "
+"des exemples au <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.source.tip"
-msgstr "Est-ce que cette soumission dérive d'une autre ressource ? Si oui, vous pouvez indiquer l'adresse URL ou décrire cette ressource."
+msgstr ""
+"Est-ce que cette soumission dérive d'une autre ressource ? Si oui, vous "
+"pouvez indiquer l'adresse URL ou décrire cette ressource."
 
 msgid "submission.rights.tip"
-msgstr "Si vous le désirez, vous pouvez ajouter une brève note concernant les droits d'accès de votre soumission."
+msgstr ""
+"Si vous le désirez, vous pouvez ajouter une brève note concernant les droits "
+"d'accès de votre soumission."
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la touche « Entrée » après chaque terme."
-
-#, fuzzy
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Les soumissions dans plusieurs langues sont acceptées. Choisir la langue principale de la soumission parmi celles présentes dans le menu déroulant."
+msgstr ""
+"Ajouter d'autres métadonnées sur votre soumission. Veuillez appuyer sur la "
+"touche « Entrée » après chaque terme."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Personne-ressource principale pour la correspondance éditoriale."
+
+msgid "submission.dataAvailability"
+msgstr ""
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+
+msgid "submission.files.required.genre"
+msgstr ""
+
+msgid "submission.files.required.genres"
+msgstr ""
 
 msgid "publication.version"
 msgstr "Version {$version}"

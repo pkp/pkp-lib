@@ -22,14 +22,22 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Σας ευχαριστούμε για την υποβολή της εργασίας &quot;{$submissionTitle}&quot; στο περιοδικό {$contextName}. Με το σύστημα διαχείρισης που χρησιμοποιούμε μπορείτε να παρακολουθείτε στην πλατφόρμα την πρόοδό της υποβολής σας:<br />\n"
+"Σας ευχαριστούμε για την υποβολή της εργασίας &quot;{$submissionTitle}&quot; "
+"στο περιοδικό {$contextName}. Με το σύστημα διαχείρισης που χρησιμοποιούμε "
+"μπορείτε να παρακολουθείτε στην πλατφόρμα την πρόοδό της υποβολής σας:<br /"
+">\n"
 "<br />\n"
 "Σύνδεσμος υποβολής: {$submissionUrl}<br />\n"
 "Όνομα χρήστη: {$recipientUsername}<br />\n"
 "<br />\n"
-"Εάν έχετε ερωτήσεις, παρακαλούμε επικοινωνήστε μαζί μας. Σας ευχαριστούμε που θεωρήσατε το περιοδικό μας κατάλληλο για δημοσίευση της εργασίας σας.<br />\n"
+"Εάν έχετε ερωτήσεις, παρακαλούμε επικοινωνήστε μαζί μας. Σας ευχαριστούμε "
+"που θεωρήσατε το περιοδικό μας κατάλληλο για δημοσίευση της εργασίας σας."
+"<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -40,11 +48,22 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Σας ευχαριστούμε που ολοκληρώσατε την αξιολόγηση της υποβολής &quot;{$submissionTitle},&quot; για το περιοδικό {$contextName} και για τη συμβολή σας στην ποιότητα του περιεχομένου που δημοσιεύουμε."
+"Σας ευχαριστούμε που ολοκληρώσατε την αξιολόγηση της υποβολής &quot;"
+"{$submissionTitle},&quot; για το περιοδικό {$contextName} και για τη συμβολή "
+"σας στην ποιότητα του περιεχομένου που δημοσιεύουμε."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή Ενότητας στον Αξιολογητή, ως επιβεβαίωση τη λήψης της ολοκληρωμένης αξιολόγησης."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Απόφαση Επιμελητή"
@@ -54,7 +73,8 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;{$submissionTitle}&quot;, στο περιοδικό {$contextName}.<br />\n"
+"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;"
+"{$submissionTitle}&quot;, στο περιοδικό {$contextName}.<br />\n"
 "<br />\n"
 "Η απόφασή μας είναι: Αποστολή προς Αξιολόγηση<br />\n"
 "<br />\n"
@@ -69,7 +89,8 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Η επιμέλεια της υποβολής σας &quot;{$submissionTitle},&quot; ολοκληρώθηκε. Τα αρχεία της υποβολής προωθούνται στο στάδιο παραγωγής.<br />\n"
+"Η επιμέλεια της υποβολής σας &quot;{$submissionTitle},&quot; ολοκληρώθηκε. "
+"Τα αρχεία της υποβολής προωθούνται στο στάδιο παραγωγής.<br />\n"
 "<br />\n"
 "Σύνδεσμος υποβολής: {$submissionUrl}"
 
@@ -82,7 +103,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;{$submissionTitle}&quot;, στο περιοδικό {$contextName}.<br />\n"
+"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;"
+"{$submissionTitle}&quot;, στο περιοδικό {$contextName}.<br />\n"
 "<br />\n"
 "Η απόφασή μας είναι: Απαιτούνται αναθεωρήσεις"
 
@@ -95,7 +117,8 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"
+"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;"
+"{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"
 "<br />\n"
 "Η απόφασή μας είναι: Επανυποβολή για αξιολόγηση"
 
@@ -108,7 +131,8 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"
+"Έχουμε καταλήξει σε μία απόφαση αναφορικά με την υποβολή σας &quot;"
+"{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"
 "<br />\n"
 "Η απόφασή μας είναι: Απόρριψη της Υποβολής"
 
@@ -121,7 +145,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Η σύσταση αναφορικά με την υποβολή &quot;{$submissionTitle}&quot;, στο περιοδικό {$contextName}, είναι: {$recommendation}"
+"Η σύσταση αναφορικά με την υποβολή &quot;{$submissionTitle}&quot;, στο "
+"περιοδικό {$contextName}, είναι: {$recommendation}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -132,15 +157,39 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Θα ήθελα να σας ζητήσω να αναλάβετε την επιμέλεια του κειμένου της υποβολής &quot;{$submissionTitle}&quot;, για το περιοδικό {$contextName}, ακολουθώντας τα παρακάτω βήματα.<br />\n"
+"Θα ήθελα να σας ζητήσω να αναλάβετε την επιμέλεια του κειμένου της υποβολής "
+"&quot;{$submissionTitle}&quot;, για το περιοδικό {$contextName}, "
+"ακολουθώντας τα παρακάτω βήματα.<br />\n"
 "1. Πατήστε στον σύνδεσμο της υποβολής, παρακάτω.<br />\n"
-"2. Ανοίξτε όλα τα διαθέσιμα αρχεία που υπάρχουν στο \"Πρόχειρα Αρχεία\" και κάντε την επιμέλεια κειμένου, προσθέτοντας σχόλια στη \"Συζήτηση σχετικά με την Επιμέλεια\", όπου χρειάζεται.<br />\n"
-"3. Αποθηκεύστε το επιμελημένο αρχείο(-α) και μεταφορτώστε το στον πίνακα των επιμελημένων αρχείων.<br />\n"
-"4. Ειδοποιήστε τον Επιμελητή ότι όλα τα αρχεία είναι έτοιμα και μπορεί να ξεκινήσει η διαδικασία παραγωγής.<br />\n"
+"2. Ανοίξτε όλα τα διαθέσιμα αρχεία που υπάρχουν στο \"Πρόχειρα Αρχεία\" και "
+"κάντε την επιμέλεια κειμένου, προσθέτοντας σχόλια στη \"Συζήτηση σχετικά με "
+"την Επιμέλεια\", όπου χρειάζεται.<br />\n"
+"3. Αποθηκεύστε το επιμελημένο αρχείο(-α) και μεταφορτώστε το στον πίνακα των "
+"επιμελημένων αρχείων.<br />\n"
+"4. Ειδοποιήστε τον Επιμελητή ότι όλα τα αρχεία είναι έτοιμα και μπορεί να "
+"ξεκινήσει η διαδικασία παραγωγής.<br />\n"
 "<br />\n"
 "Σύνδεσμος περιοδικού {$contextName}: {$contextUrl}<br />\n"
 "Σύνδεσμος υποβολής: {$submissionUrl}<br />\n"
 "Όνομα Χρήστη: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
@@ -152,9 +201,55 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"Έχουμε λάβει μία απόφαση σχετικά με την υποβολή σας &quot;{$submissionTitle}&quot; στο περιοδικό {$contextName}.<br />\n"
+"Έχουμε λάβει μία απόφαση σχετικά με την υποβολή σας &quot;{$submissionTitle}"
+"&quot; στο περιοδικό {$contextName}.<br />\n"
 "<br />\n"
 "Η απόφασή μας είναι: Απόρριψη υποβολής"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -162,6 +257,55 @@ msgstr "Ένα μήνυμα σχετικά με το περιοδικό {$contex
 
 msgid "emails.discussion.body"
 msgstr "Παρακαλούμε εισάγετε το μήνυμά σας."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Αποδοχή αιτήματος αξιολόγησης"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"Θα ήθελα να σας ενημερώσω ότι μπορώ να αναλάβω την αξιολόγηση της εργασίας "
+"&quot;{$submissionTitle},&quot; για το περιοδικό {$contextName}. Σας "
+"ευχαριστώ για την εμπιστοσύνη σας και σκοπεύω να έχω την αξιολόγηση έτοιμη "
+"μέχρι τη λήξη της προθεσμίας, στις {$reviewDueDate}, αν όχι νωρίτερα.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Επιβεβαίωση υποβολής"
@@ -181,17 +325,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editors:<br />\n"
-"<br />\n"
-"Θα ήθελα να σας ενημερώσω ότι μπορώ να αναλάβω την αξιολόγηση της εργασίας "
-"&quot;{$submissionTitle},&quot; για το περιοδικό {$contextName}. Σας "
-"ευχαριστώ για την εμπιστοσύνη σας και σκοπεύω να έχω την αξιολόγηση έτοιμη "
-"μέχρι τη λήξη της προθεσμίας, στις {$reviewDueDate}, αν όχι νωρίτερα.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Αποδοχή αιτήματος αξιολόγησης"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Το παρόν μήνυμα αποστέλλεται από τον Επιμελητή Ενότητας στον Αξιολογητή, "
+#~ "ως επιβεβαίωση τη λήψης της ολοκληρωμένης αξιολόγησης."

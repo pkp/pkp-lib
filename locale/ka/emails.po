@@ -33,25 +33,38 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "რეცენზიის მიღების დასტური"
+
 #, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Thank you for completing the review of the submission, "
-"&quot;{$submissionTitle},&quot; for {$contextName}. We appreciate your "
+"Thank you for completing the review of the submission, &quot;"
+"{$submissionTitle},&quot; for {$contextName}. We appreciate your "
 "contribution to the quality of the work that we publish.."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.decision.notifyReviewers.subject"
 msgstr ""
-"ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ რეცენზიის მიღების "
-"დასადასტურებლად და მადლობის გამოსახატად რეცენზენტის მიერ გაწეული "
-"ღვაწლისათვის."
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "რეცენზიის მიღების დასტური"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -65,8 +78,9 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -78,8 +92,9 @@ msgstr ""
 "Submission URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -91,8 +106,9 @@ msgstr ""
 "Our decision is: Revisions Required"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -104,8 +120,9 @@ msgstr ""
 "Our decision is to: Resubmit for Review"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -117,27 +134,28 @@ msgstr ""
 "Our decision is to: Decline Submission"
 
 #, fuzzy
-msgid "emails.editorDecisionDecline.subject"
+msgid "emails.editorRecommendation.subject"
 msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}: <br />\n"
 "<br />\n"
-"The recommendation regarding the submission to {$contextName}, "
-"&quot;{$submissionTitle}&quot; is: {$recommendation}"
+"The recommendation regarding the submission to {$contextName}, &quot;"
+"{$submissionTitle}&quot; is: {$recommendation}"
 
 #, fuzzy
-msgid "emails.editorRecommendation.subject"
-msgstr "რედაქციის გადაწყვეტილება"
+msgid "emails.copyeditRequest.subject"
+msgstr "ლიტერატურული რედაქტირების მოთხოვნა"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"I would ask that you undertake the copyediting of "
-"&quot;{$submissionTitle}&quot; for {$contextName} by following these steps..<"
-"br />\n"
+"I would ask that you undertake the copyediting of &quot;{$submissionTitle}"
+"&quot; for {$contextName} by following these steps..<br />\n"
 "1. Click on the Submission URL below.<br />\n"
 "2. Open any files available under Draft Files and do your copyediting, while "
 "adding any Copyediting Discussions as needed.<br />\n"
@@ -149,9 +167,28 @@ msgstr ""
 "Submission URL: {$submissionUrl}<br />\n"
 "Username: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "ლიტერატურული რედაქტირების მოთხოვნა"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "რედაქციის გადაწყვეტილება"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
@@ -163,15 +200,102 @@ msgstr ""
 "<br />\n"
 "Our decision is to: Decline Submission"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "რედაქციის გადაწყვეტილება"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "შეტყობინება ჟურანლის შესახებ {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "გთხოვთ, შეიტანოთ შეტყობინება."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "თანხმობა რეცენზირებაზე"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"I am able and willing to review the submission, &quot;{$submissionTitle},"
+"&quot; for {$contextName}. Thank you for thinking of me, and I plan to have "
+"the review completed by its due date, {$reviewDueDate}, if not before..<br /"
+">\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
@@ -196,17 +320,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editors:<br />\n"
-"<br />\n"
-"I am able and willing to review the submission, &quot;{$submissionTitle},"
-"&quot; for {$contextName}. Thank you for thinking of me, and I plan to have "
-"the review completed by its due date, {$reviewDueDate}, if not before..<br /"
-">\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "თანხმობა რეცენზირებაზე"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "ეს წერილი იგზავნება განყოფილების რედაქტორის მიერ რეცენზიის მიღების "
+#~ "დასადასტურებლად და მადლობის გამოსახატად რეცენზენტის მიერ გაწეული "
+#~ "ღვაწლისათვის."

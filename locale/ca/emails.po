@@ -23,14 +23,22 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "Benvolgut/uda {$recipientName},<br />\n"
 "<br />\n"
-"Gràcies per haver tramès el manuscrit &quot;{$submissionTitle}&quot; a {$contextName}. Gràcies al sistema de gestió de revistes en línia que utilitzem, en podreu seguir el progrés durant el procés editorial iniciant la sessió al lloc web de la revista:<br />\n"
+"Gràcies per haver tramès el manuscrit &quot;{$submissionTitle}&quot; a "
+"{$contextName}. Gràcies al sistema de gestió de revistes en línia que "
+"utilitzem, en podreu seguir el progrés durant el procés editorial iniciant "
+"la sessió al lloc web de la revista:<br />\n"
 "<br />\n"
 "URL del manuscrit: {$submissionUrl}<br />\n"
 "Nom d'usuari: {$recipientUsername}<br />\n"
 "<br />\n"
-"Si teniu qualsevol dubte o consulta, no dubteu a fer-me-la arribar. Us agraeixo que hàgiu tingut en compte aquesta revista com a mitjà per a difondre la vostra obra.<br />\n"
+"Si teniu qualsevol dubte o consulta, no dubteu a fer-me-la arribar. Us "
+"agraeixo que hàgiu tingut en compte aquesta revista com a mitjà per a "
+"difondre la vostra obra.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -41,11 +49,26 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "Benvolgut/uda {$recipientName},<br />\n"
 "<br />\n"
-"Us agraïm que hàgiu revisat la tramesa &quot;{$submissionTitle}&quot; per a {$contextName}. Valorem la vostra contribució a la qualitat de les obres que publiquem."
+"Us agraïm que hàgiu revisat la tramesa &quot;{$submissionTitle}&quot; per a "
+"{$contextName}. Valorem la vostra contribució a la qualitat de les obres que "
+"publiquem."
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Aquest missatge de correu electrònic té un editor de secció com a remitent i s'envia al revisor per a confirmar-li la recepció d'una revisió completada i agrair-li la seva contribució."
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decisió de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -59,8 +82,9 @@ msgstr ""
 "URL de la tramesa: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisió de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -72,8 +96,9 @@ msgstr ""
 "URL de la tramesa: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisió de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -85,21 +110,23 @@ msgstr ""
 "La nostra decisió és: Necessita revisions"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisió de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Hem arribat a una decisió respecte a la vostra tramesa pera a {$contextName}"
-", &quot;{$submissionTitle}&quot;.<br />\n"
+"Hem arribat a una decisió respecte a la vostra tramesa pera a "
+"{$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "La nostra decisió és: Tornar a enviar a revisió"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisió de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -110,19 +137,17 @@ msgstr ""
 "<br />\n"
 "La nostra decisió és: Rebutjar la tramesa"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Decisió de l'editor/a"
+msgid "emails.editorRecommendation.subject"
+msgstr "Recomanació de l'editor/a"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"La recomanació respecte a la tramesa {$contextName}, "
-"&quot;{$submissionTitle}&quot; és: {$recommendation}"
+"La recomanació respecte a la tramesa {$contextName}, &quot;{$submissionTitle}"
+"&quot; és: {$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Recomanació de l'editor/a"
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Sol·licitud de correcció"
@@ -132,22 +157,44 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"M'agradaria demanar-vos que us encarreguéssiu de la revisió de "
-"&quot;{$submissionTitle}&quot; per a {$contextName}. Per fer-ho , hauríeu de "
+"M'agradaria demanar-vos que us encarreguéssiu de la revisió de &quot;"
+"{$submissionTitle}&quot; per a {$contextName}. Per fer-ho , hauríeu de "
 "seguir els passos següents:<br />\n"
-"1. Feu clic a l'URL de la tramesa que trobareu al final d'aquest missatge.<"
-"br />\n"
+"1. Feu clic a l'URL de la tramesa que trobareu al final d'aquest missatge."
+"<br />\n"
 "2. Obriu tots els arxius disponibles a \"Arxius esborrany\" i feu la "
-"correcció afegint els comentaris que necessiteu a \"Discussions de "
-"correcció\".<br />\n"
-"3. Guardeu els arxius corregits i carregueu-los en el panell \"Corregit\".<"
-"br />\n"
+"correcció afegint els comentaris que necessiteu a \"Discussions de correcció"
+"\".<br />\n"
+"3. Guardeu els arxius corregits i carregueu-los en el panell \"Corregit\"."
+"<br />\n"
 "4. Notifiqueu a l'editor/a que tots els arxius estan llestos i que el procés "
 "de producció pot començar.<br />\n"
 "<br />\n"
 "{$contextName} URL: {$contextUrl}<br />\n"
 "URL de la tramesa: {$submissionUrl}<br />\n"
 "Nom d'usuari/ària: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Decisió de l'editor/a"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
@@ -160,15 +207,105 @@ msgstr ""
 "<br />\n"
 "La nostra decisió és: Rebutjar la tramesa"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Decisió de l'editor/a"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "Missatge sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Introduïu el vostre missatge."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Accepto la revisió"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Benvolgut/uda {$recipientName},<br />\n"
+"<br />\n"
+"Accepto revisar la tramesa &quot;{$submissionTitle}&quot; per a "
+"{$contextName}, i us agraeixo que m'hàgiu tingut en compte per a aquesta "
+"tasca. La meva intenció és tenir-la acabada per a la data de venciment "
+"prevista ({$reviewDueDate}), o abans si és possible.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmació de tramesa"
@@ -187,17 +324,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Benvolgut/uda {$recipientName},<br />\n"
-"<br />\n"
-"Accepto revisar la tramesa &quot;{$submissionTitle}&quot; per a "
-"{$contextName}, i us agraeixo que m'hàgiu tingut en compte per a aquesta "
-"tasca. La meva intenció és tenir-la acabada per a la data de venciment "
-"prevista ({$reviewDueDate}), o abans si és possible.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Accepto la revisió"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Aquest missatge de correu electrònic té un editor de secció com a "
+#~ "remitent i s'envia al revisor per a confirmar-li la recepció d'una "
+#~ "revisió completada i agrair-li la seva contribució."

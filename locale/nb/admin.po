@@ -9,8 +9,8 @@ msgstr ""
 "PO-Revision-Date: 2023-02-17 03:48+0000\n"
 "Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
 "no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/admin/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/admin/nb_NO/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,8 +18,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "admin.systemInfo.settingName"
+msgstr "Innstillingsnavn"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Innstillingsverdier"
+
 msgid "admin.adminFunctions"
 msgstr "Administrative funksjoner"
+
+msgid "admin.deleteCache"
+msgstr "Slett cache"
+
+msgid "admin.deleteCache.description"
+msgstr ""
 
 msgid "admin.clearDataCache"
 msgstr "Tøm data-cacher"
@@ -44,6 +56,11 @@ msgstr ""
 msgid "admin.contentsOfConfigFile"
 msgstr "Innholdet i konfigurasjonsfilen"
 
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Er du sikker på at du vil slette <i>{$contextName}<i> og alt innholdet i "
+"den? Slettingen er permanent."
+
 msgid "admin.currentVersion"
 msgstr "Nyeste versjon"
 
@@ -63,16 +80,38 @@ msgstr "Vis ny konfigurasjon"
 msgid "admin.expireSessions"
 msgstr "Avbryt brukersesjoner"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+"Alle brukere vil umiddelbart bli logget av systemet, inklusiv deg, og vil "
+"måtte logge inn igjen."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Denne språkpakken er hovedspråket for nettstedet. Du kan ikke deaktivere "
+"hovedspråket før du velger en annen språkpakke."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Er du sikker på at du vil endre hovedspråkpakke for dette nettstedet? Hvis "
+"brukeres navn mangler vil disse hentes fra nettstedets nåværende "
+"hovedspråkpakke og bli kopiert til den endrede hovedspråkpakken."
+
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Er du sikker på at du vil laste opp denne språkpakken på ny? Dette vil "
-"slette alle lokale tilpasninger på nåværende språkpakke, f.eks. på "
-"e-postmaler."
+"slette alle lokale tilpasninger på nåværende språkpakke, f.eks. på e-"
+"postmaler."
 
 msgid "admin.languages.installedLocales"
 msgstr "Installerte språkpakker"
 
 msgid "admin.languages.installLanguages"
+msgstr "Installer språkpakker"
+
+msgid "admin.languages.availableLocales"
+msgstr "Tilgjengelige språkpakker"
+
+msgid "admin.languages.installLocale"
 msgstr "Installer språkpakker"
 
 msgid "admin.languages.installLocales"
@@ -96,6 +135,131 @@ msgstr "Avinstaller språkpakke"
 msgid "admin.phpInfo"
 msgstr "Mer PHP-informasjon"
 
+msgid "admin.scheduledTask"
+msgstr "Planlagt oppgave"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Oppgave startet."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Oppgave stanset."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Oppgaven ble ikke logget."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponer DOIer hos den konfigurerte registreringsorganisasjon"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} gjorde oppgaven automatisk. Du kan laste ned loggen her: "
+"{$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Send en e-post til hver redaktør for å minne dem om deres gjenstående "
+"oppgaver"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+"Identifiser redaktører som skal ha en påminnelse i kontekst av {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Er du sikker på at du vil slette alle loggene over planlagte oppgaver?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Tøm loggen over utførte oppgaver"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Slett alle loggfiler over planlagte oppgaver som har blitt kjørt."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Slett loggfiler over oppgaver"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publiser innleveringer som er planlagt for publisering"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Påminnelse om fagfellevurdering"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Varsel om redaksjonell rapport"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Påminnelse om at abonnementet løper ut"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Fjern ubekreftede, utløpte brukere"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Oppdater DB-IP city lite database"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Bruksstatistikk  over fillaster-oppgave"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Filen {$file} kunne ikke åpnes, og ble avvist."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Tidsangivelsen er ikke en gyldig dato."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
 msgid "admin.server.apacheVersion"
 msgstr "Apache-versjon"
 
@@ -104,9 +268,6 @@ msgstr "Databasedriver"
 
 msgid "admin.server.dbVersion"
 msgstr "Versjon av databaseserver"
-
-msgid "admin.serverInformationDescription"
-msgstr "Operativsystem og serverens programvareversjoner. Klikk på <span class=\"highlight\">Mer PHP-informasjon</span> for å se flere detaljer om denne serverens PHP-konfigurasjon."
 
 msgid "admin.serverInformation"
 msgstr "Serverinformasjon"
@@ -117,8 +278,14 @@ msgstr "PHP-versjon"
 msgid "admin.server.platform"
 msgstr "OS-plattform"
 
+msgid "admin.settings"
+msgstr "Innstillinger"
+
 msgid "admin.settings.about"
 msgstr "Om nettstedet"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Masseutsendelse av e-post"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-postadresse til kontaktperson"
@@ -132,8 +299,14 @@ msgstr "Innledning"
 msgid "admin.settings.minPasswordLength"
 msgstr "Minste passordlengde (tegn)"
 
-msgid "admin.settings.passwordCharacters"
-msgstr "tegn"
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Begrens masseutsendelse av e-post"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Deaktiver roller"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Kun en administrator har tillatelse til å endre denne innstillingen."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Nettstedets språk"
@@ -144,8 +317,14 @@ msgstr "Ugyldig filformat for stilarket. Gyldig filformatet: .css."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Nettstedets stilark (style sheet)"
 
+msgid "admin.settings.siteLogo"
+msgstr "Nettstedets logo"
+
 msgid "admin.settings.siteTitle"
 msgstr "Nettstedets tittel"
+
+msgid "admin.settings.siteTheme"
+msgstr "Nettstedets tema"
 
 msgid "admin.siteAdmin"
 msgstr "Nettstedsadministrasjon"
@@ -156,6 +335,9 @@ msgstr "Nettstedsadministrasjon"
 msgid "admin.siteSettings"
 msgstr "Nettstedets innstillinger"
 
+msgid "admin.siteSetup"
+msgstr "Nettstedets oppsett"
+
 msgid "admin.systemConfigFileReadError"
 msgstr ""
 "Konfigurasjonsfilen <tt>config.inc.php</tt> finnes ikke, kan ikke leses "
@@ -163,6 +345,12 @@ msgstr ""
 
 msgid "admin.systemInformation"
 msgstr "Systeminformasjon"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Versjon"
@@ -203,186 +391,45 @@ msgstr "Systemet er oppdatert"
 msgid "admin.version"
 msgstr "Versjon"
 
-msgid "admin.settings"
-msgstr "Innstillinger"
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Katalogstien «{$path}» må være i den offentlige katalogen."
 
-msgid "admin.settings.siteTheme"
-msgstr "Nettstedets tema"
-
-msgid "admin.siteSetup"
-msgstr "Nettstedets oppsett"
-
-msgid "admin.languages.download"
-msgstr "Last ned språkpakke"
-
-msgid "admin.languages.availableLocales"
-msgstr "Tilgjengelige språkpakker"
-
-msgid "admin.languages.installLocale"
-msgstr "Installer språkpakker"
-
-msgid "admin.scheduledTask"
-msgstr "Planlagt oppgave"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Oppgave startet."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Oppgave stanset."
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Oppgaven ble ikke logget."
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"{$softwareName} gjorde oppgaven automatisk. Du kan laste ned loggen her: "
-"{$url}"
-
-msgid "admin.settings.siteLogo"
-msgstr "Nettstedets logo"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "Fillaster"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "Filen {$filename} ble behandlet og arkivert."
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Mappen {$path} er ikke en mappe eller kan ikke leses."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
 "Filen {$filename} kunne ikke flyttes fra {$currentFilePath} til "
 "{$destinationPath}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Mappen {$path} er ikke en mappe eller kan ikke leses."
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Filen {$filename} ble behandlet og arkivert."
 
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Katalogstien «{$path}» må være i den offentlige katalogen."
+msgid "admin.fileLoader.emailSubject"
+msgstr "Fillaster"
 
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "Filen {$file} kunne ikke åpnes, og ble avvist."
-
-msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Bruksstatistikk  over fillaster-oppgave"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Påminnelse om at abonnementet løper ut"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Påminnelse om fagfellevurdering"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publiser innleveringer som er planlagt for publisering"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Tøm loggen over utførte oppgaver"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Er du sikker på at du vil slette alle loggene over planlagte oppgaver?"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Er du sikker på at du vil endre hovedspråkpakke for dette nettstedet? Hvis "
-"brukeres navn mangler vil disse hentes fra nettstedets nåværende "
-"hovedspråkpakke og bli kopiert til den endrede hovedspråkpakken."
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Denne språkpakken er hovedspråket for nettstedet. Du kan ikke deaktivere "
-"hovedspråket før du velger en annen språkpakke."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Kan ikke legge til nye filer i språkpakken, vanligvis «registry/locales.xml»."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Språkbeskrivelsen fra PKP-nettstedet kan ikke åpnes."
-
-msgid "admin.languages.downloadLocales"
-msgstr "Last ned språkpakker"
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Er du sikker på at du vil slette <i>{$contextName}<i> og alt innholdet i "
-"den? Slettingen er permanent."
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Innstillingsverdier"
-
-msgid "admin.systemInfo.settingName"
-msgstr "Innstillingsnavn"
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Kun en administrator har tillatelse til å endre denne innstillingen."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Deaktiver roller"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Begrens masseutsendelse av e-post"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Masseutsendelse av e-post"
-
-msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
-"Identifiser redaktører som skal ha en påminnelse i kontekst av {$contextId}"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Varsel om redaksjonell rapport"
-
-msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
-"Send en e-post til hver redaktør for å minne dem om deres gjenstående "
-"oppgaver"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr "Slett alle loggfiler over planlagte oppgaver som har blitt kjørt."
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Slett loggfiler over oppgaver"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Deponer DOIer hos den konfigurerte registreringsorganisasjon"
-
-msgid "admin.deleteCache"
-msgstr "Slett cache"
-
-msgid "admin.expireSessions.description"
-msgstr ""
-"Alle brukere vil umiddelbart bli logget av systemet, inklusiv deg, og vil "
-"måtte logge inn igjen."
-
-msgid "admin.scheduledTask.updateGeoDB"
-msgstr "Oppdater DB-IP city lite database"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr "Tidsangivelsen er ikke en gyldig dato."
-
-msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr "Fjern ubekreftede, utløpte brukere"
-
-msgid "admin.cli.tool.jobs.mean.those"
+msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
 
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
 
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
 
-msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
 
-msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
 
 msgid "admin.error.gzCompressFile.fopen"
@@ -391,49 +438,7 @@ msgstr ""
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
 
-msgid "navigation.tools.jobs.failed"
-msgstr ""
-
-msgid "navigation.tools.job.failed.details.view"
-msgstr ""
-
-msgid "admin.job.failed.list.attribute"
-msgstr ""
-
-msgid "admin.job.compileMetrics.error"
-msgstr ""
-
-msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
-
-msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
-
-msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
-
-msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
-
-msgid "admin.systemInformation.view"
-msgstr ""
-
-msgid "admin.error.gzCompressFile.gzopen"
+msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
 
 msgid "admin.error.gzCompressFile.fclose"
@@ -442,7 +447,28 @@ msgstr ""
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
 
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
+
 msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
@@ -451,25 +477,70 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
 
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
 
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr ""
 
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
 msgstr ""
 
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.pagination.previous"
@@ -484,7 +555,43 @@ msgstr ""
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
 
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
 msgstr ""
 
 msgid "admin.jobs.totalCount"
@@ -493,235 +600,82 @@ msgstr ""
 msgid "admin.jobs.failed.totalCount"
 msgstr ""
 
-msgid "navigation.tools.jobs.failed.details"
-msgstr ""
-
-msgid "admin.jobs.list.createdAt"
-msgstr ""
-
-msgid "admin.jobs.failedAt"
-msgstr ""
-
-msgid "admin.job.compileMetrics.returnToStaging.error"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
-
-msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr ""
-
-msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
-
-msgid "admin.scheduledTask.editorialReminder.logEnd"
-msgstr ""
-
-msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
-
-msgid "admin.jobs.list.connection"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.failed.description"
-msgstr ""
-
-msgid "admin.jobs.list.payload"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.tries.description"
-msgstr ""
-
-msgid "admin.error.gzCompressFile.gzwrite"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.backoff.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.sleep.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
-
-msgid "admin.error.gzCompressFile.unlink"
-msgstr ""
-
-msgid "admin.jobs.list.queue"
-msgstr ""
-
-msgid "navigation.tools.jobs.description"
-msgstr ""
-
-msgid "admin.jobs.list.attempts"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
-
-msgid "admin.deleteCache.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
-
-msgid "admin.error.gzDecompressFile.unlink"
-msgstr ""
-
-msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
-
-msgid "admin.jobs.list.failedAt"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.maxTime.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
-
-msgid "navigation.tools.jobs.failed.view"
-msgstr ""
-
-msgid "admin.job.failed.list.attribute.value"
-msgstr ""
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
-
-msgid "admin.jobs.list.displayName"
-msgstr ""
-
-msgid "admin.jobs.list.actions"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
-
-msgid "admin.error.gzDecompressFile.fclose"
-msgstr ""
-
-msgid "admin.jobs.list.exception"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.test.invalid.option"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
-
-msgid "admin.cli.tool.available.commands"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
-
 msgid "admin.jobs.viewQueuedJobs"
 msgstr ""
 
 msgid "navigation.tools.jobs"
 msgstr ""
 
-msgid "admin.error.gzDecompressFile.gzclose"
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
 msgstr ""
 
 msgid "admin.jobs.list.id"
 msgstr ""
 
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgid "admin.jobs.list.displayName"
 msgstr ""
 
-msgid "admin.error.gzDecompressFile.fopen"
+msgid "admin.jobs.list.queue"
 msgstr ""
 
-msgid "admin.error.gzDecompressFile.gzread"
+msgid "admin.jobs.list.connection"
 msgstr ""
 
-msgid "admin.error.gzDecompressFile.fwrite"
+msgid "admin.jobs.list.attempts"
 msgstr ""
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgid "admin.jobs.list.createdAt"
 msgstr ""
 
-msgid "admin.cli.tool.jobs.work.option.force.description"
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
 msgstr ""
 
 msgid "admin.settings.statistics.collection"
@@ -751,62 +705,112 @@ msgstr ""
 msgid "admin.settings.statistics.keepDaily.keep"
 msgstr ""
 
-msgid "admin.scheduledTask.processQueueJobs"
+msgid "admin.settings.statistics.keepDaily.discard"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgid "admin.settings.statistics.compressStatsLogs.label"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr ""
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
-msgstr ""
-
-msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
-msgstr ""
-
-msgid "admin.error.gzDecompressFile.gzopen"
-msgstr ""
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgid "admin.settings.statistics.compressStatsLogs.compress"
 msgstr ""
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 
-msgid "admin.jobs.createdAt"
+msgid "admin.settings.statistics.sushiPlatform"
 msgstr ""
 
-msgid "admin.systemInformation.description"
+msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 
-msgid "navigation.tools.jobs.view"
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Operativsystem og serverens programvareversjoner. Klikk på <span class="
+#~ "\"highlight\">Mer PHP-informasjon</span> for å se flere detaljer om denne "
+#~ "serverens PHP-konfigurasjon."
+
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "tegn"
+
+#~ msgid "admin.languages.download"
+#~ msgstr "Last ned språkpakke"
+
+#~ msgid "admin.languages.download.cannotModifyRegistry"
+#~ msgstr ""
+#~ "Kan ikke legge til nye filer i språkpakken, vanligvis «registry/locales."
+#~ "xml»."
+
+#~ msgid "admin.languages.download.cannotOpen"
+#~ msgstr "Språkbeskrivelsen fra PKP-nettstedet kan ikke åpnes."
+
+#~ msgid "admin.languages.downloadLocales"
+#~ msgstr "Last ned språkpakker"

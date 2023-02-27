@@ -15,67 +15,67 @@ msgstr ""
 msgid "comments.anonymous"
 msgstr "Pengguna Tanpa Nama"
 
-msgid "reader.fullText"
-msgstr "Teks penuh:"
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\""
 
-msgid "comments.viewAllComments"
-msgstr "Lihat semua komen"
+msgid "comments.body"
+msgstr "Badan"
 
-msgid "comments.title"
-msgstr "Tajuk"
-
-msgid "comments.replies"
-msgstr "Balasan"
-
-msgid "comments.readMore"
-msgstr "Baca lagi"
-
-msgid "comments.readerComments"
-msgstr "Komen Pembaca"
-
-msgid "comments.postReply"
-msgstr "Balas Post"
-
-msgid "comments.postAnonymously"
-msgstr "Siarkan komen ini tanpa nama"
-
-msgid "comments.oneReply"
-msgstr "(1 Balasan)"
-
-msgid "comments.nReplies"
-msgstr "({$num} Balasan)"
-
-msgid "comments.noComments"
-msgstr "Tiada komen pembaca telah disiarkan."
-
-msgid "comments.name"
-msgstr "Nama Poster"
-
-msgid "comments.inResponseTo"
-msgstr "Sebagai respons kepada <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Masukkan Komen"
-
-msgid "comments.emailReply"
-msgstr "Balasan E-mel"
-
-msgid "comments.email"
-msgstr "E-mel Poster"
-
-msgid "comments.delete"
-msgstr "Padam komen ini"
+msgid "comments.titleRequired"
+msgstr "Tajuk komen diperlukan."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Memadam komen ini juga akan memadam sebarang balasan. Adakah anda pasti mahu "
 "melakukan ini?"
 
-msgid "comments.titleRequired"
-msgstr "Tajuk komen diperlukan."
+msgid "comments.delete"
+msgstr "Padam komen ini"
 
-msgid "comments.body"
-msgstr "Badan"
+msgid "comments.email"
+msgstr "E-mel Poster"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\""
+msgid "comments.emailReply"
+msgstr "Balasan E-mel"
+
+msgid "comments.enterComment"
+msgstr "Masukkan Komen"
+
+msgid "comments.inResponseTo"
+msgstr "Sebagai respons kepada <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Nama Poster"
+
+msgid "comments.noComments"
+msgstr "Tiada komen pembaca telah disiarkan."
+
+msgid "comments.nReplies"
+msgstr "({$num} Balasan)"
+
+msgid "comments.oneReply"
+msgstr "(1 Balasan)"
+
+msgid "comments.postAnonymously"
+msgstr "Siarkan komen ini tanpa nama"
+
+msgid "comments.postReply"
+msgstr "Balas Post"
+
+msgid "comments.readerComments"
+msgstr "Komen Pembaca"
+
+msgid "comments.readMore"
+msgstr "Baca lagi"
+
+msgid "comments.replies"
+msgstr "Balasan"
+
+msgid "comments.title"
+msgstr "Tajuk"
+
+msgid "comments.viewAllComments"
+msgstr "Lihat semua komen"
+
+msgid "reader.fullText"
+msgstr "Teks penuh:"

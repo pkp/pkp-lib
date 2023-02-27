@@ -6,14 +6,24 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
 "PO-Revision-Date: 2022-08-29 21:01+0000\n"
 "Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/manager/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/manager/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
+
+msgid "manager.website.information"
+msgstr "Informasjon"
+
+msgid "manager.website.appearance"
+msgstr "Design"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Du må laste opp et bilde. Pass på at du har valgt og lastet opp en bildefil."
 
 msgid "manager.announcements"
 msgstr "Oppslagstavle"
@@ -29,6 +39,12 @@ msgstr "Opprett"
 
 msgid "manager.announcements.dateExpire"
 msgstr "Utløpsdato"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publisert"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Slett oppslag"
 
 msgid "manager.announcements.edit"
 msgstr "Endre oppslag"
@@ -136,11 +152,262 @@ msgstr "Ingen oppslagstyper er opprettet."
 msgid "manager.announcementTypes.typeName"
 msgstr "Oppslagstype"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "Deponer alle"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Deponer DOI-er"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Du er i ferd med å sende DOI-metadataposter for {$count} objekt(er) til "
+"{$registrationAgency}. Er du sikker på at du vil deponere disse postene?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marker DOI-er som registrerte"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Du er i ferd med å markere DOI-metadataposter for {$count} objekter(er) som "
+"registrerte. Er du sikker på at du ønsker å markere disse postene som "
+"registrerte?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Marker DOI-er som uregistrerte"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Du er i ferd med å markere DOI-metadataposter for {$count} objekter som "
+"uregistrerte. Er du sikker på at du vil markere disse postene som "
+"uregistrerte?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Marker DOI-er som foreldet"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Du er i ferd med å markere DOI-metadataposter for {$count} objekter som "
+"foreldet. Foreldet-statusen kan kun anvendes på tidligere registrerte DOI-"
+"er. Er du sikker på at du vil markere disse postene som foreldet?"
+
+msgid "manager.dois.actions.export.label"
+msgstr ""
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.assign.label"
+msgstr ""
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.description"
+msgstr ""
+
+msgid "manager.dois.actions.bulkActions"
+msgstr ""
+
+msgid "manager.dois.depositStatus"
+msgstr ""
+
+msgid "manager.dois.publicationStatus"
+msgstr ""
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.viewError"
+msgstr ""
+
+msgid "manager.dois.registration.viewError.title"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr ""
+
+msgid "manger.dois.update.success"
+msgstr ""
+
+msgid "manager.dois.registration.depositDois"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi"
+msgstr ""
+
+msgid "manager.dois.status.unregistered"
+msgstr ""
+
+msgid "manager.dois.status.submitted"
+msgstr ""
+
+msgid "manager.dois.status.registered"
+msgstr ""
+
+msgid "manager.dois.status.error"
+msgstr ""
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+
+msgid "manager.dois.status.error.description"
+msgstr ""
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+
+msgid "manager.dois.update.failedCreation"
+msgstr ""
+
+msgid "manager.dois.update.partialFailure"
+msgstr ""
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr ""
+
+msgid "manager.dois.help.statuses.title"
+msgstr ""
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.institutions.edit"
+msgstr ""
+
+msgid "manager.institutions.form.ror"
+msgstr ""
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+
+msgid "manager.institutions.form.ipRanges"
+msgstr ""
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+
+msgid "manager.institutions.deleteInstitution"
+msgstr ""
+
+msgid "manager.institutions.confirmDelete"
+msgstr ""
+
+msgid "manager.institutions.invalidIPRange"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr "Innlevering"
+
+msgid "manager.publication.reviewStage"
+msgstr "Fagfellevurdering"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redaksjonell behandling"
+
+msgid "manager.publication.productionStage"
+msgstr "Produksjon"
+
+msgid "manager.publication.emails"
+msgstr "E-poster"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Veiledning for fagfeller"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Detaljene om påminnelse om fagfellevurdering har blitt oppdatert."
+
+msgid "manager.dois.title"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+
+msgid "manager.emails.addEmail"
+msgstr "Legg til e-postmal"
+
 msgid "manager.emails.createEmail"
 msgstr "Skriv e-post"
 
+msgid "manager.emails.data"
+msgstr "Mal beskjed"
+
+msgid "manager.emails.details"
+msgstr "Detaljer om malene"
+
 msgid "manager.emails.disable"
 msgstr "Slå av"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Du er i ferd med å deaktivere e-postmalen. Om det finnes systemprosesser som "
+"benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte "
+"deaktiveringen?"
 
 msgid "manager.emails.editTestExample"
 msgstr "Rediger eksempel på e-posttest"
@@ -148,11 +415,28 @@ msgstr "Rediger eksempel på e-posttest"
 msgid "manager.emails.emailTemplate"
 msgstr "E-postmal"
 
+msgid "manager.emails.emailTemplates"
+msgstr "E-postmaler"
+
+msgid "manager.emails.otherTemplates"
+msgstr ""
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Du må angi et ID når en e-postmal legges til."
+
 msgid "manager.emails.enabled"
 msgstr "Slå på denne e-postmalen"
 
 msgid "manager.emails.enable"
 msgstr "Slå på"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Du er i ferd med å aktivere denne e-posten. Ønsker du å bekrefte denne "
+"aktiveringen?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "E-posten må ha en unik e-postnøkkel, uten mellomrom eller spesialtegn."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "E-posten må ha en meldingstekst."
@@ -163,8 +447,34 @@ msgstr "E-posten må ha et emne."
 msgid "manager.emails"
 msgstr "E-postmaler"
 
+msgid "manager.emails.resetAll"
+msgstr "Tilbakestill alle malene"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Om du tilbakestiller alle maler vil alle endringer som er gjort i e-"
+"postmalene bli borte. Ønsker du å bekrefte tilbakestillingen?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Om du tilbakestiller denne malen, vil alle data i meldingen bli tilbakestilt "
+"til standardverdier og alle endringer vil bli borte. Vil du bekrefte denne "
+"tilbakestillingen?"
+
 msgid "manager.emails.resetToDefault"
 msgstr "Tilbakestill til standard"
+
+msgid "manager.emails.sentFrom"
+msgstr "Sendt fra"
+
+msgid "manager.emails.sentTo"
+msgstr "Sendt til"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksporter til Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Velg brukerne som skal eksporteres til en Excel/CSV-fil."
 
 msgid "manager.filesBrowser"
 msgstr "Filutforsker"
@@ -225,6 +535,18 @@ msgstr "Tittel"
 msgid "manager.importExport"
 msgstr "Importer/eksporter data"
 
+msgid "manager.language.ui"
+msgstr "Grensesnitt"
+
+msgid "manager.language.submissions"
+msgstr "Innleveringer"
+
+msgid "manager.language.forms"
+msgstr "Skjema"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Last inn standardinnstillinger på nytt"
+
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
 "Dette systemet gjør det mulig å legge inn viktig informasjon på flere språk. "
@@ -239,6 +561,9 @@ msgstr ""
 
 msgid "manager.payment.timestamp"
 msgstr "Tidsstempel"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Du må legge inn en eksisterende bruker."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Vil du avløse denne brukeren?"
@@ -342,6 +667,9 @@ msgstr "Fjern"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Lagre og opprett en til"
 
+msgid "manager.people.signedInAs"
+msgstr "Du er for øyeblikket logget inn som {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Logg inn som"
 
@@ -383,8 +711,258 @@ msgstr "System-programtillegg"
 msgid "manager.readingTools"
 msgstr "Leseverktøy"
 
+msgid "manager.userSearch.searchByName"
+msgstr "Søk opp bruker etter navn"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Du kan ikke slette denne representanten da vedkommende er tilknyttet "
+"markedsmetadata til ett eller flere publikasjonsformater i forbindelse med "
+"denne innleveringen."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Endre"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Søk opp fagfelle etter navn"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Søk etter navn"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Faglige interesser"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Bruk skjemaet under for å sette maksimumsverdiene for ordene du vil søke "
+"etter. Skjemaet er fylt inn med de beregnede gjennomsittene for disse "
+"verdiene."
+
 msgid "manager.roles"
 msgstr "Roller"
+
+msgid "manager.setup.statistics"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr ""
+
+msgid "manager.statistics"
+msgstr "Statistikk og rapporter"
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Rapportgenerator"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Systemet genererer rapporter som holder oversikt over detaljene om bruken av "
+"og innleveringene til siden over en gitt periode. Rapportene er generert i "
+"et CSV-format. Du må ha et regnearksprogram for å se dette."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Bruk formatet: ÅÅÅÅMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Bruk formatet: ÅÅÅÅMMDD."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Sponsor"
+
+msgid "manager.setup.dois"
+msgstr ""
+
+msgid "manager.setup.dois.setup"
+msgstr ""
+
+msgid "manager.setup.dois.registration"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"DOI-prefikset tildeles av registreringsbyråer (som <a href=\"http://www."
+"crossref.org\" target=\"_new\">Crossref</a>), og er i formatet 10.xxxx (f."
+"eks. 10.1234):"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr ""
+
+msgid "manager.setup.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Tidsskriftets innhold"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "DOI-suffiks"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr ""
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Et DOI-suffiks kan ha en hvilken som helst form, men må være unikt der alle "
+"publiseringsobjekter er tildelt det samme DOI-prefikset:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Bruk standardformatene."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr ""
+
+msgid "doi.authorization.enabledRequired"
+msgstr ""
+
+msgid "doi.manager.versions.countStatement"
+msgstr ""
+
+msgid "doi.manager.versions.view"
+msgstr ""
+
+msgid "doi.manager.versions.modalTitle"
+msgstr ""
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr ""
+
+msgid "manager.setup.publishing"
+msgstr "Publiseringsopplysninger"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Navnet til organisasjonen som publiserer tidsskriftet vil bli vist i 'Om' "
+"tidsskriftet."
+
+msgid "manager.setup.additionalContent"
+msgstr "Annet innhold"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Alt som blir skrevet her vil bli vist på din hjemmeside."
+
+msgid "manager.setup.advanced"
+msgstr "Avansert"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Erklæring om opphavsrett"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr "Krev at forfatterne aksepterer opphavsrettsnotisen."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Retningslinjer for forfattere"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Anbefalte retningslinjer inkluderer standarder for formatering og "
+"bibliografisk informasjon. Det er vanlig å legge ved eksempler."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Deaktiver innleveringer"
+
+msgid "manager.setup.checklist"
+msgstr "Sjekkliste"
+
+msgid "manager.setup.competingInterests"
+msgstr "Interessekonflikter"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Det oppstod en feil ved slettingen."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Hjemmesidebilde"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Last opp et bilde som skal vises på hjemmesiden."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr "Ugyldig bildeformat. Aksepterte format: .gif, .jpg eller .png."
@@ -392,14 +970,311 @@ msgstr "Ugyldig bildeformat. Aksepterte format: .gif, .jpg eller .png."
 msgid "manager.setup.homeTitleImageInvalid"
 msgstr "Ugyldig bildeformat. Aksepterte format: .gif, .jpg eller .png."
 
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Beskrivelser"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Sidemeny"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"{$name}-blokken ble ikke funnet. Sørg for at programtillegget er installert "
+"og aktivert."
+
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Logging og kontrollering"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Filen du lastet opp ble ikke funnet. Prøv å laste den opp igjen."
+
+msgid "manager.setup.notifications"
+msgstr "Varsel om innlevering fra forfatter"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Send en kopi til denne e-postadressen"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+
+msgid "manager.setup.submissionsNotifications"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr ""
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Forfattere blir tilsendt en automatisk e-post som bekrefter innleveringen "
+"deres. Du kan sende kopi av denne e-posten til følgende:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Varsle"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Velg de brukerne som skal motta din e-postbeskjed."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Send en kopi av denne e-posten til meg på {email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Send e-post"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Du skal til å sende en e-post til {total} brukere. Er du sikker på at du vil "
+"sende denne e-posten?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Sender e-post. Vent til sendingen er fullført før du navigerer vekk, eller "
+"lukker nettsiden."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-post ble sendt til alle mottakerne."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Send en til e-post"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Retningslinjer om Open Access"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Hvis alt publisert innhold skal være åpent tilgjengelig, kan du legge inn en "
+"beskrivelse av retningslinjer for åpen tilgang her."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr "Ugyldig bildeformat. Aksepterte format: .gif, .jpg eller .png."
 
-msgid "manager.statistics"
-msgstr "Statistikk og rapporter"
+msgid "manager.setup.pageFooter"
+msgstr "Bunntekst"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Legg inn bilder, tekst eller HTML-kode som du ønsker skal vises nederst på "
+"nettsiden."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Beskriv retningslinjene for og arbeidsflyten i fagfellevurderingen for "
+"lesere og forfattere. Beskrivelsen inkluderer ofte antall fagfeller som "
+"vurderer en innlevering, kriteriene som fagfellene blir bedt om å bruke i "
+"vurderingen, forventet tidsbruk og prinsippene for valg av fagfeller."
+
+msgid "manager.setup.principalContact"
+msgstr "Kontaktperson"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Skriv inn kontaktinformasjon, vanligvis for redaktør, redaksjonsleder eller "
+"andre med administrative oppgaver. Disse kan vises på det offentlig "
+"tilgjengelige nettstedet ditt."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Erklæring om personvern"
+
+msgid "manager.setup.dateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formater for dato og tid"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Velg det foretrukne formatet for dato og tid. Et brukerdefinert format kan "
+"også angis  ved å benytte følgende <a href='http://php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-"
+"parameters'>formateringsparametre</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Dato"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Dato (Kort)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Tid"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Dato og tid"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Dato og tid (kort)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Brukerdefinert"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Denne erklæringen vil vises når forfatteren leverer inn et manuskript, samt "
+"på tidsskriftets «Om»-side."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Standard svarfrist"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Standardfrist for fullføring"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+"Antall uker fagfellen har på å godta eller avvise en forespørsel om "
+"fagfellevurdering."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Antall uker fagfellen har på å fullføre fagfellevurderingen"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Aldri send påminnelse"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Standardverdiene kan bli modifisert for hver enkelt fagfellevurdering under "
+"den redaksjonelle behandlingen."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Svarpåminnelse"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Send en påminnelse om en fagfelle ikke har svart på vurderingsforespørselen "
+"innen en tid (dager) etter oppdragets frist."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Vurderingspåminnelse"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Send en påminnelse om en fagfelle ikke har sendt inn en anbefaling innen en "
+"tid (dager) etter oppdragets frist."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Standardinnstilling for fagfellevurdering"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Vis en lenke til <button type=\"button\">hvordan sikre anonymisering av "
+"filer</button> ved opplasting"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Relasjon til sponsor og beskrivelse av retningslinjer"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Eksempler: akademisk organisasjon, institutt, forskergrupper. Sponsorer blir "
+"vist offentlig."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Erfarne nettutviklere kan laste opp en CSS-fil for å tilpasse hvordan "
+"nettstedet ser ut."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Teknisk kontaktperson"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"En kontaktperson som kan assistere redaktører, forfattere og fagfeller om de "
+"har problemer med å levere inn, redigere, fagfellevurdere eller publisere "
+"materiale."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.institutions"
+msgstr ""
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Nye tema kan bli installert fra fanen for programutvidelser på toppen av "
+"denne siden."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Valgt tema er ikke installert eller aktivert."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.guidance"
+msgstr ""
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Sjekkliste for innlevering"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Når de leverer inn bidrag til tidsskriftet, må forfattere først krysse av "
+"for hvert element på «Sjekkliste for innlevering», før de får gå videre. "
+"Sjekklisten vises også i forfatterinstruksen, under «Om» tidsskriftet. "
+"Sjekklisten kan redigeres nedenfor, men alle elementene på listen må krysses "
+"av før forfatteren kan gå videre med innsendingen."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Deaktiver denne seksjonen og ikke tillat nye innleveringer til den."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Er du sikker på at du vil deaktivere denne seksjonen?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr ""
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Tilganger"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage} %)"
@@ -407,8 +1282,17 @@ msgstr "{$count} ({$percentage} %)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nye)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Registrerte brukere"
+
 msgid "manager.users"
 msgstr "Brukere"
+
+msgid "plugins.categories.metadata"
+msgstr "Metadata"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Programtillegg for metadata iverksetter flere metadata-standarder."
 
 msgid "plugins.categories.auth"
 msgstr "Validering"
@@ -422,7 +1306,8 @@ msgstr ""
 "verktøyene i sidemenyen."
 
 msgid "plugins.categories.gateways.description"
-msgstr "Programtillegg for porter gir kontinuerlige data til eksterne systemer."
+msgstr ""
+"Programtillegg for porter gir kontinuerlige data til eksterne systemer."
 
 msgid "plugins.categories.gateways"
 msgstr "Porter"
@@ -461,45 +1346,6 @@ msgstr ""
 msgid "plugins.categories.themes"
 msgstr "Tema"
 
-msgid "manager.emails.form.emailKeyRequired"
-msgstr "E-posten må ha en unik e-postnøkkel, uten mellomrom eller spesialtegn."
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Søk opp fagfelle etter navn"
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "Det oppstod en feil ved slettingen."
-
-msgid "manager.announcements.datePublish"
-msgstr "Publisert"
-
-msgid "manager.emails.details"
-msgstr "Detaljer om malene"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Søk etter navn"
-
-msgid "manager.emails.data"
-msgstr "Mal beskjed"
-
-msgid "manager.emails.disable.message"
-msgstr ""
-"Du er i ferd med å deaktivere e-postmalen. Om det finnes systemprosesser som "
-"benytter denne malen, vil de ikke bruke den mer. Ønsker du å bekrefte "
-"deaktiveringen?"
-
-msgid "manager.emails.enable.message"
-msgstr "Du er i ferd med å aktivere denne e-posten. Ønsker du å bekrefte denne aktiveringen?"
-
-msgid "manager.emails.resetAll.message"
-msgstr "Om du tilbakestiller alle maler vil alle endringer som er gjort i e-postmalene bli borte. Ønsker du å bekrefte tilbakestillingen?"
-
-msgid "manager.emails.reset.message"
-msgstr "Om du tilbakestiller denne malen, vil alle data i meldingen bli tilbakestilt til standardverdier og alle endringer vil bli borte. Vil du bekrefte denne tilbakestillingen?"
-
-msgid "plugins.categories.metadata"
-msgstr "Metadata"
-
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "OAI metadata-format"
 
@@ -507,508 +1353,6 @@ msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr ""
 "Disse programtilleggene for format gjør metadata tilgjengelig i OAI-"
 "kommunikasjon."
-
-msgid "manager.website"
-msgstr "Nettsted"
-
-msgid "manager.reviewFormElement.changeType"
-msgstr ""
-"Advarsel: Flervalgsalternativene blir slettet hvis elementtypen for "
-"vurderingsskjemaet endres fra flervalgselement til åpne element."
-
-msgid "manager.reviewFormElements"
-msgstr "Skjemaelementer"
-
-msgid "manager.reviewFormElements.addResponseItem"
-msgstr "Legg til utvalg"
-
-msgid "manager.reviewFormElements.checkboxes"
-msgstr "Avkryssingsbokser (du kan velge flere enn én)"
-
-msgid "manager.reviewFormElements.chooseType"
-msgstr "Velg elementtype"
-
-msgid "manager.reviewFormElements.confirmDelete"
-msgstr ""
-"Er du sikker på at du vil slette dette elementet? Det er i et publisert "
-"vurderingsskjema..."
-
-msgid "manager.reviewFormElements.copyTo"
-msgstr "Kopi til:"
-
-msgid "manager.reviewFormElements.create"
-msgstr "Lagt nytt element"
-
-msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Rullegardinboks"
-
-msgid "manager.reviewFormElements.edit"
-msgstr "Rediger skjemaelement"
-
-msgid "manager.reviewFormElements.elementType"
-msgstr "Elementtype"
-
-msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Skjemaelementet må ha en elementtype."
-
-msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Skjemaelementet må ha et spørsmål."
-
-msgid "manager.reviewFormElements.noneCreated"
-msgstr "Ingen skjemaelementer er opprettet."
-
-msgid "manager.reviewFormElements.possibleResponse"
-msgstr "Utvalg"
-
-msgid "manager.reviewFormElements.question"
-msgstr "Element"
-
-msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Radioknapper (du kan velge bare en av dem)"
-
-msgid "manager.reviewFormElements.required"
-msgstr "Fagfellen må ferdigstille elementet"
-
-msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Tekstboks for enkeltord"
-
-msgid "manager.reviewFormElements.textarea"
-msgstr "Utvidet tekstboks"
-
-msgid "manager.reviewFormElements.textfield"
-msgstr "Tekstboks for enkeltlinje"
-
-msgid "manager.reviewForms"
-msgstr "Vurderingsskjemaer"
-
-msgid "manager.reviewForms.completed"
-msgstr "Ferdigstilt"
-
-msgid "manager.reviewForms.create"
-msgstr "Opprett vurderingsskjema"
-
-msgid "manager.reviewForms.description"
-msgstr "Beskrivelse og instruks"
-
-msgid "manager.reviewForms.edit"
-msgstr "Vurderingsskjema"
-
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "Du må legge inn en tittel på fagfellevurderingsskjemaet."
-
-msgid "manager.reviewForms.inReview"
-msgstr "Til fagfellevurdering"
-
-msgid "manager.reviewForms.list.description"
-msgstr ""
-"Her kan du opprette tilpassede fagfellevurderingsskjema. Du kan be "
-"fagfellene om å fylle ut disse, i stedet for det enkle standardskjemaet som "
-"bare inneholder de to åpne tekstboksene «For redaktør» og «For redaktør og "
-"forfatter». Tilpassede skjema kan knyttes til hver enkelt seksjon i "
-"tidsskriftet. Redaktørene vil få mulighet til å velge hvilket skjema som "
-"skal brukes til hvert enkelt fagfellevurderingsoppdrag. Redaktørene vil "
-"dessuten alltid få mulighet til å inkludere fagfelleuttalelser i e-post til "
-"forfatteren."
-
-msgid "manager.reviewForms.noneChosen"
-msgstr "Ingen/åpent fagfellevurderingsskjema"
-
-msgid "manager.reviewForms.noneCreated"
-msgstr "Ingen fagfellevurderingsskjema er opprettet."
-
-msgid "manager.reviewForms.preview"
-msgstr "Forhåndsvis skjema"
-
-msgid "manager.reviewForms.title"
-msgstr "Tittel"
-
-msgid "manager.website.information"
-msgstr "Informasjon"
-
-msgid "manager.website.appearance"
-msgstr "Design"
-
-msgid "manager.website.imageFileRequired"
-msgstr ""
-"Du må laste opp et bilde. Pass på at du har valgt og lastet opp en bildefil."
-
-msgid "manager.publication.submissionStage"
-msgstr "Innlevering"
-
-msgid "manager.publication.reviewStage"
-msgstr "Fagfellevurdering"
-
-msgid "manager.publication.editorialStage"
-msgstr "Redaksjonell behandling"
-
-msgid "manager.publication.productionStage"
-msgstr "Produksjon"
-
-msgid "manager.publication.emails"
-msgstr "E-poster"
-
-msgid "manager.language.ui"
-msgstr "Grensesnitt"
-
-msgid "manager.language.submissions"
-msgstr "Innleveringer"
-
-msgid "manager.language.forms"
-msgstr "Skjema"
-
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Last inn standardinnstillinger på nytt"
-
-msgid "manager.userSearch.searchByName"
-msgstr "Søk opp bruker etter navn"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Endre"
-
-msgid "manager.reviewerSearch.interests"
-msgstr "Faglige interesser"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr ""
-"Bruk skjemaet under for å sette maksimumsverdiene for ordene du vil søke "
-"etter. Skjemaet er fylt inn med de beregnede gjennomsittene for disse "
-"verdiene."
-
-msgid "stats.downloads"
-msgstr "Visninger av nummerets oppsett"
-
-msgid "stats.views"
-msgstr "Visninger av innholdsfortegnelse for nummer"
-
-msgid "stats.city"
-msgstr "By"
-
-msgid "stats.region"
-msgstr "Region"
-
-#, fuzzy
-msgid "manager.statistics.reports"
-msgstr "Rapportgenerator"
-
-msgid "manager.statistics.reports.description"
-msgstr ""
-"Systemet genererer rapporter som holder oversikt over detaljene om bruken av "
-"og innleveringene til siden over en gitt periode. Rapportene er generert i "
-"et CSV-format. Du må ha et regnearksprogram for å se dette."
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Bruk formatet: ÅÅÅÅMM."
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Bruk formatet: ÅÅÅÅMMDD."
-
-msgid "manager.affiliationAndSupport"
-msgstr "Sponsor"
-
-msgid "manager.setup.publishing"
-msgstr "Publiseringsopplysninger"
-
-msgid "manager.setup.publishingDescription"
-msgstr "Navnet til organisasjonen som publiserer tidsskriftet vil bli vist i 'Om' tidsskriftet."
-
-msgid "manager.setup.additionalContent"
-msgstr "Annet innhold"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "Alt som blir skrevet her vil bli vist på din hjemmeside."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Erklæring om opphavsrett"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr "Krev at forfatterne aksepterer opphavsrettsnotisen."
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Retningslinjer for forfattere"
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"Anbefalte retningslinjer inkluderer standarder for formatering og "
-"bibliografisk informasjon. Det er vanlig å legge ved eksempler."
-
-msgid "manager.setup.competingInterests"
-msgstr "Interessekonflikter"
-
-msgid "manager.setup.favicon"
-msgstr "Favicon"
-
-msgid "manager.reviewFormElements.viewable"
-msgstr "Kan ses (av forfatterne)"
-
-msgid "grid.action.createReviewForm"
-msgstr "Lag nytt vurderingsskjema"
-
-msgid "manager.setup.competingInterests.required"
-msgstr "Be om en uttalelse om interessekonflikter under fagfellevurderingen."
-
-msgid "manager.setup.licenseURLDescription"
-msgstr "URL til en nettside som beskriver lisensen, dersom det er tilgjengelig."
-
-msgid "manager.setup.metadata.submission"
-msgstr "Innleveringsskjema"
-
-msgid "plugins.importexport.common.validationErrors"
-msgstr "Valideringsfeil:"
-
-msgid "settings.roles.roleOptions"
-msgstr "Mulige roller"
-
-msgid "settings.roles.showTitles"
-msgstr "Vis rolletittel i listen over bidragsytere"
-
-msgid "settings.roles.permitSelfRegistration"
-msgstr "Godta at brukere registerer seg selv"
-
-msgid "settings.roles.roleName"
-msgstr "Rollenavn"
-
-msgid "settings.roles.roleAbbrev"
-msgstr "Forkortelser"
-
-msgid "settings.roles.assignedStages"
-msgstr "Tildelte stadier"
-
-msgid "settings.roles.stages"
-msgstr "Stadier"
-
-msgid "settings.roles.roleDetails"
-msgstr "Rolledetaljer"
-
-msgid "settings.roles.from"
-msgstr "Rettighetsnivå"
-
-msgid "settings.roles.removeText"
-msgstr ""
-"Vil du fortsette? Du er i ferd med å fjerne denne rollen fra denne "
-"sammenhengen. Dette vil også slette relaterte innstillinger og alle "
-"brukerene som er oppnevnt til rollen."
-
-msgid "settings.roles.nameRequired"
-msgstr "Du må gi rollen et navn."
-
-msgid "settings.roles.abbrevRequired"
-msgstr "Du må lage en fortkortelse av navnet."
-
-msgid "settings.roles.uniqueName"
-msgstr "Du må lage et unikt rollenavn."
-
-msgid "settings.roles.uniqueAbbrev"
-msgstr "Du må lage en forkortelse av det unike rollenavnet."
-
-msgid "settings.roles.roleIdRequired"
-msgstr "Du må definere nivå for rolletillatelser."
-
-msgid "settings.roles.stageIdRequired"
-msgstr "Du må definere et stadie å oppnevne vedkommende til."
-
-msgid "settings.libraryFiles.fileRequired"
-msgstr ""
-"Du må ha en biblioteksfil. Pass på at du har valgt og lastet opp en fil."
-
-msgid "settings.libraryFiles.nameRequired"
-msgstr "Du må gi et navn til biblioteksfilen."
-
-msgid "settings.libraryFiles.typeRequired"
-msgstr "Du må oppgi en filtype for biblioteksfilen."
-
-msgid "settings.libraryFiles.category.contracts"
-msgstr "Kontrakter"
-
-msgid "settings.libraryFiles.category.marketing"
-msgstr "Markedsføring"
-
-msgid "settings.libraryFiles.category.permissions"
-msgstr "Tillatelser"
-
-msgid "settings.libraryFiles.category.reports"
-msgstr "Rapporter"
-
-msgid "settings.libraryFiles.category.other"
-msgstr "Andre"
-
-msgid "grid.action.addGenre"
-msgstr "Legg til en komponent"
-
-msgid "grid.action.editGenre"
-msgstr "Rediger komponent"
-
-msgid "grid.action.deleteGenre"
-msgstr "Slett komponenten"
-
-msgid "grid.action.restoreGenres"
-msgstr "Gjenopprett komponentene til standardinnstillingene"
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Disse er underordnede filer som vises av en HTML-fil og vil ikke bli vist "
-"for seg selv."
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Dette er tilleggsfiler som f.eks datasett og forskingsverktøy, og vil bli "
-"vist separat fra de primære publiserte filene."
-
-msgid "manager.settings.wizard"
-msgstr "Innstillingsguide"
-
-msgid "manager.users.roleRequired"
-msgstr "Du må velge minst en rolle for å bli knyttet til denne brukeren."
-
-msgid "manager.website.title"
-msgstr "Nettstedsinnstillinger"
-
-msgid "manager.workflow"
-msgstr "Arbeidsflyt"
-
-msgid "manager.workflow.title"
-msgstr "Arbeidsflytinnstillinger"
-
-msgid "manager.distribution"
-msgstr "Distribusjon"
-
-msgid "manager.distribution.title"
-msgstr "Distribusjonsinnstillinger"
-
-msgid "manager.reviewForms.confirmActivate"
-msgstr ""
-"Er du sikker på at du vil aktivisere fagfellevurderingsskjemaet? Du kan ikke "
-"deaktivere det etter at det har blitt knyttet til en fagfellevurdering."
-
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr ""
-"Er du sikker på at du vil deaktivere skjemaet? Det vil ikke lenger være "
-"tilgjengelig for nye fagfellevurderinger."
-
-msgid "manager.reviewForms.confirmCopy"
-msgstr "Er du sikker på at du vil lage en kopi av vurderingsskjemaet?"
-
-msgid "manager.reviewForms.confirmDelete"
-msgstr "Er du sikker på at du vil slette skjemaet?"
-
-msgid "manager.reviewForms.noneUsed"
-msgstr "Ingen fagfellevurderingsskjema har blitt brukt."
-
-msgid "manager.reviewForms.reviewFormData"
-msgstr "Data fra vurderingsskjema"
-
-msgid "manager.reviewFormElements.included"
-msgstr "Inkludert i beskjed til forfatter"
-
-msgid "manager.plugins.installedVersionNewest"
-msgstr "Nyeste versjon av programtillegget er installert."
-
-msgid "manager.plugins.installedVersionNewer.short"
-msgstr "Nyere enn tilgjengelig versjon"
-
-msgid "manager.plugins.installedVersionOlder.short"
-msgstr "Kan bli oppdatert"
-
-msgid "manager.plugins.installedVersionNewest.short"
-msgstr "Oppdatert"
-
-msgid "manager.plugins.noCompatibleVersion.short"
-msgstr "Ikke tilgjengelig"
-
-msgid "manager.plugins.installFailed"
-msgstr "Installasjonen mislyktes. {$errorString}"
-
-msgid "manager.plugins.installSuccessful"
-msgstr "Vellykket installasjon av versjon {$versionNumber}"
-
-msgid "manager.plugins.invalidPluginArchive"
-msgstr "Den opplastete programutvidelsen inneholder ikke en mappe som samstemmer med navnet på programutvidelsen."
-
-msgid "manager.plugins.wrongCategory"
-msgstr ""
-"Det opplastede programtillegget stemmer ikke med kategorien til det "
-"oppdaterte programtillegget."
-
-msgid "manager.plugins.wrongName"
-msgstr ""
-"XML-versjonen i det oppdaterte programtillegget inneholder et "
-"programtilleggsnavn som ikke stemmer med navnet på det oppdaterte "
-"programtillegget."
-
-msgid "manager.plugins.pleaseInstall"
-msgstr "Programtillegget finnes ikke. Installer det i stedet"
-
-msgid "manager.plugins.pleaseUpgrade"
-msgstr ""
-"Programtillegget finnes allerede, men er nyere enn den installerte "
-"versjonen. Oppdater i stedet"
-
-msgid "manager.plugins.settings"
-msgstr "Innstillinger"
-
-msgid "manager.plugins.upgrade"
-msgstr "Oppgrader programtillegg"
-
-msgid "manager.plugins.upgradeDescription"
-msgstr ""
-"Dette skjemaet lar deg oppdatere et programtillegg. Pass på at "
-"programtillegget er komprimert som en .tar.gz-fil."
-
-msgid "manager.plugins.upgradeFailed"
-msgstr "Oppdateringen mislyktes. {$errorString}"
-
-msgid "manager.plugins.upgradeSuccessful"
-msgstr "Vellykket oppdatering til {$versionString}"
-
-msgid "manager.plugins.uploadError"
-msgstr "Feil under opplasting av fil"
-
-msgid "manager.plugins.uploadPluginDir"
-msgstr "Velg fil for programtillegget"
-
-msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml i mappen med programtillegg inneholder ugyldige data."
-
-msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml ikke funnet i mappen med programtillegg"
-
-msgid "notification.localeEnabled"
-msgstr "Språkpakke aktivert."
-
-msgid "notification.localeDisabled"
-msgstr "Språkpakke deaktivert."
-
-msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} definert som hovedspråkpakke."
-
-msgid "notification.localeInstalled"
-msgstr "Alle de valgte språkpakkene er installert og aktivert."
-
-msgid "notification.localeUninstalled"
-msgstr "Språkpakken {$locale} installert."
-
-msgid "notification.localeReloaded"
-msgstr "Språkpakken {$locale} lastet opp på nytt."
-
-msgid "notification.localeSettingsSaved"
-msgstr "Språkpakkeinnstillingene lagret."
-
-msgid "notification.editedUser"
-msgstr "Bruker redigert."
-
-msgid "manager.paymentMethod"
-msgstr "Betalinger"
-
-msgid "manager.paymentMethod.title"
-msgstr "Betalingsmåter"
-
-msgid "manager.paymentMethod.none"
-msgstr "Ingen betalingsmåte valgt"
-
-msgid "manager.paymentMethod.method"
-msgstr "Betalingsmetode"
-
-msgid "manager.paymentMethod.currency"
-msgstr "Valuta"
 
 msgid "plugins.categories.pubIds"
 msgstr "Offentlig indentifikator"
@@ -1094,20 +1438,30 @@ msgstr "Siste kompatible versjon"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Offisiell"
 
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Dette programtillegget er utviklet og vedlikeholdes av Public Knowledge "
+"Project-gruppa."
+
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Gjennomgått"
 
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Programtillegget er gjennomgått og godkjent av Public Knowledge Project-"
+"gruppa."
+
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Partner"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Programtillegget er levert av en av våre partnere."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Vedlikeholder"
 
 msgid "manager.plugins.pluginGallery.version"
 msgstr "v{$version} gjort tilgjengelig på {$date}"
-
-msgid "manager.plugins.pluginGallery.date"
-msgstr "Versjonsdato: {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Hjemmeside"
@@ -1135,288 +1489,596 @@ msgid "manager.plugins.installedVersionOlder"
 msgstr ""
 "Programtillegget er installert, men kan bli oppdatert til en nyere versjon."
 
-msgid "plugins.categories.metadata.description"
-msgstr "Programtillegg for metadata iverksetter flere metadata-standarder."
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Nyeste versjon av programtillegget er installert."
 
-msgid "manager.setup.groupType"
-msgstr "Filtypegruppering"
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Nyere enn tilgjengelig versjon"
 
-msgid "manager.setup.homepageImage"
-msgstr "Hjemmesidebilde"
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Kan bli oppdatert"
 
-msgid "manager.setup.homepageImage.description"
-msgstr "Last opp et bilde som skal vises på hjemmesiden."
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Oppdatert"
 
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Beskrivelser"
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Ikke tilgjengelig"
 
-msgid "manager.setup.theme"
-msgstr "Tema"
+msgid "manager.plugins.installFailed"
+msgstr "Installasjonen mislyktes. {$errorString}"
 
-msgid "manager.setup.theme.description"
-msgstr "Nye tema kan bli installert fra fanen for programutvidelser på toppen av denne siden."
+msgid "manager.plugins.installSuccessful"
+msgstr "Vellykket installasjon av versjon {$versionNumber}"
 
-msgid "manager.setup.logo"
-msgstr "Logo"
-
-msgid "manager.setup.notifications"
-msgstr "Varsel om innlevering fra forfatter"
-
-msgid "manager.setup.notifications.copyPrimaryContact"
-msgstr "Send en kopi til tidsskriftets hovedkontakt, som ble oppgitt i Oppsett trinn 1"
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Send en kopi til denne e-postadressen"
-
-msgid "manager.setup.notifications.description"
+msgid "manager.plugins.invalidPluginArchive"
 msgstr ""
-"Forfattere blir tilsendt en automatisk e-post som bekrefter innleveringen "
-"deres. Du kan sende kopi av denne e-posten til følgende:"
+"Den opplastete programutvidelsen inneholder ikke en mappe som samstemmer med "
+"navnet på programutvidelsen."
 
-msgid "manager.setup.openAccessPolicy"
-msgstr "Retningslinjer om Open Access"
-
-msgid "manager.setup.openAccessPolicy.description"
+msgid "manager.plugins.wrongCategory"
 msgstr ""
-"Hvis alt publisert innhold skal være åpent tilgjengelig, kan du legge inn en "
-"beskrivelse av retningslinjer for åpen tilgang her."
+"Det opplastede programtillegget stemmer ikke med kategorien til det "
+"oppdaterte programtillegget."
 
-msgid "manager.setup.pageFooter"
-msgstr "Bunntekst"
-
-msgid "manager.setup.pageFooter.description"
-msgstr "Legg inn bilder, tekst eller HTML-kode som du ønsker skal vises nederst på nettsiden."
-
-msgid "manager.setup.peerReview.description"
+msgid "manager.plugins.wrongName"
 msgstr ""
-"Beskriv retningslinjene for og arbeidsflyten i fagfellevurderingen for "
-"lesere og forfattere. Beskrivelsen inkluderer ofte antall fagfeller som "
-"vurderer en innlevering, kriteriene som fagfellene blir bedt om å bruke i "
-"vurderingen, forventet tidsbruk og prinsippene for valg av fagfeller."
+"XML-versjonen i det oppdaterte programtillegget inneholder et "
+"programtilleggsnavn som ikke stemmer med navnet på det oppdaterte "
+"programtillegget."
 
-msgid "manager.setup.principalContact"
-msgstr "Kontaktperson"
+msgid "manager.plugins.pleaseInstall"
+msgstr "Programtillegget finnes ikke. Installer det i stedet"
 
-msgid "manager.setup.principalContactDescription"
+msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
-"Skriv inn kontaktinformasjon, vanligvis for redaktør, redaksjonsleder eller "
-"andre med administrative oppgaver. Disse kan vises på det offentlig "
-"tilgjengelige nettstedet ditt."
+"Programtillegget finnes allerede, men er nyere enn den installerte "
+"versjonen. Oppdater i stedet"
 
-msgid "manager.setup.privacyStatement"
-msgstr "Erklæring om personvern"
+msgid "manager.plugins.settings"
+msgstr "Innstillinger"
 
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgid "manager.plugins.upgrade"
+msgstr "Oppgrader programtillegg"
+
+msgid "manager.plugins.upgradeDescription"
 msgstr ""
-"Antall uker fagfellen har på å godta eller avvise en forespørsel om "
-"fagfellevurdering."
+"Dette skjemaet lar deg oppdatere et programtillegg. Pass på at "
+"programtillegget er komprimert som en .tar.gz-fil."
 
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Antall uker fagfellen har på å fullføre fagfellevurderingen"
+msgid "manager.plugins.upgradeFailed"
+msgstr "Oppdateringen mislyktes. {$errorString}"
 
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Aldri send påminnelse"
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Vellykket oppdatering til {$versionString}"
 
-msgid "manager.setup.reviewOptions.noteOnModification"
+msgid "manager.plugins.uploadError"
+msgstr "Feil under opplasting av fil"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Velg fil for programtillegget"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml i mappen med programtillegg inneholder ugyldige data."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml ikke funnet i mappen med programtillegg"
+
+msgid "notification.localeEnabled"
+msgstr "Språkpakke aktivert."
+
+msgid "notification.localeDisabled"
+msgstr "Språkpakke deaktivert."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} definert som hovedspråkpakke."
+
+msgid "notification.localeInstalled"
+msgstr "Alle de valgte språkpakkene er installert og aktivert."
+
+msgid "notification.localeUninstalled"
+msgstr "Språkpakken {$locale} installert."
+
+msgid "notification.localeReloaded"
+msgstr "Språkpakken {$locale} lastet opp på nytt."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Språkpakkeinnstillingene lagret."
+
+msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
-"Standardverdiene kan bli modifisert for hver enkelt fagfellevurdering under "
-"den redaksjonelle behandlingen."
 
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Send en påminnelse om en fagfelle ikke har svart på vurderingsforespørselen innen en tid (dager) etter oppdragets frist."
+msgid "notification.editedUser"
+msgstr "Bruker redigert."
 
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Send en påminnelse om en fagfelle ikke har sendt inn en anbefaling innen en tid (dager) etter oppdragets frist."
+msgid "manager.distribution.license"
+msgstr "Lisens"
 
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Standardfrist for fagfellevurdering"
+msgid "manager.distribution.license.other"
+msgstr "Annen lisens-URL"
 
-msgid "manager.setup.sponsors.note"
-msgstr "Relasjon til sponsor og beskrivelse av retningslinjer"
+msgid "manager.distribution.licenseTerms"
+msgstr "Lisensvilkår"
 
-msgid "manager.setup.sponsors.description"
+msgid "manager.distribution.licenseTerms.description"
 msgstr ""
-"Eksempler: akademisk organisasjon, institutt, forskergrupper. Sponsorer blir "
-"vist offentlig."
+"Angi offentlige lisensvilkår som du vil ha vist sammen med publiserte verk."
 
-msgid "manager.setup.styleSheetDescription"
+msgid "manager.distribution.customHeaders"
+msgstr "Brukerdefinerte tagger"
+
+msgid "manager.distribution.customHeaders.description"
 msgstr ""
-"Erfarne nettutviklere kan laste opp en CSS-fil for å tilpasse hvordan "
-"nettstedet ser ut."
+"Legg til brugerdefinerte HTML-tagger, også kjent som meta-tagger, som du "
+"gjerne vil ha lagt til i <HEAD>-seksjonen på hver nettside. Kontakt en "
+"teknisk rådgiver, før du legger til tagger her."
 
-msgid "manager.setup.technicalSupportContact"
-msgstr "Teknisk kontaktperson"
+msgid "manager.paymentMethod"
+msgstr "Betalinger"
 
-msgid "manager.setup.technicalSupportContactDescription"
+msgid "manager.paymentMethod.title"
+msgstr "Betalingsmåter"
+
+msgid "manager.paymentMethod.none"
+msgstr "Ingen betalingsmåte valgt"
+
+msgid "manager.paymentMethod.method"
+msgstr "Betalingsmetode"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Valuta"
+
+msgid "settings.roles.roleOptions"
+msgstr "Mulige roller"
+
+msgid "settings.roles.showTitles"
+msgstr "Vis rolletittel i listen over bidragsytere"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Godta at brukere registerer seg selv"
+
+msgid "settings.roles.recommendOnly"
 msgstr ""
-"En kontaktperson som kan assistere redaktører, forfattere og fagfeller om de "
-"har problemer med å levere inn, redigere, fagfellevurdere eller publisere "
-"materiale."
+"Brukere med denne rollen kan anbefale en redaksjonell avgjørelse. Bare "
+"redaktører kan registrere redaksjonelle avgjørelser."
 
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Tilganger"
+msgid "settings.roles.roleName"
+msgstr "Rollenavn"
 
-msgid "manager.navigationMenus.form.pathRegEx"
+msgid "settings.roles.roleAbbrev"
+msgstr "Forkortelser"
+
+msgid "settings.roles.assignedStages"
+msgstr "Tildelte stadier"
+
+msgid "settings.roles.stages"
+msgstr "Stadier"
+
+msgid "settings.roles.roleDetails"
+msgstr "Rolledetaljer"
+
+msgid "settings.roles.from"
+msgstr "Rettighetsnivå"
+
+msgid "settings.roles.removeText"
 msgstr ""
-"Stien kan bare ha tegn og bokstaver, pluss punktum, komma, bindestrek og "
-"understrek."
+"Vil du fortsette? Du er i ferd med å fjerne denne rollen fra denne "
+"sammenhengen. Dette vil også slette relaterte innstillinger og alle "
+"brukerene som er oppnevnt til rollen."
 
-msgid "manager.navigationMenus.form.content"
-msgstr "Innhold"
+msgid "settings.roles.nameRequired"
+msgstr "Du må gi rollen et navn."
 
-msgid "manager.navigationMenus.form.viewInstructions"
+msgid "settings.roles.abbrevRequired"
+msgstr "Du må lage en fortkortelse av navnet."
+
+msgid "settings.roles.uniqueName"
+msgstr "Du må lage et unikt rollenavn."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Du må lage en forkortelse av det unike rollenavnet."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Du må definere nivå for rolletillatelser."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Du må definere et stadie å oppnevne vedkommende til."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Tillat redigering av innleveringens metadata."
+
+msgid "settings.libraryFiles.fileRequired"
 msgstr ""
-"<p>Denne siden vil bli tilgjengelig fra:<blockquote>{$pagesPath}</blockquote>"
-"...hvor %PATH% er stien lagt inn over. <strong>Merk:</strong> To sider kan "
-"ikke ha samme sti. Bruker du stier som er innebygget i systemet kan du miste "
-"adgang til viktige funksjoner.</p>"
+"Du må ha en biblioteksfil. Pass på at du har valgt og lastet opp en fil."
 
-msgid "manager.navigationMenus"
-msgstr "Navigasjonsmenyer"
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Du må gi et navn til biblioteksfilen."
 
-msgid "manager.navigationMenus.form.path"
-msgstr "Sti"
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Du må oppgi en filtype for biblioteksfilen."
 
-msgid "manager.navigationMenus.form.title"
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Kontrakter"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Markedsføring"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Tillatelser"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Rapporter"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Andre"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Denne biblioteksfilen kan gjøres tilgjengelig for nedlasting, hvis "
+"\"Offentlig adgang\" er aktivert på: <blockquote>{$downloadUrl}</"
+"blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Velg bibliotekfiler som skal legges ved"
+
+msgid "grid.action.addGenre"
+msgstr "Legg til en komponent"
+
+msgid "grid.action.editGenre"
+msgstr "Rediger komponent"
+
+msgid "grid.action.deleteGenre"
+msgstr "Slett komponenten"
+
+msgid "grid.action.restoreGenres"
+msgstr "Gjenopprett komponentene til standardinnstillingene"
+
+msgid "manager.setup.genres.label"
+msgstr "Filtype"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Disse er underordnede filer som vises av en HTML-fil og vil ikke bli vist "
+"for seg selv."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Dette er tilleggsfiler som f.eks datasett og forskingsverktøy, og vil bli "
+"vist separat fra de primære publiserte filene."
+
+msgid "manager.setup.genres.key"
+msgstr "Nøkkel"
+
+msgid "manager.setup.genres.key.description"
+msgstr "En valgfri symbolsk identifikator for denne sjangeren."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Nøkkelen eksisterer allerede."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Nøkkelen kan kun inneholde alfanumeriske karakterer, understreking, og "
+"bindestrek, og må begynne og slutte med en alfanumerisk karakter."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Fil-metadata"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Velg typen metadata som kan knyttes til disse filene. Du bør velge "
+"'Dokument' for de viktigste publikasjonsfilene, for eksempel en nedlastbar "
+"PDF, slik at disse filene kan hente metadataene fra publikasjonen. Ellers "
+"velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
+"for filer som krever separat kilde, bildetekst og lisensmetadata."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
+
+msgid "manager.settings.wizard"
+msgstr "Innstillingsguide"
+
+msgid "manager.users.roleRequired"
+msgstr "Du må velge minst en rolle for å bli knyttet til denne brukeren."
+
+msgid "manager.website"
+msgstr "Nettsted"
+
+msgid "manager.website.title"
+msgstr "Nettstedsinnstillinger"
+
+msgid "manager.workflow"
+msgstr "Arbeidsflyt"
+
+msgid "manager.workflow.title"
+msgstr "Arbeidsflytinnstillinger"
+
+msgid "manager.distribution"
+msgstr "Distribusjon"
+
+msgid "manager.distribution.title"
+msgstr "Distribusjonsinnstillinger"
+
+msgid "manager.reviewForms"
+msgstr "Vurderingsskjemaer"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Er du sikker på at du vil aktivisere fagfellevurderingsskjemaet? Du kan ikke "
+"deaktivere det etter at det har blitt knyttet til en fagfellevurdering."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Er du sikker på at du vil deaktivere skjemaet? Det vil ikke lenger være "
+"tilgjengelig for nye fagfellevurderinger."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Er du sikker på at du vil lage en kopi av vurderingsskjemaet?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Ferdigstilt"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Er du sikker på at du vil slette skjemaet?"
+
+msgid "manager.reviewForms.create"
+msgstr "Opprett vurderingsskjema"
+
+msgid "manager.reviewForms.description"
+msgstr "Beskrivelse og instruks"
+
+msgid "manager.reviewForms.edit"
+msgstr "Vurderingsskjema"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Du må legge inn en tittel på fagfellevurderingsskjemaet."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Til fagfellevurdering"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Her kan du opprette tilpassede fagfellevurderingsskjema. Du kan be "
+"fagfellene om å fylle ut disse, i stedet for det enkle standardskjemaet som "
+"bare inneholder de to åpne tekstboksene «For redaktør» og «For redaktør og "
+"forfatter». Tilpassede skjema kan knyttes til hver enkelt seksjon i "
+"tidsskriftet. Redaktørene vil få mulighet til å velge hvilket skjema som "
+"skal brukes til hvert enkelt fagfellevurderingsoppdrag. Redaktørene vil "
+"dessuten alltid få mulighet til å inkludere fagfelleuttalelser i e-post til "
+"forfatteren."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Ingen/åpent fagfellevurderingsskjema"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Ingen fagfellevurderingsskjema er opprettet."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Ingen fagfellevurderingsskjema har blitt brukt."
+
+msgid "manager.reviewForms.preview"
+msgstr "Forhåndsvis skjema"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Data fra vurderingsskjema"
+
+msgid "manager.reviewForms.title"
 msgstr "Tittel"
 
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgid "manager.reviewFormElement.changeType"
 msgstr ""
-"Brukernavnet \"{$username}\" og e-posten \"{$email}\" stemmer ikke overens "
-"med en og samme eksisterende bruker."
+"Advarsel: Flervalgsalternativene blir slettet hvis elementtypen for "
+"vurderingsskjemaet endres fra flervalgselement til åpne element."
 
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgid "manager.reviewFormElements"
+msgstr "Skjemaelementer"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Legg til utvalg"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Avkryssingsbokser (du kan velge flere enn én)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Velg elementtype"
+
+msgid "manager.reviewFormElements.confirmDelete"
 msgstr ""
-"Den importerte brukeren \"{$username}\" har et svakt passord som ikke er "
-"gyldig. Brukeren er ikke importert."
+"Er du sikker på at du vil slette dette elementet? Det er i et publisert "
+"vurderingsskjema..."
 
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Kopi til:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Lagt nytt element"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Rullegardinboks"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Rediger skjemaelement"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Elementtype"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Skjemaelementet må ha en elementtype."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Skjemaelementet må ha et spørsmål."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Ingen skjemaelementer er opprettet."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Utvalg"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Element"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Beskrivelse"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Radioknapper (du kan velge bare en av dem)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Fagfellen må ferdigstille elementet"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Inkludert i beskjed til forfatter"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Tekstboks for enkeltord"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Utvidet tekstboks"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Tekstboks for enkeltlinje"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Kan ses (av forfatterne)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Lag nytt vurderingsskjema"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Be om en uttalelse om interessekonflikter under fagfellevurderingen."
+
+msgid "manager.setup.licenseURLDescription"
 msgstr ""
-"Den importerte brukeren \"{$username}\" sitt passord kunne ikke importeres. "
-"Et nytt passord er sendt til brukeren på epost. Brukeren er importert."
+"URL til en nettside som beskriver lisensen, dersom det er tilgjengelig."
 
-msgid "plugins.importexport.user.error.userHasNoPassword"
+msgid "manager.setup.metadata.submission"
+msgstr "Innleveringsskjema"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Dekningsområde"
+
+msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"Den importerte brukeren \"{$username}\" har ikke passord. Sjekk XML formatet "
-"i importenfilen din. Brukeren er ikke importert."
+"Dekningsområde vil typisk angi et verks romlige plassering (et stednavn "
+"eller geografiske koordinater), tidsmessig periode (en periodebetegnelse, "
+"dato eller datointervall) eller myndighet (slik som en navngitt "
+"administrativ enhet)."
 
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Import-/eksportfeil:"
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Aktiver metadata i tilknytning til dekningsområde"
 
-msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "Filen kunne ikke importeres"
-
-msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgid "manager.setup.metadata.coverage.noRequest"
 msgstr ""
-"Revideringen «{$revisionId}» for innleveringen «{$fileId}» vil lage en "
-"duplisert registrering"
-
-msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr ""
-"Filstørrelsen «{$expected}» og den faktiske filstørrelsen «{$actual}» "
-"stemmer ikke overens"
-
-msgid "plugins.importexport.common.error.encodingError"
-msgstr "Innholdet er ikke kodet som {$param}"
-
-msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Den midlertidige filen {$dest} kunne ikke bli laget fra {$source}"
-
-msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Ukjent opplaster {$param}"
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"Forfatteren {$authorName} er ikke registrert med fornavn i innleveringens "
-"språk, {$localeName}. Innleveringen kan ikke importeres uten denne "
-"informasjonen."
-
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Ukjent brukergruppe {$param}"
-
-msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Ukjent koding {$param}"
-
-msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Ukjent sjanger {$param}"
-
-msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Ukjent element {$param}"
-
-msgid "plugins.importexport.common.errorsOccured"
-msgstr "Feil som oppstod:"
-
-msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Advarsler som ble mottatt:"
-
-msgid "manager.setup.metadata.citations.require"
-msgstr "Krev at forfatteren oppgir referanser før innleveringen godkjennes."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "Be forfatteren om å angi referanser under innleveringen."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Krev ikke referansemetadata fra forfatteren under innlevering."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Aktiver referansemetadata"
-
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Samle innleveringens referanser i et separat felt. Dette kan være nødvendig "
-"for siteringsovervåkningstjenester som Crossref."
-
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Be forfatteren om å oppgi støtteorganisasjoner før godkjenning av "
+"Ikke krev metadata i tilknytning til dekningsområde fra forfatteren under "
 "innleveringen."
 
-msgid "manager.setup.metadata.agencies.request"
-msgstr "Be forfatteren om å oppgi støtteorganisasjoner under innsendingen."
-
-msgid "manager.setup.metadata.agencies.noRequest"
+msgid "manager.setup.metadata.coverage.request"
 msgstr ""
-"Ikke be om at forfatteren skal oppgi støtteorganisasjoner under "
+"Be forfatteren om å foreslå metadata i forbindelse med dekningsområde under "
 "innleveringen."
 
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Aktiver metadata tilknyttet støtteorganisasjoner"
-
-msgid "manager.setup.metadata.agencies.description"
+msgid "manager.setup.metadata.coverage.require"
 msgstr ""
-"Støtteorganisasjoner kan angi kilden til forskningsmidler eller annen "
-"institusjonell støtte som fremmer forskningen."
+"Be forfatteren foreslå metadata i forbindelse med dekningsområde før "
+"vedkommende godkjenner innleveringen."
 
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Be forfatteren om å oppgi disipliner under innleveringen."
-
-msgid "manager.setup.metadata.disciplines.require"
+msgid "manager.setup.metadata.keywords.description"
 msgstr ""
-"Krev at forfatteren oppgir disipliner før vedkommende godkjenner "
-"innleveringen."
+"Nøkkelord er typiske formuleringer som består av et til tre ord som brukes "
+"til å angi de viktigste emnene i forbindelse med en innlevering."
 
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Krev ikke angivelse av disipliner fra forfatteren under innleveringen."
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Aktiver metadata i forbindelse med nøkkelord"
 
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Aktiver metadata i forbindelse med disipliner"
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Ikke krev nøkkelord fra forfatteren i forbindelse med innlevering."
 
-msgid "manager.setup.metadata.disciplines.description"
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Be forfatteren foreslå nøkkelord i forbindelse med innleveringen."
+
+msgid "manager.setup.metadata.keywords.require"
 msgstr ""
-"Med disipliner menes studier eller vitenområder som beskrevet av "
-"universitetsfakulteter og vitenskapelige samfunn."
+"Be forfatteren foreslå nøkkelord, før vedkommende godkjenner innleveringen."
 
-msgid "manager.setup.metadata.type.require"
-msgstr "Krev at forfatteren angir metadata-type under innleveringen."
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Språk angir verkets primære språk ved hjelp av en spåkkode (\"en\") med en "
+"valgfri landekode (\"en_US\")."
 
-msgid "manager.setup.metadata.type.request"
-msgstr "Be forfatteren om å angi metadata-type under innleveringen."
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Aktiver språkmetadata"
 
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Krev ikke type-metadata fra forfatteren under innleveringen."
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Ikke krev at forfatteren angir språk på innleveringen."
 
-msgid "manager.setup.metadata.type.enable"
-msgstr "Aktiver metadata i forbindelse med typer"
+msgid "manager.setup.metadata.languages.request"
+msgstr "Be forfatteren om å angi språk på innleveringen."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Krev at forfatteren angir innleveringens språk før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Eventuelle rettigheter over innleveringen som kan omfatte intellektuell "
+"opphavsrett (Intellectual Property Rights - IPR), kopirett og diverse "
+"opphavsrettigheter."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Aktiver metadata i forbindelse med rettigheter"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Ikke krev rettighetsopplysninger fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Be forfatteren om å angi tidligere opphavsrettsvilkår under innleveringen."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Krev at forfatteren angir tidligere opphavsrettsvilkår før innleveringen "
+"godkjennes."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Kilden kan være en ID, slik som en DOI, fra et annet verk eller materiale "
+"som innleveringen bygger på."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Aktiver metadata i forbindelse med kilde"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Ikke krev en kilde-URL fra forfatteren under innleveringen."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Be forfatteren angi en kilde-URL under innleveringen."
+
+msgid "manager.setup.metadata.source.require"
+msgstr "Krev at forfatteren angir en kilde-URL før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Emner er nøkkelord, nøkkelfraser eller klassifikasjonskoder som beskriver et "
+"tema i innleveringen."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Aktiver emne-metadata"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Krev ikke emner fra forfatteren under innlevering."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Be forfatteren angi emner under innleveringen."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr "Krev at forfatteren angi emner under innleveringen før den godkjennes."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
@@ -1426,426 +2088,486 @@ msgstr ""
 "org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary\">Dublin "
 "Core typer</a>."
 
-msgid "manager.setup.metadata.subjects.require"
-msgstr "Krev at forfatteren angi emner under innleveringen før den godkjennes."
+msgid "manager.setup.metadata.type.enable"
+msgstr "Aktiver metadata i forbindelse med typer"
 
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Be forfatteren angi emner under innleveringen."
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Krev ikke type-metadata fra forfatteren under innleveringen."
 
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Krev ikke emner fra forfatteren under innlevering."
+msgid "manager.setup.metadata.type.request"
+msgstr "Be forfatteren om å angi metadata-type under innleveringen."
 
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Aktiver emne-metadata"
+msgid "manager.setup.metadata.type.require"
+msgstr "Krev at forfatteren angir metadata-type under innleveringen."
 
-msgid "manager.setup.metadata.subjects.description"
+msgid "manager.setup.metadata.disciplines.description"
 msgstr ""
-"Emner er nøkkelord, nøkkelfraser eller klassifikasjonskoder som beskriver et "
-"tema i innleveringen."
+"Med disipliner menes studier eller vitenområder som beskrevet av "
+"universitetsfakulteter og vitenskapelige samfunn."
 
-msgid "manager.setup.metadata.source.require"
-msgstr "Krev at forfatteren angir en kilde-URL før innleveringen godkjennes."
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Aktiver metadata i forbindelse med disipliner"
 
-msgid "manager.setup.metadata.source.request"
-msgstr "Be forfatteren angi en kilde-URL under innleveringen."
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Krev ikke angivelse av disipliner fra forfatteren under innleveringen."
 
-msgid "manager.setup.metadata.source.noRequest"
-msgstr "Ikke krev en kilde-URL fra forfatteren under innleveringen."
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Be forfatteren om å oppgi disipliner under innleveringen."
 
-msgid "manager.setup.metadata.source.enable"
-msgstr "Aktiver metadata i forbindelse med kilde"
-
-msgid "manager.setup.metadata.source.description"
+msgid "manager.setup.metadata.disciplines.require"
 msgstr ""
-"Kilden kan være en ID, slik som en DOI, fra et annet verk eller materiale "
-"som innleveringen bygger på."
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Krev at forfatteren angir tidligere opphavsrettsvilkår før innleveringen "
-"godkjennes."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Be forfatteren om å angi tidligere opphavsrettsvilkår under innleveringen."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Ikke krev rettighetsopplysninger fra forfatteren under innleveringen."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Aktiver metadata i forbindelse med rettigheter"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Eventuelle rettigheter over innleveringen som kan omfatte intellektuell "
-"opphavsrett (Intellectual Property Rights - IPR), kopirett og diverse "
-"opphavsrettigheter."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Krev at forfatteren angir innleveringens språk før innleveringen godkjennes."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Be forfatteren om å angi språk på innleveringen."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Ikke krev at forfatteren angir språk på innleveringen."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Aktiver språkmetadata"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Språk angir verkets primære språk ved hjelp av en spåkkode (\"en\") med en "
-"valgfri landekode (\"en_US\")."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Be forfatteren foreslå nøkkelord, før vedkommende godkjenner innleveringen."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Be forfatteren foreslå nøkkelord i forbindelse med innleveringen."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Ikke krev nøkkelord fra forfatteren i forbindelse med innlevering."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Aktiver metadata i forbindelse med nøkkelord"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Nøkkelord er typiske formuleringer som består av et til tre ord som brukes "
-"til å angi de viktigste emnene i forbindelse med en innlevering."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Be forfatteren foreslå metadata i forbindelse med dekningsområde før "
-"vedkommende godkjenner innleveringen."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Be forfatteren om å foreslå metadata i forbindelse med dekningsområde under "
+"Krev at forfatteren oppgir disipliner før vedkommende godkjenner "
 "innleveringen."
 
-msgid "manager.setup.metadata.coverage.noRequest"
+msgid "manager.setup.metadata.agencies.description"
 msgstr ""
-"Ikke krev metadata i tilknytning til dekningsområde fra forfatteren under "
+"Støtteorganisasjoner kan angi kilden til forskningsmidler eller annen "
+"institusjonell støtte som fremmer forskningen."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Aktiver metadata tilknyttet støtteorganisasjoner"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Ikke be om at forfatteren skal oppgi støtteorganisasjoner under "
 "innleveringen."
 
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Aktiver metadata i tilknytning til dekningsområde"
+msgid "manager.setup.metadata.agencies.request"
+msgstr "Be forfatteren om å oppgi støtteorganisasjoner under innsendingen."
 
-msgid "manager.setup.metadata.coverage.description"
+msgid "manager.setup.metadata.agencies.require"
 msgstr ""
-"Dekningsområde vil typisk angi et verks romlige plassering (et stednavn "
-"eller geografiske koordinater), tidsmessig periode (en periodebetegnelse, "
-"dato eller datointervall) eller myndighet (slik som en navngitt "
-"administrativ enhet)."
+"Be forfatteren om å oppgi støtteorganisasjoner før godkjenning av "
+"innleveringen."
 
-msgid "manager.setup.metadata.coverage"
-msgstr "Dekningsområde"
-
-msgid "manager.setup.metadata.success"
-msgstr "Innleveringsmetadata har blitt oppdatert."
-
-msgid "manager.reviewFormElements.description"
-msgstr "Beskrivelse"
-
-msgid "manager.setup.genres.key.alphaNumeric"
+msgid "manager.setup.metadata.citations.description"
 msgstr ""
-"Nøkkelen kan kun inneholde alfanumeriske karakterer, understreking, og "
-"bindestrek, og må begynne og slutte med en alfanumerisk karakter."
+"Samle innleveringens referanser i et separat felt. Dette kan være nødvendig "
+"for siteringsovervåkningstjenester som Crossref."
 
-msgid "manager.setup.genres.key.exists"
-msgstr "Nøkkelen eksisterer allerede."
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Aktiver referansemetadata"
 
-msgid "manager.setup.genres.key.description"
-msgstr "En valgfri symbolsk identifikator for denne sjangeren."
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Krev ikke referansemetadata fra forfatteren under innlevering."
 
-msgid "settings.libraryFiles.public.viewInstructions"
+msgid "manager.setup.metadata.citations.request"
+msgstr "Be forfatteren om å angi referanser under innleveringen."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr "Krev at forfatteren oppgir referanser før innleveringen godkjennes."
+
+msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
-"<p>Denne biblioteksfilen kan gjøres tilgjengelig for nedlasting, hvis \""
-"Offentlig adgang\" er aktivert på: "
-"<blockquote>{$downloadUrl}</blockquote></p>"
 
-msgid "manager.setup.genres.key"
-msgstr "Nøkkel"
-
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Velg bibliotekfiler som skal legges ved"
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Tillat redigering av innleveringens metadata."
-
-msgid "settings.roles.recommendOnly"
+msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr ""
-"Brukere med denne rollen kan anbefale en redaksjonell avgjørelse. Bare "
-"redaktører kan registrere redaksjonelle avgjørelser."
 
-msgid "manager.distribution.customHeaders.description"
+msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
-"Legg til brugerdefinerte HTML-tagger, også kjent som meta-tagger, som du "
-"gjerne vil ha lagt til i <HEAD>-seksjonen på hver nettside. Kontakt en "
-"teknisk rådgiver, før du legger til tagger her."
 
-msgid "manager.distribution.customHeaders"
-msgstr "Brukerdefinerte tagger"
-
-msgid "manager.distribution.licenseTerms.description"
+msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
-"Angi offentlige lisensvilkår som du vil ha vist sammen med publiserte verk."
 
-msgid "manager.distribution.licenseTerms"
-msgstr "Lisensvilkår"
-
-msgid "manager.distribution.license.other"
-msgstr "Annen lisens-URL"
-
-msgid "manager.distribution.license.success"
-msgstr "Lisensopplysningene har blitt oppdatert. "
-
-msgid "manager.distribution.license"
-msgstr "Lisens"
-
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Programtillegget er levert av en av våre partnere."
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
-"Programtillegget er gjennomgått og godkjent av Public Knowledge Project-"
-"gruppa."
 
-msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Valideringsfeil:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Advarsler som ble mottatt:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Feil som oppstod:"
+
+msgid "plugins.importexport.common.id"
 msgstr ""
-"Dette programtillegget er utviklet og vedlikeholdes av Public Knowledge "
-"Project-gruppa."
 
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Registrerte brukere"
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Ukjent element {$param}"
 
-msgid "manager.setup.userAccess.success"
-msgstr "Opplysninger om brukertilgang til dette forlaget har blitt oppdatert."
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Ukjent sjanger {$param}"
 
-msgid "manager.setup.theme.notFound"
-msgstr "Valgt tema er ikke installert eller aktivert."
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Ukjent koding {$param}"
 
-msgid "manager.setup.theme.success"
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Innholdet er ikke kodet som {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Ukjent brukergruppe {$param}"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr ""
-"Temaet har blitt oppdatert. <a href=\"{$url}\" target=\"_blank\">Se nå</a>"
 
-msgid "manager.setup.reviewOptions.showBlindReviewLink"
+msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
-"Vis en lenke til  <button type=\"button\">«Hvordan sikre blind "
-"fagfellevurdering»</button>  under opplastingen"
+"Forfatteren {$authorName} er ikke registrert med fornavn i innleveringens "
+"språk, {$localeName}. Innleveringen kan ikke importeres uten denne "
+"informasjonen."
 
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Standardinnstilling for fagfellevurdering"
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Ukjent opplaster {$param}"
 
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Vurderingspåminnelse"
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Den midlertidige filen {$dest} kunne ikke bli laget fra {$source}"
 
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Svarpåminnelse"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Standardfrist for fullføring"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Standard svarfrist"
-
-msgid "manager.setup.privacyStatement.description"
+msgid "plugins.importexport.common.error.filesizeMismatch"
 msgstr ""
-"Denne erklæringen vil vises når forfatteren leverer inn et manuskript, samt "
-"på tidsskriftets «Om»-side."
+"Filstørrelsen «{$expected}» og den faktiske filstørrelsen «{$actual}» "
+"stemmer ikke overens"
 
-msgid "manager.setup.noTemporaryFile"
-msgstr "Filen du lastet opp ble ikke funnet. Prøv å laste den opp igjen."
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
 msgstr ""
-"{$name}-blokken ble ikke funnet. Sørg for at programtillegget er installert "
-"og aktivert."
+"Revideringen «{$revisionId}» for innleveringen «{$fileId}» vil lage en "
+"duplisert registrering"
 
-msgid "manager.setup.layout.sidebar"
-msgstr "Sidemeny"
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Filen kunne ikke importeres"
 
-msgid "manager.setup.checklist"
-msgstr "Sjekkliste"
-
-msgid "manager.setup.authorGuidelines.success"
-msgstr "Forfatterinstruksen har blitt oppdatert."
-
-msgid "manager.setup.contact.success"
-msgstr "Kontaktinformasjonen til dette forlaget har blitt oppdatert."
-
-msgid "manager.setup.appearance.success"
-msgstr "Innstillingene for utseendet har blitt oppdatert."
-
-msgid "manager.setup.advanced"
-msgstr "Avansert"
-
-msgid "manager.representative.inUse"
+msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr ""
-"Du kan ikke slette denne representanten da vedkommende er tilknyttet "
-"markedsmetadata til ett eller flere publikasjonsformater i forbindelse med "
-"denne innleveringen."
+"Innleveringsfilen {$id} ble utelatt fordi den er knyttet til en oppføring "
+"som ikke skal importeres, som for eksempel et vurderingsoppdrag eller en "
+"diskusjon."
 
-msgid "manager.people.existingUserRequired"
-msgstr "Du må legge inn en eksisterende bruker."
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Import-/eksportfeil:"
 
-msgid "manager.emails.sentTo"
-msgstr "Sendt til"
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Den importerte brukeren \"{$username}\" har ikke passord. Sjekk XML formatet "
+"i importenfilen din. Brukeren er ikke importert."
 
-msgid "manager.emails.sentFrom"
-msgstr "Sendt fra"
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Den importerte brukeren \"{$username}\" sitt passord kunne ikke importeres. "
+"Et nytt passord er sendt til brukeren på epost. Brukeren er importert."
 
-msgid "manager.emails.resetAll"
-msgstr "Tilbakestill alle malene"
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Den importerte brukeren \"{$username}\" har et svakt passord som ikke er "
+"gyldig. Brukeren er ikke importert."
 
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Du må angi et ID når en e-postmal legges til."
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Brukernavnet \"{$username}\" og e-posten \"{$email}\" stemmer ikke overens "
+"med en og samme eksisterende bruker."
 
-msgid "manager.emails.emailTemplates"
-msgstr "E-postmaler"
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
 
-msgid "manager.emails.editEmail.success"
-msgstr "E-postmalen har blitt endret."
+msgid "manager.navigationMenus.form.title"
+msgstr "Tittel"
 
-msgid "manager.emails.addEmail.success"
-msgstr "E-postmalen ble lagt til."
+msgid "manager.navigationMenus.form.path"
+msgstr "Sti"
 
-msgid "manager.emails.addEmail"
-msgstr "Legg til e-postmal"
+msgid "manager.navigationMenus"
+msgstr "Navigasjonsmenyer"
 
-msgid "manager.publication.reviewReminders.success"
-msgstr "Detaljene om påminnelse om fagfellevurdering har blitt oppdatert."
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Denne siden vil bli tilgjengelig fra:<blockquote>{$pagesPath}</"
+"blockquote>...hvor %PATH% er stien lagt inn over. <strong>Merk:</strong> To "
+"sider kan ikke ha samme sti. Bruker du stier som er innebygget i systemet "
+"kan du miste adgang til viktige funksjoner.</p>"
 
-msgid "manager.publication.reviewSetup.success"
-msgstr "Fagfellevurderingsinnstillingene har blitt oppdatert."
+msgid "manager.navigationMenus.form.content"
+msgstr "Innhold"
 
-msgid "manager.publication.reviewerGuidance.success"
-msgstr "Fagfelleveiledning har blitt oppdatert."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Veiledning for fagfeller"
-
-msgid "manager.publication.emailSetup.success"
-msgstr "E-postinstillningene har blitt oppdatert."
-
-msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Ubrukte menyelementer"
-
-msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Brukte menyelementer"
-
-msgid "manager.navigationMenuItems"
-msgstr "Elementer på navigasjonsmenyen"
-
-msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Tittelen er nødvendig"
-
-msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr "Tittelen brukes allerede for en annen navigasjonsmeny."
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Stien kan bare ha tegn og bokstaver, pluss punktum, komma, bindestrek og "
+"understrek."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "Stien brukes allerede for et annet element i navigasjonsmenyen."
 
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "En navigasjonsmeny er allerede tildelt dette området."
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tittelen brukes allerede for en annen navigasjonsmeny."
 
-msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "Velg et navigasjonsområde"
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Tittelen er nødvendig"
+
+msgid "manager.navigationMenuItems"
+msgstr "Elementer på navigasjonsmenyen"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Brukte menyelementer"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Ubrukte menyelementer"
 
 msgid "manager.navigationMenus.form.navigationMenuArea"
 msgstr "Navigasjonsområder for aktive tema"
 
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Velg et navigasjonsområde"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "En navigasjonsmeny er allerede tildelt dette området."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "Du må oppgi en URL"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr "Lær mer om når dette menyelementet vil bli vist eller skjult."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Når et element i menyen åpner en undermeny, kan ikke lenken følges på alle "
+"typer enheter. For eksempel: dersom du har et «Om»-element som åpner en "
+"undermeny med «Kontakt» og «Redaksjonsråd», vil «Om»-elementet ikke kunne "
+"nås på alle enheter. I standardmenyen håndteres dette ved å lage et nytt "
+"menyelement «Om tidsskriftet», som vises i undermenyen."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Type navigasjonsmeny"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Velg en type navigasjonsmeny eller lag din egen meny"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Lag din egen side"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Lag en egendefinert side på nettstedet ditt og lenk til den på "
+"navigasjonsmenyen."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL til annet nettsted"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Lenke til URL-er på andre nettsted, f.eks. https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Lenke til en side som viser «Om» tidsskriftet i «Innstillinger» > "
+"«Tidsskrift»"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Denne lenken vil bare vises dersom du har fylt ut «Om»-feltet under "
+"«Innstillinger» > «Tidsskrift»"
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Lenk til en side som viser kolofonen under «Innstillinger»  >  «Tidsskrift»."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Denne lenken vil bare vises dersom du har fylt ut feltet om redaksjonen "
+"under «Innstillinger» > «Tidsskrift»."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Lenke til siden som viser instrukser for innleveringer."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Lenke til nyeste utgave."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Lenke til tidligere utgaver."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Lenke til oppslagstavlen."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Denne lenken vil bare vises dersom du har skrudd på oppslagvisning under "
+"«Innstillinger» > «Nettsted»."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Lenke til siden der brukere logger inn."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Lenke til siden der brukere registreres."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Lenke til redaksjonens navigasjonsmeny."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Lenke til brukerprofilsiden."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Lenke til administrative verktøy for hele nettstedet."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Denne lenken er bare for administrative brukere."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "En lenke som vil logge ut brukeren."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Denne lenken vil bare vises når gjesten er logget inn."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Denne lenken vil bare vises når gjesten ikke er logget inn."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Lenke til en side som viser kontaktinformasjonen din."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Denne lenken vil bare vises dersom du har fylt ut kontaktinformasjon under "
+"«Innstillinger» > «Kontakt»."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Velg en type navigasjonsmeny."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Denne lenken vil kun vises dersom betalinger er aktivert under Innstillinger "
+"> Distribusjon > Betalinger."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Denne lenken vil kun vises dersom den besøkende er pålogget, og betalinger "
+"er aktivert under Innstillinger > Distribusjon > Betalinger. Abonnement må "
+"være påkrevd under Innstillinger > Distribusjon > Tilgang."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Lenke til søkesiden."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Lenke til siden som viser personvernerklæringen."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Lenken vil kun vises dersom du har lagt til en personvernerklæring under "
+"Innstillinger > Arbeidsflyt > Innlevering."
+
+msgid "grid.category.add"
+msgstr "Legg til kategori"
+
+msgid "grid.category.edit"
+msgstr "Rediger kategori"
+
+msgid "grid.category.name"
+msgstr "Navn"
+
+msgid "grid.category.path"
+msgstr "Sti"
+
+msgid "grid.category.urlWillBe"
+msgstr "Kategoriens URL vil bli: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Kategoriens sti må bestå av kun bokstaver og tall."
+
+msgid "grid.category.pathExists"
+msgstr "Denne stien eksisterer allerede. Lag en unik sti."
+
+msgid "grid.category.description"
+msgstr "Beskrivelse"
+
+msgid "grid.category.parentCategory"
+msgstr "Hovedkategori"
+
+msgid "grid.category.removeText"
+msgstr "Er du sikker på at du ønsker å fjerne denne kategorien?"
+
+msgid "grid.category.nameRequired"
+msgstr "Legg til kategorinavn."
+
+msgid "grid.category.categoryDetails"
+msgstr "Detaljer for kategori"
+
+msgid "stats.allUsers"
+msgstr "Alle brukere"
+
+msgid "stats.city"
+msgstr "By"
+
+msgid "stats.views"
+msgstr "Visninger av innholdsfortegnelse for nummer"
+
+msgid "stats.downloads"
+msgstr "Visninger av nummerets oppsett"
+
+msgid "stats.views.timelineInterval"
+msgstr ""
+
+msgid "stats.downloads.timelineInterval"
+msgstr ""
+
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
 
-msgid "stats.name.declinedReviewRate"
-msgstr "Avvisningsprosent etter vurdering / gjennomgang"
+msgid "stats.daily"
+msgstr "Daglig"
 
-msgid "stats.name.declinedDeskRate"
-msgstr "Avvisningsprosent før vurdering / gjennomgang"
+msgid "stats.dateRange"
+msgstr "Datointervall"
 
-msgid "stats.name.declineRate"
-msgstr "Avvisningsprosent"
+msgid "stats.dateRange.allDates"
+msgstr "Alle datoer"
 
-msgid "stats.name.acceptanceRate"
-msgstr "Akseptprosent"
+msgid "stats.dateRange.apply"
+msgstr "Bruk"
 
-msgid "stats.name.daysToReject"
-msgstr "Dager før avvisning"
+msgid "stats.dateRange.change"
+msgstr "Endre datointervall"
 
-msgid "stats.name.daysToAccept"
-msgstr "Dager før aksept"
+msgid "stats.dateRange.customRange"
+msgstr "Egendefinert intervall"
 
-msgid "stats.name.daysToDecision"
-msgstr "Dager før den første redaksjonelle avgjørelsen"
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "En av datoene som er valgt, eksisterer ikke."
 
-msgid "stats.name.submissionsPublished"
-msgstr "Publiserte innleveringer"
+msgid "stats.dateRange.from"
+msgstr "Fra"
 
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Avviste innleveringer (etter vurdering)"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Avviste innleveringer (før vurdering)"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Avviste innleveringer"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Aksepterte innleveringer"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Mottatte innleveringer"
-
-msgid "stats.userStatistics"
-msgstr "Brukerstatistikk"
-
-msgid "stats.trends"
-msgstr "Trender"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Totalt innenfor datoperioden"
-
-msgid "stats.total"
-msgstr "Total"
-
-msgid "stats.submissionsActive"
-msgstr "Aktive innleveringer"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Søk på tittel, forfatter og ID"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Månedlig"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.fileViews"
-msgstr "Filvisninger"
-
-msgid "stats.editorialActivity"
-msgstr "Redaksjonell aktivitet"
-
-msgid "stats.descriptionForStat"
-msgstr "Beskrivelse av {$stat}"
-
-msgid "stats.description.daysToDecision"
+msgid "stats.dateRange.instructions"
 msgstr ""
-"Antall dager det tar for de fleste innleveringer å få den første "
-"redaksjonelle avgjørelsen, f.eks. at manuskriptet er avvist før vurdering "
-"eller gjennomgang, eller at manuskriptet er sendt videre til vurdering. <br> "
-"<br> Disse tallene viser at 80% av innleveringene treffer en avgjørelse "
-"innen det angitte antall dager. <br> <br > Denne statistikken prøver å "
-"beskrive når flertallet av forfatterne som sender inn manuskripter til "
-"tidsskriftet ditt, kan forvente en beslutning."
+"Skriv inn hver dato i formatet ÅÅÅÅ-MM-DD. For eksempel hvis du vil sette "
+"datoen 15. januar 2019, skriv inn 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Datoformatet er ikke gyldig. Skriv inn hver dato i formatet ÅÅÅÅ-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Startdato må være før sluttdato."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Sluttdato kan ikke være senere enn {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Startdato kan ikke være tidligere enn {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "Siste 12 måneder"
+
+msgid "stats.dateRange.last30Days"
+msgstr "Siste 30 dager"
+
+msgid "stats.dateRange.last90Days"
+msgstr "Siste 90 dager"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Siste to år"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Siste år"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Siden {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "År til dato"
+
+msgid "stats.dateRange.to"
+msgstr "Til"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Til {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -1857,353 +2579,177 @@ msgstr ""
 "innleveringer), da de to innleveringene som fremdeles venter på en endelig "
 "beslutning ikke teller."
 
-msgid "stats.dateRange.untilDate"
-msgstr "Til {$date}"
-
-msgid "stats.dateRange.to"
-msgstr "Til"
-
-msgid "stats.dateRange.thisYear"
-msgstr "År til dato"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Siden {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Siste år"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Siste to år"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Siste 90 dager"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Siste 30 dager"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Siste 12 måneder"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Startdato kan ikke være tidligere enn {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Sluttdato kan ikke være senere enn {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Startdato må være før sluttdato."
-
-msgid "stats.dateRange.invalidDate"
-msgstr "Datoformatet er ikke gyldig. Skriv inn hver dato i formatet ÅÅÅÅ-MM-DD."
-
-msgid "stats.dateRange.instructions"
+msgid "stats.description.daysToDecision"
 msgstr ""
-"Skriv inn hver dato i formatet ÅÅÅÅ-MM-DD. For eksempel hvis du vil sette "
-"datoen 15. januar 2019, skriv inn 2019-01-15."
+"Antall dager det tar for de fleste innleveringer å få den første "
+"redaksjonelle avgjørelsen, f.eks. at manuskriptet er avvist før vurdering "
+"eller gjennomgang, eller at manuskriptet er sendt videre til vurdering. <br> "
+"<br> Disse tallene viser at 80% av innleveringene treffer en avgjørelse "
+"innen det angitte antall dager. <br> <br > Denne statistikken prøver å "
+"beskrive når flertallet av forfatterne som sender inn manuskripter til "
+"tidsskriftet ditt, kan forvente en beslutning."
 
-msgid "stats.dateRange.from"
-msgstr "Fra"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "En av datoene som er valgt, eksisterer ikke."
-
-msgid "stats.dateRange.customRange"
-msgstr "Egendefinert intervall"
-
-msgid "stats.dateRange.change"
-msgstr "Endre datointervall"
-
-msgid "stats.dateRange.apply"
-msgstr "Bruk"
-
-msgid "stats.dateRange.allDates"
-msgstr "Alle datoer"
-
-msgid "stats.dateRange"
-msgstr "Datointervall"
-
-msgid "stats.daily"
-msgstr "Daglig"
-
-msgid "stats.allUsers"
-msgstr "Alle brukere"
-
-msgid "grid.category.categoryDetails"
-msgstr "Detaljer for kategori"
-
-msgid "grid.category.nameRequired"
-msgstr "Legg til kategorinavn."
-
-msgid "grid.category.removeText"
-msgstr "Er du sikker på at du ønsker å fjerne denne kategorien?"
-
-msgid "grid.category.parentCategory"
-msgstr "Hovedkategori"
-
-msgid "grid.category.description"
-msgstr "Beskrivelse"
-
-msgid "grid.category.pathExists"
-msgstr "Denne stien eksisterer allerede. Lag en unik sti."
-
-msgid "grid.category.pathAlphaNumeric"
-msgstr "Kategoriens sti må bestå av kun bokstaver og tall."
-
-msgid "grid.category.urlWillBe"
-msgstr "Kategoriens URL vil bli: {$sampleUrl}"
-
-msgid "grid.category.path"
-msgstr "Sti"
-
-msgid "grid.category.name"
-msgstr "Navn"
-
-msgid "grid.category.edit"
-msgstr "Rediger kategori"
-
-msgid "grid.category.add"
-msgstr "Legg til kategori"
-
-msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgid "stats.description.submissionsSkipped"
 msgstr ""
-"Lenken vil kun vises dersom du har lagt til en personvernerklæring under "
-"Innstillinger > Arbeidsflyt > Innlevering."
 
-msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Lenke til siden som viser personvernerklæringen."
+msgid "stats.descriptionForStat"
+msgstr "Beskrivelse av {$stat}"
 
-msgid "manager.navigationMenus.search.description"
-msgstr "Lenke til søkesiden."
+msgid "stats.editorialActivity"
+msgstr "Redaksjonell aktivitet"
 
-msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgid "stats.file.type.primaryFile"
 msgstr ""
-"Denne lenken vil kun vises dersom betalinger er aktivert under Innstillinger "
-"> Distribusjon > Betalinger."
 
-msgid "manager.navigationMenus.login.description"
-msgstr "Lenke til siden der brukere logger inn."
-
-msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgid "stats.file.type.suppFile"
 msgstr ""
-"Denne lenken vil kun vises dersom den besøkende er pålogget, og betalinger "
-"er aktivert under Innstillinger > Distribusjon > Betalinger. Abonnement må "
-"være påkrevd under Innstillinger > Distribusjon > Tilgang."
 
-msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgid "stats.fileViews"
+msgstr "Filvisninger"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Månedlig"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
 msgstr ""
-"Denne lenken vil bare vises dersom du har skrudd på oppslagvisning under "
-"«Innstillinger» > «Nettsted»."
 
-msgid "manager.navigationMenus.editorialTeam.description"
+msgid "stats.geographic.tooltip.label"
 msgstr ""
-"Lenk til en side som viser kolofonen under «Innstillinger»  >  «Tidsskrift»."
 
-msgid "manager.navigationMenus.about.conditionalWarning"
+msgid "stats.downloadReport.betweenDates"
 msgstr ""
-"Denne lenken vil bare vises dersom du har fylt ut «Om»-feltet under "
-"«Innstillinger» > «Tidsskrift»"
 
-msgid "manager.navigationMenus.customPage.description"
+msgid "stats.downloadReport.allFilters"
 msgstr ""
-"Lag en egendefinert side på nettstedet ditt og lenk til den på "
-"navigasjonsmenyen."
 
-msgid "manager.navigationMenus.form.submenuWarning"
+msgid "stats.publications.downloadReport.downloadFiles"
 msgstr ""
-"Når et element i menyen åpner en undermeny, kan ikke lenken følges på alle "
-"typer enheter. For eksempel: dersom du har et «Om»-element som åpner en "
-"undermeny med «Kontakt» og «Redaksjonsråd», vil «Om»-elementet ikke kunne "
-"nås på alle enheter. I standardmenyen håndteres dette ved å lage et nytt "
-"menyelement «Om tidsskriftet», som vises i undermenyen."
 
-msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr "Lær mer om når dette menyelementet vil bli vist eller skjult."
-
-msgid "manager.navigationMenus.form.typeMissing"
-msgstr "Velg en type navigasjonsmeny."
-
-msgid "manager.navigationMenus.contact.conditionalWarning"
+msgid "stats.publications.downloadReport.downloadFiles.description"
 msgstr ""
-"Denne lenken vil bare vises dersom du har fylt ut kontaktinformasjon under "
-"«Innstillinger» > «Kontakt»."
 
-msgid "manager.navigationMenus.contact.description"
-msgstr "Lenke til en side som viser kontaktinformasjonen din."
-
-msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Denne lenken vil bare vises når gjesten ikke er logget inn."
-
-msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Denne lenken vil bare vises når gjesten er logget inn."
-
-msgid "manager.navigationMenus.logOut.description"
-msgstr "En lenke som vil logge ut brukeren."
-
-msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Denne lenken er bare for administrative brukere."
-
-msgid "manager.navigationMenus.administration.description"
-msgstr "Lenke til administrative verktøy for hele nettstedet."
-
-msgid "manager.navigationMenus.profile.description"
-msgstr "Lenke til brukerprofilsiden."
-
-msgid "manager.navigationMenus.dashboard.description"
-msgstr "Lenke til redaksjonens navigasjonsmeny."
-
-msgid "manager.navigationMenus.register.description"
-msgstr "Lenke til siden der brukere registreres."
-
-msgid "manager.navigationMenus.announcements.description"
-msgstr "Lenke til oppslagstavlen."
-
-msgid "manager.navigationMenus.archives.description"
-msgstr "Lenke til tidligere utgaver."
-
-msgid "manager.navigationMenus.current.description"
-msgstr "Lenke til nyeste utgave."
-
-msgid "manager.navigationMenus.submissions.description"
-msgstr "Lenke til siden som viser instrukser for innleveringer."
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgid "stats.publications.downloadReport.downloadGeographic"
 msgstr ""
-"Denne lenken vil bare vises dersom du har fylt ut feltet om redaksjonen "
-"under «Innstillinger» > «Tidsskrift»."
 
-msgid "manager.navigationMenus.about.description"
+msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
-"Lenke til en side som viser «Om» tidsskriftet i «Innstillinger» > "
-"«Tidsskrift»"
 
-msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "Lenke til URL-er på andre nettsted, f.eks. https://pkp.sfu.ca."
+msgid "stats.region"
+msgstr "Region"
 
-msgid "manager.navigationMenus.remoteUrl"
-msgstr "URL til annet nettsted"
+msgid "stats.searchSubmissionDescription"
+msgstr "Søk på tittel, forfatter og ID"
 
-msgid "manager.navigationMenus.customPage"
-msgstr "Lag din egen side"
+msgid "stats.submissionsActive"
+msgstr "Aktive innleveringer"
 
-msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Velg en type navigasjonsmeny eller lag din egen meny"
-
-msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "Type navigasjonsmeny"
-
-msgid "manager.navigationMenus.form.customUrlError"
-msgstr "Du må oppgi en URL"
-
-msgid "manager.navigationMenus.form.url"
-msgstr "URL"
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgid "stats.timeline"
 msgstr ""
-"Innleveringsfilen {$id} ble utelatt fordi den er knyttet til en oppføring "
-"som ikke skal importeres, som for eksempel et vurderingsoppdrag eller en "
-"diskusjon."
 
-msgid "manager.setup.genres.metatadata.description"
+msgid "stats.timeline.downloadReport.description"
 msgstr ""
-"Velg typen metadata som kan knyttes til disse filene. Du bør velge "
-"'Dokument' for de viktigste publikasjonsfilene, for eksempel en nedlastbar "
-"PDF, slik at disse filene kan hente metadataene fra publikasjonen. Ellers "
-"velger du 'Tilleggsinnhold' for de fleste filtyper. Illustrasjoner er egnet "
-"for filer som krever separat kilde, bildetekst og lisensmetadata."
 
-msgid "manager.setup.genres.metatadata"
-msgstr "Fil-metadata"
-
-msgid "manager.setup.genres.label"
-msgstr "Filtype"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Er du sikker på at du vil aktivere denne seksjonen?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Er du sikker på at du vil deaktivere denne seksjonen?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr "Deaktiver denne seksjonen og ikke tillat nye innleveringer til den."
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr ""
-"Vis en lenke til <button type=\"button\">hvordan sikre anonymisering av "
-"filer</button> ved opplasting"
 
-msgid "manager.setup.dateTime.custom"
-msgstr "Brukerdefinert"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Dato og tid (kort)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Dato og tid"
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Formater for dato og tid"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Tid"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Dato (Kort)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Dato"
-
-msgid "manager.setup.dateTime.description"
+msgid "stats.timelineInterval"
 msgstr ""
-"Velg det foretrukne formatet for dato og tid. Et brukerdefinert format kan "
-"også angis  ved å benytte følgende <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-"
-"parameters'>formateringsparametre</a>."
 
-msgid "manager.setup.dateTime"
-msgstr "Dato og tid"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Send en til e-post"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "E-post ble sendt til alle mottakerne."
-
-msgid "manager.setup.notifyUsers.sending"
+msgid "stats.timelineType"
 msgstr ""
-"Sender e-post. Vent til sendingen er fullført før du navigerer vekk, eller "
-"lukker nettsiden."
 
-msgid "manager.setup.notifyUsers.confirm"
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.unique"
 msgstr ""
-"Du skal til å sende en e-post til {total} brukere. Er du sikker på at du vil "
-"sende denne e-posten?"
 
-msgid "manager.setup.notifyUsers.send"
-msgstr "Send e-post"
+msgid "stats.totalWithinDateRange"
+msgstr "Totalt innenfor datoperioden"
 
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Send en kopi av denne e-posten til meg på {email}."
+msgid "stats.trends"
+msgstr "Trender"
 
-msgid "manager.setup.notifyUsers.description"
-msgstr "Velg de brukerne som skal motta din e-postbeskjed."
+msgid "stats.unknown"
+msgstr ""
 
-msgid "manager.setup.notifyUsers"
-msgstr "Varsle"
+msgid "stats.userStatistics"
+msgstr "Brukerstatistikk"
 
-msgid "manager.setup.disableSubmissions"
-msgstr "Deaktiver innleveringer"
+msgid "stats.name.submissionsReceived"
+msgstr "Mottatte innleveringer"
 
-msgid "manager.people.signedInAs"
-msgstr "Du er for øyeblikket logget inn som {$username}"
+msgid "stats.name.submissionsSkipped"
+msgstr ""
 
-msgid "manager.export.usersToCsv.description"
-msgstr "Velg brukerne som skal eksporteres til en Excel/CSV-fil."
+msgid "stats.name.submissionsInProgress"
+msgstr ""
 
-msgid "manager.export.usersToCsv.label"
-msgstr "Eksporter til Excel/CSV"
+msgid "stats.name.submissionsImported"
+msgstr ""
 
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Slett oppslag"
+msgid "stats.name.submissionsAccepted"
+msgstr "Aksepterte innleveringer"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Avviste innleveringer"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Avviste innleveringer (før vurdering)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Avviste innleveringer (etter vurdering)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Publiserte innleveringer"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dager før den første redaksjonelle avgjørelsen"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dager før aksept"
+
+msgid "stats.name.daysToReject"
+msgstr "Dager før avvisning"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Akseptprosent"
+
+msgid "stats.name.declineRate"
+msgstr "Avvisningsprosent"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Avvisningsprosent før vurdering / gjennomgang"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Avvisningsprosent etter vurdering / gjennomgang"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr ""
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr ""
+
+msgid "plugins.importexport.native.export.completed"
+msgstr ""
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr ""
+
+msgid "plugins.importexport.native.common.any"
+msgstr ""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
 
 msgid "plugins.importexport.common.cliError"
 msgstr "FEIL:"
@@ -2211,32 +2757,363 @@ msgstr "FEIL:"
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Den spesifiserte tidsskriftsstien \"{$contextPath}\" eksisterer ikke."
 
-msgid "doi.manager.settings.doiSuffix.description"
+msgid "plugins.importexport.submission.cli.display"
 msgstr ""
-"Et DOI-suffiks kan ha en hvilken som helst form, men må være unikt der alle "
-"publiseringsobjekter er tildelt det samme DOI-prefikset:"
 
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Bruk standardformatene."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "DOI-suffiks"
-
-msgid "doi.manager.settings.doiPrefix.description"
+msgid "plugins.importexport.author.exportFailed"
 msgstr ""
-"DOI-prefikset tildeles av registreringsbyråer (som <a href=\""
-"http://www.crossref.org\" target=\"_new\">Crossref</a>), og er i formatet "
-"10.xxxx (f.eks. 10.1234):"
 
-msgid "doi.manager.settings.doiObjects"
-msgstr "Tidsskriftets innhold"
+msgid "plugins.importexport.publication.exportFailed"
+msgstr ""
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.name"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.description"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.password"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.name"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr ""
+
+msgid "emailTemplate.variable.submitterName"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.name"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+
+msgid "mailable.validateEmailSite.name"
+msgstr ""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+
+msgid "mailable.reviewConfirm.name"
+msgstr ""
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Denne e-posten sendes fra en fagfelle til seksjonsredaktøren som svar på «"
-"Forespørsel om fagfellevurdering» for å varsle seksjonsredaktøren om at "
+"Denne e-posten sendes fra en fagfelle til seksjonsredaktøren som svar på "
+"«Forespørsel om fagfellevurdering» for å varsle seksjonsredaktøren om at "
 "forespørselen er mottatt og akseptert, og at fagfellevurderingen vil bli "
 "ferdigstilt innen angitt frist."
+
+msgid "mailable.reviewDecline.name"
+msgstr ""
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -2244,11 +3121,14 @@ msgstr ""
 "forespørsel om fagfellevurdering, for å varsle redaktøren om at oppdraget er "
 "avslått."
 
-#, fuzzy
-msgid "emails.reviewRemind.body"
+msgid "mailable.reviewRemind.name"
 msgstr ""
-"Denne e-posten sendes av en redaktør til en fagfelle for å minne om "
-"at fagfellevurderingen ventes ferdigstilt innen fristen."
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
 
 #, fuzzy
 msgid "mailable.reviewRemindAuto.description"
@@ -2257,6 +3137,15 @@ msgstr ""
 "overskredet. Automatiske påminnelser om fagfellevurdering kan aktiveres i "
 "Arbeidsflyt > Fagfellevurdering"
 
+msgid "mailable.reviewAcknowledgement.name"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+
 #, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
@@ -2264,6 +3153,9 @@ msgstr ""
 "utløper (se Innstillinger > Arbeidsflyt > Fagfellevurdering) og ’Slå på "
 "ettklikks tilgang for fagfellene’ ikke er valgt. Planlagte oppgaver må være "
 "skrudd på og konfigurert (se filen med nettsidekonfigurering)."
+
+msgid "mailable.reviewRequest.name"
+msgstr ""
 
 #, fuzzy
 msgid "mailable.reviewRequest.description"
@@ -2275,6 +3167,9 @@ msgstr ""
 "manuskriptet. Denne e-posten brukes når Standard fagvurderingsprosess er "
 "valgt i Tidsskriftoppsett, Trinn 2."
 
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr ""
+
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Denne e-posten fra seksjonsredaktør til fagfelle ber fagfelle akseptere "
@@ -2284,17 +3179,52 @@ msgstr ""
 "fagfellevurderingsprosess er valgt under  Innstillinger > Arbeidsflyt > "
 "Fagfellevurdering."
 
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr ""
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+
+msgid "mailable.editorialReminder.name"
+msgstr ""
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.name"
+msgstr ""
+
 msgid "mailable.passwordResetRequested.description"
-msgstr "Denne e-posten sendes til registrerte brukere når de melder fra om at de har glemt passordet sitt, eller at de ikke klarer å logge inn. Den gir en URL-lenke brukeren kan følge for å fornye passordet sitt."
+msgstr ""
+"Denne e-posten sendes til registrerte brukere når de melder fra om at de har "
+"glemt passordet sitt, eller at de ikke klarer å logge inn. Den gir en URL-"
+"lenke brukeren kan følge for å fornye passordet sitt."
+
+msgid "mailable.userRegister.name"
+msgstr ""
 
 #, fuzzy
 msgid "mailable.userRegister.description"
-msgstr "Denne e-posten sendes for å ønske nyregistrerte brukere velkommen som brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
+msgstr ""
+"Denne e-posten sendes for å ønske nyregistrerte brukere velkommen som "
+"brukere av nettstedet, og gir dem opplysning om brukernavn og passord."
+
+msgid "mailable.reviewerRegister.name"
+msgstr ""
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
 "Denne e-posten sendes til nyregistrerte fagfeller for å ønske dem velkommen "
 "til systemet og tildele dem brukernavn og passord."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
 
 #, fuzzy
 msgid "mailable.submissionAck.description"
@@ -2304,6 +3234,9 @@ msgstr ""
 "gir informasjon om hvordan innleveringen kan følges gjennom den "
 "redaksjonelle prosessen og takker forfatteren for bidraget."
 
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
@@ -2311,61 +3244,256 @@ msgstr ""
 "forfatterne som er oppgitt i innleveringen, som ikke har brukerkonto på "
 "plattformen."
 
+msgid "mailable.discussionSubmission.name"
+msgstr ""
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+
+msgid "mailable.discussionReview.name"
+msgstr ""
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.name"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+
+msgid "mailable.discussionProduction.name"
+msgstr ""
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr ""
+
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
 "Denne e-posten sendes automatisk til redaktøren når forfatteren laster opp "
 "en revidert versjon av en artikkel."
 
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
 msgid "mailable.announcementNotify.description"
 msgstr "Denne e-posten blir sendt når et nytt oppslag opprettes."
 
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "Marker DOI-er som registrerte"
-
-msgid "manager.dois.actions.deposit.prompt"
+msgid "mailable.statisticsReportNotify.name"
 msgstr ""
-"Du er i ferd med å sende DOI-metadataposter for {$count} objekt(er) til "
-"{$registrationAgency}. Er du sikker på at du vil deponere disse postene?"
 
-msgid "manager.dois.actions.deposit.all"
-msgstr "Deponer alle"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "Deponer DOI-er"
-
-msgid "manager.dois.actions.markRegistered.prompt"
+msgid "mailable.editReviewNotify.name"
 msgstr ""
-"Du er i ferd med å markere DOI-metadataposter for {$count} objekter(er) som "
-"registrerte. Er du sikker på at du ønsker å markere disse postene som "
-"registrerte?"
 
-msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Marker DOI-er som uregistrerte"
-
-msgid "manager.dois.actions.markUnregistered.prompt"
+msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Du er i ferd med å markere DOI-metadataposter for {$count} objekter som "
-"uregistrerte. Er du sikker på at du vil markere disse postene som "
-"uregistrerte?"
 
-msgid "manager.dois.actions.markStale.label"
-msgstr "Marker DOI-er som foreldet"
-
-msgid "manager.dois.actions.markStale.prompt"
+msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr ""
-"Du er i ferd med å markere DOI-metadataposter for {$count} objekter som "
-"foreldet. Foreldet-statusen kan kun anvendes på tidligere registrerte DOI-"
-"er. Er du sikker på at du vil markere disse postene som foreldet?"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+
+msgid "manager.people.authSource"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+
+msgid "manager.manageEmails"
+msgstr ""
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+
+msgid "manager.mailables.templates"
+msgstr ""
+
+msgid "manager.mailables.editTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.search"
+msgstr ""
+
+msgid "manager.emailTemplate.name.description"
+msgstr ""
+
+msgid "manager.newSubmission"
+msgstr ""
+
+msgid "manager.newSubmission.description"
+msgstr ""
+
+msgid "manager.submissionAck.description"
+msgstr ""
+
+msgid "manager.submissionAck.off"
+msgstr ""
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr ""
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "manager.plugins.pluginGallery.date"
+#~ msgstr "Versjonsdato: {$date}"
+
+#~ msgid "manager.setup.groupType"
+#~ msgstr "Filtypegruppering"
+
+#~ msgid "manager.setup.notifications.copyPrimaryContact"
+#~ msgstr ""
+#~ "Send en kopi til tidsskriftets hovedkontakt, som ble oppgitt i Oppsett "
+#~ "trinn 1"
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Standardfrist for fagfellevurdering"
+
+#~ msgid "manager.setup.metadata.success"
+#~ msgstr "Innleveringsmetadata har blitt oppdatert."
+
+#~ msgid "manager.distribution.license.success"
+#~ msgstr "Lisensopplysningene har blitt oppdatert. "
+
+#~ msgid "manager.setup.userAccess.success"
+#~ msgstr ""
+#~ "Opplysninger om brukertilgang til dette forlaget har blitt oppdatert."
+
+#~ msgid "manager.setup.theme.success"
+#~ msgstr ""
+#~ "Temaet har blitt oppdatert. <a href=\"{$url}\" target=\"_blank\">Se nå</a>"
+
+#~ msgid "manager.setup.reviewOptions.showBlindReviewLink"
+#~ msgstr ""
+#~ "Vis en lenke til  <button type=\"button\">«Hvordan sikre blind "
+#~ "fagfellevurdering»</button>  under opplastingen"
+
+#~ msgid "manager.setup.authorGuidelines.success"
+#~ msgstr "Forfatterinstruksen har blitt oppdatert."
+
+#~ msgid "manager.setup.contact.success"
+#~ msgstr "Kontaktinformasjonen til dette forlaget har blitt oppdatert."
+
+#~ msgid "manager.setup.appearance.success"
+#~ msgstr "Innstillingene for utseendet har blitt oppdatert."
+
+#~ msgid "manager.emails.editEmail.success"
+#~ msgstr "E-postmalen har blitt endret."
+
+#~ msgid "manager.emails.addEmail.success"
+#~ msgstr "E-postmalen ble lagt til."
+
+#~ msgid "manager.publication.reviewSetup.success"
+#~ msgstr "Fagfellevurderingsinnstillingene har blitt oppdatert."
+
+#~ msgid "manager.publication.reviewerGuidance.success"
+#~ msgstr "Fagfelleveiledning har blitt oppdatert."
+
+#~ msgid "manager.publication.emailSetup.success"
+#~ msgstr "E-postinstillningene har blitt oppdatert."
 
 #, fuzzy
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Sjekkliste for innlevering"
-
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr ""
-"Når de leverer inn bidrag til tidsskriftet, må forfattere først krysse av "
-"for hvert element på «Sjekkliste for innlevering», før de får gå videre. "
-"Sjekklisten vises også i forfatterinstruksen, under «Om» tidsskriftet. "
-"Sjekklisten kan redigeres nedenfor, men alle elementene på listen må krysses "
-"av før forfatteren kan gå videre med innsendingen."
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "Denne e-posten sendes av en redaktør til en fagfelle for å minne om at "
+#~ "fagfellevurderingen ventes ferdigstilt innen fristen."

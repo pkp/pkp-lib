@@ -35,6 +35,9 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Freagairt mu lèirmheas artaigil"
@@ -48,12 +51,18 @@ msgstr ""
 "{$contextName} a choileanadh. Tha sinn fada nad chomain airson na h-obrach a "
 "nì thu airson na dh’fhoillsicheas sinn a chumail aig ìre àrd."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.decision.notifyReviewers.subject"
 msgstr ""
-"Thèid am post-d seo a chur le deasaiche earrainn a dhearbhadh gun d’fhuair "
-"iad lèirmheas a chaidh a choileanadh agus airson taing a thoirt dhan "
-"lèirmheasaiche airson an cuid com-pàirteachais."
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Co-dhùnadh deasaiche"
@@ -162,6 +171,24 @@ msgstr ""
 "URL an tagraidh: {$submissionUrl}<br />\n"
 "Ainm-cleachdaiche: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Co-dhùnadh deasaiche"
@@ -177,12 +204,106 @@ msgstr ""
 "<br />\n"
 "Cho-dhùin sinn an tagradh a dhiùltadh"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 #, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Teachdaireachd a thaobh {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Cuir a-steach do theachdaireachd."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Bidh e comasach lèirmheas a dhèanamh air"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Deasaichean:<br />\n"
+"<br />\n"
+"Tha mi deiseil is deònach lèirmheas a dhèanamh air an tagradh "
+"“{$submissionTitle},” airson {$contextName}. Mòran taing airson an cothrom "
+"seo a thoirt dhomh agus tha mi an dòchas an lèirmheas a choileanadh ron "
+"{$reviewDueDate}.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Dearbhadh air tagradh"
@@ -201,17 +322,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Deasaichean:<br />\n"
-"<br />\n"
-"Tha mi deiseil is deònach lèirmheas a dhèanamh air an tagradh "
-"“{$submissionTitle},” airson {$contextName}. Mòran taing airson an cothrom "
-"seo a thoirt dhomh agus tha mi an dòchas an lèirmheas a choileanadh ron "
-"{$reviewDueDate}.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Bidh e comasach lèirmheas a dhèanamh air"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Thèid am post-d seo a chur le deasaiche earrainn a dhearbhadh gun "
+#~ "d’fhuair iad lèirmheas a chaidh a choileanadh agus airson taing a thoirt "
+#~ "dhan lèirmheasaiche airson an cuid com-pàirteachais."

@@ -23,6 +23,9 @@ msgstr "« {$userName} »"
 msgid "comments.body"
 msgstr "Corps"
 
+msgid "comments.titleRequired"
+msgstr "Le titre du commentaire est obligatoire."
+
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "La suppression de ce commentaire supprimera aussi toutes ses réponses. Avez-"
@@ -78,6 +81,3 @@ msgstr "Voir tous les commentaires"
 
 msgid "reader.fullText"
 msgstr "Texte intégral :"
-
-msgid "comments.titleRequired"
-msgstr "Le titre du commentaire est obligatoire."

@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
+"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2019-11-19T10:49:47+00:00\n"
-"Language: fa_IR\n"
 
 msgid "user.accountInformation"
 msgstr "اطلاعات حساب کاربری"
@@ -30,7 +30,9 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "اطلاعات مربوط به روند احراز هویت نامعتبر بوده یا موجود نیست."
 
 msgid "user.authorization.contextRequired"
-msgstr "بدون مشخص کردن یک محتوا امکان فراخوانی این عمل وجود ندارد (مجله، کنفرانس، کتاب و ...)."
+msgstr ""
+"بدون مشخص کردن یک محتوا امکان فراخوانی این عمل وجود ندارد (مجله، کنفرانس، "
+"کتاب و ...)."
 
 msgid "user.authorization.loginRequired"
 msgstr "نیازمند ورود به سیستم"
@@ -44,11 +46,16 @@ msgstr "دسترسی شما رد شد. دسترسی به این وب‌سایت 
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "نقش کاربر کنونی اجازه دسترسی به این عملیات ندارد."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+
 msgid "user.authorization.userGroupRequired"
 msgstr "برای دسترسی به این عملیات باید عضو گروه کاربری معتبر باشید"
 
 msgid "user.authorization.managerRequired"
-msgstr "کاربری با دسترسی مدیر (برای مثال دبیر تولید) قبل از شروع باید به این مرحله انتساب یابد"
+msgstr ""
+"کاربری با دسترسی مدیر (برای مثال دبیر تولید) قبل از شروع باید به این مرحله "
+"انتساب یابد"
 
 msgid "user.authorization.accessibleWorkflowStage"
 msgstr "شما اجازه دسترسی به این مرحله از جریان کاری را ندارید."
@@ -58,6 +65,12 @@ msgstr "مراحل گردش کار مشخص نشده است."
 
 msgid "user.authorization.pluginRequired"
 msgstr "افزونه مشخص نشده است و الزامی است."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr ""
+
+msgid "user.authorization.submissionQuery"
+msgstr ""
 
 msgid "user.biography"
 msgstr "رزومه علمی"
@@ -80,35 +93,55 @@ msgstr "ویرایش پروفایل"
 msgid "user.email"
 msgstr "ایمیل"
 
+msgid "user.givenName"
+msgstr ""
+
 msgid "user.interests"
 msgstr "زمینه های داوری"
 
 msgid "user.gossip"
 msgstr "یادداشت خصوصی"
 
+msgid "user.gossip.description"
+msgstr ""
+
 msgid "user.group"
 msgstr "گروه کاربری"
 
+msgid "user.familyName"
+msgstr ""
+
 msgid "user.profile.form.profileImageInvalid"
-msgstr "فرمت نامناسب تصویر پروفایل و یا تصویر بسیار بزرگ. فرمت‌های قابل قبول عبارتند از .gif, .jpg, or .png و اندازه تصویر نباید از ۱۵۰ × ۱۵۰ پیکسل بیشتر باشد."
+msgstr ""
+"فرمت نامناسب تصویر پروفایل و یا تصویر بسیار بزرگ. فرمت‌های قابل قبول عبارتند "
+"از .gif, .jpg, or .png و اندازه تصویر نباید از ۱۵۰ × ۱۵۰ پیکسل بیشتر باشد."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "حساب شما به دلیل زیر غیرفعال شده است: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "حساب شما غیرفعال شده است. لطفا برای اطلاعات بیشتر با مدیر سایت تماس بگیرید"
+msgstr ""
+"حساب شما غیرفعال شده است. لطفا برای اطلاعات بیشتر با مدیر سایت تماس بگیرید"
 
 msgid "user.login.accountNotValidated"
-msgstr "یک لیمیل فعال سازی به آدرس {$email} ارسال شده است. لطفا ایمیل خود را چک کنید و دستوراتی که در ایمیلی که برایتان فرستاده ایم را دنبال کنید. چنانچه ایمیلی دریافت نکرده اید ممکن است لازم باشد که با مدیر سایت تماس بگیرید."
+msgstr ""
+"یک لیمیل فعال سازی به آدرس {$email} ارسال شده است. لطفا ایمیل خود را چک کنید "
+"و دستوراتی که در ایمیلی که برایتان فرستاده ایم را دنبال کنید. چنانچه ایمیلی "
+"دریافت نکرده اید ممکن است لازم باشد که با مدیر سایت تماس بگیرید."
 
 msgid "user.login.activate"
 msgstr "فعال کردن حساب کاربری"
 
 msgid "user.login.activated"
-msgstr "از اینکه حساب خود را فعال کرده اید متشکریم. اکنون میتوانید با استفاده از نام کاربری و رمز ورود خود وارد شوید"
+msgstr ""
+"از اینکه حساب خود را فعال کرده اید متشکریم. اکنون میتوانید با استفاده از نام "
+"کاربری و رمز ورود خود وارد شوید"
 
 msgid "user.login.changePasswordInstructions"
-msgstr "قبل از اینکه بتوانید کاملا وارد سایت شوید میبایست یک رمز عبور جدید برای خود انتخاب کنید. <br /><br />لطفا نام کاربری و رمز عبور جاری خود را وارد کرده و سپس رمز عبور جدیدی را دو بار وارد کنید."
+msgstr ""
+"قبل از اینکه بتوانید کاملا وارد سایت شوید میبایست یک رمز عبور جدید برای خود "
+"انتخاب کنید. <br /><br />لطفا نام کاربری و رمز عبور جاری خود را وارد کرده و "
+"سپس رمز عبور جدیدی را دو بار وارد کنید."
 
 msgid "user.login.forgotPassword"
 msgstr "رمز عبور خود را فراموش کرده اید؟"
@@ -121,13 +154,19 @@ msgstr "ورود"
 
 #, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را بدقت اجرا کنید تا رمز عبورتان به روز شود."
+msgstr ""
+"یک نامه تاییدیه به آدرس ایمیل شما ارسال شد.  لطفا دستورات مندرج در آن را "
+"بدقت اجرا کنید تا رمز عبورتان به روز شود."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "متأسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر وجود ندارد. برای دریافت رمز عبور از نو اقدام کنید."
+msgstr ""
+"متأسفانه لینکی که شما بر روی آن کلیک کرده اید تاریخ آن منقضی شده است یا دیگر "
+"وجود ندارد. برای دریافت رمز عبور از نو اقدام کنید."
 
 msgid "user.login.lostPassword.passwordSent"
-msgstr "یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم اکنون میتوانید وارد سایت شوید."
+msgstr ""
+"یک رمز عبور جدید به آدرس ایمیل شما ارسال گردید. با این رمز عبور جدید هم "
+"اکنون میتوانید وارد سایت شوید."
 
 msgid "user.login.registeredEmail"
 msgstr "ایمیل کاربر ثبت‌نام کرده"
@@ -136,7 +175,8 @@ msgid "user.login.registrationComplete"
 msgstr " تکمیل ثبت‌نام"
 
 msgid "user.login.registrationComplete.instructions"
-msgstr " ضمن تشکر از ثبت‌نام شما ، حال می توانید به قسمت های زیر مراجعه فرمایید: "
+msgstr ""
+" ضمن تشکر از ثبت‌نام شما ، حال می توانید به قسمت های زیر مراجعه فرمایید: "
 
 msgid "user.login.registrationComplete.manageSubmissions"
 msgstr "مشاهده مقالات ارسال شده "
@@ -183,8 +223,15 @@ msgstr "تکرار رمز عبور"
 msgid "user.phone"
 msgstr "تلفن"
 
+msgid "user.preferredPublicName"
+msgstr ""
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+
 msgid "user.profile.changePasswordInstructions"
-msgstr "برای تغییر رمز عبور، رمز عبور فعلی و جدید  را در قسمت های زیر وارد کنید"
+msgstr ""
+"برای تغییر رمز عبور، رمز عبور فعلی و جدید  را در قسمت های زیر وارد کنید"
 
 msgid "user.profile.editProfile"
 msgstr "ویرایش پروفایل"
@@ -194,6 +241,12 @@ msgstr "انتخاب کشور الزامی است"
 
 msgid "user.profile.form.emailRequired"
 msgstr "وارد کردن آدرس ایمیل معتبر الزامی است"
+
+msgid "user.profile.form.givenNameRequired"
+msgstr ""
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "آدرس ایمیل الزامی است"
@@ -220,13 +273,18 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "اطلاع‌رسانی درباره انتشار شماره جدید"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "آدرس وارد شده بی‌اعتبار است. پس از بررسی دوباره امتحان کنید. (نکته: http:// را به ابتدای آدرس بیافزائید.)"
+msgstr ""
+"آدرس وارد شده بی‌اعتبار است. پس از بررسی دوباره امتحان کنید. (نکته: http:// "
+"را به ابتدای آدرس بیافزائید.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "وارد کردن گروه کاربری الزامی است."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "وارد کردن شناسه ی کاربری الزامی است"
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr ""
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "برای حفظ رمز عبور فعلی قسمت مربوط به رمز عبور را خالی بگذارید"
@@ -250,10 +308,19 @@ msgid "user.login.registerNewAccount"
 msgstr "ثبت‌نام"
 
 msgid "user.login.resetPasswordInstructions"
-msgstr "لطفا ایمیلی را که با آن در این سامانه ثبت کرده اید را در کادر زیر وارد کنید"
+msgstr ""
+"لطفا ایمیلی را که با آن در این سامانه ثبت کرده اید را در کادر زیر وارد کنید"
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+
+msgid "user.register.form.emailConsent"
+msgstr ""
 
 msgid "user.register.form.emailExists"
-msgstr "قبلا با آدرس ایمیل وارد شده، کاربری در این سامانه ثبت‌نام کرده است. (ممکن است قبلا ثبت‌نام کرده باشید!)"
+msgstr ""
+"قبلا با آدرس ایمیل وارد شده، کاربری در این سامانه ثبت‌نام کرده است. (ممکن است "
+"قبلا ثبت‌نام کرده باشید!)"
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "رمز عبور با تکرار آن یکسان نیست"
@@ -262,7 +329,9 @@ msgid "user.register.form.emailsDoNotMatch"
 msgstr "فیلدهای حاوی آدرس ایمیل مطابقت ندارند"
 
 msgid "user.register.form.usernameAlphaNumeric"
-msgstr "نام کاربری فقط میتواند شامل حروف، اعداد، خط فاصله زیرین و خط فاصله باشد و میبایست با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود."
+msgstr ""
+"نام کاربری فقط میتواند شامل حروف، اعداد، خط فاصله زیرین و خط فاصله باشد و "
+"میبایست با یک حرف یا عدد شروع و به یک حرف یا عدد ختم شود."
 
 msgid "user.register.form.userGroupRequired"
 msgstr "حداقل یک گروه کاربری باید انتخاب شود."
@@ -280,10 +349,17 @@ msgid "user.register"
 msgstr "ثبت‌نام"
 
 msgid "user.register.usernameRestriction"
-msgstr "نام کاربری فقط میتواند دارای حروف کوچک، اعداد، خط فاصله و خط فاصله زیرین باشد."
+msgstr ""
+"نام کاربری فقط میتواند دارای حروف کوچک، اعداد، خط فاصله و خط فاصله زیرین "
+"باشد."
 
 msgid "user.register.registrationCompleted"
-msgstr " ثبت‌نام شما انجام شد. برای مشاهده و تکمیل پروفایل خود بر روی این <a href=\"{$profileUrl}\">لینک</a> کلیک کنید."
+msgstr ""
+" ثبت‌نام شما انجام شد. برای مشاهده و تکمیل پروفایل خود بر روی این <a href="
+"\"{$profileUrl}\">لینک</a> کلیک کنید."
+
+msgid "user.role.assistant"
+msgstr ""
 
 msgid "user.role.author"
 msgstr "نویسنده"
@@ -367,7 +443,9 @@ msgid "user.orcid"
 msgstr "شناسه ی نویسندگان/پژوهشگران"
 
 msgid "user.orcid.orcidInvalid"
-msgstr "شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:\"https://orcid.org/0000-0002-1825-0097\")."
+msgstr ""
+"شناسه ORCID وارد شده معتبر نیست. لطفاً آدرس کامل را وارد کنید (برای مثال:"
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "مشخصات فردی"
@@ -382,13 +460,42 @@ msgid "user.apiKey"
 msgstr "کلید API"
 
 msgid "user.apiKeyEnabled"
-msgstr "فعال‌سازی امکان دسترسی نرم‌افزارهای خارجی به این حساب کاربری از طریق کلید API"
+msgstr ""
+"فعال‌سازی امکان دسترسی نرم‌افزارهای خارجی به این حساب کاربری از طریق کلید API"
 
 msgid "user.apiKey.generate"
 msgstr "ایجاد یک کلید جدید API"
 
+msgid "user.apiKey.remove"
+msgstr ""
+
 msgid "user.apiKey.generateWarning"
-msgstr "ایجاد یک کلید جدید API باعث نامعتبر شدن کلیدهای قبلی ایجاد شده برای این کاربر خواهد شد."
+msgstr ""
+"ایجاد یک کلید جدید API باعث نامعتبر شدن کلیدهای قبلی ایجاد شده برای این "
+"کاربر خواهد شد."
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr ""
 
 msgid "user.apiKey.secretRequired"
-msgstr "قبل از ایجاد کلید API، باید کد مخفی در فایل پیکربندی وارد شود (api_key_secret)"
+msgstr ""
+"قبل از ایجاد کلید API، باید کد مخفی در فایل پیکربندی وارد شود "
+"(api_key_secret)"
+
+msgid "user.privacyLink"
+msgstr ""
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

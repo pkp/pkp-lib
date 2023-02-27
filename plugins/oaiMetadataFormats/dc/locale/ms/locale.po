@@ -12,9 +12,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.oaiMetadata.dc.displayName"
+msgstr "Format Metadata DC"
+
 msgid "plugins.oaiMetadata.dc.description"
 msgstr ""
 "Menstrukturkan metadata dengan cara yang konsisten dengan format Dublin Core."
-
-msgid "plugins.oaiMetadata.dc.displayName"
-msgstr "Format Metadata DC"

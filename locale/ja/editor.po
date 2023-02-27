@@ -16,281 +16,246 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "この投稿物を完全に削除してもよろしいですか？"
 
-msgid "editor.submission.workflowDecision.submission"
-msgstr "決定を記録しました"
+msgid "editor.activityLog"
+msgstr "アクティビティログ"
 
 msgid "editor.submissionLibrary"
 msgstr "ライブラリ"
 
-msgid "editor.activityLog"
-msgstr "アクティビティログ"
+msgid "editor.submission.workflowDecision.submission"
+msgstr "決定を記録しました"
 
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "この査読結果について、査読ディスカッションを作成します。"
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "投稿は辞退されました。"
 
-msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "校正の承認を取り消すと、校正が完了しておらず、ファイルを公開する準備ができていないことになります。"
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "投稿が採用されました。"
 
-msgid "reviewer.list.empty"
-msgstr "査読者が見つかりませんでした"
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "投稿が公開されました。"
 
-msgid "reviewer.list.biography"
-msgstr "経歴"
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "新たな査読のために送信されました。"
 
-msgid "reviewer.list.reviewInterests"
-msgstr "査読の興味"
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "制作に送る。"
 
-msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "解除"
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "投稿が受理され、査読が始まりました。"
 
-msgid "reviewer.list.warnOnAssign"
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "決定を変更"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
-"査読者は、著者の個人情報を閲覧できる役割を割り当てられているため、ロックされています。匿名での査読が保証されません。この査読者のロックを解除したいですか？"
 
-msgid "reviewer.list.reassign"
-msgstr "再任命"
-
-msgid "reviewer.list.currentlyAssigned"
-msgstr "査読者はすでにこの投稿の査読に割り当てられています。"
-
-msgid "reviewer.list.neverAssigned"
-msgstr "割り当てなし"
-
-msgid "reviewer.list.averageCompletion"
-msgstr "査読完了までの平均日数"
-
-msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr "前回の査読がされてからの日数"
-
-msgid "reviewer.list.daySinceLastAssignment"
-msgstr "昨日"
-
-msgid "reviewer.list.daysSinceLastAssignment"
-msgstr "{$days} 日前"
-
-msgid "reviewer.list.reviewerRating"
-msgstr "査読者評価: {$rating}"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "査読依頼のキャンセル"
-
-msgid "reviewer.list.declinedReviews"
-msgstr "査読依頼の辞退"
-
-msgid "reviewer.list.completedReviews"
-msgstr "査読完了"
-
-msgid "reviewer.list.activeReviewsDescription"
-msgstr "現在任命されているアクティブな査読"
-
-msgid "reviewer.list.activeReviews"
-msgstr "アクティブ {$count}"
-
-msgid "reviewer.list.filterRating"
-msgstr "最低限の評価"
-
-msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "公開識別子にパターン {$pattern} は使用できません。"
-
-msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "公開識別子 '{$publicIdentifier}' は、数字であってはなりません。"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "この投稿を拒否する決定を覆してもいいのでしょうか？"
-
-msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "校正を承認すると、校正が完了し、ファイルの公開が可能になります。"
-
-msgid "editor.submission.proofreading.revokeProofApproval"
-msgstr "校正承認の取り消し"
-
-msgid "editor.submission.proofreading.approveProof"
-msgstr "校正を承認する"
-
-msgid "editor.submission.selectedReviewer"
-msgstr "選ばれた査読者"
-
-msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "この議論に必要なファイルは、以下のリストから添付できます。"
-
-msgid "grid.action.editQuery"
-msgstr "ディスカッションの編集"
-
-msgid "submission.queries.attachedFiles"
-msgstr "添付ファイル"
-
-msgid "submission.queries.messageRequired"
-msgstr "討論メッセージが必要です。"
-
-msgid "submission.queries.subjectRequired"
-msgstr "議論のテーマが必要です。"
-
-msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "査読者が査読するファイルが選択されていません。"
-
-msgid "editor.submission.noReviewerFilesSelected"
-msgstr "選択ファイルなし"
-
-msgid "editor.article.confirmChangeReviewForm"
-msgstr "注意：査読フォームを変更すると、査読者がこのフォームを使って行った回答に影響します。本当に続けてよろしいですか？"
-
-msgid "editor.article.selectReviewForm"
-msgstr "査読フォームの作成"
-
-msgid "editor.article.reviewForms"
-msgstr "査読フォーム"
-
-msgid "editor.submission.createNewRound"
-msgstr "新しい査読ラウンドの作成"
-
-msgid "editor.submission.newRoundDescription"
-msgstr "この投稿に対して、新しい査読ラウンドを作成しようとしています。 他のレビューラウンドで使用されていないファイルを以下に示します。"
-
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "査読ディスカッションを作成しないでください。"
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "編集者にメールを送らないでください。"
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "編集者への通知"
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "編集査読結果の記録"
-
-msgid "editor.submissionReview.recordDecision"
-msgstr "編集者判断の記録"
-
-msgid "editor.submission.newRound"
-msgstr "新規査読ラウンド"
-
-msgid "editor.submission.production.productionReadyFiles"
-msgstr "制作準備完了ファイル"
-
-msgid "editor.review.emailReviewer"
-msgstr "査読者へのメール"
-
-msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "査読ファイルがアップロードされていません。"
-
-msgid "editor.review.noReviewFilesUploaded"
-msgstr "アップロードファイルなし"
-
-msgid "editor.review.reviewDetails"
-msgstr "査読詳細"
-
-msgid "editor.review"
-msgstr "査読"
-
-msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"投稿段階ですでにアップロードされているファイルは、下の「含める」チェックボックスにチェックを入れて「検索」をクリックすると、利用可能なファイルがすべて表示"
-"され、含めるファイルを選択することができます。まだアップロードされていないファイルは、「ファイルをアップロード」リンクをクリックすることで一覧に追加できま"
-"す。"
 
-msgid "editor.submission.addAuditor"
-msgstr "監査役の任命"
-
-msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "この原稿整理されたファイルを不承認にすると、制作ステージに送ることができなくなります。このファイルを非承認にしますか？"
-
-msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "原稿整理されたファイルは、制作ステージ階に移る前に承認される必要があります。このファイルを承認しますか？"
-
-msgid "editor.submission.proof.reminder"
-msgstr "校正リマインド"
-
-msgid "editor.submission.personalMessageToUser"
-msgstr "ユーザーに送信されるメール"
-
-msgid "editor.submission.noAuditRequested"
-msgstr "このファイルに対する監査の要求はありません"
-
-msgid "editor.review.enrollReviewer"
-msgstr "既存のユーザーを査読者に登録"
-
-msgid "editor.submission.taskSchedule"
-msgstr "タスクスケジュール"
-
-msgid "editor.submission.taskDueDate"
-msgstr "タスク期限"
-
-msgid "editor.submission.selectReviewer"
-msgstr "査読者の選択"
-
-msgid "editor.submission.selectCopyedingFiles"
-msgstr "ファイルを原稿整理する"
-
-msgid "editor.submission.schedulePublication"
-msgstr "公開スケジュール"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "選択された参加者は、このステージに割り当てられません。"
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr "選ばれた参加者とのディスカッションは、査読プロセスの匿名性に影響を与えるため、作成できません。"
-
-msgid "editor.review.readConfirmation"
+msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
-"この査読結果が読まれたら、「確認」を押すことで、査読プロセスが進められることを示します。査読者が他の場所で査読結果を投稿している場合は、以下のファイルをア"
-"ップロードして、「確認」を押して進めてください。"
 
-msgid "editor.review.unconsiderReview"
-msgstr "この査読を考慮しない"
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr ""
 
-msgid "editor.review.unconsiderReviewText"
-msgstr "このレビューを未検討としてマークしますか？ レビューの履歴は保存されます。"
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
 
-msgid "editor.review.userGroupSelect"
-msgstr "この査読者のユーザーグループにユーザーを登録する"
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr ""
 
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "査読者の復活にエラーが生じました。 もう一度お試しください。"
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
 
-msgid "editor.review.errorAddingReviewer"
-msgstr "査読者に追加にエラーが生じました。 もう一度お試しください。"
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
 
-msgid "editor.review.errorDeletingReviewer"
-msgstr "査読者の削除にエラーが生じました。 もう一度お試しください。"
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
 
-msgid "editor.review.mustSelect"
-msgstr "査読者を選らばなくてはなりません"
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
 
-msgid "editor.review.reviewerRating.none"
-msgstr "評価なし"
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
 
-msgid "editor.review.rateReviewer.description"
-msgstr "提出された査読品質を評価してください。この評価は査読者に共有されません。"
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
 
-msgid "editor.review.rateReviewer"
-msgstr "査読者の評価"
+msgid "editor.review.notInitiated"
+msgstr "査読プロセスはまだ開まっていません。"
 
-msgid "editor.review.reviewerComments"
-msgstr "査読者コメント"
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "ユーザーへのメッセージ"
 
-msgid "editor.review.reviewerThanked"
-msgstr "査読者へ謝意送付済み"
+msgid "editor.submission.externalReviewDescription"
+msgstr "下記のファイルを選択することで、査読ステージに移行します。"
 
-msgid "editor.review.reviewSubmitted"
-msgstr "査読提出済み"
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "ユーザーを割り当てるファイルを1つ以上選択する必要があります。"
 
-msgid "editor.review.reviewConfirmed"
-msgstr "査読確認済み"
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "個人的なメッセージを含める必要があります。"
 
-msgid "editor.review.reviewCompleted"
-msgstr "査読完了"
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "監査役にメールを送らない"
 
-msgid "editor.review.reviewDueDate"
-msgstr "査読期限日"
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "割り当てるユーザーを選択する必要があります。"
 
-msgid "editor.review.reviewDue"
-msgstr "査読期限: {$date}"
+msgid "editor.submission.uploadSelectFiles"
+msgstr "ファイルのアップロード/選択"
 
-msgid "editor.review.revertDecision"
-msgstr "決定の撤回"
+msgid "editor.submission.selectFiles"
+msgstr "ファイルの選択"
 
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "編集者はこの査読依頼をキャンセルしました。"
+msgid "editor.submission.revisions"
+msgstr "リビジョン"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"投稿ファイルの査読に参加者を招待するには、<em>+査読者の追加</em>を使用しま"
+"す。ノートブックのアイコンは、査読結果が投稿されたことを示しており、確認され"
+"た後に<em>了承済み</em>がチェックされます。査読が期限切れになると、赤い封筒の"
+"アイコンが表示され、査読者に注意を促します。"
+
+msgid "editor.submission.addReviewer"
+msgstr "査読者の追加"
+
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "査読者を探す"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "ユーザーを探す"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "アクセス可能なすべてのワークフローステージのファイルを表示します。"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "ラウンド {$round} の現在のレビューファイル"
+
+msgid "editor.submission.backToSearch"
+msgstr "検索に戻る"
+
+msgid "editor.review.createReviewer"
+msgstr "新規査読者の作成"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "既存のユーザーを登録する"
+
+msgid "editor.review.unassignReviewer"
+msgstr "査読者の未割当"
+
+msgid "editor.review.cancelReviewer"
+msgstr "査読者の取り消し"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "査読者の復活"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
+
+msgid "editor.submissionReview.reviewType"
+msgstr "査読タイプ"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "著者（ら）に通知メールを送る: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "編集者（ら）に通知メールを送る: {$authorName}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "通知メールを送信しない"
+
+msgid "editor.submissionReview.open"
+msgstr "開く"
+
+msgid "editor.submissionReview.anonymous"
+msgstr "匿名の査読者/著者は公開"
+
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "匿名の査読者/匿名の著者"
+
+msgid "editor.submissionReview.restrictFiles"
+msgstr "査読対象ファイル"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "ファイル選択を閉じる"
+
+msgid "editor.submissionReview.editReview"
+msgstr "査読結果を編集"
+
+msgid "editor.review.anonymousReviewer"
+msgstr "匿名の査読者"
+
+msgid "editor.review.personalMessageToReviewer"
+msgstr "査読者に送信するメール"
+
+msgid "editor.review.importantDates"
+msgstr "重要な日"
+
+msgid "editor.review.uploadRevision"
+msgstr "改訂版のアップロード"
+
+msgid "editor.review.newReviewRound"
+msgstr "新しい査読ラウンドの要求"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "改訂版は、新たな査読の対象とはなりません。"
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "改訂版では、新たな査読が行われます。"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+
+msgid "editor.review.dateAccepted"
+msgstr "査読受理日"
+
+msgid "editor.review.reviewsAdded"
+msgstr "メッセージ本文に査読が追加されました。"
+
+msgid "editor.review.noReviews"
+msgstr "インポートする査読はない"
+
+msgid "editor.review.reminder"
+msgstr "査読リマインド"
+
+msgid "editor.review.thankReviewer"
+msgstr "査読者に感謝"
+
+msgid "editor.review.reminderError"
+msgstr "査読リマインドの送信エラー"
+
+msgid "editor.review.thankReviewerError"
+msgstr "査読者への感謝の送信エラー"
+
+msgid "editor.review.skipEmail"
+msgstr "査読者にメールを送らないでください。"
+
+msgid "editor.review.sendReminder"
+msgstr "リマインドの送信"
+
+msgid "editor.review.readReview"
+msgstr "査読結果を読む"
+
+msgid "editor.review.readNewReview"
+msgstr "新規の査読結果を読む"
+
+msgid "editor.review.responseDue"
+msgstr "応答期限: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "リクエスト送信"
+
+msgid "editor.review.requestAccepted"
+msgstr "リクエストの受理"
+
+msgid "editor.review.requestDeclined"
+msgstr "リクエストの辞退"
 
 msgid "editor.review.requestCancelled"
 msgstr "リクエストのキャンセル"
@@ -298,187 +263,327 @@ msgstr "リクエストのキャンセル"
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "査読者が査読を辞退した。"
 
-msgid "editor.review.requestDeclined"
-msgstr "リクエストの辞退"
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "編集者はこの査読依頼をキャンセルしました。"
 
-msgid "editor.review.requestAccepted"
-msgstr "リクエストの受理"
+msgid "editor.review.revertDecision"
+msgstr "決定の撤回"
 
-msgid "editor.review.requestSent"
-msgstr "リクエスト送信"
+msgid "editor.review.reviewDue"
+msgstr "査読期限: {$date}"
 
-msgid "editor.review.responseDue"
-msgstr "応答期限: {$date}"
+msgid "editor.review.reviewDueDate"
+msgstr "査読期限日"
 
-msgid "editor.review.readNewReview"
-msgstr "新規の査読結果を読む"
+msgid "editor.review.reviewCompleted"
+msgstr "査読完了"
 
-msgid "editor.review.readReview"
-msgstr "査読結果を読む"
+msgid "editor.review.reviewConfirmed"
+msgstr "査読確認済み"
 
-msgid "editor.review.sendReminder"
-msgstr "リマインドの送信"
+msgid "editor.review.reviewSubmitted"
+msgstr "査読提出済み"
 
-msgid "editor.review.skipEmail"
-msgstr "査読者にメールを送らないでください。"
+msgid "editor.review.reviewerThanked"
+msgstr "査読者へ謝意送付済み"
 
-msgid "editor.review.thankReviewerError"
-msgstr "査読者への感謝の送信エラー"
-
-msgid "editor.review.reminderError"
-msgstr "査読リマインドの送信エラー"
-
-msgid "editor.review.thankReviewer"
-msgstr "査読者に感謝"
-
-msgid "editor.review.reminder"
-msgstr "査読リマインド"
-
-msgid "editor.review.noReviews"
-msgstr "インポートする査読はない"
-
-msgid "editor.review.reviewsAdded"
-msgstr "メッセージ本文に査読が追加されました。"
-
-msgid "editor.review.dateAccepted"
-msgstr "査読受理日"
-
-msgid "editor.review.NotifyAuthorResubmit"
-msgstr "改訂版では、新たな査読が行われます。"
-
-msgid "editor.review.NotifyAuthorRevisions"
-msgstr "改訂版は、新たな査読の対象とはなりません。"
-
-msgid "editor.review.newReviewRound"
-msgstr "新しい査読ラウンドの要求"
-
-msgid "editor.review.uploadRevision"
-msgstr "改訂版のアップロード"
-
-msgid "editor.review.importantDates"
-msgstr "重要な日"
-
-msgid "editor.review.personalMessageToReviewer"
-msgstr "査読者に送信するメール"
-
-msgid "editor.review.anonymousReviewer"
-msgstr "匿名の査読者"
-
-msgid "editor.submissionReview.editReview"
-msgstr "査読結果を編集"
-
-msgid "editor.submissionReview.restrictFiles.hide"
-msgstr "ファイル選択を閉じる"
-
-msgid "editor.submissionReview.restrictFiles"
-msgstr "査読対象ファイル"
-
-msgid "editor.submissionReview.doubleAnonymous"
-msgstr "匿名の査読者/匿名の著者"
-
-msgid "editor.submissionReview.anonymous"
-msgstr "匿名の査読者/著者は公開"
-
-msgid "editor.submissionReview.open"
-msgstr "開く"
-
-msgid "editor.submissionReview.skipEmail"
-msgstr "通知メールを送信しない"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "編集者（ら）に通知メールを送る: {$authorName}"
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "著者（ら）に通知メールを送る: {$authorName}"
-
-msgid "editor.submissionReview.reviewType"
-msgstr "査読タイプ"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "査読者の復活"
-
-msgid "editor.review.cancelReviewer"
-msgstr "査読者の取り消し"
-
-msgid "editor.review.unassignReviewer"
-msgstr "査読者の未割当"
-
-msgid "editor.review.enrollReviewer.short"
-msgstr "既存のユーザーを登録する"
-
-msgid "editor.review.createReviewer"
-msgstr "新規査読者の作成"
-
-msgid "editor.submission.backToSearch"
-msgstr "検索に戻る"
-
-msgid "editor.submission.review.currentFiles"
-msgstr "ラウンド {$round} の現在のレビューファイル"
-
-msgid "editor.submission.fileList.includeAllStages"
-msgstr "アクセス可能なすべてのワークフローステージのファイルを表示します。"
-
-msgid "editor.submission.findAndSelectUser"
-msgstr "ユーザーを探す"
-
-msgid "editor.submission.findAndSelectReviewer"
-msgstr "査読者を探す"
-
-msgid "editor.submission.addReviewer"
-msgstr "査読者の追加"
-
-msgid "editor.submission.review.reviewersDescription"
+msgid "editor.review.ReviewerResendRequest"
 msgstr ""
-"投稿ファイルの査読に参加者を招待するには、<em>+査読者の追加</em>を使用します。ノートブックのアイコンは、査読結果が投稿されたことを示しており、確"
-"認された後に<em>了承済み</em>がチェックされます。査読が期限切れになると、赤い封筒のアイコンが表示され、査読者に注意を促します。"
 
-msgid "editor.submission.revisions"
-msgstr "リビジョン"
+msgid "editor.review.reviewerComments"
+msgstr "査読者コメント"
 
-msgid "editor.submission.selectFiles"
-msgstr "ファイルの選択"
+msgid "editor.review.rateReviewer"
+msgstr "査読者の評価"
 
-msgid "editor.submission.uploadSelectFiles"
-msgstr "ファイルのアップロード/選択"
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"提出された査読品質を評価してください。この評価は査読者に共有されません。"
 
-msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "割り当てるユーザーを選択する必要があります。"
+msgid "editor.review.reviewerRating.none"
+msgstr "評価なし"
 
-msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "監査役にメールを送らない"
+msgid "editor.review.mustSelect"
+msgstr "査読者を選らばなくてはなりません"
 
-msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "個人的なメッセージを含める必要があります。"
+msgid "editor.review.errorAddingReviewer"
+msgstr "査読者に追加にエラーが生じました。 もう一度お試しください。"
 
-msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "ユーザーを割り当てるファイルを1つ以上選択する必要があります。"
+msgid "editor.review.errorDeletingReviewer"
+msgstr "査読者の削除にエラーが生じました。 もう一度お試しください。"
 
-msgid "editor.submission.externalReviewDescription"
-msgstr "下記のファイルを選択することで、査読ステージに移行します。"
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "査読者の復活にエラーが生じました。 もう一度お試しください。"
 
-msgid "editor.submission.copyediting.personalMessageToUser"
-msgstr "ユーザーへのメッセージ"
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
 
-msgid "editor.review.notInitiated"
-msgstr "査読プロセスはまだ開まっていません。"
+msgid "editor.review.userGroupSelect"
+msgstr "この査読者のユーザーグループにユーザーを登録する"
 
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "決定を変更"
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"このレビューを未検討としてマークしますか？ レビューの履歴は保存されます。"
 
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "投稿が受理され、査読が始まりました。"
+msgid "editor.review.unconsiderReview"
+msgstr "この査読を考慮しない"
 
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "制作に送る。"
+msgid "editor.review.readConfirmation"
+msgstr ""
+"この査読結果が読まれたら、「確認」を押すことで、査読プロセスが進められること"
+"を示します。査読者が他の場所で査読結果を投稿している場合は、以下のファイルを"
+"アップロードして、「確認」を押して進めてください。"
 
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "新たな査読のために送信されました。"
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"選ばれた参加者とのディスカッションは、査読プロセスの匿名性に影響を与えるた"
+"め、作成できません。"
 
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "投稿が公開されました。"
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "選択された参加者は、このステージに割り当てられません。"
 
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "投稿が採用されました。"
+msgid "editor.submission.schedulePublication"
+msgstr "公開スケジュール"
 
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "投稿は辞退されました。"
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "ファイルを原稿整理する"
+
+msgid "editor.submission.selectReviewer"
+msgstr "査読者の選択"
+
+msgid "editor.submission.taskDueDate"
+msgstr "タスク期限"
+
+msgid "editor.submission.taskSchedule"
+msgstr "タスクスケジュール"
+
+msgid "editor.review.enrollReviewer"
+msgstr "既存のユーザーを査読者に登録"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "このファイルに対する監査の要求はありません"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "ユーザーに送信されるメール"
+
+msgid "editor.submission.proof.reminder"
+msgstr "校正リマインド"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"原稿整理されたファイルは、制作ステージ階に移る前に承認される必要があります。"
+"このファイルを承認しますか？"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"この原稿整理されたファイルを不承認にすると、制作ステージに送ることができなく"
+"なります。このファイルを非承認にしますか？"
+
+msgid "editor.submission.addAuditor"
+msgstr "監査役の任命"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"投稿段階ですでにアップロードされているファイルは、下の「含める」チェックボッ"
+"クスにチェックを入れて「検索」をクリックすると、利用可能なファイルがすべて表"
+"示され、含めるファイルを選択することができます。まだアップロードされていない"
+"ファイルは、「ファイルをアップロード」リンクをクリックすることで一覧に追加で"
+"きます。"
+
+msgid "editor.review"
+msgstr "査読"
+
+msgid "editor.review.reviewDetails"
+msgstr "査読詳細"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "アップロードファイルなし"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "査読ファイルがアップロードされていません。"
+
+msgid "editor.review.emailReviewer"
+msgstr "査読者へのメール"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "制作準備完了ファイル"
+
+msgid "editor.submission.newRound"
+msgstr "新規査読ラウンド"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "編集者判断の記録"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "編集査読結果の記録"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "編集者への通知"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "編集者にメールを送らないでください。"
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "この査読結果について、査読ディスカッションを作成します。"
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "査読ディスカッションを作成しないでください。"
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"この投稿に対して、新しい査読ラウンドを作成しようとしています。 他のレビューラ"
+"ウンドで使用されていないファイルを以下に示します。"
+
+msgid "editor.submission.createNewRound"
+msgstr "新しい査読ラウンドの作成"
+
+msgid "editor.article.reviewForms"
+msgstr "査読フォーム"
+
+msgid "editor.article.selectReviewForm"
+msgstr "査読フォームの作成"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"注意：査読フォームを変更すると、査読者がこのフォームを使って行った回答に影響"
+"します。本当に続けてよろしいですか？"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "選択ファイルなし"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "査読者が査読するファイルが選択されていません。"
+
+msgid "submission.queries.subjectRequired"
+msgstr "議論のテーマが必要です。"
+
+msgid "submission.queries.messageRequired"
+msgstr "討論メッセージが必要です。"
+
+msgid "submission.queries.attachedFiles"
+msgstr "添付ファイル"
+
+msgid "grid.action.editQuery"
+msgstr "ディスカッションの編集"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr "この議論に必要なファイルは、以下のリストから添付できます。"
+
+msgid "editor.submission.selectedReviewer"
+msgstr "選ばれた査読者"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "校正を承認する"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "校正承認の取り消し"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr "校正を承認すると、校正が完了し、ファイルの公開が可能になります。"
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"校正の承認を取り消すと、校正が完了しておらず、ファイルを公開する準備ができて"
+"いないことになります。"
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "この投稿を拒否する決定を覆してもいいのでしょうか？"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "公開識別子 '{$publicIdentifier}' は、数字であってはなりません。"
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "公開識別子にパターン {$pattern} は使用できません。"
+
+msgid "reviewer.list.filterRating"
+msgstr "最低限の評価"
+
+msgid "reviewer.list.activeReviews"
+msgstr "アクティブ {$count}"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "現在任命されているアクティブな査読"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
+
+msgid "reviewer.list.completedReviews"
+msgstr "査読完了"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "査読依頼の辞退"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "査読依頼のキャンセル"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "査読者評価: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "{$days} 日前"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "昨日"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "前回の査読がされてからの日数"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "査読完了までの平均日数"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "割り当てなし"
+
+msgid "reviewer.list.reassign"
+msgstr "再任命"
+
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "査読者はすでにこの投稿の査読に割り当てられています。"
+
+msgid "reviewer.list.warnOnAssign"
+msgstr ""
+"査読者は、著者の個人情報を閲覧できる役割を割り当てられているため、ロックされ"
+"ています。匿名での査読が保証されません。この査読者のロックを解除したいです"
+"か？"
+
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "解除"
+
+msgid "reviewer.list.reviewInterests"
+msgstr "査読の興味"
+
+msgid "reviewer.list.biography"
+msgstr "経歴"
+
+msgid "reviewer.list.empty"
+msgstr "査読者が見つかりませんでした"
+
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
+msgstr ""
+
+msgid "editor.decision.cancelDecision"
+msgstr ""
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr ""
+
+msgid "editor.decision.completeSteps"
+msgstr ""
+
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
+
+msgid "editor.decision.emailSkipped"
+msgstr ""
+
+msgid "editor.decision.recordDecision"
+msgstr ""
+
+msgid "editor.decision.skipEmail"
+msgstr ""
+
+msgid "editor.decision.stepError"
+msgstr ""

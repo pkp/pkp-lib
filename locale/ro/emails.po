@@ -13,6 +13,29 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
+msgid "emails.submissionAck.subject"
+msgstr "Mulțumiri pentru înregistrarea manuscrisului"
+
+#, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Vă mulțumim pentru înregistrarea manuscrisului, &quot;{$submissionTitle}"
+"&quot; la {$contextName}. Cu ajutorul sistemul de gestionare online a "
+"jurnalului pe care îl utilizăm, puteți urmări progresul manuscrisului prin "
+"procesul editorial, conectându-vă pe site-ul revistei:<br />\n"
+"<br />\n"
+"URL înregistrare manuscris: {$submissionUrl}<br />\n"
+"Nume utilizator: {$recipientUsername}<br />\n"
+"<br />\n"
+"Dacă aveți întrebări, vă rugăm să ne contactați. Vă mulțumim pentru că ați "
+"considerat acest jurnal un loc de desfășurare a activității dumneavoastră."
+"<br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
 msgid "emails.submissionAck.description"
 msgstr ""
 "Acest e-mail, atunci când este activat, este trimis automat unui autor "
@@ -21,47 +44,34 @@ msgstr ""
 "autorului pentru depunere."
 
 #, fuzzy
-msgid "emails.submissionAck.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Vă mulțumim pentru înregistrarea manuscrisului, "
-"&quot;{$submissionTitle}&quot; la {$contextName}. Cu ajutorul sistemul de "
-"gestionare online a jurnalului pe care îl utilizăm, puteți urmări progresul "
-"manuscrisului prin procesul editorial, conectându-vă pe site-ul revistei:<br "
-"/>\n"
-"<br />\n"
-"URL înregistrare manuscris: {$submissionUrl}<br />\n"
-"Nume utilizator: {$recipientUsername}<br />\n"
-"<br />\n"
-"Dacă aveți întrebări, vă rugăm să ne contactați. Vă mulțumim pentru că ați "
-"considerat acest jurnal un loc de desfășurare a activității dumneavoastră.<"
-"br />\n"
-"<br />\n"
-"{$contextSignature}"
-
-#, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "Mulțumiri pentru înregistrarea manuscrisului"
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr ""
-"Acest e-mail este trimis de un editor de secțiune pentru a confirma primirea "
-"unei evaluări finalizate și pentru a mulțumi revizorului pentru contribuția "
-"sa."
+msgid "emails.reviewAck.subject"
+msgstr "Recunoaștere revizuire articol"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Vă mulțumim pentru finalizarea reviziei manuscrisului, "
-"&quot;{$submissionTitle},&quot; pentru {$contextName}. Apreciem contribuția "
-"dvs. semnificativă la calitatea revistei pe care o publicăm."
+"Vă mulțumim pentru finalizarea reviziei manuscrisului, &quot;"
+"{$submissionTitle},&quot; pentru {$contextName}. Apreciem contribuția dvs. "
+"semnificativă la calitatea revistei pe care o publicăm."
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "Recunoaștere revizuire articol"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decizia Editorului"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -75,8 +85,9 @@ msgstr ""
 "URL manuscris: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decizia Editorului"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -88,8 +99,9 @@ msgstr ""
 "URL manuscris: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decizia Editorului"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -101,8 +113,9 @@ msgstr ""
 "Decizia noastră este: Este necesară revizuirea manuscrisului"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decizia Editorului"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -114,8 +127,9 @@ msgstr ""
 "Decizia noastră este: Reînregistrare pentru revizie"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Decizia Editorului"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -126,19 +140,21 @@ msgstr ""
 "<br />\n"
 "Decizia noastră este: Manuscrisul nu este acceptat"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Decizia Editorului"
+msgid "emails.editorRecommendation.subject"
+msgstr "Recomandarea editorului"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Recomandarea noastră cu privire la manuscrisul {$contextName}, "
-"&quot;{$submissionTitle}&quot; este: {$recommendation}"
+"Recomandarea noastră cu privire la manuscrisul {$contextName}, &quot;"
+"{$submissionTitle}&quot; este: {$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Recomandarea editorului"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Solicitare editare"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
@@ -158,9 +174,24 @@ msgstr ""
 "Adresă manuscris: {$submissionUrl}<br />\n"
 "Nume de utilizator: {$recipientUsername}"
 
-#, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Solicitare editare"
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Decizia editorului"
@@ -176,12 +207,106 @@ msgstr ""
 "<br />\n"
 "Decizia noastră este: Manuscrisul nu este acceptat"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 #, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Un mesaj cu privire la {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Vă rugăm să introduceți mesajul dvs."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Bun de revizuit"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editorilor:<br />\n"
+"<br />\n"
+"Sunt dispus să revizuiesc manuscrisul, &quot;{$submissionTitle},&quot; "
+"pentru {$contextName}. Vă mulțumesc că v-ați gândit la mine și intenționez "
+"să finalizez examinarea până la data scadenței, {$reviewDueDate}, dacă nu, "
+"chiar mai repede.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmarea înregistrării manuscrisului"
@@ -201,17 +326,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editorilor:<br />\n"
-"<br />\n"
-"Sunt dispus să revizuiesc manuscrisul, &quot;{$submissionTitle},&quot; "
-"pentru {$contextName}. Vă mulțumesc că v-ați gândit la mine și intenționez "
-"să finalizez examinarea până la data scadenței, {$reviewDueDate}, dacă nu, "
-"chiar mai repede.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Bun de revizuit"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Acest e-mail este trimis de un editor de secțiune pentru a confirma "
+#~ "primirea unei evaluări finalizate și pentru a mulțumi revizorului pentru "
+#~ "contribuția sa."

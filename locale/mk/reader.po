@@ -11,70 +11,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "comments.anonymous"
+msgstr "Анонимен корисник"
+
 msgid "comments.anonymousNamed"
 msgstr "\"{$userName}\""
 
-msgid "comments.nReplies"
-msgstr "({$num} Replies)"
+msgid "comments.body"
+msgstr "Тело"
 
-msgid "reader.fullText"
-msgstr "Целиот текст:"
-
-msgid "comments.viewAllComments"
-msgstr "Види ги сите коментари"
-
-msgid "comments.title"
-msgstr "Наслов"
-
-msgid "comments.replies"
-msgstr "Одговори"
-
-msgid "comments.readMore"
-msgstr "Прочитај повеќе"
-
-msgid "comments.readerComments"
-msgstr "Коментари од читатели"
-
-msgid "comments.postReply"
-msgstr "Постирја одговор"
-
-msgid "comments.postAnonymously"
-msgstr "Постирај го овој коментар анонимно"
-
-msgid "comments.oneReply"
-msgstr "(1 одговор)"
-
-msgid "comments.noComments"
-msgstr "Нема постирано коментари од читатели."
-
-msgid "comments.name"
-msgstr "Име на испраќачот"
-
-msgid "comments.inResponseTo"
-msgstr "Во одговор на <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Внеси коментар"
-
-msgid "comments.emailReply"
-msgstr "Одговори со имејл"
-
-msgid "comments.email"
-msgstr "Имејл на испраќачот"
-
-msgid "comments.delete"
-msgstr "Избришете го коментарот"
+msgid "comments.titleRequired"
+msgstr "Потребен е наслов на коментарот."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Бришењето на овој коментар ќе ги избрише сите одговори на истиот. Дали сте "
 "сигурни дека сакате да го направите ова?"
 
-msgid "comments.titleRequired"
-msgstr "Потребен е наслов на коментарот."
+msgid "comments.delete"
+msgstr "Избришете го коментарот"
 
-msgid "comments.body"
-msgstr "Тело"
+msgid "comments.email"
+msgstr "Имејл на испраќачот"
 
-msgid "comments.anonymous"
-msgstr "Анонимен корисник"
+msgid "comments.emailReply"
+msgstr "Одговори со имејл"
+
+msgid "comments.enterComment"
+msgstr "Внеси коментар"
+
+msgid "comments.inResponseTo"
+msgstr "Во одговор на <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Име на испраќачот"
+
+msgid "comments.noComments"
+msgstr "Нема постирано коментари од читатели."
+
+msgid "comments.nReplies"
+msgstr "({$num} Replies)"
+
+msgid "comments.oneReply"
+msgstr "(1 одговор)"
+
+msgid "comments.postAnonymously"
+msgstr "Постирај го овој коментар анонимно"
+
+msgid "comments.postReply"
+msgstr "Постирја одговор"
+
+msgid "comments.readerComments"
+msgstr "Коментари од читатели"
+
+msgid "comments.readMore"
+msgstr "Прочитај повеќе"
+
+msgid "comments.replies"
+msgstr "Одговори"
+
+msgid "comments.title"
+msgstr "Наслов"
+
+msgid "comments.viewAllComments"
+msgstr "Види ги сите коментари"
+
+msgid "reader.fullText"
+msgstr "Целиот текст:"

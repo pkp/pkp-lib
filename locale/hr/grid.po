@@ -15,6 +15,180 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "grid.noItems"
+msgstr "Nema stavaka"
+
+msgid "grid.settings"
+msgstr "Postavke"
+
+msgid "grid.noAuditors"
+msgstr "Nema revizora"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ova je stavka udaljena."
+
+msgid "grid.action.uninstall"
+msgstr "Deinstalirati"
+
+msgid "grid.action.manageAccess"
+msgstr "Upravljanje pristupom"
+
+msgid "grid.action.sort"
+msgstr "vrsta"
+
+msgid "grid.action.addItem"
+msgstr "Dodaj Predmet"
+
+msgid "grid.action.addNote"
+msgstr "dodaj bilješku"
+
+msgid "grid.action.addQuery"
+msgstr "Dodajte raspravu"
+
+msgid "grid.action.readQuery"
+msgstr "Pročitajte raspravu"
+
+msgid "grid.action.deleteQuery"
+msgstr "Izbriši raspravu"
+
+msgid "grid.action.updateQuery"
+msgstr "Ažurirajte raspravu"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj korisnika"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Poništi dodjelu ovog recenzenta"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Odobrite ovu kopiranu datoteku za uređivanje za slanje u sljedeću fazu"
+
+msgid "grid.action.reload"
+msgstr "Ponovno učitati"
+
+msgid "grid.action.delete"
+msgstr "Izbrisati"
+
+msgid "grid.action.deleteFile"
+msgstr "Izbrisati dateoteku"
+
+msgid "grid.action.deleteMedia"
+msgstr "Izbrisati medije"
+
+msgid "grid.action.editMedia"
+msgstr "Uredi medije"
+
+msgid "grid.action.editSection"
+msgstr "Uredi odjeljak"
+
+msgid "grid.action.export"
+msgstr "Izvoz"
+
+msgid "grid.action.deleteSection"
+msgstr "Izbriši odjeljak"
+
+msgid "grid.action.editorialHistory"
+msgstr "Povijest uredništva"
+
+msgid "grid.action.remove"
+msgstr "Ukloniti"
+
+msgid "grid.action.edit"
+msgstr "Urediti"
+
+msgid "grid.action.approve"
+msgstr "Odobriti"
+
+msgid "grid.action.disapprove"
+msgstr "Ne odobravam"
+
+msgid "grid.action.setApproval"
+msgstr "Postavi odobrenje"
+
+msgid "grid.action.moreInformation"
+msgstr "Više informacija"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Vratiti zadane"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Jeste li sigurni da želite vratiti zadane postavke?"
+
+msgid "grid.action.addAuthor"
+msgstr "Dodati autora"
+
+msgid "grid.action.editAuthor"
+msgstr "Urediti autora"
+
+msgid "grid.action.deleteAuthor"
+msgstr "Izbrisati autora"
+
+msgid "grid.action.addAuditor"
+msgstr "Dodati auditorij"
+
+msgid "grid.action.upgrade"
+msgstr "Nadogradnja"
+
+msgid "grid.action.order"
+msgstr "Redoslijed"
+
+msgid "grid.action.saveOrdering"
+msgstr "Spremi redoslijed"
+
+msgid "grid.action.cancelOrdering"
+msgstr "Otkaži izmjenu redoslijeda"
+
+msgid "grid.action.extendAll"
+msgstr "Proširi sve"
+
+msgid "grid.action.collapse"
+msgstr "Kolaps"
+
+msgid "grid.action.collapseAll"
+msgstr "Sažmi sve"
+
+msgid "grid.action.wizard"
+msgstr "Čarobnjak za postavke"
+
+msgid "grid.action.moveItem"
+msgstr "Premjesti stavku"
+
+msgid "grid.action.downloadAll"
+msgstr "Preuzmite sve datoteke kao arhivu"
+
+msgid "grid.action.readReview"
+msgstr "Pročitajte ovu recenziju"
+
+msgid "grid.action.email"
+msgstr "Poslati mejl"
+
+msgid "grid.action.addReviewer"
+msgstr "Dodajte recenzenta"
+
+msgid "grid.action.addFile"
+msgstr "Dodajte datoteku"
+
+msgid "grid.action.editFile"
+msgstr "Uredite datoteku"
+
+msgid "grid.action.selectFiles"
+msgstr "Odaberite datoteke za upravljanje"
+
+msgid "grid.action.requestRevisions"
+msgstr "Zatražite revizije za ovaj podnesak"
+
+msgid "grid.action.accept"
+msgstr "Prihvati ovu prijavu"
+
+msgid "grid.action.decline"
+msgstr "Odbijte ovaj podnesak"
+
+msgid "grid.action.internalReview"
+msgstr "Pošaljite ovaj podnesak na interni pregled"
+
+msgid "grid.action.externalReview"
+msgstr "Pošaljite ovaj podnesak na vanjski pregled"
+
 msgid "grid.action.sendToProduction"
 msgstr "Pošalji ovaj podnesak u produkciju"
 
@@ -33,32 +207,14 @@ msgstr "Vrati sve stavke na zadane vrijednosti"
 msgid "grid.action.addPreparedEmail"
 msgstr "Dodaj novi predložak e-pošte"
 
+msgid "grid.action.editPreparedEmail"
+msgstr "Uredi ovaj predložak e-pošte"
+
 msgid "grid.action.disableEmail"
 msgstr "Onemogući ovaj predložak e-pošte"
 
 msgid "grid.action.resetEmail"
 msgstr "Vrati ovaj predložak e-pošte na zadane vrijednosti"
-
-msgid "grid.action.disable"
-msgstr "Onemogući"
-
-msgid "grid.action.details"
-msgstr "Pogledaj ovu stavku"
-
-msgid "grid.action.enrolExisting"
-msgstr "Upiši postojećeg korisnika kao recenzenta"
-
-msgid "grid.action.selectCreate"
-msgstr "Stvori novog recenzenta"
-
-msgid "grid.action.search"
-msgstr "Traži"
-
-msgid "grid.action.advancedSearch"
-msgstr "Napredno pretraživanje"
-
-msgid "grid.action.viewLibrary"
-msgstr "Pogledaj biblioteku dokumenata"
 
 msgid "grid.action.expandAll"
 msgstr "Otvori sve"
@@ -80,6 +236,27 @@ msgstr "Uredi ovu grupu korisnika"
 
 msgid "grid.action.removeUserGroup"
 msgstr "Ukloni ovu grupu korisnika"
+
+msgid "grid.action.disable"
+msgstr "Onemogući"
+
+msgid "grid.action.details"
+msgstr "Pogledaj ovu stavku"
+
+msgid "grid.action.enrolExisting"
+msgstr "Upiši postojećeg korisnika kao recenzenta"
+
+msgid "grid.action.selectCreate"
+msgstr "Stvori novog recenzenta"
+
+msgid "grid.action.search"
+msgstr "Traži"
+
+msgid "grid.action.advancedSearch"
+msgstr "Napredno pretraživanje"
+
+msgid "grid.action.viewLibrary"
+msgstr "Pogledaj biblioteku dokumenata"
 
 msgid "grid.action.viewMetadata"
 msgstr "Pogledaj metapodatke za ovaj podnesak"
@@ -265,6 +442,9 @@ msgstr "Biblioteka recenzija"
 msgid "grid.libraryFiles.production.title"
 msgstr "Biblioteka produkcije"
 
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteka produkcijskih predložaka"
+
 msgid "grid.submissionChecklist.title"
 msgstr "Popis podnesaka"
 
@@ -280,6 +460,11 @@ msgstr "Postavi glavni kontakt"
 msgid "contributor.listPanel.preview"
 msgstr "Pregled"
 
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Suradnici ove publikacije bit će navedeni u ovom časopisu u sljedećim "
+"formatima."
+
 msgid "contributor.listPanel.preview.format"
 msgstr "Format"
 
@@ -292,223 +477,8 @@ msgstr "Skraćeno"
 msgid "contributor.listPanel.preview.publicationLists"
 msgstr "Popisi publikacija"
 
-msgid "grid.action.editPreparedEmail"
-msgstr "Uredi ovaj predložak e-pošte"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Biblioteka produkcijskih predložaka"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Suradnici ove publikacije bit će navedeni u ovom časopisu u sljedećim "
-"formatima."
-
 msgid "contributor.listPanel.preview.full"
 msgstr "potpuno"
-
-msgid "grid.action.extendAll"
-msgstr "Proširi sve"
-
-msgid "grid.user.mustChangePasswordDescription"
-msgstr "Korisnik mora promijeniti lozinku prilikom sljedeće prijave."
-
-msgid "grid.user.pleaseSelectUser"
-msgstr "Odaberite korisnika"
-
-msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr "Spojite se s ovim korisnikom"
-
-msgid "grid.user.mergeUsers.confirm"
-msgstr ""
-"Jeste li sigurni da želite spojiti račun s korisničkim imenom \""
-"{$oldUsername}\" u račun s korisničkim imenom \"{$newUsername}\"? Račun s "
-"korisničkim imenom \"{$oldUsername}\" nakon toga neće postojati. Ova se "
-"radnja ne može poništiti."
-
-msgid "grid.preparedEmails.currentList"
-msgstr "Trenutni popis"
-
-msgid "grid.plugin.disable"
-msgstr "Jeste li sigurni da želite onemogućiti ovaj dodatak?"
-
-msgid "grid.userGroup.filter.listRoles"
-msgstr "Popis uloga dodijeljenih"
-
-msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr ""
-"Nije moguće ukloniti ulogu {$userGroupName}. Trenutačno mu je dodijeljeno "
-"{$usersCount} korisnika."
-
-msgid "grid.noItems"
-msgstr "Nema stavaka"
-
-msgid "grid.settings"
-msgstr "Postavke"
-
-msgid "grid.noAuditors"
-msgstr "Nema revizora"
-
-msgid "grid.remotelyHostedItem"
-msgstr "Ova je stavka udaljena."
-
-msgid "grid.action.uninstall"
-msgstr "Deinstalirati"
-
-msgid "grid.action.manageAccess"
-msgstr "Upravljanje pristupom"
-
-msgid "grid.action.sort"
-msgstr "vrsta"
-
-msgid "grid.action.addItem"
-msgstr "Dodaj Predmet"
-
-msgid "grid.action.addNote"
-msgstr "dodaj bilješku"
-
-msgid "grid.action.addQuery"
-msgstr "Dodajte raspravu"
-
-msgid "grid.action.readQuery"
-msgstr "Pročitajte raspravu"
-
-msgid "grid.action.deleteQuery"
-msgstr "Izbriši raspravu"
-
-msgid "grid.action.updateQuery"
-msgstr "Ažurirajte raspravu"
-
-msgid "grid.action.addUser"
-msgstr "Dodaj korisnika"
-
-msgid "grid.action.unassignReviewer"
-msgstr "Poništi dodjelu ovog recenzenta"
-
-msgid "grid.action.approveCopyedit"
-msgstr "Odobrite ovu kopiranu datoteku za uređivanje za slanje u sljedeću fazu"
-
-msgid "grid.action.reload"
-msgstr "Ponovno učitati"
-
-msgid "grid.action.delete"
-msgstr "Izbrisati"
-
-msgid "grid.action.deleteFile"
-msgstr "Izbrisati dateoteku"
-
-msgid "grid.action.deleteMedia"
-msgstr "Izbrisati medije"
-
-msgid "grid.action.editMedia"
-msgstr "Uredi medije"
-
-msgid "grid.action.editSection"
-msgstr "Uredi odjeljak"
-
-msgid "grid.action.export"
-msgstr "Izvoz"
-
-msgid "grid.action.deleteSection"
-msgstr "Izbriši odjeljak"
-
-msgid "grid.action.editorialHistory"
-msgstr "Povijest uredništva"
-
-msgid "grid.action.remove"
-msgstr "Ukloniti"
-
-msgid "grid.action.edit"
-msgstr "Urediti"
-
-msgid "grid.action.approve"
-msgstr "Odobriti"
-
-msgid "grid.action.disapprove"
-msgstr "Ne odobravam"
-
-msgid "grid.action.setApproval"
-msgstr "Postavi odobrenje"
-
-msgid "grid.action.moreInformation"
-msgstr "Više informacija"
-
-msgid "grid.action.restoreDefaults"
-msgstr "Vratiti zadane"
-
-msgid "grid.action.restoreDefaults.confirm"
-msgstr "Jeste li sigurni da želite vratiti zadane postavke?"
-
-msgid "grid.action.addAuthor"
-msgstr "Dodati autora"
-
-msgid "grid.action.editAuthor"
-msgstr "Urediti autora"
-
-msgid "grid.action.deleteAuthor"
-msgstr "Izbrisati autora"
-
-msgid "grid.action.addAuditor"
-msgstr "Dodati auditorij"
-
-msgid "grid.action.upgrade"
-msgstr "Nadogradnja"
-
-msgid "grid.action.order"
-msgstr "Redoslijed"
-
-msgid "grid.action.saveOrdering"
-msgstr "Spremi redoslijed"
-
-msgid "grid.action.cancelOrdering"
-msgstr "Otkaži izmjenu redoslijeda"
-
-msgid "grid.action.collapse"
-msgstr "Kolaps"
-
-msgid "grid.action.collapseAll"
-msgstr "Sažmi sve"
-
-msgid "grid.action.wizard"
-msgstr "Čarobnjak za postavke"
-
-msgid "grid.action.moveItem"
-msgstr "Premjesti stavku"
-
-msgid "grid.action.downloadAll"
-msgstr "Preuzmite sve datoteke kao arhivu"
-
-msgid "grid.action.readReview"
-msgstr "Pročitajte ovu recenziju"
-
-msgid "grid.action.email"
-msgstr "Poslati mejl"
-
-msgid "grid.action.addReviewer"
-msgstr "Dodajte recenzenta"
-
-msgid "grid.action.addFile"
-msgstr "Dodajte datoteku"
-
-msgid "grid.action.editFile"
-msgstr "Uredite datoteku"
-
-msgid "grid.action.selectFiles"
-msgstr "Odaberite datoteke za upravljanje"
-
-msgid "grid.action.requestRevisions"
-msgstr "Zatražite revizije za ovaj podnesak"
-
-msgid "grid.action.accept"
-msgstr "Prihvati ovu prijavu"
-
-msgid "grid.action.decline"
-msgstr "Odbijte ovaj podnesak"
-
-msgid "grid.action.internalReview"
-msgstr "Pošaljite ovaj podnesak na interni pregled"
-
-msgid "grid.action.externalReview"
-msgstr "Pošaljite ovaj podnesak na vanjski pregled"
 
 msgid "grid.roles.currentRoles"
 msgstr "Trenutne uloge"
@@ -590,6 +560,9 @@ msgstr "Pošaljite korisniku poruku dobrodošlice."
 msgid "grid.user.mustChangePassword"
 msgstr "Promjena lozinke"
 
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "Korisnik mora promijeniti lozinku prilikom sljedeće prijave."
+
 msgid "grid.user.mustChangePasswordDescriptionOld"
 msgstr ""
 "Zahtijevati od korisnika da promijeni svoju lozinku sljedeći put kada se "
@@ -625,6 +598,9 @@ msgstr "Dodaj ulogu"
 msgid "grid.user.selectUser"
 msgstr "Odaberite Korisnik"
 
+msgid "grid.user.pleaseSelectUser"
+msgstr "Odaberite korisnika"
+
 msgid "grid.user.confirmLogInAs"
 msgstr ""
 "Prijaviti se kao ovaj korisnik? Sve radnje koje izvršite bit će pripisane "
@@ -636,14 +612,30 @@ msgstr "Spoji korisnike"
 msgid "grid.user.mergeUsers.mergeUser"
 msgstr "Spoji korisnika"
 
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "Spojite se s ovim korisnikom"
+
 msgid "grid.user.mergeUsers.allUsers"
 msgstr "Svi upisani korisnici"
+
+msgid "grid.user.mergeUsers.confirm"
+msgstr ""
+"Jeste li sigurni da želite spojiti račun s korisničkim imenom "
+"\"{$oldUsername}\" u račun s korisničkim imenom \"{$newUsername}\"? Račun s "
+"korisničkim imenom \"{$oldUsername}\" nakon toga neće postojati. Ova se "
+"radnja ne može poništiti."
 
 msgid "grid.preparedEmails.title"
 msgstr "Pripremljeni predlošci e-pošte"
 
+msgid "grid.preparedEmails.currentList"
+msgstr "Trenutni popis"
+
 msgid "grid.plugin.allCategories"
 msgstr "sve kategorije"
+
+msgid "grid.plugin.disable"
+msgstr "Jeste li sigurni da želite onemogućiti ovaj dodatak?"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Ispravci su napravljeni. Možete odustati od ovog zadatka"
@@ -675,11 +667,19 @@ msgstr "Poništi dodjelu faze"
 msgid "grid.userGroup.allStages"
 msgstr "Sve faze tijeka rada"
 
+msgid "grid.userGroup.filter.listRoles"
+msgstr "Popis uloga dodijeljenih"
+
 msgid "grid.userGroup.filter.permissionLevel"
 msgstr "S razinom dopuštenja postavljenom na"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr "Uloga {$userGroupName} je zadana i ne može se ukloniti."
+
+msgid "grid.userGroup.cantRemoveUserGroup"
+msgstr ""
+"Nije moguće ukloniti ulogu {$userGroupName}. Trenutačno mu je dodijeljeno "
+"{$usersCount} korisnika."
 
 msgid "grid.userGroup.removed"
 msgstr "Uloga {$userGroupName} uklonjena."

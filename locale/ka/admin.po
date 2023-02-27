@@ -12,47 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.installLocales"
-msgstr "დაყენება"
-
-msgid "admin.languages.languageSettings"
-msgstr "ენის პარამეტრები"
-
-msgid "admin.server.phpVersion"
-msgstr "PHP ვერსია"
-
-msgid "admin.settings"
-msgstr "პარამეტრები"
-
-msgid "admin.settings.introduction"
-msgstr "გაცნობითი ხასიათის შესავალი"
-
-msgid "admin.settings.siteTitle"
-msgstr "საიტის სახელი"
-
-msgid "admin.versionBuild"
-msgstr "ანაწყობი"
-
-msgid "admin.version.downloadPackage"
-msgstr "ჩამოტვირთვა"
-
-msgid "admin.versionMajor"
-msgstr "ძირითადი"
-
-msgid "admin.versionMinor"
-msgstr "მცირე"
-
-msgid "admin.versionRevision"
-msgstr "ვერსია"
-
-msgid "admin.version"
-msgstr "ვერსია"
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"თქვენი {$softwareName}-ის ინსტალაცია ავტომატურად სრულდება და ამ დავალებას "
-"ასრულებს და შეგიძლიათ ჩამოტვირთოთ ჟურნალი: {$url}"
-
 msgid "admin.systemInfo.settingName"
 msgstr "პარამეტრის სახელი"
 
@@ -61,6 +20,13 @@ msgstr "პარამეტრის მნიშვნელობა"
 
 msgid "admin.adminFunctions"
 msgstr "ადმინისტრაციული ფუნქციები"
+
+msgid "admin.deleteCache"
+msgstr "ქეშების წაშლა"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"წაშალეთ ქეში ფაილები სისტემიდან. ეს უნდა გაკეთდეს მხოლოდ შუალედურ გარემოში."
 
 msgid "admin.clearDataCache"
 msgstr "მონაცემთა კეშის წაშლა"
@@ -75,7 +41,8 @@ msgstr ""
 "ხელით გამოსწორება <tt>config.inc.php</tt>-ის რედაქტირებით."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "დარწმუნებული ხართ, რომ გსურთ შეადგინოთ შედგენილი შაბლონების მეხსიერება?"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ შეადგინოთ შედგენილი შაბლონების მეხსიერება?"
 
 msgid "admin.confirmExpireSessions"
 msgstr ""
@@ -110,6 +77,11 @@ msgstr "ახალი კონფიგურაციის ჩვენე�
 msgid "admin.expireSessions"
 msgstr "მომხმარებლის სესიების ამოწურვა"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+"ყველა მომხმარებელი დაუყოვნებლივ გამოვა აპლიკაციიდან, მათ შორის თქვენც, და "
+"დაგჭირდებათ ხელახლა შესვლა."
+
 msgid "admin.languages.cantDisable"
 msgstr ""
 "ეს ენა არის საიტის ძირითადი ენა. თქვენ არ შეგიძლიათ გამორთოთ მანამ, სანამ არ "
@@ -138,8 +110,14 @@ msgstr "ხელმისაწვდომი ენები"
 msgid "admin.languages.installLocale"
 msgstr "ენის დაყენება"
 
+msgid "admin.languages.installLocales"
+msgstr "დაყენება"
+
 msgid "admin.languages.installNewLocales"
 msgstr "ახალი ენების დაყენება"
+
+msgid "admin.languages.languageSettings"
+msgstr "ენის პარამეტრები"
 
 msgid "admin.languages.noLocalesAvailable"
 msgstr "დამატებითი ენები ხელმისაწვდომი არ არის ინსტალაციისთვის."
@@ -165,11 +143,36 @@ msgstr "დავალების პროცესი შეჩერებ�
 msgid "admin.scheduledTask.noLog"
 msgstr "ამოცანამ არ შექმნა ჟურნალი."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "შეიტანეთ DOI კონფიგურირებული სარეგისტრაციო სააგენტოში"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"თქვენი {$softwareName}-ის ინსტალაცია ავტომატურად სრულდება და ამ დავალებას "
+"ასრულებს და შეგიძლიათ ჩამოტვირთოთ ჟურნალი: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "ნამდვილად გსურთ წაშალოთ დაგეგმილი დავალებების შესრულების ყველა ჟურნალი?"
+msgstr ""
+"ნამდვილად გსურთ წაშალოთ დაგეგმილი დავალებების შესრულების ყველა ჟურნალი?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "დავალებების შესრულების დაგეგმილი ჟურნალების გასუფთავება"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"წაშალეთ დაგეგმილი ამოცანების პროცესების ყველა ჟურნალი, რომელიც გაშვებულია."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "ამოცანების ჟურნალის წაშლა"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "დაგეგმილი შენატანის გამოქვეყნება"
@@ -177,8 +180,80 @@ msgstr "დაგეგმილი შენატანის გამოქ�
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "მიმოხილვის შეხსენება"
 
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "სარედაქციო ანგარიშის შეტყობინება"
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "გამოწერის დასრულების ვადის შეხსენება"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-ის ვერსია"
@@ -192,8 +267,14 @@ msgstr "მონაცემთა ბაზის სერვერის ვ
 msgid "admin.serverInformation"
 msgstr "ინფორმაცია სერვერის შესახებ"
 
+msgid "admin.server.phpVersion"
+msgstr "PHP ვერსია"
+
 msgid "admin.server.platform"
 msgstr "საოპერაციო სისტემის პლათფორმა"
+
+msgid "admin.settings"
+msgstr "პარამეტრები"
 
 msgid "admin.settings.about"
 msgstr "ამ საიტის შესახებ"
@@ -206,6 +287,9 @@ msgstr "ძირითადი კონტაქტის ელფოსტ�
 
 msgid "admin.settings.contactName"
 msgstr "ძირითადი კონტაქტის სახელი"
+
+msgid "admin.settings.introduction"
+msgstr "გაცნობითი ხასიათის შესავალი"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "პაროლის მინიმალური სიგრძე (სიმბოლოები)"
@@ -231,6 +315,9 @@ msgstr "საიტის სტილთა ცხრილი"
 msgid "admin.settings.siteLogo"
 msgstr "საიტის ლოგო"
 
+msgid "admin.settings.siteTitle"
+msgstr "საიტის სახელი"
+
 msgid "admin.settings.siteTheme"
 msgstr "საიტის თემა"
 
@@ -254,8 +341,22 @@ msgstr ""
 msgid "admin.systemInformation"
 msgstr "სისტემური ინფორმაცია"
 
+msgid "admin.systemInformation.description"
+msgstr ""
+"იხილეთ ინფორმაცია აპლიკაციისა და სერვერის ვერსიისა და კონფიგურაციის "
+"პარამეტრების შესახებ."
+
+msgid "admin.systemInformation.view"
+msgstr "სისტემის ინფორმაციის ნახვა"
+
+msgid "admin.versionBuild"
+msgstr "ანაწყობი"
+
 msgid "admin.version.checkForUpdates"
 msgstr "განახლებების შემოწმება"
+
+msgid "admin.version.downloadPackage"
+msgstr "ჩამოტვირთვა"
 
 msgid "admin.version.downloadPatch"
 msgstr "კემსის ჩამოტვირთვა"
@@ -266,14 +367,26 @@ msgstr "ვერსიების ისტორია"
 msgid "admin.version.latest"
 msgstr "უახლესი ვერსია"
 
+msgid "admin.versionMajor"
+msgstr "ძირითადი"
+
+msgid "admin.versionMinor"
+msgstr "მცირე"
+
 msgid "admin.version.moreInfo"
 msgstr "Მეტი ინფორმაცია"
+
+msgid "admin.versionRevision"
+msgstr "ვერსია"
 
 msgid "admin.version.updateAvailable"
 msgstr "განახლებული ვერსია ხელმისაწვდომია"
 
 msgid "admin.version.upToDate"
 msgstr "თქვენი სისტემა განახლებულია"
+
+msgid "admin.version"
+msgstr "ვერსია"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "ძირითადი გზა {$path} უნდა იყოს საჯარო ფაილების დირექტორიაში."
@@ -283,8 +396,8 @@ msgstr "საქაღალდე {$path} არ არის დირექ�
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
-"ფაილი {$filename} ვერ გადაადგილდა {$currentFilePath}-დან "
-"{$destinationPath}-ში"
+"ფაილი {$filename} ვერ გადაადგილდა {$currentFilePath}-დან {$destinationPath}-"
+"ში"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "დამუშავდა და დაარქივდა ფაილი {$filename}."
@@ -292,41 +405,50 @@ msgstr "დამუშავდა და დაარქივდა ფაი
 msgid "admin.fileLoader.emailSubject"
 msgstr "ფაილის ჩამტვირთველი"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "ჩამოსატვირთად ხელმისაწვდომი ენები არ არის."
-
-msgid "admin.deleteCache"
-msgstr "ქეშების წაშლა"
-
-msgid "admin.deleteCache.description"
-msgstr ""
-"წაშალეთ ქეში ფაილები სისტემიდან. ეს უნდა გაკეთდეს მხოლოდ შუალედურ გარემოში."
-
-msgid "admin.expireSessions.description"
-msgstr ""
-"ყველა მომხმარებელი დაუყოვნებლივ გამოვა აპლიკაციიდან, მათ შორის თქვენც, და "
-"დაგჭირდებათ ხელახლა შესვლა."
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "შეიტანეთ DOI კონფიგურირებული სარეგისტრაციო სააგენტოში"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
-"წაშალეთ დაგეგმილი ამოცანების პროცესების ყველა ჟურნალი, რომელიც გაშვებულია."
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "ამოცანების ჟურნალის წაშლა"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "სარედაქციო ანგარიშის შეტყობინება"
-
-msgid "admin.systemInformation.description"
-msgstr ""
-"იხილეთ ინფორმაცია აპლიკაციისა და სერვერის ვერსიისა და კონფიგურაციის "
-"პარამეტრების შესახებ."
-
-msgid "admin.systemInformation.view"
-msgstr "სისტემის ინფორმაციის ნახვა"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "გამოყენება:"
@@ -336,6 +458,9 @@ msgstr "ბრძანება [arguments]"
 
 msgid "admin.cli.tool.available.commands"
 msgstr "ხელმისაწვდომი ბრძანებები `{$namespace}` სახელთა სივრცისთვის:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -351,6 +476,21 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr "დაამატეთ სატესტო სამუშაო ნაგულისხმევ რიგში"
 
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr "აჩვენეთ მომლოდინე სამუშაოების რაოდენობა"
 
@@ -363,6 +503,9 @@ msgstr "სამუშაოების გამოყენების პ�
 msgid "admin.cli.tool.jobs.empty.option"
 msgstr "ვარიანტი არ შეიძლება იყოს ცარიელი! შეამოწმეთ გამოყენების მეთოდი."
 
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "სამუშაოები მოლოდინში"
 
@@ -371,6 +514,9 @@ msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "რიგი"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "სამუშაოს საჩვენებელი სახელი"
@@ -386,6 +532,12 @@ msgstr "ხელმისაწვდომია"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "შექმნილია"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "გვერდებად დანომვრა"
@@ -404,17 +556,38 @@ msgstr ""
 "ამ ბრძანების გამოსაყენებლად თქვენ უნდა გადასცეთ მინიმუმ სამუშაოს ID, '--all' "
 "ან '--queue='"
 
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "სამუშაოს ID არასწორია"
 
 msgid "admin.cli.tool.jobs.purge.successful"
 msgstr "სამუშაო წაიშალა!"
 
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
 msgstr "შეუძლებელი იყო ყველა სამუშაოს წაშლა."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
 msgstr "წაიშალა ყველა სამუშაო!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "ჩვენ გვაქვს {$total} მომლოდინე სამუშაო"
@@ -428,11 +601,20 @@ msgstr "ქვემოთ ჩამოთვლილთაგან ერთ-
 msgid "admin.jobs.totalCount"
 msgstr "რიგში არის სულ <strong>{$total}</strong> სამუშაო"
 
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "რიგში მდგომი სამუშაოების ნახვა"
 
 msgid "navigation.tools.jobs"
 msgstr "სამუშაოები"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -440,6 +622,18 @@ msgstr ""
 
 msgid "navigation.tools.jobs.view"
 msgstr "სამუშაოების ნახვა"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -450,11 +644,155 @@ msgstr "Სამუშაო"
 msgid "admin.jobs.list.queue"
 msgstr "რიგი"
 
+msgid "admin.jobs.list.connection"
+msgstr ""
+
 msgid "admin.jobs.list.attempts"
 msgstr "მცდელობები"
 
 msgid "admin.jobs.list.createdAt"
 msgstr "შექმნილია"
 
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
 msgid "admin.jobs.createdAt"
 msgstr "შექმნილია {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

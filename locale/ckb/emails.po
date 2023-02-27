@@ -16,6 +16,23 @@ msgid "emails.submissionAck.subject"
 msgstr "دانپێدانانی پێشکەشکردن"
 
 #, fuzzy
+msgid "emails.submissionAck.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"سوپاس بۆ پێشکەشکردنی ڕەشنوسی توێژینەوەکەت، &quot;{$submissionTitle}&quot; "
+"بۆ{$contextName}. بە گوێرەی سیستەمی بەڕێوەبردنی گۆڤار کە ئێمە بەکاری "
+"دەهێنین، ئێوە دەتوانن ئاگاداری قۆناغەکانی هەڵسەنگاندنی توێژینەوەکەتان ببن لە "
+"پەڕەی سەرەکی گۆڤارەوە: <br />\n"
+"<br />\n"
+"لینکی پێشکەشکردن: {$submissionUrl}<br />\n"
+"ناوی بەکارهێنەر: {$recipientUsername}<br />\n"
+"ئەگەر هەر پرسیارێکتان هەبو، تکایە پەیوەندیمان پێوە بکەن. سوپاس بۆ هەڵبژاردنی "
+"گۆڤار بۆ بڵاوکردنەوەی کارەکانتان. <br />\n"
+"<br />\n"
+"{$contextSignature}"
+
+#, fuzzy
 msgid "emails.submissionAck.description"
 msgstr ""
 "کاتێک ئەم ئیمەیڵە کارا کرابێت، بە شێوەیەکی تۆماتیکی دەچێت بۆ توێژەر بۆ "
@@ -24,26 +41,8 @@ msgstr ""
 "پێشکەشکردنی توێژینەوەکەی."
 
 #, fuzzy
-msgid "emails.submissionAck.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"سوپاس بۆ پێشکەشکردنی ڕەشنوسی توێژینەوەکەت، &quot;{$submissionTitle}&quot; "
-"بۆ{$contextName}. بە گوێرەی سیستەمی بەڕێوەبردنی گۆڤار کە ئێمە بەکاری دەهێنین،"
-" ئێوە دەتوانن ئاگاداری قۆناغەکانی هەڵسەنگاندنی توێژینەوەکەتان ببن لە پەڕەی "
-"سەرەکی گۆڤارەوە: <br />\n"
-"<br />\n"
-"لینکی پێشکەشکردن: {$submissionUrl}<br />\n"
-"ناوی بەکارهێنەر: {$recipientUsername}<br />\n"
-"ئەگەر هەر پرسیارێکتان هەبو، تکایە پەیوەندیمان پێوە بکەن. سوپاس بۆ هەڵبژاردنی "
-"گۆڤار بۆ بڵاوکردنەوەی کارەکانتان. <br />\n"
-"<br />\n"
-"{$contextSignature}"
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr ""
-"ئەم ئیمەیڵە لە لایەن سەرنوسەری بەشەوە بۆ هەڵسەنگێنەر نێردراوە بۆ "
-"سوپاسکردنیان و هاوکارییان لە هەڵسەنگاندنی توێژینەوەیەکدا."
+msgid "emails.reviewAck.subject"
+msgstr "زانیارییەکانی هەڵسەنگاندنی توێژینەوە"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -54,24 +53,38 @@ msgstr ""
 "{$contextName}. ئێمە سوپاسی ماندوبونی ئێوە دەکەین بۆ پێشخستنی ئەو بابەتانەی "
 "کە ئێمە بڵاویان دەکەینەوە."
 
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "زانیارییەکانی هەڵسەنگاندنی توێژینەوە"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"ئێمە بڕیارمان دەربارەی توێژینەوەکەتان دا {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"ئێمە بڕیارمان دەربارەی توێژینەوەکەتان دا {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "بڕیار: ناردنی توێژینەوەکە بۆ هەڵسەنگاندن<br />\n"
 "<br />\n"
 "لینکی توێژینەوەکە: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -83,8 +96,9 @@ msgstr ""
 "لینکی پێشکەشکردنی توێژینەوەکە: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -96,8 +110,9 @@ msgstr ""
 "بڕیار: توێژینەوەکە پێویستی بە پێداچونەوە هەیە"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -109,8 +124,9 @@ msgstr ""
 "بڕیار: دوبارە توێژینەوەکەت پێشکەش بکەوە بۆ هەڵسەنگاندن"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -121,9 +137,9 @@ msgstr ""
 "<br />\n"
 "بڕیار: توێژینەوەکە ڕەت کرایەوە"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "بڕیاری سەرنوسەر"
+msgid "emails.editorRecommendation.subject"
+msgstr "پێشنیازەکانی سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -132,8 +148,10 @@ msgstr ""
 "پێشنیازەکان دەربارەی {$contextName}, &quot;{$submissionTitle}&quot; ئەمانەن: "
 "{$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "پێشنیازەکانی سەرنوسەر"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "داواکاریی وردبینیکردن"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
@@ -152,9 +170,28 @@ msgstr ""
 "لینکی توێژینەوەکە: {$submissionUrl}<br />\n"
 "ناوی بەکارهێنەر: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "داواکاریی وردبینیکردن"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "بڕیاری سەرنوسەر"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
@@ -166,15 +203,105 @@ msgstr ""
 "<br />\n"
 "بڕیار: توێژینەوەکە ڕەت کرایەوە"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "بڕیاری سەرنوسەر"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "نامەی پەیوەندیدار بە  {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "تکایە نامەکەت بنوسە."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "توانای هەڵسەنگاندن هەیە"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"بەڕێزان، سەرنوسەران:<br />\n"
+"<br />\n"
+"من لە توانام دایە و حەزدەکەم هەڵسەنگاندن بۆ توێژینەوەی&quot;"
+"{$submissionTitle},&quot; بکەم بۆ{$contextName}. سوپاس بۆ بیرکردنەوە لە من و "
+"من لە پلانم دایە کە هەڵسەنگاندنەکە هەتا{$reviewDueDate} تەواو بکەم، ئەگەر "
+"پێشتر نەبێت.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "دانپێدانانی پێشکەشکردن"
@@ -193,17 +320,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"بەڕێزان، سەرنوسەران:<br />\n"
-"<br />\n"
-"من لە توانام دایە و حەزدەکەم هەڵسەنگاندن بۆ توێژینەوەی&quot;"
-"{$submissionTitle},&quot; بکەم بۆ{$contextName}. سوپاس بۆ بیرکردنەوە لە من و "
-"من لە پلانم دایە کە هەڵسەنگاندنەکە هەتا{$reviewDueDate} تەواو بکەم، ئەگەر "
-"پێشتر نەبێت.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "توانای هەڵسەنگاندن هەیە"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "ئەم ئیمەیڵە لە لایەن سەرنوسەری بەشەوە بۆ هەڵسەنگێنەر نێردراوە بۆ "
+#~ "سوپاسکردنیان و هاوکارییان لە هەڵسەنگاندنی توێژینەوەیەکدا."

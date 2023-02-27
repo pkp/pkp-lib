@@ -6,3 +6,279 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Weblate\n"
+
+msgid "api.400.paramNotSupported"
+msgstr ""
+
+msgid "api.400.propReadOnly"
+msgstr ""
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr ""
+
+msgid "api.404.resourceNotFound"
+msgstr ""
+
+msgid "api.404.endpointNotFound"
+msgstr ""
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr ""
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr ""
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr ""
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr ""
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr ""
+
+msgid "api.stats.400.wrongDateRange"
+msgstr ""
+
+msgid "api.stats.400.earlyDateRange"
+msgstr ""
+
+msgid "api.stats.400.lateDateRange"
+msgstr ""
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr ""
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr ""
+
+msgid "api.submissions.403.userCantEdit"
+msgstr ""
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr ""
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr ""
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""

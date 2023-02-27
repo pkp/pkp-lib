@@ -18,8 +18,71 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Esteu segur/a que voleu suprimir permanentment aquesta tramesa?"
 
-msgid "editor.submissionLibrary.description"
-msgstr "Carregueu documents que pertanyin a la revisió i publicació d'aquesta tramesa. Les plantilles per a molts d'aquests documents les podeu trobar fent clic a <em>Veure la biblioteca de documents</em>."
+msgid "editor.activityLog"
+msgstr "Registre d'activitat"
+
+msgid "editor.submissionLibrary"
+msgstr "Biblioteca de trameses"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Decisió enregistrada"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Tramesa rebutjada."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Tramesa acceptada."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Tramesa publicada."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Enviat a una nova ronda de revisions."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Enviat a producció."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Tramesa acceptada per revisió."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Canviar la decisió"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
 
 msgid "editor.review.notInitiated"
 msgstr "El procés de revisió encara no s'ha iniciat."
@@ -28,10 +91,10 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Missatge per a l'usuari/ària"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Esteu a punt d'iniciar una avaluació externa per a aquesta tramesa.  Els fitxers que formen part de la tramesa s'enumeren a sota i els podeu seleccionar per revisar-los."
-
-msgid "editor.submission.review.reviewFilesDescription"
-msgstr "Aquests són els fitxers que es poden seleccionar per a la revisió, quan s'afegeixin revisors/ores a l'apartat <span class=\"pkp_help_title\">Revisors/ores</span>."
+msgstr ""
+"Esteu a punt d'iniciar una avaluació externa per a aquesta tramesa.  Els "
+"fitxers que formen part de la tramesa s'enumeren a sota i els podeu "
+"seleccionar per revisar-los."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Heu de seleccionar almenys un fitxer per assignar a l'usuari/ària."
@@ -48,26 +111,39 @@ msgstr "Heu de seleccionar un usuari a qui assignar-lo."
 msgid "editor.submission.uploadSelectFiles"
 msgstr "Carregar/Seleccionar arxius"
 
+msgid "editor.submission.selectFiles"
+msgstr "Seleccionar arxius"
+
 msgid "editor.submission.revisions"
 msgstr "Revisions"
 
-msgid "editor.submission.revisionsDescription"
-msgstr "Els fitxers de les trameses revisades apareixen aquí, amb la icona de carpeta oberta que indica qui ha carregat el fitxer."
-
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Utilitzeu <em>+Afegir revisor/a</em> per convidar lectors/ores a revisar els fitxers tramesos. La icona de la llibreta indica que s'ha enviat una revisió, que després es marca com a <em>Revisada</em> quan s'ha revisat. Quan hi hagi comentaris endarrerits, apareixerà una icona de sobres vermells com a recordatori per als revisors/ores."
+msgstr ""
+"Utilitzeu <em>+Afegir revisor/a</em> per convidar lectors/ores a revisar els "
+"fitxers tramesos. La icona de la llibreta indica que s'ha enviat una "
+"revisió, que després es marca com a <em>Revisada</em> quan s'ha revisat. "
+"Quan hi hagi comentaris endarrerits, apareixerà una icona de sobres vermells "
+"com a recordatori per als revisors/ores."
 
 msgid "editor.submission.addReviewer"
 msgstr "Afegeix un revisor/a"
 
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Trobar un revisor/a"
+
+msgid "editor.submission.findAndSelectUser"
+msgstr "Trobar un usuari/ària"
+
 msgid "editor.submission.fileList.includeAllStages"
-msgstr "Inclou tots els fitxers de totes les fases accessibles del circuit de treball."
+msgstr ""
+"Inclou tots els fitxers de totes les fases accessibles del circuit de "
+"treball."
 
 msgid "editor.submission.review.currentFiles"
 msgstr "Últim fitxer de revisions per ronda {$round}"
 
-msgid "editor.submission.returnToSimpleSearch"
-msgstr "Tornar a la cerca simple"
+msgid "editor.submission.backToSearch"
+msgstr "Tornar a la cerca"
 
 msgid "editor.review.createReviewer"
 msgstr "Crea un revisor/a nou"
@@ -78,8 +154,24 @@ msgstr "Assigna un rol a un usuari/ària existent"
 msgid "editor.review.unassignReviewer"
 msgstr "Desassigna un revisor/a"
 
+msgid "editor.review.cancelReviewer"
+msgstr "Cancel·lar el revisor/a"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Restablir el revisor/a"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipus de revisió"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "Enviar un correu electrònic de notificació a l'autor/a: {$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr ""
+"Enviar un correu electrònic de notificació a l'editor/a: {$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "No envieu un correu electrònic a l'autor"
@@ -96,17 +188,14 @@ msgstr "Revisor/a anònim / Autor/a anònim"
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Restringiu els fitxers disponibles"
 
-msgid "editor.submissionReview.restrictFiles.gridTitle"
-msgstr "Fitxers disponibles per a revisió"
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Tancar la selecció d'arxiu"
 
-msgid "editor.submissionReview.limitFiles"
-msgstr "Administreu el fitxers disponibles"
+msgid "editor.submissionReview.editReview"
+msgstr "Editar revisió"
 
-msgid "editor.submissionReview.limitFiles.link"
-msgstr "Fitxers"
-
-msgid "editor.submissionReview.restrictFiles.gridDescription"
-msgstr "En cas que a aquest revisor/a no se li hagi de proporcionar accés a tots els fitxers de revisió de la llista, comproveu que estiguin seleccionats només els fitxers rellevants."
+msgid "editor.review.anonymousReviewer"
+msgstr "Revisor/a anònim"
 
 msgid "editor.review.personalMessageToReviewer"
 msgstr "Correu electrònic per enviar al revisor/a"
@@ -117,27 +206,28 @@ msgstr "Dates importants"
 msgid "editor.review.uploadRevision"
 msgstr "Carrega revisió"
 
-msgid "editor.review.NotifyAuthorAccept"
-msgstr "Notifica l'acceptació a l'autor/a:"
-
-msgid "editor.review.NotifyAuthorDecline"
-msgstr "Notifica l'autor/a de la decisió de rebutjar la tramesa:"
+msgid "editor.review.newReviewRound"
+msgstr "Necessita una nova ronda de revisió"
 
 msgid "editor.review.NotifyAuthorRevisions"
 msgstr ""
 "Les revisions no estaran subjectes a una nova ronda d'avaluació d'experts."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Les revisions estaran subjectes a una nova ronda d'avaluació d'experts."
+msgstr ""
+"Les revisions estaran subjectes a una nova ronda d'avaluació d'experts."
 
-msgid "editor.review.NotifyAuthorExternal"
-msgstr "Notifica l'autor/a la decisió de dirigir una revisió externa:"
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
 
-msgid "editor.review.personalMessageToAuthor"
-msgstr "Correu electrònic per enviar a l'autor/a"
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
 
 msgid "editor.review.dateAccepted"
 msgstr "Data d'acceptació de la revisió"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Revisions afegides al cos del missatge."
 
 msgid "editor.review.noReviews"
 msgstr "No hi ha revisions per importar"
@@ -160,17 +250,70 @@ msgstr "No enviar el correu electrònic al revisor/a."
 msgid "editor.review.sendReminder"
 msgstr "Envia un recordatori"
 
+msgid "editor.review.readReview"
+msgstr "Llegir la revisió"
+
+msgid "editor.review.readNewReview"
+msgstr "Llegir la nova revisió"
+
+msgid "editor.review.responseDue"
+msgstr "Resposta prevista: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Sol·licitud enviada"
+
+msgid "editor.review.requestAccepted"
+msgstr "Sol·licitud acceptada"
+
+msgid "editor.review.requestDeclined"
+msgstr "Sol·licitud rebutjada"
+
+msgid "editor.review.requestCancelled"
+msgstr "Sol·licitud cancel·lada"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "El revisor/a ha rebutjat aquesta sol·licitud de revisió."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "L'editor ha cancel·lat aquesta sol·licitud de revisió."
+
+msgid "editor.review.revertDecision"
+msgstr "Revertir la decisió"
+
+msgid "editor.review.reviewDue"
+msgstr "Revisió prevista: {$date}"
+
 msgid "editor.review.reviewDueDate"
 msgstr "Data de venciment de la revisió"
 
 msgid "editor.review.reviewCompleted"
 msgstr "S'ha completat la revisió"
 
+msgid "editor.review.reviewConfirmed"
+msgstr "Revisió confirmada"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Revisió tramesa"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Agraïments al revisor/a"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "Comentaris del revisor/a"
 
 msgid "editor.review.rateReviewer"
 msgstr "Puntuació del revisor/a"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Avalueu la qualitat de la revisió. Aquesta avaluació no es compartirà amb el "
+"revisor/a."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Sense avaluacions"
 
 msgid "editor.review.mustSelect"
 msgstr "Heu de seleccionar un revisor/a"
@@ -181,17 +324,39 @@ msgstr "Hi ha hagut un error en afegir un revisor/a.  Torneu-ho a intentar."
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Hi ha hagut un error en eliminar un revisor/a.  Torneu-ho a intentar."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "S'ha produït un error en restablir el revisor/a. Torneu-ho a provar."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+
 msgid "editor.review.userGroupSelect"
-msgstr "Atorgueu un rol a l'usuari/ària amb aquest grup d'usuaris/àries revisors/ores"
+msgstr ""
+"Atorgueu un rol a l'usuari/ària amb aquest grup d'usuaris/àries revisors/ores"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Esteu segur/a que voleu marcar aquesta revisió com a rebutjada?  Aquest historial de revisió es conservarà."
+msgstr ""
+"Esteu segur/a que voleu marcar aquesta revisió com a rebutjada?  Aquest "
+"historial de revisió es conservarà."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Rebutjar aquesta revisió"
 
 msgid "editor.review.readConfirmation"
-msgstr "Un cop us hagueu llegit aquesta revisió, premeu «Confirma» per indicar que aquesta revisió pot continuar."
+msgstr ""
+"Un cop us hagueu llegit aquesta revisió, premeu «Confirma» per indicar que "
+"aquesta revisió pot continuar."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"No es pot crear una discussió amb els participants seleccionats perquè "
+"afectaria l'anonimat del procés de revisió."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Un dels participants seleccionats no està assignat a aquesta fase."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planificar per a publicació"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Arxius de correcció"
@@ -208,9 +373,6 @@ msgstr "Planificació de la tasca"
 msgid "editor.review.enrollReviewer"
 msgstr "Dóna d'alta un usuari/ària existent com a revisor/a"
 
-msgid "editor.submission.editorial.introduction"
-msgstr "A Editorial, el corrector/a treballa en esborranys finals abans de carregar els fitxers a <span class=\"pkp_help_title\">Correcció</span>, on l'autor/a i d'altres els revisaran de cara a preparar i carregar una còpia de la tramesa corregida a <span class=\"pkp_help_title\">Correcció</span>, on l'editor/a la marcarà com a <em>Aprovada</em> i l'enviarà a la fase de Producció."
-
 msgid "editor.submission.noAuditRequested"
 msgstr "Aquest fitxer no requereix cap auditoria"
 
@@ -221,106 +383,29 @@ msgid "editor.submission.proof.reminder"
 msgstr "Recordatori de prova"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "El fitxer corregit ha d'aprovar-se abans d'enviar-se a la fase de producció. Voleu aprovar aquest fitxer?"
+msgstr ""
+"El fitxer corregit ha d'aprovar-se abans d'enviar-se a la fase de producció. "
+"Voleu aprovar aquest fitxer?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Si rebutjeu aquest fitxer corregit no podreu enviar-lo a la fase de producció. Voleu marcar aquest fitxer com a desaprovat?"
-
-msgid "editor.submission.editorial.approveCopyeditFile"
-msgstr "Aprova el fitxer corregit"
+msgstr ""
+"Si rebutjeu aquest fitxer corregit no podreu enviar-lo a la fase de "
+"producció. Voleu marcar aquest fitxer com a desaprovat?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Assigna un auditor/a"
 
-msgid "editor.submission.editorial.copyeditingDescription"
-msgstr "Assigneu els fitxers corregits als autors/ores (i a d'altres, segons calgui) per revisar els canvis i contestar les consultes, les seves respostes de les qualsapareixen a la icona de la llibreta juntament amb els fitxers carregats. Aquests fitxers s'han marcat com a <em>Aprovats</em> pel corrector/a, el qual prepararà una còpia neta corregida per carregar a <span class=\"pkp_help_title\">Correcció</span>, que l'editor/a comprovarà i enviarà a la fase de producció."
-
-msgid "editor.submission.final.manageFinalDraftFilesDescription"
-msgstr "Tots els fitxers que ja s'hagin carregat a qualsevol fase de tramesa es poden afegir a la llista de Fitxers d'esborrany finals en seleccionar la casella Inclou i fer clic a Cercar: tots els fixers disponibles apareixeran en una llista i es podran triar per incloure'ls. Els fitxers addicionals que no s'hagin carregat a cap fase es poden afegir a la llista fent clic a l'enllaç Carrega un esborrany final."
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Els arxius que ja s'hagin carregat a alguna fase de la tramesa es poden "
+"afegir al llistat d'arxius per corregir marcant la casella \"Incloure\" "
+"següent i fent clic a \"Cercar\": d'aquesta manera tots els arxius "
+"disponibles es llistaran i es podran triar per incloure'ls. Els arxius "
+"addicionals que encara no s'hagin carregat en cap fase es poden afegir al "
+"llistat fent clic en l'opció \"Carregar arxiu\"."
 
 msgid "editor.review"
 msgstr "Revisió"
-
-msgid "editor.signoff.approved"
-msgstr "Aprovat"
-
-msgid "editor.submission.production.productionReadyFiles"
-msgstr "Fitxers preparats per a producció"
-
-msgid "editor.submission.newRound"
-msgstr "Nova ronda de revisió"
-
-msgid "editor.submission.selectAttachments"
-msgstr "Selecciona els arxius adjunts de revisió perquè l'autor/a els vegi"
-
-msgid "editor.submissionReview.recordDecision"
-msgstr "Enregistra la decisió de l'editor/a"
-
-msgid "editor.submission.selectFairCopy"
-msgstr "Selecciona els fitxers amb correcció aprovats i envia'ls a producció."
-
-msgid "editor.submission.newRoundDescription"
-msgstr ""
-"Esteu a punt de crear una nova ronda de revisió per a aquesta tramesa. Els "
-"arxius que no s'han utilitzat en altres rondes de revisió s'enumeren a "
-"continuació."
-
-msgid "editor.submission.createNewRound"
-msgstr "Crea una nova ronda de revisió"
-
-msgid "editor.submission.review.manageReviewFilesDescription"
-msgstr "Tots els fitxers que ja s'hagin carregat a qualsevol fase de tramesa (incloses Editorial i Producció) poden triar-se per a revisar en marcar l'opció Inclou a continuació i fer clic a Cercar: tots els fitxers disponibles apareixeran en una llista i es podran triar per incloure'ls. Els fitxers addicionals que no s'hagin carregat a cap fase es poden afegir a la llista fent clic a l'enllaç Carrega una revisió final."
-
-msgid "editor.submission.selectPromoteRevisions"
-msgstr "Selecciona revisions per utilitzar a la propera fase"
-
-msgid "editor.submission.noReviewerFilesSelected"
-msgstr "No hi ha fitxers seleccionats"
-
-msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "No heu seleccionat cap fitxer perquè el revisor/a el revisi."
-
-msgid "editor.submissionLibrary"
-msgstr "Biblioteca de trameses"
-
-msgid "editor.submission.selectFiles"
-msgstr "Seleccionar arxius"
-
-msgid "editor.submission.findAndSelectReviewer"
-msgstr "Trobar un revisor/a"
-
-msgid "editor.submission.findAndSelectUser"
-msgstr "Trobar un usuari/ària"
-
-msgid "editor.submission.backToSearch"
-msgstr "Tornar a la cerca"
-
-msgid "editor.submissionReview.restrictFiles.hide"
-msgstr "Tancar la selecció d'arxiu"
-
-msgid "editor.submissionReview.editReview"
-msgstr "Editar revisió"
-
-msgid "editor.review.reviewsAdded"
-msgstr "Revisions afegides al cos del missatge."
-
-msgid "editor.review.readReview"
-msgstr "Llegir la revisió"
-
-msgid "editor.review.readNewReview"
-msgstr "Llegir la nova revisió"
-
-msgid "editor.review.requestSent"
-msgstr "Sol·licitud enviada"
-
-msgid "editor.review.requestAccepted"
-msgstr "Sol·licitud acceptada"
-
-msgid "editor.review.reviewConfirmed"
-msgstr "Revisió confirmada"
-
-msgid "editor.review.reviewSubmitted"
-msgstr "Revisió tramesa"
 
 msgid "editor.review.reviewDetails"
 msgstr "Detalls de la revisió"
@@ -334,38 +419,56 @@ msgstr "No heu carregat cap arxiu de revisió."
 msgid "editor.review.emailReviewer"
 msgstr "Envia un correu electrònic al revisor/a"
 
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Fitxers preparats per a producció"
+
+msgid "editor.submission.newRound"
+msgstr "Nova ronda de revisió"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Enregistra la decisió de l'editor/a"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Enregistrar recomanació editorial"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Notificar-ho als editors/es"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "No enviar cap correu electrònic als editors/es."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Crear una discussió de revisió sobre aquesta recomanació."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "No crear una discussió de revisió."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Esteu a punt de crear una nova ronda de revisió per a aquesta tramesa. Els "
+"arxius que no s'han utilitzat en altres rondes de revisió s'enumeren a "
+"continuació."
+
+msgid "editor.submission.createNewRound"
+msgstr "Crea una nova ronda de revisió"
+
 msgid "editor.article.reviewForms"
 msgstr "Formularis de revisió"
 
 msgid "editor.article.selectReviewForm"
 msgstr "Seleccionar el formulari de revisió"
 
-msgid "submission.queries.attachedFiles"
-msgstr "Arxius adjunts"
-
-msgid "grid.action.editQuery"
-msgstr "Editar discussió"
-
-msgid "editor.submission.selectedReviewer"
-msgstr "Revisor/a seleccionat"
-
-msgid "editor.submission.proofreading.approveProof"
-msgstr "Acceptar la prova"
-
-msgid "editor.review.responseDue"
-msgstr "Resposta prevista: {$date}"
-
-msgid "editor.review.revertDecision"
-msgstr "Revertir la decisió"
-
-msgid "editor.review.reviewDue"
-msgstr "Revisió prevista: {$date}"
-
-msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Els arxius que ja s'hagin carregat a alguna fase de la tramesa es poden afegir al llistat d'arxius per corregir marcant la casella \"Incloure\" següent i fent clic a \"Cercar\": d'aquesta manera tots els arxius disponibles es llistaran i es podran triar per incloure'ls. Els arxius addicionals que encara no s'hagin carregat en cap fase es poden afegir al llistat fent clic en l'opció \"Carregar arxiu\"."
-
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Atenció: canviar el formulari de revisió afectarà totes les respostes que els revisors/es hagin fet utilitzant aquest formulari. Segur que voleu continuar?"
+msgstr ""
+"Atenció: canviar el formulari de revisió afectarà totes les respostes que "
+"els revisors/es hagin fet utilitzant aquest formulari. Segur que voleu "
+"continuar?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "No hi ha fitxers seleccionats"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "No heu seleccionat cap fitxer perquè el revisor/a el revisi."
 
 msgid "submission.queries.subjectRequired"
 msgstr "Es necessita un tema de discussió."
@@ -373,17 +476,38 @@ msgstr "Es necessita un tema de discussió."
 msgid "submission.queries.messageRequired"
 msgstr "Es necessita un missatge de discussió."
 
+msgid "submission.queries.attachedFiles"
+msgstr "Arxius adjunts"
+
+msgid "grid.action.editQuery"
+msgstr "Editar discussió"
+
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Es poden adjuntar arxius per incloure'ls en aquesta discussió des de la llista següent."
+msgstr ""
+"Es poden adjuntar arxius per incloure'ls en aquesta discussió des de la "
+"llista següent."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Revisor/a seleccionat"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Acceptar la prova"
 
 msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Anul·lar l'acceptació de la prova"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Accepta aquesta prova per indicar que la correcció de proves s'ha completat i que l'arxiu està llest per publicar-se."
+msgstr ""
+"Accepta aquesta prova per indicar que la correcció de proves s'ha completat "
+"i que l'arxiu està llest per publicar-se."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Anul·la l'acceptació d'aquesta prova per indicar que la correcció de proves ja no s'ha completat i que l'arxiu no està llest per publicar-se."
+msgstr ""
+"Anul·la l'acceptació d'aquesta prova per indicar que la correcció de proves "
+"ja no s'ha completat i que l'arxiu no està llest per publicar-se."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Segur que voleu revertir la decisió de rebutjar la tramesa?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "L'identificador públic '{$publicIdentifier}' no pot ser un número."
@@ -391,17 +515,53 @@ msgstr "L'identificador públic '{$publicIdentifier}' no pot ser un número."
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "El patró {$pattern} no està permès per a l'identificador públic."
 
-msgid "reviewer.list.empty"
-msgstr "No s'ha trobat cap revisor/a"
+msgid "reviewer.list.filterRating"
+msgstr "Avaluat com a mínim"
 
-msgid "reviewer.list.biography"
-msgstr "Biografia"
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} actius"
 
-msgid "reviewer.list.reviewInterests"
-msgstr "Interessos de revisió"
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Revisions actives actualment assignades"
 
-msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "Desbloquejar"
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
+
+msgid "reviewer.list.completedReviews"
+msgstr "Revisions completades"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Sol·licituds de revisió rebutjades"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Sol·licituds de revisió cancel·lades"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Qualificació del revisor/a: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Fa {$days} dies"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Ahir"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dies des de la darrera revisió assignada"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Mitjana de dies per completar una revisió"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Mai assignat"
+
+msgid "reviewer.list.reassign"
+msgstr "Reassignació"
+
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Aquest revisor/a ja ha estat assignat per revisar aquesta tramesa."
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
@@ -410,150 +570,147 @@ msgstr ""
 "la identitat de l'autor/a. Per tant, l'avaluació d'experts amb cegament no "
 "està garantida. Voleu desbloquejar-lo igualment?"
 
-msgid "reviewer.list.reassign"
-msgstr "Reassignació"
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Desbloquejar"
 
-msgid "reviewer.list.currentlyAssigned"
-msgstr "Aquest revisor/a ja ha estat assignat per revisar aquesta tramesa."
+msgid "reviewer.list.reviewInterests"
+msgstr "Interessos de revisió"
 
-msgid "reviewer.list.neverAssigned"
-msgstr "Mai assignat"
+msgid "reviewer.list.biography"
+msgstr "Biografia"
 
-msgid "reviewer.list.averageCompletion"
-msgstr "Mitjana de dies per completar una revisió"
+msgid "reviewer.list.empty"
+msgstr "No s'ha trobat cap revisor/a"
 
-msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr "Dies des de la darrera revisió assignada"
-
-msgid "reviewer.list.daySinceLastAssignment"
-msgstr "Ahir"
-
-msgid "reviewer.list.daysSinceLastAssignment"
-msgstr "Fa {$days} dies"
-
-msgid "reviewer.list.reviewerRating"
-msgstr "Qualificació del revisor/a: {$rating}"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Sol·licituds de revisió cancel·lades"
-
-msgid "reviewer.list.declinedReviews"
-msgstr "Sol·licituds de revisió rebutjades"
-
-msgid "reviewer.list.completedReviews"
-msgstr "Revisions completades"
-
-msgid "reviewer.list.activeReviewsDescription"
-msgstr "Revisions actives actualment assignades"
-
-msgid "reviewer.list.activeReviews"
-msgstr "{$count} actius"
-
-msgid "reviewer.list.filterRating"
-msgstr "Avaluat com a mínim"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} de {$total} revisors/es"
-
-msgid "reviewer.list.count"
-msgstr "{$count} revisors/es"
-
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "No crear una discussió de revisió."
-
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Crear una discussió de revisió sobre aquesta recomanació."
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "No enviar cap correu electrònic als editors/es."
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Notificar-ho als editors/es"
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "Enregistrar recomanació editorial"
-
-msgid "editor.submission.schedulePublication"
-msgstr "Planificar per a publicació"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "S'ha produït un error en restablir el revisor/a. Torneu-ho a provar."
-
-msgid "editor.review.reviewerRating.none"
-msgstr "Sense avaluacions"
-
-msgid "editor.review.rateReviewer.description"
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
-"Avalueu la qualitat de la revisió. Aquesta avaluació no es compartirà amb el "
-"revisor/a."
 
-msgid "editor.review.reviewerThanked"
-msgstr "Agraïments al revisor/a"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "L'editor ha cancel·lat aquesta sol·licitud de revisió."
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "El revisor/a ha rebutjat aquesta sol·licitud de revisió."
-
-msgid "editor.review.requestCancelled"
-msgstr "Sol·licitud cancel·lada"
-
-msgid "editor.review.requestDeclined"
-msgstr "Sol·licitud rebutjada"
-
-msgid "editor.review.newReviewRound"
-msgstr "Necessita una nova ronda de revisió"
-
-msgid "editor.review.anonymousReviewer"
-msgstr "Revisor/a anònim"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Enviar un correu electrònic de notificació a l'editor/a: {$editorNames}"
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "Enviar un correu electrònic de notificació a l'autor/a: {$authorName}"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Restablir el revisor/a"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Cancel·lar el revisor/a"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Canviar la decisió"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Tramesa acceptada per revisió."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Enviat a producció."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Enviat a una nova ronda de revisions."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Tramesa publicada."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Tramesa acceptada."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Tramesa rebutjada."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Decisió enregistrada"
-
-msgid "editor.activityLog"
-msgstr "Registre d'activitat"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "Segur que voleu revertir la decisió de rebutjar la tramesa?"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Un dels participants seleccionats no està assignat a aquesta fase."
-
-msgid "editor.discussion.errorAnonymousParticipants"
+msgid "editor.decision.cancelDecision"
 msgstr ""
-"No es pot crear una discussió amb els participants seleccionats perquè "
-"afectaria l'anonimat del procés de revisió."
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr ""
+
+msgid "editor.decision.completeSteps"
+msgstr ""
+
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
+
+msgid "editor.decision.emailSkipped"
+msgstr ""
+
+msgid "editor.decision.recordDecision"
+msgstr ""
+
+msgid "editor.decision.skipEmail"
+msgstr ""
+
+msgid "editor.decision.stepError"
+msgstr ""
+
+#~ msgid "editor.submissionLibrary.description"
+#~ msgstr ""
+#~ "Carregueu documents que pertanyin a la revisió i publicació d'aquesta "
+#~ "tramesa. Les plantilles per a molts d'aquests documents les podeu trobar "
+#~ "fent clic a <em>Veure la biblioteca de documents</em>."
+
+#~ msgid "editor.submission.review.reviewFilesDescription"
+#~ msgstr ""
+#~ "Aquests són els fitxers que es poden seleccionar per a la revisió, quan "
+#~ "s'afegeixin revisors/ores a l'apartat <span class=\"pkp_help_title"
+#~ "\">Revisors/ores</span>."
+
+#~ msgid "editor.submission.revisionsDescription"
+#~ msgstr ""
+#~ "Els fitxers de les trameses revisades apareixen aquí, amb la icona de "
+#~ "carpeta oberta que indica qui ha carregat el fitxer."
+
+#~ msgid "editor.submission.returnToSimpleSearch"
+#~ msgstr "Tornar a la cerca simple"
+
+#~ msgid "editor.submissionReview.restrictFiles.gridTitle"
+#~ msgstr "Fitxers disponibles per a revisió"
+
+#~ msgid "editor.submissionReview.limitFiles"
+#~ msgstr "Administreu el fitxers disponibles"
+
+#~ msgid "editor.submissionReview.limitFiles.link"
+#~ msgstr "Fitxers"
+
+#~ msgid "editor.submissionReview.restrictFiles.gridDescription"
+#~ msgstr ""
+#~ "En cas que a aquest revisor/a no se li hagi de proporcionar accés a tots "
+#~ "els fitxers de revisió de la llista, comproveu que estiguin seleccionats "
+#~ "només els fitxers rellevants."
+
+#~ msgid "editor.review.NotifyAuthorAccept"
+#~ msgstr "Notifica l'acceptació a l'autor/a:"
+
+#~ msgid "editor.review.NotifyAuthorDecline"
+#~ msgstr "Notifica l'autor/a de la decisió de rebutjar la tramesa:"
+
+#~ msgid "editor.review.NotifyAuthorExternal"
+#~ msgstr "Notifica l'autor/a la decisió de dirigir una revisió externa:"
+
+#~ msgid "editor.review.personalMessageToAuthor"
+#~ msgstr "Correu electrònic per enviar a l'autor/a"
+
+#~ msgid "editor.submission.editorial.introduction"
+#~ msgstr ""
+#~ "A Editorial, el corrector/a treballa en esborranys finals abans de "
+#~ "carregar els fitxers a <span class=\"pkp_help_title\">Correcció</span>, "
+#~ "on l'autor/a i d'altres els revisaran de cara a preparar i carregar una "
+#~ "còpia de la tramesa corregida a <span class=\"pkp_help_title\">Correcció</"
+#~ "span>, on l'editor/a la marcarà com a <em>Aprovada</em> i l'enviarà a la "
+#~ "fase de Producció."
+
+#~ msgid "editor.submission.editorial.approveCopyeditFile"
+#~ msgstr "Aprova el fitxer corregit"
+
+#~ msgid "editor.submission.editorial.copyeditingDescription"
+#~ msgstr ""
+#~ "Assigneu els fitxers corregits als autors/ores (i a d'altres, segons "
+#~ "calgui) per revisar els canvis i contestar les consultes, les seves "
+#~ "respostes de les qualsapareixen a la icona de la llibreta juntament amb "
+#~ "els fitxers carregats. Aquests fitxers s'han marcat com a <em>Aprovats</"
+#~ "em> pel corrector/a, el qual prepararà una còpia neta corregida per "
+#~ "carregar a <span class=\"pkp_help_title\">Correcció</span>, que l'editor/"
+#~ "a comprovarà i enviarà a la fase de producció."
+
+#~ msgid "editor.submission.final.manageFinalDraftFilesDescription"
+#~ msgstr ""
+#~ "Tots els fitxers que ja s'hagin carregat a qualsevol fase de tramesa es "
+#~ "poden afegir a la llista de Fitxers d'esborrany finals en seleccionar la "
+#~ "casella Inclou i fer clic a Cercar: tots els fixers disponibles "
+#~ "apareixeran en una llista i es podran triar per incloure'ls. Els fitxers "
+#~ "addicionals que no s'hagin carregat a cap fase es poden afegir a la "
+#~ "llista fent clic a l'enllaç Carrega un esborrany final."
+
+#~ msgid "editor.signoff.approved"
+#~ msgstr "Aprovat"
+
+#~ msgid "editor.submission.selectAttachments"
+#~ msgstr "Selecciona els arxius adjunts de revisió perquè l'autor/a els vegi"
+
+#~ msgid "editor.submission.selectFairCopy"
+#~ msgstr ""
+#~ "Selecciona els fitxers amb correcció aprovats i envia'ls a producció."
+
+#~ msgid "editor.submission.review.manageReviewFilesDescription"
+#~ msgstr ""
+#~ "Tots els fitxers que ja s'hagin carregat a qualsevol fase de tramesa "
+#~ "(incloses Editorial i Producció) poden triar-se per a revisar en marcar "
+#~ "l'opció Inclou a continuació i fer clic a Cercar: tots els fitxers "
+#~ "disponibles apareixeran en una llista i es podran triar per incloure'ls. "
+#~ "Els fitxers addicionals que no s'hagin carregat a cap fase es poden "
+#~ "afegir a la llista fent clic a l'enllaç Carrega una revisió final."
+
+#~ msgid "editor.submission.selectPromoteRevisions"
+#~ msgstr "Selecciona revisions per utilitzar a la propera fase"
+
+#~ msgid "reviewer.list.itemsOfTotal"
+#~ msgstr "{$count} de {$total} revisors/es"
+
+#~ msgid "reviewer.list.count"
+#~ msgstr "{$count} revisors/es"

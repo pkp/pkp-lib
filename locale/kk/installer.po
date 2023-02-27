@@ -12,20 +12,192 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "installer.unsupportedPhpError"
-msgstr ""
-"Бұл бағдарламалық құрал серверіңіздің PHP нұсқасына қолдау көрсетпейді. Docs/"
-"README бөлімінде орнату талаптарын екі рет тексеріңіз."
+msgid "installer.additionalLocales"
+msgstr "Қосымша тілдер"
 
-msgid "installer.beacon.enable"
-msgstr ""
-"Бірегей сайт идентификаторын және OAI негізгі URL мекенжайын PKP-ге "
-"статистика және қауіпсіздік ескертуі мақсаттары үшін ғана беріңіз."
+msgid "installer.administratorAccount"
+msgstr "Әкімшінің тіркелуі"
 
-msgid "installer.configureXSLMessage"
+msgid "installer.administratorAccountInstructions"
 msgstr ""
-"<p>Сіздің PHP орнатуыңыз XSL модулін қамтымайды. Оны қосыңыз немесе "
-"xslt_command опциясын config.inc.php файлында орнатыңыз.</p>"
+"Бұл пайдаланушы сайт әкімшісі және оның жүйеге толық кіру мүмкіндігіне ие. "
+"Қосымша пайдаланушының тіркелуі орнату аяқталғаннан кейін ғана мүмкін болады."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">ЖОҚ</span>"
+
+msgid "installer.checkYes"
+msgstr "Иа"
+
+msgid "installer.configFileError"
+msgstr "<tt>config.inc.php</tt> конфигурация файлы жоқ немесе оқу мүмкін емес."
+
+msgid "installer.connectionCharset"
+msgstr "Деректер базасының байланысын кодтау"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Конфигурация файлының мазмұны"
+
+msgid "installer.databaseDriver"
+msgstr "Мәліметтер қорының драйвері"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Жүйе қазіргі уақытта MySQL және PostgreSQL-ге қолдау көрсетеді, "
+"төменде көрсетілген опциялардың бірін таңдай алмасаңыз, серверіңізде қажетті "
+"PHP кеңейтімдері бар екеніне көз жеткізу үшін жүйе әкімшісіне хабарласыңыз.</"
+"strong>"
+
+msgid "installer.databaseHost"
+msgstr "Хост"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+"TCP/IP арқылы емес, домен ұяшықтарын пайдаланып қосылу үшін хост атауын бос "
+"қалдырыңыз. Бұл параметр MySQL үшін қажет емес, ол \"localhost\" енгізілген "
+"жағдайда автоматты түрде  sockets пайдаланады, бірақ PostgreSQL сияқты "
+"кейбір басқа дерекқор серверлері үшін қажет PostgreSQL сияқты басқа RDBMS "
+"үшін қажет болуы мүмкін."
+
+msgid "installer.databaseName"
+msgstr "Мәліметтер қорының атауы"
+
+msgid "installer.databasePassword"
+msgstr "Құпия сөз"
+
+msgid "installer.databaseSettings"
+msgstr "Мәліметтер қорының параметрлері"
+
+msgid "installer.databaseUsername"
+msgstr "Қолданушының аты"
+
+msgid "installer.filesDir"
+msgstr "Серверге жүктелген файлдарға арналған каталог"
+
+msgid "installer.fileSettings"
+msgstr "Файл параметрлері"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Клиенттік кодтау таңдалуы керек."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Дерекқор драйверін таңдау керек."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Дерекқор атауы қажет."
+
+msgid "installer.form.emailRequired"
+msgstr "Әкімші тіркелу үшін жарамды электрондық пошта мекенжайы қажет."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Серверге жүктелген файлдарды сақтауға арналған каталог қажет."
+
+msgid "installer.form.localeRequired"
+msgstr "Тіл таңдалуы керек."
+
+msgid "installer.form.passwordRequired"
+msgstr "Әкімші тіркелу үшін құпия сөз қажет."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Әкімші құпия сөздері сәйкес келмейді."
+
+msgid "installer.form.separateMultiple"
+msgstr "Бірнеше енгізу мәндерін үтірлермен бөліңіз"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+"Әкімші тіркелушісінің  аты тек әріптерден, сандардан, астынғы сызулардан "
+"және сызықшалардан тұруы мүмкін; ол әріппен немесе санмен басталып, аяқталуы "
+"керек."
+
+msgid "installer.form.usernameRequired"
+msgstr "Әкімші тіркелу үшін пайдаланушының аты талап етіледі."
+
+msgid "installer.form.timeZoneRequired"
+msgstr "Уақыт белдеуі таңдалуы керек."
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>ЕСКЕРТУ: PHP бағдарламасының ағымдағы нұсқасы орнатуға "
+"қойылатын минималды талаптарға сай емес. PHP нұсқасының соңғы нұсқасына "
+"жаңартқан жөн.</strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Орнату кезінде қателер орын алды"
+
+msgid "installer.installerSQLStatements"
+msgstr "Орнатуға арналған SQL сұраулары"
+
+msgid "installer.installFileError"
+msgstr ""
+"<tt>dbscripts/xml/install.xml</tt> орнату файлы жоқ немесе оқу мүмкін емес."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Серверге жүктеп салынған файлдарды сақтауға арналған каталог ретінде "
+"көрсетілген каталог жоқ немесе жазылмайды."
+
+msgid "installer.installParseDBFileError"
+msgstr "<tt>{$file}</tt> дерекқорды орнату файлын талдау кезінде қате."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"<tt>{$class}</tt> көшіру классын орындау кезінде ерекше жағдай орын алды. "
+"{$message} ерекшелігі."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+"<tt>{$file}</tt> электрондық пошта үлгісінің файлын талдау кезінде қате орын "
+"алды."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr ""
+"<tt>{$file}</tt> сүзгі конфигурация файлын талдау кезінде қате орын алды."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Жаңартуға қолдау көрсетілмейді. Мәліметтер алу үшін docs/UPGRADE-UNSUPPORTED "
+"бөлімін қараңыз."
+
+msgid "installer.timezoneInstructions"
+msgstr "Осы жүйеде пайдаланылатын уақыт белдеуі."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Осы жүйеде қолдау көрсету үшін қосымша тілдерді таңдаңыз. Қосымша тілдерді "
+"сайт әкімшілігі интерфейсінен кез келген уақытта орнатуға болады. <br>* = "
+"Толық аударылмаған тілдерді көрсетеді (аударылған терминдердің > 90%-ы)"
+
+msgid "installer.locale"
+msgstr "Тіл"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Белгіленген тілдерге қолдау көрсетілмеуі мүмкін."
+
+msgid "installer.localeSettings"
+msgstr "Тіл параметрлері"
+
+msgid "installer.oaiSettings"
+msgstr "OAI параметрлері"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+"Бірегей идентификатор <a href=\"https://www.openarchives.org/\" target="
+"\"_blank\">Open Archives Initiative</a> метадеректерді жинау протоколын "
+"пайдалану кезінде осы сайттан индекстелген метадеректер жазбаларын анықтау "
+"үшін пайдаланылады."
+
+msgid "installer.oaiRepositoryId"
+msgstr "Сақтау идентификаторы"
+
+msgid "installer.publicFilesDirError"
+msgstr "Файлдарға арналған жалпы каталог жоқ немесе жазуға жарамсыз."
+
+msgid "installer.releaseNotes"
+msgstr "Шығарылым ескертпелері"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Орнатуға дайындық кезеңдері"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
@@ -37,204 +209,32 @@ msgstr ""
 "{$writable_config}</li>\n"
 "\t\t\t<li><tt>public/</tt> жазылатын: {$writable_public}</li>\n"
 "\t\t\t<li><tt>cache/</tt> жазылатын: {$writable_cache}</li>\n"
-"\t\t\t<li><tt>cache/t_cache/</tt> жазылатын: {$writable_templates_cache}</li>"
-"\n"
-"\t\t\t<li><tt>cache/t_compile/</tt> жазылатын: "
-"{$writable_templates_compile}</li>\n"
+"\t\t\t<li><tt>cache/t_cache/</tt> жазылатын: {$writable_templates_cache}</"
+"li>\n"
+"\t\t\t<li><tt>cache/t_compile/</tt> жазылатын: {$writable_templates_compile}"
+"</li>\n"
 "\t\t\t<li><tt>cache/_db</tt> жазылатын: {$writable_db_cache}</li>\n"
 "\t\t</ul>\n"
 "\n"
 "\t\t<p>2. Жүктеп салынған файлдарды серверге сақтауға арналған каталог "
-"жасалып, жазылуы керек (төмендегі \"Файл параметрлері\" бөлімін қараңыз).</p>"
-"\n"
+"жасалып, жазылуы керек (төмендегі \"Файл параметрлері\" бөлімін қараңыз).</"
+"p>\n"
 "\t"
 
-msgid "installer.preInstallationInstructionsTitle"
-msgstr "Орнатуға дайындық кезеңдері"
-
-msgid "installer.releaseNotes"
-msgstr "Шығарылым ескертпелері"
-
-msgid "installer.publicFilesDirError"
-msgstr "Файлдарға арналған жалпы каталог жоқ немесе жазуға жарамсыз."
-
-msgid "installer.oaiRepositoryId"
-msgstr "Сақтау идентификаторы"
-
-msgid "installer.oaiRepositoryIdInstructions"
+msgid "installer.configureXSLMessage"
 msgstr ""
-"Бірегей идентификатор <a href=\"https://www.openarchives.org/\" target=\""
-"_blank\">Open Archives Initiative</a> метадеректерді жинау протоколын "
-"пайдалану кезінде осы сайттан индекстелген метадеректер жазбаларын анықтау "
-"үшін пайдаланылады."
-
-msgid "installer.oaiSettings"
-msgstr "OAI параметрлері"
-
-msgid "installer.localeSettings"
-msgstr "Тіл параметрлері"
-
-msgid "installer.locale.maybeIncomplete"
-msgstr "Белгіленген тілдерге қолдау көрсетілмеуі мүмкін."
-
-msgid "installer.locale"
-msgstr "Тіл"
-
-msgid "installer.additionalLocalesInstructions"
-msgstr ""
-"Осы жүйеде қолдау көрсету үшін қосымша тілдерді таңдаңыз. Қосымша тілдерді "
-"сайт әкімшілігі интерфейсінен кез келген уақытта орнатуға болады. <br>* = "
-"Толық аударылмаған тілдерді көрсетеді (аударылған терминдердің > 90%-ы)"
-
-msgid "installer.timezoneInstructions"
-msgstr "Осы жүйеде пайдаланылатын уақыт белдеуі."
-
-msgid "installer.unsupportedUpgradeError"
-msgstr ""
-"Жаңартуға қолдау көрсетілмейді. Мәліметтер алу үшін docs/UPGRADE-UNSUPPORTED "
-"бөлімін қараңыз."
-
-msgid "installer.installParseFilterConfigFileError"
-msgstr ""
-"<tt>{$file}</tt> сүзгі конфигурация файлын талдау кезінде қате орын алды."
-
-msgid "installer.installParseEmailTemplatesFileError"
-msgstr ""
-"<tt>{$file}</tt> электрондық пошта үлгісінің файлын талдау кезінде қате орын "
-"алды."
-
-msgid "installer.installMigrationError"
-msgstr ""
-"<tt>{$class}</tt> көшіру классын орындау кезінде ерекше жағдай орын алды. "
-"{$message} ерекшелігі."
-
-msgid "installer.installParseDBFileError"
-msgstr "<tt>{$file}</tt> дерекқорды орнату файлын талдау кезінде қате."
-
-msgid "installer.installFilesDirError"
-msgstr ""
-"Серверге жүктеп салынған файлдарды сақтауға арналған каталог ретінде "
-"көрсетілген каталог жоқ немесе жазылмайды."
-
-msgid "installer.installFileError"
-msgstr ""
-"<tt>dbscripts/xml/install.xml</tt> орнату файлы жоқ немесе оқу мүмкін емес."
-
-msgid "installer.installerSQLStatements"
-msgstr "Орнатуға арналған SQL сұраулары"
-
-msgid "installer.installErrorsOccurred"
-msgstr "Орнату кезінде қателер орын алды"
-
-msgid "installer.installationWrongPhp"
-msgstr ""
-"<br/><strong>ЕСКЕРТУ: PHP бағдарламасының ағымдағы нұсқасы орнатуға "
-"қойылатын минималды талаптарға сай емес. PHP нұсқасының соңғы нұсқасына "
-"жаңартқан жөн.</strong>"
-
-msgid "installer.form.timeZoneRequired"
-msgstr "Уақыт белдеуі таңдалуы керек."
-
-msgid "installer.form.usernameRequired"
-msgstr "Әкімші тіркелу үшін пайдаланушының аты талап етіледі."
-
-msgid "installer.form.usernameAlphaNumeric"
-msgstr ""
-"Әкімші тіркелушісінің  аты тек әріптерден, сандардан, астынғы сызулардан "
-"және сызықшалардан тұруы мүмкін; ол әріппен немесе санмен басталып, аяқталуы "
-"керек."
-
-msgid "installer.form.separateMultiple"
-msgstr "Бірнеше енгізу мәндерін үтірлермен бөліңіз"
-
-msgid "installer.form.passwordsDoNotMatch"
-msgstr "Әкімші құпия сөздері сәйкес келмейді."
-
-msgid "installer.form.passwordRequired"
-msgstr "Әкімші тіркелу үшін құпия сөз қажет."
-
-msgid "installer.form.localeRequired"
-msgstr "Тіл таңдалуы керек."
-
-msgid "installer.form.filesDirRequired"
-msgstr "Серверге жүктелген файлдарды сақтауға арналған каталог қажет."
-
-msgid "installer.form.emailRequired"
-msgstr "Әкімші тіркелу үшін жарамды электрондық пошта мекенжайы қажет."
-
-msgid "installer.form.databaseNameRequired"
-msgstr "Дерекқор атауы қажет."
-
-msgid "installer.form.databaseDriverRequired"
-msgstr "Дерекқор драйверін таңдау керек."
-
-msgid "installer.form.clientCharsetRequired"
-msgstr "Клиенттік кодтау таңдалуы керек."
-
-msgid "installer.fileSettings"
-msgstr "Файл параметрлері"
-
-msgid "installer.filesDir"
-msgstr "Серверге жүктелген файлдарға арналған каталог"
-
-msgid "installer.databaseUsername"
-msgstr "Қолданушының аты"
-
-msgid "installer.databaseSettings"
-msgstr "Мәліметтер қорының параметрлері"
-
-msgid "installer.databasePassword"
-msgstr "Құпия сөз"
-
-msgid "installer.databaseName"
-msgstr "Мәліметтер қорының атауы"
-
-msgid "installer.databaseHostInstructions"
-msgstr ""
-"TCP/IP арқылы емес, домен ұяшықтарын пайдаланып қосылу үшін хост атауын бос "
-"қалдырыңыз. Бұл параметр MySQL үшін қажет емес, ол \"localhost\" енгізілген "
-"жағдайда автоматты түрде  sockets пайдаланады, бірақ PostgreSQL сияқты "
-"кейбір басқа дерекқор серверлері үшін қажет PostgreSQL сияқты басқа RDBMS "
-"үшін қажет болуы мүмкін."
-
-msgid "installer.databaseHost"
-msgstr "Хост"
-
-msgid "installer.databaseDriverInstructions"
-msgstr ""
-"<strong>Жүйе қазіргі уақытта MySQL және PostgreSQL-ге қолдау көрсетеді, "
-"төменде көрсетілген опциялардың бірін таңдай алмасаңыз, серверіңізде қажетті "
-"PHP кеңейтімдері бар екеніне көз жеткізу үшін жүйе әкімшісіне "
-"хабарласыңыз.</strong>"
-
-msgid "installer.databaseDriver"
-msgstr "Мәліметтер қорының драйвері"
-
-msgid "installer.contentsOfConfigFile"
-msgstr "Конфигурация файлының мазмұны"
-
-msgid "installer.connectionCharset"
-msgstr "Деректер базасының байланысын кодтау"
-
-msgid "installer.configFileError"
-msgstr "<tt>config.inc.php</tt> конфигурация файлы жоқ немесе оқу мүмкін емес."
-
-msgid "installer.checkYes"
-msgstr "Иа"
-
-msgid "installer.checkNo"
-msgstr "<span class=\"pkp_form_error formError\">ЖОҚ</span>"
-
-msgid "installer.administratorAccountInstructions"
-msgstr ""
-"Бұл пайдаланушы сайт әкімшісі және оның жүйеге толық кіру мүмкіндігіне ие. "
-"Қосымша пайдаланушының тіркелуі орнату аяқталғаннан кейін ғана мүмкін болады."
-
-msgid "installer.administratorAccount"
-msgstr "Әкімшінің тіркелуі"
-
-msgid "installer.additionalLocales"
-msgstr "Қосымша тілдер"
+"<p>Сіздің PHP орнатуыңыз XSL модулін қамтымайды. Оны қосыңыз немесе "
+"xslt_command опциясын config.inc.php файлында орнатыңыз.</p>"
 
 msgid "installer.beacon"
 msgstr "Маяк"
+
+msgid "installer.beacon.enable"
+msgstr ""
+"Бірегей сайт идентификаторын және OAI негізгі URL мекенжайын PKP-ге "
+"статистика және қауіпсіздік ескертуі мақсаттары үшін ғана беріңіз."
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Бұл бағдарламалық құрал серверіңіздің PHP нұсқасына қолдау көрсетпейді. Docs/"
+"README бөлімінде орнату талаптарын екі рет тексеріңіз."

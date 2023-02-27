@@ -24,6 +24,13 @@ msgstr "Inställningens värde"
 msgid "admin.adminFunctions"
 msgstr "Administrativa funktioner"
 
+msgid "admin.deleteCache"
+msgstr "Radera cache"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Radera cache-filer från systemet. Ska endast utföras i utvecklingsmiljöer."
+
 msgid "admin.clearDataCache"
 msgstr "Radera data-cache"
 
@@ -31,19 +38,26 @@ msgid "admin.clearTemplateCache"
 msgstr "Radera mall-cache"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Ändringarna har sparats i din konfigurationsfil. Kom ihåg att om sidan inte längre fungerar korrekt måste du göra ändringar manuellt i <tt>config.inc.php</tt>."
+msgstr ""
+"Ändringarna har sparats i din konfigurationsfil. Kom ihåg att om sidan inte "
+"längre fungerar korrekt måste du göra ändringar manuellt i <tt>config.inc."
+"php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Är du säker på att du vill rensa all samlad mall-cache?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Är du säker på att du vill avsluta alla användarsessioner? Användare som är inloggade i systemet kommer att behöva logga in igen (även du)."
+msgstr ""
+"Är du säker på att du vill avsluta alla användarsessioner? Användare som är "
+"inloggade i systemet kommer att behöva logga in igen (även du)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Innehåll i konfigurationsfil"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Är du säker på att du vill ta bort {$contextName} permanent, inklusive allt dess innehåll?"
+msgstr ""
+"Är du säker på att du vill ta bort {$contextName} permanent, inklusive allt "
+"dess innehåll?"
 
 msgid "admin.currentVersion"
 msgstr "Nuvarande version"
@@ -52,7 +66,11 @@ msgid "admin.dateInstalled"
 msgstr "Installationsdatum"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Innehållet i din uppdaterade konfiguration visas nedan. För att spara ändringarna behöver du öppna <tt>config.inc.php</tt> i ett lämpligt textredigeringsprogram och ersätta dess innehåll med informationen i textfältet nedan."
+msgstr ""
+"Innehållet i din uppdaterade konfiguration visas nedan. För att spara "
+"ändringarna behöver du öppna <tt>config.inc.php</tt> i ett lämpligt "
+"textredigeringsprogram och ersätta dess innehåll med informationen i "
+"textfältet nedan."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Visa ny konfiguration"
@@ -60,11 +78,26 @@ msgstr "Visa ny konfiguration"
 msgid "admin.expireSessions"
 msgstr "Avsluta användarsessioner"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+"Alla användare, inklusive du själv, kommer bli utloggade och måste logga in "
+"igen."
+
 msgid "admin.languages.cantDisable"
-msgstr "Det här kommer att vara förvalt språk/region för webbplatsen. Du kan inte inaktivera det utan att välja ett annat förvalt språk/region."
+msgstr ""
+"Det här kommer att vara förvalt språk/region för webbplatsen. Du kan inte "
+"inaktivera det utan att välja ett annat förvalt språk/region."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Är du säker på att du vill ändra webbplatsens förvalda språk? Användares "
+"namn måste finnas i webbplatsens förvalda språk, de kommer kopieras från det "
+"nuvarande förvalda språket i de fall de saknas."
 
 msgid "admin.languages.confirmReload"
-msgstr "Är du säker på att du vill uppdatera språkfilen? Tillgänglig språkspecifik information, t.ex. anpassade e-postformulär, kommer att raderas."
+msgstr ""
+"Är du säker på att du vill uppdatera språkfilen? Tillgänglig språkspecifik "
+"information, t.ex. anpassade e-postformulär, kommer att raderas."
 
 msgid "admin.languages.installedLocales"
 msgstr "Installerade språk/regioner"
@@ -111,26 +144,119 @@ msgstr "Åtgärdsprocess avslutad."
 msgid "admin.scheduledTask.noLog"
 msgstr "Åtgärden skapade inte någon logg."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "Deponera DOI:er hos den inställda organisationen"
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Installationen av {$softwareName} startade automatiskt och färdigställde den här åtgärden. Du kan ladde ned loggfilen här: {$url}"
+msgstr ""
+"Installationen av {$softwareName} startade automatiskt och färdigställde den "
+"här åtgärden. Du kan ladde ned loggfilen här: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Skicka ett e-postmeddelande med en påminnelse om ofärdiga uppgifter till "
+"varje redaktör"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Är du säker på att du vill ta bort samtliga loggar för utförandet av schemalagda åtgärder?"
+msgstr ""
+"Är du säker på att du vill ta bort samtliga loggar för utförandet av "
+"schemalagda åtgärder?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Rensa loggar för schemalagda åtgärder"
 
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicera bidrag som är schemalagda för publicering"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Granskningspåminnelse"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Avisering om redaktionsrapport"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Påminnelse om att prenumeration går ut"
 
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Filladdningsuppgift för användningsstatistik"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Det gick inte att öppna filen {$file} och den var därför avvisad."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-version"
@@ -156,6 +282,9 @@ msgstr "Inställningar"
 msgid "admin.settings.about"
 msgstr "Om webbplatsen"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Massutskick (e-post)"
+
 msgid "admin.settings.contactEmail"
 msgstr "E-postadress till primär kontakt"
 
@@ -167,6 +296,15 @@ msgstr "Introduktion"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimilängd på lösenord (antal tecken)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Begränsa massutskick"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Inaktivera roller"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Endast webbplatsadministratörer kan ändra denna inställning."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Språk för webbplatsen"
@@ -199,10 +337,18 @@ msgid "admin.siteSetup"
 msgstr "Konfiguration av webbplats"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "Konfigurationsfilen <tt>config.inc.php</tt> existerar inte, är ogiltig, eller går inte att läsa."
+msgstr ""
+"Konfigurationsfilen <tt>config.inc.php</tt> existerar inte, är ogiltig, "
+"eller går inte att läsa."
 
 msgid "admin.systemInformation"
 msgstr "Systeminformation"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Version"
@@ -250,7 +396,9 @@ msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Mappen {$path} är inte en katalog, eller så är den inte läsbar."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "Filen {$filename} kunde inte flyttas från {$currentFilePath} till {$destinationPath}"
+msgstr ""
+"Filen {$filename} kunde inte flyttas från {$currentFilePath} till "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Filen {$filename} behandlades och arkiverades."
@@ -258,61 +406,327 @@ msgstr "Filen {$filename} behandlades och arkiverades."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Filladdare"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Det finns inga språk/region-filer tillgängliga för nedladdning."
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Endast webbplatsadministratörer kan ändra denna inställning."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Inaktivera roller"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Begränsa massutskick"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Massutskick (e-post)"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicera bidrag som är schemalagda för publicering"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Är du säker på att du vill ändra webbplatsens förvalda språk? Användares "
-"namn måste finnas i webbplatsens förvalda språk, de kommer kopieras från det "
-"nuvarande förvalda språket i de fall de saknas."
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Användning:"
 
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Avisering om redaktionsrapport"
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
 
-msgid "admin.jobs.totalCount"
-msgstr "Det finns totalt <strong>{$total}</strong> uppgifter i kön"
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
 
 msgid "admin.cli.tool.jobs.mean.those"
 msgstr "Menade något av följande?"
 
-msgid "admin.scheduledTask.depositDois"
-msgstr "Deponera DOI:er hos den inställda organisationen"
+msgid "admin.jobs.totalCount"
+msgstr "Det finns totalt <strong>{$total}</strong> uppgifter i kön"
 
-msgid "admin.deleteCache"
-msgstr "Radera cache"
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr "Välj vad som ska göras med arkiverade loggfiler."
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Låt loggfilerna vara"
+
+#, fuzzy
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimera arkiv"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
 
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
 msgstr "Platform för COUNTER SUSHI-statistik"
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Använd siten som plattform för alla tidskrifter."
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Plattforms-ID"
-
-#, fuzzy
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Ett plattforms-ID krävs"
 
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
@@ -322,6 +736,12 @@ msgstr ""
 "angiven som plattformen för all statistik, men om alla tidskrifter på denna "
 "OJS-installation tillhör samma utgivare går det även att ange hela siten som "
 "plattform."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Använd siten som plattform för alla tidskrifter."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Plattforms-ID"
 
 #, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
@@ -335,27 +755,56 @@ msgstr ""
 "användas."
 
 #, fuzzy
-msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimera arkiv"
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr "Ett plattforms-ID krävs"
 
-#, fuzzy
-msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Låt loggfilerna vara"
-
-#, fuzzy
-msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr "Välj vad som ska göras med arkiverade loggfiler."
-
-msgid "admin.deleteCache.description"
+msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""
-"Radera cache-filer från systemet. Ska endast utföras i utvecklingsmiljöer."
 
-msgid "admin.scheduledTask.editorialReminder"
+msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr ""
-"Skicka ett e-postmeddelande med en påminnelse om ofärdiga uppgifter till "
-"varje redaktör"
 
-msgid "admin.expireSessions.description"
+msgid "admin.cli.tool.jobs.work.options.description"
 msgstr ""
-"Alla användare, inklusive du själv, kommer bli utloggade och måste logga in "
-"igen."
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

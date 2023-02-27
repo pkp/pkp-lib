@@ -13,14 +13,11 @@ msgstr ""
 "19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "user.role.copyeditor"
-msgstr "Literārais redaktors"
-
-msgid "user.role.copyeditors"
-msgstr "Literārie redaktori"
-
 msgid "user.accountInformation"
 msgstr "Konta informācija"
+
+msgid "user.affiliation"
+msgstr "Piederība iestādei"
 
 msgid "user.affiliation.description"
 msgstr "(Jūsu iestāde, piemēram, \"Latvijas Universitāte\")"
@@ -28,18 +25,25 @@ msgstr "(Jūsu iestāde, piemēram, \"Latvijas Universitāte\")"
 msgid "user.affiliations"
 msgstr "Piederība iestādēm"
 
-msgid "user.affiliation"
-msgstr "Piederība iestādei"
-
 msgid "user.authorization.accessDenied"
 msgstr "Piekļuve liegta."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr ""
+"Procesa autentifikācijas marķieris (token) nav norādīts vai ir nederīgs."
 
 msgid "user.authorization.contextRequired"
 msgstr ""
 "Šo darbību nevar izsaukt bez konteksta (prese, žurnāls, konference utt.)."
 
+msgid "user.authorization.loginRequired"
+msgstr "Nepieciešams pieteikties."
+
 msgid "user.authorization.privateOperation"
 msgstr "Darbība, kuru mēģinājāt veikt, ir vai nu nepieejama, vai neeksistē."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Jums ir liegta piekļuve. Piekļuve šai vietnei pašlaik ir ierobežota."
 
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "Pašreizējai lomai nav piekļuves šai darbībai."
@@ -51,11 +55,16 @@ msgstr ""
 msgid "user.authorization.userGroupRequired"
 msgstr "Lai piekļūtu šai darbībai, ir jāiestata derīga lietotāju grupa."
 
-msgid "user.authorization.workflowStageRequired"
-msgstr "Darba plūsmas stadija netika norādīta."
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Lai varētu turpināt, šai stadijai jāpiešķir lietotājs ar pārvaldnieka lomu "
+"(t.i., izstrādes redaktors)."
 
 msgid "user.authorization.accessibleWorkflowStage"
 msgstr "Pašlaik jums nav piekļuves šai darbplūsmas stadijai."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Darba plūsmas stadija netika norādīta."
 
 msgid "user.authorization.pluginRequired"
 msgstr "Spraudnis nav norādīts, taču tas ir nepieciešams."
@@ -66,14 +75,14 @@ msgstr "Jums nav tiesību piekļūt šim recenzēšanas uzdevumam."
 msgid "user.authorization.submissionQuery"
 msgstr "Jums nav tiesību piekļūt šai diskusijai."
 
+msgid "user.biography"
+msgstr "Biogrāfiskā informācija (piem., struktūrvienība un amats)"
+
 msgid "user.changeMyPassword"
 msgstr "Mainīt manu paroli"
 
 msgid "user.changePassword"
 msgstr "Mainīt paroli"
-
-msgid "user.authorization.loginRequired"
-msgstr "Nepieciešams pieteikties."
 
 msgid "user.dateLastLogin"
 msgstr "Pēdējā pieteikšanās"
@@ -96,6 +105,12 @@ msgstr "Recenzenta intereses"
 msgid "user.gossip"
 msgstr "Redakcijas piezīmes"
 
+msgid "user.gossip.description"
+msgstr ""
+"Ierakstiet piezīmes par šo recenzentu, kuras vēlaties padarīt redzamas "
+"citiem administratoriem, vadītājiem un visiem redaktoriem. Piezīmes būs "
+"redzamas turpmākajos recenzēšanas uzdevumos."
+
 msgid "user.group"
 msgstr "Lietotāja grupa"
 
@@ -107,6 +122,9 @@ msgstr ""
 "Nederīgs profila attēla formāts vai attēls ir pārāk liels. Pieņemamie "
 "formāti ir .gif, .jpg vai .png, un attēla izmērs nedrīkst pārsniegt 150x150 "
 "pikseļu."
+
+msgid "user.login.accountDisabledWithReason"
+msgstr "Jūsu konts ir atspējots šāda iemesla dēļ: {$reason}"
 
 msgid "user.login.accountDisabled"
 msgstr ""
@@ -185,11 +203,11 @@ msgstr "Atcerēties mani"
 msgid "user.login.resetPassword"
 msgstr "Atjaunot paroli"
 
-msgid "user.login.registerNewAccount"
-msgstr "Reģistrēties"
-
 msgid "user.logOut"
 msgstr "Iziet no sistēmas"
+
+msgid "user.logOutAs"
+msgstr "Iziet no sistēmas kā {$username}"
 
 msgid "user.hello"
 msgstr "Sveicināti, "
@@ -200,11 +218,11 @@ msgstr "Pasta adrese"
 msgid "user.myAccount"
 msgstr "Mans profils"
 
-msgid "user.password"
-msgstr "Parole"
-
 msgid "user.name"
 msgstr "Lietotāja vārds"
+
+msgid "user.password"
+msgstr "Parole"
 
 msgid "user.repeatPassword"
 msgstr "Atkārtot paroli"
@@ -214,6 +232,11 @@ msgstr "Tālrunis"
 
 msgid "user.preferredPublicName"
 msgstr "Vēlamā uzruna"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Lūdzu, norādiet pilnu vārdu un uzvārdu, jo publicētajā darbā ir jānorāda "
+"autors. Piemērs: Dr. Alan P. Mwandenga"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr "Lai mainītu profila paroli, zemāk ievadiet pašreizējo un jauno paroli."
@@ -229,6 +252,11 @@ msgstr "Nepieciešams norādīt derīgu e-pasta adresi."
 
 msgid "user.profile.form.givenNameRequired"
 msgstr "Nepieciešams norādīt vārdu."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Jūs esat pievienojis uzvārdu valodā, kurā nav norādīts vārds. Lūdzu, "
+"pievienojiet šai valodai vārdu."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Nepieciešams norādīt pasta adresi."
@@ -250,6 +278,14 @@ msgstr "Jaunā parole ir tāda pati kā iepriekšējā parole."
 
 msgid "user.profile.form.profileImage"
 msgstr "Profila attēls"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "E-pasta paziņojumi par jaunu izdevumu"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Norādītais URL nav derīgs. Lūdzu, vēlreiz pārbaudiet URL un mēģiniet "
+"vēlreiz. (Ieteikums: mēģiniet URL sākumā pievienot http://.)"
 
 msgid "user.profile.form.usergroupRequired"
 msgstr "Nepieciešams norādīt lietotāja grupu."
@@ -278,20 +314,18 @@ msgstr "Lietotāja profils"
 msgid "user.profile.repeatNewPassword"
 msgstr "Atkārtot jauno paroli"
 
+msgid "user.login.registerNewAccount"
+msgstr "Reģistrēties"
+
 msgid "user.login.resetPasswordInstructions"
 msgstr ""
 "Zemāk ievadiet sava konta e-pasta adresi, un jums tiks nosūtīts e-pasts ar "
 "norādījumiem, kā atjaunot paroli."
 
-msgid "user.register.registrationCompleted"
-msgstr ""
-"Jūs esat sekmīgi reģistrējies. <a href=\"{$profileUrl}\">Spiediet šeit</a> , "
-"lai aizpildītu savu lietotāja profilu."
-
 msgid "user.register.form.privacyConsent"
 msgstr ""
-"Jā, es piekrītu, ka mani dati tiek vākti un glabāti saskaņā ar <a href=\""
-"{$privacyUrl}\" target=\"_blank\">privātuma atrunu</a>."
+"Jā, es piekrītu, ka mani dati tiek vākti un glabāti saskaņā ar <a href="
+"\"{$privacyUrl}\" target=\"_blank\">privātuma atrunu</a>."
 
 msgid "user.register.form.emailConsent"
 msgstr ""
@@ -331,6 +365,11 @@ msgstr ""
 "Lietotājvārdā jābūt tikai mazajiem burtiem, cipariem, defisēm vai "
 "pasvītrojuma zīmēm."
 
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Jūs esat sekmīgi reģistrējies. <a href=\"{$profileUrl}\">Spiediet šeit</a> , "
+"lai aizpildītu savu lietotāja profilu."
+
 msgid "user.role.assistant"
 msgstr "Palīgs"
 
@@ -367,6 +406,12 @@ msgstr "Vietnes pārvaldnieks"
 msgid "user.role.siteAdmins"
 msgstr "Vietnes pārvaldnieki"
 
+msgid "user.role.copyeditor"
+msgstr "Literārais redaktors"
+
+msgid "user.role.copyeditors"
+msgstr "Literārie redaktori"
+
 msgid "user.role.proofreader"
 msgstr "Korektors"
 
@@ -381,15 +426,6 @@ msgstr "Maketētāji"
 
 msgid "user.roles"
 msgstr "Lomas"
-
-msgid "user.profile.identity"
-msgstr "Identifikācija"
-
-msgid "user.profile.contact"
-msgstr "Kontaktinformācija"
-
-msgid "user.profile.public"
-msgstr "Publisks"
 
 msgid "user.sendPassword"
 msgstr "Apstiprināšana"
@@ -411,51 +447,6 @@ msgstr "Mājaslapas URL"
 msgid "user.userHome"
 msgstr "Lietotāja mājas lapa"
 
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr ""
-"Procesa autentifikācijas marķieris (token) nav norādīts vai ir nederīgs."
-
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "Jums ir liegta piekļuve. Piekļuve šai vietnei pašlaik ir ierobežota."
-
-msgid "user.authorization.managerRequired"
-msgstr ""
-"Lai varētu turpināt, šai stadijai jāpiešķir lietotājs ar pārvaldnieka lomu ("
-"t.i., izstrādes redaktors)."
-
-msgid "user.biography"
-msgstr "Biogrāfiskā informācija (piem., struktūrvienība un amats)"
-
-msgid "user.gossip.description"
-msgstr ""
-"Ierakstiet piezīmes par šo recenzentu, kuras vēlaties padarīt redzamas "
-"citiem administratoriem, vadītājiem un visiem redaktoriem. Piezīmes būs "
-"redzamas turpmākajos recenzēšanas uzdevumos."
-
-msgid "user.login.accountDisabledWithReason"
-msgstr "Jūsu konts ir atspējots šāda iemesla dēļ: {$reason}"
-
-msgid "user.logOutAs"
-msgstr "Iziet no sistēmas kā {$username}"
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Lūdzu, norādiet pilnu vārdu un uzvārdu, jo publicētajā darbā ir jānorāda "
-"autors. Piemērs: Dr. Alan P. Mwandenga"
-
-msgid "user.profile.form.givenNameRequired.locale"
-msgstr ""
-"Jūs esat pievienojis uzvārdu valodā, kurā nav norādīts vārds. Lūdzu, "
-"pievienojiet šai valodai vārdu."
-
-msgid "user.profile.form.publishedNotifications"
-msgstr "E-pasta paziņojumi par jaunu izdevumu"
-
-msgid "user.profile.form.urlInvalid"
-msgstr ""
-"Norādītais URL nav derīgs. Lūdzu, vēlreiz pārbaudiet URL un mēģiniet "
-"vēlreiz. (Ieteikums: mēģiniet URL sākumā pievienot http://.)"
-
 msgid "user.username"
 msgstr "Lietotājvārds"
 
@@ -469,6 +460,15 @@ msgid "user.orcid.orcidInvalid"
 msgstr ""
 "Jūsu norādītais ORCID iD ir nederīgs. Lūdzu, norādiet pilnu URI (piemēram, "
 "\"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Identifikācija"
+
+msgid "user.profile.contact"
+msgstr "Kontaktinformācija"
+
+msgid "user.profile.public"
+msgstr "Publisks"
 
 msgid "user.apiKey"
 msgstr "API atslēga"
@@ -503,3 +503,15 @@ msgid "user.privacyLink"
 msgstr ""
 "Jūsu dati tiek glabāti saskaņā ar mūsu <a href=\"{$privacyUrl}\" target="
 "\"_blank\">privātuma atrunu</a>."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

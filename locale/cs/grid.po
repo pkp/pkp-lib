@@ -21,92 +21,23 @@ msgstr "Žádné položky"
 msgid "grid.settings"
 msgstr "Nastavení"
 
-msgid "grid.action.sort"
-msgstr "Třídit"
-
-msgid "grid.action.addItem"
-msgstr "Přidat položku"
-
-msgid "grid.action.delete"
-msgstr "Smazat"
-
-msgid "grid.action.edit"
-msgstr "Upravit"
-
-msgid "grid.action.restoreDefaults"
-msgstr "Obnovit výchozí"
-
-msgid "grid.columns.actions"
-msgstr "Akce"
-
-msgid "grid.columns.institution"
-msgstr "Organizace"
-
-msgid "grid.columns.url"
-msgstr "URL"
-
-msgid "grid.sponsor.title"
-msgstr "Sponzoři"
-
-msgid "grid.contributor.title"
-msgstr "Spolupracovník"
-
-msgid "grid.reviewForm.title"
-msgstr "Recenzní formuláře"
-
-msgid "grid.artworkFile.caption"
-msgstr "Titulek"
-
-msgid "grid.artworkFile.credit"
-msgstr "Autor"
-
-msgid "grid.artworkFile.copyrightOwner"
-msgstr "Vlastník autorských práv"
-
-msgid "grid.artworkFile.copyrightContact"
-msgstr "Kontaktní informace (nejedná-li se o autora nebo vydavatele)"
-
-msgid "grid.artworkFile.permissionTerms"
-msgstr "Podmínky oprávnění k užití díla"
-
-msgid "grid.artworkFile.placement"
-msgstr "Umístění v příspěvku"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "Soubory"
-
-msgid "grid.libraryFiles.submission.title"
-msgstr "Knihovna příspěvku"
-
-msgid "grid.libraryFiles.editorial.title"
-msgstr "Knihovna redakce"
-
-msgid "grid.libraryFiles.review.title"
-msgstr "Knihovna recenzí"
-
-msgid "grid.libraryFiles.production.title"
-msgstr "Knihovna produkce"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Knihovna šablon produkce"
-
-msgid "grid.submissionChecklist.title"
-msgstr "Kontrolní seznam příspěvků"
-
-msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Položka kontrolního seznamu"
-
-msgid "author.users.contributor.principalContact"
-msgstr "Hlavní kontakt"
-
 msgid "grid.noAuditors"
 msgstr "Žádní posuzovatelé"
 
 msgid "grid.remotelyHostedItem"
 msgstr "Tato položka je vzdáleně hostována."
 
+msgid "grid.action.uninstall"
+msgstr "Odinstalování"
+
 msgid "grid.action.manageAccess"
 msgstr "Spravovat přístup"
+
+msgid "grid.action.sort"
+msgstr "Třídit"
+
+msgid "grid.action.addItem"
+msgstr "Přidat položku"
 
 msgid "grid.action.addNote"
 msgstr "Přidat poznámku"
@@ -129,8 +60,15 @@ msgstr "Přidat uživatele"
 msgid "grid.action.unassignReviewer"
 msgstr "Odebrat recenzenta"
 
+msgid "grid.action.approveCopyedit"
+msgstr ""
+"Potvrďte tuto redakční úpravu souboru, aby mohl být odeslán do další fáze"
+
 msgid "grid.action.reload"
 msgstr "Znovu nahrát"
+
+msgid "grid.action.delete"
+msgstr "Smazat"
 
 msgid "grid.action.deleteFile"
 msgstr "Smazat soubor"
@@ -150,15 +88,14 @@ msgstr "Export"
 msgid "grid.action.deleteSection"
 msgstr "Smazat sekci"
 
-msgid "grid.action.approveCopyedit"
-msgstr ""
-"Potvrďte tuto redakční úpravu souboru, aby mohl být odeslán do další fáze"
-
 msgid "grid.action.editorialHistory"
 msgstr "Historie úprav"
 
 msgid "grid.action.remove"
 msgstr "Odebrat"
+
+msgid "grid.action.edit"
+msgstr "Upravit"
 
 msgid "grid.action.approve"
 msgstr "Potvrdit"
@@ -171,6 +108,9 @@ msgstr "Nastavit potvrzení"
 
 msgid "grid.action.moreInformation"
 msgstr "Více informací"
+
+msgid "grid.action.restoreDefaults"
+msgstr "Obnovit výchozí"
 
 msgid "grid.action.restoreDefaults.confirm"
 msgstr "Přejete si nastavit původní hodnoty?"
@@ -192,6 +132,9 @@ msgstr "Aktualizace"
 
 msgid "grid.action.order"
 msgstr "Pořadí"
+
+msgid "grid.action.saveOrdering"
+msgstr "Uložit pořadí"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Zrušit řazení"
@@ -292,6 +235,9 @@ msgstr "Přidat novou skupinu uživatelů"
 msgid "grid.action.editUserGroup"
 msgstr "Upravit tuto uživatelskou skupinu"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Odebrat tuto skupinu uživatelů"
+
 msgid "grid.action.disable"
 msgstr "Zakázat"
 
@@ -309,6 +255,231 @@ msgstr "Hledat"
 
 msgid "grid.action.advancedSearch"
 msgstr "Pokročilé vyhledávání"
+
+msgid "grid.action.viewLibrary"
+msgstr "Zobrazit knihovnu dokumentů"
+
+msgid "grid.action.viewMetadata"
+msgstr "Zobrazit metadata tohoto příspěvku"
+
+msgid "grid.action.sendReminder"
+msgstr "Poslat tomuto uživateli připomínku"
+
+msgid "grid.action.newRound"
+msgstr "Vytvořit nové kolo¨"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "Zobrazit pokyny pro recenzenty"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "Zobrazit pokyny ke konfliktu zájmu"
+
+msgid "grid.action.thankReviewer"
+msgstr "Poslat recenzentovi zprávu s poděkováním"
+
+msgid "grid.action.uploadFile"
+msgstr "Nahrát soubor"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "Přidat typ oznámení"
+
+msgid "grid.action.addAnnouncement"
+msgstr "Přidat oznámení"
+
+msgid "grid.action.addInstitution"
+msgstr "Přidat instituci"
+
+msgid "grid.action.mergeUser"
+msgstr "Sloučit uživatele"
+
+msgid "grid.action.unassignUser"
+msgstr "Odebrat uživatele"
+
+msgid "grid.action.history"
+msgstr "Zobrazit historii"
+
+msgid "grid.action.unconsiderReview"
+msgstr "Tato recenze je hotová, můžete ji ale nevzít v úvahu"
+
+msgid "grid.action.enable"
+msgstr "Povolit"
+
+msgid "grid.action.bookInfo"
+msgstr "Informace o příspěvku"
+
+msgid "grid.action.logInAs"
+msgstr "Přihlásit se jako"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Exportovat všechny uživatele"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Opravdu chcete exportovat všechny uživatele?"
+
+msgid "grid.action.activate"
+msgstr "Aktivovat"
+
+msgid "grid.action.deactivate"
+msgstr "Deaktivovat"
+
+msgid "grid.action.copy"
+msgstr "Kopírovat"
+
+msgid "grid.action.preview"
+msgstr "Náhled"
+
+msgid "grid.action.install"
+msgstr "Instalovat"
+
+msgid "grid.action.moreItems"
+msgstr "Nahrát další"
+
+msgid "grid.action.users"
+msgstr "Zobrazit/vybrat uživatele"
+
+msgid "grid.task.status.completed"
+msgstr "Tato úloha je ukončena"
+
+msgid "grid.task.status.new"
+msgstr "Zatrhněte, pokud má být bráno v úvahu"
+
+msgid "grid.task.status.uploaded"
+msgstr "V tomto sloupci je uvedeno, kdo nahrál tento soubor"
+
+msgid "grid.task.status.unfinished"
+msgstr "Úloha nebyla dokončena"
+
+msgid "grid.task.status.reviewReady"
+msgstr ""
+"Tato recenze byla ukončena. Klikněte na ikonu poznámky nalevo, pokud si ji "
+"chcete přečíst."
+
+msgid "grid.columns.actions"
+msgstr "Akce"
+
+msgid "grid.columns.institution"
+msgstr "Organizace"
+
+msgid "grid.columns.url"
+msgstr "URL"
+
+msgid "grid.columns.auditor"
+msgstr "Posuzovatel"
+
+msgid "grid.columns.locale"
+msgstr "Lokalizace"
+
+msgid "grid.columns.locale.code"
+msgstr "Kód"
+
+msgid "grid.sponsor.title"
+msgstr "Sponzoři"
+
+msgid "grid.action.addSponsor"
+msgstr "Přidat sponzora"
+
+msgid "grid.action.deleteSponsor"
+msgstr "Smazat sponzora"
+
+msgid "grid.action.editSponsor"
+msgstr "Upravit sponzora"
+
+msgid "grid.action.addSeries"
+msgstr "Přidat řadu"
+
+msgid "grid.action.editSeries"
+msgstr "Upravit řadu"
+
+msgid "grid.action.deleteSeries"
+msgstr "Smazat řadu"
+
+msgid "grid.action.addCategory"
+msgstr "Přidat kategorii"
+
+msgid "grid.action.editCategory"
+msgstr "Upravit kategorii"
+
+msgid "grid.action.deleteCategory"
+msgstr "Smazat kategorii"
+
+msgid "grid.contributor.title"
+msgstr "Spolupracovník"
+
+msgid "grid.action.addContributor"
+msgstr "Přidat autora"
+
+msgid "grid.action.deleteContributor"
+msgstr "Smazat autora"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Jste si jisti, že chcete odebrat {$jméno} jako přispěvatele? Tuto akci nelze "
+"vzít zpět."
+
+msgid "grid.action.newVersion"
+msgstr "Vytvořit novou verzi"
+
+msgid "grid.reviewForm.title"
+msgstr "Recenzní formuláře"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Možnosti odpovědi"
+
+msgid "grid.noFiles"
+msgstr "Žádné soubory"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Soubory"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Knihovna příspěvku"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Knihovna redakce"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Knihovna recenzí"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Knihovna produkce"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Knihovna šablon produkce"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Kontrolní seznam příspěvků"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Položka kontrolního seznamu"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Hlavní kontakt"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Nastavit primární kontakt"
+
+msgid "contributor.listPanel.preview"
+msgstr "Náhled"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Přispěvatelé do této publikace budou v časopise uvedeni v následujících "
+"formátech."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Formát"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Zobrazení"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Zkráceně"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Seznam publikací"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Plný"
 
 msgid "grid.roles.currentRoles"
 msgstr "Současné role"
@@ -464,142 +635,23 @@ msgstr "Jste si jisti, že chcete zakázat tento plugin?"
 msgid "grid.action.fileUnconsider"
 msgstr "Korektury byly udělány. Můžete přestat sledovat tuto úlohu"
 
-msgid "grid.action.viewLibrary"
-msgstr "Zobrazit knihovnu dokumentů"
+msgid "grid.artworkFile.caption"
+msgstr "Titulek"
 
-msgid "grid.action.viewMetadata"
-msgstr "Zobrazit metadata tohoto příspěvku"
+msgid "grid.artworkFile.credit"
+msgstr "Autor"
 
-msgid "grid.action.sendReminder"
-msgstr "Poslat tomuto uživateli připomínku"
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "Vlastník autorských práv"
 
-msgid "grid.action.newRound"
-msgstr "Vytvořit nové kolo¨"
+msgid "grid.artworkFile.copyrightContact"
+msgstr "Kontaktní informace (nejedná-li se o autora nebo vydavatele)"
 
-msgid "grid.action.viewReviewGuidelines"
-msgstr "Zobrazit pokyny pro recenzenty"
+msgid "grid.artworkFile.permissionTerms"
+msgstr "Podmínky oprávnění k užití díla"
 
-msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "Zobrazit pokyny ke konfliktu zájmu"
-
-msgid "grid.action.thankReviewer"
-msgstr "Poslat recenzentovi zprávu s poděkováním"
-
-msgid "grid.action.uploadFile"
-msgstr "Nahrát soubor"
-
-msgid "grid.action.addAnnouncementType"
-msgstr "Přidat typ oznámení"
-
-msgid "grid.action.addAnnouncement"
-msgstr "Přidat oznámení"
-
-msgid "grid.action.mergeUser"
-msgstr "Sloučit uživatele"
-
-msgid "grid.action.unassignUser"
-msgstr "Odebrat uživatele"
-
-msgid "grid.action.history"
-msgstr "Zobrazit historii"
-
-msgid "grid.action.unconsiderReview"
-msgstr "Tato recenze je hotová, můžete ji ale nevzít v úvahu"
-
-msgid "grid.action.enable"
-msgstr "Povolit"
-
-msgid "grid.action.bookInfo"
-msgstr "Informace o příspěvku"
-
-msgid "grid.action.logInAs"
-msgstr "Přihlásit se jako"
-
-msgid "grid.action.exportAllUsers"
-msgstr "Exportovat všechny uživatele"
-
-msgid "grid.users.confirmExportAllUsers"
-msgstr "Opravdu chcete exportovat všechny uživatele?"
-
-msgid "grid.action.activate"
-msgstr "Aktivovat"
-
-msgid "grid.action.deactivate"
-msgstr "Deaktivovat"
-
-msgid "grid.action.copy"
-msgstr "Kopírovat"
-
-msgid "grid.action.preview"
-msgstr "Náhled"
-
-msgid "grid.action.install"
-msgstr "Instalovat"
-
-msgid "grid.action.moreItems"
-msgstr "Nahrát další"
-
-msgid "grid.task.status.completed"
-msgstr "Tato úloha je ukončena"
-
-msgid "grid.task.status.new"
-msgstr "Zatrhněte, pokud má být bráno v úvahu"
-
-msgid "grid.task.status.uploaded"
-msgstr "V tomto sloupci je uvedeno, kdo nahrál tento soubor"
-
-msgid "grid.task.status.unfinished"
-msgstr "Úloha nebyla dokončena"
-
-msgid "grid.task.status.reviewReady"
-msgstr ""
-"Tato recenze byla ukončena. Klikněte na ikonu poznámky nalevo, pokud si ji "
-"chcete přečíst."
-
-msgid "grid.columns.auditor"
-msgstr "Posuzovatel"
-
-msgid "grid.columns.locale"
-msgstr "Lokalizace"
-
-msgid "grid.action.addSponsor"
-msgstr "Přidat sponzora"
-
-msgid "grid.action.deleteSponsor"
-msgstr "Smazat sponzora"
-
-msgid "grid.action.editSponsor"
-msgstr "Upravit sponzora"
-
-msgid "grid.action.addSeries"
-msgstr "Přidat řadu"
-
-msgid "grid.action.editSeries"
-msgstr "Upravit řadu"
-
-msgid "grid.action.deleteSeries"
-msgstr "Smazat řadu"
-
-msgid "grid.action.addCategory"
-msgstr "Přidat kategorii"
-
-msgid "grid.action.editCategory"
-msgstr "Upravit kategorii"
-
-msgid "grid.action.deleteCategory"
-msgstr "Smazat kategorii"
-
-msgid "grid.action.addContributor"
-msgstr "Přidat autora"
-
-msgid "grid.action.deleteContributor"
-msgstr "Smazat autora"
-
-msgid "grid.reviewFormElement.responseItems"
-msgstr "Možnosti odpovědi"
-
-msgid "grid.noFiles"
-msgstr "Žádné soubory"
+msgid "grid.artworkFile.placement"
+msgstr "Umístění v příspěvku"
 
 msgid "grid.userGroup.assignStage"
 msgstr "Přiřadit etapu"
@@ -653,66 +705,11 @@ msgstr "Navigační menu nemá položky"
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Nejsou žádná navigační menu"
 
-msgid "grid.action.uninstall"
-msgstr "Odinstalování"
-
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Vyberte typ..."
 
-msgid "grid.action.newVersion"
-msgstr "Vytvořit novou verzi"
-
-msgid "grid.action.users"
-msgstr "Zobrazit/vybrat uživatele"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Odebrat tuto skupinu uživatelů"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Plný"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Seznam publikací"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Zkráceně"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Zobrazení"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Formát"
-
-msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Přispěvatelé do této publikace budou v časopise uvedeni v následujících "
-"formátech."
-
-msgid "contributor.listPanel.preview"
-msgstr "Náhled"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Nastavit primární kontakt"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Jste si jisti, že chcete odebrat {$jméno} jako přispěvatele? Tuto akci nelze "
-"vzít zpět."
-
-msgid "grid.action.saveOrdering"
-msgstr "Uložit pořadí"
-
-msgid "grid.user.authSource"
-msgstr "Zdroj ověření"
-
-msgid "grid.action.addInstitution"
-msgstr "Přidat instituci"
-
 msgid "grid.action.view"
 msgstr "Náhled"
-
-msgid "grid.columns.locale.code"
-msgstr "Kód"
 
 msgid "author.users.contributor.name"
 msgstr "Název"
@@ -729,3 +726,5 @@ msgstr "V seznamech k procházení"
 msgid "grid.action.editContributor"
 msgstr "Upravit autora"
 
+#~ msgid "grid.user.authSource"
+#~ msgstr "Zdroj ověření"

@@ -12,325 +12,101 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Понастоящем нямате достъп до този етап от работния процес."
+msgid "user.accountInformation"
+msgstr "Информация за профила"
 
-msgid "user.authorization.managerRequired"
-msgstr ""
-"Потребител с роля на мениджър (т.е. редактор на продукцията) трябва да бъде "
-"назначен на етапа, преди да можете да продължите."
+msgid "user.affiliation"
+msgstr "Организация"
 
-msgid "user.authorization.userGroupRequired"
-msgstr ""
-"Трябва да зададете валидна потребителска група за достъп до тази операция."
+msgid "user.affiliation.description"
+msgstr "(Вашата институция, напр. „Софийски университет“)"
 
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr ""
-"Не сте били присвоени на това представяне на материали с роля, на която е "
-"разрешен достъп до тази операция."
+msgid "user.affiliations"
+msgstr "Организации"
 
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Текущата роля няма достъп до тази операция."
+msgid "user.authorization.accessDenied"
+msgstr "Отказан достъп."
 
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "Отказан ви е достъп. Достъпът до този сайт в момента е ограничен."
-
-msgid "user.authorization.privateOperation"
-msgstr ""
-"Операцията, до която се опитахте да осъществите достъп, е или частна, или не "
-"съществува."
-
-msgid "user.authorization.loginRequired"
-msgstr "Изисква се влизане с потребителско име в системата."
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Маркерът за удостоверяване на процеса липсва или е невалиден."
 
 msgid "user.authorization.contextRequired"
 msgstr ""
 "Не можете да изпълните тази операция без определен контекст (преса, дневник, "
 "конференция и т.н.)."
 
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Маркерът за удостоверяване на процеса липсва или е невалиден."
+msgid "user.authorization.loginRequired"
+msgstr "Изисква се влизане с потребителско име в системата."
 
-msgid "user.authorization.accessDenied"
-msgstr "Отказан достъп."
+msgid "user.authorization.privateOperation"
+msgstr ""
+"Операцията, до която се опитахте да осъществите достъп, е или частна, или не "
+"съществува."
 
-msgid "user.affiliations"
-msgstr "Организации"
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Отказан ви е достъп. Достъпът до този сайт в момента е ограничен."
 
-msgid "user.affiliation.description"
-msgstr "(Вашата институция, напр. „Софийски университет“)"
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Текущата роля няма достъп до тази операция."
 
-msgid "user.affiliation"
-msgstr "Организация"
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Не сте били присвоени на това представяне на материали с роля, на която е "
+"разрешен достъп до тази операция."
 
-msgid "user.accountInformation"
-msgstr "Информация за профила"
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+"Трябва да зададете валидна потребителска група за достъп до тази операция."
 
-msgid "user.dateLastLogin"
-msgstr "Последно влизане"
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Потребител с роля на мениджър (т.е. редактор на продукцията) трябва да бъде "
+"назначен на етапа, преди да можете да продължите."
 
-msgid "user.changePassword"
-msgstr "Промени парола"
-
-msgid "user.changeMyPassword"
-msgstr "Промени моята парола"
-
-msgid "user.biography"
-msgstr "Биография (напр. институция, отдел и ранг)"
-
-msgid "user.authorization.submissionQuery"
-msgstr "Нямате разрешение за достъп до тази дискусия."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Нямате разрешение за достъп до това задание за рецензия."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Плъгин не е посочен и се изисква."
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Понастоящем нямате достъп до този етап от работния процес."
 
 msgid "user.authorization.workflowStageRequired"
 msgstr "Етап на работния процес не е посочен."
 
-msgid "user.register.form.usernameExists"
-msgstr "Избраното потребителско име вече се използва от друг потребител."
+msgid "user.authorization.pluginRequired"
+msgstr "Плъгин не е посочен и се изисква."
 
-msgid "user.register.form.userGroupRequired"
-msgstr "Трябва да бъде избрана поне една роля."
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Нямате разрешение за достъп до това задание за рецензия."
 
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr ""
-"Потребителското име може да съдържа само малки букви, цифри и букви, долни "
-"черти и тирета и трябва да започва и завършва с буквено-цифров знак."
+msgid "user.authorization.submissionQuery"
+msgstr "Нямате разрешение за достъп до тази дискусия."
 
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "Полетата на имейл адреса не съвпадат."
+msgid "user.biography"
+msgstr "Биография (напр. институция, отдел и ранг)"
 
-msgid "user.register.form.passwordsDoNotMatch"
-msgstr "Паролите не съвпадат."
+msgid "user.changeMyPassword"
+msgstr "Промени моята парола"
 
-msgid "user.register.form.emailExists"
-msgstr "Избраният имейл адрес вече се използва от друг потребител."
+msgid "user.changePassword"
+msgstr "Промени парола"
 
-msgid "user.register.form.emailConsent"
-msgstr "Да, бих искал да получавам известия за нови публикации и съобщения."
+msgid "user.dateLastLogin"
+msgstr "Последно влизане"
 
-msgid "user.register.form.privacyConsent"
-msgstr ""
-"Да, съгласявам се моите данни да бъдат събирани и съхранявани съгласно <a "
-"href=\"{$privacyUrl}\" target=\"_blank\">декларацията за поверителност</a>."
+msgid "user.dateRegistered"
+msgstr "Дата на регистрация"
 
-msgid "user.login.resetPasswordInstructions"
-msgstr ""
-"Въведете имейл адреса на вашия акаунт по-долу и ще бъде изпратен имейл с "
-"инструкции как да нулирате паролата си."
+msgid "user.editMyProfile"
+msgstr "Редактиране на моя профил"
 
-msgid "user.login.registerNewAccount"
-msgstr "Регистрация"
+msgid "user.email"
+msgstr "Имейл"
 
-msgid "user.profile.repeatNewPassword"
-msgstr "Повторете новата парола"
+msgid "user.givenName"
+msgstr "Собствено име"
 
-msgid "user.profile.publicProfile"
-msgstr "Потребителски профил"
+msgid "user.interests"
+msgstr "Рецензентски интереси"
 
-msgid "user.profile"
-msgstr "Профил"
-
-msgid "user.profile.oldPassword"
-msgstr "Настояща парола"
-
-msgid "user.profile.newPassword"
-msgstr "Нова парола"
-
-msgid "user.profile.leavePasswordBlank"
-msgstr "Оставете полетата за парола празни, за да запазите текущата парола."
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Трябва да се съгласите с условията на декларацията за поверителност."
-
-msgid "user.profile.form.usernameRequired"
-msgstr "Изисква се отбелязано потребителско име."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Изисква се отбелязана потребителска група."
-
-msgid "user.profile.form.urlInvalid"
-msgstr ""
-"Посоченият URL адрес не е валиден. Моля, проверете отново URL адреса и "
-"опитайте отново. (Съвет: Опитайте да добавите http:// в началото на URL "
-"адреса.)"
-
-msgid "user.profile.form.publishedNotifications"
-msgstr "Уведомяване по имейл при публикуване на нов брой"
-
-msgid "user.profile.form.profileImage"
-msgstr "Изображение за профила"
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Новата ви парола е същата като старата ви парола."
-
-msgid "user.profile.form.passwordRequired"
-msgstr "Изисква се парола."
-
-msgid "user.profile.form.openAccessNotifications"
-msgstr "Получаване на известия по имейл за броеве с отворен достъп"
-
-msgid "user.profile.form.oldPasswordInvalid"
-msgstr "Текущата парола, която сте въвели, е неправилна."
-
-msgid "user.profile.form.newPasswordRequired"
-msgstr "Трябва да въведете новата си парола."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Изисква се отбелязан пощенски адрес."
-
-msgid "user.profile.form.givenNameRequired.locale"
-msgstr ""
-"Добавихте фамилно име за език, на който липсва отбелязано собствено име. "
-"Моля, добавете собствено име за този език."
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "Изисква се отбелязано име."
-
-msgid "user.profile.form.emailRequired"
-msgstr "Изисква се отбелязан валиден имейл."
-
-msgid "user.profile.form.countryRequired"
-msgstr "Изисква се отбелязана държава."
-
-msgid "user.profile.editProfile"
-msgstr "Редактиране на профил"
-
-msgid "user.profile.changePasswordInstructions"
-msgstr ""
-"Въведете текущата и новата си парола по-долу, за да промените паролата за "
-"вашия акаунт."
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Моля, посочете пълното име, тъй като авторът трябва да бъде идентифициран "
-"върху публикуваното произведение. Пример: д-р Алън П. Мванденга"
-
-msgid "user.preferredPublicName"
-msgstr "Предпочитано публично име"
-
-msgid "user.phone"
-msgstr "Телефон"
-
-msgid "user.repeatPassword"
-msgstr "Повторете паролата"
-
-msgid "user.password"
-msgstr "Парола"
-
-msgid "user.name"
-msgstr "Име"
-
-msgid "user.myAccount"
-msgstr "Моят профил"
-
-msgid "user.mailingAddress"
-msgstr "Пощенски адрес"
-
-msgid "user.hello"
-msgstr "Здравейте, "
-
-msgid "user.logOutAs"
-msgstr "Изход от системата като {$username}"
-
-msgid "user.logOut"
-msgstr "Изход от системата (Logout)"
-
-msgid "user.login.resetPassword"
-msgstr "Нулиране на паролата"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Запомняне на влизането (оставяне в режим logged in)"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Регистрация в очакване на проверка"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Продължете да разглеждате"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Направете ново подаване на материали"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Преглед на подадените материали"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Благодарим ви за регистрацията! Какво мислите да правите след това?"
-
-msgid "user.login.registrationComplete"
-msgstr "Регистрацията e завършена"
-
-msgid "user.login.registeredEmail"
-msgstr "Имейл на регистриран потребител"
-
-msgid "user.login.lostPassword.passwordSent"
-msgstr ""
-"На вашия имейл адрес е изпратена нова парола. Вече можете да влезете в сайта "
-"с новата си парола."
-
-msgid "user.login.lostPassword.invalidHash"
-msgstr ""
-"За съжаление връзката, върху която сте щракнали, е изтекла или не е валидна. "
-"Моля, опитайте да нулирате паролата си отново."
-
-msgid "user.login.lostPassword.confirmationSent"
-msgstr ""
-"На вашия имейл адрес е изпратено потвърждение. Моля, следвайте инструкциите "
-"в имейла, за да нулирате паролата си."
-
-msgid "user.login"
-msgstr "Вход"
-
-msgid "user.login.loginError"
-msgstr "Невалидно потребителско име или парола. Моля, опитайте отново."
-
-msgid "user.login.forgotPassword"
-msgstr "Забравена парола?"
-
-msgid "user.login.changePasswordInstructions"
-msgstr ""
-"Трябва да изберете нова парола, преди да можете да влезете в този сайт.<br "
-"/><br />Моля, въведете вашето потребителско име и текущата и новата си "
-"парола по-долу, за да промените паролата за вашия акаунт."
-
-msgid "user.login.activated"
-msgstr ""
-"Благодарим ви, че активирахте акаунта си. Вече можете да влезете, като "
-"използвате идентификационните данни, които сте предоставили, когато сте "
-"създали акаунта си."
-
-msgid "user.login.activate"
-msgstr "Активиране на акаунта"
-
-msgid "user.login.accountNotValidated"
-msgstr ""
-"Изпратихме ви имейл за потвърждение на {$email}. Моля, следвайте "
-"инструкциите в този имейл, за да активирате новия си акаунт. Ако не виждате "
-"подобен имейл, моля, проверете дали е поставен във вашата папка за спам."
-
-msgid "user.login.accountDisabled"
-msgstr ""
-"Вашият профил беше деактивиран. Моля, свържете се с администратора за повече "
-"информация."
-
-msgid "user.login.accountDisabledWithReason"
-msgstr "Вашият акаунт е деактивиран поради следната причина: {$reason}"
-
-msgid "user.profile.form.profileImageInvalid"
-msgstr ""
-"Невалиден формат на изображението на потребителския профил или твърде голямо "
-"изображение. Приетите формати са .gif, .jpg или .png, като изображението не "
-"трябва да надвишава 150 x 150 пиксела."
-
-msgid "user.familyName"
-msgstr "Фамилно име"
-
-msgid "user.group"
-msgstr "Потребителска група"
+msgid "user.gossip"
+msgstr "Редакционни бележки"
 
 msgid "user.gossip.description"
 msgstr ""
@@ -338,169 +114,383 @@ msgstr ""
 "други администратори, мениджъри и всички редактори. Бележките ще бъдат "
 "видими за бъдещи задачи за преглед."
 
-msgid "user.gossip"
-msgstr "Редакционни бележки"
+msgid "user.group"
+msgstr "Потребителска група"
 
-msgid "user.interests"
-msgstr "Рецензентски интереси"
+msgid "user.familyName"
+msgstr "Фамилно име"
 
-msgid "user.givenName"
-msgstr "Собствено име"
-
-msgid "user.email"
-msgstr "Имейл"
-
-msgid "user.editMyProfile"
-msgstr "Редактиране на моя профил"
-
-msgid "user.dateRegistered"
-msgstr "Дата на регистрация"
-
-msgid "user.privacyLink"
+msgid "user.profile.form.profileImageInvalid"
 msgstr ""
-"Вашите данни се съхраняват в съответствие с нашата <a href=\"{$privacyUrl}\" "
-"target=\"_blank\">декларация за поверителност</a>."
+"Невалиден формат на изображението на потребителския профил или твърде голямо "
+"изображение. Приетите формати са .gif, .jpg или .png, като изображението не "
+"трябва да надвишава 150 x 150 пиксела."
 
-msgid "user.apiKey.secretRequired"
+msgid "user.login.accountDisabledWithReason"
+msgstr "Вашият акаунт е деактивиран поради следната причина: {$reason}"
+
+msgid "user.login.accountDisabled"
 msgstr ""
-"Преди да генерира API ключ, администраторът на вашия сайт трябва да зададе "
-"таен ключ в конфигурационния файл (\"api_key_secret\")."
+"Вашият профил беше деактивиран. Моля, свържете се с администратора за повече "
+"информация."
 
-msgid "user.apiKey.generateWarning"
+msgid "user.login.accountNotValidated"
 msgstr ""
-"Генерирането на нов ключ за API ще анулира всички съществуващи ключове за "
-"този потребител."
+"Изпратихме ви имейл за потвърждение на {$email}. Моля, следвайте "
+"инструкциите в този имейл, за да активирате новия си акаунт. Ако не виждате "
+"подобен имейл, моля, проверете дали е поставен във вашата папка за спам."
 
-msgid "user.apiKey.generate"
-msgstr "Създаване на API ключ"
+msgid "user.login.activate"
+msgstr "Активиране на акаунта"
 
-msgid "user.apiKeyEnabled"
-msgstr "Активирайте външни приложения с API ключа за достъп до този акаунт"
-
-msgid "user.apiKey"
-msgstr "API ключ"
-
-msgid "user.profile.public"
-msgstr "Отворен (публичен)"
-
-msgid "user.profile.contact"
-msgstr "Контакт"
-
-msgid "user.profile.identity"
-msgstr "Идентификация"
-
-msgid "user.orcid.orcidInvalid"
+msgid "user.login.activated"
 msgstr ""
-"Посоченият от вас ORCID iD идентификатор е невалиден. Моля, включете пълния "
-"URI (напр. \"https://orcid.org/0000-0002-1825-0097\")."
+"Благодарим ви, че активирахте акаунта си. Вече можете да влезете, като "
+"използвате идентификационните данни, които сте предоставили, когато сте "
+"създали акаунта си."
 
-msgid "user.orcid"
-msgstr "Идентификатор ORCID iD"
-
-msgid "user.workingLanguages"
-msgstr "Работни езици"
-
-msgid "user.username"
-msgstr "Потребителско име"
-
-msgid "user.userHome"
-msgstr "Начална страница на потребителя"
-
-msgid "user.url"
-msgstr "URL на главна страница"
-
-msgid "user.title"
-msgstr "Обръщение (титла)"
-
-msgid "user.signature"
-msgstr "Подпис"
-
-msgid "user.sendPassword.description"
+msgid "user.login.changePasswordInstructions"
 msgstr ""
-"Изпратете ми имейл за потвърждение, включително моето потребителско име и "
-"парола"
+"Трябва да изберете нова парола, преди да можете да влезете в този сайт.<br /"
+"><br />Моля, въведете вашето потребителско име и текущата и новата си парола "
+"по-долу, за да промените паролата за вашия акаунт."
 
-msgid "user.sendPassword"
-msgstr "Подтвърждение"
+msgid "user.login.forgotPassword"
+msgstr "Забравена парола?"
 
-msgid "user.roles"
-msgstr "Роли"
+msgid "user.login.loginError"
+msgstr "Невалидно потребителско име или парола. Моля, опитайте отново."
 
-msgid "user.role.layoutEditors"
-msgstr "Стилови редактор"
+msgid "user.login"
+msgstr "Вход"
 
-msgid "user.role.layoutEditor"
-msgstr "Стилов редактор"
-
-msgid "user.role.proofreaders"
-msgstr "Коректори"
-
-msgid "user.role.proofreader"
-msgstr "Коректор"
-
-msgid "user.role.copyeditors"
-msgstr "Редактори на оформление"
-
-msgid "user.role.copyeditor"
-msgstr "Редактор на оформление"
-
-msgid "user.role.siteAdmins"
-msgstr "Администратори на сайта"
-
-msgid "user.role.siteAdmin"
-msgstr "Администратор на сайта"
-
-msgid "user.role.reviewers"
-msgstr "Рецензенти"
-
-msgid "user.role.reviewer"
-msgstr "Рецензент"
-
-msgid "user.role.readers"
-msgstr "Читатели"
-
-msgid "user.role.reader"
-msgstr "Читател"
-
-msgid "user.role.editors"
-msgstr "Редактори"
-
-msgid "user.role.editor"
-msgstr "Редактор"
-
-msgid "user.role.authors"
-msgstr "Автори"
-
-msgid "user.role.author_s"
-msgstr "Автор(и)"
-
-msgid "user.role.author"
-msgstr "Автор"
-
-msgid "user.role.assistant"
-msgstr "Асистент"
-
-msgid "user.register.registrationCompleted"
+msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"Успешно се регистрирахте. <a href=\"{$profileUrl}\">Щракнете тук</a>, за да "
-"завършите потребителския си профил."
+"На вашия имейл адрес е изпратено потвърждение. Моля, следвайте инструкциите "
+"в имейла, за да нулирате паролата си."
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+"За съжаление връзката, върху която сте щракнали, е изтекла или не е валидна. "
+"Моля, опитайте да нулирате паролата си отново."
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+"На вашия имейл адрес е изпратена нова парола. Вече можете да влезете в сайта "
+"с новата си парола."
+
+msgid "user.login.registeredEmail"
+msgstr "Имейл на регистриран потребител"
+
+msgid "user.login.registrationComplete"
+msgstr "Регистрацията e завършена"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Благодарим ви за регистрацията! Какво мислите да правите след това?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Преглед на подадените материали"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Направете ново подаване на материали"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Продължете да разглеждате"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Регистрация в очакване на проверка"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Запомняне на влизането (оставяне в режим logged in)"
+
+msgid "user.login.resetPassword"
+msgstr "Нулиране на паролата"
+
+msgid "user.logOut"
+msgstr "Изход от системата (Logout)"
+
+msgid "user.logOutAs"
+msgstr "Изход от системата като {$username}"
+
+msgid "user.hello"
+msgstr "Здравейте, "
+
+msgid "user.mailingAddress"
+msgstr "Пощенски адрес"
+
+msgid "user.myAccount"
+msgstr "Моят профил"
+
+msgid "user.name"
+msgstr "Име"
+
+msgid "user.password"
+msgstr "Парола"
+
+msgid "user.repeatPassword"
+msgstr "Повторете паролата"
+
+msgid "user.phone"
+msgstr "Телефон"
+
+msgid "user.preferredPublicName"
+msgstr "Предпочитано публично име"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Моля, посочете пълното име, тъй като авторът трябва да бъде идентифициран "
+"върху публикуваното произведение. Пример: д-р Алън П. Мванденга"
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+"Въведете текущата и новата си парола по-долу, за да промените паролата за "
+"вашия акаунт."
+
+msgid "user.profile.editProfile"
+msgstr "Редактиране на профил"
+
+msgid "user.profile.form.countryRequired"
+msgstr "Изисква се отбелязана държава."
+
+msgid "user.profile.form.emailRequired"
+msgstr "Изисква се отбелязан валиден имейл."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Изисква се отбелязано име."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Добавихте фамилно име за език, на който липсва отбелязано собствено име. "
+"Моля, добавете собствено име за този език."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Изисква се отбелязан пощенски адрес."
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr "Трябва да въведете новата си парола."
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr "Текущата парола, която сте въвели, е неправилна."
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr "Получаване на известия по имейл за броеве с отворен достъп"
+
+msgid "user.profile.form.passwordRequired"
+msgstr "Изисква се парола."
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Новата ви парола е същата като старата ви парола."
+
+msgid "user.profile.form.profileImage"
+msgstr "Изображение за профила"
+
+msgid "user.profile.form.publishedNotifications"
+msgstr "Уведомяване по имейл при публикуване на нов брой"
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+"Посоченият URL адрес не е валиден. Моля, проверете отново URL адреса и "
+"опитайте отново. (Съвет: Опитайте да добавите http:// в началото на URL "
+"адреса.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Изисква се отбелязана потребителска група."
+
+msgid "user.profile.form.usernameRequired"
+msgstr "Изисква се отбелязано потребителско име."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Трябва да се съгласите с условията на декларацията за поверителност."
+
+msgid "user.profile.leavePasswordBlank"
+msgstr "Оставете полетата за парола празни, за да запазите текущата парола."
+
+msgid "user.profile.newPassword"
+msgstr "Нова парола"
+
+msgid "user.profile.oldPassword"
+msgstr "Настояща парола"
+
+msgid "user.profile"
+msgstr "Профил"
+
+msgid "user.profile.publicProfile"
+msgstr "Потребителски профил"
+
+msgid "user.profile.repeatNewPassword"
+msgstr "Повторете новата парола"
+
+msgid "user.login.registerNewAccount"
+msgstr "Регистрация"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Въведете имейл адреса на вашия акаунт по-долу и ще бъде изпратен имейл с "
+"инструкции как да нулирате паролата си."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Да, съгласявам се моите данни да бъдат събирани и съхранявани съгласно <a "
+"href=\"{$privacyUrl}\" target=\"_blank\">декларацията за поверителност</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Да, бих искал да получавам известия за нови публикации и съобщения."
+
+msgid "user.register.form.emailExists"
+msgstr "Избраният имейл адрес вече се използва от друг потребител."
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr "Паролите не съвпадат."
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "Полетата на имейл адреса не съвпадат."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Потребителското име може да съдържа само малки букви, цифри и букви, долни "
+"черти и тирета и трябва да започва и завършва с буквено-цифров знак."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Трябва да бъде избрана поне една роля."
+
+msgid "user.register.form.usernameExists"
+msgstr "Избраното потребителско име вече се използва от друг потребител."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Паролата трябва да съдържа най-малко {$length} знака."
+
+msgid "user.register.registerAs"
+msgstr "Регистрирайте се в {$contextName} като..."
+
+msgid "user.register"
+msgstr "Регистрация"
 
 msgid "user.register.usernameRestriction"
 msgstr ""
 "Потребителското име трябва да съдържа само малки букви, цифри и тирета/долни "
 "черти."
 
-msgid "user.register"
-msgstr "Регистрация"
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Успешно се регистрирахте. <a href=\"{$profileUrl}\">Щракнете тук</a>, за да "
+"завършите потребителския си профил."
 
-msgid "user.register.registerAs"
-msgstr "Регистрирайте се в {$contextName} като..."
+msgid "user.role.assistant"
+msgstr "Асистент"
 
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Паролата трябва да съдържа най-малко {$length} знака."
+msgid "user.role.author"
+msgstr "Автор"
+
+msgid "user.role.author_s"
+msgstr "Автор(и)"
+
+msgid "user.role.authors"
+msgstr "Автори"
+
+msgid "user.role.editor"
+msgstr "Редактор"
+
+msgid "user.role.editors"
+msgstr "Редактори"
+
+msgid "user.role.reader"
+msgstr "Читател"
+
+msgid "user.role.readers"
+msgstr "Читатели"
+
+msgid "user.role.reviewer"
+msgstr "Рецензент"
+
+msgid "user.role.reviewers"
+msgstr "Рецензенти"
+
+msgid "user.role.siteAdmin"
+msgstr "Администратор на сайта"
+
+msgid "user.role.siteAdmins"
+msgstr "Администратори на сайта"
+
+msgid "user.role.copyeditor"
+msgstr "Редактор на оформление"
+
+msgid "user.role.copyeditors"
+msgstr "Редактори на оформление"
+
+msgid "user.role.proofreader"
+msgstr "Коректор"
+
+msgid "user.role.proofreaders"
+msgstr "Коректори"
+
+msgid "user.role.layoutEditor"
+msgstr "Стилов редактор"
+
+msgid "user.role.layoutEditors"
+msgstr "Стилови редактор"
+
+msgid "user.roles"
+msgstr "Роли"
+
+msgid "user.sendPassword"
+msgstr "Подтвърждение"
+
+msgid "user.sendPassword.description"
+msgstr ""
+"Изпратете ми имейл за потвърждение, включително моето потребителско име и "
+"парола"
+
+msgid "user.signature"
+msgstr "Подпис"
+
+msgid "user.title"
+msgstr "Обръщение (титла)"
+
+msgid "user.url"
+msgstr "URL на главна страница"
+
+msgid "user.userHome"
+msgstr "Начална страница на потребителя"
+
+msgid "user.username"
+msgstr "Потребителско име"
+
+msgid "user.workingLanguages"
+msgstr "Работни езици"
+
+msgid "user.orcid"
+msgstr "Идентификатор ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"Посоченият от вас ORCID iD идентификатор е невалиден. Моля, включете пълния "
+"URI (напр. \"https://orcid.org/0000-0002-1825-0097\")."
+
+msgid "user.profile.identity"
+msgstr "Идентификация"
+
+msgid "user.profile.contact"
+msgstr "Контакт"
+
+msgid "user.profile.public"
+msgstr "Отворен (публичен)"
+
+msgid "user.apiKey"
+msgstr "API ключ"
+
+msgid "user.apiKeyEnabled"
+msgstr "Активирайте външни приложения с API ключа за достъп до този акаунт"
+
+msgid "user.apiKey.generate"
+msgstr "Създаване на API ключ"
 
 msgid "user.apiKey.remove"
 msgstr "Изтриване"
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+"Генерирането на нов ключ за API ще анулира всички съществуващи ключове за "
+"този потребител."
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
@@ -508,6 +498,16 @@ msgstr ""
 
 msgid "user.apiKey.remove.confirmation.message"
 msgstr "Сигурни ли сте, че искате да изтриете този API ключ?"
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Преди да генерира API ключ, администраторът на вашия сайт трябва да зададе "
+"таен ключ в конфигурационния файл (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Вашите данни се съхраняват в съответствие с нашата <a href=\"{$privacyUrl}\" "
+"target=\"_blank\">декларация за поверителност</a>."
 
 msgid "user.login.lostPassword.invalidUser"
 msgstr "Не съществува потребител с посочения имейл адрес."

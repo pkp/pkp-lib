@@ -15,209 +15,312 @@ msgstr ""
 msgid "api.400.paramNotSupported"
 msgstr "Þessi breyta:{$param} er ekki studd."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "The {$locale} locale is not supported."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.400.propReadOnly"
 msgstr ""
-"Valið þema, {$themePluginPath}, hefur ekki verið virkjað og mögulega ekki "
-"sett upp."
 
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"This endpoint is not available from a context. It must be accessed from the "
-"site-wide namespace."
+"Ekki var unnt að staðfesta API auðkennið. Ástæðan getur verið villa í "
+"auðkenni eða að auðkennið er ekki lengur í gildi."
 
-msgid "api.submissions.403.userCantEdit"
-msgstr "Þú hefur ekki leyfi til að breyta þessari útgáfu."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Þú hefur ekki leyfi til að eyða þessari innsendingu."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"Þú getur eingöngu séð óbirtar innsendingar sem tengdar hafa verið við þig."
+"The apiToken could not be decoded because of the following error: {$error}"
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgid "api.400.requireEmailSubjectBody"
 msgstr ""
-"Þú getur ekki eytt skrá sem skilað er inn í öðru samhengi /öðrum tilgangi."
 
-msgid "api.submissions.403.csrfTokenFailure"
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Það er ekki hægt að breyta tímasetningu stofnunar."
+
+msgid "api.dois.403.prefixRequired"
 msgstr ""
-"Beiðni hafnað. Þetta gæti verið vegna þess að tenging við kerfið er runnin "
-"út.  Prófaðu að endurhlaða síðunni og reyndu aftur."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Umbeðið bindi, númer eða ár er ekki gilt."
+msgid "api.403.unauthorized"
+msgstr "Þú hefur ekki aðgang að umbeðnu efni."
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Ekki hægt að verða við beiðni þar sem nauðsynlegar upplýsingar vantar."
+msgid "api.404.resourceNotFound"
+msgstr "Umbeðið efni finnst ekki."
 
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "þú hefur ekki aðgang að skrám í þessari umferð ritrýni."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "þú hefur ekki leyfi til að bæta við og breyta þessum skrám."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Þú hefur ekki aðgang að þessum skrám."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Umferð ritrýni sem þú gafst upp er ekki hluti af þessari innsendingu."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr "Engar breytingar fundust í beiðni um að breyta þessari skrá."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Þú verður að gefa upp skráar-stöðu."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr ""
-"Þú verður að tilgreina umferð ritrýni þegar þú biður um skrá með tilgreinda "
-"stöðu „Ritrýni“."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við ritrýni."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við úthlutun ritrýni."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við athugasemd."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr ""
-"Þú getur ekki tengt skrá frá þessari skráarstöðu við aðra innsenda skrá."
-
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr ""
-"You can not modify the file association without passing an assocType and "
-"assocId."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr ""
-"Fyrirspurnin er ekki gild. Röðun þarf að vera í lækkandi eða hækkandi röð."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr ""
-"Fyrirspurnin er ekki gild. Tímabilið þarf að vera „dagur“ eða „mánuður“."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "Lokadagur má ekki vera eftir gærdaginn."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "Upphafsdagsetning getur ekki verið fyrir 2001-01-01."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "Upphafsdagsetning má ekki vera eftir lokadagsetningu."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Dagsetningin veður að vera á þessu formi: YYYY-MM-DD ."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Skráasafnið fannst ekki eða ekki er hægt að vista skrár í það. Vinsamlegast "
-"hafðu samband við kerfisstjóra."
-
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Þú hefur ekki nægilegt pláss á þínu svæði.  Skráin sem þú ert að hlaða upp "
-"er {$fileUploadSize}kb en þú átt {$dirSizeLeft}kb eftir."
-
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Þú hefur ekki leyfi til að hlaða upp skrám."
-
-msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr ""
-"Skráin sem þú hlóðst upp er ekki í samræmi við endingu á skráarheiti. Þetta "
-"getur gerst ef skráarheiti er breytt í gerð sem passar ekki, t.d. ef "
-"mynd.png er breytt í mynd.jpg ."
-
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Myndin sem þú hlóðst upp er ekki gild."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr ""
-"Þú getur eingöngu hlaðið upp eftirfarandi tegundum af skrám: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Þú verður að taka þessa útgáfu úr birtingu áður en þú getur eytt henni."
-
-msgid "api.publication.403.cantEditStatus"
-msgstr ""
-"You can not modify the status directly through the API. Instead, use the /"
-"publish and /unpublish endpoints."
-
-msgid "api.publication.403.cantEditPublished"
-msgstr "Þú getur ekki breytt þessari útgáfu þar sem hún hefur verið birt."
-
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Útgáfan sem þú ert að reyna að taka úr birtingu hefur ekki verið birt."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Búið er að birta útgáfuna sem þú ert að reyna að birta."
-
-msgid "api.files.400.config"
-msgstr ""
-"Ekki var hægt að hlaða upp skrá vegna villu í kerfisstillingum.  Vinsamlega "
-"hafðu samband við umsjónarmann kerfis."
-
-msgid "api.files.400.fileSize"
-msgstr "Ekki er hægt að hlaða upp skrám sem eru stærri en {$maxSize}."
-
-msgid "api.files.400.uploadFailed"
-msgstr "Ekki var hægt að hlaða upp einni eða fleiri skrám."
-
-msgid "api.files.400.noUpload"
-msgstr "Ekki fannst skrá til að hlaða upp."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Umbeðið sniðmátið fyrir tölvupóst finnst ekki."
-
-msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"Þú hefur ekki leyfi til að senda tölvupóst á notendur í einu eða fleirum af "
-"völdum hlutverkum."
-
-msgid "api.emails.400.missingUserGroups"
-msgstr ""
-"Þú verður að tilgreina hlutverk þeirra notenda sem eiga að móttaka þennan "
-"póst."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Þú verður að skrá fyrirsögn á tölvupóstinn."
-
-msgid "api.emails.400.missingBody"
-msgstr "Þú verður að láta netfang fylgja með."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Ekki er stutt við eftirfarandi tungumál: {$locales}."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Umbeðin tilkynning finnst ekki."
+msgid "api.404.endpointNotFound"
+msgstr "Umbeðið URL þekkist ekki."
 
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
 "The API token can not be used to access this site because the site "
 "administrator has not configured a secret key."
 
-msgid "api.404.endpointNotFound"
-msgstr "Umbeðið URL þekkist ekki."
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Umbeðin tilkynning finnst ekki."
 
-msgid "api.404.resourceNotFound"
-msgstr "Umbeðið efni finnst ekki."
-
-msgid "api.403.unauthorized"
-msgstr "Þú hefur ekki aðgang að umbeðnu efni."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Það er ekki hægt að breyta tímasetningu stofnunar."
-
-msgid "api.400.tokenCouldNotBeDecoded"
+msgid "api.institutions.404.institutionNotFound"
 msgstr ""
-"The apiToken could not be decoded because of the following error: {$error}"
 
-msgid "api.400.invalidApiToken"
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Ekki er stutt við eftirfarandi tungumál: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
-"Ekki var unnt að staðfesta API auðkennið. Ástæðan getur verið villa í "
-"auðkenni eða að auðkennið er ekki lengur í gildi."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Þú verður að láta netfang fylgja með."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Þú verður að skrá fyrirsögn á tölvupóstinn."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Þú verður að tilgreina hlutverk þeirra notenda sem eiga að móttaka þennan "
+"póst."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Þú hefur ekki leyfi til að senda tölvupóst á notendur í einu eða fleirum af "
+"völdum hlutverkum."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Umbeðið sniðmátið fyrir tölvupóst finnst ekki."
+
+msgid "api.files.400.noUpload"
+msgstr "Ekki fannst skrá til að hlaða upp."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Ekki var hægt að hlaða upp einni eða fleiri skrám."
+
+msgid "api.files.400.fileSize"
+msgstr "Ekki er hægt að hlaða upp skrám sem eru stærri en {$maxSize}."
+
+msgid "api.files.400.config"
+msgstr ""
+"Ekki var hægt að hlaða upp skrá vegna villu í kerfisstillingum.  Vinsamlega "
+"hafðu samband við umsjónarmann kerfis."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Búið er að birta útgáfuna sem þú ert að reyna að birta."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Útgáfan sem þú ert að reyna að taka úr birtingu hefur ekki verið birt."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Þú getur ekki breytt þessari útgáfu þar sem hún hefur verið birt."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"You can not modify the status directly through the API. Instead, use the /"
+"publish and /unpublish endpoints."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Þú verður að taka þessa útgáfu úr birtingu áður en þú getur eytt henni."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Þú getur eingöngu hlaðið upp eftirfarandi tegundum af skrám: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Myndin sem þú hlóðst upp er ekki gild."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Skráin sem þú hlóðst upp er ekki í samræmi við endingu á skráarheiti. Þetta "
+"getur gerst ef skráarheiti er breytt í gerð sem passar ekki, t.d. ef mynd."
+"png er breytt í mynd.jpg ."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Þú hefur ekki leyfi til að hlaða upp skrám."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Þú hefur ekki nægilegt pláss á þínu svæði.  Skráin sem þú ert að hlaða upp "
+"er {$fileUploadSize}kb en þú átt {$dirSizeLeft}kb eftir."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Skráasafnið fannst ekki eða ekki er hægt að vista skrár í það. Vinsamlegast "
+"hafðu samband við kerfisstjóra."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Dagsetningin veður að vera á þessu formi: YYYY-MM-DD ."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Upphafsdagsetning má ekki vera eftir lokadagsetningu."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Upphafsdagsetning getur ekki verið fyrir 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Lokadagur má ekki vera eftir gærdaginn."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Fyrirspurnin er ekki gild. Tímabilið þarf að vera „dagur“ eða „mánuður“."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Fyrirspurnin er ekki gild. Röðun þarf að vera í lækkandi eða hækkandi röð."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"You can not modify the file association without passing an assocType and "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Þú getur ekki tengt skrá frá þessari skráarstöðu við aðra innsenda skrá."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við athugasemd."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við úthlutun ritrýni."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Þú getur ekki tengt skrá frá þessari skráarstöðu við ritrýni."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Þú verður að tilgreina umferð ritrýni þegar þú biður um skrá með tilgreinda "
+"stöðu „Ritrýni“."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Þú verður að gefa upp skráar-stöðu."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Engar breytingar fundust í beiðni um að breyta þessari skrá."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Umferð ritrýni sem þú gafst upp er ekki hluti af þessari innsendingu."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Þú hefur ekki aðgang að þessum skrám."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "þú hefur ekki leyfi til að bæta við og breyta þessum skrám."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "þú hefur ekki aðgang að skrám í þessari umferð ritrýni."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Ekki hægt að verða við beiðni þar sem nauðsynlegar upplýsingar vantar."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Umbeðið bindi, númer eða ár er ekki gilt."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Beiðni hafnað. Þetta gæti verið vegna þess að tenging við kerfið er runnin "
+"út.  Prófaðu að endurhlaða síðunni og reyndu aftur."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Þú getur ekki eytt skrá sem skilað er inn í öðru samhengi /öðrum tilgangi."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Þú getur eingöngu séð óbirtar innsendingar sem tengdar hafa verið við þig."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Þú hefur ekki leyfi til að eyða þessari innsendingu."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Þú hefur ekki leyfi til að breyta þessari útgáfu."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"This endpoint is not available from a context. It must be accessed from the "
+"site-wide namespace."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"Valið þema, {$themePluginPath}, hefur ekki verið virkjað og mögulega ekki "
+"sett upp."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "The {$locale} locale is not supported."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr ""
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""

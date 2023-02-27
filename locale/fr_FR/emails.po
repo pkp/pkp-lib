@@ -22,14 +22,22 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Nous vous remercions d'avoir soumis le manuscrit intitulé « {$submissionTitle} » à la revue {$contextName}. Grâce à notre système de gestion en ligne, vous pourrez suivre votre soumission tout au long du processus d'édition simplement en accédant au site Web de la revue.<br />\n"
+"Nous vous remercions d'avoir soumis le manuscrit intitulé "
+"« {$submissionTitle} » à la revue {$contextName}. Grâce à notre système de "
+"gestion en ligne, vous pourrez suivre votre soumission tout au long du "
+"processus d'édition simplement en accédant au site Web de la revue.<br />\n"
 "<br />\n"
 "URL du manuscrit : {$submissionUrl}<br />\n"
 "Nom d'utilisateur : {$recipientUsername}<br />\n"
 "<br />\n"
-"Si vous avez des questions, n'hésitez pas à communiquer avec nous. Nous vous remercions d'avoir pensé à notre revue pour la publication de vos travaux.<br />\n"
+"Si vous avez des questions, n'hésitez pas à communiquer avec nous. Nous vous "
+"remercions d'avoir pensé à notre revue pour la publication de vos travaux."
+"<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -40,11 +48,22 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Nous vous remercions d'avoir évalué la soumission intitulée « {$submissionTitle} » pour {$contextName}. Nous vous sommes reconnaissants de votre contribution à la qualité des travaux que nous publions."
+"Nous vous remercions d'avoir évalué la soumission intitulée "
+"« {$submissionTitle} » pour {$contextName}. Nous vous sommes reconnaissants "
+"de votre contribution à la qualité des travaux que nous publions."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Ce courriel est envoyé par le Rédacteur de rubrique, pour accuser réception d'une évaluation terminée et remercier le rapporteur de sa contribution."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Décision du rédacteur"
@@ -84,8 +103,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors},<br />\n"
 "<br />\n"
-"Nous avons pris une décision concernant votre soumission « {$submissionTitle}"
-" » à la revue {$contextName}.<br />\n"
+"Nous avons pris une décision concernant votre soumission "
+"« {$submissionTitle} » à la revue {$contextName}.<br />\n"
 "<br />\n"
 "Notre décision est de vous demander une nouvelle version de votre soumission."
 
@@ -98,8 +117,8 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors},<br />\n"
 "<br />\n"
-"Nous avons pris une décision concernant votre soumission « {$submissionTitle}"
-" » à la revue {$contextName}.<br />\n"
+"Nous avons pris une décision concernant votre soumission "
+"« {$submissionTitle} » à la revue {$contextName}.<br />\n"
 "<br />\n"
 "Notre décision est de vous demander d'apporter des révisions à votre "
 "soumission et de la soumettre à nouveau."
@@ -113,8 +132,8 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors},<br />\n"
 "<br />\n"
-"Nous avons pris une décision concernant votre soumission « {$submissionTitle}"
-" » à la revue {$contextName}.<br />\n"
+"Nous avons pris une décision concernant votre soumission "
+"« {$submissionTitle} » à la revue {$contextName}.<br />\n"
 "<br />\n"
 "Notre décision est de refuser votre soumission."
 
@@ -139,8 +158,8 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName},<br />\n"
 "<br />\n"
-"J'aimerais que vous effectuiez la révision du manuscrit intitulé « "
-"{$submissionTitle} » pour la revue {$contextName} à l'aide des étapes "
+"J'aimerais que vous effectuiez la révision du manuscrit intitulé "
+"« {$submissionTitle} » pour la revue {$contextName} à l'aide des étapes "
 "suivantes.<br />\n"
 "1. Cliquer sur l'URL de la soumission ci-dessous.<br />\n"
 "2. Ouvrir le(s) fichier(s) disponible(s) sous Fichiers des ébauches finales "
@@ -155,6 +174,24 @@ msgstr ""
 "URL de la soumission : {$submissionUrl}<br />\n"
 "Nom d'utilisateur-trice : {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Décision éditoriale"
@@ -165,10 +202,55 @@ msgstr ""
 "\n"
 "\t\t\t{$authors},<br />\n"
 "<br />\n"
-"Nous avons pris une décision concernant votre soumission « {$submissionTitle}"
-" » à la revue {$contextName}.<br />\n"
+"Nous avons pris une décision concernant votre soumission "
+"« {$submissionTitle} » à la revue {$contextName}.<br />\n"
 "<br />\n"
 "Notre décision est de refuser votre soumission"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -176,6 +258,55 @@ msgstr "Un message à propos de {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Veuillez saisir votre message."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Acceptation d'évaluation"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Rédacteurs, rédactrices,<br />\n"
+"<br/>\n"
+"Je suis en mesure d'évaluer la soumission intitulée « {$submissionTitle} » "
+"pour la revue {$contextName}. Je vous remercie d'avoir pensé à moi. Je "
+"devrais être en mesure de compléter l'évaluation pour la date du "
+"{$reviewDueDate}, voire avant.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Accusé de réception de la soumission"
@@ -195,17 +326,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Rédacteurs, rédactrices,<br />\n"
-"<br/>\n"
-"Je suis en mesure d'évaluer la soumission intitulée « {$submissionTitle} » "
-"pour la revue {$contextName}. Je vous remercie d'avoir pensé à moi. Je "
-"devrais être en mesure de compléter l'évaluation pour la date du "
-"{$reviewDueDate}, voire avant.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Acceptation d'évaluation"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Ce courriel est envoyé par le Rédacteur de rubrique, pour accuser "
+#~ "réception d'une évaluation terminée et remercier le rapporteur de sa "
+#~ "contribution."

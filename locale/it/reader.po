@@ -23,8 +23,13 @@ msgstr "\"{$userName}\""
 msgid "comments.body"
 msgstr "Corpo"
 
+msgid "comments.titleRequired"
+msgstr "Inserisci un titolo per il commento."
+
 msgid "comments.confirmDeleteChildren"
-msgstr "Cancellando questo commento saranno cancellate anche tutte le risposte. Sicuro di voler continuare?"
+msgstr ""
+"Cancellando questo commento saranno cancellate anche tutte le risposte. "
+"Sicuro di voler continuare?"
 
 msgid "comments.delete"
 msgstr "Cancella questo commento"
@@ -76,6 +81,3 @@ msgstr "Vedi tutti i commenti"
 
 msgid "reader.fullText"
 msgstr "Full Text:"
-
-msgid "comments.titleRequired"
-msgstr "Inserisci un titolo per il commento."

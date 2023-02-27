@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "admin.systemInfo.settingName"
@@ -24,6 +24,12 @@ msgstr "Значення налаштування"
 msgid "admin.adminFunctions"
 msgstr "Адміністративні функції"
 
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
 msgid "admin.clearDataCache"
 msgstr "Очистити кеш даних"
 
@@ -31,19 +37,27 @@ msgid "admin.clearTemplateCache"
 msgstr "Очистити кеш шаблонів"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Ваш файл конфігурації успішно оновлений. Будь ласка, зауважте, що у разі, якщо Ваш сайт тепер не функціонує коректно, можливо, потрібно вручну виправити Вашу конфігурацію шляхом безпосереднього редагування файлу <tt>config.inc.php</tt>."
+msgstr ""
+"Ваш файл конфігурації успішно оновлений. Будь ласка, зауважте, що у разі, "
+"якщо Ваш сайт тепер не функціонує коректно, можливо, потрібно вручну "
+"виправити Вашу конфігурацію шляхом безпосереднього редагування файлу "
+"<tt>config.inc.php</tt>."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Ви впевнені, що бажаєте очистити кеш скомпільованих шаблонів?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Ви впевнені, що бажаєте припинити всі користувацькі сесії? Всі користувачі, які зараз знаходяться у системі (і Ви, в тому числі), будуть вимушені заходити знову."
+msgstr ""
+"Ви впевнені, що бажаєте припинити всі користувацькі сесії? Всі користувачі, "
+"які зараз знаходяться у системі (і Ви, в тому числі), будуть вимушені "
+"заходити знову."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Зміст файлу конфігурації"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Ви впевнені, що хочете назавжди видалити {$contextName} та весь його вміст?"
+msgstr ""
+"Ви впевнені, що хочете назавжди видалити {$contextName} та весь його вміст?"
 
 msgid "admin.currentVersion"
 msgstr "Поточна версія"
@@ -52,7 +66,10 @@ msgid "admin.dateInstalled"
 msgstr "Дата встановлення"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Зміст вашої оновленої конфігурації наведено нижче. Для застосування змін конфігурації ви повинні відкрити <tt>config.inc.php</tt> у текстовому редакторі та замінити його зміст змістом текстового поля, наведеного нижче."
+msgstr ""
+"Зміст вашої оновленої конфігурації наведено нижче. Для застосування змін "
+"конфігурації ви повинні відкрити <tt>config.inc.php</tt> у текстовому "
+"редакторі та замінити його зміст змістом текстового поля, наведеного нижче."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Показати нову конфігурацію"
@@ -60,14 +77,24 @@ msgstr "Показати нову конфігурацію"
 msgid "admin.expireSessions"
 msgstr "Припинити користувацькі сесії"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "Ця мова є основною мовою сайту. Ви не можете відключити її, доки не оберете іншу основну мову."
+msgstr ""
+"Ця мова є основною мовою сайту. Ви не можете відключити її, доки не оберете "
+"іншу основну мову."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "Ви впевнені, що бажаєте змінити основну мову сайту? Ім'я користувачів, які необхідні для основної мови сайту, будуть скопійовані із існуючої основної мови, якщо вони не зазначені."
+msgstr ""
+"Ви впевнені, що бажаєте змінити основну мову сайту? Ім'я користувачів, які "
+"необхідні для основної мови сайту, будуть скопійовані із існуючої основної "
+"мови, якщо вони не зазначені."
 
 msgid "admin.languages.confirmReload"
-msgstr "Ви впевнені, що бажаєте перезавантажити мову? Це призведе до знищення усіх існуючих мовних даних, таких як шаблони листів."
+msgstr ""
+"Ви впевнені, що бажаєте перезавантажити мову? Це призведе до знищення усіх "
+"існуючих мовних даних, таких як шаблони листів."
 
 msgid "admin.languages.installedLocales"
 msgstr "Встановлені мови"
@@ -114,26 +141,119 @@ msgstr "Завершено виконання завдання."
 msgid "admin.scheduledTask.noLog"
 msgstr "Завдання не створювало запису в журналі подій."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Ваша інсталяція {$softwareName} автоматично виконала і завершила це завдання, ви можете завантажити файл з журналом подій за цим посиланням: {$url}"
+msgstr ""
+"Ваша інсталяція {$softwareName} автоматично виконала і завершила це "
+"завдання, ви можете завантажити файл з журналом подій за цим посиланням: "
+"{$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Ви впевнені, що хочете видалити усі журнали подій, що містять інформацію про виконання запланованих завдань?"
+msgstr ""
+"Ви впевнені, що хочете видалити усі журнали подій, що містять інформацію про "
+"виконання запланованих завдань?"
 
 msgid "admin.scheduledTask.clearLogs"
-msgstr "Видалити журнали подій з інформацією про виконання запланованих завдань"
+msgstr ""
+"Видалити журнали подій з інформацією про виконання запланованих завдань"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Опублікувати подання, що заплановані до публікації"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Нагадування рецензенту"
 
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Нагадування про закінчення терміну дії підписки"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Завдання завантажувача файлів статистики використання"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Не вдалося відкрити файл {$file} і він був відхилений."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Версія Apache"
@@ -156,8 +276,11 @@ msgstr "Операційна платформа"
 msgid "admin.settings"
 msgstr "Налаштування"
 
-msgid "admin.settings.aboutDescription"
-msgstr "Інформація про сайт"
+msgid "admin.settings.about"
+msgstr "Про цей сайт"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Масові електронні листи"
 
 msgid "admin.settings.contactEmail"
 msgstr "Email основної контактної особи"
@@ -165,29 +288,20 @@ msgstr "Email основної контактної особи"
 msgid "admin.settings.contactName"
 msgstr "Ім'я основної контактної особи"
 
-msgid "admin.settings.form.contactEmailRequired"
-msgstr "Необхідно вказати адресу електронної пошти основної контактної особи."
-
-msgid "admin.settings.form.contactNameRequired"
-msgstr "Необхідно вказати ім'я основної контактної особи."
-
-msgid "admin.settings.form.minPasswordLengthRequired"
-msgstr "Необхідно вказати мінімальну довжину пароля (не менше 4 символів)."
-
-msgid "admin.settings.form.titleRequired"
-msgstr "Необхідно вказати назву."
-
-msgid "admin.settings.homeHeaderImage.altText"
-msgstr "Логотип сайту"
-
-msgid "admin.settings.homeHeaderImageInvalid"
-msgstr "Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, або .png."
-
 msgid "admin.settings.introduction"
 msgstr "Вступ"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Мінімальна довжина пароля"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
 
 msgid "admin.settings.siteLanguage"
 msgstr "Мова сайту"
@@ -220,10 +334,18 @@ msgid "admin.siteSetup"
 msgstr "Налаштування сайту"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "Файл конфігурації <tt>config.inc.php</tt> не існує, не доступний для читання або пошкоджений."
+msgstr ""
+"Файл конфігурації <tt>config.inc.php</tt> не існує, не доступний для читання "
+"або пошкоджений."
 
 msgid "admin.systemInformation"
 msgstr "Інформація про систему"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Збірка"
@@ -265,13 +387,16 @@ msgid "admin.version"
 msgstr "Версія"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Основний каталог {$path} повинен знаходитись у каталозі загальнодоступних файлів."
+msgstr ""
+"Основний каталог {$path} повинен знаходитись у каталозі загальнодоступних "
+"файлів."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Папка {$path} це не каталог або вона недоступна для читання."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "Файл {$filename} не можна перенести з {$currentFilePath} в {$destinationPath}"
+msgstr ""
+"Файл {$filename} не можна перенести з {$currentFilePath} в {$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Файл {$filename} був оброблений та заархівований."
@@ -279,14 +404,410 @@ msgstr "Файл {$filename} був оброблений та заархівов
 msgid "admin.fileLoader.emailSubject"
 msgstr "Завантажувач файлів"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Відсутні мови для завантаження."
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Опублікувати подання, що заплановані до публікації"
+msgid "admin.cli.tool.usage.title"
+msgstr ""
 
-msgid "admin.settings.about"
-msgstr "Про цей сайт"
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
 
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Масові електронні листи"
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.settings.aboutDescription"
+#~ msgstr "Інформація про сайт"
+
+#~ msgid "admin.settings.form.contactEmailRequired"
+#~ msgstr ""
+#~ "Необхідно вказати адресу електронної пошти основної контактної особи."
+
+#~ msgid "admin.settings.form.contactNameRequired"
+#~ msgstr "Необхідно вказати ім'я основної контактної особи."
+
+#~ msgid "admin.settings.form.minPasswordLengthRequired"
+#~ msgstr "Необхідно вказати мінімальну довжину пароля (не менше 4 символів)."
+
+#~ msgid "admin.settings.form.titleRequired"
+#~ msgstr "Необхідно вказати назву."
+
+#~ msgid "admin.settings.homeHeaderImage.altText"
+#~ msgstr "Логотип сайту"
+
+#~ msgid "admin.settings.homeHeaderImageInvalid"
+#~ msgstr ""
+#~ "Неприпустимий формат зображення логотипу. Припустимі формати .gif, .jpg, "
+#~ "або .png."

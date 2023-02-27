@@ -30,58 +30,44 @@ msgid "reviewer.step1.request"
 msgstr "Anmodning om bedømmelse"
 
 msgid "reviewer.step1.requestBoilerplate"
-msgstr "Du er blevet valgt som mulig bedømmer på medfølgende indsendelse. Nedenfor finder du en oversigt over indsendelsen såvel som tidsplanen for denne bedømmelse. Vi håber, du har mulighed for at medvirke."
+msgstr ""
+"Du er blevet valgt som mulig bedømmer på medfølgende indsendelse. Nedenfor "
+"finder du en oversigt over indsendelsen såvel som tidsplanen for denne "
+"bedømmelse. Vi håber, du har mulighed for at medvirke."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Se alle indsendelsesoplysninger"
 
-msgid "reviewer.aboutDueDates"
-msgstr "Om forfaldsdatoer"
-
-msgid "reviewer.submission.acceptReview"
-msgstr "Acceptér anmodningen, fortsæt til trin #2"
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Bedømmelsesfiler"
 
 msgid "reviewer.submission.declineReview"
 msgstr "Afvis anmodningen"
 
-msgid "reviewer.aboutDueDates.text"
-msgstr "Redaktøren beder dig om enten at acceptere eller afvise anmodningen inden den dato, der er angivet ud for 'Svar senest' og færdiggøre bedømmelsen inden den dato, der er anført ud for  'Bedømmelsen er forfalden'."
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+"Du er velkommen til at give redaktøren en forklaring på, hvorfor du afviser "
+"denne indsendelse i feltet nedenfor."
 
-msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Retningslinjer for bedømmelser"
-
-msgid "reviewer.submission.noGuidelines"
-msgstr "Denne udgiver har ikke beskrevet retningslinjer for bedømmelser."
+msgid "reviewer.submission.acceptReview"
+msgstr "Acceptér anmodningen, fortsæt til trin #2"
 
 msgid "reviewer.submission.continueToStepThree"
 msgstr "Fortsæt til trin #3"
 
-msgid "reviewer.submission.reviewDescription"
-msgstr "Skriv (eller indsæt) din bedømmelse i feltet nedenfor."
-
-msgid "reviewer.submission.uploadDescription"
-msgstr "Overfør filer til redaktøren og/eller forfatteren som de kan konsultere, inklusiv reviderede udgaver af den originale bedømmelse."
-
-msgid "reviewer.submission.reviewerFiles"
-msgstr "Bedømmelsesfiler"
-
 msgid "reviewer.submission.submitReview"
 msgstr "Send bedømmelse"
 
-msgid "reviewer.confirmSubmit"
-msgstr "Er du sikker på, at du vil sende denne bedømmelse?"
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Gem til senere"
 
-msgid "reviewer.complete"
-msgstr "Bedømmelse afsendt"
-
-msgid "reviewer.complete.whatNext"
-msgstr "Tak, fordi du har fuldført bedømmelsen af denne indsendelse. Din bedømmelse er modtaget. Vi påskønner dit bidrag til kvaliteten af de artikler, vi publicerer. Redaktøren vil eventuelt kontakte dig, hvis yderligere information ønskes."
-
-msgid "reviewer.submission.declineReviewMessage"
-msgstr "Du er velkommen til at give redaktøren en forklaring på, hvorfor du afviser denne indsendelse i feltet nedenfor."
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Retningslinjer for bedømmelser"
 
 msgid "reviewer.submission.enterCompetingInterests"
-msgstr "Denne udgiver har en poltik om at offentligøre potentielt konkurrerende interesser fra bedømmere. Gennemlæs venligst denne politik."
+msgstr ""
+"Denne udgiver har en poltik om at offentligøre potentielt konkurrerende "
+"interesser fra bedømmere. Gennemlæs venligst denne politik."
 
 msgid "reviewer.submission.noCompetingInterests"
 msgstr "Jeg har ingen konkurrencemæssige interesser"
@@ -95,8 +81,43 @@ msgstr "Konkurrencemæssige interesser"
 msgid "reviewer.submission.guidelines"
 msgstr "Retningslinjer for bedømmelser"
 
+msgid "reviewer.submission.noGuidelines"
+msgstr "Denne udgiver har ikke beskrevet retningslinjer for bedømmelser."
+
 msgid "reviewer.submission.downloadDescription"
-msgstr "Klik på filnavnene nedenfor for at downloade de filer, der er knyttet til denne indsendelse."
+msgstr ""
+"Klik på filnavnene nedenfor for at downloade de filer, der er knyttet til "
+"denne indsendelse."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Skriv (eller indsæt) din bedømmelse i feltet nedenfor."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Overfør filer til redaktøren og/eller forfatteren som de kan konsultere, "
+"inklusiv reviderede udgaver af den originale bedømmelse."
+
+msgid "reviewer.complete"
+msgstr "Bedømmelse afsendt"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Er du sikker på, at du vil sende denne bedømmelse?"
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Tak, fordi du har fuldført bedømmelsen af denne indsendelse. Din bedømmelse "
+"er modtaget. Vi påskønner dit bidrag til kvaliteten af de artikler, vi "
+"publicerer. Redaktøren vil eventuelt kontakte dig, hvis yderligere "
+"information ønskes."
+
+msgid "reviewer.aboutDueDates"
+msgstr "Om forfaldsdatoer"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Redaktøren beder dig om enten at acceptere eller afvise anmodningen inden "
+"den dato, der er angivet ud for 'Svar senest' og færdiggøre bedømmelsen "
+"inden den dato, der er anført ud for  'Bedømmelsen er forfalden'."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Til forfatter og redaktør"
@@ -104,15 +125,14 @@ msgstr "Til forfatter og redaktør"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "Kun til redaktør"
 
-msgid "user.authorization.submissionReviewer"
-msgstr "Den nuværende bruger er ikke tildelt rollen som bedømmer på det ønskede dokument."
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Gem til senere"
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+"Send en kopi af denne e-mail-meddelelse via BCC til følgende korrekturlæsere."
 
 msgid "submission.comments.sendToReviewers"
 msgstr "Send til bedømmere"
 
-msgid "submission.comments.sendCopyToReviewers"
+msgid "user.authorization.submissionReviewer"
 msgstr ""
-"Send en kopi af denne e-mail-meddelelse via BCC til følgende korrekturlæsere."
+"Den nuværende bruger er ikke tildelt rollen som bedømmer på det ønskede "
+"dokument."

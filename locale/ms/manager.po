@@ -12,14 +12,530 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "manager.payment.timestamp"
-msgstr "Cap masa"
+msgid "manager.website.information"
+msgstr "Maklumat"
 
-msgid "manager.languages.supportedLocalesInstructions"
+msgid "manager.website.appearance"
+msgstr "Penampilan"
+
+msgid "manager.website.imageFileRequired"
 msgstr ""
-"Pilih semua bahasa/locale untuk disokong di laman melalui menu pilih bahasa "
-"untuk dipaparkan pada setiap halaman. Menu hanya akan muncul jika lebih "
-"daripada satu bahasa dipilih."
+"Fail imej diperlukan. Sila pastikan anda telah memilih dan memuat naik fail."
+
+msgid "manager.announcements"
+msgstr "Pengumuman"
+
+msgid "manager.announcements.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan pengumuman {$title} secara kekal?"
+
+msgid "manager.announcements.create"
+msgstr "Cipta Pengumuman Baru"
+
+msgid "manager.announcements.createTitle"
+msgstr "Cipta"
+
+msgid "manager.announcements.dateExpire"
+msgstr "Luput"
+
+msgid "manager.announcements.datePublish"
+msgstr "Diterbitkan"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Padam Pengumuman"
+
+msgid "manager.announcements.edit"
+msgstr "Sunting Pengumuman"
+
+msgid "manager.announcements.editTitle"
+msgstr "Sunting"
+
+msgid "manager.announcements.form.dateExpireDayIncompleteDate"
+msgstr ""
+"Sila pilih tahun dan/atau bulan sebagai tambahan kepada hari tarikh luput."
+
+msgid "manager.announcements.form.dateExpire"
+msgstr "Tarikh luput"
+
+msgid "manager.announcements.form.dateExpireInstructions"
+msgstr ""
+"Pengumuman akan dipaparkan kepada pembaca sehingga tarikh ini. Biarkan "
+"kosong jika pengumuman perlu dipaparkan selama-lamanya."
+
+msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
+msgstr ""
+"Sila pilih tahun dan/atau hari sebagai tambahan kepada bulan tarikh luput."
+
+msgid "manager.announcements.form.dateExpireValid"
+msgstr "Sila pilih tarikh luput pengumuman yang sah."
+
+msgid "manager.announcements.form.dateExpireYearIncompleteDate"
+msgstr ""
+"Sila pilih bulan dan/atau hari sebagai tambahan kepada tahun tarikh luput."
+
+msgid "manager.announcements.form.description"
+msgstr "Pengumuman"
+
+msgid "manager.announcements.form.descriptionInstructions"
+msgstr "Teks penuh pengumuman."
+
+msgid "manager.announcements.form.descriptionRequired"
+msgstr "Penerangan pengumuman diperlukan."
+
+msgid "manager.announcements.form.descriptionShortInstructions"
+msgstr "Penerangan ringkas untuk dipaparkan bersama dengan tajuk pengumuman."
+
+msgid "manager.announcements.form.descriptionShortRequired"
+msgstr "Penerangan pengumuman ringkas diperlukan."
+
+msgid "manager.announcements.form.descriptionShort"
+msgstr "Penerangan Ringkas"
+
+msgid "manager.announcements.form.saveAndCreateAnother"
+msgstr "Simpan dan Cipta Satu Lagi"
+
+msgid "manager.announcements.form.titleRequired"
+msgstr "Tajuk pengumuman diperlukan."
+
+msgid "manager.announcements.form.title"
+msgstr "Tajuk"
+
+msgid "manager.announcements.form.typeId"
+msgstr "Jenis"
+
+msgid "manager.announcements.form.typeIdValid"
+msgstr "Sila pilih jenis pengumuman yang sah."
+
+msgid "manager.announcements.noneCreated"
+msgstr "Tiada pengumuman dibuat."
+
+msgid "manager.announcements.title"
+msgstr "Tajuk"
+
+msgid "manager.announcements.type"
+msgstr "Jenis"
+
+msgid "manager.announcementTypes"
+msgstr "Jenis Pengumuman"
+
+msgid "manager.announcementTypes.confirmDelete"
+msgstr ""
+"Amaran! Semua pengumuman dengan jenis pengumuman ini juga akan dipadamkan. "
+"Adakah anda pasti mahu meneruskan dan memadamkan jenis pengumuman ini?"
+
+msgid "manager.announcementTypes.create"
+msgstr "Cipta Jenis Pengumuman"
+
+msgid "manager.announcementTypes.createTitle"
+msgstr "Cipta"
+
+msgid "manager.announcementTypes.edit"
+msgstr "Sunting Jenis Pengumuman"
+
+msgid "manager.announcementTypes.editTitle"
+msgstr "Sunting"
+
+msgid "manager.announcementTypes.form.saveAndCreateAnother"
+msgstr "Simpan dan Cipta Satu Lagi"
+
+msgid "manager.announcementTypes.form.typeNameExists"
+msgstr "Jenis pengumuman dengan nama ini sudah wujud."
+
+msgid "manager.announcementTypes.form.typeName"
+msgstr "Nama"
+
+msgid "manager.announcementTypes.form.typeNameRequired"
+msgstr "Nama jenis pengumuman diperlukan."
+
+msgid "manager.announcementTypes.noneCreated"
+msgstr "Tiada jenis pengumuman telah dicipta."
+
+msgid "manager.announcementTypes.typeName"
+msgstr "Jenis Pengumuman"
+
+msgid "manager.dois.actions.deposit.all"
+msgstr ""
+
+msgid "manager.dois.actions.deposit.label"
+msgstr ""
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr ""
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr ""
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markStale.label"
+msgstr ""
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.export.label"
+msgstr ""
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.assign.label"
+msgstr ""
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.description"
+msgstr ""
+
+msgid "manager.dois.actions.bulkActions"
+msgstr ""
+
+msgid "manager.dois.depositStatus"
+msgstr ""
+
+msgid "manager.dois.publicationStatus"
+msgstr ""
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.viewError"
+msgstr ""
+
+msgid "manager.dois.registration.viewError.title"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr ""
+
+msgid "manger.dois.update.success"
+msgstr ""
+
+msgid "manager.dois.registration.depositDois"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi"
+msgstr ""
+
+msgid "manager.dois.status.unregistered"
+msgstr ""
+
+msgid "manager.dois.status.submitted"
+msgstr ""
+
+msgid "manager.dois.status.registered"
+msgstr ""
+
+msgid "manager.dois.status.error"
+msgstr ""
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+
+msgid "manager.dois.status.error.description"
+msgstr ""
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+
+msgid "manager.dois.update.failedCreation"
+msgstr ""
+
+msgid "manager.dois.update.partialFailure"
+msgstr ""
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr ""
+
+msgid "manager.dois.help.statuses.title"
+msgstr ""
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.institutions.edit"
+msgstr ""
+
+msgid "manager.institutions.form.ror"
+msgstr ""
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+
+msgid "manager.institutions.form.ipRanges"
+msgstr ""
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+
+msgid "manager.institutions.deleteInstitution"
+msgstr ""
+
+msgid "manager.institutions.confirmDelete"
+msgstr ""
+
+msgid "manager.institutions.invalidIPRange"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr "Penyerahan"
+
+msgid "manager.publication.reviewStage"
+msgstr "Ulasan"
+
+msgid "manager.publication.editorialStage"
+msgstr "Editorial"
+
+msgid "manager.publication.productionStage"
+msgstr "Produksi"
+
+msgid "manager.publication.emails"
+msgstr "E-mel"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Panduan Pengulas"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Butiran peringatan ulasan telah dikemas kini."
+
+msgid "manager.dois.title"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+
+msgid "manager.emails.addEmail"
+msgstr "Tambah Templat"
+
+msgid "manager.emails.createEmail"
+msgstr "Cipta E-mel"
+
+msgid "manager.emails.data"
+msgstr "Data Mesej Templat"
+
+msgid "manager.emails.details"
+msgstr "Template Details"
+
+msgid "manager.emails.disable"
+msgstr "Nyahdaya"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Anda akan menyahdayakan templat e-mel ini. Jika terdapat proses sistem "
+"menggunakan templat ini, mereka tidak akan menggunakannya lagi. Adakah anda "
+"ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.editTestExample"
+msgstr "Sunting Contoh Ujian E-mel"
+
+msgid "manager.emails.emailTemplate"
+msgstr "Templat E-mel"
+
+msgid "manager.emails.emailTemplates"
+msgstr "Templat E-mel"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Templat Lain"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Anda mesti memberikan ID konteks semasa menambah templat e-mel."
+
+msgid "manager.emails.enabled"
+msgstr "Dayakan templat e-mel ini"
+
+msgid "manager.emails.enable"
+msgstr "Dayakan"
+
+msgid "manager.emails.enable.message"
+msgstr ""
+"Anda akan mendayakan e-mel ini. Adakah anda ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr ""
+"Kunci e-mel unik yang tidak mengandungi ruang atau aksara khas diperlukan "
+"untuk e-mel."
+
+msgid "manager.emails.form.bodyRequired"
+msgstr "Badan diperlukan untuk e-mel."
+
+msgid "manager.emails.form.subjectRequired"
+msgstr "Subjek diperlukan untuk e-mel."
+
+msgid "manager.emails"
+msgstr "E-mel Disediakan"
+
+msgid "manager.emails.resetAll"
+msgstr "Tetapkan Semula Semua"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Jika anda menetapkan semula semua templat, semua pengubahsuaian pada templat "
+"e-mel akan hilang. Adakah anda ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Jika anda menetapkan semula templat ini, semua data mesej akan ditetapkan "
+"semula kepada nilai lalainya, kehilangan semua pengubahsuaian. Adakah anda "
+"ingin mengesahkan operasi ini?"
+
+msgid "manager.emails.resetToDefault"
+msgstr "Tetapkan Semula Kepada Lalai"
+
+msgid "manager.emails.sentFrom"
+msgstr "Dihantar dari"
+
+msgid "manager.emails.sentTo"
+msgstr "Dihantar kepada"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Eksport ke Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Pilih pengguna untuk dieksport ke fail Excel/CSV."
+
+msgid "manager.filesBrowser"
+msgstr "Pelayar Fail"
+
+msgid "manager.files.confirmDelete"
+msgstr ""
+"Padamkan fail atau direktori ini? Ambil perhatian bahawa direktori mesti "
+"kosong sebelum ia boleh dipadamkan."
+
+msgid "manager.files.createDir"
+msgstr "Cipta Direktori"
+
+msgid "manager.files.emptyDir"
+msgstr "Tiada fail ditemui dalam direktori ini."
+
+msgid "manager.files.indexOfDir"
+msgstr "Indeks {$dir}"
+
+msgid "manager.files.parentDir"
+msgstr "Direktori Induk"
+
+msgid "manager.files.uploadedFiles"
+msgstr "Fail yang dimuat naik"
+
+msgid "manager.files.uploadFile"
+msgstr "Muat Naik Fail"
+
+msgid "manager.groups.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan kumpulan ini?"
+
+msgid "manager.groups.createTitle"
+msgstr "Cipta Tajuk"
+
+msgid "manager.groups.editTitle"
+msgstr "Sunting Tajuk"
+
+msgid "manager.groups.form.groupTitleRequired"
+msgstr "Tajuk kumpulan diperlukan."
+
+msgid "manager.groups.membership.addMember"
+msgstr "Tambah Ahli"
+
+msgid "manager.groups.membership.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan keahlian kumpulan ini?"
+
+msgid "manager.groups.membership"
+msgstr "Keahlian"
+
+msgid "manager.groups.membership.noneCreated"
+msgstr "Kumpulan ini tidak mempunyai ahli."
+
+msgid "manager.groups.membership.noUsers"
+msgstr "Tiada pengguna ditemui."
+
+msgid "manager.groups.title"
+msgstr "Tajuk"
+
+msgid "manager.importExport"
+msgstr "Import/Eksport Data"
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Penyerahan"
+
+msgid "manager.language.forms"
+msgstr "Borang"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Muat semula lalai"
 
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
@@ -28,2123 +544,92 @@ msgstr ""
 "bahasa/locale alternatif dan pilih daripada pilihan yang disenaraikan di "
 "bawah."
 
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Muat semula lalai"
-
-msgid "manager.language.forms"
-msgstr "Borang"
-
-msgid "manager.language.submissions"
-msgstr "Penyerahan"
-
-msgid "manager.language.ui"
-msgstr "UI"
-
-msgid "manager.importExport"
-msgstr "Import/Eksport Data"
-
-msgid "manager.groups.title"
-msgstr "Tajuk"
-
-msgid "manager.groups.membership.noUsers"
-msgstr "Tiada pengguna ditemui."
-
-msgid "manager.groups.membership.noneCreated"
-msgstr "Kumpulan ini tidak mempunyai ahli."
-
-msgid "manager.groups.membership"
-msgstr "Keahlian"
-
-msgid "manager.groups.membership.confirmDelete"
-msgstr "Adakah anda pasti mahu memadamkan keahlian kumpulan ini?"
-
-msgid "manager.groups.membership.addMember"
-msgstr "Tambah Ahli"
-
-msgid "manager.groups.form.groupTitleRequired"
-msgstr "Tajuk kumpulan diperlukan."
-
-msgid "manager.groups.editTitle"
-msgstr "Sunting Tajuk"
-
-msgid "manager.groups.createTitle"
-msgstr "Cipta Tajuk"
-
-msgid "manager.groups.confirmDelete"
-msgstr "Adakah anda pasti mahu memadamkan kumpulan ini?"
-
-msgid "manager.files.uploadFile"
-msgstr "Muat Naik Fail"
-
-msgid "manager.files.uploadedFiles"
-msgstr "Fail yang dimuat naik"
-
-msgid "manager.files.parentDir"
-msgstr "Direktori Induk"
-
-msgid "manager.files.indexOfDir"
-msgstr "Indeks {$dir}"
-
-msgid "manager.files.emptyDir"
-msgstr "Tiada fail ditemui dalam direktori ini."
-
-msgid "manager.files.createDir"
-msgstr "Cipta Direktori"
-
-msgid "manager.files.confirmDelete"
+msgid "manager.languages.supportedLocalesInstructions"
 msgstr ""
-"Padamkan fail atau direktori ini? Ambil perhatian bahawa direktori mesti "
-"kosong sebelum ia boleh dipadamkan."
+"Pilih semua bahasa/locale untuk disokong di laman melalui menu pilih bahasa "
+"untuk dipaparkan pada setiap halaman. Menu hanya akan muncul jika lebih "
+"daripada satu bahasa dipilih."
 
-msgid "manager.filesBrowser"
-msgstr "Pelayar Fail"
+msgid "manager.payment.timestamp"
+msgstr "Cap masa"
 
-msgid "manager.export.usersToCsv.description"
-msgstr "Pilih pengguna untuk dieksport ke fail Excel/CSV."
+msgid "manager.people.existingUserRequired"
+msgstr "Pengguna sedia ada mesti dimasukkan."
 
-msgid "manager.export.usersToCsv.label"
-msgstr "Eksport ke Excel/CSV"
+msgid "manager.people.confirmUnenroll"
+msgstr "Nyahdaftar pengguna ini?"
 
-msgid "manager.emails.sentTo"
-msgstr "Dihantar kepada"
+msgid "manager.people.createUser"
+msgstr "Cipta Pengguna Baru"
 
-msgid "manager.emails.sentFrom"
-msgstr "Dihantar dari"
+msgid "manager.people.createUserGeneratePassword"
+msgstr "Menjana kata laluan rawak."
 
-msgid "manager.emails.resetToDefault"
-msgstr "Tetapkan Semula Kepada Lalai"
-
-msgid "manager.emails.reset.message"
+msgid "manager.people.createUserSendNotify"
 msgstr ""
-"Jika anda menetapkan semula templat ini, semua data mesej akan ditetapkan "
-"semula kepada nilai lalainya, kehilangan semua pengubahsuaian. Adakah anda "
-"ingin mengesahkan operasi ini?"
+"Hantarkan e-mel alu-aluan kepada pengguna yang mengandungi nama pengguna dan "
+"kata laluan mereka."
 
-msgid "manager.emails.resetAll.message"
+msgid "manager.people.disable"
+msgstr "Nyahdayakan"
+
+msgid "manager.people.doNotEnroll"
+msgstr "Tanpa peranan"
+
+msgid "manager.people.editProfile"
+msgstr "Sunting Profil"
+
+msgid "manager.people.editUser"
+msgstr "Sunting Pengguna"
+
+msgid "manager.people.emailUsers.emailSelectedUsers"
+msgstr "E-mel kepada pengguna yang dipilih"
+
+msgid "manager.people.emailUsers.emailUsersEnrolledAs"
+msgstr "Pengguna e-mel mendaftar sebagai"
+
+msgid "manager.people.emailUsers"
+msgstr "E-mel Pengguna"
+
+msgid "manager.people.emailUsers.selectLocale"
+msgstr "Pilih Bahasa"
+
+msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Jika anda menetapkan semula semua templat, semua pengubahsuaian pada templat "
-"e-mel akan hilang. Adakah anda ingin mengesahkan operasi ini?"
+"Pilih pengguna yang anda ingin hantarkan e-mel dengan menandakan kotak di "
+"sebelah nama mereka"
 
-msgid "manager.emails.resetAll"
-msgstr "Tetapkan Semula Semua"
-
-msgid "manager.emails"
-msgstr "E-mel Disediakan"
-
-msgid "manager.emails.form.subjectRequired"
-msgstr "Subjek diperlukan untuk e-mel."
-
-msgid "manager.emails.form.bodyRequired"
-msgstr "Badan diperlukan untuk e-mel."
-
-msgid "manager.emails.form.emailKeyRequired"
-msgstr ""
-"Kunci e-mel unik yang tidak mengandungi ruang atau aksara khas diperlukan "
-"untuk e-mel."
-
-msgid "manager.emails.enable.message"
-msgstr ""
-"Anda akan mendayakan e-mel ini. Adakah anda ingin mengesahkan operasi ini?"
-
-msgid "manager.emails.enable"
+msgid "manager.people.enable"
 msgstr "Dayakan"
 
-msgid "manager.emails.enabled"
-msgstr "Dayakan templat e-mel ini"
+msgid "manager.people.enroll"
+msgstr "Daftarkan Pengguna"
 
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Anda mesti memberikan ID konteks semasa menambah templat e-mel."
+msgid "manager.people.enrollment"
+msgstr "Pendaftaran"
 
-msgid "manager.emails.otherTemplates"
-msgstr "Templat Lain"
+msgid "manager.people.enrollSelected"
+msgstr "Daftarkan Pengguna Terpilih"
 
-msgid "manager.emails.emailTemplates"
-msgstr "Templat E-mel"
+msgid "manager.people.enrollSyncRole"
+msgstr "Segerakkan peranan"
 
-msgid "manager.emails.emailTemplate"
-msgstr "Templat E-mel"
+msgid "manager.people.enrollSync"
+msgstr "Penyegerakan Pendaftaran"
 
-msgid "manager.emails.editTestExample"
-msgstr "Sunting Contoh Ujian E-mel"
-
-msgid "manager.emails.disable.message"
-msgstr ""
-"Anda akan menyahdayakan templat e-mel ini. Jika terdapat proses sistem "
-"menggunakan templat ini, mereka tidak akan menggunakannya lagi. Adakah anda "
-"ingin mengesahkan operasi ini?"
-
-msgid "manager.emails.disable"
-msgstr "Nyahdaya"
-
-msgid "manager.emails.details"
-msgstr "Template Details"
-
-msgid "manager.emails.data"
-msgstr "Data Mesej Templat"
-
-msgid "manager.emails.createEmail"
-msgstr "Cipta E-mel"
-
-msgid "manager.emails.addEmail"
-msgstr "Tambah Templat"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Butiran peringatan ulasan telah dikemas kini."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Panduan Pengulas"
-
-msgid "manager.publication.emails"
-msgstr "E-mel"
-
-msgid "manager.publication.productionStage"
-msgstr "Produksi"
-
-msgid "manager.publication.editorialStage"
-msgstr "Editorial"
-
-msgid "manager.publication.reviewStage"
-msgstr "Ulasan"
-
-msgid "manager.publication.submissionStage"
-msgstr "Penyerahan"
-
-msgid "manager.announcementTypes.typeName"
-msgstr "Jenis Pengumuman"
-
-msgid "manager.announcementTypes.noneCreated"
-msgstr "Tiada jenis pengumuman telah dicipta."
-
-msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Nama jenis pengumuman diperlukan."
-
-msgid "manager.announcementTypes.form.typeName"
-msgstr "Nama"
-
-msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Jenis pengumuman dengan nama ini sudah wujud."
-
-msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Simpan dan Cipta Satu Lagi"
-
-msgid "manager.announcementTypes.editTitle"
-msgstr "Sunting"
-
-msgid "manager.announcementTypes.edit"
-msgstr "Sunting Jenis Pengumuman"
-
-msgid "manager.announcementTypes.createTitle"
-msgstr "Cipta"
-
-msgid "manager.announcementTypes.create"
-msgstr "Cipta Jenis Pengumuman"
-
-msgid "manager.announcementTypes.confirmDelete"
-msgstr ""
-"Amaran! Semua pengumuman dengan jenis pengumuman ini juga akan dipadamkan. "
-"Adakah anda pasti mahu meneruskan dan memadamkan jenis pengumuman ini?"
-
-msgid "manager.announcementTypes"
-msgstr "Jenis Pengumuman"
-
-msgid "manager.announcements.type"
-msgstr "Jenis"
-
-msgid "manager.announcements.title"
-msgstr "Tajuk"
-
-msgid "manager.announcements.noneCreated"
-msgstr "Tiada pengumuman dibuat."
-
-msgid "manager.announcements.form.typeIdValid"
-msgstr "Sila pilih jenis pengumuman yang sah."
-
-msgid "manager.announcements.form.typeId"
-msgstr "Jenis"
-
-msgid "manager.announcements.form.title"
-msgstr "Tajuk"
-
-msgid "manager.announcements.form.titleRequired"
-msgstr "Tajuk pengumuman diperlukan."
-
-msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Simpan dan Cipta Satu Lagi"
-
-msgid "manager.announcements.form.descriptionShort"
-msgstr "Penerangan Ringkas"
-
-msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Penerangan pengumuman ringkas diperlukan."
-
-msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Penerangan ringkas untuk dipaparkan bersama dengan tajuk pengumuman."
-
-msgid "manager.announcements.form.descriptionRequired"
-msgstr "Penerangan pengumuman diperlukan."
-
-msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Teks penuh pengumuman."
-
-msgid "manager.announcements.form.description"
-msgstr "Pengumuman"
-
-msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr ""
-"Sila pilih bulan dan/atau hari sebagai tambahan kepada tahun tarikh luput."
-
-msgid "manager.announcements.form.dateExpireValid"
-msgstr "Sila pilih tarikh luput pengumuman yang sah."
-
-msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr ""
-"Sila pilih tahun dan/atau hari sebagai tambahan kepada bulan tarikh luput."
-
-msgid "manager.announcements.form.dateExpireInstructions"
-msgstr ""
-"Pengumuman akan dipaparkan kepada pembaca sehingga tarikh ini. Biarkan "
-"kosong jika pengumuman perlu dipaparkan selama-lamanya."
-
-msgid "manager.announcements.form.dateExpire"
-msgstr "Tarikh luput"
-
-msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr ""
-"Sila pilih tahun dan/atau bulan sebagai tambahan kepada hari tarikh luput."
-
-msgid "manager.announcements.editTitle"
-msgstr "Sunting"
-
-msgid "manager.announcements.edit"
-msgstr "Sunting Pengumuman"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Padam Pengumuman"
-
-msgid "manager.announcements.datePublish"
-msgstr "Diterbitkan"
-
-msgid "manager.announcements.dateExpire"
-msgstr "Luput"
-
-msgid "manager.announcements.createTitle"
-msgstr "Cipta"
-
-msgid "manager.announcements.create"
-msgstr "Cipta Pengumuman Baru"
-
-msgid "manager.announcements.confirmDelete"
-msgstr "Adakah anda pasti mahu memadamkan pengumuman {$title} secara kekal?"
-
-msgid "manager.announcements"
-msgstr "Pengumuman"
-
-msgid "manager.website.imageFileRequired"
-msgstr ""
-"Fail imej diperlukan. Sila pastikan anda telah memilih dan memuat naik fail."
-
-msgid "manager.website.appearance"
-msgstr "Penampilan"
-
-msgid "manager.website.information"
-msgstr "Maklumat"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Penyerahan ditolak"
-
-msgid "plugins.importexport.common.error.encodingError"
-msgstr "Kandungan tidak dikodkan sebagai {$param}"
-
-msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Pengekodan tidak diketahui {$param}"
-
-msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Genre tidak diketahui {$param}"
-
-msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Elemen yang tidak diketahui {$param}"
-
-msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
-
-msgid "plugins.importexport.common.errorsOccured"
-msgstr "Ralat berlaku:"
-
-msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Amaran ditemui:"
-
-msgid "plugins.importexport.common.validationErrors"
-msgstr "Ralat pengesahan:"
-
-msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"Memerlukan pengarang untuk menyediakan rujukan sebelum menerima penyerahan "
-"mereka."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "Minta penulis memberikan rujukan semasa penyerahan."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Jangan minta rujukan daripada pengarang semasa penyerahan."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Dayakan metadata rujukan"
-
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Kumpulkan rujukan penyerahan dalam medan yang berasingan. Ini mungkin "
-"diperlukan untuk mematuhi perkhidmatan penjejakan petikan seperti Crossref."
-
-msgid "manager.navigationMenus.register.description"
-msgstr "Pautan ke halaman pendaftaran pengguna."
-
-msgid "manager.navigationMenus.login.description"
-msgstr "Pautan ke halaman log masuk pengguna."
-
-msgid "manager.navigationMenus.announcements.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah mendayakan pengumuman di "
-"bawah Tetapan > Laman Web."
-
-msgid "manager.navigationMenus.announcements.description"
-msgstr "Pautan ke halaman yang memaparkan pengumuman anda."
-
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Memerlukan pengarang untuk mendedahkan mana-mana agensi sokongan sebelum "
-"menerima penyerahan mereka."
-
-msgid "manager.navigationMenus.archives.description"
-msgstr "Pautan ke arkib terbitan anda."
-
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Minta pengarang untuk mendedahkan mana-mana agensi sokongan semasa "
-"penyerahan."
-
-msgid "manager.navigationMenus.current.description"
-msgstr "Pautan ke terbitan semasa anda."
-
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr "Jangan minta agensi sokongan daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.submissions.description"
-msgstr "Pautan ke halaman yang memaparkan arahan penyerahan."
-
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Dayakan metadata agensi sokongan"
-
-msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Pasukan "
-"Editorial di bawah Tetapan > Jurnal."
-
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Agensi sokongan mungkin menunjukkan sumber pembiayaan penyelidikan atau "
-"sokongan institusi lain yang memudahkan penyelidikan."
-
-msgid "manager.navigationMenus.editorialTeam.description"
-msgstr ""
-"Pautan ke halaman yang memaparkan kandungan Masthead dalam Tetapan > Jurnal."
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Memerlukan pengarang untuk menyediakan disiplin sebelum menerima penyerahan "
-"mereka."
-
-msgid "manager.navigationMenus.about.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Mengenai "
-"Jurnal di bawah Tetapan > Jurnal."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Minta pengarang untuk menyediakan disiplin semasa penyerahan."
-
-msgid "manager.navigationMenus.about.description"
-msgstr ""
-"Pautan ke halaman yang memaparkan kandungan Mengenai Jurnal dalam Tetapan > "
-"Jurnal"
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Jangan minta disiplin daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.remoteUrl.description"
-msgstr "Pautan ke mana-mana URL di laman lain, seperti https://pkp.sfu.ca."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Dayakan metadata disiplin"
-
-msgid "manager.navigationMenus.remoteUrl"
-msgstr "URL Jauh"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Disiplin ialah jenis pengajian atau cabang ilmu seperti yang diterangkan "
-"oleh fakulti universiti dan masyarakat terpelajar."
-
-msgid "manager.navigationMenus.customPage.description"
-msgstr ""
-"Buat halaman custom di laman anda dan pautkannya daripada menu navigasi."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Memerlukan pengarang untuk menyediakan jenis sebelum menerima penyerahan "
-"mereka."
-
-msgid "manager.navigationMenus.customPage"
-msgstr "Halaman Custom"
-
-msgid "manager.setup.metadata.type.request"
-msgstr "Minta pengarang untuk memberikan jenis semasa penyerahan."
-
-msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
-msgstr "Pilih Jenis Menu Navigasi atau Custom untuk dibuat sendiri"
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Jangan minta jenis daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.form.navigationMenuItemType"
-msgstr "Jenis Menu Navigasi"
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Dayakan jenis metadata"
-
-msgid "manager.navigationMenus.form.submenuWarning"
-msgstr ""
-"Apabila item menu membuka submenu, pautan itu tidak boleh diikuti pada semua "
-"peranti. Contohnya, jika anda mempunyai item \"Mengenai\" yang dibuka "
-"submenu dengan \"Kenalan\" dan \"Pasukan Editorial\", pautan \"Mengenai\" "
-"mungkin tidak dapat dicapai pada semua peranti. Dalam menu lalai, ini "
-"dikendalikan dengan mencipta item menu kedua, \"Mengenai Jurnal\", yang "
-"muncul dalam submenu."
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Sifat atau genre kandungan utama penyerahan. Jenisnya biasanya \"Teks\", "
-"tetapi mungkin juga \"Set Data\", \"Imej\" atau mana-mana <a target=\""
-"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/# "
-"section-7-dcmi-type-vocabulary\">Jenis Dublin Core</a>."
-
-msgid "manager.navigationMenus.form.conditionalDisplay"
-msgstr ""
-"Ketahui lebih lanjut tentang bila item menu ini akan dipaparkan atau "
-"disembunyikan."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Memerlukan pengarang untuk menyediakan subjek sebelum menerima penyerahan "
-"mereka."
-
-msgid "manager.navigationMenus.form.customUrlError"
-msgstr "URL mesti disediakan"
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Minta pengarang menyediakan subjek semasa penyerahan."
-
-msgid "manager.navigationMenus.form.url"
-msgstr "URL"
-
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "Menu navigasi telah diberikan kepada kawasan ini."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Jangan minta subjek daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
-msgstr "Pilih kawasan navigasi"
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Dayakan metadata subjek"
-
-msgid "manager.navigationMenus.form.navigationMenuArea"
-msgstr "Kawasan Navigasi Tema Aktif"
-
-msgid "manager.navigationMenus.unassignedMenuItems"
-msgstr "Item Menu Tidak Ditugaskan"
-
-msgid "manager.navigationMenus.assignedMenuItems"
-msgstr "Item Menu yang Ditugaskan"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Subjek ialah kata kunci, frasa utama atau kod klasifikasi yang menerangkan "
-"topik penyerahan."
-
-msgid "manager.navigationMenuItems"
-msgstr "Item Menu Navigasi"
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Memerlukan pengarang untuk menyediakan URL sumber sebelum menerima "
-"penyerahan mereka."
-
-msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Tajuk diperlukan"
-
-msgid "manager.setup.metadata.source.request"
-msgstr "Minta pengarang menyediakan URL sumber semasa penyerahan."
-
-msgid "manager.navigationMenus.form.duplicateTitles"
-msgstr "Tajuk ini sudah wujud untuk menu navigasi lain."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr "Jangan minta URL sumber daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.form.duplicatePath"
-msgstr "Laluan url  ini sudah wujud untuk item menu navigasi yang lain."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Dayakan sumber metadata"
-
-msgid "manager.navigationMenus.form.pathRegEx"
-msgstr ""
-"Medan laluan url mesti mengandungi hanya aksara abjad angka ditambah '.', '/"
-"', '-' dan '_'."
-
-msgid "manager.navigationMenus.form.content"
-msgstr "Kandungan"
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Sumber mungkin ID, seperti DOI, kerja atau sumber lain yang mana penyerahan "
-"itu diperoleh."
-
-msgid "manager.navigationMenus.form.viewInstructions"
-msgstr ""
-"<p>Halaman ini boleh diakses di: <blockquote>{$pagesPath}</blockquote>...di "
-"mana %PATH% ialah laluan yang dimasukkan di atas. <strong>Nota:</strong> "
-"Tiada dua halaman boleh mempunyai laluan URL yang sama. Menggunakan laluan "
-"yang terbina dalam sistem boleh menyebabkan anda kehilangan akses kepada "
-"fungsi penting.</p>"
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Memerlukan pengarang untuk mendedahkan sebarang hak akses terdahulu sebelum "
-"menerima penyerahan mereka."
-
-msgid "manager.navigationMenus"
-msgstr "Navigasi"
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Minta pengarang untuk mendedahkan sebarang hak akses terdahulu semasa "
-"penyerahan."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Jangan minta pendedahan hak daripada pengarang semasa penyerahan."
-
-msgid "manager.navigationMenus.form.path"
-msgstr "Laluan URL"
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Liputan"
-
-msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
-"Editor yang ditugaskan untuk penyerahan ini yang boleh membuat keputusan"
-
-msgid "manager.setup.metadata.submission"
-msgstr "Borang Penyerahan"
-
-msgid "emailTemplate.variable.site.siteContactName"
-msgstr "Nama penuh kenalan utama laman web"
-
-msgid "manager.setup.licenseURLDescription"
-msgstr "URL ke halaman web yang menerangkan lesen, jika tersedia."
-
-msgid "emailTemplate.variable.sender.signature"
-msgstr "Tandatangan e-mel pengirim"
-
-msgid "manager.setup.competingInterests.required"
-msgstr "Minta pernyataan Konflik Kepentingan semasa ulasan rakan sejawat."
-
-msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "Alamat e-mel pengirim"
-
-msgid "emailTemplate.variable.sender.senderName"
-msgstr "Nama penuh penghantar"
-
-msgid "grid.action.createReviewForm"
-msgstr "Buat Borang Ulasan baharu"
-
-msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "URL untuk tugasan ulasan"
-
-msgid "manager.reviewFormElements.viewable"
-msgstr "Boleh dilihat (untuk pengarang)"
-
-msgid "emailTemplate.variable.recipient.username"
-msgstr "Nama pengguna penerima atau semua penerima"
-
-msgid "manager.reviewFormElements.textfield"
-msgstr "Kotak teks baris tunggal"
-
-msgid "manager.reviewFormElements.textarea"
-msgstr "Kotak teks lanjutan"
-
-msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "Nama penuh penerima atau semua penerima"
-
-msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
-"URL ke halaman di mana pengguna boleh memulihkan kata laluan yang hilang"
-
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "Proses gagal menghuraikan penerbitan"
-
-msgid "plugins.importexport.author.exportFailed"
-msgstr "Proses gagal menghuraikan pengarang"
-
-msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Kotak teks perkataan tunggal"
-
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
-
-msgid "manager.reviewFormElements.included"
-msgstr "Disertakan dalam mesej kepada pengarang"
-
-msgid "plugins.importexport.common.error.unknownContext"
-msgstr "Laluan jurnal yang ditentukan, \"{$contextPath}\", tidak wujud."
-
-msgid "manager.reviewFormElements.required"
-msgstr "Pengulas dikehendaki melengkapkan item"
-
-msgid "plugins.importexport.common.cliError"
-msgstr "RALAT:"
-
-msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Butang radio (anda hanya boleh memilih satu)"
-
-msgid "manager.reviewFormElements.description"
-msgstr "Butiran"
-
-msgid "plugins.importexport.native.common.error.filter.configuration.count"
-msgstr ""
-"Konfigurasi penapis salah [{$filterName}]: {$filterCount} kejadian. "
-"Sepatutnya hanya satu."
-
-msgid "manager.reviewFormElements.question"
-msgstr "Item"
-
-msgid "plugins.importexport.native.common.any"
-msgstr "Item Generik"
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Muat turun fail yang dieksport dari butang di bawah."
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "Eksport berjaya diselesaikan."
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "Muat Turun Fail yang Dieksport"
-
-msgid "manager.reviewFormElements.possibleResponse"
-msgstr "Pemilihan"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Hasil Penyerahan Eksport"
-
-msgid "manager.reviewFormElements.noneCreated"
-msgstr "Tiada item borang telah dicipta."
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "Proses itu gagal. Semak di bawah untuk ralat/amaran."
-
-msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "Soalan diperlukan untuk item borang."
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Selepas Ulasan Kadar Tolak"
-
-msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "Jenis item diperlukan untuk item borang."
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Kadar Desk Reject"
-
-msgid "manager.reviewFormElements.elementType"
-msgstr "Jenis item"
-
-msgid "stats.name.declineRate"
-msgstr "Kadar Penolakan"
-
-msgid "manager.reviewFormElements.edit"
-msgstr "Sunting Item Borang"
-
-msgid "stats.name.acceptanceRate"
-msgstr "Kadar Penerimaan"
-
-msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Kotak lungsur"
-
-msgid "stats.name.daysToReject"
-msgstr "Hari untuk Menolak"
-
-msgid "manager.reviewFormElements.create"
-msgstr "Cipta Item Baru"
-
-msgid "stats.name.daysToAccept"
-msgstr "Hari untuk Menerima"
-
-msgid "manager.reviewFormElements.copyTo"
-msgstr "Salin ke:"
-
-msgid "stats.name.daysToDecision"
-msgstr "Hari ke Keputusan Editorial Pertama"
-
-msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Sahkan pemadaman item borang yang diterbitkan..."
-
-msgid "stats.name.submissionsPublished"
-msgstr "Penyerahan Diterbitkan"
-
-msgid "manager.reviewFormElements.chooseType"
-msgstr "Pilih jenis item"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Penyerahan Ditolak (Selepas Ulasan)"
-
-msgid "manager.reviewFormElements.checkboxes"
-msgstr "Kotak semak (anda boleh memilih satu atau lebih)"
-
-msgid "manager.reviewFormElements.addResponseItem"
-msgstr "Tambah pilihan"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Penyerahan Ditolak (Desk Reject)"
-
-msgid "manager.reviewFormElements"
-msgstr "Item Borang"
-
-msgid "manager.reviewFormElement.changeType"
-msgstr "Menukar jenis item borang..."
-
-msgid "manager.reviewForms.title"
-msgstr "Tajuk"
-
-msgid "manager.reviewForms.reviewFormData"
-msgstr "Data Borang Ulasan"
-
-msgid "manager.reviewForms.preview"
-msgstr "Pratonton Borang"
-
-msgid "manager.reviewForms.noneUsed"
-msgstr "Tiada borang ulasan telah digunakan."
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Penyerahan Diterima"
-
-msgid "manager.reviewForms.noneCreated"
-msgstr "Tiada borang ulasan telah dicipta."
-
-msgid "stats.name.submissionsReceived"
-msgstr "Penyerahan Diterima"
-
-msgid "manager.reviewForms.noneChosen"
-msgstr "Tiada / Borang Ulasan Bebas"
-
-msgid "stats.userStatistics"
-msgstr "Statistik Pengguna"
-
-msgid "stats.trends"
-msgstr "Trend"
-
-msgid "manager.reviewForms.list.description"
-msgstr ""
-"Borang ulasan rakan sejawat yang dicipta di sini akan dibentangkan kepada "
-"pengulas untuk dilengkapkan, bukannya borang lalai yang terdiri daripada dua "
-"kotak teks terbuka, yang pertama \"untuk pengarang dan editor,\" dan yang "
-"kedua \"untuk editor.\" Borang ulasan boleh ditetapkan untuk bahagian akhbar "
-"tertentu, dan editor akan mempunyai pilihan untuk memilih borang yang hendak "
-"digunakan dalam memberikan ulasan. Dalam semua kes, editor akan mempunyai "
-"pilihan untuk memasukkan ulasan yang sepadan dengan pengarang."
-
-msgid "stats.totalWithinDateRange"
-msgstr "Jumlah Dalam Julat Tarikh"
-
-msgid "stats.total"
-msgstr "Jumlah"
-
-msgid "manager.reviewForms.inReview"
-msgstr "Dalam Ulasan"
-
-msgid "stats.submissionsActive"
-msgstr "Penyerahan Aktif"
-
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "Tajuk diperlukan untuk borang ulasan."
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Cari mengikut tajuk, pengarang dan ID"
-
-msgid "manager.reviewForms.edit"
-msgstr "Borang Ulasan"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Bulanan"
-
-msgid "manager.reviewForms.description"
-msgstr "Penerangan dan Arahan"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.fileViews"
-msgstr "Paparan Fail"
-
-msgid "manager.reviewForms.create"
-msgstr "Cipta Borang Ulasan"
-
-msgid "stats.editorialActivity"
-msgstr "Aktiviti Editorial"
-
-msgid "manager.reviewForms.confirmDelete"
-msgstr "Adakah anda pasti mahu memadamkan borang ulasan ini?"
-
-msgid "stats.descriptionForStat"
-msgstr "Penerangan untuk {$stat}"
-
-msgid "manager.reviewForms.completed"
-msgstr "Telah Selesai"
-
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Bilangan hari yang diambil untuk kebanyakan penyerahan menerima keputusan "
-"editorial pertama, seperti penolakan desk atau hantar untuk ulasan.<br><br>"
-"Angka ini menunjukkan bahawa 80% penyerahan mencapai keputusan dalam "
-"bilangan hari yang diberikan.< br><br>Statistik ini cuba menggambarkan "
-"apabila majoriti pengarang yang menyerahkan ke jurnal anda boleh "
-"mengharapkan keputusan."
-
-msgid "manager.reviewForms.confirmCopy"
-msgstr "Adakah anda pasti ingin membuat salinan borang ulasan ini?"
-
-msgid "stats.description.acceptRejectRate"
-msgstr ""
-"Peratusan untuk julat tarikh yang dipilih dikira untuk penyerahan yang telah "
-"diserahkan semasa julat tarikh ini dan telah menerima keputusan "
-"muktamad.<br><br>Sebagai contoh, pertimbangkan kes di mana sepuluh "
-"penyerahan telah dibuat dalam julat tarikh ini. Empat diterima, empat "
-"ditolak dan dua masih menunggu keputusan muktamad.<br><br>Kadar penerimaan "
-"ialah 50% (4 daripada 8 penyerahan) kerana dua penyerahan yang belum "
-"mencapai keputusan muktamad tidak dikira."
-
-msgid "stats.dateRange.untilDate"
-msgstr "Sehingga {$date}"
-
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr ""
-"Adakah anda pasti mahu menyahaktifkan borang ulasan ini? Ia tidak akan "
-"tersedia lagi untuk tugasan ulasan baharu."
-
-msgid "stats.dateRange.to"
-msgstr "Kepada"
-
-msgid "stats.dateRange.thisYear"
-msgstr "Tahun hingga kini"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Sejak {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Tahun lepas"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Dua tahun lepas"
-
-msgid "stats.dateRange.last90Days"
-msgstr "90 hari lepas"
-
-msgid "stats.dateRange.last30Days"
-msgstr "30 hari lepas"
-
-msgid "stats.dateRange.last12Months"
-msgstr "12 bulan lepas"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Tarikh mula tidak lebih awal daripada {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "Tarikh tamat tidak lewat daripada {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "Tarikh mula mestilah sebelum tarikh tamat."
-
-msgid "stats.dateRange.invalidDate"
-msgstr ""
-"Format tarikh tidak sah. Masukkan setiap tarikh dalam format YYYY-MM-DD."
-
-msgid "stats.dateRange.instructions"
-msgstr ""
-"Masukkan setiap tarikh dalam format YYYY-MM-DD. Contohnya, jika anda mahu "
-"tarikh 15 Januari 2019, masukkan 2019-01-15."
-
-msgid "stats.dateRange.from"
-msgstr "Dari"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Salah satu tarikh yang dimasukkan tidak wujud."
-
-msgid "stats.dateRange.customRange"
-msgstr "Julat Custom"
-
-msgid "stats.dateRange.change"
-msgstr "Tukar julat tarikh"
-
-msgid "stats.dateRange.apply"
-msgstr "Terapkan"
-
-msgid "manager.reviewForms.confirmActivate"
-msgstr ""
-"Adakah anda pasti mahu mengaktifkan borang ulasan ini? Sebaik sahaja ia "
-"ditugaskan kepada ulasan, anda tidak akan dapat menyahaktifkannya lagi."
-
-msgid "manager.reviewForms"
-msgstr "Borang Ulasan"
-
-msgid "manager.distribution.title"
-msgstr "Tetapan distribusi"
-
-msgid "stats.dateRange.allDates"
-msgstr "Semua tarikh"
-
-msgid "manager.distribution"
-msgstr "Distribusi"
-
-msgid "stats.dateRange"
-msgstr "Julat Tarikh"
-
-msgid "manager.workflow.title"
-msgstr "Tetapan Aliran Kerja"
-
-msgid "manager.workflow"
-msgstr "Aliran Kerja"
-
-msgid "manager.website.title"
-msgstr "Tetapan Laman web"
-
-msgid "manager.website"
-msgstr "Laman Web"
-
-msgid "manager.users.roleRequired"
-msgstr ""
-"Anda perlu memilih sekurang-kurangnya satu peranan untuk dikaitkan dengan "
-"pengguna ini."
-
-msgid "manager.settings.wizard"
-msgstr "Wizard tetapan"
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Pilih jenis metadata yang mungkin diterima oleh fail ini. Dokumen hendaklah "
-"dipilih untuk fail penerbitan utama, seperti PDF yang boleh dimuat turun, "
-"supaya fail ini mewarisi metadatanya daripada penerbitan. Jika tidak, pilih "
-"Kandungan Tambahan untuk jenis fail umum. Karya seni sesuai untuk fail yang "
-"memerlukan metadata kredit, kapsyen dan pelesenan yang berbeza."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Metadata Fail"
-
-msgid "manager.setup.genres.key.alphaNumeric"
-msgstr ""
-"Kunci hanya boleh mengandungi aksara abjad angka, garis bawah dan sempang, "
-"dan mesti bermula dan berakhir dengan aksara abjad angka."
-
-msgid "stats.daily"
-msgstr "Harian"
-
-msgid "manager.setup.genres.key.exists"
-msgstr "Kunci sudah wujud."
-
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/tahun)"
-
-msgid "manager.setup.genres.key.description"
-msgstr "Pengenalpasti simbolik pendek pilihan untuk genre ini."
-
-msgid "stats.allUsers"
-msgstr "Semua Pengguna"
-
-msgid "manager.setup.genres.key"
-msgstr "Kunci"
-
-msgid "grid.category.categoryDetails"
-msgstr "Butiran Kategori"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Ini adalah fail tambahan, seperti set data dan bahan penyelidikan, dan akan "
-"dipaparkan secara berasingan daripada fail penerbitan utama."
-
-msgid "grid.category.nameRequired"
-msgstr "Sila masukkan nama kategori."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Ini adalah fail bergantung, seperti imej yang dipaparkan oleh fail HTML, dan "
-"tidak akan dipaparkan dengan kandungan yang diterbitkan."
-
-msgid "grid.category.removeText"
-msgstr "Adakah anda pasti mahu memadam kategori ini?"
-
-msgid "manager.setup.genres.label"
-msgstr "Jenis Fail"
-
-msgid "grid.category.parentCategory"
-msgstr "Kategori Induk"
-
-msgid "grid.action.restoreGenres"
-msgstr "Pulihkan komponen kepada tetapan lalai"
-
-msgid "grid.category.description"
-msgstr "Penerangan"
-
-msgid "grid.category.pathExists"
-msgstr "Laluan kategori sudah wujud. Sila masukkan laluan unik."
-
-msgid "grid.action.deleteGenre"
-msgstr "Padamkan Komponen ini"
-
-msgid "grid.category.pathAlphaNumeric"
-msgstr "Laluan kategori mestilah terdiri daripada huruf dan nombor sahaja."
-
-msgid "grid.action.editGenre"
-msgstr "Sunting Komponen ini"
-
-msgid "grid.category.urlWillBe"
-msgstr "URL kategori ialah: {$sampleUrl}"
-
-msgid "grid.action.addGenre"
-msgstr "Tambah Komponen"
-
-msgid "grid.category.path"
-msgstr "Laluan URL"
-
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Pilih Fail Pustaka untuk dilampirkan"
-
-msgid "grid.category.name"
-msgstr "Nama"
-
-msgid "settings.libraryFiles.public.viewInstructions"
-msgstr ""
-"<p>Fail pustaka ini boleh diakses untuk muat turun, jika \"Akses Awam\" "
-"didayakan, di: <blockquote>{$downloadUrl}</blockquote></p>"
-
-msgid "grid.category.edit"
-msgstr "Sunting Kategori"
-
-msgid "grid.category.add"
-msgstr "Tambah Kategori"
-
-msgid "settings.libraryFiles.category.other"
-msgstr "Lain-lain"
-
-msgid "settings.libraryFiles.category.reports"
-msgstr "Laporan"
-
-msgid "settings.libraryFiles.category.permissions"
-msgstr "Kebenaran"
-
-msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah memasukkan pernyataan "
-"privasi di bawah Tetapan > Aliran Kerja > Penyerahan."
-
-msgid "settings.libraryFiles.category.marketing"
-msgstr "Pemasaran"
-
-msgid "manager.navigationMenus.privacyStatement.description"
-msgstr "Pautan ke halaman yang memaparkan pernyataan privasi anda."
-
-msgid "settings.libraryFiles.category.contracts"
-msgstr "Kontrak"
-
-msgid "manager.navigationMenus.search.description"
-msgstr "Pautan ke halaman carian."
-
-msgid "settings.libraryFiles.typeRequired"
-msgstr "Satu jenis fail diperlukan untuk fail pustaka ini."
-
-msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika pelawat log masuk, pembayaran "
-"didayakan di bawah Tetapan > Distribusi> Pembayaran dan langganan diperlukan "
-"di bawah Tetapan > Distribusi> Akses."
-
-msgid "settings.libraryFiles.nameRequired"
-msgstr "Satu nama diperlukan untuk fail pustaka ini."
-
-msgid "manager.navigationMenus.subscriptions.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika pembayaran didayakan di bawah Tetapan >"
-" Distribusi> Pembayaran."
-
-msgid "manager.navigationMenus.form.typeMissing"
-msgstr "Sila pilih jenis menu navigasi."
-
-msgid "manager.navigationMenus.contact.conditionalWarning"
-msgstr ""
-"Pautan ini hanya akan dipaparkan jika anda telah mengisi maklumat Kenalan di "
-"bawah Tetapan > Kenalan."
-
-msgid "settings.libraryFiles.fileRequired"
-msgstr ""
-"Fail pustaka diperlukan. Sila pastikan anda telah memilih dan memuat naik "
-"fail."
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Benarkan penyerahan penyuntingan metadata."
-
-msgid "manager.navigationMenus.contact.description"
-msgstr "Pautan ke halaman yang memaparkan maklumat hubungan anda."
-
-msgid "settings.roles.stageIdRequired"
-msgstr "Anda perlu menentukan peringkat untuk ditugaskan."
-
-msgid "settings.roles.roleIdRequired"
-msgstr "Anda perlu menentukan tahap kebenaran peranan."
-
-msgid "settings.roles.uniqueAbbrev"
-msgstr "Anda perlu mentakrifkan singkatan peranan yang unik."
-
-msgid "settings.roles.uniqueName"
-msgstr "Anda perlu menentukan nama peranan yang unik."
-
-msgid "settings.roles.abbrevRequired"
-msgstr "Anda perlu mentakrifkan singkatan peranan."
-
-msgid "manager.navigationMenus.loggedIn.conditionalWarning"
-msgstr "Pautan ini hanya akan dipaparkan apabila pelawat tidak log masuk."
-
-msgid "settings.roles.nameRequired"
-msgstr "Anda perlu menentukan nama peranan."
-
-msgid "manager.navigationMenus.loggedOut.conditionalWarning"
-msgstr "Pautan ini hanya akan dipaparkan apabila pelawat log masuk."
-
-msgid "settings.roles.removeText"
-msgstr ""
-"Anda akan mengalih keluar peranan ini daripada konteks ini. Operasi ini juga "
-"akan memadamkan tetapan berkaitan dan semua tugasan pengguna kepada peranan "
-"ini. Adakah anda mahu meneruskan?"
-
-msgid "manager.navigationMenus.logOut.description"
-msgstr "Pautan yang akan log keluar pengguna."
-
-msgid "settings.roles.from"
-msgstr "Tahap kebenaran"
-
-msgid "manager.navigationMenus.administration.conditionalWarning"
-msgstr "Pautan ini hanya akan dipaparkan kepada pengguna pentadbiran."
-
-msgid "settings.roles.roleDetails"
-msgstr "Butiran peranan"
-
-msgid "manager.navigationMenus.administration.description"
-msgstr "Pautan ke alat site-wide pentadbiran."
-
-msgid "settings.roles.stages"
-msgstr "Peringkat"
-
-msgid "manager.navigationMenus.profile.description"
-msgstr "Pautan ke halaman profil pengguna."
-
-msgid "settings.roles.assignedStages"
-msgstr "Peringkat yang Ditugaskan"
-
-msgid "manager.navigationMenus.dashboard.description"
-msgstr "Pautan ke papan pemuka editorial."
-
-msgid "settings.roles.roleAbbrev"
-msgstr "Singkatan"
-
-msgid "settings.roles.roleName"
-msgstr "Nama Peranan"
-
-msgid "settings.roles.recommendOnly"
-msgstr ""
-"Peranan ini hanya dibenarkan untuk mengesyorkan keputusan ulasan dan akan "
-"memerlukan editor yang diberi kuasa untuk merekodkan keputusan muktamad."
-
-msgid "settings.roles.permitSelfRegistration"
-msgstr "Benarkan pendaftaran diri pengguna"
-
-msgid "settings.roles.showTitles"
-msgstr "Tunjukkan tajuk peranan dalam senarai penyumbang"
-
-msgid "settings.roles.roleOptions"
-msgstr "Pilihan Peranan"
-
-msgid "manager.paymentMethod.currency"
-msgstr "Mata wang"
-
-msgid "manager.paymentMethod.method"
-msgstr "Kaedah Pembayaran"
-
-msgid "manager.paymentMethod.none"
-msgstr "Tiada kaedah pembayaran dipilih"
-
-msgid "manager.setup.pageFooter.description"
-msgstr ""
-"Masukkan sebarang imej, teks atau kod HTML yang anda mahu dipaparkan di "
-"bahagian bawah laman web anda."
-
-msgid "manager.paymentMethod.title"
-msgstr "Kaedah Pembayaran"
-
-msgid "manager.setup.pageFooter"
-msgstr "Footer Halaman"
-
-msgid "manager.paymentMethod"
-msgstr "Pembayaran"
-
-msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr ""
-"Format imej atau muat naik logo pengepala halaman tidak sah. Format yang "
-"diterima ialah .gif, .jpg atau .png."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Tambahkan tag HTML custom, juga dikenali sebagai tag meta, yang anda ingin "
-"masukkan di kepala setiap halaman. Rujuk penasihat teknikal sebelum menambah "
-"tag di sini."
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "E-mel berjaya dihantar kepada semua penerima."
-
-msgid "manager.distribution.customHeaders"
-msgstr "Tag Custom"
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr "Menghantar e-mel. Tolong jangan layari sehingga penghantaran selesai."
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr ""
-"Masukkan syarat pelesenan awam yang anda ingin paparkan bersama karya yang "
-"diterbitkan."
-
-msgid "manager.distribution.license"
-msgstr "Lesen"
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Pilih pengguna yang sepatutnya menerima e-mel pemberitahuan anda."
-
-msgid "notification.editedUser"
-msgstr "Pengguna disunting."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Maklumkan"
-
-msgid "manager.setup.notifications.description"
-msgstr ""
-"Pengarang menghantar secara automatik e-mel yang mengakui penyerahan mereka. "
-"Anda mungkin mempunyai salinan e-mel ini dihantar kepada yang berikut:"
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr ""
-"Tetapan bahasa tidak dapat disimpan. Sekurang-kurangnya satu bahasa mesti "
-"didayakan untuk setiap pilihan"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "Satu atau lebih daripada alamat e-mel ini tidak sah."
-
-msgid "notification.localeSettingsSaved"
-msgstr "Tetapan bahasa disimpan."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"Salinan e-mel pengakuan penyerahan akan dihantar ke mana-mana alamat e-mel "
-"yang dimasukkan di sini. Asingkan berbilang alamat e-mel dengan koma. Contoh:"
-" one@example.com,two@example.com"
-
-msgid "notification.localeReloaded"
-msgstr "Bahasa {$locale} dimuat semula untuk {$contextName}."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "Maklumkan Semua"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "Tidak"
-
-msgid "notification.localeUninstalled"
-msgstr "{$locale} bahasa dinyahpasang."
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Ya, hantar salinan ke {$email}"
-
-msgid "notification.localeInstalled"
-msgstr "Semua bahasa yang dipilih dipasang dan diaktifkan."
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Maklumkan Kenalan Utama"
-
-msgid "notification.primaryLocaleDefined"
-msgstr "{$locale} ditakrifkan sebagai bahasa utama."
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "Notifikasi"
-
-msgid "notification.localeDisabled"
-msgstr "Bahasa dinyahdayakan."
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Hantar salinan ke alamat e-mel ini"
-
-msgid "notification.localeEnabled"
-msgstr "Bahasa didayakan."
-
-msgid "manager.setup.notifications"
-msgstr "Pemberitahuan Penyerahan Pengarang"
-
-msgid "manager.plugins.versionFileNotFound"
-msgstr "version.xml tidak dijumpai dalam direktori plugin"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Fail yang anda muat naik tidak ditemui. Sila cuba muat naik semula."
-
-msgid "manager.plugins.versionFileInvalid"
-msgstr "version.xml dalam direktori plugin mengandungi data yang tidak sah."
-
-msgid "manager.setup.logo"
-msgstr "Logo"
-
-msgid "manager.setup.loggingAndAuditing"
-msgstr "Log dan Pengauditan"
-
-msgid "manager.plugins.uploadPluginDir"
-msgstr "Pilih fail plugin"
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"Blok {$name} tidak ditemui. Sila pastikan plugin dipasang dan didayakan."
-
-msgid "manager.plugins.uploadError"
-msgstr "Ralat memuat naik fail"
-
-msgid "manager.setup.layout.sidebar"
-msgstr "Bar sisi"
-
-msgid "manager.plugins.upgradeSuccessful"
-msgstr "Berjaya dinaik taraf kepada versi {$versionString}"
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Penerangan"
-
-msgid "manager.plugins.upgradeFailed"
-msgstr "Naik taraf gagal. {$errorString}"
-
-msgid "manager.setup.homeTitleImageInvalid"
-msgstr ""
-"Format imej tajuk tajuk halaman utama tidak sah atau muat naik gagal. Format "
-"yang diterima ialah .gif, .jpg atau .png."
-
-msgid "manager.plugins.upgradeDescription"
-msgstr ""
-"Borang ini membolehkan anda menaik taraf plugin. Sila pastikan plugin "
-"dimampatkan sebagai fail .tar.gz."
-
-msgid "manager.setup.homepageImageInvalid"
-msgstr ""
-"Format imej halaman utama tidak sah atau muat naik gagal. Format yang "
-"diterima ialah .gif, .jpg atau .png."
-
-msgid "manager.plugins.upgrade"
-msgstr "Naik taraf Plugin"
-
-msgid "manager.plugins.settings"
-msgstr "Tetapan"
-
-msgid "manager.plugins.pleaseUpgrade"
-msgstr ""
-"Plugin sudah wujud, tetapi lebih baharu daripada versi yang dipasang. Sila "
-"naik taraf sebaliknya"
-
-msgid "manager.setup.homepageImage.description"
-msgstr "Muat naik imej untuk dipaparkan dengan jelas di halaman utama."
-
-msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin tidak ada. Sebaliknya sila Pasang"
-
-msgid "manager.setup.homepageImage"
-msgstr "Imej Laman Utama"
-
-msgid "manager.plugins.wrongName"
-msgstr ""
-"Version.xml dalam plugin yang dimuat naik mengandungi nama plugin yang tidak "
-"sesuai dengan nama plugin yang dinaik taraf."
-
-msgid "manager.setup.favicon"
-msgstr "Favicon"
-
-msgid "manager.plugins.wrongCategory"
-msgstr ""
-"Plugin yang dimuat naik tidak sesuai dengan kategori plugin yang dinaik "
-"taraf."
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "Terdapat ralat semasa memadamkan item ini."
-
-msgid "manager.plugins.invalidPluginArchive"
-msgstr ""
-"Arkib plugin yang dimuat naik tidak mengandungi folder yang sepadan dengan "
-"nama plugin."
-
-msgid "manager.plugins.installSuccessful"
-msgstr "Berjaya memasang versi {$versionNumber}"
-
-msgid "manager.plugins.installFailed"
-msgstr "Pemasangan gagal. {$errorString}"
-
-msgid "manager.plugins.noCompatibleVersion.short"
-msgstr "Tidak Tersedia"
-
-msgid "manager.plugins.installedVersionNewest.short"
-msgstr "Terkini"
-
-msgid "manager.plugins.installedVersionOlder.short"
-msgstr "Boleh dinaik taraf"
-
-msgid "manager.plugins.installedVersionNewer.short"
-msgstr "Lebih baharu daripada versi yang tersedia"
-
-msgid "manager.plugins.installedVersionNewest"
-msgstr "Plugin sudah dipasang dan dikemas kini."
-
-msgid "manager.plugins.installedVersionOlder"
-msgstr ""
-"Plugin sudah dipasang, tetapi boleh dikemas kini kepada versi yang lebih "
-"baharu."
-
-msgid "manager.plugins.installedVersionNewer"
-msgstr ""
-"Plugin sudah dipasang, dan lebih baharu daripada versi yang tersedia dalam "
-"galeri."
-
-msgid "manager.plugins.noCompatibleVersion"
-msgstr "Pada masa ini tiada versi yang serasi bagi pugin ini tersedia."
-
-msgid "manager.setup.competingInterests"
-msgstr "Konflik Kepentingan"
-
-msgid "manager.setup.checklist"
-msgstr "Senarai semak"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Nyahdaya Penyerahan"
-
-msgid "manager.plugins.noInstalledVersion"
-msgstr "Plugin masih belum dipasang."
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"Garis panduan yang disyorkan termasuk piawaian bibliografi dan pemformatan "
-"bersama contoh format petikan biasa untuk digunakan dalam penyerahan."
-
-msgid "manager.plugins.pluginGallery.status"
-msgstr "Status"
-
-msgid "manager.plugins.pluginGallery.summary"
-msgstr "Ringkasan"
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Garis Panduan Pengarang"
-
-msgid "manager.navigationMenus.form.title"
-msgstr "Tajuk"
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr ""
-"Nama pengguna \"{$username}\" dan e-mel \"{$email}\" tidak sepadan dengan "
-"satu dan pengguna sedia ada yang sama."
-
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr ""
-"Pengguna yang diimport \"{$username}\" mempunyai kata laluan biasa yang "
-"tidak sah. Pengguna belum diimport."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Dayakan metadata hak"
-
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr ""
-"Kata laluan \"{$username}\" pengguna yang diimport tidak dapat diimport "
-"sebagaimana adanya. Kata laluan baharu telah dihantar ke e-mel pengguna. "
-"Pengguna telah diimport."
-
-msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr ""
-"Pengguna yang diimport \"{$username}\" tidak mempunyai kata laluan. Semak "
-"format XML import anda. Pengguna belum diimport."
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Sebarang hak yang dipegang atas penyerahan, yang mungkin termasuk Hak Harta "
-"Intelek (IPR), Hak Cipta dan pelbagai Hak Harta."
-
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Ralat Import/Eksport:"
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Memerlukan pengarang untuk memasukkan bahasa penyerahan sebelum menerima "
-"penyerahan mereka."
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Fail penyerahan {$id} telah dilangkau kerana ia dilampirkan pada rekod yang "
-"tidak akan diimport, seperti tugasan ulasan atau perbincangan."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Minta pengarang menyatakan bahasa penyerahan semasa penyerahan."
-
-msgid "plugins.importexport.native.error.submissionFileImportFailed"
-msgstr "Fail penyerahan tidak dapat diimport"
-
-msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
-msgstr ""
-"Semakan \"{$revisionId}\" untuk fail penyerahan \"{$fileId}\" akan mencipta "
-"rekod duplikat"
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Jangan minta bahasa penyerahan daripada pengarang semasa penyerahan."
-
-msgid "plugins.importexport.common.error.filesizeMismatch"
-msgstr ""
-"Saiz fail yang disediakan \"{$expected}\" dan saiz fail sebenar \"{$actual}\""
-" tidak sepadan"
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Dayakan metadata bahasa"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Bahasa menunjukkan bahasa utama kerja menggunakan kod bahasa (\"ms\") dengan "
-"kod negara pilihan (\"ms_MS\")."
-
-msgid "plugins.importexport.common.error.temporaryFileFailed"
-msgstr "Fail sementara {$dest} tidak dapat dibuat daripada {$source}"
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Memerlukan pengarang untuk mencadangkan kata kunci sebelum menerima "
-"penyerahannya."
-
-msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Pemuat naik tidak diketahui {$param}"
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Minta pengarang mencadangkan kata kunci semasa penyerahan."
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"Pengarang {$authorName} tidak mempunyai nama yang diberikan dalam bahasa "
-"penyerahan, {$localeName}. Penyerahan tidak boleh diimport tanpa maklumat "
-"ini."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Jangan minta kata kunci daripada pengarang semasa penyerahan."
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "Kumpulan Pengguna Tiada untuk nama pengarang {$param}"
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Dayakan metadata kata kunci"
-
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Kumpulan pengguna tidak diketahui {$param}"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Kata kunci lazimnya ialah frasa satu hingga tiga perkataan yang digunakan "
-"untuk menunjukkan topik utama penyerahan."
-
-msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "URL kepada penyerahan dalam backend editorial"
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Memerlukan pengarang untuk mencadangkan metadata liputan sebelum menerima "
-"penyerahan mereka."
-
-msgid "emailTemplate.variable.submission.authorsFull"
-msgstr "Nama penuh pengarang"
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr "Minta pengarang mencadangkan metadata liputan semasa penyerahan."
-
-msgid "emailTemplate.variable.submission.authors"
-msgstr "Nama pengarang dalam bentuk string yang disingkatkan"
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr "Jangan minta metadata liputan daripada pengarang semasa penyerahan."
-
-msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "Abstrak penyerahan"
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Dayakan metadata liputan"
-
-msgid "emailTemplate.variable.submission.submissionId"
-msgstr "Nombor ID unik penyerahan"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Liputan biasanya akan menunjukkan lokasi spatial kerja (nama tempat atau "
-"koordinat geografi), tempoh temporal (label tempoh, tarikh atau julat tarikh)"
-" atau bidang kuasa (seperti entiti pentadbiran yang dinamakan)."
-
-msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "Tajuk Penyerahan"
-
-msgid "manager.plugins.pluginGallery.homepage"
-msgstr "Laman Utama"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr ""
-"Memerlukan pengarang untuk bersetuju menerima notis hak cipta berikut "
-"sebagai sebahagian daripada proses penyerahan."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Notis Hak Cipta"
-
-msgid "manager.plugins.pluginGallery.version"
-msgstr "v{$version} dikeluarkan pada {$date}"
-
-msgid "manager.setup.advanced"
-msgstr "Lanjutan"
-
-msgid "manager.plugins.pluginGallery.maintainer"
-msgstr "Penyelenggara"
-
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Plugin ini disediakan oleh salah satu rakan kongsi pembangunan kami."
-
-msgid "manager.setup.additionalContent.description"
-msgstr ""
-"Apa-apa sahaja yang dimasukkan di sini akan dipaparkan di halaman utama anda."
-
-msgid "manager.plugins.pluginGallery.certifications.partner"
-msgstr "Rakan Kongsi"
-
-msgid "manager.setup.additionalContent"
-msgstr "Kandungan Tambahan"
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr ""
-"Plugin ini telah disemak dan diluluskan oleh pasukan Public Knowledge "
-"Project."
-
-msgid "manager.setup.publishingDescription"
-msgstr ""
-"Butiran ini mungkin disertakan dalam metadata yang diberikan kepada badan "
-"arkib pihak ketiga."
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed"
-msgstr "Diulas"
-
-msgid "manager.setup.publishing"
-msgstr "Butiran Penerbitan"
-
-msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
-"Plugin ini dibangunkan dan diselenggarakan oleh pasukan Public Knowledge "
-"Project."
-
-msgid "manager.affiliationAndSupport"
-msgstr "Penaja"
-
-msgid "manager.plugins.pluginGallery.certifications.official"
-msgstr "Rasmi"
-
-msgid "manager.plugins.pluginGallery.latestCompatible"
-msgstr "Keluaran Serasi Terkini"
-
-msgid "manager.plugins.pluginGallery.installation"
-msgstr "Pemasangan"
-
-msgid "manager.plugins.pluginGallery.overview"
-msgstr "Gambaran keseluruhan"
-
-msgid "manager.plugins.pluginGallery"
-msgstr "Galeri Plugin"
-
-msgid "manager.plugins.installed"
-msgstr "Plugin yang Dipasang"
-
-msgid "manager.plugins.uploadFailed"
-msgstr "Sila pastikan fail telah dipilih untuk dimuat naik."
-
-msgid "manager.plugins.uploadDescription"
-msgstr ""
-"Borang ini membolehkan anda memuat naik dan memasang plugin baharu. Sila "
-"pastikan plugin dimampatkan sebagai fail .tar.gz."
-
-msgid "manager.plugins.upload"
-msgstr "Muat Naik Plugin Baharu"
-
-msgid "manager.plugins.fileSelectError"
-msgstr "Sila pilih fail dahulu"
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Gunakan format YYYYMMDD."
-
-msgid "manager.plugins.doesNotExist"
-msgstr "Plugin\"{$pluginName}\" tidak wujud"
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Gunakan format YYYYMM."
-
-msgid "manager.plugins.description"
-msgstr ""
-"Halaman ini membenarkan Pengurus menyemak dan berkemungkinan mengkonfigurasi "
-"plugin yang sedang dipasang. Plugin dibahagikan kepada kategori, mengikut "
-"fungsinya. Kategori tersebut disenaraikan di bawah, dan dalam setiap "
-"kategori, set plugin semasanya."
-
-msgid "manager.plugins.deleteSuccess"
-msgstr "Plugin \"{$ pluginName}\" berjaya dipadamkan"
-
-msgid "manager.plugins.deleteError"
-msgstr ""
-"Plugin \"{$pluginName}\" tidak dapat dipadamkan daripada sistem fail. Ini "
-"mungkin masalah kebenaran. Sila pastikan bahawa pelayan web dapat menulis ke "
-"direktori plugin (termasuk subdirektori) tetapi jangan lupa untuk "
-"mengamankannya semula kemudian."
-
-msgid "manager.plugins.deleteDescription"
-msgstr ""
-"Dengan mengklik padam, anda akan memadamkan plugin daripada sistem fail "
-"pelayan."
-
-msgid "manager.plugins.deleteConfirm"
-msgstr "Adakah anda pasti mahu memadamkan plugin ini daripada sistem?"
-
-msgid "grid.action.installPlugin"
-msgstr "Pasang atau naik taraf plugin ini"
-
-msgid "manager.plugins.upgradeConfirm"
-msgstr "Adakah anda pasti ingin menaik taraf plugin ini?"
-
-msgid "manager.plugins.installConfirm"
-msgstr "Adakah anda pasti mahu memasang plugin ini?"
-
-msgid "manager.plugins.delete"
-msgstr "Padam Plugin"
-
-msgid "manager.plugins.copyError"
-msgstr ""
-"Plugin tidak berjaya disalin. Ini mungkin masalah kebenaran. Sila pastikan "
-"bahawa pelayan web dapat menulis ke direktori plugin (termasuk subdirektori) "
-"tetapi jangan lupa untuk mengamankannya semula kemudian."
-
-msgid "plugins.categories.pubIds.description"
-msgstr "Plugin ini melaksanakan sokongan untuk pengenalpasti awam."
-
-msgid "plugins.categories.pubIds"
-msgstr "Plugin Pengenalpasti Awam"
-
-msgid "plugins.categories.oaiMetadataFormats.description"
-msgstr "Plugin format ini menyatakan metadata dalam komunikasi OAI."
-
-msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Plugin OAI Format Metadata"
-
-msgid "plugins.categories.themes"
-msgstr "Plugin Tema"
-
-msgid "plugins.categories.themes.description"
-msgstr "Plugin Tema boleh digunakan untuk menukar rupa sistem."
-
-msgid "plugins.categories.reports"
-msgstr "Plugin Laporan"
-
-msgid "plugins.categories.reports.description"
-msgstr ""
-"Plugin Laporan digunakan untuk melaksanakan pelbagai jenis laporan dan "
-"ekstrak data."
-
-msgid "plugins.categories.paymethod"
-msgstr "Plugin Pembayaran"
-
-msgid "plugins.categories.paymethod.description"
-msgstr ""
-"Plugin Kaedah Pembayaran melaksanakan sokongan untuk pelbagai cara "
-"pemprosesan pembayaran dalam talian."
-
-msgid "plugins.categories.importexport"
-msgstr "Import/Eksport Plugin"
-
-msgid "plugins.categories.importexport.description"
-msgstr ""
-"Import/Export Plugin boleh digunakan untuk memindahkan kandungan ke dan dari "
-"sistem lain."
-
-msgid "plugins.categories.generic"
-msgstr "Plugin Generik"
-
-msgid "plugins.categories.gateways"
-msgstr "Plugin Gateway"
-
-msgid "plugins.categories.gateways.description"
-msgstr "Plugin Gateway menyediakan data langsung kepada sistem luaran."
-
-msgid "plugins.categories.blocks.description"
-msgstr ""
-"Plugin Blok ialah komponen UI boleh pasang, seperti pelbagai alatan bar sisi."
-
-msgid "manager.statistics.reports.description"
-msgstr ""
-"Sistem menjana laporan yang menjejaki butiran yang berkaitan dengan "
-"penggunaan laman dan penyerahan dalam tempoh masa tertentu. Laporan dijana "
-"dalam format CSV yang memerlukan aplikasi spreadsheet untuk dilihat."
-
-msgid "plugins.categories.blocks"
-msgstr "Plugin Blok"
-
-msgid "manager.statistics.reports"
-msgstr "Laporan"
-
-msgid "plugins.categories.auth"
-msgstr "Plugin Kebenaran"
-
-msgid "stats.region"
-msgstr "Wilayah"
-
-msgid "stats.city"
-msgstr "Bandar"
-
-msgid "plugins.categories.metadata.description"
-msgstr "Plugin Metadata melaksanakan piawaian meta-data tambahan."
-
-msgid "plugins.categories.metadata"
-msgstr "Plugin Metadata"
-
-msgid "manager.users"
-msgstr "Pengguna"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Pengguna berdaftar"
-
-msgid "manager.statistics.statistics.totalNewValue"
-msgstr "{$numTotal} ({$numNew} baru)"
-
-msgid "manager.statistics.statistics.count.value"
-msgstr "{$count} ({$percentage}%)"
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Pilihan Akses Laman"
-
-msgid "manager.statistics"
-msgstr "Statistik &amp; Laporan"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Adakah anda pasti mahu mengaktifkan bahagian ini?"
-
-msgid "manager.roles"
-msgstr "Peranan"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Adakah anda pasti mahu menyahaktifkan bahagian ini?"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr ""
-"Gunakan borang di bawah untuk menetapkan nilai maksimum bagi istilah yang "
-"anda ingin cari. Borang telah diisi terlebih dahulu dengan purata pengiraan "
-"medan tersebut."
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Nyahaktifkan bahagian ini dan jangan benarkan penyerahan baharu dibuat "
-"kepadanya."
-
-msgid "manager.reviewerSearch.interests"
-msgstr "Minat Displin Mengulas"
-
-msgid "manager.setup.theme.notFound"
-msgstr "Tema yang anda pilih tidak dipasang atau didayakan."
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Cari Mengikut Nama"
-
-msgid "manager.setup.theme.description"
-msgstr ""
-"Tema baharu boleh dipasang dari tab Plugin di bahagian atas halaman ini."
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Cari Pengulas Mengikut Nama"
-
-msgid "manager.setup.theme"
-msgstr "Tema"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Tukar"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr ""
-"Orang yang boleh dihubungi yang boleh membantu editor, pengarang dan "
-"pengulas dengan sebarang masalah yang mereka hadapi untuk menyerahkan, "
-"menyunting, mengulas atau menerbitkan bahan."
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Anda tidak boleh memadamkan wakil ini kerana mereka diperuntukkan kepada "
-"metadata pasaran untuk satu atau lebih format penerbitan untuk penyerahan "
-"ini."
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "Hubungan Sokongan Teknikal"
-
-msgid "manager.userSearch.searchByName"
-msgstr "Cari Pengguna Mengikut Nama"
-
-msgid "manager.setup.styleSheetDescription"
-msgstr ""
-"Pembangun web yang berpengalaman boleh memuat naik fail CSS untuk "
-"menyesuaikan lagi penampilan laman web."
-
-msgid "manager.readingTools"
-msgstr "Alat Membaca"
-
-msgid "manager.setup.sponsors.description"
-msgstr ""
-"Contoh: organisasi sarjana, jabatan universiti, koperasi, dsb. Penaja "
-"dipaparkan secara terbuka."
-
-msgid "manager.plugins"
-msgstr "Sistem Plugin"
-
-msgid "manager.setup.sponsors.note"
-msgstr "Hubungan Penaja dan Penerangan Polisi"
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Kemukakan pautan ke <button type=\"button\">cara memastikan semua fail "
-"dianonimkan</button> semasa muat naik"
-
-msgid "manager.plugins.sitePlugin"
-msgstr ""
-"Ini adalah plugin site-wide. Hanya Pentadbir Laman boleh menguruskan plugin "
-"ini."
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Mod Ulasan Lalai"
-
-msgid "manager.plugins.pluginManagement"
-msgstr "Pengurusan Plugin"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Hantar e-mel peringatan e jika pengulas tidak menyerahkan cadangan dalam "
-"tempoh beberapa hari ini selepas tarikh akhir ulasan."
-
-msgid "manager.plugins.enable"
-msgstr "Dayakan"
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Peringatan Ulasan"
-
-msgid "manager.plugins.disable"
-msgstr "Nyahdaya"
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Hantar peringatan e-mel jika pengulas tidak membalas permintaan ulasann "
-"beberapa hari ini selepas tarikh akhir respon."
-
-msgid "manager.plugins.action"
-msgstr "Tindakan:"
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Peringatan Respons"
-
-msgid "manager.people.userMustChangePassword"
-msgstr ""
-"Memerlukan pengguna menukar kata laluan mereka pada log masuk seterusnya."
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "Lalai boleh diubah suai untuk setiap ulasan semasa proses editorial."
-
-msgid "manager.people.userCreatedSuccessfully"
-msgstr "Pengguna berjaya dicipta."
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Jangan Ingatkan"
-
-msgid "manager.people.unenroll"
-msgstr "Nyahdaftar"
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Minggu dibenarkan untuk penyiapan ulasan"
-
-msgid "manager.people.syncUsers"
-msgstr "Segerakkan Pendaftaran Pengguna"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Bilangan minggu untuk menerima atau menolak permintaan ulasan."
-
-msgid "manager.people.signInAsUser"
-msgstr "Log Masuk sebagai Pengguna"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Tarikh Akhir Penyiapan Lalai"
-
-msgid "manager.people.signInAs"
-msgstr "Log Masuk Sebagai"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Tarikh Akhir Balas Lalai"
-
-msgid "manager.people.signedInAs"
-msgstr "Anda sedang log masuk sebagai {$username}"
-
-msgid "manager.setup.privacyStatement.description"
+msgid "manager.people.enrollUserAsDescription"
 msgstr ""
-"Kenyataan ini akan muncul semasa pendaftaran pengguna, penyerahan pengarang "
-"dan pada halaman Privasi yang tersedia secara umum. Dalam sesetengah bidang "
-"kuasa, anda dikehendaki secara sah untuk mendedahkan cara anda mengendalikan "
-"data pengguna dalam dasar privasi ini."
+"Pengguna boleh ditugaskan kepada, atau dibuang daripada, peranan pada bila-"
+"bila masa."
 
-msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Simpan dan Cipta Satu Lagi"
-
-msgid "manager.people.remove"
-msgstr "Buang"
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Custom"
-
-msgid "manager.people"
-msgstr "Orang"
-
-msgid "manager.people.noneEnrolled"
-msgstr "Tiada pengguna yang berdaftar."
-
-msgid "manager.people.noMatchingUsers"
-msgstr "Tiada pengguna yang sepadan."
-
-msgid "manager.people.mustProvideName"
-msgstr ""
-"Sila berikan sekurang-kurangnya nama keluarga untuk pengguna terlebih dahulu."
-
-msgid "manager.people.mustChooseRole"
-msgstr ""
-"Sila pilih peranan di bahagian atas halaman sebelum mengklik \"Daftar "
-"Pengguna\"."
+msgid "manager.people.enrollUserAs"
+msgstr "Daftarkan pengguna sebagai"
 
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Tarikh & Masa (Singkat)"
+msgid "manager.people.invalidUser"
+msgstr "Maaf, pengguna yang diminta tidak wujud."
 
-msgid "manager.people.mergeUsers"
+msgid "manager.people.mergeUser"
 msgstr "Gabungkan Pengguna"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Tarikh & Masa"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
@@ -2153,79 +638,450 @@ msgstr ""
 "{$oldAccountCount} yang dipilih tidak akan wujud selepas itu. Tindakan ini "
 "tidak boleh diterbalikkan."
 
-msgid "manager.setup.dateTime.time"
-msgstr "Masa"
-
-msgid "manager.people.mergeUser"
+msgid "manager.people.mergeUsers"
 msgstr "Gabungkan Pengguna"
 
-msgid "manager.people.invalidUser"
-msgstr "Maaf, pengguna yang diminta tidak wujud."
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Tarikh (Singkat)"
-
-msgid "manager.people.enrollUserAs"
-msgstr "Daftarkan pengguna sebagai"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Tarikh"
-
-msgid "manager.people.enrollUserAsDescription"
+msgid "manager.people.mustChooseRole"
 msgstr ""
-"Pengguna boleh ditugaskan kepada, atau dibuang daripada, peranan pada bila-"
-"bila masa."
+"Sila pilih peranan di bahagian atas halaman sebelum mengklik \"Daftar "
+"Pengguna\"."
 
-msgid "manager.setup.dateTime.description"
+msgid "manager.people.mustProvideName"
 msgstr ""
-"Pilih format pilihan untuk tarikh dan masa. Format custom boleh dimasukkan "
-"menggunakan <a href='http://php.net/manual/en/"
-"function.strftime.php#refsect1-function.strftime-parameters'>aksara "
-"format</a> khas."
+"Sila berikan sekurang-kurangnya nama keluarga untuk pengguna terlebih dahulu."
 
-msgid "manager.people.enrollSync"
-msgstr "Penyegerakan Pendaftaran"
+msgid "manager.people.noMatchingUsers"
+msgstr "Tiada pengguna yang sepadan."
 
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Format Tarikh dan Masa"
+msgid "manager.people.noneEnrolled"
+msgstr "Tiada pengguna yang berdaftar."
 
-msgid "manager.people.enrollSyncRole"
-msgstr "Segerakkan peranan"
+msgid "manager.people"
+msgstr "Orang"
 
-msgid "manager.setup.dateTime"
-msgstr "Tarikh & Masa"
+msgid "manager.people.remove"
+msgstr "Buang"
 
-msgid "manager.people.enrollSelected"
-msgstr "Daftarkan Pengguna Terpilih"
+msgid "manager.people.saveAndCreateAnotherUser"
+msgstr "Simpan dan Cipta Satu Lagi"
 
-msgid "manager.setup.privacyStatement"
-msgstr "Kenyataan Privasi"
+msgid "manager.people.signedInAs"
+msgstr "Anda sedang log masuk sebagai {$username}"
 
-msgid "manager.people.enrollment"
-msgstr "Pendaftaran"
+msgid "manager.people.signInAs"
+msgstr "Log Masuk Sebagai"
 
-msgid "manager.people.enroll"
-msgstr "Daftarkan Pengguna"
+msgid "manager.people.signInAsUser"
+msgstr "Log Masuk sebagai Pengguna"
 
-msgid "manager.setup.principalContactDescription"
+msgid "manager.people.syncUsers"
+msgstr "Segerakkan Pendaftaran Pengguna"
+
+msgid "manager.people.unenroll"
+msgstr "Nyahdaftar"
+
+msgid "manager.people.userCreatedSuccessfully"
+msgstr "Pengguna berjaya dicipta."
+
+msgid "manager.people.userMustChangePassword"
 msgstr ""
-"Masukkan butiran hubungan, biasanya untuk jawatan penyunting utama, "
-"pengurusan penyuntingan atau jawatan kakitangan pentadbiran, yang boleh "
-"dipaparkan pada laman web anda yang boleh diakses secara umum."
+"Memerlukan pengguna menukar kata laluan mereka pada log masuk seterusnya."
 
-msgid "manager.people.enable"
+msgid "manager.plugins.action"
+msgstr "Tindakan:"
+
+msgid "manager.plugins.disable"
+msgstr "Nyahdaya"
+
+msgid "manager.plugins.enable"
 msgstr "Dayakan"
 
-msgid "manager.people.emailUsers.selectUsers"
+msgid "manager.plugins.pluginManagement"
+msgstr "Pengurusan Plugin"
+
+msgid "manager.plugins.sitePlugin"
 msgstr ""
-"Pilih pengguna yang anda ingin hantarkan e-mel dengan menandakan kotak di "
-"sebelah nama mereka"
+"Ini adalah plugin site-wide. Hanya Pentadbir Laman boleh menguruskan plugin "
+"ini."
 
-msgid "manager.setup.principalContact"
-msgstr "Hubungan Utama"
+msgid "manager.plugins"
+msgstr "Sistem Plugin"
 
-msgid "manager.people.emailUsers.selectLocale"
-msgstr "Pilih Bahasa"
+msgid "manager.readingTools"
+msgstr "Alat Membaca"
+
+msgid "manager.userSearch.searchByName"
+msgstr "Cari Pengguna Mengikut Nama"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Anda tidak boleh memadamkan wakil ini kerana mereka diperuntukkan kepada "
+"metadata pasaran untuk satu atau lebih format penerbitan untuk penyerahan "
+"ini."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Tukar"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Cari Pengulas Mengikut Nama"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Cari Mengikut Nama"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Minat Displin Mengulas"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Gunakan borang di bawah untuk menetapkan nilai maksimum bagi istilah yang "
+"anda ingin cari. Borang telah diisi terlebih dahulu dengan purata pengiraan "
+"medan tersebut."
+
+msgid "manager.roles"
+msgstr "Peranan"
+
+msgid "manager.setup.statistics"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr ""
+
+msgid "manager.statistics"
+msgstr "Statistik &amp; Laporan"
+
+msgid "manager.statistics.reports"
+msgstr "Laporan"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Sistem menjana laporan yang menjejaki butiran yang berkaitan dengan "
+"penggunaan laman dan penyerahan dalam tempoh masa tertentu. Laporan dijana "
+"dalam format CSV yang memerlukan aplikasi spreadsheet untuk dilihat."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Gunakan format YYYYMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Gunakan format YYYYMMDD."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Penaja"
+
+msgid "manager.setup.dois"
+msgstr ""
+
+msgid "manager.setup.dois.setup"
+msgstr ""
+
+msgid "manager.setup.dois.registration"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr ""
+
+msgid "manager.setup.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.settings.doiObjects"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr ""
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr ""
+
+msgid "doi.authorization.enabledRequired"
+msgstr ""
+
+msgid "doi.manager.versions.countStatement"
+msgstr ""
+
+msgid "doi.manager.versions.view"
+msgstr ""
+
+msgid "doi.manager.versions.modalTitle"
+msgstr ""
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr ""
+
+msgid "manager.setup.publishing"
+msgstr "Butiran Penerbitan"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Butiran ini mungkin disertakan dalam metadata yang diberikan kepada badan "
+"arkib pihak ketiga."
+
+msgid "manager.setup.additionalContent"
+msgstr "Kandungan Tambahan"
+
+msgid "manager.setup.additionalContent.description"
+msgstr ""
+"Apa-apa sahaja yang dimasukkan di sini akan dipaparkan di halaman utama anda."
+
+msgid "manager.setup.advanced"
+msgstr "Lanjutan"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Notis Hak Cipta"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Memerlukan pengarang untuk bersetuju menerima notis hak cipta berikut "
+"sebagai sebahagian daripada proses penyerahan."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Garis Panduan Pengarang"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Garis panduan yang disyorkan termasuk piawaian bibliografi dan pemformatan "
+"bersama contoh format petikan biasa untuk digunakan dalam penyerahan."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Nyahdaya Penyerahan"
+
+msgid "manager.setup.checklist"
+msgstr "Senarai semak"
+
+msgid "manager.setup.competingInterests"
+msgstr "Konflik Kepentingan"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Terdapat ralat semasa memadamkan item ini."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Imej Laman Utama"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Muat naik imej untuk dipaparkan dengan jelas di halaman utama."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"Format imej halaman utama tidak sah atau muat naik gagal. Format yang "
+"diterima ialah .gif, .jpg atau .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"Format imej tajuk tajuk halaman utama tidak sah atau muat naik gagal. Format "
+"yang diterima ialah .gif, .jpg atau .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Penerangan"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Bar sisi"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Blok {$name} tidak ditemui. Sila pastikan plugin dipasang dan didayakan."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Log dan Pengauditan"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Fail yang anda muat naik tidak ditemui. Sila cuba muat naik semula."
+
+msgid "manager.setup.notifications"
+msgstr "Pemberitahuan Penyerahan Pengarang"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Hantar salinan ke alamat e-mel ini"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notifikasi"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Maklumkan Kenalan Utama"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Ya, hantar salinan ke {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Tidak"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Maklumkan Semua"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Salinan e-mel pengakuan penyerahan akan dihantar ke mana-mana alamat e-mel "
+"yang dimasukkan di sini. Asingkan berbilang alamat e-mel dengan koma. "
+"Contoh: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Satu atau lebih daripada alamat e-mel ini tidak sah."
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Pengarang menghantar secara automatik e-mel yang mengakui penyerahan mereka. "
+"Anda mungkin mempunyai salinan e-mel ini dihantar kepada yang berikut:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Maklumkan"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Pilih pengguna yang sepatutnya menerima e-mel pemberitahuan anda."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Hantar salinan e-mel ini kepada saya di {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Hantar E-mel"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Anda akan menghantar e-mel kepada {$total} pengguna. Adakah anda pasti mahu "
+"menghantar e-mel ini?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "Menghantar e-mel. Tolong jangan layari sehingga penghantaran selesai."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "E-mel berjaya dihantar kepada semua penerima."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Hantar e-mel lain"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Dasar Akses Terbuka"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Jika menyediakan akses percuma serta-merta kepada semua kandungan yang "
+"diterbitkan, anda boleh memasukkan penerangan Polisi Akses Terbuka anda."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Format imej atau muat naik logo pengepala halaman tidak sah. Format yang "
+"diterima ialah .gif, .jpg atau .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Footer Halaman"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Masukkan sebarang imej, teks atau kod HTML yang anda mahu dipaparkan di "
+"bahagian bawah laman web anda."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
@@ -2235,164 +1091,152 @@ msgstr ""
 "menilai penyerahan, jangkaan masa yang diperlukan untuk menjalankan ulasan "
 "dan prinsip yang digunakan untuk memilih pengulas."
 
-msgid "manager.people.emailUsers"
-msgstr "E-mel Pengguna"
+msgid "manager.setup.principalContact"
+msgstr "Hubungan Utama"
 
-msgid "manager.people.emailUsers.emailUsersEnrolledAs"
-msgstr "Pengguna e-mel mendaftar sebagai"
-
-msgid "manager.setup.openAccessPolicy.description"
+msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Jika menyediakan akses percuma serta-merta kepada semua kandungan yang "
-"diterbitkan, anda boleh memasukkan penerangan Polisi Akses Terbuka anda."
+"Masukkan butiran hubungan, biasanya untuk jawatan penyunting utama, "
+"pengurusan penyuntingan atau jawatan kakitangan pentadbiran, yang boleh "
+"dipaparkan pada laman web anda yang boleh diakses secara umum."
 
-msgid "manager.setup.openAccessPolicy"
-msgstr "Dasar Akses Terbuka"
+msgid "manager.setup.privacyStatement"
+msgstr "Kenyataan Privasi"
 
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Hantar e-mel lain"
+msgid "manager.setup.dateTime"
+msgstr "Tarikh & Masa"
 
-msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "E-mel kepada pengguna yang dipilih"
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Format Tarikh dan Masa"
 
-msgid "manager.people.editUser"
-msgstr "Sunting Pengguna"
-
-msgid "manager.people.editProfile"
-msgstr "Sunting Profil"
-
-msgid "manager.people.doNotEnroll"
-msgstr "Tanpa peranan"
-
-msgid "manager.people.disable"
-msgstr "Nyahdayakan"
-
-msgid "manager.people.createUserSendNotify"
+msgid "manager.setup.dateTime.description"
 msgstr ""
-"Hantarkan e-mel alu-aluan kepada pengguna yang mengandungi nama pengguna dan "
-"kata laluan mereka."
+"Pilih format pilihan untuk tarikh dan masa. Format custom boleh dimasukkan "
+"menggunakan <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
+"function.strftime-parameters'>aksara format</a> khas."
 
-msgid "manager.people.createUserGeneratePassword"
-msgstr "Menjana kata laluan rawak."
+msgid "manager.setup.dateTime.longDate"
+msgstr "Tarikh"
 
-msgid "manager.people.createUser"
-msgstr "Cipta Pengguna Baru"
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Tarikh (Singkat)"
 
-msgid "manager.people.confirmUnenroll"
-msgstr "Nyahdaftar pengguna ini?"
+msgid "manager.setup.dateTime.time"
+msgstr "Masa"
 
-msgid "manager.people.existingUserRequired"
-msgstr "Pengguna sedia ada mesti dimasukkan."
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Tarikh & Masa"
 
-msgid "manager.setup.notifyUsers.confirm"
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Tarikh & Masa (Singkat)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Custom"
+
+msgid "manager.setup.privacyStatement.description"
 msgstr ""
-"Anda akan menghantar e-mel kepada {$total} pengguna. Adakah anda pasti mahu "
-"menghantar e-mel ini?"
+"Kenyataan ini akan muncul semasa pendaftaran pengguna, penyerahan pengarang "
+"dan pada halaman Privasi yang tersedia secara umum. Dalam sesetengah bidang "
+"kuasa, anda dikehendaki secara sah untuk mendedahkan cara anda mengendalikan "
+"data pengguna dalam dasar privasi ini."
 
-msgid "manager.distribution.licenseTerms"
-msgstr "Syarat Lesen"
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Tarikh Akhir Balas Lalai"
 
-msgid "manager.setup.notifyUsers.send"
-msgstr "Hantar E-mel"
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Tarikh Akhir Penyiapan Lalai"
 
-msgid "manager.distribution.license.other"
-msgstr "URL lesen lain"
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Bilangan minggu untuk menerima atau menolak permintaan ulasan."
 
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Hantar salinan e-mel ini kepada saya di {$email}."
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Minggu dibenarkan untuk penyiapan ulasan"
 
-msgid "mailable.reviewConfirm.description"
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Jangan Ingatkan"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr "Lalai boleh diubah suai untuk setiap ulasan semasa proses editorial."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Peringatan Respons"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
 msgstr ""
-"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
-"kepada permintaan ulasan untuk memberitahu Editor Bahagian bahawa permintaan "
-"ulasan telah diterima dan akan diselesaikan pada tarikh yang ditentukan."
+"Hantar peringatan e-mel jika pengulas tidak membalas permintaan ulasann "
+"beberapa hari ini selepas tarikh akhir respon."
 
-msgid "mailable.reviewDecline.description"
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Peringatan Ulasan"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
-"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
-"kepada permintaan ulasan untuk memaklumkan Editor Bahagian bahawa permintaan "
-"ulasan telah ditolak."
+"Hantar e-mel peringatan e jika pengulas tidak menyerahkan cadangan dalam "
+"tempoh beberapa hari ini selepas tarikh akhir ulasan."
 
-#, fuzzy
-msgid "emails.reviewRemind.body"
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Mod Ulasan Lalai"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas bahawa "
-"ulasan tamat."
+"Kemukakan pautan ke <button type=\"button\">cara memastikan semua fail "
+"dianonimkan</button> semasa muat naik"
 
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
+msgid "manager.setup.sponsors.note"
+msgstr "Hubungan Penaja dan Penerangan Polisi"
+
+msgid "manager.setup.sponsors.description"
 msgstr ""
-"E-mel ini dihantar secara automatik apabila tarikh akhir pengulas berlalu ("
-"lihat Pilihan Ulasan di bawah Tetapan> Aliran Kerja> Ulasan) dan akses "
-"pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
-"dikonfigurasi (lihat fail konfigurasi laman web)."
+"Contoh: organisasi sarjana, jabatan universiti, koperasi, dsb. Penaja "
+"dipaparkan secara terbuka."
 
-msgid "mailable.reviewResponseOverdueAuto.description"
+msgid "manager.setup.styleSheetDescription"
 msgstr ""
-"E-mel ini dihantar secara automatik apabila tarikh akhir pengesahan pengulas "
-"berlalu (lihat Pilihan Ulasan di bawah Tetapan> Alur Kerja> Ulasan) dan "
-"akses pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
-"dikonfigurasi (lihat fail konfigurasi laman web)."
+"Pembangun web yang berpengalaman boleh memuat naik fail CSS untuk "
+"menyesuaikan lagi penampilan laman web."
 
-#, fuzzy
-msgid "mailable.reviewRequest.description"
+msgid "manager.setup.technicalSupportContact"
+msgstr "Hubungan Sokongan Teknikal"
+
+msgid "manager.setup.technicalSupportContactDescription"
 msgstr ""
-"E-mel ini dari Editor Bahagian kepada Pengulas meminta agar pengulas "
-"menerima atau menolak tugas mengulas penyerahan. Ini memberikan maklumat "
-"mengenai penyerahan seperti tajuk dan abstrak, tarikh akhir ulasan, dan cara "
-"mengakses kiriman itu sendiri. Mesej ini digunakan apabila Proses Standard "
-"Ulasan dipilih dalam Pengurusan> Tetapan> Alur Kerja> Ulasan."
+"Orang yang boleh dihubungi yang boleh membantu editor, pengarang dan "
+"pengulas dengan sebarang masalah yang mereka hadapi untuk menyerahkan, "
+"menyunting, mengulas atau menerbitkan bahan."
 
-msgid "mailable.reviewRequestSubsequent.description"
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.institutions"
 msgstr ""
-"E-mel ini dari Editor Bahagian kepada Pengulas meminta agar pengulas "
-"menerima atau menolak tugas mengulas penyerahan untuk ulasan kedua atau "
-"pusingan seterusnya. Ini memberikan maklumat mengenai penyerahan seperti "
-"tajuk dan abstrak, tarikh akhir ulasan, dan cara mengakses penyerahan itu "
-"sendiri. Mesej ini digunakan apabila Proses Ulansan Standard dipilih dalam "
-"Pengurusan> Tetapan> Aliran Kerja> Ulasan."
 
-msgid "mailable.passwordResetRequested.description"
+msgid "manager.setup.theme.description"
 msgstr ""
-"E-mel ini dihantar kepada pengguna yang berdaftar apabila mereka menunjukkan "
-"bahawa mereka lupa kata laluan mereka atau tidak dapat masuk. Ini "
-"menyediakan URL yang dapat mereka ikuti untuk menetapkan semula kata laluan "
-"mereka."
+"Tema baharu boleh dipasang dari tab Plugin di bahagian atas halaman ini."
 
-#, fuzzy
-msgid "mailable.userRegister.description"
+msgid "manager.setup.theme.notFound"
+msgstr "Tema yang anda pilih tidak dipasang atau didayakan."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
-"E-mel ini dihantar kepada pengguna yang baru mendaftar untuk menyambut "
-"mereka ke sistem dan memberikan mereka rekod nama pengguna dan kata laluan "
-"mereka."
 
-msgid "mailable.reviewerRegister.description"
+msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
-"E-mel ini dihantar kepada pengulas yang baru didaftarkan untuk mengalu-"
-"alukan mereka ke sistem dan memberi mereka rekod nama pengguna dan kata "
-"laluan mereka."
 
-#, fuzzy
-msgid "mailable.submissionAck.description"
+msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
-"E-mel ini, apabila didayakan, secara automatik dikirimkan kepada pengarang "
-"apabila mereka menyelesaikan proses penyerahan manuskrip ke jurnal. Ini "
-"memberikan maklumat tentang mengesan penyerahan melalui proses dan berterima "
-"kasih pengarang atas penyerahannya."
 
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.description"
+msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
-"E-mel ini, apabila didayakan, secara automatik dihantar kepada pengarang "
-"lain yang bukan pengguna dalam OJS yang ditentukan semasa proses penyerahan."
 
-msgid "mailable.revisedVersionNotify.description"
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
-"E-mel ini dihantar secara automatik ke editor yang ditugaskan ketika "
-"pengarang memuat naik versi artikel yang disemak."
 
-msgid "mailable.announcementNotify.description"
-msgstr "E-mel ini dihantar semasa pengumuman baru dibuat."
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.guidance"
+msgstr ""
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Senarai Semak Penyediaan Penyerahan"
@@ -2406,3 +1250,2199 @@ msgstr ""
 "Pengarang, di bawah Mengenai Jurnal. Senarai boleh diedit di bawah, tetapi "
 "semua item dalam senarai memerlukan tanda semak sebelum pengarang dapat "
 "meneruskan penyerahannya."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Nyahaktifkan bahagian ini dan jangan benarkan penyerahan baharu dibuat "
+"kepadanya."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Adakah anda pasti mahu menyahaktifkan bahagian ini?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Adakah anda pasti mahu mengaktifkan bahagian ini?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr ""
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Pilihan Akses Laman"
+
+msgid "manager.statistics.statistics.count.value"
+msgstr "{$count} ({$percentage}%)"
+
+msgid "manager.statistics.statistics.totalNewValue"
+msgstr "{$numTotal} ({$numNew} baru)"
+
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Pengguna berdaftar"
+
+msgid "manager.users"
+msgstr "Pengguna"
+
+msgid "plugins.categories.metadata"
+msgstr "Plugin Metadata"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Plugin Metadata melaksanakan piawaian meta-data tambahan."
+
+msgid "plugins.categories.auth"
+msgstr "Plugin Kebenaran"
+
+msgid "plugins.categories.blocks"
+msgstr "Plugin Blok"
+
+msgid "plugins.categories.blocks.description"
+msgstr ""
+"Plugin Blok ialah komponen UI boleh pasang, seperti pelbagai alatan bar sisi."
+
+msgid "plugins.categories.gateways.description"
+msgstr "Plugin Gateway menyediakan data langsung kepada sistem luaran."
+
+msgid "plugins.categories.gateways"
+msgstr "Plugin Gateway"
+
+msgid "plugins.categories.generic"
+msgstr "Plugin Generik"
+
+msgid "plugins.categories.importexport.description"
+msgstr ""
+"Import/Export Plugin boleh digunakan untuk memindahkan kandungan ke dan dari "
+"sistem lain."
+
+msgid "plugins.categories.importexport"
+msgstr "Import/Eksport Plugin"
+
+msgid "plugins.categories.paymethod.description"
+msgstr ""
+"Plugin Kaedah Pembayaran melaksanakan sokongan untuk pelbagai cara "
+"pemprosesan pembayaran dalam talian."
+
+msgid "plugins.categories.paymethod"
+msgstr "Plugin Pembayaran"
+
+msgid "plugins.categories.reports.description"
+msgstr ""
+"Plugin Laporan digunakan untuk melaksanakan pelbagai jenis laporan dan "
+"ekstrak data."
+
+msgid "plugins.categories.reports"
+msgstr "Plugin Laporan"
+
+msgid "plugins.categories.themes.description"
+msgstr "Plugin Tema boleh digunakan untuk menukar rupa sistem."
+
+msgid "plugins.categories.themes"
+msgstr "Plugin Tema"
+
+msgid "plugins.categories.oaiMetadataFormats"
+msgstr "Plugin OAI Format Metadata"
+
+msgid "plugins.categories.oaiMetadataFormats.description"
+msgstr "Plugin format ini menyatakan metadata dalam komunikasi OAI."
+
+msgid "plugins.categories.pubIds"
+msgstr "Plugin Pengenalpasti Awam"
+
+msgid "plugins.categories.pubIds.description"
+msgstr "Plugin ini melaksanakan sokongan untuk pengenalpasti awam."
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Plugin tidak berjaya disalin. Ini mungkin masalah kebenaran. Sila pastikan "
+"bahawa pelayan web dapat menulis ke direktori plugin (termasuk subdirektori) "
+"tetapi jangan lupa untuk mengamankannya semula kemudian."
+
+msgid "manager.plugins.delete"
+msgstr "Padam Plugin"
+
+msgid "manager.plugins.installConfirm"
+msgstr "Adakah anda pasti mahu memasang plugin ini?"
+
+msgid "manager.plugins.upgradeConfirm"
+msgstr "Adakah anda pasti ingin menaik taraf plugin ini?"
+
+msgid "grid.action.installPlugin"
+msgstr "Pasang atau naik taraf plugin ini"
+
+msgid "manager.plugins.deleteConfirm"
+msgstr "Adakah anda pasti mahu memadamkan plugin ini daripada sistem?"
+
+msgid "manager.plugins.deleteDescription"
+msgstr ""
+"Dengan mengklik padam, anda akan memadamkan plugin daripada sistem fail "
+"pelayan."
+
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Plugin \"{$pluginName}\" tidak dapat dipadamkan daripada sistem fail. Ini "
+"mungkin masalah kebenaran. Sila pastikan bahawa pelayan web dapat menulis ke "
+"direktori plugin (termasuk subdirektori) tetapi jangan lupa untuk "
+"mengamankannya semula kemudian."
+
+msgid "manager.plugins.deleteSuccess"
+msgstr "Plugin \"{$ pluginName}\" berjaya dipadamkan"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Halaman ini membenarkan Pengurus menyemak dan berkemungkinan mengkonfigurasi "
+"plugin yang sedang dipasang. Plugin dibahagikan kepada kategori, mengikut "
+"fungsinya. Kategori tersebut disenaraikan di bawah, dan dalam setiap "
+"kategori, set plugin semasanya."
+
+msgid "manager.plugins.doesNotExist"
+msgstr "Plugin\"{$pluginName}\" tidak wujud"
+
+msgid "manager.plugins.fileSelectError"
+msgstr "Sila pilih fail dahulu"
+
+msgid "manager.plugins.upload"
+msgstr "Muat Naik Plugin Baharu"
+
+msgid "manager.plugins.uploadDescription"
+msgstr ""
+"Borang ini membolehkan anda memuat naik dan memasang plugin baharu. Sila "
+"pastikan plugin dimampatkan sebagai fail .tar.gz."
+
+msgid "manager.plugins.uploadFailed"
+msgstr "Sila pastikan fail telah dipilih untuk dimuat naik."
+
+msgid "manager.plugins.installed"
+msgstr "Plugin yang Dipasang"
+
+msgid "manager.plugins.pluginGallery"
+msgstr "Galeri Plugin"
+
+msgid "manager.plugins.pluginGallery.overview"
+msgstr "Gambaran keseluruhan"
+
+msgid "manager.plugins.pluginGallery.installation"
+msgstr "Pemasangan"
+
+msgid "manager.plugins.pluginGallery.latestCompatible"
+msgstr "Keluaran Serasi Terkini"
+
+msgid "manager.plugins.pluginGallery.certifications.official"
+msgstr "Rasmi"
+
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Plugin ini dibangunkan dan diselenggarakan oleh pasukan Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed"
+msgstr "Diulas"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Plugin ini telah disemak dan diluluskan oleh pasukan Public Knowledge "
+"Project."
+
+msgid "manager.plugins.pluginGallery.certifications.partner"
+msgstr "Rakan Kongsi"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Plugin ini disediakan oleh salah satu rakan kongsi pembangunan kami."
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Penyelenggara"
+
+msgid "manager.plugins.pluginGallery.version"
+msgstr "v{$version} dikeluarkan pada {$date}"
+
+msgid "manager.plugins.pluginGallery.homepage"
+msgstr "Laman Utama"
+
+msgid "manager.plugins.pluginGallery.summary"
+msgstr "Ringkasan"
+
+msgid "manager.plugins.pluginGallery.status"
+msgstr "Status"
+
+msgid "manager.plugins.noInstalledVersion"
+msgstr "Plugin masih belum dipasang."
+
+msgid "manager.plugins.noCompatibleVersion"
+msgstr "Pada masa ini tiada versi yang serasi bagi pugin ini tersedia."
+
+msgid "manager.plugins.installedVersionNewer"
+msgstr ""
+"Plugin sudah dipasang, dan lebih baharu daripada versi yang tersedia dalam "
+"galeri."
+
+msgid "manager.plugins.installedVersionOlder"
+msgstr ""
+"Plugin sudah dipasang, tetapi boleh dikemas kini kepada versi yang lebih "
+"baharu."
+
+msgid "manager.plugins.installedVersionNewest"
+msgstr "Plugin sudah dipasang dan dikemas kini."
+
+msgid "manager.plugins.installedVersionNewer.short"
+msgstr "Lebih baharu daripada versi yang tersedia"
+
+msgid "manager.plugins.installedVersionOlder.short"
+msgstr "Boleh dinaik taraf"
+
+msgid "manager.plugins.installedVersionNewest.short"
+msgstr "Terkini"
+
+msgid "manager.plugins.noCompatibleVersion.short"
+msgstr "Tidak Tersedia"
+
+msgid "manager.plugins.installFailed"
+msgstr "Pemasangan gagal. {$errorString}"
+
+msgid "manager.plugins.installSuccessful"
+msgstr "Berjaya memasang versi {$versionNumber}"
+
+msgid "manager.plugins.invalidPluginArchive"
+msgstr ""
+"Arkib plugin yang dimuat naik tidak mengandungi folder yang sepadan dengan "
+"nama plugin."
+
+msgid "manager.plugins.wrongCategory"
+msgstr ""
+"Plugin yang dimuat naik tidak sesuai dengan kategori plugin yang dinaik "
+"taraf."
+
+msgid "manager.plugins.wrongName"
+msgstr ""
+"Version.xml dalam plugin yang dimuat naik mengandungi nama plugin yang tidak "
+"sesuai dengan nama plugin yang dinaik taraf."
+
+msgid "manager.plugins.pleaseInstall"
+msgstr "Plugin tidak ada. Sebaliknya sila Pasang"
+
+msgid "manager.plugins.pleaseUpgrade"
+msgstr ""
+"Plugin sudah wujud, tetapi lebih baharu daripada versi yang dipasang. Sila "
+"naik taraf sebaliknya"
+
+msgid "manager.plugins.settings"
+msgstr "Tetapan"
+
+msgid "manager.plugins.upgrade"
+msgstr "Naik taraf Plugin"
+
+msgid "manager.plugins.upgradeDescription"
+msgstr ""
+"Borang ini membolehkan anda menaik taraf plugin. Sila pastikan plugin "
+"dimampatkan sebagai fail .tar.gz."
+
+msgid "manager.plugins.upgradeFailed"
+msgstr "Naik taraf gagal. {$errorString}"
+
+msgid "manager.plugins.upgradeSuccessful"
+msgstr "Berjaya dinaik taraf kepada versi {$versionString}"
+
+msgid "manager.plugins.uploadError"
+msgstr "Ralat memuat naik fail"
+
+msgid "manager.plugins.uploadPluginDir"
+msgstr "Pilih fail plugin"
+
+msgid "manager.plugins.versionFileInvalid"
+msgstr "version.xml dalam direktori plugin mengandungi data yang tidak sah."
+
+msgid "manager.plugins.versionFileNotFound"
+msgstr "version.xml tidak dijumpai dalam direktori plugin"
+
+msgid "notification.localeEnabled"
+msgstr "Bahasa didayakan."
+
+msgid "notification.localeDisabled"
+msgstr "Bahasa dinyahdayakan."
+
+msgid "notification.primaryLocaleDefined"
+msgstr "{$locale} ditakrifkan sebagai bahasa utama."
+
+msgid "notification.localeInstalled"
+msgstr "Semua bahasa yang dipilih dipasang dan diaktifkan."
+
+msgid "notification.localeUninstalled"
+msgstr "{$locale} bahasa dinyahpasang."
+
+msgid "notification.localeReloaded"
+msgstr "Bahasa {$locale} dimuat semula untuk {$contextName}."
+
+msgid "notification.localeSettingsSaved"
+msgstr "Tetapan bahasa disimpan."
+
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Tetapan bahasa tidak dapat disimpan. Sekurang-kurangnya satu bahasa mesti "
+"didayakan untuk setiap pilihan"
+
+msgid "notification.editedUser"
+msgstr "Pengguna disunting."
+
+msgid "manager.distribution.license"
+msgstr "Lesen"
+
+msgid "manager.distribution.license.other"
+msgstr "URL lesen lain"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Syarat Lesen"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Masukkan syarat pelesenan awam yang anda ingin paparkan bersama karya yang "
+"diterbitkan."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Tag Custom"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Tambahkan tag HTML custom, juga dikenali sebagai tag meta, yang anda ingin "
+"masukkan di kepala setiap halaman. Rujuk penasihat teknikal sebelum menambah "
+"tag di sini."
+
+msgid "manager.paymentMethod"
+msgstr "Pembayaran"
+
+msgid "manager.paymentMethod.title"
+msgstr "Kaedah Pembayaran"
+
+msgid "manager.paymentMethod.none"
+msgstr "Tiada kaedah pembayaran dipilih"
+
+msgid "manager.paymentMethod.method"
+msgstr "Kaedah Pembayaran"
+
+msgid "manager.paymentMethod.currency"
+msgstr "Mata wang"
+
+msgid "settings.roles.roleOptions"
+msgstr "Pilihan Peranan"
+
+msgid "settings.roles.showTitles"
+msgstr "Tunjukkan tajuk peranan dalam senarai penyumbang"
+
+msgid "settings.roles.permitSelfRegistration"
+msgstr "Benarkan pendaftaran diri pengguna"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Peranan ini hanya dibenarkan untuk mengesyorkan keputusan ulasan dan akan "
+"memerlukan editor yang diberi kuasa untuk merekodkan keputusan muktamad."
+
+msgid "settings.roles.roleName"
+msgstr "Nama Peranan"
+
+msgid "settings.roles.roleAbbrev"
+msgstr "Singkatan"
+
+msgid "settings.roles.assignedStages"
+msgstr "Peringkat yang Ditugaskan"
+
+msgid "settings.roles.stages"
+msgstr "Peringkat"
+
+msgid "settings.roles.roleDetails"
+msgstr "Butiran peranan"
+
+msgid "settings.roles.from"
+msgstr "Tahap kebenaran"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Anda akan mengalih keluar peranan ini daripada konteks ini. Operasi ini juga "
+"akan memadamkan tetapan berkaitan dan semua tugasan pengguna kepada peranan "
+"ini. Adakah anda mahu meneruskan?"
+
+msgid "settings.roles.nameRequired"
+msgstr "Anda perlu menentukan nama peranan."
+
+msgid "settings.roles.abbrevRequired"
+msgstr "Anda perlu mentakrifkan singkatan peranan."
+
+msgid "settings.roles.uniqueName"
+msgstr "Anda perlu menentukan nama peranan yang unik."
+
+msgid "settings.roles.uniqueAbbrev"
+msgstr "Anda perlu mentakrifkan singkatan peranan yang unik."
+
+msgid "settings.roles.roleIdRequired"
+msgstr "Anda perlu menentukan tahap kebenaran peranan."
+
+msgid "settings.roles.stageIdRequired"
+msgstr "Anda perlu menentukan peringkat untuk ditugaskan."
+
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Benarkan penyerahan penyuntingan metadata."
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Fail pustaka diperlukan. Sila pastikan anda telah memilih dan memuat naik "
+"fail."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Satu nama diperlukan untuk fail pustaka ini."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Satu jenis fail diperlukan untuk fail pustaka ini."
+
+msgid "settings.libraryFiles.category.contracts"
+msgstr "Kontrak"
+
+msgid "settings.libraryFiles.category.marketing"
+msgstr "Pemasaran"
+
+msgid "settings.libraryFiles.category.permissions"
+msgstr "Kebenaran"
+
+msgid "settings.libraryFiles.category.reports"
+msgstr "Laporan"
+
+msgid "settings.libraryFiles.category.other"
+msgstr "Lain-lain"
+
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Fail pustaka ini boleh diakses untuk muat turun, jika \"Akses Awam\" "
+"didayakan, di: <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Pilih Fail Pustaka untuk dilampirkan"
+
+msgid "grid.action.addGenre"
+msgstr "Tambah Komponen"
+
+msgid "grid.action.editGenre"
+msgstr "Sunting Komponen ini"
+
+msgid "grid.action.deleteGenre"
+msgstr "Padamkan Komponen ini"
+
+msgid "grid.action.restoreGenres"
+msgstr "Pulihkan komponen kepada tetapan lalai"
+
+msgid "manager.setup.genres.label"
+msgstr "Jenis Fail"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Ini adalah fail bergantung, seperti imej yang dipaparkan oleh fail HTML, dan "
+"tidak akan dipaparkan dengan kandungan yang diterbitkan."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Ini adalah fail tambahan, seperti set data dan bahan penyelidikan, dan akan "
+"dipaparkan secara berasingan daripada fail penerbitan utama."
+
+msgid "manager.setup.genres.key"
+msgstr "Kunci"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Pengenalpasti simbolik pendek pilihan untuk genre ini."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Kunci sudah wujud."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Kunci hanya boleh mengandungi aksara abjad angka, garis bawah dan sempang, "
+"dan mesti bermula dan berakhir dengan aksara abjad angka."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadata Fail"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Pilih jenis metadata yang mungkin diterima oleh fail ini. Dokumen hendaklah "
+"dipilih untuk fail penerbitan utama, seperti PDF yang boleh dimuat turun, "
+"supaya fail ini mewarisi metadatanya daripada penerbitan. Jika tidak, pilih "
+"Kandungan Tambahan untuk jenis fail umum. Karya seni sesuai untuk fail yang "
+"memerlukan metadata kredit, kapsyen dan pelesenan yang berbeza."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
+
+msgid "manager.settings.wizard"
+msgstr "Wizard tetapan"
+
+msgid "manager.users.roleRequired"
+msgstr ""
+"Anda perlu memilih sekurang-kurangnya satu peranan untuk dikaitkan dengan "
+"pengguna ini."
+
+msgid "manager.website"
+msgstr "Laman Web"
+
+msgid "manager.website.title"
+msgstr "Tetapan Laman web"
+
+msgid "manager.workflow"
+msgstr "Aliran Kerja"
+
+msgid "manager.workflow.title"
+msgstr "Tetapan Aliran Kerja"
+
+msgid "manager.distribution"
+msgstr "Distribusi"
+
+msgid "manager.distribution.title"
+msgstr "Tetapan distribusi"
+
+msgid "manager.reviewForms"
+msgstr "Borang Ulasan"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Adakah anda pasti mahu mengaktifkan borang ulasan ini? Sebaik sahaja ia "
+"ditugaskan kepada ulasan, anda tidak akan dapat menyahaktifkannya lagi."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Adakah anda pasti mahu menyahaktifkan borang ulasan ini? Ia tidak akan "
+"tersedia lagi untuk tugasan ulasan baharu."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Adakah anda pasti ingin membuat salinan borang ulasan ini?"
+
+msgid "manager.reviewForms.completed"
+msgstr "Telah Selesai"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Adakah anda pasti mahu memadamkan borang ulasan ini?"
+
+msgid "manager.reviewForms.create"
+msgstr "Cipta Borang Ulasan"
+
+msgid "manager.reviewForms.description"
+msgstr "Penerangan dan Arahan"
+
+msgid "manager.reviewForms.edit"
+msgstr "Borang Ulasan"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Tajuk diperlukan untuk borang ulasan."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Dalam Ulasan"
+
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Borang ulasan rakan sejawat yang dicipta di sini akan dibentangkan kepada "
+"pengulas untuk dilengkapkan, bukannya borang lalai yang terdiri daripada dua "
+"kotak teks terbuka, yang pertama \"untuk pengarang dan editor,\" dan yang "
+"kedua \"untuk editor.\" Borang ulasan boleh ditetapkan untuk bahagian akhbar "
+"tertentu, dan editor akan mempunyai pilihan untuk memilih borang yang hendak "
+"digunakan dalam memberikan ulasan. Dalam semua kes, editor akan mempunyai "
+"pilihan untuk memasukkan ulasan yang sepadan dengan pengarang."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Tiada / Borang Ulasan Bebas"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Tiada borang ulasan telah dicipta."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Tiada borang ulasan telah digunakan."
+
+msgid "manager.reviewForms.preview"
+msgstr "Pratonton Borang"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Data Borang Ulasan"
+
+msgid "manager.reviewForms.title"
+msgstr "Tajuk"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Menukar jenis item borang..."
+
+msgid "manager.reviewFormElements"
+msgstr "Item Borang"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Tambah pilihan"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Kotak semak (anda boleh memilih satu atau lebih)"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Pilih jenis item"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Sahkan pemadaman item borang yang diterbitkan..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Salin ke:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Cipta Item Baru"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Kotak lungsur"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Sunting Item Borang"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Jenis item"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "Jenis item diperlukan untuk item borang."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "Soalan diperlukan untuk item borang."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Tiada item borang telah dicipta."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Pemilihan"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Item"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Butiran"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Butang radio (anda hanya boleh memilih satu)"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Pengulas dikehendaki melengkapkan item"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Disertakan dalam mesej kepada pengarang"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Kotak teks perkataan tunggal"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Kotak teks lanjutan"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Kotak teks baris tunggal"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Boleh dilihat (untuk pengarang)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Buat Borang Ulasan baharu"
+
+msgid "manager.setup.competingInterests.required"
+msgstr "Minta pernyataan Konflik Kepentingan semasa ulasan rakan sejawat."
+
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL ke halaman web yang menerangkan lesen, jika tersedia."
+
+msgid "manager.setup.metadata.submission"
+msgstr "Borang Penyerahan"
+
+msgid "manager.setup.metadata.coverage"
+msgstr "Liputan"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Liputan biasanya akan menunjukkan lokasi spatial kerja (nama tempat atau "
+"koordinat geografi), tempoh temporal (label tempoh, tarikh atau julat "
+"tarikh) atau bidang kuasa (seperti entiti pentadbiran yang dinamakan)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Dayakan metadata liputan"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Jangan minta metadata liputan daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr "Minta pengarang mencadangkan metadata liputan semasa penyerahan."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Memerlukan pengarang untuk mencadangkan metadata liputan sebelum menerima "
+"penyerahan mereka."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Kata kunci lazimnya ialah frasa satu hingga tiga perkataan yang digunakan "
+"untuk menunjukkan topik utama penyerahan."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Dayakan metadata kata kunci"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Jangan minta kata kunci daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Minta pengarang mencadangkan kata kunci semasa penyerahan."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Memerlukan pengarang untuk mencadangkan kata kunci sebelum menerima "
+"penyerahannya."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Bahasa menunjukkan bahasa utama kerja menggunakan kod bahasa (\"ms\") dengan "
+"kod negara pilihan (\"ms_MS\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Dayakan metadata bahasa"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Jangan minta bahasa penyerahan daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Minta pengarang menyatakan bahasa penyerahan semasa penyerahan."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Memerlukan pengarang untuk memasukkan bahasa penyerahan sebelum menerima "
+"penyerahan mereka."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Sebarang hak yang dipegang atas penyerahan, yang mungkin termasuk Hak Harta "
+"Intelek (IPR), Hak Cipta dan pelbagai Hak Harta."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Dayakan metadata hak"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Jangan minta pendedahan hak daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Minta pengarang untuk mendedahkan sebarang hak akses terdahulu semasa "
+"penyerahan."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Memerlukan pengarang untuk mendedahkan sebarang hak akses terdahulu sebelum "
+"menerima penyerahan mereka."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Sumber mungkin ID, seperti DOI, kerja atau sumber lain yang mana penyerahan "
+"itu diperoleh."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Dayakan sumber metadata"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Jangan minta URL sumber daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Minta pengarang menyediakan URL sumber semasa penyerahan."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Memerlukan pengarang untuk menyediakan URL sumber sebelum menerima "
+"penyerahan mereka."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Subjek ialah kata kunci, frasa utama atau kod klasifikasi yang menerangkan "
+"topik penyerahan."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Dayakan metadata subjek"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Jangan minta subjek daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Minta pengarang menyediakan subjek semasa penyerahan."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Memerlukan pengarang untuk menyediakan subjek sebelum menerima penyerahan "
+"mereka."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Sifat atau genre kandungan utama penyerahan. Jenisnya biasanya \"Teks\", "
+"tetapi mungkin juga \"Set Data\", \"Imej\" atau mana-mana <a target=\"_blank"
+"\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/# section-7-"
+"dcmi-type-vocabulary\">Jenis Dublin Core</a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Dayakan jenis metadata"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Jangan minta jenis daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Minta pengarang untuk memberikan jenis semasa penyerahan."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Memerlukan pengarang untuk menyediakan jenis sebelum menerima penyerahan "
+"mereka."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disiplin ialah jenis pengajian atau cabang ilmu seperti yang diterangkan "
+"oleh fakulti universiti dan masyarakat terpelajar."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Dayakan metadata disiplin"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Jangan minta disiplin daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Minta pengarang untuk menyediakan disiplin semasa penyerahan."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Memerlukan pengarang untuk menyediakan disiplin sebelum menerima penyerahan "
+"mereka."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agensi sokongan mungkin menunjukkan sumber pembiayaan penyelidikan atau "
+"sokongan institusi lain yang memudahkan penyelidikan."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Dayakan metadata agensi sokongan"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Jangan minta agensi sokongan daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Minta pengarang untuk mendedahkan mana-mana agensi sokongan semasa "
+"penyerahan."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Memerlukan pengarang untuk mendedahkan mana-mana agensi sokongan sebelum "
+"menerima penyerahan mereka."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Kumpulkan rujukan penyerahan dalam medan yang berasingan. Ini mungkin "
+"diperlukan untuk mematuhi perkhidmatan penjejakan petikan seperti Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Dayakan metadata rujukan"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Jangan minta rujukan daripada pengarang semasa penyerahan."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Minta penulis memberikan rujukan semasa penyerahan."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Memerlukan pengarang untuk menyediakan rujukan sebelum menerima penyerahan "
+"mereka."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Ralat pengesahan:"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Amaran ditemui:"
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Ralat berlaku:"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Elemen yang tidak diketahui {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Genre tidak diketahui {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Pengekodan tidak diketahui {$param}"
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Kandungan tidak dikodkan sebagai {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr "Kumpulan pengguna tidak diketahui {$param}"
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Kumpulan Pengguna Tiada untuk nama pengarang {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Pengarang {$authorName} tidak mempunyai nama yang diberikan dalam bahasa "
+"penyerahan, {$localeName}. Penyerahan tidak boleh diimport tanpa maklumat "
+"ini."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Pemuat naik tidak diketahui {$param}"
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr "Fail sementara {$dest} tidak dapat dibuat daripada {$source}"
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+"Saiz fail yang disediakan \"{$expected}\" dan saiz fail sebenar "
+"\"{$actual}\" tidak sepadan"
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+"Semakan \"{$revisionId}\" untuk fail penyerahan \"{$fileId}\" akan mencipta "
+"rekod duplikat"
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr "Fail penyerahan tidak dapat diimport"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Fail penyerahan {$id} telah dilangkau kerana ia dilampirkan pada rekod yang "
+"tidak akan diimport, seperti tugasan ulasan atau perbincangan."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Ralat Import/Eksport:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Pengguna yang diimport \"{$username}\" tidak mempunyai kata laluan. Semak "
+"format XML import anda. Pengguna belum diimport."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Kata laluan \"{$username}\" pengguna yang diimport tidak dapat diimport "
+"sebagaimana adanya. Kata laluan baharu telah dihantar ke e-mel pengguna. "
+"Pengguna telah diimport."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Pengguna yang diimport \"{$username}\" mempunyai kata laluan biasa yang "
+"tidak sah. Pengguna belum diimport."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Nama pengguna \"{$username}\" dan e-mel \"{$email}\" tidak sepadan dengan "
+"satu dan pengguna sedia ada yang sama."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
+
+msgid "manager.navigationMenus.form.title"
+msgstr "Tajuk"
+
+msgid "manager.navigationMenus.form.path"
+msgstr "Laluan URL"
+
+msgid "manager.navigationMenus"
+msgstr "Navigasi"
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+"<p>Halaman ini boleh diakses di: <blockquote>{$pagesPath}</blockquote>...di "
+"mana %PATH% ialah laluan yang dimasukkan di atas. <strong>Nota:</strong> "
+"Tiada dua halaman boleh mempunyai laluan URL yang sama. Menggunakan laluan "
+"yang terbina dalam sistem boleh menyebabkan anda kehilangan akses kepada "
+"fungsi penting.</p>"
+
+msgid "manager.navigationMenus.form.content"
+msgstr "Kandungan"
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+"Medan laluan url mesti mengandungi hanya aksara abjad angka ditambah '.', "
+"'/', '-' dan '_'."
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr "Laluan url  ini sudah wujud untuk item menu navigasi yang lain."
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr "Tajuk ini sudah wujud untuk menu navigasi lain."
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr "Tajuk diperlukan"
+
+msgid "manager.navigationMenuItems"
+msgstr "Item Menu Navigasi"
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr "Item Menu yang Ditugaskan"
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr "Item Menu Tidak Ditugaskan"
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr "Kawasan Navigasi Tema Aktif"
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr "Pilih kawasan navigasi"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Menu navigasi telah diberikan kepada kawasan ini."
+
+msgid "manager.navigationMenus.form.url"
+msgstr "URL"
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr "URL mesti disediakan"
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+"Ketahui lebih lanjut tentang bila item menu ini akan dipaparkan atau "
+"disembunyikan."
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+"Apabila item menu membuka submenu, pautan itu tidak boleh diikuti pada semua "
+"peranti. Contohnya, jika anda mempunyai item \"Mengenai\" yang dibuka "
+"submenu dengan \"Kenalan\" dan \"Pasukan Editorial\", pautan \"Mengenai\" "
+"mungkin tidak dapat dicapai pada semua peranti. Dalam menu lalai, ini "
+"dikendalikan dengan mencipta item menu kedua, \"Mengenai Jurnal\", yang "
+"muncul dalam submenu."
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr "Jenis Menu Navigasi"
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr "Pilih Jenis Menu Navigasi atau Custom untuk dibuat sendiri"
+
+msgid "manager.navigationMenus.customPage"
+msgstr "Halaman Custom"
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+"Buat halaman custom di laman anda dan pautkannya daripada menu navigasi."
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr "URL Jauh"
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr "Pautan ke mana-mana URL di laman lain, seperti https://pkp.sfu.ca."
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+"Pautan ke halaman yang memaparkan kandungan Mengenai Jurnal dalam Tetapan > "
+"Jurnal"
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Mengenai "
+"Jurnal di bawah Tetapan > Jurnal."
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+"Pautan ke halaman yang memaparkan kandungan Masthead dalam Tetapan > Jurnal."
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika anda telah mengisi bahagian Pasukan "
+"Editorial di bawah Tetapan > Jurnal."
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr "Pautan ke halaman yang memaparkan arahan penyerahan."
+
+msgid "manager.navigationMenus.current.description"
+msgstr "Pautan ke terbitan semasa anda."
+
+msgid "manager.navigationMenus.archives.description"
+msgstr "Pautan ke arkib terbitan anda."
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr "Pautan ke halaman yang memaparkan pengumuman anda."
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika anda telah mendayakan pengumuman di "
+"bawah Tetapan > Laman Web."
+
+msgid "manager.navigationMenus.login.description"
+msgstr "Pautan ke halaman log masuk pengguna."
+
+msgid "manager.navigationMenus.register.description"
+msgstr "Pautan ke halaman pendaftaran pengguna."
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr "Pautan ke papan pemuka editorial."
+
+msgid "manager.navigationMenus.profile.description"
+msgstr "Pautan ke halaman profil pengguna."
+
+msgid "manager.navigationMenus.administration.description"
+msgstr "Pautan ke alat site-wide pentadbiran."
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr "Pautan ini hanya akan dipaparkan kepada pengguna pentadbiran."
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr "Pautan yang akan log keluar pengguna."
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr "Pautan ini hanya akan dipaparkan apabila pelawat log masuk."
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr "Pautan ini hanya akan dipaparkan apabila pelawat tidak log masuk."
+
+msgid "manager.navigationMenus.contact.description"
+msgstr "Pautan ke halaman yang memaparkan maklumat hubungan anda."
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika anda telah mengisi maklumat Kenalan di "
+"bawah Tetapan > Kenalan."
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr "Sila pilih jenis menu navigasi."
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika pembayaran didayakan di bawah Tetapan "
+"> Distribusi> Pembayaran."
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika pelawat log masuk, pembayaran "
+"didayakan di bawah Tetapan > Distribusi> Pembayaran dan langganan diperlukan "
+"di bawah Tetapan > Distribusi> Akses."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Pautan ke halaman carian."
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr "Pautan ke halaman yang memaparkan pernyataan privasi anda."
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+"Pautan ini hanya akan dipaparkan jika anda telah memasukkan pernyataan "
+"privasi di bawah Tetapan > Aliran Kerja > Penyerahan."
+
+msgid "grid.category.add"
+msgstr "Tambah Kategori"
+
+msgid "grid.category.edit"
+msgstr "Sunting Kategori"
+
+msgid "grid.category.name"
+msgstr "Nama"
+
+msgid "grid.category.path"
+msgstr "Laluan URL"
+
+msgid "grid.category.urlWillBe"
+msgstr "URL kategori ialah: {$sampleUrl}"
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr "Laluan kategori mestilah terdiri daripada huruf dan nombor sahaja."
+
+msgid "grid.category.pathExists"
+msgstr "Laluan kategori sudah wujud. Sila masukkan laluan unik."
+
+msgid "grid.category.description"
+msgstr "Penerangan"
+
+msgid "grid.category.parentCategory"
+msgstr "Kategori Induk"
+
+msgid "grid.category.removeText"
+msgstr "Adakah anda pasti mahu memadam kategori ini?"
+
+msgid "grid.category.nameRequired"
+msgstr "Sila masukkan nama kategori."
+
+msgid "grid.category.categoryDetails"
+msgstr "Butiran Kategori"
+
+msgid "stats.allUsers"
+msgstr "Semua Pengguna"
+
+msgid "stats.city"
+msgstr "Bandar"
+
+msgid "stats.views"
+msgstr ""
+
+msgid "stats.downloads"
+msgstr ""
+
+msgid "stats.views.timelineInterval"
+msgstr ""
+
+msgid "stats.downloads.timelineInterval"
+msgstr ""
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/tahun)"
+
+msgid "stats.daily"
+msgstr "Harian"
+
+msgid "stats.dateRange"
+msgstr "Julat Tarikh"
+
+msgid "stats.dateRange.allDates"
+msgstr "Semua tarikh"
+
+msgid "stats.dateRange.apply"
+msgstr "Terapkan"
+
+msgid "stats.dateRange.change"
+msgstr "Tukar julat tarikh"
+
+msgid "stats.dateRange.customRange"
+msgstr "Julat Custom"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Salah satu tarikh yang dimasukkan tidak wujud."
+
+msgid "stats.dateRange.from"
+msgstr "Dari"
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+"Masukkan setiap tarikh dalam format YYYY-MM-DD. Contohnya, jika anda mahu "
+"tarikh 15 Januari 2019, masukkan 2019-01-15."
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+"Format tarikh tidak sah. Masukkan setiap tarikh dalam format YYYY-MM-DD."
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr "Tarikh mula mestilah sebelum tarikh tamat."
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "Tarikh tamat tidak lewat daripada {$date}."
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "Tarikh mula tidak lebih awal daripada {$date}."
+
+msgid "stats.dateRange.last12Months"
+msgstr "12 bulan lepas"
+
+msgid "stats.dateRange.last30Days"
+msgstr "30 hari lepas"
+
+msgid "stats.dateRange.last90Days"
+msgstr "90 hari lepas"
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Dua tahun lepas"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Tahun lepas"
+
+msgid "stats.dateRange.sinceDate"
+msgstr "Sejak {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Tahun hingga kini"
+
+msgid "stats.dateRange.to"
+msgstr "Kepada"
+
+msgid "stats.dateRange.untilDate"
+msgstr "Sehingga {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Peratusan untuk julat tarikh yang dipilih dikira untuk penyerahan yang telah "
+"diserahkan semasa julat tarikh ini dan telah menerima keputusan muktamad."
+"<br><br>Sebagai contoh, pertimbangkan kes di mana sepuluh penyerahan telah "
+"dibuat dalam julat tarikh ini. Empat diterima, empat ditolak dan dua masih "
+"menunggu keputusan muktamad.<br><br>Kadar penerimaan ialah 50% (4 daripada 8 "
+"penyerahan) kerana dua penyerahan yang belum mencapai keputusan muktamad "
+"tidak dikira."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Bilangan hari yang diambil untuk kebanyakan penyerahan menerima keputusan "
+"editorial pertama, seperti penolakan desk atau hantar untuk ulasan."
+"<br><br>Angka ini menunjukkan bahawa 80% penyerahan mencapai keputusan dalam "
+"bilangan hari yang diberikan.< br><br>Statistik ini cuba menggambarkan "
+"apabila majoriti pengarang yang menyerahkan ke jurnal anda boleh "
+"mengharapkan keputusan."
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr "Penerangan untuk {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Aktiviti Editorial"
+
+msgid "stats.file.type.primaryFile"
+msgstr ""
+
+msgid "stats.file.type.suppFile"
+msgstr ""
+
+msgid "stats.fileViews"
+msgstr "Paparan Fail"
+
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Bulanan"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
+msgstr ""
+
+msgid "stats.geographic.tooltip.label"
+msgstr ""
+
+msgid "stats.downloadReport.betweenDates"
+msgstr ""
+
+msgid "stats.downloadReport.allFilters"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr ""
+
+msgid "stats.region"
+msgstr "Wilayah"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Cari mengikut tajuk, pengarang dan ID"
+
+msgid "stats.submissionsActive"
+msgstr "Penyerahan Aktif"
+
+msgid "stats.timeline"
+msgstr ""
+
+msgid "stats.timeline.downloadReport.description"
+msgstr ""
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr ""
+
+msgid "stats.timelineInterval"
+msgstr ""
+
+msgid "stats.timelineType"
+msgstr ""
+
+msgid "stats.total"
+msgstr "Jumlah"
+
+msgid "stats.unique"
+msgstr ""
+
+msgid "stats.totalWithinDateRange"
+msgstr "Jumlah Dalam Julat Tarikh"
+
+msgid "stats.trends"
+msgstr "Trend"
+
+msgid "stats.unknown"
+msgstr ""
+
+msgid "stats.userStatistics"
+msgstr "Statistik Pengguna"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Penyerahan Diterima"
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Penyerahan Diterima"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Penyerahan ditolak"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Penyerahan Ditolak (Desk Reject)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Penyerahan Ditolak (Selepas Ulasan)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Penyerahan Diterbitkan"
+
+msgid "stats.name.daysToDecision"
+msgstr "Hari ke Keputusan Editorial Pertama"
+
+msgid "stats.name.daysToAccept"
+msgstr "Hari untuk Menerima"
+
+msgid "stats.name.daysToReject"
+msgstr "Hari untuk Menolak"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Kadar Penerimaan"
+
+msgid "stats.name.declineRate"
+msgstr "Kadar Penolakan"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Kadar Desk Reject"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Selepas Ulasan Kadar Tolak"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proses itu gagal. Semak di bawah untuk ralat/amaran."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Hasil Penyerahan Eksport"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Muat Turun Fail yang Dieksport"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksport berjaya diselesaikan."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Muat turun fail yang dieksport dari butang di bawah."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Item Generik"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Konfigurasi penapis salah [{$filterName}]: {$filterCount} kejadian. "
+"Sepatutnya hanya satu."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "RALAT:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Laluan jurnal yang ditentukan, \"{$contextPath}\", tidak wujud."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proses gagal menghuraikan pengarang"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Proses gagal menghuraikan penerbitan"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"URL ke halaman di mana pengguna boleh memulihkan kata laluan yang hilang"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.name"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.description"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "Nama penuh penerima atau semua penerima"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "Nama pengguna penerima atau semua penerima"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "URL untuk tugasan ulasan"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "Nama penuh penghantar"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "Alamat e-mel pengirim"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "Tandatangan e-mel pengirim"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "Nama penuh kenalan utama laman web"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+"Editor yang ditugaskan untuk penyerahan ini yang boleh membuat keputusan"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "Tajuk Penyerahan"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "Nombor ID unik penyerahan"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "Abstrak penyerahan"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Nama pengarang dalam bentuk string yang disingkatkan"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "URL kepada penyerahan dalam backend editorial"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.password"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.name"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr ""
+
+msgid "emailTemplate.variable.submitterName"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.name"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+
+msgid "mailable.validateEmailSite.name"
+msgstr ""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+
+msgid "mailable.reviewConfirm.name"
+msgstr ""
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
+"kepada permintaan ulasan untuk memberitahu Editor Bahagian bahawa permintaan "
+"ulasan telah diterima dan akan diselesaikan pada tarikh yang ditentukan."
+
+msgid "mailable.reviewDecline.name"
+msgstr ""
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"E-mel ini dikirim oleh Pengulas ke Editor Bahagian sebagai respon balas "
+"kepada permintaan ulasan untuk memaklumkan Editor Bahagian bahawa permintaan "
+"ulasan telah ditolak."
+
+msgid "mailable.reviewRemind.name"
+msgstr ""
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"E-mel ini dihantar secara automatik apabila tarikh akhir pengulas berlalu "
+"(lihat Pilihan Ulasan di bawah Tetapan> Aliran Kerja> Ulasan) dan akses "
+"pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
+"dikonfigurasi (lihat fail konfigurasi laman web)."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"E-mel ini dihantar secara automatik apabila tarikh akhir pengesahan pengulas "
+"berlalu (lihat Pilihan Ulasan di bawah Tetapan> Alur Kerja> Ulasan) dan "
+"akses pengulas satu klik dinyahdayakan. Tugas berjadual mesti didayakan dan "
+"dikonfigurasi (lihat fail konfigurasi laman web)."
+
+msgid "mailable.reviewRequest.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"E-mel ini dari Editor Bahagian kepada Pengulas meminta agar pengulas "
+"menerima atau menolak tugas mengulas penyerahan. Ini memberikan maklumat "
+"mengenai penyerahan seperti tajuk dan abstrak, tarikh akhir ulasan, dan cara "
+"mengakses kiriman itu sendiri. Mesej ini digunakan apabila Proses Standard "
+"Ulasan dipilih dalam Pengurusan> Tetapan> Alur Kerja> Ulasan."
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr ""
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"E-mel ini dari Editor Bahagian kepada Pengulas meminta agar pengulas "
+"menerima atau menolak tugas mengulas penyerahan untuk ulasan kedua atau "
+"pusingan seterusnya. Ini memberikan maklumat mengenai penyerahan seperti "
+"tajuk dan abstrak, tarikh akhir ulasan, dan cara mengakses penyerahan itu "
+"sendiri. Mesej ini digunakan apabila Proses Ulansan Standard dipilih dalam "
+"Pengurusan> Tetapan> Aliran Kerja> Ulasan."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr ""
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+
+msgid "mailable.editorialReminder.name"
+msgstr ""
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.name"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"E-mel ini dihantar kepada pengguna yang berdaftar apabila mereka menunjukkan "
+"bahawa mereka lupa kata laluan mereka atau tidak dapat masuk. Ini "
+"menyediakan URL yang dapat mereka ikuti untuk menetapkan semula kata laluan "
+"mereka."
+
+msgid "mailable.userRegister.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.userRegister.description"
+msgstr ""
+"E-mel ini dihantar kepada pengguna yang baru mendaftar untuk menyambut "
+"mereka ke sistem dan memberikan mereka rekod nama pengguna dan kata laluan "
+"mereka."
+
+msgid "mailable.reviewerRegister.name"
+msgstr ""
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"E-mel ini dihantar kepada pengulas yang baru didaftarkan untuk mengalu-"
+"alukan mereka ke sistem dan memberi mereka rekod nama pengguna dan kata "
+"laluan mereka."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"E-mel ini, apabila didayakan, secara automatik dikirimkan kepada pengarang "
+"apabila mereka menyelesaikan proses penyerahan manuskrip ke jurnal. Ini "
+"memberikan maklumat tentang mengesan penyerahan melalui proses dan berterima "
+"kasih pengarang atas penyerahannya."
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"E-mel ini, apabila didayakan, secara automatik dihantar kepada pengarang "
+"lain yang bukan pengguna dalam OJS yang ditentukan semasa proses penyerahan."
+
+msgid "mailable.discussionSubmission.name"
+msgstr ""
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+
+msgid "mailable.discussionReview.name"
+msgstr ""
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.name"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+
+msgid "mailable.discussionProduction.name"
+msgstr ""
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"E-mel ini dihantar secara automatik ke editor yang ditugaskan ketika "
+"pengarang memuat naik versi artikel yang disemak."
+
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
+msgid "mailable.announcementNotify.description"
+msgstr "E-mel ini dihantar semasa pengumuman baru dibuat."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+
+msgid "manager.people.authSource"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+
+msgid "manager.manageEmails"
+msgstr ""
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+
+msgid "manager.mailables.templates"
+msgstr ""
+
+msgid "manager.mailables.editTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.search"
+msgstr ""
+
+msgid "manager.emailTemplate.name.description"
+msgstr ""
+
+msgid "manager.newSubmission"
+msgstr ""
+
+msgid "manager.newSubmission.description"
+msgstr ""
+
+msgid "manager.submissionAck.description"
+msgstr ""
+
+msgid "manager.submissionAck.off"
+msgstr ""
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr ""
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "emailTemplate.variable.submission.authorsFull"
+#~ msgstr "Nama penuh pengarang"
+
+#, fuzzy
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "E-mel ini dihantar oleh Editor Bahagian untuk mengingatkan pengulas "
+#~ "bahawa ulasan tamat."

@@ -45,6 +45,9 @@ msgstr "انتهاء الصلاحية"
 msgid "manager.announcements.datePublish"
 msgstr "منشور"
 
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "حذف الإعلان"
+
 msgid "manager.announcements.edit"
 msgstr "تعديل الإعلان"
 
@@ -150,6 +153,238 @@ msgstr "لم يتم إنشاء أنواع للإعلانات بعد."
 msgid "manager.announcementTypes.typeName"
 msgstr "نوع الإعلان"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "إيداع الكل"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"أنت بصدد إرسال سجلات البيانات الوصفية لـ {$count} من العناصر إلى "
+"{$registrationAgency}. هل أنت متأكد من رغبتك في إيداع هذه السجلات؟"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "تأشير معرفات المكونات الرقمية على أنها مسجلة"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"أنت بصدد تأشير سجلات البيانات الوصفية لـ {$count} من العناصر بأنها مسجلة. هل "
+"أنت متأكد من رغبتك في تأشير تلك السجلات بأنها مسجلة؟"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "تعليم معرفات المكونات الرقمية على أنها غير مسجلة"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"أنت على وشك تأشير سجلات البيانات الوصفية الخاصة بمعرفات المكونات الرقمية لـ "
+"{$count} من العناصر على أنها غير مسجلة. هل أنت متأكد من رغبتك في تأشير تلك "
+"السجلات بأنها غير مسجلة؟"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "تأشير معرفات المكونات الرقمية على أنها قديمة"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"إنك بصدد جعل سجلات البيانات الوصفية لـ {$count} من معرفات المكونات الرقمية، "
+"جعلها قديمة. إن حالة المكون القديم يمكن تطبيقها فقط للمكونات التي سبق "
+"تسليمها. هل أنت متأكد من رغبتك في اعتبار تلك السجلات قديمة؟"
+
+msgid "manager.dois.actions.export.label"
+msgstr "تصدير معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"أنت بصدد تصدير سجلات البيانات الوصفية لمعرفات المكونات الرقمية لـ {$count} "
+"من العناصر إلى {$registrationAgency}. هل أنت متأكد من رغبتك في تصدير هذه "
+"السجلات؟"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "تعيين معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"أنت بصدد تعيين معرفات مكونات رقمية جديدة إلى {$count} من العناصر المؤهلة "
+"للحصول على تلك المعرفات. هل أنت متأكد من رغبتك في تعيين معرفات المكونات "
+"الرقمية لتلك العناصر؟"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "إيداع كل معرفات المكونات الرقمية"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"أنت بصدد جدولة كل سجلات البيانات الوصفية لمعرفات المكونات الرقمية المهمة "
+"لإيداعها في {$registrationAgency}. سيقتصر الإيداع على العناصر المنشورة التي "
+"تمتلك معرفات المكونات الرقمية. سيتم تحديث حالة كل عنصر عند تلقي الرد. هل أنت "
+"متأكد من رغبتك في جدولة إيداع كل تلك العناصر؟"
+
+msgid "manager.dois.actions.description"
+msgstr "إتخذ إجراءً لـ {$count} من العناصر المحددة."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "إجراءات بالجملة"
+
+msgid "manager.dois.depositStatus"
+msgstr "حالة الإيداع"
+
+msgid "manager.dois.publicationStatus"
+msgstr "حالة النشر"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر قد تم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "تم تسجيل هذا العنصر يدويًا مع وكالة تسجيل."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "البيانات الوصفية لهذا لعنصر لم يتم تسليمها إلى {$registrationAgency}."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "لا يمكن إيداع هذا العنصر حتى يتم نشره."
+
+msgid "manager.dois.registration.viewError"
+msgstr "معاينة الخطأ"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "رسالة خطأ التسجيل"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "معاينة السجل"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "رسالة التسجيل الموفق"
+
+msgid "manger.dois.update.success"
+msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "إيداع معرفات المكونات الرقمية"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "تتطلب معرف المكون الرقمي"
+
+msgid "manager.dois.status.unregistered"
+msgstr "غير مسجلة"
+
+msgid "manager.dois.status.submitted"
+msgstr "مسلمة"
+
+msgid "manager.dois.status.registered"
+msgstr "مسجلة"
+
+msgid "manager.dois.status.error"
+msgstr "خطأ"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr "عتيقة"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"أي عنصر منشور أو غير منشور 1) لديه مكون فرعي بدون معرف مكون رقمي معين له "
+"حيثما 2) تم تمكين نوع معرف المكون الرقمي للمكون الفرعي (مثلاً، اللوح الطباعي "
+"بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"العنصر الذي 1) يمتلك DOIs لجميع أنواع DOI الممكّنة 2) لم يتم نشره 3) لم يتم "
+"تسجيله مع وكالة مسجلة."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "العناصر المسلمة إلى وكالة التسجيل المعرفة."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"العناصر التي سُجلت بنجاح مع وكالة التسجيل أو المؤشرة يدوًا على أنها مسجلة."
+
+msgid "manager.dois.status.error.description"
+msgstr "العناصر التي واجهت أخطاء في عملية التسجيل."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"العناصر التي تم تحديث بياناتها الوصفية محليًا والتي ستحتاج إلى إعادة تسليم أو "
+"تحديث عند وكالة التسجيل المعرفة لضمان حداثة كل البيانات الوصفية المقدمة "
+"سابقًا."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "فشلت تحديثات معرفات المكونات الرقمية"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "بعض معرفات المكونات الرقمية DOIs فشل تحديثها"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "تم تصدير العناصر بنجاح"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "تم تأشير العناصر بأنها مسجلة"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "تم تأشير العناصر على أنها غير مسجلة بنجاح"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "تم تأشير العناصر على أنها قديمة بنجاح"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "تم تعيين معرفات مكونات رقمية جديدة للعناصر بنجاح"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "مواقف معرف المكون الرقمي"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"لقد انتقلت إدارة معرف المكون الرقمي. يرجى معاينة صفحات <a href="
+"\"{$doiManagementUrl}\">إدارة معرف المكون الرقمي</a> و <a href="
+"\"{$doiSettingsUrl}\">إعدادات معرف المكون الرقمي</a>."
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
+"آخر."
+
+msgid "manager.institutions.edit"
+msgstr "تعديل المؤسسة"
+
+msgid "manager.institutions.form.ror"
+msgstr "مسجل المنظمة البحثية"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "الرمز التعريفي لمسجل المنظمة البحثية لهذه المؤسسة."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "نطاقات IP"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"العناوين الصحيحة تشمل: عنوان IP (مثل 142.58.103.1)، مدى عناوين IP (مثل "
+"142.58.103.1 - 142.58.103.4)، نطاق عناوين IP مع علامة البديل '*' (e.g. "
+"142.58.*.*)، ونطاق عناوين IP مع مؤشر الشبكة الفرعية (مثل 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "حذف المؤسسة"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "هل أنت متأكد من رغبتك في المتابعة وحذف هذه المؤسسة؟"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "نطاق IP غير صالح"
+
 msgid "manager.publication.submissionStage"
 msgstr "التقديم"
 
@@ -170,6 +405,17 @@ msgstr "دليل المحكم"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "تفاصيل تذكير المحكمين تغيرت بنجاح."
+
+msgid "manager.dois.title"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr "الخطأ الآتي عاد من قبل {$registrationAgency} وهو يتضمن تفاصيل مسبباته:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"الرسالة الآتية عادت من قبل {$registrationAgency} وهي تتضمن تفاصيل عملية "
+"التسجيل:"
 
 msgid "manager.emails.addEmail"
 msgstr "إضافة قالب"
@@ -199,6 +445,9 @@ msgstr "قالب الرسالة"
 
 msgid "manager.emails.emailTemplates"
 msgstr "قوالب الرسائل"
+
+msgid "manager.emails.otherTemplates"
+msgstr "القوالب الأخرى"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "عليك أن تعطي رمزاً تعريفياً فريداً لكل قالب رسالة تضيفه."
@@ -244,6 +493,12 @@ msgstr "مرسل من"
 
 msgid "manager.emails.sentTo"
 msgstr "مرسل إلى"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "التصدير إلى Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "إختر المستخدمين المطلوب تصديرهم إلى ملف Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "مستعرض الملفات"
@@ -433,6 +688,9 @@ msgstr "إزالة"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "إحفظ وأنشئ واحداً آخر"
 
+msgid "manager.people.signedInAs"
+msgstr "أنت حالياً تستعمل الموقع بصفة {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "الدخول باسم"
 
@@ -501,14 +759,56 @@ msgstr ""
 msgid "manager.roles"
 msgstr "الأدوار"
 
+msgid "manager.setup.statistics"
+msgstr "الإحصائيات"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "الإحصائيات الجغرافية"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"إختر نوع إحصائيات الاستعمال الجغرافية الذي تريد جمعها. الإحصائيات الجغرافية "
+"الأكثر تفصيلاً قد تزيد حجم قاعدة بياناتك بشكل ملحوظ، وفي بعض الأحيان النادرة "
+"قد تنتهك خصوصية زوار موقعك."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "لا تجمع أي بيانات جغرافية"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "تقفى بلد الزائر"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "تقفى بلد الزائر ومنطقته"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "تقفى بلد الزائر ومنطقته ومدينته"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "الإحصائيات المؤسساتية"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"تمكين الإحصائيات المؤسساتية إذا كنت ترغب بجمع إحصائيات الاستعمال حسب "
+"المؤسسات. عند تمكينه، سيتطلب الأمر تعريف مديات عناوين IP لكل مؤسسة ترغب "
+"بتقفيها."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "تمكين الإحصائيات المؤسساتية"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "واجهة برمجة التطبيق العمومية"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"فيما إذا كان ينبغي تقييد الوصول إلى النهايات الطرفية لواجهة برمجة التطبيق "
+"العائدة إلى COUNTER SUSHI. إذا لم يؤشر، ستكون واجهة برمجة التطبيق متاحة فقط "
+"للمستخدمين الذين يمتلكون دور المشرف أو المدير."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "جعل إحصائيات COUNTER SUSHI متاحة بشكل عمومي"
+
 msgid "manager.statistics"
 msgstr "الإحصائيات والتقارير"
-
-msgid "stats.city"
-msgstr "المدينة"
-
-msgid "stats.region"
-msgstr "المنطقة"
 
 msgid "manager.statistics.reports"
 msgstr "التقارير"
@@ -527,6 +827,127 @@ msgstr "استعمل التنسيق YYYYMMDD."
 
 msgid "manager.affiliationAndSupport"
 msgstr "الراعي"
+
+msgid "manager.setup.dois"
+msgstr "معرفات المكونات الرقمية"
+
+msgid "manager.setup.dois.setup"
+msgstr "التنصيب"
+
+msgid "manager.setup.dois.registration"
+msgstr "التسجيل"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "الإيداع التلقائي"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "تمكين الإيداع التلقائي"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"يمكن إيداع تسجيل معرفات المكونات الرقمية والبيانات الوصفية تلقائياً لدى وكالة "
+"التسجيل المحددة كلما تم نشر عنصر ذي معرف مكون رقمي. الإيداع القائي سيحدث في "
+"فترات مجدولة يمكن مراقبة حالة التسجيل لأي معرف مكون رقمي من خلال صفحة إدارة "
+"معرفات المكونات الرقمية."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"هذا يتم تعيينه من قبل وكالة تسجيل معرفات المكونات الرقمية، مثل <a href="
+"\"https://www.crossref.org\" target=\"_new\">Crossref</a> أو <a href="
+"\"https://datacite.org/\" target=\"new\">DataCite</a>. مثال: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+"بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بالصيغة الآتية: 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "التعيين التلقائي لمعرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "متى ينبغي تعيين معرف المكون الرقمي لطلب التقديم؟"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "قبيل النشر"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "أبدًا"
+
+msgid "manager.setup.doiPrefix"
+msgstr "بادئة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "العناصر التي لها معرفات المكونات الرقمية"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "لاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "لاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "النمط المخصص للاحقة معرف المكون الرقمي"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"لاحقة معرف المكون الرقمي يمكن أن تتخذ أي صيغة، ولكنها ينبغي أن تكون فريدة "
+"بين كل مكونات النشر التي عُينت لها نفس بادئة معرف المكون الرقمي:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "الافتراضي - يقوم تلقائًا بتوليد بادئة من ثمانية أحرف فريدة"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+"بلا - ينبغي إدخال البادئات يدويًا في <a href=\"{$doiManagementUrl}\">صفحة "
+"إدارة مُعرف المكون الرقمي</a> ولن يتم توليدها تلقائيًا"
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "النمط المخصص - (غير موصى به)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "وكالة التسجيل"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"يرجى اختيار وكالة التسجيل التي ترغب باستعمالها عند إيداع معرفات المكونات "
+"الرقمية."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "لم يتم تمكين أي وكالة تسجيل"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"معرفات المكونات الرقمية يمكن صياغتها وإيداعها تلقائيًا لدى وكالة تسجيل. "
+"لاستعمال هذه الميزة، حدد إضافة من وكالة التسجيل المناسبة وقم بتنصيبها."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "لا أحد"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "إصدارات معرف المكون الرقمي"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "لا يمكنك استدعاء هذه العملية بدون تمكين معرفات المكونات الرقمية."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "هناك {$count} من الإصدارات."
+
+msgid "doi.manager.versions.view"
+msgstr "معاينة الكل"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "معرفات المكونات الرقمية لكل الإصدارات"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "معرف المكون الرقمي يحتوي على حروف غير صالحة."
 
 msgid "manager.setup.publishing"
 msgstr "تفاصيل النشر"
@@ -559,6 +980,9 @@ msgid "manager.setup.authorGuidelines.description"
 msgstr ""
 "الإرشادات الموصى بها تتضمن المعايير القياسية للسيرة والتنسيق جنباً إلى جنب مع "
 "أمثلة لتنسيقات شائعة من الاقتباسات التي بالإمكان استعمالها في المؤلفات."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "تعطيل طلبات التقديم"
 
 msgid "manager.setup.checklist"
 msgstr "قائمة التأشير"
@@ -614,10 +1038,76 @@ msgstr "إشعار بتقديم المؤلف للطلب"
 msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "أرسل نسخة إلى هذا العنوان"
 
+msgid "manager.setup.notifyAllAuthors"
+msgstr "إشعار كل المؤلفين"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "من ينبغي أن يتلقى إشعار البريد الالكتروني عند تسجيل قرار هيئة التحرير؟"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "إرسال إشعار البريد الالكتروني إلى كل مؤلفي طلب التقديم."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
+"عادة ما يكون هو المؤلف الذي قدم الطلب."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "الإشعارات"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "إشعار جهة الاتصال الرئيسية"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "نعم، أرسل نسخة إلى {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "لا"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "إشعار أي شخص"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"سيتم إرسال نسخة من رسالة الإقرار بطلب التقديم لأيِّ من عناوين البريد "
+"الالكتروني المُدخلة هنا. أفصل ما بين عناوين البريد الالكتروني المتعددة "
+"بفارزة. مثال: one@example.com,two@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "واحد أو أكثر من عناوين البريد الالكتروني تلك غير صحيح."
+
 msgid "manager.setup.notifications.description"
 msgstr ""
 "يحصل المؤلفون تلقائياً على رسالة تبلغهم باستلام طلبهم. يمكنك الحصول على نسخ "
 "من هذه الرسالة موجهة إلى العناوين الآتية:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "إشعار"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "إختر المستخدمين الذي ينبغي لهم تلقي إشعاراتك البريدية."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "أرسل نسخة من هذه الرسالة لي عند {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "أرسل الرسالة"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"أنت على وشك إرسال البريد الالكتروني إلى {$total} من المستخدمين. هل أنت متأكد "
+"من رغبتك في إرسال هذه الرسالة؟"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"يجري إرسال الرسالة. يرجى تجنب الانتقال إلى صفحة أخرى حتى إكتمال عملية "
+"الإرسال."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "تم إرسال البريد الالكتروني بنجاح إلى كل المتلقين."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "إرسال رسالة أخرى"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "سياسة الوصول المفتوح"
@@ -656,6 +1146,36 @@ msgstr ""
 
 msgid "manager.setup.privacyStatement"
 msgstr "بيان الخصوصية"
+
+msgid "manager.setup.dateTime"
+msgstr "التاريخ والوقت"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "تنسيقات التاريخ والوقت"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"إختر التنسيق المفضل للتواريخ والأوقات. يمكن إدخال تنسيق مخصص باستعمال <a "
+"href=\"https://www.php.net/manual/en/function.strftime.php#refsect1-function."
+"strftime-parameters\">حروف التنسيق</a> الخاصة."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "التاريخ"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "التاريخ (قصير)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "الوقت"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "التاريخ والوقت"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "التاريخ والوقت (قصير)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "مخصص"
 
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
@@ -731,11 +1251,83 @@ msgstr ""
 msgid "manager.setup.theme"
 msgstr "النمط"
 
+msgid "manager.setup.institutions"
+msgstr "المؤسسات"
+
 msgid "manager.setup.theme.description"
 msgstr "يمكن تنصيب المزيد من الأنماط عبر تبويب الإضافات في أعلى هذه الصفحة."
 
 msgid "manager.setup.theme.notFound"
 msgstr "النمط الذي اخترته غير منصب أو غير مُمَكن."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين قبل أن يشرعوا بتقديمهم. أعط شرحًا موجزًا عن عملية "
+"التقديم يساعد المؤلف في توقع الإجراءات المطلوبة منه."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة رفع الملفات. أعط شرحًا موجزًا عن ماهية "
+"الملفات التي على المؤلفين أن يتوقعوا مشاركتها خلال عملية التقديم."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة المساهمين. أعط شرحًا موجزًا عن ماهية "
+"المعلومات التي على المؤلفين توفيرها عن أنفسهم، عن المؤلفين المشاركين وغيرهم "
+"من المساهمين في العمل."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة التفاصيل، عندما يُطلب منهم إدخال "
+"العنوان، الملخص، وغير ذلك من المعلومات الأساسية عن طلب تقديمهم."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال خطوة (للمحررين)، عندما يُطلب منهم إدخال "
+"البيانات الوصفية، مثل الكلمات المفتاحية، التعليقات الموجهة للمحررين، وغير "
+"ذلك من التفاصيل التي تساعد مراجعات التحرير."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين خلال الخطوة الأخيرة من برنامج التقديم، عندما "
+"يُطلب منهم مراجعة كل المعلومات التي قدموها قبل تسليم طلبهم."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "إرشادات المؤلف"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "قائمة فحص طلب التقديم"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"ما يأتي يتم إظهاره للمؤلفين عندما يبدؤون بطلب التقديم إلى المجلة. يُطلب من "
+"المؤلفين التأكيد بأن طلباتهم تتوافق مع كل المتطلبات المبينة هنا قبل شروعهم "
+"بعملية التقديم."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "قم بتعطيل هذا القسم ولا تسمح لطلبات التقديم الجديدة فيه."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "هل أنت متأكد من رغبتك في تعطيل هذا القسم؟"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "هل أنت متأكد من رغبتك في تنشيط هذا القسم؟"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "مهام هيئة التحرير"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"إختر المستخدمين من هيئة التحرير الذين ينبغي تعيينهم تلقائيًا إلى كل طلبات "
+"التقديم الجديدة في هذ القسم."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "تعيين {$name} بدور {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"إختر أعضاء التحرير الذين ينبغي تعيينهم تلقائيًا لكل طلبات التقديم الجديدة في "
+"هذا التصنيف."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "خيارات الوصول في الموقع"
@@ -1023,6 +1615,9 @@ msgstr "أُعيد تحميل اللغة {$locale} بالنسبة إلى {$conte
 msgid "notification.localeSettingsSaved"
 msgstr "حُفِظت إعدادات اللغة."
 
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr "تعذر حفظ إعداد اللغة. لا بد من تمكين لغة واحدة على الأقل لكل خيار"
+
 msgid "notification.editedUser"
 msgstr "تم تعديل المستخدم."
 
@@ -1163,6 +1758,19 @@ msgstr "حذف هذا المكون"
 msgid "grid.action.restoreGenres"
 msgstr "استعادة الإعدادات الإفتراضية لهذا المكون"
 
+msgid "manager.setup.genres.label"
+msgstr "نوع الملف"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"هذه ملفات تابعة إلى ما سواها، مثل الصور التي تُعرض من قبل ملف HTML، ولن يتم "
+"عرضها مع المحتوى المنشور."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"هذه ملفات تكميلية، مثل جداول البيانات والمواد البحثية، وسيتم عرضها بشكل "
+"منفصل عن ملفات النشر الأساسية."
+
 msgid "manager.setup.genres.key"
 msgstr "المفتاح"
 
@@ -1176,6 +1784,34 @@ msgid "manager.setup.genres.key.alphaNumeric"
 msgstr ""
 "يمكن للمفتاح أن يحتوي فقط على حروف وأرقام، خطوط تحتانية وشُرَط، ولا بد أن يبدأ "
 "بحرف أو رقم وينتهي بأي منهما."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "البيانات الوصفية للملف"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"إختر نوع البيانات الوصفية التي يمكن لهذه الملفات تلقيها. ينبغي اختيار "
+"(مستند) لملفات النشر الأساسية، مثل ملفات PDF القابلة للتنزيل، بحيث أن تلك "
+"الملفات ترث بياناتها الوصفية من المحتوى المنشور. بخلاف ذلك، إختر (محتوى "
+"تكميلي) لأغلب أنواع الملفات. العمل الفني يتناسب مع الملفات التي تتطلب "
+"إعتماداً مميزاً، تسمية توضيحية وبيانات وصفية لرخصة الاستعمال."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "مطلوب مع طلبات التقديم"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+"هل ينبغي طلب واحد على الأقل من هذه الملفات مع كل طلب تقديم جديد؟ إذا اخترت "
+"نعم، لم يستطيع المؤلفون تقديم طلباتهم ما لم يقوموا برفع ملف واحد على الأقل "
+"من هذا النوع."
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+"نعم، ينبغي على المؤلفين رفع ملف واحد أو أكثر من تلك الأنواع عند تسليم "
+"طلباتهم."
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr "لا، السماح لطلبات التقديم الجديدة بدون تلك الملفات."
 
 msgid "manager.settings.wizard"
 msgstr "معالج الإعدادات"
@@ -1530,6 +2166,24 @@ msgstr "أطلب من المؤلف تحديد المراجع خلال مرحلة
 msgid "manager.setup.metadata.citations.require"
 msgstr "ينبغي على المؤلف تحديد المراجع قبل حصوله على موافقة طلب التقديم."
 
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+"بيان قصير يصف ما إذا كان المؤلف (المؤلفون) قد أتاحوا بياناتهم البحثية أم "
+"لا ، وإذا كان الأمر كذلك ، أين يمكن للقراء الوصول إليها."
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr "تمكين البيانات الوصفية لبيان توافر البيانات"
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr "لا تطلب من المؤلف بيان توافر البيانات خلال عملية التقديم."
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr "اطلب من المؤلف تقديم بيان توفر البيانات أثناء عملية تقديم طلب النشر."
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+"اطلب من المؤلف تقديم بيان توفر البيانات قبل قبول تقديم طلب النشر الخاص بهم."
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "أخطاء التحقق:"
 
@@ -1538,6 +2192,9 @@ msgstr "هناك تحذيرات:"
 
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "حدثت أخطاء:"
+
+msgid "plugins.importexport.common.id"
+msgstr "المُعرَّف: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "عنصر مجهول {$param}"
@@ -1556,6 +2213,9 @@ msgstr ""
 "ملف الاستيراد يتضمن المؤلف '{$authorName}'، مع مجموعة المستخدمين "
 "'{$userGroupName}'. ليست هناك مجموعة مستخدمين معرفة في التنصيب المستهدف بهذا "
 "الاسم."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "مجموعة المستخدم مفقودة لاسم المؤلف {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -1580,6 +2240,11 @@ msgstr ""
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "تعذر استيراد ملف التقديم"
 
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"تم تخطي ملف التقديم {$id} لأنه مرفق بسجل لن يتم استيراده، مثل مهمة التحكيم "
+"أو المناقشة."
+
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "أخطاء الاستيراد/التصدير:"
 
@@ -1603,6 +2268,9 @@ msgid "plugins.importexport.user.error.usernameEmailMismatch"
 msgstr ""
 "إن اسم المستخدم \"{$username}\" وعنوان المراسلة \"{$email}\" لا يتطابقان مع "
 "ما هو مسجل في النظام لنفس المستخدم."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
 
 msgid "manager.navigationMenus.form.title"
 msgstr "العنوان"
@@ -1822,6 +2490,21 @@ msgstr "تفاصيل الفئة"
 msgid "stats.allUsers"
 msgstr "كل المستخدمين"
 
+msgid "stats.city"
+msgstr "المدينة"
+
+msgid "stats.views"
+msgstr "المعاينات"
+
+msgid "stats.downloads"
+msgstr "التنزيلات"
+
+msgid "stats.views.timelineInterval"
+msgstr "إجمالي المعاينات حسب التاريخ"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "إجمالي التنزيلات حسب التاريخ"
+
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}\\السنة)"
 
@@ -1909,11 +2592,22 @@ msgstr ""
 "الإحصائية تحاول إبلاغ المؤلفين المتقدمين بأعمالهم إلى مجلتك بالفترة المتوقعة "
 "ليحصلوا فيها على آراء هيئة التحرير."
 
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"هذا يشمل طلبات التقديم التي لا تحتسب في الإجماليات الأخرى، كالتي لا تزال في "
+"مراحل التقدم أو تلك التي تبدو مستوردة."
+
 msgid "stats.descriptionForStat"
 msgstr "وصف {$stat}"
 
 msgid "stats.editorialActivity"
 msgstr "نشاط هيئة التحرير"
+
+msgid "stats.file.type.primaryFile"
+msgstr "ملف رئيسي"
+
+msgid "stats.file.type.suppFile"
+msgstr "ملف تكميلي"
 
 msgid "stats.fileViews"
 msgstr "معاينات الملف"
@@ -1927,14 +2621,59 @@ msgstr "شهرياً"
 msgid "stats.pdf"
 msgstr "PDF"
 
+msgid "stats.geographic.ccAttribution"
+msgstr "الموقع الجغرافي بواسطة <a href='https://db-ip.com'>DB-IP</a>"
+
+msgid "stats.geographic.tooltip.label"
+msgstr "حول الموقع الجغرافي"
+
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} الى {$endDate}"
+
+msgid "stats.downloadReport.allFilters"
+msgstr "الكل{$filter}"
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "تنزيل الملفات"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "عدد التنزيلات لكل ملف."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "التنزيل الجغرافي"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr "عدد المعاينات والتنزيلات لكل مدينة، منطقة وبلد."
+
+msgid "stats.region"
+msgstr "المنطقة"
+
 msgid "stats.searchSubmissionDescription"
 msgstr "البحث حسب العنوان، المؤلف، أو الرمز التعريفي"
 
 msgid "stats.submissionsActive"
 msgstr "طلبات التقديم النشطة"
 
+msgid "stats.timeline"
+msgstr "مخطط الوقت"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "عدد ال {$type} لكل {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "تحميل مخطط الوقت"
+
+msgid "stats.timelineInterval"
+msgstr "فترات مخطط الوقت"
+
+msgid "stats.timelineType"
+msgstr "نوع مخطط الوقت"
+
 msgid "stats.total"
 msgstr "الإجمالي"
+
+msgid "stats.unique"
+msgstr "فريد"
 
 msgid "stats.totalWithinDateRange"
 msgstr "الإجمالي ضمن الفترة المحددة"
@@ -1942,11 +2681,23 @@ msgstr "الإجمالي ضمن الفترة المحددة"
 msgid "stats.trends"
 msgstr "المشاغل"
 
+msgid "stats.unknown"
+msgstr "مجهول"
+
 msgid "stats.userStatistics"
 msgstr "إحصائيات المستخدم"
 
 msgid "stats.name.submissionsReceived"
 msgstr "طلبات التقديم المتلقاة"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "طلبات التقديم الأخرى"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "طلبات التقديم الجارية"
+
+msgid "stats.name.submissionsImported"
+msgstr "طلبات التقديم المستوردة"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "طلبات التقديم المقبولة"
@@ -1984,122 +2735,28 @@ msgstr "معدل الرفض المباشر"
 msgid "stats.name.declinedReviewRate"
 msgstr "معدل الرفض بعد التحكيم"
 
-msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgid "plugins.importexport.native.processFailed"
+msgstr "فشلت العملية. تحقق أدناه للتحري عن الأخطاء/التنبيهات."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "نتائج تصدير طلبات التقديم"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "تنزيل الملف المُصَّدر"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "إكتمل التصدير بنجاح."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "تنزيل الملف المُصَدَّر من الزر أدناه."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "العناصر العامة"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
-"تم تخطي ملف التقديم {$id} لأنه مرفق بسجل لن يتم استيراده، مثل مهمة التحكيم "
-"أو المناقشة."
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"إختر نوع البيانات الوصفية التي يمكن لهذه الملفات تلقيها. ينبغي اختيار "
-"(مستند) لملفات النشر الأساسية، مثل ملفات PDF القابلة للتنزيل، بحيث أن تلك "
-"الملفات ترث بياناتها الوصفية من المحتوى المنشور. بخلاف ذلك، إختر (محتوى "
-"تكميلي) لأغلب أنواع الملفات. العمل الفني يتناسب مع الملفات التي تتطلب "
-"إعتماداً مميزاً، تسمية توضيحية وبيانات وصفية لرخصة الاستعمال."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "البيانات الوصفية للملف"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"هذه ملفات تكميلية، مثل جداول البيانات والمواد البحثية، وسيتم عرضها بشكل "
-"منفصل عن ملفات النشر الأساسية."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"هذه ملفات تابعة إلى ما سواها، مثل الصور التي تُعرض من قبل ملف HTML، ولن يتم "
-"عرضها مع المحتوى المنشور."
-
-msgid "manager.setup.genres.label"
-msgstr "نوع الملف"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "هل أنت متأكد من رغبتك في تنشيط هذا القسم؟"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "هل أنت متأكد من رغبتك في تعطيل هذا القسم؟"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr "قم بتعطيل هذا القسم ولا تسمح لطلبات التقديم الجديدة فيه."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "مخصص"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "التاريخ والوقت (قصير)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "التاريخ والوقت"
-
-msgid "manager.setup.dateTime.time"
-msgstr "الوقت"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "التاريخ (قصير)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "التاريخ"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"إختر التنسيق المفضل للتواريخ والأوقات. يمكن إدخال تنسيق مخصص باستعمال <a "
-"href=\"https://www.php.net/manual/en/function.strftime.php#refsect1-function."
-"strftime-parameters\">حروف التنسيق</a> الخاصة."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "تنسيقات التاريخ والوقت"
-
-msgid "manager.setup.dateTime"
-msgstr "التاريخ والوقت"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "إرسال رسالة أخرى"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "تم إرسال البريد الالكتروني بنجاح إلى كل المتلقين."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"يجري إرسال الرسالة. يرجى تجنب الانتقال إلى صفحة أخرى حتى إكتمال عملية "
-"الإرسال."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"أنت على وشك إرسال البريد الالكتروني إلى {$total} من المستخدمين. هل أنت متأكد "
-"من رغبتك في إرسال هذه الرسالة؟"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "أرسل الرسالة"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "أرسل نسخة من هذه الرسالة لي عند {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "إختر المستخدمين الذي ينبغي لهم تلقي إشعاراتك البريدية."
-
-msgid "manager.setup.notifyUsers"
-msgstr "إشعار"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "تعطيل طلبات التقديم"
-
-msgid "manager.people.signedInAs"
-msgstr "أنت حالياً تستعمل الموقع بصفة {$username}"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "حذف الإعلان"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "إختر المستخدمين المطلوب تصديرهم إلى ملف Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "التصدير إلى Excel/CSV"
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr "تعذر حفظ إعداد اللغة. لا بد من تمكين لغة واحدة على الأقل لكل خيار"
-
-msgid "manager.emails.otherTemplates"
-msgstr "القوالب الأخرى"
+"تهيئة خاطئة للمرشح [{$filterName}]: {$filterCount} من التكرارات. ينبغي أن "
+"تكون واحدة فقط."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "خطأ:"
@@ -2107,359 +2764,96 @@ msgstr "خطأ:"
 msgid "plugins.importexport.common.error.unknownContext"
 msgstr "المسار المخصص للمجلة، \"{$contextPath}\"، غير موجود."
 
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "فشلت العملية في تحليل المنشورات"
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
 msgstr "فشلت العملية في تحليل المؤلفين"
 
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "فشلت العملية في تحليل المنشورات"
 
-msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
-"تهيئة خاطئة للمرشح [{$filterName}]: {$filterCount} من التكرارات. ينبغي أن "
-"تكون واحدة فقط."
+"كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
+"المشخصنة"
 
-msgid "plugins.importexport.native.common.any"
-msgstr "العناصر العامة"
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "تنزيل الملف المُصَدَّر من الزر أدناه."
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "إكتمل التصدير بنجاح."
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "تنزيل الملف المُصَّدر"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "نتائج تصدير طلبات التقديم"
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "فشلت العملية. تحقق أدناه للتحري عن الأخطاء/التنبيهات."
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "مجموعة المستخدم مفقودة لاسم المؤلف {$param}"
-
-msgid "plugins.importexport.common.id"
-msgstr "المُعرَّف: {$id}"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "واحد أو أكثر من عناوين البريد الالكتروني تلك غير صحيح."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"سيتم إرسال نسخة من رسالة الإقرار بطلب التقديم لأيِّ من عناوين البريد "
-"الالكتروني المُدخلة هنا. أفصل ما بين عناوين البريد الالكتروني المتعددة "
-"بفارزة. مثال: one@example.com,two@example.com"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "إشعار أي شخص"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "لا"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "نعم، أرسل نسخة إلى {$email}"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "إشعار جهة الاتصال الرئيسية"
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "الإشعارات"
-
-msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "الرابط المؤدي إلى طلب التقديم من وجهة هيئة التحرير"
-
-msgid "emailTemplate.variable.submission.authors"
-msgstr "الأسماء الكاملة للمؤلفين"
-
-msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
-
-msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "ملخص طلب التقديم"
-
-msgid "emailTemplate.variable.submission.submissionId"
-msgstr "رقم المُعرَّف الفريد لطلب التقديم"
-
-msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "عنوان طلب التقديم"
-
-msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr "المحررون المعينون إلى طلب التقديم هذا؛ الذين يمكنهم اتخاذ قرار"
-
-msgid "emailTemplate.variable.site.siteContactName"
-msgstr "الاسم الكامل لجهة الاتصال الرئيسية في الموقع"
-
-msgid "emailTemplate.variable.sender.signature"
-msgstr "توقيع البريد الالكتروني للمرسل"
-
-msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "عنوان البريد الالكتروني للمرسل"
-
-msgid "emailTemplate.variable.sender.senderName"
-msgstr "الاسم الكامل للمرسل"
-
-msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "رابط مهمة التحكيم"
-
-msgid "emailTemplate.variable.recipient.username"
-msgstr "اسم المستخدم للمتلقي أو كل المتلقين"
-
-msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "الاسم الكامل للمتلقي أو كل المتلقين"
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr "أسماء مؤلفي طلب التقديم وجهات انتمائهم."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "رابط الصفحة التي يمكن للمستخدم فيها استعادة كلمة المرور المفقودة"
 
-msgid "mailable.validateEmailSite.description"
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "اسم القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "وصف القرار الذي تم اتخاذه."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
+
+msgid "emailTemplate.variable.decision.round"
 msgstr ""
-"هذا البريد الالكتروني يُرسل تلقائيًا إلى المستخدم الجديد عند تسجيله في الموقع "
-"في حالة كون الإعدادات تتطلب التحقق من البريد الالكتروني."
+"جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
+"تحكيم."
 
-msgid "mailable.validateEmailSite.name"
-msgstr "التحقق من البريد الالكتروني (الموقع)"
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "موضوع المناقشة"
 
-msgid "mailable.reviewerUnassign.description"
-msgstr "هذا البريد الالكتروني يُرسل عندما يلغي المحرر تعيين المحكم."
+msgid "emailTemplate.variable.discussion.content"
+msgstr "محتوى المناقشة أو الرد الجديدين"
 
-msgid "mailable.reviewerUnassign.name"
-msgstr "محكم تم إلغاء تعيينه"
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "قائمة بطلبات التقديم التي لها مهام معلقة"
 
-msgid "mailable.reviewerReinstate.description"
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "عدد طلبات التقديم المعينة لهذا المحرر"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "الاسم الكامل للمتلقي أو كل المتلقين"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "اسم المستخدم للمتلقي أو كل المتلقين"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "التاريخ الذي على المحكم فيه قبول المهمة أو رفضها"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "التاريخ الذي ينبغي فيه إكمال التحكيم"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "رابط مهمة التحكيم"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "القرار الموصى به، مثل قبول طلب التقديم"
+
+msgid "emailTemplate.variable.review.assignedDate"
 msgstr ""
-"هذا البريد الالكتروني يُرسل عندما يُعيد المحرر المحكم الذي سبق وأن تم إلغاء "
-"تعيينه."
 
-msgid "mailable.reviewerReinstate.name"
-msgstr "محكم تمت إعادته"
-
-msgid "mailable.discussionMessage.description"
+msgid "emailTemplate.variable.review.method"
 msgstr ""
-"هذا البريد الالكتروني يُرسل تلقائيًا إلى المشاركين في المناقشة عندما تُضاف "
-"رسالة جديدة إليها."
 
-msgid "mailable.discussionMessage.name"
-msgstr "رسالة جديدة من المناقشة"
-
-msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr "عنوان البريد الالكتروني لجهة الاتصال الرئيسية في الموقع"
-
-msgid "mailable.reviewResponseOverdueAuto.description"
+msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
-"هذه الرسالة يرسلها النظام آلياً عند تجاوز موعد الاستجابة لالتماس التحكيم."
 
-msgid "mailable.reviewRequest.description"
+msgid "emailTemplate.variable.review.round"
 msgstr ""
-"هذه الرسالة يرسلها محرر القسم إلى أحد المحكمين ليلتمس منه قبول مهمة التحكيم "
-"أو رفضها. "
 
-msgid "mailable.reviewRequestSubsequent.description"
+msgid "emailTemplate.variable.review.files"
 msgstr ""
-"هذه الرسالة يعنونها المحرر إلى المحكم ليلتمس منه قبول أو رفض مهمة تحكيم "
-"المؤلَّف لجولة أخرى. الرسالة تعطي معلومات عن طلب التقديم، مثل العنوان والملخص "
-"وتاريخ استيجاب التحكيم مع كيفية الوصول إليه."
 
-msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "تم تسليم العناصر بنجاح لغرض الإيداع"
-
-msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "تم تعيين معرفات مكونات رقمية جديدة للعناصر بنجاح"
-
-msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "تم تأشير العناصر بأنها مسجلة"
-
-msgid "manager.dois.notification.exportSuccess"
-msgstr "تم تصدير العناصر بنجاح"
-
-msgid "manager.dois.update.partialFailure"
-msgstr "بعض معرفات المكونات الرقمية DOIs فشل تحديثها"
-
-msgid "manager.dois.status.stale"
-msgstr "عتيقة"
-
-msgid "manager.dois.status.error"
-msgstr "خطأ"
-
-msgid "manager.dois.status.registered"
-msgstr "مسجلة"
-
-msgid "manager.dois.status.submitted"
-msgstr "مسلمة"
-
-msgid "manager.dois.status.unregistered"
-msgstr "غير مسجلة"
-
-msgid "manager.dois.registration.depositDois"
-msgstr "إيداع معرفات المكونات الرقمية"
-
-msgid "manger.dois.update.success"
-msgstr "تم تحديث معرفات المكونات الرقمية بنجاح"
-
-msgid "manager.dois.registration.viewRecord.title"
-msgstr "رسالة التسجيل الموفق"
-
-msgid "manager.dois.registration.viewRecord"
-msgstr "معاينة السجل"
-
-msgid "manager.dois.registration.viewError.title"
-msgstr "رسالة خطأ التسجيل"
-
-msgid "manager.dois.registration.viewError"
-msgstr "معاينة الخطأ"
-
-msgid "manager.dois.registration.notPublishedDescription"
-msgstr "لا يمكن إيداع هذا العنصر حتى يتم نشره."
-
-msgid "manager.dois.registration.notSubmittedDescription"
-msgstr "البيانات الوصفية لهذا لعنصر لم يتم تسليمها إلى {$registrationAgency}."
-
-msgid "manager.dois.registration.submittedDescription"
-msgstr "البيانات الوصفية لهذا لعنصر قد تم تسليمها إلى {$registrationAgency}."
-
-msgid "manager.dois.publicationStatus"
-msgstr "حالة النشر"
-
-msgid "manager.dois.depositStatus"
-msgstr "حالة الإيداع"
-
-msgid "manager.dois.actions.depositAll.label"
-msgstr "إيداع كل معرفات المكونات الرقمية"
-
-msgid "manager.dois.actions.assign.label"
-msgstr "تعيين معرفات المكونات الرقمية"
-
-msgid "manager.dois.actions.export.prompt"
+msgid "emailTemplate.variable.review.name"
 msgstr ""
-"أنت بصدد تصدير سجلات البيانات الوصفية لمعرفات المكونات الرقمية لـ {$count} "
-"من العناصر إلى {$registrationAgency}. هل أنت متأكد من رغبتك في تصدير هذه "
-"السجلات؟"
 
-msgid "manager.dois.actions.export.label"
-msgstr "تصدير معرفات المكونات الرقمية"
-
-msgid "manager.dois.actions.markRegistered.prompt"
-msgstr ""
-"أنت بصدد تأشير سجلات البيانات الوصفية لـ {$count} من العناصر بأنها مسجلة. هل "
-"أنت متأكد من رغبتك في تأشير تلك السجلات بأنها مسجلة؟"
-
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "تأشير معرفات المكونات الرقمية على أنها مسجلة"
-
-msgid "manager.dois.actions.deposit.prompt"
-msgstr ""
-"أنت بصدد إرسال سجلات البيانات الوصفية لـ {$count} من العناصر إلى "
-"{$registrationAgency}. هل أنت متأكد من رغبتك في إيداع هذه السجلات؟"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "إيداع معرفات المكونات الرقمية"
-
-msgid "manager.dois.actions.deposit.all"
-msgstr "إيداع الكل"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "الافتراضي - يقوم تلقائًا بتوليد بادئة من ثمانية أحرف فريدة"
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"لاحقة معرف المكون الرقمي يمكن أن تتخذ أي صيغة، ولكنها ينبغي أن تكون فريدة "
-"بين كل مكونات النشر التي عُينت لها نفس بادئة معرف المكون الرقمي:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "لاحقة معرف المكون الرقمي"
-
-msgid "doi.manager.settings.enableFor"
-msgstr "{$objects} سيعين لها معرف مكون رقمي"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "العناصر التي لها معرفات المكونات الرقمية"
-
-msgid "manager.setup.doiPrefix"
-msgstr "بادئة معرف المكون الرقمي"
-
-msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "أبدًا"
-
-msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "قبيل النشر"
-
-msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "متى ينبغي تعيين معرف المكون الرقمي لطلب التقديم؟"
-
-msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "التعيين التلقائي لمعرف المكون الرقمي"
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
-"بادئة معرف المكون الرقمي مطلوبة وينبغي أن تكون بالصيغة الآتية: 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"هذا يتم تعيينه من قبل وكالة تسجيل معرفات المكونات الرقمية، مثل <a href="
-"\"https://www.crossref.org\" target=\"_new\">Crossref</a> أو <a href="
-"\"https://datacite.org/\" target=\"new\">DataCite</a>. مثال: 10.xxxx"
-
-msgid "doi.manager.setup.automaticDeposit.description"
-msgstr ""
-"يمكن إيداع تسجيل معرفات المكونات الرقمية والبيانات الوصفية تلقائياً لدى وكالة "
-"التسجيل المحددة كلما تم نشر عنصر ذي معرف مكون رقمي. الإيداع القائي سيحدث في "
-"فترات مجدولة يمكن مراقبة حالة التسجيل لأي معرف مكون رقمي من خلال صفحة إدارة "
-"معرفات المكونات الرقمية."
-
-msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "تمكين الإيداع التلقائي"
-
-msgid "doi.manager.setup.automaticDeposit"
-msgstr "الإيداع التلقائي"
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "بادئة معرف المكون الرقمي"
-
-msgid "manager.setup.enableDois.enable"
-msgstr "تمكين معرفات المكونات الرقمية"
-
-msgid "manager.setup.dois.registration"
-msgstr "التسجيل"
-
-msgid "manager.setup.dois.setup"
-msgstr "التنصيب"
-
-msgid "manager.setup.dois"
-msgstr "معرفات المكونات الرقمية"
-
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"الرسالة الآتية عادت من قبل {$registrationAgency} وهي تتضمن تفاصيل عملية "
-"التسجيل:"
-
-msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr "الخطأ الآتي عاد من قبل {$registrationAgency} وهو يتضمن تفاصيل مسبباته:"
-
-msgid "manager.dois.title"
-msgstr "معرفات المكونات الرقمية"
-
-msgid "manager.dois.status.needsDoi"
-msgstr "تتطلب معرف المكون الرقمي"
-
-msgid "manager.dois.actions.depositAll.prompt"
-msgstr ""
-"أنت بصدد جدولة كل سجلات البيانات الوصفية لمعرفات المكونات الرقمية المهمة "
-"لإيداعها في {$registrationAgency}. سيقتصر الإيداع على العناصر المنشورة التي "
-"تمتلك معرفات المكونات الرقمية. سيتم تحديث حالة كل عنصر عند تلقي الرد. هل أنت "
-"متأكد من رغبتك في جدولة إيداع كل تلك العناصر؟"
-
-msgid "manager.dois.actions.assign.prompt"
-msgstr ""
-"أنت بصدد تعيين معرفات مكونات رقمية جديدة إلى {$count} من العناصر المؤهلة "
-"للحصول على تلك المعرفات. هل أنت متأكد من رغبتك في تعيين معرفات المكونات "
-"الرقمية لتلك العناصر؟"
-
-msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
-"هذه المجلة تعتمد التحكيم المناظر \"السري تحكيمًا\". سيكون اسمك وأسماء "
-"المؤلفين المشاركين معك ظاهرة للمحكمين؛ مع ذلك، ستبقى هويات المحكمين مخفية."
+msgid "emailTemplate.variable.reviewType"
+msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
@@ -2467,215 +2861,10 @@ msgstr ""
 "من شأنها التعريف بك أو زملائك من مؤلفي العمل. بشكل مشابه، لن تعرف من قام "
 "بتحكيم طلب تقديمك ولن تتلقى أي رسائل من المحكمين بشكل مباشر."
 
-msgid "emailTemplate.variable.reviewType"
-msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
-
-msgid "emailTemplate.variable.recommendation"
-msgstr "القرار الموصى به، مثل قبول طلب التقديم"
-
-msgid "emailTemplate.variable.decision.round"
+msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
-"جولة التحكيم التي تم اتخاذ هذا القرار عندها، إن كان القرار متعلقًا بجولة "
-"تحكيم."
-
-msgid "emailTemplate.variable.decision.stage"
-msgstr "مرحلة سير أعمال التحرير التي تم اتخاذ القرار عندها."
-
-msgid "emailTemplate.variable.decision.description"
-msgstr "وصف القرار الذي تم اتخاذه."
-
-msgid "emailTemplate.variable.decision.name"
-msgstr "اسم القرار الذي تم اتخاذه."
-
-msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "عنوان الرابط لمعاينة كل طلبات التقديم المعينة إلى المستخدم."
-
-msgid "emailTemplate.variable.allReviewersComments"
-msgstr ""
-"كل التعليقات من التحكيمات المكتملة. أسماء المحكمين مخفية في التحكيمات غير "
-"المشخصنة"
-
-msgid "manager.setup.notifyAllAuthors.assignedAuthors"
-msgstr ""
-"أرسل البريد الالكتروني فقط إلى المؤلفين المعينين إلى سير أعمال طلب التقديم. "
-"عادة ما يكون هو المؤلف الذي قدم الطلب."
-
-msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "إرسال إشعار البريد الالكتروني إلى كل مؤلفي طلب التقديم."
-
-msgid "manager.setup.notifyAllAuthors.description"
-msgstr "من ينبغي أن يتلقى إشعار البريد الالكتروني عند تسجيل قرار هيئة التحرير؟"
-
-msgid "manager.setup.notifyAllAuthors"
-msgstr "إشعار كل المؤلفين"
-
-msgid "doi.manager.settings.registrationAgency.none"
-msgstr "لا أحد"
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
-msgstr ""
-"معرفات المكونات الرقمية يمكن صياغتها وإيداعها تلقائيًا لدى وكالة تسجيل. "
-"لاستعمال هذه الميزة، حدد إضافة من وكالة التسجيل المناسبة وقم بتنصيبها."
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "لم يتم تمكين أي وكالة تسجيل"
-
-msgid "doi.manager.settings.registrationAgency.description"
-msgstr ""
-"يرجى اختيار وكالة التسجيل التي ترغب باستعمالها عند إيداع معرفات المكونات "
-"الرقمية."
-
-msgid "doi.manager.settings.registrationAgency"
-msgstr "وكالة التسجيل"
-
-msgid "doi.manager.settings.doiSuffixLegacyUser"
-msgstr "نمط مخصص، معرف سابقًا من قبل المستخدم. لم يعد مستعملاً."
-
-msgid "mailable.decision.recommendation.notifyEditors.description"
-msgstr ""
-"هذه الرسالة تُبلغ المحرر الأقدم أو محرر القسم بوجود توصية تتعلق بأحد طلبات "
-"التقديم الخاصة بعمله. تُستعمل هذه الرسالة فقط عندما تقتصر صلاحية المحرر على "
-"إعطاء التوصية ويتطلب أمر تسجيل قرارات هيئة التحرير صلاحيات محرر مفوض. يمكن "
-"تحديد هذا الخيار عند تعيين المساهمين إلى طلب التقديم."
-
-msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "التوصية معطاة"
-
-msgid "mailable.decision.skipReview.notifyAuthor.description"
-msgstr ""
-"هذا البريد الالكتروني يبلغ المؤلف بأن طلب تقديمه يتم إرساله مباشرة إلى مرحلة "
-"التدقيق ولن يخضع إلى التحكيم المناظر."
-
-msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "التحكيم متخطى"
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
-msgstr ""
-"وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
-"المحكمين يتعلق بهذا القرار."
-
-msgid "mailable.decision.notifyReviewer.description"
-msgstr ""
-"هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
-"تقديم قام بتحكيمه."
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr "مُرسل إلى الإنتاج"
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة التحكيم."
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr "مُرسل إلى التحكيم"
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
-msgstr ""
-"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه بدون "
-"إجراء التحكيم المناظر."
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "إرجاع طلب تقديم مرفوض بدون تحكيم"
-
-msgid "mailable.decision.revertDecline.notifyAuthor.description"
-msgstr ""
-"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه جراء "
-"التحكيم المناظر."
-
-msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "إرجاع طلب تقديم مرفوض"
-
-msgid "mailable.decision.resubmit.notifyAuthor.description"
-msgstr ""
-"هذا البريد الالكتروني يُبلغ المؤلف بقرار \"التنقيح ثم إعادة التقديم\" بشأن "
-"طلب تقديمه."
-
-msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr "إعادة التقديم للتحكيم"
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.description"
-msgstr ""
-"هذا البريد الالكتروني يُبلغ المؤلف بقرار المطالبة بتنقيحات خلال التحكيم "
-"المناظر."
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "التنقيحات تمت المطالبة بها"
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف ببدء جولة تحكيم جديدة لطلب تقديمه."
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr "جولة تحكيم جديدة تم الشروع بها"
-
-msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "طلب التقديم مرفوض (قبل التحكيم)"
-
-msgid "mailable.decision.decline.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف برفض طلب تقديمه بعد التحكيم المناظر."
-
-msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr "طلب التقديم مرفوض"
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التقديم."
-
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التحكيم."
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "طلب التقديم أُعيد إلى التقديم"
-
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "طلب التقديم أُعيد إلى التحكيم"
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التدقيق."
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "طلب التقديم أُعيد إلى التدقيق"
-
-msgid "mailable.decision.accept.notifyAuthor.description"
-msgstr "هذا البريد الالكتروني يُبلغ المؤلف بقبول طلب تقديمه للنشر."
-
-msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "طلب التقديم مقبول"
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
-"قمنا بدعوة المؤلفين إلى تقديم نسخة منقحة للإخضاعها إلى المزيد من التحكيم."
-
-msgid ""
-"mailable.decision.notifyReviewer.variable.decisionDescription."
-"pendingRevisions"
-msgstr "قمنا بدعوة المؤلفين إلى تقديم التنقيحات."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr "لقد اخترنا رفض طلب التقديم هذا."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "لقد اخترنا قبول طلب التقديم هذا بدون تنقيحات."
-
-msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr "نسخة من رسالة البريد الالكتروني التي أُرسلت إلى المؤلف الذي قدم الطلب"
-
-msgid "mailable.decision.notifyOtherAuthors.description"
-msgstr ""
-"هذا البريد الالكتروني يُرسل لإشعار مؤلفي طلب التقديم الذين لم يتم تعيينهم "
-"كمساهمين، إشعارهم باتخاذ القرار. عادة ما يكون هؤلاء هم كل المؤلفين ما عدا "
-"المؤلف الذي قدم الطلب."
-
-msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr "إشعار المؤلفين الآخرين"
-
-msgid "emailTemplate.variable.submission.submittingAuthorName"
-msgstr ""
-"أسماء المؤلفين المعينين إلى سير أعمال طلب التقديم. عادة ما يكون هو المؤلف "
-"الذي قدم الطلب"
-
-msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "عنوان رابط المؤلف المؤدي إلى طلب التقديم"
+"هذه المجلة تعتمد التحكيم المناظر \"السري تحكيمًا\". سيكون اسمك وأسماء "
+"المؤلفين المشاركين معك ظاهرة للمحكمين؛ مع ذلك، ستبقى هويات المحكمين مخفية."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
@@ -2683,228 +2872,82 @@ msgstr ""
 "الحال بالنسبة إلى زملائك المشاركين في التأليف. بشكل مشابه، سترى أسماء "
 "المحكمين وانتماءاتهم."
 
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد تسليم "
-"التحكيم."
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "الاسم الكامل للمرسل"
 
-msgid "mailable.reviewRemindAuto.name"
-msgstr "تذكير التحكيم (مؤتمت)"
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "عنوان البريد الالكتروني للمرسل"
 
-#, fuzzy
-msgid "emails.reviewRemind.body"
-msgstr ""
-"هذا البريد الالكتروني يُرسل من قبل المحرر لتذكير المحكم باستيجاب موعد تسليم "
-"التحكيم"
+msgid "emailTemplate.variable.sender.signature"
+msgstr "توقيع البريد الالكتروني للمرسل"
 
-msgid "mailable.reviewRemind.name"
-msgstr "تذكير التحكيم"
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "الاسم الكامل لجهة الاتصال الرئيسية في الموقع"
 
-msgid "mailable.reviewDecline.description"
-msgstr "هذا البريد الالكتروني يُرسل من قبل المحكم عند رفضه لالتماس التحكيم"
-
-msgid "mailable.reviewDecline.name"
-msgstr "رفض التحكيم"
-
-msgid "mailable.reviewConfirm.description"
-msgstr "هذا البريد الالكتروني يُرسل تلقائيًا عند قبول المحكم بالتماس التحكيم"
-
-msgid "mailable.reviewConfirm.name"
-msgstr "تأكيد التحكيم"
-
-msgid "emailTemplate.variable.passwordResetUrl"
-msgstr "الرابط المشفر المرسل إلى المستخدم لتأكيد إعادة تعيين كلمة المرور"
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "عنوان البريد الالكتروني لجهة الاتصال الرئيسية في الموقع"
 
 msgid "emailTemplate.variable.site.siteSignature"
 msgstr "توقيع رسائل البريد الالكتروني المؤتمتة في الموقع"
 
-msgid "manager.genres.alertDelete"
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "المحررون المعينون إلى طلب التقديم هذا؛ الذين يمكنهم اتخاذ قرار"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "عنوان طلب التقديم"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "رقم المُعرَّف الفريد لطلب التقديم"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "ملخص طلب التقديم"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "أسماء المؤلفين بصيغة جملة مختصرة"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "الأسماء الكاملة للمؤلفين"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "عنوان رابط المؤلف المؤدي إلى طلب التقديم"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "الرابط المؤدي إلى طلب التقديم من وجهة هيئة التحرير"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr "عنوان رابط طلب التقديم المنشور"
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr "عنوان رابط طلب التقديم في برنامج طلبات التقديم"
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
-"قبل أن يتسنى حذف هذا المكون، عليك ربط كل ملفات طلب التقديم ذات الصلة بمكون "
-"آخر."
+"أسماء المؤلفين المعينين إلى سير أعمال طلب التقديم. عادة ما يكون هو المؤلف "
+"الذي قدم الطلب"
 
-msgid "stats.name.submissionsSkipped"
-msgstr "طلبات التقديم الأخرى"
-
-msgid "stats.description.submissionsSkipped"
-msgstr ""
-"هذا يشمل طلبات التقديم التي لا تحتسب في الإجماليات الأخرى، كالتي لا تزال في "
-"مراحل التقدم أو تلك التي تبدو مستوردة."
-
-msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "المكون الفرعي لطلب التقديم {$child} تعذرت معالجته"
-
-msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "النشر الحالي لطلب التقديم مفقود"
-
-msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "النمط المخصص - (غير موصى به)"
-
-msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "النمط المخصص للاحقة معرف المكون الرقمي"
-
-msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "لاحقة معرف المكون الرقمي"
-
-msgid "doi.manager.settings.doiPrefix.required"
-msgstr "بادئة معرف المكون الرقمي مطلوبة حتمًا"
-
-msgid "mailable.reviewRequestSubsequent.name"
-msgstr "متابعة إلتماس التحكيم"
-
-msgid "mailable.reviewRequest.name"
-msgstr "إلتماس التحكيم"
-
-msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr "تجاوز موعد تسليم التحكيم (مؤتمت)"
-
-msgid "mailable.reviewAcknowledgement.description"
-msgstr ""
-"هذا البريد الالكتروني يُرسل من قبل المحرر إلى المحكم لتأكيد استلامه للتحكيم "
-"شاكرًا له مساهمته."
-
-msgid "mailable.reviewAcknowledgement.name"
-msgstr "إقرار التحكيم"
-
-msgid "doi.authorization.enabledRequired"
-msgstr "لا يمكنك استدعاء هذه العملية بدون تمكين معرفات المكونات الرقمية."
-
-msgid "manager.dois.update.failedCreation"
-msgstr "فشلت تحديثات معرفات المكونات الرقمية"
-
-msgid "mailable.editorialReminder.description"
-msgstr "رسالة بريد الكتروني مؤتمتة مرسلة إلى المحررين بالمهام المعلقة"
-
-msgid "mailable.editorialReminder.name"
-msgstr "تذكير هيئة التحرير"
-
-msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "عدد طلبات التقديم المعينة لهذا المحرر"
-
-msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "قائمة بطلبات التقديم التي لها مهام معلقة"
-
-msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "عنوان الرابط الذي يمكن للمستخدم عبره معاينة ملفه الشخصي وتعديله."
-
-msgid "mailable.passwordResetRequested.description"
-msgstr ""
-"هذه الرسالة معنونة إلى المستخدمين المسجلين الذي أبلغوا عن فقدانهم لكلمات "
-"مرورهم إلى الموقع، أو الذين تعذر عليهم الولوج لأي سبب آخر. سيحصل هؤلاء على "
-"رابط يمكنهم عند النقر عليه إعادة تعيين كلمات مرورهم."
-
-msgid "mailable.userRegister.description"
-msgstr ""
-"هذه الرسالة معنونة إلى المستخدمين المسجلين حديثاً عندما يقوم مدير التحرير "
-"بإنشاء حساباتهم عبر نافذة إعدادات المستخدمين. ينبغي لهذه الرسالة أن ترحب بهم "
-"في النظام وتزودهم باسم الدخول وكلمة المرور الخاصين بالموقع."
-
-msgid "mailable.reviewerRegister.description"
-msgstr ""
-"هذه الرسالة معنونة إلى المحكمين المسجلين حديثاً للترحيب بهم في موقعنا "
-"ولتزويدهم بأسماء الدخول وكلمات المرور الخاصين بهم."
-
-msgid "mailable.submissionAck.description"
-msgstr ""
-"هذه الرسالة يتم إرسالها تلقائياً إلى المؤلف بمجرد تقديمه إلى المجلة. هي تتضمن "
-"معلومات عن كيفية متابعة طلبه خلال عملية التحرير، وتشكره على تقديم طلبه."
-
-msgid "mailable.submissionAckNotAuthor.description"
-msgstr ""
-"هذه الرسالة يتم إرسالها تلقائياً إلى المؤلفين الآخرين المذكورين في طلب "
-"التقديم من غير المؤلف الذي قام بتسجيل الطلب بنفسه."
-
-msgid "mailable.revisedVersionNotify.description"
-msgstr ""
-"هذه الرسالة تُرسل تلقائياً إلى المحرر المعني عندما يقوم المؤلف برفع نسخة منقحة "
-"من مؤلَّفه إلى الموقعe."
-
-msgid "mailable.announcementNotify.description"
-msgstr "هذه الرسالة تُرسل إلى المشتركين في الموقع عند إنشاء إعلان جديد."
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr "الرابط المشفر المرسل إلى المستخدم لتأكيد إعادة تعيين كلمة المرور"
 
 msgid "emailTemplate.variable.password"
 msgstr "كلمة مرور جديدة عشوائية للمستخدم"
 
-msgid "emailTemplate.variable.submitterName"
-msgstr "الاسم الكامل للمستخدم الذي قام برفع ملف طلب التقديم"
-
-msgid "manager.settings.statistics.geoUsageStats"
-msgstr "الإحصائيات الجغرافية"
-
-msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "لا تجمع أي بيانات جغرافية"
-
-msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "تقفى بلد الزائر"
-
-msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "تقفى بلد الزائر ومنطقته"
-
-msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "تقفى بلد الزائر ومنطقته ومدينته"
-
-msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "الإحصائيات المؤسساتية"
-
-msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "تمكين الإحصائيات المؤسساتية"
-
-msgid "manager.institutions.edit"
-msgstr "تعديل المؤسسة"
-
-msgid "manager.institutions.form.ipRanges"
-msgstr "نطاقات IP"
-
-msgid "manager.institutions.deleteInstitution"
-msgstr "حذف المؤسسة"
-
-msgid "manager.setup.statistics"
-msgstr "الإحصائيات"
-
-msgid "manager.setup.institutions"
-msgstr "المؤسسات"
-
-msgid "manager.settings.statistics.publicSushiApi"
-msgstr "واجهة برمجة التطبيق العمومية"
-
-msgid "emailTemplate.variable.announcementUrl"
-msgstr "عنوان رابط الإعلان"
-
-msgid "manager.dois.actions.markUnregistered.label"
-msgstr "تعليم معرفات المكونات الرقمية على أنها غير مسجلة"
-
-msgid "manager.dois.actions.markUnregistered.prompt"
-msgstr ""
-"أنت على وشك تأشير سجلات البيانات الوصفية الخاصة بمعرفات المكونات الرقمية لـ "
-"{$count} من العناصر على أنها غير مسجلة. هل أنت متأكد من رغبتك في تأشير تلك "
-"السجلات بأنها غير مسجلة؟"
-
-msgid "manager.dois.actions.markStale.label"
-msgstr "تأشير معرفات المكونات الرقمية على أنها قديمة"
-
-msgid "manager.dois.actions.description"
-msgstr "إتخذ إجراءً لـ {$count} من العناصر المحددة."
-
-msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr "تم تأشير العناصر على أنها غير مسجلة بنجاح"
-
-msgid "manager.dois.notification.markStaleSuccess"
-msgstr "تم تأشير العناصر على أنها قديمة بنجاح"
-
-msgid "manager.institutions.confirmDelete"
-msgstr "هل أنت متأكد من رغبتك في المتابعة وحذف هذه المؤسسة؟"
-
-msgid "manager.institutions.invalidIPRange"
-msgstr "نطاق IP غير صالح"
+msgid "mailable.reviewerReinstate.name"
+msgstr "محكم تمت إعادته"
 
 msgid "mailable.reviewerResendRequest.name"
 msgstr "إعادة إرسال إلتماس التحكيم للمحكم"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "الاسم الكامل للمستخدم الذي قام برفع ملف طلب التقديم"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "عنوان الإعلان"
 
 msgid "emailTemplate.variable.announcementSummary"
 msgstr "وصف موجز للإعلان"
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr "عنوان رابط الإعلان"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "عدد طلبات التقديم المستلمة هذا الشهر"
@@ -2915,29 +2958,23 @@ msgstr "عدد طلبات التقديم المرفوضة"
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "عدد طلبات التقديم المقبولة"
 
-msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr "جعل إحصائيات COUNTER SUSHI متاحة بشكل عمومي"
-
-msgid "stats.unique"
-msgstr "فريد"
-
-msgid "stats.unknown"
-msgstr "مجهول"
-
-msgid "emailTemplate.variable.discussion.subject"
-msgstr "موضوع المناقشة"
-
-msgid "emailTemplate.variable.discussion.content"
-msgstr "محتوى المناقشة أو الرد الجديدين"
-
-msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr "الشهر في التقرير"
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr "عدد طلبات التقديم غير المضمنة في الإجماليات الأخرى"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "إجمالي عدد طلبات التقديم المستلمة"
 
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "الشهر في التقرير"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "سنة التقرير"
+
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "مُعرَّف العدد، متضمنًا المجلد، العدد، السنة، والعنوان"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "السنة في التقرير"
@@ -2945,144 +2982,88 @@ msgstr "السنة في التقرير"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "الرابط إلى صفحة نشاطات التحرير"
 
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل عندما يُعيد المحرر المحكم الذي سبق وأن تم إلغاء "
+"تعيينه."
+
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
 "هذا البريد الالكتروني يرسله المحرر إلى المحكم الذي رفض إلتماس التحكيم عندما "
 "يرغب المحرر بإعادة إرسال الالتماس."
 
-msgid "mailable.passwordResetRequested.name"
-msgstr "تأكيد إعادة تعيين كلمة المرور"
+msgid "mailable.reviewerUnassign.name"
+msgstr "محكم تم إلغاء تعيينه"
 
-msgid "mailable.userRegister.name"
-msgstr "تسجيل المستخدم"
+msgid "mailable.reviewerUnassign.description"
+msgstr "هذا البريد الالكتروني يُرسل عندما يلغي المحرر تعيين المحكم."
 
-msgid "mailable.submissionAck.name"
-msgstr "إقرار طلب التقديم"
+msgid "mailable.validateEmailSite.name"
+msgstr "التحقق من البريد الالكتروني (الموقع)"
 
-msgid "mailable.submissionAckNotUser.name"
-msgstr "تأكيد طلب التقديم"
-
-msgid "mailable.discussionSubmission.name"
-msgstr "تقديم المناقشة"
-
-msgid "mailable.discussionSubmission.description"
+msgid "mailable.validateEmailSite.description"
 msgstr ""
-"رسالة البريد الالكتروني هذه تُرسل في مرحلة التقديم لإشعار المستخدم بشأنه."
+"هذا البريد الالكتروني يُرسل تلقائيًا إلى المستخدم الجديد عند تسجيله في الموقع "
+"في حالة كون الإعدادات تتطلب التحقق من البريد الالكتروني."
 
-msgid "mailable.discussionCopyediting.description"
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "إشعار المؤلفين الآخرين"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
-"رسالة البريد الالكتروني هذه تُرسل في مرحلة التدقيق اللغوي لإشعار المستخدم "
-"بشأن طلب تقديمه."
+"هذا البريد الالكتروني يُرسل لإشعار مؤلفي طلب التقديم الذين لم يتم تعيينهم "
+"كمساهمين، إشعارهم باتخاذ القرار. عادة ما يكون هؤلاء هم كل المؤلفين ما عدا "
+"المؤلف الذي قدم الطلب."
 
-msgid "mailable.discussionProduction.description"
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "نسخة من رسالة البريد الالكتروني التي أُرسلت إلى المؤلف الذي قدم الطلب"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "إشعار المحكمين بالقرار"
+
+msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
-"رسالة البريد الالكتروني هذه تُرسل في مرحلة الإنتاج لإشعار المستخدم بشأن طلب "
-"تقديمه."
+"هذا البريد الالكتروني يرسله المحرر إلى المحكم لإبلاغه باتخاذ القرار بشأن طلب "
+"تقديم قام بتحكيمه."
 
-msgid "mailable.discussionReview.description"
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
-"رسالة البريد الالكتروني هذه تُرسل في مرحلة التحكيم لإشعار المستخدم بشأن طلب "
-"تقديمه."
+"وصف موجز للقرار الذي من المزمع مشاركته عبر إشعار بريد الكتروني يُرسل إلى "
+"المحكمين يتعلق بهذا القرار."
 
-msgid "mailable.discussionCopyediting.name"
-msgstr "مناقشة التدقيق اللغوي"
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "لقد اخترنا قبول طلب التقديم هذا بدون تنقيحات."
 
-msgid "mailable.publicationVersionNotify.name"
-msgstr "إشعار نسخة النشر"
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "لقد اخترنا رفض طلب التقديم هذا."
 
-msgid "mailable.editReviewNotify.name"
-msgstr "إشعار تعديل التحكيم"
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "قمنا بدعوة المؤلفين إلى تقديم التنقيحات."
 
-msgid "mailable.statisticsReportNotify.name"
-msgstr "إشعار التقرير الإحصائي"
-
-msgid "mailable.publicationVersionNotify.description"
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
-"رسالة البريد الالكتروني هذه تُبلغ المحررين المعينين آليًا بشأن وجود نسخ جديدة "
-"من المنشور"
-
-msgid "mailable.editReviewNotify.description"
-msgstr ""
-"رسالة البريد الالكتروني هذه تُبلغ المحكم آليًا بشأن تفاصيل تعديلات التحكيم."
-
-msgid "mailable.reviewCompleteNotifyEditors.description"
-msgstr ""
-"رسالة البريد الالكتروني هذه تُرسل تلقائيًا إلى المحررين المعينين عندما يُرسل "
-"المحكم توصياته"
-
-#, fuzzy
-msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr "إشعار المحررين بتعليق المحكم"
-
-msgid "mailable.discussionProduction.name"
-msgstr "مناقشة الإنتاج"
+"قمنا بدعوة المؤلفين إلى تقديم نسخة منقحة للإخضاعها إلى المزيد من التحكيم."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr "المحكم المدعو لتحكيم طلب التقديم تم إلغاء تعيينه."
 
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "طلب التقديم مقبول"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بقبول طلب تقديمه للنشر."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التدقيق"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التدقيق."
+
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
 msgstr "طلب التقديم تم إرجاعه من التدقيق اللغوي"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"إختر نوع إحصائيات الاستعمال الجغرافية الذي تريد جمعها. الإحصائيات الجغرافية "
-"الأكثر تفصيلاً قد تزيد حجم قاعدة بياناتك بشكل ملحوظ، وفي بعض الأحيان النادرة "
-"قد تنتهك خصوصية زوار موقعك."
-
-msgid "mailable.reviewerRegister.name"
-msgstr "تسجيل المحكم"
-
-msgid "manager.people.authSource"
-msgstr "مصدر المصادقة"
-
-msgid "manager.institutions.form.ror"
-msgstr "مسجل المنظمة البحثية"
-
-msgid "manager.institutions.form.ror.description"
-msgstr "الرمز التعريفي لمسجل المنظمة البحثية لهذه المؤسسة."
-
-msgid "manager.settings.statistics.institutionUsageStats.description"
-msgstr ""
-"تمكين الإحصائيات المؤسساتية إذا كنت ترغب بجمع إحصائيات الاستعمال حسب "
-"المؤسسات. عند تمكينه، سيتطلب الأمر تعريف مديات عناوين IP لكل مؤسسة ترغب "
-"بتقفيها."
-
-msgid "mailable.discussionReview.name"
-msgstr "مناقشة التحكيم"
-
-msgid "manager.dois.actions.markStale.prompt"
-msgstr ""
-"إنك بصدد جعل سجلات البيانات الوصفية لـ {$count} من معرفات المكونات الرقمية، "
-"جعلها قديمة. إن حالة المكون القديم يمكن تطبيقها فقط للمكونات التي سبق "
-"تسليمها. هل أنت متأكد من رغبتك في اعتبار تلك السجلات قديمة؟"
-
-msgid "manager.institutions.form.ipRangesInstructions"
-msgstr ""
-"العناوين الصحيحة تشمل: عنوان IP (مثل 142.58.103.1)، مدى عناوين IP (مثل "
-"142.58.103.1 - 142.58.103.4)، نطاق عناوين IP مع علامة البديل '*' (e.g. "
-"142.58.*.*)، ونطاق عناوين IP مع مؤشر الشبكة الفرعية (مثل 142.58.100.0/24)."
-
-msgid "mailable.revisedVersionNotify.name"
-msgstr "إشعار النسخة المنقحة"
-
-msgid "stats.publications.downloadReport.betweenDates"
-msgstr "{$startDate} إلى {$endDate}"
-
-msgid "stats.publications.downloadReport.allFilters"
-msgstr "الكل {$filter}"
-
-msgid "stats.publications.downloadReport.downloadFiles"
-msgstr "تنزيل الملفات"
-
-msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr "عدد التنزيلات لكل ملف."
-
-msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr "التنزيل الجغرافي"
-
-msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr "عدد المعاينات والتنزيلات لكل مدينة، منطقة وبلد."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
@@ -3097,91 +3078,178 @@ msgstr ""
 "رسالة البريد الالكتروني هذه تبلغ المؤلف بأن جولة تحكيم خاصة بطلب تقديمه قد "
 "أُلغيت."
 
-msgid "manager.settings.statistics.publicSushiApi.description"
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف برفض طلب تقديمه بعد التحكيم المناظر."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "طلب التقديم مرفوض (قبل التحكيم)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "جولة تحكيم جديدة تم الشروع بها"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف ببدء جولة تحكيم جديدة لطلب تقديمه."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "التنقيحات تمت المطالبة بها"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
-"فيما إذا كان ينبغي تقييد الوصول إلى النهايات الطرفية لواجهة برمجة التطبيق "
-"العائدة إلى COUNTER SUSHI. إذا لم يؤشر، ستكون واجهة برمجة التطبيق متاحة فقط "
-"للمستخدمين الذين يمتلكون دور المشرف أو المدير."
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار المطالبة بتنقيحات خلال التحكيم "
+"المناظر."
 
-msgid "stats.geographic.ccAttribution"
-msgstr "الموقع الجغرافي بواسطة <a href='https://db-ip.com'>DB-IP</a>"
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "إعادة التقديم للتحكيم"
 
-msgid "stats.geographic.tooltip.label"
-msgstr "حول الموقع الجغرافي"
-
-msgid "stats.downloadReport.betweenDates"
-msgstr "{$startDate} الى {$endDate}"
-
-msgid "stats.downloadReport.allFilters"
-msgstr "الكل{$filter}"
-
-msgid "stats.timeline"
-msgstr "مخطط الوقت"
-
-msgid "stats.timeline.downloadReport.description"
-msgstr "عدد ال {$type} لكل {$interval}."
-
-msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr "تحميل مخطط الوقت"
-
-msgid "stats.timelineInterval"
-msgstr "فترات مخطط الوقت"
-
-msgid "stats.timelineType"
-msgstr "نوع مخطط الوقت"
-
-msgid "stats.views"
-msgstr "المعاينات"
-
-msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr "معرف المكون الرقمي يحتوي على حروف غير صالحة."
-
-msgid "stats.downloads"
-msgstr "التنزيلات"
-
-msgid "stats.views.timelineInterval"
-msgstr "إجمالي المعاينات حسب التاريخ"
-
-msgid "stats.downloads.timelineInterval"
-msgstr "إجمالي التنزيلات حسب التاريخ"
-
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "قائمة فحص طلب التقديم"
-
-msgid "manager.setup.submissionPreparationChecklistDescription"
+msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين عندما يبدؤون بطلب التقديم إلى المجلة. يُطلب من "
-"المؤلفين التأكيد بأن طلباتهم تتوافق مع كل المتطلبات المبينة هنا قبل شروعهم "
-"بعملية التقديم."
+"هذا البريد الالكتروني يُبلغ المؤلف بقرار \"التنقيح ثم إعادة التقديم\" بشأن "
+"طلب تقديمه."
 
-msgid "stats.name.submissionsImported"
-msgstr "طلبات التقديم المستوردة"
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض"
 
-msgid "stats.name.submissionsInProgress"
-msgstr "طلبات التقديم الجارية"
-
-msgid "manager.setup.workflow.guidance"
-msgstr "إرشادات المؤلف"
-
-msgid "manager.sections.form.assignEditors"
-msgstr "مهام هيئة التحرير"
-
-msgid "manager.sections.form.assignEditors.description"
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
-"إختر المستخدمين من هيئة التحرير الذين ينبغي تعيينهم تلقائيًا إلى كل طلبات "
-"التقديم الجديدة في هذ القسم."
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه جراء "
+"التحكيم المناظر."
 
-msgid "manager.sections.form.assignEditorAs"
-msgstr "تعيين {$name} بدور {$role}"
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "إرجاع طلب تقديم مرفوض بدون تحكيم"
 
-msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr "عنوان رابط طلب التقديم في برنامج طلبات التقديم"
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يُبلغ المؤلف بعكس قرار سابق يقضي برفض طلب تقديمه بدون "
+"إجراء التحكيم المناظر."
 
-msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr "سنة التقرير"
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "مُرسل إلى التحكيم"
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "إشعار المحكمين بالقرار"
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "مُرسل إلى الإنتاج"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإرسال طلب تقديمه إلى مرحلة الإنتاج."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "التحكيم متخطى"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"هذا البريد الالكتروني يبلغ المؤلف بأن طلب تقديمه يتم إرساله مباشرة إلى مرحلة "
+"التدقيق ولن يخضع إلى التحكيم المناظر."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "التوصية معطاة"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"هذه الرسالة تُبلغ المحرر الأقدم أو محرر القسم بوجود توصية تتعلق بأحد طلبات "
+"التقديم الخاصة بعمله. تُستعمل هذه الرسالة فقط عندما تقتصر صلاحية المحرر على "
+"إعطاء التوصية ويتطلب أمر تسجيل قرارات هيئة التحرير صلاحيات محرر مفوض. يمكن "
+"تحديد هذا الخيار عند تعيين المساهمين إلى طلب التقديم."
+
+msgid "mailable.reviewConfirm.name"
+msgstr "تأكيد التحكيم"
+
+msgid "mailable.reviewConfirm.description"
+msgstr "هذا البريد الالكتروني يُرسل تلقائيًا عند قبول المحكم بالتماس التحكيم"
+
+msgid "mailable.reviewDecline.name"
+msgstr "رفض التحكيم"
+
+msgid "mailable.reviewDecline.description"
+msgstr "هذا البريد الالكتروني يُرسل من قبل المحكم عند رفضه لالتماس التحكيم"
+
+msgid "mailable.reviewRemind.name"
+msgstr "تذكير التحكيم"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "تذكير التحكيم (مؤتمت)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل تلقائيًا عندما لا يكمل المحكم مهمته عند موعد تسليم "
+"التحكيم."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "إقرار التحكيم"
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"هذا البريد الالكتروني يُرسل من قبل المحرر إلى المحكم لتأكيد استلامه للتحكيم "
+"شاكرًا له مساهمته."
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "تجاوز موعد تسليم التحكيم (مؤتمت)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"هذه الرسالة يرسلها النظام آلياً عند تجاوز موعد الاستجابة لالتماس التحكيم."
+
+msgid "mailable.reviewRequest.name"
+msgstr "إلتماس التحكيم"
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"هذه الرسالة يرسلها محرر القسم إلى أحد المحكمين ليلتمس منه قبول مهمة التحكيم "
+"أو رفضها. "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "متابعة إلتماس التحكيم"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"هذه الرسالة يعنونها المحرر إلى المحكم ليلتمس منه قبول أو رفض مهمة تحكيم "
+"المؤلَّف لجولة أخرى. الرسالة تعطي معلومات عن طلب التقديم، مثل العنوان والملخص "
+"وتاريخ استيجاب التحكيم مع كيفية الوصول إليه."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "النشر الحالي لطلب التقديم مفقود"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "المكون الفرعي لطلب التقديم {$child} تعذرت معالجته"
+
+msgid "mailable.editorialReminder.name"
+msgstr "تذكير هيئة التحرير"
+
+msgid "mailable.editorialReminder.description"
+msgstr "رسالة بريد الكتروني مؤتمتة مرسلة إلى المحررين بالمهام المعلقة"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "تأكيد إعادة تعيين كلمة المرور"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"هذه الرسالة معنونة إلى المستخدمين المسجلين الذي أبلغوا عن فقدانهم لكلمات "
+"مرورهم إلى الموقع، أو الذين تعذر عليهم الولوج لأي سبب آخر. سيحصل هؤلاء على "
+"رابط يمكنهم عند النقر عليه إعادة تعيين كلمات مرورهم."
+
+msgid "mailable.userRegister.name"
+msgstr "تسجيل المستخدم"
+
+msgid "mailable.userRegister.description"
+msgstr ""
+"هذه الرسالة معنونة إلى المستخدمين المسجلين حديثاً عندما يقوم مدير التحرير "
+"بإنشاء حساباتهم عبر نافذة إعدادات المستخدمين. ينبغي لهذه الرسالة أن ترحب بهم "
+"في النظام وتزودهم باسم الدخول وكلمة المرور الخاصين بالموقع."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "تسجيل المحكم"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"هذه الرسالة معنونة إلى المحكمين المسجلين حديثاً للترحيب بهم في موقعنا "
+"ولتزويدهم بأسماء الدخول وكلمات المرور الخاصين بهم."
 
 msgid "mailable.submissionSavedForLater.name"
 msgstr "تم حفظ طلب التقديم لما بعد"
@@ -3191,26 +3259,100 @@ msgstr ""
 "رسالة بريد الكتروني مؤتمتة مرسلة إلى المؤلفين عندما يقومون بحفظ طلبات "
 "تقديمهم لإكمالها لاحقًا"
 
+msgid "mailable.submissionAck.name"
+msgstr "إقرار طلب التقديم"
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"هذه الرسالة يتم إرسالها تلقائياً إلى المؤلف بمجرد تقديمه إلى المجلة. هي تتضمن "
+"معلومات عن كيفية متابعة طلبه خلال عملية التحرير، وتشكره على تقديم طلبه."
+
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "تأكيد طلب التقديم (المؤلفون الآخرون)"
 
-msgid "manager.mailables.search"
-msgstr "البحث حسب الاسم أو الوصف"
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"هذه الرسالة يتم إرسالها تلقائياً إلى المؤلفين الآخرين المذكورين في طلب "
+"التقديم من غير المؤلف الذي قام بتسجيل الطلب بنفسه."
 
-msgid "manager.forEditors"
-msgstr "للمحررين"
+msgid "mailable.discussionSubmission.name"
+msgstr "تقديم المناقشة"
 
-msgid "mailable.editorAssigned.name"
-msgstr "المحرر لم تعيينه"
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التقديم لإشعار المستخدم بشأنه."
 
-msgid "mailable.submissionAckOtherAuthors.name"
-msgstr "عرفان طلب التقديم للمؤلفين الآخرين"
+msgid "mailable.discussionReview.name"
+msgstr "مناقشة التحكيم"
 
-msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr "أسماء مؤلفي طلب التقديم وجهات انتمائهم."
+msgid "mailable.discussionReview.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التحكيم لإشعار المستخدم بشأن طلب "
+"تقديمه."
 
-msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr "عنوان رابط طلب التقديم المنشور"
+msgid "mailable.discussionCopyediting.name"
+msgstr "مناقشة التدقيق اللغوي"
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة التدقيق اللغوي لإشعار المستخدم "
+"بشأن طلب تقديمه."
+
+msgid "mailable.discussionProduction.name"
+msgstr "مناقشة الإنتاج"
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل في مرحلة الإنتاج لإشعار المستخدم بشأن طلب "
+"تقديمه."
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr "إشعار النسخة المنقحة"
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"هذه الرسالة تُرسل تلقائياً إلى المحرر المعني عندما يقوم المؤلف برفع نسخة منقحة "
+"من مؤلَّفه إلى الموقعe."
+
+msgid "mailable.announcementNotify.name"
+msgstr "إعلان جديد"
+
+msgid "mailable.announcementNotify.description"
+msgstr "هذه الرسالة تُرسل إلى المشتركين في الموقع عند إنشاء إعلان جديد."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr "إشعار التقرير الإحصائي"
+
+msgid "mailable.editReviewNotify.name"
+msgstr "إشعار تعديل التحكيم"
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُبلغ المحكم آليًا بشأن تفاصيل تعديلات التحكيم."
+
+#, fuzzy
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr "إشعار المحررين بتعليق المحكم"
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+"رسالة البريد الالكتروني هذه تُرسل تلقائيًا إلى المحررين المعينين عندما يُرسل "
+"المحكم توصياته"
+
+msgid "manager.people.authSource"
+msgstr "مصدر المصادقة"
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التحكيم"
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التحكيم."
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "طلب التقديم أُعيد إلى التقديم"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr "هذا البريد الالكتروني يُبلغ المؤلف بإعادة طلب تقديمه إلى مرحلة التقديم."
 
 msgid "manager.manageEmails"
 msgstr "إدارة الرسائل الالكترونية"
@@ -3220,31 +3362,11 @@ msgstr ""
 "<p><a href=\"{$url}\">إضافة القوالب وتحريرها</a> لكل رسائل البريد الالكتروني "
 "التي يرسلها النظام.</p>"
 
-msgid "mailable.submissionNeedsEditor.name"
-msgstr "طلب التقديم بحاجة إلى محرر"
-
-msgid "manager.mailables.resetTemplate.confirm"
+msgid "manager.mailables.addTemplates"
 msgstr ""
-"هل أنت متأكد من رغبتك في إعادة تعيين موضوع ومتن القالب <strong>{$template}</"
-"strong> إلى حالتهما الافتراضية؟"
-
-msgid "mailable.editorAssigned.description"
-msgstr "رسالة البريد الالكتروني هذه تُرسل إلى المحرر عند تعيينه لطلب التقديم."
-
-msgid "manager.forEditors.description"
-msgstr "تعريف إشعارات البريد الالكتروني التي تُرسل إلى المحررين."
-
-msgid "stats.file.type.primaryFile"
-msgstr "ملف رئيسي"
-
-msgid "stats.file.type.suppFile"
-msgstr "ملف تكميلي"
-
-msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr "عدد طلبات التقديم غير المضمنة في الإجماليات الأخرى"
-
-msgid "mailable.announcementNotify.name"
-msgstr "إعلان جديد"
+"إضف أو حرر القوالب التي تريد إتاحتها للمستخدم عندما يُرسل رسالة البريد "
+"الالكتروني هذه. سيتم تحميل القالب الافتراضي تلقائيًا وسيتمكن المستخدم بشكل "
+"سريع من تحميل أي قوالب أخرى تضيفها هنا."
 
 msgid "manager.mailables.templates"
 msgstr "القوالب"
@@ -3261,22 +3383,13 @@ msgstr "هل أنت متأكد من رغبتك في حذف القالب <strong>
 msgid "manager.mailables.resetTemplate"
 msgstr "إعادة تعيين القالب"
 
-msgid "manager.submissionAck.off"
-msgstr "لا تُرسل بريدًا الكترونيًا."
-
-msgid "manager.editorialDecisions"
-msgstr "قرارات التحرير"
-
-msgid "manager.editorialDecisions.description"
+msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
-"تعريف إشعارات البريد الالكتروني التي تُرسل إلى المؤلفين عند تسجيل قرار هيئة "
-"التحرير."
+"هل أنت متأكد من رغبتك في إعادة تعيين موضوع ومتن القالب <strong>{$template}</"
+"strong> إلى حالتهما الافتراضية؟"
 
-msgid "manager.submissionAck.submittingAuthor"
-msgstr "أرسل بريدًا الكترونيًا إلى المؤلف المقدم للطلب فقط."
-
-msgid "manager.submissionAck.allAuthors"
-msgstr "أرسل بريدًا الكترونيًا إلى كل المؤلفين."
+msgid "manager.mailables.search"
+msgstr "البحث حسب الاسم أو الوصف"
 
 msgid "manager.emailTemplate.name.description"
 msgstr "أدخل اسمًا مختصرًا لمساعدتك في العثور على هذا القالب."
@@ -3290,14 +3403,52 @@ msgstr "تعريف إشعارات البريد الالكتروني التي ت�
 msgid "manager.submissionAck.description"
 msgstr "من الذي ينبغي أن يتلقى رسالة بريد الكتروني عند إكمال طلب تقديم جديد."
 
+msgid "manager.submissionAck.off"
+msgstr "لا تُرسل بريدًا الكترونيًا."
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr "أرسل بريدًا الكترونيًا إلى المؤلف المقدم للطلب فقط."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr "أرسل بريدًا الكترونيًا إلى كل المؤلفين."
+
+msgid "manager.editorialDecisions"
+msgstr "قرارات التحرير"
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+"تعريف إشعارات البريد الالكتروني التي تُرسل إلى المؤلفين عند تسجيل قرار هيئة "
+"التحرير."
+
+msgid "manager.forEditors"
+msgstr "للمحررين"
+
+msgid "manager.forEditors.description"
+msgstr "تعريف إشعارات البريد الالكتروني التي تُرسل إلى المحررين."
+
 msgid "manager.editorialStatistics"
 msgstr "إحصائيات التحرير"
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+"فيما إذا كان ينبغي إرسال بريد الكتروني شهري إلى المحررين متضمًا إحصائيات "
+"التحرير الخاصة بالمجلة، مثل معدلات القبول والرفض. يمكن للمحررين إلغاء "
+"اشتراكهم بهذا الرسالة من صفحة ملفهم الشخصي."
 
 msgid "manager.editorialStatistics.on"
 msgstr "أرسل بريدًا الكترونيًا شهريًا إلى المحررين."
 
 msgid "manager.editorialStatistics.off"
 msgstr "لا تُرسل بريدًا الكترونيًا إلى المحررين."
+
+msgid "manager.submitWithCategories.description"
+msgstr "هل يجب أن يُطلب من المؤلف المقدم تحديد فئة عند تقديم إرسال جديد؟"
+
+msgid "manager.submitWithCategories.yes"
+msgstr "نعم، أضف حقل التصنيف إلى معالج عملية التقديم."
+
+msgid "manager.submitWithCategories.no"
+msgstr "لا، لا تُظهر هذا الحقل للمؤلفين."
 
 msgid "mailable.copyeditRequest.name"
 msgstr "إلتماس التدقيق اللغوي"
@@ -3314,183 +3465,77 @@ msgstr "جاهز للإنتاج"
 msgid "mailable.system"
 msgstr "النظام"
 
-msgid "mailable.reviewEdit.name"
-msgstr "التحكيم تم تعديله"
-
 msgid "mailable.versionCreated.name"
 msgstr "الإصدار تم إنشاؤه"
 
 msgid "mailable.reviewComplete.name"
 msgstr "التحكيم تم إكماله"
 
-msgid "manager.setup.workflow.uploadFilesHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين خلال خطوة رفع الملفات. أعط شرحًا موجزًا عن ماهية "
-"الملفات التي على المؤلفين أن يتوقعوا مشاركتها خلال عملية التقديم."
+msgid "mailable.reviewEdit.name"
+msgstr "التحكيم تم تعديله"
 
-msgid "manager.setup.workflow.detailsHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين خلال خطوة التفاصيل، عندما يُطلب منهم إدخال "
-"العنوان، الملخص، وغير ذلك من المعلومات الأساسية عن طلب تقديمهم."
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr "عرفان طلب التقديم للمؤلفين الآخرين"
 
-msgid "manager.setup.workflow.reviewHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين خلال الخطوة الأخيرة من برنامج التقديم، عندما "
-"يُطلب منهم مراجعة كل المعلومات التي قدموها قبل تسليم طلبهم."
+msgid "mailable.editorAssigned.name"
+msgstr "المحرر لم تعيينه"
 
-msgid "manager.setup.workflow.beginSubmissionHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين قبل أن يشرعوا بتقديمهم. أعط شرحًا موجزًا عن عملية "
-"التقديم يساعد المؤلف في توقع الإجراءات المطلوبة منه."
-
-msgid "manager.categories.form.assignEditors.description"
-msgstr ""
-"إختر أعضاء التحرير الذين ينبغي تعيينهم تلقائيًا لكل طلبات التقديم الجديدة في "
-"هذا التصنيف."
-
-msgid "manager.setup.workflow.contributorsHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين خلال خطوة المساهمين. أعط شرحًا موجزًا عن ماهية "
-"المعلومات التي على المؤلفين توفيرها عن أنفسهم، عن المؤلفين المشاركين وغيرهم "
-"من المساهمين في العمل."
-
-msgid "manager.setup.workflow.forTheEditorsHelp.description"
-msgstr ""
-"ما يأتي يتم إظهاره للمؤلفين خلال خطوة (للمحررين)، عندما يُطلب منهم إدخال "
-"البيانات الوصفية، مثل الكلمات المفتاحية، التعليقات الموجهة للمحررين، وغير "
-"ذلك من التفاصيل التي تساعد مراجعات التحرير."
-
-msgid "manager.mailables.addTemplates"
-msgstr ""
-"إضف أو حرر القوالب التي تريد إتاحتها للمستخدم عندما يُرسل رسالة البريد "
-"الالكتروني هذه. سيتم تحميل القالب الافتراضي تلقائيًا وسيتمكن المستخدم بشكل "
-"سريع من تحميل أي قوالب أخرى تضيفها هنا."
-
-msgid "manager.editorialStatistics.description"
-msgstr ""
-"فيما إذا كان ينبغي إرسال بريد الكتروني شهري إلى المحررين متضمًا إحصائيات "
-"التحرير الخاصة بالمجلة، مثل معدلات القبول والرفض. يمكن للمحررين إلغاء "
-"اشتراكهم بهذا الرسالة من صفحة ملفهم الشخصي."
-
-msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr "تم تسجيل هذا العنصر يدويًا مع وكالة تسجيل."
-
-msgid "doi.manager.settings.doiVersioning"
-msgstr "إصدارات معرف المكون الرقمي"
-
-msgid "doi.manager.versions.countStatement"
-msgstr "هناك {$count} من الإصدارات."
-
-msgid "doi.manager.versions.modalTitle"
-msgstr "معرفات المكونات الرقمية لكل الإصدارات"
-
-msgid "manager.submitWithCategories.yes"
-msgstr "نعم، أضف حقل التصنيف إلى معالج عملية التقديم."
+msgid "mailable.editorAssigned.description"
+msgstr "رسالة البريد الالكتروني هذه تُرسل إلى المحرر عند تعيينه لطلب التقديم."
 
 msgid "mailable.editorAssignedManual.name"
 msgstr "تعيين المحرر"
 
-msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr "تمكين البيانات الوصفية لبيان توافر البيانات"
+msgid "mailable.submissionNeedsEditor.name"
+msgstr "طلب التقديم بحاجة إلى محرر"
 
-msgid "manager.submitWithCategories.no"
-msgstr "لا، لا تُظهر هذا الحقل للمؤلفين."
+#~ msgid "mailable.discussionMessage.description"
+#~ msgstr ""
+#~ "هذا البريد الالكتروني يُرسل تلقائيًا إلى المشاركين في المناقشة عندما تُضاف "
+#~ "رسالة جديدة إليها."
 
-msgid "manager.setup.genres.submitRequired.label"
-msgstr "مطلوب مع طلبات التقديم"
+#~ msgid "mailable.discussionMessage.name"
+#~ msgstr "رسالة جديدة من المناقشة"
 
-msgid "manager.setup.genres.submitRequired.description"
-msgstr ""
-"هل ينبغي طلب واحد على الأقل من هذه الملفات مع كل طلب تقديم جديد؟ إذا اخترت "
-"نعم، لم يستطيع المؤلفون تقديم طلباتهم ما لم يقوموا برفع ملف واحد على الأقل "
-"من هذا النوع."
+#~ msgid "doi.manager.settings.enableFor"
+#~ msgstr "{$objects} سيعين لها معرف مكون رقمي"
 
-msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
-"نعم، ينبغي على المؤلفين رفع ملف واحد أو أكثر من تلك الأنواع عند تسليم "
-"طلباتهم."
+#~ msgid "manager.setup.enableDois.enable"
+#~ msgstr "تمكين معرفات المكونات الرقمية"
 
-msgid "manager.dois.settings.relocated"
-msgstr ""
-"لقد انتقلت إدارة معرف المكون الرقمي. يرجى معاينة صفحات <a href="
-"\"{$doiManagementUrl}\">إدارة معرف المكون الرقمي</a> و <a href="
-"\"{$doiSettingsUrl}\">إعدادات معرف المكون الرقمي</a>."
+#~ msgid "doi.manager.settings.doiSuffixLegacyUser"
+#~ msgstr "نمط مخصص، معرف سابقًا من قبل المستخدم. لم يعد مستعملاً."
 
-msgid "manager.setup.genres.submitRequired.no"
-msgstr "لا، السماح لطلبات التقديم الجديدة بدون تلك الملفات."
+#, fuzzy
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "هذا البريد الالكتروني يُرسل من قبل المحرر لتذكير المحكم باستيجاب موعد "
+#~ "تسليم التحكيم"
 
-msgid "manager.setup.metadata.dataAvailability.noRequest"
-msgstr "لا تطلب من المؤلف بيان توافر البيانات خلال عملية التقديم."
+#~ msgid "mailable.submissionAckNotUser.name"
+#~ msgstr "تأكيد طلب التقديم"
 
-msgid "manager.dois.actions.bulkActions"
-msgstr "إجراءات بالجملة"
+#~ msgid "mailable.publicationVersionNotify.name"
+#~ msgstr "إشعار نسخة النشر"
 
-msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"أي عنصر منشور أو غير منشور 1) لديه مكون فرعي بدون معرف مكون رقمي معين له "
-"حيثما 2) تم تمكين نوع معرف المكون الرقمي للمكون الفرعي (مثلاً، اللوح الطباعي "
-"بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
+#~ msgid "mailable.publicationVersionNotify.description"
+#~ msgstr ""
+#~ "رسالة البريد الالكتروني هذه تُبلغ المحررين المعينين آليًا بشأن وجود نسخ "
+#~ "جديدة من المنشور"
 
-msgid "manager.dois.status.submitted.description"
-msgstr "العناصر المسلمة إلى وكالة التسجيل المعرفة."
+#~ msgid "stats.publications.downloadReport.betweenDates"
+#~ msgstr "{$startDate} إلى {$endDate}"
 
-msgid "manager.dois.status.registered.description"
-msgstr ""
-"العناصر التي سُجلت بنجاح مع وكالة التسجيل أو المؤشرة يدوًا على أنها مسجلة."
+#~ msgid "stats.publications.downloadReport.allFilters"
+#~ msgstr "الكل {$filter}"
 
-msgid "manager.dois.status.error.description"
-msgstr "العناصر التي واجهت أخطاء في عملية التسجيل."
+#~ msgid "emailTemplate.variable.context.mailingAddress"
+#~ msgstr "عنوان المراسلة للمجلة"
 
-msgid "manager.dois.status.stale.description"
-msgstr ""
-"العناصر التي تم تحديث بياناتها الوصفية محليًا والتي ستحتاج إلى إعادة تسليم أو "
-"تحديث عند وكالة التسجيل المعرفة لضمان حداثة كل البيانات الوصفية المقدمة "
-"سابقًا."
+#~ msgid "mailable.statisticsReportNotify.description"
+#~ msgstr ""
+#~ "هذه الرسالة تُرسل شهرياً إلى مدراء التحرير ورؤسائه لتزويدهم بنظرة عامة على "
+#~ "حالة النظام."
 
-msgid "manager.dois.help.statuses.title"
-msgstr "مواقف معرف المكون الرقمي"
-
-msgid "doi.manager.versions.view"
-msgstr "معاينة الكل"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "التاريخ الذي ينبغي فيه إكمال التحكيم"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "التاريخ الذي على المحكم فيه قبول المهمة أو رفضها"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "عنوان المراسلة للمجلة"
-
-msgid "mailable.statisticsReportNotify.description"
-msgstr ""
-"هذه الرسالة تُرسل شهرياً إلى مدراء التحرير ورؤسائه لتزويدهم بنظرة عامة على "
-"حالة النظام."
-
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
-
-msgid "manager.submitWithCategories.description"
-msgstr "هل يجب أن يُطلب من المؤلف المقدم تحديد فئة عند تقديم إرسال جديد؟"
-
-msgid "manager.setup.metadata.dataAvailability.description"
-msgstr ""
-"بيان قصير يصف ما إذا كان المؤلف (المؤلفون) قد أتاحوا بياناتهم البحثية أم "
-"لا ، وإذا كان الأمر كذلك ، أين يمكن للقراء الوصول إليها."
-
-msgid "manager.setup.metadata.dataAvailability.require"
-msgstr ""
-"اطلب من المؤلف تقديم بيان توفر البيانات قبل قبول تقديم طلب النشر الخاص بهم."
-
-msgid "manager.setup.metadata.dataAvailability.request"
-msgstr "اطلب من المؤلف تقديم بيان توفر البيانات أثناء عملية تقديم طلب النشر."
-
-msgid "manager.dois.status.unregistered.description"
-msgstr ""
-"العنصر الذي 1) يمتلك DOIs لجميع أنواع DOI الممكّنة 2) لم يتم نشره 3) لم يتم "
-"تسجيله مع وكالة مسجلة."
-
-msgid "doi.manager.settings.doiSuffixManual"
-msgstr ""
-"بلا - ينبغي إدخال البادئات يدويًا في <a href=\"{$doiManagementUrl}\">صفحة "
-"إدارة مُعرف المكون الرقمي</a> ولن يتم توليدها تلقائيًا"
+#~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+#~ msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"

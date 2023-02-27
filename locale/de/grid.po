@@ -134,6 +134,9 @@ msgstr "Upgrade"
 msgid "grid.action.order"
 msgstr "Sortieren"
 
+msgid "grid.action.saveOrdering"
+msgstr "Reihenfolge speichern"
+
 msgid "grid.action.cancelOrdering"
 msgstr "Sortiermodus beenden"
 
@@ -233,6 +236,9 @@ msgstr "Eine neue Benutzer/innengruppe hinzufügen"
 msgid "grid.action.editUserGroup"
 msgstr "Diese Benutzer/innengruppe bearbeiten"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Entfernen dieser Nutzergruppe"
+
 msgid "grid.action.disable"
 msgstr "Deaktivieren"
 
@@ -281,6 +287,9 @@ msgstr "Mitteilungstyp hinzufügen"
 
 msgid "grid.action.addAnnouncement"
 msgstr "Mitteilung hinzufügen"
+
+msgid "grid.action.addInstitution"
+msgstr "Einrichtung hinzufügen"
 
 msgid "grid.action.mergeUser"
 msgstr "Benutzer/in zusammenführen"
@@ -363,6 +372,9 @@ msgstr "Prüfer/in"
 msgid "grid.columns.locale"
 msgstr "Regionaleinstellung"
 
+msgid "grid.columns.locale.code"
+msgstr ""
+
 msgid "grid.sponsor.title"
 msgstr "Sponsor/innen"
 
@@ -402,6 +414,14 @@ msgstr "Beiträger/in hinzufügen"
 msgid "grid.action.deleteContributor"
 msgstr "Beiträger/in löschen"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Sind Sie sicher, dass Sie {$name} als Beiträger/in entfernen möchten? Diese "
+"Aktion kann nicht rückgängig gemacht werden."
+
+msgid "grid.action.newVersion"
+msgstr "Erstelle eine neue Version"
+
 msgid "grid.reviewForm.title"
 msgstr "Begutachtungsformulare"
 
@@ -437,6 +457,32 @@ msgstr "Eintrag auf Checkliste"
 
 msgid "author.users.contributor.principalContact"
 msgstr "Hauptkontakt"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Hauptkontakt festlegen"
+
+msgid "contributor.listPanel.preview"
+msgstr "Vorschau"
+
+msgid "contributor.listPanel.preview.description"
+msgstr ""
+"Beiträger/innen zu dieser Publikation werden in diesem Journal mit den "
+"folgenden Formaten identifiziert."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Display"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Abgekürzt"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Publikationslisten"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Ganz"
 
 msgid "grid.roles.currentRoles"
 msgstr "Aktuelle Rollen"
@@ -676,51 +722,8 @@ msgstr "Keine Navigationsmenüs"
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Wählen Sie einen Typ..."
 
-msgid "grid.action.newVersion"
-msgstr "Erstelle eine neue Version"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Entfernen dieser Nutzergruppe"
-
-msgid "contributor.listPanel.preview"
-msgstr "Vorschau"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Hauptkontakt festlegen"
-
-msgid "grid.action.saveOrdering"
-msgstr "Reihenfolge speichern"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Ganz"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Publikationslisten"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Abgekürzt"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Display"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Format"
-
-msgid "contributor.listPanel.preview.description"
+msgid "grid.action.view"
 msgstr ""
-"Beiträger/innen zu dieser Publikation werden in diesem Journal mit den "
-"folgenden Formaten identifiziert."
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Sind Sie sicher, dass Sie {$name} als Beiträger/in entfernen möchten? Diese "
-"Aktion kann nicht rückgängig gemacht werden."
-
-msgid "grid.user.authSource"
-msgstr "Authentifizierungsquelle"
-
-msgid "grid.action.addInstitution"
-msgstr "Einrichtung hinzufügen"
 
 msgid "author.users.contributor.name"
 msgstr "Name"
@@ -736,3 +739,6 @@ msgstr "In Browse Liste"
 
 msgid "grid.action.editContributor"
 msgstr "Beiträger/in bearbeiten"
+
+#~ msgid "grid.user.authSource"
+#~ msgstr "Authentifizierungsquelle"

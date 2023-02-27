@@ -12,15 +12,32 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Параметр «{$param}» не поддерживается."
 
+msgid "api.400.propReadOnly"
+msgstr ""
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Токен API не удаётся проверить. Это может говорить об ошибке в токене API "
+"или о том, что данный токен API больше недействителен."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Токен API не удаётся декодировать из-за следующей ошибки: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Невозможно изменить время создания этого элемента."
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
 
 msgid "api.403.unauthorized"
 msgstr "Вы не авторизованы для доступа к запрашиваемому ресурсу."
@@ -31,8 +48,76 @@ msgstr "Запрашиваемый ресурс не найден."
 msgid "api.404.endpointNotFound"
 msgstr "Запрошенный URL не распознан."
 
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Токен API нельзя использовать для доступа к этому сайту, так как "
+"администратор сайта не настроил секретный ключ."
+
 msgid "api.announcements.404.announcementNotFound"
 msgstr "Объявление, запрошенное Вами, не найдено."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Не поддерживаются следующие языки: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"Вы не можете редактировать DOI элемента, который не находится в этом "
+"контексте"
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Эта конечная точка не доступна из пространства имён сайта и должна "
+"запрашиваться для заданного контекста."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Запрошенный вами DOI не найден."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Неопубликованные элементы не могут быть экспортированы/депонированы. "
+"Пожалуйста, уберите выделение с неопубликованных элементов и попробуйте "
+"снова."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Произошла ошибка и объект DOI не может быть создан."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Произошла ошибка валидации XML и XML нельзя экспортировать."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Произошла ошибка и некоторые из отправленных элементов не были отмечены как "
+"зарегистрированные."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Некоторые элементы не были успешно депонированы. Пожалуйста, проверьте эти "
+"элементы по отдельности на предмет специфических сообщений об ошибках."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "В запрос не было включено ни одного корректного объекта публикации."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"В запрос были включены один или несколько некорректных объектов публикации."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
 
 msgid "api.emails.400.missingBody"
 msgstr "Вы должны добавить текст письма для отправки."
@@ -41,10 +126,19 @@ msgid "api.emails.400.missingSubject"
 msgstr "Вы должны задать тему письма."
 
 msgid "api.emails.400.missingUserGroups"
-msgstr "Вы должны указать роли пользователей, которые должны получить это письмо."
+msgstr ""
+"Вы должны указать роли пользователей, которые должны получить это письмо."
 
 msgid "api.emails.403.notAllowedUserGroup"
-msgstr "У вас нет прав отправлять электронную почту пользователям с одной или несколькими из выбранных ролей."
+msgstr ""
+"У вас нет прав отправлять электронную почту пользователям с одной или "
+"несколькими из выбранных ролей."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Шаблон письма, который вы запросили, не был найден."
@@ -59,7 +153,9 @@ msgid "api.files.400.fileSize"
 msgstr "Файлы больше чем {$maxSize} загрузить на сервер нельзя."
 
 msgid "api.files.400.config"
-msgstr "Файл нельзя загрузить из-за ошибки в конфигурации сервера. Пожалуйста, свяжитесь с администратором системы."
+msgstr ""
+"Файл нельзя загрузить из-за ошибки в конфигурации сервера. Пожалуйста, "
+"свяжитесь с администратором системы."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "Публикация, которую Вы хотите опубликовать, уже опубликована."
@@ -68,10 +164,13 @@ msgid "api.publication.403.alreadyUnpublished"
 msgstr "Публикация, которую Вы хотите снять с публикации, не опубликована."
 
 msgid "api.publication.403.cantEditPublished"
-msgstr "Вы не можете редактировать эту публикацию, так как она уже опубликована."
+msgstr ""
+"Вы не можете редактировать эту публикацию, так как она уже опубликована."
 
 msgid "api.publication.403.cantEditStatus"
-msgstr "Вы не можете изменить статус напрямую через API. Вместо этого используйте конечные точки /publish и /unpublish."
+msgstr ""
+"Вы не можете изменить статус напрямую через API. Вместо этого используйте "
+"конечные точки /publish и /unpublish."
 
 msgid "api.publication.403.cantDeletePublished"
 msgstr "Перед удалением публикации Вы должны снять её с публикации."
@@ -83,173 +182,163 @@ msgid "api.publicFiles.400.invalidImage"
 msgstr "Изображение, которое Вы загрузили, не является корректным."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr "Файл, который Вы загрузили, не соответствует своему расширению. Такое может произойти, если файл был неправильно переименован, например, изменили photo.png на photo.jpg."
+msgstr ""
+"Файл, который Вы загрузили, не соответствует своему расширению. Такое может "
+"произойти, если файл был неправильно переименован, например, изменили photo."
+"png на photo.jpg."
 
 msgid "api.publicFiles.403.unauthorized"
 msgstr "У Вас нет прав на загрузку файлов."
 
 msgid "api.publicFiles.413.noDirSpace"
-msgstr "Недостаточно места в вашем пользовательском каталоге. Файл, который Вы загружаете, имеет размер {$fileUploadSize}kb, а у Вас осталось свободными только {$dirSizeLeft}kb."
+msgstr ""
+"Недостаточно места в вашем пользовательском каталоге. Файл, который Вы "
+"загружаете, имеет размер {$fileUploadSize}kb, а у Вас осталось свободными "
+"только {$dirSizeLeft}kb."
 
 msgid "api.publicFiles.500.badFilesDir"
-msgstr "Каталог для общих файлов не найден или в него нельзя сохранить файлы. Пожалуйста, свяжитесь с администратором системы, чтобы решить этот вопрос."
+msgstr ""
+"Каталог для общих файлов не найден или в него нельзя сохранить файлы. "
+"Пожалуйста, свяжитесь с администратором системы, чтобы решить этот вопрос."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Дата начала не может быть позже даты окончания."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Дата начала не может быть ранее 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Дата окончания не может быть позже чем вчера."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Неправильный запрос. Параметр timelineInterval должен быть `day` или `month`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Неправильный запрос. Параметр orderDirection должен быть `desc` or `asc`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "Вы не можете изменить связь файла, не передав assocType и assocId."
 
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "У Вас нет прав на доступ к файлам на этом этапе рецензирования."
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Вы не можете связать файл с этого этапа с другим файлом отправки."
 
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "У Вас нет прав на добавление и редактирование этих файлов."
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Вы не можете связать файл с этого этапа с заметкой в обсуждении."
 
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "У Вас нет прав для доступа к этим файлам."
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr "Вы не можете связать файл с этого этапа с назначением на рецензию."
 
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr ""
-"Указанный Вами раунд рецензирования не является частью этого отправленного "
-"материала."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Вы должны указать этап, на котором находится файл."
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Вы не можете связать файл с этого этапа с раундом рецензирования."
 
 msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
 "Вы должны указать раунд рецензирования при запросе файлов на этапе "
 "рецензирования."
 
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "Вы не можете связать файл с этого этапа с раундом рецензирования."
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Вы должны указать этап, на котором находится файл."
 
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Вы не можете связать файл с этого этапа с назначением на рецензию."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "Вы не можете связать файл с этого этапа с заметкой в обсуждении."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "Вы не можете связать файл с этого этапа с другим файлом отправки."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Язык {$locale} не поддерживается."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.submissionFiles.400.invalidFileStage"
 msgstr ""
-"Активная тема «{$themePluginPath}» не включена и, возможно, не установлена "
-"на сервере."
-
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Эта конечная точка не доступна из контекста. К ней нужно обращаться из "
-"пространства имен сайта."
-
-msgid "api.submissions.403.userCantEdit"
-msgstr "У вас нет прав для редактирования данной публикации."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "У вас нет прав на удаление этого материала."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr ""
-"Вы можете только просматривать неопубликованные материалы, в которых вы были "
-"назначены."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Вы не можете удалить материал, который не был назначен этому контексту."
-
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr ""
-"Ваш запрос был отклонен. Возможно это произошло из-за того, что время "
-"доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Неправильно указан запрашиваемый том, номер или год."
-
-msgid "api.submissions.400.missingRequired"
-msgstr ""
-"Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая "
-"информация."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
 "В запросе на редактирование данного файла нет никаких изменений, которые "
 "нужно внести."
 
-msgid "api.stats.400.invalidOrderDirection"
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
-"Неправильный запрос. Параметр orderDirection должен быть `desc` or `asc`."
 
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
-"Неправильный запрос. Параметр timelineInterval должен быть `day` или `month`."
+"Указанный Вами раунд рецензирования не является частью этого отправленного "
+"материала."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "Дата окончания не может быть позже чем вчера."
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "У Вас нет прав для доступа к этим файлам."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "Дата начала не может быть ранее 2001-01-01."
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "У Вас нет прав на добавление и редактирование этих файлов."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "Дата начала не может быть позже даты окончания."
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "У Вас нет прав на доступ к файлам на этом этапе рецензирования."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Дата должна быть в формате ГГГГ-ММ-ДД."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Не поддерживаются следующие языки: {$locales}."
-
-msgid "api.500.apiSecretKeyMissing"
+msgid "api.submissions.400.missingRequired"
 msgstr ""
-"Токен API нельзя использовать для доступа к этому сайту, так как "
-"администратор сайта не настроил секретный ключ."
+"Ваш запрос не может быть выполнен, так как в нем отсутствует необходимая "
+"информация."
 
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "Токен API не удаётся декодировать из-за следующей ошибки: {$error}"
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Неправильно указан запрашиваемый том, номер или год."
 
-msgid "api.400.invalidApiToken"
+msgid "api.submissions.400.invalidSubmitAs"
 msgstr ""
-"Токен API не удаётся проверить. Это может говорить об ошибке в токене API "
-"или о том, что данный токен API больше недействителен."
 
-msgid "api.dois.400.invalidPubObjectIncluded"
+msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
-"В запрос были включены один или несколько некорректных объектов публикации."
+"Ваш запрос был отклонен. Возможно это произошло из-за того, что время "
+"доступа к системе истекло. Попробуйте перезагрузить страницу и войти снова."
 
-msgid "api.dois.404.noPubObjectIncluded"
-msgstr "В запрос не было включено ни одного корректного объекта публикации."
-
-msgid "api.dois.400.depositFailed"
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr ""
-"Некоторые элементы не были успешно депонированы. Пожалуйста, проверьте эти "
-"элементы по отдельности на предмет специфических сообщений об ошибках."
+"Вы не можете удалить материал, который не был назначен этому контексту."
 
-msgid "api.dois.400.markRegisteredFailed"
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr ""
-"Произошла ошибка и некоторые из отправленных элементов не были отмечены как "
-"зарегистрированные."
+"Вы можете только просматривать неопубликованные материалы, в которых вы были "
+"назначены."
 
-msgid "api.dois.400.xmlExportFailed"
-msgstr "Произошла ошибка валидации XML и XML нельзя экспортировать."
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "У вас нет прав на удаление этого материала."
 
-msgid "api.dois.400.creationFailed"
-msgstr "Произошла ошибка и объект DOI не может быть создан."
+msgid "api.submissions.403.userCantEdit"
+msgstr "У вас нет прав для редактирования данной публикации."
 
-msgid "api.dois.400.noUnpublishedItems"
+msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Неопубликованные элементы не могут быть экспортированы/депонированы. "
-"Пожалуйста, уберите выделение с неопубликованных элементов и попробуйте "
-"снова."
+"Эта конечная точка не доступна из контекста. К ней нужно обращаться из "
+"пространства имен сайта."
 
-msgid "api.dois.404.doiNotFound"
-msgstr "Запрошенный вами DOI не найден."
-
-msgid "api.dois.404.contextNotFound"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Эта конечная точка не доступна из пространства имён сайта и должна "
-"запрашиваться для заданного контекста."
+"Активная тема «{$themePluginPath}» не включена и, возможно, не установлена "
+"на сервере."
 
-msgid "api.dois.403.editItemOutOfContext"
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Язык {$locale} не поддерживается."
+
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"Вы не можете редактировать DOI элемента, который не находится в этом "
-"контексте"
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""

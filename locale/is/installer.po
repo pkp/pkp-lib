@@ -12,22 +12,175 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "installer.additionalLocales"
+msgstr "Viðbótartungumál"
+
+msgid "installer.administratorAccount"
+msgstr "Reikningur kerfisstjóra"
+
+msgid "installer.administratorAccountInstructions"
+msgstr ""
+"Notandinn verður kerfisstjóri og hefur fullan aðgang að kerfinu. Hægt er að "
+"stofna viðbótarnotendur eftir uppsetningu."
+
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">NO</span>"
+
+msgid "installer.checkYes"
+msgstr "Já"
+
+msgid "installer.configFileError"
+msgstr ""
+"Uppsetningarskráin  <tt>config.inc.php</tt> finnst ekki eða er ekki læsileg."
+
+msgid "installer.connectionCharset"
+msgstr "Tengistafasett"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "Uppsetningarskrá"
+
+msgid "installer.databaseDriver"
+msgstr "Gagnagrunnsrekill (driver)"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+"<strong>Kerfið styður við MySQL og PostgreSQL,  ef þú getur ekki valið "
+"annanhvorn möguleikann, hafðu þá samband við þinn kerfisstjóra til að ganga "
+"úr skugga um að þjónninn sé með nauðsynlega PHP viðbætur.</strong>"
+
+msgid "installer.databaseHost"
+msgstr "Hýsingartölva"
+
 msgid "installer.databaseHostInstructions"
 msgstr ""
 
-msgid "installer.unsupportedPhpError"
-msgstr ""
-"PHP útgáfan á þjóninum er ekki stutt af þessum hugbúnaði.  Athugaðu "
-"uppsetningarkröfurnar í docs/README."
+msgid "installer.databaseName"
+msgstr "Nafn gagnagrunns"
 
-msgid "installer.beacon"
-msgstr "Leiðarljós"
+msgid "installer.databasePassword"
+msgstr "Lykilorð"
 
-msgid "installer.configureXSLMessage"
+msgid "installer.databaseSettings"
+msgstr "Stillingar gagnagrunns"
+
+msgid "installer.databaseUsername"
+msgstr "Notendanafn"
+
+msgid "installer.filesDir"
+msgstr "Skráasafn fyrir upphlað"
+
+msgid "installer.fileSettings"
+msgstr "Skráastillingar"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "Velja þarf stafasett biðlara."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "Velja þarf gagnagrunnsrekil(driver)."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "Nafn gagnagrunns er áskilið."
+
+msgid "installer.form.emailRequired"
+msgstr "Gilt netfang fyrir kerfisstjóra er áskilið."
+
+msgid "installer.form.filesDirRequired"
+msgstr "Skráasvæði sem geymir upphlaðnar skrár er áskilið."
+
+msgid "installer.form.localeRequired"
+msgstr "Velja þarf tungumál."
+
+msgid "installer.form.passwordRequired"
+msgstr "Lykilorð fyrir kerfistjóra er áskilið."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "Kerfisstjóralykilorðin passa ekki saman."
+
+msgid "installer.form.separateMultiple"
+msgstr "Aðgreindu gildin með kommu"
+
+msgid "installer.form.usernameAlphaNumeric"
 msgstr ""
-"<p>PHP uppsetningin þín er ekki með  XSL eininguna virkjaða.  Þú þarft annað "
-"hvort að virkja eininguna, eða stilla \"xslt_command\" færibreytu í skránni "
-"config.inc.php .</p>"
+"Notendanafn kerfisstjóra má bara innihalda bókstafi, tölustafi, undirstrik "
+"og bandstrik, og verður að byrja og enda á bókstaf eða tölustaf."
+
+msgid "installer.form.usernameRequired"
+msgstr "Notendanafn fyrir kerfisstjóra er áskilið."
+
+msgid "installer.form.timeZoneRequired"
+msgstr ""
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+"<br/><strong>VIÐVÖRUN: Núverandi útgáfa af PHP uppfyllir ekki lágmarks "
+"kröfur fyrir uppsetningu. Mælt er með uppfærslu í nýrri útgáfu af PHP. </"
+"strong>"
+
+msgid "installer.installErrorsOccurred"
+msgstr "Villur komu upp við uppsetningu"
+
+msgid "installer.installerSQLStatements"
+msgstr "SQL setningar fyrir uppsetningu"
+
+msgid "installer.installFileError"
+msgstr ""
+"Uppsetningarskrá  <tt>dbscripts/xml/install.xml</tt> fannst ekki eða er ekki "
+"læsileg."
+
+msgid "installer.installFilesDirError"
+msgstr ""
+"Uppgefið skráasvæði fyrir upphlaðnar skrár finnst ekki eða er ekki "
+"skrifanlegt."
+
+msgid "installer.installParseDBFileError"
+msgstr "Villa við þáttun uppsetningarskrár gagnagrunnsins <tt>{$file}</tt>."
+
+msgid "installer.installMigrationError"
+msgstr ""
+"Frábrigði kom upp þegar verið var að keyra yfirfærslu klasa  <tt>{$class}</"
+"tt>.  Frábrigðið var þetta: {$message}."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Villa við þáttun skráar fyrir tölvupóstssniðmát <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Villa við þáttun skráar fyrir uppsetningu á síum <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr "Ekki stutt við uppfærslu. Sjá  nánar docs/UPGRADE-UNSUPPORTED."
+
+msgid "installer.timezoneInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.locale"
+msgstr "Tungumál"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Merkt tungumál geta verið ófullgerð."
+
+msgid "installer.localeSettings"
+msgstr "Stillingar á tungumáli"
+
+msgid "installer.oaiSettings"
+msgstr "OAI stillingar"
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+
+msgid "installer.oaiRepositoryId"
+msgstr "Auðkenni gagnahirslu"
+
+msgid "installer.publicFilesDirError"
+msgstr "Almennt skráasafn finnst ekki eða er ekki skrifanlegt."
+
+msgid "installer.releaseNotes"
+msgstr "Upplýsingar um útgáfu"
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr "Skref foruppsetningar"
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
@@ -50,163 +203,25 @@ msgstr ""
 "(Sjá \"Skráa stillingar\" hér fyrir neðan).</p>\n"
 "\t"
 
-msgid "installer.preInstallationInstructionsTitle"
-msgstr "Skref foruppsetningar"
-
-msgid "installer.releaseNotes"
-msgstr "Upplýsingar um útgáfu"
-
-msgid "installer.publicFilesDirError"
-msgstr "Almennt skráasafn finnst ekki eða er ekki skrifanlegt."
-
-msgid "installer.oaiRepositoryId"
-msgstr "Auðkenni gagnahirslu"
-
-msgid "installer.oaiSettings"
-msgstr "OAI stillingar"
-
-msgid "installer.localeSettings"
-msgstr "Stillingar á tungumáli"
-
-msgid "installer.locale.maybeIncomplete"
-msgstr "Merkt tungumál geta verið ófullgerð."
-
-msgid "installer.locale"
-msgstr "Tungumál"
-
-msgid "installer.unsupportedUpgradeError"
-msgstr "Ekki stutt við uppfærslu. Sjá  nánar docs/UPGRADE-UNSUPPORTED."
-
-msgid "installer.installParseFilterConfigFileError"
-msgstr "Villa við þáttun skráar fyrir uppsetningu á síum <tt>{$file}</tt>."
-
-msgid "installer.installParseEmailTemplatesFileError"
-msgstr "Villa við þáttun skráar fyrir tölvupóstssniðmát <tt>{$file}</tt>."
-
-msgid "installer.installMigrationError"
+msgid "installer.configureXSLMessage"
 msgstr ""
-"Frábrigði kom upp þegar verið var að keyra yfirfærslu klasa  "
-"<tt>{$class}</tt>.  Frábrigðið var þetta: {$message}."
+"<p>PHP uppsetningin þín er ekki með  XSL eininguna virkjaða.  Þú þarft annað "
+"hvort að virkja eininguna, eða stilla \"xslt_command\" færibreytu í skránni "
+"config.inc.php .</p>"
 
-msgid "installer.installParseDBFileError"
-msgstr "Villa við þáttun uppsetningarskrár gagnagrunnsins <tt>{$file}</tt>."
+msgid "installer.beacon"
+msgstr "Leiðarljós"
 
-msgid "installer.installFilesDirError"
+msgid "installer.beacon.enable"
 msgstr ""
-"Uppgefið skráasvæði fyrir upphlaðnar skrár finnst ekki eða er ekki "
-"skrifanlegt."
 
-msgid "installer.installFileError"
+msgid "installer.unsupportedPhpError"
 msgstr ""
-"Uppsetningarskrá  <tt>dbscripts/xml/install.xml</tt> fannst ekki eða er ekki "
-"læsileg."
+"PHP útgáfan á þjóninum er ekki stutt af þessum hugbúnaði.  Athugaðu "
+"uppsetningarkröfurnar í docs/README."
 
-msgid "installer.installerSQLStatements"
-msgstr "SQL setningar fyrir uppsetningu"
+#~ msgid "installer.clientCharsetInstructions"
+#~ msgstr "Kótun notuð fyrir gögn send til og frá vöfrum."
 
-msgid "installer.installErrorsOccurred"
-msgstr "Villur komu upp við uppsetningu"
-
-msgid "installer.installationWrongPhp"
-msgstr ""
-"<br/><strong>VIÐVÖRUN: Núverandi útgáfa af PHP uppfyllir ekki lágmarks "
-"kröfur fyrir uppsetningu. Mælt er með uppfærslu í nýrri útgáfu af PHP. "
-"</strong>"
-
-msgid "installer.form.usernameRequired"
-msgstr "Notendanafn fyrir kerfisstjóra er áskilið."
-
-msgid "installer.form.usernameAlphaNumeric"
-msgstr ""
-"Notendanafn kerfisstjóra má bara innihalda bókstafi, tölustafi, undirstrik "
-"og bandstrik, og verður að byrja og enda á bókstaf eða tölustaf."
-
-msgid "installer.form.separateMultiple"
-msgstr "Aðgreindu gildin með kommu"
-
-msgid "installer.form.passwordsDoNotMatch"
-msgstr "Kerfisstjóralykilorðin passa ekki saman."
-
-msgid "installer.form.passwordRequired"
-msgstr "Lykilorð fyrir kerfistjóra er áskilið."
-
-msgid "installer.form.localeRequired"
-msgstr "Velja þarf tungumál."
-
-msgid "installer.form.filesDirRequired"
-msgstr "Skráasvæði sem geymir upphlaðnar skrár er áskilið."
-
-msgid "installer.form.emailRequired"
-msgstr "Gilt netfang fyrir kerfisstjóra er áskilið."
-
-msgid "installer.form.databaseNameRequired"
-msgstr "Nafn gagnagrunns er áskilið."
-
-msgid "installer.form.databaseDriverRequired"
-msgstr "Velja þarf gagnagrunnsrekil(driver)."
-
-msgid "installer.form.clientCharsetRequired"
-msgstr "Velja þarf stafasett biðlara."
-
-msgid "installer.fileSettings"
-msgstr "Skráastillingar"
-
-msgid "installer.filesDir"
-msgstr "Skráasafn fyrir upphlað"
-
-msgid "installer.databaseUsername"
-msgstr "Notendanafn"
-
-msgid "installer.databaseSettings"
-msgstr "Stillingar gagnagrunns"
-
-msgid "installer.databasePassword"
-msgstr "Lykilorð"
-
-msgid "installer.databaseName"
-msgstr "Nafn gagnagrunns"
-
-msgid "installer.databaseHost"
-msgstr "Hýsingartölva"
-
-msgid "installer.databaseDriverInstructions"
-msgstr ""
-"<strong>Kerfið styður við MySQL og PostgreSQL,  ef þú getur ekki valið "
-"annanhvorn möguleikann, hafðu þá samband við þinn kerfisstjóra til að ganga "
-"úr skugga um að þjónninn sé með nauðsynlega PHP viðbætur.</strong>"
-
-msgid "installer.databaseDriver"
-msgstr "Gagnagrunnsrekill (driver)"
-
-msgid "installer.contentsOfConfigFile"
-msgstr "Uppsetningarskrá"
-
-msgid "installer.connectionCharset"
-msgstr "Tengistafasett"
-
-msgid "installer.configFileError"
-msgstr ""
-"Uppsetningarskráin  <tt>config.inc.php</tt> finnst ekki eða er ekki læsileg."
-
-msgid "installer.clientCharsetInstructions"
-msgstr "Kótun notuð fyrir gögn send til og frá vöfrum."
-
-msgid "installer.clientCharset"
-msgstr "Stafasett biðlara"
-
-msgid "installer.checkYes"
-msgstr "Já"
-
-msgid "installer.checkNo"
-msgstr "<span class=\"pkp_form_error formError\">NO</span>"
-
-msgid "installer.administratorAccountInstructions"
-msgstr ""
-"Notandinn verður kerfisstjóri og hefur fullan aðgang að kerfinu. Hægt er að "
-"stofna viðbótarnotendur eftir uppsetningu."
-
-msgid "installer.administratorAccount"
-msgstr "Reikningur kerfisstjóra"
-
-msgid "installer.additionalLocales"
-msgstr "Viðbótartungumál"
+#~ msgid "installer.clientCharset"
+#~ msgstr "Stafasett biðlara"

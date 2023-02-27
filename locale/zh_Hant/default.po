@@ -13,11 +13,110 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "default.groups.name.siteAdmin"
+msgstr ""
+
+msgid "default.groups.plural.siteAdmin"
+msgstr ""
+
+msgid "default.groups.name.productionEditor"
+msgstr ""
+
+msgid "default.groups.plural.productionEditor"
+msgstr ""
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr ""
+
+msgid "default.groups.name.copyeditor"
+msgstr ""
+
+msgid "default.groups.plural.copyeditor"
+msgstr ""
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr ""
+
+msgid "default.groups.name.proofreader"
+msgstr ""
+
+msgid "default.groups.plural.proofreader"
+msgstr ""
+
+msgid "default.groups.abbrev.proofreader"
+msgstr ""
+
+msgid "default.groups.name.designer"
+msgstr ""
+
+msgid "default.groups.plural.designer"
+msgstr ""
+
+msgid "default.groups.abbrev.designer"
+msgstr ""
+
+msgid "default.groups.name.internalReviewer"
+msgstr ""
+
+msgid "default.groups.plural.internalReviewer"
+msgstr ""
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr ""
+
+msgid "default.groups.name.marketing"
+msgstr ""
+
+msgid "default.groups.plural.marketing"
+msgstr ""
+
+msgid "default.groups.abbrev.marketing"
+msgstr ""
+
+msgid "default.groups.name.funding"
+msgstr ""
+
+msgid "default.groups.plural.funding"
+msgstr ""
+
+msgid "default.groups.abbrev.funding"
+msgstr ""
+
+msgid "default.groups.name.indexer"
+msgstr ""
+
+msgid "default.groups.plural.indexer"
+msgstr ""
+
+msgid "default.groups.abbrev.indexer"
+msgstr ""
+
+msgid "default.groups.name.layoutEditor"
+msgstr ""
+
+msgid "default.groups.plural.layoutEditor"
+msgstr ""
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr ""
+
 msgid "default.groups.name.author"
 msgstr "作者"
 
+msgid "default.groups.plural.author"
+msgstr "作者"
+
+msgid "default.groups.abbrev.author"
+msgstr ""
+
 msgid "default.groups.name.translator"
 msgstr "譯者"
+
+msgid "default.groups.plural.translator"
+msgstr ""
+
+msgid "default.groups.abbrev.translator"
+msgstr ""
 
 msgid "default.groups.name.reader"
 msgstr "讀者"
@@ -25,5 +124,38 @@ msgstr "讀者"
 msgid "default.groups.plural.reader"
 msgstr "讀者"
 
-msgid "default.groups.plural.author"
-msgstr "作者"
+msgid "default.groups.abbrev.reader"
+msgstr ""
+
+msgid "default.genres.other"
+msgstr ""
+
+msgid "default.genres.multimedia"
+msgstr ""
+
+msgid "default.genres.image"
+msgstr ""
+
+msgid "default.genres.styleSheet"
+msgstr ""
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""

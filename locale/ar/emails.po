@@ -24,14 +24,20 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"شكراً على تقديمك المؤلَّف &quot;{$submissionTitle}&quot; إلى {$contextName}. عبر نظام إدارة المجلة هذا الذي نستعمله، سيكون بإمكانك متابعة مراحل معالجة طلبك عبر ولوجك إلى موقع المجلة باستعمال الرابط:<br />\n"
+"شكراً على تقديمك المؤلَّف &quot;{$submissionTitle}&quot; إلى {$contextName}. "
+"عبر نظام إدارة المجلة هذا الذي نستعمله، سيكون بإمكانك متابعة مراحل معالجة "
+"طلبك عبر ولوجك إلى موقع المجلة باستعمال الرابط:<br />\n"
 "<br />\n"
 "رابط المؤلَّف: {$submissionUrl}<br />\n"
 "اسم الدخول: {$recipientUsername}<br />\n"
 "<br />\n"
-"إن كان لديك أي استفسارات، لطفاً تواصل معي. شكراً على اعتبارك هذه المجلة جديرة بعملك.<br />\n"
+"إن كان لديك أي استفسارات، لطفاً تواصل معي. شكراً على اعتبارك هذه المجلة جديرة "
+"بعملك.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -42,11 +48,21 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"نشكر إكمالك لتحكيم المؤلَّف الموسوم &quot;{$submissionTitle},&quot; والمرسل إلى {$contextName}. إننا نقدر لك مشاركتك في ترصين الأعمال التي تنشرها مجلتنا."
+"نشكر إكمالك لتحكيم المؤلَّف الموسوم &quot;{$submissionTitle},&quot; والمرسل "
+"إلى {$contextName}. إننا نقدر لك مشاركتك في ترصين الأعمال التي تنشرها مجلتنا."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "هذه الرسالة يصدرها محرر القسم لتأكيد استلامه لتقييمات وملاحظات المحكم الكاملة، وليشكره على مساهمته في عملية التحكيم."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "قرار هيئة التحرير"
@@ -56,7 +72,8 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "قرارنا هو: إرسال طلبك إلى التحكيم<br />\n"
 "<br />\n"
@@ -71,7 +88,8 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"إن متعلقات تحرير مؤلَّفك الموسوم &quot;{$submissionTitle},&quot; قد اكتملت. نحن الآن نرسله إلى مرحلة الإنتاج.<br />\n"
+"إن متعلقات تحرير مؤلَّفك الموسوم &quot;{$submissionTitle},&quot; قد اكتملت. "
+"نحن الآن نرسله إلى مرحلة الإنتاج.<br />\n"
 "<br />\n"
 "رابط الطلب: {$submissionUrl}"
 
@@ -84,7 +102,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "قرارنا هو: بعض التنقيحات مطلوبة"
 
@@ -97,7 +116,8 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "قرارنا هو: إعادة التقديم مجدداً"
 
@@ -110,7 +130,8 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"قد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "قرارنا هو: الرفض"
 
@@ -123,7 +144,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"إن التوصيات المتعلقة بطلب النشر في {$contextName}، &quot;{$submissionTitle}&quot; هي: {$recommendation}"
+"إن التوصيات المتعلقة بطلب النشر في {$contextName}، &quot;{$submissionTitle}"
+"&quot; هي: {$recommendation}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -134,15 +156,36 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"أود مطالبتك بتوفير نسخة مدققة من المؤلَّف الموسوم &quot;{$submissionTitle}&quot; والمرسل إلى {$contextName} عبر اتباع الخطوات الآتية:<br />\n"
+"أود مطالبتك بتوفير نسخة مدققة من المؤلَّف الموسوم &quot;{$submissionTitle}"
+"&quot; والمرسل إلى {$contextName} عبر اتباع الخطوات الآتية:<br />\n"
 "1. أنقر على رابط طلب النشر أدناه.<br />\n"
-"2. إفتح أي ملفات متوافرة ضمن الملفات المسودة وأجر متطلبات التدقيق مضيفاً أي قرارات أو ملاحظات تتعلق بالتدقيق حسب الحاجة.<br />\n"
+"2. إفتح أي ملفات متوافرة ضمن الملفات المسودة وأجر متطلبات التدقيق مضيفاً أي "
+"قرارات أو ملاحظات تتعلق بالتدقيق حسب الحاجة.<br />\n"
 "3. إحفظ الملفات المدققة، ثم إرفعها إلى لوحة المدققات.<br />\n"
-"4. أعلم المحرر بأن جميع الملفات صارت جاهزة، وأن بالإمكان الشروع بعملية الإنتاج.<br />\n"
+"4. أعلم المحرر بأن جميع الملفات صارت جاهزة، وأن بالإمكان الشروع بعملية "
+"الإنتاج.<br />\n"
 "<br />\n"
 "رابط {$contextName}: {$contextUrl}<br />\n"
 "رابط الطلب: {$submissionUrl}<br />\n"
 "اسم الدخول: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
@@ -154,9 +197,55 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"لقد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}، &quot;{$submissionTitle}&quot;.<br />\n"
+"لقد توصلنا إلى قرار بشأن طلبك للنشر في {$contextName}، &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "إن قرارنا هو: رفض النشر"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -164,6 +253,54 @@ msgstr "رسالة تتعلق بالمجلة {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "لطفاً أكتب رسالتك هنا."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "قادر على التحكيم"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"أعزائي المحررون:<br />\n"
+"<br />\n"
+"أنا متمكن وراغب بتحكيم المؤلَّف الموسوم &quot;{$submissionTitle},&quot; "
+"والمرسل إلى {$contextName}. أشكر لكم إعتمادكم عليَّ، وأخطط لإنجاز التحكيم "
+"المطلوب حتى يوم استيجابه مني في {$reviewDueDate} إن لم يكن قبله.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "تأكيد طلب التقديم"
@@ -179,16 +316,7 @@ msgstr ""
 "p><p>أطيب التحايا،</p>{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"أعزائي المحررون:<br />\n"
-"<br />\n"
-"أنا متمكن وراغب بتحكيم المؤلَّف الموسوم &quot;{$submissionTitle},&quot; "
-"والمرسل إلى {$contextName}. أشكر لكم إعتمادكم عليَّ، وأخطط لإنجاز التحكيم "
-"المطلوب حتى يوم استيجابه مني في {$reviewDueDate} إن لم يكن قبله.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "قادر على التحكيم"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "هذه الرسالة يصدرها محرر القسم لتأكيد استلامه لتقييمات وملاحظات المحكم "
+#~ "الكاملة، وليشكره على مساهمته في عملية التحكيم."

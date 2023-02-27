@@ -18,8 +18,82 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Är du säker på att du vill ta bort det här bidraget permanent?"
 
+msgid "editor.activityLog"
+msgstr "Aktivitetslogg"
+
 msgid "editor.submissionLibrary"
 msgstr "Bidragsbibliotek"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Beslutet är registrerat"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Bidrag refuserat."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Bidrag accepterat."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Bidraget är publicerat."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Skickas till en ny granskningsrunda."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Skickat till produktion."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Bidraget är accepterat för granskning."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Ändra beslut"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Du har inte behörighet att fatta beslut om detta bidrag."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr "Redaktören har inte behörighet att fatta beslut om detta bidrag."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Du kan inte skicka e-postmeddelande till följande mottagare: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Granskningsomgången hittades inte."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"En granskningsomgång pågår, men detta beslut kan inte fattas i "
+"granskningssteget."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Granskningsomgången är inte en del av bidraget."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Bidraget är inte i rätt steg i arbetsflödet för att beslutet ska kunna "
+"fattas."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Du måste vara tilldelad behörighet till bidraget för att kunna fatta ett "
+"redaktionellt beslut."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+"Ett granskningsomgångs-ID måste finnas för att beslutet ska kunna fattas."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"En rekommendation kan inte ges om ingen redaktör med behörighet att fatta "
+"ett slutgiltigt beslut är tilldelad."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Beslut kan inte fattas för bidraget. Bidragets ID saknas eller matchar inte "
+"det begärda bidraget."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr "Beslutet kunde inte hittas. Ange ett korrekt typ av beslut."
 
 msgid "editor.review.notInitiated"
 msgstr "Granskningsprocessen har inte påbörjats ännu."
@@ -52,7 +126,12 @@ msgid "editor.submission.revisions"
 msgstr "Bearbetningar"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Använd <em>+Lägg till granskare</em> för att bjuda in läsare att granska bidragsfiler. Ikonen med en anteckningsbok visar att en granskning har skickats in och sen blir <em>Godkänd</em> ikryssad när den har lästs. Om granskningar passerar deadline visas en rött kuvert-ikon för att påminna granskare."
+msgstr ""
+"Använd <em>+Lägg till granskare</em> för att bjuda in läsare att granska "
+"bidragsfiler. Ikonen med en anteckningsbok visar att en granskning har "
+"skickats in och sen blir <em>Godkänd</em> ikryssad när den har lästs. Om "
+"granskningar passerar deadline visas en rött kuvert-ikon för att påminna "
+"granskare."
 
 msgid "editor.submission.addReviewer"
 msgstr "Lägg till granskare"
@@ -80,6 +159,15 @@ msgstr "Tilldela befintlig användare"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Ta bort granskare från bidrag"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Avboka granskare"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Återinsätt granskare"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Granskningstyp"
@@ -132,6 +220,12 @@ msgstr "Bearbetning kräver inte ny omgång av sakkunniggranskning."
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Bearbetning kommer att sakkunniggranskas på nytt."
 
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Ändringar ska inte genomgå en ny granskningsomgång."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Ändringar ska genomgå en ny granskningsomgång."
+
 msgid "editor.review.dateAccepted"
 msgstr "Datum för godkännande av granskning"
 
@@ -174,6 +268,18 @@ msgstr "Förfrågan skickad"
 msgid "editor.review.requestAccepted"
 msgstr "Förfrågan accepterad"
 
+msgid "editor.review.requestDeclined"
+msgstr "Förfrågan avslås"
+
+msgid "editor.review.requestCancelled"
+msgstr "Förfrågan är avbruten"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Granskaren har tackat nej till granskningsförfrågan."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Redaktören har avbrutit granskningsförfrågan."
+
 msgid "editor.review.revertDecision"
 msgstr "Återställ beslut"
 
@@ -192,6 +298,12 @@ msgstr "Granskning bekräftad"
 msgid "editor.review.reviewSubmitted"
 msgstr "Granskning inkommen"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Granskaren har tackats"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "Granskares kommentarer"
 
@@ -199,7 +311,9 @@ msgid "editor.review.rateReviewer"
 msgstr "Betygsättning av granskare"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att vara synligt för granskaren."
+msgstr ""
+"Betygsätt kvaliteten på den inkomna granskningen. Betyget kommer inte att "
+"vara synligt för granskaren."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Inget betyg"
@@ -213,17 +327,40 @@ msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
 msgid "editor.review.errorDeletingReviewer"
 msgstr "Ett fel uppstod när granskaren skulle tas bort. Försök igen."
 
+msgid "editor.review.errorReinstatingReviewer"
+msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+
 msgid "editor.review.userGroupSelect"
 msgstr "Lägg till den här användaren i den här gransknings-användargruppen"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Vill du markera den här granskningen som bortsedd ifrån? Granskningshistoriken kommer att bevaras."
+msgstr ""
+"Vill du markera den här granskningen som bortsedd ifrån? "
+"Granskningshistoriken kommer att bevaras."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Bortse från den här granskningen"
 
 msgid "editor.review.readConfirmation"
-msgstr "När granskningen har blivit läst, tryck på \"Bekräfta\" för att visa att granskningsprocessen kan gå vidare. Om granskaren har skickat in granskningen någon annanstans kan du ladda upp filen nedan och sedan trycka på \"Bekräfta\" för att fortsätta."
+msgstr ""
+"När granskningen har blivit läst, tryck på \"Bekräfta\" för att visa att "
+"granskningsprocessen kan gå vidare. Om granskaren har skickat in "
+"granskningen någon annanstans kan du ladda upp filen nedan och sedan trycka "
+"på \"Bekräfta\" för att fortsätta."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"En diskussion kan inte inledas med de valda deltagarna eftersom det skulle "
+"påverka anonymiteten i granskningsprocessen."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "En deltagare har inte tilldelats detta steg."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Planera för publicering"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Filer för manusredigering"
@@ -250,10 +387,14 @@ msgid "editor.submission.proof.reminder"
 msgstr "Påminnelse om korrektur"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Den manusredigerade filen behöver godkännas innan den kan skickas vidare till Produktionssteget. Vill du godkänna den här filen?"
+msgstr ""
+"Den manusredigerade filen behöver godkännas innan den kan skickas vidare "
+"till Produktionssteget. Vill du godkänna den här filen?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Om den här manusredigerade filen avslås kommer den inte gå att skicka vidare till Produktionssteget. Vill du avslå den här filen?"
+msgstr ""
+"Om den här manusredigerade filen avslås kommer den inte gå att skicka vidare "
+"till Produktionssteget. Vill du avslå den här filen?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Utse manusgranskare"
@@ -306,7 +447,9 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Starta ingen granskningsdiskussion."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Du håller på att skapa en ny granskningsomgång för det här bidraget. Filer som inte har använts i andra granskningsomgångar listas nedan."
+msgstr ""
+"Du håller på att skapa en ny granskningsomgång för det här bidraget. Filer "
+"som inte har använts i andra granskningsomgångar listas nedan."
 
 msgid "editor.submission.createNewRound"
 msgstr "Skapa ny granskningsomgång"
@@ -318,7 +461,9 @@ msgid "editor.article.selectReviewForm"
 msgstr "Välj granskningsformulär"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?"
+msgstr ""
+"Varning: Genom att ändra granskningsformuläret påverkas alla svar granskare "
+"redan matat in med hjälp av det här formuläret. Vill du verkligen fortsätta?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Inga filer valda"
@@ -339,7 +484,8 @@ msgid "grid.action.editQuery"
 msgstr "Redigera diskussion"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Filer kan bifogas från listan nedan för att inkludera dem i diskussionen."
+msgstr ""
+"Filer kan bifogas från listan nedan för att inkludera dem i diskussionen."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Välj granskare"
@@ -351,19 +497,25 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Ta tillbaka godkännande av korrektur"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Godkänn det här korrekturet för att markera att korrekturläsningen är färdig och filen klar att publiceras."
+msgstr ""
+"Godkänn det här korrekturet för att markera att korrekturläsningen är färdig "
+"och filen klar att publiceras."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Ta tillbaka godkännandet av det här korrekturet för att markera att korrekturläsningen inte är komplett ännu och att filen inte är klar att publiceras."
+msgstr ""
+"Ta tillbaka godkännandet av det här korrekturet för att markera att "
+"korrekturläsningen inte är komplett ännu och att filen inte är klar att "
+"publiceras."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Är du säker på att du vill återkalla beslutet att avslå bidraget?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra."
+msgstr ""
+"Den publika identifikatorn '{$publicIdentifier}' får inte vara en siffra."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Mönstret {$pattern} tillåts inte för den publika identifikatorn."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Planera för publicering"
 
 msgid "reviewer.list.filterRating"
 msgstr "Med lägsta betyg"
@@ -374,8 +526,17 @@ msgstr "{$count} aktiva"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Aktiva, pågående granskningsuppdrag"
 
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Granskaren har färdigställt en granskning i den senaste omgången."
+
 msgid "reviewer.list.completedReviews"
 msgstr "Färdiga granskningar"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Granskningsförfrågan har avslagits"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Granskningsförfrågan är avbruten"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Betyg på granskare: {$rating}"
@@ -398,6 +559,9 @@ msgstr "Aldrig tilldelad något granskningsuppdrag"
 msgid "reviewer.list.reassign"
 msgstr "Tilldela om"
 
+msgid "reviewer.list.reassign.withName"
+msgstr "Återinför {$name}"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Den här granskaren har redan tilldelats denna granskningsomgång."
 
@@ -416,159 +580,32 @@ msgstr "Granskningsintressen"
 msgid "reviewer.list.biography"
 msgstr "Biografi"
 
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Skickat till produktion."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Beslutet är registrerat"
-
-msgid "editor.activityLog"
-msgstr "Aktivitetslogg"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Redaktören har avbrutit granskningsförfrågan."
-
-msgid "editor.review.requestCancelled"
-msgstr "Förfrågan är avbruten"
-
 msgid "reviewer.list.empty"
 msgstr "Inga granskare hittades"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Granskningsförfrågan är avbruten"
-
-msgid "reviewer.list.declinedReviews"
-msgstr "Granskningsförfrågan har avslagits"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Granskaren har tackats"
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Granskaren har tackat nej till granskningsförfrågan."
-
-msgid "editor.review.requestDeclined"
-msgstr "Förfrågan avslås"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Återinsätt granskare"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Avboka granskare"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Ändra beslut"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Bidraget är accepterat för granskning."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Skickas till en ny granskningsrunda."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Bidraget är publicerat."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Bidrag accepterat."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Bidrag refuserat."
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "Är du säker på att du vill återkalla beslutet att avslå bidraget?"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "En deltagare har inte tilldelats detta steg."
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr ""
-"En diskussion kan inte inledas med de valda deltagarna eftersom det skulle "
-"påverka anonymiteten i granskningsprocessen."
-
-msgid "editor.decision.stepError"
-msgstr "Det fanns ett problem med steg nummer {$stepName}."
-
-msgid "editor.decision.skipEmail"
-msgstr "Hoppa över detta e-postmeddelande"
-
-msgid "editor.decision.recordDecision"
-msgstr "Fatta beslut"
-
-msgid "editor.decision.emailSkipped"
-msgstr "Detta steg har hoppats över, inget e-postmeddelande kommer skickas."
-
-msgid "editor.decision.dontSkipEmail"
-msgstr "Hoppa inte över detta e-postmeddelande"
-
-msgid "editor.decision.completeSteps"
-msgstr "Färdigställ följande steg för att fatta beslutet"
-
-msgid "editor.decision.cancelDecision.confirmation"
-msgstr "Är du säker på att du vill återkalla detta beslut?"
-
-msgid "editor.decision.cancelDecision"
-msgstr "Återkalla beslut"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr "Tilldelad en tidigare omgång"
 
-msgid "reviewer.list.reassign.withName"
-msgstr "Återinför {$name}"
+msgid "editor.decision.cancelDecision"
+msgstr "Återkalla beslut"
 
-msgid "reviewer.list.assignedToLastRound"
-msgstr "Granskaren har färdigställt en granskning i den senaste omgången."
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Är du säker på att du vill återkalla detta beslut?"
 
-msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr "Ändringar ska genomgå en ny granskningsomgång."
+msgid "editor.decision.completeSteps"
+msgstr "Färdigställ följande steg för att fatta beslutet"
 
-msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr "Ändringar ska inte genomgå en ny granskningsomgång."
+msgid "editor.decision.dontSkipEmail"
+msgstr "Hoppa inte över detta e-postmeddelande"
 
-msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr "Beslutet kunde inte hittas. Ange ett korrekt typ av beslut."
+msgid "editor.decision.emailSkipped"
+msgstr "Detta steg har hoppats över, inget e-postmeddelande kommer skickas."
 
-msgid "editor.submission.workflowDecision.submissionInvalid"
-msgstr ""
-"Beslut kan inte fattas för bidraget. Bidragets ID saknas eller matchar inte "
-"det begärda bidraget."
+msgid "editor.decision.recordDecision"
+msgstr "Fatta beslut"
 
-msgid "editor.submission.workflowDecision.requiredDecidingEditor"
-msgstr ""
-"En rekommendation kan inte ges om ingen redaktör med behörighet att fatta "
-"ett slutgiltigt beslut är tilldelad."
+msgid "editor.decision.skipEmail"
+msgstr "Hoppa över detta e-postmeddelande"
 
-msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
-"Ett granskningsomgångs-ID måste finnas för att beslutet ska kunna fattas."
-
-msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
-"Du måste vara tilldelad behörighet till bidraget för att kunna fatta ett "
-"redaktionellt beslut."
-
-msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
-"Bidraget är inte i rätt steg i arbetsflödet för att beslutet ska kunna "
-"fattas."
-
-msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr "Granskningsomgången är inte en del av bidraget."
-
-msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
-msgstr ""
-"En granskningsomgång pågår, men detta beslut kan inte fattas i "
-"granskningssteget."
-
-msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr "Granskningsomgången hittades inte."
-
-msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr "Du kan inte skicka e-postmeddelande till följande mottagare: {$names}."
-
-msgid "editor.submission.workflowDecision.invalidEditor"
-msgstr "Redaktören har inte behörighet att fatta beslut om detta bidrag."
-
-msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Du har inte behörighet att fatta beslut om detta bidrag."
+msgid "editor.decision.stepError"
+msgstr "Det fanns ett problem med steg nummer {$stepName}."

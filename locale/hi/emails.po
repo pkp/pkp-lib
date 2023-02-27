@@ -30,14 +30,21 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"पांडुलिपि प्रस्तुत करने के लिए धन्यवाद, &quot;{$submissionTitle}&quot; to {$contextName}. जिस ऑनलाइन जर्नल प्रबंधन प्रणाली का हम उपयोग कर रहे हैं, आप जर्नल साइट पर लॉग इन करके संपादकीय प्रक्रिया के माध्यम से इसकी प्रगति को ट्रैक कर पाएंगे।:<br />\n"
+"पांडुलिपि प्रस्तुत करने के लिए धन्यवाद, &quot;{$submissionTitle}&quot; to "
+"{$contextName}. जिस ऑनलाइन जर्नल प्रबंधन प्रणाली का हम उपयोग कर रहे हैं, आप जर्नल "
+"साइट पर लॉग इन करके संपादकीय प्रक्रिया के माध्यम से इसकी प्रगति को ट्रैक कर पाएंगे।:<br /"
+">\n"
 "<br />\n"
 "Submission URL: {$submissionUrl}<br />\n"
 "Username: {$recipientUsername}<br />\n"
 "<br />\n"
-"यदि आपके पास किसी तरह का प्रश्न है, तो कृपया मुझ से सम्पर्क करें। अपने काम के लिए इस जर्नल को एक स्थान के रूप में विचार करने के लिए धन्यवाद.<br />\n"
+"यदि आपके पास किसी तरह का प्रश्न है, तो कृपया मुझ से सम्पर्क करें। अपने काम के लिए इस जर्नल "
+"को एक स्थान के रूप में विचार करने के लिए धन्यवाद.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 # (pofilter) endpunc: Different punctuation at the end
 # (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
@@ -59,20 +66,34 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"सबमिशन की समीक्षा को पूरा करने के लिए धन्यवाद, &quot;{$submissionTitle},&quot; for {$contextName}. हम आपके द्वारा प्रकाशित किए जाने वाले कार्य की गुणवत्ता में आपके योगदान की सराहना करते हैं."
+"सबमिशन की समीक्षा को पूरा करने के लिए धन्यवाद, &quot;{$submissionTitle},&quot; "
+"for {$contextName}. हम आपके द्वारा प्रकाशित किए जाने वाले कार्य की गुणवत्ता में आपके "
+"योगदान की सराहना करते हैं."
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
 
 # (pofilter) endpunc: Different punctuation at the end
-# (pofilter) simplecaps: Different capitalization
 #, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "यह ईमेल एक अनुभाग संपादक द्वारा एक पूर्ण समीक्षा की प्राप्ति की पुष्टि करने के लिए भेजा जाता है और समीक्षक को उनके योगदान के लिए धन्यवाद देता है."
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "संपादक का निर्णय"
 
 # (pofilter) simplecaps: Different capitalization#, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"हम आपके सबमिशन के बारे में निर्णय ले चुके हैं to {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"हम आपके सबमिशन के बारे में निर्णय ले चुके हैं to {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Our decision is to: Send to Review<br />\n"
 "<br />\n"
@@ -80,29 +101,18 @@ msgstr ""
 
 # (pofilter) endpunc: Different punctuation at the end
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"आपके सबमिशन का संपादन, &quot;{$submissionTitle},&quot; पूरा है। अब हम इसे उत्पादन के लिए भेज रहे हैं.<br />\n"
+"आपके सबमिशन का संपादन, &quot;{$submissionTitle},&quot; पूरा है। अब हम इसे उत्पादन "
+"के लिए भेज रहे हैं.<br />\n"
 "<br />\n"
 "Submission URL: {$submissionUrl}"
-
-# (pofilter) endpunc: Different punctuation at the end
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "संपादक का निर्णय"
-#, fuzzy
-msgid "emails.editorDecisionRevisions.body"
-msgstr ""
-"{$authors}:<br />\n"
-"<br />\n"
-"आपके द्वारा सबमिट किए जाने के संबंध में हम एक निर्णय पर पहुंच गए हैं {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
-"<br />\n"
-"Our decision is: Revisions Required"
 
 # (pofilter) brackets: Added '{', '}'
 # (pofilter) newlines: Different line endings
@@ -112,21 +122,37 @@ msgstr ""
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "संपादक का निर्णय"
+
+#, fuzzy
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+"{$authors}:<br />\n"
+"<br />\n"
+"आपके द्वारा सबमिट किए जाने के संबंध में हम एक निर्णय पर पहुंच गए हैं {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
+"<br />\n"
+"Our decision is: Revisions Required"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.subject"
 msgstr "संपादक का निर्णय"
+
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.editorDecisionDecline.subject"
+msgstr "संपादक का निर्णय"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"आपके द्वारा सबमिट किए जाने के संबंध में हम एक निर्णय पर पहुंच गए हैं {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"आपके द्वारा सबमिट किए जाने के संबंध में हम एक निर्णय पर पहुंच गए हैं {$contextName}, "
+"&quot;{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "हमारा निर्णय है: सबमिशन को अस्वीकार करना"
-
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "संपादक का निर्णय"
 
 msgid "emails.editorRecommendation.subject"
 msgstr "संपादक की सिफारिश"
@@ -142,7 +168,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"को प्रस्तुत करने के संबंध में सिफारिश {$contextName}, &quot;{$submissionTitle}&quot; is: {$recommendation}"
+"को प्रस्तुत करने के संबंध में सिफारिश {$contextName}, &quot;{$submissionTitle}&quot; "
+"is: {$recommendation}"
 
 # (pofilter) endpunc: Different punctuation at the end
 # (pofilter) simplecaps: Different capitalization
@@ -164,15 +191,40 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"I would ask that you undertake the copyediting of &quot;{$submissionTitle}&quot; for {$contextName} by following these steps.<br />\n"
+"I would ask that you undertake the copyediting of &quot;{$submissionTitle}"
+"&quot; for {$contextName} by following these steps.<br />\n"
 "1. नीचे दिए गए सबमिशन यूआरएल पर क्लिक करें.<br />\n"
-"2. ड्राफ्ट फ़ाइलों के तहत उपलब्ध किसी भी फाइल को खोलें और आवश्यकतानुसार अपनी कॉपी की गई चर्चाओं को जोड़ते हुए, अपनी प्रतिलिपि बनाएँ.<br />\n"
+"2. ड्राफ्ट फ़ाइलों के तहत उपलब्ध किसी भी फाइल को खोलें और आवश्यकतानुसार अपनी कॉपी की "
+"गई चर्चाओं को जोड़ते हुए, अपनी प्रतिलिपि बनाएँ.<br />\n"
 "3. Save copyedited file(s), and upload to Copyedited panel.<br />\n"
-"4. संपादक को सूचित करें कि सभी फाइलें तैयार हो गई हैं, और यह कि उत्पादन प्रक्रिया शुरू हो सकती है.<br />\n"
+"4. संपादक को सूचित करें कि सभी फाइलें तैयार हो गई हैं, और यह कि उत्पादन प्रक्रिया शुरू हो "
+"सकती है.<br />\n"
 "<br />\n"
 "{$contextName} URL: {$contextUrl}<br />\n"
 "Submission URL: {$submissionUrl}<br />\n"
 "Username: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "संपादक का निर्णय"
 
 # (pofilter) endpunc: Different punctuation at the end
 # (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
@@ -184,9 +236,50 @@ msgstr ""
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "संपादक का निर्णय"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "{$contextName} के बारे में एक संदेश"
@@ -194,6 +287,56 @@ msgstr "{$contextName} के बारे में एक संदेश"
 # (pofilter) endpunc: Different punctuation at the end
 msgid "emails.discussion.body"
 msgstr "कृपया अपना संदेश लिखें."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+# (pofilter) simplecaps: Different capitalization
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "समीक्षा करने में सक्षम"
+
+# (pofilter) endpunc: Different punctuation at the end
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editors:<br />\n"
+"<br />\n"
+"मैं सबमिशन की समीक्षा करने में सक्षम और तैयार हूं, &quot;{$submissionTitle},&quot; for "
+"{$contextName}. मेरे बारे में सोचने के लिए धन्यवाद, और मेरी योजना इसकी नियत तारीख, {$ "
+"reviewDueDate} से पूरी होने की है, अगर पहले नहीं.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 # (pofilter) brackets: Added '(', ')'
 # (pofilter) endpunc: Different punctuation at the end
@@ -215,27 +358,9 @@ msgstr ""
 "{$contextSignature}"
 
 # (pofilter) endpunc: Different punctuation at the end
-#, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editors:<br />\n"
-"<br />\n"
-"मैं सबमिशन की समीक्षा करने में सक्षम और तैयार हूं, &quot;{$submissionTitle},&quot; for "
-"{$contextName}. मेरे बारे में सोचने के लिए धन्यवाद, और मेरी योजना इसकी नियत तारीख, {$ "
-"reviewDueDate} से पूरी होने की है, अगर पहले नहीं.<br />\n"
-"<br />\n"
-"{$senderName}"
-
 # (pofilter) simplecaps: Different capitalization
 #, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "समीक्षा करने में सक्षम"
-
-# (pofilter) brackets: Added '{', '}'
-# (pofilter) long: The translation is much longer than the original
-# (pofilter) newlines: Different line endings
-# (pofilter) pythonbraceformat: Unknown named placeholders in translation: {$recipientName}, {$ reviewDueDate}, {$submissionTitle}, {$contextName}
-# (pofilter) sentencecount: Different number of sentences: 1 ≠ 2
-# (pofilter) simplecaps: Different capitalization
-# (pofilter) startcaps: Different capitalization at the start
-# (pofilter) xmltags: Added XML tags
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "यह ईमेल एक अनुभाग संपादक द्वारा एक पूर्ण समीक्षा की प्राप्ति की पुष्टि करने के लिए भेजा "
+#~ "जाता है और समीक्षक को उनके योगदान के लिए धन्यवाद देता है."

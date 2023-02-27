@@ -23,14 +23,21 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Tack för att du har skickat in manuskriptet &quot;{$submissionTitle}&quot; till {$contextName}. I det publiceringssystem vi använder har du möjlighet att följa dess väg i den redaktionella processen genom att logga in på tidskriftens webbplats:<br />\n"
+"Tack för att du har skickat in manuskriptet &quot;{$submissionTitle}&quot; "
+"till {$contextName}. I det publiceringssystem vi använder har du möjlighet "
+"att följa dess väg i den redaktionella processen genom att logga in på "
+"tidskriftens webbplats:<br />\n"
 "<br />\n"
 "Bidragets URL: {$submissionUrl}<br />\n"
 "Användarnamn: {$recipientUsername}<br />\n"
 "<br />\n"
-"Om du har några frågor, vänligen kontakta mig. Tack för att du har valt att skicka ditt bidrag till den här tidskriften.<br />\n"
+"Om du har några frågor, vänligen kontakta mig. Tack för att du har valt att "
+"skicka ditt bidrag till den här tidskriften.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -41,11 +48,22 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Tack för att du genomfört granskningen av bidraget &quot;{$submissionTitle}&quot; för {$contextName}. Vi uppskattar ditt arbete din roll i att bibehålla tidskriftens kvalitet."
+"Tack för att du genomfört granskningen av bidraget &quot;{$submissionTitle}"
+"&quot; för {$contextName}. Vi uppskattar ditt arbete din roll i att "
+"bibehålla tidskriftens kvalitet."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Det här e-postmeddelandet skickas från en sektionsredaktör för att bekräfta att en färdig granskning inkommit och för att tacka granskaren för utfört arbete."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Redaktörsbeslut"
@@ -55,7 +73,8 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Skicka till granskning<br />\n"
 "<br />\n"
@@ -70,7 +89,8 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Redigeringen av ditt bidrag &quot;{$submissionTitle}&quot; är färdig. Vi skickar det nu vidare till produktion.<br />\n"
+"Redigeringen av ditt bidrag &quot;{$submissionTitle}&quot; är färdig. Vi "
+"skickar det nu vidare till produktion.<br />\n"
 "<br />\n"
 "Bidragets URL: {$submissionUrl}"
 
@@ -83,7 +103,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Bearbetning krävs"
 
@@ -96,7 +117,8 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Skicka in igen för ny granskning"
 
@@ -109,7 +131,8 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Refusera bidrag"
 
@@ -122,7 +145,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"Rekommendationen angående bidraget &quot;{$submissionTitle}&quot; till {$contextName} är: {$recommendation}"
+"Rekommendationen angående bidraget &quot;{$submissionTitle}&quot; till "
+"{$contextName} är: {$recommendation}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -133,15 +157,38 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Jag skulle vilja be dig om att genomföra manusredigering av &quot;{$submissionTitle}&quot; för {$contextName} genom att gå igenom följande steg:<br />\n"
+"Jag skulle vilja be dig om att genomföra manusredigering av &quot;"
+"{$submissionTitle}&quot; för {$contextName} genom att gå igenom följande "
+"steg:<br />\n"
 "1. Klicka på Bidragets URL nedan.<br />\n"
-"2. Öppna samtliga filer tillgängliga under Utkastfiler och manusredigera dem. Skriv i Manusredigeringsdiskussioner vid behov.<br />\n"
-"3. Spara manusredigerade filer och ladda upp under Manusredigerade-panelen.<br />\n"
-"4. Meddela Redaktören att samtliga filer har förberetts och att Produktionsprocessen kan påbörjas.<br />\n"
+"2. Öppna samtliga filer tillgängliga under Utkastfiler och manusredigera "
+"dem. Skriv i Manusredigeringsdiskussioner vid behov.<br />\n"
+"3. Spara manusredigerade filer och ladda upp under Manusredigerade-panelen."
+"<br />\n"
+"4. Meddela Redaktören att samtliga filer har förberetts och att "
+"Produktionsprocessen kan påbörjas.<br />\n"
 "<br />\n"
 "{$contextName} URL: {$contextUrl}<br />\n"
 "Bidragets URL: {$submissionUrl}<br />\n"
 "Användarnamn: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
@@ -153,9 +200,55 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"Vi har fattat ett beslut angående ditt bidrag till {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Vårt beslut är att: Refusera bidrag"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -163,6 +256,55 @@ msgstr "Ett meddelande angående {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Skriv in ditt meddelande."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Accepterar granskningsuppdrag"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Redaktörer:<br />\n"
+"<br />\n"
+"Jag har möjlighet och åtar mig gärna uppdraget att granska bidraget &quot;"
+"{$submissionTitle}&quot; för {$contextName}. Tack för att ni tänkte på mig. "
+"Jag kommer att ha granskningen färdig till deadline {$reviewDueDate}, om "
+"inte förr.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Bekräftelse på mottaget bidrag"
@@ -178,17 +320,8 @@ msgstr ""
 "p>{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Redaktörer:<br />\n"
-"<br />\n"
-"Jag har möjlighet och åtar mig gärna uppdraget att granska bidraget &quot;"
-"{$submissionTitle}&quot; för {$contextName}. Tack för att ni tänkte på mig. "
-"Jag kommer att ha granskningen färdig till deadline {$reviewDueDate}, om "
-"inte förr.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Accepterar granskningsuppdrag"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Det här e-postmeddelandet skickas från en sektionsredaktör för att "
+#~ "bekräfta att en färdig granskning inkommit och för att tacka granskaren "
+#~ "för utfört arbete."

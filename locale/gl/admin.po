@@ -11,128 +11,55 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.settings.contactName"
-msgstr "Nome do contacto principal"
+msgid "admin.systemInfo.settingName"
+msgstr "Nome da configuración"
 
-msgid "admin.settings.contactEmail"
-msgstr "Correo electrónico do contacto principal"
+msgid "admin.systemInfo.settingValue"
+msgstr "Valor de configuración"
 
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Correos masivos"
+msgid "admin.adminFunctions"
+msgstr "Funcións administrativas"
 
-msgid "admin.settings.about"
-msgstr "Descrición do sitio"
-
-msgid "admin.settings"
-msgstr "Axustes"
-
-msgid "admin.server.platform"
-msgstr "Plataforma SO"
-
-msgid "admin.server.phpVersion"
-msgstr "Versión PHP"
-
-msgid "admin.serverInformation"
-msgstr "Información do servidor"
-
-msgid "admin.server.dbVersion"
-msgstr "Versión do servidor da bases de datos"
-
-msgid "admin.server.dbDriver"
-msgstr "Controlador da base de datos"
-
-msgid "admin.server.apacheVersion"
-msgstr "Versión do Apache"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Recordatorio de caducidade da subscrición"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Recordatorio de revisión"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicar os envíos programados para a súa publicación"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Limpar o rexistro de execución de tarefas programadas"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.deleteCache"
 msgstr ""
-"Estás seguro/a de que queres eliminar todos os rexistros de execución das "
-"tarefas programadas?"
 
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.deleteCache.description"
 msgstr ""
-"A súa instalación de {$softwareName} executou e finalizou automáticamente "
-"esta tarefa e  pode descargar o ficheiro de rexistro aquí: {$url}"
 
-msgid "admin.scheduledTask.noLog"
-msgstr "A tarefa non xenerou ningún rexistro."
+msgid "admin.clearDataCache"
+msgstr "Borrar a caché de datos"
 
-msgid "admin.scheduledTask.stopTime"
-msgstr "Tarefa detida."
+msgid "admin.clearTemplateCache"
+msgstr "Borrar a caché do modelo"
 
-msgid "admin.scheduledTask.startTime"
-msgstr "Iniciouse a tarefa."
-
-msgid "admin.scheduledTask"
-msgstr "Tarefa programada"
-
-msgid "admin.phpInfo"
-msgstr "Información PHP ampliada"
-
-msgid "admin.languages.uninstall"
-msgstr "Desinstalar ficheiro de idiomas"
-
-msgid "admin.languages.reload"
-msgstr "Volver a cargar ficheiros de idiomas"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "Non existen arquivos locais adicionais dispoñibles para a instalación."
-
-msgid "admin.languages.languageSettings"
-msgstr "Configuración do idioma"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instalar novos ficheiros de idioma"
-
-msgid "admin.languages.installLocales"
-msgstr "Instalar"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalar configuración rexional"
-
-msgid "admin.languages.availableLocales"
-msgstr "Idiomas dispoñibles"
-
-msgid "admin.languages.installLanguages"
-msgstr "Xestionar ficheiros de idioma"
-
-msgid "admin.languages.installedLocales"
-msgstr "Ficheiros de idioma instalados"
-
-msgid "admin.languages.confirmReload"
+msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Estás seguro/a de que queres volver a cargar esta configuración rexional? "
-"Esta opción borrará os datos da configuración específica existentes, como os "
-"dos modelos de correo electrónico persoalizados."
+"O arquivo de configuración actualizouse con éxito. É posíbel que, si o seu "
+"sitio xa non funciona correctamente, teña que amañar a configuración de "
+"xeito manual mediante a edición de <tt>config.inc.php</tt> directamente."
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Estás seguro/a de querer eliminar a caché dos modelos confeccionados?"
+
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"Estás seguro/a de que queres cambiar o idioma principal do sitio? Os nomes "
-"de usuario/a, que son necesarios no idioma principal do sitio, copiaranse "
-"dende o idioma principal actual onde non existan."
+"Estás seguro/a de desexar que todas as sesións dos/as usuarios/as caduquen? "
+"Todas as persoas que actualmente estean rexistradas no sistema estarán "
+"obrigadas a iniciar sesión de novo (vostede incluído)."
 
-msgid "admin.languages.cantDisable"
+msgid "admin.contentsOfConfigFile"
+msgstr "Contidos do arquivo de configuración"
+
+msgid "admin.contexts.confirmDelete"
 msgstr ""
-"A configuración rexional é o idioma principal do sitio. Non se pode "
-"deshabilitar ata que elixa outra configuración rexional principal."
+"Estás seguro/a de querer eliminar permanentemente {$contextName} e todo o "
+"seu contido?"
 
-msgid "admin.expireSessions"
-msgstr "Caducidade das sesións"
+msgid "admin.currentVersion"
+msgstr "Versión actual"
 
-msgid "admin.displayNewSystemConfig"
-msgstr "Amosar a nova configuración"
+msgid "admin.dateInstalled"
+msgstr "Data de instalación"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
@@ -141,161 +68,720 @@ msgstr ""
 "editor de texto axeitado e substituir o contido polos contidos do campo de "
 "texto que aparecen a continuación."
 
-msgid "admin.dateInstalled"
-msgstr "Data de instalación"
+msgid "admin.displayNewSystemConfig"
+msgstr "Amosar a nova configuración"
 
-msgid "admin.currentVersion"
-msgstr "Versión actual"
+msgid "admin.expireSessions"
+msgstr "Caducidade das sesións"
 
-msgid "admin.contexts.confirmDelete"
+msgid "admin.expireSessions.description"
 msgstr ""
-"Estás seguro/a de querer eliminar permanentemente {$contextName} e todo o "
-"seu contido?"
 
-msgid "admin.contentsOfConfigFile"
-msgstr "Contidos do arquivo de configuración"
-
-msgid "admin.confirmExpireSessions"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"Estás seguro/a de desexar que todas as sesións dos/as usuarios/as caduquen? "
-"Todas as persoas que actualmente estean rexistradas no sistema estarán "
-"obrigadas a iniciar sesión de novo (vostede incluído)."
+"A configuración rexional é o idioma principal do sitio. Non se pode "
+"deshabilitar ata que elixa outra configuración rexional principal."
 
-msgid "admin.confirmClearTemplateCache"
-msgstr "Estás seguro/a de querer eliminar a caché dos modelos confeccionados?"
-
-msgid "admin.configFileUpdatedInstructions"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"O arquivo de configuración actualizouse con éxito. É posíbel que, si o seu "
-"sitio xa non funciona correctamente, teña que amañar a configuración de "
-"xeito manual mediante a edición de <tt>config.inc.php</tt> directamente."
+"Estás seguro/a de que queres cambiar o idioma principal do sitio? Os nomes "
+"de usuario/a, que son necesarios no idioma principal do sitio, copiaranse "
+"dende o idioma principal actual onde non existan."
 
-msgid "admin.clearTemplateCache"
-msgstr "Borrar a caché do modelo"
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Estás seguro/a de que queres volver a cargar esta configuración rexional? "
+"Esta opción borrará os datos da configuración específica existentes, como os "
+"dos modelos de correo electrónico persoalizados."
 
-msgid "admin.clearDataCache"
-msgstr "Borrar a caché de datos"
+msgid "admin.languages.installedLocales"
+msgstr "Ficheiros de idioma instalados"
 
-msgid "admin.adminFunctions"
-msgstr "Funcións administrativas"
+msgid "admin.languages.installLanguages"
+msgstr "Xestionar ficheiros de idioma"
 
-msgid "admin.systemInfo.settingValue"
-msgstr "Valor de configuración"
+msgid "admin.languages.availableLocales"
+msgstr "Idiomas dispoñibles"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Nome da configuración"
+msgid "admin.languages.installLocale"
+msgstr "Instalar configuración rexional"
 
-msgid "admin.versionHistory"
-msgstr "Historial de versións"
+msgid "admin.languages.installLocales"
+msgstr "Instalar"
 
-msgid "admin.version.downloadPatch"
-msgstr "Descargar parche"
+msgid "admin.languages.installNewLocales"
+msgstr "Instalar novos ficheiros de idioma"
 
-msgid "admin.version.downloadPackage"
-msgstr "Descargar"
+msgid "admin.languages.languageSettings"
+msgstr "Configuración do idioma"
 
-msgid "admin.version.checkForUpdates"
-msgstr "Buscar actualizacións"
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Non existen arquivos locais adicionais dispoñibles para a instalación."
 
-msgid "admin.versionBuild"
-msgstr "Crear"
+msgid "admin.languages.reload"
+msgstr "Volver a cargar ficheiros de idiomas"
 
-msgid "admin.systemInformation"
-msgstr "Información do sistema"
+msgid "admin.languages.uninstall"
+msgstr "Desinstalar ficheiro de idiomas"
+
+msgid "admin.phpInfo"
+msgstr "Información PHP ampliada"
+
+msgid "admin.scheduledTask"
+msgstr "Tarefa programada"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Iniciouse a tarefa."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tarefa detida."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "A tarefa non xenerou ningún rexistro."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"A súa instalación de {$softwareName} executou e finalizou automáticamente "
+"esta tarefa e  pode descargar o ficheiro de rexistro aquí: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Estás seguro/a de que queres eliminar todos os rexistros de execución das "
+"tarefas programadas?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Limpar o rexistro de execución de tarefas programadas"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicar os envíos programados para a súa publicación"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Recordatorio de revisión"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Recordatorio de caducidade da subscrición"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Versión do Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Controlador da base de datos"
+
+msgid "admin.server.dbVersion"
+msgstr "Versión do servidor da bases de datos"
+
+msgid "admin.serverInformation"
+msgstr "Información do servidor"
+
+msgid "admin.server.phpVersion"
+msgstr "Versión PHP"
+
+msgid "admin.server.platform"
+msgstr "Plataforma SO"
+
+msgid "admin.settings"
+msgstr "Axustes"
+
+msgid "admin.settings.about"
+msgstr "Descrición do sitio"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Correos masivos"
+
+msgid "admin.settings.contactEmail"
+msgstr "Correo electrónico do contacto principal"
+
+msgid "admin.settings.contactName"
+msgstr "Nome do contacto principal"
+
+msgid "admin.settings.introduction"
+msgstr "Introdución"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lonxitude mínima do contrasinal"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restrinxir correos electrónicos masivos"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desactivar os roles"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Só un administrador pode modificar esta configuración."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Idioma"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Non é válido o formato da folla de estilo do sitio. O formato axeitado é ."
+"css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Folla de estilo do sitio"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo do sitio"
+
+msgid "admin.settings.siteTitle"
+msgstr "Título"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema do sitio"
+
+msgid "admin.siteAdmin"
+msgstr "Administración do sitio"
+
+msgid "admin.siteManagement"
+msgstr "Xestión do sitio"
+
+msgid "admin.siteSettings"
+msgstr "Configuración do sitio"
+
+msgid "admin.siteSetup"
+msgstr "Configuración do sitio"
 
 msgid "admin.systemConfigFileReadError"
 msgstr ""
 "O arquivo de configuración <tt>config.inc.php</tt> non existe, non se pode "
 "ler ou non é válido."
 
-msgid "admin.siteSetup"
-msgstr "Configuración do sitio"
+msgid "admin.systemInformation"
+msgstr "Información do sistema"
 
-msgid "admin.siteSettings"
-msgstr "Configuración do sitio"
-
-msgid "admin.siteManagement"
-msgstr "Xestión do sitio"
-
-msgid "admin.siteAdmin"
-msgstr "Administración do sitio"
-
-msgid "admin.settings.siteTheme"
-msgstr "Tema do sitio"
-
-msgid "admin.settings.siteTitle"
-msgstr "Título"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo do sitio"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "Folla de estilo do sitio"
-
-msgid "admin.settings.siteStyleSheetInvalid"
+msgid "admin.systemInformation.description"
 msgstr ""
-"Non é válido o formato da folla de estilo do sitio. O formato axeitado é "
-".css."
 
-msgid "admin.settings.siteLanguage"
-msgstr "Idioma"
+msgid "admin.systemInformation.view"
+msgstr ""
 
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Só un administrador pode modificar esta configuración."
+msgid "admin.versionBuild"
+msgstr "Crear"
 
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Desactivar os roles"
+msgid "admin.version.checkForUpdates"
+msgstr "Buscar actualizacións"
 
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Restrinxir correos electrónicos masivos"
+msgid "admin.version.downloadPackage"
+msgstr "Descargar"
 
-msgid "admin.settings.minPasswordLength"
-msgstr "Lonxitude mínima do contrasinal"
+msgid "admin.version.downloadPatch"
+msgstr "Descargar parche"
 
-msgid "admin.settings.introduction"
-msgstr "Introdución"
+msgid "admin.versionHistory"
+msgstr "Historial de versións"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Non hai traducións dispoñibels para descargar."
+msgid "admin.version.latest"
+msgstr "Última versión"
 
-msgid "admin.fileLoader.emailSubject"
-msgstr "Cargador de arquivos"
+msgid "admin.versionMajor"
+msgstr "Principal"
 
-msgid "admin.fileLoader.fileProcessed"
-msgstr "O arquivo {$filename} procesouse e gardouse."
+msgid "admin.versionMinor"
+msgstr "Secundario"
+
+msgid "admin.version.moreInfo"
+msgstr "Máis información"
+
+msgid "admin.versionRevision"
+msgstr "Revisión"
+
+msgid "admin.version.updateAvailable"
+msgstr "Hai unha nova versión dispoñibel"
+
+msgid "admin.version.upToDate"
+msgstr "O seu sistema está actualizado"
+
+msgid "admin.version"
+msgstr "Versión"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"A ruta base {$path} deberá estar dentro do cartafol de arquivos públicos."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "O cartafol {$path} non é un directorio ou non se pode ler."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
 "O arquivo {$filename} non se puido mover de {$currentFilePath} a "
 "{$destinationPath}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "O cartafol {$path} non é un directorio ou non se pode ler."
+msgid "admin.fileLoader.fileProcessed"
+msgstr "O arquivo {$filename} procesouse e gardouse."
 
-msgid "admin.fileLoader.wrongBasePathLocation"
+msgid "admin.fileLoader.emailSubject"
+msgstr "Cargador de arquivos"
+
+msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
-"A ruta base {$path} deberá estar dentro do cartafol de arquivos públicos."
 
-msgid "admin.version"
-msgstr "Versión"
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
 
-msgid "admin.version.upToDate"
-msgstr "O seu sistema está actualizado"
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
 
-msgid "admin.version.updateAvailable"
-msgstr "Hai unha nova versión dispoñibel"
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
 
-msgid "admin.versionRevision"
-msgstr "Revisión"
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
 
-msgid "admin.version.moreInfo"
-msgstr "Máis información"
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
 
-msgid "admin.versionMinor"
-msgstr "Secundario"
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
 
-msgid "admin.versionMajor"
-msgstr "Principal"
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
 
-msgid "admin.version.latest"
-msgstr "Última versión"
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Non hai traducións dispoñibels para descargar."
+
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

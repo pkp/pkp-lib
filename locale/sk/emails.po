@@ -12,12 +12,8 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
-"dokončí proces odosielania príspevku do časopisu. Obsahuje informácie o "
-"možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
-"autorovi za príspevok."
+msgid "emails.submissionAck.subject"
+msgstr "Poďakovanie za príspevok"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -26,8 +22,8 @@ msgstr ""
 "<br />\n"
 "Ďakujeme Vám za odoslanie príspevku &quot;{$submissionTitle}&quot; do "
 "{$contextName}. S online systémom, ktorý používame, budete môcť sledovať "
-"postup príspevku redakčným procesom po prihlásení sa na stránkach časopisu:<"
-"br />\n"
+"postup príspevku redakčným procesom po prihlásení sa na stránkach časopisu:"
+"<br />\n"
 "<br />\n"
 "URL rukopisu: {$submissionUrl}<br />\n"
 "Používateľské meno: {$recipientUsername}<br />\n"
@@ -38,13 +34,16 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "Poďakovanie za príspevok"
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.submissionAck.description"
 msgstr ""
-"Tento email posiela editor sekcie, aby potvrdil prijatie spracovanej "
-"recenzie a poďakoval recenzentovi za jeho prácu."
+"Tento email, ak je povolený, je automaticky zaslaný autorke/autorovi, keď "
+"dokončí proces odosielania príspevku do časopisu. Obsahuje informácie o "
+"možnosti sledovania príspevku počas redakčného spracovania a poďakovanie "
+"autorovi za príspevok."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Poďakovanie za spracovanie recenzie článku"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -55,9 +54,22 @@ msgstr ""
 "{$contextName}. Vážime si Vašej práce vedúcej k skvalitneniu článkov, ktoré "
 "publikujeme."
 
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "Poďakovanie za spracovanie recenzie článku"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Rozhodnutie editora"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -71,8 +83,9 @@ msgstr ""
 "Webová adresa príspevku: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Rozhodnutie editora"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -84,47 +97,50 @@ msgstr ""
 "Webová adresa príspevku: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "Rozhodnutie editora"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Naše rozhodnutie je: požadujeme prepracovanie"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Rozhodnutie editora"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Naše rozhodnutie je: znova odoslať k recenzii"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Rozhodnutie editora"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Urobili sme rozhodnutie ohľadom Vášho príspevku do {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Naše rozhodnutie je: odmietnuť príspevok"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Rozhodnutie editora"
+msgid "emails.editorRecommendation.subject"
+msgstr "Odporúčania redaktora"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -133,16 +149,18 @@ msgstr ""
 "Odporúčania k príspevku {$contextName}, &quot;{$submissionTitle}&quot; je: "
 "{$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Odporúčania redaktora"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Žiadosť o redigovanie príspevku"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Chcel by som vás požiadať, aby ste zredigovali článok "
-"&quot;{$submissionTitle}&quot; pre {$contextName} a postupujte pritom prosím "
-"podľa nasledujúcich krokov:<br />\n"
+"Chcel by som vás požiadať, aby ste zredigovali článok &quot;"
+"{$submissionTitle}&quot; pre {$contextName} a postupujte pritom prosím podľa "
+"nasledujúcich krokov:<br />\n"
 "1. Kliknite nižšie na URL príspevku.<br />\n"
 "2. Otvorte ľubovoľný súbor v sekcii Súbory návrhov a vykonajte redakčnú "
 "editáciu, prípadne využite diskusiu pre editačnú fázu.<br />\n"
@@ -154,29 +172,138 @@ msgstr ""
 "URL príspevku: {$submissionUrl}<br />\n"
 "Používateľské meno: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Žiadosť o redigovanie príspevku"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Rozhodnutie redaktora"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"Dosiahli sme rozhodnutie ohľadom vášho príspevku pre {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Dosiahli sme rozhodnutie ohľadom vášho príspevku pre {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Naše rozhodnutie je: Odmietnuť príspevok"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Rozhodnutie redaktora"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "Správa týkajúca sa {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Vložte, prosím, vašu správu."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Môžem spracovať recenziu"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editori:<br />\n"
+"<br />\n"
+"Môžem a som ochotný spracovať recenziu príspevku &quot;{$submissionTitle}"
+"&quot; pre {$contextName}. Dakujem, že ste ma oslovili. Plánujem dokončiť "
+"spracovanie recenzie v stanovenom termíne {$reviewDueDate}, prípadne skôr."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Poďakovanie za príspevok"
@@ -195,17 +322,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editori:<br />\n"
-"<br />\n"
-"Môžem a som ochotný spracovať recenziu príspevku &quot;{$submissionTitle}"
-"&quot; pre {$contextName}. Dakujem, že ste ma oslovili. Plánujem dokončiť "
-"spracovanie recenzie v stanovenom termíne {$reviewDueDate}, prípadne skôr."
-"<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Môžem spracovať recenziu"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Tento email posiela editor sekcie, aby potvrdil prijatie spracovanej "
+#~ "recenzie a poďakoval recenzentovi za jeho prácu."

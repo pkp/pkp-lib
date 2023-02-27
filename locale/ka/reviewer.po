@@ -11,15 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "reviewer.submission.submitReview"
-msgstr "მიმოხილვის შეტანა"
-
-msgid "submission.comments.sendCopyToReviewers"
-msgstr "გაგზავნეთ ამ ელფოსტის შეტყობინების ასლი BCC-ით შემდეგ მომხსენებლებთან."
-
-msgid "submission.comments.sendToReviewers"
-msgstr "რეცენზენტებთან გადაგზავნა"
-
 msgid "reviewer.reviewSteps.request"
 msgstr "1. მოთხოვნა"
 
@@ -60,6 +51,9 @@ msgstr "მიმოხილვის მიღება, გადადით
 
 msgid "reviewer.submission.continueToStepThree"
 msgstr "განაგრძეთ ბიჯი #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "მიმოხილვის შეტანა"
 
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "შეინახეთ მოგვიანებით შესასრულებლად"
@@ -126,6 +120,12 @@ msgstr "ავტორისა და რედაქტორისთვი�
 
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "მხოლოდ რედაქტორისთვის"
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "გაგზავნეთ ამ ელფოსტის შეტყობინების ასლი BCC-ით შემდეგ მომხსენებლებთან."
+
+msgid "submission.comments.sendToReviewers"
+msgstr "რეცენზენტებთან გადაგზავნა"
 
 msgid "user.authorization.submissionReviewer"
 msgstr "ამჟამინდელ მომხმარებელს არ არის მოთხოვნილი დოკუმენტის რეცენზენტი."

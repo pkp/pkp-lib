@@ -16,6 +16,16 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "manager.website.information"
+msgstr "Informacje"
+
+msgid "manager.website.appearance"
+msgstr "Wygląd"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Obraz jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) plik."
+
 msgid "manager.announcements"
 msgstr "Ogłoszenia"
 
@@ -30,6 +40,12 @@ msgstr "Utwórz"
 
 msgid "manager.announcements.dateExpire"
 msgstr "Wygaśnięcie"
+
+msgid "manager.announcements.datePublish"
+msgstr "Opublikowany"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Skasuj ogłoszenie"
 
 msgid "manager.announcements.edit"
 msgstr "Edytuj"
@@ -137,11 +153,277 @@ msgstr "Żadne rodzaje wpisów nie zostały utworzone."
 msgid "manager.announcementTypes.typeName"
 msgstr "Rodzaje wpisów"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Rejestrowanie DOI"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Zarejestrujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Oznacz jako zarejestrowane"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"zarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Oznacz jako niezarejestrowane"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"niezarejestrowane. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Oznacz jako przedawniony"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
+"przedawniony. To może dotyczyć tylko DOI uprzednio zgłoszonych do "
+"rejestracji. Czy jesteś pewien?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Wyeksportuj DOI"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Wyeksportujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
+"Czy jesteś pewien?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Przydziel DOI"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Przydzielisz DOI dla {$count} obiektów w {$registrationAgency}. Czy jesteś "
+"pewien?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Zarejestruj wszystko"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Twoje działanie spowoduje zarejestrowanie DOI w {$registrationAgency}. "
+"Zarejestrowane zostaną tylko artykuły uprzednio opublikowane. Każdy status "
+"artykułu będzie aktualizowany osobno. Czy jesteś pewien, że chcesz je "
+"zarejestrować?"
+
+msgid "manager.dois.actions.description"
+msgstr "Wybierz działanie dla wybranych {$count} elementów."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr ""
+
+msgid "manager.dois.depositStatus"
+msgstr "Status rejestracji"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Status publikacji"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Metadane tego artykułu zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Metadane tego artykułu nie zostały przysłane do {$registrationAgency}."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Obiekt nie może zostać zarejestrowany dopóki nie będzie opublikowany."
+
+msgid "manager.dois.registration.viewError"
+msgstr "Podgląd błędu"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Zapisy błędów rejestracji"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Podgląd rekordu"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Zapisy poprawnej rejestracji"
+
+msgid "manger.dois.update.success"
+msgstr "DOI zarejestrowane pomyślnie"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Zarejestruj DOI"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Brak DOI"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Niezarejestrowany"
+
+msgid "manager.dois.status.submitted"
+msgstr "Wysłany"
+
+msgid "manager.dois.status.registered"
+msgstr "Zarejestrowany"
+
+msgid "manager.dois.status.error"
+msgstr "Błąd"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr "Przestarzały"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+
+msgid "manager.dois.status.error.description"
+msgstr ""
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Nieudana aktualizacja DOI"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Niektóre DOI nie zostały aktualizowane."
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Elementy wyeksportowane poprawnie"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Oznaczenie jako zarejestrowane powiodło się"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Oznaczenie jako niezarejestrowane powiodło się"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Oznaczenie jako przeterminowane powiodło się"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Wszystkie elementy mają przydzielone DOI"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Wybrane elementy pomyślnie zgłoszone do rejestracji"
+
+msgid "manager.dois.help.statuses.title"
+msgstr ""
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Zanim będzie można skasować komponent, trzeba powiązać wszystkie pliki "
+"zgłoszenia z innym dostępnym komponentem."
+
+msgid "manager.institutions.edit"
+msgstr "Edytuj Instytucję"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR-y"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Research Organization Registry ID Instytucji."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "Zakres IP"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Prawidłowe wartości obejmują adres IP (np. 142.58.103.1), zakres adresów IP "
+"(np. 142.58.103.1 - 142.58.103.4), zakres adresów IP z symbolem "
+"wieloznacznym „*” (np. 142.58.*.*) oraz zakres adresów IP z CIDR (np. "
+"142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Skasuj Instytucję"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Czy na pewno chcesz kontynuować i usunąć tę instytucję?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Niepoprawny zakres IP"
+
+msgid "manager.publication.submissionStage"
+msgstr "Zgłoszenia"
+
+msgid "manager.publication.reviewStage"
+msgstr "Recenzje"
+
+msgid "manager.publication.editorialStage"
+msgstr "Redakcja"
+
+msgid "manager.publication.productionStage"
+msgstr "Produkcja"
+
+msgid "manager.publication.emails"
+msgstr "Wiadomości e-mail"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Wytyczne  dla recenzentów"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Ustawienia przypomnień dot. recenzji zostały zaktualizowane."
+
+msgid "manager.dois.title"
+msgstr "DOI"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
+"przyczyny:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
+"przyczyny nieudanej rejestracji:"
+
+msgid "manager.emails.addEmail"
+msgstr "Dodaj szablon wiadomości e-mail"
+
 msgid "manager.emails.createEmail"
 msgstr "Utwórz e-mail"
 
+msgid "manager.emails.data"
+msgstr "Dane szablonu"
+
+msgid "manager.emails.details"
+msgstr "Właściwości szablonu"
+
 msgid "manager.emails.disable"
 msgstr "Wyłącz"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Masz zamiar wyłączyć szablon. Jeżeli jakiś proces wykorzystywał ten szablon, "
+"nie będzie mógł dłużej tego robić. Czy chcesz kontynuować?"
 
 msgid "manager.emails.editTestExample"
 msgstr "Edytuj szablon testowy wiadomości e-mail"
@@ -152,11 +434,20 @@ msgstr "Szablon wiadomości e-mail"
 msgid "manager.emails.emailTemplates"
 msgstr "Szablony wiadomości e-mail"
 
+msgid "manager.emails.otherTemplates"
+msgstr "Inne szablony"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Musisz podać ID kontekstu kiedy tworzysz nowy szablon email."
+
 msgid "manager.emails.enabled"
 msgstr "Włącz ten szablon"
 
 msgid "manager.emails.enable"
 msgstr "Włącz"
+
+msgid "manager.emails.enable.message"
+msgstr "Masz zamiar włączyć e-mail. Czy chcesz kontynuować?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr "Niepowtarzalny klucz e-mail jest wymagany dla tej wiadomości."
@@ -173,8 +464,30 @@ msgstr "Przygotowane wiadomości e-mail"
 msgid "manager.emails.resetAll"
 msgstr "Przywróć ustawienia domyślne"
 
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Jeżeli zresetujesz wszystkie szablony, wszystkie zmiany zostaną utracone. "
+"Czy chcesz kontynuować?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Jeżeli usuniesz szablon, wszystkie wiadomości będą zresetowane do swojej "
+"domyślnej wartości. Czy chcesz kontynuować?"
+
 msgid "manager.emails.resetToDefault"
 msgstr "Wróć do ustawień domyślnych"
+
+msgid "manager.emails.sentFrom"
+msgstr "Nadawca"
+
+msgid "manager.emails.sentTo"
+msgstr "Odbiorca"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Wyeksportuj do Exela/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr "Wybierz użytkowników do eksportu w formacie Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Przeglądarka plików"
@@ -234,6 +547,18 @@ msgstr "Tytuł"
 msgid "manager.importExport"
 msgstr "Importuj/Eksportuj dane"
 
+msgid "manager.language.ui"
+msgstr "Interfejs użytkownika"
+
+msgid "manager.language.submissions"
+msgstr "Zgłoszenia"
+
+msgid "manager.language.forms"
+msgstr "Formularze"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Przeładuj ustawienia domyślne"
+
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
 "System umożliwia umieszczenie niektórych informacji w innych językach. Aby "
@@ -248,6 +573,9 @@ msgstr ""
 
 msgid "manager.payment.timestamp"
 msgstr "Datownik"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Istniejący użytkownik musi zostać wprowadzony."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Wypisać tego użytkownika?"
@@ -349,6 +677,9 @@ msgstr "Usuń"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Zapisz i utwórz następny"
 
+msgid "manager.people.signedInAs"
+msgstr "Jesteś zalogowany jako {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Zaloguj jako"
 
@@ -389,33 +720,278 @@ msgstr "Wtyczki systemowe"
 msgid "manager.readingTools"
 msgstr "Narzędzia czytelnicze"
 
+msgid "manager.userSearch.searchByName"
+msgstr "Szukaj wg imienia i nazwiska"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Nie możesz skasować tego uczestnika ponieważ występuje on w jednym z "
+"formatów publikacji zgłoszenia."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Zmień"
+
 msgid "manager.reviewerSearch.searchByName"
 msgstr "Wyszukaj recenzenta po nazwie"
 
-msgid "manager.reviewerSearch.doneAmount"
-msgstr "Wykonanych recenzji: {$current}"
-
-msgid "manager.reviewerSearch.avgAmount"
-msgstr "Średnia długość procesu recenzowania (dni): {$current}"
-
-msgid "manager.reviewerSearch.lastAmount"
-msgstr "Dni od ostatniej recenzji: {$current}"
-
-msgid "manager.reviewerSearch.activeAmount"
-msgstr "Liczba aktywnych recenzji: {$current}"
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Wyszukaj po imieniu"
 
 msgid "manager.reviewerSearch.interests"
 msgstr "Zainteresowania badawcze"
 
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Użyj formularza, aby określić maksymalną liczbę wartości dla wyszukiwanych "
+"terminów. Formularz sugeruje uśrednione wartości dla pól."
+
 msgid "manager.roles"
 msgstr "Role"
+
+msgid "manager.setup.statistics"
+msgstr "Statystyki"
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Geostatystyka"
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+"Wybierz typ statystyk użytkowania geograficznego, które chcesz zbierać. "
+"Bardziej szczegółowe statystyki geograficzne mogą znacznie zwiększyć rozmiar "
+"bazy danych, a w niektórych rzadkich przypadkach mogą podważyć anonimowość "
+"odwiedzających."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Nie gromadź danych geolokalizacyjnych"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Zapisuj kraj odwiedzającego"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Zapisuj kraj i region odwiedzającego"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Zapisuj kraj, region i miasto odwiedzającego"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Statystyki Instytucji"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Włącz statystyki instytucjonalne, jeśli chcesz zbierać statystyki "
+"użytkowania według instytucji. Jeśli ta opcja jest włączona, konieczne "
+"będzie skonfigurowanie zakresów adresów IP dla każdej instytucji, którą "
+"chcesz śledzić."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Włącz statystyki instytucjonalne"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API Publiczne"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Czy ograniczyć dostęp do punktów końcowych API dla statystyk COUNTER SUSHI. "
+"Jeśli to pole nie zostanie zaznaczone, interfejs API będzie dostępny tylko "
+"dla użytkowników z rolami administratora lub menedżera."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Udostępnij publicznie statystyki COUNTER SUSHI"
+
+msgid "manager.statistics"
+msgstr "Statystyki i raporty"
+
+msgid "manager.statistics.reports"
+msgstr "Generator raportów"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"System generuje raporty zawierające statystyki wykorzystania strony oraz "
+"zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików "
+"CSV, które można otworzyć za pomocą programu obsługującego arkusze "
+"kalkulacyjne."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Użyj formatu RRRRMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Użyj formatu RRRRMMDD."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Instytucja finansująca"
+
+msgid "manager.setup.dois"
+msgstr "DOI"
+
+msgid "manager.setup.dois.setup"
+msgstr "Ustawienia"
+
+msgid "manager.setup.dois.registration"
+msgstr "Rejestracja"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefiks DOI"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Rejestracja automatyczna"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Włącz rejestrację automatyczną DOI"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"Rejestracja DOI i metadane mogą być automatycznie zdeponowane w wybranej "
+"agencji rejestracyjnej za każdym razem, gdy zostanie opublikowana pozycja z "
+"DOI. Automatyczne wpłaty będą dokonywane w zaplanowanych odstępach czasu, a "
+"status rejestracji każdego DOI można monitorować na stronie zarządzania DOI."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Prefiks DOI jest przydzielany przez organizacje rejestrujące, np. <a href="
+"\"http://www.crossref.org\" target=\"_new\">Crossref</a> i posiada format 10."
+"xxxx (np. 10.1234):"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Wymagany jest prefiks DOI w formacie: 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Automatyczne przydzielanie DOI"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Kiedy należy przydzielić DOI do zgłoszenia?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "W momencie publikacji"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nigdy"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefiks DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Zawartość czasopisma"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Wymagany jest prefiks DOI"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufiks DOI"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Sufiks DOI"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Własny wzór sufiksu DOI"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Sufiks DOI może przyjmować dowolną formę, ale musi być jednakowy dla "
+"wszystkich obiektów z takim samym prefiksem:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Korzystaj z domyślnego wzoru."
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Własny wzór (niezalecany)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agencja rejestracji"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Proszę wybrać agencję rejestrującą DOI."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Brak podanej agencji rejestracji"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"Numery DOI mogą być automatycznie wybijane i zdeponowane w agencji "
+"rejestracyjnej. Aby skorzystać z tej funkcji, znajdź i zainstaluj wtyczkę od "
+"odpowiedniej agencji rejestracyjnej."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Brak"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr ""
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Nie możesz wywołać tej operacji bez włączonego DOI."
+
+msgid "doi.manager.versions.countStatement"
+msgstr ""
+
+msgid "doi.manager.versions.view"
+msgstr ""
+
+msgid "doi.manager.versions.modalTitle"
+msgstr ""
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "DOI zawiera nieprawidłowe znaki."
+
+msgid "manager.setup.publishing"
+msgstr "Szczegóły publikacji"
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Te szczegóły mogą być zawarte w metadanych dostarczanych do innego, "
+"archiwalnego zespołu."
+
+msgid "manager.setup.additionalContent"
+msgstr "Dodatkowa zawartość"
+
+msgid "manager.setup.additionalContent.description"
+msgstr ""
+"Cokolwiek wpiszesz w tym miejscu pokaże się to na stronie startowej "
+"czasopisma."
+
+msgid "manager.setup.advanced"
+msgstr "Zaawansowane"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Nota praw autorskich"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Wymagaj od autorów udzielenia zgody dot. praw autorskich podczas składania "
+"manuskryptu."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Wytyczne dla autorów"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Wytyczne powinny zawierać opis standardów formatowania bibliografii oraz "
+"ogólnego formatowania tekstu w plikach zgłaszanego tekstu."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Wyłącz możliwość wgrywania zgłoszeń"
+
+msgid "manager.setup.checklist"
+msgstr "Lista kontrolna"
+
+msgid "manager.setup.competingInterests"
+msgstr "Konflikt interesów"
 
 msgid "manager.setup.errorDeletingItem"
 msgstr "Wystąpił błąd podczas usuwania tego pliku."
 
-msgid "manager.setup.homeHeaderImageInvalid"
-msgstr ""
-"Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG."
+msgid "manager.setup.favicon"
+msgstr "Favicona"
+
+msgid "manager.setup.homepageImage"
+msgstr "Obraz dla strony głównej"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Wczytaj obrazek który pokaże się na stronie głównej."
 
 msgid "manager.setup.homepageImageInvalid"
 msgstr ""
@@ -427,18 +1003,311 @@ msgstr ""
 "Niepoprawny plik dla obrazu tytułu nagłówka. Akceptowane formaty to GIF, JPG "
 "lub PNG."
 
-msgid "manager.setup.layout.unselected"
-msgstr "Niezaznaczone"
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Opisy"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Pasek boczny"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"Nie znaleziono bloku o nazwie {$name}. Upewnij się, że wtyczka jest "
+"zainstalowana i włączona."
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Logowanie i audyt"
+
+msgid "manager.setup.logo"
+msgstr "Logo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "Wgrany plik nie może zostać odnaleziony. Spróbuj wgrać go ponownie."
+
+msgid "manager.setup.notifications"
+msgstr "Powiadomienia oraz zgłoszenia"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Wyślij kopię na ten adres e-mail"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Powiadom wszystkich autorów"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr "Kto powinien być powiadomiony o decyzji redakcji?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Wyślij powiadomienie do wszystkich autorów."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Wysyłaj mail tylko do autorów przypisanych do etapu zgłoszenia. Zazwyczaj "
+"jest to autor zgłaszający artykuł."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Powiadomienia"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Powiadom główny adres kontaktowy"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Tak, wyślij kopię na {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Nie"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Powiadom wszystkich"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Kopia wiadomości e-mail z potwierdzeniem przesłania zostanie wysłana na "
+"każdy z wprowadzonych tutaj adresów e-mail. Oddziel adresy e-mail "
+"przecinkami. Przykład: jeden@example.com, dwa@example.com"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Jeden z adresów nie jest poprawny."
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Autorzy automatycznie otrzymują wiadomość e-mail potwierdzającą ich "
+"zgłoszenie. Możesz wysłać kopię tych wiadomości e-mail na adres:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Skontaktuj się"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Wybierz użytkowników którzy będą powiadamiani."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Wyślij kopię tego maila do siebie na adres {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Wyślij email"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Zamierzasz wysłać email do {$total} użytkowników. Czy na pewno chcesz go "
+"zrealizować?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+"Wysyłam pocztę. Proszę nie zamykać przeglądarki dopóki proces się nie "
+"zakończy."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "Poczta została poprawnie rozesłana do wszystkich odbiorców."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Wyślij kolejny email"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Polityka otwartości"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Jeżeli dostęp do treści jest otwarty, możesz umieścić tutaj treść polityki "
+"otwartości."
 
 msgid "manager.setup.pageHeaderLogoImageInvalid"
 msgstr ""
 "Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG."
 
-msgid "manager.statistics"
-msgstr "Statystyki i raporty"
+msgid "manager.setup.pageFooter"
+msgstr "Stopka strony"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Wgraj dowolne obrazki, text lub umieść kod HTML który miałby pokazać się w "
+"stopce witryny."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Opisz zasady recenzji oraz jej przebieg. Opis widoczny dla czytelników oraz "
+"autorów zawiera liczbę recenzentów przydzielonych do zgłoszonego tekstu, "
+"kryteria oceny, czas recenzji oraz zasady przydzielania recenzentów do "
+"tekstu."
+
+msgid "manager.setup.principalContact"
+msgstr "Główna osoba do kontaktu"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Wprowadź dane głównej osoby do kontaktu, zwykle do redaktora lub sekretarza. "
+"Dane będą wyświetlane na stronie internetowej czasopisma."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Polityka prywatności"
+
+msgid "manager.setup.dateTime"
+msgstr "Data i czas"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Format czasu i daty"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Wybierz preferowany format czasu i daty. Inne kombinacje także są możliwe za "
+"pomocą  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
+"function.strftime-parameters'>opisanych schematów</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (zapis skrócony)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Czas"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data i czas"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data i czas (zapis skrócony)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Własny format"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Treść oświadczenia będzie widoczna publicznie oraz dla autorów podczas "
+"przesyłania tekstu."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Domyślny czas na odpowiedź"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Domyślny czas ukończenia"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Liczba tygodni na zaakceptowanie lub odrzucenie prośby o recenzję."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Liczba tygodni na ukończenie recenzji"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Nigdy nie przypominaj"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Domyślne ustawienia mogą zostać zmodyfikowane dla każdej recenzji w trakcie "
+"procesu redakcji."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Przypomnienie o podjęciu decyzji"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Wyślij automatyczny email z przypomnieniem do recenzenta jeśli spóźnia się z "
+"podjęciem decyzji o wykonaniu recenzji o podaną niżej ilość dni."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Przypomnienie o wykonaniu recenzji"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Wyślij automatyczny email z przypomnieniem do recenzenta jeśli spóźnia się z "
+"podaniem rekomendacji dla recenzowanego tekstu o podaną niżej ilość dni."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Domyślny tryb recenzji"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Wyświetl link do zasad  <button type=\"button\">Anonimizowania tekstu </"
+"button> podczas przesyłania plików"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Instytucje finansujące oraz zasady"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Przykłady: towarzystwa naukowe, wydziały uczelni, instytucje współpracujące "
+"itp. Instytucje finansujące są widoczne publicznie."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Doświadczeni developerzy mogą przesłać plik CSS, aby wprowadzić zmiany w "
+"widoku strony niedostępne z poziomu OJS."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Wsparcie techniczne"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Dane osoby, która wspiera redakcję, autorów i recenzentów w rozwiązywaniu "
+"wszelkich problemów ze zgłaszaniem tekstów, redagowaniem, recenzowaniem lub "
+"publikowaniem materiałów."
+
+msgid "manager.setup.theme"
+msgstr "Szablon"
+
+msgid "manager.setup.institutions"
+msgstr "Instytucje"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Nowe szablony graficzne  mogą być wgrywane w zakładce Wtyczki znajdującej "
+"się na górze niniejszej strony."
+
+msgid "manager.setup.theme.notFound"
+msgstr "Szablon który wybrałeś nie jest zainstalowany lub włączony."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.guidance"
+msgstr ""
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Sprawdzenie tekstu przed wysłaniem"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"Na stronie przesyłania tekstu, autorzy muszą oznaczyć każdy z elementów "
+"listy."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+"Wyłącz tę sekcję i nie pozwalaj autorom na dalsze zgłaszanie tekstów do niej."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Czy na pewno chcesz wyłączyć tę sekcję?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Czy chcesz włączyć tę sekcję?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr ""
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Ustawienia dostępu do strony"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} - ({$percentage}%)"
@@ -446,8 +1315,19 @@ msgstr "{$count} - ({$percentage}%)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} - ({$numNew} new)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Zarejestrowani użytkownicy"
+
 msgid "manager.users"
 msgstr "Użytkownicy"
+
+msgid "plugins.categories.metadata"
+msgstr "Wtyczki metadanych"
+
+msgid "plugins.categories.metadata.description"
+msgstr ""
+"Wtyczki metadanych pozwalają na implementację dodatkowych standardów "
+"metadanych."
 
 msgid "plugins.categories.auth"
 msgstr "Wtyczki autoryzacji"
@@ -492,313 +1372,6 @@ msgstr "Wtyczki motywów wykorzystywane są do zmiany wyglądu strony."
 
 msgid "plugins.categories.themes"
 msgstr "Wtyczki motywów"
-
-msgid "manager.announcements.datePublish"
-msgstr "Opublikowany"
-
-msgid "manager.emails.addEmail"
-msgstr "Dodaj szablon wiadomości e-mail"
-
-msgid "manager.emails.data"
-msgstr "Dane szablonu"
-
-msgid "manager.emails.details"
-msgstr "Właściwości szablonu"
-
-msgid "manager.emails.disable.message"
-msgstr ""
-"Masz zamiar wyłączyć szablon. Jeżeli jakiś proces wykorzystywał ten szablon, "
-"nie będzie mógł dłużej tego robić. Czy chcesz kontynuować?"
-
-msgid "manager.emails.enable.message"
-msgstr "Masz zamiar włączyć e-mail. Czy chcesz kontynuować?"
-
-msgid "manager.emails.resetAll.message"
-msgstr ""
-"Jeżeli zresetujesz wszystkie szablony, wszystkie zmiany zostaną utracone. "
-"Czy chcesz kontynuować?"
-
-msgid "manager.emails.reset.message"
-msgstr ""
-"Jeżeli usuniesz szablon, wszystkie wiadomości będą zresetowane do swojej "
-"domyślnej wartości. Czy chcesz kontynuować?"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Wyszukaj po imieniu"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr ""
-"Użyj formularza, aby określić maksymalną liczbę wartości dla wyszukiwanych "
-"terminów. Formularz sugeruje uśrednione wartości dla pól."
-
-msgid "manager.reviewerSearch.form.interests.instructions"
-msgstr "Podaj zainteresowania recenzenta, oddzielone przecinkami..."
-
-msgid "manager.setup.layout.blockManagement"
-msgstr "Zarządzanie paskiem bocznym"
-
-msgid "stats.city"
-msgstr "Miasto"
-
-msgid "stats.region"
-msgstr "Region"
-
-msgid "plugins.categories.metadata"
-msgstr "Wtyczki metadanych"
-
-msgid "plugins.categories.metadata.description"
-msgstr ""
-"Wtyczki metadanych pozwalają na implementację dodatkowych standardów "
-"metadanych."
-
-msgid "manager.website.information"
-msgstr "Informacje"
-
-msgid "manager.website.appearance"
-msgstr "Wygląd"
-
-msgid "manager.website.imageFileRequired"
-msgstr ""
-"Obraz jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) plik."
-
-msgid "manager.publication.submissionStage"
-msgstr "Zgłoszenia"
-
-msgid "manager.publication.reviewStage"
-msgstr "Recenzje"
-
-msgid "manager.publication.editorialStage"
-msgstr "Redakcja"
-
-msgid "manager.publication.productionStage"
-msgstr "Produkcja"
-
-msgid "manager.publication.emails"
-msgstr "Wiadomości e-mail"
-
-msgid "manager.language.ui"
-msgstr "Interfejs użytkownika"
-
-msgid "manager.language.submissions"
-msgstr "Zgłoszenia"
-
-msgid "manager.language.forms"
-msgstr "Formularze"
-
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Przeładuj ustawienia domyślne"
-
-msgid "manager.userSearch.searchByName"
-msgstr "Szukaj wg imienia i nazwiska"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Zmień"
-
-msgid "manager.reviewerSearch.doneAmountToggle"
-msgstr "Włącz/wyłącz filtr dla wykonanych recenzji."
-
-msgid "manager.reviewerSearch.avgAmountToggle"
-msgstr "Włącz/wyłącz filtr dla średniej długości procesu recenzowania."
-
-msgid "manager.reviewerSearch.lastAmountToggle"
-msgstr "Włącz/wyłącz filtr dla dni od ostatniej recenzji."
-
-msgid "manager.reviewerSearch.activeAmountToggle"
-msgstr "Włącz/wyłącz filtr dla aktywnych recenzji."
-
-msgid "manager.reviewerSearch.form.previousReviewRounds"
-msgstr "Poprzednie rundy recenzji dla recenzentów tego zgłoszenia"
-
-msgid "manager.statistics.reports"
-msgstr "Generator raportów"
-
-msgid "manager.statistics.reports.description"
-msgstr ""
-"System generuje raporty zawierające statystyki wykorzystania strony oraz "
-"zgłoszeń przez zadany okres czasu. Raporty są generowane w postaci plików "
-"CSV, które można otworzyć za pomocą programu obsługującego arkusze "
-"kalkulacyjne."
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Użyj formatu RRRRMM."
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Użyj formatu RRRRMMDD."
-
-msgid "manager.affiliationAndSupport"
-msgstr "Instytucja finansująca"
-
-msgid "manager.setup.publishingDescription"
-msgstr ""
-"Te szczegóły mogą być zawarte w metadanych dostarczanych do innego, "
-"archiwalnego zespołu."
-
-msgid "manager.setup.publishing"
-msgstr "Szczegóły publikacji"
-
-msgid "manager.setup.additionalContent"
-msgstr "Dodatkowa zawartość"
-
-msgid "manager.setup.additionalContentDescription"
-msgstr "Treść tego pola zostanie wyświetlona na stronie głównej."
-
-msgid "manager.setup.authorCopyrightNotice"
-msgstr "Informacja o prawach autorskich"
-
-msgid "manager.setup.authorCopyrightNoticeAgree"
-msgstr ""
-"Wymagaj od autorów, aby akceptowali informację o prawach autorskich jako "
-"element procesu zgłoszenia tekstu."
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Wytyczne dla autorów"
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"Wytyczne powinny zawierać opis standardów formatowania bibliografii oraz "
-"ogólnego formatowania tekstu w plikach zgłaszanego tekstu."
-
-msgid "manager.setup.competingInterests"
-msgstr "Konflikt interesów"
-
-msgid "manager.setup.competingInterestsDescription"
-msgstr ""
-"Recenzenci zostaną poproszeni o potwierdzenie, że nie występuje konflikt "
-"interesów."
-
-msgid "manager.setup.favicon"
-msgstr "Favicona"
-
-msgid "manager.setup.homepageImage"
-msgstr "Obraz dla strony głównej"
-
-msgid "manager.setup.homepageImageDescription"
-msgstr "Prześlij obraz wyświetlany na stronie głównej."
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Opisy"
-
-msgid "manager.setup.layout.theme"
-msgstr "Motyw"
-
-msgid "manager.setup.layout.themeDescription"
-msgstr ""
-"Nowe motywy mogą zostać zainstalowane w zakładce Wtyczki dostępnej w "
-"nagłówku tej strony."
-
-msgid "manager.setup.layout.sidebar"
-msgstr "Pasek boczny"
-
-msgid "manager.setup.logo"
-msgstr "Logo"
-
-msgid "manager.setup.notifications"
-msgstr "Powiadomienia oraz zgłoszenia"
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Wyślij kopię na ten adres e-mail"
-
-msgid "manager.setup.notifications.description"
-msgstr ""
-"Autorzy automatycznie otrzymują wiadomość e-mail potwierdzającą ich "
-"zgłoszenie. Możesz wysłać kopię tych wiadomości e-mail na adres:"
-
-msgid "manager.setup.openAccessPolicy"
-msgstr "Polityka otwartości"
-
-msgid "manager.setup.openAccessPolicy.description"
-msgstr ""
-"Jeżeli dostęp do treści jest otwarty, możesz umieścić tutaj treść polityki "
-"otwartości."
-
-msgid "manager.setup.pageFooter"
-msgstr "Stopka strony"
-
-msgid "manager.setup.pageFooterDescription"
-msgstr "W stopce możesz umieścić obrazy, tekst lub HTML."
-
-msgid "manager.setup.peerReview.description"
-msgstr ""
-"Opisz zasady recenzji oraz jej przebieg. Opis widoczny dla czytelników oraz "
-"autorów zawiera liczbę recenzentów przydzielonych do zgłoszonego tekstu, "
-"kryteria oceny, czas recenzji oraz zasady przydzielania recenzentów do "
-"tekstu."
-
-msgid "manager.setup.principalContact"
-msgstr "Główna osoba do kontaktu"
-
-msgid "manager.setup.principalContactDescription"
-msgstr ""
-"Wprowadź dane głównej osoby do kontaktu, zwykle do redaktora lub sekretarza. "
-"Dane będą wyświetlane na stronie internetowej czasopisma."
-
-msgid "manager.setup.privacyStatement"
-msgstr "Polityka prywatności"
-
-msgid "manager.setup.privacyStatement.description"
-msgstr ""
-"Treść oświadczenia będzie widoczna publicznie oraz dla autorów podczas "
-"przesyłania tekstu."
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Liczba tygodni na zaakceptowanie lub odrzucenie prośby o recenzję."
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Liczba tygodni na ukończenie recenzji"
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Nigdy nie przypominaj"
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr ""
-"Domyślne ustawienia mogą zostać zmodyfikowane dla każdej recenzji w trakcie "
-"procesu redakcji."
-
-msgid "manager.setup.reviewOptions.remindForInvite"
-msgstr ""
-"Wyślij przypomnienie, jeśli recenzent nie odpowiedział na prośbę o wykonanie "
-"recenzji przez liczbę dni:"
-
-msgid "manager.setup.reviewOptions.remindForSubmit"
-msgstr ""
-"Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji "
-"przekraczając termin o liczbę dni:"
-
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Domyślne ustawienia czasu na wykonanie recenzji"
-
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Wyświetl link do zasad  <button type=\"button\">Anonimizowania tekstu </"
-"button> podczas przesyłania plików"
-
-msgid "manager.setup.sortableByComponent"
-msgstr "Sortowanie wg elementów"
-
-msgid "manager.setup.sponsors.note"
-msgstr "Instytucje finansujące oraz zasady"
-
-msgid "manager.setup.sponsors.description"
-msgstr ""
-"Przykłady: towarzystwa naukowe, wydziały uczelni, instytucje współpracujące "
-"itp. Instytucje finansujące są widoczne publicznie."
-
-msgid "manager.setup.styleSheetDescription"
-msgstr ""
-"Doświadczeni developerzy mogą przesłać plik CSS, aby wprowadzić zmiany w "
-"widoku strony niedostępne z poziomu OJS."
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "Wsparcie techniczne"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr ""
-"Dane osoby, która wspiera redakcję, autorów i recenzentów w rozwiązywaniu "
-"wszelkich problemów ze zgłaszaniem tekstów, redagowaniem, recenzowaniem lub "
-"publikowaniem materiałów."
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Ustawienia dostępu do strony"
 
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Wtyczki metadanych OAI"
@@ -884,11 +1457,23 @@ msgstr "Najnowsza wspierana wersja"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Oficjalna"
 
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Wtyczka jest rozwijana i zarządzana przez zespół Public Knowledge Project."
+
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Przejrzana"
 
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Wtyczka została zrecenzowana i zaakceptowana przez zespół Public Knowledge "
+"Project."
+
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Zewnętrzna"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Wtyczka jest dostarczona przez jednego z naszych partnerów."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Zarządzający"
@@ -1012,11 +1597,36 @@ msgstr "Język {$locale} przeładowany."
 msgid "notification.localeSettingsSaved"
 msgstr "Ustawienia językowe zapisane."
 
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"Ustawienia językowe nie mogły zostać zapisane. Przynajmniej jeden musi być "
+"włączony dla każdej z opcji"
+
 msgid "notification.editedUser"
 msgstr "Edycja zakończona sukcesem."
 
-msgid "manager.distribution.indexing"
-msgstr "Indeksowanie"
+msgid "manager.distribution.license"
+msgstr "Licencja"
+
+msgid "manager.distribution.license.other"
+msgstr "URL własnej licencji"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Warunki licencji"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Wprowadź warunki licencji które pokazywałyby się publicznie wraz z "
+"opublikowaną pracą."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Własne nagłówki"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Dodaj własne nagłówki HTML, znane także jako znaczniki <meta>, które miałyby "
+"się ładować do sekcji <head> każdej strony czasopisma. Koniecznie skonsultuj "
+"się z administratorem przed dokonaniem takich wpisów."
 
 msgid "manager.paymentMethod"
 msgstr "Płatności"
@@ -1033,10 +1643,6 @@ msgstr "Metoda płatności"
 msgid "manager.paymentMethod.currency"
 msgstr "Waluta"
 
-msgid "manager.paymentMethod.currency.description"
-msgstr ""
-"Płatności realizowane przez stronę będą realizowane w wybranej walucie."
-
 msgid "settings.roles.roleOptions"
 msgstr "Ustawienia roli"
 
@@ -1045,6 +1651,12 @@ msgstr "Wyświetl nazwy ról na liście współpracowników"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Pozwól na samorejestrację użytkowników"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Ta rola pozwala jedynie na przedstawienie rekomendacji decyzji po recenzji, "
+"która wymaga autoryzacji redaktora, aby została zapisana jako końcowa "
+"decyzja."
 
 msgid "settings.roles.roleName"
 msgstr "Nazwa roli"
@@ -1088,6 +1700,9 @@ msgstr "Musisz określić poziom uprawnień roli."
 msgid "settings.roles.stageIdRequired"
 msgstr "Musisz przydzielić rolę do etapów."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Zezwól na edytowanie metadanych zgłoszenia."
+
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
 "Plik biblioteki jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) "
@@ -1114,6 +1729,14 @@ msgstr "Raporty"
 msgid "settings.libraryFiles.category.other"
 msgstr "Inne"
 
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Ten plik z biblioteką może być dostępny do pobrania, jeżeli ustawiono "
+"\"Public Access\": <blockquote>{$downloadUrl}</blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Wybierz pliki biblioteki do załączenia"
+
 msgid "grid.action.addGenre"
 msgstr "Dodaj element"
 
@@ -1126,8 +1749,56 @@ msgstr "Usuń element"
 msgid "grid.action.restoreGenres"
 msgstr "Przywróć elementy do ich ustawień domyślnych"
 
-msgid "manager.setup.genres.sortable"
-msgstr "Włącz sortowanie plików wg rozdziału"
+msgid "manager.setup.genres.label"
+msgstr "Typ pliku"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Pliki zależne, takie jak np. obrazki wyświetlane dzięki HTML nie będą "
+"wyświetlane z zawartością publikowanego zgłoszenia."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Pliki dodatkowe, takie jak zestawienia danych i materiały naukowe, zostaną "
+"wyświetlone osobno od głównego tekstu."
+
+msgid "manager.setup.genres.key"
+msgstr "Klucz"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Dodatkowy krótki identyfikator dla tego rodzaju."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "Klucz już istnieje."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"Klucz może składać się tylko ze znaków alfanumerycznych, podkreślenia i "
+"łącznika oraz musi zaczynać się i kończyć na znaku alfanumerycznym."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadane pliku"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Wybierz typ metadanych odpowiedni dla wgrywanych plików. Manuskrypt powinien "
+"otrzymać opcję \"Tekst manuskryptu\" (który będzie docelowo PDF-em lub "
+"HTML)  aby później mógł być pobrany jako główny tekst. W przeciwnym razie "
+"lepsza będzie opcja \"plik dodatkowy\". Kwalifikują się do nich także "
+"wszelkie dzieła graficzne które wymagają opisania twórców, podpisów i "
+"informacji o licencjach."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
 
 msgid "manager.settings.wizard"
 msgstr "Kreator ustawień"
@@ -1265,6 +1936,9 @@ msgstr "Wybór"
 msgid "manager.reviewFormElements.question"
 msgstr "Element"
 
+msgid "manager.reviewFormElements.description"
+msgstr "Opis"
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Pola wyboru (możesz wybrać tylko jedno)"
 
@@ -1289,9 +1963,6 @@ msgstr "Możliwe do wyświetlenia (dla autorów)"
 msgid "grid.action.createReviewForm"
 msgstr "Utwórz nowy formularz recenzji"
 
-msgid "manager.setup.reviewerCompetingInterestsRequired.description"
-msgstr "Oświadczenie o braku konfliktu interesów"
-
 msgid "manager.setup.competingInterests.required"
 msgstr "Podczas recenzji poproś o oświadczenie o braku konfliktu interesów."
 
@@ -1301,11 +1972,234 @@ msgstr "Link do strony z treścią licencji, jeśli jest dostępna."
 msgid "manager.setup.metadata.submission"
 msgstr "Formularz przesyłania"
 
+msgid "manager.setup.metadata.coverage"
+msgstr "Obszar"
+
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
+"Obszar zazwyczaj będzie dotyczył jakiegoś określenia geograficznej "
+"przestrzeni której dotyczy przedmiot badań, czas-okresu, (zakresu dat, nazwy "
+"okresu (wiek) lub jurysdykcji (nazwa jednostki administracyjnej)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Włącz metadane Obszar"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Nie wymagaj podania danych dot. Obszaru w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Poproś autora o podanie danych dot. Obszaru  w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Wymagaj od autora podania danych dot. Obszaru zanim zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Słowa kluczowe to zazwyczaj jedno lub trzy frazowe wyrażenia która pomagają "
+"w określeniu głównego tematu zgłoszenia."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Włącz metadane Słowa kluczowe"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
+"Nie wymagaj podania danych dot. Słów kluczowych w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
+"Poproś autora o podanie danych dot. Słów kluczowych w trakcie składania "
+"tekstu."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Wymagaj od autora podania danych dot. Słów kluczowych zanim zgłoszenie "
+"zostanie zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Język oznacza główny język tekstu oznaczony wg kodu (\"pl\") z opcją w "
+"postaci (\"pl_PL\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Włącz metadane Język"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Nie wymagaj podania danych dot. Języka w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr "Poproś autora o podanie danych dot. Języka w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Wymagaj od autora podania danych dot. Języka zanim zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Dowolne prawa które są częścią tego zgłoszenia, które są częścią czyjejś "
+"własności intelektualnej (IPR). Prawa autorskie i inne prawa własnościowe."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Włącz metadane Prawa"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Nie wymagaj podania danych dot. Praw w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr "Poproś autora o podanie danych dot. Praw w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Wymagaj od autora podania danych dot. Praw zanim zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"Źródła rozumiane jako ID (takie jak DOI), inna praca, zasób który jest ważną "
+"składową."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Włącz metadane Źródło"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Nie wymagaj podania źródłowego URL w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.source.request"
+msgstr "Poproś autora o podanie źródłowego URL w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Wymagaj od autora podania źródłowego URL zanim zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Temat to mogą być dane typu: słowa kluczowe, frazy, kody klasyfikacyjne "
+"które opisują temat zgłoszenia."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Włącz metadane Temat"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Nie wymagaj podania Tematu w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Poproś autora o podanie Tematu w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Wymagaj od autora podania Tematu zanim zgłoszenie zostanie zaakceptowane do "
+"wydania."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"Natura i pochodzenie głównej zawartości zgłoszenia. Zwykle jest to \"tekst"
+"\", ale może być także \"Zestaw danych\", \"Obraz\" lub jeden z <a target="
+"\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/"
+"#section-7-dcmi-type-vocabulary\">typów ujętych w Dublin Core </a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Włącz metadane Typ"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Nie wymagaj podania Typu w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Poproś autora o podanie Typu w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Wymagaj od autora podania Typu zanim zgłoszenie zostanie zaakceptowane do "
+"wydania."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Dyscypliny to typy studiów lub kierunków studiowania wiedzy wg określeń "
+"stosowanych na uczelniach lub towarzystwach naukowych."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Włącz metadane Dyscyplina"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Nie wymagaj podania Dyscypliny w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Poproś autora o podanie Dyscypliny w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Wymagaj od autora podania Dyscypliny zanim zgłoszenie zostanie zaakceptowane "
+"do wydania."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agencje wspierające mogą wskazywać źródła finansowania oraz inne wsparcie "
+"instytucjonalne które przyczyniło się do prowadzenia badań."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Włącz metadane Agencje wspierające"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr "Nie wymagaj podania Agencji wspierających w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Poproś autora o podanie Agencji wspierających w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Wymagaj od autora podania Agencji wspierających zanim zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Zbieranie wpisów bibliograficznych zgłoszenia odbywa się tak aby każde było "
+"w osobnej linii, jedno pod drugim. W ten sposób indeksy które śledzą wpisy "
+"łatwiej odróżnią jedne od drugich (np .Crossref)."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Włącz metadane Bibliografia"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Nie wymagaj podawania Bibliografii w trakcie zgłaszania tekstu."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Poproś autora o podanie Bibliografii w trakcie składania tekstu."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Wymagaj od autora podania Bibliografii dopiero kiedy zgłoszenie zostanie "
+"zaakceptowane do wydania."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Błędy walidacji:"
 
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr "Napotkano na ostrzeżenia:"
+
 msgid "plugins.importexport.common.errorsOccured"
 msgstr "Wystąpiły błędy:"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Nieznany element {$param}"
@@ -1316,38 +2210,22 @@ msgstr "Nieznany rodzaj {$param}"
 msgid "plugins.importexport.common.error.unknownEncoding"
 msgstr "Nieznane kodowanie {$param}"
 
+msgid "plugins.importexport.common.error.encodingError"
+msgstr "Zawartość nie jest zakodowana jako {$param}"
+
 msgid "plugins.importexport.common.error.unknownUserGroup"
 msgstr "Nieznana grupa użytkowników {$param}"
 
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "W nazwie autora brakuje UserGroup {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"Auto {$authorName} nie posiada nazwy dla języka tekstu {$localeName}. Tekst "
+"nie może zostać zaimportowany bez tej informacji."
+
 msgid "plugins.importexport.common.error.unknownUploader"
 msgstr "Nieznany element {$param}"
-
-msgid "settings.roles.recommendOnly"
-msgstr ""
-"Ta rola pozwala jedynie na przedstawienie rekomendacji decyzji po recenzji, "
-"która wymaga autoryzacji redaktora, aby została zapisana jako końcowa "
-"decyzja."
-
-msgid "manager.people.existingUserRequired"
-msgstr "Istniejący użytkownik musi zostać wprowadzony."
-
-msgid "manager.plugins.pluginGallery.certifications.official.description"
-msgstr ""
-"Wtyczka jest rozwijana i zarządzana przez zespół Public Knowledge Project."
-
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
-msgstr ""
-"Wtyczka została zrecenzowana i zaakceptowana przez zespół Public Knowledge "
-"Project."
-
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Wtyczka jest dostarczona przez jednego z naszych partnerów."
-
-msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Napotkano na ostrzeżenia:"
-
-msgid "plugins.importexport.common.error.encodingError"
-msgstr "Zawartość nie jest zakodowana jako {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "Plik tymczasowy {$dest} nie mógł być utworzony z {$source}"
@@ -1364,6 +2242,38 @@ msgstr ""
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "Plik tekstu nie został zaimportowany"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"Plik zgłoszenia {#id} został pominięty gdyż zawiera informacje które nie "
+"dadzą się importować takie jak dyskusja czy zaproszeni recenzenci."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Importuj/Eksportuj błędy:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"Zaimportowany użytkownik \"{$username}\" nie ma hasła. Sprawdź importowany "
+"plik XML. Użytkownik nie został zaimportowany."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"Hasło użytkownika \"{$username}\" nie mogło zostać zaimportowane w tej "
+"postaci. Nowe hasło zostanie przesłane do użytkownika e-mailem. Użytkownik "
+"został zaimportowany."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"Importowany użytkownik \"{$username}\" posiada hasło, które nie jest "
+"poprawne. Użytkownik nie został zaimportowany."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"Nazwa użytkownika \"{$username}\" i e-mail \"{$email}\" nie pasują do "
+"jednego i tego samego użytkownika."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Tytuł"
@@ -1412,6 +2322,9 @@ msgstr "Aktywne obszary nawigacyjne szablonu"
 
 msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
 msgstr "Wybierz obszar nawigacyjny szablonu"
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr "Menu nawigacyjne zostało przypisane do tego obszaru."
 
 msgid "manager.navigationMenus.form.url"
 msgstr "URL"
@@ -1523,66 +2436,6 @@ msgstr ""
 "Link będzie wyświetlany w przypadku wypełnienia danych do kontaktu na "
 "stronie Ustawienia > Kontakt."
 
-msgid "manager.setup.searchEngineIndexing.sitemap"
-msgstr "Mapa strony"
-
-msgid "manager.setup.searchEngineIndexing.sitemapDescription"
-msgstr ""
-"Mapa strony w formacie XML jest dostępna dla wyszukiwarek internetowych pod "
-"adresem <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
-
-msgid "settings.libraryFiles.public.viewInstructions"
-msgstr ""
-"<p>Ten plik z biblioteką może być dostępny do pobrania, jeżeli ustawiono "
-"\"Public Access\": <blockquote>{$downloadUrl}</blockquote></p>"
-
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Wybierz pliki biblioteki do załączenia"
-
-msgid "manager.setup.genres.key"
-msgstr "Klucz"
-
-msgid "manager.setup.genres.key.description"
-msgstr "Dodatkowy krótki identyfikator dla tego rodzaju."
-
-msgid "manager.setup.genres.key.exists"
-msgstr "Klucz już istnieje."
-
-msgid "manager.setup.genres.key.alphaNumeric"
-msgstr ""
-"Klucz może składać się tylko ze znaków alfanumerycznych, podkreślenia i "
-"łącznika oraz musi zaczynać się i kończyć na znaku alfanumerycznym."
-
-msgid "manager.reviewFormElements.description"
-msgstr "Opis"
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"Auto {$authorName} nie posiada nazwy dla języka tekstu {$localeName}. Tekst "
-"nie może zostać zaimportowany bez tej informacji."
-
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Importuj/Eksportuj błędy:"
-
-msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr ""
-"Zaimportowany użytkownik \"{$username}\" nie ma hasła. Sprawdź importowany "
-"plik XML. Użytkownik nie został zaimportowany."
-
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr ""
-"Hasło użytkownika \"{$username}\" nie mogło zostać zaimportowane w tej "
-"postaci. Nowe hasło zostanie przesłane do użytkownika e-mailem. Użytkownik "
-"został zaimportowany."
-
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr ""
-"Importowany użytkownik \"{$username}\" posiada hasło, które nie jest "
-"poprawne. Użytkownik nie został zaimportowany."
-
-msgid "manager.navigationMenus.form.menuAssigned"
-msgstr "Menu nawigacyjne zostało przypisane do tego obszaru."
-
 msgid "manager.navigationMenus.form.typeMissing"
 msgstr "Wybierz typ menu nawigacyjnego."
 
@@ -1644,8 +2497,26 @@ msgstr "Wpisz nazwę kategorii."
 msgid "grid.category.categoryDetails"
 msgstr "Informacje o kategorii"
 
-msgid "stats.articlesOfTotal"
-msgstr "{$count} z {$total} artykułów"
+msgid "stats.allUsers"
+msgstr "Wszyscy użytkownicy"
+
+msgid "stats.city"
+msgstr "Miasto"
+
+msgid "stats.views"
+msgstr "Odsłony"
+
+msgid "stats.downloads"
+msgstr "Pobrania"
+
+msgid "stats.views.timelineInterval"
+msgstr "Wszystkie odsłony wg daty"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Wszystkie pobrania wg daty"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} - ({$average}/year)"
 
 msgid "stats.daily"
 msgstr "Dziennie"
@@ -1671,10 +2542,10 @@ msgstr "Jedna z wpisanych dat nie istnieje."
 msgid "stats.dateRange.from"
 msgstr "Od"
 
-msgid "stats.dateRange.instruction"
+msgid "stats.dateRange.instructions"
 msgstr ""
-"Wpisz każdą datę w formacie YYYY-MM-DD. Na przykład, jeżeli chce podać datę "
-"15 stycznia 2019 r., wpisz 2019-01-15."
+"Wpisz każdą z dat w formacie RRRR-MM-DD. Na przykład jeśli chcesz uzyskać "
+"wzór daty dla 28 listopada 2020, wpisz 2020-11-28."
 
 msgid "stats.dateRange.invalidDate"
 msgstr "Format daty nie jest poprawny. Wpisz datę w formacie YYYY-MM-DD."
@@ -1697,14 +2568,58 @@ msgstr "Ostatnie 30 dni"
 msgid "stats.dateRange.last90Days"
 msgstr "Ostatnie 90 dni"
 
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Ostatnie dwa lata"
+
+msgid "stats.dateRange.lastYear"
+msgstr "Ostatni rok"
+
 msgid "stats.dateRange.sinceDate"
 msgstr "Od {$date}"
+
+msgid "stats.dateRange.thisYear"
+msgstr "Ostatni rok od dzisiaj"
 
 msgid "stats.dateRange.to"
 msgstr "Do"
 
 msgid "stats.dateRange.untilDate"
 msgstr "Do {$date}"
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+"Wartość procentowa dla wybranego zakresu dat jest obliczana dla zgłoszeń, "
+"które zostały przesłane w tym zakresie dat i otrzymały ostateczną decyzję. "
+"<br> <br> Rozważmy na przykład przypadek, w którym dokonano dziesięciu "
+"zgłoszeń w tym zakresie dat. Cztery zostały zaakceptowane, cztery odrzucone, "
+"a dwa nadal czekają na ostateczną decyzję. <br> <br> Wskaźnik akceptacji "
+"wyniesie 50% (4 z 8 zgłoszeń), ponieważ dwa zgłoszenia, które nie osiągnęły "
+"ostatecznej decyzji, nie są liczone."
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Liczba dni, w ciągu których większość zgłoszeń otrzyma pierwszą decyzję "
+"redakcyjną, taką jak odrzucenie lub wysłanie do recenzji. <br> <br> Te "
+"liczby wskazują, że 80% zgłoszeń dociera do decyzji w podanej liczbie dni. < "
+"br> <br> Ta statystyka jest próbą opisania, kiedy większość autorów "
+"zgłaszających się do twojego czasopisma może spodziewać się decyzji."
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+"Obejmuje to zgłoszenia, które nie są wliczane do innych sum, takie jak te, "
+"które są nadal w toku i te, które wyglądają na zaimportowane."
+
+msgid "stats.descriptionForStat"
+msgstr "Opis {$stat}"
+
+msgid "stats.editorialActivity"
+msgstr "Statystyki redakcyjne"
+
+msgid "stats.file.type.primaryFile"
+msgstr "Plik główny"
+
+msgid "stats.file.type.suppFile"
+msgstr "Pliki dodatkowe"
 
 msgid "stats.fileViews"
 msgstr "Widok plików"
@@ -1718,1140 +2633,17 @@ msgstr "Miesięcznie"
 msgid "stats.pdf"
 msgstr "PDF"
 
-msgid "stats.searchSubmissionDescription"
-msgstr "Wyszukaj wg tytułu, autora i ID"
-
-msgid "stats.total"
-msgstr "Łącznie"
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr ""
-"Nazwa użytkownika \"{$username}\" i e-mail \"{$email}\" nie pasują do "
-"jednego i tego samego użytkownika."
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Współczynnik odrzuceń po recenzji"
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Współczynnik odrzuceń przed recenzją"
-
-msgid "stats.name.declineRate"
-msgstr "Współczynnik odrzuceń"
-
-msgid "stats.name.acceptanceRate"
-msgstr "Współczynnik akceptacji"
-
-msgid "stats.name.daysToReject"
-msgstr "Dni do odrzucenia tekstu"
-
-msgid "stats.name.daysToAccept"
-msgstr "Dni do akceptacji tekstu"
-
-msgid "stats.name.daysToDecision"
-msgstr "Dni do pierwszej decyzji redakcji"
-
-msgid "stats.name.submissionsPublished"
-msgstr "Zgłoszenia opublikowane"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Zgłoszenia odrzucone (po recenzji)"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Zgłoszenia odrzucone (przed recenzją)"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Zgłoszenia odrzucone"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Zgłoszenia zaakceptowane"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Zgłoszenia przesłane"
-
-msgid "stats.userStatistics"
-msgstr "Statystyki kont użytkowników"
-
-msgid "stats.trends"
-msgstr "Trendy"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Suma w ramach wybranych dat"
-
-msgid "stats.submissionsActive"
-msgstr "Aktywne zgłoszenia"
-
-msgid "stats.editorialActivity"
-msgstr "Statystyki redakcyjne"
-
-msgid "stats.descriptionForStat"
-msgstr "Opis {$stat}"
-
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Liczba dni, w ciągu których większość zgłoszeń otrzyma pierwszą decyzję "
-"redakcyjną, taką jak odrzucenie lub wysłanie do recenzji. <br> <br> Te "
-"liczby wskazują, że 80% zgłoszeń dociera do decyzji w podanej liczbie dni. < "
-"br> <br> Ta statystyka jest próbą opisania, kiedy większość autorów "
-"zgłaszających się do twojego czasopisma może spodziewać się decyzji."
-
-msgid "stats.description.acceptRejectRate"
-msgstr ""
-"Wartość procentowa dla wybranego zakresu dat jest obliczana dla zgłoszeń, "
-"które zostały przesłane w tym zakresie dat i otrzymały ostateczną decyzję. "
-"<br> <br> Rozważmy na przykład przypadek, w którym dokonano dziesięciu "
-"zgłoszeń w tym zakresie dat. Cztery zostały zaakceptowane, cztery odrzucone, "
-"a dwa nadal czekają na ostateczną decyzję. <br> <br> Wskaźnik akceptacji "
-"wyniesie 50% (4 z 8 zgłoszeń), ponieważ dwa zgłoszenia, które nie osiągnęły "
-"ostatecznej decyzji, nie są liczone."
-
-msgid "stats.dateRange.thisYear"
-msgstr "Ostatni rok od dzisiaj"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Ostatni rok"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Ostatnie dwa lata"
-
-msgid "stats.dateRange.instructions"
-msgstr ""
-"Wpisz każdą z dat w formacie RRRR-MM-DD. Na przykład jeśli chcesz uzyskać "
-"wzór daty dla 28 listopada 2020, wpisz 2020-11-28."
-
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} - ({$average}/year)"
-
-msgid "stats.allUsers"
-msgstr "Wszyscy użytkownicy"
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"Plik zgłoszenia {#id} został pominięty gdyż zawiera informacje które nie "
-"dadzą się importować takie jak dyskusja czy zaproszeni recenzenci."
-
-msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"Wymagaj od autora podania Bibliografii dopiero kiedy zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "Poproś autora o podanie Bibliografii w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Nie wymagaj podawania Bibliografii w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Włącz metadane Bibliografia"
-
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Zbieranie wpisów bibliograficznych zgłoszenia odbywa się tak aby każde było "
-"w osobnej linii, jedno pod drugim. W ten sposób indeksy które śledzą wpisy "
-"łatwiej odróżnią jedne od drugich (np .Crossref)."
-
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Wymagaj od autora podania Agencji wspierających zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Poproś autora o podanie Agencji wspierających w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr "Nie wymagaj podania Agencji wspierających w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Włącz metadane Agencje wspierające"
-
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Agencje wspierające mogą wskazywać źródła finansowania oraz inne wsparcie "
-"instytucjonalne które przyczyniło się do prowadzenia badań."
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Wymagaj od autora podania Dyscypliny zanim zgłoszenie zostanie zaakceptowane "
-"do wydania."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Poproś autora o podanie Dyscypliny w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Nie wymagaj podania Dyscypliny w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Włącz metadane Dyscyplina"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Dyscypliny to typy studiów lub kierunków studiowania wiedzy wg określeń "
-"stosowanych na uczelniach lub towarzystwach naukowych."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Wymagaj od autora podania Typu zanim zgłoszenie zostanie zaakceptowane do "
-"wydania."
-
-msgid "manager.setup.metadata.type.request"
-msgstr "Poproś autora o podanie Typu w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Nie wymagaj podania Typu w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Włącz metadane Typ"
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"Natura i pochodzenie głównej zawartości zgłoszenia. Zwykle jest to \"tekst"
-"\", ale może być także \"Zestaw danych\", \"Obraz\" lub jeden z <a target="
-"\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-vocabulary/"
-"#section-7-dcmi-type-vocabulary\">typów ujętych w Dublin Core </a>."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Wymagaj od autora podania Tematu zanim zgłoszenie zostanie zaakceptowane do "
-"wydania."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Poproś autora o podanie Tematu w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Nie wymagaj podania Tematu w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Włącz metadane Temat"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Temat to mogą być dane typu: słowa kluczowe, frazy, kody klasyfikacyjne "
-"które opisują temat zgłoszenia."
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Wymagaj od autora podania źródłowego URL zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.source.request"
-msgstr "Poproś autora o podanie źródłowego URL w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr "Nie wymagaj podania źródłowego URL w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Włącz metadane Źródło"
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"Źródła rozumiane jako ID (takie jak DOI), inna praca, zasób który jest ważną "
-"składową."
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Wymagaj od autora podania danych dot. Praw zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr "Poproś autora o podanie danych dot. Praw w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Nie wymagaj podania danych dot. Praw w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Włącz metadane Prawa"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Dowolne prawa które są częścią tego zgłoszenia, które są częścią czyjejś "
-"własności intelektualnej (IPR). Prawa autorskie i inne prawa własnościowe."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr "Poproś autora o podanie danych dot. Języka w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Nie wymagaj podania danych dot. Języka w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Włącz metadane Język"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Język oznacza główny język tekstu oznaczony wg kodu (\"pl\") z opcją w "
-"postaci (\"pl_PL\")."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Wymagaj od autora podania danych dot. Słów kluczowych zanim zgłoszenie "
-"zostanie zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Wymagaj od autora podania danych dot. Języka zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr ""
-"Poproś autora o podanie danych dot. Słów kluczowych w trakcie składania "
-"tekstu."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr ""
-"Nie wymagaj podania danych dot. Słów kluczowych w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Włącz metadane Słowa kluczowe"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Słowa kluczowe to zazwyczaj jedno lub trzy frazowe wyrażenia która pomagają "
-"w określeniu głównego tematu zgłoszenia."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Wymagaj od autora podania danych dot. Obszaru zanim zgłoszenie zostanie "
-"zaakceptowane do wydania."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Poproś autora o podanie danych dot. Obszaru  w trakcie składania tekstu."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr "Nie wymagaj podania danych dot. Obszaru w trakcie zgłaszania tekstu."
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Włącz metadane Obszar"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"Obszar zazwyczaj będzie dotyczył jakiegoś określenia geograficznej "
-"przestrzeni której dotyczy przedmiot badań, czas-okresu, (zakresu dat, nazwy "
-"okresu (wiek) lub jurysdykcji (nazwa jednostki administracyjnej)."
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Obszar"
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Wybierz typ metadanych odpowiedni dla wgrywanych plików. Manuskrypt powinien "
-"otrzymać opcję \"Tekst manuskryptu\" (który będzie docelowo PDF-em lub "
-"HTML)  aby później mógł być pobrany jako główny tekst. W przeciwnym razie "
-"lepsza będzie opcja \"plik dodatkowy\". Kwalifikują się do nich także "
-"wszelkie dzieła graficzne które wymagają opisania twórców, podpisów i "
-"informacji o licencjach."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Metadane pliku"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Pliki dodatkowe, takie jak zestawienia danych i materiały naukowe, zostaną "
-"wyświetlone osobno od głównego tekstu."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Pliki zależne, takie jak np. obrazki wyświetlane dzięki HTML nie będą "
-"wyświetlane z zawartością publikowanego zgłoszenia."
-
-msgid "manager.setup.genres.label"
-msgstr "Typ pliku"
-
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Zezwól na edytowanie metadanych zgłoszenia."
-
-msgid "manager.distribution.customHeaders.description"
-msgstr ""
-"Dodaj własne nagłówki HTML, znane także jako znaczniki <meta>, które miałyby "
-"się ładować do sekcji <head> każdej strony czasopisma. Koniecznie skonsultuj "
-"się z administratorem przed dokonaniem takich wpisów."
-
-msgid "manager.distribution.customHeaders"
-msgstr "Własne nagłówki"
-
-msgid "manager.distribution.licenseTerms.description"
-msgstr ""
-"Wprowadź warunki licencji które pokazywałyby się publicznie wraz z "
-"opublikowaną pracą."
-
-msgid "manager.distribution.licenseTerms"
-msgstr "Warunki licencji"
-
-msgid "manager.distribution.license.other"
-msgstr "URL własnej licencji"
-
-msgid "manager.distribution.license"
-msgstr "Licencja"
-
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Zarejestrowani użytkownicy"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Czy chcesz włączyć tę sekcję?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Czy na pewno chcesz wyłączyć tę sekcję?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr ""
-"Wyłącz tę sekcję i nie pozwalaj autorom na dalsze zgłaszanie tekstów do niej."
-
-msgid "manager.setup.theme.notFound"
-msgstr "Szablon który wybrałeś nie jest zainstalowany lub włączony."
-
-msgid "manager.setup.theme.description"
-msgstr ""
-"Nowe szablony graficzne  mogą być wgrywane w zakładce Wtyczki znajdującej "
-"się na górze niniejszej strony."
-
-msgid "manager.setup.theme"
-msgstr "Szablon"
-
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Domyślny tryb recenzji"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Wyślij automatyczny email z przypomnieniem do recenzenta jeśli spóźnia się z "
-"podaniem rekomendacji dla recenzowanego tekstu o podaną niżej ilość dni."
-
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Przypomnienie o wykonaniu recenzji"
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Wyślij automatyczny email z przypomnieniem do recenzenta jeśli spóźnia się z "
-"podjęciem decyzji o wykonaniu recenzji o podaną niżej ilość dni."
-
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Przypomnienie o podjęciu decyzji"
-
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Domyślny czas ukończenia"
-
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Domyślny czas na odpowiedź"
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Własny format"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Data i czas (zapis skrócony)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Data i czas"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Czas"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Data (zapis skrócony)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Data"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Wybierz preferowany format czasu i daty. Inne kombinacje także są możliwe za "
-"pomocą  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
-"function.strftime-parameters'>opisanych schematów</a>."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Format czasu i daty"
-
-msgid "manager.setup.dateTime"
-msgstr "Data i czas"
-
-msgid "manager.setup.pageFooter.description"
-msgstr ""
-"Wgraj dowolne obrazki, text lub umieść kod HTML który miałby pokazać się w "
-"stopce witryny."
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Wyślij kolejny email"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "Poczta została poprawnie rozesłana do wszystkich odbiorców."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Wysyłam pocztę. Proszę nie zamykać przeglądarki dopóki proces się nie "
-"zakończy."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Zamierzasz wysłać email do {$total} użytkowników. Czy na pewno chcesz go "
-"zrealizować?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Wyślij email"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Wyślij kopię tego maila do siebie na adres {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Wybierz użytkowników którzy będą powiadamiani."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Skontaktuj się"
-
-msgid "manager.setup.noTemporaryFile"
-msgstr "Wgrany plik nie może zostać odnaleziony. Spróbuj wgrać go ponownie."
-
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"Nie znaleziono bloku o nazwie {$name}. Upewnij się, że wtyczka jest "
-"zainstalowana i włączona."
-
-msgid "manager.setup.homepageImage.description"
-msgstr "Wczytaj obrazek który pokaże się na stronie głównej."
-
-msgid "manager.setup.checklist"
-msgstr "Lista kontrolna"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Wyłącz możliwość wgrywania zgłoszeń"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr ""
-"Wymagaj od autorów udzielenia zgody dot. praw autorskich podczas składania "
-"manuskryptu."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Nota praw autorskich"
-
-msgid "manager.setup.advanced"
-msgstr "Zaawansowane"
-
-msgid "manager.setup.additionalContent.description"
-msgstr ""
-"Cokolwiek wpiszesz w tym miejscu pokaże się to na stronie startowej "
-"czasopisma."
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Nie możesz skasować tego uczestnika ponieważ występuje on w jednym z "
-"formatów publikacji zgłoszenia."
-
-msgid "manager.people.signedInAs"
-msgstr "Jesteś zalogowany jako {$username}"
-
-msgid "manager.emails.sentTo"
-msgstr "Odbiorca"
-
-msgid "manager.emails.sentFrom"
-msgstr "Nadawca"
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Musisz podać ID kontekstu kiedy tworzysz nowy szablon email."
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Ustawienia przypomnień dot. recenzji zostały zaktualizowane."
-
-msgid "manager.publication.reviewerGuidance"
-msgstr "Wytyczne  dla recenzentów"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Skasuj ogłoszenie"
-
-msgid "manager.export.usersToCsv.description"
-msgstr "Wybierz użytkowników do eksportu w formacie Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Wyeksportuj do Exela/CSV"
-
-msgid "plugins.importexport.common.cliError"
-msgstr "BŁĄD:"
-
-msgid "plugins.importexport.common.error.unknownContext"
-msgstr "Określona ścieżka \"{$contextPath}\" nie istnieje."
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Sufiks DOI może przyjmować dowolną formę, ale musi być jednakowy dla "
-"wszystkich obiektów z takim samym prefiksem:"
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Korzystaj z domyślnego wzoru."
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Sufiks DOI"
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Prefiks DOI jest przydzielany przez organizacje rejestrujące, np. <a href="
-"\"http://www.crossref.org\" target=\"_new\">Crossref</a> i posiada format 10."
-"xxxx (np. 10.1234):"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Zawartość czasopisma"
-
-msgid "mailable.reviewConfirm.description"
-msgstr ""
-"Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera "
-"akceptację prośby o wykonanie recenzji."
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera "
-"odrzucenie prośby o wykonanie recenzji."
-
-msgid "emails.reviewRemind.body"
-msgstr "Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera przypomnienie o terminie wykonania recenzji."
-
-msgid "mailable.reviewRemind.description"
-msgstr ""
-"Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera "
-"przypomnienie o terminie wykonania recenzji."
-
-#, fuzzy
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Wiadomość automatycznie wysłana po upłynięciu terminu nadesłania recenzji. "
-"Zaplanowane zadania w systemie muszą zostać na nowo skonfigurowane."
-
-#, fuzzy
-msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr ""
-"Wiadomość od redaktora działu do recenzenta. Zawiera prośbę o przygotowanie "
-"recenzji artykułu, jego tytuł i abstrakt, a także zalecenie dot. "
-"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
-"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie."
-
-#, fuzzy
-msgid "mailable.reviewRequest.description"
-msgstr ""
-"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
-"przygotowanie recenzji tekstu, jego tytuł i abstrakt, a także zalecenie dot. "
-"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
-"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie"
-
-#, fuzzy
-msgid "mailable.reviewRequestSubsequent.description"
-msgstr ""
-"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
-"przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
-"dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
-"pracować będzie w systemie"
-
-msgid "mailable.passwordResetRequested.description"
-msgstr ""
-"Wiadomość jest przesyłana do zarejestrowanych użytkowników w celu "
-"potwierdzenia zresetowania hasła. Załączony jest link do strony resetowania "
-"hasła."
-
-#, fuzzy
-msgid "mailable.userRegister.description"
-msgstr ""
-"Wiadomość jest wysyłana do nowych użytkowników systemu. Zawiera powitanie i "
-"dane do zalogowania."
-
-msgid "mailable.reviewerRegister.description"
-msgstr ""
-"Wiadomość jest wysyłana do nowych recenzentów, celem powitania ich i "
-"przesłania danych do logowania."
-
-#, fuzzy
-msgid "mailable.submissionAck.description"
-msgstr ""
-"Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
-"czasopisma. Dostarcza informacji o możliwości obserwowania procesu "
-"redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
-"zgłoszenia."
-
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.description"
-msgstr ""
-"Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych "
-"autorów, którzy nie posiadają kont w OJS."
-
-msgid "mailable.revisedVersionNotify.description"
-msgstr ""
-"Wiadomość automatycznie przesyłana do redaktora prowadzącego, po przesłaniu "
-"przez autora poprawionej wersji tekstu."
-
-msgid "mailable.announcementNotify.description"
-msgstr "Ten email jest wysyłany, kiedy pojawiło się nowe ogłoszenie."
-
-msgid "manger.dois.update.success"
-msgstr "DOI zarejestrowane pomyślnie"
-
-msgid "manager.dois.registration.notPublishedDescription"
-msgstr "Obiekt nie może zostać zarejestrowany dopóki nie będzie opublikowany."
-
-msgid "manager.dois.publicationStatus"
-msgstr "Status publikacji"
-
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "Oznacz jako zarejestrowane"
-
-msgid "manager.dois.status.unregistered"
-msgstr "Niezarejestrowany"
-
-msgid "manager.dois.depositStatus"
-msgstr "Status rejestracji"
-
-msgid "manager.dois.status.registered"
-msgstr "Zarejestrowany"
-
-msgid "manager.dois.status.submitted"
-msgstr "Wysłany"
-
-msgid "manager.dois.actions.depositAll.label"
-msgstr "Zarejestruj wszystko"
-
-msgid "manager.dois.registration.notSubmittedDescription"
-msgstr "Metadane tego artykułu nie zostały przysłane do {$registrationAgency}."
-
-msgid "manager.dois.update.partialFailure"
-msgstr "Niektóre DOI nie zostały aktualizowane."
-
-msgid "manager.dois.status.error"
-msgstr "Błąd"
-
-msgid "manager.dois.registration.viewRecord"
-msgstr "Podgląd rekordu"
-
-msgid "manager.dois.registration.depositDois"
-msgstr "Zarejestruj DOI"
-
-msgid "manager.dois.actions.export.label"
-msgstr "Wyeksportuj DOI"
-
-msgid "manager.dois.update.failedCreation"
-msgstr "Nieudana aktualizacja DOI"
-
-msgid "manager.dois.registration.submittedDescription"
-msgstr "Metadane tego artykułu zostały przysłane do {$registrationAgency}."
-
-msgid "manager.dois.actions.deposit.prompt"
-msgstr ""
-"Zarejestrujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
-"Czy jesteś pewien?"
-
-msgid "manager.dois.actions.assign.prompt"
-msgstr ""
-"Przydzielisz DOI dla {$count} obiektów w {$registrationAgency}. Czy jesteś "
-"pewien?"
-
-msgid "manager.dois.registration.viewRecord.title"
-msgstr "Zapisy poprawnej rejestracji"
-
-msgid "manager.dois.registration.viewError.title"
-msgstr "Zapisy błędów rejestracji"
-
-msgid "manager.dois.actions.markRegistered.prompt"
-msgstr ""
-"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
-"zarejestrowane. Czy jesteś pewien?"
-
-msgid "manager.dois.notification.exportSuccess"
-msgstr "Elementy wyeksportowane poprawnie"
-
-msgid "manager.dois.actions.export.prompt"
-msgstr ""
-"Wyeksportujesz metadane DOI dla {$count} obiektów w {$registrationAgency}. "
-"Czy jesteś pewien?"
-
-msgid "manager.dois.actions.assign.label"
-msgstr "Przydziel DOI"
-
-msgid "manager.dois.registration.viewError"
-msgstr "Podgląd błędu"
-
-msgid "manager.dois.actions.deposit.all"
-msgstr "Zarejestruj wszystko"
-
-msgid "manager.dois.status.stale"
-msgstr "Przestarzały"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "Rejestrowanie DOI"
-
-msgid "manager.dois.actions.description"
-msgstr "Wybierz działanie dla wybranych {$count} elementów."
-
-msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Oznacz jako niezarejestrowane"
-
-msgid "manager.dois.actions.markUnregistered.prompt"
-msgstr ""
-"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
-"niezarejestrowane. Czy jesteś pewien?"
-
-msgid "manager.dois.actions.markStale.prompt"
-msgstr ""
-"Oznaczysz metadane DOI dla {$count} obiektów w {$registrationAgency} jako "
-"przedawniony. To może dotyczyć tylko DOI uprzednio zgłoszonych do "
-"rejestracji. Czy jesteś pewien?"
-
-msgid "manager.dois.actions.markStale.label"
-msgstr "Oznacz jako przedawniony"
-
-msgid "manager.dois.actions.depositAll.prompt"
-msgstr ""
-"Twoje działanie spowoduje zarejestrowanie DOI w {$registrationAgency}. "
-"Zarejestrowane zostaną tylko artykuły uprzednio opublikowane. Każdy status "
-"artykułu będzie aktualizowany osobno. Czy jesteś pewien, że chcesz je "
-"zarejestrować?"
-
-msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Nie gromadź danych geolokalizacyjnych"
-
-msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Zapisuj kraj odwiedzającego"
-
-msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Zapisuj kraj i region odwiedzającego"
-
-msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Zapisuj kraj, region i miasto odwiedzającego"
-
-msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Statystyki Instytucji"
-
-msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Włącz statystyki instytucjonalne"
-
-msgid "stats.name.submissionsSkipped"
-msgstr "Inne zgłoszenia"
-
-msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Automatyczne przydzielanie DOI"
-
-msgid "manager.setup.notifyAllAuthors"
-msgstr "Powiadom wszystkich autorów"
-
-msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "Oznaczenie jako zarejestrowane powiodło się"
-
-msgid "manager.setup.dois.registration"
-msgstr "Rejestracja"
-
-msgid "doi.authorization.enabledRequired"
-msgstr "Nie możesz wywołać tej operacji bez włączonego DOI."
-
-msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "Adres URL strony gdzie użytkownik może przejrzeć swój profil."
-
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
-"przyczyny nieudanej rejestracji:"
-
-msgid "doi.manager.setup.automaticDeposit"
-msgstr "Rejestracja automatyczna"
-
-msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "Wszystkie elementy mają przydzielone DOI"
-
-msgid "manager.setup.dois"
-msgstr "DOI"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "Powiadom wszystkich"
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "Wymagany jest prefiks DOI w formacie: 10.xxxx."
-
-msgid "manager.emails.otherTemplates"
-msgstr "Inne szablony"
-
-msgid "emailTemplate.variable.decision.name"
-msgstr "Nazwa podjętej decyzji."
-
-msgid "emailTemplate.variable.allReviewersComments"
-msgstr ""
-"Wszystkie komentarze z zakończonych recenzji. Nazwy recenzentów są ukryte "
-"dla trybu ślepej recenzji"
-
-msgid "manager.setup.notifyAllAuthors.assignedAuthors"
-msgstr ""
-"Wysyłaj mail tylko do autorów przypisanych do etapu zgłoszenia. Zazwyczaj "
-"jest to autor zgłaszający artykuł."
-
-msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "Wybrane elementy pomyślnie zgłoszone do rejestracji"
-
-msgid "manager.genres.alertDelete"
-msgstr ""
-"Zanim będzie można skasować komponent, trzeba powiązać wszystkie pliki "
-"zgłoszenia z innym dostępnym komponentem."
-
-msgid "doi.manager.settings.registrationAgency.none"
-msgstr "Brak"
-
-msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "Nigdy"
-
-msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr ""
-"Z {$registrationAgency} otrzymano informację o błędzie. Szczegóły i "
-"przyczyny:"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "Jeden z adresów nie jest poprawny."
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "Powiadomienia"
-
-msgid "doi.manager.settings.registrationAgency"
-msgstr "Agencja rejestracji"
-
-msgid "manager.institutions.edit"
-msgstr "Edytuj Instytucję"
-
-msgid "manager.institutions.form.ror"
-msgstr "ROR-y"
-
-msgid "manager.institutions.form.ror.description"
-msgstr "Research Organization Registry ID Instytucji."
-
-msgid "manager.institutions.form.ipRanges"
-msgstr "Zakres IP"
-
-msgid "manager.institutions.deleteInstitution"
-msgstr "Skasuj Instytucję"
-
-msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Geostatystyka"
-
-msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "Własny wzór sufiksu DOI"
-
-msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "Sufiks DOI"
-
-msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Własny wzór (niezalecany)"
-
-msgid "manager.settings.statistics.publicSushiApi"
-msgstr "API Publiczne"
-
-msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr "Oznaczenie jako niezarejestrowane powiodło się"
-
-msgid "manager.dois.notification.markStaleSuccess"
-msgstr "Oznaczenie jako przeterminowane powiodło się"
-
-msgid "manager.institutions.confirmDelete"
-msgstr "Czy na pewno chcesz kontynuować i usunąć tę instytucję?"
-
-msgid "manager.institutions.invalidIPRange"
-msgstr "Niepoprawny zakres IP"
-
-msgid "manager.setup.statistics"
-msgstr "Statystyki"
-
-msgid "stats.unique"
-msgstr "Unikalne"
-
-msgid "stats.unknown"
-msgstr "nieznane"
-
-msgid "manager.setup.dois.setup"
-msgstr "Ustawienia"
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "Prefiks DOI"
-
-msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "Włącz rejestrację automatyczną DOI"
-
-msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Kiedy należy przydzielić DOI do zgłoszenia?"
-
-msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "W momencie publikacji"
-
-msgid "manager.setup.doiPrefix"
-msgstr "Prefiks DOI"
-
-msgid "doi.manager.settings.doiPrefix.required"
-msgstr "Wymagany jest prefiks DOI"
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "Brak podanej agencji rejestracji"
-
-msgid "manager.setup.notifyAllAuthors.description"
-msgstr "Kto powinien być powiadomiony o decyzji redakcji?"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Powiadom główny adres kontaktowy"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Tak, wyślij kopię na {$email}"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "Nie"
-
-msgid "manager.setup.institutions"
-msgstr "Instytucje"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Wyniki eksportu zgłoszeń"
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "Pobierz wyeksportowany plik"
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "Eksport zakończony pomyślnie."
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Pobierz wyeksportowany plik spod poniższego przycisku."
-
-msgid "plugins.importexport.author.exportFailed"
-msgstr "Proces nie mógł przetworzyć nazw autorów"
-
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "Proces nie mógł przetworzyć publikacji"
-
-msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
-"Adres URL strony gdzie użytkownik może przejrzeć przydzielone zgłoszenia."
-
-msgid "emailTemplate.variable.decision.description"
-msgstr "Opis podjętej decyzji."
-
-msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr "Udostępnij publicznie statystyki COUNTER SUSHI"
-
-msgid "doi.manager.settings.registrationAgency.description"
-msgstr "Proszę wybrać agencję rejestrującą DOI."
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr ""
-"Ustawienia językowe nie mogły zostać zapisane. Przynajmniej jeden musi być "
-"włączony dla każdej z opcji"
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "Proces nie zakończył się. Sprawdź poniżej błędy / ostrzeżenia."
-
-msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
-
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "W nazwie autora brakuje UserGroup {$param}"
-
-msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
-"Adres URL strony gdzie użytkownik może dokonać odzyskania straconego hasła"
-
-msgid "manager.dois.title"
-msgstr "DOI"
-
-msgid "plugins.importexport.native.common.any"
-msgstr "Elementy generyczne"
-
-msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "Wyślij powiadomienie do wszystkich autorów."
-
-msgid "emailTemplate.variable.decision.stage"
-msgstr "Etap pracy redaktorskiej w trakcie którego została podjęta decyzja."
-
-msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "Lista zgłoszeń z wyjątkowymi zadaniami"
-
-msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "Ilość zgłoszeń przypisanych do redaktora"
-
-msgid "manager.dois.status.needsDoi"
-msgstr "Brak DOI"
-
-msgid "manager.institutions.form.ipRangesInstructions"
-msgstr ""
-"Prawidłowe wartości obejmują adres IP (np. 142.58.103.1), zakres adresów IP "
-"(np. 142.58.103.1 - 142.58.103.4), zakres adresów IP z symbolem "
-"wieloznacznym „*” (np. 142.58.*.*) oraz zakres adresów IP z CIDR (np. "
-"142.58.100.0/24)."
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Wybierz typ statystyk użytkowania geograficznego, które chcesz zbierać. "
-"Bardziej szczegółowe statystyki geograficzne mogą znacznie zwiększyć rozmiar "
-"bazy danych, a w niektórych rzadkich przypadkach mogą podważyć anonimowość "
-"odwiedzających."
-
-msgid "stats.downloadReport.betweenDates"
-msgstr "{$startDate} do {$endDate}"
-
-msgid "stats.downloadReport.allFilters"
-msgstr "Wszystkie {$filter}"
-
 msgid "stats.geographic.ccAttribution"
 msgstr "Geolokalizacja poprzez <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
 msgstr "O geolokalizacji"
 
-msgid "stats.timeline"
-msgstr "Skala czasu"
+msgid "stats.downloadReport.betweenDates"
+msgstr "{$startDate} do {$endDate}"
 
-msgid "stats.timeline.downloadReport.description"
-msgstr "Liczba {$type} dla każdego {$interval}."
-
-msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr "Pobierz raport osi czasu"
-
-msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr "DOI zawiera nieprawidłowe znaki."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"Kopia wiadomości e-mail z potwierdzeniem przesłania zostanie wysłana na "
-"każdy z wprowadzonych tutaj adresów e-mail. Oddziel adresy e-mail "
-"przecinkami. Przykład: jeden@example.com, dwa@example.com"
-
-msgid "stats.views"
-msgstr "Odsłony"
-
-msgid "stats.downloads"
-msgstr "Pobrania"
-
-msgid "stats.views.timelineInterval"
-msgstr "Wszystkie odsłony wg daty"
-
-msgid "stats.downloads.timelineInterval"
-msgstr "Wszystkie pobrania wg daty"
-
-msgid "stats.description.submissionsSkipped"
-msgstr ""
-"Obejmuje to zgłoszenia, które nie są wliczane do innych sum, takie jak te, "
-"które są nadal w toku i te, które wyglądają na zaimportowane."
-
-msgid "manager.settings.statistics.institutionUsageStats.description"
-msgstr ""
-"Włącz statystyki instytucjonalne, jeśli chcesz zbierać statystyki "
-"użytkowania według instytucji. Jeśli ta opcja jest włączona, konieczne "
-"będzie skonfigurowanie zakresów adresów IP dla każdej instytucji, którą "
-"chcesz śledzić."
-
-msgid "stats.file.type.primaryFile"
-msgstr "Plik główny"
-
-msgid "stats.file.type.suppFile"
-msgstr "Pliki dodatkowe"
-
-msgid "manager.settings.statistics.publicSushiApi.description"
-msgstr ""
-"Czy ograniczyć dostęp do punktów końcowych API dla statystyk COUNTER SUSHI. "
-"Jeśli to pole nie zostanie zaznaczone, interfejs API będzie dostępny tylko "
-"dla użytkowników z rolami administratora lub menedżera."
-
-msgid "doi.manager.setup.automaticDeposit.description"
-msgstr ""
-"Rejestracja DOI i metadane mogą być automatycznie zdeponowane w wybranej "
-"agencji rejestracyjnej za każdym razem, gdy zostanie opublikowana pozycja z "
-"DOI. Automatyczne wpłaty będą dokonywane w zaplanowanych odstępach czasu, a "
-"status rejestracji każdego DOI można monitorować na stronie zarządzania DOI."
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
-msgstr ""
-"Numery DOI mogą być automatycznie wybijane i zdeponowane w agencji "
-"rejestracyjnej. Aby skorzystać z tej funkcji, znajdź i zainstaluj wtyczkę od "
-"odpowiedniej agencji rejestracyjnej."
+msgid "stats.downloadReport.allFilters"
+msgstr "Wszystkie {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
 msgstr "Pobierz plik raportu"
@@ -2865,20 +2657,923 @@ msgstr "Pobierz dane geograficzne"
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr "Ilość odsłon i pobrań dla każdego miasta, regionu i kraju."
 
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Sprawdzenie tekstu przed wysłaniem"
+msgid "stats.region"
+msgstr "Region"
 
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklistDescription"
+msgid "stats.searchSubmissionDescription"
+msgstr "Wyszukaj wg tytułu, autora i ID"
+
+msgid "stats.submissionsActive"
+msgstr "Aktywne zgłoszenia"
+
+msgid "stats.timeline"
+msgstr "Skala czasu"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "Liczba {$type} dla każdego {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Pobierz raport osi czasu"
+
+msgid "stats.timelineInterval"
 msgstr ""
-"Na stronie przesyłania tekstu, autorzy muszą oznaczyć każdy z elementów "
-"listy."
 
-msgid "mailable.statisticsReportNotify.description"
+msgid "stats.timelineType"
 msgstr ""
-"Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
-"menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."
 
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "Adres pocztowy czasopisma"
+msgid "stats.total"
+msgstr "Łącznie"
+
+msgid "stats.unique"
+msgstr "Unikalne"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Suma w ramach wybranych dat"
+
+msgid "stats.trends"
+msgstr "Trendy"
+
+msgid "stats.unknown"
+msgstr "nieznane"
+
+msgid "stats.userStatistics"
+msgstr "Statystyki kont użytkowników"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Zgłoszenia przesłane"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Inne zgłoszenia"
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Zgłoszenia zaakceptowane"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Zgłoszenia odrzucone"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Zgłoszenia odrzucone (przed recenzją)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Zgłoszenia odrzucone (po recenzji)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Zgłoszenia opublikowane"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dni do pierwszej decyzji redakcji"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dni do akceptacji tekstu"
+
+msgid "stats.name.daysToReject"
+msgstr "Dni do odrzucenia tekstu"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Współczynnik akceptacji"
+
+msgid "stats.name.declineRate"
+msgstr "Współczynnik odrzuceń"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Współczynnik odrzuceń przed recenzją"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Współczynnik odrzuceń po recenzji"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "Proces nie zakończył się. Sprawdź poniżej błędy / ostrzeżenia."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Wyniki eksportu zgłoszeń"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Pobierz wyeksportowany plik"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "Eksport zakończony pomyślnie."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Pobierz wyeksportowany plik spod poniższego przycisku."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Elementy generyczne"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+
+msgid "plugins.importexport.common.cliError"
+msgstr "BŁĄD:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "Określona ścieżka \"{$contextPath}\" nie istnieje."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "Proces nie mógł przetworzyć nazw autorów"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "Proces nie mógł przetworzyć publikacji"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Wszystkie komentarze z zakończonych recenzji. Nazwy recenzentów są ukryte "
+"dla trybu ślepej recenzji"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"Adres URL strony gdzie użytkownik może dokonać odzyskania straconego hasła"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+"Adres URL strony gdzie użytkownik może przejrzeć przydzielone zgłoszenia."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "Adres URL strony gdzie użytkownik może przejrzeć swój profil."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "Nazwa podjętej decyzji."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Opis podjętej decyzji."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "Etap pracy redaktorskiej w trakcie którego została podjęta decyzja."
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Lista zgłoszeń z wyjątkowymi zadaniami"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "Ilość zgłoszeń przypisanych do redaktora"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.password"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.name"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr ""
+
+msgid "emailTemplate.variable.submitterName"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.name"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+
+msgid "mailable.validateEmailSite.name"
+msgstr ""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+
+msgid "mailable.reviewConfirm.name"
+msgstr ""
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera "
+"akceptację prośby o wykonanie recenzji."
+
+msgid "mailable.reviewDecline.name"
+msgstr ""
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Wiadomość wysyłana przez recenzenta do redaktora prowadzącego. Zawiera "
+"odrzucenie prośby o wykonanie recenzji."
+
+msgid "mailable.reviewRemind.name"
+msgstr ""
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+"Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera "
+"przypomnienie o terminie wykonania recenzji."
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Wiadomość automatycznie wysłana po upłynięciu terminu nadesłania recenzji. "
+"Zaplanowane zadania w systemie muszą zostać na nowo skonfigurowane."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Wiadomość od redaktora działu do recenzenta. Zawiera prośbę o przygotowanie "
+"recenzji artykułu, jego tytuł i abstrakt, a także zalecenie dot. "
+"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
+"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie."
+
+msgid "mailable.reviewRequest.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt, a także zalecenie dot. "
+"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
+"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie"
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
+"przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
+"dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
+"pracować będzie w systemie"
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr ""
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+
+msgid "mailable.editorialReminder.name"
+msgstr ""
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.name"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Wiadomość jest przesyłana do zarejestrowanych użytkowników w celu "
+"potwierdzenia zresetowania hasła. Załączony jest link do strony resetowania "
+"hasła."
+
+msgid "mailable.userRegister.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.userRegister.description"
+msgstr ""
+"Wiadomość jest wysyłana do nowych użytkowników systemu. Zawiera powitanie i "
+"dane do zalogowania."
+
+msgid "mailable.reviewerRegister.name"
+msgstr ""
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Wiadomość jest wysyłana do nowych recenzentów, celem powitania ich i "
+"przesłania danych do logowania."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
+"czasopisma. Dostarcza informacji o możliwości obserwowania procesu "
+"redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
+"zgłoszenia."
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych "
+"autorów, którzy nie posiadają kont w OJS."
+
+msgid "mailable.discussionSubmission.name"
+msgstr ""
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+
+msgid "mailable.discussionReview.name"
+msgstr ""
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.name"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+
+msgid "mailable.discussionProduction.name"
+msgstr ""
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Wiadomość automatycznie przesyłana do redaktora prowadzącego, po przesłaniu "
+"przez autora poprawionej wersji tekstu."
+
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
+msgid "mailable.announcementNotify.description"
+msgstr "Ten email jest wysyłany, kiedy pojawiło się nowe ogłoszenie."
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+
+msgid "manager.people.authSource"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+
+msgid "manager.manageEmails"
+msgstr ""
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+
+msgid "manager.mailables.templates"
+msgstr ""
+
+msgid "manager.mailables.editTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.search"
+msgstr ""
+
+msgid "manager.emailTemplate.name.description"
+msgstr ""
+
+msgid "manager.newSubmission"
+msgstr ""
+
+msgid "manager.newSubmission.description"
+msgstr ""
+
+msgid "manager.submissionAck.description"
+msgstr ""
+
+msgid "manager.submissionAck.off"
+msgstr ""
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr ""
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "manager.reviewerSearch.doneAmount"
+#~ msgstr "Wykonanych recenzji: {$current}"
+
+#~ msgid "manager.reviewerSearch.avgAmount"
+#~ msgstr "Średnia długość procesu recenzowania (dni): {$current}"
+
+#~ msgid "manager.reviewerSearch.lastAmount"
+#~ msgstr "Dni od ostatniej recenzji: {$current}"
+
+#~ msgid "manager.reviewerSearch.activeAmount"
+#~ msgstr "Liczba aktywnych recenzji: {$current}"
+
+#~ msgid "manager.setup.homeHeaderImageInvalid"
+#~ msgstr ""
+#~ "Niepoprawny plik obrazu dla logo. Akceptowane formaty to GIF, JPG lub PNG."
+
+#~ msgid "manager.setup.layout.unselected"
+#~ msgstr "Niezaznaczone"
+
+#~ msgid "manager.reviewerSearch.form.interests.instructions"
+#~ msgstr "Podaj zainteresowania recenzenta, oddzielone przecinkami..."
+
+#~ msgid "manager.setup.layout.blockManagement"
+#~ msgstr "Zarządzanie paskiem bocznym"
+
+#~ msgid "manager.reviewerSearch.doneAmountToggle"
+#~ msgstr "Włącz/wyłącz filtr dla wykonanych recenzji."
+
+#~ msgid "manager.reviewerSearch.avgAmountToggle"
+#~ msgstr "Włącz/wyłącz filtr dla średniej długości procesu recenzowania."
+
+#~ msgid "manager.reviewerSearch.lastAmountToggle"
+#~ msgstr "Włącz/wyłącz filtr dla dni od ostatniej recenzji."
+
+#~ msgid "manager.reviewerSearch.activeAmountToggle"
+#~ msgstr "Włącz/wyłącz filtr dla aktywnych recenzji."
+
+#~ msgid "manager.reviewerSearch.form.previousReviewRounds"
+#~ msgstr "Poprzednie rundy recenzji dla recenzentów tego zgłoszenia"
+
+#~ msgid "manager.setup.additionalContentDescription"
+#~ msgstr "Treść tego pola zostanie wyświetlona na stronie głównej."
+
+#~ msgid "manager.setup.authorCopyrightNotice"
+#~ msgstr "Informacja o prawach autorskich"
+
+#~ msgid "manager.setup.authorCopyrightNoticeAgree"
+#~ msgstr ""
+#~ "Wymagaj od autorów, aby akceptowali informację o prawach autorskich jako "
+#~ "element procesu zgłoszenia tekstu."
+
+#~ msgid "manager.setup.competingInterestsDescription"
+#~ msgstr ""
+#~ "Recenzenci zostaną poproszeni o potwierdzenie, że nie występuje konflikt "
+#~ "interesów."
+
+#~ msgid "manager.setup.homepageImageDescription"
+#~ msgstr "Prześlij obraz wyświetlany na stronie głównej."
+
+#~ msgid "manager.setup.layout.theme"
+#~ msgstr "Motyw"
+
+#~ msgid "manager.setup.layout.themeDescription"
+#~ msgstr ""
+#~ "Nowe motywy mogą zostać zainstalowane w zakładce Wtyczki dostępnej w "
+#~ "nagłówku tej strony."
+
+#~ msgid "manager.setup.pageFooterDescription"
+#~ msgstr "W stopce możesz umieścić obrazy, tekst lub HTML."
+
+#~ msgid "manager.setup.reviewOptions.remindForInvite"
+#~ msgstr ""
+#~ "Wyślij przypomnienie, jeśli recenzent nie odpowiedział na prośbę o "
+#~ "wykonanie recenzji przez liczbę dni:"
+
+#~ msgid "manager.setup.reviewOptions.remindForSubmit"
+#~ msgstr ""
+#~ "Wyślij przypomnienie, jeśli recenzent nie przesłał rekomendacji "
+#~ "przekraczając termin o liczbę dni:"
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Domyślne ustawienia czasu na wykonanie recenzji"
+
+#~ msgid "manager.setup.sortableByComponent"
+#~ msgstr "Sortowanie wg elementów"
+
+#~ msgid "manager.distribution.indexing"
+#~ msgstr "Indeksowanie"
+
+#~ msgid "manager.paymentMethod.currency.description"
+#~ msgstr ""
+#~ "Płatności realizowane przez stronę będą realizowane w wybranej walucie."
+
+#~ msgid "manager.setup.genres.sortable"
+#~ msgstr "Włącz sortowanie plików wg rozdziału"
+
+#~ msgid "manager.setup.reviewerCompetingInterestsRequired.description"
+#~ msgstr "Oświadczenie o braku konfliktu interesów"
+
+#~ msgid "manager.setup.searchEngineIndexing.sitemap"
+#~ msgstr "Mapa strony"
+
+#~ msgid "manager.setup.searchEngineIndexing.sitemapDescription"
+#~ msgstr ""
+#~ "Mapa strony w formacie XML jest dostępna dla wyszukiwarek internetowych "
+#~ "pod adresem <a href=\"{$path}\" target=\"_blank\">{$path}</a>"
+
+#~ msgid "stats.articlesOfTotal"
+#~ msgstr "{$count} z {$total} artykułów"
+
+#~ msgid "stats.dateRange.instruction"
+#~ msgstr ""
+#~ "Wpisz każdą datę w formacie YYYY-MM-DD. Na przykład, jeżeli chce podać "
+#~ "datę 15 stycznia 2019 r., wpisz 2019-01-15."
+
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "Wiadomość wysyłana przez redaktora prowadzącego do recenzenta. Zawiera "
+#~ "przypomnienie o terminie wykonania recenzji."
+
+#~ msgid "mailable.statisticsReportNotify.description"
+#~ msgstr ""
+#~ "Ten email jest automatycznie wysyłany każdego miesiąca do redaktorów i "
+#~ "menedżerów czasopisma, aby dostarczyć im przegląd stanu systemu."
+
+#~ msgid "emailTemplate.variable.context.mailingAddress"
+#~ msgstr "Adres pocztowy czasopisma"

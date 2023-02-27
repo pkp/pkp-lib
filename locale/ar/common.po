@@ -105,7 +105,8 @@ msgid "common.grid"
 msgstr "شبكة"
 
 msgid "common.confirmDelete"
-msgstr "هل أنت متأكد من رغبتك في حذف هذه الفقرة؟ هذا الإجراء لا يمكن التراجع عنه."
+msgstr ""
+"هل أنت متأكد من رغبتك في حذف هذه الفقرة؟ هذا الإجراء لا يمكن التراجع عنه."
 
 msgid "common.abstract"
 msgstr "الملخص"
@@ -125,11 +126,29 @@ msgstr "تفعيل"
 msgid "common.active"
 msgstr "نشط"
 
+msgid "common.inactive"
+msgstr "غير فعال"
+
 msgid "common.add"
 msgstr "أضف"
 
+msgid "common.addCCBCC"
+msgstr "إضافة نسخة /مخفية"
+
+msgid "common.addFiles"
+msgstr "إضافة الملفات"
+
 msgid "common.addSelf"
 msgstr "أضفني"
+
+msgid "common.attachedFiles"
+msgstr "الملفات المرفقة"
+
+msgid "common.attachFiles"
+msgstr "إرفاق ملفات"
+
+msgid "common.attachSelected"
+msgstr "إرفاق المحددة"
 
 msgid "common.name"
 msgstr "الاسم"
@@ -141,7 +160,9 @@ msgid "common.alphaList"
 msgstr "أ ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن هـ و ي"
 
 msgid "common.titleSmallWords"
-msgstr "of a the and an or nor but is if then else when at from by on off for in out over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
+msgstr ""
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with و أو من إلى في على عن كل إلا او الى هو هي هم اي أي كم"
 
 msgid "common.alreadyAssigned"
 msgstr "معيَّن سابقاً"
@@ -150,7 +171,10 @@ msgid "common.altText"
 msgstr "النص البديل"
 
 msgid "common.altTextInstructions"
-msgstr "أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: \"محررنا يتحدث في المؤتمر.\""
+msgstr ""
+"أعط وصفاً لزوار الموقع عن هذه الصورة ليظهر لهم عند استعمالهم لمستعرضات لا "
+"تدعم الصور أو تلك المخصصة لأجهزة مساعدة ذوي الاحتياجات الخاصة. مثلاً: "
+"\"محررنا يتحدث في المؤتمر.\""
 
 msgid "common.and"
 msgstr "و"
@@ -191,33 +215,22 @@ msgstr "خطأ"
 msgid "common.notice"
 msgstr "ملاحظة"
 
-msgid "common.captcha.error.missing-input-secret"
-msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري مفقود."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري خاطئ."
-
 msgid "common.captcha.error.missing-input-response"
 msgstr "عليك أن تكمل متطلبات التحقق المستعمل لمنع الطلبات الإزعاجية."
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "أنت لم تجتز متطلبات التحقق المستعمل لمنع الطلبات الإزعاجية."
-
-msgid "common.captchaField.description"
-msgstr "لطفاً أدخل الحروف كما تبدو لك في الصورة أعلاه."
-
-msgid "common.captchaField"
-msgstr "التحقق"
 
 msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -225,9 +238,13 @@ msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"http://i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a>.\n"
+"\t\tهذا العمل مرخص بموجب رخصة <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 License</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -324,17 +341,29 @@ msgstr "الحذف جارٍ"
 msgid "common.deleteSelection"
 msgstr "حذف الاختيار"
 
+msgid "common.deselect"
+msgstr "إلغاء التحديد"
+
 msgid "common.designation"
 msgstr "المضمون"
 
 msgid "common.description"
 msgstr "الوصف"
 
+msgid "common.details"
+msgstr "التفاصيل"
+
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; بدقة {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} بكسل"
+
+msgid "common.discardChanges"
+msgstr "لا، تخلَّ عن التغييرات غير المحفوظة"
+
+msgid "common.disconnected"
+msgstr "غير متصل"
 
 msgid "common.disable"
 msgstr "تعطيل"
@@ -354,8 +383,23 @@ msgstr "تنزيل"
 msgid "common.downloadPdf"
 msgstr "تنزيل بصيغة PDF"
 
+msgid "common.downloadReport"
+msgstr "تنزيل التقرير"
+
+msgid "common.dragAndDropHere"
+msgstr "سحب الملفات وإفلاتها هنا."
+
+msgid "common.orUploadFile"
+msgstr "أو رفع ملف"
+
 msgid "common.edit"
 msgstr "تعديل"
+
+msgid "common.editItem"
+msgstr "تحرير {$name}"
+
+msgid "common.emailTemplates"
+msgstr "قوالب البريد الالكتروني"
 
 msgid "common.enable"
 msgstr "تمكين"
@@ -370,7 +414,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "حدث خطأ غير معروف لدى الاتصال بقاعدة البيانات."
 
 msgid "common.error.framesRequired"
-msgstr "هذه الصفحة تتطلب وجود إطارات. <a href=\"{$url}\">أنقر هنا</a> للنسخة التي بلا إطارات."
+msgstr ""
+"هذه الصفحة تتطلب وجود إطارات. <a href=\"{$url}\">أنقر هنا</a> للنسخة التي "
+"بلا إطارات."
 
 msgid "common.event"
 msgstr "الحدث"
@@ -409,7 +455,10 @@ msgid "common.fileType"
 msgstr "نوع الملف"
 
 msgid "common.fileUploaderError"
-msgstr "إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول استحصال الدعم من الإدارة."
+msgstr ""
+"إن برنامج رفع الملفات في النظام يجري تحميله الآن. إن لم يظهر لك، فهذا يعني "
+"أن هناك احتمالية كون المتصفح الذي تستعمله لا يدعم متطلبات تشغيله. لطفاً، حاول "
+"استحصال الدعم من الإدارة."
 
 msgid "common.filter"
 msgstr "التصفيات"
@@ -419,6 +468,15 @@ msgstr "إضافة التصفية: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "تصفير التصفية: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "إعثر على القالب"
+
+msgid "common.formatting"
+msgstr ""
+
+msgid "common.geographic"
+msgstr "الجغرافي"
 
 msgid "common.go"
 msgstr "إذهب"
@@ -447,17 +505,32 @@ msgstr "إبدأ"
 msgid "common.inProgress"
 msgstr "قيد الإنجاز"
 
+msgid "common.insert"
+msgstr "إدراج"
+
+msgid "common.insertContent"
+msgstr "إدراج المحتوى"
+
+msgid "common.insertContentSearch"
+msgstr "العثور على محتوى لإدراجه"
+
 msgid "common.itemsPerPage"
 msgstr "فقرة لكل صفحة"
 
 msgid "common.keywords"
 msgstr "الكلمات المفتاحية"
 
+msgid "common.label"
+msgstr "الملصق"
+
 msgid "common.language"
 msgstr "اللغة"
 
 msgid "common.languages"
 msgstr "اللغات"
+
+msgid "common.lastSaved"
+msgstr "آخر حفظ {$when}"
 
 msgid "common.lastActivity"
 msgstr "آخر نشاط مسجل بتأريخ {$date}."
@@ -470,6 +543,9 @@ msgstr "{$value} أو أقل"
 
 msgid "common.lessThanOnly"
 msgstr "أقل من"
+
+msgid "common.keepWorking"
+msgstr "متابعة العمل"
 
 msgid "common.commaListSeparator"
 msgstr "، "
@@ -510,6 +586,12 @@ msgstr "لا أحد معَيَّن"
 msgid "common.none"
 msgstr "لا أحد"
 
+msgid "common.noneSelected"
+msgstr "لا أحد محدد"
+
+msgid "common.noneProvided"
+msgstr "غير مقدم"
+
 msgid "common.no"
 msgstr "لا"
 
@@ -538,7 +620,9 @@ msgid "common.notes"
 msgstr "ملاحظات"
 
 msgid "common.notes.tooltip"
-msgstr "ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: لا ملاحظات عليه)"
+msgstr ""
+"ملاحظات (الأصفر: لديه ملاحظات جديدة؛ الأزرق: لديه ملاحظات مقروءة؛ الرمادي: "
+"لا ملاحظات عليه)"
 
 msgid "common.notified"
 msgstr "مُبَلَّغ"
@@ -548,6 +632,9 @@ msgstr "مُبَلَّغ بتاريخ: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "لا نظير"
+
+msgid "common.numberedMore"
+msgstr "إضافة {$number}"
 
 msgid "common.off"
 msgstr "متوقف"
@@ -645,6 +732,9 @@ msgstr "إقرأ المزيد"
 msgid "common.readMoreWithTitle"
 msgstr "إقرأ المزيد عن {$title}"
 
+msgid "common.reconnecting"
+msgstr "إعادة الاتصال"
+
 msgid "common.record"
 msgstr "السجل"
 
@@ -690,6 +780,12 @@ msgstr "مطلوب حتماً"
 msgid "common.reset"
 msgstr "إعادة ضبط"
 
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr "الدور"
+
 msgid "common.saveAndContinue"
 msgstr "إحفظ واستمر"
 
@@ -704,6 +800,12 @@ msgstr "الحفظ جارٍ"
 
 msgid "common.search"
 msgstr "إبحث"
+
+msgid "common.searchPhrase"
+msgstr "عبارة البحث"
+
+msgid "common.searching"
+msgstr "قيد البحث"
 
 msgid "common.searchQuery"
 msgstr "استعلام البحث"
@@ -726,8 +828,17 @@ msgstr "لا تختر شيئاً"
 msgid "common.select"
 msgstr "إختر"
 
+msgid "common.selectWithName"
+msgstr "إختر {$name}"
+
 msgid "common.sendEmail"
 msgstr "أرسل الرسالة"
+
+msgid "common.showAllSteps"
+msgstr "إظهار كل الخطوات"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} من الخطوات"
 
 msgid "common.size"
 msgstr "الحجم"
@@ -753,8 +864,17 @@ msgstr "العنوان الفرعي"
 msgid "common.suggest"
 msgstr "إقترح"
 
+msgid "common.switchTo"
+msgstr "التبديل إلى"
+
+msgid "common.switchToNamedItem"
+msgstr "التبديل إلى {$name}"
+
 msgid "common.title"
 msgstr "العنوان"
+
+msgid "common.titleSeparator"
+msgstr " | "
 
 msgid "common.top"
 msgstr "أعلى"
@@ -764,6 +884,12 @@ msgstr "صحيح"
 
 msgid "common.type"
 msgstr "النوع"
+
+msgid "common.uploadedBy"
+msgstr "مرفوع من قبل {$name}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "مرفوع من قبل {$name} في {$date}"
 
 msgid "common.component"
 msgstr "المكون"
@@ -776,6 +902,15 @@ msgstr "حدث خطأ غير متوقع. لطفاً، أعد تحميل الصف
 
 msgid "common.unread"
 msgstr "غير مقروء"
+
+msgid "common.unsavedChanges"
+msgstr "تغييرات غير محفوظة"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"لقد وجدنا تغييرات غير محفوظة منذ {$when}. يمكن أن يحدث ذلك إذا فقدت اتصالك "
+"مع الملقم خلال عملك. استعادة تلك التغييرات قد يطغى على أي تغييرات أجريتها "
+"منذ ذلك الحين. هل ترغب باستعادة تلك التغييرات الآن؟"
 
 msgid "common.untitled"
 msgstr "بلا عنوان"
@@ -795,8 +930,14 @@ msgstr "تعذر رفع الملف أو تنقيحه."
 msgid "common.up"
 msgstr "أعلى"
 
+msgid "common.addFile"
+msgstr "إضافة الملف"
+
 msgid "common.upload.addFile"
 msgstr "رفع الملف"
+
+msgid "common.upload.addFile.description"
+msgstr "رفع ملف من حاسبتك."
 
 msgid "common.upload.restore"
 msgstr "استعادة الأصلي"
@@ -816,8 +957,17 @@ msgstr "الرابط"
 msgid "common.user"
 msgstr "المستخدم"
 
+msgid "common.user.nonexistent"
+msgstr "[مستخدم غبير موجود]"
+
 msgid "common.view"
 msgstr "معاينة"
+
+msgid "common.viewError"
+msgstr "معاينة الخطأ"
+
+msgid "common.viewWithName"
+msgstr "معاينة {$name}"
 
 msgid "common.viewProfile"
 msgstr "معاينة الملف الشخصي"
@@ -827,6 +977,9 @@ msgstr "أسابيع"
 
 msgid "common.width"
 msgstr "العرض"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.year"
 msgstr "سنة"
@@ -879,6 +1032,32 @@ msgstr "إرفع الملف"
 msgid "email.addAttachment"
 msgstr "أضف مرفق"
 
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "إرفاق ملفات طلب التقديم"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "إرفاق الملفات المرفوعة من قبل المؤلف في مرحلة التقديم."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"إرفاق الملفات المرفوعة خلال سير عمل التقديم، مثل التنقيحات أو الملفات المزمع "
+"تحكيمها."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "ملفات المكتبة"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "إرفاق ملفات المكتبة"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "إرفاق ملفات من مكتبة طلب التقديم ومكتبة الناشر."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "إرفاق ملفات التحكيم"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "إرفاق الملفات التي رفعها المحكمون"
+
 msgid "email.addBccRecipient"
 msgstr "أضف نسخة سرية"
 
@@ -890,6 +1069,9 @@ msgstr "أضف مستلم"
 
 msgid "email.attachments"
 msgstr "المرفقات"
+
+msgid "email.attachmentNotFound"
+msgstr "تعذر إرفاق الملف {$fileName}."
 
 msgid "email.bcc"
 msgstr "نسخة سرية"
@@ -903,6 +1085,11 @@ msgstr "المتن"
 msgid "email.cc"
 msgstr "نسخة"
 
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"هل أنت متأكد من رغبتك في التغيير إلى {$localeName} لإنشاء هذا البريد "
+"الالكتروني؟ ستفقد أي تغييرات أجريتها في الموضوع ومتن البريد الالكتروني."
+
 msgid "email.compose"
 msgstr "أرسل رسالة الكترونية"
 
@@ -910,10 +1097,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "الرسالة التي تحاول إرسالها تتضمن العديد من العناوين."
 
 msgid "email.compose.tooSoon"
-msgstr "لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد من الرسائل."
+msgstr ""
+"لم تمض إلا برهة على إرسال رسالتك الأخيرة. لطفاً، تريث قليلاً قبل إرسال المزيد "
+"من الرسائل."
 
 msgid "email.compose.error"
-msgstr "حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على النظام."
+msgstr ""
+"حدثت مشكلة عند إرسال الرسالة. لطفاً، حاول فيما بعد، أو اتصل بالمشرف على "
+"النظام."
 
 msgid "email.email"
 msgstr "البريد الالكتروني"
@@ -988,13 +1179,17 @@ msgid "form.dropzone.dictFallbackText"
 msgstr "لطفاً، استعمل النموذج البديل أدناه لرفع ملفاتك."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا يمكن رفعها إلى الموقع."
+msgstr ""
+"حجم الملف كبير جداً ({{filesize}}mb). الملفات الأكبر من {{maxFilesize}}mb لا "
+"يمكن رفعها إلى الموقع."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "الملفات من هذا النوع لا يمكن رفعها هنا."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على النظام إذا تكرر هذا الخطأ مراراً."
+msgstr ""
+"أجاب الملقم برسالة الخطأ ذات الرمز {{statusCode}}. لطفاً، اتصل بالمشرف على "
+"النظام إذا تكرر هذا الخطأ مراراً."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "إلغاء الرفع"
@@ -1024,7 +1219,9 @@ msgid "form.errorMany"
 msgstr "لطفاً، صحح {$count} خطأ/أخطاء."
 
 msgid "form.errors"
-msgstr "تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم حاول مجدداً."
+msgstr ""
+"تعذر حفظ النموذج لوجود {$count} خطأ/أخطاء. لطفاً، أجر التصحيحات اللازمة ثم "
+"حاول مجدداً."
 
 msgid "form.errorsOccurred"
 msgstr "حدثت أخطاء عند معالجة هذا النموذج"
@@ -1048,7 +1245,9 @@ msgid "form.postRequired"
 msgstr "لم يتم تقديم النموذج بالشكل الصحيح."
 
 msgid "form.csrfInvalid"
-msgstr "تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم حاول مجدداً."
+msgstr ""
+"تعذر تقديم النموذج. ربما سجلت خروجك من الموقع. لطفاً، قم بتنشيط الصفحة ثم "
+"حاول مجدداً."
 
 msgid "form.fileRequired"
 msgstr "لا بد من تحميل ملف."
@@ -1064,6 +1263,9 @@ msgstr "لا بد لك من تقديم رمز تعريف صحيح."
 
 msgid "form.resubmit"
 msgstr "إعادة التقديم"
+
+msgid "form.saved"
+msgstr "تم الحفظ"
 
 msgid "form.saveToUpload"
 msgstr "استعمل (حفظ) لرفع الملف."
@@ -1186,13 +1388,16 @@ msgid "stageParticipants.notify.message"
 msgstr "الرسالة"
 
 msgid "stageParticipants.notify.warning"
-msgstr "لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته."
+msgstr ""
+"لطفاً، تأكد من أنك قد كتبت شيئاً في حقل الرسالة واخترت شخصاً آخر غيرك لمراسلته."
 
 msgid "stageParticipants.options"
 msgstr "صلاحيات التعيين"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير."
+msgstr ""
+"هذا المشارك يُسمح له فقط بتقديم التوصية بشأن قرار التحرير وسيكون بحاجة إلى "
+"الاستعانة بمحرر مخول لتسجيل قرارات هيئة التحرير."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "صلاحيات تعديل البيانات الوصفية لطلب التقديم"
@@ -1244,6 +1449,9 @@ msgstr "الإحصائيات"
 
 msgid "navigation.browse"
 msgstr "التصفح"
+
+msgid "navigation.backTo"
+msgstr "⟵ عودة إلى {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "حسب المؤلف"
@@ -1341,6 +1549,9 @@ msgstr "إدارة المستخدم"
 msgid "navigation.viewFrontend"
 msgstr "معاينة الموقع"
 
+msgid "institution.institutions"
+msgstr "المؤسسات"
+
 msgid "notification.addedAuditor"
 msgstr "المدقق أضيف."
 
@@ -1411,10 +1622,13 @@ msgid "notification.settings"
 msgstr "إعدادات الإشعارات"
 
 msgid "notification.settingsDescription"
-msgstr "إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع ظهورها في مجهز الإشعارات لديك."
+msgstr ""
+"إختر الأحداث التي تود أن تستلم إشعارات عنها. إزالة التأشير من الفقرة سيمنع "
+"ظهورها في مجهز الإشعارات لديك."
 
 msgid "notification.reminderError"
-msgstr "حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك ."
+msgstr ""
+"حدث خطأ ما عند إرسال كلمة مرورك. لطفاً، تأكد من صحة إدخالك لعنوان بريدك ."
 
 msgid "notification.reminderSent"
 msgstr "كلمة مرورك الجديدة قد أرسلت إلى العنوان البريدي الذي حددته."
@@ -1503,6 +1717,12 @@ msgstr "البحث عن"
 msgid "search.searchResults"
 msgstr "إبحث ضمن النتائج"
 
+msgid "search.searchResults.foundSingle"
+msgstr "تم العثور على عنصر واحد."
+
+msgid "search.searchResults.foundPlural"
+msgstr "تم العثور على {$count} من العناصر."
+
 msgid "search.subject"
 msgstr "كلمة/كلمات مفتاحية"
 
@@ -1541,6 +1761,9 @@ msgstr "المهام"
 
 msgid "dashboard.myQueue"
 msgstr "مساراتي"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1594,10 +1817,14 @@ msgid "navigation.goBack"
 msgstr "عودة"
 
 msgid "notification.addedReviewer"
-msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا الشأن."
+msgstr ""
+"{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا كما قد تمت مراسلته بهذا "
+"الشأن."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا الشأن بعد."
+msgstr ""
+"{$reviewerName} قد تم تكليفه بتحكيم طلب النشر هذا ولكن لم تتم مراسلته بهذا "
+"الشأن بعد."
 
 msgid "notification.removedReviewer"
 msgstr "المحكم أُزيل."
@@ -1607,6 +1834,9 @@ msgstr "المحكم أُلغي."
 
 msgid "notification.reinstatedReviewer"
 msgstr "المحكم أُعيد."
+
+msgid "notification.reviewerResendRequest"
+msgstr "أُرسل إلتماس إعادة النظر في مهمة التحكيم."
 
 msgid "notification.addedStageParticipant"
 msgstr "أضيف المستخدم بمثابة مشارك مرحلي."
@@ -1644,6 +1874,12 @@ msgstr "علق أحد المحكمين على \"{$title}\"."
 msgid "notification.signedFile"
 msgstr "الملف أُخذ به."
 
+msgid "timeZone"
+msgstr "المنطقة الزمنية"
+
+msgid "user.email"
+msgstr "البريد الالكتروني"
+
 msgid "user.authorization.submissionFile"
 msgstr "المستخدم الحالي ليس مخولاً بالوصول إلى هذا الملف."
 
@@ -1656,11 +1892,30 @@ msgstr "طلب نشر خاطئ."
 msgid "user.authorization.invalidRepresentation"
 msgstr "تمثيل خاطئ."
 
+msgid "user.authorization.invalidReviewRound"
+msgstr "جولة تحكيم خاطئة."
+
+msgid "user.authorization.invalidQuery"
+msgstr "مناقشة خاطئة."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
+
 msgid "user.authorization.authorRoleMissing"
-msgstr "ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي للتأكد من كونك تمتلك الدور المناسب تحت باب \"مسجل بصفة\"."
+msgstr ""
+"ليس لديك حالياً الصلاحيات الكافية لمعاينة طلب النشر. لطفاً، عدل ملفك الشخصي "
+"للتأكد من كونك تمتلك الدور المناسب تحت باب \"مسجل بصفة\"."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل الموقع بحساب المستخدم الصحيح المقصود."
+msgstr ""
+"المستخدم الحالي ليس هو مؤلف طلب النشر المطلوب. لطفاً، تأكد من كونك تدخل "
+"الموقع بحساب المستخدم الصحيح المقصود."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "خيارات الخصوصية"
 
 msgid "notification.type.queryActivity"
 msgstr "نشاط المناقشة."
@@ -1683,6 +1938,9 @@ msgstr "ملخص التقرير الإحصائي."
 msgid "notification.type.editorialReport.contents"
 msgstr "هذا تذكير لك للتحقق من حالة مجلتك عبر تقرير هيئة التحرير."
 
+msgid "notification.type.editorialReminder"
+msgstr "البريد الالكتروني الأسبوعي للمهام المعلقة"
+
 msgid "semicolon"
 msgstr "{$label}:"
 
@@ -1704,11 +1962,52 @@ msgstr "قائمة التنقل قد تم تعديلها بنجاح"
 msgid "notification.removedNavigationMenu"
 msgstr "قائمة التنقل قد تمت إزالتها بنجاح"
 
+msgid "notification.unsubscribeNotifications.success"
+msgstr "لقد تم إلغاء اشتراكك"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "لم نتمكن من إلغاء اشتراكك"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"إختر رسائل البريد الالكتروني التي لا ترغب بتلقيها مستقبلاً في {$email} من "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من <a href="
+"\"{$profileNotificationUrl}\">ملفك الشخصي</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"عنوان البريد الالكتروني {$email} تم إلغاء اشتراكه بنجاح. لن نرسل لك مستقبلاً "
+"تلك الرسائل. يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من "
+"<a href=\"{$profileNotificationUrl}\">ملفك الشخصي</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"لقد وقع خطأ غير متوقع ولم نتمكن من إلغاء اشتراك عنوان البريد {$email}. يمكنك "
+"إلغاء اشتراكك من كل إشعارات البريد الالكتروني في <a href="
+"\"{$profileNotificationUrl}\">ملفك الشخصي</a> أو الاتصال بنا مباشرة لطلب "
+"المساعدة."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "إلغاء الاشتراك"
+
 msgid "list.viewMore"
 msgstr "أظهر المزيد من التفاصيل عن {$name}"
 
 msgid "list.viewLess"
 msgstr "أخفِ التفاصيل الموسعة بشأن {$name}"
+
+msgid "list.expandAll"
+msgstr "توسيع الكل"
+
+msgid "list.collapseAll"
+msgstr "طي الكل"
+
+msgid "validation.invalidOption"
+msgstr "هذا ليس خيارًا صحيحًا."
 
 msgid "validator.accepted"
 msgstr "لطفاً، إقبل هذه الفقرة.."
@@ -1724,6 +2023,9 @@ msgstr "هذا ينبغي أن يحتوي حروفاً فقط."
 
 msgid "validator.alpha_dash"
 msgstr "هذا ينبغي أن يحتوي حروفاً، أرقاماً، شُرطاً وخطوطاً تحتانية فقط."
+
+msgid "validator.alpha_dash_period"
+msgstr "هذا ينبغي أن يحتوي حروفًا، أرقامًا، شُرطًا، خطوطًا تحتانية ونقاطًا فقط."
 
 msgid "validator.alpha_num"
 msgstr "هذا ينبغي أن يحتوي حروفاً وأرقاماً فقط."
@@ -1751,6 +2053,15 @@ msgstr "هذا الحقل لا بد أن يكون صحيحاً أو خاطئاً
 
 msgid "validator.confirmed"
 msgstr "التحقق من هذا الحقل لا يتوافق."
+
+msgid "validator.country"
+msgstr "ليس هذا بلدًا صحيحًا."
+
+msgid "validator.country.regex"
+msgstr ""
+"هذا ليس بلدًا صحيحًا. البلد ينبغي أن يكون بأحد الرموز العالمية ذات الحرفين. "
+"أنظر رموز كل البلدان في https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "هذه ليست عملة صحيحة."
@@ -1801,10 +2112,13 @@ msgid "validator.locale"
 msgstr "هذه اللغة غير مقبولة."
 
 msgid "validator.localeExpected"
-msgstr "هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة."
+msgstr ""
+"هذا الحقل متعدد اللغات. قيم مختلفة ينبغي إدخالها لكل من اللغات المتاحة."
 
 msgid "validator.localeKey"
-msgstr "لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، sr_RS@cyrillic."
+msgstr ""
+"لا بد من تحديد اللغات عبر استعمال رموزها. مثلاً: ar_IQ، en_US، fr_CA، "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "هذا ليس له أن يكون أكبر من {$max}."
@@ -1896,247 +2210,27 @@ msgstr "إن {$attribute} قد سبق اختياره."
 msgid "validator.url"
 msgstr "هذا ليس رابطاً صحيحاً."
 
-msgid "user.register.form.privacyConsentLabel"
-msgstr "خيارات الخصوصية"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "ليس لديك حق الوصول إلى مهمة التحكيم هذه."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "ليس لديك حق الوصول إلى رسالة المناقشة هذه."
-
-msgid "user.authorization.invalidQuery"
-msgstr "مناقشة خاطئة."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "جولة تحكيم خاطئة."
-
-msgid "user.email"
-msgstr "البريد الالكتروني"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "كيفية ضمان حذف البيانات الشخصية من كل الملفات"
-
-msgid "search.searchResults.foundPlural"
-msgstr "تم العثور على {$count} من العناصر."
-
-msgid "search.searchResults.foundSingle"
-msgstr "تم العثور على عنصر واحد."
-
-msgid "navigation.backTo"
-msgstr "⟵ عودة إلى {$page}"
-
-msgid "form.saved"
-msgstr "تم الحفظ"
-
-msgid "common.viewWithName"
-msgstr "معاينة {$name}"
-
-msgid "common.user.nonexistent"
-msgstr "[مستخدم غبير موجود]"
-
-msgid "common.addFile"
-msgstr "إضافة الملف"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.selectWithName"
-msgstr "إختر {$name}"
-
-msgid "common.editItem"
-msgstr "تحرير {$name}"
-
-msgid "common.inactive"
-msgstr "غير فعال"
-
-msgid "notification.unsubscribeNotifications"
-msgstr "إلغاء الاشتراك"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
+msgid "validator.no_new_line"
 msgstr ""
-"لقد وقع خطأ غير متوقع ولم نتمكن من إلغاء اشتراك عنوان البريد {$email}. يمكنك "
-"إلغاء اشتراكك من كل إشعارات البريد الالكتروني في <a href=\""
-"{$profileNotificationUrl}\">ملفك الشخصي</a> أو الاتصال بنا مباشرة لطلب "
-"المساعدة."
 
-msgid "notification.unsubscribeNotifications.successMessage"
+msgid "validator.allowable_title_html_tags"
 msgstr ""
-"عنوان البريد الالكتروني {$email} تم إلغاء اشتراكه بنجاح. لن نرسل لك مستقبلاً "
-"تلك الرسائل. يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من <"
-"a href=\"{$profileNotificationUrl}\">ملفك الشخصي</a>."
 
-msgid "notification.unsubscribeNotifications.resubscribe"
+msgid "filter.input.error.notSupported"
 msgstr ""
-"يمكنك إعادة الاشتراك في إشعارات البريد الالكتروني في أي وقت من <a href=\""
-"{$profileNotificationUrl}\">ملفك الشخصي</a>."
-
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"إختر رسائل البريد الالكتروني التي لا ترغب بتلقيها مستقبلاً في {$email} من "
-"{$contextName}."
-
-msgid "notification.unsubscribeNotifications.error"
-msgstr "لم نتمكن من إلغاء اشتراكك"
-
-msgid "notification.unsubscribeNotifications.success"
-msgstr "لقد تم إلغاء اشتراكك"
-
-msgid "filter.import.error.couldNotImportNode"
-msgstr "تعذر استيراد عقدة XML"
+"المرشِّح ({$displayName}) يدعم الإدخال {$inputTypeName} - المعطى {$typeofInput}"
 
 msgid "filter.error.missingRequirements"
 msgstr "محالة تنفيذ تحويل ليس مدعومًا في بيئة تنصيبك."
 
-msgid "filter.input.error.notSupported"
-msgstr ""
-"المرشِّح ({$displayName}) يدعم الإدخال {$inputTypeName} - المعطى "
-"{$typeofInput}"
-
-msgid "validator.country"
-msgstr "ليس هذا بلدًا صحيحًا."
-
-msgid "common.insert"
-msgstr "إدراج"
-
-msgid "validator.alpha_dash_period"
-msgstr "هذا ينبغي أن يحتوي حروفًا، أرقامًا، شُرطًا، خطوطًا تحتانية ونقاطًا فقط."
-
-msgid "validation.invalidOption"
-msgstr "هذا ليس خيارًا صحيحًا."
-
-msgid "list.collapseAll"
-msgstr "طي الكل"
-
-msgid "list.expandAll"
-msgstr "توسيع الكل"
-
-msgid "timeZone"
-msgstr "المنطقة الزمنية"
-
-msgid "email.attachmentNotFound"
-msgstr "تعذر إرفاق الملف {$fileName}."
-
-msgid "email.addAttachment.reviewFiles.description"
-msgstr "إرفاق الملفات التي رفعها المحكمون"
-
-msgid "email.addAttachment.reviewFiles.attach"
-msgstr "إرفاق ملفات التحكيم"
-
-msgid "email.addAttachment.libraryFiles.description"
-msgstr "إرفاق ملفات من مكتبة طلب التقديم ومكتبة الناشر."
-
-msgid "email.addAttachment.libraryFiles.attach"
-msgstr "إرفاق ملفات المكتبة"
-
-msgid "email.addAttachment.libraryFiles"
-msgstr "ملفات المكتبة"
-
-msgid "email.addAttachment.submissionFiles.reviewDescription"
-msgstr ""
-"إرفاق الملفات المرفوعة خلال سير عمل التقديم، مثل التنقيحات أو الملفات المزمع "
-"تحكيمها."
-
-msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr "إرفاق الملفات المرفوعة من قبل المؤلف في مرحلة التقديم."
-
-msgid "email.addAttachment.submissionFiles.attach"
-msgstr "إرفاق ملفات طلب التقديم"
-
-msgid "common.viewError"
-msgstr "معاينة الخطأ"
-
-msgid "common.upload.addFile.description"
-msgstr "رفع ملف من حاسبتك."
-
-msgid "common.switchTo"
-msgstr "التبديل إلى"
-
-msgid "common.showAllSteps"
-msgstr "إظهار كل الخطوات"
-
-msgid "common.searching"
-msgstr "قيد البحث"
-
-msgid "common.numberedMore"
-msgstr "إضافة {$number}"
-
-msgid "common.keepWorking"
-msgstr "متابعة العمل"
-
-msgid "common.findTemplate"
-msgstr "إعثر على القالب"
-
-msgid "common.deselect"
-msgstr "إلغاء التحديد"
-
-msgid "common.attachFiles"
-msgstr "إرفاق ملفات"
-
-msgid "common.attachedFiles"
-msgstr "الملفات المرفقة"
-
-msgid "common.addCCBCC"
-msgstr "إضافة نسخة /مخفية"
-
-msgid "email.confirmSwitchLocale"
-msgstr ""
-"هل أنت متأكد من رغبتك في التغيير إلى {$localeName} لإنشاء هذا البريد "
-"الالكتروني؟ ستفقد أي تغييرات أجريتها في الموضوع ومتن البريد الالكتروني."
-
-msgid "common.switchToNamedItem"
-msgstr "التبديل إلى {$name}"
-
-msgid "common.orUploadFile"
-msgstr "أو رفع ملف"
-
-msgid "common.dragAndDropHere"
-msgstr "سحب الملفات وإفلاتها هنا."
-
-msgid "common.attachSelected"
-msgstr "إرفاق المحددة"
-
-msgid "common.addFiles"
-msgstr "إضافة الملفات"
-
-msgid "common.insertContentSearch"
-msgstr "العثور على محتوى لإدراجه"
-
-msgid "common.insertContent"
-msgstr "إدراج المحتوى"
+msgid "filter.import.error.couldNotImportNode"
+msgstr "تعذر استيراد عقدة XML"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "أمر غير معروف {$command}"
 
-msgid "notification.type.editorialReminder"
-msgstr "البريد الالكتروني الأسبوعي للمهام المعلقة"
-
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
-
-msgid "institution.institutions"
-msgstr "المؤسسات"
-
-msgid "notification.reviewerResendRequest"
-msgstr "أُرسل إلتماس إعادة النظر في مهمة التحكيم."
-
-msgid "common.downloadReport"
-msgstr "تنزيل التقرير"
-
-msgid "common.searchPhrase"
-msgstr "عبارة البحث"
-
-msgid "common.geographic"
-msgstr "الجغرافي"
-
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
-
-msgid "validator.country.regex"
-msgstr ""
-"هذا ليس بلدًا صحيحًا. البلد ينبغي أن يكون بأحد الرموز العالمية ذات الحرفين. "
-"أنظر رموز كل البلدان في https://en.wikipedia.org/wiki/"
-"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
@@ -2147,50 +2241,17 @@ msgstr "المؤلف أُضيف."
 msgid "notification.editedAuthor"
 msgstr "المؤلف عُدِّل."
 
-msgid "common.details"
-msgstr "التفاصيل"
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري مفقود."
 
-msgid "common.discardChanges"
-msgstr "لا، تخلَّ عن التغييرات غير المحفوظة"
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr "التحقق الرسومي لهذا الموقع غير مهيأ بشكل صحيح. المفتاح السري خاطئ."
 
-msgid "common.disconnected"
-msgstr "غير متصل"
+#~ msgid "common.captcha.error.invalid-input-response"
+#~ msgstr "أنت لم تجتز متطلبات التحقق المستعمل لمنع الطلبات الإزعاجية."
 
-msgid "common.emailTemplates"
-msgstr "قوالب البريد الالكتروني"
+#~ msgid "common.captchaField.description"
+#~ msgstr "لطفاً أدخل الحروف كما تبدو لك في الصورة أعلاه."
 
-msgid "common.label"
-msgstr "الملصق"
-
-msgid "common.lastSaved"
-msgstr "آخر حفظ {$when}"
-
-msgid "common.noneSelected"
-msgstr "لا أحد محدد"
-
-msgid "common.noneProvided"
-msgstr "غير مقدم"
-
-msgid "common.reconnecting"
-msgstr "إعادة الاتصال"
-
-msgid "common.role"
-msgstr "الدور"
-
-msgid "common.showingSteps"
-msgstr "{$current}/{$total} من الخطوات"
-
-msgid "common.uploadedBy"
-msgstr "مرفوع من قبل {$name}"
-
-msgid "common.uploadedByAndWhen"
-msgstr "مرفوع من قبل {$name} في {$date}"
-
-msgid "common.unsavedChanges"
-msgstr "تغييرات غير محفوظة"
-
-msgid "common.unsavedChangesMessage"
-msgstr ""
-"لقد وجدنا تغييرات غير محفوظة منذ {$when}. يمكن أن يحدث ذلك إذا فقدت اتصالك "
-"مع الملقم خلال عملك. استعادة تلك التغييرات قد يطغى على أي تغييرات أجريتها "
-"منذ ذلك الحين. هل ترغب باستعادة تلك التغييرات الآن؟"
+#~ msgid "common.captchaField"
+#~ msgstr "التحقق"

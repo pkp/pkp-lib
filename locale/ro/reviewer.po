@@ -12,24 +12,96 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "user.authorization.submissionReviewer"
+msgid "reviewer.reviewSteps.request"
+msgstr "1. Cerere"
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr "2. Instrucțiuni"
+
+msgid "reviewer.reviewSteps.download"
+msgstr "3. Descărcare & Revizie"
+
+msgid "reviewer.reviewSteps.completion"
+msgstr "4. Finalizare"
+
+msgid "reviewer.step1.request"
+msgstr "Cerere de revizuire"
+
+msgid "reviewer.step1.requestBoilerplate"
 msgstr ""
-"Utilizatorul curent nu este atribuit ca revizor pentru documentul solicitat."
+"Ați fost selectat ca potențial revizor al manuscrisului următor. Mai jos "
+"este  o prezentare generală a înregistrării manuscrisului, precum și "
+"calendarul acestei revizuiri.  . Sperăm că puteți participa."
 
-msgid "submission.comments.cannotShareWithAuthor"
-msgstr "Numai pentru editor"
+msgid "reviewer.step1.viewAllDetails"
+msgstr "Vezi toate detaliile înregistrării de manuscris"
 
-msgid "submission.comments.canShareWithAuthor"
-msgstr "Pentru autor și editor"
+msgid "reviewer.submission.reviewerFiles"
+msgstr "Fișiere de recenzori"
 
-msgid "reviewer.aboutDueDates.text"
+msgid "reviewer.submission.declineReview"
+msgstr "Refuză cererea de revizuire"
+
+msgid "reviewer.submission.declineReviewMessage"
 msgstr ""
-"Editorul vă solicită să acceptați sau să respingeți recenzia înainte de data "
-"scadentă a răspunsului și să completați revizuirea până la data scadenței "
-"acesteia."
+"În câmpul de mai jos puteți furniza editorului motivele pentru care refuzați "
+"această revizuire."
 
-msgid "reviewer.aboutDueDates"
-msgstr "Despre termenele limită"
+msgid "reviewer.submission.acceptReview"
+msgstr "Dacă aceptați recenzia, continuați la pasul #2"
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr "Continuați cu pasul #3"
+
+msgid "reviewer.submission.submitReview"
+msgstr "Trimiteți revizia"
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Salvați-o pentru mai târziu"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Ghid pentru recenzori"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Această revistă are o politică de dezvăluire a potențialelor interese "
+"concurente a recenziilor .  Vă rugăm să examinați această politică."
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr "Nu am interese concurente"
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr "Este posibil să am interese concurente (specificați mai jos)"
+
+msgid "reviewer.submission.competingInterests"
+msgstr "Interese concurente"
+
+msgid "reviewer.submission.guidelines"
+msgstr "Ghidul de revizuire"
+
+msgid "reviewer.submission.noGuidelines"
+msgstr "Publicația nu are un ghid pentru revizuire."
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Faceți clic pe numele fișierelor de mai jos pentru a descărca fișierele "
+"asociate cu această înregistrare de manuscris."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+"Introduceți (sau inserați) recenzia dvs. pentru acest manuscris în "
+"formularul de mai jos."
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+"Încărcați fișiere pe care doriți să le consulte editorul și / sau autorul, "
+"inclusiv versiunile revizuite ale fișierelor (originalelor) de revizie."
+
+msgid "reviewer.complete"
+msgstr "Revizie încărcată"
+
+msgid "reviewer.confirmSubmit"
+msgstr "Sunteți sigur că doriți să înregistrați această revizie?"
 
 msgid "reviewer.complete.whatNext"
 msgstr ""
@@ -38,93 +110,27 @@ msgstr ""
 "publicăm; editorul vă va contacta din nou pentru mai multe informații, dacă "
 "este nevoie."
 
-msgid "reviewer.confirmSubmit"
-msgstr "Sunteți sigur că doriți să înregistrați această revizie?"
+msgid "reviewer.aboutDueDates"
+msgstr "Despre termenele limită"
 
-msgid "reviewer.complete"
-msgstr "Revizie încărcată"
-
-msgid "reviewer.submission.uploadDescription"
+msgid "reviewer.aboutDueDates.text"
 msgstr ""
-"Încărcați fișiere pe care doriți să le consulte editorul și / sau autorul, "
-"inclusiv versiunile revizuite ale fișierelor (originalelor) de revizie."
+"Editorul vă solicită să acceptați sau să respingeți recenzia înainte de data "
+"scadentă a răspunsului și să completați revizuirea până la data scadenței "
+"acesteia."
 
-msgid "reviewer.submission.reviewDescription"
+msgid "submission.comments.canShareWithAuthor"
+msgstr "Pentru autor și editor"
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr "Numai pentru editor"
+
+msgid "submission.comments.sendCopyToReviewers"
 msgstr ""
-"Introduceți (sau inserați) recenzia dvs. pentru acest manuscris în "
-"formularul de mai jos."
 
-msgid "reviewer.submission.downloadDescription"
+msgid "submission.comments.sendToReviewers"
 msgstr ""
-"Faceți clic pe numele fișierelor de mai jos pentru a descărca fișierele "
-"asociate cu această înregistrare de manuscris."
 
-msgid "reviewer.submission.noGuidelines"
-msgstr "Publicația nu are un ghid pentru revizuire."
-
-msgid "reviewer.submission.guidelines"
-msgstr "Ghidul de revizuire"
-
-msgid "reviewer.submission.competingInterests"
-msgstr "Interese concurente"
-
-msgid "reviewer.submission.hasCompetingInterests"
-msgstr "Este posibil să am interese concurente (specificați mai jos)"
-
-msgid "reviewer.submission.noCompetingInterests"
-msgstr "Nu am interese concurente"
-
-msgid "reviewer.submission.enterCompetingInterests"
+msgid "user.authorization.submissionReviewer"
 msgstr ""
-"Această revistă are o politică de dezvăluire a potențialelor interese "
-"concurente a recenziilor .  Vă rugăm să examinați această politică."
-
-msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Ghid pentru recenzori"
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Salvați-o pentru mai târziu"
-
-msgid "reviewer.submission.submitReview"
-msgstr "Trimiteți revizia"
-
-msgid "reviewer.submission.continueToStepThree"
-msgstr "Continuați cu pasul #3"
-
-msgid "reviewer.submission.acceptReview"
-msgstr "Dacă aceptați recenzia, continuați la pasul #2"
-
-msgid "reviewer.submission.declineReviewMessage"
-msgstr ""
-"În câmpul de mai jos puteți furniza editorului motivele pentru care refuzați "
-"această revizuire."
-
-msgid "reviewer.submission.declineReview"
-msgstr "Refuză cererea de revizuire"
-
-msgid "reviewer.submission.reviewerFiles"
-msgstr "Fișiere de recenzori"
-
-msgid "reviewer.step1.viewAllDetails"
-msgstr "Vezi toate detaliile înregistrării de manuscris"
-
-msgid "reviewer.step1.requestBoilerplate"
-msgstr ""
-"Ați fost selectat ca potențial revizor al manuscrisului următor. Mai jos "
-"este  o prezentare generală a înregistrării manuscrisului, precum și "
-"calendarul acestei revizuiri.  . Sperăm că puteți participa."
-
-msgid "reviewer.step1.request"
-msgstr "Cerere de revizuire"
-
-msgid "reviewer.reviewSteps.completion"
-msgstr "4. Finalizare"
-
-msgid "reviewer.reviewSteps.download"
-msgstr "3. Descărcare & Revizie"
-
-msgid "reviewer.reviewSteps.guidelines"
-msgstr "2. Instrucțiuni"
-
-msgid "reviewer.reviewSteps.request"
-msgstr "1. Cerere"
+"Utilizatorul curent nu este atribuit ca revizor pentru documentul solicitat."

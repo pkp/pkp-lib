@@ -12,49 +12,251 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Vocabularul {$vocab} nu este suportat."
+msgid "api.400.paramNotSupported"
+msgstr "Parametrul {$param} nu este suportat."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Limba {$locale} nu este suportată."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.400.propReadOnly"
 msgstr ""
-"Tema activă, {$themePluginPath}, nu este activată și este posibil să nu fie "
-"instalată."
 
-msgid "api.temporaryFiles.400.config"
+msgid "api.400.invalidApiToken"
 msgstr ""
-"Fișierul nu a putut fi încărcat din cauza unei erori de configurare a "
-"serverului. Vă rugăm să contactați administratorul de sistem."
 
-msgid "api.temporaryFiles.400.fileSize"
-msgstr "Nu pot fi încărcate fișiere mai mari de {$maxSize}."
-
-msgid "api.temporaryFiles.409.uploadFailed"
-msgstr "Unul sau mai multe fișiere nu au putut fi încărcate."
-
-msgid "api.temporaryFiles.400.noUpload"
-msgstr "Nici un fișier din cele solicitate nu a fost găsit spre încărcare."
-
-msgid "api.submissions.unknownError"
+msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"A fost înregistrată o eroare neașteptată. Vă rugăm să reîncărcați pagina."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Volumul, numărul sau anul solicitat nu este valid."
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr ""
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr "Nu sunteți autorizat să accesați resursa solicitată."
+
+msgid "api.404.resourceNotFound"
+msgstr "Resursa solicitată nu a fost găsită."
+
+msgid "api.404.endpointNotFound"
+msgstr "Adresa URL solicitată nu a fost recunoscută."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr ""
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr ""
+
+msgid "api.emails.400.missingSubject"
+msgstr ""
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Modelul de e-mail solicitat nu a fost găsit."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+
+msgid "api.files.400.uploadFailed"
+msgstr ""
+
+msgid "api.files.400.fileSize"
+msgstr ""
+
+msgid "api.files.400.config"
+msgstr ""
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Articolul pe care doriți să îl publicați este deja publicat."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Articolul pe care doriți să îl publicați nu este publicat."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nu puteți edita acest articol deoarece a fost deja publicat."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Nu puteți modifica starea direct prin API. În schimb, utilizați punctele "
+"finale /publica și /retrage de la publicare."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Trebuie să retrageți de la publicare acest articol înainte de a-l șterge."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Puteți încărca doar următoarele tipuri de fișiere: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Imaginea pe care a-ți încărcat-o nu este validă."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Fișierul încărcat nu se potrivește cu extensia de fișier. Acest lucru se "
+"poate întâmpla când un fișier a fost redenumit la un tip incompatibil, de "
+"exemplu schimbarea photo.png în photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nu aveți dreptul să încărcați fișiere."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Nu aveți suficient spațiu în directorul dvs. de utilizator. Fișierul pe care "
+"îl încărcați este {$fileUploadSize}kb iar dumneavoastră aveți disponibili "
+"{$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Directorul fișierelor publice nu a fost găsit sau fișierele nu pot fi "
+"salvate. Vă rugăm să contactați administratorul dvs. pentru a rezolva "
+"această problemă."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Data trebuie să fie în format AAAA-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Data de început nu poate fi mai târziu decât data de încheiere."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Data de începere nu poate fi anterioară datei de 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Data de încheiere nu poate fi mai târziu decât ieri ."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Cererea dvs. nu este validă. Intervalul de timp trebuie să fie `zi` sau` "
+"lună`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Cererea dvs. nu este validă. Direcția trebuie să fie `desc` sau` asc`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr ""
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
 
 msgid "api.submissions.400.missingRequired"
 msgstr ""
 "Cererea dvs. nu a putut fi procesată, deoarece lipsesc informațiile necesare."
 
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Acest punct final nu este disponibil dintr-un context. Trebuie să fie "
-"accesat din spațiul de nume de pe întregul site."
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Volumul, numărul sau anul solicitat nu este valid."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Nu aveți permisiunea de a șterge această înregistrare."
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Solicitarea dvs. a fost respinsă. Acest lucru se poate întâmpla deoarece "
+"autentificarea dvs. a expirat. Încercați să reîncărcați pagina și încercați "
+"din nou."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr ""
@@ -64,91 +266,69 @@ msgstr ""
 msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr "Puteți vizualiza numai manuscrisele nepublicate care vi s-au atribuit."
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr ""
-"Solicitarea dvs. a fost respinsă. Acest lucru se poate întâmpla deoarece "
-"autentificarea dvs. a expirat. Încercați să reîncărcați pagina și încercați "
-"din nou."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "Cererea dvs. nu este validă. Direcția trebuie să fie `desc` sau` asc`."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr ""
-"Cererea dvs. nu este validă. Intervalul de timp trebuie să fie `zi` sau` "
-"lună`."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "Data de încheiere nu poate fi mai târziu decât ieri ."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "Data de începere nu poate fi anterioară datei de 2001-01-01."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "Data de început nu poate fi mai târziu decât data de încheiere."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Data trebuie să fie în format AAAA-MM-DD."
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nu aveți permisiunea de a șterge această înregistrare."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Nu aveți voie să editați această publicație."
 
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Directorul fișierelor publice nu a fost găsit sau fișierele nu pot fi "
-"salvate. Vă rugăm să contactați administratorul dvs. pentru a rezolva "
-"această problemă."
+"Acest punct final nu este disponibil dintr-un context. Trebuie să fie "
+"accesat din spațiul de nume de pe întregul site."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Nu aveți suficient spațiu în directorul dvs. de utilizator. Fișierul pe care "
-"îl încărcați este {$fileUploadSize}kb iar dumneavoastră aveți disponibili "
-"{$dirSizeLeft}kb."
+"Tema activă, {$themePluginPath}, nu este activată și este posibil să nu fie "
+"instalată."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Nu aveți dreptul să încărcați fișiere."
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Limba {$locale} nu este suportată."
 
-msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"Fișierul încărcat nu se potrivește cu extensia de fișier. Acest lucru se "
-"poate întâmpla când un fișier a fost redenumit la un tip incompatibil, de "
-"exemplu schimbarea photo.png în photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Imaginea pe care a-ți încărcat-o nu este validă."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Puteți încărca doar următoarele tipuri de fișiere: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"Trebuie să retrageți de la publicare acest articol înainte de a-l șterge."
 
-msgid "api.publication.403.cantEditStatus"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Nu puteți modifica starea direct prin API. În schimb, utilizați punctele "
-"finale /publica și /retrage de la publicare."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nu puteți edita acest articol deoarece a fost deja publicat."
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Articolul pe care doriți să îl publicați nu este publicat."
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "Articolul pe care doriți să îl publicați este deja publicat."
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Modelul de e-mail solicitat nu a fost găsit."
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
 
-msgid "api.404.endpointNotFound"
-msgstr "Adresa URL solicitată nu a fost recunoscută."
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
 
-msgid "api.404.resourceNotFound"
-msgstr "Resursa solicitată nu a fost găsită."
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
 
-msgid "api.403.unauthorized"
-msgstr "Nu sunteți autorizat să accesați resursa solicitată."
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Vocabularul {$vocab} nu este suportat."
 
-msgid "api.400.paramNotSupported"
-msgstr "Parametrul {$param} nu este suportat."
+#~ msgid "api.temporaryFiles.400.config"
+#~ msgstr ""
+#~ "Fișierul nu a putut fi încărcat din cauza unei erori de configurare a "
+#~ "serverului. Vă rugăm să contactați administratorul de sistem."
+
+#~ msgid "api.temporaryFiles.400.fileSize"
+#~ msgstr "Nu pot fi încărcate fișiere mai mari de {$maxSize}."
+
+#~ msgid "api.temporaryFiles.409.uploadFailed"
+#~ msgstr "Unul sau mai multe fișiere nu au putut fi încărcate."
+
+#~ msgid "api.temporaryFiles.400.noUpload"
+#~ msgstr "Nici un fișier din cele solicitate nu a fost găsit spre încărcare."
+
+#~ msgid "api.submissions.unknownError"
+#~ msgstr ""
+#~ "A fost înregistrată o eroare neașteptată. Vă rugăm să reîncărcați pagina."

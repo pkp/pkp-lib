@@ -17,6 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "manager.website.information"
+msgstr "Informação"
+
+msgid "manager.website.appearance"
+msgstr "Aparência"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"É obrigatório um ficheiro de imagem. Certifique-se de que escolheu e "
+"carregou um ficheiro."
+
 msgid "manager.announcements"
 msgstr "Notícias"
 
@@ -31,6 +42,12 @@ msgstr "Criar"
 
 msgid "manager.announcements.dateExpire"
 msgstr "Expiração"
+
+msgid "manager.announcements.datePublish"
+msgstr "Publicada"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Eliminar Notícia"
 
 msgid "manager.announcements.edit"
 msgstr "Editar notícia"
@@ -138,11 +155,294 @@ msgstr "Não há tipos de notícia."
 msgid "manager.announcementTypes.typeName"
 msgstr "Tipo de Notícia"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr "Depositar tudo"
+
+msgid "manager.dois.actions.deposit.label"
+msgstr "Depositar DOIs"
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+"Está prestes a enviar registos de metadados DOI para {$count} iten(s) para a "
+"{$registrationAgency}. Deseja realmente depositar estes registos?"
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr "Marcar DOIs registados"
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+"Está prestes a marcar os registos de metadados DOI para {$count} iten(s) "
+"como registados. Deseja realmente marcar estes registos como registados?"
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr "Marcar DOIs como Não Registado"
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+"Está prestes a marcar registos de metadados DOI para {$count} iten(s) como "
+"não registados. Tem a certeza de que deseja marcar esses registos como não "
+"registados?"
+
+msgid "manager.dois.actions.markStale.label"
+msgstr "Marcar DOIs como obsoletos"
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+"Está prestes a marcar {$count} registos de metadados DOI como obsoletos. O "
+"status obsoleto só pode ser aplicado a DOIs enviados anteriormente. Tem "
+"certeza de que deseja marcar esses registos como obsoletos?"
+
+msgid "manager.dois.actions.export.label"
+msgstr "Exportar DOIs"
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+"Está prestes a exportar os registos de metadados DOI para {$count} iten(s) "
+"para a {$registrationAgency}. Deseja realmente exportar estes registos?"
+
+msgid "manager.dois.actions.assign.label"
+msgstr "Atribuir DOIs"
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+"Está prestes a atribuir novos DOIs a {$count} iten(s) para qualquer item "
+"elegível que não tenha ainda um DOI atribuído. Deseja realmente atribuir "
+"DOIs a estes itens?"
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr "Depositar todos os DOIs"
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+"Está prestes a agendar o depósito de todos os registos de matadados DOI na "
+"{$registrationAgency}. Apenas itens publicados com um DOI serão depositados. "
+"O estado de cada item será atualizado quando for recebida uma resposta. "
+"Deseja realmente agendar o depósito de todos os itens?"
+
+msgid "manager.dois.actions.description"
+msgstr "Realize ações em {$count} item(ns) selecionado(s)."
+
+msgid "manager.dois.actions.bulkActions"
+msgstr "Ações em Massa"
+
+msgid "manager.dois.depositStatus"
+msgstr "Estado do Depósito"
+
+msgid "manager.dois.publicationStatus"
+msgstr "Estado da Publicação"
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr "Os metadados deste item foram submetidos à {$registrationAgency}."
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr "Este item foi registado manualmente numa agência de registo."
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr "Os metadados deste item não foram submetidos à {$registrationAgency}."
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr "Este item não pode ser depositado antes de ser publicado."
+
+msgid "manager.dois.registration.viewError"
+msgstr "Ver Erro"
+
+msgid "manager.dois.registration.viewError.title"
+msgstr "Mensagem de Erro no Registo"
+
+msgid "manager.dois.registration.viewRecord"
+msgstr "Ver Registo"
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr "Mensagem de registo com sucesso"
+
+msgid "manger.dois.update.success"
+msgstr "DOIs atualizados com sucesso"
+
+msgid "manager.dois.registration.depositDois"
+msgstr "Depositar DOI(s)"
+
+msgid "manager.dois.status.needsDoi"
+msgstr "Necessita de DOI"
+
+msgid "manager.dois.status.unregistered"
+msgstr "Não registado"
+
+msgid "manager.dois.status.submitted"
+msgstr "Submetido"
+
+msgid "manager.dois.status.registered"
+msgstr "Registado"
+
+msgid "manager.dois.status.error"
+msgstr "Erro"
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr "Obsoleto"
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+"Qualquer item publicado ou não publicado que 1) tenha um sub-objeto sem um "
+"DOI atribuído onde 2) o tipo de DOI do sub-objeto esteja ativado (por "
+"exemplo, uma composição sem um DOI não aparecerá aqui se o tipo de DOI de "
+"composição não estiver ativado)"
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+"Itens que 1) possuem DOIs atribuídos para todos os tipos de DOI ativados, 2) "
+"são publicados e 3) ainda não foram registados numa agência de registo."
+
+msgid "manager.dois.status.submitted.description"
+msgstr "Itens que foram submetidos à agência de registo configurada."
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+"Itens que foram registados com sucesso numa agência de registo ou "
+"manualmente marcados como registados."
+
+msgid "manager.dois.status.error.description"
+msgstr "Itens com erro no processo de registo."
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+"Itens que tiveram os seus metadados atualizados localmente e será necessário "
+"ser reenviados ou atualizados na agência de registo configurada para "
+"garantir que todos os metadados enviados anteriormente estejam atualizados."
+
+msgid "manager.dois.update.failedCreation"
+msgstr "Atualizações de DOI falhou"
+
+msgid "manager.dois.update.partialFailure"
+msgstr "Não foi possível atualizar algum(s) DOI(s)"
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr "Itens exportados com sucesso"
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr "Itens marcados registados com sucesso"
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr "Itens não registados marcados com sucesso"
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr "Itens obsoletos marcados com sucesso"
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr "Itens com novos DOIs atribuídos com sucesso"
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr "Itens submetidos para depósito com sucesso"
+
+msgid "manager.dois.help.statuses.title"
+msgstr "Estados do DOI"
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+"A gestão do DOI foi alterada. Veja a <a href=\"{$doiManagementUrl}\">gestão "
+"do DOI</a> e as páginas de <a href=\"{$doiSettingsUrl}\">configurações do "
+"DOI</a>."
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+"Antes deste componente poder ser eliminado, deve associar quaisquer "
+"ficheiros de submissão relacionado a um componente diferente."
+
+msgid "manager.institutions.edit"
+msgstr "Editar instituição"
+
+msgid "manager.institutions.form.ror"
+msgstr "ROR"
+
+msgid "manager.institutions.form.ror.description"
+msgstr "Identificação do Research Organization Registry para esta instituição."
+
+msgid "manager.institutions.form.ipRanges"
+msgstr "intervalos de IP"
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+"Os valores válidos incluem um endereço IP (por exemplo, 142.58.103.1), "
+"intervalo de IP (por exemplo, 142.58.103.1 - 142.58.103.4), intervalo de IP "
+"com asterisco '*' (por exemplo, 142.58.*.*) e um intervalo de IP com CIDR "
+"(por exemplo, 142.58.100.0/24)."
+
+msgid "manager.institutions.deleteInstitution"
+msgstr "Excluir instituição"
+
+msgid "manager.institutions.confirmDelete"
+msgstr "Tem certeza de que deseja continuar e excluir esta instituição?"
+
+msgid "manager.institutions.invalidIPRange"
+msgstr "Intervalo de IP inválido"
+
+msgid "manager.publication.submissionStage"
+msgstr "Submissão"
+
+msgid "manager.publication.reviewStage"
+msgstr "Revisão"
+
+msgid "manager.publication.editorialStage"
+msgstr "Edição"
+
+msgid "manager.publication.productionStage"
+msgstr "Produção"
+
+msgid "manager.publication.emails"
+msgstr "E-mails"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Orientações para o Revisor"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr "Os detalhes dos lembretes aos revisores foram atualizados."
+
+msgid "manager.dois.title"
+msgstr "DOIs"
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+"Regressou o seguinte erro da {$registrationAgency} e contém detalhes da "
+"causa do erro:"
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+"Regressou a seguinte mensagem da {$registrationAgency} e contém detalhes "
+"sobre o registo:"
+
+msgid "manager.emails.addEmail"
+msgstr "Adicionar modelo"
+
 msgid "manager.emails.createEmail"
 msgstr "Criar E-mail"
 
+msgid "manager.emails.data"
+msgstr "Dados Template Mensagem"
+
+msgid "manager.emails.details"
+msgstr "Detalhes Template"
+
 msgid "manager.emails.disable"
 msgstr "Desactivar"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Está prestes a desactivar este modelo de e-mail. Se esistem processos do "
+"sistema usando este modelo, estes não usarão posteriormente. Deseja "
+"confirmar esta operação?"
 
 msgid "manager.emails.editTestExample"
 msgstr "Editar Exemplo de E-mail"
@@ -150,11 +450,26 @@ msgstr "Editar Exemplo de E-mail"
 msgid "manager.emails.emailTemplate"
 msgstr "E-mail Padrão"
 
+msgid "manager.emails.emailTemplates"
+msgstr "Modelos de e-mail"
+
+msgid "manager.emails.otherTemplates"
+msgstr "Outros Modelos"
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr "Deve inserir um ID do contexto quando adiciona um modelo de e-mail."
+
 msgid "manager.emails.enabled"
 msgstr "Activar este e-mail padrão"
 
 msgid "manager.emails.enable"
 msgstr "Activar"
+
+msgid "manager.emails.enable.message"
+msgstr "Está prestes a activar este email. Deseja confirmar esta operação?"
+
+msgid "manager.emails.form.emailKeyRequired"
+msgstr "É obrigatória uma única chave para o e-mail."
 
 msgid "manager.emails.form.bodyRequired"
 msgstr "É obrigatório o corpo da mensagem ."
@@ -165,8 +480,35 @@ msgstr "É obrigatório o assunto da mensagem ."
 msgid "manager.emails"
 msgstr "E-mails"
 
+msgid "manager.emails.resetAll"
+msgstr "Restaurar tudo"
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Se restabelecer todos os modelos, todas as modificações nos modelos de e-"
+"mail serão perdidas. Deseja confirmar esta operação?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Se restabelecer este modelo, todos os dados da mensagem serão redefinidos "
+"para seu valor padrão, perdendo todas as modificações. Deseja confirmar esta "
+"operação?"
+
 msgid "manager.emails.resetToDefault"
 msgstr "Restabelecer para Original"
+
+msgid "manager.emails.sentFrom"
+msgstr "Enviado de"
+
+msgid "manager.emails.sentTo"
+msgstr "Enviado para"
+
+msgid "manager.export.usersToCsv.label"
+msgstr "Exportar para Excel/CSV"
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
+"Selecionar utilizadores para serem exportados para um ficheiro Excel/CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Navegador de Ficheiros"
@@ -227,6 +569,18 @@ msgstr "Título"
 msgid "manager.importExport"
 msgstr "Importar/Exportar Dados"
 
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Submissões"
+
+msgid "manager.language.forms"
+msgstr "Formulários"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Recarregar padrões"
+
 msgid "manager.languages.alternateLocaleInstructions"
 msgstr ""
 "O sistema permite opcionalmente informar conteúdo crítico em vários idiomas "
@@ -241,6 +595,9 @@ msgstr ""
 
 msgid "manager.payment.timestamp"
 msgstr "Data de emissão"
+
+msgid "manager.people.existingUserRequired"
+msgstr "Tem de ser indicado um utilizador existente."
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Remover o utilizador deste papel?"
@@ -345,6 +702,9 @@ msgstr "Remover"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Guardar e Adicionar Outro"
 
+msgid "manager.people.signedInAs"
+msgstr "Tem acesso como {$username}"
+
 msgid "manager.people.signInAs"
 msgstr "Entrar no sistema como"
 
@@ -386,26 +746,83 @@ msgstr "Plugins do Sistema"
 msgid "manager.readingTools"
 msgstr "Ferramentas para Leitura"
 
+msgid "manager.userSearch.searchByName"
+msgstr "Pesquisa por Nome"
+
+msgid "manager.representative.inUse"
+msgstr ""
+"Não pode eliminar este representante porque está designado aos metadados de "
+"mercados para um ou mais formatos de publicação para esta submissão."
+
+msgid "manager.reviewerSearch.change"
+msgstr "Modificar"
+
+msgid "manager.reviewerSearch.searchByName"
+msgstr "Pesquisar por nome do avaliador"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Pesquisar por Nome"
+
+msgid "manager.reviewerSearch.interests"
+msgstr "Interesses de Revisão"
+
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"Use o formulário abaixo para definir os valores máximos para os termos que "
+"deseja pesquisar. O formulário é pré-preenchido com as médias calculadas "
+"para estes campos."
+
 msgid "manager.roles"
 msgstr "Papéis"
 
-msgid "manager.setup.homepageImageInvalid"
-msgstr ""
-"O formato da imagem da página inicial é inválido ou o upload falhou. Os "
-"formatos permitidos são .gif, .jpg ou .png."
+msgid "manager.setup.statistics"
+msgstr "Estatísticas"
 
-msgid "manager.setup.homeTitleImageInvalid"
-msgstr ""
-"O formato da imagem do cabeçalho da página inicial é inválido ou o upload "
-"falhou. Os formatos permitidos são .gif, .jpg ou .png."
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr "Estatísticas de uso geográfico"
 
-msgid "manager.setup.loggingAndAuditing"
-msgstr "Controle e Auditoria"
-
-msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
-"O formato da imagem do logótipo do cabeçalho da página é inválido ou o "
-"upload falhou. Os formatos permitidos são .gif, .jpg ou .png."
+"Selecione o tipo de estatísticas de uso geográfico a serem coletadas. "
+"Estatísticas geográficas mais detalhadas podem aumentar consideravelmente o "
+"tamanho da sua base de dados e, em alguns casos raros, podem prejudicar o "
+"anonimato dos seus visitantes."
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr "Não registe nenhum dado geográfico"
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr "Registe o país do visitante"
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr "Registe o país e a região do visitante"
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr "Registe o país, a região e a cidade do visitante"
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr "Estatísticas de uso da instituição"
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+"Ative as estatísticas institucionais se desejar registar estatísticas de uso "
+"por instituição. Se ativado, deverá configurar os intervalos de IP para cada "
+"instituição que deseja registar."
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr "Ativar estatísticas institucionais"
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr "API Pública"
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+"Se deve ou não restringir o acesso aos endpoints da API para estatísticas do "
+"COUNTER SUSHI. Se desmarcada, a API só poderá ser acedida por utilizadores "
+"com funções de administrador ou gestor."
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr "Disponibilizar publicamente as estatísticas do COUNTER SUSHI"
 
 msgid "manager.statistics"
 msgstr "Estatísticas &amp; Relatórios"
@@ -420,14 +837,544 @@ msgstr ""
 "revisores e secções, num dado período. Relatórios são gerados no formato "
 "CSV, que exigem um aplicativo para serem visualizados."
 
+msgid "manager.statistics.reports.month.label"
+msgstr "Usar o formato AAAAMM."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Usar o formato AAAAMMDD."
+
+msgid "manager.affiliationAndSupport"
+msgstr "Patrocinador"
+
+msgid "manager.setup.dois"
+msgstr "DOIs"
+
+msgid "manager.setup.dois.setup"
+msgstr "Configuração"
+
+msgid "manager.setup.dois.registration"
+msgstr "Registo"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr "Depósito automático"
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr "Ativar o depósito automático"
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+"O registo de DOI e metadados pode ser automaticamente depositados na agência "
+"de registo relecionada sempre que um item com DOI é publicado. Depósitos "
+"automáticos acontecerão em intervalos programados e o estado do registo do "
+"DOI pode ser monitorizado na página de gestão do DOI."
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+"Isto é atribuído por uma agência de registo DOI, tal como <a href=\"https://"
+"www.crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://"
+"datacite.org/\" target=\"new\">DataCite</a>. Exemplo: 10.xxxx"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "O prefixo DOI é obrigatório e deve estar no seguinte formato 10.xxxx."
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr "Atribuição automática de DOI"
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr "Quando é que uma submissão deve ter o DOI atribuído?"
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr "Após publicação"
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr "Nunca"
+
+msgid "manager.setup.doiPrefix"
+msgstr "Prefixo DOI"
+
+msgid "doi.manager.settings.doiObjects"
+msgstr "Itens com DOIs"
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr "Um prefixo DOI é obrigatório"
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr "Sufixo DOI"
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr "Padrão de sufixo DOI personalizado"
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
+"os objetos publicados com o mesmo prefixo DOI:"
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr "Usar padrão"
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr "Padrão personalizado (não recomendado)"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Agência de Registo"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Selecione a agência de registo onde deseja depositar os DOIs."
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr "Nenhuma agência de registo ativada"
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+"Os DOIs podem ser automaticamente criada e depositada numa agência de "
+"registo. Para usar esta função, localize e instale o plugin da agência de "
+"registo apropriada."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Nenhum"
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr "Versionamento do DOI"
+
+msgid "doi.authorization.enabledRequired"
+msgstr "Não pode realizar esta operação sem DOIs ativados."
+
+msgid "doi.manager.versions.countStatement"
+msgstr "Existem {$count} versões."
+
+msgid "doi.manager.versions.view"
+msgstr "Ver todos"
+
+msgid "doi.manager.versions.modalTitle"
+msgstr "DOIs para todas as versões"
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr "O DOI contém caracteres inválidos."
+
+msgid "manager.setup.publishing"
+msgstr "Detalhes de publicação"
+
+msgid "manager.setup.publishingDescription"
+msgstr "O nome da editora aparecerá na secção Sobre a Revista."
+
+msgid "manager.setup.additionalContent"
+msgstr "Conteúdo Adicional"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Qualquer coisa inserida aqui aparecerá na sua página inicial."
+
+msgid "manager.setup.advanced"
+msgstr "Avançado"
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Informação sobre Direitos de Autor"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Exigir que os autores aceitem o Aviso de Direitos de Autor como parte do "
+"processo de submissão."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Directrizes Autor"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"As directrizes recomendadas incluem normas bibliográficos e de formatação, "
+"juntamente com exemplos de formatos comuns de citação para serem usados na "
+"submissão de artigos."
+
+msgid "manager.setup.disableSubmissions"
+msgstr "Desativar Submissões"
+
+msgid "manager.setup.checklist"
+msgstr "Lista de verificação"
+
+msgid "manager.setup.competingInterests"
+msgstr "Interesses Concorrentes"
+
+msgid "manager.setup.errorDeletingItem"
+msgstr "Ocorreu um erro ao eliminar este item."
+
+msgid "manager.setup.favicon"
+msgstr "Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Image Homepage"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Carregue uma imagem para se exibir na página inicial."
+
+msgid "manager.setup.homepageImageInvalid"
+msgstr ""
+"O formato da imagem da página inicial é inválido ou o upload falhou. Os "
+"formatos permitidos são .gif, .jpg ou .png."
+
+msgid "manager.setup.homeTitleImageInvalid"
+msgstr ""
+"O formato da imagem do cabeçalho da página inicial é inválido ou o upload "
+"falhou. Os formatos permitidos são .gif, .jpg ou .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Descrições"
+
+msgid "manager.setup.layout.sidebar"
+msgstr "Barral Lateral"
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
+"O bloco {$name} não foi encontrado. Certifique-se que o plugin se encontra "
+"instalado e ativo."
+
+msgid "manager.setup.loggingAndAuditing"
+msgstr "Controle e Auditoria"
+
+msgid "manager.setup.logo"
+msgstr "Logótipo"
+
+msgid "manager.setup.noTemporaryFile"
+msgstr "O ficheiro carregado não foi encontrato. Tente carregá-lo novamente."
+
+msgid "manager.setup.notifications"
+msgstr "Notificação ou Submissão Autor"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Enviar uma cópia para endereço"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr "Notificar Todos os Autores"
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+"Quem deve receber um e-mail de notificação quando uma decisão editorial for "
+"registada?"
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+"Enviar e-mail apenas aos autores designados no fluxo de trabalho da "
+"submissão. Normalmente, é o autor que enviou a submissão."
+
+msgid "manager.setup.submissionsNotifications"
+msgstr "Notificações"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr "Notificar Contacto Principal"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr "Sim, enviar cópia para {$email}"
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr "Não"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr "Notificar Qualquer Pessoa"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+"Uma cópia do e-mail de confirmação de submissão será enviada para qualquer "
+"um dos endereços de e-mail inseridos aqui. Separe os vários endereços de e-"
+"mail com vírgula. Exemplo: um@exemplo.pt,dois@exemplo.pt"
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr "Um ou mais destes endereços de e-mail não é válido."
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"É enviado para os autores um e-mail automático de agradecimento pela sua "
+"submissão. Pode ter cópias deste e-mail enviado para o seguinte:"
+
+msgid "manager.setup.notifyUsers"
+msgstr "Notificar"
+
+msgid "manager.setup.notifyUsers.description"
+msgstr "Selecionar utilizadores que irão receber a notificação de e-mail."
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr "Enviar uma cópia deste e-mail para o meu e-mail {$email}."
+
+msgid "manager.setup.notifyUsers.send"
+msgstr "Enviar E-mail"
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+"Está prestes a enviar um e-mail para {$total} utilizadores. Deseja realmente "
+"enviar este e-mail?"
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr "A enviar e-mail. Não feche o browser antes do envio estar concluído."
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr "O e-mail foi enviado com sucesso para todos os destinatário."
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr "Enviar outro e-mail"
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Política de Acesso Aberto"
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Se fornecer acesso gratuito imediato a todos os conteúdos publicados, pode "
+"inserir uma descrição da Política de Acesso Aberto."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"O formato da imagem do logótipo do cabeçalho da página é inválido ou o "
+"upload falhou. Os formatos permitidos são .gif, .jpg ou .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Rodapé"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Insira qualquer imagem, texto ou código HTML que gostaria de aparecer no "
+"rodapé site."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Descreva a política e os processos de revisão pelos pares para leitores e "
+"autores. Esta descrição geralmente inclui o número de revisores tipicamente "
+"usado na revisão de uma submissão, os critérios pelos quais os revisores são "
+"convidados a julgar as submissões, o tempo esperado necessário para realizar "
+"as revisões e os princípios usados para seleccionar revisores."
+
+msgid "manager.setup.principalContact"
+msgstr "Contacto Principal"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Insira os detalhes de contato, geralmente informação sobre o Director, "
+"Editor principal, Corpo Editorial e equipa administrativa, que pode ser "
+"exibido no site acessível ao público."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Declaração Privacidade"
+
+msgid "manager.setup.dateTime"
+msgstr "Data e Hora"
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr "Formatos de Data e Hora"
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+"Escolha os formatos de data e hora preferidos. Pode inserir um formato "
+"personalizado utilizando os <a href='http://php.net/manual/en/function."
+"strftime.php#refsect1-function.strftime-parameters'>caracteres especiais de "
+"formato</a>."
+
+msgid "manager.setup.dateTime.longDate"
+msgstr "Data"
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr "Data (pequena)"
+
+msgid "manager.setup.dateTime.time"
+msgstr "Hora"
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr "Data e Hora"
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr "Data e Hora (pequena)"
+
+msgid "manager.setup.dateTime.custom"
+msgstr "Personalizar"
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+"Esta mensagem irá aparecer durante o registo de um utilizador, submissão por "
+"um autor, e na página pública sobre Privacidade. Em algumas jurisdições, é "
+"legalmente obrigatório especificar como irá utilizar os dados recolhidos."
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr "Prazo de Resposta Padrão"
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr "Prazo de Conclusão Padrão"
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr "Número de semanas para aceitar ou recusar um pedido de revisão."
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Semanas permitidas para concluir uma revisão"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Lembrete"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Os padrões para cada revisão podem ser modificados durante o processo "
+"editorial."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr "Lembrete de Resposta"
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Enviar um lembrete se um revisor não tiver respondido a um pedido de revisão "
+"no prazo (dias) após a data de resposta devida."
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr "Lembrete de Revisão"
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Enviar um lembrete se um revisor não tiver enviado uma recomendação dentro "
+"do prazo (dias) após a data de vencimento da revisão."
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr "Modo de Revisão Padrão"
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+"Apresentar link para<button type=\"button\">Garantir Revisão Cega em todos "
+"os ficheiros</button> durante a transferência"
+
+msgid "manager.setup.sponsors.note"
+msgstr "Relações com Patrocinadores e Descrição de Política"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Exemplos: associações académicas, departamentos universitários, "
+"cooperativas, etc. Os patrocinadores são exibidos publicamente."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Os administradores do portal podem fazer o upload de um ficheiro CSS para "
+"personalizar ainda mais a aparência do site."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Contacto Suporte Técnico"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Uma pessoa do contacto técncio que pode auxiliar editores, autores e "
+"revisores com quaisquer problemas que tenham submetido, editando, revendo ou "
+"publicando material."
+
+msgid "manager.setup.theme"
+msgstr "Tema"
+
+msgid "manager.setup.institutions"
+msgstr "Instituições"
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Podem ser instalados novos temas a partir do tabulador Plugins no topo desta "
+"página."
+
+msgid "manager.setup.theme.notFound"
+msgstr "O tema que selecionou não se encontra instalado ou ativado."
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+"A seguinte informação é apresentada aos autores antes de iniciarem a "
+"submissão. Forneça uma breve explicação do processo de submissão que o autor "
+"saiba o que esperar."
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+"A seguinte informação é apresentada aos autores no processo de carregamento "
+"de ficheiros. Forneça uma breve explicação sobre quais os ficheiros que o "
+"autor deve partilhar."
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+"A seguinte informação é apresentada aos autores na introdução dos "
+"contribuidores do trabalho. Forneça uma breve explicação sobre que "
+"informações devem indicar sobre eles, os seus coautores e restantes "
+"contribuidores."
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+"A seguinte informação é apresentada aos autores durante a etapa de detalhes, "
+"quando é solicitado o título, resumo e outras informações importantes sobre "
+"o seu trabalho."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"O seguinte é apresentado aos autores durante a etapa Para os Editores, "
+"quando lhes é pedido que forneçam os metadados como palavraschave, "
+"comentários ao editor, e outros detalhes que auxiliam a revisão editorial."
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+"O seguinte é apresentado aos autores durante a etapa final do processo de "
+"submissão, quando lhes é pedido que revejam toda a informação que forneceram "
+"antes de submeter o seu trabalho."
+
+msgid "manager.setup.workflow.guidance"
+msgstr "Orientações para o Autor"
+
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Normas de Submissão"
+
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"O seguinte é apresentado aos autores quando iniciam a sua submissão. É "
+"pedido aos autores que confirmem que a sua submissão cumpre com todos os "
+"critérios aqui especificados antes de iniciar a sua submissão."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr "Desativar esta secção e não permitir que enviem novas submissões."
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr "Deseja realmente desativar esta secção?"
+
+msgid "manager.sections.confirmActivateSection"
+msgstr "Deseja realmente desativar esta secção?"
+
+msgid "manager.sections.form.assignEditors"
+msgstr "Atribuições Editoriais"
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+"Selecione os utilizadores editoriais que devem ser designados "
+"automaticamente para todas as novas submissões desta secção."
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr "Designar {$name} como {$role}"
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+"Selecione os utilizadores editoriais que devem ser designados "
+"automaticamente a todas as submissões desta categoria."
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Opções Acesso Site"
+
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} nova(s))"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr "Utilizadores registados"
+
 msgid "manager.users"
 msgstr "Utilizadores"
+
+msgid "plugins.categories.metadata"
+msgstr "Plugins Metadados"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Os plugins de metadados implementam padrões adicionais de metadados."
 
 msgid "plugins.categories.auth"
 msgstr "Plugins de Autenticação"
@@ -481,457 +1428,11 @@ msgstr ""
 msgid "plugins.categories.themes"
 msgstr "Plugins do Tema"
 
-msgid "manager.emails.form.emailKeyRequired"
-msgstr "É obrigatória uma única chave para o e-mail."
-
-msgid "manager.setup.errorDeletingItem"
-msgstr "Ocorreu um erro ao eliminar este item."
-
-msgid "manager.reviewerSearch.searchByName"
-msgstr "Pesquisar por nome do avaliador"
-
-msgid "manager.reviewerSearch.interests"
-msgstr "Interesses de Revisão"
-
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Plugins de Formatos de Metadados OAI"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Estes plugins de formato geram metadados para comunicações via OAI."
-
-msgid "manager.reviewFormElements"
-msgstr "Campos do formulário de revisão"
-
-msgid "manager.reviewFormElements.addResponseItem"
-msgstr "Adicionar resposta possível"
-
-msgid "manager.reviewFormElements.checkboxes"
-msgstr "Campo de selecção"
-
-msgid "manager.reviewFormElements.chooseType"
-msgstr "Escolher tipo de campo"
-
-msgid "manager.reviewFormElements.copyTo"
-msgstr "Copiar para:"
-
-msgid "manager.reviewFormElements.create"
-msgstr "Criar novo campo"
-
-msgid "manager.reviewFormElements.dropdownbox"
-msgstr "Campo de menu de opções"
-
-msgid "manager.reviewFormElements.edit"
-msgstr "Editar campo"
-
-msgid "manager.reviewFormElements.elementType"
-msgstr "Tipo de campo"
-
-msgid "manager.reviewFormElements.form.elementTypeRequired"
-msgstr "É obrigatório o tipo do campo do formulário."
-
-msgid "manager.reviewFormElements.form.questionRequired"
-msgstr "É obrigatória uma pergunta para o campo do formulário."
-
-msgid "manager.reviewFormElements.noneCreated"
-msgstr "Não foi criado nenhum campo do formulário."
-
-msgid "manager.reviewFormElements.possibleResponse"
-msgstr "Resposta possível"
-
-msgid "manager.reviewFormElements.question"
-msgstr "Pergunta"
-
-msgid "manager.reviewFormElements.radiobuttons"
-msgstr "Campo de botão de rádio"
-
-msgid "manager.reviewFormElements.required"
-msgstr "Campo de revisão obrigatório"
-
-msgid "manager.reviewFormElements.smalltextfield"
-msgstr "Campo de texto pequeno"
-
-msgid "manager.reviewFormElements.textarea"
-msgstr "Campo de texto longo"
-
-msgid "manager.reviewFormElements.textfield"
-msgstr "Campo de texto de uma linha"
-
-msgid "manager.reviewForms"
-msgstr "Formulários de Revisão"
-
-msgid "manager.reviewForms.completed"
-msgstr "Concluído"
-
-msgid "manager.reviewForms.create"
-msgstr "Criar formulário de revisão"
-
-msgid "manager.reviewForms.description"
-msgstr "Descrição"
-
-msgid "manager.reviewForms.edit"
-msgstr "Editar formulário de revisão"
-
-msgid "manager.reviewForms.form.titleRequired"
-msgstr "Título do formulário de revisão obrigatório."
-
-msgid "manager.reviewForms.inReview"
-msgstr "Em Revisão"
-
-msgid "manager.reviewForms.list.description"
-msgstr ""
-"Os formulários de revisão por pares criados aqui estarão disponíveis aos "
-"revisores para preenchimento, em vez do formulário padrão que consiste em "
-"duas caixas de texto de comentários com comentários exclusivos para o autor "
-"e outra para o Editor e o Autor. Os formulários de revisão podem ser "
-"associadas a secções específicas e os editores poderão escolher qual o "
-"formulário a utilizar no momento da revisão. De qualquer forma, os Editores "
-"poderão incluir as revisões nas correspondências com o autor."
-
-msgid "manager.reviewForms.noneChosen"
-msgstr "Nenhum / Formulário de revisão padrão"
-
-msgid "manager.reviewForms.noneCreated"
-msgstr "Ainda não foi criado formulário de revisão."
-
-msgid "manager.reviewForms.preview"
-msgstr "Visualizar formulário de revisão"
-
-msgid "manager.reviewForms.title"
-msgstr "Título"
-
-msgid "manager.website.information"
-msgstr "Informação"
-
-msgid "manager.website.appearance"
-msgstr "Aparência"
-
-msgid "manager.website.imageFileRequired"
-msgstr ""
-"É obrigatório um ficheiro de imagem. Certifique-se de que escolheu e "
-"carregou um ficheiro."
-
-msgid "manager.announcements.datePublish"
-msgstr "Publicada"
-
-msgid "manager.publication.submissionStage"
-msgstr "Submissão"
-
-msgid "manager.publication.reviewStage"
-msgstr "Revisão"
-
-msgid "manager.publication.editorialStage"
-msgstr "Edição"
-
-msgid "manager.publication.productionStage"
-msgstr "Produção"
-
-msgid "manager.publication.emails"
-msgstr "E-mails"
-
-msgid "manager.emails.data"
-msgstr "Dados Template Mensagem"
-
-msgid "manager.emails.details"
-msgstr "Detalhes Template"
-
-msgid "manager.emails.disable.message"
-msgstr ""
-"Está prestes a desactivar este modelo de e-mail. Se esistem processos do "
-"sistema usando este modelo, estes não usarão posteriormente. Deseja "
-"confirmar esta operação?"
-
-msgid "manager.emails.enable.message"
-msgstr "Está prestes a activar este email. Deseja confirmar esta operação?"
-
-msgid "manager.emails.resetAll.message"
-msgstr ""
-"Se restabelecer todos os modelos, todas as modificações nos modelos de e-"
-"mail serão perdidas. Deseja confirmar esta operação?"
-
-msgid "manager.emails.reset.message"
-msgstr ""
-"Se restabelecer este modelo, todos os dados da mensagem serão redefinidos "
-"para seu valor padrão, perdendo todas as modificações. Deseja confirmar esta "
-"operação?"
-
-msgid "manager.language.ui"
-msgstr "UI"
-
-msgid "manager.language.submissions"
-msgstr "Submissões"
-
-msgid "manager.language.forms"
-msgstr "Formulários"
-
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Recarregar padrões"
-
-msgid "manager.userSearch.searchByName"
-msgstr "Pesquisa por Nome"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Modificar"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Pesquisar por Nome"
-
-msgid "manager.reviewerSearch.form.instructions"
-msgstr ""
-"Use o formulário abaixo para definir os valores máximos para os termos que "
-"deseja pesquisar. O formulário é pré-preenchido com as médias calculadas "
-"para estes campos."
-
-msgid "stats.city"
-msgstr "Cidade"
-
-msgid "stats.region"
-msgstr "Região"
-
-msgid "manager.reviewFormElements.viewable"
-msgstr "Visível (para autores)"
-
-msgid "grid.action.createReviewForm"
-msgstr "Criar um novo Formulário de Revisão"
-
-msgid "plugins.importexport.common.error.unknownUploader"
-msgstr "Uploader desconhecido {$param}"
-
-msgid "manager.setup.competingInterests.required"
-msgstr ""
-"Solicitar uma Declaração Interesses Concorrentes durante a revisão por pares."
-
-msgid "manager.setup.licenseURLDescription"
-msgstr "URL para uma página da Web que descreve a licença, se disponível."
-
-msgid "manager.setup.metadata.submission"
-msgstr "Formulário Submissão"
-
-msgid "plugins.importexport.common.validationErrors"
-msgstr "Erros validação:"
-
-msgid "plugins.importexport.common.errorsOccured"
-msgstr "Erros ocorridos:"
-
-msgid "plugins.importexport.common.error.unknownElement"
-msgstr "Elemento desconhecido {$param}"
-
-msgid "plugins.importexport.common.error.unknownGenre"
-msgstr "Género desconhecido {$param}"
-
-msgid "plugins.importexport.common.error.unknownEncoding"
-msgstr "Codificação desconhecida {$param}"
-
-msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr ""
-"O ficheiro importado inclui um autor '{$authorName}', com o grupo de "
-"utilizadores '{$userGroupName}'. Não existe este grupo de utilizadores "
-"definido na instalação de destino com este nome."
-
-msgid "manager.reviewFormElement.changeType"
-msgstr "Alterando o tipo de item do formulário..."
-
-msgid "manager.reviewFormElements.confirmDelete"
-msgstr "Confirmar eliminaçãp de um item do formulário publicado ..."
-
-msgid "manager.reviewFormElements.included"
-msgstr "Incluído na menssagem para o autor"
-
-msgid "manager.reviewForms.noneUsed"
-msgstr "Anda não foram usados formulários de revisão."
-
-msgid "manager.reviewForms.reviewFormData"
-msgstr "Dados Formulário Revisão"
-
-msgid "manager.reviewForms.confirmCopy"
-msgstr "Tem a certeza que deseja criar uma cópia deste formulário de revisão?"
-
-msgid "manager.reviewForms.confirmDelete"
-msgstr "Tem a certeza que deseja eliminar este formulário de revisão?"
-
-msgid "manager.distribution.title"
-msgstr "Configurações Distribuição"
-
-msgid "manager.reviewForms.confirmActivate"
-msgstr ""
-"Tem certeza de que deseja activar este formulário de revisão? Uma vez que é "
-"atribuído a uma revisão, não poderá mais desactivá-la."
-
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr ""
-"Tem certeza de que deseja desactivar este formulário de revisão? Já não "
-"estará disponível para novas tarefas de revisão."
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Usar o formato AAAAMM."
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Usar o formato AAAAMMDD."
-
-msgid "manager.affiliationAndSupport"
-msgstr "Patrocinador"
-
-msgid "manager.setup.publishing"
-msgstr "Detalhes de publicação"
-
-msgid "manager.setup.publishingDescription"
-msgstr "O nome da editora aparecerá na secção Sobre a Revista."
-
-msgid "manager.setup.additionalContent"
-msgstr "Conteúdo Adicional"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "Qualquer coisa inserida aqui aparecerá na sua página inicial."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Informação sobre Direitos de Autor"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr ""
-"Exigir que os autores aceitem o Aviso de Direitos de Autor como parte do "
-"processo de submissão."
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Directrizes Autor"
-
-msgid "manager.setup.authorGuidelines.description"
-msgstr ""
-"As directrizes recomendadas incluem normas bibliográficos e de formatação, "
-"juntamente com exemplos de formatos comuns de citação para serem usados na "
-"submissão de artigos."
-
-msgid "manager.setup.competingInterests"
-msgstr "Interesses Concorrentes"
-
-msgid "manager.setup.favicon"
-msgstr "Favicon"
-
-msgid "manager.setup.homepageImage"
-msgstr "Image Homepage"
-
-msgid "manager.setup.homepageImage.description"
-msgstr "Carregue uma imagem para se exibir na página inicial."
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Descrições"
-
-msgid "manager.setup.theme"
-msgstr "Tema"
-
-msgid "manager.setup.theme.description"
-msgstr ""
-"Podem ser instalados novos temas a partir do tabulador Plugins no topo desta "
-"página."
-
-msgid "manager.setup.layout.sidebar"
-msgstr "Barral Lateral"
-
-msgid "manager.setup.logo"
-msgstr "Logótipo"
-
-msgid "manager.setup.notifications"
-msgstr "Notificação ou Submissão Autor"
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Enviar uma cópia para endereço"
-
-msgid "manager.setup.notifications.description"
-msgstr ""
-"É enviado para os autores um e-mail automático de agradecimento pela sua "
-"submissão. Pode ter cópias deste e-mail enviado para o seguinte:"
-
-msgid "manager.setup.openAccessPolicy"
-msgstr "Política de Acesso Aberto"
-
-msgid "manager.setup.openAccessPolicy.description"
-msgstr ""
-"Se fornecer acesso gratuito imediato a todos os conteúdos publicados, pode "
-"inserir uma descrição da Política de Acesso Aberto."
-
-msgid "manager.setup.pageFooter"
-msgstr "Rodapé"
-
-msgid "manager.setup.pageFooter.description"
-msgstr ""
-"Insira qualquer imagem, texto ou código HTML que gostaria de aparecer no "
-"rodapé site."
-
-msgid "manager.setup.peerReview.description"
-msgstr ""
-"Descreva a política e os processos de revisão pelos pares para leitores e "
-"autores. Esta descrição geralmente inclui o número de revisores tipicamente "
-"usado na revisão de uma submissão, os critérios pelos quais os revisores são "
-"convidados a julgar as submissões, o tempo esperado necessário para realizar "
-"as revisões e os princípios usados para seleccionar revisores."
-
-msgid "manager.setup.principalContact"
-msgstr "Contacto Principal"
-
-msgid "manager.setup.principalContactDescription"
-msgstr ""
-"Insira os detalhes de contato, geralmente informação sobre o Director, "
-"Editor principal, Corpo Editorial e equipa administrativa, que pode ser "
-"exibido no site acessível ao público."
-
-msgid "manager.setup.privacyStatement"
-msgstr "Declaração Privacidade"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Número de semanas para aceitar ou recusar um pedido de revisão."
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Semanas permitidas para concluir uma revisão"
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Lembrete"
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr ""
-"Os padrões para cada revisão podem ser modificados durante o processo "
-"editorial."
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr ""
-"Enviar um lembrete se um revisor não tiver respondido a um pedido de revisão "
-"no prazo (dias) após a data de resposta devida."
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr ""
-"Enviar um lembrete se um revisor não tiver enviado uma recomendação dentro "
-"do prazo (dias) após a data de vencimento da revisão."
-
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Prazos de Revisão Padrão"
-
-msgid "plugins.categories.metadata"
-msgstr "Plugins Metadados"
-
-msgid "plugins.categories.metadata.description"
-msgstr "Os plugins de metadados implementam padrões adicionais de metadados."
-
-msgid "manager.setup.sponsors.note"
-msgstr "Relações com Patrocinadores e Descrição de Política"
-
-msgid "manager.setup.sponsors.description"
-msgstr ""
-"Exemplos: associações académicas, departamentos universitários, "
-"cooperativas, etc. Os patrocinadores são exibidos publicamente."
-
-msgid "manager.setup.styleSheetDescription"
-msgstr ""
-"Os administradores do portal podem fazer o upload de um ficheiro CSS para "
-"personalizar ainda mais a aparência do site."
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "Contacto Suporte Técnico"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr ""
-"Uma pessoa do contacto técncio que pode auxiliar editores, autores e "
-"revisores com quaisquer problemas que tenham submetido, editando, revendo ou "
-"publicando material."
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Opções Acesso Site"
 
 msgid "plugins.categories.pubIds"
 msgstr "Plugins Identificadores Públicos"
@@ -1018,11 +1519,22 @@ msgstr "Última versão compatível"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Oficial"
 
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+"Este plugin é desenvolvido e mantido pela equipa do Public Knowledge Project."
+
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Revisto"
 
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
+"Este plugin foi reviso e aprovado pela equipa do Public Knowledge Project."
+
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Parceiro"
+
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr "Este plugin é providenciado por um dos nossos parceiros."
 
 msgid "manager.plugins.pluginGallery.maintainer"
 msgstr "Manutenção"
@@ -1144,8 +1656,36 @@ msgstr "{$locale} idioma recarregado."
 msgid "notification.localeSettingsSaved"
 msgstr "Configurações do idioma guardadas."
 
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
+"A configuração de idioma não pôde ser guardada. Pelo menos um idioma deve "
+"estar ativo para cada opção"
+
 msgid "notification.editedUser"
 msgstr "Utilizador editado."
+
+msgid "manager.distribution.license"
+msgstr "Licença"
+
+msgid "manager.distribution.license.other"
+msgstr "URL de outra licença"
+
+msgid "manager.distribution.licenseTerms"
+msgstr "Termos da Licença"
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+"Insira os termos públicos da licença que pretende disponibilizar junto com o "
+"trabalho publicado."
+
+msgid "manager.distribution.customHeaders"
+msgstr "Etiquetas Personalizadas"
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
+"Adicione etiquetas HTML personalizadas, também conhecidas como meta tags, "
+"que gostaria de inserir no cabeçalho de cada página. Consulte apoio técnico "
+"antes de inserir as etiquetas."
 
 msgid "manager.paymentMethod"
 msgstr "Pagamentos"
@@ -1170,6 +1710,11 @@ msgstr "Mostrar título do papel na lista de colaboradores"
 
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Permitir auto registo"
+
+msgid "settings.roles.recommendOnly"
+msgstr ""
+"Este papel só tem permissão para recomendar uma decisão e irá necessitar de "
+"um editor autorizado para registar a decisão final."
 
 msgid "settings.roles.roleName"
 msgstr "Nome Papel"
@@ -1213,6 +1758,9 @@ msgstr "Tem de definir um nível de permissão de papel."
 msgid "settings.roles.stageIdRequired"
 msgstr "Tem definir uma etapa para designar a."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr "Permitir a edição dos metadados da submissão."
+
 msgid "settings.libraryFiles.fileRequired"
 msgstr ""
 "É necessário um ficheiro de biblioteca. Certifique-se de que escolheu e "
@@ -1239,6 +1787,15 @@ msgstr "Relatórios"
 msgid "settings.libraryFiles.category.other"
 msgstr "Outros"
 
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+"<p>Este ficheiro de biblioteca pode ser acessível para download, se o "
+"\"Acesso Público\" estiver ativo, em: <blockquote>{$downloadUrl}</"
+"blockquote></p>"
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr "Selecione Ficheiros da Biblioteca para anexar"
+
 msgid "grid.action.addGenre"
 msgstr "Adicionar um Componente"
 
@@ -1250,6 +1807,58 @@ msgstr "Eliminar este Componente"
 
 msgid "grid.action.restoreGenres"
 msgstr "Restaurar os componentes para as configurações padrão"
+
+msgid "manager.setup.genres.label"
+msgstr "Tipo de ficheiro"
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+"Estes ficheiros são dependentes, tal como imagens de um ficheiro HTML, e não "
+"serão disponibilizadas com o conteúdo publicado."
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+"Estes ficheiros são suplementares, tais como conjuntos de dados e materiais "
+"de investigação, e serão disponibilizados em separado dos ficheiros "
+"publicados."
+
+msgid "manager.setup.genres.key"
+msgstr "Chave"
+
+msgid "manager.setup.genres.key.description"
+msgstr "Um identificador curto e simbólico para este tipo."
+
+msgid "manager.setup.genres.key.exists"
+msgstr "A chave já existe."
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+"A chave só pode conter carateres alfanuméricos, sublinhados, e hífenes, e "
+"deve começar e terminar com um carácter alfanumérico."
+
+msgid "manager.setup.genres.metatadata"
+msgstr "Metadados do Ficheiro"
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+"Selecione o tipo de metadados que estes ficheiros deverão ter. Os documentos "
+"são escolhidos dos ficheiros de publicação principais, tais como PDFs "
+"descarregáveis, para que os ficheiros herdem os seus metadados da "
+"publicação. De outra forma, escolhda Conteúdos Suplementares para a maioria "
+"dos tipos de ficheiros. Obra de arte é apropriada para ficheiros que peçam "
+"metadados de crédito, legenda e licença distintos."
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr "Exigir com as Submissões"
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
 
 msgid "manager.settings.wizard"
 msgstr "Assistente de configurações"
@@ -1273,53 +1882,420 @@ msgstr "Configurações do fluxo de trabalho"
 msgid "manager.distribution"
 msgstr "Distribuição"
 
-msgid "manager.people.existingUserRequired"
-msgstr "Tem de ser indicado um utilizador existente."
+msgid "manager.distribution.title"
+msgstr "Configurações Distribuição"
 
-msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgid "manager.reviewForms"
+msgstr "Formulários de Revisão"
+
+msgid "manager.reviewForms.confirmActivate"
 msgstr ""
-"Este plugin é desenvolvido e mantido pela equipa do Public Knowledge Project."
+"Tem certeza de que deseja activar este formulário de revisão? Uma vez que é "
+"atribuído a uma revisão, não poderá mais desactivá-la."
 
-msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgid "manager.reviewForms.confirmDeactivate"
 msgstr ""
-"Este plugin foi reviso e aprovado pela equipa do Public Knowledge Project."
+"Tem certeza de que deseja desactivar este formulário de revisão? Já não "
+"estará disponível para novas tarefas de revisão."
 
-msgid "manager.plugins.pluginGallery.certifications.partner.description"
-msgstr "Este plugin é providenciado por um dos nossos parceiros."
+msgid "manager.reviewForms.confirmCopy"
+msgstr "Tem a certeza que deseja criar uma cópia deste formulário de revisão?"
 
-msgid "settings.roles.recommendOnly"
+msgid "manager.reviewForms.completed"
+msgstr "Concluído"
+
+msgid "manager.reviewForms.confirmDelete"
+msgstr "Tem a certeza que deseja eliminar este formulário de revisão?"
+
+msgid "manager.reviewForms.create"
+msgstr "Criar formulário de revisão"
+
+msgid "manager.reviewForms.description"
+msgstr "Descrição"
+
+msgid "manager.reviewForms.edit"
+msgstr "Editar formulário de revisão"
+
+msgid "manager.reviewForms.form.titleRequired"
+msgstr "Título do formulário de revisão obrigatório."
+
+msgid "manager.reviewForms.inReview"
+msgstr "Em Revisão"
+
+msgid "manager.reviewForms.list.description"
 msgstr ""
-"Este papel só tem permissão para recomendar uma decisão e irá necessitar de "
-"um editor autorizado para registar a decisão final."
+"Os formulários de revisão por pares criados aqui estarão disponíveis aos "
+"revisores para preenchimento, em vez do formulário padrão que consiste em "
+"duas caixas de texto de comentários com comentários exclusivos para o autor "
+"e outra para o Editor e o Autor. Os formulários de revisão podem ser "
+"associadas a secções específicas e os editores poderão escolher qual o "
+"formulário a utilizar no momento da revisão. De qualquer forma, os Editores "
+"poderão incluir as revisões nas correspondências com o autor."
 
-msgid "settings.libraryFiles.public.viewInstructions"
+msgid "manager.reviewForms.noneChosen"
+msgstr "Nenhum / Formulário de revisão padrão"
+
+msgid "manager.reviewForms.noneCreated"
+msgstr "Ainda não foi criado formulário de revisão."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Anda não foram usados formulários de revisão."
+
+msgid "manager.reviewForms.preview"
+msgstr "Visualizar formulário de revisão"
+
+msgid "manager.reviewForms.reviewFormData"
+msgstr "Dados Formulário Revisão"
+
+msgid "manager.reviewForms.title"
+msgstr "Título"
+
+msgid "manager.reviewFormElement.changeType"
+msgstr "Alterando o tipo de item do formulário..."
+
+msgid "manager.reviewFormElements"
+msgstr "Campos do formulário de revisão"
+
+msgid "manager.reviewFormElements.addResponseItem"
+msgstr "Adicionar resposta possível"
+
+msgid "manager.reviewFormElements.checkboxes"
+msgstr "Campo de selecção"
+
+msgid "manager.reviewFormElements.chooseType"
+msgstr "Escolher tipo de campo"
+
+msgid "manager.reviewFormElements.confirmDelete"
+msgstr "Confirmar eliminaçãp de um item do formulário publicado ..."
+
+msgid "manager.reviewFormElements.copyTo"
+msgstr "Copiar para:"
+
+msgid "manager.reviewFormElements.create"
+msgstr "Criar novo campo"
+
+msgid "manager.reviewFormElements.dropdownbox"
+msgstr "Campo de menu de opções"
+
+msgid "manager.reviewFormElements.edit"
+msgstr "Editar campo"
+
+msgid "manager.reviewFormElements.elementType"
+msgstr "Tipo de campo"
+
+msgid "manager.reviewFormElements.form.elementTypeRequired"
+msgstr "É obrigatório o tipo do campo do formulário."
+
+msgid "manager.reviewFormElements.form.questionRequired"
+msgstr "É obrigatória uma pergunta para o campo do formulário."
+
+msgid "manager.reviewFormElements.noneCreated"
+msgstr "Não foi criado nenhum campo do formulário."
+
+msgid "manager.reviewFormElements.possibleResponse"
+msgstr "Resposta possível"
+
+msgid "manager.reviewFormElements.question"
+msgstr "Pergunta"
+
+msgid "manager.reviewFormElements.description"
+msgstr "Descrição"
+
+msgid "manager.reviewFormElements.radiobuttons"
+msgstr "Campo de botão de rádio"
+
+msgid "manager.reviewFormElements.required"
+msgstr "Campo de revisão obrigatório"
+
+msgid "manager.reviewFormElements.included"
+msgstr "Incluído na menssagem para o autor"
+
+msgid "manager.reviewFormElements.smalltextfield"
+msgstr "Campo de texto pequeno"
+
+msgid "manager.reviewFormElements.textarea"
+msgstr "Campo de texto longo"
+
+msgid "manager.reviewFormElements.textfield"
+msgstr "Campo de texto de uma linha"
+
+msgid "manager.reviewFormElements.viewable"
+msgstr "Visível (para autores)"
+
+msgid "grid.action.createReviewForm"
+msgstr "Criar um novo Formulário de Revisão"
+
+msgid "manager.setup.competingInterests.required"
 msgstr ""
-"<p>Este ficheiro de biblioteca pode ser acessível para download, se o "
-"\"Acesso Público\" estiver ativo, em: <blockquote>{$downloadUrl}</"
-"blockquote></p>"
+"Solicitar uma Declaração Interesses Concorrentes durante a revisão por pares."
 
-msgid "settings.libraryFiles.public.selectLibraryFiles"
-msgstr "Selecione Ficheiros da Biblioteca para anexar"
+msgid "manager.setup.licenseURLDescription"
+msgstr "URL para uma página da Web que descreve a licença, se disponível."
 
-msgid "manager.setup.genres.key"
-msgstr "Chave"
+msgid "manager.setup.metadata.submission"
+msgstr "Formulário Submissão"
 
-msgid "manager.setup.genres.key.description"
-msgstr "Um identificador curto e simbólico para este tipo."
+msgid "manager.setup.metadata.coverage"
+msgstr "Cobertura"
 
-msgid "manager.setup.genres.key.exists"
-msgstr "A chave já existe."
-
-msgid "manager.setup.genres.key.alphaNumeric"
+msgid "manager.setup.metadata.coverage.description"
 msgstr ""
-"A chave só pode conter carateres alfanuméricos, sublinhados, e hífenes, e "
-"deve começar e terminar com um carácter alfanumérico."
+"A cobertura indica tipicamente a localização espacial do trabalho (nome do "
+"local ou coordenadas geográficas), período temporal (rótulo de um período, "
+"data ou período de tempo) ou jurisdição (tal como nome administrativo da "
+"entidade)."
+
+msgid "manager.setup.metadata.coverage.enable"
+msgstr "Ativar metadado de cobertura"
+
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr "Não solicitar metadado de cobertura aos autores durante a submissão."
+
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
+"Solicitar aos autores que sugiram metadados de cobertura durante a submissão."
+
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
+"Exigir aos autores que sugiram metadados de cobertura antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
+"Palavras-chave são tipicamente de uma a três expressões usadas para indicar "
+"os assuntos principais da submissão."
+
+msgid "manager.setup.metadata.keywords.enable"
+msgstr "Ativar palavras-chave"
+
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr "Não exigir palavras-chave aos autores durante a submissão."
+
+msgid "manager.setup.metadata.keywords.request"
+msgstr "Solicitar ao autores que sugiram palavras-chave durante a submissão."
+
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
+"Exigir aos autores que sugiram palavras-chave antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
+"Idioma indica o idioma principal do trabalho através de códigos ISO (\"en\") "
+"com códigos de país opcionais (\"en_US\")."
+
+msgid "manager.setup.metadata.languages.enable"
+msgstr "Ativar metadado de idioma"
+
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr "Não solicitar o idioma da submissão aos autores durante a submissão."
+
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
+"Solicitar aos autores que indiquem o idioma da submissão durante a submissão."
+
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
+"Exigir aos autores que insiram os idiomas da submissão antes de aceitar a "
+"submissão."
+
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
+"Quaisquer direitos sobre a submissão, que podem ser incluídos nos Direitos "
+"de Propriedade Intelectual (DPI), Direitos de autor, e vários Direitos de "
+"Propriedade."
+
+msgid "manager.setup.metadata.rights.enable"
+msgstr "Ativar metadados de direitos"
+
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr "Não solicitar uma declaração de direitos durante a submissão."
+
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
+"Solicitar aos autores que declarem direitos de acesso prévios durante a "
+"submissão."
+
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer direitos de acesso prévios "
+"antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.source.description"
+msgstr ""
+"A fonte pode ser um ID, tal como um DOI, de outro trabalho ou recurso do "
+"qual a submissão é derivada."
+
+msgid "manager.setup.metadata.source.enable"
+msgstr "Ativar metadados de fonte"
+
+msgid "manager.setup.metadata.source.noRequest"
+msgstr "Não solicitar um URL da fonte aos autores durante a submissão."
+
+msgid "manager.setup.metadata.source.request"
+msgstr ""
+"Solicitar aos autores que forneçam um URL da fonte durante a submissão."
+
+msgid "manager.setup.metadata.source.require"
+msgstr ""
+"Exigir aos autores que forneçam um URL da fonte antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
+"Assuntos são palavras-chave, frases chave ou códigos de classificação que "
+"descrevem o tópico da submissão."
+
+msgid "manager.setup.metadata.subjects.enable"
+msgstr "Ativar metadados de assunto"
+
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr "Não solicitar assuntos aos autores durante a submissão."
+
+msgid "manager.setup.metadata.subjects.request"
+msgstr "Solicitar aos autores que forneçam os assuntos durante a submissão."
+
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
+"Exigir aos autores que forneçam os assuntos antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+"A natureza ou género do conteúdo principal da submissão. O tipo é geralmente "
+"\"Texto\", mas também pode ser \"Conjunto de Dados\", \"Imagem\" ou algum "
+"dos <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-"
+"vocabulary/#section-7-dcmi-type-vocabulary\">tipos de documento Dublin Core</"
+"a>."
+
+msgid "manager.setup.metadata.type.enable"
+msgstr "Ativar metadados de tipo"
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr "Não solicitar aos autores o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.request"
+msgstr "Solicitar aos autores que forneçam o tipo durante a submissão."
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+"Exigir aos autores que forneçam o tipo antes de aceitar a sua submissão."
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+"Disciplinas são tipos de estudo ou ramos do conhecimento conforme descrito "
+"pelas universidades ou sociedades científicas."
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr "Ativar metadados de disciplinas"
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr "Não solicitar a disciplina aos autores durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr "Solicitar aos autores que forneçam as disciplinas durante a submissão."
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+"Exigir aos autores que forneçam as disciplinas antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+"Agências de financiamento podem indicar a fonte do financiamento da "
+"investigação ou outro apoio institucional que financiou a investigação."
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr "Ativar metadados de agências de financiamento"
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+"Não solicitar aos autores as agências de financiamento durante a submissão."
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+"Solicitar aos autores que declarem quaisquer agências de financiamente "
+"durante a submissão."
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+"Exigir que os autores declarem quaisquer agências de financiamento antes de "
+"aceitar a sua submissão."
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+"Recolher as referências bibliográficas da submissão num campo separado. Esta "
+"opção pode necessitar que cumpra com os serviços de rastreamento de citações "
+"tal como a Crossref."
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr "Ativar metadados de referências"
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr "Não solicitar as referências aos autores durante a submissão."
+
+msgid "manager.setup.metadata.citations.request"
+msgstr "Solicitar aos autores que forneçam as referências durante a submissão."
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+"Solicitar aos autores que forneçam as referências antes de aceitar a sua "
+"submissão."
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Erros validação:"
 
 msgid "plugins.importexport.common.warningsEncountered"
 msgstr "Avisos encontrados:"
 
+msgid "plugins.importexport.common.errorsOccured"
+msgstr "Erros ocorridos:"
+
+msgid "plugins.importexport.common.id"
+msgstr "Id: {$id}"
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr "Elemento desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr "Género desconhecido {$param}"
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr "Codificação desconhecida {$param}"
+
 msgid "plugins.importexport.common.error.encodingError"
 msgstr "O conteúdo não está codificado como {$param}"
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+"O ficheiro importado inclui um autor '{$authorName}', com o grupo de "
+"utilizadores '{$userGroupName}'. Não existe este grupo de utilizadores "
+"definido na instalação de destino com este nome."
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr "Grupo de utilizadores em falta para nome de autor {$param}"
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+"O autor {$authorName} não tem um nome próprio no idioma da submissão, "
+"{$localeName}. A submissão não pode ser importada sem esta informação."
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr "Uploader desconhecido {$param}"
 
 msgid "plugins.importexport.common.error.temporaryFileFailed"
 msgstr "O ficheiro temporário {$dest} não pôde ser criado em {$source}"
@@ -1336,6 +2312,38 @@ msgstr ""
 
 msgid "plugins.importexport.native.error.submissionFileImportFailed"
 msgstr "O ficheiro de submissão não pôde ser importado"
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+"O ficheiro de submissão {$id} foi ignorado porque está anexado a um registo "
+"que não será importado, tal como uma designação de revisão ou discussão."
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr "Erros de importação/exportação:"
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+"O utilizador importado \"{$username}\" não tem senha. Verifique o seu "
+"ficheiro XML de importação. O utilizador não foi importado."
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+"A senha do utilizador importado \"{$username}\" não foi importada. Foi "
+"enviada uma nova senha para o e-mail do utilizador. O utilizador foi "
+"importado."
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+"O utilizador importado \"{$username}\" tem uma senha de texto que não é "
+"válida. O utilizador não foi importado."
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+"O nome de utilizador \"{$username}\" e o e-mail \"{$username}\" não "
+"correspondem ao mesmo utilizador."
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Título"
@@ -1397,15 +2405,6 @@ msgstr "O URL é obrigatório"
 
 msgid "manager.navigationMenus.form.conditionalDisplay"
 msgstr "Aprenda mais sobre quando este item irá ser apresentado ou escondido."
-
-msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
-msgstr ""
-"Esta ligação só irá ser apresentada se o visitante estiver autenticado, e os "
-"pagamentos estiverem ativos em Configurações > Distribuição > Pagamentos e "
-"as subscrições são obrigatórias em Configuração > Distribuição > Acesso."
-
-msgid "manager.navigationMenus.search.description"
-msgstr "Ligação para a página de pesquisa."
 
 msgid "manager.navigationMenus.form.submenuWarning"
 msgstr ""
@@ -1522,11 +2521,14 @@ msgstr ""
 "Esta ligação só será apresentada se os pagamentos estiverem ativos em "
 "Configurações > Distribuição > Pagamentos."
 
-msgid "manager.setup.privacyStatement.description"
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
-"Esta mensagem irá aparecer durante o registo de um utilizador, submissão por "
-"um autor, e na página pública sobre Privacidade. Em algumas jurisdições, é "
-"legalmente obrigatório especificar como irá utilizar os dados recolhidos."
+"Esta ligação só irá ser apresentada se o visitante estiver autenticado, e os "
+"pagamentos estiverem ativos em Configurações > Distribuição > Pagamentos e "
+"as subscrições são obrigatórias em Configuração > Distribuição > Acesso."
+
+msgid "manager.navigationMenus.search.description"
+msgstr "Ligação para a página de pesquisa."
 
 msgid "manager.navigationMenus.privacyStatement.description"
 msgstr "Ligação para a página que apresenta a mensagem de privacidade."
@@ -1536,382 +2538,130 @@ msgstr ""
 "Esta ligação só irá ser apresentada se tiver introduzido uma declaração de "
 "privacidade, em Configurações > Fluxo de Trabalho > Submissões."
 
-msgid "manager.publication.reviewerGuidance"
-msgstr "Orientações para o Revisor"
+msgid "grid.category.add"
+msgstr "Adicionar Categoria"
 
-msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
-msgstr ""
-"Apresentar link para<button type=\"button\">Garantir Revisão Cega em todos "
-"os ficheiros</button> durante a transferência"
+msgid "grid.category.edit"
+msgstr "Editar Categoria"
 
-msgid "manager.setup.reviewOptions.reviewMode"
-msgstr "Modo de Revisão Padrão"
+msgid "grid.category.name"
+msgstr "Nome"
 
-msgid "manager.setup.reviewOptions.reminders.submit"
-msgstr "Lembrete de Revisão"
+msgid "grid.category.path"
+msgstr "Caminho"
 
-msgid "manager.setup.metadata.citations.enable"
-msgstr "Ativar metadados de referências"
+msgid "grid.category.urlWillBe"
+msgstr "O URL da categoria será: {$sampleUrl}"
 
-msgid "manager.setup.metadata.citations.description"
-msgstr ""
-"Recolher as referências bibliográficas da submissão num campo separado. Esta "
-"opção pode necessitar que cumpra com os serviços de rastreamento de citações "
-"tal como a Crossref."
+msgid "grid.category.pathAlphaNumeric"
+msgstr "O caminho da categoria constiste apenas em letras e números."
 
-msgid "manager.setup.metadata.agencies.require"
-msgstr ""
-"Exigir que os autores declarem quaisquer agências de financiamento antes de "
-"aceitar a sua submissão."
+msgid "grid.category.pathExists"
+msgstr "O caminho da categoria já existe. Insira um caminho único."
 
-msgid "manager.setup.metadata.agencies.request"
-msgstr ""
-"Solicitar aos autores que declarem quaisquer agências de financiamente "
-"durante a submissão."
-
-msgid "manager.setup.metadata.agencies.noRequest"
-msgstr ""
-"Não solicitar aos autores as agências de financiamento durante a submissão."
-
-msgid "manager.setup.metadata.agencies.enable"
-msgstr "Ativar metadados de agências de financiamento"
-
-msgid "manager.setup.metadata.agencies.description"
-msgstr ""
-"Agências de financiamento podem indicar a fonte do financiamento da "
-"investigação ou outro apoio institucional que financiou a investigação."
-
-msgid "manager.setup.metadata.disciplines.require"
-msgstr ""
-"Exigir aos autores que forneçam as disciplinas antes de aceitar a sua "
-"submissão."
-
-msgid "manager.setup.metadata.disciplines.request"
-msgstr "Solicitar aos autores que forneçam as disciplinas durante a submissão."
-
-msgid "manager.setup.metadata.disciplines.noRequest"
-msgstr "Não solicitar a disciplina aos autores durante a submissão."
-
-msgid "manager.setup.metadata.disciplines.enable"
-msgstr "Ativar metadados de disciplinas"
-
-msgid "manager.setup.metadata.disciplines.description"
-msgstr ""
-"Disciplinas são tipos de estudo ou ramos do conhecimento conforme descrito "
-"pelas universidades ou sociedades científicas."
-
-msgid "manager.setup.metadata.type.require"
-msgstr ""
-"Exigir aos autores que forneçam o tipo antes de aceitar a sua submissão."
-
-msgid "manager.setup.metadata.type.request"
-msgstr "Solicitar aos autores que forneçam o tipo durante a submissão."
-
-msgid "manager.setup.metadata.type.noRequest"
-msgstr "Não solicitar aos autores o tipo durante a submissão."
-
-msgid "manager.setup.metadata.type.enable"
-msgstr "Ativar metadados de tipo"
-
-msgid "manager.setup.metadata.type.description"
-msgstr ""
-"A natureza ou género do conteúdo principal da submissão. O tipo é geralmente "
-"\"Texto\", mas também pode ser \"Conjunto de Dados\", \"Imagem\" ou algum "
-"dos <a target=\"_blank\" href=\"http://dublincore.org/documents/dcmi-type-"
-"vocabulary/#section-7-dcmi-type-vocabulary\">tipos de documento Dublin Core</"
-"a>."
-
-msgid "manager.setup.metadata.subjects.require"
-msgstr ""
-"Exigir aos autores que forneçam os assuntos antes de aceitar a sua submissão."
-
-msgid "manager.setup.metadata.subjects.request"
-msgstr "Solicitar aos autores que forneçam os assuntos durante a submissão."
-
-msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Não solicitar assuntos aos autores durante a submissão."
-
-msgid "manager.setup.metadata.subjects.enable"
-msgstr "Ativar metadados de assunto"
-
-msgid "manager.setup.metadata.subjects.description"
-msgstr ""
-"Assuntos são palavras-chave, frases chave ou códigos de classificação que "
-"descrevem o tópico da submissão."
-
-msgid "manager.setup.metadata.source.noRequest"
-msgstr "Não solicitar um URL da fonte aos autores durante a submissão."
-
-msgid "manager.setup.metadata.source.require"
-msgstr ""
-"Exigir aos autores que forneçam um URL da fonte antes de aceitar a sua "
-"submissão."
-
-msgid "manager.setup.metadata.source.request"
-msgstr ""
-"Solicitar aos autores que forneçam um URL da fonte durante a submissão."
-
-msgid "manager.setup.metadata.source.enable"
-msgstr "Ativar metadados de fonte"
-
-msgid "manager.setup.metadata.source.description"
-msgstr ""
-"A fonte pode ser um ID, tal como um DOI, de outro trabalho ou recurso do "
-"qual a submissão é derivada."
-
-msgid "manager.setup.metadata.rights.require"
-msgstr ""
-"Solicitar aos autores que declarem quaisquer direitos de acesso prévios "
-"antes de aceitar a sua submissão."
-
-msgid "manager.setup.metadata.rights.request"
-msgstr ""
-"Solicitar aos autores que declarem direitos de acesso prévios durante a "
-"submissão."
-
-msgid "manager.setup.metadata.rights.noRequest"
-msgstr "Não solicitar uma declaração de direitos durante a submissão."
-
-msgid "manager.setup.metadata.rights.enable"
-msgstr "Ativar metadados de direitos"
-
-msgid "manager.setup.metadata.rights.description"
-msgstr ""
-"Quaisquer direitos sobre a submissão, que podem ser incluídos nos Direitos "
-"de Propriedade Intelectual (DPI), Direitos de autor, e vários Direitos de "
-"Propriedade."
-
-msgid "manager.setup.metadata.languages.require"
-msgstr ""
-"Exigir aos autores que insiram os idiomas da submissão antes de aceitar a "
-"submissão."
-
-msgid "manager.setup.metadata.languages.request"
-msgstr ""
-"Solicitar aos autores que indiquem o idioma da submissão durante a submissão."
-
-msgid "manager.setup.metadata.languages.noRequest"
-msgstr "Não solicitar o idioma da submissão aos autores durante a submissão."
-
-msgid "manager.setup.metadata.languages.enable"
-msgstr "Ativar metadado de idioma"
-
-msgid "manager.setup.metadata.languages.description"
-msgstr ""
-"Idioma indica o idioma principal do trabalho através de códigos ISO (\"en\") "
-"com códigos de país opcionais (\"en_US\")."
-
-msgid "manager.setup.metadata.keywords.require"
-msgstr ""
-"Exigir aos autores que sugiram palavras-chave antes de aceitar a sua "
-"submissão."
-
-msgid "manager.setup.metadata.keywords.request"
-msgstr "Solicitar ao autores que sugiram palavras-chave durante a submissão."
-
-msgid "manager.setup.metadata.keywords.noRequest"
-msgstr "Não exigir palavras-chave aos autores durante a submissão."
-
-msgid "manager.setup.metadata.keywords.enable"
-msgstr "Ativar palavras-chave"
-
-msgid "manager.setup.metadata.keywords.description"
-msgstr ""
-"Palavras-chave são tipicamente de uma a três expressões usadas para indicar "
-"os assuntos principais da submissão."
-
-msgid "manager.setup.metadata.coverage.require"
-msgstr ""
-"Exigir aos autores que sugiram metadados de cobertura antes de aceitar a "
-"submissão."
-
-msgid "manager.setup.metadata.coverage.request"
-msgstr ""
-"Solicitar aos autores que sugiram metadados de cobertura durante a submissão."
-
-msgid "manager.setup.metadata.coverage.noRequest"
-msgstr "Não solicitar metadado de cobertura aos autores durante a submissão."
-
-msgid "manager.setup.metadata.coverage.enable"
-msgstr "Ativar metadado de cobertura"
-
-msgid "manager.setup.metadata.coverage.description"
-msgstr ""
-"A cobertura indica tipicamente a localização espacial do trabalho (nome do "
-"local ou coordenadas geográficas), período temporal (rótulo de um período, "
-"data ou período de tempo) ou jurisdição (tal como nome administrativo da "
-"entidade)."
-
-msgid "manager.setup.metadata.coverage"
-msgstr "Cobertura"
-
-msgid "manager.reviewFormElements.description"
+msgid "grid.category.description"
 msgstr "Descrição"
 
-msgid "settings.roles.permitMetadataEdit"
-msgstr "Permitir a edição dos metadados da submissão."
+msgid "grid.category.parentCategory"
+msgstr "Categoria Mãe"
 
-msgid "manager.distribution.customHeaders.description"
+msgid "grid.category.removeText"
+msgstr "Deseja realmente eliminar esta categoria?"
+
+msgid "grid.category.nameRequired"
+msgstr "Insira o nome da categoria."
+
+msgid "grid.category.categoryDetails"
+msgstr "Detalhes da Categoria"
+
+msgid "stats.allUsers"
+msgstr "Todos os utilizadores"
+
+msgid "stats.city"
+msgstr "Cidade"
+
+msgid "stats.views"
+msgstr "Visualizações"
+
+msgid "stats.downloads"
+msgstr "Downloads"
+
+msgid "stats.views.timelineInterval"
+msgstr "Total de visualizações por data"
+
+msgid "stats.downloads.timelineInterval"
+msgstr "Total de downloads por data"
+
+msgid "stats.countWithYearlyAverage"
+msgstr "{$count} ({$average}/year)"
+
+msgid "stats.daily"
+msgstr "Diariamente"
+
+msgid "stats.dateRange"
+msgstr "Intervalo de datas"
+
+msgid "stats.dateRange.allDates"
+msgstr "Todas as datas"
+
+msgid "stats.dateRange.apply"
+msgstr "Aplicar"
+
+msgid "stats.dateRange.change"
+msgstr "Alterar o intervalo de datas"
+
+msgid "stats.dateRange.customRange"
+msgstr "Intervalo personalizado"
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr "Uma das datas inseridas não existe."
+
+msgid "stats.dateRange.from"
+msgstr "De"
+
+msgid "stats.dateRange.instructions"
 msgstr ""
-"Adicione etiquetas HTML personalizadas, também conhecidas como meta tags, "
-"que gostaria de inserir no cabeçalho de cada página. Consulte apoio técnico "
-"antes de inserir as etiquetas."
+"Insira cada data no formato AAAA-MM-DD. Por exemplo, se pretender a data 15 "
+"de janeiro de 2019, insira 2019-01-15."
 
-msgid "manager.distribution.customHeaders"
-msgstr "Etiquetas Personalizadas"
+msgid "stats.dateRange.invalidDate"
+msgstr "O formato da data é inválido. Insira cada data no formato AAAA-MM-DD."
 
-msgid "manager.distribution.licenseTerms.description"
-msgstr ""
-"Insira os termos públicos da licença que pretende disponibilizar junto com o "
-"trabalho publicado."
+msgid "stats.dateRange.invalidDateRange"
+msgstr "A data de início deve ser anterior à data de fim."
 
-msgid "manager.distribution.licenseTerms"
-msgstr "Termos da Licença"
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr "A data de fim não pode ser posterior a {$date}."
 
-msgid "manager.distribution.license.other"
-msgstr "URL de outra licença"
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr "A data de início não pode ser anterior a {$date}."
 
-msgid "manager.distribution.license"
-msgstr "Licença"
+msgid "stats.dateRange.last12Months"
+msgstr "Últimos 12 meses"
 
-msgid "manager.statistics.statistics.registeredUsers"
-msgstr "Utilizadores registados"
+msgid "stats.dateRange.last30Days"
+msgstr "Últimos 30 dias"
 
-msgid "manager.setup.theme.notFound"
-msgstr "O tema que selecionou não se encontra instalado ou ativado."
+msgid "stats.dateRange.last90Days"
+msgstr "Últimos 90 dias"
 
-msgid "manager.setup.reviewOptions.reminders.response"
-msgstr "Lembrete de Resposta"
+msgid "stats.dateRange.lastTwoYears"
+msgstr "Últimos dois anos"
 
-msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
-msgstr "Prazo de Conclusão Padrão"
+msgid "stats.dateRange.lastYear"
+msgstr "Último ano"
 
-msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
-msgstr "Prazo de Resposta Padrão"
+msgid "stats.dateRange.sinceDate"
+msgstr "Desde {$date}"
 
-msgid "manager.setup.noTemporaryFile"
-msgstr "O ficheiro carregado não foi encontrato. Tente carregá-lo novamente."
+msgid "stats.dateRange.thisYear"
+msgstr "Ano atual"
 
-msgid "manager.setup.layout.sidebar.invalidBlock"
-msgstr ""
-"O bloco {$name} não foi encontrado. Certifique-se que o plugin se encontra "
-"instalado e ativo."
+msgid "stats.dateRange.to"
+msgstr "Para"
 
-msgid "manager.setup.checklist"
-msgstr "Lista de verificação"
-
-msgid "manager.setup.advanced"
-msgstr "Avançado"
-
-msgid "manager.representative.inUse"
-msgstr ""
-"Não pode eliminar este representante porque está designado aos metadados de "
-"mercados para um ou mais formatos de publicação para esta submissão."
-
-msgid "manager.emails.sentTo"
-msgstr "Enviado para"
-
-msgid "manager.emails.sentFrom"
-msgstr "Enviado de"
-
-msgid "manager.emails.resetAll"
-msgstr "Restaurar tudo"
-
-msgid "manager.emails.emailTemplate.contextRequired"
-msgstr "Deve inserir um ID do contexto quando adiciona um modelo de e-mail."
-
-msgid "manager.emails.emailTemplates"
-msgstr "Modelos de e-mail"
-
-msgid "manager.emails.addEmail"
-msgstr "Adicionar modelo"
-
-msgid "manager.publication.reviewReminders.success"
-msgstr "Os detalhes dos lembretes aos revisores foram atualizados."
-
-msgid "stats.name.declinedReviewRate"
-msgstr "Taxa de Rejeição após Revisão"
-
-msgid "stats.name.declinedDeskRate"
-msgstr "Taxa de Rejeição de secretariado"
-
-msgid "stats.name.declineRate"
-msgstr "Taxa de Rejeição"
-
-msgid "stats.name.acceptanceRate"
-msgstr "Taxa de Aceitação"
-
-msgid "stats.name.daysToReject"
-msgstr "Dias até Rejeitar"
-
-msgid "stats.name.daysToAccept"
-msgstr "Dias até Aceitar"
-
-msgid "stats.name.daysToDecision"
-msgstr "Dias até à Primeira Decisão Editorial"
-
-msgid "stats.name.submissionsPublished"
-msgstr "Submissões Publicadas"
-
-msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Submissões Recusadas (Após Revisão)"
-
-msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Submissões Recusadas (rejeição de secretariado)"
-
-msgid "stats.name.submissionsDeclined"
-msgstr "Submissões Recusadas"
-
-msgid "stats.name.submissionsAccepted"
-msgstr "Submissões Aceites"
-
-msgid "stats.name.submissionsReceived"
-msgstr "Submissões Recebidas"
-
-msgid "stats.userStatistics"
-msgstr "Estatísticas do Utilizador"
-
-msgid "stats.trends"
-msgstr "Tendências"
-
-msgid "stats.totalWithinDateRange"
-msgstr "Total dentro do Intervalo de Datas"
-
-msgid "stats.total"
-msgstr "Total"
-
-msgid "stats.submissionsActive"
-msgstr "Submissão Ativas"
-
-msgid "stats.searchSubmissionDescription"
-msgstr "Pesquisar por título, autor e ID"
-
-msgid "stats.pdf"
-msgstr "PDF"
-
-msgid "stats.monthly"
-msgstr "Mensal"
-
-msgid "stats.html"
-msgstr "HTML"
-
-msgid "stats.fileViews"
-msgstr "Visualizações de Ficheiros"
-
-msgid "stats.editorialActivity"
-msgstr "Atividade Editorial"
-
-msgid "stats.descriptionForStat"
-msgstr "Descrição para {$stat}"
-
-msgid "stats.description.daysToDecision"
-msgstr ""
-"Número de dias que leva a que a maioria das submissões recebam a sua "
-"primeira decisão editorial, tal como rejeição de secreatariado ou enviar "
-"para revisão. <br><br> Estes números indicam que 80% das submissões recebem "
-"uma decisão editorial num dado número de dias. <br><br>Esta estatística "
-"tenta descrever quando a maioria dos autores que submetam à revista podem "
-"esperar uma decisão."
+msgid "stats.dateRange.untilDate"
+msgstr "Até {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
@@ -1923,950 +2673,14 @@ msgstr ""
 "será de 50% (4 em 8 submissões) porque as duas submissões que ainda não "
 "tiveram uma decisão final não são contabilizadas."
 
-msgid "stats.dateRange.untilDate"
-msgstr "Até {$date}"
-
-msgid "stats.dateRange.to"
-msgstr "Para"
-
-msgid "stats.dateRange.thisYear"
-msgstr "Ano atual"
-
-msgid "stats.dateRange.sinceDate"
-msgstr "Desde {$date}"
-
-msgid "stats.dateRange.lastYear"
-msgstr "Último ano"
-
-msgid "stats.dateRange.lastTwoYears"
-msgstr "Últimos dois anos"
-
-msgid "stats.dateRange.last90Days"
-msgstr "Últimos 90 dias"
-
-msgid "stats.dateRange.last30Days"
-msgstr "Últimos 30 dias"
-
-msgid "stats.dateRange.last12Months"
-msgstr "Últimos 12 meses"
-
-msgid "stats.dateRange.invalidStartDateMin"
-msgstr "A data de início não pode ser anterior a {$date}."
-
-msgid "stats.dateRange.invalidEndDateMax"
-msgstr "A data de fim não pode ser posterior a {$date}."
-
-msgid "stats.dateRange.invalidDateRange"
-msgstr "A data de início deve ser anterior à data de fim."
-
-msgid "stats.dateRange.invalidDate"
-msgstr "O formato da data é inválido. Insira cada data no formato AAAA-MM-DD."
-
-msgid "stats.dateRange.instructions"
-msgstr ""
-"Insira cada data no formato AAAA-MM-DD. Por exemplo, se pretender a data 15 "
-"de janeiro de 2019, insira 2019-01-15."
-
-msgid "stats.dateRange.from"
-msgstr "De"
-
-msgid "stats.dateRange.dateDoesNotExist"
-msgstr "Uma das datas inseridas não existe."
-
-msgid "stats.dateRange.customRange"
-msgstr "Intervalo personalizado"
-
-msgid "stats.dateRange.change"
-msgstr "Alterar o intervalo de datas"
-
-msgid "stats.dateRange.apply"
-msgstr "Aplicar"
-
-msgid "stats.dateRange.allDates"
-msgstr "Todas as datas"
-
-msgid "stats.dateRange"
-msgstr "Intervalo de datas"
-
-msgid "stats.daily"
-msgstr "Diariamente"
-
-msgid "stats.allUsers"
-msgstr "Todos os utilizadores"
-
-msgid "grid.category.categoryDetails"
-msgstr "Detalhes da Categoria"
-
-msgid "grid.category.nameRequired"
-msgstr "Insira o nome da categoria."
-
-msgid "grid.category.removeText"
-msgstr "Deseja realmente eliminar esta categoria?"
-
-msgid "grid.category.parentCategory"
-msgstr "Categoria Mãe"
-
-msgid "grid.category.description"
-msgstr "Descrição"
-
-msgid "grid.category.pathExists"
-msgstr "O caminho da categoria já existe. Insira um caminho único."
-
-msgid "grid.category.pathAlphaNumeric"
-msgstr "O caminho da categoria constiste apenas em letras e números."
-
-msgid "grid.category.urlWillBe"
-msgstr "O URL da categoria será: {$sampleUrl}"
-
-msgid "grid.category.path"
-msgstr "Caminho"
-
-msgid "grid.category.name"
-msgstr "Nome"
-
-msgid "grid.category.edit"
-msgstr "Editar Categoria"
-
-msgid "grid.category.add"
-msgstr "Adicionar Categoria"
-
-msgid "plugins.importexport.user.error.usernameEmailMismatch"
-msgstr ""
-"O nome de utilizador \"{$username}\" e o e-mail \"{$username}\" não "
-"correspondem ao mesmo utilizador."
-
-msgid "plugins.importexport.user.error.plainPasswordNotValid"
-msgstr ""
-"O utilizador importado \"{$username}\" tem uma senha de texto que não é "
-"válida. O utilizador não foi importado."
-
-msgid "plugins.importexport.user.error.passwordHasBeenChanged"
-msgstr ""
-"A senha do utilizador importado \"{$username}\" não foi importada. Foi "
-"enviada uma nova senha para o e-mail do utilizador. O utilizador foi "
-"importado."
-
-msgid "plugins.importexport.user.error.userHasNoPassword"
-msgstr ""
-"O utilizador importado \"{$username}\" não tem senha. Verifique o seu "
-"ficheiro XML de importação. O utilizador não foi importado."
-
-msgid "plugins.importexport.user.importExportErrors"
-msgstr "Erros de importação/exportação:"
-
-msgid "plugins.importexport.common.error.missingGivenName"
-msgstr ""
-"O autor {$authorName} não tem um nome próprio no idioma da submissão, "
-"{$localeName}. A submissão não pode ser importada sem esta informação."
-
-msgid "manager.setup.metadata.citations.require"
-msgstr ""
-"Solicitar aos autores que forneçam as referências antes de aceitar a sua "
-"submissão."
-
-msgid "manager.setup.metadata.citations.request"
-msgstr "Solicitar aos autores que forneçam as referências durante a submissão."
-
-msgid "manager.setup.metadata.citations.noRequest"
-msgstr "Não solicitar as referências aos autores durante a submissão."
-
-msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/year)"
-
-msgid "plugins.importexport.native.error.submissionFileSkipped"
-msgstr ""
-"O ficheiro de submissão {$id} foi ignorado porque está anexado a um registo "
-"que não será importado, tal como uma designação de revisão ou discussão."
-
-msgid "manager.setup.genres.metatadata.description"
-msgstr ""
-"Selecione o tipo de metadados que estes ficheiros deverão ter. Os documentos "
-"são escolhidos dos ficheiros de publicação principais, tais como PDFs "
-"descarregáveis, para que os ficheiros herdem os seus metadados da "
-"publicação. De outra forma, escolhda Conteúdos Suplementares para a maioria "
-"dos tipos de ficheiros. Obra de arte é apropriada para ficheiros que peçam "
-"metadados de crédito, legenda e licença distintos."
-
-msgid "manager.setup.genres.metatadata"
-msgstr "Metadados do Ficheiro"
-
-msgid "manager.setup.genres.supplementary"
-msgstr ""
-"Estes ficheiros são suplementares, tais como conjuntos de dados e materiais "
-"de investigação, e serão disponibilizados em separado dos ficheiros "
-"publicados."
-
-msgid "manager.setup.genres.dependent"
-msgstr ""
-"Estes ficheiros são dependentes, tal como imagens de um ficheiro HTML, e não "
-"serão disponibilizadas com o conteúdo publicado."
-
-msgid "manager.setup.genres.label"
-msgstr "Tipo de ficheiro"
-
-msgid "manager.sections.confirmActivateSection"
-msgstr "Deseja realmente desativar esta secção?"
-
-msgid "manager.sections.confirmDeactivateSection"
-msgstr "Deseja realmente desativar esta secção?"
-
-msgid "manager.sections.form.deactivateSection"
-msgstr "Desativar esta secção e não permitir que enviem novas submissões."
-
-msgid "manager.setup.dateTime.custom"
-msgstr "Personalizar"
-
-msgid "manager.setup.dateTime.shortDateTime"
-msgstr "Data e Hora (pequena)"
-
-msgid "manager.setup.dateTime.longDateTime"
-msgstr "Data e Hora"
-
-msgid "manager.setup.dateTime.time"
-msgstr "Hora"
-
-msgid "manager.setup.dateTime.shortDate"
-msgstr "Data (pequena)"
-
-msgid "manager.setup.dateTime.longDate"
-msgstr "Data"
-
-msgid "manager.setup.dateTime.description"
-msgstr ""
-"Escolha os formatos de data e hora preferidos. Pode inserir um formato "
-"personalizado utilizando os <a href='http://php.net/manual/en/function."
-"strftime.php#refsect1-function.strftime-parameters'>caracteres especiais de "
-"formato</a>."
-
-msgid "manager.setup.dateTime.descriptionTitle"
-msgstr "Formatos de Data e Hora"
-
-msgid "manager.setup.dateTime"
-msgstr "Data e Hora"
-
-msgid "manager.setup.notifyUsers.sendAnother"
-msgstr "Enviar outro e-mail"
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "O e-mail foi enviado com sucesso para todos os destinatário."
-
-msgid "manager.setup.notifyUsers.sending"
-msgstr "A enviar e-mail. Não feche o browser antes do envio estar concluído."
-
-msgid "manager.setup.notifyUsers.confirm"
-msgstr ""
-"Está prestes a enviar um e-mail para {$total} utilizadores. Deseja realmente "
-"enviar este e-mail?"
-
-msgid "manager.setup.notifyUsers.send"
-msgstr "Enviar E-mail"
-
-msgid "manager.setup.notifyUsers.copyDetails"
-msgstr "Enviar uma cópia deste e-mail para o meu e-mail {$email}."
-
-msgid "manager.setup.notifyUsers.description"
-msgstr "Selecionar utilizadores que irão receber a notificação de e-mail."
-
-msgid "manager.setup.notifyUsers"
-msgstr "Notificar"
-
-msgid "manager.setup.disableSubmissions"
-msgstr "Desativar Submissões"
-
-msgid "manager.people.signedInAs"
-msgstr "Tem acesso como {$username}"
-
-msgid "manager.export.usersToCsv.description"
-msgstr ""
-"Selecionar utilizadores para serem exportados para um ficheiro Excel/CSV."
-
-msgid "manager.export.usersToCsv.label"
-msgstr "Exportar para Excel/CSV"
-
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Eliminar Notícia"
-
-msgid "notification.localeSettingsCannotBeSaved"
-msgstr ""
-"A configuração de idioma não pôde ser guardada. Pelo menos um idioma deve "
-"estar ativo para cada opção"
-
-msgid "manager.emails.otherTemplates"
-msgstr "Outros Modelos"
-
-msgid "plugins.importexport.common.cliError"
-msgstr "ERRO:"
-
-msgid "plugins.importexport.common.error.unknownContext"
-msgstr "O caminho \"{$contextPath}\" da revista indicado não existe."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr "Um ou mais destes endereços de e-mail não é válido."
-
-msgid "manager.setup.notifications.copySubmissionAckAddress.description"
-msgstr ""
-"Uma cópia do e-mail de confirmação de submissão será enviada para qualquer "
-"um dos endereços de e-mail inseridos aqui. Separe os vários endereços de e-"
-"mail com vírgula. Exemplo: um@exemplo.pt,dois@exemplo.pt"
-
-msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr "Notificar Qualquer Pessoa"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr "Não"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr "Sim, enviar cópia para {$email}"
-
-msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr "Notificar Contacto Principal"
-
-msgid "manager.setup.submissionsNotifications"
-msgstr "Notificações"
-
-msgid "plugins.importexport.publication.exportFailed"
-msgstr "O processo falhou ao analisar as publicações"
-
-msgid "plugins.importexport.author.exportFailed"
-msgstr "O processo falhou ao analisar os autores"
-
-msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
-
-msgid "plugins.importexport.native.common.error.filter.configuration.count"
-msgstr ""
-"Configuração de filtro errada [{$filterName}]: {$filterCount} ocorrências. "
-"Deveria existir apenas uma."
-
-msgid "plugins.importexport.native.common.any"
-msgstr "Itens genéricos"
-
-msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr "Transfira o ficheiro exportado clicando no botão abaixo."
-
-msgid "plugins.importexport.native.export.completed"
-msgstr "A exportação foi concluída com sucesso."
-
-msgid "plugins.importexport.native.export.download.results"
-msgstr "Transferir Ficheiro exportado"
-
-msgid "plugins.importexport.native.export.submissions.results"
-msgstr "Exportar Resultados de Submissões"
-
-msgid "plugins.importexport.native.processFailed"
-msgstr "O processo falhou. Veja abaixo os erros/avisos."
-
-msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr "Grupo de utilizadores em falta para nome de autor {$param}"
-
-msgid "plugins.importexport.common.id"
-msgstr "Id: {$id}"
-
-msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr "O resumo da submissão"
-
-msgid "emailTemplate.variable.submission.submissionId"
-msgstr "O ID único da submissão"
-
-msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr "O título da submissão"
-
-msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr "Os editores atribuídos a esta submissão que podem tomar uma decisão"
-
-msgid "emailTemplate.variable.site.siteContactName"
-msgstr "O nome completo do contacto principal do website"
-
-msgid "emailTemplate.variable.sender.signature"
-msgstr "A assinatura de e-mail do remetente"
-
-msgid "emailTemplate.variable.sender.senderEmail"
-msgstr "O endereço de e-mail do remetente"
-
-msgid "emailTemplate.variable.sender.senderName"
-msgstr "O nome completo do remetente"
-
-msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr "O URL para a tarefa de revisão"
-
-msgid "emailTemplate.variable.recipient.username"
-msgstr "O nome de utilizador do destinatário ou de todos os destinatários"
-
-msgid "emailTemplate.variable.recipient.userFullName"
-msgstr "O nome completo de um destinatário ou de todos os destinatários"
-
-msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
-"O URL para uma página onde o utilizador pode recuperar a password perdida"
-
-msgid "emailTemplate.variable.submission.authors"
-msgstr "Nomes completos dos autores"
-
-msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Nomes dos autores de forma abreviada"
-
-msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr "O URL da submissão no dashboard editorial"
-
-msgid "mailable.discussionMessage.name"
-msgstr "Nova Mensagem de Discussão"
-
-msgid "mailable.validateEmailSite.description"
-msgstr ""
-"Este e-mail é automaticamente enviado para um novo utilizador quando se "
-"regista no site e as configurações requerem que o e-mail seja validado."
-
-msgid "mailable.validateEmailSite.name"
-msgstr "Validar E-mail (Site)"
-
-msgid "mailable.reviewerUnassign.description"
-msgstr "Este e-mail é enviado quando um editor desassocia um revisor."
-
-msgid "mailable.reviewerUnassign.name"
-msgstr "Revisor Desassociado"
-
-msgid "mailable.reviewerReinstate.description"
-msgstr ""
-"Este e-mail é enviado quando um revisor que foi desassociado é reintegrado "
-"por um editor."
-
-msgid "mailable.reviewerReinstate.name"
-msgstr "Revisor Reintegrado"
-
-msgid "mailable.discussionMessage.description"
-msgstr ""
-"Este e-mail é enviado automaticamente a participantes da discussão quando "
-"uma nova mensagem é adicionada à discussão."
-
-msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr "O e-mail do contacto principal do site"
-
-msgid "mailable.reviewResponseOverdueAuto.description"
-msgstr ""
-"Este e-mail é enviado automaticamente quando o prazo de resposta de um "
-"revisor a um pedido de revisor foi ultrapassado."
-
-msgid "mailable.reviewRequest.description"
-msgstr ""
-"Este e-mail é enviado pelo Editor de Secção para o Revisor a solicitar que "
-"aceite ou recuse a tarefa de rever um artigo. "
-
-msgid "mailable.reviewRequestSubsequent.description"
-msgstr ""
-"Este e-mail é enviado pelo Editor ao Revisor a solicitar que aceite ou "
-"recuse a tarefa de rever um artigo numa ronda de revisão adicional. Fornece "
-"informações sobre a submissão, como o título e resumo, prazo de revisão e "
-"como aceder à própria submissão."
-
-msgid "manager.dois.actions.depositAll.label"
-msgstr "Depositar todos os DOIs"
-
-msgid "manager.dois.actions.assign.prompt"
-msgstr ""
-"Está prestes a atribuir novos DOIs a {$count} iten(s) para qualquer item "
-"elegível que não tenha ainda um DOI atribuído. Deseja realmente atribuir "
-"DOIs a estes itens?"
-
-msgid "manager.dois.actions.assign.label"
-msgstr "Atribuir DOIs"
-
-msgid "manager.dois.actions.export.prompt"
-msgstr ""
-"Está prestes a exportar os registos de metadados DOI para {$count} iten(s) "
-"para a {$registrationAgency}. Deseja realmente exportar estes registos?"
-
-msgid "manager.dois.actions.export.label"
-msgstr "Exportar DOIs"
-
-msgid "manager.dois.actions.markRegistered.prompt"
-msgstr ""
-"Está prestes a marcar os registos de metadados DOI para {$count} iten(s) "
-"como registados. Deseja realmente marcar estes registos como registados?"
-
-msgid "manager.dois.actions.markRegistered.label"
-msgstr "Marcar DOIs registados"
-
-msgid "manager.dois.actions.deposit.prompt"
-msgstr ""
-"Está prestes a enviar registos de metadados DOI para {$count} iten(s) para a "
-"{$registrationAgency}. Deseja realmente depositar estes registos?"
-
-msgid "manager.dois.actions.deposit.label"
-msgstr "Depositar DOIs"
-
-msgid "manager.dois.actions.deposit.all"
-msgstr "Depositar tudo"
-
-msgid "doi.manager.settings.registrationAgency.none"
-msgstr "Nenhum"
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
-msgstr ""
-"Os DOIs podem ser automaticamente criada e depositada numa agência de "
-"registo. Para usar esta função, localize e instale o plugin da agência de "
-"registo apropriada."
-
-msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr "Nenhuma agência de registo ativada"
-
-msgid "doi.manager.settings.registrationAgency.description"
-msgstr "Selecione a agência de registo onde deseja depositar os DOIs."
-
-msgid "doi.manager.settings.registrationAgency"
-msgstr "Agência de Registo"
-
-msgid "doi.manager.settings.doiSuffixLegacyUser"
-msgstr ""
-"Padrão previamente disponível, definido pelo utilizador. Já não se encontra "
-"em uso."
-
-msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Usar padrão"
-
-msgid "doi.manager.settings.doiSuffix.description"
-msgstr ""
-"Um sufixo DOI pode assumir qualquer formato, mas deve ser único entre todos "
-"os objetos publicados com o mesmo prefixo DOI:"
-
-msgid "doi.manager.settings.doiSuffix"
-msgstr "Sufixo DOI"
-
-msgid "doi.manager.settings.enableFor"
-msgstr "{$objects} terá(ão) DOI atribuído"
-
-msgid "doi.manager.settings.doiObjects"
-msgstr "Itens com DOIs"
-
-msgid "manager.setup.doiPrefix"
-msgstr "Prefixo DOI"
-
-msgid "doi.manager.settings.doiCreationTime.never"
-msgstr "Nunca"
-
-msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr "Após publicação"
-
-msgid "doi.manager.settings.doiCreationTime.description"
-msgstr "Quando é que uma submissão deve ter o DOI atribuído?"
-
-msgid "doi.manager.settings.doiCreationTime.label"
-msgstr "Atribuição automática de DOI"
-
-msgid "doi.manager.settings.doiPrefixPattern"
-msgstr "O prefixo DOI é obrigatório e deve estar no seguinte formato 10.xxxx."
-
-msgid "doi.manager.settings.doiPrefix.description"
-msgstr ""
-"Isto é atribuído por uma agência de registo DOI, tal como <a href=\"https://"
-"www.crossref.org\" target=\"_new\">Crossref</a> ou <a href=\"https://"
-"datacite.org/\" target=\"new\">DataCite</a>. Exemplo: 10.xxxx"
-
-msgid "doi.manager.setup.automaticDeposit.description"
-msgstr ""
-"O registo de DOI e metadados pode ser automaticamente depositados na agência "
-"de registo relecionada sempre que um item com DOI é publicado. Depósitos "
-"automáticos acontecerão em intervalos programados e o estado do registo do "
-"DOI pode ser monitorizado na página de gestão do DOI."
-
-msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr "Ativar o depósito automático"
-
-msgid "doi.manager.setup.automaticDeposit"
-msgstr "Depósito automático"
-
-msgid "doi.manager.settings.doiPrefix"
-msgstr "Prefixo DOI"
-
-msgid "manager.setup.enableDois.enable"
-msgstr "Ativar DOIs"
-
-msgid "manager.setup.dois.registration"
-msgstr "Registo"
-
-msgid "manager.setup.dois.setup"
-msgstr "Configuração"
-
-msgid "manager.setup.dois"
-msgstr "DOIs"
-
-msgid "manager.dois.registrationAgency.registeredMessagePreamble"
-msgstr ""
-"Regressou a seguinte mensagem da {$registrationAgency} e contém detalhes "
-"sobre o registo:"
-
-msgid "manager.dois.registrationAgency.errorMessagePreamble"
-msgstr ""
-"Regressou o seguinte erro da {$registrationAgency} e contém detalhes da "
-"causa do erro:"
-
-msgid "manager.dois.title"
-msgstr "DOIs"
-
-msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr "Itens submetidos para depósito com sucesso"
-
-msgid "manager.dois.notification.assignDoisSuccess"
-msgstr "Itens com novos DOIs atribuídos com sucesso"
-
-msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr "Itens marcados registados com sucesso"
-
-msgid "manager.dois.notification.exportSuccess"
-msgstr "Itens exportados com sucesso"
-
-msgid "manager.dois.update.partialFailure"
-msgstr "Não foi possível atualizar algum(s) DOI(s)"
-
-msgid "manager.dois.status.stale"
-msgstr "Obsoleto"
-
-msgid "manager.dois.status.error"
-msgstr "Erro"
-
-msgid "manager.dois.status.registered"
-msgstr "Registado"
-
-msgid "manager.dois.status.submitted"
-msgstr "Submetido"
-
-msgid "manager.dois.status.unregistered"
-msgstr "Não registado"
-
-msgid "manager.dois.registration.depositDois"
-msgstr "Depositar DOI(s)"
-
-msgid "manger.dois.update.success"
-msgstr "DOIs atualizados com sucesso"
-
-msgid "manager.dois.registration.viewRecord.title"
-msgstr "Mensagem de registo com sucesso"
-
-msgid "manager.dois.registration.viewRecord"
-msgstr "Ver Registo"
-
-msgid "manager.dois.registration.viewError.title"
-msgstr "Mensagem de Erro no Registo"
-
-msgid "manager.dois.registration.viewError"
-msgstr "Ver Erro"
-
-msgid "manager.dois.registration.notPublishedDescription"
-msgstr "Este item não pode ser depositado antes de ser publicado."
-
-msgid "manager.dois.registration.notSubmittedDescription"
-msgstr "Os metadados deste item não foram submetidos à {$registrationAgency}."
-
-msgid "manager.dois.registration.submittedDescription"
-msgstr "Os metadados deste item foram submetidos à {$registrationAgency}."
-
-msgid "manager.dois.publicationStatus"
-msgstr "Estado da Publicação"
-
-msgid "manager.dois.depositStatus"
-msgstr "Estado do Depósito"
-
-msgid "manager.dois.actions.depositAll.prompt"
-msgstr ""
-"Está prestes a agendar o depósito de todos os registos de matadados DOI na "
-"{$registrationAgency}. Apenas itens publicados com um DOI serão depositados. "
-"O estado de cada item será atualizado quando for recebida uma resposta. "
-"Deseja realmente agendar o depósito de todos os itens?"
-
-msgid "manager.setup.notifyAllAuthors"
-msgstr "Notificar Todos os Autores"
-
-msgid "manager.setup.notifyAllAuthors.description"
-msgstr ""
-"Quem deve receber um e-mail de notificação quando uma decisão editorial for "
-"registada?"
-
-msgid "manager.setup.notifyAllAuthors.assignedAuthors"
-msgstr ""
-"Enviar e-mail apenas aos autores designados no fluxo de trabalho da "
-"submissão. Normalmente, é o autor que enviou a submissão."
-
-msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr "Enviar uma notificação de e-mail para todos os autores da submissão."
-
-msgid "emailTemplate.variable.reviewType"
-msgstr ""
-"Uma descrição do método de revisão padrão, tal como duplamente cega ou "
-"aberta."
-
-msgid "emailTemplate.variable.recommendation"
-msgstr "A decisão recomendada, tal como Aceitar Submissão"
-
-msgid "emailTemplate.variable.decision.round"
-msgstr ""
-"A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
-"relacionada com uma etapa de revisão."
-
-msgid "emailTemplate.variable.decision.stage"
-msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
-
-msgid "emailTemplate.variable.decision.description"
-msgstr "Uma descrição da decisão que foi tomada."
-
-msgid "emailTemplate.variable.decision.name"
-msgstr "O nome da decisão que foi tomada."
-
-msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
-
-msgid "emailTemplate.variable.allReviewersComments"
-msgstr ""
-"Todos os comentários de revisões concluídas. Os nomes dos revisores estão "
-"ocultos para revisões anónimas"
-
-msgid "mailable.decision.notifyReviewer.description"
-msgstr ""
-"Este e-mails é enviado por um Editor ao Revisor para o notificar que foi "
-"emitida uma decisão relativa a uma submissão que realizou a revisão."
-
-msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr "Uma cópia do e-mail foi enviado para o autor da submissão"
-
-msgid "mailable.decision.notifyOtherAuthors.description"
-msgstr ""
-"Este e-mail é enviado para notificar os autores de uma submissão que não "
-"estão designados como participantes que foi tomada uma decisão. Geralmente "
-"são todos os autores, exceto o autor da submissão."
-
-msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr "Notificar os Outros Autores"
-
-msgid "emailTemplate.variable.submission.submittingAuthorName"
-msgstr ""
-"Os nomes dos autores designados para o fluxo de trabalho da submissão. "
-"Geralmente é o autor da submissão"
-
-msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr "URL do autor para a submissão"
-
-msgid "emailTemplate.variable.reviewType.open"
-msgstr ""
-"Esta revista realiza revisão por pares aberta. Os revisores verão o seu nome "
-"e afiliação, bem como os nomes e afiliações dos seus coautores. Da mesma "
-"forma, poderá ver os nomes e afiliações dos revisores."
-
-msgid "emailTemplate.variable.reviewType.anonymous"
-msgstr ""
-"Esta revista realiza revisão cega \"revisor anónimo\". O seu nome e os dos "
-"seus coautores estarão visíveis para os revisores; no entanto, as "
-"identifidades dos revisores permanecerão anónimas."
-
-msgid "emailTemplate.variable.reviewType.doubleAnonymous"
-msgstr ""
-"Esta revista realiza revisão por pares duplamente cega. Os revisores não "
-"terão acesso a qualquer informação de identificação sobre si ou os seus "
-"coautores. Da mesma forma, não saberá quem fez a revisão da sua submissão, e "
-"não receberá notícias diretamente dos revisores."
-
-msgid "mailable.decision.recommendation.notifyEditors.description"
-msgstr ""
-"Esta mensagem notifica um Editor sénior ou Editor de Secção que uma "
-"recomendação editorial foi emitida relativa a uma das submissões a que está "
-"designado. Esta mensagem é usada quando um editor só tem permissões de "
-"recomendar uma decisão editorial e é necessário um editor autorizado para "
-"registar as decisões editoriais. Esta opção pode ser selecionado ao designar "
-"participantes a uma submissão."
-
-msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr "Recomendação feita"
-
-msgid "mailable.decision.skipReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que a sua submissão será enviada diretamente "
-"para a etapa de edição de texto sem revisão por pares."
-
-msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr "Revisão ignorada"
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
-"a etapa de produção."
-
-msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr "Enviado para Produção"
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
-"a etapa de revisão."
-
-msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr "Enviar para Revisão"
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que uma decisão anterior de rejeitar a sua "
-"submissão sem revisão foi revertida."
-
-msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr "Reintegrar Submissão Rejeitada sem Revisão"
-
-msgid "mailable.decision.revertDecline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a decisão anterior de rejeitar a sua "
-"submissão após revisão por pares foi revertida."
-
-msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr "Reintegrar Submissão Rejeitada"
-
-msgid "mailable.decision.resubmit.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor da decisão de \"rever e submeter novamente para "
-"revisão\" relativa à sua submissão."
-
-msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr "Submeter novamente para revisão"
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor da decisão de solicitar revisões durante a "
-"revisão por pares."
-
-msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr "Revisões Solicitadas"
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que uma nova ronda de revisão foi iniciada "
-"para a sua submissão."
-
-msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr "Nova Ronda de Revisão iniciada"
-
-msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr "Submissão Rejeitada (Pré-Revisão)"
-
-msgid "mailable.decision.decline.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi rejeitada após revisão "
-"por pares."
-
-msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr "Submissão Rejeitada"
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
-"etapa de submissão."
-
-msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr "Submissão enviada de volta para Submissão"
-
-msgid "mailable.decision.backToReview.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
-"etapa de revisão."
-
-msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr "Submissão enviada de volta para Revisão"
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
-"etapa de edição de texto."
-
-msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr "Submissão enviada de volta para Edição de Texto"
-
-msgid "mailable.decision.accept.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor que a sua submissão foi aceite para publicação."
-
-msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr "Submissão Aceite"
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
-msgstr ""
-"Convidámos os autores a submeter uma versão revista para revisão adicional."
-
-msgid ""
-"mailable.decision.notifyReviewer.variable.decisionDescription."
-"pendingRevisions"
-msgstr "Convidámos os autores a submeter revisões."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr "Decidimos rejeitar esta submissão."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr "Decidimos aceitar esta submissão sem revisões."
-
-msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
-msgstr ""
-"Uma breve descrição desta decisão que se destina a ser partilhada através de "
-"notificação de e-mail enviada aos revisores sobre esta decisão."
-
-msgid "manager.dois.status.needsDoi"
-msgstr "Necessita de DOI"
-
-msgid "mailable.reviewRemindAuto.description"
-msgstr ""
-"Este e-mail é automaticamente enviar quando um revisor não concluiu a "
-"revisão dentro do prazo."
-
-msgid "mailable.reviewRemindAuto.name"
-msgstr "Lembrete de Revisão (automático)"
-
-#, fuzzy
-msgid "emails.reviewRemind.body"
-msgstr ""
-"Este e-mail é enviar por um Editor para lembrar um revisor que o prazo foi "
-"ultrapassado"
-
-msgid "mailable.reviewRemind.name"
-msgstr "Lembrete de Revisão"
-
-msgid "mailable.reviewDecline.description"
-msgstr ""
-"Este e-mail é enviado por um revisor quando rejeita um pedido de revisão"
-
-msgid "mailable.reviewDecline.name"
-msgstr "Rejeitar revisão"
-
-msgid "mailable.reviewConfirm.description"
-msgstr ""
-"Este e-mail é automaticamente enviado quando um revisor aceita uma revisão"
-
-msgid "mailable.reviewConfirm.name"
-msgstr "Confirmar revisão"
-
-msgid "emailTemplate.variable.passwordResetUrl"
-msgstr ""
-"URL com hash que é enviado para o utilizador para confirmar a redefinição de "
-"senha"
-
-msgid "emailTemplate.variable.site.siteSignature"
-msgstr "A assinatura do e-mail do website para e-mail automáticos"
-
-msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr "Padrão personalizado (não recomendado)"
-
-msgid "doi.manager.settings.doiSuffix.custom"
-msgstr "Padrão de sufixo DOI personalizado"
-
-msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr "Sufixo DOI"
-
-msgid "doi.manager.settings.doiPrefix.required"
-msgstr "Um prefixo DOI é obrigatório"
-
-msgid "manager.genres.alertDelete"
-msgstr ""
-"Antes deste componente poder ser eliminado, deve associar quaisquer "
-"ficheiros de submissão relacionado a um componente diferente."
-
-msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr "O filho da submissão {$child} não foi processado com sucesso"
-
-msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr "A publicação atual da submissão encontra-se em falta"
-
-msgid "stats.name.submissionsSkipped"
-msgstr "Outras Submissões"
+msgid "stats.description.daysToDecision"
+msgstr ""
+"Número de dias que leva a que a maioria das submissões recebam a sua "
+"primeira decisão editorial, tal como rejeição de secreatariado ou enviar "
+"para revisão. <br><br> Estes números indicam que 80% das submissões recebem "
+"uma decisão editorial num dado número de dias. <br><br>Esta estatística "
+"tenta descrever quando a maioria dos autores que submetam à revista podem "
+"esperar uma decisão."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
@@ -2874,80 +2688,33 @@ msgstr ""
 "como os que ainda estão em andamento e aqueles que parecem ter sido "
 "importados."
 
-msgid "doi.authorization.enabledRequired"
-msgstr "Não pode realizar esta operação sem DOIs ativados."
+msgid "stats.descriptionForStat"
+msgstr "Descrição para {$stat}"
 
-msgid "manager.dois.update.failedCreation"
-msgstr "Atualizações de DOI falhou"
+msgid "stats.editorialActivity"
+msgstr "Atividade Editorial"
 
-msgid "mailable.reviewRequestSubsequent.name"
-msgstr "Pedido de Revisão Subsequente"
+msgid "stats.file.type.primaryFile"
+msgstr "Ficheiro Principal"
 
-msgid "mailable.reviewRequest.name"
-msgstr "Pedido de Revisão"
+msgid "stats.file.type.suppFile"
+msgstr "Ficheiro Suplementar"
 
-msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr "Lembrete de resposta atrasada (automatizada)"
+msgid "stats.fileViews"
+msgstr "Visualizações de Ficheiros"
 
-#, fuzzy
-msgid "mailable.reviewAcknowledgement.description"
+msgid "stats.html"
+msgstr "HTML"
+
+msgid "stats.monthly"
+msgstr "Mensal"
+
+msgid "stats.pdf"
+msgstr "PDF"
+
+msgid "stats.geographic.ccAttribution"
 msgstr ""
-"Este e-mail é enviado por um Editor de Secção para confirmar a receção de "
-"uma revisão concluída e agradecer ao revisor pelas suas contribuições."
-
-msgid "mailable.reviewAcknowledgement.name"
-msgstr "Agradacimento da avaliação"
-
-msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr "O número de submissão designado a este editor"
-
-msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr "Uma lista e submissões com tarefas pendentes"
-
-msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "O URL para um utilizador visualizar e editar o seu perfil."
-
-msgid "mailable.passwordResetRequested.description"
-msgstr ""
-"Este e-mail é enviado ao utilizador registado quando o mesmo solicita a "
-"atualização da senha, quando esqueceu a senha ou encontra problemas para "
-"aceder à revista. O link fornecido permite ao utilizador concluir a "
-"atualização da senha."
-
-#, fuzzy
-msgid "mailable.userRegister.description"
-msgstr ""
-"Mensagem enviada aos utilizadores recém-registados no sistema, para dar-lhes "
-"as boas vindas e fornecer o nome de utilizador e senha."
-
-msgid "mailable.reviewerRegister.description"
-msgstr ""
-"Mensagem de boas-vindas enviada a novo revisor registado no sistema, com "
-"nome de utilizador e senha para acesso."
-
-#, fuzzy
-msgid "mailable.submissionAck.description"
-msgstr ""
-"Este e-mail, quando ativo, é enviado automaticamente ao autor quando submete "
-"um trabalho à revista. Oferece informações sobre como acompanhar o trabalho "
-"pelo processo editorial e agradece a submissão ao autor."
-
-#, fuzzy
-msgid "mailable.submissionAckNotAuthor.description"
-msgstr ""
-"Este e-mail, quando ativo, é enviado automaticamente para os autores "
-"nomeados que não o autor que submeteu o trabalho."
-
-msgid "mailable.revisedVersionNotify.description"
-msgstr ""
-"Este e-mail é enviado automaticamente ao Editor designado quando o autor "
-"envia uma versão revista de um artigo."
-
-msgid "mailable.announcementNotify.description"
-msgstr "Este email é enviado quando uma nova notícia é criada."
-
-msgid "emailTemplate.variable.password"
-msgstr "Nova senha aleatória do utilizador"
+"Geolocalização disponibilizada por <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
 msgstr "Sobre a Geolocalização"
@@ -2958,9 +2725,320 @@ msgstr "{$startDate} até {$endDate}"
 msgid "stats.downloadReport.allFilters"
 msgstr "Todos {$filter}"
 
-msgid "stats.geographic.ccAttribution"
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr "Descarregar Ficheiros"
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr "O número de downloads para cada ficheiro."
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr "Descarregar dados Geográficos"
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
-"Geolocalização disponibilizada por <a href='https://db-ip.com'>DB-IP</a>"
+"O número de visualizações e downloads para cada cidade, região ou país."
+
+msgid "stats.region"
+msgstr "Região"
+
+msgid "stats.searchSubmissionDescription"
+msgstr "Pesquisar por título, autor e ID"
+
+msgid "stats.submissionsActive"
+msgstr "Submissão Ativas"
+
+msgid "stats.timeline"
+msgstr "Linha do Tempo"
+
+msgid "stats.timeline.downloadReport.description"
+msgstr "O número de {$type} por cada {$interval}."
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr "Descarregar a Linha do Tempo"
+
+msgid "stats.timelineInterval"
+msgstr "Intervalo da Linha do Tempo"
+
+msgid "stats.timelineType"
+msgstr "Tipo de Linha do Tempo"
+
+msgid "stats.total"
+msgstr "Total"
+
+msgid "stats.unique"
+msgstr "Única"
+
+msgid "stats.totalWithinDateRange"
+msgstr "Total dentro do Intervalo de Datas"
+
+msgid "stats.trends"
+msgstr "Tendências"
+
+msgid "stats.unknown"
+msgstr "desconhecido"
+
+msgid "stats.userStatistics"
+msgstr "Estatísticas do Utilizador"
+
+msgid "stats.name.submissionsReceived"
+msgstr "Submissões Recebidas"
+
+msgid "stats.name.submissionsSkipped"
+msgstr "Outras Submissões"
+
+msgid "stats.name.submissionsInProgress"
+msgstr "Submissões em Curso"
+
+msgid "stats.name.submissionsImported"
+msgstr "Submissões Importadas"
+
+msgid "stats.name.submissionsAccepted"
+msgstr "Submissões Aceites"
+
+msgid "stats.name.submissionsDeclined"
+msgstr "Submissões Recusadas"
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr "Submissões Recusadas (rejeição de secretariado)"
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr "Submissões Recusadas (Após Revisão)"
+
+msgid "stats.name.submissionsPublished"
+msgstr "Submissões Publicadas"
+
+msgid "stats.name.daysToDecision"
+msgstr "Dias até à Primeira Decisão Editorial"
+
+msgid "stats.name.daysToAccept"
+msgstr "Dias até Aceitar"
+
+msgid "stats.name.daysToReject"
+msgstr "Dias até Rejeitar"
+
+msgid "stats.name.acceptanceRate"
+msgstr "Taxa de Aceitação"
+
+msgid "stats.name.declineRate"
+msgstr "Taxa de Rejeição"
+
+msgid "stats.name.declinedDeskRate"
+msgstr "Taxa de Rejeição de secretariado"
+
+msgid "stats.name.declinedReviewRate"
+msgstr "Taxa de Rejeição após Revisão"
+
+msgid "plugins.importexport.native.processFailed"
+msgstr "O processo falhou. Veja abaixo os erros/avisos."
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr "Exportar Resultados de Submissões"
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr "Transferir Ficheiro exportado"
+
+msgid "plugins.importexport.native.export.completed"
+msgstr "A exportação foi concluída com sucesso."
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr "Transfira o ficheiro exportado clicando no botão abaixo."
+
+msgid "plugins.importexport.native.common.any"
+msgstr "Itens genéricos"
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+"Configuração de filtro errada [{$filterName}]: {$filterCount} ocorrências. "
+"Deveria existir apenas uma."
+
+msgid "plugins.importexport.common.cliError"
+msgstr "ERRO:"
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr "O caminho \"{$contextPath}\" da revista indicado não existe."
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr "O processo falhou ao analisar os autores"
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr "O processo falhou ao analisar as publicações"
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+"Todos os comentários de revisões concluídas. Os nomes dos revisores estão "
+"ocultos para revisões anónimas"
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+"O URL para uma página onde o utilizador pode recuperar a password perdida"
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr "O URL para um utilizador visualizar e editar o seu perfil."
+
+msgid "emailTemplate.variable.decision.name"
+msgstr "O nome da decisão que foi tomada."
+
+msgid "emailTemplate.variable.decision.description"
+msgstr "Uma descrição da decisão que foi tomada."
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+"A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
+"relacionada com uma etapa de revisão."
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr "O assunto da discussão"
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr "O conteúdo da nova discussão ou resposta"
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr "Uma lista e submissões com tarefas pendentes"
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr "O número de submissão designado a este editor"
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr "O nome completo de um destinatário ou de todos os destinatários"
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr "O nome de utilizador do destinatário ou de todos os destinatários"
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr "Data em que o revisor deve aceitar ou recusar a tarefa"
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr "Data em que a revisão deve estar concluída"
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr "O URL para a tarefa de revisão"
+
+msgid "emailTemplate.variable.recommendation"
+msgstr "A decisão recomendada, tal como Aceitar Submissão"
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+"Uma descrição do método de revisão padrão, tal como duplamente cega ou "
+"aberta."
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+"Esta revista realiza revisão por pares duplamente cega. Os revisores não "
+"terão acesso a qualquer informação de identificação sobre si ou os seus "
+"coautores. Da mesma forma, não saberá quem fez a revisão da sua submissão, e "
+"não receberá notícias diretamente dos revisores."
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+"Esta revista realiza revisão cega \"revisor anónimo\". O seu nome e os dos "
+"seus coautores estarão visíveis para os revisores; no entanto, as "
+"identifidades dos revisores permanecerão anónimas."
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+"Esta revista realiza revisão por pares aberta. Os revisores verão o seu nome "
+"e afiliação, bem como os nomes e afiliações dos seus coautores. Da mesma "
+"forma, poderá ver os nomes e afiliações dos revisores."
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr "O nome completo do remetente"
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr "O endereço de e-mail do remetente"
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr "A assinatura de e-mail do remetente"
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr "O nome completo do contacto principal do website"
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr "O e-mail do contacto principal do site"
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr "A assinatura do e-mail do website para e-mail automáticos"
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr "Os editores atribuídos a esta submissão que podem tomar uma decisão"
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr "O título da submissão"
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr "O ID único da submissão"
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr "O resumo da submissão"
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr "Nomes dos autores de forma abreviada"
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr "Nomes completos dos autores"
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr "URL do autor para a submissão"
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr "O URL da submissão no dashboard editorial"
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+"Os nomes dos autores designados para o fluxo de trabalho da submissão. "
+"Geralmente é o autor da submissão"
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+"URL com hash que é enviado para o utilizador para confirmar a redefinição de "
+"senha"
+
+msgid "emailTemplate.variable.password"
+msgstr "Nova senha aleatória do utilizador"
+
+msgid "mailable.reviewerReinstate.name"
+msgstr "Revisor Reintegrado"
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr "Reenviar pedido de revisão ao revisor"
+
+msgid "emailTemplate.variable.submitterName"
+msgstr "O nome completo de um utilizador que carregou um ficheiro de submissão"
 
 msgid "emailTemplate.variable.announcementTitle"
 msgstr "O título da notícia"
@@ -2974,29 +3052,29 @@ msgstr "O endereço para o anúncio"
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
 msgstr "O número de submissões recebidas este mês"
 
-msgid "mailable.reviewerResendRequest.name"
-msgstr "Reenviar pedido de revisão ao revisor"
-
-msgid "emailTemplate.variable.submitterName"
-msgstr "O nome completo de um utilizador que carregou um ficheiro de submissão"
-
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
 msgstr "O número de submissões recusadas"
 
-msgid "mailable.passwordResetRequested.name"
-msgstr "Confirmar Redefinição de Senha"
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr "O número de submissões aceites"
 
-msgid "stats.timeline"
-msgstr "Linha do Tempo"
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr ""
 
-msgid "stats.timeline.downloadReport.description"
-msgstr "O número de {$type} por cada {$interval}."
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr "O número total de submissões recebidas"
 
-msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr "Descarregar a Linha do Tempo"
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr "O mês do relatório"
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr "O ano do relatório"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identificação da edição, incluindo volume, número, ano e título"
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "O ano do relatório"
@@ -3004,48 +3082,329 @@ msgstr "O ano do relatório"
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
 msgstr "O link para a página de atividade editorial"
 
-msgid "mailable.discussionReview.name"
-msgstr "Discussão da Revisão"
-
-msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr "Não registe nenhum dado geográfico"
-
-msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr "Registe o país do visitante"
-
-msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr "Registe o país e a região do visitante"
-
-msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr "Registe o país, a região e a cidade do visitante"
-
-msgid "mailable.userRegister.name"
-msgstr "Registo de Utilizador"
-
-msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr "O DOI contém caracteres inválidos."
-
-msgid "stats.unknown"
-msgstr "desconhecido"
-
-msgid "stats.timelineInterval"
-msgstr "Intervalo da Linha do Tempo"
-
-msgid "stats.timelineType"
-msgstr "Tipo de Linha do Tempo"
-
-msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr "O número de submissões aceites"
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+"Este e-mail é enviado quando um revisor que foi desassociado é reintegrado "
+"por um editor."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
 "Este e-mail é enviado por um editor para um revisor que recusou um pedido de "
 "revisão, quando o editor deseja reenviar o pedido."
 
+msgid "mailable.reviewerUnassign.name"
+msgstr "Revisor Desassociado"
+
+msgid "mailable.reviewerUnassign.description"
+msgstr "Este e-mail é enviado quando um editor desassocia um revisor."
+
+msgid "mailable.validateEmailSite.name"
+msgstr "Validar E-mail (Site)"
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+"Este e-mail é automaticamente enviado para um novo utilizador quando se "
+"regista no site e as configurações requerem que o e-mail seja validado."
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr "Notificar os Outros Autores"
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+"Este e-mail é enviado para notificar os autores de uma submissão que não "
+"estão designados como participantes que foi tomada uma decisão. Geralmente "
+"são todos os autores, exceto o autor da submissão."
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr "Uma cópia do e-mail foi enviado para o autor da submissão"
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr "Agradecimento ao Revisor"
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+"Este e-mails é enviado por um Editor ao Revisor para o notificar que foi "
+"emitida uma decisão relativa a uma submissão que realizou a revisão."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+"Uma breve descrição desta decisão que se destina a ser partilhada através de "
+"notificação de e-mail enviada aos revisores sobre esta decisão."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr "Decidimos aceitar esta submissão sem revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr "Decidimos rejeitar esta submissão."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr "Convidámos os autores a submeter revisões."
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+"Convidámos os autores a submeter uma versão revista para revisão adicional."
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr "O revisor convidado para a submissão não foi atribuído."
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr "Submissão Aceite"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi aceite para publicação."
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Edição de Texto"
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de edição de texto."
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr "Submissão enviada de novo para edição de texto"
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão foi enviada de novo para "
+"o passo de edição de texto."
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr "Ronda de Revisão Cancelada"
+
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
 "Este e-mail notifica o autor de que uma ronda de revisão para sua submissão "
 "foi cancelada."
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr "Submissão Rejeitada"
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a sua submissão foi rejeitada após revisão "
+"por pares."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Submissão Rejeitada (Pré-Revisão)"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr "Nova Ronda de Revisão iniciada"
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma nova ronda de revisão foi iniciada "
+"para a sua submissão."
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr "Revisões Solicitadas"
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor da decisão de solicitar revisões durante a "
+"revisão por pares."
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr "Submeter novamente para revisão"
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor da decisão de \"rever e submeter novamente para "
+"revisão\" relativa à sua submissão."
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr "Reintegrar Submissão Rejeitada"
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor que a decisão anterior de rejeitar a sua "
+"submissão após revisão por pares foi revertida."
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr "Reintegrar Submissão Rejeitada sem Revisão"
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que uma decisão anterior de rejeitar a sua "
+"submissão sem revisão foi revertida."
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr "Enviar para Revisão"
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
+"a etapa de revisão."
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr "Enviado para Produção"
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão está a ser enviada para "
+"a etapa de produção."
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr "Revisão ignorada"
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+"Este e-mail notifica o autor de que a sua submissão será enviada diretamente "
+"para a etapa de edição de texto sem revisão por pares."
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr "Recomendação feita"
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+"Esta mensagem notifica um Editor sénior ou Editor de Secção que uma "
+"recomendação editorial foi emitida relativa a uma das submissões a que está "
+"designado. Esta mensagem é usada quando um editor só tem permissões de "
+"recomendar uma decisão editorial e é necessário um editor autorizado para "
+"registar as decisões editoriais. Esta opção pode ser selecionado ao designar "
+"participantes a uma submissão."
+
+msgid "mailable.reviewConfirm.name"
+msgstr "Confirmar revisão"
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+"Este e-mail é automaticamente enviado quando um revisor aceita uma revisão"
+
+msgid "mailable.reviewDecline.name"
+msgstr "Rejeitar revisão"
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+"Este e-mail é enviado por um revisor quando rejeita um pedido de revisão"
+
+msgid "mailable.reviewRemind.name"
+msgstr "Lembrete de Revisão"
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr "Lembrete de Revisão (automático)"
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+"Este e-mail é automaticamente enviar quando um revisor não concluiu a "
+"revisão dentro do prazo."
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr "Agradacimento da avaliação"
+
+#, fuzzy
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+"Este e-mail é enviado por um Editor de Secção para confirmar a receção de "
+"uma revisão concluída e agradecer ao revisor pelas suas contribuições."
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr "Lembrete de resposta atrasada (automatizada)"
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+"Este e-mail é enviado automaticamente quando o prazo de resposta de um "
+"revisor a um pedido de revisor foi ultrapassado."
+
+msgid "mailable.reviewRequest.name"
+msgstr "Pedido de Revisão"
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor de Secção para o Revisor a solicitar que "
+"aceite ou recuse a tarefa de rever um artigo. "
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr "Pedido de Revisão Subsequente"
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+"Este e-mail é enviado pelo Editor ao Revisor a solicitar que aceite ou "
+"recuse a tarefa de rever um artigo numa ronda de revisão adicional. Fornece "
+"informações sobre a submissão, como o título e resumo, prazo de revisão e "
+"como aceder à própria submissão."
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr "A publicação atual da submissão encontra-se em falta"
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr "O filho da submissão {$child} não foi processado com sucesso"
+
+msgid "mailable.editorialReminder.name"
+msgstr "Lembrete Editorial"
+
+msgid "mailable.editorialReminder.description"
+msgstr "Um e-mail automático enviado aos editores com tarefas pendentes"
+
+msgid "mailable.passwordResetRequested.name"
+msgstr "Confirmar Redefinição de Senha"
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+"Este e-mail é enviado ao utilizador registado quando o mesmo solicita a "
+"atualização da senha, quando esqueceu a senha ou encontra problemas para "
+"aceder à revista. O link fornecido permite ao utilizador concluir a "
+"atualização da senha."
+
+msgid "mailable.userRegister.name"
+msgstr "Registo de Utilizador"
+
+#, fuzzy
+msgid "mailable.userRegister.description"
+msgstr ""
+"Mensagem enviada aos utilizadores recém-registados no sistema, para dar-lhes "
+"as boas vindas e fornecer o nome de utilizador e senha."
+
+msgid "mailable.reviewerRegister.name"
+msgstr "Registo de Revisor"
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+"Mensagem de boas-vindas enviada a novo revisor registado no sistema, com "
+"nome de utilizador e senha para acesso."
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr "Agradecimento da Submissão"
+
+#, fuzzy
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Este e-mail, quando ativo, é enviado automaticamente ao autor quando submete "
+"um trabalho à revista. Oferece informações sobre como acompanhar o trabalho "
+"pelo processo editorial e agradece a submissão ao autor."
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
+#, fuzzy
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+"Este e-mail, quando ativo, é enviado automaticamente para os autores "
+"nomeados que não o autor que submeteu o trabalho."
+
+msgid "mailable.discussionSubmission.name"
+msgstr "Discussão da Submissão"
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+"Este e-mail é enviado no passo da submissão para notificar um utilizador "
+"acerca da submissão"
+
+msgid "mailable.discussionReview.name"
+msgstr "Discussão da Revisão"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
@@ -3060,38 +3419,8 @@ msgstr ""
 "Este e-mail é enviado no passo de edição de texto para notificar um "
 "utilizador acerca da submissão"
 
-msgid "stats.downloads"
-msgstr "Downloads"
-
-msgid "stats.views"
-msgstr "Visualizações"
-
-msgid "stats.views.timelineInterval"
-msgstr "Total de visualizações por data"
-
-msgid "stats.downloads.timelineInterval"
-msgstr "Total de downloads por data"
-
-msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr "O número total de submissões recebidas"
-
-msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr "O mês do relatório"
-
-msgid ""
-"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr "O revisor convidado para a submissão não foi atribuído."
-
-msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr "Submissão enviada de novo para edição de texto"
-
-msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
-msgstr ""
-"Este e-mail notifica o autor de que a sua submissão foi enviada de novo para "
-"o passo de edição de texto."
-
-msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr "Ronda de Revisão Cancelada"
+msgid "mailable.discussionProduction.name"
+msgstr "Discussão da Produção"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
@@ -3101,83 +3430,19 @@ msgstr ""
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Notificação da Versão Revista"
 
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+"Este e-mail é enviado automaticamente ao Editor designado quando o autor "
+"envia uma versão revista de um artigo."
+
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
+msgid "mailable.announcementNotify.description"
+msgstr "Este email é enviado quando uma nova notícia é criada."
+
 msgid "mailable.statisticsReportNotify.name"
 msgstr "Notificação do Relatório de Estatísticas"
-
-msgid "mailable.discussionSubmission.name"
-msgstr "Discussão da Submissão"
-
-msgid "manager.institutions.edit"
-msgstr "Editar instituição"
-
-msgid "manager.institutions.form.ror"
-msgstr "ROR"
-
-msgid "manager.institutions.form.ror.description"
-msgstr "Identificação do Research Organization Registry para esta instituição."
-
-msgid "manager.institutions.form.ipRangesInstructions"
-msgstr ""
-"Os valores válidos incluem um endereço IP (por exemplo, 142.58.103.1), "
-"intervalo de IP (por exemplo, 142.58.103.1 - 142.58.103.4), intervalo de IP "
-"com asterisco '*' (por exemplo, 142.58.*.*) e um intervalo de IP com CIDR "
-"(por exemplo, 142.58.100.0/24)."
-
-msgid "manager.setup.statistics"
-msgstr "Estatísticas"
-
-msgid "manager.settings.statistics.geoUsageStats"
-msgstr "Estatísticas de uso geográfico"
-
-msgid "manager.settings.statistics.geoUsageStats.description"
-msgstr ""
-"Selecione o tipo de estatísticas de uso geográfico a serem coletadas. "
-"Estatísticas geográficas mais detalhadas podem aumentar consideravelmente o "
-"tamanho da sua base de dados e, em alguns casos raros, podem prejudicar o "
-"anonimato dos seus visitantes."
-
-msgid "manager.settings.statistics.institutionUsageStats"
-msgstr "Estatísticas de uso da instituição"
-
-msgid "manager.settings.statistics.institutionUsageStats.description"
-msgstr ""
-"Ative as estatísticas institucionais se desejar registar estatísticas de uso "
-"por instituição. Se ativado, deverá configurar os intervalos de IP para cada "
-"instituição que deseja registar."
-
-msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr "Ativar estatísticas institucionais"
-
-msgid "manager.settings.statistics.publicSushiApi"
-msgstr "API Pública"
-
-msgid "manager.settings.statistics.publicSushiApi.description"
-msgstr ""
-"Se deve ou não restringir o acesso aos endpoints da API para estatísticas do "
-"COUNTER SUSHI. Se desmarcada, a API só poderá ser acedida por utilizadores "
-"com funções de administrador ou gestor."
-
-msgid "stats.unique"
-msgstr "Única"
-
-msgid "mailable.submissionAckNotUser.name"
-msgstr "Confirmação de Submissão"
-
-msgid "mailable.discussionSubmission.description"
-msgstr ""
-"Este e-mail é enviado no passo da submissão para notificar um utilizador "
-"acerca da submissão"
-
-msgid "mailable.discussionProduction.name"
-msgstr "Discussão da Produção"
-
-msgid "mailable.publicationVersionNotify.name"
-msgstr "Notificação da Versão de Publicação"
-
-msgid "mailable.publicationVersionNotify.description"
-msgstr ""
-"Este e-mail notifica automaticamente os editores designados sobre a nova "
-"versão da publicação"
 
 msgid "mailable.editReviewNotify.name"
 msgstr "Editar Notificação de Revisão"
@@ -3199,237 +3464,191 @@ msgstr ""
 msgid "manager.people.authSource"
 msgstr "Fonte de autenticação"
 
-msgid "manager.dois.actions.markStale.label"
-msgstr "Marcar DOIs como obsoletos"
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Revisão"
 
-msgid "manager.dois.actions.markUnregistered.label"
-msgstr "Marcar DOIs como Não Registado"
-
-msgid "manager.dois.actions.markStale.prompt"
+msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
-"Está prestes a marcar {$count} registos de metadados DOI como obsoletos. O "
-"status obsoleto só pode ser aplicado a DOIs enviados anteriormente. Tem "
-"certeza de que deseja marcar esses registos como obsoletos?"
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de revisão."
 
-msgid "manager.dois.actions.markUnregistered.prompt"
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr "Submissão enviada de volta para Submissão"
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
-"Está prestes a marcar registos de metadados DOI para {$count} iten(s) como "
-"não registados. Tem a certeza de que deseja marcar esses registos como não "
-"registados?"
+"Este e-mail notifica o autor que a sua submissão foi enviada de volta para a "
+"etapa de submissão."
 
-msgid "manager.dois.actions.description"
-msgstr "Realize ações em {$count} item(ns) selecionado(s)."
-
-msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr "Itens não registados marcados com sucesso"
-
-msgid "manager.dois.notification.markStaleSuccess"
-msgstr "Itens obsoletos marcados com sucesso"
-
-msgid "manager.institutions.form.ipRanges"
-msgstr "intervalos de IP"
-
-msgid "manager.institutions.deleteInstitution"
-msgstr "Excluir instituição"
-
-msgid "manager.institutions.confirmDelete"
-msgstr "Tem certeza de que deseja continuar e excluir esta instituição?"
-
-msgid "manager.institutions.invalidIPRange"
-msgstr "Intervalo de IP inválido"
-
-msgid "manager.setup.institutions"
-msgstr "Instituições"
-
-msgid "mailable.reviewerRegister.name"
-msgstr "Registo de Revisor"
-
-msgid "mailable.submissionAck.name"
-msgstr "Agradecimento da Submissão"
-
-msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr "Disponibilizar publicamente as estatísticas do COUNTER SUSHI"
-
-msgid "emailTemplate.variable.discussion.subject"
-msgstr "O assunto da discussão"
-
-msgid "emailTemplate.variable.discussion.content"
-msgstr "O conteúdo da nova discussão ou resposta"
-
-msgid "stats.publications.downloadReport.downloadFiles"
-msgstr "Descarregar Ficheiros"
-
-msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr "O número de downloads para cada ficheiro."
-
-msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr "Descarregar dados Geográficos"
-
-msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgid "manager.manageEmails"
 msgstr ""
-"O número de visualizações e downloads para cada cidade, região ou país."
 
-msgid "mailable.editorialReminder.description"
-msgstr "Um e-mail automático enviado aos editores com tarefas pendentes"
-
-msgid "mailable.editorialReminder.name"
-msgstr "Lembrete Editorial"
-
-msgid "stats.name.submissionsInProgress"
-msgstr "Submissões em Curso"
-
-msgid "stats.name.submissionsImported"
-msgstr "Submissões Importadas"
-
-msgid "stats.file.type.primaryFile"
-msgstr "Ficheiro Principal"
-
-msgid "stats.file.type.suppFile"
-msgstr "Ficheiro Suplementar"
-
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Normas de Submissão"
-
-msgid "manager.setup.submissionPreparationChecklistDescription"
+msgid "manager.manageEmailTemplates.description"
 msgstr ""
-"O seguinte é apresentado aos autores quando iniciam a sua submissão. É "
-"pedido aos autores que confirmem que a sua submissão cumpre com todos os "
-"critérios aqui especificados antes de iniciar a sua submissão."
 
-msgid "mailable.decision.notifyReviewer.name"
-msgstr "Agradecimento ao Revisor"
-
-msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgid "manager.mailables.addTemplates"
 msgstr ""
-"A seguinte informação é apresentada aos autores antes de iniciarem a "
-"submissão. Forneça uma breve explicação do processo de submissão que o autor "
-"saiba o que esperar."
 
-msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgid "manager.mailables.templates"
 msgstr ""
-"A seguinte informação é apresentada aos autores no processo de carregamento "
-"de ficheiros. Forneça uma breve explicação sobre quais os ficheiros que o "
-"autor deve partilhar."
 
-msgid "manager.setup.workflow.contributorsHelp.description"
+msgid "manager.mailables.editTemplate"
 msgstr ""
-"A seguinte informação é apresentada aos autores na introdução dos "
-"contribuidores do trabalho. Forneça uma breve explicação sobre que "
-"informações devem indicar sobre eles, os seus coautores e restantes "
-"contribuidores."
 
-msgid "manager.setup.workflow.detailsHelp.description"
+msgid "manager.mailables.removeTemplate"
 msgstr ""
-"A seguinte informação é apresentada aos autores durante a etapa de detalhes, "
-"quando é solicitado o título, resumo e outras informações importantes sobre "
-"o seu trabalho."
 
-msgid "manager.setup.workflow.guidance"
-msgstr "Orientações para o Autor"
-
-msgid "manager.sections.form.assignEditors"
-msgstr "Atribuições Editoriais"
-
-msgid "manager.sections.form.assignEditorAs"
-msgstr "Designar {$name} como {$role}"
-
-msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr "O ano do relatório"
-
-msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr "Data em que a revisão deve estar concluída"
-
-msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr "Data em que o revisor deve aceitar ou recusar a tarefa"
-
-msgid "emailTemplate.variable.context.mailingAddress"
-msgstr "O endereço de correspondência da revista"
-
-msgid "mailable.statisticsReportNotify.description"
+msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
-"Este email é enviado automaticamente todos os meses aos editores e editores-"
-"gestores para os informar do estado da revista."
 
-msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
-msgstr "O link para a página de estatísticas de artigos publicados"
-
-msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr "Este item foi registado manualmente numa agência de registo."
-
-msgid "doi.manager.settings.doiVersioning"
-msgstr "Versionamento do DOI"
-
-msgid "doi.manager.versions.countStatement"
-msgstr "Existem {$count} versões."
-
-msgid "doi.manager.versions.view"
-msgstr "Ver todos"
-
-msgid "doi.manager.versions.modalTitle"
-msgstr "DOIs para todas as versões"
-
-msgid "manager.dois.settings.relocated"
+msgid "manager.mailables.resetTemplate"
 msgstr ""
-"A gestão do DOI foi alterada. Veja a <a href=\"{$doiManagementUrl}\">gestão "
-"do DOI</a> e as páginas de <a href=\"{$doiSettingsUrl}\">configurações do "
-"DOI</a>."
 
-msgid "manager.sections.form.assignEditors.description"
+msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
-"Selecione os utilizadores editoriais que devem ser designados "
-"automaticamente para todas as novas submissões desta secção."
 
-msgid "manager.categories.form.assignEditors.description"
+msgid "manager.mailables.search"
 msgstr ""
-"Selecione os utilizadores editoriais que devem ser designados "
-"automaticamente a todas as submissões desta categoria."
 
-msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgid "manager.emailTemplate.name.description"
 msgstr ""
-"O seguinte é apresentado aos autores durante a etapa Para os Editores, "
-"quando lhes é pedido que forneçam os metadados como palavraschave, "
-"comentários ao editor, e outros detalhes que auxiliam a revisão editorial."
 
-msgid "manager.setup.genres.submitRequired.label"
-msgstr "Exigir com as Submissões"
-
-msgid "manager.dois.actions.bulkActions"
-msgstr "Ações em Massa"
-
-msgid "manager.setup.workflow.reviewHelp.description"
+msgid "manager.newSubmission"
 msgstr ""
-"O seguinte é apresentado aos autores durante a etapa final do processo de "
-"submissão, quando lhes é pedido que revejam toda a informação que forneceram "
-"antes de submeter o seu trabalho."
 
-msgid "manager.dois.status.error.description"
-msgstr "Itens com erro no processo de registo."
-
-msgid "manager.dois.status.stale.description"
+msgid "manager.newSubmission.description"
 msgstr ""
-"Itens que tiveram os seus metadados atualizados localmente e será necessário "
-"ser reenviados ou atualizados na agência de registo configurada para "
-"garantir que todos os metadados enviados anteriormente estejam atualizados."
 
-msgid "manager.dois.help.statuses.title"
-msgstr "Estados do DOI"
-
-msgid "manager.dois.status.needsDoi.description"
+msgid "manager.submissionAck.description"
 msgstr ""
-"Qualquer item publicado ou não publicado que 1) tenha um sub-objeto sem um "
-"DOI atribuído onde 2) o tipo de DOI do sub-objeto esteja ativado (por "
-"exemplo, uma composição sem um DOI não aparecerá aqui se o tipo de DOI de "
-"composição não estiver ativado)"
 
-msgid "manager.dois.status.unregistered.description"
+msgid "manager.submissionAck.off"
 msgstr ""
-"Itens que 1) possuem DOIs atribuídos para todos os tipos de DOI ativados, 2) "
-"são publicados e 3) ainda não foram registados numa agência de registo."
 
-msgid "manager.dois.status.submitted.description"
-msgstr "Itens que foram submetidos à agência de registo configurada."
-
-msgid "manager.dois.status.registered.description"
+msgid "manager.submissionAck.submittingAuthor"
 msgstr ""
-"Itens que foram registados com sucesso numa agência de registo ou "
-"manualmente marcados como registados."
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Prazos de Revisão Padrão"
+
+#~ msgid "mailable.discussionMessage.name"
+#~ msgstr "Nova Mensagem de Discussão"
+
+#~ msgid "mailable.discussionMessage.description"
+#~ msgstr ""
+#~ "Este e-mail é enviado automaticamente a participantes da discussão quando "
+#~ "uma nova mensagem é adicionada à discussão."
+
+#~ msgid "doi.manager.settings.doiSuffixLegacyUser"
+#~ msgstr ""
+#~ "Padrão previamente disponível, definido pelo utilizador. Já não se "
+#~ "encontra em uso."
+
+#~ msgid "doi.manager.settings.enableFor"
+#~ msgstr "{$objects} terá(ão) DOI atribuído"
+
+#~ msgid "manager.setup.enableDois.enable"
+#~ msgstr "Ativar DOIs"
+
+#, fuzzy
+#~ msgid "emails.reviewRemind.body"
+#~ msgstr ""
+#~ "Este e-mail é enviar por um Editor para lembrar um revisor que o prazo "
+#~ "foi ultrapassado"
+
+#~ msgid "mailable.submissionAckNotUser.name"
+#~ msgstr "Confirmação de Submissão"
+
+#~ msgid "mailable.publicationVersionNotify.name"
+#~ msgstr "Notificação da Versão de Publicação"
+
+#~ msgid "mailable.publicationVersionNotify.description"
+#~ msgstr ""
+#~ "Este e-mail notifica automaticamente os editores designados sobre a nova "
+#~ "versão da publicação"
+
+#~ msgid "emailTemplate.variable.context.mailingAddress"
+#~ msgstr "O endereço de correspondência da revista"
+
+#~ msgid "mailable.statisticsReportNotify.description"
+#~ msgstr ""
+#~ "Este email é enviado automaticamente todos os meses aos editores e "
+#~ "editores-gestores para os informar do estado da revista."
+
+#~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+#~ msgstr "O link para a página de estatísticas de artigos publicados"

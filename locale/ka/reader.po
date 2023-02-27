@@ -11,26 +11,14 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "comments.body"
-msgstr "ძირითადი ნაწილი"
-
-msgid "comments.postReply"
-msgstr "ჩანაწერის პასუხი"
-
-msgid "comments.readMore"
-msgstr "დაწვრილებით"
-
-msgid "comments.replies"
-msgstr "პასუხები"
-
-msgid "comments.title"
-msgstr "სათაური"
+msgid "comments.anonymous"
+msgstr "ანონიმური მომხმარებელი"
 
 msgid "comments.anonymousNamed"
 msgstr "\"{$userName}\""
 
-msgid "comments.anonymous"
-msgstr "ანონიმური მომხმარებელი"
+msgid "comments.body"
+msgstr "ძირითადი ნაწილი"
 
 msgid "comments.titleRequired"
 msgstr "კომენტარის სათაური აუცილებელია."
@@ -70,8 +58,20 @@ msgstr "(1 პასუხი)"
 msgid "comments.postAnonymously"
 msgstr "განათავსეთ ეს კომენტარი ანონიმურად"
 
+msgid "comments.postReply"
+msgstr "ჩანაწერის პასუხი"
+
 msgid "comments.readerComments"
 msgstr "მკითხველის კომენტარები"
+
+msgid "comments.readMore"
+msgstr "დაწვრილებით"
+
+msgid "comments.replies"
+msgstr "პასუხები"
+
+msgid "comments.title"
+msgstr "სათაური"
 
 msgid "comments.viewAllComments"
 msgstr "ყველა კომენტარის ნახვა"

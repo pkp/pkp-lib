@@ -13,72 +13,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "admin.languages.availableLocales"
-msgstr "Հասանելի լեզուները"
+msgid "admin.systemInfo.settingName"
+msgstr "Անվան կարգավորում"
 
-msgid "admin.languages.installLanguages"
-msgstr "Կառավարել լեզուները"
+msgid "admin.systemInfo.settingValue"
+msgstr "Կարգավորման արժեք"
 
-msgid "admin.languages.installedLocales"
-msgstr "Տեղադրված լեզուները"
+msgid "admin.adminFunctions"
+msgstr "Ադմինիստրատիվ ֆունկցիաներ"
 
-msgid "admin.languages.confirmReload"
-msgstr "Համեզված եք, որ ցանկանում եք վերագործարկել այս լեզուն։"
+msgid "admin.deleteCache"
+msgstr "Ջնջել քեշերը"
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "Համոզվա՞ծ եք, որ ուզում եք փոխել կայքի հիմնական լեզուն։"
-
-msgid "admin.languages.cantDisable"
+msgid "admin.deleteCache.description"
 msgstr ""
-"Այս լեզուն կայքի հիմնական լեզուն է։ Դուք չեք կարող ապաակտիվացնել այն մինչև "
-"չընտրեք այլ հիմնական լեզու։"
+"Ջնջել քեշի նիշքերը համակարգից: Դա պետք է արվի միայն զարգացման միջավայրում:"
 
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Հնարավոր չե ավելացնել նոր տվյալ , լոկալ ռեգիստր ֆալում, մասնավորապես "
-"\"registry/locales.xml\"."
+msgid "admin.clearDataCache"
+msgstr "Ջնջել տվյալների քեշը"
 
-msgid "admin.languages.download.cannotOpen"
-msgstr "Հնարավոր չե բացել լեզվի նկարագիրը PKP կայքից"
-
-msgid "admin.languages.downloadLocales"
-msgstr "ներբեռնել լոկալ"
-
-msgid "admin.languages.download"
-msgstr "Ներբերնել լոկալ"
-
-msgid "admin.expireSessions"
-msgstr "Ավարտվել են օգտատիրոջ սեսսիաները"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "Պատկերեկ նոր կարգավորումները"
-
-msgid "admin.displayConfigFileInstructions"
-msgstr ""
-"Ձեր կողմից թարմացված կարգավորումների պարունակությունը պատկերված է ստորև։ "
-"Հաստատելու համար անհրաժեշտ է բացել <tt>config.inc.php</tt> ֆալյը Text editor-"
-"ով և տեղադրել այնտեղ ստորև պատկերված տեքստը։"
-
-msgid "admin.dateInstalled"
-msgstr "Օրացույցային տվյալները կարգավորված են"
-
-msgid "admin.currentVersion"
-msgstr "Գործող տարբերակը"
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Համոզվա՞ծ եք, որ ուզում եք ջնջել {$contextName} և ամբողջ իր պարունակությունը։"
-
-msgid "admin.contentsOfConfigFile"
-msgstr "Կարգավորման ֆալյի պարունակությունները"
-
-msgid "admin.confirmExpireSessions"
-msgstr ""
-"Համոզված եք, որ ուզում եք ավարտել բոլոր օգտատերերի սեսսիաները։ Բոլոր նրանք, "
-"ովքեր ներկայումս նույնականացված են, դուրս կհանվեն համակարգից։"
-
-msgid "admin.confirmClearTemplateCache"
-msgstr "Համոզված եք, որ ուզում եք ջնջել Template-ի քեշ հիշողությունը։"
+msgid "admin.clearTemplateCache"
+msgstr "Ջնջել ձևանմուշ քեշը"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -86,419 +41,157 @@ msgstr ""
 "որ եթե կայքը չի գործում ինչպես կարգն է, անհրաժեշտ է անմիջական միջամտությամբ "
 "կարգավորել <tt>config.inc.php</tt> նիշքը."
 
-msgid "admin.clearTemplateCache"
-msgstr "Ջնջել ձևանմուշ քեշը"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Համոզված եք, որ ուզում եք ջնջել Template-ի քեշ հիշողությունը։"
 
-msgid "admin.clearDataCache"
-msgstr "Ջնջել տվյալների քեշը"
-
-msgid "admin.adminFunctions"
-msgstr "Ադմինիստրատիվ ֆունկցիաներ"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Կարգավորման արժեք"
-
-msgid "admin.systemInfo.settingName"
-msgstr "Անվան կարգավորում"
-
-msgid "admin.languages.installLocale"
-msgstr "Տեղադրել լեզուն"
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Առաջադրանքը log-ում չի գրանցվել:"
-
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Ներբեռնման համար հասանելի լեզուներ չկան:"
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "Ֆայլերի բեռնիչ"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "{$filename} ֆայլը մշակվել և արխիվացվել է:"
-
-msgid "admin.fileLoader.moveFileFailed"
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"{$filename} նիշքը չի կարող տեղափոխվել {$currentFilePath} -ից "
-"{$destinationPath}"
+"Համոզված եք, որ ուզում եք ավարտել բոլոր օգտատերերի սեսսիաները։ Բոլոր նրանք, "
+"ովքեր ներկայումս նույնականացված են, դուրս կհանվեն համակարգից։"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "{$ Path} պանակը ուղեցույց չէ կամ ընթերցելի չէ:"
+msgid "admin.contentsOfConfigFile"
+msgstr "Կարգավորման ֆալյի պարունակությունները"
 
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "{$ Path} հիմնական ուղին պետք է լինի հանրային ֆայլերի ուղեցույցում:"
-
-msgid "admin.version"
-msgstr "Տարբերակ"
-
-msgid "admin.version.upToDate"
-msgstr "Ձեր համակարգը արդիական է"
-
-msgid "admin.version.updateAvailable"
-msgstr "Թարմացված տարբերակը հասանելի է"
-
-msgid "admin.versionRevision"
-msgstr "Վերանայում"
-
-msgid "admin.version.moreInfo"
-msgstr "Լրացուցիչ տեղեկատվություն"
-
-msgid "admin.versionMinor"
-msgstr "Կրտսեր"
-
-msgid "admin.versionMajor"
-msgstr "Գլխավոր"
-
-msgid "admin.version.latest"
-msgstr "Վերջին տարբերակ"
-
-msgid "admin.versionHistory"
-msgstr "Տարբերակների պատմություն"
-
-msgid "admin.version.downloadPatch"
-msgstr "Ներբեռնել ուղին"
-
-msgid "admin.version.downloadPackage"
-msgstr "Ներբեռնել"
-
-msgid "admin.version.checkForUpdates"
-msgstr "Ստուգել թարմացումները"
-
-msgid "admin.versionBuild"
-msgstr "Ստեղծել"
-
-msgid "admin.systemInformation"
-msgstr "Համակարգի տեղեկատվություն"
-
-msgid "admin.systemConfigFileReadError"
+msgid "admin.contexts.confirmDelete"
 msgstr ""
-"<tt> config.inc.php </tt> ֆայլը գոյություն չունի, ընթերցելի չէ կամ անվավեր է:"
+"Համոզվա՞ծ եք, որ ուզում եք ջնջել {$contextName} և ամբողջ իր պարունակությունը։"
 
-msgid "admin.siteSetup"
-msgstr "Կայքի տեղադրում"
+msgid "admin.currentVersion"
+msgstr "Գործող տարբերակը"
 
-msgid "admin.siteSettings"
-msgstr "Կայքի կարգաբերումներ"
+msgid "admin.dateInstalled"
+msgstr "Օրացույցային տվյալները կարգավորված են"
 
-msgid "admin.siteManagement"
-msgstr "Կայքի կառավարում"
-
-msgid "admin.siteAdmin"
-msgstr "Կայքի կառավարում"
-
-msgid "admin.settings.siteTheme"
-msgstr "Կայքի թեմա"
-
-msgid "admin.settings.siteTitle"
-msgstr "Կայքի անվանում"
-
-msgid "admin.settings.siteLogo"
-msgstr "Կայքի լոգո"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "Կայքի ոճի բլանկ"
-
-msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Կայքի ոճի բլանկի անվավեր ձևաչափ: Ընդունելի ձևաչափը՝ css:"
-
-msgid "admin.settings.siteLanguage"
-msgstr "Կայքի լեզու"
-
-msgid "admin.settings.minPasswordLength"
-msgstr "Գաղտնաբառի նվազագույն երկարություն (նշան)"
-
-msgid "admin.settings.introduction"
-msgstr "Ներածություն"
-
-msgid "admin.settings.contactName"
-msgstr "Հիմնական կապի անվանումը"
-
-msgid "admin.settings.contactEmail"
-msgstr "Կոնտակտային էլ. հասցե"
-
-msgid "admin.settings.about"
-msgstr "Կայքի մասին"
-
-msgid "admin.settings"
-msgstr "Կարգաբերումներ"
-
-msgid "admin.server.platform"
-msgstr "OS հարթակ"
-
-msgid "admin.server.phpVersion"
-msgstr "PHP տարբերակ"
-
-msgid "admin.serverInformation"
-msgstr "Սերվերի տեղեկատվություն"
-
-msgid "admin.server.dbVersion"
-msgstr "Տվյալների բազայի սերվերի տարբերակ"
-
-msgid "admin.server.dbDriver"
-msgstr "Տվյալների բազաների համապատասխանեցման ծրագիր"
-
-msgid "admin.server.apacheVersion"
-msgstr "Apache տարբերակ"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Բաժանորդագրության ժամկետի ավարտի մասին հիշեցում"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Գրախոսության հիշեցում"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Հրապարակել ներկայացված հոդվածները"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Մաքրել պլանավորված առաջադրանքների գրանցամատյանները"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.displayConfigFileInstructions"
 msgstr ""
-"Վստա՞հ եք, որ ցանկանում եք ջնջել պլանավորված առաջադրանքների կատարման բոլոր "
-"գրանցամատյանները?"
+"Ձեր կողմից թարմացված կարգավորումների պարունակությունը պատկերված է ստորև։ "
+"Հաստատելու համար անհրաժեշտ է բացել <tt>config.inc.php</tt> ֆալյը Text editor-"
+"ով և տեղադրել այնտեղ ստորև պատկերված տեքստը։"
 
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Ձեր {$ softwareName} տեղադրումը ավտոմատ կերպով կատարվեց և ավարտեց այս "
-"առաջադրանքը, և գրանցամատյանի ֆայլը կարող եք ներբեռնել այստեղ ՝ {$ url}"
+msgid "admin.displayNewSystemConfig"
+msgstr "Պատկերեկ նոր կարգավորումները"
 
-msgid "admin.scheduledTask.stopTime"
-msgstr "Առաջադրանքի գործընթացը դադարեցվել է:"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Առաջադրանքի կատարման գործընթացը սկսված է:"
-
-msgid "admin.scheduledTask"
-msgstr "Պլանավորված առաջադրանք"
-
-msgid "admin.phpInfo"
-msgstr "Ընդլայնել PHP տեղեկատվությունը"
-
-msgid "admin.languages.uninstall"
-msgstr "Հեռացնել լեզուն"
-
-msgid "admin.languages.reload"
-msgstr "Վերբեռնել լեզու"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "Լրացուցիչ լեզուներ հասանելի չեն տեղադրելու համար:"
-
-msgid "admin.languages.languageSettings"
-msgstr "Լեզվի կարգաբերումներ"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Տեղադրել նոր լեզուներ"
-
-msgid "admin.languages.installLocales"
-msgstr "Տեղադրել"
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
-"Այս կարգաբերման մեջ փոփոխություն անելու իրավունք ունի միայն ադմինիստրատորը։"
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Անջատել դերերը"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Արգելել մասսայական էլ․ նամակների ուղարկումը"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Մասսայական էլ․ նամակ"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Խմբագրական զեկույցի մասին ծանուցում"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "admin.jobs.createdAt"
-msgstr "Ստեղծված է {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Ստեղծված է"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Փորձեր"
-
-msgid "admin.jobs.list.queue"
-msgstr "Հերթ"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Աշխատանք"
-
-msgid "navigation.tools.jobs"
-msgstr "Աշխատանքներ"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Դիտեք հերթագրված աշխատանքները"
-
-msgid "admin.jobs.totalCount"
-msgstr "Հերթում ընդհանուր առմամբ կա <strong>{$total}</strong> աշխատանք(ներ)"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Դուք նկատի ունեի՞ք հետևյալներից մեկը."
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "Տարբերակ {$option} գոյություն չունի:"
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Մենք ունենք {$total} հերթագրված աշխատանք"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Ջնջված են բոլոր աշխատանքները:"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Անհնար էր ջնջել բոլոր աշխատանքները:"
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "Աշխատանքը ջնջվեց:"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Աշխատանքի անվավեր ID"
-
-msgid "admin.cli.tool.jobs.purge.without.id"
-msgstr ""
-"Այս հրամանն օգտագործելու համար դուք պետք է փոխանցեք առնվազն Job ID, '--all' "
-"կամ '--queue='"
-
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Հաջորդ"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Նախորդ"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Ընթացիկ"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Էջակալում"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Ստեղծված է"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Հասանելի է"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Ամրագրված է"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Փորձեր"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Աշխատանքի ցուցադրման անվանումը"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Հերթ"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Հերթագրված աշխատանքներ"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Տարբերակը չէր կարող դատարկ լինել: Ստուգեք օգտագործման եղանակը:"
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Ցուցադրել Jobs օգտագործման պարամետրերը"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Ցուցադրել Jobs հրամանի օգտագործումը"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Ցուցադրել հերթագրված աշխատանքների քանակը"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr ""
-"Ավելացրեք թեստային աշխատանք փորձարկման հերթում. օգտագործեք կամընտրական "
-"պարամետրերը --only= և անցեք «failed' կամ 'success'՝ անհաջող կամ հաջողված "
-"աշխատանք ուղարկելու համար:"
-
-msgid "admin.cli.tool.jobs.available.options.purge.description"
-msgstr ""
-"Մաքրել որոշակի հերթագրված աշխատանք՝ հիմնվելով նրա ID-ի վրա: Եթե ցանկանում եք "
-"մաքրել բոլորը, փոխանցեք --all պարամետրը: Եթե ցանկանում եք մաքրել բոլորը "
-"որոշակի հերթից, փոխանցեք --queue= պարամետրը"
-
-msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
-"Թվարկեք հերթագրված բոլոր աշխատանքները: Եթե ցանկանում եք էջանշել "
-"արդյունքները, օգտագործեք --page= և --perPage= պարամետրերը"
-
-msgid "admin.cli.tool.available.commands"
-msgstr "Հասանելի հրամաններ `{$namespace}` անվանատարածքի համար:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "հրաման [arguments]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Օգտագործում:"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Ավանդադրեք DOI-ներ կազմաձևված գրանցման գործակալությունում"
-
-msgid "navigation.tools.jobs.view"
-msgstr "Դիտեք աշխատանքները"
-
-msgid "navigation.tools.jobs.description"
-msgstr ""
-"Դիտեք համակարգում հերթագրված բոլոր աշխատանքները և հետևեք ձախողված փորձերին:"
-
-msgid "admin.systemInformation.view"
-msgstr "Դիտեք համակարգի տեղեկատվությունը"
-
-msgid "admin.systemInformation.description"
-msgstr ""
-"Դիտեք հավելվածի և սպասարկող կայանի տարբերակի և կազմաձևման կարգավորումների "
-"մասին տեղեկատվությունը:"
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Ջնջել առաջադրանքների գրանցամատյանները"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
-"Ջնջել պլանավորված առաջադրանքների գործընթացների բոլոր մատյանները, որոնք "
-"գործարկվել են:"
+msgid "admin.expireSessions"
+msgstr "Ավարտվել են օգտատիրոջ սեսսիաները"
 
 msgid "admin.expireSessions.description"
 msgstr ""
 "Բոլոր օգտատերերն, այդ թվում և դուք, անմիջապես դուրս կգաք հավելվածից, և պետք "
 "է նորից մուտք գործեք:"
 
-msgid "admin.deleteCache.description"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"Ջնջել քեշի նիշքերը համակարգից: Դա պետք է արվի միայն զարգացման միջավայրում:"
+"Այս լեզուն կայքի հիմնական լեզուն է։ Դուք չեք կարող ապաակտիվացնել այն մինչև "
+"չընտրեք այլ հիմնական լեզու։"
 
-msgid "admin.deleteCache"
-msgstr "Ջնջել քեշերը"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr "Համոզվա՞ծ եք, որ ուզում եք փոխել կայքի հիմնական լեզուն։"
 
-msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr "Հեռացրեք չվավերացված ժամկետանց օգտվողներին"
+msgid "admin.languages.confirmReload"
+msgstr "Համեզված եք, որ ցանկանում եք վերագործարկել այս լեզուն։"
 
-msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgid "admin.languages.installedLocales"
+msgstr "Տեղադրված լեզուները"
+
+msgid "admin.languages.installLanguages"
+msgstr "Կառավարել լեզուները"
+
+msgid "admin.languages.availableLocales"
+msgstr "Հասանելի լեզուները"
+
+msgid "admin.languages.installLocale"
+msgstr "Տեղադրել լեզուն"
+
+msgid "admin.languages.installLocales"
+msgstr "Տեղադրել"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Տեղադրել նոր լեզուներ"
+
+msgid "admin.languages.languageSettings"
+msgstr "Լեզվի կարգաբերումներ"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Լրացուցիչ լեզուներ հասանելի չեն տեղադրելու համար:"
+
+msgid "admin.languages.reload"
+msgstr "Վերբեռնել լեզու"
+
+msgid "admin.languages.uninstall"
+msgstr "Հեռացնել լեզուն"
+
+msgid "admin.phpInfo"
+msgstr "Ընդլայնել PHP տեղեկատվությունը"
+
+msgid "admin.scheduledTask"
+msgstr "Պլանավորված առաջադրանք"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Առաջադրանքի կատարման գործընթացը սկսված է:"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Առաջադրանքի գործընթացը դադարեցվել է:"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Առաջադրանքը log-ում չի գրանցվել:"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Ավանդադրեք DOI-ներ կազմաձևված գրանցման գործակալությունում"
+
+msgid "admin.scheduledTask.downloadLog"
 msgstr ""
-"Առաքված {$count} աշխատանքներ՝ խմբագրական էլ․ փոստի հիշեցումներ ուղարկելու "
-"համար {$userIds} օգտատերերին {$contextId} համատեքստում"
-
-msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "Խմբագիրների նույնականացում՝ հիշեցնելու այս համատեքստում {$contextId}"
+"Ձեր {$ softwareName} տեղադրումը ավտոմատ կերպով կատարվեց և ավարտեց այս "
+"առաջադրանքը, և գրանցամատյանի ֆայլը կարող եք ներբեռնել այստեղ ՝ {$ url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
 "Ուղարկեք նամակ յուրաքանչյուր խմբագրին՝ հիշեցնելով նրանց իրենց չմարված "
 "առաջադրանքների մասին"
 
-msgid "admin.authSources"
-msgstr "Նույնականացման աղբյուր"
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Խմբագիրների նույնականացում՝ հիշեցնելու այս համատեքստում {$contextId}"
 
-msgid "admin.auth.noneCreated"
-msgstr "Նույնականացման աղբյուր հայտարարված չե։"
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Առաքված {$count} աշխատանքներ՝ խմբագրական էլ․ փոստի հիշեցումներ ուղարկելու "
+"համար {$userIds} օգտատերերին {$contextId} համատեքստում"
 
-msgid "admin.auth.create"
-msgstr "Ստեղծել նույնականացման աղբյուր"
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Վստա՞հ եք, որ ցանկանում եք ջնջել պլանավորված առաջադրանքների կատարման բոլոր "
+"գրանցամատյանները?"
 
-msgid "admin.auth.confirmDelete"
-msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը?"
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Մաքրել պլանավորված առաջադրանքների գրանցամատյանները"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Ջնջել պլանավորված առաջադրանքների գործընթացների բոլոր մատյանները, որոնք "
+"գործարկվել են:"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Ջնջել առաջադրանքների գրանցամատյանները"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Հրապարակել ներկայացված հոդվածները"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Գրախոսության հիշեցում"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Խմբագրական զեկույցի մասին ծանուցում"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Բաժանորդագրության ժամկետի ավարտի մասին հիշեցում"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Հեռացրեք չվավերացված ժամկետանց օգտվողներին"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Մշակել սպասվող հերթերի աշխատանքները"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Թարմացրեք DB-IP city lite տվյալների բազան"
@@ -525,6 +218,13 @@ msgstr ""
 "{$file} նիշքը հին մատյանի նիշքի ձևաչափով է, որը հնարավոր չէ մշակել և "
 "այդպիսով հետ կտեղափոխվի փուլավորման պանակ:"
 
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"{$file} մատյան նիշքը բաց է թողնվել, քանի որ այդ ամսվա վիճակագրությունն արդեն "
+"հաշվարկված է: Նախորդ ամսվա վիճակագրությունը վերահաշվարկելու համար դուք պետք "
+"է վերականգնեք այդ ամսվա բոլոր մատյան նիշքերը և օգտագործեք CLI գործիքը՝ "
+"վիճակագրությունը վերամշակելու համար:"
+
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
 "{$lineNumber} տողը մատյան նիշքում սխալ ձևաչափով է և, հետևաբար, բաց կթողնվի:"
@@ -536,14 +236,26 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Ժամը վավեր ամսաթիվ չէ:"
 
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "Համատեքստի ID-ն ամբողջ թիվ չէ:"
+
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
 msgstr "Ներկայացման ID-ն ամբողջ թիվ չէ:"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
 msgstr "Ներկայացուցչական ID-ն ամբողջ թիվ չէ:"
 
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Assoc տեսակը չի աջակցվում:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Նիշքի տեսակը չի աջակցվում:"
+
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
 msgstr "Երկիրը երկու այբբենական նիշով տող չէ:"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Տարածաշրջանը մինչև երեք այբբենական նիշ երկարությամբ տող չէ:"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
 msgstr "Հաստատությունների ID-ները զանգված չեն:"
@@ -552,6 +264,161 @@ msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
 "Սխալ է տեղի ունեցել {$file} մատյան նիշքը {$line Number} տողում մշակելիս՝ "
 "{$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Ետնամասային աշխատանքը, որը կմշակի գրանցամատյանի {$file} նիշքը և կպահի "
+"վիճակագրության տվյալները, ուղարկվել է:"
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache տարբերակ"
+
+msgid "admin.server.dbDriver"
+msgstr "Տվյալների բազաների համապատասխանեցման ծրագիր"
+
+msgid "admin.server.dbVersion"
+msgstr "Տվյալների բազայի սերվերի տարբերակ"
+
+msgid "admin.serverInformation"
+msgstr "Սերվերի տեղեկատվություն"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP տարբերակ"
+
+msgid "admin.server.platform"
+msgstr "OS հարթակ"
+
+msgid "admin.settings"
+msgstr "Կարգաբերումներ"
+
+msgid "admin.settings.about"
+msgstr "Կայքի մասին"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Մասսայական էլ․ նամակ"
+
+msgid "admin.settings.contactEmail"
+msgstr "Կոնտակտային էլ. հասցե"
+
+msgid "admin.settings.contactName"
+msgstr "Հիմնական կապի անվանումը"
+
+msgid "admin.settings.introduction"
+msgstr "Ներածություն"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Գաղտնաբառի նվազագույն երկարություն (նշան)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Արգելել մասսայական էլ․ նամակների ուղարկումը"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Անջատել դերերը"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
+"Այս կարգաբերման մեջ փոփոխություն անելու իրավունք ունի միայն ադմինիստրատորը։"
+
+msgid "admin.settings.siteLanguage"
+msgstr "Կայքի լեզու"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Կայքի ոճի բլանկի անվավեր ձևաչափ: Ընդունելի ձևաչափը՝ css:"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Կայքի ոճի բլանկ"
+
+msgid "admin.settings.siteLogo"
+msgstr "Կայքի լոգո"
+
+msgid "admin.settings.siteTitle"
+msgstr "Կայքի անվանում"
+
+msgid "admin.settings.siteTheme"
+msgstr "Կայքի թեմա"
+
+msgid "admin.siteAdmin"
+msgstr "Կայքի կառավարում"
+
+msgid "admin.siteManagement"
+msgstr "Կայքի կառավարում"
+
+msgid "admin.siteSettings"
+msgstr "Կայքի կարգաբերումներ"
+
+msgid "admin.siteSetup"
+msgstr "Կայքի տեղադրում"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt> config.inc.php </tt> ֆայլը գոյություն չունի, ընթերցելի չէ կամ անվավեր է:"
+
+msgid "admin.systemInformation"
+msgstr "Համակարգի տեղեկատվություն"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Դիտեք հավելվածի և սպասարկող կայանի տարբերակի և կազմաձևման կարգավորումների "
+"մասին տեղեկատվությունը:"
+
+msgid "admin.systemInformation.view"
+msgstr "Դիտեք համակարգի տեղեկատվությունը"
+
+msgid "admin.versionBuild"
+msgstr "Ստեղծել"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Ստուգել թարմացումները"
+
+msgid "admin.version.downloadPackage"
+msgstr "Ներբեռնել"
+
+msgid "admin.version.downloadPatch"
+msgstr "Ներբեռնել ուղին"
+
+msgid "admin.versionHistory"
+msgstr "Տարբերակների պատմություն"
+
+msgid "admin.version.latest"
+msgstr "Վերջին տարբերակ"
+
+msgid "admin.versionMajor"
+msgstr "Գլխավոր"
+
+msgid "admin.versionMinor"
+msgstr "Կրտսեր"
+
+msgid "admin.version.moreInfo"
+msgstr "Լրացուցիչ տեղեկատվություն"
+
+msgid "admin.versionRevision"
+msgstr "Վերանայում"
+
+msgid "admin.version.updateAvailable"
+msgstr "Թարմացված տարբերակը հասանելի է"
+
+msgid "admin.version.upToDate"
+msgstr "Ձեր համակարգը արդիական է"
+
+msgid "admin.version"
+msgstr "Տարբերակ"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "{$ Path} հիմնական ուղին պետք է լինի հանրային ֆայլերի ուղեցույցում:"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$ Path} պանակը ուղեցույց չէ կամ ընթերցելի չէ:"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} նիշքը չի կարող տեղափոխվել {$currentFilePath} -ից "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} ֆայլը մշակվել և արխիվացվել է:"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Ֆայլերի բեռնիչ"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
@@ -622,6 +489,254 @@ msgstr ""
 "Նիշքը չհաջողվեց սեղմել: Սեղմված սկզբնաղբյուր նիշքը {$filePath} չհաջողվեց "
 "հեռացնել հղումը հեռացնելով:"
 
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Ներբեռնման համար հասանելի լեզուներ չկան:"
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Օգտագործում:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "հրաման [arguments]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "Հասանելի հրամաններ `{$namespace}` անվանատարածքի համար:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+"Հնարավոր չէ գործարկել հերթերի աշխատանքները, քանի որ հավելվածի սպասարկման "
+"ռեժիմը միացված է:"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Թվարկեք հերթագրված բոլոր աշխատանքները: Եթե ցանկանում եք էջանշել "
+"արդյունքները, օգտագործեք --page= և --perPage= պարամետրերը"
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Մաքրել որոշակի հերթագրված աշխատանք՝ հիմնվելով նրա ID-ի վրա: Եթե ցանկանում եք "
+"մաքրել բոլորը, փոխանցեք --all պարամետրը: Եթե ցանկանում եք մաքրել բոլորը "
+"որոշակի հերթից, փոխանցեք --queue= պարամետրը"
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Ավելացրեք թեստային աշխատանք փորձարկման հերթում. օգտագործեք կամընտրական "
+"պարամետրերը --only= և անցեք «failed' կամ 'success'՝ անհաջող կամ հաջողված "
+"աշխատանք ուղարկելու համար:"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"Գործարկեք անսահման daemon worker գործընթաց, որը կշարունակի մշակել "
+"աշխատանքները: Օգտագործեք --help դրոշը՝ այս հրամանի հետ կապված առկա "
+"տարբերակները տեսնելու համար:"
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Ուղարկեք հասանելի աշխատանքները հերթում: եթե ցանկանում եք աշխատանք ուղարկել "
+"որոշակի հերթում, փոխանցեք պարամետրը --queue=QUEUE_NAME: Նաև կարող է պարզապես "
+"անցնել --test ՝ թեստային աշխատանքը գործարկելու համար և --once ՝ միաժամանակ "
+"մեկ աշխատանք կատարելու համար"
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "Ավարտվել է {$jobCount} աշխատանքը {$queueName} անունով հերթում:"
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "{$queueName} անունով հերթում առաջադրանքներ չկան:"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Ցուցադրել հերթագրված աշխատանքների քանակը"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Ցուցադրել Jobs հրամանի օգտագործումը"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Ցուցադրել Jobs օգտագործման պարամետրերը"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Տարբերակը չէր կարող դատարկ լինել: Ստուգեք օգտագործման եղանակը:"
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Հերթագրված աշխատանքներ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Հերթ"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Աշխատանքի ցուցադրման անվանումը"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Փորձեր"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Ամրագրված է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Հասանելի է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Ստեղծված է"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Էջակալում"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Ընթացիկ"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Նախորդ"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Հաջորդ"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Այս հրամանն օգտագործելու համար դուք պետք է փոխանցեք առնվազն Job ID, '--all' "
+"կամ '--queue='"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+"Ուղարկված փորձնական աշխատանք, որը կարող է ձախողվել {$queueName} անունով "
+"հերթում"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+"Ուղարկված թեստային աշխատանք, որը պետք է հաջողությամբ ավարտվի {$queueName} "
+"անունով հերթում"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"Անվավեր թեստային աշխատանքի տարբերակ: Այն կարող է լինել միայն «'failed' կամ "
+"'success' այս '--only=' տարբերակի համար."
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Աշխատանքի անվավեր ID"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Աշխատանքը ջնջվեց:"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "Ջնջելու համար աշխատանքներ չեն գտնվել:"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Անհնար էր ջնջել բոլոր աշխատանքները:"
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Ջնջված են բոլոր աշխատանքները:"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Մենք ունենք {$total} հերթագրված աշխատանք"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Տարբերակ {$option} գոյություն չունի:"
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Դուք նկատի ունեի՞ք հետևյալներից մեկը."
+
+msgid "admin.jobs.totalCount"
+msgstr "Հերթում ընդհանուր առմամբ կա <strong>{$total}</strong> աշխատանք(ներ)"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Դիտեք հերթագրված աշխատանքները"
+
+msgid "navigation.tools.jobs"
+msgstr "Աշխատանքներ"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Դիտեք համակարգում հերթագրված բոլոր աշխատանքները և հետևեք ձախողված փորձերին:"
+
+msgid "navigation.tools.jobs.view"
+msgstr "Դիտեք աշխատանքները"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Աշխատանք"
+
+msgid "admin.jobs.list.queue"
+msgstr "Հերթ"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Փորձեր"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Ստեղծված է"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "Ստեղծված է {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
 "Աշխատանքը, որը բեռնում է օգտագործման վիճակագրության տվյալները {$file} "
@@ -633,80 +748,11 @@ msgstr ""
 "Աշխատանքը, որը բեռնում է օգտագործման վիճակագրության տվյալները {$file} "
 "նիշքից, ձախողվեց: Նիշքը տեղափոխվել է փուլավորման պանակ:"
 
-msgid "admin.scheduledTask.usageStatsLoader.monthExists"
-msgstr ""
-"{$file} մատյան նիշքը բաց է թողնվել, քանի որ այդ ամսվա վիճակագրությունն արդեն "
-"հաշվարկված է: Նախորդ ամսվա վիճակագրությունը վերահաշվարկելու համար դուք պետք "
-"է վերականգնեք այդ ամսվա բոլոր մատյան նիշքերը և օգտագործեք CLI գործիքը՝ "
-"վիճակագրությունը վերամշակելու համար:"
+msgid "admin.settings.statistics.collection"
+msgstr "Տվյալների հավաքագրում"
 
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr "Համատեքստի ID-ն ամբողջ թիվ չէ:"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr "Assoc տեսակը չի աջակցվում:"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr "Նիշքի տեսակը չի աջակցվում:"
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr "Տարածաշրջանը մինչև երեք այբբենական նիշ երկարությամբ տող չէ:"
-
-msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
-msgstr ""
-"Ետնամասային աշխատանքը, որը կմշակի գրանցամատյանի {$file} նիշքը և կպահի "
-"վիճակագրության տվյալները, ուղարկվել է:"
-
-msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Հարթակ"
-
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "Հարթակի ID"
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Հարթակի ID-ն պահանջվում է, երբ կայքը կնույնականացվի որպես SUSHI հարթակ:"
-
-msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Համաձայն COUNTER SUSHI արձանագրության՝ յուրաքանչյուր վիճակագրական զեկույց "
-"պետք է բացահայտի վիճակագրություն տրամադրող «հարթակը»: Լռելյայնորեն, ամսագիրը "
-"կնշանակվի որպես հարթակ բոլոր վիճակագրությունների համար: Այնուամենայնիվ, եթե "
-"այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ շահագործվում են "
-"միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես հարթակ:"
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Ինչպես նույնականացնել այս հարթակը COUNTER SUSHI զեկույցներում: Հարթակի ID-ն "
-"պետք է լինի 17 նիշ կամ պակաս և կարող է պարունակել տառեր (a–z, A–Z), "
-"թվանշաններ (0–9), ընդգծում (_), կետեր (.) և դեպի առաջ շեղեր (/): Հարթակի ID-"
-"ն օգտագործվում է մի քանի սյունակներում և պետք է հնարավորինս կարճ լինի՝ "
-"միաժամանակ ճանաչելի: Հարթակի ID-ն սովորաբար հիմնված է հրատարակչի կամ հարթակի "
-"անվան, տիրույթի անվան կամ հանրահայտ և եզակի հապավումի վրա:"
-
-msgid "admin.settings.statistics.keepDaily"
-msgstr "Ամսական կամ ամենօրյա վիճակագրություն"
-
-msgid "admin.settings.statistics.keepDaily.description"
-msgstr ""
-"Հետևել օրական կամ ամսական օգտագործման վիճակագրությանը, թե ոչ: Ամենօրյա "
-"վիճակագրությանը հետևելը կարող է զգալիորեն մեծացնել ձեր տվյալների շտեմարանի "
-"չափը:"
-
-msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr ""
-"Վիճակագրությունը ստեղծվում է մուտքամատյան նիշքերից, որոնք մշակվելուց հետո "
-"տեղափոխվում են <code>{$path}</code>: Արդյո՞ք գրանցամատյանի նիշքերը "
-"մշակվելուց հետո պետք է սեղմվեն <code>.gz</code> նիշքերի մեջ: Մատյան նիշքերի "
-"սեղմումը կարող է խնայել սկավառակի տարածությունը կայանի վրա:"
-
-msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Սեղմեք գրանցամատյանների նիշքերը"
-
-msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Գրանցամատյանների նիշքերը թողեք տեղում"
+msgid "admin.settings.statistics.collection.description"
+msgstr "Կարգավորեք թե ինչ տեսակի օգտագործման վիճակագրություն է պետք հավաքել:"
 
 msgid "admin.settings.statistics.storage"
 msgstr "Տվյալների պահոց"
@@ -719,6 +765,21 @@ msgstr ""
 msgid "admin.settings.statistics.sushi"
 msgstr "Sushi համաձայնագիր"
 
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Կազմաձևեք <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a> արձանագրությունը, որը արդյունաբերության կողմից ընդունված ձևաչափ "
+"է օգտագործման վիճակագրության բաշխման համար:"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Ամսական կամ ամենօրյա վիճակագրություն"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Հետևել օրական կամ ամսական օգտագործման վիճակագրությանը, թե ոչ: Ամենօրյա "
+"վիճակագրությանը հետևելը կարող է զգալիորեն մեծացնել ձեր տվյալների շտեմարանի "
+"չափը:"
+
 msgid "admin.settings.statistics.keepDaily.keep"
 msgstr "Հետևեք ամենօրյա և ամսական վիճակագրությանը"
 
@@ -728,47 +789,53 @@ msgstr "Հետևեք միայն ամսական վիճակագրությանը"
 msgid "admin.settings.statistics.compressStatsLogs.label"
 msgstr "Սեղմել տեղեկամատյանները"
 
-msgid "admin.settings.statistics.collection"
-msgstr "Տվյալների հավաքագրում"
-
-msgid "admin.settings.statistics.collection.description"
-msgstr "Կարգավորեք թե ինչ տեսակի օգտագործման վիճակագրություն է պետք հավաքել:"
-
-msgid "admin.settings.statistics.sushi.description"
+msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
-"Կազմաձևեք <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
-"5 SUSHI</a> արձանագրությունը, որը արդյունաբերության կողմից ընդունված ձևաչափ "
-"է օգտագործման վիճակագրության բաշխման համար:"
+"Վիճակագրությունը ստեղծվում է մուտքամատյան նիշքերից, որոնք մշակվելուց հետո "
+"տեղափոխվում են <code>{$path}</code>: Արդյո՞ք գրանցամատյանի նիշքերը "
+"մշակվելուց հետո պետք է սեղմվեն <code>.gz</code> նիշքերի մեջ: Մատյան նիշքերի "
+"սեղմումը կարող է խնայել սկավառակի տարածությունը կայանի վրա:"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Գրանցամատյանների նիշքերը թողեք տեղում"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Սեղմեք գրանցամատյանների նիշքերը"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 "Սահմանափակել մուտքը COUNTER SUSHI վիճակագրության API-երին կառավարիչների և "
 "ադմինների համար"
 
-msgid "admin.cli.tool.jobs.available.options.work.description"
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Հարթակ"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
-"Գործարկեք անսահման daemon worker գործընթաց, որը կշարունակի մշակել "
-"աշխատանքները: Օգտագործեք --help դրոշը՝ այս հրամանի հետ կապված առկա "
-"տարբերակները տեսնելու համար:"
+"Համաձայն COUNTER SUSHI արձանագրության՝ յուրաքանչյուր վիճակագրական զեկույց "
+"պետք է բացահայտի վիճակագրություն տրամադրող «հարթակը»: Լռելյայնորեն, ամսագիրը "
+"կնշանակվի որպես հարթակ բոլոր վիճակագրությունների համար: Այնուամենայնիվ, եթե "
+"այս կայքի բոլոր ամսագրերը հրատարակված են, պատկանում կամ շահագործվում են "
+"միևնույն մատակարարի կողմից, դուք կարող եք ընտրել կայքը որպես հարթակ:"
 
-msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr "Ավարտվել է {$jobCount} աշխատանքը {$queueName} անունով հերթում:"
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Օգտագործեք կայքը որպես հարթակ բոլոր ամսագրերի համար:"
 
-msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr "{$queueName} անունով հերթում առաջադրանքներ չկան:"
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "Հարթակի ID"
 
-msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
-"Ուղարկված փորձնական աշխատանք, որը կարող է ձախողվել {$queueName} անունով "
-"հերթում"
+"Ինչպես նույնականացնել այս հարթակը COUNTER SUSHI զեկույցներում: Հարթակի ID-ն "
+"պետք է լինի 17 նիշ կամ պակաս և կարող է պարունակել տառեր (a–z, A–Z), "
+"թվանշաններ (0–9), ընդգծում (_), կետեր (.) և դեպի առաջ շեղեր (/): Հարթակի ID-"
+"ն օգտագործվում է մի քանի սյունակներում և պետք է հնարավորինս կարճ լինի՝ "
+"միաժամանակ ճանաչելի: Հարթակի ID-ն սովորաբար հիմնված է հրատարակչի կամ հարթակի "
+"անվան, տիրույթի անվան կամ հանրահայտ և եզակի հապավումի վրա:"
 
-msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
-"Ուղարկված թեստային աշխատանք, որը պետք է հաջողությամբ ավարտվի {$queueName} "
-"անունով հերթում"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr "Ջնջելու համար աշխատանքներ չեն գտնվել:"
+"Հարթակի ID-ն պահանջվում է, երբ կայքը կնույնականացվի որպես SUSHI հարթակ:"
 
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr "աշխատանքային հրամանի ընտրանքներ"
@@ -779,62 +846,31 @@ msgstr "օգտագործում : [--options1 --options2= ...]"
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr "Աշխատանքային հրամանի առկա տարբերակները"
 
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Աշխատանքին հերթի միացման անվանումը[default : '{$default}']"
+
 msgid "admin.cli.tool.jobs.work.option.queue.description"
 msgstr "Աշխատանքային հերթի անվանումը[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
 msgstr "Աշխատողի անունը[default : '{$default}']"
 
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Վայրկյանների քանակը, որոնք պետք է սպասել նախքան աշխատանքը նորից փորձելը, որի "
+"համար հանդիպել է չբացահայտված բացառության[default : '{$default}']"
+
 msgid "admin.cli.tool.jobs.work.option.memory.description"
 msgstr "Հիշողության սահմանաչափը մեգաբայթերով[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
-"Վայրկյանների թիվը, որի ընթացքում կարող է գործարկվել երեխա գործընթացը[default "
-": '{$default}']"
+"Վայրկյանների թիվը, որի ընթացքում կարող է գործարկվել երեխա "
+"գործընթացը[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
 "Քուն մտնելու վայրկյանների քանակը, երբ աշխատանք չկա[default : '{$default}']"
-
-msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr "Դադարեցրեք, երբ հերթը դատարկ է[default : {$default}]"
-
-msgid "admin.cli.tool.jobs.work.option.maxTime.description"
-msgstr ""
-"Վայրկյանների առավելագույն քանակը, որի ընթացքում պետք է աշխատի աշխատողը["
-"default : '{$default}']"
-
-msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr "Գործարկեք աշխատողի deamon -ը փորձարկման հերթի համար"
-
-msgid "admin.scheduledTask.processQueueJobs"
-msgstr "Մշակել սպասվող հերթերի աշխատանքները"
-
-msgid "admin.cli.tool.jobs.maintenance.message"
-msgstr ""
-"Հնարավոր չէ գործարկել հերթերի աշխատանքները, քանի որ հավելվածի սպասարկման "
-"ռեժիմը միացված է:"
-
-msgid "admin.cli.tool.jobs.available.options.run.description"
-msgstr ""
-"Ուղարկեք հասանելի աշխատանքները հերթում: եթե ցանկանում եք աշխատանք ուղարկել "
-"որոշակի հերթում, փոխանցեք պարամետրը --queue=QUEUE_NAME: Նաև կարող է պարզապես "
-"անցնել --test ՝ թեստային աշխատանքը գործարկելու համար և --once ՝ միաժամանակ "
-"մեկ աշխատանք կատարելու համար"
-
-msgid "admin.cli.tool.jobs.test.invalid.option"
-msgstr ""
-"Անվավեր թեստային աշխատանքի տարբերակ: Այն կարող է լինել միայն «'failed' կամ "
-"'success' այս '--only=' տարբերակի համար."
-
-msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr "Աշխատանքին հերթի միացման անվանումը[default : '{$default}']"
-
-msgid "admin.cli.tool.jobs.work.option.backoff.description"
-msgstr ""
-"Վայրկյանների քանակը, որոնք պետք է սպասել նախքան աշխատանքը նորից փորձելը, որի "
-"համար հանդիպել է չբացահայտված բացառության[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
@@ -845,10 +881,47 @@ msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
 "Ստիպեք աշխատողին աշխատել նույնիսկ սպասարկման ռեժիմում[default : {$default}]"
 
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "Դադարեցրեք, երբ հերթը դատարկ է[default : {$default}]"
+
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
 "Աշխատանքների քանակը, որոնք պետք է մշակվեն մինչև դադարեցնելը[default : "
 "'{$default}']"
 
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"Վայրկյանների առավելագույն քանակը, որի ընթացքում պետք է աշխատի "
+"աշխատողը[default : '{$default}']"
+
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr "Աշխատանքների միջև հանգստի վայրկյանների քանակը[default : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "Գործարկեք աշխատողի deamon -ը փորձարկման հերթի համար"
+
+#~ msgid "admin.languages.download.cannotModifyRegistry"
+#~ msgstr ""
+#~ "Հնարավոր չե ավելացնել նոր տվյալ , լոկալ ռեգիստր ֆալում, մասնավորապես "
+#~ "\"registry/locales.xml\"."
+
+#~ msgid "admin.languages.download.cannotOpen"
+#~ msgstr "Հնարավոր չե բացել լեզվի նկարագիրը PKP կայքից"
+
+#~ msgid "admin.languages.downloadLocales"
+#~ msgstr "ներբեռնել լոկալ"
+
+#~ msgid "admin.languages.download"
+#~ msgstr "Ներբերնել լոկալ"
+
+#~ msgid "admin.authSources"
+#~ msgstr "Նույնականացման աղբյուր"
+
+#~ msgid "admin.auth.noneCreated"
+#~ msgstr "Նույնականացման աղբյուր հայտարարված չե։"
+
+#~ msgid "admin.auth.create"
+#~ msgstr "Ստեղծել նույնականացման աղբյուր"
+
+#~ msgid "admin.auth.confirmDelete"
+#~ msgstr "Համեզվա՞ծ եք, որ ուզում եք ջնջել ասյ իդենտիֆիկացիոն աղբյուրը?"

@@ -12,10 +12,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.oaiMetadata.dc.displayName"
+msgstr "Формат на метаданни DC"
+
 msgid "plugins.oaiMetadata.dc.description"
 msgstr ""
 "Структурира метаданни по начин, който е в съответствие с формата на Dublin "
 "Core (DC)."
-
-msgid "plugins.oaiMetadata.dc.displayName"
-msgstr "Формат на метаданни DC"

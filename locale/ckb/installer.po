@@ -11,86 +11,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "installer.installerSQLStatements"
-msgstr "دەستەواژەکانی SQL  بۆ دابەزاندن"
+msgid "installer.additionalLocales"
+msgstr "زمانەکانی دیکە"
 
-msgid "installer.installErrorsOccurred"
-msgstr "لە کاتی دابەزاندندا هەڵەیەک پەیدا بو"
-
-msgid "installer.form.usernameRequired"
-msgstr "ناوێکی بەکارهێنەر بۆ ئەژماری بەڕێوەبەر داوا کراوە."
-
-msgid "installer.form.separateMultiple"
-msgstr "بە فاریزەی ئینگلیزی وشەکان لە یەکدی جیا بکەوە"
-
-msgid "installer.form.passwordsDoNotMatch"
-msgstr "وشە نهێنییەکانی بەڕێوەبەر هاوشێوە نین."
-
-msgid "installer.form.passwordRequired"
-msgstr "وشەیەکی نهێنی بۆ ئەژماری بەڕێوەبەر داوا کراوە."
-
-msgid "installer.form.localeRequired"
-msgstr "زمانێک دەبێت دیاری بکرێت."
-
-msgid "installer.form.filesDirRequired"
-msgstr "فەرهەنگەکە بۆ خەزنکردنی فایلە بارکراوەکان داوا کراوە."
-
-msgid "installer.form.emailRequired"
-msgstr "ئیمەیڵێکی دروست بۆ ئەژماری بەڕێوەبەر داوا کراوە."
-
-msgid "installer.form.databaseNameRequired"
-msgstr "ناوی داتابەیس داوا کراوە."
-
-msgid "installer.form.databaseDriverRequired"
-msgstr "بەکارخەری داتابەیس دەبێت دیاری بکرێت."
-
-msgid "installer.form.clientCharsetRequired"
-msgstr "دیاریکردنی سیستەمی پیتەکان بۆ مشتەری."
-
-msgid "installer.fileSettings"
-msgstr "ڕێکخستنەکانی فایل"
-
-msgid "installer.filesDir"
-msgstr "فەرهەنگ بۆ بارکردنەکان"
-
-msgid "installer.databaseUsername"
-msgstr "ناوی بەکارهێنەر"
-
-msgid "installer.databaseSettings"
-msgstr "ڕێکخستنەکانی داتابەیس"
-
-msgid "installer.databasePassword"
-msgstr "وشەی نهێنی"
-
-msgid "installer.databaseName"
-msgstr "ناوی داتابەیس"
-
-msgid "installer.databaseHost"
-msgstr "میوان"
-
-msgid "installer.databaseDriver"
-msgstr "بەکارخەری داتابەیس"
-
-msgid "installer.contentsOfConfigFile"
-msgstr "ناوەرۆکی فایلی زانیارییەکان"
-
-msgid "installer.connectionCharset"
-msgstr "کۆمەڵەی بەیەکگەیشتنی پیتەکان"
-
-msgid "installer.configFileError"
-msgstr "فایلی <tt>config.inc.php</tt> نییە یان ناخوێندرێتەوە."
-
-msgid "installer.clientCharsetInstructions"
-msgstr "کۆدکردنی بەکارهێندراو بۆ داتا بۆ براوزەر دەنێردرێت و لێیەوە وەردەگیرێت."
-
-msgid "installer.clientCharset"
-msgstr "سیستەمی پیت بۆ کڕیار"
-
-msgid "installer.checkYes"
-msgstr "بەڵێ"
-
-msgid "installer.checkNo"
-msgstr "<span class=\"pkp_form_error formError\">نەخێر</span>"
+msgid "installer.administratorAccount"
+msgstr "ئەژماری بەڕێوەبەر"
 
 msgid "installer.administratorAccountInstructions"
 msgstr ""
@@ -98,8 +23,168 @@ msgstr ""
 "سیستەمەکە دەبێت. ئەژماری بەکارهێنەری دیکە دەکریت دوای دابەزاندنی سیستەمەکە "
 "دروست بکرێن."
 
-msgid "installer.administratorAccount"
-msgstr "ئەژماری بەڕێوەبەر"
+msgid "installer.checkNo"
+msgstr "<span class=\"pkp_form_error formError\">نەخێر</span>"
 
-msgid "installer.additionalLocales"
-msgstr "زمانەکانی دیکە"
+msgid "installer.checkYes"
+msgstr "بەڵێ"
+
+msgid "installer.configFileError"
+msgstr "فایلی <tt>config.inc.php</tt> نییە یان ناخوێندرێتەوە."
+
+msgid "installer.connectionCharset"
+msgstr "کۆمەڵەی بەیەکگەیشتنی پیتەکان"
+
+msgid "installer.contentsOfConfigFile"
+msgstr "ناوەرۆکی فایلی زانیارییەکان"
+
+msgid "installer.databaseDriver"
+msgstr "بەکارخەری داتابەیس"
+
+msgid "installer.databaseDriverInstructions"
+msgstr ""
+
+msgid "installer.databaseHost"
+msgstr "میوان"
+
+msgid "installer.databaseHostInstructions"
+msgstr ""
+
+msgid "installer.databaseName"
+msgstr "ناوی داتابەیس"
+
+msgid "installer.databasePassword"
+msgstr "وشەی نهێنی"
+
+msgid "installer.databaseSettings"
+msgstr "ڕێکخستنەکانی داتابەیس"
+
+msgid "installer.databaseUsername"
+msgstr "ناوی بەکارهێنەر"
+
+msgid "installer.filesDir"
+msgstr "فەرهەنگ بۆ بارکردنەکان"
+
+msgid "installer.fileSettings"
+msgstr "ڕێکخستنەکانی فایل"
+
+msgid "installer.form.clientCharsetRequired"
+msgstr "دیاریکردنی سیستەمی پیتەکان بۆ مشتەری."
+
+msgid "installer.form.databaseDriverRequired"
+msgstr "بەکارخەری داتابەیس دەبێت دیاری بکرێت."
+
+msgid "installer.form.databaseNameRequired"
+msgstr "ناوی داتابەیس داوا کراوە."
+
+msgid "installer.form.emailRequired"
+msgstr "ئیمەیڵێکی دروست بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.filesDirRequired"
+msgstr "فەرهەنگەکە بۆ خەزنکردنی فایلە بارکراوەکان داوا کراوە."
+
+msgid "installer.form.localeRequired"
+msgstr "زمانێک دەبێت دیاری بکرێت."
+
+msgid "installer.form.passwordRequired"
+msgstr "وشەیەکی نهێنی بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.passwordsDoNotMatch"
+msgstr "وشە نهێنییەکانی بەڕێوەبەر هاوشێوە نین."
+
+msgid "installer.form.separateMultiple"
+msgstr "بە فاریزەی ئینگلیزی وشەکان لە یەکدی جیا بکەوە"
+
+msgid "installer.form.usernameAlphaNumeric"
+msgstr ""
+
+msgid "installer.form.usernameRequired"
+msgstr "ناوێکی بەکارهێنەر بۆ ئەژماری بەڕێوەبەر داوا کراوە."
+
+msgid "installer.form.timeZoneRequired"
+msgstr ""
+
+msgid "installer.installationWrongPhp"
+msgstr ""
+
+msgid "installer.installErrorsOccurred"
+msgstr "لە کاتی دابەزاندندا هەڵەیەک پەیدا بو"
+
+msgid "installer.installerSQLStatements"
+msgstr "دەستەواژەکانی SQL  بۆ دابەزاندن"
+
+msgid "installer.installFileError"
+msgstr ""
+
+msgid "installer.installFilesDirError"
+msgstr ""
+
+msgid "installer.installParseDBFileError"
+msgstr ""
+
+msgid "installer.installMigrationError"
+msgstr ""
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr ""
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr ""
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+
+msgid "installer.timezoneInstructions"
+msgstr ""
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+
+msgid "installer.locale"
+msgstr ""
+
+msgid "installer.locale.maybeIncomplete"
+msgstr ""
+
+msgid "installer.localeSettings"
+msgstr ""
+
+msgid "installer.oaiSettings"
+msgstr ""
+
+msgid "installer.oaiRepositoryIdInstructions"
+msgstr ""
+
+msgid "installer.oaiRepositoryId"
+msgstr ""
+
+msgid "installer.publicFilesDirError"
+msgstr ""
+
+msgid "installer.releaseNotes"
+msgstr ""
+
+msgid "installer.preInstallationInstructionsTitle"
+msgstr ""
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+
+msgid "installer.configureXSLMessage"
+msgstr ""
+
+msgid "installer.beacon"
+msgstr ""
+
+msgid "installer.beacon.enable"
+msgstr ""
+
+msgid "installer.unsupportedPhpError"
+msgstr ""
+
+#~ msgid "installer.clientCharsetInstructions"
+#~ msgstr ""
+#~ "کۆدکردنی بەکارهێندراو بۆ داتا بۆ براوزەر دەنێردرێت و لێیەوە وەردەگیرێت."
+
+#~ msgid "installer.clientCharset"
+#~ msgstr "سیستەمی پیت بۆ کڕیار"

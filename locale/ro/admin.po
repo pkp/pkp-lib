@@ -12,243 +12,55 @@ msgstr ""
 "20)) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Nu există Fișiere de Limbă disponibile pentru descărcare."
+msgid "admin.systemInfo.settingName"
+msgstr "Setare nume"
 
-msgid "admin.fileLoader.emailSubject"
-msgstr "Încărcător de fișiere"
+msgid "admin.systemInfo.settingValue"
+msgstr "Setare valoare"
 
-msgid "admin.fileLoader.fileProcessed"
-msgstr "Fișierul {$filename} a fost procesat și arhivat."
+msgid "admin.adminFunctions"
+msgstr "Funcții administrative"
 
-msgid "admin.fileLoader.moveFileFailed"
+msgid "admin.deleteCache"
 msgstr ""
-"Fișierul {$filename} nu a putut fi mutat de la {$currentFilePath} la "
-"{$destinationPath}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Fișierul {$path} nu este un director sau nu poate fi citit."
-
-msgid "admin.fileLoader.wrongBasePathLocation"
+msgid "admin.deleteCache.description"
 msgstr ""
-"Calea de bază {$path} trebuie să se afle în directorul fișierelor publice."
 
-msgid "admin.version"
-msgstr "Versiune"
+msgid "admin.clearDataCache"
+msgstr "Ștergeți cache-urile de date"
 
-msgid "admin.version.upToDate"
-msgstr "Sistemul dvs. este actualizat"
+msgid "admin.clearTemplateCache"
+msgstr "Ștergeți memoria cache șablon"
 
-msgid "admin.version.updateAvailable"
-msgstr "Este disponibilă o versiune actualizată"
-
-msgid "admin.versionRevision"
-msgstr "Revizuire"
-
-msgid "admin.version.moreInfo"
-msgstr "Mai multe informații"
-
-msgid "admin.versionMinor"
-msgstr "Minor"
-
-msgid "admin.versionMajor"
-msgstr "Major"
-
-msgid "admin.version.latest"
-msgstr "Ultima versiune"
-
-msgid "admin.versionHistory"
-msgstr "Istoric versiune"
-
-msgid "admin.version.downloadPatch"
-msgstr "Descărcare Cale"
-
-msgid "admin.version.downloadPackage"
-msgstr "Descărcare"
-
-msgid "admin.version.checkForUpdates"
-msgstr "Verificare actualizări"
-
-msgid "admin.versionBuild"
-msgstr "Construiți"
-
-msgid "admin.systemInformation"
-msgstr "Informații Sistem"
-
-msgid "admin.systemConfigFileReadError"
+msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Fișierul de configurare <tt>config.inc.php</tt> nu există, nu este lizibil, "
-"sau nu este valid."
+"Fișierul dvs. de configurare a fost actualizat cu succes. Vă rugăm să "
+"rețineți că, dacă site-ul dvs. nu mai funcționează corect, poate fi necesar "
+"să vă reparați manual configurația prin editarea directă <tt>config.inc.php</"
+"tt>."
 
-msgid "admin.siteSetup"
-msgstr "Configurare Site"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Sigur doriți să ștergeți memoria cache a șabloanelor realizate?"
 
-msgid "admin.siteSettings"
-msgstr "Setări Site"
-
-msgid "admin.siteManagement"
-msgstr "Management Site"
-
-msgid "admin.siteAdmin"
-msgstr "Administrator Site"
-
-msgid "admin.settings.siteTheme"
-msgstr "Temă Site"
-
-msgid "admin.settings.siteTitle"
-msgstr "Nume Site"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo Site"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "Foaie Tip Site"
-
-msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Format invalid al foii Tip Site. Formatul acceptat este .css."
-
-msgid "admin.settings.siteLanguage"
-msgstr "Limba site-ului"
-
-msgid "admin.settings.minPasswordLength"
-msgstr "Lungimea minimă a parolei (caractere)"
-
-msgid "admin.settings.introduction"
-msgstr "Introducere"
-
-msgid "admin.settings.contactName"
-msgstr "Numele principalei persoane de contact"
-
-msgid "admin.settings.contactEmail"
-msgstr "Adresa de e-mail a principalei persoane de contact"
-
-msgid "admin.settings.about"
-msgstr "Despre Site"
-
-msgid "admin.settings"
-msgstr "Setări"
-
-msgid "admin.server.platform"
-msgstr "Platformă OS"
-
-msgid "admin.server.phpVersion"
-msgstr "Versiune PHP"
-
-msgid "admin.serverInformation"
-msgstr "Informații server"
-
-msgid "admin.server.dbVersion"
-msgstr "Versiune server bază de date"
-
-msgid "admin.server.dbDriver"
-msgstr "Driver bază de date"
-
-msgid "admin.server.apacheVersion"
-msgstr "Versiune Apache"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Reamintire expirare abonament"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Reamintire revizie"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicați înregistrările programate pentru tipărire"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Ștergeți jurnalele de executare a activităților programate"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"Sunteți sigur că doriți să ștergeți toate jurnalele de executare a "
-"activităților programate?"
+"Sigur doriți să suspendați toate sesiunile de utilizator? Toți utilizatorii "
+"care sunt conectați în sistem vor fi nevoiți să se autentifice din nou "
+"(inclusiv dvs.)."
 
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.contentsOfConfigFile"
+msgstr "Conținutul fișierului de configurare"
+
+msgid "admin.contexts.confirmDelete"
 msgstr ""
-"Inslatarea dumneavoastră {$softwareName} a fost executată automat și "
-"activitatea s-a încheiat. Puteți descărca fișierul jurnal aici:  {$url}"
+"Sigur doriți să ștergeți definitiv {$contextName} și tot conținutul său?"
 
-msgid "admin.scheduledTask.noLog"
-msgstr "Activitatea nu a generat însemnări în jurnal."
+msgid "admin.currentVersion"
+msgstr "Versiune curentă"
 
-msgid "admin.scheduledTask.stopTime"
-msgstr "Procesul de lucru s-a încheiat."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Procesul de lucru a început."
-
-msgid "admin.scheduledTask"
-msgstr "Planificarea activităților"
-
-msgid "admin.phpInfo"
-msgstr "Informații PHP extinse"
-
-msgid "admin.languages.uninstall"
-msgstr "Dezinstalare Fișiere de Limbă"
-
-msgid "admin.languages.reload"
-msgstr "Reîncărcare Fișiere de Limbă"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "Nu sunt disponibile alte Fișiere de Limbă pentru instalare."
-
-msgid "admin.languages.languageSettings"
-msgstr "Setări Limbă"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Instalare Fișeire de Limbă noi"
-
-msgid "admin.languages.installLocales"
-msgstr "Instalare"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalare Fișiere de Limbă"
-
-msgid "admin.languages.availableLocales"
-msgstr "Fișiere de Limbă disponibile"
-
-msgid "admin.languages.installLanguages"
-msgstr "Gestionare Fișiere de Limbă"
-
-msgid "admin.languages.installedLocales"
-msgstr "Fișiere de Limbă instalate"
-
-msgid "admin.languages.confirmReload"
-msgstr ""
-"Sigur doriți să reîncărcați această limbă? Aceasta va șterge toate datele "
-"existente în funcție de regiune, cum ar fi șabloanele de e-mail "
-"personalizate."
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Sigur doriți să schimbați limba principală a site-ului? Numele "
-"utilizatorilor, care sunt editate în limba principală a site-ului, vor fi "
-"copiate în directoarele în care lipsesc."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Nu se poate adăuga noul fișier în registrul Locale, de obicei \"registry/"
-"locales.xml\"."
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Acest fișier încarcă limba principală a site-ului. Nu îl puteți dezactiva "
-"până nu alegeți o altă limbă."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Descriptorul de limbă de pe site-ul web PKP nu se poate deschide."
-
-msgid "admin.languages.downloadLocales"
-msgstr "Descărcare fișiere"
-
-msgid "admin.languages.download"
-msgstr "Descărcare fișier"
-
-msgid "admin.expireSessions"
-msgstr "Încheiere sesiune de utilizator"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "Afișează configurarea nouă"
+msgid "admin.dateInstalled"
+msgstr "Data instalării"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
@@ -257,46 +69,732 @@ msgstr ""
 "într-un editor de text adecvat și să înlocuiți conținutul său cu conținutul "
 "câmpului de text de mai jos."
 
-msgid "admin.dateInstalled"
-msgstr "Data instalării"
+msgid "admin.displayNewSystemConfig"
+msgstr "Afișează configurarea nouă"
 
-msgid "admin.currentVersion"
-msgstr "Versiune curentă"
+msgid "admin.expireSessions"
+msgstr "Încheiere sesiune de utilizator"
 
-msgid "admin.contexts.confirmDelete"
+msgid "admin.expireSessions.description"
 msgstr ""
-"Sigur doriți să ștergeți definitiv {$contextName} și tot conținutul său?"
 
-msgid "admin.contentsOfConfigFile"
-msgstr "Conținutul fișierului de configurare"
-
-msgid "admin.confirmExpireSessions"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"Sigur doriți să suspendați toate sesiunile de utilizator? Toți utilizatorii "
-"care sunt conectați în sistem vor fi nevoiți să se autentifice din nou ("
-"inclusiv dvs.)."
+"Acest fișier încarcă limba principală a site-ului. Nu îl puteți dezactiva "
+"până nu alegeți o altă limbă."
 
-msgid "admin.confirmClearTemplateCache"
-msgstr "Sigur doriți să ștergeți memoria cache a șabloanelor realizate?"
-
-msgid "admin.configFileUpdatedInstructions"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Fișierul dvs. de configurare a fost actualizat cu succes. Vă rugăm să "
-"rețineți că, dacă site-ul dvs. nu mai funcționează corect, poate fi necesar "
-"să vă reparați manual configurația prin editarea directă "
-"<tt>config.inc.php</tt>."
+"Sigur doriți să schimbați limba principală a site-ului? Numele "
+"utilizatorilor, care sunt editate în limba principală a site-ului, vor fi "
+"copiate în directoarele în care lipsesc."
 
-msgid "admin.clearTemplateCache"
-msgstr "Ștergeți memoria cache șablon"
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Sigur doriți să reîncărcați această limbă? Aceasta va șterge toate datele "
+"existente în funcție de regiune, cum ar fi șabloanele de e-mail "
+"personalizate."
 
-msgid "admin.clearDataCache"
-msgstr "Ștergeți cache-urile de date"
+msgid "admin.languages.installedLocales"
+msgstr "Fișiere de Limbă instalate"
 
-msgid "admin.adminFunctions"
-msgstr "Funcții administrative"
+msgid "admin.languages.installLanguages"
+msgstr "Gestionare Fișiere de Limbă"
 
-msgid "admin.systemInfo.settingValue"
-msgstr "Setare valoare"
+msgid "admin.languages.availableLocales"
+msgstr "Fișiere de Limbă disponibile"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Setare nume"
+msgid "admin.languages.installLocale"
+msgstr "Instalare Fișiere de Limbă"
+
+msgid "admin.languages.installLocales"
+msgstr "Instalare"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Instalare Fișeire de Limbă noi"
+
+msgid "admin.languages.languageSettings"
+msgstr "Setări Limbă"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Nu sunt disponibile alte Fișiere de Limbă pentru instalare."
+
+msgid "admin.languages.reload"
+msgstr "Reîncărcare Fișiere de Limbă"
+
+msgid "admin.languages.uninstall"
+msgstr "Dezinstalare Fișiere de Limbă"
+
+msgid "admin.phpInfo"
+msgstr "Informații PHP extinse"
+
+msgid "admin.scheduledTask"
+msgstr "Planificarea activităților"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Procesul de lucru a început."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Procesul de lucru s-a încheiat."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Activitatea nu a generat însemnări în jurnal."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Inslatarea dumneavoastră {$softwareName} a fost executată automat și "
+"activitatea s-a încheiat. Puteți descărca fișierul jurnal aici:  {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Sunteți sigur că doriți să ștergeți toate jurnalele de executare a "
+"activităților programate?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Ștergeți jurnalele de executare a activităților programate"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicați înregistrările programate pentru tipărire"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Reamintire revizie"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Reamintire expirare abonament"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Versiune Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Driver bază de date"
+
+msgid "admin.server.dbVersion"
+msgstr "Versiune server bază de date"
+
+msgid "admin.serverInformation"
+msgstr "Informații server"
+
+msgid "admin.server.phpVersion"
+msgstr "Versiune PHP"
+
+msgid "admin.server.platform"
+msgstr "Platformă OS"
+
+msgid "admin.settings"
+msgstr "Setări"
+
+msgid "admin.settings.about"
+msgstr "Despre Site"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
+
+msgid "admin.settings.contactEmail"
+msgstr "Adresa de e-mail a principalei persoane de contact"
+
+msgid "admin.settings.contactName"
+msgstr "Numele principalei persoane de contact"
+
+msgid "admin.settings.introduction"
+msgstr "Introducere"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Lungimea minimă a parolei (caractere)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
+
+msgid "admin.settings.siteLanguage"
+msgstr "Limba site-ului"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Format invalid al foii Tip Site. Formatul acceptat este .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Foaie Tip Site"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo Site"
+
+msgid "admin.settings.siteTitle"
+msgstr "Nume Site"
+
+msgid "admin.settings.siteTheme"
+msgstr "Temă Site"
+
+msgid "admin.siteAdmin"
+msgstr "Administrator Site"
+
+msgid "admin.siteManagement"
+msgstr "Management Site"
+
+msgid "admin.siteSettings"
+msgstr "Setări Site"
+
+msgid "admin.siteSetup"
+msgstr "Configurare Site"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Fișierul de configurare <tt>config.inc.php</tt> nu există, nu este lizibil, "
+"sau nu este valid."
+
+msgid "admin.systemInformation"
+msgstr "Informații Sistem"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr "Construiți"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Verificare actualizări"
+
+msgid "admin.version.downloadPackage"
+msgstr "Descărcare"
+
+msgid "admin.version.downloadPatch"
+msgstr "Descărcare Cale"
+
+msgid "admin.versionHistory"
+msgstr "Istoric versiune"
+
+msgid "admin.version.latest"
+msgstr "Ultima versiune"
+
+msgid "admin.versionMajor"
+msgstr "Major"
+
+msgid "admin.versionMinor"
+msgstr "Minor"
+
+msgid "admin.version.moreInfo"
+msgstr "Mai multe informații"
+
+msgid "admin.versionRevision"
+msgstr "Revizuire"
+
+msgid "admin.version.updateAvailable"
+msgstr "Este disponibilă o versiune actualizată"
+
+msgid "admin.version.upToDate"
+msgstr "Sistemul dvs. este actualizat"
+
+msgid "admin.version"
+msgstr "Versiune"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"Calea de bază {$path} trebuie să se afle în directorul fișierelor publice."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Fișierul {$path} nu este un director sau nu poate fi citit."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Fișierul {$filename} nu a putut fi mutat de la {$currentFilePath} la "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Fișierul {$filename} a fost procesat și arhivat."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Încărcător de fișiere"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nu există Fișiere de Limbă disponibile pentru descărcare."
+
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.languages.download.cannotModifyRegistry"
+#~ msgstr ""
+#~ "Nu se poate adăuga noul fișier în registrul Locale, de obicei \"registry/"
+#~ "locales.xml\"."
+
+#~ msgid "admin.languages.download.cannotOpen"
+#~ msgstr "Descriptorul de limbă de pe site-ul web PKP nu se poate deschide."
+
+#~ msgid "admin.languages.downloadLocales"
+#~ msgstr "Descărcare fișiere"
+
+#~ msgid "admin.languages.download"
+#~ msgstr "Descărcare fișier"

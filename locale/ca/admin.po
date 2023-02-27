@@ -24,6 +24,12 @@ msgstr "Configuració de valor"
 msgid "admin.adminFunctions"
 msgstr "Funcions administratives"
 
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
 msgid "admin.clearDataCache"
 msgstr "Esborra la memòria cau de dades"
 
@@ -31,16 +37,28 @@ msgid "admin.clearTemplateCache"
 msgstr "Esborra la memòria cau de plantilles"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "El fitxer de configuració s'ha desat correctament. Tingueu en compte que si el seu lloc ja no funciona correctament potser haureu de modificar manualment la configuració editant <tt>config.inc.php</tt> directament."
+msgstr ""
+"El fitxer de configuració s'ha desat correctament. Tingueu en compte que si "
+"el seu lloc ja no funciona correctament potser haureu de modificar "
+"manualment la configuració editant <tt>config.inc.php</tt> directament."
 
 msgid "admin.confirmClearTemplateCache"
-msgstr "Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?"
+msgstr ""
+"Esteu segur/a que voleu esborrar la memòria cau de les plantilles compilades?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Esteu segur/a que voleu vèncer totes les sessions d'usuari/ària? Tots els usuaris/àries que tinguin la sessió iniciada al sistema hauran d'iniciar la sessió de nou, inclòs vós."
+msgstr ""
+"Esteu segur/a que voleu vèncer totes les sessions d'usuari/ària? Tots els "
+"usuaris/àries que tinguin la sessió iniciada al sistema hauran d'iniciar la "
+"sessió de nou, inclòs vós."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Continguts del fitxer de configuració"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Segur que voleu eliminar permanentment {$contextName} i tots els seus "
+"continguts?"
 
 msgid "admin.currentVersion"
 msgstr "Versió actual"
@@ -49,7 +67,11 @@ msgid "admin.dateInstalled"
 msgstr "Data d’instal·lació"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "El contingut de la configuració actualitzada es mostra a continuació. Per aplicar els canvis de configuració heu d'obrir <tt>config.inc.php</tt> en un editor de textos compatible i remplaçar el contingut amb el del camp de text a continuació."
+msgstr ""
+"El contingut de la configuració actualitzada es mostra a continuació. Per "
+"aplicar els canvis de configuració heu d'obrir <tt>config.inc.php</tt> en un "
+"editor de textos compatible i remplaçar el contingut amb el del camp de text "
+"a continuació."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Visualitza la nova configuració"
@@ -57,11 +79,27 @@ msgstr "Visualitza la nova configuració"
 msgid "admin.expireSessions"
 msgstr "Fes vèncer les sessions d’usuari/usuària"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "Aquesta és la configuració regional principal del lloc web. No podeu inhabilitar-la fins que no hàgiu triat una altra configuració regional primària."
+msgstr ""
+"Aquesta és la configuració regional principal del lloc web. No podeu "
+"inhabilitar-la fins que no hàgiu triat una altra configuració regional "
+"primària."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Segur que voleu canviar la configuració regional principal del lloc? Els "
+"noms d'usuari/ària, que són obligatoris en la configuració regional "
+"principal del lloc, es copiaran des de l'actual configuració regional "
+"principal en els casos en què no existeixin."
 
 msgid "admin.languages.confirmReload"
-msgstr "Esteu segur/a que voleu tornar a carregar aquesta configuració regional? Això eliminarà qualsevol dada de configuració regional existent, com ara les plantilles de correu electrònic personalitzades."
+msgstr ""
+"Esteu segur/a que voleu tornar a carregar aquesta configuració regional? "
+"Això eliminarà qualsevol dada de configuració regional existent, com ara les "
+"plantilles de correu electrònic personalitzades."
 
 msgid "admin.languages.installedLocales"
 msgstr "Configuracions regionals instal·lades"
@@ -108,20 +146,117 @@ msgstr "S'ha aturat la tasca."
 msgid "admin.scheduledTask.noLog"
 msgstr "La tasca no ha generat cap registre (log)."
 
-msgid "admin.scheduledTask.openAccessNotification"
-msgstr "Notificació d'accés obert"
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"La instal·lació de l'{$softwareName} ha executat i finalitzat aquesta tasca "
+"automàticament i ja podeu descarregar-vos el fitxer de registre aquí: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Esteu segur que voleu eliminar tots els registres d'execució de tasques "
+"programats?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Neteja els registres de tasques programades"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publicar les trameses programades per a publicació"
 
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Recordatori de revisió"
 
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatori de caducitat de la subscripció"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tasca de càrrega d'arxius d'estadístiques d'ús"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "L'arxiu {$file} no s'ha pogut obrir i s'ha rebutjat."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Versió d’Apache"
@@ -131,9 +266,6 @@ msgstr "Controlador de la base de dades"
 
 msgid "admin.server.dbVersion"
 msgstr "Versió del servidor de la base de dades"
-
-msgid "admin.serverInformationDescription"
-msgstr "Versions del programari del servidor i del sistema operatiu principal. Feu clic a <span class=\"highlight\">Informació PHP Avançada</span> per visualitzar els detalls de configuració d'aquest servidor PHP."
 
 msgid "admin.serverInformation"
 msgstr "Informació del servidor"
@@ -150,6 +282,9 @@ msgstr "Configuració"
 msgid "admin.settings.about"
 msgstr "Quant a la descripció del lloc"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Correus electrònics massius"
+
 msgid "admin.settings.contactEmail"
 msgstr "Adreça electrònica del contacte principal"
 
@@ -162,23 +297,33 @@ msgstr "Introducció"
 msgid "admin.settings.minPasswordLength"
 msgstr "Longitud mínima de la contrasenya"
 
-msgid "admin.settings.passwordCharacters"
-msgstr "caràcters"
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Restringir correus electrònics massius"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Desactivar rols"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Només un administrador/a té permís per modificar aquesta configuració."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Llengua del lloc"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "El format del full d'estil del lloc web no és vàlid. El format admès és .css."
+msgstr ""
+"El format del full d'estil del lloc web no és vàlid. El format admès és .css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Full d’estil del lloc"
 
-msgid "admin.settings.siteTheme"
-msgstr "Tema del lloc web"
+msgid "admin.settings.siteLogo"
+msgstr "Logotip del lloc"
 
 msgid "admin.settings.siteTitle"
 msgstr "Títol del lloc"
+
+msgid "admin.settings.siteTheme"
+msgstr "Tema del lloc web"
 
 msgid "admin.siteAdmin"
 msgstr "Administració del lloc"
@@ -193,10 +338,18 @@ msgid "admin.siteSetup"
 msgstr "Desplegament del lloc web"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "El fitxer de configuració <tt>config.inc.php</tt> no existeix, no es pot llegir o bé no és vàlid."
+msgstr ""
+"El fitxer de configuració <tt>config.inc.php</tt> no existeix, no es pot "
+"llegir o bé no és vàlid."
 
 msgid "admin.systemInformation"
 msgstr "Informació del sistema"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Muntatge"
@@ -238,13 +391,16 @@ msgid "admin.version"
 msgstr "Versió"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "La ruta principal {$path} ha d'estar dins d'un directori de fitxer públic."
+msgstr ""
+"La ruta principal {$path} ha d'estar dins d'un directori de fitxer públic."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "La carpeta {$path} no és un directori o bé no es pot llegir."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "No s'ha pogut more el fitxer {$filename} des de {$currentFilePath} a {$destinationPath}"
+msgstr ""
+"No s'ha pogut more el fitxer {$filename} des de {$currentFilePath} a "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "El fitxer {$filename} s'ha processat i arxivat correctament."
@@ -252,48 +408,406 @@ msgstr "El fitxer {$filename} s'ha processat i arxivat correctament."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Carregador de fitxers"
 
-msgid "admin.copyAccessLogFileTool.error.noEgrep"
-msgstr "No s'ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli."
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
 
-msgid "admin.copyAccessLogFileTool.error.noGunzip"
-msgstr "No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli."
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
 
-msgid "admin.scheduledTask.downloadLog"
-msgstr "La instal·lació de l'{$softwareName} ha executat i finalitzat aquesta tasca automàticament i ja podeu descarregar-vos el fitxer de registre aquí: {$url}"
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
 
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Esteu segur que voleu eliminar tots els registres d'execució de tasques programats?"
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
 
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Neteja els registres de tasques programades"
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
 
-msgid "admin.contexts.confirmDelete"
-msgstr "Segur que voleu eliminar permanentment {$contextName} i tots els seus continguts?"
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
 
-msgid "admin.settings.siteLogo"
-msgstr "Logotip del lloc"
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "No hi ha configuracions regionals disponibles per descarregar."
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publicar les trameses programades per a publicació"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.cli.tool.usage.title"
 msgstr ""
-"Segur que voleu canviar la configuració regional principal del lloc? Els "
-"noms d'usuari/ària, que són obligatoris en la configuració regional "
-"principal del lloc, es copiaran des de l'actual configuració regional "
-"principal en els casos en què no existeixin."
 
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Només un administrador/a té permís per modificar aquesta configuració."
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
 
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Desactivar rols"
+msgid "admin.cli.tool.available.commands"
+msgstr ""
 
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Restringir correus electrònics massius"
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
 
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Correus electrònics massius"
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.scheduledTask.openAccessNotification"
+#~ msgstr "Notificació d'accés obert"
+
+#~ msgid "admin.serverInformationDescription"
+#~ msgstr ""
+#~ "Versions del programari del servidor i del sistema operatiu principal. "
+#~ "Feu clic a <span class=\"highlight\">Informació PHP Avançada</span> per "
+#~ "visualitzar els detalls de configuració d'aquest servidor PHP."
+
+#~ msgid "admin.settings.passwordCharacters"
+#~ msgstr "caràcters"
+
+#~ msgid "admin.copyAccessLogFileTool.error.noEgrep"
+#~ msgstr ""
+#~ "No s'ha configurat la ruta Egrep. Consulteu config.inc.php, secció cli."
+
+#~ msgid "admin.copyAccessLogFileTool.error.noGunzip"
+#~ msgstr ""
+#~ "No s'ha configurat La ruta Gunzip. Consulteu config.inc.php, secció cli."

@@ -43,6 +43,9 @@ msgstr "Datoteke recenzenta"
 msgid "reviewer.submission.declineReview"
 msgstr "Odbij zahtjev za pregled"
 
+msgid "reviewer.submission.declineReviewMessage"
+msgstr "Uredniku možete navesti razloge za odbijanje ove recenzije."
+
 msgid "reviewer.submission.acceptReview"
 msgstr "Prihvatite pregled, idite na korak #2"
 
@@ -52,11 +55,16 @@ msgstr "Nastavite na korak #3"
 msgid "reviewer.submission.submitReview"
 msgstr "Pošalji recenziju"
 
-msgid "reviewer.submission.declineReviewMessage"
-msgstr "Uredniku možete navesti razloge za odbijanje ove recenzije."
-
 msgid "reviewer.submission.saveReviewForLater"
 msgstr "Spremiti za kasnije"
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr "Smjernice za recenzente"
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+"Ovaj izdavač ima politiku za otkrivanje mogućih sukoba interesa od strane "
+"recenzenata. Odvojite trenutak i pregledajte pravila."
 
 msgid "reviewer.submission.noCompetingInterests"
 msgstr "Nemam sukoba interesa"
@@ -73,6 +81,14 @@ msgstr "Smjernice za pregled"
 msgid "reviewer.submission.noGuidelines"
 msgstr "Ovaj izdavač nije izdao nikakve smjernice za recenziranje."
 
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+"Kliknite na nazive datoteka za preuzimanje i pregled datoteka povezanih s "
+"ovim podneskom (na ekranu ili kao ispis)."
+
+msgid "reviewer.submission.reviewDescription"
+msgstr "Unesite svoju recenziju u obrazac ispod."
+
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
 "Osim toga, možete učitati datoteke za urednika ili autora, uključujući "
@@ -84,8 +100,19 @@ msgstr "Recenzija poslana"
 msgid "reviewer.confirmSubmit"
 msgstr "Jeste li sigurni da želite poslati ovu recenziju?"
 
+msgid "reviewer.complete.whatNext"
+msgstr ""
+"Hvala što ste dovršili pregled ovog podneska. Vaša recenzija uspješno je "
+"poslana. Izuzetno cijenimo vaš doprinos kvaliteti radova koje objavljujemo. "
+"Možda će vas urednik ponovno kontaktirati ako bude potrebno više informacija."
+
 msgid "reviewer.aboutDueDates"
 msgstr "O rokovima dospijeća"
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+"Urednik traži da prihvatite ili odbijete recenziju prije roka za odgovor i "
+"da dovršite recenziju prije roka za recenziju."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Za autore i urednike"
@@ -98,33 +125,6 @@ msgstr "Pošaljite kopiju ove obavijesti sljedećim recenzentima."
 
 msgid "submission.comments.sendToReviewers"
 msgstr "Pošalji recenzentima"
-
-msgid "reviewer.submission.reviewerGuidelines"
-msgstr "Smjernice za recenzente"
-
-msgid "reviewer.submission.enterCompetingInterests"
-msgstr ""
-"Ovaj izdavač ima politiku za otkrivanje mogućih sukoba interesa od strane "
-"recenzenata. Odvojite trenutak i pregledajte pravila."
-
-msgid "reviewer.submission.downloadDescription"
-msgstr ""
-"Kliknite na nazive datoteka za preuzimanje i pregled datoteka povezanih s "
-"ovim podneskom (na ekranu ili kao ispis)."
-
-msgid "reviewer.submission.reviewDescription"
-msgstr "Unesite svoju recenziju u obrazac ispod."
-
-msgid "reviewer.complete.whatNext"
-msgstr ""
-"Hvala što ste dovršili pregled ovog podneska. Vaša recenzija uspješno je "
-"poslana. Izuzetno cijenimo vaš doprinos kvaliteti radova koje objavljujemo. "
-"Možda će vas urednik ponovno kontaktirati ako bude potrebno više informacija."
-
-msgid "reviewer.aboutDueDates.text"
-msgstr ""
-"Urednik traži da prihvatite ili odbijete recenziju prije roka za odgovor i "
-"da dovršite recenziju prije roka za recenziju."
 
 msgid "user.authorization.submissionReviewer"
 msgstr "Trenutačni korisnik nije dodijeljen kao recenzent traženog dokumenta."

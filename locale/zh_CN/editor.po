@@ -18,14 +18,26 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "您确定要永久删除此投稿?"
 
-msgid "editor.review.rateReviewer"
-msgstr "审稿人评分"
+msgid "editor.activityLog"
+msgstr "活动日志"
 
-msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "公共标识符不允许使用模式 {$pattern}。"
+msgid "editor.submissionLibrary"
+msgstr "文库"
 
 msgid "editor.submission.workflowDecision.submission"
 msgstr "决定已记录"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "提交被拒绝。"
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "提交已接受。"
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "提交已出版。"
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "发送了新一轮的评审。"
 
 msgid "editor.submission.workflowDecision.submission.production"
 msgstr "发送到生产。"
@@ -33,11 +45,131 @@ msgstr "发送到生产。"
 msgid "editor.submission.workflowDecision.submission.underReview"
 msgstr "提交内容已接受评审。"
 
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "变更决定"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+
+msgid "editor.review.notInitiated"
+msgstr "审阅流程尚未启动。"
+
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "给用户的讯息"
+
+msgid "editor.submission.externalReviewDescription"
+msgstr "在下面选择文件以将其发送到审阅阶段。"
+
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "您必须至少选择一个文件来分配用户。"
+
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "您必须包括个人讯息。"
+
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "不要发送电子邮件给审核员"
+
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "您必须选择一个要分配的用户。"
+
+msgid "editor.submission.uploadSelectFiles"
+msgstr "上传/选择文件"
+
+msgid "editor.submission.selectFiles"
+msgstr "选择文件"
+
+msgid "editor.submission.revisions"
+msgstr "修订"
+
+msgid "editor.submission.review.reviewersDescription"
+msgstr ""
+"使用<em>+添加审阅者</em>邀请读者审阅提交的文件。 笔记本图标表示已提交评论，然"
+"后在被查阅后进行<em>确认</em>检查。 逾期未审时，会出现一个红色的信封图标，以"
+"提醒审阅者。"
+
+msgid "editor.submission.addReviewer"
+msgstr "添加审阅者"
+
 msgid "editor.submission.findAndSelectReviewer"
 msgstr "查找审稿人"
 
 msgid "editor.submission.findAndSelectUser"
 msgstr "查找用户"
+
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "显示所有可访问工作流阶段中的文件。"
+
+msgid "editor.submission.review.currentFiles"
+msgstr "目前对第{$round}轮的评审文件"
+
+msgid "editor.submission.backToSearch"
+msgstr "返回搜索"
+
+msgid "editor.review.createReviewer"
+msgstr "创建新的审阅者"
+
+msgid "editor.review.enrollReviewer.short"
+msgstr "登记现有用户"
+
+msgid "editor.review.unassignReviewer"
+msgstr "取消分配审阅者"
+
+msgid "editor.review.cancelReviewer"
+msgstr "取消审阅者"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "恢复审阅者"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
+
+msgid "editor.submissionReview.reviewType"
+msgstr "审阅类型"
+
+msgid "editor.submissionReview.sendEmail"
+msgstr "发送电子邮件通知给作者：{$authorName}"
+
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "发送电子邮件通知给编辑：{$authorName}"
+
+msgid "editor.submissionReview.skipEmail"
+msgstr "不发送电子邮件通知"
+
+msgid "editor.submissionReview.open"
+msgstr "开放"
 
 msgid "editor.submissionReview.anonymous"
 msgstr "单盲（匿名审稿/公开作者）"
@@ -45,14 +177,23 @@ msgstr "单盲（匿名审稿/公开作者）"
 msgid "editor.submissionReview.doubleAnonymous"
 msgstr "双盲（匿名审稿/匿名作者）"
 
+msgid "editor.submissionReview.restrictFiles"
+msgstr "要审阅的文件"
+
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "关闭文件选择"
+
 msgid "editor.submissionReview.editReview"
 msgstr "编辑评审"
 
-msgid "editor.review.reviewerRating.none"
-msgstr "无评分"
+msgid "editor.review.anonymousReviewer"
+msgstr "匿名审稿人"
 
-msgid "editor.review.mustSelect"
-msgstr "您必须选择一位审稿人"
+msgid "editor.review.personalMessageToReviewer"
+msgstr "发送给审稿人的电子邮件"
+
+msgid "editor.review.importantDates"
+msgstr "重要日期"
 
 msgid "editor.review.uploadRevision"
 msgstr "上传修订版本"
@@ -65,6 +206,12 @@ msgstr "修订版本将不会受到新一轮的同行评审。"
 
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "修订版本将受到新一轮的同行评审。"
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
 
 msgid "editor.review.dateAccepted"
 msgstr "审阅接受日期"
@@ -141,11 +288,23 @@ msgstr "审阅已提交"
 msgid "editor.review.reviewerThanked"
 msgstr "审阅者感谢"
 
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "审阅者评论"
 
+msgid "editor.review.rateReviewer"
+msgstr "审稿人评分"
+
 msgid "editor.review.rateReviewer.description"
 msgstr "评价所提供审阅的质量。此评分不会与审阅者共享。"
+
+msgid "editor.review.reviewerRating.none"
+msgstr "无评分"
+
+msgid "editor.review.mustSelect"
+msgstr "您必须选择一位审稿人"
 
 msgid "editor.review.errorAddingReviewer"
 msgstr "添加审阅者时出错。请再试一遍。"
@@ -155,6 +314,9 @@ msgstr "删除审阅者时出错。请再试一遍。"
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr "恢复审阅者时出错。请再试一遍。"
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
 
 msgid "editor.review.userGroupSelect"
 msgstr "以此审阅用户组注册用户"
@@ -166,7 +328,15 @@ msgid "editor.review.unconsiderReview"
 msgstr "不考虑此审阅"
 
 msgid "editor.review.readConfirmation"
-msgstr "阅读完该评论后，请按“确认”以表示该审阅过程可以继续进行。如果审稿人已经在其他地方提交了审稿，则可以在下面上传文件，然后按“确认”继续。"
+msgstr ""
+"阅读完该评论后，请按“确认”以表示该审阅过程可以继续进行。如果审稿人已经在其他"
+"地方提交了审稿，则可以在下面上传文件，然后按“确认”继续。"
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr "无法与选定的参与者讨论，可能会影响审查过程的匿名性。"
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "选定的参与者未分配到此阶段。"
 
 msgid "editor.submission.schedulePublication"
 msgstr "出版时间表"
@@ -206,8 +376,9 @@ msgstr "指派审阅者"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
 msgstr ""
-"通过选中下面的“包含”复选框并单击“搜索”，可以将已经上传到任何提交阶段的所有文件添加到“ 编审文件”列表中：将列出所有可用文件，并可以选择包含这些文件。"
-" 可以通过单击“上传文件”链接将尚未上载到某个阶段的其他文件添加到列表中。"
+"通过选中下面的“包含”复选框并单击“搜索”，可以将已经上传到任何提交阶段的所有文"
+"件添加到“ 编审文件”列表中：将列出所有可用文件，并可以选择包含这些文件。 可以"
+"通过单击“上传文件”链接将尚未上载到某个阶段的其他文件添加到列表中。"
 
 msgid "editor.review"
 msgstr "审阅"
@@ -261,7 +432,8 @@ msgid "editor.article.selectReviewForm"
 msgstr "选择审阅表"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "警告：更改审阅表单将影响审阅者使用此表单做出的所有回复。您确定要继续吗？"
+msgstr ""
+"警告：更改审阅表单将影响审阅者使用此表单做出的所有回复。您确定要继续吗？"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "未选择文件"
@@ -299,14 +471,14 @@ msgstr "批准该证明以表明校对已完成并且文件已准备好发布。
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr "撤消对此证明的批准，以表示校对不再完整并且文件尚未准备好发布。"
 
+msgid "editor.submission.revertDeclineDescription"
+msgstr "您确定要撤销拒绝此提交的决定吗？"
+
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "公共标识符 '{$publicIdentifier}' 必须是一个数字。"
 
-msgid "reviewer.list.count"
-msgstr "{$count} 审阅者"
-
-msgid "reviewer.list.itemsOfTotal"
-msgstr "{$count} / {$total} 审阅者"
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "公共标识符不允许使用模式 {$pattern}。"
 
 msgid "reviewer.list.filterRating"
 msgstr "至少评分"
@@ -316,6 +488,9 @@ msgstr "{$count} 有效"
 
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "当前分配的有效审阅"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
 
 msgid "reviewer.list.completedReviews"
 msgstr "审阅完成"
@@ -347,12 +522,17 @@ msgstr "未被分配"
 msgid "reviewer.list.reassign"
 msgstr "重新分配"
 
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "已经分配了该审阅者来审阅此提交。"
 
 #, fuzzy
 msgid "reviewer.list.warnOnAssign"
-msgstr "该审阅者被锁定，因为他们被分配了一个可以查看作者的身份的角色，不能保证匿名评审。您是否仍要解锁此审阅者？"
+msgstr ""
+"该审阅者被锁定，因为他们被分配了一个可以查看作者的身份的角色，不能保证匿名评"
+"审。您是否仍要解锁此审阅者？"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "解锁"
@@ -366,124 +546,35 @@ msgstr "个人传记"
 msgid "reviewer.list.empty"
 msgstr "找不到审阅者"
 
-msgid "editor.review.importantDates"
-msgstr "重要日期"
-
-msgid "editor.review.personalMessageToReviewer"
-msgstr "发送给审稿人的电子邮件"
-
-msgid "editor.review.anonymousReviewer"
-msgstr "匿名审稿人"
-
-msgid "editor.submissionReview.restrictFiles.hide"
-msgstr "关闭文件选择"
-
-msgid "editor.submissionReview.restrictFiles"
-msgstr "要审阅的文件"
-
-msgid "editor.submissionReview.open"
-msgstr "开放"
-
-msgid "editor.submissionReview.skipEmail"
-msgstr "不发送电子邮件通知"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "发送电子邮件通知给编辑：{$authorName}"
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "发送电子邮件通知给作者：{$authorName}"
-
-msgid "editor.submissionReview.reviewType"
-msgstr "审阅类型"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "恢复审阅者"
-
-msgid "editor.review.cancelReviewer"
-msgstr "取消审阅者"
-
-msgid "editor.review.unassignReviewer"
-msgstr "取消分配审阅者"
-
-msgid "editor.review.enrollReviewer.short"
-msgstr "登记现有用户"
-
-msgid "editor.review.createReviewer"
-msgstr "创建新的审阅者"
-
-msgid "editor.submission.backToSearch"
-msgstr "返回搜索"
-
-msgid "editor.submission.review.currentFiles"
-msgstr "目前对第{$round}轮的评审文件"
-
-msgid "editor.submission.fileList.includeAllStages"
-msgstr "显示所有可访问工作流阶段中的文件。"
-
-msgid "editor.submission.addReviewer"
-msgstr "添加审阅者"
-
-msgid "editor.submission.review.reviewersDescription"
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
-"使用<em>+添加审阅者</em>邀请读者审阅提交的文件。 笔记本图标表示已提交评论，然后在被查阅后进行<em>确认</em>检查。 "
-"逾期未审时，会出现一个红色的信封图标，以提醒审阅者。"
 
-msgid "editor.submission.revisions"
-msgstr "修订"
+msgid "editor.decision.cancelDecision"
+msgstr ""
 
-msgid "editor.submission.selectFiles"
-msgstr "选择文件"
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr ""
 
-msgid "editor.submission.uploadSelectFiles"
-msgstr "上传/选择文件"
+msgid "editor.decision.completeSteps"
+msgstr ""
 
-msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "您必须选择一个要分配的用户。"
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
 
-msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "不要发送电子邮件给审核员"
+msgid "editor.decision.emailSkipped"
+msgstr ""
 
-msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "您必须包括个人讯息。"
+msgid "editor.decision.recordDecision"
+msgstr ""
 
-msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "您必须至少选择一个文件来分配用户。"
+msgid "editor.decision.skipEmail"
+msgstr ""
 
-msgid "editor.submission.externalReviewDescription"
-msgstr "在下面选择文件以将其发送到审阅阶段。"
+msgid "editor.decision.stepError"
+msgstr ""
 
-msgid "editor.submission.copyediting.personalMessageToUser"
-msgstr "给用户的讯息"
+#~ msgid "reviewer.list.count"
+#~ msgstr "{$count} 审阅者"
 
-msgid "editor.review.notInitiated"
-msgstr "审阅流程尚未启动。"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "变更决定"
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "发送了新一轮的评审。"
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "提交已出版。"
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "提交已接受。"
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "提交被拒绝。"
-
-msgid "editor.submissionLibrary"
-msgstr "文库"
-
-msgid "editor.activityLog"
-msgstr "活动日志"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "您确定要撤销拒绝此提交的决定吗？"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "选定的参与者未分配到此阶段。"
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr "无法与选定的参与者讨论，可能会影响审查过程的匿名性。"
+#~ msgid "reviewer.list.itemsOfTotal"
+#~ msgstr "{$count} / {$total} 审阅者"

@@ -6,8 +6,8 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
 "PO-Revision-Date: 2022-09-22 18:31+0000\n"
 "Last-Translator: Tormod Strømme <tormod.stromme@uib.no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/user/nb_NO/>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/user/nb_NO/>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,17 +15,72 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "user.accountInformation"
+msgstr "Kontoinformasjon"
+
 msgid "user.affiliation"
 msgstr "Institusjonstilhørighet"
+
+msgid "user.affiliation.description"
+msgstr "(Din institusjon, f.eks. «Det Kongelige Frederiks Universitet»)"
 
 msgid "user.affiliations"
 msgstr "Institusjonstilhørighet"
 
+msgid "user.authorization.accessDenied"
+msgstr "Ingen tilgang."
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Nøkkelen for autentisering av prosessen mangler eller er ugyldig."
+
+msgid "user.authorization.contextRequired"
+msgstr ""
+"Du kan ikke utføre denne operasjonen uten en kontekst, f.eks. forlag, "
+"tidsskrift og konferanse."
+
+msgid "user.authorization.loginRequired"
+msgstr "Du må logge inn."
+
+msgid "user.authorization.privateOperation"
+msgstr ""
+"Operasjonen du prøvde å få tilgang til er enten privat eller eksisterer ikke."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr ""
+"Du har blitt nektet tilgang. Tilgang til denne siden er på nåværende "
+"tidspunkt begrenset."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr "Du har ikke en rolle med tilgang til å utføre dette."
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr "Du har ikke en rolle med tilgang til å utføre denne operasjonen."
+
+msgid "user.authorization.userGroupRequired"
+msgstr "Du må innstille en gyldig brukergruppe for denne oppgaven."
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Du må legge til en bruker som har en administrativ rolle (f.eks. "
+"produksjonsredaktør) før du kan fortsette."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Du har ikke tilgang til dette stadiet av arbeidsflyten."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Stadie i arbeidsflyten ble ikke spesifisert."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Du må spesifisere et programtillegg."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Du har ikke tillatelse til å se dette fagfelleoppdraget."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Du har ikke tillatelse til å se denne diskusjonen."
+
 msgid "user.biography"
 msgstr "Biografiske opplysninger (f.eks. institutt og stilling)"
-
-msgid "user.biography.description"
-msgstr "(F.eks. institutt og stilling)"
 
 msgid "user.changeMyPassword"
 msgstr "Endre passordet mitt"
@@ -45,8 +100,31 @@ msgstr "Rediger min profil"
 msgid "user.email"
 msgstr "E-post"
 
+msgid "user.givenName"
+msgstr "Fornavn"
+
 msgid "user.interests"
 msgstr "Faglige interesser"
+
+msgid "user.gossip"
+msgstr "Private notater"
+
+msgid "user.gossip.description"
+msgstr ""
+"Legg til notater om denne fagfellen. Disse blir tilgjengelige for andre "
+"administratorer, ledere og alle redaktørene. Notatene vil være synlige ved "
+"tildeling av framtidige fagfelleoppdrag."
+
+msgid "user.group"
+msgstr "Brukergruppe"
+
+msgid "user.familyName"
+msgstr "Etternavn"
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+"Ugyldig bildeformat eller -størrelse. Mulige formater er .gif, .jpg eller ."
+"png. Bildet kan ikke være større enn 150x150 pixler."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Kontoen din er slått av av følgende grunn: {$reason}"
@@ -70,8 +148,8 @@ msgstr ""
 
 msgid "user.login.changePasswordInstructions"
 msgstr ""
-"Du må velge et nytt passord før du kan logge inn på dette nettstedet.<br /><"
-"br /> Skriv inn brukernavnet ditt, samt det nåværende og det nye passordet "
+"Du må velge et nytt passord før du kan logge inn på dette nettstedet.<br /"
+"><br /> Skriv inn brukernavnet ditt, samt det nåværende og det nye passordet "
 "ditt nedenfor, for å endre passordet for kontoen din."
 
 msgid "user.login.forgotPassword"
@@ -102,11 +180,38 @@ msgstr ""
 msgid "user.login.registeredEmail"
 msgstr "Brukerens e-post"
 
+msgid "user.login.registrationComplete"
+msgstr "Registrering fullført"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Takk for at du registrerte deg hos oss! Hva vil du gjøre videre?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Se innleveringer"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Lag en ny innlevering"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Fortsett å bla gjennom"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registreringen avventer verifisering"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Husk brukernavn og passord"
+
 msgid "user.login.resetPassword"
 msgstr "Tilbakestill passordet"
 
 msgid "user.logOut"
 msgstr "Logg ut"
+
+msgid "user.logOutAs"
+msgstr "Logg ut som {$username}"
+
+msgid "user.hello"
+msgstr "Hei, "
 
 msgid "user.mailingAddress"
 msgstr "Postadresse"
@@ -126,6 +231,14 @@ msgstr "Gjenta passord"
 msgid "user.phone"
 msgstr "Telefon"
 
+msgid "user.preferredPublicName"
+msgstr "Foretrukket offentlig navn"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Hvordan foretrekker du å bli adressert? En innledende hilsen, mellomnavn og "
+"endelser kan legges til her om du ønsker det."
+
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
 "Skriv inn det nåværende og det nye passordet ditt nedenfor for å endre "
@@ -134,8 +247,22 @@ msgstr ""
 msgid "user.profile.editProfile"
 msgstr "Rediger profil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "Du må oppgi et land."
+
 msgid "user.profile.form.emailRequired"
 msgstr "Du må oppgi en gyldig e-postadresse."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Fornavn er obligatorisk."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Du har lagt til etternavn for et språk, men ikke fått med fornavn. Legg til "
+"fornavn på dette språket."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Du må oppgi en postadresse."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Du må skrive inn det nye passordet ditt."
@@ -149,6 +276,9 @@ msgstr "Få e-postvarsel når ny utgave har fått åpen tilgang"
 msgid "user.profile.form.passwordRequired"
 msgstr "Du må oppgi et passord."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Det nye passordet er det samme som det gamle passordet."
+
 msgid "user.profile.form.profileImage"
 msgstr "Profilbilde"
 
@@ -160,8 +290,14 @@ msgstr ""
 "Den oppgitte URLen er ikke gyldig. Kontroller URLen, og prøv igjen. (Tips: "
 "kanskje det hjelper å føye til http:// først i URLen)"
 
+msgid "user.profile.form.usergroupRequired"
+msgstr "Du må oppgi en brukergruppe."
+
 msgid "user.profile.form.usernameRequired"
 msgstr "Du må oppgi et brukernavn."
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Du må godta betingelsene i personvernerklæringen."
 
 msgid "user.profile.leavePasswordBlank"
 msgstr "La passordfeltene stå tomme dersom du vil beholde passordet du har nå."
@@ -181,8 +317,22 @@ msgstr "Brukerprofil"
 msgid "user.profile.repeatNewPassword"
 msgstr "Gjenta nytt passord"
 
-msgid "user.register.completeForm"
-msgstr "Fyll ut dette skjemaet for å registrere deg hos tidsskriftet."
+msgid "user.login.registerNewAccount"
+msgstr "Registrer"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Skriv inn e-postadressen tilknyttet brukerkontoen under. Du vil motta en e-"
+"post med instruksjoner om hvordan du oppretter et nytt passord."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ja, jeg godtar at mine data samles inn og lagres i tråd med <a href="
+"\"{$privacyUrl}\" target=\"_blank\">personvernerklæringen</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+"Ja takk, jeg vil gjerne motta varsler om nye publikasjoner og kunngjøringer."
 
 msgid "user.register.form.emailExists"
 msgstr "E-postadressen brukes av en annen bruker."
@@ -190,11 +340,22 @@ msgstr "E-postadressen brukes av en annen bruker."
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Passordene samsvarte ikke."
 
+msgid "user.register.form.emailsDoNotMatch"
+msgstr "E-postadressene samsvarte ikke."
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Brukernavnet kan bare inneholde små bokstaver, tall, understrek og "
+"bindestrek. Dessuten må det begynne og slutte med en bokstav eller et tall."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Du må velge minst en rolle."
+
 msgid "user.register.form.usernameExists"
 msgstr "Det valgte brukernavnet er allerede tatt i bruk av en annen bruker."
 
-msgid "user.register.passwordLengthRestriction"
-msgstr "Passordet må være minst {$length} tegn."
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Passordet må ha {$length} minst tegn."
 
 msgid "user.register.registerAs"
 msgstr "Registrer {$contextName} som…"
@@ -204,6 +365,29 @@ msgstr "Registrer"
 
 msgid "user.register.usernameRestriction"
 msgstr "Bruk små bokstaver, tall og bindestrek/understrek."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Du er registrert.  <a href=\"{$profileUrl}\">Klikk her</a>for å fullføre "
+"brukerprofilen din."
+
+msgid "user.role.assistant"
+msgstr "Assistent"
+
+msgid "user.role.author"
+msgstr "Forfatter"
+
+msgid "user.role.author_s"
+msgstr "Forfatter(e)"
+
+msgid "user.role.authors"
+msgstr "Forfattere"
+
+msgid "user.role.editor"
+msgstr "Redaktør"
+
+msgid "user.role.editors"
+msgstr "Redaktører"
 
 msgid "user.role.reader"
 msgstr "Leser"
@@ -222,6 +406,24 @@ msgstr "Nettstedsadministrator"
 
 msgid "user.role.siteAdmins"
 msgstr "Nettstedsadministratorer"
+
+msgid "user.role.copyeditor"
+msgstr "Språkvasker"
+
+msgid "user.role.copyeditors"
+msgstr "Språkvaskere"
+
+msgid "user.role.proofreader"
+msgstr "Korrekturleser"
+
+msgid "user.role.proofreaders"
+msgstr "Korrekturlesere"
+
+msgid "user.role.layoutEditor"
+msgstr "Layoutredaktør"
+
+msgid "user.role.layoutEditors"
+msgstr "Layoutredaktører"
 
 msgid "user.roles"
 msgstr "Roller"
@@ -250,257 +452,77 @@ msgstr "Brukernavn"
 msgid "user.workingLanguages"
 msgstr "Arbeidsspråk"
 
-msgid "user.profile.form.profileImageInvalid"
+msgid "user.orcid"
+msgstr "ORCID iD"
+
+msgid "user.orcid.orcidInvalid"
 msgstr ""
-"Ugyldig bildeformat eller -størrelse. Mulige formater er .gif, .jpg eller "
-".png. Bildet kan ikke være større enn 150x150 pixler."
+"Ugyldig ORCID iD. Inkluder en full URI (f.eks. http://orcid."
+"org/0000-0002-1825-0097)."
 
-msgid "user.affiliation.description"
-msgstr "(Din institusjon, f.eks. «Det Kongelige Frederiks Universitet»)"
+msgid "user.profile.identity"
+msgstr "Identitet"
 
-msgid "user.accountInformation"
-msgstr "Kontoinformasjon"
+msgid "user.profile.contact"
+msgstr "Kontakt"
 
-msgid "user.authorization.loginRequired"
-msgstr "Du må logge inn."
+msgid "user.profile.public"
+msgstr "Offentlig"
 
-msgid "user.group"
-msgstr "Brukergruppe"
+msgid "user.apiKey"
+msgstr "API-nøkkel"
 
-msgid "user.hello"
-msgstr "Hei, "
+msgid "user.apiKeyEnabled"
+msgstr "La eksterne applikasjoner med API-nøkkelen ha tilgang til kontoen"
 
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Det nye passordet er det samme som det gamle passordet."
+msgid "user.apiKey.generate"
+msgstr "Generer ny API-nøkkel"
 
-msgid "user.authorization.accessDenied"
-msgstr "Ingen tilgang."
-
-msgid "user.authorization.restrictedSiteAccess"
+msgid "user.apiKey.remove"
 msgstr ""
-"Du har blitt nektet tilgang. Tilgang til denne siden er på nåværende "
-"tidspunkt begrenset."
-
-msgid "user.gossip"
-msgstr "Private notater"
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Du må oppgi en brukergruppe."
-
-msgid "user.authorization.privateOperation"
-msgstr ""
-"Operasjonen du prøvde å få tilgang til er enten privat eller eksisterer ikke."
-
-msgid "user.profile.form.countryRequired"
-msgstr "Du må oppgi et land."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Du må oppgi en postadresse."
-
-msgid "user.register.form.emailsDoNotMatch"
-msgstr "E-postadressene samsvarte ikke."
-
-msgid "user.register.registrationCompleted"
-msgstr ""
-"Du er registrert.  <a href=\"{$profileUrl}\">Klikk her</a>for å fullføre "
-"brukerprofilen din."
-
-msgid "user.privacyLink"
-msgstr ""
-"Dine data lagres i tråd med vår <a href=\"{$privacyUrl}\" target=\"_blank\""
-">personvernerklæring</a>."
-
-msgid "user.apiKey.secretRequired"
-msgstr ""
-"Før du genererer en ny API-nøkkel, må nettstedsadministratoren legge inn en "
-"hemmelighet i konfigureringsfilen («api_key_secret»)."
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
 "Genererer du en ny API-nøkkel, vil det gjøre brukerens eksisterende nøkler "
 "ugyldige."
 
-msgid "user.apiKey.generate"
-msgstr "Generer ny API-nøkkel"
-
-msgid "user.apiKeyEnabled"
-msgstr "La eksterne applikasjoner med API-nøkkelen ha tilgang til kontoen"
-
-msgid "user.apiKey"
-msgstr "API-nøkkel"
-
-msgid "user.profile.public"
-msgstr "Offentlig"
-
-msgid "user.profile.contact"
-msgstr "Kontakt"
-
-msgid "user.profile.identity"
-msgstr "Identitet"
-
-msgid "user.orcid.orcidInvalid"
+msgid "user.apiKey.removeWarning"
 msgstr ""
-"Ugyldig ORCID iD. Inkluder en full URI (f.eks. http://orcid.org/"
-"0000-0002-1825-0097)."
 
-msgid "user.orcid"
-msgstr "ORCID iD"
-
-msgid "user.role.layoutEditors"
-msgstr "Layoutredaktører"
-
-msgid "user.role.layoutEditor"
-msgstr "Layoutredaktør"
-
-msgid "user.role.proofreaders"
-msgstr "Korrekturlesere"
-
-msgid "user.role.proofreader"
-msgstr "Korrekturleser"
-
-msgid "user.role.copyeditors"
-msgstr "Språkvaskere"
-
-msgid "user.role.copyeditor"
-msgstr "Språkvasker"
-
-msgid "user.role.editors"
-msgstr "Redaktører"
-
-msgid "user.role.editor"
-msgstr "Redaktør"
-
-msgid "user.role.authors"
-msgstr "Forfattere"
-
-msgid "user.role.author_s"
-msgstr "Forfatter(e)"
-
-msgid "user.role.author"
-msgstr "Forfatter"
-
-msgid "user.role.assistant"
-msgstr "Assistent"
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Passordet må ha {$length} minst tegn."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Du må velge minst en rolle."
-
-msgid "user.register.form.usernameAlphaNumeric"
+msgid "user.apiKey.remove.confirmation.message"
 msgstr ""
-"Brukernavnet kan bare inneholde små bokstaver, tall, understrek og "
-"bindestrek. Dessuten må det begynne og slutte med en bokstav eller et tall."
 
-msgid "user.register.form.emailConsent"
+msgid "user.apiKey.secretRequired"
 msgstr ""
-"Ja takk, jeg vil gjerne motta varsler om nye publikasjoner og kunngjøringer."
+"Før du genererer en ny API-nøkkel, må nettstedsadministratoren legge inn en "
+"hemmelighet i konfigureringsfilen («api_key_secret»)."
 
-msgid "user.register.form.privacyConsent"
+msgid "user.privacyLink"
 msgstr ""
-"Ja, jeg godtar at mine data samles inn og lagres i tråd med <a href=\""
-"{$privacyUrl}\" target=\"_blank\">personvernerklæringen</a>."
+"Dine data lagres i tråd med vår <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">personvernerklæring</a>."
 
-msgid "user.login.resetPasswordInstructions"
+msgid "user.login.lostPassword.invalidUser"
 msgstr ""
-"Skriv inn e-postadressen tilknyttet brukerkontoen under. Du vil motta en e-"
-"post med instruksjoner om hvordan du oppretter et nytt passord."
 
-msgid "user.login.registerNewAccount"
-msgstr "Registrer"
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Du må godta betingelsene i personvernerklæringen."
-
-msgid "user.profile.form.givenNameRequired.locale"
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
-"Du har lagt til etternavn for et språk, men ikke fått med fornavn. Legg til "
-"fornavn på dette språket."
 
-msgid "user.profile.form.givenNameRequired"
-msgstr "Fornavn er obligatorisk."
-
-msgid "user.preferredPublicName.description"
+msgid "user.login.passwordResetProcessInstructions"
 msgstr ""
-"Hvordan foretrekker du å bli adressert? En innledende hilsen, mellomnavn og "
-"endelser kan legges til her om du ønsker det."
 
-msgid "user.preferredPublicName"
-msgstr "Foretrukket offentlig navn"
-
-msgid "user.logOutAs"
-msgstr "Logg ut som {$username}"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Husk brukernavn og passord"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Registreringen avventer verifisering"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Fortsett å bla gjennom"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Lag en ny innlevering"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Se innleveringer"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Takk for at du registrerte deg hos oss! Hva vil du gjøre videre?"
-
-msgid "user.login.registrationComplete"
-msgstr "Registrering fullført"
-
-msgid "user.familyName"
-msgstr "Etternavn"
-
-msgid "user.gossip.description"
+msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
-"Legg til notater om denne fagfellen. Disse blir tilgjengelige for andre "
-"administratorer, ledere og alle redaktørene. Notatene vil være synlige ved "
-"tildeling av framtidige fagfelleoppdrag."
 
-msgid "user.interests.description"
-msgstr "(Skill interessene ved å trykke «Enter» eller å legge inn et komma.)"
+#~ msgid "user.biography.description"
+#~ msgstr "(F.eks. institutt og stilling)"
 
-msgid "user.givenName"
-msgstr "Fornavn"
+#~ msgid "user.register.completeForm"
+#~ msgstr "Fyll ut dette skjemaet for å registrere deg hos tidsskriftet."
 
-msgid "user.authorization.submissionQuery"
-msgstr "Du har ikke tillatelse til å se denne diskusjonen."
+#~ msgid "user.register.passwordLengthRestriction"
+#~ msgstr "Passordet må være minst {$length} tegn."
 
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Du har ikke tillatelse til å se dette fagfelleoppdraget."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Du må spesifisere et programtillegg."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Stadie i arbeidsflyten ble ikke spesifisert."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Du har ikke tilgang til dette stadiet av arbeidsflyten."
-
-msgid "user.authorization.managerRequired"
-msgstr ""
-"Du må legge til en bruker som har en administrativ rolle (f.eks. "
-"produksjonsredaktør) før du kan fortsette."
-
-msgid "user.authorization.userGroupRequired"
-msgstr "Du må innstille en gyldig brukergruppe for denne oppgaven."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr "Du har ikke en rolle med tilgang til å utføre denne operasjonen."
-
-msgid "user.authorization.roleBasedAccessDenied"
-msgstr "Du har ikke en rolle med tilgang til å utføre dette."
-
-msgid "user.authorization.contextRequired"
-msgstr ""
-"Du kan ikke utføre denne operasjonen uten en kontekst, f.eks. forlag, "
-"tidsskrift og konferanse."
-
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Nøkkelen for autentisering av prosessen mangler eller er ugyldig."
+#~ msgid "user.interests.description"
+#~ msgstr ""
+#~ "(Skill interessene ved å trykke «Enter» eller å legge inn et komma.)"

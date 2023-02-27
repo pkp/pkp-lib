@@ -32,7 +32,10 @@ msgid "reviewer.step1.request"
 msgstr "Prošnja za recenzijo"
 
 msgid "reviewer.step1.requestBoilerplate"
-msgstr "Izbrani ste bili kot potencialni recenzent naslednjega prispevka. Spodaj je kratek pregeld prispevka in predvidena časovnica za opralvjanje recenzije. Upamo, da boste lahko sodelovali."
+msgstr ""
+"Izbrani ste bili kot potencialni recenzent naslednjega prispevka. Spodaj je "
+"kratek pregeld prispevka in predvidena časovnica za opralvjanje recenzije. "
+"Upamo, da boste lahko sodelovali."
 
 msgid "reviewer.step1.viewAllDetails"
 msgstr "Poglej vse podatke prispevka"
@@ -44,7 +47,9 @@ msgid "reviewer.submission.declineReview"
 msgstr "Zavrni prošnjo za recenzijo"
 
 msgid "reviewer.submission.declineReviewMessage"
-msgstr "V polju spodaj lahko urendiku sporočite, zakaj zavračate to prošnjo za recenzijo."
+msgstr ""
+"V polju spodaj lahko urendiku sporočite, zakaj zavračate to prošnjo za "
+"recenzijo."
 
 msgid "reviewer.submission.acceptReview"
 msgstr "Sprejmi recenzijo, Nadaljuj na korak #2"
@@ -55,11 +60,16 @@ msgstr "Nadaljuj na korak #3"
 msgid "reviewer.submission.submitReview"
 msgstr "Oddaj recenzijo"
 
+msgid "reviewer.submission.saveReviewForLater"
+msgstr "Shrani za kasneje"
+
 msgid "reviewer.submission.reviewerGuidelines"
 msgstr "Recenzentska navodila"
 
 msgid "reviewer.submission.enterCompetingInterests"
-msgstr "Izdajatelj ima pravilo, da morate razkriti potencialno navzkrižje interesov. Prosimo, da si preberete politiko navzkrižje interesov."
+msgstr ""
+"Izdajatelj ima pravilo, da morate razkriti potencialno navzkrižje interesov. "
+"Prosimo, da si preberete politiko navzkrižje interesov."
 
 msgid "reviewer.submission.noCompetingInterests"
 msgstr "Nimam nobenega navzkrižja interesov"
@@ -83,7 +93,9 @@ msgid "reviewer.submission.reviewDescription"
 msgstr "Vpišite vašo recenzijo v spodnji obrazec."
 
 msgid "reviewer.submission.uploadDescription"
-msgstr "Naložite datoteke, za katere bi radi, da jih pregledata urednik in/ali avtor, lahko tudi posodobljene verzije originalnih datotek prispevka."
+msgstr ""
+"Naložite datoteke, za katere bi radi, da jih pregledata urednik in/ali "
+"avtor, lahko tudi posodobljene verzije originalnih datotek prispevka."
 
 msgid "reviewer.complete"
 msgstr "Recenzija oddana"
@@ -92,13 +104,19 @@ msgid "reviewer.confirmSubmit"
 msgstr "Ste prepričani, da želite oddati to recenzijo?"
 
 msgid "reviewer.complete.whatNext"
-msgstr "Hvala lepa za opravljanje te recenzije. Recenzija je bila uspešno oddana. Zahvaljujemo se vam za vaše delo, ki pomaga pri kvaliteti objavljenih prispevkov. V primeru, da bo urednik potreboval še kakšne informacije, se lahko še obrne na vas."
+msgstr ""
+"Hvala lepa za opravljanje te recenzije. Recenzija je bila uspešno oddana. "
+"Zahvaljujemo se vam za vaše delo, ki pomaga pri kvaliteti objavljenih "
+"prispevkov. V primeru, da bo urednik potreboval še kakšne informacije, se "
+"lahko še obrne na vas."
 
 msgid "reviewer.aboutDueDates"
 msgstr "O datumskih rokih"
 
 msgid "reviewer.aboutDueDates.text"
-msgstr "Urednik vas prosi, da sprejmete ali zavrnete recenzijo do roka za odziv recenzenta ter končate recenzijo do roka za dokončanje recenzije."
+msgstr ""
+"Urednik vas prosi, da sprejmete ali zavrnete recenzijo do roka za odziv "
+"recenzenta ter končate recenzijo do roka za dokončanje recenzije."
 
 msgid "submission.comments.canShareWithAuthor"
 msgstr "Za avtorja in urednika"
@@ -106,14 +124,11 @@ msgstr "Za avtorja in urednika"
 msgid "submission.comments.cannotShareWithAuthor"
 msgstr "Samo za urednika"
 
-msgid "user.authorization.submissionReviewer"
-msgstr "Trenutni uporabnik ni dodeljen kot recenzent za zahtevani dokument."
-
-msgid "reviewer.submission.saveReviewForLater"
-msgstr "Shrani za kasneje"
+msgid "submission.comments.sendCopyToReviewers"
+msgstr "Pošlji kopijo tega emaila kot skrito kopijo naslednjim recenzentom."
 
 msgid "submission.comments.sendToReviewers"
 msgstr "Pošlji recenzentom"
 
-msgid "submission.comments.sendCopyToReviewers"
-msgstr "Pošlji kopijo tega emaila kot skrito kopijo naslednjim recenzentom."
+msgid "user.authorization.submissionReviewer"
+msgstr "Trenutni uporabnik ni dodeljen kot recenzent za zahtevani dokument."

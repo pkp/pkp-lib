@@ -6,15 +6,25 @@ msgstr ""
 "POT-Creation-Date: 2019-11-19T10:50:03+00:00\n"
 "PO-Revision-Date: 2021-07-08 21:03+0000\n"
 "Last-Translator: Biljana Cubrovic <biljana.cubrovic@gmail.com>\n"
-"Language-Team: Serbian (cyrillic) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/manager/sr_Cyrl/>\n"
+"Language-Team: Serbian (cyrillic) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/manager/sr_Cyrl/>\n"
 "Language: sr_RS@cyrillic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
+
+msgid "manager.website.information"
+msgstr "Информације"
+
+msgid "manager.website.appearance"
+msgstr "Изглед"
+
+msgid "manager.website.imageFileRequired"
+msgstr ""
+"Фајл слике је неопходан. Проверите да ли сте одабрали и доставили фајл."
 
 msgid "manager.announcements"
 msgstr "Обавештења"
@@ -31,6 +41,12 @@ msgstr "Направи"
 msgid "manager.announcements.dateExpire"
 msgstr "Истиче"
 
+msgid "manager.announcements.datePublish"
+msgstr "Објављено"
+
+msgid "manager.announcements.deleteAnnouncement"
+msgstr "Обриши обавештење"
+
 msgid "manager.announcements.edit"
 msgstr "Измени обавештење"
 
@@ -44,7 +60,9 @@ msgid "manager.announcements.form.dateExpire"
 msgstr "Датум истицања"
 
 msgid "manager.announcements.form.dateExpireInstructions"
-msgstr "Обавештење ће бити приказано читаоцима до овог датума. Оставите празно ако желите да обавештење буде приказано без временског ограничења."
+msgstr ""
+"Обавештење ће бити приказано читаоцима до овог датума. Оставите празно ако "
+"желите да обавештење буде приказано без временског ограничења."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
 msgstr "Молимо одаберите годину и/или дан као додатак датуму месеца истицања."
@@ -135,11 +153,250 @@ msgstr "Нема креираних типова обавештења."
 msgid "manager.announcementTypes.typeName"
 msgstr "Тип обавештења"
 
+msgid "manager.dois.actions.deposit.all"
+msgstr ""
+
+msgid "manager.dois.actions.deposit.label"
+msgstr ""
+
+msgid "manager.dois.actions.deposit.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markRegistered.label"
+msgstr ""
+
+msgid "manager.dois.actions.markRegistered.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markUnregistered.label"
+msgstr ""
+
+msgid "manager.dois.actions.markUnregistered.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.markStale.label"
+msgstr ""
+
+msgid "manager.dois.actions.markStale.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.export.label"
+msgstr ""
+
+msgid "manager.dois.actions.export.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.assign.label"
+msgstr ""
+
+msgid "manager.dois.actions.assign.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.label"
+msgstr ""
+
+msgid "manager.dois.actions.depositAll.prompt"
+msgstr ""
+
+msgid "manager.dois.actions.description"
+msgstr ""
+
+msgid "manager.dois.actions.bulkActions"
+msgstr ""
+
+msgid "manager.dois.depositStatus"
+msgstr ""
+
+msgid "manager.dois.publicationStatus"
+msgstr ""
+
+msgid "manager.dois.registration.submittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.manuallyMarkedRegistered"
+msgstr ""
+
+msgid "manager.dois.registration.notSubmittedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.notPublishedDescription"
+msgstr ""
+
+msgid "manager.dois.registration.viewError"
+msgstr ""
+
+msgid "manager.dois.registration.viewError.title"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord"
+msgstr ""
+
+msgid "manager.dois.registration.viewRecord.title"
+msgstr ""
+
+msgid "manger.dois.update.success"
+msgstr ""
+
+msgid "manager.dois.registration.depositDois"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi"
+msgstr ""
+
+msgid "manager.dois.status.unregistered"
+msgstr ""
+
+msgid "manager.dois.status.submitted"
+msgstr ""
+
+msgid "manager.dois.status.registered"
+msgstr ""
+
+msgid "manager.dois.status.error"
+msgstr ""
+
+msgid "manager.dois.status.error.filterTitle"
+msgstr ""
+
+msgid "manager.dois.status.stale"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned"
+msgstr ""
+
+msgid "manager.dois.status.needsDoi.description"
+msgstr ""
+
+msgid "manager.dois.filters.doiAssigned.description"
+msgstr ""
+
+msgid "manager.dois.status.unregistered.description"
+msgstr ""
+
+msgid "manager.dois.status.submitted.description"
+msgstr ""
+
+msgid "manager.dois.status.registered.description"
+msgstr ""
+
+msgid "manager.dois.status.error.description"
+msgstr ""
+
+msgid "manager.dois.status.stale.description"
+msgstr ""
+
+msgid "manager.dois.update.failedCreation"
+msgstr ""
+
+msgid "manager.dois.update.partialFailure"
+msgstr ""
+
+msgid "manager.dois.notification.exportSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markRegisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markUnregisteredSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.markStaleSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.assignDoisSuccess"
+msgstr ""
+
+msgid "manager.dois.notification.depositQueuedSuccess"
+msgstr ""
+
+msgid "manager.dois.help.statuses.title"
+msgstr ""
+
+msgid "manager.dois.settings.relocated"
+msgstr ""
+
+msgid "manager.dois.settings.prefixRequired"
+msgstr ""
+
+msgid "doi.exceptions.missingPrefix"
+msgstr ""
+
+msgid "manager.genres.alertDelete"
+msgstr ""
+
+msgid "manager.institutions.edit"
+msgstr ""
+
+msgid "manager.institutions.form.ror"
+msgstr ""
+
+msgid "manager.institutions.form.ror.description"
+msgstr ""
+
+msgid "manager.institutions.form.ipRanges"
+msgstr ""
+
+msgid "manager.institutions.form.ipRangesInstructions"
+msgstr ""
+
+msgid "manager.institutions.deleteInstitution"
+msgstr ""
+
+msgid "manager.institutions.confirmDelete"
+msgstr ""
+
+msgid "manager.institutions.invalidIPRange"
+msgstr ""
+
+msgid "manager.publication.submissionStage"
+msgstr "Предаја"
+
+msgid "manager.publication.reviewStage"
+msgstr "Рецензија"
+
+msgid "manager.publication.editorialStage"
+msgstr "Уредништво"
+
+msgid "manager.publication.productionStage"
+msgstr "Продукција"
+
+msgid "manager.publication.emails"
+msgstr "Имејлови"
+
+msgid "manager.publication.reviewerGuidance"
+msgstr "Упутства за рецензенте"
+
+msgid "manager.publication.reviewReminders.success"
+msgstr ""
+
+msgid "manager.dois.title"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.errorMessagePreamble"
+msgstr ""
+
+msgid "manager.dois.registrationAgency.registeredMessagePreamble"
+msgstr ""
+
+msgid "manager.emails.addEmail"
+msgstr "Додај шаблон"
+
 msgid "manager.emails.createEmail"
 msgstr "Креирај имејл"
 
+msgid "manager.emails.data"
+msgstr "Подаци поруке шаблона"
+
+msgid "manager.emails.details"
+msgstr "Детаљи шаблона"
+
 msgid "manager.emails.disable"
 msgstr "Онемогући"
+
+msgid "manager.emails.disable.message"
+msgstr ""
+"Ви желите да искључите овај имејл шаблон. Уколико постоје процеси који су га "
+"користили, више га неће користити. Да ли сте сигурни да желите да наставите?"
 
 msgid "manager.emails.editTestExample"
 msgstr "Уредите пробни пример имејла"
@@ -147,11 +404,23 @@ msgstr "Уредите пробни пример имејла"
 msgid "manager.emails.emailTemplate"
 msgstr "Шаблон имејла"
 
+msgid "manager.emails.emailTemplates"
+msgstr ""
+
+msgid "manager.emails.otherTemplates"
+msgstr ""
+
+msgid "manager.emails.emailTemplate.contextRequired"
+msgstr ""
+
 msgid "manager.emails.enabled"
 msgstr "Омогућите овај шаблон имејла"
 
 msgid "manager.emails.enable"
 msgstr "Омогући"
+
+msgid "manager.emails.enable.message"
+msgstr "Да ли сте сигурни да желите да укључите овај шаблон?"
 
 msgid "manager.emails.form.emailKeyRequired"
 msgstr "Јединствени кључ је обавезан за имејл."
@@ -165,14 +434,41 @@ msgstr "Субјекат је обавезан у имејлу."
 msgid "manager.emails"
 msgstr "Припремљени обрасци имејла"
 
+msgid "manager.emails.resetAll"
+msgstr ""
+
+msgid "manager.emails.resetAll.message"
+msgstr ""
+"Уколико ресетујете све шаблоне, све модификације које сте урадили биће "
+"изгубљене, да ли сте сигурни да желите да наставите?"
+
+msgid "manager.emails.reset.message"
+msgstr ""
+"Уколико ресетујете овај шаблон, сви подаци биће враћени на почетне "
+"вредности, а све промене ће бити изгубљене, да ли желите да наставите?"
+
 msgid "manager.emails.resetToDefault"
 msgstr "Вратите на почетну вредност"
+
+msgid "manager.emails.sentFrom"
+msgstr ""
+
+msgid "manager.emails.sentTo"
+msgstr ""
+
+msgid "manager.export.usersToCsv.label"
+msgstr ""
+
+msgid "manager.export.usersToCsv.description"
+msgstr ""
 
 msgid "manager.filesBrowser"
 msgstr "Прегледач фајлова"
 
 msgid "manager.files.confirmDelete"
-msgstr "Да ли желите да избришете овај фајл или директориј? Имајте на уму да директориј мора бити празан пре него што буде обрисан."
+msgstr ""
+"Да ли желите да избришете овај фајл или директориј? Имајте на уму да "
+"директориј мора бити празан пре него што буде обрисан."
 
 msgid "manager.files.createDir"
 msgstr "Направи директориј"
@@ -225,14 +521,35 @@ msgstr "Наслов"
 msgid "manager.importExport"
 msgstr "Увоз/извоз података"
 
+msgid "manager.language.ui"
+msgstr "УИ"
+
+msgid "manager.language.submissions"
+msgstr "Предаје чланака"
+
+msgid "manager.language.forms"
+msgstr "Обрасци"
+
+msgid "manager.language.reloadLocalizedDefaultSettings"
+msgstr "Учитај почетне вредности"
+
 msgid "manager.languages.alternateLocaleInstructions"
-msgstr "Овај систем омогућује да се одређене кључне информације о часопису и појединим прилозима унесу на више језика. Да бисте користили ову могућност, изаберите додатне преводе, па одаберате неку од ниже наведених могућности."
+msgstr ""
+"Овај систем омогућује да се одређене кључне информације о часопису и "
+"појединим прилозима унесу на више језика. Да бисте користили ову могућност, "
+"изаберите додатне преводе, па одаберате неку од ниже наведених могућности."
 
 msgid "manager.languages.supportedLocalesInstructions"
-msgstr "Уколико одаберете два или више превода, на свакој ће страници бити присутан мени за избор језика. Преко њега можете у сваком тренутку изменити тренутно активни језик система."
+msgstr ""
+"Уколико одаберете два или више превода, на свакој ће страници бити присутан "
+"мени за избор језика. Преко њега можете у сваком тренутку изменити тренутно "
+"активни језик система."
 
 msgid "manager.payment.timestamp"
 msgstr "Датум уплате"
+
+msgid "manager.people.existingUserRequired"
+msgstr ""
 
 msgid "manager.people.confirmUnenroll"
 msgstr "Желите ли да уклонити улогу овом кориснику?"
@@ -244,7 +561,9 @@ msgid "manager.people.createUserGeneratePassword"
 msgstr "Генериши насумичну лозинку."
 
 msgid "manager.people.createUserSendNotify"
-msgstr "Пошаљи кориснику имејл добродошлице који садржи његово корисничко име и лозинку."
+msgstr ""
+"Пошаљи кориснику имејл добродошлице који садржи његово корисничко име и "
+"лозинку."
 
 msgid "manager.people.disable"
 msgstr "Онемогући"
@@ -271,7 +590,9 @@ msgid "manager.people.emailUsers.selectLocale"
 msgstr "Одаберите језик"
 
 msgid "manager.people.emailUsers.selectUsers"
-msgstr "Одабери кориснике којима желите послати имејл на начин да означите квачицом потврдни оквир поред њихових имена"
+msgstr ""
+"Одабери кориснике којима желите послати имејл на начин да означите квачицом "
+"потврдни оквир поред њихових имена"
 
 msgid "manager.people.enable"
 msgstr "Омогући"
@@ -292,7 +613,9 @@ msgid "manager.people.enrollSync"
 msgstr "Синхронизуј улоге корисника"
 
 msgid "manager.people.enrollUserAsDescription"
-msgstr "Улоге могу бити додељене или одузете у било којем тренутку након креирања новог корисника."
+msgstr ""
+"Улоге могу бити додељене или одузете у било којем тренутку након креирања "
+"новог корисника."
 
 msgid "manager.people.enrollUserAs"
 msgstr "Додели улогу кориснику као"
@@ -304,13 +627,18 @@ msgid "manager.people.mergeUser"
 msgstr "Споји корисника"
 
 msgid "manager.people.mergeUsers.confirm"
-msgstr "Да ли сте сигурни да желите да спојите налог корисника \"{$oldUsername}\" са налогом корисника \"{$newUsername}\"? Налог корисничког имена \"{$oldUsername}\" више неће постојати након тога. Ово је неповратна радња."
+msgstr ""
+"Да ли сте сигурни да желите да спојите налог корисника \"{$oldUsername}\" са "
+"налогом корисника \"{$newUsername}\"? Налог корисничког имена "
+"\"{$oldUsername}\" више неће постојати након тога. Ово је неповратна радња."
 
 msgid "manager.people.mergeUsers"
 msgstr "Спајање корисника"
 
 msgid "manager.people.mustChooseRole"
-msgstr "Молимо одаберите улогу при врху странице пре него притиснете \"Додели улогу кориснику\""
+msgstr ""
+"Молимо одаберите улогу при врху странице пре него притиснете \"Додели улогу "
+"кориснику\""
 
 msgid "manager.people.mustProvideName"
 msgstr "Молимо унесите барем презиме корисника."
@@ -330,6 +658,9 @@ msgstr "Уклони"
 msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Сачувај и креирај другог"
 
+msgid "manager.people.signedInAs"
+msgstr ""
+
 msgid "manager.people.signInAs"
 msgstr "Пријави се као"
 
@@ -346,7 +677,8 @@ msgid "manager.people.userCreatedSuccessfully"
 msgstr "Корисник успешно креиран."
 
 msgid "manager.people.userMustChangePassword"
-msgstr "Затражи од корисника да промени своју лозинку приликом следећег пријављивања."
+msgstr ""
+"Затражи од корисника да промени своју лозинку приликом следећег пријављивања."
 
 msgid "manager.plugins.action"
 msgstr "Поступак:"
@@ -361,7 +693,9 @@ msgid "manager.plugins.pluginManagement"
 msgstr "Управљач додатака"
 
 msgid "manager.plugins.sitePlugin"
-msgstr "Овај додатак утиче на функционисање целог сајта. Само администратор сајта може управљати овим додатком."
+msgstr ""
+"Овај додатак утиче на функционисање целог сајта. Само администратор сајта "
+"може управљати овим додатком."
 
 msgid "manager.plugins"
 msgstr "Системски додаци"
@@ -369,32 +703,554 @@ msgstr "Системски додаци"
 msgid "manager.readingTools"
 msgstr "Алатке за читање"
 
+msgid "manager.userSearch.searchByName"
+msgstr "Пронађи корисника по имену"
+
+msgid "manager.representative.inUse"
+msgstr ""
+
+msgid "manager.reviewerSearch.change"
+msgstr "Промени"
+
 msgid "manager.reviewerSearch.searchByName"
 msgstr "Пронађи рецензента по имену"
+
+msgid "manager.reviewerSearch.searchByName.short"
+msgstr "Претражи по имену"
 
 msgid "manager.reviewerSearch.interests"
 msgstr "Рецензентски интереси"
 
+msgid "manager.reviewerSearch.form.instructions"
+msgstr ""
+"У доњи формулар упишите максималне вредности за термине које желите да "
+"тражите. Формулар је претходно испуњен калкулисаним просечним вредностима за "
+"та поља."
+
 msgid "manager.roles"
 msgstr "Улоге"
+
+msgid "manager.setup.statistics"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.disabled"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.countryLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.regionLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.geoUsageStats.cityLevel"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.description"
+msgstr ""
+
+msgid "manager.settings.statistics.institutionUsageStats.enable"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.description"
+msgstr ""
+
+msgid "manager.settings.statistics.publicSushiApi.public"
+msgstr ""
+
+msgid "manager.statistics"
+msgstr "Статистике и Извештаји"
+
+#, fuzzy
+msgid "manager.statistics.reports"
+msgstr "Генератор извештаја"
+
+msgid "manager.statistics.reports.description"
+msgstr ""
+"Систем генерише извештаје који прате детаље у вези употребе вашег сајта и "
+"пријављених чаланак у датом временском периоду. Извештаји се генеришу у CSV "
+"формату који се могу прегледати у програму за табеларни рачун."
+
+msgid "manager.statistics.reports.month.label"
+msgstr "Користи ГГГГMM формат."
+
+msgid "manager.statistics.reports.day.label"
+msgstr "Користи ГГГГMMDD формат"
+
+msgid "manager.affiliationAndSupport"
+msgstr "Спонзор"
+
+msgid "manager.setup.dois"
+msgstr ""
+
+msgid "manager.setup.dois.setup"
+msgstr ""
+
+msgid "manager.setup.dois.registration"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.enable"
+msgstr ""
+
+msgid "doi.manager.setup.automaticDeposit.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.label"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.publication"
+msgstr ""
+
+msgid "doi.manager.settings.doiCreationTime.never"
+msgstr ""
+
+msgid "manager.setup.doiPrefix"
+msgstr ""
+
+msgid "doi.manager.settings.doiObjects"
+msgstr ""
+
+msgid "doi.manager.settings.doiPrefix.required"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.pattern"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.custom"
+msgstr ""
+
+msgid "doi.manager.settings.enabledDoiTypes.error"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffix.description"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixDefault"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixManual"
+msgstr ""
+
+msgid "doi.manager.settings.doiSuffixUserDefined"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
+msgstr ""
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr ""
+
+msgid "doi.manager.settings.doiVersioning"
+msgstr ""
+
+msgid "doi.authorization.enabledRequired"
+msgstr ""
+
+msgid "doi.manager.versions.countStatement"
+msgstr ""
+
+msgid "doi.manager.versions.view"
+msgstr ""
+
+msgid "doi.manager.versions.modalTitle"
+msgstr ""
+
+msgid "doi.editor.doiSuffixInvalidCharacters"
+msgstr ""
+
+msgid "manager.setup.publishing"
+msgstr ""
+
+msgid "manager.setup.publishingDescription"
+msgstr ""
+"Име организације која објављује часопис може бити укључено у метаподатке "
+"које дајете трећим лицима за архивирање."
+
+msgid "manager.setup.additionalContent"
+msgstr "Додатни садржај"
+
+msgid "manager.setup.additionalContent.description"
+msgstr "Све што унесете овде пиће приказано на почетној страници."
+
+msgid "manager.setup.advanced"
+msgstr ""
+
+msgid "manager.setup.copyrightNotice"
+msgstr "Напомена о ауторском праву"
+
+msgid "manager.setup.copyrightNotice.description"
+msgstr ""
+"Захтевај од аутора да прихвате \"Напомену о ауторским правим\" као део "
+"процеса предаје рада."
+
+msgid "manager.setup.authorGuidelines"
+msgstr "Упутства ауторима"
+
+msgid "manager.setup.authorGuidelines.description"
+msgstr ""
+"Препоручене смернице укључују библиографске стандарде и формате уз примере "
+"цитатних формата које треба користити у пријављеним чланцима."
+
+msgid "manager.setup.disableSubmissions"
+msgstr ""
+
+msgid "manager.setup.checklist"
+msgstr ""
+
+msgid "manager.setup.competingInterests"
+msgstr "Сукоби интереса"
 
 msgid "manager.setup.errorDeletingItem"
 msgstr "Дошло је до грешке приликом брисања ставке."
 
+msgid "manager.setup.favicon"
+msgstr "Омиљена сличица-Favicon"
+
+msgid "manager.setup.homepageImage"
+msgstr "Слика насловне стране"
+
+msgid "manager.setup.homepageImage.description"
+msgstr "Доставите слику која ће бити видљива на почетној страници."
+
 msgid "manager.setup.homepageImageInvalid"
-msgstr "Неисправан формат слике хедера почетне стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png."
+msgstr ""
+"Неисправан формат слике хедера почетне стране или слање није успело. "
+"Прихватљиви формати су .gif, .jpg, или .png."
 
 msgid "manager.setup.homeTitleImageInvalid"
-msgstr "Неисправан формат слике наслова хедера почетне стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png."
+msgstr ""
+"Неисправан формат слике наслова хедера почетне стране или слање није успело. "
+"Прихватљиви формати су .gif, .jpg, или .png."
+
+msgid "manager.setup.information.descriptionTitle"
+msgstr "Описи"
+
+msgid "manager.setup.layout.sidebar"
+msgstr ""
+
+msgid "manager.setup.layout.sidebar.invalidBlock"
+msgstr ""
 
 msgid "manager.setup.loggingAndAuditing"
 msgstr "Евидентирање и ревизија"
 
-msgid "manager.setup.pageHeaderLogoImageInvalid"
-msgstr "Неисправан формат логоа хедера стране или слање није успело. Прихватљиви формати су .gif, .jpg, или .png."
+msgid "manager.setup.logo"
+msgstr "Лого"
 
-msgid "manager.statistics"
-msgstr "Статистике и Извештаји"
+msgid "manager.setup.noTemporaryFile"
+msgstr ""
+
+msgid "manager.setup.notifications"
+msgstr "Обавештења о предајама радова аутора"
+
+msgid "manager.setup.notifications.copySpecifiedAddress"
+msgstr "Пошаљи копију на ову имејл адресу"
+
+msgid "manager.setup.notifyAllAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.description"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.allAuthors"
+msgstr ""
+
+msgid "manager.setup.notifyAllAuthors.assignedAuthors"
+msgstr ""
+
+msgid "manager.setup.submissionsNotifications"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.description"
+msgstr ""
+
+msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
+msgstr ""
+
+msgid "manager.setup.notifications.description"
+msgstr ""
+"Ауторима ће бити аутоматски послата порука потврђујући пријем пријављеног "
+"чланка. Можете копије ове поруке послати следећим:"
+
+msgid "manager.setup.notifyUsers"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.description"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.copyDetails"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.send"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.confirm"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sending"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sent"
+msgstr ""
+
+msgid "manager.setup.notifyUsers.sendAnother"
+msgstr ""
+
+msgid "manager.setup.openAccessPolicy"
+msgstr "Политика \"Отвореног приступа\""
+
+msgid "manager.setup.openAccessPolicy.description"
+msgstr ""
+"Ако омогућавате непосредан и директан приступ целокупном објављеном садржају "
+"можете унети опис ваше политике отвореног приступа."
+
+msgid "manager.setup.pageHeaderLogoImageInvalid"
+msgstr ""
+"Неисправан формат логоа хедера стране или слање није успело. Прихватљиви "
+"формати су .gif, .jpg, или .png."
+
+msgid "manager.setup.pageFooter"
+msgstr "Подножје странице"
+
+msgid "manager.setup.pageFooter.description"
+msgstr ""
+"Унесите слику, текст или HTML код који желите да се прикаже на дну вашег "
+"сајта."
+
+msgid "manager.setup.peerReview.description"
+msgstr ""
+"Напишите укратко политику рецензије и процеса за читаоце и ауторе. Овај опис "
+"обично укључује број рецензената који врше рецензију пријављеног чланка, "
+"критерије које рецензенти користе код оцењивања пријављеног чланка, "
+"очекивано време за које се извршава рецензија и принципе приликом избора "
+"рецензената."
+
+msgid "manager.setup.principalContact"
+msgstr "Главни контакт"
+
+msgid "manager.setup.principalContactDescription"
+msgstr ""
+"Yнесите детаље за контакт, посебно за главног уредника, управника или "
+"позицију административног особља који се могу јавно приказати на вашем сајту."
+
+msgid "manager.setup.privacyStatement"
+msgstr "Изјава о приватности"
+
+msgid "manager.setup.dateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.descriptionTitle"
+msgstr ""
+
+msgid "manager.setup.dateTime.description"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDate"
+msgstr ""
+
+msgid "manager.setup.dateTime.time"
+msgstr ""
+
+msgid "manager.setup.dateTime.longDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.shortDateTime"
+msgstr ""
+
+msgid "manager.setup.dateTime.custom"
+msgstr ""
+
+msgid "manager.setup.privacyStatement.description"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.defaultReviewCompletionTime"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.numWeeksPerResponse"
+msgstr ""
+"Број недеља дозвољених за прихватање или одбијање рецензентског захтева"
+
+msgid "manager.setup.reviewOptions.numWeeksPerReview"
+msgstr "Број недеља дозвољених зазавршетак рецензије"
+
+msgid "manager.setup.reviewOptions.neverSendReminder"
+msgstr "Никад не обавештавај"
+
+msgid "manager.setup.reviewOptions.noteOnModification"
+msgstr ""
+"Задата подешавања могу бити измењена за сваку рецензију током уредничког "
+"процеса."
+
+msgid "manager.setup.reviewOptions.reminders.response"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.response.description"
+msgstr ""
+"Пошаљи подсетник уколико рецензент није одгворио на рецензентски захтев "
+"након (број дана) од рока за одговор:"
+
+msgid "manager.setup.reviewOptions.reminders.submit"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.reminders.submit.description"
+msgstr ""
+"Пошаљи подсетник уколико рецензент није дао препоруке након (број дана) од "
+"рока за за завршетак рецензије:"
+
+msgid "manager.setup.reviewOptions.reviewMode"
+msgstr ""
+
+msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
+msgstr ""
+
+msgid "manager.setup.sponsors.note"
+msgstr "Однос са спонзором и опис политике"
+
+msgid "manager.setup.sponsors.description"
+msgstr ""
+"Примери: академске асоцијације, универзитетска одељења, кооперативе итд. "
+"Спонзори су јавно приказани."
+
+msgid "manager.setup.styleSheetDescription"
+msgstr ""
+"Искусни web програмери могу поставити CSS фајл за даље прилагођавање изгледа "
+"сајта."
+
+msgid "manager.setup.technicalSupportContact"
+msgstr "Конакт за техничку подршку"
+
+msgid "manager.setup.technicalSupportContactDescription"
+msgstr ""
+"Контакт особа која може помоћи уредницима, ауторима и рецензентима са "
+"проблемима приликом предаје, уређивања и рецензирања материјала за "
+"објављивање."
+
+msgid "manager.setup.theme"
+msgstr "Тема"
+
+msgid "manager.setup.institutions"
+msgstr ""
+
+msgid "manager.setup.theme.description"
+msgstr ""
+"Нове теме могу бити инсталиране коришћењем \"Додатака\" на врху странице."
+
+msgid "manager.setup.theme.notFound"
+msgstr ""
+
+msgid "manager.setup.workflow.beginSubmissionHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.uploadFilesHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.contributorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.detailsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.reviewHelp.description"
+msgstr ""
+
+msgid "manager.setup.workflow.guidance"
+msgstr ""
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklist"
+msgstr "Припремна листа за припрему пријављивања чланка"
+
+#, fuzzy
+msgid "manager.setup.submissionPreparationChecklistDescription"
+msgstr ""
+"У току процеса пријављивања чланка обавезно је да аутори означе сваки ставку "
+"у листи за припрему пријаве чланка пре наставка. Ова контролна листа се "
+"такође налази у Упутству за ауторе у страници О часопису. Ову листу можете "
+"изменити, али ће и даље сви делови листе тражити потврду испуњености "
+"означавањем сваког питања пре него аутор настави са процесом пријаве."
+
+msgid "manager.sections.form.deactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmDeactivateSection"
+msgstr ""
+
+msgid "manager.sections.confirmActivateSection"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors"
+msgstr ""
+
+msgid "manager.sections.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.sections.form.assignEditorAs"
+msgstr ""
+
+msgid "manager.categories.form.assignEditors.description"
+msgstr ""
+
+msgid "manager.siteAccessOptions.siteAccessOptions"
+msgstr "Опције приступа сајту"
 
 msgid "manager.statistics.statistics.count.value"
 msgstr "{$count} ({$percentage}%)"
@@ -402,8 +1258,17 @@ msgstr "{$count} ({$percentage}%)"
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} нови)"
 
+msgid "manager.statistics.statistics.registeredUsers"
+msgstr ""
+
 msgid "manager.users"
 msgstr "Корисници"
+
+msgid "plugins.categories.metadata"
+msgstr "Додаци метаподатака"
+
+msgid "plugins.categories.metadata.description"
+msgstr "Додаци метаподатака имплементирају додатне стандарде мета података."
 
 msgid "plugins.categories.auth"
 msgstr "Додaци за ауторизацију"
@@ -430,52 +1295,27 @@ msgid "plugins.categories.importexport"
 msgstr "Увоз/Извоз додаци"
 
 msgid "plugins.categories.paymethod.description"
-msgstr "Додаци метода плаћања имплементирају подршку за разне начине процесуирања онлине плаћања."
+msgstr ""
+"Додаци метода плаћања имплементирају подршку за разне начине процесуирања "
+"онлине плаћања."
 
 msgid "plugins.categories.paymethod"
 msgstr "Додаци за плаћање"
 
 msgid "plugins.categories.reports.description"
-msgstr "Додаци извештаја користе се за имплементацију различитих типова извештаја и екстраката података."
+msgstr ""
+"Додаци извештаја користе се за имплементацију различитих типова извештаја и "
+"екстраката података."
 
 msgid "plugins.categories.reports"
 msgstr "Додаци извештаја"
 
 msgid "plugins.categories.themes.description"
-msgstr "Додатак шаблона може се користити за промену изгледа целокупног система."
+msgstr ""
+"Додатак шаблона може се користити за промену изгледа целокупног система."
 
 msgid "plugins.categories.themes"
 msgstr "Додаци шаблона"
-
-msgid "manager.announcements.datePublish"
-msgstr "Објављено"
-
-msgid "manager.emails.data"
-msgstr "Подаци поруке шаблона"
-
-msgid "manager.emails.details"
-msgstr "Детаљи шаблона"
-
-msgid "manager.emails.disable.message"
-msgstr "Ви желите да искључите овај имејл шаблон. Уколико постоје процеси који су га користили, више га неће користити. Да ли сте сигурни да желите да наставите?"
-
-msgid "manager.emails.enable.message"
-msgstr "Да ли сте сигурни да желите да укључите овај шаблон?"
-
-msgid "manager.emails.resetAll.message"
-msgstr "Уколико ресетујете све шаблоне, све модификације које сте урадили биће изгубљене, да ли сте сигурни да желите да наставите?"
-
-msgid "manager.emails.reset.message"
-msgstr "Уколико ресетујете овај шаблон, сви подаци биће враћени на почетне вредности, а све промене ће бити изгубљене, да ли желите да наставите?"
-
-msgid "manager.reviewerSearch.searchByName.short"
-msgstr "Претражи по имену"
-
-msgid "plugins.categories.metadata"
-msgstr "Додаци метаподатака"
-
-msgid "plugins.categories.metadata.description"
-msgstr "Додаци метаподатака имплементирају додатне стандарде мета података."
 
 msgid "plugins.categories.oaiMetadataFormats"
 msgstr "Додатак OAI формата метаподатака"
@@ -483,180 +1323,18 @@ msgstr "Додатак OAI формата метаподатака"
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Овај додатак приказује метаподатке у формату OAI комуникације"
 
-msgid "manager.website"
-msgstr "Сајт"
-
-msgid "manager.website.information"
-msgstr "Информације"
-
-msgid "manager.website.appearance"
-msgstr "Изглед"
-
-msgid "manager.website.imageFileRequired"
-msgstr "Фајл слике је неопходан. Проверите да ли сте одабрали и доставили фајл."
-
-msgid "manager.workflow"
-msgstr "Процес рада"
-
-msgid "manager.workflow.title"
-msgstr "Подешавање процеса рада"
-
-msgid "manager.distribution"
-msgstr "Дистрибуција"
-
-msgid "manager.distribution.title"
-msgstr "Подешавање дистрибуције"
-
-msgid "manager.userSearch.searchByName"
-msgstr "Пронађи корисника по имену"
-
-msgid "manager.reviewerSearch.change"
-msgstr "Промени"
-
-msgid "stats.city"
-msgstr "Град"
-
-msgid "stats.region"
-msgstr "Регион"
-
-msgid "manager.statistics.reports.month.label"
-msgstr "Користи ГГГГMM формат."
-
-msgid "manager.statistics.reports.day.label"
-msgstr "Користи ГГГГMMDD формат"
-
-msgid "manager.affiliationAndSupport"
-msgstr "Спонзор"
-
-msgid "manager.setup.publishingDescription"
-msgstr "Име организације која објављује часопис може бити укључено у метаподатке које дајете трећим лицима за архивирање."
-
-msgid "manager.setup.additionalContent"
-msgstr "Додатни садржај"
-
-msgid "manager.setup.authorGuidelines"
-msgstr "Упутства ауторима"
-
-msgid "manager.setup.competingInterests"
-msgstr "Сукоби интереса"
-
-msgid "manager.setup.homepageImage"
-msgstr "Слика насловне стране"
-
-msgid "manager.setup.logo"
-msgstr "Лого"
-
-msgid "manager.publication.submissionStage"
-msgstr "Предаја"
-
-msgid "manager.publication.reviewStage"
-msgstr "Рецензија"
-
-msgid "manager.publication.editorialStage"
-msgstr "Уредништво"
-
-msgid "manager.publication.productionStage"
-msgstr "Продукција"
-
-msgid "manager.publication.emails"
-msgstr "Имејлови"
-
-msgid "manager.language.ui"
-msgstr "УИ"
-
-msgid "manager.language.submissions"
-msgstr "Предаје чланака"
-
-msgid "manager.language.forms"
-msgstr "Обрасци"
-
-msgid "manager.language.reloadLocalizedDefaultSettings"
-msgstr "Учитај почетне вредности"
-
-#, fuzzy
-msgid "manager.statistics.reports"
-msgstr "Генератор извештаја"
-
-msgid "manager.setup.additionalContent.description"
-msgstr "Све што унесете овде пиће приказано на почетној страници."
-
-msgid "manager.setup.copyrightNotice"
-msgstr "Напомена о ауторском праву"
-
-msgid "manager.setup.copyrightNotice.description"
-msgstr "Захтевај од аутора да прихвате \"Напомену о ауторским правим\" као део процеса предаје рада."
-
-msgid "manager.setup.homepageImage.description"
-msgstr "Доставите слику која ће бити видљива на почетној страници."
-
-msgid "manager.setup.information.descriptionTitle"
-msgstr "Описи"
-
-msgid "manager.setup.theme"
-msgstr "Тема"
-
-msgid "manager.setup.theme.description"
-msgstr "Нове теме могу бити инсталиране коришћењем \"Додатака\" на врху странице."
-
-msgid "manager.setup.notifications"
-msgstr "Обавештења о предајама радова аутора"
-
-msgid "manager.setup.notifications.copyPrimaryContact"
-msgstr "Пошаљи копију главном контакту који је наведен у 1. кораку."
-
-msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Пошаљи копију на ову имејл адресу"
-
-msgid "manager.setup.openAccessPolicy"
-msgstr "Политика \"Отвореног приступа\""
-
-msgid "manager.setup.pageFooter"
-msgstr "Подножје странице"
-
-msgid "manager.setup.pageFooter.description"
-msgstr "Унесите слику, текст или HTML код који желите да се прикаже на дну вашег сајта."
-
-msgid "manager.setup.principalContact"
-msgstr "Главни контакт"
-
-msgid "manager.setup.privacyStatement"
-msgstr "Изјава о приватности"
-
-msgid "manager.setup.reviewOptions.numWeeksPerResponse"
-msgstr "Број недеља дозвољених за прихватање или одбијање рецензентског захтева"
-
-msgid "manager.setup.reviewOptions.numWeeksPerReview"
-msgstr "Број недеља дозвољених зазавршетак рецензије"
-
-msgid "manager.setup.reviewOptions.neverSendReminder"
-msgstr "Никад не обавештавај"
-
-msgid "manager.setup.reviewOptions.noteOnModification"
-msgstr "Задата подешавања могу бити измењена за сваку рецензију током уредничког процеса."
-
-msgid "manager.setup.reviewOptions.reminders.response.description"
-msgstr "Пошаљи подсетник уколико рецензент није одгворио на рецензентски захтев након (број дана) од рока за одговор:"
-
-msgid "manager.setup.reviewOptions.reminders.submit.description"
-msgstr "Пошаљи подсетник уколико рецензент није дао препоруке након (број дана) од рока за за завршетак рецензије:"
-
-msgid "manager.setup.reviewOptions.reviewTime"
-msgstr "Предефинисани рокови рецензената"
-
-msgid "manager.setup.technicalSupportContact"
-msgstr "Конакт за техничку подршку"
-
-msgid "manager.setup.technicalSupportContactDescription"
-msgstr "Контакт особа која може помоћи уредницима, ауторима и рецензентима са проблемима приликом предаје, уређивања и рецензирања материјала за објављивање."
-
-msgid "manager.siteAccessOptions.siteAccessOptions"
-msgstr "Опције приступа сајту"
-
 msgid "plugins.categories.pubIds"
 msgstr "Додатак јавних идентификатора"
 
 msgid "plugins.categories.pubIds.description"
 msgstr "Овај додатак уводи подршку за јавне идентификаторе."
+
+msgid "manager.plugins.copyError"
+msgstr ""
+"Додатак није успешно копиран. Проблем може бити због недостатка довољних "
+"дозвола. Обезбедите да web сервер може уписивати у директориј за додатке "
+"(укључујући и поддиректорије), али не заборавите касније да да поново "
+"осигурате."
 
 msgid "manager.plugins.delete"
 msgstr "Обриши додатак"
@@ -676,8 +1354,22 @@ msgstr "Да ли сте сигурни дажелите да обришете �
 msgid "manager.plugins.deleteDescription"
 msgstr "Кликом на \"Обриши\" обрисаћете додатак са сервера."
 
+msgid "manager.plugins.deleteError"
+msgstr ""
+"Додатак \"{$pluginName}\" није могао бити обрисан са сервера. Проблем може "
+"бити због недостатка довољних дозвола. Обезбедите да  web сервер може "
+"уписивати у директориј за додатке (укључујући и поддиректорије), али не "
+"заборавите касније да да поново осигурате."
+
 msgid "manager.plugins.deleteSuccess"
 msgstr "Додатак \"{$pluginName}\" је успешно обрисан"
+
+msgid "manager.plugins.description"
+msgstr ""
+"Ова страница дозвољава Управнику да прегледа и потенцијално конфигурише "
+"додатке који су тренутно инсталирани. Додаци су подељени у категорије према "
+"својој функцији.  Категорије су доле излистане и у свакој категроији се "
+"налази комплет додатака."
 
 msgid "manager.plugins.doesNotExist"
 msgstr "Додатак \"{$pluginName}\" не постоји"
@@ -689,7 +1381,9 @@ msgid "manager.plugins.upload"
 msgstr "Достави нови додатак"
 
 msgid "manager.plugins.uploadDescription"
-msgstr "Овај овразац вам даје могућност да доставите и инсталирате нове додетке. Уверите се да су додаци запаковани у .tar.gz архиву."
+msgstr ""
+"Овај овразац вам даје могућност да доставите и инсталирате нове додетке. "
+"Уверите се да су додаци запаковани у .tar.gz архиву."
 
 msgid "manager.plugins.uploadFailed"
 msgstr "Уверите се да је фајл означен за достављање."
@@ -712,17 +1406,26 @@ msgstr "Последње компатибилно издање"
 msgid "manager.plugins.pluginGallery.certifications.official"
 msgstr "Званично"
 
+msgid "manager.plugins.pluginGallery.certifications.official.description"
+msgstr ""
+
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Рецензирано"
+
+msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
+msgstr ""
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Партнер"
 
+msgid "manager.plugins.pluginGallery.certifications.partner.description"
+msgstr ""
+
+msgid "manager.plugins.pluginGallery.maintainer"
+msgstr "Особа за одржавање"
+
 msgid "manager.plugins.pluginGallery.version"
 msgstr "Верзија: {$version}"
-
-msgid "manager.plugins.pluginGallery.date"
-msgstr "Датум објављивања: {$date}"
 
 msgid "manager.plugins.pluginGallery.homepage"
 msgstr "Почетна страница"
@@ -767,16 +1470,24 @@ msgid "manager.plugins.installSuccessful"
 msgstr "Успешно инсталирана верзија {$versionNumber}"
 
 msgid "manager.plugins.invalidPluginArchive"
-msgstr "Достављени директоријум додатка не садржи директоријум који је у складу са именом додатка."
+msgstr ""
+"Достављени директоријум додатка не садржи директоријум који је у складу са "
+"именом додатка."
+
+msgid "manager.plugins.wrongCategory"
+msgstr "Постављени додатак не припада категорији надогађеног додатка."
 
 msgid "manager.plugins.wrongName"
-msgstr "version.xml у достављеном додатку садржи име додатка које није исто као име достављеног додатка."
+msgstr ""
+"version.xml у достављеном додатку садржи име додатка које није исто као име "
+"достављеног додатка."
 
 msgid "manager.plugins.pleaseInstall"
 msgstr "Додатак не постоји. Инсталирајте га"
 
 msgid "manager.plugins.pleaseUpgrade"
-msgstr "Додатак већ постоји али је новији од инсталиране верзије. Надоградите га"
+msgstr ""
+"Додатак већ постоји али је новији од инсталиране верзије. Надоградите га"
 
 msgid "manager.plugins.settings"
 msgstr "Подешавања"
@@ -785,7 +1496,9 @@ msgid "manager.plugins.upgrade"
 msgstr "Надогради додатак"
 
 msgid "manager.plugins.upgradeDescription"
-msgstr "Овај образац вам омогућује надоградњу додатка. Уверите се да је додатак компресован у .tar.gz архиви."
+msgstr ""
+"Овај образац вам омогућује надоградњу додатка. Уверите се да је додатак "
+"компресован у .tar.gz архиви."
 
 msgid "manager.plugins.upgradeFailed"
 msgstr "Надоградња није успела. {$errorString}"
@@ -817,17 +1530,38 @@ msgstr "{$locale} локализација је дефинисана као пр
 msgid "notification.localeInstalled"
 msgstr "Све одабране локализације су инсталиране и активиране."
 
+msgid "notification.localeUninstalled"
+msgstr "{$locale} локализација је обрисана."
+
 msgid "notification.localeReloaded"
 msgstr "{$locale} локализација је поново учитана."
 
 msgid "notification.localeSettingsSaved"
 msgstr "Подешавања локализације су сачувана."
 
-msgid "notification.localeUninstalled"
-msgstr "{$locale} локализација је обрисана."
+msgid "notification.localeSettingsCannotBeSaved"
+msgstr ""
 
 msgid "notification.editedUser"
 msgstr "Корисник је уређен."
+
+msgid "manager.distribution.license"
+msgstr ""
+
+msgid "manager.distribution.license.other"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms"
+msgstr ""
+
+msgid "manager.distribution.licenseTerms.description"
+msgstr ""
+
+msgid "manager.distribution.customHeaders"
+msgstr ""
+
+msgid "manager.distribution.customHeaders.description"
+msgstr ""
 
 msgid "manager.paymentMethod"
 msgstr "Плаћање"
@@ -853,6 +1587,9 @@ msgstr "Прикажи назив улоге у листи сарадника"
 msgid "settings.roles.permitSelfRegistration"
 msgstr "Дозволи самосталну регистрацију корисника"
 
+msgid "settings.roles.recommendOnly"
+msgstr ""
+
 msgid "settings.roles.roleName"
 msgstr "Назив улоге"
 
@@ -870,6 +1607,12 @@ msgstr "Детаљи улоге"
 
 msgid "settings.roles.from"
 msgstr "Ниво овлаштења"
+
+msgid "settings.roles.removeText"
+msgstr ""
+"Ви желите да уклоните ову улогу из овог контекста. То ће избрисати сва "
+"повезана подешавања и све корисничке доделе овој улози. Да ли желите да "
+"наставите?"
 
 msgid "settings.roles.nameRequired"
 msgstr "Морате дефинисати назив улоге."
@@ -889,6 +1632,20 @@ msgstr "Морате дефинисати ниво овлаштења улоге
 msgid "settings.roles.stageIdRequired"
 msgstr "Морате дефинисати фазу којој ће бити додељена."
 
+msgid "settings.roles.permitMetadataEdit"
+msgstr ""
+
+msgid "settings.libraryFiles.fileRequired"
+msgstr ""
+"Фајл библиотека је неопходан. Проверите да ли сте одабрали и на сервер "
+"поставили фајл."
+
+msgid "settings.libraryFiles.nameRequired"
+msgstr "Потребно је име за овај фајл библиотеке."
+
+msgid "settings.libraryFiles.typeRequired"
+msgstr "Тип фајла је неопходан за овај фајл библиотеке."
+
 msgid "settings.libraryFiles.category.contracts"
 msgstr "Уговори"
 
@@ -904,6 +1661,12 @@ msgstr "Извештаји"
 msgid "settings.libraryFiles.category.other"
 msgstr "Друго"
 
+msgid "settings.libraryFiles.public.viewInstructions"
+msgstr ""
+
+msgid "settings.libraryFiles.public.selectLibraryFiles"
+msgstr ""
+
 msgid "grid.action.addGenre"
 msgstr "Додај компоненту"
 
@@ -916,14 +1679,85 @@ msgstr "Обриши компоненту"
 msgid "grid.action.restoreGenres"
 msgstr "Врати компоненте на основна подешавања"
 
+msgid "manager.setup.genres.label"
+msgstr ""
+
+msgid "manager.setup.genres.dependent"
+msgstr ""
+
+msgid "manager.setup.genres.supplementary"
+msgstr ""
+
+msgid "manager.setup.genres.key"
+msgstr ""
+
+msgid "manager.setup.genres.key.description"
+msgstr ""
+
+msgid "manager.setup.genres.key.exists"
+msgstr ""
+
+msgid "manager.setup.genres.key.alphaNumeric"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata"
+msgstr ""
+
+msgid "manager.setup.genres.metatadata.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.label"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.description"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.yes"
+msgstr ""
+
+msgid "manager.setup.genres.submitRequired.no"
+msgstr ""
+
 msgid "manager.settings.wizard"
 msgstr "Чаробњак подешавања"
+
+msgid "manager.users.roleRequired"
+msgstr "Морате одабрати барем једну улогу да је додате овом кориснику."
+
+msgid "manager.website"
+msgstr "Сајт"
 
 msgid "manager.website.title"
 msgstr "Подешавања сајта"
 
+msgid "manager.workflow"
+msgstr "Процес рада"
+
+msgid "manager.workflow.title"
+msgstr "Подешавање процеса рада"
+
+msgid "manager.distribution"
+msgstr "Дистрибуција"
+
+msgid "manager.distribution.title"
+msgstr "Подешавање дистрибуције"
+
 msgid "manager.reviewForms"
 msgstr "Обрасци рецензија"
+
+msgid "manager.reviewForms.confirmActivate"
+msgstr ""
+"Да ли сте сигурни да желите да активирате овај рецензентски образац? Кад му "
+"доделите рецензију нећете моћи да га деактивирате."
+
+msgid "manager.reviewForms.confirmDeactivate"
+msgstr ""
+"Да ли сте сигурни да желите да деактивирате овај рецензентски образац? Овај "
+"образац више неће бити доступан за нове рецензије."
+
+msgid "manager.reviewForms.confirmCopy"
+msgstr ""
+"Да ли сте сигурни д желите да креирате копију овог рецензентског обрасца?"
 
 msgid "manager.reviewForms.completed"
 msgstr "Завршено"
@@ -946,8 +1780,24 @@ msgstr "Потребан је наслов за образац"
 msgid "manager.reviewForms.inReview"
 msgstr "У рецензирању"
 
+msgid "manager.reviewForms.list.description"
+msgstr ""
+"Рецензентски обрасци којe овде креирате ће бити представљени рецензентима "
+"како би их попунили. Ови обрсци замењују почетне обрасце са две отворене "
+"кутије за текст, прва \"за аутора и уредника\", и друга \"за уредника\". "
+"Рецензентски обрасци могу се доделити појединим секцијама часописа,а "
+"уредници могу имати могућност да изаберу који образац ће употребити у "
+"дотичној рецензији. У сваком случају, уредници имају могућност укључивања "
+"рецензија у преписци са аутором."
+
+msgid "manager.reviewForms.noneChosen"
+msgstr "Нема/ Рецентзентски образац"
+
 msgid "manager.reviewForms.noneCreated"
 msgstr "Нема направљених рецензентских образаца."
+
+msgid "manager.reviewForms.noneUsed"
+msgstr "Нема употребљених рецензентских образаца."
 
 msgid "manager.reviewForms.preview"
 msgstr "Прикажи образац"
@@ -1006,6 +1856,9 @@ msgstr "Одабир"
 msgid "manager.reviewFormElements.question"
 msgstr "Елемент"
 
+msgid "manager.reviewFormElements.description"
+msgstr ""
+
 msgid "manager.reviewFormElements.radiobuttons"
 msgstr "Радио дугмићи (можете одабрати само један одговор)"
 
@@ -1030,115 +1883,1340 @@ msgstr "Видљиво (за ауторе)"
 msgid "grid.action.createReviewForm"
 msgstr "Направи нови рецензентски образац"
 
-msgid "manager.setup.metadata.submission"
-msgstr "Форма за пријаву"
-
-msgid "plugins.importexport.common.validationErrors"
-msgstr "Грешке при потврђивању"
-
 msgid "manager.setup.competingInterests.required"
 msgstr "Захтевајте Изјаву о сукобу интереса у току рецензије."
 
 msgid "manager.setup.licenseURLDescription"
 msgstr "URL до стране која описује лиценцу, ако је имате."
 
-msgid "manager.reviewerSearch.form.instructions"
-msgstr "У доњи формулар упишите максималне вредности за термине које желите да тражите. Формулар је претходно испуњен калкулисаним просечним вредностима за та поља."
+msgid "manager.setup.metadata.submission"
+msgstr "Форма за пријаву"
 
-msgid "manager.reviewForms.noneChosen"
-msgstr "Нема/ Рецентзентски образац"
+msgid "manager.setup.metadata.coverage"
+msgstr ""
 
-msgid "manager.reviewForms.noneUsed"
-msgstr "Нема употребљених рецензентских образаца."
+msgid "manager.setup.metadata.coverage.description"
+msgstr ""
 
-msgid "manager.reviewForms.list.description"
-msgstr "Рецензентски обрасци којe овде креирате ће бити представљени рецензентима како би их попунили. Ови обрсци замењују почетне обрасце са две отворене кутије за текст, прва \"за аутора и уредника\", и друга \"за уредника\". Рецензентски обрасци могу се доделити појединим секцијама часописа,а уредници могу имати могућност да изаберу који образац ће употребити у дотичној рецензији. У сваком случају, уредници имају могућност укључивања рецензија у преписци са аутором."
+msgid "manager.setup.metadata.coverage.enable"
+msgstr ""
 
-msgid "manager.reviewForms.confirmDeactivate"
-msgstr "Да ли сте сигурни да желите да деактивирате овај рецензентски образац? Овај образац више неће бити доступан за нове рецензије."
+msgid "manager.setup.metadata.coverage.noRequest"
+msgstr ""
 
-msgid "manager.reviewForms.confirmCopy"
-msgstr "Да ли сте сигурни д желите да креирате копију овог рецензентског обрасца?"
+msgid "manager.setup.metadata.coverage.request"
+msgstr ""
 
-msgid "manager.users.roleRequired"
-msgstr "Морате одабрати барем једну улогу да је додате овом кориснику."
+msgid "manager.setup.metadata.coverage.require"
+msgstr ""
 
-msgid "manager.reviewForms.confirmActivate"
-msgstr "Да ли сте сигурни да желите да активирате овај рецензентски образац? Кад му доделите рецензију нећете моћи да га деактивирате."
+msgid "manager.setup.metadata.keywords.description"
+msgstr ""
 
-msgid "settings.libraryFiles.fileRequired"
-msgstr "Фајл библиотека је неопходан. Проверите да ли сте одабрали и на сервер поставили фајл."
+msgid "manager.setup.metadata.keywords.enable"
+msgstr ""
 
-msgid "settings.libraryFiles.nameRequired"
-msgstr "Потребно је име за овај фајл библиотеке."
+msgid "manager.setup.metadata.keywords.noRequest"
+msgstr ""
 
-msgid "settings.libraryFiles.typeRequired"
-msgstr "Тип фајла је неопходан за овај фајл библиотеке."
+msgid "manager.setup.metadata.keywords.request"
+msgstr ""
 
-msgid "settings.roles.removeText"
-msgstr "Ви желите да уклоните ову улогу из овог контекста. То ће избрисати сва повезана подешавања и све корисничке доделе овој улози. Да ли желите да наставите?"
+msgid "manager.setup.metadata.keywords.require"
+msgstr ""
 
-msgid "manager.plugins.description"
-msgstr "Ова страница дозвољава Управнику да прегледа и потенцијално конфигурише додатке који су тренутно инсталирани. Додаци су подељени у категорије према својој функцији.  Категорије су доле излистане и у свакој категроији се налази комплет додатака."
+msgid "manager.setup.metadata.languages.description"
+msgstr ""
 
-msgid "manager.plugins.pluginGallery.maintainer"
-msgstr "Особа за одржавање"
+msgid "manager.setup.metadata.languages.enable"
+msgstr ""
 
-msgid "manager.plugins.deleteError"
-msgstr "Додатак \"{$pluginName}\" није могао бити обрисан са сервера. Проблем може бити због недостатка довољних дозвола. Обезбедите да  web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате."
+msgid "manager.setup.metadata.languages.noRequest"
+msgstr ""
 
-msgid "manager.plugins.wrongCategory"
-msgstr "Постављени додатак не припада категорији надогађеног додатка."
+msgid "manager.setup.metadata.languages.request"
+msgstr ""
 
-msgid "manager.plugins.copyError"
-msgstr "Додатак није успешно копиран. Проблем може бити због недостатка довољних дозвола. Обезбедите да web сервер може уписивати у директориј за додатке (укључујући и поддиректорије), али не заборавите касније да да поново осигурате."
+msgid "manager.setup.metadata.languages.require"
+msgstr ""
 
-msgid "manager.setup.sponsors.note"
-msgstr "Однос са спонзором и опис политике"
+msgid "manager.setup.metadata.rights.description"
+msgstr ""
 
-msgid "manager.setup.sponsors.description"
-msgstr "Примери: академске асоцијације, универзитетска одељења, кооперативе итд. Спонзори су јавно приказани."
+msgid "manager.setup.metadata.rights.enable"
+msgstr ""
 
-msgid "manager.setup.styleSheetDescription"
-msgstr "Искусни web програмери могу поставити CSS фајл за даље прилагођавање изгледа сајта."
+msgid "manager.setup.metadata.rights.noRequest"
+msgstr ""
 
-msgid "manager.setup.peerReview.description"
-msgstr "Напишите укратко политику рецензије и процеса за читаоце и ауторе. Овај опис обично укључује број рецензената који врше рецензију пријављеног чланка, критерије које рецензенти користе код оцењивања пријављеног чланка, очекивано време за које се извршава рецензија и принципе приликом избора рецензената."
+msgid "manager.setup.metadata.rights.request"
+msgstr ""
 
-msgid "manager.setup.principalContactDescription"
-msgstr "Yнесите детаље за контакт, посебно за главног уредника, управника или позицију административног особља који се могу јавно приказати на вашем сајту."
+msgid "manager.setup.metadata.rights.require"
+msgstr ""
 
-msgid "manager.setup.notifications.description"
-msgstr "Ауторима ће бити аутоматски послата порука потврђујући пријем пријављеног чланка. Можете копије ове поруке послати следећим:"
+msgid "manager.setup.metadata.source.description"
+msgstr ""
 
-msgid "manager.setup.openAccessPolicy.description"
-msgstr "Ако омогућавате непосредан и директан приступ целокупном објављеном садржају можете унети опис ваше политике отвореног приступа."
+msgid "manager.setup.metadata.source.enable"
+msgstr ""
 
-msgid "manager.setup.authorGuidelines.description"
-msgstr "Препоручене смернице укључују библиографске стандарде и формате уз примере цитатних формата које треба користити у пријављеним чланцима."
+msgid "manager.setup.metadata.source.noRequest"
+msgstr ""
 
-msgid "manager.setup.favicon"
-msgstr "Омиљена сличица-Favicon"
+msgid "manager.setup.metadata.source.request"
+msgstr ""
 
-msgid "manager.statistics.reports.description"
-msgstr "Систем генерише извештаје који прате детаље у вези употребе вашег сајта и пријављених чаланак у датом временском периоду. Извештаји се генеришу у CSV формату који се могу прегледати у програму за табеларни рачун."
+msgid "manager.setup.metadata.source.require"
+msgstr ""
 
-msgid "about.editorialPOLICY"
-msgstr "about.editorialPOLICY"
+msgid "manager.setup.metadata.subjects.description"
+msgstr ""
 
-msgid "manager.emails.addEmail"
-msgstr "Додај шаблон"
+msgid "manager.setup.metadata.subjects.enable"
+msgstr ""
 
-msgid "manager.publication.reviewerGuidance"
-msgstr "Упутства за рецензенте"
+msgid "manager.setup.metadata.subjects.noRequest"
+msgstr ""
 
-msgid "manager.announcements.deleteAnnouncement"
-msgstr "Обриши обавештење"
+msgid "manager.setup.metadata.subjects.request"
+msgstr ""
 
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Припремна листа за припрему пријављивања чланка"
+msgid "manager.setup.metadata.subjects.require"
+msgstr ""
 
-#, fuzzy
-msgid "manager.setup.submissionPreparationChecklistDescription"
-msgstr "У току процеса пријављивања чланка обавезно је да аутори означе сваки ставку у листи за припрему пријаве чланка пре наставка. Ова контролна листа се такође налази у Упутству за ауторе у страници О часопису. Ову листу можете изменити, али ће и даље сви делови листе тражити потврду испуњености означавањем сваког питања пре него аутор настави са процесом пријаве."
+msgid "manager.setup.metadata.type.description"
+msgstr ""
+
+msgid "manager.setup.metadata.type.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.type.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.type.request"
+msgstr ""
+
+msgid "manager.setup.metadata.type.require"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.description"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.request"
+msgstr ""
+
+msgid "manager.setup.metadata.disciplines.require"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.description"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.request"
+msgstr ""
+
+msgid "manager.setup.metadata.agencies.require"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.description"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.request"
+msgstr ""
+
+msgid "manager.setup.metadata.citations.require"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.description"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.enable"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.noRequest"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.request"
+msgstr ""
+
+msgid "manager.setup.metadata.dataAvailability.require"
+msgstr ""
+
+msgid "plugins.importexport.common.validationErrors"
+msgstr "Грешке при потврђивању"
+
+msgid "plugins.importexport.common.warningsEncountered"
+msgstr ""
+
+msgid "plugins.importexport.common.errorsOccured"
+msgstr ""
+
+msgid "plugins.importexport.common.id"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownElement"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownGenre"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownEncoding"
+msgstr ""
+
+msgid "plugins.importexport.common.error.encodingError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUserGroup"
+msgstr ""
+
+msgid "plugins.importexport.common.error.userGroupMissing"
+msgstr ""
+
+msgid "plugins.importexport.common.error.missingGivenName"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownUploader"
+msgstr ""
+
+msgid "plugins.importexport.common.error.temporaryFileFailed"
+msgstr ""
+
+msgid "plugins.importexport.common.error.filesizeMismatch"
+msgstr ""
+
+msgid "plugins.importexport.common.error.duplicateRevisionForSubmission"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileImportFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.error.submissionFileSkipped"
+msgstr ""
+
+msgid "plugins.importexport.user.importExportErrors"
+msgstr ""
+
+msgid "plugins.importexport.user.error.userHasNoPassword"
+msgstr ""
+
+msgid "plugins.importexport.user.error.passwordHasBeenChanged"
+msgstr ""
+
+msgid "plugins.importexport.user.error.plainPasswordNotValid"
+msgstr ""
+
+msgid "plugins.importexport.user.error.usernameEmailMismatch"
+msgstr ""
+
+msgid "plugins.importexport.common.settings.form.testMode.label"
+msgstr ""
+
+msgid "manager.navigationMenus.form.title"
+msgstr ""
+
+msgid "manager.navigationMenus.form.path"
+msgstr ""
+
+msgid "manager.navigationMenus"
+msgstr ""
+
+msgid "manager.navigationMenus.form.viewInstructions"
+msgstr ""
+
+msgid "manager.navigationMenus.form.content"
+msgstr ""
+
+msgid "manager.navigationMenus.form.pathRegEx"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicatePath"
+msgstr ""
+
+msgid "manager.navigationMenus.form.duplicateTitles"
+msgstr ""
+
+msgid "manager.navigationMenus.form.titleRequired"
+msgstr ""
+
+msgid "manager.navigationMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.assignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.unassignedMenuItems"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuArea"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuAreaMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.form.menuAssigned"
+msgstr ""
+
+msgid "manager.navigationMenus.form.url"
+msgstr ""
+
+msgid "manager.navigationMenus.form.customUrlError"
+msgstr ""
+
+msgid "manager.navigationMenus.form.conditionalDisplay"
+msgstr ""
+
+msgid "manager.navigationMenus.form.submenuWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemType"
+msgstr ""
+
+msgid "manager.navigationMenus.form.navigationMenuItemTypeMessage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage"
+msgstr ""
+
+msgid "manager.navigationMenus.customPage.description"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl"
+msgstr ""
+
+msgid "manager.navigationMenus.remoteUrl.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.description"
+msgstr ""
+
+msgid "manager.navigationMenus.about.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.description"
+msgstr ""
+
+msgid "manager.navigationMenus.editorialTeam.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.submissions.description"
+msgstr ""
+
+msgid "manager.navigationMenus.current.description"
+msgstr ""
+
+msgid "manager.navigationMenus.archives.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.description"
+msgstr ""
+
+msgid "manager.navigationMenus.announcements.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.login.description"
+msgstr ""
+
+msgid "manager.navigationMenus.register.description"
+msgstr ""
+
+msgid "manager.navigationMenus.dashboard.description"
+msgstr ""
+
+msgid "manager.navigationMenus.profile.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.description"
+msgstr ""
+
+msgid "manager.navigationMenus.administration.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.logOut.description"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedOut.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.loggedIn.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.description"
+msgstr ""
+
+msgid "manager.navigationMenus.contact.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.form.typeMissing"
+msgstr ""
+
+msgid "manager.navigationMenus.subscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
+msgstr ""
+
+msgid "manager.navigationMenus.search.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.description"
+msgstr ""
+
+msgid "manager.navigationMenus.privacyStatement.conditionalWarning"
+msgstr ""
+
+msgid "grid.category.add"
+msgstr ""
+
+msgid "grid.category.edit"
+msgstr ""
+
+msgid "grid.category.name"
+msgstr ""
+
+msgid "grid.category.path"
+msgstr ""
+
+msgid "grid.category.urlWillBe"
+msgstr ""
+
+msgid "grid.category.pathAlphaNumeric"
+msgstr ""
+
+msgid "grid.category.pathExists"
+msgstr ""
+
+msgid "grid.category.description"
+msgstr ""
+
+msgid "grid.category.parentCategory"
+msgstr ""
+
+msgid "grid.category.removeText"
+msgstr ""
+
+msgid "grid.category.nameRequired"
+msgstr ""
+
+msgid "grid.category.categoryDetails"
+msgstr ""
+
+msgid "stats.allUsers"
+msgstr ""
+
+msgid "stats.city"
+msgstr "Град"
+
+msgid "stats.views"
+msgstr ""
+
+msgid "stats.downloads"
+msgstr ""
+
+msgid "stats.views.timelineInterval"
+msgstr ""
+
+msgid "stats.downloads.timelineInterval"
+msgstr ""
+
+msgid "stats.countWithYearlyAverage"
+msgstr ""
+
+msgid "stats.daily"
+msgstr ""
+
+msgid "stats.dateRange"
+msgstr ""
+
+msgid "stats.dateRange.allDates"
+msgstr ""
+
+msgid "stats.dateRange.apply"
+msgstr ""
+
+msgid "stats.dateRange.change"
+msgstr ""
+
+msgid "stats.dateRange.customRange"
+msgstr ""
+
+msgid "stats.dateRange.dateDoesNotExist"
+msgstr ""
+
+msgid "stats.dateRange.from"
+msgstr ""
+
+msgid "stats.dateRange.instructions"
+msgstr ""
+
+msgid "stats.dateRange.invalidDate"
+msgstr ""
+
+msgid "stats.dateRange.invalidDateRange"
+msgstr ""
+
+msgid "stats.dateRange.invalidEndDateMax"
+msgstr ""
+
+msgid "stats.dateRange.invalidStartDateMin"
+msgstr ""
+
+msgid "stats.dateRange.last12Months"
+msgstr ""
+
+msgid "stats.dateRange.last30Days"
+msgstr ""
+
+msgid "stats.dateRange.last90Days"
+msgstr ""
+
+msgid "stats.dateRange.lastTwoYears"
+msgstr ""
+
+msgid "stats.dateRange.lastYear"
+msgstr ""
+
+msgid "stats.dateRange.sinceDate"
+msgstr ""
+
+msgid "stats.dateRange.thisYear"
+msgstr ""
+
+msgid "stats.dateRange.to"
+msgstr ""
+
+msgid "stats.dateRange.untilDate"
+msgstr ""
+
+msgid "stats.description.acceptRejectRate"
+msgstr ""
+
+msgid "stats.description.daysToDecision"
+msgstr ""
+
+msgid "stats.description.submissionsSkipped"
+msgstr ""
+
+msgid "stats.descriptionForStat"
+msgstr ""
+
+msgid "stats.editorialActivity"
+msgstr ""
+
+msgid "stats.file.type.primaryFile"
+msgstr ""
+
+msgid "stats.file.type.suppFile"
+msgstr ""
+
+msgid "stats.fileViews"
+msgstr ""
+
+msgid "stats.html"
+msgstr ""
+
+msgid "stats.monthly"
+msgstr ""
+
+msgid "stats.pdf"
+msgstr ""
+
+msgid "stats.geographic.ccAttribution"
+msgstr ""
+
+msgid "stats.geographic.tooltip.label"
+msgstr ""
+
+msgid "stats.downloadReport.betweenDates"
+msgstr ""
+
+msgid "stats.downloadReport.allFilters"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadFiles"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadFiles.description"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadGeographic"
+msgstr ""
+
+msgid "stats.publications.downloadReport.downloadGeographic.description"
+msgstr ""
+
+msgid "stats.region"
+msgstr "Регион"
+
+msgid "stats.searchSubmissionDescription"
+msgstr ""
+
+msgid "stats.submissionsActive"
+msgstr ""
+
+msgid "stats.timeline"
+msgstr ""
+
+msgid "stats.timeline.downloadReport.description"
+msgstr ""
+
+msgid "stats.timeline.downloadReport.downloadTimeline"
+msgstr ""
+
+msgid "stats.timelineInterval"
+msgstr ""
+
+msgid "stats.timelineType"
+msgstr ""
+
+msgid "stats.total"
+msgstr ""
+
+msgid "stats.unique"
+msgstr ""
+
+msgid "stats.totalWithinDateRange"
+msgstr ""
+
+msgid "stats.trends"
+msgstr ""
+
+msgid "stats.unknown"
+msgstr ""
+
+msgid "stats.userStatistics"
+msgstr ""
+
+msgid "stats.name.submissionsReceived"
+msgstr ""
+
+msgid "stats.name.submissionsSkipped"
+msgstr ""
+
+msgid "stats.name.submissionsInProgress"
+msgstr ""
+
+msgid "stats.name.submissionsImported"
+msgstr ""
+
+msgid "stats.name.submissionsAccepted"
+msgstr ""
+
+msgid "stats.name.submissionsDeclined"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedDeskReject"
+msgstr ""
+
+msgid "stats.name.submissionsDeclinedPostReview"
+msgstr ""
+
+msgid "stats.name.submissionsPublished"
+msgstr ""
+
+msgid "stats.name.daysToDecision"
+msgstr ""
+
+msgid "stats.name.daysToAccept"
+msgstr ""
+
+msgid "stats.name.daysToReject"
+msgstr ""
+
+msgid "stats.name.acceptanceRate"
+msgstr ""
+
+msgid "stats.name.declineRate"
+msgstr ""
+
+msgid "stats.name.declinedDeskRate"
+msgstr ""
+
+msgid "stats.name.declinedReviewRate"
+msgstr ""
+
+msgid "plugins.importexport.native.processFailed"
+msgstr ""
+
+msgid "plugins.importexport.native.export.submissions.results"
+msgstr ""
+
+msgid "plugins.importexport.native.export.download.results"
+msgstr ""
+
+msgid "plugins.importexport.native.export.completed"
+msgstr ""
+
+msgid "plugins.importexport.native.export.completed.downloadFile"
+msgstr ""
+
+msgid "plugins.importexport.native.common.any"
+msgstr ""
+
+msgid "plugins.importexport.native.common.error.filter.configuration.count"
+msgstr ""
+
+msgid "plugins.importexport.common.cliError"
+msgstr ""
+
+msgid "plugins.importexport.common.error.unknownContext"
+msgstr ""
+
+msgid "plugins.importexport.submission.cli.display"
+msgstr ""
+
+msgid "plugins.importexport.author.exportFailed"
+msgstr ""
+
+msgid "plugins.importexport.publication.exportFailed"
+msgstr ""
+
+msgid "emailTemplate.variable.allReviewersComments"
+msgstr ""
+
+msgid "emailTemplate.variable.authorsWithAffiliation"
+msgstr ""
+
+msgid "emailTemplate.variable.context.passwordLostUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.submissionsUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.context.userProfileUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.name"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.description"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.stage"
+msgstr ""
+
+msgid "emailTemplate.variable.decision.round"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.subject"
+msgstr ""
+
+msgid "emailTemplate.variable.discussion.content"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
+msgstr ""
+
+msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.userFullName"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.username"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.responseDueDate"
+msgstr ""
+
+msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.assignedDate"
+msgstr ""
+
+msgid "emailTemplate.variable.review.method"
+msgstr ""
+
+msgid "emailTemplate.variable.review.recommendation"
+msgstr ""
+
+msgid "emailTemplate.variable.review.round"
+msgstr ""
+
+msgid "emailTemplate.variable.review.files"
+msgstr ""
+
+msgid "emailTemplate.variable.review.name"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.doubleAnonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.anonymous"
+msgstr ""
+
+msgid "emailTemplate.variable.reviewType.open"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderName"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.senderEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.sender.signature"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactName"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteContactEmail"
+msgstr ""
+
+msgid "emailTemplate.variable.site.siteSignature"
+msgstr ""
+
+msgid "emailTemplate.variable.stageAssignment.editors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionId"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionAbstract"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorsShort"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authors"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.authorSubmissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionPublishedUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submissionWizardUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.submission.submittingAuthorName"
+msgstr ""
+
+msgid "emailTemplate.variable.passwordResetUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.password"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.name"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.name"
+msgstr ""
+
+msgid "emailTemplate.variable.submitterName"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementTitle"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementSummary"
+msgstr ""
+
+msgid "emailTemplate.variable.announcementUrl"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.month"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issueIdentification"
+msgstr ""
+
+msgid "emailTemplate.variable.issue.issuePublishedUrl"
+msgstr ""
+
+msgid "mailTemplate.variable.statisticsReportNotify.year"
+msgstr ""
+
+msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
+msgstr ""
+
+msgid "mailable.reviewerReinstate.description"
+msgstr ""
+
+msgid "mailable.reviewerResendRequest.description"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.name"
+msgstr ""
+
+msgid "mailable.reviewerUnassign.description"
+msgstr ""
+
+msgid "mailable.validateEmailSite.name"
+msgstr ""
+
+msgid "mailable.validateEmailSite.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.description"
+msgstr ""
+
+msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.name"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.description"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription."
+"pendingRevisions"
+msgstr ""
+
+msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
+msgstr ""
+
+msgid ""
+"mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.decline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.newReviewRound.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.requestRevisions.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.resubmit.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.sendToProduction.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.skipReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.name"
+msgstr ""
+
+msgid "mailable.decision.recommendation.notifyEditors.description"
+msgstr ""
+
+msgid "mailable.reviewConfirm.name"
+msgstr ""
+
+msgid "mailable.reviewConfirm.description"
+msgstr ""
+
+msgid "mailable.reviewDecline.name"
+msgstr ""
+
+msgid "mailable.reviewDecline.description"
+msgstr ""
+
+msgid "mailable.reviewRemind.name"
+msgstr ""
+
+msgid "mailable.reviewRemind.description"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.name"
+msgstr ""
+
+msgid "mailable.reviewRemindAuto.description"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.name"
+msgstr ""
+
+msgid "mailable.reviewAcknowledgement.description"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.name"
+msgstr ""
+
+msgid "mailable.reviewResponseOverdueAuto.description"
+msgstr ""
+
+msgid "mailable.reviewRequest.name"
+msgstr ""
+
+msgid "mailable.reviewRequest.description"
+msgstr ""
+
+msgid "mailable.reviewRequestSubsequent.name"
+msgstr ""
+
+msgid "mailable.reviewRequestSubsequent.description"
+msgstr ""
+
+msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
+msgstr ""
+
+msgid "plugins.importexport.common.error.submissionChildFailed"
+msgstr ""
+
+msgid "mailable.editorialReminder.name"
+msgstr ""
+
+msgid "mailable.editorialReminder.description"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.name"
+msgstr ""
+
+msgid "mailable.passwordResetRequested.description"
+msgstr ""
+
+msgid "mailable.userRegister.name"
+msgstr ""
+
+msgid "mailable.userRegister.description"
+msgstr ""
+
+msgid "mailable.reviewerRegister.name"
+msgstr ""
+
+msgid "mailable.reviewerRegister.description"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.name"
+msgstr ""
+
+msgid "mailable.submissionSavedForLater.description"
+msgstr ""
+
+msgid "mailable.submissionAck.name"
+msgstr ""
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+
+msgid "mailable.submissionAckNotAuthor.name"
+msgstr ""
+
+msgid "mailable.submissionAckNotAuthor.description"
+msgstr ""
+
+msgid "mailable.discussionSubmission.name"
+msgstr ""
+
+msgid "mailable.discussionSubmission.description"
+msgstr ""
+
+msgid "mailable.discussionReview.name"
+msgstr ""
+
+msgid "mailable.discussionReview.description"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.name"
+msgstr ""
+
+msgid "mailable.discussionCopyediting.description"
+msgstr ""
+
+msgid "mailable.discussionProduction.name"
+msgstr ""
+
+msgid "mailable.discussionProduction.description"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.name"
+msgstr ""
+
+msgid "mailable.revisedVersionNotify.description"
+msgstr ""
+
+msgid "mailable.announcementNotify.name"
+msgstr ""
+
+msgid "mailable.announcementNotify.description"
+msgstr ""
+
+msgid "mailable.statisticsReportNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.name"
+msgstr ""
+
+msgid "mailable.editReviewNotify.description"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.name"
+msgstr ""
+
+msgid "mailable.reviewCompleteNotifyEditors.description"
+msgstr ""
+
+msgid "manager.people.authSource"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToReview.notifyAuthor.description"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.name"
+msgstr ""
+
+msgid "mailable.decision.backToSubmission.notifyAuthor.description"
+msgstr ""
+
+msgid "manager.manageEmails"
+msgstr ""
+
+msgid "manager.manageEmailTemplates.description"
+msgstr ""
+
+msgid "manager.mailables.addTemplates"
+msgstr ""
+
+msgid "manager.mailables.templates"
+msgstr ""
+
+msgid "manager.mailables.editTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate"
+msgstr ""
+
+msgid "manager.mailables.removeTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate"
+msgstr ""
+
+msgid "manager.mailables.resetTemplate.confirm"
+msgstr ""
+
+msgid "manager.mailables.search"
+msgstr ""
+
+msgid "manager.emailTemplate.name.description"
+msgstr ""
+
+msgid "manager.newSubmission"
+msgstr ""
+
+msgid "manager.newSubmission.description"
+msgstr ""
+
+msgid "manager.submissionAck.description"
+msgstr ""
+
+msgid "manager.submissionAck.off"
+msgstr ""
+
+msgid "manager.submissionAck.submittingAuthor"
+msgstr ""
+
+msgid "manager.submissionAck.allAuthors"
+msgstr ""
+
+msgid "manager.editorialDecisions"
+msgstr ""
+
+msgid "manager.editorialDecisions.description"
+msgstr ""
+
+msgid "manager.forEditors"
+msgstr ""
+
+msgid "manager.forEditors.description"
+msgstr ""
+
+msgid "manager.editorialStatistics"
+msgstr ""
+
+msgid "manager.editorialStatistics.description"
+msgstr ""
+
+msgid "manager.editorialStatistics.on"
+msgstr ""
+
+msgid "manager.editorialStatistics.off"
+msgstr ""
+
+msgid "manager.submitWithCategories.description"
+msgstr ""
+
+msgid "manager.submitWithCategories.yes"
+msgstr ""
+
+msgid "manager.submitWithCategories.no"
+msgstr ""
+
+msgid "mailable.copyeditRequest.name"
+msgstr ""
+
+msgid "mailable.citationAuthorQuery.name"
+msgstr ""
+
+msgid "mailable.editorAssign.name"
+msgstr ""
+
+msgid "mailable.layoutRequest.name"
+msgstr ""
+
+msgid "mailable.system"
+msgstr ""
+
+msgid "mailable.versionCreated.name"
+msgstr ""
+
+msgid "mailable.reviewComplete.name"
+msgstr ""
+
+msgid "mailable.reviewEdit.name"
+msgstr ""
+
+msgid "mailable.submissionAckOtherAuthors.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.name"
+msgstr ""
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+
+msgid "mailable.editorAssignedManual.name"
+msgstr ""
+
+msgid "mailable.submissionNeedsEditor.name"
+msgstr ""
+
+#~ msgid "manager.setup.notifications.copyPrimaryContact"
+#~ msgstr "Пошаљи копију главном контакту који је наведен у 1. кораку."
+
+#~ msgid "manager.setup.reviewOptions.reviewTime"
+#~ msgstr "Предефинисани рокови рецензената"
+
+#~ msgid "manager.plugins.pluginGallery.date"
+#~ msgstr "Датум објављивања: {$date}"
+
+#~ msgid "about.editorialPOLICY"
+#~ msgstr "about.editorialPOLICY"

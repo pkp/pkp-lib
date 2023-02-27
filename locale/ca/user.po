@@ -22,7 +22,9 @@ msgid "user.affiliation"
 msgstr "Institució/Empresa"
 
 msgid "user.affiliation.description"
-msgstr "(La institució en què esteu adscrit, p. ex. «Universitat Autònoma de Barcelona»)"
+msgstr ""
+"(La institució en què esteu adscrit, p. ex. «Universitat Autònoma de "
+"Barcelona»)"
 
 msgid "user.affiliations"
 msgstr "Filiacions"
@@ -34,7 +36,9 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "El testimoni (token) d’autenticació del procés no hi és o no és vàlid."
 
 msgid "user.authorization.contextRequired"
-msgstr "No podeu dur a terme aquesta operació sense un context (premsa, revista, conferència, etc.)."
+msgstr ""
+"No podeu dur a terme aquesta operació sense un context (premsa, revista, "
+"conferència, etc.)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Inici de sessió obligatori."
@@ -43,16 +47,40 @@ msgid "user.authorization.privateOperation"
 msgstr "L’operació a la qual heu intentat accedir és privada o no existeix."
 
 msgid "user.authorization.restrictedSiteAccess"
-msgstr "Teniu l'accés denegat. Actualment, l'accés a aquest lloc web està restringit."
+msgstr ""
+"Teniu l'accés denegat. Actualment, l'accés a aquest lloc web està restringit."
 
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "El rol actual no té accés a aquesta operació."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"El rol que teniu assignat per a aquesta tramesa no us permet accedir a "
+"aquesta operació."
+
 msgid "user.authorization.userGroupRequired"
-msgstr "Cal que configureu un grup d’usuari/ària vàlid per accedir a l’operació."
+msgstr ""
+"Cal que configureu un grup d’usuari/ària vàlid per accedir a l’operació."
 
 msgid "user.authorization.managerRequired"
-msgstr "Un usuari/ària amb el rol d'administrador/a (p. ex., editor/a de producció) ha d'estar assignat a la fase abans de continuar."
+msgstr ""
+"Un usuari/ària amb el rol d'administrador/a (p. ex., editor/a de producció) "
+"ha d'estar assignat a la fase abans de continuar."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Actualment no té accés a aquesta fase del flux de treball."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "No s'ha especificat cap fase del flux de treball."
+
+msgid "user.authorization.pluginRequired"
+msgstr "És obligatori especificar un mòdul."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "No teniu permís per accedir a aquesta assignació de revisió."
+
+msgid "user.authorization.submissionQuery"
+msgstr "No teniu permís per accedir a aquesta discussió."
 
 msgid "user.biography"
 msgstr "Resum biogràfic"
@@ -75,57 +103,111 @@ msgstr "Edita el meu perfil"
 msgid "user.email"
 msgstr "Adreça electrònica"
 
+msgid "user.givenName"
+msgstr "Nom"
+
 msgid "user.interests"
 msgstr "Interessos de revisió"
 
 msgid "user.gossip"
 msgstr "Notes privades"
 
+msgid "user.gossip.description"
+msgstr ""
+"Registreu les notes sobre aquest revisor/a que us agradaria que fossin "
+"visibles per a altres administradors/ores, gestors/es i tots els editors/es. "
+"Les notes seran visibles en futures assignacions de revisió."
+
 msgid "user.group"
 msgstr "Grup d'usuaris/àries"
 
-msgid "user.login.activated"
-msgstr "Gràcies per activar el compte. Ara ja podeu iniciar la sessió amb les dades que heu indicat en crear el compte."
+msgid "user.familyName"
+msgstr "Cognoms"
 
 msgid "user.profile.form.profileImageInvalid"
-msgstr "El format de la imatge del perfil no és vàlid o la imatge és massa gran. Els formats admesos són .gif, .jpg i .png. i la imatge no ha de superar els 150x150 píxels."
+msgstr ""
+"El format de la imatge del perfil no és vàlid o la imatge és massa gran. Els "
+"formats admesos són .gif, .jpg i .png. i la imatge no ha de superar els "
+"150x150 píxels."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "El vostre compte s'ha inhabilitat pel motiu següent: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en contacte amb l'administrador/a."
+msgstr ""
+"El vostre compte s'ha inhabilitat. Per obtenir més informació, poseu-vos en "
+"contacte amb l'administrador/a."
 
 msgid "user.login.accountNotValidated"
-msgstr "Li hem enviat un correu electrònic de confirmació a {$email}. Segueixi les instruccions d'aquest correu per activar el seu nou compte. Si no troba aquest correu electrònic, comprovi que no hagi anat a parar a la carpeta de correu brossa."
+msgstr ""
+"Li hem enviat un correu electrònic de confirmació a {$email}. Segueixi les "
+"instruccions d'aquest correu per activar el seu nou compte. Si no troba "
+"aquest correu electrònic, comprovi que no hagi anat a parar a la carpeta de "
+"correu brossa."
 
 msgid "user.login.activate"
 msgstr "Activa el compte"
 
+msgid "user.login.activated"
+msgstr ""
+"Gràcies per activar el compte. Ara ja podeu iniciar la sessió amb les dades "
+"que heu indicat en crear el compte."
+
 msgid "user.login.changePasswordInstructions"
-msgstr "Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br />Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a continuació per canviar la contrasenya del vostre compte."
+msgstr ""
+"Heu de triar una nova contrasenya abans d'iniciar sessió.<br /><br /"
+">Introduïu el vostre nom d'usuari i les vostres contrasenyes nova i antiga a "
+"continuació per canviar la contrasenya del vostre compte."
 
 msgid "user.login.forgotPassword"
 msgstr "Heu oblidat la contrasenya?"
 
 msgid "user.login.loginError"
-msgstr "El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a intentar."
+msgstr ""
+"El nom d'usuari/ària o la contrasenya són no vàlids. Torneu-ho a intentar."
 
 msgid "user.login"
 msgstr "Inici de la sessió"
 
 #, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "S'ha enviat un missatge de confirmació a la vostra adreça electrònica. Seguiu les instruccions del correu electrònic per restablir la contrasenya."
+msgstr ""
+"S'ha enviat un missatge de confirmació a la vostra adreça electrònica. "
+"Seguiu les instruccions del correu electrònic per restablir la contrasenya."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu restablir la contrasenya de nou."
+msgstr ""
+"L'enllaç que heu seleccionat ha vençut o bé no és vàlid. Intenteu restablir "
+"la contrasenya de nou."
 
 msgid "user.login.lostPassword.passwordSent"
-msgstr "S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu iniciar la sessió amb aquesta contrasenya."
+msgstr ""
+"S'ha enviat una nova contrasenya a la vostra adreça electrònica. Ja podeu "
+"iniciar la sessió amb aquesta contrasenya."
 
 msgid "user.login.registeredEmail"
 msgstr "Adreça electrònica de l’usuari/usuària registrat"
+
+msgid "user.login.registrationComplete"
+msgstr "Registre complet"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Gràcies per registrar-se! Què voleu fer ara?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Veure trameses"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Fer una tramesa nova"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Continuar navegant"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Registre pendent de verificació"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Mantenir-me connectat"
 
 msgid "user.login.resetPassword"
 msgstr "Reinicieu la contrasenya"
@@ -157,8 +239,18 @@ msgstr "Repetiu la contrasenya"
 msgid "user.phone"
 msgstr "Telèfon"
 
+msgid "user.preferredPublicName"
+msgstr "Nom públic preferit"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Proporcioneu el nom complet tal com l'autor/a hauria de ser identificat en "
+"l'obra publicada. Exemple: Dr. Alan P. Mwandenga"
+
 msgid "user.profile.changePasswordInstructions"
-msgstr "Introduïu la contrasenya actual i la contrasenya nova per a canviar la contrasenya del vostre compte."
+msgstr ""
+"Introduïu la contrasenya actual i la contrasenya nova per a canviar la "
+"contrasenya del vostre compte."
 
 msgid "user.profile.editProfile"
 msgstr "Edició del perfil"
@@ -168,6 +260,14 @@ msgstr "Cal que introduïu un país."
 
 msgid "user.profile.form.emailRequired"
 msgstr "Heu d’introduir una adreça electrònica vàlida."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "El nom es obligatori."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Heu afegit un cognom per a un idioma en què falta el nom. Afegiu el nom per "
+"a aquest idioma."
 
 msgid "user.profile.form.mailingAddressRequired"
 msgstr "Cal que introduïu un correu electrònic vàlid."
@@ -204,8 +304,12 @@ msgstr "Cal que introduïu un grup d'usuaris/àries."
 msgid "user.profile.form.usernameRequired"
 msgstr "Heu d’introduir un nom d’usuari."
 
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Heu d'acceptar els termes de la declaració de privacitat."
+
 msgid "user.profile.leavePasswordBlank"
-msgstr "No empleneu els camps de contrasenya si voleu mantenir la contrasenya actual."
+msgstr ""
+"No empleneu els camps de contrasenya si voleu mantenir la contrasenya actual."
 
 msgid "user.profile.newPassword"
 msgstr "Contrasenya nova"
@@ -226,10 +330,25 @@ msgid "user.login.registerNewAccount"
 msgstr "Registrar-se"
 
 msgid "user.login.resetPasswordInstructions"
-msgstr "Per motius de seguretat, aquest sistema envia un missatge de restabliment de contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al camp següent per restablir la vostra contrasenya. S'enviarà un missatge de confirmació a la vostra adreça electrònica."
+msgstr ""
+"Per motius de seguretat, aquest sistema envia un missatge de restabliment de "
+"contrasenya als usuaris registrats, en lloc de tornar-ho a intentar amb la "
+"contrasenya actual.<br /><br />Introduïu la vostra adreça electrònica al "
+"camp següent per restablir la vostra contrasenya. S'enviarà un missatge de "
+"confirmació a la vostra adreça electrònica."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Sí, estic d'acord que les meves dades es recopilin i emmagatzemin segons la "
+"<a href=\"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Sí, vull que em notifiquin les publicacions noves i els avisos."
 
 msgid "user.register.form.emailExists"
-msgstr "Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica seleccionada."
+msgstr ""
+"Ja hi ha un altre usuari/usuària que utilitza l’adreça electrònica "
+"seleccionada."
 
 msgid "user.register.form.passwordsDoNotMatch"
 msgstr "Les contrasenyes no coincideixen."
@@ -237,11 +356,21 @@ msgstr "Les contrasenyes no coincideixen."
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Els camps de correu electrònic no coincideixen."
 
-msgid "user.register.form.usernameExists"
-msgstr "Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat."
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, "
+"guions i guions baixos, i ha de començar i acabar amb un caràcter "
+"alfanumèric."
 
-msgid "user.register.passwordLengthRestriction"
-msgstr "La contrasenya ha de tenir {$length} caràcters com a mínim."
+msgid "user.register.form.userGroupRequired"
+msgstr "S'ha de seleccionar un rol com a mínim."
+
+msgid "user.register.form.usernameExists"
+msgstr ""
+"Ja hi ha un altre usuari/usuària que utilitza el nom d’usuari seleccionat."
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "La contrasenya ha de tenir almenys {$length} caràcters."
 
 msgid "user.register.registerAs"
 msgstr "Registrar-se en {$contextName} com a..."
@@ -250,7 +379,14 @@ msgid "user.register"
 msgstr "Registre"
 
 msgid "user.register.usernameRestriction"
-msgstr "El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i ratlles baixes."
+msgstr ""
+"El nom d’usuari només pot contenir lletres minúscules, nombres, guionets i "
+"ratlles baixes."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"S'ha registrat correctament. Faci <a href=\"{$profileUrl}\">clic aquí</a> "
+"per completar el seu perfil d'usuari/ària."
 
 msgid "user.role.assistant"
 msgstr "Ajudant de producció"
@@ -335,47 +471,13 @@ msgstr "Nom d’usuari"
 msgid "user.workingLanguages"
 msgstr "Llengües de treball"
 
-msgid "user.register.completeForm"
-msgstr "Empleneu aquest formulari per registrar-vos en aquesta revista."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Actualment no té accés a aquesta fase del flux de treball."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "No s'ha especificat cap fase del flux de treball."
-
-msgid "user.authorization.pluginRequired"
-msgstr "És obligatori especificar un mòdul."
-
-msgid "user.login.registrationComplete"
-msgstr "Registre complet"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Gràcies per registrar-se! Què voleu fer ara?"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Veure trameses"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Fer una tramesa nova"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Continuar navegant"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Registre pendent de verificació"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Mantenir-me connectat"
-
-msgid "user.register.form.userGroupRequired"
-msgstr "S'ha de seleccionar un rol com a mínim."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "La contrasenya ha de tenir almenys {$length} caràcters."
-
 msgid "user.orcid"
 msgstr "Identificador ORCID"
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+"L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. "
+"ex.: \"https://orcid.org/0000-0002-1825-0097\"), si us plau."
 
 msgid "user.profile.identity"
 msgstr "Identitat"
@@ -386,86 +488,54 @@ msgstr "Contacte"
 msgid "user.profile.public"
 msgstr "Públic"
 
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr "El nom d'usuari/ària només pot contenir caràcters alfanumèrics en minúscula, guions i guions baixos, i ha de començar i acabar amb un caràcter alfanumèric."
+msgid "user.apiKey"
+msgstr "Clau API"
 
-msgid "user.register.registrationCompleted"
-msgstr "S'ha registrat correctament. Faci <a href=\"{$profileUrl}\">clic aquí</a> per completar el seu perfil d'usuari/ària."
-
-msgid "user.orcid.orcidInvalid"
-msgstr "L'identificador ORCID especificat no es vàlid. Inclogui el URI complet (p. ex.: \"https://orcid.org/0000-0002-1825-0097\"), si us plau."
-
-msgid "user.privacyLink"
+msgid "user.apiKeyEnabled"
 msgstr ""
-"Les vostres dades s'emmagatzemen d'acord amb la nostra <a href=\""
-"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
+"Habilitar l'accés a aquest compte a aplicacions externes amb la clau API"
 
-msgid "user.apiKey.secretRequired"
+msgid "user.apiKey.generate"
+msgstr "Generar una clau API nova"
+
+msgid "user.apiKey.remove"
 msgstr ""
-"Abans de generar una clau API, l'administrador/a del lloc ha d'establir una "
-"clau secreta en l'arxiu de configuració (\"api_key_secret\")."
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
 "Generar una clau API nova invalidarà qualsevol clau existent d'aquest usuari/"
 "ària."
 
-msgid "user.apiKey.generate"
-msgstr "Generar una clau API nova"
-
-msgid "user.apiKeyEnabled"
+msgid "user.apiKey.removeWarning"
 msgstr ""
-"Habilitar l'accés a aquest compte a aplicacions externes amb la clau API"
 
-msgid "user.apiKey"
-msgstr "Clau API"
-
-msgid "user.register.form.emailConsent"
-msgstr "Sí, vull que em notifiquin les publicacions noves i els avisos."
-
-msgid "user.register.form.privacyConsent"
+msgid "user.apiKey.remove.confirmation.message"
 msgstr ""
-"Sí, estic d'acord que les meves dades es recopilin i emmagatzemin segons la <"
-"a href=\"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
 
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Heu d'acceptar els termes de la declaració de privacitat."
-
-msgid "user.profile.form.givenNameRequired.locale"
+msgid "user.apiKey.secretRequired"
 msgstr ""
-"Heu afegit un cognom per a un idioma en què falta el nom. Afegiu el nom per "
-"a aquest idioma."
+"Abans de generar una clau API, l'administrador/a del lloc ha d'establir una "
+"clau secreta en l'arxiu de configuració (\"api_key_secret\")."
 
-msgid "user.profile.form.givenNameRequired"
-msgstr "El nom es obligatori."
-
-msgid "user.preferredPublicName.description"
+msgid "user.privacyLink"
 msgstr ""
-"Proporcioneu el nom complet tal com l'autor/a hauria de ser identificat en "
-"l'obra publicada. Exemple: Dr. Alan P. Mwandenga"
+"Les vostres dades s'emmagatzemen d'acord amb la nostra <a href="
+"\"{$privacyUrl}\" target=\"_blank\">declaració de privacitat</a>."
 
-msgid "user.preferredPublicName"
-msgstr "Nom públic preferit"
-
-msgid "user.familyName"
-msgstr "Cognoms"
-
-msgid "user.gossip.description"
+msgid "user.login.lostPassword.invalidUser"
 msgstr ""
-"Registreu les notes sobre aquest revisor/a que us agradaria que fossin "
-"visibles per a altres administradors/ores, gestors/es i tots els editors/es. "
-"Les notes seran visibles en futures assignacions de revisió."
 
-msgid "user.givenName"
-msgstr "Nom"
-
-msgid "user.authorization.submissionQuery"
-msgstr "No teniu permís per accedir a aquesta discussió."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "No teniu permís per accedir a aquesta assignació de revisió."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
-"El rol que teniu assignat per a aquesta tramesa no us permet accedir a "
-"aquesta operació."
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+
+#~ msgid "user.register.passwordLengthRestriction"
+#~ msgstr "La contrasenya ha de tenir {$length} caràcters com a mínim."
+
+#~ msgid "user.register.completeForm"
+#~ msgstr "Empleneu aquest formulari per registrar-vos en aquesta revista."

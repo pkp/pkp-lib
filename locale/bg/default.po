@@ -12,136 +12,148 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br><br>—<br><p>Това е автоматично съобщение от <a href=\"{$contextUrl}\""
-">{$contextName}</a>.</p>"
-
-msgid "default.genres.styleSheet"
-msgstr "Таблица с HTML стилове"
-
-msgid "default.genres.image"
-msgstr "Изображение"
-
-msgid "default.genres.multimedia"
-msgstr "Мултимедия"
-
-msgid "default.genres.other"
-msgstr "Друго"
-
-msgid "default.groups.abbrev.reader"
-msgstr "Чит"
-
-msgid "default.groups.plural.reader"
-msgstr "Читатели"
-
-msgid "default.groups.name.reader"
-msgstr "Читател"
-
-msgid "default.groups.abbrev.translator"
-msgstr "Прев"
-
-msgid "default.groups.plural.translator"
-msgstr "Преводачи"
-
-msgid "default.groups.name.translator"
-msgstr "Преводач"
-
-msgid "default.groups.abbrev.author"
-msgstr "Авт."
-
-msgid "default.groups.plural.author"
-msgstr "Автори"
-
-msgid "default.groups.name.author"
-msgstr "Автор"
-
-msgid "default.groups.abbrev.layoutEditor"
-msgstr "РО"
-
-msgid "default.groups.plural.layoutEditor"
-msgstr "Редактори на оформлението"
-
-msgid "default.groups.name.layoutEditor"
-msgstr "Редактор на оформлението"
-
-msgid "default.groups.abbrev.indexer"
-msgstr "Инд."
-
-msgid "default.groups.plural.indexer"
-msgstr "Индексиращи"
-
-msgid "default.groups.name.indexer"
-msgstr "Индексиращ"
-
-msgid "default.groups.abbrev.funding"
-msgstr "КФ"
-
-msgid "default.groups.plural.funding"
-msgstr "Координатори за финансиране"
-
-msgid "default.groups.name.funding"
-msgstr "Координатор за финансиране"
-
-msgid "default.groups.abbrev.marketing"
-msgstr "МП"
-
-msgid "default.groups.plural.marketing"
-msgstr "Координатори по маркетинг и продажби"
-
-msgid "default.groups.name.marketing"
-msgstr "Координатор по маркетинг и продажби"
-
-msgid "default.groups.abbrev.internalReviewer"
-msgstr "Вътр.Рец."
-
-msgid "default.groups.plural.internalReviewer"
-msgstr "Вътрешни рецензенти"
-
-msgid "default.groups.name.internalReviewer"
-msgstr "Вътрешен рецензент"
-
-msgid "default.groups.abbrev.designer"
-msgstr "Дизайн"
-
-msgid "default.groups.plural.designer"
-msgstr "Дизайнери"
-
-msgid "default.groups.name.designer"
-msgstr "Дизайнер"
-
-msgid "default.groups.abbrev.proofreader"
-msgstr "Кор"
-
-msgid "default.groups.plural.proofreader"
-msgstr "Коректори"
-
-msgid "default.groups.name.proofreader"
-msgstr "Коректор"
-
-msgid "default.groups.abbrev.copyeditor"
-msgstr "РедОформ"
-
-msgid "default.groups.plural.copyeditor"
-msgstr "Редактори на оформление"
-
-msgid "default.groups.name.copyeditor"
-msgstr "Редактор на оформление"
-
-msgid "default.groups.abbrev.productionEditor"
-msgstr "ПродРед"
-
-msgid "default.groups.plural.productionEditor"
-msgstr "Редактори на продукцията"
-
-msgid "default.groups.name.productionEditor"
-msgstr "Редактор на продукцията"
+msgid "default.groups.name.siteAdmin"
+msgstr "Администратор на сайта"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Администратори на сайта"
 
-msgid "default.groups.name.siteAdmin"
-msgstr "Администратор на сайта"
+msgid "default.groups.name.productionEditor"
+msgstr "Редактор на продукцията"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Редактори на продукцията"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ПродРед"
+
+msgid "default.groups.name.copyeditor"
+msgstr "Редактор на оформление"
+
+msgid "default.groups.plural.copyeditor"
+msgstr "Редактори на оформление"
+
+msgid "default.groups.abbrev.copyeditor"
+msgstr "РедОформ"
+
+msgid "default.groups.name.proofreader"
+msgstr "Коректор"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Коректори"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Кор"
+
+msgid "default.groups.name.designer"
+msgstr "Дизайнер"
+
+msgid "default.groups.plural.designer"
+msgstr "Дизайнери"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Дизайн"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Вътрешен рецензент"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Вътрешни рецензенти"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "Вътр.Рец."
+
+msgid "default.groups.name.marketing"
+msgstr "Координатор по маркетинг и продажби"
+
+msgid "default.groups.plural.marketing"
+msgstr "Координатори по маркетинг и продажби"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "МП"
+
+msgid "default.groups.name.funding"
+msgstr "Координатор за финансиране"
+
+msgid "default.groups.plural.funding"
+msgstr "Координатори за финансиране"
+
+msgid "default.groups.abbrev.funding"
+msgstr "КФ"
+
+msgid "default.groups.name.indexer"
+msgstr "Индексиращ"
+
+msgid "default.groups.plural.indexer"
+msgstr "Индексиращи"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Инд."
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Редактор на оформлението"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Редактори на оформлението"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "РО"
+
+msgid "default.groups.name.author"
+msgstr "Автор"
+
+msgid "default.groups.plural.author"
+msgstr "Автори"
+
+msgid "default.groups.abbrev.author"
+msgstr "Авт."
+
+msgid "default.groups.name.translator"
+msgstr "Преводач"
+
+msgid "default.groups.plural.translator"
+msgstr "Преводачи"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Прев"
+
+msgid "default.groups.name.reader"
+msgstr "Читател"
+
+msgid "default.groups.plural.reader"
+msgstr "Читатели"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Чит"
+
+msgid "default.genres.other"
+msgstr "Друго"
+
+msgid "default.genres.multimedia"
+msgstr "Мултимедия"
+
+msgid "default.genres.image"
+msgstr "Изображение"
+
+msgid "default.genres.styleSheet"
+msgstr "Таблица с HTML стилове"
+
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br><br>—<br><p>Това е автоматично съобщение от <a href="
+"\"{$contextUrl}\">{$contextName}</a>.</p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+"<p>Благодарим ви, че изпратихте {$contextName}. Ще бъдете помолени да качите "
+"файлове, да идентифицирате съавтори и да предоставите информация като "
+"заглавие и резюме.<p><p>Моля, прочетете нашите <a href="
+"\"{$submissionGuidelinesUrl}\" target=\"_blank\">Указания за изпращане </a>, "
+"ако още не сте го направили. Когато попълвате формулярите, предоставете "
+"възможно най-много подробности, за да помогнете на нашите редактори да "
+"оценят работата ви.</p><p>След като започнете, можете да запазите подаването "
+"си и да се върнете към него по-късно. Ще можете да прегледате и коригирате "
+"всяка информация, преди да изпратите материала.</p>"
 
 msgid "default.submission.step.uploadFiles"
 msgstr ""
@@ -150,32 +162,6 @@ msgstr ""
 "може да поискате да изпратите набори от данни, декларации за конфликт на "
 "интереси или други допълнителни файлове, ако те ще бъдат полезни за нашите "
 "редактори.</p>"
-
-msgid "default.submission.step.details"
-msgstr ""
-"<p>Моля, предоставете следните подробности, за да ни помогнете да придвижим "
-"редакционния процес в нашата система.</p>"
-
-msgid "default.submission.step.review"
-msgstr ""
-"<p>Прегледайте информацията, която сте въвели, преди да завършите подаването "
-"си. Можете да промените която и да е от подробностите, показани тук, като "
-"щракнете върху бутона за редактиране в горната част на всеки раздел.</"
-"p><p>След като завършите подаването си, член на нашия редакционен екип ще "
-"бъде назначен да го прегледа. Моля, уверете се, че данните, които сте въвели "
-"тук, са възможно най-точни.</p>"
-
-msgid "default.submission.step.beforeYouBegin"
-msgstr ""
-"<p>Благодарим ви, че изпратихте {$contextName}. Ще бъдете помолени да качите "
-"файлове, да идентифицирате съавтори и да предоставите информация като "
-"заглавие и резюме.<p><p>Моля, прочетете нашите <a href=\""
-"{$submissionGuidelinesUrl}\" target=\"_blank\">Указания за изпращане </a>, "
-"ако още не сте го направили. Когато попълвате формулярите, предоставете "
-"възможно най-много подробности, за да помогнете на нашите редактори да "
-"оценят работата ви.</p><p>След като започнете, можете да запазите подаването "
-"си и да се върнете към него по-късно. Ще можете да прегледате и коригирате "
-"всяка информация, преди да изпратите материала.</p>"
 
 msgid "default.submission.step.contributors"
 msgstr ""
@@ -188,9 +174,23 @@ msgstr ""
 "сътрудник в съобщение до редактора на по-късна стъпка от процеса на "
 "изпращане.</p>"
 
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Моля, предоставете следните подробности, за да ни помогнете да придвижим "
+"редакционния процес в нашата система.</p>"
+
 msgid "default.submission.step.forTheEditors"
 msgstr ""
 "<p>Моля, предоставете следните подробности, за да помогнете на нашия "
 "редакционен екип.</p><p>Когато въвеждате метаданни, предоставете записи, "
 "които смятате, че биха били най-полезни за лицето, отговарящо за "
 "публикацията. Тази информация може да бъде променена преди публикуване.</p>"
+
+msgid "default.submission.step.review"
+msgstr ""
+"<p>Прегледайте информацията, която сте въвели, преди да завършите подаването "
+"си. Можете да промените която и да е от подробностите, показани тук, като "
+"щракнете върху бутона за редактиране в горната част на всеки раздел.</"
+"p><p>След като завършите подаването си, член на нашия редакционен екип ще "
+"бъде назначен да го прегледа. Моля, уверете се, че данните, които сте въвели "
+"тук, са възможно най-точни.</p>"

@@ -13,155 +13,150 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "default.groups.name.productionEditor"
-msgstr "Թողարկման խմբագիր"
+msgid "default.groups.name.siteAdmin"
+msgstr "Կայքի ադմին"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Կայքի ադմիններ"
 
-msgid "default.groups.name.siteAdmin"
-msgstr "Կայքի ադմին"
-
-msgid "default.groups.abbrev.productionEditor"
-msgstr "Թողարկ. խմբ"
-
-msgid "default.groups.name.proofreader"
-msgstr "Սրբագրիչ"
-
-msgid "default.genres.image"
-msgstr "Պատկեր"
-
-msgid "default.genres.multimedia"
-msgstr "Մուլտիմեդիա"
-
-msgid "default.genres.other"
-msgstr "Այլ"
-
-msgid "default.groups.abbrev.reader"
-msgstr "Կարդալ"
-
-msgid "default.groups.plural.reader"
-msgstr "Ընթերցողներ"
-
-msgid "default.groups.name.reader"
-msgstr "Ընթերցող"
-
-msgid "default.groups.abbrev.translator"
-msgstr "Թարգ"
-
-msgid "default.groups.plural.translator"
-msgstr "Թարգմանիչներ"
-
-msgid "default.groups.name.translator"
-msgstr "Թարգմանիչ"
-
-msgid "default.groups.abbrev.author"
-msgstr "Հեղ."
-
-msgid "default.groups.plural.author"
-msgstr "Հեղինակներ"
-
-msgid "default.groups.name.author"
-msgstr "Հեղինակ"
-
-msgid "default.groups.abbrev.layoutEditor"
-msgstr "Դասավ.խմբ."
-
-msgid "default.groups.plural.layoutEditor"
-msgstr "Դասավորության խմբագիրներ"
-
-msgid "default.groups.name.layoutEditor"
-msgstr "Դասավորության խմբագիր"
-
-msgid "default.groups.abbrev.indexer"
-msgstr "Ինդ."
-
-msgid "default.groups.plural.indexer"
-msgstr "Ինդեքսավորողներ"
-
-msgid "default.groups.name.indexer"
-msgstr "Ինդեքսավորող"
-
-msgid "default.groups.abbrev.funding"
-msgstr "Ֆին. համակարգող"
-
-msgid "default.groups.plural.funding"
-msgstr "Ֆինանսավորման համակարգողներ"
-
-msgid "default.groups.name.funding"
-msgstr "Ֆինանսավորման համակարգող"
-
-msgid "default.groups.abbrev.marketing"
-msgstr "Մարքեթինգ"
-
-msgid "default.groups.plural.marketing"
-msgstr "Մարքեթինգի և վաճառքների համակարգողներ"
-
-msgid "default.groups.name.marketing"
-msgstr "Մարքեթինգի և վաճառքների համակարգող"
-
-msgid "default.groups.abbrev.internalReviewer"
-msgstr "Ն.Գ."
-
-msgid "default.groups.plural.internalReviewer"
-msgstr "Ներքին գրախոսողներ"
-
-msgid "default.groups.name.internalReviewer"
-msgstr "Ներքին գրախոսող"
-
-msgid "default.groups.abbrev.designer"
-msgstr "Դիզայն"
-
-msgid "default.groups.plural.designer"
-msgstr "Դիզայներներ"
-
-msgid "default.groups.name.designer"
-msgstr "Դիզայներ"
-
-msgid "default.groups.abbrev.proofreader"
-msgstr "Սրբագ."
-
-msgid "default.groups.plural.proofreader"
-msgstr "Սրբագրիչներ"
+msgid "default.groups.name.productionEditor"
+msgstr "Թողարկման խմբագիր"
 
 msgid "default.groups.plural.productionEditor"
 msgstr "Թողարկման խմբագիրներ"
 
-#, fuzzy
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
-"mailto: {$contactEmail}\">{$contactEmail}</a></p>․"
+msgid "default.groups.abbrev.productionEditor"
+msgstr "Թողարկ. խմբ"
 
-msgid "default.genres.styleSheet"
-msgstr "HTML Stylesheet,"
-
-msgid "default.groups.abbrev.copyeditor"
+msgid "default.groups.name.copyeditor"
 msgstr "Խմբագիր"
 
 msgid "default.groups.plural.copyeditor"
 msgstr "Խմբագիրներ"
 
-msgid "default.groups.name.copyeditor"
+msgid "default.groups.abbrev.copyeditor"
 msgstr "Խմբագիր"
 
-msgid "default.submission.step.details"
+msgid "default.groups.name.proofreader"
+msgstr "Սրբագրիչ"
+
+msgid "default.groups.plural.proofreader"
+msgstr "Սրբագրիչներ"
+
+msgid "default.groups.abbrev.proofreader"
+msgstr "Սրբագ."
+
+msgid "default.groups.name.designer"
+msgstr "Դիզայներ"
+
+msgid "default.groups.plural.designer"
+msgstr "Դիզայներներ"
+
+msgid "default.groups.abbrev.designer"
+msgstr "Դիզայն"
+
+msgid "default.groups.name.internalReviewer"
+msgstr "Ներքին գրախոսող"
+
+msgid "default.groups.plural.internalReviewer"
+msgstr "Ներքին գրախոսողներ"
+
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "Ն.Գ."
+
+msgid "default.groups.name.marketing"
+msgstr "Մարքեթինգի և վաճառքների համակարգող"
+
+msgid "default.groups.plural.marketing"
+msgstr "Մարքեթինգի և վաճառքների համակարգողներ"
+
+msgid "default.groups.abbrev.marketing"
+msgstr "Մարքեթինգ"
+
+msgid "default.groups.name.funding"
+msgstr "Ֆինանսավորման համակարգող"
+
+msgid "default.groups.plural.funding"
+msgstr "Ֆինանսավորման համակարգողներ"
+
+msgid "default.groups.abbrev.funding"
+msgstr "Ֆին. համակարգող"
+
+msgid "default.groups.name.indexer"
+msgstr "Ինդեքսավորող"
+
+msgid "default.groups.plural.indexer"
+msgstr "Ինդեքսավորողներ"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "Ինդ."
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Դասավորության խմբագիր"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Դասավորության խմբագիրներ"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "Դասավ.խմբ."
+
+msgid "default.groups.name.author"
+msgstr "Հեղինակ"
+
+msgid "default.groups.plural.author"
+msgstr "Հեղինակներ"
+
+msgid "default.groups.abbrev.author"
+msgstr "Հեղ."
+
+msgid "default.groups.name.translator"
+msgstr "Թարգմանիչ"
+
+msgid "default.groups.plural.translator"
+msgstr "Թարգմանիչներ"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Թարգ"
+
+msgid "default.groups.name.reader"
+msgstr "Ընթերցող"
+
+msgid "default.groups.plural.reader"
+msgstr "Ընթերցողներ"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Կարդալ"
+
+msgid "default.genres.other"
+msgstr "Այլ"
+
+msgid "default.genres.multimedia"
+msgstr "Մուլտիմեդիա"
+
+msgid "default.genres.image"
+msgstr "Պատկեր"
+
+msgid "default.genres.styleSheet"
+msgstr "HTML Stylesheet,"
+
+#, fuzzy
+msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<p>Խնդրում ենք տրամադրել հետևյալ մանրամասները, որոնք կօգնեն մեզ կառավարել "
-"ձեր ներկայացումը մեր համակարգում:</p>"
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
+"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
+"{$contactEmail}\">{$contactEmail}</a></p>․"
 
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
 "<p>Շնորհակալություն {$contextName} -ին ուղարկելու համար: Ձեզանից կպահանջվի "
 "վերբեռնել նիշքերը, բացահայտել համահեղինակներին և տրամադրել տեղեկություններ, "
-"ինչպիսիք են վերնագիրը և համառոտագիրը:<p><p>Խնդրում ենք կարդալ մեր <a href=\""
-"{$submissionGuidelinesUrl}\" target=\"_blank\">Ներկայացման ուղեցույցները: </"
-"a> եթե դա դեռ չեք արել: Ձևաթղթերը լրացնելիս հնարավորինս շատ մանրամասներ "
+"ինչպիսիք են վերնագիրը և համառոտագիրը:<p><p>Խնդրում ենք կարդալ մեր <a href="
+"\"{$submissionGuidelinesUrl}\" target=\"_blank\">Ներկայացման ուղեցույցները: "
+"</a> եթե դա դեռ չեք արել: Ձևաթղթերը լրացնելիս հնարավորինս շատ մանրամասներ "
 "տրամադրեք, որպեսզի օգնեք մեր խմբագիրներին գնահատել ձեր աշխատանքը:</p><p>Հենց "
 "որ սկսեք, կարող եք պահպանել ձեր ներկայացումը և ավելի ուշ վերադառնալ դրան: "
-"Դուք կկարողանաք վերանայել և ուղղել ցանկացած տեղեկություն նախքան "
-"ուղարկելը:</p>"
+"Դուք կկարողանաք վերանայել և ուղղել ցանկացած տեղեկություն նախքան ուղարկելը:</"
+"p>"
 
 msgid "default.submission.step.uploadFiles"
 msgstr ""
@@ -175,12 +170,17 @@ msgid "default.submission.step.contributors"
 msgstr ""
 "<p>Ավելացրեք մանրամասներ այս ներկայացման բոլոր մասնակիցների համար: Այստեղ "
 "ավելացված մասնակիցներին էլեկտրոնային փոստով կուղարկվի ներկայացման հաստատում, "
-"ինչպես նաև այս ներկայացման դեմ գրանցված բոլոր խմբագրական որոշումների "
-"պատճենը:</p><p>Եթե հնարավոր չէ կապվել աջակցողի հետ էլեկտրոնային փոստով, քանի "
-"որ նրանք պետք է մնան անանուն կամ էլ․ փոստի հաշիվ չունեք, խնդրում ենք կեղծ է․ "
+"ինչպես նաև այս ներկայացման դեմ գրանցված բոլոր խմբագրական որոշումների պատճենը:"
+"</p><p>Եթե հնարավոր չէ կապվել աջակցողի հետ էլեկտրոնային փոստով, քանի որ "
+"նրանք պետք է մնան անանուն կամ էլ․ փոստի հաշիվ չունեք, խնդրում ենք կեղծ է․ "
 "լփոստի հասցե մի մուտքագրեք: Դուք կարող եք այս մասնակցի մասին տեղեկություններ "
 "ավելացնել խմբագրին ուղղված հաղորդագրության մեջ՝ ներկայացնելու գործընթացի "
 "հետագա փուլում:</p>"
+
+msgid "default.submission.step.details"
+msgstr ""
+"<p>Խնդրում ենք տրամադրել հետևյալ մանրամասները, որոնք կօգնեն մեզ կառավարել "
+"ձեր ներկայացումը մեր համակարգում:</p>"
 
 msgid "default.submission.step.forTheEditors"
 msgstr ""

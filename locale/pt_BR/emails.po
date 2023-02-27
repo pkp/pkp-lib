@@ -38,6 +38,9 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Agradecimento pela avaliação"
@@ -51,9 +54,18 @@ msgstr ""
 "para o periódico {$contextName}. Nós apreciamos sua contribuição para manter "
 "a qualidade dos trabalhos que publicamos."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Mensagem enviada pelo Editor de Seção ao Avaliador para confirmar recebimento e agradecer o avaliador pela conclusão da avaliação."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decisão do Editor"
@@ -138,8 +150,8 @@ msgstr ""
 "submissão {$submitTitle}. </p> <p> Minha recomendação é: <br /> "
 "{$recommendation}. </p> <p> Visite o <a href=\"{$submissionUrl}\">fluxo de "
 "trabalho editorial </a> para agir de acordo com esta recomendação. </p> <p> "
-"Sinta-se à vontade para entrar em contato comigo em caso de dúvidas. </p> <p>"
-" Atenciosamente, </p> <p> {$senderName} </p>"
+"Sinta-se à vontade para entrar em contato comigo em caso de dúvidas. </p> "
+"<p> Atenciosamente, </p> <p> {$senderName} </p>"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -167,6 +179,24 @@ msgstr ""
 "URL de Submissão: {$submitUrl} <br />\n"
 "Nome de usuário: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Sua submissão foi recusada"
@@ -176,11 +206,56 @@ msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "<p> Prezado(a) {$recipientName}, </p> <p> Lamento informar que, após avaliar "
 "sua submissão <strong>{$submissionTitle}</strong>, o editor concluiu que ela "
-"não atende aos nossos requisitos para publicação em "
-"<strong>{$contextName}</strong>. </p> \n"
+"não atende aos nossos requisitos para publicação em <strong>{$contextName}</"
+"strong>. </p> \n"
 "<p>Portanto a nossa decisão é: <strong>Recusar Submissão</strong></p>\n"
 "<p>Desejo-lhe sucesso se você considerar enviar trabalhos para outro "
 "periódico. </p> <p> Atenciosamente, </p> {$signature}"
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 #, fuzzy
 msgid "emails.discussion.subject"
@@ -188,6 +263,54 @@ msgstr "Uma mensagem sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Insira a sua mensagem por gentileza."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Disponível para realizar avaliação"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Prezados editores, <br />\n"
+"<br />\n"
+"eu tenho disponibilidade para dar um parecer para a submissão, &quot;"
+"{$submissionTitle}&quot;, para o periódico {$contextName}. Agradeço por "
+"lembrar de mim, e pretendo enviar o parecer até {$reviewDueDate}, se não "
+"antes.<br />\n"
+"<br />\n"
+"Atenciosamente,\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
 
 msgid "emails.submissionAckNotUser.description"
 msgstr ""
@@ -212,19 +335,7 @@ msgstr ""
 "p>{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Prezados editores, <br />\n"
-"<br />\n"
-"eu tenho disponibilidade para dar um parecer para a submissão, &quot;"
-"{$submissionTitle}&quot;, para o periódico {$contextName}. Agradeço por "
-"lembrar de mim, e pretendo enviar o parecer até {$reviewDueDate}, se não "
-"antes.<br />\n"
-"<br />\n"
-"Atenciosamente,\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Disponível para realizar avaliação"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Mensagem enviada pelo Editor de Seção ao Avaliador para confirmar "
+#~ "recebimento e agradecer o avaliador pela conclusão da avaliação."

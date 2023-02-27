@@ -16,29 +16,28 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Zapytanie odrzucone. Być może czas logowania minął. Przeładuj stronę i spróbuj ponownie."
-
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Możesz wyświetlić tylko nieopublikowane, zgłoszone teksty do których zostałeś przydzielony."
-
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Nie możesz usunąć przesłanego tekstu, do którego nie zostałeś przydzielony(a) w tym kontekście."
-
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Nie posiadasz uprawnień do usunięcia tego przesłanego tekstu."
-
-msgid "api.submissions.404.resourceNotFound"
-msgstr "Zasób nie został odnaleziony."
-
-msgid "api.submissions.400.missingRequired"
-msgstr "Zapytanie nie mogło zostać spełnione, ponieważ brakuje wymaganych informacji."
-
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Zapytanie o wolumen, numer lub rok jest niepoprawne."
-
 msgid "api.400.paramNotSupported"
 msgstr "Parametr {$param} nie jest wspierany."
+
+msgid "api.400.propReadOnly"
+msgstr ""
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Nie można zweryfikować tokenu API. Może to oznaczać błąd w tokenie API lub "
+"że token API jest już nieważny."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Nie można zdekodować apiToken z powodu następującego błędu: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Musisz podać temat i treść wiadomości e-mail."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Zmiana czasu powstania tego obiektu jest niemożliwa."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Do wygenerowania numerów DOI wymagany jest prefiks DOI."
 
 msgid "api.403.unauthorized"
 msgstr "Brak uprawnień dostępu do zasobu."
@@ -49,126 +48,26 @@ msgstr "Zasób nie został odnaleziony."
 msgid "api.404.endpointNotFound"
 msgstr "URL nie został rozpoznany."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "Zapytanie nie jest poprawne. Dane powinny zostać wpisane w formacie YYYY-MM-DD."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "Zapytanie nie jest poprawne. Data początkowa nie może być późniejsza niż data końcowa."
-
-msgid "api.stats.400.wrongTimeSegmentDaily"
-msgstr "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana razem z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 dni."
-
-msgid "api.publication.403.cantEditStatus"
-msgstr ""
-"Nie możesz modyfikować statusu bezpośrednio poprzez API. Zamiast tej metody, "
-"użyj endpointów /publish /unpublish."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr ""
-"Ten serwer przyjmuje pliki jedynie w następujących formatach: {$fileTypes}."
-
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Nie masz zezwolenia na wgrywanie plików."
-
-msgid "api.files.400.noUpload"
-msgstr "Nie znaleźliśmy takiego pliku do wgrania."
-
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"Brak miejsca w katalogu użytkownika. Wgrywany plik ma {$fileUploadSize}kb a "
-"zostało Ci {$dirSizeLeft}kb."
-
-msgid "api.publication.403.cantEditPublished"
-msgstr "Nie możesz edytować zgłoszenia już opublikowanego."
-
-msgid "api.publication.403.alreadyUnpublished"
-msgstr ""
-"Wskazane zgłoszenie które chcesz zdjąć z publikacji jest już nieopublikowane."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Publiczny katalog plików nie został znaleziony lub nie można w nim "
-"zapisywać. Skontaktuj się z administratorem."
-
-msgid "api.files.400.uploadFailed"
-msgstr "Nie mogliśmy wgrać jednego lub więcej z wybranych plików."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Wskazane zgłoszenie zostało już wcześniej opublikowane."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Musisz najpierw zdjąć artykuł z publikacji zanim go skasujesz na dobre."
-
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
-msgstr ""
-"Nie możesz zmodyfikować powiązania pliku bez przejścia przez assocType i "
-"assocId."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Nie znaleźliśmy takiego ogłoszenia pod tym linkiem."
-
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Obrazek który chcesz przesłać jest nieprawidłowy."
-
-msgid "api.files.400.fileSize"
-msgstr "Pliki większe niż {$maxSize} nie mogą być wgrywane."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Nie znaleziono takiego szablonu."
-
-msgid "api.files.400.config"
-msgstr ""
-"Plik nie mógł zostać wgrany z powodu błędnej konfiguracji serwera. Proszę "
-"skontaktować się z administratorem."
-
-msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr ""
-"Plik który próbujesz przesłać ma niepoprawne rozszerzenie. To może się "
-"zdarzyć kiedy plik miał uprzednio zmienianą nazwę np z obrazek.png na "
-"obrazek.jpg."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Zmiana czasu powstania tego obiektu jest niemożliwa."
-
-msgid "api.emails.403.notAllowedUserGroup"
-msgstr ""
-"Nie masz uprawnień do wysyłania wiadomości do jednej z wybranych grup "
-"użytkowników."
-
-msgid "api.emails.400.missingUserGroups"
-msgstr "Wskazanie grupy odbiorców jest niezbędne do wysłania wiadomości."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Email musi posiadać temat."
-
-msgid "api.emails.400.missingBody"
-msgstr "Treść jest wymagana aby wysłać wiadomość."
-
-msgid "api.400.requireEmailSubjectBody"
-msgstr "Musisz podać temat i treść wiadomości e-mail."
-
-msgid "api.dois.403.prefixRequired"
-msgstr "Do wygenerowania numerów DOI wymagany jest prefiks DOI."
-
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
 "Token API nie może być użyty do uzyskania dostępu do tej witryny, ponieważ "
 "administrator witryny nie skonfigurował tajnego klucza."
 
-msgid "api.400.invalidApiToken"
-msgstr ""
-"Nie można zweryfikować tokenu API. Może to oznaczać błąd w tokenie API lub "
-"że token API jest już nieważny."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Nie możesz dodawać i edytować tych plików."
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Nie znaleźliśmy takiego ogłoszenia pod tym linkiem."
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Żądana instytucja nie została znaleziona."
 
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Następujące języki nie są obsługiwane: {$locales}."
+
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
 "Nie możesz edytować DOI elementu, który nie znajduje się w tym kontekście."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -177,6 +76,12 @@ msgstr ""
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Żądany dokument DOI nie został znaleziony."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -206,6 +111,109 @@ msgstr "Do żądania nie dołączono żadnych poprawnych obiektów publikacji."
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr "Do żądania dołączono co najmniej jeden niepoprawny obiekt publikacji."
 
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Nie możesz nagrać decyzji ani zarekomendować decyzji dla tego zgłoszenia, "
+"ponieważ zostało ono już opublikowane."
+
+msgid "api.emails.400.missingBody"
+msgstr "Treść jest wymagana aby wysłać wiadomość."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Email musi posiadać temat."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Wskazanie grupy odbiorców jest niezbędne do wysłania wiadomości."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Nie masz uprawnień do wysyłania wiadomości do jednej z wybranych grup "
+"użytkowników."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Nie znaleziono takiego szablonu."
+
+msgid "api.files.400.noUpload"
+msgstr "Nie znaleźliśmy takiego pliku do wgrania."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Nie mogliśmy wgrać jednego lub więcej z wybranych plików."
+
+msgid "api.files.400.fileSize"
+msgstr "Pliki większe niż {$maxSize} nie mogą być wgrywane."
+
+msgid "api.files.400.config"
+msgstr ""
+"Plik nie mógł zostać wgrany z powodu błędnej konfiguracji serwera. Proszę "
+"skontaktować się z administratorem."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Wskazane zgłoszenie zostało już wcześniej opublikowane."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr ""
+"Wskazane zgłoszenie które chcesz zdjąć z publikacji jest już nieopublikowane."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Nie możesz edytować zgłoszenia już opublikowanego."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Nie możesz modyfikować statusu bezpośrednio poprzez API. Zamiast tej metody, "
+"użyj endpointów /publish /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Musisz najpierw zdjąć artykuł z publikacji zanim go skasujesz na dobre."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Ten serwer przyjmuje pliki jedynie w następujących formatach: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Obrazek który chcesz przesłać jest nieprawidłowy."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Plik który próbujesz przesłać ma niepoprawne rozszerzenie. To może się "
+"zdarzyć kiedy plik miał uprzednio zmienianą nazwę np z obrazek.png na "
+"obrazek.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Nie masz zezwolenia na wgrywanie plików."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Brak miejsca w katalogu użytkownika. Wgrywany plik ma {$fileUploadSize}kb a "
+"zostało Ci {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Publiczny katalog plików nie został znaleziony lub nie można w nim "
+"zapisywać. Skontaktuj się z administratorem."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr ""
+"Zapytanie nie jest poprawne. Dane powinny zostać wpisane w formacie YYYY-MM-"
+"DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr ""
+"Zapytanie nie jest poprawne. Data początkowa nie może być późniejsza niż "
+"data końcowa."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Data rozpoczęcia nie może być wcześniejsza niż 01-01-2001."
+
 msgid "api.stats.400.lateDateRange"
 msgstr "Data zakończenia nie może być późniejsza niż wczoraj."
 
@@ -213,9 +221,6 @@ msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
 "Twoje żądanie było nieprawidłowe. TimelineInterval musi mieć wartość „dzień” "
 "lub „miesiąc”."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "Data rozpoczęcia nie może być wcześniejsza niż 01-01-2001."
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
@@ -227,6 +232,15 @@ msgstr ""
 "Twoja prośba była nieważna. TimelineInterval musi mieć wartość „dzień” lub "
 "„miesiąc”."
 
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Nie możesz zmodyfikować powiązania pliku bez przejścia przez assocType i "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Nie można powiązać pliku z tego etapu pliku z innym plikiem do przesłania."
+
 msgid "api.submissionFiles.400.badNoteAssocType"
 msgstr "Nie można powiązać pliku z tego etapu pliku z notatką do dyskusji."
 
@@ -236,11 +250,11 @@ msgstr "Nie można powiązać pliku z tego etapu pliku z przydziałem recenzji."
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr "Nie można powiązać pliku z tego etapu pliku z rundą recenzji."
 
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Musisz określić rundę recenzji, gdy żądasz plików na etapie recenzji."
+
 msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Musisz podać ID etap tego pliku."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Nie masz dostępu do plików podczas tej recenzji."
 
 msgid "api.submissionFiles.400.invalidFileStage"
 msgstr "Podany etap pliku jest nieprawidłowy."
@@ -253,11 +267,53 @@ msgstr ""
 "Musisz podać identyfikator rundy recenzji podczas przenoszenia pliku do tego "
 "etapu pliku."
 
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Podana przez Ciebie runda recenzji nie jest częścią tego zgłoszenia."
+
 msgid "api.submissionFiles.403.unauthorizedFileStageId"
 msgstr "Nie masz dostępu do tych plików."
 
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Nie możesz dodawać i edytować tych plików."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Nie masz dostępu do plików podczas tej recenzji."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Zapytanie nie mogło zostać spełnione, ponieważ brakuje wymaganych informacji."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Zapytanie o wolumen, numer lub rok jest niepoprawne."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Zapytanie odrzucone. Być może czas logowania minął. Przeładuj stronę i "
+"spróbuj ponownie."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Nie możesz usunąć przesłanego tekstu, do którego nie zostałeś "
+"przydzielony(a) w tym kontekście."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Możesz wyświetlić tylko nieopublikowane, zgłoszone teksty do których "
+"zostałeś przydzielony."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Nie posiadasz uprawnień do usunięcia tego przesłanego tekstu."
+
 msgid "api.submissions.403.userCantEdit"
 msgstr "Nie masz uprawnień do edycji tej publikacji."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ten punkt końcowy nie jest dostępny z kontekstu. Musi być dostępny z "
+"przestrzeni nazw całej witryny."
 
 msgid "api.themes.404.themeUnavailable"
 msgstr ""
@@ -270,28 +326,35 @@ msgstr "Język {$locale} nie jest obsługiwany."
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Żądany e-mail nie został znaleziony."
 
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Następujące języki nie są obsługiwane: {$locales}."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"Nie można powiązać pliku z tego etapu pliku z innym plikiem do przesłania."
 
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Podana przez Ciebie runda recenzji nie jest częścią tego zgłoszenia."
-
-msgid "api.submissions.404.siteWideEndpoint"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Ten punkt końcowy nie jest dostępny z kontekstu. Musi być dostępny z "
-"przestrzeni nazw całej witryny."
 
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "Nie można zdekodować apiToken z powodu następującego błędu: {$error}"
-
-msgid "api.decisions.403.alreadyPublished"
+msgid "api.jobs.406.failedJobEmpty"
 msgstr ""
-"Nie możesz nagrać decyzji ani zarekomendować decyzji dla tego zgłoszenia, "
-"ponieważ zostało ono już opublikowane."
 
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "Musisz określić rundę recenzji, gdy żądasz plików na etapie recenzji."
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+
+#~ msgid "api.submissions.404.resourceNotFound"
+#~ msgstr "Zasób nie został odnaleziony."
+
+#~ msgid "api.stats.400.wrongTimeSegmentDaily"
+#~ msgstr ""
+#~ "Zapytanie nie jest poprawne. Funkcja \"codzienny\" może być używana razem "
+#~ "z zakresem data (data początkowa i data końcowa) w okresie ostatnich 90 "
+#~ "dni."

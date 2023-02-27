@@ -39,6 +39,9 @@ msgstr ""
 "<br />\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Değerlendirme İçin Teşekkür"
@@ -48,11 +51,23 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "Sayın {$recipientName},<br />\n"
 "<br />\n"
-"{$contextName} adlı dergide yayınlanması için değerlendirilmek üzere gönderilen &quot;{$submissionTitle}&quot; başlıklı çalışmanın değerlendirme işlemini tamamladığınız için teşekkür ederiz. Yayınımıza yaptığınız katkıyı takdirle anıyoruz."
+"{$contextName} adlı dergide yayınlanması için değerlendirilmek üzere "
+"gönderilen &quot;{$submissionTitle}&quot; başlıklı çalışmanın değerlendirme "
+"işlemini tamamladığınız için teşekkür ederiz. Yayınımıza yaptığınız katkıyı "
+"takdirle anıyoruz."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Bu elektronik posta gözden geçirme işlemi bitirilen makalenin alındığını haber vermek ve gözden geçirmeyi yapan kişiye katkılarından dolayı teşekkür etmek için Bölüm Editörü tarafından gönderilmiştir."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Editör Kararı"
@@ -62,7 +77,8 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"{$contextName}, &quot;{$submissionTitle}&quot; adresine yaptığınız gönderi için bir karara varılmıştır.<br />\n"
+"{$contextName}, &quot;{$submissionTitle}&quot; adresine yaptığınız gönderi "
+"için bir karara varılmıştır.<br />\n"
 "<br />\n"
 "Karar: Hakeme Gönderilmesi Uygundur<br />\n"
 "<br />\n"
@@ -78,7 +94,8 @@ msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
 "\n"
-"&quot;{$submissionTitle},&quot; adlı gönderinizin düzenlemesi tamamlandı. Makalenizi basım aşamasına gönderiyoruz.<br />\n"
+"&quot;{$submissionTitle},&quot; adlı gönderinizin düzenlemesi tamamlandı. "
+"Makalenizi basım aşamasına gönderiyoruz.<br />\n"
 "<br />\n"
 "Gönderi URL'si: {$submissionUrl}"
 
@@ -92,8 +109,8 @@ msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
 "{$contextName} için gönderdiğiniz &quot;{$submissionTitle}&quot; başlıklı "
-"çalışmanıza ilişkin değerlendirme süreci sonucu bir karara varılmıştır.<br />"
-"\n"
+"çalışmanıza ilişkin değerlendirme süreci sonucu bir karara varılmıştır.<br /"
+">\n"
 "<br />\n"
 "Kararımız: Düzeltme Gerekli"
 
@@ -134,7 +151,8 @@ msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"{$contextName}, &quot;{$submissionTitle}&quot; adlı gönderi ile ilgili öneri: {$recommendation}"
+"{$contextName}, &quot;{$submissionTitle}&quot; adlı gönderi ile ilgili "
+"öneri: {$recommendation}"
 
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
@@ -145,13 +163,35 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "Sayın {$recipientName},<br />\n"
 "<br />\n"
-"{$contextName} ileri sayılarında yayınlanmak üzere kabul edilen &quot;{$submissionTitle}&quot; başlıklı çalışmanın sayfa düzenini tamamlamanızı rica ederim. Dergi sitesinde yazıyı , sayfa düzeni konusundaki özel açıklamalar ile birlikte bulabilirsiniz. <br />\n"
+"{$contextName} ileri sayılarında yayınlanmak üzere kabul edilen &quot;"
+"{$submissionTitle}&quot; başlıklı çalışmanın sayfa düzenini tamamlamanızı "
+"rica ederim. Dergi sitesinde yazıyı , sayfa düzeni konusundaki özel "
+"açıklamalar ile birlikte bulabilirsiniz. <br />\n"
 "<br />\n"
 "Yazı ulaşım adresi: {$submissionUrl}<br />\n"
 "Kullanıcı adı: {$recipientUsername}<br />\n"
 "<br />\n"
-"Lütfen eğer sayfa düzenini yapmanız konusunda bir sorun var ise bana bildiriniz.<br />\n"
+"Lütfen eğer sayfa düzenini yapmanız konusunda bir sorun var ise bana "
+"bildiriniz.<br />\n"
 "DErgimizin kalitesini arttıran değerli katkılarınız için teşekkür ederiz."
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
@@ -167,6 +207,51 @@ msgstr ""
 "<br />\n"
 "Değerlendirme sonucu karar:  Aday Makale Reddedildi"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 #, fuzzy
 msgid "emails.discussion.subject"
 msgstr "{$contextName} ile ilgili bir mesaj"
@@ -174,19 +259,27 @@ msgstr "{$contextName} ile ilgili bir mesaj"
 msgid "emails.discussion.body"
 msgstr "Lütfen mesajınızı giriniz."
 
-msgid "emails.submissionAckNotAuthor.subject"
-msgstr "Gönderme onayı"
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.submissionAckNotAuthor.body"
-msgstr ""
-"<p>Sayın {$recipientName},</p><p>{$contextName} için gönderilen aday "
-"makaleye ortak yazar olarak eklendiniz. Aday makaleyi gönderen, "
-"{$submitterName} aşağıdaki ayrıntıları sundu:</p><p>{$submissionTitle}"
-"<br>{$authorsWithAffiliation}</p><p>Bu detaylardan herhangi biri yanlış ise "
-"ya da bu aday makalede adınızın geçmesini istemiyorsanız, lütfen benimle "
-"iletişime geçin.</p><p>Dergimizi tercih ettiğiniz için teşekkür ederiz.</"
-"p><p>Saygılarımla,</p>{$contextSignature}"
+msgid "emails.reviewConfirm.subject"
+msgstr "Değerlendirmeyi Yapacağım"
 
 #, fuzzy
 msgid "emails.reviewConfirm.body"
@@ -203,6 +296,38 @@ msgstr ""
 "<br />\n"
 "{$senderName}"
 
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
+
+msgid "emails.submissionAckNotAuthor.subject"
+msgstr "Gönderme onayı"
+
 #, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Değerlendirmeyi Yapacağım"
+msgid "emails.submissionAckNotAuthor.body"
+msgstr ""
+"<p>Sayın {$recipientName},</p><p>{$contextName} için gönderilen aday "
+"makaleye ortak yazar olarak eklendiniz. Aday makaleyi gönderen, "
+"{$submitterName} aşağıdaki ayrıntıları sundu:</p><p>{$submissionTitle}"
+"<br>{$authorsWithAffiliation}</p><p>Bu detaylardan herhangi biri yanlış ise "
+"ya da bu aday makalede adınızın geçmesini istemiyorsanız, lütfen benimle "
+"iletişime geçin.</p><p>Dergimizi tercih ettiğiniz için teşekkür ederiz.</"
+"p><p>Saygılarımla,</p>{$contextSignature}"
+
+#, fuzzy
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Bu elektronik posta gözden geçirme işlemi bitirilen makalenin alındığını "
+#~ "haber vermek ve gözden geçirmeyi yapan kişiye katkılarından dolayı "
+#~ "teşekkür etmek için Bölüm Editörü tarafından gönderilmiştir."

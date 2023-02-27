@@ -6,8 +6,8 @@ msgstr ""
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
 "PO-Revision-Date: 2023-02-23 08:16+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
-"pkp-lib/api/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
+"lib/api/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,60 +15,170 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr "Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. Recarregue a página."
+msgid "api.400.paramNotSupported"
+msgstr "O parâmetro {$param} não é suportado."
 
-msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
-msgstr "Você pode ver apenas submissões não publicadas as quais foi designada."
+msgid "api.400.propReadOnly"
+msgstr "A propriedade {$prop} não pode ser modificada."
 
-msgid "api.submissions.403.deleteSubmissionOutOfContext"
-msgstr "Você não pode apagar uma submissão que não está associada a esse contexto."
+msgid "api.400.invalidApiToken"
+msgstr ""
+"O token da API não pôde ser validado. Isso pode indicar um erro no token da "
+"API ou que o token não é mais válido."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Você não tem permissões para apagar essa submissão."
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "A apiToken não pôde ser decodificada devido ao seguinte erro: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Você deve fornecer um assunto e corpo para o e-mail."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Não é possível alterar a hora em que foi criado."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Um prefixo DOI é necessário para gerar DOIs."
+
+msgid "api.403.unauthorized"
+msgstr "Você não está autorizado para acessar o recurso solicitado."
 
 msgid "api.404.resourceNotFound"
 msgstr "O recurso requisitado não foi encontrado."
 
-msgid "api.submissions.400.missingRequired"
-msgstr "Seu pedido não pode ser atendido pois informação requerida está faltando."
+msgid "api.404.endpointNotFound"
+msgstr "A URL solicitada não foi reconhecida."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "O volume requisitado, número ou ano não é válido."
-
-msgid "api.stats.400.wrongTimelineInterval"
+msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Sua solicitação não é válida. O intervalo de tempo deve ser 'dia' ou ' mês'."
+"O token da API não pode ser usado para acessar este site, porque o "
+"administrador do site não configurou uma chave secreta."
 
-msgid "api.stats.400.lateDateRange"
-msgstr "A data final não pode ser posterior a ontem."
+msgid "api.announcements.404.announcementNotFound"
+msgstr "A notícia que você solicitou não foi encontrada."
 
-msgid "api.stats.400.earlyDateRange"
-msgstr "A data de início não pode ser anterior a 01-01-2001."
+msgid "api.institutions.404.institutionNotFound"
+msgstr "A instituição solicitada não foi encontrada."
 
-msgid "api.stats.400.wrongDateRange"
-msgstr "A data de início não pode ser posterior à data de término."
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Os seguintes idiomas não são suportados: {$locales}."
 
-msgid "api.stats.400.wrongDateFormat"
-msgstr "A data deve estar no formato AAAA-MM-DD."
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Você não pode editar o DOI de um item que não esteja neste contexto."
 
-msgid "api.submissions.403.userCantEdit"
-msgstr "Você não tem permissão para editar esta publicação."
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "O tipo de publicação não foi reconhecido"
 
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.dois.404.contextNotFound"
 msgstr ""
-"O diretório de arquivos públicos não foi encontrado ou os arquivos não podem "
-"ser salvos nele. Entre em contato com seu administrador para resolver esse "
-"problema."
+"Esse endpoint não está disponível no namespace de todo o site e deve ser "
+"solicitado para um determinado contexto."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.dois.404.doiNotFound"
+msgstr "O DOI solicitado não foi encontrado."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "O objeto de publicação solicitado não foi encontrado."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "A submissão solicitada não foi encontrada."
+
+msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
-"Você não possui espaço suficiente no diretório do usuário. O arquivo que "
-"você está carregando tem {$fileUploadSize} kb e você tem {$dirSizeLeft} kb "
-"restantes."
+"Itens não publicados não podem ser exportados/depositados. Desmarque os "
+"itens não publicados e tente novamente."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Você não tem permissão para transferir arquivos."
+msgid "api.dois.400.creationFailed"
+msgstr "Ocorreu um erro e o objeto DOI não pôde ser criado."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Ocorreu um erro de validação de XML e não foi possível exportar o XML."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Ocorreu um erro e alguns dos itens enviados não foram marcados como "
+"registrados."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Alguns itens não foram depositados. Verifique os itens individuais para suas "
+"mensagens de erro específicas."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Nenhum objeto de publicação válido foi incluído na solicitação."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Um ou mais objetos de publicação inválidos foram incluídos na solicitação."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"O plugin atualmente configurado deve ser um plugin de agência de registro."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Você não pode registrar ou recomendar uma decisão para esta submissão, "
+"porque ela já foi publicada."
+
+msgid "api.emails.400.missingBody"
+msgstr "Você deve incluir um e-mail para ser enviado."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Você deve fornecer um assunto para o e-mail."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Você deve indicar os papéis do usuário que devem receber este e-mail."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Você não tem permissão para enviar um e-mail para usuários em um ou mais dos "
+"papéis selecionados."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Este não é um modelo de e-mail padrão para um e-mail conhecido."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Este não é um contexto válido."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "O modelo de e-mail solicitado não foi encontrado."
+
+msgid "api.files.400.noUpload"
+msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Um ou mais arquivos não foram enviados."
+
+msgid "api.files.400.fileSize"
+msgstr "Arquivos maiores do que {$maxSize} não podem ser enviados."
+
+msgid "api.files.400.config"
+msgstr ""
+"O arquivo não pôde ser enviado por causa de um erro de configuração no "
+"servidor. Por favor, entre em contato com o administrador do sistema."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "A publicação que você deseja publicar já está publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "A publicação que você deseja despublicar não está publicada."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Você não pode editar esta publicação, porque ela já está publicada."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Você não pode modificar o status diretamente através da API. Em vez disso, "
+"use os pontos de extremidade /publish e /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Você deve despublicar esta publicação antes de poder excluí-la."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr ""
+"Você pode fazer transferência apenas dos seguintes tipos de arquivos: "
+"{$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A imagem que você transferiu não é válida."
 
 msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
@@ -76,254 +186,145 @@ msgstr ""
 "acontecer quando um arquivo foi renomeado para um tipo incompatível, por "
 "exemplo, alterando photo.png para photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "A imagem que você transferiu não é válida."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Você não tem permissão para transferir arquivos."
 
-msgid "api.publicFiles.400.extensionNotSupported"
+msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
-"Você pode fazer transferência apenas dos seguintes tipos de arquivos: "
-"{$fileTypes}."
+"Você não possui espaço suficiente no diretório do usuário. O arquivo que "
+"você está carregando tem {$fileUploadSize} kb e você tem {$dirSizeLeft} kb "
+"restantes."
 
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Você deve despublicar esta publicação antes de poder excluí-la."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.publicFiles.500.badFilesDir"
 msgstr ""
-"Você não pode modificar o status diretamente através da API. Em vez disso, "
-"use os pontos de extremidade /publish e /unpublish."
+"O diretório de arquivos públicos não foi encontrado ou os arquivos não podem "
+"ser salvos nele. Entre em contato com seu administrador para resolver esse "
+"problema."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Você não pode editar esta publicação, porque ela já está publicada."
+msgid "api.stats.400.wrongDateFormat"
+msgstr "A data deve estar no formato AAAA-MM-DD."
 
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "A publicação que você deseja despublicar não está publicada."
+msgid "api.stats.400.wrongDateRange"
+msgstr "A data de início não pode ser posterior à data de término."
 
-msgid "api.publication.403.alreadyPublished"
-msgstr "A publicação que você deseja publicar já está publicada."
+msgid "api.stats.400.earlyDateRange"
+msgstr "A data de início não pode ser anterior a 01-01-2001."
 
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "O modelo de e-mail solicitado não foi encontrado."
+msgid "api.stats.400.lateDateRange"
+msgstr "A data final não pode ser posterior a ontem."
 
-msgid "api.404.endpointNotFound"
-msgstr "A URL solicitada não foi reconhecida."
-
-msgid "api.403.unauthorized"
-msgstr "Você não está autorizado para acessar o recurso solicitado."
-
-msgid "api.400.paramNotSupported"
-msgstr "O parâmetro {$param} não é suportado."
-
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "O vocabulário {$vocab} não é suportado."
-
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "O idioma {$locale} não é suportado."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.stats.400.wrongTimelineInterval"
 msgstr ""
-"O tema ativo, {$themePluginPath}, não está habilitado e pode não ter sido "
-"instalado."
-
-msgid "api.files.400.config"
-msgstr ""
-"O arquivo não pôde ser enviado por causa de um erro de configuração no "
-"servidor. Por favor, entre em contato com o administrador do sistema."
-
-msgid "api.files.400.fileSize"
-msgstr "Arquivos maiores do que {$maxSize} não podem ser enviados."
-
-msgid "api.files.400.uploadFailed"
-msgstr "Um ou mais arquivos não foram enviados."
-
-msgid "api.files.400.noUpload"
-msgstr "Nenhum arquivo a ser carregado foi encontrado com a solicitação."
-
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Este terminal não está disponível em um contexto. Ele deve ser acessado no "
-"namespace de todo o site."
+"Sua solicitação não é válida. O intervalo de tempo deve ser 'dia' ou ' mês'."
 
 msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
 "Requisição inválida. O valor orderDirection precisa ser `desc` (descendente) "
 "ou `asc` (ascendente) ."
 
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
-"Você não tem permissão para acessar os arquivos nesta rodada de avaliação."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Você não tem permissão para adicionar e editar esses arquivos."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Você não tem permissão para acessar esses arquivos."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "A rodada de avaliação fornecida não faz parte desta submissão."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr ""
-"Nenhuma alteração foi encontrada na solicitação para editar este arquivo."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Você deve fornecer um estágio de arquivo."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr ""
-"Você deve especificar uma rodada de avaliação ao solicitar arquivos em um "
-"estágio de avaliação."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr ""
-"Você não pode associar um arquivo deste estágio com uma rodada de avaliação."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr ""
-"Você não pode associar um arquivo deste estágio com uma atribuição de "
-"avaliação."
-
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr ""
-"Você não pode associar um arquivo deste estágio com a nota de discussão."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr ""
-"Você não pode associar um arquivo deste estágio com outro arquivo de "
-"submissão."
+"Solicitação não foi válida. O timelineInterval deve ser `day` ou `month`."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
 "Você não pode modificar a associação do arquivo sem passar um assocType e "
 "assocId."
 
-msgid "api.emails.403.notAllowedUserGroup"
+msgid "api.submissionFiles.400.badDependentFileAssocType"
 msgstr ""
-"Você não tem permissão para enviar um e-mail para usuários em um ou mais dos "
-"papéis selecionados."
+"Você não pode associar um arquivo deste estágio com outro arquivo de "
+"submissão."
 
-msgid "api.emails.400.missingUserGroups"
-msgstr "Você deve indicar os papéis do usuário que devem receber este e-mail."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Você deve fornecer um assunto para o e-mail."
-
-msgid "api.emails.400.missingBody"
-msgstr "Você deve incluir um e-mail para ser enviado."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Os seguintes idiomas não são suportados: {$locales}."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "A notícia que você solicitou não foi encontrada."
-
-msgid "api.500.apiSecretKeyMissing"
+msgid "api.submissionFiles.400.badNoteAssocType"
 msgstr ""
-"O token da API não pode ser usado para acessar este site, porque o "
-"administrador do site não configurou uma chave secreta."
+"Você não pode associar um arquivo deste estágio com a nota de discussão."
 
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Não é possível alterar a hora em que foi criado."
-
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "A apiToken não pôde ser decodificada devido ao seguinte erro: {$error}"
-
-msgid "api.400.invalidApiToken"
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
 msgstr ""
-"O token da API não pôde ser validado. Isso pode indicar um erro no token da "
-"API ou que o token não é mais válido."
+"Você não pode associar um arquivo deste estágio com uma atribuição de "
+"avaliação."
 
-msgid "api.dois.400.invalidPubObjectIncluded"
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr ""
-"Um ou mais objetos de publicação inválidos foram incluídos na solicitação."
+"Você não pode associar um arquivo deste estágio com uma rodada de avaliação."
 
-msgid "api.dois.404.noPubObjectIncluded"
-msgstr "Nenhum objeto de publicação válido foi incluído na solicitação."
-
-msgid "api.dois.400.depositFailed"
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
 msgstr ""
-"Alguns itens não foram depositados. Verifique os itens individuais para suas "
-"mensagens de erro específicas."
+"Você deve especificar uma rodada de avaliação ao solicitar arquivos em um "
+"estágio de avaliação."
 
-msgid "api.dois.400.markRegisteredFailed"
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Você deve fornecer um estágio de arquivo."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "O estágio do arquivo fornecido não é válido."
+
+msgid "api.submissionsFiles.400.noParams"
 msgstr ""
-"Ocorreu um erro e alguns dos itens enviados não foram marcados como "
-"registrados."
-
-msgid "api.dois.400.xmlExportFailed"
-msgstr "Ocorreu um erro de validação de XML e não foi possível exportar o XML."
-
-msgid "api.dois.400.creationFailed"
-msgstr "Ocorreu um erro e o objeto DOI não pôde ser criado."
-
-msgid "api.dois.400.noUnpublishedItems"
-msgstr ""
-"Itens não publicados não podem ser exportados/depositados. Desmarque os "
-"itens não publicados e tente novamente."
-
-msgid "api.dois.404.doiNotFound"
-msgstr "O DOI solicitado não foi encontrado."
-
-msgid "api.dois.404.contextNotFound"
-msgstr ""
-"Esse endpoint não está disponível no namespace de todo o site e deve ser "
-"solicitado para um determinado contexto."
-
-msgid "api.dois.403.editItemOutOfContext"
-msgstr "Você não pode editar o DOI de um item que não esteja neste contexto."
-
-msgid "api.400.requireEmailSubjectBody"
-msgstr "Você deve fornecer um assunto e corpo para o e-mail."
+"Nenhuma alteração foi encontrada na solicitação para editar este arquivo."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
 "Você deve fornecer um ID de rodada de avaliação ao mover um arquivo para "
 "este estágio de arquivo."
 
-msgid "api.submissionFiles.400.invalidFileStage"
-msgstr "O estágio do arquivo fornecido não é válido."
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "A rodada de avaliação fornecida não faz parte desta submissão."
 
-msgid "api.decisions.403.alreadyPublished"
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Você não tem permissão para acessar esses arquivos."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Você não tem permissão para adicionar e editar esses arquivos."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
 msgstr ""
-"Você não pode registrar ou recomendar uma decisão para esta submissão, "
-"porque ela já foi publicada."
+"Você não tem permissão para acessar os arquivos nesta rodada de avaliação."
 
-msgid "api.dois.403.prefixRequired"
-msgstr "Um prefixo DOI é necessário para gerar DOIs."
-
-msgid "api.mailables.404.mailableNotFound"
-msgstr "O e-mail solicitado não foi encontrado."
-
-msgid "api.institutions.404.institutionNotFound"
-msgstr "A instituição solicitada não foi encontrada."
-
-msgid "api.stats.400.invalidTimelineInterval"
+msgid "api.submissions.400.missingRequired"
 msgstr ""
-"Solicitação não foi válida. O timelineInterval deve ser `day` ou `month`."
+"Seu pedido não pode ser atendido pois informação requerida está faltando."
 
-msgid "api.400.propReadOnly"
-msgstr "A propriedade {$prop} não pode ser modificada."
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "O volume requisitado, número ou ano não é válido."
 
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr "Você não tem permissão para submeter nesta função de usuário."
 
-msgid "api.emailTemplates.400.invalidContext"
-msgstr "Este não é um contexto válido."
-
-msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr "Este não é um modelo de e-mail padrão para um e-mail conhecido."
-
-msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "O tipo de publicação não foi reconhecido"
-
-msgid "api.dois.404.pubObjectNotFound"
-msgstr "O objeto de publicação solicitado não foi encontrado."
-
-msgid "api.dois.400.invalidPluginType"
+msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
-"O plugin atualmente configurado deve ser um plugin de agência de registro."
+"Seu pedido foi negado, provavelmente devido ao seu acesso ter expirado. "
+"Recarregue a página."
 
-msgid "api.dois.404.submissionNotFound"
-msgstr "A submissão solicitada não foi encontrada."
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr ""
+"Você não pode apagar uma submissão que não está associada a esse contexto."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Você pode ver apenas submissões não publicadas as quais foi designada."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Você não tem permissões para apagar essa submissão."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Você não tem permissão para editar esta publicação."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este terminal não está disponível em um contexto. Ele deve ser acessado no "
+"namespace de todo o site."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"O tema ativo, {$themePluginPath}, não está habilitado e pode não ter sido "
+"instalado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "O idioma {$locale} não é suportado."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "O e-mail solicitado não foi encontrado."
 
 msgid "api.jobs.404.failedJobNotFound"
 msgstr "A tarefa com falha não foi encontrada na lista de falhas."
@@ -350,3 +351,6 @@ msgstr "Não foi possível excluir a tarefa com falha da lista de falhas."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr "Tarefa com falha excluída com sucesso da lista de falhas."
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "O vocabulário {$vocab} não é suportado."

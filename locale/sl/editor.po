@@ -19,8 +19,83 @@ msgstr ""
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Ste prepričani, da želite za vedno zbrisati ta prispevek?"
 
+msgid "editor.activityLog"
+msgstr "Zapis aktivnosti"
+
 msgid "editor.submissionLibrary"
 msgstr "Knjižnica prispevka"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Odločitev je zabeležena"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Prispevek zavrnjen."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Prispevek sprejet."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Prispevek objavljen."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Pošlji v nov recenzijski krog."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Poslano v produkcijo."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Prispevek sprejet v recenzijo."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Spremeni odločitev"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr "Nimate pravice zapisati te odločitve na tem prispevku."
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+"Urednik ni bil prepoznan in morda nima pravice za zapis odločitve na tem "
+"prispevku."
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr "Emaila ne morete poslati naslednjim prejemnikom: {$names}."
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr "Tega kroga recenzije ni bilo mogoče najti."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+"Recenzija je bila opravljena, a ta odločitev ni bila sprejeta med fazo "
+"recenzije."
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr "Ta krog recenzije ni del tega prispevka."
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+"Prispevek ni v pravi fazi uredniškega postopka za sprejetje te odločitve."
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+"Prispevek vam mora biti dodoljen, da lahko sprejmete uredniško odločitev."
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr "Za sprejetje te odločitve je potrebno določiti ID kroga recenzije."
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+"Priporočila ni mogoče oddati, če prispevku ni dodeljen urednik v tej fazi, "
+"da lahko sprejme končno odločitev."
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+"Odločitve ni bilo mogoče sprejeti. Ali manjka ID prispevka ali pa ne ustreza "
+"zahtevanemu prispevku."
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+"Odločitve ni bilo mogoče najti. Prosimo določite tip odločitve, ki bo "
+"prepoznan."
 
 msgid "editor.review.notInitiated"
 msgstr "Recenzijski postopek se še ni začel."
@@ -29,7 +104,9 @@ msgid "editor.submission.copyediting.personalMessageToUser"
 msgstr "Sporočilo uporabniku"
 
 msgid "editor.submission.externalReviewDescription"
-msgstr "Spodaj izberite datoteke, ki jih boste poslali naprej v recenzentski postopek."
+msgstr ""
+"Spodaj izberite datoteke, ki jih boste poslali naprej v recenzentski "
+"postopek."
 
 msgid "editor.submission.fileAuditor.form.fileRequired"
 msgstr "Za dodelitev morate izbrati vsaj eno datoteko."
@@ -53,7 +130,11 @@ msgid "editor.submission.revisions"
 msgstr "Posodobljene verzije"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Uporabite <em>+Dodaj recenzenta</em>, da povabite recenzente k recenziji datotek prispevka. Ikona zvezka označuje, da je bila recenzija oddana. Ko je recenzija pregledana, je označena kot <em>Potrjeno</em>. Če recenzija zamuja, je ikona označena z rdečo, da opozarja recenzente na zamudo."
+msgstr ""
+"Uporabite <em>+Dodaj recenzenta</em>, da povabite recenzente k recenziji "
+"datotek prispevka. Ikona zvezka označuje, da je bila recenzija oddana. Ko je "
+"recenzija pregledana, je označena kot <em>Potrjeno</em>. Če recenzija "
+"zamuja, je ikona označena z rdečo, da opozarja recenzente na zamudo."
 
 msgid "editor.submission.addReviewer"
 msgstr "Dodaj recenzenta"
@@ -81,6 +162,15 @@ msgstr "Registriraj obstoječega uporabnika"
 
 msgid "editor.review.unassignReviewer"
 msgstr "Odstranite recenzenta"
+
+msgid "editor.review.cancelReviewer"
+msgstr "Prekliči recenzenta"
+
+msgid "editor.review.reinstateReviewer"
+msgstr "Ponovno izberi recenzenta"
+
+msgid "editor.review.resendRequestReviewer"
+msgstr "Ponovno pošlji prošnjo za recenzijo"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tip recenzije"
@@ -133,6 +223,12 @@ msgstr "Posodobljene verzije ne bodo predmet novega kroga recenzije."
 msgid "editor.review.NotifyAuthorResubmit"
 msgstr "Posodobljene verzije bodo predmet novega kroga recenzije."
 
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr "Popravki ne bi smeli biti predmet novega kroga recenzije."
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr "Popravki bi morali biti predmet novega kroga recenzije."
+
 msgid "editor.review.dateAccepted"
 msgstr "Datum sprejetja recenzije"
 
@@ -175,6 +271,18 @@ msgstr "Zahteva je bila poslana"
 msgid "editor.review.requestAccepted"
 msgstr "Zahteva je bila sprejeta"
 
+msgid "editor.review.requestDeclined"
+msgstr "Zahteva zavrnjena"
+
+msgid "editor.review.requestCancelled"
+msgstr "Zahteva preklicana"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent je zavrnil zahtevo za to recenzijo."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Urednik je preklical to zahtevo za recenzijo."
+
 msgid "editor.review.revertDecision"
 msgstr "Spremeni odločitev"
 
@@ -193,6 +301,12 @@ msgstr "Recenzija potrjena"
 msgid "editor.review.reviewSubmitted"
 msgstr "Recenzija oddana"
 
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzentu smo se zahvalili"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr "Ponovno pošlji prošnjo za recenzijo"
+
 msgid "editor.review.reviewerComments"
 msgstr "Komentarji recenzenta"
 
@@ -209,22 +323,51 @@ msgid "editor.review.mustSelect"
 msgstr "Izbrati morate recenzenta"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr "Prišlo je do napake pri dodajanju recenzenta. Prosimo poskusite ponovno."
+msgstr ""
+"Prišlo je do napake pri dodajanju recenzenta. Prosimo poskusite ponovno."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr "Prišlo je do napake pri odstranjevanju recenzenta. Prosimo poskusite ponovno."
+msgstr ""
+"Prišlo je do napake pri odstranjevanju recenzenta. Prosimo poskusite ponovno."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Prišlo je do napaka pri ponovni določitvi recenzenta. Prosimo poskusite "
+"ponovno."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+"Prišlo je do napake pri pošiljanju ponovne prošnje za opravljenje recenzije. "
+"Prosimo poskusite ponovno."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Registriraj uporabnika v to skupino recenzentov"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Želite označiti to recenzijo kot neupoštevano? Zgodovian recenzije se bo ohranila."
+msgstr ""
+"Želite označiti to recenzijo kot neupoštevano? Zgodovian recenzije se bo "
+"ohranila."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Ne upoštevaj te recenzije"
 
 msgid "editor.review.readConfirmation"
-msgstr "Ko pregledate recenzijo, kliknite \"Potrdi\" in s tem omogočite nadaljevanje recenzentskega postopka. Če je recenzent oddal recenzijo kako drugače, lahko datoteko naložite spodaj in kliknete \"Potrdi\" ter s tem omogočite nadaljevanje recenzuentskega postopka."
+msgstr ""
+"Ko pregledate recenzijo, kliknite \"Potrdi\" in s tem omogočite nadaljevanje "
+"recenzentskega postopka. Če je recenzent oddal recenzijo kako drugače, lahko "
+"datoteko naložite spodaj in kliknete \"Potrdi\" ter s tem omogočite "
+"nadaljevanje recenzuentskega postopka."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Diskusija z izbranim udeležencem ne more biti ustvarjena, ker bi ogrozila "
+"anonimnost recenzijskega procesa."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Izbrani udeleženec ni dodeljen v to fazo."
+
+msgid "editor.submission.schedulePublication"
+msgstr "Dodeli v številko"
 
 msgid "editor.submission.selectCopyedingFiles"
 msgstr "Lektoriranje datotek"
@@ -251,16 +394,25 @@ msgid "editor.submission.proof.reminder"
 msgstr "Opomnik za korekturo"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Lektorirane datoteke morajo biti najprej potrjene, da se lahko pošljejo v fazo produkcije. Želite potrditi to datoteko?"
+msgstr ""
+"Lektorirane datoteke morajo biti najprej potrjene, da se lahko pošljejo v "
+"fazo produkcije. Želite potrditi to datoteko?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Zavrnitev te lektorirane datoteke bo povzročilo, da se ne bo mogla poslati v fazo produkcije. Želite zavrniti to datoteko?"
+msgstr ""
+"Zavrnitev te lektorirane datoteke bo povzročilo, da se ne bo mogla poslati v "
+"fazo produkcije. Želite zavrniti to datoteko?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Dodaj revizorja"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Katerakoli datoteka, ki je bila naložena v katerikoli fazi, se lahko doda na seznam datotek za lektoriranje z označitvijo Vključi v potrditvenem polju spodaj in izbiro Prikaži vse datoteke iz vseh dostopnih faz delovenga toka. Dodatne datoteke, ki še niso bile naložene, lahko naložite s klikom na povezavo Naloži datoteko."
+msgstr ""
+"Katerakoli datoteka, ki je bila naložena v katerikoli fazi, se lahko doda na "
+"seznam datotek za lektoriranje z označitvijo Vključi v potrditvenem polju "
+"spodaj in izbiro Prikaži vse datoteke iz vseh dostopnih faz delovenga toka. "
+"Dodatne datoteke, ki še niso bile naložene, lahko naložite s klikom na "
+"povezavo Naloži datoteko."
 
 msgid "editor.review"
 msgstr "Recenzija"
@@ -296,13 +448,16 @@ msgid "editor.submissionReview.recordRecommendation.skipEmail"
 msgstr "Ne pošlji emaila urednikom."
 
 msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Ustvari recenzentsko diskusijo o glede tega recenzentskega priporočila."
+msgstr ""
+"Ustvari recenzentsko diskusijo o glede tega recenzentskega priporočila."
 
 msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Ne ustvari recenzentsko diskusijo."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Ustvarili boste nov krog recenzije za ta prispevek. Datoteke, ki niso bile uporabljne v ostalih krogih recenzije so naštete spodaj."
+msgstr ""
+"Ustvarili boste nov krog recenzije za ta prispevek. Datoteke, ki niso bile "
+"uporabljne v ostalih krogih recenzije so naštete spodaj."
 
 msgid "editor.submission.createNewRound"
 msgstr "Ustvari nov krog recenzije"
@@ -314,7 +469,10 @@ msgid "editor.article.selectReviewForm"
 msgstr "Izberi recenzentski obrazec"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Opozorilo: Sprememba recenzentskega obrazca bo vplivala na odgovore recenzentov, ki so uporabljali ta obrazec. Ste prepričani, da želite nadaljevati?"
+msgstr ""
+"Opozorilo: Sprememba recenzentskega obrazca bo vplivala na odgovore "
+"recenzentov, ki so uporabljali ta obrazec. Ste prepričani, da želite "
+"nadaljevati?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Nobena datoteka ni izbrana"
@@ -347,19 +505,24 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Razveljavi odobritev korekture"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Odobrite to korekturo kot zaključeno in s tem označite, da je datoteka pripravljena za produkcijo."
+msgstr ""
+"Odobrite to korekturo kot zaključeno in s tem označite, da je datoteka "
+"pripravljena za produkcijo."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Razveljavite odobritev korekture in s tem označite, da korektura še ni končana in da datoteka še ni pripravljena za produkcijo."
+msgstr ""
+"Razveljavite odobritev korekture in s tem označite, da korektura še ni "
+"končana in da datoteka še ni pripravljena za produkcijo."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr ""
+"Ste prepričani, da želite spremeniti odločitev o zavrnitvi tega prispevka?"
 
 msgid "editor.publicIdentificationNumericNotAllowed"
 msgstr "Javni identifikator '{$publicIdentifier}' ne sme biti številka."
 
 msgid "editor.publicIdentificationPatternNotAllowed"
 msgstr "Vzorec {$pattern} ni dovoljen kot javni identifikator."
-
-msgid "editor.submission.schedulePublication"
-msgstr "Dodeli v številko"
 
 msgid "reviewer.list.filterRating"
 msgstr "Ocenjen najmanj"
@@ -370,8 +533,17 @@ msgstr "{$count} aktivnih"
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Trenutno dodeljenih aktivnih recenzij"
 
+msgid "reviewer.list.assignedToLastRound"
+msgstr "Ta recenzent je končal recenzijo v zadnjem krogu."
+
 msgid "reviewer.list.completedReviews"
 msgstr "Zaključenih recenzij"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Prošnja za recenzijo je zavrnjena"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Zahteva za recenzijo je preklicana"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Ocena recenzenta: {$rating}"
@@ -394,6 +566,9 @@ msgstr "Nikoli deljen"
 msgid "reviewer.list.reassign"
 msgstr "Prerazporeditev"
 
+msgid "reviewer.list.reassign.withName"
+msgstr "Prerazporedi {$name}"
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Recenzent je že dodeljen temu krogu recenzije."
 
@@ -412,174 +587,32 @@ msgstr "Recenzentski interesi"
 msgid "reviewer.list.biography"
 msgstr "Biografija"
 
-msgid "reviewer.list.declinedReviews"
-msgstr "Prošnja za recenzijo je zavrnjena"
-
-msgid "editor.review.requestDeclined"
-msgstr "Zahteva zavrnjena"
-
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Recenzent je zavrnil zahtevo za to recenzijo."
-
 msgid "reviewer.list.empty"
 msgstr "Nobenih najdenih recenzentov"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Zahteva za recenzijo je preklicana"
-
-msgid "editor.review.errorReinstatingReviewer"
-msgstr ""
-"Prišlo je do napaka pri ponovni določitvi recenzenta. Prosimo poskusite "
-"ponovno."
-
-msgid "editor.review.reviewerThanked"
-msgstr "Recenzentu smo se zahvalili"
-
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Urednik je preklical to zahtevo za recenzijo."
-
-msgid "editor.review.requestCancelled"
-msgstr "Zahteva preklicana"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Ponovno izberi recenzenta"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Prekliči recenzenta"
-
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Spremeni odločitev"
-
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Prispevek sprejet v recenzijo."
-
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Poslano v produkcijo."
-
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Pošlji v nov recenzijski krog."
-
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Prispevek objavljen."
-
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Prispevek sprejet."
-
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Prispevek zavrnjen."
-
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Odločitev je zabeležena"
-
-msgid "editor.activityLog"
-msgstr "Zapis aktivnosti"
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr ""
-"Ste prepričani, da želite spremeniti odločitev o zavrnitvi tega prispevka?"
-
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Izbrani udeleženec ni dodeljen v to fazo."
-
-msgid "editor.discussion.errorAnonymousParticipants"
-msgstr ""
-"Diskusija z izbranim udeležencem ne more biti ustvarjena, ker bi ogrozila "
-"anonimnost recenzijskega procesa."
-
-msgid "editor.decision.stepError"
-msgstr "Prišlo je do težave pri koraku {$stepName}."
-
-msgid "editor.decision.skipEmail"
-msgstr "Izpusti ta email"
-
-msgid "editor.decision.recordDecision"
-msgstr "Zapiši odločitev"
-
-msgid "editor.decision.emailSkipped"
-msgstr "Ta korak je bil izpuščen in email ne po poslan."
-
-msgid "editor.decision.dontSkipEmail"
-msgstr "Ne izpusti tega emaila"
-
-msgid "editor.decision.completeSteps"
-msgstr "Opravite naslednje korake za sprejetje te odločitve"
-
-msgid "editor.decision.cancelDecision.confirmation"
-msgstr "Ste prepričani, da želite preklicati to odločitev?"
-
-msgid "editor.decision.cancelDecision"
-msgstr "Prekliči odločitev"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr "Dodeljen v predhodnem krogu"
 
-msgid "reviewer.list.reassign.withName"
-msgstr "Prerazporedi {$name}"
+msgid "editor.decision.cancelDecision"
+msgstr "Prekliči odločitev"
 
-msgid "reviewer.list.assignedToLastRound"
-msgstr "Ta recenzent je končal recenzijo v zadnjem krogu."
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr "Ste prepričani, da želite preklicati to odločitev?"
 
-msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr "Popravki bi morali biti predmet novega kroga recenzije."
+msgid "editor.decision.completeSteps"
+msgstr "Opravite naslednje korake za sprejetje te odločitve"
 
-msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr "Popravki ne bi smeli biti predmet novega kroga recenzije."
+msgid "editor.decision.dontSkipEmail"
+msgstr "Ne izpusti tega emaila"
 
-msgid "editor.submission.workflowDecision.typeInvalid"
-msgstr ""
-"Odločitve ni bilo mogoče najti. Prosimo določite tip odločitve, ki bo "
-"prepoznan."
+msgid "editor.decision.emailSkipped"
+msgstr "Ta korak je bil izpuščen in email ne po poslan."
 
-msgid "editor.submission.workflowDecision.submissionInvalid"
-msgstr ""
-"Odločitve ni bilo mogoče sprejeti. Ali manjka ID prispevka ali pa ne ustreza "
-"zahtevanemu prispevku."
+msgid "editor.decision.recordDecision"
+msgstr "Zapiši odločitev"
 
-msgid "editor.submission.workflowDecision.requiredDecidingEditor"
-msgstr ""
-"Priporočila ni mogoče oddati, če prispevku ni dodeljen urednik v tej fazi, "
-"da lahko sprejme končno odločitev."
+msgid "editor.decision.skipEmail"
+msgstr "Izpusti ta email"
 
-msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr "Za sprejetje te odločitve je potrebno določiti ID kroga recenzije."
-
-msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
-"Prispevek vam mora biti dodoljen, da lahko sprejmete uredniško odločitev."
-
-msgid "editor.submission.workflowDecision.invalidStage"
-msgstr ""
-"Prispevek ni v pravi fazi uredniškega postopka za sprejetje te odločitve."
-
-msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr "Ta krog recenzije ni del tega prispevka."
-
-msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
-msgstr ""
-"Recenzija je bila opravljena, a ta odločitev ni bila sprejeta med fazo "
-"recenzije."
-
-msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr "Tega kroga recenzije ni bilo mogoče najti."
-
-msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr "Emaila ne morete poslati naslednjim prejemnikom: {$names}."
-
-msgid "editor.submission.workflowDecision.invalidEditor"
-msgstr ""
-"Urednik ni bil prepoznan in morda nima pravice za zapis odločitve na tem "
-"prispevku."
-
-msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr "Nimate pravice zapisati te odločitve na tem prispevku."
-
-msgid "editor.review.ReviewerResendRequest"
-msgstr "Ponovno pošlji prošnjo za recenzijo"
-
-msgid "editor.review.resendRequestReviewer"
-msgstr "Ponovno pošlji prošnjo za recenzijo"
-
-msgid "editor.review.errorResendingReviewerRequest"
-msgstr ""
-"Prišlo je do napake pri pošiljanju ponovne prošnje za opravljenje recenzije. "
-"Prosimo poskusite ponovno."
+msgid "editor.decision.stepError"
+msgstr "Prišlo je do težave pri koraku {$stepName}."

@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
@@ -24,14 +24,22 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Дякуємо, що надіслали рукопис &quot;{$submissionTitle}&quot; для публікації у виданні &quot;{$contextName}&quot;. Електронна система управління журналом, яку ми використовуємо, дозволяє авторам відслідковувати редакційне опрацювання поданих до друку рукописів. Для цього потрібно увійти на веб-сайт журналу зі своїм іменем користувача:<br />\n"
+"Дякуємо, що надіслали рукопис &quot;{$submissionTitle}&quot; для публікації "
+"у виданні &quot;{$contextName}&quot;. Електронна система управління "
+"журналом, яку ми використовуємо, дозволяє авторам відслідковувати редакційне "
+"опрацювання поданих до друку рукописів. Для цього потрібно увійти на веб-"
+"сайт журналу зі своїм іменем користувача:<br />\n"
 "<br />\n"
 "URL рукопису: {$submissionUrl}<br />\n"
 "Ім'я користувача: {$recipientUsername}<br />\n"
 "<br />\n"
-"Якщо Ви маєте запитання, будь ласка, звертайтеся до мене. Дякую за вибір цього журналу як місця публікації своєї роботи.<br />\n"
+"Якщо Ви маєте запитання, будь ласка, звертайтеся до мене. Дякую за вибір "
+"цього журналу як місця публікації своєї роботи.<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -42,26 +50,42 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Дякую за закінчення рецензування подання &quot;{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;. Ми цінуємо Ваш внесок у контроль якості роботи, поданої нам для публікації."
+"Дякую за закінчення рецензування подання &quot;{$submissionTitle}&quot; для "
+"видання &quot;{$contextName}&quot;. Ми цінуємо Ваш внесок у контроль якості "
+"роботи, поданої нам для публікації."
+
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Цим листом редактор розділу підтверджує отримання готової рецензії та дякує рецензенту за його внесок."
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Рішення Редакції"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Ми прийняли рішення щодо вашого Подання до {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Ми прийняли рішення щодо вашого Подання до {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "Наше рішення: Відправити на Рецензування<br />\n"
 "<br />\n"
 "URL Подання: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Рішення Редакції"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -72,9 +96,6 @@ msgstr ""
 "<br />\n"
 "URL Подання: {$submissionUrl}"
 
-#, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Рішення Редакції"
 #, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "Рішення редактора"
@@ -117,6 +138,9 @@ msgstr ""
 "<br />\n"
 "Наше рішення: Відмовити у поданні"
 
+msgid "emails.editorRecommendation.subject"
+msgstr "Рекомендації Редактора"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -125,8 +149,6 @@ msgstr ""
 "Щодо подання {$submissionTitle}, надісланому до {$contextName}, можу "
 "рекомендувати наступне: {$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Рекомендації Редактора"
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Запит на літературне редагування"
@@ -136,17 +158,148 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Я хотів би попросити Вас здійснити літературне редагування тексту &quot;{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;, виконавши наступні кроки:<br />\n"
+"Я хотів би попросити Вас здійснити літературне редагування тексту &quot;"
+"{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;, виконавши "
+"наступні кроки:<br />\n"
 "1. Натисніть на вказаній нижче адресі URL подання.<br />\n"
-"2. Увійдіть на сайт журналу та натисніть на посиланні &quot;Файл&quot; кроку 1.<br />\n"
-"3. Ознайомтеся з опублікованими на веб-сайті інструкціями з літературного редагування.<br />\n"
-"4. Відкрийте завантажений файл та відредагуйте його, додаючи у текст в разі потреби запити до автора.<br />\n"
-"5. Збережіть відредагований файл та вивантажте його на крок 1 літературного редагування.<br />\n"
+"2. Увійдіть на сайт журналу та натисніть на посиланні &quot;Файл&quot; кроку "
+"1.<br />\n"
+"3. Ознайомтеся з опублікованими на веб-сайті інструкціями з літературного "
+"редагування.<br />\n"
+"4. Відкрийте завантажений файл та відредагуйте його, додаючи у текст в разі "
+"потреби запити до автора.<br />\n"
+"5. Збережіть відредагований файл та вивантажте його на крок 1 літературного "
+"редагування.<br />\n"
 "6. Повідомте листом редактора про закінчення роботи.<br />\n"
 "<br />\n"
-"URL видання &quot;{$contextName}&quot;: <a href=\"{$contextUrl}\">{$contextUrl}</a><br />\n"
+"URL видання &quot;{$contextName}&quot;: <a href="
+"\"{$contextUrl}\">{$contextUrl}</a><br />\n"
 "URL подання: <a href=\"{$submissionUrl}\">{$submissionUrl}</a><br />\n"
 "Ім'я користувача: {$recipientUsername}"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
+msgid "emails.discussion.subject"
+msgstr ""
+
+msgid "emails.discussion.body"
+msgstr ""
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Погоджуюсь здійснити рецензування"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"Я маю можливість та бажання працювати над рецензією подання &quot;"
+"{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;. Дякую за "
+"довіру. Я планую закінчити роботу над рецензією не пізніше {$reviewDueDate}."
+"<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
@@ -166,17 +319,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"Я маю можливість та бажання працювати над рецензією подання &quot;"
-"{$submissionTitle}&quot; для видання &quot;{$contextName}&quot;. Дякую за "
-"довіру. Я планую закінчити роботу над рецензією не пізніше {$reviewDueDate}."
-"<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Погоджуюсь здійснити рецензування"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Цим листом редактор розділу підтверджує отримання готової рецензії та "
+#~ "дякує рецензенту за його внесок."

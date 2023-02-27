@@ -12,271 +12,771 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "ダウンロードできる言語はありません。"
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "ファイル・ローダー"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "ファイル{$filename}は処理され、アーカイブされました。"
-
-msgid "admin.fileLoader.moveFileFailed"
-msgstr "ファイル{$filename}を{$currentFilePath}から{$destinationPath}に移動できませんでした"
-
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "フォルダ{$path}はディレクトリではないか、読み取りできません。"
-
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "ベースパス{$path}は公開ファイルディレクトリ内にある必要があります。"
-
-msgid "admin.version"
-msgstr "バージョン"
-
-msgid "admin.version.upToDate"
-msgstr "このシステムは最新版です"
-
-msgid "admin.version.updateAvailable"
-msgstr "新バージョンが利用できます"
-
-msgid "admin.versionRevision"
-msgstr "リビジョン"
-
-msgid "admin.version.moreInfo"
-msgstr "さらなる情報"
-
-msgid "admin.versionMinor"
-msgstr "マイナー"
-
-msgid "admin.versionMajor"
-msgstr "メジャー"
-
-msgid "admin.version.latest"
-msgstr "最新バージョン"
-
-msgid "admin.versionHistory"
-msgstr "バージョン履歴"
-
-msgid "admin.version.downloadPatch"
-msgstr "パッチのダウンロード"
-
-msgid "admin.version.downloadPackage"
-msgstr "ダウンロード"
-
-msgid "admin.version.checkForUpdates"
-msgstr "更新チェック"
-
-msgid "admin.versionBuild"
-msgstr "ビルド"
-
-msgid "admin.systemInformation"
-msgstr "システム情報"
-
-msgid "admin.systemConfigFileReadError"
-msgstr "設定ファイル <tt>config.inc.php</tt> が存在しないか，読み込めない，あるいは無効です。"
-
-msgid "admin.siteSetup"
-msgstr "サイトセットアップ"
-
-msgid "admin.siteSettings"
-msgstr "サイト設定"
-
-msgid "admin.siteManagement"
-msgstr "サイト管理"
-
-msgid "admin.siteAdmin"
-msgstr "サイト管理"
-
-msgid "admin.settings.siteTheme"
-msgstr "サイトシーム"
-
-msgid "admin.settings.siteTitle"
-msgstr "サイト名"
-
-msgid "admin.settings.siteLogo"
-msgstr "サイトロゴ"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "サイトのスタイルシート"
-
-msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "サイトのスタイルシートのフォーマットが不正です。使用できるフォーマットは、.css です。"
-
-msgid "admin.settings.siteLanguage"
-msgstr "サイトの言語"
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "この設定を変更できるのは管理者だけです。"
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "役割の無効化"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "一括メールを制限する"
-
-msgid "admin.settings.minPasswordLength"
-msgstr "最小パスワード長"
-
-msgid "admin.settings.introduction"
-msgstr "あいさつ文"
-
-msgid "admin.settings.contactName"
-msgstr "連絡担当者名"
-
-msgid "admin.settings.contactEmail"
-msgstr "連絡担当者メールアドレス"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "一括メール"
-
-msgid "admin.settings.about"
-msgstr "このサイトについて"
-
-msgid "admin.settings"
-msgstr "設定"
-
-msgid "admin.server.platform"
-msgstr "OS"
-
-msgid "admin.server.phpVersion"
-msgstr "PHPバージョン"
-
-msgid "admin.serverInformation"
-msgstr "サーバ情報"
-
-msgid "admin.server.dbVersion"
-msgstr "データベースサーババージョン"
-
-msgid "admin.server.dbDriver"
-msgstr "データベースドライバ"
-
-msgid "admin.server.apacheVersion"
-msgstr "Apacheバージョン"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "読期間終了リマインダー"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "査読リマインダー"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "予約済み投稿の発行"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "スケジュールされたタスク実行ログをクリア"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "スケジュールされたタスク実行ログをすべて削除してもよろしいですか。"
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"{$softwareName}のインストールが自動的にこのタスクを実行され、完了しました。ログファイルは "
-"下記のリンクからダウンロードできます：{$url}"
-
-msgid "admin.scheduledTask.noLog"
-msgstr "タスクはログを生成しませんでした。"
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "タスクプロセスが停止しました。"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "タスクプロセスが開始されました。"
-
-msgid "admin.scheduledTask"
-msgstr "スケジュールされたタスク"
-
-msgid "admin.phpInfo"
-msgstr "PHP環境設定情報"
-
-msgid "admin.languages.uninstall"
-msgstr "言語のアンインストール"
-
-msgid "admin.languages.reload"
-msgstr "言語のリロード"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "インストールできる言語はありません。"
-
-msgid "admin.languages.languageSettings"
-msgstr "言語設定"
-
-msgid "admin.languages.installNewLocales"
-msgstr "新規言語のインストール"
-
-msgid "admin.languages.installLocales"
-msgstr "インストール"
-
-msgid "admin.languages.installLocale"
-msgstr "言語のインストール"
-
-msgid "admin.languages.availableLocales"
-msgstr "使用可能な言語"
-
-msgid "admin.languages.installLanguages"
-msgstr "言語の管理"
-
-msgid "admin.languages.installedLocales"
-msgstr "インストールされている言語"
-
-msgid "admin.languages.confirmReload"
-msgstr ""
-"この言語をリロードしてもよいですか。これを実行すると、サイトで修正した各言語の既存データ（メールテンプレートなど）が消去され、システム提供のデフォルトに戻"
-"されます。"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"サイトのプライマリ言語を変更してもよろしいですか 。サイトのプライマリ言語で必要なユーザーの名前は存在しない既存のプライマリ言語からコピーされます。"
-
-msgid "admin.languages.cantDisable"
-msgstr "この言語は、サイトのプライマリ言語です。 別のプライマリ言語を選択するまで無効にすることはできません。"
-
-msgid "admin.expireSessions"
-msgstr "ユーザーセッションの破棄"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "設定を表示"
-
-msgid "admin.displayConfigFileInstructions"
-msgstr ""
-"アップデートされる設定内容は下記のとおりです。設定の変更を適用するために <tt>config.inc.php</tt> "
-"をテキストエディタで開き，下記のテキストフィールドの記述と置き換えてください。"
-
-msgid "admin.dateInstalled"
-msgstr "インストール日"
-
-msgid "admin.currentVersion"
-msgstr "現在のバージョン"
-
-msgid "admin.contexts.confirmDelete"
-msgstr "{$contextName}とそのすべてのコンテンツを完全に削除してもよろしいですか。"
-
-msgid "admin.contentsOfConfigFile"
-msgstr "設定ファイルの内容"
-
-msgid "admin.confirmExpireSessions"
-msgstr ""
-"全てのユーザのセッションを破棄してもよいですか。これを実行すると、現在、システムにログインしているユーザは（あなたを含めて）すべて再ログインが必要になりま"
-"す。"
-
-msgid "admin.confirmClearTemplateCache"
-msgstr "コンパイル済テンプレートのキャッシュをクリアしてもよいですか？"
-
-msgid "admin.configFileUpdatedInstructions"
-msgstr ""
-"あなたの設定ファイルは正常にアップデートされました。もしあなたのサイトがまだ正常に機能していない場合は，<tt>config.inc.php</tt> "
-"を直接編集して設定を修正する必要があるかもしれません。"
-
-msgid "admin.clearTemplateCache"
-msgstr "テンプレートキャッシュのクリア"
-
-msgid "admin.clearDataCache"
-msgstr "データキャッシュのクリア"
-
-msgid "admin.adminFunctions"
-msgstr "管理機能"
+msgid "admin.systemInfo.settingName"
+msgstr "設定名"
 
 msgid "admin.systemInfo.settingValue"
 msgstr "設定値"
 
-msgid "admin.systemInfo.settingName"
-msgstr "設定名"
+msgid "admin.adminFunctions"
+msgstr "管理機能"
+
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
+msgid "admin.clearDataCache"
+msgstr "データキャッシュのクリア"
+
+msgid "admin.clearTemplateCache"
+msgstr "テンプレートキャッシュのクリア"
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"あなたの設定ファイルは正常にアップデートされました。もしあなたのサイトがまだ"
+"正常に機能していない場合は，<tt>config.inc.php</tt> を直接編集して設定を修正"
+"する必要があるかもしれません。"
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "コンパイル済テンプレートのキャッシュをクリアしてもよいですか？"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"全てのユーザのセッションを破棄してもよいですか。これを実行すると、現在、シス"
+"テムにログインしているユーザは（あなたを含めて）すべて再ログインが必要になり"
+"ます。"
+
+msgid "admin.contentsOfConfigFile"
+msgstr "設定ファイルの内容"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"{$contextName}とそのすべてのコンテンツを完全に削除してもよろしいですか。"
+
+msgid "admin.currentVersion"
+msgstr "現在のバージョン"
+
+msgid "admin.dateInstalled"
+msgstr "インストール日"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"アップデートされる設定内容は下記のとおりです。設定の変更を適用するために "
+"<tt>config.inc.php</tt> をテキストエディタで開き，下記のテキストフィールドの"
+"記述と置き換えてください。"
+
+msgid "admin.displayNewSystemConfig"
+msgstr "設定を表示"
+
+msgid "admin.expireSessions"
+msgstr "ユーザーセッションの破棄"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"この言語は、サイトのプライマリ言語です。 別のプライマリ言語を選択するまで無効"
+"にすることはできません。"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"サイトのプライマリ言語を変更してもよろしいですか 。サイトのプライマリ言語で必"
+"要なユーザーの名前は存在しない既存のプライマリ言語からコピーされます。"
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"この言語をリロードしてもよいですか。これを実行すると、サイトで修正した各言語"
+"の既存データ（メールテンプレートなど）が消去され、システム提供のデフォルトに"
+"戻されます。"
+
+msgid "admin.languages.installedLocales"
+msgstr "インストールされている言語"
+
+msgid "admin.languages.installLanguages"
+msgstr "言語の管理"
+
+msgid "admin.languages.availableLocales"
+msgstr "使用可能な言語"
+
+msgid "admin.languages.installLocale"
+msgstr "言語のインストール"
+
+msgid "admin.languages.installLocales"
+msgstr "インストール"
+
+msgid "admin.languages.installNewLocales"
+msgstr "新規言語のインストール"
+
+msgid "admin.languages.languageSettings"
+msgstr "言語設定"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "インストールできる言語はありません。"
+
+msgid "admin.languages.reload"
+msgstr "言語のリロード"
+
+msgid "admin.languages.uninstall"
+msgstr "言語のアンインストール"
+
+msgid "admin.phpInfo"
+msgstr "PHP環境設定情報"
+
+msgid "admin.scheduledTask"
+msgstr "スケジュールされたタスク"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "タスクプロセスが開始されました。"
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "タスクプロセスが停止しました。"
+
+msgid "admin.scheduledTask.noLog"
+msgstr "タスクはログを生成しませんでした。"
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName}のインストールが自動的にこのタスクを実行され、完了しました。ロ"
+"グファイルは 下記のリンクからダウンロードできます：{$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "スケジュールされたタスク実行ログをすべて削除してもよろしいですか。"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "スケジュールされたタスク実行ログをクリア"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "予約済み投稿の発行"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "査読リマインダー"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "読期間終了リマインダー"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Apacheバージョン"
+
+msgid "admin.server.dbDriver"
+msgstr "データベースドライバ"
+
+msgid "admin.server.dbVersion"
+msgstr "データベースサーババージョン"
+
+msgid "admin.serverInformation"
+msgstr "サーバ情報"
+
+msgid "admin.server.phpVersion"
+msgstr "PHPバージョン"
+
+msgid "admin.server.platform"
+msgstr "OS"
+
+msgid "admin.settings"
+msgstr "設定"
+
+msgid "admin.settings.about"
+msgstr "このサイトについて"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "一括メール"
+
+msgid "admin.settings.contactEmail"
+msgstr "連絡担当者メールアドレス"
+
+msgid "admin.settings.contactName"
+msgstr "連絡担当者名"
+
+msgid "admin.settings.introduction"
+msgstr "あいさつ文"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "最小パスワード長"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "一括メールを制限する"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "役割の無効化"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "この設定を変更できるのは管理者だけです。"
+
+msgid "admin.settings.siteLanguage"
+msgstr "サイトの言語"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"サイトのスタイルシートのフォーマットが不正です。使用できるフォーマットは、."
+"css です。"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "サイトのスタイルシート"
+
+msgid "admin.settings.siteLogo"
+msgstr "サイトロゴ"
+
+msgid "admin.settings.siteTitle"
+msgstr "サイト名"
+
+msgid "admin.settings.siteTheme"
+msgstr "サイトシーム"
+
+msgid "admin.siteAdmin"
+msgstr "サイト管理"
+
+msgid "admin.siteManagement"
+msgstr "サイト管理"
+
+msgid "admin.siteSettings"
+msgstr "サイト設定"
+
+msgid "admin.siteSetup"
+msgstr "サイトセットアップ"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"設定ファイル <tt>config.inc.php</tt> が存在しないか，読み込めない，あるいは無"
+"効です。"
+
+msgid "admin.systemInformation"
+msgstr "システム情報"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr "ビルド"
+
+msgid "admin.version.checkForUpdates"
+msgstr "更新チェック"
+
+msgid "admin.version.downloadPackage"
+msgstr "ダウンロード"
+
+msgid "admin.version.downloadPatch"
+msgstr "パッチのダウンロード"
+
+msgid "admin.versionHistory"
+msgstr "バージョン履歴"
+
+msgid "admin.version.latest"
+msgstr "最新バージョン"
+
+msgid "admin.versionMajor"
+msgstr "メジャー"
+
+msgid "admin.versionMinor"
+msgstr "マイナー"
+
+msgid "admin.version.moreInfo"
+msgstr "さらなる情報"
+
+msgid "admin.versionRevision"
+msgstr "リビジョン"
+
+msgid "admin.version.updateAvailable"
+msgstr "新バージョンが利用できます"
+
+msgid "admin.version.upToDate"
+msgstr "このシステムは最新版です"
+
+msgid "admin.version"
+msgstr "バージョン"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "ベースパス{$path}は公開ファイルディレクトリ内にある必要があります。"
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "フォルダ{$path}はディレクトリではないか、読み取りできません。"
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"ファイル{$filename}を{$currentFilePath}から{$destinationPath}に移動できません"
+"でした"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "ファイル{$filename}は処理され、アーカイブされました。"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "ファイル・ローダー"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ダウンロードできる言語はありません。"
+
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

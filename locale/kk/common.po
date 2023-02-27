@@ -13,191 +13,160 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "common.discipline"
-msgstr "Тәртіп"
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
 
-msgid "common.disabled"
-msgstr "Өшірілген"
+msgid "common.currentStyleSheet"
+msgstr "Ағымдағы стиль кестесі"
 
-msgid "common.disable"
-msgstr "Өшіру"
-
-msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} пиксель"
-
-msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; @  {$dpi} DPI/PPI"
-
-msgid "common.description"
+msgid "about.description"
 msgstr "Сипаттама"
 
-msgid "common.designation"
-msgstr "Белгілеу"
+msgid "about.guidelines"
+msgstr "Нұсқаулықтар"
 
-msgid "common.deleteSelection"
-msgstr "Таңдалғанды өшіру"
+msgid "about.aboutSite"
+msgstr "Сайт туралы"
 
-msgid "common.deleting"
-msgstr "Жою жүріп жатыр"
+msgid "about.contact"
+msgstr "Байланыс"
 
-msgid "common.delete"
-msgstr "Өшіру"
+msgid "about.contact.email"
+msgstr "Email"
 
-msgid "common.declined"
-msgstr "Қабылданбады"
+msgid "about.contact.phone"
+msgstr "Телефон"
 
-msgid "common.default"
-msgstr "Әдепкі"
+msgid "about.contact.principalContact"
+msgstr "Редакция өкілі"
 
-msgid "common.deactivate"
-msgstr "Өшіру"
+msgid "about.contact.supportContact"
+msgstr "Техникалық қолдау өкілі"
 
-msgid "common.day"
-msgstr "Күн"
+msgid "about.other"
+msgstr "Басқа"
 
-msgid "common.dateHijri"
-msgstr "Хижри күнтізбесі"
+msgid "about.people"
+msgstr "Адамдар"
 
-msgid "common.dateUploaded"
-msgstr "Жүктеп салынған күн"
+msgid "about.policies"
+msgstr "Саясаттар"
 
-msgid "common.dateSubmitted"
-msgstr "Жіберілген күні"
+msgid "about.siteMap"
+msgstr "Сайт картасы"
 
-msgid "common.dateRequested"
-msgstr "Сұралған күн"
+msgid "announcement.announcements"
+msgstr "Хабарландырулар"
 
-msgid "common.dateModified"
-msgstr "Өзгертілген күні"
+msgid "announcement.announcementsHome"
+msgstr "Хабарландырулар"
 
-msgid "common.date"
-msgstr "Күн"
+msgid "announcement.moreAnnouncements"
+msgstr "Басқа хабарландырулар..."
 
-msgid "common.dateDecided"
-msgstr "Шешім қабылдау күні"
+msgid "announcement.noneExist"
+msgstr "Бірде-бір хабарландыру жарияланған жоқ."
 
-msgid "common.dateCompleted"
-msgstr "Аяқталған күні"
+msgid "announcement.posted"
+msgstr "Жарияланды"
 
-msgid "common.create"
-msgstr "Құру"
+msgid "announcement.postedOn"
+msgstr "{$postDate} жарияланды"
 
-msgid "common.country"
-msgstr "Ел"
+msgid "announcement.view"
+msgstr "Хабарландыруды көрсету"
 
-msgid "common.copy"
-msgstr "Көшіру"
+msgid "common.allDownloads"
+msgstr "Барлық жүктеулер"
 
-msgid "common.continue"
-msgstr "Жалғастыру"
+msgid "common.navigation.sidebar"
+msgstr "Бүйірлік тақта"
 
-msgid "common.contents"
-msgstr "Мазмұндар"
+msgid "common.navigation.site"
+msgstr "Сайт навигациясы"
 
-msgid "common.content"
-msgstr "Мазмұны"
+msgid "common.navigation.siteContext"
+msgstr "Сайттың мәтіндік навигациясы"
 
-msgid "common.confirmed.date"
-msgstr "Расталған: {$dateConfirmed}"
+msgid "common.navigation.user"
+msgstr "Пайдаланушының навигациясы"
 
-msgid "common.confirm"
-msgstr "Растау"
+msgid "common.tasks"
+msgstr "Міндеттері"
 
-msgid "common.completed.date"
-msgstr "Аяқталды: {$dateCompleted}"
+msgid "common.list"
+msgstr "Тізім"
 
-msgid "common.completed"
-msgstr "Аяқталды"
+msgid "common.grid"
+msgstr "Кесте"
 
-msgid "common.complete"
-msgstr "Аяқтау"
-
-msgid "common.closeWindow"
-msgstr "Терезені жабу"
-
-msgid "common.closePanel"
-msgstr "Панельді жабу"
-
-msgid "common.close"
-msgstr "Жабу"
-
-msgid "common.chooseOne"
-msgstr "Біреуін таңдаңыз"
-
-msgid "common.changesSaved"
-msgstr "Өзгерістеріңіз сақталды."
-
-msgid "common.ccLicense.rt"
+msgid "common.confirmDelete"
 msgstr ""
-"\n"
-"\t<div class=\"rtBlock\">\n"
-"\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
-"\t\t<br />\n"
-"\t\tБұл жұмыс <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
-"by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a> "
-"бойынша лицензияланған.\n"
-"\t</div>\n"
-"\t"
+"Бұл элементті шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес."
 
-msgid "common.ccLicense"
+msgid "common.abstract"
+msgstr "Аннотация"
+
+msgid "common.accepted"
+msgstr "Қабылданды"
+
+msgid "common.acknowledged"
+msgstr "Мойындалды"
+
+msgid "common.action"
+msgstr "Әрекет"
+
+msgid "common.activate"
+msgstr "Іске қосу"
+
+msgid "common.active"
+msgstr "Белсенді"
+
+msgid "common.inactive"
+msgstr "Белсенді емес"
+
+msgid "common.add"
+msgstr "Қосу"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCC қосу"
+
+msgid "common.addFiles"
+msgstr "файлдарды енгізу"
+
+msgid "common.addSelf"
+msgstr "Өзімді қосу"
+
+msgid "common.attachedFiles"
+msgstr "Тіркелген файлдар"
+
+msgid "common.attachFiles"
+msgstr "Тіркелген файлдар"
+
+msgid "common.attachSelected"
+msgstr "таңдалған файлды тіркеу"
+
+msgid "common.name"
+msgstr "Аты"
+
+msgid "common.all"
+msgstr "Барлық"
+
+msgid "common.alphaList"
 msgstr ""
-"\n"
-"\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
-"licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\""
-"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
-"\t\t</a>\n"
-"\t\t<br />\n"
-"\t\tБұл жұмыс <a rel=\"license\" target=\"_blank\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution "
-"3.0  License</a> бойынша лицензияланған.\n"
-"\t"
+"А Ә Б В Г Ғ Д Е Ё Ж З И Й К Қ Л М Н Ң О Ө П Р С Т У Ұ Ү Ф Х Һ Ц Ч Ш Щ Ь Ы І "
+"Ъ Э Ю Я"
 
-msgid "common.captcha.error.missing-input-response"
-msgstr "Спамның алдын алу үшін қолданылатын тексеруден өтуіңіз керек."
+msgid "common.titleSmallWords"
+msgstr ""
+"бойынша және немесе не бірақ болып табылады егер содан кейін басқа қашан сағ "
+"бастап бойынша қосулы өшірулі үшін жылы шығып бітті дейін ішіне бірге"
 
-msgid "common.notice"
-msgstr "Хабарлама"
-
-msgid "common.error"
-msgstr "Қате"
-
-msgid "common.warning"
-msgstr "Ескерту"
-
-msgid "common.cancelled"
-msgstr "Тоқтатылды"
-
-msgid "common.cancel"
-msgstr "Болдырмау"
-
-msgid "common.between"
-msgstr "арасында"
-
-msgid "common.back"
-msgstr "Артқа"
-
-msgid "common.available"
-msgstr "Қол жетімді"
-
-msgid "common.assigned.date"
-msgstr "Тағайындалды: {$dateAssigned}"
-
-msgid "common.assigned"
+msgid "common.alreadyAssigned"
 msgstr "Тағайындалды"
 
-msgid "common.assign"
-msgstr "Тағайындау"
-
-msgid "common.applyAction"
-msgstr "Қолдану"
-
-msgid "common.and"
-msgstr "және"
+msgid "common.altText"
+msgstr "Балама мәтін"
 
 msgid "common.altTextInstructions"
 msgstr ""
@@ -205,227 +174,283 @@ msgstr ""
 "көретін қолданушылар үшін сипаттаңыз. Мысалы: \"PKP конференциясында "
 "сөйлеген редакторымыз\""
 
-msgid "common.altText"
-msgstr "Балама мәтін"
+msgid "common.and"
+msgstr "және"
 
-msgid "common.alreadyAssigned"
+msgid "common.applyAction"
+msgstr "Қолдану"
+
+msgid "common.assign"
+msgstr "Тағайындау"
+
+msgid "common.assigned"
 msgstr "Тағайындалды"
 
-msgid "common.alphaList"
+msgid "common.assigned.date"
+msgstr "Тағайындалды: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Қол жетімді"
+
+msgid "common.back"
+msgstr "Артқа"
+
+msgid "common.between"
+msgstr "арасында"
+
+msgid "common.cancel"
+msgstr "Болдырмау"
+
+msgid "common.cancelled"
+msgstr "Тоқтатылды"
+
+msgid "common.warning"
+msgstr "Ескерту"
+
+msgid "common.error"
+msgstr "Қате"
+
+msgid "common.notice"
+msgstr "Хабарлама"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "Спамның алдын алу үшін қолданылатын тексеруден өтуіңіз керек."
+
+msgid "common.ccLicense"
 msgstr ""
-"А Ә Б В Г Ғ Д Е Ё Ж З И Й К Қ Л М Н Ң О Ө П Р С Т У Ұ Ү Ф Х Һ Ц Ч Ш Щ Ь Ы І "
-"Ъ Э Ю Я"
+"\n"
+"\t\t<br /><br />\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t</a>\n"
+"\t\t<br />\n"
+"\t\tБұл жұмыс <a rel=\"license\" target=\"_blank\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\">Creative Commons Attribution 3.0  "
+"License</a> бойынша лицензияланған.\n"
+"\t"
 
-msgid "common.all"
-msgstr "Барлық"
-
-msgid "common.name"
-msgstr "Аты"
-
-msgid "common.addSelf"
-msgstr "Өзімді қосу"
-
-msgid "common.add"
-msgstr "Қосу"
-
-msgid "common.inactive"
-msgstr "Белсенді емес"
-
-msgid "common.active"
-msgstr "Белсенді"
-
-msgid "common.activate"
-msgstr "Іске қосу"
-
-msgid "common.action"
-msgstr "Әрекет"
-
-msgid "common.acknowledged"
-msgstr "Мойындалды"
-
-msgid "common.accepted"
-msgstr "Қабылданды"
-
-msgid "common.abstract"
-msgstr "Аннотация"
-
-msgid "common.confirmDelete"
+msgid "common.ccLicense.rt"
 msgstr ""
-"Бұл элементті шынымен жойғыңыз келе ме? Бұл әрекетті қайтару мүмкін емес."
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tБұл жұмыс <a rel=\"license\" href=\"https://creativecommons.org/licenses/"
+"by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 License</a> "
+"бойынша лицензияланған.\n"
+"\t</div>\n"
+"\t"
 
-msgid "common.grid"
-msgstr "Кесте"
+msgid "common.changesSaved"
+msgstr "Өзгерістеріңіз сақталды."
 
-msgid "common.list"
-msgstr "Тізім"
+msgid "common.chooseOne"
+msgstr "Біреуін таңдаңыз"
 
-msgid "common.tasks"
-msgstr "Міндеттері"
+msgid "common.close"
+msgstr "Жабу"
 
-msgid "common.navigation.user"
-msgstr "Пайдаланушының навигациясы"
+msgid "common.closePanel"
+msgstr "Панельді жабу"
 
-msgid "common.navigation.siteContext"
-msgstr "Сайттың мәтіндік навигациясы"
+msgid "common.closeWindow"
+msgstr "Терезені жабу"
 
-msgid "common.navigation.site"
-msgstr "Сайт навигациясы"
+msgid "common.complete"
+msgstr "Аяқтау"
 
-msgid "common.navigation.sidebar"
-msgstr "Бүйірлік тақта"
+msgid "common.completed"
+msgstr "Аяқталды"
 
-msgid "common.allDownloads"
-msgstr "Барлық жүктеулер"
+msgid "common.completed.date"
+msgstr "Аяқталды: {$dateCompleted}"
 
-msgid "announcement.view"
-msgstr "Хабарландыруды көрсету"
+msgid "common.confirm"
+msgstr "Растау"
 
-msgid "announcement.postedOn"
-msgstr "{$postDate} жарияланды"
+msgid "common.confirmed.date"
+msgstr "Расталған: {$dateConfirmed}"
 
-msgid "announcement.posted"
-msgstr "Жарияланды"
+msgid "common.content"
+msgstr "Мазмұны"
 
-msgid "announcement.noneExist"
-msgstr "Бірде-бір хабарландыру жарияланған жоқ."
+msgid "common.contents"
+msgstr "Мазмұндар"
 
-msgid "announcement.moreAnnouncements"
-msgstr "Басқа хабарландырулар..."
+msgid "common.continue"
+msgstr "Жалғастыру"
 
-msgid "announcement.announcementsHome"
-msgstr "Хабарландырулар"
+msgid "common.copy"
+msgstr "Көшіру"
 
-msgid "announcement.announcements"
-msgstr "Хабарландырулар"
+msgid "common.country"
+msgstr "Ел"
 
-msgid "about.siteMap"
-msgstr "Сайт картасы"
+msgid "common.create"
+msgstr "Құру"
 
-msgid "about.policies"
-msgstr "Саясаттар"
+msgid "common.dateCompleted"
+msgstr "Аяқталған күні"
 
-msgid "about.people"
-msgstr "Адамдар"
+msgid "common.dateDecided"
+msgstr "Шешім қабылдау күні"
 
-msgid "about.other"
-msgstr "Басқа"
+msgid "common.date"
+msgstr "Күн"
 
-msgid "about.contact.supportContact"
-msgstr "Техникалық қолдау өкілі"
+msgid "common.dateModified"
+msgstr "Өзгертілген күні"
 
-msgid "about.contact.principalContact"
-msgstr "Редакция өкілі"
+msgid "common.dateRequested"
+msgstr "Сұралған күн"
 
-msgid "about.contact.phone"
-msgstr "Телефон"
+msgid "common.dateSubmitted"
+msgstr "Жіберілген күні"
 
-msgid "about.contact.email"
-msgstr "Email"
+msgid "common.dateUploaded"
+msgstr "Жүктеп салынған күн"
 
-msgid "about.contact"
-msgstr "Байланыс"
+msgid "common.dateHijri"
+msgstr "Хижри күнтізбесі"
 
-msgid "about.aboutSite"
-msgstr "Сайт туралы"
+msgid "common.day"
+msgstr "Күн"
 
-msgid "about.guidelines"
-msgstr "Нұсқаулықтар"
+msgid "common.deactivate"
+msgstr "Өшіру"
 
-msgid "about.description"
+msgid "common.default"
+msgstr "Әдепкі"
+
+msgid "common.declined"
+msgstr "Қабылданбады"
+
+msgid "common.delete"
+msgstr "Өшіру"
+
+msgid "common.deleting"
+msgstr "Жою жүріп жатыр"
+
+msgid "common.deleteSelection"
+msgstr "Таңдалғанды өшіру"
+
+msgid "common.deselect"
+msgstr "Таңдауды алып тастау"
+
+msgid "common.designation"
+msgstr "Белгілеу"
+
+msgid "common.description"
 msgstr "Сипаттама"
 
-msgid "common.currentStyleSheet"
-msgstr "Ағымдағы стиль кестесі"
+msgid "common.details"
+msgstr ""
 
-msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; @  {$dpi} DPI/PPI"
 
-msgid "common.month"
-msgstr "Ай"
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} пиксель"
 
-msgid "common.modify"
-msgstr "Өзгерту"
+msgid "common.discardChanges"
+msgstr ""
 
-msgid "common.minute"
-msgstr "Минут(тар)"
+msgid "common.disconnected"
+msgstr ""
 
-msgid "common.billingAddress"
-msgstr "Төлем мекенжайы (әртүрлі болса)"
+msgid "common.disable"
+msgstr "Өшіру"
 
-msgid "common.mailingAddress"
-msgstr "Пошта адресі"
+msgid "common.disabled"
+msgstr "Өшірілген"
 
-msgid "common.manage"
-msgstr "Басқару"
+msgid "common.discipline"
+msgstr "Тәртіп"
 
-msgid "common.semicolonListSeparator"
-msgstr "; "
+msgid "common.done"
+msgstr "Дайын"
 
-msgid "common.commaListSeparator"
-msgstr ", "
+msgid "common.download"
+msgstr "Жүктеп алу"
 
-msgid "common.lessThanOnly"
-msgstr "Одан азырақ"
+msgid "common.downloadPdf"
+msgstr "PDF файлын жүктеп алу"
 
-msgid "common.lessThan"
-msgstr "{$value} немесе одан аз"
+msgid "common.downloadReport"
+msgstr ""
 
-msgid "common.less"
-msgstr "Аздау"
+msgid "common.dragAndDropHere"
+msgstr "Файлдарды осы жерге апарыңыз."
 
-msgid "common.lastActivity"
-msgstr "{$date} күні жазылған соңғы әрекет."
+msgid "common.orUploadFile"
+msgstr "Немесе файлды жүктеңіз"
 
-msgid "common.languages"
-msgstr "Тілдер"
+msgid "common.edit"
+msgstr "Өңдеу"
 
-msgid "common.language"
-msgstr "Тіл"
+msgid "common.editItem"
+msgstr "Өңдеу {$name}"
 
-msgid "common.keywords"
-msgstr "Кілт сөздер"
+msgid "common.emailTemplates"
+msgstr ""
 
-msgid "common.itemsPerPage"
-msgstr "Беттегі элементтер"
+msgid "common.enable"
+msgstr "Қосу"
 
-msgid "common.insert"
-msgstr "Кірістіру"
+msgid "common.enabled"
+msgstr "Қосылған"
 
-msgid "common.inProgress"
-msgstr "Орындалуда"
+msgid "common.error.databaseError"
+msgstr "Дерекқор қатесі орын алды: {$error}"
 
-msgid "common.initiate"
-msgstr "Бастау"
+msgid "common.error.databaseErrorUnknown"
+msgstr "Белгісіз дерекқорға қосылу қатесі орын алды."
 
-msgid "common.import"
-msgstr "Импорттау"
+msgid "common.error.framesRequired"
+msgstr ""
+"Бұл бетте фреймдер қажет. Фреймсіз нұсқа көру үшін <a href=\"{$url}\">осы "
+"жерді басыңыз</a>."
 
-msgid "common.id"
-msgstr "ID"
+msgid "common.event"
+msgstr "Оқиға"
 
-msgid "common.hour"
-msgstr "Сағат"
+msgid "common.export"
+msgstr "Экспорттау"
 
-msgid "common.homePageHeaderLogo.altText"
-msgstr "Негізгі бет тақырыбы логотипі"
+msgid "common.finish"
+msgstr "Аяқтау"
 
-msgid "common.homepageNavigationLabel"
-msgstr "Басты бет"
+msgid "common.fullscreen"
+msgstr "Толық экранды режим"
 
-msgid "common.height"
-msgstr "Биіктігі"
+msgid "common.fullscreenOff"
+msgstr "Толық экранды режимнен шығу"
 
-msgid "common.go"
-msgstr "Алға"
+msgid "common.false"
+msgstr "Жалған"
 
-msgid "common.filterRemove"
-msgstr "Сүзгіні тазалау: {$filterTitle}"
+msgid "common.file"
+msgstr "Файл"
 
-msgid "common.filterAdd"
-msgstr "Сүзгі қосу: {$filterTitle}"
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
 
-msgid "common.filter"
-msgstr "Сүзгілер"
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
+
+msgid "common.fileName"
+msgstr "Файл атауы"
+
+msgid "common.fileSize"
+msgstr "Файл өлшемі"
+
+msgid "common.fileType"
+msgstr "Файл түрі"
 
 msgid "common.fileUploaderError"
 msgstr ""
@@ -433,469 +458,626 @@ msgstr ""
 "қосуды сіздің браузеріңіз қолдамайды. Мәселені шешу үшін сервер әкімшісіне "
 "хабарласыңыз."
 
-msgid "common.fileType"
-msgstr "Файл түрі"
+msgid "common.filter"
+msgstr "Сүзгілер"
 
-msgid "common.fileSize"
-msgstr "Файл өлшемі"
+msgid "common.filterAdd"
+msgstr "Сүзгі қосу: {$filterTitle}"
 
-msgid "common.fileName"
-msgstr "Файл атауы"
-
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
-
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
-
-msgid "common.file"
-msgstr "Файл"
-
-msgid "common.false"
-msgstr "Жалған"
-
-msgid "common.fullscreenOff"
-msgstr "Толық экранды режимнен шығу"
-
-msgid "common.fullscreen"
-msgstr "Толық экранды режим"
-
-msgid "common.finish"
-msgstr "Аяқтау"
-
-msgid "common.export"
-msgstr "Экспорттау"
-
-msgid "common.event"
-msgstr "Оқиға"
-
-msgid "common.error.framesRequired"
-msgstr ""
-"Бұл бетте фреймдер қажет. Фреймсіз нұсқа көру үшін <a href=\"{$url}\">осы "
-"жерді басыңыз</a>."
-
-msgid "common.error.databaseErrorUnknown"
-msgstr "Белгісіз дерекқорға қосылу қатесі орын алды."
-
-msgid "common.error.databaseError"
-msgstr "Дерекқор қатесі орын алды: {$error}"
-
-msgid "common.enabled"
-msgstr "Қосылған"
-
-msgid "common.enable"
-msgstr "Қосу"
-
-msgid "common.editItem"
-msgstr "Өңдеу {$name}"
-
-msgid "common.edit"
-msgstr "Өңдеу"
-
-msgid "common.downloadPdf"
-msgstr "PDF файлын жүктеп алу"
-
-msgid "common.download"
-msgstr "Жүктеп алу"
-
-msgid "common.done"
-msgstr "Дайын"
-
-msgid "common.noneAssigned"
-msgstr "Ешқайсысы тағайындалмаған"
-
-msgid "common.moreThanOnly"
-msgstr "Гөрі көбірек"
-
-msgid "common.moreThan"
-msgstr "{$value} немесе одан да көп"
-
-msgid "common.more"
-msgstr "Көбірек"
-
-msgid "common.keepWorking"
-msgstr "Жұмысты жалғастырыңыз"
-
-msgid "common.fromWithValue"
-msgstr "Кімнен: {$value}"
+msgid "common.filterRemove"
+msgstr "Сүзгіні тазалау: {$filterTitle}"
 
 msgid "common.findTemplate"
 msgstr "Үлгіні табыңыз"
 
-msgid "common.deselect"
-msgstr "Таңдауды алып тастау"
+msgid "common.formatting"
+msgstr ""
 
-msgid "common.attachFiles"
-msgstr "Тіркелген файлдар"
+msgid "common.geographic"
+msgstr ""
 
-msgid "common.attachedFiles"
-msgstr "Тіркелген файлдар"
+msgid "common.go"
+msgstr "Алға"
 
-msgid "common.addCCBCC"
-msgstr "CC/BCC қосу"
+msgid "common.height"
+msgstr "Биіктігі"
 
-msgid "common.orderDown"
-msgstr "{$itemTitle} төменге түсіру"
+msgid "common.homepageNavigationLabel"
+msgstr "Басты бет"
 
-msgid "common.noItemsFound"
-msgstr "Ештеңе табылған жоқ."
+msgid "common.homePageHeaderLogo.altText"
+msgstr "Негізгі бет тақырыбы логотипі"
 
-msgid "common.no"
-msgstr "Жоқ"
+msgid "common.hour"
+msgstr "Сағат"
+
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "Импорттау"
+
+msgid "common.initiate"
+msgstr "Бастау"
+
+msgid "common.inProgress"
+msgstr "Орындалуда"
+
+msgid "common.insert"
+msgstr "Кірістіру"
+
+msgid "common.insertContent"
+msgstr "Мазмұнды енгізу"
+
+msgid "common.insertContentSearch"
+msgstr "Кірістіру үшін мазмұнды табыңыз"
+
+msgid "common.itemsPerPage"
+msgstr "Беттегі элементтер"
+
+msgid "common.keywords"
+msgstr "Кілт сөздер"
+
+msgid "common.label"
+msgstr ""
+
+msgid "common.language"
+msgstr "Тіл"
+
+msgid "common.languages"
+msgstr "Тілдер"
+
+msgid "common.lastSaved"
+msgstr ""
+
+msgid "common.lastActivity"
+msgstr "{$date} күні жазылған соңғы әрекет."
+
+msgid "common.less"
+msgstr "Аздау"
+
+msgid "common.lessThan"
+msgstr "{$value} немесе одан аз"
+
+msgid "common.lessThanOnly"
+msgstr "Одан азырақ"
+
+msgid "common.keepWorking"
+msgstr "Жұмысты жалғастырыңыз"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "Басқару"
+
+msgid "common.mailingAddress"
+msgstr "Пошта адресі"
+
+msgid "common.billingAddress"
+msgstr "Төлем мекенжайы (әртүрлі болса)"
+
+msgid "common.minute"
+msgstr "Минут(тар)"
+
+msgid "common.modify"
+msgstr "Өзгерту"
+
+msgid "common.month"
+msgstr "Ай"
+
+msgid "common.more"
+msgstr "Көбірек"
+
+msgid "common.moreThan"
+msgstr "{$value} немесе одан да көп"
+
+msgid "common.moreThanOnly"
+msgstr "Гөрі көбірек"
+
+msgid "common.noneAssigned"
+msgstr "Ешқайсысы тағайындалмаған"
 
 msgid "common.none"
 msgstr "Жоқ"
 
-msgid "common.other"
-msgstr "Басқа"
+msgid "common.noneSelected"
+msgstr ""
 
-msgid "common.or"
-msgstr "немесе"
+msgid "common.noneProvided"
+msgstr ""
 
-msgid "common.originalFileName"
-msgstr "Бастапқы файл атауы"
+msgid "common.no"
+msgstr "Жоқ"
 
-msgid "common.orderUp"
-msgstr "Жоғары көтеру {$itemTitle}"
+msgid "common.noItemsFound"
+msgstr "Ештеңе табылған жоқ."
 
-msgid "common.order"
-msgstr "Тапсырыс"
+msgid "common.noComments"
+msgstr "пікірлер жоқ"
 
-msgid "common.options"
-msgstr "Опциялар"
+msgid "common.notApplicable"
+msgstr "Жарамсыз"
 
-msgid "common.on"
-msgstr "Қосулы"
+msgid "common.notApplicableShort"
+msgstr "N/A"
 
-msgid "common.numberedMore"
-msgstr "{$number} көп"
+msgid "common.notAvailable"
+msgstr "Қол жетімді емес"
 
-msgid "common.noMatches"
-msgstr "Сәйкестік жоқ"
+msgid "common.note"
+msgstr "Ескертпе"
 
-msgid "common.notified.date"
-msgstr "Ескерту: {$dateNotified}"
+msgid "common.noTemporaryFile"
+msgstr "Сіз жүктеген файл табылмады. Оны қайтадан жүктеп көріңіз."
 
-msgid "common.notified"
-msgstr "Хабардар етілген"
+msgid "common.notes"
+msgstr "Жазбалар"
 
 msgid "common.notes.tooltip"
 msgstr ""
 "Жазбалар (сары: жаңа жазбалар бар; көк: қаралған жазбалар; сұр: жазбалар жоқ)"
 
-msgid "common.notes"
-msgstr "Жазбалар"
+msgid "common.notified"
+msgstr "Хабардар етілген"
 
-msgid "common.noTemporaryFile"
-msgstr "Сіз жүктеген файл табылмады. Оны қайтадан жүктеп көріңіз."
+msgid "common.notified.date"
+msgstr "Ескерту: {$dateNotified}"
 
-msgid "common.note"
-msgstr "Ескертпе"
+msgid "common.noMatches"
+msgstr "Сәйкестік жоқ"
 
-msgid "common.notAvailable"
-msgstr "Қол жетімді емес"
+msgid "common.numberedMore"
+msgstr "{$number} көп"
 
-msgid "common.notApplicable"
-msgstr "Жарамсыз"
+msgid "common.off"
+msgstr "Өшірулі"
 
-msgid "common.noComments"
-msgstr "пікірлер жоқ"
+msgid "common.on"
+msgstr "Қосулы"
 
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Өзіңіз бен {$userFullName} арасында талқылауды бастаңыз."
+msgid "common.ok"
+msgstr "Жарайды"
 
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Талқылауға кірісіңіз"
+msgid "common.options"
+msgstr "Опциялар"
 
-msgid "stageParticipants.history.messageSent"
-msgstr "Хабарлама пайдаланушыларға жіберілді."
+msgid "common.order"
+msgstr "Тапсырыс"
 
-msgid "informationCenter.history.messageSent"
-msgstr "Хабарлама пайдаланушыларға жіберілді."
+msgid "common.orderUp"
+msgstr "Жоғары көтеру {$itemTitle}"
 
-msgid "informationCenter.history.notePosted"
-msgstr "Жаңа жазба жарияланды."
+msgid "common.orderDown"
+msgstr "{$itemTitle} төменге түсіру"
 
-msgid "informationCenter.history.noItems"
-msgstr "Журнал бойынша ешқандай оқиға тіркелмеген."
+msgid "common.originalFileName"
+msgstr "Бастапқы файл атауы"
 
-msgid "informationCenter.pastHistory"
-msgstr "Бұрынғы түзетулер"
+msgid "common.or"
+msgstr "немесе"
 
-msgid "informationCenter.currentHistory"
-msgstr "Ағымдағы қайта қарау"
+msgid "common.other"
+msgstr "Басқа"
 
-msgid "informationCenter.deleteConfirm"
-msgstr "Осы жазбаны жойғыңыз келетініне сенімдісіз бе?"
+msgid "common.overdue"
+msgstr "Мерзімі өткен"
 
-msgid "informationCenter.pastNotes"
-msgstr "Алдыңғы нұсқалар бойынша ескертпелер"
+msgid "common.override"
+msgstr "Қайта анықтау"
 
-msgid "informationCenter.noNotes"
-msgstr "Көрсетілетін ескертпелер жоқ."
+msgid "common.pagination"
+msgstr "{$start}-{$end} тен {$total}"
 
-msgid "informationCenter.addNote"
-msgstr "Ескертпе қосу"
+msgid "common.pagination.label"
+msgstr "Қосымша беттерді қарау"
 
-msgid "informationCenter.editorialHistory"
-msgstr "Редакция тарихы"
+msgid "common.pagination.goToPage"
+msgstr "{$page} бетіне өту"
 
-msgid "informationCenter.informationCenter"
-msgstr "Ақпараттық орталық"
+msgid "common.pagination.next"
+msgstr "Келесі бет"
 
-msgid "icon.view.alt"
-msgstr "Көру"
+msgid "common.pagination.previous"
+msgstr "Алдыңғы бет"
 
-msgid "icon.unchecked.alt"
-msgstr "Тексерілмеген"
+msgid "common.pageNumber"
+msgstr "Бет {$pageNumber}"
 
-msgid "icon.mail.alt"
-msgstr "Пошта"
+msgid "common.percentage"
+msgstr "%{$percentage}"
 
-msgid "icon.letter.alt"
-msgstr "Хат"
+msgid "common.plugin"
+msgstr "Плагин"
 
-msgid "icon.info.alt"
-msgstr "Мәлімет"
+msgid "common.pluginEnabled"
+msgstr "Плагин \"{$pluginName}\" қосылды.."
 
-msgid "icon.font_small.alt"
-msgstr "Кіші"
+msgid "common.pluginDisabled"
+msgstr "Плагин \"{$pluginName}\" өшірілді."
 
-msgid "icon.font_medium.alt"
-msgstr "Орташа"
+msgid "common.prefix"
+msgstr "Қосымша"
 
-msgid "icon.font_large.alt"
-msgstr "Ірі"
+msgid "common.prefixAndTitle.tip"
+msgstr "Мысалдар:  A, The"
 
-msgid "icon.folder.alt"
-msgstr "Папка"
+msgid "common.preview"
+msgstr "Алдын ала көру"
 
-msgid "icon.edit.alt"
-msgstr "Түзету"
+msgid "common.publisher"
+msgstr "Баспахана"
 
-msgid "icon.delete.alt"
+msgid "common.quality"
+msgstr "Сапа"
+
+msgid "common.queue.long.active"
+msgstr "Барлығы белсенді"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Толығырақ оқу"
+
+msgid "common.readMoreWithTitle"
+msgstr "Толығырақ оқу {$title}"
+
+msgid "common.reconnecting"
+msgstr ""
+
+msgid "common.record"
+msgstr "Жазба"
+
+msgid "common.refresh"
+msgstr "Жаңарту"
+
+msgid "common.related"
+msgstr "Байланысты"
+
+msgid "common.reminder"
+msgstr "Еске салу"
+
+msgid "common.reminded.date"
+msgstr "Ескертілді: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Қашықтан"
+
+msgid "common.remoteURL"
+msgstr "Қашықтағы URL сервері"
+
+msgid "common.remove"
 msgstr "Өшіру"
 
-msgid "icon.comment.alt"
-msgstr "Түсініктеме"
+msgid "common.removeItem"
+msgstr "{$item} өшіру"
 
-msgid "icon.checked.alt"
-msgstr "Тексерілген"
+msgid "common.removeSelection"
+msgstr "Таңдауды өшіру"
 
-msgid "help.upALevel"
-msgstr "Деңгейге көтерілу"
+msgid "common.replaced"
+msgstr "Алмастырылды"
 
-msgid "help.next"
-msgstr "Келесі"
+msgid "common.replaceFile"
+msgstr "Файлды алмастыру"
 
-msgid "help.previous"
-msgstr "Алдыңғы"
+msgid "common.requiredField"
+msgstr "* Қажет өрісті білдіреді"
 
-msgid "help.toc"
-msgstr "Мазмұны"
+msgid "common.required"
+msgstr "Міндетті"
 
-msgid "help.help"
-msgstr "Көмек"
+msgid "common.reset"
+msgstr "Бастапқы күйге келтіру"
 
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} тілдер толтырылды"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} -да {$localeName})"
-
-msgid "form.invalidImage"
+msgid "common.reviewRoundNumber"
 msgstr ""
-"Жарамсыз сурет жүктелді. Қабылданатын форматтар келесідей .png, .gif немесе "
-".jpg."
 
-msgid "form.submit"
-msgstr "Жіберу"
-
-msgid "form.send"
-msgstr "Жіберу"
-
-msgid "form.saveToUpload"
-msgstr "Файлды жүктеп салу үшін Сақтау батырмасын пайдаланыңыз."
-
-msgid "form.saved"
-msgstr "Сақталған"
-
-msgid "form.resubmit"
-msgstr "Қайта жіберіңіз"
-
-msgid "form.requireId"
-msgstr "Жарамды ID ұсынуыңыз керек."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Сіз бұл өрісті {$language} тілінде толтыруыңыз керек."
-
-msgid "form.required"
-msgstr "(* Міндетті)"
-
-msgid "form.fileRequired"
-msgstr "Файлды міндетті түрде жүктеп салу керек."
-
-msgid "form.csrfInvalid"
+msgid "common.role"
 msgstr ""
-"Форманы жіберу мүмкін емес. Сіз жүйеден шыққан болуыңыз мүмкін. Бетті қайта "
-"жүктеп, әрекетті қайталаңыз."
 
-msgid "form.postRequired"
-msgstr "Формасы дұрыс жіберілмеді."
+msgid "common.saveAndContinue"
+msgstr "Сақтау және жалғастыру"
 
-msgid "form.startsWith"
-msgstr "-ден басталады"
+msgid "common.saveAndEmail"
+msgstr "Сақтау және email"
 
-msgid "form.is"
-msgstr "тең келеді"
+msgid "common.save"
+msgstr "Сақтау"
 
-msgid "form.contains"
-msgstr "Қамтиды"
+msgid "common.saving"
+msgstr "Сақталуда"
 
-msgid "form.formLanguage"
-msgstr "Тіл формасы"
+msgid "common.search"
+msgstr "Іздеу"
 
-msgid "form.formLanguage.description"
+msgid "common.searchPhrase"
 msgstr ""
-"Төмендегі ақпаратты қосымша тілдерге енгізу үшін алдымен тілді таңдаңыз."
 
-msgid "form.errorsOccurred"
-msgstr "Бұл форманы өңдеу кезінде қателер орын алды"
+msgid "common.searching"
+msgstr "Ізделуде"
 
-msgid "form.errors"
+msgid "common.searchQuery"
+msgstr "Іздеу сұранысы"
+
+msgid "common.clearSearch"
+msgstr "Іздеу фразасын өшіру"
+
+msgid "common.second"
+msgstr "Секунд(тар)"
+
+msgid "common.selectAll"
+msgstr "Барлығын таңдау"
+
+msgid "common.selectedPrefix"
+msgstr "Таңдалған:"
+
+msgid "common.selectNone"
+msgstr "Таңдауды алып тастау"
+
+msgid "common.select"
+msgstr "Таңдау"
+
+msgid "common.selectWithName"
+msgstr "{$name} таңдау"
+
+msgid "common.sendEmail"
+msgstr "Email-мен жіберу"
+
+msgid "common.showAllSteps"
+msgstr "Барлық қадамдарды көрсетіңіз"
+
+msgid "common.showingSteps"
 msgstr ""
-"Форма сақталмады, себебі {$count} қате орын алды. Осы қателерді түзетіп, "
-"әрекетті қайталаңыз."
 
-msgid "form.errorMany"
-msgstr "{$count} қателерді түзетіңіз."
+msgid "common.size"
+msgstr "Көлемі"
 
-msgid "form.errorOne"
-msgstr "Бір қатені түзетіңіз."
+msgid "common.source"
+msgstr "Дереккөз"
 
-msgid "form.errorGoTo"
-msgstr "Келесі қатеге өтіңіз"
+msgid "common.status"
+msgstr "Мәртебе"
 
-msgid "form.errorA11y"
-msgstr "{$fieldLabel}-ге өтіңіз: {$errorMessage}"
+msgid "common.subject"
+msgstr "Тақырыбы"
 
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Сіз жеткілікті файл жүктеп салдыңыз."
+msgid "common.subjects"
+msgstr "Тақырыптар"
 
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Файлды жою"
+msgid "common.submenu"
+msgstr "Ішкі мәзір"
 
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Бұл жүктеуден бас тартқыңыз келетініне сенімдісіз бе?"
+msgid "common.subtitle"
+msgstr "Тақырыпша"
 
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Жүктеу тоқтатылды"
+msgid "common.suggest"
+msgstr "Ұсыну"
 
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Жүктеуді тоқтату"
+msgid "common.switchTo"
+msgstr "Ауыстыру"
 
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Сервер {{statusCode}} коды арқылы жауап берді. Бұл мәселе жойылмаса, жүйе "
-"әкімшісіне хабарласыңыз."
+msgid "common.switchToNamedItem"
+msgstr "{$name}Ауыстыру"
 
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Бұл түрдегі файлдарды жүктеп салу мүмкін емес."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Файл тым үлкен ({{filesize}}mb). Көлемі {{maxFilesize}} мб-тан асатын "
-"файлдарды жүктеп салу мүмкін емес."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "Файлдарыңызды жүктеп салу үшін төмендегі қосалқы форманы пайдаланыңыз."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"Сіздің браузеріңіз файлдарды арнайы терезеге апару арқылы жүктеп салуды "
-"қолдамайды."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Жүктеу үшін файлдарды осында көшіріңіз"
-
-msgid "form.disallowedProp"
-msgstr "Бұл сипатқа рұқсат жоқ."
-
-msgid "form.disallowedLocales"
-msgstr "Келесі тілдерге ғана рұқсат етіледі: {$languages}."
-
-msgid "form.dataHasChanged"
-msgstr "Бұл формадағы деректер өзгерді. Сақтамай жалғастыруды қалайсыз ба?"
-
-msgid "form.confirmSubmit.title"
-msgstr "Растау"
-
-msgid "form.confirmSubmit"
-msgstr "Осы формада жібергіңіз келетініне сенімдісіз бе?"
-
-msgid "form.url.invalid"
-msgstr "Көрсетілген  URL мекенжайы жарамсыз. Тексеріп, әрекетті қайталаңыз."
-
-msgid "email.to"
-msgstr "Кімге"
-
-msgid "email.bodyRequired"
-msgstr "Электрондық хабарламаның негізгі мәтінін енгізіңіз."
-
-msgid "email.subjectRequired"
-msgstr "Электрондық хабарламаның тақырыбын енгізіңіз."
-
-msgid "email.subject"
+msgid "common.title"
 msgstr "Тақырып"
 
-msgid "email.skip"
-msgstr "Электрондық хабарламаны жіберуді өткізу"
+msgid "common.titleSeparator"
+msgstr " | "
 
-msgid "email.send"
-msgstr "Жіберу"
+msgid "common.top"
+msgstr "Жоғарғы"
 
-msgid "email.senderEmail"
-msgstr "Жіберушінің е майлы"
+msgid "common.true"
+msgstr "Дұрыс"
 
-msgid "email.senderName"
-msgstr "Жіберушінің аты"
+msgid "common.type"
+msgstr "Түрі"
 
-msgid "email.sender"
-msgstr "Жіберуші"
-
-msgid "email.recipients"
-msgstr "Қабылдаушылар"
-
-msgid "email.recipient"
-msgstr "Қабылдаушы"
-
-msgid "email.multipart"
-msgstr "Бұл MIME форматындағы көп бөліктен тұратын хабарлама."
-
-msgid "email.invalid"
-msgstr "Электрондық пошта мекенжайы {$email} жарамсыз."
-
-msgid "email.from"
-msgstr "Кімнен"
-
-msgid "email.email"
-msgstr "Email"
-
-msgid "email.compose.error"
+msgid "common.uploadedBy"
 msgstr ""
-"Электрондық пошта хабарын жіберу кезінде мәселе туындады. Әрекетті кейінірек "
-"қайталаңыз немесе жүйе әкімшісіне хабарласыңыз."
 
-msgid "email.compose.tooSoon"
+msgid "common.uploadedByAndWhen"
 msgstr ""
-"Сіз соңғы хабарламаңызды жібергеннен кейін тағы хабарлама жіберуге "
-"әрекеттенудесіз. Жиі хабарлама жібермес бұрын күтіңіз."
 
-msgid "email.compose.tooManyRecipients"
-msgstr "Жіберуге әрекеттеніп жатқан хабарламаны алушы тым көп."
+msgid "common.component"
+msgstr "Компонент"
 
-msgid "email.compose"
-msgstr "Email жіберу"
+msgid "common.uninitiated"
+msgstr "Басталмаған"
+
+msgid "common.unknownError"
+msgstr "Күтпеген қате орын алды. Бетті қайта жүктеп, қайталап көріңіз."
+
+msgid "common.unread"
+msgstr "Оқылмаған"
+
+msgid "common.unsavedChanges"
+msgstr ""
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+
+msgid "common.untitled"
+msgstr "Атауы жоқ"
+
+msgid "common.updated"
+msgstr "Жаңартылған"
+
+msgid "common.uploadedDate"
+msgstr "Жүктелген күн"
+
+msgid "common.upload"
+msgstr "Жүктеу"
+
+msgid "common.uploadFailed"
+msgstr "Файлды жүктеу немесе өңдеу мүмкін болмады."
+
+msgid "common.up"
+msgstr "Жоғары"
+
+msgid "common.addFile"
+msgstr "Файлды енгізу"
+
+msgid "common.upload.addFile"
+msgstr "Файлды жүктеп салу"
+
+msgid "common.upload.addFile.description"
+msgstr "Файлды компьютерден жүктеп салыңыз."
+
+msgid "common.upload.restore"
+msgstr "Түпнұсқаны қалпына келтіру"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Ағымдағы таңдалған суретті алдын ала қарауы."
+
+msgid "common.upload.changeFile"
+msgstr "Файлды өзгерту"
+
+msgid "common.upload.dragFile"
+msgstr "Жүктеп салуды бастау үшін файлды осы жерге апару"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "Қолданушы"
+
+msgid "common.user.nonexistent"
+msgstr "[Жоқ қолданушы]"
+
+msgid "common.view"
+msgstr "Көру"
+
+msgid "common.viewError"
+msgstr "Қатені қарау"
+
+msgid "common.viewWithName"
+msgstr "{$name} қарау"
+
+msgid "common.viewProfile"
+msgstr "Профильді көру"
+
+msgid "common.weeks"
+msgstr "апталар"
+
+msgid "common.width"
+msgstr "Ені"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "Жыл"
+
+msgid "common.yes"
+msgstr "Иа"
+
+msgid "common.loading"
+msgstr "Жүктелуде"
+
+msgid "common.plugins"
+msgstr "Плагиндер"
+
+msgid "common.count"
+msgstr "Санау"
+
+msgid "common.publicAccess"
+msgstr "Жалпыға қолжетімділік"
+
+msgid "debug.databaseQueries"
+msgstr "Мәліметтер қоры сұрауларының саны"
+
+msgid "debug.executionTime"
+msgstr "бетінде жасалған"
+
+msgid "debug.memoryUsage"
+msgstr "Жадты қолдану"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+
+msgid "debug.notes.localeLoad"
+msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "\"{$key}\" тіл кілті жоқ."
+
+msgid "debug.notes"
+msgstr "Ескертулер:"
+
+msgid "defaultMetric.title"
+msgstr "Әдепкі көрсеткіш"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Рецензияны жүктеу"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Файлды жүктеп салу"
+
+msgid "email.addAttachment"
+msgstr "Қосымшаны қосу"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Жіберілген файлдарды тіркеңіз"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Жіберу кезеңінде автор жүктеп салған файлдарды тіркеңіз."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Жіберу процесі кезінде жүктеп салынған файлдарды, мысалы, түзетулер немесе "
+"қаралатын файлдарды тіркеңіз."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Кітапхана файлдары"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Кітапхана файлдарын тіркеңіз"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Жіберу және баспа кітапханаларынан файлдарды тіркеңіз."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Қарау файлдарын тіркеңіз"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Сарапшылар жүктеп салған файлдарды тіркеңіз"
+
+msgid "email.addBccRecipient"
+msgstr "BCC қосыңыз"
+
+msgid "email.addCcRecipient"
+msgstr "CC қосыңыз"
+
+msgid "email.addToRecipient"
+msgstr "Алушыны қосу"
+
+msgid "email.attachments"
+msgstr "Қосымшалар"
+
+msgid "email.attachmentNotFound"
+msgstr "{$fileName} файлын тіркеу мүмкін емес."
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "Осы хабарламаның көшірмесін менің мекен-жайыма ({$address}) жіберіңіз"
+
+msgid "email.body"
+msgstr "Хат мәтіні"
+
+msgid "email.cc"
+msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
@@ -903,605 +1085,325 @@ msgstr ""
 "сенімдісіз бе? Электрондық поштаның тақырыбы мен негізгі бөлігіне енгізген "
 "кез келген өзгертулер жойылады."
 
-msgid "email.cc"
-msgstr "CC"
+msgid "email.compose"
+msgstr "Email жіберу"
 
-msgid "email.body"
-msgstr "Хат мәтіні"
+msgid "email.compose.tooManyRecipients"
+msgstr "Жіберуге әрекеттеніп жатқан хабарламаны алушы тым көп."
 
-msgid "email.bccSender"
-msgstr "Осы хабарламаның көшірмесін менің мекен-жайыма ({$address}) жіберіңіз"
-
-msgid "email.bcc"
-msgstr "BCC"
-
-msgid "email.attachmentNotFound"
-msgstr "{$fileName} файлын тіркеу мүмкін емес."
-
-msgid "email.attachments"
-msgstr "Қосымшалар"
-
-msgid "email.addToRecipient"
-msgstr "Алушыны қосу"
-
-msgid "email.addCcRecipient"
-msgstr "CC қосыңыз"
-
-msgid "email.addBccRecipient"
-msgstr "BCC қосыңыз"
-
-msgid "email.addAttachment.reviewFiles.description"
-msgstr "Сарапшылар жүктеп салған файлдарды тіркеңіз"
-
-msgid "email.addAttachment.reviewFiles.attach"
-msgstr "Қарау файлдарын тіркеңіз"
-
-msgid "email.addAttachment.libraryFiles.description"
-msgstr "Жіберу және баспа кітапханаларынан файлдарды тіркеңіз."
-
-msgid "email.addAttachment.libraryFiles.attach"
-msgstr "Кітапхана файлдарын тіркеңіз"
-
-msgid "email.addAttachment.libraryFiles"
-msgstr "Кітапхана файлдары"
-
-msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgid "email.compose.tooSoon"
 msgstr ""
-"Жіберу процесі кезінде жүктеп салынған файлдарды, мысалы, түзетулер немесе "
-"қаралатын файлдарды тіркеңіз."
+"Сіз соңғы хабарламаңызды жібергеннен кейін тағы хабарлама жіберуге "
+"әрекеттенудесіз. Жиі хабарлама жібермес бұрын күтіңіз."
 
-msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr "Жіберу кезеңінде автор жүктеп салған файлдарды тіркеңіз."
+msgid "email.compose.error"
+msgstr ""
+"Электрондық пошта хабарын жіберу кезінде мәселе туындады. Әрекетті кейінірек "
+"қайталаңыз немесе жүйе әкімшісіне хабарласыңыз."
 
-msgid "email.addAttachment.submissionFiles.attach"
-msgstr "Жіберілген файлдарды тіркеңіз"
+msgid "email.email"
+msgstr "Email"
 
-msgid "email.addAttachment"
-msgstr "Қосымшаны қосу"
+msgid "email.from"
+msgstr "Кімнен"
 
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "Файлды жүктеп салу"
+msgid "email.invalid"
+msgstr "Электрондық пошта мекенжайы {$email} жарамсыз."
 
-msgid "editor.submissionReview.uploadFile"
-msgstr "Рецензияны жүктеу"
+msgid "email.multipart"
+msgstr "Бұл MIME форматындағы көп бөліктен тұратын хабарлама."
 
-msgid "defaultMetric.title"
-msgstr "Әдепкі көрсеткіш"
+msgid "email.recipient"
+msgstr "Қабылдаушы"
 
-msgid "debug.notes"
-msgstr "Ескертулер:"
+msgid "email.recipients"
+msgstr "Қабылдаушылар"
 
-msgid "debug.notes.missingLocaleKey"
-msgstr "\"{$key}\" тіл кілті жоқ."
+msgid "email.sender"
+msgstr "Жіберуші"
 
-msgid "debug.notes.localeLoad"
-msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+msgid "email.senderName"
+msgstr "Жіберушінің аты"
 
-msgid "debug.notes.localeListLoad"
-msgstr "XMLден \"{$localeList}\" тіл тізімі жүктелді"
+msgid "email.senderEmail"
+msgstr "Жіберушінің е майлы"
 
-msgid "debug.memoryUsage"
-msgstr "Жадты қолдану"
+msgid "email.send"
+msgstr "Жіберу"
 
-msgid "debug.executionTime"
-msgstr "бетінде жасалған"
+msgid "email.skip"
+msgstr "Электрондық хабарламаны жіберуді өткізу"
 
-msgid "debug.databaseQueries"
-msgstr "Мәліметтер қоры сұрауларының саны"
-
-msgid "common.publicAccess"
-msgstr "Жалпыға қолжетімділік"
-
-msgid "common.count"
-msgstr "Санау"
-
-msgid "common.plugins"
-msgstr "Плагиндер"
-
-msgid "common.loading"
-msgstr "Жүктелуде"
-
-msgid "common.yes"
-msgstr "Иа"
-
-msgid "common.year"
-msgstr "Жыл"
-
-msgid "common.width"
-msgstr "Ені"
-
-msgid "common.weeks"
-msgstr "апталар"
-
-msgid "common.viewProfile"
-msgstr "Профильді көру"
-
-msgid "common.viewWithName"
-msgstr "{$name} қарау"
-
-msgid "common.viewError"
-msgstr "Қатені қарау"
-
-msgid "common.view"
-msgstr "Көру"
-
-msgid "common.user.nonexistent"
-msgstr "[Жоқ қолданушы]"
-
-msgid "common.user"
-msgstr "Қолданушы"
-
-msgid "common.url"
-msgstr "URL"
-
-msgid "common.upload.dragFile"
-msgstr "Жүктеп салуды бастау үшін файлды осы жерге апару"
-
-msgid "common.upload.changeFile"
-msgstr "Файлды өзгерту"
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Ағымдағы таңдалған суретті алдын ала қарауы."
-
-msgid "common.upload.restore"
-msgstr "Түпнұсқаны қалпына келтіру"
-
-msgid "common.upload.addFile.description"
-msgstr "Файлды компьютерден жүктеп салыңыз."
-
-msgid "common.upload.addFile"
-msgstr "Файлды жүктеп салу"
-
-msgid "common.addFile"
-msgstr "Файлды енгізу"
-
-msgid "common.up"
-msgstr "Жоғары"
-
-msgid "common.uploadFailed"
-msgstr "Файлды жүктеу немесе өңдеу мүмкін болмады."
-
-msgid "common.upload"
-msgstr "Жүктеу"
-
-msgid "common.uploadedDate"
-msgstr "Жүктелген күн"
-
-msgid "common.updated"
-msgstr "Жаңартылған"
-
-msgid "common.untitled"
-msgstr "Атауы жоқ"
-
-msgid "common.unread"
-msgstr "Оқылмаған"
-
-msgid "common.unknownError"
-msgstr "Күтпеген қате орын алды. Бетті қайта жүктеп, қайталап көріңіз."
-
-msgid "common.uninitiated"
-msgstr "Басталмаған"
-
-msgid "common.component"
-msgstr "Компонент"
-
-msgid "common.type"
-msgstr "Түрі"
-
-msgid "common.true"
-msgstr "Дұрыс"
-
-msgid "common.top"
-msgstr "Жоғарғы"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.title"
+msgid "email.subject"
 msgstr "Тақырып"
 
-msgid "common.switchToNamedItem"
-msgstr "{$name}Ауыстыру"
+msgid "email.subjectRequired"
+msgstr "Электрондық хабарламаның тақырыбын енгізіңіз."
 
-msgid "common.switchTo"
-msgstr "Ауыстыру"
+msgid "email.bodyRequired"
+msgstr "Электрондық хабарламаның негізгі мәтінін енгізіңіз."
 
-msgid "common.suggest"
-msgstr "Ұсыну"
+msgid "email.to"
+msgstr "Кімге"
 
-msgid "common.subtitle"
-msgstr "Тақырыпша"
+msgid "form.url.invalid"
+msgstr "Көрсетілген  URL мекенжайы жарамсыз. Тексеріп, әрекетті қайталаңыз."
 
-msgid "common.submenu"
-msgstr "Ішкі мәзір"
+msgid "form.confirmSubmit"
+msgstr "Осы формада жібергіңіз келетініне сенімдісіз бе?"
 
-msgid "common.subjects"
-msgstr "Тақырыптар"
+msgid "form.confirmSubmit.title"
+msgstr "Растау"
 
-msgid "common.subject"
-msgstr "Тақырыбы"
+msgid "form.dataHasChanged"
+msgstr "Бұл формадағы деректер өзгерді. Сақтамай жалғастыруды қалайсыз ба?"
 
-msgid "common.status"
-msgstr "Мәртебе"
+msgid "form.disallowedLocales"
+msgstr "Келесі тілдерге ғана рұқсат етіледі: {$languages}."
 
-msgid "common.source"
-msgstr "Дереккөз"
+msgid "form.disallowedProp"
+msgstr "Бұл сипатқа рұқсат жоқ."
 
-msgid "common.size"
-msgstr "Көлемі"
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Жүктеу үшін файлдарды осында көшіріңіз"
 
-msgid "common.showAllSteps"
-msgstr "Барлық қадамдарды көрсетіңіз"
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"Сіздің браузеріңіз файлдарды арнайы терезеге апару арқылы жүктеп салуды "
+"қолдамайды."
 
-msgid "common.sendEmail"
-msgstr "Email-мен жіберу"
+msgid "form.dropzone.dictFallbackText"
+msgstr "Файлдарыңызды жүктеп салу үшін төмендегі қосалқы форманы пайдаланыңыз."
 
-msgid "common.selectWithName"
-msgstr "{$name} таңдау"
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Файл тым үлкен ({{filesize}}mb). Көлемі {{maxFilesize}} мб-тан асатын "
+"файлдарды жүктеп салу мүмкін емес."
 
-msgid "common.select"
-msgstr "Таңдау"
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Бұл түрдегі файлдарды жүктеп салу мүмкін емес."
 
-msgid "common.selectNone"
-msgstr "Таңдауды алып тастау"
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Сервер {{statusCode}} коды арқылы жауап берді. Бұл мәселе жойылмаса, жүйе "
+"әкімшісіне хабарласыңыз."
 
-msgid "common.selectedPrefix"
-msgstr "Таңдалған:"
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Жүктеуді тоқтату"
 
-msgid "common.selectAll"
-msgstr "Барлығын таңдау"
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Жүктеу тоқтатылды"
 
-msgid "common.second"
-msgstr "Секунд(тар)"
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Бұл жүктеуден бас тартқыңыз келетініне сенімдісіз бе?"
 
-msgid "common.clearSearch"
-msgstr "Іздеу фразасын өшіру"
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Файлды жою"
 
-msgid "common.searchQuery"
-msgstr "Іздеу сұранысы"
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Сіз жеткілікті файл жүктеп салдыңыз."
 
-msgid "common.searching"
-msgstr "Ізделуде"
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}-ге өтіңіз: {$errorMessage}"
 
-msgid "common.search"
-msgstr "Іздеу"
+msgid "form.errorGoTo"
+msgstr "Келесі қатеге өтіңіз"
 
-msgid "common.saving"
-msgstr "Сақталуда"
+msgid "form.errorOne"
+msgstr "Бір қатені түзетіңіз."
 
-msgid "common.save"
-msgstr "Сақтау"
+msgid "form.errorMany"
+msgstr "{$count} қателерді түзетіңіз."
 
-msgid "common.saveAndEmail"
-msgstr "Сақтау және email"
+msgid "form.errors"
+msgstr ""
+"Форма сақталмады, себебі {$count} қате орын алды. Осы қателерді түзетіп, "
+"әрекетті қайталаңыз."
 
-msgid "common.saveAndContinue"
-msgstr "Сақтау және жалғастыру"
+msgid "form.errorsOccurred"
+msgstr "Бұл форманы өңдеу кезінде қателер орын алды"
 
-msgid "common.reset"
-msgstr "Бастапқы күйге келтіру"
+msgid "form.formLanguage.description"
+msgstr ""
+"Төмендегі ақпаратты қосымша тілдерге енгізу үшін алдымен тілді таңдаңыз."
 
-msgid "common.required"
-msgstr "Міндетті"
+msgid "form.formLanguage"
+msgstr "Тіл формасы"
 
-msgid "common.requiredField"
-msgstr "* Қажет өрісті білдіреді"
+msgid "form.contains"
+msgstr "Қамтиды"
 
-msgid "common.replaceFile"
-msgstr "Файлды алмастыру"
+msgid "form.is"
+msgstr "тең келеді"
 
-msgid "common.replaced"
-msgstr "Алмастырылды"
+msgid "form.startsWith"
+msgstr "-ден басталады"
 
-msgid "common.removeSelection"
-msgstr "Таңдауды өшіру"
+msgid "form.postRequired"
+msgstr "Формасы дұрыс жіберілмеді."
 
-msgid "common.removeItem"
-msgstr "{$item} өшіру"
+msgid "form.csrfInvalid"
+msgstr ""
+"Форманы жіберу мүмкін емес. Сіз жүйеден шыққан болуыңыз мүмкін. Бетті қайта "
+"жүктеп, әрекетті қайталаңыз."
 
-msgid "common.remove"
+msgid "form.fileRequired"
+msgstr "Файлды міндетті түрде жүктеп салу керек."
+
+msgid "form.required"
+msgstr "(* Міндетті)"
+
+msgid "form.requirePrimaryLocale"
+msgstr "Сіз бұл өрісті {$language} тілінде толтыруыңыз керек."
+
+msgid "form.requireId"
+msgstr "Жарамды ID ұсынуыңыз керек."
+
+msgid "form.resubmit"
+msgstr "Қайта жіберіңіз"
+
+msgid "form.saved"
+msgstr "Сақталған"
+
+msgid "form.saveToUpload"
+msgstr "Файлды жүктеп салу үшін Сақтау батырмасын пайдаланыңыз."
+
+msgid "form.send"
+msgstr "Жіберу"
+
+msgid "form.submit"
+msgstr "Жіберу"
+
+msgid "form.invalidImage"
+msgstr ""
+"Жарамсыз сурет жүктелді. Қабылданатын форматтар келесідей .png, .gif немесе ."
+"jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} -да {$localeName})"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} тілдер толтырылды"
+
+msgid "help.help"
+msgstr "Көмек"
+
+msgid "help.toc"
+msgstr "Мазмұны"
+
+msgid "help.previous"
+msgstr "Алдыңғы"
+
+msgid "help.next"
+msgstr "Келесі"
+
+msgid "help.upALevel"
+msgstr "Деңгейге көтерілу"
+
+msgid "icon.checked.alt"
+msgstr "Тексерілген"
+
+msgid "icon.comment.alt"
+msgstr "Түсініктеме"
+
+msgid "icon.delete.alt"
 msgstr "Өшіру"
 
-msgid "common.remoteURL"
-msgstr "Қашықтағы URL сервері"
+msgid "icon.edit.alt"
+msgstr "Түзету"
 
-msgid "common.remote"
-msgstr "Қашықтан"
+msgid "icon.folder.alt"
+msgstr "Папка"
 
-msgid "common.reminded.date"
-msgstr "Ескертілді: {$dateReminded}"
+msgid "icon.font_large.alt"
+msgstr "Ірі"
 
-msgid "common.reminder"
-msgstr "Еске салу"
+msgid "icon.font_medium.alt"
+msgstr "Орташа"
 
-msgid "common.related"
-msgstr "Байланысты"
+msgid "icon.font_small.alt"
+msgstr "Кіші"
 
-msgid "common.refresh"
-msgstr "Жаңарту"
+msgid "icon.info.alt"
+msgstr "Мәлімет"
 
-msgid "common.record"
-msgstr "Жазба"
+msgid "icon.letter.alt"
+msgstr "Хат"
 
-msgid "common.readMoreWithTitle"
-msgstr "Толығырақ оқу {$title}"
+msgid "icon.mail.alt"
+msgstr "Пошта"
 
-msgid "common.readMore"
-msgstr "Толығырақ оқу"
+msgid "icon.unchecked.alt"
+msgstr "Тексерілмеген"
 
-msgid "common.range"
-msgstr "{$min}-{$max}"
+msgid "icon.view.alt"
+msgstr "Көру"
 
-msgid "common.queue.long.active"
-msgstr "Барлығы белсенді"
+msgid "informationCenter.informationCenter"
+msgstr "Ақпараттық орталық"
 
-msgid "common.quality"
-msgstr "Сапа"
+msgid "informationCenter.editorialHistory"
+msgstr "Редакция тарихы"
 
-msgid "common.publisher"
-msgstr "Баспахана"
+msgid "informationCenter.addNote"
+msgstr "Ескертпе қосу"
 
-msgid "common.preview"
-msgstr "Алдын ала көру"
+msgid "informationCenter.noNotes"
+msgstr "Көрсетілетін ескертпелер жоқ."
 
-msgid "common.prefixAndTitle.tip"
-msgstr "Мысалдар:  A, The"
+msgid "informationCenter.pastNotes"
+msgstr "Алдыңғы нұсқалар бойынша ескертпелер"
 
-msgid "common.prefix"
-msgstr "Қосымша"
+msgid "informationCenter.deleteConfirm"
+msgstr "Осы жазбаны жойғыңыз келетініне сенімдісіз бе?"
 
-msgid "common.pluginDisabled"
-msgstr "Плагин \"{$pluginName}\" өшірілді."
+msgid "informationCenter.currentHistory"
+msgstr "Ағымдағы қайта қарау"
 
-msgid "common.pluginEnabled"
-msgstr "Плагин \"{$pluginName}\" қосылды.."
+msgid "informationCenter.pastHistory"
+msgstr "Бұрынғы түзетулер"
 
-msgid "common.plugin"
-msgstr "Плагин"
+msgid "informationCenter.history.noItems"
+msgstr "Журнал бойынша ешқандай оқиға тіркелмеген."
 
-msgid "common.percentage"
-msgstr "%{$percentage}"
+msgid "informationCenter.history.notePosted"
+msgstr "Жаңа жазба жарияланды."
 
-msgid "common.pageNumber"
-msgstr "Бет {$pageNumber}"
+msgid "informationCenter.history.messageSent"
+msgstr "Хабарлама пайдаланушыларға жіберілді."
 
-msgid "common.pagination.previous"
-msgstr "Алдыңғы бет"
+msgid "stageParticipants.history.messageSent"
+msgstr "Хабарлама пайдаланушыларға жіберілді."
 
-msgid "common.pagination.next"
-msgstr "Келесі бет"
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Талқылауға кірісіңіз"
 
-msgid "common.pagination.goToPage"
-msgstr "{$page} бетіне өту"
-
-msgid "common.pagination.label"
-msgstr "Қосымша беттерді қарау"
-
-msgid "common.pagination"
-msgstr "{$start}-{$end} тен {$total}"
-
-msgid "common.override"
-msgstr "Қайта анықтау"
-
-msgid "common.overdue"
-msgstr "Мерзімі өткен"
-
-msgid "common.ok"
-msgstr "Жарайды"
-
-msgid "common.off"
-msgstr "Өшірулі"
-
-msgid "common.orUploadFile"
-msgstr "Немесе файлды жүктеңіз"
-
-msgid "common.dragAndDropHere"
-msgstr "Файлдарды осы жерге апарыңыз."
-
-msgid "common.attachSelected"
-msgstr "таңдалған файлды тіркеу"
-
-msgid "common.addFiles"
-msgstr "файлдарды енгізу"
-
-msgid "stageParticipants.options"
-msgstr "Тағайындалған құқықтар"
-
-msgid "stageParticipants.notify.warning"
-msgstr ""
-"Хабарлама өрісін толтырғаныңызды және талқылауға өзіңізден басқа біреуді "
-"қосқаныңызды тексеріңіз."
-
-msgid "stageParticipants.notify.message"
-msgstr "Хабарлама"
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Өзіңіз бен {$userFullName} арасында талқылауды бастаңыз."
 
 msgid "stageParticipants.notify.chooseMessage"
 msgstr ""
 "Қолдану үшін алдын ала анықталған хабарламаны таңдаңыз немесе төмендегі "
 "форманы толтырыңыз."
 
-msgid "notification.email"
-msgstr "Мұндай хабарландыруларды маған электрондық пошта арқылы жібермеңіз."
+msgid "stageParticipants.notify.message"
+msgstr "Хабарлама"
 
-msgid "notification.confirmSuccess"
-msgstr "Сіз сәтті жазылдыңыз."
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"Хабарлама өрісін толтырғаныңызды және талқылауға өзіңізден басқа біреуді "
+"қосқаныңызды тексеріңіз."
 
-msgid "notification.confirmError"
-msgstr "Жазылымыңызды растау кезінде қателік орын алды."
+msgid "stageParticipants.options"
+msgstr "Тағайындалған құқықтар"
 
-msgid "notification.removedAnnouncement"
-msgstr "Жарнама жойылды."
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Бұл қатысушыға тек редакциялық шешімді ұсынуға рұқсат етіледі, редакциялық "
+"шешімді жазу үшін тиісті құқықтарға ие редактордың қатысуы қажет."
 
-msgid "notification.removedAnnouncementType"
-msgstr "Жарнама түрі жойылды."
-
-msgid "notification.editedAnnouncementType"
-msgstr "Жарнама түрі өзгертілді."
-
-msgid "notification.addedAnnouncementType"
-msgstr "Жарнама түрі қосылды."
-
-msgid "notification.allow"
-msgstr "Хабарландырулардың осы түрлерін қосыңыз."
-
-msgid "notification.updatedReviewFiles"
-msgstr "Рецензия файлдары жаңартылды."
-
-msgid "notification.reviewerThankedEmail"
-msgstr "Рецензентке алғыс хат жолданды."
-
-msgid "notification.reviewAcknowledged"
-msgstr "Пікір қабылданды деп белгіленді. Электрондық поштаға жіберілген жоқ."
-
-msgid "notification.addedQuery"
-msgstr "Талқылау енгізілді"
-
-msgid "notification.removedAuditor"
-msgstr "Аудитор алынып тасталды."
-
-msgid "notification.addedAuditor"
-msgstr "Аудитор қосылды."
-
-msgid "navigation.viewFrontend"
-msgstr "Сайтты көру"
-
-msgid "navigation.userManagement"
-msgstr "Қолданушыны басқару"
-
-msgid "navigation.user"
-msgstr "Қолданушы"
-
-msgid "navigation.userHome"
-msgstr "Пайдаланушы беті"
-
-msgid "navigation.system"
-msgstr "Система"
-
-msgid "navigation.submissions"
-msgstr "Жіберілген материалдар"
-
-msgid "navigation.stepNumber"
-msgstr "{$step}-қадам"
-
-msgid "navigation.skip.footer"
-msgstr "Сайттың төменгі деректемесіне өтіңіз"
-
-msgid "navigation.skip.nav"
-msgstr "Негізгі шарлау мәзіріне өту"
-
-msgid "navigation.skip.main"
-msgstr "Негізгі мазмұнға өту"
-
-msgid "navigation.skip.announcements"
-msgstr "Хабарландыруларға өту"
-
-msgid "navigation.skip.description"
-msgstr "Мазмұн сілтемелеріне өтіңіз"
-
-msgid "navigation.sitemap"
-msgstr "Сайт картасы"
-
-msgid "navigation.setup"
-msgstr "Орнату"
-
-msgid "navigation.settings"
-msgstr "Баптаулар"
-
-msgid "navigation.search"
-msgstr "Іздеу"
-
-msgid "navigation.register"
-msgstr "Тіркеу"
-
-msgid "navigation.publicMenu"
-msgstr "Жалпы мәзір"
-
-msgid "navigation.previousStep"
-msgstr "Алдыңғы қадам"
-
-msgid "navigation.previousPage"
-msgstr "&lt;&lt;"
-
-msgid "navigation.nextStep"
-msgstr "Келесі қадам"
-
-msgid "navigation.nextPage"
-msgstr "&gt;&gt;"
-
-msgid "navigation.login"
-msgstr "Жүйеге кіру"
-
-msgid "navigation.items.shownTotal"
-msgstr "{$total} нәтиженің {$shown}"
-
-msgid "navigation.items"
-msgstr "{$from} - {$to} {$total} нәтижелерден"
-
-msgid "navigation.infoForReaders.long"
-msgstr "Оқырмандарға арналған ақпарат"
-
-msgid "navigation.infoForReaders"
-msgstr "Оқырмандар үшін"
-
-msgid "navigation.home"
-msgstr "Басты бет"
-
-msgid "navigation.data"
-msgstr "Мәліметтер"
-
-msgid "navigation.dashboard"
-msgstr "Құралдар тақтасы"
-
-msgid "navigation.browseByTitle"
-msgstr "Тақырып бойынша"
-
-msgid "navigation.browseByAuthor"
-msgstr "Автор бойынша"
-
-msgid "navigation.backTo"
-msgstr "⟵ {$page} бетіне қайту"
-
-msgid "navigation.browse"
-msgstr "Шолу"
-
-msgid "navigation.tools.statistics"
-msgstr "Статистика"
-
-msgid "navigation.tools.importExport"
-msgstr "Импорттау/экспорттау"
-
-msgid "navigation.tools"
-msgstr "Құралдар"
-
-msgid "navigation.breadcrumbSeparator"
-msgstr "/"
-
-msgid "navigation.breadcrumbLabel"
-msgstr "Сіз мына жердесіз:"
-
-msgid "navigation.archives"
-msgstr "Мұрағаттар"
-
-msgid "navigation.admin"
-msgstr "Әкімшілік"
-
-msgid "navigation.about"
-msgstr "Туралы"
-
-msgid "navigation.access"
-msgstr "Пайдаланушылар және рөлдер"
-
-msgid "locale.supported"
-msgstr "Қолдау көрсетілетін тілдер"
-
-msgid "locale.primary"
-msgstr "Негізгі тіл"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "Бұл қатысушыға ешқандай өзгертулер енгізуге болмайды"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Қатысушы"
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Рұқсаттар"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
@@ -1510,24 +1412,218 @@ msgstr ""
 "Материал соңғы тексеруден өтіп, жариялануға дайын болса, сіз бұл құқықты жою "
 "туралы шешім қабылдауыңыз мүмкін."
 
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Рұқсаттар"
+msgid "stageParticipants.selectedUser"
+msgstr "Қатысушы"
 
-msgid "stageParticipants.recommendOnly"
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "Бұл қатысушыға ешқандай өзгертулер енгізуге болмайды"
+
+msgid "locale.primary"
+msgstr "Негізгі тіл"
+
+msgid "locale.supported"
+msgstr "Қолдау көрсетілетін тілдер"
+
+msgid "navigation.access"
+msgstr "Пайдаланушылар және рөлдер"
+
+msgid "navigation.about"
+msgstr "Туралы"
+
+msgid "navigation.admin"
+msgstr "Әкімшілік"
+
+msgid "navigation.archives"
+msgstr "Мұрағаттар"
+
+msgid "navigation.breadcrumbLabel"
+msgstr "Сіз мына жердесіз:"
+
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
+
+msgid "navigation.tools"
+msgstr "Құралдар"
+
+msgid "navigation.tools.importExport"
+msgstr "Импорттау/экспорттау"
+
+msgid "navigation.tools.statistics"
+msgstr "Статистика"
+
+msgid "navigation.browse"
+msgstr "Шолу"
+
+msgid "navigation.backTo"
+msgstr "⟵ {$page} бетіне қайту"
+
+msgid "navigation.browseByAuthor"
+msgstr "Автор бойынша"
+
+msgid "navigation.browseByTitle"
+msgstr "Тақырып бойынша"
+
+msgid "navigation.dashboard"
+msgstr "Құралдар тақтасы"
+
+msgid "navigation.data"
+msgstr "Мәліметтер"
+
+msgid "navigation.home"
+msgstr "Басты бет"
+
+msgid "navigation.infoForReaders"
+msgstr "Оқырмандар үшін"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Оқырмандарға арналған ақпарат"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} {$total} нәтижелерден"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$total} нәтиженің {$shown}"
+
+msgid "navigation.login"
+msgstr "Жүйеге кіру"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Келесі қадам"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Алдыңғы қадам"
+
+msgid "navigation.publicMenu"
+msgstr "Жалпы мәзір"
+
+msgid "navigation.register"
+msgstr "Тіркеу"
+
+msgid "navigation.search"
+msgstr "Іздеу"
+
+msgid "navigation.settings"
+msgstr "Баптаулар"
+
+msgid "navigation.setup"
+msgstr "Орнату"
+
+msgid "navigation.sitemap"
+msgstr "Сайт картасы"
+
+msgid "navigation.skip.description"
+msgstr "Мазмұн сілтемелеріне өтіңіз"
+
+msgid "navigation.skip.announcements"
+msgstr "Хабарландыруларға өту"
+
+msgid "navigation.skip.main"
+msgstr "Негізгі мазмұнға өту"
+
+msgid "navigation.skip.nav"
+msgstr "Негізгі шарлау мәзіріне өту"
+
+msgid "navigation.skip.footer"
+msgstr "Сайттың төменгі деректемесіне өтіңіз"
+
+msgid "navigation.stepNumber"
+msgstr "{$step}-қадам"
+
+msgid "navigation.submissions"
+msgstr "Жіберілген материалдар"
+
+msgid "navigation.system"
+msgstr "Система"
+
+msgid "navigation.userHome"
+msgstr "Пайдаланушы беті"
+
+msgid "navigation.user"
+msgstr "Қолданушы"
+
+msgid "navigation.userManagement"
+msgstr "Қолданушыны басқару"
+
+msgid "navigation.viewFrontend"
+msgstr "Сайтты көру"
+
+msgid "institution.institutions"
 msgstr ""
-"Бұл қатысушыға тек редакциялық шешімді ұсынуға рұқсат етіледі, редакциялық "
-"шешімді жазу үшін тиісті құқықтарға ие редактордың қатысуы қажет."
 
-msgid "notification.savedSubmissionMetadata"
-msgstr "Материалдық метадеректер сақталды."
+msgid "notification.addedAuditor"
+msgstr "Аудитор қосылды."
 
-msgid "notification.reminderSent"
-msgstr "Жаңа пароль сіз берген электрондық пошта мекенжайына жіберілді."
+msgid "notification.removedAuditor"
+msgstr "Аудитор алынып тасталды."
 
-msgid "notification.reminderError"
-msgstr ""
-"Құпия сөзді жіберу кезінде қате орын алды, электрондық пошта мекенжайын "
-"дұрыс енгізгеніңізге көз жеткізіңіз."
+msgid "notification.addedQuery"
+msgstr "Талқылау енгізілді"
+
+msgid "notification.reviewAcknowledged"
+msgstr "Пікір қабылданды деп белгіленді. Электрондық поштаға жіберілген жоқ."
+
+msgid "notification.reviewerThankedEmail"
+msgstr "Рецензентке алғыс хат жолданды."
+
+msgid "notification.updatedReviewFiles"
+msgstr "Рецензия файлдары жаңартылды."
+
+msgid "notification.allow"
+msgstr "Хабарландырулардың осы түрлерін қосыңыз."
+
+msgid "notification.addedAnnouncementType"
+msgstr "Жарнама түрі қосылды."
+
+msgid "notification.editedAnnouncementType"
+msgstr "Жарнама түрі өзгертілді."
+
+msgid "notification.removedAnnouncementType"
+msgstr "Жарнама түрі жойылды."
+
+msgid "notification.removedAnnouncement"
+msgstr "Жарнама жойылды."
+
+msgid "notification.confirmError"
+msgstr "Жазылымыңызды растау кезінде қателік орын алды."
+
+msgid "notification.confirmSuccess"
+msgstr "Сіз сәтті жазылдыңыз."
+
+msgid "notification.email"
+msgstr "Мұндай хабарландыруларды маған электрондық пошта арқылы жібермеңіз."
+
+msgid "notification.noneExist"
+msgstr "Қазіргі уақытта сіз үшін хабарландырулар жоқ."
+
+msgid "notification.addedNote"
+msgstr "Ескерту жарияланған."
+
+msgid "notification.removedNote"
+msgstr "Ескертпе өшірілді."
+
+msgid "notification.removedFile"
+msgstr "Файл жойылған."
+
+msgid "notification.removedSubmission"
+msgstr "Материал өшірілген."
+
+msgid "notification.notification"
+msgstr "Хабарландыру"
+
+msgid "notification.notifications"
+msgstr "Хабарландырулар"
+
+msgid "notification.sentNotification"
+msgstr "Хабарландыру жіберілген."
+
+msgid "notification.settings"
+msgstr "Хабарландыру параметрлері"
 
 msgid "notification.settingsDescription"
 msgstr ""
@@ -1537,48 +1633,153 @@ msgstr ""
 "жүйеде көрсетіледі және сізге бұл хабарландыруды электрондық пошта арқылы "
 "жіберуді қосымша орнатуға болады."
 
-msgid "notification.settings"
-msgstr "Хабарландыру параметрлері"
+msgid "notification.reminderError"
+msgstr ""
+"Құпия сөзді жіберу кезінде қате орын алды, электрондық пошта мекенжайын "
+"дұрыс енгізгеніңізге көз жеткізіңіз."
 
-msgid "notification.sentNotification"
-msgstr "Хабарландыру жіберілген."
+msgid "notification.reminderSent"
+msgstr "Жаңа пароль сіз берген электрондық пошта мекенжайына жіберілді."
 
-msgid "notification.notifications"
-msgstr "Хабарландырулар"
+msgid "notification.savedSubmissionMetadata"
+msgstr "Материалдық метадеректер сақталды."
 
-msgid "notification.notification"
-msgstr "Хабарландыру"
+msgid "notification.sendNotificationConfirmation"
+msgstr ""
+"Бұл туралы барлық тіркелген пайдаланушыларға электрондық хат жіберіңіз."
 
-msgid "notification.removedSubmission"
-msgstr "Материал өшірілген."
+msgid "search.author"
+msgstr "Автор бойынша"
 
-msgid "notification.removedFile"
-msgstr "Файл жойылған."
+msgid "search.abstract"
+msgstr "Аннотация"
 
-msgid "notification.removedNote"
-msgstr "Ескертпе өшірілді."
+msgid "search.advancedFilters"
+msgstr "Қосымша талдаулар"
 
-msgid "notification.addedNote"
-msgstr "Ескерту жарияланған."
+msgid "search.advancedSearchMore"
+msgstr "Қосымша іздеу опциялары"
 
-msgid "notification.noneExist"
-msgstr "Қазіргі уақытта сіз үшін хабарландырулар жоқ."
+msgid "search.advancedSearchLess"
+msgstr "Қосымша іздеу опцияларын жасыру"
 
-msgid "reviewer.submission.responseDueDate"
-msgstr "Сұранысқа жауап алған күн"
+msgid "search.searchAgain"
+msgstr "Қайта іздеу"
 
-msgid "reviewer.submission.reviewRequestDate"
-msgstr "Редактордың өтініші"
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "Көрсеткішті тазалау"
 
-msgid "reviewer.submission.reviewSchedule"
-msgstr "Рецензиялау кестесі"
+msgid "search.cli.rebuildIndex.done"
+msgstr "Жасалды"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "Қате"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed} мақала индекстелді"
+
+msgid "search.coverage"
+msgstr "Қамту"
+
+msgid "search.date"
+msgstr "Жарияланған күні"
+
+msgid "search.dateFrom"
+msgstr "Кейін жарияланған"
+
+msgid "search.dateTo"
+msgstr "Бұрын жарияланған"
+
+msgid "search.deleteFilter"
+msgstr "Өшіру"
+
+msgid "search.discipline"
+msgstr "Пәндер"
+
+msgid "search.fullText"
+msgstr "Толық мәтін"
+
+msgid "search.indexTerms"
+msgstr "Индекстеу терминдері"
+
+msgid "search.indexTermsLong"
+msgstr "Барлық термин өрістері индекстеледі"
+
+msgid "search.matchAll"
+msgstr "Барлық категориялар бойынша сәйкестендіріңіз"
+
+msgid "search.noResults"
+msgstr "Нәтиже жоқ"
+
+msgid "search.operator.and"
+msgstr "және"
+
+msgid "search.operator.not"
+msgstr "жоқ"
+
+msgid "search.operator.or"
+msgstr "немесе"
+
+msgid "search.SearchFor"
+msgstr "Іздеу үшін"
+
+msgid "search.searchResults"
+msgstr "Іздеу нәтижелері"
+
+msgid "search.searchResults.foundSingle"
+msgstr "Бір ғана нәтиже табылды."
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} элемент табылды."
+
+msgid "search.subject"
+msgstr "Кілтсөз(дер)"
+
+msgid "search.titleIndex"
+msgstr "Тақырып индексін қарау"
+
+msgid "search.title"
+msgstr "Тақырып"
+
+msgid "search.typeMethodApproach"
+msgstr "Түр (әдіс/тәсіл)"
+
+msgid "grid.action.downloadFile"
+msgstr "Бұл файлды жүктеу"
+
+msgid "context.path"
+msgstr "Жол"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "Барлық файлдардың анонимді болуын қалай қамтамасыз ету керек"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "Ағымдағы рецензиялау ережелерін оқыңыз"
+
+msgid "grid.action.deleteNotification"
+msgstr "Тапсырманы жойыңыз"
+
+msgid "grid.action.markNew"
+msgstr "Оқылмаған деп белгілеңіз"
+
+msgid "grid.action.markRead"
+msgstr "Оқылған деп белгілеңіз"
+
+msgid "dashboard.tasks"
+msgstr "Тапсырмалар"
+
+msgid "dashboard.myQueue"
+msgstr "Менің ісім"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "Барлық файлдардың жасырын болуын қалай қамтамасыз етуге болады"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
 "<p>Анонимді рецензияның шынайылығын қамтамасыз ету үшін авторлар мен "
 "рецензенттер бір-бірі туралы ештеңе білмейтініне көз жеткізу үшін бар "
-"күшімізді салу керек. Бұл үшін авторлар, редакторлар және рецензенттер ("
-"құжаттарды шолудың бөлігі ретінде жүктеп салатындар) файлдың мәтіні мен "
+"күшімізді салу керек. Бұл үшін авторлар, редакторлар және рецензенттер "
+"(құжаттарды шолудың бөлігі ретінде жүктеп салатындар) файлдың мәтіні мен "
 "қасиеттеріне қатысты келесі қадамдардың барлығының орындалғанын тексеруі "
 "керек:</p>\n"
 "<ul><li>Құжат авторлары библиографиялық сілтемелер мен сілтемелерде "
@@ -1600,8 +1801,8 @@ msgstr ""
 "<li>MacOS жүйесіне арналған Microsoft Word:\n"
 "<ul><li>Құралдар мәзіріне өтіңіз</li>\n"
 "<li>\"Құжатты қорғау\" түймесін басыңыз</li>\n"
-"<li>\"Сақтау кезінде осы файлдан жеке ақпаратты жою\" опциясын таңдаңыз</li>"
-"\n"
+"<li>\"Сақтау кезінде осы файлдан жеке ақпаратты жою\" опциясын таңдаңыз</"
+"li>\n"
 "<li>\"OK\" түймесін басып, файлды сақтаңыз</li></ul></li>\n"
 "<li>PDF:\n"
 "<ul><li>Файл мәзіріне өтіңіз</li>\n"
@@ -1610,462 +1811,116 @@ msgstr ""
 "<li>\"OK\" түймесін басыңыз</li>\n"
 "<li>Құжатты сақтау</li></ul></li></ul>\n"
 
-msgid "review.anonymousPeerReview.title"
-msgstr "Барлық файлдардың жасырын болуын қалай қамтамасыз етуге болады"
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Рецензиялау кестесі"
 
-msgid "dashboard.myQueue"
-msgstr "Менің ісім"
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Редактордың өтініші"
 
-msgid "dashboard.tasks"
-msgstr "Тапсырмалар"
+msgid "reviewer.submission.responseDueDate"
+msgstr "Сұранысқа жауап алған күн"
 
-msgid "grid.action.markRead"
-msgstr "Оқылған деп белгілеңіз"
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Рецензияның келіп түскен күні"
 
-msgid "grid.action.markNew"
-msgstr "Оқылмаған деп белгілеңіз"
+msgid "submission.task.responseDueDate"
+msgstr "Рецензияның растау күнін қарап шығу"
 
-msgid "grid.action.deleteNotification"
-msgstr "Тапсырманы жойыңыз"
+msgid "navigation.goBack"
+msgstr "Қайта  оралу"
 
-msgid "grid.action.showReviewPolicy"
-msgstr "Ағымдағы рецензиялау ережелерін оқыңыз"
-
-msgid "review.ensuringAnonymousReview"
-msgstr "Барлық файлдардың анонимді болуын қалай қамтамасыз ету керек"
-
-msgid "context.path"
-msgstr "Жол"
-
-msgid "grid.action.downloadFile"
-msgstr "Бұл файлды жүктеу"
-
-msgid "search.typeMethodApproach"
-msgstr "Түр (әдіс/тәсіл)"
-
-msgid "search.title"
-msgstr "Тақырып"
-
-msgid "search.titleIndex"
-msgstr "Тақырып индексін қарау"
-
-msgid "search.subject"
-msgstr "Кілтсөз(дер)"
-
-msgid "search.searchResults.foundPlural"
-msgstr "{$count} элемент табылды."
-
-msgid "search.searchResults.foundSingle"
-msgstr "Бір ғана нәтиже табылды."
-
-msgid "search.searchResults"
-msgstr "Іздеу нәтижелері"
-
-msgid "search.SearchFor"
-msgstr "Іздеу үшін"
-
-msgid "search.operator.or"
-msgstr "немесе"
-
-msgid "search.operator.not"
-msgstr "жоқ"
-
-msgid "search.operator.and"
-msgstr "және"
-
-msgid "search.noResults"
-msgstr "Нәтиже жоқ"
-
-msgid "search.matchAll"
-msgstr "Барлық категориялар бойынша сәйкестендіріңіз"
-
-msgid "search.indexTermsLong"
-msgstr "Барлық термин өрістері индекстеледі"
-
-msgid "search.indexTerms"
-msgstr "Индекстеу терминдері"
-
-msgid "search.fullText"
-msgstr "Толық мәтін"
-
-msgid "search.discipline"
-msgstr "Пәндер"
-
-msgid "search.deleteFilter"
-msgstr "Өшіру"
-
-msgid "search.dateTo"
-msgstr "Бұрын жарияланған"
-
-msgid "search.dateFrom"
-msgstr "Кейін жарияланған"
-
-msgid "search.date"
-msgstr "Жарияланған күні"
-
-msgid "search.coverage"
-msgstr "Қамту"
-
-msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed} мақала индекстелді"
-
-msgid "search.cli.rebuildIndex.error"
-msgstr "Қате"
-
-msgid "search.cli.rebuildIndex.done"
-msgstr "Жасалды"
-
-msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr "Көрсеткішті тазалау"
-
-msgid "search.searchAgain"
-msgstr "Қайта іздеу"
-
-msgid "search.advancedSearchLess"
-msgstr "Қосымша іздеу опцияларын жасыру"
-
-msgid "search.advancedSearchMore"
-msgstr "Қосымша іздеу опциялары"
-
-msgid "search.advancedFilters"
-msgstr "Қосымша талдаулар"
-
-msgid "search.abstract"
-msgstr "Аннотация"
-
-msgid "search.author"
-msgstr "Автор бойынша"
-
-msgid "notification.sendNotificationConfirmation"
-msgstr "Бұл туралы барлық тіркелген пайдаланушыларға электрондық хат жіберіңіз."
-
-msgid "common.re"
-msgstr "Re:"
-
-msgid "common.notApplicableShort"
-msgstr "N/A"
-
-msgid "common.insertContentSearch"
-msgstr "Кірістіру үшін мазмұнды табыңыз"
-
-msgid "common.insertContent"
-msgstr "Мазмұнды енгізу"
-
-msgid "common.titleSmallWords"
+msgid "notification.addedReviewer"
 msgstr ""
-"бойынша және немесе не бірақ болып табылады егер содан кейін басқа қашан сағ "
-"бастап бойынша қосулы өшірулі үшін жылы шығып бітті дейін ішіне бірге"
+"Осы мақалаға шолушы ({$reviewerName}) тағайындалды және электрондық поштаға "
+"хабарландыру жіберілді."
 
-msgid "filter.import.error.couldNotImportNode"
-msgstr "XML торабын импорттау мүмкін емес"
-
-msgid "filter.error.missingRequirements"
+msgid "notification.addedReviewerNoEmail"
 msgstr ""
-"Орнату ортасында қолдау көрсетілмейтін түрлендіруді іске қосу әрекеті "
-"жасалды."
+"Бұл мазмұнды тексеруші ({$reviewerName}) тағайындалды және электрондық пошта "
+"хабарландыруы жіберілмеді."
 
-msgid "filter.input.error.notSupported"
+msgid "notification.removedReviewer"
+msgstr "Рецензент өшірілді."
+
+msgid "notification.cancelledReviewer"
+msgstr "Рецензент бас тартты."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Рецензент қалпына келтірілді."
+
+msgid "notification.reviewerResendRequest"
 msgstr ""
-"Сүзгі ({$displayName}) берілген {$inputTypeName} - {$typeofInput} енгізуді "
-"қолдайды"
 
-msgid "validator.url"
-msgstr "Жарамсыз URL."
+msgid "notification.addedStageParticipant"
+msgstr "Пайдаланушы кезең мүшесі ретінде қосылды."
 
-msgid "validator.unique"
-msgstr "{$attribute} әлдеқашан пайдаланылған."
+msgid "notification.editStageParticipant"
+msgstr "Кезеңнің мақсаты өзгертілді."
 
-msgid "validator.timezone"
-msgstr "Уақыт белдеуі дұрыс емес."
+msgid "notification.type.newAnnouncement"
+msgstr "Жаңа хабарлама."
 
-msgid "validator.string"
-msgstr "Жарамсыз жол."
+msgid "notification.type.reviewAssignment"
+msgstr "Рецензиялау кезеңін күтуде."
 
-msgid "validator.size.array"
-msgstr "{$size} элементтері болуы керек."
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Рецензияның тапсырмасы жаңартылды."
 
-msgid "validator.size.string"
-msgstr "{$size} таңбадан тұруы керек."
+msgid "notification.type.auditorRequest"
+msgstr "\"{$file}\" үшін тексеруге сұрауы"
 
-msgid "validator.size.file"
-msgstr "{$size} килобайт болуы керек."
-
-msgid "validator.size.numeric"
-msgstr "{$size} болуы керек."
-
-msgid "validator.same"
-msgstr "{$attribute} мен {$other} сәйкес болуы керек."
-
-msgid "validator.required_without_all"
-msgstr "{$values} орнатылмаған кезде өріс қажет."
-
-msgid "validator.required_without"
-msgstr "{$values} орнатылмаған кезде өріс қажет."
-
-msgid "validator.required_with_all"
-msgstr "Өріс {$values} берілгенде міндетті болып табылады."
-
-msgid "validator.required_with"
-msgstr "Өріс {$values} берілгенде міндетті болып табылады."
-
-msgid "validator.required_unless"
-msgstr "Өріс {$other} {$values} мәніне тең болғанша қажет."
-
-msgid "validator.required_if"
-msgstr "{$other} {$value} мәніне тең болса, өріс қажет."
-
-msgid "validator.required"
-msgstr "Өріс міндетті болып табылады."
-
-msgid "validator.regex"
-msgstr "Дұрыс форматталмаған."
-
-msgid "validator.present"
-msgstr "\"{$attribute}\" өрісі болуы керек."
-
-msgid "validator.orcid"
-msgstr "ORCID қате."
-
-msgid "validator.numeric"
-msgstr "Сан емес."
-
-msgid "validator.not_in"
-msgstr "Таңдалған {$attribute} жарамсыз."
-
-msgid "validator.min.array"
-msgstr "Кемінде {$min} элемент болуы керек."
-
-msgid "validator.min.string"
-msgstr "Кемінде {$min} таңба болуы керек."
-
-msgid "validator.min.file"
-msgstr "Кемінде {$min} килобайт болуы керек."
-
-msgid "validator.min.numeric"
-msgstr "Кем дегенде {$min} болуы керек."
-
-msgid "validator.mimes"
-msgstr "Келесі файл түрлерінің бірі болуы керек: {$values}."
-
-msgid "validator.max.array"
-msgstr "{$max} элементтен артық болмауы керек."
-
-msgid "validator.max.string"
-msgstr "{$max} таңбадан аспауы керек."
-
-msgid "validator.max.file"
-msgstr "{$max} килобайттан артық болмауы керек."
-
-msgid "validator.max.numeric"
-msgstr "{$max} мәнінен үлкен болмауы керек."
-
-msgid "validator.localeKey"
+msgid "notification.type.allReviewsIn"
 msgstr ""
-"Тілдер тіл коды арқылы көрсетілуі керек. Мысалы: en_US, fr_CA, "
-"sr_RS@cyrillic."
+"Барлық рецензенттер өз пікірлерін жіберді және шешім \"{$stage}\" кезеңінде "
+"қабылдануы керек."
 
-msgid "validator.localeExpected"
+msgid "notification.type.allRevisionsIn"
 msgstr ""
-"Бұл көптілді сала. Әрбір қолдау көрсетілетін тіл үшін бөлек мәндер енгізілуі "
-"керек."
+"Файлдың жаңа нұсқасы \"{$stage}\" кезеңінде редакциялық тексеру үшін жүктеп "
+"салынды."
 
-msgid "validator.locale"
-msgstr "Бұл тіл қабылданбайды."
+msgid "notification.type.pendingRevisions"
+msgstr "Жаңа нұсқалар \"{$stage}\" кезеңінде қарастырылады."
 
-msgid "validator.json"
-msgstr "Жарамсыз JSON жолы."
+msgid "notification.type.pendingRevisions.title"
+msgstr "Жаңа нұсқалар \"{$stage}\" кезеңіне жіберілді."
 
-msgid "validator.issn"
-msgstr "ISSN қате."
+msgid "notification.type.reviewerComment"
+msgstr "Сарапшы \"{$title}\" деп пікір білдірді."
 
-msgid "validator.ip"
-msgstr "Жарамсыз IP мекенжайы."
+msgid "notification.signedFile"
+msgstr "Файл қаралды."
 
-msgid "validator.integer"
-msgstr "Бүтін сан емес."
+msgid "timeZone"
+msgstr "Уақыт белдеуі"
 
-msgid "validator.in"
-msgstr "Таңдалған {$attribute} жарамсыз."
+msgid "user.email"
+msgstr "Email адресі"
 
-msgid "validator.image"
-msgstr "Сурет болуы керек."
-
-msgid "validator.filled"
-msgstr "Өріс міндетті болып табылады."
-
-msgid "validator.exists"
-msgstr "Таңдалған {$attribute} жарамсыз."
-
-msgid "validator.email"
-msgstr "Электрондық пошта мекенжайы жарамсыз."
-
-msgid "validator.digits_between"
-msgstr "{$min} және {$max} сандар арасында болуы керек."
-
-msgid "validator.digits"
-msgstr "Ұзындық {$digits} цифр болуы керек."
-
-msgid "validator.different"
-msgstr "{$attribute} және {$other} әртүрлі болуы керек."
-
-msgid "validator.date_format"
-msgstr "{$format} форматына сәйкес келмейді."
-
-msgid "validator.date"
-msgstr "Жарамсыз күн."
-
-msgid "validator.currency"
-msgstr "Жарамсыз валюта."
-
-msgid "validator.country"
-msgstr "Ондай мемлекет жоқ."
-
-msgid "validator.confirmed"
-msgstr "Мән және оны растау сәйкес келмейді."
-
-msgid "validator.boolean"
-msgstr "Өріс \"ақиқат\" немесе \"жалған\" болуы керек."
-
-msgid "validator.between.array"
-msgstr "{$min} және {$max} элементтер арасында болуы керек."
-
-msgid "validator.between.string"
-msgstr "{$min} және {$max} таңбалар арасында болуы керек."
-
-msgid "validator.between.file"
-msgstr "{$min} және {$max} килобайт арасында болуы керек."
-
-msgid "validator.between.numeric"
-msgstr "{$min} және {$max} арасында болуы керек."
-
-msgid "validator.before"
-msgstr "Деректер {$date} дейін болуы керек."
-
-msgid "validator.array"
-msgstr "Бұл жарамды массив емес."
-
-msgid "validator.alpha_num"
-msgstr "Ол тек әріптер мен сандарды  қамтуы мүмкін."
-
-msgid "validator.alpha_dash_period"
-msgstr "Тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
-
-msgid "validator.alpha_dash"
+msgid "user.authorization.submissionFile"
 msgstr ""
-"Ол тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
+"Бұл пайдаланушыға көрсетілген материал файлына кіруге рұқсат етілмейді."
 
-msgid "validator.alpha"
-msgstr "Онда тек әріптер болуы мүмкін."
+msgid "user.authorization.invalidPublication"
+msgstr "Дұрыс емес жарияланым."
 
-msgid "validator.after"
-msgstr "Күн {$date} кейін болуы керек."
+msgid "user.authorization.invalidSubmission"
+msgstr "Дұрыс емес материал."
 
-msgid "validator.active_url"
-msgstr "URL мекенжайы жарамсыз."
+msgid "user.authorization.invalidRepresentation"
+msgstr "Дұрыс емес ұсыныс."
 
-msgid "validator.accepted"
-msgstr "Бұл элементті қабыл алыңыз.."
+msgid "user.authorization.invalidReviewRound"
+msgstr "Рецензиялаудың дұрыс емес кезеңі."
 
-msgid "validation.invalidOption"
-msgstr "Бұл параметр қолжетімді емес."
+msgid "user.authorization.invalidQuery"
+msgstr "Дұрыс емес пікір талас."
 
-msgid "list.collapseAll"
-msgstr "Барлығын бетті жауып қою"
+msgid "user.authorization.unauthorizedNote"
+msgstr "Сіз бұл талқылау жазбасына кіре алмайсыз."
 
-msgid "list.expandAll"
-msgstr "Барлығын кеңейту"
-
-msgid "list.viewLess"
-msgstr "{$name} туралы толық ақпаратты жасыру"
-
-msgid "list.viewMore"
-msgstr "{$name} туралы толық ақпаратты көрсету"
-
-msgid "notification.unsubscribeNotifications"
-msgstr "жазылымнан бас тартыңыз"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
-msgstr ""
-"Күтпеген қате орын алды және {$email} электрондық пошта мекенжайын жіберу "
-"тізімінен шығару мүмкін болмады. Сізге көмектесуіміз үшін <a href=\""
-"{$profileNotificationUrl}\">пайдаланушы профилінде</a> немесе бізге тікелей "
-"хабарласу арқылы барлық электрондық пошта хабарландыруларына жазылудан бас "
-"тартуыңызға болады."
-
-msgid "notification.unsubscribeNotifications.successMessage"
-msgstr ""
-"{$email} электрондық пошта мекенжайы жіберулер тізімінен сәтті шығарылды. "
-"Біз сізге енді бұл электрондық хаттарды жібермейміз. Электрондық пошта "
-"хабарландыруларына кез келген уақытта <a href=\"{$profileNotificationUrl}\">"
-"пайдаланушы профилінде</a> қайта жазылуыңызға болады."
-
-msgid "notification.unsubscribeNotifications.resubscribe"
-msgstr ""
-"Сіз кез келген уақытта <a href=\"{$profileNotificationUrl}\">пайдаланушы "
-"профилінде</a> электрондық пошта хабарландыруларына қайта жазыла аласыз."
-
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"Енді {$email} мекенжайына {$contextName} арқылы алғыңыз келмейтін "
-"электрондық хаттарды таңдаңыз."
-
-msgid "notification.unsubscribeNotifications.error"
-msgstr "Біз сізді жіберулер тізімінен бас тарта алмаймыз"
-
-msgid "notification.unsubscribeNotifications.success"
-msgstr "Сіз тарату тізімінен сәтті шықтыңыз"
-
-msgid "notification.removedNavigationMenu"
-msgstr "Навигация мәзірі сәтті жойылды"
-
-msgid "notification.editedNavigationMenu"
-msgstr "Навигация мәзірі сәтті жаңартылды"
-
-msgid "notification.addedNavigationMenu"
-msgstr "Шолу мәзірі сәтті қосылды"
-
-msgid "notification.addedNavigationMenuItem"
-msgstr "Шолу мәзірінің элементі сәтті қосылды"
-
-msgid "notification.removedNavigationMenuItem"
-msgstr "Навигация мәзірінің элементі сәтті жойылды"
-
-msgid "notification.editedNavigationMenuItem"
-msgstr "Шарлау мәзірінің элементі сәтті жаңартылды"
-
-msgid "semicolon"
-msgstr "{$label}:"
-
-msgid "notification.type.editorialReport.contents"
-msgstr "Журналыңыздың жай-күйін редакциялық есеппен тексеруді ескертеміз."
-
-msgid "notification.type.editorialReport"
-msgstr "Статистикалық мәліметтер бойынша жиынтық есеп."
-
-msgid "notification.type.roundStatusTitle"
-msgstr "{$round} раунд жағдайы"
-
-msgid "notification.type.awaitingCopyedits"
-msgstr "Әдеби редакцияны күтуде."
-
-msgid "notification.type.assignCopyeditors"
-msgstr ""
-"Қатысушылар тізіміндегі \"Тағайындау\" сілтемесін пайдаланып, әдеби "
-"редакторды тағайындаңыз."
-
-msgid "notification.type.queryAdded"
-msgstr "Талқылау қосылды."
-
-msgid "notification.type.queryActivity"
-msgstr "Талқылау белсенділігі."
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Құпиялылық параметрлері"
-
-msgid "user.authorization.submissionAuthor"
-msgstr ""
-"Бұл пайдаланушы сұралған материалдың авторы болып табылмайды. Жүйеге дұрыс "
-"пайдаланушы тіркелгісімен кіргеніңізді тексеріңіз."
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Бұл рецензияны қарауға рұқсатыңыз жоқ."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -2073,109 +1928,332 @@ msgstr ""
 "бөлімінде сізге сәйкес рөлдер берілгеніне көз жеткізу үшін профиліңізді "
 "өңдеңіз."
 
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Бұл рецензияны қарауға рұқсатыңыз жоқ."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Сіз бұл талқылау жазбасына кіре алмайсыз."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Дұрыс емес пікір талас."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Рецензиялаудың дұрыс емес кезеңі."
-
-msgid "user.authorization.invalidRepresentation"
-msgstr "Дұрыс емес ұсыныс."
-
-msgid "user.authorization.invalidSubmission"
-msgstr "Дұрыс емес материал."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Дұрыс емес жарияланым."
-
-msgid "user.authorization.submissionFile"
-msgstr "Бұл пайдаланушыға көрсетілген материал файлына кіруге рұқсат етілмейді."
-
-msgid "user.email"
-msgstr "Email адресі"
-
-msgid "timeZone"
-msgstr "Уақыт белдеуі"
-
-msgid "notification.signedFile"
-msgstr "Файл қаралды."
-
-msgid "notification.type.reviewerComment"
-msgstr "Сарапшы \"{$title}\" деп пікір білдірді."
-
-msgid "notification.type.pendingRevisions.title"
-msgstr "Жаңа нұсқалар \"{$stage}\" кезеңіне жіберілді."
-
-msgid "notification.type.pendingRevisions"
-msgstr "Жаңа нұсқалар \"{$stage}\" кезеңінде қарастырылады."
-
-msgid "notification.type.allRevisionsIn"
+msgid "user.authorization.submissionAuthor"
 msgstr ""
-"Файлдың жаңа нұсқасы \"{$stage}\" кезеңінде редакциялық тексеру үшін жүктеп "
-"салынды."
+"Бұл пайдаланушы сұралған материалдың авторы болып табылмайды. Жүйеге дұрыс "
+"пайдаланушы тіркелгісімен кіргеніңізді тексеріңіз."
 
-msgid "notification.type.allReviewsIn"
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Құпиялылық параметрлері"
+
+msgid "notification.type.queryActivity"
+msgstr "Талқылау белсенділігі."
+
+msgid "notification.type.queryAdded"
+msgstr "Талқылау қосылды."
+
+msgid "notification.type.assignCopyeditors"
 msgstr ""
-"Барлық рецензенттер өз пікірлерін жіберді және шешім \"{$stage}\" кезеңінде "
-"қабылдануы керек."
+"Қатысушылар тізіміндегі \"Тағайындау\" сілтемесін пайдаланып, әдеби "
+"редакторды тағайындаңыз."
 
-msgid "notification.type.auditorRequest"
-msgstr "\"{$file}\" үшін тексеруге сұрауы"
+msgid "notification.type.awaitingCopyedits"
+msgstr "Әдеби редакцияны күтуде."
 
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Рецензияның тапсырмасы жаңартылды."
+msgid "notification.type.roundStatusTitle"
+msgstr "{$round} раунд жағдайы"
 
-msgid "notification.type.reviewAssignment"
-msgstr "Рецензиялау кезеңін күтуде."
+msgid "notification.type.editorialReport"
+msgstr "Статистикалық мәліметтер бойынша жиынтық есеп."
 
-msgid "notification.type.newAnnouncement"
-msgstr "Жаңа хабарлама."
+msgid "notification.type.editorialReport.contents"
+msgstr "Журналыңыздың жай-күйін редакциялық есеппен тексеруді ескертеміз."
 
-msgid "notification.editStageParticipant"
-msgstr "Кезеңнің мақсаты өзгертілді."
-
-msgid "notification.addedStageParticipant"
-msgstr "Пайдаланушы кезең мүшесі ретінде қосылды."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Рецензент қалпына келтірілді."
-
-msgid "notification.cancelledReviewer"
-msgstr "Рецензент бас тартты."
-
-msgid "notification.removedReviewer"
-msgstr "Рецензент өшірілді."
-
-msgid "notification.addedReviewerNoEmail"
+msgid "notification.type.editorialReminder"
 msgstr ""
-"Бұл мазмұнды тексеруші ({$reviewerName}) тағайындалды және электрондық пошта "
-"хабарландыруы жіберілмеді."
 
-msgid "notification.addedReviewer"
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "Шарлау мәзірінің элементі сәтті жаңартылды"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "Навигация мәзірінің элементі сәтті жойылды"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "Шолу мәзірінің элементі сәтті қосылды"
+
+msgid "notification.addedNavigationMenu"
+msgstr "Шолу мәзірі сәтті қосылды"
+
+msgid "notification.editedNavigationMenu"
+msgstr "Навигация мәзірі сәтті жаңартылды"
+
+msgid "notification.removedNavigationMenu"
+msgstr "Навигация мәзірі сәтті жойылды"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Сіз тарату тізімінен сәтті шықтыңыз"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Біз сізді жіберулер тізімінен бас тарта алмаймыз"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
-"Осы мақалаға шолушы ({$reviewerName}) тағайындалды және электрондық поштаға "
-"хабарландыру жіберілді."
+"Енді {$email} мекенжайына {$contextName} арқылы алғыңыз келмейтін "
+"электрондық хаттарды таңдаңыз."
 
-msgid "navigation.goBack"
-msgstr "Қайта  оралу"
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Сіз кез келген уақытта <a href=\"{$profileNotificationUrl}\">пайдаланушы "
+"профилінде</a> электрондық пошта хабарландыруларына қайта жазыла аласыз."
 
-msgid "submission.task.responseDueDate"
-msgstr "Рецензияның растау күнін қарап шығу"
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"{$email} электрондық пошта мекенжайы жіберулер тізімінен сәтті шығарылды. "
+"Біз сізге енді бұл электрондық хаттарды жібермейміз. Электрондық пошта "
+"хабарландыруларына кез келген уақытта <a href="
+"\"{$profileNotificationUrl}\">пайдаланушы профилінде</a> қайта жазылуыңызға "
+"болады."
 
-msgid "reviewer.submission.reviewDueDate"
-msgstr "Рецензияның келіп түскен күні"
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Күтпеген қате орын алды және {$email} электрондық пошта мекенжайын жіберу "
+"тізімінен шығару мүмкін болмады. Сізге көмектесуіміз үшін <a href="
+"\"{$profileNotificationUrl}\">пайдаланушы профилінде</a> немесе бізге "
+"тікелей хабарласу арқылы барлық электрондық пошта хабарландыруларына "
+"жазылудан бас тартуыңызға болады."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "жазылымнан бас тартыңыз"
+
+msgid "list.viewMore"
+msgstr "{$name} туралы толық ақпаратты көрсету"
+
+msgid "list.viewLess"
+msgstr "{$name} туралы толық ақпаратты жасыру"
+
+msgid "list.expandAll"
+msgstr "Барлығын кеңейту"
+
+msgid "list.collapseAll"
+msgstr "Барлығын бетті жауып қою"
+
+msgid "validation.invalidOption"
+msgstr "Бұл параметр қолжетімді емес."
+
+msgid "validator.accepted"
+msgstr "Бұл элементті қабыл алыңыз.."
+
+msgid "validator.active_url"
+msgstr "URL мекенжайы жарамсыз."
+
+msgid "validator.after"
+msgstr "Күн {$date} кейін болуы керек."
+
+msgid "validator.alpha"
+msgstr "Онда тек әріптер болуы мүмкін."
+
+msgid "validator.alpha_dash"
+msgstr ""
+"Ол тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
+
+msgid "validator.alpha_dash_period"
+msgstr "Тек әріптерді, сандарды, сызықшаларды және астын сызуды қамтуы мүмкін."
+
+msgid "validator.alpha_num"
+msgstr "Ол тек әріптер мен сандарды  қамтуы мүмкін."
+
+msgid "validator.array"
+msgstr "Бұл жарамды массив емес."
+
+msgid "validator.before"
+msgstr "Деректер {$date} дейін болуы керек."
+
+msgid "validator.between.numeric"
+msgstr "{$min} және {$max} арасында болуы керек."
+
+msgid "validator.between.file"
+msgstr "{$min} және {$max} килобайт арасында болуы керек."
+
+msgid "validator.between.string"
+msgstr "{$min} және {$max} таңбалар арасында болуы керек."
+
+msgid "validator.between.array"
+msgstr "{$min} және {$max} элементтер арасында болуы керек."
+
+msgid "validator.boolean"
+msgstr "Өріс \"ақиқат\" немесе \"жалған\" болуы керек."
+
+msgid "validator.confirmed"
+msgstr "Мән және оны растау сәйкес келмейді."
+
+msgid "validator.country"
+msgstr "Ондай мемлекет жоқ."
+
+msgid "validator.country.regex"
+msgstr ""
+
+msgid "validator.currency"
+msgstr "Жарамсыз валюта."
+
+msgid "validator.date"
+msgstr "Жарамсыз күн."
+
+msgid "validator.date_format"
+msgstr "{$format} форматына сәйкес келмейді."
+
+msgid "validator.different"
+msgstr "{$attribute} және {$other} әртүрлі болуы керек."
+
+msgid "validator.digits"
+msgstr "Ұзындық {$digits} цифр болуы керек."
+
+msgid "validator.digits_between"
+msgstr "{$min} және {$max} сандар арасында болуы керек."
+
+msgid "validator.email"
+msgstr "Электрондық пошта мекенжайы жарамсыз."
+
+msgid "validator.exists"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.filled"
+msgstr "Өріс міндетті болып табылады."
+
+msgid "validator.image"
+msgstr "Сурет болуы керек."
+
+msgid "validator.in"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.integer"
+msgstr "Бүтін сан емес."
+
+msgid "validator.ip"
+msgstr "Жарамсыз IP мекенжайы."
+
+msgid "validator.issn"
+msgstr "ISSN қате."
+
+msgid "validator.json"
+msgstr "Жарамсыз JSON жолы."
+
+msgid "validator.locale"
+msgstr "Бұл тіл қабылданбайды."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Бұл көптілді сала. Әрбір қолдау көрсетілетін тіл үшін бөлек мәндер енгізілуі "
+"керек."
+
+msgid "validator.localeKey"
+msgstr ""
+"Тілдер тіл коды арқылы көрсетілуі керек. Мысалы: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "{$max} мәнінен үлкен болмауы керек."
+
+msgid "validator.max.file"
+msgstr "{$max} килобайттан артық болмауы керек."
+
+msgid "validator.max.string"
+msgstr "{$max} таңбадан аспауы керек."
+
+msgid "validator.max.array"
+msgstr "{$max} элементтен артық болмауы керек."
+
+msgid "validator.mimes"
+msgstr "Келесі файл түрлерінің бірі болуы керек: {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Кем дегенде {$min} болуы керек."
+
+msgid "validator.min.file"
+msgstr "Кемінде {$min} килобайт болуы керек."
+
+msgid "validator.min.string"
+msgstr "Кемінде {$min} таңба болуы керек."
+
+msgid "validator.min.array"
+msgstr "Кемінде {$min} элемент болуы керек."
+
+msgid "validator.not_in"
+msgstr "Таңдалған {$attribute} жарамсыз."
+
+msgid "validator.numeric"
+msgstr "Сан емес."
+
+msgid "validator.orcid"
+msgstr "ORCID қате."
+
+msgid "validator.present"
+msgstr "\"{$attribute}\" өрісі болуы керек."
+
+msgid "validator.regex"
+msgstr "Дұрыс форматталмаған."
+
+msgid "validator.required"
+msgstr "Өріс міндетті болып табылады."
+
+msgid "validator.required_if"
+msgstr "{$other} {$value} мәніне тең болса, өріс қажет."
+
+msgid "validator.required_unless"
+msgstr "Өріс {$other} {$values} мәніне тең болғанша қажет."
+
+msgid "validator.required_with"
+msgstr "Өріс {$values} берілгенде міндетті болып табылады."
+
+msgid "validator.required_with_all"
+msgstr "Өріс {$values} берілгенде міндетті болып табылады."
+
+msgid "validator.required_without"
+msgstr "{$values} орнатылмаған кезде өріс қажет."
+
+msgid "validator.required_without_all"
+msgstr "{$values} орнатылмаған кезде өріс қажет."
+
+msgid "validator.same"
+msgstr "{$attribute} мен {$other} сәйкес болуы керек."
+
+msgid "validator.size.numeric"
+msgstr "{$size} болуы керек."
+
+msgid "validator.size.file"
+msgstr "{$size} килобайт болуы керек."
+
+msgid "validator.size.string"
+msgstr "{$size} таңбадан тұруы керек."
+
+msgid "validator.size.array"
+msgstr "{$size} элементтері болуы керек."
+
+msgid "validator.string"
+msgstr "Жарамсыз жол."
+
+msgid "validator.timezone"
+msgstr "Уақыт белдеуі дұрыс емес."
+
+msgid "validator.unique"
+msgstr "{$attribute} әлдеқашан пайдаланылған."
+
+msgid "validator.url"
+msgstr "Жарамсыз URL."
+
+msgid "validator.no_new_line"
+msgstr ""
+
+msgid "validator.allowable_title_html_tags"
+msgstr ""
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Сүзгі ({$displayName}) берілген {$inputTypeName} - {$typeofInput} енгізуді "
+"қолдайды"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Орнату ортасында қолдау көрсетілмейтін түрлендіруді іске қосу әрекеті "
+"жасалды."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XML торабын импорттау мүмкін емес"
 
 msgid "plugins.importexport.common.error.unknownCommand"
 msgstr "Белгісіз командалар {$command}"
-
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2188,3 +2266,6 @@ msgstr "Автор қосылды."
 
 msgid "notification.editedAuthor"
 msgstr "Автор өңдеген."
+
+#~ msgid "common.fromWithValue"
+#~ msgstr "Кімнен: {$value}"

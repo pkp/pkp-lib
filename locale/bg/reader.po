@@ -12,70 +12,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "comments.anonymous"
+msgstr "Анонимена потребител"
+
 msgid "comments.anonymousNamed"
 msgstr "БГ: \"{$userName}\""
 
-msgid "reader.fullText"
-msgstr "Пълният текст:"
+msgid "comments.body"
+msgstr "Текст на коментара"
 
-msgid "comments.viewAllComments"
-msgstr "Вижте всички коментари"
-
-msgid "comments.title"
-msgstr "Заглавие"
-
-msgid "comments.replies"
-msgstr "Отговори"
-
-msgid "comments.readMore"
-msgstr "Прочетете повече"
-
-msgid "comments.readerComments"
-msgstr "Коментари на читатели"
-
-msgid "comments.postReply"
-msgstr "Публикувайте отговор"
-
-msgid "comments.postAnonymously"
-msgstr "Публикувайте този коментар анонимно"
-
-msgid "comments.oneReply"
-msgstr "(1 Отговор)"
-
-msgid "comments.nReplies"
-msgstr "({$num} отговор/и)"
-
-msgid "comments.noComments"
-msgstr "Не са публикувани коментари на читатели."
-
-msgid "comments.name"
-msgstr "Име на коментиращия (изпращащ коментара)"
-
-msgid "comments.inResponseTo"
-msgstr "В отговор на <a href=\"{$url}\">{$title}</a>"
-
-msgid "comments.enterComment"
-msgstr "Въведете коментар"
-
-msgid "comments.emailReply"
-msgstr "Отговор с имейл"
-
-msgid "comments.email"
-msgstr "Имейл на коментиращия (изпращащ коментара)"
-
-msgid "comments.delete"
-msgstr "Изтрийте този коментар"
+msgid "comments.titleRequired"
+msgstr "Изисква се заглавие на коментар."
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Изтриването на този коментар ще изтрие и всички отговори на него. Сигурни ли "
 "сте, че искате да направите това?"
 
-msgid "comments.titleRequired"
-msgstr "Изисква се заглавие на коментар."
+msgid "comments.delete"
+msgstr "Изтрийте този коментар"
 
-msgid "comments.body"
-msgstr "Текст на коментара"
+msgid "comments.email"
+msgstr "Имейл на коментиращия (изпращащ коментара)"
 
-msgid "comments.anonymous"
-msgstr "Анонимена потребител"
+msgid "comments.emailReply"
+msgstr "Отговор с имейл"
+
+msgid "comments.enterComment"
+msgstr "Въведете коментар"
+
+msgid "comments.inResponseTo"
+msgstr "В отговор на <a href=\"{$url}\">{$title}</a>"
+
+msgid "comments.name"
+msgstr "Име на коментиращия (изпращащ коментара)"
+
+msgid "comments.noComments"
+msgstr "Не са публикувани коментари на читатели."
+
+msgid "comments.nReplies"
+msgstr "({$num} отговор/и)"
+
+msgid "comments.oneReply"
+msgstr "(1 Отговор)"
+
+msgid "comments.postAnonymously"
+msgstr "Публикувайте този коментар анонимно"
+
+msgid "comments.postReply"
+msgstr "Публикувайте отговор"
+
+msgid "comments.readerComments"
+msgstr "Коментари на читатели"
+
+msgid "comments.readMore"
+msgstr "Прочетете повече"
+
+msgid "comments.replies"
+msgstr "Отговори"
+
+msgid "comments.title"
+msgstr "Заглавие"
+
+msgid "comments.viewAllComments"
+msgstr "Вижте всички коментари"
+
+msgid "reader.fullText"
+msgstr "Пълният текст:"

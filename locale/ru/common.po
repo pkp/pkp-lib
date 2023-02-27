@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "common.publicKnowledgeProject"
@@ -104,7 +104,8 @@ msgid "common.grid"
 msgstr "Таблица"
 
 msgid "common.confirmDelete"
-msgstr "Вы уверены, что хотите удалить этот элемент? Это действие нельзя отменить."
+msgstr ""
+"Вы уверены, что хотите удалить этот элемент? Это действие нельзя отменить."
 
 msgid "common.abstract"
 msgstr "Аннотация"
@@ -130,8 +131,23 @@ msgstr "Неактивны"
 msgid "common.add"
 msgstr "Добавить"
 
+msgid "common.addCCBCC"
+msgstr ""
+
+msgid "common.addFiles"
+msgstr ""
+
 msgid "common.addSelf"
 msgstr "Добавить себя"
+
+msgid "common.attachedFiles"
+msgstr ""
+
+msgid "common.attachFiles"
+msgstr ""
+
+msgid "common.attachSelected"
+msgstr ""
 
 msgid "common.name"
 msgstr "Имя"
@@ -152,7 +168,10 @@ msgid "common.altText"
 msgstr "Альтернативный текст"
 
 msgid "common.altTextInstructions"
-msgstr "Опишите это изображение для посетителей, просматривающих сайт в текстовом браузере или с помощью специальных устройств. Например: «Наш редактор, выступающий на конференции PKP»."
+msgstr ""
+"Опишите это изображение для посетителей, просматривающих сайт в текстовом "
+"браузере или с помощью специальных устройств. Например: «Наш редактор, "
+"выступающий на конференции PKP»."
 
 msgid "common.and"
 msgstr "и"
@@ -193,33 +212,24 @@ msgstr "Ошибка"
 msgid "common.notice"
 msgstr "Сообщение"
 
-msgid "common.captcha.error.missing-input-secret"
-msgstr "Проверка captcha для этого сайта настроена некорректно. Секретный ключ отсутствует."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr "Проверка captcha для этого сайта настроена некорректно. Неправильный секретный ключ."
-
 msgid "common.captcha.error.missing-input-response"
-msgstr "Вы должны пройти проверку, которая используется для предотвращения рассылки спама."
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "Вы не прошли проверку, которая используется для предотвращения рассылки спама."
-
-msgid "common.captchaField.description"
-msgstr "Пожалуйста, введите буквы, которые вы видите на изображении выше."
-
-msgid "common.captchaField"
-msgstr "Проверка"
+msgstr ""
+"Вы должны пройти проверку, которая используется для предотвращения рассылки "
+"спама."
 
 msgid "common.ccLicense"
 msgstr ""
 "\n"
 "\t\t<br /><br />\n"
-"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Лицензия Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
+"licenses/by/3.0/\">\n"
+"\t\t\t<img alt=\"Лицензия Creative Commons\" style=\"border-width:0\" src="
+"\"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br />\n"
-"\t\tЭта работа распространяется по <a rel=\"license\" target=\"_blank\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons Attribution 3.0</a>.\n"
+"\t\tЭта работа распространяется по <a rel=\"license\" target=\"_blank\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons "
+"Attribution 3.0</a>.\n"
 "\t"
 
 msgid "common.ccLicense.rt"
@@ -227,9 +237,13 @@ msgstr ""
 "\n"
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Лицензия Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Лицензия Creative Commons\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tЭта работа распространяется по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">лицензии Creative Commons Attribution 3.0</a>.\n"
+"\t\tЭта работа распространяется по <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">лицензии Creative "
+"Commons Attribution 3.0</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -326,17 +340,29 @@ msgstr "Идёт удаление"
 msgid "common.deleteSelection"
 msgstr "Удалить выбранное"
 
+msgid "common.deselect"
+msgstr ""
+
 msgid "common.designation"
 msgstr "Назначение"
 
 msgid "common.description"
 msgstr "Описание"
 
+msgid "common.details"
+msgstr ""
+
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} пикселей"
+
+msgid "common.discardChanges"
+msgstr ""
+
+msgid "common.disconnected"
+msgstr ""
 
 msgid "common.disable"
 msgstr "Отключить"
@@ -356,11 +382,23 @@ msgstr "Скачать"
 msgid "common.downloadPdf"
 msgstr "Скачать PDF"
 
+msgid "common.downloadReport"
+msgstr ""
+
+msgid "common.dragAndDropHere"
+msgstr ""
+
+msgid "common.orUploadFile"
+msgstr ""
+
 msgid "common.edit"
 msgstr "Редактировать"
 
 msgid "common.editItem"
 msgstr "Редактировать «{$name}»"
+
+msgid "common.emailTemplates"
+msgstr ""
 
 msgid "common.enable"
 msgstr "Включить"
@@ -375,7 +413,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Произошла неизвестная ошибка связи с базой данных."
 
 msgid "common.error.framesRequired"
-msgstr "Эта страница требует фреймов. <a href=\"{$url}\">Нажмите здесь</a> для просмотра версии, не использующей фреймы."
+msgstr ""
+"Эта страница требует фреймов. <a href=\"{$url}\">Нажмите здесь</a> для "
+"просмотра версии, не использующей фреймы."
 
 msgid "common.event"
 msgstr "Событие"
@@ -414,7 +454,10 @@ msgid "common.fileType"
 msgstr "Тип файла"
 
 msgid "common.fileUploaderError"
-msgstr "Загружается загрузчик файлов в систему. Если он не появляется, скорее всего его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с администратором сервера для решения проблемы."
+msgstr ""
+"Загружается загрузчик файлов в систему. Если он не появляется, скорее всего "
+"его запуск не поддерживается этим браузером. Пожалуйста, свяжитесь с "
+"администратором сервера для решения проблемы."
 
 msgid "common.filter"
 msgstr "Фильтры"
@@ -424,6 +467,15 @@ msgstr "Добавить фильтр: {$filterTitle}"
 
 msgid "common.filterRemove"
 msgstr "Сбросить фильтр: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr ""
+
+msgid "common.formatting"
+msgstr ""
+
+msgid "common.geographic"
+msgstr ""
 
 msgid "common.go"
 msgstr "Выполнить"
@@ -452,17 +504,32 @@ msgstr "Начать"
 msgid "common.inProgress"
 msgstr "В процессе"
 
+msgid "common.insert"
+msgstr "Вставить"
+
+msgid "common.insertContent"
+msgstr ""
+
+msgid "common.insertContentSearch"
+msgstr ""
+
 msgid "common.itemsPerPage"
 msgstr "Элементов на странице"
 
 msgid "common.keywords"
 msgstr "Ключевые слова"
 
+msgid "common.label"
+msgstr ""
+
 msgid "common.language"
 msgstr "Язык"
 
 msgid "common.languages"
 msgstr "Языки"
+
+msgid "common.lastSaved"
+msgstr ""
 
 msgid "common.lastActivity"
 msgstr "Последний раз активность зафиксирована {$date}."
@@ -475,6 +542,9 @@ msgstr "{$value} или меньше"
 
 msgid "common.lessThanOnly"
 msgstr "Менее чем"
+
+msgid "common.keepWorking"
+msgstr ""
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -515,6 +585,12 @@ msgstr "Никто не назначен"
 msgid "common.none"
 msgstr "Нет"
 
+msgid "common.noneSelected"
+msgstr ""
+
+msgid "common.noneProvided"
+msgstr ""
+
 msgid "common.no"
 msgstr "Нет"
 
@@ -537,13 +613,17 @@ msgid "common.note"
 msgstr "Заметка"
 
 msgid "common.noTemporaryFile"
-msgstr "Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить его снова."
+msgstr ""
+"Не удаётся найти файл, загруженный вами. Пожалуйста, попробуйте загрузить "
+"его снова."
 
 msgid "common.notes"
 msgstr "Заметки"
 
 msgid "common.notes.tooltip"
-msgstr "Заметки (желтый: есть новые заметки; синий: есть просмотренные заметки; серый: нет заметок)"
+msgstr ""
+"Заметки (желтый: есть новые заметки; синий: есть просмотренные заметки; "
+"серый: нет заметок)"
 
 msgid "common.notified"
 msgstr "Уведомлен"
@@ -553,6 +633,9 @@ msgstr "Уведомлен: {$dateNotified}"
 
 msgid "common.noMatches"
 msgstr "Нет совпадений"
+
+msgid "common.numberedMore"
+msgstr ""
 
 msgid "common.off"
 msgstr "отключено"
@@ -650,6 +733,9 @@ msgstr "Читать дальше"
 msgid "common.readMoreWithTitle"
 msgstr "Читать дальше про «{$title}»"
 
+msgid "common.reconnecting"
+msgstr ""
+
 msgid "common.record"
 msgstr "Запись"
 
@@ -695,6 +781,12 @@ msgstr "Обязательно"
 msgid "common.reset"
 msgstr "Сбросить"
 
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr ""
+
 msgid "common.saveAndContinue"
 msgstr "Сохранить и продолжить"
 
@@ -709,6 +801,12 @@ msgstr "Идёт сохранение"
 
 msgid "common.search"
 msgstr "Найти"
+
+msgid "common.searchPhrase"
+msgstr ""
+
+msgid "common.searching"
+msgstr ""
 
 msgid "common.searchQuery"
 msgstr "Поисковый запрос"
@@ -737,6 +835,12 @@ msgstr "Выбрать «{$name}»"
 msgid "common.sendEmail"
 msgstr "Отправить письмо электронной почтой"
 
+msgid "common.showAllSteps"
+msgstr ""
+
+msgid "common.showingSteps"
+msgstr ""
+
 msgid "common.size"
 msgstr "Размер"
 
@@ -761,6 +865,12 @@ msgstr "Подзаголовок"
 msgid "common.suggest"
 msgstr "Предложить"
 
+msgid "common.switchTo"
+msgstr ""
+
+msgid "common.switchToNamedItem"
+msgstr ""
+
 msgid "common.title"
 msgstr "Заголовок"
 
@@ -776,6 +886,12 @@ msgstr "Истина"
 msgid "common.type"
 msgstr "Тип"
 
+msgid "common.uploadedBy"
+msgstr ""
+
+msgid "common.uploadedByAndWhen"
+msgstr ""
+
 msgid "common.component"
 msgstr "Компонент"
 
@@ -783,10 +899,18 @@ msgid "common.uninitiated"
 msgstr "Не начат"
 
 msgid "common.unknownError"
-msgstr "Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и попробуйте снова."
+msgstr ""
+"Произошла неожиданная ошибка. Пожалуйста, перезагрузите страницу и "
+"попробуйте снова."
 
 msgid "common.unread"
 msgstr "Не прочитан"
+
+msgid "common.unsavedChanges"
+msgstr ""
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
 
 msgid "common.untitled"
 msgstr "Без имени"
@@ -812,6 +936,9 @@ msgstr "Добавить файл"
 msgid "common.upload.addFile"
 msgstr "Загрузить файл"
 
+msgid "common.upload.addFile.description"
+msgstr ""
+
 msgid "common.upload.restore"
 msgstr "Восстановить исходный"
 
@@ -836,6 +963,9 @@ msgstr "[Несуществующий пользователь]"
 msgid "common.view"
 msgstr "Просмотреть"
 
+msgid "common.viewError"
+msgstr ""
+
 msgid "common.viewWithName"
 msgstr "Просмотреть «{$name}»"
 
@@ -847,6 +977,9 @@ msgstr "недели"
 
 msgid "common.width"
 msgstr "Ширина"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
 
 msgid "common.year"
 msgstr "Год"
@@ -899,6 +1032,30 @@ msgstr "Загрузить файл"
 msgid "email.addAttachment"
 msgstr "Добавить вложение"
 
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr ""
+
 msgid "email.addBccRecipient"
 msgstr "Добавить BCC"
 
@@ -910,6 +1067,9 @@ msgstr "Добавить получателя"
 
 msgid "email.attachments"
 msgstr "Вложения"
+
+msgid "email.attachmentNotFound"
+msgstr ""
 
 msgid "email.bcc"
 msgstr "Скрытая копия"
@@ -923,17 +1083,27 @@ msgstr "Текст письма"
 msgid "email.cc"
 msgstr "Копия"
 
+msgid "email.confirmSwitchLocale"
+msgstr ""
+
 msgid "email.compose"
 msgstr "Отправить письмо"
 
 msgid "email.compose.tooManyRecipients"
-msgstr "Сообщение, которое вы пытаетесь отправить, содержит слишком много получателей."
+msgstr ""
+"Сообщение, которое вы пытаетесь отправить, содержит слишком много "
+"получателей."
 
 msgid "email.compose.tooSoon"
-msgstr "Вы пытаетесь отправить сообщение, но после отправки вашего предыдущего сообщения прошло слишком мало времени. Пожалуйста, подождите перед отправкой следующего сообщения."
+msgstr ""
+"Вы пытаетесь отправить сообщение, но после отправки вашего предыдущего "
+"сообщения прошло слишком мало времени. Пожалуйста, подождите перед отправкой "
+"следующего сообщения."
 
 msgid "email.compose.error"
-msgstr "Возникла проблема при отправки сообщения электронной почтой. Пожалуйста, попробуйте позже еще раз или свяжитесь с администратором вашей системы."
+msgstr ""
+"Возникла проблема при отправки сообщения электронной почтой. Пожалуйста, "
+"попробуйте позже еще раз или свяжитесь с администратором вашей системы."
 
 msgid "email.email"
 msgstr "Адрес электронной почты"
@@ -1002,19 +1172,25 @@ msgid "form.dropzone.dictDefaultMessage"
 msgstr "Перетащите сюда файлы для загрузки"
 
 msgid "form.dropzone.dictFallbackMessage"
-msgstr "Ваш браузер не поддерживает загрузку файлов методом перетаскивания файлов в окно."
+msgstr ""
+"Ваш браузер не поддерживает загрузку файлов методом перетаскивания файлов в "
+"окно."
 
 msgid "form.dropzone.dictFallbackText"
 msgstr "Пожалуйста используйте форму ниже для загрузки файлов на сервер."
 
 msgid "form.dropzone.dictFileTooBig"
-msgstr "Файл слишком большой ({{filesize}} Мбайт). Файлы больше чем {{maxFilesize}} Мбайт загрузить нельзя."
+msgstr ""
+"Файл слишком большой ({{filesize}} Мбайт). Файлы больше чем {{maxFilesize}} "
+"Мбайт загрузить нельзя."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Файлы данного типа загрузить нельзя."
 
 msgid "form.dropzone.dictResponseError"
-msgstr "Сервер вернул ошибку с кодом {{statusCode}}. Пожалуйста, свяжитесь с администратором системы, если проблема сохранится."
+msgstr ""
+"Сервер вернул ошибку с кодом {{statusCode}}. Пожалуйста, свяжитесь с "
+"администратором системы, если проблема сохранится."
 
 msgid "form.dropzone.dictCancelUpload"
 msgstr "Отменить загрузку"
@@ -1044,13 +1220,16 @@ msgid "form.errorMany"
 msgstr "Пожалуйста, исправьте ошибки: {$count}."
 
 msgid "form.errors"
-msgstr "Форма не была сохранена, так как были обнаружены ошибки ({$count}). Пожалуйста, исправьте эти ошибки и попробуйте снова."
+msgstr ""
+"Форма не была сохранена, так как были обнаружены ошибки ({$count}). "
+"Пожалуйста, исправьте эти ошибки и попробуйте снова."
 
 msgid "form.errorsOccurred"
 msgstr "При обработке этой формы произошли ошибки"
 
 msgid "form.formLanguage.description"
-msgstr "Сначала выберите язык, чтобы ввести ниже информацию на дополнительных языках."
+msgstr ""
+"Сначала выберите язык, чтобы ввести ниже информацию на дополнительных языках."
 
 msgid "form.formLanguage"
 msgstr "Язык формы"
@@ -1068,7 +1247,9 @@ msgid "form.postRequired"
 msgstr "Форма не была отправлена надлежащим образом."
 
 msgid "form.csrfInvalid"
-msgstr "Не удается отправить форму. Возможно, вы вышли из системы. Пожалуйста, перезагрузите страницу и попробуйте снова."
+msgstr ""
+"Не удается отправить форму. Возможно, вы вышли из системы. Пожалуйста, "
+"перезагрузите страницу и попробуйте снова."
 
 msgid "form.fileRequired"
 msgstr "Обязательно нужно загрузить файл."
@@ -1098,7 +1279,9 @@ msgid "form.submit"
 msgstr "Отправить"
 
 msgid "form.invalidImage"
-msgstr "Было загружено неправильное изображение. Разрешенные форматы: .png, .gif или .jpg."
+msgstr ""
+"Было загружено неправильное изображение. Разрешенные форматы: .png, .gif "
+"или .jpg."
 
 msgid "form.multilingualLabel"
 msgstr "{$label} (язык — {$localeName})"
@@ -1203,25 +1386,33 @@ msgid "stageParticipants.notify.startDiscussion.description"
 msgstr "Начать обсуждение между вами и {$userFullName}."
 
 msgid "stageParticipants.notify.chooseMessage"
-msgstr "Выберите стандартное сообщение для использования или заполните форму ниже."
+msgstr ""
+"Выберите стандартное сообщение для использования или заполните форму ниже."
 
 msgid "stageParticipants.notify.message"
 msgstr "Сообщение"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в обсуждение кого-то, кроме себя."
+msgstr ""
+"Пожалуйста, убедитесь, что вы заполнили поле сообщения и добавили в "
+"обсуждение кого-то, кроме себя."
 
 msgid "stageParticipants.options"
 msgstr "Назначенные права"
 
 msgid "stageParticipants.recommendOnly"
-msgstr "Этому участнику разрешено только рекомендовать решение редакции, запись решения редакции требует участия редактора с соответствующими правами."
+msgstr ""
+"Этому участнику разрешено только рекомендовать решение редакции, запись "
+"решения редакции требует участия редактора с соответствующими правами."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Разрешение на редактирование метаданных материала"
 
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Разрешить этому пользователю вносить изменения в публикацию, меняя название, аннотацию, метаданные и другую информацию о ней. Вы можете решить отозвать это право, если материал прошёл финальную проверку и готов к публикации."
+msgstr ""
+"Разрешить этому пользователю вносить изменения в публикацию, меняя название, "
+"аннотацию, метаданные и другую информацию о ней. Вы можете решить отозвать "
+"это право, если материал прошёл финальную проверку и готов к публикации."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Участник"
@@ -1364,6 +1555,9 @@ msgstr "Управление пользователями"
 msgid "navigation.viewFrontend"
 msgstr "Показать сайт"
 
+msgid "institution.institutions"
+msgstr ""
+
 msgid "notification.addedAuditor"
 msgstr "Аудитор добавлен."
 
@@ -1374,7 +1568,8 @@ msgid "notification.addedQuery"
 msgstr "Добавлено обсуждение"
 
 msgid "notification.reviewAcknowledged"
-msgstr "Рецензия отмечена как принятая. Письмо электронной почты не отправлено."
+msgstr ""
+"Рецензия отмечена как принятая. Письмо электронной почты не отправлено."
 
 msgid "notification.reviewerThankedEmail"
 msgstr "Письмо с благодарностью отправлено рецензенту."
@@ -1404,7 +1599,8 @@ msgid "notification.confirmSuccess"
 msgstr "Вы были успешно подписаны."
 
 msgid "notification.email"
-msgstr "Не отправлять мне сообщения электронной почтой для этих типов уведомлений."
+msgstr ""
+"Не отправлять мне сообщения электронной почтой для этих типов уведомлений."
 
 msgid "notification.noneExist"
 msgstr "На текущий момент для вас нет уведомлений."
@@ -1434,19 +1630,29 @@ msgid "notification.settings"
 msgstr "Настройки уведомлений"
 
 msgid "notification.settingsDescription"
-msgstr "Выберите события системы, о которых вы хотите быть уведомлены. Снятие галочки у события приведет к тому, что уведомления об этом событии не будут показываться в системе и отправляться Вам на электронную почту. События, отмеченные галочками, будут отображаться в системе и вы дополнительно можете настроить отправку этого уведомления Вам на электронную почту."
+msgstr ""
+"Выберите события системы, о которых вы хотите быть уведомлены. Снятие "
+"галочки у события приведет к тому, что уведомления об этом событии не будут "
+"показываться в системе и отправляться Вам на электронную почту. События, "
+"отмеченные галочками, будут отображаться в системе и вы дополнительно можете "
+"настроить отправку этого уведомления Вам на электронную почту."
 
 msgid "notification.reminderError"
-msgstr "При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы ввели правильный адрес электронной почты."
+msgstr ""
+"При отправке Вашего пароля произошла ошибка, пожалуйста, убедитесь, что вы "
+"ввели правильный адрес электронной почты."
 
 msgid "notification.reminderSent"
-msgstr "Ваш новый пароль был отправлен по указанному Вами адресу электронной почты."
+msgstr ""
+"Ваш новый пароль был отправлен по указанному Вами адресу электронной почты."
 
 msgid "notification.savedSubmissionMetadata"
 msgstr "Сохранены метаданные материала."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Отправить об этом письмо электронной почтой всем зарегистрированным пользователям."
+msgstr ""
+"Отправить об этом письмо электронной почтой всем зарегистрированным "
+"пользователям."
 
 msgid "search.author"
 msgstr "По автору"
@@ -1599,8 +1805,8 @@ msgstr ""
 "<li>Microsoft Word для MacOS:\n"
 "<ul><li>Перейти в меню «Сервис»</li>\n"
 "<li>Щелкнуть на «Защитить документ»</li>\n"
-"<li>Выбрать «Удалить из этого файла персональные данные при сохранении»</li>"
-"\n"
+"<li>Выбрать «Удалить из этого файла персональные данные при сохранении»</"
+"li>\n"
 "<li>Нажать «OK» и сохранить файл</li></ul></li>\n"
 "<li>PDF:\n"
 "<ul><li>Перейти в меню «Файл»</li>\n"
@@ -1628,10 +1834,14 @@ msgid "navigation.goBack"
 msgstr "Вернуться назад"
 
 msgid "notification.addedReviewer"
-msgstr "Назначен рецензент данного материала ({$reviewerName}), отправлено уведомление электронной почтой."
+msgstr ""
+"Назначен рецензент данного материала ({$reviewerName}), отправлено "
+"уведомление электронной почтой."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "Назначен рецензент данного материала ({$reviewerName}), уведомление электронной почтой не отправлено."
+msgstr ""
+"Назначен рецензент данного материала ({$reviewerName}), уведомление "
+"электронной почтой не отправлено."
 
 msgid "notification.removedReviewer"
 msgstr "Рецензент удален."
@@ -1641,6 +1851,9 @@ msgstr "Рецензент отменён."
 
 msgid "notification.reinstatedReviewer"
 msgstr "Рецензент восстановлен."
+
+msgid "notification.reviewerResendRequest"
+msgstr ""
 
 msgid "notification.addedStageParticipant"
 msgstr "Пользователь добавлен в качестве участника этапа."
@@ -1661,10 +1874,14 @@ msgid "notification.type.auditorRequest"
 msgstr "Запрос аудита для «{$file}»"
 
 msgid "notification.type.allReviewsIn"
-msgstr "Все рецензенты прислали свои рецензии и необходимо принять решение на этапе «{$stage}»."
+msgstr ""
+"Все рецензенты прислали свои рецензии и необходимо принять решение на этапе "
+"«{$stage}»."
 
 msgid "notification.type.allRevisionsIn"
-msgstr "Новая версия файла была загружена для рассмотрения редакцией на этапе «{$stage}»."
+msgstr ""
+"Новая версия файла была загружена для рассмотрения редакцией на этапе "
+"«{$stage}»."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Новые версии рассматриваются на этапе «{$stage}»."
@@ -1677,6 +1894,9 @@ msgstr "Рецензент прокомментировал «{$title}»."
 
 msgid "notification.signedFile"
 msgstr "Файл рассмотрен."
+
+msgid "timeZone"
+msgstr "Часовой пояс"
 
 msgid "user.email"
 msgstr "Электронная почта"
@@ -1706,10 +1926,15 @@ msgid "user.authorization.unauthorizedReviewAssignment"
 msgstr "У Вас нет доступа к этому назначению на рецензию."
 
 msgid "user.authorization.authorRoleMissing"
-msgstr "В данный момент у Вас не достаточно прав для просмотра материала. Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам предоставлены соответствующие роли в разделе «Регистрация как»."
+msgstr ""
+"В данный момент у Вас не достаточно прав для просмотра материала. "
+"Пожалуйста, отредактируйте ваш профиль, чтобы убедиться в том, что Вам "
+"предоставлены соответствующие роли в разделе «Регистрация как»."
 
 msgid "user.authorization.submissionAuthor"
-msgstr "Данный пользователь не является автором запрошенного материала. Пожалуйста, проверьте, что вы вошли в систему с правильной учетной записью пользователя."
+msgstr ""
+"Данный пользователь не является автором запрошенного материала. Пожалуйста, "
+"проверьте, что вы вошли в систему с правильной учетной записью пользователя."
 
 msgid "user.register.form.privacyConsentLabel"
 msgstr "Настройки конфиденциальности"
@@ -1721,7 +1946,9 @@ msgid "notification.type.queryAdded"
 msgstr "Добавлено обсуждение."
 
 msgid "notification.type.assignCopyeditors"
-msgstr "Назначьте литературного редактора, используя ссылку «Назначить» в списке «Участники»."
+msgstr ""
+"Назначьте литературного редактора, используя ссылку «Назначить» в списке "
+"«Участники»."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Ожидание литературного редактирование."
@@ -1733,7 +1960,12 @@ msgid "notification.type.editorialReport"
 msgstr "Сводный отчёт по статистике."
 
 msgid "notification.type.editorialReport.contents"
-msgstr "Напоминаем Вам о необходимости проверить состояние Вашего журнала с помощью редакционного отчёта."
+msgstr ""
+"Напоминаем Вам о необходимости проверить состояние Вашего журнала с помощью "
+"редакционного отчёта."
+
+msgid "notification.type.editorialReminder"
+msgstr ""
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1756,11 +1988,53 @@ msgstr "Меню навигации было успешно обновлено"
 msgid "notification.removedNavigationMenu"
 msgstr "Меню навигации было успешно удалено"
 
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Вы успешно отписались от рассылки"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Мы не можем отписать Вас от рассылки"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"Выберите письма, которые вы больше не хотите получать на {$email} от "
+"{$contextName}."
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"Вы можете в любой момент снова подписаться на уведомления по электронной "
+"почте в Вашем <a href=\"{$profileNotificationUrl}\">профиле пользователя</a>."
+
+msgid "notification.unsubscribeNotifications.successMessage"
+msgstr ""
+"Адрес электронной почты {$email} был успешно отписан от рассылки. Мы больше "
+"не будем отправлять Вам эти письма. Вы можете в любой момент снова "
+"подписаться на уведомления по электронной почте в Вашем <a href="
+"\"{$profileNotificationUrl}\">профиле пользователя</a>."
+
+msgid "notification.unsubscribeNotifications.errorMessage"
+msgstr ""
+"Произошла неожиданная ошибка и мы не смогли отписать адрес электронной почты "
+"{$email} от рассылки. Вы можете отписаться от всех уведомлений по "
+"электронной почте в вашем <a href=\"{$profileNotificationUrl}\">профиле "
+"пользователя</a> или связавшись с нами напрямую, чтобы мы смогли помочь вам."
+
+msgid "notification.unsubscribeNotifications"
+msgstr "Отписаться"
+
 msgid "list.viewMore"
 msgstr "Показать подробности о {$name}"
 
 msgid "list.viewLess"
 msgstr "Скрыть подробности о {$name}"
+
+msgid "list.expandAll"
+msgstr "Развернуть всё"
+
+msgid "list.collapseAll"
+msgstr "Свернуть все"
+
+msgid "validation.invalidOption"
+msgstr "Этот вариант не доступен."
 
 msgid "validator.accepted"
 msgstr "Пожалуйста, примите этот элемент.."
@@ -1776,6 +2050,9 @@ msgstr "Здесь могут быть только буквы."
 
 msgid "validator.alpha_dash"
 msgstr "Здесь могут быть только буквы, цифры, дефисы и подчеркивания."
+
+msgid "validator.alpha_dash_period"
+msgstr "Может содержать только буквы, цифры, дефисы, подчеркивания и точки."
 
 msgid "validator.alpha_num"
 msgstr "Здесь могут быть только буквы и цифры."
@@ -1803,6 +2080,12 @@ msgstr "Поле должно быть «истина» или «ложь»."
 
 msgid "validator.confirmed"
 msgstr "Значение и его подтверждение не совпадают."
+
+msgid "validator.country"
+msgstr "Такой страны нет."
+
+msgid "validator.country.regex"
+msgstr ""
 
 msgid "validator.currency"
 msgstr "Некорректная валюта."
@@ -1853,10 +2136,14 @@ msgid "validator.locale"
 msgstr "Данный язык не принимается."
 
 msgid "validator.localeExpected"
-msgstr "Это многоязычное поле. Должны быть введены отдельные значения для каждого поддерживаемого языка."
+msgstr ""
+"Это многоязычное поле. Должны быть введены отдельные значения для каждого "
+"поддерживаемого языка."
 
 msgid "validator.localeKey"
-msgstr "Языки должны быть указаны с помощью кода языка. Например: en_US, fr_CA, sr_RS@cyrillic."
+msgstr ""
+"Языки должны быть указаны с помощью кода языка. Например: en_US, fr_CA, "
+"sr_RS@cyrillic."
 
 msgid "validator.max.numeric"
 msgstr "Не может быть больше {$max}."
@@ -1948,75 +2235,27 @@ msgstr "{$attribute} уже использован."
 msgid "validator.url"
 msgstr "Некорректный URL."
 
-msgid "notification.unsubscribeNotifications"
-msgstr "Отписаться"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
+msgid "validator.no_new_line"
 msgstr ""
-"Произошла неожиданная ошибка и мы не смогли отписать адрес электронной почты "
-"{$email} от рассылки. Вы можете отписаться от всех уведомлений по "
-"электронной почте в вашем <a href=\"{$profileNotificationUrl}\">профиле "
-"пользователя</a> или связавшись с нами напрямую, чтобы мы смогли помочь вам."
 
-msgid "notification.unsubscribeNotifications.successMessage"
+msgid "validator.allowable_title_html_tags"
 msgstr ""
-"Адрес электронной почты {$email} был успешно отписан от рассылки. Мы больше "
-"не будем отправлять Вам эти письма. Вы можете в любой момент снова "
-"подписаться на уведомления по электронной почте в Вашем <a href=\""
-"{$profileNotificationUrl}\">профиле пользователя</a>."
-
-msgid "notification.unsubscribeNotifications.resubscribe"
-msgstr ""
-"Вы можете в любой момент снова подписаться на уведомления по электронной "
-"почте в Вашем <a href=\"{$profileNotificationUrl}\">профиле пользователя</a>."
-
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"Выберите письма, которые вы больше не хотите получать на {$email} от "
-"{$contextName}."
-
-msgid "notification.unsubscribeNotifications.error"
-msgstr "Мы не можем отписать Вас от рассылки"
-
-msgid "notification.unsubscribeNotifications.success"
-msgstr "Вы успешно отписались от рассылки"
-
-msgid "filter.import.error.couldNotImportNode"
-msgstr "Не могу импортировать XML-узел"
-
-msgid "filter.error.missingRequirements"
-msgstr ""
-"Попытка запуска трансформации, которая не поддерживается в среде вашей "
-"инсталляции."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
 "Фильтр ({$displayName}) поддерживает ввод заданных {$inputTypeName} — "
 "{$typeofInput}"
 
-msgid "validator.country"
-msgstr "Такой страны нет."
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Попытка запуска трансформации, которая не поддерживается в среде вашей "
+"инсталляции."
 
-msgid "validator.alpha_dash_period"
-msgstr "Может содержать только буквы, цифры, дефисы, подчеркивания и точки."
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Не могу импортировать XML-узел"
 
-msgid "validation.invalidOption"
-msgstr "Этот вариант не доступен."
-
-msgid "common.insert"
-msgstr "Вставить"
-
-msgid "list.collapseAll"
-msgstr "Свернуть все"
-
-msgid "list.expandAll"
-msgstr "Развернуть всё"
-
-msgid "timeZone"
-msgstr "Часовой пояс"
-
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr ""
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2029,3 +2268,24 @@ msgstr "Автор добавлен."
 
 msgid "notification.editedAuthor"
 msgstr "Автор отредактирован."
+
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr ""
+#~ "Проверка captcha для этого сайта настроена некорректно. Секретный ключ "
+#~ "отсутствует."
+
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr ""
+#~ "Проверка captcha для этого сайта настроена некорректно. Неправильный "
+#~ "секретный ключ."
+
+#~ msgid "common.captcha.error.invalid-input-response"
+#~ msgstr ""
+#~ "Вы не прошли проверку, которая используется для предотвращения рассылки "
+#~ "спама."
+
+#~ msgid "common.captchaField.description"
+#~ msgstr "Пожалуйста, введите буквы, которые вы видите на изображении выше."
+
+#~ msgid "common.captchaField"
+#~ msgstr "Проверка"

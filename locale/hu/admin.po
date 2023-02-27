@@ -24,6 +24,12 @@ msgstr "Beállítás értéke"
 msgid "admin.adminFunctions"
 msgstr "Adminisztratív funkciók"
 
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
 msgid "admin.clearDataCache"
 msgstr "Adat Cache törlése"
 
@@ -31,16 +37,28 @@ msgid "admin.clearTemplateCache"
 msgstr "Sablon Cache törlése"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "A konfigurációs fájlja sikeresen frissítve lett. Kérem, vegye figyelembe, hogyha a weboldal nem működik megfelelően, akkor előfordulhat, hogy kézzel kell javítania a konfigurációs fájl <tt>config.inc.php</tt> közvetlen szerkesztésével."
+msgstr ""
+"A konfigurációs fájlja sikeresen frissítve lett. Kérem, vegye figyelembe, "
+"hogyha a weboldal nem működik megfelelően, akkor előfordulhat, hogy kézzel "
+"kell javítania a konfigurációs fájl <tt>config.inc.php</tt> közvetlen "
+"szerkesztésével."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Biztosan törölni szeretné a betöltött sablonokat a cache-ből?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Biztosan lejárttá akarja tenni az összes felhasználói munkamenetet? Minden felhasználónak, aki bejelentkezett a rendszerbe újra be kell jelentkeznie (beleértve önt is)."
+msgstr ""
+"Biztosan lejárttá akarja tenni az összes felhasználói munkamenetet? Minden "
+"felhasználónak, aki bejelentkezett a rendszerbe újra be kell jelentkeznie "
+"(beleértve önt is)."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "A konfigurációs fájl tartalma"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Biztosan véglegesen törölni akarja ezt {$contextName} annak minden "
+"tartalmával együtt?"
 
 msgid "admin.currentVersion"
 msgstr "Aktuális verzió"
@@ -49,7 +67,11 @@ msgid "admin.dateInstalled"
 msgstr "Telepítés dátuma"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Alább látható a frissített konfigurációs fájl tartalma. A konfigurációs változtatások elfogadásához meg kell nyitnia a <tt>config.inc.php</tt> fájlt egy alkalmas szerkesztőben és lecserélni az ottani tartalmat az alább láthatóra."
+msgstr ""
+"Alább látható a frissített konfigurációs fájl tartalma. A konfigurációs "
+"változtatások elfogadásához meg kell nyitnia a <tt>config.inc.php</tt> fájlt "
+"egy alkalmas szerkesztőben és lecserélni az ottani tartalmat az alább "
+"láthatóra."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Az új konfiguráció megjelenítése"
@@ -57,11 +79,25 @@ msgstr "Az új konfiguráció megjelenítése"
 msgid "admin.expireSessions"
 msgstr "A lejárt felhasználói munkamenetek"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg nem állít be egy másik elsődleges nyelvet."
+msgstr ""
+"Ez a nyelv az elsődleges nyelv az oldalon. Nem kapcsolhatja ki, amíg nem "
+"állít be egy másik elsődleges nyelvet."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Biztosan meg akarja változtatni az oldal elsődleges nyelvét? A felhasználók "
+"nevei, melyek megadása szükséges minden elsődleges nyelvben, a hiányzó "
+"helyeken átmásolásra kerülnek majd a jelenlegi elsődleges nyelvből."
 
 msgid "admin.languages.confirmReload"
-msgstr "Biztos benne, hogy újratölti ezt a nyelvi beállítást? Ez törölni fogja a meglévő hely-specifikus adatokat, mint például az átalakított e-mail sablonokat."
+msgstr ""
+"Biztos benne, hogy újratölti ezt a nyelvi beállítást? Ez törölni fogja a "
+"meglévő hely-specifikus adatokat, mint például az átalakított e-mail "
+"sablonokat."
 
 msgid "admin.languages.installedLocales"
 msgstr "Telepített nyelvi fájlok"
@@ -108,26 +144,116 @@ msgstr "Feladat folyamat leállítva."
 msgid "admin.scheduledTask.noLog"
 msgstr "A feladat nem készített naplót."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI bejegyzése a beállított regisztrációs ügynökségen keresztül"
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Az Ön {$softwareName} telepítése automatikusan lefutott és befejeződött, a naplófájlt innen töltheti le: {$url}"
+msgstr ""
+"Az Ön {$softwareName} telepítése automatikusan lefutott és befejeződött, a "
+"naplófájlt innen töltheti le: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Biztos benne, hogy törli az összes ütemezett feladat végrehajtásának naplóit?"
+msgstr ""
+"Biztos benne, hogy törli az összes ütemezett feladat végrehajtásának naplóit?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Az elvégzett ütemezett feladatok log fájljainak törlése"
 
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Megjelentetésre ütemezve"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Lektori emlékeztető"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Értesítés Szerkesztőségi jelentésről"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Emlékeztető az előfizetés lejáratáról"
 
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Használati statisztika file töltési feladata"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "A {$file} fájlt nem lehetett megnyitni és elvetésre került."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache verzió"
@@ -150,8 +276,11 @@ msgstr "Operációs rendszer változat"
 msgid "admin.settings"
 msgstr "Beállítások"
 
-msgid "admin.settings.aboutDescription"
-msgstr "A webhelyről"
+msgid "admin.settings.about"
+msgstr "Az oldalról"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Tömeges e-mailek"
 
 msgid "admin.settings.contactEmail"
 msgstr "Email a fő kapcsolattartónak"
@@ -159,29 +288,20 @@ msgstr "Email a fő kapcsolattartónak"
 msgid "admin.settings.contactName"
 msgstr "A fő kapcsolattartó neve"
 
-msgid "admin.settings.form.contactEmailRequired"
-msgstr "A fő kapcsolattartó e-mail címét kötelező megadni."
-
-msgid "admin.settings.form.contactNameRequired"
-msgstr "A fő kapcsolattartó nevét kötelező megadni."
-
-msgid "admin.settings.form.minPasswordLengthRequired"
-msgstr "A minimális jelszó hosszúság legalább 4 karakter."
-
-msgid "admin.settings.form.titleRequired"
-msgstr "A cím kötelező"
-
-msgid "admin.settings.homeHeaderImage.altText"
-msgstr "Oldal logo"
-
-msgid "admin.settings.homeHeaderImageInvalid"
-msgstr "Érvénytelen az oldal logo képformátuma. Az elfogadott formátumok: .gif, .jpg vagy .png."
-
 msgid "admin.settings.introduction"
 msgstr "Bemutatkozás"
 
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimális jelszó hosszúság (karakterszám) "
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Tömeges e-mailek korlátozása"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Szerepkörök letiltása"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Csak egy adminisztrátor módosíthatja ezt a beállítást."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Oldalnyelv"
@@ -214,10 +334,18 @@ msgid "admin.siteSetup"
 msgstr "Oldal beállítások"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "A konfigurációs fájl <tt>config.inc.php</tt> nem található, nem olvasható vagy érvénytelen."
+msgstr ""
+"A konfigurációs fájl <tt>config.inc.php</tt> nem található, nem olvasható "
+"vagy érvénytelen."
 
 msgid "admin.systemInformation"
 msgstr "Rendszer információ"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Felépítés"
@@ -259,13 +387,17 @@ msgid "admin.version"
 msgstr "Verzió"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Az alap elérési útvonalnak {$path} a publikus fájlkönyvtáron belül kell lennie."
+msgstr ""
+"Az alap elérési útvonalnak {$path} a publikus fájlkönyvtáron belül kell "
+"lennie."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "A mappa {$path} nem egy könyvtár vagy nem olvasható."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "A fájlt {$filename} áthelyezték innen: {$currentFilePath} ide: {$destinationPath}"
+msgstr ""
+"A fájlt {$filename} áthelyezték innen: {$currentFilePath} ide: "
+"{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "A fájl {$filename} feldolgozásra került és archív."
@@ -273,139 +405,67 @@ msgstr "A fájl {$filename} feldolgozásra került és archív."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fájltöltő"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Nincsenek elérhető nyelvi fájlok letöltésre."
 
-msgid "admin.contexts.confirmDelete"
-msgstr "Biztosan véglegesen törölni akarja ezt {$contextName} annak minden tartalmával együtt?"
+msgid "admin.cli.tool.usage.title"
+msgstr "Használat:"
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr "Biztosan meg akarja változtatni az oldal elsődleges nyelvét? A felhasználók nevei, melyek megadása szükséges minden elsődleges nyelvben, a hiányzó helyeken átmásolásra kerülnek majd a jelenlegi elsődleges nyelvből."
+msgid "admin.cli.tool.usage.parameters"
+msgstr "parancs [argumentumok]"
 
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Megjelentetésre ütemezve"
+msgid "admin.cli.tool.available.commands"
+msgstr "Elérhető parancsok ehhez a `{$namespace}` névtérhez:"
 
-msgid "admin.settings.about"
-msgstr "Az oldalról"
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Csak egy adminisztrátor módosíthatja ezt a beállítást."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Szerepkörök letiltása"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Tömeges e-mailek korlátozása"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Tömeges e-mailek"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Értesítés Szerkesztőségi jelentésről"
-
-msgid "admin.jobs.createdAt"
-msgstr "Létrehozva {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Létrehozva"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Próbálkozások"
-
-msgid "admin.jobs.list.queue"
-msgstr "Várólista"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Feladat"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "navigation.tools.jobs"
-msgstr "Feladatok"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Várólistás feladatok megtekintése"
-
-msgid "admin.jobs.totalCount"
-msgstr "Összesen <strong> {$total} </strong> feladat van a várólistán"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "A következők egyikére gondolt?"
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "A(z) {$option} beállítás nem létezik."
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Van {$total} várólistás feladatunk"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Az összes feladat törölve lett!"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Lehetetlen volt törölni az összes feladatot."
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "A feladat törölve lett!"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Érvénytelen feladat ID"
-
-msgid "admin.cli.tool.jobs.purge.without.id"
+msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
-"Használnia kell legalább egy Feladat ID-t vagy '--all'-t vagy '--queue=' -t "
-"ennek a parancsnak a használatakor"
 
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Következő"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Előző"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Jelenlegi"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Oldalszámozás"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Létrehozva ekkor"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Elérhető ettől"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Fenntartva ekkortól"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Kísérletek"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Feladat megjelenítendő neve"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Várólista"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Várólistás feladatok"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Az opció nem lehet üres! Ellenőrizze a felhasználási módot."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "A Jobs használati paramétereinek megjelenítése"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "A Jobs parancs használatának megjelenítése"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "A várólistára állított feladatok mennyiségének megjelenítése"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Tesztfeladat hozzáadása az alapértelmezett várólistához"
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Az összes sorban álló munka listázása. Ha lapozást szeretne az eredmények "
+"között, használja a --page= és --perPage= paramétereket"
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -413,19 +473,348 @@ msgstr ""
 "törölni szeretné, használja az --all paramétert. Ha az összeset törölni "
 "szeretné egy adott várólistából, használja a --queue= paramétert"
 
-msgid "admin.cli.tool.jobs.available.options.list.description"
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Tesztfeladat hozzáadása az alapértelmezett várólistához"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
-"Az összes sorban álló munka listázása. Ha lapozást szeretne az eredmények "
-"között, használja a --page= és --perPage= paramétereket"
 
-msgid "admin.cli.tool.available.commands"
-msgstr "Elérhető parancsok ehhez a `{$namespace}` névtérhez:"
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
 
-msgid "admin.cli.tool.usage.parameters"
-msgstr "parancs [argumentumok]"
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
 
-msgid "admin.cli.tool.usage.title"
-msgstr "Használat:"
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
 
-msgid "admin.scheduledTask.depositDois"
-msgstr "DOI bejegyzése a beállított regisztrációs ügynökségen keresztül"
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "A várólistára állított feladatok mennyiségének megjelenítése"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "A Jobs parancs használatának megjelenítése"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "A Jobs használati paramétereinek megjelenítése"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Az opció nem lehet üres! Ellenőrizze a felhasználási módot."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Várólistás feladatok"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Várólista"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Feladat megjelenítendő neve"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Kísérletek"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Fenntartva ekkortól"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Elérhető ettől"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Létrehozva ekkor"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Oldalszámozás"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Jelenlegi"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Előző"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Következő"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Használnia kell legalább egy Feladat ID-t vagy '--all'-t vagy '--queue=' -t "
+"ennek a parancsnak a használatakor"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Érvénytelen feladat ID"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "A feladat törölve lett!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Lehetetlen volt törölni az összes feladatot."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Az összes feladat törölve lett!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Van {$total} várólistás feladatunk"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "A(z) {$option} beállítás nem létezik."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "A következők egyikére gondolt?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Összesen <strong> {$total} </strong> feladat van a várólistán"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Várólistás feladatok megtekintése"
+
+msgid "navigation.tools.jobs"
+msgstr "Feladatok"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Feladat"
+
+msgid "admin.jobs.list.queue"
+msgstr "Várólista"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Próbálkozások"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Létrehozva"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "Létrehozva {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.settings.aboutDescription"
+#~ msgstr "A webhelyről"
+
+#~ msgid "admin.settings.form.contactEmailRequired"
+#~ msgstr "A fő kapcsolattartó e-mail címét kötelező megadni."
+
+#~ msgid "admin.settings.form.contactNameRequired"
+#~ msgstr "A fő kapcsolattartó nevét kötelező megadni."
+
+#~ msgid "admin.settings.form.minPasswordLengthRequired"
+#~ msgstr "A minimális jelszó hosszúság legalább 4 karakter."
+
+#~ msgid "admin.settings.form.titleRequired"
+#~ msgstr "A cím kötelező"
+
+#~ msgid "admin.settings.homeHeaderImage.altText"
+#~ msgstr "Oldal logo"
+
+#~ msgid "admin.settings.homeHeaderImageInvalid"
+#~ msgstr ""
+#~ "Érvénytelen az oldal logo képformátuma. Az elfogadott formátumok: .gif, ."
+#~ "jpg vagy .png."

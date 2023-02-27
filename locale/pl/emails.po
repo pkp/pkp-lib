@@ -36,6 +36,9 @@ msgstr ""
 "Z wyrazami szacunku,\n"
 "{$contextSignature}"
 
+msgid "emails.submissionAck.description"
+msgstr ""
+
 #, fuzzy
 msgid "emails.reviewAck.subject"
 msgstr "Podziękowanie za wykonanie recenzji"
@@ -50,9 +53,18 @@ msgstr ""
 "budowanie jakości naszego czasopisma.\n"
 "Z wyrazami szacunku."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Ta wiadomość jest przesyłana przez redaktora prowadzącego do recenzenta. Zawiera potwierdzenie otrzymania recenzji i podziękowanie za wykonaną pracę."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "Decyzja redakcji"
@@ -78,8 +90,8 @@ msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
 "Szanowna Pani/ Szanowny Panie {$authors}<br />\n"
 "<br />\n"
-"korekta tekstu \"{$submissionTitle}\". Tekst został przekazany do składu.<br "
-"/>\n"
+"korekta tekstu \"{$submissionTitle}\". Tekst został przekazany do składu."
+"<br />\n"
 "<br />\n"
 "WWW tekstu: {$submissionUrl}"
 
@@ -160,6 +172,24 @@ msgstr ""
 "WWW tekstu: {$submissionUrl}<br />\n"
 "Nazwa użytkownika: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.subject"
 msgstr "Decyzja redakcji"
@@ -175,12 +205,106 @@ msgstr ""
 "<br />\n"
 "Decyzja redakcji: Odrzucenie zgłoszonego tekstu"
 
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
 #, fuzzy
 msgid "emails.discussion.subject"
 msgstr "Wiadomość do czasopisma \"{$contextName}\""
 
 msgid "emails.discussion.body"
 msgstr "Proszę o wpisanie wiadomości."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Zgoda na wykonanie recenzji"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Szanowni Państwo,<br />\n"
+"<br />\n"
+"zgadzam się na wykonanie recenzji tekstu \"{$submissionTitle}\", zgłoszonego "
+"do czasopisma \"{$contextName}\". Recenzja będzie gotowa do dnia "
+"{$reviewDueDate}.<br />\n"
+"<br />\n"
+"Z wyrazami szacunku,\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Potwierdzenie zgłoszenia tekstu"
@@ -198,17 +322,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Szanowni Państwo,<br />\n"
-"<br />\n"
-"zgadzam się na wykonanie recenzji tekstu \"{$submissionTitle}\", zgłoszonego "
-"do czasopisma \"{$contextName}\". Recenzja będzie gotowa do dnia "
-"{$reviewDueDate}.<br />\n"
-"<br />\n"
-"Z wyrazami szacunku,\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Zgoda na wykonanie recenzji"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Ta wiadomość jest przesyłana przez redaktora prowadzącego do recenzenta. "
+#~ "Zawiera potwierdzenie otrzymania recenzji i podziękowanie za wykonaną "
+#~ "pracę."

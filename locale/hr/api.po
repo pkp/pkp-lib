@@ -13,66 +13,16 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "api.400.invalidApiToken"
-msgstr ""
-"API token nije mogao biti potvrđen. To može ukazivati na pogrešku u API "
-"tokenu ili da API token više nije valjan."
-
-msgid "api.404.endpointNotFound"
-msgstr "Traženi URL nije prepoznat."
-
-msgid "api.dois.400.markRegisteredFailed"
-msgstr ""
-"Došlo je do pogreške i neke od poslanih stavki nisu označene kao "
-"registrirane."
-
-msgid "api.dois.400.depositFailed"
-msgstr ""
-"Neki predmeti nisu uspješno položeni. Molimo provjerite pojedinačne stavke "
-"za njihove specifične poruke pogreške."
-
-msgid "api.emails.400.missingUserGroups"
-msgstr "Morate navesti korisničke uloge koje bi trebale primiti ovu e-poruku."
-
-msgid "api.files.400.noUpload"
-msgstr "Uz zahtjev nije pronađena nijedna datoteka za učitavanje."
-
-msgid "api.files.400.config"
-msgstr ""
-"Datoteka se ne može učitati zbog pogreške konfiguracije poslužitelja. Molimo "
-"kontaktirajte administratora sustava."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr ""
-"Morate poništiti objavu ove publikacije prije nego što je možete izbrisati."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Možete učitati samo sljedeće vrste datoteka: {$fileTypes}."
-
-msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr ""
-"Datoteka koju ste prenijeli ne odgovara ekstenziji datoteke. To se može "
-"dogoditi kada je datoteka preimenovana u nekompatibilnu vrstu, na primjer "
-"promjena photo.png u photo.jpg."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"Javni direktorij datoteka nije pronađen ili se datoteke ne mogu spremiti u "
-"njega. Obratite se svom administratoru kako biste riješili ovaj problem."
-
-msgid "api.stats.400.invalidTimelineInterval"
-msgstr ""
-"Vaš zahtjev nije valjan. Interval vremenske trake mora biti `dan` ili "
-"`mjesec`."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
-msgstr "Ne možete pridružiti datoteku iz ove faze datoteke s dodjelom pregleda."
-
 msgid "api.400.paramNotSupported"
 msgstr "Parametar {$param} nije podržan."
 
 msgid "api.400.propReadOnly"
 msgstr "Svojstvo {$prop} ne može se mijenjati."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API token nije mogao biti potvrđen. To može ukazivati na pogrešku u API "
+"tokenu ili da API token više nije valjan."
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "ApiToken se nije mogao dekodirati zbog sljedeće pogreške: {$error}"
@@ -91,6 +41,9 @@ msgstr "Niste ovlašteni za pristup traženom izvoru."
 
 msgid "api.404.resourceNotFound"
 msgstr "Traženi izvor nije pronađen."
+
+msgid "api.404.endpointNotFound"
+msgstr "Traženi URL nije prepoznat."
 
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
@@ -123,6 +76,9 @@ msgstr "DOI koji ste tražili nije pronađen."
 msgid "api.dois.404.pubObjectNotFound"
 msgstr "Objekt objave koji ste tražili nije pronađen."
 
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
 "Neobjavljene stavke ne mogu se izvesti/pohraniti. Poništite odabir "
@@ -135,11 +91,24 @@ msgid "api.dois.400.xmlExportFailed"
 msgstr ""
 "Dogodila se pogreška provjere valjanosti XML-a i XML se nije mogao izvesti."
 
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Došlo je do pogreške i neke od poslanih stavki nisu označene kao "
+"registrirane."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Neki predmeti nisu uspješno položeni. Molimo provjerite pojedinačne stavke "
+"za njihove specifične poruke pogreške."
+
 msgid "api.dois.404.noPubObjectIncluded"
 msgstr "Uz zahtjev nisu uključeni valjani objekti objave."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr "Jedan ili više nevažećih objekata objave uključeni su u zahtjev."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
@@ -151,6 +120,9 @@ msgstr "Morate uključiti e-poštu koja će biti poslana."
 
 msgid "api.emails.400.missingSubject"
 msgstr "Morate unijeti predmet e-pošte."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Morate navesti korisničke uloge koje bi trebale primiti ovu e-poruku."
 
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""
@@ -166,11 +138,19 @@ msgstr "Ovo nije važeći kontekst."
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Predložak e-pošte koji ste tražili nije pronađen."
 
+msgid "api.files.400.noUpload"
+msgstr "Uz zahtjev nije pronađena nijedna datoteka za učitavanje."
+
 msgid "api.files.400.uploadFailed"
 msgstr "Nije moguće učitati jednu ili više datoteka."
 
 msgid "api.files.400.fileSize"
 msgstr "Datoteke veće od {$maxSize} ne mogu se učitati."
+
+msgid "api.files.400.config"
+msgstr ""
+"Datoteka se ne može učitati zbog pogreške konfiguracije poslužitelja. Molimo "
+"kontaktirajte administratora sustava."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "Publikacija koju želite objaviti već je objavljena."
@@ -186,8 +166,21 @@ msgstr ""
 "Ne možete mijenjati status izravno putem API-ja. Umjesto toga koristite "
 "krajnje točke / objave i / poništavanja objave."
 
+msgid "api.publication.403.cantDeletePublished"
+msgstr ""
+"Morate poništiti objavu ove publikacije prije nego što je možete izbrisati."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Možete učitati samo sljedeće vrste datoteka: {$fileTypes}."
+
 msgid "api.publicFiles.400.invalidImage"
 msgstr "Slika koju ste učitali nije važeća."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Datoteka koju ste prenijeli ne odgovara ekstenziji datoteke. To se može "
+"dogoditi kada je datoteka preimenovana u nekompatibilnu vrstu, na primjer "
+"promjena photo.png u photo.jpg."
 
 msgid "api.publicFiles.403.unauthorized"
 msgstr "Nemate dopuštenje za učitavanje datoteka."
@@ -196,6 +189,11 @@ msgid "api.publicFiles.413.noDirSpace"
 msgstr ""
 "Nemate dovoljno prostora u korisničkom direktoriju. Datoteka koju učitavate "
 "ima {$fileUploadSize} kb, a vama je preostalo {$dirSizeLeft} kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Javni direktorij datoteka nije pronađen ili se datoteke ne mogu spremiti u "
+"njega. Obratite se svom administratoru kako biste riješili ovaj problem."
 
 msgid "api.stats.400.wrongDateFormat"
 msgstr "Datum mora biti u formatu GGGG-MM-DD."
@@ -218,6 +216,11 @@ msgid "api.stats.400.invalidOrderDirection"
 msgstr ""
 "Vaš zahtjev nije valjan. Smjer redoslijeda mora biti \"desc\" ili \"asc\"."
 
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Vaš zahtjev nije valjan. Interval vremenske trake mora biti `dan` ili "
+"`mjesec`."
+
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
 "Ne možete mijenjati pridruživanje datoteka bez prosljeđivanja assocType i "
@@ -231,6 +234,10 @@ msgstr ""
 msgid "api.submissionFiles.400.badNoteAssocType"
 msgstr ""
 "Ne možete pridružiti datoteku iz ove faze datoteke s bilješkom o raspravi."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Ne možete pridružiti datoteku iz ove faze datoteke s dodjelom pregleda."
 
 msgid "api.submissionFiles.400.badReviewRoundAssocType"
 msgstr "Ne možete pridružiti datoteku iz ove faze datoteke s krugom pregleda."
@@ -303,3 +310,27 @@ msgstr "Jezik {$locale} nije podržan."
 
 msgid "api.mailables.404.mailableNotFound"
 msgstr "Email koji ste tražili nije pronađen."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr ""
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr ""
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr ""
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""

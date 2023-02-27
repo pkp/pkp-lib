@@ -12,45 +12,265 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "Kosa kata {$vocab} belum didukung."
+msgid "api.400.paramNotSupported"
+msgstr "Parameter {$param} tidak didukung."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "Bahasa {$locale} belum didukung."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.400.propReadOnly"
 msgstr ""
-"Tema aktif, {$themePluginPath}, tidak diaktifkan dan mungkin belum terinstal."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Token API tidak bisa divalidasi. Ini mengindikasikan galat pada token API "
+"atau token API sudah tidak valid."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "ApiToken tidak bisa dipecahkan karena galat berikut: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Tidak dapat mengubah waktu pembuatannya."
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr "Anda tidak berwenang mengakses sumber yang Anda diminta."
+
+msgid "api.404.resourceNotFound"
+msgstr "Sumber yang diminta tidak ditemukan."
+
+msgid "api.404.endpointNotFound"
+msgstr "URL yang diminta tidak dikenali."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Token API tidak bisa digunakan untuk mengakses website ini karena admin "
+"website belum membuat kunci rahasia."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Pengumuman yang Anda minta tidak ditemukan."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Belum mendukung bahasa di bawah ini: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Anda harus mencantumkan surel yang akan dikirimi."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Subjek email wajib diisi."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Indikasikan peran pengguna yang harus menerima surel ini."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Anda tidak diijinkan mengirim surel ke pengguna dengan satu atau peran yang "
+"dipilih."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Template surel yang Anda minta tidak ditemukan."
+
+msgid "api.files.400.noUpload"
+msgstr "Tidak ada file yang akan diunggah ditemukan sesuai permintaan."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Satu file atau lebih tidak dapat diunggah."
+
+msgid "api.files.400.fileSize"
+msgstr "File lebih besar dari {$maxSize} tidak bisa diunggah."
 
 msgid "api.files.400.config"
 msgstr ""
 "File tidak dapat diunggah karena konfigurasi server terjadi error. Hubungi "
 "pihak admin sistem."
 
-msgid "api.files.400.fileSize"
-msgstr "File lebih besar dari {$maxSize} tidak bisa diunggah."
+msgid "api.publication.403.alreadyPublished"
+msgstr "Terbitan yang ingin Anda publikasi telah diterbitkan."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Satu file atau lebih tidak dapat diunggah."
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Publikasi yang ingin Anda batalkan belum dipublikasi."
 
-msgid "api.files.400.noUpload"
-msgstr "Tidak ada file yang akan diunggah ditemukan sesuai permintaan."
+msgid "api.publication.403.cantEditPublished"
+msgstr "Anda tidak boleh menyunting terbitan ini karena sudah terbit."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "Volume, nomor atau tahun yang diminta tidak valid."
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Anda tidak bisa mengubah status melalui API secara langsung. Gunakan titik "
+"akhir /publish dan /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Anda harus membatalkan publikasi ini sebelum bisa menghapusnya."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Anda hanya bisa mengunggah tipe file berikut: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Gambar yang diunggah tidak valid."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"File yang diunggah tidak sesuai dengan ekstensi file. Hal ini dikarenakan "
+"bila sebuah file telah di-rename menjadi tipe file yang tidak didukung, "
+"misalnya mengubah photo.png menjadi photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Anda tidak diperbolehkan mengunggah file."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Anda tidak memiliki cukup ruang pada direktori pengguna. File yang diunggah "
+"{$fileUploadSize}kb dan yang tersisa {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Direktori file publik tidak ditemukan atau file tidak dapat disimpan. "
+"Silakan hubungi administrator untuk mengatasinya."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "FOrmat tanggal harus mengikuti YYYY-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Tanggal mulai tidak boleh melebihi tanggal akhir."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Tanggal mulai tidak boleh sebelum 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Tanggal akhir tidak boleh setelah kemarin."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Permintaan tidak valid. timelineInterval harus dalam `hari` atau `bulan`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr "Permintaan tidak valid. orderDirection harus `desc` atau `asc`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Anda tidak dapat mengubah asosiasi file tanpa memberikan assocType dan "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan file naskah "
+"lain."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan catatan "
+"diskusi."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan penugasan "
+"review."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan putaran "
+"review."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr "Tentukanlah putaran review ketika meminta file dalam tahap review."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Anda harus memberikan file stage."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "Tidak ada perubahan ditemukan pada permintaan mengedit file ini."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Putaran review yang Anda berikan bukan bagian dari naskah ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Anda tidak berhak mengakses file ini."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Anda tidak diizinkan untuk menambah dan mengedit file-file ini."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Anda tidak diizinkan untuk mengakses file dalam putaran review ini."
 
 msgid "api.submissions.400.missingRequired"
 msgstr ""
 "Permintaan Anda tidak dapat dipenuhi kerena tidak memberikan informasi yang "
 "dibutuhkan."
 
-msgid "api.submissions.404.siteWideEndpoint"
-msgstr ""
-"Titik akhir ini tidak tersedia dari konteks. Harusnya dapat diakses melalui "
-"site-wide namespace."
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Volume, nomor atau tahun yang diminta tidak valid."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "Anda tidak berwenang menghapus naskah ini."
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Permintaan ditolak. Kemungkinan karena masa login sudah habis. Coba reload "
+"halaman dan coba lagi."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr ""
@@ -61,168 +281,50 @@ msgstr ""
 "Hanya boleh membuka naskah yang belum terbit yang telah ditugaskan kepada "
 "Anda."
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr ""
-"Permintaan ditolak. Kemungkinan karena masa login sudah habis. Coba reload "
-"halaman dan coba lagi."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr "Permintaan tidak valid. orderDirection harus `desc` atau `asc`."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr ""
-"Permintaan tidak valid. timelineInterval harus dalam `hari` atau `bulan`."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "Tanggal akhir tidak boleh setelah kemarin."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "Tanggal mulai tidak boleh sebelum 2001-01-01."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "Tanggal mulai tidak boleh melebihi tanggal akhir."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "FOrmat tanggal harus mengikuti YYYY-MM-DD."
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Anda tidak berwenang menghapus naskah ini."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "Anda tidak diperbolehkan menynting publikasi ini."
 
-msgid "api.publicFiles.500.badFilesDir"
+msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
-"Direktori file publik tidak ditemukan atau file tidak dapat disimpan. "
-"Silakan hubungi administrator untuk mengatasinya."
+"Titik akhir ini tidak tersedia dari konteks. Harusnya dapat diakses melalui "
+"site-wide namespace."
 
-msgid "api.publicFiles.413.noDirSpace"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"Anda tidak memiliki cukup ruang pada direktori pengguna. File yang diunggah "
-"{$fileUploadSize}kb dan yang tersisa {$dirSizeLeft}kb."
+"Tema aktif, {$themePluginPath}, tidak diaktifkan dan mungkin belum terinstal."
 
-msgid "api.publicFiles.403.unauthorized"
-msgstr "Anda tidak diperbolehkan mengunggah file."
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Bahasa {$locale} belum didukung."
 
-msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"File yang diunggah tidak sesuai dengan ekstensi file. Hal ini dikarenakan "
-"bila sebuah file telah di-rename menjadi tipe file yang tidak didukung, "
-"misalnya mengubah photo.png menjadi photo.jpg."
 
-msgid "api.publicFiles.400.invalidImage"
-msgstr "Gambar yang diunggah tidak valid."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Anda hanya bisa mengunggah tipe file berikut: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Anda harus membatalkan publikasi ini sebelum bisa menghapusnya."
-
-msgid "api.publication.403.cantEditStatus"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"Anda tidak bisa mengubah status melalui API secara langsung. Gunakan titik "
-"akhir /publish dan /unpublish."
 
-msgid "api.publication.403.cantEditPublished"
-msgstr "Anda tidak boleh menyunting terbitan ini karena sudah terbit."
-
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "Publikasi yang ingin Anda batalkan belum dipublikasi."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "Terbitan yang ingin Anda publikasi telah diterbitkan."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "Template surel yang Anda minta tidak ditemukan."
-
-msgid "api.404.endpointNotFound"
-msgstr "URL yang diminta tidak dikenali."
-
-msgid "api.404.resourceNotFound"
-msgstr "Sumber yang diminta tidak ditemukan."
-
-msgid "api.403.unauthorized"
-msgstr "Anda tidak berwenang mengakses sumber yang Anda diminta."
-
-msgid "api.400.paramNotSupported"
-msgstr "Parameter {$param} tidak didukung."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "Anda tidak diizinkan untuk mengakses file dalam putaran review ini."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "Anda tidak diizinkan untuk menambah dan mengedit file-file ini."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "Anda tidak berhak mengakses file ini."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "Putaran review yang Anda berikan bukan bagian dari naskah ini."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr "Tidak ada perubahan ditemukan pada permintaan mengedit file ini."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Anda harus memberikan file stage."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
-msgstr "Tentukanlah putaran review ketika meminta file dalam tahap review."
-
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan putaran "
-"review."
 
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgid "api.jobs.406.failedJobEmpty"
 msgstr ""
-"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan penugasan "
-"review."
 
-msgid "api.submissionFiles.400.badNoteAssocType"
+msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr ""
-"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan catatan "
-"diskusi."
 
-msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr ""
-"Anda tidak dapat mengasosiasikan file dari tahap file ini dengan file naskah "
-"lain."
 
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
-"Anda tidak dapat mengubah asosiasi file tanpa memberikan assocType dan "
-"assocId."
 
-msgid "api.emails.403.notAllowedUserGroup"
+msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
-"Anda tidak diijinkan mengirim surel ke pengguna dengan satu atau peran yang "
-"dipilih."
 
-msgid "api.emails.400.missingUserGroups"
-msgstr "Indikasikan peran pengguna yang harus menerima surel ini."
-
-msgid "api.emails.400.missingSubject"
-msgstr "Subjek email wajib diisi."
-
-msgid "api.emails.400.missingBody"
-msgstr "Anda harus mencantumkan surel yang akan dikirimi."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "Pengumuman yang Anda minta tidak ditemukan."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "Tidak dapat mengubah waktu pembuatannya."
-
-msgid "api.contexts.400.localesNotSupported"
-msgstr "Belum mendukung bahasa di bawah ini: {$locales}."
-
-msgid "api.500.apiSecretKeyMissing"
+msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr ""
-"Token API tidak bisa digunakan untuk mengakses website ini karena admin "
-"website belum membuat kunci rahasia."
 
-msgid "api.400.tokenCouldNotBeDecoded"
-msgstr "ApiToken tidak bisa dipecahkan karena galat berikut: {$error}"
-
-msgid "api.400.invalidApiToken"
-msgstr ""
-"Token API tidak bisa divalidasi. Ini mengindikasikan galat pada token API "
-"atau token API sudah tidak valid."
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "Kosa kata {$vocab} belum didukung."

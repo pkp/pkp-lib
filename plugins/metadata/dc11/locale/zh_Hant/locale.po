@@ -6,3 +6,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Weblate\n"
+
+msgid "plugins.metadata.dc11.displayName"
+msgstr ""
+
+msgid "plugins.metadata.dc11.description"
+msgstr ""

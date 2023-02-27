@@ -12,135 +12,153 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "default.groups.abbrev.marketing"
-msgstr "MS"
-
-msgid "default.groups.plural.marketing"
-msgstr "Koordinator pemasaran dan jualan"
-
-msgid "default.groups.name.marketing"
-msgstr "Koordinator pemasaran dan jualan"
-
-msgid "default.groups.abbrev.internalReviewer"
-msgstr "IR"
-
-msgid "default.groups.plural.internalReviewer"
-msgstr "Pengulas Dalaman"
-
-msgid "default.groups.name.internalReviewer"
-msgstr "Pengulas Dalaman"
-
-msgid "default.groups.abbrev.designer"
-msgstr "Rekaan"
-
-msgid "default.groups.plural.designer"
-msgstr "Pereka"
-
-msgid "default.groups.name.designer"
-msgstr "Pereka"
-
-msgid "default.groups.abbrev.proofreader"
-msgstr "PR"
-
-msgid "default.groups.plural.proofreader"
-msgstr "Proofreader"
-
-msgid "default.groups.name.proofreader"
-msgstr "Proofreader"
-
-msgid "default.groups.abbrev.copyeditor"
-msgstr "CE"
-
-msgid "default.groups.plural.copyeditor"
-msgstr "Copyeditor"
-
-msgid "default.groups.name.copyeditor"
-msgstr "Copyeditor"
-
-msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdE"
-
-msgid "default.groups.plural.productionEditor"
-msgstr "Editor produksi"
-
-msgid "default.groups.name.productionEditor"
-msgstr "Editor produksi"
+msgid "default.groups.name.siteAdmin"
+msgstr "Pentadbir Laman"
 
 msgid "default.groups.plural.siteAdmin"
 msgstr "Pentadbir Laman"
 
-msgid "default.groups.name.siteAdmin"
-msgstr "Pentadbir Laman"
+msgid "default.groups.name.productionEditor"
+msgstr "Editor produksi"
 
-#, fuzzy
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
-"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+msgid "default.groups.plural.productionEditor"
+msgstr "Editor produksi"
 
-msgid "default.genres.styleSheet"
-msgstr "Lembaran Gaya HTML"
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdE"
 
-msgid "default.genres.image"
-msgstr "Imej"
+msgid "default.groups.name.copyeditor"
+msgstr "Copyeditor"
 
-msgid "default.genres.multimedia"
-msgstr "Multimedia"
+msgid "default.groups.plural.copyeditor"
+msgstr "Copyeditor"
 
-msgid "default.genres.other"
-msgstr "Lain-lain"
+msgid "default.groups.abbrev.copyeditor"
+msgstr "CE"
 
-msgid "default.groups.abbrev.reader"
-msgstr "Baca"
+msgid "default.groups.name.proofreader"
+msgstr "Proofreader"
 
-msgid "default.groups.plural.reader"
-msgstr "Pembaca"
+msgid "default.groups.plural.proofreader"
+msgstr "Proofreader"
 
-msgid "default.groups.name.reader"
-msgstr "Pembaca"
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
 
-msgid "default.groups.abbrev.translator"
-msgstr "Trans"
+msgid "default.groups.name.designer"
+msgstr "Pereka"
 
-msgid "default.groups.plural.translator"
-msgstr "Penterjemah"
+msgid "default.groups.plural.designer"
+msgstr "Pereka"
 
-msgid "default.groups.name.translator"
-msgstr "Penterjemah"
+msgid "default.groups.abbrev.designer"
+msgstr "Rekaan"
 
-msgid "default.groups.abbrev.author"
-msgstr "AU"
+msgid "default.groups.name.internalReviewer"
+msgstr "Pengulas Dalaman"
 
-msgid "default.groups.plural.author"
-msgstr "Pengarang"
+msgid "default.groups.plural.internalReviewer"
+msgstr "Pengulas Dalaman"
 
-msgid "default.groups.name.author"
-msgstr "Pengarang"
+msgid "default.groups.abbrev.internalReviewer"
+msgstr "IR"
 
-msgid "default.groups.abbrev.layoutEditor"
-msgstr "LE"
+msgid "default.groups.name.marketing"
+msgstr "Koordinator pemasaran dan jualan"
 
-msgid "default.groups.plural.layoutEditor"
-msgstr "Editor Susun Atur"
+msgid "default.groups.plural.marketing"
+msgstr "Koordinator pemasaran dan jualan"
 
-msgid "default.groups.name.layoutEditor"
-msgstr "Editor Susun Atur"
+msgid "default.groups.abbrev.marketing"
+msgstr "MS"
 
-msgid "default.groups.abbrev.indexer"
-msgstr "IND"
-
-msgid "default.groups.plural.indexer"
-msgstr "Pengindeks"
-
-msgid "default.groups.name.indexer"
-msgstr "Pengindeks"
-
-msgid "default.groups.abbrev.funding"
-msgstr "FC"
+msgid "default.groups.name.funding"
+msgstr "Koordinator pembiayaan"
 
 msgid "default.groups.plural.funding"
 msgstr "Koordinator pembiayaan"
 
-msgid "default.groups.name.funding"
-msgstr "Koordinator pembiayaan"
+msgid "default.groups.abbrev.funding"
+msgstr "FC"
+
+msgid "default.groups.name.indexer"
+msgstr "Pengindeks"
+
+msgid "default.groups.plural.indexer"
+msgstr "Pengindeks"
+
+msgid "default.groups.abbrev.indexer"
+msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Editor Susun Atur"
+
+msgid "default.groups.plural.layoutEditor"
+msgstr "Editor Susun Atur"
+
+msgid "default.groups.abbrev.layoutEditor"
+msgstr "LE"
+
+msgid "default.groups.name.author"
+msgstr "Pengarang"
+
+msgid "default.groups.plural.author"
+msgstr "Pengarang"
+
+msgid "default.groups.abbrev.author"
+msgstr "AU"
+
+msgid "default.groups.name.translator"
+msgstr "Penterjemah"
+
+msgid "default.groups.plural.translator"
+msgstr "Penterjemah"
+
+msgid "default.groups.abbrev.translator"
+msgstr "Trans"
+
+msgid "default.groups.name.reader"
+msgstr "Pembaca"
+
+msgid "default.groups.plural.reader"
+msgstr "Pembaca"
+
+msgid "default.groups.abbrev.reader"
+msgstr "Baca"
+
+msgid "default.genres.other"
+msgstr "Lain-lain"
+
+msgid "default.genres.multimedia"
+msgstr "Multimedia"
+
+msgid "default.genres.image"
+msgstr "Imej"
+
+msgid "default.genres.styleSheet"
+msgstr "Lembaran Gaya HTML"
+
+#, fuzzy
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
+"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
+"{$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""

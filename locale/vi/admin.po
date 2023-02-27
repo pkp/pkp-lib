@@ -11,248 +11,56 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Không có ngôn ngữ nào có sẵn để tải xuống."
+msgid "admin.systemInfo.settingName"
+msgstr "Đặt tên"
 
-msgid "admin.fileLoader.emailSubject"
-msgstr "Trình tải tệp"
+msgid "admin.systemInfo.settingValue"
+msgstr "Giá trị cài đặt"
 
-msgid "admin.fileLoader.fileProcessed"
-msgstr "Tệp {$filename} đã được xử lý và lưu trữ."
+msgid "admin.adminFunctions"
+msgstr "Các chức năng quản trị"
 
-msgid "admin.fileLoader.moveFileFailed"
+msgid "admin.deleteCache"
 msgstr ""
-"Không thể di chuyển tệp {$filename} từ {$currentFilePath} sang "
-"{$destinationPath}"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "Thư mục {$path} không phải là một thư mục hoặc không thể đọc được."
-
-msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Đường dẫn cơ sở {$path} phải nằm trong thư mục tệp công khai."
-
-msgid "admin.version"
-msgstr "Phiên bản"
-
-msgid "admin.version.upToDate"
-msgstr "Hệ thống của bạn được cập nhật"
-
-msgid "admin.version.updateAvailable"
-msgstr "Đã có phiên bản cập nhật"
-
-msgid "admin.versionRevision"
-msgstr "Bản sửa đổi"
-
-msgid "admin.version.moreInfo"
-msgstr "Thêm thông tin"
-
-msgid "admin.versionMinor"
-msgstr "Phụ"
-
-msgid "admin.versionMajor"
-msgstr "Chính"
-
-msgid "admin.version.latest"
-msgstr "Phiên bản mới nhất"
-
-msgid "admin.versionHistory"
-msgstr "Lịch sử phiên bản"
-
-msgid "admin.version.downloadPatch"
-msgstr "Tải xuống bản vá lỗi"
-
-msgid "admin.version.downloadPackage"
-msgstr "Tải xuống"
-
-msgid "admin.version.checkForUpdates"
-msgstr "Kiểm tra cập nhật"
-
-msgid "admin.versionBuild"
-msgstr "Xây dựng"
-
-msgid "admin.systemInformation"
-msgstr "Thông tin hệ thống"
-
-msgid "admin.systemConfigFileReadError"
+msgid "admin.deleteCache.description"
 msgstr ""
-"Tệp cấu hình <tt> config.inc.php </tt> không tồn tại, không thể đọc được "
-"hoặc không hợp lệ."
 
-msgid "admin.siteSetup"
-msgstr "Thiết lập trang web"
+msgid "admin.clearDataCache"
+msgstr "Xóa bộ nhớ cache dữ liệu"
 
-msgid "admin.siteSettings"
-msgstr "Cài đặt Trang web"
+msgid "admin.clearTemplateCache"
+msgstr "Xóa bộ nhớ đệm mẫu"
 
-msgid "admin.siteManagement"
-msgstr "Quản lý trang web"
-
-msgid "admin.siteAdmin"
-msgstr "Quản trị trang web"
-
-msgid "admin.settings.siteTheme"
-msgstr "Chủ đề trang web"
-
-msgid "admin.settings.siteTitle"
-msgstr "Tên trang web"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo trang web"
-
-msgid "admin.settings.siteStyleSheet"
-msgstr "Biểu định kiểu trang web"
-
-msgid "admin.settings.siteStyleSheetInvalid"
+msgid "admin.configFileUpdatedInstructions"
 msgstr ""
-"Định dạng Biểu định kiểu trang web không hợp lệ. Định dạng được chấp nhận là "
-".css."
+"Tệp cấu hình của bạn đã được cập nhật thành công. Xin lưu ý rằng nếu trang "
+"web của bạn không còn hoạt động bình thường, bạn có thể cần phải sửa cấu "
+"hình của mình theo cách thủ công bằng cách chỉnh sửa trực tiếp <tt> config."
+"inc.php </tt>."
 
-msgid "admin.settings.siteLanguage"
-msgstr "Ngôn ngữ trang web"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Bạn có chắc chắn muốn xóa bộ nhớ cache của các mẫu đã biên dịch không?"
 
-msgid "admin.settings.minPasswordLength"
-msgstr "Độ dài mật khẩu tối thiểu (ký tự)"
-
-msgid "admin.settings.introduction"
-msgstr "Giới thiệu"
-
-msgid "admin.settings.contactName"
-msgstr "Tên của Liên lạc chính"
-
-msgid "admin.settings.contactEmail"
-msgstr "Email của Liên lạc chính"
-
-msgid "admin.settings.about"
-msgstr "Giới thiệu Trang web"
-
-msgid "admin.settings"
-msgstr "Cài đặt"
-
-msgid "admin.server.platform"
-msgstr "Nền tảng hệ điều hành"
-
-msgid "admin.server.phpVersion"
-msgstr "Phiên bản PHP"
-
-msgid "admin.serverInformation"
-msgstr "Thông tin Máy chủ"
-
-msgid "admin.server.dbVersion"
-msgstr "Phiên bản máy chủ cơ sở dữ liệu"
-
-msgid "admin.server.dbDriver"
-msgstr "Trình điều khiển cơ sở dữ liệu"
-
-msgid "admin.server.apacheVersion"
-msgstr "Phiên bản Apache"
-
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "Tệp {$file} không thể mở và đã bị từ chối."
-
-msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Tác vụ trình tải tệp thống kê sử dụng"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Nhắc nhở hết hạn thuê bao"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Nhắc nhở phản biện"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Xuất bản các bài gửi đã được lên lịch xuất bản"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Xóa nhật ký thực thi tác vụ đã lên lịch"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"Bạn có chắc chắn muốn xóa tất cả nhật ký thực thi tác vụ đã lên lịch không?"
+"Bạn có chắc chắn muốn hết hạn tất cả các phiên người dùng không? Tất cả "
+"người dùng hiện đang đăng nhập vào hệ thống sẽ buộc phải đăng nhập lại (bao "
+"gồm cả bạn)."
 
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.contentsOfConfigFile"
+msgstr "Nội dung của tệp cấu hình"
+
+msgid "admin.contexts.confirmDelete"
 msgstr ""
-"Quá trình cài đặt {$softwareName} của bạn đã tự động thực thi và hoàn thành "
-"tác vụ này và bạn có thể tải xuống tệp nhật ký tại đây: {$url}"
+"Bạn có chắc chắn muốn xóa vĩnh viễn {$contextName} và tất cả nội dung của nó "
+"không?"
 
-msgid "admin.scheduledTask.noLog"
-msgstr "Tác vụ không có nhật ký."
+msgid "admin.currentVersion"
+msgstr "Phiên bản hiện tại"
 
-msgid "admin.scheduledTask.stopTime"
-msgstr "Quá trình tác vụ đã dừng."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Quá trình tác vụ bắt đầu."
-
-msgid "admin.scheduledTask"
-msgstr "Công việc đã lên lịch"
-
-msgid "admin.phpInfo"
-msgstr "Thông tin PHP mở rộng"
-
-msgid "admin.languages.uninstall"
-msgstr "Gỡ cài đặt Ngôn ngữ"
-
-msgid "admin.languages.reload"
-msgstr "Tải lại Ngôn ngữ"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "Không có ngôn ngữ bổ sung nào có sẵn để cài đặt."
-
-msgid "admin.languages.languageSettings"
-msgstr "Cài đặt ngôn ngữ"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Cài đặt ngôn ngữ mới"
-
-msgid "admin.languages.installLocales"
-msgstr "Cài đặt"
-
-msgid "admin.languages.installLocale"
-msgstr "Cài đặt ngôn ngữ"
-
-msgid "admin.languages.availableLocales"
-msgstr "Các ngôn ngữ có sẵn"
-
-msgid "admin.languages.installLanguages"
-msgstr "Quản lý ngôn ngữ"
-
-msgid "admin.languages.installedLocales"
-msgstr "Ngôn ngữ đã cài đặt"
-
-msgid "admin.languages.confirmReload"
-msgstr ""
-"Bạn có chắc chắn muốn tải lại ngôn ngữ này không? Thao tác này sẽ xóa mọi dữ "
-"liệu hiện có theo ngôn ngữ cụ thể, chẳng hạn như các mẫu email tùy chỉnh."
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Bạn có chắc chắn muốn thay đổi ngôn ngữ chính của trang web không? Tên của "
-"người dùng, được yêu cầu trong ngôn ngữ chính của trang web, sẽ được sao "
-"chép từ ngôn ngữ chính hiện có nơi họ bị thiếu."
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Ngôn ngữ này là ngôn ngữ chính của trang web. Bạn không thể tắt nó cho đến "
-"khi bạn chọn một ngôn ngữ chính khác."
-
-msgid "admin.languages.download.cannotModifyRegistry"
-msgstr ""
-"Không thể thêm ngôn ngữ mới vào tệp đăng ký ngôn ngữ, thường là \"registry/"
-"locales.xml\"."
-
-msgid "admin.languages.download.cannotOpen"
-msgstr "Không thể mở bộ mô tả ngôn ngữ từ trang web PKP."
-
-msgid "admin.languages.downloadLocales"
-msgstr "Tải xuống Các ngôn ngữ"
-
-msgid "admin.languages.download"
-msgstr "Tải xuống Ngôn ngữ"
-
-msgid "admin.expireSessions"
-msgstr "Hết hạn phiên người dùng"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "Hiển thị cấu hình mới"
+msgid "admin.dateInstalled"
+msgstr "Ngày cài đặt"
 
 msgid "admin.displayConfigFileInstructions"
 msgstr ""
@@ -261,47 +69,731 @@ msgstr ""
 "soạn thảo văn bản phù hợp và thay thế nội dung của nó bằng nội dung của "
 "trường văn bản bên dưới."
 
-msgid "admin.dateInstalled"
-msgstr "Ngày cài đặt"
+msgid "admin.displayNewSystemConfig"
+msgstr "Hiển thị cấu hình mới"
 
-msgid "admin.currentVersion"
-msgstr "Phiên bản hiện tại"
+msgid "admin.expireSessions"
+msgstr "Hết hạn phiên người dùng"
 
-msgid "admin.contexts.confirmDelete"
+msgid "admin.expireSessions.description"
 msgstr ""
-"Bạn có chắc chắn muốn xóa vĩnh viễn {$contextName} và tất cả nội dung của nó "
-"không?"
 
-msgid "admin.contentsOfConfigFile"
-msgstr "Nội dung của tệp cấu hình"
-
-msgid "admin.confirmExpireSessions"
+msgid "admin.languages.cantDisable"
 msgstr ""
-"Bạn có chắc chắn muốn hết hạn tất cả các phiên người dùng không? Tất cả "
-"người dùng hiện đang đăng nhập vào hệ thống sẽ buộc phải đăng nhập lại (bao "
-"gồm cả bạn)."
+"Ngôn ngữ này là ngôn ngữ chính của trang web. Bạn không thể tắt nó cho đến "
+"khi bạn chọn một ngôn ngữ chính khác."
 
-msgid "admin.confirmClearTemplateCache"
-msgstr "Bạn có chắc chắn muốn xóa bộ nhớ cache của các mẫu đã biên dịch không?"
-
-msgid "admin.configFileUpdatedInstructions"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
 msgstr ""
-"Tệp cấu hình của bạn đã được cập nhật thành công. Xin lưu ý rằng nếu trang "
-"web của bạn không còn hoạt động bình thường, bạn có thể cần phải sửa cấu "
-"hình của mình theo cách thủ công bằng cách chỉnh sửa trực tiếp <tt> "
-"config.inc.php </tt>."
+"Bạn có chắc chắn muốn thay đổi ngôn ngữ chính của trang web không? Tên của "
+"người dùng, được yêu cầu trong ngôn ngữ chính của trang web, sẽ được sao "
+"chép từ ngôn ngữ chính hiện có nơi họ bị thiếu."
 
-msgid "admin.clearTemplateCache"
-msgstr "Xóa bộ nhớ đệm mẫu"
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Bạn có chắc chắn muốn tải lại ngôn ngữ này không? Thao tác này sẽ xóa mọi dữ "
+"liệu hiện có theo ngôn ngữ cụ thể, chẳng hạn như các mẫu email tùy chỉnh."
 
-msgid "admin.clearDataCache"
-msgstr "Xóa bộ nhớ cache dữ liệu"
+msgid "admin.languages.installedLocales"
+msgstr "Ngôn ngữ đã cài đặt"
 
-msgid "admin.adminFunctions"
-msgstr "Các chức năng quản trị"
+msgid "admin.languages.installLanguages"
+msgstr "Quản lý ngôn ngữ"
 
-msgid "admin.systemInfo.settingValue"
-msgstr "Giá trị cài đặt"
+msgid "admin.languages.availableLocales"
+msgstr "Các ngôn ngữ có sẵn"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Đặt tên"
+msgid "admin.languages.installLocale"
+msgstr "Cài đặt ngôn ngữ"
+
+msgid "admin.languages.installLocales"
+msgstr "Cài đặt"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Cài đặt ngôn ngữ mới"
+
+msgid "admin.languages.languageSettings"
+msgstr "Cài đặt ngôn ngữ"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Không có ngôn ngữ bổ sung nào có sẵn để cài đặt."
+
+msgid "admin.languages.reload"
+msgstr "Tải lại Ngôn ngữ"
+
+msgid "admin.languages.uninstall"
+msgstr "Gỡ cài đặt Ngôn ngữ"
+
+msgid "admin.phpInfo"
+msgstr "Thông tin PHP mở rộng"
+
+msgid "admin.scheduledTask"
+msgstr "Công việc đã lên lịch"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Quá trình tác vụ bắt đầu."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Quá trình tác vụ đã dừng."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tác vụ không có nhật ký."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr ""
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Quá trình cài đặt {$softwareName} của bạn đã tự động thực thi và hoàn thành "
+"tác vụ này và bạn có thể tải xuống tệp nhật ký tại đây: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Bạn có chắc chắn muốn xóa tất cả nhật ký thực thi tác vụ đã lên lịch không?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Xóa nhật ký thực thi tác vụ đã lên lịch"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Xuất bản các bài gửi đã được lên lịch xuất bản"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Nhắc nhở phản biện"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr ""
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Nhắc nhở hết hạn thuê bao"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Tác vụ trình tải tệp thống kê sử dụng"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Tệp {$file} không thể mở và đã bị từ chối."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Phiên bản Apache"
+
+msgid "admin.server.dbDriver"
+msgstr "Trình điều khiển cơ sở dữ liệu"
+
+msgid "admin.server.dbVersion"
+msgstr "Phiên bản máy chủ cơ sở dữ liệu"
+
+msgid "admin.serverInformation"
+msgstr "Thông tin Máy chủ"
+
+msgid "admin.server.phpVersion"
+msgstr "Phiên bản PHP"
+
+msgid "admin.server.platform"
+msgstr "Nền tảng hệ điều hành"
+
+msgid "admin.settings"
+msgstr "Cài đặt"
+
+msgid "admin.settings.about"
+msgstr "Giới thiệu Trang web"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr ""
+
+msgid "admin.settings.contactEmail"
+msgstr "Email của Liên lạc chính"
+
+msgid "admin.settings.contactName"
+msgstr "Tên của Liên lạc chính"
+
+msgid "admin.settings.introduction"
+msgstr "Giới thiệu"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Độ dài mật khẩu tối thiểu (ký tự)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr ""
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr ""
+
+msgid "admin.settings.siteLanguage"
+msgstr "Ngôn ngữ trang web"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr ""
+"Định dạng Biểu định kiểu trang web không hợp lệ. Định dạng được chấp nhận "
+"là .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Biểu định kiểu trang web"
+
+msgid "admin.settings.siteLogo"
+msgstr "Logo trang web"
+
+msgid "admin.settings.siteTitle"
+msgstr "Tên trang web"
+
+msgid "admin.settings.siteTheme"
+msgstr "Chủ đề trang web"
+
+msgid "admin.siteAdmin"
+msgstr "Quản trị trang web"
+
+msgid "admin.siteManagement"
+msgstr "Quản lý trang web"
+
+msgid "admin.siteSettings"
+msgstr "Cài đặt Trang web"
+
+msgid "admin.siteSetup"
+msgstr "Thiết lập trang web"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"Tệp cấu hình <tt> config.inc.php </tt> không tồn tại, không thể đọc được "
+"hoặc không hợp lệ."
+
+msgid "admin.systemInformation"
+msgstr "Thông tin hệ thống"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
+
+msgid "admin.versionBuild"
+msgstr "Xây dựng"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Kiểm tra cập nhật"
+
+msgid "admin.version.downloadPackage"
+msgstr "Tải xuống"
+
+msgid "admin.version.downloadPatch"
+msgstr "Tải xuống bản vá lỗi"
+
+msgid "admin.versionHistory"
+msgstr "Lịch sử phiên bản"
+
+msgid "admin.version.latest"
+msgstr "Phiên bản mới nhất"
+
+msgid "admin.versionMajor"
+msgstr "Chính"
+
+msgid "admin.versionMinor"
+msgstr "Phụ"
+
+msgid "admin.version.moreInfo"
+msgstr "Thêm thông tin"
+
+msgid "admin.versionRevision"
+msgstr "Bản sửa đổi"
+
+msgid "admin.version.updateAvailable"
+msgstr "Đã có phiên bản cập nhật"
+
+msgid "admin.version.upToDate"
+msgstr "Hệ thống của bạn được cập nhật"
+
+msgid "admin.version"
+msgstr "Phiên bản"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "Đường dẫn cơ sở {$path} phải nằm trong thư mục tệp công khai."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "Thư mục {$path} không phải là một thư mục hoặc không thể đọc được."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"Không thể di chuyển tệp {$filename} từ {$currentFilePath} sang "
+"{$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "Tệp {$filename} đã được xử lý và lưu trữ."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Trình tải tệp"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Không có ngôn ngữ nào có sẵn để tải xuống."
+
+msgid "admin.cli.tool.usage.title"
+msgstr ""
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""
+
+#~ msgid "admin.languages.download.cannotModifyRegistry"
+#~ msgstr ""
+#~ "Không thể thêm ngôn ngữ mới vào tệp đăng ký ngôn ngữ, thường là "
+#~ "\"registry/locales.xml\"."
+
+#~ msgid "admin.languages.download.cannotOpen"
+#~ msgstr "Không thể mở bộ mô tả ngôn ngữ từ trang web PKP."
+
+#~ msgid "admin.languages.downloadLocales"
+#~ msgstr "Tải xuống Các ngôn ngữ"
+
+#~ msgid "admin.languages.download"
+#~ msgstr "Tải xuống Ngôn ngữ"

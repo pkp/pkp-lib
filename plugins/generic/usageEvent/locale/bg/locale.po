@@ -12,10 +12,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.generic.usageEvent.displayName"
+msgstr "Модул (плъгин) за събития при употреба"
+
 msgid "plugins.generic.usageEvent.description"
 msgstr ""
 "Създава кука (точка на обработка), която предоставя събитие за използване в "
 "определен формат."
-
-msgid "plugins.generic.usageEvent.displayName"
-msgstr "Модул (плъгин) за събития при употреба"

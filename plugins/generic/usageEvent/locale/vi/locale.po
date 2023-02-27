@@ -11,9 +11,9 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.generic.usageEvent.displayName"
+msgstr "Sự kiện sử dụng"
+
 msgid "plugins.generic.usageEvent.description"
 msgstr ""
 "Tạo một cái móc mà cung cấp sự kiện sử dụng trong một định dạng xác định."
-
-msgid "plugins.generic.usageEvent.displayName"
-msgstr "Sự kiện sử dụng"

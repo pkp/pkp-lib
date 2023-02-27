@@ -12,47 +12,271 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "api.vocabs.400.vocabNotSupported"
-msgstr "El vocabulario {$vocab} no está soportado."
+msgid "api.400.paramNotSupported"
+msgstr "El parámetro {$param} no está soportado."
 
-msgid "api.vocabs.400.localeNotSupported"
-msgstr "La configuración regional {$locale} no está soportada."
-
-msgid "api.themes.404.themeUnavailable"
+msgid "api.400.propReadOnly"
 msgstr ""
-"El tema activo, {$themePluginPath}, no está habilitado y podría no "
-"instalarse."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"No se ha podido validar la API token. Esto podría indicar un error en la API "
+"token o que esta ya no es válida."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr ""
+"No se ha podido descodificar la API token a causa del siguiente error: "
+"{$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr ""
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "No es posible cambiar la fecha en que fue creado."
+
+msgid "api.dois.403.prefixRequired"
+msgstr ""
+
+msgid "api.403.unauthorized"
+msgstr "No está autorizado para acceder al recurso solicitado."
+
+msgid "api.404.resourceNotFound"
+msgstr "No se encontró el recurso solicitado."
+
+msgid "api.404.endpointNotFound"
+msgstr "La URL solicitada no fue reconocida."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"No se ha podido utilizar la API token para acceder a este sitio porque el "
+"administrador/a no ha configurado una clave secreta."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "No se ha encontrado el aviso solicitado."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr ""
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr ""
+"Las siguientes configuraciones regionales no son compatibles: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr ""
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+
+msgid "api.dois.404.doiNotFound"
+msgstr ""
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr ""
+
+msgid "api.dois.404.submissionNotFound"
+msgstr ""
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+
+msgid "api.dois.400.creationFailed"
+msgstr ""
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr ""
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+
+msgid "api.emails.400.missingBody"
+msgstr "Debe incluir un correo electrónico para enviarlo."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Debe proporcionar el asunto del correo electrónico."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Debe indicar qué roles de usuario/a deberían recibir este correo electrónico."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"No tiene permiso para enviar un correo electrónico a los usuarios/as en uno "
+"o más de los roles seleccionados."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr ""
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "No se encontró la plantilla de correo electrónico solicitada."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+"No se ha podido encontrar ningún archivo que cargar para esta solicitud."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Uno o más archivos no se han podido cargar."
+
+msgid "api.files.400.fileSize"
+msgstr "Los archivos más grandes que {$maxSize} no se pueden cargar."
 
 msgid "api.files.400.config"
 msgstr ""
 "No se pudo cargar el archivo debido a un error de configuración del "
 "servidor. Contacte con el administrador/a de sistemas."
 
-msgid "api.files.400.fileSize"
-msgstr "Los archivos más grandes que {$maxSize} no se pueden cargar."
+msgid "api.publication.403.alreadyPublished"
+msgstr "La publicación que quiere publicar ya está publicada."
 
-msgid "api.files.400.uploadFailed"
-msgstr "Uno o más archivos no se han podido cargar."
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "La publicación que quiere retirar no ha sido publicada."
 
-msgid "api.files.400.noUpload"
+msgid "api.publication.403.cantEditPublished"
+msgstr "No puede editar esta publicación porque ya ha sido publicada."
+
+msgid "api.publication.403.cantEditStatus"
 msgstr ""
-"No se ha podido encontrar ningún archivo que cargar para esta solicitud."
+"No puede modificar el estado directamente a través de la API. En vez de eso, "
+"utilice los terminales /publish y /unpublish."
 
-msgid "api.submissions.unknownError"
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Debe retirarlo de publicación antes de poder eliminarlo."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Solo puede cargar los siguientes tipos de archivos: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "La imagen cargada no es válida."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
 msgstr ""
-"Ha sucedido un error inesperado. Vuelva a cargar la página e inténtelo de "
-"nuevo."
+"El archivo cargado no se corresponde con la extensión de archivo. Esto puede "
+"ocurrir cuando un archivo es renombrado a un tipo incompatible, por ejemplo "
+"al cambiar photo.png a photo.jpg."
 
-msgid "api.submissions.400.invalidIssueIdentifiers"
-msgstr "El volumen, número o año solicitados no son válidos."
+msgid "api.publicFiles.403.unauthorized"
+msgstr "No tiene permiso para cargar archivos."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"No hay suficiente espacio en su directorio de usuario/a. El archivo que "
+"quiere cargar tiene {$fileUploadSize}kb y le quedan {$dirSizeLeft}kb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"El directorio de archivos públicos no se encontró o los archivos no pueden "
+"guardarse en él. Contacte con el administrador/a para resolver este problema."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "La fecha debe estar en formato AAAA-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "La fecha de inicio no puede ser posterior a la fecha de finalización."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "La fecha de inicio no puede ser anterior a 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "La fecha de finalización no puede ser posterior a ayer."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Su solicitud no es válida. El intervalo cronológico de tiempo debe ser `día` "
+"o `mes`."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Su solicitud no es válida. La ordenación de resultados debe ser `desc` o "
+"`asc`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"No puede modificar la asociación de archivos sin pasar un assocType y un "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"No puede asociar un archivo desde esta fase con otro archivo del envío."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "No puede asociar un archivo desde esta fase con una nota de discusión."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"No puede asociar un archivo desde esta fase con una asignación de revisión."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "No puede asociar un archivo desde esta fase con una ronda de revisión."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Debe especificar una ronda de revisión cuando solicite archivos en una fase "
+"de revisión."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Debe proporcionar una fase de archivo."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr ""
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "No se han encontrado cambios en la solicitud para editar este archivo."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"La ronda de revisión que ha proporcionado no forma parte de este envío."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "No tiene permiso para acceder a estos archivos."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "No tiene permiso para añadir y editar estos archivos."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr ""
+"No tiene permiso para acceder a los archivos en esta ronda de revisión."
 
 msgid "api.submissions.400.missingRequired"
 msgstr ""
 "Su solicitud no se ha podido completar porque le falta información "
 "obligatoria."
 
-msgid "api.submissions.403.unauthorizedDeleteSubmission"
-msgstr "No tiene permiso para eliminar este envío."
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "El volumen, número o año solicitados no son válidos."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr ""
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Su solicitud ha sido denegada. Esto podría deberse a que su sesión ha "
+"expirado. Pruebe a recargar la página y vuelva a intentarlo."
 
 msgid "api.submissions.403.deleteSubmissionOutOfContext"
 msgstr "No puede eliminar un envío que no esté asignado a este contexto."
@@ -61,175 +285,56 @@ msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
 msgstr ""
 "Solo puede ver envíos retirados de publicación a los que haya sido asignado."
 
-msgid "api.submissions.403.csrfTokenFailure"
-msgstr ""
-"Su solicitud ha sido denegada. Esto podría deberse a que su sesión ha "
-"expirado. Pruebe a recargar la página y vuelva a intentarlo."
-
-msgid "api.stats.400.invalidOrderDirection"
-msgstr ""
-"Su solicitud no es válida. La ordenación de resultados debe ser `desc` o "
-"`asc`."
-
-msgid "api.stats.400.wrongTimelineInterval"
-msgstr ""
-"Su solicitud no es válida. El intervalo cronológico de tiempo debe ser `día` "
-"o `mes`."
-
-msgid "api.stats.400.lateDateRange"
-msgstr "La fecha de finalización no puede ser posterior a ayer."
-
-msgid "api.stats.400.earlyDateRange"
-msgstr "La fecha de inicio no puede ser anterior a 2001-01-01."
-
-msgid "api.stats.400.wrongDateRange"
-msgstr "La fecha de inicio no puede ser posterior a la fecha de finalización."
-
-msgid "api.stats.400.wrongDateFormat"
-msgstr "La fecha debe estar en formato AAAA-MM-DD."
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "No tiene permiso para eliminar este envío."
 
 msgid "api.submissions.403.userCantEdit"
 msgstr "No tiene permiso para editar esta publicación."
-
-msgid "api.publicFiles.500.badFilesDir"
-msgstr ""
-"El directorio de archivos públicos no se encontró o los archivos no pueden "
-"guardarse en él. Contacte con el administrador/a para resolver este problema."
-
-msgid "api.publicFiles.413.noDirSpace"
-msgstr ""
-"No hay suficiente espacio en su directorio de usuario/a. El archivo que "
-"quiere cargar tiene {$fileUploadSize}kb y le quedan {$dirSizeLeft}kb."
-
-msgid "api.publicFiles.403.unauthorized"
-msgstr "No tiene permiso para cargar archivos."
-
-msgid "api.publicFiles.400.mimeTypeNotMatched"
-msgstr ""
-"El archivo cargado no se corresponde con la extensión de archivo. Esto puede "
-"ocurrir cuando un archivo es renombrado a un tipo incompatible, por ejemplo "
-"al cambiar photo.png a photo.jpg."
-
-msgid "api.publicFiles.400.invalidImage"
-msgstr "La imagen cargada no es válida."
-
-msgid "api.publicFiles.400.extensionNotSupported"
-msgstr "Solo puede cargar los siguientes tipos de archivos: {$fileTypes}."
-
-msgid "api.publication.403.cantDeletePublished"
-msgstr "Debe retirarlo de publicación antes de poder eliminarlo."
-
-msgid "api.publication.403.cantEditStatus"
-msgstr ""
-"No puede modificar el estado directamente a través de la API. En vez de eso, "
-"utilice los terminales /publish y /unpublish."
-
-msgid "api.publication.403.cantEditPublished"
-msgstr "No puede editar esta publicación porque ya ha sido publicada."
-
-msgid "api.publication.403.alreadyUnpublished"
-msgstr "La publicación que quiere retirar no ha sido publicada."
-
-msgid "api.publication.403.alreadyPublished"
-msgstr "La publicación que quiere publicar ya está publicada."
-
-msgid "api.emailTemplates.404.templateNotFound"
-msgstr "No se encontró la plantilla de correo electrónico solicitada."
-
-msgid "api.404.endpointNotFound"
-msgstr "La URL solicitada no fue reconocida."
-
-msgid "api.404.resourceNotFound"
-msgstr "No se encontró el recurso solicitado."
-
-msgid "api.403.unauthorized"
-msgstr "No está autorizado para acceder al recurso solicitado."
-
-msgid "api.400.paramNotSupported"
-msgstr "El parámetro {$param} no está soportado."
 
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Este terminal no está disponible desde el contexto. Se debe acceder a él "
 "desde el espacio de nombres (namespace) de todo el sitio."
 
-msgid "api.emails.403.notAllowedUserGroup"
+msgid "api.themes.404.themeUnavailable"
 msgstr ""
-"No tiene permiso para enviar un correo electrónico a los usuarios/as en uno "
-"o más de los roles seleccionados."
+"El tema activo, {$themePluginPath}, no está habilitado y podría no "
+"instalarse."
 
-msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "La configuración regional {$locale} no está soportada."
+
+msgid "api.mailables.404.mailableNotFound"
 msgstr ""
-"No puede modificar la asociación de archivos sin pasar un assocType y un "
-"assocId."
 
-msgid "api.emails.400.missingUserGroups"
+msgid "api.jobs.404.failedJobNotFound"
 msgstr ""
-"Debe indicar qué roles de usuario/a deberían recibir este correo electrónico."
 
-msgid "api.emails.400.missingSubject"
-msgstr "Debe proporcionar el asunto del correo electrónico."
-
-msgid "api.emails.400.missingBody"
-msgstr "Debe incluir un correo electrónico para enviarlo."
-
-msgid "api.announcements.404.announcementNotFound"
-msgstr "No se ha encontrado el aviso solicitado."
-
-msgid "api.files.400.notAllowedCreatedAt"
-msgstr "No es posible cambiar la fecha en que fue creado."
-
-msgid "api.submissionFiles.403.unauthorizedReviewRound"
-msgstr "No tiene permiso para acceder a los archivos en esta ronda de revisión."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
-msgstr "No tiene permiso para añadir y editar estos archivos."
-
-msgid "api.submissionFiles.403.unauthorizedFileStageId"
-msgstr "No tiene permiso para acceder a estos archivos."
-
-msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
-msgstr "La ronda de revisión que ha proporcionado no forma parte de este envío."
-
-msgid "api.submissionsFiles.400.noParams"
-msgstr "No se han encontrado cambios en la solicitud para editar este archivo."
-
-msgid "api.submissionFiles.400.noFileStageId"
-msgstr "Debe proporcionar una fase de archivo."
-
-msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
-"Debe especificar una ronda de revisión cuando solicite archivos en una fase "
-"de revisión."
 
-msgid "api.submissionFiles.400.badReviewRoundAssocType"
-msgstr "No puede asociar un archivo desde esta fase con una ronda de revisión."
-
-msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgid "api.jobs.406.failedJobEmpty"
 msgstr ""
-"No puede asociar un archivo desde esta fase con una asignación de revisión."
 
-msgid "api.submissionFiles.400.badNoteAssocType"
-msgstr "No puede asociar un archivo desde esta fase con una nota de discusión."
-
-msgid "api.submissionFiles.400.badDependentFileAssocType"
-msgstr "No puede asociar un archivo desde esta fase con otro archivo del envío."
-
-msgid "api.contexts.400.localesNotSupported"
+msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr ""
-"Las siguientes configuraciones regionales no son compatibles: {$locales}."
 
-msgid "api.500.apiSecretKeyMissing"
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr ""
-"No se ha podido utilizar la API token para acceder a este sitio porque el "
-"administrador/a no ha configurado una clave secreta."
 
-msgid "api.400.tokenCouldNotBeDecoded"
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
-"No se ha podido descodificar la API token a causa del siguiente error: "
-"{$error}"
 
-msgid "api.400.invalidApiToken"
+msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
-"No se ha podido validar la API token. Esto podría indicar un error en la API "
-"token o que esta ya no es válida."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr ""
+
+#~ msgid "api.vocabs.400.vocabNotSupported"
+#~ msgstr "El vocabulario {$vocab} no está soportado."
+
+#~ msgid "api.submissions.unknownError"
+#~ msgstr ""
+#~ "Ha sucedido un error inesperado. Vuelva a cargar la página e inténtelo de "
+#~ "nuevo."

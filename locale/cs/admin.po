@@ -15,8 +15,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "admin.systemInfo.settingName"
+msgstr "Nastavení - název"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Nastavení - hodnota"
+
 msgid "admin.adminFunctions"
 msgstr "Administrátorské funkce"
+
+msgid "admin.deleteCache"
+msgstr "Smazat cache"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Odstranění souborů mezipaměti ze systému. Toto by se mělo provádět pouze ve "
+"vývojovém prostředí."
 
 msgid "admin.clearDataCache"
 msgstr "Vymazat mezipaměti dat"
@@ -42,6 +56,11 @@ msgstr ""
 msgid "admin.contentsOfConfigFile"
 msgstr "Obsah konfiguračního souboru"
 
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"Jste si jisti, že chcete trvale odstranit {$contextName} a všechen jeho/její "
+"obsah?"
+
 msgid "admin.currentVersion"
 msgstr "Aktuální verze"
 
@@ -60,6 +79,22 @@ msgstr "Zobrazit novou konfiguraci"
 msgid "admin.expireSessions"
 msgstr "Vypršení uživatelské relace"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+"Všichni uživatelé včetně vás budou z aplikace okamžitě odhlášeni a budou se "
+"muset znovu přihlásit."
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud "
+"nezvolíte jinou primární lokalizaci."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Opravdu chcete změnit výchozí národní nastavení webu? Jména uživatelů, která "
+"jsou požadována v primárním národním prostředí webu, budou zkopírována z "
+"existujícího primárního národního prostředí, kde chybí."
+
 msgid "admin.languages.confirmReload"
 msgstr ""
 "Jste si jistý, že chcete znovu načíst tuto lokalizaci? To vymaže všechna "
@@ -71,6 +106,12 @@ msgstr "Instalované lokalizace"
 
 msgid "admin.languages.installLanguages"
 msgstr "Spravovat lokalizace"
+
+msgid "admin.languages.availableLocales"
+msgstr "Dostupné lokalizace"
+
+msgid "admin.languages.installLocale"
+msgstr "Instalovat lokalizaci"
 
 msgid "admin.languages.installLocales"
 msgstr "Instalovat"
@@ -93,6 +134,149 @@ msgstr "Odinstalovat lokalizaci"
 msgid "admin.phpInfo"
 msgstr "Rozšířené informace o PHP"
 
+msgid "admin.scheduledTask"
+msgstr "Naplánovaná úloha"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Naplánovaný proces se spustil."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Naplánovaný proces byl ukončen."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Úloha nevytvořila žádný záznam do logu."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "Uložení DOI u registrační agentury dle konfigurace"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"Instalace {$softwareName} se automatiky provedla a ukončila tuto úlohu, "
+"záznam logu si můžete stáhnout zde: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr "Odeslání e-mailu každému redaktorovi s připomenutím nesplněných úkolů"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr "Identifikace editorů, které je třeba upomínat v kontextu {$contextId}"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"Odesláno {$count} úkolů v rámci redakčních e-mailových upomínek uživatelům "
+"{$userIds} v kontextu {$contextId}"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr "Jste si jisti, že chcete smazat logy všech provedených úloh?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Smazat logy naplánovaných úloh"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Odstranění všech protokolů spuštěných procesů naplánovaných úloh."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Odstranění protokolů úloh"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Publikovat příspěvky naplánované na zveřejnění"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Připomenutí recenze"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Upozornění na redakční zprávu"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Připomenutí vypršení předplatného"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr "Odstranění neověřených uživatelů s prošlou platností"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Zpracování úloh čekajících ve frontě"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "Aktualizace databáze DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"Přejmenování souboru databáze DB-IP city lite {$sourceFilename} na "
+"{$targetFilename} se nezdařilo."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "Úloha nahrání souboru statistik využití"
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"Adresář {$directory} není prázdný. To může znamenat předchozí neúspěšný "
+"proces nebo souběžně běžící proces. Tento soubor bude automaticky znovu "
+"zpracován."
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "Soubor {$file} nelze načíst a byl odmítnut."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"Soubor {$file} je ve starém formátu protokolu, který nelze zpracovat, a "
+"proto bude přesunut zpět do adresáře fáze."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"Přeskočen soubor protokolu {$file}, protože statistiky z tohoto měsíce již "
+"byly vypočteny. Chcete-li přepočítat statistiky za předchozí měsíc, musíte "
+"obnovit všechny soubory protokolu z tohoto měsíce a použít nástroj CLI k "
+"opětovnému zpracování statistik."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"Řádek {$lineNumber} v souboru protokolu {$file} je ve špatném formátu, a "
+"proto bude přeskočen."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"Neplatný záznam protokolu na řádku {$lineNumber} v souboru protokolu "
+"{$file}: {$error}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "Čas není platným datem."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "ID kontextu není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "ID příspěvku není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "ID reprezentace není celé číslo."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "Typ Assoc není podporován."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Typ souboru není podporován."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "Zkratka státu není řetězec dvou abecedních znaků."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "Zkratka regionu není až tři alfanumerické znaky dlouhý řetězec."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "ID institucí není pole."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+"Při zpracování souboru protokolu {$file} došlo k chybě na řádku "
+"{$lineNumber}: {$msg}"
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"Úloha na pozadí, která zpracuje soubor protokolu {$file} a uloží statistická "
+"data, byla odeslána."
+
 msgid "admin.server.apacheVersion"
 msgstr "Verze Apache"
 
@@ -111,8 +295,14 @@ msgstr "Verze PHP"
 msgid "admin.server.platform"
 msgstr "Platforma OS"
 
+msgid "admin.settings"
+msgstr "Nastavení"
+
 msgid "admin.settings.about"
 msgstr "O popisu stránky"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Hromadné e-maily"
 
 msgid "admin.settings.contactEmail"
 msgstr "E-mail hlavní kontaktní osoby"
@@ -126,6 +316,15 @@ msgstr "Úvod"
 msgid "admin.settings.minPasswordLength"
 msgstr "Minimální délka hesla"
 
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Omezit hromadné e-maily"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Deaktivovat role"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Tato nastavení může měnit jen administrátor."
+
 msgid "admin.settings.siteLanguage"
 msgstr "Jazyk stránky"
 
@@ -135,8 +334,14 @@ msgstr "Neplatný formát stylu stránky. Podporovaný formát je .css."
 msgid "admin.settings.siteStyleSheet"
 msgstr "Styl stránky"
 
+msgid "admin.settings.siteLogo"
+msgstr "Logo stránek"
+
 msgid "admin.settings.siteTitle"
 msgstr "Název stránky"
+
+msgid "admin.settings.siteTheme"
+msgstr "Téma stránek"
 
 msgid "admin.siteAdmin"
 msgstr "Administrace stránek"
@@ -147,6 +352,9 @@ msgstr "Správa stránek"
 msgid "admin.siteSettings"
 msgstr "Nastavení stránek"
 
+msgid "admin.siteSetup"
+msgstr "Nastavení stránek"
+
 msgid "admin.systemConfigFileReadError"
 msgstr ""
 "Konfigurační soubor <tt>config.inc.php</tt> neexistuje, není čitelný nebo je "
@@ -154,6 +362,13 @@ msgstr ""
 
 msgid "admin.systemInformation"
 msgstr "Systémové informace"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Zobrazení informací o verzi a nastavení konfigurace aplikace a serveru."
+
+msgid "admin.systemInformation.view"
+msgstr "Zobrazit systémové informace"
 
 msgid "admin.versionBuild"
 msgstr "Sestavení"
@@ -194,70 +409,6 @@ msgstr "Používáte aktuální verzi systému"
 msgid "admin.version"
 msgstr "Verze"
 
-msgid "admin.systemInfo.settingName"
-msgstr "Nastavení - název"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Nastavení - hodnota"
-
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Tato lokalizace je primární jazyk těchto stránek. Nemůžete ji vypnout dokud "
-"nezvolíte jinou primární lokalizaci."
-
-msgid "admin.languages.availableLocales"
-msgstr "Dostupné lokalizace"
-
-msgid "admin.languages.installLocale"
-msgstr "Instalovat lokalizaci"
-
-msgid "admin.scheduledTask"
-msgstr "Naplánovaná úloha"
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Naplánovaný proces se spustil."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Naplánovaný proces byl ukončen."
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Úloha nevytvořila žádný záznam do logu."
-
-msgid "admin.scheduledTask.downloadLog"
-msgstr ""
-"Instalace {$softwareName} se automatiky provedla a ukončila tuto úlohu, "
-"záznam logu si můžete stáhnout zde: {$url}"
-
-msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Jste si jisti, že chcete smazat logy všech provedených úloh?"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Smazat logy naplánovaných úloh"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Připomenutí recenze"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Připomenutí vypršení předplatného"
-
-msgid "admin.scheduledTask.usageStatsLoader"
-msgstr "Úloha nahrání souboru statistik využití"
-
-msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "Soubor {$file} nelze načíst a byl odmítnut."
-
-msgid "admin.settings"
-msgstr "Nastavení"
-
-msgid "admin.settings.siteLogo"
-msgstr "Logo stránek"
-
-msgid "admin.settings.siteTheme"
-msgstr "Téma stránek"
-
-msgid "admin.siteSetup"
-msgstr "Nastavení stránek"
-
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr "Základní cesta {$path} musí být v rámci veřejně přístupných složek."
 
@@ -275,283 +426,6 @@ msgstr "Soubor {$filename} byl zpracován a archivován."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Nahrávání souboru"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Nejsou dostupné žádné lokalizace ke stažení."
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"Jste si jisti, že chcete trvale odstranit {$contextName} a všechen jeho/její "
-"obsah?"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Publikovat příspěvky naplánované na zveřejnění"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Opravdu chcete změnit výchozí národní nastavení webu? Jména uživatelů, která "
-"jsou požadována v primárním národním prostředí webu, budou zkopírována z "
-"existujícího primárního národního prostředí, kde chybí."
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Tato nastavení může měnit jen administrátor."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Deaktivovat role"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Omezit hromadné e-maily"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Hromadné e-maily"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Upozornění na redakční zprávu"
-
-msgid "admin.jobs.createdAt"
-msgstr "Vytvořeno v {$createdAt}"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Vytvořeno v"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Pokusy"
-
-msgid "admin.jobs.list.queue"
-msgstr "Fronta"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Úloha"
-
-msgid "admin.jobs.list.id"
-msgstr "ID"
-
-msgid "navigation.tools.jobs"
-msgstr "Úlohy"
-
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Zobrazení úloh ve frontě"
-
-msgid "admin.jobs.totalCount"
-msgstr "Ve frontě je celkem <strong>{$total}</strong> úloh"
-
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Měli jste na mysli jednu z následujících možností?"
-
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "Možnost {$option} neexistuje."
-
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Ve frontě máme {$total} úloh"
-
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Všechny úlohy byly smazány!"
-
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Nebylo možné odstranit všechny úlohy."
-
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "Úloha byla smazána!"
-
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Neplatné ID úlohy"
-
-msgid "admin.cli.tool.jobs.purge.without.id"
-msgstr ""
-"Chcete-li použít tento příkaz, měli byste zadat alespoň Job ID, '--all' nebo "
-"'--queue='"
-
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Následující"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Předchozí"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Aktuální"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Stránkování"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Vytvořeno v"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Dostupné na"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Rezervováno na"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Pokusy"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Zobrazení názvu úlohy"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Fronta"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Fronta Jobs"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Možnost nemůže být prázdná! Zkontrolujte způsob použití."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Zobrazení parametrů použití Jobs"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Zobrazení použití příkazu Jobs"
-
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Zobrazení množství úloh ve frontě"
-
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr ""
-"Přidání testovací úlohy do testovací fronty. Použijte volitelný parametr --"
-"only= a zadejte „failed“ nebo „success“ pro odeslání neúspěšné nebo úspěšné "
-"úlohy."
-
-msgid "admin.cli.tool.jobs.available.options.purge.description"
-msgstr ""
-"Vyčistit konkrétní úlohu ve frontě na základě jejího ID. Pokud chcete "
-"vyčistit všechny, předejte parametr --all. Pokud chcete vyčistit všechny z "
-"konkrétní fronty, předejte parametr --queue="
-
-msgid "admin.cli.tool.jobs.available.options.list.description"
-msgstr ""
-"Vypsat všechny úlohy ve frontě. Pokud chcete výsledky stránkovat, použijte "
-"parametry --page= a --perPage="
-
-msgid "admin.cli.tool.available.commands"
-msgstr "Dostupné příkazy pro obor názvů `{$namespace}`:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "příkaz [argumenty]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Využití:"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "Uložení DOI u registrační agentury dle konfigurace"
-
-msgid "navigation.tools.jobs.view"
-msgstr "Zobrazit úlohy"
-
-msgid "navigation.tools.jobs.description"
-msgstr ""
-"Zobrazit všechny úlohy ve frontě v systému a sledovat neúspěšné pokusy."
-
-msgid "admin.systemInformation.view"
-msgstr "Zobrazit systémové informace"
-
-msgid "admin.systemInformation.description"
-msgstr ""
-"Zobrazení informací o verzi a nastavení konfigurace aplikace a serveru."
-
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Odstranění protokolů úloh"
-
-msgid "admin.scheduledTask.clearLogs.description"
-msgstr "Odstranění všech protokolů spuštěných procesů naplánovaných úloh."
-
-msgid "admin.expireSessions.description"
-msgstr ""
-"Všichni uživatelé včetně vás budou z aplikace okamžitě odhlášeni a budou se "
-"muset znovu přihlásit."
-
-msgid "admin.deleteCache.description"
-msgstr ""
-"Odstranění souborů mezipaměti ze systému. Toto by se mělo provádět pouze ve "
-"vývojovém prostředí."
-
-msgid "admin.deleteCache"
-msgstr "Smazat cache"
-
-msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr "Odstranění neověřených uživatelů s prošlou platností"
-
-msgid "admin.scheduledTask.editorialReminder.logEnd"
-msgstr ""
-"Odesláno {$count} úkolů v rámci redakčních e-mailových upomínek uživatelům "
-"{$userIds} v kontextu {$contextId}"
-
-msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "Identifikace editorů, které je třeba upomínat v kontextu {$contextId}"
-
-msgid "admin.scheduledTask.editorialReminder"
-msgstr "Odeslání e-mailu každému redaktorovi s připomenutím nesplněných úkolů"
-
-msgid "admin.auth.confirmDelete"
-msgstr "Jste si jisti, že chcete trvale odstranit tento zdroj ověření?"
-
-msgid "admin.auth.create"
-msgstr "Vytvořit zdroj ověření"
-
-msgid "admin.auth.noneCreated"
-msgstr "Nebyly definovány žádné zdroje ověření."
-
-msgid "admin.authSources"
-msgstr "Zdroje ověření"
-
-msgid "admin.scheduledTask.updateGeoDB"
-msgstr "Aktualizace databáze DB-IP city lite"
-
-msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
-msgstr ""
-"Soubor {$file} je ve starém formátu protokolu, který nelze zpracovat, a "
-"proto bude přesunut zpět do adresáře fáze."
-
-msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
-msgstr ""
-"Řádek {$lineNumber} v souboru protokolu {$file} je ve špatném formátu, a "
-"proto bude přeskočen."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
-msgstr ""
-"Neplatný záznam protokolu na řádku {$lineNumber} v souboru protokolu "
-"{$file}: {$error}"
-
-msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
-msgstr ""
-"Přejmenování souboru databáze DB-IP city lite {$sourceFilename} na "
-"{$targetFilename} se nezdařilo."
-
-msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
-msgstr ""
-"Adresář {$directory} není prázdný. To může znamenat předchozí neúspěšný "
-"proces nebo souběžně běžící proces. Tento soubor bude automaticky znovu "
-"zpracován."
-
-msgid "admin.scheduledTask.usageStatsLoader.monthExists"
-msgstr ""
-"Přeskočen soubor protokolu {$file}, protože statistiky z tohoto měsíce již "
-"byly vypočteny. Chcete-li přepočítat statistiky za předchozí měsíc, musíte "
-"obnovit všechny soubory protokolu z tohoto měsíce a použít nástroj CLI k "
-"opětovnému zpracování statistik."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr "ID příspěvku není celé číslo."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr "Typ Assoc není podporován."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr "Zkratka státu není řetězec dvou abecedních znaků."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr "Zkratka regionu není až tři alfanumerické znaky dlouhý řetězec."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr "ID institucí není pole."
-
-msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
-msgstr ""
-"Úloha na pozadí, která zpracuje soubor protokolu {$file} a uloží statistická "
-"data, byla odeslána."
-
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
 "Soubor se nepodařilo dekomprimovat. Zdrojový soubor gz {$filePath} se "
@@ -562,67 +436,15 @@ msgstr ""
 "Soubor se nepodařilo dekomprimovat. Cílový soubor {$filePath} se nepodařilo "
 "otevřít pomocí fopen."
 
-msgid "admin.error.gzDecompressFile.fwrite"
-msgstr ""
-"Soubor se nepodařilo dekomprimovat. Cílový soubor {$filePath} se nepodařilo "
-"zapsat pomocí fwrite."
-
-msgid "admin.error.gzDecompressFile.unlink"
-msgstr ""
-"Soubor se nepodařilo dekomprimovat. Dekomprimovaný zdrojový gz-soubor "
-"{$filePath} se nepodařilo odstranit pomocí unlink."
-
-msgid "admin.error.gzCompressFile.fopen"
-msgstr ""
-"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
-"otevřít pomocí fopen."
-
-msgid "admin.error.gzCompressFile.fread"
-msgstr ""
-"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
-"přečíst pomocí fread."
-
-msgid "admin.error.gzCompressFile.fclose"
-msgstr ""
-"Soubor se nepodařilo zkomprimovat. Otevřený zdrojový soubor {$filePath} se "
-"nepodařilo uzavřít pomocí fclose."
-
-msgid "admin.error.gzCompressFile.gzclose"
-msgstr ""
-"Soubor se nepodařilo zkomprimovat. Otevřený cílový gz-soubor {$filePath} se "
-"nepodařilo uzavřít pomocí gzclose."
-
-msgid "admin.job.compileMetrics.returnToStaging.error"
-msgstr ""
-"Úloha, která načítá data statistik použití ze souboru {$file}, selhala a "
-"soubor nebylo možné přesunout z {$archivedFilePath} do {$stagingPath}."
-
-msgid "admin.job.compileMetrics.error"
-msgstr ""
-"Úloha, která načítá data statistik použití ze souboru {$file}, selhala. "
-"Soubor byl přesunut do adresáře etapy."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr "Čas není platným datem."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr "ID kontextu není celé číslo."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr "ID reprezentace není celé číslo."
-
-msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr "Typ souboru není podporován."
-
-msgid "admin.scheduledTask.usageStatsLoader.insertError"
-msgstr ""
-"Při zpracování souboru protokolu {$file} došlo k chybě na řádku "
-"{$lineNumber}: {$msg}"
-
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
 "Soubor se nepodařilo dekomprimovat. Zdrojový gz-soubor {$file} se nepodařilo "
 "přečíst pomocí gzread."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Cílový soubor {$filePath} se nepodařilo "
+"zapsat pomocí fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
@@ -634,113 +456,77 @@ msgstr ""
 "Soubor se nepodařilo dekomprimovat. Otevřený zdrojový gz-soubor {$filePath} "
 "se nepodařilo uzavřít pomocí gzclose."
 
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"Soubor se nepodařilo dekomprimovat. Dekomprimovaný zdrojový gz-soubor "
+"{$filePath} se nepodařilo odstranit pomocí unlink."
+
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
 "Soubor se nepodařilo zkomprimovat. Cílový soubor gz {$filePath} se "
 "nepodařilo otevřít pomocí gzopen."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
+"otevřít pomocí fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Zdrojový soubor {$filePath} se nepodařilo "
+"přečíst pomocí fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
 "Soubor se nepodařilo zkomprimovat. Cílový soubor gz {$filePath} nebylo možné "
 "zapsat pomocí gzwrite."
 
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Otevřený zdrojový soubor {$filePath} se "
+"nepodařilo uzavřít pomocí fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"Soubor se nepodařilo zkomprimovat. Otevřený cílový gz-soubor {$filePath} se "
+"nepodařilo uzavřít pomocí gzclose."
+
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
 "Soubor se nepodařilo zkomprimovat. Komprimovaný zdrojový soubor {$filePath} "
 "nebylo možné odstranit pomocí unlink."
 
-msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Platforma"
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Nejsou dostupné žádné lokalizace ke stažení."
 
-msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr "Použijte tento web jako platformu pro všechny časopisy."
+msgid "admin.cli.tool.usage.title"
+msgstr "Využití:"
 
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr "ID platformy"
+msgid "admin.cli.tool.usage.parameters"
+msgstr "příkaz [argumenty]"
 
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr ""
-"ID platformy musí být vyžadováno, pokud bude stránka identifikována jako "
-"platforma SUSHI."
-
-msgid "admin.settings.statistics.sushiPlatform.description"
-msgstr ""
-"Podle protokolu COUNTER SUSHI musí každá statistická zpráva identifikovat "
-"\"platformu\", která statistiku poskytuje. Ve výchozím nastavení je jako "
-"platforma pro všechny statistiky označen časopis. Pokud jsou však všechny "
-"časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
-"poskytovatelem, můžete jako platformu určit tyto stránky."
-
-msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
-msgstr ""
-"Jak identifikovat tuto platformu v hlášeních COUNTER SUSHI. ID platformy "
-"musí mít maximálně 17 znaků a může obsahovat písmena (a-z, A-Z), číslice "
-"(0-9), podtržítka (_), tečky (.) a lomítka (/). ID platformy se používá v "
-"několika sloupcích a mělo by být co nejkratší a zároveň rozpoznatelné. ID "
-"platformy obvykle vychází z názvu vydavatele nebo platformy, názvu domény "
-"nebo známé, jedinečné zkratky."
-
-msgid "admin.settings.statistics.keepDaily"
-msgstr "Měsíční či denní statistiky"
-
-msgid "admin.settings.statistics.keepDaily.description"
-msgstr ""
-"Zda sledovat denní nebo měsíční statistiky používání. Sledování denních "
-"statistik může značně zvětšit velikost databáze."
-
-msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr ""
-"Statistiky jsou generovány ze souborů protokolu přístupu, které jsou po "
-"zpracování přesunuty do adresáře <code>{$path}</code>. Měly by být soubory "
-"protokolu po zpracování komprimovány do souborů <code>.gz</code>? "
-"Komprimování souborů protokolu může ušetřit místo na disku serveru."
-
-msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr "Ponechání souborů protokolu na místě"
-
-msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimace souborů protokolů"
-
-msgid "admin.settings.statistics.collection.description"
-msgstr "Nakonfigurujte, jaké statistiky používání se mají shromažďovat."
-
-msgid "admin.settings.statistics.storage"
-msgstr "Uložiště dat"
-
-msgid "admin.settings.statistics.sushi"
-msgstr "Protokol Sushi"
-
-msgid "admin.settings.statistics.keepDaily.keep"
-msgstr "Sledování denních a měsíčních statistik"
-
-msgid "admin.settings.statistics.keepDaily.discard"
-msgstr "Sledovat pouze měsíční statistiky"
-
-msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr "Komprese protokolů"
-
-msgid "admin.settings.statistics.collection"
-msgstr "Sběr dat"
-
-msgid "admin.settings.statistics.storage.description"
-msgstr "Konfigurace statistik používání, které se mají ukládat na serveru."
-
-msgid "admin.settings.statistics.sushi.description"
-msgstr ""
-"Konfigurace protokolu <a href=\"https://www.projectcounter.org/counter-sushi/"
-"\">COUNTER 5 SUSHI</a>, což je průmyslově uznávaný formát pro distribuci "
-"statistik používání."
-
-msgid "admin.settings.statistics.publicSushiApi.private"
-msgstr ""
-"Omezení přístupu k rozhraní API statistik COUNTER SUSHI na manažery a "
-"administrátory"
-
-msgid "admin.scheduledTask.processQueueJobs"
-msgstr "Zpracování úloh čekajících ve frontě"
+msgid "admin.cli.tool.available.commands"
+msgstr "Dostupné příkazy pro obor názvů `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr "Nelze spustit úlohy fronty, protože je povolen režim údržby aplikace."
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Vypsat všechny úlohy ve frontě. Pokud chcete výsledky stránkovat, použijte "
+"parametry --page= a --perPage="
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"Vyčistit konkrétní úlohu ve frontě na základě jejího ID. Pokud chcete "
+"vyčistit všechny, předejte parametr --all. Pokud chcete vyčistit všechny z "
+"konkrétní fronty, předejte parametr --queue="
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"Přidání testovací úlohy do testovací fronty. Použijte volitelný parametr --"
+"only= a zadejte „failed“ nebo „success“ pro odeslání neúspěšné nebo úspěšné "
+"úlohy."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
@@ -748,12 +534,86 @@ msgstr ""
 "úloh. Pomocí příznaku --help zobrazíte dostupné možnosti spojené s tímto "
 "příkazem."
 
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"Pokud chcete odeslat úlohu do konkrétní fronty, předejte parametr --"
+"queue=QUEUE_NAME. Můžete také zadat pouze parametr --test pro spuštění "
+"testovací úlohy a parametr --once pro spuštění jediné úlohy"
+
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr "Dokončeno spuštění {$jobCount} úloh ve frontě s názvem {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
 "Ve frontě s názvem {$queueName} nejsou k dispozici žádné úlohy ke spuštění."
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Zobrazení množství úloh ve frontě"
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Zobrazení použití příkazu Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Zobrazení parametrů použití Jobs"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Možnost nemůže být prázdná! Zkontrolujte způsob použití."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Fronta Jobs"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "ID"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Fronta"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Zobrazení názvu úlohy"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Pokusy"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Rezervováno na"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Dostupné na"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Vytvořeno v"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Stránkování"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Aktuální"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Předchozí"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Následující"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"Chcete-li použít tento příkaz, měli byste zadat alespoň Job ID, '--all' nebo "
+"'--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
@@ -770,8 +630,217 @@ msgstr ""
 "Neplatná možnost testovací úlohy. Pro volbu „--only=“ lze použít pouze "
 "„failed“ nebo „success“."
 
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Neplatné ID úlohy"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Úloha byla smazána!"
+
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
 msgstr "Nebyly nalezeny žádné úlohy k odstranění."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Nebylo možné odstranit všechny úlohy."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Všechny úlohy byly smazány!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Ve frontě máme {$total} úloh"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "Možnost {$option} neexistuje."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Měli jste na mysli jednu z následujících možností?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Ve frontě je celkem <strong>{$total}</strong> úloh"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Zobrazení úloh ve frontě"
+
+msgid "navigation.tools.jobs"
+msgstr "Úlohy"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+"Zobrazit všechny úlohy ve frontě v systému a sledovat neúspěšné pokusy."
+
+msgid "navigation.tools.jobs.view"
+msgstr "Zobrazit úlohy"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Úloha"
+
+msgid "admin.jobs.list.queue"
+msgstr "Fronta"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Pokusy"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Vytvořeno v"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "Vytvořeno v {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"Úloha, která načítá data statistik použití ze souboru {$file}, selhala a "
+"soubor nebylo možné přesunout z {$archivedFilePath} do {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"Úloha, která načítá data statistik použití ze souboru {$file}, selhala. "
+"Soubor byl přesunut do adresáře etapy."
+
+msgid "admin.settings.statistics.collection"
+msgstr "Sběr dat"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "Nakonfigurujte, jaké statistiky používání se mají shromažďovat."
+
+msgid "admin.settings.statistics.storage"
+msgstr "Uložiště dat"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "Konfigurace statistik používání, které se mají ukládat na serveru."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "Protokol Sushi"
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"Konfigurace protokolu <a href=\"https://www.projectcounter.org/counter-sushi/"
+"\">COUNTER 5 SUSHI</a>, což je průmyslově uznávaný formát pro distribuci "
+"statistik používání."
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "Měsíční či denní statistiky"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"Zda sledovat denní nebo měsíční statistiky používání. Sledování denních "
+"statistik může značně zvětšit velikost databáze."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "Sledování denních a měsíčních statistik"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "Sledovat pouze měsíční statistiky"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "Komprese protokolů"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"Statistiky jsou generovány ze souborů protokolu přístupu, které jsou po "
+"zpracování přesunuty do adresáře <code>{$path}</code>. Měly by být soubory "
+"protokolu po zpracování komprimovány do souborů <code>.gz</code>? "
+"Komprimování souborů protokolu může ušetřit místo na disku serveru."
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "Ponechání souborů protokolu na místě"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "Komprimace souborů protokolů"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"Omezení přístupu k rozhraní API statistik COUNTER SUSHI na manažery a "
+"administrátory"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "Platforma"
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"Podle protokolu COUNTER SUSHI musí každá statistická zpráva identifikovat "
+"\"platformu\", která statistiku poskytuje. Ve výchozím nastavení je jako "
+"platforma pro všechny statistiky označen časopis. Pokud jsou však všechny "
+"časopisy na této stránce vydávány, vlastněny nebo provozovány stejným "
+"poskytovatelem, můžete jako platformu určit tyto stránky."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "Použijte tento web jako platformu pro všechny časopisy."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "ID platformy"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"Jak identifikovat tuto platformu v hlášeních COUNTER SUSHI. ID platformy "
+"musí mít maximálně 17 znaků a může obsahovat písmena (a-z, A-Z), číslice "
+"(0-9), podtržítka (_), tečky (.) a lomítka (/). ID platformy se používá v "
+"několika sloupcích a mělo by být co nejkratší a zároveň rozpoznatelné. ID "
+"platformy obvykle vychází z názvu vydavatele nebo platformy, názvu domény "
+"nebo známé, jedinečné zkratky."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"ID platformy musí být vyžadováno, pokud bude stránka identifikována jako "
+"platforma SUSHI."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "možnosti pracovního příkazu"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
 msgstr "použití : [--options1 --options2= ...]"
@@ -779,8 +848,19 @@ msgstr "použití : [--options1 --options2= ...]"
 msgid "admin.cli.tool.jobs.work.options.description"
 msgstr "Dostupné možnosti pro pracovní příkaz"
 
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "Název připojení fronty pro práci[výchozí : „{$default}“]"
+
 msgid "admin.cli.tool.jobs.work.option.queue.description"
 msgstr "Název fronty, se kterou se má pracovat[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "Název workeru[výchozí : „{$default}“]"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"Počet sekund, které se počkají před opakováním úlohy, u níž došlo k "
+"nezachycené výjimce[výchozí : „{$default}“]"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
 msgstr "Limit paměti v megabajtech[výchozí : „{$default}“]"
@@ -799,8 +879,8 @@ msgstr ""
 "Počet pokusů o provedení úlohy před zaznamenáním jejího neúspěchu[výchozí : "
 "„{$default}“]"
 
-msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr "Název workeru[výchozí : „{$default}“]"
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "Vynutit spuštění workeru i v režimu údržby[výchozí : „{$default}]“"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
 msgstr "Zastavit, když je fronta prázdná[výchozí : „{$default}]“"
@@ -813,28 +893,20 @@ msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
 "Maximální počet sekund, po které má worker běžet[výchozí : „{$default}“]"
 
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "Počet sekund pro nečinnost mezi úlohami[výchozí : „{$default}“]"
+
 msgid "admin.cli.tool.jobs.work.option.test.description"
 msgstr "Spustit deamon worker pro testovací frontu"
 
-msgid "admin.cli.tool.jobs.available.options.run.description"
-msgstr ""
-"Pokud chcete odeslat úlohu do konkrétní fronty, předejte parametr --"
-"queue=QUEUE_NAME. Můžete také zadat pouze parametr --test pro spuštění "
-"testovací úlohy a parametr --once pro spuštění jediné úlohy"
+#~ msgid "admin.auth.confirmDelete"
+#~ msgstr "Jste si jisti, že chcete trvale odstranit tento zdroj ověření?"
 
-msgid "admin.cli.tool.jobs.work.options.title"
-msgstr "možnosti pracovního příkazu"
+#~ msgid "admin.auth.create"
+#~ msgstr "Vytvořit zdroj ověření"
 
-msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr "Název připojení fronty pro práci[výchozí : „{$default}“]"
+#~ msgid "admin.auth.noneCreated"
+#~ msgstr "Nebyly definovány žádné zdroje ověření."
 
-msgid "admin.cli.tool.jobs.work.option.backoff.description"
-msgstr ""
-"Počet sekund, které se počkají před opakováním úlohy, u níž došlo k "
-"nezachycené výjimce[výchozí : „{$default}“]"
-
-msgid "admin.cli.tool.jobs.work.option.force.description"
-msgstr "Vynutit spuštění workeru i v režimu údržby[výchozí : „{$default}]“"
-
-msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr "Počet sekund pro nečinnost mezi úlohami[výchozí : „{$default}“]"
+#~ msgid "admin.authSources"
+#~ msgstr "Zdroje ověření"

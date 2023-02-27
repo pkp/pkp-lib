@@ -15,6 +15,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "common.publicKnowledgeProject"
+msgstr "Project \"Public Knowledge Project\""
+
+msgid "common.currentStyleSheet"
+msgstr "Aktuální šablona stylu"
+
+msgid "about.description"
+msgstr "Popis"
+
+msgid "about.guidelines"
+msgstr "Průvodci"
+
 msgid "about.aboutSite"
 msgstr "Podrobnosti o těchto stránkách"
 
@@ -60,35 +72,110 @@ msgstr "Nebyla vydána žádná oznámení."
 msgid "announcement.posted"
 msgstr "Publikováno"
 
+msgid "announcement.postedOn"
+msgstr "Odesláno dne {$postDate}"
+
 msgid "announcement.view"
 msgstr "Zobrazit oznámení"
 
-msgid "common.refresh"
-msgstr "Obnovit"
+msgid "common.allDownloads"
+msgstr "Všechny stažené soubory"
+
+msgid "common.navigation.sidebar"
+msgstr "Boční sloupec"
+
+msgid "common.navigation.site"
+msgstr "Navigace stránkami"
+
+msgid "common.navigation.siteContext"
+msgstr "Kontextová navigace stránek"
+
+msgid "common.navigation.user"
+msgstr "Uživatelská navigace"
+
+msgid "common.tasks"
+msgstr "Úlohy"
+
+msgid "common.list"
+msgstr "Seznam"
+
+msgid "common.grid"
+msgstr "Mřížka"
+
+msgid "common.confirmDelete"
+msgstr "Jste si jisti, že chcete smazat tuto položku? Tuto akci nelze vrátit."
+
+msgid "common.abstract"
+msgstr "Abstrakt"
+
+msgid "common.accepted"
+msgstr "Přijatý"
+
+msgid "common.acknowledged"
+msgstr "Uznáno"
 
 msgid "common.action"
 msgstr "Akce"
 
+msgid "common.activate"
+msgstr "Aktivovat"
+
 msgid "common.active"
 msgstr "Aktivní"
+
+msgid "common.inactive"
+msgstr "Neaktivní"
 
 msgid "common.add"
 msgstr "Přidat"
 
+msgid "common.addCCBCC"
+msgstr "Přidat CC/BCC"
+
+msgid "common.addFiles"
+msgstr "Přidat soubory"
+
 msgid "common.addSelf"
 msgstr "Přidat sebe"
+
+msgid "common.attachedFiles"
+msgstr "Připojené soubory"
+
+msgid "common.attachFiles"
+msgstr "Připojte soubory"
+
+msgid "common.attachSelected"
+msgstr "Připojit vybrané"
+
+msgid "common.name"
+msgstr "Jméno"
 
 msgid "common.all"
 msgstr "Vše"
 
 msgid "common.alphaList"
-msgstr "A B C Č D Ď E É Ě F G H CH I Í J K L M N Ň O Ó P Q R Ř S Š T Ť U Ú Ů V W X Y Ý Z Ž"
+msgstr ""
+"A B C Č D Ď E É Ě F G H CH I Í J K L M N Ň O Ó P Q R Ř S Š T Ť U Ú Ů V W X Y "
+"Ý Z Ž"
+
+msgid "common.titleSmallWords"
+msgstr ""
+"a v se na je že o s z do i to k ve pro za by ale si po jako podle od jsem "
+"tak jsou které který jeho však bude nebo už jen byl jak u co při až aby má "
+"když než ze která před být také bylo jsem není jejich ještě ani mezi byla "
+"své již pak"
 
 msgid "common.alreadyAssigned"
 msgstr "Přiděleno"
 
 msgid "common.altText"
 msgstr "Alternativní text"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"Popište tento obrázek návštěvníkům, kteří si zobrazují web v textovém "
+"prohlížeči nebo pomocí asistenčních zařízení. Příklad: „Náš redaktor hovoří "
+"na konferenci PKP.“"
 
 msgid "common.and"
 msgstr "a"
@@ -102,6 +189,12 @@ msgstr "Přidělit"
 msgid "common.assigned"
 msgstr "Přiděleno"
 
+msgid "common.assigned.date"
+msgstr "Přiděleno dne: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "Dostupné"
+
 msgid "common.back"
 msgstr "Zpět"
 
@@ -114,11 +207,19 @@ msgstr "Zrušit"
 msgid "common.cancelled"
 msgstr "Zrušeno"
 
-msgid "common.captchaField.description"
-msgstr "Zadejte prosím písmena tak, jak jsou zobrazena v obrázku nahoře."
+msgid "common.warning"
+msgstr "Varování"
 
-msgid "common.captchaField"
-msgstr "Ověření"
+msgid "common.error"
+msgstr "Chyba"
+
+msgid "common.notice"
+msgstr "Upozornění"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr ""
+"Musíte dokončit ověření platnosti používané pro zabránění spamových "
+"příspěvků."
 
 msgid "common.ccLicense"
 msgstr ""
@@ -126,8 +227,8 @@ msgstr ""
 "\t\t<br /><br />\n"
 "\t\t<a target=\"_blank\" rel=\"license\" href=\"https://creativecommons.org/"
 "licenses/by/3.0/\">\n"
-"\t\t\t<img alt=\"Creative Commons Licence\" style=\"border-width:0\" src=\""
-"//i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
+"\t\t\t<img alt=\"Creative Commons Licence\" style=\"border-width:0\" src=\"//"
+"i.creativecommons.org/l/by/3.0/80x15.png\"/>\n"
 "\t\t</a>\n"
 "\t\t<br/>\n"
 "\t\tTato práce je licencována pod <a rel=\"license\" target=\"_blank\" href="
@@ -141,12 +242,12 @@ msgstr ""
 "\t<div class=\"rtBlock\">\n"
 "\t\t<br />\n"
 "\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons Licence\" style=\"border-width:"
-"0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"target=\"_blank\"><img alt=\"Creative Commons Licence\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
 "\t\t<br />\n"
-"\t\tTato práce je licencována pod <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative "
-"Commons Attribution 3.0 Licencí</a>.\n"
+"\t\tTato práce je licencována pod <a rel=\"license\" href=\"https://"
+"creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Creative Commons "
+"Attribution 3.0 Licencí</a>.\n"
 "\t</div>\n"
 "\t"
 
@@ -159,6 +260,9 @@ msgstr "Vyberte jeden"
 msgid "common.close"
 msgstr "Zavřít"
 
+msgid "common.closePanel"
+msgstr "Zavřít panel"
+
 msgid "common.closeWindow"
 msgstr "Zavřít okno"
 
@@ -168,8 +272,26 @@ msgstr "Dokončit"
 msgid "common.completed"
 msgstr "Dokončeno"
 
+msgid "common.completed.date"
+msgstr "Ukončeno: {$dateCompleted}"
+
+msgid "common.confirm"
+msgstr "Potvrdit"
+
+msgid "common.confirmed.date"
+msgstr "Potvrzeno: {$dateConfirmed}"
+
+msgid "common.content"
+msgstr "Obsah"
+
+msgid "common.contents"
+msgstr "Obsahy"
+
 msgid "common.continue"
 msgstr "Pokračovat"
+
+msgid "common.copy"
+msgstr "Kopie"
 
 msgid "common.country"
 msgstr "Země"
@@ -179,6 +301,9 @@ msgstr "Vytvořit"
 
 msgid "common.dateCompleted"
 msgstr "Datum dokončení"
+
+msgid "common.dateDecided"
+msgstr "Datum rozhodnutí"
 
 msgid "common.date"
 msgstr "Datum"
@@ -195,20 +320,56 @@ msgstr "Datum odeslání"
 msgid "common.dateUploaded"
 msgstr "Datum nahrání souboru"
 
+msgid "common.dateHijri"
+msgstr "Kalendář Hirji"
+
 msgid "common.day"
 msgstr "Den"
+
+msgid "common.deactivate"
+msgstr "Deaktivovat"
 
 msgid "common.default"
 msgstr "Výchozí"
 
+msgid "common.declined"
+msgstr "Odmítnuto"
+
 msgid "common.delete"
 msgstr "Smazat"
+
+msgid "common.deleting"
+msgstr "Mazání"
 
 msgid "common.deleteSelection"
 msgstr "Smazat výběr"
 
+msgid "common.deselect"
+msgstr "Zrušit výběr"
+
+msgid "common.designation"
+msgstr "Označení"
+
 msgid "common.description"
 msgstr "Popis"
+
+msgid "common.details"
+msgstr "Podrobnosti"
+
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; {$dpi} DPI/PPI"
+
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} pixelů"
+
+msgid "common.discardChanges"
+msgstr "Ne, zahoďte neuložené změny"
+
+msgid "common.disconnected"
+msgstr "Odpojeno"
+
+msgid "common.disable"
+msgstr "Zakázat"
 
 msgid "common.disabled"
 msgstr "Zakázáno"
@@ -222,8 +383,29 @@ msgstr "Hotovo"
 msgid "common.download"
 msgstr "Stáhnout"
 
+msgid "common.downloadPdf"
+msgstr "Stáhnout PDF"
+
+msgid "common.downloadReport"
+msgstr "Stáhnout zprávu"
+
+msgid "common.dragAndDropHere"
+msgstr "Přetáhněte sem soubory."
+
+msgid "common.orUploadFile"
+msgstr "Nebo nahrajte soubor"
+
 msgid "common.edit"
 msgstr "Editovat"
+
+msgid "common.editItem"
+msgstr "Editovat {$name}"
+
+msgid "common.emailTemplates"
+msgstr "Šablony e-mailů"
+
+msgid "common.enable"
+msgstr "Povolit"
 
 msgid "common.enabled"
 msgstr "Povoleno"
@@ -235,7 +417,9 @@ msgid "common.error.databaseErrorUnknown"
 msgstr "Došlo k neznámé chybě v připojení k databázi."
 
 msgid "common.error.framesRequired"
-msgstr "Tato stránka vyžaduje rámce. <a href=\"{$url}\">Klikněte zde</a> pro verzi bez rámců."
+msgstr ""
+"Tato stránka vyžaduje rámce. <a href=\"{$url}\">Klikněte zde</a> pro verzi "
+"bez rámců."
 
 msgid "common.event"
 msgstr "Událost"
@@ -243,14 +427,26 @@ msgstr "Událost"
 msgid "common.export"
 msgstr "Exportovat"
 
-msgid "common.re"
-msgstr "Re:"
+msgid "common.finish"
+msgstr "Ukončit"
+
+msgid "common.fullscreen"
+msgstr "Celá obrazovka"
+
+msgid "common.fullscreenOff"
+msgstr "Ukončení režimu celé obrazovky"
 
 msgid "common.false"
 msgstr "Ne"
 
 msgid "common.file"
 msgstr "Soubor"
+
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
+
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
 
 msgid "common.fileName"
 msgstr "Jméno souboru"
@@ -261,14 +457,38 @@ msgstr "Velikost souboru"
 msgid "common.fileType"
 msgstr "Typ souboru"
 
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
+msgid "common.fileUploaderError"
+msgstr ""
+"Spouští se systémové nahrávání souborů. Pokud se nahrávač neobjeví, je "
+"pravděpodobné, že žádná z možností nahrávání není podporována vaším "
+"prohlížečem. Kontaktujte, prosím, správce systému."
 
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgid "common.filter"
+msgstr "Filtry"
+
+msgid "common.filterAdd"
+msgstr "Přidat filtr: {$filterTitle}"
+
+msgid "common.filterRemove"
+msgstr "Odebrat filtr: {$filterTitle}"
+
+msgid "common.findTemplate"
+msgstr "Najít šablonu"
+
+msgid "common.formatting"
+msgstr ""
+
+msgid "common.geographic"
+msgstr "Geografická data"
+
+msgid "common.go"
+msgstr "Spustit"
 
 msgid "common.height"
 msgstr "Výška"
+
+msgid "common.homepageNavigationLabel"
+msgstr "Domů"
 
 msgid "common.homePageHeaderLogo.altText"
 msgstr "Logo záhlaví domácí stránky"
@@ -288,8 +508,23 @@ msgstr "Zahájit"
 msgid "common.inProgress"
 msgstr "Probíhá"
 
+msgid "common.insert"
+msgstr "Vložit"
+
+msgid "common.insertContent"
+msgstr "Vložte obsah"
+
+msgid "common.insertContentSearch"
+msgstr "Najít obsah k vložení"
+
+msgid "common.itemsPerPage"
+msgstr "Položek na stránku"
+
 msgid "common.keywords"
 msgstr "Klíčová slova"
+
+msgid "common.label"
+msgstr "Štítek"
 
 msgid "common.language"
 msgstr "Jazyk"
@@ -297,11 +532,38 @@ msgstr "Jazyk"
 msgid "common.languages"
 msgstr "Jazyky"
 
+msgid "common.lastSaved"
+msgstr "Naposled uloženo {$when}"
+
+msgid "common.lastActivity"
+msgstr "Poslední aktivita zaznamenaná dne {$date}."
+
+msgid "common.less"
+msgstr "Méně"
+
+msgid "common.lessThan"
+msgstr "{$value} nebo méně"
+
+msgid "common.lessThanOnly"
+msgstr "Méně než"
+
+msgid "common.keepWorking"
+msgstr "Pokračovat v práci"
+
+msgid "common.commaListSeparator"
+msgstr ", "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
 msgid "common.manage"
 msgstr "Spravovat"
 
 msgid "common.mailingAddress"
 msgstr "Poštovní adresa"
+
+msgid "common.billingAddress"
+msgstr "Fakturační adresa (pokud se liší)"
 
 msgid "common.minute"
 msgstr "Minuta(y)"
@@ -312,14 +574,32 @@ msgstr "Změnit"
 msgid "common.month"
 msgstr "Měsíc"
 
+msgid "common.more"
+msgstr "Více"
+
+msgid "common.moreThan"
+msgstr "{$value} nebo více"
+
+msgid "common.moreThanOnly"
+msgstr "Více než"
+
 msgid "common.noneAssigned"
 msgstr "Nikdo nepřidělen"
 
 msgid "common.none"
 msgstr "Žádný"
 
+msgid "common.noneSelected"
+msgstr "Není nic vybráno"
+
+msgid "common.noneProvided"
+msgstr "Nic nebylo poskytnuto"
+
 msgid "common.no"
 msgstr "Ne"
+
+msgid "common.noItemsFound"
+msgstr "Žádné položky nenalezeny."
 
 msgid "common.noComments"
 msgstr "Bez komentářů"
@@ -336,8 +616,28 @@ msgstr "Nedostupný"
 msgid "common.note"
 msgstr "Poznámka"
 
+msgid "common.noTemporaryFile"
+msgstr "Soubor, který jste nahráli, nebyl nalezen. Zkuste ho znovu nahrát."
+
 msgid "common.notes"
 msgstr "Poznámky"
+
+msgid "common.notes.tooltip"
+msgstr ""
+"Poznámky (žluté: nové poznámky; modré: přečtené poznámky; šedé: poznámky "
+"nejsou)"
+
+msgid "common.notified"
+msgstr "Oznámeno"
+
+msgid "common.notified.date"
+msgstr "Oznámeno dne: {$dateNotified}"
+
+msgid "common.noMatches"
+msgstr "Žádné shody"
+
+msgid "common.numberedMore"
+msgstr "{$number} krát více"
 
 msgid "common.off"
 msgstr "Vypnuto"
@@ -354,6 +654,12 @@ msgstr "Možnosti"
 msgid "common.order"
 msgstr "Seřadit"
 
+msgid "common.orderUp"
+msgstr "Zvýšit pozici o {$itemTitle}"
+
+msgid "common.orderDown"
+msgstr "Snížit pozici o {$ itemTitle}"
+
 msgid "common.originalFileName"
 msgstr "Původní jméno souboru"
 
@@ -363,20 +669,101 @@ msgstr "nebo"
 msgid "common.other"
 msgstr "Ostatní"
 
+msgid "common.overdue"
+msgstr "Po termínu"
+
+msgid "common.override"
+msgstr "Přepsat"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end} z {$total}"
+
+msgid "common.pagination.label"
+msgstr "Procházet další stránky"
+
+msgid "common.pagination.goToPage"
+msgstr "Jít na {$page}"
+
+msgid "common.pagination.next"
+msgstr "Další strana"
+
+msgid "common.pagination.previous"
+msgstr "Předchozí strana"
+
+msgid "common.pageNumber"
+msgstr "Strana {$pageNumber}"
+
+msgid "common.percentage"
+msgstr "{$percentage} %"
+
 msgid "common.plugin"
 msgstr "Plugin"
+
+msgid "common.pluginEnabled"
+msgstr "Plugin \"{$pluginName}\" byl povolen."
+
+msgid "common.pluginDisabled"
+msgstr "Plugin \"{$pluginName}\" byl zakázán."
+
+msgid "common.prefix"
+msgstr "Předpona"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "Příklady: A, The"
+
+msgid "common.preview"
+msgstr "Náhled"
 
 msgid "common.publisher"
 msgstr "Vydavatel"
 
+msgid "common.quality"
+msgstr "Kvalita"
+
+msgid "common.queue.long.active"
+msgstr "Všechny aktivní"
+
+msgid "common.range"
+msgstr "{$min}–{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "Číst dále"
+
+msgid "common.readMoreWithTitle"
+msgstr "Číst dále o {$title}"
+
+msgid "common.reconnecting"
+msgstr "Opětovné připojení"
+
 msgid "common.record"
 msgstr "Záznam"
+
+msgid "common.refresh"
+msgstr "Obnovit"
 
 msgid "common.related"
 msgstr "Související"
 
+msgid "common.reminder"
+msgstr "Připomenutí"
+
+msgid "common.reminded.date"
+msgstr "Připomenuto: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "Vzdálený"
+
+msgid "common.remoteURL"
+msgstr "Vzdálené URL"
+
 msgid "common.remove"
 msgstr "Odstranit"
+
+msgid "common.removeItem"
+msgstr "Odebrat {$item}"
 
 msgid "common.removeSelection"
 msgstr "Odstranit výběr"
@@ -393,6 +780,15 @@ msgstr "* Označuje povinnou položku"
 msgid "common.required"
 msgstr "Povinný"
 
+msgid "common.reset"
+msgstr "Resetovat"
+
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr "Role"
+
 msgid "common.saveAndContinue"
 msgstr "Uložit a pokračovat"
 
@@ -402,8 +798,23 @@ msgstr "Uložit a odeslat"
 msgid "common.save"
 msgstr "Uložit"
 
+msgid "common.saving"
+msgstr "Ukládání"
+
 msgid "common.search"
 msgstr "Hledání"
+
+msgid "common.searchPhrase"
+msgstr "Hledaná fráze"
+
+msgid "common.searching"
+msgstr "Hledání"
+
+msgid "common.searchQuery"
+msgstr "Vyhledávací dotaz"
+
+msgid "common.clearSearch"
+msgstr "Smazat hledaný výraz"
 
 msgid "common.second"
 msgstr "Sekunda(y)"
@@ -411,11 +822,26 @@ msgstr "Sekunda(y)"
 msgid "common.selectAll"
 msgstr "Vyber vše"
 
+msgid "common.selectedPrefix"
+msgstr "Vybraný:"
+
 msgid "common.selectNone"
 msgstr "Nevyber nic"
 
 msgid "common.select"
 msgstr "Vyber"
+
+msgid "common.selectWithName"
+msgstr "Vybrat {$name}"
+
+msgid "common.sendEmail"
+msgstr "Poslat email"
+
+msgid "common.showAllSteps"
+msgstr "Ukázat všechny kroky"
+
+msgid "common.showingSteps"
+msgstr "{$current}/{$total} kroků"
 
 msgid "common.size"
 msgstr "Velikost"
@@ -429,11 +855,29 @@ msgstr "Stav"
 msgid "common.subject"
 msgstr "Předmět"
 
+msgid "common.subjects"
+msgstr "Předměty"
+
+msgid "common.submenu"
+msgstr "Podnabídka"
+
+msgid "common.subtitle"
+msgstr "Podtitul"
+
 msgid "common.suggest"
 msgstr "Doporučit"
 
+msgid "common.switchTo"
+msgstr "Přepnout na"
+
+msgid "common.switchToNamedItem"
+msgstr "Přepnout na {$name}"
+
 msgid "common.title"
 msgstr "Název"
+
+msgid "common.titleSeparator"
+msgstr " | "
 
 msgid "common.top"
 msgstr "Začátek"
@@ -444,8 +888,33 @@ msgstr "Ano"
 msgid "common.type"
 msgstr "Typ"
 
+msgid "common.uploadedBy"
+msgstr "Nahrál/a {$jméno}"
+
+msgid "common.uploadedByAndWhen"
+msgstr "Nahrál/a {$name} dne {$date}"
+
+msgid "common.component"
+msgstr "Složka"
+
 msgid "common.uninitiated"
 msgstr "Nezahájeno"
+
+msgid "common.unknownError"
+msgstr ""
+"Objevila se neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."
+
+msgid "common.unread"
+msgstr "Nepřečteno"
+
+msgid "common.unsavedChanges"
+msgstr "Neuložené změny"
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+"Našli jsme neuložené změny z {$when}. K tomu může dojít, pokud během práce "
+"ztratíte spojení se serverem. Obnovení těchto změn může přepsat všechny "
+"změny, které jste od té doby provedli. Chcete tyto změny obnovit nyní?"
 
 msgid "common.untitled"
 msgstr "Bez názvu"
@@ -453,14 +922,40 @@ msgstr "Bez názvu"
 msgid "common.updated"
 msgstr "Aktualizováno"
 
+msgid "common.uploadedDate"
+msgstr "Datum nahrání"
+
 msgid "common.upload"
 msgstr "Nahrát"
 
 msgid "common.uploadFailed"
-msgstr "Soubor nemohl být nahrán. Zkuste to prosím znovu nebo se obraťte na správce, pokud problém přetrvává."
+msgstr ""
+"Soubor nemohl být nahrán. Zkuste to prosím znovu nebo se obraťte na správce, "
+"pokud problém přetrvává."
 
 msgid "common.up"
 msgstr "Nahoru"
+
+msgid "common.addFile"
+msgstr "Přidat soubor"
+
+msgid "common.upload.addFile"
+msgstr "Nahrát soubor"
+
+msgid "common.upload.addFile.description"
+msgstr "Nahrajte soubor z počítače."
+
+msgid "common.upload.restore"
+msgstr "Obnovit originál"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "Náhled aktuálně vybraného obrázku."
+
+msgid "common.upload.changeFile"
+msgstr "Změnit soubor"
+
+msgid "common.upload.dragFile"
+msgstr "Sem přetáhněte soubor a pusťte jej pro nahrání"
 
 msgid "common.url"
 msgstr "URL"
@@ -468,8 +963,20 @@ msgstr "URL"
 msgid "common.user"
 msgstr "Uživatel"
 
+msgid "common.user.nonexistent"
+msgstr "[Neexistující uživatel]"
+
 msgid "common.view"
 msgstr "Zobrazit"
+
+msgid "common.viewError"
+msgstr "Ukázat chybu"
+
+msgid "common.viewWithName"
+msgstr "Zobrazit {$name}"
+
+msgid "common.viewProfile"
+msgstr "Zobrazit profil"
 
 msgid "common.weeks"
 msgstr "týdny"
@@ -477,11 +984,26 @@ msgstr "týdny"
 msgid "common.width"
 msgstr "Šířka"
 
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
 msgid "common.year"
 msgstr "Rok"
 
 msgid "common.yes"
 msgstr "Ano"
+
+msgid "common.loading"
+msgstr "Nahrávání"
+
+msgid "common.plugins"
+msgstr "Pluginy"
+
+msgid "common.count"
+msgstr "Počet"
+
+msgid "common.publicAccess"
+msgstr "Veřejný přístup"
 
 msgid "debug.databaseQueries"
 msgstr "Počet databázových dotazů"
@@ -504,8 +1026,43 @@ msgstr "Chybějící klíč lokalizace \"{$key}\"."
 msgid "debug.notes"
 msgstr "Poznámky:"
 
+msgid "defaultMetric.title"
+msgstr "Výchozí metrika"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "Nahrání upraveného souboru"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "Nahrát soubor"
+
 msgid "email.addAttachment"
 msgstr "Přidat přílohu"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr "Připojit soubor příspěvku"
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr "Přiložte soubory nahrané autorem ve fázi podání příspěvku."
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+"Připojte soubory nahrané během pracovního postupu odesílání, například "
+"úpravy nebo soubory k recenzi."
+
+msgid "email.addAttachment.libraryFiles"
+msgstr "Soubory knihovny"
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr "Připojit soubory knihovny"
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr "Připojte soubory z podání příspěvku a z knihovny vydavatele."
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr "Připojit recenzní soubory"
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr "Připojení souborů nahraných recenzenty"
 
 msgid "email.addBccRecipient"
 msgstr "Přidat BCC"
@@ -519,6 +1076,9 @@ msgstr "Přidat příjemce"
 msgid "email.attachments"
 msgstr "Přílohy"
 
+msgid "email.attachmentNotFound"
+msgstr "Soubor {$fileName} nelze připojit."
+
 msgid "email.bcc"
 msgstr "BCC"
 
@@ -531,6 +1091,12 @@ msgstr "Tělo zprávy"
 msgid "email.cc"
 msgstr "CC"
 
+msgid "email.confirmSwitchLocale"
+msgstr ""
+"Jste si jisti, že chcete změnit na {$localeName} pro sestavení tohoto e-"
+"mailu? Veškeré změny, které jste provedli v předmětu a těle e-mailu, budou "
+"ztraceny."
+
 msgid "email.compose"
 msgstr "Poslat e-mail"
 
@@ -538,7 +1104,14 @@ msgid "email.compose.tooManyRecipients"
 msgstr "Zpráva, kterou se pokoušíte odeslat, má příliš mnoho příjemců."
 
 msgid "email.compose.tooSoon"
-msgstr "Pokoušíte se odeslat zprávu příliš brzy poté, co byla odeslána Vaše poslední zpráva. Vyčkejte prosím, než budete moci odeslat další zprávu."
+msgstr ""
+"Pokoušíte se odeslat zprávu příliš brzy poté, co byla odeslána Vaše poslední "
+"zpráva. Vyčkejte prosím, než budete moci odeslat další zprávu."
+
+msgid "email.compose.error"
+msgstr ""
+"Při odesílání e-mailové zprávy došlo k potížím. Zkuste to prosím znovu "
+"později nebo se obraťte na správce systému."
 
 msgid "email.email"
 msgstr "E-mail"
@@ -561,6 +1134,12 @@ msgstr "Příjemci"
 msgid "email.sender"
 msgstr "Odesílatel"
 
+msgid "email.senderName"
+msgstr "Jméno odesilatele"
+
+msgid "email.senderEmail"
+msgstr "Email odesilatele"
+
 msgid "email.send"
 msgstr "Odeslat"
 
@@ -570,14 +1149,96 @@ msgstr "Přeskočit e-mail"
 msgid "email.subject"
 msgstr "Předmět"
 
+msgid "email.subjectRequired"
+msgstr "Je třeba uvést předmět emailu."
+
+msgid "email.bodyRequired"
+msgstr "Je třeba vložit také obsah emailu."
+
 msgid "email.to"
 msgstr "Komu"
+
+msgid "form.url.invalid"
+msgstr ""
+"Specifikované URL není platné. Zkontrolujte ho, prosím, a zkuste to znovu."
+
+msgid "form.confirmSubmit"
+msgstr "Jste si jisti, že chcete vložit tento formulář?"
+
+msgid "form.confirmSubmit.title"
+msgstr "Potvrdit"
+
+msgid "form.dataHasChanged"
+msgstr ""
+"Údaje v tomto formuláři se změnily. Chcete opravdu pokračovat bez uložení?"
+
+msgid "form.disallowedLocales"
+msgstr "Jsou povoleny pouze následující jazyky: {$languages}."
+
+msgid "form.disallowedProp"
+msgstr "Tato vlastnost není povolena."
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "Pro nahrání souborů je přetáhněte sem"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr "Váš prohlížeč nepodporuje nahrávání souborů pomocí přetažení."
+
+msgid "form.dropzone.dictFallbackText"
+msgstr "K nahrání souborů použijte záložní formulář níže."
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"Soubor je příliš velký ({{filesize}}mb). Nelze nahrát soubory větší než "
+"{{maxFilesize}}mb."
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "Soubory tohoto typu nelze nahrát."
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"Server odpověděl kódem {{statusCode}}. Pokud problém přetrvává, kontaktujte "
+"správce systému."
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "Zrušit nahrávání"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "Nahrávání bylo zrušeno"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "Opravdu chcete toto nahrávání zrušit?"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "Odebrat soubor"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "Nemůžete nahrát žádné další soubory."
+
+msgid "form.errorA11y"
+msgstr "Přejít na {$fieldLabel}: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "Přejít na další chybu"
+
+msgid "form.errorOne"
+msgstr "Prosím opravte jednu chybu."
+
+msgid "form.errorMany"
+msgstr "Prosím opravte {$count} chyby."
+
+msgid "form.errors"
+msgstr ""
+"Formulář nebyl uložen, protože došlo k {$count} chybám. Opravte tyto chyby a "
+"zkuste to znovu."
 
 msgid "form.errorsOccurred"
 msgstr "Při zpracování tohoto formuláře došlo k chybám"
 
 msgid "form.formLanguage.description"
-msgstr "Pokud chcete níže uvedené informace vložit v dalších jazycích, zvolte nejprve požadovaný jazyk."
+msgstr ""
+"Pokud chcete níže uvedené informace vložit v dalších jazycích, zvolte "
+"nejprve požadovaný jazyk."
 
 msgid "form.formLanguage"
 msgstr "Jazyk formuláře"
@@ -594,11 +1255,28 @@ msgstr "začíná (čím)"
 msgid "form.postRequired"
 msgstr "Formulář nebyl správně odeslán."
 
+msgid "form.csrfInvalid"
+msgstr ""
+"Formulář nelze odeslat. Možná jste byli odhlášeni. Znovu načtěte stránku a "
+"zkuste to znovu."
+
+msgid "form.fileRequired"
+msgstr "Je vyžadováno nahrání souboru."
+
 msgid "form.required"
 msgstr "(* Povinné)"
 
+msgid "form.requirePrimaryLocale"
+msgstr "Toto pole musíte vyplnit v {$language}."
+
+msgid "form.requireId"
+msgstr "Musíte zadat platné ID."
+
 msgid "form.resubmit"
 msgstr "Znovu poslat"
+
+msgid "form.saved"
+msgstr "Uloženo"
 
 msgid "form.saveToUpload"
 msgstr "Pro nahrání souboru použijte Uložit."
@@ -609,11 +1287,27 @@ msgstr "Poslat"
 msgid "form.submit"
 msgstr "Odeslat"
 
+msgid "form.invalidImage"
+msgstr ""
+"Byl nahrán neplatný obrázek. Přípustné formáty jsou .png, .gif nebo .jpg."
+
+msgid "form.multilingualLabel"
+msgstr "{$label} v {$localeName}"
+
+msgid "form.multilingualProgress"
+msgstr "{$count}/{$total} jazyků dokončeno"
+
 msgid "help.help"
 msgstr "Pomoc"
 
 msgid "help.toc"
 msgstr "Obsah"
+
+msgid "help.previous"
+msgstr "Předešlý"
+
+msgid "help.next"
+msgstr "Další"
 
 msgid "help.upALevel"
 msgstr "O úroveň výše"
@@ -657,501 +1351,6 @@ msgstr "Nezaškrtnuto"
 msgid "icon.view.alt"
 msgstr "Zobrazit"
 
-msgid "locale.primary"
-msgstr "Základní lokalizace"
-
-msgid "locale.supported"
-msgstr "Podporované lokalizace"
-
-msgid "navigation.about"
-msgstr "Podrobnosti"
-
-msgid "navigation.browse"
-msgstr "Prohlížet"
-
-msgid "navigation.browseByTitle"
-msgstr "Podle názvu"
-
-msgid "navigation.dashboard"
-msgstr "Ovládací panel"
-
-msgid "navigation.home"
-msgstr "Domů"
-
-msgid "navigation.infoForReaders"
-msgstr "Pro čtenáře"
-
-msgid "navigation.infoForReaders.long"
-msgstr "Informace pro čtenáře"
-
-msgid "navigation.items"
-msgstr "{$from} - {$to} z {$total} položek"
-
-msgid "navigation.login"
-msgstr "Přihlášení"
-
-msgid "navigation.nextPage"
-msgstr "&gt;&gt;"
-
-msgid "navigation.nextStep"
-msgstr "Další krok"
-
-msgid "navigation.previousPage"
-msgstr "&lt;&lt;"
-
-msgid "navigation.previousStep"
-msgstr "Předchozí krok"
-
-msgid "navigation.register"
-msgstr "Registrace"
-
-msgid "navigation.search"
-msgstr "Vyhledávání"
-
-msgid "navigation.stepNumber"
-msgstr "Krok {$step}"
-
-msgid "navigation.userHome"
-msgstr "Uživatel"
-
-msgid "navigation.user"
-msgstr "Uživatel"
-
-msgid "notification.allow"
-msgstr "Povolit tyto typy oznámení."
-
-msgid "notification.confirmError"
-msgstr "Vyskytla se chyba při potvrzování vašeho přihlášení."
-
-msgid "notification.confirmSuccess"
-msgstr "Byl jste úspěšně přihlášen."
-
-msgid "notification.email"
-msgstr "Neposílejte mi emaily s těmito typy oznámení."
-
-msgid "notification.noneExist"
-msgstr "Aktuálně nemáte žádná oznámení."
-
-msgid "notification.notification"
-msgstr "Oznámení"
-
-msgid "notification.notifications"
-msgstr "Oznámení"
-
-msgid "notification.settings"
-msgstr "Nastavení oznámení"
-
-msgid "notification.settingsDescription"
-msgstr "Zvolte systémové události, o kterých chcete být informován. Zrušení zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve Vašem seznamu oznámení."
-
-msgid "notification.reminderError"
-msgstr "Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl emailovou adresu správně."
-
-msgid "notification.reminderSent"
-msgstr "Vaše nové heslo bylo odesláno na poskytnutou emailovou adresu."
-
-msgid "search.abstract"
-msgstr "Abstrakt"
-
-msgid "search.author"
-msgstr "Podle autora"
-
-msgid "search.coverage"
-msgstr "Pokrytí"
-
-msgid "search.date"
-msgstr "Datum"
-
-msgid "search.dateFrom"
-msgstr "Od"
-
-msgid "search.dateTo"
-msgstr "Do"
-
-msgid "search.discipline"
-msgstr "Disciplína(y)"
-
-msgid "search.fullText"
-msgstr "Plný text"
-
-msgid "search.indexTerms"
-msgstr "Výrazy indexu"
-
-msgid "search.matchAll"
-msgstr "Zahrnout všechny kategorie"
-
-msgid "search.noResults"
-msgstr "Žádné výsledky"
-
-msgid "search.operator.and"
-msgstr "a"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.searchResults"
-msgstr "Výsledky hledání"
-
-msgid "search.subject"
-msgstr "Klíčové(á) slovo(a)"
-
-msgid "search.titleIndex"
-msgstr "Procházet index názvů"
-
-msgid "search.title"
-msgstr "Název"
-
-msgid "search.typeMethodApproach"
-msgstr "Typ (metoda/přístup)"
-
-msgid "common.copy"
-msgstr "Kopie"
-
-msgid "common.preview"
-msgstr "Náhled"
-
-msgid "common.activate"
-msgstr "Aktivovat"
-
-msgid "common.deactivate"
-msgstr "Deaktivovat"
-
-msgid "common.publicKnowledgeProject"
-msgstr "Project \"Public Knowledge Project\""
-
-msgid "common.currentStyleSheet"
-msgstr "Aktuální šablona stylu"
-
-msgid "about.description"
-msgstr "Popis"
-
-msgid "about.guidelines"
-msgstr "Průvodci"
-
-msgid "announcement.postedOn"
-msgstr "Odesláno dne {$postDate}"
-
-msgid "common.allDownloads"
-msgstr "Všechny stažené soubory"
-
-msgid "common.navigation.sidebar"
-msgstr "Boční sloupec"
-
-msgid "common.navigation.site"
-msgstr "Navigace stránkami"
-
-msgid "common.navigation.siteContext"
-msgstr "Kontextová navigace stránek"
-
-msgid "common.navigation.user"
-msgstr "Uživatelská navigace"
-
-msgid "common.tasks"
-msgstr "Úlohy"
-
-msgid "common.list"
-msgstr "Seznam"
-
-msgid "common.grid"
-msgstr "Mřížka"
-
-msgid "common.confirmDelete"
-msgstr "Jste si jisti, že chcete smazat tuto položku? Tuto akci nelze vrátit."
-
-msgid "common.abstract"
-msgstr "Abstrakt"
-
-msgid "common.accepted"
-msgstr "Přijatý"
-
-msgid "common.acknowledged"
-msgstr "Uznáno"
-
-msgid "common.titleSmallWords"
-msgstr "a v se na je že o s z do i to k ve pro za by ale si po jako podle od jsem tak jsou které který jeho však bude nebo už jen byl jak u co při až aby má když než ze která před být také bylo jsem není jejich ještě ani mezi byla své již pak"
-
-msgid "grid.action.downloadFile"
-msgstr "Stáhnout tento soubor"
-
-msgid "context.path"
-msgstr "Cesta"
-
-msgid "review.ensuringAnonymousReview"
-msgstr "Jak zajistit, aby byly všechny soubory anonymizovány"
-
-msgid "grid.action.showReviewPolicy"
-msgstr "Přečtěte si současné zásady recenzního procesu"
-
-msgid "grid.action.deleteNotification"
-msgstr "Smazat úlohu"
-
-msgid "grid.action.markNew"
-msgstr "Označit jako nové"
-
-msgid "grid.action.markRead"
-msgstr "Označit jako přečtené"
-
-msgid "dashboard.tasks"
-msgstr "Úlohy"
-
-msgid "dashboard.myQueue"
-msgstr "Má fronta"
-
-msgid "common.warning"
-msgstr "Varování"
-
-msgid "common.error"
-msgstr "Chyba"
-
-msgid "common.notice"
-msgstr "Upozornění"
-
-msgid "common.captcha.error.missing-input-secret"
-msgstr "Nastavení ověření captcha na těchto stránkách není správné. Chybí tajný klíč."
-
-msgid "common.captcha.error.invalid-input-secret"
-msgstr "Nastavení ověření captcha na těchto stránkách není správné. Tajný klíč je chybný."
-
-msgid "common.captcha.error.missing-input-response"
-msgstr "Musíte dokončit ověření platnosti používané pro zabránění spamových příspěvků."
-
-msgid "common.captcha.error.invalid-input-response"
-msgstr "Neprošli jste ověřením používaným pro prevenci spamových příspěvků."
-
-msgid "common.closePanel"
-msgstr "Zavřít panel"
-
-msgid "common.completed.date"
-msgstr "Ukončeno: {$dateCompleted}"
-
-msgid "common.confirm"
-msgstr "Potvrdit"
-
-msgid "common.confirmed.date"
-msgstr "Potvrzeno: {$dateConfirmed}"
-
-msgid "common.content"
-msgstr "Obsah"
-
-msgid "common.contents"
-msgstr "Obsahy"
-
-msgid "common.declined"
-msgstr "Odmítnuto"
-
-msgid "common.designation"
-msgstr "Označení"
-
-msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; {$dpi} DPI/PPI"
-
-msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} pixelů"
-
-msgid "common.disable"
-msgstr "Zakázat"
-
-msgid "common.downloadPdf"
-msgstr "Stáhnout PDF"
-
-msgid "common.enable"
-msgstr "Povolit"
-
-msgid "common.finish"
-msgstr "Ukončit"
-
-msgid "common.fullscreen"
-msgstr "Celá obrazovka"
-
-msgid "common.fullscreenOff"
-msgstr "Ukončení režimu celé obrazovky"
-
-msgid "common.fileUploaderError"
-msgstr "Spouští se systémové nahrávání souborů. Pokud se nahrávač neobjeví, je pravděpodobné, že žádná z možností nahrávání není podporována vaším prohlížečem. Kontaktujte, prosím, správce systému."
-
-msgid "common.go"
-msgstr "Spustit"
-
-msgid "common.homepageNavigationLabel"
-msgstr "Domů"
-
-msgid "common.itemsPerPage"
-msgstr "Položek na stránku"
-
-msgid "common.less"
-msgstr "Méně"
-
-msgid "common.billingAddress"
-msgstr "Fakturační adresa (pokud se liší)"
-
-msgid "common.more"
-msgstr "Více"
-
-msgid "common.name"
-msgstr "Jméno"
-
-msgid "common.assigned.date"
-msgstr "Přiděleno dne: {$dateAssigned}"
-
-msgid "common.available"
-msgstr "Dostupné"
-
-msgid "common.dateHijri"
-msgstr "Kalendář Hirji"
-
-msgid "common.overdue"
-msgstr "Po termínu"
-
-msgid "common.pageNumber"
-msgstr "Strana {$pageNumber}"
-
-msgid "common.percentage"
-msgstr "{$percentage} %"
-
-msgid "common.pluginEnabled"
-msgstr "Plugin \"{$pluginName}\" byl povolen."
-
-msgid "common.pluginDisabled"
-msgstr "Plugin \"{$pluginName}\" byl zakázán."
-
-msgid "common.prefix"
-msgstr "Předpona"
-
-msgid "common.prefixAndTitle.tip"
-msgstr "Příklady: A, The"
-
-msgid "common.quality"
-msgstr "Kvalita"
-
-msgid "common.queue.long.active"
-msgstr "Všechny aktivní"
-
-msgid "common.range"
-msgstr "{$min}–{$max}"
-
-msgid "common.readMore"
-msgstr "Číst dále"
-
-msgid "common.readMoreWithTitle"
-msgstr "Číst dále o {$title}"
-
-msgid "common.reminder"
-msgstr "Připomenutí"
-
-msgid "common.reminded.date"
-msgstr "Připomenuto: {$dateReminded}"
-
-msgid "common.remote"
-msgstr "Vzdálený"
-
-msgid "common.remoteURL"
-msgstr "Vzdálené URL"
-
-msgid "common.reset"
-msgstr "Resetovat"
-
-msgid "common.searchQuery"
-msgstr "Vyhledávací dotaz"
-
-msgid "common.sendEmail"
-msgstr "Poslat email"
-
-msgid "common.subjects"
-msgstr "Předměty"
-
-msgid "common.subtitle"
-msgstr "Podtitul"
-
-msgid "common.notes.tooltip"
-msgstr "Poznámky (žluté: nové poznámky; modré: přečtené poznámky; šedé: poznámky nejsou)"
-
-msgid "common.notified"
-msgstr "Oznámeno"
-
-msgid "common.notified.date"
-msgstr "Oznámeno dne: {$dateNotified}"
-
-msgid "common.noMatches"
-msgstr "Žádné shody"
-
-msgid "common.component"
-msgstr "Složka"
-
-msgid "common.unread"
-msgstr "Nepřečteno"
-
-msgid "common.uploadedDate"
-msgstr "Datum nahrání"
-
-msgid "common.upload.addFile"
-msgstr "Nahrát soubor"
-
-msgid "common.upload.changeFile"
-msgstr "Změnit soubor"
-
-msgid "common.upload.dragFile"
-msgstr "Sem přetáhněte soubor a pusťte jej pro nahrání"
-
-msgid "common.viewProfile"
-msgstr "Zobrazit profil"
-
-msgid "common.loading"
-msgstr "Nahrávání"
-
-msgid "common.plugins"
-msgstr "Pluginy"
-
-msgid "common.count"
-msgstr "Počet"
-
-msgid "defaultMetric.title"
-msgstr "Výchozí metrika"
-
-msgid "editor.submissionReview.uploadFile"
-msgstr "Nahrání upraveného souboru"
-
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "Nahrát soubor"
-
-msgid "email.senderName"
-msgstr "Jméno odesilatele"
-
-msgid "email.senderEmail"
-msgstr "Email odesilatele"
-
-msgid "email.subjectRequired"
-msgstr "Je třeba uvést předmět emailu."
-
-msgid "email.bodyRequired"
-msgstr "Je třeba vložit také obsah emailu."
-
-msgid "form.url.invalid"
-msgstr "Specifikované URL není platné. Zkontrolujte ho, prosím, a zkuste to znovu."
-
-msgid "form.confirmSubmit"
-msgstr "Jste si jisti, že chcete vložit tento formulář?"
-
-msgid "form.confirmSubmit.title"
-msgstr "Potvrdit"
-
-msgid "form.dataHasChanged"
-msgstr "Údaje v tomto formuláři se změnily. Chcete opravdu pokračovat bez uložení?"
-
-msgid "form.fileRequired"
-msgstr "Je vyžadováno nahrání souboru."
-
-msgid "form.invalidImage"
-msgstr "Byl nahrán neplatný obrázek. Přípustné formáty jsou .png, .gif nebo .jpg."
-
-msgid "help.previous"
-msgstr "Předešlý"
-
-msgid "help.next"
-msgstr "Další"
-
 msgid "informationCenter.informationCenter"
 msgstr "Informační centrum"
 
@@ -1188,6 +1387,12 @@ msgstr "Uživatelům bylo odesláno upozornění."
 msgid "stageParticipants.history.messageSent"
 msgstr "Uživatelům byla odeslána poznámka."
 
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "Začít diskusi"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "Začít diskusi mezi vámi a {$userFullName}."
+
 msgid "stageParticipants.notify.chooseMessage"
 msgstr "Vyberte si předpřipravenou zprávu, nebo vyplňte následující formulář."
 
@@ -1195,13 +1400,50 @@ msgid "stageParticipants.notify.message"
 msgstr "Zpráva"
 
 msgid "stageParticipants.notify.warning"
-msgstr "Ujistěte se, prosím, zda jste vyplnili obsah zprávy a vybrali alespoň jednoho adresáta."
+msgstr ""
+"Ujistěte se, prosím, zda jste vyplnili obsah zprávy a vybrali alespoň "
+"jednoho adresáta."
+
+msgid "stageParticipants.options"
+msgstr "Práva přiřazení"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"Tento účastník může pouze doporučit redakční rozhodnutí a bude vyžadovat, "
+"aby oprávněný redaktor toto rozhodnutí potvrdil."
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "Oprávnění"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"Povolte této osobě provádět změny v publikaci, například v názvu, abstraktu, "
+"metadatech a dalších údajích o publikaci. Toto privilegium můžete zrušit, "
+"pokud byla předložená publikace zkontrolována a je připravena k publikaci."
+
+msgid "stageParticipants.selectedUser"
+msgstr "Účastník"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "U tohoto účastníka nelze provádět žádné změny"
+
+msgid "locale.primary"
+msgstr "Základní lokalizace"
+
+msgid "locale.supported"
+msgstr "Podporované lokalizace"
 
 msgid "navigation.access"
 msgstr "Uživatelé a role"
 
+msgid "navigation.about"
+msgstr "Podrobnosti"
+
 msgid "navigation.admin"
 msgstr "Administrace"
+
+msgid "navigation.archives"
+msgstr "Archivy"
 
 msgid "navigation.breadcrumbLabel"
 msgstr "Jste zde:"
@@ -1218,17 +1460,62 @@ msgstr "Import/Export"
 msgid "navigation.tools.statistics"
 msgstr "Statistiky"
 
+msgid "navigation.browse"
+msgstr "Prohlížet"
+
+msgid "navigation.backTo"
+msgstr "⟵ Zpět na {$page}"
+
 msgid "navigation.browseByAuthor"
 msgstr "Podle autorů"
+
+msgid "navigation.browseByTitle"
+msgstr "Podle názvu"
+
+msgid "navigation.dashboard"
+msgstr "Ovládací panel"
 
 msgid "navigation.data"
 msgstr "Data"
 
+msgid "navigation.home"
+msgstr "Domů"
+
+msgid "navigation.infoForReaders"
+msgstr "Pro čtenáře"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informace pro čtenáře"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} z {$total} položek"
+
 msgid "navigation.items.shownTotal"
 msgstr "{$shown} z {$total} položek"
 
+msgid "navigation.login"
+msgstr "Přihlášení"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "Další krok"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "Předchozí krok"
+
 msgid "navigation.publicMenu"
 msgstr "Veřejné menu"
+
+msgid "navigation.register"
+msgstr "Registrace"
+
+msgid "navigation.search"
+msgstr "Vyhledávání"
 
 msgid "navigation.settings"
 msgstr "Nastavení"
@@ -1239,6 +1526,12 @@ msgstr "Nastavení"
 msgid "navigation.sitemap"
 msgstr "Mapa stránek"
 
+msgid "navigation.skip.description"
+msgstr "Přejít na odkazy na obsah"
+
+msgid "navigation.skip.announcements"
+msgstr "Přeskočit na oznámení"
+
 msgid "navigation.skip.main"
 msgstr "Přeskočit na hlavní obsah"
 
@@ -1248,17 +1541,29 @@ msgstr "Přeskočit na hlavní navigační menu"
 msgid "navigation.skip.footer"
 msgstr "Přeskočit na patičku stránky"
 
+msgid "navigation.stepNumber"
+msgstr "Krok {$step}"
+
 msgid "navigation.submissions"
 msgstr "Příspěvky"
 
 msgid "navigation.system"
 msgstr "Systém"
 
+msgid "navigation.userHome"
+msgstr "Uživatel"
+
+msgid "navigation.user"
+msgstr "Uživatel"
+
 msgid "navigation.userManagement"
 msgstr "Správa uživatelů"
 
 msgid "navigation.viewFrontend"
 msgstr "Zobrazit stránky"
+
+msgid "institution.institutions"
+msgstr "Instituce"
 
 msgid "notification.addedAuditor"
 msgstr "Přidán auditor."
@@ -1272,8 +1577,14 @@ msgstr "Přidána diskuse"
 msgid "notification.reviewAcknowledged"
 msgstr "Recenze byla označena jako potvrzená. E-mail nebyl odeslán."
 
+msgid "notification.reviewerThankedEmail"
+msgstr "Děkovný mail odeslaný recenzentovi."
+
 msgid "notification.updatedReviewFiles"
 msgstr "Soubory pro recenzi aktualizovány."
+
+msgid "notification.allow"
+msgstr "Povolit tyto typy oznámení."
 
 msgid "notification.addedAnnouncementType"
 msgstr "Přidán typ oznámení."
@@ -1287,6 +1598,18 @@ msgstr "Odebrán typ oznámení."
 msgid "notification.removedAnnouncement"
 msgstr "Odebráno oznámení."
 
+msgid "notification.confirmError"
+msgstr "Vyskytla se chyba při potvrzování vašeho přihlášení."
+
+msgid "notification.confirmSuccess"
+msgstr "Byl jste úspěšně přihlášen."
+
+msgid "notification.email"
+msgstr "Neposílejte mi emaily s těmito typy oznámení."
+
+msgid "notification.noneExist"
+msgstr "Aktuálně nemáte žádná oznámení."
+
 msgid "notification.addedNote"
 msgstr "Poznámka odeslána."
 
@@ -1299,11 +1622,43 @@ msgstr "Odebrán soubor."
 msgid "notification.removedSubmission"
 msgstr "Odebrán příspěvek."
 
+msgid "notification.notification"
+msgstr "Oznámení"
+
+msgid "notification.notifications"
+msgstr "Oznámení"
+
 msgid "notification.sentNotification"
 msgstr "Upozornění odesláno."
 
+msgid "notification.settings"
+msgstr "Nastavení oznámení"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"Zvolte systémové události, o kterých chcete být informován. Zrušení "
+"zaškrtnutí u položky zabrání tomu, aby se oznámení události zobrazovalo ve "
+"Vašem seznamu oznámení."
+
+msgid "notification.reminderError"
+msgstr ""
+"Při zasílání hesla se vyskytla chyba. Ujistěte se prosím, že jste uvedl "
+"emailovou adresu správně."
+
+msgid "notification.reminderSent"
+msgstr "Vaše nové heslo bylo odesláno na poskytnutou emailovou adresu."
+
 msgid "notification.savedSubmissionMetadata"
 msgstr "Metadata příspěvku odeslána."
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "Odeslání emailu o této skutečnosti všem zaregistrovaným uživatelům."
+
+msgid "search.author"
+msgstr "Podle autora"
+
+msgid "search.abstract"
+msgstr "Abstrakt"
 
 msgid "search.advancedFilters"
 msgstr "Pokročilé filtry"
@@ -1329,101 +1684,101 @@ msgstr "chyba"
 msgid "search.cli.rebuildIndex.result"
 msgstr "{$numIndexed} článků bylo indexováno"
 
+msgid "search.coverage"
+msgstr "Pokrytí"
+
+msgid "search.date"
+msgstr "Datum"
+
+msgid "search.dateFrom"
+msgstr "Od"
+
+msgid "search.dateTo"
+msgstr "Do"
+
 msgid "search.deleteFilter"
 msgstr "Smazat"
+
+msgid "search.discipline"
+msgstr "Disciplína(y)"
+
+msgid "search.fullText"
+msgstr "Plný text"
+
+msgid "search.indexTerms"
+msgstr "Výrazy indexu"
 
 msgid "search.indexTermsLong"
 msgstr "Všechna pole indexu"
 
+msgid "search.matchAll"
+msgstr "Zahrnout všechny kategorie"
+
+msgid "search.noResults"
+msgstr "Žádné výsledky"
+
+msgid "search.operator.and"
+msgstr "a"
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.operator.or"
+msgstr "or"
+
 msgid "search.SearchFor"
 msgstr "Hledat"
 
-msgid "reviewer.submission.reviewSchedule"
-msgstr "Plán recenze"
+msgid "search.searchResults"
+msgstr "Výsledky hledání"
 
-msgid "reviewer.submission.reviewRequestDate"
-msgstr "Požadavek redaktora"
+msgid "search.searchResults.foundSingle"
+msgstr "Nalezena jedna položka."
 
-msgid "reviewer.submission.responseDueDate"
-msgstr "Termín pro reakci"
+msgid "search.searchResults.foundPlural"
+msgstr "Nelezeno {$count} položek."
 
-msgid "reviewer.submission.reviewDueDate"
-msgstr "Termín pro recenzi"
+msgid "search.subject"
+msgstr "Klíčové(á) slovo(a)"
 
-msgid "submission.task.responseDueDate"
-msgstr "Termín pro odpověď"
+msgid "search.titleIndex"
+msgstr "Procházet index názvů"
 
-msgid "navigation.goBack"
-msgstr "Jít zpět"
+msgid "search.title"
+msgstr "Název"
 
-msgid "notification.addedReviewer"
-msgstr "{$reviewerName} byl přiřazen k recenzi tohoto příspěvku a bylo mu odesláno upozornění emailem."
+msgid "search.typeMethodApproach"
+msgstr "Typ (metoda/přístup)"
 
-msgid "notification.removedReviewer"
-msgstr "Recenzent odebrán."
+msgid "grid.action.downloadFile"
+msgstr "Stáhnout tento soubor"
 
-msgid "notification.addedStageParticipant"
-msgstr "Uživatel přidán jako účastník této fáze."
+msgid "context.path"
+msgstr "Cesta"
 
-msgid "notification.type.newAnnouncement"
-msgstr "Nové oznámení."
+msgid "review.ensuringAnonymousReview"
+msgstr "Jak zajistit, aby byly všechny soubory anonymizovány"
 
-msgid "notification.type.reviewAssignment"
-msgstr "Probíhá recenze."
+msgid "grid.action.showReviewPolicy"
+msgstr "Přečtěte si současné zásady recenzního procesu"
 
-msgid "notification.type.auditorRequest"
-msgstr "Je požadováno posouzení pro soubor \"{$file}\""
+msgid "grid.action.deleteNotification"
+msgstr "Smazat úlohu"
 
-msgid "notification.type.allReviewsIn"
-msgstr "Všechny recenze jsou nahrány a je třeba rozhodnout ve fázi {$stage}."
+msgid "grid.action.markNew"
+msgstr "Označit jako nové"
 
-msgid "notification.type.allRevisionsIn"
-msgstr "Opravený soubor byl nahrán pro rozhodnutí redaktora ve fázi {$stage}."
+msgid "grid.action.markRead"
+msgstr "Označit jako přečtené"
 
-msgid "notification.type.pendingRevisions"
-msgstr "Úpravy, které je třeba ve fázi {$stage} vzít v úvahu."
+msgid "dashboard.tasks"
+msgstr "Úlohy"
 
-msgid "notification.type.pendingRevisions.title"
-msgstr "Ve fázi {$stage} byly nahrány úpravy."
+msgid "dashboard.myQueue"
+msgstr "Má fronta"
 
-msgid "notification.type.reviewerComment"
-msgstr "Recenzent okomentoval článek \"{$title}\"."
-
-msgid "notification.signedFile"
-msgstr "Soubor byl zvážen."
-
-msgid "user.authorization.submissionFile"
-msgstr "Aktuální uživatel nemá oprávnění k přístupu k danému nahranému souboru."
-
-msgid "user.authorization.invalidSubmission"
-msgstr "Neplatný příspěvek."
-
-msgid "user.authorization.invalidRepresentation"
-msgstr "Neplatné zobrazení."
-
-msgid "navigation.archives"
-msgstr "Archivy"
-
-msgid "user.authorization.authorRoleMissing"
-msgstr "Momentálně nemáte dostatečná oprávnění k zobrazení příspěvku. Upravte svůj profil a ujistěte se, že vám byly uděleny příslušné role v části \"Registrovat jako\"."
-
-msgid "user.authorization.submissionAuthor"
-msgstr "Současný uživatel není autorem požadovaného podání. Ověřte, zda jste přihlášeni správným uživatelským účtem."
-
-msgid "notification.type.queryActivity"
-msgstr "Průběh diskuse."
-
-msgid "notification.type.queryAdded"
-msgstr "Přidána diskuse."
-
-msgid "notification.type.assignCopyeditors"
-msgstr "Přiřaďte editora použitím odkazu \"Přidat\" v seznamu účastníků."
-
-msgid "notification.type.awaitingCopyedits"
-msgstr "Čeká se na redakci."
-
-msgid "notification.type.roundStatusTitle"
-msgstr "Status kola {$round}"
+msgid "review.anonymousPeerReview.title"
+msgstr "Jak zajistit, aby byly všechny soubory anonymizovány"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1451,8 +1806,8 @@ msgstr ""
 "<li> Microsoft Word pro MacOS:\n"
 "<ul> <li> Přejít na Nástroje </li>\n"
 "<li> Klikněte na Chránit dokument </li>\n"
-"<li> Vyberte možnost Odebrat osobní informace pro tento soubor při uložení "
-"</li>\n"
+"<li> Vyberte možnost Odebrat osobní informace pro tento soubor při uložení </"
+"li>\n"
 "<li> Klikněte na OK a uložte soubor </li> </ul> </li>\n"
 "<li> PDF:\n"
 "<ul> <li> Přejít do souboru </li>\n"
@@ -1461,26 +1816,155 @@ msgstr ""
 "<li> Klepněte na tlačítko OK </li>\n"
 "<li> Uložte dokument </li> </ul> </li> </ul>\n"
 
-msgid "semicolon"
-msgstr "{$label}:"
+msgid "reviewer.submission.reviewSchedule"
+msgstr "Plán recenze"
 
-msgid "common.deleting"
-msgstr "Mazání"
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "Požadavek redaktora"
 
-msgid "common.saving"
-msgstr "Ukládání"
+msgid "reviewer.submission.responseDueDate"
+msgstr "Termín pro reakci"
 
-msgid "stageParticipants.options"
-msgstr "Práva přiřazení"
+msgid "reviewer.submission.reviewDueDate"
+msgstr "Termín pro recenzi"
 
-msgid "stageParticipants.recommendOnly"
-msgstr "Tento účastník může pouze doporučit redakční rozhodnutí a bude vyžadovat, aby oprávněný redaktor toto rozhodnutí potvrdil."
+msgid "submission.task.responseDueDate"
+msgstr "Termín pro odpověď"
 
-msgid "notification.reviewerThankedEmail"
-msgstr "Děkovný mail odeslaný recenzentovi."
+msgid "navigation.goBack"
+msgstr "Jít zpět"
+
+msgid "notification.addedReviewer"
+msgstr ""
+"{$reviewerName} byl přiřazen k recenzi tohoto příspěvku a bylo mu odesláno "
+"upozornění emailem."
 
 msgid "notification.addedReviewerNoEmail"
-msgstr "{$reviewerName} byl přiřazen k recenzi tohoto příspěvku ale nebylo mu odesláno upozornění emailem."
+msgstr ""
+"{$reviewerName} byl přiřazen k recenzi tohoto příspěvku ale nebylo mu "
+"odesláno upozornění emailem."
+
+msgid "notification.removedReviewer"
+msgstr "Recenzent odebrán."
+
+msgid "notification.cancelledReviewer"
+msgstr "Recenzent zrušen."
+
+msgid "notification.reinstatedReviewer"
+msgstr "Recenzent obnoven."
+
+msgid "notification.reviewerResendRequest"
+msgstr "Byla zaslána žádost o přehodnocení přiřazení recenze."
+
+msgid "notification.addedStageParticipant"
+msgstr "Uživatel přidán jako účastník této fáze."
+
+msgid "notification.editStageParticipant"
+msgstr "Přiřazení fáze bylo změněno."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Nové oznámení."
+
+msgid "notification.type.reviewAssignment"
+msgstr "Probíhá recenze."
+
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "Bylo aktualizováno přiřazení recenze."
+
+msgid "notification.type.auditorRequest"
+msgstr "Je požadováno posouzení pro soubor \"{$file}\""
+
+msgid "notification.type.allReviewsIn"
+msgstr "Všechny recenze jsou nahrány a je třeba rozhodnout ve fázi {$stage}."
+
+msgid "notification.type.allRevisionsIn"
+msgstr "Opravený soubor byl nahrán pro rozhodnutí redaktora ve fázi {$stage}."
+
+msgid "notification.type.pendingRevisions"
+msgstr "Úpravy, které je třeba ve fázi {$stage} vzít v úvahu."
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "Ve fázi {$stage} byly nahrány úpravy."
+
+msgid "notification.type.reviewerComment"
+msgstr "Recenzent okomentoval článek \"{$title}\"."
+
+msgid "notification.signedFile"
+msgstr "Soubor byl zvážen."
+
+msgid "timeZone"
+msgstr "Časové pásmo"
+
+msgid "user.email"
+msgstr "E-mail"
+
+msgid "user.authorization.submissionFile"
+msgstr ""
+"Aktuální uživatel nemá oprávnění k přístupu k danému nahranému souboru."
+
+msgid "user.authorization.invalidPublication"
+msgstr "Neplatné zveřejnění."
+
+msgid "user.authorization.invalidSubmission"
+msgstr "Neplatný příspěvek."
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "Neplatné zobrazení."
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "Neplatné kolo recenzí."
+
+msgid "user.authorization.invalidQuery"
+msgstr "Neplatná diskuse."
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "Nemáte přístup k této zprávě v rámci diskuse."
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "Nemáte přístup k tomuto zadání recenze."
+
+msgid "user.authorization.authorRoleMissing"
+msgstr ""
+"Momentálně nemáte dostatečná oprávnění k zobrazení příspěvku. Upravte svůj "
+"profil a ujistěte se, že vám byly uděleny příslušné role v části "
+"\"Registrovat jako\"."
+
+msgid "user.authorization.submissionAuthor"
+msgstr ""
+"Současný uživatel není autorem požadovaného podání. Ověřte, zda jste "
+"přihlášeni správným uživatelským účtem."
+
+msgid "user.register.form.privacyConsentLabel"
+msgstr "Zásady ochrany osobních údajů"
+
+msgid "notification.type.queryActivity"
+msgstr "Průběh diskuse."
+
+msgid "notification.type.queryAdded"
+msgstr "Přidána diskuse."
+
+msgid "notification.type.assignCopyeditors"
+msgstr "Přiřaďte editora použitím odkazu \"Přidat\" v seznamu účastníků."
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "Čeká se na redakci."
+
+msgid "notification.type.roundStatusTitle"
+msgstr "Status kola {$round}"
+
+msgid "notification.type.editorialReport"
+msgstr "Shrnutí statistické zprávy."
+
+msgid "notification.type.editorialReport.contents"
+msgstr ""
+"Toto je laskavé připomenutí, abyste si prostřednictvím redakční zprávy mohli "
+"zkontrolovat stav svého časopisu."
+
+msgid "notification.type.editorialReminder"
+msgstr "Týdenní zasílání nevyřízených úkolů e-mailem"
+
+msgid "semicolon"
+msgstr "{$label}:"
 
 msgid "notification.editedNavigationMenuItem"
 msgstr "Navigační menu bylo úspěšně aktualizováno"
@@ -1500,505 +1984,21 @@ msgstr "Navigační menu bylo úspěšně aktualizováno"
 msgid "notification.removedNavigationMenu"
 msgstr "Navigační menu bylo úspěšně odebráno"
 
-msgid "notification.sendNotificationConfirmation"
-msgstr "Odeslání emailu o této skutečnosti všem zaregistrovaným uživatelům."
+msgid "notification.unsubscribeNotifications.success"
+msgstr "Byli jste odhlášeni"
 
-msgid "common.filter"
-msgstr "Filtry"
+msgid "notification.unsubscribeNotifications.error"
+msgstr "Nemohli jsme vás odhlásit"
 
-msgid "common.filterAdd"
-msgstr "Přidat filtr: {$filterTitle}"
-
-msgid "common.filterRemove"
-msgstr "Odebrat filtr: {$filterTitle}"
-
-msgid "common.lessThan"
-msgstr "{$value} nebo méně"
-
-msgid "common.listSeparator"
-msgstr ","
-
-msgid "common.moreThan"
-msgstr "{$value} nebo více"
-
-msgid "list.viewMore"
-msgstr "Ukázat podrobnosti o {$name}"
-
-msgid "list.viewLess"
-msgstr "Skrýt podrobnosti o {$name}"
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "Začít diskusi"
-
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "Začít diskusi mezi vámi a {$userFullName}."
-
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "Bylo aktualizováno přiřazení recenze."
-
-msgid "common.pagination"
-msgstr "{$start}-{$end} z {$total}"
-
-msgid "common.pagination.label"
-msgstr "Procházet další stránky"
-
-msgid "common.clearSearch"
-msgstr "Smazat hledaný výraz"
-
-msgid "common.publicAccess"
-msgstr "Veřejný přístup"
-
-msgid "stageParticipants.selectedUser"
-msgstr "Účastník"
-
-msgid "stageParticipants.canChangeMetadata"
+msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
-"Povolte této osobě provádět změny v publikaci, například v názvu, abstraktu, "
-"metadatech a dalších údajích o publikaci. Toto privilegium můžete zrušit, "
-"pokud byla předložená publikace zkontrolována a je připravena k publikaci."
+"Vyberte e-maily, které si již nepřejete dostávat na {$email} od "
+"{$contextName}."
 
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "Oprávnění"
-
-msgid "form.multilingualProgress"
-msgstr "{$count}/{$total} jazyků dokončeno"
-
-msgid "form.multilingualLabel"
-msgstr "{$label} v {$localeName}"
-
-msgid "form.requireId"
-msgstr "Musíte zadat platné ID."
-
-msgid "form.requirePrimaryLocale"
-msgstr "Toto pole musíte vyplnit v {$language}."
-
-msgid "form.csrfInvalid"
+msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"Formulář nelze odeslat. Možná jste byli odhlášeni. Znovu načtěte stránku a "
-"zkuste to znovu."
-
-msgid "form.missingRequired"
-msgstr "Toto pole je povinné."
-
-msgid "form.errorUnknown"
-msgstr ""
-"Vyskytla se neočekávaná chyba. Možná jste byli odhlášeni. Znovu načtěte "
-"stránku a zkuste to znovu."
-
-msgid "form.errors"
-msgstr ""
-"Formulář nebyl uložen, protože došlo k {$count} chybám. Opravte tyto chyby a "
-"zkuste to znovu."
-
-msgid "form.errorMany"
-msgstr "Prosím opravte {$count} chyby."
-
-msgid "form.errorOne"
-msgstr "Prosím opravte jednu chybu."
-
-msgid "form.errorGoTo"
-msgstr "Přejít na další chybu"
-
-msgid "form.errorA11y"
-msgstr "Přejít na {$fieldLabel}: {$errorMessage}"
-
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "Nemůžete nahrát žádné další soubory."
-
-msgid "form.dropzone.dictRemoveFile"
-msgstr "Odebrat soubor"
-
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "Opravdu chcete toto nahrávání zrušit?"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "Nahrávání bylo zrušeno"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "Zrušit nahrávání"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"Server odpověděl kódem {{statusCode}}. Pokud problém přetrvává, kontaktujte "
-"správce systému."
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "Soubory tohoto typu nelze nahrát."
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"Soubor je příliš velký ({{filesize}}mb). Nelze nahrát soubory větší než "
-"{{maxFilesize}}mb."
-
-msgid "form.dropzone.dictFallbackText"
-msgstr "K nahrání souborů použijte záložní formulář níže."
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr "Váš prohlížeč nepodporuje nahrávání souborů pomocí přetažení."
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "Pro nahrání souborů je přetáhněte sem"
-
-msgid "form.disallowedProp"
-msgstr "Tato vlastnost není povolena."
-
-msgid "form.disallowedLocales"
-msgstr "Jsou povoleny pouze následující jazyky: {$languages}."
-
-msgid "email.compose.error"
-msgstr ""
-"Při odesílání e-mailové zprávy došlo k potížím. Zkuste to prosím znovu "
-"později nebo se obraťte na správce systému."
-
-msgid "common.upload.thumbnailPreview"
-msgstr "Náhled aktuálně vybraného obrázku."
-
-msgid "common.upload.restore"
-msgstr "Obnovit originál"
-
-msgid "common.submenu"
-msgstr "Podnabídka"
-
-msgid "common.selectedPrefix"
-msgstr "Vybraný:"
-
-msgid "common.removeItem"
-msgstr "Odebrat {$item}"
-
-msgid "common.pagination.previous"
-msgstr "Předchozí strana"
-
-msgid "common.pagination.next"
-msgstr "Další strana"
-
-msgid "common.pagination.goToPage"
-msgstr "Jít na {$page}"
-
-msgid "common.override"
-msgstr "Přepsat"
-
-msgid "common.orderDown"
-msgstr "Snížit pozici o {$ itemTitle}"
-
-msgid "common.orderUp"
-msgstr "Zvýšit pozici o {$itemTitle}"
-
-msgid "common.noTemporaryFile"
-msgstr "Soubor, který jste nahráli, nebyl nalezen. Zkuste ho znovu nahrát."
-
-msgid "common.noItemsFound"
-msgstr "Žádné položky nenalezeny."
-
-msgid "common.semicolonListSeparator"
-msgstr "; "
-
-msgid "common.commaListSeparator"
-msgstr ", "
-
-msgid "common.lastActivity"
-msgstr "Poslední aktivita zaznamenaná dne {$date}."
-
-msgid "common.dateDecided"
-msgstr "Datum rozhodnutí"
-
-msgid "common.altTextInstructions"
-msgstr ""
-"Popište tento obrázek návštěvníkům, kteří si zobrazují web v textovém "
-"prohlížeči nebo pomocí asistenčních zařízení. Příklad: „Náš redaktor hovoří "
-"na konferenci PKP.“"
-
-msgid "validator.url"
-msgstr "Toto není platná URL adresa."
-
-msgid "validator.unique"
-msgstr "{$attribute} již byl přijatý."
-
-msgid "validator.timezone"
-msgstr "Toto není platné časové pásmo."
-
-msgid "validator.string"
-msgstr "Toto není platný řetězec."
-
-msgid "validator.size.array"
-msgstr "Musí obsahovat {$size} položky."
-
-msgid "validator.size.string"
-msgstr "Musí to být znaky {$size}."
-
-msgid "validator.size.file"
-msgstr "Musí to být {$size} kilobajtů."
-
-msgid "validator.size.numeric"
-msgstr "Musí to být {$size}."
-
-msgid "validator.same"
-msgstr "{$attribute} a {$other} se musí shodovat."
-
-msgid "validator.required_without_all"
-msgstr "Toto pole je povinné, pokud není přítomna žádná z {$values}."
-
-msgid "validator.required_without"
-msgstr "Toto pole je povinné, pokud není k dispozici {$value}."
-
-msgid "validator.required_with_all"
-msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
-
-msgid "validator.required_with"
-msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
-
-msgid "validator.required_unless"
-msgstr "Toto pole je povinné, pokud {$other} není v {$values}."
-
-msgid "validator.required_if"
-msgstr "Pokud {$other} je {$value}, tak je toto pole povinné."
-
-msgid "validator.required"
-msgstr "Toto pole je povinné."
-
-msgid "validator.regex"
-msgstr "Toto není správně naformátováno."
-
-msgid "validator.present"
-msgstr "Musí být k dispozici položka {$attribute}."
-
-msgid "validator.orcid"
-msgstr "Toto není platný ORCID."
-
-msgid "validator.numeric"
-msgstr "Toto není platné číslo."
-
-msgid "validator.not_in"
-msgstr "Vybraný {$attribute} je neplatný."
-
-msgid "validator.min.array"
-msgstr "Musí obsahovat alespoň {$min} položek."
-
-msgid "validator.min.string"
-msgstr "Musí to být nejméně {$min} znaků."
-
-msgid "validator.min.file"
-msgstr "Musí to být nejméně {$min} kilobajtů."
-
-msgid "validator.min.numeric"
-msgstr "Musí to být alespoň {$min}."
-
-msgid "validator.mimes"
-msgstr "Musí to být soubor typu {$values}."
-
-msgid "validator.max.array"
-msgstr "Nemusí obsahovat více než {$max} položek."
-
-msgid "validator.max.string"
-msgstr "Toto nesmí být větší než {$max} znaků."
-
-msgid "validator.max.file"
-msgstr "Toto nesmí být větší než {$max} kilobajtů."
-
-msgid "validator.max.numeric"
-msgstr "Tohle nesmí být větší než {$max}."
-
-msgid "validator.localeKey"
-msgstr ""
-"Jazyky musí být zadány pomocí místního kódu. Příklady: en_US, fr_CA, "
-"sr_RS@cyrillic."
-
-msgid "validator.localeExpected"
-msgstr ""
-"Toto pole je vícejazyčné. Pro každý podporovaný jazyk musí být poskytnuty "
-"samostatné hodnoty."
-
-msgid "validator.locale"
-msgstr "Tento jazyk není akceptován."
-
-msgid "validator.json"
-msgstr "Toto není platný JSON řetězec."
-
-msgid "validator.issn"
-msgstr "Toto není platný ISSN kód."
-
-msgid "validator.ip"
-msgstr "Toto není platná IP adresa."
-
-msgid "validator.integer"
-msgstr "Toto není platné celé číslo."
-
-msgid "validator.in"
-msgstr "Vybraný {$attribute} je neplatný."
-
-msgid "validator.image"
-msgstr "Musí to být obrázek."
-
-msgid "validator.filled"
-msgstr "Toto pole je povinné."
-
-msgid "validator.exists"
-msgstr "Vybraný {$attribute} je neplatný."
-
-msgid "validator.email"
-msgstr "Toto není platná e-mailová adresa."
-
-msgid "validator.digits"
-msgstr "Musí to být dlouhé {$digits} číslic."
-
-msgid "validator.digits_between"
-msgstr "Musí to být mezi {$min} a {$max} číslic."
-
-msgid "validator.different"
-msgstr "{$attribute} a {$other} se musí lišit."
-
-msgid "validator.date_format"
-msgstr "To neodpovídá formátu {$format}."
-
-msgid "validator.date"
-msgstr "Toto není platné datum."
-
-msgid "validator.currency"
-msgstr "Toto není platná měna."
-
-msgid "validator.confirmed"
-msgstr "Potvrzení pro toto pole se neshoduje."
-
-msgid "validator.boolean"
-msgstr "Toto pole musí být platné nebo neplatné."
-
-msgid "validator.between.array"
-msgstr "Musí obsahovat mezi {$min} a {$max} položek."
-
-msgid "validator.between.string"
-msgstr "Musí to být mezi {$min} a {$max} znaků."
-
-msgid "validator.between.file"
-msgstr "Musí to být mezi {$min} a {$max} kilobajtů."
-
-msgid "validator.between.numeric"
-msgstr "Musí to být mezi {$min} a {$max}."
-
-msgid "validator.before"
-msgstr "Toto datum musí být před {$date}."
-
-msgid "validator.array"
-msgstr "Toto není platné pole."
-
-msgid "validator.alpha_num"
-msgstr "Může obsahovat pouze písmena a čísla."
-
-msgid "validator.alpha_dash"
-msgstr "Může obsahovat pouze písmena, čísla, pomlčky a podtržítka."
-
-msgid "validator.alpha"
-msgstr "To může obsahovat pouze písmena."
-
-msgid "validator.after"
-msgstr "Toto datum musí být po {$date}."
-
-msgid "validator.active_url"
-msgstr "Toto není platná URL adresa."
-
-msgid "validator.accepted"
-msgstr "Přijměte tuto položku.."
-
-msgid "notification.type.editorialReport.contents"
-msgstr ""
-"Toto je laskavé připomenutí, abyste si prostřednictvím redakční zprávy mohli "
-"zkontrolovat stav svého časopisu."
-
-msgid "notification.type.editorialReport"
-msgstr "Shrnutí statistické zprávy."
-
-msgid "user.authorization.invalidPublication"
-msgstr "Neplatné zveřejnění."
-
-msgid "notification.editStageParticipant"
-msgstr "Přiřazení fáze bylo změněno."
-
-msgid "notification.reinstatedReviewer"
-msgstr "Recenzent obnoven."
-
-msgid "notification.cancelledReviewer"
-msgstr "Recenzent zrušen."
-
-msgid "navigation.skip.announcements"
-msgstr "Přeskočit na oznámení"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "U tohoto účastníka nelze provádět žádné změny"
-
-msgid "navigation.skip.description"
-msgstr "Přejít na odkazy na obsah"
-
-msgid "common.moreThanOnly"
-msgstr "Více než"
-
-msgid "common.lessThanOnly"
-msgstr "Méně než"
-
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "Zásady ochrany osobních údajů"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "Nemáte přístup k tomuto zadání recenze."
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "Nemáte přístup k této zprávě v rámci diskuse."
-
-msgid "user.authorization.invalidQuery"
-msgstr "Neplatná diskuse."
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "Neplatné kolo recenzí."
-
-msgid "user.email"
-msgstr "E-mail"
-
-msgid "review.anonymousPeerReview.title"
-msgstr "Jak zajistit, aby byly všechny soubory anonymizovány"
-
-msgid "search.searchResults.foundPlural"
-msgstr "Nelezeno {$count} položek."
-
-msgid "search.searchResults.foundSingle"
-msgstr "Nalezena jedna položka."
-
-msgid "navigation.backTo"
-msgstr "⟵ Zpět na {$page}"
-
-msgid "form.saved"
-msgstr "Uloženo"
-
-msgid "common.viewWithName"
-msgstr "Zobrazit {$name}"
-
-msgid "common.user.nonexistent"
-msgstr "[Neexistující uživatel]"
-
-msgid "common.addFile"
-msgstr "Přidat soubor"
-
-msgid "common.unknownError"
-msgstr ""
-"Objevila se neočekávaná chyba. Obnovte, prosím, stránku a zkuste to znovu."
-
-msgid "common.selectWithName"
-msgstr "Vybrat {$name}"
-
-msgid "common.editItem"
-msgstr "Editovat {$name}"
-
-msgid "common.inactive"
-msgstr "Neaktivní"
-
-msgid "notification.unsubscribeNotifications"
-msgstr "Odhlásit odběr"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
-msgstr ""
-"Došlo k neočekávané chybě a e-mailovou adresu {$email} jsme nemohli "
-"odhlásit. Můžete se odhlásit ze všech e-mailových oznámení ve svém <a href=\""
-"{$profileNotificationUrl}\">uživatelském profilu</a> nebo nás kontaktovat "
-"přímo a požádat o pomoc."
+"E-mailová oznámení můžete kdykoli znovu přihlásit ze svého <a href="
+"\"{$profileNotificationUrl}\">uživatelského profilu</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
@@ -2006,177 +2006,254 @@ msgstr ""
 "nebudeme posílat. E-mailová oznámení můžete kdykoli znovu přihlásit ze svého "
 "<a href=\"{$profileNotificationUrl}\">uživatelského profilu</a>."
 
-msgid "notification.unsubscribeNotifications.resubscribe"
+msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
-"E-mailová oznámení můžete kdykoli znovu přihlásit ze svého <a href=\""
-"{$profileNotificationUrl}\">uživatelského profilu</a>."
+"Došlo k neočekávané chybě a e-mailovou adresu {$email} jsme nemohli "
+"odhlásit. Můžete se odhlásit ze všech e-mailových oznámení ve svém <a href="
+"\"{$profileNotificationUrl}\">uživatelském profilu</a> nebo nás kontaktovat "
+"přímo a požádat o pomoc."
 
-msgid "notification.unsubscribeNotifications.pageMessage"
-msgstr ""
-"Vyberte e-maily, které si již nepřejete dostávat na {$email} od "
-"{$contextName}."
+msgid "notification.unsubscribeNotifications"
+msgstr "Odhlásit odběr"
 
-msgid "notification.unsubscribeNotifications.error"
-msgstr "Nemohli jsme vás odhlásit"
+msgid "list.viewMore"
+msgstr "Ukázat podrobnosti o {$name}"
 
-msgid "notification.unsubscribeNotifications.success"
-msgstr "Byli jste odhlášeni"
-
-msgid "filter.import.error.couldNotImportNode"
-msgstr "Nelze importovat uzel XML"
-
-msgid "filter.error.missingRequirements"
-msgstr ""
-"Pokoušíte se spustit transformaci, která není ve vašem instalačním prostředí "
-"podporována."
-
-msgid "filter.input.error.notSupported"
-msgstr ""
-"Filtr ({$displayName}) podporuje vstup typu {$inputTypeName} – byl však "
-"zadán typ {$typeofInput}"
-
-msgid "validator.country"
-msgstr "Toto není platný název státu."
-
-msgid "common.insert"
-msgstr "Vložit"
-
-msgid "validation.invalidOption"
-msgstr "Tato možnost není platná."
-
-msgid "validator.alpha_dash_period"
-msgstr "Může obsahovat pouze písmena, číslice, pomlčky, podtržítka a tečky."
-
-msgid "list.collapseAll"
-msgstr "Sbalit vše"
+msgid "list.viewLess"
+msgstr "Skrýt podrobnosti o {$name}"
 
 msgid "list.expandAll"
 msgstr "Rozbalit vše"
 
-msgid "timeZone"
-msgstr "Časové pásmo"
+msgid "list.collapseAll"
+msgstr "Sbalit vše"
 
-msgid "email.attachmentNotFound"
-msgstr "Soubor {$fileName} nelze připojit."
+msgid "validation.invalidOption"
+msgstr "Tato možnost není platná."
 
-msgid "email.addAttachment.reviewFiles.description"
-msgstr "Připojení souborů nahraných recenzenty"
+msgid "validator.accepted"
+msgstr "Přijměte tuto položku.."
 
-msgid "email.addAttachment.reviewFiles.attach"
-msgstr "Připojit recenzní soubory"
+msgid "validator.active_url"
+msgstr "Toto není platná URL adresa."
 
-msgid "email.addAttachment.libraryFiles.description"
-msgstr "Připojte soubory z podání příspěvku a z knihovny vydavatele."
+msgid "validator.after"
+msgstr "Toto datum musí být po {$date}."
 
-msgid "email.addAttachment.libraryFiles.attach"
-msgstr "Připojit soubory knihovny"
+msgid "validator.alpha"
+msgstr "To může obsahovat pouze písmena."
 
-msgid "email.addAttachment.libraryFiles"
-msgstr "Soubory knihovny"
+msgid "validator.alpha_dash"
+msgstr "Může obsahovat pouze písmena, čísla, pomlčky a podtržítka."
 
-msgid "email.addAttachment.submissionFiles.reviewDescription"
-msgstr ""
-"Připojte soubory nahrané během pracovního postupu odesílání, například "
-"úpravy nebo soubory k recenzi."
+msgid "validator.alpha_dash_period"
+msgstr "Může obsahovat pouze písmena, číslice, pomlčky, podtržítka a tečky."
 
-msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr "Přiložte soubory nahrané autorem ve fázi podání příspěvku."
+msgid "validator.alpha_num"
+msgstr "Může obsahovat pouze písmena a čísla."
 
-msgid "email.addAttachment.submissionFiles.attach"
-msgstr "Připojit soubor příspěvku"
+msgid "validator.array"
+msgstr "Toto není platné pole."
 
-msgid "common.viewError"
-msgstr "Ukázat chybu"
+msgid "validator.before"
+msgstr "Toto datum musí být před {$date}."
 
-msgid "common.upload.addFile.description"
-msgstr "Nahrajte soubor z počítače."
+msgid "validator.between.numeric"
+msgstr "Musí to být mezi {$min} a {$max}."
 
-msgid "common.switchTo"
-msgstr "Přepnout na"
+msgid "validator.between.file"
+msgstr "Musí to být mezi {$min} a {$max} kilobajtů."
 
-msgid "common.showAllSteps"
-msgstr "Ukázat všechny kroky"
+msgid "validator.between.string"
+msgstr "Musí to být mezi {$min} a {$max} znaků."
 
-msgid "common.searching"
-msgstr "Hledání"
+msgid "validator.between.array"
+msgstr "Musí obsahovat mezi {$min} a {$max} položek."
 
-msgid "common.numberedMore"
-msgstr "{$number} krát více"
+msgid "validator.boolean"
+msgstr "Toto pole musí být platné nebo neplatné."
 
-msgid "common.keepWorking"
-msgstr "Pokračovat v práci"
+msgid "validator.confirmed"
+msgstr "Potvrzení pro toto pole se neshoduje."
 
-msgid "common.findTemplate"
-msgstr "Najít šablonu"
-
-msgid "common.deselect"
-msgstr "Zrušit výběr"
-
-msgid "common.attachFiles"
-msgstr "Připojte soubory"
-
-msgid "common.attachedFiles"
-msgstr "Připojené soubory"
-
-msgid "common.addCCBCC"
-msgstr "Přidat CC/BCC"
-
-msgid "email.confirmSwitchLocale"
-msgstr ""
-"Jste si jisti, že chcete změnit na {$localeName} pro sestavení tohoto e-"
-"mailu? Veškeré změny, které jste provedli v předmětu a těle e-mailu, budou "
-"ztraceny."
-
-msgid "common.switchToNamedItem"
-msgstr "Přepnout na {$name}"
-
-msgid "common.orUploadFile"
-msgstr "Nebo nahrajte soubor"
-
-msgid "common.dragAndDropHere"
-msgstr "Přetáhněte sem soubory."
-
-msgid "common.attachSelected"
-msgstr "Připojit vybrané"
-
-msgid "common.addFiles"
-msgstr "Přidat soubory"
-
-msgid "common.insertContentSearch"
-msgstr "Najít obsah k vložení"
-
-msgid "common.insertContent"
-msgstr "Vložte obsah"
-
-msgid "plugins.importexport.common.error.unknownCommand"
-msgstr "Neznámý příkaz {$command}"
-
-msgid "notification.type.editorialReminder"
-msgstr "Týdenní zasílání nevyřízených úkolů e-mailem"
-
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
-
-msgid "institution.institutions"
-msgstr "Instituce"
-
-msgid "notification.reviewerResendRequest"
-msgstr "Byla zaslána žádost o přehodnocení přiřazení recenze."
-
-msgid "common.downloadReport"
-msgstr "Stáhnout zprávu"
-
-msgid "common.searchPhrase"
-msgstr "Hledaná fráze"
-
-msgid "common.geographic"
-msgstr "Geografická data"
+msgid "validator.country"
+msgstr "Toto není platný název státu."
 
 msgid "validator.country.regex"
 msgstr ""
 "Zadaný kód země není platný. Země musí být zadána jedním z dvoupísmenných "
 "mezinárodních kódů. Všechny kódy najdete na adrese https://en.wikipedia.org/"
 "wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
+
+msgid "validator.currency"
+msgstr "Toto není platná měna."
+
+msgid "validator.date"
+msgstr "Toto není platné datum."
+
+msgid "validator.date_format"
+msgstr "To neodpovídá formátu {$format}."
+
+msgid "validator.different"
+msgstr "{$attribute} a {$other} se musí lišit."
+
+msgid "validator.digits"
+msgstr "Musí to být dlouhé {$digits} číslic."
+
+msgid "validator.digits_between"
+msgstr "Musí to být mezi {$min} a {$max} číslic."
+
+msgid "validator.email"
+msgstr "Toto není platná e-mailová adresa."
+
+msgid "validator.exists"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.filled"
+msgstr "Toto pole je povinné."
+
+msgid "validator.image"
+msgstr "Musí to být obrázek."
+
+msgid "validator.in"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.integer"
+msgstr "Toto není platné celé číslo."
+
+msgid "validator.ip"
+msgstr "Toto není platná IP adresa."
+
+msgid "validator.issn"
+msgstr "Toto není platný ISSN kód."
+
+msgid "validator.json"
+msgstr "Toto není platný JSON řetězec."
+
+msgid "validator.locale"
+msgstr "Tento jazyk není akceptován."
+
+msgid "validator.localeExpected"
+msgstr ""
+"Toto pole je vícejazyčné. Pro každý podporovaný jazyk musí být poskytnuty "
+"samostatné hodnoty."
+
+msgid "validator.localeKey"
+msgstr ""
+"Jazyky musí být zadány pomocí místního kódu. Příklady: en_US, fr_CA, "
+"sr_RS@cyrillic."
+
+msgid "validator.max.numeric"
+msgstr "Tohle nesmí být větší než {$max}."
+
+msgid "validator.max.file"
+msgstr "Toto nesmí být větší než {$max} kilobajtů."
+
+msgid "validator.max.string"
+msgstr "Toto nesmí být větší než {$max} znaků."
+
+msgid "validator.max.array"
+msgstr "Nemusí obsahovat více než {$max} položek."
+
+msgid "validator.mimes"
+msgstr "Musí to být soubor typu {$values}."
+
+msgid "validator.min.numeric"
+msgstr "Musí to být alespoň {$min}."
+
+msgid "validator.min.file"
+msgstr "Musí to být nejméně {$min} kilobajtů."
+
+msgid "validator.min.string"
+msgstr "Musí to být nejméně {$min} znaků."
+
+msgid "validator.min.array"
+msgstr "Musí obsahovat alespoň {$min} položek."
+
+msgid "validator.not_in"
+msgstr "Vybraný {$attribute} je neplatný."
+
+msgid "validator.numeric"
+msgstr "Toto není platné číslo."
+
+msgid "validator.orcid"
+msgstr "Toto není platný ORCID."
+
+msgid "validator.present"
+msgstr "Musí být k dispozici položka {$attribute}."
+
+msgid "validator.regex"
+msgstr "Toto není správně naformátováno."
+
+msgid "validator.required"
+msgstr "Toto pole je povinné."
+
+msgid "validator.required_if"
+msgstr "Pokud {$other} je {$value}, tak je toto pole povinné."
+
+msgid "validator.required_unless"
+msgstr "Toto pole je povinné, pokud {$other} není v {$values}."
+
+msgid "validator.required_with"
+msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+
+msgid "validator.required_with_all"
+msgstr "Toto pole je povinné, pokud je k dispozici {$hodnoty}."
+
+msgid "validator.required_without"
+msgstr "Toto pole je povinné, pokud není k dispozici {$value}."
+
+msgid "validator.required_without_all"
+msgstr "Toto pole je povinné, pokud není přítomna žádná z {$values}."
+
+msgid "validator.same"
+msgstr "{$attribute} a {$other} se musí shodovat."
+
+msgid "validator.size.numeric"
+msgstr "Musí to být {$size}."
+
+msgid "validator.size.file"
+msgstr "Musí to být {$size} kilobajtů."
+
+msgid "validator.size.string"
+msgstr "Musí to být znaky {$size}."
+
+msgid "validator.size.array"
+msgstr "Musí obsahovat {$size} položky."
+
+msgid "validator.string"
+msgstr "Toto není platný řetězec."
+
+msgid "validator.timezone"
+msgstr "Toto není platné časové pásmo."
+
+msgid "validator.unique"
+msgstr "{$attribute} již byl přijatý."
+
+msgid "validator.url"
+msgstr "Toto není platná URL adresa."
+
+msgid "validator.no_new_line"
+msgstr ""
+
+msgid "validator.allowable_title_html_tags"
+msgstr ""
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"Filtr ({$displayName}) podporuje vstup typu {$inputTypeName} – byl však "
+"zadán typ {$typeofInput}"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"Pokoušíte se spustit transformaci, která není ve vašem instalačním prostředí "
+"podporována."
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "Nelze importovat uzel XML"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr "Neznámý příkaz {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
@@ -2190,50 +2267,32 @@ msgstr "Přidán autor."
 msgid "notification.editedAuthor"
 msgstr "Upraven autor."
 
-msgid "common.discardChanges"
-msgstr "Ne, zahoďte neuložené změny"
+#~ msgid "common.captchaField.description"
+#~ msgstr "Zadejte prosím písmena tak, jak jsou zobrazena v obrázku nahoře."
 
-msgid "common.disconnected"
-msgstr "Odpojeno"
+#~ msgid "common.captchaField"
+#~ msgstr "Ověření"
 
-msgid "common.emailTemplates"
-msgstr "Šablony e-mailů"
+#~ msgid "common.captcha.error.missing-input-secret"
+#~ msgstr ""
+#~ "Nastavení ověření captcha na těchto stránkách není správné. Chybí tajný "
+#~ "klíč."
 
-msgid "common.label"
-msgstr "Štítek"
+#~ msgid "common.captcha.error.invalid-input-secret"
+#~ msgstr ""
+#~ "Nastavení ověření captcha na těchto stránkách není správné. Tajný klíč je "
+#~ "chybný."
 
-msgid "common.lastSaved"
-msgstr "Naposled uloženo {$when}"
+#~ msgid "common.captcha.error.invalid-input-response"
+#~ msgstr "Neprošli jste ověřením používaným pro prevenci spamových příspěvků."
 
-msgid "common.noneProvided"
-msgstr "Nic nebylo poskytnuto"
+#~ msgid "common.listSeparator"
+#~ msgstr ","
 
-msgid "common.reconnecting"
-msgstr "Opětovné připojení"
+#~ msgid "form.missingRequired"
+#~ msgstr "Toto pole je povinné."
 
-msgid "common.role"
-msgstr "Role"
-
-msgid "common.uploadedBy"
-msgstr "Nahrál/a {$jméno}"
-
-msgid "common.uploadedByAndWhen"
-msgstr "Nahrál/a {$name} dne {$date}"
-
-msgid "common.unsavedChanges"
-msgstr "Neuložené změny"
-
-msgid "common.details"
-msgstr "Podrobnosti"
-
-msgid "common.noneSelected"
-msgstr "Není nic vybráno"
-
-msgid "common.showingSteps"
-msgstr "{$current}/{$total} kroků"
-
-msgid "common.unsavedChangesMessage"
-msgstr ""
-"Našli jsme neuložené změny z {$when}. K tomu může dojít, pokud během práce "
-"ztratíte spojení se serverem. Obnovení těchto změn může přepsat všechny "
-"změny, které jste od té doby provedli. Chcete tyto změny obnovit nyní?"
+#~ msgid "form.errorUnknown"
+#~ msgstr ""
+#~ "Vyskytla se neočekávaná chyba. Možná jste byli odhlášeni. Znovu načtěte "
+#~ "stránku a zkuste to znovu."

@@ -12,9 +12,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.metadata.dc11.displayName"
+msgstr "Метаданни Dublin Core 1.1"
+
 msgid "plugins.metadata.dc11.description"
 msgstr ""
 "Допринася за схемите на Dublin Core версия 1.1 и адаптерите за приложения."
-
-msgid "plugins.metadata.dc11.displayName"
-msgstr "Метаданни Dublin Core 1.1"

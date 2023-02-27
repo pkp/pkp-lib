@@ -22,14 +22,74 @@ msgstr "Żadnych pozycji"
 msgid "grid.settings"
 msgstr "Ustawienia"
 
+msgid "grid.noAuditors"
+msgstr "Brak kontrolerów"
+
+msgid "grid.remotelyHostedItem"
+msgstr "Ten plik jest udostępniany zdalnie."
+
+msgid "grid.action.uninstall"
+msgstr "Odinstaluj"
+
+msgid "grid.action.manageAccess"
+msgstr "Zarządzaj dostępem"
+
 msgid "grid.action.sort"
 msgstr "Sortuj"
 
 msgid "grid.action.addItem"
 msgstr "Dodaj pozycję"
 
+msgid "grid.action.addNote"
+msgstr "Dodaj uwagę"
+
+msgid "grid.action.addQuery"
+msgstr "Dodaj dyskusję"
+
+msgid "grid.action.readQuery"
+msgstr "Czytaj dyskusję"
+
+msgid "grid.action.deleteQuery"
+msgstr "Usuń dyskusję"
+
+msgid "grid.action.updateQuery"
+msgstr "Aktualizuj dyskusję"
+
+msgid "grid.action.addUser"
+msgstr "Dodaj użytkownika"
+
+msgid "grid.action.unassignReviewer"
+msgstr "Cofnij przypisanie recenzenta"
+
+msgid "grid.action.approveCopyedit"
+msgstr "Zatwierdź plik w celu przesłania do następnego etapu"
+
+msgid "grid.action.reload"
+msgstr "Załaduj ponownie"
+
 msgid "grid.action.delete"
 msgstr "Usuń"
+
+msgid "grid.action.deleteFile"
+msgstr "Usuń plik"
+
+msgid "grid.action.deleteMedia"
+msgstr "Usuń media"
+
+msgid "grid.action.editMedia"
+msgstr "Edytuj media"
+
+msgid "grid.action.editSection"
+msgstr "Edytuj dział"
+
+msgid "grid.action.export"
+msgstr "Eksport"
+
+msgid "grid.action.deleteSection"
+msgstr "Usuń dział"
+
+msgid "grid.action.editorialHistory"
+msgstr "Historia redakcji"
 
 msgid "grid.action.remove"
 msgstr "Wycofaj"
@@ -40,8 +100,11 @@ msgstr "Edytuj"
 msgid "grid.action.approve"
 msgstr "Potwierdź"
 
-msgid "grid.action.decline"
+msgid "grid.action.disapprove"
 msgstr "Odrzuć"
+
+msgid "grid.action.setApproval"
+msgstr "Oznacz potwierdzenie"
 
 msgid "grid.action.moreInformation"
 msgstr "Więcej informacji"
@@ -49,65 +112,11 @@ msgstr "Więcej informacji"
 msgid "grid.action.restoreDefaults"
 msgstr "Przywróć domyślne"
 
-msgid "grid.columns.actions"
-msgstr "Działania"
-
-msgid "grid.columns.institution"
-msgstr "Nazwa instytucji"
-
-msgid "grid.columns.url"
-msgstr "WWW"
-
-msgid "grid.sponsor.title"
-msgstr "Instytucje finansujące"
-
-msgid "grid.contributor.title"
-msgstr "Współautorzy"
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "Przywrócić ustawienia domyślne?"
 
 msgid "grid.action.addAuthor"
 msgstr "Dodaj autora"
-
-msgid "grid.reviewForm.title"
-msgstr "Formularz recenzji"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "Pliki"
-
-msgid "grid.libraryFiles.submission.title"
-msgstr "Biblioteka zgłoszeń"
-
-msgid "grid.libraryFiles.editorial.title"
-msgstr "Biblioteka redakcji"
-
-msgid "grid.libraryFiles.review.title"
-msgstr "Biblioteka recenzji"
-
-msgid "grid.libraryFiles.production.title"
-msgstr "Biblioteka produkcji"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "Biblioteka szablonów"
-
-msgid "grid.submissionChecklist.title"
-msgstr "Lista kontrolna zgłoszenia"
-
-msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "Pozycja listy kontrolnej"
-
-msgid "author.users.contributor.principalContact"
-msgstr "Główna osoba do kontaktu"
-
-msgid "grid.action.addUser"
-msgstr "Dodaj użytkownika"
-
-msgid "grid.action.deleteFile"
-msgstr "Usuń plik"
-
-msgid "grid.action.deleteMedia"
-msgstr "Usuń media"
-
-msgid "grid.action.editMedia"
-msgstr "Edytuj media"
 
 msgid "grid.action.editAuthor"
 msgstr "Edytuj autora"
@@ -123,6 +132,9 @@ msgstr "Uaktualnij"
 
 msgid "grid.action.order"
 msgstr "Porządek"
+
+msgid "grid.action.saveOrdering"
+msgstr "Zapisz porządek"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Anuluj zmianę porządku"
@@ -168,6 +180,9 @@ msgstr "Wyślij informację o wymaganych drobnych poprawkach"
 
 msgid "grid.action.accept"
 msgstr "Zaakceptuj przesłany tekst"
+
+msgid "grid.action.decline"
+msgstr "Odrzuć"
 
 msgid "grid.action.internalReview"
 msgstr "Wyślij przesłany tekst do wewnętrznej recenzji"
@@ -220,6 +235,9 @@ msgstr "Dodaj grupę użytkowników"
 msgid "grid.action.editUserGroup"
 msgstr "Edytuj grupę użytkowników"
 
+msgid "grid.action.removeUserGroup"
+msgstr "Usuń grupę użytkowników"
+
 msgid "grid.action.disable"
 msgstr "Wyłącz"
 
@@ -232,8 +250,14 @@ msgstr "Zapisz istniejącego użytkownika jako recenzenta"
 msgid "grid.action.selectCreate"
 msgstr "Utwórz nowego recenzenta"
 
+msgid "grid.action.search"
+msgstr "Szukaj"
+
 msgid "grid.action.advancedSearch"
 msgstr "Wyszukiwanie zaawansowane"
+
+msgid "grid.action.viewLibrary"
+msgstr "Wyświetl bibliotekę dokumentów"
 
 msgid "grid.action.viewMetadata"
 msgstr "Wyświetl metadane dla tego tekstu"
@@ -262,6 +286,9 @@ msgstr "Dodaj rodzaj ogłoszenia"
 msgid "grid.action.addAnnouncement"
 msgstr "Dodaj ogłoszenie"
 
+msgid "grid.action.addInstitution"
+msgstr "Dodaj instytucję"
+
 msgid "grid.action.mergeUser"
 msgstr "Scal użytkownika"
 
@@ -273,6 +300,42 @@ msgstr "Wyświetl historię"
 
 msgid "grid.action.unconsiderReview"
 msgstr "Recenzja jest ukończona, ale możesz zmienić jej status"
+
+msgid "grid.action.enable"
+msgstr "Włącz"
+
+msgid "grid.action.bookInfo"
+msgstr "Dane zgłoszenia"
+
+msgid "grid.action.logInAs"
+msgstr "Zaloguj jako"
+
+msgid "grid.action.exportAllUsers"
+msgstr "Eksportuj wszystkich użytkowników"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "Czy na pewno wyeksportować wszystkich użytkowników?"
+
+msgid "grid.action.activate"
+msgstr "Aktywuj"
+
+msgid "grid.action.deactivate"
+msgstr "Dezaktywuj"
+
+msgid "grid.action.copy"
+msgstr "Kopiuj"
+
+msgid "grid.action.preview"
+msgstr "Podgląd"
+
+msgid "grid.action.install"
+msgstr "Instaluj"
+
+msgid "grid.action.moreItems"
+msgstr "Załaduj więcej"
+
+msgid "grid.action.users"
+msgstr "Zobacz/Wybierz użytkowników"
 
 msgid "grid.task.status.completed"
 msgstr "Zadanie zrealizowane"
@@ -289,11 +352,26 @@ msgstr "Zadanie nieukończone"
 msgid "grid.task.status.reviewReady"
 msgstr "Recenzja ukończona. Kliknij ikonę po lewej, aby przeczytać jej treść."
 
+msgid "grid.columns.actions"
+msgstr "Działania"
+
+msgid "grid.columns.institution"
+msgstr "Nazwa instytucji"
+
+msgid "grid.columns.url"
+msgstr "WWW"
+
 msgid "grid.columns.auditor"
 msgstr "Kontroler"
 
 msgid "grid.columns.locale"
 msgstr "Język"
+
+msgid "grid.columns.locale.code"
+msgstr "Kod"
+
+msgid "grid.sponsor.title"
+msgstr "Instytucje finansujące"
 
 msgid "grid.action.addSponsor"
 msgstr "Dodaj instytucję finansującą"
@@ -322,14 +400,81 @@ msgstr "Edytuj kategorię"
 msgid "grid.action.deleteCategory"
 msgstr "Usuń kategorię"
 
+msgid "grid.contributor.title"
+msgstr "Współautorzy"
+
 msgid "grid.action.addContributor"
 msgstr "Dodaj współautora"
 
 msgid "grid.action.deleteContributor"
 msgstr "Usuń współautora"
 
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Czy na pewno chcesz usunąć autora {$name}? Tej operacji nie można cofnąć."
+
+msgid "grid.action.newVersion"
+msgstr "Stwórz nową wersję"
+
+msgid "grid.reviewForm.title"
+msgstr "Formularz recenzji"
+
+msgid "grid.reviewFormElement.responseItems"
+msgstr "Opcje odpowiedzi"
+
 msgid "grid.noFiles"
 msgstr "Brak plików"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "Pliki"
+
+msgid "grid.libraryFiles.submission.title"
+msgstr "Biblioteka zgłoszeń"
+
+msgid "grid.libraryFiles.editorial.title"
+msgstr "Biblioteka redakcji"
+
+msgid "grid.libraryFiles.review.title"
+msgstr "Biblioteka recenzji"
+
+msgid "grid.libraryFiles.production.title"
+msgstr "Biblioteka produkcji"
+
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "Biblioteka szablonów"
+
+msgid "grid.submissionChecklist.title"
+msgstr "Lista kontrolna zgłoszenia"
+
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "Pozycja listy kontrolnej"
+
+msgid "author.users.contributor.principalContact"
+msgstr "Główna osoba do kontaktu"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Ustaw kontakt główny"
+
+msgid "contributor.listPanel.preview"
+msgstr "Podgląd"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Twórcy tej publikacji zostaną opisani według wypisanych formatów."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Format"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Wyświetl"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Inicjały"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Lista publikacji"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Wszystko"
 
 msgid "grid.roles.currentRoles"
 msgstr "Aktualne role"
@@ -348,6 +493,9 @@ msgstr "Aktualny przydział"
 
 msgid "grid.user.allRoles"
 msgstr "Wszystkie role"
+
+msgid "grid.user.allPermissionLevels"
+msgstr "Wszystkie poziomy dostępu"
 
 msgid "grid.user.add"
 msgstr "Dodaj użytkownika"
@@ -374,10 +522,14 @@ msgid "grid.user.enableReason"
 msgstr "Powód włączenia użytkownika"
 
 msgid "grid.user.error"
-msgstr "Wystąpił błąd podczas wykonywania prac administracyjnych na tym użytkowniku. Spróbuj ponownie."
+msgstr ""
+"Wystąpił błąd podczas wykonywania prac administracyjnych na tym użytkowniku. "
+"Spróbuj ponownie."
 
 msgid "grid.user.errorEmail"
-msgstr "Wystąpił błąd podczas przesyłania wiadomości. Upewnij się, że konfiguracja serwera jest poprawna lub skontaktuj się z administratorem systemu."
+msgstr ""
+"Wystąpił błąd podczas przesyłania wiadomości. Upewnij się, że konfiguracja "
+"serwera jest poprawna lub skontaktuj się z administratorem systemu."
 
 msgid "grid.user.cannotAdminister"
 msgstr "Nie posiadasz wymaganych uprawnień do edycji użytkownika."
@@ -430,128 +582,19 @@ msgstr "Krok #2: Dodaj role w systemie dla {$userFullName}"
 msgid "grid.user.addRoles"
 msgstr "Dodaj role"
 
+msgid "grid.user.addRole"
+msgstr "Dodaj rolę"
+
 msgid "grid.user.selectUser"
 msgstr "Wybierz"
 
 msgid "grid.user.pleaseSelectUser"
 msgstr "Wybierz użytkownika"
 
-msgid "grid.preparedEmails.title"
-msgstr "Przygotowane szablony wiadomości e-mail"
-
-msgid "grid.preparedEmails.currentList"
-msgstr "Aktualna lista"
-
-msgid "grid.plugin.allCategories"
-msgstr "Wszystkie kategorie"
-
-msgid "grid.plugin.disable"
-msgstr "Czy na pewno wyłączyć tą wtyczkę?"
-
-msgid "grid.noAuditors"
-msgstr "Brak kontrolerów"
-
-msgid "grid.remotelyHostedItem"
-msgstr "Ten plik jest udostępniany zdalnie."
-
-msgid "grid.action.manageAccess"
-msgstr "Zarządzaj dostępem"
-
-msgid "grid.action.addNote"
-msgstr "Dodaj uwagę"
-
-msgid "grid.action.addQuery"
-msgstr "Dodaj dyskusję"
-
-msgid "grid.action.readQuery"
-msgstr "Czytaj dyskusję"
-
-msgid "grid.action.deleteQuery"
-msgstr "Usuń dyskusję"
-
-msgid "grid.action.updateQuery"
-msgstr "Aktualizuj dyskusję"
-
-msgid "grid.action.unassignReviewer"
-msgstr "Cofnij przypisanie recenzenta"
-
-msgid "grid.action.approveCopyedit"
-msgstr "Zatwierdź plik w celu przesłania do następnego etapu"
-
-msgid "grid.action.reload"
-msgstr "Załaduj ponownie"
-
-msgid "grid.action.editSection"
-msgstr "Edytuj dział"
-
-msgid "grid.action.export"
-msgstr "Eksport"
-
-msgid "grid.action.deleteSection"
-msgstr "Usuń dział"
-
-msgid "grid.action.editorialHistory"
-msgstr "Historia redakcji"
-
-msgid "grid.action.disapprove"
-msgstr "Odrzuć"
-
-msgid "grid.action.setApproval"
-msgstr "Oznacz potwierdzenie"
-
-msgid "grid.action.restoreDefaults.confirm"
-msgstr "Przywrócić ustawienia domyślne?"
-
-msgid "grid.action.search"
-msgstr "Szukaj"
-
-msgid "grid.action.viewLibrary"
-msgstr "Wyświetl bibliotekę dokumentów"
-
-msgid "grid.action.enable"
-msgstr "Włącz"
-
-msgid "grid.action.bookInfo"
-msgstr "Dane zgłoszenia"
-
-msgid "grid.action.logInAs"
-msgstr "Zaloguj jako"
-
-msgid "grid.action.exportAllUsers"
-msgstr "Eksportuj wszystkich użytkowników"
-
-msgid "grid.users.confirmExportAllUsers"
-msgstr "Czy na pewno wyeksportować wszystkich użytkowników?"
-
-msgid "grid.action.activate"
-msgstr "Aktywuj"
-
-msgid "grid.action.deactivate"
-msgstr "Dezaktywuj"
-
-msgid "grid.action.copy"
-msgstr "Kopiuj"
-
-msgid "grid.action.preview"
-msgstr "Podgląd"
-
-msgid "grid.action.install"
-msgstr "Instaluj"
-
-msgid "grid.action.moreItems"
-msgstr "Załaduj więcej"
-
-msgid "grid.reviewFormElement.responseItems"
-msgstr "Opcje odpowiedzi"
-
-msgid "grid.user.allPermissionLevels"
-msgstr "Wszystkie poziomy dostępu"
-
-msgid "grid.user.addRole"
-msgstr "Dodaj rolę"
-
 msgid "grid.user.confirmLogInAs"
-msgstr "Zalogować jako użytkownik? Wszystkie działania będą przypisane do tego użytkownika."
+msgstr ""
+"Zalogować jako użytkownik? Wszystkie działania będą przypisane do tego "
+"użytkownika."
 
 msgid "grid.user.mergeUsers"
 msgstr "Połącz użytkowników"
@@ -566,7 +609,22 @@ msgid "grid.user.mergeUsers.allUsers"
 msgstr "Wszyscy przypisani użytkownicy"
 
 msgid "grid.user.mergeUsers.confirm"
-msgstr "Czy na pewno połączyć konto użytkownika o nazwie \"{$oldUsername}\" z innym kontem o nazwie \"{$newUsername}\"? Konto o nazwie \"{$oldUsername}\" zostanie usunięte. Działania nie można cofnąć."
+msgstr ""
+"Czy na pewno połączyć konto użytkownika o nazwie \"{$oldUsername}\" z innym "
+"kontem o nazwie \"{$newUsername}\"? Konto o nazwie \"{$oldUsername}\" "
+"zostanie usunięte. Działania nie można cofnąć."
+
+msgid "grid.preparedEmails.title"
+msgstr "Przygotowane szablony wiadomości e-mail"
+
+msgid "grid.preparedEmails.currentList"
+msgstr "Aktualna lista"
+
+msgid "grid.plugin.allCategories"
+msgstr "Wszystkie kategorie"
+
+msgid "grid.plugin.disable"
+msgstr "Czy na pewno wyłączyć tą wtyczkę?"
 
 msgid "grid.action.fileUnconsider"
 msgstr "Wprowadzono korekty do pliku. Możesz ponownie przejrzeć tekst"
@@ -605,10 +663,14 @@ msgid "grid.userGroup.filter.permissionLevel"
 msgstr "Z uprawnieniami do"
 
 msgid "grid.userGroup.cantRemoveDefaultUserGroup"
-msgstr "Rola {$userGroupName} jest domyślną rolą w systemie i nie może zostać usunięta."
+msgstr ""
+"Rola {$userGroupName} jest domyślną rolą w systemie i nie może zostać "
+"usunięta."
 
 msgid "grid.userGroup.cantRemoveUserGroup"
-msgstr "Nie można usunąć roli {$userGroupName}. Aktualnie {$usersCount} użytkowników jest do niej przydzielonych."
+msgstr ""
+"Nie można usunąć roli {$userGroupName}. Aktualnie {$usersCount} użytkowników "
+"jest do niej przydzielonych."
 
 msgid "grid.userGroup.removed"
 msgstr "Rola {$userGroupName} usunięta."
@@ -637,60 +699,11 @@ msgstr "Brak elementów menu"
 msgid "grid.navigationMenus.navigationMenu.noneExist"
 msgstr "Brak menu"
 
-msgid "grid.action.uninstall"
-msgstr "Odinstaluj"
-
-msgid "grid.action.users"
-msgstr "Zobacz/Wybierz użytkowników"
-
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Wybierz typ..."
 
-msgid "grid.action.newVersion"
-msgstr "Stwórz nową wersję"
-
-msgid "grid.action.removeUserGroup"
-msgstr "Usuń grupę użytkowników"
-
-msgid "contributor.listPanel.preview.format"
-msgstr "Format"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "Wszystko"
-
-msgid "grid.action.saveOrdering"
-msgstr "Zapisz porządek"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
-msgstr ""
-"Czy na pewno chcesz usunąć autora {$name}? Tej operacji nie można cofnąć."
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "Inicjały"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "Lista publikacji"
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "Ustaw kontakt główny"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "Wyświetl"
-
-msgid "contributor.listPanel.preview.description"
-msgstr "Twórcy tej publikacji zostaną opisani według wypisanych formatów."
-
-msgid "grid.action.addInstitution"
-msgstr "Dodaj instytucję"
-
-msgid "contributor.listPanel.preview"
-msgstr "Podgląd"
-
 msgid "grid.action.view"
 msgstr "Widok"
-
-msgid "grid.columns.locale.code"
-msgstr "Kod"
 
 msgid "author.users.contributor.name"
 msgstr "Nazwisko"

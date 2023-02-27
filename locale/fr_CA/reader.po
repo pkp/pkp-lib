@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
+"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fr_CA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2019-10-15T13:36:56-07:00\n"
-"Language: fr_CA\n"
-# localization file for fr_CA. Last revision 2019-10-23T01:54:07 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 
+# localization file for fr_CA. Last revision 2019-10-23T01:54:07 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "comments.anonymous"
 msgstr "Utilisateur-trice anonyme"
 
@@ -25,7 +25,9 @@ msgid "comments.titleRequired"
 msgstr "Le titre du commentaire est obligatoire."
 
 msgid "comments.confirmDeleteChildren"
-msgstr "La suppression de ce commentaire supprimera aussi toutes ses réponses. Êtes-vous certain-e de vouloir effectuer cette opération ?"
+msgstr ""
+"La suppression de ce commentaire supprimera aussi toutes ses réponses. Êtes-"
+"vous certain-e de vouloir effectuer cette opération ?"
 
 msgid "comments.delete"
 msgstr "Supprimer ce commentaire"
@@ -77,4 +79,3 @@ msgstr "Voir tous les commentaires"
 
 msgid "reader.fullText"
 msgstr "Texte intégral :"
-

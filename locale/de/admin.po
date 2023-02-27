@@ -25,6 +25,12 @@ msgstr "Wert der Einstellung"
 msgid "admin.adminFunctions"
 msgstr "Administrationsaufgaben"
 
+msgid "admin.deleteCache"
+msgstr ""
+
+msgid "admin.deleteCache.description"
+msgstr ""
+
 msgid "admin.clearDataCache"
 msgstr "Den Datenspeicher leeren"
 
@@ -32,19 +38,28 @@ msgid "admin.clearTemplateCache"
 msgstr "Den Vorlagenspeicher leeren"
 
 msgid "admin.configFileUpdatedInstructions"
-msgstr "Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config.inc.php</tt> bearbeiten."
+msgstr ""
+"Ihre Konfigurationsdatei wurde erfolgreich aktualisiert. Beachten Sie bitte, "
+"dass Sie, falls Ihre Seite nicht mehr richtig arbeitet, eventuell die "
+"Konfiguration manuell wiederherstellen müssen, indem Sie direkt <tt>config."
+"inc.php</tt> bearbeiten."
 
 msgid "admin.confirmClearTemplateCache"
 msgstr "Sind Sie sicher, dass Sie den Vorlagenspeicher leeren wollen?"
 
 msgid "admin.confirmExpireSessions"
-msgstr "Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich danach neu einloggen."
+msgstr ""
+"Sind Sie sicher, dass Sie alle Benutzer/innensitzungen schließen wollen? "
+"Alle Benutzer/innen, die gerade arbeiten (auch Sie selbst), müssen sich "
+"danach neu einloggen."
 
 msgid "admin.contentsOfConfigFile"
 msgstr "Inhalt der Konfigurationsdatei"
 
 msgid "admin.contexts.confirmDelete"
-msgstr "Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt dauerhaft löschen wollen?"
+msgstr ""
+"Sind Sie sicher, dass Sie {$contextName} und den gesamten zugehörigen Inhalt "
+"dauerhaft löschen wollen?"
 
 msgid "admin.currentVersion"
 msgstr "Aktuelle Version"
@@ -53,7 +68,10 @@ msgid "admin.dateInstalled"
 msgstr "Installiert am"
 
 msgid "admin.displayConfigFileInstructions"
-msgstr "Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld."
+msgstr ""
+"Der Inhalt Ihrer aktualisierten Konfiguration wird nachstehend angezeigt. "
+"Öffnen Sie <tt>config.inc.php</tt> mit einem geeigneten Texteditor und "
+"ersetzen Sie den Inhalt durch den Text im nachstehenden Textfeld."
 
 msgid "admin.displayNewSystemConfig"
 msgstr "Neue Konfiguration anzeigen"
@@ -61,11 +79,27 @@ msgstr "Neue Konfiguration anzeigen"
 msgid "admin.expireSessions"
 msgstr "Benutzer/innensitzungen schließen"
 
+msgid "admin.expireSessions.description"
+msgstr ""
+
 msgid "admin.languages.cantDisable"
-msgstr "Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt haben."
+msgstr ""
+"Diese Sprache ist die primäre Sprache dieser Website. Sie können sie erst "
+"deaktivieren, wenn Sie eine andere primäre Regionalausstellung ausgewählt "
+"haben."
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Sind Sie sicher, dass Sie die primäre Regionaleinstellung der Seite ändern "
+"wollen? Nutzernamen, die für die primäre Regionaleinstellung der Seite "
+"benötigt werden, werden dort, wo sie fehlen, von der bestehenden primären "
+"Regionaleinstellung übernommen."
 
 msgid "admin.languages.confirmReload"
-msgstr "Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-Vorlagen) gelöscht."
+msgstr ""
+"Sind Sie sicher, dass Sie diese Regionaleinstellung neu laden wollen? "
+"Dadurch werden alle regionalspezifischen Daten (wie z.B. angepasste E-Mail-"
+"Vorlagen) gelöscht."
 
 msgid "admin.languages.installedLocales"
 msgstr "Eingerichtete Regionaleinstellungen"
@@ -112,26 +146,118 @@ msgstr "Geplante Aufgabe wurde beendet."
 msgid "admin.scheduledTask.noLog"
 msgstr "Geplante Aufgabe hat keine Logdatei erzeugt."
 
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOIs über die angegebene Registrierungsagentur abliefern"
+
 msgid "admin.scheduledTask.downloadLog"
-msgstr "Ihre {$softwareName}-Installation hat diese Aufgabe automatisch ausgeführt und beendet. Sie können die Logdatei hier herunterladen: {$url}"
+msgstr ""
+"Ihre {$softwareName}-Installation hat diese Aufgabe automatisch ausgeführt "
+"und beendet. Sie können die Logdatei hier herunterladen: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
 
 msgid "admin.scheduledTask.confirmClearLogs"
-msgstr "Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen möchten?"
+msgstr ""
+"Sind Sie sicher, dass Sie alle Logdateien zu geplanten Aufgaben löschen "
+"möchten?"
 
 msgid "admin.scheduledTask.clearLogs"
 msgstr "Logdateien zur Ausführung geplanter Aufgaben löschen"
 
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr ""
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Die zur Veröffentlichung vorgesehenen Beiträge jetzt veröffentlichen"
+
 msgid "admin.scheduledTask.reviewReminder"
 msgstr "Erinnerung an Begutachtung"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Redaktionsreport Benachrichtigung"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Erinnerung an Ende des Abonnements"
 
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Task zum Laden der Nutzungsstatistik-Datei"
 
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr "Die Datei {$file} konnte nicht geöffnet werden und wurde zurückgewiesen."
+msgstr ""
+"Die Datei {$file} konnte nicht geöffnet werden und wurde zurückgewiesen."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-Version"
@@ -157,6 +283,9 @@ msgstr "Einstellungen"
 msgid "admin.settings.about"
 msgstr "Beschreibung Über uns"
 
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Massen-E-Mails"
+
 msgid "admin.settings.contactEmail"
 msgstr "E-Mail-Adresse des Hauptkontakts"
 
@@ -169,11 +298,22 @@ msgstr "Einführung"
 msgid "admin.settings.minPasswordLength"
 msgstr "Mindestlänge des Passworts"
 
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Massen-E-Mails einschränken"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Rollen deaktivieren"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Nur ein Administrator darf diese Einstellung ändern."
+
 msgid "admin.settings.siteLanguage"
 msgstr "Sprache der Website"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist .css."
+msgstr ""
+"Ungültiges Format für die Formatvorlage der Website. Gültiges Format ist ."
+"css."
 
 msgid "admin.settings.siteStyleSheet"
 msgstr "Formatvorlage der Website"
@@ -200,10 +340,18 @@ msgid "admin.siteSetup"
 msgstr "Einrichtung der Website"
 
 msgid "admin.systemConfigFileReadError"
-msgstr "Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht lesbar oder ungültig."
+msgstr ""
+"Die Konfigurationsdatei <tt>config.inc.php</tt> ist nicht vorhanden, nicht "
+"lesbar oder ungültig."
 
 msgid "admin.systemInformation"
 msgstr "Systeminformationen"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+
+msgid "admin.systemInformation.view"
+msgstr ""
 
 msgid "admin.versionBuild"
 msgstr "Build"
@@ -245,13 +393,16 @@ msgid "admin.version"
 msgstr "Version"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
-msgstr "Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen."
+msgstr ""
+"Der Basispfad {$path} muss im Verzeichnis der öffentlichen Dateien liegen."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar."
 
 msgid "admin.fileLoader.moveFileFailed"
-msgstr "Die Datei {$filename} konnte nicht von {$currentFilePath} nach {$destinationPath} verschoben werden."
+msgstr ""
+"Die Datei {$filename} konnte nicht von {$currentFilePath} nach "
+"{$destinationPath} verschoben werden."
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
@@ -259,36 +410,386 @@ msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
 msgid "admin.fileLoader.emailSubject"
 msgstr "Fileloader"
 
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Die zur Veröffentlichung vorgesehenen Beiträge jetzt veröffentlichen"
-
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
-msgstr ""
-"Sind Sie sicher, dass Sie die primäre Regionaleinstellung der Seite ändern "
-"wollen? Nutzernamen, die für die primäre Regionaleinstellung der Seite "
-"benötigt werden, werden dort, wo sie fehlen, von der bestehenden primären "
-"Regionaleinstellung übernommen."
-
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Nur ein Administrator darf diese Einstellung ändern."
-
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Rollen deaktivieren"
-
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Massen-E-Mails einschränken"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Massen-E-Mails"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Redaktionsreport Benachrichtigung"
 
 msgid "admin.cli.tool.usage.title"
 msgstr "Benutzung:"
 
-msgid "admin.scheduledTask.depositDois"
-msgstr "DOIs über die angegebene Registrierungsagentur abliefern"
+msgid "admin.cli.tool.usage.parameters"
+msgstr ""
+
+msgid "admin.cli.tool.available.commands"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr ""
+
+msgid "admin.jobs.totalCount"
+msgstr ""
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr ""
+
+msgid "navigation.tools.jobs"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
+
+msgid "navigation.tools.jobs.description"
+msgstr ""
+
+msgid "navigation.tools.jobs.view"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr ""
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute"
+msgstr ""
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr ""
+
+msgid "admin.jobs.list.displayName"
+msgstr ""
+
+msgid "admin.jobs.list.queue"
+msgstr ""
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr ""
+
+msgid "admin.jobs.list.createdAt"
+msgstr ""
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

@@ -13,1916 +13,1131 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "submission.loadMessage"
-msgstr "ファイルをサーバにアップロード中です。しばらくお待ちください。"
-
-msgid "submission.uploadSuccessful"
-msgstr "ファイルがアップロードされました。"
-
-msgid "submission.views"
-msgstr "閲覧"
-
-msgid "submission.viewMetadata"
-msgstr "メタデータの閲覧"
-
-msgid "submission.createRemote"
-msgstr "リモートを作成"
-
-msgid "submission.uploadFileTo"
-msgstr "ファイルのアップロード"
-
-msgid "submission.underway"
-msgstr "作業中"
-
-msgid "submission.titleAndAbstract"
-msgstr "タイトルと要旨"
-
-msgid "submission.indexingInformation"
-msgstr "インデクス情報"
-
-msgid "submission.currentAgencies"
-msgstr "現在機関"
-
-msgid "submission.supportingAgencies"
-msgstr "サポート機関"
-
-msgid "submission.summary"
-msgstr "概要"
-
-msgid "submission.upload.query"
-msgstr "ディスカッションファイルのアップロード"
-
-msgid "submission.upload.dependent"
-msgstr "依存ファイルのアップロード"
-
-msgid "submission.upload.percentComplete"
-msgstr "{$percent}% のアップロードが完了しました"
-
-msgid "submission.upload.instructions"
-msgstr "投稿を評価するために編集チームが必要とするファイルをアップロードしてください。"
-
-msgid "submission.manageDependentFiles"
-msgstr "依存ファイルの管理"
-
-msgid "submission.submit.dependentFiles"
-msgstr "依存ファイル"
-
-msgid "submission.submit.submissionFiles"
-msgstr "投稿ファイル"
-
-msgid "submission.submit.submissionLocale"
-msgstr "投稿言語"
-
-msgid "submission.submit.metadataForm"
-msgstr "追加の絞り込み"
-
-msgid "submission.submit.newFile"
-msgstr "他のファイルを追加"
-
-msgid "submission.submit.includeInBrowse"
-msgstr "この寄稿者を出版物のリストで表示しますか。"
-
-msgid "submission.submit.fileAdded"
-msgstr "ファイルが追加されました"
-
-msgid "submission.submit.fileInformation"
-msgstr "ファイル詳細"
-
-msgid "submission.submit.selectFile"
-msgstr "ファイルを選択"
-
-msgid "submission.submitter"
-msgstr "投稿者"
-
-msgid "submission.submissionReview"
-msgstr "投稿物の査読"
-
-msgid "submission.submissionManuscript"
-msgstr "投稿物の原稿"
-
-msgid "submission.submissionHistory"
-msgstr "投稿物の履歴"
-
-msgid "submission.start"
-msgstr "開始"
-
-msgid "submission.submissionTitle"
-msgstr "投稿タイトル："
-
-msgid "submission.submission"
-msgstr "投稿"
-
-msgid "submissions.submitted"
-msgstr "投稿日"
-
-msgid "submissions.submit"
-msgstr "投稿日"
-
-msgid "submission.source"
-msgstr "ソース"
-
-msgid "submissions.ruling"
-msgstr "判定"
-
-msgid "submissions.queuedUnassigned"
-msgstr "編集者指定待ち"
-
-msgid "submissions.queued"
-msgstr "待ち行列に追加"
-
-msgid "submissions.queuedEditing"
-msgstr "編集作業待ち"
-
-msgid "submissions.noSubmissions"
-msgstr "投稿物はありません"
-
-msgid "submissions.incomplete"
-msgstr "不完全"
-
-msgid "submissions.declined"
-msgstr "辞退"
-
-msgid "submissions.completed"
-msgstr "完了"
-
-msgid "submission.saveMetadata"
-msgstr "メタデータの保存"
-
-msgid "submissions.archived"
-msgstr "アーカイブ済"
-
-msgid "submissions.active"
-msgstr "処理対象"
-
-msgid "submission.rights"
-msgstr "権利"
-
-msgid "submission.reviewVersion"
-msgstr "査読する版"
-
-msgid "submission.reviewed"
-msgstr "査読完了"
-
-msgid "submission.review"
-msgstr "査読"
-
-msgid "submission.reviewMetadata"
-msgstr "メタデータの点検"
-
-msgid "submission.restrictions"
-msgstr "制限"
-
-msgid "submission.response"
-msgstr "回答"
-
-msgid "submission.request"
-msgstr "依頼"
-
-msgid "submission.rejected"
-msgstr "不採用"
-
-msgid "submission.recommendation"
-msgstr "審査結果: {$recommendation}"
-
-msgid "submission.production"
-msgstr "出版制作"
-
-msgid "submission.peerReview"
-msgstr "査読"
-
-msgid "submission.page.citations"
-msgstr "#{$id} 引用"
-
-msgid "submission.page.summary"
-msgstr "#{$id} 概要"
-
-msgid "submission.page.review"
-msgstr "#{$id} 査読"
-
-msgid "submission.page.history"
-msgstr "#{$id} 履歴"
-
-msgid "submission.page.editing"
-msgstr "#{$id} 編集"
-
-msgid "submission.originalFile"
-msgstr "オリジナルファイル"
-
-msgid "submission.notes.viewNotes"
-msgstr "注記の閲覧"
-
-msgid "submission.notes.updateNote"
-msgstr "注記の更新"
-
-msgid "submission.notes"
-msgstr "投稿注記"
-
-msgid "submission.notes.removeUploadedFile"
-msgstr "アップロードファイルの削除"
-
-msgid "submission.notes.noSubmissionNotes"
-msgstr "投稿注記はありません"
-
-msgid "submission.notes.expandNotes"
-msgstr "注記行を開く"
-
-msgid "submission.notes.editNote"
-msgstr "注記の編集"
-
-msgid "submission.notes.deleteNote"
-msgstr "注記の削除"
-
-msgid "submission.notes.createNewNote"
-msgstr "新規注記の作成"
-
-msgid "submission.notes.confirmDelete"
-msgstr "この投稿注記を削除しますか。"
-
-msgid "submission.notes.confirmDeleteAll"
-msgstr "全投稿注記を削除しますか。"
-
-msgid "submission.notes.collapseNotes"
-msgstr "注記行を閉じる"
-
-msgid "submission.notes.clearAllNotes"
-msgstr "全注記のクリア"
-
-msgid "submission.notes.breadcrumb"
-msgstr "注記"
-
-msgid "submission.notes.backToSubmissionNotes"
-msgstr "投稿注記に戻る"
-
-msgid "submission.notes.attachedFile"
-msgstr "ファイル添付"
-
-msgid "submission.notes.addNewNote"
-msgstr "新規注記の作成"
-
-msgid "submission.noReviewAssignments"
-msgstr "査読が指定されていない"
-
-msgid "submission.metadata"
-msgstr "投稿物のメタデータ"
-
-msgid "submission.layout.viewProof"
-msgstr "校正版の閲覧"
-
-msgid "submission.layout.viewingGalley"
-msgstr "投稿物のゲラ版の閲覧"
-
-msgid "submission.layout.noStyleFile"
-msgstr "このゲラ版にはスタイルシートが追加されていません。"
-
-msgid "submission.layout.newGalley"
-msgstr "新規ゲラ版の作成"
-
-msgid "submission.layout.layoutVersion"
-msgstr "レイアウト対象版"
-
-msgid "submission.layout"
-msgstr "レイアウト"
-
-msgid "submission.layout.layoutFile"
-msgstr "レイアウトファイル"
-
-msgid "submission.layout.initialGalleyCreation"
-msgstr "初校ゲラ版の作成"
-
-msgid "submission.layout.galleyStyle"
-msgstr "スタイル"
-
-msgid "submission.layout.galleyStylesheet"
-msgstr "スタイルシートファイル"
-
-msgid "submission.layout.galleys"
-msgstr "レイアウト済（ゲラ）版"
-
-msgid "submission.layout.galleyNoImages"
-msgstr "画像なし"
-
-msgid "submission.layout.galleyRemoteURLValid"
-msgstr "有効なリモート URL （ http:// を含む）を入力してください。"
-
-msgid "submission.layout.galleyRemoteURL"
-msgstr "リモートURL"
-
-msgid "submission.layout.galleyLocaleRequired"
-msgstr "ゲラの言語は必須です。"
-
-msgid "submission.layout.galleyLanguageRequired"
-msgstr "ゲラの言語は必須です。"
-
-msgid "submission.layout.galleyLabelRequired"
-msgstr "ゲラ版のラベルは必須です。"
-
-msgid "submission.layout.galleyLabelInstructions"
-msgstr "ゲラ版のラベルはアイテムのファイルフォーマット（例えば、HTMLやPDFなど）の識別に使用されます。"
-
-msgid "submission.layout.galleyLabel"
-msgstr "ラベル"
-
-msgid "submission.layout.galleyImages"
-msgstr "画像"
-
-msgid "submission.layout.galleyHTMLData"
-msgstr "HTMLゲラ版ファイル"
-
-msgid "submission.layout.galleyFormat"
-msgstr "ゲラ版のフォーマット"
-
-msgid "submission.layout.editGalley"
-msgstr "レイアウト済ゲラ版の編集"
-
-msgid "submission.layout.deleteGalleyStylesheet"
-msgstr "このスタイルシートを削除する。"
-
-msgid "submission.layout.confirmDeleteGalleyImage"
-msgstr "ゲラ版からこの画像を除去もしてもよいですか。"
-
-msgid "submission.layout.confirmDeleteGalley"
-msgstr "このゲラ版を完全に削除してもよいですか。"
-
-msgid "submission.layout.addGalley"
-msgstr "レイアウト済ゲラ版の追加"
-
-msgid "submission.lastModified"
-msgstr "最新更新日"
-
-msgid "submission.stageParticipants.notify"
-msgstr "通知"
-
-msgid "submission.informationCenter.history.allEvents"
-msgstr "以前のバージョンのイベントを表示する"
-
-msgid "submission.informationCenter.history"
-msgstr "履歴"
-
-msgid "submission.informationCenter.notes"
-msgstr "注記"
-
-msgid "submission.informationCenter.metadata"
-msgstr "メタデーター"
-
-msgid "submission.informationCenter.submissionInfo"
-msgstr "投稿情報"
-
-msgid "submission.publisherId.enable"
-msgstr "{$objects}に有効にする"
-
-msgid "submission.publisherId.description"
-msgstr ""
-"出版者ID は、外部データベースから ID を記録するために使用できます。 たとえば、 PubMed に入金するためにエクスポートされたアイテムには、"
-"出版者 ID が含まれている場合があります。 DOI には使用しないでください。"
-
-msgid "submission.publisherId"
-msgstr "出版者ID"
-
-msgid "submission.identifiers"
-msgstr "識別子"
-
-msgid "submission.outdatedVersion"
-msgstr ""
-"これは、{$datePublished} に公開された古いバージョンです。 <a href=\"{$urlRecentVersion}\"> "
-"最新バージョン </a> をお読みください。"
-
-msgid "submission.versionIdentity"
-msgstr "{$datePublished} ({$version})"
-
-msgid "submission.versions"
-msgstr "バージョン"
-
-msgid "submission.updatedOn"
-msgstr "{$datePublished}：{$dateUpdated}に更新"
-
-msgid "submission.initiated"
-msgstr "処理開始日"
-
-msgid "submission.howToCite.downloadCitation"
-msgstr "引用のダウンロード"
-
-msgid "submission.howToCite.citationFormats"
-msgstr "その他の引用形式"
-
-msgid "submission.howToCite"
-msgstr "引用方法"
-
-msgid "submission.history.viewLog"
-msgstr "ログの閲覧"
-
-msgid "submission.history.submissionNotes"
-msgstr "投稿注記"
-
-msgid "submission.history.submissionEventLog"
-msgstr "イベントログ"
-
-msgid "submission.history.submissionEmailLog"
-msgstr "メールログ"
-
-msgid "submission.history.recentLogEntries"
-msgstr "最新のエントリ"
-
-msgid "submission.history.noLogEntries"
-msgstr "ログはありません。"
-
-msgid "submission.history"
-msgstr "履歴"
-
-msgid "submission.history.clearLog"
-msgstr "ログのクリア"
-
-msgid "submission.galley"
-msgstr "ゲラ版"
-
-msgid "submission.file.notAllowedUploaderUserId"
-msgstr "ファイルアップローダのレコードは、ファイルの作成時に保存され、変更することはできません。"
-
-msgid "submission.files.downloadAll"
-msgstr "全てのファイルをダウンロード"
-
-msgid "submission.files"
-msgstr "ファイル"
-
-msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr "著者は、投稿が{stage}段階になったときにメタデータを編集できないようになりました。"
-
-msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr "著者は、投稿が{stage}段階になったときにメタデータを編集できるようになりました。"
-
-msgid "submission.event.viewEmail"
-msgstr "メールの表示"
-
-msgid "submission.event.subjectPrefix"
-msgstr "メールが送信されました："
-
-msgid "submission.event.reviewer.reviewRevision"
-msgstr "査読者改訂ファイルが更新された"
-
-msgid "submission.event.reviewer.reviewResubmitted"
-msgstr "査読結果が再提示された"
-
-msgid "submission.event.reviewer.reviewReinitiated"
-msgstr "査読依頼が再開された"
-
-msgid "submission.event.reviewer.reviewRecommendation"
-msgstr "査読結果ファイル"
-
-msgid "submission.event.reviewer.reviewInitiated"
-msgstr "査読依頼が開始された"
-
-msgid "submission.event.reviewer.reviewFile"
-msgstr "査読ファイルが更新された"
-
-msgid "submission.event.reviewer.reviewerUnassigned"
-msgstr "投稿物の査読者が解除された"
-
-msgid "submission.event.reviewer.reviewerRated"
-msgstr "査読者の評価が提示された"
-
-msgid "submission.event.reviewer.reviewerAssigned"
-msgstr "投稿物に査読者が任命された"
-
-msgid "submission.event.reviewer.reviewDueDate"
-msgstr "査読期限日が変更された"
-
-msgid "submission.event.reviewer.reviewDeclined"
-msgstr "査読依頼が謝絶された"
-
-msgid "submission.event.reviewer.reviewAccepted"
-msgstr "査読依頼が受諾された"
-
-msgid "submission.event.reviewer.reviewAcceptedByProxy"
-msgstr "査読依頼が代理人により受諾された"
-
-msgid "submission.event.general.suppFileUpdated"
-msgstr "投稿物ファイルが更新された"
-
-msgid "submission.event.general.metadataUpdated"
-msgstr "投稿物メタデータが更新された"
-
-msgid "submission.event.fileRevised"
-msgstr "{$submissionFileId}ファイルの改訂「{$name}」がアップロードされました。"
-
-msgid "submission.event.submissionSubmitted"
-msgstr "初回投稿が完了した。"
-
-msgid "submission.event.deleteLogEntry"
-msgstr "ログエントリの削除"
-
-msgid "submission.event.confirmDeleteLogEntry"
-msgstr "このイベントログエントリを削除してもよいですか。"
-
-msgid "submission.event.confirmClearLog"
-msgstr "この投稿物のイベントログをクリアしてもよいですか。"
-
-msgid "submission.event.backToEventLog"
-msgstr "イベントログに戻る"
-
-msgid "submission.event.participantRemoved"
-msgstr "\"{$name}\" ({$username})は{$userGroupName}として削除されました。"
-
-msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) がこの投稿に{$userGroupName}として任命されました。"
-
-msgid "submission.emailLog"
-msgstr "メールログ"
-
-msgid "submission.email.deleteLogEntry"
-msgstr "ログエントリの削除"
-
-msgid "submission.email.confirmDeleteLogEntry"
-msgstr "このメールログエントリを削除してもよいですか。"
-
-msgid "submission.email.confirmClearLog"
-msgstr "この投稿物のメールログをクリアしてもよいですか。"
-
-msgid "submission.email.backToEmailLog"
-msgstr "メールログに戻る"
-
-msgid "submission.editorial"
-msgstr "原稿整理"
-
-msgid "submission.editMetadata"
-msgstr "メタデータの編集"
-
-msgid "submission.editing"
-msgstr "編集"
-
-msgid "submission.due"
-msgstr "期限"
-
-msgid "submission.dueDate"
-msgstr "期限日"
-
-msgid "submission.downloads"
-msgstr "ダウンロード"
-
-msgid "submission.done"
-msgstr "完了"
-
-msgid "submission.coverage"
-msgstr "カバレッジ情報"
-
-msgid "submission.queryNoteFiles"
-msgstr "審議ファイル"
-
-msgid "submission.copyediting"
-msgstr "原稿整理中"
-
-msgid "submission.copyedited"
-msgstr "原稿整理済み"
-
-msgid "submission.contributors"
-msgstr "寄稿者のリスト"
-
-msgid "submission.complete"
-msgstr "完了"
-
-msgid "submission.comments.subject"
-msgstr "件名"
-
-msgid "submission.comments.sendDecisionToReviewers"
-msgstr "査読者判断の送信"
-
-msgid "submission.comments.review"
-msgstr "査読"
-
-msgid "submission.comments.noReviews"
-msgstr "査読なし"
-
-msgid "submission.comments.noComments"
-msgstr "コメントなし"
-
-msgid "submission.comments.importPeerReviews.reviewerLetter"
-msgstr "査読者 {$reviewerLetter}:"
-
-msgid "submission.comments.addReviews"
-msgstr "査読をメールに追加"
-
-msgid "submission.comments.importPeerReviews"
-msgstr "査読のインポート"
-
-msgid "submission.comments.editComment"
-msgstr "コメントの編集"
-
-msgid "submission.comments.corrections"
-msgstr "修正"
-
-msgid "submission.comments.confirmDelete"
-msgstr "このコメントを削除してもよいですか。"
-
-msgid "submission.comments.comments"
-msgstr "コメント"
-
-msgid "submission.comments.addComment"
-msgstr "コメントの追加"
-
-msgid "submission.parsedAndSaveCitations"
-msgstr "参考文献の抽出と保存"
-
-msgid "submission.parsedCitations.description"
-msgstr "以下の参考文献が抽出されており、投稿メタデータにリンクされます。"
-
-msgid "submission.parsedCitations.DOI"
-msgstr "DOI"
-
-msgid "submission.parsedCitations"
-msgstr "抽出された参考文献"
-
-msgid "submission.citations.description"
-msgstr "抽出できるように、各参考文献を新しい行に入力してください。"
-
-msgid "submission.citations"
-msgstr "参考文献"
-
-msgid "submission.changeFile"
-msgstr "ファイルの変更"
-
-msgid "submission.changeComments"
-msgstr "コメント機能の変更"
-
-msgid "submission.backToSubmissionEditing"
-msgstr "投稿物の編集に戻る"
-
-msgid "submission.attachedFile"
-msgstr "添付ファイル"
-
-msgid "submission.ask"
-msgstr "依頼"
-
-msgid "submission.acknowledge"
-msgstr "お礼"
-
-msgid "submission.accepted"
-msgstr "採用"
-
-msgid "submission.abstractViews"
-msgstr "要旨を読む"
-
-msgid "submission.agencies"
-msgstr "機関"
-
-msgid "submission.additionalFiles"
-msgstr "追加ファイル"
-
-msgid "submission.addFile"
-msgstr "ファイルをアップロード"
-
-msgid "submission.mySubmissions"
-msgstr "自分が書いた物"
-
-msgid "submission.representationOfTitle"
-msgstr "{$title}の{$representation}"
-
-msgid "submission.shortAuthor"
-msgstr "{$author}その他。"
-
-msgid "submission.authorWithAffiliation"
-msgstr "{$name}、{$affiliation}"
-
-msgid "submission.authorBiographies"
-msgstr "著者略歴"
-
-msgid "submission.authorBiography"
-msgstr "著者略歴"
-
-msgid "submission.authors"
-msgstr "著者"
-
-msgid "common.queue.long.submissionsArchived"
-msgstr "投稿アーカイブ"
-
-msgid "common.queue.long.myAssigned"
-msgstr "担当投稿"
-
-msgid "common.queue.long.submissionsUnassigned"
-msgstr "未処理"
-
-msgid "metadata.property.displayName.abstract"
-msgstr "要旨"
-
-msgid "metadata.property.validationMessage.name-type"
-msgstr "有効なネームタイプを設定してください。 サポートされているのは「個人」、「企業」、および「会議」です。"
-
-msgid "metadata.property.displayName.name-type"
-msgstr "ネームタイプ"
-
-msgid "metadata.property.validationMessage.partName"
-msgstr "適切な部品名を入力してください。"
-
-msgid "metadata.property.displayName.partName"
-msgstr "部品名"
-
-msgid "metadata.property.validationMessage.partNumber"
-msgstr "適切な部品番号を入力してください。"
-
-msgid "metadata.property.displayName.partNumber"
-msgstr "部品番号"
-
-msgid "metadata.property.validationMessage.subTitle"
-msgstr "適切なサブタイトルを入力してください。"
-
-msgid "metadata.property.displayName.subTitle"
-msgstr "サブタイトル"
-
-msgid "metadata.property.validationMessage.title"
-msgstr "適切な記事/論文タイトルを入力してください。"
-
-msgid "metadata.property.displayName.title"
-msgstr "記事・論文タイトル"
-
-msgid "metadata.property.validationMessage.nonSort"
-msgstr "タイトルを並べ替えるときに無視するタイトルの最初の文字のみを入力してください。"
-
-msgid "metadata.property.displayName.nonSort"
-msgstr "ソーティングで無視されたタイトルの一部"
-
-msgid "metadata.property.validationMessage.title-type"
-msgstr "有効なタイトルタイプを設定してください。 サポートされているのは「省略」、「翻訳」、「代替」、および「均一」です。"
-
-msgid "metadata.property.displayName.title-type"
-msgstr "タイトルタイプ"
-
-msgid "metadata.property.validationMessage.publication-type"
-msgstr ""
-"出版タイプを設定する場合は確認してください。現在サポートされているのは図書(book: 図書および図書の章)と雑誌(journal: "
-"雑誌記事・論文)です。それ以外は引用出力フォーマットが正しく動作しません。"
-
-msgid "metadata.property.displayName.publication-type"
-msgstr "出版タイプ"
-
-msgid "metadata.property.validationMessage.annotation"
-msgstr "適切な注釈を入力してください。"
-
-msgid "metadata.property.displayName.annotation"
-msgstr "注釈"
-
-msgid "metadata.property.validationMessage.comment"
-msgstr "適切なコメントを入力してください。"
-
-msgid "metadata.property.displayName.comment"
-msgstr "コメント"
-
-msgid "metadata.property.validationMessage.uri"
-msgstr "適切な代替リンク情報を入力して下さい。"
-
-msgid "metadata.property.displayName.uri"
-msgstr "リンク情報"
-
-msgid "metadata.property.validationMessage.pmid"
-msgstr "適切なPMIDを入力してください。"
-
-msgid "metadata.property.displayName.sici"
-msgstr "SICI"
-
-msgid "metadata.property.displayName.pmid"
-msgstr "PMID"
-
-msgid "metadata.property.validationMessage.sici"
-msgstr "適切なSICIを入力してください。"
-
-msgid "metadata.property.validationMessage.coden"
-msgstr "適切なCODENを入力してください。"
-
-msgid "metadata.property.displayName.coden"
-msgstr "CODEN"
-
-msgid "metadata.property.validationMessage.publisher-id"
-msgstr "適切なカスタムIDを入力して下さい。"
-
-msgid "metadata.property.displayName.publisher-id"
-msgstr "カスタムID"
-
-msgid "metadata.property.validationMessage.doi"
-msgstr "適切なDOIを入力してください。"
-
-msgid "metadata.property.displayName.doi"
-msgstr "DOI"
-
-msgid "metadata.property.validationMessage.eissn"
-msgstr "適切なeISSNを入力してください。"
-
-msgid "submission.upload.userGroupDescription"
-msgstr "論文集を送信する場合は、論文集ディタの役割として、すべての論文集章を個別にアップロードする必要があります。"
-
-msgid "submission.upload.userGroup"
-msgstr "...の役割としてファイルをアップロードする"
-
-msgid "submission.upload.uploadNewFile"
-msgstr "これは既存のファイルのリビジョンではありません"
-
-msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "既存のファイルのリビジョンをアップロードする場合は、どのファイルを置き換えるかを指定してください。"
-
-msgid "submission.upload.selectMandatoryFileToRevise"
-msgstr "改訂するファイルを選択してください。"
-
-msgid "submission.upload.possibleRevisionDescription"
-msgstr ""
-"アップロードされたファイルの名前は、以前にアップロードされたファイルの名前「 {$revisedFileName}」に似ています。 このファイルは「 "
-"{$revisedFileName}」を置き換えることを目的としていますか？ その場合は、以下のファイルを選択してください。 "
-"それ以外の場合は、続行する前に「これは既存のファイルのリビジョンではありません」を選択してください。"
-
-msgid "submission.upload.possibleRevision"
-msgstr "複写またはリビジョンの可能性が検出されました"
-
-msgid "submission.upload.invalidUserGroup"
-msgstr "ユーザーグループが見つからないか無効です。"
-
-msgid "submission.upload.noGenre"
-msgstr "要素が見つからないか無効です。"
-
-msgid "submission.submit.fileNameRequired"
-msgstr "このファイルのファイル名を入力する必要があります"
-
-msgid "submission.submit.finishingUpStep"
-msgstr "3. 確認"
-
-msgid "submission.submit.metadataStep"
-msgstr "2. 情報チェック"
-
-msgid "submission.submit.uploadSubmissionFile"
-msgstr "投稿ファイルアップロード"
-
-msgid "submission.submit.uploadStep"
-msgstr "1. ファイルアップロード"
-
-msgid "submission.status.published"
-msgstr "公開済"
-
-msgid "submission.status.declined"
-msgstr "辞退"
-
-msgid "submission.status.unassigned"
-msgstr "未処理"
-
-msgid "submission.status.submission"
-msgstr "編集者の決定待ち"
-
-msgid "submission.status.review"
-msgstr "査読中"
-
-msgid "submission.status.production"
-msgstr "校正中"
-
-msgid "submission.status.editorial"
-msgstr "原稿整理中"
-
-msgid "workflow.stage"
-msgstr "段階"
-
-msgid "workflow.stage.any"
-msgstr "任意の段階"
-
-msgid "workflow.review.internalReview"
-msgstr "内部査読"
-
-msgid "submission.form.replaceExisting"
-msgstr "既存のファイルを置き換えますか。"
-
-msgid "submission.form.name"
-msgstr "ファイルに名前を付けてください ( 例 : 原稿 、表 1)"
-
-msgid "submission.submit.addAuthor"
-msgstr "寄稿者を追加"
-
-msgid "submission.submit.contributorRole"
-msgstr "寄稿者の役割"
-
-msgid "submission.date.yyyymmdd"
-msgstr "YYYY-MM-DD"
-
-msgid "submission.date.mmdd"
-msgstr "MM-DD"
-
-msgid "submission.nameRequired"
-msgstr "このアイテムには名前が必要です。"
-
-msgid "submission.fileDetails"
-msgstr "ファイル詳細"
-
-msgid "submission.artworkFileDetails"
-msgstr "芸術作品のファイル詳細"
-
-msgid "metadata.property.displayName.issn"
-msgstr "Print ISSN"
-
-msgid "metadata.property.displayName.eissn"
-msgstr "eISSN"
-
-msgid "metadata.property.validationMessage.issn"
-msgstr "適切なPrint ISSNを入力してください。"
-
-msgid "metadata.property.validationMessage.isbn"
-msgstr "有効なISBN(9桁あるいは13桁)を入力してください。"
-
-msgid "metadata.property.displayName.isbn"
-msgstr "ISBN"
-
-msgid "metadata.property.validationMessage.publisher-name"
-msgstr "適切な出版社名を入力してください。"
-
-msgid "metadata.property.displayName.publisher-name"
-msgstr "出版社名"
-
-msgid "metadata.property.validationMessage.publisher-loc"
-msgstr "適切な出版地を入力してください。"
-
-msgid "metadata.property.displayName.publisher-loc"
-msgstr "出版地"
-
-msgid "metadata.property.validationMessage.size"
-msgstr "適切な総ページ数(数字のみ)を入力してください。"
-
-msgid "metadata.property.displayName.size"
-msgstr "ページ数"
-
-msgid "metadata.property.validationMessage.lpage"
-msgstr "適切な終了ページ(数字のみ)を入力してください。"
-
-msgid "metadata.property.displayName.lpage"
-msgstr "終了ページ"
-
-msgid "metadata.property.validationMessage.fpage"
-msgstr "適切な開始ページ(数字のみ)を入力してください。"
-
-msgid "metadata.property.displayName.fpage"
-msgstr "開始ページ"
-
-msgid "metadata.property.validationMessage.institution"
-msgstr "適切な機関名を入力してください。"
-
-msgid "metadata.property.displayName.institution"
-msgstr "機関"
-
-msgid "metadata.property.validationMessage.conf-sponsor"
-msgstr "適切な会議主催者を入力してください。"
-
-msgid "metadata.property.displayName.conf-sponsor"
-msgstr "会議主催者"
-
-msgid "metadata.property.validationMessage.conf-name"
-msgstr "適切な会議名を入力してください。"
-
-msgid "metadata.property.displayName.conf-name"
-msgstr "会議名"
-
-msgid "metadata.property.validationMessage.conf-loc"
-msgstr "適切な会議開催地を入力してください。"
-
-msgid "metadata.property.displayName.conf-loc"
-msgstr "会議開催地"
-
-msgid "metadata.property.validationMessage.conf-date"
-msgstr "適切な会議開催日(形式: YYYY-MM-DD)を入力してください。"
-
-msgid "metadata.property.displayName.conf-date"
-msgstr "会議開催日"
-
-msgid "metadata.property.validationMessage.supplement"
-msgstr "適切な補遺を入力して下さい。"
-
-msgid "metadata.property.displayName.supplement"
-msgstr "補遺"
-
-msgid "metadata.property.validationMessage.series"
-msgstr "適切なシリーズ名を入力してください。"
-
-msgid "metadata.property.displayName.series"
-msgstr "シリーズ名"
-
-msgid "metadata.property.validationMessage.edition"
-msgstr "適切な版情報を入力してください。"
-
-msgid "metadata.property.displayName.edition"
-msgstr "版"
-
-msgid "metadata.property.validationMessage.chapter-title"
-msgstr "適切な章のタイトルを入力してください。"
-
-msgid "metadata.property.displayName.chapter-title"
-msgstr "章のタイトル"
-
-msgid "metadata.property.validationMessage.season"
-msgstr "適切なシーゾンを入力してください。"
-
-msgid "metadata.property.displayName.season"
-msgstr "シーゾン"
-
-msgid "metadata.property.validationMessage.volume"
-msgstr "適切な巻数を入力してください。"
-
-msgid "metadata.property.displayName.volume"
-msgstr "巻"
-
-msgid "metadata.property.validationMessage.issue"
-msgstr "適切な号数を入力してください。"
-
-msgid "metadata.property.displayName.issue"
-msgstr "号"
-
-msgid "metadata.property.validationMessage.access-date"
-msgstr "適切なアクセス日(形式: YYYY-MM-DD)を入力してください。"
-
-msgid "metadata.property.displayName.access-date"
-msgstr "アクセス日"
-
-msgid "metadata.property.validationMessage.date"
-msgstr "適切な出版日を入力してください(形式: YYYY-MM-DD)。"
-
-msgid "metadata.property.displayName.date"
-msgstr "出版日"
-
-msgid "metadata.property.validationMessage.source"
-msgstr "適切なタイトルを入力してください。"
-
-msgid "metadata.property.displayName.source"
-msgstr "雑誌名・書名"
-
-msgid "metadata.property.validationMessage.article-title"
-msgstr "適切な記事/論文タイトルを入力してください。"
-
-msgid "metadata.property.displayName.article-title"
-msgstr "記事・論文タイトル"
-
-msgid "metadata.property.validationMessage.editor"
-msgstr "編集者が下記のフォーマットで入力するのが最適です: Coleman Jr, D. (Ralf) Dr."
-
-msgid "metadata.property.displayName.editor"
-msgstr "編集者"
-
-msgid "metadata.property.validationMessage.author"
-msgstr "著者が下記のフォーマットで入力するのが最適です。: Coleman Jr, D. (Ralf) Dr."
-
-msgid "metadata.property.displayName.author"
-msgstr "著者"
-
-msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "内部エラー。不正な値が \"選択フィルタ\" 設定に入力されました。バグとして報告してください。"
-
-msgid "metadata.filters.settings.isOptional.displayName"
-msgstr "デフォルトで使用しない (編集者は利用可能)"
-
-msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "引用モジュールを一つ選択してください。"
-
-msgid "metadata.filters.paracite.settings.citationModule.displayName"
-msgstr "引用モジュール"
-
-msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
-msgstr "有効な WorldCat APIキーをお持ちの場合は入力してください。"
-
-msgid "metadata.filters.worldcat.settings.apiKey.displayName"
-msgstr "WorldCat APIキー"
-
-msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "PubMed登録用の有効なメールアドレスを入力して下さい。"
-
-msgid "metadata.filters.pubmed.settings.email.displayName"
-msgstr "PubMed 登録メールアドレス"
-
-msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "ISBNdb API キーを入力してください。まだキーがない場合は，ISBNdb プロジェクトから無料でキーを取得することができます。"
-
-msgid "metadata.filters.isbndb.settings.apiKey.displayName"
-msgstr "ISBNdb APIキー"
-
-msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr ""
-"適切なCrossRef登録メールアドレスを入力してください。CrossRefのWebサイトであなたのメールアドレスを無料で登録することができます。"
-
-msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef 登録メールアドレス"
-
-msgid "submission.submit.extendedMetadata"
-msgstr "拡張メタデータ"
-
-msgid "submission.submit.whatNext.return"
-msgstr "ダッシュボードに戻る"
-
-msgid "submission.submit.whatNext.create"
-msgstr "新規投稿を作成する"
-
-msgid "submission.submit.whatNext.review"
-msgstr "この投稿を確認する"
-
-msgid "submission.submit.whatNext.forNow"
-msgstr "今のところ、次のことができます。"
-
-msgid "submission.submit.removeConfirm"
-msgstr "このファイルを削除してもよろしいですか？"
-
-msgid "submission.submit.genre.description"
-msgstr "このファイルに最も近いオプションを選択してください。"
-
-msgid "submission.submit.genre.label"
-msgstr "これはどのようなファイルですか？"
-
-msgid "submission.submit.submissionComplete"
-msgstr "投稿完了"
-
-#, fuzzy
-msgid "submission.submit.submissionChecklistDescription"
-msgstr "投稿で進む前に、以下の要件を読んで、それを満たしていることを確認してください。"
-
-msgid "submission.submit.submissionChecklist"
-msgstr "投稿前の確認リスト"
-
-msgid "submission.submit.availableUserGroupsDescription"
-msgstr "この投稿に対する貢献を最もよく表す役割を選択してください。"
-
-msgid "submission.submit.availableUserGroups"
-msgstr "投稿役割"
-
-msgid "author.submission.roundStatus.reviewOverdue"
-msgstr ""
-"一人また複数の査読者が期限を過ぎています。 編集チームに通知され、査読が完了したことを確認するためのアクションを実行します。 "
-"現時点では、何もする必要はありません。 決定が出ると通知されます。"
-
-msgid "author.submission.roundStatus.reviewsReady"
-msgstr "新しい査読が提出され、現在は編集者によって検討中です。"
-
-msgid "author.submit.submissionCitations"
-msgstr "この投稿で引用している文献について整形した参考文献リストを提供してください。"
+msgid "author.editPublishedDisabled"
+msgstr "本書は既刊のため、著者を編集できません。"
 
 msgid "author.publicationNotFound"
 msgstr "この著者の出版物は見つかりませんでした。"
 
-msgid "author.editPublishedDisabled"
-msgstr "本書は既刊のため、著者を編集できません。"
-
-msgid "publication.wordCount"
-msgstr "ワードカウント: {$count}/{$limit}"
-
-msgid "publication.wordCountLong"
-msgstr "要旨が長すぎます。{$limit}語以内でなければなりません。現在、{$count}語の長さです。"
-
-msgid "publication.version.confirm"
-msgstr "新しいバージョンを作成してもよろしいですか。"
-
-msgid "publication.version.all"
-msgstr "全バージョン"
-
-msgid "publication.urlPath.numberInvalid"
-msgstr "URL パスを数字にすることはできません。"
-
-msgid "publication.urlPath.duplicate"
-msgstr "URL パスはすでに使用されているため、再使用できません。"
-
-msgid "publication.urlPath.description"
-msgstr "IDの代わりにURLで使用するパス（オプション）。"
-
-msgid "publication.urlPath"
-msgstr "URLパス"
-
-msgid "publication.unschedule"
-msgstr "予約削除"
-
-msgid "publication.titleAbstract"
-msgstr "タイトルと要旨"
-
-msgid "publication.status.unpublished"
-msgstr "未出版"
-
-msgid "publication.status.scheduled"
-msgstr "予約済み"
-
-msgid "publication.publicationLicense"
-msgstr "権限と開示"
-
-msgid "publication.event.versionCreated"
-msgstr "新しいバージョンが作成されました。"
-
-msgid "publication.datePublished.errorFormat"
-msgstr "2019-01-01のように、日付は YYYY-MM-DD の形式にする必要があります。"
-
-msgid "publication.createVersion"
-msgstr "新しいバージョンを作成"
-
-msgid "publication.contributors"
-msgstr "寄稿者"
-
-msgid "catalog.category.subcategories"
-msgstr "サブカテゴリー"
-
-msgid "catalog.category.noItems"
-msgstr "このカテゴリーにはまだ何も公開されていません。"
-
-msgid "submission.currentCoverImage"
-msgstr "現在の画像"
-
-msgid "submission.submit.placement.categories"
-msgstr "カテゴリー"
-
-msgid "category.coverImage"
-msgstr "表紙画像"
-
-msgid "catalog.sortBy.datePublishedDesc"
-msgstr "公開日（最新順）"
-
-msgid "catalog.sortBy.datePublishedAsc"
-msgstr "公開日（最も古い順）"
-
-msgid "catalog.sortBy.titleDesc"
-msgstr "タイトル（ Z ～ A ）"
-
-msgid "catalog.sortBy.titleAsc"
-msgstr "タイトル（ A ～ Z ）"
-
-msgid "grid.category.categories"
-msgstr "カテゴリー"
-
-msgid "submission.list.assignEditor"
-msgstr "編集者の任命"
-
-msgid "submission.list.daysSinceLastActivity"
-msgstr "最後のアクティビティからの日数"
-
-msgid "submission.list.activity"
-msgstr "アクティビティ"
-
-msgid "submission.list.currentStage"
-msgstr "現在段階は{$stage}です。"
-
-msgid "submission.list.incompleteSubmissionNotice"
-msgstr "編集者が確認する前に、この投稿を完了する必要があります。"
-
-msgid "submission.list.reviewerWorkflowLink"
+msgid "author.submit.submissionCitations"
 msgstr ""
-"この投稿には編集役割が割り当てられています。 <a href=\"{$urlEditorialWorkflow}\"> 編集ワークフロー </a> "
-"にアクセスしますか。"
+"この投稿で引用している文献について整形した参考文献リストを提供してください。"
 
-msgid "submission.list.dualWorkflowLinks"
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr "新しい査読が提出され、現在は編集者によって検討中です。"
+
+msgid "author.submission.roundStatus.reviewOverdue"
 msgstr ""
-"この投稿には複数の役割が割り当てられています。 <a href=\"{$urlAuthorWorkflow}\"> 著者のワークフロー </a> または "
-"<a href=\"{$urlEditorialWorkflow}\"> 編集ワークフロー </a> にアクセスしますか。"
+"一人また複数の査読者が期限を過ぎています。 編集チームに通知され、査読が完了し"
+"たことを確認するためのアクションを実行します。 現時点では、何もする必要はあり"
+"ません。 決定が出ると通知されます。"
 
-msgid "submission.list.discussions"
-msgstr "未終了のディスカッション"
+msgid "submission.submit.availableUserGroups"
+msgstr "投稿役割"
 
-msgid "submission.list.filesPrepared"
-msgstr "ファイル準備済み"
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr "この投稿に対する貢献を最もよく表す役割を選択してください。"
 
-msgid "submission.list.galleysCreated"
-msgstr "制作ゲラ版が作成された"
-
-msgid "submission.list.copyeditsSubmitted"
-msgstr "原稿整理済みファイルが提出された"
-
-msgid "submission.list.revisionsSubmitted"
-msgstr "改訂が提出された"
-
-msgid "submission.list.reviewsCompleted"
-msgstr "割り当てられた査読が完了"
-
-msgid "submission.list.viewSubmission"
-msgstr "投稿の閲覧"
-
-msgid "submission.list.confirmDelete"
-msgstr "投稿を削除してよろしい？"
-
-msgid "submission.list.reviewCancelled"
-msgstr "査読が取り消された"
-
-msgid "submission.list.reviewComplete"
-msgstr "査読提出済み"
-
-msgid "submission.list.reviewDue"
-msgstr "査読期限日: {$date}"
-
-msgid "submission.list.reviewAssignment"
-msgstr "査読指定"
-
-msgid "submission.list.responseDue"
-msgstr "応答期日: {$date}"
-
-msgid "submission.list.empty"
-msgstr "投稿物はありません。"
-
-msgid "submission.list.infoCenter"
-msgstr "アクティビティログと注記"
-
-msgid "submission.query.noParticipantOptions"
-msgstr "ディスカッションを開始する前に、この投稿に少なくとも一人の参加者を割り当てる必要があります。"
-
-msgid "submission.query.participantTitle"
-msgstr "{$fullName}、{$userGroup}"
-
-msgid "submission.query.new.contents"
-msgstr "投稿「 {$submissionTitle} 」に関する「 {$queryTitle}」というタイトルのディスカッションを追加した。"
-
-msgid "submission.query.activity.contents"
+msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
-"投稿「 {$submissionTitle} 」に関する「 {$queryTitle}」というタイトルのディスカッションに新しいアクティビティがあります。"
 
-msgid "submission.query.new"
-msgstr "{$creatorName}がディスカッションを開始した: {$noteTitle}: {$noteContents}"
-
-msgid "submission.query.activity"
-msgstr "{$responderName}が{$noteTitle}に返答した: {$noteContents}"
-
-msgid "grid.action.openNoteForm"
-msgstr "ディスカッションに返答を追加"
-
-msgid "submission.query.leaveQuery.confirm"
-msgstr "このディスカッションから退出すると、新しいメッセージが通知されなくなります。 ディスカッションから退出しますか？"
-
-msgid "submission.query.leaveQuery"
-msgstr "ディスカッションから退出"
-
-msgid "submission.query.addNote"
-msgstr "メッセージの追加"
-
-msgid "submission.query.closed"
-msgstr "クローズ"
-
-msgid "submission.query.lastReply"
-msgstr "最新返答"
-
-msgid "submission.query.from"
-msgstr "から"
-
-msgid "submission.query.replies"
-msgstr "返答"
-
-msgid "submission.query.messages"
-msgstr "メッセージ"
-
-msgid "submission.query.subject"
-msgstr "主題"
-
-msgid "submission.queries.editorial"
-msgstr "原稿整理ディスカッション"
-
-msgid "submission.queries.review"
-msgstr "査読ディスカッション"
-
-msgid "submission.queries.submission"
-msgstr "査読前のディスカッション"
-
-msgid "editor.submission.roundStatus.recommendationsReady"
-msgstr "編集者からの査読結果が提出されました。"
-
-msgid "editor.submission.roundStatus.pendingRecommendations"
-msgstr "編集者の査読結果待ちです。"
-
-msgid "editor.submission.roundStatus.reviewOverdue"
-msgstr "期限切れの査読があります。"
-
-msgid "editor.submission.roundStatus.reviewsCompleted"
-msgstr "すべての査読者が応答し、決定が必要です。"
-
-msgid "editor.submission.roundStatus.reviewsReady"
-msgstr "新しい査読が提出されました。"
-
-msgid "editor.submission.roundStatus.pendingReviews"
-msgstr "査読者の応答待ちです。"
-
-msgid "editor.submission.roundStatus.pendingReviewers"
-msgstr "査読者の割り当て待ちです。"
-
-msgid "editor.submission.roundStatus.declined"
-msgstr "投稿は辞退されました。"
-
-msgid "editor.submission.roundStatus.accepted"
-msgstr "投稿が採用されました。"
-
-msgid "editor.submission.roundStatus.sentToExternal"
-msgstr "外部査読に送られました。"
-
-msgid "editor.submission.roundStatus.submissionResubmitted"
-msgstr "投稿は、別の査読ラウンドに再提出されました。"
-
-msgid "editor.submission.roundStatus.resubmitForReview"
-msgstr "投稿は、別の査読ラウンドのために再提出する必要があります。"
+msgid "submission.submit.submissionChecklist"
+msgstr "投稿前の確認リスト"
 
 #, fuzzy
-msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "改訂版が提出されました。"
-
-msgid "editor.submission.roundStatus.revisionsRequested"
-msgstr "改訂が要求されました。"
-
-msgid "submission.upload.noAvailableReviewFiles"
-msgstr "現時点では、改訂するファイルはありません。"
-
-msgid "submission.upload.proof"
-msgstr "公開準備完了ファイルのアップロード"
-
-msgid "submission.upload.productionReady"
-msgstr "制作準備完了ファイルのアップロード"
-
-msgid "submission.upload.response.description"
+msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
-"割り当てられたファイルを確認した後、以下のファイルにコメントを記録するか、ファイル（または別のファイル）の注釈付きコピーをアップロードしてください。"
+"投稿で進む前に、以下の要件を読んで、それを満たしていることを確認してくださ"
+"い。"
 
-msgid "submission.upload.uploadFiles"
-msgstr "ファイルのアップロード"
-
-msgid "submission.upload.copyeditedVersion"
-msgstr "原稿整理済みファイルのアップロード"
-
-msgid "submission.upload.finalDraft"
-msgstr "ファイルのアップロード"
-
-msgid "submission.upload.libraryCategory"
-msgstr "投稿文書カテゴリー"
-
-msgid "submission.upload.uploadLibraryFile"
-msgstr "ライブラリファイルのアップロード"
-
-msgid "submission.license.cc.by-sa3.footer"
+msgid "submission.submit.submissionChecklistConfirm"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/3."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons 表示 - 継承 "
-"3.0 非移植 </a>です。</p>"
 
-msgid "submission.license.cc.by3.footer"
+msgid "submission.submit.submissionComplete"
+msgstr "投稿完了"
+
+msgid "submission.submit.genre.label"
+msgstr "これはどのようなファイルですか？"
+
+msgid "submission.submit.genre.description"
+msgstr "このファイルに最も近いオプションを選択してください。"
+
+msgid "submission.submit.removeConfirm"
+msgstr "このファイルを削除してもよろしいですか？"
+
+msgid "submission.submit.whatNext.forNow"
+msgstr "今のところ、次のことができます。"
+
+msgid "submission.submit.whatNext.review"
+msgstr "この投稿を確認する"
+
+msgid "submission.submit.whatNext.create"
+msgstr "新規投稿を作成する"
+
+msgid "submission.submit.whatNext.return"
+msgstr "ダッシュボードに戻る"
+
+msgid "submission.submit.extendedMetadata"
+msgstr "拡張メタデータ"
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr "CrossRef 登録メールアドレス"
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/3.0/"
-"88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/3.0/\">Creative Commons 表示  3.0 非移植 "
-"</a>です。</p>"
+"適切なCrossRef登録メールアドレスを入力してください。CrossRefのWebサイトであな"
+"たのメールアドレスを無料で登録することができます。"
 
-msgid "submission.license.cc.by-nd3.footer"
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr "ISBNdb APIキー"
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/3."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons 表示 - 改変禁止 "
-"3.0 非移植 </a>です。</p>"
+"ISBNdb API キーを入力してください。まだキーがない場合は，ISBNdb プロジェクト"
+"から無料でキーを取得することができます。"
 
-msgid "submission.license.cc.by-nc-sa3.footer"
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr "PubMed 登録メールアドレス"
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr "PubMed登録用の有効なメールアドレスを入力して下さい。"
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr "WorldCat APIキー"
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr "有効な WorldCat APIキーをお持ちの場合は入力してください。"
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr "引用モジュール"
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr "引用モジュールを一つ選択してください。"
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr "デフォルトで使用しない (編集者は利用可能)"
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons 表示 - "
-"非営利 - 継承 3.0 非移植</a>です。</p>"
+"内部エラー。不正な値が \"選択フィルタ\" 設定に入力されました。バグとして報告"
+"してください。"
 
-msgid "submission.license.cc.by-nc3.footer"
+msgid "metadata.property.displayName.author"
+msgstr "著者"
+
+msgid "metadata.property.validationMessage.author"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/3."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons 表示 - 非営利 "
-"3.0 非移植 </a>です。</p>"
+"著者が下記のフォーマットで入力するのが最適です。: Coleman Jr, D. (Ralf) Dr."
 
-msgid "submission.license.cc.by-nc-nd3.footer"
+msgid "metadata.property.displayName.editor"
+msgstr "編集者"
+
+msgid "metadata.property.validationMessage.editor"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons表示 - "
-"非営利 - 改変禁止 3.0 非移植</a>です。</p>"
+"編集者が下記のフォーマットで入力するのが最適です: Coleman Jr, D. (Ralf) Dr."
 
-msgid "submission.license.cc.by-sa4.footer"
+msgid "metadata.property.displayName.article-title"
+msgstr "記事・論文タイトル"
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr "適切な記事/論文タイトルを入力してください。"
+
+msgid "metadata.property.displayName.source"
+msgstr "雑誌名・書名"
+
+msgid "metadata.property.validationMessage.source"
+msgstr "適切なタイトルを入力してください。"
+
+msgid "metadata.property.displayName.date"
+msgstr "出版日"
+
+msgid "metadata.property.validationMessage.date"
+msgstr "適切な出版日を入力してください(形式: YYYY-MM-DD)。"
+
+msgid "metadata.property.displayName.access-date"
+msgstr "アクセス日"
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr "適切なアクセス日(形式: YYYY-MM-DD)を入力してください。"
+
+msgid "metadata.property.displayName.issue"
+msgstr "号"
+
+msgid "metadata.property.validationMessage.issue"
+msgstr "適切な号数を入力してください。"
+
+msgid "metadata.property.displayName.volume"
+msgstr "巻"
+
+msgid "metadata.property.validationMessage.volume"
+msgstr "適切な巻数を入力してください。"
+
+msgid "metadata.property.displayName.season"
+msgstr "シーゾン"
+
+msgid "metadata.property.validationMessage.season"
+msgstr "適切なシーゾンを入力してください。"
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr "章のタイトル"
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr "適切な章のタイトルを入力してください。"
+
+msgid "metadata.property.displayName.edition"
+msgstr "版"
+
+msgid "metadata.property.validationMessage.edition"
+msgstr "適切な版情報を入力してください。"
+
+msgid "metadata.property.displayName.series"
+msgstr "シリーズ名"
+
+msgid "metadata.property.validationMessage.series"
+msgstr "適切なシリーズ名を入力してください。"
+
+msgid "metadata.property.displayName.supplement"
+msgstr "補遺"
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr "適切な補遺を入力して下さい。"
+
+msgid "metadata.property.displayName.conf-date"
+msgstr "会議開催日"
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr "適切な会議開催日(形式: YYYY-MM-DD)を入力してください。"
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr "会議開催地"
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr "適切な会議開催地を入力してください。"
+
+msgid "metadata.property.displayName.conf-name"
+msgstr "会議名"
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr "適切な会議名を入力してください。"
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr "会議主催者"
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr "適切な会議主催者を入力してください。"
+
+msgid "metadata.property.displayName.institution"
+msgstr "機関"
+
+msgid "metadata.property.validationMessage.institution"
+msgstr "適切な機関名を入力してください。"
+
+msgid "metadata.property.displayName.fpage"
+msgstr "開始ページ"
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr "適切な開始ページ(数字のみ)を入力してください。"
+
+msgid "metadata.property.displayName.lpage"
+msgstr "終了ページ"
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr "適切な終了ページ(数字のみ)を入力してください。"
+
+msgid "metadata.property.displayName.size"
+msgstr "ページ数"
+
+msgid "metadata.property.validationMessage.size"
+msgstr "適切な総ページ数(数字のみ)を入力してください。"
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr "出版地"
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr "適切な出版地を入力してください。"
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr "出版社名"
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr "適切な出版社名を入力してください。"
+
+msgid "metadata.property.displayName.isbn"
+msgstr "ISBN"
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr "有効なISBN(9桁あるいは13桁)を入力してください。"
+
+msgid "metadata.property.displayName.issn"
+msgstr "Print ISSN"
+
+msgid "metadata.property.validationMessage.issn"
+msgstr "適切なPrint ISSNを入力してください。"
+
+msgid "metadata.property.displayName.eissn"
+msgstr "eISSN"
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr "適切なeISSNを入力してください。"
+
+msgid "metadata.property.displayName.doi"
+msgstr "DOI"
+
+msgid "metadata.property.validationMessage.doi"
+msgstr "適切なDOIを入力してください。"
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr "カスタムID"
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr "適切なカスタムIDを入力して下さい。"
+
+msgid "metadata.property.displayName.coden"
+msgstr "CODEN"
+
+msgid "metadata.property.validationMessage.coden"
+msgstr "適切なCODENを入力してください。"
+
+msgid "metadata.property.displayName.sici"
+msgstr "SICI"
+
+msgid "metadata.property.validationMessage.sici"
+msgstr "適切なSICIを入力してください。"
+
+msgid "metadata.property.displayName.pmid"
+msgstr "PMID"
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr "適切なPMIDを入力してください。"
+
+msgid "metadata.property.displayName.uri"
+msgstr "リンク情報"
+
+msgid "metadata.property.validationMessage.uri"
+msgstr "適切な代替リンク情報を入力して下さい。"
+
+msgid "metadata.property.displayName.comment"
+msgstr "コメント"
+
+msgid "metadata.property.validationMessage.comment"
+msgstr "適切なコメントを入力してください。"
+
+msgid "metadata.property.displayName.annotation"
+msgstr "注釈"
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr "適切な注釈を入力してください。"
+
+msgid "metadata.property.displayName.publication-type"
+msgstr "出版タイプ"
+
+msgid "metadata.property.validationMessage.publication-type"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-sa/4."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons 表示 - 継承 "
-"4.0 国際 </a>です。</p>"
+"出版タイプを設定する場合は確認してください。現在サポートされているのは図書"
+"(book: 図書および図書の章)と雑誌(journal: 雑誌記事・論文)です。それ以外は引用"
+"出力フォーマットが正しく動作しません。"
 
-msgid "submission.license.cc.by4.footer"
+msgid "metadata.property.displayName.title-type"
+msgstr "タイトルタイプ"
+
+msgid "metadata.property.validationMessage.title-type"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by/4.0/"
-"88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 表示 4.0 国際 "
-"</a>です。</p>"
+"有効なタイトルタイプを設定してください。 サポートされているのは「省略」、「翻"
+"訳」、「代替」、および「均一」です。"
 
-msgid "submission.license.cc.by-nd4.footer"
+msgid "metadata.property.displayName.nonSort"
+msgstr "ソーティングで無視されたタイトルの一部"
+
+msgid "metadata.property.validationMessage.nonSort"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nd/4."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons 表示 - 改変禁止 "
-"4.0 国際 </a>です。</p>"
+"タイトルを並べ替えるときに無視するタイトルの最初の文字のみを入力してくださ"
+"い。"
 
-msgid "submission.license.cc.by-nc-sa4.footer"
+msgid "metadata.property.displayName.title"
+msgstr "記事・論文タイトル"
+
+msgid "metadata.property.validationMessage.title"
+msgstr "適切な記事/論文タイトルを入力してください。"
+
+msgid "metadata.property.displayName.subTitle"
+msgstr "サブタイトル"
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr "適切なサブタイトルを入力してください。"
+
+msgid "metadata.property.displayName.partNumber"
+msgstr "部品番号"
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr "適切な部品番号を入力してください。"
+
+msgid "metadata.property.displayName.partName"
+msgstr "部品名"
+
+msgid "metadata.property.validationMessage.partName"
+msgstr "適切な部品名を入力してください。"
+
+msgid "metadata.property.displayName.name-type"
+msgstr "ネームタイプ"
+
+msgid "metadata.property.validationMessage.name-type"
 msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-sa/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons 表示 - "
-"非営利 - 継承 4.0 国際 </a>です。</p>"
+"有効なネームタイプを設定してください。 サポートされているのは「個人」、「企"
+"業」、および「会議」です。"
 
-msgid "submission.license.cc.by-nc4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><"
-"img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-nc/4."
-"0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons 表示 - 非営利 "
-"4.0 国際 </a>です。</p>"
+msgid "metadata.property.displayName.abstract"
+msgstr "要旨"
 
-msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr ""
-"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
-"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
-"by-nc-nd/4.0/88x31.png\" /></a><p>この資料のライセンスは <a rel=\"license\" href=\""
-"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons 表示 - "
-"非営利 - 改変禁止 4.0 国際 </a>です。</p>"
+msgid "common.queue.long.submissionsUnassigned"
+msgstr "未処理"
 
-msgid "submission.license.cc.by-sa4"
-msgstr "CC 表示 - 継承 4.0"
+msgid "common.queue.long.myAssigned"
+msgstr "担当投稿"
 
-msgid "submission.license.cc.by4"
-msgstr "CC 表示 4.0"
+msgid "common.queue.long.submissionsArchived"
+msgstr "投稿アーカイブ"
 
-msgid "submission.license.cc.by-nd4"
-msgstr "CC 表示 - 改変禁止 4.0"
+msgid "submission.authors"
+msgstr "著者"
 
-msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC 表示 - 非営利 - 継承 4.0"
+msgid "submission.authorBiography"
+msgstr "著者略歴"
 
-msgid "submission.license.cc.by-nc4"
-msgstr "CC 表示 - 非営利 4.0"
+msgid "submission.authorBiographies"
+msgstr "著者略歴"
 
-msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC 表示 - 非営利 - 改変禁止 4.0"
+msgid "submission.authorWithAffiliation"
+msgstr "{$name}、{$affiliation}"
 
-msgid "submission.licenseURL"
-msgstr "ライセンスURL"
+msgid "submission.shortAuthor"
+msgstr "{$author}その他。"
 
-msgid "submission.licenseURLValid"
-msgstr "有効なリモート URL （ http:// を含む）を入力してください。"
+msgid "submission.representationOfTitle"
+msgstr "{$title}の{$representation}"
 
-msgid "submission.copyrightStatement"
-msgstr "コピーライト (c) {$copyrightYear} {$copyrightHolder}"
+msgid "submission.mySubmissions"
+msgstr "自分が書いた物"
 
-msgid "submission.copyrightYear"
-msgstr "著作権年"
+msgid "submission.addFile"
+msgstr "ファイルをアップロード"
 
-msgid "submission.copyrightOther"
-msgstr "著作権表示"
+msgid "submission.additionalFiles"
+msgstr "追加ファイル"
 
-msgid "submission.copyrightHolder.other"
-msgstr "著作権表示のカスタマイズ"
+msgid "submission.agencies"
+msgstr "機関"
 
-msgid "submission.copyrightHolder"
-msgstr "著作権者"
+msgid "submission.abstractViews"
+msgstr "要旨を読む"
 
-msgid "submission.copyright"
-msgstr "著作権"
-
-msgid "submission.license"
-msgstr "ライセンス"
-
-msgid "submission.attachPermissions"
-msgstr "この投稿に下記の権限を追加する："
-
-msgid "submission.permissions"
-msgstr "権限"
-
-msgid "grid.action.editMetadata"
-msgstr "メタデータの編集"
-
-msgid "grid.action.createReviewFormElement"
-msgstr "査読フォームの新しいアイテムの作成"
-
-msgid "submission.reviewFormResponse"
-msgstr "査読フォーム回答"
-
-msgid "submission.reviewForm"
-msgstr "査読フォーム"
-
-msgid "notification.type.editorAssignmentEditing"
-msgstr "編集プロセスの開始前に制作編集者の任命が必要です。参加者リストから制作編集者を追加してください。"
-
-msgid "notification.type.editorAssignmentProduction"
-msgstr "制作プロセスの開始前に制作編集者の任命が必要です。参加者リストから制作編集者を追加してください。"
-
-msgid "notification.type.editorDecisionSendToProduction"
-msgstr "制作プロセスが開始されました。"
-
-msgid "grid.action.itemWorkflow"
-msgstr "本投稿のワークフローへ移動"
-
-msgid "submission.supplementary.sponsor"
-msgstr "寄稿者または提供機関"
-
-msgid "submission.supplementary.publisher"
-msgstr "出版者"
-
-msgid "submission.supplementary.subject"
-msgstr "主題"
-
-msgid "submission.supplementary.creator"
-msgstr "ファイルの作成者（または所有者）"
-
-msgid "submission.supplementary"
-msgstr "補足コンテンツ"
-
-msgid "submission.art"
-msgstr "芸術作品"
-
-msgid "submission.document"
-msgstr "投稿文書"
-
-msgid "submission.review.status.thanked"
-msgstr "この査読は完了しており、査読者の貢献に感謝しています。"
-
-msgid "submission.review.status.complete"
-msgstr "本査読が完了された。"
-
-msgid "submission.review.status.received"
-msgstr "査読者が査読を提出した。"
-
-msgid "submission.review.status.accepted"
-msgstr "査読依頼が受諾された。"
-
-msgid "submission.review.status.reviewOverdue"
-msgstr "査読者が査読期限を過ぎている。"
-
-msgid "submission.review.status.responseOverdue"
-msgstr "査読者が回答期限を過ぎている。"
-
-msgid "submission.review.status.declined"
-msgstr "査読者が査読を辞退した。"
-
-msgid "submission.review.status.awaitingResponse"
-msgstr "査読者の応答待ちです。"
-
-msgid "log.review.reviewReady"
-msgstr "{$reviewerName} が投稿物 {$submissionId} の{$round}回目の査読を完了した。"
-
-msgid "log.review.reviewConfirmed"
-msgstr "投稿物 {$submissionId} の{$round}回目の査読が{$editorName}によって確認された。"
-
-msgid "log.review.reviewReinstated"
-msgstr "投稿物 {$submissionId} の{$reviewerName}による{$round}回目の査読が再開された。"
-
-msgid "log.review.reviewUnconsidered"
-msgstr "投稿物 {$submissionId} の{$round}回目の査読が{$editorName}によって未考慮としてマークされた。"
-
-msgid "log.review.reviewCleared"
-msgstr "投稿物 {$submissionId} の{$reviewerName}による{$round}回目の査読がクリアされた。"
-
-msgid "log.review.reviewerAssigned"
-msgstr "{$reviewerName}が投稿物 {$submissionId} の{$round}回目の査読に任命されました。"
-
-msgid "submission.review.uploadRevisionToRound"
-msgstr "改訂ファイルのアップロード"
-
-msgid "submission.productionReady"
-msgstr "本は利用可"
-
-msgid "grid.reviewAttachments.send.title"
-msgstr "著者と共有する査読ファイルを選択してください"
-
-msgid "grid.reviewAttachments.title"
-msgstr "査読者の添付"
-
-msgid "notification.type.revertDecline"
-msgstr "この投稿を謝絶する決定は元に戻されました。"
-
-msgid "notification.type.submissionNewVersion"
-msgstr "投稿の新しいバージョンが作成されました"
-
-msgid "notification.type.editorAssignment"
-msgstr "査読の開始前に編集者の任命が必要です。参加者リストから編集者を追加してください。"
-
-msgid "notification.uploadedResponse"
-msgstr "応答がアップロードされました。"
-
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "辞退された投稿が復元されました。"
-
-msgid "notification.type.editorDecisionDecline"
-msgstr "投稿は辞退されました。"
-
-msgid "notification.type.editorDecisionNewRound"
-msgstr "新しい査読ラウンドが開始されました。"
-
-msgid "notification.type.editorDecisionResubmit"
-msgstr "再投稿。"
-
-msgid "notification.type.editorDecisionPendingRevisions"
-msgstr "改訂が要求されました。"
-
-msgid "notification.type.editorDecisionExternalReview"
-msgstr "外部査読プロセスが開始されました。"
-
-msgid "notification.type.editorDecisionAccept"
-msgstr "投稿が採用されました。"
-
-msgid "notification.type.editorDecisionTitle"
-msgstr "最新の編集者決定。"
-
-msgid "notification.type.indexRequest"
-msgstr "投稿「{$title}」のためのインデックスを作成するように求められました。"
-
-msgid "notification.type.layouteditorRequest"
-msgstr "投稿「{$title}」のレイアウトを確認するように求められました。"
-
-msgid "notification.type.copyeditorRequest"
-msgstr "投稿「{$title}」の原稿整理版を確認するように求められました。"
-
-msgid "notification.type.editorAssign"
-msgstr "投稿「{$title}」の編集者として割り当てられました。"
-
-msgid "submission.documents"
-msgstr "投稿文書"
-
-msgid "submission.stageNotInitiated"
-msgstr "段階が開始されていません。"
-
-msgid "submission.description"
-msgstr "投稿記述"
-
-msgid "submission.overview"
-msgstr "投稿概要"
-
-msgid "submission.event.proofsApproved"
-msgstr "\"{$name}\" ({$username})が「{$formatName}」の校正を承認しました。"
-
-msgid "submission.event.signoffSignoff"
-msgstr "\"{$name}\" ({$username})がファイル「{$file}」のサインオッフを承認しました。"
-
-msgid "submission.event.fileAuditUploaded"
-msgstr "\"{$name}\" ({$username})が監査を完了し、ファイル「{$file}」をアップロードしました。"
-
-msgid "submission.event.fileAuditorCleared"
-msgstr "\"{$name}\" ({$username})がファイル「{$file}」の監査役として削除されました。"
-
-msgid "submission.event.fileAuditorAdded"
-msgstr "\"{$name}\" ({$username})がファイル「{$file}」の監査役として追加されました。"
-
-msgid "submission.event.lastRevisionDeleted"
-msgstr "ファイル「{$title}」 の最新改訂が {$username}によって削除されました。"
-
-msgid "submission.event.revisionDeleted"
-msgstr ""
-"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}のために削除されました。"
-
-msgid "submission.event.revisionUploaded"
-msgstr ""
-"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}にアップロードされました。"
-
-msgid "submission.event.fileDeleted"
-msgstr "ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}のために削除されました。"
-
-msgid "submission.event.fileUploaded"
-msgstr ""
-"ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}にアップロードされました。"
-
-msgid "submission.event.fileEdited"
-msgstr "ファイル「{$originalFileName}」のメタデータは{$username}によって編集されました。"
-
-msgid "editor.submission.addAuditorError"
-msgstr "監査役の任命中にエラーが発生しました。 もう一度やり直してください。"
-
-msgid "submission.finalDraft"
-msgstr "原稿ファイル"
-
-msgid "submission.submit.currentFile"
-msgstr "現在のファイル"
-
-msgid "reviewer.submission.reviewFiles"
-msgstr "査読ファイル"
-
-msgid "submission.actionNeeded"
-msgstr "処理必要"
-
-msgid "submission.noActionRequired"
-msgstr "処理不要"
-
-msgid "submission.currentStage"
-msgstr "現在段階"
-
-msgid "editor.submission.recordedRecommendations"
-msgstr "保存された査読結果"
-
-msgid "editor.submission.recommendation.description"
-msgstr "この投稿の編集上の決定を推奨する。"
-
-msgid "editor.submission.recommendation"
-msgstr "査読結果"
-
-msgid "editor.submission.allRecommendations.display"
-msgstr "査読結果: {$recommendation}"
-
-msgid "editor.submission.recommendation.display"
-msgstr "査読結果: {$recommendation}"
-
-msgid "editor.submission.changeRecommendation"
-msgstr "査読結果の編集"
-
-msgid "editor.submission.makeRecommendation"
-msgstr "査読結果の提出"
-
-#, fuzzy
-msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "編集者を割り当てて、この段階の編集上の決定を可能にします。"
-
-msgid "editor.submission.decision.revertDecline"
-msgstr "不採用を元に戻す"
-
-msgid "editor.submission.decision.approveProofsDescription"
-msgstr "校正ファイルを使用可能にするには、承認済みにする必要があります。 承認しますか。"
-
-msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "この校正ファイルは、今後、一般にダウンロードや購入ができなくなります。非承認にしますか？"
-
-msgid "editor.submission.decision.approveProofs"
-msgstr "校正承認"
-
-msgid "editor.submission.decision.sendInternalReview"
-msgstr "内部査読に送る"
-
-msgid "editor.submission.decision.skipReview"
-msgstr "査読を省略し採用する"
-
-msgid "editor.submission.decision.sendToProduction"
-msgstr "制作段階に送る"
-
-msgid "editor.submission.decision.decline"
-msgstr "不採用"
-
-msgid "editor.submission.decision.newRound"
-msgstr "新しい査読ラウンド"
-
-msgid "editor.submission.decision.resubmit"
-msgstr "再投稿"
-
-msgid "editor.submission.decision.requestRevisions"
-msgstr "改訂の要求"
-
-msgid "editor.submission.decision.accept"
+msgid "submission.accepted"
 msgstr "採用"
 
-msgid "editor.submission.decision"
-msgstr "判断"
+msgid "submission.acknowledge"
+msgstr "お礼"
 
-msgid "editor.submission.addPermissionToEditDescription"
-msgstr "この投稿の著者がその段階で投稿のメタデータを編集できるようにしてよろしいですか。"
+msgid "submission.ask"
+msgstr "依頼"
 
-msgid "editor.submission.removePermissionToEditDescription"
-msgstr "この投稿の著者がその段階で投稿のメタデータを編集できないようにしてよろしいですか。"
+msgid "submission.attachedFile"
+msgstr "添付ファイル"
 
-msgid "editor.submission.addPermissionToEdit"
-msgstr "メタデータの編集を許可する"
+msgid "submission.backToSubmissionEditing"
+msgstr "投稿物の編集に戻る"
 
-msgid "editor.submission.removePermissionToEdit"
-msgstr "メタデータの編集を許可しない"
+msgid "submission.changeComments"
+msgstr "コメント機能の変更"
 
-msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgid "submission.changeFile"
+msgstr "ファイルの変更"
+
+msgid "submission.citations"
+msgstr "参考文献"
+
+msgid "submission.citations.description"
+msgstr "抽出できるように、各参考文献を新しい行に入力してください。"
+
+msgid "submission.parsedCitations"
+msgstr "抽出された参考文献"
+
+msgid "submission.parsedCitations.DOI"
+msgstr "DOI"
+
+msgid "submission.parsedCitations.description"
+msgstr "以下の参考文献が抽出されており、投稿メタデータにリンクされます。"
+
+msgid "submission.parsedAndSaveCitations"
+msgstr "参考文献の抽出と保存"
+
+msgid "submission.comments.addComment"
+msgstr "コメントの追加"
+
+msgid "submission.comments.comments"
+msgstr "コメント"
+
+msgid "submission.comments.confirmDelete"
+msgstr "このコメントを削除してもよいですか。"
+
+msgid "submission.comments.corrections"
+msgstr "修正"
+
+msgid "submission.comments.editComment"
+msgstr "コメントの編集"
+
+msgid "submission.comments.importPeerReviews"
+msgstr "査読のインポート"
+
+msgid "submission.comments.addReviews"
+msgstr "査読をメールに追加"
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr "査読者 {$reviewerLetter}:"
+
+msgid "submission.comments.noComments"
+msgstr "コメントなし"
+
+msgid "submission.comments.noReviews"
+msgstr "査読なし"
+
+msgid "submission.comments.review"
+msgstr "査読"
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr "査読者判断の送信"
+
+msgid "submission.comments.subject"
+msgstr "件名"
+
+msgid "submission.complete"
+msgstr "完了"
+
+msgid "submission.contributors"
+msgstr "寄稿者のリスト"
+
+msgid "submission.copyedited"
+msgstr "原稿整理済み"
+
+msgid "submission.copyediting"
+msgstr "原稿整理中"
+
+msgid "submission.queryNoteFiles"
+msgstr "審議ファイル"
+
+msgid "submission.coverage"
+msgstr "カバレッジ情報"
+
+msgid "submission.details"
 msgstr ""
-"選択した参加者は匿名査読を実施するように割り当てられています。 参加者として割り当てると、著者のアイデンティティにアクセスできるようになります。 "
-"査読プロセスの整合性を独立して確認できる場合を除き、この参加者を割り当てないことをお勧めします。"
 
-msgid "editor.submission.addStageParticipant.form.userRequired"
-msgstr "指定したユーザーグループのユーザーを選択する必要があります。"
+msgid "submission.done"
+msgstr "完了"
 
-msgid "editor.submission.addStageParticipant.form.userGroupRequired"
-msgstr "ユーザーグループを選択する必要があります。"
+msgid "submission.downloads"
+msgstr "ダウンロード"
 
-msgid "editor.submission.removeStageParticipant.description"
-msgstr "この参加者を<strong> すべて </strong>の段階から削除しようとしています。"
+msgid "submission.dueDate"
+msgstr "期限日"
 
-msgid "editor.submission.removeStageParticipant"
-msgstr "参加者を削除"
+msgid "submission.due"
+msgstr "期限"
 
-msgid "editor.submission.addStageParticipant.userGroup"
+msgid "submission.editing"
+msgstr "編集"
+
+msgid "submission.editMetadata"
+msgstr "メタデータの編集"
+
+msgid "submission.editorial"
+msgstr "原稿整理"
+
+msgid "submission.email.backToEmailLog"
+msgstr "メールログに戻る"
+
+msgid "submission.email.confirmClearLog"
+msgstr "この投稿物のメールログをクリアしてもよいですか。"
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr "このメールログエントリを削除してもよいですか。"
+
+msgid "submission.email.deleteLogEntry"
+msgstr "ログエントリの削除"
+
+msgid "submission.emailLog"
+msgstr "メールログ"
+
+msgid "submission.event.participantAdded"
 msgstr ""
-"ユーザーは、ユーザーグループごとにワークフローの段階に割り当てられます。 "
-"この段階に割り当てられたユーザーは、そのユーザーグループが割り当てられている他の段階に自動的に割り当てられます。 "
-"これは通常、編集者、著者、および翻訳者に限られています。"
+"{$name} ({$username}) がこの投稿に{$userGroupName}として任命されました。"
 
-msgid "editor.submission.editStageParticipant"
-msgstr "段階任命の編集"
+msgid "submission.event.participantRemoved"
+msgstr "\"{$name}\" ({$username})は{$userGroupName}として削除されました。"
 
-msgid "editor.submission.addStageParticipant"
-msgstr "参加者を任命"
+msgid "submission.event.backToEventLog"
+msgstr "イベントログに戻る"
 
-msgid "editor.submission.participant"
-msgstr "参加者"
+msgid "submission.event.confirmClearLog"
+msgstr "この投稿物のイベントログをクリアしてもよいですか。"
 
-msgid "editor.submission.noneAssigned"
-msgstr "未任命"
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr "このイベントログエントリを削除してもよいですか。"
 
-msgid "editor.submission.stageParticipants"
-msgstr "参加者"
+msgid "submission.event.deleteLogEntry"
+msgstr "ログエントリの削除"
 
-msgid "editor.submission.roundStatus.recommendationsCompleted"
-msgstr "全ての編集者の査読結果の提出と、最終決定が必要です。"
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
 
-msgid "category.category"
-msgstr "カテゴリー"
+msgid "submission.event.submissionSubmitted"
+msgstr "初回投稿が完了した。"
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+
+msgid "submission.event.fileRevised"
+msgstr "{$submissionFileId}ファイルの改訂「{$name}」がアップロードされました。"
+
+msgid "submission.event.general.metadataUpdated"
+msgstr "投稿物メタデータが更新された"
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr "投稿物ファイルが更新された"
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr "査読依頼が代理人により受諾された"
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr "査読依頼が受諾された"
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr "査読依頼が謝絶された"
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr "査読期限日が変更された"
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr "投稿物に査読者が任命された"
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr "査読者の評価が提示された"
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr "投稿物の査読者が解除された"
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr "査読ファイルが更新された"
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr "査読依頼が開始された"
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr "査読結果ファイル"
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr "査読依頼が再開された"
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr "査読結果が再提示された"
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr "査読者改訂ファイルが更新された"
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+
+msgid "submission.event.subjectPrefix"
+msgstr "メールが送信されました："
+
+msgid "submission.event.viewEmail"
+msgstr "メールの表示"
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"著者は、投稿が{stage}段階になったときにメタデータを編集できるようになりまし"
+"た。"
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+"著者は、投稿が{stage}段階になったときにメタデータを編集できないようになりまし"
+"た。"
+
+msgid "submission.files"
+msgstr "ファイル"
+
+msgid "submission.files.downloadAll"
+msgstr "全てのファイルをダウンロード"
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+"ファイルアップローダのレコードは、ファイルの作成時に保存され、変更することは"
+"できません。"
+
+msgid "submission.firstPublished"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.galley"
+msgstr "ゲラ版"
+
+msgid "submission.history.clearLog"
+msgstr "ログのクリア"
+
+msgid "submission.history"
+msgstr "履歴"
+
+msgid "submission.history.noLogEntries"
+msgstr "ログはありません。"
+
+msgid "submission.history.recentLogEntries"
+msgstr "最新のエントリ"
+
+msgid "submission.history.submissionEmailLog"
+msgstr "メールログ"
+
+msgid "submission.history.submissionEventLog"
+msgstr "イベントログ"
+
+msgid "submission.history.submissionNotes"
+msgstr "投稿注記"
+
+msgid "submission.history.viewLog"
+msgstr "ログの閲覧"
+
+msgid "submission.howToCite"
+msgstr "引用方法"
+
+msgid "submission.howToCite.citationFormats"
+msgstr "その他の引用形式"
+
+msgid "submission.howToCite.downloadCitation"
+msgstr "引用のダウンロード"
+
+msgid "submission.initiated"
+msgstr "処理開始日"
+
+msgid "submission.updatedOn"
+msgstr "{$datePublished}：{$dateUpdated}に更新"
+
+msgid "submission.versions"
+msgstr "バージョン"
+
+msgid "submission.versionIdentity"
+msgstr "{$datePublished} ({$version})"
+
+msgid "submission.outdatedVersion"
+msgstr ""
+"これは、{$datePublished} に公開された古いバージョンです。 <a href="
+"\"{$urlRecentVersion}\"> 最新バージョン </a> をお読みください。"
+
+msgid "submission.identifiers"
+msgstr "識別子"
+
+msgid "submission.publisherId"
+msgstr "出版者ID"
+
+msgid "submission.publisherId.description"
+msgstr ""
+"出版者ID は、外部データベースから ID を記録するために使用できます。 たとえ"
+"ば、 PubMed に入金するためにエクスポートされたアイテムには、出版者 ID が含ま"
+"れている場合があります。 DOI には使用しないでください。"
+
+msgid "submission.publisherId.enable"
+msgstr "{$objects}に有効にする"
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr "投稿情報"
+
+msgid "submission.informationCenter.metadata"
+msgstr "メタデーター"
+
+msgid "submission.informationCenter.notes"
+msgstr "注記"
+
+msgid "submission.informationCenter.history"
+msgstr "履歴"
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr "以前のバージョンのイベントを表示する"
+
+msgid "submission.stageParticipants.notify"
+msgstr "通知"
+
+msgid "submission.lastModified"
+msgstr "最新更新日"
+
+msgid "submission.layout.addGalley"
+msgstr "レイアウト済ゲラ版の追加"
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr "このゲラ版を完全に削除してもよいですか。"
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr "ゲラ版からこの画像を除去もしてもよいですか。"
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr "このスタイルシートを削除する。"
+
+msgid "submission.layout.editGalley"
+msgstr "レイアウト済ゲラ版の編集"
+
+msgid "submission.layout.galleyFormat"
+msgstr "ゲラ版のフォーマット"
+
+msgid "submission.layout.galleyHTMLData"
+msgstr "HTMLゲラ版ファイル"
+
+msgid "submission.layout.galleyImages"
+msgstr "画像"
+
+msgid "submission.layout.galleyLabel"
+msgstr "ラベル"
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+"ゲラ版のラベルはアイテムのファイルフォーマット（例えば、HTMLやPDFなど）の識別"
+"に使用されます。"
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr "ゲラ版のラベルは必須です。"
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr "ゲラの言語は必須です。"
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr "ゲラの言語は必須です。"
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr "リモートURL"
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr "有効なリモート URL （ http:// を含む）を入力してください。"
+
+msgid "submission.layout.galleyNoImages"
+msgstr "画像なし"
+
+msgid "submission.layout.galleys"
+msgstr "レイアウト済（ゲラ）版"
+
+msgid "submission.layout.galleyStylesheet"
+msgstr "スタイルシートファイル"
+
+msgid "submission.layout.galleyStyle"
+msgstr "スタイル"
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr "初校ゲラ版の作成"
+
+msgid "submission.layout.layoutFile"
+msgstr "レイアウトファイル"
+
+msgid "submission.layout"
+msgstr "レイアウト"
+
+msgid "submission.layout.layoutVersion"
+msgstr "レイアウト対象版"
+
+msgid "submission.layout.newGalley"
+msgstr "新規ゲラ版の作成"
+
+msgid "submission.layout.noStyleFile"
+msgstr "このゲラ版にはスタイルシートが追加されていません。"
+
+msgid "submission.layout.viewingGalley"
+msgstr "投稿物のゲラ版の閲覧"
+
+msgid "submission.layout.viewProof"
+msgstr "校正版の閲覧"
+
+msgid "submission.metadata"
+msgstr "投稿物のメタデータ"
+
+msgid "submission.noReviewAssignments"
+msgstr "査読が指定されていない"
+
+msgid "submission.notes.addNewNote"
+msgstr "新規注記の作成"
+
+msgid "submission.notes.attachedFile"
+msgstr "ファイル添付"
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr "投稿注記に戻る"
+
+msgid "submission.notes.breadcrumb"
+msgstr "注記"
+
+msgid "submission.notes.clearAllNotes"
+msgstr "全注記のクリア"
+
+msgid "submission.notes.collapseNotes"
+msgstr "注記行を閉じる"
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr "全投稿注記を削除しますか。"
+
+msgid "submission.notes.confirmDelete"
+msgstr "この投稿注記を削除しますか。"
+
+msgid "submission.notes.createNewNote"
+msgstr "新規注記の作成"
+
+msgid "submission.notes.deleteNote"
+msgstr "注記の削除"
+
+msgid "submission.notes.editNote"
+msgstr "注記の編集"
+
+msgid "submission.notes.expandNotes"
+msgstr "注記行を開く"
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr "投稿注記はありません"
+
+msgid "submission.notes.removeUploadedFile"
+msgstr "アップロードファイルの削除"
+
+msgid "submission.notes"
+msgstr "投稿注記"
+
+msgid "submission.notes.updateNote"
+msgstr "注記の更新"
+
+msgid "submission.notes.viewNotes"
+msgstr "注記の閲覧"
+
+msgid "submission.originalFile"
+msgstr "オリジナルファイル"
+
+msgid "submission.page.editing"
+msgstr "#{$id} 編集"
+
+msgid "submission.page.history"
+msgstr "#{$id} 履歴"
+
+msgid "submission.page.review"
+msgstr "#{$id} 査読"
+
+msgid "submission.page.summary"
+msgstr "#{$id} 概要"
+
+msgid "submission.page.citations"
+msgstr "#{$id} 引用"
+
+msgid "submission.peerReview"
+msgstr "査読"
+
+msgid "submission.production"
+msgstr "出版制作"
+
+msgid "submission.recommendation"
+msgstr "審査結果: {$recommendation}"
+
+msgid "submission.rejected"
+msgstr "不採用"
+
+msgid "submission.request"
+msgstr "依頼"
+
+msgid "submission.response"
+msgstr "回答"
+
+msgid "submission.restrictions"
+msgstr "制限"
+
+msgid "submission.reviewMetadata"
+msgstr "メタデータの点検"
+
+msgid "submission.review"
+msgstr "査読"
+
+msgid "submission.reviewAndSubmit"
+msgstr ""
+
+msgid "submission.reviewed"
+msgstr "査読完了"
+
+msgid "submission.reviewVersion"
+msgstr "査読する版"
+
+msgid "submission.rights"
+msgstr "権利"
+
+msgid "submissions.active"
+msgstr "処理対象"
+
+msgid "submissions.archived"
+msgstr "アーカイブ済"
+
+msgid "submission.saveMetadata"
+msgstr "メタデータの保存"
+
+msgid "submissions.completed"
+msgstr "完了"
+
+msgid "submissions.declined"
+msgstr "辞退"
+
+msgid "submissions.incomplete"
+msgstr "不完全"
+
+msgid "submissions.noSubmissions"
+msgstr "投稿物はありません"
+
+msgid "submissions.queuedEditing"
+msgstr "編集作業待ち"
+
+msgid "submissions.queued"
+msgstr "待ち行列に追加"
+
+msgid "submissions.queuedUnassigned"
+msgstr "編集者指定待ち"
+
+msgid "submissions.ruling"
+msgstr "判定"
+
+msgid "submission.source"
+msgstr "ソース"
+
+msgid "submissions.submit"
+msgstr "投稿日"
+
+msgid "submissions.submitted"
+msgstr "投稿日"
+
+msgid "submission.submission"
+msgstr "投稿"
+
+msgid "submission.submissionTitle"
+msgstr "投稿タイトル："
+
+msgid "submission.start"
+msgstr "開始"
+
+msgid "submission.submissionHistory"
+msgstr "投稿物の履歴"
+
+msgid "submission.submissionManuscript"
+msgstr "投稿物の原稿"
+
+msgid "submission.submissionReview"
+msgstr "投稿物の査読"
+
+msgid "submission.submitter"
+msgstr "投稿者"
+
+msgid "submission.submit.selectFile"
+msgstr "ファイルを選択"
+
+msgid "submission.submit.fileInformation"
+msgstr "ファイル詳細"
+
+msgid "submission.submit.fileAdded"
+msgstr "ファイルが追加されました"
+
+msgid "submission.submit.includeInBrowse"
+msgstr "この寄稿者を出版物のリストで表示しますか。"
 
 msgid "submission.submit.includeInBrowse.title"
 msgstr "出版リスト"
 
-#, fuzzy
-msgid "author.submit.noFiles"
-msgstr "この投稿物にはファイルが添付されていません。"
+msgid "submission.submit.newFile"
+msgstr "他のファイルを追加"
 
-msgid "author.submit.confirmation"
-msgstr "確認"
+msgid "submission.submit.metadataForm"
+msgstr "追加の絞り込み"
+
+msgid "submission.submit.submissionLocale"
+msgstr "投稿言語"
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"いくつかの言語での投稿が可能です。上記のプルダウンから投稿の第一言語を選択し"
+"てください。"
+
+msgid "submission.submit.submissionFiles"
+msgstr "投稿ファイル"
+
+msgid "submission.submit.dependentFiles"
+msgstr "依存ファイル"
+
+msgid "submission.manageDependentFiles"
+msgstr "依存ファイルの管理"
+
+msgid "submission.upload.instructions"
+msgstr ""
+"投稿を評価するために編集チームが必要とするファイルをアップロードしてくださ"
+"い。"
+
+msgid "submission.upload.percentComplete"
+msgstr "{$percent}% のアップロードが完了しました"
+
+msgid "submission.upload.dependent"
+msgstr "依存ファイルのアップロード"
+
+msgid "submission.upload.query"
+msgstr "ディスカッションファイルのアップロード"
+
+msgid "submission.summary"
+msgstr "概要"
+
+msgid "submission.supportingAgencies"
+msgstr "サポート機関"
+
+msgid "submission.currentAgencies"
+msgstr "現在機関"
+
+msgid "submission.indexingInformation"
+msgstr "インデクス情報"
+
+msgid "submission.titleAndAbstract"
+msgstr "タイトルと要旨"
+
+msgid "submission.underway"
+msgstr "作業中"
+
+msgid "submission.uploadFileTo"
+msgstr "ファイルのアップロード"
+
+msgid "submission.createRemote"
+msgstr "リモートを作成"
+
+msgid "submission.viewMetadata"
+msgstr "メタデータの閲覧"
+
+msgid "submission.views"
+msgstr "閲覧"
+
+msgid "submission.uploadSuccessful"
+msgstr "ファイルがアップロードされました。"
+
+msgid "submission.loadMessage"
+msgstr "ファイルをサーバにアップロード中です。しばらくお待ちください。"
+
+msgid "submission.artworkFileDetails"
+msgstr "芸術作品のファイル詳細"
+
+msgid "submission.fileDetails"
+msgstr "ファイル詳細"
+
+msgid "submission.nameRequired"
+msgstr "このアイテムには名前が必要です。"
+
+msgid "submission.date.mmdd"
+msgstr "MM-DD"
+
+msgid "submission.date.yyyymmdd"
+msgstr "YYYY-MM-DD"
+
+msgid "submission.submit.contributorRole"
+msgstr "寄稿者の役割"
+
+msgid "submission.submit.addAuthor"
+msgstr "寄稿者を追加"
 
 msgid "submission.submit.form.languagesRequired"
 msgstr "言語を入力してください。"
@@ -1951,28 +1166,1329 @@ msgstr "権限を入力してください。"
 msgid "submission.submit.form.citationsRequired"
 msgstr "参考文献を入力してください。"
 
-msgid "submission.submit.metadataForm.tip"
-msgstr "稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr ""
+
+msgid "submission.form.name"
+msgstr "ファイルに名前を付けてください ( 例 : 原稿 、表 1)"
+
+msgid "submission.form.replaceExisting"
+msgstr "既存のファイルを置き換えますか。"
+
+msgid "workflow.review.internalReview"
+msgstr "内部査読"
+
+msgid "workflow.stage.any"
+msgstr "任意の段階"
+
+msgid "workflow.stage"
+msgstr "段階"
+
+msgid "submission.status.editorial"
+msgstr "原稿整理中"
+
+msgid "submission.status.production"
+msgstr "校正中"
+
+msgid "submission.status.review"
+msgstr "査読中"
+
+msgid "submission.status.submission"
+msgstr "編集者の決定待ち"
+
+msgid "submission.status.unassigned"
+msgstr "未処理"
+
+msgid "submission.status.declined"
+msgstr "辞退"
+
+msgid "submission.status.published"
+msgstr "公開済"
+
+msgid "submission.submit.uploadStep"
+msgstr "1. ファイルアップロード"
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr "投稿ファイルアップロード"
+
+msgid "submission.submit.metadataStep"
+msgstr "2. 情報チェック"
+
+msgid "submission.submit.finishingUpStep"
+msgstr "3. 確認"
+
+msgid "submission.submit.fileNameRequired"
+msgstr "このファイルのファイル名を入力する必要があります"
+
+msgid "submission.upload.noGenre"
+msgstr "要素が見つからないか無効です。"
+
+msgid "submission.upload.invalidUserGroup"
+msgstr "ユーザーグループが見つからないか無効です。"
+
+msgid "submission.upload.possibleRevision"
+msgstr "複写またはリビジョンの可能性が検出されました"
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+"アップロードされたファイルの名前は、以前にアップロードされたファイルの名前"
+"「 {$revisedFileName}」に似ています。 このファイルは「 {$revisedFileName}」を"
+"置き換えることを目的としていますか？ その場合は、以下のファイルを選択してくだ"
+"さい。 それ以外の場合は、続行する前に「これは既存のファイルのリビジョンではあ"
+"りません」を選択してください。"
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr "改訂するファイルを選択してください。"
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+"既存のファイルのリビジョンをアップロードする場合は、どのファイルを置き換える"
+"かを指定してください。"
+
+msgid "submission.upload.uploadNewFile"
+msgstr "これは既存のファイルのリビジョンではありません"
+
+msgid "submission.upload.userGroup"
+msgstr "...の役割としてファイルをアップロードする"
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+"論文集を送信する場合は、論文集ディタの役割として、すべての論文集章を個別に"
+"アップロードする必要があります。"
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr "ライブラリファイルのアップロード"
+
+msgid "submission.upload.libraryCategory"
+msgstr "投稿文書カテゴリー"
+
+msgid "submission.upload.finalDraft"
+msgstr "ファイルのアップロード"
+
+msgid "submission.upload.copyeditedVersion"
+msgstr "原稿整理済みファイルのアップロード"
+
+msgid "submission.upload.uploadFiles"
+msgstr "ファイルのアップロード"
+
+msgid "submission.upload.response.description"
+msgstr ""
+"割り当てられたファイルを確認した後、以下のファイルにコメントを記録するか、"
+"ファイル（または別のファイル）の注釈付きコピーをアップロードしてください。"
+
+msgid "submission.upload.productionReady"
+msgstr "制作準備完了ファイルのアップロード"
+
+msgid "submission.upload.proof"
+msgstr "公開準備完了ファイルのアップロード"
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr "現時点では、改訂するファイルはありません。"
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr "改訂が要求されました。"
+
+#, fuzzy
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr "改訂版が提出されました。"
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr "投稿は、別の査読ラウンドのために再提出する必要があります。"
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr "投稿は、別の査読ラウンドに再提出されました。"
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr "外部査読に送られました。"
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr "投稿が採用されました。"
+
+msgid "editor.submission.roundStatus.declined"
+msgstr "投稿は辞退されました。"
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr "査読者の割り当て待ちです。"
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr "査読者の応答待ちです。"
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr "新しい査読が提出されました。"
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr "すべての査読者が応答し、決定が必要です。"
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr "期限切れの査読があります。"
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr "編集者の査読結果待ちです。"
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr "編集者からの査読結果が提出されました。"
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr "全ての編集者の査読結果の提出と、最終決定が必要です。"
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr ""
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+
+msgid "editor.submission.stageParticipants"
+msgstr "参加者"
+
+msgid "editor.submission.noneAssigned"
+msgstr "未任命"
+
+msgid "editor.submission.participant"
+msgstr "参加者"
+
+msgid "editor.submission.addStageParticipant"
+msgstr "参加者を任命"
+
+msgid "editor.submission.editStageParticipant"
+msgstr "段階任命の編集"
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+"ユーザーは、ユーザーグループごとにワークフローの段階に割り当てられます。 この"
+"段階に割り当てられたユーザーは、そのユーザーグループが割り当てられている他の"
+"段階に自動的に割り当てられます。 これは通常、編集者、著者、および翻訳者に限ら"
+"れています。"
+
+msgid "editor.submission.removeStageParticipant"
+msgstr "参加者を削除"
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+"この参加者を<strong> すべて </strong>の段階から削除しようとしています。"
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr "ユーザーグループを選択する必要があります。"
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr "指定したユーザーグループのユーザーを選択する必要があります。"
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+"選択した参加者は匿名査読を実施するように割り当てられています。 参加者として割"
+"り当てると、著者のアイデンティティにアクセスできるようになります。 査読プロセ"
+"スの整合性を独立して確認できる場合を除き、この参加者を割り当てないことをお勧"
+"めします。"
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr "メタデータの編集を許可しない"
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr "メタデータの編集を許可する"
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+"この投稿の著者がその段階で投稿のメタデータを編集できないようにしてよろしいで"
+"すか。"
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+"この投稿の著者がその段階で投稿のメタデータを編集できるようにしてよろしいです"
+"か。"
+
+msgid "editor.submission.decision"
+msgstr "判断"
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept"
+msgstr "採用"
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completed"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.decline"
+msgstr "不採用"
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.log"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "改訂の要求"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr "再投稿"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr "新しい査読ラウンド"
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr "制作段階に送る"
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview"
+msgstr "査読を省略し採用する"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr "内部査読に送る"
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+"校正ファイルを使用可能にするには、承認済みにする必要があります。 承認します"
+"か。"
+
+msgid "editor.submission.decision.approveProofs"
+msgstr "校正承認"
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+"この校正ファイルは、今後、一般にダウンロードや購入ができなくなります。非承認"
+"にしますか？"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "不採用を元に戻す"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+
+#, fuzzy
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr "編集者を割り当てて、この段階の編集上の決定を可能にします。"
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+
+msgid "editor.submission.recommend.completed"
+msgstr ""
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.recommend.decline"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.description"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
+
+msgid "editor.submission.makeRecommendation"
+msgstr "査読結果の提出"
+
+msgid "editor.submission.changeRecommendation"
+msgstr "査読結果の編集"
+
+msgid "editor.submission.recommendation.display"
+msgstr "査読結果: {$recommendation}"
+
+msgid "editor.submission.allRecommendations.display"
+msgstr "査読結果: {$recommendation}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+
+msgid "editor.submission.recommendation"
+msgstr "査読結果"
+
+msgid "editor.submission.recommendation.description"
+msgstr "この投稿の編集上の決定を推奨する。"
+
+msgid "editor.submission.recordedRecommendations"
+msgstr "保存された査読結果"
+
+msgid "submission.currentStage"
+msgstr "現在段階"
+
+msgid "submission.noActionRequired"
+msgstr "処理不要"
+
+msgid "submission.actionNeeded"
+msgstr "処理必要"
+
+msgid "reviewer.submission.reviewFiles"
+msgstr "査読ファイル"
+
+msgid "submission.submit.currentFile"
+msgstr "現在のファイル"
+
+msgid "submission.finalDraft"
+msgstr "原稿ファイル"
+
+msgid "editor.submission.addAuditorError"
+msgstr "監査役の任命中にエラーが発生しました。 もう一度やり直してください。"
+
+msgid "submission.event.fileEdited"
+msgstr ""
+"ファイル「{$originalFileName}」のメタデータは{$username}によって編集されまし"
+"た。"
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+"ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}に"
+"アップロードされました。"
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+"ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}のた"
+"めに削除されました。"
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}"
+"にアップロードされました。"
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+"改訂ファイル「{$originalFileName}」が {$username}によって投稿{$submissionId}"
+"のために削除されました。"
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr "ファイル「{$title}」 の最新改訂が {$username}によって削除されました。"
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+"\"{$name}\" ({$username})がファイル「{$file}」の監査役として追加されました。"
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+"\"{$name}\" ({$username})がファイル「{$file}」の監査役として削除されました。"
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+"\"{$name}\" ({$username})が監査を完了し、ファイル「{$file}」をアップロードし"
+"ました。"
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+"\"{$name}\" ({$username})がファイル「{$file}」のサインオッフを承認しました。"
+
+msgid "submission.event.proofsApproved"
+msgstr "\"{$name}\" ({$username})が「{$formatName}」の校正を承認しました。"
+
+msgid "submission.overview"
+msgstr "投稿概要"
+
+msgid "submission.description"
+msgstr "投稿記述"
+
+msgid "submission.stageNotInitiated"
+msgstr "段階が開始されていません。"
+
+msgid "submission.documents"
+msgstr "投稿文書"
+
+msgid "notification.type.editorAssign"
+msgstr "投稿「{$title}」の編集者として割り当てられました。"
+
+msgid "notification.type.copyeditorRequest"
+msgstr "投稿「{$title}」の原稿整理版を確認するように求められました。"
+
+msgid "notification.type.layouteditorRequest"
+msgstr "投稿「{$title}」のレイアウトを確認するように求められました。"
+
+msgid "notification.type.indexRequest"
+msgstr "投稿「{$title}」のためのインデックスを作成するように求められました。"
+
+msgid "notification.type.editorDecisionTitle"
+msgstr "最新の編集者決定。"
+
+msgid "notification.type.editorDecisionAccept"
+msgstr "投稿が採用されました。"
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr "外部査読プロセスが開始されました。"
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr "改訂が要求されました。"
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr "再投稿。"
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr "新しい査読ラウンドが開始されました。"
+
+msgid "notification.type.editorDecisionDecline"
+msgstr "投稿は辞退されました。"
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "辞退された投稿が復元されました。"
+
+msgid "notification.uploadedResponse"
+msgstr "応答がアップロードされました。"
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+"査読の開始前に編集者の任命が必要です。参加者リストから編集者を追加してくださ"
+"い。"
+
+msgid "notification.type.submissionNewVersion"
+msgstr "投稿の新しいバージョンが作成されました"
+
+msgid "notification.type.revertDecline"
+msgstr "この投稿を謝絶する決定は元に戻されました。"
+
+msgid "grid.reviewAttachments.title"
+msgstr "査読者の添付"
+
+msgid "grid.reviewAttachments.send.title"
+msgstr "著者と共有する査読ファイルを選択してください"
+
+msgid "submission.productionReady"
+msgstr "本は利用可"
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr "改訂ファイルのアップロード"
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+"{$reviewerName}が投稿物 {$submissionId} の{$round}回目の査読に任命されまし"
+"た。"
+
+msgid "log.review.reviewCleared"
+msgstr ""
+"投稿物 {$submissionId} の{$reviewerName}による{$round}回目の査読がクリアされ"
+"た。"
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+"投稿物 {$submissionId} の{$round}回目の査読が{$editorName}によって未考慮とし"
+"てマークされた。"
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+"投稿物 {$submissionId} の{$reviewerName}による{$round}回目の査読が再開され"
+"た。"
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+"投稿物 {$submissionId} の{$round}回目の査読が{$editorName}によって確認され"
+"た。"
+
+msgid "log.review.reviewReady"
+msgstr ""
+"{$reviewerName} が投稿物 {$submissionId} の{$round}回目の査読を完了した。"
+
+msgid "submission.review.status.awaitingResponse"
+msgstr "査読者の応答待ちです。"
+
+msgid "submission.review.status.declined"
+msgstr "査読者が査読を辞退した。"
+
+msgid "submission.review.status.responseOverdue"
+msgstr "査読者が回答期限を過ぎている。"
+
+msgid "submission.review.status.reviewOverdue"
+msgstr "査読者が査読期限を過ぎている。"
+
+msgid "submission.review.status.accepted"
+msgstr "査読依頼が受諾された。"
+
+msgid "submission.review.status.received"
+msgstr "査読者が査読を提出した。"
+
+msgid "submission.review.status.complete"
+msgstr "本査読が完了された。"
+
+msgid "submission.review.status.thanked"
+msgstr "この査読は完了しており、査読者の貢献に感謝しています。"
+
+msgid "submission.document"
+msgstr "投稿文書"
+
+msgid "submission.art"
+msgstr "芸術作品"
+
+msgid "submission.supplementary"
+msgstr "補足コンテンツ"
+
+msgid "submission.supplementary.creator"
+msgstr "ファイルの作成者（または所有者）"
+
+msgid "submission.supplementary.subject"
+msgstr "主題"
+
+msgid "submission.supplementary.publisher"
+msgstr "出版者"
+
+msgid "submission.supplementary.sponsor"
+msgstr "寄稿者または提供機関"
+
+msgid "grid.action.itemWorkflow"
+msgstr "本投稿のワークフローへ移動"
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr "制作プロセスが開始されました。"
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+"制作プロセスの開始前に制作編集者の任命が必要です。参加者リストから制作編集者"
+"を追加してください。"
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+"編集プロセスの開始前に制作編集者の任命が必要です。参加者リストから制作編集者"
+"を追加してください。"
+
+msgid "submission.reviewForm"
+msgstr "査読フォーム"
+
+msgid "submission.reviewFormResponse"
+msgstr "査読フォーム回答"
+
+msgid "grid.action.createReviewFormElement"
+msgstr "査読フォームの新しいアイテムの作成"
+
+msgid "grid.action.editMetadata"
+msgstr "メタデータの編集"
+
+msgid "submission.permissions"
+msgstr "権限"
+
+msgid "submission.attachPermissions"
+msgstr "この投稿に下記の権限を追加する："
+
+msgid "submission.license"
+msgstr "ライセンス"
+
+msgid "submission.copyright"
+msgstr "著作権"
+
+msgid "submission.copyright.agree"
+msgstr ""
+
+msgid "submission.copyrightHolder"
+msgstr "著作権者"
+
+msgid "submission.copyrightHolder.other"
+msgstr "著作権表示のカスタマイズ"
+
+msgid "submission.copyrightOther"
+msgstr "著作権表示"
+
+msgid "submission.copyrightYear"
+msgstr "著作権年"
+
+msgid "submission.copyrightStatement"
+msgstr "コピーライト (c) {$copyrightYear} {$copyrightHolder}"
+
+msgid "submission.licenseURLValid"
+msgstr "有効なリモート URL （ http:// を含む）を入力してください。"
+
+msgid "submission.licenseURL"
+msgstr "ライセンスURL"
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr "CC 表示 - 非営利 - 改変禁止 4.0"
+
+msgid "submission.license.cc.by-nc4"
+msgstr "CC 表示 - 非営利 4.0"
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr "CC 表示 - 非営利 - 継承 4.0"
+
+msgid "submission.license.cc.by-nd4"
+msgstr "CC 表示 - 改変禁止 4.0"
+
+msgid "submission.license.cc.by4"
+msgstr "CC 表示 4.0"
+
+msgid "submission.license.cc.by-sa4"
+msgstr "CC 表示 - 継承 4.0"
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>この資料のライセンスは <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Creative Commons "
+"表示 - 非営利 - 改変禁止 4.0 国際 </a>です。</p>"
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/4.0/\">Creative Commons 表示 - "
+"非営利 4.0 国際 </a>です。</p>"
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Creative Commons 表示 "
+"- 非営利 - 継承 4.0 国際 </a>です。</p>"
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/4.0/\">Creative Commons 表示 - "
+"改変禁止 4.0 国際 </a>です。</p>"
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/4.0/\">Creative Commons 表示 4.0 国"
+"際 </a>です。</p>"
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons 表示 - "
+"継承 4.0 国際 </a>です。</p>"
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">Creative Commons表示 "
+"- 非営利 - 改変禁止 3.0 非移植</a>です。</p>"
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc/3.0/\">Creative Commons 表示 - "
+"非営利 3.0 非移植 </a>です。</p>"
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">Creative Commons 表示 "
+"- 非営利 - 継承 3.0 非移植</a>です。</p>"
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-nd/3.0/\">Creative Commons 表示 - "
+"改変禁止 3.0 非移植 </a>です。</p>"
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by/3.0/\">Creative Commons 表示  3.0 "
+"非移植 </a>です。</p>"
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Creative Commons License\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>この資料のライセンスは<a rel=\"license\" href="
+"\"https://creativecommons.org/licenses/by-sa/3.0/\">Creative Commons 表示 - "
+"継承 3.0 非移植 </a>です。</p>"
+
+msgid "submission.queries.submission"
+msgstr "査読前のディスカッション"
+
+msgid "submission.queries.review"
+msgstr "査読ディスカッション"
+
+msgid "submission.queries.editorial"
+msgstr "原稿整理ディスカッション"
+
+msgid "submission.query.subject"
+msgstr "主題"
+
+msgid "submission.query.messages"
+msgstr "メッセージ"
+
+msgid "submission.query.replies"
+msgstr "返答"
+
+msgid "submission.query.from"
+msgstr "から"
+
+msgid "submission.query.lastReply"
+msgstr "最新返答"
+
+msgid "submission.query.closed"
+msgstr "クローズ"
+
+msgid "submission.query.addNote"
+msgstr "メッセージの追加"
+
+msgid "submission.query.leaveQuery"
+msgstr "ディスカッションから退出"
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+"このディスカッションから退出すると、新しいメッセージが通知されなくなります。 "
+"ディスカッションから退出しますか？"
+
+msgid "grid.action.openNoteForm"
+msgstr "ディスカッションに返答を追加"
+
+msgid "submission.query.activity"
+msgstr "{$responderName}が{$noteTitle}に返答した: {$noteContents}"
+
+msgid "submission.query.new"
+msgstr ""
+"{$creatorName}がディスカッションを開始した: {$noteTitle}: {$noteContents}"
+
+msgid "submission.query.activity.contents"
+msgstr ""
+"投稿「 {$submissionTitle} 」に関する「 {$queryTitle}」というタイトルのディス"
+"カッションに新しいアクティビティがあります。"
+
+msgid "submission.query.new.contents"
+msgstr ""
+"投稿「 {$submissionTitle} 」に関する「 {$queryTitle}」というタイトルのディス"
+"カッションを追加した。"
+
+msgid "submission.query.participantTitle"
+msgstr "{$fullName}、{$userGroup}"
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+"ディスカッションを開始する前に、この投稿に少なくとも一人の参加者を割り当てる"
+"必要があります。"
+
+msgid "submission.list.infoCenter"
+msgstr "アクティビティログと注記"
+
+msgid "submission.list.empty"
+msgstr "投稿物はありません。"
+
+msgid "submission.list.responseDue"
+msgstr "応答期日: {$date}"
+
+msgid "submission.list.reviewAssignment"
+msgstr "査読指定"
+
+msgid "submission.list.reviewDue"
+msgstr "査読期限日: {$date}"
+
+msgid "submission.list.reviewComplete"
+msgstr "査読提出済み"
+
+msgid "submission.list.reviewCancelled"
+msgstr "査読が取り消された"
+
+msgid "submission.list.confirmDelete"
+msgstr "投稿を削除してよろしい？"
+
+msgid "submission.list.viewAllSubmissions"
+msgstr ""
+
+msgid "submission.list.viewSubmission"
+msgstr "投稿の閲覧"
+
+msgid "submission.list.reviewsCompleted"
+msgstr "割り当てられた査読が完了"
+
+msgid "submission.list.revisionsSubmitted"
+msgstr "改訂が提出された"
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr "原稿整理済みファイルが提出された"
+
+msgid "submission.list.galleysCreated"
+msgstr "制作ゲラ版が作成された"
+
+msgid "submission.list.filesPrepared"
+msgstr "ファイル準備済み"
+
+msgid "submission.list.discussions"
+msgstr "未終了のディスカッション"
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+"この投稿には複数の役割が割り当てられています。 <a href="
+"\"{$urlAuthorWorkflow}\"> 著者のワークフロー </a> または <a href="
+"\"{$urlEditorialWorkflow}\"> 編集ワークフロー </a> にアクセスしますか。"
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+"この投稿には編集役割が割り当てられています。 <a href="
+"\"{$urlEditorialWorkflow}\"> 編集ワークフロー </a> にアクセスしますか。"
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr "編集者が確認する前に、この投稿を完了する必要があります。"
+
+msgid "submission.list.currentStage"
+msgstr "現在段階は{$stage}です。"
+
+msgid "submission.list.activity"
+msgstr "アクティビティ"
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr "最後のアクティビティからの日数"
+
+msgid "submission.list.assignEditor"
+msgstr "編集者の任命"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+
+msgid "submission.wizard.beforeStart"
+msgstr ""
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+
+msgid "submission.wizard.changeSubmission"
+msgstr ""
+
+msgid "submission.wizard.completeSteps"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.errors"
+msgstr ""
+
+msgid "submission.wizard.validating"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+msgid "submission.wizard.confirm"
+msgstr ""
+
+msgid "submission.wizard.title"
+msgstr ""
+
+msgid "submission.wizard.titleWithStep"
+msgstr ""
+
+msgid "submission.wizard.noContributors"
+msgstr ""
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+
+msgid "submission.wizard.notAllowed"
+msgstr ""
+
+msgid "submission.wizard.privacyConsent"
+msgstr ""
+
+msgid "submission.wizard.saved"
+msgstr ""
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed"
+msgstr ""
+
+msgid "submission.wizard.start"
+msgstr ""
+
+msgid "submission.wizard.startingStatus"
+msgstr ""
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+
+msgid "grid.category.categories"
+msgstr "カテゴリー"
+
+msgid "catalog.sortBy.titleAsc"
+msgstr "タイトル（ A ～ Z ）"
+
+msgid "catalog.sortBy.titleDesc"
+msgstr "タイトル（ Z ～ A ）"
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr "公開日（最も古い順）"
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr "公開日（最新順）"
+
+msgid "category.category"
+msgstr "カテゴリー"
+
+msgid "category.coverImage"
+msgstr "表紙画像"
+
+msgid "submission.submit.placement.categories"
+msgstr "カテゴリー"
+
+msgid "submission.currentCoverImage"
+msgstr "現在の画像"
+
+msgid "catalog.category.noItems"
+msgstr "このカテゴリーにはまだ何も公開されていません。"
+
+msgid "catalog.category.subcategories"
+msgstr "サブカテゴリー"
+
+msgid "publication.contributors"
+msgstr "寄稿者"
+
+msgid "publication.createVersion"
+msgstr "新しいバージョンを作成"
+
+msgid "publication.datePublished.errorFormat"
+msgstr "2019-01-01のように、日付は YYYY-MM-DD の形式にする必要があります。"
+
+msgid "publication.event.versionCreated"
+msgstr "新しいバージョンが作成されました。"
+
+msgid "publication.publicationLicense"
+msgstr "権限と開示"
+
+msgid "publication.status.scheduled"
+msgstr "予約済み"
+
+msgid "publication.status.unpublished"
+msgstr "未出版"
+
+msgid "publication.titleAbstract"
+msgstr "タイトルと要旨"
+
+msgid "publication.unschedule"
+msgstr "予約削除"
+
+msgid "publication.urlPath"
+msgstr "URLパス"
+
+msgid "publication.urlPath.description"
+msgstr "IDの代わりにURLで使用するパス（オプション）。"
+
+msgid "publication.urlPath.duplicate"
+msgstr "URL パスはすでに使用されているため、再使用できません。"
+
+msgid "publication.urlPath.numberInvalid"
+msgstr "URL パスを数字にすることはできません。"
+
+msgid "publication.version.all"
+msgstr "全バージョン"
+
+msgid "publication.version.confirm"
+msgstr "新しいバージョンを作成してもよろしいですか。"
+
+msgid "publication.wordCountLong"
+msgstr ""
+"要旨が長すぎます。{$limit}語以内でなければなりません。現在、{$count}語の長さ"
+"です。"
+
+msgid "publication.wordCount"
+msgstr "ワードカウント: {$count}/{$limit}"
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+
+msgid "doi.submission.notPublished"
+msgstr ""
+
+msgid "submission.viewingPreview"
+msgstr ""
+
+#, fuzzy
+msgid "author.submit.noFiles"
+msgstr "この投稿物にはファイルが添付されていません。"
+
+msgid "author.submit.confirmation"
+msgstr "確認"
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr ""
+
+msgid "submission.wizard.submittingToSection"
+msgstr ""
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
 
 msgid "submission.type.tip"
 msgstr ""
-"投稿タイプは通常、「画像」、「テキスト」、または「ソフトウェア」や「インタラクティブ」などのマルチメディアタイプのいずれかです。 "
-"投稿に最も近いものを選択してください。 例は以下のサイトにあります： <a target=\"_blank\" href=\""
-"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\""
-">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+"投稿タイプは通常、「画像」、「テキスト」、または「ソフトウェア」や「インタラ"
+"クティブ」などのマルチメディアタイプのいずれかです。 投稿に最も近いものを選択"
+"してください。 例は以下のサイトにあります： <a target=\"_blank\" href="
+"\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type"
+"\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</"
+"a>"
 
 msgid "submission.source.tip"
-msgstr "この投稿物は別のリソースから派生していますか？ その場合は、そのリソースの URL または説明を入力できます。"
+msgstr ""
+"この投稿物は別のリソースから派生していますか？ その場合は、そのリソースの "
+"URL または説明を入力できます。"
 
 msgid "submission.rights.tip"
-msgstr "必要に応じて、この投稿物で保持されているアクセス権に関する簡単な説明を入力できます。"
+msgstr ""
+"必要に応じて、この投稿物で保持されているアクセス権に関する簡単な説明を入力で"
+"きます。"
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
-
-#, fuzzy
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "いくつかの言語での投稿が可能です。上記のプルダウンから投稿の第一言語を選択してください。"
+msgstr ""
+"稿の追加情報の入力ができます。 各用語の後に「エンター」を押してください。"
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "編集上の連絡を取る第一著者。"
+
+msgid "submission.dataAvailability"
+msgstr ""
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+
+msgid "submission.files.required.genre"
+msgstr ""
+
+msgid "submission.files.required.genres"
+msgstr ""
+
+msgid "publication.version"
+msgstr ""

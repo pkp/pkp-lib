@@ -11,324 +11,108 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Jeste li sigurni da želite trajno obrisati ovu predaju rada?"
 
-msgid "editor.review.rateReviewer"
-msgstr "Ocjena recenzenta"
+msgid "editor.activityLog"
+msgstr "Dnevnik aktivnosti"
 
-msgid "editor.article.confirmChangeReviewForm"
+msgid "editor.submissionLibrary"
+msgstr "Biblioteka"
+
+msgid "editor.submission.workflowDecision.submission"
+msgstr "Odluka zabilježena"
+
+msgid "editor.submission.workflowDecision.submission.declined"
+msgstr "Predaja odbijena."
+
+msgid "editor.submission.workflowDecision.submission.accepted"
+msgstr "Predaja prihvaćena."
+
+msgid "editor.submission.workflowDecision.submission.published"
+msgstr "Predaja objavljena."
+
+msgid "editor.submission.workflowDecision.submission.reviewRound"
+msgstr "Poslano na novi krug pregleda."
+
+msgid "editor.submission.workflowDecision.submission.production"
+msgstr "Poslano u produkciju."
+
+msgid "editor.submission.workflowDecision.submission.underReview"
+msgstr "Predaja prihvaćena na uvid."
+
+msgid "editor.submission.workflowDecision.changeDecision"
+msgstr "Promjena odluke"
+
+msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
-"Upozorenje: Promjena obrasca za pregled utjecati će na sve odgovore koje su "
-"recenzenti dali koristeći ovaj obrazac. Jeste li sigurni da želite nastaviti?"
 
-msgid "editor.article.selectReviewForm"
-msgstr "Odaberite obrazac za pregled"
-
-msgid "editor.article.reviewForms"
-msgstr "Obrasci za pregled"
-
-msgid "editor.submission.createNewRound"
-msgstr "Kreirajte novi krug pregleda"
-
-msgid "editor.submission.newRoundDescription"
+msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
-"Kreirat ćete novi krug pregleda za ovu predaju. Datoteke koje nisu korištene "
-"u drugim krugovima pregleda navedene su u nastavku."
 
-msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
-msgstr "Ne kreirajte diskusiju o pregledu."
-
-msgid "editor.submissionReview.recordRecommendation.createDiscussion"
-msgstr "Kreirajte diskusiju pregleda o ovoj preporuci."
-
-msgid "editor.submissionReview.recordRecommendation.skipEmail"
-msgstr "Ne šaljite urednicima e-mail."
-
-msgid "editor.submissionReview.recordRecommendation.notifyEditors"
-msgstr "Obavijesti urednike"
-
-msgid "editor.submissionReview.recordRecommendation"
-msgstr "Snimite uredničku preporuku"
-
-msgid "editor.submissionReview.recordDecision"
-msgstr "Snimite uredničku odluku"
-
-msgid "editor.submission.newRound"
-msgstr "Novi krug pregleda"
-
-msgid "editor.submission.production.productionReadyFiles"
-msgstr "Datoteke spremne za produkciju"
-
-msgid "editor.review.emailReviewer"
-msgstr "Recenzent e-maila"
-
-msgid "editor.review.noReviewFilesUploaded.details"
-msgstr "Niste prenijeli nijednu datoteku s pregledom."
-
-msgid "editor.review.noReviewFilesUploaded"
-msgstr "Nema prenesenih datoteka"
-
-msgid "editor.review.reviewDetails"
-msgstr "Detalji pregleda"
-
-msgid "editor.review"
-msgstr "Pregledaj"
-
-msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
-"Sve datoteke koje su već prenesene u bilo koju fazu slanja mogu se dodati na "
-"listu uređenih datoteka odabirom polja uključi ispod za potvrdu i klikom na "
-"pretraži: sve dostupne datoteke bit će navedene i mogu se odabrati za "
-"uključivanje. Dodatne datoteke koje još nisu prenesene u fazu mogu se dodati "
-"na listu klikom na link prenesi datoteku."
 
-msgid "editor.submission.addAuditor"
-msgstr "Dodeli revizora"
-
-msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgid "editor.submission.workflowDecision.invalidReviewRound"
 msgstr ""
-"Ako ne odobrite ovu uređenu datoteku, neće biti dostupna za slanje u fazu "
-"produkcije. Želite li odbiti ovu datoteku?"
 
-msgid "editor.submission.editorial.approveCopyeditDescription"
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
-"Uređena datoteka mora biti odobrena prije nego što se može poslati u fazu "
-"izrade. Želite li odobriti ovu datoteku?"
 
-msgid "editor.submission.proof.reminder"
-msgstr "Podsjetnik na korekturu"
-
-msgid "editor.submission.personalMessageToUser"
-msgstr "E-mail za slanje korisniku"
-
-msgid "editor.submission.noAuditRequested"
-msgstr "Nije potrebna revizija za ovu datoteku"
-
-msgid "editor.review.enrollReviewer"
-msgstr "Registrujte postojećeg korisnika kao recenzenta"
-
-msgid "editor.submission.taskSchedule"
-msgstr "Raspored zadataka"
-
-msgid "editor.submission.taskDueDate"
-msgstr "Rok za izvršenje zadatka"
-
-msgid "editor.submission.selectReviewer"
-msgstr "Odaberite recenzenta"
-
-msgid "editor.submission.selectCopyedingFiles"
-msgstr "Uređivanje datoteka"
-
-msgid "editor.submission.schedulePublication"
-msgstr "Raspored za objavljivanje"
-
-msgid "editor.review.readConfirmation"
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr ""
-"Nakon što pročitate ovaj pregled, pritisnite \"Potvrdi\" da biste naznačili "
-"da se postupak pregleda može nastaviti. Ako je recenzent svoj pregled poslao "
-"negdje drugdje, možete poslati datoteku ispod, a zatim pritisnuti \"Potvrdi\""
-" za nastavak."
 
-msgid "editor.review.unconsiderReview"
-msgstr "Ne razmatrajte ovaj pregled"
-
-msgid "editor.review.unconsiderReviewText"
+msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
-"Želite li označiti ovaj pregled nerazmatranim? Historija pregleda će biti "
-"sačuvana."
 
-msgid "editor.review.userGroupSelect"
-msgstr "Registrujte korisnika s ovom korisničkom grupom recenzenata"
-
-msgid "editor.review.errorReinstatingReviewer"
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
-"Došlo je do greške pri ponovnom postavljanju recenzenta. Molimo pokušajte "
-"ponovo."
 
-msgid "editor.review.errorDeletingReviewer"
+msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
-"Došlo je do greške prilikom brisanja recenzenta. Molimo pokušajte ponovo."
 
-msgid "editor.review.errorAddingReviewer"
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
-"Došlo je do greške prilikom dodavanja recenzenta. Molimo pokušajte ponovo."
 
-msgid "editor.review.mustSelect"
-msgstr "Morate odabrati recenzenta"
-
-msgid "editor.review.reviewerRating.none"
-msgstr "Nema ocjene"
-
-msgid "editor.review.rateReviewer.description"
+msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
-"Ocijenite kvalitet pružene recenzije. Ova ocjena se ne dijeli s recenzentom."
 
-msgid "editor.review.reviewerComments"
-msgstr "Komentari recenzenata"
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
 
-msgid "editor.review.reviewerThanked"
-msgstr "Recenzent se zahvalio"
+msgid "editor.review.notInitiated"
+msgstr "Postupak pregleda još nije pokrenut."
 
-msgid "editor.review.reviewSubmitted"
-msgstr "Pregled proslijeđen"
+msgid "editor.submission.copyediting.personalMessageToUser"
+msgstr "Poruka korisniku"
 
-msgid "editor.review.reviewConfirmed"
-msgstr "Pregled potvrđen"
+msgid "editor.submission.externalReviewDescription"
+msgstr "Odaberite datoteke u nastavku da biste ih poslali u fazu pregleda."
 
-msgid "editor.review.reviewCompleted"
-msgstr "Pregled završen"
+msgid "editor.submission.fileAuditor.form.fileRequired"
+msgstr "Morate odabrati barem jednu datoteku kojoj ćete dodijeliti korisnika."
 
-msgid "editor.review.reviewDueDate"
-msgstr "Datum završetka pregleda"
+msgid "editor.submission.fileAuditor.form.messageRequired"
+msgstr "Morate uključiti ličnu poruku."
 
-msgid "editor.review.reviewDue"
-msgstr "Rok za pregled: {$date}"
+msgid "editor.submission.fileAuditor.skipEmail"
+msgstr "Ne šaljite e-mail revizoru"
 
-msgid "editor.review.revertDecision"
-msgstr "Vrati odluku"
+msgid "editor.submission.fileAuditor.form.userRequired"
+msgstr "Morate odabrati korisnika kojeg želite dodijeliti."
 
-msgid "editor.review.requestCancelled.tooltip"
-msgstr "Urednik je otkazao ovaj zahtjev za pregled."
+msgid "editor.submission.uploadSelectFiles"
+msgstr "Prenesi/odaberi datoteke"
 
-msgid "editor.review.requestDeclined.tooltip"
-msgstr "Recenzent je odbio ovaj zahtjev za pregled."
+msgid "editor.submission.selectFiles"
+msgstr "Odaberi datoteke"
 
-msgid "editor.review.requestCancelled"
-msgstr "Zahtjev otkazan"
-
-msgid "editor.review.requestDeclined"
-msgstr "Zahtjev odbijen"
-
-msgid "editor.review.requestAccepted"
-msgstr "Zahtjev prihvaćen"
-
-msgid "editor.review.requestSent"
-msgstr "Zahtjev poslan"
-
-msgid "editor.review.responseDue"
-msgstr "Krajnji odgovor: {$date}"
-
-msgid "editor.review.readNewReview"
-msgstr "Pročitajte novi pregled"
-
-msgid "editor.review.readReview"
-msgstr "Pročitajte pregled"
-
-msgid "editor.review.sendReminder"
-msgstr "Pošaljite podsjetnik"
-
-msgid "editor.review.skipEmail"
-msgstr "Ne šaljite e-mail recenzentu."
-
-msgid "editor.review.thankReviewerError"
-msgstr "Greška pri slanju zahvale recenzentu"
-
-msgid "editor.review.reminderError"
-msgstr "Greška pri slanju podsjetnika za recenziju"
-
-msgid "editor.review.thankReviewer"
-msgstr "Zahvala recenzentu"
-
-msgid "editor.review.reminder"
-msgstr "Podsjetnik za pregled"
-
-msgid "editor.review.noReviews"
-msgstr "Nema pregleda za uvoz"
-
-msgid "editor.review.reviewsAdded"
-msgstr "Pregledi dodani u tijelo poruke."
-
-msgid "editor.review.dateAccepted"
-msgstr "Pregledajte datum prihvatanja"
-
-msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Pregledi će biti predmet novog kruga recenzija."
-
-msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Pregledi neće biti predmet novog kruga recenzija."
-
-msgid "editor.review.newReviewRound"
-msgstr "Zahtijevajte novi krug pregleda"
-
-msgid "editor.review.uploadRevision"
-msgstr "Prenesi pregled"
-
-msgid "editor.review.importantDates"
-msgstr "Važni datumi"
-
-msgid "editor.review.personalMessageToReviewer"
-msgstr "E-mail za slanje recenzentu"
-
-msgid "editor.review.anonymousReviewer"
-msgstr "Anonimni recenzent"
-
-msgid "editor.submissionReview.editReview"
-msgstr "Uredi pregled"
-
-msgid "editor.submissionReview.restrictFiles.hide"
-msgstr "Zatvorite odabir datoteke"
-
-msgid "editor.submissionReview.restrictFiles"
-msgstr "Datoteke za pregled"
-
-msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Anonimni recenzent/anonimni autor"
-
-msgid "editor.submissionReview.anonymous"
-msgstr "Anonimni recenzent/prikazani autor"
-
-msgid "editor.submissionReview.open"
-msgstr "Otvori"
-
-msgid "editor.submissionReview.skipEmail"
-msgstr "Ne šaljite obavještenje putem e-maila"
-
-msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Pošalji obavještenje putem e-maila urednicima: {$editorNames}"
-
-msgid "editor.submissionReview.sendEmail"
-msgstr "Pošalji obavještenje putem e-maila autorima: {$authorName}"
-
-msgid "editor.submissionReview.reviewType"
-msgstr "Vrsta recenzije"
-
-msgid "editor.review.reinstateReviewer"
-msgstr "Vratite recenzenta"
-
-msgid "editor.review.cancelReviewer"
-msgstr "Otkaži recenzenta"
-
-msgid "editor.review.unassignReviewer"
-msgstr "Poništi recenzenta"
-
-msgid "editor.review.enrollReviewer.short"
-msgstr "Registrujte postojećeg korisnika"
-
-msgid "editor.review.createReviewer"
-msgstr "Kreiraj novog recenzenta"
-
-msgid "editor.submission.backToSearch"
-msgstr "Povratak na pretragu"
-
-msgid "editor.submission.review.currentFiles"
-msgstr "Aktuelne datoteke pregleda za krug {$round}"
-
-msgid "editor.submission.fileList.includeAllStages"
-msgstr "Prikažite datoteke iz svih dostupnih faza rada."
-
-msgid "editor.submission.findAndSelectUser"
-msgstr "Pronađite korisnika"
-
-msgid "editor.submission.findAndSelectReviewer"
-msgstr "Pronađite recenzenta"
-
-msgid "editor.submission.addReviewer"
-msgstr "Dodajte recenzenta"
+msgid "editor.submission.revisions"
+msgstr "Revizije"
 
 msgid "editor.submission.review.reviewersDescription"
 msgstr ""
@@ -338,77 +122,436 @@ msgstr ""
 "konsultovan. Kada su pregledi zakasnili, pojavljuje se crvena ikona koverte "
 "za podsjećanje recenzenata."
 
-msgid "editor.submission.revisions"
-msgstr "Revizije"
+msgid "editor.submission.addReviewer"
+msgstr "Dodajte recenzenta"
 
-msgid "editor.submission.selectFiles"
-msgstr "Odaberi datoteke"
+msgid "editor.submission.findAndSelectReviewer"
+msgstr "Pronađite recenzenta"
 
-msgid "editor.submission.uploadSelectFiles"
-msgstr "Prenesi/odaberi datoteke"
+msgid "editor.submission.findAndSelectUser"
+msgstr "Pronađite korisnika"
 
-msgid "editor.submission.fileAuditor.form.userRequired"
-msgstr "Morate odabrati korisnika kojeg želite dodijeliti."
+msgid "editor.submission.fileList.includeAllStages"
+msgstr "Prikažite datoteke iz svih dostupnih faza rada."
 
-msgid "editor.submission.fileAuditor.skipEmail"
-msgstr "Ne šaljite e-mail revizoru"
+msgid "editor.submission.review.currentFiles"
+msgstr "Aktuelne datoteke pregleda za krug {$round}"
 
-msgid "editor.submission.fileAuditor.form.messageRequired"
-msgstr "Morate uključiti ličnu poruku."
+msgid "editor.submission.backToSearch"
+msgstr "Povratak na pretragu"
 
-msgid "editor.submission.fileAuditor.form.fileRequired"
-msgstr "Morate odabrati barem jednu datoteku kojoj ćete dodijeliti korisnika."
+msgid "editor.review.createReviewer"
+msgstr "Kreiraj novog recenzenta"
 
-msgid "editor.submission.externalReviewDescription"
-msgstr "Odaberite datoteke u nastavku da biste ih poslali u fazu pregleda."
+msgid "editor.review.enrollReviewer.short"
+msgstr "Registrujte postojećeg korisnika"
 
-msgid "editor.submission.copyediting.personalMessageToUser"
-msgstr "Poruka korisniku"
+msgid "editor.review.unassignReviewer"
+msgstr "Poništi recenzenta"
 
-msgid "editor.review.notInitiated"
-msgstr "Postupak pregleda još nije pokrenut."
+msgid "editor.review.cancelReviewer"
+msgstr "Otkaži recenzenta"
 
-msgid "editor.submission.workflowDecision.changeDecision"
-msgstr "Promjena odluke"
+msgid "editor.review.reinstateReviewer"
+msgstr "Vratite recenzenta"
 
-msgid "editor.submission.workflowDecision.submission.underReview"
-msgstr "Predaja prihvaćena na uvid."
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
 
-msgid "editor.submission.workflowDecision.submission.production"
-msgstr "Poslano u produkciju."
+msgid "editor.submissionReview.reviewType"
+msgstr "Vrsta recenzije"
 
-msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Poslano na novi krug pregleda."
+msgid "editor.submissionReview.sendEmail"
+msgstr "Pošalji obavještenje putem e-maila autorima: {$authorName}"
 
-msgid "editor.submission.workflowDecision.submission.published"
-msgstr "Predaja objavljena."
+msgid "editor.submissionReview.sendEmail.editors"
+msgstr "Pošalji obavještenje putem e-maila urednicima: {$editorNames}"
 
-msgid "editor.submission.workflowDecision.submission.accepted"
-msgstr "Predaja prihvaćena."
+msgid "editor.submissionReview.skipEmail"
+msgstr "Ne šaljite obavještenje putem e-maila"
 
-msgid "editor.submission.workflowDecision.submission.declined"
-msgstr "Predaja odbijena."
+msgid "editor.submissionReview.open"
+msgstr "Otvori"
 
-msgid "editor.submission.workflowDecision.submission"
-msgstr "Odluka zabilježena"
+msgid "editor.submissionReview.anonymous"
+msgstr "Anonimni recenzent/prikazani autor"
 
-msgid "editor.submissionLibrary"
-msgstr "Biblioteka"
+msgid "editor.submissionReview.doubleAnonymous"
+msgstr "Anonimni recenzent/anonimni autor"
 
-msgid "editor.activityLog"
-msgstr "Dnevnik aktivnosti"
+msgid "editor.submissionReview.restrictFiles"
+msgstr "Datoteke za pregled"
 
-msgid "reviewer.list.empty"
-msgstr "Nije pronađen nijedan recenzent"
+msgid "editor.submissionReview.restrictFiles.hide"
+msgstr "Zatvorite odabir datoteke"
 
-msgid "reviewer.list.biography"
-msgstr "Biografija"
+msgid "editor.submissionReview.editReview"
+msgstr "Uredi pregled"
 
-msgid "reviewer.list.reviewInterests"
-msgstr "Pregledavanje zanimanja"
+msgid "editor.review.anonymousReviewer"
+msgstr "Anonimni recenzent"
 
-msgid "reviewer.list.warnOnAssignUnlock"
-msgstr "Otključaj"
+msgid "editor.review.personalMessageToReviewer"
+msgstr "E-mail za slanje recenzentu"
+
+msgid "editor.review.importantDates"
+msgstr "Važni datumi"
+
+msgid "editor.review.uploadRevision"
+msgstr "Prenesi pregled"
+
+msgid "editor.review.newReviewRound"
+msgstr "Zahtijevajte novi krug pregleda"
+
+msgid "editor.review.NotifyAuthorRevisions"
+msgstr "Pregledi neće biti predmet novog kruga recenzija."
+
+msgid "editor.review.NotifyAuthorResubmit"
+msgstr "Pregledi će biti predmet novog kruga recenzija."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
+
+msgid "editor.review.dateAccepted"
+msgstr "Pregledajte datum prihvatanja"
+
+msgid "editor.review.reviewsAdded"
+msgstr "Pregledi dodani u tijelo poruke."
+
+msgid "editor.review.noReviews"
+msgstr "Nema pregleda za uvoz"
+
+msgid "editor.review.reminder"
+msgstr "Podsjetnik za pregled"
+
+msgid "editor.review.thankReviewer"
+msgstr "Zahvala recenzentu"
+
+msgid "editor.review.reminderError"
+msgstr "Greška pri slanju podsjetnika za recenziju"
+
+msgid "editor.review.thankReviewerError"
+msgstr "Greška pri slanju zahvale recenzentu"
+
+msgid "editor.review.skipEmail"
+msgstr "Ne šaljite e-mail recenzentu."
+
+msgid "editor.review.sendReminder"
+msgstr "Pošaljite podsjetnik"
+
+msgid "editor.review.readReview"
+msgstr "Pročitajte pregled"
+
+msgid "editor.review.readNewReview"
+msgstr "Pročitajte novi pregled"
+
+msgid "editor.review.responseDue"
+msgstr "Krajnji odgovor: {$date}"
+
+msgid "editor.review.requestSent"
+msgstr "Zahtjev poslan"
+
+msgid "editor.review.requestAccepted"
+msgstr "Zahtjev prihvaćen"
+
+msgid "editor.review.requestDeclined"
+msgstr "Zahtjev odbijen"
+
+msgid "editor.review.requestCancelled"
+msgstr "Zahtjev otkazan"
+
+msgid "editor.review.requestDeclined.tooltip"
+msgstr "Recenzent je odbio ovaj zahtjev za pregled."
+
+msgid "editor.review.requestCancelled.tooltip"
+msgstr "Urednik je otkazao ovaj zahtjev za pregled."
+
+msgid "editor.review.revertDecision"
+msgstr "Vrati odluku"
+
+msgid "editor.review.reviewDue"
+msgstr "Rok za pregled: {$date}"
+
+msgid "editor.review.reviewDueDate"
+msgstr "Datum završetka pregleda"
+
+msgid "editor.review.reviewCompleted"
+msgstr "Pregled završen"
+
+msgid "editor.review.reviewConfirmed"
+msgstr "Pregled potvrđen"
+
+msgid "editor.review.reviewSubmitted"
+msgstr "Pregled proslijeđen"
+
+msgid "editor.review.reviewerThanked"
+msgstr "Recenzent se zahvalio"
+
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
+msgid "editor.review.reviewerComments"
+msgstr "Komentari recenzenata"
+
+msgid "editor.review.rateReviewer"
+msgstr "Ocjena recenzenta"
+
+msgid "editor.review.rateReviewer.description"
+msgstr ""
+"Ocijenite kvalitet pružene recenzije. Ova ocjena se ne dijeli s recenzentom."
+
+msgid "editor.review.reviewerRating.none"
+msgstr "Nema ocjene"
+
+msgid "editor.review.mustSelect"
+msgstr "Morate odabrati recenzenta"
+
+msgid "editor.review.errorAddingReviewer"
+msgstr ""
+"Došlo je do greške prilikom dodavanja recenzenta. Molimo pokušajte ponovo."
+
+msgid "editor.review.errorDeletingReviewer"
+msgstr ""
+"Došlo je do greške prilikom brisanja recenzenta. Molimo pokušajte ponovo."
+
+msgid "editor.review.errorReinstatingReviewer"
+msgstr ""
+"Došlo je do greške pri ponovnom postavljanju recenzenta. Molimo pokušajte "
+"ponovo."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
+
+msgid "editor.review.userGroupSelect"
+msgstr "Registrujte korisnika s ovom korisničkom grupom recenzenata"
+
+msgid "editor.review.unconsiderReviewText"
+msgstr ""
+"Želite li označiti ovaj pregled nerazmatranim? Historija pregleda će biti "
+"sačuvana."
+
+msgid "editor.review.unconsiderReview"
+msgstr "Ne razmatrajte ovaj pregled"
+
+msgid "editor.review.readConfirmation"
+msgstr ""
+"Nakon što pročitate ovaj pregled, pritisnite \"Potvrdi\" da biste naznačili "
+"da se postupak pregleda može nastaviti. Ako je recenzent svoj pregled poslao "
+"negdje drugdje, možete poslati datoteku ispod, a zatim pritisnuti \"Potvrdi"
+"\" za nastavak."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr ""
+
+msgid "editor.submission.schedulePublication"
+msgstr "Raspored za objavljivanje"
+
+msgid "editor.submission.selectCopyedingFiles"
+msgstr "Uređivanje datoteka"
+
+msgid "editor.submission.selectReviewer"
+msgstr "Odaberite recenzenta"
+
+msgid "editor.submission.taskDueDate"
+msgstr "Rok za izvršenje zadatka"
+
+msgid "editor.submission.taskSchedule"
+msgstr "Raspored zadataka"
+
+msgid "editor.review.enrollReviewer"
+msgstr "Registrujte postojećeg korisnika kao recenzenta"
+
+msgid "editor.submission.noAuditRequested"
+msgstr "Nije potrebna revizija za ovu datoteku"
+
+msgid "editor.submission.personalMessageToUser"
+msgstr "E-mail za slanje korisniku"
+
+msgid "editor.submission.proof.reminder"
+msgstr "Podsjetnik na korekturu"
+
+msgid "editor.submission.editorial.approveCopyeditDescription"
+msgstr ""
+"Uređena datoteka mora biti odobrena prije nego što se može poslati u fazu "
+"izrade. Želite li odobriti ovu datoteku?"
+
+msgid "editor.submission.editorial.disapproveCopyeditDescription"
+msgstr ""
+"Ako ne odobrite ovu uređenu datoteku, neće biti dostupna za slanje u fazu "
+"produkcije. Želite li odbiti ovu datoteku?"
+
+msgid "editor.submission.addAuditor"
+msgstr "Dodeli revizora"
+
+msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
+msgstr ""
+"Sve datoteke koje su već prenesene u bilo koju fazu slanja mogu se dodati na "
+"listu uređenih datoteka odabirom polja uključi ispod za potvrdu i klikom na "
+"pretraži: sve dostupne datoteke bit će navedene i mogu se odabrati za "
+"uključivanje. Dodatne datoteke koje još nisu prenesene u fazu mogu se dodati "
+"na listu klikom na link prenesi datoteku."
+
+msgid "editor.review"
+msgstr "Pregledaj"
+
+msgid "editor.review.reviewDetails"
+msgstr "Detalji pregleda"
+
+msgid "editor.review.noReviewFilesUploaded"
+msgstr "Nema prenesenih datoteka"
+
+msgid "editor.review.noReviewFilesUploaded.details"
+msgstr "Niste prenijeli nijednu datoteku s pregledom."
+
+msgid "editor.review.emailReviewer"
+msgstr "Recenzent e-maila"
+
+msgid "editor.submission.production.productionReadyFiles"
+msgstr "Datoteke spremne za produkciju"
+
+msgid "editor.submission.newRound"
+msgstr "Novi krug pregleda"
+
+msgid "editor.submissionReview.recordDecision"
+msgstr "Snimite uredničku odluku"
+
+msgid "editor.submissionReview.recordRecommendation"
+msgstr "Snimite uredničku preporuku"
+
+msgid "editor.submissionReview.recordRecommendation.notifyEditors"
+msgstr "Obavijesti urednike"
+
+msgid "editor.submissionReview.recordRecommendation.skipEmail"
+msgstr "Ne šaljite urednicima e-mail."
+
+msgid "editor.submissionReview.recordRecommendation.createDiscussion"
+msgstr "Kreirajte diskusiju pregleda o ovoj preporuci."
+
+msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
+msgstr "Ne kreirajte diskusiju o pregledu."
+
+msgid "editor.submission.newRoundDescription"
+msgstr ""
+"Kreirat ćete novi krug pregleda za ovu predaju. Datoteke koje nisu korištene "
+"u drugim krugovima pregleda navedene su u nastavku."
+
+msgid "editor.submission.createNewRound"
+msgstr "Kreirajte novi krug pregleda"
+
+msgid "editor.article.reviewForms"
+msgstr "Obrasci za pregled"
+
+msgid "editor.article.selectReviewForm"
+msgstr "Odaberite obrazac za pregled"
+
+msgid "editor.article.confirmChangeReviewForm"
+msgstr ""
+"Upozorenje: Promjena obrasca za pregled utjecati će na sve odgovore koje su "
+"recenzenti dali koristeći ovaj obrazac. Jeste li sigurni da želite nastaviti?"
+
+msgid "editor.submission.noReviewerFilesSelected"
+msgstr "Nije odabrana nijedna datoteka"
+
+msgid "editor.submission.noReviewerFilesSelected.details"
+msgstr "Niste odabrali nijednu datoteku koju će recenzent pregledati."
+
+msgid "submission.queries.subjectRequired"
+msgstr "Potrebna je tema diskusije."
+
+msgid "submission.queries.messageRequired"
+msgstr "Potrebna je poruka za diskusiju."
+
+msgid "submission.queries.attachedFiles"
+msgstr "Priložene datoteke"
+
+msgid "grid.action.editQuery"
+msgstr "Uredi diskusiju"
+
+msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgstr ""
+"Datoteke se mogu priložiti za uključivanje u ovu diskusiju sa popisa ispod."
+
+msgid "editor.submission.selectedReviewer"
+msgstr "Odabrani recenzent"
+
+msgid "editor.submission.proofreading.approveProof"
+msgstr "Odobri korekturu"
+
+msgid "editor.submission.proofreading.revokeProofApproval"
+msgstr "Opoziv odobrenja za korekturu"
+
+msgid "editor.submission.proofreading.confirmCompletion"
+msgstr ""
+"Odobrite ovu korekturu da biste označili da je lektura završena i da je "
+"datoteka spremna za objavljivanje."
+
+msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgstr ""
+"Opozovite odobrenje za ovu korekturu kako biste ukazali da lektura više nije "
+"potpuna i datoteka nije spremna za objavljivanje."
+
+msgid "editor.submission.revertDeclineDescription"
+msgstr "Jeste li sigurni da želite poništiti odluku o odbijanju ove predaje?"
+
+msgid "editor.publicIdentificationNumericNotAllowed"
+msgstr "Javni identifikator '{$publicIdentifier}' ne smije biti broj."
+
+msgid "editor.publicIdentificationPatternNotAllowed"
+msgstr "Uzorak {$pattern} nije dozvoljen za javni identifikator."
+
+msgid "reviewer.list.filterRating"
+msgstr "Ocijenjeno najmanje"
+
+msgid "reviewer.list.activeReviews"
+msgstr "{$count} aktivno"
+
+msgid "reviewer.list.activeReviewsDescription"
+msgstr "Trenutno dodijeljeni aktivni pregledi"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
+
+msgid "reviewer.list.completedReviews"
+msgstr "Pregledi završeni"
+
+msgid "reviewer.list.declinedReviews"
+msgstr "Zahtjevi za pregled su odbijeni"
+
+msgid "reviewer.list.cancelledReviews"
+msgstr "Otkazani zahtjevi za pregled"
+
+msgid "reviewer.list.reviewerRating"
+msgstr "Ocjena recenzenta: {$rating}"
+
+msgid "reviewer.list.daysSinceLastAssignment"
+msgstr "Prije {$days} dana"
+
+msgid "reviewer.list.daySinceLastAssignment"
+msgstr "Jučer"
+
+msgid "reviewer.list.daysSinceLastAssignmentDescription"
+msgstr "Dana od zadnjeg dodijeljenog pregleda"
+
+msgid "reviewer.list.averageCompletion"
+msgstr "Prosječan broj dana za završetak pregleda"
+
+msgid "reviewer.list.neverAssigned"
+msgstr "Nikad dodijeljeno"
+
+msgid "reviewer.list.reassign"
+msgstr "Ponovo dodijeli"
+
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
+msgid "reviewer.list.currentlyAssigned"
+msgstr "Ovom recenzentu je već dodijeljeno da pregleda ovu predaju."
 
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
@@ -416,94 +559,41 @@ msgstr ""
 "vidi identitet autora. Ne može se garantovati anonimni pregled. Želite li "
 "ipak otključati ovog recenzenta?"
 
-msgid "reviewer.list.reassign"
-msgstr "Ponovo dodijeli"
+msgid "reviewer.list.warnOnAssignUnlock"
+msgstr "Otključaj"
 
-msgid "reviewer.list.currentlyAssigned"
-msgstr "Ovom recenzentu je već dodijeljeno da pregleda ovu predaju."
+msgid "reviewer.list.reviewInterests"
+msgstr "Pregledavanje zanimanja"
 
-msgid "reviewer.list.neverAssigned"
-msgstr "Nikad dodijeljeno"
+msgid "reviewer.list.biography"
+msgstr "Biografija"
 
-msgid "reviewer.list.averageCompletion"
-msgstr "Prosječan broj dana za završetak pregleda"
+msgid "reviewer.list.empty"
+msgstr "Nije pronađen nijedan recenzent"
 
-msgid "reviewer.list.daysSinceLastAssignmentDescription"
-msgstr "Dana od zadnjeg dodijeljenog pregleda"
-
-msgid "reviewer.list.daySinceLastAssignment"
-msgstr "Jučer"
-
-msgid "reviewer.list.daysSinceLastAssignment"
-msgstr "Prije {$days} dana"
-
-msgid "reviewer.list.reviewerRating"
-msgstr "Ocjena recenzenta: {$rating}"
-
-msgid "reviewer.list.cancelledReviews"
-msgstr "Otkazani zahtjevi za pregled"
-
-msgid "reviewer.list.declinedReviews"
-msgstr "Zahtjevi za pregled su odbijeni"
-
-msgid "reviewer.list.completedReviews"
-msgstr "Pregledi završeni"
-
-msgid "reviewer.list.activeReviewsDescription"
-msgstr "Trenutno dodijeljeni aktivni pregledi"
-
-msgid "reviewer.list.activeReviews"
-msgstr "{$count} aktivno"
-
-msgid "reviewer.list.filterRating"
-msgstr "Ocijenjeno najmanje"
-
-msgid "editor.publicIdentificationPatternNotAllowed"
-msgstr "Uzorak {$pattern} nije dozvoljen za javni identifikator."
-
-msgid "editor.publicIdentificationNumericNotAllowed"
-msgstr "Javni identifikator '{$publicIdentifier}' ne smije biti broj."
-
-msgid "editor.submission.revertDeclineDescription"
-msgstr "Jeste li sigurni da želite poništiti odluku o odbijanju ove predaje?"
-
-msgid "editor.submission.proofreading.confirmRemoveCompletion"
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
-"Opozovite odobrenje za ovu korekturu kako biste ukazali da lektura više nije "
-"potpuna i datoteka nije spremna za objavljivanje."
 
-msgid "editor.submission.proofreading.confirmCompletion"
+msgid "editor.decision.cancelDecision"
 msgstr ""
-"Odobrite ovu korekturu da biste označili da je lektura završena i da je "
-"datoteka spremna za objavljivanje."
 
-msgid "editor.submission.proofreading.revokeProofApproval"
-msgstr "Opoziv odobrenja za korekturu"
-
-msgid "editor.submission.proofreading.approveProof"
-msgstr "Odobri korekturu"
-
-msgid "editor.submission.selectedReviewer"
-msgstr "Odabrani recenzent"
-
-msgid "editor.submission.query.manageQueryNoteFilesDescription"
+msgid "editor.decision.cancelDecision.confirmation"
 msgstr ""
-"Datoteke se mogu priložiti za uključivanje u ovu diskusiju sa popisa ispod."
 
-msgid "grid.action.editQuery"
-msgstr "Uredi diskusiju"
+msgid "editor.decision.completeSteps"
+msgstr ""
 
-msgid "submission.queries.attachedFiles"
-msgstr "Priložene datoteke"
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
 
-msgid "submission.queries.messageRequired"
-msgstr "Potrebna je poruka za diskusiju."
+msgid "editor.decision.emailSkipped"
+msgstr ""
 
-msgid "submission.queries.subjectRequired"
-msgstr "Potrebna je tema diskusije."
+msgid "editor.decision.recordDecision"
+msgstr ""
 
-msgid "editor.submission.noReviewerFilesSelected.details"
-msgstr "Niste odabrali nijednu datoteku koju će recenzent pregledati."
+msgid "editor.decision.skipEmail"
+msgstr ""
 
-msgid "editor.submission.noReviewerFilesSelected"
-msgstr "Nije odabrana nijedna datoteka"
+msgid "editor.decision.stepError"
+msgstr ""

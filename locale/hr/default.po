@@ -14,6 +14,9 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
+msgid "default.groups.name.siteAdmin"
+msgstr "Administrator web stranice"
+
 msgid "default.groups.plural.siteAdmin"
 msgstr "Administratori web stranice"
 
@@ -35,11 +38,20 @@ msgstr "Lektori"
 msgid "default.groups.abbrev.copyeditor"
 msgstr "CE"
 
+msgid "default.groups.name.proofreader"
+msgstr "Korektor"
+
 msgid "default.groups.plural.proofreader"
 msgstr "Korektori"
 
+msgid "default.groups.abbrev.proofreader"
+msgstr "PR"
+
 msgid "default.groups.name.designer"
 msgstr "Dizajner"
+
+msgid "default.groups.plural.designer"
+msgstr "Dizajneri"
 
 msgid "default.groups.abbrev.designer"
 msgstr "Dizajn"
@@ -47,14 +59,23 @@ msgstr "Dizajn"
 msgid "default.groups.name.internalReviewer"
 msgstr "Interni recenzent"
 
+msgid "default.groups.plural.internalReviewer"
+msgstr "Interni recenzenti"
+
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IR"
 
 msgid "default.groups.name.marketing"
 msgstr "Koordinator marketinga i prodaje"
 
+msgid "default.groups.plural.marketing"
+msgstr "Koordinatori marketinga i prodaje"
+
 msgid "default.groups.abbrev.marketing"
 msgstr "MS"
+
+msgid "default.groups.name.funding"
+msgstr "Koordinator financiranja"
 
 msgid "default.groups.plural.funding"
 msgstr "Koordinatori financiranja"
@@ -70,6 +91,9 @@ msgstr "Indekseri"
 
 msgid "default.groups.abbrev.indexer"
 msgstr "IND"
+
+msgid "default.groups.name.layoutEditor"
+msgstr "Layout upravitelj"
 
 msgid "default.groups.plural.layoutEditor"
 msgstr "Layout upravitelji"
@@ -95,6 +119,9 @@ msgstr "Prevoditelji"
 msgid "default.groups.abbrev.translator"
 msgstr "Trans"
 
+msgid "default.groups.name.reader"
+msgstr "Čitatelj"
+
 msgid "default.groups.plural.reader"
 msgstr "Čitatelji"
 
@@ -110,51 +137,24 @@ msgstr "Multimedija"
 msgid "default.genres.image"
 msgstr "Slika"
 
-msgid "default.groups.name.siteAdmin"
-msgstr "Administrator web stranice"
-
-msgid "default.groups.plural.internalReviewer"
-msgstr "Interni recenzenti"
-
-msgid "default.groups.name.proofreader"
-msgstr "Korektor"
-
-msgid "default.groups.plural.marketing"
-msgstr "Koordinatori marketinga i prodaje"
-
-msgid "default.groups.abbrev.proofreader"
-msgstr "PR"
-
-msgid "default.groups.name.funding"
-msgstr "Koordinator financiranja"
-
-msgid "default.groups.plural.designer"
-msgstr "Dizajneri"
-
-msgid "default.groups.name.layoutEditor"
-msgstr "Layout upravitelj"
-
-msgid "default.groups.name.reader"
-msgstr "Čitatelj"
-
 msgid "default.genres.styleSheet"
 msgstr "HTML Stilovi"
 
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br><br>—<br><p>Ovo je automatizirana poruka od <a href=\"{$contextUrl}\""
-">{$contextName}</a>.</p>"
+"<br><br>—<br><p>Ovo je automatizirana poruka od <a href="
+"\"{$contextUrl}\">{$contextName}</a>.</p>"
 
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""
 "<p>Hvala što ste se prijavili na {$contextName}. Od vas će se tražiti da "
 "prenesete datoteke, identificirate koautore i date informacije kao što su "
-"naslov i sažetak.<p><p>Pročitajte naše <a href=\"{$submissionGuidelinesUrl}\""
-" target=\"_blank\">Smjernice za prijavu </a> ako to već niste učinili. Kada "
-"ispunjavate obrasce, navedite što više pojedinosti kako biste pomogli našim "
-"urednicima da procijene vaš rad.</p><p>Kad počnete, možete spremiti svoj "
-"podnesak i vratiti mu se kasnije. Moći ćete pregledati i ispraviti sve "
-"informacije prije slanja.</p>"
+"naslov i sažetak.<p><p>Pročitajte naše <a href="
+"\"{$submissionGuidelinesUrl}\" target=\"_blank\">Smjernice za prijavu </a> "
+"ako to već niste učinili. Kada ispunjavate obrasce, navedite što više "
+"pojedinosti kako biste pomogli našim urednicima da procijene vaš rad.</"
+"p><p>Kad počnete, možete spremiti svoj podnesak i vratiti mu se kasnije. "
+"Moći ćete pregledati i ispraviti sve informacije prije slanja.</p>"
 
 msgid "default.submission.step.uploadFiles"
 msgstr ""

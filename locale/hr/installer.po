@@ -23,7 +23,10 @@ msgid "installer.administratorAccount"
 msgstr "Administratorski račun"
 
 msgid "installer.administratorAccountInstructions"
-msgstr "Ovaj korisnički račun će postati administrator stranice i imati potpuni pristup sustavu. Dodatni korisnički računi mogu biti kreirani nakon instalacije."
+msgstr ""
+"Ovaj korisnički račun će postati administrator stranice i imati potpuni "
+"pristup sustavu. Dodatni korisnički računi mogu biti kreirani nakon "
+"instalacije."
 
 msgid "installer.checkNo"
 msgstr "<span class=\"pkp_form_error formError\">NE</span>"
@@ -31,14 +34,10 @@ msgstr "<span class=\"pkp_form_error formError\">NE</span>"
 msgid "installer.checkYes"
 msgstr "Da"
 
-msgid "installer.clientCharset"
-msgstr "Skupina znakova klijenta"
-
-msgid "installer.clientCharsetInstructions"
-msgstr "Enkoding koji se koristi za slanje i primanje podataka iz preglednika."
-
 msgid "installer.configFileError"
-msgstr "Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji ili je nečitljiva."
+msgstr ""
+"Konfiguracijska datoteka <tt>config.inc.php</tt> ne postoji ili je "
+"nečitljiva."
 
 msgid "installer.connectionCharset"
 msgstr "Skupina znakova konekcije"
@@ -50,13 +49,22 @@ msgid "installer.databaseDriver"
 msgstr "Upravljač baze podataka"
 
 msgid "installer.databaseDriverInstructions"
-msgstr "<strong>Upravljači baze podataka izlistani u uglatim zagradama nemaju učitanu potrebnu PHP ekstenziju i instalacija će vjerovatno podbaciti ukoliko su odabrani.</strong><br />Bilo koji nepodržani dolje izlistani upravljači baza podataka su izlistani isključivo za akademske svrhe i vjerovatno neće raditi."
+msgstr ""
+"<strong>Upravljači baze podataka izlistani u uglatim zagradama nemaju "
+"učitanu potrebnu PHP ekstenziju i instalacija će vjerovatno podbaciti "
+"ukoliko su odabrani.</strong><br />Bilo koji nepodržani dolje izlistani "
+"upravljači baza podataka su izlistani isključivo za akademske svrhe i "
+"vjerovatno neće raditi."
 
 msgid "installer.databaseHost"
 msgstr "Domaćin"
 
 msgid "installer.databaseHostInstructions"
-msgstr "Ostavite ime glavnog računala prazno da bi se spojili koristeći spojnice domene umjesto preko TCP/IP-a. Ovo nije neophodno s MySQL-om, koji će automatski koristiti spojnice ako je upisano \"localhost\", ali je obavezno s nekim drugim poslužiteljima baza podataka kao što je PostgreSQL."
+msgstr ""
+"Ostavite ime glavnog računala prazno da bi se spojili koristeći spojnice "
+"domene umjesto preko TCP/IP-a. Ovo nije neophodno s MySQL-om, koji će "
+"automatski koristiti spojnice ako je upisano \"localhost\", ali je obavezno "
+"s nekim drugim poslužiteljima baza podataka kao što je PostgreSQL."
 
 msgid "installer.databaseName"
 msgstr "Ime baze podataka"
@@ -69,9 +77,6 @@ msgstr "Postavke baze podataka"
 
 msgid "installer.databaseUsername"
 msgstr "Korisničko ime"
-
-msgid "installer.encryption"
-msgstr "Algoritam enkripcije lozinke"
 
 msgid "installer.filesDir"
 msgstr "Direktorij za slanje datoteka"
@@ -91,11 +96,9 @@ msgstr "Ime baze podataka je obavezno."
 msgid "installer.form.emailRequired"
 msgstr "Ispravna adresa e-pošte za administratorski račun je obavezna."
 
-msgid "installer.form.encryptionRequired"
-msgstr "Algoritam koji se koristi za šifriranje korisničkih lozinki mora biti odabran."
-
 msgid "installer.form.filesDirRequired"
-msgstr "Direktorij koji će se koristiti za pohranu poslanih datoteka je obavezan."
+msgstr ""
+"Direktorij koji će se koristiti za pohranu poslanih datoteka je obavezan."
 
 msgid "installer.form.localeRequired"
 msgstr "Barem jedan jezik mora biti odabran."
@@ -110,13 +113,21 @@ msgid "installer.form.separateMultiple"
 msgstr "Razdvojite višestruke vrijednosti zarezima"
 
 msgid "installer.form.usernameAlphaNumeric"
-msgstr "Administratorsko korisničko ime može sadržavati samo slovnobrojčane znakove, podvlačenja i crtice, a mora početi i završiti sa slovnobrojčanim znakom."
+msgstr ""
+"Administratorsko korisničko ime može sadržavati samo slovnobrojčane znakove, "
+"podvlačenja i crtice, a mora početi i završiti sa slovnobrojčanim znakom."
 
 msgid "installer.form.usernameRequired"
 msgstr "Korisničko ime za administratorski račun je obavezno."
 
+msgid "installer.form.timeZoneRequired"
+msgstr "Mora biti odabrana vremenska zona."
+
 msgid "installer.installationWrongPhp"
-msgstr "<br/><strong>UPOZORENJE: Vaša trenutna verzija PHP-a ne odgovara minimalnim zahtjevima instalacije. Preporučujemo da instalirate noviju verziju PHP-a.</strong>"
+msgstr ""
+"<br/><strong>UPOZORENJE: Vaša trenutna verzija PHP-a ne odgovara minimalnim "
+"zahtjevima instalacije. Preporučujemo da instalirate noviju verziju PHP-a.</"
+"strong>"
 
 msgid "installer.installErrorsOccurred"
 msgstr "Pojavile su se pogreške tijekom instalacije"
@@ -125,27 +136,63 @@ msgid "installer.installerSQLStatements"
 msgstr "SQL izjave za instalaciju"
 
 msgid "installer.installFileError"
-msgstr "Instalacijska datoteka <tt>dbscripts/xml/install.xml</tt> ne postoji ili je nečitljiva."
+msgstr ""
+"Instalacijska datoteka <tt>dbscripts/xml/install.xml</tt> ne postoji ili je "
+"nečitljiva."
 
 msgid "installer.installFilesDirError"
-msgstr "Direktorij određen za poslane datoteke ne postoji ili se ne može pisati po njemu."
+msgstr ""
+"Direktorij određen za poslane datoteke ne postoji ili se ne može pisati po "
+"njemu."
 
 msgid "installer.installParseDBFileError"
 msgstr ""
 "Pogreška kod sintaktičke analize instalacijske datoteke baze podataka: "
 "<tt>{$file}</tt>."
 
+msgid "installer.installMigrationError"
+msgstr ""
+"Bačena je iznimka prilikom izvođenja klase migracije <tt>{$class}</tt>. "
+"Iznimka je bila {$message}."
+
+msgid "installer.installParseEmailTemplatesFileError"
+msgstr "Pogreška pri analizi datoteke predloška e-pošte <tt>{$file}</tt>."
+
+msgid "installer.installParseFilterConfigFileError"
+msgstr "Pogreška pri analizi konfiguracijske datoteke filtra <tt>{$file}</tt>."
+
+msgid "installer.unsupportedUpgradeError"
+msgstr ""
+"Nadogradnja nije podržana. Pogledajte docs/UPGRADE-UNSUPPORTED za detalje."
+
+msgid "installer.timezoneInstructions"
+msgstr "Vremenska zona koja se koristi za ovaj sustav."
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Odaberite dodatne jezike za podršku u ovom sustavu. Dodatni jezici također "
+"se mogu instalirati u bilo kojem trenutku iz administrativnog sučelja "
+"stranice.<br>* = Označava jezike koji nisu u potpunosti prevedeni (> 90% "
+"prevedenih pojmova)"
+
 msgid "installer.locale"
 msgstr "Prijevod"
+
+msgid "installer.locale.maybeIncomplete"
+msgstr "Označene lokacije mogu biti nepotpune."
 
 msgid "installer.localeSettings"
 msgstr "Postavke prijevoda sustava"
 
-msgid "installer.miscSettings"
-msgstr "Razne postavke"
+msgid "installer.oaiSettings"
+msgstr "OAI postavke"
 
 msgid "installer.oaiRepositoryIdInstructions"
-msgstr "Jedinstveni identifikator koji se koristi za identifikaciju zapisa metapodataka indeksiranih s ove stranice koristeći <a href=\"https://www.openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>, Protokol za sakupljanje metapodataka."
+msgstr ""
+"Jedinstveni identifikator koji se koristi za identifikaciju zapisa "
+"metapodataka indeksiranih s ove stranice koristeći <a href=\"https://www."
+"openarchives.org/\" target=\"_blank\">Open Archives Initiative</a>, Protokol "
+"za sakupljanje metapodataka."
 
 msgid "installer.oaiRepositoryId"
 msgstr "Identifikator OAI repozitorija"
@@ -156,47 +203,8 @@ msgstr "Direktorij javnih datoteka ne postoji ili se ne može pisati po njemu."
 msgid "installer.releaseNotes"
 msgstr "Bilješke o izdanju"
 
-msgid "installer.unsupportedUpgradeError"
-msgstr ""
-"Nadogradnja nije podržana. Pogledajte docs/UPGRADE-UNSUPPORTED za detalje."
-
 msgid "installer.preInstallationInstructionsTitle"
 msgstr "Koraci prije instalacije"
-
-msgid "installer.unsupportedPhpError"
-msgstr ""
-"Ovaj softver ne podržava PHP verziju vašeg poslužitelja. Još jednom "
-"provjerite instalacijske zahtjeve u dokumentima/README."
-
-msgid "installer.locale.maybeIncomplete"
-msgstr "Označene lokacije mogu biti nepotpune."
-
-msgid "installer.timezoneInstructions"
-msgstr "Vremenska zona koja se koristi za ovaj sustav."
-
-msgid "installer.installMigrationError"
-msgstr ""
-"Bačena je iznimka prilikom izvođenja klase migracije <tt>{$class}</tt>. "
-"Iznimka je bila {$message}."
-
-msgid "installer.form.timeZoneRequired"
-msgstr "Mora biti odabrana vremenska zona."
-
-msgid "installer.installParseEmailTemplatesFileError"
-msgstr "Pogreška pri analizi datoteke predloška e-pošte <tt>{$file}</tt>."
-
-msgid "installer.additionalLocalesInstructions"
-msgstr ""
-"Odaberite dodatne jezike za podršku u ovom sustavu. Dodatni jezici također "
-"se mogu instalirati u bilo kojem trenutku iz administrativnog sučelja "
-"stranice.<br>* = Označava jezike koji nisu u potpunosti prevedeni (> 90% "
-"prevedenih pojmova)"
-
-msgid "installer.oaiSettings"
-msgstr "OAI postavke"
-
-msgid "installer.installParseFilterConfigFileError"
-msgstr "Pogreška pri analizi konfiguracijske datoteke filtra <tt>{$file}</tt>."
 
 msgid "installer.preInstallationInstructions"
 msgstr ""
@@ -204,14 +212,14 @@ msgstr ""
 "\t\t<p>1. Sljedeće datoteke i direktoriji (i njihov sadržaj) moraju biti "
 "omogućeni za pisanje:</p>\n"
 "<ul>\n"
-"<li><tt>config.inc.php</tt> može se pisati (izborno): {$writable_config}</li>"
-"\n"
+"<li><tt>config.inc.php</tt> može se pisati (izborno): {$writable_config}</"
+"li>\n"
 "<li><tt>public/</tt> može se pisati: {$writable_public}</li>\n"
 "U <li><tt>cache/</tt> može se pisati: {$writable_cache}</li>\n"
-"<li><tt>cache/t_cache/</tt> može se pisati: {$writable_templates_cache}</li>"
-"\n"
-"<li><tt>cache/t_compile/</tt> može se pisati: "
-"{$writable_templates_compile}</li>\n"
+"<li><tt>cache/t_cache/</tt> može se pisati: {$writable_templates_cache}</"
+"li>\n"
+"<li><tt>cache/t_compile/</tt> može se pisati: {$writable_templates_compile}</"
+"li>\n"
 "<li><tt>cache/_db</tt> može se pisati: {$writable_db_cache}</li>\n"
 "</ul>\n"
 "\n"
@@ -224,10 +232,33 @@ msgstr ""
 "<p>Vaša PHP instalacija nema omogućen XSL modul. Omogućite ga ili "
 "konfigurirajte parametar xslt_command u svojoj datoteci config.inc.php.</p>"
 
+msgid "installer.beacon"
+msgstr "Oznaka"
+
 msgid "installer.beacon.enable"
 msgstr ""
 "Omogućite jedinstveni ID web-mjesta i OAI osnovni URL PKP-u samo u svrhu "
 "statistike i sigurnosnih upozorenja."
 
-msgid "installer.beacon"
-msgstr "Oznaka"
+msgid "installer.unsupportedPhpError"
+msgstr ""
+"Ovaj softver ne podržava PHP verziju vašeg poslužitelja. Još jednom "
+"provjerite instalacijske zahtjeve u dokumentima/README."
+
+#~ msgid "installer.clientCharset"
+#~ msgstr "Skupina znakova klijenta"
+
+#~ msgid "installer.clientCharsetInstructions"
+#~ msgstr ""
+#~ "Enkoding koji se koristi za slanje i primanje podataka iz preglednika."
+
+#~ msgid "installer.encryption"
+#~ msgstr "Algoritam enkripcije lozinke"
+
+#~ msgid "installer.form.encryptionRequired"
+#~ msgstr ""
+#~ "Algoritam koji se koristi za šifriranje korisničkih lozinki mora biti "
+#~ "odabran."
+
+#~ msgid "installer.miscSettings"
+#~ msgstr "Razne postavke"

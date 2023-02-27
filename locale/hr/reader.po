@@ -25,8 +25,13 @@ msgstr "\"{$userName}\""
 msgid "comments.body"
 msgstr "Tijelo poruke"
 
+msgid "comments.titleRequired"
+msgstr "Potreban je naslov komentara."
+
 msgid "comments.confirmDeleteChildren"
-msgstr "Brisanjem ovog komentara također ćete izbrisati i sve odgovore na njega. Jeste li sigurni da to želite?"
+msgstr ""
+"Brisanjem ovog komentara također ćete izbrisati i sve odgovore na njega. "
+"Jeste li sigurni da to želite?"
 
 msgid "comments.delete"
 msgstr "Brisanje komentara"
@@ -78,6 +83,3 @@ msgstr "Pregled svih komentara"
 
 msgid "reader.fullText"
 msgstr "Puni tekst:"
-
-msgid "comments.titleRequired"
-msgstr "Potreban je naslov komentara."

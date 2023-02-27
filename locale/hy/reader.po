@@ -13,70 +13,70 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 4.4.2\n"
 
-msgid "reader.fullText"
-msgstr "Ամբողջական տեքստ:"
+msgid "comments.anonymous"
+msgstr "Անանուն օգտագործող"
 
-msgid "comments.viewAllComments"
-msgstr "Տեսնել բոլոր մեկնաբանությունները"
+msgid "comments.anonymousNamed"
+msgstr "\"{$userName}\"․"
 
-msgid "comments.title"
-msgstr "Վերնագիր"
+msgid "comments.body"
+msgstr "Մարմին"
 
-msgid "comments.replies"
-msgstr "Պատասխաններ"
-
-msgid "comments.readMore"
-msgstr "Կարդալ ավելին"
-
-msgid "comments.readerComments"
-msgstr "Կարդացողի մեկնաբանություն"
-
-msgid "comments.postReply"
-msgstr "Հրապարակման պատասխան"
-
-msgid "comments.postAnonymously"
-msgstr "Հրապարակել անանուն մեկնաբանություն"
-
-msgid "comments.oneReply"
-msgstr "(1 պատասխան)"
-
-msgid "comments.nReplies"
-msgstr "({$num} պատասխաններ)"
-
-msgid "comments.noComments"
-msgstr "Որևէ կարդացողի մեկնաբանություն չի հրապարակվել։"
-
-msgid "comments.name"
-msgstr "Հրապարակողի անուն"
-
-msgid "comments.inResponseTo"
-msgstr "<a href=\"{$url}\">{$title}</a>ին ի պատասխան"
-
-msgid "comments.enterComment"
-msgstr "Մուտքագրել մեկնաբանությունը"
-
-msgid "comments.emailReply"
-msgstr "էլ. փոստով պատասխան"
-
-msgid "comments.email"
-msgstr "Հրապարակողի էլ. հասցեն"
-
-msgid "comments.delete"
-msgstr "Ջնջել այս մեկնաբանությունը"
+msgid "comments.titleRequired"
+msgstr "Մեկնաբանության վերնագիրը պարտադիր է։"
 
 msgid "comments.confirmDeleteChildren"
 msgstr ""
 "Եթե ջնջեք այս մեկնաբանությունը, ապա կջնջեք նաև դրա բոլոր արձագանքները: Դուք "
 "վստա՞հ եք, որ ցանկանում եք ջնջել?"
 
-msgid "comments.titleRequired"
-msgstr "Մեկնաբանության վերնագիրը պարտադիր է։"
+msgid "comments.delete"
+msgstr "Ջնջել այս մեկնաբանությունը"
 
-msgid "comments.body"
-msgstr "Մարմին"
+msgid "comments.email"
+msgstr "Հրապարակողի էլ. հասցեն"
 
-msgid "comments.anonymousNamed"
-msgstr "\"{$userName}\"․"
+msgid "comments.emailReply"
+msgstr "էլ. փոստով պատասխան"
 
-msgid "comments.anonymous"
-msgstr "Անանուն օգտագործող"
+msgid "comments.enterComment"
+msgstr "Մուտքագրել մեկնաբանությունը"
+
+msgid "comments.inResponseTo"
+msgstr "<a href=\"{$url}\">{$title}</a>ին ի պատասխան"
+
+msgid "comments.name"
+msgstr "Հրապարակողի անուն"
+
+msgid "comments.noComments"
+msgstr "Որևէ կարդացողի մեկնաբանություն չի հրապարակվել։"
+
+msgid "comments.nReplies"
+msgstr "({$num} պատասխաններ)"
+
+msgid "comments.oneReply"
+msgstr "(1 պատասխան)"
+
+msgid "comments.postAnonymously"
+msgstr "Հրապարակել անանուն մեկնաբանություն"
+
+msgid "comments.postReply"
+msgstr "Հրապարակման պատասխան"
+
+msgid "comments.readerComments"
+msgstr "Կարդացողի մեկնաբանություն"
+
+msgid "comments.readMore"
+msgstr "Կարդալ ավելին"
+
+msgid "comments.replies"
+msgstr "Պատասխաններ"
+
+msgid "comments.title"
+msgstr "Վերնագիր"
+
+msgid "comments.viewAllComments"
+msgstr "Տեսնել բոլոր մեկնաբանությունները"
+
+msgid "reader.fullText"
+msgstr "Ամբողջական տեքստ:"

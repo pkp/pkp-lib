@@ -14,34 +14,6 @@ msgstr ""
 msgid "default.groups.name.siteAdmin"
 msgstr "ადმინისტრირება"
 
-msgid "default.groups.abbrev.designer"
-msgstr "დიზაიანი"
-
-msgid "default.groups.name.author"
-msgstr "ავტორი"
-
-msgid "default.groups.plural.author"
-msgstr "ავტორები"
-
-msgid "default.groups.plural.translator"
-msgstr "მთარგმნელები"
-
-msgid "default.groups.abbrev.reader"
-msgstr "წაკითხული"
-
-msgid "default.genres.other"
-msgstr "სხვა"
-
-msgid "default.genres.image"
-msgstr "სურათი"
-
-#, fuzzy
-msgid "default.contextSettings.emailSignature"
-msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\""
-"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
-
 msgid "default.groups.plural.siteAdmin"
 msgstr "საიტის ადმინისტრატორები"
 
@@ -77,6 +49,9 @@ msgstr "დიზაინერი"
 
 msgid "default.groups.plural.designer"
 msgstr "დიზაინერები"
+
+msgid "default.groups.abbrev.designer"
+msgstr "დიზაიანი"
 
 msgid "default.groups.name.internalReviewer"
 msgstr "შიდა რეფერენტი"
@@ -123,11 +98,20 @@ msgstr "განლაგების რედაქტორები"
 msgid "default.groups.abbrev.layoutEditor"
 msgstr "განრედ"
 
+msgid "default.groups.name.author"
+msgstr "ავტორი"
+
+msgid "default.groups.plural.author"
+msgstr "ავტორები"
+
 msgid "default.groups.abbrev.author"
 msgstr "ავტ"
 
 msgid "default.groups.name.translator"
 msgstr "მთარგმნელი"
+
+msgid "default.groups.plural.translator"
+msgstr "მთარგმნელები"
 
 msgid "default.groups.abbrev.translator"
 msgstr "მთარგ"
@@ -138,8 +122,42 @@ msgstr "მკითხველი"
 msgid "default.groups.plural.reader"
 msgstr "მკითხველები"
 
+msgid "default.groups.abbrev.reader"
+msgstr "წაკითხული"
+
+msgid "default.genres.other"
+msgstr "სხვა"
+
 msgid "default.genres.multimedia"
 msgstr "მულტიმედია"
 
+msgid "default.genres.image"
+msgstr "სურათი"
+
 msgid "default.genres.styleSheet"
 msgstr "HTML სტილის ფურცელი"
+
+#, fuzzy
+msgid "default.contextSettings.emailSignature"
+msgstr ""
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
+"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
+"{$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""

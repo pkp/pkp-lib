@@ -4,14 +4,2298 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-06T17:00:00+00:00\n"
 "PO-Revision-Date: 2021-05-06 17:00+0000\n"
-"submission/gd_GB/>\n"
 "Language: gd_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"submission/gd_GB/>\n"
+
+msgid "author.editPublishedDisabled"
+msgstr ""
+
+msgid "author.publicationNotFound"
+msgstr ""
+
+msgid "author.submit.submissionCitations"
+msgstr ""
+
+msgid "author.submission.roundStatus.reviewsReady"
+msgstr ""
+
+msgid "author.submission.roundStatus.reviewOverdue"
+msgstr ""
+
+msgid "submission.submit.availableUserGroups"
+msgstr ""
+
+msgid "submission.submit.availableUserGroupsDescription"
+msgstr ""
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
+
+msgid "submission.submit.submissionChecklist"
+msgstr ""
+
+msgid "submission.submit.submissionChecklistDescription"
+msgstr ""
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr ""
+
+msgid "submission.submit.submissionComplete"
+msgstr ""
+
+msgid "submission.submit.genre.label"
+msgstr ""
+
+msgid "submission.submit.genre.description"
+msgstr ""
+
+msgid "submission.submit.removeConfirm"
+msgstr ""
+
+msgid "submission.submit.whatNext.forNow"
+msgstr ""
+
+msgid "submission.submit.whatNext.review"
+msgstr ""
+
+msgid "submission.submit.whatNext.create"
+msgstr ""
+
+msgid "submission.submit.whatNext.return"
+msgstr ""
+
+msgid "submission.submit.extendedMetadata"
+msgstr ""
+
+msgid "metadata.filters.crossref.settings.email.displayName"
+msgstr ""
+
+msgid "metadata.filters.crossref.settings.email.validationMessage"
+msgstr ""
+
+msgid "metadata.filters.isbndb.settings.apiKey.displayName"
+msgstr ""
+
+msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
+msgstr ""
+
+msgid "metadata.filters.pubmed.settings.email.displayName"
+msgstr ""
+
+msgid "metadata.filters.pubmed.settings.email.validationMessage"
+msgstr ""
+
+msgid "metadata.filters.worldcat.settings.apiKey.displayName"
+msgstr ""
+
+msgid "metadata.filters.worldcat.settings.apiKey.validationMessage"
+msgstr ""
+
+msgid "metadata.filters.paracite.settings.citationModule.displayName"
+msgstr ""
+
+msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
+msgstr ""
+
+msgid "metadata.filters.settings.isOptional.displayName"
+msgstr ""
+
+msgid "metadata.filters.settings.isOptional.validationMessage"
+msgstr ""
+
+msgid "metadata.property.displayName.author"
+msgstr ""
+
+msgid "metadata.property.validationMessage.author"
+msgstr ""
+
+msgid "metadata.property.displayName.editor"
+msgstr ""
+
+msgid "metadata.property.validationMessage.editor"
+msgstr ""
+
+msgid "metadata.property.displayName.article-title"
+msgstr ""
+
+msgid "metadata.property.validationMessage.article-title"
+msgstr ""
+
+msgid "metadata.property.displayName.source"
+msgstr ""
+
+msgid "metadata.property.validationMessage.source"
+msgstr ""
+
+msgid "metadata.property.displayName.date"
+msgstr ""
+
+msgid "metadata.property.validationMessage.date"
+msgstr ""
+
+msgid "metadata.property.displayName.access-date"
+msgstr ""
+
+msgid "metadata.property.validationMessage.access-date"
+msgstr ""
+
+msgid "metadata.property.displayName.issue"
+msgstr ""
+
+msgid "metadata.property.validationMessage.issue"
+msgstr ""
+
+msgid "metadata.property.displayName.volume"
+msgstr ""
+
+msgid "metadata.property.validationMessage.volume"
+msgstr ""
+
+msgid "metadata.property.displayName.season"
+msgstr ""
+
+msgid "metadata.property.validationMessage.season"
+msgstr ""
+
+msgid "metadata.property.displayName.chapter-title"
+msgstr ""
+
+msgid "metadata.property.validationMessage.chapter-title"
+msgstr ""
+
+msgid "metadata.property.displayName.edition"
+msgstr ""
+
+msgid "metadata.property.validationMessage.edition"
+msgstr ""
+
+msgid "metadata.property.displayName.series"
+msgstr ""
+
+msgid "metadata.property.validationMessage.series"
+msgstr ""
+
+msgid "metadata.property.displayName.supplement"
+msgstr ""
+
+msgid "metadata.property.validationMessage.supplement"
+msgstr ""
+
+msgid "metadata.property.displayName.conf-date"
+msgstr ""
+
+msgid "metadata.property.validationMessage.conf-date"
+msgstr ""
+
+msgid "metadata.property.displayName.conf-loc"
+msgstr ""
+
+msgid "metadata.property.validationMessage.conf-loc"
+msgstr ""
+
+msgid "metadata.property.displayName.conf-name"
+msgstr ""
+
+msgid "metadata.property.validationMessage.conf-name"
+msgstr ""
+
+msgid "metadata.property.displayName.conf-sponsor"
+msgstr ""
+
+msgid "metadata.property.validationMessage.conf-sponsor"
+msgstr ""
+
+msgid "metadata.property.displayName.institution"
+msgstr ""
+
+msgid "metadata.property.validationMessage.institution"
+msgstr ""
+
+msgid "metadata.property.displayName.fpage"
+msgstr ""
+
+msgid "metadata.property.validationMessage.fpage"
+msgstr ""
+
+msgid "metadata.property.displayName.lpage"
+msgstr ""
+
+msgid "metadata.property.validationMessage.lpage"
+msgstr ""
+
+msgid "metadata.property.displayName.size"
+msgstr ""
+
+msgid "metadata.property.validationMessage.size"
+msgstr ""
+
+msgid "metadata.property.displayName.publisher-loc"
+msgstr ""
+
+msgid "metadata.property.validationMessage.publisher-loc"
+msgstr ""
+
+msgid "metadata.property.displayName.publisher-name"
+msgstr ""
+
+msgid "metadata.property.validationMessage.publisher-name"
+msgstr ""
+
+msgid "metadata.property.displayName.isbn"
+msgstr ""
+
+msgid "metadata.property.validationMessage.isbn"
+msgstr ""
+
+msgid "metadata.property.displayName.issn"
+msgstr ""
+
+msgid "metadata.property.validationMessage.issn"
+msgstr ""
+
+msgid "metadata.property.displayName.eissn"
+msgstr ""
+
+msgid "metadata.property.validationMessage.eissn"
+msgstr ""
+
+msgid "metadata.property.displayName.doi"
+msgstr ""
+
+msgid "metadata.property.validationMessage.doi"
+msgstr ""
+
+msgid "metadata.property.displayName.publisher-id"
+msgstr ""
+
+msgid "metadata.property.validationMessage.publisher-id"
+msgstr ""
+
+msgid "metadata.property.displayName.coden"
+msgstr ""
+
+msgid "metadata.property.validationMessage.coden"
+msgstr ""
+
+msgid "metadata.property.displayName.sici"
+msgstr ""
+
+msgid "metadata.property.validationMessage.sici"
+msgstr ""
+
+msgid "metadata.property.displayName.pmid"
+msgstr ""
+
+msgid "metadata.property.validationMessage.pmid"
+msgstr ""
+
+msgid "metadata.property.displayName.uri"
+msgstr ""
+
+msgid "metadata.property.validationMessage.uri"
+msgstr ""
+
+msgid "metadata.property.displayName.comment"
+msgstr ""
+
+msgid "metadata.property.validationMessage.comment"
+msgstr ""
+
+msgid "metadata.property.displayName.annotation"
+msgstr ""
+
+msgid "metadata.property.validationMessage.annotation"
+msgstr ""
+
+msgid "metadata.property.displayName.publication-type"
+msgstr ""
+
+msgid "metadata.property.validationMessage.publication-type"
+msgstr ""
+
+msgid "metadata.property.displayName.title-type"
+msgstr ""
+
+msgid "metadata.property.validationMessage.title-type"
+msgstr ""
+
+msgid "metadata.property.displayName.nonSort"
+msgstr ""
+
+msgid "metadata.property.validationMessage.nonSort"
+msgstr ""
+
+msgid "metadata.property.displayName.title"
+msgstr ""
+
+msgid "metadata.property.validationMessage.title"
+msgstr ""
+
+msgid "metadata.property.displayName.subTitle"
+msgstr ""
+
+msgid "metadata.property.validationMessage.subTitle"
+msgstr ""
+
+msgid "metadata.property.displayName.partNumber"
+msgstr ""
+
+msgid "metadata.property.validationMessage.partNumber"
+msgstr ""
+
+msgid "metadata.property.displayName.partName"
+msgstr ""
+
+msgid "metadata.property.validationMessage.partName"
+msgstr ""
+
+msgid "metadata.property.displayName.name-type"
+msgstr ""
+
+msgid "metadata.property.validationMessage.name-type"
+msgstr ""
+
+msgid "metadata.property.displayName.abstract"
+msgstr ""
+
+msgid "common.queue.long.submissionsUnassigned"
+msgstr ""
+
+msgid "common.queue.long.myAssigned"
+msgstr ""
+
+msgid "common.queue.long.submissionsArchived"
+msgstr ""
+
+msgid "submission.authors"
+msgstr ""
+
+msgid "submission.authorBiography"
+msgstr ""
+
+msgid "submission.authorBiographies"
+msgstr ""
+
+msgid "submission.authorWithAffiliation"
+msgstr ""
+
+msgid "submission.shortAuthor"
+msgstr ""
+
+msgid "submission.representationOfTitle"
+msgstr ""
+
+msgid "submission.mySubmissions"
+msgstr ""
+
+msgid "submission.addFile"
+msgstr ""
+
+msgid "submission.additionalFiles"
+msgstr ""
+
+msgid "submission.agencies"
+msgstr ""
+
+msgid "submission.abstractViews"
+msgstr ""
+
+msgid "submission.accepted"
+msgstr ""
+
+msgid "submission.acknowledge"
+msgstr ""
+
+msgid "submission.ask"
+msgstr ""
+
+msgid "submission.attachedFile"
+msgstr ""
+
+msgid "submission.backToSubmissionEditing"
+msgstr ""
+
+msgid "submission.changeComments"
+msgstr ""
+
+msgid "submission.changeFile"
+msgstr ""
+
+msgid "submission.citations"
+msgstr ""
+
+msgid "submission.citations.description"
+msgstr ""
+
+msgid "submission.parsedCitations"
+msgstr ""
+
+msgid "submission.parsedCitations.DOI"
+msgstr ""
+
+msgid "submission.parsedCitations.description"
+msgstr ""
+
+msgid "submission.parsedAndSaveCitations"
+msgstr ""
+
+msgid "submission.comments.addComment"
+msgstr ""
+
+msgid "submission.comments.comments"
+msgstr ""
+
+msgid "submission.comments.confirmDelete"
+msgstr ""
+
+msgid "submission.comments.corrections"
+msgstr ""
+
+msgid "submission.comments.editComment"
+msgstr ""
+
+msgid "submission.comments.importPeerReviews"
+msgstr ""
+
+msgid "submission.comments.addReviews"
+msgstr ""
+
+msgid "submission.comments.importPeerReviews.reviewerLetter"
+msgstr ""
+
+msgid "submission.comments.noComments"
+msgstr ""
+
+msgid "submission.comments.noReviews"
+msgstr ""
+
+msgid "submission.comments.review"
+msgstr ""
+
+msgid "submission.comments.sendDecisionToReviewers"
+msgstr ""
+
+msgid "submission.comments.subject"
+msgstr ""
+
+msgid "submission.complete"
+msgstr ""
+
+msgid "submission.contributors"
+msgstr ""
+
+msgid "submission.copyedited"
+msgstr ""
+
+msgid "submission.copyediting"
+msgstr ""
+
+msgid "submission.queryNoteFiles"
+msgstr ""
+
+msgid "submission.coverage"
+msgstr ""
+
+msgid "submission.details"
+msgstr ""
+
+msgid "submission.done"
+msgstr ""
+
+msgid "submission.downloads"
+msgstr ""
+
+msgid "submission.dueDate"
+msgstr ""
+
+msgid "submission.due"
+msgstr ""
+
+msgid "submission.editing"
+msgstr ""
+
+msgid "submission.editMetadata"
+msgstr ""
+
+msgid "submission.editorial"
+msgstr ""
+
+msgid "submission.email.backToEmailLog"
+msgstr ""
+
+msgid "submission.email.confirmClearLog"
+msgstr ""
+
+msgid "submission.email.confirmDeleteLogEntry"
+msgstr ""
+
+msgid "submission.email.deleteLogEntry"
+msgstr ""
+
+msgid "submission.emailLog"
+msgstr ""
+
+msgid "submission.event.participantAdded"
+msgstr ""
+
+msgid "submission.event.participantRemoved"
+msgstr ""
+
+msgid "submission.event.backToEventLog"
+msgstr ""
+
+msgid "submission.event.confirmClearLog"
+msgstr ""
+
+msgid "submission.event.confirmDeleteLogEntry"
+msgstr ""
+
+msgid "submission.event.deleteLogEntry"
+msgstr ""
+
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+
+msgid "submission.event.submissionSubmitted"
+msgstr ""
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
+
+msgid "submission.event.fileRevised"
+msgstr ""
+
+msgid "submission.event.general.metadataUpdated"
+msgstr ""
+
+msgid "submission.event.general.suppFileUpdated"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewAcceptedByProxy"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewAccepted"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewDeclined"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewDueDate"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerAssigned"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRated"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerUnassigned"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewFile"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewInitiated"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewRecommendation"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewReinitiated"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewResubmitted"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewRevision"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+
+msgid "submission.event.subjectPrefix"
+msgstr ""
+
+msgid "submission.event.viewEmail"
+msgstr ""
+
+msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
+msgstr ""
+
+msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
+msgstr ""
+
+msgid "submission.files"
+msgstr ""
+
+msgid "submission.files.downloadAll"
+msgstr ""
+
+msgid "submission.file.notAllowedUploaderUserId"
+msgstr ""
+
+msgid "submission.firstPublished"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
+
+msgid "submission.galley"
+msgstr ""
+
+msgid "submission.history.clearLog"
+msgstr ""
+
+msgid "submission.history"
+msgstr ""
+
+msgid "submission.history.noLogEntries"
+msgstr ""
+
+msgid "submission.history.recentLogEntries"
+msgstr ""
+
+msgid "submission.history.submissionEmailLog"
+msgstr ""
+
+msgid "submission.history.submissionEventLog"
+msgstr ""
+
+msgid "submission.history.submissionNotes"
+msgstr ""
+
+msgid "submission.history.viewLog"
+msgstr ""
+
+msgid "submission.howToCite"
+msgstr ""
+
+msgid "submission.howToCite.citationFormats"
+msgstr ""
+
+msgid "submission.howToCite.downloadCitation"
+msgstr ""
+
+msgid "submission.initiated"
+msgstr ""
+
+msgid "submission.updatedOn"
+msgstr ""
+
+msgid "submission.versions"
+msgstr ""
+
+msgid "submission.versionIdentity"
+msgstr ""
+
+msgid "submission.outdatedVersion"
+msgstr ""
+
+msgid "submission.identifiers"
+msgstr ""
+
+msgid "submission.publisherId"
+msgstr ""
+
+msgid "submission.publisherId.description"
+msgstr ""
+
+msgid "submission.publisherId.enable"
+msgstr ""
+
+msgid "submission.informationCenter.submissionInfo"
+msgstr ""
+
+msgid "submission.informationCenter.metadata"
+msgstr ""
+
+msgid "submission.informationCenter.notes"
+msgstr ""
+
+msgid "submission.informationCenter.history"
+msgstr ""
+
+msgid "submission.informationCenter.history.allEvents"
+msgstr ""
+
+msgid "submission.stageParticipants.notify"
+msgstr ""
+
+msgid "submission.lastModified"
+msgstr ""
+
+msgid "submission.layout.addGalley"
+msgstr ""
+
+msgid "submission.layout.confirmDeleteGalley"
+msgstr ""
+
+msgid "submission.layout.confirmDeleteGalleyImage"
+msgstr ""
+
+msgid "submission.layout.deleteGalleyStylesheet"
+msgstr ""
+
+msgid "submission.layout.editGalley"
+msgstr ""
+
+msgid "submission.layout.galleyFormat"
+msgstr ""
+
+msgid "submission.layout.galleyHTMLData"
+msgstr ""
+
+msgid "submission.layout.galleyImages"
+msgstr ""
+
+msgid "submission.layout.galleyLabel"
+msgstr ""
+
+msgid "submission.layout.galleyLabelInstructions"
+msgstr ""
+
+msgid "submission.layout.galleyLabelRequired"
+msgstr ""
+
+msgid "submission.layout.galleyLanguageRequired"
+msgstr ""
+
+msgid "submission.layout.galleyLocaleRequired"
+msgstr ""
+
+msgid "submission.layout.galleyRemoteURL"
+msgstr ""
+
+msgid "submission.layout.galleyRemoteURLValid"
+msgstr ""
+
+msgid "submission.layout.galleyNoImages"
+msgstr ""
+
+msgid "submission.layout.galleys"
+msgstr ""
+
+msgid "submission.layout.galleyStylesheet"
+msgstr ""
+
+msgid "submission.layout.galleyStyle"
+msgstr ""
+
+msgid "submission.layout.initialGalleyCreation"
+msgstr ""
+
+msgid "submission.layout.layoutFile"
+msgstr ""
+
+msgid "submission.layout"
+msgstr ""
+
+msgid "submission.layout.layoutVersion"
+msgstr ""
+
+msgid "submission.layout.newGalley"
+msgstr ""
+
+msgid "submission.layout.noStyleFile"
+msgstr ""
+
+msgid "submission.layout.viewingGalley"
+msgstr ""
+
+msgid "submission.layout.viewProof"
+msgstr ""
+
+msgid "submission.metadata"
+msgstr ""
+
+msgid "submission.noReviewAssignments"
+msgstr ""
+
+msgid "submission.notes.addNewNote"
+msgstr ""
+
+msgid "submission.notes.attachedFile"
+msgstr ""
+
+msgid "submission.notes.backToSubmissionNotes"
+msgstr ""
+
+msgid "submission.notes.breadcrumb"
+msgstr ""
+
+msgid "submission.notes.clearAllNotes"
+msgstr ""
+
+msgid "submission.notes.collapseNotes"
+msgstr ""
+
+msgid "submission.notes.confirmDeleteAll"
+msgstr ""
+
+msgid "submission.notes.confirmDelete"
+msgstr ""
+
+msgid "submission.notes.createNewNote"
+msgstr ""
+
+msgid "submission.notes.deleteNote"
+msgstr ""
+
+msgid "submission.notes.editNote"
+msgstr ""
+
+msgid "submission.notes.expandNotes"
+msgstr ""
+
+msgid "submission.notes.noSubmissionNotes"
+msgstr ""
+
+msgid "submission.notes.removeUploadedFile"
+msgstr ""
+
+msgid "submission.notes"
+msgstr ""
+
+msgid "submission.notes.updateNote"
+msgstr ""
+
+msgid "submission.notes.viewNotes"
+msgstr ""
+
+msgid "submission.originalFile"
+msgstr ""
+
+msgid "submission.page.editing"
+msgstr ""
+
+msgid "submission.page.history"
+msgstr ""
+
+msgid "submission.page.review"
+msgstr ""
+
+msgid "submission.page.summary"
+msgstr ""
+
+msgid "submission.page.citations"
+msgstr ""
+
+msgid "submission.peerReview"
+msgstr ""
+
+msgid "submission.production"
+msgstr ""
+
+msgid "submission.recommendation"
+msgstr ""
+
+msgid "submission.rejected"
+msgstr ""
+
+msgid "submission.request"
+msgstr ""
+
+msgid "submission.response"
+msgstr ""
+
+msgid "submission.restrictions"
+msgstr ""
+
+msgid "submission.reviewMetadata"
+msgstr ""
+
+msgid "submission.review"
+msgstr ""
+
+msgid "submission.reviewAndSubmit"
+msgstr ""
+
+msgid "submission.reviewed"
+msgstr ""
+
+msgid "submission.reviewVersion"
+msgstr ""
+
+msgid "submission.rights"
+msgstr ""
+
+msgid "submissions.active"
+msgstr ""
+
+msgid "submissions.archived"
+msgstr ""
+
+msgid "submission.saveMetadata"
+msgstr ""
+
+msgid "submissions.completed"
+msgstr ""
+
+msgid "submissions.declined"
+msgstr ""
+
+msgid "submissions.incomplete"
+msgstr ""
+
+msgid "submissions.noSubmissions"
+msgstr ""
+
+msgid "submissions.queuedEditing"
+msgstr ""
+
+msgid "submissions.queued"
+msgstr ""
+
+msgid "submissions.queuedUnassigned"
+msgstr ""
+
+msgid "submissions.ruling"
+msgstr ""
+
+msgid "submission.source"
+msgstr ""
+
+msgid "submissions.submit"
+msgstr ""
+
+msgid "submissions.submitted"
+msgstr ""
+
+msgid "submission.submission"
+msgstr ""
+
+msgid "submission.submissionTitle"
+msgstr ""
+
+msgid "submission.start"
+msgstr ""
+
+msgid "submission.submissionHistory"
+msgstr ""
+
+msgid "submission.submissionManuscript"
+msgstr ""
+
+msgid "submission.submissionReview"
+msgstr ""
+
+msgid "submission.submitter"
+msgstr ""
+
+msgid "submission.submit.selectFile"
+msgstr ""
+
+msgid "submission.submit.fileInformation"
+msgstr ""
+
+msgid "submission.submit.fileAdded"
+msgstr ""
+
+msgid "submission.submit.includeInBrowse"
+msgstr ""
+
+msgid "submission.submit.includeInBrowse.title"
+msgstr ""
+
+msgid "submission.submit.newFile"
+msgstr ""
+
+msgid "submission.submit.metadataForm"
+msgstr ""
+
+msgid "submission.submit.submissionLocale"
+msgstr ""
+
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+
+msgid "submission.submit.submissionFiles"
+msgstr ""
+
+msgid "submission.submit.dependentFiles"
+msgstr ""
+
+msgid "submission.manageDependentFiles"
+msgstr ""
+
+msgid "submission.upload.instructions"
+msgstr ""
+
+msgid "submission.upload.percentComplete"
+msgstr ""
+
+msgid "submission.upload.dependent"
+msgstr ""
+
+msgid "submission.upload.query"
+msgstr ""
+
+msgid "submission.summary"
+msgstr ""
+
+msgid "submission.supportingAgencies"
+msgstr ""
+
+msgid "submission.currentAgencies"
+msgstr ""
+
+msgid "submission.indexingInformation"
+msgstr ""
+
+msgid "submission.titleAndAbstract"
+msgstr ""
+
+msgid "submission.underway"
+msgstr ""
+
+msgid "submission.uploadFileTo"
+msgstr ""
+
+msgid "submission.createRemote"
+msgstr ""
+
+msgid "submission.viewMetadata"
+msgstr ""
+
+msgid "submission.views"
+msgstr ""
+
+msgid "submission.uploadSuccessful"
+msgstr ""
+
+msgid "submission.loadMessage"
+msgstr ""
+
+msgid "submission.artworkFileDetails"
+msgstr ""
+
+msgid "submission.fileDetails"
+msgstr ""
+
+msgid "submission.nameRequired"
+msgstr ""
+
+msgid "submission.date.mmdd"
+msgstr ""
+
+msgid "submission.date.yyyymmdd"
+msgstr ""
+
+msgid "submission.submit.contributorRole"
+msgstr ""
+
+msgid "submission.submit.addAuthor"
+msgstr ""
+
+msgid "submission.submit.form.languagesRequired"
+msgstr ""
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr ""
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr ""
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr ""
+
+msgid "submission.submit.form.coverageRequired"
+msgstr ""
+
+msgid "submission.submit.form.typeRequired"
+msgstr ""
+
+msgid "submission.submit.form.sourceRequired"
+msgstr ""
+
+msgid "submission.submit.form.rightsRequired"
+msgstr ""
+
+msgid "submission.submit.form.citationsRequired"
+msgstr ""
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr ""
+
+msgid "submission.form.name"
+msgstr ""
+
+msgid "submission.form.replaceExisting"
+msgstr ""
+
+msgid "workflow.review.internalReview"
+msgstr ""
+
+msgid "workflow.stage.any"
+msgstr ""
+
+msgid "workflow.stage"
+msgstr ""
+
+msgid "submission.status.editorial"
+msgstr ""
+
+msgid "submission.status.production"
+msgstr ""
+
+msgid "submission.status.review"
+msgstr ""
+
+msgid "submission.status.submission"
+msgstr ""
+
+msgid "submission.status.unassigned"
+msgstr ""
+
+msgid "submission.status.declined"
+msgstr ""
+
+msgid "submission.status.published"
+msgstr ""
+
+msgid "submission.submit.uploadStep"
+msgstr ""
+
+msgid "submission.submit.uploadSubmissionFile"
+msgstr ""
+
+msgid "submission.submit.metadataStep"
+msgstr ""
+
+msgid "submission.submit.finishingUpStep"
+msgstr ""
+
+msgid "submission.submit.fileNameRequired"
+msgstr ""
+
+msgid "submission.upload.noGenre"
+msgstr ""
+
+msgid "submission.upload.invalidUserGroup"
+msgstr ""
+
+msgid "submission.upload.possibleRevision"
+msgstr ""
+
+msgid "submission.upload.possibleRevisionDescription"
+msgstr ""
+
+msgid "submission.upload.selectMandatoryFileToRevise"
+msgstr ""
+
+msgid "submission.upload.selectOptionalFileToRevise"
+msgstr ""
+
+msgid "submission.upload.uploadNewFile"
+msgstr ""
+
+msgid "submission.upload.userGroup"
+msgstr ""
+
+msgid "submission.upload.userGroupDescription"
+msgstr ""
+
+msgid "submission.upload.uploadLibraryFile"
+msgstr ""
+
+msgid "submission.upload.libraryCategory"
+msgstr ""
+
+msgid "submission.upload.finalDraft"
+msgstr ""
+
+msgid "submission.upload.copyeditedVersion"
+msgstr ""
+
+msgid "submission.upload.uploadFiles"
+msgstr ""
+
+msgid "submission.upload.response.description"
+msgstr ""
+
+msgid "submission.upload.productionReady"
+msgstr ""
+
+msgid "submission.upload.proof"
+msgstr ""
+
+msgid "submission.upload.noAvailableReviewFiles"
+msgstr ""
+
+msgid "editor.submission.roundStatus.revisionsRequested"
+msgstr ""
+
+msgid "editor.submission.roundStatus.revisionsSubmitted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.resubmitForReview"
+msgstr ""
+
+msgid "editor.submission.roundStatus.submissionResubmitted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.sentToExternal"
+msgstr ""
+
+msgid "editor.submission.roundStatus.accepted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.declined"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingReviewers"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingReviews"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewsReady"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewsCompleted"
+msgstr ""
+
+msgid "editor.submission.roundStatus.reviewOverdue"
+msgstr ""
+
+msgid "editor.submission.roundStatus.pendingRecommendations"
+msgstr ""
+
+msgid "editor.submission.roundStatus.recommendationsReady"
+msgstr ""
+
+msgid "editor.submission.roundStatus.recommendationsCompleted"
+msgstr ""
+
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr ""
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+
+msgid "editor.submission.stageParticipants"
+msgstr ""
+
+msgid "editor.submission.noneAssigned"
+msgstr ""
+
+msgid "editor.submission.participant"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant"
+msgstr ""
+
+msgid "editor.submission.editStageParticipant"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.userGroup"
+msgstr ""
+
+msgid "editor.submission.removeStageParticipant"
+msgstr ""
+
+msgid "editor.submission.removeStageParticipant.description"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.userGroupRequired"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.userRequired"
+msgstr ""
+
+msgid "editor.submission.addStageParticipant.form.reviewerWarning"
+msgstr ""
+
+msgid "editor.submission.removePermissionToEdit"
+msgstr ""
+
+msgid "editor.submission.addPermissionToEdit"
+msgstr ""
+
+msgid "editor.submission.removePermissionToEditDescription"
+msgstr ""
+
+msgid "editor.submission.addPermissionToEditDescription"
+msgstr ""
+
+msgid "editor.submission.decision"
+msgstr ""
+
+msgid "editor.submission.decision.notifyAuthors"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept"
+msgstr ""
+
+msgid "editor.submission.decision.accept.description"
+msgstr ""
+
+msgid "editor.submission.decision.accept.log"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completed"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.decline"
+msgstr ""
+
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.log"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendInternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.approveProofsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.approveProofs"
+msgstr ""
+
+msgid "editor.submission.decision.disapproveProofsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.noDecisionsAvailable"
+msgstr ""
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+
+msgid "editor.submission.recommend.completed"
+msgstr ""
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.recommend.decline"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.description"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
+
+msgid "editor.submission.makeRecommendation"
+msgstr ""
+
+msgid "editor.submission.changeRecommendation"
+msgstr ""
+
+msgid "editor.submission.recommendation.display"
+msgstr ""
+
+msgid "editor.submission.allRecommendations.display"
+msgstr ""
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
+
+msgid "editor.submission.recommendation"
+msgstr ""
+
+msgid "editor.submission.recommendation.description"
+msgstr ""
+
+msgid "editor.submission.recordedRecommendations"
+msgstr ""
+
+msgid "submission.currentStage"
+msgstr ""
+
+msgid "submission.noActionRequired"
+msgstr ""
+
+msgid "submission.actionNeeded"
+msgstr ""
+
+msgid "reviewer.submission.reviewFiles"
+msgstr ""
+
+msgid "submission.submit.currentFile"
+msgstr ""
+
+msgid "submission.finalDraft"
+msgstr ""
+
+msgid "editor.submission.addAuditorError"
+msgstr ""
+
+msgid "submission.event.fileEdited"
+msgstr ""
+
+msgid "submission.event.fileUploaded"
+msgstr ""
+
+msgid "submission.event.fileDeleted"
+msgstr ""
+
+msgid "submission.event.revisionUploaded"
+msgstr ""
+
+msgid "submission.event.revisionDeleted"
+msgstr ""
+
+msgid "submission.event.lastRevisionDeleted"
+msgstr ""
+
+msgid "submission.event.fileAuditorAdded"
+msgstr ""
+
+msgid "submission.event.fileAuditorCleared"
+msgstr ""
+
+msgid "submission.event.fileAuditUploaded"
+msgstr ""
+
+msgid "submission.event.signoffSignoff"
+msgstr ""
+
+msgid "submission.event.proofsApproved"
+msgstr ""
+
+msgid "submission.overview"
+msgstr ""
+
+msgid "submission.description"
+msgstr ""
+
+msgid "submission.stageNotInitiated"
+msgstr ""
+
+msgid "submission.documents"
+msgstr ""
+
+msgid "notification.type.editorAssign"
+msgstr ""
+
+msgid "notification.type.copyeditorRequest"
+msgstr ""
+
+msgid "notification.type.layouteditorRequest"
+msgstr ""
+
+msgid "notification.type.indexRequest"
+msgstr ""
+
+msgid "notification.type.editorDecisionTitle"
+msgstr ""
+
+msgid "notification.type.editorDecisionAccept"
+msgstr ""
+
+msgid "notification.type.editorDecisionExternalReview"
+msgstr ""
+
+msgid "notification.type.editorDecisionPendingRevisions"
+msgstr ""
+
+msgid "notification.type.editorDecisionResubmit"
+msgstr ""
+
+msgid "notification.type.editorDecisionNewRound"
+msgstr ""
+
+msgid "notification.type.editorDecisionDecline"
+msgstr ""
+
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr ""
+
+msgid "notification.uploadedResponse"
+msgstr ""
+
+msgid "notification.type.editorAssignment"
+msgstr ""
+
+msgid "notification.type.submissionNewVersion"
+msgstr ""
+
+msgid "notification.type.revertDecline"
+msgstr ""
+
+msgid "grid.reviewAttachments.title"
+msgstr ""
+
+msgid "grid.reviewAttachments.send.title"
+msgstr ""
+
+msgid "submission.productionReady"
+msgstr ""
+
+msgid "submission.review.uploadRevisionToRound"
+msgstr ""
+
+msgid "log.review.reviewerAssigned"
+msgstr ""
+
+msgid "log.review.reviewCleared"
+msgstr ""
+
+msgid "log.review.reviewUnconsidered"
+msgstr ""
+
+msgid "log.review.reviewReinstated"
+msgstr ""
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
+
+msgid "log.review.reviewConfirmed"
+msgstr ""
+
+msgid "log.review.reviewReady"
+msgstr ""
+
+msgid "submission.review.status.awaitingResponse"
+msgstr ""
+
+msgid "submission.review.status.declined"
+msgstr ""
+
+msgid "submission.review.status.responseOverdue"
+msgstr ""
+
+msgid "submission.review.status.reviewOverdue"
+msgstr ""
+
+msgid "submission.review.status.accepted"
+msgstr ""
+
+msgid "submission.review.status.received"
+msgstr ""
+
+msgid "submission.review.status.complete"
+msgstr ""
+
+msgid "submission.review.status.thanked"
+msgstr ""
+
+msgid "submission.document"
+msgstr ""
+
+msgid "submission.art"
+msgstr ""
+
+msgid "submission.supplementary"
+msgstr ""
+
+msgid "submission.supplementary.creator"
+msgstr ""
+
+msgid "submission.supplementary.subject"
+msgstr ""
+
+msgid "submission.supplementary.publisher"
+msgstr ""
+
+msgid "submission.supplementary.sponsor"
+msgstr ""
+
+msgid "grid.action.itemWorkflow"
+msgstr ""
+
+msgid "notification.type.editorDecisionSendToProduction"
+msgstr ""
+
+msgid "notification.type.editorAssignmentProduction"
+msgstr ""
+
+msgid "notification.type.editorAssignmentEditing"
+msgstr ""
+
+msgid "submission.reviewForm"
+msgstr ""
+
+msgid "submission.reviewFormResponse"
+msgstr ""
+
+msgid "grid.action.createReviewFormElement"
+msgstr ""
+
+msgid "grid.action.editMetadata"
+msgstr ""
+
+msgid "submission.permissions"
+msgstr ""
+
+msgid "submission.attachPermissions"
+msgstr ""
+
+msgid "submission.license"
+msgstr ""
+
+msgid "submission.copyright"
+msgstr ""
+
+msgid "submission.copyright.agree"
+msgstr ""
+
+msgid "submission.copyrightHolder"
+msgstr ""
+
+msgid "submission.copyrightHolder.other"
+msgstr ""
+
+msgid "submission.copyrightOther"
+msgstr ""
+
+msgid "submission.copyrightYear"
+msgstr ""
+
+msgid "submission.copyrightStatement"
+msgstr ""
+
+msgid "submission.licenseURLValid"
+msgstr ""
+
+msgid "submission.licenseURL"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-nd4"
+msgstr ""
+
+msgid "submission.license.cc.by-nc4"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-sa4"
+msgstr ""
+
+msgid "submission.license.cc.by-nd4"
+msgstr ""
+
+msgid "submission.license.cc.by4"
+msgstr ""
+
+msgid "submission.license.cc.by-sa4"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-nd4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-sa4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nd4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-sa4.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-nd3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nc-sa3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-nd3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by3.footer"
+msgstr ""
+
+msgid "submission.license.cc.by-sa3.footer"
+msgstr ""
+
+msgid "submission.queries.submission"
+msgstr ""
+
+msgid "submission.queries.review"
+msgstr ""
+
+msgid "submission.queries.editorial"
+msgstr ""
+
+msgid "submission.query.subject"
+msgstr ""
+
+msgid "submission.query.messages"
+msgstr ""
+
+msgid "submission.query.replies"
+msgstr ""
+
+msgid "submission.query.from"
+msgstr ""
+
+msgid "submission.query.lastReply"
+msgstr ""
+
+msgid "submission.query.closed"
+msgstr ""
+
+msgid "submission.query.addNote"
+msgstr ""
+
+msgid "submission.query.leaveQuery"
+msgstr ""
+
+msgid "submission.query.leaveQuery.confirm"
+msgstr ""
+
+msgid "grid.action.openNoteForm"
+msgstr ""
+
+msgid "submission.query.activity"
+msgstr ""
+
+msgid "submission.query.new"
+msgstr ""
+
+msgid "submission.query.activity.contents"
+msgstr ""
+
+msgid "submission.query.new.contents"
+msgstr ""
+
+msgid "submission.query.participantTitle"
+msgstr ""
+
+msgid "submission.query.noParticipantOptions"
+msgstr ""
+
+msgid "submission.list.infoCenter"
+msgstr ""
+
+msgid "submission.list.empty"
+msgstr ""
+
+msgid "submission.list.responseDue"
+msgstr ""
+
+msgid "submission.list.reviewAssignment"
+msgstr ""
+
+msgid "submission.list.reviewDue"
+msgstr ""
+
+msgid "submission.list.reviewComplete"
+msgstr ""
+
+msgid "submission.list.reviewCancelled"
+msgstr ""
+
+msgid "submission.list.confirmDelete"
+msgstr ""
+
+msgid "submission.list.viewAllSubmissions"
+msgstr ""
+
+msgid "submission.list.viewSubmission"
+msgstr ""
+
+msgid "submission.list.reviewsCompleted"
+msgstr ""
+
+msgid "submission.list.revisionsSubmitted"
+msgstr ""
+
+msgid "submission.list.copyeditsSubmitted"
+msgstr ""
+
+msgid "submission.list.galleysCreated"
+msgstr ""
+
+msgid "submission.list.filesPrepared"
+msgstr ""
+
+msgid "submission.list.discussions"
+msgstr ""
+
+msgid "submission.list.dualWorkflowLinks"
+msgstr ""
+
+msgid "submission.list.reviewerWorkflowLink"
+msgstr ""
+
+msgid "submission.list.incompleteSubmissionNotice"
+msgstr ""
+
+msgid "submission.list.currentStage"
+msgstr ""
+
+msgid "submission.list.activity"
+msgstr ""
+
+msgid "submission.list.daysSinceLastActivity"
+msgstr ""
+
+msgid "submission.list.assignEditor"
+msgstr ""
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+
+msgid "submission.wizard.beforeStart"
+msgstr ""
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+
+msgid "submission.wizard.changeSubmission"
+msgstr ""
+
+msgid "submission.wizard.completeSteps"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.errors"
+msgstr ""
+
+msgid "submission.wizard.validating"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+msgid "submission.wizard.confirm"
+msgstr ""
+
+msgid "submission.wizard.title"
+msgstr ""
+
+msgid "submission.wizard.titleWithStep"
+msgstr ""
+
+msgid "submission.wizard.noContributors"
+msgstr ""
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+
+msgid "submission.wizard.notAllowed"
+msgstr ""
+
+msgid "submission.wizard.privacyConsent"
+msgstr ""
+
+msgid "submission.wizard.saved"
+msgstr ""
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed"
+msgstr ""
+
+msgid "submission.wizard.start"
+msgstr ""
+
+msgid "submission.wizard.startingStatus"
+msgstr ""
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
+
+msgid "grid.category.categories"
+msgstr ""
+
+msgid "catalog.sortBy.titleAsc"
+msgstr ""
+
+msgid "catalog.sortBy.titleDesc"
+msgstr ""
+
+msgid "catalog.sortBy.datePublishedAsc"
+msgstr ""
+
+msgid "catalog.sortBy.datePublishedDesc"
+msgstr ""
+
+msgid "category.category"
+msgstr ""
+
+msgid "category.coverImage"
+msgstr ""
+
+msgid "submission.submit.placement.categories"
+msgstr ""
+
+msgid "submission.currentCoverImage"
+msgstr ""
+
+msgid "catalog.category.noItems"
+msgstr ""
+
+msgid "catalog.category.subcategories"
+msgstr ""
+
+msgid "publication.contributors"
+msgstr ""
+
+msgid "publication.createVersion"
+msgstr ""
+
+msgid "publication.datePublished.errorFormat"
+msgstr ""
+
+msgid "publication.event.versionCreated"
+msgstr ""
+
+msgid "publication.publicationLicense"
+msgstr ""
+
+msgid "publication.status.scheduled"
+msgstr ""
+
+msgid "publication.status.unpublished"
+msgstr ""
+
+msgid "publication.titleAbstract"
+msgstr ""
+
+msgid "publication.unschedule"
+msgstr ""
+
+msgid "publication.urlPath"
+msgstr ""
+
+msgid "publication.urlPath.description"
+msgstr ""
+
+msgid "publication.urlPath.duplicate"
+msgstr ""
+
+msgid "publication.urlPath.numberInvalid"
+msgstr ""
+
+msgid "publication.version.all"
+msgstr ""
+
+msgid "publication.version.confirm"
+msgstr ""
+
+msgid "publication.wordCountLong"
+msgstr ""
+
+msgid "publication.wordCount"
+msgstr ""
+
+msgid "doi.incorrectStaleStatus"
+msgstr ""
+
+msgid "doi.submission.notPublished"
+msgstr ""
 
 #, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"’S e ro-shealladh a tha seo ’s cha deach fhoillseachadh fhathast. <a href=\""
-"{$url}\">Seall an tagradh</a>"
+"’S e ro-shealladh a tha seo ’s cha deach fhoillseachadh fhathast. <a href="
+"\"{$url}\">Seall an tagradh</a>"
+
+msgid "author.submit.noFiles"
+msgstr ""
+
+msgid "author.submit.confirmation"
+msgstr ""
+
+msgid "submission.wizard.submittingInLanguage"
+msgstr ""
+
+msgid "submission.wizard.submittingToSection"
+msgstr ""
+
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
+
+msgid "submission.type.tip"
+msgstr ""
+
+msgid "submission.source.tip"
+msgstr ""
+
+msgid "submission.rights.tip"
+msgstr ""
+
+msgid "submission.submit.metadataForm.tip"
+msgstr ""
+
+msgid "submission.submit.selectPrincipalContact"
+msgstr ""
+
+msgid "submission.dataAvailability"
+msgstr ""
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+
+msgid "submission.files.required.genre"
+msgstr ""
+
+msgid "submission.files.required.genres"
+msgstr ""
+
+msgid "publication.version"
+msgstr ""

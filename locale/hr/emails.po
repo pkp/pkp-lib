@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
@@ -24,15 +24,22 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "Poštovana/i {$recipientName},<br />\n"
 "<br />\n"
-"zahvaljujemo što ste prijavili prilog &quot;{$submissionTitle}&quot; našem časopisu {$contextName}. Pomoću sustava upravljanja časopisom koji koristimo, moći ćete aktivno pratiti kretanje članka kroz postupak uređivanja prijavljujući se na mrežnu stranicu časopisa:<br />\n"
+"zahvaljujemo što ste prijavili prilog &quot;{$submissionTitle}&quot; našem "
+"časopisu {$contextName}. Pomoću sustava upravljanja časopisom koji "
+"koristimo, moći ćete aktivno pratiti kretanje članka kroz postupak "
+"uređivanja prijavljujući se na mrežnu stranicu časopisa:<br />\n"
 "<br />\n"
 "URL rukopisa: {$submissionUrl}<br />\n"
 "Korisničko ime: {$recipientUsername}<br />\n"
 "<br />\n"
-"U slučaju da imate bilo kakvih pitanja, molimo vas da nam se obratite.<br />\n"
+"U slučaju da imate bilo kakvih pitanja, molimo vas da nam se obratite.<br /"
+">\n"
 "<br />\n"
 "Srdačno,<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -43,13 +50,60 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "Poštovana/i {$recipientName},<br />\n"
 "<br />\n"
-"hvala vam što ste izradili recenziju članka &quot;{$submissionTitle}&quot; za časopis {$contextName}. Cijenimo vaš doprinos kvaliteti radova objavljenih u našem časopisu.<br />\n"
+"hvala vam što ste izradili recenziju članka &quot;{$submissionTitle}&quot; "
+"za časopis {$contextName}. Cijenimo vaš doprinos kvaliteti radova "
+"objavljenih u našem časopisu.<br />\n"
 "<br />\n"
 "Srdačno,"
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "Ovim obrascem e-pošte  urednik rubrike potvrđuje recenzentu primitak završene recenzije."
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.subject"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "Zamolba za lekturu"
@@ -59,14 +113,142 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "Poštovana/i {$recipientName},<br />\n"
 "<br />\n"
-"željeli bismo vas zamoliti da prihvatite lekturu rukopisa &quot;{$submissionTitle}&quot; za časopis {$contextName}. Prijavljeni rukopis, kao i upute za lektoriranje možete pronaći na mrežnim stranicama časopisa.<br />\n"
+"željeli bismo vas zamoliti da prihvatite lekturu rukopisa &quot;"
+"{$submissionTitle}&quot; za časopis {$contextName}. Prijavljeni rukopis, kao "
+"i upute za lektoriranje možete pronaći na mrežnim stranicama časopisa.<br /"
+">\n"
 "<br />\n"
 "URL rukopisa: {$submissionUrl}<br />\n"
 "Korisničko ime: {$recipientUsername}<br />\n"
 "<br />\n"
-"U slučaju da trenutačno niste u mogućnosti preuzeti lekturu ili da imate bilo kakvih dodatnih pitanja, molimo vas da nam se obratite.<br />\n"
+"U slučaju da trenutačno niste u mogućnosti preuzeti lekturu ili da imate "
+"bilo kakvih dodatnih pitanja, molimo vas da nam se obratite.<br />\n"
 "<br />\n"
 "Srdačno,"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
+msgid "emails.discussion.subject"
+msgstr ""
+
+msgid "emails.discussion.body"
+msgstr ""
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "U mogućnosti sam izvršiti recenziju"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Poštovana/i {$recipientName},<br />\n"
+"<br />\n"
+"u mogućnosti sam izvršiti recenziju članka &quot;{$submissionTitle}&quot; za "
+"časopis {$contextName}. Recenziju namjeravam izvršiti  unutar dogovorenog "
+"vremenskog roka, {$reviewDueDate}.<br />\n"
+"<br />\n"
+"Srdačno,<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.submissionAckNotAuthor.subject"
@@ -86,17 +268,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Poštovana/i {$recipientName},<br />\n"
-"<br />\n"
-"u mogućnosti sam izvršiti recenziju članka &quot;{$submissionTitle}&quot; za "
-"časopis {$contextName}. Recenziju namjeravam izvršiti  unutar dogovorenog "
-"vremenskog roka, {$reviewDueDate}.<br />\n"
-"<br />\n"
-"Srdačno,<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "U mogućnosti sam izvršiti recenziju"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Ovim obrascem e-pošte  urednik rubrike potvrđuje recenzentu primitak "
+#~ "završene recenzije."

@@ -13,12 +13,8 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Бұл хат (егер қосылған болса) журналға материалды жіберу процесін аяқтаған "
-"кезде авторға автоматты түрде жіберіледі. Хатта материалдың редакциялық "
-"процесс арқылы өтуін қадағалау туралы ақпарат бар және жіберілген материал "
-"үшін авторға алғыс айтылады."
+msgid "emails.submissionAck.subject"
+msgstr "Жіберуді растау"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -27,10 +23,10 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$submissionTitle}» «{$contextName}» журналына жібергеніңіз үшін рахмет. Біз "
-"қолданатын журналдарды басқарудың онлайн жүйесінің көмегімен сіз журналдың "
-"веб -сайтына кіру арқылы оның барысын редакциялық процесс арқылы бақылай "
-"аласыз: <br />\n"
+"«{$submissionTitle}» «{$contextName}» журналына жібергеніңіз үшін рахмет. "
+"Біз қолданатын журналдарды басқарудың онлайн жүйесінің көмегімен сіз "
+"журналдың веб -сайтына кіру арқылы оның барысын редакциялық процесс арқылы "
+"бақылай аласыз: <br />\n"
 "\n"
 "<br />\n"
 "\n"
@@ -48,13 +44,16 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "Жіберуді растау"
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.submissionAck.description"
 msgstr ""
-"Бұл хатты бөлім редакторы мақалаға рецензияны алғанын растау және "
-"рецензентке қосқан үлесі үшін алғыс ретінде жібереді."
+"Бұл хат (егер қосылған болса) журналға материалды жіберу процесін аяқтаған "
+"кезде авторға автоматты түрде жіберіледі. Хатта материалдың редакциялық "
+"процесс арқылы өтуін қадағалау туралы ақпарат бар және жіберілген материал "
+"үшін авторға алғыс айтылады."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Қараудың қабылданғанын растау"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -67,9 +66,22 @@ msgstr ""
 "қарағаныңыз үшін рахмет. Біз жариялайтын жұмыстың сапасына қосқан үлесіңізді "
 "бағалаймыз."
 
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "Қараудың қабылданғанын растау"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Редакциялық шешім"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
@@ -77,8 +89,8 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына қатысты "
-"шешім қабылдадық. <br />\n"
+"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына "
+"қатысты шешім қабылдадық. <br />\n"
 "\n"
 "<br />\n"
 "\n"
@@ -89,8 +101,9 @@ msgstr ""
 "Жіберу URL: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
-msgstr "Редакциялық шешім"
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "Решение редакции"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -106,8 +119,9 @@ msgstr ""
 "URL материала: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "Решение редакции"
+msgid "emails.editorDecisionRevisions.subject"
+msgstr "Редакциялық шешім"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
@@ -115,16 +129,17 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына қатысты "
-"шешім қабылдадық. <br />\n"
+"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына "
+"қатысты шешім қабылдадық. <br />\n"
 "\n"
 "<br />\n"
 "\n"
 "Біздің шешім: түзету қажет"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Редакциялық шешім"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
@@ -132,16 +147,17 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына қатысты "
-"шешім қабылдадық. <br />\n"
+"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына "
+"қатысты шешім қабылдадық. <br />\n"
 "\n"
 "<br />\n"
 "\n"
 "Біздің шешім: Қарауға жіберіңіз"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Редакциялық шешім"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
@@ -149,16 +165,16 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына қатысты "
-"шешім қабылдадық. <br />\n"
+"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына "
+"қатысты шешім қабылдадық. <br />\n"
 "\n"
 "<br />\n"
 "\n"
 "Біздің шешім: материалды қабылдамау"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Редакциялық шешім"
+msgid "emails.editorRecommendation.subject"
+msgstr "Редактордың ұсынысы"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
@@ -166,10 +182,13 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$submitTitle}» «{$contextName}» ұсынысына мен келесіні ұсынамын: {$recommendation}"
+"«{$submitTitle}» «{$contextName}» ұсынысына мен келесіні ұсынамын: "
+"{$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Редактордың ұсынысы"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Әдеби редакциялауға сұраныс"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
@@ -178,7 +197,8 @@ msgstr ""
 "<br />\n"
 "\n"
 "Сізден төмендегі әрекеттерді орындау арқылы «{$contextName}» журналына "
-"арналған «{$submissionTitle}» материалын әдеби редакциялауды сұраймын. <br />\n"
+"арналған «{$submissionTitle}» материалын әдеби редакциялауды сұраймын. <br /"
+">\n"
 "\n"
 "1. Төмендегі мазмұн URL мекенжайын басыңыз. <br />\n"
 "\n"
@@ -198,9 +218,28 @@ msgstr ""
 "\n"
 "Пайдаланушы аты: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Әдеби редакциялауға сұраныс"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Редакциялық шешім"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
@@ -209,22 +248,112 @@ msgstr ""
 "\n"
 "<br />\n"
 "\n"
-"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына қатысты "
-"шешім қабылдадық. <br />\n"
+"«{$contextName}» журналына жіберілген «{$submissionTitle}» материалына "
+"қатысты шешім қабылдадық. <br />\n"
 "\n"
 "<br />\n"
 "\n"
 "Біздің шешім: материалды қабылдамау"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Редакциялық шешім"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "«{$contextName}» журнал хабарламасы"
 
 msgid "emails.discussion.body"
 msgstr "Хабарламаңызды енгізіңіз."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Мен шолуға келісемін"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Құрметті редакторлар!<br />\n"
+"<br />\n"
+"Мен «{$contextName}» журналына арналған «{$submissionTitle}» материалына "
+"шолу жасауға дайынмын. Маған хабарласқаныңыз үшін рахмет; Мен қарастыруды "
+"белгіленген мерзімге дейін аяқтауды жоспарлап отырмын, {$reviewDueDate}, "
+"мүмкін, тезірек.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Жіберуді растау"
@@ -243,17 +372,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Құрметті редакторлар!<br />\n"
-"<br />\n"
-"Мен «{$contextName}» журналына арналған «{$submissionTitle}» материалына "
-"шолу жасауға дайынмын. Маған хабарласқаныңыз үшін рахмет; Мен қарастыруды "
-"белгіленген мерзімге дейін аяқтауды жоспарлап отырмын, {$reviewDueDate}, "
-"мүмкін, тезірек.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Мен шолуға келісемін"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Бұл хатты бөлім редакторы мақалаға рецензияны алғанын растау және "
+#~ "рецензентке қосқан үлесі үшін алғыс ретінде жібереді."

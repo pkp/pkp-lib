@@ -23,7 +23,8 @@ msgid "emails.submissionAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"感谢您将稿件 〈{$submissionTitle}〉 投稿至《{$contextName}》。透过我们所使用的期刊管理系统，您将能够登入期刊网站来追踪稿件的编辑进度：<br />\n"
+"感谢您将稿件 〈{$submissionTitle}〉 投稿至《{$contextName}》。透过我们所使用"
+"的期刊管理系统，您将能够登入期刊网站来追踪稿件的编辑进度：<br />\n"
 "<br />\n"
 "稿件网址：{$submissionUrl}<br />\n"
 "用户名称：{$recipientUsername}<br />\n"
@@ -31,6 +32,9 @@ msgstr ""
 "如果您有任何问题，请与我们联络。再次感谢您考虑本期刊出版您的作品。<br />\n"
 "<br />\n"
 "{$contextSignature}"
+
+msgid "emails.submissionAck.description"
+msgstr ""
 
 #, fuzzy
 msgid "emails.reviewAck.subject"
@@ -41,11 +45,21 @@ msgid "emails.reviewAck.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"感谢您为《{$contextName}》完成了稿件〈{$submissionTitle}〉的审查工作。我们非常感激您对我们出版文章之品质的重要贡献。"
+"感谢您为《{$contextName}》完成了稿件〈{$submissionTitle}〉的审查工作。我们非"
+"常感激您对我们出版文章之品质的重要贡献。"
 
-#, fuzzy
-msgid "emails.reviewAck.description"
-msgstr "这封电子邮件是由一位区段编辑发出，确认收到已完成审查工作的回条，并感谢审查人之贡献。"
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.subject"
 msgstr "编辑决策"
@@ -55,11 +69,17 @@ msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"我们已经收到您的稿件： {$contextName}, &quot;{$submissionTitle}&quot;.<br />\n"
+"我们已经收到您的稿件： {$contextName}, &quot;{$submissionTitle}&quot;.<br /"
+">\n"
 "<br />\n"
 "我们决定：将您的稿件送去评审<br />\n"
 "<br />\n"
 "稿件的地址：{$submissionUrl}"
+
+#, fuzzy
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr "总编决定"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -70,9 +90,6 @@ msgstr ""
 "稿件地址： {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
-msgstr "总编决定"
-#, fuzzy
 msgid "emails.editorDecisionRevisions.subject"
 msgstr "编辑决定"
 
@@ -81,7 +98,8 @@ msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br /"
+">\n"
 "<br />\n"
 "我们的决定是："
 
@@ -94,7 +112,8 @@ msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br /"
+">\n"
 "<br />\n"
 "我们的决定是："
 
@@ -107,19 +126,22 @@ msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br />\n"
+"我们对于您在《{$contextName}》提交的〈{$submissionTitle}〉达成一项决定。<br /"
+">\n"
 "<br />\n"
 "我们的决定是："
+
+msgid "emails.editorRecommendation.subject"
+msgstr "总编建议"
 
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"关于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 的建议是： {$recommendation}"
+"关于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 的建议是： "
+"{$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "总编建议"
 #, fuzzy
 msgid "emails.copyeditRequest.subject"
 msgstr "编辑要求"
@@ -129,12 +151,36 @@ msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}您好：<br />\n"
 "<br />\n"
-"我想请您为《{$contextName}》担任稿件〈{$submissionTitle}〉的校样编辑。您可以在网站上找到这份稿件，以及校样编辑的工作指引。<br />\n"
+"我想请您为《{$contextName}》担任稿件〈{$submissionTitle}〉的校样编辑。您可以"
+"在网站上找到这份稿件，以及校样编辑的工作指引。<br />\n"
 "<br />\n"
 "稿件网址：{$submissionUrl}\"<br />\n"
 "用户名称：{$recipientUsername}<br />\n"
 "<br />\n"
-"如果您目前无法进行这份工作，或者对这项工作有任何的疑问，请直接回信与我联络。非常感谢您同意为这份期刊进行这份重要的工作。"
+"如果您目前无法进行这份工作，或者对这项工作有任何的疑问，请直接回信与我联络。"
+"非常感谢您同意为这份期刊进行这份重要的工作。"
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "总编决定"
 
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
@@ -142,19 +188,108 @@ msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"我们对于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 形成了一个最终共识。<br />\n"
+"我们对于稿件 {$contextName}, &quot;{$submissionTitle}&quot; 形成了一个最终共"
+"识。<br />\n"
 "<br />\n"
 "我们的决定是：拒绝稿件"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "总编决定"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "关于{$contextName} 的信息"
 
 msgid "emails.discussion.body"
 msgstr "请输入您的信息。"
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "可以进行审查工作"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"{$recipientName}:<br />\n"
+"<br />\n"
+"我可以并且愿意为《{$contextName}》审查稿件〈{$submissionTitle}〉。谢谢您考虑"
+"我当审查人，而我计划在审查截止日{$reviewDueDate}前完成审查。<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "投稿致谢函"
@@ -172,15 +307,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"{$recipientName}:<br />\n"
-"<br />\n"
-"我可以并且愿意为《{$contextName}》审查稿件〈{$submissionTitle}〉。谢谢您考虑"
-"我当审查人，而我计划在审查截止日{$reviewDueDate}前完成审查。<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "可以进行审查工作"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "这封电子邮件是由一位区段编辑发出，确认收到已完成审查工作的回条，并感谢审查"
+#~ "人之贡献。"

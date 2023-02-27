@@ -13,143 +13,204 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "common.downloadPdf"
-msgstr "PDFダウンロード"
+msgid "common.publicKnowledgeProject"
+msgstr "Public Knowledge Project"
 
-msgid "common.download"
-msgstr "ダウンロード"
+msgid "common.currentStyleSheet"
+msgstr "現在のスタイルシート"
 
-msgid "common.done"
-msgstr "完了"
-
-msgid "common.discipline"
-msgstr "分野"
-
-msgid "common.disabled"
-msgstr "無効"
-
-msgid "common.disable"
-msgstr "無効化"
-
-msgid "common.dimensionsPixels"
-msgstr "{$width}&times;{$height} ピクセル"
-
-msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
-
-msgid "common.description"
+msgid "about.description"
 msgstr "記述"
 
-msgid "common.designation"
-msgstr "名称"
+msgid "about.guidelines"
+msgstr "ガイドライン"
 
-msgid "common.deleteSelection"
-msgstr "選択範囲の削除"
+msgid "about.aboutSite"
+msgstr "このサイトについて"
 
-msgid "common.deleting"
-msgstr "削除中"
+msgid "about.contact"
+msgstr "連絡先"
 
-msgid "common.delete"
-msgstr "削除"
+msgid "about.contact.email"
+msgstr "メールアドレス"
 
-msgid "common.declined"
-msgstr "拒否"
+msgid "about.contact.phone"
+msgstr "電話"
 
-msgid "common.default"
-msgstr "デフォルト"
+msgid "about.contact.principalContact"
+msgstr "連絡責任者"
 
-msgid "common.deactivate"
-msgstr "無効化"
+msgid "about.contact.supportContact"
+msgstr "技術支援担当者"
 
-msgid "common.day"
-msgstr "日"
+msgid "about.other"
+msgstr "その他"
 
-msgid "common.dateHijri"
-msgstr "ヒジュラ暦"
+msgid "about.people"
+msgstr "組織"
 
-msgid "common.dateUploaded"
-msgstr "アップロード日"
+msgid "about.policies"
+msgstr "ポリシー"
 
-msgid "common.dateSubmitted"
-msgstr "投稿日"
+msgid "about.siteMap"
+msgstr "サイトマップ"
 
-msgid "common.dateRequested"
-msgstr "依頼日"
+msgid "announcement.announcements"
+msgstr "お知らせ"
 
-msgid "common.dateModified"
-msgstr "更新日"
+msgid "announcement.announcementsHome"
+msgstr "お知らせ"
 
-msgid "common.date"
-msgstr "日付"
+msgid "announcement.moreAnnouncements"
+msgstr "その他のお知らせ..."
 
-msgid "common.dateDecided"
-msgstr "判断日"
+msgid "announcement.noneExist"
+msgstr "お知らせはありません。"
 
-msgid "common.dateCompleted"
-msgstr "完了日"
+msgid "announcement.posted"
+msgstr "投稿済"
 
-msgid "common.create"
-msgstr "作成"
+msgid "announcement.postedOn"
+msgstr "{$postDate}に投稿"
 
-msgid "common.country"
-msgstr "国"
+msgid "announcement.view"
+msgstr "お知らせを閲覧"
 
-msgid "common.copy"
-msgstr "コピー"
+msgid "common.allDownloads"
+msgstr "すべてのダウンロード"
 
-msgid "common.continue"
-msgstr "続く"
+msgid "common.navigation.sidebar"
+msgstr "サイドバー"
 
-msgid "common.contents"
-msgstr "コンテンツ"
+msgid "common.navigation.site"
+msgstr "サイトナビゲーション"
 
-msgid "common.content"
-msgstr "コンテンツ"
+msgid "common.navigation.siteContext"
+msgstr "サイトコンテキストナビゲーション"
 
-msgid "common.confirmed.date"
-msgstr "確認日: {$dateConfirmed}"
+msgid "common.navigation.user"
+msgstr "ユーザーナビゲーション"
 
-msgid "common.confirm"
-msgstr "確認"
+msgid "common.tasks"
+msgstr "タスク"
 
-msgid "common.completed.date"
-msgstr "完了日: {$dateCompleted}"
+msgid "common.list"
+msgstr "リスト"
 
-msgid "common.completed"
-msgstr "完了した"
+msgid "common.grid"
+msgstr "グリッド"
 
-msgid "common.complete"
-msgstr "完了"
+msgid "common.confirmDelete"
+msgstr "このアイテムを削除してもよいですか。元に戻すことはできません。"
 
-msgid "common.closeWindow"
-msgstr "ウィンドウを閉じる"
+msgid "common.abstract"
+msgstr "要旨"
 
-msgid "common.closePanel"
-msgstr "パネルを閉じる"
+msgid "common.accepted"
+msgstr "受領"
 
-msgid "common.close"
-msgstr "閉じる"
+msgid "common.acknowledged"
+msgstr "確認済み"
 
-msgid "common.chooseOne"
-msgstr "1つ選択してください"
+msgid "common.action"
+msgstr "処理"
 
-msgid "common.changesSaved"
-msgstr "保存しました。"
+msgid "common.activate"
+msgstr "有効化"
 
-msgid "common.ccLicense.rt"
+msgid "common.active"
+msgstr "アクティブ"
+
+msgid "common.inactive"
+msgstr "非アクティブ"
+
+msgid "common.add"
+msgstr "追加"
+
+msgid "common.addCCBCC"
+msgstr "CC/BCCを追加"
+
+msgid "common.addFiles"
+msgstr "ファイルを追加"
+
+msgid "common.addSelf"
+msgstr "自分を任命"
+
+msgid "common.attachedFiles"
+msgstr "添付ファイル"
+
+msgid "common.attachFiles"
+msgstr "ファイルを添付"
+
+msgid "common.attachSelected"
+msgstr "選択したのを添付"
+
+msgid "common.name"
+msgstr "姓名"
+
+msgid "common.all"
+msgstr "すべて"
+
+msgid "common.alphaList"
+msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+msgid "common.titleSmallWords"
 msgstr ""
-"\n"
-"\t<div class=\"rtBlock\">\n"
-"\t\t<br />\n"
-"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
-"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
-"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
-"\t\t<br />\n"
-"\t\tこの資料のライセンスは <a rel=\"license\" href=\"https://creativecommons."
-"org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
-"License</a> です。\n"
-"\t</div>\n"
-"\t"
+"of a the and an or nor but is if then else when at from by on off for in out "
+"over to into with"
+
+msgid "common.alreadyAssigned"
+msgstr "任命済"
+
+msgid "common.altText"
+msgstr "代替テキスト"
+
+msgid "common.altTextInstructions"
+msgstr ""
+"テキストベースのブラウザや読み上げブラウザを使用するユーザーにも分かるよう"
+"に、画像の説明文を指定してください。"
+
+msgid "common.and"
+msgstr "および"
+
+msgid "common.applyAction"
+msgstr "処理実行"
+
+msgid "common.assign"
+msgstr "任命日"
+
+msgid "common.assigned"
+msgstr "任命日"
+
+msgid "common.assigned.date"
+msgstr "任命日: {$dateAssigned}"
+
+msgid "common.available"
+msgstr "利用可能"
+
+msgid "common.back"
+msgstr "戻る"
+
+msgid "common.between"
+msgstr "～"
+
+msgid "common.cancel"
+msgstr "取消"
+
+msgid "common.cancelled"
+msgstr "取り消された"
+
+msgid "common.warning"
+msgstr "注意"
+
+msgid "common.error"
+msgstr "エラー"
+
+msgid "common.notice"
+msgstr "注記"
+
+msgid "common.captcha.error.missing-input-response"
+msgstr "スパム送信を防ぐための検証チェックを完了する必要があります。"
 
 msgid "common.ccLicense"
 msgstr ""
@@ -166,692 +227,226 @@ msgstr ""
 "Attribution 3.0  License</a> です。\n"
 "\t"
 
-msgid "common.captchaField"
-msgstr "検証"
-
-msgid "common.captchaField.description"
-msgstr "上の図に表示されている文字を入力してください。"
-
-msgid "common.notice"
-msgstr "注記"
-
-msgid "common.error"
-msgstr "エラー"
-
-msgid "common.warning"
-msgstr "注意"
-
-msgid "common.cancelled"
-msgstr "取り消された"
-
-msgid "common.cancel"
-msgstr "取消"
-
-msgid "common.between"
-msgstr "～"
-
-msgid "common.back"
-msgstr "戻る"
-
-msgid "common.available"
-msgstr "利用可能"
-
-msgid "common.assigned.date"
-msgstr "任命日: {$dateAssigned}"
-
-msgid "common.assigned"
-msgstr "任命日"
-
-msgid "common.assign"
-msgstr "任命日"
-
-msgid "common.applyAction"
-msgstr "処理実行"
-
-msgid "common.and"
-msgstr "および"
-
-msgid "common.altTextInstructions"
+msgid "common.ccLicense.rt"
 msgstr ""
-"テキストベースのブラウザや読み上げブラウザを使用するユーザーにも分かるよう"
-"に、画像の説明文を指定してください。"
+"\n"
+"\t<div class=\"rtBlock\">\n"
+"\t\t<br />\n"
+"\t\t<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-"
+"width:0\" src=\"//i.creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"\t\t<br />\n"
+"\t\tこの資料のライセンスは <a rel=\"license\" href=\"https://creativecommons."
+"org/licenses/by/3.0/\" target=\"_blank\">Creative Commons Attribution 3.0 "
+"License</a> です。\n"
+"\t</div>\n"
+"\t"
 
-msgid "common.altText"
-msgstr "代替テキスト"
+msgid "common.changesSaved"
+msgstr "保存しました。"
 
-msgid "common.alreadyAssigned"
-msgstr "任命済"
+msgid "common.chooseOne"
+msgstr "1つ選択してください"
 
-msgid "common.alphaList"
-msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+msgid "common.close"
+msgstr "閉じる"
 
-msgid "common.all"
-msgstr "すべて"
+msgid "common.closePanel"
+msgstr "パネルを閉じる"
 
-msgid "common.name"
-msgstr "姓名"
+msgid "common.closeWindow"
+msgstr "ウィンドウを閉じる"
 
-msgid "common.addSelf"
-msgstr "自分を任命"
+msgid "common.complete"
+msgstr "完了"
 
-msgid "common.add"
-msgstr "追加"
+msgid "common.completed"
+msgstr "完了した"
 
-msgid "common.active"
-msgstr "アクティブ"
+msgid "common.completed.date"
+msgstr "完了日: {$dateCompleted}"
 
-msgid "common.activate"
-msgstr "有効化"
+msgid "common.confirm"
+msgstr "確認"
 
-msgid "common.action"
-msgstr "処理"
+msgid "common.confirmed.date"
+msgstr "確認日: {$dateConfirmed}"
 
-msgid "common.acknowledged"
-msgstr "確認済み"
+msgid "common.content"
+msgstr "コンテンツ"
 
-msgid "common.accepted"
-msgstr "受領"
+msgid "common.contents"
+msgstr "コンテンツ"
 
-msgid "common.grid"
-msgstr "グリッド"
+msgid "common.continue"
+msgstr "続く"
 
-msgid "common.navigation.user"
-msgstr "ユーザーナビゲーション"
+msgid "common.copy"
+msgstr "コピー"
 
-msgid "common.navigation.siteContext"
-msgstr "サイトコンテキストナビゲーション"
+msgid "common.country"
+msgstr "国"
 
-msgid "common.navigation.site"
-msgstr "サイトナビゲーション"
+msgid "common.create"
+msgstr "作成"
 
-msgid "common.abstract"
-msgstr "要旨"
+msgid "common.dateCompleted"
+msgstr "完了日"
 
-msgid "common.confirmDelete"
-msgstr "このアイテムを削除してもよいですか。元に戻すことはできません。"
+msgid "common.dateDecided"
+msgstr "判断日"
 
-msgid "common.list"
-msgstr "リスト"
+msgid "common.date"
+msgstr "日付"
 
-msgid "common.tasks"
-msgstr "タスク"
+msgid "common.dateModified"
+msgstr "更新日"
 
-msgid "common.navigation.sidebar"
-msgstr "サイドバー"
+msgid "common.dateRequested"
+msgstr "依頼日"
 
-msgid "common.allDownloads"
-msgstr "すべてのダウンロード"
+msgid "common.dateSubmitted"
+msgstr "投稿日"
 
-msgid "announcement.view"
-msgstr "お知らせを閲覧"
-
-msgid "announcement.postedOn"
-msgstr "{$postDate}に投稿"
-
-msgid "announcement.posted"
-msgstr "投稿済"
-
-msgid "announcement.noneExist"
-msgstr "お知らせはありません。"
-
-msgid "announcement.moreAnnouncements"
-msgstr "その他のお知らせ..."
-
-msgid "announcement.announcementsHome"
-msgstr "お知らせ"
-
-msgid "announcement.announcements"
-msgstr "お知らせ"
-
-msgid "about.siteMap"
-msgstr "サイトマップ"
-
-msgid "about.policies"
-msgstr "ポリシー"
-
-msgid "about.people"
-msgstr "組織"
-
-msgid "about.other"
-msgstr "その他"
-
-msgid "about.contact.supportContact"
-msgstr "技術支援担当者"
-
-msgid "about.contact.principalContact"
-msgstr "連絡責任者"
-
-msgid "about.contact.phone"
-msgstr "電話"
-
-msgid "about.contact.email"
-msgstr "メールアドレス"
-
-msgid "about.contact"
-msgstr "連絡先"
-
-msgid "about.aboutSite"
-msgstr "このサイトについて"
-
-msgid "about.guidelines"
-msgstr "ガイドライン"
-
-msgid "about.description"
-msgstr "記述"
-
-msgid "common.currentStyleSheet"
-msgstr "現在のスタイルシート"
-
-msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
-
-msgid "common.languages"
-msgstr "言語"
-
-msgid "common.language"
-msgstr "言語"
-
-msgid "common.readMore"
-msgstr "もっと読む"
-
-msgid "navigation.breadcrumbSeparator"
-msgstr "/"
-
-msgid "common.search"
-msgstr "検索"
-
-msgid "navigation.search"
-msgstr "検索"
-
-msgid "navigation.register"
-msgstr "登録"
-
-msgid "common.homepageNavigationLabel"
-msgstr "ホーム"
-
-msgid "navigation.archives"
-msgstr "アーカイブ"
-
-msgid "navigation.admin"
-msgstr "管理"
-
-msgid "navigation.about"
-msgstr "このサイト/雑誌について"
-
-msgid "navigation.login"
-msgstr "ログイン"
-
-msgid "navigation.infoForReaders.long"
-msgstr "読者の皆さまへ"
-
-msgid "navigation.infoForReaders"
-msgstr "読者の皆さまへ"
-
-msgid "locale.supported"
-msgstr "サポート言語"
-
-msgid "locale.primary"
-msgstr "プライマリ言語"
-
-msgid "stageParticipants.notify.message"
-msgstr "メッセージ"
-
-msgid "icon.view.alt"
-msgstr "閲覧"
-
-msgid "icon.unchecked.alt"
-msgstr "未チェック"
-
-msgid "icon.mail.alt"
-msgstr "メール"
-
-msgid "icon.letter.alt"
-msgstr "レター"
-
-msgid "icon.info.alt"
-msgstr "情報"
-
-msgid "icon.font_small.alt"
-msgstr "小"
-
-msgid "icon.font_medium.alt"
-msgstr "中"
-
-msgid "icon.font_large.alt"
-msgstr "大"
-
-msgid "icon.folder.alt"
-msgstr "フォルダー"
-
-msgid "icon.edit.alt"
-msgstr "編集"
-
-msgid "icon.delete.alt"
-msgstr "削除"
-
-msgid "icon.comment.alt"
-msgstr "コメント"
-
-msgid "icon.checked.alt"
-msgstr "チェック済"
-
-msgid "help.upALevel"
-msgstr "上位トピックへ"
-
-msgid "help.toc"
-msgstr "目次"
-
-msgid "help.help"
-msgstr "ヘルプ"
-
-msgid "form.submit"
-msgstr "実行"
-
-msgid "form.send"
-msgstr "送信"
-
-msgid "form.saveToUpload"
-msgstr "保存ボタンを押してファイルをアップロードしてください。"
-
-msgid "form.saved"
-msgstr "保存済み"
-
-msgid "form.resubmit"
-msgstr "再実行"
-
-msgid "form.required"
-msgstr "（* 必須）"
-
-msgid "form.postRequired"
-msgstr "フォームの送信が失敗しました。"
-
-msgid "form.is"
-msgstr "は"
-
-msgid "form.contains"
-msgstr "含む"
-
-msgid "form.formLanguage"
-msgstr "入力言語"
-
-msgid "form.formLanguage.description"
-msgstr ""
-"以下の項目に記入する言語を選択してください。使用する言語毎に以下の項目を指定"
-"してください。"
-
-msgid "form.errorsOccurred"
-msgstr "処理中にエラーが発生しました"
-
-msgid "email.to"
-msgstr "To"
-
-msgid "email.subject"
-msgstr "件名"
-
-msgid "email.skip"
-msgstr "スキップ"
-
-msgid "email.send"
-msgstr "メール送信"
-
-msgid "email.senderEmail"
-msgstr "送信者メールアドレス"
-
-msgid "email.senderName"
-msgstr "送信者名"
-
-msgid "email.sender"
-msgstr "送信者"
-
-msgid "email.recipients"
-msgstr "受信者"
-
-msgid "email.recipient"
-msgstr "受信者"
-
-msgid "email.multipart"
-msgstr "MIMEフォーマットによるマルチパートメッセージです。"
-
-msgid "email.invalid"
-msgstr "このメールアドレス {$email} は不正です。"
-
-msgid "email.from"
-msgstr "From"
-
-msgid "email.email"
-msgstr "メール"
-
-msgid "email.compose.tooSoon"
-msgstr ""
-"メッセージの送信間隔が短すぎます。もう少し待ってから次のメッセージを送信して"
-"ください。"
-
-msgid "email.compose.tooManyRecipients"
-msgstr "送信するメッセージの受取人が多すぎます。"
-
-msgid "email.compose"
-msgstr "メール送信"
-
-msgid "email.cc"
-msgstr "CC"
-
-msgid "email.body"
-msgstr "本文"
-
-msgid "email.bccSender"
-msgstr "このメールを自分のメールアドレス（{$address}）にコピーする"
-
-msgid "email.bcc"
-msgstr "BCC"
-
-msgid "email.attachments"
-msgstr "添付ファイル"
-
-msgid "email.addToRecipient"
-msgstr "受信者を追加"
-
-msgid "email.addCcRecipient"
-msgstr "CCを追加"
-
-msgid "email.addBccRecipient"
-msgstr "BCCを追加"
-
-msgid "email.addAttachment"
-msgstr "添付ファイルを追加"
-
-msgid "debug.notes"
-msgstr "注:"
-
-msgid "debug.notes.missingLocaleKey"
-msgstr "不明な言語キー \"{$key}\"。"
-
-msgid "debug.notes.localeLoad"
-msgstr "XMLからロードされた言語ファイル \"{$localeFile}\""
-
-msgid "debug.notes.localeListLoad"
-msgstr "XMLからロードされた言語リスト \"{$localeList}\""
-
-msgid "debug.memoryUsage"
-msgstr "メモリ使用量"
-
-msgid "debug.executionTime"
-msgstr "以下で生成されたページ"
-
-msgid "debug.databaseQueries"
-msgstr "データベースクエリーの数"
-
-msgid "common.plugins"
-msgstr "プラグイン"
-
-msgid "common.loading"
-msgstr "読込中"
-
-msgid "common.yes"
-msgstr "はい"
-
-msgid "common.year"
-msgstr "年"
-
-msgid "common.width"
-msgstr "幅"
-
-msgid "common.weeks"
-msgstr "週間"
-
-msgid "common.viewProfile"
-msgstr "プロフィールの閲覧"
-
-msgid "common.viewWithName"
-msgstr "{$name}を閲覧"
-
-msgid "common.view"
-msgstr "閲覧"
-
-msgid "common.user"
-msgstr "ユーザー"
-
-msgid "common.url"
-msgstr "URL"
-
-msgid "common.upload.addFile"
-msgstr "ファイルアップロード"
-
-msgid "common.addFile"
-msgstr "ファイル追加"
-
-msgid "common.up"
-msgstr "上に"
-
-msgid "common.upload"
-msgstr "アップロード"
-
-msgid "common.uploadedDate"
+msgid "common.dateUploaded"
 msgstr "アップロード日"
 
-msgid "common.updated"
-msgstr "更新された"
+msgid "common.dateHijri"
+msgstr "ヒジュラ暦"
 
-msgid "common.untitled"
-msgstr "タイトルなし"
+msgid "common.day"
+msgstr "日"
 
-msgid "common.uninitiated"
-msgstr "開始していない"
+msgid "common.deactivate"
+msgstr "無効化"
 
-msgid "common.type"
-msgstr "タイプ"
+msgid "common.default"
+msgstr "デフォルト"
 
-msgid "common.top"
-msgstr "トップ"
+msgid "common.declined"
+msgstr "拒否"
 
-msgid "common.titleSeparator"
-msgstr " | "
-
-msgid "common.title"
-msgstr "タイトル"
-
-msgid "common.suggest"
-msgstr "提案"
-
-msgid "common.subtitle"
-msgstr "サブタイトル"
-
-msgid "common.subjects"
-msgstr "主題"
-
-msgid "common.subject"
-msgstr "主題"
-
-msgid "common.status"
-msgstr "状態"
-
-msgid "common.source"
-msgstr "ソース"
-
-msgid "common.size"
-msgstr "サイズ"
-
-msgid "common.sendEmail"
-msgstr "メール送信"
-
-msgid "common.selectWithName"
-msgstr "{$name}を選択"
-
-msgid "common.select"
-msgstr "選択"
-
-msgid "common.selectNone"
-msgstr "すべての選択解除"
-
-msgid "common.selectAll"
-msgstr "すべて選択"
-
-msgid "common.second"
-msgstr "秒"
-
-msgid "common.saving"
-msgstr "保存中"
-
-msgid "common.save"
-msgstr "保存"
-
-msgid "common.saveAndEmail"
-msgstr "保存してメール送信"
-
-msgid "common.saveAndContinue"
-msgstr "保存して継続"
-
-msgid "common.required"
-msgstr "必須"
-
-msgid "common.requiredField"
-msgstr "* は必須フィールドを表します"
-
-msgid "common.replaceFile"
-msgstr "ファイルの置換え"
-
-msgid "common.replaced"
-msgstr "置き換えられた"
-
-msgid "common.removeSelection"
-msgstr "選択範囲を削除"
-
-msgid "common.removeItem"
-msgstr "{$item}を削除"
-
-msgid "common.remove"
+msgid "common.delete"
 msgstr "削除"
 
-msgid "common.reminded.date"
-msgstr "リマインド日: {$dateReminded}"
+msgid "common.deleting"
+msgstr "削除中"
 
-msgid "common.reminder"
-msgstr "リマインド"
+msgid "common.deleteSelection"
+msgstr "選択範囲の削除"
 
-msgid "common.related"
-msgstr "関連"
+msgid "common.deselect"
+msgstr "選択解除"
 
-msgid "common.record"
-msgstr "設定"
+msgid "common.designation"
+msgstr "名称"
 
-msgid "common.readMoreWithTitle"
-msgstr "{$title}についてもっと読む"
+msgid "common.description"
+msgstr "記述"
 
-msgid "common.re"
-msgstr "Re:"
+msgid "common.details"
+msgstr ""
 
-msgid "common.publisher"
-msgstr "出版者"
+msgid "common.dimensionsInches"
+msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
 
-msgid "common.plugin"
-msgstr "プラグイン"
+msgid "common.dimensionsPixels"
+msgstr "{$width}&times;{$height} ピクセル"
 
-msgid "common.percentage"
-msgstr "{$percentage}%"
+msgid "common.discardChanges"
+msgstr ""
 
-msgid "common.or"
-msgstr "あるいは"
+msgid "common.disconnected"
+msgstr ""
 
-msgid "common.originalFileName"
-msgstr "オリジナルファイル名"
+msgid "common.disable"
+msgstr "無効化"
 
-msgid "common.order"
-msgstr "表示順"
+msgid "common.disabled"
+msgstr "無効"
 
-msgid "common.options"
-msgstr "オプション"
+msgid "common.discipline"
+msgstr "分野"
 
-msgid "common.ok"
-msgstr "OK"
+msgid "common.done"
+msgstr "完了"
 
-msgid "common.on"
-msgstr "オン"
+msgid "common.download"
+msgstr "ダウンロード"
 
-msgid "common.off"
-msgstr "オフ"
+msgid "common.downloadPdf"
+msgstr "PDFダウンロード"
 
-msgid "common.noMatches"
-msgstr "マッチなし"
+msgid "common.downloadReport"
+msgstr "報告ダウンロード"
 
-msgid "common.notified.date"
-msgstr "通知日: {$dateNotified}"
+msgid "common.dragAndDropHere"
+msgstr "ここにファイルをドラッグアンドドロップする。"
 
-msgid "common.noComments"
-msgstr "コメントなし"
+msgid "common.orUploadFile"
+msgstr "またはファイルをアップロード"
 
-msgid "common.notified"
-msgstr "通知済み"
+msgid "common.edit"
+msgstr "編集"
 
-msgid "common.notes"
-msgstr "注記"
+msgid "common.editItem"
+msgstr "{$name}を編集"
 
-msgid "common.note"
-msgstr "注記"
+msgid "common.emailTemplates"
+msgstr ""
 
-msgid "common.notAvailable"
-msgstr "利用できません"
+msgid "common.enable"
+msgstr "有効化"
 
-msgid "common.notApplicableShort"
-msgstr "N/A"
+msgid "common.enabled"
+msgstr "有効"
 
-msgid "common.notApplicable"
-msgstr "適用しない"
+msgid "common.error.databaseError"
+msgstr "データベースエラーが発生しました: {$error}"
 
-msgid "common.no"
-msgstr "いいえ"
+msgid "common.error.databaseErrorUnknown"
+msgstr "データベース接続エラーが発生しました。"
 
-msgid "common.none"
-msgstr "なし"
+msgid "common.error.framesRequired"
+msgstr ""
+"このページはフレームを利用しています。非フレーム版は<a href=\"{$url}\">ここを"
+"クリック</a>してください。"
 
-msgid "common.noneAssigned"
-msgstr "未任命"
+msgid "common.event"
+msgstr "イベント"
 
-msgid "common.month"
-msgstr "月"
+msgid "common.export"
+msgstr "エクスポート"
 
-msgid "common.modify"
-msgstr "変更"
+msgid "common.finish"
+msgstr "終わる"
 
-msgid "common.minute"
-msgstr "分"
+msgid "common.fullscreen"
+msgstr "フルスクリーン"
 
-msgid "common.billingAddress"
-msgstr "請求先住所(異なる場合)"
+msgid "common.fullscreenOff"
+msgstr "フルスクリーン オフ"
 
-msgid "common.mailingAddress"
-msgstr "住所"
+msgid "common.false"
+msgstr "誤"
 
-msgid "common.keywords"
-msgstr "キーワード"
+msgid "common.file"
+msgstr "ファイル"
 
-msgid "common.inProgress"
-msgstr "処理中"
+msgid "common.file.namingPattern"
+msgstr "{$username}, {$originalFilename}"
 
-msgid "common.initiate"
-msgstr "開始"
+msgid "common.file.anonymousNamingPattern"
+msgstr "{$genre}, {$originalFilename}"
 
-msgid "common.import"
-msgstr "インポート"
+msgid "common.fileName"
+msgstr "ファイル名"
 
-msgid "common.id"
-msgstr "ID"
+msgid "common.fileSize"
+msgstr "ファイルサイズ"
 
-msgid "common.hour"
-msgstr "時"
-
-msgid "common.homePageHeaderLogo.altText"
-msgstr "ホームページヘッダーロゴ"
-
-msgid "common.height"
-msgstr "高さ"
-
-msgid "common.filterRemove"
-msgstr "フィルターをクリア: {$filterTitle}"
-
-msgid "common.filterAdd"
-msgstr "フィルター追加: {$filterTitle}"
-
-msgid "common.filter"
-msgstr "フィルター"
+msgid "common.fileType"
+msgstr "ファイル種別"
 
 msgid "common.fileUploaderError"
 msgstr ""
@@ -859,413 +454,1317 @@ msgstr ""
 "ラウザではどのランタイムもサポートされていない可能性があります。サポートのた"
 "めに管理者に連絡してください。"
 
-msgid "common.fileType"
-msgstr "ファイル種別"
+msgid "common.filter"
+msgstr "フィルター"
 
-msgid "common.fileSize"
-msgstr "ファイルサイズ"
+msgid "common.filterAdd"
+msgstr "フィルター追加: {$filterTitle}"
 
-msgid "common.fileName"
-msgstr "ファイル名"
+msgid "common.filterRemove"
+msgstr "フィルターをクリア: {$filterTitle}"
 
-msgid "common.file.anonymousNamingPattern"
-msgstr "{$genre}, {$originalFilename}"
+msgid "common.findTemplate"
+msgstr "テンプレートの検索"
 
-msgid "common.file.namingPattern"
-msgstr "{$username}, {$originalFilename}"
-
-msgid "common.file"
-msgstr "ファイル"
-
-msgid "common.false"
-msgstr "誤"
-
-msgid "common.fullscreenOff"
-msgstr "フルスクリーン オフ"
-
-msgid "common.fullscreen"
-msgstr "フルスクリーン"
-
-msgid "common.finish"
-msgstr "終わる"
-
-msgid "common.export"
-msgstr "エクスポート"
-
-msgid "common.event"
-msgstr "イベント"
-
-msgid "common.error.framesRequired"
+msgid "common.formatting"
 msgstr ""
-"このページはフレームを利用しています。非フレーム版は<a href=\"{$url}\">ここを"
-"クリック</a>してください。"
 
-msgid "common.error.databaseErrorUnknown"
-msgstr "データベース接続エラーが発生しました。"
+msgid "common.geographic"
+msgstr "地理的データ"
 
-msgid "common.error.databaseError"
-msgstr "データベースエラーが発生しました: {$error}"
+msgid "common.go"
+msgstr "行け"
 
-msgid "common.enabled"
-msgstr "有効"
+msgid "common.height"
+msgstr "高さ"
 
-msgid "common.enable"
-msgstr "有効化"
+msgid "common.homepageNavigationLabel"
+msgstr "ホーム"
 
-msgid "common.editItem"
-msgstr "{$name}を編集"
+msgid "common.homePageHeaderLogo.altText"
+msgstr "ホームページヘッダーロゴ"
 
-msgid "common.edit"
-msgstr "編集"
+msgid "common.hour"
+msgstr "時"
 
-msgid "common.titleSmallWords"
+msgid "common.id"
+msgstr "ID"
+
+msgid "common.import"
+msgstr "インポート"
+
+msgid "common.initiate"
+msgstr "開始"
+
+msgid "common.inProgress"
+msgstr "処理中"
+
+msgid "common.insert"
+msgstr "挿入"
+
+msgid "common.insertContent"
+msgstr "コンテンツを挿入"
+
+msgid "common.insertContentSearch"
+msgstr "挿入するコンテンツを検索"
+
+msgid "common.itemsPerPage"
+msgstr "ページごとの要素"
+
+msgid "common.keywords"
+msgstr "キーワード"
+
+msgid "common.label"
 msgstr ""
-"of a the and an or nor but is if then else when at from by on off for in out "
-"over to into with"
 
-msgid "common.inactive"
-msgstr "非アクティブ"
+msgid "common.language"
+msgstr "言語"
 
-msgid "stageParticipants.notify.chooseMessage"
-msgstr "定義済みメッセージを選択するか、以下のフォームに入力してください。"
+msgid "common.languages"
+msgstr "言語"
 
-msgid "stageParticipants.notify.startDiscussion.description"
-msgstr "{$userFullName}とのディスカッションを開始します。"
-
-msgid "stageParticipants.notify.startDiscussion"
-msgstr "ディスカッションを開始"
-
-msgid "stageParticipants.history.messageSent"
-msgstr "ユーザーに通知が送信されました。"
-
-msgid "informationCenter.history.messageSent"
-msgstr "ユーザーに通知が送信されました。"
-
-msgid "informationCenter.history.notePosted"
-msgstr "新しい注記が追加されました。"
-
-msgid "informationCenter.history.noItems"
-msgstr "ログに記録されたイベントはありません。"
-
-msgid "informationCenter.pastHistory"
-msgstr "以前の改訂"
-
-msgid "informationCenter.currentHistory"
-msgstr "現行改訂"
-
-msgid "informationCenter.deleteConfirm"
-msgstr "この注記を削除してもよろしいですか？"
-
-msgid "informationCenter.pastNotes"
-msgstr "以前の改訂の注記"
-
-msgid "informationCenter.noNotes"
-msgstr "表示できる注記がありません。"
-
-msgid "informationCenter.addNote"
-msgstr "注記追加"
-
-msgid "informationCenter.editorialHistory"
-msgstr "編集歴"
-
-msgid "informationCenter.informationCenter"
-msgstr "インフォメーションセンター"
-
-msgid "help.next"
-msgstr "次へ"
-
-msgid "help.previous"
-msgstr "前へ"
-
-msgid "form.multilingualProgress"
-msgstr "{$total}言語の{$count}は完了"
-
-msgid "form.multilingualLabel"
-msgstr "{$localeName}での{$label}"
-
-msgid "form.invalidImage"
+msgid "common.lastSaved"
 msgstr ""
-"無効な画像ファイルがアップロードされました。使用可能な形式は.png、.gif、.jpg"
-"です。"
 
-msgid "form.requireId"
-msgstr "有効なIDを指定する必要があります。"
+msgid "common.lastActivity"
+msgstr "最近活動記録日: {$date}"
 
-msgid "form.requirePrimaryLocale"
-msgstr "このフィールドは {$language}で入力する必要があります。"
+msgid "common.less"
+msgstr "未満"
 
-msgid "form.fileRequired"
-msgstr "ファイルのアップロードが必要です。"
+msgid "common.lessThan"
+msgstr "{$value}以下"
 
-msgid "form.csrfInvalid"
+msgid "common.lessThanOnly"
+msgstr "未満"
+
+msgid "common.keepWorking"
+msgstr "働き続ける"
+
+msgid "common.commaListSeparator"
+msgstr "、 "
+
+msgid "common.semicolonListSeparator"
+msgstr "; "
+
+msgid "common.manage"
+msgstr "管理"
+
+msgid "common.mailingAddress"
+msgstr "住所"
+
+msgid "common.billingAddress"
+msgstr "請求先住所(異なる場合)"
+
+msgid "common.minute"
+msgstr "分"
+
+msgid "common.modify"
+msgstr "変更"
+
+msgid "common.month"
+msgstr "月"
+
+msgid "common.more"
+msgstr "もっと"
+
+msgid "common.moreThan"
+msgstr "{$value} 以上"
+
+msgid "common.moreThanOnly"
+msgstr "よりも"
+
+msgid "common.noneAssigned"
+msgstr "未任命"
+
+msgid "common.none"
+msgstr "なし"
+
+msgid "common.noneSelected"
 msgstr ""
-"フォームの送信が失敗しました。ログアウトされた可能性があります。 ページを再読"
-"み込みして、もう一度やり直してください。"
 
-msgid "form.startsWith"
-msgstr "で始まる"
-
-msgid "form.errors"
+msgid "common.noneProvided"
 msgstr ""
-"{$count} 個のエラーが発生したため、フォームは保存されませんでした。 これらの"
-"エラーを修正して、もう一度やり直してください。"
 
-msgid "form.errorMany"
-msgstr "エラーを{$count}個修正してください。"
+msgid "common.no"
+msgstr "いいえ"
 
-msgid "form.errorOne"
-msgstr "エラーを 1 個修正してください。"
+msgid "common.noItemsFound"
+msgstr "アイテムは見つかりませんでした。"
 
-msgid "form.errorGoTo"
-msgstr "次のエラーへ"
+msgid "common.noComments"
+msgstr "コメントなし"
 
-msgid "form.errorA11y"
-msgstr "{$fieldLabel}に移動: {$errorMessage}"
+msgid "common.notApplicable"
+msgstr "適用しない"
 
-msgid "form.dropzone.dictMaxFilesExceeded"
-msgstr "これ以上ファイルをアップロードすることはできません。"
+msgid "common.notApplicableShort"
+msgstr "N/A"
 
-msgid "form.dropzone.dictRemoveFile"
-msgstr "ファイルを削除"
+msgid "common.notAvailable"
+msgstr "利用できません"
 
-msgid "form.dropzone.dictCancelUploadConfirmation"
-msgstr "このアップロードをキャンセルしてもよろしいですか？"
-
-msgid "form.dropzone.dictUploadCanceled"
-msgstr "アップロードがキャンセルされました"
-
-msgid "form.dropzone.dictCancelUpload"
-msgstr "アップロードをキャンセル"
-
-msgid "form.dropzone.dictResponseError"
-msgstr ""
-"サーバーは {{statusCode}}コードで応答しました。 この問題が解決しない場合は、"
-"システム管理者にお問い合わせください。"
-
-msgid "form.dropzone.dictInvalidFileType"
-msgstr "このタイプのファイルはアップロードできません。"
-
-msgid "form.dropzone.dictFileTooBig"
-msgstr ""
-"ファイルが大きすぎます ({{filesize}}MB)。{{maxFilesize}}MB を超えるファイルは"
-"アップロードできません。"
-
-msgid "form.dropzone.dictFallbackText"
-msgstr ""
-"ファイルをアップロードするには、以下のフォールバックフォームを使用してくださ"
-"い。"
-
-msgid "form.dropzone.dictFallbackMessage"
-msgstr ""
-"お使いのブラウザでは、ファイルのドラッグとドロップアップロードはサポートされ"
-"ていません。"
-
-msgid "form.dropzone.dictDefaultMessage"
-msgstr "ここにファイルをドロップしてアップロードします"
-
-msgid "form.disallowedProp"
-msgstr "このプロパティは使用できません。"
-
-msgid "form.disallowedLocales"
-msgstr "次の言語のみが許可されています: {$languages}。"
-
-msgid "form.dataHasChanged"
-msgstr "このフォームのデータが変更されました。 保存せずに続行しますか？"
-
-msgid "form.confirmSubmit.title"
-msgstr "確認"
-
-msgid "form.confirmSubmit"
-msgstr "このフォームを送信してもよろしいですか？"
-
-msgid "form.url.invalid"
-msgstr "指定された URL は無効です。 確認して、もう一度やり直してください。"
-
-msgid "email.bodyRequired"
-msgstr "メールの本文を入力してください。"
-
-msgid "email.subjectRequired"
-msgstr "メールの件名を入力してください。"
-
-msgid "email.compose.error"
-msgstr ""
-"メールメッセージの送信中に問題が発生しました。 しばらくしてから再試行するか、"
-"システム管理者にお問い合わせください。"
-
-msgid "editor.submissionReview.uploadAttachment"
-msgstr "ファイルのアップロード"
-
-msgid "editor.submissionReview.uploadFile"
-msgstr "査読ファイルのアップロード"
-
-msgid "defaultMetric.title"
-msgstr "デフォルトのメトリック"
-
-msgid "common.publicAccess"
-msgstr "公共アクセス"
-
-msgid "common.count"
-msgstr "カウント"
-
-msgid "common.user.nonexistent"
-msgstr "[Nonexistent user]"
-
-msgid "common.upload.dragFile"
-msgstr "ここにファイルをドラッグアンドドロップしてアップロードを開始します"
-
-msgid "common.upload.changeFile"
-msgstr "ファイルを変更"
-
-msgid "common.upload.thumbnailPreview"
-msgstr "現在選択されている画像のプレビューを表示します。"
-
-msgid "common.upload.restore"
-msgstr "元に戻す"
-
-msgid "common.uploadFailed"
-msgstr ""
-"このファイルはアップロードできませんでした。再度試して，問題が解消されない場"
-"合は管理者に連絡してください。"
-
-msgid "common.unread"
-msgstr "未読"
-
-msgid "common.unknownError"
-msgstr ""
-"予期しないエラーが発生しました。 ページを再読み込みして、もう一度やり直してく"
-"ださい。"
-
-msgid "common.true"
-msgstr "正"
-
-msgid "common.submenu"
-msgstr "サブメニュー"
-
-msgid "common.selectedPrefix"
-msgstr "選択中:"
-
-msgid "common.clearSearch"
-msgstr "検索語を消去"
-
-msgid "common.searchQuery"
-msgstr "検索クエリ"
-
-msgid "common.reset"
-msgstr "リセット"
-
-msgid "common.remoteURL"
-msgstr "リモートURL"
-
-msgid "common.remote"
-msgstr "リモート"
-
-msgid "common.refresh"
-msgstr "再読込"
-
-msgid "common.range"
-msgstr "{$min}-{$max}"
-
-msgid "common.queue.long.active"
-msgstr "処理中の投稿物"
-
-msgid "common.quality"
-msgstr "クオリティー"
-
-msgid "common.preview"
-msgstr "プレビュー"
-
-msgid "common.prefixAndTitle.tip"
-msgstr "例(英語の場合): A、The"
-
-msgid "common.prefix"
-msgstr "接頭語"
-
-msgid "common.pluginDisabled"
-msgstr "\"{$pluginName}\" は無効です。"
-
-msgid "common.pluginEnabled"
-msgstr "\"{$pluginName}\" は有効です。"
-
-msgid "common.pageNumber"
-msgstr "{$pageNumber}ページ"
-
-msgid "common.pagination.previous"
-msgstr "前のページ"
-
-msgid "common.pagination.next"
-msgstr "次のページ"
-
-msgid "common.pagination.goToPage"
-msgstr "{$page}に移動"
-
-msgid "common.pagination.label"
-msgstr "他のページを見る"
-
-msgid "common.pagination"
-msgstr "{$start}-{$end}合計{$total}項目"
-
-msgid "common.overdue"
-msgstr "延滞"
-
-msgid "common.other"
-msgstr "その他"
-
-msgid "common.orderDown"
-msgstr "{$itemTitle}の順位を下げる"
-
-msgid "common.orderUp"
-msgstr "{$itemTitle}の順位を上げる"
-
-msgid "common.notes.tooltip"
-msgstr "注記 (黄色: 新規注記あり、青: 閲覧された注記、グレー: 注記なし)"
+msgid "common.note"
+msgstr "注記"
 
 msgid "common.noTemporaryFile"
 msgstr ""
 "アップロードしたファイルが見つかりませんでした。もう一度アップロードしてみて"
 "ください。"
 
-msgid "common.noItemsFound"
-msgstr "アイテムは見つかりませんでした。"
+msgid "common.notes"
+msgstr "注記"
 
-msgid "common.moreThanOnly"
-msgstr "よりも"
+msgid "common.notes.tooltip"
+msgstr "注記 (黄色: 新規注記あり、青: 閲覧された注記、グレー: 注記なし)"
 
-msgid "common.moreThan"
-msgstr "{$value} 以上"
+msgid "common.notified"
+msgstr "通知済み"
 
-msgid "common.more"
-msgstr "もっと"
+msgid "common.notified.date"
+msgstr "通知日: {$dateNotified}"
 
-msgid "common.manage"
+msgid "common.noMatches"
+msgstr "マッチなし"
+
+msgid "common.numberedMore"
+msgstr ""
+
+msgid "common.off"
+msgstr "オフ"
+
+msgid "common.on"
+msgstr "オン"
+
+msgid "common.ok"
+msgstr "OK"
+
+msgid "common.options"
+msgstr "オプション"
+
+msgid "common.order"
+msgstr "表示順"
+
+msgid "common.orderUp"
+msgstr "{$itemTitle}の順位を上げる"
+
+msgid "common.orderDown"
+msgstr "{$itemTitle}の順位を下げる"
+
+msgid "common.originalFileName"
+msgstr "オリジナルファイル名"
+
+msgid "common.or"
+msgstr "あるいは"
+
+msgid "common.other"
+msgstr "その他"
+
+msgid "common.overdue"
+msgstr "延滞"
+
+msgid "common.override"
+msgstr "上書き"
+
+msgid "common.pagination"
+msgstr "{$start}-{$end}合計{$total}項目"
+
+msgid "common.pagination.label"
+msgstr "他のページを見る"
+
+msgid "common.pagination.goToPage"
+msgstr "{$page}に移動"
+
+msgid "common.pagination.next"
+msgstr "次のページ"
+
+msgid "common.pagination.previous"
+msgstr "前のページ"
+
+msgid "common.pageNumber"
+msgstr "{$pageNumber}ページ"
+
+msgid "common.percentage"
+msgstr "{$percentage}%"
+
+msgid "common.plugin"
+msgstr "プラグイン"
+
+msgid "common.pluginEnabled"
+msgstr "\"{$pluginName}\" は有効です。"
+
+msgid "common.pluginDisabled"
+msgstr "\"{$pluginName}\" は無効です。"
+
+msgid "common.prefix"
+msgstr "接頭語"
+
+msgid "common.prefixAndTitle.tip"
+msgstr "例(英語の場合): A、The"
+
+msgid "common.preview"
+msgstr "プレビュー"
+
+msgid "common.publisher"
+msgstr "出版者"
+
+msgid "common.quality"
+msgstr "クオリティー"
+
+msgid "common.queue.long.active"
+msgstr "処理中の投稿物"
+
+msgid "common.range"
+msgstr "{$min}-{$max}"
+
+msgid "common.re"
+msgstr "Re:"
+
+msgid "common.readMore"
+msgstr "もっと読む"
+
+msgid "common.readMoreWithTitle"
+msgstr "{$title}についてもっと読む"
+
+msgid "common.reconnecting"
+msgstr ""
+
+msgid "common.record"
+msgstr "設定"
+
+msgid "common.refresh"
+msgstr "再読込"
+
+msgid "common.related"
+msgstr "関連"
+
+msgid "common.reminder"
+msgstr "リマインド"
+
+msgid "common.reminded.date"
+msgstr "リマインド日: {$dateReminded}"
+
+msgid "common.remote"
+msgstr "リモート"
+
+msgid "common.remoteURL"
+msgstr "リモートURL"
+
+msgid "common.remove"
+msgstr "削除"
+
+msgid "common.removeItem"
+msgstr "{$item}を削除"
+
+msgid "common.removeSelection"
+msgstr "選択範囲を削除"
+
+msgid "common.replaced"
+msgstr "置き換えられた"
+
+msgid "common.replaceFile"
+msgstr "ファイルの置換え"
+
+msgid "common.requiredField"
+msgstr "* は必須フィールドを表します"
+
+msgid "common.required"
+msgstr "必須"
+
+msgid "common.reset"
+msgstr "リセット"
+
+msgid "common.reviewRoundNumber"
+msgstr ""
+
+msgid "common.role"
+msgstr ""
+
+msgid "common.saveAndContinue"
+msgstr "保存して継続"
+
+msgid "common.saveAndEmail"
+msgstr "保存してメール送信"
+
+msgid "common.save"
+msgstr "保存"
+
+msgid "common.saving"
+msgstr "保存中"
+
+msgid "common.search"
+msgstr "検索"
+
+msgid "common.searchPhrase"
+msgstr ""
+
+msgid "common.searching"
+msgstr ""
+
+msgid "common.searchQuery"
+msgstr "検索クエリ"
+
+msgid "common.clearSearch"
+msgstr "検索語を消去"
+
+msgid "common.second"
+msgstr "秒"
+
+msgid "common.selectAll"
+msgstr "すべて選択"
+
+msgid "common.selectedPrefix"
+msgstr "選択中:"
+
+msgid "common.selectNone"
+msgstr "すべての選択解除"
+
+msgid "common.select"
+msgstr "選択"
+
+msgid "common.selectWithName"
+msgstr "{$name}を選択"
+
+msgid "common.sendEmail"
+msgstr "メール送信"
+
+msgid "common.showAllSteps"
+msgstr ""
+
+msgid "common.showingSteps"
+msgstr ""
+
+msgid "common.size"
+msgstr "サイズ"
+
+msgid "common.source"
+msgstr "ソース"
+
+msgid "common.status"
+msgstr "状態"
+
+msgid "common.subject"
+msgstr "主題"
+
+msgid "common.subjects"
+msgstr "主題"
+
+msgid "common.submenu"
+msgstr "サブメニュー"
+
+msgid "common.subtitle"
+msgstr "サブタイトル"
+
+msgid "common.suggest"
+msgstr "提案"
+
+msgid "common.switchTo"
+msgstr ""
+
+msgid "common.switchToNamedItem"
+msgstr ""
+
+msgid "common.title"
+msgstr "タイトル"
+
+msgid "common.titleSeparator"
+msgstr " | "
+
+msgid "common.top"
+msgstr "トップ"
+
+msgid "common.true"
+msgstr "正"
+
+msgid "common.type"
+msgstr "タイプ"
+
+msgid "common.uploadedBy"
+msgstr ""
+
+msgid "common.uploadedByAndWhen"
+msgstr ""
+
+msgid "common.component"
+msgstr "要素"
+
+msgid "common.uninitiated"
+msgstr "開始していない"
+
+msgid "common.unknownError"
+msgstr ""
+"予期しないエラーが発生しました。 ページを再読み込みして、もう一度やり直してく"
+"ださい。"
+
+msgid "common.unread"
+msgstr "未読"
+
+msgid "common.unsavedChanges"
+msgstr ""
+
+msgid "common.unsavedChangesMessage"
+msgstr ""
+
+msgid "common.untitled"
+msgstr "タイトルなし"
+
+msgid "common.updated"
+msgstr "更新された"
+
+msgid "common.uploadedDate"
+msgstr "アップロード日"
+
+msgid "common.upload"
+msgstr "アップロード"
+
+msgid "common.uploadFailed"
+msgstr ""
+"このファイルはアップロードできませんでした。再度試して，問題が解消されない場"
+"合は管理者に連絡してください。"
+
+msgid "common.up"
+msgstr "上に"
+
+msgid "common.addFile"
+msgstr "ファイル追加"
+
+msgid "common.upload.addFile"
+msgstr "ファイルアップロード"
+
+msgid "common.upload.addFile.description"
+msgstr ""
+
+msgid "common.upload.restore"
+msgstr "元に戻す"
+
+msgid "common.upload.thumbnailPreview"
+msgstr "現在選択されている画像のプレビューを表示します。"
+
+msgid "common.upload.changeFile"
+msgstr "ファイルを変更"
+
+msgid "common.upload.dragFile"
+msgstr "ここにファイルをドラッグアンドドロップしてアップロードを開始します"
+
+msgid "common.url"
+msgstr "URL"
+
+msgid "common.user"
+msgstr "ユーザー"
+
+msgid "common.user.nonexistent"
+msgstr "[Nonexistent user]"
+
+msgid "common.view"
+msgstr "閲覧"
+
+msgid "common.viewError"
+msgstr ""
+
+msgid "common.viewWithName"
+msgstr "{$name}を閲覧"
+
+msgid "common.viewProfile"
+msgstr "プロフィールの閲覧"
+
+msgid "common.weeks"
+msgstr "週間"
+
+msgid "common.width"
+msgstr "幅"
+
+msgid "common.withParenthesis"
+msgstr "{$item} ({$inParenthesis})"
+
+msgid "common.year"
+msgstr "年"
+
+msgid "common.yes"
+msgstr "はい"
+
+msgid "common.loading"
+msgstr "読込中"
+
+msgid "common.plugins"
+msgstr "プラグイン"
+
+msgid "common.count"
+msgstr "カウント"
+
+msgid "common.publicAccess"
+msgstr "公共アクセス"
+
+msgid "debug.databaseQueries"
+msgstr "データベースクエリーの数"
+
+msgid "debug.executionTime"
+msgstr "以下で生成されたページ"
+
+msgid "debug.memoryUsage"
+msgstr "メモリ使用量"
+
+msgid "debug.notes.localeListLoad"
+msgstr "XMLからロードされた言語リスト \"{$localeList}\""
+
+msgid "debug.notes.localeLoad"
+msgstr "XMLからロードされた言語ファイル \"{$localeFile}\""
+
+msgid "debug.notes.missingLocaleKey"
+msgstr "不明な言語キー \"{$key}\"。"
+
+msgid "debug.notes"
+msgstr "注:"
+
+msgid "defaultMetric.title"
+msgstr "デフォルトのメトリック"
+
+msgid "editor.submissionReview.uploadFile"
+msgstr "査読ファイルのアップロード"
+
+msgid "editor.submissionReview.uploadAttachment"
+msgstr "ファイルのアップロード"
+
+msgid "email.addAttachment"
+msgstr "添付ファイルを追加"
+
+msgid "email.addAttachment.submissionFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.submissionDescription"
+msgstr ""
+
+msgid "email.addAttachment.submissionFiles.reviewDescription"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.libraryFiles.description"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.attach"
+msgstr ""
+
+msgid "email.addAttachment.reviewFiles.description"
+msgstr ""
+
+msgid "email.addBccRecipient"
+msgstr "BCCを追加"
+
+msgid "email.addCcRecipient"
+msgstr "CCを追加"
+
+msgid "email.addToRecipient"
+msgstr "受信者を追加"
+
+msgid "email.attachments"
+msgstr "添付ファイル"
+
+msgid "email.attachmentNotFound"
+msgstr ""
+
+msgid "email.bcc"
+msgstr "BCC"
+
+msgid "email.bccSender"
+msgstr "このメールを自分のメールアドレス（{$address}）にコピーする"
+
+msgid "email.body"
+msgstr "本文"
+
+msgid "email.cc"
+msgstr "CC"
+
+msgid "email.confirmSwitchLocale"
+msgstr ""
+
+msgid "email.compose"
+msgstr "メール送信"
+
+msgid "email.compose.tooManyRecipients"
+msgstr "送信するメッセージの受取人が多すぎます。"
+
+msgid "email.compose.tooSoon"
+msgstr ""
+"メッセージの送信間隔が短すぎます。もう少し待ってから次のメッセージを送信して"
+"ください。"
+
+msgid "email.compose.error"
+msgstr ""
+"メールメッセージの送信中に問題が発生しました。 しばらくしてから再試行するか、"
+"システム管理者にお問い合わせください。"
+
+msgid "email.email"
+msgstr "メール"
+
+msgid "email.from"
+msgstr "From"
+
+msgid "email.invalid"
+msgstr "このメールアドレス {$email} は不正です。"
+
+msgid "email.multipart"
+msgstr "MIMEフォーマットによるマルチパートメッセージです。"
+
+msgid "email.recipient"
+msgstr "受信者"
+
+msgid "email.recipients"
+msgstr "受信者"
+
+msgid "email.sender"
+msgstr "送信者"
+
+msgid "email.senderName"
+msgstr "送信者名"
+
+msgid "email.senderEmail"
+msgstr "送信者メールアドレス"
+
+msgid "email.send"
+msgstr "メール送信"
+
+msgid "email.skip"
+msgstr "スキップ"
+
+msgid "email.subject"
+msgstr "件名"
+
+msgid "email.subjectRequired"
+msgstr "メールの件名を入力してください。"
+
+msgid "email.bodyRequired"
+msgstr "メールの本文を入力してください。"
+
+msgid "email.to"
+msgstr "To"
+
+msgid "form.url.invalid"
+msgstr "指定された URL は無効です。 確認して、もう一度やり直してください。"
+
+msgid "form.confirmSubmit"
+msgstr "このフォームを送信してもよろしいですか？"
+
+msgid "form.confirmSubmit.title"
+msgstr "確認"
+
+msgid "form.dataHasChanged"
+msgstr "このフォームのデータが変更されました。 保存せずに続行しますか？"
+
+msgid "form.disallowedLocales"
+msgstr "次の言語のみが許可されています: {$languages}。"
+
+msgid "form.disallowedProp"
+msgstr "このプロパティは使用できません。"
+
+msgid "form.dropzone.dictDefaultMessage"
+msgstr "ここにファイルをドロップしてアップロードします"
+
+msgid "form.dropzone.dictFallbackMessage"
+msgstr ""
+"お使いのブラウザでは、ファイルのドラッグとドロップアップロードはサポートされ"
+"ていません。"
+
+msgid "form.dropzone.dictFallbackText"
+msgstr ""
+"ファイルをアップロードするには、以下のフォールバックフォームを使用してくださ"
+"い。"
+
+msgid "form.dropzone.dictFileTooBig"
+msgstr ""
+"ファイルが大きすぎます ({{filesize}}MB)。{{maxFilesize}}MB を超えるファイルは"
+"アップロードできません。"
+
+msgid "form.dropzone.dictInvalidFileType"
+msgstr "このタイプのファイルはアップロードできません。"
+
+msgid "form.dropzone.dictResponseError"
+msgstr ""
+"サーバーは {{statusCode}}コードで応答しました。 この問題が解決しない場合は、"
+"システム管理者にお問い合わせください。"
+
+msgid "form.dropzone.dictCancelUpload"
+msgstr "アップロードをキャンセル"
+
+msgid "form.dropzone.dictUploadCanceled"
+msgstr "アップロードがキャンセルされました"
+
+msgid "form.dropzone.dictCancelUploadConfirmation"
+msgstr "このアップロードをキャンセルしてもよろしいですか？"
+
+msgid "form.dropzone.dictRemoveFile"
+msgstr "ファイルを削除"
+
+msgid "form.dropzone.dictMaxFilesExceeded"
+msgstr "これ以上ファイルをアップロードすることはできません。"
+
+msgid "form.errorA11y"
+msgstr "{$fieldLabel}に移動: {$errorMessage}"
+
+msgid "form.errorGoTo"
+msgstr "次のエラーへ"
+
+msgid "form.errorOne"
+msgstr "エラーを 1 個修正してください。"
+
+msgid "form.errorMany"
+msgstr "エラーを{$count}個修正してください。"
+
+msgid "form.errors"
+msgstr ""
+"{$count} 個のエラーが発生したため、フォームは保存されませんでした。 これらの"
+"エラーを修正して、もう一度やり直してください。"
+
+msgid "form.errorsOccurred"
+msgstr "処理中にエラーが発生しました"
+
+msgid "form.formLanguage.description"
+msgstr ""
+"以下の項目に記入する言語を選択してください。使用する言語毎に以下の項目を指定"
+"してください。"
+
+msgid "form.formLanguage"
+msgstr "入力言語"
+
+msgid "form.contains"
+msgstr "含む"
+
+msgid "form.is"
+msgstr "は"
+
+msgid "form.startsWith"
+msgstr "で始まる"
+
+msgid "form.postRequired"
+msgstr "フォームの送信が失敗しました。"
+
+msgid "form.csrfInvalid"
+msgstr ""
+"フォームの送信が失敗しました。ログアウトされた可能性があります。 ページを再読"
+"み込みして、もう一度やり直してください。"
+
+msgid "form.fileRequired"
+msgstr "ファイルのアップロードが必要です。"
+
+msgid "form.required"
+msgstr "（* 必須）"
+
+msgid "form.requirePrimaryLocale"
+msgstr "このフィールドは {$language}で入力する必要があります。"
+
+msgid "form.requireId"
+msgstr "有効なIDを指定する必要があります。"
+
+msgid "form.resubmit"
+msgstr "再実行"
+
+msgid "form.saved"
+msgstr "保存済み"
+
+msgid "form.saveToUpload"
+msgstr "保存ボタンを押してファイルをアップロードしてください。"
+
+msgid "form.send"
+msgstr "送信"
+
+msgid "form.submit"
+msgstr "実行"
+
+msgid "form.invalidImage"
+msgstr ""
+"無効な画像ファイルがアップロードされました。使用可能な形式は.png、.gif、.jpg"
+"です。"
+
+msgid "form.multilingualLabel"
+msgstr "{$localeName}での{$label}"
+
+msgid "form.multilingualProgress"
+msgstr "{$total}言語の{$count}は完了"
+
+msgid "help.help"
+msgstr "ヘルプ"
+
+msgid "help.toc"
+msgstr "目次"
+
+msgid "help.previous"
+msgstr "前へ"
+
+msgid "help.next"
+msgstr "次へ"
+
+msgid "help.upALevel"
+msgstr "上位トピックへ"
+
+msgid "icon.checked.alt"
+msgstr "チェック済"
+
+msgid "icon.comment.alt"
+msgstr "コメント"
+
+msgid "icon.delete.alt"
+msgstr "削除"
+
+msgid "icon.edit.alt"
+msgstr "編集"
+
+msgid "icon.folder.alt"
+msgstr "フォルダー"
+
+msgid "icon.font_large.alt"
+msgstr "大"
+
+msgid "icon.font_medium.alt"
+msgstr "中"
+
+msgid "icon.font_small.alt"
+msgstr "小"
+
+msgid "icon.info.alt"
+msgstr "情報"
+
+msgid "icon.letter.alt"
+msgstr "レター"
+
+msgid "icon.mail.alt"
+msgstr "メール"
+
+msgid "icon.unchecked.alt"
+msgstr "未チェック"
+
+msgid "icon.view.alt"
+msgstr "閲覧"
+
+msgid "informationCenter.informationCenter"
+msgstr "インフォメーションセンター"
+
+msgid "informationCenter.editorialHistory"
+msgstr "編集歴"
+
+msgid "informationCenter.addNote"
+msgstr "注記追加"
+
+msgid "informationCenter.noNotes"
+msgstr "表示できる注記がありません。"
+
+msgid "informationCenter.pastNotes"
+msgstr "以前の改訂の注記"
+
+msgid "informationCenter.deleteConfirm"
+msgstr "この注記を削除してもよろしいですか？"
+
+msgid "informationCenter.currentHistory"
+msgstr "現行改訂"
+
+msgid "informationCenter.pastHistory"
+msgstr "以前の改訂"
+
+msgid "informationCenter.history.noItems"
+msgstr "ログに記録されたイベントはありません。"
+
+msgid "informationCenter.history.notePosted"
+msgstr "新しい注記が追加されました。"
+
+msgid "informationCenter.history.messageSent"
+msgstr "ユーザーに通知が送信されました。"
+
+msgid "stageParticipants.history.messageSent"
+msgstr "ユーザーに通知が送信されました。"
+
+msgid "stageParticipants.notify.startDiscussion"
+msgstr "ディスカッションを開始"
+
+msgid "stageParticipants.notify.startDiscussion.description"
+msgstr "{$userFullName}とのディスカッションを開始します。"
+
+msgid "stageParticipants.notify.chooseMessage"
+msgstr "定義済みメッセージを選択するか、以下のフォームに入力してください。"
+
+msgid "stageParticipants.notify.message"
+msgstr "メッセージ"
+
+msgid "stageParticipants.notify.warning"
+msgstr ""
+"メッセージフィールドに入力し、自分以外の人がディスカッションに参加しているこ"
+"とを確認してください。"
+
+msgid "stageParticipants.options"
+msgstr "権限の割当"
+
+msgid "stageParticipants.recommendOnly"
+msgstr ""
+"この参加者は、編集上の決定を推奨することしかできず、編集上の決定を記録する権"
+"限のある編集者を必要とします。"
+
+msgid "stageParticipants.submissionEditMetadataOptions"
+msgstr "権限"
+
+msgid "stageParticipants.canChangeMetadata"
+msgstr ""
+"このユーザーが、タイトル、要旨、メタデータ、その他の投稿物の詳細を変更できる"
+"権限を与えます。 投稿が最終チェックを受信し、発行の準備が整っている場合は、こ"
+"の権限を取り消すことができます。"
+
+msgid "stageParticipants.selectedUser"
+msgstr "参加者"
+
+msgid "stageParticipants.noOptionsToHandle"
+msgstr "この参加者に変更を加えることはできません"
+
+msgid "locale.primary"
+msgstr "プライマリ言語"
+
+msgid "locale.supported"
+msgstr "サポート言語"
+
+msgid "navigation.access"
+msgstr "ユーザー＆役割"
+
+msgid "navigation.about"
+msgstr "このサイト/雑誌について"
+
+msgid "navigation.admin"
 msgstr "管理"
 
-msgid "common.semicolonListSeparator"
-msgstr "; "
+msgid "navigation.archives"
+msgstr "アーカイブ"
 
-msgid "common.commaListSeparator"
-msgstr "、 "
+msgid "navigation.breadcrumbLabel"
+msgstr "現在のページ:"
 
-msgid "common.lessThanOnly"
-msgstr "未満"
+msgid "navigation.breadcrumbSeparator"
+msgstr "/"
 
-msgid "common.lessThan"
-msgstr "{$value}以下"
+msgid "navigation.tools"
+msgstr "ツール"
 
-msgid "common.less"
-msgstr "未満"
+msgid "navigation.tools.importExport"
+msgstr "インポート・エキスポート"
 
-msgid "common.lastActivity"
-msgstr "最近活動記録日: {$date}"
+msgid "navigation.tools.statistics"
+msgstr "統計"
 
-msgid "common.itemsPerPage"
-msgstr "ページごとの要素"
+msgid "navigation.browse"
+msgstr "ブラウズ"
 
-msgid "common.captcha.error.missing-input-response"
-msgstr "スパム送信を防ぐための検証チェックを完了する必要があります。"
+msgid "navigation.backTo"
+msgstr "⟵ {$page}に戻る"
 
-msgid "user.authorization.submissionFile"
+msgid "navigation.browseByAuthor"
+msgstr "著者によるブラウズ"
+
+msgid "navigation.browseByTitle"
+msgstr "タイトルによるブラウズ"
+
+msgid "navigation.dashboard"
+msgstr "ダッシュボード"
+
+msgid "navigation.data"
+msgstr "データ"
+
+msgid "navigation.home"
+msgstr "ホーム"
+
+msgid "navigation.infoForReaders"
+msgstr "読者の皆さまへ"
+
+msgid "navigation.infoForReaders.long"
+msgstr "読者の皆さまへ"
+
+msgid "navigation.items"
+msgstr "{$from} - {$to} / {$total} 件"
+
+msgid "navigation.items.shownTotal"
+msgstr "{$total}件の{$shown}"
+
+msgid "navigation.login"
+msgstr "ログイン"
+
+msgid "navigation.nextPage"
+msgstr "&gt;&gt;"
+
+msgid "navigation.nextStep"
+msgstr "次のステップ"
+
+msgid "navigation.previousPage"
+msgstr "&lt;&lt;"
+
+msgid "navigation.previousStep"
+msgstr "前のステップ"
+
+msgid "navigation.publicMenu"
+msgstr "パブリックメニュー"
+
+msgid "navigation.register"
+msgstr "登録"
+
+msgid "navigation.search"
+msgstr "検索"
+
+msgid "navigation.settings"
+msgstr "設定"
+
+msgid "navigation.setup"
+msgstr "セットアップ"
+
+msgid "navigation.sitemap"
+msgstr "サイトマップ"
+
+msgid "navigation.skip.description"
+msgstr "コンテンツ リンクへスキップ"
+
+msgid "navigation.skip.announcements"
+msgstr "お知らせにスキップ"
+
+msgid "navigation.skip.main"
+msgstr "メイン コンテンツにスキップ"
+
+msgid "navigation.skip.nav"
+msgstr "メインナビゲーションメニューにスキップ"
+
+msgid "navigation.skip.footer"
+msgstr "サイトフッターにスキップ"
+
+msgid "navigation.stepNumber"
+msgstr "ステップ {$step}"
+
+msgid "navigation.submissions"
+msgstr "投稿物"
+
+msgid "navigation.system"
+msgstr "システム"
+
+msgid "navigation.userHome"
+msgstr "ユーザーホーム"
+
+msgid "navigation.user"
+msgstr "ユーザー"
+
+msgid "navigation.userManagement"
+msgstr "ユーザー管理"
+
+msgid "navigation.viewFrontend"
+msgstr "サイトを閲覧"
+
+msgid "institution.institutions"
 msgstr ""
-"現在のユーザーは、指定された投稿ファイルにアクセスする権限がありません。"
+
+msgid "notification.addedAuditor"
+msgstr "監査人が追加されました。"
+
+msgid "notification.removedAuditor"
+msgstr "監査人が削除されました。"
+
+msgid "notification.addedQuery"
+msgstr "ディスカッションが追加されました"
+
+msgid "notification.reviewAcknowledged"
+msgstr "査読が確認済みとしてマークされました。 メールが送信されませんでした。"
+
+msgid "notification.reviewerThankedEmail"
+msgstr "査読者に感謝メールが送信されました。"
+
+msgid "notification.updatedReviewFiles"
+msgstr "査読ファイルが更新されました。"
+
+msgid "notification.allow"
+msgstr "これらの通知を通知フィードに表示させる。"
+
+msgid "notification.addedAnnouncementType"
+msgstr "お知らせ種類が追加されました。"
+
+msgid "notification.editedAnnouncementType"
+msgstr "お知らせ種類が編集されました。"
+
+msgid "notification.removedAnnouncementType"
+msgstr "お知らせ種類が削除されました。"
+
+msgid "notification.removedAnnouncement"
+msgstr "お知らせが削除されました。"
+
+msgid "notification.confirmError"
+msgstr "登録確認でエラーが発生しました。"
+
+msgid "notification.confirmSuccess"
+msgstr "正常に登録されました。"
+
+msgid "notification.email"
+msgstr "これらの通知のメールを送信しないでください。"
+
+msgid "notification.noneExist"
+msgstr "現在は通知がありません。"
+
+msgid "notification.addedNote"
+msgstr "注記が追加されました。"
+
+msgid "notification.removedNote"
+msgstr "注記が削除されました。"
+
+msgid "notification.removedFile"
+msgstr "ファイルが削除されました。"
+
+msgid "notification.removedSubmission"
+msgstr "投稿が削除されました。"
+
+msgid "notification.notification"
+msgstr "通知"
+
+msgid "notification.notifications"
+msgstr "通知"
+
+msgid "notification.sentNotification"
+msgstr "通知が送信されました。"
+
+msgid "notification.settings"
+msgstr "通知設定"
+
+msgid "notification.settingsDescription"
+msgstr ""
+"通知を必要とするシステムイベントを選択してください。チェックをしていない項目"
+"は通知フィードにはあらわれません。"
+
+msgid "notification.reminderError"
+msgstr ""
+"入力されたパスワードに誤りがあります。正確にメールアドレスを入力してくださ"
+"い。"
+
+msgid "notification.reminderSent"
+msgstr "新しいパスワードが登録されているメールアドレス宛てに送信されました。"
+
+msgid "notification.savedSubmissionMetadata"
+msgstr "投稿のメタデータが保存されました。"
+
+msgid "notification.sendNotificationConfirmation"
+msgstr "登録済みのすべてのユーザーに本件についてお知らせメールを送信します。"
+
+msgid "search.author"
+msgstr "著者"
+
+msgid "search.abstract"
+msgstr "要旨"
+
+msgid "search.advancedFilters"
+msgstr "高度なフィルタ"
+
+msgid "search.advancedSearchMore"
+msgstr "詳細検索オプション"
+
+msgid "search.advancedSearchLess"
+msgstr "詳細検索オプションを非表示"
+
+msgid "search.searchAgain"
+msgstr "再検索"
+
+msgid "search.cli.rebuildIndex.clearingIndex"
+msgstr "検索インデックスをクリア"
+
+msgid "search.cli.rebuildIndex.done"
+msgstr "完了"
+
+msgid "search.cli.rebuildIndex.error"
+msgstr "エラー"
+
+msgid "search.cli.rebuildIndex.result"
+msgstr "{$numIndexed}の論文をインデックス完了"
+
+msgid "search.coverage"
+msgstr "範囲"
+
+msgid "search.date"
+msgstr "日付"
+
+msgid "search.dateFrom"
+msgstr "処理対象開始日"
+
+msgid "search.dateTo"
+msgstr "処理対象終了日"
+
+msgid "search.deleteFilter"
+msgstr "削除"
+
+msgid "search.discipline"
+msgstr "分野"
+
+msgid "search.fullText"
+msgstr "フルテキスト"
+
+msgid "search.indexTerms"
+msgstr "インデックス検索"
+
+msgid "search.indexTermsLong"
+msgstr "インデックス用語フィールドの全て"
+
+msgid "search.matchAll"
+msgstr "すべてのカテゴリーにマッチ"
+
+msgid "search.noResults"
+msgstr "該当なし"
+
+msgid "search.operator.and"
+msgstr "and"
+
+msgid "search.operator.not"
+msgstr "not"
+
+msgid "search.operator.or"
+msgstr "or"
+
+msgid "search.SearchFor"
+msgstr "を検索する"
+
+msgid "search.searchResults"
+msgstr "検索結果"
+
+msgid "search.searchResults.foundSingle"
+msgstr "1 個の項目が見つかりました。"
+
+msgid "search.searchResults.foundPlural"
+msgstr "{$count} 個の項目が見つかりました。"
+
+msgid "search.subject"
+msgstr "キーワード"
+
+msgid "search.titleIndex"
+msgstr "タイトルインデックスをブラウズ"
+
+msgid "search.title"
+msgstr "タイトル"
+
+msgid "search.typeMethodApproach"
+msgstr "種別（方法/アプローチ）"
+
+msgid "grid.action.downloadFile"
+msgstr "このファイルをダウンロード"
+
+msgid "context.path"
+msgstr "パス名"
+
+msgid "review.ensuringAnonymousReview"
+msgstr "すべてのファイルを匿名化する方法"
+
+msgid "grid.action.showReviewPolicy"
+msgstr "現在の査読ポリシーを読む"
+
+msgid "grid.action.deleteNotification"
+msgstr "タスクを削除"
+
+msgid "grid.action.markNew"
+msgstr "新規にマーク"
+
+msgid "grid.action.markRead"
+msgstr "既読にする"
+
+msgid "dashboard.tasks"
+msgstr "タスク"
+
+msgid "dashboard.myQueue"
+msgstr "キュー"
+
+msgid "review.anonymousPeerReview.title"
+msgstr "すべてのファイルを匿名化する方法"
 
 msgid "review.anonymousPeerReview"
 msgstr ""
@@ -1301,717 +1800,187 @@ msgstr ""
 "<li>Click OK</li>\n"
 "<li>Save the document</li></ul></li></ul>\n"
 
-msgid "notification.sendNotificationConfirmation"
-msgstr "登録済みのすべてのユーザーに本件についてお知らせメールを送信します。"
+msgid "reviewer.submission.reviewSchedule"
+msgstr "査読スケジュール"
 
-msgid "validator.url"
-msgstr "有効なURLではありません。"
+msgid "reviewer.submission.reviewRequestDate"
+msgstr "編集者からの依頼"
 
-msgid "validator.unique"
-msgstr "{$attribute}はすでに受け付けられています。"
+msgid "reviewer.submission.responseDueDate"
+msgstr "応答期日"
 
-msgid "validator.timezone"
-msgstr "有効なタイムゾーンではありません。"
+msgid "reviewer.submission.reviewDueDate"
+msgstr "査読期限日"
 
-msgid "validator.string"
-msgstr "有効な文字列ではありません。"
+msgid "submission.task.responseDueDate"
+msgstr "応答期日"
 
-msgid "validator.size.array"
-msgstr "{$size}個の項目が含まれている必要があります。"
+msgid "navigation.goBack"
+msgstr "戻る"
 
-msgid "validator.size.string"
-msgstr "{$size}字である必要があります。"
-
-msgid "validator.size.file"
-msgstr "{$size}KBである必要があります。"
-
-msgid "validator.size.numeric"
-msgstr "{$size}である必要があります。"
-
-msgid "validator.same"
-msgstr "{$attribute}と{$other}が一致しないといけません。"
-
-msgid "validator.required_without_all"
-msgstr "{$values}の一つも存在していない場合、このフィールドは必須です。"
-
-msgid "validator.required_without"
-msgstr "{$values}が存在していない場合、このフィールドは必須です。"
-
-msgid "validator.required_with_all"
-msgstr "{$values}が存在している場合、このフィールドは必須です。"
-
-msgid "validator.required_with"
-msgstr "{$values}が存在している場合、このフィールドは必須です。"
-
-msgid "validator.required_unless"
-msgstr "{$values}に{$other}がない場合、このフィールドは必須です。"
-
-msgid "validator.required_if"
-msgstr "{$other}が{$value}である場合、このフィールドは必須です。"
-
-msgid "validator.required"
-msgstr "このフィールドは必須です。"
-
-msgid "validator.regex"
-msgstr "これは正しい形式ではありません。"
-
-msgid "validator.present"
-msgstr "{$attribute}フィールドが存在している必要があります。"
-
-msgid "validator.orcid"
-msgstr "有効なORCIDではありません。"
-
-msgid "validator.numeric"
-msgstr "有効な数値ではありません。"
-
-msgid "validator.not_in"
-msgstr "選択された{$attributeは無効です。"
-
-msgid "validator.min.array"
-msgstr "少なくとも{$min}個の項目が必要です。"
-
-msgid "validator.min.string"
-msgstr "{$min}字以上である必要があります。"
-
-msgid "validator.min.file"
-msgstr "{$min}KB以上である必要があります。"
-
-msgid "validator.min.numeric"
-msgstr "{$min}以上である必要があります。"
-
-msgid "validator.mimes"
-msgstr "{$values}タイプのファイルである必要があります。"
-
-msgid "validator.max.array"
-msgstr "これには{$max} 項目を超える項目は含まれません。"
-
-msgid "validator.max.string"
-msgstr "{$max} 字より大きくはできません。"
-
-msgid "validator.max.file"
-msgstr "{$max}KBより大きくはできません。"
-
-msgid "validator.max.numeric"
-msgstr "{$max}より大きくはできません。"
-
-msgid "validator.localeKey"
+msgid "notification.addedReviewer"
 msgstr ""
-"言語コードを使用して言語を指定する必要があります。 例: en_US, fr_CA, "
-"sr_RS@cyrillic。"
-
-msgid "validator.localeExpected"
-msgstr ""
-"多言語フィールドです。 サポートされている言語ごとに個別の値を指定する必要があ"
-"ります。"
-
-msgid "validator.locale"
-msgstr "この言語は使用できません。"
-
-msgid "validator.json"
-msgstr "有効な JSON 文字列ではありません。"
-
-msgid "validator.issn"
-msgstr "有効なISSNではありません。"
-
-msgid "validator.ip"
-msgstr "有効なIPアドレスではありません。"
-
-msgid "validator.integer"
-msgstr "有効な整数ではありません。"
-
-msgid "validator.in"
-msgstr "選択された{$attributeは無効です。"
-
-msgid "validator.image"
-msgstr "画像ファイルである必要があります。"
-
-msgid "validator.filled"
-msgstr "このフィールドは必須です。"
-
-msgid "validator.exists"
-msgstr "選択された{$attributeは無効です。"
-
-msgid "validator.email"
-msgstr "有効なメールアドレスではありません。"
-
-msgid "validator.digits_between"
-msgstr "{$min}～{$max}桁の数字である必要があります。"
-
-msgid "validator.digits"
-msgstr "長さは {$digits} 桁にする必要があります。"
-
-msgid "validator.different"
-msgstr "{$attribute}と{$other}は異なる必要があります。"
-
-msgid "validator.date_format"
-msgstr "フォーマット{$format}と一致しません。"
-
-msgid "validator.date"
-msgstr "有効な日付ではありません。"
-
-msgid "validator.currency"
-msgstr "有効な通貨ではありません。"
-
-msgid "validator.confirmed"
-msgstr "このフィールドの確認が一致しません。"
-
-msgid "validator.boolean"
-msgstr "このフィールドは true または false にする必要があります。"
-
-msgid "validator.between.array"
-msgstr "{$min}~{$max} 個の項目が必要です。"
-
-msgid "validator.between.string"
-msgstr "{$min} ~ {$max}字が必要です。"
-
-msgid "validator.between.file"
-msgstr "{$min} ~ {$max}のKBの間である必要があります。"
-
-msgid "validator.between.numeric"
-msgstr "{$min} ~ {$max}の間である必要があります。"
-
-msgid "validator.before"
-msgstr "この日付は{$date}より前にする必要があります。"
-
-msgid "validator.array"
-msgstr "有効なアレイではありません。"
-
-msgid "validator.alpha_num"
-msgstr "使用できるのは、文字、数字のみです。"
-
-msgid "validator.alpha_dash"
-msgstr "使用できるのは、文字、数字、ダッシュ、およびアンダースコアのみです。"
-
-msgid "validator.alpha"
-msgstr "使用できるのは、文字のみです。"
-
-msgid "validator.after"
-msgstr "この日付は {$date}より後にする必要があります。"
-
-msgid "validator.active_url"
-msgstr "有効なURLではありません。"
-
-msgid "validator.accepted"
-msgstr "この項目に同意してください.."
-
-msgid "list.viewLess"
-msgstr "{$name}の詳細を非表示"
-
-msgid "list.viewMore"
-msgstr "{$name}の詳細を表示"
-
-msgid "notification.removedNavigationMenu"
-msgstr "ナビゲーションメニューが正常に削除されました"
-
-msgid "notification.editedNavigationMenu"
-msgstr "ナビゲーションメニューが正常に更新されました"
-
-msgid "notification.addedNavigationMenu"
-msgstr "ナビゲーションメニューが正常に追加されました"
-
-msgid "notification.addedNavigationMenuItem"
-msgstr "ナビゲーションメニュー項目が正常に追加されました"
-
-msgid "notification.removedNavigationMenuItem"
-msgstr "ナビゲーションメニュー項目が正常に削除されました"
-
-msgid "notification.editedNavigationMenuItem"
-msgstr "ナビゲーションメニュー項目が正常に更新されました"
-
-msgid "semicolon"
-msgstr "{$label}:"
-
-msgid "notification.type.editorialReport.contents"
-msgstr "雑誌の健康を編集のレポートによって点検するための親切なリマインドです。"
-
-msgid "notification.type.editorialReport"
-msgstr "統計レポートの要約。"
-
-msgid "notification.type.roundStatusTitle"
-msgstr "ラウンド {$round} 現況"
-
-msgid "notification.type.awaitingCopyedits"
-msgstr "原稿整理待ち中。"
-
-msgid "notification.type.assignCopyeditors"
-msgstr ""
-"参加者リストの「任命」リンクを使用して、コピーエディターを割り当てください。"
-
-msgid "notification.type.queryAdded"
-msgstr "ディスカッションが追加されました。"
-
-msgid "notification.type.queryActivity"
-msgstr "ディスカッションアクティビティ。"
-
-msgid "user.register.form.privacyConsentLabel"
-msgstr "プライバシーオプション"
-
-msgid "user.authorization.submissionAuthor"
-msgstr ""
-"現在のユーザーは、要求された投稿の著者ではありません。 正しいユーザアカウント"
-"でログインしていることを確認してください。"
-
-msgid "user.authorization.authorRoleMissing"
-msgstr ""
-"現在、投稿物を表示するための十分な権限がありません。 プロフィールを編集して、"
-"「登録者」で適切な役割が付与されていることを確認してください。"
-
-msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr "この査読割当にアクセス権がありません。"
-
-msgid "user.authorization.unauthorizedNote"
-msgstr "このディスカッションメッセージへのアクセス権がありません。"
-
-msgid "user.authorization.invalidQuery"
-msgstr "無効なディスカッション。"
-
-msgid "user.authorization.invalidReviewRound"
-msgstr "無効な査読ラウンド。"
-
-msgid "user.authorization.invalidRepresentation"
-msgstr "無効な表現。"
-
-msgid "user.authorization.invalidSubmission"
-msgstr "無効な投稿。"
-
-msgid "user.authorization.invalidPublication"
-msgstr "無効な公開物。"
-
-msgid "user.email"
-msgstr "メールアドレス"
-
-msgid "notification.signedFile"
-msgstr "ファイルが考慮されました。"
-
-msgid "notification.type.reviewerComment"
-msgstr "「{$title}」について読者からコメントがあった。"
-
-msgid "notification.type.pendingRevisions.title"
-msgstr "{$stage}に提出された改訂。"
-
-msgid "notification.type.pendingRevisions"
-msgstr "{$stage}で考慮する改訂。"
-
-msgid "notification.type.allRevisionsIn"
-msgstr ""
-"{$stage}で編集上の考慮事項のために改訂されたファイルがアップロードされまし"
-"た。"
-
-msgid "notification.type.allReviewsIn"
-msgstr "すべての査読者が回答しました。 {$stage}で決定が必要です。"
-
-msgid "notification.type.auditorRequest"
-msgstr "「{$file}」の監査要求"
-
-msgid "notification.type.reviewAssignmentUpdated"
-msgstr "査読割当が更新されました。"
-
-msgid "notification.type.reviewAssignment"
-msgstr "査読待機中。"
-
-msgid "notification.type.newAnnouncement"
-msgstr "新しいお知らせ。"
-
-msgid "notification.editStageParticipant"
-msgstr "段階の割当が変更されました。"
-
-msgid "notification.addedStageParticipant"
-msgstr "ユーザーが段階参加者として追加されました。"
-
-msgid "notification.reinstatedReviewer"
-msgstr "査読者が回復されました。"
-
-msgid "notification.cancelledReviewer"
-msgstr "査読者が取り消されました。"
-
-msgid "notification.removedReviewer"
-msgstr "査読者が削除されました。"
+"{$reviewerName} がこの投稿の査読者に任命され、メール通知が送信されました。"
 
 msgid "notification.addedReviewerNoEmail"
 msgstr ""
 "{$reviewerName} がこの投稿の査読者に任命され、メール通知が送信されませんでし"
 "た。"
 
-msgid "notification.addedReviewer"
+msgid "notification.removedReviewer"
+msgstr "査読者が削除されました。"
+
+msgid "notification.cancelledReviewer"
+msgstr "査読者が取り消されました。"
+
+msgid "notification.reinstatedReviewer"
+msgstr "査読者が回復されました。"
+
+msgid "notification.reviewerResendRequest"
 msgstr ""
-"{$reviewerName} がこの投稿の査読者に任命され、メール通知が送信されました。"
 
-msgid "navigation.goBack"
-msgstr "戻る"
+msgid "notification.addedStageParticipant"
+msgstr "ユーザーが段階参加者として追加されました。"
 
-msgid "submission.task.responseDueDate"
-msgstr "応答期日"
+msgid "notification.editStageParticipant"
+msgstr "段階の割当が変更されました。"
 
-msgid "reviewer.submission.reviewDueDate"
-msgstr "査読期限日"
+msgid "notification.type.newAnnouncement"
+msgstr "新しいお知らせ。"
 
-msgid "reviewer.submission.responseDueDate"
-msgstr "応答期日"
+msgid "notification.type.reviewAssignment"
+msgstr "査読待機中。"
 
-msgid "reviewer.submission.reviewRequestDate"
-msgstr "編集者からの依頼"
+msgid "notification.type.reviewAssignmentUpdated"
+msgstr "査読割当が更新されました。"
 
-msgid "reviewer.submission.reviewSchedule"
-msgstr "査読スケジュール"
+msgid "notification.type.auditorRequest"
+msgstr "「{$file}」の監査要求"
 
-msgid "review.anonymousPeerReview.title"
-msgstr "すべてのファイルを匿名化する方法"
+msgid "notification.type.allReviewsIn"
+msgstr "すべての査読者が回答しました。 {$stage}で決定が必要です。"
 
-msgid "dashboard.myQueue"
-msgstr "キュー"
-
-msgid "dashboard.tasks"
-msgstr "タスク"
-
-msgid "grid.action.markRead"
-msgstr "既読にする"
-
-msgid "grid.action.markNew"
-msgstr "新規にマーク"
-
-msgid "grid.action.deleteNotification"
-msgstr "タスクを削除"
-
-msgid "grid.action.showReviewPolicy"
-msgstr "現在の査読ポリシーを読む"
-
-msgid "review.ensuringAnonymousReview"
-msgstr "すべてのファイルを匿名化する方法"
-
-msgid "context.path"
-msgstr "パス名"
-
-msgid "grid.action.downloadFile"
-msgstr "このファイルをダウンロード"
-
-msgid "search.typeMethodApproach"
-msgstr "種別（方法/アプローチ）"
-
-msgid "search.title"
-msgstr "タイトル"
-
-msgid "search.titleIndex"
-msgstr "タイトルインデックスをブラウズ"
-
-msgid "search.subject"
-msgstr "キーワード"
-
-msgid "search.searchResults.foundPlural"
-msgstr "{$count} 個の項目が見つかりました。"
-
-msgid "search.searchResults.foundSingle"
-msgstr "1 個の項目が見つかりました。"
-
-msgid "search.searchResults"
-msgstr "検索結果"
-
-msgid "search.SearchFor"
-msgstr "を検索する"
-
-msgid "search.operator.or"
-msgstr "or"
-
-msgid "search.operator.not"
-msgstr "not"
-
-msgid "search.operator.and"
-msgstr "and"
-
-msgid "search.noResults"
-msgstr "該当なし"
-
-msgid "search.matchAll"
-msgstr "すべてのカテゴリーにマッチ"
-
-msgid "search.indexTermsLong"
-msgstr "インデックス用語フィールドの全て"
-
-msgid "search.indexTerms"
-msgstr "インデックス検索"
-
-msgid "search.fullText"
-msgstr "フルテキスト"
-
-msgid "search.discipline"
-msgstr "分野"
-
-msgid "search.deleteFilter"
-msgstr "削除"
-
-msgid "search.dateTo"
-msgstr "処理対象終了日"
-
-msgid "search.dateFrom"
-msgstr "処理対象開始日"
-
-msgid "search.date"
-msgstr "日付"
-
-msgid "search.coverage"
-msgstr "範囲"
-
-msgid "search.cli.rebuildIndex.result"
-msgstr "{$numIndexed}の論文をインデックス完了"
-
-msgid "search.cli.rebuildIndex.error"
-msgstr "エラー"
-
-msgid "search.cli.rebuildIndex.done"
-msgstr "完了"
-
-msgid "search.cli.rebuildIndex.clearingIndex"
-msgstr "検索インデックスをクリア"
-
-msgid "search.searchAgain"
-msgstr "再検索"
-
-msgid "search.advancedSearchLess"
-msgstr "詳細検索オプションを非表示"
-
-msgid "search.advancedSearchMore"
-msgstr "詳細検索オプション"
-
-msgid "search.advancedFilters"
-msgstr "高度なフィルタ"
-
-msgid "search.abstract"
-msgstr "要旨"
-
-msgid "search.author"
-msgstr "著者"
-
-msgid "notification.savedSubmissionMetadata"
-msgstr "投稿のメタデータが保存されました。"
-
-msgid "notification.reminderSent"
-msgstr "新しいパスワードが登録されているメールアドレス宛てに送信されました。"
-
-msgid "notification.reminderError"
+msgid "notification.type.allRevisionsIn"
 msgstr ""
-"入力されたパスワードに誤りがあります。正確にメールアドレスを入力してくださ"
-"い。"
+"{$stage}で編集上の考慮事項のために改訂されたファイルがアップロードされまし"
+"た。"
 
-msgid "notification.settingsDescription"
+msgid "notification.type.pendingRevisions"
+msgstr "{$stage}で考慮する改訂。"
+
+msgid "notification.type.pendingRevisions.title"
+msgstr "{$stage}に提出された改訂。"
+
+msgid "notification.type.reviewerComment"
+msgstr "「{$title}」について読者からコメントがあった。"
+
+msgid "notification.signedFile"
+msgstr "ファイルが考慮されました。"
+
+msgid "timeZone"
 msgstr ""
-"通知を必要とするシステムイベントを選択してください。チェックをしていない項目"
-"は通知フィードにはあらわれません。"
 
-msgid "notification.settings"
-msgstr "通知設定"
+msgid "user.email"
+msgstr "メールアドレス"
 
-msgid "notification.sentNotification"
-msgstr "通知が送信されました。"
-
-msgid "notification.notifications"
-msgstr "通知"
-
-msgid "notification.notification"
-msgstr "通知"
-
-msgid "notification.removedSubmission"
-msgstr "投稿が削除されました。"
-
-msgid "notification.removedFile"
-msgstr "ファイルが削除されました。"
-
-msgid "notification.removedNote"
-msgstr "注記が削除されました。"
-
-msgid "notification.addedNote"
-msgstr "注記が追加されました。"
-
-msgid "notification.noneExist"
-msgstr "現在は通知がありません。"
-
-msgid "notification.email"
-msgstr "これらの通知のメールを送信しないでください。"
-
-msgid "notification.confirmSuccess"
-msgstr "正常に登録されました。"
-
-msgid "notification.confirmError"
-msgstr "登録確認でエラーが発生しました。"
-
-msgid "notification.removedAnnouncement"
-msgstr "お知らせが削除されました。"
-
-msgid "notification.removedAnnouncementType"
-msgstr "お知らせ種類が削除されました。"
-
-msgid "notification.editedAnnouncementType"
-msgstr "お知らせ種類が編集されました。"
-
-msgid "notification.addedAnnouncementType"
-msgstr "お知らせ種類が追加されました。"
-
-msgid "notification.allow"
-msgstr "これらの通知を通知フィードに表示させる。"
-
-msgid "notification.updatedReviewFiles"
-msgstr "査読ファイルが更新されました。"
-
-msgid "notification.reviewerThankedEmail"
-msgstr "査読者に感謝メールが送信されました。"
-
-msgid "notification.reviewAcknowledged"
-msgstr "査読が確認済みとしてマークされました。 メールが送信されませんでした。"
-
-msgid "notification.addedQuery"
-msgstr "ディスカッションが追加されました"
-
-msgid "notification.removedAuditor"
-msgstr "監査人が削除されました。"
-
-msgid "notification.addedAuditor"
-msgstr "監査人が追加されました。"
-
-msgid "navigation.viewFrontend"
-msgstr "サイトを閲覧"
-
-msgid "navigation.userManagement"
-msgstr "ユーザー管理"
-
-msgid "navigation.user"
-msgstr "ユーザー"
-
-msgid "navigation.userHome"
-msgstr "ユーザーホーム"
-
-msgid "navigation.system"
-msgstr "システム"
-
-msgid "navigation.submissions"
-msgstr "投稿物"
-
-msgid "navigation.stepNumber"
-msgstr "ステップ {$step}"
-
-msgid "navigation.skip.footer"
-msgstr "サイトフッターにスキップ"
-
-msgid "navigation.skip.nav"
-msgstr "メインナビゲーションメニューにスキップ"
-
-msgid "navigation.publicMenu"
-msgstr "パブリックメニュー"
-
-msgid "navigation.previousStep"
-msgstr "前のステップ"
-
-msgid "navigation.previousPage"
-msgstr "&lt;&lt;"
-
-msgid "navigation.nextStep"
-msgstr "次のステップ"
-
-msgid "navigation.nextPage"
-msgstr "&gt;&gt;"
-
-msgid "navigation.items.shownTotal"
-msgstr "{$total}件の{$shown}"
-
-msgid "navigation.items"
-msgstr "{$from} - {$to} / {$total} 件"
-
-msgid "navigation.home"
-msgstr "ホーム"
-
-msgid "navigation.data"
-msgstr "データ"
-
-msgid "navigation.dashboard"
-msgstr "ダッシュボード"
-
-msgid "navigation.browseByTitle"
-msgstr "タイトルによるブラウズ"
-
-msgid "navigation.browseByAuthor"
-msgstr "著者によるブラウズ"
-
-msgid "navigation.backTo"
-msgstr "⟵ {$page}に戻る"
-
-msgid "navigation.browse"
-msgstr "ブラウズ"
-
-msgid "navigation.tools.statistics"
-msgstr "統計"
-
-msgid "navigation.tools.importExport"
-msgstr "インポート・エキスポート"
-
-msgid "navigation.tools"
-msgstr "ツール"
-
-msgid "navigation.breadcrumbLabel"
-msgstr "現在のページ:"
-
-msgid "navigation.access"
-msgstr "ユーザー＆役割"
-
-msgid "stageParticipants.noOptionsToHandle"
-msgstr "この参加者に変更を加えることはできません"
-
-msgid "stageParticipants.selectedUser"
-msgstr "参加者"
-
-msgid "stageParticipants.canChangeMetadata"
+msgid "user.authorization.submissionFile"
 msgstr ""
-"このユーザーが、タイトル、要旨、メタデータ、その他の投稿物の詳細を変更できる"
-"権限を与えます。 投稿が最終チェックを受信し、発行の準備が整っている場合は、こ"
-"の権限を取り消すことができます。"
+"現在のユーザーは、指定された投稿ファイルにアクセスする権限がありません。"
 
-msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr "権限"
+msgid "user.authorization.invalidPublication"
+msgstr "無効な公開物。"
 
-msgid "stageParticipants.recommendOnly"
+msgid "user.authorization.invalidSubmission"
+msgstr "無効な投稿。"
+
+msgid "user.authorization.invalidRepresentation"
+msgstr "無効な表現。"
+
+msgid "user.authorization.invalidReviewRound"
+msgstr "無効な査読ラウンド。"
+
+msgid "user.authorization.invalidQuery"
+msgstr "無効なディスカッション。"
+
+msgid "user.authorization.unauthorizedNote"
+msgstr "このディスカッションメッセージへのアクセス権がありません。"
+
+msgid "user.authorization.unauthorizedReviewAssignment"
+msgstr "この査読割当にアクセス権がありません。"
+
+msgid "user.authorization.authorRoleMissing"
 msgstr ""
-"この参加者は、編集上の決定を推奨することしかできず、編集上の決定を記録する権"
-"限のある編集者を必要とします。"
+"現在、投稿物を表示するための十分な権限がありません。 プロフィールを編集して、"
+"「登録者」で適切な役割が付与されていることを確認してください。"
 
-msgid "stageParticipants.options"
-msgstr "権限の割当"
-
-msgid "stageParticipants.notify.warning"
+msgid "user.authorization.submissionAuthor"
 msgstr ""
-"メッセージフィールドに入力し、自分以外の人がディスカッションに参加しているこ"
-"とを確認してください。"
+"現在のユーザーは、要求された投稿の著者ではありません。 正しいユーザアカウント"
+"でログインしていることを確認してください。"
 
-msgid "common.component"
-msgstr "要素"
+msgid "user.register.form.privacyConsentLabel"
+msgstr "プライバシーオプション"
 
-msgid "common.override"
-msgstr "上書き"
+msgid "notification.type.queryActivity"
+msgstr "ディスカッションアクティビティ。"
 
-msgid "common.go"
-msgstr "行け"
+msgid "notification.type.queryAdded"
+msgstr "ディスカッションが追加されました。"
 
-msgid "navigation.skip.description"
-msgstr "コンテンツ リンクへスキップ"
-
-msgid "navigation.sitemap"
-msgstr "サイトマップ"
-
-msgid "navigation.setup"
-msgstr "セットアップ"
-
-msgid "navigation.settings"
-msgstr "設定"
-
-msgid "navigation.skip.main"
-msgstr "メイン コンテンツにスキップ"
-
-msgid "navigation.skip.announcements"
-msgstr "お知らせにスキップ"
-
-msgid "notification.unsubscribeNotifications"
-msgstr "登録解除"
-
-msgid "notification.unsubscribeNotifications.errorMessage"
+msgid "notification.type.assignCopyeditors"
 msgstr ""
-"予期しないエラーが発生しました。メールアドレス {$email}を登録解除できませんで"
-"した。 <a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </a> のす"
-"べてのメール通知の購読を解除するか、弊社に直接お問い合わせください。"
+"参加者リストの「任命」リンクを使用して、コピーエディターを割り当てください。"
+
+msgid "notification.type.awaitingCopyedits"
+msgstr "原稿整理待ち中。"
+
+msgid "notification.type.roundStatusTitle"
+msgstr "ラウンド {$round} 現況"
+
+msgid "notification.type.editorialReport"
+msgstr "統計レポートの要約。"
+
+msgid "notification.type.editorialReport.contents"
+msgstr "雑誌の健康を編集のレポートによって点検するための親切なリマインドです。"
+
+msgid "notification.type.editorialReminder"
+msgstr ""
+
+msgid "semicolon"
+msgstr "{$label}:"
+
+msgid "notification.editedNavigationMenuItem"
+msgstr "ナビゲーションメニュー項目が正常に更新されました"
+
+msgid "notification.removedNavigationMenuItem"
+msgstr "ナビゲーションメニュー項目が正常に削除されました"
+
+msgid "notification.addedNavigationMenuItem"
+msgstr "ナビゲーションメニュー項目が正常に追加されました"
+
+msgid "notification.addedNavigationMenu"
+msgstr "ナビゲーションメニューが正常に追加されました"
+
+msgid "notification.editedNavigationMenu"
+msgstr "ナビゲーションメニューが正常に更新されました"
+
+msgid "notification.removedNavigationMenu"
+msgstr "ナビゲーションメニューが正常に削除されました"
+
+msgid "notification.unsubscribeNotifications.success"
+msgstr "購読サービスを停止しました"
+
+msgid "notification.unsubscribeNotifications.error"
+msgstr "購読を解除できませんでした"
+
+msgid "notification.unsubscribeNotifications.pageMessage"
+msgstr ""
+"{$contextName} から {$email} で受信したくない電子メールを選択してください。"
+
+msgid "notification.unsubscribeNotifications.resubscribe"
+msgstr ""
+"<a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </a> からいつでも"
+"メール通知に再サブスクライブできます。"
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
@@ -2019,94 +1988,254 @@ msgstr ""
 "なくなります。 <a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </"
 "a> からいつでもメール通知に再サブスクライブできます。"
 
-msgid "notification.unsubscribeNotifications.resubscribe"
+msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
-"<a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </a> からいつでも"
-"メール通知に再サブスクライブできます。"
+"予期しないエラーが発生しました。メールアドレス {$email}を登録解除できませんで"
+"した。 <a href=\"{$profileNotificationUrl}\"> ユーザープロフィール </a> のす"
+"べてのメール通知の購読を解除するか、弊社に直接お問い合わせください。"
 
-msgid "notification.unsubscribeNotifications.pageMessage"
+msgid "notification.unsubscribeNotifications"
+msgstr "登録解除"
+
+msgid "list.viewMore"
+msgstr "{$name}の詳細を表示"
+
+msgid "list.viewLess"
+msgstr "{$name}の詳細を非表示"
+
+msgid "list.expandAll"
 msgstr ""
-"{$contextName} から {$email} で受信したくない電子メールを選択してください。"
 
-msgid "notification.unsubscribeNotifications.error"
-msgstr "購読を解除できませんでした"
-
-msgid "notification.unsubscribeNotifications.success"
-msgstr "購読サービスを停止しました"
-
-msgid "filter.import.error.couldNotImportNode"
-msgstr "XMLノードはインポートできなかった"
-
-msgid "filter.error.missingRequirements"
+msgid "list.collapseAll"
 msgstr ""
-"お使いのインストール環境でサポートされていない変換を実行しようとしています。"
 
-msgid "filter.input.error.notSupported"
-msgstr ""
-"フィルター ({$displayName}) は {$inputTypeName} 入力に対応 - {$typeofInput} "
-"が与えられる"
+msgid "validation.invalidOption"
+msgstr "有効なオプションではありません。"
 
-msgid "validator.country"
-msgstr "有効な国ではありません。"
+msgid "validator.accepted"
+msgstr "この項目に同意してください.."
+
+msgid "validator.active_url"
+msgstr "有効なURLではありません。"
+
+msgid "validator.after"
+msgstr "この日付は {$date}より後にする必要があります。"
+
+msgid "validator.alpha"
+msgstr "使用できるのは、文字のみです。"
+
+msgid "validator.alpha_dash"
+msgstr "使用できるのは、文字、数字、ダッシュ、およびアンダースコアのみです。"
 
 msgid "validator.alpha_dash_period"
 msgstr ""
 "使用できるのは、文字、数字、ダッシュ、アンダースコア、およびピリオドのみで"
 "す。"
 
-msgid "validation.invalidOption"
-msgstr "有効なオプションではありません。"
+msgid "validator.alpha_num"
+msgstr "使用できるのは、文字、数字のみです。"
 
-msgid "common.insert"
-msgstr "挿入"
+msgid "validator.array"
+msgstr "有効なアレイではありません。"
 
-msgid "common.withParenthesis"
-msgstr "{$item} ({$inParenthesis})"
+msgid "validator.before"
+msgstr "この日付は{$date}より前にする必要があります。"
+
+msgid "validator.between.numeric"
+msgstr "{$min} ~ {$max}の間である必要があります。"
+
+msgid "validator.between.file"
+msgstr "{$min} ~ {$max}のKBの間である必要があります。"
+
+msgid "validator.between.string"
+msgstr "{$min} ~ {$max}字が必要です。"
+
+msgid "validator.between.array"
+msgstr "{$min}~{$max} 個の項目が必要です。"
+
+msgid "validator.boolean"
+msgstr "このフィールドは true または false にする必要があります。"
+
+msgid "validator.confirmed"
+msgstr "このフィールドの確認が一致しません。"
+
+msgid "validator.country"
+msgstr "有効な国ではありません。"
+
+msgid "validator.country.regex"
+msgstr ""
+
+msgid "validator.currency"
+msgstr "有効な通貨ではありません。"
+
+msgid "validator.date"
+msgstr "有効な日付ではありません。"
+
+msgid "validator.date_format"
+msgstr "フォーマット{$format}と一致しません。"
+
+msgid "validator.different"
+msgstr "{$attribute}と{$other}は異なる必要があります。"
+
+msgid "validator.digits"
+msgstr "長さは {$digits} 桁にする必要があります。"
+
+msgid "validator.digits_between"
+msgstr "{$min}～{$max}桁の数字である必要があります。"
+
+msgid "validator.email"
+msgstr "有効なメールアドレスではありません。"
+
+msgid "validator.exists"
+msgstr "選択された{$attributeは無効です。"
+
+msgid "validator.filled"
+msgstr "このフィールドは必須です。"
+
+msgid "validator.image"
+msgstr "画像ファイルである必要があります。"
+
+msgid "validator.in"
+msgstr "選択された{$attributeは無効です。"
+
+msgid "validator.integer"
+msgstr "有効な整数ではありません。"
+
+msgid "validator.ip"
+msgstr "有効なIPアドレスではありません。"
+
+msgid "validator.issn"
+msgstr "有効なISSNではありません。"
+
+msgid "validator.json"
+msgstr "有効な JSON 文字列ではありません。"
+
+msgid "validator.locale"
+msgstr "この言語は使用できません。"
+
+msgid "validator.localeExpected"
+msgstr ""
+"多言語フィールドです。 サポートされている言語ごとに個別の値を指定する必要があ"
+"ります。"
+
+msgid "validator.localeKey"
+msgstr ""
+"言語コードを使用して言語を指定する必要があります。 例: en_US, fr_CA, "
+"sr_RS@cyrillic。"
+
+msgid "validator.max.numeric"
+msgstr "{$max}より大きくはできません。"
+
+msgid "validator.max.file"
+msgstr "{$max}KBより大きくはできません。"
+
+msgid "validator.max.string"
+msgstr "{$max} 字より大きくはできません。"
+
+msgid "validator.max.array"
+msgstr "これには{$max} 項目を超える項目は含まれません。"
+
+msgid "validator.mimes"
+msgstr "{$values}タイプのファイルである必要があります。"
+
+msgid "validator.min.numeric"
+msgstr "{$min}以上である必要があります。"
+
+msgid "validator.min.file"
+msgstr "{$min}KB以上である必要があります。"
+
+msgid "validator.min.string"
+msgstr "{$min}字以上である必要があります。"
+
+msgid "validator.min.array"
+msgstr "少なくとも{$min}個の項目が必要です。"
+
+msgid "validator.not_in"
+msgstr "選択された{$attributeは無効です。"
+
+msgid "validator.numeric"
+msgstr "有効な数値ではありません。"
+
+msgid "validator.orcid"
+msgstr "有効なORCIDではありません。"
+
+msgid "validator.present"
+msgstr "{$attribute}フィールドが存在している必要があります。"
+
+msgid "validator.regex"
+msgstr "これは正しい形式ではありません。"
+
+msgid "validator.required"
+msgstr "このフィールドは必須です。"
+
+msgid "validator.required_if"
+msgstr "{$other}が{$value}である場合、このフィールドは必須です。"
+
+msgid "validator.required_unless"
+msgstr "{$values}に{$other}がない場合、このフィールドは必須です。"
+
+msgid "validator.required_with"
+msgstr "{$values}が存在している場合、このフィールドは必須です。"
+
+msgid "validator.required_with_all"
+msgstr "{$values}が存在している場合、このフィールドは必須です。"
+
+msgid "validator.required_without"
+msgstr "{$values}が存在していない場合、このフィールドは必須です。"
+
+msgid "validator.required_without_all"
+msgstr "{$values}の一つも存在していない場合、このフィールドは必須です。"
+
+msgid "validator.same"
+msgstr "{$attribute}と{$other}が一致しないといけません。"
+
+msgid "validator.size.numeric"
+msgstr "{$size}である必要があります。"
+
+msgid "validator.size.file"
+msgstr "{$size}KBである必要があります。"
+
+msgid "validator.size.string"
+msgstr "{$size}字である必要があります。"
+
+msgid "validator.size.array"
+msgstr "{$size}個の項目が含まれている必要があります。"
+
+msgid "validator.string"
+msgstr "有効な文字列ではありません。"
+
+msgid "validator.timezone"
+msgstr "有効なタイムゾーンではありません。"
+
+msgid "validator.unique"
+msgstr "{$attribute}はすでに受け付けられています。"
+
+msgid "validator.url"
+msgstr "有効なURLではありません。"
+
+msgid "validator.no_new_line"
+msgstr ""
+
+msgid "validator.allowable_title_html_tags"
+msgstr ""
+
+msgid "filter.input.error.notSupported"
+msgstr ""
+"フィルター ({$displayName}) は {$inputTypeName} 入力に対応 - {$typeofInput} "
+"が与えられる"
+
+msgid "filter.error.missingRequirements"
+msgstr ""
+"お使いのインストール環境でサポートされていない変換を実行しようとしています。"
+
+msgid "filter.import.error.couldNotImportNode"
+msgstr "XMLノードはインポートできなかった"
+
+msgid "plugins.importexport.common.error.unknownCommand"
+msgstr ""
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"
-
-msgid "common.addFiles"
-msgstr "ファイルを追加"
-
-msgid "common.attachedFiles"
-msgstr "添付ファイル"
-
-msgid "common.attachFiles"
-msgstr "ファイルを添付"
-
-msgid "common.addCCBCC"
-msgstr "CC/BCCを追加"
-
-msgid "common.orUploadFile"
-msgstr "またはファイルをアップロード"
-
-msgid "common.deselect"
-msgstr "選択解除"
-
-msgid "common.attachSelected"
-msgstr "選択したのを添付"
-
-msgid "common.insertContent"
-msgstr "コンテンツを挿入"
-
-msgid "common.insertContentSearch"
-msgstr "挿入するコンテンツを検索"
-
-msgid "common.downloadReport"
-msgstr "報告ダウンロード"
-
-msgid "common.geographic"
-msgstr "地理的データ"
-
-msgid "common.findTemplate"
-msgstr "テンプレートの検索"
-
-msgid "common.dragAndDropHere"
-msgstr "ここにファイルをドラッグアンドドロップする。"
-
-msgid "common.keepWorking"
-msgstr "働き続ける"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"
@@ -2117,3 +2246,8 @@ msgstr "著者が追加されました。"
 msgid "notification.editedAuthor"
 msgstr "著者が編集されました。"
 
+#~ msgid "common.captchaField"
+#~ msgstr "検証"
+
+#~ msgid "common.captchaField.description"
+#~ msgstr "上の図に表示されている文字を入力してください。"

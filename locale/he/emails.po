@@ -13,11 +13,8 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"דוא\"ל זה, כאשר הוא מופעל, נשלח אוטומטית למחבר כאשר הם משלימים את תהליך הגשת "
-"כתב היד לכתב העת. הוא מספק מידע על מעקב אחר ההגשה בתהליך ומודה למחבר על "
-"המסירה."
+msgid "emails.submissionAck.subject"
+msgstr "אישור ההגשה"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -30,14 +27,22 @@ msgstr ""
 "כתובת אתר להגשה: {$submissionUrl}<br />\n"
 "שם משתמש: {$recipientUsername}<br />\n"
 "<br />\n"
-"אם יש לך שאלות, אנא צור איתי קשר. תודה ששקלת את כתב העת הזה כמקום לעבודה "
-"שלך.<br />\n"
+"אם יש לך שאלות, אנא צור איתי קשר. תודה ששקלת את כתב העת הזה כמקום לעבודה שלך."
+"<br />\n"
 "<br />\n"
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "אישור ההגשה"
+msgid "emails.submissionAck.description"
+msgstr ""
+"דוא\"ל זה, כאשר הוא מופעל, נשלח אוטומטית למחבר כאשר הם משלימים את תהליך הגשת "
+"כתב היד לכתב העת. הוא מספק מידע על מעקב אחר ההגשה בתהליך ומודה למחבר על "
+"המסירה."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "אישור סקירת מאמר"
+
 #, fuzzy
 msgid "emails.reviewAck.body"
 msgstr ""
@@ -48,15 +53,181 @@ msgstr ""
 "תודה על חוות דעתך על ההגשה \"{$submissionTitle} ל{$contextName}. אנו מעריכים "
 "את תרומתך לאיכות העבודה שאנו מפרסמים."
 
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.decision.notifyReviewers.subject"
 msgstr ""
-"דוא\"ל זה נשלח על ידי עורך מדור כדי לאשר את קבלת חוות הדעת ולהודות לסוקר על "
-"התרומות שלהם."
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToExternal.body"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionSendToProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevisions.body"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.subject"
+msgstr ""
+
+msgid "emails.editorDecisionResubmit.body"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionDecline.body"
+msgstr ""
+
+msgid "emails.editorRecommendation.subject"
+msgstr ""
+
+msgid "emails.editorRecommendation.body"
+msgstr ""
+
+msgid "emails.copyeditRequest.subject"
+msgstr ""
+
+msgid "emails.copyeditRequest.body"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionInitialDecline.body"
+msgstr ""
+
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
+
+msgid "emails.discussion.subject"
+msgstr ""
+
+msgid "emails.discussion.body"
+msgstr ""
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
 
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "אישור סקירת מאמר"
+msgid "emails.reviewConfirm.subject"
+msgstr "יכול לבדוק"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"לעורכים:<br />\n"
+"<br />\n"
+"אני מסכים לבדוק ההגשה \"{$submissionTitle}\" ל{$contextName}. תודה שפניתם "
+"אלי ואני מתכנן להחזיר את חוות הדעת עד {$reviewDueDate}, אם לא לפני.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "אישור הגשה"
@@ -73,15 +244,7 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"לעורכים:<br />\n"
-"<br />\n"
-"אני מסכים לבדוק ההגשה \"{$submissionTitle}\" ל{$contextName}. תודה שפניתם "
-"אלי ואני מתכנן להחזיר את חוות הדעת עד {$reviewDueDate}, אם לא לפני.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "יכול לבדוק"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "דוא\"ל זה נשלח על ידי עורך מדור כדי לאשר את קבלת חוות הדעת ולהודות לסוקר "
+#~ "על התרומות שלהם."

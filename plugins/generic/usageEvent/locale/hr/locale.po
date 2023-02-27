@@ -13,8 +13,8 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 4.13.1\n"
 
-msgid "plugins.generic.usageEvent.description"
-msgstr "Stvara kuku koja vraća događaj korištenja u definiranom formatu."
-
 msgid "plugins.generic.usageEvent.displayName"
 msgstr "Događaj korištenja"
+
+msgid "plugins.generic.usageEvent.description"
+msgstr "Stvara kuku koja vraća događaj korištenja u definiranom formatu."

@@ -19,6 +19,15 @@ msgstr "Vietnes pārvaldnieks"
 msgid "default.groups.plural.siteAdmin"
 msgstr "Vietnes pārvaldnieki"
 
+msgid "default.groups.name.productionEditor"
+msgstr "Produkcijas redaktors"
+
+msgid "default.groups.plural.productionEditor"
+msgstr "Produkcijas redaktori"
+
+msgid "default.groups.abbrev.productionEditor"
+msgstr "ProdRed"
+
 msgid "default.groups.name.copyeditor"
 msgstr "Literārais redaktors"
 
@@ -43,23 +52,14 @@ msgstr "Noformētājs"
 msgid "default.groups.plural.designer"
 msgstr "Noformētāji"
 
+msgid "default.groups.abbrev.designer"
+msgstr "Noformējums"
+
 msgid "default.groups.name.internalReviewer"
 msgstr "Iekšējais recenzents"
 
 msgid "default.groups.plural.internalReviewer"
 msgstr "Iekšējie recenzenti"
-
-msgid "default.groups.plural.productionEditor"
-msgstr "Produkcijas redaktori"
-
-msgid "default.groups.abbrev.productionEditor"
-msgstr "ProdRed"
-
-msgid "default.groups.name.productionEditor"
-msgstr "Produkcijas redaktors"
-
-msgid "default.groups.abbrev.designer"
-msgstr "Noformējums"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "IeRec"
@@ -142,6 +142,24 @@ msgstr "HTML stilu lapa"
 #, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\""
-">{$contextName}</a></p><p>{$mailingAddress}</p><p>{$contactName}, <a href="
-"\"mailto: {$contactEmail}\">{$contactEmail}</a></p>"
+"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
+"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
+"{$contactEmail}\">{$contactEmail}</a></p>"
+
+msgid "default.submission.step.beforeYouBegin"
+msgstr ""
+
+msgid "default.submission.step.uploadFiles"
+msgstr ""
+
+msgid "default.submission.step.contributors"
+msgstr ""
+
+msgid "default.submission.step.details"
+msgstr ""
+
+msgid "default.submission.step.forTheEditors"
+msgstr ""
+
+msgid "default.submission.step.review"
+msgstr ""

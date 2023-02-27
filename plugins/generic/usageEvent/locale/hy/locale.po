@@ -12,10 +12,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.generic.usageEvent.displayName"
+msgstr "Օգտագործման իրադարձություն"
+
 msgid "plugins.generic.usageEvent.description"
 msgstr ""
 "Ստեղծում է կեռիկ, որն ապահովում է օգտագործման իրադարձությունը սահմանված "
 "ձևաչափով:"
-
-msgid "plugins.generic.usageEvent.displayName"
-msgstr "Օգտագործման իրադարձություն"

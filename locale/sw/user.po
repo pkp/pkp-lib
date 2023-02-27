@@ -12,29 +12,450 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "user.authorization.restrictedSiteAccess"
-msgstr "Umenyimwa huduma hii. wavuti hii imezuiwa kwa sasa."
-
-msgid "user.authorization.privateOperation"
-msgstr "Huduma uliyojaribu kufikia ni ya kibinafsi au haipo."
-
-msgid "user.authorization.loginRequired"
-msgstr "Unatakiwa Kuingia"
-
-msgid "user.authorization.contextRequired"
-msgstr "Huwezi kuita huduma hii bila muktadha (jarida, mkutano, nk)."
-
-msgid "user.authorization.processAuthenticationTokenRequired"
-msgstr "Hati ya uthibitishaji wa mchakato haipo au si sahihi."
-
-msgid "user.authorization.accessDenied"
-msgstr "Huduma Imezuiliwa"
-
-msgid "user.affiliation.description"
-msgstr "(Taasisi, Chuo unakotoka, mfano. \"St John's  University of Tanzania\")"
+msgid "user.accountInformation"
+msgstr "Taarifa za Akaunti"
 
 msgid "user.affiliation"
 msgstr "Taasisi"
 
-msgid "user.accountInformation"
-msgstr "Taarifa za Akaunti"
+msgid "user.affiliation.description"
+msgstr ""
+"(Taasisi, Chuo unakotoka, mfano. \"St John's  University of Tanzania\")"
+
+msgid "user.affiliations"
+msgstr ""
+
+msgid "user.authorization.accessDenied"
+msgstr "Huduma Imezuiliwa"
+
+msgid "user.authorization.processAuthenticationTokenRequired"
+msgstr "Hati ya uthibitishaji wa mchakato haipo au si sahihi."
+
+msgid "user.authorization.contextRequired"
+msgstr "Huwezi kuita huduma hii bila muktadha (jarida, mkutano, nk)."
+
+msgid "user.authorization.loginRequired"
+msgstr "Unatakiwa Kuingia"
+
+msgid "user.authorization.privateOperation"
+msgstr "Huduma uliyojaribu kufikia ni ya kibinafsi au haipo."
+
+msgid "user.authorization.restrictedSiteAccess"
+msgstr "Umenyimwa huduma hii. wavuti hii imezuiwa kwa sasa."
+
+msgid "user.authorization.roleBasedAccessDenied"
+msgstr ""
+
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+
+msgid "user.authorization.userGroupRequired"
+msgstr ""
+
+msgid "user.authorization.managerRequired"
+msgstr ""
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr ""
+
+msgid "user.authorization.workflowStageRequired"
+msgstr ""
+
+msgid "user.authorization.pluginRequired"
+msgstr ""
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr ""
+
+msgid "user.authorization.submissionQuery"
+msgstr ""
+
+msgid "user.biography"
+msgstr ""
+
+msgid "user.changeMyPassword"
+msgstr ""
+
+msgid "user.changePassword"
+msgstr ""
+
+msgid "user.dateLastLogin"
+msgstr ""
+
+msgid "user.dateRegistered"
+msgstr ""
+
+msgid "user.editMyProfile"
+msgstr ""
+
+msgid "user.email"
+msgstr ""
+
+msgid "user.givenName"
+msgstr ""
+
+msgid "user.interests"
+msgstr ""
+
+msgid "user.gossip"
+msgstr ""
+
+msgid "user.gossip.description"
+msgstr ""
+
+msgid "user.group"
+msgstr ""
+
+msgid "user.familyName"
+msgstr ""
+
+msgid "user.profile.form.profileImageInvalid"
+msgstr ""
+
+msgid "user.login.accountDisabledWithReason"
+msgstr ""
+
+msgid "user.login.accountDisabled"
+msgstr ""
+
+msgid "user.login.accountNotValidated"
+msgstr ""
+
+msgid "user.login.activate"
+msgstr ""
+
+msgid "user.login.activated"
+msgstr ""
+
+msgid "user.login.changePasswordInstructions"
+msgstr ""
+
+msgid "user.login.forgotPassword"
+msgstr ""
+
+msgid "user.login.loginError"
+msgstr ""
+
+msgid "user.login"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSent"
+msgstr ""
+
+msgid "user.login.lostPassword.invalidHash"
+msgstr ""
+
+msgid "user.login.lostPassword.passwordSent"
+msgstr ""
+
+msgid "user.login.registeredEmail"
+msgstr ""
+
+msgid "user.login.registrationComplete"
+msgstr ""
+
+msgid "user.login.registrationComplete.instructions"
+msgstr ""
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr ""
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr ""
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr ""
+
+msgid "user.login.registrationPendingValidation"
+msgstr ""
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr ""
+
+msgid "user.login.resetPassword"
+msgstr ""
+
+msgid "user.logOut"
+msgstr ""
+
+msgid "user.logOutAs"
+msgstr ""
+
+msgid "user.hello"
+msgstr ""
+
+msgid "user.mailingAddress"
+msgstr ""
+
+msgid "user.myAccount"
+msgstr ""
+
+msgid "user.name"
+msgstr ""
+
+msgid "user.password"
+msgstr ""
+
+msgid "user.repeatPassword"
+msgstr ""
+
+msgid "user.phone"
+msgstr ""
+
+msgid "user.preferredPublicName"
+msgstr ""
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+
+msgid "user.profile.changePasswordInstructions"
+msgstr ""
+
+msgid "user.profile.editProfile"
+msgstr ""
+
+msgid "user.profile.form.countryRequired"
+msgstr ""
+
+msgid "user.profile.form.emailRequired"
+msgstr ""
+
+msgid "user.profile.form.givenNameRequired"
+msgstr ""
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr ""
+
+msgid "user.profile.form.newPasswordRequired"
+msgstr ""
+
+msgid "user.profile.form.oldPasswordInvalid"
+msgstr ""
+
+msgid "user.profile.form.openAccessNotifications"
+msgstr ""
+
+msgid "user.profile.form.passwordRequired"
+msgstr ""
+
+msgid "user.profile.form.passwordSameAsOld"
+msgstr ""
+
+msgid "user.profile.form.profileImage"
+msgstr ""
+
+msgid "user.profile.form.publishedNotifications"
+msgstr ""
+
+msgid "user.profile.form.urlInvalid"
+msgstr ""
+
+msgid "user.profile.form.usergroupRequired"
+msgstr ""
+
+msgid "user.profile.form.usernameRequired"
+msgstr ""
+
+msgid "user.profile.form.privacyConsentRequired"
+msgstr ""
+
+msgid "user.profile.leavePasswordBlank"
+msgstr ""
+
+msgid "user.profile.newPassword"
+msgstr ""
+
+msgid "user.profile.oldPassword"
+msgstr ""
+
+msgid "user.profile"
+msgstr ""
+
+msgid "user.profile.publicProfile"
+msgstr ""
+
+msgid "user.profile.repeatNewPassword"
+msgstr ""
+
+msgid "user.login.registerNewAccount"
+msgstr ""
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+
+msgid "user.register.form.emailConsent"
+msgstr ""
+
+msgid "user.register.form.emailExists"
+msgstr ""
+
+msgid "user.register.form.passwordsDoNotMatch"
+msgstr ""
+
+msgid "user.register.form.emailsDoNotMatch"
+msgstr ""
+
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+
+msgid "user.register.form.userGroupRequired"
+msgstr ""
+
+msgid "user.register.form.usernameExists"
+msgstr ""
+
+msgid "user.register.form.passwordLengthRestriction"
+msgstr ""
+
+msgid "user.register.registerAs"
+msgstr ""
+
+msgid "user.register"
+msgstr ""
+
+msgid "user.register.usernameRestriction"
+msgstr ""
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+
+msgid "user.role.assistant"
+msgstr ""
+
+msgid "user.role.author"
+msgstr ""
+
+msgid "user.role.author_s"
+msgstr ""
+
+msgid "user.role.authors"
+msgstr ""
+
+msgid "user.role.editor"
+msgstr ""
+
+msgid "user.role.editors"
+msgstr ""
+
+msgid "user.role.reader"
+msgstr ""
+
+msgid "user.role.readers"
+msgstr ""
+
+msgid "user.role.reviewer"
+msgstr ""
+
+msgid "user.role.reviewers"
+msgstr ""
+
+msgid "user.role.siteAdmin"
+msgstr ""
+
+msgid "user.role.siteAdmins"
+msgstr ""
+
+msgid "user.role.copyeditor"
+msgstr ""
+
+msgid "user.role.copyeditors"
+msgstr ""
+
+msgid "user.role.proofreader"
+msgstr ""
+
+msgid "user.role.proofreaders"
+msgstr ""
+
+msgid "user.role.layoutEditor"
+msgstr ""
+
+msgid "user.role.layoutEditors"
+msgstr ""
+
+msgid "user.roles"
+msgstr ""
+
+msgid "user.sendPassword"
+msgstr ""
+
+msgid "user.sendPassword.description"
+msgstr ""
+
+msgid "user.signature"
+msgstr ""
+
+msgid "user.title"
+msgstr ""
+
+msgid "user.url"
+msgstr ""
+
+msgid "user.userHome"
+msgstr ""
+
+msgid "user.username"
+msgstr ""
+
+msgid "user.workingLanguages"
+msgstr ""
+
+msgid "user.orcid"
+msgstr ""
+
+msgid "user.orcid.orcidInvalid"
+msgstr ""
+
+msgid "user.profile.identity"
+msgstr ""
+
+msgid "user.profile.contact"
+msgstr ""
+
+msgid "user.profile.public"
+msgstr ""
+
+msgid "user.apiKey"
+msgstr ""
+
+msgid "user.apiKeyEnabled"
+msgstr ""
+
+msgid "user.apiKey.generate"
+msgstr ""
+
+msgid "user.apiKey.remove"
+msgstr ""
+
+msgid "user.apiKey.generateWarning"
+msgstr ""
+
+msgid "user.apiKey.removeWarning"
+msgstr ""
+
+msgid "user.apiKey.remove.confirmation.message"
+msgstr ""
+
+msgid "user.apiKey.secretRequired"
+msgstr ""
+
+msgid "user.privacyLink"
+msgstr ""
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""

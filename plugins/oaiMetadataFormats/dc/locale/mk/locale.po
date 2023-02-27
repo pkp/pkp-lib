@@ -11,10 +11,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "plugins.oaiMetadata.dc.displayName"
+msgstr "DC Metadata Format"
+
 msgid "plugins.oaiMetadata.dc.description"
 msgstr ""
 "Ја  структуира метадатата на  начин што е во согласност со форматот во "
 "Даблин."
-
-msgid "plugins.oaiMetadata.dc.displayName"
-msgstr "DC Metadata Format"

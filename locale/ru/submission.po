@@ -12,37 +12,55 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "author.editPublishedDisabled"
-msgstr "Авторов этой публикации нельзя отредактировать, так как она уже была опубликована."
+msgstr ""
+"Авторов этой публикации нельзя отредактировать, так как она уже была "
+"опубликована."
 
 msgid "author.publicationNotFound"
 msgstr "Публикацию для этого автора не удаётся найти."
 
 msgid "author.submit.submissionCitations"
-msgstr "Введите отформатированный список ссылок на работы, использованные при подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с помощью пустой строки."
+msgstr ""
+"Введите отформатированный список ссылок на работы, использованные при "
+"подготовке данного материала. Пожалуйста, отделяйте ссылки одну от другой с "
+"помощью пустой строки."
 
 msgid "author.submission.roundStatus.reviewsReady"
 msgstr "Новые рецензии были отправлены рецензентами и рассмотрены редактором."
 
 msgid "author.submission.roundStatus.reviewOverdue"
-msgstr "Один или несколько рецензентов пропустили сроки отправки. Редакция была уведомлена об этом и предпримет необходимые действия, чтобы рецензии были завершены. Сейчас Вам не нужно предпринимать никаких действий. Вы получите уведомление, когда решение будет принято."
+msgstr ""
+"Один или несколько рецензентов пропустили сроки отправки. Редакция была "
+"уведомлена об этом и предпримет необходимые действия, чтобы рецензии были "
+"завершены. Сейчас Вам не нужно предпринимать никаких действий. Вы получите "
+"уведомление, когда решение будет принято."
 
 msgid "submission.submit.availableUserGroups"
 msgstr "Отправить как"
 
 msgid "submission.submit.availableUserGroupsDescription"
-msgstr "Выберите роль, которая лучше всего описывает ваш вклад в этот материал."
+msgstr ""
+"Выберите роль, которая лучше всего описывает ваш вклад в этот материал."
+
+msgid "submission.submit.managerUserGroupsDescription"
+msgstr ""
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Требования к отправляемому материалу"
 
 #, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже требования, перед тем как продолжить."
+msgstr ""
+"Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже "
+"требования, перед тем как продолжить."
+
+msgid "submission.submit.submissionChecklistConfirm"
+msgstr ""
 
 msgid "submission.submit.submissionComplete"
 msgstr "Отправка материала завершена"
@@ -75,19 +93,26 @@ msgid "metadata.filters.crossref.settings.email.displayName"
 msgstr "Адрес электронной почты, зарегистрированный в Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
-msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в Crossref. Вы можете бесплатно зарегистрировать свой адрес электронной почты на веб-сайте Crossref."
+msgstr ""
+"Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в "
+"Crossref. Вы можете бесплатно зарегистрировать свой адрес электронной почты "
+"на веб-сайте Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Ключ ISBNdb API"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
-msgstr "Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы можете бесплатно запросить его на сайте проекта ISBNdb."
+msgstr ""
+"Пожалуйста, введите ваш ключ ISBNdb API. Если у вас еще нет такого ключа, вы "
+"можете бесплатно запросить его на сайте проекта ISBNdb."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Адрес электронной почты, зарегистрированный в PubMed"
 
 msgid "metadata.filters.pubmed.settings.email.validationMessage"
-msgstr "Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в PubMed, если он у вас есть."
+msgstr ""
+"Пожалуйста, введите правильный адрес электронной почты, зарегистрированный в "
+"PubMed, если он у вас есть."
 
 msgid "metadata.filters.worldcat.settings.apiKey.displayName"
 msgstr "Ключ WorldCat API"
@@ -99,25 +124,32 @@ msgid "metadata.filters.paracite.settings.citationModule.displayName"
 msgstr "Модуль библиографических ссылок"
 
 msgid "metadata.filters.paracite.settings.citationModule.validationMessage"
-msgstr "Пожалуйста, выберите один из указанных модулей библиографических ссылок."
+msgstr ""
+"Пожалуйста, выберите один из указанных модулей библиографических ссылок."
 
 msgid "metadata.filters.settings.isOptional.displayName"
 msgstr "Не использовать по умолчанию (по-прежнему будет доступен редактору)"
 
 msgid "metadata.filters.settings.isOptional.validationMessage"
-msgstr "Внутренняя ошибка. Неверное значение было передано настройке «необязательный фильтр». Пожалуйста, сообщите об этой ошибке разработчикам."
+msgstr ""
+"Внутренняя ошибка. Неверное значение было передано настройке «необязательный "
+"фильтр». Пожалуйста, сообщите об этой ошибке разработчикам."
 
 msgid "metadata.property.displayName.author"
 msgstr "Авторы"
 
 msgid "metadata.property.validationMessage.author"
-msgstr "Для получения наилучшего результата авторы должны быть введены в следующем формате: Бородин, А. А."
+msgstr ""
+"Для получения наилучшего результата авторы должны быть введены в следующем "
+"формате: Бородин, А. А."
 
 msgid "metadata.property.displayName.editor"
 msgstr "Редакторы"
 
 msgid "metadata.property.validationMessage.editor"
-msgstr "Для получения наилучшего результата редакторы должны быть введены в следующем формате: Бородин, А. А."
+msgstr ""
+"Для получения наилучшего результата редакторы должны быть введены в "
+"следующем формате: Бородин, А. А."
 
 msgid "metadata.property.displayName.article-title"
 msgstr "Название статьи/материала"
@@ -231,7 +263,8 @@ msgid "metadata.property.displayName.size"
 msgstr "Количество страниц"
 
 msgid "metadata.property.validationMessage.size"
-msgstr "Пожалуйста, введите правильно общее количество страниц (должно быть числом)."
+msgstr ""
+"Пожалуйста, введите правильно общее количество страниц (должно быть числом)."
 
 msgid "metadata.property.displayName.publisher-loc"
 msgstr "Место издания"
@@ -315,19 +348,27 @@ msgid "metadata.property.displayName.publication-type"
 msgstr "Тип публикации"
 
 msgid "metadata.property.validationMessage.publication-type"
-msgstr "Пожалуйста, убедитесь, что вы всегда задаете тип публикации. На текущий момент поддерживаются значения book (для книг или глав книги) и journal (для журнальных статей). Если тип не указан или указан неверно, форматирование библиографической ссылки на источник будет работать неправильно."
+msgstr ""
+"Пожалуйста, убедитесь, что вы всегда задаете тип публикации. На текущий "
+"момент поддерживаются значения book (для книг или глав книги) и journal (для "
+"журнальных статей). Если тип не указан или указан неверно, форматирование "
+"библиографической ссылки на источник будет работать неправильно."
 
 msgid "metadata.property.displayName.title-type"
 msgstr "Тип заголовка"
 
 msgid "metadata.property.validationMessage.title-type"
-msgstr "Пожалуйста, убедитесь, что вы задали правильный тип заголовка. Поддерживаемые значения: abbreviated, translated, alternative и uniform."
+msgstr ""
+"Пожалуйста, убедитесь, что вы задали правильный тип заголовка. "
+"Поддерживаемые значения: abbreviated, translated, alternative и uniform."
 
 msgid "metadata.property.displayName.nonSort"
 msgstr "Часть заголовка, игнорируемая при сортировке"
 
 msgid "metadata.property.validationMessage.nonSort"
-msgstr "Пожалуйста, введите только первые буквы заголовка, которые должны быть проигнорированы при сортировке заголовков."
+msgstr ""
+"Пожалуйста, введите только первые буквы заголовка, которые должны быть "
+"проигнорированы при сортировке заголовков."
 
 msgid "metadata.property.displayName.title"
 msgstr "Заголовок"
@@ -357,7 +398,9 @@ msgid "metadata.property.displayName.name-type"
 msgstr "Тип названия"
 
 msgid "metadata.property.validationMessage.name-type"
-msgstr "Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые значения: personal, corporate и conference."
+msgstr ""
+"Пожалуйста, убедитесь, что вы задали правильный тип названия. Поддерживаемые "
+"значения: personal, corporate и conference."
 
 msgid "metadata.property.displayName.abstract"
 msgstr "Аннотация"
@@ -429,7 +472,9 @@ msgid "submission.citations"
 msgstr "Библиографические ссылки"
 
 msgid "submission.citations.description"
-msgstr "Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь и записать отдельно."
+msgstr ""
+"Введите каждую ссылку на новой строке, чтобы их можно было потом извлечь и "
+"записать отдельно."
 
 msgid "submission.parsedCitations"
 msgstr "Извлеченные ссылки"
@@ -438,7 +483,8 @@ msgid "submission.parsedCitations.DOI"
 msgstr "DOI"
 
 msgid "submission.parsedCitations.description"
-msgstr "Следующие ссылки были извлечены и будут связаны с метаданными материала."
+msgstr ""
+"Следующие ссылки были извлечены и будут связаны с метаданными материала."
 
 msgid "submission.parsedAndSaveCitations"
 msgstr "Извлечь и сохранить ссылки"
@@ -500,6 +546,9 @@ msgstr "Файлы обсуждения"
 msgid "submission.coverage"
 msgstr "Информация об охвате"
 
+msgid "submission.details"
+msgstr ""
+
 msgid "submission.done"
 msgstr "Готово"
 
@@ -525,10 +574,13 @@ msgid "submission.email.backToEmailLog"
 msgstr "Назад к журналу писем электронной почты"
 
 msgid "submission.email.confirmClearLog"
-msgstr "Вы уверены, что хотите очистить журнал писем электронной почты для этого материала?"
+msgstr ""
+"Вы уверены, что хотите очистить журнал писем электронной почты для этого "
+"материала?"
 
 msgid "submission.email.confirmDeleteLogEntry"
-msgstr "Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?"
+msgstr ""
+"Вы уверены, что хотите удалить эту запись из журнала писем электронной почты?"
 
 msgid "submission.email.deleteLogEntry"
 msgstr "Удалить запись журнала"
@@ -537,7 +589,8 @@ msgid "submission.emailLog"
 msgstr "Журнал электронной почты"
 
 msgid "submission.event.participantAdded"
-msgstr "{$name} ({$username}) был назначен в этот материал как {$userGroupName}."
+msgstr ""
+"{$name} ({$username}) был назначен в этот материал как {$userGroupName}."
 
 msgid "submission.event.participantRemoved"
 msgstr "«{$name}» ({$username}) удален как {$userGroupName}."
@@ -554,8 +607,14 @@ msgstr "Вы уверены, что хотите удалить эту запи�
 msgid "submission.event.deleteLogEntry"
 msgstr "Удалить запись журнала"
 
+msgid "submission.event.decisionReviewerEmailSent"
+msgstr ""
+
 msgid "submission.event.submissionSubmitted"
 msgstr "Первоначальная отправка материала завершена."
+
+msgid "submission.event.copyrightAgreed"
+msgstr ""
 
 msgid "submission.event.fileRevised"
 msgstr "Версия «{$name}» (ID файла {$submissionFileId}) была загружена."
@@ -605,6 +664,12 @@ msgstr "Рецензия отправлена повторно"
 msgid "submission.event.reviewer.reviewRevision"
 msgstr "Файл с правками рецензента обновлен"
 
+msgid "submission.event.reviewer.reviewerReminded"
+msgstr ""
+
+msgid "submission.event.reviewer.reviewerRemindedAuto"
+msgstr ""
+
 msgid "submission.event.subjectPrefix"
 msgstr "Письмо электронной почты было отправлено:"
 
@@ -612,10 +677,14 @@ msgid "submission.event.viewEmail"
 msgstr "Показать письмо электронной почты"
 
 msgid "submission.event.addedStageToAllowedAuthorMetadataChange"
-msgstr "Теперь авторам разрешено редактировать метаданные, когда материал находится на этапе «{stage}»."
+msgstr ""
+"Теперь авторам разрешено редактировать метаданные, когда материал находится "
+"на этапе «{stage}»."
 
 msgid "submission.event.removedStageToAllowedAuthorMetadataChange"
-msgstr "Теперь авторам запрещено редактировать метаданные, когда материал находится на этапе «{stage}»."
+msgstr ""
+"Теперь авторам запрещено редактировать метаданные, когда материал находится "
+"на этапе «{stage}»."
 
 msgid "submission.files"
 msgstr "Файлы"
@@ -624,7 +693,14 @@ msgid "submission.files.downloadAll"
 msgstr "Скачать все файлы"
 
 msgid "submission.file.notAllowedUploaderUserId"
-msgstr "Запись загрузчика файлов сохранена при создании файла и её нельзя изменить."
+msgstr ""
+"Запись загрузчика файлов сохранена при создании файла и её нельзя изменить."
+
+msgid "submission.firstPublished"
+msgstr ""
+
+msgid "submission.forTheEditors"
+msgstr ""
 
 msgid "submission.galley"
 msgstr "Гранка"
@@ -675,7 +751,9 @@ msgid "submission.versionIdentity"
 msgstr "{$datePublished} ({$version})"
 
 msgid "submission.outdatedVersion"
-msgstr "Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите <a href=\"{$urlRecentVersion}\">самую последнюю версию</a>."
+msgstr ""
+"Это устаревшая версия, которая была опубликована {$datePublished}. Прочтите "
+"<a href=\"{$urlRecentVersion}\">самую последнюю версию</a>."
 
 msgid "submission.identifiers"
 msgstr "Идентификаторы"
@@ -684,7 +762,10 @@ msgid "submission.publisherId"
 msgstr "ID издателя"
 
 msgid "submission.publisherId.description"
-msgstr "ID издателя может использоваться для записи ID из внешней базы данных. Например, экспортированные для депонирования в PubMed объекты могут включать ID издателя. Его не следует использовать для DOI."
+msgstr ""
+"ID издателя может использоваться для записи ID из внешней базы данных. "
+"Например, экспортированные для депонирования в PubMed объекты могут включать "
+"ID издателя. Его не следует использовать для DOI."
 
 msgid "submission.publisherId.enable"
 msgstr "Включить для {$objects}"
@@ -738,7 +819,9 @@ msgid "submission.layout.galleyLabel"
 msgstr "Метка гранки"
 
 msgid "submission.layout.galleyLabelInstructions"
-msgstr "Обычно используется для идентификации формата файла (например, HTML, PDF и т. д.)."
+msgstr ""
+"Обычно используется для идентификации формата файла (например, HTML, PDF и "
+"т. д.)."
 
 msgid "submission.layout.galleyLabelRequired"
 msgstr "Метка гранки обязательна."
@@ -753,7 +836,9 @@ msgid "submission.layout.galleyRemoteURL"
 msgstr "URL-адрес удаленного сервера"
 
 msgid "submission.layout.galleyRemoteURLValid"
-msgstr "Пожалуйста, введите правильный URL-адрес удаленного сервера (включая http://)."
+msgstr ""
+"Пожалуйста, введите правильный URL-адрес удаленного сервера (включая "
+"http://)."
 
 msgid "submission.layout.galleyNoImages"
 msgstr "Нет изображений"
@@ -893,6 +978,9 @@ msgstr "Проверить метаданные"
 msgid "submission.review"
 msgstr "Рецензия"
 
+msgid "submission.reviewAndSubmit"
+msgstr ""
+
 msgid "submission.reviewed"
 msgstr "Отрецензирована"
 
@@ -977,6 +1065,9 @@ msgstr "Файл добавлен"
 msgid "submission.submit.includeInBrowse"
 msgstr "Добавить этого автора при указании авторов в списках публикаций."
 
+msgid "submission.submit.includeInBrowse.title"
+msgstr "Списки публикаций"
+
 msgid "submission.submit.newFile"
 msgstr "Добавить другой файл"
 
@@ -985,6 +1076,12 @@ msgstr "Дополнительные уточнения"
 
 msgid "submission.submit.submissionLocale"
 msgstr "Язык материала"
+
+#, fuzzy
+msgid "submission.submit.submissionLocaleDescription"
+msgstr ""
+"Принимаются материалы на нескольких языках. Выберите основной язык "
+"отправляемого материала из выпадающего меню выше."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Файлы материала"
@@ -996,7 +1093,9 @@ msgid "submission.manageDependentFiles"
 msgstr "Управление зависимыми файлами"
 
 msgid "submission.upload.instructions"
-msgstr "Загрузите все файлы, которые понадобятся редакции, чтобы оценить Ваш отправленный материал."
+msgstr ""
+"Загрузите все файлы, которые понадобятся редакции, чтобы оценить Ваш "
+"отправленный материал."
 
 msgid "submission.upload.percentComplete"
 msgstr "Загрузка: {$percent}% завершено"
@@ -1064,6 +1163,36 @@ msgstr "Роль автора"
 msgid "submission.submit.addAuthor"
 msgstr "Добавить автора"
 
+msgid "submission.submit.form.languagesRequired"
+msgstr "Пожалуйста, укажите язык."
+
+msgid "submission.submit.form.subjectsRequired"
+msgstr "Пожалуйста, укажите тему."
+
+msgid "submission.submit.form.disciplinesRequired"
+msgstr "Пожалуйста, укажите предмет."
+
+msgid "submission.submit.form.keywordsRequired"
+msgstr "Пожалуйста, укажите ключевое слово."
+
+msgid "submission.submit.form.coverageRequired"
+msgstr "Пожалуйста, укаэите информацию об охвате."
+
+msgid "submission.submit.form.typeRequired"
+msgstr "Пожалуйста, укажите тип."
+
+msgid "submission.submit.form.sourceRequired"
+msgstr "Пожалуйста, укажите источник."
+
+msgid "submission.submit.form.rightsRequired"
+msgstr "Пожалуйста, укажите права на материал."
+
+msgid "submission.submit.form.citationsRequired"
+msgstr "Пожалуйста, укажите библиографические ссылки."
+
+msgid "submission.submit.form.dataAvailabilityRequired"
+msgstr ""
+
 msgid "submission.form.name"
 msgstr "Назовите файл (например, Рукопись; Таблица 1)"
 
@@ -1125,13 +1254,19 @@ msgid "submission.upload.possibleRevision"
 msgstr "Обнаружено возможное дублирование или новая версия"
 
 msgid "submission.upload.possibleRevisionDescription"
-msgstr "Название загружаемого файла совпадает с именем ранее загруженного файла «{$revisedFileName}». Должен ли этот файл должен заменить «{$revisedFileName}»? Если да, то выберите файл ниже, иначе выберите «Это не новая версия существующего файла», перед тем как продолжить."
+msgstr ""
+"Название загружаемого файла совпадает с именем ранее загруженного файла "
+"«{$revisedFileName}». Должен ли этот файл должен заменить "
+"«{$revisedFileName}»? Если да, то выберите файл ниже, иначе выберите «Это не "
+"новая версия существующего файла», перед тем как продолжить."
 
 msgid "submission.upload.selectMandatoryFileToRevise"
 msgstr "Пожалуйста, выберите файл, который вы хотите заменить."
 
 msgid "submission.upload.selectOptionalFileToRevise"
-msgstr "Если вы загружаете новую версию существующего файла, пожалуйста, укажите для какого файла."
+msgstr ""
+"Если вы загружаете новую версию существующего файла, пожалуйста, укажите для "
+"какого файла."
 
 msgid "submission.upload.uploadNewFile"
 msgstr "Это не новая версия существующего файла"
@@ -1140,7 +1275,9 @@ msgid "submission.upload.userGroup"
 msgstr "Загрузить этот файл с моей ролью..."
 
 msgid "submission.upload.userGroupDescription"
-msgstr "Если вы отправляете отредактированный том, вы должны загрузить все главы тома отдельно, под вашей ролью редактора тома."
+msgstr ""
+"Если вы отправляете отредактированный том, вы должны загрузить все главы "
+"тома отдельно, под вашей ролью редактора тома."
 
 msgid "submission.upload.uploadLibraryFile"
 msgstr "Загрузить файл библиотеки"
@@ -1158,7 +1295,9 @@ msgid "submission.upload.uploadFiles"
 msgstr "Загрузить файлы"
 
 msgid "submission.upload.response.description"
-msgstr "После рецензирования назначенного файла, запишите все комментарии о файле ниже и/или загрузите копию с пометками в файле (или другой файл)."
+msgstr ""
+"После рецензирования назначенного файла, запишите все комментарии о файле "
+"ниже и/или загрузите копию с пометками в файле (или другой файл)."
 
 msgid "submission.upload.productionReady"
 msgstr "Загрузить файл для публикации"
@@ -1215,6 +1354,12 @@ msgstr "Новые рекомендации редакторов были отп
 msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Все рекомендации пришли, нужно принять решение."
 
+msgid "editor.submission.status.inactiveDaysInStage"
+msgstr ""
+
+msgid "editor.submission.status.waitingInitialReview"
+msgstr ""
+
 msgid "editor.submission.stageParticipants"
 msgstr "Участники"
 
@@ -1231,13 +1376,18 @@ msgid "editor.submission.editStageParticipant"
 msgstr "Редактировать назначение"
 
 msgid "editor.submission.addStageParticipant.userGroup"
-msgstr "Пользователи, назначенные на этапы рабочего потока по группам пользователей. Любой пользователь, назначенный на этот этап, будет автоматически назначен на другие этапы, которым назначена эта группа пользователей. Обычно это остается за редакторами, авторами и переводчиками."
+msgstr ""
+"Пользователи, назначенные на этапы рабочего потока по группам пользователей. "
+"Любой пользователь, назначенный на этот этап, будет автоматически назначен "
+"на другие этапы, которым назначена эта группа пользователей. Обычно это "
+"остается за редакторами, авторами и переводчиками."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Удалить участника"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr "Вы собираетесь удалить этого участника со <strong>всех</strong> этапов."
+msgstr ""
+"Вы собираетесь удалить этого участника со <strong>всех</strong> этапов."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Вы должны выбрать группу пользователей."
@@ -1246,7 +1396,11 @@ msgid "editor.submission.addStageParticipant.form.userRequired"
 msgstr "Вы должны выбрать пользователя для указанной группы пользователей."
 
 msgid "editor.submission.addStageParticipant.form.reviewerWarning"
-msgstr "Выбранный вами пользователь назначен проводить анонимное рецензирование. Если вы назначите его участником, он получит доступ к информации об авторе. Рекомендуем вам не назначать этого участника, если вы не уверены в том, что удастся сохранить независимость процесса «слепого» рецензирования."
+msgstr ""
+"Выбранный вами пользователь назначен проводить анонимное рецензирование. "
+"Если вы назначите его участником, он получит доступ к информации об авторе. "
+"Рекомендуем вам не назначать этого участника, если вы не уверены в том, что "
+"удастся сохранить независимость процесса «слепого» рецензирования."
 
 msgid "editor.submission.removePermissionToEdit"
 msgstr "Запретить редактировать метаданные"
@@ -1255,50 +1409,329 @@ msgid "editor.submission.addPermissionToEdit"
 msgstr "Разрешить редактировать метаданные"
 
 msgid "editor.submission.removePermissionToEditDescription"
-msgstr "Вы уверены, что хотите запретить авторам этого материала редактирование метаданных на этом этапе?"
+msgstr ""
+"Вы уверены, что хотите запретить авторам этого материала редактирование "
+"метаданных на этом этапе?"
 
 msgid "editor.submission.addPermissionToEditDescription"
-msgstr "Вы уверены, что хотите разрешить авторам этого материала редактирование метаданных на этом этапе?"
+msgstr ""
+"Вы уверены, что хотите разрешить авторам этого материала редактирование "
+"метаданных на этом этапе?"
 
 msgid "editor.submission.decision"
 msgstr "Решение"
 
+msgid "editor.submission.decision.notifyAuthors"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers"
+msgstr ""
+
+msgid "editor.submission.decision.notifyReviewers.description"
+msgstr ""
+
+msgid ""
+"editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
+msgstr ""
+
 msgid "editor.submission.decision.accept"
 msgstr "Принять материал"
 
-msgid "editor.submission.decision.requestRevisions"
-msgstr "Запросить новые версии"
+msgid "editor.submission.decision.accept.description"
+msgstr ""
 
-msgid "editor.submission.decision.resubmit"
-msgstr "Отправить повторно на рецензию"
+msgid "editor.submission.decision.accept.log"
+msgstr ""
 
-msgid "editor.submission.decision.newRound"
-msgstr "Новый раунд рецензирования"
+msgid "editor.submission.decision.accept.completed"
+msgstr ""
+
+msgid "editor.submission.decision.accept.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.accept.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.decline"
 msgstr "Отклонить материал"
 
+msgid "editor.submission.decision.decline.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.log"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.decline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.decline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.initialDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.completedDescription"
+msgstr ""
+
+msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.copyediting"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.review"
+msgstr ""
+
+msgid "editor.submission.decision.promoteFiles.production"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions"
+msgstr "Запросить новые версии"
+
+msgid "editor.submission.decision.requestRevisions.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.log"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.log"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.cancelReviewRound.restriction"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit"
+msgstr "Отправить повторно на рецензию"
+
+msgid "editor.submission.decision.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendExternalReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.newRound"
+msgstr "Новый раунд рецензирования"
+
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Отправить на публикацию"
 
+msgid "editor.submission.decision.sendToProduction.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.log"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.log"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
+msgstr ""
+
 msgid "editor.submission.decision.skipReview"
 msgstr "Принять материал и пропустить рецензирование"
+
+msgid "editor.submission.decision.skipReview.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.log"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
+msgstr ""
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Отправить на внутреннее рецензирование"
 
 msgid "editor.submission.decision.approveProofsDescription"
-msgstr "Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его можно было опубликовать. Вы хотите одобрить его?"
+msgstr ""
+"Файл с корректурой страницы должен быть отмечен как одобренный, чтобы его "
+"можно было опубликовать. Вы хотите одобрить его?"
 
 msgid "editor.submission.decision.approveProofs"
 msgstr "Одобрить корректуры"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
-msgstr "Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы хотите отменить его одобрение?"
+msgstr ""
+"Этот файл корректуры больше не будет доступен для скачивания или покупки. Вы "
+"хотите отменить его одобрение?"
+
+msgid "editor.submission.decision.revertDecline"
+msgstr "Отменить отклонение материала"
+
+msgid "editor.submission.decision.revertDecline.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.log"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.completed.description"
+msgstr ""
+
+msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
+msgstr ""
+
+msgid "editor.submission.decision.revertInitialDecline.completed.description"
+msgstr ""
 
 #, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Назначить редактора, чтобы включить решения редакции для этого этапа."
+
+msgid "editor.submission.recommend.notifyEditors.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.description"
+msgstr ""
+
+msgid "editor.submission.recommend.accept.log"
+msgstr ""
+
+msgid "editor.submission.recommend.completed"
+msgstr ""
+
+msgid "editor.submission.recommend.completed.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.description"
+msgstr ""
+
+msgid "editor.submission.recommend.revisions.log"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.description"
+msgstr ""
+
+msgid "editor.submission.recommend.resubmit.log"
+msgstr ""
+
+msgid "editor.submission.recommend.decline"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.description"
+msgstr ""
+
+msgid "editor.submission.recommend.decline.log"
+msgstr ""
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Дать рекомендацию"
@@ -1311,6 +1744,9 @@ msgstr "Рекомендация: {$recommendation}"
 
 msgid "editor.submission.allRecommendations.display"
 msgstr "Рекомендации: {$recommendations}"
+
+msgid "editor.submission.recommendation.noDecidingEditors"
+msgstr ""
 
 msgid "editor.submission.recommendation"
 msgstr "Рекомендация"
@@ -1340,25 +1776,38 @@ msgid "submission.finalDraft"
 msgstr "Файлы черновиков"
 
 msgid "editor.submission.addAuditorError"
-msgstr "Произошла ошибка при попытке назначить аудитора. Пожалуйста, попробуйте снова."
+msgstr ""
+"Произошла ошибка при попытке назначить аудитора. Пожалуйста, попробуйте "
+"снова."
 
 msgid "submission.event.fileEdited"
-msgstr "Метаданные для файла «{$originalFileName}» были отредактированы пользователем {$username}."
+msgstr ""
+"Метаданные для файла «{$originalFileName}» были отредактированы "
+"пользователем {$username}."
 
 msgid "submission.event.fileUploaded"
-msgstr "Файл «{$originalFileName}» был загружен для материала «{$submissionId}» пользователем «{$username}»."
+msgstr ""
+"Файл «{$originalFileName}» был загружен для материала «{$submissionId}» "
+"пользователем «{$username}»."
 
 msgid "submission.event.fileDeleted"
-msgstr "Файл «{$originalFileName}» был удален из материала «{$submissionId}» пользователем «{$username}»."
+msgstr ""
+"Файл «{$originalFileName}» был удален из материала «{$submissionId}» "
+"пользователем «{$username}»."
 
 msgid "submission.event.revisionUploaded"
-msgstr "Новая версия файла «{$originalFileName}» была загружена для материала «{$submissionId}» пользователем «{$username}»."
+msgstr ""
+"Новая версия файла «{$originalFileName}» была загружена для материала "
+"«{$submissionId}» пользователем «{$username}»."
 
 msgid "submission.event.revisionDeleted"
-msgstr "Версия файла «{$originalFileName}» была удалена из материала «{$submissionId}» пользователем «{$username}»."
+msgstr ""
+"Версия файла «{$originalFileName}» была удалена из материала "
+"«{$submissionId}» пользователем «{$username}»."
 
 msgid "submission.event.lastRevisionDeleted"
-msgstr "У файла «{$title}» последняя версия была удалена пользователем «{$username}»."
+msgstr ""
+"У файла «{$title}» последняя версия была удалена пользователем «{$username}»."
 
 msgid "submission.event.fileAuditorAdded"
 msgstr "«{$name}» ({$username}) был добавлен как аудитор для файла «{$file}»."
@@ -1370,7 +1819,8 @@ msgid "submission.event.fileAuditUploaded"
 msgstr "«{$name}» ({$username}) выполнил аудит и загрузил «{$file}»."
 
 msgid "submission.event.signoffSignoff"
-msgstr "«{$name}» ({$username}) окончательно одобрил новый выпуск для «{$file}»."
+msgstr ""
+"«{$name}» ({$username}) окончательно одобрил новый выпуск для «{$file}»."
 
 msgid "submission.event.proofsApproved"
 msgstr "«{$name}» ({$username}) одобрил корректуры для «{$formatName}»."
@@ -1420,14 +1870,22 @@ msgstr "Начат новый раунд рецензирования."
 msgid "notification.type.editorDecisionDecline"
 msgstr "Материал отклонен."
 
+msgid "notification.type.editorDecisionRevertDecline"
+msgstr "Отклонение материала было отменено."
+
 msgid "notification.uploadedResponse"
 msgstr "Загружен ответ."
 
 msgid "notification.type.editorAssignment"
-msgstr "Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте редактора с помощью списка «Участники»."
+msgstr ""
+"Редактор должен быть назначен до начала рецензирования. Пожалуйста, добавьте "
+"редактора с помощью списка «Участники»."
 
 msgid "notification.type.submissionNewVersion"
 msgstr "Новая версия представления была создана"
+
+msgid "notification.type.revertDecline"
+msgstr "Решение об отклонении этого материала было отменено."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Файлы, прикрепленные рецензентом"
@@ -1442,22 +1900,37 @@ msgid "submission.review.uploadRevisionToRound"
 msgstr "Загрузить новую версию файла"
 
 msgid "log.review.reviewerAssigned"
-msgstr "Рецензент {$reviewerName} был назначен на рецензирование материала «{$submissionId}» (раунд рецензирования — {$round})."
+msgstr ""
+"Рецензент {$reviewerName} был назначен на рецензирование материала "
+"«{$submissionId}» (раунд рецензирования — {$round})."
 
 msgid "log.review.reviewCleared"
-msgstr "{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был сброшен."
+msgstr ""
+"{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала "
+"{$submissionId} был сброшен."
 
 msgid "log.review.reviewUnconsidered"
-msgstr "{$editorName} отметил раунд {$round} рецензирования для материала {$submissionId} как нерассмотренный."
+msgstr ""
+"{$editorName} отметил раунд {$round} рецензирования для материала "
+"{$submissionId} как нерассмотренный."
 
 msgid "log.review.reviewReinstated"
-msgstr "{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала {$submissionId} был начат заново."
+msgstr ""
+"{$round}-й раунд рецензирования рецензентом {$reviewerName} для материала "
+"{$submissionId} был начат заново."
+
+msgid "log.review.reviewerResendRequest"
+msgstr ""
 
 msgid "log.review.reviewConfirmed"
-msgstr "Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования для материала «{$submissionId}»."
+msgstr ""
+"Редактор {$userName} подтвердил рецензию на раунде {$round} рецензирования "
+"для материала «{$submissionId}»."
 
 msgid "log.review.reviewReady"
-msgstr "Рецензент {$reviewerName} завершил рецензию на раунде {$round} рецензирования для материала «{$submissionId}»."
+msgstr ""
+"Рецензент {$reviewerName} завершил рецензию на раунде {$round} "
+"рецензирования для материала «{$submissionId}»."
 
 msgid "submission.review.status.awaitingResponse"
 msgstr "Ожидает ответа от рецензента."
@@ -1511,10 +1984,14 @@ msgid "notification.type.editorDecisionSendToProduction"
 msgstr "Начат процесс публикации."
 
 msgid "notification.type.editorAssignmentProduction"
-msgstr "Выпускающий редактор должен быть назначен до начала процесса публикации. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
+msgstr ""
+"Выпускающий редактор должен быть назначен до начала процесса публикации. "
+"Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
 
 msgid "notification.type.editorAssignmentEditing"
-msgstr "Выпускающий редактор должен быть назначен до начала процесса редактирования. Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
+msgstr ""
+"Выпускающий редактор должен быть назначен до начала процесса редактирования. "
+"Пожалуйста, добавьте выпускающего редактора с помощью списка «Участники»."
 
 msgid "submission.reviewForm"
 msgstr "Форма рецензии"
@@ -1540,6 +2017,9 @@ msgstr "Лицензия"
 msgid "submission.copyright"
 msgstr "Авторское право"
 
+msgid "submission.copyright.agree"
+msgstr ""
+
 msgid "submission.copyrightHolder"
 msgstr "Владелец авторского права"
 
@@ -1556,22 +2036,32 @@ msgid "submission.copyrightStatement"
 msgstr "Copyright (c) {$copyrightYear} {$copyrightHolder}"
 
 msgid "submission.licenseURLValid"
-msgstr "Пожалуйста, укажите правильный URL-адрес удаленного сервера (включая http://)."
+msgstr ""
+"Пожалуйста, укажите правильный URL-адрес удаленного сервера (включая "
+"http://)."
 
 msgid "submission.licenseURL"
 msgstr "URL-адрес лицензии"
 
 msgid "submission.license.cc.by-nc-nd4"
-msgstr "CC «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0"
+msgstr ""
+"CC «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое "
+"использование — Без производных произведений») 4.0"
 
 msgid "submission.license.cc.by-nc4"
-msgstr "CC «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0"
+msgstr ""
+"CC «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») "
+"4.0"
 
 msgid "submission.license.cc.by-nc-sa4"
-msgstr "CC «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0"
+msgstr ""
+"CC «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое "
+"использование — На тех же условиях») 4.0"
 
 msgid "submission.license.cc.by-nd4"
-msgstr "CC «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0"
+msgstr ""
+"CC «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») "
+"4.0"
 
 msgid "submission.license.cc.by4"
 msgstr "CC «Attribution» («Атрибуция») 4.0"
@@ -1580,40 +2070,113 @@ msgid "submission.license.cc.by-sa4"
 msgstr "CC «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0"
 
 msgid "submission.license.cc.by-nc-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">лицензии "
+"Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — "
+"Некоммерческое использование — Без производных произведений») 4.0 Всемирная</"
+"a>.</p>"
 
 msgid "submission.license.cc.by-nc4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/4.0/\">лицензии Creative "
+"Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое "
+"использование») 4.0 Всемирная</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">лицензии "
+"Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — "
+"Некоммерческое использование — На тех же условиях») 4.0 Всемирная</a>.</p>"
 
 msgid "submission.license.cc.by-nd4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nd/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/4.0/\">лицензии Creative "
+"Commons «Attribution-NoDerivatives» («Атрибуция — Без производных "
+"произведений») 4.0 Всемирная</a>.</p>"
 
 msgid "submission.license.cc.by4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/4.0/\">лицензии Creative "
+"Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.</p>"
 
 msgid "submission.license.cc.by-sa4.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 Всемирная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/4.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"sa/4.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/4.0/\">лицензии Creative "
+"Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 4.0 "
+"Всемирная</a>.</p>"
 
 msgid "submission.license.cc.by-nc-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — Некоммерческое использование — Без производных произведений») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-nd/3.0/\">лицензии "
+"Creative Commons «Attribution-NonCommercial-NoDerivatives» («Атрибуция — "
+"Некоммерческое использование — Без производных произведений») 3.0 "
+"Непортированная</a>.</p>"
 
 msgid "submission.license.cc.by-nc3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое использование») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nc/3.0/\">лицензии Creative "
+"Commons «Attribution-NonCommercial» («Атрибуция — Некоммерческое "
+"использование») 3.0 Непортированная</a>.</p>"
 
 msgid "submission.license.cc.by-nc-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — Некоммерческое использование — На тех же условиях») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nc-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license"
+"\" href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">лицензии "
+"Creative Commons «Attribution-NonCommercial-ShareAlike» («Атрибуция — "
+"Некоммерческое использование — На тех же условиях») 3.0 Непортированная</a>."
+"</p>"
 
 msgid "submission.license.cc.by-nd3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative Commons «Attribution-NoDerivatives» («Атрибуция — Без производных произведений») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nd/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"nd/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-nd/3.0/\">лицензии Creative "
+"Commons «Attribution-NoDerivatives» («Атрибуция — Без производных "
+"произведений») 3.0 Непортированная</a>.</p>"
 
 msgid "submission.license.cc.by3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative Commons «Attribution» («Атрибуция») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/"
+"by/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by/3.0/\">лицензии Creative "
+"Commons «Attribution» («Атрибуция») 3.0 Непортированная</a>.</p>"
 
 msgid "submission.license.cc.by-sa3.footer"
-msgstr "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 Непортированная</a>.</p>"
+msgstr ""
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-sa/3.0/"
+"\"><img alt=\"Лицензия Creative Commons\" src=\"//i.creativecommons.org/l/by-"
+"sa/3.0/88x31.png\" /></a><p>Это произведение доступно по <a rel=\"license\" "
+"href=\"https://creativecommons.org/licenses/by-sa/3.0/\">лицензии Creative "
+"Commons «Attribution-ShareAlike» («Атрибуция — На тех же условиях») 3.0 "
+"Непортированная</a>.</p>"
 
 msgid "submission.queries.submission"
 msgstr "Обсуждения до рецензирования"
@@ -1649,28 +2212,39 @@ msgid "submission.query.leaveQuery"
 msgstr "Покинуть обсуждение"
 
 msgid "submission.query.leaveQuery.confirm"
-msgstr "Если вы покинете это обсуждение, то больше не будете получать уведомления о новых сообщениях. Вы действительно хотите покинуть обсуждение?"
+msgstr ""
+"Если вы покинете это обсуждение, то больше не будете получать уведомления о "
+"новых сообщениях. Вы действительно хотите покинуть обсуждение?"
 
 msgid "grid.action.openNoteForm"
 msgstr "Добавить новый ответ в обсуждение"
 
 msgid "submission.query.activity"
-msgstr "Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}"
+msgstr ""
+"Пользователь «{$responderName}» ответил на «{$noteTitle}»: {$noteContents}"
 
 msgid "submission.query.new"
-msgstr "Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: {$noteContents}"
+msgstr ""
+"Пользователь «{$creatorName}» начал обсуждение «{$noteTitle}»: "
+"{$noteContents}"
 
 msgid "submission.query.activity.contents"
-msgstr "Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}»."
+msgstr ""
+"Есть новая активность в обсуждении с названием «{$queryTitle}», относящимся "
+"к материалу «{$submissionTitle}»."
 
 msgid "submission.query.new.contents"
-msgstr "Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к материалу «{$submissionTitle}»."
+msgstr ""
+"Вы были добавлены к обсуждению с названием «{$queryTitle}», относящимся к "
+"материалу «{$submissionTitle}»."
 
 msgid "submission.query.participantTitle"
 msgstr "{$fullName}, {$userGroup}"
 
 msgid "submission.query.noParticipantOptions"
-msgstr "До начала обсуждения вы должны назначить хотя бы одного участника в этот материал."
+msgstr ""
+"До начала обсуждения вы должны назначить хотя бы одного участника в этот "
+"материал."
 
 msgid "submission.list.infoCenter"
 msgstr "Журнал активности и обсуждений"
@@ -1696,6 +2270,9 @@ msgstr "Рецензия отменена"
 msgid "submission.list.confirmDelete"
 msgstr "Удалить материал?"
 
+msgid "submission.list.viewAllSubmissions"
+msgstr ""
+
 msgid "submission.list.viewSubmission"
 msgstr "Показать материал"
 
@@ -1718,13 +2295,20 @@ msgid "submission.list.discussions"
 msgstr "Открытых обсуждений"
 
 msgid "submission.list.dualWorkflowLinks"
-msgstr "Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться <a href=\"{$urlAuthorWorkflow}\">Рабочим потоком автора</a>  или <a href=\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
+msgstr ""
+"Вам назначили несколько ролей для этого материала. Вы хотите воспользоваться "
+"<a href=\"{$urlAuthorWorkflow}\">Рабочим потоком автора</a>  или <a href="
+"\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
 
 msgid "submission.list.reviewerWorkflowLink"
-msgstr "Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться <a href=\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
+msgstr ""
+"Вам назначена роль в редакции для этого материала. Вы хотите воспользоваться "
+"<a href=\"{$urlEditorialWorkflow}\">Рабочим потоком редакции</a>?"
 
 msgid "submission.list.incompleteSubmissionNotice"
-msgstr "Этот материал должен быть завершен до того, как редактор будет его рецензировать."
+msgstr ""
+"Этот материал должен быть завершен до того, как редактор будет его "
+"рецензировать."
 
 msgid "submission.list.currentStage"
 msgstr "Сейчас на этапе «{$stage}»."
@@ -1737,6 +2321,75 @@ msgstr "Дней с момента последней активности"
 
 msgid "submission.list.assignEditor"
 msgstr "Назначить редактора"
+
+msgid "submission.wizard.alreadySubmitted"
+msgstr ""
+
+msgid "submission.wizard.beforeStart"
+msgstr ""
+
+msgid "submission.wizard.categories.description"
+msgstr ""
+
+msgid "submission.wizard.changeSubmission"
+msgstr ""
+
+msgid "submission.wizard.completeSteps"
+msgstr ""
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+
+msgid "submission.wizard.errors"
+msgstr ""
+
+msgid "submission.wizard.validating"
+msgstr ""
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+
+msgid "submission.wizard.confirm"
+msgstr ""
+
+msgid "submission.wizard.title"
+msgstr ""
+
+msgid "submission.wizard.titleWithStep"
+msgstr ""
+
+msgid "submission.wizard.noContributors"
+msgstr ""
+
+msgid "submission.wizard.missingContributorLanguage"
+msgstr ""
+
+msgid "submission.wizard.notAllowed"
+msgstr ""
+
+msgid "submission.wizard.privacyConsent"
+msgstr ""
+
+msgid "submission.wizard.saved"
+msgstr ""
+
+msgid "submission.wizard.saved.description"
+msgstr ""
+
+msgid "submission.wizard.saved.emailConfirmation"
+msgstr ""
+
+msgid "submission.wizard.sectionClosed"
+msgstr ""
+
+msgid "submission.wizard.start"
+msgstr ""
+
+msgid "submission.wizard.startingStatus"
+msgstr ""
+
+msgid "submission.wizard.unableToSave"
+msgstr ""
 
 msgid "grid.category.categories"
 msgstr "Категории"
@@ -1752,6 +2405,9 @@ msgstr "Дата публикации (сначала старые)"
 
 msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Дата публикации (сначала новые)"
+
+msgid "category.category"
+msgstr "Категории"
 
 msgid "category.coverImage"
 msgstr "Изображение обложки"
@@ -1814,25 +2470,21 @@ msgid "publication.version.confirm"
 msgstr "Вы уверены, что хотите создать новую версию?"
 
 msgid "publication.wordCountLong"
-msgstr "Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В данный момент её длина {$count} слов."
+msgstr ""
+"Аннотация слишком длинная. Она должна быть длиной не больше {$limit} слов. В "
+"данный момент её длина {$count} слов."
 
 msgid "publication.wordCount"
 msgstr "Число слов: {$count}/{$limit}"
 
-msgid "notification.type.revertDecline"
-msgstr "Решение об отклонении этого материала было отменено."
+msgid "doi.incorrectStaleStatus"
+msgstr ""
 
-msgid "notification.type.editorDecisionRevertDecline"
-msgstr "Отклонение материала было отменено."
+msgid "doi.submission.notPublished"
+msgstr ""
 
-msgid "editor.submission.decision.revertDecline"
-msgstr "Отменить отклонение материала"
-
-msgid "category.category"
-msgstr "Категории"
-
-msgid "submission.submit.includeInBrowse.title"
-msgstr "Списки публикаций"
+msgid "submission.viewingPreview"
+msgstr ""
 
 #, fuzzy
 msgid "author.submit.noFiles"
@@ -1841,51 +2493,53 @@ msgstr "Ни один файл не был прикреплен к этому о
 msgid "author.submit.confirmation"
 msgstr "Подтверждение"
 
-msgid "submission.submit.form.languagesRequired"
-msgstr "Пожалуйста, укажите язык."
+msgid "submission.wizard.submittingInLanguage"
+msgstr ""
 
-msgid "submission.submit.form.subjectsRequired"
-msgstr "Пожалуйста, укажите тему."
+msgid "submission.wizard.submittingToSection"
+msgstr ""
 
-msgid "submission.submit.form.disciplinesRequired"
-msgstr "Пожалуйста, укажите предмет."
-
-msgid "submission.submit.form.keywordsRequired"
-msgstr "Пожалуйста, укажите ключевое слово."
-
-msgid "submission.submit.form.coverageRequired"
-msgstr "Пожалуйста, укаэите информацию об охвате."
-
-msgid "submission.submit.form.typeRequired"
-msgstr "Пожалуйста, укажите тип."
-
-msgid "submission.submit.form.sourceRequired"
-msgstr "Пожалуйста, укажите источник."
-
-msgid "submission.submit.form.rightsRequired"
-msgstr "Пожалуйста, укажите права на материал."
-
-msgid "submission.submit.form.citationsRequired"
-msgstr "Пожалуйста, укажите библиографические ссылки."
-
-msgid "submission.submit.metadataForm.tip"
-msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
+msgid "submission.wizard.submittingToSectionInLanguage"
+msgstr ""
 
 msgid "submission.type.tip"
-msgstr "Тип материала обычно что-то из «изображение», «текст» или другие типы мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, выберите один наиболее подходящий тип для вашего материала. Примеры можно найти на <a target=\"_blank\" href=\"http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/documents/2001/04/12/usageguide/generic.shtml#type</a>"
+msgstr ""
+"Тип материала обычно что-то из «изображение», «текст» или другие типы "
+"мультимедиа, включая «программное обеспечение» или «интерактив». Пожалуйста, "
+"выберите один наиболее подходящий тип для вашего материала. Примеры можно "
+"найти на <a target=\"_blank\" href=\"http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type\">http://dublincore.org/"
+"documents/2001/04/12/usageguide/generic.shtml#type</a>"
 
 msgid "submission.source.tip"
-msgstr "Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес или описание этого ресурса."
+msgstr ""
+"Этот материал пришел с другого ресурса? Если да, вы можете ввести URL-адрес "
+"или описание этого ресурса."
 
 msgid "submission.rights.tip"
-msgstr "Если хотите, вы можете ввести краткое уведомление о правах доступа, сохраняющихся или переходящих для этого материала."
+msgstr ""
+"Если хотите, вы можете ввести краткое уведомление о правах доступа, "
+"сохраняющихся или переходящих для этого материала."
 
 msgid "submission.submit.metadataForm.tip"
-msgstr "Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» после каждого термина."
-
-#, fuzzy
-msgid "submission.submit.submissionLocaleDescription"
-msgstr "Принимаются материалы на нескольких языках. Выберите основной язык отправляемого материала из выпадающего меню выше."
+msgstr ""
+"Добавьте дополнительную информацию для вашего материала. Нажимвйте «Enter» "
+"после каждого термина."
 
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Контактное лицо для переписки с редакцией."
+
+msgid "submission.dataAvailability"
+msgstr ""
+
+msgid "submission.dataAvailability.tip"
+msgstr ""
+
+msgid "submission.files.required.genre"
+msgstr ""
+
+msgid "submission.files.required.genres"
+msgstr ""
+
+msgid "publication.version"
+msgstr ""

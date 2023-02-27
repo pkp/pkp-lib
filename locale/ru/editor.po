@@ -11,8 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 3.9.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
@@ -48,6 +48,42 @@ msgstr "Материал принят для рецензирования."
 msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Изменить решение"
 
+msgid "editor.submission.workflowDecision.disallowedDecision"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidRecipients"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.invalidStage"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.noUnassignedDecisions"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredReviewRound"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.requiredDecidingEditor"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.submissionInvalid"
+msgstr ""
+
+msgid "editor.submission.workflowDecision.typeInvalid"
+msgstr ""
+
 msgid "editor.review.notInitiated"
 msgstr "Процесс рецензирования еще не был начат."
 
@@ -79,7 +115,12 @@ msgid "editor.submission.revisions"
 msgstr "Версии"
 
 msgid "editor.submission.review.reviewersDescription"
-msgstr "Используйте <em>+Добавить рецензента</em>, чтобы пригласить читателей дать рецензии на файлы материала. Значок блокнота означает, что рецензия была отправлена, которая затем помечается <em>Принята</em> после того как она была просмотрена. Когда срок отправки рецензии прошел, красный значок конверта появляется для напоминания рецензентам."
+msgstr ""
+"Используйте <em>+Добавить рецензента</em>, чтобы пригласить читателей дать "
+"рецензии на файлы материала. Значок блокнота означает, что рецензия была "
+"отправлена, которая затем помечается <em>Принята</em> после того как она "
+"была просмотрена. Когда срок отправки рецензии прошел, красный значок "
+"конверта появляется для напоминания рецензентам."
 
 msgid "editor.submission.addReviewer"
 msgstr "Добавить рецензента"
@@ -114,14 +155,20 @@ msgstr "Отменить запрос на рецензию"
 msgid "editor.review.reinstateReviewer"
 msgstr "Восстановить в роли рецензента"
 
+msgid "editor.review.resendRequestReviewer"
+msgstr ""
+
 msgid "editor.submissionReview.reviewType"
 msgstr "Тип рецензирования"
 
 msgid "editor.submissionReview.sendEmail"
-msgstr "Отправить уведомление электронной почтой автору(авторам): {$authorName}"
+msgstr ""
+"Отправить уведомление электронной почтой автору(авторам): {$authorName}"
 
 msgid "editor.submissionReview.sendEmail.editors"
-msgstr "Отправить уведомление электронной почтой редактору(редакторам): {$editorNames}"
+msgstr ""
+"Отправить уведомление электронной почтой редактору(редакторам): "
+"{$editorNames}"
 
 msgid "editor.submissionReview.skipEmail"
 msgstr "Не отправлять уведомление электронной почтой"
@@ -160,10 +207,18 @@ msgid "editor.review.newReviewRound"
 msgstr "Требуется новый раунд рецензирования"
 
 msgid "editor.review.NotifyAuthorRevisions"
-msgstr "Новые версии файлов не будут рассматриваться в новом раунде рецензирования."
+msgstr ""
+"Новые версии файлов не будут рассматриваться в новом раунде рецензирования."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Новые версии файлов будут рассматриваться в новом раунде рецензирования."
+msgstr ""
+"Новые версии файлов будут рассматриваться в новом раунде рецензирования."
+
+msgid "editor.review.NotifyAuthorRevisions.recommendation"
+msgstr ""
+
+msgid "editor.review.NotifyAuthorResubmit.recommendation"
+msgstr ""
 
 msgid "editor.review.dateAccepted"
 msgstr "Дата принятия материала на рецензирование"
@@ -240,6 +295,9 @@ msgstr "Рецензия отправлена"
 msgid "editor.review.reviewerThanked"
 msgstr "Рецензента поблагодарили"
 
+msgid "editor.review.ReviewerResendRequest"
+msgstr ""
+
 msgid "editor.review.reviewerComments"
 msgstr "Комментарии рецензента"
 
@@ -247,7 +305,9 @@ msgid "editor.review.rateReviewer"
 msgstr "Рейтинг рецензента"
 
 msgid "editor.review.rateReviewer.description"
-msgstr "Оцените качество представленной рецензии. Этот рейтинг не будет показан рецензенту."
+msgstr ""
+"Оцените качество представленной рецензии. Этот рейтинг не будет показан "
+"рецензенту."
 
 msgid "editor.review.reviewerRating.none"
 msgstr "Нет рейтинга"
@@ -256,25 +316,46 @@ msgid "editor.review.mustSelect"
 msgstr "Вы должны выбрать рецензента"
 
 msgid "editor.review.errorAddingReviewer"
-msgstr "Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова."
+msgstr ""
+"Произошла ошибка при добавлении рецензента. Пожалуйста, попробуйте снова."
 
 msgid "editor.review.errorDeletingReviewer"
-msgstr "Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова."
+msgstr ""
+"Произошла ошибка при удалении рецензента. Пожалуйста, попробуйте снова."
 
 msgid "editor.review.errorReinstatingReviewer"
-msgstr "Произошла ошибка при восстановлении рецензента.  Пожалуйста, попробуйте снова."
+msgstr ""
+"Произошла ошибка при восстановлении рецензента.  Пожалуйста, попробуйте "
+"снова."
+
+msgid "editor.review.errorResendingReviewerRequest"
+msgstr ""
 
 msgid "editor.review.userGroupSelect"
 msgstr "Записать пользователя в эту группу рецензентов"
 
 msgid "editor.review.unconsiderReviewText"
-msgstr "Вы хотите отметить эту рецензию как не рассмотренную? История рецензирования будет сохранена."
+msgstr ""
+"Вы хотите отметить эту рецензию как не рассмотренную? История рецензирования "
+"будет сохранена."
 
 msgid "editor.review.unconsiderReview"
 msgstr "Отметить рецензию как не рассмотренную"
 
 msgid "editor.review.readConfirmation"
-msgstr "Прочитав рецензию, нажмите «Подтвердить», чтобы показать, что процесс рецензирования может продолжаться дальше. Если рецензент отправил рецензию каким-то другим образом, вы можете загрузить файл ниже и нажать «Подтвердить», чтобы продолжить."
+msgstr ""
+"Прочитав рецензию, нажмите «Подтвердить», чтобы показать, что процесс "
+"рецензирования может продолжаться дальше. Если рецензент отправил рецензию "
+"каким-то другим образом, вы можете загрузить файл ниже и нажать "
+"«Подтвердить», чтобы продолжить."
+
+msgid "editor.discussion.errorAnonymousParticipants"
+msgstr ""
+"Обсуждение с выбранными участниками нельзя создать, так как это может "
+"повлиять на анонимность процесса рецензирования."
+
+msgid "editor.discussion.errorNotStageParticipant"
+msgstr "Выбранный участник не назначен на данный этап."
 
 msgid "editor.submission.schedulePublication"
 msgstr "Запланировать для публикации"
@@ -304,16 +385,28 @@ msgid "editor.submission.proof.reminder"
 msgstr "Напоминание о корректуре"
 
 msgid "editor.submission.editorial.approveCopyeditDescription"
-msgstr "Прошедший литературное редактирование файл должен быть одобрен перед тем, как его можно будет отправить на этап «Публикация». Вы хотите одобрить этот файл?"
+msgstr ""
+"Прошедший литературное редактирование файл должен быть одобрен перед тем, "
+"как его можно будет отправить на этап «Публикация». Вы хотите одобрить этот "
+"файл?"
 
 msgid "editor.submission.editorial.disapproveCopyeditDescription"
-msgstr "Отмена одобрения этого файла, прошедшего литературное редактирование, приведет к тому, что его нельзя будет отправить на этап «Публикация». Вы хотите отменить одобрение этого файла?"
+msgstr ""
+"Отмена одобрения этого файла, прошедшего литературное редактирование, "
+"приведет к тому, что его нельзя будет отправить на этап «Публикация». Вы "
+"хотите отменить одобрение этого файла?"
 
 msgid "editor.submission.addAuditor"
 msgstr "Назначить аудитора"
 
 msgid "editor.submission.copyedit.manageCopyeditFilesDescription"
-msgstr "Любые файлы, которые уже были загружены на любом этапе отправки материала, могут быть добавлены в список «Файлы для литературного редактирования». Для этого надо поставить галочку «Включить» ниже и щелкнуть на кнопке «Искать»: будут показаны все доступные файлы и их можно будет выбрать для включения в список. Дополнительные файлы, еще не загруженные на этот этап, можно добавить в список, щелкнув на ссылке «Загрузить файл»."
+msgstr ""
+"Любые файлы, которые уже были загружены на любом этапе отправки материала, "
+"могут быть добавлены в список «Файлы для литературного редактирования». Для "
+"этого надо поставить галочку «Включить» ниже и щелкнуть на кнопке «Искать»: "
+"будут показаны все доступные файлы и их можно будет выбрать для включения в "
+"список. Дополнительные файлы, еще не загруженные на этот этап, можно "
+"добавить в список, щелкнув на ссылке «Загрузить файл»."
 
 msgid "editor.review"
 msgstr "Рецензирование"
@@ -355,7 +448,9 @@ msgid "editor.submissionReview.recordRecommendation.skipDiscussion"
 msgstr "Не создавать обсуждение."
 
 msgid "editor.submission.newRoundDescription"
-msgstr "Вы собираетесь создать новый раунд рецензирования для этого материала. Ниже приведены файлы, которые не использовались в других раундах рецензирования."
+msgstr ""
+"Вы собираетесь создать новый раунд рецензирования для этого материала. Ниже "
+"приведены файлы, которые не использовались в других раундах рецензирования."
 
 msgid "editor.submission.createNewRound"
 msgstr "Создать новый раунд рецензирования"
@@ -367,7 +462,10 @@ msgid "editor.article.selectReviewForm"
 msgstr "Выбрать форму рецензии"
 
 msgid "editor.article.confirmChangeReviewForm"
-msgstr "Предупреждение: Изменение формы рецензии повлияет на все рецензии, которые уже сделали рецензенты с помощью этой формы. Вы уверены, что хотите продолжить?"
+msgstr ""
+"Предупреждение: Изменение формы рецензии повлияет на все рецензии, которые "
+"уже сделали рецензенты с помощью этой формы. Вы уверены, что хотите "
+"продолжить?"
 
 msgid "editor.submission.noReviewerFilesSelected"
 msgstr "Файлы не выбраны"
@@ -388,7 +486,8 @@ msgid "grid.action.editQuery"
 msgstr "Редактировать обсуждение"
 
 msgid "editor.submission.query.manageQueryNoteFilesDescription"
-msgstr "Можно прикрепить файлы к этому обсуждению, воспользовавшись списком ниже."
+msgstr ""
+"Можно прикрепить файлы к этому обсуждению, воспользовавшись списком ниже."
 
 msgid "editor.submission.selectedReviewer"
 msgstr "Выбранный рецензент"
@@ -400,10 +499,14 @@ msgid "editor.submission.proofreading.revokeProofApproval"
 msgstr "Отменить одобрение корректуры"
 
 msgid "editor.submission.proofreading.confirmCompletion"
-msgstr "Одобрить эту корректуру, чтобы отметить, что корректура завершена и файл готов к публикации."
+msgstr ""
+"Одобрить эту корректуру, чтобы отметить, что корректура завершена и файл "
+"готов к публикации."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
-msgstr "Отменить одобрение этой корректуры, чтобы отметить, что корректура еще не завершена и файл не готов к публикации."
+msgstr ""
+"Отменить одобрение этой корректуры, чтобы отметить, что корректура еще не "
+"завершена и файл не готов к публикации."
 
 msgid "editor.submission.revertDeclineDescription"
 msgstr "Вы уверены, что хотите отменить решение об отклонении этого материала?"
@@ -422,6 +525,9 @@ msgstr "Рецензий в работе: {$count}"
 
 msgid "reviewer.list.activeReviewsDescription"
 msgstr "Число рецензий в работе"
+
+msgid "reviewer.list.assignedToLastRound"
+msgstr ""
 
 msgid "reviewer.list.completedReviews"
 msgstr "Завершено рецензий"
@@ -453,11 +559,18 @@ msgstr "Никогда не назначали рецензентом"
 msgid "reviewer.list.reassign"
 msgstr "Переназначить"
 
+msgid "reviewer.list.reassign.withName"
+msgstr ""
+
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Этот рецензент уже был назначен рецензентом этого материала."
 
 msgid "reviewer.list.warnOnAssign"
-msgstr "Этот рецензент заблокирован, поскольку ему назначена роль, позволяющая видеть информацию об авторе. В данном случае невозможно гарантировать анонимное рецензирование. Вы действительно хотите разблокировать этого рецензента?"
+msgstr ""
+"Этот рецензент заблокирован, поскольку ему назначена роль, позволяющая "
+"видеть информацию об авторе. В данном случае невозможно гарантировать "
+"анонимное рецензирование. Вы действительно хотите разблокировать этого "
+"рецензента?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Разблокировать"
@@ -471,10 +584,29 @@ msgstr "Биография"
 msgid "reviewer.list.empty"
 msgstr "Рецензенты не найдены"
 
-msgid "editor.discussion.errorNotStageParticipant"
-msgstr "Выбранный участник не назначен на данный этап."
-
-msgid "editor.discussion.errorAnonymousParticipants"
+msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
 msgstr ""
-"Обсуждение с выбранными участниками нельзя создать, так как это может "
-"повлиять на анонимность процесса рецензирования."
+
+msgid "editor.decision.cancelDecision"
+msgstr ""
+
+msgid "editor.decision.cancelDecision.confirmation"
+msgstr ""
+
+msgid "editor.decision.completeSteps"
+msgstr ""
+
+msgid "editor.decision.dontSkipEmail"
+msgstr ""
+
+msgid "editor.decision.emailSkipped"
+msgstr ""
+
+msgid "editor.decision.recordDecision"
+msgstr ""
+
+msgid "editor.decision.skipEmail"
+msgstr ""
+
+msgid "editor.decision.stepError"
+msgstr ""

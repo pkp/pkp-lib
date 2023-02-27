@@ -14,52 +14,27 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgid "admin.systemInfo.settingName"
+msgstr "Атау енгізу"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Мән орнату"
+
+msgid "admin.adminFunctions"
+msgstr "Әкімшілік функциялар"
+
+msgid "admin.deleteCache"
+msgstr "Кэштерді жою"
+
+msgid "admin.deleteCache.description"
 msgstr ""
-"Сайттың негізгі тілін өзгерткіңіз келетініне сенімдісіз бе? Сайттың негізгі "
-"тілінде көрсетілуі тиіс қолданушы аттары, егер сайттың жаңа бастапқы тілінде "
-"мұндай атаулар болмаса, ағымдағы негізгі тілден жаңасына көшіріледі."
+"Жүйеден кэш файлдарын жойыңыз. Бұл тек әзірлеу орталарында жасалуы керек."
 
-msgid "admin.languages.cantDisable"
-msgstr ""
-"Бұл тіл - сайттың негізгі тілі. Сіз басқа негізгі тілді таңдамайынша оны "
-"өшіре алмайсыз."
+msgid "admin.clearDataCache"
+msgstr "Деректер кэштерін тазарту"
 
-msgid "admin.expireSessions"
-msgstr "Қолданушы сеанстарын тоқтатыңыз"
-
-msgid "admin.displayNewSystemConfig"
-msgstr "Жаңа конфигурацияны көрсету"
-
-msgid "admin.displayConfigFileInstructions"
-msgstr ""
-"Жаңартылған конфигурация мазмұны төменде көрсетілген. Өзгертулерді "
-"конфигурацияға қолдану үшін сәйкес мәтін редакторында <tt>config.inc.php</tt>"
-" файлын ашып, оның мазмұнын төмендегі мәтін ұясының мазмұнымен ауыстыру "
-"қажет."
-
-msgid "admin.dateInstalled"
-msgstr "Орнатылған күні"
-
-msgid "admin.currentVersion"
-msgstr "Ағымдағы нұсқа"
-
-msgid "admin.contexts.confirmDelete"
-msgstr ""
-"{$contextName} және барлық мазмұнды біржола жойғыңыз келетініне сенімдісіз "
-"бе?"
-
-msgid "admin.contentsOfConfigFile"
-msgstr "Конфигурация файлының мазмұны"
-
-msgid "admin.confirmExpireSessions"
-msgstr ""
-"Барлық қолданушы сеанстарын тоқтатқыңыз келетініне сенімдісіз бе? Дәл қазір "
-"жүйедегі  барлық қолданушыларға өз есептік жазбасына қайта ену қажет болады ("
-"соның ішінде сізге де)."
-
-msgid "admin.confirmClearTemplateCache"
-msgstr "Жиналған шаблон кэшін тазартқыңыз келетініне сенімдісіз бе?"
+msgid "admin.clearTemplateCache"
+msgstr "Үлгі кэшін тазарту"
 
 msgid "admin.configFileUpdatedInstructions"
 msgstr ""
@@ -67,113 +42,57 @@ msgstr ""
 "сіздің сайтыңыз жұмысын тоқтатса, <tt>config.inc.php</tt> файлын тікелей "
 "өңдеу арқылы конфигурацияны қолмен түзету қажет болуы мүмкін."
 
-msgid "admin.clearTemplateCache"
-msgstr "Үлгі кэшін тазарту"
+msgid "admin.confirmClearTemplateCache"
+msgstr "Жиналған шаблон кэшін тазартқыңыз келетініне сенімдісіз бе?"
 
-msgid "admin.clearDataCache"
-msgstr "Деректер кэштерін тазарту"
-
-msgid "admin.adminFunctions"
-msgstr "Әкімшілік функциялар"
-
-msgid "admin.systemInfo.settingValue"
-msgstr "Мән орнату"
-
-msgid "admin.systemInfo.settingName"
-msgstr "Атау енгізу"
-
-msgid "admin.scheduledTask.confirmClearLogs"
+msgid "admin.confirmExpireSessions"
 msgstr ""
-"Барлық жоспарланған тапсырманы орындау журналдарын шынымен жойғыңыз келе ме?"
+"Барлық қолданушы сеанстарын тоқтатқыңыз келетініне сенімдісіз бе? Дәл қазір "
+"жүйедегі  барлық қолданушыларға өз есептік жазбасына қайта ену қажет болады "
+"(соның ішінде сізге де)."
 
-msgid "admin.scheduledTask.downloadLog"
+msgid "admin.contentsOfConfigFile"
+msgstr "Конфигурация файлының мазмұны"
+
+msgid "admin.contexts.confirmDelete"
 msgstr ""
-"{$softwareName} орнатуыңыз бұл тапсырманы автоматты түрде орындап, аяқтады "
-"және журнал файлын мына жерден жүктеп алуға болады: {$url}"
+"{$contextName} және барлық мазмұнды біржола жойғыңыз келетініне сенімдісіз "
+"бе?"
 
-msgid "admin.settings.siteTitle"
-msgstr "Сайт атауы"
+msgid "admin.currentVersion"
+msgstr "Ағымдағы нұсқа"
 
-msgid "admin.settings.siteLogo"
-msgstr "Сайт логотипі"
+msgid "admin.dateInstalled"
+msgstr "Орнатылған күні"
 
-msgid "admin.settings.siteStyleSheet"
-msgstr "Сайт стилі кестесі"
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Жаңартылған конфигурация мазмұны төменде көрсетілген. Өзгертулерді "
+"конфигурацияға қолдану үшін сәйкес мәтін редакторында <tt>config.inc.php</"
+"tt> файлын ашып, оның мазмұнын төмендегі мәтін ұясының мазмұнымен ауыстыру "
+"қажет."
 
-msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Сайт стилі кестесінің пішімі қате. Рұқсат етілген формат — .css."
+msgid "admin.displayNewSystemConfig"
+msgstr "Жаңа конфигурацияны көрсету"
 
-msgid "admin.settings.siteLanguage"
-msgstr "Сайт тілі"
+msgid "admin.expireSessions"
+msgstr "Қолданушы сеанстарын тоқтатыңыз"
 
-msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr "Бұл параметрді тек әкімшіге өзгертуге рұқсат етіледі."
+msgid "admin.expireSessions.description"
+msgstr ""
+"Барлық пайдаланушылар бағдарламадан бірден шығарылады, ондай кезде сізде "
+"бірден шығасыз және сізге қайта кіру қажет болады."
 
-msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr "Рөлдерді өшіру"
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Бұл тіл - сайттың негізгі тілі. Сіз басқа негізгі тілді таңдамайынша оны "
+"өшіре алмайсыз."
 
-msgid "admin.settings.restrictBulkEmails"
-msgstr "Жаппай хат таратуды шектеу"
-
-msgid "admin.settings.minPasswordLength"
-msgstr "Құпия сөздің минималды ұзындығы (таңбалар)"
-
-msgid "admin.settings.introduction"
-msgstr "Кіріспе"
-
-msgid "admin.settings.contactName"
-msgstr "Негізгі контактінің аты-жөні"
-
-msgid "admin.settings.contactEmail"
-msgstr "Негізгі контактінің электрондық поштасы"
-
-msgid "admin.settings.enableBulkEmails.label"
-msgstr "Жаппай хат тарату"
-
-msgid "admin.scheduledTask.noLog"
-msgstr "Тапсырма оқиғалар журналы үшін жазбалар жасамады."
-
-msgid "admin.scheduledTask.stopTime"
-msgstr "Тапсырманы орындау процесі тоқтатылды."
-
-msgid "admin.scheduledTask.startTime"
-msgstr "Тапсырманы орындау процесі басталды."
-
-msgid "admin.scheduledTask"
-msgstr "Жоспарланған тапсырма"
-
-msgid "admin.phpInfo"
-msgstr "PHP туралы қосымша ақпарат"
-
-msgid "admin.languages.uninstall"
-msgstr "Тілді жою"
-
-msgid "admin.languages.reload"
-msgstr "Тіл стандартын қайта жүктеу"
-
-msgid "admin.languages.noLocalesAvailable"
-msgstr "Орнату үшін қосымша тілдер жоқ."
-
-msgid "admin.languages.languageSettings"
-msgstr "Тіл параметрлері"
-
-msgid "admin.languages.installNewLocales"
-msgstr "Жаңа Локализацияларды Орнату"
-
-msgid "admin.languages.installLocales"
-msgstr "Орнату"
-
-msgid "admin.languages.installLocale"
-msgstr "Орнату тілі"
-
-msgid "admin.languages.availableLocales"
-msgstr "Қолжетімді тіл"
-
-msgid "admin.languages.installLanguages"
-msgstr "Локализацияны басқару"
-
-msgid "admin.languages.installedLocales"
-msgstr "Орнатылған Тіл"
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Сайттың негізгі тілін өзгерткіңіз келетініне сенімдісіз бе? Сайттың негізгі "
+"тілінде көрсетілуі тиіс қолданушы аттары, егер сайттың жаңа бастапқы тілінде "
+"мұндай атаулар болмаса, ағымдағы негізгі тілден жаңасына көшіріледі."
 
 msgid "admin.languages.confirmReload"
 msgstr ""
@@ -181,11 +100,374 @@ msgstr ""
 "электрондық пошта шаблондары сияқты белгілі бір аймаққа байланысты барлық "
 "деректерді жояды."
 
-msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Кезекке қойылған тапсырмалар санын көрсету"
+msgid "admin.languages.installedLocales"
+msgstr "Орнатылған Тіл"
 
-msgid "admin.cli.tool.jobs.available.options.test.description"
-msgstr "Әдепкі кезекке тест тапсырмасын қосыңыз"
+msgid "admin.languages.installLanguages"
+msgstr "Локализацияны басқару"
+
+msgid "admin.languages.availableLocales"
+msgstr "Қолжетімді тіл"
+
+msgid "admin.languages.installLocale"
+msgstr "Орнату тілі"
+
+msgid "admin.languages.installLocales"
+msgstr "Орнату"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Жаңа Локализацияларды Орнату"
+
+msgid "admin.languages.languageSettings"
+msgstr "Тіл параметрлері"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Орнату үшін қосымша тілдер жоқ."
+
+msgid "admin.languages.reload"
+msgstr "Тіл стандартын қайта жүктеу"
+
+msgid "admin.languages.uninstall"
+msgstr "Тілді жою"
+
+msgid "admin.phpInfo"
+msgstr "PHP туралы қосымша ақпарат"
+
+msgid "admin.scheduledTask"
+msgstr "Жоспарланған тапсырма"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Тапсырманы орындау процесі басталды."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Тапсырманы орындау процесі тоқтатылды."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Тапсырма оқиғалар журналы үшін жазбалар жасамады."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI-ді теңшелген тіркеу агенттігіне енгізіңіз"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} орнатуыңыз бұл тапсырманы автоматты түрде орындап, аяқтады "
+"және журнал файлын мына жерден жүктеп алуға болады: {$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Барлық жоспарланған тапсырманы орындау журналдарын шынымен жойғыңыз келе ме?"
+
+msgid "admin.scheduledTask.clearLogs"
+msgstr "Жоспарланған тапсырманы орындау әрекеттерін тазалау"
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr ""
+"Орындалуға жоспарланған тапсырмалар үрдісінің барлық әрекеттерді жойыңыз."
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Тапсырма мәліметтерін жою"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Жариялауға жоспарланған материалдарды жариялау"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Рецензентке ескерту"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Редакциялық есеп туралы хабарлама"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Жазылымның аяқталуы туралы ескерту"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr ""
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr ""
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+
+msgid "admin.server.apacheVersion"
+msgstr "Apache Нұсқасы"
+
+msgid "admin.server.dbDriver"
+msgstr "Дерекқор драйвері"
+
+msgid "admin.server.dbVersion"
+msgstr "Дерекқор серверінің нұсқасы"
+
+msgid "admin.serverInformation"
+msgstr "Сервер туралы ақпарат"
+
+msgid "admin.server.phpVersion"
+msgstr "PHP нұсқасы"
+
+msgid "admin.server.platform"
+msgstr "ОЖ платформасы"
+
+msgid "admin.settings"
+msgstr "Баптаулар"
+
+msgid "admin.settings.about"
+msgstr "Сайт туралы"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "Жаппай хат тарату"
+
+msgid "admin.settings.contactEmail"
+msgstr "Негізгі контактінің электрондық поштасы"
+
+msgid "admin.settings.contactName"
+msgstr "Негізгі контактінің аты-жөні"
+
+msgid "admin.settings.introduction"
+msgstr "Кіріспе"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "Құпия сөздің минималды ұзындығы (таңбалар)"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "Жаппай хат таратуды шектеу"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "Рөлдерді өшіру"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "Бұл параметрді тек әкімшіге өзгертуге рұқсат етіледі."
+
+msgid "admin.settings.siteLanguage"
+msgstr "Сайт тілі"
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "Сайт стилі кестесінің пішімі қате. Рұқсат етілген формат — .css."
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "Сайт стилі кестесі"
+
+msgid "admin.settings.siteLogo"
+msgstr "Сайт логотипі"
+
+msgid "admin.settings.siteTitle"
+msgstr "Сайт атауы"
+
+msgid "admin.settings.siteTheme"
+msgstr "Сайтты безендіру темасы"
+
+msgid "admin.siteAdmin"
+msgstr "Сайтты әкімшілеу"
+
+msgid "admin.siteManagement"
+msgstr "Сайтты басқару"
+
+msgid "admin.siteSettings"
+msgstr "Сайт баптаулары"
+
+msgid "admin.siteSetup"
+msgstr "Сайтты орнату"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"<tt>config.inc.php</tt> конфигурация файлы жоқ, оқылмайды немесе жарамсыз."
+
+msgid "admin.systemInformation"
+msgstr "Жүйе туралы ақпарат"
+
+msgid "admin.systemInformation.description"
+msgstr ""
+"Бағдарлама мен сервердің нұсқасы мен конфигурация параметрлері туралы "
+"ақпаратты қараңыз."
+
+msgid "admin.systemInformation.view"
+msgstr "Жүйе туралы ақпаратты қарау"
+
+msgid "admin.versionBuild"
+msgstr "Құрастыру"
+
+msgid "admin.version.checkForUpdates"
+msgstr "Жаңарту барын тексеру"
+
+msgid "admin.version.downloadPackage"
+msgstr "Жүктеу"
+
+msgid "admin.version.downloadPatch"
+msgstr "Патчты жүктеу"
+
+msgid "admin.versionHistory"
+msgstr "Нұсқа тарихы"
+
+msgid "admin.version.latest"
+msgstr "Соңғы нұсқа"
+
+msgid "admin.versionMajor"
+msgstr "Үлкен"
+
+msgid "admin.versionMinor"
+msgstr "Кіші"
+
+msgid "admin.version.moreInfo"
+msgstr "Толық ақпарат"
+
+msgid "admin.versionRevision"
+msgstr "Ревизия"
+
+msgid "admin.version.updateAvailable"
+msgstr "Жаңартылған нұсқа қол жетімді"
+
+msgid "admin.version.upToDate"
+msgstr "Сізде жаңартылған жүйе"
+
+msgid "admin.version"
+msgstr "Нұсқа"
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr ""
+"{$path} негізгі жолы жалпыға қолжетімді файлдар каталогында болуы керек."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "{$path} қалтасы каталог емес немесе оқу мүмкін емес."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr ""
+"{$filename} файлын {$currentFilePath} каталогынан {$destinationPath} ішіне "
+"көшіру мүмкін емес"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "{$filename} файлы өңделіп, мұрағатталды."
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "Файл жүктеуші"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "Жүктеуге қол жетімді тілдер жоқ."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "Пайдалану:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "команда [arguments]"
+
+msgid "admin.cli.tool.available.commands"
+msgstr "`{$namespace}` аттар кеңістігі үшін қол жетімді командалар:"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"Кезекте тұрған барлық жұмыстарды тізімдеңіз. Нәтижелерді беттеу керек болса, "
+"--page= және --perPage= параметрлерін пайдаланыңыз"
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -193,273 +475,327 @@ msgstr ""
 "Егер сіз бәрін жойғыңыз келсе, --all параметрін жіберіңіз. Егер сіз бәрін "
 "белгілі бір кезектен жойғыңыз келсе, --queue= параметрін жіберіңіз"
 
-msgid "admin.cli.tool.jobs.available.options.list.description"
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr "Әдепкі кезекке тест тапсырмасын қосыңыз"
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
-"Кезекте тұрған барлық жұмыстарды тізімдеңіз. Нәтижелерді беттеу керек болса, "
-"--page= және --perPage= параметрлерін пайдаланыңыз"
 
-msgid "admin.languages.noLocalesToDownload"
-msgstr "Жүктеуге қол жетімді тілдер жоқ."
-
-msgid "admin.fileLoader.emailSubject"
-msgstr "Файл жүктеуші"
-
-msgid "admin.fileLoader.fileProcessed"
-msgstr "{$filename} файлы өңделіп, мұрағатталды."
-
-msgid "admin.fileLoader.moveFileFailed"
+msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
-"{$filename} файлын {$currentFilePath} каталогынан {$destinationPath} ішіне "
-"көшіру мүмкін емес"
 
-msgid "admin.fileLoader.pathNotAccessible"
-msgstr "{$path} қалтасы каталог емес немесе оқу мүмкін емес."
-
-msgid "admin.fileLoader.wrongBasePathLocation"
+msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
-"{$path} негізгі жолы жалпыға қолжетімді файлдар каталогында болуы керек."
 
-msgid "admin.version"
-msgstr "Нұсқа"
-
-msgid "admin.version.upToDate"
-msgstr "Сізде жаңартылған жүйе"
-
-msgid "admin.version.updateAvailable"
-msgstr "Жаңартылған нұсқа қол жетімді"
-
-msgid "admin.versionRevision"
-msgstr "Ревизия"
-
-msgid "admin.version.moreInfo"
-msgstr "Толық ақпарат"
-
-msgid "admin.versionMinor"
-msgstr "Кіші"
-
-msgid "admin.versionMajor"
-msgstr "Үлкен"
-
-msgid "admin.version.latest"
-msgstr "Соңғы нұсқа"
-
-msgid "admin.versionHistory"
-msgstr "Нұсқа тарихы"
-
-msgid "admin.version.downloadPatch"
-msgstr "Патчты жүктеу"
-
-msgid "admin.version.downloadPackage"
-msgstr "Жүктеу"
-
-msgid "admin.version.checkForUpdates"
-msgstr "Жаңарту барын тексеру"
-
-msgid "admin.versionBuild"
-msgstr "Құрастыру"
-
-msgid "admin.systemInformation"
-msgstr "Жүйе туралы ақпарат"
-
-msgid "admin.systemConfigFileReadError"
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
-"<tt>config.inc.php</tt> конфигурация файлы жоқ, оқылмайды немесе жарамсыз."
 
-msgid "admin.siteSetup"
-msgstr "Сайтты орнату"
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr ""
 
-msgid "admin.siteSettings"
-msgstr "Сайт баптаулары"
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr "Кезекке қойылған тапсырмалар санын көрсету"
 
-msgid "admin.siteManagement"
-msgstr "Сайтты басқару"
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "Тапсырма пәрменін пайдалануды көрсету"
 
-msgid "admin.siteAdmin"
-msgstr "Сайтты әкімшілеу"
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "Тапсырмаларды пайдалану параметрлерін көрсету"
 
-msgid "admin.settings.siteTheme"
-msgstr "Сайтты безендіру темасы"
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "Опция бос болмауы мүмкін! Пайдалану әдісін тексеріңіз."
 
-msgid "admin.settings.about"
-msgstr "Сайт туралы"
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr ""
 
-msgid "admin.settings"
-msgstr "Баптаулар"
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "Кезектегі тапсырмалар"
 
-msgid "admin.server.platform"
-msgstr "ОЖ платформасы"
-
-msgid "admin.server.phpVersion"
-msgstr "PHP нұсқасы"
-
-msgid "admin.serverInformation"
-msgstr "Сервер туралы ақпарат"
-
-msgid "admin.server.dbVersion"
-msgstr "Дерекқор серверінің нұсқасы"
-
-msgid "admin.server.dbDriver"
-msgstr "Дерекқор драйвері"
-
-msgid "admin.server.apacheVersion"
-msgstr "Apache Нұсқасы"
-
-msgid "admin.scheduledTask.subscriptionExpiryReminder"
-msgstr "Жазылымның аяқталуы туралы ескерту"
-
-msgid "admin.scheduledTask.reviewReminder"
-msgstr "Рецензентке ескерту"
-
-msgid "admin.scheduledTask.publishSubmissions"
-msgstr "Жариялауға жоспарланған материалдарды жариялау"
-
-msgid "admin.scheduledTask.clearLogs"
-msgstr "Жоспарланған тапсырманы орындау әрекеттерін тазалау"
-
-msgid "admin.jobs.createdAt"
-msgstr "{$createdAt} құрылған"
-
-msgid "admin.jobs.list.createdAt"
-msgstr "Құрылған"
-
-msgid "admin.jobs.list.attempts"
-msgstr "Әрекеттер"
-
-msgid "admin.jobs.list.queue"
-msgstr "Кезек"
-
-msgid "admin.jobs.list.displayName"
-msgstr "Жұмыс"
-
-msgid "admin.jobs.list.id"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
 msgstr "ID"
 
-msgid "navigation.tools.jobs"
-msgstr "Жұмыстар"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "Кезек"
 
-msgid "admin.jobs.viewQueuedJobs"
-msgstr "Кезекке қойылған тапсырмаларды қарау"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr ""
 
-msgid "admin.jobs.totalCount"
-msgstr "Кезекте жалпы <strong>{$total}</strong> тапсырма(лар)"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "Көрсетілген тапсырма атауы"
 
-msgid "admin.cli.tool.jobs.mean.those"
-msgstr "Сіз келесілердің бірін білдірдіңіз бе?"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "Әрекеттер"
 
-msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr "{$option} опциясы жоқ."
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "Сақталған"
 
-msgid "admin.cli.tool.jobs.total.jobs"
-msgstr "Бізде {$total} кезектегі тапсырмалар бар"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "Жетімді"
 
-msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr "Барлық тапсырмаларды жойды!"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "Құрылған"
 
-msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr "Барлық тапсырмаларды жою мүмкін болмады."
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr ""
 
-msgid "admin.cli.tool.jobs.purge.successful"
-msgstr "Тапсырма жойылды!"
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr ""
 
-msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr "Қате тапсырма идентификаторы"
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "Парақшалау"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "Ағымдағы"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "Алдыңғы"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "Келесі"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
 "Осы пәрменді пайдалану үшін кем дегенде '--all' немесе '--queue=' тапсырма "
 "идентификаторын беру керек"
 
-msgid "admin.cli.tool.jobs.pagination.next"
-msgstr "Келесі"
-
-msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr "Алдыңғы"
-
-msgid "admin.cli.tool.jobs.pagination.current"
-msgstr "Ағымдағы"
-
-msgid "admin.cli.tool.jobs.pagination"
-msgstr "Парақшалау"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr "Құрылған"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr "Жетімді"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Сақталған"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr "Әрекеттер"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Көрсетілген тапсырма атауы"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr "Кезек"
-
-msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr "ID"
-
-msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr "Кезектегі тапсырмалар"
-
-msgid "admin.cli.tool.jobs.empty.option"
-msgstr "Опция бос болмауы мүмкін! Пайдалану әдісін тексеріңіз."
-
-msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr "Тапсырмаларды пайдалану параметрлерін көрсету"
-
-msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr "Тапсырма пәрменін пайдалануды көрсету"
-
-msgid "admin.cli.tool.available.commands"
-msgstr "`{$namespace}` аттар кеңістігі үшін қол жетімді командалар:"
-
-msgid "admin.cli.tool.usage.parameters"
-msgstr "команда [arguments]"
-
-msgid "admin.cli.tool.usage.title"
-msgstr "Пайдалану:"
-
-msgid "admin.scheduledTask.statisticsReport"
-msgstr "Редакциялық есеп туралы хабарлама"
-
-msgid "admin.scheduledTask.depositDois"
-msgstr "DOI-ді теңшелген тіркеу агенттігіне енгізіңіз"
-
-msgid "admin.deleteCache.description"
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
-"Жүйеден кэш файлдарын жойыңыз. Бұл тек әзірлеу орталарында жасалуы керек."
 
-msgid "admin.deleteCache"
-msgstr "Кэштерді жою"
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr ""
 
-msgid "navigation.tools.jobs.view"
-msgstr "Тапсырмаларды қарау"
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "Қате тапсырма идентификаторы"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "Тапсырма жойылды!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "Барлық тапсырмаларды жою мүмкін болмады."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "Барлық тапсырмаларды жойды!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "Бізде {$total} кезектегі тапсырмалар бар"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "{$option} опциясы жоқ."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "Сіз келесілердің бірін білдірдіңіз бе?"
+
+msgid "admin.jobs.totalCount"
+msgstr "Кезекте жалпы <strong>{$total}</strong> тапсырма(лар)"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr ""
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "Кезекке қойылған тапсырмаларды қарау"
+
+msgid "navigation.tools.jobs"
+msgstr "Жұмыстар"
+
+msgid "navigation.tools.jobs.failed"
+msgstr ""
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr ""
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
 "Жүйедегі барлық кезекте тұрған тапсырмаларды қараңыз және сәтсіз әрекеттерді "
 "қадағалаңыз."
 
-msgid "admin.systemInformation.view"
-msgstr "Жүйе туралы ақпаратты қарау"
+msgid "navigation.tools.jobs.view"
+msgstr "Тапсырмаларды қарау"
 
-msgid "admin.systemInformation.description"
+msgid "navigation.tools.jobs.failed.view"
 msgstr ""
-"Бағдарлама мен сервердің нұсқасы мен конфигурация параметрлері туралы "
-"ақпаратты қараңыз."
 
-msgid "admin.scheduledTask.clearLogs.delete"
-msgstr "Тапсырма мәліметтерін жою"
-
-msgid "admin.scheduledTask.clearLogs.description"
+msgid "navigation.tools.job.failed.details.view"
 msgstr ""
-"Орындалуға жоспарланған тапсырмалар үрдісінің барлық әрекеттерді жойыңыз."
 
-msgid "admin.expireSessions.description"
+msgid "admin.job.failed.list.attribute"
 msgstr ""
-"Барлық пайдаланушылар бағдарламадан бірден шығарылады, ондай кезде сізде "
-"бірден шығасыз және сізге қайта кіру қажет болады."
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr ""
+
+msgid "admin.jobs.list.id"
+msgstr "ID"
+
+msgid "admin.jobs.list.displayName"
+msgstr "Жұмыс"
+
+msgid "admin.jobs.list.queue"
+msgstr "Кезек"
+
+msgid "admin.jobs.list.connection"
+msgstr ""
+
+msgid "admin.jobs.list.attempts"
+msgstr "Әрекеттер"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "Құрылған"
+
+msgid "admin.jobs.list.failedAt"
+msgstr ""
+
+msgid "admin.jobs.list.payload"
+msgstr ""
+
+msgid "admin.jobs.list.exception"
+msgstr ""
+
+msgid "admin.jobs.list.actions"
+msgstr ""
+
+msgid "admin.jobs.failedAt"
+msgstr ""
+
+msgid "admin.jobs.createdAt"
+msgstr "{$createdAt} құрылған"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr ""
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr ""
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+
+msgid "admin.settings.statistics.collection"
+msgstr ""
+
+msgid "admin.settings.statistics.collection.description"
+msgstr ""
+
+msgid "admin.settings.statistics.storage"
+msgstr ""
+
+msgid "admin.settings.statistics.storage.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi"
+msgstr ""
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr ""
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr ""
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr ""
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr ""
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr ""

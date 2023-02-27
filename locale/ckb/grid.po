@@ -11,455 +11,603 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
-msgid "grid.action.editSponsor"
-msgstr "دەستکاری سپۆنسەر بکە"
+msgid "grid.noItems"
+msgstr "هیچ بڕگەیەک نییە"
 
-msgid "grid.action.deleteSponsor"
-msgstr "سپۆنسەر بسڕەوە"
+msgid "grid.settings"
+msgstr "ڕێکخستنەکان"
 
-msgid "grid.action.addSponsor"
-msgstr "سپۆنسەر زیاد بکە"
+msgid "grid.noAuditors"
+msgstr "هیچ وەردبینێکی ژمێریاری نییە"
 
-msgid "grid.sponsor.title"
-msgstr "ڕێکخراوە سپۆنسەرەکان"
+msgid "grid.remotelyHostedItem"
+msgstr ".ئەم بڕگەیە لە دوورەوە پێشکەشدەکرێت"
 
-msgid "grid.columns.locale"
-msgstr "شوێن"
+msgid "grid.action.uninstall"
+msgstr "بیسڕەوە"
 
-msgid "grid.columns.auditor"
-msgstr "وەردبینی ژمێریاری"
+msgid "grid.action.manageAccess"
+msgstr "جڵەوکردنی مافی دەستپێڕاگەیشتن"
 
-msgid "grid.columns.url"
-msgstr "لینکی بەستەرێک"
+msgid "grid.action.sort"
+msgstr "جۆر"
 
-msgid "grid.columns.institution"
-msgstr "دەزگا"
+msgid "grid.action.addItem"
+msgstr "بڕگە زیاد بکە"
 
-msgid "grid.columns.actions"
-msgstr "کردارەکان"
+msgid "grid.action.addNote"
+msgstr "تێبینی زیاد بکە"
+
+msgid "grid.action.addQuery"
+msgstr "گفتوگۆ زیاد بکە"
+
+msgid "grid.action.readQuery"
+msgstr "گفتوگۆ بخوێنەوە"
+
+msgid "grid.action.deleteQuery"
+msgstr "گفتوگۆکە بسڕەوە"
+
+msgid "grid.action.updateQuery"
+msgstr "گفتوگۆ تازەبکەوە"
+
+msgid "grid.action.addUser"
+msgstr "بەکارهێنەر زیادبکە"
+
+msgid "grid.action.unassignReviewer"
+msgstr "ئەرک بەم هەڵسەنگێنەرە مەسپێرە"
+
+msgid "grid.action.approveCopyedit"
+msgstr "فایلی پێداچوونەوەکە پەسەند بکە فۆر ناردنی بۆ قۆناغی داهاتوو"
+
+msgid "grid.action.reload"
+msgstr "دووبارە باریبکەوە"
+
+msgid "grid.action.delete"
+msgstr "بیسڕەوە"
+
+msgid "grid.action.deleteFile"
+msgstr "فایلەکە بسڕەوە"
+
+msgid "grid.action.deleteMedia"
+msgstr "بەشی میدیا بسڕەوە"
+
+msgid "grid.action.editMedia"
+msgstr "دەستکاری میدیا بکە"
+
+msgid "grid.action.editSection"
+msgstr "دەستکاری بەش بکە"
+
+msgid "grid.action.export"
+msgstr "هەناردەی بکە"
+
+msgid "grid.action.deleteSection"
+msgstr "بەش بسڕەوە"
+
+msgid "grid.action.editorialHistory"
+msgstr "مێژووی پێداچوونەوەی سەرنوسەران"
+
+msgid "grid.action.remove"
+msgstr "بیسڕەوە"
+
+msgid "grid.action.edit"
+msgstr "دەستکاری بکە"
+
+msgid "grid.action.approve"
+msgstr "پەسەندی بکە"
+
+msgid "grid.action.disapprove"
+msgstr "پەسەندی مەکە"
+
+msgid "grid.action.setApproval"
+msgstr "ڕەزامەندی بچەسپێنە"
+
+msgid "grid.action.moreInformation"
+msgstr "زانیاری زیاتر"
+
+msgid "grid.action.restoreDefaults"
+msgstr "بیگەڕینەوە بۆ باری ئاسایی"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "ئایا تۆ دڵنیایی دەتەوێت بیانگەڕێنیەوە بۆ باری ئاسایی؟"
+
+msgid "grid.action.addAuthor"
+msgstr "نوسەر زیاد بکە"
+
+msgid "grid.action.editAuthor"
+msgstr "هەمواری نوسەر بکە"
+
+msgid "grid.action.deleteAuthor"
+msgstr "نوسەر بسڕەوە"
+
+msgid "grid.action.addAuditor"
+msgstr "وردبینێکی ژمێریاری زیاد بکە"
+
+msgid "grid.action.upgrade"
+msgstr "باشتری بکە"
+
+msgid "grid.action.order"
+msgstr "ڕێکیبخە/ ڕیزیبکە"
+
+msgid "grid.action.saveOrdering"
+msgstr ""
+
+msgid "grid.action.cancelOrdering"
+msgstr "ڕێکخستنەکە هەڵبوەشێنەوە"
+
+msgid "grid.action.extendAll"
+msgstr "هەموویان درێژبکەوە"
+
+msgid "grid.action.collapse"
+msgstr "داڕمان"
+
+msgid "grid.action.collapseAll"
+msgstr "هەموویان دابڕمێنە"
+
+msgid "grid.action.wizard"
+msgstr "ڕێبەری ڕێکخستنەکان"
+
+msgid "grid.action.moveItem"
+msgstr "بڕگەکە بگوازەوە"
+
+msgid "grid.action.downloadAll"
+msgstr "هەموو فایلەکان دەبەزێنە وەک ئەرشیفێک"
+
+msgid "grid.action.readReview"
+msgstr "ئەم هەڵسەنگاندنە بخوێنەوە"
+
+msgid "grid.action.email"
+msgstr "ئیمێڵ بنێرە"
+
+msgid "grid.action.addReviewer"
+msgstr "هەڵسەنگێنەرێک زیاد بکە"
+
+msgid "grid.action.addFile"
+msgstr "فایلێک زیاد بکە"
+
+msgid "grid.action.editFile"
+msgstr "دەستکاری فایلێک بکە"
+
+msgid "grid.action.selectFiles"
+msgstr "فایلەکان هەڵبژێرە بۆ جڵەوکردن"
+
+msgid "grid.action.requestRevisions"
+msgstr "داوای پێداچوونەوە بکە بۆ ئەم بابەتە پێشکەشکراوە"
+
+msgid "grid.action.accept"
+msgstr "ئەم پێشکەشکراوە پەسەند بکە"
+
+msgid "grid.action.decline"
+msgstr "ئەم پێشکەشکراوە ڕەتبکەوە"
+
+msgid "grid.action.internalReview"
+msgstr "ئەم پێشکەشکراوە بنێرە بۆ پێداچوونەوەی ناوەوە"
+
+msgid "grid.action.externalReview"
+msgstr "ئەم پێشکەشکراوە بۆ بنێرە بۆ پێداچوونەوەی دەرەکی"
+
+msgid "grid.action.sendToProduction"
+msgstr "ئەم پێشکەشکراوە بنێرە بۆ بەرهەمهێنان"
+
+msgid "grid.action.settings"
+msgstr "ڕێکخستنەکان"
+
+msgid "grid.action.importexport"
+msgstr "ناوەڕۆک یان داتای سایتەکە هاوردە بکە یان هەناردەی بکە"
+
+msgid "grid.action.orderItems"
+msgstr "شێوازی ڕیزکردن چلاک بکە"
+
+msgid "grid.action.resetAll"
+msgstr "هەموو بڕگەکان بگەڕێنەوە بۆ باری ئاسایی خۆیان"
+
+msgid "grid.action.addPreparedEmail"
+msgstr "ئیمێڵێکی ئامادەکراوی نوێ زیاد بکە"
+
+msgid "grid.action.editPreparedEmail"
+msgstr "ئەم ئیمێڵە ئامادەکراوە دەستکاریبکە"
+
+msgid "grid.action.disableEmail"
+msgstr "ئەم ئیمێڵە ئامادەکراوە ناچالاک بکە"
+
+msgid "grid.action.resetEmail"
+msgstr "ئەم ئیمێڵە ئامادەکراوە بگەڕێنەوە باری ئاسایی خۆی"
+
+msgid "grid.action.expandAll"
+msgstr "هەموویان فراوان بکە"
+
+msgid "grid.action.requestAccount"
+msgstr "پەشداربوویەک زیاد بکە"
+
+msgid "grid.action.expand"
+msgstr "فراوانی بکە"
+
+msgid "grid.action.notify"
+msgstr "ئەم بەکارهێنەرە ئاگادار بکەوە"
+
+msgid "grid.action.addUserGroup"
+msgstr "گروپێکی نوێی بەکارهێنەران زیاد بکە"
+
+msgid "grid.action.editUserGroup"
+msgstr "ئەم گروپی بەکارهێنەرە دەستکاری بکە"
+
+msgid "grid.action.removeUserGroup"
+msgstr "ئەم گروپی بەکارهێنەرە بسڕەوە"
+
+msgid "grid.action.disable"
+msgstr "ناچالاکی بکە"
+
+msgid "grid.action.details"
+msgstr "ئەم بڕگەیە پیشانبدە"
+
+msgid "grid.action.enrolExisting"
+msgstr "بەکارهێنەرێکی ئامادە وەک هەڵسەنگێنەر تۆماربکە"
+
+msgid "grid.action.selectCreate"
+msgstr "هەڵسەنگێنەرێکی نوێ دروستبکە"
+
+msgid "grid.action.search"
+msgstr "بگەڕێ"
+
+msgid "grid.action.advancedSearch"
+msgstr "گەڕانی پێشکەوتوو"
+
+msgid "grid.action.viewLibrary"
+msgstr "بەڵگەنامەی کتێبخانە پێشانبدە"
+
+msgid "grid.action.viewMetadata"
+msgstr "زانیاری ناسێنەر پیشانبدە بۆ ئەم پێشکەشکراوە"
+
+msgid "grid.action.sendReminder"
+msgstr "وەبیرهێنەرەوەیەکی ئەرکی بنێرە بۆ ئەم بەکار‌هێنەرە"
+
+msgid "grid.action.newRound"
+msgstr "خولێکی نوێ دروستبکە"
+
+msgid "grid.action.viewReviewGuidelines"
+msgstr "ڕێنماییەکانی هەڵسەنگاندن پیشانبدە"
+
+msgid "grid.action.viewCompetingInterestGuidelines"
+msgstr "سیاسەتی ڕێنماییەکانی بەرژەوەندی کێبڕکێ پیشانبدە"
+
+msgid "grid.action.thankReviewer"
+msgstr "نامەیەکی سوپاسگوزاری بنێرە بۆ ئەم هەڵسەنگێنەرە"
+
+msgid "grid.action.uploadFile"
+msgstr "فایلێک باربکە"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "جۆری ئاگادارکردنەوە زیادبکە"
+
+msgid "grid.action.addAnnouncement"
+msgstr "ئاگاداری زیادبکە"
+
+msgid "grid.action.addInstitution"
+msgstr ""
+
+msgid "grid.action.mergeUser"
+msgstr "بەکارهێنەر لێکبدە"
+
+msgid "grid.action.unassignUser"
+msgstr "ئەرک بەم بەکارهێنەرە مەسپێرە"
+
+msgid "grid.action.history"
+msgstr "مێژوو پیشانبدە"
+
+msgid "grid.action.unconsiderReview"
+msgstr "ئەم هەڵسەنگاندنە تەواوە، بەڵام تۆ دەتوانی وای دانەنێی"
+
+msgid "grid.action.enable"
+msgstr "چالاکی بکە"
+
+msgid "grid.action.bookInfo"
+msgstr "زانیاری پێشکەشکردن"
+
+msgid "grid.action.logInAs"
+msgstr "چوونەژوورەوە وەک"
+
+msgid "grid.action.exportAllUsers"
+msgstr "هەموو بەکارهێنەرەکان هەناردەبکە"
+
+msgid "grid.users.confirmExportAllUsers"
+msgstr "ئایا تۆ دڵنیایی دەتەوێت هەموو بەکارهێنەرەکان هەناردە بکەی؟"
+
+msgid "grid.action.activate"
+msgstr "چالاکی بکە"
+
+msgid "grid.action.deactivate"
+msgstr "ناچالاکی بکە"
+
+msgid "grid.action.copy"
+msgstr "لەبەریبگرەوە"
+
+msgid "grid.action.preview"
+msgstr "پێشەکی پیشانی بدەوە"
+
+msgid "grid.action.install"
+msgstr "دایبەزێنە"
+
+msgid "grid.action.moreItems"
+msgstr "زیاتر باربکە"
+
+msgid "grid.action.users"
+msgstr "بەکارهێنەرەکان پیشانبدە/هەڵبژێرە"
+
+msgid "grid.task.status.completed"
+msgstr "ئەم ئەرکە تەواوکراوە"
+
+msgid "grid.task.status.new"
+msgstr "وردبینی بۆکرا کاتێک سەیرکرا"
+
+msgid "grid.task.status.uploaded"
+msgstr "ناونیشانی ستونەکە ئاماژە بەوە دەکات کە کێ ئەم فایلەکەی بارکردووە"
+
+msgid "grid.task.status.unfinished"
+msgstr "ئەرکەکە تەواونەکراوە"
 
 msgid "grid.task.status.reviewReady"
 msgstr ""
 "ئەم هەڵسەنگاندنە ئامادەیە. کرتە لەسەر ئایکۆنی تێبینی بکەلە لای چەپ بۆ "
 "خوێندنەوەی."
 
-msgid "grid.task.status.unfinished"
-msgstr "ئەرکەکە تەواونەکراوە"
+msgid "grid.columns.actions"
+msgstr "کردارەکان"
 
-msgid "grid.task.status.uploaded"
-msgstr "ناونیشانی ستونەکە ئاماژە بەوە دەکات کە کێ ئەم فایلەکەی بارکردووە"
+msgid "grid.columns.institution"
+msgstr "دەزگا"
 
-msgid "grid.task.status.new"
-msgstr "وردبینی بۆکرا کاتێک سەیرکرا"
+msgid "grid.columns.url"
+msgstr "لینکی بەستەرێک"
 
-msgid "grid.task.status.completed"
-msgstr "ئەم ئەرکە تەواوکراوە"
+msgid "grid.columns.auditor"
+msgstr "وەردبینی ژمێریاری"
 
-msgid "grid.action.users"
-msgstr "بەکارهێنەرەکان پیشانبدە/هەڵبژێرە"
+msgid "grid.columns.locale"
+msgstr "شوێن"
 
-msgid "grid.action.moreItems"
-msgstr "زیاتر باربکە"
+msgid "grid.columns.locale.code"
+msgstr ""
 
-msgid "grid.action.install"
-msgstr "دایبەزێنە"
+msgid "grid.sponsor.title"
+msgstr "ڕێکخراوە سپۆنسەرەکان"
 
-msgid "grid.action.preview"
-msgstr "پێشەکی پیشانی بدەوە"
+msgid "grid.action.addSponsor"
+msgstr "سپۆنسەر زیاد بکە"
 
-msgid "grid.action.copy"
-msgstr "لەبەریبگرەوە"
+msgid "grid.action.deleteSponsor"
+msgstr "سپۆنسەر بسڕەوە"
 
-msgid "grid.action.deactivate"
-msgstr "ناچالاکی بکە"
+msgid "grid.action.editSponsor"
+msgstr "دەستکاری سپۆنسەر بکە"
 
-msgid "grid.action.activate"
-msgstr "چالاکی بکە"
+msgid "grid.action.addSeries"
+msgstr "زنجیرەکان زیاد بکە"
 
-msgid "grid.users.confirmExportAllUsers"
-msgstr "ئایا تۆ دڵنیایی دەتەوێت هەموو بەکارهێنەرەکان هەناردە بکەی؟"
+msgid "grid.action.editSeries"
+msgstr "زنیجیرەکان دەستکاری بکە"
 
-msgid "grid.action.exportAllUsers"
-msgstr "هەموو بەکارهێنەرەکان هەناردەبکە"
+msgid "grid.action.deleteSeries"
+msgstr "زنجیرەکان بسڕەوە"
 
-msgid "grid.action.logInAs"
-msgstr "چوونەژوورەوە وەک"
+msgid "grid.action.addCategory"
+msgstr "پۆل/جۆر زیادبکە"
 
-msgid "grid.action.bookInfo"
-msgstr "زانیاری پێشکەشکردن"
+msgid "grid.action.editCategory"
+msgstr "دەستکاری پۆل/جۆر بکە"
 
-msgid "grid.action.enable"
-msgstr "چالاکی بکە"
+msgid "grid.action.deleteCategory"
+msgstr "پۆل/جۆر بسڕەوە"
 
-msgid "grid.action.unconsiderReview"
-msgstr "ئەم هەڵسەنگاندنە تەواوە، بەڵام تۆ دەتوانی وای دانەنێی"
+msgid "grid.contributor.title"
+msgstr "سەرچاوەکانی پشتیوانی"
 
-msgid "grid.action.history"
-msgstr "مێژوو پیشانبدە"
+msgid "grid.action.addContributor"
+msgstr "هاوبەشکار زیاد بکە"
 
-msgid "grid.action.unassignUser"
-msgstr "ئەرک بەم بەکارهێنەرە مەسپێرە"
+msgid "grid.action.deleteContributor"
+msgstr "هاوبەشکار بسڕەوە"
 
-msgid "grid.action.mergeUser"
-msgstr "بەکارهێنەر لێکبدە"
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
 
-msgid "grid.action.addAnnouncement"
-msgstr "ئاگاداری زیادبکە"
+msgid "grid.action.newVersion"
+msgstr "وەشانێکی نوێ دروستبکە"
 
-msgid "grid.action.addAnnouncementType"
-msgstr "جۆری ئاگادارکردنەوە زیادبکە"
+msgid "grid.reviewForm.title"
+msgstr "پێداچوونەوە بە فۆڕمەکاندا بکە"
 
-msgid "grid.action.uploadFile"
-msgstr "فایلێک باربکە"
+msgid "grid.reviewFormElement.responseItems"
+msgstr "بژاردەکانی وەڵامدانەوە"
 
-msgid "grid.action.thankReviewer"
-msgstr "نامەیەکی سوپاسگوزاری بنێرە بۆ ئەم هەڵسەنگێنەرە"
+msgid "grid.noFiles"
+msgstr "هیچ فایلێک نییە"
 
-msgid "grid.action.viewCompetingInterestGuidelines"
-msgstr "سیاسەتی ڕێنماییەکانی بەرژەوەندی کێبڕکێ پیشانبدە"
+msgid "grid.libraryFiles.column.files"
+msgstr "فایلەکان"
 
-msgid "grid.action.viewReviewGuidelines"
-msgstr "ڕێنماییەکانی هەڵسەنگاندن پیشانبدە"
+msgid "grid.libraryFiles.submission.title"
+msgstr "کتێبخانەی پێشکەشکردن"
 
-msgid "grid.action.newRound"
-msgstr "خولێکی نوێ دروستبکە"
+msgid "grid.libraryFiles.editorial.title"
+msgstr "کتێبخانەی سەرنوسەران"
 
-msgid "grid.action.sendReminder"
-msgstr "وەبیرهێنەرەوەیەکی ئەرکی بنێرە بۆ ئەم بەکار‌هێنەرە"
+msgid "grid.libraryFiles.review.title"
+msgstr "کتێبخانەی هەڵسەنگاندن"
 
-msgid "grid.action.viewMetadata"
-msgstr "زانیاری ناسێنەر پیشانبدە بۆ ئەم پێشکەشکراوە"
+msgid "grid.libraryFiles.production.title"
+msgstr "کتێبخانەی بەرهەمهێنان"
 
-msgid "grid.action.viewLibrary"
-msgstr "بەڵگەنامەی کتێبخانە پێشانبدە"
+msgid "grid.libraryFiles.productionTemplate.title"
+msgstr "کتێبخانەی بەرهەمهێنانی نمونەی داڕێژراو"
 
-msgid "grid.action.advancedSearch"
-msgstr "گەڕانی پێشکەوتوو"
+msgid "grid.submissionChecklist.title"
+msgstr "لیستی پێداچوونەوەی پێشکەشکردن"
 
-msgid "grid.action.search"
-msgstr "بگەڕێ"
+msgid "grid.submissionChecklist.column.checklistItem"
+msgstr "بڕگەکانی لیستی پێداچوونەوە"
 
-msgid "grid.action.selectCreate"
-msgstr "هەڵسەنگێنەرێکی نوێ دروستبکە"
+msgid "author.users.contributor.principalContact"
+msgstr "لایەنی سەرەکی پەیوەندی پێوەکردن"
 
-msgid "grid.action.enrolExisting"
-msgstr "بەکارهێنەرێکی ئامادە وەک هەڵسەنگێنەر تۆماربکە"
+msgid "author.users.contributor.setPrincipalContact"
+msgstr ""
 
-msgid "grid.action.details"
-msgstr "ئەم بڕگەیە پیشانبدە"
+msgid "contributor.listPanel.preview"
+msgstr ""
 
-msgid "grid.action.disable"
-msgstr "ناچالاکی بکە"
+msgid "contributor.listPanel.preview.description"
+msgstr ""
 
-msgid "grid.action.removeUserGroup"
-msgstr "ئەم گروپی بەکارهێنەرە بسڕەوە"
+msgid "contributor.listPanel.preview.format"
+msgstr ""
 
-msgid "grid.action.editUserGroup"
-msgstr "ئەم گروپی بەکارهێنەرە دەستکاری بکە"
+msgid "contributor.listPanel.preview.display"
+msgstr ""
 
-msgid "grid.action.addUserGroup"
-msgstr "گروپێکی نوێی بەکارهێنەران زیاد بکە"
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr ""
 
-msgid "grid.action.notify"
-msgstr "ئەم بەکارهێنەرە ئاگادار بکەوە"
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr ""
 
-msgid "grid.action.expand"
-msgstr "فراوانی بکە"
+msgid "contributor.listPanel.preview.full"
+msgstr ""
 
-msgid "grid.action.requestAccount"
-msgstr "پەشداربوویەک زیاد بکە"
+msgid "grid.roles.currentRoles"
+msgstr "ڕۆڵەکانی ئێستا"
 
-msgid "grid.action.expandAll"
-msgstr "هەموویان فراوان بکە"
-
-msgid "grid.action.resetEmail"
-msgstr "ئەم ئیمێڵە ئامادەکراوە بگەڕێنەوە باری ئاسایی خۆی"
-
-msgid "grid.action.disableEmail"
-msgstr "ئەم ئیمێڵە ئامادەکراوە ناچالاک بکە"
-
-msgid "grid.action.editPreparedEmail"
-msgstr "ئەم ئیمێڵە ئامادەکراوە دەستکاریبکە"
-
-msgid "grid.action.addPreparedEmail"
-msgstr "ئیمێڵێکی ئامادەکراوی نوێ زیاد بکە"
-
-msgid "grid.action.resetAll"
-msgstr "هەموو بڕگەکان بگەڕێنەوە بۆ باری ئاسایی خۆیان"
-
-msgid "grid.action.orderItems"
-msgstr "شێوازی ڕیزکردن چلاک بکە"
-
-msgid "grid.action.importexport"
-msgstr "ناوەڕۆک یان داتای سایتەکە هاوردە بکە یان هەناردەی بکە"
-
-msgid "grid.action.settings"
-msgstr "ڕێکخستنەکان"
-
-msgid "grid.action.sendToProduction"
-msgstr "ئەم پێشکەشکراوە بنێرە بۆ بەرهەمهێنان"
-
-msgid "grid.action.externalReview"
-msgstr "ئەم پێشکەشکراوە بۆ بنێرە بۆ پێداچوونەوەی دەرەکی"
-
-msgid "grid.action.internalReview"
-msgstr "ئەم پێشکەشکراوە بنێرە بۆ پێداچوونەوەی ناوەوە"
-
-msgid "grid.action.decline"
-msgstr "ئەم پێشکەشکراوە ڕەتبکەوە"
-
-msgid "grid.action.accept"
-msgstr "ئەم پێشکەشکراوە پەسەند بکە"
-
-msgid "grid.action.requestRevisions"
-msgstr "داوای پێداچوونەوە بکە بۆ ئەم بابەتە پێشکەشکراوە"
-
-msgid "grid.action.selectFiles"
-msgstr "فایلەکان هەڵبژێرە بۆ جڵەوکردن"
-
-msgid "grid.action.editFile"
-msgstr "دەستکاری فایلێک بکە"
-
-msgid "grid.action.addFile"
-msgstr "فایلێک زیاد بکە"
-
-msgid "grid.action.addReviewer"
-msgstr "هەڵسەنگێنەرێک زیاد بکە"
-
-msgid "grid.action.email"
-msgstr "ئیمێڵ بنێرە"
-
-msgid "grid.action.readReview"
-msgstr "ئەم هەڵسەنگاندنە بخوێنەوە"
-
-msgid "grid.action.downloadAll"
-msgstr "هەموو فایلەکان دەبەزێنە وەک ئەرشیفێک"
-
-msgid "grid.action.moveItem"
-msgstr "بڕگەکە بگوازەوە"
-
-msgid "grid.action.collapseAll"
-msgstr "هەموویان دابڕمێنە"
-
-msgid "grid.action.collapse"
-msgstr "داڕمان"
-
-msgid "grid.action.extendAll"
-msgstr "هەموویان درێژبکەوە"
-
-msgid "grid.action.cancelOrdering"
-msgstr "ڕێکخستنەکە هەڵبوەشێنەوە"
-
-msgid "grid.action.order"
-msgstr "ڕێکیبخە/ ڕیزیبکە"
-
-msgid "grid.action.upgrade"
-msgstr "باشتری بکە"
-
-msgid "grid.action.addAuditor"
-msgstr "وردبینێکی ژمێریاری زیاد بکە"
-
-msgid "grid.action.deleteAuthor"
-msgstr "نوسەر بسڕەوە"
-
-msgid "grid.action.editAuthor"
-msgstr "هەمواری نوسەر بکە"
-
-msgid "grid.action.addAuthor"
-msgstr "نوسەر زیاد بکە"
-
-msgid "grid.action.restoreDefaults.confirm"
-msgstr "ئایا تۆ دڵنیایی دەتەوێت بیانگەڕێنیەوە بۆ باری ئاسایی؟"
-
-msgid "grid.action.restoreDefaults"
-msgstr "بیگەڕینەوە بۆ باری ئاسایی"
-
-msgid "grid.action.moreInformation"
-msgstr "زانیاری زیاتر"
-
-msgid "grid.action.setApproval"
-msgstr "ڕەزامەندی بچەسپێنە"
-
-msgid "grid.action.disapprove"
-msgstr "پەسەندی مەکە"
-
-msgid "grid.action.approve"
-msgstr "پەسەندی بکە"
-
-msgid "grid.action.edit"
-msgstr "دەستکاری بکە"
-
-msgid "grid.action.remove"
-msgstr "بیسڕەوە"
-
-msgid "grid.action.editorialHistory"
-msgstr "مێژووی پێداچوونەوەی سەرنوسەران"
-
-msgid "grid.action.deleteSection"
-msgstr "بەش بسڕەوە"
-
-msgid "grid.action.export"
-msgstr "هەناردەی بکە"
-
-msgid "grid.action.editSection"
-msgstr "دەستکاری بەش بکە"
-
-msgid "grid.action.editMedia"
-msgstr "دەستکاری میدیا بکە"
-
-msgid "grid.action.deleteMedia"
-msgstr "بەشی میدیا بسڕەوە"
-
-msgid "grid.action.deleteFile"
-msgstr "فایلەکە بسڕەوە"
-
-msgid "grid.action.delete"
-msgstr "بیسڕەوە"
-
-msgid "grid.action.reload"
-msgstr "دووبارە باریبکەوە"
-
-msgid "grid.action.approveCopyedit"
-msgstr "فایلی پێداچوونەوەکە پەسەند بکە فۆر ناردنی بۆ قۆناغی داهاتوو"
-
-msgid "grid.action.unassignReviewer"
-msgstr "ئەرک بەم هەڵسەنگێنەرە مەسپێرە"
-
-msgid "grid.action.addUser"
-msgstr "بەکارهێنەر زیادبکە"
-
-msgid "grid.action.updateQuery"
-msgstr "گفتوگۆ تازەبکەوە"
-
-msgid "grid.action.deleteQuery"
-msgstr "گفتوگۆکە بسڕەوە"
-
-msgid "grid.action.readQuery"
-msgstr "گفتوگۆ بخوێنەوە"
-
-msgid "grid.action.addQuery"
-msgstr "گفتوگۆ زیاد بکە"
-
-msgid "grid.action.addNote"
-msgstr "تێبینی زیاد بکە"
-
-msgid "grid.action.addItem"
-msgstr "بڕگە زیاد بکە"
-
-msgid "grid.action.sort"
-msgstr "جۆر"
-
-msgid "grid.action.manageAccess"
-msgstr "جڵەوکردنی مافی دەستپێڕاگەیشتن"
-
-msgid "grid.action.uninstall"
-msgstr "بیسڕەوە"
-
-msgid "grid.remotelyHostedItem"
-msgstr ".ئەم بڕگەیە لە دوورەوە پێشکەشدەکرێت"
-
-msgid "grid.noAuditors"
-msgstr "هیچ وەردبینێکی ژمێریاری نییە"
-
-msgid "grid.settings"
-msgstr "ڕێکخستنەکان"
-
-msgid "grid.noItems"
-msgstr "هیچ بڕگەیەک نییە"
+msgid "grid.roles.add"
+msgstr "ڕۆڵێکی نوێ دروستبکە"
 
 #, fuzzy
 msgid "grid.roles.stageAssignment"
 msgstr "پێسپاردنی ئەرکی ڕێکخستن"
 
-msgid "grid.navigationMenus.navigationMenu.selectType"
-msgstr "جۆرێک هەڵبژێرە..."
+msgid "grid.user.currentUsers"
+msgstr "بەکارهێنەرەکانی ئێستا"
 
-msgid "grid.navigationMenus.navigationMenu.noneExist"
-msgstr "لیستی بژاردەکانی ڕێپیشاندەر بوونی نییە"
+msgid "grid.user.currentEnrollment"
+msgstr "ناوتۆمارکردنی ئێستا"
 
-msgid "grid.navigationMenus.navigationMenuItems.noneExist"
-msgstr "لیستی بڕگەکانی ڕێپیشاندەری تێدانییە"
+msgid "grid.user.allRoles"
+msgstr "هەموو ڕۆڵەکان"
 
-msgid "grid.action.addNavigationMenuItem"
-msgstr "بڕگە زیاد بکە"
+msgid "grid.user.allPermissionLevels"
+msgstr "هەموو ئاستەکانی ڕێگەپێدان"
 
-msgid "grid.action.addNavigationMenu"
-msgstr "لیستی بژاردەکان زیاد بکە"
+msgid "grid.user.add"
+msgstr "بەکارهێنەر زیادبکە"
 
-msgid "grid.submission.active.selectOrphaned"
+msgid "grid.user.enroll"
+msgstr "ناوی بەکارهێنەر تۆماربکە"
+
+msgid "grid.user.edit"
+msgstr "بەکارهێنەر دەستکاری بکە"
+
+msgid "grid.user.email"
+msgstr "ئیمێڵ"
+
+msgid "grid.user.enable"
+msgstr "چالاکی بکە"
+
+msgid "grid.user.disable"
+msgstr "ناچلاکی بکە"
+
+msgid "grid.user.disableReason"
+msgstr "هۆکاری ناچالاککردنی بەکارهێنەر"
+
+msgid "grid.user.enableReason"
+msgstr "هۆکاری چلاککردنی بەکارهێنەر"
+
+msgid "grid.user.error"
 msgstr ""
-"ئەوە پێشکەشکراوە تەواونەکراوانەش لەخۆبگرە کە لەلایەن نوسەرێکەوە پێشکەش "
-"نەکراون."
+"هەڵەیەک ڕوویدا لەکاتی ئەنجامدانی کاری ئەم بەکارهێنەرە. تکایە دووبارە "
+"هەوڵبدەوە."
 
-msgid "grid.submission.itemTitle"
-msgstr "نوسەر؛ ناونیشان"
-
-msgid "grid.userGroup.unassignedStage"
-msgstr ".{$stageName}.نەسپێردراوە بە قۆناغی  {$userGroupName} ڕۆڵی"
-
-msgid "grid.userGroup.assignedStage"
-msgstr "{$stageName} .سپێڕدرا بە قۆناغی  {$userGroupName} ڕۆڵی"
-
-msgid "grid.userGroup.removed"
-msgstr ".سڕایەوە {$userGroupName} ڕۆڵی"
-
-msgid "grid.userGroup.cantRemoveUserGroup"
+msgid "grid.user.errorEmail"
 msgstr ""
-"بەکارهێنەر (ان) ئەرکیان پێسپێردراوە.{$usersCount}  بسڕێتەوە. لە ئێستادا  "
-"{$userGroupName} ناتواندرێت ڕۆڵێ"
+"هەیەڵەیەک ڕوویدا لەناردنی ئەم ئیمێڵە. تکایە دڵنیابەوە لەوەی کە ڕێکخستنی "
+"سێرڤەری  ئیمێڵ کاردەکات و/یان پەیوەندی بە بەڕێوەبەری سیستەمەکەتانەوە بکە."
 
-msgid "grid.userGroup.cantRemoveDefaultUserGroup"
-msgstr "ڕۆڵەکە لە باری ئاساییدایە و ناتواندرێت بسڕێتەوە. {$userGroupName} ڕۆڵکە"
-
-msgid "grid.userGroup.filter.permissionLevel"
-msgstr "بە ڕێگەپێدان ئاست داندراوە بۆ"
-
-msgid "grid.userGroup.filter.listRoles"
-msgstr "ڕۆڵەکان بە لیست دابنێ کە سپێردراون بە"
-
-msgid "grid.userGroup.allStages"
-msgstr "قۆناغەکانی بەدواداچوونی کار"
-
-#, fuzzy
-msgid "grid.userGroup.unassignStage"
-msgstr "قۆناغی ئەرک پێنەسپاردن"
-
-msgid "grid.userGroup.assignStage"
-msgstr "قۆناغی ئەرک پێسپاردن"
-
-msgid "grid.artworkFile.placement"
-msgstr "دانان و ڕیزبەندکردن لە پێشکەشکردن"
-
-msgid "grid.artworkFile.permissionTerms"
-msgstr "مەرجەکانی ڕێگەپێدان"
-
-msgid "grid.artworkFile.copyrightContact"
-msgstr "زانیاری پەیوەندی پێوەکردن (ئەگەر نوسەر نەبوو/ بڵاوکەرەوە)"
-
-msgid "grid.artworkFile.copyrightOwner"
-msgstr "خاوەنی مافی لەبەرگرتنەوە"
-
-msgid "grid.artworkFile.credit"
-msgstr "ستایش"
-
-msgid "grid.artworkFile.caption"
-msgstr "ڕوونکردنەوەی سەر یان ژێر وێنە"
-
-msgid "grid.action.fileUnconsider"
+msgid "grid.user.cannotAdminister"
 msgstr ""
-"ڕاستکردنەوەکانی هەڵەبڕکردنی ئەنجامدراوە. تۆ دەتوانی ئەم ئەرکە ڕەچاو نەکەی"
+"تۆ ڕێگەپێدانی تەواوت نییە سەرپەرشتیکردنی ئەم بەکارهێنەرە. بۆ ئەوەی سەرپەرشتی "
+"بەکارهێنەرێک بکەی، دەبێت یان سەرپەرشتیاری سایت بیت یان سەرپەرشتیاری هەموو "
+"ئەو چوارچێوانە بیت کە ئەم بەکارهێنەرە ناوی تێدا تۆمارکراوە."
 
-msgid "grid.plugin.disable"
-msgstr "ئایا تۆ دڵنیاییت دەتەوێت ئەم بەرنامە زیادکراوە ناچالاک بکەی؟"
+msgid "grid.user.mustProvideName"
+msgstr "تکایە بەلایەنی کەمەوە سەرەتا ناوی کۆتایی بەکارهێنەر بدە."
 
-msgid "grid.plugin.allCategories"
-msgstr "هەموو پۆلەکان"
+msgid "grid.user.generatePassword"
+msgstr "ژمارەی نهێنی دروستبکە"
 
-msgid "grid.preparedEmails.currentList"
-msgstr "لیستی ئێستا"
+msgid "grid.user.generatePasswordDescription"
+msgstr "ژمارەیەکی نهێنی هەڕەمەکی بۆ ئەم بەکارهێنەرە  دروستبکە."
 
-msgid "grid.preparedEmails.title"
-msgstr "نمونەی ئیمێڵە ئامادەکاراوەکان"
+msgid "grid.user.notifyUser"
+msgstr "بەکارهێنەر ئاگادار بکەوە"
+
+msgid "grid.user.notifyUserDescription"
+msgstr "ئیمێڵێکی بەخێرهاتن بۆ بەکارهێنەر بنێرە."
+
+msgid "grid.user.mustChangePassword"
+msgstr "ژمارەی نهێنی بگۆڕە"
+
+msgid "grid.user.mustChangePasswordDescription"
+msgstr "بەکارهێنەر دەبێت ژمارەی نهێنی بگۆڕێت بۆ چوونەژوورەوەی جاری داهاتوو."
+
+msgid "grid.user.mustChangePasswordDescriptionOld"
+msgstr ""
+"بەکارهێنەر ناچاربکە کە ژمارەی نهێنی بگۆڕێت بۆ چوونەژوورەوەی جاری داهاتوو."
+
+msgid "grid.user.moreDetails"
+msgstr "وەردەکاری زیاتری بەکارهێنەر"
+
+msgid "grid.user.lessDetails"
+msgstr "وردەکاری کەمتری بەکارهێنەر"
+
+msgid "grid.user.userDetails"
+msgstr "وەردەکارییەکانی بەکارهێنەر"
+
+msgid "grid.user.userRoles"
+msgstr "ڕۆڵەکانی بەکارهێنەر"
+
+msgid "grid.user.userNoRoles"
+msgstr "ئەم بەکارهێنەرە هێچ ڕۆڵێکی نییە."
+
+msgid "grid.user.step1"
+msgstr "هەنگاوی یەکەم: وردەکارییەکانی بەکارهێنەر پڕبکەوە"
+
+msgid "grid.user.step2"
+msgstr "هەنگاوی دووەم: ڕۆڵەکانی بەکارهێنەر زیادبکە بۆ{$userFullName}"
+
+msgid "grid.user.addRoles"
+msgstr "ڕۆڵەکان زیادبکە"
+
+msgid "grid.user.addRole"
+msgstr "ڕۆڵ زیادبکە"
+
+msgid "grid.user.selectUser"
+msgstr "بەکارهێنەر هەڵبژێرە"
+
+msgid "grid.user.pleaseSelectUser"
+msgstr "تکایە بەکارهێنەرێك هەڵبژێرە"
+
+msgid "grid.user.confirmLogInAs"
+msgstr ""
+"وەک ئەم بەکارهێنەرە دەچییە ژوورەوە؟ هەموو ئەو کردارانەی تۆ ئەنجامی دەدەیت "
+"دەخرێتە پاڵ ئەم بەکارهێنەرە."
+
+msgid "grid.user.mergeUsers"
+msgstr "بەکارهێنەرەکان تێکەڵبکەوە"
+
+msgid "grid.user.mergeUsers.mergeUser"
+msgstr "بەکارهێنەر تێکەڵبکەوە"
+
+msgid "grid.user.mergeUsers.mergeIntoUser"
+msgstr "لەگەڵ ئەم بەکارهێنەرە لێکیان بدە"
+
+msgid "grid.user.mergeUsers.allUsers"
+msgstr "هەموو بەکارهێنەرە تۆمارکراوەکان"
 
 msgid "grid.user.mergeUsers.confirm"
 msgstr ""
@@ -469,207 +617,99 @@ msgstr ""
 "  نامێنێت لەمەودوا. ئەم کردارە گەڕانەوەی نییە. \"{$oldUsername}\" هەژمارەکە "
 "لە گەڵ ناوی بەکارهێنەر"
 
-msgid "grid.user.mergeUsers.allUsers"
-msgstr "هەموو بەکارهێنەرە تۆمارکراوەکان"
+msgid "grid.preparedEmails.title"
+msgstr "نمونەی ئیمێڵە ئامادەکاراوەکان"
 
-msgid "grid.user.mergeUsers.mergeIntoUser"
-msgstr "لەگەڵ ئەم بەکارهێنەرە لێکیان بدە"
+msgid "grid.preparedEmails.currentList"
+msgstr "لیستی ئێستا"
 
-msgid "grid.user.mergeUsers.mergeUser"
-msgstr "بەکارهێنەر تێکەڵبکەوە"
+msgid "grid.plugin.allCategories"
+msgstr "هەموو پۆلەکان"
 
-msgid "grid.user.mergeUsers"
-msgstr "بەکارهێنەرەکان تێکەڵبکەوە"
+msgid "grid.plugin.disable"
+msgstr "ئایا تۆ دڵنیاییت دەتەوێت ئەم بەرنامە زیادکراوە ناچالاک بکەی؟"
 
-msgid "grid.user.confirmLogInAs"
+msgid "grid.action.fileUnconsider"
 msgstr ""
-"وەک ئەم بەکارهێنەرە دەچییە ژوورەوە؟ هەموو ئەو کردارانەی تۆ ئەنجامی دەدەیت "
-"دەخرێتە پاڵ ئەم بەکارهێنەرە."
+"ڕاستکردنەوەکانی هەڵەبڕکردنی ئەنجامدراوە. تۆ دەتوانی ئەم ئەرکە ڕەچاو نەکەی"
 
-msgid "grid.user.pleaseSelectUser"
-msgstr "تکایە بەکارهێنەرێك هەڵبژێرە"
+msgid "grid.artworkFile.caption"
+msgstr "ڕوونکردنەوەی سەر یان ژێر وێنە"
 
-msgid "grid.user.selectUser"
-msgstr "بەکارهێنەر هەڵبژێرە"
+msgid "grid.artworkFile.credit"
+msgstr "ستایش"
 
-msgid "grid.user.addRole"
-msgstr "ڕۆڵ زیادبکە"
+msgid "grid.artworkFile.copyrightOwner"
+msgstr "خاوەنی مافی لەبەرگرتنەوە"
 
-msgid "grid.user.addRoles"
-msgstr "ڕۆڵەکان زیادبکە"
+msgid "grid.artworkFile.copyrightContact"
+msgstr "زانیاری پەیوەندی پێوەکردن (ئەگەر نوسەر نەبوو/ بڵاوکەرەوە)"
 
-msgid "grid.user.step2"
-msgstr "هەنگاوی دووەم: ڕۆڵەکانی بەکارهێنەر زیادبکە بۆ{$userFullName}"
+msgid "grid.artworkFile.permissionTerms"
+msgstr "مەرجەکانی ڕێگەپێدان"
 
-msgid "grid.user.step1"
-msgstr "هەنگاوی یەکەم: وردەکارییەکانی بەکارهێنەر پڕبکەوە"
+msgid "grid.artworkFile.placement"
+msgstr "دانان و ڕیزبەندکردن لە پێشکەشکردن"
 
-msgid "grid.user.userNoRoles"
-msgstr "ئەم بەکارهێنەرە هێچ ڕۆڵێکی نییە."
+msgid "grid.userGroup.assignStage"
+msgstr "قۆناغی ئەرک پێسپاردن"
 
-msgid "grid.user.userRoles"
-msgstr "ڕۆڵەکانی بەکارهێنەر"
+#, fuzzy
+msgid "grid.userGroup.unassignStage"
+msgstr "قۆناغی ئەرک پێنەسپاردن"
 
-msgid "grid.user.userDetails"
-msgstr "وەردەکارییەکانی بەکارهێنەر"
+msgid "grid.userGroup.allStages"
+msgstr "قۆناغەکانی بەدواداچوونی کار"
 
-msgid "grid.user.lessDetails"
-msgstr "وردەکاری کەمتری بەکارهێنەر"
+msgid "grid.userGroup.filter.listRoles"
+msgstr "ڕۆڵەکان بە لیست دابنێ کە سپێردراون بە"
 
-msgid "grid.user.moreDetails"
-msgstr "وەردەکاری زیاتری بەکارهێنەر"
+msgid "grid.userGroup.filter.permissionLevel"
+msgstr "بە ڕێگەپێدان ئاست داندراوە بۆ"
 
-msgid "grid.user.mustChangePasswordDescriptionOld"
+msgid "grid.userGroup.cantRemoveDefaultUserGroup"
 msgstr ""
-"بەکارهێنەر ناچاربکە کە ژمارەی نهێنی بگۆڕێت بۆ چوونەژوورەوەی جاری داهاتوو."
+"ڕۆڵەکە لە باری ئاساییدایە و ناتواندرێت بسڕێتەوە. {$userGroupName} ڕۆڵکە"
 
-msgid "grid.user.mustChangePasswordDescription"
-msgstr "بەکارهێنەر دەبێت ژمارەی نهێنی بگۆڕێت بۆ چوونەژوورەوەی جاری داهاتوو."
-
-msgid "grid.user.mustChangePassword"
-msgstr "ژمارەی نهێنی بگۆڕە"
-
-msgid "grid.user.notifyUserDescription"
-msgstr "ئیمێڵێکی بەخێرهاتن بۆ بەکارهێنەر بنێرە."
-
-msgid "grid.user.notifyUser"
-msgstr "بەکارهێنەر ئاگادار بکەوە"
-
-msgid "grid.user.generatePasswordDescription"
-msgstr "ژمارەیەکی نهێنی هەڕەمەکی بۆ ئەم بەکارهێنەرە  دروستبکە."
-
-msgid "grid.user.generatePassword"
-msgstr "ژمارەی نهێنی دروستبکە"
-
-msgid "grid.user.mustProvideName"
-msgstr "تکایە بەلایەنی کەمەوە سەرەتا ناوی کۆتایی بەکارهێنەر بدە."
-
-msgid "grid.user.cannotAdminister"
+msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
-"تۆ ڕێگەپێدانی تەواوت نییە سەرپەرشتیکردنی ئەم بەکارهێنەرە. بۆ ئەوەی سەرپەرشتی "
-"بەکارهێنەرێک بکەی، دەبێت یان سەرپەرشتیاری سایت بیت یان سەرپەرشتیاری هەموو "
-"ئەو چوارچێوانە بیت کە ئەم بەکارهێنەرە ناوی تێدا تۆمارکراوە."
+"بەکارهێنەر (ان) ئەرکیان پێسپێردراوە.{$usersCount}  بسڕێتەوە. لە ئێستادا  "
+"{$userGroupName} ناتواندرێت ڕۆڵێ"
 
-msgid "grid.user.errorEmail"
+msgid "grid.userGroup.removed"
+msgstr ".سڕایەوە {$userGroupName} ڕۆڵی"
+
+msgid "grid.userGroup.assignedStage"
+msgstr "{$stageName} .سپێڕدرا بە قۆناغی  {$userGroupName} ڕۆڵی"
+
+msgid "grid.userGroup.unassignedStage"
+msgstr ".{$stageName}.نەسپێردراوە بە قۆناغی  {$userGroupName} ڕۆڵی"
+
+msgid "grid.submission.itemTitle"
+msgstr "نوسەر؛ ناونیشان"
+
+msgid "grid.submission.active.selectOrphaned"
 msgstr ""
-"هەیەڵەیەک ڕوویدا لەناردنی ئەم ئیمێڵە. تکایە دڵنیابەوە لەوەی کە ڕێکخستنی "
-"سێرڤەری  ئیمێڵ کاردەکات و/یان پەیوەندی بە بەڕێوەبەری سیستەمەکەتانەوە بکە."
+"ئەوە پێشکەشکراوە تەواونەکراوانەش لەخۆبگرە کە لەلایەن نوسەرێکەوە پێشکەش "
+"نەکراون."
 
-msgid "grid.user.error"
+msgid "grid.action.addNavigationMenu"
+msgstr "لیستی بژاردەکان زیاد بکە"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "بڕگە زیاد بکە"
+
+msgid "grid.navigationMenus.navigationMenuItems.noneExist"
+msgstr "لیستی بڕگەکانی ڕێپیشاندەری تێدانییە"
+
+msgid "grid.navigationMenus.navigationMenu.noneExist"
+msgstr "لیستی بژاردەکانی ڕێپیشاندەر بوونی نییە"
+
+msgid "grid.navigationMenus.navigationMenu.selectType"
+msgstr "جۆرێک هەڵبژێرە..."
+
+msgid "grid.action.view"
 msgstr ""
-"هەڵەیەک ڕوویدا لەکاتی ئەنجامدانی کاری ئەم بەکارهێنەرە. تکایە دووبارە "
-"هەوڵبدەوە."
-
-msgid "grid.user.enableReason"
-msgstr "هۆکاری چلاککردنی بەکارهێنەر"
-
-msgid "grid.user.disableReason"
-msgstr "هۆکاری ناچالاککردنی بەکارهێنەر"
-
-msgid "grid.action.addContributor"
-msgstr "هاوبەشکار زیاد بکە"
-
-msgid "grid.user.disable"
-msgstr "ناچلاکی بکە"
-
-msgid "grid.user.enable"
-msgstr "چالاکی بکە"
-
-msgid "grid.user.email"
-msgstr "ئیمێڵ"
-
-msgid "grid.user.edit"
-msgstr "بەکارهێنەر دەستکاری بکە"
-
-msgid "grid.user.enroll"
-msgstr "ناوی بەکارهێنەر تۆماربکە"
-
-msgid "grid.user.add"
-msgstr "بەکارهێنەر زیادبکە"
-
-msgid "grid.user.allPermissionLevels"
-msgstr "هەموو ئاستەکانی ڕێگەپێدان"
-
-msgid "grid.user.allRoles"
-msgstr "هەموو ڕۆڵەکان"
-
-msgid "grid.user.currentEnrollment"
-msgstr "ناوتۆمارکردنی ئێستا"
-
-msgid "grid.user.currentUsers"
-msgstr "بەکارهێنەرەکانی ئێستا"
-
-msgid "grid.roles.add"
-msgstr "ڕۆڵێکی نوێ دروستبکە"
-
-msgid "grid.roles.currentRoles"
-msgstr "ڕۆڵەکانی ئێستا"
-
-msgid "author.users.contributor.principalContact"
-msgstr "لایەنی سەرەکی پەیوەندی پێوەکردن"
-
-msgid "grid.submissionChecklist.column.checklistItem"
-msgstr "بڕگەکانی لیستی پێداچوونەوە"
-
-msgid "grid.submissionChecklist.title"
-msgstr "لیستی پێداچوونەوەی پێشکەشکردن"
-
-msgid "grid.libraryFiles.productionTemplate.title"
-msgstr "کتێبخانەی بەرهەمهێنانی نمونەی داڕێژراو"
-
-msgid "grid.libraryFiles.production.title"
-msgstr "کتێبخانەی بەرهەمهێنان"
-
-msgid "grid.libraryFiles.review.title"
-msgstr "کتێبخانەی هەڵسەنگاندن"
-
-msgid "grid.libraryFiles.editorial.title"
-msgstr "کتێبخانەی سەرنوسەران"
-
-msgid "grid.libraryFiles.submission.title"
-msgstr "کتێبخانەی پێشکەشکردن"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "فایلەکان"
-
-msgid "grid.noFiles"
-msgstr "هیچ فایلێک نییە"
-
-msgid "grid.reviewFormElement.responseItems"
-msgstr "بژاردەکانی وەڵامدانەوە"
-
-msgid "grid.reviewForm.title"
-msgstr "پێداچوونەوە بە فۆڕمەکاندا بکە"
-
-msgid "grid.action.newVersion"
-msgstr "وەشانێکی نوێ دروستبکە"
-
-msgid "grid.action.deleteContributor"
-msgstr "هاوبەشکار بسڕەوە"
-
-msgid "grid.contributor.title"
-msgstr "سەرچاوەکانی پشتیوانی"
-
-msgid "grid.action.deleteCategory"
-msgstr "پۆل/جۆر بسڕەوە"
-
-msgid "grid.action.editCategory"
-msgstr "دەستکاری پۆل/جۆر بکە"
-
-msgid "grid.action.addCategory"
-msgstr "پۆل/جۆر زیادبکە"
-
-msgid "grid.action.deleteSeries"
-msgstr "زنجیرەکان بسڕەوە"
-
-msgid "grid.action.editSeries"
-msgstr "زنیجیرەکان دەستکاری بکە"
-
-msgid "grid.action.addSeries"
-msgstr "زنجیرەکان زیاد بکە"
-
-msgid "grid.action.wizard"
-msgstr "ڕێبەری ڕێکخستنەکان"
 
 msgid "author.users.contributor.name"
 msgstr "ناو"

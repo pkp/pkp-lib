@@ -14,11 +14,15 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "user.accountInformation"
+msgstr "Informasi Akun"
+
 msgid "user.affiliation"
 msgstr "Afiliasi"
 
 msgid "user.affiliation.description"
-msgstr "(Institusi Anda, contoh: \"Pusat Dokumentasi dan Informasi Ilmiah - LIPI\")"
+msgstr ""
+"(Institusi Anda, contoh: \"Pusat Dokumentasi dan Informasi Ilmiah - LIPI\")"
 
 msgid "user.affiliations"
 msgstr "Afiliasi"
@@ -30,13 +34,16 @@ msgid "user.authorization.processAuthenticationTokenRequired"
 msgstr "Bukti pengesahan proses hilang atau tidak valid."
 
 msgid "user.authorization.contextRequired"
-msgstr "Anda tidak bisa menggunakan operasi ini tanpa konteks (wartawan, jurnal, konferensi, dll)."
+msgstr ""
+"Anda tidak bisa menggunakan operasi ini tanpa konteks (wartawan, jurnal, "
+"konferensi, dll)."
 
 msgid "user.authorization.loginRequired"
 msgstr "Login diperlukan."
 
 msgid "user.authorization.privateOperation"
-msgstr "Operasi yang Anda coba untuk akses mungkin bersifat privasi atau tidak ada."
+msgstr ""
+"Operasi yang Anda coba untuk akses mungkin bersifat privasi atau tidak ada."
 
 msgid "user.authorization.restrictedSiteAccess"
 msgstr "Akses Anda ditolak. Akses ke situs ini sekarang dilarang."
@@ -44,14 +51,36 @@ msgstr "Akses Anda ditolak. Akses ke situs ini sekarang dilarang."
 msgid "user.authorization.roleBasedAccessDenied"
 msgstr "Peran sekarang tidak mempunyai akses ke operasi ini."
 
+msgid "user.authorization.assignedStageRoleBasedAccessDenied"
+msgstr ""
+"Anda telah ditugasi pada naskah ini dengan peran yang diizinkan mengakses "
+"tindakan ini."
+
 msgid "user.authorization.userGroupRequired"
 msgstr "Anda harus mengatur grup pengguna valid untuk mengakses operasi ini."
 
+msgid "user.authorization.managerRequired"
+msgstr ""
+"Pengguna dengan peran Manager (misal, Editor Produksi) harus ditugaskan "
+"sebelum dapat melanjutkan proses."
+
+msgid "user.authorization.accessibleWorkflowStage"
+msgstr "Saat ini, Anda tidak memiliki akses pada tahap alur kerja tersebut."
+
+msgid "user.authorization.workflowStageRequired"
+msgstr "Tahap alur kerja belum ditetapkan."
+
+msgid "user.authorization.pluginRequired"
+msgstr "Plugin yang dibutuhkan belum ditentukan."
+
+msgid "user.authorization.invalidReviewAssignment"
+msgstr "Anda tidak berhak mengakses tugas review ini."
+
+msgid "user.authorization.submissionQuery"
+msgstr "Anda tidak berhak mengakses pembahasan ini."
+
 msgid "user.biography"
 msgstr "Biografi"
-
-msgid "user.biography.description"
-msgstr "(Contoh: departemen dan pangkat)"
 
 msgid "user.changeMyPassword"
 msgstr "Ganti Kata Sandi Saya"
@@ -71,32 +100,58 @@ msgstr "Edit Profil Saya"
 msgid "user.email"
 msgstr "Email"
 
+msgid "user.givenName"
+msgstr "Nama Depan"
+
 msgid "user.interests"
 msgstr "Bidang Minat Review"
 
 msgid "user.gossip"
 msgstr "Catatan Tambahan"
 
+msgid "user.gossip.description"
+msgstr ""
+"Rekam jejak tentang reviewer ini yang mungkin Anda ingin tampilkan kepada "
+"administrator, manajer, dan semua editor lainnya. Catatan akan terlihat "
+"untuk penugasan review berikutnya."
+
+msgid "user.group"
+msgstr "Grup Pengguna"
+
+msgid "user.familyName"
+msgstr "Nama Belakang"
+
 msgid "user.profile.form.profileImageInvalid"
-msgstr "Format gambar profil invalid atau gambar terlalu besar. Format yang diterima adalah .gif, .jpg, atau .png, dan gambar tidak boleh melebih 150x150 pixel."
+msgstr ""
+"Format gambar profil invalid atau gambar terlalu besar. Format yang diterima "
+"adalah .gif, .jpg, atau .png, dan gambar tidak boleh melebih 150x150 pixel."
 
 msgid "user.login.accountDisabledWithReason"
 msgstr "Akun Anda tidak bisa karena alasan berikut ini: {$reason}"
 
 msgid "user.login.accountDisabled"
-msgstr "Akun Anda tidak bisa. Hubungi administrator untuk informasi lebih lanjut."
+msgstr ""
+"Akun Anda tidak bisa. Hubungi administrator untuk informasi lebih lanjut."
 
 msgid "user.login.accountNotValidated"
-msgstr "Alamat email Anda belum divalidasi. Cek email Anda dan ikuti instruksi yang tersedia. Jika Anda belum menerima email. Anda mungkin perlu menghubungi administrator situs untuk bantuan."
+msgstr ""
+"Alamat email Anda belum divalidasi. Cek email Anda dan ikuti instruksi yang "
+"tersedia. Jika Anda belum menerima email. Anda mungkin perlu menghubungi "
+"administrator situs untuk bantuan."
 
 msgid "user.login.activate"
 msgstr "Aktivasi akun"
 
 msgid "user.login.activated"
-msgstr "Terima kasih untuk mengaktifkan akun Anda. Anda sekarang mungkin login dengan menggunakan credential yang Anda berikan saat membuat Akun ini."
+msgstr ""
+"Terima kasih untuk mengaktifkan akun Anda. Anda sekarang mungkin login "
+"dengan menggunakan credential yang Anda berikan saat membuat Akun ini."
 
 msgid "user.login.changePasswordInstructions"
-msgstr "Anda harus memilih kata sandi baru sebelum Anda login ke situs ini.<br /><br />Masukkan Nama Pengguna Anda dan kata sandi yang sekarang dan yang baru di bawah ini untuk mengganti kata sandi untuk akun Anda."
+msgstr ""
+"Anda harus memilih kata sandi baru sebelum Anda login ke situs ini.<br /"
+"><br />Masukkan Nama Pengguna Anda dan kata sandi yang sekarang dan yang "
+"baru di bawah ini untuk mengganti kata sandi untuk akun Anda."
 
 msgid "user.login.forgotPassword"
 msgstr "Lupa kata sandi Anda?"
@@ -107,27 +162,57 @@ msgstr "Nama Pengguna atau kata sandi tidak valid. Coba lagi."
 msgid "user.login"
 msgstr "Login"
 
-msgid "user.logIn"
-msgstr "Login"
-
 #, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
-msgstr "Konfirmasi telah dikirim ke alamat email Anda. Ikuti instruksi di email untuk mengatur ulang kata sandi Anda."
+msgstr ""
+"Konfirmasi telah dikirim ke alamat email Anda. Ikuti instruksi di email "
+"untuk mengatur ulang kata sandi Anda."
 
 msgid "user.login.lostPassword.invalidHash"
-msgstr "Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengatur ulang kata sandi lagi."
+msgstr ""
+"Maaf, tautan yang Anda klik telah berakhir atau tidak valid. Coba mengatur "
+"ulang kata sandi lagi."
 
 msgid "user.login.lostPassword.passwordSent"
-msgstr "Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login ke situs dengan kata sandi baru Anda."
+msgstr ""
+"Kata sandi baru telah dikirim ke alamat emal Anda. Anda sekarang bisa login "
+"ke situs dengan kata sandi baru Anda."
 
 msgid "user.login.registeredEmail"
 msgstr "Email pengguna yang sudah terdaftar"
+
+msgid "user.login.registrationComplete"
+msgstr "Registrasi selesai"
+
+msgid "user.login.registrationComplete.instructions"
+msgstr "Terima kasih telah mendaftar! Apa yang ingin Anda lakukan selanjutnya?"
+
+msgid "user.login.registrationComplete.manageSubmissions"
+msgstr "Lihat Naskah Masuk"
+
+msgid "user.login.registrationComplete.newSubmission"
+msgstr "Kirim Naskah Baru"
+
+msgid "user.login.registrationComplete.continueBrowsing"
+msgstr "Lanjutkan Pencarian"
+
+msgid "user.login.registrationPendingValidation"
+msgstr "Pendaftaran menunggu verifikasi"
+
+msgid "user.login.rememberUsernameAndPassword"
+msgstr "Biarkan Selalu Logged in"
 
 msgid "user.login.resetPassword"
 msgstr "Atur ulang kata sandi"
 
 msgid "user.logOut"
 msgstr "Log Out"
+
+msgid "user.logOutAs"
+msgstr "Keluar sebagai {$username}"
+
+msgid "user.hello"
+msgstr "Halo, "
 
 msgid "user.mailingAddress"
 msgstr "Alamat Surat Menyurat"
@@ -147,14 +232,38 @@ msgstr "Ulangi Kata Sandi"
 msgid "user.phone"
 msgstr "Telepon"
 
+msgid "user.preferredPublicName"
+msgstr "Nama Publik Pilihan"
+
+msgid "user.preferredPublicName.description"
+msgstr ""
+"Saapan yang Anda lebih suka? Salam, nama tengah, dan sufiks dapat "
+"ditambahkan di sini jika Anda mau."
+
 msgid "user.profile.changePasswordInstructions"
-msgstr "Masukkan kata sandi Anda saat ini dan yang baru di bawah ini untuk mengganti kata sandi akun Anda."
+msgstr ""
+"Masukkan kata sandi Anda saat ini dan yang baru di bawah ini untuk mengganti "
+"kata sandi akun Anda."
 
 msgid "user.profile.editProfile"
 msgstr "Edit Profil"
 
+msgid "user.profile.form.countryRequired"
+msgstr "Negara perlukan dipilih."
+
 msgid "user.profile.form.emailRequired"
 msgstr "Alamat email yang valid diperlukan."
+
+msgid "user.profile.form.givenNameRequired"
+msgstr "Nama depan wajib diisi."
+
+msgid "user.profile.form.givenNameRequired.locale"
+msgstr ""
+"Anda telah menambahkan nama belakang untuk bahasa yang nama depannya kosong. "
+"Isikanlah nama depan untuk bahasa ini."
+
+msgid "user.profile.form.mailingAddressRequired"
+msgstr "Alamat surat diperlukan."
 
 msgid "user.profile.form.newPasswordRequired"
 msgstr "Anda harus memasukkan kata sandi baru."
@@ -168,6 +277,9 @@ msgstr "Notifikasi emal akses terbuka terbitan"
 msgid "user.profile.form.passwordRequired"
 msgstr "Kata sandi diperlukan."
 
+msgid "user.profile.form.passwordSameAsOld"
+msgstr "Password baru sama dengan password lama Anda."
+
 msgid "user.profile.form.profileImage"
 msgstr "Gambar profil"
 
@@ -175,13 +287,22 @@ msgid "user.profile.form.publishedNotifications"
 msgstr "Notifikasi email terbitan baru yang telah diterbitkan"
 
 msgid "user.profile.form.urlInvalid"
-msgstr "URL spesifik tidak valid. Cek dua kali URL dan coba lagi. (Petunjuk: coba tambahkan http:// ke awal URL.)"
+msgstr ""
+"URL spesifik tidak valid. Cek dua kali URL dan coba lagi. (Petunjuk: coba "
+"tambahkan http:// ke awal URL.)"
+
+msgid "user.profile.form.usergroupRequired"
+msgstr "Diperlukan grup pengguna."
 
 msgid "user.profile.form.usernameRequired"
 msgstr "Nama pengguna diperlukan."
 
+msgid "user.profile.form.privacyConsentRequired"
+msgstr "Anda harus menyetujui syarat penyataan privasi."
+
 msgid "user.profile.leavePasswordBlank"
-msgstr "Biarkan bidang kata sandi kosong untuk menyimpan kata sandi yang sekarang."
+msgstr ""
+"Biarkan bidang kata sandi kosong untuk menyimpan kata sandi yang sekarang."
 
 msgid "user.profile.newPassword"
 msgstr "Kata Sandi Baru"
@@ -198,6 +319,22 @@ msgstr "Profil Pengguna"
 msgid "user.profile.repeatNewPassword"
 msgstr "Ulangi Kata Sandi Baru"
 
+msgid "user.login.registerNewAccount"
+msgstr "Daftar"
+
+msgid "user.login.resetPasswordInstructions"
+msgstr ""
+"Masukkan alamat email Anda di bawah ini dan email akan dikirim disertai "
+"petunjuk bagaimana mereset password Anda."
+
+msgid "user.register.form.privacyConsent"
+msgstr ""
+"Ya, saya setuju data saya diambil dan disimpan berdasarkan <a href="
+"\"{$privacyUrl}\" target=\"_blank\">pernyataan privasi</a>."
+
+msgid "user.register.form.emailConsent"
+msgstr "Ya, saya ingin diberi tahu bila ada terbitan dan pengumuman baru."
+
 msgid "user.register.form.emailExists"
 msgstr "Alamat email yang dipilih sudah digunakan oleh pengguna lain."
 
@@ -207,11 +344,19 @@ msgstr "Kata Sandi tidak cocok."
 msgid "user.register.form.emailsDoNotMatch"
 msgstr "Bidang alamat email tidak cocok."
 
+msgid "user.register.form.usernameAlphaNumeric"
+msgstr ""
+"Nama pengguna hanya boleh diisi huruf kecil, garis bawah, dan garis sambung, "
+"serta harus dimulai dan diakhiri dengan karakter alfanumerik."
+
+msgid "user.register.form.userGroupRequired"
+msgstr "Pilih minimal satu peran."
+
 msgid "user.register.form.usernameExists"
 msgstr "Nama pengguna yang dipilih sudah digunakan oleh pengguna lain."
 
-msgid "user.register.passwordLengthRestriction"
-msgstr "Kata sandi minimal {$length} karakter."
+msgid "user.register.form.passwordLengthRestriction"
+msgstr "Password minimal berjumlah {$length} karakter."
 
 msgid "user.register.registerAs"
 msgstr "Mendaftar di {$contextName} sebagai..."
@@ -220,7 +365,32 @@ msgid "user.register"
 msgstr "Daftar"
 
 msgid "user.register.usernameRestriction"
-msgstr "Nama pengguna hanya bisa terdiri dari huruf kecil, nomor, dan tanda penghubung/ garis bawah atau kombinasi ketiganya."
+msgstr ""
+"Nama pengguna hanya bisa terdiri dari huruf kecil, nomor, dan tanda "
+"penghubung/ garis bawah atau kombinasi ketiganya."
+
+msgid "user.register.registrationCompleted"
+msgstr ""
+"Anda telah berhasil mendaftar. <a href=\"{$profileUrl}\">Klik di sini</a> "
+"untuk melengkapi profil Anda."
+
+msgid "user.role.assistant"
+msgstr "Bantuan"
+
+msgid "user.role.author"
+msgstr "Penulis"
+
+msgid "user.role.author_s"
+msgstr "Penulis"
+
+msgid "user.role.authors"
+msgstr "Penulis"
+
+msgid "user.role.editor"
+msgstr "Editor"
+
+msgid "user.role.editors"
+msgstr "Penyunting"
 
 msgid "user.role.reader"
 msgstr "Pembaca"
@@ -239,6 +409,24 @@ msgstr "Administrasi Situs"
 
 msgid "user.role.siteAdmins"
 msgstr "Administrasi Situs"
+
+msgid "user.role.copyeditor"
+msgstr "Copyeditor"
+
+msgid "user.role.copyeditors"
+msgstr "Para Copyeditor"
+
+msgid "user.role.proofreader"
+msgstr "Proofreader"
+
+msgid "user.role.proofreaders"
+msgstr "Para Proofreader"
+
+msgid "user.role.layoutEditor"
+msgstr "Editor Tata Letak"
+
+msgid "user.role.layoutEditors"
+msgstr "Para Editor Tata Letak"
 
 msgid "user.roles"
 msgstr "Peran"
@@ -268,215 +456,76 @@ msgstr "Nama Pengguna"
 msgid "user.workingLanguages"
 msgstr "Bahasa Kerja"
 
-msgid "user.register.completeForm"
-msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."
+msgid "user.orcid"
+msgstr "iD ORCID"
 
-msgid "user.profile.form.givenNameRequired.locale"
+msgid "user.orcid.orcidInvalid"
 msgstr ""
-"Anda telah menambahkan nama belakang untuk bahasa yang nama depannya kosong. "
-"Isikanlah nama depan untuk bahasa ini."
-
-msgid "user.profile.form.givenNameRequired"
-msgstr "Nama depan wajib diisi."
-
-msgid "user.profile.form.countryRequired"
-msgstr "Negara perlukan dipilih."
-
-msgid "user.preferredPublicName.description"
-msgstr ""
-"Saapan yang Anda lebih suka? Salam, nama tengah, dan sufiks dapat "
-"ditambahkan di sini jika Anda mau."
-
-msgid "user.preferredPublicName"
-msgstr "Nama Publik Pilihan"
-
-msgid "user.hello"
-msgstr "Halo, "
-
-msgid "user.logOutAs"
-msgstr "Keluar sebagai {$username}"
-
-msgid "user.login.rememberUsernameAndPassword"
-msgstr "Biarkan Selalu Logged in"
-
-msgid "user.login.registrationPendingValidation"
-msgstr "Pendaftaran menunggu verifikasi"
-
-msgid "user.login.registrationComplete.continueBrowsing"
-msgstr "Lanjutkan Pencarian"
-
-msgid "user.login.registrationComplete.newSubmission"
-msgstr "Kirim Naskah Baru"
-
-msgid "user.login.registrationComplete.manageSubmissions"
-msgstr "Lihat Naskah Masuk"
-
-msgid "user.login.registrationComplete.instructions"
-msgstr "Terima kasih telah mendaftar! Apa yang ingin Anda lakukan selanjutnya?"
-
-msgid "user.login.registrationComplete"
-msgstr "Registrasi selesai"
-
-msgid "user.familyName"
-msgstr "Nama Belakang"
-
-msgid "user.group"
-msgstr "Grup Pengguna"
-
-msgid "user.gossip.description"
-msgstr ""
-"Rekam jejak tentang reviewer ini yang mungkin Anda ingin tampilkan kepada "
-"administrator, manajer, dan semua editor lainnya. Catatan akan terlihat "
-"untuk penugasan review berikutnya."
-
-msgid "user.givenName"
-msgstr "Nama Depan"
-
-msgid "user.authorization.submissionQuery"
-msgstr "Anda tidak berhak mengakses pembahasan ini."
-
-msgid "user.authorization.invalidReviewAssignment"
-msgstr "Anda tidak berhak mengakses tugas review ini."
-
-msgid "user.authorization.pluginRequired"
-msgstr "Plugin yang dibutuhkan belum ditentukan."
-
-msgid "user.authorization.workflowStageRequired"
-msgstr "Tahap alur kerja belum ditetapkan."
-
-msgid "user.authorization.accessibleWorkflowStage"
-msgstr "Saat ini, Anda tidak memiliki akses pada tahap alur kerja tersebut."
-
-msgid "user.authorization.managerRequired"
-msgstr ""
-"Pengguna dengan peran Manager (misal, Editor Produksi) harus ditugaskan "
-"sebelum dapat melanjutkan proses."
-
-msgid "user.authorization.assignedStageRoleBasedAccessDenied"
-msgstr ""
-"Anda telah ditugasi pada naskah ini dengan peran yang diizinkan mengakses "
-"tindakan ini."
-
-msgid "user.accountInformation"
-msgstr "Informasi Akun"
-
-msgid "user.apiKeyEnabled"
-msgstr "Aktifkan aplikasi eksternal dengan kunci API untuk mengakses akun ini"
-
-msgid "user.apiKey"
-msgstr "Kunci API"
-
-msgid "user.profile.public"
-msgstr "Publik"
-
-msgid "user.profile.contact"
-msgstr "Narahubung"
+"ORCID iD yang Anda cantumkan tidak valid. Harap sertakan URI lengkap (mis. "
+"\"https://orcid.org/0000-0002-1825-0097\")."
 
 msgid "user.profile.identity"
 msgstr "Identitas"
 
-msgid "user.orcid.orcidInvalid"
+msgid "user.profile.contact"
+msgstr "Narahubung"
+
+msgid "user.profile.public"
+msgstr "Publik"
+
+msgid "user.apiKey"
+msgstr "Kunci API"
+
+msgid "user.apiKeyEnabled"
+msgstr "Aktifkan aplikasi eksternal dengan kunci API untuk mengakses akun ini"
+
+msgid "user.apiKey.generate"
+msgstr "Membuat kunci API baru"
+
+msgid "user.apiKey.remove"
 msgstr ""
-"ORCID iD yang Anda cantumkan tidak valid. Harap sertakan URI lengkap (mis. \""
-"https://orcid.org/0000-0002-1825-0097\")."
-
-msgid "user.orcid"
-msgstr "iD ORCID"
-
-msgid "user.role.proofreaders"
-msgstr "Para Proofreader"
-
-msgid "user.role.proofreader"
-msgstr "Proofreader"
-
-msgid "user.role.copyeditors"
-msgstr "Para Copyeditor"
-
-msgid "user.role.copyeditor"
-msgstr "Copyeditor"
-
-msgid "user.role.editors"
-msgstr "Penyunting"
-
-msgid "user.role.editor"
-msgstr "Editor"
-
-msgid "user.role.authors"
-msgstr "Penulis"
-
-msgid "user.role.author_s"
-msgstr "Penulis"
-
-msgid "user.role.author"
-msgstr "Penulis"
-
-msgid "user.role.assistant"
-msgstr "Bantuan"
-
-msgid "user.register.registrationCompleted"
-msgstr ""
-"Anda telah berhasil mendaftar. <a href=\"{$profileUrl}\">Klik di sini</a> "
-"untuk melengkapi profil Anda."
-
-msgid "user.register.form.passwordLengthRestriction"
-msgstr "Password minimal berjumlah {$length} karakter."
-
-msgid "user.register.form.userGroupRequired"
-msgstr "Pilih minimal satu peran."
-
-msgid "user.register.form.usernameAlphaNumeric"
-msgstr ""
-"Nama pengguna hanya boleh diisi huruf kecil, garis bawah, dan garis sambung, "
-"serta harus dimulai dan diakhiri dengan karakter alfanumerik."
-
-msgid "user.register.form.emailConsent"
-msgstr "Ya, saya ingin diberi tahu bila ada terbitan dan pengumuman baru."
-
-msgid "user.register.form.privacyConsent"
-msgstr ""
-"Ya, saya setuju data saya diambil dan disimpan berdasarkan <a href=\""
-"{$privacyUrl}\" target=\"_blank\">pernyataan privasi</a>."
-
-msgid "user.login.resetPasswordInstructions"
-msgstr ""
-"Masukkan alamat email Anda di bawah ini dan email akan dikirim disertai "
-"petunjuk bagaimana mereset password Anda."
-
-msgid "user.login.registerNewAccount"
-msgstr "Daftar"
-
-msgid "user.profile.form.privacyConsentRequired"
-msgstr "Anda harus menyetujui syarat penyataan privasi."
-
-msgid "user.profile.form.usergroupRequired"
-msgstr "Diperlukan grup pengguna."
-
-msgid "user.profile.form.passwordSameAsOld"
-msgstr "Password baru sama dengan password lama Anda."
-
-msgid "user.profile.form.mailingAddressRequired"
-msgstr "Alamat surat diperlukan."
-
-msgid "user.privacyLink"
-msgstr ""
-"Data Anda disimpan menurut <a href=\"{$privacyUrl}\" target=\"_blank\">"
-"pernyataan privasi kami</a>."
-
-msgid "user.apiKey.secretRequired"
-msgstr ""
-"Sebelum membuat kunci API, administrator situs Anda harus menetapkan frasa "
-"rahasia di file konfigurasi (\"api_key_secret\")."
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
 "Membuat kunci API baru akan membatalkan kunci yang sudah ada untuk pengguna "
 "ini."
 
-msgid "user.apiKey.generate"
-msgstr "Membuat kunci API baru"
+msgid "user.apiKey.removeWarning"
+msgstr ""
 
-msgid "user.role.layoutEditors"
-msgstr "Para Editor Tata Letak"
+msgid "user.apiKey.remove.confirmation.message"
+msgstr ""
 
-msgid "user.role.layoutEditor"
-msgstr "Editor Tata Letak"
+msgid "user.apiKey.secretRequired"
+msgstr ""
+"Sebelum membuat kunci API, administrator situs Anda harus menetapkan frasa "
+"rahasia di file konfigurasi (\"api_key_secret\")."
+
+msgid "user.privacyLink"
+msgstr ""
+"Data Anda disimpan menurut <a href=\"{$privacyUrl}\" target=\"_blank"
+"\">pernyataan privasi kami</a>."
+
+msgid "user.login.lostPassword.invalidUser"
+msgstr ""
+
+msgid "user.login.lostPassword.confirmationSentFailedWithReason"
+msgstr ""
+
+msgid "user.login.passwordResetProcessInstructions"
+msgstr ""
+
+msgid "user.login.resetPassword.passwordUpdated"
+msgstr ""
+
+#~ msgid "user.biography.description"
+#~ msgstr "(Contoh: departemen dan pangkat)"
+
+#~ msgid "user.logIn"
+#~ msgstr "Login"
+
+#~ msgid "user.register.passwordLengthRestriction"
+#~ msgstr "Kata sandi minimal {$length} karakter."
+
+#~ msgid "user.register.completeForm"
+#~ msgstr "Isi form di bawah ini untuk mendaftar ke jurnal ini."

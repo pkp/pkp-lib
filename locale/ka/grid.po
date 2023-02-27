@@ -12,143 +12,26 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.9.1\n"
 
+msgid "grid.noItems"
+msgstr "ელემენტები არ არის"
+
 msgid "grid.settings"
 msgstr "პარამეტრები"
 
-msgid "grid.action.sort"
-msgstr "დალაგება"
+msgid "grid.noAuditors"
+msgstr "აუდიტორები არ არის"
 
-msgid "grid.action.addUser"
-msgstr "მომხმარებლის დამატება"
+msgid "grid.remotelyHostedItem"
+msgstr "ეს ელემენტები დისტანციურად არის განთავსებული."
 
-msgid "grid.action.reload"
-msgstr "ხელმეორედ"
-
-msgid "grid.action.delete"
+msgid "grid.action.uninstall"
 msgstr "წაშლა"
-
-msgid "grid.action.editMedia"
-msgstr "მედიის ჩასწორება"
-
-msgid "grid.action.export"
-msgstr "ექსპორტი"
-
-msgid "grid.action.remove"
-msgstr "წაშლა"
-
-msgid "grid.action.edit"
-msgstr "ჩასწორება"
-
-msgid "grid.action.approve"
-msgstr "დადასტურება"
-
-msgid "grid.action.order"
-msgstr "დალაგება"
-
-msgid "grid.action.collapse"
-msgstr "შეკუმშვა"
-
-msgid "grid.action.settings"
-msgstr "პარამეტრები"
-
-msgid "grid.action.expandAll"
-msgstr "ყველას გახსნა"
-
-msgid "grid.action.expand"
-msgstr "გაშლა"
-
-msgid "grid.action.disable"
-msgstr "გამორთვა"
-
-msgid "grid.action.search"
-msgstr "ძებნა"
-
-msgid "grid.action.advancedSearch"
-msgstr "ფართო ძებნა"
-
-msgid "grid.action.uploadFile"
-msgstr "ფაილის ატვირთა"
-
-msgid "grid.action.enable"
-msgstr "ჩართვა"
-
-msgid "grid.action.activate"
-msgstr "გააქტიურება"
-
-msgid "grid.action.deactivate"
-msgstr "გამორთვა"
-
-msgid "grid.action.copy"
-msgstr "კოპირება"
-
-msgid "grid.action.preview"
-msgstr "გადახედვა"
-
-msgid "grid.action.install"
-msgstr "ვერ ყენდება"
-
-msgid "grid.action.moreItems"
-msgstr "მეტის ჩატვირთვა"
-
-msgid "grid.columns.actions"
-msgstr "მოქმედებები"
-
-msgid "grid.columns.institution"
-msgstr "დაწესებულება"
-
-msgid "grid.columns.url"
-msgstr "URL-მისამართი"
-
-msgid "grid.columns.locale"
-msgstr "ენის კოდი"
-
-msgid "grid.action.addCategory"
-msgstr "კატეგორიის დამატება"
-
-msgid "grid.action.editCategory"
-msgstr "კატეგორიის ჩასწორება"
-
-msgid "grid.libraryFiles.column.files"
-msgstr "ფაილები"
-
-msgid "grid.user.add"
-msgstr "მომხმარებლის დამატება"
-
-msgid "grid.user.edit"
-msgstr "მომხმარებლის ჩასწორება"
-
-msgid "grid.user.email"
-msgstr "ელფოსტა"
-
-msgid "grid.user.enable"
-msgstr "ჩართვა"
-
-msgid "grid.user.disable"
-msgstr "გამორთვა"
-
-msgid "grid.user.generatePassword"
-msgstr "პაროლის შექმნა"
-
-msgid "grid.user.mustChangePassword"
-msgstr "პაროლის შეცვლა"
-
-msgid "grid.user.userDetails"
-msgstr "მომხმარებელი დეტალები"
-
-msgid "grid.user.userRoles"
-msgstr "მომხმარებლის როლები"
-
-msgid "grid.plugin.allCategories"
-msgstr "ყველა კატეგორია"
-
-msgid "grid.artworkFile.caption"
-msgstr "წარწერა"
-
-msgid "grid.action.addNavigationMenuItem"
-msgstr "ელემენტის დამატება"
 
 msgid "grid.action.manageAccess"
 msgstr "წვდომის მართვა"
+
+msgid "grid.action.sort"
+msgstr "დალაგება"
 
 msgid "grid.action.addItem"
 msgstr "ელემენტის დამატება"
@@ -165,10 +48,25 @@ msgstr "განხილვის წაკითხვა"
 msgid "grid.action.deleteQuery"
 msgstr "დისკუსიის წაშლა"
 
+msgid "grid.action.updateQuery"
+msgstr "დისკუსიის განახლება"
+
+msgid "grid.action.addUser"
+msgstr "მომხმარებლის დამატება"
+
+msgid "grid.action.unassignReviewer"
+msgstr "ამ რეფერენტის გაუქმება"
+
 msgid "grid.action.approveCopyedit"
 msgstr ""
 "ამ ლიტერატურულად ჩასწორებული ფაილის დამტკიცება, შემდეგ ეტაპზე გაგზავნის "
 "მიზნით"
+
+msgid "grid.action.reload"
+msgstr "ხელმეორედ"
+
+msgid "grid.action.delete"
+msgstr "წაშლა"
 
 msgid "grid.action.deleteFile"
 msgstr "ფაილის წაშლა"
@@ -176,8 +74,14 @@ msgstr "ფაილის წაშლა"
 msgid "grid.action.deleteMedia"
 msgstr "მედიას წაშლა"
 
+msgid "grid.action.editMedia"
+msgstr "მედიის ჩასწორება"
+
 msgid "grid.action.editSection"
 msgstr "სექციის ჩასწორება"
+
+msgid "grid.action.export"
+msgstr "ექსპორტი"
 
 msgid "grid.action.deleteSection"
 msgstr "სექციის წაშლა"
@@ -185,11 +89,29 @@ msgstr "სექციის წაშლა"
 msgid "grid.action.editorialHistory"
 msgstr "ჩასწორების ისტორია"
 
+msgid "grid.action.remove"
+msgstr "წაშლა"
+
+msgid "grid.action.edit"
+msgstr "ჩასწორება"
+
+msgid "grid.action.approve"
+msgstr "დადასტურება"
+
 msgid "grid.action.disapprove"
 msgstr "უარყოფა"
 
+msgid "grid.action.setApproval"
+msgstr "დამტკიცების დაყენება"
+
 msgid "grid.action.moreInformation"
 msgstr "Მეტი ინფორმაცია"
+
+msgid "grid.action.restoreDefaults"
+msgstr "ნაგულისხმევის აღდგენა"
+
+msgid "grid.action.restoreDefaults.confirm"
+msgstr "დარწმუნებული ხართ, რომ გსურთ ნაგულისხმევის აღდგენა?"
 
 msgid "grid.action.addAuthor"
 msgstr "ავტორის დამატება"
@@ -203,14 +125,29 @@ msgstr "ავტორის წაშლა"
 msgid "grid.action.addAuditor"
 msgstr "აუდიტორის დანიშვნა"
 
+msgid "grid.action.upgrade"
+msgstr "განახლება"
+
+msgid "grid.action.order"
+msgstr "დალაგება"
+
+msgid "grid.action.saveOrdering"
+msgstr "შეკვეთის შენახვა"
+
 msgid "grid.action.cancelOrdering"
 msgstr "თანმიმდევრობის გაუქმება"
 
 msgid "grid.action.extendAll"
 msgstr "ყველას გაშლა"
 
+msgid "grid.action.collapse"
+msgstr "შეკუმშვა"
+
 msgid "grid.action.collapseAll"
 msgstr "ყველას აკეცვა"
+
+msgid "grid.action.wizard"
+msgstr "პარამეტრების ოსტატი"
 
 msgid "grid.action.moveItem"
 msgstr "ელემენტის გადაადგილება"
@@ -233,6 +170,9 @@ msgstr "ფაილის დამატება"
 msgid "grid.action.editFile"
 msgstr "ფაილის ჩასწორება"
 
+msgid "grid.action.selectFiles"
+msgstr "აირჩიეთ ფაილები სამართავად"
+
 msgid "grid.action.requestRevisions"
 msgstr "მოითხოვეთ შესწორებები ამ წარდგენისთვის"
 
@@ -247,6 +187,12 @@ msgstr "ამ წარდგენის გაგზავნა შიდა
 
 msgid "grid.action.externalReview"
 msgstr "ამ წარდგენის გაგზავნა გარე განხილვაზე"
+
+msgid "grid.action.sendToProduction"
+msgstr "გაგზავნეთ ეს წარდგენა დამუშავებაში"
+
+msgid "grid.action.settings"
+msgstr "პარამეტრები"
 
 msgid "grid.action.importexport"
 msgstr "შიგთავსის, ან საიტის მონაცემების იმპორტი ან ექსპორტი"
@@ -269,8 +215,14 @@ msgstr "ელფოსტის ამ შაბლონის გამორ
 msgid "grid.action.resetEmail"
 msgstr "ამ ელფოსტის შაბლონის გადაყენება ნაგულისხმევად"
 
+msgid "grid.action.expandAll"
+msgstr "ყველას გახსნა"
+
 msgid "grid.action.requestAccount"
 msgstr "მონაწილის დამატება"
+
+msgid "grid.action.expand"
+msgstr "გაშლა"
 
 msgid "grid.action.notify"
 msgstr "შეტყობინება მომხმარებელს"
@@ -284,117 +236,23 @@ msgstr "ამ მომხმარებელთა ჯგუფის ჩა
 msgid "grid.action.removeUserGroup"
 msgstr "ამ მომხმარებელთა ჯგუფის წაშლა"
 
+msgid "grid.action.disable"
+msgstr "გამორთვა"
+
 msgid "grid.action.details"
 msgstr "ამ ელემენტის ნახვა"
 
 msgid "grid.action.enrolExisting"
 msgstr "არსებულ მომხმარებლის რეცენზენტად დანიშვნა"
 
-msgid "grid.action.newRound"
-msgstr "ახალი რაუნდის შექმნა"
-
-msgid "grid.action.addAnnouncementType"
-msgstr "განცხადების ტიპის დამატება"
-
-msgid "grid.action.addAnnouncement"
-msgstr "განცხადების დამატება"
-
-msgid "grid.action.mergeUser"
-msgstr "მომხმარებლის გაერთიანება"
-
-msgid "grid.action.history"
-msgstr "ნახვის ისტორია"
-
-msgid "grid.action.bookInfo"
-msgstr "წარდგენის ინფორმაცია"
-
-msgid "grid.action.logInAs"
-msgstr "შესვლა, როგორც"
-
-msgid "grid.action.exportAllUsers"
-msgstr "ყველა მომხმარებლის ექსპორტი"
-
-msgid "grid.action.addSponsor"
-msgstr "სპონსორის დამატება"
-
-msgid "grid.action.deleteSponsor"
-msgstr "სპონსორის წაშლა"
-
-msgid "grid.action.editSponsor"
-msgstr "სპონსორის ჩასწორება"
-
-msgid "grid.action.addSeries"
-msgstr "სერიების დამატება"
-
-msgid "grid.action.editSeries"
-msgstr "სერიების ჩასწორება"
-
-msgid "grid.action.deleteSeries"
-msgstr "სერიების წაშლა"
-
-msgid "grid.action.deleteCategory"
-msgstr "კატეგორიის წაშლა"
-
-msgid "grid.action.addContributor"
-msgstr "წევრის დამატება"
-
-msgid "grid.action.deleteContributor"
-msgstr "წევრის წაშლა"
-
-msgid "grid.action.newVersion"
-msgstr "ახალი ვერსიის შექმნა"
-
-msgid "author.users.contributor.principalContact"
-msgstr "ძირითადი კონტაქტი"
-
-msgid "grid.action.fileUnconsider"
-msgstr ""
-"გაკეთდა დამადასტურებელი კორექტივები. თქვენ შეიძლება არ განიხილოთ ეს ამოცანა"
-
-msgid "grid.action.addNavigationMenu"
-msgstr "მენიუს დამატება"
-
-msgid "grid.noItems"
-msgstr "ელემენტები არ არის"
-
-msgid "grid.noAuditors"
-msgstr "აუდიტორები არ არის"
-
-msgid "grid.remotelyHostedItem"
-msgstr "ეს ელემენტები დისტანციურად არის განთავსებული."
-
-msgid "grid.action.uninstall"
-msgstr "წაშლა"
-
-msgid "grid.action.updateQuery"
-msgstr "დისკუსიის განახლება"
-
-msgid "grid.action.unassignReviewer"
-msgstr "ამ რეფერენტის გაუქმება"
-
-msgid "grid.action.setApproval"
-msgstr "დამტკიცების დაყენება"
-
-msgid "grid.action.restoreDefaults"
-msgstr "ნაგულისხმევის აღდგენა"
-
-msgid "grid.action.restoreDefaults.confirm"
-msgstr "დარწმუნებული ხართ, რომ გსურთ ნაგულისხმევის აღდგენა?"
-
-msgid "grid.action.upgrade"
-msgstr "განახლება"
-
-msgid "grid.action.wizard"
-msgstr "პარამეტრების ოსტატი"
-
-msgid "grid.action.selectFiles"
-msgstr "აირჩიეთ ფაილები სამართავად"
-
-msgid "grid.action.sendToProduction"
-msgstr "გაგზავნეთ ეს წარდგენა დამუშავებაში"
-
 msgid "grid.action.selectCreate"
 msgstr "ახალი რეცენზენტის შექმნა"
+
+msgid "grid.action.search"
+msgstr "ძებნა"
+
+msgid "grid.action.advancedSearch"
+msgstr "ფართო ძებნა"
 
 msgid "grid.action.viewLibrary"
 msgstr "დოკუმენტების ბიბლიოთეკის ნახვა"
@@ -405,6 +263,9 @@ msgstr "იხილეთ ამ გაგზავნის მეტამო
 msgid "grid.action.sendReminder"
 msgstr "გაუგზავნეთ დავალების შეხსენება ამ მომხმარებელს"
 
+msgid "grid.action.newRound"
+msgstr "ახალი რაუნდის შექმნა"
+
 msgid "grid.action.viewReviewGuidelines"
 msgstr "იხილეთ მიმოხილვის სახელმძღვანელო პრინციპები"
 
@@ -414,14 +275,62 @@ msgstr "იხილეთ ინტერესთა კონფლიქტ�
 msgid "grid.action.thankReviewer"
 msgstr "გაუგზავნეთ მადლობის წერილი ამ რეცენზენტს"
 
+msgid "grid.action.uploadFile"
+msgstr "ფაილის ატვირთა"
+
+msgid "grid.action.addAnnouncementType"
+msgstr "განცხადების ტიპის დამატება"
+
+msgid "grid.action.addAnnouncement"
+msgstr "განცხადების დამატება"
+
+msgid "grid.action.addInstitution"
+msgstr ""
+
+msgid "grid.action.mergeUser"
+msgstr "მომხმარებლის გაერთიანება"
+
 msgid "grid.action.unassignUser"
 msgstr "მომხმარებლის გაუქმება"
+
+msgid "grid.action.history"
+msgstr "ნახვის ისტორია"
 
 msgid "grid.action.unconsiderReview"
 msgstr "ეს მიმოხილვა დასრულებულია, მაგრამ თქვენ არ შეგიძლიათ განიხილოთ იგი"
 
+msgid "grid.action.enable"
+msgstr "ჩართვა"
+
+msgid "grid.action.bookInfo"
+msgstr "წარდგენის ინფორმაცია"
+
+msgid "grid.action.logInAs"
+msgstr "შესვლა, როგორც"
+
+msgid "grid.action.exportAllUsers"
+msgstr "ყველა მომხმარებლის ექსპორტი"
+
 msgid "grid.users.confirmExportAllUsers"
 msgstr "დარწმუნებული ხართ, რომ გსურთ ყველა მომხმარებლის ექსპორტი?"
+
+msgid "grid.action.activate"
+msgstr "გააქტიურება"
+
+msgid "grid.action.deactivate"
+msgstr "გამორთვა"
+
+msgid "grid.action.copy"
+msgstr "კოპირება"
+
+msgid "grid.action.preview"
+msgstr "გადახედვა"
+
+msgid "grid.action.install"
+msgstr "ვერ ყენდება"
+
+msgid "grid.action.moreItems"
+msgstr "მეტის ჩატვირთვა"
 
 msgid "grid.action.users"
 msgstr "მომხმარებლების ნახვა/არჩევა"
@@ -443,14 +352,70 @@ msgstr ""
 "ეს მიმოხილვა მზად არის. დააწკაპუნეთ ჩანიშვნის ხატულაზე მარცხნივ, რომ "
 "წაიკითხოთ."
 
+msgid "grid.columns.actions"
+msgstr "მოქმედებები"
+
+msgid "grid.columns.institution"
+msgstr "დაწესებულება"
+
+msgid "grid.columns.url"
+msgstr "URL-მისამართი"
+
 msgid "grid.columns.auditor"
 msgstr "აუდიტორი"
+
+msgid "grid.columns.locale"
+msgstr "ენის კოდი"
+
+msgid "grid.columns.locale.code"
+msgstr ""
 
 msgid "grid.sponsor.title"
 msgstr "სპონსორი ორგანიზაციები"
 
+msgid "grid.action.addSponsor"
+msgstr "სპონსორის დამატება"
+
+msgid "grid.action.deleteSponsor"
+msgstr "სპონსორის წაშლა"
+
+msgid "grid.action.editSponsor"
+msgstr "სპონსორის ჩასწორება"
+
+msgid "grid.action.addSeries"
+msgstr "სერიების დამატება"
+
+msgid "grid.action.editSeries"
+msgstr "სერიების ჩასწორება"
+
+msgid "grid.action.deleteSeries"
+msgstr "სერიების წაშლა"
+
+msgid "grid.action.addCategory"
+msgstr "კატეგორიის დამატება"
+
+msgid "grid.action.editCategory"
+msgstr "კატეგორიის ჩასწორება"
+
+msgid "grid.action.deleteCategory"
+msgstr "კატეგორიის წაშლა"
+
 msgid "grid.contributor.title"
 msgstr "დახმარების წყაროები"
+
+msgid "grid.action.addContributor"
+msgstr "წევრის დამატება"
+
+msgid "grid.action.deleteContributor"
+msgstr "წევრის წაშლა"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"დარწმუნებული ხართ, რომ გსურთ წაშალოთ {$name}, როგორც კონტრიბუტორი? ამ "
+"მოქმედების გაუქმება შეუძლებელია."
+
+msgid "grid.action.newVersion"
+msgstr "ახალი ვერსიის შექმნა"
 
 msgid "grid.reviewForm.title"
 msgstr "მიმოხილვის ფორმები"
@@ -460,6 +425,9 @@ msgstr "პასუხის პარამეტრები"
 
 msgid "grid.noFiles"
 msgstr "ფაილები არ არის"
+
+msgid "grid.libraryFiles.column.files"
+msgstr "ფაილები"
 
 msgid "grid.libraryFiles.submission.title"
 msgstr "წარდგენის ბიბლიოთეკა"
@@ -482,6 +450,33 @@ msgstr "წარდგენის ჩამონათვალი"
 msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "საკონტროლო სიის ელემენტები"
 
+msgid "author.users.contributor.principalContact"
+msgstr "ძირითადი კონტაქტი"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "დააყენეთ პირველადი კონტაქტი"
+
+msgid "contributor.listPanel.preview"
+msgstr "გადახედვა"
+
+msgid "contributor.listPanel.preview.description"
+msgstr "ამ პუბლიკაციის ავტორები გამოვლინდებიან ამ ჟურნალში შემდეგ ფორმატებში."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "ფორმატი"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "ჩვენება"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "შემოკლებით"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "პუბლიკაციების სიები"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "სრული"
+
 msgid "grid.roles.currentRoles"
 msgstr "მიმდინარე როლები"
 
@@ -503,8 +498,23 @@ msgstr "ყველა როლი"
 msgid "grid.user.allPermissionLevels"
 msgstr "ყველა ნებართვის დონე"
 
+msgid "grid.user.add"
+msgstr "მომხმარებლის დამატება"
+
 msgid "grid.user.enroll"
 msgstr "მომხმარებლის ჩარიცხვა"
+
+msgid "grid.user.edit"
+msgstr "მომხმარებლის ჩასწორება"
+
+msgid "grid.user.email"
+msgstr "ელფოსტა"
+
+msgid "grid.user.enable"
+msgstr "ჩართვა"
+
+msgid "grid.user.disable"
+msgstr "გამორთვა"
 
 msgid "grid.user.disableReason"
 msgstr "მომხმარებლის გამორთვის მიზეზი"
@@ -532,6 +542,9 @@ msgstr ""
 msgid "grid.user.mustProvideName"
 msgstr "გთხოვთ პირველ რიგში მიუთითოთ მომხმარებლის გვარი."
 
+msgid "grid.user.generatePassword"
+msgstr "პაროლის შექმნა"
+
 msgid "grid.user.generatePasswordDescription"
 msgstr "შექმენით შემთხვევითი პაროლი ამ მომხმარებლისთვის."
 
@@ -540,6 +553,9 @@ msgstr "შეტყობინება მომხმარებელს"
 
 msgid "grid.user.notifyUserDescription"
 msgstr "გაუგზავნეთ მომხმარებელს მისასალმებელი ელწერილი."
+
+msgid "grid.user.mustChangePassword"
+msgstr "პაროლის შეცვლა"
 
 msgid "grid.user.mustChangePasswordDescription"
 msgstr "მომხმარებელმა უნდა შეცვალოს პაროლი შემდეგი შესვლისას."
@@ -553,6 +569,12 @@ msgstr "მომხმარებელი მეტი დეტალი"
 
 msgid "grid.user.lessDetails"
 msgstr "მომხმარებელი ნაკლები დეტალები"
+
+msgid "grid.user.userDetails"
+msgstr "მომხმარებელი დეტალები"
+
+msgid "grid.user.userRoles"
+msgstr "მომხმარებლის როლები"
 
 msgid "grid.user.userNoRoles"
 msgstr "ამ მომხმარებელს არ აქვს არანაირი როლი."
@@ -594,10 +616,10 @@ msgstr "ყველა დარეგისტრირებული მო�
 
 msgid "grid.user.mergeUsers.confirm"
 msgstr ""
-"დარწმუნებული ხართ, რომ გსურთ ანგარიშის შერწყმა მომხმარებლის სახელით \""
-"{$oldUsername}\" ანგარიშში მომხმარებლის სახელით \"{$newUsername}\"? ანგარიში "
-"მომხმარებლის სახელით \"{$oldUsername}\" აღარ იარსებებს. ეს მოქმედება არ არის "
-"შექცევადი."
+"დარწმუნებული ხართ, რომ გსურთ ანგარიშის შერწყმა მომხმარებლის სახელით "
+"\"{$oldUsername}\" ანგარიშში მომხმარებლის სახელით \"{$newUsername}\"? "
+"ანგარიში მომხმარებლის სახელით \"{$oldUsername}\" აღარ იარსებებს. ეს "
+"მოქმედება არ არის შექცევადი."
 
 msgid "grid.preparedEmails.title"
 msgstr "მზა ელფოსტის შაბლონები"
@@ -605,8 +627,18 @@ msgstr "მზა ელფოსტის შაბლონები"
 msgid "grid.preparedEmails.currentList"
 msgstr "მიმდინარე სია"
 
+msgid "grid.plugin.allCategories"
+msgstr "ყველა კატეგორია"
+
 msgid "grid.plugin.disable"
 msgstr "დარწმუნებული ხართ, რომ გსურთ ამ პლაგინის გამორთვა?"
+
+msgid "grid.action.fileUnconsider"
+msgstr ""
+"გაკეთდა დამადასტურებელი კორექტივები. თქვენ შეიძლება არ განიხილოთ ეს ამოცანა"
+
+msgid "grid.artworkFile.caption"
+msgstr "წარწერა"
 
 msgid "grid.artworkFile.credit"
 msgstr "ავტორი"
@@ -661,6 +693,12 @@ msgstr "ავტორი; სათაური"
 msgid "grid.submission.active.selectOrphaned"
 msgstr "ჩართეთ არასრული წარდგინება, რომელიც არ არის წარმოდგენილი ავტორის მიერ."
 
+msgid "grid.action.addNavigationMenu"
+msgstr "მენიუს დამატება"
+
+msgid "grid.action.addNavigationMenuItem"
+msgstr "ელემენტის დამატება"
+
 msgid "grid.navigationMenus.navigationMenuItems.noneExist"
 msgstr "ნავიგაციის მენიუს ელემენტები არ არის"
 
@@ -670,37 +708,8 @@ msgstr "ნავიგაციის მენიუები არ არი
 msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "ტიპის არჩევა..."
 
-msgid "grid.action.saveOrdering"
-msgstr "შეკვეთის შენახვა"
-
-msgid "grid.action.deleteContributor.confirmationMessage"
+msgid "grid.action.view"
 msgstr ""
-"დარწმუნებული ხართ, რომ გსურთ წაშალოთ {$name}, როგორც კონტრიბუტორი? ამ "
-"მოქმედების გაუქმება შეუძლებელია."
-
-msgid "author.users.contributor.setPrincipalContact"
-msgstr "დააყენეთ პირველადი კონტაქტი"
-
-msgid "contributor.listPanel.preview"
-msgstr "გადახედვა"
-
-msgid "contributor.listPanel.preview.description"
-msgstr "ამ პუბლიკაციის ავტორები გამოვლინდებიან ამ ჟურნალში შემდეგ ფორმატებში."
-
-msgid "contributor.listPanel.preview.format"
-msgstr "ფორმატი"
-
-msgid "contributor.listPanel.preview.display"
-msgstr "ჩვენება"
-
-msgid "contributor.listPanel.preview.abbreviated"
-msgstr "შემოკლებით"
-
-msgid "contributor.listPanel.preview.publicationLists"
-msgstr "პუბლიკაციების სიები"
-
-msgid "contributor.listPanel.preview.full"
-msgstr "სრული"
 
 msgid "author.users.contributor.name"
 msgstr "სახელი"

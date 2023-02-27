@@ -6,3 +6,105 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Weblate\n"
+
+msgid "reviewer.reviewSteps.request"
+msgstr ""
+
+msgid "reviewer.reviewSteps.guidelines"
+msgstr ""
+
+msgid "reviewer.reviewSteps.download"
+msgstr ""
+
+msgid "reviewer.reviewSteps.completion"
+msgstr ""
+
+msgid "reviewer.step1.request"
+msgstr ""
+
+msgid "reviewer.step1.requestBoilerplate"
+msgstr ""
+
+msgid "reviewer.step1.viewAllDetails"
+msgstr ""
+
+msgid "reviewer.submission.reviewerFiles"
+msgstr ""
+
+msgid "reviewer.submission.declineReview"
+msgstr ""
+
+msgid "reviewer.submission.declineReviewMessage"
+msgstr ""
+
+msgid "reviewer.submission.acceptReview"
+msgstr ""
+
+msgid "reviewer.submission.continueToStepThree"
+msgstr ""
+
+msgid "reviewer.submission.submitReview"
+msgstr ""
+
+msgid "reviewer.submission.saveReviewForLater"
+msgstr ""
+
+msgid "reviewer.submission.reviewerGuidelines"
+msgstr ""
+
+msgid "reviewer.submission.enterCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.noCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.hasCompetingInterests"
+msgstr ""
+
+msgid "reviewer.submission.competingInterests"
+msgstr ""
+
+msgid "reviewer.submission.guidelines"
+msgstr ""
+
+msgid "reviewer.submission.noGuidelines"
+msgstr ""
+
+msgid "reviewer.submission.downloadDescription"
+msgstr ""
+
+msgid "reviewer.submission.reviewDescription"
+msgstr ""
+
+msgid "reviewer.submission.uploadDescription"
+msgstr ""
+
+msgid "reviewer.complete"
+msgstr ""
+
+msgid "reviewer.confirmSubmit"
+msgstr ""
+
+msgid "reviewer.complete.whatNext"
+msgstr ""
+
+msgid "reviewer.aboutDueDates"
+msgstr ""
+
+msgid "reviewer.aboutDueDates.text"
+msgstr ""
+
+msgid "submission.comments.canShareWithAuthor"
+msgstr ""
+
+msgid "submission.comments.cannotShareWithAuthor"
+msgstr ""
+
+msgid "submission.comments.sendCopyToReviewers"
+msgstr ""
+
+msgid "submission.comments.sendToReviewers"
+msgstr ""
+
+msgid "user.authorization.submissionReviewer"
+msgstr ""

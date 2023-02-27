@@ -13,12 +13,8 @@ msgstr ""
 "X-Generator: Weblate 3.9.1\n"
 
 #, fuzzy
-msgid "emails.submissionAck.description"
-msgstr ""
-"Este correo electrónico, se está activado, envíase automaticamente ao autor/"
-"a unha vez que completou o proceso de envío dun manuscrito á revista. "
-"Proporciona información sobre o seguimento do dito manuscrito no proceso "
-"editorial e agradécelle ao autor/a o seu envío."
+msgid "emails.submissionAck.subject"
+msgstr "Xustificante de recepción do envío"
 
 #, fuzzy
 msgid "emails.submissionAck.body"
@@ -39,14 +35,16 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.submissionAck.subject"
-msgstr "Xustificante de recepción do envío"
-#, fuzzy
-msgid "emails.reviewAck.description"
+msgid "emails.submissionAck.description"
 msgstr ""
-"Este correo electrónico envíallo o editor/a de sección ao revisor/a  para "
-"confirmarlle a recepción dunha revisión completada e agradecerlle a súa "
-"contribución."
+"Este correo electrónico, se está activado, envíase automaticamente ao autor/"
+"a unha vez que completou o proceso de envío dun manuscrito á revista. "
+"Proporciona información sobre o seguimento do dito manuscrito no proceso "
+"editorial e agradécelle ao autor/a o seu envío."
+
+#, fuzzy
+msgid "emails.reviewAck.subject"
+msgstr "Xustificante de recepción da revisión do artigo"
 
 #, fuzzy
 msgid "emails.reviewAck.body"
@@ -57,24 +55,38 @@ msgstr ""
 "{$contextName}. Valoramos a súa contribución á calidade dos traballos que "
 "publicamos."
 
+msgid "emails.decision.notifyReviewers.subject"
+msgstr ""
+
+msgid "emails.decision.notifyReviewers.body"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.subject"
+msgstr ""
+
+msgid "emails.decision.notifyOtherAuthors.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.reviewAck.subject"
-msgstr "Xustificante de recepción da revisión do artigo"
+msgid "emails.editorDecisionSendToExternal.subject"
+msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToExternal.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Tomamos unha decisión respecto ao seu envío a {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Tomamos unha decisión respecto ao seu envío a {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "A nosa decisión é: Enviar a revisión<br />\n"
 "<br />\n"
 "URL do envío: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToExternal.subject"
+msgid "emails.editorDecisionSendToProduction.subject"
 msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionSendToProduction.body"
 msgstr ""
@@ -86,65 +98,70 @@ msgstr ""
 "URL do envío: {$submissionUrl}"
 
 #, fuzzy
-msgid "emails.editorDecisionSendToProduction.subject"
+msgid "emails.editorDecisionRevisions.subject"
 msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionRevisions.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Tomamos unha decisión respecto ao seu envío para {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Tomamos unha decisión respecto ao seu envío para {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "A nosa decisión é: Necesita revisións"
 
 #, fuzzy
-msgid "emails.editorDecisionRevisions.subject"
+msgid "emails.editorDecisionResubmit.subject"
 msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionResubmit.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Tomamos unha decisión respecto ao seu envío para {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Tomamos unha decisión respecto ao seu envío para {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "A nosa decisión é: Enviar de novo para revisión"
 
 #, fuzzy
-msgid "emails.editorDecisionResubmit.subject"
+msgid "emails.editorDecisionDecline.subject"
 msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionDecline.body"
 msgstr ""
 "{$authors}:<br />\n"
 "<br />\n"
-"Tomamos unha decisión respecto ao seu envío para {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Tomamos unha decisión respecto ao seu envío para {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "A nosa decisión é: Rexeitar o envío"
 
-#, fuzzy
-msgid "emails.editorDecisionDecline.subject"
-msgstr "Decisión do editor/a"
+msgid "emails.editorRecommendation.subject"
+msgstr "Recomendación do editor/a"
+
 #, fuzzy
 msgid "emails.editorRecommendation.body"
 msgstr ""
 "{$editors}:<br />\n"
 "<br />\n"
-"A recomendación respecto ao envío para {$contextName}, "
-"&quot;{$submissionTitle}&quot; é: {$recommendation}"
+"A recomendación respecto ao envío para {$contextName}, &quot;"
+"{$submissionTitle}&quot; é: {$recommendation}"
 
-msgid "emails.editorRecommendation.subject"
-msgstr "Recomendación do editor/a"
+#, fuzzy
+msgid "emails.copyeditRequest.subject"
+msgstr "Solicitude de corrección"
+
 #, fuzzy
 msgid "emails.copyeditRequest.body"
 msgstr ""
 "{$recipientName}:<br />\n"
 "<br />\n"
-"Gustaríame pedirlle que se encargase da corrección de "
-"&quot;{$submissionTitle}&quot; para {$contextName}, seguindo os pasos que "
-"veñen a continuación:<br />\n"
+"Gustaríame pedirlle que se encargase da corrección de &quot;"
+"{$submissionTitle}&quot; para {$contextName}, seguindo os pasos que veñen a "
+"continuación:<br />\n"
 "1. Faga clic no URL do envío que atopará ao final deste correo.<br />\n"
 "2. Abra todos os arquivos dispoñibles en \"Arquivos de borradores\" e faga a "
 "corrección engadindo os comentarios que necesite en \"Discusións de "
@@ -157,29 +174,138 @@ msgstr ""
 "URL do envío: {$submissionUrl}<br />\n"
 "Nome de usuario/a: {$recipientUsername}"
 
+msgid "emails.editorDecisionNewReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionNewReviewRound.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertDecline.body"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.subject"
+msgstr ""
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+
 #, fuzzy
-msgid "emails.copyeditRequest.subject"
-msgstr "Solicitude de corrección"
+msgid "emails.editorDecisionInitialDecline.subject"
+msgstr "Decisión do editor/a"
+
 #, fuzzy
 msgid "emails.editorDecisionInitialDecline.body"
 msgstr ""
 "\n"
 "\t\t\t{$authors}:<br />\n"
 "<br />\n"
-"Tomamos unha decisión respecto ao seu envío a {$contextName}, "
-"&quot;{$submissionTitle}&quot;.<br />\n"
+"Tomamos unha decisión respecto ao seu envío a {$contextName}, &quot;"
+"{$submissionTitle}&quot;.<br />\n"
 "<br />\n"
 "A nosa decisión é: Rexeitar o envío"
 
-#, fuzzy
-msgid "emails.editorDecisionInitialDecline.subject"
-msgstr "Decisión do editor/a"
+msgid "emails.editorialReminder.subject"
+msgstr ""
+
+msgid "emails.editorialReminder.body"
+msgstr ""
+
+msgid "discussion.notification.description"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromProduction.body"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.subject"
+msgstr ""
+
+msgid "emails.editorDecisionBackFromCopyediting.body"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.subject"
+msgstr ""
+
+msgid "emails.editorDecisionCancelReviewRound.body"
+msgstr ""
+
+msgid "emails.reviewResendRequest.subject"
+msgstr ""
+
+msgid "emails.reviewResendRequest.body"
+msgstr ""
+
+msgid "emails.footer.unsubscribe"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.discussion"
+msgstr ""
+
+msgid "emails.footer.unsubscribe.automated"
+msgstr ""
+
+msgid "emailTemplate.variable.unsubscribe"
+msgstr ""
 
 msgid "emails.discussion.subject"
 msgstr "Unha mensaxe sobre {$contextName}"
 
 msgid "emails.discussion.body"
 msgstr "Introduza a súa mensaxe."
+
+msgid "emails.versionCreated.subject"
+msgstr ""
+
+msgid "emails.versionCreated.body"
+msgstr ""
+
+msgid "emails.reviewComplete.subject"
+msgstr ""
+
+msgid "emails.reviewComplete.body"
+msgstr ""
+
+msgid "emails.reviewEdit.subject"
+msgstr ""
+
+msgid "emails.reviewEdit.body"
+msgstr ""
+
+#, fuzzy
+msgid "emails.reviewConfirm.subject"
+msgstr "Aceptación da revisión"
+
+#, fuzzy
+msgid "emails.reviewConfirm.body"
+msgstr ""
+"Editores/as:<br />\n"
+"<br />\n"
+"Estou dispoñible e disposto a revisar o envío &quot;{$submissionTitle},"
+"&quot; para {$contextName}. Grazas por me teren en conta para esta tarefa. É "
+"a miña intención rematala no prazo previsto: {$reviewDueDate}, ou antes se é "
+"posible.<br />\n"
+"<br />\n"
+"{$senderName}"
+
+msgid "emails.submissionSavedForLater.subject"
+msgstr ""
+
+msgid "emails.submissionSavedForLater.body"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.subject"
+msgstr ""
+
+msgid "emails.submissionNeedsEditor.body"
+msgstr ""
+
+msgid "emails.submissionAckNotUser.description"
+msgstr ""
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Xustificante de recepción do envío"
@@ -198,17 +324,8 @@ msgstr ""
 "{$contextSignature}"
 
 #, fuzzy
-msgid "emails.reviewConfirm.body"
-msgstr ""
-"Editores/as:<br />\n"
-"<br />\n"
-"Estou dispoñible e disposto a revisar o envío &quot;{$submissionTitle},"
-"&quot; para {$contextName}. Grazas por me teren en conta para esta tarefa. É "
-"a miña intención rematala no prazo previsto: {$reviewDueDate}, ou antes se é "
-"posible.<br />\n"
-"<br />\n"
-"{$senderName}"
-
-#, fuzzy
-msgid "emails.reviewConfirm.subject"
-msgstr "Aceptación da revisión"
+#~ msgid "emails.reviewAck.description"
+#~ msgstr ""
+#~ "Este correo electrónico envíallo o editor/a de sección ao revisor/a  para "
+#~ "confirmarlle a recepción dunha revisión completada e agradecerlle a súa "
+#~ "contribución."

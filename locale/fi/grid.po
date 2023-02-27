@@ -1,18 +1,19 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2020-10-14 12:50+0000\n"
+"PO-Revision-Date: 2023-02-27 15:42+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
-"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/fi/"
+">\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "Ei kohteita"
@@ -423,7 +424,7 @@ msgid "grid.submissionChecklist.column.checklistItem"
 msgstr "Tarkistuslistan kohta"
 
 msgid "author.users.contributor.principalContact"
-msgstr "Ensisijainen yhteyshenkilö"
+msgstr "Yhteyshenkilö"
 
 msgid "grid.roles.currentRoles"
 msgstr "Nykyiset roolit"
@@ -666,3 +667,44 @@ msgstr "Näkyy luetteloissa"
 
 msgid "grid.action.editContributor"
 msgstr "Muokkaa tekijää"
+
+msgid "grid.action.saveOrdering"
+msgstr "Tallenna järjestys"
+
+msgid "grid.action.addInstitution"
+msgstr "Lisää instituutio"
+
+msgid "grid.columns.locale.code"
+msgstr "Koodi"
+
+msgid "grid.action.deleteContributor.confirmationMessage"
+msgstr ""
+"Haluatko varmasti poistaa henkilön {$name} tekijöistä? Tätä toimintoa ei voi "
+"perua."
+
+msgid "contributor.listPanel.preview.description"
+msgstr "Tekijät esitetään seuraavissa muodoissa."
+
+msgid "contributor.listPanel.preview.format"
+msgstr "Muoto"
+
+msgid "contributor.listPanel.preview"
+msgstr "Esikatselu"
+
+msgid "author.users.contributor.setPrincipalContact"
+msgstr "Aseta yhteyshenkilöksi"
+
+msgid "contributor.listPanel.preview.display"
+msgstr "Esitystapa"
+
+msgid "contributor.listPanel.preview.abbreviated"
+msgstr "Lyhennetty"
+
+msgid "contributor.listPanel.preview.publicationLists"
+msgstr "Listaukset"
+
+msgid "contributor.listPanel.preview.full"
+msgstr "Koko nimi"
+
+msgid "grid.action.view"
+msgstr "Näytä"

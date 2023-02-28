@@ -292,7 +292,7 @@ msgid "user.login.passwordResetProcessInstructions"
 msgstr ""
 
 msgid "user.login.resetPasswordInstructions"
-msgstr ""
+msgstr "請於下方輸入您的電郵地址，系統將會傳送一封電郵給您以助您重設密碼。"
 
 msgid "user.register.form.privacyConsent"
 msgstr "是，我同意根據《私隱聲明》收集及儲存我的個人資料。"

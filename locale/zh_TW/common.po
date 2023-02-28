@@ -65,7 +65,7 @@ msgid "announcement.moreAnnouncements"
 msgstr ""
 
 msgid "announcement.noneExist"
-msgstr ""
+msgstr "沒有發布任何公告。"
 
 msgid "announcement.posted"
 msgstr ""
@@ -197,7 +197,7 @@ msgid "common.captcha.error.invalid-input-secret"
 msgstr ""
 
 msgid "common.captcha.error.missing-input-response"
-msgstr ""
+msgstr "您必須完成驗證以防止濫發投遞。"
 
 msgid "common.captcha.error.invalid-input-response"
 msgstr ""
@@ -1443,6 +1443,9 @@ msgstr ""
 
 msgid "notification.settingsDescription"
 msgstr ""
+"選擇您希望接收的系統通知，未勾選的項目將不會顯示於您的訂閱通知，亦不會透過電子"
+"郵件發送給您。已勾選的項目將顯示於系統中，您亦可選擇是否以電郵方式接收相同通知"
+"。"
 
 msgid "notification.reminderError"
 msgstr ""
@@ -1493,10 +1496,10 @@ msgid "search.date"
 msgstr ""
 
 msgid "search.dateFrom"
-msgstr "此出版日期前"
+msgstr "此出版日期後"
 
 msgid "search.dateTo"
-msgstr "此出版日期後"
+msgstr "此出版日期前"
 
 msgid "search.deleteFilter"
 msgstr "刪除"

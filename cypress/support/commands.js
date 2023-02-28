@@ -396,8 +396,12 @@ Cypress.Commands.add('createUser', user => {
 	});
 	cy.server();
 	cy.route('POST', '**/grid/settings/user/user-grid/update-user-roles*').as('rolesSaved');
-	cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
-	cy.wait('@rolesSaved').its('status').should('eq', 200);
+	cy.get('div[id^=component-grid-settings-user-usergrid]').as('userGrid').then(staleUserGrid => {
+		cy.get('form[id=userRoleForm] button[id^=submitFormButton]').click();
+		cy.wait('@rolesSaved').its('status').should('eq', 200);
+		// Wait for the interface to refresh, the "User Grid" will be recreated and get a new ID.
+		cy.get('@userGrid').should('not.have.attr', 'id', staleUserGrid.attr('id'));
+	});
 });
 
 Cypress.Commands.add('flushNotifications', function() {

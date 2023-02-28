@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-02-28 20:02+0000\n"
+"PO-Revision-Date: 2023-02-28 23:31+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -371,19 +371,22 @@ msgid "manager.institutions.form.ror.description"
 msgstr "Tämän instituution Research Organization Registry ID."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP-alueet"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Kelvollisia arvoja ovat IP-osoite (esim. 142.58.103.1), IP-alue (esim. "
+"142.58.103.1 - 142.58.103.4), IP-alue jokerimerkillä '*' (esim. 142.58.*.*) "
+"ja IP-alue CIDR:llä (esim. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Poista instituutio"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Haluatko varmasti jatkaa ja poistaa tämän instituution?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Virheellinen IP-alue"
 
 msgid "manager.publication.submissionStage"
 msgstr "Käsikirjoituksen vastaanotto"
@@ -407,13 +410,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Arviointimuistutuksen tiedot on päivitetty."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOIt"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"{$registrationAgency} palautti seuraavan virheen, ja se sisältää tarkempia "
+"tietoja virheen syystä:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"{$registrationAgency} palautti seuraavan viestin, joka sisältää tietoja "
+"rekisteröinnistä:"
 
 msgid "manager.emails.addEmail"
 msgstr "Lisää sähköpostipohja"
@@ -774,50 +781,59 @@ msgid "manager.roles"
 msgstr "Roolit"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Tilastot"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Maantieteelliset tilastot"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Valitse kerättävien maantieteellisten käyttötilastojen tyyppi. "
+"Yksityiskohtaisemmat maantieteelliset tilastot voivat kasvattaa tietokantasi "
+"kokoa huomattavasti ja joissakin harvinaisissa tapauksissa heikentää "
+"kävijöiden anonymiteettiä."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Älä kerää maantieteellisiä tietoja"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Kerää kävijän maa"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Kerää kävijän maa ja alue"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Kerää kävijän maa, alue ja kaupunki"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institutionaaliset tilastot"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Ota käyttöön institutionaaliset tilastot, jos haluat kerätä "
+"instituutiokohtaisia käyttötilastoja. Sinun on määritettävä IP-alueet "
+"kullekin instituutiolle, jota haluat seurata."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Ota institutionaaliset tilastot käyttöön"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Julkinen API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Rajoitetaanko pääsyä COUNTER SUSHI -tilastojen rajapintoihin vai ei. Jos "
+"valinta poistetaan, rajapinnan käyttöoikeus on vain käyttäjillä, joilla on "
+"ylläpitäjän- tai hallinnoijanrooli."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Aseta COUNTER SUSHI -tilastot julkisesti saataville"
 
 msgid "manager.statistics"
 msgstr "Tilastot &amp; Raportit"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Raporttigeneraattori"
+msgstr "Raportit"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -835,25 +851,30 @@ msgid "manager.affiliationAndSupport"
 msgstr "Tukija"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIt"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Asetukset"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Rekisteröinti"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiksi"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automaattinen talletus"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Ota käyttöön automaattinen talletus"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI-tunnukset ja metatiedot voidaan tallettaa automaattisesti valittuun "
+"rekisteröintilaitokseen aina, kun DOI-tunnuksen sisältävä nimike "
+"julkaistaan. Automaattinen talletus tapahtuu ajastetuin väliajoin, ja kunkin "
+"DOI-tunnuksen rekisteröintitilannetta voidaan seurata DOI-tunnusten "
+"hallintasivulta."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -862,40 +883,42 @@ msgstr ""
 "10.xxxx (esim. 10.1234):"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI-prefiksi vaaditaan, ja sen on oltava muodossa 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automaattinen DOI-tunnusten osoitus"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Milloin käsikirjoitukselle tulee antaa DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Julkaistaessa"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Ei koskaan"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiksi"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Julkaisun sisältö"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "DOI-prefiksi vaaditaan"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-suffiksi"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI-suffiksi"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Mukautettu malli DOI-suffiksille"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Yksi tai useampi valittu DOI-tyyppi ei ole sallittu määritetyssä DOI-"
+"rekisteröintitoimistossa."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -908,42 +931,49 @@ msgstr "Käytä oletusmuotoiluja."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ei mitään - Suffiksi on syötettävä manuaalisesti <a href=\"{$doiManagementUrl"
+"}\">DOI-hallintasivulla</a>, eikä sitä luoda automaattisesti"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Mukautettu malli - (ei suositella)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Rekisteröintitoimisto"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Valitse rekisteröintilaitos, jota haluat käyttää tallettaessasi DOI-"
+"tunnuksia."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Rekisteröintilaitosta ei valittu"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI-tunnukset voidaan luoda automaattisesti ja tallettaa "
+"rekisteröintitoimistoon. Jos haluat käyttää tätä ominaisuutta, etsi ja "
+"asenna halutun rekisteröintitoimiston lisäosa."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ei mitään"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI-versionhallinta"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Tätä toimintoa ei voi kutsua ilman, että DOI-tunnukset ovat käytössä."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Versioita on {$count}."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Näytä kaikki"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI-tunnukset kaikille versioille"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI sisältää virheellisiä merkkejä."
 
 msgid "manager.setup.publishing"
 msgstr "Julkaisua koskevat tiedot"
@@ -1035,16 +1065,21 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Lähetä kopio tähän sähköpostiosoitteeseen"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Ilmoita kaikille kirjoittajille"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Kenen pitäisi saada ilmoitussähköposti, kun toimituksellinen päätös on "
+"tallennettu?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Lähetä sähköposti-ilmoitus kaikille käsikirjoituksen kirjoittajille."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Lähetä sähköpostiviesti vain niille kirjoittajille, jotka on määritetty "
+"käsikirjoituksen työnkulkuun. Yleensä tämä on käsikirjoituksen lähettänyt "
+"kirjoittaja."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Ilmoitukset"
@@ -1063,9 +1098,12 @@ msgstr "Ilmoita kaikille"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Kopio uutta käsikirjoitusta koskevasta vahvistusviestistä toimitetaan tässä "
+"annettuihin sähköpostiosoitteisiin. Erottele useat sähköpostiosoitteet "
+"pilkulla. Esimerkki: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Yksi tai useampi näistä sähköpostiosoitteista ei ole kelvollinen."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1248,7 +1286,7 @@ msgid "manager.setup.theme"
 msgstr "Teema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Instituutiot"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1260,37 +1298,53 @@ msgstr "Valitsemaasi teemaa ei ole asennettu tai sitä ei ole otettu käyttöön
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille ennen kuin he aloittavat "
+"käsikirjoituksen lähetyksen. Selitä lyhyesti lähetysprosessi, jotta "
+"kirjoittaja tietää, mitä tietoja häneltä odotetaan."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Kirjoittajille näytetään tiedostojen latausvaiheen aikana seuraavaa kuvaus. "
+"Selitä lyhyesti, mitä tiedostoja kirjoittajien odotetaan lähettävän "
+"käsikirjoituksen mukana."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille tekijöiden lisäämisen yhteydessä. "
+"Selitä lyhyesti, mitä tietoja kirjoittajan on annettava itsestään, muista "
+"kirjoittajista ja muista tekijöistä."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Seuraava kuvaus näytetään kirjoittajille yksityiskohtia koskevassa "
+"vaiheessa, kun heitä pyydetään antamaan otsikko, tiivistelmä ja muita "
+"keskeisiä tietoja käsikirjoituksestaan."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille Toimittajille-vaiheessa, jolloin "
+"heitä pyydetään antamaan kuvailutietoja, kuten avainsanoja, kommentteja "
+"toimittajalle ja muita tarkennuksia toimituksellisen käsittelyn "
+"helpottamiseksi."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille käsikirjoituksen lähetyksen "
+"viimeisessä vaiheessa, jolloin heitä pyydetään tarkistamaan kaikki antamansa "
+"tiedot ennen lähettämistä."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Kirjoittajan ohjeistus"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Käsikirjoituksen lähetettäessä kirjoittajia pyydetään ennen jatkamista "
-"vahvistamaan (rastittamalla kohdat), että käsikirjoitus noudattaa "
-"tarkistuslistan jokaista kohtaa. Tarkistuslista on näkyvillä myös "
-"Kirjoittajan ohjeet -sivun Tietoa julkaisusta -kohdassa. Listaa voidaan "
-"muokata alla, mutta kaikki listan kohdat on rastitettava ennen kuin "
-"kirjoittaja voi jatkaa lähetysprosessia."
+"Kirjoittajille näytetään seuraavat tiedot, kun he aloittavat "
+"käsikirjoituksen lähetyksen. Kirjoittajia pyydetään vahvistamaan, että "
+"heidän käsikirjoituksensa on tässä esitettyjen vaatimusten mukainen, ennen "
+"kuin he aloittavat sen lähettämisen."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1304,16 +1358,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Oletko varma, että haluat ottaa osaston käyttöön?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Toimitukselliset toimeksiannot"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Valitse toimituksen jäsenet, jotka osoitetaan automaattisesti kaikkiin tämän "
+"osion uusiin käsikirjoituksiin."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Määritä {$name} rooliksi {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Valitse toimituksen jäsenet, jotka osoitetaan automaattisesti kaikkiin tämän "
+"kategorian uusiin käsikirjoituksiin."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Sivuston pääsyoikeuksien valinnat"
@@ -1806,16 +1864,21 @@ msgstr ""
 "taideteokset, äänitteet ja valokuvat."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Vaadi käsikirjoitusten kanssa"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Pitäisikö vähintään yksi näistä tiedostoista vaatia jokaisen uuden "
+"käsikirjoituksen yhteydessä? Jos valitset kyllä, kirjoittajat eivät saa "
+"lähettää käsikirjoitusta ennen kuin he ovat ladanneet vähintään yhden "
+"tämäntyyppisen tiedoston."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Kyllä, vaadi kirjoittajia lataamaan yksi tai useampi näistä tiedostoista."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Ei, salli uusia käsikirjoituksia ilman näitä tiedostoja."
 
 msgid "manager.settings.wizard"
 msgstr "Ohjattu asetusten luonti"
@@ -2197,18 +2260,26 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Lyhyt maininta siitä, onko kirjoittaja(t) asettanut tutkimusdatan "
+"saataville, ja jos on, mistä lukijat voivat saada sen käyttöönsä."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Ota tutkimusdatan saatavuutta koskeva kuvailutieto käyttöön"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Älä kysy kirjoittajalta tietoja tutkimusdatan saatavuudesta lähetyksen "
+"yhteydessä."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Kysy kirjoittajalta mainintaa tutkimusdatan saatavuudesta käsikirjoituksen "
+"lähetyksen yhteydessä."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Vaadi kirjoittajalta mainintaa tutkimusdatan saatavuudesta käsikirjoituksen "
+"lähetyksen yhteydessä."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Vahvistusvirheitä:"
@@ -2220,7 +2291,7 @@ msgid "plugins.importexport.common.errorsOccured"
 msgstr "Tapahtui virheitä:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Tuntematon kohta {$param}"

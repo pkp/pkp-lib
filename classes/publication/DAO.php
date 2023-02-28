@@ -376,6 +376,7 @@ class DAO extends EntityDAO
                 ->filterByPublicationIds([$publication->getId()])
                 ->orderBy(\PKP\author\Collector::ORDERBY_SEQUENCE)
                 ->getMany()
+                ->remember()
         );
     }
 

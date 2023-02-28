@@ -1,14 +1,14 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2022-11-24 02:46+0000\n"
+"PO-Revision-Date: 2023-02-28 20:02+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,184 +153,222 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Ilmoitustyyppi"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Talleta kaikki"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Talleta DOI-tunnukset"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Olet lähettämässä DOI-metatietueet {$count} nimikkeelle kohteeseen "
+"{$registrationAgency}. Oletko varma, että haluat tallettaa nämä tietueet??"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Merkitse DOIt rekisteröidyiksi"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen DOI-metatietueet rekisteröidyiksi. "
+"Oletko varma, että haluat merkitä nämä tietueet rekisteröidyiksi?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Merkitse DOIt rekisteröimättömiksi"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen DOI-metatietueet rekisteröimättömiksi. "
+"Oletko varma, että haluat merkitä nämä tietueet rekisteröimättömiksi?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Merkitse DOIt synkronointia vaativiksi"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen {$count} DOI-metatietueet "
+"synkronoitavaksi. Vaati synkronointia -tilaa voidaan soveltaa vain aiemmin "
+"talletettuihin DOI-tunnuksiin. Oletko varma, että haluat merkitä nämä "
+"tietueet vanhentuneiksi?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Vie DOI-tunnuksia"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Olet viemässä DOI-metatietueet {$count} nimikkeelle kohteeseen "
+"{$registrationAgency}. Oletko varma, että haluat viedä nämä tietueet?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Osoita DOI-tunnuksia"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Olet määrittämässä uusia DOI-tunnuksia {$count} nimikkeelle joille ei vielä "
+"ole annettu DOI-tunnusta. Oletko varma, että haluat määrittää DOI-tunnukset "
+"näille kohteille?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Talleta kaikki DOIt"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Olet ajoittamassa kaikki jäljellä olevat DOI-metatietueet talletettavaksi "
+"kohteeseen {$registrationAgency}. Vain julkaistut nimikkeet, joilla on DOI, "
+"talletetaan. Nimikkeiden tila päivitetään tallettamisen jälkeen. Oletko "
+"varma, että haluat ajoittaa kaikkien näiden nimikkeiden tallettamisen?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Tee muutoksia {$count} nimikkeelle."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Massatoiminnot"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Talletuksen tila"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Julkaisutila"
 
 msgid "manager.dois.registration.submittedDescription"
 msgstr ""
+"Tämän nimikkeen metatiedot on toimitettu kohteeseen {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Tämä nimike on rekisteröity manuaalisesti rekisteröintitoimistossa."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"Tämän nimikkeen metatietoja ei ole toimitettu kohteeseen "
+"{$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Tätä nimikettä ei voi tallettaa ennen kuin se on julkaistu."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Näytä virhe"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Rekisteröinnin virheilmoitus"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Näytä tietue"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Rekisteröinnin onnistumisilmoitus"
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI(t) päivitetty onnistuneesti"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Talleta DOI(t)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Tarvitsee DOI:n"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Rekisteröimätön"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Lähetetty"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Rekisteröity"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Virhe"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Sisältää virheen"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Tarvitsee synkronoinnin"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI osoitettu"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joista puuttuu DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joille on annettu DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Kaikki nimikkeet joilla on DOI, jotka on julkaistu mutta joita ei ole vielä "
+"talletettu."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joiden DOI-tunnukset on talletettu."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Kaikki nimikkeet, jotka on rekisteröity tai merkitty manuaalisesti "
+"rekisteröidyiksi."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joiden rekisteröinnissä on tapahtunut virhe."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Kaikki nimikkeet, jotka on julkaistu uudelleen sen jälkeen, kun niiden DOI-"
+"tunnukset viimeksi talletettiin. Ne on rekisteröitävä uudelleen "
+"metatietotietueiden päivittämiseksi."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI-päivitykset epäonnistuivat"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Joitakin DOI-tunnuksia ei voitu päivittää"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Nimikkeet viety onnistuneesti"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty rekisteröidyksi onnistuneesti"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty rekisteröimättömäksi onnistuneesti"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty synkronointia tarvitsevaksi onnistuneesti"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Nimikkeille osoitettu DOI-tunnukset onnistuneesti"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Nimikkeet lähetetty onnistuneesti talletettavaksi"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI-statukset"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI-tunnusten hallinnointi on siirtynyt. Katso sivut <a href=\""
+"{$doiManagementUrl}\">DOI-hallinnointi</a> ja <a href=\"{$doiSettingsUrl"
+"}\">DOI-asetukset</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-tunnuksia ei voida osoittaa, ellet anna DOI-prefiksiä. <a href=\""
+"{$doiSettingsUrl}\">Lisää DOI-prefiksi</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Yritin luoda DOI-tunnukset, mutta DOI-prefiksi vaaditaan, jotta voidaan "
+"luoda DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Ennen kuin tämä osa voidaan poistaa, sinun on liitettävä kaikki siihen "
+"liittyvät käsikirjoitusten tiedostot toiseen osaan."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Muokkaa instituutiota"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Tämän instituution Research Organization Registry ID."
 
 msgid "manager.institutions.form.ipRanges"
 msgstr ""

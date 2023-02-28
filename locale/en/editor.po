@@ -329,7 +329,7 @@ msgstr "There was an error reinstating the reviewer.  Please try again."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
-"There was an error reuqesting the reviewer to reconsider the review "
+"There was an error requesting the reviewer to reconsider the review "
 "invitation.  Please try again."
 
 msgid "editor.review.userGroupSelect"

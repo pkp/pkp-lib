@@ -456,7 +456,7 @@ msgstr "Preview"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
-"Contributors to this publication will be identified in this journal in the "
+"Contributors to this publication will be identified in the "
 "following formats."
 
 msgid "contributor.listPanel.preview.format"

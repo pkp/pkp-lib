@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-03-01 11:26+0000\n"
+"PO-Revision-Date: 2023-03-02 13:56+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fi/>\n"
@@ -806,79 +806,101 @@ msgstr ""
 "pakkaaminen voi säästää levytilaa palvelimella."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Jätä lokitiedostot paikalleen"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Pakkaa lokitiedostot"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Rajoita COUNTER SUSHI -rajapinnan käyttöoikeus hallinnoijille ja "
+"ylläpitäjille"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Alusta"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"COUNTER SUSHI -protokollan mukaan jokaisessa tilastoraportissa on mainittava "
+"tilastoja tuottava \"alusta\". Oletusarvoisesti julkaisukanava nimetään "
+"kaikkien tilastojen alustaksi. Jos kuitenkin kaikki tämän sivuston "
+"julkaisukanavat ovat saman palveluntarjoajan julkaisemia, omistamia tai "
+"ylläpitämiä, voit halutessasi nimetä sivuston alustaksi."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Käytä sivustoa kaikkien julkaisukanavien alustana."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Alustan ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Miten tämä alusta tunnistetaan COUNTER SUSHI -raporteissa. Alustatunnuksen "
+"on oltava enintään 17 merkkiä, ja se voi sisältää kirjaimia (a-z, A-Z), "
+"numeroita (0-9), alleviivoja (_), pisteitä (.) ja vinoviivoja (/). "
+"Alustatunnusta käytetään useissa sarakkeissa, ja sen olisi oltava "
+"mahdollisimman lyhyt ja silti tunnistettava. Alustatunnus perustuu yleensä "
+"julkaisijan tai alustan nimeen, verkkotunnukseen tai tunnettuun, "
+"yksilölliseen lyhenteeseen."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Alustan ID-tunnus on vaadittava, kun sivusto tunnistetaan SUSHI-alustaksi."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "Työkomennon valinnat"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "käyttö : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Työkomennon käytettävissä olevat valinnat"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Työstettävän jonoyhteyden nimi [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Työstettävän jonon nimi [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Työntekijän nimi [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Odotettavien sekuntien määrä, ennen kuin yritetään uudelleen työtä, joka "
+"kohtasi odottamattoman poikkeuksen [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Muistiraja megatavuina [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Sekuntien määrä, jonka lapsiprosessi voi toimia [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Odotusaika sekunteina, kun työtä ei ole saatavilla [oletus : '{$default}'']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Kuinka monta kertaa työtä yritetään ennen kuin se kirjataan epäonnistuneeksi "
+"[oletus : '{$default}'']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
-msgstr ""
+msgstr "Pakota työntekijä toimimaan myös ylläpitotilassa [oletus : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Lopeta, kun jono on tyhjä [oletus : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Ennen pysäyttämistä käsiteltävien töiden määrä [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Työntekijän maksimissaan käytössä olevien sekuntien määrä [oletus : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Töiden välissä odotettavien sekuntien määrä [oletus : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Aja testijonon työt"

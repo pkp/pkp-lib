@@ -53,6 +53,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 		$doc->formatOutput = true;
 		$deployment = $this->getDeployment();
 		$rootNode = $this->createSubmissionFileNode($doc, $submissionFile);
+
+		if (!$rootNode) {
+			return $rootNode;
+		}
 		$doc->appendChild($rootNode);
 		$rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
 		$rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
@@ -137,8 +141,14 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 
 		// Create the revision nodes
 		$revisions = DAORegistry::getDAO('SubmissionFileDAO')->getRevisions($submissionFile->getId());
+		$hasRevision = false;
 		foreach ($revisions as $revision) {
 			$localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
+			if (!file_exists($localPath)) {
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId(), 'revision' => $revision->revision_id, 'path' => $localPath]));
+				continue;
+			}
+			$hasRevision = true;
 			$revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
 			$revisionNode->setAttribute('id', $revision->fileId);
 			$revisionNode->setAttribute('filesize', filesize($localPath));
@@ -154,6 +164,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 						"submissionFileId" => $submissionFile->getId(),
 						"submissionId" => $submissionFile->getData('submissionId'),
 						"stageId" => $stageId,
+						"fileId" => $revision->fileId,
 					];
 					$url = $dispatcher->url($request, ROUTE_COMPONENT, $context->getPath(), "api.file.FileApiHandler", "downloadFile", null, $params);
 					$hrefNode->setAttribute('src', $url);
@@ -171,6 +182,11 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter {
 			$submissionFileNode->appendChild($revisionNode);
 		}
 
+		// Report if no revision has been added
+		if (!$hasRevision) {
+			$deployment->addWarning(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileWithoutRevision', ['id' => $submissionFile->getId()]));
+			return null;
+		}
 
 		return $submissionFileNode;
 	}

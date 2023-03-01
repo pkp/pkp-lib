@@ -1661,6 +1661,12 @@ msgstr "The submission file could not be imported"
 msgid "plugins.importexport.native.error.submissionFileSkipped"
 msgstr "The submission file {$id} was skipped because it is attached to a record that will not be imported, such as a review assignment or discussion."
 
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "The submission file {$id} was skipped because it does not have a valid revision."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr "The revision {$revision} of the submission file {$id} was skipped because the file was not found at the path \"{$path}\"."
+
 msgid "plugins.importexport.user.importExportErrors"
 msgstr "Import/Export errors:"
 

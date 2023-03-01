@@ -353,7 +353,7 @@ abstract class PKPWorkflowHandler extends Handler
         ];
 
         // Add the metadata form if one or more metadata fields are enabled
-        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type'];
+        $metadataFields = ['coverage', 'disciplines', 'keywords', 'languages', 'rights', 'source', 'subjects', 'agencies', 'type', 'workNumber'];
         $metadataEnabled = false;
         foreach ($metadataFields as $metadataField) {
             if ($submissionContext->getData($metadataField)) {

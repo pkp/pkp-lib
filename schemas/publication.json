@@ -342,6 +342,13 @@
 			"validation": [
 				"min:1"
 			]
+		},
+		"workNumber": {
+			"type": "string",
+			"description": "Optional metadata that is a work number.",
+			"validation": [
+				"nullable"
+			]
 		}
 	}
 }

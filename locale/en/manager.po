@@ -2185,6 +2185,13 @@ msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
 "Require the author to provide a data availability statement before accepting their submission."
 
+msgid "manager.setup.metadata.workNumber.description"
+msgstr ""
+"The work number can be used in citations and other metadata instead of page numbers."
+
+msgid "manager.setup.metadata.workNumber.enable"
+msgstr "Enable for Publications"
+
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validation errors:"
 

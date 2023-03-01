@@ -1,14 +1,14 @@
-# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022.
+# Primož Svetek <primoz.svetek@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:02+00:00\n"
-"PO-Revision-Date: 2022-12-27 10:02+0000\n"
+"PO-Revision-Date: 2023-03-02 13:56+0000\n"
 "Last-Translator: Primož Svetek <primoz.svetek@gmail.com>\n"
 "Language-Team: Slovenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/sl_SI/>\n"
-"Language: sl_SI\n"
+"manager/sl/>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -276,13 +276,13 @@ msgid "manager.dois.status.error"
 msgstr "Napaka"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Vsebuje napako"
 
 msgid "manager.dois.status.stale"
 msgstr "Obviselo"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI dodeljen"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
@@ -291,7 +291,7 @@ msgstr ""
 "tukaj viden, če DOI-ji za prelome niso omogočeni)"
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Vsi predmeti z dodeljenim DOI-jem."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -350,9 +350,11 @@ msgstr ""
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-ji ne morejo biti dodeljeni, dokler ne določite vašo dodeljeno DOI "
+"predpono. <a href=\"{$doiSettingsUrl}\">Dodaj DOI predpono</a>."
 
 msgid "doi.exceptions.missingPrefix"
-msgstr ""
+msgstr "DOI predpona revije je zahtevana za dodelitev DOI-jev."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -903,6 +905,8 @@ msgstr "DOI pripona po meri"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Eden ali več izbranih DOI tipov ni dovoljen za nastavljeno DOI "
+"registracijsko agencijo."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2342,7 +2346,7 @@ msgstr ""
 "istim uporabnikom."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testiranje"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Naslov"
@@ -2913,22 +2917,22 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "Priporočena odločitev, kot je Sprejmite prispevek"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datum, ko je bila ta recenzija dodeljena"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Tip recenzije, kot je slepa, dvojno slepa ali odprta"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Recenznetsko priporočilo, kot sta Sprejmi prispevek ali Zavrni"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Krog recenzije, kot npr. Krog 1 ali krog 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Datoteke, ki jih je naložil recenzent"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ime recenzenta"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -3055,7 +3059,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identifikacija številke, vključuje zvezek, številko, leto in naslov"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL naslov izdane številke revije"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Leto poročila"
@@ -3263,6 +3267,8 @@ msgstr "Opomnik za recenzijo"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Ta email pošlje urednik kot opomnik recenzentu, da se bliža rok končanja "
+"recenzije."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Opomnik za recenzijo (avtomatski)"
@@ -3425,7 +3431,6 @@ msgstr ""
 "Ta email avtomatično obvešča recenzenta o spremenjenih podrobnostih "
 "dodeljene recenzije."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obvestilo urednikom o recenzentskem priporočilu"
 
@@ -3681,3 +3686,16 @@ msgstr "Prispevek potrebuje urednika"
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "Povezava do strani statistik objavljenih člakov"
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Slika naslovnice za revijo {$id} ni bila izvožena, ker njene datoteke ni "
+"bilo moč najti na \"{$path}\"."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Oddana datoteka {$id} je bila izpuščena, ker nima veljavne različice."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Različica {$revision} oddane datoteke {$id} je bila izpuščena, ker datoteke "
+"ni bilo moč najti na \"{$path}\"."

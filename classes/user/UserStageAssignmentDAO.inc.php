@@ -120,14 +120,14 @@ class UserStageAssignmentDAO extends UserDAO {
 			WHERE	uug.user_group_id = ? AND
 				s.user_group_id IS NULL'
 				. ($name !== null 
-					? ' AND (LOWER(usgs_pl.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
-						OR LOWER(usgs_l.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
-						OR LOWER(usfs_pl.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
-						OR LOWER(usfs_l.setting_value) LIKE CONCAT("%", LOWER(?), "%") 
-						OR LOWER(u.username) LIKE CONCAT("%", LOWER(?), "%") 
-						OR LOWER(u.email) LIKE CONCAT("%", LOWER(?), "%"))' 
-					: '')
-			. ' ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)',
+					? " AND (LOWER(usgs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
+						OR LOWER(usgs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
+						OR LOWER(usfs_pl.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
+						OR LOWER(usfs_l.setting_value) LIKE CONCAT('%', LOWER(?), '%') 
+						OR LOWER(u.username) LIKE CONCAT('%', LOWER(?), '%') 
+						OR LOWER(u.email) LIKE CONCAT('%', LOWER(?), '%'))" 
+					: "")
+			. " ORDER BY COALESCE(usfs_l.setting_value, usfs_pl.setting_value)",
 				$params,
 				$rangeInfo);
 		return new DAOResultFactory($result, $this, '_returnUserFromRowWithData', [], $sql, $params, $rangeInfo);

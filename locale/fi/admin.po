@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2023-02-27 15:42+0000\n"
+"PO-Revision-Date: 2023-03-01 11:26+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "fi/>\n"
@@ -265,15 +265,20 @@ msgstr "Maakoodi ei ole kaksikirjaiminen arvo."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr ""
+"Alue ei ole enintään kolmen aakkosnumeerisen merkin pituinen merkkijono."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Instituution ID-tunniste ei ole taulukkomuuttuja."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Lokitiedoston {$file} käsittelyssä tapahtui virhe rivillä {$lineNumber}: "
+"{$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Taustatyö, joka käsittelee lokitiedoston {$file} ja tallentaa tilastotiedot, "
+"on lähetetty."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-versio"
@@ -362,10 +367,10 @@ msgid "admin.systemInformation"
 msgstr "Järjestelmätiedot"
 
 msgid "admin.systemInformation.description"
-msgstr ""
+msgstr "Näytä tietoja sovelluksen ja palvelimen versiosta ja asetuksista."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Näytä järjestelmän tiedot"
 
 msgid "admin.versionBuild"
 msgstr "Koontiversio"
@@ -425,309 +430,380 @@ msgstr "Tiedostojen latausohjelma"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Lähdetiedostoa {$filePath} ei voitu avata gzopen-"
+"ohjelmalla."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Kohdetiedostoa {$filePath} ei voitu avata fopen-"
+"käskyllä."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Lähdetiedostoa {$file} ei voitu lukea gzread-"
+"ohjelmalla."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Kohdetiedostoa {$filePath} ei voitu kirjoittaa "
+"fwrite-käskyllä."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Avattua kohdetiedostoa {$filePath} ei voitu "
+"sulkea fclose-käskyllä."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Avattua lähdetiedostoa {$filePath} ei voitu "
+"sulkea gzclose-käskyllä."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Tiedostoa ei voitu purkaa. Purettua lähdetiedostoa {$filePath} ei voitu "
+"poistaa unlink-käskyllä."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Tiedostoa ei voitu pakata. Kohdetiedostoa {$filePath} ei voitu avata gzopen-"
+"käskyllä."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Tiedostoa ei voitu pakata. Lähdetiedostoa {$filePath} ei voitu avata fopen-"
+"käskyllä."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Tiedostoa ei voitu pakata. Lähdetiedostoa {$filePath} ei voitu lukea fread-"
+"käskyllä."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Tiedostoa ei voitu pakata. Kohdetiedostoa {$filePath} ei voitu kirjoittaa "
+"gzwrite-käskyllä."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Tiedostoa ei voitu pakata. Lähdetiedostoa {$filePath} ei voitu sulkea fclose-"
+"käskyllä."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Tiedostoa ei voitu pakata. Avattua kohdetiedostoa{$filePath} ei voitu sulkea "
+"gzclose-käskyllä."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Tiedostoa ei voitu pakata. Pakattua lähdetiedostoa {$filePath} ei voitu "
+"poistaa unlink-käskyllä."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Kielialueita ei ole ladattavissa."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Käyttö:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "komento [parametrit]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Nimiavaruuden `{$namespace}` käytettävissä olevat komennot:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Jonossa olevia tehtäviä ei voi suorittaa, koska sovelluksen ylläpitotila on "
+"käytössä."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Listaa kaikki jonossa olevat työt. Jos haluat sivuttaa tulokset, käytä "
+"parametreja --page= ja --perPage= . Jos haluat listata epäonnistuneet työt, "
+"käytä merkkiä --failed."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Poista tietty jonossa oleva työ sen id-tunnisteen perusteella. Jos haluat "
+"poistaa kaikki, anna parametri --all. Jos haluat poistaa kaikki tietystä "
+"jonosta, anna parametri --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Lisää testityö testijonoon. Käytä valinnaisia parametreja --only= ja anna "
+"'failed' tai 'success' lähettääksesi epäonnistuvan tai onnistuvan työn."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Suorita loputon daemon-työprosessi, joka jatkaa töiden käsittelyä. Käytä "
+"--help-valintaa nähdäksesi tähän komentoon liittyvät käytettävissä olevat "
+"vaihtoehdot."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Listaa kaikki epäonnistuneet työt. Aseta parametri --queue=QUEUE_NAME ja --"
+"connection=CONNECTION_NAME suodattaaksesi listaa. Anna myös parametri/"
+"valinta --redispatch ja --clear, jotta voit lähettää uudelleen jonoon tai "
+"poistaa kaikki/tietyt epäonnistuneet työt."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Lähetä saatavilla olevat työt jonoon. Jos haluat lähettää työn tiettyyn "
+"jonoon, anna parametri --queue=QUEUE_NAME. Voit myös vain antaa parametrin --"
+"test suorittaaksesi testityön ja parametrin --once suorittaaksesi yhden työn "
+"kerrallaan"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Suoritettu loppuun {$jobCount}-työtä jonosta {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Jonossa {$queueName} ei ole suoritettavia töitä."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Näytä jonossa olevien töiden kokonaismäärä. Jos annat paramterin --failed, "
+"näet epäonnistuneiden töiden kokonaismäärän."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Näytä Jobs-komennon käyttö"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Näytä Jobs-komennon parametrit"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Valinta ei voi olla tyhjä! Tarkista komennon käyttö."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Epäonnistuneet jonossa olevat työt"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Jonossa olevat työt"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Jono"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Yhteys"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Työn näyttönimi"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Yritykset"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Varattu"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Saatavilla"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Luotu"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Epäonnistunut"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Poikkeusilmoitus"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Sivutus"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Nykyinen"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Edellinen"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Seuraava"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Tämän komennon käyttämiseksi sinun on annettava vähintään työn ID, '--all' "
+"tai '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
-msgstr ""
+msgstr "Lähetetty testityö, jonka on tarkoitus epäonnistua jonossa {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
+msgstr "Lähetetty testityö, jonka on tarkoitus onnistua jonossa {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Virheellinen testityön valinta. Vain 'failed' tai 'success' kelpaa "
+"parametrille '--only='."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Virheellisen työn ID"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Työ poistettiin!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Poistettavia töitä ei löytynyt."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Kaikkien töiden poistaminen ei onnistunut."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Poistettiin kaikki työt!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} epäonnistunutta työtä poistettu epäonnistuneiden listalta "
+"onnistuneesti."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} työtä lähetetty onnistuneesti takaisin jonoon."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Meillä on {$total} epäonnistunutta työtä"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Meillä on {$total} jonossa olevaa työtä"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Valintaa {$option} ei ole olemassa."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Tarkoititko jotakin seuraavista?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Jonossa on yhteensä <strong>{$total}</strong> työtä"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Epäonnistuneita töitä on yhteensä <strong>{$total}</strong>."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Näytä jonossa olevat työt"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Työt"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Epäonnistuneet työt"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Epäonnistuneiden töiden tiedot"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Katso järjestelmän jonossa olevat työt ja jäljitä epäonnistuneita töitä."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Näytä työt"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Näytä epäonnistuneet työt"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Näytä epäonnistuneen työn {$id} tiedot"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Ominaisuus"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Ominaisuuden arvo"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Työ"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Jono"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Yhteys"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Yritykset"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Luotu"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Epäonnistunut"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Hyötykuorma"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Poikkeus"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Toiminnot"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Epäonnistunut {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Luotu {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Yritä uudelleen"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Lähetä kaikki epäonnistuneet työt uudelleen jonoon"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Työ, joka lataa käyttötilastotiedot tiedostosta {$file}, epäonnistui, eikä "
+"tiedostoa voitu siirtää kohteesta {$archivedFilePath} kohteeseen "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Työ, joka lataa käyttötilastotiedot tiedostosta {$file}, epäonnistui. "
+"Tiedosto on siirretty stage-hakemistoon."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Tiedonkeruu"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Määritä, millaisia käyttötilastoja kerätään."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Tietojen tallennus"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Määritä, mitä käyttötilastoja palvelimelle tallennetaan."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi-protokolla"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Määritä <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 "
+"SUSHI</a> -protokolla, joka on formaatti käyttötilastojen jakeluun."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Kuukausittaiset tai päivittäiset tilastot"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Seurataanko päivittäisiä tai kuukausittaisia käyttötilastoja. Päivittäisten "
+"tilastojen seuraaminen voi kasvattaa tietokantasi kokoa huomattavasti."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Seuraa päivittäisiä ja kuukausittaisia tilastoja"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Seuraa vain kuukausittaisia tilastoja"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Pakkaa lokit"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Tilastot luodaan lokitiedostoista, jotka siirretään kohteeseen "
+"<code>{$path}</code>, kun ne on käsitelty. Pitäisikö lokitiedostot pakata "
+"<code>.gz</code>-tiedostoiksi, kun ne on käsitelty? Lokitiedostojen "
+"pakkaaminen voi säästää levytilaa palvelimella."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr ""

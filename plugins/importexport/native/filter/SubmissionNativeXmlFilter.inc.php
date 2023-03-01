@@ -133,6 +133,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			'includeDependentFiles' => true,
 		]);
 
+		$deployment = $this->getDeployment();
 		foreach ($submissionFilesIterator as $submissionFile) {
 			// Skip files attached to objects that are not included in the export,
 			// such as files uploaded to discussions and files uploaded by reviewers
@@ -148,7 +149,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter {
 			];
 
 			if (in_array($submissionFile->getData('fileStage'), $excludedFileStages)) {
-				$this->getDeployment()->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', array('id' => $submissionFile->getId())));
+				$deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', array('id' => $submissionFile->getId())));
 				continue;
 			}
 

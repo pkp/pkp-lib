@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-02-28 23:31+0000\n"
+"PO-Revision-Date: 2023-03-02 13:56+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -878,9 +878,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"DOI-prefiksi on rekisteröinnistä vastaavien tahojen (esim. <a href=\"http://"
-"www.crossref.org\" target=\"_new\">Crossrefin</a>) määrittämä ja on muodossa "
-"10.xxxx (esim. 10.1234):"
+"DOI-prefiksin antaa rekisteröintitoimisto, kuten <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> tai <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a>. Esimerkki: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "DOI-prefiksi vaaditaan, ja sen on oltava muodossa 10.xxxx."
@@ -927,7 +927,7 @@ msgstr ""
 "prefiksi:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Käytä oletusmuotoiluja."
+msgstr "Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -2306,10 +2306,12 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Sisältö on koodattu muotoon {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Tuntematon käyttäjäryhmä {$param}"
+msgstr ""
+"Tuontitiedosto sisältää tekijän '{$authorName}' jonka käyttäjäryhmä on "
+"'{$userGroupName}'. Kohdeasennuksessa ei ole tämän nimistä käyttäjäryhmää."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup puuttuu tekijän nimestä {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2366,7 +2368,7 @@ msgstr ""
 "olemassa olevan käyttäjän tietojen kanssa."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testaus"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Otsikko"
@@ -2592,16 +2594,16 @@ msgid "stats.city"
 msgstr "Kaupunki"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Katselukerrat"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Lataukset"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Katselukerrat päivämäärän mukaan"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Latauskerrat päivämäärän mukaan"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/vuosi)"
@@ -2643,7 +2645,7 @@ msgid "stats.dateRange.invalidEndDateMax"
 msgstr "Päättymisajankohdan tulee olla ennen {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Aloitusajankohta on aikaisintaan  {$date}."
+msgstr "Aloitusajankohta on aikaisintaan {$date}."
 
 msgid "stats.dateRange.last12Months"
 msgstr "Viimeiset 12 kuukautta"
@@ -2688,10 +2690,13 @@ msgstr ""
 "hylkääminen tai lähetä arvioitavaksi.<br /><br />Arvo ilmaisee, että 80% "
 "käsikirjoituksista on saanut päätöksen kyseisen päivälukeman aikana.<br /"
 "><br />Tilasto kuvailee ajanjaksoa, jonka aikana käsikirjoituksen "
-"lähettäneet kirjoittajat voivat olettaa saavansa  päätöksen."
+"lähettäneet kirjoittajat voivat olettaa saavansa päätöksen."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Tämä sisältää käsikirjoitukset, joita ei lasketa muihin kokonaislukemiin, "
+"kuten ne, jotka ovat vielä kesken, ja ne, jotka on ilmeisesti "
+"todennäköisesti tuotu järjestelmään koneellisesti."
 
 msgid "stats.descriptionForStat"
 msgstr "{$stat}:n kuvailutieto"
@@ -2700,10 +2705,10 @@ msgid "stats.editorialActivity"
 msgstr "Toimituksellinen toiminta"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Ensisijainen tiedosto"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Liitetiedosto"
 
 msgid "stats.fileViews"
 msgstr "Tiedostolatauksia"
@@ -2718,28 +2723,28 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Geopaikannuksen tarjoaa <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Geopaikannuksesta"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} - {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Kaikki {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Lataa tiedostot"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Kunkin tiedoston latausten määrä."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Lataa maantieteellinen"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Kunkin kaupungin, alueen tai maan katselu- ja latausmäärät."
 
 msgid "stats.region"
 msgstr "Alue"
@@ -2751,25 +2756,25 @@ msgid "stats.submissionsActive"
 msgstr "Aktiiviset käsikirjoitukset"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Aikajana"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$type} lukumäärä kutakin {$interval} kohti."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Lataa aikajana"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Aikajanan väli"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Aikajanan tyyppi"
 
 msgid "stats.total"
 msgstr "Yhteensä"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Uniikki"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Päivämääräväli yhteensä"
@@ -2778,7 +2783,7 @@ msgid "stats.trends"
 msgstr "Trendi"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "tuntematon"
 
 msgid "stats.userStatistics"
 msgstr "Käyttäjätilastot"
@@ -2787,13 +2792,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Saadut käsikirjoitukset"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Muut käsikirjoitukset"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Keskeneräiset käsikirjoitusten lähetykset"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Tuodut käsikirjoitukset"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Hyväksytyt käsikirjoitukset"
@@ -2832,25 +2837,27 @@ msgid "stats.name.declinedReviewRate"
 msgstr "Arvioinnin jälkeinen hylkäysaste"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prosessi epäonnistui. Tarkista alla olevat virheet/varoitukset."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Käsikirjoitusten viennin tulokset"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Lataa vientitiedosto"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Vienti saatiin onnistuneesti päätökseen."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Lataa vientitiedosto alla olevasta painikkeesta."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Yleiset kohteet"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Väärä suodatinmääritys [{$filterName}]: {$filterCount} esiintymää. Pitäisi "
+"olla vain yksi."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "VIRHE:"
@@ -2859,19 +2866,21 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prosessi ei onnistunut jäsentämään tekijöitä"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prosessi ei onnistunut jäsentämään julkaistuja versioita"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Kaikki valmistuneiden arvioiden kommentit. Arvioijien nimet on piilotettu "
+"anonyymeissä arvioinneissa"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Käsikirjoituksen kirjoittajien nimet ja affiliaatiot."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
@@ -3213,10 +3222,7 @@ msgid "mailable.reviewDecline.name"
 msgstr ""
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
-"This email is sent by a Reviewer to the Section Editor in response to a "
-"review request to notify the Section Editor that the review request has been "
-"declined."
+msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön."
 
 msgid "mailable.reviewRemind.name"
 msgstr ""
@@ -3255,15 +3261,10 @@ msgstr ""
 msgid "mailable.reviewRequest.name"
 msgstr ""
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"This email from the Section Editor to a Reviewer requests that the reviewer "
-"accept or decline the task of reviewing a submission. It provides "
-"information about the submission such as the title and abstract, a review "
-"due date, and how to access the submission itself. This message is used when "
-"the Standard Review Process is selected in Management > Settings > Workflow "
-"> Review."
+"Tämä sähköpostiviesti osastotoimittajalta arvioijalle pyytää arvioijaa "
+"hyväksymään tai hylkäämään käsikirjoituksen arvioinnin. "
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr ""
@@ -3577,3 +3578,18 @@ msgstr ""
 #~ msgstr ""
 #~ "This email is sent by a Section Editor to remind a reviewer that their "
 #~ "review is due."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Käsikirjoitustiedosto {$id} ohitettiin, koska sillä ei ole kelvollista "
+"versiota."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Käsikirjoitustiedoston {$id} versio {$revision} ohitettiin, koska tiedostoa "
+"ei löytynyt polusta \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Julkaistun version {$id} kansikuvaa ei viety, koska tiedostoa ei löytynyt "
+"polusta \"{$path}\"."

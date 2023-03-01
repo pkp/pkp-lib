@@ -16,6 +16,10 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\facades\Repo;
+use APP\submission\Submission;
+use DOMDocument;
+use DOMElement;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\submissionFile\SubmissionFile;
@@ -137,12 +141,8 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
 
     /**
      * Add the submission files to its DOM element.
-     *
-     * @param \DOMDocument $doc
-     * @param \DOMElement $submissionNode
-     * @param Submission $submission
      */
-    public function addFiles($doc, $submissionNode, $submission)
+    public function addFiles(DOMDocument $doc, DOMElement $submissionNode, Submission $submission): void
     {
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
@@ -150,6 +150,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
             ->includeDependentFiles()
             ->getMany();
 
+        $deployment = $this->getDeployment();
         foreach ($submissionFiles as $submissionFile) {
             // Skip files attached to objects that are not included in the export,
             // such as files uploaded to discussions and files uploaded by reviewers
@@ -165,14 +166,15 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
             ];
 
             if (in_array($submissionFile->getData('fileStage'), $excludedFileStages)) {
-                $this->getDeployment()->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', ['id' => $submissionFile->getId()]));
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.native.error.submissionFileSkipped', ['id' => $submissionFile->getId()]));
                 continue;
             }
             $currentFilter = PKPImportExportFilter::getFilter('SubmissionFile=>native-xml', $this->getDeployment(), $this->opts);
             $submissionFileDoc = $currentFilter->execute($submissionFile, true);
-
-            $clone = $doc->importNode($submissionFileDoc->documentElement, true);
-            $submissionNode->appendChild($clone);
+            if ($submissionFileDoc) {
+                $clone = $doc->importNode($submissionFileDoc->documentElement, true);
+                $submissionNode->appendChild($clone);
+            }
         }
     }
 
@@ -196,7 +198,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
                 $submissionNode->appendChild($clone);
             } else {
                 $deployment = $this->getDeployment();
-                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.publication.exportFailed'));
+                $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.publication.exportFailed'));
 
                 throw new \Exception(__('plugins.importexport.publication.exportFailed'));
             }

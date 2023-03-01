@@ -16,6 +16,7 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
+use Exception;
 use PKP\db\DAORegistry;
 use PKP\plugins\importexport\PKPImportExportFilter;
 use PKP\plugins\PluginRegistry;

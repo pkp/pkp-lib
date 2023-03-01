@@ -17,6 +17,8 @@ namespace PKP\plugins\importexport\native\filter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use DOMDocument;
+use DOMElement;
 use PKP\config\Config;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -66,6 +68,10 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $doc->formatOutput = true;
         $deployment = $this->getDeployment();
         $rootNode = $this->createSubmissionFileNode($doc, $submissionFile);
+        if (!$rootNode) {
+            return $rootNode;
+        }
+
         $doc->appendChild($rootNode);
         $rootNode->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
         $rootNode->setAttribute('xsi:schemaLocation', $deployment->getNamespace() . ' ' . $deployment->getSchemaFilename());
@@ -78,13 +84,8 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
     //
     /**
      * Create and return a submissionFile node.
-     *
-     * @param \DOMDocument $doc
-     * @param SubmissionFile $submissionFile
-     *
-     * @return \DOMElement
      */
-    public function createSubmissionFileNode($doc, $submissionFile)
+    public function createSubmissionFileNode(DOMDocument $doc, SubmissionFile $submissionFile): ?DOMElement
     {
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
@@ -111,12 +112,9 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         if ($credit = $submissionFile->getData('credit')) {
             $submissionFileNode->setAttribute('credit', $credit);
         }
-
         if ($submissionFile->getData('directSalesPrice') != null) {
             $submissionFileNode->setAttribute('direct_sales_price', $submissionFile->getData('directSalesPrice'));
         }
-
-
         if ($genre) {
             $submissionFileNode->setAttribute('genre', $genre->getName($context->getPrimaryLocale()));
         }
@@ -148,7 +146,7 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
         $this->createLocalizedNodes($doc, $submissionFileNode, 'subject', $submissionFile->getData('subject'));
 
         // If it is a dependent file, add submission_file_ref element
-        if ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_DEPENDENT && $submissionFile->getData('assocType') == ASSOC_TYPE_SUBMISSION_FILE) {
+        if ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_DEPENDENT && $submissionFile->getData('assocType') == PKPApplication::ASSOC_TYPE_SUBMISSION_FILE) {
             $fileRefNode = $doc->createElementNS($deployment->getNamespace(), 'submission_file_ref');
             $fileRefNode->setAttribute('id', $submissionFile->getData('assocId'));
             $submissionFileNode->appendChild($fileRefNode);
@@ -156,40 +154,55 @@ class SubmissionFileNativeXmlFilter extends NativeExportFilter
 
         // Create the revision nodes
         $revisions = Repo::submissionFile()->getRevisions(($submissionFile->getId()));
+        $basePath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/';
+        $hasValidRevision = false;
         foreach ($revisions as $revision) {
-            $localPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $revision->path;
+            $localPath = $basePath . $revision->path;
+            if (!file_exists($localPath)) {
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileRevisionMissing', ['id' => $submissionFile->getId(), 'revision' => $revision->revision_id, 'path' => $localPath]));
+                continue;
+            }
+            $hasValidRevision = true;
+
             $revisionNode = $doc->createElementNS($deployment->getNamespace(), 'file');
             $revisionNode->setAttribute('id', $revision->fileId);
             $revisionNode->setAttribute('filesize', filesize($localPath));
             $revisionNode->setAttribute('extension', pathinfo($revision->path, PATHINFO_EXTENSION));
+            $submissionFileNode->appendChild($revisionNode);
 
-            if (array_key_exists('no-embed', $this->opts)) {
-                $hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
-                if (array_key_exists('use-file-urls', $this->opts)) {
-                    $stageId = Repo::submissionFile()->getWorkflowStageId($submissionFile);
-                    $dispatcher = Application::get()->getDispatcher();
-                    $request = Application::get()->getRequest();
-                    $params = [
-                        'submissionFileId' => $submissionFile->getId(),
-                        'submissionId' => $submissionFile->getData('submissionId'),
-                        'stageId' => $stageId,
-                    ];
-                    $url = $dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, $context->getPath(), 'api.file.FileApiHandler', 'downloadFile', null, $params);
-                    $hrefNode->setAttribute('src', $url);
-                } else {
-                    $hrefNode->setAttribute('src', $revision->path);
-                }
-                $hrefNode->setAttribute('mime_type', $revision->mimetype);
-                $revisionNode->appendChild($hrefNode);
-            } else {
+            if (!($this->opts['no-embed'] ?? false)) {
                 $embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($localPath)));
                 $embedNode->setAttribute('encoding', 'base64');
                 $revisionNode->appendChild($embedNode);
+                continue;
             }
 
-            $submissionFileNode->appendChild($revisionNode);
+            $hrefNode = $doc->createElementNS($deployment->getNamespace(), 'href');
+            $revisionNode->appendChild($hrefNode);
+            $hrefNode->setAttribute('mime_type', $revision->mimetype);
+
+            if (!($this->opts['use-file-urls'] ?? false)) {
+                $hrefNode->setAttribute('src', $revision->path);
+                continue;
+            }
+
+            $baseParams ??= [
+                'submissionFileId' => $submissionFile->getId(),
+                'submissionId' => $submissionFile->getData('submissionId'),
+                'stageId' => Repo::submissionFile()->getWorkflowStageId($submissionFile),
+            ];
+            $params = $baseParams + ['fileId' => $revision->fileId];
+            $dispatcher ??= Application::get()->getDispatcher();
+            $request ??= Application::get()->getRequest();
+            $url = $dispatcher->url($request, PKPApplication::ROUTE_COMPONENT, $context->getPath(), 'api.file.FileApiHandler', 'downloadFile', null, $params);
+            $hrefNode->setAttribute('src', $url);
         }
 
+        // Report if no revision has been added
+        if (!$hasValidRevision) {
+            $deployment->addWarning(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getId(), __('plugins.importexport.native.error.submissionFileWithoutRevision', ['id' => $submissionFile->getId()]));
+            return null;
+        }
 
         return $submissionFileNode;
     }

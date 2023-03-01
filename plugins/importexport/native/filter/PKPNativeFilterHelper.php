@@ -15,48 +15,49 @@
 namespace PKP\plugins\importexport\native\filter;
 
 use APP\file\PublicFileManager;
+use APP\publication\Publication;
+use DOMDocument;
+use DOMElement;
+use PKP\core\PKPApplication;
 
 class PKPNativeFilterHelper
 {
     /**
      * Create and return an object covers node.
-     *
-     * @param NativeExportFilter $filter
-     * @param \DOMDocument $doc
-     * @param Publication $object
-     *
-     * @return ?\DOMElement
      */
-    public function createPublicationCoversNode($filter, $doc, $object)
+    public function createPublicationCoversNode(NativeExportFilter $filter, DOMDocument $doc, Publication $object): ?DOMElement
     {
-        $deployment = $filter->getDeployment();
-
-        $context = $deployment->getContext();
-
-        $coversNode = null;
         $coverImages = $object->getData('coverImage');
-        if (!empty($coverImages)) {
-            $coversNode = $doc->createElementNS($deployment->getNamespace(), 'covers');
-            foreach ($coverImages as $locale => $coverImage) {
-                $coverImageName = $coverImage['uploadName'] ?? '';
-
-                $coverNode = $doc->createElementNS($deployment->getNamespace(), 'cover');
-                $coverNode->setAttribute('locale', $locale);
-                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
-                $coverNode->appendChild($node = $doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'] ?? '', ENT_COMPAT, 'UTF-8')));
-
-                $publicFileManager = new PublicFileManager();
-
-                $contextId = $context->getId();
-
-                $filePath = $publicFileManager->getContextFilesPath($contextId) . '/' . $coverImageName;
-                $embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($filePath)));
-                $embedNode->setAttribute('encoding', 'base64');
-                $coverNode->appendChild($embedNode);
-                $coversNode->appendChild($coverNode);
-            }
+        if (empty($coverImages)) {
+            return null;
         }
-        return $coversNode;
+
+        $deployment = $filter->getDeployment();
+        $context = $deployment->getContext();
+        $publicFileManager = new PublicFileManager();
+        $contextId = $context->getId();
+        $coversNode = $doc->createElementNS($deployment->getNamespace(), 'covers');
+        foreach ($coverImages as $locale => $coverImage) {
+            $coverImageName = $coverImage['uploadName'] ?? '';
+
+            $filePath = $publicFileManager->getContextFilesPath($contextId) . '/' . $coverImageName;
+            if (!file_exists($filePath)) {
+                $deployment->addWarning(PKPApplication::ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.publicationCoverImageMissing', ['id' => $object->getId(), 'path' => $filePath]));
+                continue;
+            }
+
+            $coverNode = $doc->createElementNS($deployment->getNamespace(), 'cover');
+            $coverNode->setAttribute('locale', $locale);
+            $coverNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'cover_image', htmlspecialchars($coverImageName, ENT_COMPAT, 'UTF-8')));
+            $coverNode->appendChild($doc->createElementNS($deployment->getNamespace(), 'cover_image_alt_text', htmlspecialchars($coverImage['altText'] ?? '', ENT_COMPAT, 'UTF-8')));
+
+            $embedNode = $doc->createElementNS($deployment->getNamespace(), 'embed', base64_encode(file_get_contents($filePath)));
+            $embedNode->setAttribute('encoding', 'base64');
+            $coverNode->appendChild($embedNode);
+            $coversNode->appendChild($coverNode);
+        }
+
+        return $coversNode->firstChild?->parentNode;
     }
 
     /**
@@ -80,7 +81,7 @@ class PKPNativeFilterHelper
                         $coverImages[key($coverImage)] = reset($coverImage);
                         break;
                     default:
-                        $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                        $deployment->addWarning(PKPApplication::ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
                 }
             }
         }
@@ -124,7 +125,7 @@ class PKPNativeFilterHelper
                         file_put_contents($filePath, base64_decode($n->textContent));
                         break;
                     default:
-                        $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                        $deployment->addWarning(PKPApplication::ASSOC_TYPE_PUBLICATION, $object->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
                 }
             }
         }

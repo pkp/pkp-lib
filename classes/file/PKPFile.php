@@ -83,7 +83,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Get uploaded date of file.
      *
-     * @return date
+     * @return string
      */
     public function getDateUploaded()
     {
@@ -93,7 +93,7 @@ class PKPFile extends \PKP\core\DataObject
     /**
      * Set uploaded date of file.
      *
-     * @param date $dateUploaded
+     * @param string $dateUploaded
      */
     public function setDateUploaded($dateUploaded)
     {

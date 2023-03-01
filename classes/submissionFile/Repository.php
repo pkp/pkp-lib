@@ -762,7 +762,7 @@ abstract class Repository
             ->leftJoin('files as f', 'f.file_id', '=', 'sfr.file_id')
             ->where('submission_file_id', '=', $submissionFileId)
             ->orderBy('revision_id', 'desc')
-            ->select(['f.file_id as fileId', 'f.path', 'f.mimetype'])
+            ->select(['f.file_id as fileId', 'f.path', 'f.mimetype', 'sfr.revision_id'])
             ->get();
     }
 

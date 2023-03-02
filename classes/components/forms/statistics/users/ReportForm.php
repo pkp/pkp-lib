@@ -17,6 +17,7 @@ namespace PKP\components\forms\statistics\users;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use APP\facades\Repo;
+use PKP\userGroup\UserGroup;
 
 class ReportForm extends FormComponent
 {
@@ -37,22 +38,19 @@ class ReportForm extends FormComponent
 
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
-            ->getMany()
-            ->toArray();
-            
+            ->getMany();
+
         $this->addField(new FieldOptions('userGroupIds', [
             'groupId' => 'default',
             'label' => __('user.group'),
             'description' => __('manager.export.usersToCsv.description'),
-            'options' => array_map(function ($userGroup) {
+            'options' => $userGroups->values()->map(function (UserGroup $userGroup) {
                 return [
                     'value' => $userGroup->getId(),
                     'label' => $userGroup->getLocalizedName()
                 ];
-            }, $userGroups),
-            'default' => array_map(function ($userGroup) {
-                return $userGroup->getId();
-            }, $userGroups)
+            }),
+            'default' => $userGroups->keys(),
         ]));
     }
 }

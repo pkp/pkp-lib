@@ -179,9 +179,9 @@ class Dispatcher
      * @return string the URL
      */
     public function url(
-        $request,
-        $shortcut,
-        $newContext = null,
+        PKPRequest $request,
+        string $shortcut,
+        ?string $newContext = null,
         $handler = null,
         $op = null,
         $path = null,

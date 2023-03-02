@@ -1,5 +1,5 @@
 [database]
-driver = mysqli
+driver = mysql
 host = localhost
 username = ojs
 password = ojs
@@ -10,7 +10,7 @@ debug = Off
 
 [general]
 installed = On
-base_url = "https://pkp.sfu.ca/ojs"
+base_url = "http://pkp.sfu.ca/ojs"
 session_cookie_name = OJSSID
 session_lifetime = 30
 scheduled_tasks = Off
@@ -36,6 +36,7 @@ web_cache_hours = 1
 
 [i18n]
 locale = en
+client_charset = utf-8
 connection_charset = utf8
 
 [files]
@@ -63,6 +64,8 @@ salt = "YouMustSetASecretKeyHere!!"
 ; smtp_password = password
 ; allow_envelope_sender = Off
 ; default_envelope_sender = my_address@my_host.com
+time_between_emails = 3600
+max_recipients = 10
 require_validation = Off
 validation_timeout = 14
 display_errors = On
@@ -99,7 +102,3 @@ font_location = /usr/share/fonts/truetype/freefont/FreeSerif.ttf
 
 [debug]
 show_stacktrace = On
-
-[queues]
-default_queue = "test_default_queue"
-disable_jobs_run_at_shutdown = Off

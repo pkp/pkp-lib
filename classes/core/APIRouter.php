@@ -20,37 +20,18 @@
 namespace PKP\core;
 
 use Exception;
-use PKP\config\Config;
 
 use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter
 {
     /**
-     * Determines path info parts depending of disable_path_info config value
+     * Determines path info parts
      *
-     * @return array|NULL
      */
-    protected function getPathInfoParts()
+    protected function getPathInfoParts(): array
     {
-        $pathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
-        if ($pathInfoEnabled && isset($_SERVER['PATH_INFO'])) {
-            return explode('/', trim($_SERVER['PATH_INFO'], '/'));
-        }
-
-        $request = $this->getApplication()->getRequest();
-        $queryString = $request->getQueryString();
-        $queryArray = [];
-        if (isset($queryString)) {
-            parse_str($queryString, $queryArray);
-        }
-
-        if (in_array('endpoint', array_keys($queryArray)) && isset($queryArray['journal'])) {
-            $endpoint = $queryArray['endpoint'];
-            return explode('/', trim($endpoint, '/'));
-        }
-
-        return null;
+        return explode('/', trim($_SERVER['PATH_INFO'] ?? '', '/'));
     }
 
     /**
@@ -60,7 +41,7 @@ class APIRouter extends PKPRouter
      *
      * @return bool true, if the router supports this request, otherwise false
      */
-    public function supports($request)
+    public function supports($request): bool
     {
         $pathInfoParts = $this->getPathInfoParts();
 
@@ -179,8 +160,8 @@ class APIRouter extends PKPRouter
      * @param null|mixed $anchor
      */
     public function url(
-        $request,
-        $newContext = null,
+        PKPRequest $request,
+        ?string $newContext = null,
         $endpoint = null,
         $op = null,
         $path = null,
@@ -199,9 +180,9 @@ class APIRouter extends PKPRouter
         //
         // Base URL and Context
         //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $this->_urlCanonicalizeNewContext($newContext));
+        $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
         $baseUrl = array_shift($baseUrlAndContext);
-        $context = $baseUrlAndContext;
+        $context = array_shift($baseUrlAndContext);
 
         //
         // Additional query parameters
@@ -211,23 +192,11 @@ class APIRouter extends PKPRouter
         //
         // Assemble URL
         //
-        if ($request->isPathInfoEnabled()) {
-            // If path info is enabled, everything but params goes into the path
-            $pathInfoArray = array_merge(
-                $context,
-                ['api',	API_VERSION, $endpoint]
-            );
-            $queryParametersArray = $additionalParameters;
-        } else {
-            // If path info is disabled, the context and endpoint must be passed as
-            // query params, and the context must be concatenated into the endpoint
-            $pathInfoArray = [];
-            $queryParametersArray = array_merge(
-                $context,
-                [sprintf('endpoint=/%s/api/%s/%s', $newContext, API_VERSION, $endpoint)],
-                $additionalParameters
-            );
-        }
+        $pathInfoArray = array_merge(
+            $context,
+            ['api',	API_VERSION, $endpoint]
+        );
+        $queryParametersArray = $additionalParameters;
 
         return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
     }

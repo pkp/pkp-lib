@@ -52,24 +52,6 @@ class PKPRequestTest extends PKPTestCase
     }
 
     /**
-     * @covers PKPRequest::isPathInfoEnabled
-     */
-    public function testIsPathInfoEnabled1()
-    {
-        $this->setTestConfiguration('request1', 'classes/core/config');
-        self::assertTrue($this->request->isPathInfoEnabled());
-    }
-
-    /**
-     * @covers PKPRequest::isPathInfoEnabled
-     */
-    public function testIsPathInfoEnabled2()
-    {
-        $this->setTestConfiguration('request2', 'classes/core/config');
-        self::assertFalse($this->request->isPathInfoEnabled());
-    }
-
-    /**
      * @covers PKPRequest::isRestfulUrlsEnabled
      */
     public function testIsRestfulUrlsEnabled1()
@@ -247,20 +229,6 @@ class PKPRequestTest extends PKPTestCase
         $this->setTestConfiguration('request1', 'classes/core/config'); // path info enabled
 
         self::assertEquals('some/script/name/extra/path', $this->request->getRequestPath());
-    }
-
-    /**
-     * @covers PKPRequest::getRequestPath
-     */
-    public function testGetRequestPathWithoutPathinfo()
-    {
-        $_SERVER = [
-            'SCRIPT_NAME' => 'some/script/name',
-            'PATH_INFO' => '/extra/path'
-        ];
-        $this->setTestConfiguration('request2', 'classes/core/config'); // path info disabled
-
-        self::assertEquals('some/script/name', $this->request->getRequestPath());
     }
 
     /**

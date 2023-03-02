@@ -147,51 +147,22 @@ class Core
      * @param bool $isPathInfo Whether the
      * passed url info string is a path info or not.
      * @param array $contextList (optional)
-     * @param int $contextDepth (optional)
+     * @param int $contextDepth (optional) Deprecated; must be 1
      * @param array $userVars (optional) Pass GET variables
      * if needed (for testing only).
      *
      * @return array
      */
-    public static function getContextPaths($urlInfo, $isPathInfo, $contextList = null, $contextDepth = null, $userVars = [])
+    public static function getContextPaths(string $urlInfo, bool $isPathInfo, ?array $contextList = null, int $contextDepth = 1, array $userVars = [])
     {
-        $contextPaths = [];
         $application = Application::get();
 
-        if (!$contextList) {
-            $contextList = $application->getContextList();
-        }
-        if (!$contextDepth) {
-            $contextDepth = $application->getContextDepth();
-        }
-
-        // Handle context depth 0
-        if (!$contextDepth) {
-            return $contextPaths;
-        }
-
-        if ($isPathInfo) {
-            // Split the path info into its constituents. Save all non-context
-            // path info in $contextPaths[$contextDepth]
-            // by limiting the explode statement.
-            $contextPaths = explode('/', trim((string) $urlInfo, '/'), $contextDepth + 1);
-            // Remove the part of the path info that is not relevant for context (if present)
-            unset($contextPaths[$contextDepth]);
-        } else {
-            // Retrieve context from url query string
-            foreach ($contextList as $key => $contextName) {
-                $contextPaths[$key] = Core::_getUserVar($urlInfo, $contextName, $userVars);
-            }
-        }
+        $contextPaths = explode('/', trim($urlInfo, '/'), 2);
+        // Remove the part of the path info that is not relevant for context (if present)
+        unset($contextPaths[$contextDepth]);
 
         // Canonicalize and clean context paths
-        for ($key = 0; $key < $contextDepth; $key++) {
-            $contextPaths[$key] = (
-                isset($contextPaths[$key]) && !empty($contextPaths[$key]) ?
-                $contextPaths[$key] : 'index'
-            );
-            $contextPaths[$key] = Core::cleanFileVar($contextPaths[$key]);
-        }
+        $contextPaths[0] = Core::cleanFileVar($contextPaths[0] ?: 'index');
 
         return $contextPaths;
     }
@@ -485,20 +456,8 @@ class Core
      */
     private static function _getUserVar($url, $varName, $userVars = [])
     {
-        $returner = null;
         parse_str((string) parse_url($url, PHP_URL_QUERY), $userVarsFromUrl);
-        if (isset($userVarsFromUrl[$varName])) {
-            $returner = $userVarsFromUrl[$varName];
-        }
-
-        if (is_null($returner)) {
-            // Try to retrieve from passed user vars, if any.
-            if (!empty($userVars) && isset($userVars[$varName])) {
-                $returner = $userVars[$varName];
-            }
-        }
-
-        return $returner;
+        return $userVarsFromUrl[$varName] ?? $userVars[$varName] ?? null;
     }
 
     /**
@@ -522,20 +481,15 @@ class Core
         if ($varName == 'path') {
             $isArrayComponent = true;
         }
-        if ($isPathInfo) {
-            $application = Application::get();
-            $contextDepth = $application->getContextDepth();
+        $application = Application::get();
 
-            $vars = explode('/', trim($urlInfo ?? '', '/'));
-            if (count($vars) > $contextDepth + $offset) {
-                if ($isArrayComponent) {
-                    $component = array_slice($vars, $contextDepth + $offset);
-                } else {
-                    $component = $vars[$contextDepth + $offset];
-                }
+        $vars = explode('/', trim($urlInfo ?? '', '/'));
+        if (count($vars) > $offset + 1) {
+            if ($isArrayComponent) {
+                $component = array_slice($vars, $offset + 1);
+            } else {
+                $component = $vars[$offset + 1];
             }
-        } else {
-            $component = Core::_getUserVar($urlInfo, $varName, $userVars);
         }
 
         if ($isArrayComponent) {

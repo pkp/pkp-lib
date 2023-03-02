@@ -50,9 +50,6 @@ class PKPRequest
     /** @var bool true if restful URLs are enabled in the config */
     public $_isRestfulUrlsEnabled;
 
-    /** @var bool true if path info is enabled for this server */
-    public $_isPathInfoEnabled;
-
     /** @var string server host */
     public $_serverHost;
 
@@ -103,13 +100,12 @@ class PKPRequest
      */
     public function &getDispatcher()
     {
-        if ( ! $this->_dispatcher ) {
-
+        if (! $this->_dispatcher) {
             $application = Application::get();
 
             $this->setDispatcher($application->getDispatcher());
         }
-        
+
         return $this->_dispatcher;
     }
 
@@ -338,8 +334,7 @@ class PKPRequest
 
     /**
      * Get the complete set of URL parameters to the current request as an
-     * associative array. (Excludes reserved parameters, such as "path",
-     * which are used by disable_path_info mode.)
+     * associative array.
      *
      * @return array
      */
@@ -350,13 +345,6 @@ class PKPRequest
 
         if (isset($queryString)) {
             parse_str($queryString, $queryArray);
-        }
-
-        // Filter out disable_path_info reserved parameters
-        foreach (array_merge(Application::get()->getContextList(), ['path', 'page', 'op']) as $varName) {
-            if (isset($queryArray[$varName])) {
-                unset($queryArray[$varName]);
-            }
         }
 
         return $queryArray;
@@ -376,9 +364,7 @@ class PKPRequest
                 $this->_requestPath = $_SERVER['SCRIPT_NAME'] ?? '';
             }
 
-            if ($this->isPathInfoEnabled()) {
-                $this->_requestPath .= $_SERVER['PATH_INFO'] ?? '';
-            }
+            $this->_requestPath .= $_SERVER['PATH_INFO'] ?? '';
             Hook::call('Request::getRequestPath', [&$this->_requestPath]);
         }
         return $this->_requestPath;
@@ -555,17 +541,6 @@ class PKPRequest
     public function getDoNotTrack(): bool
     {
         return (array_key_exists('HTTP_DNT', $_SERVER) && ((int) $_SERVER['HTTP_DNT'] === 1));
-    }
-
-    /**
-     * Return true if PATH_INFO is enabled.
-     */
-    public function isPathInfoEnabled()
-    {
-        if (!isset($this->_isPathInfoEnabled)) {
-            $this->_isPathInfoEnabled = Config::getVar('general', 'disable_path_info') ? false : true;
-        }
-        return $this->_isPathInfoEnabled;
     }
 
     /**
@@ -767,27 +742,9 @@ class PKPRequest
      *
      * @see PKPPageRouter::getContext()
      */
-    public function &getContext(): ?Context
+    public function getContext(): ?Context
     {
         return $this->_delegateToRouter('getContext');
-    }
-
-    /**
-     * Deprecated
-     *
-     * @see PKPPageRouter::getRequestedContextPath()
-     *
-     * @param null|mixed $contextLevel
-     */
-    public function getRequestedContextPath($contextLevel = null)
-    {
-        // Emulate the old behavior of getRequestedContextPath for
-        // backwards compatibility.
-        if (is_null($contextLevel)) {
-            return $this->_delegateToRouter('getRequestedContextPaths');
-        } else {
-            return [$this->_delegateToRouter('getRequestedContextPath', $contextLevel)];
-        }
     }
 
     /**

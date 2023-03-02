@@ -197,7 +197,6 @@ class Hook
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\plugins\Hook', '\PKP\plugins\HookRegistry');
     class_alias('\PKP\plugins\Hook', '\HookRegistry');
     foreach (['SEQUENCE_CORE', 'SEQUENCE_NORMAL', 'SEQUENCE_LATE', 'SEQUENCE_LAST'] as $constantName) {
         define('HOOK_' . $constantName, constant('\HookRegistry::' . $constantName));

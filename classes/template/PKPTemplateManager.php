@@ -732,7 +732,6 @@ class PKPTemplateManager extends Smarty
             'baseUrl' => $this->_request->getBaseUrl(),
             'contextPath' => isset($context) ? $context->getPath() : '',
             'apiBasePath' => '/api/v1',
-            'pathInfoEnabled' => Config::getVar('general', 'disable_path_info') ? false : true,
             'restfulUrlsEnabled' => Config::getVar('general', 'restful_urls') ? true : false,
             'tinyMceContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content.css',
             'tinyMceOneLineContentCSS' => $this->_request->getBaseUrl() . '/plugins/generic/tinymce/styles/content_oneline.css',
@@ -1741,16 +1740,13 @@ class PKPTemplateManager extends Smarty
             // Extract the variables named in $paramList, and remove them
             // from the parameters array. Variables remaining in params will be
             // passed along to Request::url as extra parameters.
-            $context = [];
             $application = Application::get();
-            $contextList = $application->getContextList();
-            foreach ($contextList as $contextName) {
-                if (isset($parameters[$contextName])) {
-                    $context[$contextName] = $parameters[$contextName];
-                    unset($parameters[$contextName]);
-                } else {
-                    $context[$contextName] = null;
-                }
+            $contextName = $application->getContextList()[0];
+            if (isset($parameters[$contextName])) {
+                $context = $parameters[$contextName];
+                unset($parameters[$contextName]);
+            } else {
+                $context = null;
             }
             $parameters['context'] = $context;
         }

@@ -20,6 +20,7 @@ namespace PKP\tests\classes\core;
 use APP\core\Application;
 use APP\core\Request;
 use PHPUnit\Framework\MockObject\MockObject;
+use PKP\core\PKPComponentRouter;
 use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
@@ -32,9 +33,6 @@ use PKP\tests\PKPTestCase;
  */
 class PKPRouterTestCase extends PKPTestCase
 {
-    public const PATHINFO_ENABLED = true;
-    public const PATHINFO_DISABLED = false;
-
     protected PKPRouter $router;
     protected PKPRequest $request;
 
@@ -50,7 +48,7 @@ class PKPRouterTestCase extends PKPTestCase
     {
         parent::setUp();
         Hook::rememberCalledHooks();
-        $this->router = new PKPRouter();
+        $this->router = new PKPComponentRouter();
     }
 
     protected function tearDown(): void
@@ -103,7 +101,7 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testGetRequestedContextPathWithEmptyPathInfo()
     {
-        $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $this->_setUpMockEnvironment();
         $_SERVER['PATH_INFO'] = null;
         self::assertEquals(
             ['index'],
@@ -117,7 +115,7 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testGetRequestedContextPathWithFullPathInfo()
     {
-        $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $this->_setUpMockEnvironment();
         Hook::resetCalledHooks(true);
         $_SERVER['PATH_INFO'] = '/context1/other/path/vars';
         self::assertEquals(
@@ -139,57 +137,8 @@ class PKPRouterTestCase extends PKPTestCase
      */
     public function testGetRequestedContextPathWithInvalidPathInfo()
     {
-        $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $this->_setUpMockEnvironment();
         $_SERVER['PATH_INFO'] = '/context:?#/';
-        self::assertEquals(
-            ['context'],
-            $this->router->getRequestedContextPaths($this->request)
-        );
-    }
-
-    /**
-     * @covers PKPRouter::getRequestedContextPaths
-     */
-    public function testGetRequestedContextPathWithEmptyContextParameters()
-    {
-        $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_GET['firstContext'] = null;
-        self::assertEquals(
-            ['index'],
-            $this->router->getRequestedContextPaths($this->request)
-        );
-    }
-
-    /**
-     * @covers PKPRouter::getRequestedContextPath
-     * @covers PKPRouter::getRequestedContextPaths
-     */
-    public function testGetRequestedContextPathWithFullContextParameters()
-    {
-        $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        Hook::resetCalledHooks(true);
-        $_GET['firstContext'] = 'context1';
-        self::assertEquals(
-            ['context1'],
-            $this->router->getRequestedContextPaths($this->request)
-        );
-        self::assertEquals(
-            'context1',
-            $this->router->getRequestedContextPath($this->request, 1)
-        );
-        self::assertEquals(
-            [['Router::getRequestedContextPaths', [['context1']]]],
-            Hook::getCalledHooks()
-        );
-    }
-
-    /**
-     * @covers PKPRouter::getRequestedContextPaths
-     */
-    public function testGetRequestedContextPathWithPartialContextParameters()
-    {
-        $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_GET['firstContext'] = 'context';
         self::assertEquals(
             ['context'],
             $this->router->getRequestedContextPaths($this->request)
@@ -205,7 +154,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetContext()
     {
         // We use a 1-level context
-        $this->_setUpMockEnvironment(true, 1, ['someContext']);
+        $this->_setUpMockEnvironment(1, ['someContext']);
         $_SERVER['PATH_INFO'] = '/contextPath';
 
         // Simulate a context DAO
@@ -240,7 +189,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetContextForIndex()
     {
         // We use a 1-level context
-        $this->_setUpMockEnvironment(true, 1, ['someContext']);
+        $this->_setUpMockEnvironment(1, ['someContext']);
         $_SERVER['PATH_INFO'] = '/';
 
         $result = $this->router->getContext($this->request, 1);
@@ -268,11 +217,10 @@ class PKPRouterTestCase extends PKPTestCase
         // Several hooks should have been triggered.
         self::assertEquals(
             [
-                ['Request::getServerHost', ['mydomain.org', false, true]],
                 ['Request::getProtocol', ['http']],
                 ['Request::getBasePath', ['/base']],
                 ['Request::getBaseUrl', ['http://mydomain.org/base']],
-                ['Router::getIndexUrl', ['http://mydomain.org/base/index.php']]
+                ['Router::getIndexUrl', ['http://mydomain.org/base/index.php']],
             ],
             Hook::getCalledHooks()
         );
@@ -306,14 +254,12 @@ class PKPRouterTestCase extends PKPTestCase
      * Set's up a mock environment for router tests (PKPApplication,
      * PKPRequest) with customizable contexts and path info flag.
      *
-     * @param bool $pathInfoEnabled
      * @param int $contextDepth
      * @param array $contextList
      *
      * @return unknown
      */
     protected function _setUpMockEnvironment(
-        $pathInfoEnabled = self::PATHINFO_ENABLED,
         $contextDepth = 1,
         $contextList = ['firstContext']
     ) {
@@ -342,12 +288,12 @@ class PKPRouterTestCase extends PKPTestCase
 
         // Mock request
         $this->request = $this->getMockBuilder(Request::class)
-            ->onlyMethods(['isPathInfoEnabled'])
+            ->onlyMethods(['getServerHost'])
             ->getMock();
-        $this->request->setRouter($this->router);
         $this->request->expects($this->any())
-            ->method('isPathInfoEnabled')
-            ->will($this->returnValue($pathInfoEnabled));
+            ->method('getServerHost')
+            ->will($this->returnValue('mydomain.org'));
+        $this->request->setRouter($this->router);
 
         return $mockApplication;
     }

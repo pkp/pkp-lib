@@ -56,33 +56,25 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use PKP\config\Config;
+use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\handler\PKPHandler;
 use PKP\plugins\Hook;
 
-class PKPRouter
+abstract class PKPRouter
 {
     //
     // Internal state cache variables
     // NB: Please do not access directly but
     // only via their respective getters/setters
     //
-    /** @var PKPApplication */
-    public $_application;
-    /** @var Dispatcher */
-    public $_dispatcher;
-    /** @var int context depth */
-    public $_contextDepth;
-    /** @var int context list */
-    public $_contextList;
-    /** @var int context list with keys and values flipped */
-    public $_flippedContextList;
-    /** @var int context paths */
-    public $_contextPaths = [];
-    /** @var int contexts */
-    public $_contexts = [];
-    /** @var PKPHandler Handler class */
-    public $_handler;
+    protected Application $_application;
+    protected Dispatcher $_dispatcher;
+    protected array $_contextPaths = [];
+    public ?Context $_context = null;
+    public ?PKPHandler $_handler = null;
 
     /**
      * Constructor
@@ -93,79 +85,56 @@ class PKPRouter
 
     /**
      * get the application
-     *
-     * @return PKPApplication
      */
-    public function &getApplication()
+    public function getApplication(): Application
     {
-        assert($this->_application instanceof \PKP\core\PKPApplication);
         return $this->_application;
     }
 
     /**
      * set the application
-     *
-     * @param PKPApplication $application
      */
-    public function setApplication($application)
+    public function setApplication(Application $application)
     {
         $this->_application = $application;
-
-        // Retrieve context depth and list
-        $this->_contextDepth = $application->getContextDepth();
-        $this->_contextList = $application->getContextList();
-        $this->_flippedContextList = array_flip($this->_contextList);
     }
 
     /**
      * get the dispatcher
-     *
-     * @return Dispatcher
      */
-    public function &getDispatcher()
+    public function getDispatcher(): \PKP\core\Dispatcher
     {
-        assert($this->_dispatcher instanceof \PKP\core\Dispatcher);
         return $this->_dispatcher;
     }
 
     /**
      * set the dispatcher
-     *
-     * @param PKPDispatcher $dispatcher
      */
-    public function setDispatcher($dispatcher)
+    public function setDispatcher(\PKP\core\Dispatcher $dispatcher)
     {
         $this->_dispatcher = $dispatcher;
     }
 
     /**
      * Set the handler object for later retrieval.
-     *
-     * @param PKPHandler $handler
      */
-    public function setHandler($handler)
+    public function setHandler(PKPHandler $handler)
     {
         $this->_handler = $handler;
     }
 
     /**
      * Get the handler object.
-     *
-     * @return PKPHandler
      */
-    public function getHandler()
+    public function getHandler(): ?PKPHandler
     {
         return $this->_handler;
     }
 
     /**
      * Determines whether this router can route the given request.
-     *
-     * @param PKPRequest $request
-     *
-     * @return bool true, if the router supports this request, otherwise false
      */
-    public function supports($request)
+    public function supports(PKPRequest $request): bool
     {
         // Default implementation returns always true
         return true;
@@ -173,12 +142,8 @@ class PKPRouter
 
     /**
      * Determine whether or not this request is cacheable
-     *
-     * @param PKPRequest $request
-     *
-     * @return bool
      */
-    public function isCacheable($request)
+    public function isCacheable(PKPRequest $request): bool
     {
         // Default implementation returns always false
         return false;
@@ -193,41 +158,21 @@ class PKPRouter
      */
     public function getRequestedContextPaths($request)
     {
-        // Handle context depth 0
-        if (!$this->_contextDepth) {
-            return [];
-        }
-
-        // Validate context parameters
-        assert(isset($this->_contextDepth) && isset($this->_contextList));
-
-        $isPathInfoEnabled = $request->isPathInfoEnabled();
         $userVars = [];
         $url = null;
 
         // Determine the context path
         if (empty($this->_contextPaths)) {
-            if ($isPathInfoEnabled) {
-                // Retrieve url from the path info
-                if (isset($_SERVER['PATH_INFO'])) {
-                    $url = $_SERVER['PATH_INFO'];
-                }
-            } else {
-                $url = $request->getCompleteUrl();
-                $userVars = $request->getUserVars();
-            }
-
             $this->_contextPaths = Core::getContextPaths(
-                $url,
-                $isPathInfoEnabled,
-                $this->_contextList,
-                $this->_contextDepth,
-                $userVars
+                $_SERVER['PATH_INFO'] ?? '',
+                false,
+                Application::get()->getContextList(),
+                1,
+                $request->getUserVars()
             );
 
             Hook::call('Router::getRequestedContextPaths', [&$this->_contextPaths]);
         }
-
         return $this->_contextPaths;
     }
 
@@ -235,54 +180,46 @@ class PKPRouter
      * A generic method to return a single context path (e.g. a Press or a SchedConf path)
      *
      * @param PKPRequest $request the request to be routed
-     * @param int $requestedContextLevel (optional) the context level to return
+     * @param int $requestedContextLevel (optional) the context level to return. DEPRECATED: Must be 1.
      *
      * @return string
      */
     public function getRequestedContextPath($request, $requestedContextLevel = 1)
     {
-        // Handle context depth 0
-        if (!$this->_contextDepth) {
-            return null;
+        if ($requestedContextLevel !== 1) {
+            throw new Exception('Only context level 1 is supported.');
         }
-
-        // Validate the context level
-        assert(isset($this->_contextDepth) && isset($this->_contextList));
-        assert($requestedContextLevel > 0 && $requestedContextLevel <= $this->_contextDepth);
 
         // Return the full context, then retrieve the requested context path
         $contextPaths = $this->getRequestedContextPaths($request);
-        assert(isset($this->_contextPaths[$requestedContextLevel - 1]));
-        return $this->_contextPaths[$requestedContextLevel - 1];
+        return $this->_contextPaths[0];
     }
 
     /**
-     * A Generic call to a context defining object (e.g. a Press, a Conference, or a SchedConf)
+     * A Generic call to a context defining object (e.g. a Journal, Press, or Server)
      *
      * @param PKPRequest $request the request to be routed
-     * @param int $requestedContextLevel (optional) the desired context level
+     * @param int $requestedContextLevel (optional) the desired context level. DEPRECATED: Must be 1.
      * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      *
      * @return object
      */
     public function &getContext($request, $requestedContextLevel = 1, $forceReload = false)
     {
-        // Handle context depth 0
-        if (!$this->_contextDepth) {
-            $nullVar = null;
-            return $nullVar;
+        if ($requestedContextLevel !== 1) {
+            throw new Exception('Only context level 1 is supported.');
         }
 
-        if ($forceReload || !isset($this->_contexts[$requestedContextLevel])) {
-            // Retrieve the requested context path (this validates the context level and the path)
-            $path = $this->getRequestedContextPath($request, $requestedContextLevel);
+        if ($forceReload || !isset($this->_context)) {
+            // Retrieve the requested context path (this validates the path)
+            $path = $this->getRequestedContextPath($request);
 
             // Resolve the path to the context
             if ($path == 'index') {
-                $this->_contexts[$requestedContextLevel] = null;
+                $this->_context = null;
             } else {
                 // Get the context name (this validates the context name)
-                $requestedContextName = $this->_contextLevelToContextName($requestedContextLevel);
+                $requestedContextName = $this->_contextLevelToContextName(1);
 
                 // Get the DAO for the requested context.
                 $contextClass = ucfirst($requestedContextName);
@@ -292,11 +229,11 @@ class PKPRouter
                 // Retrieve the context from the DAO (by path)
                 $daoMethod = 'getByPath';
                 assert(method_exists($daoInstance, $daoMethod));
-                $this->_contexts[$requestedContextLevel] = $daoInstance->$daoMethod($path);
+                $this->_context = $daoInstance->$daoMethod($path);
             }
         }
 
-        return $this->_contexts[$requestedContextLevel];
+        return $this->_context;
     }
 
     /**
@@ -307,20 +244,10 @@ class PKPRouter
      *
      * @return object
      */
-    public function &getContextByName($request, $requestedContextName)
+    public function getContextByName($request, $requestedContextName)
     {
-        // Handle context depth 0
-        if (!$this->_contextDepth) {
-            $nullVar = null;
-            return $nullVar;
-        }
-
-        // Convert the context name to a context level (this validates the context name)
-        $requestedContextLevel = $this->_contextNameToContextLevel($requestedContextName);
-
         // Retrieve the requested context by level
-        $returner = $this->getContext($request, $requestedContextLevel);
-        return $returner;
+        return $this->getContext($request);
     }
 
     /**
@@ -357,8 +284,7 @@ class PKPRouter
      */
     public function getCacheFilename($request)
     {
-        // must be implemented by sub-classes
-        assert(false);
+        throw new Exception('Unimplemented');
     }
 
     /**
@@ -366,11 +292,7 @@ class PKPRouter
      *
      * @param PKPRequest $request
      */
-    public function route($request)
-    {
-        // Must be implemented by sub-classes.
-        assert(false);
-    }
+    abstract public function route($request);
 
     /**
      * Build a handler request URL into PKPApplication.
@@ -386,19 +308,16 @@ class PKPRouter
      *
      * @return string the URL
      */
-    public function url(
-        $request,
-        $newContext = null,
+    abstract public function url(
+        PKPRequest $request,
+        ?string $newContext = null,
         $handler = null,
         $op = null,
         $path = null,
         $params = null,
         $anchor = null,
         $escape = false
-    ) {
-        // Must be implemented by sub-classes.
-        assert(false);
-    }
+    );
 
     /**
      * Handle an authorization failure.
@@ -407,14 +326,11 @@ class PKPRouter
      * @param string $authorizationMessage a translation key with the authorization
      *  failure message.
      */
-    public function handleAuthorizationFailure(
+    abstract public function handleAuthorizationFailure(
         $request,
         $authorizationMessage,
         array $messageParams = []
-    ) {
-        // Must be implemented by sub-classes.
-        assert(false);
-    }
+    );
 
 
     //
@@ -488,50 +404,6 @@ class PKPRouter
     }
 
     /**
-     * Canonicalizes the new context.
-     *
-     * A new context can be given as a scalar. In this case only the
-     * first context will be replaced. If the context depth of the
-     * current application is higher than one than the context can also
-     * be given as an array if more than the first context should
-     * be replaced. We therefore canonicalize the new context to an array.
-     *
-     * When all entries are of the form 'contextName' => null or if
-     * $newContext == null then we'll return an empty array.
-     *
-     * @param array $newContext the raw context array
-     *
-     * @return array the canonicalized context array
-     */
-    public function _urlCanonicalizeNewContext($newContext)
-    {
-        // Create an empty array in case no new context was given.
-        if (is_null($newContext)) {
-            $newContext = [];
-        }
-
-        // If we got the new context as a scalar then transform
-        // it into an array.
-        if (is_scalar($newContext)) {
-            $newContext = [$newContext];
-        }
-
-        // Check whether any new context has been provided.
-        // If not then return an empty array.
-        $newContextProvided = false;
-        foreach ($newContext as $contextElement) {
-            if (isset($contextElement)) {
-                $newContextProvided = true;
-            }
-        }
-        if (!$newContextProvided) {
-            $newContext = [];
-        }
-
-        return $newContext;
-    }
-
-    /**
      * Build the base URL and add the context part of the URL.
      *
      * The new URL will be based on the current request's context
@@ -548,67 +420,26 @@ class PKPRouter
      * @return array An array consisting of the base url as the first
      *  entry and the context as the remaining entries.
      */
-    public function _urlGetBaseAndContext($request, $newContext = [])
+    public function _urlGetBaseAndContext($request, ?string $newContext = null)
     {
-        $pathInfoEnabled = $request->isPathInfoEnabled();
-
-        // Retrieve the context list.
-        $contextList = $this->_contextList;
-
-        $baseUrlConfigSuffix = '';
-        $overriddenContextCount = 0;
-
         // Determine URL context
-        $context = [];
-        foreach ($contextList as $contextKey => $contextName) {
-            if ($pathInfoEnabled) {
-                $contextParameter = '';
-            } else {
-                $contextParameter = $contextName . '=';
-            }
+        $contextName = Application::get()->getContextList()[0];
 
-            $newContextValue = array_shift($newContext);
-            if (isset($newContextValue)) {
-                // A new context has been set so use it.
-                $contextValue = rawurlencode($newContextValue);
-            } else {
-                // No new context has been set so determine
-                // the current request's context
-                $contextObject = $this->getContextByName($request, $contextName);
-                if ($contextObject) {
-                    $contextValue = $contextObject->getPath();
-                } else {
-                    $contextValue = 'index';
-                }
-            }
-
-            // Check whether the base URL is overridden.
-            $baseUrlConfigSuffix .= "[${contextValue}]";
-            $newOverriddenBaseUrl = Config::getVar('general', 'base_url' . $baseUrlConfigSuffix);
-            if (!empty($newOverriddenBaseUrl)) {
-                $overriddenContextCount = $contextKey + 1;
-                $overriddenBaseUrl = $newOverriddenBaseUrl;
-            }
-
-            $context[] = $contextParameter . $contextValue;
-        }
-
-        // Generate the base url
-        if (!empty($overriddenBaseUrl)) {
-            $baseUrl = $overriddenBaseUrl;
-
-            // Throw the overridden context(s) away
-            while ($overriddenContextCount > 0) {
-                array_shift($context);
-                $overriddenContextCount--;
-            }
+        if (isset($newContext)) {
+            // A new context has been set so use it.
+            $contextValue = rawurlencode($newContext);
         } else {
-            $baseUrl = $this->getIndexUrl($request);
+            // No new context has been set so determine
+            // the current request's context
+            $contextObject = $this->getContextByName($request, $contextName);
+            $contextValue = $contextObject?->getPath() ?? 'index';
         }
 
-        // Join base URL and context and return the result
-        $baseUrlAndContext = array_merge([$baseUrl], $context);
-        return $baseUrlAndContext;
+        // Check whether the base URL is overridden.
+        if ($overriddenBaseUrl = Config::getVar('general', "base_url[{$contextValue}]")) {
+            return [$overriddenBaseUrl, []];
+        }
+        return [$this->getIndexUrl($request), [$contextValue]];
     }
 
     /**
@@ -647,12 +478,12 @@ class PKPRouter
      * @param string $baseUrl the protocol, domain and initial path/parameters, no anchors allowed here
      * @param array $pathInfoArray strings to be concatenated as path info
      * @param array $queryParametersArray strings to be concatenated as query string
-     * @param string $anchor an additional anchor
+     * @param ?string $anchor an additional anchor
      * @param bool $escape whether to escape ampersands
      *
      * @return string the URL
      */
-    public function _urlFromParts($baseUrl, $pathInfoArray = [], $queryParametersArray = [], $anchor = '', $escape = false)
+    public function _urlFromParts(string $baseUrl, array $pathInfoArray = [], array $queryParametersArray = [], ?string $anchor = '', bool $escape = false)
     {
         // Parse the base url
         $baseUrlParts = parse_url($baseUrl);
@@ -698,27 +529,16 @@ class PKPRouter
     /**
      * Convert a context level to its corresponding context name.
      *
-     * @param int $contextLevel
+     * @param int $contextLevel DEPRECATED: Must be 1.
      *
      * @return string context name
      */
-    public function _contextLevelToContextName($contextLevel)
+    public function _contextLevelToContextName($contextLevel = 1)
     {
-        assert(isset($this->_contextList[$contextLevel - 1]));
-        return $this->_contextList[$contextLevel - 1];
-    }
-
-    /**
-     * Convert a context name to its corresponding context level.
-     *
-     * @param string $contextName
-     *
-     * @return int context level
-     */
-    public function _contextNameToContextLevel($contextName)
-    {
-        assert(isset($this->_flippedContextList[$contextName]));
-        return $this->_flippedContextList[$contextName] + 1;
+        if ($contextLevel !== 1) {
+            throw new Exception('Only context level 1 is supported.');
+        }
+        return Application::get()->getContextList()[0];
     }
 }
 

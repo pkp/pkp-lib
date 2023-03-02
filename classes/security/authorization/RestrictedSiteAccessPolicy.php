@@ -18,12 +18,12 @@ namespace PKP\security\authorization;
 use PKP\core\PKPPageRouter;
 use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\security\Validation;
 
 class RestrictedSiteAccessPolicy extends AuthorizationPolicy
 {
-    private PKPRouter $_router;
+    private ?PKPRouter $_router;
 
     private PKPRequest $_request;
 
@@ -73,7 +73,7 @@ class RestrictedSiteAccessPolicy extends AuthorizationPolicy
     private function _getLoginExemptions(): array
     {
         $exemptions = ['user', 'login', 'help', 'header', 'sidebar', 'payment'];
-        HookRegistry::call('RestrictedSiteAccessPolicy::_getLoginExemptions', [&$exemptions]);
+        Hook::call('RestrictedSiteAccessPolicy::_getLoginExemptions', [[&$exemptions]]);
         return $exemptions;
     }
 }

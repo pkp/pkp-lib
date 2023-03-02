@@ -90,7 +90,7 @@ class PKPComponentRouter extends PKPRouter
      *
      * @return bool true, if the router supports this request, otherwise false
      */
-    public function supports($request)
+    public function supports($request): bool
     {
         // See whether this looks like a component router request.
         // NOTE: this is prone to false positives i.e. when a class
@@ -314,17 +314,11 @@ class PKPComponentRouter extends PKPRouter
         if (!is_null($path)) {
             throw new Exception('Path must be null when calling PKPComponentRouter::url()');
         }
-        $pathInfoEnabled = $request->isPathInfoEnabled();
 
         //
         // Base URL and Context
         //
-        $baseUrlAndContext = $this->_urlGetBaseAndContext(
-            $request,
-            $this->_urlCanonicalizeNewContext($newContext)
-        );
-        $baseUrl = array_shift($baseUrlAndContext);
-        $context = $baseUrlAndContext;
+        [$baseUrl, $context] = $this->_urlGetBaseAndContext($request, $newContext);
 
         //
         // Component and Operation
@@ -369,35 +363,16 @@ class PKPComponentRouter extends PKPRouter
         //
         // Assemble URL
         //
-        if ($pathInfoEnabled) {
-            // If path info is enabled then context, page,
-            // operation and additional path go into the
-            // path info.
-            $pathInfoArray = array_merge(
-                $context,
-                [COMPONENT_ROUTER_PATHINFO_MARKER],
-                $uncamelizedComponentParts,
-                [$opName]
-            );
+        // Context, page, operation and additional path go into the path info.
+        $pathInfoArray = array_merge(
+            $context,
+            [COMPONENT_ROUTER_PATHINFO_MARKER],
+            $uncamelizedComponentParts,
+            [$opName]
+        );
 
-            // Query parameters
-            $queryParametersArray = $additionalParameters;
-        } else {
-            // If path info is disabled then context, page,
-            // operation and additional path are encoded as
-            // query parameters.
-            $pathInfoArray = [];
-
-            // Query parameters
-            $queryParametersArray = array_merge(
-                $context,
-                [
-                    COMPONENT_ROUTER_PARAMETER_MARKER . '=' . implode('.', $uncamelizedComponentParts),
-                    "op=${opName}"
-                ],
-                $additionalParameters
-            );
-        }
+        // Query parameters
+        $queryParametersArray = $additionalParameters;
 
         return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
     }
@@ -477,46 +452,29 @@ class PKPComponentRouter extends PKPRouter
      */
     public function _retrieveServiceEndpointParts($request)
     {
-        // URL pattern depends on whether the server has path info
-        // enabled or not. See classdoc for details.
-        if ($request->isPathInfoEnabled()) {
-            if (!isset($_SERVER['PATH_INFO'])) {
-                return null;
-            }
-
-            $pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-
-            // We expect at least the context + the component
-            // router marker + 3 component parts (path, handler, operation)
-            $application = $this->getApplication();
-            $contextDepth = $application->getContextDepth();
-            if (count($pathInfoParts) < $contextDepth + 4) {
-                // This path info is too short to be an RPC request
-                return null;
-            }
-
-            // Check the component router marker
-            if ($pathInfoParts[$contextDepth] != COMPONENT_ROUTER_PATHINFO_MARKER) {
-                // This is not an RPC request
-                return null;
-            }
-
-            // Remove context and component marker from the array
-            $rpcServiceEndpointParts = array_slice($pathInfoParts, $contextDepth + 1);
-        } else {
-            $componentParameter = $request->getUserVar(COMPONENT_ROUTER_PARAMETER_MARKER);
-            $operationParameter = $request->getUserVar('op');
-            if (is_null($componentParameter) || is_null($operationParameter)) {
-                // This is not an RPC request
-                return null;
-            }
-
-            // Expand the router parameter
-            $rpcServiceEndpointParts = explode('.', $componentParameter);
-
-            // Add the operation
-            array_push($rpcServiceEndpointParts, $operationParameter);
+        if (!isset($_SERVER['PATH_INFO'])) {
+            return null;
         }
+
+        $pathInfoParts = explode('/', trim($_SERVER['PATH_INFO'], '/'));
+
+        // We expect at least the context + the component
+        // router marker + 3 component parts (path, handler, operation)
+        $application = $this->getApplication();
+        $contextDepth = $application->getContextDepth();
+        if (count($pathInfoParts) < $contextDepth + 4) {
+            // This path info is too short to be an RPC request
+            return null;
+        }
+
+        // Check the component router marker
+        if ($pathInfoParts[$contextDepth] != COMPONENT_ROUTER_PATHINFO_MARKER) {
+            // This is not an RPC request
+            return null;
+        }
+
+        // Remove context and component marker from the array
+        $rpcServiceEndpointParts = array_slice($pathInfoParts, $contextDepth + 1);
 
         return $rpcServiceEndpointParts;
     }

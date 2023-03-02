@@ -77,7 +77,12 @@ class ConfigTest extends PKPTestCase
             'date_format_long' => '%B %e, %Y',
             'datetime_format_short' => '%Y-%m-%d %I:%M %p',
             'datetime_format_long' => '%B %e, %Y - %I:%M %p',
-            'disable_path_info' => false,
+            'date_format_short' => 'Y-m-d',
+            'date_format_long' => 'F j, Y',
+            'datetime_format_short' => 'Y-m-d h:i A',
+            'datetime_format_long' => 'F j, Y - h:i A',
+            'allowed_hosts' => '["mydomain.org"]',
+            'time_format' => 'h:i A',
         ];
 
         // We'll only check part of the configuration data to

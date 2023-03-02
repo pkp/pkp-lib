@@ -20,7 +20,6 @@ namespace PKP\tests\classes\core;
 use APP\core\Application;
 use APP\core\Request;
 use PHPUnit\Framework\MockObject\MockObject;
-use PKP\config\Config;
 use PKP\core\Dispatcher;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -76,15 +75,12 @@ class DispatcherTest extends PKPTestCase
      */
     public function testUrl()
     {
-        if (Config::getVar('general', 'disable_path_info')) {
-            $this->markTestSkipped('The config [general].disable_path_info is enabled');
-        }
         $baseUrl = $this->request->getBaseUrl();
 
-        $url = $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, ['context1', 'context2'], 'somepage', 'someop');
-        self::assertEquals($baseUrl . '/index.php/context1/context2/somepage/someop', $url);
+        $url = $this->dispatcher->url($this->request, PKPApplication::ROUTE_PAGE, 'context1', 'somepage', 'someop');
+        self::assertEquals($baseUrl . '/index.php/context1/somepage/someop', $url);
 
-        $url = $this->dispatcher->url($this->request, PKPApplication::ROUTE_COMPONENT, ['context1', 'context2'], 'some.ComponentHandler', 'someOp');
-        self::assertEquals($baseUrl . '/index.php/context1/context2/$$$call$$$/some/component/some-op', $url);
+        $url = $this->dispatcher->url($this->request, PKPApplication::ROUTE_COMPONENT, 'context1', 'some.ComponentHandler', 'someOp');
+        self::assertEquals($baseUrl . '/index.php/context1/$$$call$$$/some/component/some-op', $url);
     }
 }

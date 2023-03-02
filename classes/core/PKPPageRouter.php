@@ -14,13 +14,13 @@
  */
 
 namespace PKP\core;
-use APP\facades\Repo;
+
+use APP\core\Application;
 
 define('ROUTER_DEFAULT_PAGE', './pages/index/index.php');
 define('ROUTER_DEFAULT_OP', 'index');
 
-use APP\core\Application;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 use PKP\security\Role;
@@ -75,9 +75,8 @@ class PKPPageRouter extends PKPRouter
      * @param bool $testOnly required for unit test to
      *  bypass session check.
      *
-     * @return bool
      */
-    public function isCacheable($request, $testOnly = false)
+    public function isCacheable($request, $testOnly = false): bool
     {
         if (SessionManager::isDisabled() && !$testOnly) {
             return false;
@@ -89,16 +88,8 @@ class PKPPageRouter extends PKPRouter
             return false;
         }
 
-        if ($request->isPathInfoEnabled()) {
-            if (!empty($_GET)) {
-                return false;
-            }
-        } else {
-            $application = $this->getApplication();
-            $ok = array_merge($application->getContextList(), ['page', 'op', 'path']);
-            if (!empty($_GET) && count(array_diff(array_keys($_GET), $ok)) != 0) {
-                return false;
-            }
+        if (!empty($_GET)) {
+            return false;
         }
 
         if (in_array($this->getRequestedPage($request), $this->getCacheablePages())) {
@@ -177,17 +168,8 @@ class PKPPageRouter extends PKPRouter
     public function getCacheFilename($request)
     {
         if (!isset($this->_cacheFilename)) {
-            if ($request->isPathInfoEnabled()) {
-                $id = $_SERVER['PATH_INFO'] ?? 'index';
-                $id .= '-' . Locale::getLocale();
-            } else {
-                $id = '';
-                $application = $this->getApplication();
-                foreach ($application->getContextList() as $contextName) {
-                    $id .= $request->getUserVar($contextName) . '-';
-                }
-                $id .= $request->getUserVar('page') . '-' . $request->getUserVar('op') . '-' . $request->getUserVar('path') . '-' . Locale::getLocale();
-            }
+            $id = $_SERVER['PATH_INFO'] ?? 'index';
+            $id .= '-' . Locale::getLocale();
             $path = Core::getBaseDir();
             $this->_cacheFilename = $path . '/cache/wc-' . md5($id) . '.html';
         }
@@ -319,8 +301,8 @@ class PKPPageRouter extends PKPRouter
      * @param null|mixed $anchor
      */
     public function url(
-        $request,
-        $newContext = null,
+        PKPRequest $request,
+        ?string $newContext = null,
         $page = null,
         $op = null,
         $path = null,
@@ -328,15 +310,12 @@ class PKPPageRouter extends PKPRouter
         $anchor = null,
         $escape = false
     ) {
-        $pathInfoEnabled = $request->isPathInfoEnabled();
-
         //
         // Base URL and Context
         //
-        $newContext = $this->_urlCanonicalizeNewContext($newContext);
         $baseUrlAndContext = $this->_urlGetBaseAndContext($request, $newContext);
         $baseUrl = array_shift($baseUrlAndContext);
-        $context = $baseUrlAndContext;
+        $context = array_shift($baseUrlAndContext);
 
         //
         // Additional path info
@@ -348,15 +327,6 @@ class PKPPageRouter extends PKPRouter
                 $additionalPath = array_map('rawurlencode', $path);
             } else {
                 $additionalPath = [rawurlencode($path)];
-            }
-
-            // If path info is disabled then we have to
-            // encode the path as query parameters.
-            if (!$pathInfoEnabled) {
-                $pathKey = $escape ? 'path%5B%5D=' : 'path[]=';
-                foreach ($additionalPath as $key => $pathElement) {
-                    $additionalPath[$key] = $pathKey . $pathElement;
-                }
             }
         }
 
@@ -435,37 +405,18 @@ class PKPPageRouter extends PKPRouter
         //
         // Assemble URL
         //
-        if ($pathInfoEnabled) {
-            // If path info is enabled then context, page,
-            // operation and additional path go into the
-            // path info.
-            $pathInfoArray = $context;
-            if (!empty($page)) {
-                $pathInfoArray[] = $page;
-                if (!empty($op)) {
-                    $pathInfoArray[] = $op;
-                }
+        // Context, page, operation and additional path go into the path info.
+        $pathInfoArray = $context;
+        if (!empty($page)) {
+            $pathInfoArray[] = $page;
+            if (!empty($op)) {
+                $pathInfoArray[] = $op;
             }
-            $pathInfoArray = array_merge($pathInfoArray, $additionalPath);
-
-            // Query parameters
-            $queryParametersArray = $additionalParameters;
-        } else {
-            // If path info is disabled then context, page,
-            // operation and additional path are encoded as
-            // query parameters.
-            $pathInfoArray = [];
-
-            // Query parameters
-            $queryParametersArray = $context;
-            if (!empty($page)) {
-                $queryParametersArray[] = "page=${page}";
-                if (!empty($op)) {
-                    $queryParametersArray[] = "op=${op}";
-                }
-            }
-            $queryParametersArray = array_merge($queryParametersArray, $additionalPath, $additionalParameters);
         }
+        $pathInfoArray = array_merge($pathInfoArray, $additionalPath);
+
+        // Query parameters
+        $queryParametersArray = $additionalParameters;
 
         return $this->_urlFromParts($baseUrl, $pathInfoArray, $queryParametersArray, $anchor, $escape);
     }
@@ -487,10 +438,8 @@ class PKPPageRouter extends PKPRouter
 
     /**
      * Redirect to user home page (or the user group home page if the user has one user group).
-     *
-     * @param PKPRequest $request the request to be routed
      */
-    public function redirectHome($request)
+    public function redirectHome(PKPRequest $request)
     {
         $request->redirectUrl($this->getHomeUrl($request));
     }
@@ -510,7 +459,7 @@ class PKPPageRouter extends PKPRouter
             // Else go to "submissions" page
             $userGroups = Repo::userGroup()->userUserGroups($userId, $context->getId());
 
-            if ($userGroups->isEmpty() 
+            if ($userGroups->isEmpty()
                 || ($userGroups->count() == 1 && $userGroups->first()->getRoleId() == Role::ROLE_ID_READER)
             ) {
                 return $request->url(null, 'index');
@@ -555,18 +504,13 @@ class PKPPageRouter extends PKPRouter
     {
         $url = null;
         assert($request->getRouter() instanceof \PKP\core\PKPPageRouter);
-        $isPathInfoEnabled = $request->isPathInfoEnabled();
 
-        if ($isPathInfoEnabled) {
-            if (isset($_SERVER['PATH_INFO'])) {
-                $url = $_SERVER['PATH_INFO'];
-            }
-        } else {
-            $url = $request->getCompleteUrl();
+        if (isset($_SERVER['PATH_INFO'])) {
+            $url = $_SERVER['PATH_INFO'];
         }
 
         $userVars = $request->getUserVars();
-        return call_user_func_array($callback, [$url, $isPathInfoEnabled, $userVars]);
+        return call_user_func_array($callback, [$url, true, $userVars]);
     }
 }
 

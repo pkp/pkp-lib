@@ -45,7 +45,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
     public function testIsCacheableNotInstalled()
     {
         $this->setTestConfiguration('request2', 'classes/core/config'); // not installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         self::assertFalse($this->router->isCacheable($this->request));
     }
 
@@ -55,7 +55,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
     public function testIsCacheableWithPost()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_POST = ['somevar' => 'someval'];
         self::assertFalse($this->router->isCacheable($this->request));
     }
@@ -66,7 +66,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
     public function testIsCacheableWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_GET = ['somevar' => 'someval'];
         $_SERVER = [
             'PATH_INFO' => '/context1/somepage',
@@ -86,15 +86,16 @@ class PKPPageRouterTest extends PKPRouterTestCase
     public function testIsCacheableWithPathinfoSuccess()
     {
         // Creates a mocked Validation only for this test (due to the @runInSeparateProcess)
-        $mockValidation = new class {
-            public function __construct(public bool $isLogged = false) {
+        $mockValidation = new class () {
+            public function __construct(public bool $isLogged = false)
+            {
                 /** @var MockInterface */
                 $mock = Mockery::mock('overload:' . Validation::class);
                 $mock->shouldReceive('isLoggedIn')->andReturnUsing(fn () => $this->isLogged);
             }
         };
         $this->setTestConfiguration('request1', 'classes/core/config'); // installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_GET = [];
         $_SERVER = [
             'PATH_INFO' => '/context1/cacheable',
@@ -107,44 +108,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
     }
 
     /**
-     * @covers PKPPageRouter::isCacheable
-     */
-    public function testIsCacheableWithoutPathinfo()
-    {
-        $this->setTestConfiguration('request1', 'classes/core/config'); // installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_GET = ['somevar' => 'someval'];
-        self::assertFalse($this->router->isCacheable($this->request, true));
-
-        $_GET = [
-            'firstContext' => 'something',
-            'page' => 'something',
-            'op' => 'something',
-            'path' => 'something'
-        ];
-        self::assertFalse($this->router->isCacheable($this->request, true));
-    }
-
-    /**
-     * @covers PKPPageRouter::isCacheable
-     */
-    public function testIsCacheableWithoutPathinfoSuccess()
-    {
-        $this->setTestConfiguration('request1', 'classes/core/config'); // installed
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-
-        $_GET = [
-            'page' => 'cacheable'
-        ];
-        self::assertTrue($this->router->isCacheable($this->request, true));
-    }
-
-    /**
      * @covers PKPPageRouter::getCacheFilename
      */
     public function testGetCacheFilenameWithPathinfo()
     {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_SERVER = [
             'PATH_INFO' => '/context1/index',
             'SCRIPT_NAME' => '/index.php',
@@ -154,25 +122,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
     }
 
     /**
-     * @covers PKPPageRouter::getCacheFilename
-     */
-    public function testGetCacheFilenameWithoutPathinfo()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_GET = [
-            'firstContext' => 'something',
-            'page' => 'index'
-        ];
-        $expectedId = 'something-index---en';
-        self::assertEquals(Core::getBaseDir() . '/cache/wc-' . md5($expectedId) . '.html', $this->router->getCacheFilename($this->request));
-    }
-
-    /**
      * @covers PKPPageRouter::getRequestedPage
      */
     public function testGetRequestedPageWithPathinfo()
     {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
 
         $_SERVER = [
             'PATH_INFO' => '/context1/some#page',
@@ -184,20 +138,9 @@ class PKPPageRouterTest extends PKPRouterTestCase
     /**
      * @covers PKPPageRouter::getRequestedPage
      */
-    public function testGetRequestedPageWithPathinfoDisabled()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-
-        $_GET['page'] = 'some#page';
-        self::assertEquals('somepage', $this->router->getRequestedPage($this->request));
-    }
-
-    /**
-     * @covers PKPPageRouter::getRequestedPage
-     */
     public function testGetRequestedPageWithEmtpyPage()
     {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
 
         $_SERVER = [
             'PATH_INFO' => '/context1',
@@ -207,22 +150,11 @@ class PKPPageRouterTest extends PKPRouterTestCase
     }
 
     /**
-     * @covers PKPPageRouter::getRequestedPage
-     */
-    public function testGetRequestedPageWithPathinfoDisabledAndEmtpyPage()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-
-        unset($_GET['page']);
-        self::assertEquals('', $this->router->getRequestedPage($this->request));
-    }
-
-    /**
      * @covers PKPPageRouter::getRequestedOp
      */
     public function testGetRequestedOpWithPathinfo()
     {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
 
         $_SERVER = [
             'PATH_INFO' => '/context1/somepage/some#op',
@@ -234,20 +166,9 @@ class PKPPageRouterTest extends PKPRouterTestCase
     /**
      * @covers PKPPageRouter::getRequestedOp
      */
-    public function testGetRequestedOpWithPathinfoDisabled()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-
-        $_GET['op'] = 'some#op';
-        self::assertEquals('someop', $this->router->getRequestedOp($this->request));
-    }
-
-    /**
-     * @covers PKPPageRouter::getRequestedOp
-     */
     public function testGetRequestedOpWithEmptyOp()
     {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
 
         $_SERVER = [
             'PATH_INFO' => '/context1/somepage',
@@ -257,23 +178,12 @@ class PKPPageRouterTest extends PKPRouterTestCase
     }
 
     /**
-     * @covers PKPPageRouter::getRequestedOp
-     */
-    public function testGetRequestedOpWithPathinfoDisabledAndEmptyOp()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-
-        unset($_GET['op']);
-        self::assertEquals('index', $this->router->getRequestedOp($this->request));
-    }
-
-    /**
      * @covers PKPPageRouter::url
      */
     public function testUrlWithPathinfo()
     {
         $this->setTestConfiguration('request1', 'classes/core/config'); // restful URLs
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
@@ -289,13 +199,13 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $result = $this->router->url($this->request, 'new-context1');
         self::assertEquals('http://mydomain.org/index.php/new-context1', $result);
 
-        $result = $this->router->url($this->request, ['new?context1']);
+        $result = $this->router->url($this->request, 'new?context1');
         self::assertEquals('http://mydomain.org/index.php/new%3Fcontext1', $result);
 
-        $result = $this->router->url($this->request, [], 'new-page');
+        $result = $this->router->url($this->request, null, 'new-page');
         self::assertEquals('http://mydomain.org/index.php/current-context1/new-page', $result);
 
-        $result = $this->router->url($this->request, [], null, 'new-op');
+        $result = $this->router->url($this->request, null, null, 'new-op');
         self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/new-op', $result);
 
         $result = $this->router->url($this->request, 'new-context1', 'new-page');
@@ -312,9 +222,6 @@ class PKPPageRouterTest extends PKPRouterTestCase
 
         $result = $this->router->url($this->request, 'new-context1', null, null, ['add-path1', 'add?path2']);
         self::assertEquals('http://mydomain.org/index.php/new-context1/index/index/add-path1/add%3Fpath2', $result);
-
-        $result = $this->router->url($this->request, ['firstContext' => null], null, 'new-op', 'add-path');
-        self::assertEquals('http://mydomain.org/index.php/current-context1/current-page/new-op/add-path', $result);
 
         $result = $this->router->url(
             $this->request,
@@ -350,7 +257,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $this->setTestConfiguration('request1', 'classes/core/config'); // contains overridden context
 
         // Set up a request with an overridden context
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
@@ -371,7 +278,7 @@ class PKPPageRouterTest extends PKPRouterTestCase
         // Same set-up as in testUrlWithPathinfoAndOverriddenBaseUrl()
         // but this time use a request with non-overridden context and
         // 'overridden-context' as new context. (Reproduces #5118)
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_ENABLED);
+        $mockApplication = $this->_setUpMockEnvironment();
         $_SERVER = [
             'SERVER_NAME' => 'mydomain.org',
             'SCRIPT_NAME' => '/index.php',
@@ -380,106 +287,5 @@ class PKPPageRouterTest extends PKPRouterTestCase
         $this->_setUpMockDAOs('current-context1', true);
         $result = $this->router->url($this->request, 'overridden-context', 'new-page');
         self::assertEquals('http://some-domain/xyz-context/new-page', $result);
-    }
-
-    /**
-     * @covers PKPPageRouter::url
-     */
-    public function testUrlWithoutPathinfo()
-    {
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_SERVER = [
-            'SERVER_NAME' => 'mydomain.org',
-            'SCRIPT_NAME' => '/index.php',
-        ];
-        $_GET = [
-            'firstContext' => 'current-context1',
-            'page' => 'current-page',
-            'op' => 'current-op'
-        ];
-
-        // Simulate context DAOs
-        $this->_setUpMockDAOs();
-
-        $result = $this->router->url($this->request);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=current-page&op=current-op', $result);
-
-        $result = $this->router->url($this->request, 'new-context1');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1', $result);
-
-        $result = $this->router->url($this->request, ['new-context1']);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1', $result);
-
-        $result = $this->router->url($this->request, [], 'new-page');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=new-page', $result);
-
-        $result = $this->router->url($this->request, [], null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=current-context1&page=current-page&op=new-op', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', 'new-page');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=new-page', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', 'new-page', 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=new-page&op=new-op', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, 'new-op');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=new-op', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, null, 'add?path');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=index&path[]=add%3Fpath', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, null, ['add-path1', 'add?path2']);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=index&path[]=add-path1&path[]=add%3Fpath2', $result);
-
-        $result = $this->router->url(
-            $this->request,
-            'new-context1',
-            null,
-            null,
-            null,
-            [
-                'key1' => 'val1?',
-                'key2' => ['val2-1', 'val2?2']
-            ]
-        );
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&key1=val1%3F&key2[]=val2-1&key2[]=val2%3F2', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some?anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1#someanchor', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, null, null, null, 'some/anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1#some/anchor', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, 'new-op', 'add-path', ['key' => 'val'], 'some-anchor');
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&page=index&op=new-op&path[]=add-path&key=val#some-anchor', $result);
-
-        $result = $this->router->url($this->request, 'new-context1', null, null, null, ['key1' => 'val1', 'key2' => 'val2'], null, true);
-        self::assertEquals('http://mydomain.org/index.php?firstContext=new-context1&amp;key1=val1&amp;key2=val2', $result);
-    }
-
-    /**
-     * @covers PKPPageRouter::url
-     */
-    public function testUrlWithoutPathinfoAndOverriddenBaseUrl()
-    {
-        $this->setTestConfiguration('request2', 'classes/core/config'); // contains overridden context
-        $mockApplication = $this->_setUpMockEnvironment(self::PATHINFO_DISABLED);
-        $_SERVER = [
-            'SERVER_NAME' => 'mydomain.org',
-            'SCRIPT_NAME' => '/index.php',
-        ];
-        $_GET = [
-            'firstContext' => 'overridden-context',
-            'page' => 'current-page',
-            'op' => 'current-op'
-        ];
-
-        // Simulate context DAOs
-        $this->_setUpMockDAOs('overridden-context');
-
-        // NB: This also tests whether unusual URL elements like user, password and port
-        // will be handled correctly.
-        $result = $this->router->url($this->request);
-        self::assertEquals('http://some-user:some-pass@some-domain:8080/?firstContext=xyz-context&page=current-page&op=current-op', $result);
     }
 }

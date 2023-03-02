@@ -765,16 +765,6 @@ abstract class OAI
     }
 
     /**
-     * Return a list of ignorable GET parameters.
-     *
-     * @return array
-     */
-    public function getNonPathInfoParams()
-    {
-        return [];
-    }
-
-    /**
      * Check request parameters.
      * Outputs error response if an invalid parameter is found.
      *
@@ -812,11 +802,8 @@ abstract class OAI
         $request = Application::get()->getRequest();
         foreach ($this->params as $k => $v) {
             if (!in_array($k, $validParams)) {
-                // Ignore the "path" and "context" parameters if path_info is disabled.
-                if ($request->isPathInfoEnabled() || !in_array($k, $this->getNonPathInfoParams())) {
-                    $this->error('badArgument', "${k} is an illegal parameter");
-                    return false;
-                }
+                $this->error('badArgument', "${k} is an illegal parameter");
+                return false;
             }
         }
 

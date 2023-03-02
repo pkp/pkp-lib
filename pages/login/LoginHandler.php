@@ -29,9 +29,9 @@ use PKP\form\validation\FormValidatorReCaptcha;
 use PKP\mail\mailables\PasswordResetRequested;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\Role;
-use PKP\site\Site;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+use PKP\site\Site;
 use PKP\user\form\LoginChangePasswordForm;
 use PKP\user\form\ResetPasswordForm;
 use PKP\user\User;
@@ -110,7 +110,7 @@ class LoginHandler extends Handler
             return $request->redirect($context->getPath(), 'dashboard');
         }
 
-        $request->redirectHome();
+        $request->getRouter()->redirectHome($request);
     }
 
     /**
@@ -266,6 +266,7 @@ class LoginHandler extends Handler
 
     /**
      * Present the password reset form to reset user's password
+     *
      * @param array $args first param contains the username of the user whose password is to be reset
      */
     public function resetPassword($args, $request)
@@ -291,17 +292,17 @@ class LoginHandler extends Handler
 
         if ($user->getDisabled()) {
             $templateMgr
-            ->assign([
-                'backLink' => $request->url(null, $request->getRequestedPage()),
-                'backLinkLabel' => 'user.login',
-                'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [
-                    'reason' => empty($reason = $user->getDisabledReason() ?? '')
-                        ? __('user.login.accountDisabled')
-                        : __('user.login.accountDisabledWithReason', ['reason' => $reason])
-                ]),
-            ])
-            ->display('frontend/pages/message.tpl');
-            
+                ->assign([
+                    'backLink' => $request->url(null, $request->getRequestedPage()),
+                    'backLinkLabel' => 'user.login',
+                    'messageTranslated' => __('user.login.lostPassword.confirmationSentFailedWithReason', [
+                        'reason' => empty($reason = $user->getDisabledReason() ?? '')
+                            ? __('user.login.accountDisabled')
+                            : __('user.login.accountDisabledWithReason', ['reason' => $reason])
+                    ]),
+                ])
+                ->display('frontend/pages/message.tpl');
+
             return;
         }
 
@@ -315,6 +316,7 @@ class LoginHandler extends Handler
 
     /**
      * Reset a user's password
+     *
      * @param $args array first param contains the username of the user whose password is to be reset
      */
     public function updateResetPassword($args, $request)
@@ -333,7 +335,7 @@ class LoginHandler extends Handler
         $passwordResetForm = new ResetPasswordForm($user, $request->getSite(), $confirmHash);
         $passwordResetForm->readInputData();
 
-        if ( !$passwordResetForm->validatePasswordResetHash($request) ) {
+        if (!$passwordResetForm->validatePasswordResetHash($request)) {
             return $passwordResetForm->displayInvalidHashErrorMessage($request);
         }
 

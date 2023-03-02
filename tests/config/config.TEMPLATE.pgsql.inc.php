@@ -15,16 +15,17 @@ session_cookie_name = OJSSID
 session_lifetime = 30
 scheduled_tasks = Off
 
-date_format_short = "%Y-%m-%d"
-date_format_long = "%B %e, %Y"
-datetime_format_short = "%Y-%m-%d %I:%M %p"
-datetime_format_long = "%B %e, %Y - %I:%M %p"
-
-disable_path_info = Off
+date_format_short = "Y-m-d"
+date_format_long = "F j, Y"
+datetime_format_short = "Y-m-d h:i A"
+datetime_format_long = "F j, Y - h:i A"
+time_format = "h:i A"
 
 ; base_url[index] = http://www.myUrl.com
 ; base_url[myJournal] = http://www.myUrl.com/myJournal
 ; base_url[myOtherJournal] = http://myOtherJournal.myUrl.com
+
+allowed_hosts = "[\"mydomain.org\"]"
 
 [cache]
 cache = file
@@ -50,7 +51,8 @@ force_ssl = Off
 force_login_ssl = Off
 session_check_ip = On
 encryption = md5
-allowed_html = "<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <dd> <b> <i> <u> <img> <sup> <sub> <br> <p>"
+allowed_html = "a[href|target|title],em,strong,cite,code,ul,ol,li[class],dl,dt,dd,b,i,u,img[src|alt],sup,sub,br,p"
+salt = "YouMustSetASecretKeyHere!!"
 
 [email]
 ; smtp = On

@@ -210,17 +210,29 @@ class EmailLogDAO extends \PKP\db\DAO
     }
 
     /**
-     * Transfer all log entries to another user.
+     * Transfer all log and log users entries to another user.
      *
      * @param int $oldUserId
      * @param int $newUserId
      */
     public function changeUser($oldUserId, $newUserId)
     {
-        return $this->update(
+        return [
+            $this->update(
             'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
             [(int) $newUserId, (int) $oldUserId]
-        );
+            ),
+            $this->update(
+                'UPDATE email_log_users 
+                SET user_id = ?
+                WHERE user_id = ? AND email_log_id NOT IN (SELECT t1.email_log_id
+                    FROM (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t1
+                    INNER JOIN
+                    (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t2
+                    ON t1.email_log_id = t2.email_log_id);',
+                [(int) $newUserId, (int) $oldUserId, (int) $newUserId, (int) $oldUserId]
+            )
+        ];
     }
 
 

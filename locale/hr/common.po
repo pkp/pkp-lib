@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-21 18:30+0000\n"
+"PO-Revision-Date: 2023-03-03 16:17+0000\n"
 "Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
 "hr/>\n"
@@ -475,7 +475,7 @@ msgid "common.findTemplate"
 msgstr "pronaći predložak"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Format"
 
 msgid "common.geographic"
 msgstr "Geografski"
@@ -782,7 +782,7 @@ msgid "common.reset"
 msgstr "Vrati na zadano"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Krug {$round}"
 
 msgid "common.role"
 msgstr "Uloga"
@@ -874,7 +874,6 @@ msgstr "Idi na {$name}"
 msgid "common.title"
 msgstr "Naslov"
 
-#, fuzzy
 msgid "common.titleSeparator"
 msgstr " | "
 
@@ -1447,7 +1446,6 @@ msgstr "Arhiva"
 msgid "navigation.breadcrumbLabel"
 msgstr "Ovdje ste:"
 
-#, fuzzy
 msgid "navigation.breadcrumbSeparator"
 msgstr "/"
 
@@ -2235,7 +2233,7 @@ msgid "validator.no_new_line"
 msgstr ""
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Dozvoljeno je samo [{$tags}] html oznaka."
 
 msgid "filter.input.error.notSupported"
 msgstr ""

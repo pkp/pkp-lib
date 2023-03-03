@@ -15,10 +15,16 @@
 
 namespace PKP\form\validation;
 
+use APP\core\Application;
 use Exception;
+use InvalidArgumentException;
+use PKP\config\Config;
+use PKP\form\Form;
 
 class FormValidatorReCaptcha extends FormValidator
 {
+    /** @var int Represents a user error */
+    private const USER_EXCEPTION = 1337;
     /** @var string The response field containing the reCaptcha response */
     private const RECAPTCHA_RESPONSE_FIELD = 'g-recaptcha-response';
     /** @var string The request URL */
@@ -31,7 +37,7 @@ class FormValidatorReCaptcha extends FormValidator
     /**
      * Constructor.
      *
-     * @param object $form
+     * @param Form $form
      * @param string $userIp IP address of user request
      * @param string $message Key of message to display on mismatch
      * @param string|null $hostname Hostname to expect in validation response
@@ -59,6 +65,10 @@ class FormValidatorReCaptcha extends FormValidator
             return true;
         } catch (Exception $exception) {
             $this->_message = 'common.captcha.error.missing-input-response';
+            if ($exception->getCode() !== static::USER_EXCEPTION) {
+                $this->_message = 'common.captcha.error.invalid-configuration';
+                error_log($exception);
+            }
             return false;
         }
     }
@@ -75,11 +85,11 @@ class FormValidatorReCaptcha extends FormValidator
     public static function validateResponse(?string $response, ?string $ip = null, ?string $hostname = null): void
     {
         if (!empty($ip) && !filter_var($ip, FILTER_VALIDATE_IP)) {
-            throw new InvalidArgumentException('Invalid IP address.');
+            throw new InvalidArgumentException('Invalid IP address.', static::USER_EXCEPTION);
         }
 
         if (empty($response)) {
-            throw new InvalidArgumentException('The reCaptcha user response is required.');
+            throw new InvalidArgumentException('The reCaptcha user response is required.', static::USER_EXCEPTION);
         }
 
         $privateKey = Config::getVar('captcha', 'recaptcha_private_key');
@@ -105,21 +115,28 @@ class FormValidatorReCaptcha extends FormValidator
             throw new Exception('The hostname validation of the reCaptcha response failed.');
         }
 
-        $errorMap = [
-            'missing-input-secret' => 'The secret parameter is missing.',
-            'invalid-input-secret' => 'The secret parameter is invalid or malformed.',
+        $userErrors = [
+            'timeout-or-duplicate' => 'The response is no longer valid: either is too old or has been used previously.',
             'missing-input-response' => 'The response parameter is missing.',
             'invalid-input-response' => 'The response parameter is invalid or malformed.',
+        ];
+        $systemErrors = [
+            'missing-input-secret' => 'The secret parameter is missing.',
+            'invalid-input-secret' => 'The secret parameter is invalid or malformed.',
             'bad-request' => 'The request is invalid or malformed.',
-            'timeout-or-duplicate' => 'The response is no longer valid: either is too old or has been used previously.'
+            'invalid-keys' => 'The configured keys are invalid.'
         ];
 
         if (!($response['success'] ?? false)) {
             $errors = [];
+            $exceptionType = static::USER_EXCEPTION;
             foreach ($response['error-codes'] ?? [] as $error) {
-                $errors[] = $errorMap[$error] ?? $error;
+                if ($systemErrors[$error] ?? null) {
+                    $exceptionType = 0;
+                }
+                $errors[] = $userErrors[$error] ?? $systemErrors[$error] ?? $error;
             }
-            throw new Exception(implode("\n", $errors) ?: 'The reCaptcha validation failed.');
+            throw new Exception(implode("\n", $errors) ?: 'The reCaptcha validation failed.', $exceptionType);
         }
     }
 }

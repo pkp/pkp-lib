@@ -209,6 +209,9 @@ msgstr "Error"
 msgid "common.notice"
 msgstr "Notice"
 
+msgid "common.captcha.error.invalid-configuration"
+msgstr "The captcha validation is not configured properly, please contact the site administrator."
+
 msgid "common.captcha.error.missing-input-response"
 msgstr ""
 "You must complete the validation check used to prevent spam submissions."

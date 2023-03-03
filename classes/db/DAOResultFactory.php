@@ -58,6 +58,9 @@ class DAOResultFactory extends ItemIterator
      */
     public $expectsArray = true;
 
+    /** @var ?int Cached row count */
+    private $rowCount = null;
+
     /**
      * Constructor.
      * Initialize the DAOResultFactory
@@ -130,14 +133,12 @@ class DAOResultFactory extends ItemIterator
     public function getCount()
     {
         if ($this->sql === null) {
-            throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
+            throw new \Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . $this->dao::class . ')!');
         }
         // EntityDAOs do not support the countRecords method, but it can
         // be accessed through an instance of PKP\db\DAO attached to them
-        if (property_exists($this->dao, 'deprecatedDao')) {
-            return $this->dao->deprecatedDao->countRecords($this->sql, $this->params);
-        }
-        return $this->dao->countRecords($this->sql, $this->params);
+        $dao = property_exists($this->dao, 'deprecatedDao') ? $this->dao->deprecatedDao : $this->dao;
+        return $this->rowCount ??= $dao->countRecords($this->sql, $this->params);
     }
 
     /**

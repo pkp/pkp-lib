@@ -212,6 +212,11 @@ msgid "common.captcha.error.invalid-input-response"
 msgstr ""
 "You did not pass the validation check used to prevent spam submissions."
 
+msgid "common.captcha.error.invalid-keys"
+msgstr ""
+"The captcha validation for this website is not configured correctly. The "
+"keys are invalid."
+
 msgid "common.captchaField.description"
 msgstr "Please enter the letters as they appear in the image above."
 

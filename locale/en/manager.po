@@ -1172,6 +1172,36 @@ msgstr "Date & Time (Short)"
 msgid "manager.setup.dateTime.custom"
 msgstr "Custom"
 
+msgid "manager.setup.submissionsListSettings"
+msgstr "Submissions List"
+
+msgid "manager.setup.submissionsListSettings.descriptionTitle"
+msgstr "Settings"
+
+msgid "manager.setup.submissionsListSettings.description"
+msgstr "Manage submissions list for roles <b>SITE_ADMIN and MANAGER only</b>"
+
+msgid "manager.setup.openSubmissionsInANewTab"
+msgstr "Open submissions in a new tab"
+
+msgid "manager.setup.openSubmissionsInANewTab.description"
+msgstr ""
+
+msgid "manager.setup.openSubmissionsInANewTab.enable"
+msgstr "When editing a submission, open it in a new tab"
+
+msgid "manager.setup.enableCustomSubmissionsList"
+msgstr "Submissions list as a table"
+
+msgid "manager.setup.enableCustomSubmissionsList.description"
+msgstr "Propose Submissions list in a table with customizable and sortable columns"
+
+msgid "manager.setup.enableCustomSubmissionsList.enable"
+msgstr "Submissions list as a table"
+
+msgid "manager.setup.submissionsListSetup"
+msgstr "Choose and order columns"
+
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
 "This statement will appear during user registration, author submission, and "

@@ -758,6 +758,30 @@
 			],
 			"defaultLocaleKey": "default.contextSettings.checklist"
 		},
+		"submissionsListSettings": {
+			"type": "array",
+			"validation": [
+				"nullable"
+			],
+			"items": {
+				"type": "string",
+				"validation": [
+					"alpha_dash"
+				]
+			}
+		},
+		"openSubmissionsInANewTab": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
+		"enableCustomSubmissionsList": {
+			"type": "boolean",
+			"validation": [
+				"nullable"
+			]
+		},
 		"submitWithCategories": {
 			"type": "boolean",
 			"default": false,

@@ -285,18 +285,26 @@ class Schema extends \PKP\core\maps\Schema
             $request = Application::get()->getRequest();
             $currentUser = $request->getUser();
             $context = $request->getContext();
+            $ask = is_null($reviewAssignment->getDateAssigned()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateAssigned()));
+            $reminded = is_null($reviewAssignment->getDateReminded()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateReminded()));
             $due = is_null($reviewAssignment->getDateDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateDue()));
             $responseDue = is_null($reviewAssignment->getDateResponseDue()) ? null : date('Y-m-d', strtotime($reviewAssignment->getDateResponseDue()));
+            $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            $fullName = $reviewer->getFullName();
 
             $reviews[] = [
                 'id' => (int) $reviewAssignment->getId(),
+                'fullName' => $fullName,
                 'isCurrentUserAssigned' => $currentUser->getId() == (int) $reviewAssignment->getReviewerId(),
                 'statusId' => (int) $reviewAssignment->getStatus(),
                 'status' => __($reviewAssignment->getStatusKey()),
+                'ask' => $ask,
+                'reminded' => $reminded,
                 'due' => $due,
                 'responseDue' => $responseDue,
                 'round' => (int) $reviewAssignment->getRound(),
                 'roundId' => (int) $reviewAssignment->getReviewRoundId(),
+                'recommendation' => $reviewAssignment->getRecommendation() ? $reviewAssignment->getLocalizedRecommendation() : NULL, 
             ];
         }
 
@@ -465,6 +473,58 @@ class Schema extends \PKP\core\maps\Schema
         }
 
         return $stages;
+    }
+
+    /**
+     * Get list of columns for submission list as a table
+     * @return array
+     * ['columnId' array [{
+     *   'name' string
+     *   'label' string translated column name
+     *   'value' string corresponding submission value
+     *   'orderBy' string corresponding to columId if orderBy by default (optionnal)
+     *   'initialOrderDirection' bool (optionnal)
+     * }],
+     * ...
+     * ]
+     */
+    static public function getPropertyColumnsName(): array
+    {
+        $columnsProperties = [ 
+            'id' => [ 'name' => 'id',
+                'label' => __('article.submissionId'),
+                'value' => 'id',
+                ],
+            'title' => [ 'name' => 'title',
+                'label' => __('common.title'),
+                'value' => 'title',
+                ],
+            'openDiscussion' => [ 'name' => 'openDiscussion',
+                'label' => __('submission.list.discussions'),
+                'value' => 'openDiscussion',
+                ],
+            'stage' => [ 'name' => 'stage',
+                'label' => __('workflow.stage'),
+                'value' => 'stage',
+                ],
+            'dateLastActivity' => [ 'name' => 'lastActivity',
+                'label' => __('common.dateModified'),
+                'value' => 'dateLastActivity',
+                'orderBy' => 'lastActivity',
+                'initialOrderDirection' => true,
+                ],
+            'dateSubmitted' => [ 'name' => 'dateSubmitted',
+                'label' => __('common.dateSubmitted'),
+                'value' => 'dateSubmitted',
+                ],
+            'participants' => [ 'name' => 'participants',
+                'label' => __('submissionGroup.assignedSubEditors'),
+                'value' => 'participants',
+                ],
+            ];
+        
+
+        return $columnsProperties;
     }
 
     protected function getUserGroup(int $userGroupId): ?UserGroup

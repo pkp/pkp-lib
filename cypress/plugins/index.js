@@ -14,14 +14,6 @@
 let shouldSkip = false;
 module.exports = ( on, config ) => {
 	on('task', {
-		resetShouldSkipFlag () {
-			shouldSkip = false;
-			return null;
-		},
-		shouldSkip ( value ) {
-			if ( value != null ) shouldSkip = value;
-			return shouldSkip;
-		},
 		failed: require('cypress-failed-log/src/failed')(),
 		consoleLog(message) {
 			console.log(message);

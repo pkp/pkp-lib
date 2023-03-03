@@ -52,6 +52,11 @@ class DAOResultFactory extends ItemIterator {
 	var $rangeInfo;
 
 	/**
+	 * @var $rowCount ?int Cached row count
+	 */
+	var $rowCount = null;
+
+	/**
 	 * Constructor.
 	 * Initialize the DAOResultFactory
 	 * @param $records object ADO record set, Generator, or Enumerable
@@ -99,7 +104,7 @@ class DAOResultFactory extends ItemIterator {
 	 */
 	function getCount() {
 		if ($this->sql === null) throw new Exception('DAOResultFactory instances cannot be counted unless supplied in constructor (DAO ' . get_class($this->dao) . ')!');
-		return $this->dao->countRecords($this->sql, $this->params);
+		return $this->rowCount ?? $this->rowCount = $this->dao->countRecords($this->sql, $this->params);
 	}
 
 	/**

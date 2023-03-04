@@ -50,6 +50,7 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\config\Config;
+use PKP\core\PKPApplication;
 use PKP\core\Registry;
 
 use PKP\db\DAORegistry;
@@ -359,7 +360,7 @@ abstract class Plugin
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
 
-        $contextId = \PKP\core\PKPApplication::CONTEXT_SITE;
+        $contextId = PKPApplication::CONTEXT_SITE;
         if (Application::isInstalled()) {
             $context = Application::get()->getRequest()->getContext();
             if ($context instanceof \PKP\context\Context) {
@@ -548,18 +549,8 @@ abstract class Plugin
      */
     public function installSiteSettings($hookName, $args)
     {
-        // All contexts are set to zero for site-wide plug-in settings
-        $application = Application::get();
-        $contextDepth = $application->getContextDepth();
-        if ($contextDepth > 0) {
-            $arguments = array_fill(0, $contextDepth, 0);
-        } else {
-            $arguments = [];
-        }
-        $arguments[] = $this->getName();
-        $arguments[] = $this->getInstallSitePluginSettingsFile();
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
-        call_user_func_array([&$pluginSettingsDao, 'installSettings'], $arguments);
+        $pluginSettingsDao->installSettings(PKPApplication::CONTEXT_SITE, $this->getName(), $this->getInstallSitePluginSettingsFile());
 
         return false;
     }

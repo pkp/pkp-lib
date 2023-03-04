@@ -72,7 +72,7 @@ abstract class PKPRouter
     //
     protected Application $_application;
     protected Dispatcher $_dispatcher;
-    protected array $_contextPaths = [];
+    protected ?string $_contextPath = null;
     public ?Context $_context = null;
     public ?PKPHandler $_handler = null;
 
@@ -150,49 +150,17 @@ abstract class PKPRouter
     }
 
     /**
-     * A generic method to return an array of context paths (e.g. a Press or a Conference/SchedConf paths)
-     *
-     * @param PKPRequest $request the request to be routed
-     *
-     * @return array of string (each element the path to one context element)
+     * A generic method to return a context path (e.g. a Press or a Journal path)
      */
-    public function getRequestedContextPaths($request)
+    public function getRequestedContextPath(PKPRequest $request): string
     {
-        $userVars = [];
-        $url = null;
-
         // Determine the context path
-        if (empty($this->_contextPaths)) {
-            $this->_contextPaths = Core::getContextPaths(
-                $_SERVER['PATH_INFO'] ?? '',
-                false,
-                Application::get()->getContextList(),
-                1,
-                $request->getUserVars()
-            );
+        if ($this->_contextPath === null) {
+            $this->_contextPath = Core::getContextPath($_SERVER['PATH_INFO'] ?? '');
 
-            Hook::call('Router::getRequestedContextPaths', [&$this->_contextPaths]);
+            Hook::call('Router::getRequestedContextPath', [&$this->_contextPath]);
         }
-        return $this->_contextPaths;
-    }
-
-    /**
-     * A generic method to return a single context path (e.g. a Press or a SchedConf path)
-     *
-     * @param PKPRequest $request the request to be routed
-     * @param int $requestedContextLevel (optional) the context level to return. DEPRECATED: Must be 1.
-     *
-     * @return string
-     */
-    public function getRequestedContextPath($request, $requestedContextLevel = 1)
-    {
-        if ($requestedContextLevel !== 1) {
-            throw new Exception('Only context level 1 is supported.');
-        }
-
-        // Return the full context, then retrieve the requested context path
-        $contextPaths = $this->getRequestedContextPaths($request);
-        return $this->_contextPaths[0];
+        return $this->_contextPath;
     }
 
     /**
@@ -423,7 +391,7 @@ abstract class PKPRouter
     public function _urlGetBaseAndContext($request, ?string $newContext = null)
     {
         // Determine URL context
-        $contextName = Application::get()->getContextList()[0];
+        $contextName = Application::get()->getContextName();
 
         if (isset($newContext)) {
             // A new context has been set so use it.
@@ -538,7 +506,7 @@ abstract class PKPRouter
         if ($contextLevel !== 1) {
             throw new Exception('Only context level 1 is supported.');
         }
-        return Application::get()->getContextList()[0];
+        return Application::get()->getContextName();
     }
 }
 

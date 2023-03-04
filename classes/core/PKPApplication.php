@@ -390,23 +390,9 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
     abstract public function getNameKey();
 
     /**
-     * Get the "context depth" of this application, i.e. the number of
-     * parts of the URL after index.php that represent the context of
-     * the current request (e.g. Journal [1], or Conference and
-     * Scheduled Conference [2]).
-     *
-     * @return int
+     * Get the name of the context for this application
      */
-    abstract public function getContextDepth();
-
-    /**
-     * Get the list of the contexts available for this application
-     * i.e. the various parameters that are needed to represent the
-     * (e.g. array('journal') or array('conference', 'schedConf'))
-     *
-     * @return array
-     */
-    abstract public function getContextList();
+    abstract public function getContextName(): string;
 
     /**
      * Get the URL to the XML descriptor for the current version of this
@@ -429,7 +415,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function &getEnabledProducts($category = null, $mainContextId = null)
     {
-        $contextDepth = $this->getContextDepth();
         if (is_null($mainContextId)) {
             $request = $this->getRequest();
             $router = $request->getRouter();
@@ -444,16 +429,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             }
         }
         if (!isset($this->enabledProducts[$mainContextId])) {
-            $settingContext = [];
-            if ($contextDepth > 0) {
-                // Create the context for the setting if found
-                $settingContext[] = $mainContextId;
-                $settingContext = array_pad($settingContext, $contextDepth, 0);
-                $settingContext = array_combine($this->getContextList(), $settingContext);
-            }
-
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
-            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($settingContext);
+            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts([$this->getContextName() => $mainContextId]);
         }
 
         if (is_null($category)) {

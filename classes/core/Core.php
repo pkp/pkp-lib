@@ -23,7 +23,6 @@ namespace PKP\core;
 define('PKP_LIB_PATH', 'lib/pkp');
 define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/counterBots/generated/COUNTER_Robots_list.txt');
 
-use APP\core\Application;
 use Illuminate\Support\Str;
 use PKP\cache\CacheManager;
 use PKP\config\Config;
@@ -140,31 +139,15 @@ class Core
     }
 
     /**
-     * Get context paths present into the passed
+     * Get context path present into the passed
      * url information.
      *
      * @param string $urlInfo Full url or just path info.
-     * @param bool $isPathInfo Whether the
-     * passed url info string is a path info or not.
-     * @param array $contextList (optional)
-     * @param int $contextDepth (optional) Deprecated; must be 1
-     * @param array $userVars (optional) Pass GET variables
-     * if needed (for testing only).
-     *
-     * @return array
      */
-    public static function getContextPaths(string $urlInfo, bool $isPathInfo, ?array $contextList = null, int $contextDepth = 1, array $userVars = [])
+    public static function getContextPath(string $urlInfo): string
     {
-        $application = Application::get();
-
         $contextPaths = explode('/', trim($urlInfo, '/'), 2);
-        // Remove the part of the path info that is not relevant for context (if present)
-        unset($contextPaths[$contextDepth]);
-
-        // Canonicalize and clean context paths
-        $contextPaths[0] = Core::cleanFileVar($contextPaths[0] ?: 'index');
-
-        return $contextPaths;
+        return self::cleanFileVar($contextPaths[0] ?: 'index');
     }
 
     /**
@@ -481,7 +464,6 @@ class Core
         if ($varName == 'path') {
             $isArrayComponent = true;
         }
-        $application = Application::get();
 
         $vars = explode('/', trim($urlInfo ?? '', '/'));
         if (count($vars) > $offset + 1) {

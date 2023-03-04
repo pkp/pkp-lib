@@ -192,17 +192,7 @@ class PKPPageRouter extends PKPRouter
                 // A non-installation page was called although
                 // the system is not yet installed. Redirect to
                 // the installation page.
-                $redirectMethod = [$request, 'redirect'];
-
-                // The correct redirection for the installer page
-                // depends on the context depth of this application.
-                $application = $this->getApplication();
-                $contextDepth = $application->getContextDepth();
-                // The context will be filled with all nulls
-                $redirectArguments = array_pad(['install'], - $contextDepth - 1, null);
-
-                // Call request's redirect method
-                call_user_func_array($redirectMethod, $redirectArguments);
+                $request->redirect('index', 'install', 'install');
             }
         }
 

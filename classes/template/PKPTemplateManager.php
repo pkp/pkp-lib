@@ -1741,7 +1741,7 @@ class PKPTemplateManager extends Smarty
             // from the parameters array. Variables remaining in params will be
             // passed along to Request::url as extra parameters.
             $application = Application::get();
-            $contextName = $application->getContextList()[0];
+            $contextName = $application->getContextName();
             if (isset($parameters[$contextName])) {
                 $context = $parameters[$contextName];
                 unset($parameters[$contextName]);

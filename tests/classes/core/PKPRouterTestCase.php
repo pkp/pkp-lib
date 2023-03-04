@@ -97,20 +97,19 @@ class PKPRouterTestCase extends PKPTestCase
     }
 
     /**
-     * @covers PKPRouter::getRequestedContextPaths
+     * @covers PKPRouter::getRequestedContextPath
      */
     public function testGetRequestedContextPathWithEmptyPathInfo()
     {
         $this->_setUpMockEnvironment();
         $_SERVER['PATH_INFO'] = null;
         self::assertEquals(
-            ['index'],
-            $this->router->getRequestedContextPaths($this->request)
+            'index',
+            $this->router->getRequestedContextPath($this->request)
         );
     }
 
     /**
-     * @covers PKPRouter::getRequestedContextPaths
      * @covers PKPRouter::getRequestedContextPath
      */
     public function testGetRequestedContextPathWithFullPathInfo()
@@ -119,29 +118,25 @@ class PKPRouterTestCase extends PKPTestCase
         Hook::resetCalledHooks(true);
         $_SERVER['PATH_INFO'] = '/context1/other/path/vars';
         self::assertEquals(
-            ['context1'],
-            $this->router->getRequestedContextPaths($this->request)
-        );
-        self::assertEquals(
             'context1',
-            $this->router->getRequestedContextPath($this->request, 1)
+            $this->router->getRequestedContextPath($this->request)
         );
         self::assertEquals(
-            [['Router::getRequestedContextPaths', [['context1']]]],
+            [['Router::getRequestedContextPath', ['context1']]],
             Hook::getCalledHooks()
         );
     }
 
     /**
-     * @covers PKPRouter::getRequestedContextPaths
+     * @covers PKPRouter::getRequestedContextPath
      */
     public function testGetRequestedContextPathWithInvalidPathInfo()
     {
         $this->_setUpMockEnvironment();
         $_SERVER['PATH_INFO'] = '/context:?#/';
         self::assertEquals(
-            ['context'],
-            $this->router->getRequestedContextPaths($this->request)
+            'context',
+            $this->router->getRequestedContextPath($this->request)
         );
     }
 
@@ -154,7 +149,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetContext()
     {
         // We use a 1-level context
-        $this->_setUpMockEnvironment(1, ['someContext']);
+        $this->_setUpMockEnvironment('someContext');
         $_SERVER['PATH_INFO'] = '/contextPath';
 
         // Simulate a context DAO
@@ -189,7 +184,7 @@ class PKPRouterTestCase extends PKPTestCase
     public function testGetContextForIndex()
     {
         // We use a 1-level context
-        $this->_setUpMockEnvironment(1, ['someContext']);
+        $this->_setUpMockEnvironment('someContext');
         $_SERVER['PATH_INFO'] = '/';
 
         $result = $this->router->getContext($this->request, 1);
@@ -254,30 +249,21 @@ class PKPRouterTestCase extends PKPTestCase
      * Set's up a mock environment for router tests (PKPApplication,
      * PKPRequest) with customizable contexts and path info flag.
      *
-     * @param int $contextDepth
-     * @param array $contextList
      *
      * @return unknown
      */
-    protected function _setUpMockEnvironment(
-        $contextDepth = 1,
-        $contextList = ['firstContext']
-    ) {
+    protected function _setUpMockEnvironment(string $contextName = 'firstContext')
+    {
         // Mock application object without calling its constructor.
         /** @var Application|MockObject */
         $mockApplication = $this->getMockBuilder(Application::class)
-            ->onlyMethods(['getContextDepth', 'getContextList'])
+            ->onlyMethods(['getContextName'])
             ->getMock();
 
-        // Set up the getContextDepth() method
+        // Set up the getContextName() method
         $mockApplication->expects($this->any())
-            ->method('getContextDepth')
-            ->will($this->returnValue($contextDepth));
-
-        // Set up the getContextList() method
-        $mockApplication->expects($this->any())
-            ->method('getContextList')
-            ->will($this->returnValue($contextList));
+            ->method('getContextName')
+            ->will($this->returnValue($contextName));
 
         $this->router->setApplication($mockApplication);
         Registry::set('application', $mockApplication);

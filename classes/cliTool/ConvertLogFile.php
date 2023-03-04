@@ -433,8 +433,8 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
     {
         $contextPaths = [];
         $application = Application::get();
-        $contextList = $application->getContextList();
-        $contextDepth = $application->getContextDepth();
+        $contextList = $application->getContextName();
+        $contextDepth = 1; // Was $application->getContextDepth();
 
         if ($isPathInfo) {
             // Split the path info into its constituents. Save all non-context
@@ -509,7 +509,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
         }
         if ($isPathInfo) {
             $application = Application::get();
-            $contextDepth = $application->getContextDepth();
+            $contextDepth = 1; // Was $application->getContextDepth();
 
             $vars = explode('/', trim($urlInfo, '/'));
             if (count($vars) > $contextDepth + $offset) {

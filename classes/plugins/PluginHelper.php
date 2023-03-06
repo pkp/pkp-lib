@@ -210,74 +210,79 @@ class PluginHelper
      *
      * @param string $category
      * @param string $plugin
-     * @param string $path path to plugin Directory
+     * @param string $path path to plugin archive
+     * @param string $originalFileName Original filename of plugin archive
      *
      * @return Version
      */
-    public function upgradePlugin($category, $plugin, $path)
+    public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName): Version
     {
         $fileManager = new FileManager();
+        $sourcePath = $this->extractPlugin($path, $originalFileName);
+        try {
+            $versionFile = $sourcePath . self::PLUGIN_VERSION_FILE;
+            $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
-        $versionFile = $path . '/' . self::PLUGIN_VERSION_FILE;
-        $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
-
-        // Check whether the uploaded plug-in fits the original plug-in.
-        if ('plugins.' . $category != $pluginVersion->getProductType()) {
-            throw new Exception(__('manager.plugins.wrongCategory'));
-        }
-
-        if ($plugin != $pluginVersion->getProduct()) {
-            throw new Exception(__('manager.plugins.wrongName'));
-        }
-
-        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-        $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
-        if (!$installedPlugin) {
-            throw new Exception(__('manager.plugins.pleaseInstall'));
-        }
-
-        if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
-            throw new Exception(__('manager.plugins.installedVersionNewer'));
-        }
-
-        $pluginDest = Core::getBaseDir() . '/plugins/' . $category . '/' . $plugin;
-
-        // Delete existing files.
-        if (is_dir($pluginDest)) {
-            $fileManager->rmtree($pluginDest);
-        }
-
-        // Check whether deleting has worked.
-        if (is_dir($pluginDest)) {
-            throw new Exception(__('manager.plugins.deleteError', ['pluginName' => $pluginVersion->getProduct()]));
-        }
-
-        // Copy the plug-in from the temporary folder to the target folder.
-        if (!$fileManager->copyDir($path, $pluginDest)) {
-            throw new Exception('Could not copy plugin to desination!');
-        }
-        if (!$fileManager->rmtree($path)) {
-            throw new Exception('Could not remove temporary plugin path!');
-        }
-
-        $upgradeFile = $pluginDest . '/' . self::PLUGIN_UPGRADE_FILE;
-        if ($fileManager->fileExists($upgradeFile)) {
-            $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
-            $site = $siteDao->getSite();
-            $params = $this->_getConnectionParams();
-            $params['locale'] = $site->getPrimaryLocale();
-            $params['additionalLocales'] = $site->getSupportedLocales();
-            $installer = new Upgrade($params, $upgradeFile, true);
-
-            if (!$installer->execute()) {
-                throw new Exception(__('manager.plugins.upgradeFailed', ['errorString' => $installer->getErrorString()]));
+            // Check whether the uploaded plug-in fits the original plug-in.
+            if ("plugins.{$category}" !== $pluginVersion->getProductType()) {
+                throw new Exception(__('manager.plugins.wrongCategory'));
             }
-        }
 
-        $installedPlugin->setCurrent(0);
-        $pluginVersion->setCurrent(1);
-        $versionDao->insertVersion($pluginVersion, true);
-        return $pluginVersion;
+            if ($plugin !== $pluginVersion->getProduct()) {
+                throw new Exception(__('manager.plugins.wrongName'));
+            }
+
+            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
+            if (!$installedPlugin) {
+                throw new Exception(__('manager.plugins.pleaseInstall'));
+            }
+
+            if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
+                throw new Exception(__('manager.plugins.installedVersionNewer'));
+            }
+
+            $destinyPath = Core::getBaseDir() . "/plugins/{$category}/{$plugin}";
+
+            // Delete existing files.
+            $fileManager->rmtree($destinyPath);
+
+            // Check whether deleting has worked.
+            if (is_dir($destinyPath)) {
+                throw new Exception(__('manager.plugins.deleteError', ['pluginName' => $pluginVersion->getProduct()]));
+            }
+
+            // Copy the plug-in from the temporary folder to the target folder.
+            if (!$fileManager->copyDir($sourcePath, $destinyPath)) {
+                throw new Exception('Could not copy plugin to destination!');
+            }
+
+            try {
+                $upgradeFile = "{$destinyPath}/" . self::PLUGIN_UPGRADE_FILE;
+                if ($fileManager->fileExists($upgradeFile)) {
+                    $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+                    $site = $siteDao->getSite();
+                    $params = $this->_getConnectionParams();
+                    $params['locale'] = $site->getPrimaryLocale();
+                    $params['additionalLocales'] = $site->getSupportedLocales();
+                    $installer = new Upgrade($params, $upgradeFile, true);
+
+                    if (!$installer->execute()) {
+                        throw new Exception(__('manager.plugins.upgradeFailed', ['errorString' => $installer->getErrorString()]));
+                    }
+                }
+
+                $pluginVersion->setCurrent(1);
+                $versionDao->insertVersion($pluginVersion, true);
+                return $pluginVersion;
+            } catch (Throwable $e) {
+                // Delete the plugin files on failure
+                $fileManager->rmtree($destinyPath);
+                throw $e;
+            }
+        } finally {
+            $fileManager->rmtree($sourcePath);
+        }
     }
 
     /**

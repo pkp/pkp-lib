@@ -18,9 +18,10 @@ namespace PKP\plugins;
 use APP\install\Install;
 use APP\install\Upgrade;
 use Exception;
+use FilesystemIterator;
+use PharData;
 use PKP\config\Config;
 use PKP\core\Core;
-use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\site\Version;
@@ -43,51 +44,63 @@ class PluginHelper
      * @param string $filePath Full path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
      *
-     * @return string Extracted plugin path
+     * @return string Directory where the plugin was extracted
      */
-    public function extractPlugin($filePath, $originalFileName)
+    private function extractPlugin(string $filePath, string $originalFileName): string
     {
+        // A permissive extension might be returned (e.g. 1.2.3.tar.gz)
+        $getExtension = fn (string $path) => explode('.', basename($path), 2)[1] ?? '';
+        // Drops risky characters
+        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
+
+        $extension = $sanitize($getExtension($originalFileName));
+        $baseName = $sanitize(basename($originalFileName, ".{$extension}")) ?: 'plugin';
         $fileManager = new FileManager();
-        // tar archive basename (less potential version number) must
-        // equal plugin directory name and plugin files must be in a
-        // directory named after the plug-in (potentially with version)
-        $matches = [];
-        PKPString::regexp_match_get('/^[a-zA-Z0-9]+/', basename($originalFileName, '.tar.gz'), $matches);
-        $pluginShortName = array_pop($matches);
-        if (!$pluginShortName) {
+
+        // If the extension doesn't match, copy the file to another location to avoid issues with the PharData class
+        $filePathWithExtension = null;
+        if ($getExtension($filePath) !== $extension) {
+            $filePathWithExtension = ($this->getTemporaryFile($baseName, ".{$extension}"))->getPathname();
+            if (!$fileManager->copyFile($filePath, $filePathWithExtension)) {
+                throw new Exception('Failed to copy file');
+            }
+        }
+        $extractPath = null;
+        try {
+            // Create a random directory to avoid symlink attacks.
+            $extractPath = rtrim(sys_get_temp_dir(), '\\/') . "/{$baseName}" . substr(md5(mt_rand()), 0, 10) . '/';
+            if (!$fileManager->mkdir($extractPath)) {
+                throw new Exception("Could not create directory {$extractPath}");
+            }
+
+            $tarball = new PharData($filePathWithExtension ?? $filePath);
+            $tarball->extractTo($extractPath, null, true);
+
+            // Look for the plugin's version.xml file
+            if (is_file($extractPath . static::PLUGIN_VERSION_FILE)) {
+                return $extractPath;
+            }
+
+            foreach (new FilesystemIterator($extractPath) as $item) {
+                if ($item->isDir() && is_file("{$item}/" . static::PLUGIN_VERSION_FILE)) {
+                    return "{$item}/";
+                }
+            }
+
+            // Could not match the plugin archive's contents against our expectations
             throw new Exception(__('manager.plugins.invalidPluginArchive'));
+        } catch (Throwable $e) {
+            // Cleanup the extracted folder on failure
+            if ($extractPath) {
+                $fileManager->rmtree($extractPath);
+            }
+            throw $e;
+        } finally {
+            // Cleanup the temporary packed plugin file if it exists
+            if ($filePathWithExtension) {
+                unlink($filePathWithExtension);
+            }
         }
-
-        // Create random dirname to avoid symlink attacks.
-        $pluginExtractDir = dirname($filePath) . "/{$pluginShortName}" . substr(md5(mt_rand()), 0, 10);
-        if (!mkdir($pluginExtractDir)) {
-            throw new Exception('Could not create directory ' . $pluginExtractDir);
-        }
-
-        $tarball = new \PharData($filePath);
-        $tarball->extractTo($pluginExtractDir, null, true);
-
-        // Look for a directory named after the plug-in's short
-        // (alphanumeric) name within the extracted archive.
-        if (is_dir($tryDir = $pluginExtractDir . '/' . $pluginShortName)) {
-            return $tryDir; // Success
-        }
-
-        // Failing that, look for a directory named after the
-        // archive. (Typically also contains the version number
-        // e.g. with github generated release archives.)
-        PKPString::regexp_match_get('/^[a-zA-Z0-9.-]+/', basename($originalFileName, '.tar.gz'), $matches);
-        if (is_dir($tryDir = $pluginExtractDir . '/' . array_pop($matches))) {
-            // We found a directory named after the archive
-            // within the extracted archive. (Typically also
-            // contains the version number, e.g. github
-            // generated release archives.)
-            return $tryDir;
-        }
-
-        // Could not match the plugin archive's contents against our expectations; error out.
-        $fileManager->rmtree($pluginExtractDir);
-        throw new Exception(__('manager.plugins.invalidPluginArchive'));
     }
 
     /**

@@ -19,9 +19,9 @@
 namespace PKP\tests\classes\security\authorization;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
-use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\handler\PKPHandler;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -129,7 +129,7 @@ abstract class PolicyTestCase extends PKPTestCase
         $this->setContextObjects($context);
 
         // Mock a router.
-        $router = $this->getMockBuilder(PKPRouter::class)
+        $router = $this->getMockBuilder(PageRouter::class)
             ->onlyMethods(['getHandler', 'getContext'])
             ->addMethods(['getRequestedOp'])
             ->getMock();

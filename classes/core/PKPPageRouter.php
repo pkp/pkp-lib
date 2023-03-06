@@ -192,7 +192,7 @@ class PKPPageRouter extends PKPRouter
                 // A non-installation page was called although
                 // the system is not yet installed. Redirect to
                 // the installation page.
-                $request->redirect('index', 'install', 'install');
+                $request->redirect('index', 'install');
             }
         }
 

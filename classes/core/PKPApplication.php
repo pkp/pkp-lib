@@ -413,7 +413,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return array
      */
-    public function &getEnabledProducts($category = null, $mainContextId = null)
+    public function getEnabledProducts($category = null, $mainContextId = null)
     {
         if (is_null($mainContextId)) {
             $request = $this->getRequest();
@@ -430,7 +430,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         }
         if (!isset($this->enabledProducts[$mainContextId])) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
-            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts([$this->getContextName() => $mainContextId]);
+            $this->enabledProducts[$mainContextId] = $versionDao->getCurrentProducts($mainContextId);
         }
 
         if (is_null($category)) {
@@ -438,8 +438,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
         } elseif (isset($this->enabledProducts[$mainContextId][$category])) {
             return $this->enabledProducts[$mainContextId][$category];
         } else {
-            $returner = [];
-            return $returner;
+            return [];
         }
     }
 
@@ -457,7 +456,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      */
     public function &getCurrentVersion()
     {
-        $currentVersion = & $this->getEnabledProducts('core');
+        $currentVersion = $this->getEnabledProducts('core');
         assert(count($currentVersion)) == 1;
         return $currentVersion[$this->getName()];
     }

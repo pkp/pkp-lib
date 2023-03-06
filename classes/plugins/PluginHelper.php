@@ -16,7 +16,6 @@
 namespace PKP\plugins;
 
 use APP\install\Install;
-
 use APP\install\Upgrade;
 use Exception;
 use PKP\config\Config;
@@ -24,9 +23,10 @@ use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
-
 use PKP\site\Version;
 use PKP\site\VersionCheck;
+use SplFileObject;
+use Throwable;
 
 class PluginHelper
 {
@@ -260,6 +260,26 @@ class PluginHelper
         $pluginVersion->setCurrent(1);
         $versionDao->insertVersion($pluginVersion, true);
         return $pluginVersion;
+    }
+
+    /**
+     * Attempts to create a locked and writable temporary file
+     * The prefix/suffix will receive a minor sanitization
+     */
+    public static function getTemporaryFile(string $prefix = '', string $suffix = ''): SplFileObject
+    {
+        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
+        $basePath = rtrim(sys_get_temp_dir(), '\\/') . "/";
+        for ($attempts = 10; $attempts--; ) {
+            try {
+                $file = new SplFileObject($basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix), 'x+');
+                $file->flock(LOCK_EX);
+                return $file;
+            } catch (Throwable $e) {
+                error_log($e);
+            }
+        }
+        throw new Exception('Failed to create temporary file');
     }
 }
 

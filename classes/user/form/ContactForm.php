@@ -40,9 +40,14 @@ class ContactForm extends BaseProfileForm
             'email',
             'required',
             'user.register.form.emailExists',
-            fn ($email, $userId) => !($user = Repo::user()->getByEmail($email, true)) || $user->getId() != $userId,
-            [$user->getId()],
-            true
+            function(string $email, int $userId) {
+                if ( $user = Repo::user()->getByEmail($email, true) ) {
+                    return (int)$user->getId() === $userId;
+                }
+                
+                return true;
+            },
+            [(int)$user->getId()]
         ));
     }
 

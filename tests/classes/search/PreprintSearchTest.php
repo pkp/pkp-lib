@@ -18,11 +18,11 @@
 namespace APP\tests\classes\search;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\search\PreprintSearch;
 use APP\search\PreprintSearchDAO;
 use APP\server\Server;
 use APP\server\ServerDAO;
-use PKP\core\PKPRouter;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
 use PKP\tests\PKPTestCase;
@@ -58,7 +58,7 @@ class PreprintSearchTest extends PKPTestCase
 
         $request = Application::get()->getRequest();
         if (is_null($request->getRouter())) {
-            $router = new PKPRouter();
+            $router = new PageRouter();
             $request->setRouter($router);
         }
     }
@@ -198,7 +198,7 @@ class PreprintSearchTest extends PKPTestCase
     private function registerMockPreprintSearchDAO()
     {
         // Mock an PreprintSearchDAO.
-        $preprintSearchDAO = $this->getMockBuilder(PreprintSearchDAO::class)
+        $preprintSearchDao = $this->getMockBuilder(PreprintSearchDAO::class)
             ->onlyMethods(['getPhraseResults'])
             ->getMock();
 
@@ -212,12 +212,12 @@ class PreprintSearchTest extends PKPTestCase
         ];
 
         // Mock the getPhraseResults() method.
-        $preprintSearchDAO->expects($this->any())
+        $preprintSearchDao->expects($this->any())
             ->method('getPhraseResults')
             ->will($this->returnValue($searchResult));
 
         // Register the mock DAO.
-        DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDAO);
+        DAORegistry::registerDAO('PreprintSearchDAO', $preprintSearchDao);
     }
 
     /**
@@ -227,7 +227,7 @@ class PreprintSearchTest extends PKPTestCase
     private function registerMockServerDAO()
     {
         // Mock a ServerDAO.
-        $serverDAO = $this->getMockBuilder(ServerDAO::class)
+        $serverDao = $this->getMockBuilder(ServerDAO::class)
             ->onlyMethods(['getById'])
             ->getMock();
 
@@ -236,11 +236,11 @@ class PreprintSearchTest extends PKPTestCase
         $server->setId(1);
 
         // Mock the getById() method.
-        $serverDAO->expects($this->any())
+        $serverDao->expects($this->any())
             ->method('getById')
             ->will($this->returnValue($server));
 
         // Register the mock DAO.
-        DAORegistry::registerDAO('ServerDAO', $serverDAO);
+        DAORegistry::registerDAO('ServerDAO', $serverDao);
     }
 }

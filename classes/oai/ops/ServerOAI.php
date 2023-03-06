@@ -57,16 +57,6 @@ class ServerOAI extends OAI
     }
 
     /**
-     * Return a list of ignorable GET parameters.
-     *
-     * @return array
-     */
-    public function getNonPathInfoParams()
-    {
-        return ['server', 'page'];
-    }
-
-    /**
      * Convert preprint ID to OAI identifier.
      *
      * @param int $preprintId

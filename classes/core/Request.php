@@ -19,52 +19,15 @@ namespace APP\core;
 
 use APP\server\Server;
 use PKP\core\PKPRequest;
-use PKP\plugins\Hook;
 
 class Request extends PKPRequest
 {
     /**
-     * Deprecated
-     *
-     * @see PKPPageRouter::getRequestedContextPath()
-     */
-    public function getRequestedServerPath()
-    {
-        static $server;
-
-        if (!isset($server)) {
-            $server = $this->_delegateToRouter('getRequestedContextPath', 1);
-            Hook::call('Request::getRequestedServerPath', [&$server]);
-        }
-
-        return $server;
-    }
-
-    /**
      * @see PKPPageRouter::getContext()
      */
-    public function &getServer()
+    public function getServer(): ?Server
     {
-        $returner = $this->_delegateToRouter('getContext', 1);
-        return $returner;
-    }
-
-    /**
-     * Deprecated
-     *
-     * @see PKPPageRouter::getRequestedContextPath()
-     *
-     * @param null|mixed $contextLevel
-     */
-    public function getRequestedContextPath($contextLevel = null)
-    {
-        // Emulate the old behavior of getRequestedContextPath for
-        // backwards compatibility.
-        if (is_null($contextLevel)) {
-            return $this->_delegateToRouter('getRequestedContextPaths');
-        } else {
-            return [$this->_delegateToRouter('getRequestedContextPath', $contextLevel)];
-        }
+        return $this->getContext();
     }
 
     /**
@@ -72,21 +35,9 @@ class Request extends PKPRequest
      *
      * @see PKPPageRouter::getContext()
      */
-    public function &getContext($level = 1): ?Server
+    public function getContext(): ?Server
     {
-        $returner = $this->_delegateToRouter('getContext', $level);
-        return $returner;
-    }
-
-    /**
-     * Deprecated
-     *
-     * @see PKPPageRouter::getContextByName()
-     */
-    public function &getContextByName($contextName)
-    {
-        $returner = $this->_delegateToRouter('getContextByName', $contextName);
-        return $returner;
+        return parent::getContext();
     }
 
     /**
@@ -120,15 +71,5 @@ class Request extends PKPRequest
             $anchor,
             $escape
         );
-    }
-
-    /**
-     * Deprecated
-     *
-     * @see PageRouter::redirectHome()
-     */
-    public function redirectHome()
-    {
-        return $this->_delegateToRouter('redirectHome');
     }
 }

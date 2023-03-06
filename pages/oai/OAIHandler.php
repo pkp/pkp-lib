@@ -17,12 +17,12 @@ namespace APP\pages\oai;
 
 define('SESSION_DISABLE_INIT', 1); // FIXME?
 
-use PKP\plugins\PluginRegistry;
 use APP\handler\Handler;
 use APP\oai\ops\ServerOAI;
-use PKP\config\Config;
 use Firebase\JWT\JWT;
+use PKP\config\Config;
 use PKP\oai\OAIConfig;
+use PKP\plugins\PluginRegistry;
 
 class OAIHandler extends Handler
 {
@@ -37,7 +37,7 @@ class OAIHandler extends Handler
         PluginRegistry::loadCategory('oaiMetadataFormats', true);
 
         $oai = new ServerOAI(new OAIConfig($request->url(null, 'oai'), Config::getVar('oai', 'repository_id')));
-        if (!$request->getServer() && $request->getRequestedServerPath() != 'index') {
+        if (!$request->getServer() && $request->getRouter()->getRequestedContextPath($request) != 'index') {
             $dispatcher = $request->getDispatcher();
             return $dispatcher->handle404();
         }

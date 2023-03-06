@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-02 13:56+0000\n"
+"PO-Revision-Date: 2023-03-06 23:07+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -2883,103 +2883,118 @@ msgid "emailTemplate.variable.authorsWithAffiliation"
 msgstr "Käsikirjoituksen kirjoittajien nimet ja affiliaatiot."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL-osoite sivulle, jolla käyttäjä voi palauttaa kadonneen salasanan"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"URL-osoite, jossa voi tarkastella kaikkia käyttäjälle osoitettuja "
+"käsikirjoituksia"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"URL-osoite, jonka kautta käyttäjä voi tarkastella ja muokata profiiliaan"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Tehdyn päätöksen nimi"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Kuvaus tehdystä päätöksestä"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Toimituksellisen työnkulun vaihe, jossa tämä päätös tehtiin"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Arviointikierros, jolla päätös on tehty, jos päätös liittyy "
+"arviointivaiheeseen"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Keskustelun aihe"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Uuden keskustelun tai vastauksen sisältö"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Luettelo käsikirjoituksista, joissa on keskeneräisiä tehtäviä"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Tälle toimittajalle osoitettujen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Vastaanottajan tai kaikkien vastaanottajien koko nimi"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Vastaanottajan tai kaikkien vastaanottajien käyttäjänimi"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Ajankohta, jolloin arviointi olisi saatettava päätökseen"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ajankohta, jolloin arvioijan on hyväksyttävä tai hylättävä pyyntö"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Arviointipyynnön URL-osoite"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Suositeltu päätös, kuten hyväksy käsikirjoitus"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Ajankohta, jona tämä arviointipyyntö osoitettiin"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Arvioinnin tyyppi, kuten anonyymi, kaksoisanonyymi tai avoin arviointi"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Arvioijan suositus, kuten hyväksy käsikirjoitus tai hylkää"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Arviointikierros, kuten kierros 1 tai kierros 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Arvioijan lataamat tiedostot"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Arvioijan nimi"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Tässä lehdessä käytetään kaksinkertaista anonyymia vertaisarviointia. "
+"Arvioijat eivät näe mitään tunnistetietoja sinusta tai muista "
+"kirjoittajista. Et myöskään saa tietää, kuka on arvioinut käsikirjoituksesi, "
+"etkä ole yhteydessä suoraan arvioijiin."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Tässä lehdessä käytetään anonyymia vertaisarviointia. Sinun ja muiden "
+"kirjoittajien nimet näkyvät arvioijille, mutta arvioijien henkilöllisyys "
+"säilyy tuntemattomana."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Tässä lehdessä käytetään avointa vertaisarviointia. Arvioijat näkevät nimesi "
+"ja yhteystietosi sekä muiden kirjoittajien nimet ja yhteystiedot. "
+"Vastaavasti sinä näet arvioijien nimet ja affiliaatiot."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Lähettäjän koko nimi"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Lähettäjän sähköpostiosoite"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Lähettäjän sähköpostiallekirjoitus"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Verkkosivuston ensisijaisen yhteyshenkilön koko nimi"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Verkkosivuston ensisijaisen yhteyshenkilön sähköpostiosoite"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Verkkosivuston allekirjoitus automatisoituja sähköpostiviestejä varten"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""

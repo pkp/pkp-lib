@@ -16,6 +16,7 @@
 namespace PKP\plugins;
 
 use APP\install\Install;
+
 use APP\install\Upgrade;
 use Exception;
 use FilesystemIterator;
@@ -25,8 +26,10 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
+use PKP\site\VersionDAO;
 use SplFileObject;
 use Throwable;
 
@@ -124,11 +127,11 @@ class PluginHelper
             $baseDir = Core::getBaseDir() . '/';
             $destinyPath = $baseDir . strtr($pluginVersion->getProductType(), '.', '/') . "/{$pluginVersion->getProduct()}";
 
-            if ($installedPlugin && file_exists($destinyPath)) {
+            if ($installedPlugin && is_dir($destinyPath)) {
                 throw new Exception(
-                    $this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)
+                    $installedPlugin->compare($pluginVersion) < 0
                         ? __('manager.plugins.pleaseUpgrade')
-                        : __('manager.plugins.installedVersionOlder')
+                        : __('manager.plugins.installedVersionNewest')
                 );
             }
 
@@ -168,30 +171,9 @@ class PluginHelper
     }
 
     /**
-     * Checks to see if local version of plugin is newer than installed version
-     *
-     * @param string $productType Product type of plugin
-     * @param string $productName Product name of plugin
-     * @param Version $newVersion Version object of plugin to check against database
-     *
-     * @return bool
-     */
-    protected function _checkIfNewer($productType, $productName, $newVersion)
-    {
-        $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
-        $installedPlugin = $versionDao->getCurrentVersion($productType, $productName, true);
-        if ($installedPlugin && $installedPlugin->compare($newVersion) > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
      * Load database connection parameters into an array (needed for upgrade).
-     *
-     * @return array
      */
-    protected function _getConnectionParams()
+    protected function _getConnectionParams(): array
     {
         return [
             'connectionCharset' => Config::getVar('i18n', 'connection_charset'),
@@ -238,7 +220,7 @@ class PluginHelper
                 throw new Exception(__('manager.plugins.pleaseInstall'));
             }
 
-            if ($this->_checkIfNewer($pluginVersion->getProductType(), $pluginVersion->getProduct(), $pluginVersion)) {
+            if ($installedPlugin->compare($pluginVersion) > 0) {
                 throw new Exception(__('manager.plugins.installedVersionNewer'));
             }
 

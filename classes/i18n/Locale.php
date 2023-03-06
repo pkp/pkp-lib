@@ -384,13 +384,13 @@ class Locale implements LocaleInterface
 
         $localeCodesCount = array_count_values(
             collect(array_keys($filterByLocales ?? $locales))
-                ->map(fn(string $value) => explode('_', $value)[0])
+                ->map(fn(string $value) => trim(explode('@', explode('_', $value)[0])[0]))
                 ->toArray()
         );
 
         return collect($locales)
             ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus, $omitLocaleCodeInDisplay) {
-                $localeCode = explode('_', $localeKey)[0];
+                $localeCode = trim(explode('@', explode('_', $localeKey)[0])[0]);
                 $localeDisplay = $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, $langLocaleStatus);
                 return $localeDisplay . ($omitLocaleCodeInDisplay  ? "" : " ({$localeKey})");
             })

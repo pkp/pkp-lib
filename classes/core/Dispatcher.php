@@ -158,7 +158,7 @@ class Dispatcher
         // Reload the context after generic plugins have loaded so that changes to
         // the context schema can take place
         $contextSchema = Services::get('schema')->get(PKPSchemaService::SCHEMA_CONTEXT, true);
-        $request->getRouter()->getContext($request, 1, true);
+        $request->getRouter()->getContext($request, true);
 
         $router->route($request);
     }

@@ -22,6 +22,7 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\core\Registry;
 use PKP\handler\PKPHandler;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -33,8 +34,7 @@ abstract class PolicyTestCase extends PKPTestCase
 {
     protected const ROLE_ID_TEST = 0x9999;
 
-    /** @var array of context object(s) */
-    private ?array $contextObjects = null;
+    private ?Context $contextObject = null;
 
     /** @var AuthorizationPolicy internal state variable that contains the policy that will be used to manipulate the authorization context */
     private ?AuthorizationPolicy $authorizationContextManipulationPolicy = null;
@@ -58,13 +58,11 @@ abstract class PolicyTestCase extends PKPTestCase
     }
 
     /**
-     * Set an array with context object(s).
-     *
-     * @param array $contextObjects
+     * Set a context object.
      */
-    private function setContextObjects($contextObjects)
+    private function setContextObject(?Context $contextObject)
     {
-        $this->contextObjects = $contextObjects;
+        $this->contextObject = $contextObject;
     }
 
     /**
@@ -115,23 +113,22 @@ abstract class PolicyTestCase extends PKPTestCase
      * Instantiate a mock request to the given operation.
      *
      * @param string $requestedOp the requested operation
-     * @param array $context request context object(s) to be
+     * @param $context request context object to be
      * returned by the router.
      * @param User $user a user to be put into the registry.
      *
      * @return PKPRequest
      */
-    protected function getMockRequest($requestedOp, $context = null, $user = null)
+    protected function getMockRequest($requestedOp, ?Context $context = null, $user = null)
     {
         // Mock a request to the permitted operation.
         $request = new Request();
 
-        $this->setContextObjects($context);
+        $this->setContextObject($context);
 
         // Mock a router.
         $router = $this->getMockBuilder(PageRouter::class)
-            ->onlyMethods(['getHandler', 'getContext'])
-            ->addMethods(['getRequestedOp'])
+            ->onlyMethods(['getHandler', 'getContext', 'getRequestedOp'])
             ->getMock();
 
         $router->expects($this->any())
@@ -146,7 +143,7 @@ abstract class PolicyTestCase extends PKPTestCase
         // Mock the getContext() method.
         $router->expects($this->any())
             ->method('getContext')
-            ->will($this->returnCallback([$this, 'mockGetContext']));
+            ->will($this->returnValue($context));
 
         // Put a user into the registry if one has been
         // passed in.
@@ -156,25 +153,5 @@ abstract class PolicyTestCase extends PKPTestCase
 
         $request->setRouter($router);
         return $request;
-    }
-
-    /**
-     * Callback used by PKPRouter created in
-     * getMockRequest().
-     *
-     * @see PKPRouter::getContext()
-     *
-     * @return mixed Context object or null
-     */
-    public function mockGetContext()
-    {
-        $functionArgs = func_get_args();
-        $contextLevel = $functionArgs[1];
-
-        $contextObjects = $this->getContextObjects();
-        if (!empty($contextObjects[$contextLevel - 1])) {
-            return $contextObjects[$contextLevel - 1];
-        }
-        return null;
     }
 }

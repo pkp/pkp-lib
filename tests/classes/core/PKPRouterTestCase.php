@@ -142,9 +142,6 @@ class PKPRouterTestCase extends PKPTestCase
 
     /**
      * @covers PKPRouter::getContext
-     * @covers PKPRouter::getContextByName
-     * @covers PKPRouter::_contextLevelToContextName
-     * @covers PKPRouter::_contextNameToContextLevel
      */
     public function testGetContext()
     {
@@ -168,18 +165,13 @@ class PKPRouterTestCase extends PKPTestCase
             ->method('getByPath')
             ->with('contextPath')
             ->will($this->returnValue($expectedResult));
-        $result = $this->router->getContext($this->request, 1);
+        $result = $this->router->getContext($this->request);
         self::assertInstanceOf('Context', $result);
         self::assertEquals($expectedResult, $result);
-
-        $resultByName = $this->router->getContextByName($this->request, 'someContext');
-        self::assertInstanceOf('Context', $resultByName);
-        self::assertEquals($expectedResult, $resultByName);
     }
 
     /**
      * @covers PKPRouter::getContext
-     * @covers PKPRouter::getContextByName
      */
     public function testGetContextForIndex()
     {
@@ -187,11 +179,8 @@ class PKPRouterTestCase extends PKPTestCase
         $this->_setUpMockEnvironment('someContext');
         $_SERVER['PATH_INFO'] = '/';
 
-        $result = $this->router->getContext($this->request, 1);
+        $result = $this->router->getContext($this->request);
         self::assertNull($result);
-
-        $resultByName = $this->router->getContextByName($this->request, 'someContext');
-        self::assertNull($resultByName);
     }
 
     /**
@@ -311,6 +300,7 @@ class PKPRouterTestCase extends PKPTestCase
             $firstContextInstance->expects($this->any())
                 ->method('getSetting')
                 ->will($this->returnValue(null));
+
             $mockFirstContextDao->expects($this->any())
                 ->method('getByPath')
                 ->with($firstContextPath)

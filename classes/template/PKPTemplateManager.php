@@ -1740,8 +1740,7 @@ class PKPTemplateManager extends Smarty
             // Extract the variables named in $paramList, and remove them
             // from the parameters array. Variables remaining in params will be
             // passed along to Request::url as extra parameters.
-            $application = Application::get();
-            $contextName = $application->getContextName();
+            $contextName = Application::get()->getContextName();
             if (isset($parameters[$contextName])) {
                 $context = $parameters[$contextName];
                 unset($parameters[$contextName]);
@@ -1758,10 +1757,10 @@ class PKPTemplateManager extends Smarty
         foreach ($paramList as $parameter) {
             if (isset($parameters[$parameter])) {
                 $$parameter = $parameters[$parameter];
-                unset($parameters[$parameter]);
             } else {
                 $$parameter = null;
             }
+            unset($parameters[$parameter]);
         }
 
         // Merge parameters specified in the {url paramName=paramValue} format with
@@ -1796,7 +1795,6 @@ class PKPTemplateManager extends Smarty
                 // Unknown router type
                 assert(false);
         }
-
         // Let the dispatcher create the url
         return $dispatcher->url($this->_request, $router, $context, $handler, $op, $path, $parameters, $anchor, !isset($escape) || $escape);
     }

@@ -167,17 +167,12 @@ abstract class PKPRouter
      * A Generic call to a context defining object (e.g. a Journal, Press, or Server)
      *
      * @param PKPRequest $request the request to be routed
-     * @param int $requestedContextLevel (optional) the desired context level. DEPRECATED: Must be 1.
      * @param bool $forceReload (optional) Reset a context even if it's already been loaded
      *
      * @return object
      */
-    public function &getContext($request, $requestedContextLevel = 1, $forceReload = false)
+    public function getContext($request, $forceReload = false)
     {
-        if ($requestedContextLevel !== 1) {
-            throw new Exception('Only context level 1 is supported.');
-        }
-
         if ($forceReload || !isset($this->_context)) {
             // Retrieve the requested context path (this validates the path)
             $path = $this->getRequestedContextPath($request);
@@ -186,36 +181,14 @@ abstract class PKPRouter
             if ($path == 'index') {
                 $this->_context = null;
             } else {
-                // Get the context name (this validates the context name)
-                $requestedContextName = $this->_contextLevelToContextName(1);
-
-                // Get the DAO for the requested context.
-                $contextClass = ucfirst($requestedContextName);
-                $daoName = $contextClass . 'DAO';
-                $daoInstance = DAORegistry::getDAO($daoName);
-
+                // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
+                $contextDao = DAORegistry::getDAO(ucfirst(Application::get()->getContextName()) . 'DAO');
                 // Retrieve the context from the DAO (by path)
-                $daoMethod = 'getByPath';
-                assert(method_exists($daoInstance, $daoMethod));
-                $this->_context = $daoInstance->$daoMethod($path);
+                $this->_context = $contextDao->getByPath($path);
             }
         }
 
         return $this->_context;
-    }
-
-    /**
-     * Get the object that represents the desired context (e.g. Conference or Press)
-     *
-     * @param PKPRequest $request the request to be routed
-     * @param string $requestedContextName page context
-     *
-     * @return object
-     */
-    public function getContextByName($request, $requestedContextName)
-    {
-        // Retrieve the requested context by level
-        return $this->getContext($request);
     }
 
     /**
@@ -390,16 +363,13 @@ abstract class PKPRouter
      */
     public function _urlGetBaseAndContext($request, ?string $newContext = null)
     {
-        // Determine URL context
-        $contextName = Application::get()->getContextName();
-
         if (isset($newContext)) {
             // A new context has been set so use it.
             $contextValue = rawurlencode($newContext);
         } else {
             // No new context has been set so determine
             // the current request's context
-            $contextObject = $this->getContextByName($request, $contextName);
+            $contextObject = $this->getContext($request);
             $contextValue = $contextObject?->getPath() ?? 'index';
         }
 
@@ -492,21 +462,6 @@ abstract class PKPRouter
 
         // Assemble and return the final URL
         return $baseUrl . $pathInfo . $queryParameters . $anchor;
-    }
-
-    /**
-     * Convert a context level to its corresponding context name.
-     *
-     * @param int $contextLevel DEPRECATED: Must be 1.
-     *
-     * @return string context name
-     */
-    public function _contextLevelToContextName($contextLevel = 1)
-    {
-        if ($contextLevel !== 1) {
-            throw new Exception('Only context level 1 is supported.');
-        }
-        return Application::get()->getContextName();
     }
 }
 

@@ -164,7 +164,7 @@ class Repository
     }
 
     /**
-     * Check i the section has any submissions assigned to it.
+     * Check if the section has any submissions assigned to it.
      */
     public function isEmpty(int $sectionId, int $contextId): bool
     {
@@ -172,7 +172,7 @@ class Repository
             ->getCollector()
             ->filterByContextIds([$contextId])
             ->filterBySectionIds([$sectionId])
-            ->getCount() > 0;
+            ->getCount() === 0;
     }
 
     /**

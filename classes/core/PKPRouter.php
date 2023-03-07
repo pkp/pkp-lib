@@ -178,13 +178,19 @@ abstract class PKPRouter
             $path = $this->getRequestedContextPath($request);
 
             // Resolve the path to the context
-            if ($path == 'index') {
+            if ($path === 'index' || $path === '' || $path === Application::CONTEXT_ID_ALL) {
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
                 $contextDao = DAORegistry::getDAO(ucfirst(Application::get()->getContextName()) . 'DAO');
+
                 // Retrieve the context from the DAO (by path)
                 $this->_context = $contextDao->getByPath($path);
+
+                // If the context couldn't be retrieved, it's a 404 error.
+                if (!$this->_context) {
+                    $this->getDispatcher()?->handle404();
+                }
             }
         }
 

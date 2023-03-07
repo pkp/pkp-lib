@@ -113,7 +113,7 @@ class FileCache extends GenericCache
         ) !== false) {
             $umask = Config::getVar('files', 'umask');
             if ($umask) {
-                chmod($this->filename, FileManager::FILE_MODE_MASK & ~$umask);
+                @chmod($this->filename, FileManager::FILE_MODE_MASK & ~$umask);
             }
         }
         $this->cache = $contents;

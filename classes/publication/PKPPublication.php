@@ -21,7 +21,6 @@ use PKP\core\Core;
 
 use PKP\core\PKPString;
 use PKP\facades\Locale;
-use Illuminate\Support\LazyCollection;
 
 class PKPPublication extends \PKP\core\DataObject
 {
@@ -91,6 +90,7 @@ class PKPPublication extends \PKP\core\DataObject
      * Return the combined prefix, title and subtitle for all locales
      *
      * @param  string $format Define the return data format as text or html
+     *
      * @return array
      */
     public function getFullTitles(string $format = 'text')
@@ -153,7 +153,7 @@ class PKPPublication extends \PKP\core\DataObject
     {
         $subTitle = $this->getLocalizedData('subtitle', $preferredLocale);
 
-        if($subTitle) {
+        if ($subTitle) {
             return strtolower($format) === 'text' ? strip_tags($subTitle) : $subTitle;
         }
 
@@ -164,6 +164,7 @@ class PKPPublication extends \PKP\core\DataObject
      * Return the combined title and prefix for all locales
      *
      * @param  string $format Define the return data format as text or html
+     *
      * @return array
      */
     public function getTitles(string $format = 'text')
@@ -183,6 +184,7 @@ class PKPPublication extends \PKP\core\DataObject
      * Return all the sub titles
      *
      * @param  string $format Define the return data format as text or html
+     *
      * @return array
      */
     public function getSubTitles(string $format = 'text')
@@ -366,7 +368,7 @@ class PKPPublication extends \PKP\core\DataObject
      */
     public function getPageArray()
     {
-        $pages = $this->getData('pages');
+        $pages = $this->getData('pages') ?? '';
         // Strip any leading word
         if (preg_match('/^[[:alpha:]]+\W/', $pages)) {
             // but don't strip a leading roman numeral

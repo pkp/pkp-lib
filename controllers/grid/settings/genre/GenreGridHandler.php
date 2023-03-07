@@ -23,6 +23,7 @@ use PKP\controllers\grid\settings\genre\form\GenreForm;
 use PKP\controllers\grid\settings\SetupGridHandler;
 use PKP\core\JSONMessage;
 use PKP\core\PKPRequest;
+use PKP\db\DAO;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
@@ -210,19 +211,16 @@ class GenreGridHandler extends SetupGridHandler
     public function updateGenre($args, $request)
     {
         $genreId = isset($args['genreId']) ? (int) $args['genreId'] : null;
-        $context = $request->getContext();
 
         $genreForm = new GenreForm($genreId);
         $genreForm->readInputData();
 
-        $router = $request->getRouter();
-
         if ($genreForm->validate()) {
             $genreForm->execute();
-            return \PKP\db\DAO::getDataChangedEvent($genreForm->getGenreId());
-        } else {
-            return new JSONMessage(false);
+            return DAO::getDataChangedEvent($genreForm->getGenreId());
         }
+
+        return new JSONMessage(false);
     }
 
     /**
@@ -259,7 +257,7 @@ class GenreGridHandler extends SetupGridHandler
         }
 
         $genreDao->deleteObject($genre);
-        return \PKP\db\DAO::getDataChangedEvent($genre->getId());
+        return DAO::getDataChangedEvent($genre->getId());
     }
 
     /**
@@ -281,6 +279,6 @@ class GenreGridHandler extends SetupGridHandler
         $context = $request->getContext();
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         $genreDao->installDefaults($context->getId(), $context->getSupportedFormLocales());
-        return \PKP\db\DAO::getDataChangedEvent();
+        return DAO::getDataChangedEvent();
     }
 }

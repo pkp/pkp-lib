@@ -23,8 +23,8 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // Files associated with submission. Includes submission files, etc.
         Schema::create('submission_files', function (Blueprint $table) {
+            $table->comment('All files associated with a submission, such as those uploaded during submission, as revisions, or by copyeditors or layout editors for production.');
             $table->bigIncrements('submission_file_id');
 
             $table->bigInteger('submission_id');
@@ -64,8 +64,8 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
             $table->index(['source_submission_file_id'], 'submission_files_source_submission_file_id');
         });
 
-        // Article supplementary file metadata.
         Schema::create('submission_file_settings', function (Blueprint $table) {
+            $table->comment('Localized data about submission files like published metadata.');
             $table->foreignId('submission_file_id');
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'submission_file_settings_submission_file_id');
@@ -80,6 +80,7 @@ class SubmissionFilesMigration extends \PKP\migration\Migration
 
         // Submission file revisions
         Schema::create('submission_file_revisions', function (Blueprint $table) {
+            $table->comment('Revisions map submission_file entries to files on the data store.');
             $table->bigIncrements('revision_id');
 
             $table->bigInteger('submission_file_id')->unsigned();

@@ -24,6 +24,7 @@ class JobsMigration extends \PKP\migration\Migration
     public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
+            $table->comment('All pending or in-progress jobs.');
             $table->bigIncrements('id');
             $table->string('queue');
             $table->longText('payload');

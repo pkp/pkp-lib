@@ -25,6 +25,7 @@ class ScheduledTasksMigration extends \PKP\migration\Migration
     {
         // The last run times of all scheduled tasks.
         Schema::create('scheduled_tasks', function (Blueprint $table) {
+            $table->comment('The last time each scheduled task was run.');
             $table->string('class_name', 255);
             $table->datetime('last_run')->nullable();
             $table->unique(['class_name'], 'scheduled_tasks_pkey');

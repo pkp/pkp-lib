@@ -41,6 +41,7 @@ class ReviewsMigration extends \PKP\migration\Migration
 
         // Reviewing assignments.
         Schema::create('review_assignments', function (Blueprint $table) {
+            $table->comment('Data about peer review assignments for all submissions.');
             $table->bigInteger('review_id')->autoIncrement();
 
             $table->bigInteger('submission_id');

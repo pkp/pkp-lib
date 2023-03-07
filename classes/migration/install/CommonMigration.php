@@ -24,8 +24,8 @@ class CommonMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // Describes the installation and upgrade version history for the application and all installed plugins.
         Schema::create('versions', function (Blueprint $table) {
+            $table->comment('Describes the installation and upgrade version history for the application and all installed plugins.');
             $table->integer('major')->default(0)->comment('Major component of version number, e.g. the 2 in OJS 2.3.8-0');
             $table->integer('minor')->default(0)->comment('Minor component of version number, e.g. the 3 in OJS 2.3.8-0');
             $table->integer('revision')->default(0)->comment('Revision component of version number, e.g. the 8 in OJS 2.3.8-0');
@@ -58,8 +58,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['setting_name', 'locale'], 'site_settings_pkey');
         });
 
-        // User authentication credentials and profile data.
         Schema::create('users', function (Blueprint $table) {
+            $table->comment('All registered users, including authentication data and profile data.');
             $table->bigInteger('user_id')->autoIncrement();
             $table->string('username', 32);
             $table->string('password', 255);
@@ -96,8 +96,8 @@ class CommonMigration extends \PKP\migration\Migration
                 break;
         }
 
-        // Locale-specific user data
         Schema::create('user_settings', function (Blueprint $table) {
+            $table->comment('Localized data about users, like their name and affiliation.');
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_settings_user_id');
@@ -110,8 +110,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
 
-        // Browser/user sessions and session data.
         Schema::create('sessions', function (Blueprint $table) {
+            $table->comment('Session data for logged-in users.');
             $table->string('session_id', 128);
 
             $table->bigInteger('user_id')->nullable();
@@ -129,8 +129,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['session_id'], 'sessions_pkey');
         });
 
-        // Access keys are used to provide pseudo-login functionality for security-minimal tasks. Passkeys can be emailed directly to users, who can use them for a limited time in lieu of standard username and password.
         Schema::create('access_keys', function (Blueprint $table) {
+            $table->comment('Access keys are used to provide pseudo-login functionality for security-minimal tasks. Passkeys can be emailed directly to users, who can use them for a limited time in lieu of standard username and password.');
             $table->bigInteger('access_key_id')->autoIncrement();
             $table->string('context', 40);
             $table->string('key_hash', 40);
@@ -144,8 +144,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->index(['key_hash', 'user_id', 'context'], 'access_keys_hash');
         });
 
-        // Stores notifications for users as created by the system after certain operations.
         Schema::create('notifications', function (Blueprint $table) {
+            $table->comment('User notifications created during certain operations.');
             $table->bigInteger('notification_id')->autoIncrement();
             $table->bigInteger('context_id');
             $table->bigInteger('user_id')->nullable();
@@ -175,8 +175,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
         });
 
-        // Stores user preferences on what notifications should be blocked and/or emailed to them
         Schema::create('notification_subscription_settings', function (Blueprint $table) {
+            $table->comment('Which email notifications a user has chosen to unsubscribe from.');
             $table->bigInteger('setting_id')->autoIncrement();
             $table->string('setting_name', 64);
             $table->mediumText('setting_value');
@@ -193,8 +193,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
         });
 
-        // Default data for email templates.
         Schema::create('email_templates_default_data', function (Blueprint $table) {
+            $table->comment('Default email templates created for every installed locale.');
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->string('locale', 14)->default('en');
             $table->string('name', 255);
@@ -203,8 +203,8 @@ class CommonMigration extends \PKP\migration\Migration
             $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
         });
 
-        // Templates for emails.
         Schema::create('email_templates', function (Blueprint $table) {
+            $table->comment('Custom email templates created by each context, and overrides of the default templates.');
             $table->bigInteger('email_id')->autoIncrement();
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
 
@@ -220,6 +220,7 @@ class CommonMigration extends \PKP\migration\Migration
         });
 
         Schema::create('email_templates_settings', function (Blueprint $table) {
+            $table->comment('Localized data about custom email templates, such as the subject and body.');
             $table->bigInteger('email_id');
             $table->foreign('email_id', 'email_templates_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
             $table->index(['email_id'], 'email_templates_settings_email_id');

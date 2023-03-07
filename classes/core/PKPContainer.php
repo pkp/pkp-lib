@@ -232,8 +232,7 @@ class PKPContainer extends Container
             'encryption' => Config::getVar('email', 'smtp_auth'),
             'username' => Config::getVar('email', 'smtp_username'),
             'password' => Config::getVar('email', 'smtp_password'),
-            'timeout' => null,
-            'auth_mode' => null,
+            'verify_peer' => !Config::getVar('email', 'smtp_suppress_cert_check'),
         ];
         $items['mail']['mailers']['log'] = [
             'transport' => 'log',

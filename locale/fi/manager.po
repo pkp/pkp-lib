@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-06 23:07+0000\n"
+"PO-Revision-Date: 2023-03-07 18:10+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -2998,18 +2998,20 @@ msgstr "Verkkosivuston allekirjoitus automatisoituja sähköpostiviestejä varte
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
+"Toimittajat, jotka on nimetty tähän käsikirjoitukseen ja jotka voivat tehdä "
+"päätöksen"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Käsikirjoituksen otsikko"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Käsikirjoituksen uniikki ID-tunniste"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Käsikirjoituksen abstrakti"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Kirjoittajien nimet lyhyenä merkkijonona, kuten \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr ""

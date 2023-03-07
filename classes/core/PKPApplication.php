@@ -419,14 +419,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             $request = $this->getRequest();
             $router = $request->getRouter();
 
-            // Try to identify the main context (e.g. journal, conference, press),
-            // will be null if none found.
-            $mainContext = $router->getContext($request, 1);
-            if ($mainContext) {
-                $mainContextId = $mainContext->getId();
-            } else {
-                $mainContextId = self::CONTEXT_SITE;
-            }
+            $mainContextId = $router->getContext($request)?->getId() ?? self::CONTEXT_SITE;
         }
         if (!isset($this->enabledProducts[$mainContextId])) {
             $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var \PKP\site\VersionDAO $versionDao */
@@ -454,7 +447,7 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      *
      * @return Version
      */
-    public function &getCurrentVersion()
+    public function getCurrentVersion()
     {
         $currentVersion = $this->getEnabledProducts('core');
         assert(count($currentVersion)) == 1;

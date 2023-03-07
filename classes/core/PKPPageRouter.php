@@ -444,7 +444,7 @@ class PKPPageRouter extends PKPRouter
         $user = $request->getUser();
         $userId = $user->getId();
 
-        if ($context = $this->getContext($request, 1)) {
+        if ($context = $this->getContext($request)) {
             // If the user has no roles, or only one role and this is reader, go to "Index" page.
             // Else go to "submissions" page
             $userGroups = Repo::userGroup()->userUserGroups($userId, $context->getId());

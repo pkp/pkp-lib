@@ -28,7 +28,7 @@ use Mockery\MockInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PKP\core\ArrayItemIterator;
 use PKP\db\DAORegistry;
-use PKP\plugins\HookRegistry;
+use PKP\plugins\Hook;
 use PKP\submissionFile\Collector as SubmissionFileCollector;
 use PKP\submissionFile\SubmissionFile;
 use PKP\tests\PKPTestCase;
@@ -60,7 +60,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        HookRegistry::rememberCalledHooks();
+        Hook::rememberCalledHooks();
     }
 
     /**
@@ -68,7 +68,7 @@ class PreprintSearchIndexTest extends PKPTestCase
      */
     protected function tearDown(): void
     {
-        HookRegistry::resetCalledHooks();
+        Hook::resetCalledHooks();
         parent::tearDown();
     }
 
@@ -82,7 +82,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testUpdateFileIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFileChanged', [$this, 'callbackUpdateFileIndex']);
+        Hook::add('PreprintSearchIndex::submissionFileChanged', [$this, 'callbackUpdateFileIndex']);
 
         // Simulate updating an preprint file via hook.
         $submissionFile = new SubmissionFile();
@@ -91,12 +91,12 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->submissionFileChanged(0, 1, $submissionFile);
 
         // Test whether the hook was called.
-        $calledHooks = HookRegistry::getCalledHooks();
+        $calledHooks = Hook::getCalledHooks();
         $lastHook = array_pop($calledHooks);
         self::assertEquals('PreprintSearchIndex::submissionFileChanged', $lastHook[0]);
 
         // Remove the test hook.
-        HookRegistry::clear('PreprintSearchIndex::submissionFileChanged');
+        Hook::clear('PreprintSearchIndex::submissionFileChanged');
     }
 
     /**
@@ -108,7 +108,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         $this->registerMockPreprintSearchDAO($this->never(), $this->atLeastOnce());
 
         // Make sure that no hook is being called.
-        HookRegistry::clear('PreprintSearchIndex::submissionFileDeleted');
+        Hook::clear('PreprintSearchIndex::submissionFileDeleted');
 
         // Test deleting an preprint from the index with a mock database back-end.#
         $preprintSearchIndex = Application::getSubmissionSearchIndex();
@@ -121,7 +121,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testDeleteTextIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFileDeleted', [$this, 'callbackDeleteTextIndex']);
+        Hook::add('PreprintSearchIndex::submissionFileDeleted', [$this, 'callbackDeleteTextIndex']);
 
         // The search DAO should not be called.
         $this->registerMockPreprintSearchDAO($this->never(), $this->never());
@@ -131,12 +131,12 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->submissionFileDeleted(0, 1, 2);
 
         // Test whether the hook was called.
-        $calledHooks = HookRegistry::getCalledHooks();
+        $calledHooks = Hook::getCalledHooks();
         $lastHook = array_pop($calledHooks);
         self::assertEquals('PreprintSearchIndex::submissionFileDeleted', $lastHook[0]);
 
         // Remove the test hook.
-        HookRegistry::clear('PreprintSearchIndex::submissionFileDeleted');
+        Hook::clear('PreprintSearchIndex::submissionFileDeleted');
     }
 
     /**
@@ -149,7 +149,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         $this->registerMockServerDAO();
 
         // Make sure that no hook is being called.
-        HookRegistry::clear('PreprintSearchIndex::rebuildIndex');
+        Hook::clear('PreprintSearchIndex::rebuildIndex');
 
         // Test log output.
         $this->expectOutputString(__('search.cli.rebuildIndex.clearingIndex') . ' ... ' . __('search.cli.rebuildIndex.done') . "\n");
@@ -165,7 +165,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testRebuildIndexViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::rebuildIndex', [$this, 'callbackRebuildIndex']);
+        Hook::add('PreprintSearchIndex::rebuildIndex', [$this, 'callbackRebuildIndex']);
 
         // Test log output.
         $this->expectOutputString('Some log message from the plug-in.');
@@ -176,7 +176,7 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->rebuildIndex(false); // Without log (that's why we expect the log message to appear only once).
 
         // Remove the test hook.
-        HookRegistry::clear('PreprintSearchIndex::rebuildIndex');
+        Hook::clear('PreprintSearchIndex::rebuildIndex');
     }
 
     /**
@@ -185,7 +185,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexPreprintMetadata()
     {
         // Make sure that no hook is being called.
-        HookRegistry::clear('PreprintSearchIndex::preprintMetadataChanged');
+        Hook::clear('PreprintSearchIndex::preprintMetadataChanged');
 
         /** @var Publication|MockObject */
         $publication = $this->getMockBuilder(Publication::class)
@@ -215,7 +215,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexPreprintMetadataViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::preprintMetadataChanged', [$this, 'callbackIndexPreprintMetadata']);
+        Hook::add('PreprintSearchIndex::preprintMetadataChanged', [$this, 'callbackIndexPreprintMetadata']);
 
         // Simulate indexing via hook.
         $preprint = new Submission();
@@ -223,11 +223,11 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->submissionMetadataChanged($preprint);
 
         // Test whether the hook was called.
-        $calledHooks = HookRegistry::getCalledHooks();
+        $calledHooks = Hook::getCalledHooks();
         self::assertEquals('PreprintSearchIndex::preprintMetadataChanged', $calledHooks[0][0]);
 
         // Remove the test hook.
-        HookRegistry::clear('PreprintSearchIndex::preprintMetadataChanged');
+        Hook::clear('PreprintSearchIndex::preprintMetadataChanged');
     }
 
     /**
@@ -236,7 +236,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexSubmissionFiles()
     {
         // Make sure that no hook is being called.
-        HookRegistry::clear('PreprintSearchIndex::submissionFilesChanged');
+        Hook::clear('PreprintSearchIndex::submissionFilesChanged');
         $this->registerFileDAOs(true);
 
         // Test indexing an preprint with a mock environment.
@@ -252,7 +252,7 @@ class PreprintSearchIndexTest extends PKPTestCase
     public function testIndexSubmissionFilesViaPluginHook()
     {
         // Diverting to the search plugin hook.
-        HookRegistry::register('PreprintSearchIndex::submissionFilesChanged', [$this, 'callbackIndexSubmissionFiles']);
+        Hook::add('PreprintSearchIndex::submissionFilesChanged', [$this, 'callbackIndexSubmissionFiles']);
 
         // The file DAOs should not be called.
         $this->registerFileDAOs(false);
@@ -263,12 +263,12 @@ class PreprintSearchIndexTest extends PKPTestCase
         $preprintSearchIndex->submissionFilesChanged($preprint);
 
         // Test whether the hook was called.
-        $calledHooks = HookRegistry::getCalledHooks();
+        $calledHooks = Hook::getCalledHooks();
         $lastHook = array_pop($calledHooks);
         self::assertEquals('PreprintSearchIndex::submissionFilesChanged', $lastHook[0]);
 
         // Remove the test hook.
-        HookRegistry::clear('PreprintSearchIndex::submissionFilesChanged');
+        Hook::clear('PreprintSearchIndex::submissionFilesChanged');
     }
 
 

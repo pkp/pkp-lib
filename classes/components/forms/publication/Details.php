@@ -50,6 +50,7 @@ class Details extends TitleAbstractForm
                 'apiUrl' => str_replace('__vocab__', SubmissionKeywordDAO::CONTROLLED_VOCAB_SUBMISSION_KEYWORD, $suggestionUrlBase),
                 'locales' => $this->locales,
                 'value' => (array) $publication->getData('keywords'),
+                'isRequired' => $context->getData('keywords') === Context::METADATA_REQUIRE ? true : false,
             ]), [FIELD_POSITION_AFTER, 'title']);
         }
     }

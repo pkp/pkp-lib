@@ -22,12 +22,14 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\settings\genre\form\GenreForm;
 use PKP\controllers\grid\settings\SetupGridHandler;
 use PKP\core\JSONMessage;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
+use PKP\submission\GenreDAO;
 
 class GenreGridHandler extends SetupGridHandler
 {
@@ -246,12 +248,13 @@ class GenreGridHandler extends SetupGridHandler
             return new JSONMessage(false, __('manager.setup.errorDeletingItem'));
         }
 
-        $submissionFileIds = Repo::submissionFile()
+        $submissionsByGenre = Repo::submissionFile()
             ->getCollector()
-            ->filterByGenreIds([$genreId]);
+            ->filterByGenreIds([$genreId])
+            ->getCount();
 
-        $genreEmpty = $submissionFileIds->count() == 0;
-        if (!$genreEmpty) {
+        // Block the removal of genres that have at least one assigned submission file
+        if ($submissionsByGenre) {
             return new JSONMessage(false, __('manager.genres.alertDelete'));
         }
 

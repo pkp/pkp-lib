@@ -24,6 +24,7 @@ namespace APP\plugins\oaiMetadataFormats\dc\tests;
 
 use APP\author\Author;
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\oai\ops\OAIDAO;
@@ -35,7 +36,6 @@ use APP\server\Server;
 use APP\submission\Submission;
 use Illuminate\Support\LazyCollection;
 use PHPUnit\Framework\MockObject\MockObject;
-use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
 use PKP\doi\Doi;
@@ -173,8 +173,8 @@ class OAIMetadataFormat_DCTest extends PKPTestCase
         //
 
         // Router
-        /** @var PKPRouter|MockObject */
-        $router = $this->getMockBuilder(PKPRouter::class)
+        /** @var PageRouter|MockObject */
+        $router = $this->getMockBuilder(PageRouter::class)
             ->onlyMethods(['url'])
             ->getMock();
         $application = Application::get();

@@ -11,11 +11,13 @@ describe('Web Feed plugin tests', () => {
 	const feedSize = 3;
 	it('The side bar and the feeds are displayed properly', () => {
 		cy.login('admin', 'admin', 'publicknowledge');
-		cy.visit('publicknowledge/management/settings/website#plugins');
+
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="plugins-button"]').click();
 
 		// Access the settings and setup some options
 		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]');
-		cy.wait(2e3);
+		cy.wait(2000);
 		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]').click({force: true});
 		cy.get('#displayPage-all').check();
 		cy.get('input[id^="recentItems"]').clear().type(feedSize, {delay: 0});
@@ -24,13 +26,16 @@ describe('Web Feed plugin tests', () => {
 		cy.waitJQuery();
 
 		// Enable the wed feed plugin's sidebar
-		cy.visit('publicknowledge/management/settings/website#appearance');
 		cy.reload();
+		cy.get('.app__nav a').contains('Website').click();
+		cy.get('button[id="appearance-button"]').click();
+
 		cy.get('#appearance-setup-button').click();
 		cy.contains('Web Feed Plugin').click();
 		cy.contains('Web Feed Plugin').parents('form').find('button:contains("Save")').click();
 
 		// Visit homepage
+		cy.wait(2000);
 		cy.visit('');
 		const feeds = {
 			'atom': {mimeType: 'application/atom+xml'},

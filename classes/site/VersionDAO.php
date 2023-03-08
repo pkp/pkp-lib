@@ -179,14 +179,6 @@ class VersionDAO extends \PKP\db\DAO
      */
     public function getCurrentProducts(?int $contextId): array
     {
-        if ($contextId !== null) {
-            $contextWhereClause = 'AND (context_id = ? OR v.sitewide = 1)';
-            $params = [$contextId];
-        } else {
-            $contextWhereClause = '';
-            $params = [];
-        }
-
         $result = $this->retrieve(
             'SELECT v.*
             FROM versions v

@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\settings\category\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\file\ContextFileManager;
 use PKP\file\TemporaryFileManager;

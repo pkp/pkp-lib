@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-01 20:48+0000\n"
+"PO-Revision-Date: 2023-03-08 22:52+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/locale/bg/"
 ">\n"
@@ -56,3 +56,30 @@ msgstr "Модератор"
 
 msgid "user.role.subEditors"
 msgstr "Модератори"
+
+msgid "submission.layout.galleyPublicIdentificationExists"
+msgstr "Публично достъпната типография вече съществува."
+
+msgid "section.description"
+msgstr "Раздел архив - описание"
+
+msgid "section.pathDescription"
+msgstr "URL път на раздела. Използвайте тирета (-) вместо интервали."
+
+msgid "section.emptySection"
+msgstr "Все още нищо не е публикувано в този раздел."
+
+msgid "category.categories"
+msgstr "Категории"
+
+msgid "common.publication"
+msgstr "Препринт"
+
+msgid "preprint.details"
+msgstr "Детайли"
+
+msgid "preprint.abstract"
+msgstr "Абстракт"
+
+msgid "user.role.manager"
+msgstr "Мениджър"

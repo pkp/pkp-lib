@@ -24,7 +24,6 @@ use DateTime;
 use DateTimeZone;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
-
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
@@ -56,8 +55,9 @@ class InstallForm extends MaintenanceForm
     {
         parent::__construct($request, 'install/install.tpl');
 
-        $this->supportedLocales = array_map(fn (LocaleMetadata $locale) => $locale->getDisplayName(null, true), Locale::getLocales());
-        $this->localesComplete = array_map(fn (LocaleMetadata $locale) => $locale->isComplete(), Locale::getLocales());
+        $allLocales = Locale::getLocales();
+        $this->supportedLocales = Locale::getFormattedDisplayNames(null, $allLocales, LocaleMetadata::LANGUAGE_LOCALE_WITHOUT, false);
+        $this->localesComplete = array_map(fn (LocaleMetadata $locale) => $locale->isComplete(), $allLocales);
 
         foreach ($this->supportedDatabaseDrivers as $driver => [$module]) {
             if (!extension_loaded($module)) {
@@ -113,7 +113,7 @@ class InstallForm extends MaintenanceForm
             'supportsMBString' => PKPString::hasMBString() ? __('common.yes') : __('common.no'),
             'phpIsSupportedVersion' => version_compare(PKPApplication::PHP_REQUIRED_VERSION, PHP_VERSION) != 1,
             'xslEnabled' => XSLTransformer::checkSupport(),
-            'xslRequired' => REQUIRES_XSL,
+            'xslRequired' => Application::REQUIRES_XSL,
             'phpRequiredVersion' => PKPApplication::PHP_REQUIRED_VERSION,
             'phpVersion' => PHP_VERSION,
         ]);

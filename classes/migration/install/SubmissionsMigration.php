@@ -74,7 +74,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // publication metadata
         Schema::create('publication_settings', function (Blueprint $table) {
-            $table->comment('Localized data about publications, such as the title and abstract.');
+            $table->comment('More data about publications, including localized properties such as the title and abstract.');
             // The foreign key relationship on this table is defined with the publications table.
             $table->bigInteger('publication_id');
 
@@ -111,7 +111,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Language dependent author metadata.
         Schema::create('author_settings', function (Blueprint $table) {
-            $table->comment('Localized data about authors, such as their name and affiliation.');
+            $table->comment('More data about authors, including localized properties such as their name and affiliation.');
             $table->bigInteger('author_id');
             $table->foreign('author_id', 'author_settings_author_id')->references('author_id')->on('authors')->onDelete('cascade');
             $table->index(['author_id'], 'author_settings_author_id');

@@ -97,7 +97,7 @@ class CommonMigration extends \PKP\migration\Migration
         }
 
         Schema::create('user_settings', function (Blueprint $table) {
-            $table->comment('Localized data about users, like their name and affiliation.');
+            $table->comment('More data about users, including localized properties like their name and affiliation.');
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_settings_user_id');
@@ -220,7 +220,7 @@ class CommonMigration extends \PKP\migration\Migration
         });
 
         Schema::create('email_templates_settings', function (Blueprint $table) {
-            $table->comment('Localized data about custom email templates, such as the subject and body.');
+            $table->comment('More data about custom email templates, including localized properties such as the subject and body.');
             $table->bigInteger('email_id');
             $table->foreign('email_id', 'email_templates_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
             $table->index(['email_id'], 'email_templates_settings_email_id');

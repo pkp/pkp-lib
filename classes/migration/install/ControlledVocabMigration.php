@@ -48,7 +48,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
 
         // Controlled vocabulary entry settings
         Schema::create('controlled_vocab_entry_settings', function (Blueprint $table) {
-            $table->comment('Localized data about a controlled vocabulary entry, such as the actual word or phrase.');
+            $table->comment('More data about a controlled vocabulary entry, including localized properties such as the actual word or phrase.');
             $table->bigInteger('controlled_vocab_entry_id');
             $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
             $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');

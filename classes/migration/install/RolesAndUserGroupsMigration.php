@@ -38,7 +38,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('user_group_settings', function (Blueprint $table) {
-            $table->comment('Localized data about user groups, such as the name.');
+            $table->comment('More data about user groups, including localized properties such as the name.');
             $table->bigInteger('user_group_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

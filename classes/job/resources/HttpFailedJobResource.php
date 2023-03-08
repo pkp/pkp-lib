@@ -18,7 +18,6 @@ namespace PKP\job\resources;
 
 use APP\core\Application;
 use Illuminate\Http\Resources\Json\JsonResource;
-use PKP\handler\APIHandler;
 use PKP\job\traits\JobResource;
 
 class HttpFailedJobResource extends JsonResource
@@ -31,17 +30,17 @@ class HttpFailedJobResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'            => $this->getResource()->id,
-            'displayName'   => $this->getJobName(),
-            'queue'         => $this->getResource()->queue,
-            'connection'    => $this->getResource()->connection,
-            'failed_at'     => $this->getFailedAt(),
-            'payload'       => $this->getResource()->payload,
-            'exception'     => $this->getResource()->exception,
-            '_hrefs'         => [
+            'id' => $this->getResource()->id,
+            'displayName' => $this->getJobName(),
+            'queue' => $this->getResource()->queue,
+            'connection' => $this->getResource()->connection,
+            'failed_at' => $this->getFailedAt(),
+            'payload' => $this->getResource()->payload,
+            'exception' => $this->getResource()->exception,
+            '_hrefs' => [
                 '_details' => $request->getDispatcher()->url($request, Application::ROUTE_PAGE, 'index', 'admin', 'failedJobDetails', $this->getResource()->id),
-                '_redispatch' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/redispatch/' . $this->getResource()->id),
-                '_delete' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/failed/delete/' . $this->getResource()->id),
+                '_redispatch' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/redispatch/' . $this->getResource()->id),
+                '_delete' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/failed/delete/' . $this->getResource()->id),
             ],
         ];
     }

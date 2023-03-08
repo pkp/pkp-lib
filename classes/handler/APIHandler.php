@@ -45,9 +45,6 @@ class APIHandler extends PKPHandler
     /** @var bool Define if all the path building for admin api */
     protected $_apiForAdmin = false;
 
-    /** @var string The unique prefix for admin level api */
-    public const ADMIN_API_PREFIX = 'admin';
-
     /**
      * Constructor
      */
@@ -162,7 +159,7 @@ class APIHandler extends PKPHandler
         }
 
         if ($this->_apiForAdmin) {
-            $this->_pathPattern = '/' . self::ADMIN_API_PREFIX . '/api/{version}/' . $this->_handlerPath;
+            $this->_pathPattern = '/index/api/{version}/' . $this->_handlerPath;
             return $this->_pathPattern;
         }
 

@@ -16,7 +16,6 @@
 namespace PKP\pages\admin;
 
 use APP\core\Application;
-use PKP\handler\APIHandler;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\file\PublicFileManager;
@@ -459,7 +458,7 @@ class AdminHandler extends Handler
 
     /**
      * Download scheduled task execution log file.
-     * 
+     *
      * @param array $args
      * @param PKPRequest $request
      */
@@ -550,7 +549,7 @@ class AdminHandler extends Handler
                     'value' => 'created_at',
                 ]
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/all'),
         ];
     }
 
@@ -623,8 +622,8 @@ class AdminHandler extends Handler
                     'value' => 'action',
                 ],
             ],
-            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/failed/all'),
-            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, APIHandler::ADMIN_API_PREFIX, 'jobs/redispatch/all'),
+            'apiUrl' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/failed/all'),
+            'apiUrlRedispatchAll' => $request->getDispatcher()->url($request, Application::ROUTE_API, 'index', 'jobs/redispatch/all'),
         ];
     }
 
@@ -639,19 +638,19 @@ class AdminHandler extends Handler
         $this->setupTemplate($request, true);
 
         $templateMgr = TemplateManager::getManager($request);
-        
+
         $failedJob = Repo::failedJob()->get((int) $args[0]);
 
         if (!$failedJob) {
             $request->getDispatcher()->handle404();
         }
-        
+
         $rows = collect(array_merge(HttpFailedJobResource::toResourceArray($failedJob), [
-                'payload' => $failedJob->first()->getRawOriginal('payload'),
-            ]))
-            ->map(fn($value, $attribute) => is_array($value) ? null : [
-                'attribute' => '<b>' . __("admin.jobs.list." . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
-                'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT): $value
+            'payload' => $failedJob->first()->getRawOriginal('payload'),
+        ]))
+            ->map(fn ($value, $attribute) => is_array($value) ? null : [
+                'attribute' => '<b>' . __('admin.jobs.list.' . Str::of($attribute)->snake()->replace('_', ' ')->camel()->value()) . '</b>',
+                'value' => isValidJson($value) ? json_encode(json_decode($value, true), JSON_PRETTY_PRINT) : $value
             ])
             ->filter()
             ->values();
@@ -687,5 +686,4 @@ class AdminHandler extends Handler
 
         $templateMgr->display('admin/failedJobDetails.tpl');
     }
-    
 }

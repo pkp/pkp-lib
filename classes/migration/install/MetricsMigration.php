@@ -25,6 +25,7 @@ class MetricsMigration extends \PKP\migration\Migration
     {
         // Metrics tables
         Schema::create('metrics_context', function (Blueprint $table) {
+            $table->comment('Daily statistics for views of the homepage.');
             $table->string('load_id', 255);
             $table->index(['load_id'], 'metrics_context_load_id');
 
@@ -37,6 +38,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_submission', function (Blueprint $table) {
+            $table->comment('Daily statistics for views and downloads of published submissions and galleys.');
             $table->string('load_id', 255);
             $table->index(['load_id'], 'ms_load_id');
 
@@ -65,6 +67,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_counter_submission_daily', function (Blueprint $table) {
+            $table->comment('Daily statistics matching the COUNTER R5 protocol for views and downloads of published submissions and galleys.');
             $table->string('load_id', 255);
             $table->index(['load_id'], 'msd_load_id');
 
@@ -87,6 +90,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_counter_submission_monthly', function (Blueprint $table) {
+            $table->comment('Monthly statistics matching the COUNTER R5 protocol for views and downloads of published submissions and galleys.');
             $table->bigInteger('context_id');
             $table->foreign('context_id', 'msm_context_id_foreign')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['context_id'], 'metrics_counter_submission_monthly_context_id');
@@ -106,6 +110,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_counter_submission_institution_daily', function (Blueprint $table) {
+            $table->comment('Daily statistics matching the COUNTER R5 protocol for views and downloads from institutions.');
             $table->string('load_id', 255);
             $table->index(['load_id'], 'msid_load_id');
 
@@ -132,6 +137,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_counter_submission_institution_monthly', function (Blueprint $table) {
+            $table->comment('Monthly statistics matching the COUNTER R5 protocol for views and downloads from institutions.');
             $table->bigInteger('context_id');
             $table->foreign('context_id', 'msim_context_id_foreign')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['context_id'], 'msim_context_id');
@@ -155,6 +161,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_submission_geo_daily', function (Blueprint $table) {
+            $table->comment('Daily statistics by country, region and city for views and downloads of published submissions and galleys.');
             $table->string('load_id', 255);
             $table->index(['load_id'], 'msgd_load_id');
 
@@ -178,6 +185,7 @@ class MetricsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('metrics_submission_geo_monthly', function (Blueprint $table) {
+            $table->comment('Monthly statistics by country, region and city for views and downloads of published submissions and galleys.');
             $table->bigInteger('context_id');
             $table->foreign('context_id', 'msgm_context_id_foreign')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['context_id'], 'msgm_context_id');
@@ -199,6 +207,7 @@ class MetricsMigration extends \PKP\migration\Migration
 
         // Usage stats total item temporary records
         Schema::create('usage_stats_total_temporary_records', function (Blueprint $table) {
+            $table->comment('Temporary stats totals based on visitor log records. Data in this table is provisional. See the metrics_* tables for compiled stats.');
             $table->dateTime('date', $precision = 0);
             $table->string('ip', 255);
             $table->string('user_agent', 255);
@@ -231,6 +240,7 @@ class MetricsMigration extends \PKP\migration\Migration
 
         // Usage stats unique item investigations temporary records
         Schema::create('usage_stats_unique_item_investigations_temporary_records', function (Blueprint $table) {
+            $table->comment('Temporary stats on unique downloads based on visitor log records. Data in this table is provisional. See the metrics_* tables for compiled stats.');
             $table->dateTime('date', $precision = 0);
             $table->string('ip', 255);
             $table->string('user_agent', 255);
@@ -262,6 +272,7 @@ class MetricsMigration extends \PKP\migration\Migration
 
         // Usage stats unique item requests temporary records
         Schema::create('usage_stats_unique_item_requests_temporary_records', function (Blueprint $table) {
+            $table->comment('Temporary stats on unique views based on visitor log records. Data in this table is provisional. See the metrics_* tables for compiled stats.');
             $table->dateTime('date', $precision = 0);
             $table->string('ip', 255);
             $table->string('user_agent', 255);
@@ -294,6 +305,7 @@ class MetricsMigration extends \PKP\migration\Migration
         // Usage stats institution temporary records
         // This table is needed because of data normalization
         Schema::create('usage_stats_institution_temporary_records', function (Blueprint $table) {
+            $table->comment('Temporary stats for views and downloads from institutions based on visitor log records. Data in this table is provisional. See the metrics_* tables for compiled stats.');
             $table->string('load_id', 255);
             $table->bigInteger('line_number');
 

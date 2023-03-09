@@ -62,6 +62,7 @@ class OPSMigration extends \PKP\migration\Migration
 
         // Publications
         Schema::create('publications', function (Blueprint $table) {
+            $table->comment('Each publication is one version of a submission.');
             $table->bigInteger('publication_id')->autoIncrement();
             $table->bigInteger('access_status')->default(0)->nullable();
             $table->date('date_published')->nullable();

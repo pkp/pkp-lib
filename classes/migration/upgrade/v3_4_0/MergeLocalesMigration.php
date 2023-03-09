@@ -20,9 +20,9 @@ use PKP\install\DowngradeNotSupportedException;
 
 class MergeLocalesMigration extends \PKP\migration\upgrade\v3_4_0\MergeLocalesMigration
 {
-    protected string $CONTEXT_TABLE = 'servers';
-    protected string $CONTEXT_SETTINGS_TABLE = 'server_settings';
-    protected string $CONTEXT_COLUMN = 'server_id';
+    protected string $CONTEXT_TABLE = 'journals';
+    protected string $CONTEXT_SETTINGS_TABLE = 'journal_settings';
+    protected string $CONTEXT_COLUMN = 'journal_id';
 
     /**
      * Run the migrations.
@@ -51,7 +51,7 @@ class MergeLocalesMigration extends \PKP\migration\upgrade\v3_4_0\MergeLocalesMi
     public static function getSettingsTables(): Collection
     {
         return collect([
-            'server_settings' => 'server_id',
+            'journal_settings' => 'journal_id',
             'publication_galley_settings' => 'galley_id',
             'section_settings' => 'section_id',
         ])->merge(parent::getSettingsTables());

@@ -24,8 +24,8 @@ class LogMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // A log of all events associated with an object.
         Schema::create('event_log', function (Blueprint $table) {
+            $table->comment('A log of all events related to an object like a submission.');
             $table->bigInteger('log_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
@@ -41,8 +41,8 @@ class LogMigration extends \PKP\migration\Migration
             $table->index(['assoc_type', 'assoc_id'], 'event_log_assoc');
         });
 
-        // Event log associative data
         Schema::create('event_log_settings', function (Blueprint $table) {
+            $table->comment('Data about an event log entry. This data is commonly used to display information about an event to a user.');
             $table->bigInteger('log_id');
             $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
             $table->index(['log_id'], 'event_log_settings_log_id');
@@ -61,7 +61,6 @@ class LogMigration extends \PKP\migration\Migration
                 break;
         }
 
-        // A log of all emails sent out related to an object.
         Schema::create('email_log', function (Blueprint $table) {
             $table->bigInteger('log_id')->autoIncrement();
             $table->bigInteger('assoc_type');

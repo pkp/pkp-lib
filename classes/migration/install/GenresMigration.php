@@ -26,6 +26,7 @@ class GenresMigration extends \PKP\migration\Migration
     {
         // A context's submission file genres.
         Schema::create('genres', function (Blueprint $table) {
+            $table->comment('The types of submission files configured for each context, such as Article Text, Data Set, Transcript, etc.');
             $table->bigInteger('genre_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -46,6 +47,7 @@ class GenresMigration extends \PKP\migration\Migration
 
         // Genre settings
         Schema::create('genre_settings', function (Blueprint $table) {
+            $table->comment('More data about file genres, including localized properties such as the genre name.');
             $table->bigInteger('genre_id');
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
             $table->index(['genre_id'], 'genre_settings_genre_id');

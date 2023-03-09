@@ -30,6 +30,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
     {
         // Submissions
         Schema::create('submissions', function (Blueprint $table) {
+            $table->comment('All submissions submitted to the context, including incomplete, declined and unpublished submissions.');
             $table->bigInteger('submission_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -59,6 +60,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Submission metadata
         Schema::create('submission_settings', function (Blueprint $table) {
+            $table->comment('Localized data about submissions');
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'submission_settings_submission_id');
@@ -72,6 +74,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // publication metadata
         Schema::create('publication_settings', function (Blueprint $table) {
+            $table->comment('More data about publications, including localized properties such as the title and abstract.');
             // The foreign key relationship on this table is defined with the publications table.
             $table->bigInteger('publication_id');
 
@@ -91,6 +94,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Authors for submissions.
         Schema::create('authors', function (Blueprint $table) {
+            $table->comment('The authors of a publication.');
             $table->bigInteger('author_id')->autoIncrement();
             $table->string('email', 90);
             $table->smallInteger('include_in_browse')->default(1);
@@ -107,6 +111,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Language dependent author metadata.
         Schema::create('author_settings', function (Blueprint $table) {
+            $table->comment('More data about authors, including localized properties such as their name and affiliation.');
             $table->bigInteger('author_id');
             $table->foreign('author_id', 'author_settings_author_id')->references('author_id')->on('authors')->onDelete('cascade');
             $table->index(['author_id'], 'author_settings_author_id');
@@ -120,6 +125,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Editor decisions.
         Schema::create('edit_decisions', function (Blueprint $table) {
+            $table->comment('Editorial decisions recorded on a submission, such as decisions to accept or decline the submission, as well as decisions to send for review, send to copyediting, request revisions, and more.');
             $table->bigInteger('edit_decision_id')->autoIncrement();
 
             $table->bigInteger('submission_id');
@@ -187,6 +193,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // queries posted on submission workflow
         Schema::create('queries', function (Blueprint $table) {
+            $table->comment('Discussions, usually related to a submission, created by editors, authors and other editorial staff.');
             $table->bigInteger('query_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');
@@ -200,6 +207,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // queries posted on submission workflow
         Schema::create('query_participants', function (Blueprint $table) {
+            $table->comment('The users assigned to a discussion.');
             $table->bigInteger('query_id');
             $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
             $table->index(['query_id'], 'query_participants_query_id');

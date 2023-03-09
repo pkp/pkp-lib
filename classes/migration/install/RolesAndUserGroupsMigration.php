@@ -23,8 +23,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // User groups for a context.
         Schema::create('user_groups', function (Blueprint $table) {
+            $table->comment('All defined user roles in a context, such as Author, Reviewer, Section Editor and Journal Manager.');
             $table->bigInteger('user_group_id')->autoIncrement();
             $table->bigInteger('context_id');
             $table->bigInteger('role_id');
@@ -37,8 +37,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->index(['role_id'], 'user_groups_role_id');
         });
 
-        // User Group-specific settings
         Schema::create('user_group_settings', function (Blueprint $table) {
+            $table->comment('More data about user groups, including localized properties such as the name.');
             $table->bigInteger('user_group_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
@@ -49,8 +49,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->index(['user_group_id'], 'user_group_settings_user_group_id');
         });
 
-        // User group assignments (mapping of user to user groups)
         Schema::create('user_user_groups', function (Blueprint $table) {
+            $table->comment('Maps users to their assigned user_groups.');
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
             $table->index(['user_group_id'], 'user_user_groups_user_group_id');
@@ -62,8 +62,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->unique(['user_group_id', 'user_id'], 'user_user_groups_pkey');
         });
 
-        // User groups assignments to stages in the workflow
         Schema::create('user_group_stage', function (Blueprint $table) {
+            $table->comment('Which stages of the editorial workflow the user_groups can access.');
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'user_group_stage_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
@@ -79,8 +79,8 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_pkey');
         });
 
-        // Stage Assignments
         Schema::create('stage_assignments', function (Blueprint $table) {
+            $table->comment('Who can access a submission while it is in the editorial workflow. Includes all editorial and author assignments. For reviewers, see review_assignments.');
             $table->bigInteger('stage_assignment_id')->autoIncrement();
 
             // The foreign key for this column is declared with the submissions table.

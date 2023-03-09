@@ -25,6 +25,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
     {
         // Controlled vocabularies
         Schema::create('controlled_vocabs', function (Blueprint $table) {
+            $table->comment('Every word or phrase used in a controlled vocabulary. Controlled vocabularies are used for submission metadata like keywords and subjects, reviewer interests, and wherever a similar dictionary of words or phrases is required. Each entry corresponds to a word or phrase like "cellular reproduction" and a type like "submissionKeyword".');
             $table->bigInteger('controlled_vocab_id')->autoIncrement();
             $table->string('symbolic', 64);
             $table->bigInteger('assoc_type')->default(0);
@@ -34,6 +35,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
 
         // Controlled vocabulary entries
         Schema::create('controlled_vocab_entries', function (Blueprint $table) {
+            $table->comment('The order that a word or phrase used in a controlled vocabulary should appear. For example, the order of keywords in a publication.');
             $table->bigInteger('controlled_vocab_entry_id')->autoIncrement();
 
             $table->bigInteger('controlled_vocab_id');
@@ -46,6 +48,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
 
         // Controlled vocabulary entry settings
         Schema::create('controlled_vocab_entry_settings', function (Blueprint $table) {
+            $table->comment('More data about a controlled vocabulary entry, including localized properties such as the actual word or phrase.');
             $table->bigInteger('controlled_vocab_entry_id');
             $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
             $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');

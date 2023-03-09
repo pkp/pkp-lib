@@ -25,6 +25,7 @@ class TombstoneMigration extends \PKP\migration\Migration
     {
         // Unnavailable data object tombstones.
         Schema::create('data_object_tombstones', function (Blueprint $table) {
+            $table->comment('Entries for published data that has been removed. Usually used in the OAI endpoint.');
             $table->bigInteger('tombstone_id')->autoIncrement();
             $table->bigInteger('data_object_id');
             $table->datetime('date_deleted');

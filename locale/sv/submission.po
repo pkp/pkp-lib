@@ -1,14 +1,14 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-08-23 12:01+0000\n"
+"PO-Revision-Date: 2023-03-09 20:05+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/sv_SE/>\n"
-"Language: sv_SE\n"
+"submission/sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,16 +46,16 @@ msgstr "Välj den roll som bäst beskriver din del i det här bidraget."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Välj en redaktionell roll om du själv vill redigera och publicera bidraget."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Kravlista för bidrag"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr "Du måste läsa och godkänna nedanstående krav innan du kan fortsätta."
+msgstr "Alla bidrag måste leva upp till följande krav."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Ja, bidraget lever upp till samtliga krav."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Bidraget är inskickat"
@@ -537,7 +537,7 @@ msgid "submission.coverage"
 msgstr "Information om täckning"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Detaljer om bidraget"
 
 msgid "submission.done"
 msgstr "Klar"
@@ -605,6 +605,7 @@ msgstr "Bidraget har skickats in."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) godkände de upphovsrättsliga villkoren för bidraget."
 
 msgid "submission.event.fileRevised"
 msgstr "Bearbetningen \"{$name}\" för {$submissionFileId}) laddas upp."
@@ -656,6 +657,8 @@ msgstr "Granskares reviderade fil uppdaterad"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} skickade en påminnelse till {$recipientName} angående dennes "
+"granskningsuppdrag"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
@@ -1064,11 +1067,8 @@ msgstr "Ytterligare information"
 msgid "submission.submit.submissionLocale"
 msgstr "Bidragets språk"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Publikationen accepterar bidrag på olika språk. Välj ett språk i rullisten "
-"nedan."
+msgstr "Välj bidragets huvudsakliga språk."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Bidragsfiler"
@@ -1416,11 +1416,12 @@ msgstr "Meddela författare"
 msgid "editor.submission.decision.notifyReviewers"
 msgstr "Meddela granskare"
 
-#, fuzzy
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
 "Skicka ett e-postmeddelande till granskare för att tacka och meddela dem att "
-"ett beslut har fattats."
+"ett beslut har fattats. Varje granskare får ett enskilt meddelande för att "
+"säkerställa anonymitet. Frasen {$recipientName} kan användas i meddelandet "
+"för att inkludera varje granskares namn på ett säkert sätt."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
@@ -1443,23 +1444,23 @@ msgstr ""
 msgid "editor.submission.decision.accept.completed"
 msgstr "Bidraget har accepterats"
 
-#, fuzzy
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
 "Bidraget {$title} har accepterats för publicering och skickats till "
-"manusredigeringssteget."
+"manusredigeringssteget. Alla meddelanden har skickats, förutom sådana som ni "
+"eventuellt har valt att hoppa över."
 
-#, fuzzy
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att deras "
-"bidrag har accepterats för publicering."
+"bidrag har accepterats för publicering. Meddelandet kommer inte skickas "
+"förrän beslutet har fattats."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna och meddela dem att "
-"granskningsomgången är avslutad."
+"granskningsomgången är avslutad. Meddelandet kommer inte skickas förrän "
+"beslutet har fattats."
 
 msgid "editor.submission.decision.decline"
 msgstr "Refusera bidrag"
@@ -1475,15 +1476,16 @@ msgstr "{$editorName} refuserade bidraget."
 msgid "editor.submission.decision.decline.completed"
 msgstr "Bidraget har refuserats"
 
-#, fuzzy
 msgid "editor.submission.decision.decline.completed.description"
-msgstr "Bidraget {$title} har refuserats och arkiverats."
+msgstr ""
+"Bidraget {$title} har refuserats och arkiverats. Alla meddelanden har "
+"skickats, förutom sådana som ni eventuellt har valt att hoppa över."
 
-#, fuzzy
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att deras "
-"bidrag har refuserats."
+"bidrag har refuserats. Meddelandet kommer inte skickas förrän beslutet har "
+"fattats."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
@@ -1502,15 +1504,16 @@ msgstr "{$editorName} öppnade en ny granskningsomgång."
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Granskningsomgång startad"
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.completedDescription"
-msgstr "En ny granskningsomgång har startats för {$title}."
+msgstr ""
+"En ny granskningsomgång har startats för {$title}. Författaren har "
+"meddelats, förutom om ni har valt att inte skicka ut meddelandet."
 
-#, fuzzy
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande till författarna för att meddela dem att "
-"bidraget har skickats till en ny granskningsomgång."
+"bidraget har skickats till en ny granskningsomgång. Meddelandet kommer inte "
+"skickas förrän beslutet har fattats."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr "Välj filer som ska skickas till manusredigeringssteget."
@@ -1533,17 +1536,17 @@ msgstr "{$editorName} begärde ändringar i detta bidrag."
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Ändringar har begärts"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Ändringar för bidraget {$title} har begärts."
+msgstr ""
+"Ändringar för bidraget {$title} har begärts. Alla meddelanden har skickats, "
+"förutom de som ni eventuellt valt bort."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Skicka ett e-postmeddelande för att meddela författarna att ändringar krävs "
 "för att bidraget ska kunna publiceras. Inkludera detaljer om ändringar som "
 "behöver göras. Kom ihåg att anonymisera granskares kommentarer där så är "
-"lämpligt."
+"lämpligt. Meddelandet kommer inte skickas förrän beslutet är fattat."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Avbryt granskningsomgång"
@@ -1560,9 +1563,10 @@ msgstr "{$editorName} avbröt granskningsomgången."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Senaste granskningsomgången avbruten."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "Granskningsomgången för {$title} har avbrutits."
+msgstr ""
+"Granskningsomgången för {$title} har avbrutits. Alla meddelanden har "
+"skickats, förutom de som ni eventuellt valt bort."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""

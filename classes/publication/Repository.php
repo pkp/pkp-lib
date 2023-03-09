@@ -355,7 +355,7 @@ abstract class Repository
     }
 
     /** @copydoc DAO::update() */
-    public function edit(Publication $publication, array $params)
+    public function edit(Publication $publication, array $params): Publication
     {
         $submission = Repo::submission()->get($publication->getData('submissionId'));
 
@@ -390,6 +390,8 @@ abstract class Repository
 
         // Log an event when publication data is updated
         SubmissionLog::logEvent($this->request, $submission, PKPSubmissionEventLogEntry::SUBMISSION_LOG_METADATA_UPDATE, 'submission.event.general.metadataUpdated');
+
+        return $newPublication;
     }
 
     /**

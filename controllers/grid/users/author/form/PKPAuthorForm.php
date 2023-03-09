@@ -248,8 +248,8 @@ class PKPAuthorForm extends Form
             $errors = Repo::publication()->validate(
                 $publication,
                 $params,
-                $context->getData('supportedLocales'),
-                $publication->getData('locale')
+                $submission,
+                $context
             );
             if (!empty($errors)) {
                 throw new Exception('Invalid primary contact ID. This author can not be a primary contact.');

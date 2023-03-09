@@ -22,6 +22,8 @@ use APP\file\PublicFileManager;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
@@ -79,7 +81,7 @@ class TemplateManager extends PKPTemplateManager
                     'siteTitle' => $context->getLocalizedName(),
                     'publicFilesDir' => $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId()),
                     'primaryLocale' => $context->getPrimaryLocale(),
-                    'supportedLocales' => $context->getSupportedLocaleNames(),
+                    'supportedLocales' => $context->getSupportedLocaleNames(LocaleMetadata::LANGUAGE_LOCALE_ONLY),
                     'numPageLinks' => $context->getData('numPageLinks'),
                     'itemsPerPage' => $context->getData('itemsPerPage'),
                     'enableAnnouncements' => $context->getData('enableAnnouncements'),
@@ -111,7 +113,11 @@ class TemplateManager extends PKPTemplateManager
                     'disableUserReg' => empty($contextsForRegistration),
                     'siteTitle' => $site->getLocalizedTitle(),
                     'primaryLocale' => $site->getPrimaryLocale(),
-                    'supportedLocales' => $site->getSupportedLocalenames(),
+                    'supportedLocales' => Locale::getFormattedDisplayNames(
+                        $site->getSupportedLocales(),
+                        Locale::getLocales(),
+                        LocaleMetadata::LANGUAGE_LOCALE_ONLY
+                    ),
                     'pageFooter' => $site->getLocalizedData('pageFooter'),
                 ]);
             }

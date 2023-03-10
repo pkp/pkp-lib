@@ -190,7 +190,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
 
             $table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
-            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
         });
 
         // queries posted on submission workflow

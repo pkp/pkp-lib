@@ -37,6 +37,7 @@ class JobsMigration extends \PKP\migration\Migration
         });
 
         Schema::create('job_batches', function (Blueprint $table) {
+            $table->comment('Job batches allow jobs to be collected into groups for managed processing.');
             $table->string('id')->primary();
             $table->string('name');
             $table->integer('total_jobs');

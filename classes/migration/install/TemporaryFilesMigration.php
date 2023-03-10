@@ -25,6 +25,7 @@ class TemporaryFilesMigration extends \PKP\migration\Migration
     {
         // Temporary file storage
         Schema::create('temporary_files', function (Blueprint $table) {
+            $table->comment('Temporary files, e.g. where files are kept during an upload process before they are moved somewhere more appropriate.');
             $table->bigInteger('file_id')->autoIncrement();
 
             $table->bigInteger('user_id');

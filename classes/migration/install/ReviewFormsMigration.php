@@ -26,6 +26,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         // Review forms.
         if (!Schema::hasTable('review_forms')) {
             Schema::create('review_forms', function (Blueprint $table) {
+                $table->comment('Review forms provide custom templates for peer reviews with several types of questions.');
                 $table->bigInteger('review_form_id')->autoIncrement();
                 $table->bigInteger('assoc_type');
                 $table->bigInteger('assoc_id');
@@ -37,6 +38,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         // Review form settings
         if (!Schema::hasTable('review_form_settings')) {
             Schema::create('review_form_settings', function (Blueprint $table) {
+                $table->comment('More data about review forms, including localized content such as names.');
                 $table->bigInteger('review_form_id');
                 $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
                 $table->index(['review_form_id'], 'review_form_settings_review_form_id');
@@ -53,6 +55,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         // Review form elements.
         if (!Schema::hasTable('review_form_elements')) {
             Schema::create('review_form_elements', function (Blueprint $table) {
+                $table->comment('Each review form element represents a single question on a review form.');
                 $table->bigInteger('review_form_element_id')->autoIncrement();
 
                 $table->bigInteger('review_form_id');
@@ -69,6 +72,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         // Review form element settings
         if (!Schema::hasTable('review_form_element_settings')) {
             Schema::create('review_form_element_settings', function (Blueprint $table) {
+                $table->comment('More data about review form elements, including localized content such as question text.');
                 $table->bigInteger('review_form_element_id');
                 $table->foreign('review_form_element_id', 'review_form_element_settings_review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
                 $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');

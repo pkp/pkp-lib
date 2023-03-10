@@ -24,9 +24,8 @@ class InstitutionsMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-
-        // Institutions.
         Schema::create('institutions', function (Blueprint $table) {
+            $table->comment('Institutions for statistics and subscriptions.');
             $table->bigInteger('institution_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -34,12 +33,12 @@ class InstitutionsMigration extends \PKP\migration\Migration
             $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
             $table->index(['context_id'], 'institutions_context_id');
 
-            $table->string('ror', 255)->nullable();
+            $table->string('ror', 255)->nullable()->comment('ROR (Research Organization Registry) ID');
             $table->softDeletes('deleted_at', 0);
         });
 
-        // Locale-specific institution data
         Schema::create('institution_settings', function (Blueprint $table) {
+            $table->comment('More data about institutions, including localized properties like names.');
             $table->bigInteger('institution_id');
             $table->foreign('institution_id')->references('institution_id')->on('institutions')->onDelete('cascade');
             $table->index(['institution_id'], 'institution_settings_institution_id');
@@ -53,6 +52,7 @@ class InstitutionsMigration extends \PKP\migration\Migration
 
         // Institution IPs and IP ranges.
         Schema::create('institution_ip', function (Blueprint $table) {
+            $table->comment('Records IP address ranges and associates them with institutions.');
             $table->bigInteger('institution_ip_id')->autoIncrement();
 
             $table->bigInteger('institution_id');
@@ -69,6 +69,7 @@ class InstitutionsMigration extends \PKP\migration\Migration
 
         if (Schema::hasTable('institutional_subscriptions') && Schema::hasColumn('institutional_subscriptions', 'institution_id')) {
             Schema::table('institutional_subscriptions', function (Blueprint $table) {
+                $table->comment('Links institutional subscriptions with institutions.');
                 $table->foreign('institution_id')->references('institution_id')->on('institutions');
                 $table->index(['institution_id'], 'institutional_subscriptions_institution_ip');
             });

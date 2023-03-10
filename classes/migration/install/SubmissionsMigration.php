@@ -148,6 +148,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Comments posted on submissions
         Schema::create('submission_comments', function (Blueprint $table) {
+            $table->comment('Comments on a submission, e.g. peer review comments');
             $table->bigInteger('comment_id')->autoIncrement();
             $table->bigInteger('comment_type')->nullable();
             $table->bigInteger('role_id');
@@ -171,6 +172,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Assignments of sub editors to submission groups.
         Schema::create('subeditor_submission_group', function (Blueprint $table) {
+            $table->comment('Subeditor assignments to e.g. sections and categories');
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'section_editors_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
@@ -221,6 +223,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // List of all keywords.
         Schema::create('submission_search_keyword_list', function (Blueprint $table) {
+            $table->comment('A list of all keywords used in the search index');
             $table->bigInteger('keyword_id')->autoIncrement();
             $table->string('keyword_text', 60);
             $table->unique(['keyword_text'], 'submission_search_keyword_text');
@@ -228,6 +231,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Indexed objects.
         Schema::create('submission_search_objects', function (Blueprint $table) {
+            $table->comment('A list of all search objects indexed in the search index');
             $table->bigInteger('object_id')->autoIncrement();
 
             $table->bigInteger('submission_id');
@@ -240,6 +244,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
         // Keyword occurrences for each indexed object.
         Schema::create('submission_search_object_keywords', function (Blueprint $table) {
+            $table->comment('Relationships between search objects and keywords in the search index');
             $table->bigInteger('object_id');
             $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
             $table->index(['object_id'], 'submission_search_object_keywords_object_id');

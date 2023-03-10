@@ -25,6 +25,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
     {
         // Library files for a context
         Schema::create('library_files', function (Blueprint $table) {
+            $table->comment('Library files can be associated with the context (press/server/journal) or with individual submissions, and are typically forms, agreements, and other administrative documents that are not part of the scholarly content.');
             $table->bigInteger('file_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -49,6 +50,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
 
         // Library file metadata.
         Schema::create('library_file_settings', function (Blueprint $table) {
+            $table->comment('More data about library files, including localized content such as names.');
             $table->bigInteger('file_id');
             $table->foreign('file_id')->references('file_id')->on('library_files')->onDelete('cascade');
             $table->index(['file_id'], 'library_file_settings_file_id');

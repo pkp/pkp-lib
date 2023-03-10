@@ -62,6 +62,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
 
         // Reviewer Interests Associative Table
         Schema::create('user_interests', function (Blueprint $table) {
+            $table->comment('Associates users with user interests (which are stored in the controlled vocabulary tables).');
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_interests_user_id');

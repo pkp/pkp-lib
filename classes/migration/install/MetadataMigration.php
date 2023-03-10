@@ -25,6 +25,7 @@ class MetadataMigration extends \PKP\migration\Migration
     {
         // Citations
         Schema::create('citations', function (Blueprint $table) {
+            $table->comment('A citation made by an associated publication.');
             $table->bigInteger('citation_id')->autoIncrement();
 
             $table->bigInteger('publication_id');
@@ -39,6 +40,7 @@ class MetadataMigration extends \PKP\migration\Migration
 
         // Citation settings
         Schema::create('citation_settings', function (Blueprint $table) {
+            $table->comment('Additional data about citations, including localized content.');
             $table->bigInteger('citation_id');
             $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
             $table->index(['citation_id'], 'citation_settings_citation_id');
@@ -53,6 +55,7 @@ class MetadataMigration extends \PKP\migration\Migration
 
         // Filter groups
         Schema::create('filter_groups', function (Blueprint $table) {
+            $table->comment('Filter groups are used to organized filters into named sets, which can be retrieved by the application for invocation.');
             $table->bigInteger('filter_group_id')->autoIncrement();
             $table->string('symbolic', 255)->nullable();
             $table->string('display_name', 255)->nullable();
@@ -64,6 +67,7 @@ class MetadataMigration extends \PKP\migration\Migration
 
         // Configured filter instances (transformations)
         Schema::create('filters', function (Blueprint $table) {
+            $table->comment('Filters represent a transformation of a supported piece of data from one form to another, such as a PHP object into an XML document.');
             $table->bigInteger('filter_id')->autoIncrement();
 
             $table->bigInteger('filter_group_id')->default(0);
@@ -80,6 +84,7 @@ class MetadataMigration extends \PKP\migration\Migration
 
         // Filter Settings
         Schema::create('filter_settings', function (Blueprint $table) {
+            $table->comment('More data about filters, including localized content.');
             $table->bigInteger('filter_id');
             $table->foreign('filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
             $table->index(['filter_id'], 'filter_settings_id');

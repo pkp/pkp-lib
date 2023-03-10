@@ -62,6 +62,7 @@ class LogMigration extends \PKP\migration\Migration
         }
 
         Schema::create('email_log', function (Blueprint $table) {
+            $table->comment('A record of email messages that are sent in relation to an associated entity, such as a submission.');
             $table->bigInteger('log_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');

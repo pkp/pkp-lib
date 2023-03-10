@@ -23,8 +23,8 @@ class FilesMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // Create a new table to track files in file storage
         Schema::create('files', function (Blueprint $table) {
+            $table->comment('Records information in the database about files tracked by the system, linking them to the local filesystem.');
             $table->bigIncrements('file_id');
             $table->string('path', 255);
             $table->string('mimetype', 255);

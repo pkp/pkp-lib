@@ -24,6 +24,7 @@ class NotesMigration extends \PKP\migration\Migration
     public function up(): void
     {
         Schema::create('notes', function (Blueprint $table) {
+            $table->comment('Notes allow users to annotate associated entities, such as submissions.');
             $table->bigInteger('note_id')->autoIncrement();
             $table->bigInteger('assoc_type');
             $table->bigInteger('assoc_id');

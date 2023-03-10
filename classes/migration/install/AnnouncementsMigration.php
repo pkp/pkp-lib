@@ -25,6 +25,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
     {
         // Announcement types.
         Schema::create('announcement_types', function (Blueprint $table) {
+            $table->comment('Announcement types allow for announcements to optionally be categorized.');
             $table->bigInteger('type_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -35,6 +36,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
 
         // Locale-specific announcement type data
         Schema::create('announcement_type_settings', function (Blueprint $table) {
+            $table->comment('More data about announcement types, including localized properties like their names.');
             $table->bigInteger('type_id');
             $table->foreign('type_id')->references('type_id')->on('announcement_types')->onDelete('cascade');
             $table->index(['type_id'], 'announcement_type_settings_type_id');
@@ -49,6 +51,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
 
         // Announcements.
         Schema::create('announcements', function (Blueprint $table) {
+            $table->comment('Announcements are messages that can be presented to users e.g. on the homepage.');
             $table->bigInteger('announcement_id')->autoIncrement();
             //  NOT NULL not included for upgrade purposes
             $table->smallInteger('assoc_type')->nullable();
@@ -65,6 +68,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
 
         // Locale-specific announcement data
         Schema::create('announcement_settings', function (Blueprint $table) {
+            $table->comment('More data about announcements, including localized properties like names and contents.');
             $table->bigInteger('announcement_id');
             $table->foreign('announcement_id')->references('announcement_id')->on('announcements')->onDelete('cascade');
             $table->index(['announcement_id'], 'announcement_settings_announcement_id');

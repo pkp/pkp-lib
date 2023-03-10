@@ -28,6 +28,7 @@ class DoiMigration extends Migration
         // needs to be added once the context has been created.
         // It will reference the app specific column (e.g. journal_id, press_id, etc.).
         Schema::create('dois', function (Blueprint $table) {
+            $table->comment('Stores all DOIs used in the system.');
             $table->bigInteger('doi_id')->autoIncrement();
 
             $table->bigInteger('context_id');
@@ -41,6 +42,7 @@ class DoiMigration extends Migration
 
         // Settings
         Schema::create('doi_settings', function (Blueprint $table) {
+            $table->comment('More data about DOIs, including the registration agency.');
             $table->bigInteger('doi_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

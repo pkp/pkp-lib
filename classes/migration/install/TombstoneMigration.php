@@ -37,6 +37,7 @@ class TombstoneMigration extends \PKP\migration\Migration
 
         // Data object tombstone settings.
         Schema::create('data_object_tombstone_settings', function (Blueprint $table) {
+            $table->comment('More data about data object tombstones, including localized content.');
             $table->bigInteger('tombstone_id');
             $table->foreign('tombstone_id', 'data_object_tombstone_settings_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
             $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');
@@ -51,6 +52,7 @@ class TombstoneMigration extends \PKP\migration\Migration
 
         // Objects that are part of a data object tombstone OAI set.
         Schema::create('data_object_tombstone_oai_set_objects', function (Blueprint $table) {
+            $table->comment('Relationships between tombstones and other data that can be collected in OAI sets, e.g. sections.');
             $table->bigInteger('object_id')->autoIncrement();
 
             $table->bigInteger('tombstone_id');

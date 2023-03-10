@@ -26,6 +26,7 @@ class OPSMigration extends \PKP\migration\Migration
     {
         // Server sections.
         Schema::create('sections', function (Blueprint $table) {
+            $table->comment('Submissions can be organized into sections, which determine the front-end presentation and provide options for selective harvesting in the OAI-PMH interface.');
             $table->bigInteger('section_id')->autoIncrement();
 
             $table->bigInteger('server_id');
@@ -49,6 +50,7 @@ class OPSMigration extends \PKP\migration\Migration
 
         // Section-specific settings
         Schema::create('section_settings', function (Blueprint $table) {
+            $table->comment('More data about sections, including localized properties such as section titles.');
             $table->bigInteger('section_id');
             $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('cascade');
             $table->index(['section_id'], 'section_settings_section_id');
@@ -103,6 +105,7 @@ class OPSMigration extends \PKP\migration\Migration
 
         // Publication galleys
         Schema::create('publication_galleys', function (Blueprint $table) {
+            $table->comment('Publication galleys are representations of publications in a particular format, such as a PDF file.');
             $table->bigInteger('galley_id')->autoIncrement();
             $table->string('locale', 14)->nullable();
 
@@ -130,6 +133,7 @@ class OPSMigration extends \PKP\migration\Migration
 
         // Galley metadata.
         Schema::create('publication_galley_settings', function (Blueprint $table) {
+            $table->comment('More data about publication galleys, including localized properties such as labels.');
             $table->bigInteger('galley_id');
             $table->foreign('galley_id')->references('galley_id')->on('publication_galleys');
             $table->index(['galley_id'], 'publication_galley_settings_galley_id');

@@ -25,6 +25,7 @@ class ServersMigration extends \PKP\migration\Migration
     {
         // Servers and basic server settings.
         Schema::create('servers', function (Blueprint $table) {
+            $table->comment('A list of preprint servers managed by the installation.');
             $table->bigInteger('server_id')->autoIncrement();
             $table->string('path', 32);
             $table->float('seq', 8, 2)->default(0)->comment('Used to order lists of servers');
@@ -35,6 +36,7 @@ class ServersMigration extends \PKP\migration\Migration
 
         // Server settings.
         Schema::create('server_settings', function (Blueprint $table) {
+            $table->comment('More data about server settings, including localized properties such as policies.');
             $table->bigInteger('server_id');
             $table->foreign('server_id', 'server_settings_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'server_settings_server_id');

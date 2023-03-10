@@ -106,7 +106,7 @@ class FileCache extends GenericCache
      */
     public function setEntireCache($contents)
     {
-        if (file_put_contents(
+        if (@file_put_contents(
             $this->filename,
             '<?php return ' . var_export($contents, true) . ';',
             LOCK_EX

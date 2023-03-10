@@ -1,14 +1,14 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-08-23 12:01+0000\n"
+"PO-Revision-Date: 2023-03-10 09:55+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"sv_SE/>\n"
-"Language: sv_SE\n"
+"sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,7 +167,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Återinsätt granskare"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Skicka granskningsförfrågan igen"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Granskningstyp"
@@ -302,7 +302,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Granskaren har tackats"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Förfrågan skickad igen"
 
 msgid "editor.review.reviewerComments"
 msgstr "Granskares kommentarer"
@@ -332,6 +332,8 @@ msgstr "Ett fel uppstod när granskaren skulle läggas till. Försök igen."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Ett fel uppstod när granskaren skulle ombes att på nytt överväga "
+"granskningsuppdraget. Försök igen."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Lägg till den här användaren i den här gransknings-användargruppen"

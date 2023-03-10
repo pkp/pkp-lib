@@ -27,7 +27,11 @@ class ReviewsMigration extends \PKP\migration\Migration
         Schema::create('review_rounds', function (Blueprint $table) {
             $table->comment('Peer review assignments are organized into multiple rounds on a submission.');
             $table->bigInteger('review_round_id')->autoIncrement();
+
             $table->bigInteger('submission_id');
+            $table->foreign('submission_id')->references('submission_id')->on('submissions');
+            $table->index(['submission_id'], 'review_rounds_submission_id');
+
             $table->bigInteger('stage_id')->nullable();
             $table->smallInteger('round');
             $table->bigInteger('review_revision')->nullable();
@@ -123,6 +127,9 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->index(['submission_id'], 'review_round_files_submission_id');
 
             $table->bigInteger('review_round_id');
+            $table->foreign('review_round_id')->references('review_round_id')->on('review_rounds')->onDelete('cascade');
+            $table->index(['review_round_id'], 'review_round_files_review_round_id');
+
             $table->smallInteger('stage_id');
 
             $table->bigInteger('submission_file_id')->nullable(false)->unsigned();

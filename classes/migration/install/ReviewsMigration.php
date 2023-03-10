@@ -36,7 +36,6 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->smallInteger('round');
             $table->bigInteger('review_revision')->nullable();
             $table->bigInteger('status')->nullable();
-            $table->index(['submission_id'], 'review_rounds_submission_id');
             $table->unique(['submission_id', 'stage_id', 'round'], 'review_rounds_submission_id_stage_id_round_pkey');
         });
         Schema::table('edit_decisions', function (Blueprint $table) {

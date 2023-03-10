@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\section\Section;
 use APP\template\TemplateManager;
+use PKP\context\SubEditorsDAO;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\security\Role;
@@ -138,21 +139,36 @@ class PKPSectionForm extends Form
 
     public function initData()
     {
+        $assignedSubeditors = [];
+        $subeditorUserGroups = [];
+
         if ($this->getSection() !== null) {
-            $this->setData([
-                'assignedSubeditors' => Repo::user()
-                    ->getCollector()
-                    ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                    ->filterByRoleIds($this->assignableRoles)
-                    ->assignedToSectionIds([$this->getSectionId()])
-                    ->getIds()
-                    ->toArray(),
-            ]);
-        } else {
-            $this->setData([
-                'assignedSubeditors' => [],
-            ]);
+            $contextId = Application::get()->getRequest()->getContext()->getId();
+            $assignedSubeditors = Repo::user()
+                ->getCollector()
+                ->filterByContextIds([$contextId])
+                ->filterByRoleIds($this->assignableRoles)
+                ->assignedToSectionIds([$this->getSectionId()])
+                ->getIds()
+                ->toArray();
+
+            if (!empty($assignedSubeditors)) {
+                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+                $subeditorUserGroups = $subEditorsDao->getSectionAssignEditorsUserGroups(
+                    $contextId, 
+                    $this->getSection()->getId(), 
+                    $assignedSubeditors
+                )
+                ->groupBy('user_id')
+                ->map(fn($userGroups) => $userGroups->pluck('user_group_id'))
+                ->toArray();
+            }
         }
+
+        $this->setData([
+            'assignedSubeditors'    => $assignedSubeditors,
+            'subeditorUserGroups'   => $subeditorUserGroups,
+        ]);
 
         parent::initData();
     }

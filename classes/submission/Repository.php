@@ -666,7 +666,7 @@ abstract class Repository
     public function resetPermissions(int $contextId)
     {
         $submissions = Repo::submission()->getCollector()->filterByContextIds([$contextId])->getMany();
-        while ($submission = $submissions->next()) {
+        foreach ($submissions as $submission) {
             $publications = $submission->getData('publications');
             if (empty($publications)) {
                 continue;

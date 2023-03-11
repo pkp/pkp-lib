@@ -31,7 +31,7 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
      */
     protected array $assocTypes = [];
 
-    /** Include records for these file types: STATISTICS_FILE_TYPE_* */
+    /** Include records for these file types: PKPStatisticsHelper::STATISTICS_FILE_TYPE_* */
     protected array $fileTypes = [];
 
     /** Include records for these sections/series */

@@ -21,6 +21,7 @@ use APP\submission\Collector;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\config\Config;
+use PKP\db\DAO;
 use PKP\file\ContextFileManager;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\Role;
@@ -69,7 +70,7 @@ class PKPCatalogHandler extends Handler
         }
 
         $this->setupTemplate($request);
-        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . SORT_DIRECTION_DESC;
+        $orderOption = $category->getSortOption() ? $category->getSortOption() : Collector::ORDERBY_DATE_PUBLISHED . '-' . DAO::SORT_DIRECTION_DESC;
         [$orderBy, $orderDir] = explode('-', $orderOption);
 
         $count = $context->getData('itemsPerPage') ? $context->getData('itemsPerPage') : Config::getVar('interface', 'items_per_page');
@@ -80,7 +81,7 @@ class PKPCatalogHandler extends Handler
             ->filterByContextIds([$context->getId()])
             ->filterByCategoryIds([$category->getId()])
             ->filterByStatus([Submission::STATUS_PUBLISHED])
-            ->orderBy($orderBy, $orderDir === SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
+            ->orderBy($orderBy, $orderDir === DAO::SORT_DIRECTION_ASC ? Collector::ORDER_DIR_ASC : Collector::ORDER_DIR_DESC);
 
         // Featured items are only in OMP at this time
         if (method_exists($collector, 'orderByFeatured')) {

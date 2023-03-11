@@ -17,6 +17,7 @@
 namespace PKP\handler;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\config\Config;

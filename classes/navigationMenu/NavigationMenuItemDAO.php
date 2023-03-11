@@ -68,7 +68,7 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      *
      * @param int $contextId Context Id
      *
-     * @return NavigationMenu
+     * @return DAOResultFactory
      */
     public function getByContextId($contextId)
     {
@@ -497,7 +497,9 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      */
     public function unCacheRelatedNavigationMenus($id)
     {
+        /** @var NavigationMenuDAO */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        /** @var NavigationMenuItemAssignmentDAO */
         $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
         $assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($id);
         if ($assignments) {

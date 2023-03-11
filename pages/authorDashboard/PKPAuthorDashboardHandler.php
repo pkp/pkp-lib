@@ -119,12 +119,12 @@ abstract class PKPAuthorDashboardHandler extends Handler
     }
 
     /**
-     * Get the SUBMISSION_FILE_... file stage based on the current
+     * Get the SubmissionFile::SUBMISSION_FILE_... file stage based on the current
      * WORKFLOW_STAGE_... workflow stage.
      *
      * @param int $currentStage WORKFLOW_STAGE_...
      *
-     * @return int SUBMISSION_FILE_...
+     * @return int SubmissionFile::SUBMISSION_FILE_...
      */
     protected function _fileStageFromWorkflowStage($currentStage)
     {

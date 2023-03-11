@@ -421,7 +421,7 @@ abstract class Repository
                 'copyrightHolder',
                 $submission->_getContextLicenseFieldValue(
                     null,
-                    PERMISSIONS_FIELD_COPYRIGHT_HOLDER,
+                    PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_HOLDER,
                     $newPublication
                 )
             );
@@ -432,7 +432,7 @@ abstract class Repository
                 'copyrightYear',
                 $submission->_getContextLicenseFieldValue(
                     null,
-                    PERMISSIONS_FIELD_COPYRIGHT_YEAR,
+                    PKPSubmission::PERMISSIONS_FIELD_COPYRIGHT_YEAR,
                     $newPublication
                 )
             );
@@ -443,7 +443,7 @@ abstract class Repository
                 'licenseUrl',
                 $submission->_getContextLicenseFieldValue(
                     null,
-                    PERMISSIONS_FIELD_LICENSE_URL,
+                    PKPSubmission::PERMISSIONS_FIELD_LICENSE_URL,
                     $newPublication
                 )
             );

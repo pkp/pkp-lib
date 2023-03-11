@@ -46,7 +46,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
      * @param PKPRequest $request
      * @param array $args request parameters
      * @param array $roleAssignments
-     * @param int $mode bitfield SUBMISSION_FILE_ACCESS_...
+     * @param int $mode bitfield SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_...
      * @param int $submissionFileId
      * @param string $submissionParameterName the request parameter we expect
      *  the submission id in.
@@ -55,7 +55,7 @@ class SubmissionFileAccessPolicy extends ContextPolicy
     {
         // TODO: Refine file access policies. Differentiate between
         // read and modify access using bitfield:
-        // $mode & SUBMISSION_FILE_ACCESS_...
+        // $mode & SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_...
 
         parent::__construct($request);
         $this->_baseFileAccessPolicy = $this->buildFileAccessPolicy($request, $args, $roleAssignments, $mode, $submissionFileId, $submissionParameterName);

@@ -68,7 +68,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        // Make sure the file stage is SUBMISSION_FILE_REVIEW_REVISION.
+        // Make sure the file stage is SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION.
         if ($submissionFile->getData('fileStage') != SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

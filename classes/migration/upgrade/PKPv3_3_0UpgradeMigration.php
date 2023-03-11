@@ -635,7 +635,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
     /**
      * Get the directory of a file based on its file stage
      *
-     * @param int $fileStage One of SUBMISSION_FILE_ constants
+     * @param int $fileStage One of SubmissionFile::SUBMISSION_FILE_ constants
      *
      * @return string
      */

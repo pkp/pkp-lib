@@ -15,6 +15,7 @@
 
 namespace PKP\notification\managerDelegate;
 
+use APP\core\Application;
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
 use PKP\notification\NotificationManagerDelegate;

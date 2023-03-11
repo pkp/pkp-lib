@@ -248,7 +248,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @return int SUBMISSION_FILE_...
+     * @return int SubmissionFile::SUBMISSION_FILE_...
      */
     public function getFileStage()
     {
@@ -260,7 +260,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param int $fileStage SUBMISSION_FILE_...
+     * @param int $fileStage SubmissionFile::SUBMISSION_FILE_...
      */
     public function setFileStage($fileStage)
     {

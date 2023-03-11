@@ -49,7 +49,7 @@ class Collector implements CollectorInterface
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
 
-    /** @var bool include submission files in the SUBMISSION_FILE_DEPENDENT stage */
+    /** @var bool include submission files in the SubmissionFile::SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
 
     /** @var null|array get submission files matching one or more uploader users id */

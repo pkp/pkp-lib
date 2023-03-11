@@ -25,7 +25,7 @@ trait PKPStatsServiceTrait
     /**
      * Get the sum of a set of metrics broken down by day or month
      *
-     * @param string $timelineInterval STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
+     * @param string $timelineInterval PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH or PKPStatisticsHelper::STATISTICS_DIMENSION_DAY
      * @param array $args Filter the records to include. See self::getQueryBuilder()
      *
      */
@@ -75,7 +75,7 @@ trait PKPStatsServiceTrait
      * Get all time segments (months or days) between the start and end date
      * with empty values.
      *
-     * @param string $timelineInterval STATISTICS_DIMENSION_MONTH or STATISTICS_DIMENSION_DAY
+     * @param string $timelineInterval PKPStatisticsHelper::STATISTICS_DIMENSION_MONTH or PKPStatisticsHelper::STATISTICS_DIMENSION_DAY
      *
      * @return array of time segments in ASC order
      */

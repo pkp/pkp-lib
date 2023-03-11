@@ -29,7 +29,7 @@ class CacheManager
     /**
      * Get the static instance of the cache manager.
      *
-     * @return object CacheManager
+     * @return CacheManager
      */
     public static function getManager()
     {
@@ -47,7 +47,7 @@ class CacheManager
      * @param string $cacheId
      * @param callable $fallback
      *
-     * @return object FileCache
+     * @return FileCache
      */
     public function getFileCache($context, $cacheId, $fallback)
     {
@@ -81,7 +81,7 @@ class CacheManager
      * @param callable $fallback
      * @param string $type Type of cache: CACHE_TYPE_...
      *
-     * @return object Cache
+     * @return GenericCache
      */
     public function getCache($context, $cacheId, $fallback, $type = CACHE_TYPE_FILE)
     {

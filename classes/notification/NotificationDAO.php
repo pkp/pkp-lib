@@ -20,7 +20,7 @@ namespace PKP\notification;
 use APP\notification\Notification;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
-
+use PKP\core\PKPApplication;
 use PKP\db\DAOResultFactory;
 
 use PKP\plugins\Hook;
@@ -50,7 +50,7 @@ class NotificationDAO extends \PKP\db\DAO
             $params
         );
         $row = (array) $result->current();
-        return $row ? $this->_fromRow((array) $row) : null;
+        return $row ? $this->_fromRow($row) : null;
     }
 
     /**
@@ -59,17 +59,19 @@ class NotificationDAO extends \PKP\db\DAO
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
      * @param int $userId
-     * @param int $level
      * @param int $type
      * @param int $contextId
      *
      * @return object DAOResultFactory containing matching Notification objects
      */
-    public function getByUserId($userId, $level = Notification::NOTIFICATION_LEVEL_NORMAL, $type = null, $contextId = null)
+    public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = null)
     {
         $result = DB::table('notifications')
-            ->where('user_id', '=', (int) $userId)
-            ->where('level', '=', (int) $level)
+            ->where('user_id', '=', $userId)
+            ->where('level', '=', $level)
+            ->when($type !== null, fn ($query) => $query->where('type', '=', $type))
+            ->when($contextId === PKPApplication::CONTEXT_SITE, fn ($query) => $query->whereNull('context_id'))
+            ->when($contextId, fn ($query) => $query->where('context_id', '=', $contextId))
             ->orderBy('date_created', 'desc')
             ->get();
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -81,24 +83,20 @@ class NotificationDAO extends \PKP\db\DAO
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
      * @param int $assocType ASSOC_TYPE_...
-     * @param int $assocId
-     * @param int $userId User ID (optional)
-     * @param int $type
-     * @param int $contextId Context (journal/press/etc.) ID (optional)
      *
      * @return object DAOResultFactory containing matching Notification objects
      */
-    public function getByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null)
+    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null)
     {
-        $params = [(int) $assocType, (int) $assocId];
+        $params = [$assocType, $assocId];
         if ($userId) {
-            $params[] = (int) $userId;
+            $params[] = $userId;
         }
         if ($contextId) {
-            $params[] = (int) $contextId;
+            $params[] = $contextId;
         }
         if ($type) {
-            $params[] = (int) $type;
+            $params[] = $type;
         }
 
         $result = $this->retrieveRange(
@@ -116,12 +114,11 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Retrieve Notifications by notification id
      *
-     * @param int $notificationId
      * @param date $dateRead
      *
      * @return bool
      */
-    public function setDateRead($notificationId, $dateRead)
+    public function setDateRead(int $notificationId, $dateRead)
     {
         $this->update(
             sprintf(
@@ -130,7 +127,7 @@ class NotificationDAO extends \PKP\db\DAO
 				WHERE notification_id = ?',
                 $this->datetimeToDB($dateRead)
             ),
-            [(int) $notificationId]
+            [$notificationId]
         );
 
         return $dateRead;
@@ -148,12 +145,8 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Inserts a new notification into notifications table
-     *
-     * @param object $notification
-     *
-     * @return int Notification Id
      */
-    public function insertObject($notification)
+    public function insertObject(Notification $notification): int
     {
         $this->update(
             sprintf(
@@ -164,9 +157,9 @@ class NotificationDAO extends \PKP\db\DAO
                 $this->datetimeToDB(Core::getCurrentDate())
             ),
             [
-                (int) $notification->getUserId(),
+                $notification->getUserId() ? (int) $notification->getUserId() : null,
                 (int) $notification->getLevel(),
-                (int) $notification->getContextId(),
+                $notification->getContextId() ? (int) $notification->getContextId() : null,
                 (int) $notification->getType(),
                 (int) $notification->getAssocType(),
                 (int) $notification->getAssocId()
@@ -180,35 +173,24 @@ class NotificationDAO extends \PKP\db\DAO
     /**
      * Inserts or update a notification into notifications table.
      *
-     * @param int $level
-     * @param int $type
-     * @param int $assocType
-     * @param int $assocId
      * @param int $userId (optional)
      * @param int $contextId (optional)
      *
      * @return mixed Notification or null
      */
-    public function build($contextId, $level, $type, $assocType, $assocId, $userId = null)
+    public function build(int $contextId, int $level, int $type, int $assocType, int $assocId, ?int $userId = null): Notification
     {
-        $params = [
-            (int) $contextId,
-            (int) $level,
-            (int) $type,
-            (int) $assocType,
-            (int) $assocId
-        ];
-
-        if ($userId) {
-            $params[] = (int) $userId;
-        }
-
-        $this->update(
-            'DELETE FROM notifications
-			WHERE context_id = ? AND level = ? AND type = ? AND assoc_type = ? AND assoc_id = ?'
-            . ($userId ? ' AND user_id = ?' : ''),
-            $params
-        );
+        DB::table('notifications')
+            ->when(
+                $contextId === PKPApplication::SITE_CONTEXT,
+                fn ($query) => $query->whereNull('context_id'),
+                fn ($query) => $query->where('context_id', '=', $contextId)
+            )
+            ->where('level', '=', $level)
+            ->where('assoc_type', '=', $assocType)
+            ->where('assoc_id', '=', $assocId)
+            ->when($userId !== null, fn ($query, $userId) => $query->where('user_id', '=', $userId))
+            ->delete();
 
         $notification = $this->newDataObject();
         $notification->setContextId($contextId);
@@ -219,32 +201,22 @@ class NotificationDAO extends \PKP\db\DAO
         $notification->setUserId($userId);
 
         $notificationId = $this->insertObject($notification);
-        if ($notificationId) {
-            $notification->setId($notificationId);
-            return $notification;
-        } else {
-            return null;
-        }
+        $notification->setId($notificationId);
+        return $notification;
     }
 
     /**
      * Delete Notification by notification id
      *
-     * @param int $notificationId
      * @param int $userId
      *
      */
-    public function deleteById($notificationId, $userId = null)
+    public function deleteById(int $notificationId, ?int $userId = null)
     {
         $query = DB::table('notifications')
-            ->where('notification_id', '=', $notificationId);
-
-        if ($userId) {
-            $query->where('user_id', '=', $userId);
-        }
-
-        // related notification_settings will be deleted due to foreign key constrain
-        $query->delete();
+            ->where('notification_id', '=', $notificationId)
+            ->when($userId, fn ($query, $userId) => $query->where('user_id', '=', $userId))
+            ->delete();
     }
 
     /**

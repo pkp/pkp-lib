@@ -137,6 +137,8 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             $this->checkContactSetting();
 
             // pkp/pkp-lib#6903 Prepare to add foreign key relationships
+            DB::table('notifications')->where('user_id', '=', 0)->update(['user_id' => null]);
+
             // Clean orphaned assoc_type/assoc_id data in announcement_types
             $orphanedIds = DB::table('announcement_types AS at')->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->orWhere('at.assoc_type', '<>', Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
             foreach ($orphanedIds as $typeId) {

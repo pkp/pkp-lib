@@ -190,8 +190,8 @@ abstract class Repository
         // wizard for incomplete submissions
         if ($submission->getSubmissionProgress() &&
             ($authorDashboard ||
-                $user->hasRole([ROLE_ID_MANAGER], $submissionContext->getId()) ||
-                $user->hasRole([ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE))) {
+                $user->hasRole([Role::ROLE_ID_MANAGER], $submissionContext->getId()) ||
+                $user->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE))) {
             return $dispatcher->url(
                 $request,
                 Application::ROUTE_PAGE,
@@ -459,12 +459,12 @@ abstract class Repository
 
         // Only allow admins and journal managers to delete submissions, except
         // for authors who can delete their own incomplete submissions
-        if ($currentUser->hasRole([ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)) {
+        if ($currentUser->hasRole([Role::ROLE_ID_MANAGER], $contextId) || $currentUser->hasRole([Role::ROLE_ID_SITE_ADMIN], Application::CONTEXT_SITE)) {
             $canDelete = true;
         } else {
             if ($submission->getData('submissionProgress')) {
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
-                $assignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [ROLE_ID_AUTHOR], WORKFLOW_STAGE_ID_SUBMISSION, $currentUser->getId());
+                $assignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR], WORKFLOW_STAGE_ID_SUBMISSION, $currentUser->getId());
                 $assignment = $assignments->next();
                 if ($assignment) {
                     $canDelete = true;
@@ -514,7 +514,7 @@ abstract class Repository
 
         if ($user) {
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
-            $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), ROLE_ID_AUTHOR, null, $user->getId());
+            $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
             $stageAssignment = $stageAssignments->next();
             if ($stageAssignment) {
                 return true;

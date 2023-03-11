@@ -290,6 +290,6 @@ class EventLogEntry extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\log\EventLogEntry', '\EventLogEntry');
-    define('SUBMISSION_LOG_NOTE_POSTED', \EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
-    define('SUBMISSION_LOG_MESSAGE_SENT', \EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
+    define('SUBMISSION_LOG_NOTE_POSTED', EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
+    define('SUBMISSION_LOG_MESSAGE_SENT', EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
 }

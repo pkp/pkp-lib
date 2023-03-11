@@ -19,6 +19,7 @@ use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\config\Config;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 
 define('FORM_REVIEW_SETUP', 'reviewSetup');
@@ -83,7 +84,7 @@ class PKPReviewSetupForm extends FormComponent
                 'size' => 'small',
             ]));
 
-        if (\Config::getVar('general', 'scheduled_tasks')) {
+        if (Config::getVar('general', 'scheduled_tasks')) {
             $this->addField(new FieldText('numDaysBeforeInviteReminder', [
                 'label' => __('manager.setup.reviewOptions.reminders.response'),
                 'description' => __('manager.setup.reviewOptions.reminders.response.description'),

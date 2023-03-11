@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
@@ -39,9 +40,9 @@ class PKPDisableSubmissionsForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $url = \Application::get()->getRequest()->getDispatcher()->url(
-            \Application::get()->getRequest(),
-            \PKPApplication::ROUTE_PAGE,
+        $url = Application::get()->getRequest()->getDispatcher()->url(
+            Application::get()->getRequest(),
+            Application::ROUTE_PAGE,
             null,
             'management',
             'settings',

@@ -163,7 +163,7 @@ class Repository
      * submission.
      *
      * @param string $stageId One of the WORKFLOW_STAGE_ID_* constants.
-     * @param string $workflowType Accessing the editorial or author workflow? \PKPApplication::WORKFLOW_TYPE_*
+     * @param string $workflowType Accessing the editorial or author workflow? PKPApplication::WORKFLOW_TYPE_*
      * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
      * @param array $userRoles User's roles in the context
      *

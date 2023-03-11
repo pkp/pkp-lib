@@ -22,6 +22,7 @@ use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\config\Config;
+use PKP\core\PKPString;
 use PKP\file\FileManager;
 use PKP\plugins\Hook;
 
@@ -44,8 +45,8 @@ class PKPFileService
                     'private' => FileManager::FILE_MODE_MASK & ~$umask,
                 ],
                 'dir' => [
-                    'public' => DIRECTORY_MODE_MASK & ~$umask,
-                    'private' => DIRECTORY_MODE_MASK & ~$umask,
+                    'public' => FileManager::DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => FileManager::DIRECTORY_MODE_MASK & ~$umask,
                 ]
             ]),
             LOCK_EX,
@@ -96,7 +97,7 @@ class PKPFileService
         // Check and override ambiguous mime types based on file extension
         if ($extension = pathinfo($to, PATHINFO_EXTENSION)) {
             $checkAmbiguous = strtolower($extension . ':' . $mimetype);
-            if (array_key_exists($checkAmbiguous, $extensionsMap = \PKPString::getAmbiguousExtensionsMap())) {
+            if (array_key_exists($checkAmbiguous, $extensionsMap = PKPString::getAmbiguousExtensionsMap())) {
                 $mimetype = $extensionsMap[$checkAmbiguous];
             }
         }

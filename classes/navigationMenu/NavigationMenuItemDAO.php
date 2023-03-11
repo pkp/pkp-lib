@@ -497,8 +497,8 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
      */
     public function unCacheRelatedNavigationMenus($id)
     {
-        $navigationMenuDao = \DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenuItemAssignmentDao = \DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
+        $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
         $assignments = $navigationMenuItemAssignmentDao->getByMenuItemId($id);
         if ($assignments) {
             $assignmentsArray = $assignments->toArray();

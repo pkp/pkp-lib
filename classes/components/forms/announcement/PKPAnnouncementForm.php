@@ -14,10 +14,12 @@
 
 namespace PKP\components\forms\announcement;
 
+use PKP\announcement\AnnouncementTypeDAO;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
+use PKP\db\DAORegistry;
 
 define('FORM_ANNOUNCEMENT', 'announcement');
 
@@ -65,7 +67,8 @@ class PKPAnnouncementForm extends FormComponent
                 'size' => 'small',
             ]));
 
-        $announcementTypeDao = \DAORegistry::getDAO('AnnouncementTypeDAO');
+        /** @var AnnouncementTypeDAO */
+        $announcementTypeDao = DAORegistry::getDAO('AnnouncementTypeDAO');
         $announcementTypes = $announcementTypeDao->getByContextId($announcementContext->getId());
         $announcementOptions = [];
         foreach ($announcementTypes as $announcementType) {

@@ -304,6 +304,6 @@ class NoteDAO extends \PKP\db\DAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\note\NoteDAO', '\NoteDAO');
-    define('NOTE_ORDER_DATE_CREATED', \NoteDAO::NOTE_ORDER_DATE_CREATED);
-    define('NOTE_ORDER_ID', \NoteDAO::NOTE_ORDER_ID);
+    define('NOTE_ORDER_DATE_CREATED', NoteDAO::NOTE_ORDER_DATE_CREATED);
+    define('NOTE_ORDER_ID', NoteDAO::NOTE_ORDER_ID);
 }

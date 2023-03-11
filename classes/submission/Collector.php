@@ -343,11 +343,11 @@ abstract class Collector implements CollectorInterface
                 $q->where('raod.declined', '<>', 1);
                 $q->where('raod.cancelled', '<>', 1);
                 $q->where(function ($q) {
-                    $q->where('raod.date_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+                    $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')));
                     $q->whereNull('raod.date_completed');
                 });
                 $q->orWhere(function ($q) {
-                    $q->where('raod.date_response_due', '<', \Core::getCurrentDate(strtotime('tomorrow')));
+                    $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')));
                     $q->whereNull('raod.date_confirmed');
                 });
             });

@@ -142,5 +142,5 @@ class MetadataTypeDescription extends ClassTypeDescription
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\metadata\MetadataTypeDescription', '\MetadataTypeDescription');
-    define('ASSOC_TYPE_ANY', \MetadataTypeDescription::ASSOC_TYPE_ANY);
+    define('ASSOC_TYPE_ANY', MetadataTypeDescription::ASSOC_TYPE_ANY);
 }

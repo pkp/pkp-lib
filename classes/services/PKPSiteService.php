@@ -16,8 +16,10 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\validation\ValidatorFactory;
@@ -131,7 +133,7 @@ class PKPSiteService implements EntityPropertyInterface
         // enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['sidebar']) && !$validator->errors()->get('sidebar')) {
-                $plugins = \PluginRegistry::loadCategory('blocks', true);
+                $plugins = PluginRegistry::loadCategory('blocks', true);
                 foreach ($props['sidebar'] as $pluginName) {
                     if (empty($plugins[$pluginName])) {
                         $validator->errors()->add('sidebar', __('manager.setup.layout.sidebar.invalidBlock', ['name' => $pluginName]));
@@ -143,7 +145,7 @@ class PKPSiteService implements EntityPropertyInterface
         // Ensure the theme plugin is installed and enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['themePluginPath']) && !$validator->errors()->get('themePluginPath')) {
-                $plugins = \PluginRegistry::loadCategory('themes', true);
+                $plugins = PluginRegistry::loadCategory('themes', true);
                 $found = false;
                 foreach ($plugins as $plugin) {
                     if ($props['themePluginPath'] === $plugin->getDirName()) {
@@ -312,14 +314,14 @@ class PKPSiteService implements EntityPropertyInterface
                     'uploadName' => $fileName,
                     'width' => $width,
                     'height' => $height,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                     'altText' => $altText,
                 ];
             } else {
                 return [
                     'originalFilename' => $temporaryFile->getOriginalFileName(),
                     'uploadName' => $fileName,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                 ];
             }
         }

@@ -109,6 +109,6 @@ class PolicySet
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\PolicySet', '\PolicySet');
-    define('COMBINING_DENY_OVERRIDES', \PolicySet::COMBINING_DENY_OVERRIDES);
-    define('COMBINING_PERMIT_OVERRIDES', \PolicySet::COMBINING_PERMIT_OVERRIDES);
+    define('COMBINING_DENY_OVERRIDES', PolicySet::COMBINING_DENY_OVERRIDES);
+    define('COMBINING_PERMIT_OVERRIDES', PolicySet::COMBINING_PERMIT_OVERRIDES);
 }

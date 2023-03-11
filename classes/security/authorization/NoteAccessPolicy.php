@@ -99,6 +99,6 @@ class NoteAccessPolicy extends AuthorizationPolicy
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\NoteAccessPolicy', '\NoteAccessPolicy');
-    define('NOTE_ACCESS_READ', \NoteAccessPolicy::NOTE_ACCESS_READ);
-    define('NOTE_ACCESS_WRITE', \NoteAccessPolicy::NOTE_ACCESS_WRITE);
+    define('NOTE_ACCESS_READ', NoteAccessPolicy::NOTE_ACCESS_READ);
+    define('NOTE_ACCESS_WRITE', NoteAccessPolicy::NOTE_ACCESS_WRITE);
 }

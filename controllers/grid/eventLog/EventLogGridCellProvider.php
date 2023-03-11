@@ -22,6 +22,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\db\DAORegistry;
 use PKP\log\EventLogEntry;
 use PKP\log\PKPSubmissionEventLogEntry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridCellProvider extends DataObjectGridCellProvider
@@ -82,7 +83,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             $userName = __('editor.review.anonymousReviewer');
                             if (isset($params['reviewAssignmentId'])) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
-                                if ($reviewAssignment && $reviewAssignment->getReviewMethod() === SUBMISSION_REVIEW_METHOD_OPEN) {
+                                if ($reviewAssignment && $reviewAssignment->getReviewMethod() === ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                                     $userName = $reviewAssignment->getUserFullName();
                                 }
                             }
@@ -94,7 +95,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                             $submissionFile = Repo::submissionFile()->get($params['id']);
                             if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
-                                if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                                if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                                     $userName = __('editor.review.anonymousReviewer');
                                 }
                             }

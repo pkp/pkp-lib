@@ -20,6 +20,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
@@ -49,7 +50,7 @@ class SubmissionFileAuthorEditorPolicy extends SubmissionFileBaseAccessPolicy
             if (in_array(Role::ROLE_ID_AUTHOR, $stageRoles)) {
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById((int) $submissionFile->getData('assocId'));
-                if ($reviewAssignment && $reviewAssignment->getReviewMethod() != SUBMISSION_REVIEW_METHOD_OPEN) {
+                if ($reviewAssignment && $reviewAssignment->getReviewMethod() != ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN) {
                     return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
                 break;

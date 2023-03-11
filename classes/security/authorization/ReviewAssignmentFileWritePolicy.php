@@ -19,6 +19,8 @@ namespace PKP\security\authorization;
 use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 {
@@ -94,7 +96,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         // Reviewers can write review attachments to their own review assigments,
         // if the assignment is not yet complete, cancelled or declined.
         if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
-            $notAllowedStatuses = [REVIEW_ASSIGNMENT_STATUS_DECLINED, REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_THANKED, REVIEW_ASSIGNMENT_STATUS_CANCELLED];
+            $notAllowedStatuses = [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED];
             if (!in_array($reviewAssignment->getStatus(), $notAllowedStatuses)) {
                 $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;

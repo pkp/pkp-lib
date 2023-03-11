@@ -25,6 +25,7 @@ use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
 use PKP\submissionFile\SubmissionFile;
 use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class EventLogGridRow extends GridRow
 {
@@ -82,7 +83,7 @@ class EventLogGridRow extends GridRow
                         if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                             $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
-                            if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                            if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                                 $anonymousAuthor = true;
                             }
                         }

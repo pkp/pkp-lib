@@ -645,7 +645,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the current status of this review assignment
      *
-     * @return int REVIEW_ASSIGNMENT_STATUS_...
+     * @return int ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_...
      */
     public function getStatus()
     {
@@ -834,7 +834,7 @@ class ReviewAssignment extends \PKP\core\DataObject
             return '';
         }
     }
-    
+
     /**
      * Determine if can resend request to reconsider review for this review assignment
      */

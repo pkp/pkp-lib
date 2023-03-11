@@ -78,12 +78,13 @@ class ReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
+        /** @var ReviewAssignment */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
         switch ($columnId) {
             case 'name':
-                $isReviewAnonymous = in_array($element->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
+                $isReviewAnonymous = in_array($element->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS]);
                 if ($this->_isCurrentUserAssignedAuthor && $isReviewAnonymous) {
                     return ['label' => __('editor.review.anonymousReviewer')];
                 }

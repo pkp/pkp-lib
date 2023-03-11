@@ -33,6 +33,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class FileApiHandler extends Handler
@@ -113,7 +114,7 @@ class FileApiHandler extends Handler
         // Enforce anonymous filenames for anonymous review assignments
         $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         if ($reviewAssignment
-                && $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
+                && $reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
                 && $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
             $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
             $genre = $genreDao->getById($submissionFile->getData('genreId'));

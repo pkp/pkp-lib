@@ -30,7 +30,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationMessage($request, $notification)
     {
-        assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
         $submission = Repo::submission()->get($notification->getAssocId()); /** @var Submission $submission */
 
         switch ($notification->getType()) {
@@ -53,7 +53,7 @@ class SubmissionNotificationManager extends NotificationManagerDelegate
         $router = $request->getRouter();
         $dispatcher = $router->getDispatcher();
 
-        assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
         switch ($notification->getType()) {
             case PKPNotification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
             case PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED:

@@ -73,7 +73,7 @@ class NotificationDAO extends \PKP\db\DAO
      * Note that this method will not return fully-fledged notification objects.  Use
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): DAOResultFactory
     {

@@ -274,7 +274,7 @@ class PKPPublicationNativeXmlFilter extends NativeExportFilter
             $entityNode->appendChild($clone);
         } else {
             $deployment = $this->getDeployment();
-            $deployment->addError(ASSOC_TYPE_PUBLICATION, $entity->getId(), __('plugins.importexport.author.exportFailed'));
+            $deployment->addError(Application::ASSOC_TYPE_PUBLICATION, $entity->getId(), __('plugins.importexport.author.exportFailed'));
 
             throw new Exception(__('plugins.importexport.author.exportFailed'));
         }

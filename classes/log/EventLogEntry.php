@@ -17,6 +17,7 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -215,7 +216,7 @@ class EventLogEntry extends \PKP\core\DataObject
                 assert(isset($params['fileId']) && isset($params['submissionId']));
                 $anonymousAuthor = true;
                 $submissionFile = Repo::submissionFile()->get($params['id']);
-                if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                     $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                     if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;

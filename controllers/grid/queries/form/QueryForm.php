@@ -34,7 +34,7 @@ class QueryForm extends Form
 {
     use StageMailable;
 
-    /** @var int ASSOC_TYPE_... */
+    /** @var int Application::ASSOC_TYPE_... */
     public $_assocType;
 
     /** @var int Assoc ID (per _assocType) */
@@ -53,7 +53,7 @@ class QueryForm extends Form
      * Constructor.
      *
      * @param Request $request
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Assoc ID (per assocType)
      * @param int $stageId WORKFLOW_STAGE_...
      * @param int $queryId Optional query ID to edit. If none provided, a
@@ -162,7 +162,7 @@ class QueryForm extends Form
     /**
      * Get assoc type
      *
-     * @return int ASSOC_TYPE_...
+     * @return int Application::ASSOC_TYPE_...
      */
     public function getAssocType()
     {
@@ -172,7 +172,7 @@ class QueryForm extends Form
     /**
      * Set assoc type
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function setAssocType($assocType)
     {
@@ -252,7 +252,7 @@ class QueryForm extends Form
             'assocType' => $query->getAssocType(),
         ]);
 
-        // Queries only support ASSOC_TYPE_SUBMISSION so far
+        // Queries only support Application::ASSOC_TYPE_SUBMISSION so far
         if ($query->getAssocType() !== PKPApplication::ASSOC_TYPE_SUBMISSION) {
             return parent::fetch($request, $template, $display);
         }
@@ -407,7 +407,7 @@ class QueryForm extends Form
         // Also admin and manager, if they are creating the discussion, are ignored -- they can see everything.
         // In other stages validate that participants are assigned to that stage.
         $query = $this->getQuery();
-        // Queryies only support ASSOC_TYPE_SUBMISSION so far (see above)
+        // Queryies only support Application::ASSOC_TYPE_SUBMISSION so far (see above)
         if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();

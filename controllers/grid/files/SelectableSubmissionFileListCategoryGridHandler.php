@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\core\Application;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\files\fileList\FileGenreGridColumn;
@@ -80,7 +81,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
     public function getSubmission()
     {
         // We assume proper authentication by the data provider.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         assert($submission instanceof \APP\submission\Submission);
         return $submission;
     }
@@ -262,7 +263,7 @@ class SelectableSubmissionFileListCategoryGridHandler extends CategoryGridHandle
      */
     public function isDataElementInCategorySelected($categoryDataId, &$gridDataElement)
     {
-        $currentStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $currentStageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $submissionFile = $gridDataElement['submissionFile'];
 
         // Check for special cases when the file needs to be unselected.

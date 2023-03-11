@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\core\Application;
 use PKP\controllers\grid\GridHandler;
 
 class SubmissionFilesGridHandler extends GridHandler
@@ -85,7 +86,7 @@ class SubmissionFilesGridHandler extends GridHandler
     public function getSubmission()
     {
         // We assume proper authentication by the data provider.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         assert($submission instanceof \APP\submission\Submission);
         return $submission;
     }

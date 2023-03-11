@@ -15,6 +15,8 @@
 
 namespace PKP\pages\authorDashboard;
 
+use APP\core\Application;
+use APP\core\Services;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -103,7 +105,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
     {
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $user = $request->getUser();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $submissionEmailId = $request->getUserVar('submissionEmailId');
 
         $submissionEmailFactory = $submissionEmailLogDao->getByEventType($submission->getId(), SubmissionEmailLogEntry::SUBMISSION_EMAIL_EDITOR_NOTIFY_AUTHOR, $user->getId());
@@ -150,7 +152,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
         parent::setupTemplate($request);
 
         $templateMgr = TemplateManager::getManager($request);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION); /** @var Submission $submission */
         $user = $request->getUser();
         $submissionContext = $request->getContext();
         if ($submission->getContextId() !== $submissionContext->getId()) {
@@ -264,7 +266,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             : $mapper->map($submission->getCurrentPublication());
 
         // Check if current author can edit metadata
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $canEditPublication = true;
         if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles) && !Repo::submission()->canEditPublication($submission->getId(), $user->getId())) {
             $canEditPublication = false;
@@ -285,7 +287,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
 
         // Check if current author can access ArticleGalleyGrid within production stage
         $canAccessProductionStage = true;
-        $userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAllowedStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (!array_key_exists(WORKFLOW_STAGE_ID_PRODUCTION, $userAllowedStages)) {
             $canAccessProductionStage = false;
         }

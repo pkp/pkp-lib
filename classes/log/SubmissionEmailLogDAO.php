@@ -17,6 +17,7 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
@@ -34,7 +35,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
     public function newDataObject()
     {
         $returner = new SubmissionEmailLogEntry();
-        $returner->setAssocType(ASSOC_TYPE_SUBMISSION);
+        $returner->setAssocType(Application::ASSOC_TYPE_SUBMISSION);
         return $returner;
     }
 
@@ -48,7 +49,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      */
     public function getByEventType($submissionId, $eventType, $userId = null)
     {
-        return parent::_getByEventType(ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
+        return parent::_getByEventType(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $eventType, $userId);
     }
 
     /**
@@ -60,7 +61,7 @@ class SubmissionEmailLogDAO extends EmailLogDAO
      */
     public function getBySubmissionId($submissionId)
     {
-        return $this->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+        return $this->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
     }
 
     /**

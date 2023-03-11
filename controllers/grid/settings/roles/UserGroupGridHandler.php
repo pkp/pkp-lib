@@ -33,6 +33,7 @@ use PKP\security\Role;
 use PKP\workflow\WorkflowStageDAO;
 use APP\facades\Repo;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\userGroup\UserGroup;
 
 class UserGroupGridHandler extends GridHandler
 {
@@ -429,7 +430,7 @@ class UserGroupGridHandler extends GridHandler
             return new JSONMessage(false);
         }
         $userGroup = $this->_userGroup;
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $contextId = $this->_getContextId();
         $operation = $request->getRequestedOp();
 

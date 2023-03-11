@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\eventLog;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
 use PKP\controllers\grid\GridRow;
@@ -78,7 +79,7 @@ class EventLogGridRow extends GridRow
                     if ($submissionFile) {
                         $anonymousAuthor = false;
                         $maybeAnonymousAuthor = $this->_isCurrentUserAssignedAuthor && $submissionFile->getData('fileStage') === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT;
-                        if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                        if ($maybeAnonymousAuthor && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                             $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                             if ($reviewAssignment && in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {

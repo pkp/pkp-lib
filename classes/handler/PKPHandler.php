@@ -181,7 +181,7 @@ class PKPHandler
      * and checked for permission in the policy class, it's then chucked into
      * the authorized context for later retrieval by code that needs it.
      *
-     * @param int $assocType any of the ASSOC_TYPE_* constants
+     * @param int $assocType any of the Application::ASSOC_TYPE_* constants
      */
     public function &getAuthorizedContextObject($assocType)
     {
@@ -521,11 +521,11 @@ class PKPHandler
         }
         assert($request instanceof \PKP\core\PKPRequest);
 
-        $userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('userRoles', $userRoles);
 
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if ($accessibleWorkflowStages) {
             $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
         }

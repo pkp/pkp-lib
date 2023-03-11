@@ -15,6 +15,8 @@
 
 namespace PKP\controllers\informationCenter\form;
 
+use APP\core\Application;
+
 class NewSubmissionNoteForm extends NewNoteForm
 {
     /** @var int The ID of the submission to attach the note to */
@@ -37,7 +39,7 @@ class NewSubmissionNoteForm extends NewNoteForm
      */
     public function getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION;
+        return Application::ASSOC_TYPE_SUBMISSION;
     }
 
     /**

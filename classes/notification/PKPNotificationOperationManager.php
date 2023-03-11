@@ -20,6 +20,7 @@
 namespace PKP\notification;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
@@ -29,6 +30,8 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use InvalidArgumentException;
+use PKP\core\PKPRequest;
+use PKP\linkAction\LinkAction;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
 {

@@ -19,6 +19,7 @@
 
 namespace PKP\core;
 
+use APP\core\Application;
 use Exception;
 
 use PKP\session\SessionManager;
@@ -194,7 +195,7 @@ class APIRouter extends PKPRouter
         //
         $pathInfoArray = array_merge(
             $context,
-            ['api',	API_VERSION, $endpoint]
+            ['api', Application::API_VERSION, $endpoint]
         );
         $queryParametersArray = $additionalParameters;
 

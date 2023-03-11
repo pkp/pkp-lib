@@ -81,7 +81,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Notes by assoc id/type
      *
-     * @param int $assocId ASSOC_TYPE_...
+     * @param int $assocId Application::ASSOC_TYPE_...
      * @param int $assocType Assoc ID (per $assocType)
      * @param int $userId Optional user ID
      * @param int $orderBy Optional sorting field constant: self::NOTE_ORDER_...
@@ -289,7 +289,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Delete notes by association
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Foreign key, depending on $assocType
      */
     public function deleteByAssoc($assocType, $assocId)

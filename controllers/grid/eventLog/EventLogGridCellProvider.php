@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\eventLog;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
@@ -91,7 +92,7 @@ class EventLogGridCellProvider extends DataObjectGridCellProvider
                         if (isset($params['fileStage']) && $params['fileStage'] === SubmissionFile::SUBMISSION_FILE_REVIEW_ATTACHMENT) {
                             assert(isset($params['fileId']) && isset($params['submissionId']));
                             $submissionFile = Repo::submissionFile()->get($params['id']);
-                            if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                            if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                                 $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
                                 if (!$reviewAssignment || in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                                     $userName = __('editor.review.anonymousReviewer');

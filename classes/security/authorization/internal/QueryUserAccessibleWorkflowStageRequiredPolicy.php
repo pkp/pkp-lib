@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
@@ -34,16 +35,16 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
             return $result;
         }
 
-        if (!in_array(Role::ROLE_ID_REVIEWER, $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES) ?? [])) {
+        if (!in_array(Role::ROLE_ID_REVIEWER, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES) ?? [])) {
             return $result;
         }
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
         foreach ($reviewAssignments as $reviewAssignment) {
             if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
-                $accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+                $accessibleWorkflowStages = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
                 $accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] = array_merge(
                     $accessibleWorkflowStages[WORKFLOW_STAGE_ID_INTERNAL_REVIEW] ?? [],
                     [Role::ROLE_ID_REVIEWER]
@@ -52,7 +53,7 @@ class QueryUserAccessibleWorkflowStageRequiredPolicy extends UserAccessibleWorkf
                     $accessibleWorkflowStages[WORKFLOW_STAGE_ID_EXTERNAL_REVIEW] ?? [],
                     [Role::ROLE_ID_REVIEWER]
                 );
-                $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }

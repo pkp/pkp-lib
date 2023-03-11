@@ -78,7 +78,7 @@ class QueryNotesGridCellProvider extends DataObjectGridCellProvider
                 $submissionFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
-                        ASSOC_TYPE_NOTE,
+                        Application::ASSOC_TYPE_NOTE,
                         [$row->getData()->getId()]
                     )->filterBySubmissionIds([$this->_submission->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_QUERY])

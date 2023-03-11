@@ -15,6 +15,7 @@
 
 namespace PKP\notification\managerDelegate;
 
+use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use APP\notification\Notification;
@@ -115,7 +116,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
                 $context = $request->getContext();
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
                 $notificationFactory = $notificationDao->getByAssoc(
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $submissionId,
                     $userId,
                     PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS,
@@ -128,7 +129,7 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
                         $context->getId(),
                         Notification::NOTIFICATION_LEVEL_TASK,
                         $this->getNotificationType(),
-                        ASSOC_TYPE_SUBMISSION,
+                        Application::ASSOC_TYPE_SUBMISSION,
                         $submissionId,
                         $userId
                     );
@@ -143,8 +144,8 @@ class PendingRevisionsNotificationManager extends NotificationManagerDelegate
         if ($removeNotifications) {
             $context = $request->getContext();
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-            $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
-            $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, $userId, PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $userId, $this->getNotificationType(), $context->getId());
+            $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, $userId, PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
         }
     }
 

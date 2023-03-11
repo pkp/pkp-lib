@@ -164,7 +164,7 @@ class Repository
      *
      * @param string $stageId One of the WORKFLOW_STAGE_ID_* constants.
      * @param string $workflowType Accessing the editorial or author workflow? PKPApplication::WORKFLOW_TYPE_*
-     * @param array $userAccessibleStages User's assignments to the workflow stages. ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
+     * @param array $userAccessibleStages User's assignments to the workflow stages. Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES
      * @param array $userRoles User's roles in the context
      *
      * @return bool
@@ -213,7 +213,7 @@ class Repository
             if ($roleDao->userHasRole($contextId, $userId, Role::ROLE_ID_MANAGER)) {
                 $accessibleStageRoles[] = Role::ROLE_ID_MANAGER;
             }
-            if ($roleDao->userHasRole(CONTEXT_SITE, $userId, Role::ROLE_ID_SITE_ADMIN)) {
+            if ($roleDao->userHasRole(Application::CONTEXT_SITE, $userId, Role::ROLE_ID_SITE_ADMIN)) {
                 $accessibleStageRoles[] = Role::ROLE_ID_SITE_ADMIN;
             }
         }

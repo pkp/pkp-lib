@@ -17,6 +17,7 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use APP\log\SubmissionEventLogEntry;
 
 class SubmissionEventLogDAO extends EventLogDAO
@@ -29,7 +30,7 @@ class SubmissionEventLogDAO extends EventLogDAO
     public function newDataObject()
     {
         $returner = new SubmissionEventLogEntry();
-        $returner->setAssocType(ASSOC_TYPE_SUBMISSION);
+        $returner->setAssocType(Application::ASSOC_TYPE_SUBMISSION);
         return $returner;
     }
 
@@ -42,7 +43,7 @@ class SubmissionEventLogDAO extends EventLogDAO
      */
     public function getBySubmissionId($submissionId)
     {
-        return $this->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId);
+        return $this->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId);
     }
 }
 

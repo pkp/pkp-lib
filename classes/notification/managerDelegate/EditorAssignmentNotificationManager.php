@@ -74,7 +74,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
         // Check for an existing NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_...
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $submissionId,
             null,
             $notificationType,
@@ -97,7 +97,7 @@ class EditorAssignmentNotificationManager extends NotificationManagerDelegate
                 null,
                 $notificationType,
                 $context->getId(),
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submissionId,
                 Notification::NOTIFICATION_LEVEL_TASK
             );

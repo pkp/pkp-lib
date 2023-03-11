@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\informationCenter;
 
+use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewSubmissionNoteForm;
@@ -38,7 +39,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
         // Prevent users from accessing history unless they are assigned to an
         // appropriate role in this submission
         $this->_isCurrentUserAssignedEditor = false;
-        $userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAssignedRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (!empty($userAssignedRoles)) {
             foreach ($userAssignedRoles as $stageId => $roles) {
                 if (array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $roles)) {
@@ -47,7 +48,7 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
                 }
             }
         } else {
-            $userGlobalRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+            $userGlobalRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
             if (array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userGlobalRoles)) {
                 $this->_isCurrentUserAssignedEditor = true;
             }
@@ -163,6 +164,6 @@ class SubmissionInformationCenterHandler extends InformationCenterHandler
      */
     public function _getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION;
+        return Application::ASSOC_TYPE_SUBMISSION;
     }
 }

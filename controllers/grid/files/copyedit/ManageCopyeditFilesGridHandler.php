@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\copyedit;
 
+use APP\core\Application;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\files\copyedit\form\ManageCopyeditFilesForm;
 use PKP\controllers\grid\files\FilesGridCapabilities;
@@ -92,7 +93,7 @@ class ManageCopyeditFilesGridHandler extends SelectableSubmissionFileListCategor
                         PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS,
                     ],
                     null,
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $submission->getId()
                 );
             }

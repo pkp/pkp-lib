@@ -144,7 +144,7 @@ class Collector implements CollectorInterface
     /**
      * Set assocType and assocId filters
      *
-     * @param null|int $assocType One of the ASSOC_TYPE_ constants
+     * @param null|int $assocType One of the Application::ASSOC_TYPE_ constants
      * @param null|array $assocIds Match for the specified assoc type
      */
     public function filterByAssoc(?int $assocType, ?array $assocIds = null): self

@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\Role;
@@ -44,7 +45,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
     public function effect()
     {
         // A query should already be in the context.
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
         if (!$query instanceof \PKP\query\Query) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -63,7 +64,7 @@ class QueryAssignedToUserAccessPolicy extends AuthorizationPolicy
 
         // Managers are allowed to access discussions they are not participants in
         // as long as they have Manager-level access to the workflow stage
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $managerAssignments = array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $accessibleWorkflowStages[$query->getStageId()] ?? []);
         if (!empty($managerAssignments)) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;

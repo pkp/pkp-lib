@@ -86,7 +86,7 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
 
             $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
             $notificationDao->deleteByAssoc(
-                ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 $reviewAssignment->getId(),
                 $reviewAssignment->getReviewerId(),
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT

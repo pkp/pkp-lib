@@ -53,7 +53,7 @@ class UserAccessibleWorkflowStagePolicy extends AuthorizationPolicy
      */
     public function effect()
     {
-        $userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAccessibleStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
         // User has no access to any stage in any workflow
         if (empty($userAccessibleStages)) {

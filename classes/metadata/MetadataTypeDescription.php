@@ -14,7 +14,7 @@
  * This type description accepts descriptors of the following form:
  *   metadata::fully.qualified.MetadataSchema(ASSOC)
  *
- * The assoc form must be the final part of a ASSOC_TYPE_* definition.
+ * The assoc form must be the final part of a Application::ASSOC_TYPE_* definition.
  * It can be '*' to designate any assoc type.
  */
 

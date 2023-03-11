@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\tab\workflow;
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
@@ -80,9 +81,9 @@ class PKPReviewRoundTabHandler extends Handler
         $this->setupTemplate($request);
 
         // Retrieve the authorized submission, stage id and review round.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
 
         // Is this round the most recent round?
         $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -99,14 +100,14 @@ class PKPReviewRoundTabHandler extends Handler
         // user is accessing the last review round for this stage.
         $notificationRequestOptions = [
             Notification::NOTIFICATION_LEVEL_NORMAL => [
-                PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
+                PKPNotification::NOTIFICATION_TYPE_REVIEW_ROUND_STATUS => [Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound->getId()]],
             Notification::NOTIFICATION_LEVEL_TRIVIAL => [],
         ];
         $templateMgr->assign('reviewRoundNotificationRequestOptions', $notificationRequestOptions);
 
         // If a user is also assigned as an author to this submission, they
         // shouldn't see any editorial actions
-        $userAccessibleStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAccessibleStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         foreach ($userAccessibleStages as $accessibleStageId => $roles) {
             if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
                 $templateMgr->assign('isAssignedAsAuthor', true);

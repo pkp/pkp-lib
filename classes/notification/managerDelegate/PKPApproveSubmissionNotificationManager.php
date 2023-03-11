@@ -70,7 +70,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
 
         foreach ($notificationTypes as $type => $forPublicationState) {
             $notificationFactory = $notificationDao->getByAssoc(
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submissionId,
                 null,
                 $type,
@@ -85,7 +85,7 @@ class PKPApproveSubmissionNotificationManager extends NotificationManagerDelegat
                     null,
                     $type,
                     $submission->getData('contextId'),
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $submissionId
                 );
             } elseif ($notification && $isPublished != $forPublicationState) {

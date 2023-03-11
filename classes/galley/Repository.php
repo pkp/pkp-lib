@@ -196,7 +196,7 @@ class Repository
         // Delete related submission files
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
-            ->filterByAssoc(ASSOC_TYPE_GALLEY)
+            ->filterByAssoc(Application::ASSOC_TYPE_GALLEY)
             ->filterByFileIds([$galley->getId()])
             ->getMany();
 

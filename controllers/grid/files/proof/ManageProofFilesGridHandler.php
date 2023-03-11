@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\proof;
 
+use APP\core\Application;
 use PKP\controllers\grid\files\proof\form\ManageProofFilesForm;
 use PKP\controllers\grid\files\SelectableSubmissionFileListCategoryGridHandler;
 use PKP\controllers\grid\files\SubmissionFilesCategoryGridDataProvider;
@@ -69,8 +70,8 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
      */
     public function getRequestArgs()
     {
-        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
-        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        $representation = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION);
         return array_merge(
             parent::getRequestArgs(),
             [
@@ -94,8 +95,8 @@ class ManageProofFilesGridHandler extends SelectableSubmissionFileListCategoryGr
     public function updateProofFiles($args, $request)
     {
         $submission = $this->getSubmission();
-        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
-        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
+        $representation = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION);
 
         $manageProofFilesForm = new ManageProofFilesForm($submission->getId(), $publication->getId(), $representation->getId());
         $manageProofFilesForm->readInputData();

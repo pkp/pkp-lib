@@ -352,7 +352,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $fileSizeOnDisk = filesize($temporaryFilename);
             $expectedFileSize = $node->getAttribute('filesize');
             if ($fileSizeOnDisk != $expectedFileSize) {
-                $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', ['expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk]));
+                $deployment->addWarning(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.filesizeMismatch', ['expected' => $expectedFileSize, 'actual' => $fileSizeOnDisk]));
             }
             clearstatcache(true, $temporaryFilename);
             $fileManager = new FileManager();

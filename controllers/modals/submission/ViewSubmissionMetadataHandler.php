@@ -14,6 +14,7 @@
 
 namespace PKP\controllers\modals\submission;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -45,8 +46,8 @@ class ViewSubmissionMetadataHandler extends handler
      */
     public function display($args, $request)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         $context = $request->getContext();
         $templateMgr = TemplateManager::getManager($request);
         $publication = $submission->getCurrentPublication();

@@ -99,7 +99,7 @@ class ManageReviewFilesGridHandler extends SelectableSubmissionFileListCategoryG
      */
     public function getRequestArgs()
     {
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         return array_merge(['stageId' => $stageId], parent::getRequestArgs());
     }
 }

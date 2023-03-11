@@ -167,7 +167,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
     public function readReview($args, $request)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         $templateMgr->assign([
             'submission' => $this->getSubmission(),

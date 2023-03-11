@@ -15,6 +15,7 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use PKP\db\DAORegistry;
@@ -182,7 +183,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
                     break;
                 default:
                     $deployment = $this->getDeployment();
-                    $deployment->addWarning(ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                    $deployment->addWarning(Application::ASSOC_TYPE_PUBLICATION, $publication->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
             }
         }
     }

@@ -15,8 +15,10 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use APP\facades\Repo;
+use Exception;
 
 class PKPAuthorNativeXmlFilter extends NativeExportFilter
 {
@@ -104,7 +106,7 @@ class PKPAuthorNativeXmlFilter extends NativeExportFilter
         assert(isset($userGroup));
 
         if (!$userGroup) {
-            $deployment->addError(ASSOC_TYPE_AUTHOR, $author->getId(), __('plugins.importexport.common.error.userGroupMissing', ['param' => $author->getFullName()]));
+            $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $author->getId(), __('plugins.importexport.common.error.userGroupMissing', ['param' => $author->getFullName()]));
             throw new Exception(__('plugins.importexport.author.exportFailed'));
         }
 

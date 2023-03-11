@@ -16,6 +16,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 
@@ -62,7 +63,7 @@ class SubmissionFileRequestedRevisionRequiredPolicy extends SubmissionFileBaseAc
         }
 
         // Make sure review round stage is the same of the current stage in request.
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewRound->getStageId() != $stageId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

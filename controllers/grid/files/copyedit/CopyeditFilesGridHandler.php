@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\copyedit;
 
+use APP\core\Application;
 use PKP\controllers\grid\files\copyedit\form\ManageCopyeditFilesForm;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
@@ -72,7 +73,7 @@ class CopyeditFilesGridHandler extends FileListGridHandler
     public function initialize($request, $args = null)
     {
         if (0 != count(array_intersect(
-            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
             // Authors may also view this grid, and shouldn't be able to do anything (just view).
         ))) {

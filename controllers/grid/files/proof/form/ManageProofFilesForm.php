@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\proof\form;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\files\form\ManageSubmissionFilesForm;
 use PKP\submissionFile\SubmissionFile;
@@ -70,7 +71,7 @@ class ManageProofFilesForm extends ManageSubmissionFilesForm
     protected function importFile($submissionFile, $fileStage)
     {
         $newSubmissionFile = clone $submissionFile;
-        $newSubmissionFile->setData('assocType', ASSOC_TYPE_REPRESENTATION);
+        $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_REPRESENTATION);
         $newSubmissionFile->setData('assocId', $this->_representationId);
         $newSubmissionFile->setData('viewable', false); // Not approved by default
 

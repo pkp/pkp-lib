@@ -75,7 +75,7 @@ class LimitReviewFilesGridHandler extends SelectableFileListGridHandler
      */
     public function isDataElementSelected($gridDataElement)
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         if ($reviewAssignment) {
             $submissionFile = $gridDataElement['submissionFile'];
             // A review assignment was specified in the request; preset the

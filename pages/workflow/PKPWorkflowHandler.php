@@ -16,11 +16,13 @@
 namespace PKP\pages\workflow;
 
 use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\components\forms\publication\PKPCitationsForm;
 use PKP\components\forms\publication\PKPMetadataForm;
 use PKP\components\forms\publication\PKPPublicationLicenseForm;
@@ -85,10 +87,10 @@ abstract class PKPWorkflowHandler extends Handler
      */
     public function access($args, $request)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $currentStageId = $submission->getStageId();
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $workflowRoles = Application::getWorkflowTypeRoles();
         $editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
 
@@ -127,8 +129,8 @@ abstract class PKPWorkflowHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $requestedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $requestedStageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $submissionContext = $request->getContext();
         if ($submission->getContextId() !== $submissionContext->getId()) {
@@ -136,7 +138,7 @@ abstract class PKPWorkflowHandler extends Handler
         }
 
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
         $workflowRoles = Application::getWorkflowTypeRoles();
         $editorialWorkflowRoles = $workflowRoles[PKPApplication::WORKFLOW_TYPE_EDITORIAL];
@@ -153,14 +155,14 @@ abstract class PKPWorkflowHandler extends Handler
         // they are not assigned in any role and have a manager role in the
         // context.
         $currentStageId = $submission->getStageId();
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $canAccessPublication = false; // View title, metadata, etc.
         $canEditPublication = Repo::submission()->canEditPublication($submission->getId(), $request->getUser()->getId());
         $canAccessProduction = false; // Access to galleys and issue entry
         $canPublish = false; // Ability to publish, unpublish and create versions
         $canAccessEditorialHistory = false; // Access to activity log
         // unassigned managers
-        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN] ?? [])) {
+        if (!$accessibleWorkflowStages && array_intersect($this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES), [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN] ?? [])) {
             $canAccessProduction = true;
             $canPublish = true;
             $canAccessPublication = true;
@@ -480,7 +482,7 @@ abstract class PKPWorkflowHandler extends Handler
     protected function _redirectToIndex($args, $request)
     {
         // Translate the operation to a workflow stage identifier.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $router = $request->getRouter();
         $workflowPath = $router->getRequestedOp($request);
         $stageId = WorkflowStageDAO::getIdFromPath($workflowPath);
@@ -501,8 +503,8 @@ abstract class PKPWorkflowHandler extends Handler
         $reviewRoundId = (int) $request->getUserVar('reviewRoundId');
 
         // Prepare the action arguments.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $actionArgs = [
             'submissionId' => $submission->getId(),
@@ -701,7 +703,7 @@ abstract class PKPWorkflowHandler extends Handler
     public function submissionProgressBar($args, $request)
     {
         $this->setupTemplate($request);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $workflowStages = WorkflowStageDAO::getWorkflowStageKeysAndPaths();
 
         $templateMgr = TemplateManager::getManager($request);
@@ -771,12 +773,12 @@ abstract class PKPWorkflowHandler extends Handler
      */
     protected function notificationOptionsByStage($user, $stageId, $contextId)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
 
         $editorAssignmentNotificationType = $this->getEditorAssignmentNotificationTypeByStageId($stageId);
 
-        $editorAssignments = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, $editorAssignmentNotificationType, $contextId);
+        $editorAssignments = $notificationDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), null, $editorAssignmentNotificationType, $contextId);
 
         // if the User has assigned TASKs in this stage check, return true
         if ($editorAssignments->next()) {
@@ -785,7 +787,7 @@ abstract class PKPWorkflowHandler extends Handler
 
         // check for more specific notifications on those stages that have them.
         if ($stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-            $submissionApprovalNotification = $notificationDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
+            $submissionApprovalNotification = $notificationDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_APPROVE_SUBMISSION, $contextId);
             if ($submissionApprovalNotification->next()) {
                 return true;
             }

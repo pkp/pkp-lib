@@ -15,6 +15,8 @@
 
 namespace PKP\security\authorization;
 
+use APP\core\Application;
+
 class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationPolicy
 {
     /** @var int */
@@ -56,7 +58,7 @@ class AssignedStageRoleHandlerOperationPolicy extends RoleBasedHandlerOperationP
         // Check whether the user has one of the allowed roles
         // assigned. If that's the case we'll permit access.
         // Get user roles grouped by context.
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (empty($userRoles) || empty($userRoles[$this->_stageId])) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

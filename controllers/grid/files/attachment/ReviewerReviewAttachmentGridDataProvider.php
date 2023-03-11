@@ -14,6 +14,7 @@
 
 namespace PKP\controllers\grid\files\attachment;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
@@ -52,7 +53,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
         $assocId = (int) $request->getUserVar('assocId');
         if ($assocType && $assocId) {
             // Viewing from a Reviewer perspective.
-            assert($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT);
+            assert($assocType == Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
             $this->setUploaderRoles($roleAssignments);
 
@@ -77,7 +78,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
         return array_merge(
             parent::getRequestArgs(),
             [
-                'assocType' => ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                'assocType' => Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 'assocId' => $this->_getReviewId()
             ]
         );
@@ -91,7 +92,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(
-                ASSOC_TYPE_REVIEW_ASSIGNMENT,
+                Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
                 [$this->_getReviewId()]
             )->filterBySubmissionIds([$this->getSubmission()->getId()])
             ->getMany()
@@ -118,7 +119,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
             $this->getStageId(),
             $this->getUploaderRoles(),
             $this->getFileStage(),
-            ASSOC_TYPE_REVIEW_ASSIGNMENT,
+            Application::ASSOC_TYPE_REVIEW_ASSIGNMENT,
             $this->_getReviewId(),
             $reviewAssignment->getReviewRoundId()
         );
@@ -133,7 +134,7 @@ class ReviewerReviewAttachmentGridDataProvider extends SubmissionFilesGridDataPr
      */
     public function _getReviewId()
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         return $reviewAssignment->getId();
     }
 }

@@ -735,7 +735,7 @@ class GridHandler extends PKPHandler
 
         // Assign constants.
         $templateMgr->assign('gridConstants', $this->_constants);
-        
+
         // Let the view render the grid.
         return new JSONMessage(true, $templateMgr->fetch($this->getTemplate()));
     }
@@ -945,7 +945,7 @@ class GridHandler extends PKPHandler
      *  getFilterSelectionData(). If no filter has been selected by the user
      *  then the array will be empty.
      *
-     * @return grid data
+     * @return array grid data
      */
     protected function loadData($request, $filter)
     {

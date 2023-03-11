@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\modals\documentLibrary;
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
 use PKP\security\authorization\SubmissionAccessPolicy;
@@ -48,7 +49,7 @@ class DocumentLibraryHandler extends Handler
     {
         parent::initialize($request);
 
-        $this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $this->_submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $this->setupTemplate($request);
     }
 
@@ -89,7 +90,7 @@ class DocumentLibraryHandler extends Handler
     public function documentLibrary($args, $request)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $templateMgr->assign('submission', $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION));
+        $templateMgr->assign('submission', $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION));
         return $templateMgr->fetchJson('controllers/modals/documentLibrary/documentLibrary.tpl');
     }
 }

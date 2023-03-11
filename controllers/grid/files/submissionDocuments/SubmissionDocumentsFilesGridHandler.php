@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\submissionDocuments;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\files\LibraryFileGridHandler;
 use PKP\controllers\grid\files\LibraryFileGridRow;
@@ -100,7 +101,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
      */
     public function getActionArgs()
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $actionArgs = [
             'submissionId' => $submission->getId(),
         ];
@@ -115,7 +116,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
      */
     protected function getRowInstance()
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         return new LibraryFileGridRow($this->canEdit(), $submission);
     }
 
@@ -135,7 +136,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('isModal', true);
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $templateMgr->assign('canEdit', !empty(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles)));
         return $templateMgr->fetchJson('controllers/modals/documentLibrary/publisherLibrary.tpl');
     }
@@ -149,7 +150,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
      */
     public function _getNewFileForm($context)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         return new NewLibraryFileForm($context->getId(), $submission->getId());
     }
 
@@ -163,7 +164,7 @@ class SubmissionDocumentsFilesGridHandler extends LibraryFileGridHandler
      */
     public function _getEditFileForm($context, $fileId)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         return new EditLibraryFileForm($context->getId(), $fileId, $submission->getId());
     }
 }

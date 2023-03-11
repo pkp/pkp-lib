@@ -14,6 +14,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\query\Query;
@@ -55,8 +56,8 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
         switch ($query->getAssocType()) {
-            case ASSOC_TYPE_SUBMISSION:
-                $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+            case Application::ASSOC_TYPE_SUBMISSION:
+                $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
                 if (!$submission instanceof Submission) {
                     return AuthorizationPolicy::AUTHORIZATION_DENY;
                 }
@@ -69,7 +70,7 @@ class QueryRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Save the query to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_QUERY, $query);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_QUERY, $query);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

@@ -16,6 +16,7 @@
 namespace PKP\controllers\modals\publish;
 
 use APP\components\forms\publication\PublishForm;
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -57,8 +58,8 @@ class PublishHandler extends Handler
     public function initialize($request)
     {
         parent::initialize($request);
-        $this->submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $this->publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        $this->submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $this->publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         $this->setupTemplate($request);
     }
 

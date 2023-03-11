@@ -27,7 +27,7 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
 {
     /**
      *Include records for one of these object types:
-     * ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE, ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER
+     * Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER
      */
     protected array $assocTypes = [];
 

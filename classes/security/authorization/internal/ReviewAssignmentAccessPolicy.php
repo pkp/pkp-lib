@@ -17,6 +17,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -58,7 +59,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
         }
 
         // Get the submission
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -83,7 +84,7 @@ class ReviewAssignmentAccessPolicy extends AuthorizationPolicy
         }
 
         // Save the review assignment to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

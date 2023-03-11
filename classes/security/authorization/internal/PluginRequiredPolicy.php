@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -60,7 +61,7 @@ class PluginRequiredPolicy extends AuthorizationPolicy
         }
 
         // Add the plugin to the authorized context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_PLUGIN, $foundPlugin);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_PLUGIN, $foundPlugin);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

@@ -61,11 +61,11 @@ class StageRolePolicy extends AuthorizationPolicy
 
         // Use the submission's current stage id if none is specified in policy
         if (!$this->_stageId) {
-            $this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getData('stageId');
+            $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getData('stageId');
         }
 
         // Check whether the user has one of the allowed roles assigned in the correct stage
-        $userAccessibleStages = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAccessibleStages = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
         if (array_key_exists($this->_stageId, $userAccessibleStages) && array_intersect($this->_roleIds, $userAccessibleStages[$this->_stageId])) {
             if ($this->_allowRecommendOnly) {
@@ -73,7 +73,7 @@ class StageRolePolicy extends AuthorizationPolicy
             }
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
             $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
-                $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId(),
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId(),
                 Application::get()->getRequest()->getUser()->getId(),
                 $this->_stageId
             );
@@ -86,7 +86,7 @@ class StageRolePolicy extends AuthorizationPolicy
         }
 
         // A manager is granted access when they are not assigned in any other role
-        if (empty($userAccessibleStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)))) {
+        if (empty($userAccessibleStages) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)))) {
             if ($this->_allowRecommendOnly) {
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
@@ -94,7 +94,7 @@ class StageRolePolicy extends AuthorizationPolicy
             // not be caught by the earlier code that checks stage assignments.
             $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
             $result = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
-                $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION)->getId(),
+                $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getId(),
                 Application::get()->getRequest()->getUser()->getId(),
                 $this->_stageId
             );

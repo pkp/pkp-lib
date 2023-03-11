@@ -18,6 +18,7 @@ namespace PKP\controllers\wizard\fileUpload\form;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\linkAction\LinkAction;
@@ -79,7 +80,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
 
         if ($reviewRound) {
             $this->_reviewRound = & $reviewRound;
-        } elseif ($assocType == ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
+        } elseif ($assocType == Application::ASSOC_TYPE_REVIEW_ASSIGNMENT && !$reviewRound) {
             // Get the review assignment object.
             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $reviewAssignment = $reviewAssignmentDao->getById((int) $assocId); /** @var \PKP\submission\reviewAssignment\ReviewAssignment $reviewAssignment */
@@ -218,7 +219,7 @@ class PKPSubmissionFilesUploadBaseForm extends Form
                     ->getCollector()
                     ->filterByFileStages([(int) $this->getData('fileStage')])
                     ->filterBySubmissionIds([(int) $this->getData('submissionId')]);
-                if ($this->getAssocType() && $this->getAssocType() != ASSOC_TYPE_SUBMISSION) {
+                if ($this->getAssocType() && $this->getAssocType() != Application::ASSOC_TYPE_SUBMISSION) {
                     $collector = $collector->filterByAssoc(
                         $this->getAssocType(),
                         [$this->getAssocId()]

@@ -216,7 +216,7 @@ class PKPImportExportDeployment
     /**
      * Add the processed object ID.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId
      */
     public function addProcessedObjectId($assocType, $assocId)
@@ -227,7 +227,7 @@ class PKPImportExportDeployment
     /**
      * Add the error message to the processed object ID.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId
      * @param string $errorMsg
      */
@@ -242,7 +242,7 @@ class PKPImportExportDeployment
     /**
      * Add the warning message to the processed object ID.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId
      * @param string $warningMsg
      */
@@ -257,7 +257,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects IDs.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      *
      * @return array
      */
@@ -272,7 +272,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects errors.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      *
      * @return array
      */
@@ -286,7 +286,7 @@ class PKPImportExportDeployment
     /**
      * Get the processed objects errors.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      *
      * @return array
      */
@@ -302,7 +302,7 @@ class PKPImportExportDeployment
     /**
      * Remove the processed objects.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function removeImportedObjects($assocType)
     {
@@ -500,7 +500,7 @@ class PKPImportExportDeployment
     /**
      * Add the imported root entities.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function addImportedRootEntity($assocType, $entity)
     {
@@ -510,7 +510,7 @@ class PKPImportExportDeployment
     /**
      * Get the imported root entities.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function getImportedRootEntities($assocType)
     {

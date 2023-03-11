@@ -59,7 +59,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
             case PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS:
             case PKPNotification::NOTIFICATION_TYPE_ASSIGN_PRODUCTIONUSER:
             case PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS:
-                assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
+                assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION && is_numeric($notification->getAssocId()));
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'access', $notification->getAssocId());
             default:
                 assert(false);
@@ -79,7 +79,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
      */
     public function updateNotification($request, $userIds, $assocType, $assocId)
     {
-        assert($assocType == ASSOC_TYPE_SUBMISSION);
+        assert($assocType == Application::ASSOC_TYPE_SUBMISSION);
         $submissionId = $assocId;
         $submission = Repo::submission()->get($submissionId);
         $contextId = $submission->getContextId();
@@ -89,7 +89,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
 
         // Get the copyediting and production discussions
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-        $productionQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
+        $productionQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_PRODUCTION);
         $productionQuery = $productionQueries->next();
 
         // Get the copyedited files
@@ -161,7 +161,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                         $this->_removeNotification($submissionId, $editorStageAssignment->getUserId(), $notificationType, $contextId);
                     } else {
                         // If a copyeditor is assigned i.e. there is a copyediting discussion
-                        $editingQueries = $queryDao->getByAssoc(ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
+                        $editingQueries = $queryDao->getByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submissionId, WORKFLOW_STAGE_ID_EDITING);
                         if ($editingQueries->next()) {
                             if ($notificationType == PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS) {
                                 // Add 'awaiting copyedits' notification
@@ -212,7 +212,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationDao->deleteByAssoc(
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $submissionId,
             $userId,
             $notificationType,
@@ -233,7 +233,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $submissionId,
             $userId,
             $notificationType,
@@ -246,7 +246,7 @@ class PKPEditingProductionStatusNotificationManager extends NotificationManagerD
                 $userId,
                 $notificationType,
                 $contextId,
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submissionId
             );
         }

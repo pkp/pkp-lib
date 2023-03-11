@@ -144,9 +144,9 @@ class PKPSubmissionFileHandler extends APIHandler
             }
         }
 
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $stageAssignments = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $stageAssignments = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         // @see PKP\submissionFile\Repository::getAssignedFileStages() for excluded file stages
         $allowedFileStages = [
@@ -243,7 +243,7 @@ class PKPSubmissionFileHandler extends APIHandler
      */
     public function get($slimRequest, $response, $args)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         $data = Repo::submissionFile()
             ->getSchemaMap()
@@ -264,7 +264,7 @@ class PKPSubmissionFileHandler extends APIHandler
     public function add($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         if (empty($_FILES)) {
             return $response->withStatus(400)->withJsonError('api.files.400.noUpload');
@@ -341,7 +341,7 @@ class PKPSubmissionFileHandler extends APIHandler
             SubmissionFile::SUBMISSION_FILE_REVIEW_REVISION,
         ];
         if (in_array($params['fileStage'], $reviewFileStages)) {
-            if (empty($params['assocType']) || $params['assocType'] !== ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
+            if (empty($params['assocType']) || $params['assocType'] !== Application::ASSOC_TYPE_REVIEW_ROUND || empty($params['assocId'])) {
                 Services::get('file')->delete($fileId);
                 return $response->withStatus(400)->withJsonError('api.submissionFiles.400.missingReviewRoundAssocType');
             }
@@ -386,8 +386,8 @@ class PKPSubmissionFileHandler extends APIHandler
     public function edit($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         $params = $this->convertStringsToSchema(PKPSchemaService::SCHEMA_SUBMISSION_FILE, $slimRequest->getParsedBody());
 
@@ -465,8 +465,8 @@ class PKPSubmissionFileHandler extends APIHandler
      */
     public function copy($slimRequest, $response, $args)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         $params = $slimRequest->getParsedBody();
         if (empty($params['toFileStage'])) {
@@ -534,7 +534,7 @@ class PKPSubmissionFileHandler extends APIHandler
      */
     public function delete($slimRequest, $response, $args)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
 
         $data = Repo::submissionFile()
             ->getSchemaMap()

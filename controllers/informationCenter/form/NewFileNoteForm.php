@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\informationCenter\form;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 
 class NewFileNoteForm extends NewNoteForm
@@ -39,7 +40,7 @@ class NewFileNoteForm extends NewNoteForm
      */
     public function getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION_FILE;
+        return Application::ASSOC_TYPE_SUBMISSION_FILE;
     }
 
     /**

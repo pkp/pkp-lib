@@ -116,7 +116,7 @@ abstract class PKPStatsEditorialQueryBuilder
      * Get the count of submissions that have received one or more
      * editor decisions
      *
-     * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param array $decisions One or more Decision::*
      * @param bool $forSubmittedDate How date restrictions should be applied.
      *  A false value will count the number of submissions with an editorial
      * 	decision within the date range. A true value will count the number of
@@ -242,7 +242,7 @@ abstract class PKPStatsEditorialQueryBuilder
      * This list includes any completed submission which has received
      * one of the editor decisions.
      *
-     * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param array $decisions One or more Decision::*
      *
      * @return array Days between submission and the first decision in
      *   the list of requested submissions
@@ -262,7 +262,7 @@ abstract class PKPStatsEditorialQueryBuilder
      * This average includes any completed submission which has received
      * one of the editor decisions.
      *
-     * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param array $decisions One or more Decision::*
      *
      * @return float Average days between submission and the first decision
      * 		in the list of requested submissions
@@ -315,7 +315,7 @@ abstract class PKPStatsEditorialQueryBuilder
     /**
      * Get the first and last date that an editorial decision was made
      *
-     * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param array $decisions One or more Decision::*
      *
      * @return array [min, max]
      */
@@ -408,7 +408,7 @@ abstract class PKPStatsEditorialQueryBuilder
      * Pass an empty $decisions array to return the number of days to
      * _any_ decision.
      *
-     * @param array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param array $decisions One or more Decision::*
      *
      * @return QueryObject
      */

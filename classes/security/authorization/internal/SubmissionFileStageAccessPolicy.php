@@ -16,6 +16,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -56,9 +57,9 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
      */
     public function effect()
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
-        $stageAssignments = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        $stageAssignments = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
         // File stage required
         if (empty($this->_fileStage)) {
@@ -123,7 +124,7 @@ class SubmissionFileStageAccessPolicy extends AuthorizationPolicy
         }
 
         if (in_array($this->_fileStage, $assignedFileStages)) {
-            $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES, $assignedFileStages);
+            $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_FILE_STAGES, $assignedFileStages);
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 

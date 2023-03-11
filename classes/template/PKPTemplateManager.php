@@ -22,6 +22,7 @@
 namespace PKP\template;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -41,6 +42,7 @@ use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -49,6 +51,7 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
+use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
@@ -371,6 +374,7 @@ class PKPTemplateManager extends Smarty
 
             $user = $request->getUser();
             if ($user) {
+                /** @var NotificationDAO */
                 $notificationDao = DAORegistry::getDAO('NotificationDAO');
                 $this->assign([
                     'currentUser' => $user,
@@ -780,6 +784,7 @@ class PKPTemplateManager extends Smarty
     {
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
+        /** @var PageRouter */
         $router = $request->getRouter();
 
         if (empty($this->getTemplateVars('pageComponent'))) {
@@ -1002,7 +1007,7 @@ class PKPTemplateManager extends Smarty
                 }
 
                 // Create main navigation menu
-                $userRoles = (array) $router->getHandler()->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+                $userRoles = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
                 $menu = [];
 
@@ -1889,7 +1894,7 @@ class PKPTemplateManager extends Smarty
 
         $router = $this->_request->getRouter();
         $requestedArgs = null;
-        if ($router instanceof \PKP\core\PageRouter) {
+        if ($router instanceof PageRouter) {
             $requestedArgs = $router->getRequestedArgs($this->_request);
         }
 

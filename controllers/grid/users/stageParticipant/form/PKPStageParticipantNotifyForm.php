@@ -66,7 +66,7 @@ class PKPStageParticipantNotifyForm extends Form
         $this->_itemType = $itemType;
         $this->_stageId = $stageId;
 
-        if ($itemType == ASSOC_TYPE_SUBMISSION) {
+        if ($itemType == Application::ASSOC_TYPE_SUBMISSION) {
             $this->_submissionId = $itemId;
         } else {
             $submissionFile = Repo::submissionFile()->get($itemId);
@@ -338,7 +338,7 @@ class PKPStageParticipantNotifyForm extends Form
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $submissionId,
             $userId,
             $type

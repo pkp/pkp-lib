@@ -332,7 +332,7 @@ class PKPStatsEditorialService
      * Any date restrictions will be applied to the decision, so it will only
      * count decisions that occurred within the date range.
      *
-     * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param int|array $decisions One or more Decision::*
      * @param array $args See self::getQueryBuilder()
      *
      * @return int
@@ -349,7 +349,7 @@ class PKPStatsEditorialService
      * only count submissions made within the date range which eventually received
      * one of the decisions.
      *
-     * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param int|array $decisions One or more Decision::*
      * @param array $args See self::getQueryBuilder()
      *
      * @return int
@@ -438,7 +438,7 @@ class PKPStatsEditorialService
      * only return the days to a decision for submissions that were made within
      * the selected date range.
      *
-     * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param int|array $decisions One or more Decision::*
      * @param array $args See self::getQueryBuilder()
      *
      * @return array
@@ -455,7 +455,7 @@ class PKPStatsEditorialService
      * only average the days to a decision for submissions that were made within
      * the selected date range.
      *
-     * @param int|array $decisions One or more SUBMISSION_EDITOR_DECISION_*
+     * @param int|array $decisions One or more Decision::*
      * @param array $args See self::getQueryBuilder()
      *
      * @return int
@@ -524,7 +524,7 @@ class PKPStatsEditorialService
      * This list only applies to editorial statistics. This method should not be used to
      * identify acceptance decisions for any other purpose.
      *
-     * @return int[] SUBMISSION_EDITOR_DECISION_ constants
+     * @return int[] Decision::* constants
      */
     protected function getAcceptedDecisions(): array
     {
@@ -541,7 +541,7 @@ class PKPStatsEditorialService
      * This distinction only applies to editorial statistics. This method should not be used to
      * identify declined decisions for any other purpose.
      *
-     * @return int[] SUBMISSION_EDITOR_DECISION_ constants
+     * @return int[] Decision::* constants
      */
     protected function getDeclinedDecisions(): array
     {

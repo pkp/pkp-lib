@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\admin\plugins;
 
+use APP\core\Application;
 use PKP\controllers\grid\plugins\PluginGridHandler;
 use PKP\controllers\grid\plugins\PluginGridRow;
 use PKP\security\authorization\PluginAccessPolicy;
@@ -44,7 +45,7 @@ class AdminPluginGridHandler extends PluginGridHandler
      */
     public function getRowInstance()
     {
-        return new PluginGridRow($this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES));
+        return new PluginGridRow($this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES));
     }
 
     /**

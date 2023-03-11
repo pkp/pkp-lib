@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewRound;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
@@ -340,7 +341,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      */
     public function deleteById($reviewRoundId)
     {
-        $this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
+        $this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) Application::ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
         return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', [(int) $reviewRoundId]);
     }
 

@@ -52,7 +52,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
      */
     public function dataObjectEffect()
     {
-        $assignedFileStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_FILE_STAGES);
+        $assignedFileStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_FILE_STAGES);
         if (empty($assignedFileStages) || !in_array(SubmissionFile::SUBMISSION_FILE_PROOF, $assignedFileStages)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -69,7 +69,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission) {
             $this->setAdvice(AuthorizationPolicy::AUTHORIZATION_ADVICE_DENY_MESSAGE, 'user.authorization.invalidSubmission');
             return AuthorizationPolicy::AUTHORIZATION_DENY;
@@ -93,7 +93,7 @@ class RepresentationUploadAccessPolicy extends DataObjectRequiredPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $this->addAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION, $representation);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION, $representation);
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }

@@ -18,6 +18,8 @@
 
 namespace PKP\controllers\grid;
 
+use Exception;
+
 class GridDataProvider
 {
     /** @var array */

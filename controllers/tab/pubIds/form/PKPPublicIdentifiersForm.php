@@ -184,7 +184,7 @@ class PKPPublicIdentifiersForm extends Form
         $assocType = $this->getAssocType($pubObject);
         $publisherId = $this->getData('publisherId');
         $pubObjectId = $pubObject->getId();
-        if ($assocType == ASSOC_TYPE_SUBMISSION_FILE) {
+        if ($assocType == Application::ASSOC_TYPE_SUBMISSION_FILE) {
             $pubObjectId = $pubObject->getId();
         }
         $contextDao = Application::getContextDAO();
@@ -258,24 +258,24 @@ class PKPPublicIdentifiersForm extends Form
      *
      * @param object $pubObject
      *
-     * @return int ASSOC_TYPE_
+     * @return int Application::ASSOC_TYPE_
      */
     public function getAssocType($pubObject)
     {
         if ($pubObject instanceof Submission) {
-            return ASSOC_TYPE_SUBMISSION;
+            return Application::ASSOC_TYPE_SUBMISSION;
         }
 
         if ($pubObject instanceof Publication) {
-            return ASSOC_TYPE_PUBLICATION;
+            return Application::ASSOC_TYPE_PUBLICATION;
         }
 
         if ($pubObject instanceof Representation) {
-            return ASSOC_TYPE_REPRESENTATION;
+            return Application::ASSOC_TYPE_REPRESENTATION;
         }
 
         if ($pubObject instanceof SubmissionFile) {
-            return ASSOC_TYPE_SUBMISSION_FILE;
+            return Application::ASSOC_TYPE_SUBMISSION_FILE;
         }
 
         return null;

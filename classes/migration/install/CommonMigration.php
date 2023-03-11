@@ -149,8 +149,16 @@ class CommonMigration extends \PKP\migration\Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->comment('User notifications created during certain operations.');
             $table->bigInteger('notification_id')->autoIncrement();
-            $table->bigInteger('context_id');
+
+            $table->bigInteger('context_id')->nullable();
+            $contextDao = \APP\core\Application::getContextDAO();
+            $table->foreign('context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'notifications_context_id');
+
             $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'notifications_user_id');
+
             $table->bigInteger('level');
             $table->bigInteger('type');
             $table->datetime('date_created');
@@ -158,7 +166,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('assoc_type')->nullable();
             $table->bigInteger('assoc_id')->nullable();
             $table->index(['context_id', 'user_id', 'level'], 'notifications_context_id_user_id');
-            $table->index(['context_id', 'level'], 'notifications_context_id');
+            $table->index(['context_id', 'level'], 'notifications_context_id_level');
             $table->index(['assoc_type', 'assoc_id'], 'notifications_assoc');
             $table->index(['user_id', 'level'], 'notifications_user_id_level');
         });

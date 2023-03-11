@@ -303,6 +303,22 @@ abstract class I6093_AddForeignKeys extends \PKP\migration\Migration
         Schema::table('review_files', function (Blueprint $table) {
             $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
         });
+
+        Schema::table('notifications', function (Blueprint $table) {
+            $table->bigInteger('context_id')->nullable()->change();
+        });
+        DB::table('notifications')->where('context_id', '=', 0)->update(['context_id' => null]);
+        Schema::table('notifications', function (Blueprint $table) {
+            // Renaming indexes directly not supported until MariaDB 10.5.2
+            $table->dropIndex('notifications_context_id');
+            $table->index(['context_id', 'level'], 'notifications_context_id_level');
+
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->index(['user_id'], 'notifications_user_id');
+
+            $table->foreign('context_id')->references($this->getContextKeyField())->on($this->getContextTable())->onDelete('cascade');
+            $table->index(['context_id'], 'notifications_context_id');
+        });
     }
 
     /**

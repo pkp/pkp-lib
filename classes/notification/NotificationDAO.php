@@ -29,13 +29,8 @@ class NotificationDAO extends \PKP\db\DAO
 {
     /**
      * Retrieve Notification by notification id
-     *
-     * @param int $notificationId
-     * @param int $userId optional
-     *
-     * @return object Notification
      */
-    public function getById($notificationId, $userId = null)
+    public function getById(int $notificationId, ?int $userId = null): ?Notification
     {
         $params = [(int) $notificationId];
         if ($userId) {
@@ -58,13 +53,9 @@ class NotificationDAO extends \PKP\db\DAO
      * Note that this method will not return fully-fledged notification objects.  Use
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
-     * @param int $userId
-     * @param int $type
-     * @param int $contextId
-     *
      * @return object DAOResultFactory containing matching Notification objects
      */
-    public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = null)
+    public function getByUserId(?int $userId, int $level = Notification::NOTIFICATION_LEVEL_NORMAL, ?int $type = null, ?int $contextId = null): DAOResultFactory
     {
         $result = DB::table('notifications')
             ->where('user_id', '=', $userId)
@@ -83,10 +74,8 @@ class NotificationDAO extends \PKP\db\DAO
      *  NotificationManager::getNotificationsForUser() to get notifications with URL, and contents
      *
      * @param int $assocType ASSOC_TYPE_...
-     *
-     * @return object DAOResultFactory containing matching Notification objects
      */
-    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null)
+    public function getByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null): DAOResultFactory
     {
         $params = [$assocType, $assocId];
         if ($userId) {
@@ -112,13 +101,9 @@ class NotificationDAO extends \PKP\db\DAO
     }
 
     /**
-     * Retrieve Notifications by notification id
-     *
-     * @param date $dateRead
-     *
-     * @return bool
+     * Set the date read for a notification
      */
-    public function setDateRead(int $notificationId, $dateRead)
+    public function setDateRead(int $notificationId, string $dateRead): string
     {
         $this->update(
             sprintf(
@@ -135,10 +120,8 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Instantiate and return a new data object.
-     *
-     * @return Notification
      */
-    public function newDataObject()
+    public function newDataObject(): Notification
     {
         return new Notification();
     }
@@ -221,28 +204,16 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Delete Notification
-     *
-     * @param Notification $notification
-     *
-     * @return bool
      */
-    public function deleteObject($notification)
+    public function deleteObject(Notification $notification)
     {
-        return $this->deleteById($notification->getId());
+        $this->deleteById($notification->getId());
     }
 
     /**
      * Delete notification(s) by association
-     *
-     * @param int $assocType
-     * @param int $assocId
-     * @param int $userId optional
-     * @param int $type optional
-     * @param int $contextId optional
-     *
-     * @return bool
      */
-    public function deleteByAssoc($assocType, $assocId, $userId = null, $type = null, $contextId = null)
+    public function deleteByAssoc(int $assocType, int $assocId, ?int $userId = null, ?int $type = null, ?int $contextId = null)
     {
         $notificationsFactory = $this->getByAssoc($assocType, $assocId, $userId, $type, $contextId);
         while ($notification = $notificationsFactory->next()) {
@@ -254,13 +225,8 @@ class NotificationDAO extends \PKP\db\DAO
      * Get the number of unread messages for a user
      *
      * @param bool $read Whether to check for read (true) or unread (false) notifications
-     * @param int $contextId
-     * @param int $userId
-     * @param int $level
-     *
-     * @return int
      */
-    public function getNotificationCount($read = true, $userId = null, $contextId = null, $level = Notification::NOTIFICATION_LEVEL_NORMAL)
+    public function getNotificationCount(bool $read = true, ?int $userId = null, ?int $contextId = null, ?int $level = Notification::NOTIFICATION_LEVEL_NORMAL): int
     {
         $params = [(int) $userId, (int) $level];
         if ($contextId) {
@@ -279,26 +245,19 @@ class NotificationDAO extends \PKP\db\DAO
 
     /**
      * Transfer the notifications for a user.
-     *
-     * @param int $oldUserId
-     * @param int $newUserId
      */
-    public function transferNotifications($oldUserId, $newUserId)
+    public function transferNotifications(int $oldUserId, int $newUserId)
     {
         $this->update(
             'UPDATE notifications SET user_id = ? WHERE user_id = ?',
-            [(int) $newUserId, (int) $oldUserId]
+            [$newUserId, $oldUserId]
         );
     }
 
     /**
      * Creates and returns an notification object from a row
-     *
-     * @param array $row
-     *
-     * @return Notification object
      */
-    public function _fromRow($row)
+    public function _fromRow(array $row): Notification
     {
         $notification = $this->newDataObject();
         $notification->setId($row['notification_id']);

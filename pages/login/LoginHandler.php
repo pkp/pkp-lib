@@ -317,7 +317,7 @@ class LoginHandler extends Handler
     /**
      * Reset a user's password
      *
-     * @param $args array first param contains the username of the user whose password is to be reset
+     * @param array $args first param contains the username of the user whose password is to be reset
      */
     public function updateResetPassword($args, $request)
     {

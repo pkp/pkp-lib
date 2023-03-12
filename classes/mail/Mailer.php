@@ -237,7 +237,7 @@ class Mailer extends IlluminateMailer
             }
         }
 
-        $site = Application::get()->getRequest()->getSite(); /* @var $site Site **/
+        $site = Application::get()->getRequest()->getSite(); /** @var Site $site **/
         $dmarcFromName = '';
         if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
             $patterns = ['#%n#', '#%s#'];

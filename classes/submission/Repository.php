@@ -872,8 +872,8 @@ abstract class Repository
      * Checks if this user is granted access to preview
      * based on their roles in the context (i.e. Manager, Editor, etc).
      *
-     * @param $user User
-     * @param $submission Submission
+     * @param User $user
+     * @param Submission $submission
      *
      */
     protected function _roleCanPreview(?User $user, Submission $submission): bool

@@ -57,7 +57,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get date entry was logged.
      *
-     * @return datestamp
+     * @return string
      */
     public function getDateLogged()
     {
@@ -67,7 +67,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set date entry was logged.
      *
-     * @param datestamp $dateLogged
+     * @param string $dateLogged
      */
     public function setDateLogged($dateLogged)
     {

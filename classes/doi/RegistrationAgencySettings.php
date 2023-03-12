@@ -21,13 +21,14 @@ use Illuminate\Validation\Validator;
 use PKP\components\forms\Field;
 use PKP\context\Context;
 use PKP\plugins\Hook;
+use PKP\plugins\Plugin;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\services\PKPSchemaService;
 use PKP\validation\ValidatorFactory;
 
 abstract class RegistrationAgencySettings
 {
-    protected IDoiRegistrationAgency $agencyPlugin;
+    protected IDoiRegistrationAgency|Plugin $agencyPlugin;
 
     public function __construct(IDoiRegistrationAgency $agencyPlugin)
     {

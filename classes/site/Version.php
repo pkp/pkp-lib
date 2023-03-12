@@ -202,7 +202,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Get date installed.
      *
-     * @return date
+     * @return string
      */
     public function getDateInstalled()
     {
@@ -212,7 +212,7 @@ class Version extends \PKP\core\DataObject
     /**
      * Set date installed.
      *
-     * @param date $dateInstalled
+     * @param string $dateInstalled
      */
     public function setDateInstalled($dateInstalled)
     {
@@ -373,7 +373,7 @@ class Version extends \PKP\core\DataObject
      * 		true iff the version given is compatible with this version
      * 		false iff the version given is incompatible with this version
      *
-     * @param $constraints string the string of constraints for the version to be checked against
+     * @param string $constraints the string of constraints for the version to be checked against
      *
      * @return boolean
      */

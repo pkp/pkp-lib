@@ -206,7 +206,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * get date posted
      *
-     * @return date
+     * @return string
      */
     public function getDatePosted()
     {
@@ -216,7 +216,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set date posted
      *
-     * @param date $datePosted
+     * @param string $datePosted
      */
     public function setDatePosted($datePosted)
     {
@@ -226,7 +226,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * get date modified
      *
-     * @return date
+     * @return string
      */
     public function getDateModified()
     {
@@ -236,7 +236,7 @@ class SubmissionComment extends \PKP\core\DataObject
     /**
      * set date modified
      *
-     * @param date $dateModified
+     * @param string $dateModified
      */
     public function setDateModified($dateModified)
     {

@@ -47,10 +47,10 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
     {
         parent::__construct($argv);
 
-        $contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-        $contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
         $this->contextsByPath = [];
-        while ($context = $contextFactory->next()) { /* @var $context Context */
+        while ($context = $contextFactory->next()) { /** @var Context $context */
             $this->contextsByPath[$context->getPath()] = $context;
         }
     }
@@ -890,7 +890,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                     $submissionFileId = (int) $args[2];
                 }
 
-                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');  /* @var $publicationFormatDao PublicationFormatDAO */
+                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');  /** @var PublicationFormatDAO $publicationFormatDao */
                 $publicationFormat = $publicationFormatDao->getById($representationId, $publicationId);
                 if (!$publicationFormat) {
                     fwrite(STDERR, "Publication format with the ID {$representationId} does not exist." . PHP_EOL);

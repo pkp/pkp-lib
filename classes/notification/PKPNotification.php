@@ -135,7 +135,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * get date notification was created
      *
-     * @return date (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateCreated()
     {
@@ -145,7 +145,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set date notification was created
      *
-     * @param date $dateCreated (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateCreated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateCreated($dateCreated)
     {
@@ -155,7 +155,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * get date notification is read by user
      *
-     * @return date (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateRead()
     {
@@ -165,7 +165,7 @@ class PKPNotification extends \PKP\core\DataObject
     /**
      * set date notification is read by user
      *
-     * @param date $dateRead (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateRead (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateRead($dateRead)
     {

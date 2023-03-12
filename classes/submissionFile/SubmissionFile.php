@@ -272,7 +272,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @return date
+     * @return string
      */
 
     public function getDateModified()
@@ -285,7 +285,7 @@ class SubmissionFile extends \PKP\core\DataObject
      *
      * @deprecated 3.3.0.0
      *
-     * @param date $updatedAt
+     * @param string $updatedAt
      */
 
     public function setDateModified($updatedAt)

@@ -49,7 +49,7 @@ class QueuedPaymentDAO extends \PKP\db\DAO
      * Insert a new queued payment.
      *
      * @param QueuedPayment $queuedPayment
-     * @param date $expiryDate optional
+     * @param string $expiryDate optional
      */
     public function insertObject($queuedPayment, $expiryDate = null)
     {

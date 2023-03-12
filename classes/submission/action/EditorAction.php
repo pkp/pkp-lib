@@ -62,8 +62,8 @@ class EditorAction
      * @param object $submission
      * @param int $reviewerId
      * @param ReviewRound $reviewRound
-     * @param datetime $reviewDueDate
-     * @param datetime $responseDueDate
+     * @param string $reviewDueDate
+     * @param string $responseDueDate
      * @param null|mixed $reviewMethod
      */
     public function addReviewer($request, $submission, $reviewerId, &$reviewRound, $reviewDueDate, $responseDueDate, $reviewMethod = null)

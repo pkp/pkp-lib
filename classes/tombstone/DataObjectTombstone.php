@@ -42,7 +42,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * get date deleted
      *
-     * @return date
+     * @return string
      */
     public function getDateDeleted()
     {
@@ -52,7 +52,7 @@ class DataObjectTombstone extends \PKP\core\DataObject
     /**
      * set date deleted
      *
-     * @param date $dateDeleted
+     * @param string $dateDeleted
      */
     public function setDateDeleted($dateDeleted)
     {

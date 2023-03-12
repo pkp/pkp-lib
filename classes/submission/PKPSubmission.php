@@ -1157,7 +1157,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get submission date.
      *
-     * @return date
+     * @return string
      *
      * @deprecated 3.2.0.0
      */
@@ -1169,7 +1169,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set submission date.
      *
-     * @param date $dateSubmitted
+     * @param string $dateSubmitted
      *
      * @deprecated 3.2.0.0
      */
@@ -1181,7 +1181,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the date of the last status modification.
      *
-     * @return date
+     * @return string
      *
      * @deprecated 3.2.0.0
      */
@@ -1193,7 +1193,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the date of the last status modification.
      *
-     * @param date $dateModified
+     * @param string $dateModified
      *
      * @deprecated 3.2.0.0
      */
@@ -1205,7 +1205,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get the date of the last modification.
      *
-     * @return date
+     * @return string
      *
      * @deprecated 3.2.0.0
      */
@@ -1217,7 +1217,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set the date of the last modification.
      *
-     * @param date $dateModified
+     * @param string $dateModified
      *
      * @deprecated 3.2.0.0
      */
@@ -1372,7 +1372,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Get date published.
      *
-     * @return date
+     * @return string
      *
      * @deprecated 3.2.0.0
      */
@@ -1388,7 +1388,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
     /**
      * Set date published.
      *
-     * @param date $datePublished
+     * @param string $datePublished
      *
      * @deprecated 3.2.0.0
      */

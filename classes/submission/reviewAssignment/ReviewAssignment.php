@@ -297,7 +297,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the date of the last modification.
      *
-     * @return date
+     * @return string
      */
     public function getLastModified()
     {
@@ -307,7 +307,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the date of the last modification.
      *
-     * @param date $dateModified
+     * @param string $dateModified
      */
     public function setLastModified($dateModified)
     {

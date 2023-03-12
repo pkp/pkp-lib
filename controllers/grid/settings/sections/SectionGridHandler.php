@@ -18,6 +18,7 @@ namespace APP\controllers\grid\settings\sections;
 use APP\controllers\grid\settings\sections\form\SectionForm;
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use PKP\context\SubEditorsDAO;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
@@ -314,7 +315,7 @@ class SectionGridHandler extends SetupGridHandler
             // Create the notification.
             $notificationMgr = new NotificationManager();
             $user = $request->getUser();
-            $notificationMgr->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.sections.confirmDeactivateSection.error')]);
+            $notificationMgr->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_ERROR, ['contents' => __('manager.sections.confirmDeactivateSection.error')]);
             return DAO::getDataChangedEvent($sectionId);
         }
 

@@ -18,6 +18,7 @@ namespace APP\plugins;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\context\Context;
@@ -32,7 +33,6 @@ use PKP\plugins\Hook;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
-use APP\plugins\PubObjectCache;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -111,7 +111,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $form->readInputData();
                 if ($form->validate()) {
                     $form->execute();
-                    $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
+                    $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS);
                     return new JSONMessage(true);
                 } else {
                     return new JSONMessage(true, $form->fetch($request));
@@ -248,7 +248,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $this->_sendNotification(
                     $request->getUser(),
                     $this->getDepositSuccessNotificationMessageKey(),
-                    NOTIFICATION_TYPE_SUCCESS
+                    Notification::NOTIFICATION_TYPE_SUCCESS
                 );
             } else {
                 if (is_array($result)) {
@@ -257,7 +257,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                         $this->_sendNotification(
                             $request->getUser(),
                             $error[0],
-                            NOTIFICATION_TYPE_ERROR,
+                            Notification::NOTIFICATION_TYPE_ERROR,
                             ($error[1] ?? null)
                         );
                     }
@@ -756,7 +756,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @param User $user
      * @param string $message An i18n key.
-     * @param int $notificationType One of the NOTIFICATION_TYPE_* constants.
+     * @param int $notificationType One of the Notification::NOTIFICATION_TYPE_* constants.
      * @param string $param An additional parameter for the message.
      */
     public function _sendNotification($user, $message, $notificationType, $param = null)

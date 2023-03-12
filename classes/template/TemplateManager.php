@@ -19,6 +19,7 @@ namespace APP\template;
 
 use APP\core\Application;
 use APP\file\PublicFileManager;
+use APP\notification\Notification;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -73,7 +74,7 @@ class TemplateManager extends PKPTemplateManager
                 $notificationDao = DAORegistry::getDAO('NotificationDAO');
                 // Exclude certain tasks, defined in the notifications grid handler
                 import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');
-                $this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, NOTIFICATION_LEVEL_TASK));
+                $this->assign('unreadNotificationCount', $notificationDao->getNotificationCount(false, $user->getId(), null, Notification::NOTIFICATION_LEVEL_TASK));
             }
             if (isset($context)) {
                 $this->assign([

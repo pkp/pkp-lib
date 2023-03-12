@@ -16,6 +16,7 @@
 namespace APP\controllers\tab\workflow;
 
 use APP\core\Application;
+use APP\notification\Notification;
 use APP\template\TemplateManager;
 use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use PKP\db\DAORegistry;
@@ -68,11 +69,11 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
     protected function getProductionNotificationOptions($submissionId)
     {
         return [
-            NOTIFICATION_LEVEL_NORMAL => [
-                NOTIFICATION_TYPE_VISIT_CATALOG => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
-                NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
+            Notification::NOTIFICATION_LEVEL_NORMAL => [
+                Notification::NOTIFICATION_TYPE_VISIT_CATALOG => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
+                Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
             ],
-            NOTIFICATION_LEVEL_TRIVIAL => []
+            Notification::NOTIFICATION_LEVEL_TRIVIAL => []
         ];
     }
 

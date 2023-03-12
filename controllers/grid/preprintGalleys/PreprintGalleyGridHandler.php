@@ -19,6 +19,7 @@ use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
 use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -338,7 +339,7 @@ class PreprintGalleyGridHandler extends GridHandler
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $request,
-                [NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
+                [Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
                 null,
                 Application::ASSOC_TYPE_SUBMISSION,
                 $this->getSubmission()->getId()
@@ -429,7 +430,7 @@ class PreprintGalleyGridHandler extends GridHandler
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(
                     $request,
-                    [NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
+                    [Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
                     null,
                     Application::ASSOC_TYPE_SUBMISSION,
                     $this->getSubmission()->getId()

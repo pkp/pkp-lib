@@ -28,6 +28,8 @@ use GuzzleHttp\Psr7\Utils;
 use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\plugins\Hook;
+use SplFileObject;
+use Throwable;
 
 class FileManager
 {
@@ -412,7 +414,7 @@ class FileManager
             return mkdir($dirPath, $perms);
         } else {
             if (mkdir($dirPath)) {
-                return $this->setMode($dirPath, DIRECTORY_MODE_MASK);
+                return $this->setMode($dirPath, static::DIRECTORY_MODE_MASK);
             }
             return false;
         }
@@ -509,7 +511,7 @@ class FileManager
      *
      * @param string $type
      *
-     * @return string (Enuemrated DOCUMENT_TYPEs)
+     * @return string (Enumerated DOCUMENT_TYPEs)
      */
     public function getDocumentType($type)
     {
@@ -805,6 +807,28 @@ class FileManager
             throw new Exception(__('admin.error.gzCompressFile.unlink', ['filePath' => $filePath]));
         }
         return $destPath;
+    }
+
+    /**
+     * Attempts to create a locked and writable temporary file
+     * The prefix/suffix will receive a minor sanitization
+     */
+    public static function getTemporaryFile(?string $prefix = null, ?string $suffix = null, ?int $lockType = LOCK_EX, int $retries = 10): SplFileObject
+    {
+        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
+        $basePath = rtrim(sys_get_temp_dir(), '\\/') . "/";
+        for ($retries = abs($retries); $retries--; ) {
+            try {
+                $file = new SplFileObject($basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix), 'x+');
+                if ($lockType) {
+                    $file->flock(LOCK_EX) || throw new Exception('Failed to acquire lock');
+                }
+                return $file;
+            } catch (Throwable $e) {
+                error_log($e);
+            }
+        }
+        throw new Exception('Failed to create temporary file');
     }
 }
 

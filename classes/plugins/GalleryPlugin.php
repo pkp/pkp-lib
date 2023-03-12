@@ -367,7 +367,7 @@ class GalleryPlugin extends \PKP\core\DataObject
     /**
      * Get the package URL for this plugin release
      *
-     * @return strings
+     * @return string
      */
     public function getReleasePackage()
     {

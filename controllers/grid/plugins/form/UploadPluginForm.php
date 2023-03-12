@@ -18,7 +18,9 @@ namespace PKP\controllers\grid\plugins\form;
 use APP\core\Application;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileDAO;
 use PKP\file\TemporaryFileManager;
 use PKP\form\Form;
 use PKP\notification\PKPNotification;
@@ -28,21 +30,14 @@ use PKP\plugins\PluginRegistry;
 
 class UploadPluginForm extends Form
 {
-    /** @var string PLUGIN_ACTION_... */
-    public $_function;
-
-
     /**
      * Constructor.
      *
-     * @param string $function PLUGIN_ACTION_...
+     * @param string $pluginAction PLUGIN_ACTION_...
      */
-    public function __construct($function)
+    public function __construct(private $pluginAction)
     {
         parent::__construct('controllers/grid/plugins/form/uploadPluginForm.tpl');
-
-        $this->_function = $function;
-
         $this->addCheck(new \PKP\form\validation\FormValidator($this, 'temporaryFileId', 'required', 'manager.plugins.uploadFailed'));
     }
 
@@ -66,7 +61,7 @@ class UploadPluginForm extends Form
     {
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign([
-            'function' => $this->_function,
+            'function' => $this->pluginAction,
             'category' => $request->getUserVar('category'),
             'plugin' => $request->getUserVar('plugin'),
         ]);
@@ -91,26 +86,17 @@ class UploadPluginForm extends Form
         $temporaryFileDao = DAORegistry::getDAO('TemporaryFileDAO'); /** @var TemporaryFileDAO $temporaryFileDao */
         $temporaryFile = $temporaryFileDao->getTemporaryFile($this->getData('temporaryFileId'), $user->getId());
 
-        // Extract the temporary file into a temporary location.
         try {
-            $pluginDir = $pluginHelper->extractPlugin($temporaryFile->getFilePath(), $temporaryFile->getOriginalFileName());
-        } catch (Exception $e) {
-            $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
-            return false;
-        } finally {
-            $temporaryFileManager->deleteById($temporaryFile->getId(), $user->getId());
-        }
-
-        // Install or upgrade the extracted plugin.
-        try {
-            switch ($this->_function) {
+            if (!$temporaryFile) {
+                throw new Exception('The uploaded plugin file was not found');
+            }
+            switch ($this->pluginAction) {
                 case PluginHelper::PLUGIN_ACTION_UPLOAD:
-                    $pluginVersion = $pluginHelper->installPlugin($pluginDir);
+                    $pluginVersion = $pluginHelper->installPlugin($temporaryFile->getFilePath(), $temporaryFile->getOriginalFileName());
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
                         PKPNotification::NOTIFICATION_TYPE_SUCCESS,
-                        ['contents' =>
-                            __('manager.plugins.installSuccessful', ['versionNumber' => $pluginVersion->getVersionString(false)])]
+                        ['contents' => __('manager.plugins.installSuccessful', ['versionNumber' => $pluginVersion->getVersionString(false)])]
                     );
                     break;
                 case PluginHelper::PLUGIN_ACTION_UPGRADE:
@@ -118,7 +104,8 @@ class UploadPluginForm extends Form
                     $pluginVersion = $pluginHelper->upgradePlugin(
                         $request->getUserVar('category'),
                         basename($plugin->getPluginPath()),
-                        $pluginDir
+                        $temporaryFile->getFilePath(),
+                        $temporaryFile->getOriginalFileName()
                     );
                     $notificationMgr->createTrivialNotification(
                         $user->getId(),
@@ -126,12 +113,15 @@ class UploadPluginForm extends Form
                         ['contents' => __('manager.plugins.upgradeSuccessful', ['versionString' => $pluginVersion->getVersionString(false)])]
                     );
                     break;
-                default: assert(false); // Illegal PLUGIN_ACTION_...
+                default:
+                    throw new Exception(__('common.unknownError'));
             }
         } catch (Exception $e) {
             $notificationMgr->createTrivialNotification($user->getId(), PKPNotification::NOTIFICATION_TYPE_ERROR, ['contents' => $e->getMessage()]);
-            $temporaryFileManager->rmtree($pluginDir);
-            return false;
+        } finally {
+            if ($temporaryFile) {
+                $temporaryFileManager->deleteById($temporaryFile->getId(), $user->getId());
+            }
         }
         return true;
     }

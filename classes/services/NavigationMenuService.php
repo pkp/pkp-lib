@@ -67,7 +67,7 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
 
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
-        $templateMgr = TemplateManager::getManager(\Application::get()->getRequest());
+        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 
         $isUserLoggedIn = Validation::isLoggedIn();
         $isUserLoggedInAs = Validation::isLoggedInAs();

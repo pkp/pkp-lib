@@ -14,6 +14,7 @@
 
 namespace APP\components\forms\publication;
 
+use APP\publication\Publication;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FormComponent;
 
@@ -71,11 +72,11 @@ class PublishForm extends FormComponent
         }
 
         // Related Publication status
-        if ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED && $publication->getData('vorDoi')) {
+        if ($publication->getData('relationStatus') == Publication::PUBLICATION_RELATION_PUBLISHED && $publication->getData('vorDoi')) {
             $relationStatus = __('publication.publish.relationStatus.published', [
                 'vorDoi' => $publication->getData('vorDoi')
             ]);
-        } elseif ($publication->getData('relationStatus') == \Publication::PUBLICATION_RELATION_PUBLISHED) {
+        } elseif ($publication->getData('relationStatus') == Publication::PUBLICATION_RELATION_PUBLISHED) {
             $relationStatus = __('publication.publish.relationStatus.published.noDoi');
         } else {
             $relationStatus = __('publication.publish.relationStatus.none');

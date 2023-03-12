@@ -13,6 +13,7 @@
 
 namespace APP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +59,7 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
                 case DB::connection() instanceof PostgresConnection:
                     DB::statement('UPDATE publications SET primary_contact_id = NULL WHERE publication_id IN (SELECT publication_id FROM publications p LEFT JOIN users u ON (p.primary_contact_id = u.user_id) WHERE u.user_id IS NULL AND p.primary_contact_id IS NOT NULL)');
                     break;
-                default: throw new \Exception('Unknown database connection type!');
+                default: throw new Exception('Unknown database connection type!');
             }
 
             // Clean orphaned publication_galleys entries by publication_id

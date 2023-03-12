@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-12 16:18+0000\n"
+"PO-Revision-Date: 2023-03-13 16:48+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -3035,102 +3035,124 @@ msgstr ""
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"URL-osoite, joka lähetetään käyttäjälle salasanan palauttamisen "
+"vahvistamiseksi"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Uusi satunnainen käyttäjän salasana"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Arvioijan uudelleenosoitus"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Lähetä arviointipyyntö uudelleen arvioijalle"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Käsikirjoitustiedoston ladanneen käyttäjän koko nimi"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Ilmoituksen otsikko"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Lyhyt kuvaus ilmoituksesta"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Ilmoituksen URL-osoite"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Tässä kuussa vastaanotettujen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Hylättyjen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Hyväksyttyjen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Muihin kokonaislukemiin sisältymättömien käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Saatujen käsikirjoitusten kokonaismäärä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Raportin kuukausi"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Raportin vuosi"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Numeron tunnistetiedot, mukaan lukien vuosikerta, numero, vuosi ja nimi"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Julkaistun numeron URL-osoite"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Raportin vuosi"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Linkki toimitustyön tilastosivulle"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Tämä sähköpostiviesti lähetetään, kun toimittaja osoittaa käsikirjoituksen "
+"uudelleen arvioijalle, jolle lähetetty arviointipyyntö oli peruttu."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin arviointipyynnön hylänneelle "
+"arvioijalle, kun hän haluaa lähettää pyynnön uudelleen."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Peru arviointipyyntö"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Tämä sähköpostiviesti lähetetään, kun toimittaja peruu arviointipyynnön, "
+"johon arvioija ei ole vielä vastannut mitään."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Vahvista sähköposti (sivusto)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Tämä sähköposti lähetetään automaattisesti uudelle käyttäjälle, kun hän "
+"rekisteröityy sivustolle, kun asetukset edellyttävät sähköpostiosoitteen "
+"vahvistamista."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Ilmoita muille kirjoittajille"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Tällä sähköpostiviestillä ilmoitetaan käsikirjoituksen lähetyksestä "
+"sellaisille käsikirjoituksen kirjoittajille, joita ei ole osoitettu "
+"osallistujiksi käsikirjoituksen työnkulkuun. Tämä tarkoittaa yleensä kaikkia "
+"muita kirjoittajia paitsi käsikirjoituksen järjestelmään lähettänyttä "
+"kirjoittajaa."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Jäljennös sähköpostiviestistä, joka lähetettiin käsikirjoituksen "
+"lähettäneelle kirjoittajalle"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Ilmoita päätöksestä arvioijille"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin arvioijalle ilmoittaakseen "
+"hänelle, että hänen arvioimastaan käsikirjoituksesta on tehty päätös."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Lyhyt kuvaus tästä päätöksestä, joka lähetetään tiedoksi arvioijille "
+"sähköpostilla"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Olemme päättäneet hyväksyä tämän käsikirjoituksen ilman korjauksia."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Olemme päättäneet hylätä tämän käsikirjoituksen."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."

@@ -17,6 +17,7 @@ namespace PKP\components\forms\statistics\users;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use APP\facades\Repo;
+use PKP\context\Context;
 use PKP\userGroup\UserGroup;
 
 class ReportForm extends FormComponent
@@ -27,7 +28,7 @@ class ReportForm extends FormComponent
      * @param string $action URL to submit the form to
      * @param \Context $context The context
      */
-    public function __construct(string $action, \Context $context)
+    public function __construct(string $action, Context $context)
     {
         $this->action = $action;
         $this->id = 'reportForm';

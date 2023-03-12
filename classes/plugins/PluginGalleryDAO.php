@@ -117,6 +117,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     protected function getCachedDocument(): ?string
     {
         $cacheManager = CacheManager::getManager();
+        /** @var FileCache */
         $cache = $cacheManager->getCache(
             'loadPluginsXML',
             Application::CONTEXT_SITE,

@@ -268,7 +268,7 @@ class QueryNotesGridHandler extends GridHandler
         }
 
         if (!$this->getCanManage($note)) {
-            // The user doesn't own the note and isn't priveleged enough to delete it.
+            // The user doesn't own the note and isn't privileged enough to delete it.
             return new JSONMessage(false);
         }
 

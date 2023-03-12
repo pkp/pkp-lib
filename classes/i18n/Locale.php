@@ -137,14 +137,14 @@ class Locale implements LocaleInterface
     {
         if (!$this->isLocaleValid($locale) || !$this->isSupported($locale)) {
             if ($locale) {
-                error_log((string) new InvalidArgumentException("Invalid/unsupported locale \"${locale}\", default locale restored"));
+                error_log((string) new InvalidArgumentException("Invalid/unsupported locale \"{$locale}\", default locale restored"));
             }
             $locale = $this->getPrimaryLocale();
         }
 
         $this->locale = $locale;
-        setlocale(LC_ALL, "${locale}.utf-8", $locale);
-        putenv("LC_ALL=${locale}");
+        setlocale(LC_ALL, "{$locale}.utf-8", $locale);
+        putenv("LC_ALL={$locale}");
     }
 
     /**
@@ -167,7 +167,7 @@ class Locale implements LocaleInterface
     {
         $path = new SplFileInfo($path);
         if (!$path->isDir()) {
-            throw new InvalidArgumentException("\"${path}\" isn't a valid folder");
+            throw new InvalidArgumentException("\"{$path}\" isn't a valid folder");
         }
 
         // Invalidate the loaded bundles cache
@@ -345,8 +345,8 @@ class Locale implements LocaleInterface
         if ( $fromCache ) {
 
             return $this->_getLocaleCache(
-                __METHOD__, 
-                $locale, 
+                __METHOD__,
+                $locale,
                 fn () => $this->_getIsoCodes($locale)->getLanguages()
             );
         }
@@ -364,12 +364,12 @@ class Locale implements LocaleInterface
 
     /**
      * Get the formatted locale display names with country if same language code present multiple times
-     * 
+     *
      * @param   array $filterByLocales          Optional list of locales code to filter by the returned formatted names list
-     * @param   array $locales                  Optional list of availabel all locales
+     * @param   array $locales                  Optional list of available all locales
      * @param   int   $langLocaleStatus         The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
-     * @param   bool  $omitLocaleCodeInDisplay  Should leave out the locale code from display. By deault leave out.
-     * 
+     * @param   bool  $omitLocaleCodeInDisplay  Should leave out the locale code from display. By default leave out.
+     *
      * @return  array                           The list of locales with formatted display name
      */
     public function getFormattedDisplayNames(array $filterByLocales = null, array $locales = null, int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH, bool $omitLocaleCodeInDisplay = true): array
@@ -399,10 +399,10 @@ class Locale implements LocaleInterface
 
     /**
      * Get the filtered locales by locale codes
-     * 
-     * @param   array $locales          List of availabel all locales
+     *
+     * @param   array $locales          List of available all locales
      * @param   array $filterByLocales  List of locales code to filter by the returned formatted names list
-     * 
+     *
      * @return  array                   The list of locales with formatted display name
      */
     protected function getFilteredLocales(array $locales, array $filterByLocales = null): array
@@ -433,7 +433,7 @@ class Locale implements LocaleInterface
         // In order to reduce the noise, we're only logging missing entries for the en locale
         // TODO: Allow the other missing entries to be logged once the Laravel's logging is setup
         if ($locale === LocaleInterface::DEFAULT_LOCALE) {
-            error_log("Missing locale key \"${key}\" for the locale \"${locale}\"");
+            error_log("Missing locale key \"{$key}\" for the locale \"{$locale}\"");
         }
         return is_callable($this->missingKeyHandler) ? ($this->missingKeyHandler)($key) : '##' . htmlentities($key) . '##';
     }
@@ -463,7 +463,7 @@ class Locale implements LocaleInterface
         $files = $this->localeFiles[$folder][$locale] ?? null;
         if ($files === null) {
             $files = [];
-            if (is_dir($path = "${folder}/${locale}")) {
+            if (is_dir($path = "{$folder}/{$locale}")) {
                 $directory = new RecursiveDirectoryIterator($path);
                 $iterator = new RecursiveIteratorIterator($directory);
                 $files = array_keys(iterator_to_array(new RegexIterator($iterator, '/\.po$/i', RecursiveRegexIterator::GET_MATCH)));

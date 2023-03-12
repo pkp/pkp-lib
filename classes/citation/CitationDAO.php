@@ -36,7 +36,7 @@ class CitationDAO extends \PKP\db\DAO
             // Find the latest sequence number
             $result = $this->retrieve(
                 'SELECT MAX(seq) AS lastseq FROM citations
-				 WHERE publication_id = ?',
+				WHERE publication_id = ?',
                 [(int)$citation->getData('publicationId')]
             );
             $citation->setSequence($row ? $row->lastseq + 1 : 1);

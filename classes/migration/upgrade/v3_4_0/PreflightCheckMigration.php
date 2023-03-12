@@ -142,69 +142,69 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned assoc_type/assoc_id data in announcement_types
             $orphanedIds = DB::table('announcement_types AS at')->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->orWhere('at.assoc_type', '<>', Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');
             foreach ($orphanedIds as $typeId) {
-                $this->_installer->log("Removing orphaned announcement type ID ${typeId} with no matching context ID.");
+                $this->_installer->log("Removing orphaned announcement type ID {$typeId} with no matching context ID.");
                 DB::table('announcement_types')->where('type_id', '=', $typeId)->delete();
             }
 
             // Clean orphaned announcement_type_setting entries
             $orphanedIds = DB::table('announcement_type_settings AS ats')->leftJoin('announcement_types AS at', 'ats.type_id', '=', 'at.type_id')->whereNull('at.type_id')->distinct()->pluck('ats.type_id');
             foreach ($orphanedIds as $typeId) {
-                $this->_installer->log("Removing orphaned settings for missing announcement type ID ${typeId}");
+                $this->_installer->log("Removing orphaned settings for missing announcement type ID {$typeId}");
                 DB::table('announcement_type_settings')->where('type_id', '=', $typeId)->delete();
             }
 
             if ($count = DB::table('announcements AS a')->leftJoin('announcement_types AS at', 'a.type_id', '=', 'at.type_id')->whereNull('at.type_id')->whereNotNull('a.type_id')->update(['a.type_id' => null])) {
-                $this->_installer->log("Reset ${count} announcements with orphaned (non-null) announcement types to no announcement type.");
+                $this->_installer->log("Reset {$count} announcements with orphaned (non-null) announcement types to no announcement type.");
             }
 
             // Clean orphaned announcement_setting entries
             $orphanedIds = DB::table('announcement_settings AS a_s')->leftJoin('announcements AS a', 'a_s.announcement_id', '=', 'a.announcement_id')->whereNull('a.announcement_id')->distinct()->pluck('a_s.announcement_id');
             foreach ($orphanedIds as $announcementId) {
-                $this->_installer->log("Removing orphaned settings for missing announcement ID ${announcementId}");
+                $this->_installer->log("Removing orphaned settings for missing announcement ID {$announcementId}");
                 DB::table('announcement_settings')->where('announcement_id', '=', $announcementId)->delete();
             }
 
             // Clean orphaned category data
             $orphanedIds = DB::table('categories AS ca')->leftJoin($this->getContextTable() . ' AS c', 'ca.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('ca.category_id');
             foreach ($orphanedIds as $categoryId) {
-                $this->_installer->log("Removing orphaned category ID ${categoryId} with no matching context ID.");
+                $this->_installer->log("Removing orphaned category ID {$categoryId} with no matching context ID.");
                 DB::table('categories')->where('category_id', '=', $categoryId)->delete();
             }
             // Clean orphaned category_setting entries
             $orphanedIds = DB::table('category_settings AS cs')->leftJoin('categories AS c', 'cs.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('cs.category_id');
             foreach ($orphanedIds as $categoryId) {
-                $this->_installer->log("Removing orphaned settings for missing category ID ${categoryId}");
+                $this->_installer->log("Removing orphaned settings for missing category ID {$categoryId}");
                 DB::table('category_settings')->where('category_id', '=', $categoryId)->delete();
             }
 
             // Clean orphaned publication_categories entries
             $orphanedIds = DB::table('publication_categories AS pc')->leftJoin('categories AS c', 'pc.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('pc.category_id');
             foreach ($orphanedIds as $categoryId) {
-                $this->_installer->log("Removing orphaned category/publication associations for missing category ID ${categoryId}");
+                $this->_installer->log("Removing orphaned category/publication associations for missing category ID {$categoryId}");
                 DB::table('publication_categories')->where('category_id', '=', $categoryId)->delete();
             }
             $orphanedIds = DB::table('publication_categories AS pc')->leftJoin('publications AS p', 'pc.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('pc.publication_id');
             foreach ($orphanedIds as $publicationId) {
-                $this->_installer->log("Removing orphaned category/publication associations for missing publication ID ${publicationId}");
+                $this->_installer->log("Removing orphaned category/publication associations for missing publication ID {$publicationId}");
                 DB::table('publication_categories')->where('publication_id', '=', $publicationId)->delete();
             }
 
             // Clean orphaned genre data
             $orphanedIds = DB::table('genres AS g')->leftJoin($this->getContextTable() . ' AS c', 'g.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('g.genre_id');
             foreach ($orphanedIds as $genreId) {
-                $this->_installer->log("Removing orphaned genre ID ${genreId} with no matching context ID.");
+                $this->_installer->log("Removing orphaned genre ID {$genreId} with no matching context ID.");
                 DB::table('genres')->where('genre_id', '=', $genreId)->delete();
             }
             // Clean orphaned genre_setting entries
             $orphanedIds = DB::table('genre_settings AS gs')->leftJoin('genres AS g', 'gs.genre_id', '=', 'g.genre_id')->whereNull('g.genre_id')->distinct()->pluck('gs.genre_id');
             foreach ($orphanedIds as $genreId) {
-                $this->_installer->log("Removing orphaned settings for missing genre ID ${genreId}");
+                $this->_installer->log("Removing orphaned settings for missing genre ID {$genreId}");
                 DB::table('genre_settings')->where('genre_id', '=', $genreId)->delete();
             }
             // Clean orphan notification_settings
             $orphanedIds = DB::table('notification_settings AS ns')->leftJoin('notifications AS n', 'ns.notification_id', '=', 'n.notification_id')->whereNull('n.notification_id')->distinct()->pluck('ns.notification_id');
             foreach ($orphanedIds as $notificationId) {
-                $this->_installer->log("Removing orphaned settings for missing notification ID ${notificationId}");
+                $this->_installer->log("Removing orphaned settings for missing notification ID {$notificationId}");
                 DB::table('notification_settings')->where('notification_id', '=', $notificationId)->delete();
             }
             // Clean orphan notification_subscription_settings by user ID
@@ -220,43 +220,43 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphan submission_file_settings
             $orphanedIds = DB::table('submission_file_settings AS sfs')->leftJoin('submission_files AS sf', 'sfs.submission_file_id', '=', 'sf.submission_file_id')->whereNull('sf.submission_file_id')->distinct()->pluck('sfs.submission_file_id');
             foreach ($orphanedIds as $submissionFileId) {
-                $this->_installer->log("Removing orphaned settings for missing submission file ID ${submissionFileId}");
+                $this->_installer->log("Removing orphaned settings for missing submission file ID {$submissionFileId}");
                 DB::table('submission_file_settings')->where('submission_file_id', '=', $submissionFileId)->delete();
             }
             // Clean orphan query_participants - non existing user
             $orphanedIds = DB::table('query_participants AS qp')->leftJoin('users AS u', 'qp.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('qp.user_id');
             foreach ($orphanedIds as $userId) {
-                $this->_installer->log("Removing orphaned query_participants for missing user ID ${userId}");
+                $this->_installer->log("Removing orphaned query_participants for missing user ID {$userId}");
                 DB::table('query_participants')->where('user_id', '=', $userId)->delete();
             }
             // Clean orphan query_participants - non existing query
             $orphanedIds = DB::table('query_participants AS qp')->leftJoin('queries AS q', 'qp.query_id', '=', 'q.query_id')->whereNull('q.query_id')->distinct()->pluck('qp.query_id');
             foreach ($orphanedIds as $queryId) {
-                $this->_installer->log("Removing orphaned query_participants for missing query ID ${queryId}");
+                $this->_installer->log("Removing orphaned query_participants for missing query ID {$queryId}");
                 DB::table('query_participants')->where('query_id', '=', $queryId)->delete();
             }
             // Clean orphaned controlled_vocab_entry entries
             $orphanedIds = DB::table('controlled_vocab_entries AS cve')->leftJoin('controlled_vocabs AS cv', 'cve.controlled_vocab_id', '=', 'cv.controlled_vocab_id')->whereNull('cv.controlled_vocab_id')->distinct()->pluck('cve.controlled_vocab_id');
             foreach ($orphanedIds as $controlledVocabId) {
-                $this->_installer->log("Removing orphaned controlled_vocab_entries for missing controlled_vocab_id ${controlledVocabId}");
+                $this->_installer->log("Removing orphaned controlled_vocab_entries for missing controlled_vocab_id {$controlledVocabId}");
                 DB::table('controlled_vocab_entries')->where('controlled_vocab_id', '=', $controlledVocabId)->delete();
             }
             // Clean orphaned controlled_vocab_entry_settings entries
             $orphanedIds = DB::table('controlled_vocab_entry_settings AS cves')->leftJoin('controlled_vocab_entries AS cve', 'cves.controlled_vocab_entry_id', '=', 'cve.controlled_vocab_entry_id')->whereNull('cve.controlled_vocab_entry_id')->distinct()->pluck('cves.controlled_vocab_entry_id');
             foreach ($orphanedIds as $controlledVocabEntryId) {
-                $this->_installer->log("Removing orphaned controlled_vocab_entry_settings for missing controlled_vocab_entry_id ${controlledVocabEntryId}");
+                $this->_installer->log("Removing orphaned controlled_vocab_entry_settings for missing controlled_vocab_entry_id {$controlledVocabEntryId}");
                 DB::table('controlled_vocab_entry_settings')->where('controlled_vocab_entry_id', '=', $controlledVocabEntryId)->delete();
             }
             // Clean orphaned user_interests entries by user ID
             $orphanedIds = DB::table('user_interests AS ui')->leftJoin('users AS u', 'ui.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('ui.user_id');
             foreach ($orphanedIds as $userId) {
-                $this->_installer->log("Removing orphaned user_interests for missing user_id ${userId}");
+                $this->_installer->log("Removing orphaned user_interests for missing user_id {$userId}");
                 DB::table('user_interests')->where('user_id', '=', $userId)->delete();
             }
             // Clean orphaned user_interests entries by controlled_vocab_entry_id
             $orphanedIds = DB::table('user_interests AS ui')->leftJoin('controlled_vocab_entries AS cve', 'ui.controlled_vocab_entry_id', '=', 'cve.controlled_vocab_entry_id')->whereNull('ui.controlled_vocab_entry_id')->distinct()->pluck('ui.controlled_vocab_entry_id');
             foreach ($orphanedIds as $controlledVocabEntryId) {
-                $this->_installer->log("Removing orphaned user_interests for missing controlled_vocab_entry_id ${controlledVocabEntryId}");
+                $this->_installer->log("Removing orphaned user_interests for missing controlled_vocab_entry_id {$controlledVocabEntryId}");
                 DB::table('user_interests')->where('controlled_vocab_entry_id', '=', $controlledVocabEntryId)->delete();
             }
             // Clean orphaned user_setting entries
@@ -272,31 +272,31 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned email_template entries by context_id
             $orphanedIds = DB::table('email_templates AS et')->leftJoin($this->getContextTable() . ' AS c', 'et.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('et.context_id');
             foreach ($orphanedIds as $contextId) {
-                $this->_installer->log("Removing orphaned email_templates for missing context_id ${contextId}");
+                $this->_installer->log("Removing orphaned email_templates for missing context_id {$contextId}");
                 DB::table('email_templates')->where('context_id', '=', $contextId)->delete();
             }
             // Clean orphaned email_templates_settings entries by email_id
             $orphanedIds = DB::table('email_templates_settings AS ets')->leftJoin('email_templates AS et', 'et.email_id', '=', 'ets.email_id')->whereNull('et.email_id')->distinct()->pluck('ets.email_id');
             foreach ($orphanedIds as $emailId) {
-                $this->_installer->log("Removing orphaned email_templates_settings for missing email_id ${emailId}");
+                $this->_installer->log("Removing orphaned email_templates_settings for missing email_id {$emailId}");
                 DB::table('email_templates_settings')->where('email_id', '=', $emailId)->delete();
             }
             // Clean orphaned library_files entries by context_id
             $orphanedIds = DB::table('library_files AS lf')->leftJoin($this->getContextTable() . ' AS c', 'lf.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('lf.context_id');
             foreach ($orphanedIds as $contextId) {
-                $this->_installer->log("Removing orphaned library_files for missing context_id ${contextId}");
+                $this->_installer->log("Removing orphaned library_files for missing context_id {$contextId}");
                 DB::table('library_files')->where('context_id', '=', $contextId)->delete();
             }
             // Clean orphaned library_files entries by submission_id
             $orphanedIds = DB::table('library_files AS lf')->leftJoin('submissions AS s', 's.submission_id', '=', 'lf.submission_id')->where('lf.submission_id', '<>', 0)->whereNull('s.submission_id')->distinct()->pluck('lf.submission_id');
             foreach ($orphanedIds as $submissionId) {
-                $this->_installer->log("Removing orphaned library_files for missing submission_id ${submissionId}");
+                $this->_installer->log("Removing orphaned library_files for missing submission_id {$submissionId}");
                 DB::table('library_files')->where('submission_id', '=', $submissionId)->delete();
             }
             // Clean orphaned library_file_setting entries
             $orphanedIds = DB::table('library_file_settings AS lfs')->leftJoin('library_files AS lf', 'lfs.file_id', '=', 'lf.file_id')->whereNull('lf.file_id')->distinct()->pluck('lfs.file_id');
             foreach ($orphanedIds as $fileId) {
-                $this->_installer->log("Removing orphaned settings for missing library_file ${fileId}");
+                $this->_installer->log("Removing orphaned settings for missing library_file {$fileId}");
                 DB::table('library_file_settings')->where('file_id', '=', $fileId)->delete();
             }
             // Clean orphaned event_log entries by user_id
@@ -332,7 +332,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned filters entries by filter_group_id
             $orphanedIds = DB::table('filters AS f')->leftJoin('filter_groups AS fg', 'f.filter_group_id', '=', 'fg.filter_group_id')->whereNull('fg.filter_group_id')->distinct()->pluck('f.filter_group_id');
             foreach ($orphanedIds as $filterGroupId) {
-                $this->_installer->log("Removing orphaned filters for missing filter_group ${filterGroupId}");
+                $this->_installer->log("Removing orphaned filters for missing filter_group {$filterGroupId}");
                 DB::table('filters')->where('filter_group_id', '=', $filterGroupId)->delete();
             }
             // Clean orphaned filter_settings entries
@@ -392,20 +392,20 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 // Clean orphaned review_form_responses entries by review_form_element_id
                 $orphanedIds = DB::table('review_form_responses AS rfr')->leftJoin('review_form_elements AS rfe', 'rfe.review_form_element_id', '=', 'rfr.review_form_element_id')->whereNull('rfe.review_form_element_id')->distinct()->pluck('rfr.review_form_element_id');
                 foreach ($orphanedIds as $reviewFormElementId) {
-                    $this->_installer->log("Removing orphaned review_form_responses for missing review_form_element_id ${reviewFormElementId}");
+                    $this->_installer->log("Removing orphaned review_form_responses for missing review_form_element_id {$reviewFormElementId}");
                     DB::table('review_form_responses')->where('review_form_element_id', '=', $reviewFormElementId)->delete();
                 }
                 // Clean orphaned review_form_responses entries by review_id
                 $orphanedIds = DB::table('review_form_responses AS rfr')->leftJoin('review_assignments AS ra', 'rfr.review_id', '=', 'ra.review_id')->whereNull('ra.review_id')->distinct()->pluck('rfr.review_id');
                 foreach ($orphanedIds as $reviewId) {
-                    $this->_installer->log("Removing orphaned review_form_responses for missing review_id ${reviewId}");
+                    $this->_installer->log("Removing orphaned review_form_responses for missing review_id {$reviewId}");
                     DB::table('review_form_responses')->where('review_id', '=', $reviewId)->delete();
                 }
             }
             // Clean orphaned review_form_responses entries by review_id
             $orphanedIds = DB::table('review_files AS rf')->leftJoin('review_assignments AS ra', 'rf.review_id', '=', 'ra.review_id')->whereNull('ra.review_id')->distinct()->pluck('rf.review_id');
             foreach ($orphanedIds as $reviewId) {
-                $this->_installer->log("Removing orphaned review_files for missing review_id ${reviewId}");
+                $this->_installer->log("Removing orphaned review_files for missing review_id {$reviewId}");
                 DB::table('review_files')->where('review_id', '=', $reviewId)->delete();
             }
             // Clean orphaned submissions by context_id
@@ -457,26 +457,26 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned edit_decisions entries by editor_id
             $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('users AS u', 'u.user_id', '=', 'ed.editor_id')->whereNull('u.user_id')->distinct()->pluck('ed.editor_id');
             foreach ($orphanedIds as $editorId) {
-                $this->_installer->log("Removing orphaned edit_decisions entry for missing editor_id ${editorId}");
+                $this->_installer->log("Removing orphaned edit_decisions entry for missing editor_id {$editorId}");
                 DB::table('edit_decisions')->where('editor_id', '=', $editorId)->delete();
             }
             // Clean orphaned edit_decisions entries by submission_id
             $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('submissions AS s', 's.submission_id', '=', 'ed.submission_id')->whereNull('s.submission_id')->distinct()->pluck('ed.submission_id');
             foreach ($orphanedIds as $submissionId) {
-                $this->_installer->log("Removing orphaned edit_decisions entries for missing submission_id ${submissionId}");
+                $this->_installer->log("Removing orphaned edit_decisions entries for missing submission_id {$submissionId}");
                 DB::table('edit_decisions')->where('submission_id', '=', $submissionId)->delete();
             }
             // Clean orphaned submission_comments entries by submission_id
             $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('submissions AS s', 's.submission_id', '=', 'sc.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sc.submission_id');
             foreach ($orphanedIds as $submissionId) {
-                $this->_installer->log("Removing orphaned submission_comments entry for missing submission_id ${submissionId}");
+                $this->_installer->log("Removing orphaned submission_comments entry for missing submission_id {$submissionId}");
                 DB::table('submission_comments')->where('submission_id', '=', $submissionId)->delete();
             }
 
             // Clean orphaned submission_comments entries by author_id
             $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('users AS u', 'u.user_id', '=', 'sc.author_id')->whereNull('u.user_id')->distinct()->pluck('sc.author_id');
             foreach ($orphanedIds as $userId) {
-                $this->_installer->log("Removing orphaned submission_comments entry for missing author_id ${userId}");
+                $this->_installer->log("Removing orphaned submission_comments entry for missing author_id {$userId}");
                 DB::table('submission_comments')->where('author_id', '=', $userId)->delete();
             }
 
@@ -489,7 +489,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned subeditor_submission_group entries by user_id
             $orphanedIds = DB::table('subeditor_submission_group AS ssg')->leftJoin('users AS u', 'u.user_id', '=', 'ssg.user_id')->whereNull('u.user_id')->distinct()->pluck('ssg.user_id');
             foreach ($orphanedIds as $userId) {
-                $this->_installer->log("Removing orphaned subeditor_submission_group entry for missing user_id ${userId}");
+                $this->_installer->log("Removing orphaned subeditor_submission_group entry for missing user_id {$userId}");
                 DB::table('subeditor_submission_group')->where('user_id', '=', $userId)->delete();
             }
 
@@ -558,25 +558,25 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Clean orphaned submission_files entries by file_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('files AS f', 'sf.file_id', '=', 'f.file_id')->whereNull('f.file_id')->distinct()->pluck('sf.file_id');
             foreach ($orphanedIds as $fileId) {
-                $this->_installer->log("Removing orphaned submission_files entries for non-existent file_id ${fileId}.");
+                $this->_installer->log("Removing orphaned submission_files entries for non-existent file_id {$fileId}.");
                 DB::table('submission_files')->where('file_id', '=', $fileId)->delete();
             }
             // Clean orphaned submission_files entries by genre_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('genres AS g', 'sf.genre_id', '=', 'g.genre_id')->whereNull('g.genre_id')->whereNotNull('sf.genre_id')->distinct()->pluck('sf.genre_id');
             foreach ($orphanedIds as $genreId) {
-                $this->_installer->log("Nulling non-existent genre_id ${genreId} in submission_files.");
+                $this->_installer->log("Nulling non-existent genre_id {$genreId} in submission_files.");
                 DB::table('submission_files')->where('genre_id', '=', $genreId)->update(['genre_id' => null]);
             }
             // Clean orphaned submission_files entries by uploader_user_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('users AS u', 'sf.uploader_user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('sf.uploader_user_id')->distinct()->pluck('sf.uploader_user_id');
             foreach ($orphanedIds as $uploaderUserId) {
-                $this->_installer->log("Nulling non-existent uploader_user_id ${uploaderUserId} in submission_files.");
+                $this->_installer->log("Nulling non-existent uploader_user_id {$uploaderUserId} in submission_files.");
                 DB::table('submission_files')->where('uploader_user_id', '=', $uploaderUserId)->update(['uploader_user_id' => null]);
             }
             // Clean orphaned submission_files entries by source_submission_file_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submission_files AS sfs', 'sf.source_submission_file_id', '=', 'sfs.submission_file_id')->whereNull('sfs.submission_file_id')->whereNotNull('sf.source_submission_file_id')->distinct()->pluck('sf.source_submission_file_id');
             foreach ($orphanedIds as $sourceSubmissionFileId) {
-                $this->_installer->log("Nulling non-existent source_submission_file_id ${sourceSubmissionFileId} in submission_files.");
+                $this->_installer->log("Nulling non-existent source_submission_file_id {$sourceSubmissionFileId} in submission_files.");
                 DB::table('submission_files')->where('source_submission_file_id', '=', $sourceSubmissionFileId)->update(['source_submission_file_id' => null]);
             }
             // Clean orphaned data_object_tombstone_settings entries
@@ -679,7 +679,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
         } catch (Throwable $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
-                $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
+                $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
             }
             throw $e;
         }
@@ -691,7 +691,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function down(): void
     {
         if ($fallbackVersion = $this->setFallbackVersion()) {
-            $this->_installer->log("An upgrade step failed! Fallback set to ${fallbackVersion}. Check and correct the error and try the upgrade again. We recommend restoring from backup, though you may be able to continue without doing so.");
+            $this->_installer->log("An upgrade step failed! Fallback set to {$fallbackVersion}. Check and correct the error and try the upgrade again. We recommend restoring from backup, though you may be able to continue without doing so.");
             // Prevent further downgrade migrations from executing.
             $this->_installer->migrations = [];
         }

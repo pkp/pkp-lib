@@ -17,6 +17,7 @@
 
 namespace PKP\controllers\grid\users\author;
 
+use APP\author\Author;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridColumn;
 
@@ -49,6 +50,7 @@ class PKPAuthorGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
+        /** @var Author */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));

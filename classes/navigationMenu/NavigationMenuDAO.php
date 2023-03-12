@@ -264,7 +264,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
                 // If it does the NM is not being processed and a warning is being thrown
                 $navigationMenusWithArea = $this->getByArea($contextId, $area)->toArray();
                 if (count($navigationMenusWithArea) != 0) {
-                    error_log("WARNING: The NavigationMenu (ContextId: ${contextId}, Title: ${title}, Area: ${area}) will be skipped because the specified area has already a NavigationMenu attached.");
+                    error_log("WARNING: The NavigationMenu (ContextId: {$contextId}, Title: {$title}, Area: {$area}) will be skipped because the specified area has already a NavigationMenu attached.");
                     continue;
                 }
 

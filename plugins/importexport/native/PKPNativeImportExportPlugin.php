@@ -17,8 +17,11 @@ namespace PKP\plugins\importexport\native;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use BadMethodCallException;
+use Exception;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\filter\Filter;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 

@@ -9,7 +9,7 @@
  * @class FieldRichText
  * @ingroup classes_controllers_form
  *
- * @brief A rich signle line text editor field in a form.
+ * @brief A rich single line text editor field in a form.
  */
 
 namespace PKP\components\forms;

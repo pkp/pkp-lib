@@ -425,7 +425,7 @@ class Schema extends \PKP\core\maps\Schema
                                 ->getCount()
                         ];
 
-                        // See if the  curent user can only recommend:
+                        // See if the  current user can only recommend:
                         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                         $user = $request->getUser();
                         $editorsStageAssignments = $stageAssignmentDao->getEditorsAssignedToStage($submission->getId(), $stageId);

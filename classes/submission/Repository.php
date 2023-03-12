@@ -34,6 +34,7 @@ use PKP\observers\events\SubmissionSubmitted;
 use PKP\plugins\Hook;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
+use PKP\security\RoleDAO;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submissionFile\SubmissionFile;
@@ -513,7 +514,8 @@ abstract class Repository
         }
 
         if ($user) {
-            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /* @var $stageAssignmentDao StageAssignmentDAO */
+            /** @var StageAssignmentDAO */
+            $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
             $stageAssignments = $stageAssignmentDao->getBySubmissionAndRoleId($submission->getId(), Role::ROLE_ID_AUTHOR, null, $user->getId());
             $stageAssignment = $stageAssignments->next();
             if ($stageAssignment) {
@@ -889,7 +891,8 @@ abstract class Repository
             Role::ROLE_ID_SUBSCRIPTION_MANAGER
         ];
 
-        $roleDao = DAORegistry::getDAO('RoleDAO'); /* @var $roleDao RoleDAO */
+        /** @var RoleDAO */
+        $roleDao = DAORegistry::getDAO('RoleDAO');
         $roles = $roleDao->getByUserId($user->getId(), $submission->getData('contextId'));
         foreach ($roles as $role) {
             if (in_array($role->getRoleId(), $subscriptionAssumedRoles)) {

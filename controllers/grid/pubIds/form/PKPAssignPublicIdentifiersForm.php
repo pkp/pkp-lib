@@ -27,8 +27,8 @@ class PKPAssignPublicIdentifiersForm extends Form
     /** @var int The context id */
     public $_contextId;
 
-    /** @var object The pub object, that are beeing approved,
-     * the pub ids can be considered for assignement there
+    /** @var object The pub object, that are being approved,
+     * the pub ids can be considered for assignment there
      * OJS Issue, Representation or SubmissionFile
      */
     public $_pubObject;

@@ -61,7 +61,7 @@ class IsoCodesTranslationDriver implements TranslationDriverInterface
         $locales = [$this->locale, ...($locale->script ? [$locale->language . '@' . $locale->script] : []), $locale->language];
         // Attempts to find the best locale
         foreach ($locales as $locale) {
-            $path = "${directory}/${locale}/LC_MESSAGES/${isoNumber}.mo";
+            $path = "{$directory}/{$locale}/LC_MESSAGES/{$isoNumber}.mo";
             if (file_exists($path)) {
                 // Check if it's installed before caching the ISO codes (huge dataset), just to avoid a slow installation page
                 $loader = fn () => Translator::createFromTranslationsArray(LocaleFile::loadArray($path, Application::isInstalled()));

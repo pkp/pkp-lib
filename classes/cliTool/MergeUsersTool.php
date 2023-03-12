@@ -83,7 +83,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         foreach ($this->mergeSpecifiers as $specifier) {
             $mergeUser = $this->_getUserBySpecifier($specifier);
             if (!$mergeUser) {
-                echo "Error: \"${specifier}\" does not specify a valid user.\n";
+                echo "Error: \"{$specifier}\" does not specify a valid user.\n";
                 exit(2);
             }
             if ($mergeUser->getId() == $targetUser->getId()) {
@@ -99,7 +99,7 @@ class MergeUsersTool extends \PKP\cliTool\CommandLineTool
         }
 
         if (count($mergeArray) == 1) {
-            echo "Merge completed: \"${username}\" merged into \"" . $targetUser->getUsername() . "\".\n";
+            echo "Merge completed: \"{$username}\" merged into \"" . $targetUser->getUsername() . "\".\n";
         } else {
             echo 'Merge completed: ' . count($mergeArray) . ' users merged into "' . $targetUser->getUsername() . "\".\n";
         }

@@ -16,6 +16,7 @@
 namespace PKP\controllers\grid\users\reviewer;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
@@ -142,7 +143,9 @@ class PKPReviewerGridHandler extends GridHandler
             }
 
             if ($this->_isCurrentUserAssignedAuthor) {
-                $operation = $request->getRouter()->getRequestedOp($request);
+                /** @var PageRouter */
+                $router = $request->getRouter();
+                $operation = $router->getRequestedOp($request);
 
                 if (in_array($operation, $this->_getAuthorDeniedOps())) {
                     return false;

@@ -124,7 +124,7 @@ class Representation extends \PKP\core\DataObject
      * Get stored public ID of the submission.
      *
      * This helper function is required by PKPPubIdPlugins.
-     * NB: To maintain backwards compatability, getDoi() is called from here
+     * NB: To maintain backwards compatibility, getDoi() is called from here
      *
      * @param string $pubIdType One of the NLM pub-id-type values or
      * 'other::something' if not part of the official NLM list

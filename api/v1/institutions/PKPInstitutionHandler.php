@@ -33,7 +33,7 @@ class PKPInstitutionHandler extends APIHandler
     /** @var int The default number of institutions to return in one request */
     public const DEFAULT_COUNT = 30;
 
-    /** @var int The maxium number of institutions to return in one request */
+    /** @var int The maximum number of institutions to return in one request */
     public const MAX_COUNT = 100;
 
     /**

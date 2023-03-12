@@ -29,7 +29,7 @@ use PKP\db\DAORegistry;
 abstract class PKPTemporaryTotalsDAO
 {
     /**
-     * The name of the table. This table conteins all usage events.
+     * The name of the table. This table contains all usage events.
      */
     public string $table = 'usage_stats_total_temporary_records';
 
@@ -283,7 +283,8 @@ abstract class PKPTemporaryTotalsDAO
             ';
         }
 
-        $temporaryInstitutionsDAO = DAORegistry::getDAO('TemporaryInstitutionsDAO'); /* @var TemporaryInstitutionsDAO $temporaryInstitutionsDAO */
+        /** @var TemporaryInstitutionsDAO */
+        $temporaryInstitutionsDAO = DAORegistry::getDAO('TemporaryInstitutionsDAO');
         $institutionIds = $temporaryInstitutionsDAO->getInstitutionIdsByLoadId($loadId);
         foreach ($institutionIds as $institutionId) {
             DB::statement($metricInvestigationsUpsertSql, [$loadId, (int) $institutionId]);

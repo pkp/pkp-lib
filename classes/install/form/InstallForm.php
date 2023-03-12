@@ -94,7 +94,7 @@ class InstallForm extends MaintenanceForm
                 $groups = explode('/', $current);
                 $continent = array_shift($groups);
                 $timeZone = str_replace('_', ' ', implode(' - ', $groups));
-                $timeZones[$continent ?? $timeZone][$current] = $timeZone . " (${time})";
+                $timeZones[$continent ?? $timeZone][$current] = $timeZone . " ({$time})";
             }
             return $timeZones;
         }, ['UTC' => 'UTC']);

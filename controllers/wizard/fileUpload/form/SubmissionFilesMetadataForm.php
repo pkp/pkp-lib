@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\submission\GenreDAO;
 use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFilesMetadataForm extends Form
@@ -150,7 +151,9 @@ class SubmissionFilesMetadataForm extends Form
     {
         $templateMgr = TemplateManager::getManager($request);
         $reviewRound = $this->getReviewRound();
-        $genre = DAORegistry::getDAO('GenreDAO')->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
+        /** @var GenreDAO */
+        $genreDao = DAORegistry::getDAO('GenreDAO');
+        $genre = $genreDao->getById($this->getSubmissionFile()->getData('genreId'), $request->getContext()->getId());
 
         $templateMgr->assign([
             'submissionFile' => $this->getSubmissionFile(),

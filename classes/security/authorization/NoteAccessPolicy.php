@@ -12,7 +12,7 @@
  * @brief Class to control access to a note.
  *
  * NB: This policy expects previously authorized submission, query and
- * accessibile workflow stages in the authorization context.
+ * accessible workflow stages in the authorization context.
  */
 
 namespace PKP\security\authorization;

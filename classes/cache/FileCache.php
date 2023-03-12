@@ -136,6 +136,7 @@ class FileCache extends GenericCache
 
     /**
      * Get the entire contents of the cache in an associative array.
+     * @return mixed
      */
     public function &getContents()
     {

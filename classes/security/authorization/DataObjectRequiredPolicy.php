@@ -14,6 +14,8 @@
 
 namespace PKP\security\authorization;
 
+use Exception;
+
 class DataObjectRequiredPolicy extends AuthorizationPolicy
 {
     /** @var PKPRequest */

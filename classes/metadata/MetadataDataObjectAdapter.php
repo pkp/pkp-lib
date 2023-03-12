@@ -23,6 +23,7 @@
 
 namespace PKP\metadata;
 
+use PKP\core\DataObject;
 use PKP\filter\PersistableFilter;
 
 class MetadataDataObjectAdapter extends PersistableFilter

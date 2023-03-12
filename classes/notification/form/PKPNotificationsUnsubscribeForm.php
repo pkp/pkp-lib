@@ -23,6 +23,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
+use PKP\notification\NotificationSubscriptionSettingsDAO;
 
 class PKPNotificationsUnsubscribeForm extends Form
 {
@@ -120,6 +121,7 @@ class PKPNotificationsUnsubscribeForm extends Form
             }
         }
 
+        /** @var NotificationSubscriptionSettingsDAO */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
         $notificationSubscriptionSettingsDao->updateNotificationSubscriptionSettings('blocked_emailed_notification', $emailSettings, $this->_notification->getUserId(), $this->_notification->getContextId());
 

@@ -16,6 +16,7 @@
 namespace PKP\pages\workflow;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -54,6 +55,7 @@ abstract class PKPWorkflowHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
+        /** @var PageRouter */
         $router = $request->getRouter();
         $operation = $router->getRequestedOp($request);
 

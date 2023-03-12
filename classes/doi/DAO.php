@@ -110,6 +110,7 @@ abstract class DAO extends EntityDAO
      */
     public function fromRow(object $row): Doi
     {
+        /** @var Doi */
         $doi = parent::fromRow($row);
         if (empty($doi->getData('doi'))) {
             $doi->setData('resolvingUrl', '');

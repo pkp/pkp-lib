@@ -19,6 +19,7 @@ use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\handler\APIHandler;
 use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -204,7 +205,9 @@ class PKPSiteHandler extends APIHandler
         }
 
         // Get the appropriate theme plugin
+        /** @var iterable<ThemePlugin> */
         $allThemes = PluginRegistry::loadCategory('themes', true);
+        /** @var ?ThemePlugin */
         $selectedTheme = null;
         foreach ($allThemes as $theme) {
             if ($themePluginPath === $theme->getDirName()) {

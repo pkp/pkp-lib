@@ -19,6 +19,7 @@ namespace PKP\API\v1\_submissions;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Collector;
+use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
@@ -27,6 +28,7 @@ use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use Slim\Http\Request;
 use Slim\Http\Response;
 
 abstract class PKPBackendSubmissionsHandler extends APIHandler
@@ -91,7 +93,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
      * Get a collection of submissions
      *
      * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
      * @return Response
@@ -221,7 +223,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
      * Delete a submission
      *
      * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
      * @return Response

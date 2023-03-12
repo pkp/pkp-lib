@@ -104,7 +104,7 @@ class PHPMailerTransport implements TransportInterface
 
         $remoteAddr = $mailer->secureHeader($request->getRemoteAddr());
         if ($remoteAddr != '') {
-            $mailer->addCustomHeader("X-Originating-IP: ${remoteAddr}");
+            $mailer->addCustomHeader("X-Originating-IP: {$remoteAddr}");
         }
 
         foreach ($this->getAttachments($symfonyMessage) as $attachmentInfo) {

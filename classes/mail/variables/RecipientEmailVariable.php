@@ -65,9 +65,7 @@ class RecipientEmailVariable extends Variable
     }
 
     /**
-     * Array containing full names of recipients in all supported locales separated by a comma
-     *
-     * @return array [localeKey => fullName]
+     * Full names of recipients in all supported locales separated by a comma
      */
     protected function getRecipientsFullName(string $locale): string
     {

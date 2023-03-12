@@ -250,16 +250,16 @@ class PluginRegistry
      */
     private static function _deprecatedInstantiatePlugin(string $category, string $pluginName): ?Plugin
     {
-        $pluginPath = static::PLUGINS_PREFIX . "${category}/{$pluginName}";
+        $pluginPath = static::PLUGINS_PREFIX . "{$category}/{$pluginName}";
         // Try the plug-in wrapper for backwards compatibility.
-        $pluginWrapper = "${pluginPath}/index.php";
+        $pluginWrapper = "{$pluginPath}/index.php";
         if (file_exists($pluginWrapper)) {
             return include $pluginWrapper;
         }
 
         // Try the well-known plug-in class name next (with and without ".inc.php")
         $pluginClassName = ucfirst($pluginName) . ucfirst($category) . 'Plugin';
-        if (Arr::first(['.inc.php', '.php'], fn (string $suffix) => file_exists("${pluginPath}/{$pluginClassName}{$suffix}"))) {
+        if (Arr::first(['.inc.php', '.php'], fn (string $suffix) => file_exists("{$pluginPath}/{$pluginClassName}{$suffix}"))) {
             $pluginPackage = "plugins.{$category}.{$pluginName}";
             return instantiate("{$pluginPackage}.{$pluginClassName}", $pluginClassName, $pluginPackage, 'register');
         }

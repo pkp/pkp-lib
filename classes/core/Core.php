@@ -25,6 +25,7 @@ define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/l
 
 use Illuminate\Support\Str;
 use PKP\cache\CacheManager;
+use PKP\cache\FileCache;
 use PKP\config\Config;
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
@@ -123,6 +124,7 @@ class Core
         if (!isset($botRegexps[$botRegexpsFile])) {
             $botFileCacheId = md5($botRegexpsFile);
             $cacheManager = CacheManager::getManager();
+            /** @var FileCache */
             $cache = $cacheManager->getCache('core', $botFileCacheId, ['Core', '_botFileListCacheMiss'], CACHE_TYPE_FILE);
             $botRegexps[$botRegexpsFile] = $cache->getContents();
         }

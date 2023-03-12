@@ -220,7 +220,7 @@ class PKPString
      * @see https://www.php.net/preg_grep
      *
      * @param string $pattern Regular expression
-     * @param string $input Input string
+     * @param array $input Input
      *
      * @return array
      */

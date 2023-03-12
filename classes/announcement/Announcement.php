@@ -30,7 +30,7 @@ class Announcement extends \PKP\core\DataObject
     // Get/set methods
     //
     /**
-     * Get assoc ID for this annoucement.
+     * Get assoc ID for this announcement.
      *
      * @return int
      */
@@ -40,7 +40,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Set assoc ID for this annoucement.
+     * Set assoc ID for this announcement.
      *
      * @param int $assocId
      */
@@ -50,7 +50,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Get assoc type for this annoucement.
+     * Get assoc type for this announcement.
      *
      * @return int
      */
@@ -60,7 +60,7 @@ class Announcement extends \PKP\core\DataObject
     }
 
     /**
-     * Set assoc type for this annoucement.
+     * Set assoc type for this announcement.
      *
      * @param int $assocType
      */
@@ -218,7 +218,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement expiration date.
      *
-     * @return date (YYYY-MM-DD)
+     * @return string (YYYY-MM-DD)
      */
     public function getDateExpire()
     {
@@ -228,7 +228,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement expiration date.
      *
-     * @param date $dateExpire (YYYY-MM-DD)
+     * @param string $dateExpire (YYYY-MM-DD)
      */
     public function setDateExpire($dateExpire)
     {
@@ -238,7 +238,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement posted date.
      *
-     * @return date (YYYY-MM-DD)
+     * @return string (YYYY-MM-DD)
      */
     public function getDatePosted()
     {
@@ -248,7 +248,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Get announcement posted datetime.
      *
-     * @return datetime (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDatetimePosted()
     {
@@ -258,7 +258,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement posted date.
      *
-     * @param date $datePosted (YYYY-MM-DD)
+     * @param string $datePosted (YYYY-MM-DD)
      */
     public function setDatePosted($datePosted)
     {
@@ -268,7 +268,7 @@ class Announcement extends \PKP\core\DataObject
     /**
      * Set announcement posted datetime.
      *
-     * @param date $datetimePosted (YYYY-MM-DD HH:MM:SS)
+     * @param string $datetimePosted (YYYY-MM-DD HH:MM:SS)
      */
     public function setDatetimePosted($datetimePosted)
     {

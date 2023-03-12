@@ -222,7 +222,7 @@ class SubmissionNativeXmlFilter extends NativeExportFilter
     }
 
     /**
-     * Returnes whether to always include the <submissions> node, even if there
+     * Returns whether to always include the <submissions> node, even if there
      * may only be one submission.
      *
      * @return bool $includeSubmissionsNode

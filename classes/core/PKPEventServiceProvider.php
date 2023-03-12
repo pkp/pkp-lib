@@ -47,6 +47,7 @@ class PKPEventServiceProvider extends EventServiceProvider
     public function getEvents()
     {
         $cacheManager = CacheManager::getManager();
+        /** @var FileCache */
         $cache = $cacheManager->getCache('event', PKPApplication::CONTEXT_SITE, function (FileCache $cache) {
             $cache->setEntireCache($this->discoveredEvents());
         });

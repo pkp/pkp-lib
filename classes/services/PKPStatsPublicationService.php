@@ -53,7 +53,7 @@ abstract class PKPStatsPublicationService
 
     /**
      * A callback to be used with array_filter() to return
-     * records for absract.
+     * records for abstract.
      */
     public function filterRecordAbstract(object $record): bool
     {
@@ -169,7 +169,7 @@ abstract class PKPStatsPublicationService
     }
 
     /**
-     * Get a count of all submisison files with stats that match the request arguments
+     * Get a count of all submission files with stats that match the request arguments
      */
     public function getFilesCount(array $args): int
     {

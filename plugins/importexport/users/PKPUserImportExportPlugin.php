@@ -17,6 +17,7 @@ namespace PKP\plugins\importexport\users;
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;

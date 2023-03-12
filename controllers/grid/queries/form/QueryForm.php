@@ -111,7 +111,7 @@ class QueryForm extends Form
     // Getters and Setters
     //
     /**
-     * Set the flag indiciating whether the query is new (i.e. creates a placeholder that needs deleting on cancel)
+     * Set the flag indicating whether the query is new (i.e. creates a placeholder that needs deleting on cancel)
      *
      */
     public function setIsNew(bool $isNew)
@@ -219,7 +219,7 @@ class QueryForm extends Form
                 'template' => null,
             ];
         } else {
-            // set intial defaults for queries.
+            // set initial defaults for queries.
         }
         // in order to be able to use the hook
         return parent::initData();
@@ -407,7 +407,7 @@ class QueryForm extends Form
         // Also admin and manager, if they are creating the discussion, are ignored -- they can see everything.
         // In other stages validate that participants are assigned to that stage.
         $query = $this->getQuery();
-        // Queryies only support Application::ASSOC_TYPE_SUBMISSION so far (see above)
+        // Queries only support Application::ASSOC_TYPE_SUBMISSION so far (see above)
         if ($query->getAssocType() == Application::ASSOC_TYPE_SUBMISSION) {
             $request = Application::get()->getRequest();
             $user = $request->getUser();
@@ -432,7 +432,7 @@ class QueryForm extends Form
 
                 if ($stageId == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $stageId == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
                     // validate the anonymity
-                    // get participant review assignemnts
+                    // get participant review assignments
                     $reviewAssignments = $reviewAssignmentDao->getBySubmissionReviewer($submissionId, $participantId, $stageId);
                     // if participant has no role in this stage and is not a reviewer
                     if (empty($assignedRoles) && empty($reviewAssignments)) {

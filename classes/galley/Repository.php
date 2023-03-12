@@ -13,6 +13,7 @@
 
 namespace PKP\galley;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;

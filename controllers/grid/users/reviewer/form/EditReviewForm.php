@@ -177,8 +177,8 @@ class EditReviewForm extends Form
             );
 
             // Check if user is subscribed to this type of notification emails
-            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDao */
             $reviewer = Repo::user()->get($reviewAssignment->getReviewerId());
+            /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             if ($notification && !in_array(
                 PKPNotification::NOTIFICATION_TYPE_REVIEW_ASSIGNMENT_UPDATED,

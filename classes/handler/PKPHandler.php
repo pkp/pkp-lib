@@ -463,9 +463,9 @@ class PKPHandler
 
                 if ($request->getUserVar('clearPageContext')) {
                     // Explicitly clear the old page context
-                    $session->unsetSessionVar("page-${contextHash}");
+                    $session->unsetSessionVar("page-{$contextHash}");
                 } else {
-                    $oldPage = $session->getSessionVar("page-${contextHash}");
+                    $oldPage = $session->getSessionVar("page-{$contextHash}");
                     if (is_numeric($oldPage)) {
                         $pageNum = $oldPage;
                     }
@@ -476,7 +476,7 @@ class PKPHandler
             if ($session && $contextData !== null) {
                 // Store the page number
                 $contextHash = self::hashPageContext($request, $contextData);
-                $session->setSessionVar("page-${contextHash}", $pageNum);
+                $session->setSessionVar("page-{$contextHash}", $pageNum);
             }
         }
 

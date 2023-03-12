@@ -25,6 +25,7 @@ use PKP\site\SiteDAO;
 use PKP\user\InterestManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\mail\mailables\UserCreated;
+use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
 use PKP\user\User;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter
@@ -92,6 +93,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
      */
     public function parseUser($node)
     {
+        /** @var PKPUserImportExportDeployment */
         $deployment = $this->getDeployment();
         $context = $deployment->getContext();
         $site = $deployment->getSite();

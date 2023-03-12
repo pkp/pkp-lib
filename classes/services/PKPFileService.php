@@ -86,7 +86,7 @@ class PKPFileService
     {
         $stream = fopen($from, 'r+');
         if (!$stream) {
-            throw new Exception("Unable to copy ${from} to ${to}.");
+            throw new Exception("Unable to copy {$from} to {$to}.");
         }
         $this->fs->writeStream($to, $stream);
         if (is_resource($stream)) {
@@ -119,14 +119,14 @@ class PKPFileService
     {
         $file = $this->get($id);
         if (!$file) {
-            throw new Exception("Unable to locate file ${id}.");
+            throw new Exception("Unable to locate file {$id}.");
         }
         $path = $file->path;
         if ($this->fs->has($path)) {
             try {
                 $this->fs->delete($path);
             } catch (Exception $e) {
-                throw new Exception("Unable to delete file ${id} at ${path}.");
+                throw new Exception("Unable to delete file {$id} at {$path}.");
             }
         }
         DB::table('files')
@@ -165,10 +165,10 @@ class PKPFileService
         $mimetype = $file->mimetype ?? 'application/octet-stream';
         $filesize = $this->fs->fileSize($path);
         $encodedFilename = urlencode($filename);
-        header("Content-Type: ${mimetype}");
-        header("Content-Length: ${filesize}");
+        header("Content-Type: {$mimetype}");
+        header("Content-Length: {$filesize}");
         header('Accept-Ranges: none');
-        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename=\"${encodedFilename}\";filename*=UTF-8''${encodedFilename}");
+        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename=\"{$encodedFilename}\";filename*=UTF-8''{$encodedFilename}");
         header('Cache-Control: private'); // Workarounds for IE weirdness
         header('Pragma: public');
 

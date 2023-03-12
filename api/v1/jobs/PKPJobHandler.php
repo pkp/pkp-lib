@@ -17,8 +17,6 @@
 namespace PKP\API\v1\jobs;
 
 use APP\facades\Repo;
-use PKP\job\resources\HttpFailedJobResource;
-
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -38,7 +36,7 @@ class PKPJobHandler extends APIHandler
         $this->_apiForAdmin = true;
 
         $this->_handlerPath = 'jobs';
-        
+
         $roles = [Role::ROLE_ID_SITE_ADMIN];
 
         $this->_endpoints = array_merge_recursive($this->_endpoints, [
@@ -109,7 +107,7 @@ class PKPJobHandler extends APIHandler
             ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
             ->setPage($params['page'] ?? 1)
             ->showJobs();
-        
+
         return $response->withJson([
             'data' => $jobs->all(),
             'total' =>  Repo::job()->total(),
@@ -131,7 +129,7 @@ class PKPJobHandler extends APIHandler
             ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
             ->setPage($params['page'] ?? 1)
             ->showJobs();
-        
+
         return $response->withJson([
             'data' => $failedJobs->all(),
             'total' => Repo::failedJob()->total(),
@@ -167,7 +165,7 @@ class PKPJobHandler extends APIHandler
     public function redispatchFailedJob(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
         $failedJob = Repo::failedJob()->get((int) $args['jobId']);
-        
+
         if (!$failedJob) {
             return $response->withStatus(404)->withJson([
                 'errorMessage' => __('api.jobs.404.failedJobNotFound')
@@ -191,7 +189,7 @@ class PKPJobHandler extends APIHandler
     public function deleteFailedJob(SlimRequest $slimRequest, APIResponse $response, array $args): Response
     {
         $failedJob = Repo::failedJob()->get((int) $args['jobId']);
-        
+
         if (!$failedJob) {
             return $response->withStatus(404)->withJson([
                 'errorMessage' => __('api.jobs.404.failedJobNotFound')

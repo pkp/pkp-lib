@@ -98,7 +98,7 @@ class Repository
     {
         $schemaService = Services::get('schema');
         $allowedLocales = $context->getSupportedSubmissionLocales();
-        $primaryLocale = $submission->getLocale();
+        $primaryLocale = $submission->getData('locale');
 
         $validator = ValidatorFactory::make(
             $props,

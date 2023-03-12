@@ -40,6 +40,7 @@ use PKP\security\Role;
 
 use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
+use PKP\site\SiteDAO;
 use PKP\site\Version;
 
 class PKPInstall extends Installer
@@ -244,6 +245,7 @@ class PKPInstall extends Installer
         Repo::userGroup()->assignUserToGroup($user->getId(), $adminUserGroup->getId());
 
         // Add initial site data
+        /** @var SiteDAO */
         $siteDao = DAORegistry::getDAO('SiteDAO');
         $site = $siteDao->newDataObject();
         $site->setRedirect(0);

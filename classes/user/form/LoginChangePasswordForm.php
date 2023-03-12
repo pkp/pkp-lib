@@ -25,6 +25,7 @@ class LoginChangePasswordForm extends Form
 {
     /**
      * Constructor.
+     * @param Site $site
      */
     public function __construct($site)
     {

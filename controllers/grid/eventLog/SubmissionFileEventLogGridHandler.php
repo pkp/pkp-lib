@@ -19,6 +19,7 @@ use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
 {

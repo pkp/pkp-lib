@@ -20,11 +20,13 @@ use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
+use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\security\Validation;
 use PKP\session\Session;
 use PKP\session\SessionManager;
 use PKP\site\Site;
+use PKP\site\SiteDAO;
 use PKP\user\User;
 
 class PKPRequest
@@ -121,7 +123,7 @@ class PKPRequest
             return;
         }
 
-        header("Location: ${url}");
+        header("Location: {$url}");
         exit;
     }
 
@@ -149,7 +151,7 @@ class PKPRequest
         $url = 'https://' . $this->getServerHost() . $_SERVER['REQUEST_URI'];
         $queryString = $_SERVER['QUERY_STRING'];
         if (!empty($queryString)) {
-            $url .= "?${queryString}";
+            $url .= "?{$queryString}";
         }
         $this->redirectUrl($url);
     }
@@ -164,7 +166,7 @@ class PKPRequest
         $url = 'http://' . $this->getServerHost() . $_SERVER['REQUEST_URI'];
         $queryString = $_SERVER['QUERY_STRING'];
         if (!empty($queryString)) {
-            $url .= "?${queryString}";
+            $url .= "?{$queryString}";
         }
         $this->redirectUrl($url);
     }
@@ -290,7 +292,7 @@ class PKPRequest
             $completeUrl = $this->getRequestUrl();
             $queryString = $this->getQueryString();
             if (!empty($queryString)) {
-                $completeUrl .= "?${queryString}";
+                $completeUrl .= "?{$queryString}";
             }
             Hook::call('Request::getCompleteUrl', [&$completeUrl]);
         }
@@ -561,7 +563,9 @@ class PKPRequest
     public function getSite(): ?Site
     {
         $site = & Registry::get('site', true, null);
-        return $site ??= DAORegistry::getDAO('SiteDAO')->getSite();
+        /** @var SiteDAO */
+        $siteDao = DAORegistry::getDAO('SiteDAO');
+        return $site ??= $siteDao->getSite();
     }
 
     /**
@@ -608,6 +612,7 @@ class PKPRequest
         // special treatment for APIRouter. APIHandler gets to fetch parameter first
         $router = $this->getRouter();
         if ($router instanceof \PKP\core\APIRouter && (!is_null($handler = $router->getHandler()))) {
+            /** @var APIHandler */
             $handler = $router->getHandler();
             $value = $handler->getParameter($key);
             if (!is_null($value)) {

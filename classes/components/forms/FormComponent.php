@@ -49,7 +49,7 @@ class FormComponent
     /** @var array List of groups in this form. */
     public $groups = [];
 
-    /** @var array List of hiddden fields in this form. */
+    /** @var array List of hidden fields in this form. */
     public $hiddenFields = [];
 
     /** @var array List of pages in this form. */
@@ -83,7 +83,7 @@ class FormComponent
      *  @option string The field to position it before or after
      * ]
      */
-    public function addField($field, $position = []): self
+    public function addField($field, $position = []): static
     {
         if (empty($position)) {
             $this->fields[] = $field;
@@ -98,7 +98,7 @@ class FormComponent
      *
      * @param string $fieldName
      */
-    public function removeField($fieldName): self
+    public function removeField($fieldName): static
     {
         $this->fields = array_values(array_filter($this->fields, function ($field) use ($fieldName) {
             return $field->name !== $fieldName;
@@ -137,7 +137,7 @@ class FormComponent
      *  @option string The group to position it before or after
      * ]
      */
-    public function addGroup($args, $position = []): self
+    public function addGroup($args, $position = []): static
     {
         if (empty($args['id'])) {
             throw new Exception('Tried to add a form group without an id.');
@@ -155,7 +155,7 @@ class FormComponent
      *
      * @param string $groupId
      */
-    public function removeGroup($groupId): self
+    public function removeGroup($groupId): static
     {
         $this->groups = array_filter($this->groups, function ($group) use ($groupId) {
             return $group['id'] !== $groupId;
@@ -181,7 +181,7 @@ class FormComponent
      *  @option string The page to position it before or after
      * ]
      */
-    public function addPage($args, $position = []): self
+    public function addPage($args, $position = []): static
     {
         if (empty($args['id'])) {
             fatalError('Tried to add a form page without an id.');
@@ -199,7 +199,7 @@ class FormComponent
      *
      * @param string $pageId
      */
-    public function removePage($pageId): self
+    public function removePage($pageId): static
     {
         $this->pages = array_filter($this->pages, function ($page) use ($pageId) {
             return $page['id'] !== $pageId;

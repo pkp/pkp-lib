@@ -66,7 +66,7 @@ class JobRunner
 
     /**
      * Create a new instance
-     * 
+     *
      * @param \PKP\core\PKPQueueProvider|null $jobQueue
      * @return void
      */
@@ -77,7 +77,7 @@ class JobRunner
 
     /**
      * Set the max job number running constrain
-     * 
+     *
      * @return self
      */
     public function withMaxJobsConstrain(): self
@@ -93,7 +93,7 @@ class JobRunner
 
     /**
      * Set the max allowed jobs number to process
-     * 
+     *
      * @param int $maxJobsToProcess
      * @return self
      */
@@ -106,7 +106,7 @@ class JobRunner
 
     /**
      * Get the max allowed jobs number to process
-     * 
+     *
      * @return int|null
      */
     public function getMaxJobsToProcess(): ?int
@@ -116,7 +116,7 @@ class JobRunner
 
     /**
      * Set the max run time constrain when processing jobs
-     * 
+     *
      * @return self
      */
     public function withMaxExecutionTimeConstrain(): self
@@ -132,7 +132,7 @@ class JobRunner
 
     /**
      * Set the max allowed run time to process jobs in SECONDS
-     * 
+     *
      * @param int $maxTimeToProcessJobs
      * @return self
      */
@@ -145,7 +145,7 @@ class JobRunner
 
     /**
      * Get the max allowed run time to process jobs in SECONDS
-     * 
+     *
      * @return int|null
      */
     public function getMaxTimeToProcessJobs(): ?int
@@ -155,7 +155,7 @@ class JobRunner
 
     /**
      * Set the max consumable memory constrain when processing jobs
-     * 
+     *
      * @return self
      */
     public function withMaxMemoryConstrain(): self
@@ -170,8 +170,8 @@ class JobRunner
     }
 
     /**
-     * Set the max allowed consumable memory to process jobs in BYTES 
-     * 
+     * Set the max allowed consumable memory to process jobs in BYTES
+     *
      * @param int $maxMemoryToConsumed
      * @return self
      */
@@ -183,8 +183,8 @@ class JobRunner
     }
 
     /**
-     * get the max allowed consumable memory to process jobs in BYTES 
-     * 
+     * get the max allowed consumable memory to process jobs in BYTES
+     *
      * @return int|null
      */
     public function getMaxMemoryToConsumed(): ?int
@@ -194,7 +194,7 @@ class JobRunner
 
     /**
      * Set constrain to estimate next job possible processing time to allow next job to be processed/run
-     * 
+     *
      * @return self
      */
     public function withEstimatedTimeToProcessNextJobConstrain(): self
@@ -206,7 +206,7 @@ class JobRunner
 
     /**
      * Process/Run/Execute jobs off CLI
-     * 
+     *
      * @param EloquentBuilder|null $jobBuilder
      * @return bool
      */
@@ -244,7 +244,7 @@ class JobRunner
 
     /**
      * Check if max job has processed or not
-     * 
+     *
      * @param int $jobProcessedCount    The number of jobs that has processed so far
      * @return bool
      */
@@ -259,7 +259,7 @@ class JobRunner
 
     /**
      * Check if max run time to process jobs has exceed or not
-     * 
+     *
      * @param int $jobProcessingStartTime   The start time since job processing has started in seconds
      * @return bool
      */
@@ -274,7 +274,7 @@ class JobRunner
 
     /**
      * Check if memory consumed since job processing started has exceed defined max memory
-     * 
+     *
      * @return bool
      */
     protected function exceededMemoryLimit(): bool
@@ -288,10 +288,10 @@ class JobRunner
 
     /**
      * Estimate if next job processing time will likely exceed defined max processing run time
-     * 
+     *
      * @param int $jobProcessedCount        The number of jobs that has processed so far
      * @param int $jobProcessingStartTime   The start time since job processing has started in seconds
-     * 
+     *
      * @return bool
      */
     protected function mayExceedMemoryLimitAtNextJob(int $jobProcessedCount, int $jobProcessingStartTime): bool
@@ -318,11 +318,11 @@ class JobRunner
     }
 
     /**
-     * Dedcue possible safe max job processing run time in SECONDS
-     * 
+     * Deduce possible safe max job processing run time in SECONDS
+     *
      * It will consider both what defined in the ini file and application config file
      * and will take a minimum one based on those two values
-     * 
+     *
      * @return int
      */
     protected function deduceSafeMaxExecutionTime(): int
@@ -336,19 +336,19 @@ class JobRunner
     }
 
     /**
-     * Dedcue possible safe max consumable memory for job processing in BYTES
-     * 
+     * Deduce possible safe max consumable memory for job processing in BYTES
+     *
      * It will consider both of what defined in the ini file and the application config file
      * and will take a minimum one based on those two values
-     * 
+     *
      * In the application config file, max memory can be defined as INT or STRING value in following manner
-     * 
+     *
      *      If defined as INT (e.g 90), it will be calculated as percentage value of
      *      what currently defined in the ini file.
-     * 
+     *
      *      If defined as STRING (e.g 128M), it will try to calculate it as memory defined in megabytes
      *      but if failed, will try to cast to INT to apply percentage rule
-     * 
+     *
      * @return int
      */
     protected function deduceSafeMaxAllowedMemory(): int

@@ -16,6 +16,7 @@
 namespace PKP\pages\decision;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\handler\Handler;
@@ -64,7 +65,9 @@ class DecisionHandler extends Handler
      */
     public function authorize($request, &$args, $roleAssignments): bool
     {
-        $op = $request->getRouter()->getRequestedOp($request);
+        /** @var PageRouter */
+        $router = $request->getRouter();
+        $op = $router->getRequestedOp($request);
 
         if (!$op || $op !== 'record') {
             return false;

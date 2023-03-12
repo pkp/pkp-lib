@@ -38,7 +38,7 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'author_settings';
 
-    /** @copydoc EntityDAO::$primarykeyColumn */
+    /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'author_id';
 
     /** @copydoc EntityDAO::$primaryTableColumns */

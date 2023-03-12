@@ -121,7 +121,7 @@ class CacheManager
                 );
                 break;
             default:
-                exit("Unknown cache type \"${type}\"!\n");
+                exit("Unknown cache type \"{$type}\"!\n");
                 break;
         }
         return $cache;
@@ -166,7 +166,7 @@ class CacheManager
                 // Nothing necessary.
                 break;
             default:
-                exit("Unknown cache type \"${type}\"!\n");
+                exit("Unknown cache type \"{$type}\"!\n");
         }
     }
 }

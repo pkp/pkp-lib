@@ -175,7 +175,7 @@ class PKPEmailSetupForm extends FormComponent
     }
 
     /**
-     * Add the field to copy any email address on the submission ackowledgement
+     * Add the field to copy any email address on the submission acknowledgement
      */
     protected function addCopySubmissionAckAddress(): self
     {

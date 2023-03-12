@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\file\PublicFileManager;
 use APP\template\TemplateManager;
 use PKP\core\Core;
+use PKP\user\User;
 
 class PublicProfileForm extends BaseProfileForm
 {

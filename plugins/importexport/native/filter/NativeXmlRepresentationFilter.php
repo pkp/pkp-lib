@@ -18,6 +18,7 @@ namespace PKP\plugins\importexport\native\filter;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\Representation;
 
 class NativeXmlRepresentationFilter extends NativeImportFilter
 {

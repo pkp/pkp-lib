@@ -67,7 +67,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Get response value.
      *
-     * @return int
+     * @return mixed
      */
     public function getValue()
     {
@@ -77,7 +77,7 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set response value.
      *
-     * @param int $value
+     * @param mixed $value
      */
     public function setValue($value)
     {

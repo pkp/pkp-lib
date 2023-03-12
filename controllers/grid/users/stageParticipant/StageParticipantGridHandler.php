@@ -101,7 +101,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     }
 
     /**
-     * Determine whether the current user has admin priveleges for this
+     * Determine whether the current user has admin privileges for this
      * grid.
      *
      * @return bool

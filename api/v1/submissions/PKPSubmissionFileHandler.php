@@ -302,7 +302,9 @@ class PKPSubmissionFileHandler extends APIHandler
 
         // If no genre has been set and there is only one genre possible, set it automatically
         if (empty($params['genreId'])) {
-            $genres = DAORegistry::getDAO('GenreDAO')->getEnabledByContextId($request->getContext()->getId());
+            /** @var GenreDAO */
+            $genreDao = DAORegistry::getDAO('GenreDAO');
+            $genres = $genreDao->getEnabledByContextId($request->getContext()->getId());
             [$firstGenre, $secondGenre] = [$genres->next(), $genres->next()];
             if ($firstGenre && !$secondGenre) {
                 $params['genreId'] = $firstGenre->getId();

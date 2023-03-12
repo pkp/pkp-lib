@@ -210,21 +210,21 @@ class PKPComponentRouter extends PKPRouter
                 $component = 'controllers.' . $component;
                 $componentFileNamePart = str_replace('.', '/', $component);
                 switch (true) {
-                    case file_exists("${componentFileNamePart}.php"):
+                    case file_exists("{$componentFileNamePart}.php"):
                         $className = 'APP\\' . strtr($componentFileNamePart, '/', '\\');
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists("${componentFileNamePart}.inc.php"):
+                    case file_exists("{$componentFileNamePart}.inc.php"):
                         // This behaviour is DEPRECATED as of 3.4.0.
                         break;
 
-                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.php"):
+                    case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.php"):
                         $className = 'PKP\\' . strtr($componentFileNamePart, '/', '\\');
                         $componentInstance = new $className();
                         break;
 
-                    case file_exists(PKP_LIB_PATH . "/${componentFileNamePart}.inc.php"):
+                    case file_exists(PKP_LIB_PATH . "/{$componentFileNamePart}.inc.php"):
                         // This behaviour is DEPRECATED as of 3.4.0.
                         $component = 'lib.pkp.' . $component;
                         break;

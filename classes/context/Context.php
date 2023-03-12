@@ -23,6 +23,7 @@ use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Arr;
 use PKP\config\Config;
 use PKP\facades\Locale;
+use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\site\Site;
 
@@ -84,10 +85,10 @@ abstract class Context extends \PKP\core\DataObject
     }
 
     /**
-     * Retrieves configured DOI registration agnecy plugin, if any active
+     * Retrieves configured DOI registration agency plugin, if any active
      *
      */
-    public function getConfiguredDoiAgency(): ?IDoiRegistrationAgency
+    public function getConfiguredDoiAgency(): IDoiRegistrationAgency|Plugin|null
     {
         $configuredPluginName = $this->getData(Context::SETTING_CONFIGURED_REGISTRATION_AGENCY);
 
@@ -385,7 +386,7 @@ abstract class Context extends \PKP\core\DataObject
      * @return array
      */
     public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
-    {   
+    {
         return $this->getData('supportedLocaleNames') ?? Locale::getFormattedDisplayNames($this->getSupportedLocales(), null, $langLocaleStatus);
     }
 

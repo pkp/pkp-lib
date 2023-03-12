@@ -17,9 +17,11 @@ namespace PKP\controllers\grid\files;
 
 use APP\file\LibraryFileManager;
 use PKP\controllers\grid\CategoryGridHandler;
+use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\controllers\grid\GridColumn;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\form\Form;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\security\Role;
@@ -335,6 +337,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      *  Must be implemented by subclasses.
      *
      * @param Context $context
+     * @return Form
      */
     public function _getNewFileForm($context)
     {
@@ -347,6 +350,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      *
      * @param Press $context
      * @param int $fileId
+     * @return LibraryFileForm
      */
     public function _getEditFileForm($context, $fileId)
     {

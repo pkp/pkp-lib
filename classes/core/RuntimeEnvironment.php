@@ -14,6 +14,8 @@
 
 namespace PKP\core;
 
+use PKP\config\Config;
+
 class RuntimeEnvironment
 {
     /** @var string */

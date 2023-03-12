@@ -75,7 +75,7 @@ class QueryDAO extends \PKP\db\DAO
      * @param int $stageId Optional stage ID
      * @param int $userId Optional user ID; when set, show only assigned queries
      *
-     * @return array Query
+     * @return DAOResultFactory Query
      */
     public function getByAssoc($assocType, $assocId, $stageId = null, $userId = null)
     {
@@ -406,7 +406,7 @@ class QueryDAO extends \PKP\db\DAO
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();
 
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+        /** @var NotificationSubscriptionSettingsDAO */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
         foreach ($participantUserIds as $participantUserId) {

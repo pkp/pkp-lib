@@ -18,6 +18,7 @@ namespace PKP\file;
 use Exception;
 
 use PKP\config\Config;
+use ZipArchive;
 
 class FileArchive
 {

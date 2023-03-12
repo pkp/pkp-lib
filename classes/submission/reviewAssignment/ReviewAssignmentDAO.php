@@ -56,7 +56,7 @@ class ReviewAssignmentDAO extends \PKP\db\DAO
     }
 
     /**
-     * Retrieve review assignments from table usign the passed
+     * Retrieve review assignments from table using the passed
      * sql query and parameters.
      *
      * @param string $query

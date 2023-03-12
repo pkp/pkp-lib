@@ -17,6 +17,7 @@
 namespace PKP\API\v1\users;
 
 use APP\facades\Repo;
+use Exception;
 use PKP\core\APIResponse;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;

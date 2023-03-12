@@ -23,7 +23,7 @@ class TombstoneMigration extends \PKP\migration\Migration
      */
     public function up(): void
     {
-        // Unnavailable data object tombstones.
+        // Unavailable data object tombstones.
         Schema::create('data_object_tombstones', function (Blueprint $table) {
             $table->comment('Entries for published data that has been removed. Usually used in the OAI endpoint.');
             $table->bigInteger('tombstone_id')->autoIncrement();

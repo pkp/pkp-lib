@@ -22,6 +22,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\notification\PKPNotification;
+use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 
@@ -95,6 +96,7 @@ class PKPToolsHandler extends ManagementHandler
 
         if (array_shift($args) === 'plugin') {
             $pluginName = array_shift($args);
+            /** @var ImportExportPlugin */
             $plugin = PluginRegistry::getPlugin(IMPORTEXPORT_PLUGIN_CATEGORY, $pluginName);
             if ($plugin) {
                 return $plugin->display($args, $request);
@@ -108,7 +110,7 @@ class PKPToolsHandler extends ManagementHandler
     // Protected methods.
     //
     /**
-     * Display the permissipns area.
+     * Display the permissions area.
      *
      * @param array $args
      * @param PKPRequest $request

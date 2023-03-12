@@ -92,7 +92,7 @@ class RemoveLocaleKey extends \PKP\cliTool\CommandLineTool
                     }
                     if (count($lines) !== count($newLines)) {
                         file_put_contents($localeDir . '/' . $file, join("\n", $newLines));
-                        echo(count($lines) - count($newLines)) . " lines removed from ${localeDir}/${file}.\n";
+                        echo(count($lines) - count($newLines)) . " lines removed from {$localeDir}/{$file}.\n";
                     }
                 }
             }

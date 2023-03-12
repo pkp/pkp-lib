@@ -24,7 +24,7 @@ abstract class Base
      * Example:
      *
      * $map->extend(function($output, $input, $map) {
-     *   $output['example'] = $intput->example;
+     *   $output['example'] = $input->example;
      *   return $output;
      * })
      *

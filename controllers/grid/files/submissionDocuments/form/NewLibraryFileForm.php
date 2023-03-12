@@ -9,7 +9,7 @@
  * @class FileForm
  * @ingroup controllers_grid_files_submissionDocuments_form
  *
- * @brief Form for adding/edditing a file
+ * @brief Form for adding/editing a file
  * stores/retrieves from an associative array
  */
 

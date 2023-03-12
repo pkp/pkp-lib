@@ -66,7 +66,7 @@ class OAIUtils
         // FIXME Has limited range (see http://php.net/strtotime)
         if (preg_match("/^\d\d\d\d\-\d\d\-\d\d$/", $date)) {
             // Match date
-            $time = strtotime("${date} UTC");
+            $time = strtotime("{$date} UTC");
             return ($time != -1) ? $time : 'invalid';
         } elseif (preg_match("/^(\d\d\d\d\-\d\d\-\d\d)T(\d\d:\d\d:\d\d)Z$/", $date, $matches)) {
             // Match datetime
@@ -75,7 +75,7 @@ class OAIUtils
             if ($requiredGranularity && $requiredGranularity != 'YYYY-MM-DDThh:mm:ssZ') {
                 return 'invalid_granularity';
             } else {
-                $time = strtotime("${date} UTC");
+                $time = strtotime("{$date} UTC");
                 return ($time != -1) ? $time : 'invalid';
             }
         } else {

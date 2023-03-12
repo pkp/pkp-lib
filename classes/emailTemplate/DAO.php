@@ -41,7 +41,7 @@ class DAO extends EntityDAO
 
     public $defaultTable = 'email_templates_default_data';
 
-    /** @copydoc EntityDAO::$primarykeyColumn */
+    /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'email_id';
 
     /** @copydoc EntityDAO::$primaryTableColumns */

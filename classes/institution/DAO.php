@@ -40,7 +40,7 @@ class DAO extends EntityDAO
     /** @copydoc EntityDAO::$settingsTable */
     public $settingsTable = 'institution_settings';
 
-    /** @copydoc EntityDAO::$primarykeyColumn */
+    /** @copydoc EntityDAO::$primaryKeyColumn */
     public $primaryKeyColumn = 'institution_id';
 
     /** @copydoc EntityDAO::$primaryTableColumns */
@@ -130,6 +130,7 @@ class DAO extends EntityDAO
      */
     public function fromRow(object $row): Institution
     {
+        /** @var Institution */
         $institution = parent::fromRow($row);
 
         $ipRanges = DB::table('institution_ip')
@@ -179,7 +180,7 @@ class DAO extends EntityDAO
      */
     public function delete(Institution $institution): void
     {
-        // If the reference in the table institutional_subscriptitons exists, soft delete the institution
+        // If the reference in the table institutional_subscriptions exists, soft delete the institution
         $shouldSoftDelete = DB::table('institutional_subscriptions')
             ->where('institution_id', '=', $institution->getId())
             ->exists();

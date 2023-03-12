@@ -257,12 +257,12 @@ class FileManager
                     continue;
                 }
 
-                $Entry = "${source}/${entry}";
+                $Entry = "{$source}/{$entry}";
                 if (is_dir($Entry)) {
-                    $this->copyDir($Entry, "${dest}/${entry}");
+                    $this->copyDir($Entry, "{$dest}/{$entry}");
                     continue;
                 }
-                $this->copyFile($Entry, "${dest}/${entry}");
+                $this->copyFile($Entry, "{$dest}/{$entry}");
             }
 
             $destDir->close();
@@ -366,10 +366,10 @@ class FileManager
             }
 
             // Stream the file to the end user.
-            header("Content-Type: ${mediaType}");
+            header("Content-Type: {$mediaType}");
             header('Content-Length: ' . filesize($filePath));
             header('Accept-Ranges: none');
-            header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"${fileName}\"");
+            header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . "; filename=\"{$fileName}\"");
             header('Cache-Control: private'); // Workarounds for IE weirdness
             header('Pragma: public');
             $this->readFileFromPath($filePath, true);

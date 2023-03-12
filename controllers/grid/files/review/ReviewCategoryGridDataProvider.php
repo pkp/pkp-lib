@@ -39,6 +39,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
      */
     public function getReviewRound()
     {
+        /** @var ReviewGridDataProvider */
         $gridDataProvider = $this->getDataProvider();
         return $gridDataProvider->getReviewRound();
     }
@@ -83,6 +84,7 @@ class ReviewCategoryGridDataProvider extends SubmissionFilesCategoryGridDataProv
      */
     public function getSelectAction($request)
     {
+        /** @var ReviewGridDataProvider */
         $gridDataProvider = $this->getDataProvider();
         return $gridDataProvider->getSelectAction($request);
     }

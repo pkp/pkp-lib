@@ -31,6 +31,7 @@ use DateTime;
 use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
 use PKP\context\Context;
+use PKP\core\PKPRequest;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -198,7 +199,7 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @return string
      */
-    function getExportFileName($basePath, $objectsFileNamePart, Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null) 
+    function getExportFileName($basePath, $objectsFileNamePart, Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null)
     {
         $dateFilenamePartString = date(self::EXPORT_FILE_DATE_PART_FORMAT);
 
@@ -429,13 +430,13 @@ abstract class ImportExportPlugin extends Plugin
         $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT,  $exportedFileDatePart);
         if (!$date) {
             return false;
-        } 
+        }
 
         $exportFileName = $this->getExportFileName($this->getExportPath(), $exportedFileContentNamePart, $deployment->getContext(), '.xml', $date);
         $fileManager = new FileManager();
         $fileManager->downloadByPath($exportFileName);
         $fileManager->deleteByPath($exportFileName);
-        
+
         return true;
     }
 

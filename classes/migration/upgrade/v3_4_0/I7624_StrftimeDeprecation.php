@@ -72,7 +72,7 @@ class I7624_StrftimeDeprecation extends \PKP\migration\Migration
             case 'up': break;
             case 'down': $map = array_flip($map);
                 break;
-            default: throw new \Exception("Unknown direction ${direction}");
+            default: throw new \Exception("Unknown direction {$direction}");
         }
         foreach ($dateSettingValues as $row) {
             DB::table(self::CONTEXT_SETTING_TABLE_NAMES[$applicationName])

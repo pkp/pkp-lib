@@ -64,7 +64,8 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $noteDao */
+        /** @var ReviewAssignmentDAO */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $reviewAssignment = $reviewAssignmentDao->getById($this->_reviewAssignmentId);
 
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
@@ -93,7 +94,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             }
         }
 
-        // Reviewers can write review attachments to their own review assigments,
+        // Reviewers can write review attachments to their own review assignments,
         // if the assignment is not yet complete, cancelled or declined.
         if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
             $notAllowedStatuses = [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED];

@@ -56,7 +56,7 @@ class ValidatorFactory
             return strpos($value, PHP_EOL) === false;
         });
 
-        // custom validation rules to check anything other that defined html tags 
+        // custom validation rules to check anything other that defined html tags
         // in title or sub title in config[allowed_title_html]
         $validation->extend('allowable_title_html_tags', function ($attribute, $value, $parameters, $validator) use ($validation) {
 
@@ -66,10 +66,10 @@ class ValidatorFactory
             $purifiedValue = Sanitizer::replaceSpecialCharEntityValueWithCharacter(
                 PKPString::stripUnsafeHtml($value, 'allowed_title_html')
             );
-            
+
             return Sanitizer::replaceSpecialCharEntityValueWithCharacter($value) === $purifiedValue;
         });
-        
+
         // Add custom validation rule which extends Laravel's email rule to accept
         // @localhost addresses. @localhost addresses are only loosely validated
         // for allowed characters.
@@ -378,7 +378,7 @@ class ValidatorFactory
      * @param array $uploadProps List of prop names that may include a
      *  a temporaryFileId
      * @param array $multilingualUploadProps List of $uploadProps which are
-     *  multiligual
+     *  multilingual
      * @param array $props Key/value list of props
      * @param array $allowedLocales List of locale codes
      * @param int $userId The user ID which owns the temporary files

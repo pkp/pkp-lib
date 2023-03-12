@@ -106,9 +106,9 @@ class Identity extends \PKP\core\DataObject
         }
         $familyName = $this->getFamilyName($locale);
         if ($familyFirst) {
-            return ($familyName != '' ? "${familyName}, " : '') . $givenName;
+            return ($familyName != '' ? "{$familyName}, " : '') . $givenName;
         } else {
-            return $givenName . ($familyName != '' ? " ${familyName}" : '');
+            return $givenName . ($familyName != '' ? " {$familyName}" : '');
         }
     }
 

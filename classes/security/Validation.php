@@ -31,7 +31,7 @@ class Validation
     public const ADMINISTRATION_PROHIBITED = 0;
     public const ADMINISTRATION_PARTIAL = 1;
     public const ADMINISTRATION_FULL = 2;
-    
+
     /**
      * Authenticate user credentials and mark the user as logged in in the current session.
      *
@@ -435,7 +435,7 @@ class Validation
      * @param int $administratorUserId User ID of user who wants to do the administrating
      *
      * @return bool True IFF the administration operation is permitted
-     * 
+     *
      * @deprecated 3.4 Use the method getAdministrationLevel and checked against the ADMINISTRATION_* constants
      */
     public static function canAdminister($administeredUserId, $administratorUserId)
@@ -447,7 +447,7 @@ class Validation
             return true;
         }
 
-        // You cannot adminster administrators
+        // You cannot administer administrators
         if ($roleDao->userHasRole(\PKP\core\PKPApplication::CONTEXT_SITE, $administeredUserId, Role::ROLE_ID_SITE_ADMIN)) {
             return false;
         }
@@ -489,8 +489,8 @@ class Validation
      * @param int   $administeredUserId     User ID of user to potentially administer
      * @param int   $administratorUserId    User ID of user who wants to do the administrating
      * @param int   $contextId              The journal/context Id
-     * 
-     * @return int The authorized administration level 
+     *
+     * @return int The authorized administration level
      */
     public static function getAdministrationLevel(int $administeredUserId, int $administratorUserId, int $contextId = null): int
     {
@@ -532,7 +532,7 @@ class Validation
             ->map(fn($userGroup) => $userGroup->getContextId())
             ->sort()
             ->toArray();
-        
+
         $administratorUserAssignedGroupIds = Repo::userGroup()
             ->getCollector()
             ->filterByUserIds([$administratorUserId])
@@ -548,7 +548,7 @@ class Validation
             // Found an assignment: disqualified.
             // But also determine if a partial administrate is allowed
             // if the Administrator User is a Journal Manager in the current context
-            if ($contextId !== null && 
+            if ($contextId !== null &&
                 Repo::userGroup()
                     ->getCollector()
                     ->filterByContextIds([$contextId])

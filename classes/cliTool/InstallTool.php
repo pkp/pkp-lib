@@ -15,8 +15,8 @@
 
 namespace PKP\cliTool;
 
+use APP\install\Install;
 use PKP\install\form\InstallForm;
-use PKP\install\Install;
 
 class InstallTool extends \PKP\cliTool\CommandLineTool
 {

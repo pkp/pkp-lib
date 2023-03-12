@@ -22,7 +22,7 @@ use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\template\TemplateManager;
-
+use Exception;
 use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
@@ -38,6 +38,7 @@ class PKPAuthorForm extends Form
 
     /**
      * Constructor.
+     * @param Publication $publication
      */
     public function __construct($publication, $author)
     {

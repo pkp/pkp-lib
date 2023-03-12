@@ -123,6 +123,7 @@ class PKPImportExportDeployment
 
     /**
      * Get the representation node name
+     * @return string
      */
     public function getRepresentationNodeName()
     {

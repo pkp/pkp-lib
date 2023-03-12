@@ -21,7 +21,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use Exception;
-
+use PKP\handler\APIHandler;
 use PKP\session\SessionManager;
 
 class APIRouter extends PKPRouter
@@ -118,6 +118,7 @@ class APIRouter extends PKPRouter
      */
     public function getRequestedOp($request)
     {
+        /** @var APIHandler */
         $handler = $this->getHandler();
         $container = $handler->getApp()->getContainer();
         $router = $container->get('router');

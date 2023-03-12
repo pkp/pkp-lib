@@ -640,7 +640,7 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+            /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $note = $query->getHeadNote();
             foreach ($added as $userId) {

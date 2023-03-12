@@ -15,6 +15,7 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use Exception;
 use PKP\plugins\importexport\PKPImportExportFilter;
 
 class NativeImportFilter extends PKPImportExportFilter

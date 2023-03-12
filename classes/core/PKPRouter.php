@@ -57,8 +57,10 @@
 namespace PKP\core;
 
 use APP\core\Application;
+use Exception;
 use PKP\config\Config;
 use PKP\context\Context;
+use PKP\context\ContextDAO;
 use PKP\db\DAORegistry;
 use PKP\handler\PKPHandler;
 use PKP\plugins\Hook;
@@ -182,6 +184,7 @@ abstract class PKPRouter
                 $this->_context = null;
             } else {
                 // FIXME: Can't just use Application::get()->getContextDAO() without test breakage
+                /** @var ContextDAO */
                 $contextDao = DAORegistry::getDAO(ucfirst(Application::get()->getContextName()) . 'DAO');
 
                 // Retrieve the context from the DAO (by path)

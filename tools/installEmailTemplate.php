@@ -13,6 +13,7 @@
  * @brief CLI tool to install email templates from PO files into the database.
  */
 
+use PKP\cliTool\CommandLineTool;
 use PKP\facades\Repo;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');

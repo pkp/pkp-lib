@@ -32,6 +32,7 @@ use PKP\mail\mailables\ReviewRequestSubsequent;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
+use PKP\submission\reviewRound\ReviewRoundDAO;
 
 class AdvancedSearchReviewerForm extends ReviewerForm
 {
@@ -164,7 +165,8 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         // Get reviewers who completed a review in the last round
         $lastRoundReviewerIds = [];
         if ($this->getReviewRound()->getRound() > 1) {
-            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');/** @var ReviewAssignmentDAO $reviewAssignmentDao */
+            /** @var ReviewRoundDAO */
+            $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO');
             $previousRound = $this->getReviewRound()->getRound() - 1;
             $lastReviewRound = $reviewRoundDao->getReviewRound($this->getSubmissionId(), $this->getReviewRound()->getStageId(), $previousRound);
 

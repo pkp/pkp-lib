@@ -152,6 +152,7 @@ class OrderCategoryGridItemsFeature extends OrderItemsFeature
                 }
 
                 // Get the correct rows sequence data.
+                /** @var ?array */
                 $rowsData = null;
                 foreach ($data as $categoryData) {
                     if ($categoryData->categoryId == $categoryId) {

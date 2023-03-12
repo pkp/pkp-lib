@@ -20,6 +20,7 @@ use APP\facades\Repo;
 use APP\pages\user\UserHandler;
 use APP\template\TemplateManager;
 use PKP\config\Config;
+use PKP\core\Core;
 use PKP\notification\PKPNotification;
 use PKP\notification\PKPNotificationManager;
 use PKP\observers\events\UserRegisteredContext;

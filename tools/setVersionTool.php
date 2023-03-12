@@ -13,6 +13,8 @@
  * @brief CLI tool to set a version number for each publication.
  */
 
+use APP\core\Application;
+use APP\core\Services;
 use APP\facades\Repo;
 
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');

@@ -101,6 +101,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $categoryDataElement;
@@ -167,6 +168,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function getAddFileAction($request)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         return $dataProvider->getAddFileAction($request);
     }
@@ -176,6 +178,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function setStageId($stageId)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         $dataProvider->setStageId($stageId);
     }
@@ -185,6 +188,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function getFileStage()
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         return $dataProvider->getFileStage();
     }

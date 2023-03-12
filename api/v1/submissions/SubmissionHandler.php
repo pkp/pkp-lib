@@ -16,6 +16,7 @@
 
 namespace APP\API\v1\submissions;
 
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
@@ -77,7 +78,7 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
     public function relatePublication($slimRequest, $response, $args)
     {
         $request = $this->getRequest();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $publication = Repo::publication()->get((int) $args['publicationId']);
 
         if (!$publication) {

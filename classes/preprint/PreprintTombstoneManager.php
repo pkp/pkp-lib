@@ -15,6 +15,7 @@
 
 namespace APP\preprint;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\section\Section;
 use APP\submission\Submission;
@@ -44,8 +45,8 @@ class PreprintTombstoneManager
         $setSpec = $context->getPath() . ':' . OAIUtils::toValidSetSpec($section->getLocalizedAbbrev());
         $oaiIdentifier = 'oai:' . Config::getVar('oai', 'repository_id') . ':' . 'preprint/' . $preprint->getId();
         $oaiSetObjectIds = [
-            ASSOC_TYPE_SERVER => $context->getId(),
-            ASSOC_TYPE_SECTION => $section->getId(),
+            Application::ASSOC_TYPE_SERVER => $context->getId(),
+            Application::ASSOC_TYPE_SECTION => $section->getId(),
         ];
 
         $preprintTombstone = $tombstoneDao->newDataObject();

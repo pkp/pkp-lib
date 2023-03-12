@@ -17,6 +17,7 @@
 
 namespace APP\oai\ops;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
@@ -107,7 +108,7 @@ class OAIDAO extends PKPOAIDAO
             array_push($sets, new OAISet(self::setSpec($server), $title, ''));
 
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
-            $preprintTombstoneSets = $tombstoneDao->getSets(ASSOC_TYPE_SERVER, $server->getId());
+            $preprintTombstoneSets = $tombstoneDao->getSets(Application::ASSOC_TYPE_SERVER, $server->getId());
 
             $sections = Repo::section()
                 ->getCollector()
@@ -262,7 +263,7 @@ class OAIDAO extends PKPOAIDAO
                     ->when(isset($serverId), function ($query) use ($serverId) {
                         return $query->join('data_object_tombstone_oai_set_objects AS tsoj', function ($join) use ($serverId) {
                             return $join->on('tsoj.tombstone_id', '=', 'dot.tombstone_id')
-                                ->where('tsoj.assoc_type', '=', ASSOC_TYPE_SERVER)
+                                ->where('tsoj.assoc_type', '=', Application::ASSOC_TYPE_SERVER)
                                 ->where('tsoj.assoc_id', '=', $serverId);
                         })
                             ->addSelect(['tsoj.assoc_id AS server_id']);
@@ -272,7 +273,7 @@ class OAIDAO extends PKPOAIDAO
                     ->when(isset($sectionId), function ($query) use ($sectionId) {
                         return $query->join('data_object_tombstone_oai_set_objects AS tsos', function ($join) use ($sectionId) {
                             $join->on('tsos.tombstone_id', '=', 'dot.tombstone_id')
-                                ->where('tsos.assoc_type', '=', ASSOC_TYPE_SECTION)
+                                ->where('tsos.assoc_type', '=', Application::ASSOC_TYPE_SECTION)
                                 ->where('tsos.assoc_id', '=', $sectionId);
                         })
                             ->addSelect(['tsos.assoc_id AS section_id']);

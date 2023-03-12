@@ -15,6 +15,7 @@
 
 namespace APP\plugins\importexport\native\filter;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\galley\Galley;
 
@@ -85,16 +86,16 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if (is_a($n, 'DOMElement')) {
                 switch ($n->tagName) {
-            case 'name':
-                // Labels are not localized in Galleys, but we use the <name locale="....">...</name> structure.
-                $locale = $n->getAttribute('locale');
-                if (empty($locale)) {
-                    $locale = $submission->getLocale();
+                    case 'name':
+                        // Labels are not localized in Galleys, but we use the <name locale="....">...</name> structure.
+                        $locale = $n->getAttribute('locale');
+                        if (empty($locale)) {
+                            $locale = $submission->getLocale();
+                        }
+                        $representation->setLabel($n->textContent);
+                        $representation->setLocale($locale);
+                        break;
                 }
-                $representation->setLabel($n->textContent);
-                $representation->setLocale($locale);
-                break;
-        }
             }
         }
 
@@ -110,7 +111,7 @@ class NativeXmlPreprintGalleyFilter extends \PKP\plugins\importexport\native\fil
             Repo::submissionFile()->edit(
                 $submissionFile,
                 [
-                    'assocType' => ASSOC_TYPE_REPRESENTATION,
+                    'assocType' => Application::ASSOC_TYPE_REPRESENTATION,
                     'assocId' => $representation->getId(),
                 ]
             );

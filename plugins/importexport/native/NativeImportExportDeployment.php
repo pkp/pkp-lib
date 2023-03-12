@@ -16,6 +16,8 @@
 
 namespace APP\plugins\importexport\native;
 
+use APP\core\Application;
+
 class NativeImportExportDeployment extends \PKP\plugins\importexport\native\PKPNativeImportExportDeployment
 {
     //
@@ -66,9 +68,9 @@ class NativeImportExportDeployment extends \PKP\plugins\importexport\native\PKPN
     {
         $objectTypes = parent::getObjectTypes();
         $objectTypes = $objectTypes + [
-            ASSOC_TYPE_SERVER => __('context.context'),
-            ASSOC_TYPE_SECTION => __('section.section'),
-            ASSOC_TYPE_PUBLICATION => __('common.publication'),
+            Application::ASSOC_TYPE_SERVER => __('context.context'),
+            Application::ASSOC_TYPE_SECTION => __('section.section'),
+            Application::ASSOC_TYPE_PUBLICATION => __('common.publication'),
         ];
 
         return $objectTypes;

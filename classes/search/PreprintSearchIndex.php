@@ -15,6 +15,7 @@
 
 namespace APP\search;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -162,7 +163,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                 $dependentFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
-                        ASSOC_TYPE_SUBMISSION_FILE,
+                        Application::ASSOC_TYPE_SUBMISSION_FILE,
                         [$submissionFile->getId()]
                     )->filterBySubmissionIds([$preprint->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])

@@ -189,11 +189,11 @@ class Application extends PKPApplication
     /**
      * Returns the context type for this application.
      *
-     * @return int ASSOC_TYPE_...
+     * @return int Application::ASSOC_TYPE_...
      */
     public static function getContextAssocType()
     {
-        return ASSOC_TYPE_SERVER;
+        return static::ASSOC_TYPE_SERVER;
     }
 
     /**

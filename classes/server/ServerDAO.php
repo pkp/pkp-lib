@@ -17,6 +17,7 @@
 
 namespace APP\server;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\ContextDAO;
 use PKP\metadata\MetadataTypeDescription;
@@ -94,7 +95,7 @@ class ServerDAO extends ContextDAO
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      * @param string $pubId
      * @param int $assocType The object type of an object to be excluded from
-     *  the search. Identified by one of the ASSOC_TYPE_* constants.
+     *  the search. Identified by one of the Application::ASSOC_TYPE_* constants.
      * @param int $assocId The id of an object to be excluded from the search.
      * @param bool $forSameType Whether only the same objects should be considered.
      *
@@ -109,9 +110,9 @@ class ServerDAO extends ContextDAO
         $forSameType = false
     ) {
         $pubObjectDaos = [
-            ASSOC_TYPE_SUBMISSION => Repo::publication()->dao,
-            ASSOC_TYPE_GALLEY => Application::getRepresentationDAO(),
-            ASSOC_TYPE_SUBMISSION_FILE => Repo::submissionFile()->dao,
+            Application::ASSOC_TYPE_SUBMISSION => Repo::publication()->dao,
+            Application::ASSOC_TYPE_GALLEY => Application::getRepresentationDAO(),
+            Application::ASSOC_TYPE_SUBMISSION_FILE => Repo::submissionFile()->dao,
         ];
         if ($forSameType) {
             $dao = $pubObjectDaos[$assocType];

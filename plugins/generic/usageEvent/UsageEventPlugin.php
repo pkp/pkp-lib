@@ -15,6 +15,7 @@
 
 namespace APP\plugins\generic\usageEvent;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 
@@ -93,13 +94,13 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
 
                     if ($server) {
                         $pubObject = $server;
-                        $assocType = ASSOC_TYPE_SERVER;
+                        $assocType = Application::ASSOC_TYPE_SERVER;
                         $canonicalUrlOp = '';
                     }
 
                     if ($submission) {
                         $pubObject = $submission;
-                        $assocType = ASSOC_TYPE_SUBMISSION;
+                        $assocType = Application::ASSOC_TYPE_SUBMISSION;
                         $canonicalUrlParams = [$pubObject->getId()];
                         $idParams = ['m' . $pubObject->getId()];
                         if (isset($publicationId)) {
@@ -116,7 +117,7 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
                     // Preprint file.
                 case 'PreprintHandler::download':
                 case 'HtmlArticleGalleyPlugin::articleDownload':
-                    $assocType = ASSOC_TYPE_SUBMISSION_FILE;
+                    $assocType = Application::ASSOC_TYPE_SUBMISSION_FILE;
                     $preprint = $hookArgs[0];
                     $galley = $hookArgs[1];
                     $submissionFileId = $hookArgs[2];
@@ -145,8 +146,8 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
     protected function getHtmlPageAssocTypes()
     {
         return [
-            ASSOC_TYPE_SERVER,
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SERVER,
+            Application::ASSOC_TYPE_SUBMISSION,
         ];
     }
 

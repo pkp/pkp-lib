@@ -16,10 +16,9 @@
 namespace PKP\plugins;
 
 use APP\install\Install;
-
 use APP\install\Upgrade;
+use DirectoryIterator;
 use Exception;
-use FilesystemIterator;
 use Illuminate\Support\Arr;
 use PharData;
 use PKP\config\Config;
@@ -30,7 +29,6 @@ use PKP\site\SiteDAO;
 use PKP\site\Version;
 use PKP\site\VersionCheck;
 use PKP\site\VersionDAO;
-use SplFileObject;
 use Throwable;
 
 class PluginHelper
@@ -52,55 +50,40 @@ class PluginHelper
      */
     private function extractPlugin(string $filePath, string $originalFileName): string
     {
-        // A permissive extension might be returned (e.g. 1.2.3.tar.gz)
-        $getExtension = fn (string $path) => explode('.', basename($path), 2)[1] ?? '';
-        // Drops risky characters
-        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
-
-        $extension = $sanitize($getExtension($originalFileName));
-        $baseName = $sanitize(basename($originalFileName, ".{$extension}")) ?: 'plugin';
         $fileManager = new FileManager();
+        $extension = $this->sanitizeFilename($fileManager->parseFileExtension($originalFileName));
+        $baseName = $this->sanitizeFilename(basename($originalFileName, ".{$extension}")) ?: 'plugin';
 
-        // If the extension doesn't match, copy the file to another location to avoid issues with the PharData class
+        // If the extension doesn't match the original one, copy (we don't know the original file) the file to another location to avoid issues with the PharData class
         $filePathWithExtension = null;
-        if ($getExtension($filePath) !== $extension) {
-            $filePathWithExtension = ($this->getTemporaryFile($baseName, ".{$extension}"))->getPathname();
-            if (!$fileManager->copyFile($filePath, $filePathWithExtension)) {
-                throw new Exception('Failed to copy file');
-            }
+        if ($fileManager->parseFileExtension($filePath) !== $extension) {
+            $filePathWithExtension = ($fileManager->getTemporaryFile($baseName, ".{$extension}"))->getPathname();
+            $fileManager->copyFile($filePath, $filePathWithExtension) || throw new Exception('Failed to copy plugin file');
         }
         $extractPath = null;
         try {
             // Create a random directory to avoid symlink attacks.
             $extractPath = rtrim(sys_get_temp_dir(), '\\/') . "/{$baseName}" . substr(md5(mt_rand()), 0, 10) . '/';
-            if (!$fileManager->mkdir($extractPath)) {
-                throw new Exception("Could not create directory {$extractPath}");
-            }
+            $fileManager->mkdir($extractPath) || throw new Exception("Could not create directory {$extractPath}");
 
-            $tarball = new PharData($filePathWithExtension ?? $filePath);
-            $tarball->extractTo($extractPath, null, true);
+            // Extract files
+            (new PharData($filePathWithExtension ?? $filePath))->extractTo($extractPath, null, true);
 
-            // Look for the plugin's version.xml file
-            if (is_file($extractPath . static::PLUGIN_VERSION_FILE)) {
-                return $extractPath;
-            }
-
-            foreach (new FilesystemIterator($extractPath) as $item) {
-                if ($item->isDir() && is_file("{$item}/" . static::PLUGIN_VERSION_FILE)) {
-                    return "{$item}/";
+            // Ensure there's a file named "version.xml" at the main directory or at the direct sub-directories
+            foreach(new DirectoryIterator($extractPath) as $current) {
+                if ($current->isDir() && $current->getBasename() !== '..' && is_file(($path = "{$current->getPathname()}/") . static::PLUGIN_VERSION_FILE)) {
+                    return $path;
                 }
             }
-
-            // Could not match the plugin archive's contents against our expectations
             throw new Exception(__('manager.plugins.invalidPluginArchive'));
         } catch (Throwable $e) {
-            // Cleanup the extracted folder on failure
+            // Cleanup the extracted folder on failure and rethrow
             if ($extractPath) {
                 $fileManager->rmtree($extractPath);
             }
             throw $e;
         } finally {
-            // Cleanup the temporary packed plugin file if it exists
+            // Cleanup the temporary archive file in case it was created
             if ($filePathWithExtension) {
                 unlink($filePathWithExtension);
             }
@@ -120,9 +103,10 @@ class PluginHelper
         $fileManager = new FileManager();
         $sourcePath = $this->extractPlugin($path, $originalFileName);
         try {
-            $versionFile = $sourcePath . self::PLUGIN_VERSION_FILE;
+            $versionFile = $sourcePath . static::PLUGIN_VERSION_FILE;
             $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
-            $versionDao = DAORegistry::getDAO('VersionDAO'); /** @var VersionDAO $versionDao */
+            /** @var VersionDAO */
+            $versionDao = DAORegistry::getDAO('VersionDAO');
             $installedPlugin = $versionDao->getCurrentVersion($pluginVersion->getProductType(), $pluginVersion->getProduct(), true);
             $baseDir = Core::getBaseDir() . '/';
             $destinyPath = $baseDir . strtr($pluginVersion->getProductType(), '.', '/') . "/{$pluginVersion->getProduct()}";
@@ -136,13 +120,12 @@ class PluginHelper
             }
 
             // Copy the plug-in from the temporary folder to the target folder.
-            if (!$fileManager->copyDir($sourcePath, $destinyPath)) {
-                throw new Exception('Could not copy plugin to destination!');
-            }
+            $fileManager->copyDir($sourcePath, $destinyPath) || throw new Exception('Failed to copy plugin to destination folder');
+
             try {
                 // Upgrade the database with the new plug-in.
                 $installFile = Arr::first(
-                    ["{$destinyPath}/" . self::PLUGIN_INSTALL_FILE, $baseDir . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml'],
+                    ["{$destinyPath}/" . static::PLUGIN_INSTALL_FILE, $baseDir . PKP_LIB_PATH . '/xml/defaultPluginInstall.xml'],
                     fn (string $path) => is_file($path)
                 )
                     ?? throw new Exception('Missing installation file');
@@ -154,9 +137,7 @@ class PluginHelper
                 $params['additionalLocales'] = $site->getSupportedLocales();
                 $installer = new Install($params, $installFile, true);
                 $installer->setCurrentVersion($pluginVersion);
-                if (!$installer->execute()) {
-                    throw new Exception(__('manager.plugins.installFailed', ['errorString' => $installer->getErrorString()]));
-                }
+                $installer->execute() || throw new Exception(__('manager.plugins.installFailed', ['errorString' => $installer->getErrorString()]));
                 $versionDao->insertVersion($pluginVersion, true);
                 return $pluginVersion;
             } catch (Throwable $e) {
@@ -202,7 +183,7 @@ class PluginHelper
         $fileManager = new FileManager();
         $sourcePath = $this->extractPlugin($path, $originalFileName);
         try {
-            $versionFile = $sourcePath . self::PLUGIN_VERSION_FILE;
+            $versionFile = $sourcePath . static::PLUGIN_VERSION_FILE;
             $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
             // Check whether the uploaded plug-in fits the original plug-in.
@@ -220,7 +201,7 @@ class PluginHelper
                 throw new Exception(__('manager.plugins.pleaseInstall'));
             }
 
-            if ($installedPlugin->compare($pluginVersion) > 0) {
+            if ($installedPlugin->compare($pluginVersion) >= 0) {
                 throw new Exception(__('manager.plugins.installedVersionNewer'));
             }
 
@@ -235,25 +216,23 @@ class PluginHelper
             }
 
             // Copy the plug-in from the temporary folder to the target folder.
-            if (!$fileManager->copyDir($sourcePath, $destinyPath)) {
-                throw new Exception('Could not copy plugin to destination!');
-            }
+            $fileManager->copyDir($sourcePath, $destinyPath) || throw new Exception('Could not copy plugin to destination!');
 
             try {
-                $upgradeFile = "{$destinyPath}/" . self::PLUGIN_UPGRADE_FILE;
+                $upgradeFile = "{$destinyPath}/" . static::PLUGIN_UPGRADE_FILE;
                 if ($fileManager->fileExists($upgradeFile)) {
-                    $siteDao = DAORegistry::getDAO('SiteDAO'); /** @var SiteDAO $siteDao */
+                    /** @var SiteDAO */
+                    $siteDao = DAORegistry::getDAO('SiteDAO');
                     $site = $siteDao->getSite();
                     $params = $this->_getConnectionParams();
                     $params['locale'] = $site->getPrimaryLocale();
                     $params['additionalLocales'] = $site->getSupportedLocales();
                     $installer = new Upgrade($params, $upgradeFile, true);
-
-                    if (!$installer->execute()) {
-                        throw new Exception(__('manager.plugins.upgradeFailed', ['errorString' => $installer->getErrorString()]));
-                    }
+                    // Run the upgrade/migration
+                    $installer->execute() || throw new Exception(__('manager.plugins.upgradeFailed', ['errorString' => $installer->getErrorString()]));
                 }
 
+                // Add the new version to the database
                 $pluginVersion->setCurrent(1);
                 $versionDao->insertVersion($pluginVersion, true);
                 return $pluginVersion;
@@ -263,28 +242,17 @@ class PluginHelper
                 throw $e;
             }
         } finally {
+            // Discard the temporary plugin files
             $fileManager->rmtree($sourcePath);
         }
     }
 
     /**
-     * Attempts to create a locked and writable temporary file
-     * The prefix/suffix will receive a minor sanitization
+     * Drops risky characters from a filename
      */
-    public static function getTemporaryFile(string $prefix = '', string $suffix = ''): SplFileObject
+    private function sanitizeFilename(string $filename): string
     {
-        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
-        $basePath = rtrim(sys_get_temp_dir(), '\\/') . "/";
-        for ($attempts = 10; $attempts--; ) {
-            try {
-                $file = new SplFileObject($basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix), 'x+');
-                $file->flock(LOCK_EX);
-                return $file;
-            } catch (Throwable $e) {
-                error_log($e);
-            }
-        }
-        throw new Exception('Failed to create temporary file');
+        return preg_replace('/[^\w.-]/', '', $filename);
     }
 }
 

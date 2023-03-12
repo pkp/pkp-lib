@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-07 18:10+0000\n"
+"PO-Revision-Date: 2023-03-12 16:18+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
@@ -3014,22 +3014,24 @@ msgid "emailTemplate.variable.submission.authorsShort"
 msgstr "Kirjoittajien nimet lyhyenä merkkijonona, kuten \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Kirjoittajien täydelliset nimet"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Kirjoittajalle näytettävä URL-osoite käsikirjoitukseen"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Käsikirjoituksen URL-osoite toimituksen hallintapaneeliin"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Julkaistun käsikirjoituksen URL-osoite"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Käsikirjoituksen URL-osoite ohjatussa lähetystoiminnossa"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Käsikirjoituksen työnkulkuun osoitettujen kirjoittajien nimet. Yleensä "
+"käsikirjoituksen lähettänyt kirjoittaja"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""

@@ -18,11 +18,11 @@
 namespace APP\doi;
 
 use APP\facades\Repo;
-use Doi;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\context\Context;
+use PKP\doi\Doi;
 use PKP\submission\PKPSubmission;
 
 class DAO extends \PKP\doi\DAO

@@ -25,6 +25,7 @@ use PKP\oai\OAI;
 use PKP\oai\OAIRepository;
 use PKP\oai\OAIResumptionToken;
 use PKP\plugins\Hook;
+use PKP\site\VersionDAO;
 
 class ServerOAI extends OAI
 {
@@ -52,6 +53,7 @@ class ServerOAI extends OAI
         $this->site = $request->getSite();
         $this->server = $request->getServer();
         $this->serverId = isset($this->server) ? $this->server->getId() : null;
+        /** @var OAIDAO */
         $this->dao = DAORegistry::getDAO('OAIDAO');
         $this->dao->setOAI($this);
     }
@@ -130,6 +132,7 @@ class ServerOAI extends OAI
         $info->earliestDatestamp = $this->dao->getEarliestDatestamp([$this->serverId]);
 
         $info->toolkitTitle = 'Open Preprint Systems';
+        /** @var VersionDAO */
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
         $info->toolkitVersion = $currentVersion->getVersionString();

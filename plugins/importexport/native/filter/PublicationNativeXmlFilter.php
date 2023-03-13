@@ -16,6 +16,8 @@
 namespace APP\plugins\importexport\native\filter;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use DOMDocument;
 use PKP\plugins\importexport\native\filter\PKPNativeFilterHelper;
 
 class PublicationNativeXmlFilter extends \PKP\plugins\importexport\native\filter\PKPPublicationNativeXmlFilter

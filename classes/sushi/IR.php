@@ -292,7 +292,7 @@ class IR extends CounterR5Report
                         $item['Item_Contributors'] = $itemContributors;
                     }
                 } elseif ($attributeToShow == 'Article_Version') {
-                    // COUNTER R5 does not support perprints, so use VoR here as well
+                    // COUNTER R5 does not support preprints, so use VoR here as well
                     $item['Item_Attributes'] = [
                         ['Type' => 'Article_Version', 'Value' => 'VoR']
                     ];

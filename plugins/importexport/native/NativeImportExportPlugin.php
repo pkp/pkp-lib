@@ -15,6 +15,8 @@
 
 namespace APP\plugins\importexport\native;
 
+use APP\template\TemplateManager;
+
 class NativeImportExportPlugin extends \PKP\plugins\importexport\native\PKPNativeImportExportPlugin
 {
     /**

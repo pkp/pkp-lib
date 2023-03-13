@@ -16,6 +16,7 @@
 namespace APP\pages\authorDashboard;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
@@ -126,6 +127,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             return (int) $stageId;
         }
         // Maintain the old check for previous path urls
+        /** @var PageRouter */
         $router = $request->getRouter();
         $workflowPath = $router->getRequestedOp($request);
         $stageId = WorkflowStageDAO::getIdFromPath($workflowPath);

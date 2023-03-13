@@ -57,10 +57,10 @@ class Submission extends PKPSubmission
         $context = Services::get('context')->get($this->getData('contextId'));
         $fieldValue = null; // Scrutinizer
         switch ($field) {
-            case PERMISSIONS_FIELD_LICENSE_URL:
+            case Submission::PERMISSIONS_FIELD_LICENSE_URL:
                 $fieldValue = $context->getData('licenseUrl');
                 break;
-            case PERMISSIONS_FIELD_COPYRIGHT_HOLDER:
+            case Submission::PERMISSIONS_FIELD_COPYRIGHT_HOLDER:
                 switch ($context->getData('copyrightHolderType')) {
                     case 'author':
                         if (!$publication) {
@@ -78,7 +78,7 @@ class Submission extends PKPSubmission
                         break;
                 }
                 break;
-            case PERMISSIONS_FIELD_COPYRIGHT_YEAR:
+            case Submission::PERMISSIONS_FIELD_COPYRIGHT_YEAR:
                 // Default copyright year to current year
                 $fieldValue = date('Y');
 

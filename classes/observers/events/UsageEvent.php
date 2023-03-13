@@ -18,5 +18,4 @@ namespace APP\observers\events;
 
 class UsageEvent extends \PKP\observers\events\UsageEvent
 {
-    //
 }

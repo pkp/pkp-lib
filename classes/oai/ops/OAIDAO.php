@@ -21,16 +21,20 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;
+use PKP\galley\DAO;
 use PKP\oai\OAISet;
 use PKP\oai\OAIUtils;
 use PKP\oai\PKPOAIDAO;
 use PKP\plugins\Hook;
 use PKP\submission\PKPSubmission;
+use PKP\tombstone\DataObjectTombstoneDAO;
 
 class OAIDAO extends PKPOAIDAO
 {
     // Helper DAOs
+    /** @var ServerDAO */
     public $serverDao;
+    /** @var DAO */
     public $galleyDao;
 
     public $serverCache;
@@ -107,6 +111,7 @@ class OAIDAO extends PKPOAIDAO
             $title = $server->getLocalizedName();
             array_push($sets, new OAISet(self::setSpec($server), $title, ''));
 
+            /** @var DataObjectTombstoneDAO */
             $tombstoneDao = DAORegistry::getDAO('DataObjectTombstoneDAO');
             $preprintTombstoneSets = $tombstoneDao->getSets(Application::ASSOC_TYPE_SERVER, $server->getId());
 
@@ -187,7 +192,9 @@ class OAIDAO extends PKPOAIDAO
         $section = $this->getSection($row['section_id']);
         $preprintId = $row['submission_id'];
 
-        $record->identifier = $this->oai->preprintIdToIdentifier($preprintId);
+        /** @var ServerOAI */
+        $oai = $this->oai;
+        $record->identifier = $oai->preprintIdToIdentifier($preprintId);
         $record->sets = [self::setSpec($server, $section)];
 
         if ($isRecord) {

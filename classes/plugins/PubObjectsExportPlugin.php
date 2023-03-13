@@ -20,6 +20,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\server\ServerDAO;
 use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
@@ -407,7 +408,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * @param string $filter
      * @param Context $context
      * @param bool $noValidation If set to true no XML validation will be done
-     * @param $outputErrors null|mixed Error messages can be added here to handle error display external to displayXMLValidationErrors()
+     * @param null|mixed $outputErrors Error messages can be added here to handle error display external to displayXMLValidationErrors()
      *
      * @return string XML document.
      */
@@ -614,6 +615,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
         $contextPath = array_shift($args);
         $objectType = array_shift($args);
 
+        /** @var ServerDAO */
         $contextDao = DAORegistry::getDAO('ServerDAO');
         $context = $contextDao->getByPath($contextPath);
         if (!$context) {
@@ -702,7 +704,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                     foreach ($result as $error) {
                         assert(is_array($error) && count($error) >= 1);
                         $errorMessage = __($error[0], ['param' => ($error[1] ?? null)]);
-                        echo "*** ${errorMessage}\n";
+                        echo "*** {$errorMessage}\n";
                     }
                     echo "\n";
                 } else {
@@ -733,7 +735,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     }
 
     /**
-     * Get preprint galleys from gallley IDs.
+     * Get preprint galleys from galley IDs.
      *
      * @param array $galleyIds
      *
@@ -819,7 +821,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Checks for export action type as set user var and as action passed from API call
      *
-     * @param $exportAction string Action to check for
+     * @param string $exportAction Action to check for
      *
      */
     protected function _checkForExportAction(string $exportAction): bool

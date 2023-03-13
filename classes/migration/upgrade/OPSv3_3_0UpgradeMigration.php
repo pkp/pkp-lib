@@ -121,7 +121,7 @@ class OPSv3_3_0UpgradeMigration extends \PKP\migration\upgrade\PKPv3_3_0UpgradeM
             ->whereNotNull('pg.submission_file_id')
             ->pluck('pg.submission_file_id', 'pg.galley_id');
         foreach ($orphanedIds as $galleyId => $submissionFileId) {
-            error_log("Removing orphaned publication_galleys entry ID ${galleyId} with submission_file_id ${submissionFileId}");
+            error_log("Removing orphaned publication_galleys entry ID {$galleyId} with submission_file_id {$submissionFileId}");
             DB::table('publication_galleys')->where('galley_id', '=', $galleyId)->delete();
         }
 

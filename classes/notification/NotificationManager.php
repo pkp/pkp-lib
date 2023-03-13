@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 
 use APP\notification\managerDelegate\ApproveSubmissionNotificationManager;
+use APP\server\Server;
 use PKP\core\PKPApplication;
 use PKP\notification\PKPNotificationManager;
 
@@ -41,6 +42,7 @@ class NotificationManager extends PKPNotificationManager
             // OPS: links leading to a new submission have to be redirected to production stage
             case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
                 $contextDao = Application::getContextDAO();
+                /** @var Server */
                 $context = $contextDao->getById($notification->getContextId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
             default:

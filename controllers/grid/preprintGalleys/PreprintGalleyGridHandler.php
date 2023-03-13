@@ -331,6 +331,7 @@ class PreprintGalleyGridHandler extends GridHandler
 
         Repo::galley()->delete($galley);
 
+        /** @var NotificationDAO */
         $notificationDao = DAORegistry::getDAO('NotificationDAO');
         $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REPRESENTATION, $galley->getId());
 

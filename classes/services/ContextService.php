@@ -146,6 +146,7 @@ class ContextService extends \PKP\services\PKPContextService
         $preprintTombstoneManager = new PreprintTombstoneManager();
         $preprintTombstoneManager->insertTombstonesByContext($context);
 
+        /** @var GenreDAO */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genreDao->deleteByContextId($context->getId());
     }

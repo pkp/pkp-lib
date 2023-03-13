@@ -13,6 +13,10 @@
  * @brief CLI tool to perform import/export tasks
  */
 
+use PKP\cliTool\CommandLineTool;
+use PKP\plugins\ImportExportPlugin;
+use PKP\plugins\PluginRegistry;
+
 require(dirname(__FILE__) . '/bootstrap.php');
 
 class importExport extends CommandLineTool
@@ -66,7 +70,7 @@ class importExport extends CommandLineTool
             $this->usage();
             return;
         }
-
+        /** @var ImportExportPlugin $plugin */
         return $plugin->executeCLI($this->scriptName, $this->parameters);
     }
 }

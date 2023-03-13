@@ -25,6 +25,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\i18n\LocaleMetadata;
+use PKP\notification\NotificationDAO;
 use PKP\session\SessionManager;
 use PKP\site\Site;
 use PKP\template\PKPTemplateManager;
@@ -71,6 +72,7 @@ class TemplateManager extends PKPTemplateManager
 
             // Get a count of unread tasks.
             if ($user = $request->getUser()) {
+                /** @var NotificationDAO */
                 $notificationDao = DAORegistry::getDAO('NotificationDAO');
                 // Exclude certain tasks, defined in the notifications grid handler
                 import('lib.pkp.controllers.grid.notifications.TaskNotificationsGridHandler');

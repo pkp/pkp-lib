@@ -18,6 +18,7 @@ namespace APP\controllers\tab\workflow;
 use APP\core\Application;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;

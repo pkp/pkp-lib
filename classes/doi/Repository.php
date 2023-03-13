@@ -7,6 +7,7 @@ use APP\core\Request;
 use APP\facades\Repo;
 use APP\plugins\PubIdPlugin;
 use APP\publication\Publication;
+use APP\server\Server;
 use APP\server\ServerDAO;
 use APP\submission\Submission;
 use Illuminate\Support\Collection;
@@ -111,6 +112,7 @@ class Repository extends \PKP\doi\Repository
 
         /** @var ServerDAO $contextDao */
         $contextDao = Application::getContextDAO();
+        /** @var Server */
         $context = $contextDao->getById($submission->getData('contextId'));
 
         foreach ($publications as $publication) {

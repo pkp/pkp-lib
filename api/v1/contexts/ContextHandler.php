@@ -13,7 +13,7 @@
  */
 
 namespace APP\API\v1\contexts;
- 
+
 class ContextHandler extends \PKP\API\v1\contexts\PKPContextHandler
 {
 }

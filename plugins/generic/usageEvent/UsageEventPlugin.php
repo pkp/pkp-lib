@@ -104,7 +104,7 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
                         $canonicalUrlParams = [$pubObject->getId()];
                         $idParams = ['m' . $pubObject->getId()];
                         if (isset($publicationId)) {
-                            // no need to check if the publication exists (for the submisison),
+                            // no need to check if the publication exists (for the submission),
                             // 404 would be returned and the usage event would not be there
                             $canonicalUrlParams = [$pubObject->getId(), 'version', $publicationId];
                         }
@@ -121,7 +121,7 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
                     $preprint = $hookArgs[0];
                     $galley = $hookArgs[1];
                     $submissionFileId = $hookArgs[2];
-                    // if file is not a gallay file (e.g. CSS or images), there is no usage event.
+                    // if file is not a galley file (e.g. CSS or images), there is no usage event.
                     if ($galley->getData('submissionFileId') != $submissionFileId) {
                         return false;
                     }

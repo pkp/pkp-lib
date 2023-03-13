@@ -15,8 +15,9 @@
 
 namespace APP\pages\gateway;
 
-use PKP\plugins\PluginRegistry;
+use APP\core\PageRouter;
 use APP\handler\Handler;
+use PKP\plugins\PluginRegistry;
 
 class GatewayHandler extends Handler
 {
@@ -30,9 +31,11 @@ class GatewayHandler extends Handler
     public function __construct($request)
     {
         parent::__construct();
-        $op = $request->getRouter()->getRequestedOp($request);
+        /** @var PageRouter */
+        $router = $request->getRouter();
+        $op = $router->getRequestedOp($request);
         if ($op == 'plugin') {
-            $args = $request->getRouter()->getRequestedArgs($request);
+            $args = $router->getRequestedArgs($request);
             $pluginName = array_shift($args);
             $plugins = PluginRegistry::loadCategory('gateways');
             if (!isset($plugins[$pluginName])) {

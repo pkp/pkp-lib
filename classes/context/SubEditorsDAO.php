@@ -300,7 +300,7 @@ class SubEditorsDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the section assigned sub eidtor's associated user groups for given section
+     * Get the section assigned sub eidtor's associated user groups ids for given section
      *
      * @param   int         $contextId
      * @param   int         sectionId
@@ -308,7 +308,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @return  Collection The user ids and user group id assosciation for given section
      */
-    public function getSectionAssignEditorsUserGroups(int $contextId, int $sectionId, int|array $userIds): Collection
+    public function getAssignedUserGroupIds(int $contextId, int $sectionId, int|array $userIds): Collection
     {
         return DB::table('subeditor_submission_group')
             ->select(['user_id', 'user_group_id'])
@@ -316,7 +316,9 @@ class SubEditorsDAO extends \PKP\db\DAO
             ->where('context_id', $contextId)
             ->where('assoc_id', $sectionId)
             ->whereIn('user_id', Arr::wrap($userIds))
-            ->get();
+            ->get()
+            ->groupBy('user_id')
+            ->map(fn($userGroups) => $userGroups->pluck('user_group_id'));
     }
 }
 

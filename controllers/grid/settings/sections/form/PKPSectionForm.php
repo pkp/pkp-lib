@@ -139,7 +139,6 @@ class PKPSectionForm extends Form
 
     public function initData()
     {
-        $assignedSubeditors = [];
         $subeditorUserGroups = [];
 
         if ($this->getSection() !== null) {
@@ -154,19 +153,15 @@ class PKPSectionForm extends Form
 
             if (!empty($assignedSubeditors)) {
                 $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-                $subeditorUserGroups = $subEditorsDao->getSectionAssignEditorsUserGroups(
+                $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
                     $contextId, 
                     $this->getSection()->getId(), 
                     $assignedSubeditors
-                )
-                ->groupBy('user_id')
-                ->map(fn($userGroups) => $userGroups->pluck('user_group_id'))
-                ->toArray();
+                )->toArray();
             }
         }
 
         $this->setData([
-            'assignedSubeditors'    => $assignedSubeditors,
             'subeditorUserGroups'   => $subeditorUserGroups,
         ]);
 

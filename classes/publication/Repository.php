@@ -256,6 +256,11 @@ abstract class Repository
             $errors['declined'] = __('publication.required.declined');
         }
 
+        // Don't allow canceled submissions to be published
+        if ($submission->getData('status') === PKPSubmission::STATUS_CANCELED) {
+            $errors['canceled'] = __('publication.required.canceled');
+        }
+
         // Don't allow a publication to be published before passing the review stage
         if ($submission->getData('stageId') <= WORKFLOW_STAGE_ID_EXTERNAL_REVIEW) {
             $errors['reviewStage'] = __('publication.required.reviewStage');

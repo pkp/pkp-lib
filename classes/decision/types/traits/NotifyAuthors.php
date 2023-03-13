@@ -8,7 +8,7 @@
  *
  * @class decision
  *
- * @brief Helper functions for decisions that may request a payment
+ * @brief Helper functions for decisions that send a notification to authors.
  */
 
 namespace PKP\decision\types\traits;

@@ -235,6 +235,7 @@ abstract class PKPAuthorDashboardHandler extends Handler
             'STATUS_QUEUED' => PKPSubmission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => PKPSubmission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => PKPSubmission::STATUS_DECLINED,
+            'STATUS_CANCELED' => PKPSubmission::STATUS_CANCELED,
             'STATUS_SCHEDULED' => PKPSubmission::STATUS_SCHEDULED,
             'FORM_TITLE_ABSTRACT' => FORM_TITLE_ABSTRACT,
             'FORM_CITATIONS' => FORM_CITATIONS,

@@ -807,6 +807,7 @@ class PKPTemplateManager extends Smarty
             'STATUS_QUEUED' => Submission::STATUS_QUEUED,
             'STATUS_PUBLISHED' => Submission::STATUS_PUBLISHED,
             'STATUS_DECLINED' => Submission::STATUS_DECLINED,
+            'STATUS_CANCELED' => Submission::STATUS_CANCELED,
             'STATUS_SCHEDULED' => Submission::STATUS_SCHEDULED,
         ]);
 

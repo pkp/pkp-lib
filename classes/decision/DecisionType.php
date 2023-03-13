@@ -112,6 +112,14 @@ abstract class DecisionType
     abstract public function getStageId(): int;
 
     /**
+     * The decision can be taken on any stage if getAllowOnAnyStage returns true
+     */
+    public function getAllowOnAnyStage(): bool
+    {
+        return false;
+    }
+
+    /**
      * Get a url to record this decision for a submission
      *
      * @throws Exception If the editorial decision is in the review stage but no review round id has been passed

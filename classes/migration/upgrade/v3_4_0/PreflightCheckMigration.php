@@ -15,6 +15,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
 use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
+use APP\statistics\StatisticsHelper;
 use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
@@ -36,6 +37,21 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+            // check if there are usage stats log files older than yesterday
+            foreach (glob(StatisticsHelper::getUsageStatsDirPath() . '/usageEventLogs/*') as $usageStatsLogFile) {
+                $lastModified = date('Ymd', filemtime($usageStatsLogFile));
+                $yesterday = date('Ymd', strtotime('-1 days'));
+                if ($yesterday > $lastModified) {
+                    throw new \Exception("It looks like your stats aren't being processed daily, you need to process old usage stats log files before you upgrade.");
+                }
+            }
+            // check if there are old usage stats log files there that were not successfully processed
+            if (count(glob(StatisticsHelper::getUsageStatsDirPath() . '/processing/*')) !== 0 ||
+                count(glob(StatisticsHelper::getUsageStatsDirPath() . '/reject/*')) !== 0 ||
+                count(glob(StatisticsHelper::getUsageStatsDirPath() . '/stage/*')) !== 0) {
+                throw new \Exception('It looks like some usage stats log files were not processed successfully, you need to handle this before you upgrade.');
+            }
+
             // email_templates_default_data keys should not conflict after locale migration
             // See MergeLocalesMigration (#8598)
             $affectedLocales = MergeLocalesMigration::getAffectedLocales();

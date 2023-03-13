@@ -14,7 +14,6 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\statistics\StatisticsHelper;
-use Illuminate\Support\Facades\DB;
 use PKP\cliTool\ConvertLogFile;
 use PKP\config\Config;
 use PKP\file\FileManager;
@@ -28,25 +27,31 @@ class I8508_ConvertCurrentLogFile extends Migration
      */
     public function up(): void
     {
-        $createLogFiles = DB::table('plugin_settings')
-            ->where('plugin_name', '=', 'usagestatsplugin')
-            ->where('setting_name', '=', 'createLogFiles')
-            ->value('setting_value');
-        if (!$createLogFiles) {
-            return;
+        $fileManager = new FileManager();
+        $convertCurrentUsageStatsLogFile = new ConvertCurrentUsageStatsLogFile();
+
+        $todayFileName = 'usage_events_' . date('Ymd') . '.log';
+        if (file_exists($convertCurrentUsageStatsLogFile->getLogFileDir() . '/' . $todayFileName)) {
+            $convertCurrentUsageStatsLogFile->convert($todayFileName);
+            $oldFilePath = $convertCurrentUsageStatsLogFile->getLogFileDir() . '/usage_events_' . date('Ymd') . '_old.log';
+            $oldFileRemoved = $fileManager->deleteByPath($oldFilePath);
+            if ($oldFileRemoved) {
+                $this->_installer->log("The old usage stats log file {$oldFilePath} was successfully deleted.");
+            } else {
+                $this->_installer->log("The old usage stats log file {$oldFilePath} could not be deleted.");
+            }
         }
 
-        $convertCurrentUsageStatsLogFile = new ConvertCurrentUsageStatsLogFile();
-        $fileName = 'usage_events_' . date('Ymd') . '.log';
-        $convertCurrentUsageStatsLogFile->convert($fileName);
-
-        $oldFilePath = $convertCurrentUsageStatsLogFile->getLogFileDir() . '/usage_events_' . date('Ymd') . '_old.log';
-        $fileManager = new FileManager();
-        $oldFileRemoved = $fileManager->deleteByPath($oldFilePath);
-        if ($oldFileRemoved) {
-            $this->_installer->log("The old usage stats log file {$oldFilePath} was successfully deleted.");
-        } else {
-            $this->_installer->log("The old usage stats log file {$oldFilePath} could not be deleted.");
+        $yesterdayFileName = 'usage_events_' . date('Ymd', strtotime('-1 days')) . '.log';
+        if (file_exists($convertCurrentUsageStatsLogFile->getLogFileDir() . '/' . $yesterdayFileName)) {
+            $convertCurrentUsageStatsLogFile->convert($yesterdayFileName);
+            $oldFilePath = $convertCurrentUsageStatsLogFile->getLogFileDir() . '/usage_events_' . date('Ymd', strtotime('-1 days')) . '_old.log';
+            $oldFileRemoved = $fileManager->deleteByPath($oldFilePath);
+            if ($oldFileRemoved) {
+                $this->_installer->log("The old usage stats log file {$oldFilePath} was successfully deleted.");
+            } else {
+                $this->_installer->log("The old usage stats log file {$oldFilePath} could not be deleted.");
+            }
         }
     }
 

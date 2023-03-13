@@ -71,7 +71,7 @@
 				type="checkbox"
 				id="subEditors[{$userGroupId}][]"
 				value=$id
-				checked=in_array($id, $assignedSubeditors)
+				checked=(isset($subeditorUserGroups[$id]) && in_array($userGroupId, $subeditorUserGroups[$id]))
 				label={translate key="manager.sections.form.assignEditorAs" name=$username role=$role}
 				translate=false
 			}

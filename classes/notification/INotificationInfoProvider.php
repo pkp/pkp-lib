@@ -44,7 +44,7 @@ interface INotificationInfoProvider
      * @param PKPRequest $request
      * @param Notification $notification
      *
-     * @return string
+     * @return string|array
      */
     public function getNotificationMessage($request, $notification);
 
@@ -56,7 +56,7 @@ interface INotificationInfoProvider
      * @param PKPRequest $request
      * @param Notification $notification
      *
-     * @return string
+     * @return string|array
      */
     public function getNotificationContents($request, $notification);
 

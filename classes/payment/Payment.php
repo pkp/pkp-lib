@@ -42,7 +42,7 @@ class Payment
     /** @var int association ID for payment */
     public $assocId;
 
-    /** @var int OJSPaymentManager::PAYMENT_TYPE_... */
+    /** @var int PaymentManager::PAYMENT_TYPE_... */
     public $_type;
 
     /**
@@ -148,9 +148,9 @@ class Payment
     }
 
     /**
-     * Set the type for this payment (OJSPaymentManager::PAYMENT_TYPE_...)
+     * Set the type for this payment (PaymentManager::PAYMENT_TYPE_...)
      *
-     * @param int $type OJSPaymentManager::PAYMENT_TYPE_...
+     * @param int $type PaymentManager::PAYMENT_TYPE_...
      *
      * @return int New payment type
      */
@@ -160,9 +160,9 @@ class Payment
     }
 
     /**
-     * Get the type of this payment (OJSPaymentManager::PAYMENT_TYPE_...)
+     * Get the type of this payment (PaymentManager::PAYMENT_TYPE_...)
      *
-     * @return int OJSPaymentManager::PAYMENT_TYPE_...
+     * @return int PaymentManager::PAYMENT_TYPE_...
      */
     public function getType()
     {

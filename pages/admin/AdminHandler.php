@@ -111,7 +111,7 @@ class AdminHandler extends Handler
         // Interact with the beacon (if enabled) and determine if a new version exists
         $latestVersion = VersionCheck::checkIfNewVersionExists();
 
-        // Display a warning message if there is a new version of OJS available
+        // Display a warning message if there is a new application version available
         if (Config::getVar('general', 'show_upgrade_warning') && $latestVersion) {
             $currentVersion = VersionCheck::getCurrentDBVersion();
             $templateMgr->assign([

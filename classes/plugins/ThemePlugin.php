@@ -120,7 +120,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function themeRegistered($themes)
     {
 
-        // Don't fully initialize the theme until OJS is installed, so that
+        // Don't fully initialize the theme until the application is installed, so that
         // there are no requests to the database before it exists
         if (SessionManager::isDisabled()) {
             return;

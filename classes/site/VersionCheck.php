@@ -12,7 +12,7 @@
  *
  * @see Version
  *
- * @brief Provides methods to check for the latest version of OJS.
+ * @brief Provides methods to check for the latest version of the application.
  */
 
 namespace PKP\site;

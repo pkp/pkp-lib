@@ -12,12 +12,12 @@
 set -e
 
 # Set some environment variables.
-export BASEURL="http://localhost" # This is the URL to the OJS installation directory.
+export BASEURL="http://localhost" # This is the URL to the installation directory.
 export DBHOST=localhost # Database hostname
 export DBNAME=${APPLICATION}-ci # Database name
 export DBUSERNAME=${APPLICATION}-ci # Database username
 export DBPASSWORD=${APPLICATION}-ci # Database password
-export FILESDIR=files # Files directory (relative to OJS installation -- do not do this in production!)
+export FILESDIR=files # Files directory (relative to application directory -- do not do this in production!)
 export DATABASEDUMP=~/database.sql.gz # Path and filename where a database dump can be created/accessed
 export FILESDUMP=~/files.tar.gz # Path and filename where a database dump can be created/accessed
 

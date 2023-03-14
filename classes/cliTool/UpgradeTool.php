@@ -10,7 +10,7 @@
  * @class upgradeTool
  * @ingroup tools
  *
- * @brief CLI tool for upgrading OJS.
+ * @brief CLI tool for upgrading the system.
  *
  * Note: Some functions require fopen wrappers to be enabled.
  */

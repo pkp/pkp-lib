@@ -4,7 +4,7 @@
  * @defgroup submission Submission
  * The abstract concept of a submission is implemented here, and extended
  * in each application with the specifics of that content model, i.e.
- * Articles in OJS, Papers in OCS, and Monographs in OMP.
+ * Articles in OJS, Preprints in OPS, and Monographs in OMP.
  */
 
 /**

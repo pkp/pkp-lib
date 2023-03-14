@@ -216,7 +216,7 @@ class Identity extends \PKP\core\DataObject
      *
      * @param string $locale
      *
-     * @return string
+     * @return string|array
      */
     public function getAffiliation($locale)
     {

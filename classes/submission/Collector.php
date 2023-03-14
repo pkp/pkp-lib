@@ -319,7 +319,7 @@ abstract class Collector implements CollectorInterface
         }
 
         if ($this->isIncomplete) {
-            $q->where('s.submission_progress', '>', 0);
+            $q->where('s.submission_progress', '<>', '');
         }
 
         if (isset($this->daysInactive)) {

@@ -41,14 +41,16 @@ class PluginHelper
     public const PLUGIN_UPGRADE_FILE = 'upgrade.xml';
 
     /**
-     * Extract and validate a plugin (prior to installation)
+     * Extract the plugin, executes the callback, then cleanup the files
      *
+     * @template T of mixed
      * @param string $filePath Full path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
-     *
-     * @return string Directory where the plugin was extracted
+     * @param callable(string $pluginDirectory):T $onExtracted The function will receive as parameter the directory of the plugin
+     * @throws Exception If any unexpected error happens (failure to unpack, absence of version.xml, etc)
+     * @return T Returns the result of the $onExtracted call
      */
-    private function extractPlugin(string $filePath, string $originalFileName): string
+    private function extractPlugin(string $filePath, string $originalFileName, callable $onExtracted): mixed
     {
         $fileManager = new FileManager();
         $extension = $this->sanitizeFilename($fileManager->parseFileExtension($originalFileName));
@@ -72,17 +74,15 @@ class PluginHelper
             // Ensure there's a file named "version.xml" at the main directory or at the direct sub-directories
             foreach(new DirectoryIterator($extractPath) as $current) {
                 if ($current->isDir() && $current->getBasename() !== '..' && is_file(($path = "{$current->getPathname()}/") . static::PLUGIN_VERSION_FILE)) {
-                    return $path;
+                    return $onExtracted($path);
                 }
             }
             throw new Exception(__('manager.plugins.invalidPluginArchive'));
-        } catch (Throwable $e) {
+        } finally {
             // Cleanup the extracted folder on failure and rethrow
             if ($extractPath) {
                 $fileManager->rmtree($extractPath);
             }
-            throw $e;
-        } finally {
             // Cleanup the temporary archive file in case it was created
             if ($filePathWithExtension) {
                 unlink($filePathWithExtension);
@@ -100,10 +100,9 @@ class PluginHelper
      */
     public function installPlugin(string $path, string $originalFileName): Version
     {
-        $fileManager = new FileManager();
-        $sourcePath = $this->extractPlugin($path, $originalFileName);
-        try {
-            $versionFile = $sourcePath . static::PLUGIN_VERSION_FILE;
+        return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder): Version {
+            $fileManager = new FileManager();
+            $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;
             $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
             /** @var VersionDAO */
             $versionDao = DAORegistry::getDAO('VersionDAO');
@@ -120,7 +119,7 @@ class PluginHelper
             }
 
             // Copy the plug-in from the temporary folder to the target folder.
-            $fileManager->copyDir($sourcePath, $destinyPath) || throw new Exception('Failed to copy plugin to destination folder');
+            $fileManager->copyDir($pluginFolder, $destinyPath) || throw new Exception('Failed to copy plugin to destination folder');
 
             try {
                 // Upgrade the database with the new plug-in.
@@ -145,10 +144,7 @@ class PluginHelper
                 $fileManager->rmtree($destinyPath);
                 throw $e;
             }
-        } finally {
-            // Delete the extracted plugin files
-            $fileManager->rmtree($sourcePath);
-        }
+        });
     }
 
     /**
@@ -180,10 +176,9 @@ class PluginHelper
      */
     public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName): Version
     {
-        $fileManager = new FileManager();
-        $sourcePath = $this->extractPlugin($path, $originalFileName);
-        try {
-            $versionFile = $sourcePath . static::PLUGIN_VERSION_FILE;
+        return $this->extractPlugin($path, $originalFileName, function (string $pluginFolder) use ($category, $plugin): Version {
+            $fileManager = new FileManager();
+            $versionFile = $pluginFolder . static::PLUGIN_VERSION_FILE;
             $pluginVersion = VersionCheck::getValidPluginVersionInfo($versionFile);
 
             // Check whether the uploaded plug-in fits the original plug-in.
@@ -216,7 +211,7 @@ class PluginHelper
             }
 
             // Copy the plug-in from the temporary folder to the target folder.
-            $fileManager->copyDir($sourcePath, $destinyPath) || throw new Exception('Could not copy plugin to destination!');
+            $fileManager->copyDir($pluginFolder, $destinyPath) || throw new Exception('Could not copy plugin to destination!');
 
             try {
                 $upgradeFile = "{$destinyPath}/" . static::PLUGIN_UPGRADE_FILE;
@@ -241,10 +236,7 @@ class PluginHelper
                 $fileManager->rmtree($destinyPath);
                 throw $e;
             }
-        } finally {
-            // Discard the temporary plugin files
-            $fileManager->rmtree($sourcePath);
-        }
+        });
     }
 
     /**

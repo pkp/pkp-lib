@@ -14,6 +14,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
+use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
@@ -26,7 +27,7 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     public function up(): void
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $this->dropUniqueIndexKey();
+            $this->dropUniqueIndexKey($table);
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
         });
     }
@@ -37,7 +38,7 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     public function down(): void
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $this->dropUniqueIndexKey();
+            $this->dropUniqueIndexKey($table);
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
         });
     }
@@ -45,19 +46,30 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     /**
      * Drop the unique index key if exists
      * 
-     * @return bool
+     * @param \Illuminate\Database\Schema\Blueprint $table
+     * @return void
      */
-    protected function dropUniqueIndexKey(): bool
+    protected function dropUniqueIndexKey(Blueprint $table): void
     {
+        if (DB::connection() instanceof PostgresConnection) {
+            
+            $keyExists = Collection::make(DB::select("SELECT * FROM pg_indexes WHERE tablename='subeditor_submission_group'"))
+                ->pluck('indexname')
+                ->contains('section_editors_pkey');
+            
+            if ( $keyExists ) {
+                DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey');
+            }
+
+            return;
+        }
+
         $keyExists = Collection::make(DB::select('SHOW INDEXES FROM subeditor_submission_group'))
                 ->pluck('Key_name')
                 ->contains('section_editors_pkey');
 
         if ($keyExists) {
-            DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey');
-            return true;
+            $table->dropIndex('section_editors_pkey');
         }
-
-        return false;
     }
 }

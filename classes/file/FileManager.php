@@ -810,25 +810,31 @@ class FileManager
     }
 
     /**
-     * Attempts to create a locked and writable temporary file
-     * The prefix/suffix will receive a minor sanitization
+     * Attempts to create a readable, writable and locked (configurable) temporary file
+     * The prefix/suffix will be appended to the filename and might receive a minor sanitization
      */
-    public static function getTemporaryFile(?string $prefix = null, ?string $suffix = null, ?int $lockType = LOCK_EX, int $retries = 10): SplFileObject
+    public static function getTemporaryFile(?string $prefix = null, ?string $suffix = null, ?int $lockType = LOCK_EX, int $maxRetries = 10): SplFileObject
     {
-        $sanitize = fn (string $path) => preg_replace('/[^\w.-]/', '', $path);
+        // Sanitize the filename, mostly to avoid navigating through the filesystem with ".."
+        $sanitize = fn (?string $path) => preg_replace('/[^\w.-]/', '', (string) $path);
         $basePath = rtrim(sys_get_temp_dir(), '\\/') . "/";
-        for ($retries = abs($retries); $retries--; ) {
+        $lastException = null;
+        for ($maxRetries = max(0, $maxRetries) + 1; $maxRetries--; ) {
+            $path = $basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix);
             try {
-                $file = new SplFileObject($basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix), 'x+');
+                // If the file already exists, an Exception will be raised due to the "x" mode
+                $file = new SplFileObject($path, 'x+');
                 if ($lockType) {
-                    $file->flock(LOCK_EX) || throw new Exception('Failed to acquire lock');
+                    $file->flock($lockType) || throw new Exception("Failed to acquire lock using operation \"{$lockType}\"");
                 }
                 return $file;
             } catch (Throwable $e) {
-                error_log($e);
+                // Keeps track of the last exception, so it can be re-thrown when the retries are over
+                $lastException = new Exception("Failed to create temporary file \"{$path}\"" . ($maxRetries ? ", {$maxRetries} retries remaining" : ""), 0, $e);
+                error_log($lastException);
             }
         }
-        throw new Exception('Failed to create temporary file');
+        throw $lastException;
     }
 }
 

@@ -13,7 +13,7 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\PostgresConnection;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
@@ -26,9 +26,7 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     public function up(): void
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            DB::connection() instanceof PostgresConnection
-                ? DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey')
-                : $table->dropIndex('section_editors_pkey');
+            $this->dropUniqueIndexKey();
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
         });
     }
@@ -39,10 +37,27 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     public function down(): void
     {
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            DB::connection() instanceof PostgresConnection
-                ? DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey')
-                : $table->dropIndex('section_editors_pkey');
+            $this->dropUniqueIndexKey();
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
         });
+    }
+
+    /**
+     * Drop the unique index key if exists
+     * 
+     * @return bool
+     */
+    protected function dropUniqueIndexKey(): bool
+    {
+        $keyExists = Collection::make(DB::select('SHOW INDEXES FROM subeditor_submission_group'))
+                ->pluck('Key_name')
+                ->contains('section_editors_pkey');
+
+        if ($keyExists) {
+            DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey');
+            return true;
+        }
+
+        return false;
     }
 }

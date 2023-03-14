@@ -1,15 +1,16 @@
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-21 12:53+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-14 19:40+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"admin/mk_MK/>\n"
-"Language: mk_MK\n"
+"admin/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Име на подесувањето"
@@ -21,10 +22,12 @@ msgid "admin.adminFunctions"
 msgstr "Административна функција"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Избришете Кешови"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Избришете ги кеш-датотеките од системот. Ова треба да се прави само во "
+"развојни средини."
 
 msgid "admin.clearDataCache"
 msgstr "Исчистете ги мемориските податоци"
@@ -77,6 +80,8 @@ msgstr "Затворете ги сесии за корисниците"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Сите корисници веднаш ќе бидат одјавени од апликацијата, вклучително и вие, "
+"и ќе треба повторно да се најавите."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -142,7 +147,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Целта даде запис."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Депонирајте DOI со конфигурирана агенција за регистрација"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -150,13 +155,15 @@ msgstr ""
 "и можете да гопреземете записот овде: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
-msgstr ""
+msgstr "Испратете емаил до секој уредник потсетувајќи ги на нивните задачи"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Идентификување уредници за потсетување на контекст {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Испратени {$count} работни места за испраќање потсетници на уредувачкиот "
+"емаил до корисниците {$userIds} во контекст {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -167,10 +174,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Исчистете ги записите за закажаните задачи"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Избришете ги сите влезови на закажани задачи што биле извршени."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Избришете влезови за задачи"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Објавувете ги поднесоците закажани за објавување"
@@ -179,79 +186,101 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Прегледај ги потсетниците"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Известување за уреднички извештај"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Потсетник за завршување на претплатата"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Отстранете ги невалидните истечени корисници"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Отстранете ги многу постарите неуспешни работни места од списокот со "
+"неуспешни работни места."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Процесирајте задачи на чекање во редица"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Ажурирајте ја базата на податоци за DB-IP"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Преименувањето на датотеката со базата на податоци на DB-IP city lite "
+"{$sourceFilename} во {$targetFilename} не успеа."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Користи постапка за фајл од корисничка статистика"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Директориумот {$directory} не е празен. Ова може да укаже на претходно "
+"неуспешен процес или процес кој се извршува истовремено. Оваа датотека "
+"автоматски ќе се обработи."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Фајлот {$file} не може да се отвори и беше отфрлен."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Датотеката {$file} е во стар формат на датотека за евиденција што не може да "
+"се обработи и затоа ќе се премести во претходната фаза."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Датотеката за евиденција {$file} е прескокната бидејќи статистиката од тој "
+"месец е веќе пресметана. За повторно пресметување на статистиката за "
+"претходниот месец, мора да ги вратите сите датотеки за евиденција од тој "
+"месец и да ја користите алатката CLI за повторно да ја обработувате "
+"статистиката."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Линијата {$lineNumber} во датотеката за евиденција {$file} е во погрешен "
+"формат и затоа ќе биде прескокната."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Неважечки запис во дневникот на линијата {$lineNumber} во датотеката за "
+"евиденција {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Времето не е валидно."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Контекст ID не е цел број."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "ID на поднесокот не е цел број."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "ID на претставување не е цел број."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Типот Assoc не е поддржан."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Типот на датотека не е поддржан."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Државата не е кратенка од две букви."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr ""
+msgstr "Регионот не е низа од три букви или бројки."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Институционалниот ID не е во низа."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Настана грешка при обработката на датотеката за евиденција {$file} на "
+"линијата {$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Позадинска работа што ќе ја обработи датотеката за евиденција {$file} и ќе "
+"ги складира статистичките податоци е испратена."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache верзија"
@@ -342,9 +371,11 @@ msgstr "Системски информации"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Приказ на информации за верзијата и конфигурациските поставки на "
+"апликацијата и серверот."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Погледнете ги информациите за системот"
 
 msgid "admin.versionBuild"
 msgstr "Изведба"
@@ -405,147 +436,201 @@ msgstr "Учитувач на фајл"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Изворната gz-file {$filePath} не "
+"можеше да се отвори со gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Одредишната датотека {$filePath} не "
+"може да се отвори."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Изворната gz-file {$file} не можеше "
+"да се прочита со gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Одредишната датотека {$filePath} не "
+"може да се напише со fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Отворената дестинациона датотека "
+"{$filePath} не можеше да се затвори со fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Gz-file со отворен код {$filePath} "
+"не може да се затвори со gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Датотеката не можеше да се декомпресира. Декомпресираната изворна gz-file "
+"{$filePath} не може да се отстрани со прекинување на врската."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Датотеката не можеше да се компресира. Одредишната gz-file {$filePath} не "
+"можеше да се отвори со gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Датотеката не можеше да се компресира. Изворната датотека {$filePath} не "
+"можеше да се отвори со fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Датотеката не можеше да се компресира. Изворната датотека {$filePath} не "
+"можеше да се прочита со fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Датотеката не можеше да се компресира. Дестинатната gz-file {$filePath} не "
+"можеше да се напише со gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Датотеката не можеше да се компресира. Отворената изворна датотека "
+"{$filePath} не можеше да се затвори со fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Датотеката не можеше да се компресира. Отворената дестинација gz-file "
+"{$filePath} не може да се затвори со gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Датотеката не можеше да се компресира. Компресираната изворна датотека "
+"{$filePath} не може да се отстрани со прекинување на врската."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Нема достапни локализации за преземање."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Употреба:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "команда [аргументи]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Достапни команди за именскиот простор `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Не може да се извршат задачи во редица бидејќи е овозможен режимот за "
+"одржување на апликацијата."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Наведете ги сите работни места по ред. Ако сакате да ги нумерирате "
+"резултатите, користете ги параметрите --page= и --perPage=. Pass flag --не "
+"успеа да ги наведе неуспешните работни места."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Исчистете одредена работа во редица врз основа на неговиот ID. Ако сакате да "
+"ги исчистите сите, поминете го параметарот --all. Ако сакате да ги исчистите "
+"сите од одредена редица, поминете го параметарот --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Додајте тест задача во тест-редицата. користете ги опционалните параметри --"
+"only= и поминете „не успеа“ или „успешно“ за да испратите неуспешна или "
+"успешна работа."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Извршете бесконечен процес на daemon работник кој ќе продолжи да обработува "
+"работни места. Користете го знамето --help за да ги видите достапните опции "
+"поврзани со оваа команда."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Наведете ги сите неуспешни работни места. Поставете го параметарот --"
+"queue=QUEUE_NAME и --connection=CONNECTION_NAME за филтрирање на списокот. "
+"Исто така, поминете параметар/означете -- redispatch и --clear за повторно "
+"испраќање назад во редот или избришете ги сите/специфични неуспешни задачи."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Испратете достапни работни места во редот. ако сакате да испратите работа во "
+"одредена редица, поминете го параметарот --queue=QUEUE_NAME. Исто така, може "
+"само да помине --тест за да се изврши тест-задачата и --еднаш за да се "
+"изврши една работа во исто време"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Завршено извршување на {$jobCount} задачи во ред со име {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Нема достапни работни места за извршување во редот со име {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Прикажи ги работите редоследно. Поминете го знамето --неуспешно гледање "
+"неуспешните вкупно неуспешни работи."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Прикажете ја употребата на командата Работни места"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Прикажете ги параметрите за користење на Работни места"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Опцијата не може да биде празна! Проверете го начинот на користење."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Неуспешни последователни Работи"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Последователни работи"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "Идентификатор"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Ред"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Поврзување"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Прикажи име на работа"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Обиди"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Резервирано во"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Достапно на"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Создадено на"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Неуспешно во"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Порака за исклучување"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Нумерирање"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Тековно"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Претходно"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Следно"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"За да ја користите оваа команда, треба да дадете идентификација за работа, "
+"„--all“ или „--queue=“"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""

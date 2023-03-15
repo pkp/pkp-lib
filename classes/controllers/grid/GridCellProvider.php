@@ -18,6 +18,7 @@
 
 namespace PKP\controllers\grid;
 
+use APP\core\Request;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 

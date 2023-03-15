@@ -17,6 +17,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use PKP\security\authorization\AuthorizationPolicy;
 
@@ -40,7 +41,7 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
         }
 
         // Get the submission
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -49,15 +50,15 @@ class SubmissionFileMatchesSubmissionPolicy extends SubmissionFileBaseAccessPoli
         // Check if the submission file belongs to the submission.
         if ($submissionFile->getData('submissionId') == $submission->getId()) {
             // We add this submission file to the context submission files array.
-            $submissionFilesArray = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
+            $submissionFilesArray = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILES);
             if (is_null($submissionFilesArray)) {
                 $submissionFilesArray = [];
             }
             array_push($submissionFilesArray, $submissionFile);
-            $this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES, $submissionFilesArray);
+            $this->addAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILES, $submissionFilesArray);
 
             // Save the submission file to the authorization context.
-            $this->addAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile);
+            $this->addAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE, $submissionFile);
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         } else {
             return AuthorizationPolicy::AUTHORIZATION_DENY;

@@ -134,6 +134,7 @@ class PKPContainer extends Container
     {
         $provider->register();
         if (method_exists($provider, 'boot')) {
+            /** @var mixed $provider */
             $provider->boot();
         }
 

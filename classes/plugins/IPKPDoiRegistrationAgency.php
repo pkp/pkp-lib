@@ -23,8 +23,8 @@ interface IPKPDoiRegistrationAgency
     /**
      * Includes plugin in list of configurable registration agencies for DOI depositing functionality
      *
-     * @param $hookName string DoiSettingsForm::setEnabledRegistrationAgencies
-     * @param $args array [
+     * @param string $hookName DoiSettingsForm::setEnabledRegistrationAgencies
+     * @param array $args [
      *      @option $enabledRegistrationAgencies array
      * ]
      */

@@ -165,7 +165,7 @@ abstract class PluginGridHandler extends CategoryGridHandler
         $categoriesSymbolic = $this->loadData($request, null);
         $categories = [PluginGalleryGridHandler::PLUGIN_GALLERY_ALL_CATEGORY_SEARCH_VALUE => __('grid.plugin.allCategories')];
         foreach ($categoriesSymbolic as $category) {
-            $categories[$category] = __("plugins.categories.${category}");
+            $categories[$category] = __("plugins.categories.{$category}");
         }
         $filterData['categories'] = $categories;
 

@@ -191,6 +191,7 @@ abstract class PKPStatisticsHelper
     {
         if (!isset($this->geoDataCache)) {
             $geoCacheManager = CacheManager::getManager();
+            /** @var FileCache */
             $this->geoDataCache = $geoCacheManager->getCache('geoIP', 'all', [&$this, 'geoDataCacheMiss']);
         }
 
@@ -279,6 +280,7 @@ abstract class PKPStatisticsHelper
     {
         if (!isset($this->institutionDataCache)) {
             $institutionCacheManager = CacheManager::getManager();
+            /** @var FileCache */
             $this->institutionDataCache = $institutionCacheManager->getCache('institutionIP', 'all', [&$this, 'institutionDataCacheMiss']);
         }
 

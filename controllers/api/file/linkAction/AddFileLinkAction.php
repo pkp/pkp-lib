@@ -33,7 +33,7 @@ class AddFileLinkAction extends BaseAddFileLinkAction
      * @param int $fileStage The file stage the file should be
      *  uploaded to (one of the SubmissionFile::SUBMISSION_FILE_* constants).
      * @param int $assocType The type of the element the file should
-     *  be associated with (one fo the ASSOC_TYPE_* constants).
+     *  be associated with (one fo the Application::ASSOC_TYPE_* constants).
      * @param int $assocId The id of the element the file should be
      *  associated with.
      * @param int $reviewRoundId The current review round ID (if any)

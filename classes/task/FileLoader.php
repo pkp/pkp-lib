@@ -85,16 +85,16 @@ abstract class FileLoader extends ScheduledTask
         if ($basePathParent === false) {
             $basePath = null;
         } else {
-            $basePath = "${basePathParent}/${basePathFolder}";
+            $basePath = "{$basePathParent}/{$basePathFolder}";
         }
         $this->_basePath = $basePath;
 
         // Configure paths.
         if (!is_null($basePath)) {
-            $this->_stagePath = "${basePath}/" . self::FILE_LOADER_PATH_STAGING;
-            $this->_archivePath = "${basePath}/" . self::FILE_LOADER_PATH_ARCHIVE;
-            $this->_rejectPath = "${basePath}/" . self::FILE_LOADER_PATH_REJECT;
-            $this->_processingPath = "${basePath}/" . self::FILE_LOADER_PATH_PROCESSING;
+            $this->_stagePath = "{$basePath}/" . self::FILE_LOADER_PATH_STAGING;
+            $this->_archivePath = "{$basePath}/" . self::FILE_LOADER_PATH_ARCHIVE;
+            $this->_rejectPath = "{$basePath}/" . self::FILE_LOADER_PATH_REJECT;
+            $this->_processingPath = "{$basePath}/" . self::FILE_LOADER_PATH_PROCESSING;
         }
 
         // Set admin email and name.
@@ -300,15 +300,15 @@ abstract class FileLoader extends ScheduledTask
      */
     protected function moveFile(string $sourceDir, string $destDir, string $filename): string
     {
-        $currentFilePath = "${sourceDir}/${filename}";
-        $destinationPath = "${destDir}/${filename}";
+        $currentFilePath = "{$sourceDir}/{$filename}";
+        $destinationPath = "{$destDir}/{$filename}";
 
         if (!rename($currentFilePath, $destinationPath)) {
             $message = __('admin.fileLoader.moveFileFailed', ['filename' => $filename,
                 'currentFilePath' => $currentFilePath, 'destinationPath' => $destinationPath]);
             $this->addExecutionLogEntry($message, ScheduledTaskHelper::SCHEDULED_TASK_MESSAGE_TYPE_ERROR);
 
-            // Script shoudl always stop if it can't manipulate files inside
+            // Script should always stop if it can't manipulate files inside
             // its own directory system.
             fatalError($message);
         }

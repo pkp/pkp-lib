@@ -436,7 +436,7 @@ class PKPSchemaService
      *
      * @param string $schemaName One of the SCHEMA_... constants
      * @param \PKP\core\DataObject $object The object to be modified
-     * @param array $supportedLocales List of locale keys that shoud receive
+     * @param array $supportedLocales List of locale keys that should receive
      *  default content. Example: ['en', 'fr_CA']
      * @param string $primaryLocale Example: `en`
      * @param array $localeParams Key/value params for the translation strings
@@ -531,7 +531,7 @@ class PKPSchemaService
                     $defaultSubProp = $propSchema->default->{$subPropName};
                     // If a prop is expected to be a string but the default value is an
                     // object with a `defaultLocaleKey` property, then we render that
-                    // translation. Othewrise, we assign the values as-is and do not
+                    // translation. Otherwise, we assign the values as-is and do not
                     // recursively check for nested objects/arrays inside of objects.
                     if ($subPropSchema->type === 'string' && is_object($defaultSubProp) && property_exists($defaultSubProp, 'defaultLocaleKey')) {
                         $value[$subPropName] = __($defaultSubProp->defaultLocaleKey, $localeParams, $localeKey);

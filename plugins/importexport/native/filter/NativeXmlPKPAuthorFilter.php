@@ -15,7 +15,9 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use APP\core\Application;
 use APP\facades\Repo;
+use Exception;
 use PKP\author\Author;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
@@ -144,7 +146,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         $authorGivenName = $author->getFullName($publication->getData('locale'));
         if (empty($authorGivenName)) {
             $deployment->addError(
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $publication->getId(),
                 __('plugins.importexport.common.error.missingGivenName', [
                     'authorName' => $author->getLocalizedGivenName(),
@@ -159,7 +161,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
-            
+
         foreach ($userGroups as $userGroup) {
             if (in_array($userGroupName, $userGroup->getName(null))) {
                 // Found a candidate; stash it.
@@ -170,7 +172,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
 
         if (!$author->getUserGroupId()) {
             $authorFullName = $author->getFullName($publication->getData('locale'));
-            $deployment->addError(ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['authorName' => $authorFullName, 'userGroupName' => $userGroupName]));
+            $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['authorName' => $authorFullName, 'userGroupName' => $userGroupName]));
             throw new Exception(__('plugins.importexport.author.exportFailed'));
         }
 

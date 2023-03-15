@@ -14,6 +14,7 @@
 
 namespace PKP\pages\dashboard;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -74,7 +75,7 @@ class DashboardHandler extends Handler
         $this->setupTemplate($request);
 
         $currentUser = $request->getUser();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_submissions');
         $lists = [];
 

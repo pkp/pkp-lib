@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\query;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
@@ -58,7 +59,7 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function getSelectAction($request)
     {
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
         return new SelectFilesLinkAction(
             $request,
             $this->getRequestArgs(),
@@ -73,18 +74,18 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
     {
         // Retrieve all submission files for the given file query.
         $submission = $this->getSubmission();
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         $note = $noteDao->getById($this->_noteId);
-        if ($note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+        if ($note->getAssocType() != Application::ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
             throw new Exception('Invalid note ID specified!');
         }
 
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(
-                ASSOC_TYPE_NOTE,
+                Application::ASSOC_TYPE_NOTE,
                 [$this->_noteId]
             )->filterBySubmissionIds([$submission->getId()])
             ->filterByFileStages([(int) $this->getFileStage()])
@@ -98,12 +99,12 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function getRequestArgs()
     {
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-        $representation = $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
+        $representation = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION);
         return array_merge(
             parent::getRequestArgs(),
             [
-                'assocType' => ASSOC_TYPE_NOTE,
+                'assocType' => Application::ASSOC_TYPE_NOTE,
                 'assocId' => $this->_noteId,
                 'queryId' => $query->getId(),
                 'noteId' => $this->_noteId,
@@ -118,14 +119,14 @@ class QueryNoteFilesGridDataProvider extends SubmissionFilesGridDataProvider
     public function getAddFileAction($request)
     {
         $submission = $this->getSubmission();
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
         return new AddFileLinkAction(
             $request,
             $submission->getId(),
             $this->getStageId(),
             $this->getUploaderRoles(),
             $this->getFileStage(),
-            ASSOC_TYPE_NOTE,
+            Application::ASSOC_TYPE_NOTE,
             $this->_noteId,
             null,
             null,

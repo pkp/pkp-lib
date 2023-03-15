@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 use Illuminate\Support\LazyCollection;
@@ -45,8 +46,8 @@ class PKPRestrictBulkEmailsForm extends FormComponent
             ];
         }
 
-        $request = \Application::get()->getRequest();
-        $siteSettingsUrl = $request->getDispatcher()->url($request, \PKPApplication::ROUTE_PAGE, null, 'admin', 'settings', null, null, 'setup/bulkEmails');
+        $request = Application::get()->getRequest();
+        $siteSettingsUrl = $request->getDispatcher()->url($request, Application::ROUTE_PAGE, null, 'admin', 'settings', null, null, 'setup/bulkEmails');
 
         $this->addField(new FieldOptions('disableBulkEmailUserGroups', [
             'label' => __('admin.settings.disableBulkEmailRoles.label'),

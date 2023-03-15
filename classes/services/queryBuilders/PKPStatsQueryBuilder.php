@@ -28,7 +28,7 @@ abstract class PKPStatsQueryBuilder
     /** Include records from this date or before. Default: yesterday's date */
     protected string $dateEnd;
 
-    /** Include records from this date or after. Default: STATISTICS_EARLIEST_DATE */
+    /** Include records from this date or after. Default: PKPStatisticsHelper::STATISTICS_EARLIEST_DATE */
     protected string $dateStart;
 
     /** The count of records to return */

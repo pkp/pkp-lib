@@ -41,7 +41,7 @@ abstract class PaymentManager
      * Queue a payment for receipt.
      *
      * @param object $queuedPayment
-     * @param date $expiryDate optional
+     * @param string $expiryDate optional
      *
      * @return mixed Queued payment ID for new payment, or false if fails
      */

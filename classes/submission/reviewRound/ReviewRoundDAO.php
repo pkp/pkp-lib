@@ -17,6 +17,7 @@
 
 namespace PKP\submission\reviewRound;
 
+use APP\core\Application;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAOResultFactory;
 
@@ -31,7 +32,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * @param int $submissionId
      * @param int $stageId One of the WORKFLOW_*_REVIEW_STAGE_ID constants.
      * @param int $round
-     * @param int $status One of the REVIEW_ROUND_STATUS_* constants.
+     * @param int $status One of the ReviewRound::REVIEW_ROUND_STATUS_* constants.
      *
      * @return ReviewRound
      */
@@ -283,7 +284,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      * Update the review round status.
      *
      * @param ReviewRound $reviewRound
-     * @param ?int $status Optionally pass a REVIEW_ROUND_STATUS_... to set a
+     * @param ?int $status Optionally pass a ReviewRound::REVIEW_ROUND_STATUS_... to set a
      *  specific status. If not included, will determine the appropriate status
      *  based on ReviewRound::determineStatus().
      */
@@ -340,7 +341,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
      */
     public function deleteById($reviewRoundId)
     {
-        $this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
+        $this->update('DELETE FROM notifications WHERE assoc_type = ? AND assoc_id = ?', [(int) Application::ASSOC_TYPE_REVIEW_ROUND, (int) $reviewRoundId]);
         return $this->update('DELETE FROM review_rounds WHERE review_round_id = ?', [(int) $reviewRoundId]);
     }
 

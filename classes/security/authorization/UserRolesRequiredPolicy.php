@@ -61,7 +61,7 @@ class UserRolesRequiredPolicy extends AuthorizationPolicy
 
         $contextRoles = $this->_getContextRoles($roleContext, $userRoles);
 
-        $this->addAuthorizedContextObject(ASSOC_TYPE_USER_ROLES, $contextRoles);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES, $contextRoles);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 

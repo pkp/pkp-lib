@@ -50,7 +50,9 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use Exception;
 use PKP\config\Config;
+use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\core\Registry;
 
 use PKP\db\DAORegistry;
@@ -346,7 +348,7 @@ abstract class Plugin
      * Return the Resource Name for templates in this plugin, or if specified, the full resource locator
      * for a specific template.
      *
-     * @param Template $template path/filename, if desired
+     * @param string $template path/filename, if desired
      * @param bool $inCore True if a "core" template should be used.
      *
      * @return string
@@ -355,7 +357,7 @@ abstract class Plugin
     {
         $pluginPath = $this->getPluginPath();
         if ($inCore) {
-            $pluginPath = PKP_LIB_PATH . "/${pluginPath}";
+            $pluginPath = PKP_LIB_PATH . "/{$pluginPath}";
         }
         $plugin = basename($pluginPath);
         $category = basename(dirname($pluginPath));
@@ -370,7 +372,7 @@ abstract class Plugin
 
         // Slash characters (/) are not allowed in resource names, so use dashes (-) instead.
         $resourceName = strtr(join('/', [PLUGIN_TEMPLATE_RESOURCE_PREFIX, $contextId, $pluginPath, $category, $plugin]), '/', '-');
-        return $resourceName . ($template !== null ? ":${template}" : '');
+        return $resourceName . ($template !== null ? ":{$template}" : '');
     }
 
     /**
@@ -467,7 +469,7 @@ abstract class Plugin
         }
 
         // Recursive check for templates in ancestors of a current theme plugin
-        if ($this instanceof \ThemePlugin
+        if ($this instanceof ThemePlugin
             && $this->parent
             && $fullPath = $this->parent->_findOverriddenTemplate($path)) {
             return $fullPath;
@@ -482,7 +484,7 @@ abstract class Plugin
     public function addLocaleData(): void
     {
         $basePath = $this->getPluginPath() . '/locale';
-        foreach ([$basePath, "lib/pkp/${basePath}"] as $path) {
+        foreach ([$basePath, "lib/pkp/{$basePath}"] as $path) {
             if (is_dir($path)) {
                 Locale::registerPath($path);
             }
@@ -588,7 +590,7 @@ abstract class Plugin
         // Load email template data as required from the locale files.
         $locales = [];
         foreach ($installer->installedLocales as $locale) {
-            if (file_exists($this->getPluginPath() . "/locale/${locale}/emails.po")) {
+            if (file_exists($this->getPluginPath() . "/locale/{$locale}/emails.po")) {
                 $locales[] = $locale;
             }
         }
@@ -655,7 +657,7 @@ abstract class Plugin
         }
 
         // Install locale data specified in the new form.
-        if (file_exists($this->getPluginPath() . "/locale/${locale}/emails.po")) {
+        if (file_exists($this->getPluginPath() . "/locale/{$locale}/emails.po")) {
             $this->addLocaleData();
             Repo::emailTemplate()->dao->installEmailTemplateLocaleData($this->getInstallEmailTemplatesFile(), [$locale]);
         }

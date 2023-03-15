@@ -30,7 +30,9 @@ use PKP\form\Form;
 use PKP\security\Role;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
+use PKP\site\Site;
 use PKP\user\InterestManager;
+use PKP\user\User;
 
 class RegistrationForm extends Form
 {
@@ -45,6 +47,7 @@ class RegistrationForm extends Form
 
     /**
      * Constructor.
+     * @param Site $site
      */
     public function __construct($site)
     {

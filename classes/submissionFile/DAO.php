@@ -97,7 +97,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
     /**
      * Check if a submission file exists.
      *
-     * Optionally, pass the submission ID to check if the submisison file
+     * Optionally, pass the submission ID to check if the submission file
      * exists and is assigned to that submission.
     */
     public function exists(int $id, int $submissionId = null): bool
@@ -230,7 +230,7 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
      * Retrieve file by public file ID
      *
      * $pubIdType it is one of the NLM pub-id-type values or
-     * 'other::something' if not part of the officia.l NLM list
+     * 'other::something' if not part of the official NLM list
      * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
      *
      * @param null|mixed $submissionId

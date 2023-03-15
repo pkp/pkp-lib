@@ -147,7 +147,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
                 $workflowStages[$currentStageId]['statusKey'] = 'submission.complete';
             }
 
-            // If this is an old stage with no notifications, this was a skiped/not initiated stage.
+            // If this is an old stage with no notifications, this was a skipped/not initiated stage.
             if (!$foundState && $stageId < $currentStageId && !$stageNotifications[$stageId]) {
                 $foundState = true;
                 // Those are stages not initiated, that were skipped, like review stages.

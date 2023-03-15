@@ -22,6 +22,7 @@
 namespace PKP\template;
 
 use APP\core\Application;
+use APP\core\PageRouter;
 
 require_once('./lib/pkp/lib/vendor/smarty/smarty/libs/plugins/modifier.escape.php'); // Seems to be needed?
 
@@ -41,6 +42,7 @@ use PKP\controllers\listbuilder\ListbuilderHandler;
 use PKP\core\Core;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -49,6 +51,7 @@ use PKP\file\FileManager;
 use PKP\form\FormBuilderVocabulary;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\NullAction;
+use PKP\notification\NotificationDAO;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
@@ -123,9 +126,9 @@ class PKPTemplateManager extends Smarty
         $baseDir = Core::getBaseDir();
         $cachePath = CacheManager::getFileCachePath();
 
-        $this->compile_dir = "${cachePath}/t_compile";
-        $this->config_dir = "${cachePath}/t_config";
-        $this->cache_dir = "${cachePath}/t_cache";
+        $this->compile_dir = "{$cachePath}/t_compile";
+        $this->config_dir = "{$cachePath}/t_config";
+        $this->cache_dir = "{$cachePath}/t_cache";
 
         $this->_cacheability = self::CACHEABILITY_NO_STORE; // Safe default
 
@@ -371,6 +374,7 @@ class PKPTemplateManager extends Smarty
 
             $user = $request->getUser();
             if ($user) {
+                /** @var NotificationDAO */
                 $notificationDao = DAORegistry::getDAO('NotificationDAO');
                 $this->assign([
                     'currentUser' => $user,
@@ -450,7 +454,7 @@ class PKPTemplateManager extends Smarty
 
         // Set the @baseUrl variable
         $baseUrl = !empty($args['baseUrl']) ? $args['baseUrl'] : $request->getBaseUrl(true);
-        $less->parse("@baseUrl: '${baseUrl}';");
+        $less->parse("@baseUrl: '{$baseUrl}';");
 
         return $less->getCSS();
     }
@@ -466,7 +470,7 @@ class PKPTemplateManager extends Smarty
     public function cacheLess($path, $styles)
     {
         if (file_put_contents($path, $styles) === false) {
-            error_log("Unable to write \"${path}\".");
+            error_log("Unable to write \"{$path}\".");
             return false;
         }
 
@@ -485,7 +489,7 @@ class PKPTemplateManager extends Smarty
         $cacheDirectory = CacheManager::getFileCachePath();
         $context = $this->_request->getContext();
         $contextId = $context instanceof \PKP\context\Context ? $context->getId() : 0;
-        return "${cacheDirectory}/${contextId}-${name}.css";
+        return "{$cacheDirectory}/{$contextId}-{$name}.css";
     }
 
     /**
@@ -705,7 +709,7 @@ class PKPTemplateManager extends Smarty
             return strlen($s) && $s[0] != '#'; // Exclude empty and commented (#) lines
         });
         foreach ($minifiedScripts as $key => $script) {
-            $this->addJavaScript('pkpLib' . $key, "${baseUrl}/${script}", $args);
+            $this->addJavaScript('pkpLib' . $key, "{$baseUrl}/{$script}", $args);
         }
     }
 
@@ -780,6 +784,7 @@ class PKPTemplateManager extends Smarty
     {
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
+        /** @var PageRouter */
         $router = $request->getRouter();
 
         if (empty($this->getTemplateVars('pageComponent'))) {
@@ -1002,7 +1007,7 @@ class PKPTemplateManager extends Smarty
                 }
 
                 // Create main navigation menu
-                $userRoles = (array) $router->getHandler()->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+                $userRoles = (array) $router->getHandler()->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
                 $menu = [];
 
@@ -1610,6 +1615,7 @@ class PKPTemplateManager extends Smarty
         }
 
         require_once('lib/pkp/lib/vendor/smarty/smarty/libs/plugins/function.html_options.php');
+        /** @var Smarty_Internal_Template $smarty */
         return smarty_function_html_options($params, $smarty);
     }
 
@@ -1889,7 +1895,7 @@ class PKPTemplateManager extends Smarty
 
         $router = $this->_request->getRouter();
         $requestedArgs = null;
-        if ($router instanceof \PKP\core\PageRouter) {
+        if ($router instanceof PageRouter) {
             $requestedArgs = $router->getRequestedArgs($this->_request);
         }
 
@@ -1902,7 +1908,7 @@ class PKPTemplateManager extends Smarty
 
         for ($i = $pageBase; $i < min($pageBase + $numPageLinks, $pageCount + 1); $i++) {
             if ($i == $page) {
-                $value .= "<strong>${i}</strong>&nbsp;";
+                $value .= "<strong>{$i}</strong>&nbsp;";
             } else {
                 $params[$paramName] = $i;
                 $value .= '<a href="' . $this->_request->url(null, null, null, $requestedArgs, $params, $anchor) . '"' . $allExtra . '>' . $i . '</a>&nbsp;';

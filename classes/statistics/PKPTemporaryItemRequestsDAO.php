@@ -110,7 +110,7 @@ class PKPTemporaryItemRequestsDAO
     }
 
     /**
-     * Load unique institutional COUNTER item (submisison) requests (primary files downloads)
+     * Load unique institutional COUNTER item (submission) requests (primary files downloads)
      */
     public function compileCounterSubmissionInstitutionDailyMetrics(string $loadId): void
     {
@@ -136,7 +136,8 @@ class PKPTemporaryItemRequestsDAO
                 ';
         }
 
-        $temporaryInstitutionsDAO = DAORegistry::getDAO('TemporaryInstitutionsDAO'); /* @var TemporaryInstitutionsDAO $temporaryInstitutionsDAO */
+        /** @var TemporaryInstitutionsDAO */
+        $temporaryInstitutionsDAO = DAORegistry::getDAO('TemporaryInstitutionsDAO');
         $institutionIds = $temporaryInstitutionsDAO->getInstitutionIdsByLoadId($loadId);
         foreach ($institutionIds as $institutionId) {
             DB::statement($metricRequestsUniqueUpsertSql, [$loadId, Application::ASSOC_TYPE_SUBMISSION_FILE, (int) $institutionId]);

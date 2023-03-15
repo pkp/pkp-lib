@@ -185,6 +185,6 @@ class FormValidator
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\form\validation\FormValidator', '\FormValidator');
-    define('FORM_VALIDATOR_OPTIONAL_VALUE', \FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE);
-    define('FORM_VALIDATOR_REQUIRED_VALUE', \FormValidator::FORM_VALIDATOR_REQUIRED_VALUE);
+    define('FORM_VALIDATOR_OPTIONAL_VALUE', FormValidator::FORM_VALIDATOR_OPTIONAL_VALUE);
+    define('FORM_VALIDATOR_REQUIRED_VALUE', FormValidator::FORM_VALIDATOR_REQUIRED_VALUE);
 }

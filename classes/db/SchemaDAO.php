@@ -96,7 +96,7 @@ abstract class SchemaDAO extends DAO
                 }
                 if (!empty($propSchema->multilingual)) {
                     foreach ($sanitizedProps[$propName] as $localeKey => $localeValue) {
-                        $this->update("INSERT INTO {$this->settingsTableName} (${columnsList}) VALUES (${bindList})", [
+                        $this->update("INSERT INTO {$this->settingsTableName} ({$columnsList}) VALUES ({$bindList})", [
                             $object->getId(),
                             $localeKey,
                             $propName,
@@ -104,7 +104,7 @@ abstract class SchemaDAO extends DAO
                         ]);
                     }
                 } else {
-                    $this->update("INSERT INTO {$this->settingsTableName} (${columnsList}) VALUES (${bindList})", [
+                    $this->update("INSERT INTO {$this->settingsTableName} ({$columnsList}) VALUES ({$bindList})", [
                         $object->getId(),
                         '',
                         $propName,
@@ -142,7 +142,7 @@ abstract class SchemaDAO extends DAO
 
         $set = join('=?,', array_keys($primaryDbProps)) . '=?';
         $this->update(
-            "UPDATE {$this->tableName} SET ${set} WHERE {$this->primaryKeyColumn} = ?",
+            "UPDATE {$this->tableName} SET {$set} WHERE {$this->primaryKeyColumn} = ?",
             array_merge(array_values($primaryDbProps), [$object->getId()])
         );
 
@@ -181,10 +181,10 @@ abstract class SchemaDAO extends DAO
 
         if (count($deleteSettings)) {
             $deleteSettingNames = join(',', array_map(function ($settingName) {
-                return "'${settingName}'";
+                return "'{$settingName}'";
             }, $deleteSettings));
             $this->update(
-                "DELETE FROM {$this->settingsTableName} WHERE {$this->primaryKeyColumn} = ? AND setting_name in (${deleteSettingNames})",
+                "DELETE FROM {$this->settingsTableName} WHERE {$this->primaryKeyColumn} = ? AND setting_name in ({$deleteSettingNames})",
                 [$object->getId()]
             );
         }

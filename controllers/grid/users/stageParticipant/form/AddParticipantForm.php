@@ -50,7 +50,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
      */
     public function __construct($submission, $stageId, $assignmentId = null)
     {
-        parent::__construct($submission->getId(), ASSOC_TYPE_SUBMISSION, $stageId, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
+        parent::__construct($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $stageId, 'controllers/grid/users/stageParticipant/addParticipantForm.tpl');
         $this->_submission = $submission;
         $this->_stageId = $stageId;
         $this->_assignmentId = $assignmentId;
@@ -94,7 +94,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
      *
      * Subeditors can not change their own permissions.
      */
-    protected function _isChangePermitMetadataAllowed(UserGroup $userGroup, int $userId): bool 
+    protected function _isChangePermitMetadataAllowed(UserGroup $userGroup, int $userId): bool
     {
         $currentUser = Application::get()->getRequest()->getUser();
 

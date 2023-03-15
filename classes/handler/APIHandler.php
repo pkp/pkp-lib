@@ -386,7 +386,7 @@ class APIHandler extends PKPHandler
      * API handlers
      *
      * 1. Checks the date formats
-     * 2. Ensures a start date is not earlier than STATISTICS_EARLIEST_DATE
+     * 2. Ensures a start date is not earlier than PKPStatisticsHelper::STATISTICS_EARLIEST_DATE
      * 3. Ensures an end date is no later than yesterday
      * 4. Ensures the start date is not later than the end date
      *

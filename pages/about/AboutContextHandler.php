@@ -15,6 +15,7 @@
 
 namespace PKP\pages\about;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;
@@ -81,7 +82,7 @@ class AboutContextHandler extends Handler
 
         // Get sections for this context
         $canSubmitAll = false;
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if ($userRoles && !empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR], $userRoles))) {
             $canSubmitAll = true;
         }

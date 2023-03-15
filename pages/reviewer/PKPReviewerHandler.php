@@ -20,6 +20,7 @@ use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Exception;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
@@ -28,6 +29,7 @@ use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewer\form\PKPReviewerReviewStep3Form;
 use PKP\submission\reviewer\form\ReviewerReviewForm;
 use PKP\submission\reviewer\ReviewerAction;
 
@@ -126,6 +128,7 @@ class PKPReviewerHandler extends Handler
 
         // Save the available form data, but do not submit
         if ($request->getUserVar('isSave')) {
+            /** @var PKPReviewerReviewStep3Form $reviewerForm */
             $reviewerForm->saveForLater();
             $notificationMgr = new NotificationManager();
             $user = $request->getUser();

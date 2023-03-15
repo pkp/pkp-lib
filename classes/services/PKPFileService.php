@@ -22,6 +22,7 @@ use League\Flysystem\Filesystem;
 use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 use PKP\config\Config;
+use PKP\core\PKPString;
 use PKP\file\FileManager;
 use PKP\plugins\Hook;
 
@@ -44,8 +45,8 @@ class PKPFileService
                     'private' => FileManager::FILE_MODE_MASK & ~$umask,
                 ],
                 'dir' => [
-                    'public' => DIRECTORY_MODE_MASK & ~$umask,
-                    'private' => DIRECTORY_MODE_MASK & ~$umask,
+                    'public' => FileManager::DIRECTORY_MODE_MASK & ~$umask,
+                    'private' => FileManager::DIRECTORY_MODE_MASK & ~$umask,
                 ]
             ]),
             LOCK_EX,
@@ -85,7 +86,7 @@ class PKPFileService
     {
         $stream = fopen($from, 'r+');
         if (!$stream) {
-            throw new Exception("Unable to copy ${from} to ${to}.");
+            throw new Exception("Unable to copy {$from} to {$to}.");
         }
         $this->fs->writeStream($to, $stream);
         if (is_resource($stream)) {
@@ -96,7 +97,7 @@ class PKPFileService
         // Check and override ambiguous mime types based on file extension
         if ($extension = pathinfo($to, PATHINFO_EXTENSION)) {
             $checkAmbiguous = strtolower($extension . ':' . $mimetype);
-            if (array_key_exists($checkAmbiguous, $extensionsMap = \PKPString::getAmbiguousExtensionsMap())) {
+            if (array_key_exists($checkAmbiguous, $extensionsMap = PKPString::getAmbiguousExtensionsMap())) {
                 $mimetype = $extensionsMap[$checkAmbiguous];
             }
         }
@@ -118,14 +119,14 @@ class PKPFileService
     {
         $file = $this->get($id);
         if (!$file) {
-            throw new Exception("Unable to locate file ${id}.");
+            throw new Exception("Unable to locate file {$id}.");
         }
         $path = $file->path;
         if ($this->fs->has($path)) {
             try {
                 $this->fs->delete($path);
             } catch (Exception $e) {
-                throw new Exception("Unable to delete file ${id} at ${path}.");
+                throw new Exception("Unable to delete file {$id} at {$path}.");
             }
         }
         DB::table('files')
@@ -164,10 +165,10 @@ class PKPFileService
         $mimetype = $file->mimetype ?? 'application/octet-stream';
         $filesize = $this->fs->fileSize($path);
         $encodedFilename = urlencode($filename);
-        header("Content-Type: ${mimetype}");
-        header("Content-Length: ${filesize}");
+        header("Content-Type: {$mimetype}");
+        header("Content-Length: {$filesize}");
         header('Accept-Ranges: none');
-        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename=\"${encodedFilename}\";filename*=UTF-8''${encodedFilename}");
+        header('Content-Disposition: ' . ($inline ? 'inline' : 'attachment') . ";filename=\"{$encodedFilename}\";filename*=UTF-8''{$encodedFilename}");
         header('Cache-Control: private'); // Workarounds for IE weirdness
         header('Pragma: public');
 

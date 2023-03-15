@@ -22,11 +22,14 @@
 
 namespace PKP\db;
 
+use Exception;
+use Generator;
 use Illuminate\Support\Facades\DB;
 
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
+use stdClass;
 
 class DAO
 {
@@ -601,10 +604,10 @@ class DAO
     public function getDataObjectSettings($tableName, $idFieldName, $idFieldValue, $dataObject)
     {
         if ($idFieldName !== null) {
-            $sql = "SELECT * FROM ${tableName} WHERE ${idFieldName} = ?";
+            $sql = "SELECT * FROM {$tableName} WHERE {$idFieldName} = ?";
             $params = [$idFieldValue];
         } else {
-            $sql = "SELECT * FROM ${tableName}";
+            $sql = "SELECT * FROM {$tableName}";
             $params = [];
         }
         $result = $this->retrieve($sql, $params);
@@ -722,6 +725,6 @@ class DAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\db\DAO', '\DAO');
-    define('SORT_DIRECTION_ASC', \DAO::SORT_DIRECTION_ASC);
-    define('SORT_DIRECTION_DESC', \DAO::SORT_DIRECTION_DESC);
+    define('SORT_DIRECTION_ASC', DAO::SORT_DIRECTION_ASC);
+    define('SORT_DIRECTION_DESC', DAO::SORT_DIRECTION_DESC);
 }

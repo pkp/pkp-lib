@@ -81,11 +81,11 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Retrieve Notes by assoc id/type
      *
-     * @param int $assocId ASSOC_TYPE_...
+     * @param int $assocId Application::ASSOC_TYPE_...
      * @param int $assocType Assoc ID (per $assocType)
      * @param int $userId Optional user ID
      * @param int $orderBy Optional sorting field constant: self::NOTE_ORDER_...
-     * @param int $sortDirection Optional sorting order constant: SORT_DIRECTION_...
+     * @param int $sortDirection Optional sorting order constant: DAO::SORT_DIRECTION_...
      *
      * @return LazyCollection<Note>
      */
@@ -289,7 +289,7 @@ class NoteDAO extends \PKP\db\DAO
     /**
      * Delete notes by association
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Foreign key, depending on $assocType
      */
     public function deleteByAssoc($assocType, $assocId)
@@ -304,6 +304,6 @@ class NoteDAO extends \PKP\db\DAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\note\NoteDAO', '\NoteDAO');
-    define('NOTE_ORDER_DATE_CREATED', \NoteDAO::NOTE_ORDER_DATE_CREATED);
-    define('NOTE_ORDER_ID', \NoteDAO::NOTE_ORDER_ID);
+    define('NOTE_ORDER_DATE_CREATED', NoteDAO::NOTE_ORDER_DATE_CREATED);
+    define('NOTE_ORDER_ID', NoteDAO::NOTE_ORDER_ID);
 }

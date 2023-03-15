@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class PublicationIsSubmissionPolicy extends AuthorizationPolicy
@@ -24,8 +25,8 @@ class PublicationIsSubmissionPolicy extends AuthorizationPolicy
      */
     public function effect()
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
 
         if ($submission && $publication && $submission->getId() === $publication->getData('submissionId')) {
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;

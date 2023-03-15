@@ -25,6 +25,7 @@ use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\SubmissionCommentDAO;
 
 class AuthorReviewerGridHandler extends PKPReviewerGridHandler
 {
@@ -134,7 +135,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
         $workflowStageAccessPolicy->addPolicy(new ReviewRoundRequiredPolicy($request, $args, 'reviewRoundId', ['fetchGrid', 'fetchRow']));
 
         // Add policy to ensure there is a review assignment for certain operations.
-        $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', ['readReview', 'reviewRead'], [SUBMISSION_REVIEW_METHOD_OPEN]));
+        $workflowStageAccessPolicy->addPolicy(new ReviewAssignmentRequiredPolicy($request, $args, 'reviewAssignmentId', ['readReview', 'reviewRead'], [ReviewAssignment::SUBMISSION_REVIEW_METHOD_OPEN]));
         $this->addPolicy($workflowStageAccessPolicy);
 
         return parent::authorize($request, $args, $roleAssignments);
@@ -167,7 +168,7 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
     public function readReview($args, $request)
     {
         $templateMgr = TemplateManager::getManager($request);
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
 
         $templateMgr->assign([
             'submission' => $this->getSubmission(),

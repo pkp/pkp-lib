@@ -81,6 +81,6 @@ class PluginAccessPolicy extends PolicySet
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\PluginAccessPolicy', '\PluginAccessPolicy');
-    define('ACCESS_MODE_MANAGE', \PluginAccessPolicy::ACCESS_MODE_MANAGE);
-    define('ACCESS_MODE_ADMIN', \PluginAccessPolicy::ACCESS_MODE_ADMIN);
+    define('ACCESS_MODE_MANAGE', PluginAccessPolicy::ACCESS_MODE_MANAGE);
+    define('ACCESS_MODE_ADMIN', PluginAccessPolicy::ACCESS_MODE_ADMIN);
 }

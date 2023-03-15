@@ -113,7 +113,7 @@ abstract class PolicyTestCase extends PKPTestCase
      * Instantiate a mock request to the given operation.
      *
      * @param string $requestedOp the requested operation
-     * @param $context request context object to be
+     * @param ?Context $context request context object to be
      * returned by the router.
      * @param User $user a user to be put into the registry.
      *

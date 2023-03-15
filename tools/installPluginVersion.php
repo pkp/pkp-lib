@@ -62,17 +62,18 @@ class InstallPluginVersionTool extends \PKP\cliTool\CommandLineTool
 
         $productType = $pluginVersion->getProductType();
         if (!preg_match('/^plugins\.(.+)$/', $productType, $matches) || !in_array($matches[1], Application::get()->getPluginCategories())) {
-            error_log("Invalid type \"${productType}\".");
+            error_log("Invalid type \"{$productType}\".");
             return false;
         }
 
+        /** @var VersionDAO */
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $versionDao->insertVersion($pluginVersion, true);
 
         $pluginPath = dirname($this->_descriptor);
-        if (file_exists($wrapperName = "${pluginPath}/index.php")) {
+        if (file_exists($wrapperName = "{$pluginPath}/index.php")) {
             // Old-style (non-FQCN) plugin class name
-            $plugin = include("${pluginPath}/index.php");
+            $plugin = include("{$pluginPath}/index.php");
         } else {
             // Expect a wrapper-less plugin in a namespace.
             $fqcn = '\\APP\\' . strtr($pluginVersion->getProductType(), '.', '\\') . '\\' . $pluginVersion->getProduct() . '\\' . $pluginVersion->getProductClassName();

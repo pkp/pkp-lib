@@ -15,6 +15,10 @@
 namespace PKP\API\v1\_uploadPublicFile;
 
 use APP\core\Application;
+use FilesystemIterator;
+use PKP\config\Config;
+use PKP\core\Core;
+use PKP\core\PKPString;
 use PKP\file\FileManager;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
@@ -22,6 +26,8 @@ use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 
 class PKPUploadPublicFileHandler extends APIHandler
 {
@@ -115,7 +121,7 @@ class PKPUploadPublicFileHandler extends APIHandler
             &$allowedDirSize,
             &$allowedFileTypes,
             $request,
-            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
         ]);
 
         // Allow plugins to control who can upload files

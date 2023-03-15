@@ -19,6 +19,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
+use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\CategoryGridHandler;
 use PKP\controllers\grid\GridColumn;
@@ -73,7 +74,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
      */
     public function getSubmission()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
@@ -83,7 +84,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
      */
     public function getStageId()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
     }
 
     //
@@ -100,7 +101,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     }
 
     /**
-     * Determine whether the current user has admin priveleges for this
+     * Determine whether the current user has admin privileges for this
      * grid.
      *
      * @return bool
@@ -110,7 +111,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
         // If the current role set includes Manager or Editor, grant.
         return (bool) array_intersect(
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR],
-            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES)
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES)
         );
     }
 
@@ -349,7 +350,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                     $request,
                     $notificationMgr->getDecisionStageNotifications(),
                     null,
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $submission->getId()
                 );
             }
@@ -359,7 +360,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                 // remove the 'editor required' task if we now have an editor assigned
                 if ($stageAssignmentDao->editorAssignedToStage($submission->getId(), $workingStageId)) {
                     $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
+                    $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), null, PKPNotification::NOTIFICATION_TYPE_EDITOR_ASSIGNMENT_REQUIRED);
                 }
             }
 
@@ -412,7 +413,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $request,
             $notificationMgr->getDecisionStageNotifications(),
             null,
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $submission->getId()
         );
 
@@ -429,7 +430,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                     PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                 ],
                 null,
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId()
             );
         }
@@ -454,7 +455,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     public function fetchUserList($args, $request)
     {
         $submission = $this->getSubmission();
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $userGroupId = (int) $request->getUserVar('userGroupId');
 
@@ -491,7 +492,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->initData();
 
         return new JSONMessage(true, $notifyForm->fetch($request));
@@ -509,7 +510,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
     {
         $this->setupTemplate($request);
 
-        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+        $notifyForm = new PKPStageParticipantNotifyForm($this->getSubmission()->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
         $notifyForm->readInputData();
 
         if ($notifyForm->validate()) {
@@ -529,7 +530,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
                         PKPNotification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS,
                     ],
                     null,
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $this->getSubmission()->getId()
                 );
             }
@@ -562,7 +563,7 @@ class StageParticipantGridHandler extends CategoryGridHandler
             $mailable->sender($request->getUser());
             $data = $mailable->getData();
 
-            $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE));
+            $notifyForm = new PKPStageParticipantNotifyForm($submission->getId(), Application::ASSOC_TYPE_SUBMISSION, $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE));
             return new JSONMessage(
                 true,
                 [

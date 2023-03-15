@@ -19,6 +19,7 @@ namespace PKP\navigationMenu;
 
 use APP\core\Services;
 use PKP\cache\CacheManager;
+use PKP\cache\GenericCache;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 
@@ -65,7 +66,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @param int $contextId Context Id
      *
-     * @return NavigationMenu
+     * @return DAOResultFactory
      */
     public function getByContextId($contextId)
     {
@@ -79,7 +80,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      * @param int $contextId Context Id
      * @param string $areaName Template Area name
      *
-     * @return NavigationMenu
+     * @return DAOResultFactory
      */
     public function getByArea($contextId, $areaName)
     {
@@ -263,7 +264,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
                 // If it does the NM is not being processed and a warning is being thrown
                 $navigationMenusWithArea = $this->getByArea($contextId, $area)->toArray();
                 if (count($navigationMenusWithArea) != 0) {
-                    error_log("WARNING: The NavigationMenu (ContextId: ${contextId}, Title: ${title}, Area: ${area}) will be skipped because the specified area has already a NavigationMenu attached.");
+                    error_log("WARNING: The NavigationMenu (ContextId: {$contextId}, Title: {$title}, Area: {$area}) will be skipped because the specified area has already a NavigationMenu attached.");
                     continue;
                 }
 
@@ -318,7 +319,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @param string $id
      *
-     * @return array|null (Null indicates caching disabled)
+     * @return GenericCache
      */
     public function getCache($id)
     {
@@ -333,13 +334,14 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Callback for a cache miss.
      *
-     * @param Cache $cache
+     * @param GenericCache $cache
      * @param string $id
      */
     public function _cacheMiss($cache, $id)
     {
+        /** @var NavigationMenuDAO */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
-        $navigationMenu = $navigationMenuDao->GetById($cache->getCacheId());
+        $navigationMenu = $navigationMenuDao->getById($cache->getCacheId());
         Services::get('navigationMenu')->getMenuTree($navigationMenu);
 
         return $navigationMenu;

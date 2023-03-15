@@ -59,8 +59,9 @@ class PKPStatsSushiService
      */
     public function getEarliestDate(): string
     {
-        $versinDao = DAORegistry::getDAO('VersionDAO'); /* @var VersionDAO $versinDao */
-        return $versinDao->getInstallationDate(3400);
+        /** @var VersionDAO */
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        return $versionDao->getInstallationDate(3400);
     }
 
     /**

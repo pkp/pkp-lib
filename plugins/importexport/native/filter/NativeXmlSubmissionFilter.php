@@ -15,6 +15,7 @@
 
 namespace PKP\plugins\importexport\native\filter;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\core\Core;
@@ -100,7 +101,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $submissionId = Repo::submission()->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
         $deployment->setSubmission($submission);
-        $deployment->addProcessedObjectId(ASSOC_TYPE_SUBMISSION, $submission->getId());
+        $deployment->addProcessedObjectId(Application::ASSOC_TYPE_SUBMISSION, $submission->getId());
 
         for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
             if ($n instanceof \DOMElement) {
@@ -110,7 +111,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
 
         $submission = Repo::submission()->get($submission->getId());
 
-        $deployment->addImportedRootEntity(ASSOC_TYPE_SUBMISSION, $submission);
+        $deployment->addImportedRootEntity(Application::ASSOC_TYPE_SUBMISSION, $submission);
 
         return $submission;
     }
@@ -154,7 +155,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
                 break;
             default:
                 $deployment = $this->getDeployment();
-                $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
+                $deployment->addWarning(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $n->tagName]));
         }
     }
 
@@ -198,7 +199,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
             assert($submission instanceof Submission);
             $publication = $submission->getCurrentPublication();
             if (!isset($publication)) {
-                $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
+                $deployment->addError(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.currentPublicationNullOrMissing'));
             }
             $submissionIds[] = $submission->getId();
         }
@@ -226,7 +227,7 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         if ($ret == null) {
             $deployment = $this->getDeployment();
 
-            $deployment->addError(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.submissionChildFailed', ['child' => $n->tagName]));
+            $deployment->addError(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.submissionChildFailed', ['child' => $n->tagName]));
         }
     }
 

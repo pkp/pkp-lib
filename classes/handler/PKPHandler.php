@@ -17,6 +17,7 @@
 namespace PKP\handler;
 
 use APP\core\Application;
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\config\Config;
@@ -181,7 +182,7 @@ class PKPHandler
      * and checked for permission in the policy class, it's then chucked into
      * the authorized context for later retrieval by code that needs it.
      *
-     * @param int $assocType any of the ASSOC_TYPE_* constants
+     * @param int $assocType any of the Application::ASSOC_TYPE_* constants
      */
     public function &getAuthorizedContextObject($assocType)
     {
@@ -462,9 +463,9 @@ class PKPHandler
 
                 if ($request->getUserVar('clearPageContext')) {
                     // Explicitly clear the old page context
-                    $session->unsetSessionVar("page-${contextHash}");
+                    $session->unsetSessionVar("page-{$contextHash}");
                 } else {
-                    $oldPage = $session->getSessionVar("page-${contextHash}");
+                    $oldPage = $session->getSessionVar("page-{$contextHash}");
                     if (is_numeric($oldPage)) {
                         $pageNum = $oldPage;
                     }
@@ -475,7 +476,7 @@ class PKPHandler
             if ($session && $contextData !== null) {
                 // Store the page number
                 $contextHash = self::hashPageContext($request, $contextData);
-                $session->setSessionVar("page-${contextHash}", $pageNum);
+                $session->setSessionVar("page-{$contextHash}", $pageNum);
             }
         }
 
@@ -521,11 +522,11 @@ class PKPHandler
         }
         assert($request instanceof \PKP\core\PKPRequest);
 
-        $userRoles = (array) $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = (array) $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         $templateMgr = TemplateManager::getManager($request);
         $templateMgr->assign('userRoles', $userRoles);
 
-        $accessibleWorkflowStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $accessibleWorkflowStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if ($accessibleWorkflowStages) {
             $templateMgr->assign('accessibleWorkflowStages', $accessibleWorkflowStages);
         }

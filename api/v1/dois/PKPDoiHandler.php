@@ -710,8 +710,8 @@ class PKPDoiHandler extends APIHandler
     /**
      * Retrieve the pub object with the given ID.
      *
-     * @param $pubObjectHandler mixed Either a repo or DAO for the pub object type
-     * @param $pubObjectId int
+     * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
+     * @param int $pubObjectId
      *
      * @return mixed The actual pub object
      */
@@ -723,8 +723,8 @@ class PKPDoiHandler extends APIHandler
     /**
      * Edit the DOI ID for the given pub object via the "handler" (repo or DAO).
      *
-     * @param $pubObjectHandler mixed Either a repo or DAO for the pub object type
-     * @param $pubObject mixed The pub object th edit
+     * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
+     * @param mixed $pubObject The pub object th edit
      */
     protected function editViaPubObjectHandler(mixed $pubObjectHandler, mixed $pubObject, ?int $doiId): void
     {

@@ -12,7 +12,7 @@
  *
  * @see Version
  *
- * @brief Provides methods to check for the latest version of OJS.
+ * @brief Provides methods to check for the latest version of the application.
  */
 
 namespace PKP\site;
@@ -25,6 +25,7 @@ use PKP\config\Config;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
+use PKP\plugins\PluginSettingsDAO;
 use SimpleXMLElement;
 
 class VersionCheck
@@ -47,6 +48,7 @@ class VersionCheck
             Config::getVar('general', 'enable_beacon', true);
 
         if ($includeId) {
+            /** @var PluginSettingsDAO */
             $pluginSettingsDao = & DAORegistry::getDAO('PluginSettingsDAO');
             $uniqueSiteId = $pluginSettingsDao->getSetting(\PKP\core\PKPApplication::CONTEXT_SITE, 'UsageEventPlugin', 'uniqueSiteId');
         } else {
@@ -197,5 +199,5 @@ class VersionCheck
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\site\VersionCheck', '\VersionCheck');
-    define('VERSION_CODE_PATH', \VersionCheck::VERSION_CODE_PATH);
+    define('VERSION_CODE_PATH', VersionCheck::VERSION_CODE_PATH);
 }

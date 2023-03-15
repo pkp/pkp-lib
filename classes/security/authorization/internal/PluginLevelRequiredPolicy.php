@@ -15,6 +15,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\security\authorization\AuthorizationPolicy;
 
 class PluginLevelRequiredPolicy extends AuthorizationPolicy
@@ -43,7 +44,7 @@ class PluginLevelRequiredPolicy extends AuthorizationPolicy
     public function effect()
     {
         // Get the plugin.
-        $plugin = $this->getAuthorizedContextObject(ASSOC_TYPE_PLUGIN);
+        $plugin = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PLUGIN);
         if (!$plugin instanceof \PKP\plugins\Plugin) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

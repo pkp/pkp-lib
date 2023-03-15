@@ -50,13 +50,13 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Need a valid submission in request.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Need a valid publication in request
-        $publication = $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        $publication = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
         if (!$publication instanceof Publication) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -69,7 +69,7 @@ class RepresentationRequiredPolicy extends DataObjectRequiredPolicy
         }
 
         // Save the representation to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION, $representation);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION, $representation);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

@@ -20,17 +20,21 @@ use APP\template\TemplateManager;
 use PKP\form\Form;
 
 use PKP\security\Validation;
+use PKP\site\Site;
+use PKP\user\User;
 
 class ChangePasswordForm extends Form
 {
-    /** @var object */
+    /** @var User */
     public $_user;
 
-    /** @var object */
+    /** @var Site */
     public $_site;
 
     /**
      * Constructor.
+     * @param User $user
+     * @param Site $site
      */
     public function __construct($user, $site)
     {

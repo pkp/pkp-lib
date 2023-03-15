@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Primary navigation menu list for OJS
+ * @brief Primary navigation menu list for the application
  *
  * @uses navigationMenu array Hierarchical array of navigation menu item assignments
  * @uses id string Element ID to assign the outer <ul>

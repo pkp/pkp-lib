@@ -187,9 +187,9 @@ class SiteDAO extends \PKP\db\DAO
 
         if (count($deleteSettings)) {
             $deleteSettingNames = join(',', array_map(function ($settingName) {
-                return "'${settingName}'";
+                return "'{$settingName}'";
             }, $deleteSettings));
-            $this->update("DELETE FROM site_settings WHERE setting_name in (${deleteSettingNames})");
+            $this->update("DELETE FROM site_settings WHERE setting_name in ({$deleteSettingNames})");
         }
     }
 }

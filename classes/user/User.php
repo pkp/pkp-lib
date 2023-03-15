@@ -238,7 +238,7 @@ class User extends Identity
     /**
      * Get date user last sent an email.
      *
-     * @return datestamp (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateLastEmail()
     {
@@ -248,7 +248,7 @@ class User extends Identity
     /**
      * Set date user last sent an email.
      *
-     * @param datestamp $dateLastEmail (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateLastEmail (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateLastEmail($dateLastEmail)
     {
@@ -258,7 +258,7 @@ class User extends Identity
     /**
      * Get date user registered with the site.
      *
-     * @return datestamp (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateRegistered()
     {
@@ -268,7 +268,7 @@ class User extends Identity
     /**
      * Set date user registered with the site.
      *
-     * @param datestamp $dateRegistered (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateRegistered (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateRegistered($dateRegistered)
     {
@@ -278,7 +278,7 @@ class User extends Identity
     /**
      * Get date user email was validated with the site.
      *
-     * @return datestamp (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateValidated()
     {
@@ -288,7 +288,7 @@ class User extends Identity
     /**
      * Set date user email was validated with the site.
      *
-     * @param datestamp $dateValidated (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateValidated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateValidated($dateValidated)
     {
@@ -298,7 +298,7 @@ class User extends Identity
     /**
      * Get date user last logged in to the site.
      *
-     * @return datestamp
+     * @return string
      */
     public function getDateLastLogin()
     {
@@ -308,7 +308,7 @@ class User extends Identity
     /**
      * Set date user last logged in to the site.
      *
-     * @param datestamp $dateLastLogin
+     * @param string $dateLastLogin
      */
     public function setDateLastLogin($dateLastLogin)
     {

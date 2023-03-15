@@ -47,10 +47,10 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
     {
         parent::__construct($argv);
 
-        $contextDao = Application::getContextDAO(); /* @var $contextDao ContextDAO */
-        $contextFactory = $contextDao->getAll(); /* @var $contextFactory DAOResultFactory */
+        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+        $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
         $this->contextsByPath = [];
-        while ($context = $contextFactory->next()) { /* @var $context Context */
+        while ($context = $contextFactory->next()) { /** @var Context $context */
             $this->contextsByPath[$context->getPath()] = $context;
         }
     }
@@ -224,7 +224,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
         if ($isSuccessful) {
             $renameToOldFilePath = $this->getLogFileDir() . '/' . $pathParts['filename'] . '_old.log';
             if (!rename($filePath, $renameToOldFilePath)) {
-                fwrite(STDERR, "Error: Cound not rename the file {$filePath} to {$renameToOldFilePath}." . PHP_EOL);
+                fwrite(STDERR, "Error: Could not rename the file {$filePath} to {$renameToOldFilePath}." . PHP_EOL);
                 exit(4);
             } else {
                 if (!$this->isApacheAccessLogFile()) {
@@ -234,7 +234,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
             }
             if (!rename($newFilePath, $filePath)) {
-                fwrite(STDERR, "Error: Cound not rename the new file {$newFilePath} to {$filePath}." . PHP_EOL);
+                fwrite(STDERR, "Error: Could not rename the new file {$newFilePath} to {$filePath}." . PHP_EOL);
                 exit(5);
             } else {
                 echo "File {$filePath} is converted.\n";
@@ -345,7 +345,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
         foreach ($expectedPageAndOp as $workingAssocType => $workingPageAndOps) {
             foreach ($workingPageAndOps as $workingPageAndOp) {
                 if ($pageAndOperation == $workingPageAndOp) {
-                    // Expected url, don't look any futher.
+                    // Expected url, don't look any further.
                     $pageAndOpMatch = true;
                     break 2;
                 }
@@ -694,6 +694,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
 
                 // is this a full text or supp file
+                /** @var GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
@@ -776,6 +777,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                     fwrite(STDERR, 'Missing issue galley ID URL parameter.' . PHP_EOL);
                     break;
                 }
+                /** @var IssueGalleyDAO */
                 $issueGalleyDao = DAORegistry::getDAO('IssueGalleyDAO');
                 $issueId = (int) $args[0];
                 if (!Repo::issue()->exists($issueId, $newEntry['contextId'])) {
@@ -890,7 +892,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                     $submissionFileId = (int) $args[2];
                 }
 
-                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');  /* @var $publicationFormatDao PublicationFormatDAO */
+                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO');  /** @var PublicationFormatDAO $publicationFormatDao */
                 $publicationFormat = $publicationFormatDao->getById($representationId, $publicationId);
                 if (!$publicationFormat) {
                     fwrite(STDERR, "Publication format with the ID {$representationId} does not exist." . PHP_EOL);
@@ -912,6 +914,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
 
                 // is this a full text or supp file
+                /** @var GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {
@@ -1054,6 +1057,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 }
 
                 // is this a full text or supp file
+                /** @var GenreDAO */
                 $genreDao = DAORegistry::getDAO('GenreDAO');
                 $genre = $genreDao->getById($submissionFile->getData('genreId'));
                 if ($genre->getCategory() != Genre::GENRE_CATEGORY_DOCUMENT || $genre->getSupplementary() || $genre->getDependent()) {

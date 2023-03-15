@@ -15,6 +15,8 @@
 
 namespace PKP\controllers\tab\workflow;
 
+use APP\core\Application;
+use APP\core\Request;
 use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
@@ -71,11 +73,11 @@ abstract class PKPWorkflowTabHandler extends Handler
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $templateMgr->assign('stageId', $stageId);
 
         /** @var Submission $submission */
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $templateMgr->assign('submission', $submission);
 
         switch ($stageId) {
@@ -84,7 +86,7 @@ abstract class PKPWorkflowTabHandler extends Handler
             case WORKFLOW_STAGE_ID_INTERNAL_REVIEW:
             case WORKFLOW_STAGE_ID_EXTERNAL_REVIEW:
                 // Retrieve the authorized submission and stage id.
-                $selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+                $selectedStageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
                 // Get all review rounds for this submission, on the current stage.
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
@@ -117,8 +119,8 @@ abstract class PKPWorkflowTabHandler extends Handler
                 // Assign banner notifications to the template.
                 $notificationRequestOptions = [
                     Notification::NOTIFICATION_LEVEL_NORMAL => [
-                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => [ASSOC_TYPE_SUBMISSION, $submission->getId()],
-                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => [ASSOC_TYPE_SUBMISSION, $submission->getId()]],
+                        PKPNotification::NOTIFICATION_TYPE_ASSIGN_COPYEDITOR => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()],
+                        PKPNotification::NOTIFICATION_TYPE_AWAITING_COPYEDITS => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()]],
                     Notification::NOTIFICATION_LEVEL_TRIVIAL => []
                 ];
                 $templateMgr->assign('editingNotificationRequestOptions', $notificationRequestOptions);
@@ -126,7 +128,7 @@ abstract class PKPWorkflowTabHandler extends Handler
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 $templateMgr = TemplateManager::getManager($request);
                 $notificationRequestOptions = $this->getProductionNotificationOptions($submission->getId());
-                $selectedStageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+                $selectedStageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
                 $templateMgr->assign('productionNotificationRequestOptions', $notificationRequestOptions);
 
                 return $templateMgr->fetchJson('controllers/tab/workflow/production.tpl');
@@ -142,8 +144,8 @@ abstract class PKPWorkflowTabHandler extends Handler
     {
         parent::setupTemplate($request);
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $templateMgr = TemplateManager::getManager($request);
 
@@ -161,7 +163,7 @@ abstract class PKPWorkflowTabHandler extends Handler
         // Define the workflow notification options.
         $notificationRequestOptions = [
             Notification::NOTIFICATION_LEVEL_TASK => [
-                $editorAssignmentNotificationType => [ASSOC_TYPE_SUBMISSION, $submission->getId()]
+                $editorAssignmentNotificationType => [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()]
             ],
             Notification::NOTIFICATION_LEVEL_TRIVIAL => []
         ];

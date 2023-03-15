@@ -19,6 +19,7 @@ use APP\facades\Repo;
 use PKP\controllers\grid\DataObjectGridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\review\linkAction\ReviewNotesLinkAction;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
 {
@@ -35,6 +36,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getCellState($row, $column)
     {
+        /** @var ReviewAssignment */
         $reviewAssignment = $row->getData();
         $columnId = $column->getId();
         assert($reviewAssignment instanceof \PKP\core\DataObject && !empty($columnId));
@@ -59,6 +61,7 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
+        /** @var ReviewAssignment */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));
@@ -104,9 +107,9 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
         $columnId = $column->getId();
         if ($columnId == 'actions') {
             switch ($this->getCellState($row, $column)) {
-                case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
-                case REVIEW_ASSIGNMENT_STATUS_THANKED:
-                case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                     $user = $request->getUser();
                     return [new ReviewNotesLinkAction($request, $reviewAssignment, $submission, $user, 'grid.users.reviewer.AuthorReviewerGridHandler', true)];
                 default:
@@ -128,21 +131,21 @@ class AuthorReviewerGridCellProvider extends DataObjectGridCellProvider
     {
         $reviewAssignment = $row->getData();
         switch ($state) {
-            case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
                 return '<span class="state">' . __('editor.review.requestSent') . '</span><span class="details">' . __('editor.review.responseDue', ['date' => substr($reviewAssignment->getDateResponseDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
                 return '<span class="state">' . __('editor.review.requestAccepted') . '</span><span class="details">' . __('editor.review.reviewDue', ['date' => substr($reviewAssignment->getDateDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_COMPLETE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE:
                 return $this->_getStatusWithRecommendation('common.complete', $reviewAssignment);
-            case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
                 return '<span class="state overdue">' . __('common.overdue') . '</span><span class="details">' . __('editor.review.reviewDue', ['date' => substr($reviewAssignment->getDateDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
                 return '<span class="state overdue">' . __('common.overdue') . '</span><span class="details">' . __('editor.review.responseDue', ['date' => substr($reviewAssignment->getDateResponseDue(), 0, 10)]) . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_DECLINED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED:
                 return '<span class="state declined">' . __('common.declined') . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
                 return '<span class="state cancelled">' . __('common.cancelled') . '</span>';
-            case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+            case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                 return  $this->_getStatusWithRecommendation('editor.review.reviewSubmitted', $reviewAssignment);
             default:
                 return '';

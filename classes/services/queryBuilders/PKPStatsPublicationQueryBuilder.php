@@ -27,11 +27,11 @@ abstract class PKPStatsPublicationQueryBuilder extends PKPStatsQueryBuilder
 {
     /**
      *Include records for one of these object types:
-     * ASSOC_TYPE_SUBMISSION, ASSOC_TYPE_SUBMISSION_FILE, ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER
+     * Application::ASSOC_TYPE_SUBMISSION, Application::ASSOC_TYPE_SUBMISSION_FILE, Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER
      */
     protected array $assocTypes = [];
 
-    /** Include records for these file types: STATISTICS_FILE_TYPE_* */
+    /** Include records for these file types: PKPStatisticsHelper::STATISTICS_FILE_TYPE_* */
     protected array $fileTypes = [];
 
     /** Include records for these sections/series */

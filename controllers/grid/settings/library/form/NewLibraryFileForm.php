@@ -10,7 +10,7 @@
  * @class FileForm
  * @ingroup controllers_grid_file_form
  *
- * @brief Form for adding/edditing a file
+ * @brief Form for adding/editing a file
  * stores/retrieves from an associative array
  */
 

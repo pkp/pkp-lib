@@ -28,7 +28,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     /**
      * Set parent OAI object.
      *
-     * @param JournalOAI $oai
+     * @param OAI $oai
      */
     public function setOAI($oai)
     {

@@ -27,7 +27,6 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\facades\Repo;
 use PKP\core\Registry;
-use PKP\db\DAORegistry;
 use PKP\plugins\PluginRegistry;
 use PKP\security\Role;
 use PKP\session\SessionManager;

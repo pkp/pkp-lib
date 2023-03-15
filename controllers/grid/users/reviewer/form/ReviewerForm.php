@@ -150,7 +150,7 @@ class ReviewerForm extends Form
     /**
      * Get current user roles.
      *
-     * @return $userRoles Array
+     * @return array $userRoles
      */
     public function getUserRoles()
     {

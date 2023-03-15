@@ -22,6 +22,7 @@ use PKP\db\DAORegistry;
 
 class AccessKeyManager
 {
+    /** @var AccessKeyDAO */
     public $accessKeyDao;
 
     /**

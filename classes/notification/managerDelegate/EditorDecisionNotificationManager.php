@@ -15,6 +15,7 @@
 
 namespace PKP\notification\managerDelegate;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use PKP\db\DAORegistry;
@@ -78,7 +79,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
         // Remove any existing editor decision notifications.
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
         $notificationFactory = $notificationDao->getByAssoc(
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SUBMISSION,
             $assocId,
             null,
             null,
@@ -109,7 +110,7 @@ class EditorDecisionNotificationManager extends NotificationManagerDelegate
                 $userId,
                 $this->getNotificationType(),
                 $context->getId(),
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $assocId,
                 $this->_getNotificationTaskLevel($this->getNotificationType())
             );

@@ -36,17 +36,17 @@ class LocaleMetadata
 
     /**
      * The following constants define how the locale information will be presented
-     * 
+     *
      * LANGUAGE_LOCALE_WITHOUT : The locale will be presented in the current selected language
      * So, if English and French is available and user selected locale is French, it will be
      * shown as Français | Anglais
-     * 
+     *
      * LANGUAGE_LOCALE_WITH : The locale will be presented in current selected language along
-     * with each locale's own translated name . So, if English and French is available and user 
+     * with each locale's own translated name . So, if English and French is available and user
      * selected locale is French, it will be shown as Français/French | Anglais/English
-     * 
+     *
      * LANGUAGE_LOCALE_ONLY : The locale will be presented only in each locale's translated
-     * name . So, if English and French is available and user 
+     * name . So, if English and French is available and user
      * selected locale is French, it will be shown as Français | English
      */
     public const LANGUAGE_LOCALE_WITHOUT = 1;
@@ -73,8 +73,8 @@ class LocaleMetadata
     public static function getLanguageLocaleStatuses(): array
     {
         return [
-            self::LANGUAGE_LOCALE_WITHOUT, 
-            self::LANGUAGE_LOCALE_WITH, 
+            self::LANGUAGE_LOCALE_WITHOUT,
+            self::LANGUAGE_LOCALE_WITH,
             self::LANGUAGE_LOCALE_ONLY
         ];
     }
@@ -85,8 +85,8 @@ class LocaleMetadata
      * @param string    $locale             The locale code
      * @param bool      $withCountry        Whether to append the country name to language
      * @param int       $langLocaleStatus   The language locale conversion value specified by const LocaleMetadata::LANGUAGE_LOCALE_*
-     * 
-     * @return string The fully qualified locale with/without own translated locale and with/without country name 
+     *
+     * @return string The fully qualified locale with/without own translated locale and with/without country name
      */
     public function getDisplayName(?string $locale = null, bool $withCountry = false, int $langLocaleStatus = self::LANGUAGE_LOCALE_WITHOUT): string
     {
@@ -101,8 +101,8 @@ class LocaleMetadata
         }
 
         $name = PKPString::regexp_replace(
-            '/\s*\([^)]*\)\s*/', 
-            '', 
+            '/\s*\([^)]*\)\s*/',
+            '',
             PKPString::ucfirst(
                 $this
                     ->_getLanguage(
@@ -115,10 +115,10 @@ class LocaleMetadata
 
         if ( $langLocaleStatus === self::LANGUAGE_LOCALE_WITH ) {
 
-            // Get the translated laguage name in language's own locale
+            // Get the translated language name in language's own locale
             $nameInLangLocale = PKPString::regexp_replace(
-                '/\s*\([^)]*\)\s*/', 
-                '', 
+                '/\s*\([^)]*\)\s*/',
+                '',
                 PKPString::ucfirst($this->_getLanguage($this->locale)->getLocalName())
             );
 
@@ -130,7 +130,7 @@ class LocaleMetadata
                 ]
             );
         }
-        
+
         if (!$withCountry) {
             return $name;
         }
@@ -142,11 +142,11 @@ class LocaleMetadata
         }
 
         if ($langLocaleStatus !== self::LANGUAGE_LOCALE_WITHOUT) {
-            
+
             $localizedCountryName = $this->getCountry($this->locale);
 
             if ($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY) {
-                
+
                 $country = $localizedCountryName;
 
             } else {
@@ -158,7 +158,7 @@ class LocaleMetadata
                             'item' => $country,
                             'afterSlash' => $localizedCountryName
                         ]
-                    );    
+                    );
                 }
             }
         }
@@ -207,9 +207,9 @@ class LocaleMetadata
         $script = strtolower($locale->script ?? '');
         $rightToLeftLanguages = array_fill_keys(['ar', 'dv', 'fa', 'he', 'ku', 'nqo', 'prs', 'ps', 'sd', 'syr', 'ug', 'ur', 'yi'], true);
         $languageScriptExceptions = ['sd-deva' => false, 'tzm-arab' => true, 'pa-arab' => true];
-        return $languageScriptExceptions["${language}-${script}"]
+        return $languageScriptExceptions["{$language}-{$script}"]
             ?? $rightToLeftLanguages[$language]
-            ?? $languageScriptExceptions[$this->getIsoAlpha3() . "-${script}"]
+            ?? $languageScriptExceptions[$this->getIsoAlpha3() . "-{$script}"]
             ?? $rightToLeftLanguages[$this->getIsoAlpha3()]
             ?? false;
     }

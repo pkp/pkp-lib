@@ -21,7 +21,7 @@ class EmailData
     /**
      * User IDs for the recipients of the email
      *
-     * @var int[] $recipientss
+     * @var int[] $recipients
      */
     public array $recipients = [];
 

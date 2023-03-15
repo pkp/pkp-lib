@@ -28,7 +28,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Get query assoc type
      *
-     * @return int ASSOC_TYPE_...
+     * @return int Application::ASSOC_TYPE_...
      */
     public function getAssocType()
     {
@@ -38,7 +38,7 @@ class Query extends \PKP\core\DataObject
     /**
      * Set query assoc type
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      */
     public function setAssocType($assocType)
     {
@@ -141,7 +141,7 @@ class Query extends \PKP\core\DataObject
      *
      * @param int $userId Optional user ID
      * @param int $sortBy Optional NoteDAO::NOTE_ORDER_...
-     * @param int $sortOrder Optional SORT_DIRECTION_...
+     * @param int $sortOrder Optional DAO::SORT_DIRECTION_...
      *
      * @return LazyCollection
      */

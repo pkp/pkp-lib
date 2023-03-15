@@ -25,6 +25,7 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
 
@@ -51,7 +52,7 @@ class QueriesAccessHelper
     /**
      * Retrieve authorized context objects from the authorized context.
      *
-     * @param int $assocType any of the ASSOC_TYPE_* constants
+     * @param int $assocType any of the Application::ASSOC_TYPE_* constants
      */
     public function getAuthorizedContextObject($assocType)
     {
@@ -202,7 +203,7 @@ class QueriesAccessHelper
      */
     protected function hasStageRole($stageId, $roles)
     {
-        $stageRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $stageRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         return !empty(array_intersect($stageRoles[$stageId], $roles));
     }
 }

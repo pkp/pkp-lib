@@ -97,7 +97,7 @@ function fatalError($reason)
                             break;
                         case 'string':
                             $a = htmlspecialchars(substr($a, 0, 64)) . ((strlen($a) > 64) ? '...' : '');
-                            $args .= "\"${a}\"";
+                            $args .= "\"{$a}\"";
                             break;
                         case 'array':
                             $args .= 'Array(' . count($a) . ')';
@@ -126,7 +126,7 @@ function fatalError($reason)
             $line = $bt['line'] ?? '(unknown)';
 
             echo "<strong>File:</strong> {$file} line {$line}<br />\n";
-            echo "<strong>Function:</strong> {$class}{$type}{$function}(${args})<br />\n";
+            echo "<strong>Function:</strong> {$class}{$type}{$function}({$args})<br />\n";
             echo "<br/>\n";
         }
     }
@@ -362,9 +362,9 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 /**
  * Check if run on CLI
  */
-if (!function_exists('runOnCLI')) 
+if (!function_exists('runOnCLI'))
 {
-    function runOnCLI(string $scriptPath = null): bool 
+    function runOnCLI(string $scriptPath = null): bool
     {
         if ( php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
             return true;
@@ -396,13 +396,13 @@ if (!function_exists('runOnCLI'))
  * @param   string  A (PHP ini) byte value, either shorthand or ordinary.
  * @return  int     An integer byte value.
  */
-if (!function_exists('convertHrToBytes')) 
+if (!function_exists('convertHrToBytes'))
 {
-    function convertHrToBytes(string $value): int 
+    function convertHrToBytes(string $value): int
     {
         $value = strtolower( trim( $value ) );
         $bytes = (int) $value;
-    
+
         if ( false !== strpos( $value, 'g' ) ) {
             $bytes *= GB_IN_BYTES;
         } elseif ( false !== strpos( $value, 'm' ) ) {
@@ -410,7 +410,7 @@ if (!function_exists('convertHrToBytes'))
         } elseif ( false !== strpos( $value, 'k' ) ) {
             $bytes *= KB_IN_BYTES;
         }
-    
+
         // Deal with large (float) values which run into the maximum integer size.
         return min( $bytes, PHP_INT_MAX );
     }
@@ -419,12 +419,12 @@ if (!function_exists('convertHrToBytes'))
 /**
  * Check if valid JSON
  *
- * @param   mixed  $data 
+ * @param   mixed  $data
  * @return  bool
  */
-if (!function_exists('isValidJson')) 
+if (!function_exists('isValidJson'))
 {
-    function isValidJson(mixed $data): bool 
+    function isValidJson(mixed $data): bool
     {
         if (!empty($data)) {
             @json_decode($data);

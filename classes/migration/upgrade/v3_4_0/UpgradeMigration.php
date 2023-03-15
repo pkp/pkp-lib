@@ -27,28 +27,28 @@ class UpgradeMigration extends \PKP\migration\Migration
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent submissions.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('submissions AS s', 'ra.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('ra.submission_id', 'ra.review_id');
         foreach ($orphanedIds as $reviewId => $submissionId) {
-            $this->_installer->log("Removing orphaned review_assignments entry ID ${reviewId} with submission_id ${submissionId}");
+            $this->_installer->log("Removing orphaned review_assignments entry ID {$reviewId} with submission_id {$submissionId}");
             DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
         }
 
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent reviewers.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('users AS u', 'ra.reviewer_id', '=', 'u.user_id')->whereNull('u.user_id')->pluck('ra.reviewer_id', 'ra.review_id');
         foreach ($orphanedIds as $reviewId => $userId) {
-            $this->_installer->log("Removing orphaned review_assignments entry ID ${reviewId} with reviewer_id ${userId}");
+            $this->_installer->log("Removing orphaned review_assignments entry ID {$reviewId} with reviewer_id {$userId}");
             DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
         }
 
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent review rounds.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('review_rounds AS rr', 'ra.review_round_id', '=', 'rr.review_round_id')->whereNull('rr.review_round_id')->pluck('ra.review_round_id', 'ra.review_id');
         foreach ($orphanedIds as $reviewId => $reviewRoundId) {
-            $this->_installer->log("Removing orphaned review_assignments entry ID ${reviewId} with review_round_id ${reviewRoundId}");
+            $this->_installer->log("Removing orphaned review_assignments entry ID {$reviewId} with review_round_id {$reviewRoundId}");
             DB::table('review_assignments')->where('review_id', '=', $reviewId)->delete();
         }
 
         // pkp/pkp-lib#6093: Delete review_assignment entries that correspond to nonexistent review forms.
         $orphanedIds = DB::table('review_assignments AS ra')->leftJoin('review_forms AS rf', 'ra.review_form_id', '=', 'rf.review_form_id')->whereNull('rf.review_form_id')->whereNotNull('ra.review_form_id')->pluck('ra.review_form_id', 'ra.review_id');
         foreach ($orphanedIds as $reviewId => $reviewFormId) {
-            $this->_installer->log("Using default review form for review with ID ${reviewId} which refers to nonexistent review_form_id ${reviewFormId}");
+            $this->_installer->log("Using default review form for review with ID {$reviewId} which refers to nonexistent review_form_id {$reviewFormId}");
             DB::table('review_assignments')->where('review_id', '=', $reviewId)->update(['review_form_id' => null]);
         }
 

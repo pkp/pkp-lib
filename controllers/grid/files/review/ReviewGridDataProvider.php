@@ -14,6 +14,7 @@
 
 namespace PKP\controllers\grid\files\review;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\fileList\linkAction\SelectReviewFilesLinkAction;
@@ -133,7 +134,7 @@ class ReviewGridDataProvider extends SubmissionFilesGridDataProvider
      */
     public function getReviewRound()
     {
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         return $reviewRound;
     }
 }

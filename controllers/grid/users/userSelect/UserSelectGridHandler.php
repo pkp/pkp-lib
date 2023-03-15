@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\users\userSelect;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\feature\CollapsibleGridFeature;
 use PKP\controllers\grid\feature\InfiniteScrollingFeature;
@@ -64,7 +65,7 @@ class UserSelectGridHandler extends GridHandler
     {
         parent::initialize($request, $args);
 
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $userGroups = Repo::userGroup()->getUserGroupsByStage(
             $request->getContext()->getId(),
@@ -126,8 +127,8 @@ class UserSelectGridHandler extends GridHandler
     protected function loadData($request, $filter)
     {
         [$filterUserGroupId, $name] = $this->getFilterValues($filter);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
 
         $collector = Repo::user()->getCollector()
@@ -147,8 +148,8 @@ class UserSelectGridHandler extends GridHandler
      */
     public function renderFilter($request, $filterData = [])
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
 
         $keys = array_keys($this->_userGroupOptions);
         $allFilterData = array_merge(
@@ -190,8 +191,8 @@ class UserSelectGridHandler extends GridHandler
      */
     public function getRequestArgs()
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         return [
             'submissionId' => $submission->getId(),
             'stageId' => $stageId,

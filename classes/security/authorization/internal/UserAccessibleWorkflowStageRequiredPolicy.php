@@ -58,7 +58,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
         }
 
         $userId = $user->getId();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $accessibleWorkflowStages = [];
         $workflowStages = Application::getApplicationStages();
@@ -69,7 +69,7 @@ class UserAccessibleWorkflowStageRequiredPolicy extends AuthorizationPolicy
             }
         }
 
-        $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
 
         // Does the user have a role which matches the requested workflow?
         if (!is_null($this->_workflowType)) {

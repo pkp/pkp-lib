@@ -149,7 +149,7 @@ class PKPStatsHandler extends Handler
             $tableRows[] = $row;
         }
 
-        // Get the worflow stage counts
+        // Get the workflow stage counts
         $activeByStage = [];
         foreach (Application::getApplicationStages() as $stageId) {
             $activeByStage[] = [

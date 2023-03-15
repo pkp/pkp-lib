@@ -42,8 +42,6 @@ abstract class PKPServices
 
     /**
      * A static method to register a service
-     *
-     * @param string $service
      */
     public static function register(\Pimple\ServiceProviderInterface $service)
     {
@@ -62,6 +60,7 @@ abstract class PKPServices
 
     /**
      * Returns the instance of the container
+     * @return static
      */
     private static function _instance()
     {

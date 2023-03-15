@@ -19,6 +19,7 @@
 namespace PKP\notification;
 
 use APP\notification\Notification;
+use PKP\core\PKPRequest;
 
 abstract class NotificationManagerDelegate extends PKPNotificationOperationManager
 {
@@ -50,7 +51,7 @@ abstract class NotificationManagerDelegate extends PKPNotificationOperationManag
      *
      * @param PKPRequest $request Request object
      * @param array $userIds List of user IDs to notify
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId ID corresponding to $assocType
      *
      * @return bool True iff success

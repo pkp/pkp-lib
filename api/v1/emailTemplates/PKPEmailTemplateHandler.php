@@ -14,6 +14,8 @@
 
 namespace PKP\API\v1\emailTemplates;
 
+use APP\core\Application;
+use PKP\core\APIResponse;
 use PKP\facades\Repo;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
@@ -144,10 +146,10 @@ class PKPEmailTemplateHandler extends APIHandler
      * Get a single email template
      *
      * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -196,10 +198,10 @@ class PKPEmailTemplateHandler extends APIHandler
      * Edit an email template
      *
      * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function edit($slimRequest, $response, $args)
     {
@@ -217,7 +219,7 @@ class PKPEmailTemplateHandler extends APIHandler
 
         // Only allow admins to change the context an email template is attached to.
         // Set the contextId if it has not been passed or the user is not an admin
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (isset($params['contextId'])
                 && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)
                 && $params['contextId'] !== $requestContext->getId()) {
@@ -251,10 +253,10 @@ class PKPEmailTemplateHandler extends APIHandler
      * Delete an email template
      *
      * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function delete($slimRequest, $response, $args)
     {

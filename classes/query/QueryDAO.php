@@ -44,7 +44,7 @@ class QueryDAO extends \PKP\db\DAO
      * Retrieve a submission query by ID.
      *
      * @param int $queryId Query ID
-     * @param int $assocType Optional ASSOC_TYPE_...
+     * @param int $assocType Optional Application::ASSOC_TYPE_...
      * @param int $assocId Optional assoc ID per assocType
      *
      * @return Query
@@ -70,17 +70,17 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Retrieve all queries by association
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Assoc ID
      * @param int $stageId Optional stage ID
      * @param int $userId Optional user ID; when set, show only assigned queries
      *
-     * @return array Query
+     * @return DAOResultFactory Query
      */
     public function getByAssoc($assocType, $assocId, $stageId = null, $userId = null)
     {
         $params = [];
-        $params[] = (int) ASSOC_TYPE_QUERY;
+        $params[] = (int) Application::ASSOC_TYPE_QUERY;
         if ($userId) {
             $params[] = (int) $userId;
         }
@@ -311,7 +311,7 @@ class QueryDAO extends \PKP\db\DAO
      * the database table.
      *
      * @param int $queryId Query ID
-     * @param int $assocType Optional ASSOC_TYPE_...
+     * @param int $assocType Optional Application::ASSOC_TYPE_...
      * @param int $assocId Optional assoc ID per assocType
      */
     public function deleteById($queryId, $assocType = null, $assocId = null)
@@ -341,7 +341,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Sequentially renumber queries in their sequence order.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Assoc ID per assocType
      */
     public function resequence($assocType, $assocId)
@@ -360,7 +360,7 @@ class QueryDAO extends \PKP\db\DAO
     /**
      * Delete queries by assoc info.
      *
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId Assoc ID per assocType
      */
     public function deleteByAssoc($assocType, $assocId)
@@ -406,7 +406,7 @@ class QueryDAO extends \PKP\db\DAO
         // Add task for assigned participants
         $notificationMgr = new NotificationManager();
 
-        /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+        /** @var NotificationSubscriptionSettingsDAO */
         $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
 
         foreach ($participantUserIds as $participantUserId) {

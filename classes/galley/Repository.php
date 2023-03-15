@@ -13,6 +13,7 @@
 
 namespace PKP\galley;
 
+use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
@@ -196,7 +197,7 @@ class Repository
         // Delete related submission files
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
-            ->filterByAssoc(ASSOC_TYPE_GALLEY)
+            ->filterByAssoc(Application::ASSOC_TYPE_GALLEY)
             ->filterByFileIds([$galley->getId()])
             ->getMany();
 

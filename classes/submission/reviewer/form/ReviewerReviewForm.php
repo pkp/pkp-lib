@@ -21,6 +21,7 @@ use PKP\db\DAORegistry;
 
 use PKP\form\Form;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewerReviewForm extends Form
 {
@@ -117,7 +118,8 @@ class ReviewerReviewForm extends Form
         }
 
         // Save the reviewer submission.
-        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
+        /** @var ReviewAssignmentDAO */
+        $reviewAssignmentDAO = DAORegistry::getDAO('ReviewAssignmentDAO');
         $reviewAssignmentDAO->updateObject($reviewAssignment);
     }
 }

@@ -292,11 +292,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get a collection of submissions
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getMany($slimRequest, $response, $args)
     {
@@ -426,11 +426,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get a single submission
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function get($slimRequest, $response, $args)
     {
@@ -450,7 +450,7 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Add a new submission
      *
-     * @return Response
+     * @return APIResponse
      */
     public function add(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
@@ -737,11 +737,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Delete a submission
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function delete($slimRequest, $response, $args)
     {
@@ -795,11 +795,11 @@ class PKPSubmissionHandler extends APIHandler
      *
      * This does not return reviewers.
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getParticipants($slimRequest, $response, $args)
     {
@@ -831,11 +831,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get all of this submissions's publications
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getPublications($slimRequest, $response, $args)
     {
@@ -876,11 +876,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get one of this submission's publications
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getPublication($slimRequest, $response, $args)
     {
@@ -916,11 +916,11 @@ class PKPSubmissionHandler extends APIHandler
      * This will create a new publication from scratch. If you want to create a new
      * version of a publication, see self::versionPublication().
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function addPublication($slimRequest, $response, $args)
     {
@@ -963,11 +963,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Create a new version of a publication
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function versionPublication($slimRequest, $response, $args)
     {
@@ -1048,11 +1048,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Edit one of this submission's publications
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function editPublication($slimRequest, $response, $args)
     {
@@ -1126,11 +1126,11 @@ class PKPSubmissionHandler extends APIHandler
      * checks and return errors but it will not perform the final
      * publication step.
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function publishPublication($slimRequest, $response, $args)
     {
@@ -1184,11 +1184,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Unpublish one of this submission's publications
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function unpublishPublication($slimRequest, $response, $args)
     {
@@ -1231,11 +1231,11 @@ class PKPSubmissionHandler extends APIHandler
      * Published publications can not be deleted. First you must unpublish them.
      * See self::unpublishPublication().
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function deletePublication($slimRequest, $response, $args)
     {
@@ -1273,11 +1273,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get one of a publication's contributors
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getContributor($slimRequest, $response, $args)
     {
@@ -1311,11 +1311,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Get all publication's contributors
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function getContributors($slimRequest, $response, $args)
     {
@@ -1345,11 +1345,11 @@ class PKPSubmissionHandler extends APIHandler
      *
      * This will create a new contributor from scratch.
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function addContributor($slimRequest, $response, $args)
     {
@@ -1399,11 +1399,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Delete one of this publication's contributors
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function deleteContributor($slimRequest, $response, $args)
     {
@@ -1445,11 +1445,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Edit one of this publication's contributors
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function editContributor($slimRequest, $response, $args)
     {
@@ -1513,11 +1513,11 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Save new order of contributors array
      *
-     * @param Request $slimRequest Slim request object
-     * @param Response $response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function saveContributorsOrder($slimRequest, $response, $args)
     {
@@ -1566,11 +1566,11 @@ class PKPSubmissionHandler extends APIHandler
      * a decision to accept or reject the submission, request
      * revisions, or send it to another stage.
      *
-     * @param $slimRequest Request Slim request object
-     * @param $response Response object
+     * @param SlimRequest $slimRequest Slim request object
+     * @param APIResponse $response object
      * @param array $args arguments
      *
-     * @return Response
+     * @return APIResponse
      */
     public function addDecision($slimRequest, $response, $args)
     {

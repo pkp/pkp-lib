@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\api\file;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
@@ -69,7 +70,7 @@ abstract class PKPManageFileApiHandler extends Handler
             return new JSONMessage(false);
         }
 
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         Repo::submissionFile()->delete($submissionFile);
 
         $this->setupTemplate($request);
@@ -96,7 +97,7 @@ abstract class PKPManageFileApiHandler extends Handler
      */
     public function editMetadata($args, $request)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         if ($submissionFile->getFileStage() == SubmissionFile::SUBMISSION_FILE_PROOF) {
             $templateMgr = TemplateManager::getManager($request);
             $templateMgr->assign('submissionFile', $submissionFile);
@@ -117,8 +118,8 @@ abstract class PKPManageFileApiHandler extends Handler
      */
     public function editMetadataTab($args, $request)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         $stageId = $request->getUserVar('stageId');
         $form = new SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound);
         $form->setShowButtons(true);
@@ -136,9 +137,9 @@ abstract class PKPManageFileApiHandler extends Handler
      */
     public function saveMetadata($args, $request)
     {
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
         $stageId = $request->getUserVar('stageId');
         $form = new SubmissionFilesMetadataForm($submissionFile, $stageId, $reviewRound);
         $form->readInputData();
@@ -160,7 +161,7 @@ abstract class PKPManageFileApiHandler extends Handler
                 $request,
                 $this->getUpdateNotifications(),
                 $authorUserIds,
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $submission->getId()
             );
 
@@ -172,7 +173,7 @@ abstract class PKPManageFileApiHandler extends Handler
                 $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                 $submitterAssignments = $stageAssignmentDao->getBySubmissionAndRoleIds($submission->getId(), [Role::ROLE_ID_AUTHOR]);
                 while ($assignment = $submitterAssignments->next()) {
-                    $notificationDao->deleteByAssoc(ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
+                    $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), $assignment->getUserId(), PKPNotification::NOTIFICATION_TYPE_EDITOR_DECISION_PENDING_REVISIONS, $context->getId());
                 }
             }
 

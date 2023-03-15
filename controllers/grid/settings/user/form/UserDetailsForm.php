@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\settings\user\form;
 
+use APP\author\Author;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
@@ -22,6 +23,7 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\core\PKPRequest;
 use PKP\core\PKPString;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
@@ -30,6 +32,7 @@ use PKP\notification\PKPNotification;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 use PKP\user\InterestManager;
+use PKP\user\User;
 use Symfony\Component\Mailer\Exception\TransportException;
 
 class UserDetailsForm extends UserForm
@@ -40,7 +43,7 @@ class UserDetailsForm extends UserForm
     /** @var Author An optional author to base this user on */
     public $author;
 
-    /** @var bool An internal use flag that allows to dertermine the update only for user group */
+    /** @var bool An internal use flag that allows to determine the update only for user group */
     protected bool $userGroupUpdateOnly = false;
 
     /**

@@ -23,6 +23,7 @@ namespace PKP\submission\reviewRound;
 use APP\decision\Decision;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewRound extends \PKP\core\DataObject
 {
@@ -41,7 +42,7 @@ class ReviewRound extends \PKP\core\DataObject
     public const REVIEW_ROUND_STATUS_REVIEWS_READY = 8; // One or more reviews is ready for an editor to view
     public const REVIEW_ROUND_STATUS_REVIEWS_COMPLETED = 9; // All assigned reviews have been confirmed by an editor
     public const REVIEW_ROUND_STATUS_REVIEWS_OVERDUE = 10; // One or more reviews is overdue
-    // The following status is calculated when the round is in REVIEW_ROUND_STATUS_REVISIONS_REQUESTED and
+    // The following status is calculated when the round is in ReviewRound::REVIEW_ROUND_STATUS_REVISIONS_REQUESTED and
     // at least one revision file has been uploaded.
     public const REVIEW_ROUND_STATUS_REVISIONS_SUBMITTED = 11;
 
@@ -51,7 +52,7 @@ class ReviewRound extends \PKP\core\DataObject
     public const REVIEW_ROUND_STATUS_RECOMMENDATIONS_READY = 13; // One or more recommendations are ready for an editor to view
     public const REVIEW_ROUND_STATUS_RECOMMENDATIONS_COMPLETED = 14; // All assigned recommendOnly editors have made a recommendation
 
-    // The following status is calculated when the round is in REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW and
+    // The following status is calculated when the round is in ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW and
     // at least one revision file has been uploaded.
     public const REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW_SUBMITTED = 15;
 
@@ -233,21 +234,21 @@ class ReviewRound extends \PKP\core\DataObject
             $assignmentStatus = $reviewAssignment->getStatus();
 
             switch ($assignmentStatus) {
-                case REVIEW_ASSIGNMENT_STATUS_DECLINED:
-                case REVIEW_ASSIGNMENT_STATUS_CANCELLED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED:
                     break;
 
-                case REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
-                case REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RESPONSE_OVERDUE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_REVIEW_OVERDUE:
                     $anyOverdueReview = true;
                     break;
 
-                case REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
-                case REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_AWAITING_RESPONSE:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_ACCEPTED:
                     $anyIncompletedReview = true;
                     break;
 
-                case REVIEW_ASSIGNMENT_STATUS_RECEIVED:
+                case ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_RECEIVED:
                     $anyUnreadReview = true;
                     break;
             }

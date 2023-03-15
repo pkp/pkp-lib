@@ -52,7 +52,7 @@ class Citation extends \PKP\core\DataObject
                 function ($matches) {
                     $trailingDot = in_array($char = substr($matches[0], -1), ['.', ',']);
                     $url = rtrim($matches[0], '.,');
-                    return "<a href=\"${url}\">${url}</a>" . ($trailingDot ? $char : '');
+                    return "<a href=\"{$url}\">{$url}</a>" . ($trailingDot ? $char : '');
                 },
                 $citation
             );

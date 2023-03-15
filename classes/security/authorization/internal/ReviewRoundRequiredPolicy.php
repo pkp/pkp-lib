@@ -14,6 +14,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\DataObjectRequiredPolicy;
@@ -67,19 +68,19 @@ class ReviewRoundRequiredPolicy extends DataObjectRequiredPolicy
 
         // Ensure that the review round actually belongs to the
         // authorized submission.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if ($reviewRound->getSubmissionId() != $submission->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review round is for this workflow stage
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewRound->getStageId() != $stageId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the review round to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND, $reviewRound);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND, $reviewRound);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

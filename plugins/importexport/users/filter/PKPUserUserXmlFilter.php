@@ -19,6 +19,7 @@ use PKP\db\DAORegistry;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
 use APP\facades\Repo;
+use PKP\user\User;
 
 class PKPUserUserXmlFilter extends NativeExportFilter
 {
@@ -166,7 +167,7 @@ class PKPUserUserXmlFilter extends NativeExportFilter
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
-            
+
         $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
         $userGroupExportFilters = $filterDao->getObjectsByGroup('usergroup=>user-xml');
         assert(count($userGroupExportFilters) == 1); // Assert only a single serialization filter

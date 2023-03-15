@@ -16,6 +16,8 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
+use Exception;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\submissionFile\SubmissionFile;
@@ -70,7 +72,7 @@ class SubmissionFileAssignedReviewerAccessPolicy extends SubmissionFileBaseAcces
                 $submissionFile->getData('fileStage') == $reviewFileStage &&
                 $reviewFilesDao->check($reviewAssignment->getId(), $submissionFile->getId())
             ) {
-                $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }

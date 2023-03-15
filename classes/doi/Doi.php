@@ -58,7 +58,7 @@ class Doi extends DataObject
     /**
      * Set ID of context.
      *
-     * @param $contextId int
+     * @param int $contextId
      */
     public function setContextId($contextId)
     {
@@ -78,7 +78,7 @@ class Doi extends DataObject
     /**
      * Set DOI for this DOI
      *
-     * @param $doi string
+     * @param string $doi
      */
     public function setDoi($doi)
     {
@@ -98,7 +98,7 @@ class Doi extends DataObject
     /**
      * Set status for this DOI
      *
-     * @param $status int
+     * @param int $status
      */
     public function setStatus($status)
     {
@@ -108,7 +108,7 @@ class Doi extends DataObject
     /**
      * Encode DOI according to ANSI/NISO Z39.84-2005, Appendix E.
      *
-     * @param $pubId string
+     * @param string $pubId
      *
      */
     protected function _doiURLEncode(string $pubId): string

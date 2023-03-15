@@ -350,7 +350,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         // pkp/pkp-lib#6616 Delete submission_files entries that correspond to nonexistent submissions
         $orphanedIds = DB::table('submission_files AS sf')->leftJoin('submissions AS s', 'sf.submission_id', '=', 's.submission_id')->whereNull('s.submission_id')->pluck('sf.submission_id', 'sf.file_id');
         foreach ($orphanedIds as $fileId => $submissionId) {
-            error_log("Removing orphaned submission_files entry ID ${fileId} with submission_id ${submissionId}");
+            error_log("Removing orphaned submission_files entry ID {$fileId} with submission_id {$submissionId}");
             DB::table('submission_files')->where('file_id', '=', $fileId)->delete();
         }
 
@@ -423,7 +423,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
                 $filename
             );
             if (!$fileService->fs->has($path)) {
-                error_log("A submission file was expected but not found at ${path}.");
+                error_log("A submission file was expected but not found at {$path}.");
             }
             $newFileId = DB::table('files')->insertGetId([
                 'path' => $path,
@@ -603,7 +603,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
         foreach ($orphanedIds as $orphanedId) {
             $reviewId = $orphanedId->{'review_id'};
             $submissionFileId = $orphanedId->{'submission_file_id'};
-            error_log("Removing orphaned review_files entry with review_id ID ${reviewId} and submission_file_id ${submissionFileId}");
+            error_log("Removing orphaned review_files entry with review_id ID {$reviewId} and submission_file_id {$submissionFileId}");
             DB::table('review_files')
                 ->where('submission_file_id', '=', $submissionFileId)
                 ->where('review_id', '=', $reviewId)
@@ -635,7 +635,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
     /**
      * Get the directory of a file based on its file stage
      *
-     * @param int $fileStage One of SUBMISSION_FILE_ constants
+     * @param int $fileStage One of SubmissionFile::SUBMISSION_FILE_ constants
      *
      * @return string
      */

@@ -171,7 +171,7 @@ class ConfigParser
                     $valueString = $value;
                 }
 
-                $this->content .= "${key} = ${valueString}\n";
+                $this->content .= "{$key} = {$valueString}\n";
             } else {
                 $this->content .= $line;
             }

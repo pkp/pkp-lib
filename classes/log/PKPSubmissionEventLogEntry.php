@@ -17,6 +17,8 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
+
 class PKPSubmissionEventLogEntry extends EventLogEntry
 {
     public const SUBMISSION_LOG_SUBMISSION_SUBMIT = 0x10000001;
@@ -78,7 +80,7 @@ class PKPSubmissionEventLogEntry extends EventLogEntry
      */
     public function getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION;
+        return Application::ASSOC_TYPE_SUBMISSION;
     }
 }
 

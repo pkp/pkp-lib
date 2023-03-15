@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\CategoryGridDataProvider;
 use PKP\db\DAORegistry;
@@ -85,7 +86,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
     public function loadData($filter = [])
     {
         // Return only the user accessible workflow stages.
-        return array_keys($this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES));
+        return array_keys($this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES));
     }
 
 
@@ -100,8 +101,9 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function loadCategoryData($request, $categoryDataElement, $filter = null, $reviewRound = null)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $stageId = $categoryDataElement;
         $fileStages = $this->_getFileStagesByStageId($stageId);
         $stageSubmissionFiles = null;
@@ -139,13 +141,13 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
                     $stageSubmissionFiles[$key] = $submissionFile;
                 } elseif ($submissionFile->getData('fileStage') == SubmissionFile::SUBMISSION_FILE_QUERY) {
                     // Determine the stage from the query.
-                    if ($submissionFile->getData('assocType') != ASSOC_TYPE_NOTE) {
+                    if ($submissionFile->getData('assocType') != Application::ASSOC_TYPE_NOTE) {
                         break;
                     }
                     $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
                     $note = $noteDao->getById($submissionFile->getData('assocId'));
                     $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
-                    if ($note && $note->getAssocType() == ASSOC_TYPE_QUERY) {
+                    if ($note && $note->getAssocType() == Application::ASSOC_TYPE_QUERY) {
                         $query = $queryDao->getById($note->getAssocId());
                     }
                     if ($query && $query->getStageId() == $stageId) {
@@ -166,6 +168,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function getAddFileAction($request)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         return $dataProvider->getAddFileAction($request);
     }
@@ -175,6 +178,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function setStageId($stageId)
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         $dataProvider->setStageId($stageId);
     }
@@ -184,6 +188,7 @@ class SubmissionFilesCategoryGridDataProvider extends CategoryGridDataProvider
      */
     public function getFileStage()
     {
+        /** @var SubmissionFilesGridDataProvider */
         $dataProvider = $this->getDataProvider();
         return $dataProvider->getFileStage();
     }

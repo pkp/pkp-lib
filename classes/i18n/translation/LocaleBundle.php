@@ -141,6 +141,6 @@ class LocaleBundle
      */
     private function _format(string $message, array $params = [])
     {
-        return count($params) ? str_replace(array_map(fn (string $search): string => "{\$${search}}", array_keys($params)), array_values($params), $message) : $message;
+        return count($params) ? str_replace(array_map(fn (string $search): string => "{\${$search}}", array_keys($params)), array_values($params), $message) : $message;
     }
 }

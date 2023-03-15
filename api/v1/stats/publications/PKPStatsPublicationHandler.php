@@ -125,7 +125,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     }
 
     /**
-     * Get allowed parameters for getMany methos:
+     * Get allowed parameters for getMany methods:
      * getMany(), getManyFiles(), getManyCountries(), getManyRegions(), getManyCities
      */
     protected function getManyAllowedParams()

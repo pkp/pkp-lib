@@ -19,6 +19,7 @@ use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
+use PKP\reviewForm\ReviewForm;
 
 class ReviewFormGridCellProvider extends GridCellProvider
 {
@@ -56,7 +57,8 @@ class ReviewFormGridCellProvider extends GridCellProvider
     {
         switch ($column->getId()) {
             case 'active':
-                $element = $row->getData(); /** @var \PKP\core\DataObject $element */
+                /** @var ReviewForm */
+                $element = $row->getData();
 
                 $router = $request->getRouter();
 

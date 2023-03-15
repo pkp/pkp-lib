@@ -45,7 +45,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         return $query->addSelect($settingsTableIdColumn);
                     })
                     ->get();
-                
+
                 foreach ($settingsValues as $settingsValue) {
                     $stillExists = DB::table($settingsTable)
                         ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
@@ -54,7 +54,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         ->where('setting_name', '=', $settingsValue->setting_name)
                         ->where('locale', '=', $settingsValue->locale)
                         ->exists();
-                    
+
                     // if it does not exist we should do nothing
                     if ($stillExists) {
                         $updatedLocaleRet = $this->getUpdatedLocale($settingsValue->locale);
@@ -66,7 +66,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
                             // if the updatedLocale is the same as the setting's locale we should do nothing
                             if ($updatedLocale != $settingsValue->locale) {
-                                
+
                                 // Check if the database already has an updated locale with the same value -
                                 $hasAlreadyExistingUpdatedLocale = DB::table($settingsTable)
                                     ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
@@ -76,7 +76,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                                     ->where('locale', '=', $updatedLocale)
                                     ->where('setting_value', '=', $settingsValue->setting_value)
                                     ->exists();
-                                
+
                                 // if so, it is safe to delete the currently processed value.
                                 if ($hasAlreadyExistingUpdatedLocale) {
                                     DB::table($settingsTable)
@@ -149,7 +149,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         Schema::table('site', function (Blueprint $table) {
             $table->string('installed_locales')->default('en')->change();
         });
-        
+
         // users
         $users = DB::table('users')
             ->get();
@@ -211,7 +211,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateArrayLocaleNoId(string $dbLocales, string $table, string $column) 
+    function updateArrayLocaleNoId(string $dbLocales, string $table, string $column)
     {
         $siteSupportedLocales = json_decode($dbLocales);
 
@@ -219,7 +219,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             $newLocales = [];
             foreach ($siteSupportedLocales as $siteSupportedLocale) {
                 $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
-                
+
                 if (!is_null($updatedLocaleRet)) {
                     $updatedLocale = $updatedLocaleRet->keys()->first();
 
@@ -238,7 +238,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateArrayLocale(string $dbLocales, string $table, string $column, string $tableKeyColumn, int $id) 
+    function updateArrayLocale(string $dbLocales, string $table, string $column, string $tableKeyColumn, int $id)
     {
         $siteSupportedLocales = json_decode($dbLocales);
 
@@ -266,7 +266,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateArrayLocaleSetting(string $dbLocales, string $table, string $settingValue, string $tableKeyColumn, int $id) 
+    function updateArrayLocaleSetting(string $dbLocales, string $table, string $settingValue, string $tableKeyColumn, int $id)
     {
         $siteSupportedLocales = json_decode($dbLocales);
 
@@ -295,10 +295,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id) 
+    function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id)
     {
         $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
-        
+
         if (!is_null($updatedLocaleRet)) {
             $updatedLocale = $updatedLocaleRet->keys()->first();
 
@@ -310,10 +310,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocaleNoId(string $localevalue, string $table, string $column) 
+    function updateSingleValueLocaleNoId(string $localevalue, string $table, string $column)
     {
         $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
-        
+
         if (!is_null($updatedLocaleRet)) {
             $updatedLocale = $updatedLocaleRet->keys()->first();
 
@@ -324,13 +324,13 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData) 
+    function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData)
     {
         $stillExists = DB::table($table)
             ->where('email_key', '=', $email_key)
             ->where('locale', '=', $localevalue)
             ->exists();
-        
+
         if ($stillExists) {
             $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
@@ -346,7 +346,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         ->where('email_key', '=', $email_key)
                         ->where('locale', '=', $updatedLocale)
                         ->exists();
-                    
+
                     // if so, it is safe to delete the currently processed value.
                     if ($hasAlreadyExistingUpdatedLocale) {
                         DB::table($table)
@@ -390,10 +390,10 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
     }
 
     /**
-     * Returns null if no conversion is available or 
+     * Returns null if no conversion is available or
      * a key value pair collection that the key is the output locale and the value is the defaultLocale.
-     */ 
-    function getUpdatedLocale(string $localeValue) : ?Collection 
+     */
+    function getUpdatedLocale(string $localeValue) : ?Collection
     {
         $affectedLocales = $this->getAffectedLocales();
 
@@ -415,7 +415,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                     $extension = substr($localeValue, strpos($localeValue, '@'));
                 }
 
-                return collect(["${localeCode}${extension}" => "${defaultLocale}${extension}"]);
+                return collect(["{$localeCode}{$extension}" => "{$defaultLocale}{$extension}"]);
             } else {
                 return collect([$localeTransformation => $localeTransformation]);
             }

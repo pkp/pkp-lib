@@ -63,7 +63,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Theme-specific navigation menu areas
      *
-     * @var array; $menuAreas
+     * @var array $menuAreas
      */
     public $menuAreas = [];
 
@@ -77,7 +77,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Stored reference to option values
      *
-     * A null value indicates that no lookup has occured. If no options are set,
+     * A null value indicates that no lookup has occurred. If no options are set,
      * the lookup will assign an empty array.
      *
      * @var null|array; $_optionValues
@@ -95,7 +95,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
             return false;
         }
 
-        // Don't perform any futher operations if theme is not currently active
+        // Don't perform any further operations if theme is not currently active
         if (!$this->isActive()) {
             return true;
         }
@@ -120,7 +120,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function themeRegistered($themes)
     {
 
-        // Don't fully initialize the theme until OJS is installed, so that
+        // Don't fully initialize the theme until the application is installed, so that
         // there are no requests to the database before it exists
         if (SessionManager::isDisabled()) {
             return;
@@ -498,7 +498,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     /**
      * Get an option's configuration settings
      *
-     * This retrives option settings for any option attached to this theme or
+     * This retrieves option settings for any option attached to this theme or
      * any parent theme.
      *
      * @param string $name The name of the option config to retrieve
@@ -586,6 +586,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function getOptionValues($contextId)
     {
+        /** @var PluginSettingsDAO */
         $pluginSettingsDAO = DAORegistry::getDAO('PluginSettingsDAO');
 
         $return = [];
@@ -674,7 +675,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
 
         $pluginSettingsDao = DAORegistry::getDAO('PluginSettingsDAO'); /** @var PluginSettingsDAO $pluginSettingsDao */
 
-        // Remove setting row for empty string values (but not all falsey values)
+        // Remove setting row for empty string values (but not all falsy values)
         if ($value === '') {
             $pluginSettingsDao->deleteSetting($contextId, $this->getName(), $name);
         } else {
@@ -721,7 +722,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      *
      * @param array $existingAreas Any existing menu areas from child themes
      *
-     * @return array All menua reas
+     * @return array All menu areas
      */
     public function getMenuAreas($existingAreas = [])
     {
@@ -835,7 +836,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      * Get the base URL to be used for file paths
      *
      * A base URL for loading LESS/CSS/JS files in <link> elements. It will
-     * also be set to the @baseUrl variable before LESS files are compiloed so
+     * also be set to the @baseUrl variable before LESS files are compiled so
      * that images and fonts can be located.
      *
      * @param string $path An optional path to append to the base
@@ -845,7 +846,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     public function _getBaseUrl($path = '')
     {
         $request = Application::get()->getRequest();
-        $path = empty($path) ? '' : "/${path}";
+        $path = empty($path) ? '' : "/{$path}";
         return "{$request->getBaseUrl()}/{$this->getPluginPath()}$path";
     }
 
@@ -858,7 +859,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function _getBaseDir($path = '')
     {
-        $path = empty($path) ? '' : "/${path}";
+        $path = empty($path) ? '' : "/{$path}";
         return Core::getBaseDir() . "/{$this->getPluginPath()}$path";
     }
 
@@ -1017,7 +1018,7 @@ abstract class ThemePlugin extends LazyLoadPlugin
     }
 
     /**
-     * Return a color RGB code to be used in the usage statistics diplay graph.
+     * Return a color RGB code to be used in the usage statistics display graph.
      */
     protected function getUsageStatsDisplayColor(int $num): string
     {

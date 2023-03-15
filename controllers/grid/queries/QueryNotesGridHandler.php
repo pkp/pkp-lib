@@ -64,7 +64,7 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function getSubmission(): Submission
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
@@ -74,7 +74,7 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function getQuery(): ?Query
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
     }
 
     /**
@@ -84,7 +84,7 @@ class QueryNotesGridHandler extends GridHandler
      */
     public function getStageId()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
     }
 
     //
@@ -236,7 +236,7 @@ class QueryNotesGridHandler extends GridHandler
     public function getCanManage($note)
     {
         $isAdmin = (0 != count(array_intersect(
-            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_SUB_EDITOR]
         )));
 
@@ -262,13 +262,13 @@ class QueryNotesGridHandler extends GridHandler
         $note = $noteDao->getById($request->getUserVar('noteId'));
         $user = $request->getUser();
 
-        if (!$request->checkCSRF() || !$note || $note->getAssocType() != ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
+        if (!$request->checkCSRF() || !$note || $note->getAssocType() != Application::ASSOC_TYPE_QUERY || $note->getAssocId() != $query->getId()) {
             // The note didn't exist or has the wrong assoc info.
             return new JSONMessage(false);
         }
 
         if (!$this->getCanManage($note)) {
-            // The user doesn't own the note and isn't priveleged enough to delete it.
+            // The user doesn't own the note and isn't privileged enough to delete it.
             return new JSONMessage(false);
         }
 

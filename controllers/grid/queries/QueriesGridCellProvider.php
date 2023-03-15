@@ -23,6 +23,7 @@ use PKP\core\PKPString;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\note\NoteDAO;
+use PKP\query\Query;
 
 class QueriesGridCellProvider extends DataObjectGridCellProvider
 {
@@ -64,6 +65,7 @@ class QueriesGridCellProvider extends DataObjectGridCellProvider
      */
     public function getTemplateVarsFromRowColumn($row, $column)
     {
+        /** @var Query */
         $element = $row->getData();
         $columnId = $column->getId();
         assert($element instanceof \PKP\core\DataObject && !empty($columnId));

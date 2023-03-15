@@ -59,7 +59,7 @@ class migrationTool extends \PKP\cliTool\CommandLineTool
     /**
      * Log install message to stdout.
      *
-     * @param $message string
+     * @param string $message
      */
     public function log($message)
     {

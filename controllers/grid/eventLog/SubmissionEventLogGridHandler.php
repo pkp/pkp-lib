@@ -97,7 +97,7 @@ class SubmissionEventLogGridHandler extends GridHandler
 
         // Prevent authors from accessing review details, even if they are also
         // assigned as an editor, sub-editor or assistant.
-        $userAssignedRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAssignedRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         $this->_isCurrentUserAssignedAuthor = false;
         foreach ($userAssignedRoles as $stageId => $roles) {
             if (in_array(Role::ROLE_ID_AUTHOR, $roles)) {
@@ -119,7 +119,7 @@ class SubmissionEventLogGridHandler extends GridHandler
         parent::initialize($request, $args);
 
         // Retrieve the authorized monograph.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $this->setSubmission($submission);
 
         $this->_stageId = (int) ($args['stageId'] ?? null);

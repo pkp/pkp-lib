@@ -15,6 +15,7 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 
@@ -45,7 +46,7 @@ class SubmissionFileLog extends SubmissionLog
             $entry->setUserId($user->getId());
         }
 
-        $entry->setAssocType(ASSOC_TYPE_SUBMISSION_FILE);
+        $entry->setAssocType(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $entry->setAssocId($submissionFile->getId());
 
         // Set explicit parts of the log entry

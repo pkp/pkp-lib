@@ -20,6 +20,7 @@ use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
 use PKP\core\Core;
+use PKP\note\Note;
 
 class QueryNoteForm extends Form
 {
@@ -53,7 +54,7 @@ class QueryNoteForm extends Form
             // Create a new (placeholder) note.
             $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
             $note = $noteDao->newDataObject();
-            $note->setAssocType(ASSOC_TYPE_QUERY);
+            $note->setAssocType(Application::ASSOC_TYPE_QUERY);
             $note->setAssocId($query->getId());
             $note->setUserId($user->getId());
             $note->setDateCreated(Core::getCurrentDate());

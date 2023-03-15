@@ -29,7 +29,7 @@ interface CollectorInterface
      * only the date of the last three announcements:
      *
      * ```php
-     * $dates = Repo::announcemennt()
+     * $dates = Repo::announcement()
      *   ->filterByContextIds([$contextId])
      *   ->getQueryBuilder()
      *   ->limit(3)

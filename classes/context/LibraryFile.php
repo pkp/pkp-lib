@@ -197,7 +197,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get uploaded date of file.
      *
-     * @return date
+     * @return string
      */
     public function getDateUploaded()
     {
@@ -207,7 +207,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set uploaded date of file.
      *
-     * @param date $dateUploaded
+     * @param string $dateUploaded
      */
     public function setDateUploaded($dateUploaded)
     {
@@ -217,7 +217,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Get modified date of file.
      *
-     * @return date
+     * @return string
      */
     public function getDateModified()
     {
@@ -227,7 +227,7 @@ class LibraryFile extends \PKP\core\DataObject
     /**
      * Set modified date of file.
      *
-     * @param date $dateModified
+     * @param string $dateModified
      */
     public function setDateModified($dateModified)
     {

@@ -336,10 +336,10 @@ class Collector implements CollectorInterface
     public function orderBy(string $sorter, string $direction = self::ORDER_DIR_DESC, ?array $locales = null): self
     {
         if (!in_array($sorter, [static::ORDERBY_FAMILYNAME, static::ORDERBY_GIVENNAME, static::ORDERBY_ID])) {
-            throw new InvalidArgumentException("Invalid order by: ${sorter}");
+            throw new InvalidArgumentException("Invalid order by: {$sorter}");
         }
         if (!in_array($direction, [static::ORDER_DIR_ASC, static::ORDER_DIR_DESC])) {
-            throw new InvalidArgumentException("Invalid order direction: ${direction}");
+            throw new InvalidArgumentException("Invalid order direction: {$direction}");
         }
         $this->orderBy = $sorter;
         $this->orderDirection = $direction;
@@ -521,8 +521,8 @@ class Collector implements CollectorInterface
         }
 
         $dateDiff = fn (string $dateA, string $dateB): string => DB::connection() instanceof MySqlConnection
-            ? "DATEDIFF(${dateA}, ${dateB})"
-            : "DATE_PART('day', ${dateA} - ${dateB})";
+            ? "DATEDIFF({$dateA}, {$dateB})"
+            : "DATE_PART('day', {$dateA} - {$dateB})";
 
         $query->leftJoinSub(
             fn (Builder $query) => $query->from('review_assignments', 'ra')
@@ -628,20 +628,20 @@ class Collector implements CollectorInterface
                     foreach ($sortedSettings as $i => $setting) {
                         $aliases = [];
                         foreach ($locales as $j => $locale) {
-                            $aliases[] = $alias = "us_${i}_${j}";
+                            $aliases[] = $alias = "us_{$i}_{$j}";
                             $query->leftJoin(
-                                "user_settings AS ${alias}",
+                                "user_settings AS {$alias}",
                                 fn (JoinClause $join) => $join
-                                    ->on("${alias}.user_id", '=', 'u.user_id')
-                                    ->where("${alias}.setting_name", '=', $setting)
-                                    ->where("${alias}.locale", '=', $locale)
+                                    ->on("{$alias}.user_id", '=', 'u.user_id')
+                                    ->where("{$alias}.setting_name", '=', $setting)
+                                    ->where("{$alias}.locale", '=', $locale)
                             );
                         }
                         $aliasesBySetting[] = $aliases;
                     }
                     // Build a possibly long CONCAT(COALESCE(given_localeA, given_localeB, [...]), COALESCE(family_localeA, family_localeB, [...])
                     $coalescedSettings = array_map(
-                        fn (array $aliases) => 'COALESCE(' . implode(', ', array_map(fn (string $alias) => "${alias}.setting_value", $aliases)) . ", '')",
+                        fn (array $aliases) => 'COALESCE(' . implode(', ', array_map(fn (string $alias) => "{$alias}.setting_value", $aliases)) . ", '')",
                         $aliasesBySetting
                     );
                     $query->selectRaw('CONCAT(' . implode(', ', $coalescedSettings) . ')');

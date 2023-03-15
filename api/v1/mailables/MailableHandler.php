@@ -15,6 +15,7 @@
 namespace PKP\API\v1\mailables;
 
 use APP\facades\Repo;
+use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
 use PKP\security\authorization\ContextRequiredPolicy;
 use PKP\security\authorization\PolicySet;
@@ -86,6 +87,7 @@ class MailableHandler extends APIHandler
 
     /**
      * Get a mailable by its class name
+     * @param APIResponse $response
      */
     public function get(SlimRequest $slimRequest, Response $response, array $args): Response
     {

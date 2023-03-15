@@ -265,8 +265,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             // Retrieve the current offset
             $offset = (new DateTime())->format('P');
             $statement = DB::connection() instanceof MySqlConnection
-                ? "SET time_zone = '${offset}'"
-                : "SET TIME ZONE INTERVAL '${offset}' HOUR TO MINUTE";
+                ? "SET time_zone = '{$offset}'"
+                : "SET TIME ZONE INTERVAL '{$offset}' HOUR TO MINUTE";
             DB::statement($statement);
         }
     }

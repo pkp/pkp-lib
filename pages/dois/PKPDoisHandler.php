@@ -22,6 +22,7 @@ use PKP\components\forms\context\PKPDoiRegistrationSettingsForm;
 use PKP\components\forms\context\PKPDoiSetupSettingsForm;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\plugins\Hook;
 use PKP\plugins\IPKPDoiRegistrationAgency;
 use PKP\security\authorization\DoisEnabledPolicy;
@@ -69,7 +70,7 @@ abstract class PKPDoisHandler extends Handler
      * Displays the DOI management page
      *
      * @param array $args
-     * @param \PKP\handler\PKPRequest $request
+     * @param PKPRequest $request
      */
     public function index($args, $request)
     {

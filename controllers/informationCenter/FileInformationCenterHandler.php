@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\informationCenter;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewFileNoteForm;
@@ -70,7 +71,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
     {
         parent::initialize($request);
 
-        $this->_stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         $this->submissionFile = Repo::submissionFile()->get($request->getUserVar('submissionFileId'));
 
         // Ensure data integrity.
@@ -135,11 +136,11 @@ class FileInformationCenterHandler extends InformationCenterHandler
 
         $notes = collect();
         $sourceSubmissionFileId = $this->submissionFile->getData('sourceSubmissionFileId');
-        
+
         if (!is_null($sourceSubmissionFileId)) {
             $notes = $noteDao->getByAssoc($this->_getAssocType(), $sourceSubmissionFileId);
         }
-        
+
         $templateMgr->assign('notes', $notes);
 
         $user = $request->getUser();
@@ -242,7 +243,7 @@ class FileInformationCenterHandler extends InformationCenterHandler
      */
     public function _getAssocType()
     {
-        return ASSOC_TYPE_SUBMISSION_FILE;
+        return Application::ASSOC_TYPE_SUBMISSION_FILE;
     }
 
     /**

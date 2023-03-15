@@ -21,6 +21,7 @@
 namespace PKP\xml;
 
 use PKP\file\FileManager;
+use XMLParser;
 
 class PKPXMLParser {
 	public const XML_PARSER_SOURCE_ENCODING = 'utf-8';
@@ -189,7 +190,7 @@ class PKPXMLParser {
 
 	/**
 	 * Initialize a new XML parser.
-	 * @return resource
+	 * @return XMLParser
 	 */
 	function createParser() {
 		$parser = xml_parser_create(static::XML_PARSER_SOURCE_ENCODING);
@@ -200,7 +201,7 @@ class PKPXMLParser {
 
 	/**
 	 * Destroy XML parser.
-	 * @param resource $parser
+	 * @param XMLParser $parser
 	 */
 	function destroyParser($parser) {
 		xml_parser_free($parser);

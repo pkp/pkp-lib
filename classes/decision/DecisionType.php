@@ -64,7 +64,7 @@ abstract class DecisionType
     /**
      * Get the decision type identifier
      *
-     * One of the SUBMISSION_EDITOR_DECISION_ constants
+     * One of the Decision::* constants
      */
     abstract public function getDecision(): int;
 

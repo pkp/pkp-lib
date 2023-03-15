@@ -13,6 +13,7 @@
  * @brief CLI tool to parse existing citations
  */
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 
@@ -20,6 +21,7 @@ require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
 {
+    public $parameters;
     /**
      * Constructor.
      *
@@ -71,7 +73,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                 foreach ($this->parameters as $contextId) {
                     $context = $contextDao->getById($contextId);
                     if (!isset($context)) {
-                        printf("Error: Skipping ${contextId}. Unknown context.\n");
+                        printf("Error: Skipping {$contextId}. Unknown context.\n");
                         continue;
                     }
                     $submissions = Repo::submission()->getCollector()->filterByContextIds([$context->getId()])->getMany();
@@ -84,7 +86,7 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
                 foreach ($this->parameters as $submissionId) {
                     $submission = Repo::submission()->get($submissionId);
                     if (!isset($submission)) {
-                        printf("Error: Skipping ${submissionId}. Unknown submission.\n");
+                        printf("Error: Skipping {$submissionId}. Unknown submission.\n");
                         continue;
                     }
                     $this->_parseSubmission($submission);
@@ -103,9 +105,11 @@ class CitationsParsingTool extends \PKP\cliTool\CommandLineTool
      */
     private function _parseSubmission($submission)
     {
+        /** @var CitationDAO */
+        $citationDao = DAORegistry::getDAO('CitationDAO');
         foreach ($submission->getData('publications') as $publication) {
             if (!empty($publication->getData('citationsRaw'))) {
-                DAORegistry::getDAO('CitationDAO')->importCitations($publication->getId(), $publication->getData('citationsRaw'));
+                $citationDao->importCitations($publication->getId(), $publication->getData('citationsRaw'));
             }
         }
     }

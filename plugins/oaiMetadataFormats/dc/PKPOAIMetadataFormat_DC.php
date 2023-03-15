@@ -16,6 +16,7 @@
 
 namespace PKP\plugins\oaiMetadataFormats\dc;
 
+use PKP\core\DataObject;
 use PKP\core\PKPString;
 use PKP\metadata\MetadataDescription;
 use PKP\oai\OAIUtils;
@@ -25,6 +26,7 @@ class PKPOAIMetadataFormat_DC extends \PKP\oai\OAIMetadataFormat
     /**
      * @copydoc OAIMetadataFormat::toXML
      *
+     * @param DataObject $dataObject
      * @param null|mixed $format
      */
     public function toXml($dataObject, $format = null)
@@ -78,14 +80,14 @@ class PKPOAIMetadataFormat_DC extends \PKP\oai\OAIMetadataFormat
                 assert(is_array($value));
                 foreach ($value as $subValue) {
                     if ($key == MetadataDescription::METADATA_DESCRIPTION_UNKNOWN_LOCALE) {
-                        $response .= "\t<${openingElement}>" . OAIUtils::prepOutput($subValue) . "</${closingElement}>\n";
+                        $response .= "\t<{$openingElement}>" . OAIUtils::prepOutput($subValue) . "</{$closingElement}>\n";
                     } else {
-                        $response .= "\t<${openingElement} xml:lang=\"${key}\">" . OAIUtils::prepOutput($subValue) . "</${closingElement}>\n";
+                        $response .= "\t<{$openingElement} xml:lang=\"{$key}\">" . OAIUtils::prepOutput($subValue) . "</{$closingElement}>\n";
                     }
                 }
             } else {
                 assert(is_scalar($value));
-                $response .= "\t<${openingElement}>" . OAIUtils::prepOutput($value) . "</${closingElement}>\n";
+                $response .= "\t<{$openingElement}>" . OAIUtils::prepOutput($value) . "</{$closingElement}>\n";
             }
         }
         return $response;

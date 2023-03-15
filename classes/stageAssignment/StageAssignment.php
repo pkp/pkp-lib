@@ -111,7 +111,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Set the date assigned
      *
-     * @param datestamp $dateAssigned (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateAssigned (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateAssigned($dateAssigned)
     {
@@ -121,7 +121,7 @@ class StageAssignment extends \PKP\core\DataObject
     /**
      * Get the date assigned
      *
-     * @return datestamp (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateAssigned()
     {

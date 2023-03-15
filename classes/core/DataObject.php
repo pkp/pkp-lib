@@ -352,7 +352,7 @@ class DataObject
     {
         // Load meta-data adapters from the database.
         if ($this->getHasLoadableAdapters() && !$this->_injectionAdaptersLoaded) {
-            $filterDao = \DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
+            $filterDao = DAORegistry::getDAO('FilterDAO'); /** @var FilterDAO $filterDao */
             $loadedAdapters = $filterDao->getObjectsByTypeDescription('metadata::%', 'class::%', $this, false);
             foreach ($loadedAdapters as $loadedAdapter) {
                 $this->addSupportedMetadataAdapter($loadedAdapter);

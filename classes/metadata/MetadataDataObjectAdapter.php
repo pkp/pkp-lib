@@ -23,6 +23,7 @@
 
 namespace PKP\metadata;
 
+use PKP\core\DataObject;
 use PKP\filter\PersistableFilter;
 
 class MetadataDataObjectAdapter extends PersistableFilter
@@ -480,6 +481,6 @@ class MetadataDataObjectAdapter extends PersistableFilter
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\metadata\MetadataDataObjectAdapter', '\MetadataDataObjectAdapter');
-    define('METADATA_DOA_INJECTION_MODE', \MetadataDataObjectAdapter::METADATA_DOA_INJECTION_MODE);
-    define('METADATA_DOA_EXTRACTION_MODE', \MetadataDataObjectAdapter::METADATA_DOA_EXTRACTION_MODE);
+    define('METADATA_DOA_INJECTION_MODE', MetadataDataObjectAdapter::METADATA_DOA_INJECTION_MODE);
+    define('METADATA_DOA_EXTRACTION_MODE', MetadataDataObjectAdapter::METADATA_DOA_EXTRACTION_MODE);
 }

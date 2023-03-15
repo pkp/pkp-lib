@@ -14,6 +14,7 @@
 
 namespace PKP\security\authorization\internal;
 
+use APP\core\Application;
 use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\AuthorizationPolicy;
@@ -70,20 +71,20 @@ class ReviewAssignmentRequiredPolicy extends DataObjectRequiredPolicy
 
         // Ensure that the review assignment actually belongs to the
         // authorized submission.
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         assert($submission instanceof Submission);
         if ($reviewAssignment->getSubmissionId() != $submission->getId()) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Ensure that the review assignment is for this workflow stage
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
         if ($reviewAssignment->getStageId() != $stageId) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
         // Save the review Assignment to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

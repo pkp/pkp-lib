@@ -16,6 +16,8 @@
 
 namespace PKP\core;
 
+use HTMLPurifier;
+use HTMLPurifier_Config;
 use PKP\config\Config;
 use Stringy\Stringy;
 
@@ -218,7 +220,7 @@ class PKPString
      * @see https://www.php.net/preg_grep
      *
      * @param string $pattern Regular expression
-     * @param string $input Input string
+     * @param array $input Input
      *
      * @return array
      */
@@ -404,12 +406,12 @@ class PKPString
     {
         static $purifier;
         if (!isset($purifier)) {
-            $config = \HTMLPurifier_Config::createDefault();
+            $config = HTMLPurifier_Config::createDefault();
             $config->set('Core.Encoding', 'utf-8');
             $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
             $config->set('HTML.Allowed', Config::getVar('security', $configKey));
             $config->set('Cache.SerializerPath', 'cache');
-            $purifier = new \HTMLPurifier($config);
+            $purifier = new HTMLPurifier($config);
         }
         return $purifier->purify((string) $input);
     }

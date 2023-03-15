@@ -39,7 +39,7 @@ class PKPAnnouncementHandler extends APIHandler
     /** @var int The default number of announcements to return in one request */
     public const DEFAULT_COUNT = 30;
 
-    /** @var int The maxium number of announcements to return in one request */
+    /** @var int The maximum number of announcements to return in one request */
     public const MAX_COUNT = 100;
 
     /**

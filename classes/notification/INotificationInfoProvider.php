@@ -14,6 +14,9 @@
 
 namespace PKP\notification;
 
+use APP\notification\Notification;
+use PKP\core\PKPRequest;
+
 define('NOTIFICATION_STYLE_CLASS_WARNING', 'notifyWarning');
 define('NOTIFICATION_STYLE_CLASS_INFORMATION', 'notifyInfo');
 define('NOTIFICATION_STYLE_CLASS_SUCCESS', 'notifySuccess');
@@ -41,7 +44,7 @@ interface INotificationInfoProvider
      * @param PKPRequest $request
      * @param Notification $notification
      *
-     * @return string
+     * @return string|array
      */
     public function getNotificationMessage($request, $notification);
 
@@ -53,7 +56,7 @@ interface INotificationInfoProvider
      * @param PKPRequest $request
      * @param Notification $notification
      *
-     * @return string
+     * @return string|array
      */
     public function getNotificationContents($request, $notification);
 
@@ -89,7 +92,7 @@ interface INotificationInfoProvider
      * is visible to all users or not.
      *
      * @param int $notificationType
-     * @param int $assocType ASSOC_TYPE_...
+     * @param int $assocType Application::ASSOC_TYPE_...
      * @param int $assocId
      *
      * @return bool

@@ -266,5 +266,5 @@ class AuthorizationDecisionManager
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\AuthorizationDecisionManager', '\AuthorizationDecisionManager');
-    define('AUTHORIZATION_NOT_APPLICABLE', \AuthorizationDecisionManager::AUTHORIZATION_NOT_APPLICABLE);
+    define('AUTHORIZATION_NOT_APPLICABLE', AuthorizationDecisionManager::AUTHORIZATION_NOT_APPLICABLE);
 }

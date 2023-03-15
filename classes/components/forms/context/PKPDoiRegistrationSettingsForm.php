@@ -22,6 +22,7 @@ use PKP\components\forms\FieldSelect;
 use PKP\components\forms\FormComponent;
 use PKP\context\Context;
 use PKP\plugins\Hook;
+use PKP\plugins\Plugin;
 
 class PKPDoiRegistrationSettingsForm extends FormComponent
 {
@@ -62,7 +63,7 @@ class PKPDoiRegistrationSettingsForm extends FormComponent
 
         $this->agencyFields = [];
 
-        $registrationAgencies->each(function (IDoiRegistrationAgency $agency) use (&$options, $context) {
+        $registrationAgencies->each(function (IDoiRegistrationAgency|Plugin $agency) use (&$options, $context) {
             $options[] = [
                 'value' => $agency->getName(),
                 'label' => $agency->getRegistrationAgencyName(),

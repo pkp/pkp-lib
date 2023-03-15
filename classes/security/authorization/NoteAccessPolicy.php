@@ -12,11 +12,12 @@
  * @brief Class to control access to a note.
  *
  * NB: This policy expects previously authorized submission, query and
- * accessibile workflow stages in the authorization context.
+ * accessible workflow stages in the authorization context.
  */
 
 namespace PKP\security\authorization;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 
 class NoteAccessPolicy extends AuthorizationPolicy
@@ -60,9 +61,9 @@ class NoteAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $assignedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $assignedStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
 
         if (!$query || !$submission || empty($assignedStages)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
@@ -77,9 +78,9 @@ class NoteAccessPolicy extends AuthorizationPolicy
 
         // Note, query, submission and assigned stages must match
         if ($note->getAssocId() != $query->getId()
-                || $note->getAssocType() != ASSOC_TYPE_QUERY
+                || $note->getAssocType() != Application::ASSOC_TYPE_QUERY
                 || $query->getAssocId() != $submission->getId()
-                || $query->getAssocType() != ASSOC_TYPE_SUBMISSION
+                || $query->getAssocType() != Application::ASSOC_TYPE_SUBMISSION
                 || !array_key_exists($query->getStageId(), $assignedStages)
                 || empty($assignedStages[$query->getStageId()])) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
@@ -91,7 +92,7 @@ class NoteAccessPolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $this->addAuthorizedContextObject(ASSOC_TYPE_NOTE, $note);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_NOTE, $note);
 
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
@@ -99,6 +100,6 @@ class NoteAccessPolicy extends AuthorizationPolicy
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\security\authorization\NoteAccessPolicy', '\NoteAccessPolicy');
-    define('NOTE_ACCESS_READ', \NoteAccessPolicy::NOTE_ACCESS_READ);
-    define('NOTE_ACCESS_WRITE', \NoteAccessPolicy::NOTE_ACCESS_WRITE);
+    define('NOTE_ACCESS_READ', NoteAccessPolicy::NOTE_ACCESS_READ);
+    define('NOTE_ACCESS_WRITE', NoteAccessPolicy::NOTE_ACCESS_WRITE);
 }

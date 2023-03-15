@@ -153,5 +153,5 @@ class InterestDAO extends ControlledVocabDAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\user\InterestDAO', '\InterestDAO');
-    define('CONTROLLED_VOCAB_INTEREST', \InterestDAO::CONTROLLED_VOCAB_INTEREST);
+    define('CONTROLLED_VOCAB_INTEREST', InterestDAO::CONTROLLED_VOCAB_INTEREST);
 }

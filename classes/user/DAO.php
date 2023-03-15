@@ -93,6 +93,7 @@ class DAO extends EntityDAO
         $row = DB::table($this->table)
             ->where($this->primaryKeyColumn, $id)
             ->first();
+        /** @var User */
         $user = $row ? $this->fromRow($row) : null;
         if (!$allowDisabled && $user?->getDisabled()) {
             return null;

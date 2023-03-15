@@ -16,6 +16,8 @@
 
 namespace PKP\core;
 
+use PKP\db\DBResultRange;
+
 class VirtualArrayIterator extends ItemIterator
 {
     /** @var array The array of contents of this iterator. */
@@ -63,7 +65,7 @@ class VirtualArrayIterator extends ItemIterator
      * calls the constructor.
      *
      * @param array $wholeArray The whole array of items
-     * @param int $rangeInfo The number of items per page
+     * @param DBResultRange $rangeInfo The number of items per page
      *
      * @return object VirtualArrayIterator
      */

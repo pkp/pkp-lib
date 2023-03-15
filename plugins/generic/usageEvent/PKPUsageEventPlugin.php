@@ -415,7 +415,7 @@ abstract class PKPUsageEventPlugin extends GenericPlugin
     * @return array With the following data:
     * DataObject the published object, boolean download success, integer used published object assoc type,
     * string used published object id foreign keys lookup (all parent associated objects id,
-    * preceeded with a single letter to identify the object), string canonical url page,
+    * preceded with a single letter to identify the object), string canonical url page,
     * string canonical url operation, array with canonical url parameters.
     *
     * @see PKPUsageEventPlugin::buildUsageEvent()

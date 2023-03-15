@@ -78,23 +78,23 @@ class DependentFilesGridHandler extends FileListGridHandler
      */
     public function getRequestArgs()
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         return array_merge(
             parent::getRequestArgs(),
             ['submissionFileId' => $submissionFile->getId()]
         );
     }
 
-    function initialize($request, $args = null) 
+    function initialize($request, $args = null)
     {
         $capabilities = FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT;
 
         $publication = $this->getPublication();
-        
+
         if ($publication) {
             if ($publication->getData('status') == Submission::STATUS_PUBLISHED) {
                 $capabilities = FilesGridCapabilities::FILE_GRID_VIEW_NOTES;
-            } 
+            }
         }
 
         $this->setCapabilities(new FilesGridCapabilities($capabilities));

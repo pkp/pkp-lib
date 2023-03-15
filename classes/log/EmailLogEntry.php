@@ -48,7 +48,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Get date email was sent.
      *
-     * @return datestamp
+     * @return string
      */
     public function getDateSent()
     {
@@ -58,7 +58,7 @@ class EmailLogEntry extends \PKP\core\DataObject
     /**
      * Set date email was sent.
      *
-     * @param datestamp $dateSent
+     * @param string $dateSent
      */
     public function setDateSent($dateSent)
     {

@@ -24,7 +24,7 @@ class Repository
     /** @var DAO $dao */
     public $dao;
 
-    /** @var string $schemaMap The name of the class to map this entity to its schemaa */
+    /** @var string $schemaMap The name of the class to map this entity to its schema */
     public $schemaMap = maps\Schema::class;
 
     /** @var Request $request */

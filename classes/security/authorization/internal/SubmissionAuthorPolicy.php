@@ -56,7 +56,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
         }
 
         // Get the submission
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         if (!$submission instanceof Submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
@@ -77,7 +77,7 @@ class SubmissionAuthorPolicy extends AuthorizationPolicy
                         $accessibleWorkflowStages[$stageId] = $accessibleStageRoles;
                     }
                 }
-                $this->addAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES, $accessibleWorkflowStages);
 
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }

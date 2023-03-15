@@ -16,8 +16,12 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\file\PublicFileManager;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
+use PKP\file\TemporaryFileManager;
 use PKP\plugins\Hook;
+use PKP\plugins\PluginRegistry;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityWriteInterface;
 use PKP\validation\ValidatorFactory;
@@ -131,7 +135,7 @@ class PKPSiteService implements EntityPropertyInterface
         // enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['sidebar']) && !$validator->errors()->get('sidebar')) {
-                $plugins = \PluginRegistry::loadCategory('blocks', true);
+                $plugins = PluginRegistry::loadCategory('blocks', true);
                 foreach ($props['sidebar'] as $pluginName) {
                     if (empty($plugins[$pluginName])) {
                         $validator->errors()->add('sidebar', __('manager.setup.layout.sidebar.invalidBlock', ['name' => $pluginName]));
@@ -143,7 +147,7 @@ class PKPSiteService implements EntityPropertyInterface
         // Ensure the theme plugin is installed and enabled
         $validator->after(function ($validator) use ($props) {
             if (!empty($props['themePluginPath']) && !$validator->errors()->get('themePluginPath')) {
-                $plugins = \PluginRegistry::loadCategory('themes', true);
+                $plugins = PluginRegistry::loadCategory('themes', true);
                 $found = false;
                 foreach ($plugins as $plugin) {
                     if ($props['themePluginPath'] === $plugin->getDirName()) {
@@ -231,8 +235,8 @@ class PKPSiteService implements EntityPropertyInterface
      */
     public function moveTemporaryFile($context, $temporaryFile, $fileNameBase, $userId, $localeKey = '')
     {
-        $publicFileManager = new \PublicFileManager();
-        $temporaryFileManager = new \TemporaryFileManager();
+        $publicFileManager = new PublicFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
 
         $fileName = $fileNameBase;
         if ($localeKey) {
@@ -278,14 +282,14 @@ class PKPSiteService implements EntityPropertyInterface
      */
     protected function _saveFileParam($site, $value, $settingName, $userId, $localeKey = '', $isImage = false)
     {
-        $temporaryFileManager = new \TemporaryFileManager();
+        $temporaryFileManager = new TemporaryFileManager();
 
         // If the value is null, clean up any existing file in the system
         if (is_null($value)) {
             $setting = $site->getData($settingName, $localeKey);
             if ($setting) {
                 $fileName = $isImage ? $setting['uploadName'] : $setting;
-                $publicFileManager = new \PublicFileManager();
+                $publicFileManager = new PublicFileManager();
                 $publicFileManager->removeSiteFile($fileName);
             }
             return null;
@@ -302,7 +306,7 @@ class PKPSiteService implements EntityPropertyInterface
         if ($fileName) {
             // Get the details for image uploads
             if ($isImage) {
-                $publicFileManager = new \PublicFileManager();
+                $publicFileManager = new PublicFileManager();
 
                 [$width, $height] = getimagesize($publicFileManager->getSiteFilesPath() . '/' . $fileName);
                 $altText = !empty($value['altText']) ? $value['altText'] : '';
@@ -312,14 +316,14 @@ class PKPSiteService implements EntityPropertyInterface
                     'uploadName' => $fileName,
                     'width' => $width,
                     'height' => $height,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                     'altText' => $altText,
                 ];
             } else {
                 return [
                     'originalFilename' => $temporaryFile->getOriginalFileName(),
                     'uploadName' => $fileName,
-                    'dateUploaded' => \Core::getCurrentDate(),
+                    'dateUploaded' => Core::getCurrentDate(),
                 ];
             }
         }

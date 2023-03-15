@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\informationCenter;
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -72,7 +73,7 @@ abstract class InformationCenterHandler extends Handler
         parent::initialize($request);
 
         // Fetch the submission and file to display information about
-        $this->_submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $this->_submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
 

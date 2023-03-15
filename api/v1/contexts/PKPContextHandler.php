@@ -20,11 +20,13 @@ use APP\plugins\IDoiRegistrationAgency;
 use APP\services\ContextService;
 use APP\template\TemplateManager;
 use PKP\context\Context;
+use PKP\core\APIResponse;
 use PKP\db\DAORegistry;
 use PKP\handler\APIHandler;
 use PKP\plugins\Hook;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
+use PKP\plugins\ThemePlugin;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -467,7 +469,9 @@ class PKPContextHandler extends APIHandler
         }
 
         // Get the appropriate theme plugin
+        /** @var iterable<ThemePlugin> */
         $allThemes = PluginRegistry::loadCategory('themes', true);
+        /** @var ?ThemePlugin */
         $selectedTheme = null;
         foreach ($allThemes as $theme) {
             if ($themePluginPath === $theme->getDirName()) {
@@ -510,6 +514,7 @@ class PKPContextHandler extends APIHandler
         return $response->withJson($data, 200);
     }
 
+    /** @param APIResponse $response */
     public function editDoiRegistrationAgencyPlugin(SlimRequest $slimRequest, SlimResponse $response, array $args): SlimResponse
     {
         $request = $this->getRequest();

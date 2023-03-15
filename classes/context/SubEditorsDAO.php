@@ -66,7 +66,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * @param int $contextId
      * @param int $assocId
      * @param int $userId
-     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      */
     public function deleteEditor($contextId, $assocId, $userId, $assocType)
     {
@@ -85,7 +85,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * Retrieve a list of all sub editors assigned to the specified submission group.
      *
      * @param int[] $assocIds Section or category ids
-     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      *
      * @return Collection result rows with userId and userGroupId columns
      */
@@ -102,7 +102,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * Delete all sub editors for a specified submission group in a context.
      *
      * @param int $assocId
-     * @param int $assocType ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $assocType Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      * @param int $contextId
      */
     public function deleteBySubmissionGroupId($assocId, $assocType, $contextId = null)
@@ -154,7 +154,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * @param int $contextId
      * @param int $assocId
      * @param int $userId
-     * @param int $assocType optional ASSOC_TYPE_SECTION or ASSOC_TYPE_CATEGORY
+     * @param int $assocType optional Application::ASSOC_TYPE_SECTION or Application::ASSOC_TYPE_CATEGORY
      *
      * @return bool
      */

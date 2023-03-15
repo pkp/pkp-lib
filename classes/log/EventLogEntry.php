@@ -17,9 +17,11 @@
 
 namespace PKP\log;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class EventLogEntry extends \PKP\core\DataObject
@@ -55,7 +57,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Get date entry was logged.
      *
-     * @return datestamp
+     * @return string
      */
     public function getDateLogged()
     {
@@ -65,7 +67,7 @@ class EventLogEntry extends \PKP\core\DataObject
     /**
      * Set date entry was logged.
      *
-     * @param datestamp $dateLogged
+     * @param string $dateLogged
      */
     public function setDateLogged($dateLogged)
     {
@@ -202,7 +204,7 @@ class EventLogEntry extends \PKP\core\DataObject
                 $anonymousAuthor = true;
                 if (isset($params['reviewAssignmentId'])) {
                     $reviewAssignment = $reviewAssignmentDao->getById($params['reviewAssignmentId']);
-                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }
                 }
@@ -215,9 +217,9 @@ class EventLogEntry extends \PKP\core\DataObject
                 assert(isset($params['fileId']) && isset($params['submissionId']));
                 $anonymousAuthor = true;
                 $submissionFile = Repo::submissionFile()->get($params['id']);
-                if ($submissionFile && $submissionFile->getData('assocType') === ASSOC_TYPE_REVIEW_ASSIGNMENT) {
+                if ($submissionFile && $submissionFile->getData('assocType') === Application::ASSOC_TYPE_REVIEW_ASSIGNMENT) {
                     $reviewAssignment = $reviewAssignmentDao->getById($submissionFile->getData('assocId'));
-                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [SUBMISSION_REVIEW_METHOD_ANONYMOUS, SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
+                    if ($reviewAssignment && !in_array($reviewAssignment->getReviewMethod(), [ReviewAssignment::SUBMISSION_REVIEW_METHOD_ANONYMOUS, ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS])) {
                         $anonymousAuthor = false;
                     }
                 }
@@ -290,6 +292,6 @@ class EventLogEntry extends \PKP\core\DataObject
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\log\EventLogEntry', '\EventLogEntry');
-    define('SUBMISSION_LOG_NOTE_POSTED', \EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
-    define('SUBMISSION_LOG_MESSAGE_SENT', \EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
+    define('SUBMISSION_LOG_NOTE_POSTED', EventLogEntry::SUBMISSION_LOG_NOTE_POSTED);
+    define('SUBMISSION_LOG_MESSAGE_SENT', EventLogEntry::SUBMISSION_LOG_MESSAGE_SENT);
 }

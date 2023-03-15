@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\dependent;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\files\SubmissionFilesGridDataProvider;
@@ -50,7 +51,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
         $submissionFiles = Repo::submissionFile()
             ->getCollector()
             ->filterByAssoc(
-                ASSOC_TYPE_SUBMISSION_FILE,
+                Application::ASSOC_TYPE_SUBMISSION_FILE,
                 [$this->getAssocId()]
             )->filterBySubmissionIds([$this->getSubmission()->getId()])
             ->filterByFileStages([$this->getFileStage()])
@@ -74,7 +75,7 @@ class DependentFilesGridDataProvider extends SubmissionFilesGridDataProvider
             $this->getStageId(),
             $this->getUploaderRoles(),
             $this->getFileStage(),
-            ASSOC_TYPE_SUBMISSION_FILE,
+            Application::ASSOC_TYPE_SUBMISSION_FILE,
             $this->getAssocId(),
             null,
             null,

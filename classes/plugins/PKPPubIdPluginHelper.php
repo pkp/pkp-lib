@@ -16,6 +16,7 @@
 namespace PKP\plugins;
 
 use APP\core\Application;
+use PKP\submissionFile\SubmissionFile;
 
 class PKPPubIdPluginHelper
 {

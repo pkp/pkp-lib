@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\tab\authorDashboard;
 
+use APP\core\Application;
 use APP\handler\Handler;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
@@ -71,12 +72,12 @@ class AuthorDashboardTabHandler extends Handler
         $stageId = $request->getUserVar('stageId');
         $templateMgr->assign('stageId', $stageId);
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         $templateMgr->assign('submission', $submission);
 
         // Check if current author can access CopyeditFilesGrid within copyedit stage
         $canAccessCopyeditingStage = true;
-        $userAllowedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userAllowedStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
         if (!array_key_exists(WORKFLOW_STAGE_ID_EDITING, $userAllowedStages)) {
             $canAccessCopyeditingStage = false;
         }
@@ -148,7 +149,7 @@ class AuthorDashboardTabHandler extends Handler
      */
     protected function _getNotificationRequestOptions($submission)
     {
-        $submissionAssocTypeAndIdArray = [ASSOC_TYPE_SUBMISSION, $submission->getId()];
+        $submissionAssocTypeAndIdArray = [Application::ASSOC_TYPE_SUBMISSION, $submission->getId()];
         return [
             Notification::NOTIFICATION_LEVEL_TASK => [
                 PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS => $submissionAssocTypeAndIdArray],

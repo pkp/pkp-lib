@@ -8,7 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryTitleGridColumn
- * @ingroup controllers_grid_queriess
+ * @ingroup controllers_grid_queries
  *
  * @brief Implements a query tile column.
  */

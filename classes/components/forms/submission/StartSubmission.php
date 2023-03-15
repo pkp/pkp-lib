@@ -37,7 +37,7 @@ class StartSubmission extends FormComponent
     public Enumerable $userGroups;
 
     /**
-     * @param UserGroup[] $userGroups The user groups this user can submit as in this context
+     * @param Enumerable<UserGroup> $userGroups The user groups this user can submit as in this context
      */
     public function __construct(string $action, Context $context, Enumerable $userGroups)
     {

@@ -18,17 +18,22 @@
 
 namespace PKP\controllers\api\file;
 
+use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
+use Exception;
+use PKP\config\Config;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\file\FileArchive;
+use PKP\file\FileManager;
 use PKP\pages\libraryFiles\LibraryFileHandler;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submissionFile\SubmissionFile;
 
 class FileApiHandler extends Handler
@@ -87,7 +92,7 @@ class FileApiHandler extends Handler
      */
     public function downloadFile($args, $request)
     {
-        $submissionFile = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILE);
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $fileId = $request->getUserVar('fileId') ?? $submissionFile->getData('fileId');
         $revisions = Repo::submissionFile()
             ->getRevisions($submissionFile->getId());
@@ -107,9 +112,9 @@ class FileApiHandler extends Handler
         $filename = $request->getUserVar('filename') ?? $submissionFile->getLocalizedData('name');
 
         // Enforce anonymous filenames for anonymous review assignments
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         if ($reviewAssignment
-                && $reviewAssignment->getReviewMethod() == SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
+                && $reviewAssignment->getReviewMethod() == ReviewAssignment::SUBMISSION_REVIEW_METHOD_DOUBLEANONYMOUS
                 && $reviewAssignment->getReviewerId() == $request->getUser()->getId()) {
             $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
             $genre = $genreDao->getById($submissionFile->getData('genreId'));
@@ -148,7 +153,7 @@ class FileApiHandler extends Handler
     public function downloadAllFiles($args, $request)
     {
         // Retrieve the authorized objects.
-        $submissionFiles = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION_FILES);
+        $submissionFiles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILES);
 
         $files = [];
         foreach ($submissionFiles as $submissionFile) {

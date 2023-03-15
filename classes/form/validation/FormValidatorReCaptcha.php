@@ -15,7 +15,11 @@
 
 namespace PKP\form\validation;
 
+use APP\core\Application;
 use Exception;
+use InvalidArgumentException;
+use PKP\config\Config;
+use PKP\form\Form;
 
 class FormValidatorReCaptcha extends FormValidator
 {

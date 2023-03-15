@@ -18,6 +18,7 @@
 
 namespace PKP\payment;
 
+use APP\core\Application;
 use PKP\core\Core;
 use PKP\db\DAORegistry;
 
@@ -48,7 +49,7 @@ class QueuedPaymentDAO extends \PKP\db\DAO
      * Insert a new queued payment.
      *
      * @param QueuedPayment $queuedPayment
-     * @param date $expiryDate optional
+     * @param string $expiryDate optional
      */
     public function insertObject($queuedPayment, $expiryDate = null)
     {
@@ -102,7 +103,7 @@ class QueuedPaymentDAO extends \PKP\db\DAO
     public function deleteById($queuedPaymentId)
     {
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
-        $notificationDao->deleteByAssoc(ASSOC_TYPE_QUEUED_PAYMENT, $queuedPaymentId);
+        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_QUEUED_PAYMENT, $queuedPaymentId);
         $this->update(
             'DELETE FROM queued_payments WHERE queued_payment_id = ?',
             [(int) $queuedPaymentId]

@@ -16,6 +16,7 @@
 
 namespace PKP\filter;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\facades\Locale;
 

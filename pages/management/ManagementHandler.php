@@ -32,6 +32,7 @@ use PKP\components\forms\submission\SubmissionGuidanceSettings;
 use PKP\config\Config;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\mail\Mailable;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\Role;

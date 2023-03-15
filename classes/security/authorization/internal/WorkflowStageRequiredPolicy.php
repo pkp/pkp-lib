@@ -50,7 +50,7 @@ class WorkflowStageRequiredPolicy extends AuthorizationPolicy
         }
 
         // Save the workflow stage to the authorization context.
-        $this->addAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE, $this->_stageId);
+        $this->addAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE, $this->_stageId);
         return AuthorizationPolicy::AUTHORIZATION_PERMIT;
     }
 }

@@ -17,8 +17,11 @@ namespace PKP\plugins\importexport\native;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use BadMethodCallException;
+use Exception;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
+use PKP\filter\Filter;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 
@@ -120,7 +123,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
         switch ($this->opType) {
             case 'index':
             case '':
-                $apiUrl = $request->getDispatcher()->url($request, ROUTE_API, $context->getPath(), 'submissions');
+                $apiUrl = $request->getDispatcher()->url($request, Application::ROUTE_API, $context->getPath(), 'submissions');
                 $submissionsListPanel = new \APP\components\listPanels\SubmissionsListPanel(
                     'submissions',
                     __('common.publications'),
@@ -226,7 +229,7 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 if (!$downloadSuccess) {
                     $dispatcher = $request->getDispatcher();
                     $dispatcher->handle404();
-                } 
+                }
 
                 $this->isResultManaged = true;
 

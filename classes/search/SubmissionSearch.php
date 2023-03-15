@@ -279,7 +279,7 @@ abstract class SubmissionSearch
 
             // Fetch all the results from all the keywords into one array
             // (mergedResults), where mergedResults[submission_id]
-            // = sum of all the occurences for all keywords associated with
+            // = sum of all the occurrences for all keywords associated with
             // that article ID.
             $mergedResults = $this->_getMergedArray($context, $keywords, $publishedFrom, $publishedTo);
 

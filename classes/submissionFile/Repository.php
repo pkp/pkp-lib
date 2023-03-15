@@ -544,9 +544,9 @@ abstract class Repository
      *
      * $stageAssignments it's an array holding the stage assignments of this user.
      *   Each key is a workflow stage and value is an array of assigned roles
-     * $action it's an integer holding a flag to read or write to file stages. One of SUBMISSION_FILE_ACCESS_
+     * $action it's an integer holding a flag to read or write to file stages. One of SubmissionFileAccessPolicy::SUBMISSION_FILE_ACCESS_
      *
-     * @return array List of file stages (SUBMISSION_FILE_*)
+     * @return array List of file stages (SubmissionFile::SUBMISSION_FILE_*)
      */
     public function getAssignedFileStages(
         array $stageAssignments,

@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\site;
 
+use APP\core\Application;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
 
@@ -38,8 +39,8 @@ class PKPSiteBulkEmailsForm extends FormComponent
     {
         $this->action = $action;
 
-        $request = \Application::get()->getRequest();
-        $hostedContextsUrl = $request->getDispatcher()->url($request, \PKPApplication::ROUTE_PAGE, null, 'admin', 'contexts');
+        $request = Application::get()->getRequest();
+        $hostedContextsUrl = $request->getDispatcher()->url($request, Application::ROUTE_PAGE, null, 'admin', 'contexts');
 
         $options = [];
         foreach ($contexts as $context) {

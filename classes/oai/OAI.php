@@ -268,7 +268,7 @@ abstract class OAI
             "\t\t\t\t<datestamp>" . $record->datestamp . "</datestamp>\n";
         // Output set memberships
         foreach ($record->sets as $setSpec) {
-            $response .= "\t\t\t\t<setSpec>${setSpec}</setSpec>\n";
+            $response .= "\t\t\t\t<setSpec>{$setSpec}</setSpec>\n";
         }
         $response .= "\t\t\t</header>\n";
         if (!empty($record->data)) {
@@ -425,11 +425,11 @@ abstract class OAI
             $token = $this->saveResumptionToken($offset, $this->getParams());
 
             $response .= "\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
-                "\t\t\tcompleteListSize=\"${total}\"\n" .
-                "\t\t\tcursor=\"${cursor}\">" . $token->id . "</resumptionToken>\n";
+                "\t\t\tcompleteListSize=\"{$total}\"\n" .
+                "\t\t\tcursor=\"{$cursor}\">" . $token->id . "</resumptionToken>\n";
         } elseif (isset($token)) {
             // Current request completes a previous incomplete list, add empty resumption token
-            $response .= "\t\t<resumptionToken completeListSize=\"${total}\" cursor=\"${cursor}\" />\n";
+            $response .= "\t\t<resumptionToken completeListSize=\"{$total}\" cursor=\"{$cursor}\" />\n";
         }
 
         $response .= "\t</ListIdentifiers>\n";
@@ -573,11 +573,11 @@ abstract class OAI
             $token = $this->saveResumptionToken($offset, $this->getParams());
 
             $response .= "\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
-                    "\t\t\tcompleteListSize=\"${total}\"\n" .
-                    "\t\t\tcursor=\"${cursor}\">" . $token->id . "</resumptionToken>\n";
+                    "\t\t\tcompleteListSize=\"{$total}\"\n" .
+                    "\t\t\tcursor=\"{$cursor}\">" . $token->id . "</resumptionToken>\n";
         } elseif (isset($token)) {
             // Current request completes a previous incomplete list, add empty resumption token
-            $response .= "\t\t<resumptionToken completeListSize=\"${total}\" cursor=\"${cursor}\" />\n";
+            $response .= "\t\t<resumptionToken completeListSize=\"{$total}\" cursor=\"{$cursor}\" />\n";
         }
 
         $response .= "\t</ListRecords>\n";
@@ -657,11 +657,11 @@ abstract class OAI
             $token = $this->saveResumptionToken($offset, $this->getParams());
 
             $response .= "\t\t<resumptionToken expirationDate=\"" . OAIUtils::UTCDate($token->expire) . "\"\n" .
-                    "\t\t\tcompleteListSize=\"${total}\"\n" .
-                    "\t\t\tcursor=\"${cursor}\">" . $token->id . "</resumptionToken>\n";
+                    "\t\t\tcompleteListSize=\"{$total}\"\n" .
+                    "\t\t\tcursor=\"{$cursor}\">" . $token->id . "</resumptionToken>\n";
         } elseif (isset($token)) {
             // current request completes a previous incomplete list, add empty resumption token
-            $response .= "\t\t<resumptionToken completeListSize=\"${total}\" cursor=\"${cursor}\" />\n";
+            $response .= "\t\t<resumptionToken completeListSize=\"{$total}\" cursor=\"{$cursor}\" />\n";
         }
 
         $response .= "\t</ListSets>\n";
@@ -685,7 +685,7 @@ abstract class OAI
             $printParams = true;
         }
 
-        $this->response("\t<error code=\"${code}\">${message}</error>", $printParams);
+        $this->response("\t<error code=\"{$code}\">{$message}</error>", $printParams);
     }
 
     /**
@@ -711,7 +711,7 @@ abstract class OAI
         // print request params, if applicable
         if ($printParams) {
             foreach ($this->params as $k => $v) {
-                echo " ${k}=\"" . OAIUtils::prepOutput($v) . '"';
+                echo " {$k}=\"" . OAIUtils::prepOutput($v) . '"';
             }
         }
 
@@ -782,10 +782,10 @@ abstract class OAI
         // Check for missing or duplicate required parameters
         foreach ($requiredParams as $k) {
             if (!$this->paramExists($k)) {
-                $this->error('badArgument', "Missing ${k} parameter");
+                $this->error('badArgument', "Missing {$k} parameter");
                 return false;
             } elseif (is_array($this->getParam($k))) {
-                $this->error('badArgument', "Multiple values are not allowed for the ${k} parameter");
+                $this->error('badArgument', "Multiple values are not allowed for the {$k} parameter");
                 return false;
             }
         }
@@ -793,7 +793,7 @@ abstract class OAI
         // Check for duplicate optional parameters
         foreach ($optional as $k) {
             if ($this->paramExists($k) && is_array($this->getParam($k))) {
-                $this->error('badArgument', "Multiple values are not allowed for the ${k} parameter");
+                $this->error('badArgument', "Multiple values are not allowed for the {$k} parameter");
                 return false;
             }
         }
@@ -802,7 +802,7 @@ abstract class OAI
         $request = Application::get()->getRequest();
         foreach ($this->params as $k => $v) {
             if (!in_array($k, $validParams)) {
-                $this->error('badArgument', "${k} is an illegal parameter");
+                $this->error('badArgument', "{$k} is an illegal parameter");
                 return false;
             }
         }
@@ -883,6 +883,6 @@ abstract class OAI
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\oai\OAI', '\OAI');
-    define('OAIRECORD_STATUS_DELETED', \OAI::OAIRECORD_STATUS_DELETED);
-    define('OAIRECORD_STATUS_ALIVE', \OAI::OAIRECORD_STATUS_ALIVE);
+    define('OAIRECORD_STATUS_DELETED', OAI::OAIRECORD_STATUS_DELETED);
+    define('OAIRECORD_STATUS_ALIVE', OAI::OAIRECORD_STATUS_ALIVE);
 }

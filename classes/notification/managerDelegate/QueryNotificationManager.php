@@ -17,12 +17,14 @@ namespace PKP\notification\managerDelegate;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
 use PKP\note\NoteDAO;
 
 use PKP\notification\NotificationManagerDelegate;
 use PKP\notification\PKPNotification;
+use PKP\query\Query;
 
 class QueryNotificationManager extends NotificationManagerDelegate
 {
@@ -47,7 +49,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationMessage($request, $notification)
     {
-        assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
 
@@ -85,9 +87,9 @@ class QueryNotificationManager extends NotificationManagerDelegate
     protected function getQuerySubmission($query)
     {
         switch ($query->getAssocType()) {
-            case ASSOC_TYPE_SUBMISSION:
+            case Application::ASSOC_TYPE_SUBMISSION:
                 return Repo::submission()->get($query->getAssocId());
-            case ASSOC_TYPE_REPRESENTATION:
+            case Application::ASSOC_TYPE_REPRESENTATION:
                 $representationDao = Application::getRepresentationDAO();
                 $representation = $representationDao->getById($query->getAssocId());
                 $publication = Repo::publication()->get($representation->getData('publicationId'));
@@ -101,7 +103,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationUrl($request, $notification)
     {
-        assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
         assert($query instanceof \PKP\query\Query);
@@ -115,7 +117,7 @@ class QueryNotificationManager extends NotificationManagerDelegate
      */
     public function getNotificationContents($request, $notification)
     {
-        assert($notification->getAssocType() == ASSOC_TYPE_QUERY);
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_QUERY);
         $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
         $query = $queryDao->getById($notification->getAssocId());
         assert($query instanceof \PKP\query\Query);

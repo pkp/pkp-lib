@@ -63,7 +63,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
         $result = parent::authorize($request, $args, $roleAssignments);
 
         if (0 != count(array_intersect(
-            $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES),
+            $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES),
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT]
         ))) {
             $this->getCapabilities()->setCanManage(true);
@@ -87,7 +87,7 @@ class QueryNoteFilesGridHandler extends FileListGridHandler
     public function selectFiles($args, $request)
     {
         $submission = $this->getSubmission();
-        $query = $this->getAuthorizedContextObject(ASSOC_TYPE_QUERY);
+        $query = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_QUERY);
 
         $manageQueryNoteFilesForm = new ManageQueryNoteFilesForm($submission->getId(), $query->getId(), $request->getUserVar('noteId'), $this->getRequestArgs());
         $manageQueryNoteFilesForm->initData();

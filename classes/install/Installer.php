@@ -1249,8 +1249,8 @@ class Installer
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\install\Installer', '\Installer');
-    define('INSTALLER_ERROR_GENERAL', \Installer::INSTALLER_ERROR_GENERAL);
-    define('INSTALLER_ERROR_DB', \Installer::INSTALLER_ERROR_DB);
-    define('INSTALLER_DATA_DIR', \Installer::INSTALLER_DATA_DIR);
-    define('INSTALLER_DEFAULT_LOCALE', \Installer::INSTALLER_DEFAULT_LOCALE);
+    define('INSTALLER_ERROR_GENERAL', Installer::INSTALLER_ERROR_GENERAL);
+    define('INSTALLER_ERROR_DB', Installer::INSTALLER_ERROR_DB);
+    define('INSTALLER_DATA_DIR', Installer::INSTALLER_DATA_DIR);
+    define('INSTALLER_DEFAULT_LOCALE', Installer::INSTALLER_DEFAULT_LOCALE);
 }

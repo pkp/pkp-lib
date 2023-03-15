@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files;
 
+use APP\core\Application;
 use PKP\controllers\grid\GridDataProvider;
 
 class FilesGridDataProvider extends GridDataProvider
@@ -105,6 +106,6 @@ class FilesGridDataProvider extends GridDataProvider
      */
     protected function getSubmission()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 }

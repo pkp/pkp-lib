@@ -16,8 +16,11 @@
 
 namespace PKP\security\authorization;
 
+use APP\core\Application;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
 class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 {
@@ -52,16 +55,17 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewRound = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ROUND);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
-        $assignedStages = $this->getAuthorizedContextObject(ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $reviewRound = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ROUND);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
+        $assignedStages = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_ACCESSIBLE_WORKFLOW_STAGES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         if (!$reviewRound || !$submission) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }
 
-        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $noteDao */
+        /** @var ReviewAssignmentDAO */
+        $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
         $reviewAssignment = $reviewAssignmentDao->getById($this->_reviewAssignmentId);
 
         if (!($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment)) {
@@ -76,7 +80,7 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
 
         // Managers can write review attachments when they are not assigned to a submission
         if (empty($stageAssignments) && count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $userRoles))) {
-            $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+            $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
             return AuthorizationPolicy::AUTHORIZATION_PERMIT;
         }
 
@@ -85,17 +89,17 @@ class ReviewAssignmentFileWritePolicy extends AuthorizationPolicy
         if (!empty($assignedStages[$reviewRound->getStageId()])) {
             $allowedRoles = [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT];
             if (!empty(array_intersect($allowedRoles, $assignedStages[$reviewRound->getStageId()]))) {
-                $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }
 
-        // Reviewers can write review attachments to their own review assigments,
+        // Reviewers can write review attachments to their own review assignments,
         // if the assignment is not yet complete, cancelled or declined.
         if ($reviewAssignment->getReviewerId() == $this->_request->getUser()->getId()) {
-            $notAllowedStatuses = [REVIEW_ASSIGNMENT_STATUS_DECLINED, REVIEW_ASSIGNMENT_STATUS_COMPLETE, REVIEW_ASSIGNMENT_STATUS_THANKED, REVIEW_ASSIGNMENT_STATUS_CANCELLED];
+            $notAllowedStatuses = [ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_DECLINED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_COMPLETE, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_THANKED, ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_CANCELLED];
             if (!in_array($reviewAssignment->getStatus(), $notAllowedStatuses)) {
-                $this->addAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
+                $this->addAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT, $reviewAssignment);
                 return AuthorizationPolicy::AUTHORIZATION_PERMIT;
             }
         }

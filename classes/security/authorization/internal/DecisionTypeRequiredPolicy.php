@@ -27,8 +27,8 @@ class DecisionTypeRequiredPolicy extends DataObjectRequiredPolicy
     /**
      * Constructor
      *
-     * @param $request PKPRequest
-     * @param $args array request parameters
+     * @param PKPRequest $request
+     * @param array $args request parameters
      * @param int $decision The decision constant to check
      */
     public function __construct($request, &$args, int $decision)

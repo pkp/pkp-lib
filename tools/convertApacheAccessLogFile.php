@@ -880,7 +880,7 @@ Must run under user with enough privilegies to read access apache log files.\n"
                     break;
                 }
                 $representationId = $submissionFile->getData('assocId');
-                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO'); /* @var $publicationFormatDao PublicationFormatDAO */
+                $publicationFormatDao = DAORegistry::getDAO('PublicationFormatDAO'); /** @var PublicationFormatDAO $publicationFormatDao */
                 if (is_int($representationUrlPath) || ctype_digit($representationUrlPath)) {
                     // assume it is ID and not the URL path
                     if ($representationUrlPath != $representationId) {

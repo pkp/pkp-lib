@@ -38,7 +38,7 @@ class ScheduledTaskHelper
 
     /**
      * Constructor.
-     * Ovewrites both parameters if one is not passed.
+     * Overwrites both parameters if one is not passed.
      *
      * @param string $email (optional)
      * @param string $contactName (optional)
@@ -290,7 +290,7 @@ class ScheduledTaskHelper
 
                 if ($isValid) {
                     // Check against skip factor
-                    $isValid = (strtotime("-${skipFactor} ${timeCompareStr}") > $lastTimestamp);
+                    $isValid = (strtotime("-{$skipFactor} {$timeCompareStr}") > $lastTimestamp);
                 }
             }
         }

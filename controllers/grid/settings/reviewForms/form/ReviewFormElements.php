@@ -19,7 +19,8 @@ use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-
+use PKP\reviewForm\ReviewFormDAO;
+use PKP\reviewForm\ReviewFormElementDAO;
 use PKP\security\Validation;
 
 class ReviewFormElements extends Form

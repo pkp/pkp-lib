@@ -19,6 +19,7 @@ namespace PKP\site;
 
 use APP\core\Application;
 use Illuminate\Support\Facades\DB;
+use PKP\core\Core;
 use PKP\plugins\Hook;
 
 class VersionDAO extends \PKP\db\DAO
@@ -213,7 +214,7 @@ class VersionDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get installation date of the given verion or the first version used after that
+     * Get installation date of the given version or the first version used after that
      *
      * @param int $version Version number, without '.' as separator, i.e. in the form major*1000+minor*100+revision*10+build
      */

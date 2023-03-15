@@ -312,6 +312,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     public function unCacheRelatedNavigationMenus($id)
     {
         if ($navigationMenuItemAssignment = $this->getById($id)) {
+            /** @var NavigationMenuDAO */
             $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
             $cache = $navigationMenuDao->getCache($navigationMenuItemAssignment->getMenuId());
             if ($cache) {

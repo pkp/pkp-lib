@@ -37,13 +37,13 @@ abstract class PKPTestHelper
         $dao = new DAO();
         foreach ($tables as $table) {
             $createLikeSql = DB::getDefaultConnection() instanceof MySqlConnection
-                ? "CREATE TABLE backup_${table} LIKE ${table}"
-                : "CREATE TABLE backup_${table} (LIKE ${table})";
+                ? "CREATE TABLE backup_{$table} LIKE {$table}"
+                : "CREATE TABLE backup_{$table} (LIKE {$table})";
 
             $sqls = [
-                "DROP TABLE IF EXISTS backup_${table}",
+                "DROP TABLE IF EXISTS backup_{$table}",
                 $createLikeSql,
-                "INSERT INTO backup_${table} SELECT * FROM ${table}"
+                "INSERT INTO backup_{$table} SELECT * FROM {$table}"
             ];
             foreach ($sqls as $sql) {
                 $dao->update($sql, [], true, false);
@@ -62,9 +62,9 @@ abstract class PKPTestHelper
         $dao = new DAO();
         foreach ($tables as $table) {
             $sqls = [
-                "DELETE FROM ${table}",
-                "INSERT INTO ${table} SELECT * FROM backup_${table}",
-                "DROP TABLE backup_${table}"
+                "DELETE FROM {$table}",
+                "INSERT INTO {$table} SELECT * FROM backup_{$table}",
+                "DROP TABLE backup_{$table}"
             ];
             foreach ($sqls as $sql) {
                 $dao->update($sql, [], true, false);
@@ -101,7 +101,7 @@ abstract class PKPTestHelper
                     $status
                 );
                 if ($status !== 0) {
-                    $test->fail("Error while restoring database from \"${filename}\" (command: \"${cmd}\").");
+                    $test->fail("Error while restoring database from \"{$filename}\" (command: \"{$cmd}\").");
                 }
                 break;
             case 'pgsql':
@@ -120,7 +120,7 @@ abstract class PKPTestHelper
                     $status
                 );
                 if ($status !== 0) {
-                    $test->fail("Error while restoring database from \"${filename}\" (command: \"${cmd}\".");
+                    $test->fail("Error while restoring database from \"{$filename}\" (command: \"{$cmd}\".");
                 }
                 break;
             default: $test->fail('Unknown database driver ' . DB::getDefaultConnection());

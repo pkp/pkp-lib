@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
 use PKP\components\forms\FieldRadioInput;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
@@ -41,7 +42,7 @@ class PKPLicenseForm extends FormComponent
         $this->action = $action;
         $this->locales = $locales;
 
-        $licenseOptions = \Application::getCCLicenseOptions();
+        $licenseOptions = Application::getCCLicenseOptions();
         $licenseUrlOptions = [];
         foreach ($licenseOptions as $url => $label) {
             $licenseUrlOptions[] = [

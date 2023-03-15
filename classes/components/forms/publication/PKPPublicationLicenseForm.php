@@ -14,6 +14,7 @@
 
 namespace PKP\components\forms\publication;
 
+use APP\core\Application;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
 use Illuminate\Support\LazyCollection;
@@ -54,7 +55,7 @@ class PKPPublicationLicenseForm extends FormComponent
         // Get the name of the context's license setting
         $licenseUrlDescription = '';
         if ($context->getData('licenseUrl')) {
-            $licenseOptions = \Application::getCCLicenseOptions();
+            $licenseOptions = Application::getCCLicenseOptions();
             if (array_key_exists($context->getData('licenseUrl'), $licenseOptions)) {
                 $licenseName = __($licenseOptions[$context->getData('licenseUrl')]);
             } else {

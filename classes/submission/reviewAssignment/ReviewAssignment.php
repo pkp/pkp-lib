@@ -297,7 +297,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the date of the last modification.
      *
-     * @return date
+     * @return string
      */
     public function getLastModified()
     {
@@ -307,7 +307,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Set the date of the last modification.
      *
-     * @param date $dateModified
+     * @param string $dateModified
      */
     public function setLastModified($dateModified)
     {
@@ -645,7 +645,7 @@ class ReviewAssignment extends \PKP\core\DataObject
     /**
      * Get the current status of this review assignment
      *
-     * @return int REVIEW_ASSIGNMENT_STATUS_...
+     * @return int ReviewAssignment::REVIEW_ASSIGNMENT_STATUS_...
      */
     public function getStatus()
     {
@@ -834,7 +834,7 @@ class ReviewAssignment extends \PKP\core\DataObject
             return '';
         }
     }
-    
+
     /**
      * Determine if can resend request to reconsider review for this review assignment
      */

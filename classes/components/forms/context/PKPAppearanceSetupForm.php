@@ -19,6 +19,7 @@ use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldUploadImage;
 use PKP\components\forms\FormComponent;
+use PKP\plugins\PluginRegistry;
 
 define('FORM_APPEARANCE_SETUP', 'appearanceSetup');
 
@@ -50,7 +51,7 @@ class PKPAppearanceSetupForm extends FormComponent
 
         $currentBlocks = (array) $context->getData('sidebar');
 
-        $plugins = \PluginRegistry::loadCategory('blocks', true);
+        $plugins = PluginRegistry::loadCategory('blocks', true);
 
         foreach ($currentBlocks as $plugin) {
             if (isset($plugins[$plugin])) {

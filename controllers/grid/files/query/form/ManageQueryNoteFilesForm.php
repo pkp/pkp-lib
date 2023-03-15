@@ -15,6 +15,7 @@
 
 namespace PKP\controllers\grid\files\query\form;
 
+use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\files\form\ManageSubmissionFilesForm;
 use PKP\submissionFile\SubmissionFile;
@@ -85,7 +86,7 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
             if (
                 $stageFile->getFileStage() == $submissionFile->getFileStage() &&
                 $stageFile->getFileStage() == $fileStage &&
-                ($stageFile->getData('assocType') != ASSOC_TYPE_NOTE || $stageFile->getData('assocId') == $this->_noteId)
+                ($stageFile->getData('assocType') != Application::ASSOC_TYPE_NOTE || $stageFile->getData('assocId') == $this->_noteId)
             ) {
                 return true;
             }
@@ -99,7 +100,7 @@ class ManageQueryNoteFilesForm extends ManageSubmissionFilesForm
     protected function importFile($submissionFile, $fileStage)
     {
         $newSubmissionFile = clone $submissionFile;
-        $newSubmissionFile->setData('assocType', ASSOC_TYPE_NOTE);
+        $newSubmissionFile->setData('assocType', Application::ASSOC_TYPE_NOTE);
         $newSubmissionFile->setData('assocId', $this->_noteId);
 
         return parent::importFile($newSubmissionFile, $fileStage);

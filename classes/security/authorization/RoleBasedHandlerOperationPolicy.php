@@ -15,6 +15,8 @@
 
 namespace PKP\security\authorization;
 
+use APP\core\Application;
+
 class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
 {
     /** @var array the target roles */
@@ -65,7 +67,7 @@ class RoleBasedHandlerOperationPolicy extends HandlerOperationPolicy
         // Check whether the user has one of the allowed roles
         // assigned. If that's the case we'll permit access.
         // Get user roles grouped by context.
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (empty($userRoles)) {
             return AuthorizationPolicy::AUTHORIZATION_DENY;
         }

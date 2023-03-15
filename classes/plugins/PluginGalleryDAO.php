@@ -85,6 +85,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     {
         $application = Application::get();
         $client = $application->getHttpClient();
+        /** @var VersionDAO */
         $versionDao = DAORegistry::getDAO('VersionDAO');
         $currentVersion = $versionDao->getCurrentVersion();
         try {
@@ -116,6 +117,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
     protected function getCachedDocument(): ?string
     {
         $cacheManager = CacheManager::getManager();
+        /** @var FileCache */
         $cache = $cacheManager->getCache(
             'loadPluginsXML',
             Application::CONTEXT_SITE,
@@ -343,5 +345,5 @@ class PluginGalleryDAO extends \PKP\db\DAO
 
 if (!PKP_STRICT_MODE) {
     class_alias('\PKP\plugins\PluginGalleryDAO', '\PluginGalleryDAO');
-    define('PLUGIN_GALLERY_XML_URL', \PluginGalleryDAO::PLUGIN_GALLERY_XML_URL);
+    define('PLUGIN_GALLERY_XML_URL', PluginGalleryDAO::PLUGIN_GALLERY_XML_URL);
 }

@@ -40,6 +40,7 @@ use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\log\SubmissionEmailLogEntry;
+use PKP\query\QueryDAO;
 
 class QueriesGridHandler extends GridHandler
 {
@@ -108,7 +109,7 @@ class QueriesGridHandler extends GridHandler
     /**
      * Get the query assoc type.
      *
-     * @return int ASSOC_TYPE_...
+     * @return int Application::ASSOC_TYPE_...
      */
     public function getAssocType()
     {
@@ -595,6 +596,7 @@ class QueriesGridHandler extends GridHandler
         if (!$this->getAccessHelper()->getCanEdit($query->getId())) {
             return new JSONMessage(false);
         }
+        /** @var QueryDAO */
         $queryDao = DAORegistry::getDAO('QueryDAO');
         $oldParticipantIds = $queryDao->getParticipantIds($query->getId());
 
@@ -638,7 +640,7 @@ class QueriesGridHandler extends GridHandler
                 unset($added[$key]);
             }
 
-            /** @var NotificationSubscriptionSettingsDAO $notificationSubscriptionSettingsDAO */
+            /** @var NotificationSubscriptionSettingsDAO */
             $notificationSubscriptionSettingsDao = DAORegistry::getDAO('NotificationSubscriptionSettingsDAO');
             $note = $query->getHeadNote();
             foreach ($added as $userId) {

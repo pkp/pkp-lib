@@ -72,7 +72,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
     {
         $submissionFileData = parent::loadData();
         $reviewFilesDao = DAORegistry::getDAO('ReviewFilesDAO'); /** @var ReviewFilesDAO $reviewFilesDao */
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         foreach ($submissionFileData as $submissionFileId => $fileData) {
             if (!$reviewFilesDao->check($reviewAssignment->getId(), $submissionFileId)) {
                 // Not permitted; remove from list.
@@ -87,7 +87,7 @@ class ReviewerReviewFilesGridDataProvider extends ReviewGridDataProvider
      */
     public function getRequestArgs()
     {
-        $reviewAssignment = $this->getAuthorizedContextObject(ASSOC_TYPE_REVIEW_ASSIGNMENT);
+        $reviewAssignment = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REVIEW_ASSIGNMENT);
         return array_merge(parent::getRequestArgs(), [
             'reviewAssignmentId' => $reviewAssignment->getId()
         ]);

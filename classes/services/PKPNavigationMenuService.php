@@ -17,14 +17,16 @@ namespace PKP\services;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
-
+use PKP\cache\FileCache;
 use PKP\core\PKPApplication;
 
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\navigationMenu\NavigationMenu;
+use PKP\navigationMenu\NavigationMenuDAO;
 use PKP\navigationMenu\NavigationMenuItem;
 use PKP\navigationMenu\NavigationMenuItemAssignment;
+use PKP\navigationMenu\NavigationMenuItemAssignmentDAO;
 use PKP\plugins\Hook;
 use PKP\security\Role;
 use PKP\security\Validation;
@@ -139,7 +141,7 @@ class PKPNavigationMenuService
     }
 
     /**
-     * Callback for display menu item functionallity
+     * Callback for display menu item functionality
      */
     public function getDisplayStatus(&$navigationMenuItem, &$navigationMenu)
     {
@@ -382,9 +384,11 @@ class PKPNavigationMenuService
 
     public function loadMenuTree(&$navigationMenu)
     {
+        /** @var NavigationMenuItemDAO */
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
         $items = $navigationMenuItemDao->getByMenuId($navigationMenu->getId())->toArray();
 
+        /** @var NavigationMenuItemAssignmentDAO */
         $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
         $assignments = $navigationMenuItemAssignmentDao->getByMenuId($navigationMenu->getId())
             ->toArray();
@@ -421,7 +425,7 @@ class PKPNavigationMenuService
                 $navigationMenu->menuTree[$i]->children = $children[$assignmentId];
             }
         }
-
+        /** @var NavigationMenuDAO */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
         $cache = $navigationMenuDao->getCache($navigationMenu->getId());
         $json = json_encode($navigationMenu);
@@ -436,7 +440,9 @@ class PKPNavigationMenuService
      */
     public function getMenuTree(&$navigationMenu)
     {
+        /** @var NavigationMenuDAO */
         $navigationMenuDao = DAORegistry::getDAO('NavigationMenuDAO');
+        /** @var FileCache */
         $cache = $navigationMenuDao->getCache($navigationMenu->getId());
         if ($cache->cache) {
             $navigationMenu = json_decode($cache->cache, true);
@@ -545,10 +551,12 @@ class PKPNavigationMenuService
     public function populateNMIAssignmentContainedObjects(&$nmiAssignment)
     {
         // Set NMI
+        /** @var NavigationMenuItemDAO */
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
         $nmiAssignment->setMenuItem($navigationMenuItemDao->getById($nmiAssignment->getMenuItemId()));
 
         // Set Children
+        /** @var NavigationMenuItemAssignmentDAO */
         $navigationMenuItemAssignmentDao = DAORegistry::getDAO('NavigationMenuItemAssignmentDAO');
         $nmiAssignment->children = $navigationMenuItemAssignmentDao->getByMenuIdAndParentId($nmiAssignment->getMenuId(), $nmiAssignment->getId())
             ->toArray();
@@ -644,20 +652,21 @@ class PKPNavigationMenuService
         // Construct a path to look for
         $path = $page;
         if ($op !== 'index') {
-            $path .= "/${op}";
+            $path .= "/{$op}";
         }
         if ($arguments = $request->getRequestedArgs()) {
             $path .= '/' . implode('/', $arguments);
         }
 
         // Look for a static page with the given path
+        /** @var NavigationMenuItemDAO */
         $navigationMenuItemDao = DAORegistry::getDAO('NavigationMenuItemDAO');
 
         $context = $request->getContext();
         $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         $customNMI = $navigationMenuItemDao->getByPath($contextId, $path);
 
-        // Check if a custom NMI with the requested path existes
+        // Check if a custom NMI with the requested path exists
         if ($customNMI) {
             // Trick the handler into dealing with it normally
             $page = 'pages';

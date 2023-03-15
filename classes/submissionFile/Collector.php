@@ -49,7 +49,7 @@ class Collector implements CollectorInterface
     /** @var null|array get submission files matching an ASSOC_ID with one of the assocTypes */
     protected $assocIds = null;
 
-    /** @var bool include submission files in the SUBMISSION_FILE_DEPENDENT stage */
+    /** @var bool include submission files in the SubmissionFile::SUBMISSION_FILE_DEPENDENT stage */
     protected $includeDependentFiles = false;
 
     /** @var null|array get submission files matching one or more uploader users id */
@@ -144,7 +144,7 @@ class Collector implements CollectorInterface
     /**
      * Set assocType and assocId filters
      *
-     * @param null|int $assocType One of the ASSOC_TYPE_ constants
+     * @param null|int $assocType One of the Application::ASSOC_TYPE_ constants
      * @param null|array $assocIds Match for the specified assoc type
      */
     public function filterByAssoc(?int $assocType, ?array $assocIds = null): self

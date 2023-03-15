@@ -18,6 +18,7 @@ namespace PKP\controllers\grid\users\reviewer\form;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\user\User;
 
 class ReviewerGossipForm extends Form
 {

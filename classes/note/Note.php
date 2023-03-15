@@ -53,7 +53,7 @@ class Note extends \PKP\core\DataObject
     /**
      * get date note was created
      *
-     * @return date (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateCreated()
     {
@@ -63,7 +63,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set date note was created
      *
-     * @param date $dateCreated (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateCreated (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateCreated($dateCreated)
     {
@@ -73,7 +73,7 @@ class Note extends \PKP\core\DataObject
     /**
      * get date note was modified
      *
-     * @return date (YYYY-MM-DD HH:MM:SS)
+     * @return string (YYYY-MM-DD HH:MM:SS)
      */
     public function getDateModified()
     {
@@ -83,7 +83,7 @@ class Note extends \PKP\core\DataObject
     /**
      * set date note was modified
      *
-     * @param date $dateModified (YYYY-MM-DD HH:MM:SS)
+     * @param string $dateModified (YYYY-MM-DD HH:MM:SS)
      */
     public function setDateModified($dateModified)
     {

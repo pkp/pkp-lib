@@ -109,7 +109,7 @@ class NotificationsGridCellProvider extends GridCellProvider
     public function _getTitle($notification)
     {
         switch ($notification->getAssocType()) {
-            case ASSOC_TYPE_QUEUED_PAYMENT:
+            case Application::ASSOC_TYPE_QUEUED_PAYMENT:
                 $contextDao = Application::getContextDAO();
                 $paymentManager = Application::getPaymentManager($contextDao->getById($notification->getContextId()));
                 $queuedPaymentDao = DAORegistry::getDAO('QueuedPaymentDAO'); /** @var QueuedPaymentDAO $queuedPaymentDao */
@@ -122,40 +122,40 @@ class NotificationsGridCellProvider extends GridCellProvider
                 }
                 assert(false);
                 return '—';
-            case ASSOC_TYPE_ANNOUNCEMENT:
+            case Application::ASSOC_TYPE_ANNOUNCEMENT:
                 $announcementId = $notification->getAssocId();
                 $announcement = Repo::announcement()->get($announcementId);
                 if ($announcement) {
                     return $announcement->getLocalizedTitle();
                 }
                 return null;
-            case ASSOC_TYPE_SUBMISSION:
+            case Application::ASSOC_TYPE_SUBMISSION:
                 $submissionId = $notification->getAssocId();
                 break;
-            case ASSOC_TYPE_SUBMISSION_FILE:
+            case Application::ASSOC_TYPE_SUBMISSION_FILE:
                 $fileId = $notification->getAssocId();
                 break;
-            case ASSOC_TYPE_REVIEW_ASSIGNMENT:
+            case Application::ASSOC_TYPE_REVIEW_ASSIGNMENT:
                 $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
                 $reviewAssignment = $reviewAssignmentDao->getById($notification->getAssocId());
                 assert($reviewAssignment instanceof \PKP\submission\reviewAssignment\ReviewAssignment);
                 $submissionId = $reviewAssignment->getSubmissionId();
                 break;
-            case ASSOC_TYPE_REVIEW_ROUND:
+            case Application::ASSOC_TYPE_REVIEW_ROUND:
                 $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
                 $reviewRound = $reviewRoundDao->getById($notification->getAssocId());
                 assert($reviewRound instanceof \PKP\submission\reviewRound\ReviewRound);
                 $submissionId = $reviewRound->getSubmissionId();
                 break;
-            case ASSOC_TYPE_QUERY:
+            case Application::ASSOC_TYPE_QUERY:
                 $queryDao = DAORegistry::getDAO('QueryDAO'); /** @var QueryDAO $queryDao */
                 $query = $queryDao->getById($notification->getAssocId());
                 assert($query instanceof \PKP\query\Query);
                 switch ($query->getAssocType()) {
-                    case ASSOC_TYPE_SUBMISSION:
+                    case Application::ASSOC_TYPE_SUBMISSION:
                         $submissionId = $query->getAssocId();
                         break;
-                    case ASSOC_TYPE_REPRESENTATION:
+                    case Application::ASSOC_TYPE_REPRESENTATION:
                         $representationDao = Application::getRepresentationDAO();
                         $representation = $representationDao->getById($query->getAssocId());
                         $publication = Repo::publication()->get($representation->getData('publicationId'));

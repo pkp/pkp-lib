@@ -16,6 +16,7 @@
 
 namespace APP\notification\managerDelegate;
 
+use APP\notification\Notification;
 use PKP\notification\managerDelegate\PKPApproveSubmissionNotificationManager;
 
 class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificationManager
@@ -26,8 +27,8 @@ class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificat
     public function getNotificationTitle($notification)
     {
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
-            case NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION:
+            case Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+            case Notification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION:
                 return __('notification.type.approveSubmissionTitle');
         }
     }
@@ -38,9 +39,9 @@ class ApproveSubmissionNotificationManager extends PKPApproveSubmissionNotificat
     public function getNotificationMessage($request, $notification)
     {
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION:
+            case Notification::NOTIFICATION_TYPE_FORMAT_NEEDS_APPROVED_SUBMISSION:
                 return __('notification.type.formatNeedsApprovedSubmission');
-            case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+            case Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION:
                 return __('notification.type.approveSubmission');
         }
 

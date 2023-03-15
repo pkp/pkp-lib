@@ -29,7 +29,7 @@ class UserHandler extends PKPUserHandler
     public function _checkIncompleteSetup($server)
     {
         if ($server->getLocalizedAcronym() == '' || $server->getData('contactEmail') == '' ||
-           $server->getData('contactName') == '' || $server->getLocalizedData('abbreviation') == '') {
+            $server->getData('contactName') == '' || $server->getLocalizedData('abbreviation') == '') {
             return true;
         } else {
             return false;

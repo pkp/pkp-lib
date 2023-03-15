@@ -9,7 +9,7 @@
  * @class PKPLicenseForm
  * @ingroup classes_controllers_form
  *
- * @brief A preset form for configuring a pubication's license URL.
+ * @brief A preset form for configuring a publication's license URL.
  */
 
 namespace APP\components\forms\publication;

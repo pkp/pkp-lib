@@ -31,6 +31,8 @@ use PKP\metadata\MetadataDataObjectAdapter;
 use PKP\metadata\MetadataDescription;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
+use PKP\submission\SubmissionKeywordDAO;
+use PKP\submission\SubmissionSubjectDAO;
 
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {
@@ -95,7 +97,9 @@ class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
         }
 
         // Subject
+        /** @var SubmissionKeywordDAO */
         $submissionKeywordDao = DAORegistry::getDAO('SubmissionKeywordDAO');
+        /** @var SubmissionSubjectDAO */
         $submissionSubjectDao = DAORegistry::getDAO('SubmissionSubjectDAO');
         $supportedLocales = array_keys(Locale::getSupportedFormLocales());
         $subjects = array_merge_recursive(

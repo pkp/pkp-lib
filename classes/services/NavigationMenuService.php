@@ -56,7 +56,7 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
     }
 
     /**
-     * Callback for display menu item functionallity
+     * Callback for display menu item functionality
      *
      * @param string $hookName
      * @param array $args of arguments passed
@@ -67,7 +67,7 @@ class NavigationMenuService extends \PKP\services\PKPNavigationMenuService
 
         $request = Application::get()->getRequest();
         $dispatcher = $request->getDispatcher();
-        $templateMgr = TemplateManager::getManager(\Application::get()->getRequest());
+        $templateMgr = TemplateManager::getManager(Application::get()->getRequest());
 
         $isUserLoggedIn = Validation::isLoggedIn();
         $isUserLoggedInAs = Validation::isLoggedInAs();

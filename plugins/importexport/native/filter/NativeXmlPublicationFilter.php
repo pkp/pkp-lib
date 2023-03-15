@@ -125,7 +125,7 @@ class NativeXmlPublicationFilter extends \PKP\plugins\importexport\native\filter
                 break;
             default:
                 $importClass = null; // Suppress scrutinizer warn
-                $deployment->addWarning(ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $elementName]));
+                $deployment->addWarning(Application::ASSOC_TYPE_SUBMISSION, $submission->getId(), __('plugins.importexport.common.error.unknownElement', ['param' => $elementName]));
         }
         // Caps on class name for consistency with imports, whose filter
         // group names are generated implicitly.

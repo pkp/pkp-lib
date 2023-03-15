@@ -17,6 +17,7 @@
 
 namespace APP\plugins\metadata\dc11\schema;
 
+use APP\core\Application;
 use PKP\metadata\MetadataTypeDescription;
 
 class Dc11Schema extends \PKP\plugins\metadata\dc11\schema\PKPDc11Schema
@@ -27,6 +28,6 @@ class Dc11Schema extends \PKP\plugins\metadata\dc11\schema\PKPDc11Schema
     public function __construct()
     {
         // Configure the DC schema.
-        parent::__construct([ASSOC_TYPE_SUBMISSION, MetadataTypeDescription::ASSOC_TYPE_ANY]);
+        parent::__construct([Application::ASSOC_TYPE_SUBMISSION, MetadataTypeDescription::ASSOC_TYPE_ANY]);
     }
 }

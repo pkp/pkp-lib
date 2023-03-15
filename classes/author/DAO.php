@@ -33,7 +33,7 @@ class DAO extends \PKP\author\DAO
      * Authors will be sorted by (family, given). Note that if serverId is null,
      * alphabetized authors for all enabled servers are returned.
      * If authors have the same given names, first names and affiliations in all server locales,
-     * as well as country and email (otional), they are considered to be the same.
+     * as well as country and email (optional), they are considered to be the same.
      *
      * @param int $serverId Optional server ID to restrict results to
      * @param string $initial An initial a family name must begin with, "-" for authors with no family names
@@ -76,24 +76,24 @@ class DAO extends \PKP\author\DAO
         foreach ($supportedLocales as $locale) {
             $localeStr = str_replace('@', '_', $locale);
             $sqlColumnsAuthorSettings .= ",
-				COALESCE(asg${index}.setting_value, ''), ' ',
-				COALESCE(asf${index}.setting_value, ''), ' ',
-				COALESCE(SUBSTRING(asa${index}.setting_value FROM 1 FOR 255), ''), ' '
+				COALESCE(asg{$index}.setting_value, ''), ' ',
+				COALESCE(asf{$index}.setting_value, ''), ' ',
+				COALESCE(SUBSTRING(asa{$index}.setting_value FROM 1 FOR 255), ''), ' '
 			";
             $sqlJoinAuthorSettings .= "
-				LEFT JOIN author_settings asg${index} ON (asg${index}.author_id  = aa.author_id AND asg${index}.setting_name = '" . Identity::IDENTITY_SETTING_GIVENNAME . "' AND asg${index}.locale = '${locale}')
-				LEFT JOIN author_settings asf${index} ON (asf${index}.author_id  = aa.author_id AND asf${index}.setting_name = '" . Identity::IDENTITY_SETTING_FAMILYNAME . "' AND asf${index}.locale = '${locale}')
-				LEFT JOIN author_settings asa${index} ON (asa${index}.author_id  = aa.author_id AND asa${index}.setting_name = 'affiliation' AND asa${index}.locale = '${locale}')
+				LEFT JOIN author_settings asg{$index} ON (asg{$index}.author_id  = aa.author_id AND asg{$index}.setting_name = '" . Identity::IDENTITY_SETTING_GIVENNAME . "' AND asg{$index}.locale = '{$locale}')
+				LEFT JOIN author_settings asf{$index} ON (asf{$index}.author_id  = aa.author_id AND asf{$index}.setting_name = '" . Identity::IDENTITY_SETTING_FAMILYNAME . "' AND asf{$index}.locale = '{$locale}')
+				LEFT JOIN author_settings asa{$index} ON (asa{$index}.author_id  = aa.author_id AND asa{$index}.setting_name = 'affiliation' AND asa{$index}.locale = '{$locale}')
 			";
             if (isset($initial)) {
                 if ($initial == '-') {
-                    $initialSql .= "(asf${index}.setting_value IS NULL OR asf${index}.setting_value = '')";
+                    $initialSql .= "(asf{$index}.setting_value IS NULL OR asf{$index}.setting_value = '')";
                     if ($index < $supportedLocalesCount - 1) {
                         $initialSql .= ' AND ';
                     }
                 } else {
                     $params[] = PKPString::strtolower($initial) . '%';
-                    $initialSql .= "LOWER(asf${index}.setting_value) LIKE LOWER(?)";
+                    $initialSql .= "LOWER(asf{$index}.setting_value) LIKE LOWER(?)";
                     if ($index < $supportedLocalesCount - 1) {
                         $initialSql .= ' OR ';
                     }

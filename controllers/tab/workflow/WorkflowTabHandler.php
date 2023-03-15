@@ -15,7 +15,10 @@
 
 namespace APP\controllers\tab\workflow;
 
+use APP\core\Application;
+use APP\notification\Notification;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\controllers\tab\workflow\PKPWorkflowTabHandler;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
@@ -31,8 +34,8 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
     {
         $this->setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
-        $stageId = $this->getAuthorizedContextObject(ASSOC_TYPE_WORKFLOW_STAGE);
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_WORKFLOW_STAGE);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_PRODUCTION:
                 $errors = [];
@@ -67,11 +70,11 @@ class WorkflowTabHandler extends PKPWorkflowTabHandler
     protected function getProductionNotificationOptions($submissionId)
     {
         return [
-            NOTIFICATION_LEVEL_NORMAL => [
-                NOTIFICATION_TYPE_VISIT_CATALOG => [ASSOC_TYPE_SUBMISSION, $submissionId],
-                NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => [ASSOC_TYPE_SUBMISSION, $submissionId],
+            Notification::NOTIFICATION_LEVEL_NORMAL => [
+                Notification::NOTIFICATION_TYPE_VISIT_CATALOG => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
+                Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS => [Application::ASSOC_TYPE_SUBMISSION, $submissionId],
             ],
-            NOTIFICATION_LEVEL_TRIVIAL => []
+            Notification::NOTIFICATION_LEVEL_TRIVIAL => []
         ];
     }
 

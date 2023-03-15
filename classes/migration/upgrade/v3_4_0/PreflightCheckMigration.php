@@ -13,6 +13,7 @@
 
 namespace APP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
@@ -58,7 +59,7 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
                 case DB::connection() instanceof PostgresConnection:
                     DB::statement('UPDATE publications SET primary_contact_id = NULL WHERE publication_id IN (SELECT publication_id FROM publications p LEFT JOIN users u ON (p.primary_contact_id = u.user_id) WHERE u.user_id IS NULL AND p.primary_contact_id IS NOT NULL)');
                     break;
-                default: throw new \Exception('Unknown database connection type!');
+                default: throw new Exception('Unknown database connection type!');
             }
 
             // Clean orphaned publication_galleys entries by publication_id
@@ -76,7 +77,7 @@ class PreflightCheckMigration extends \PKP\migration\upgrade\v3_4_0\PreflightChe
             DB::table('sections')->where('review_form_id', '=', 0)->update(['review_form_id' => null]);
         } catch (\Exception $e) {
             if ($fallbackVersion = $this->setFallbackVersion()) {
-                $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to ${fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
+                $this->_installer->log("A pre-flight check failed. The software was successfully upgraded to {$fallbackVersion} but could not be upgraded further (to " . $this->_installer->newVersion->getVersionString() . '). Check and correct the error, then try again.');
             }
             throw $e;
         }

@@ -15,6 +15,9 @@
  * @brief Handle requests for submission API functions.
  *
  */
+
+use APP\core\Application;
+
 $requestPath = Application::get()->getRequest()->getRequestPath();
 if (strpos($requestPath, '/files')) {
     return new \PKP\API\v1\submissions\PKPSubmissionFileHandler();

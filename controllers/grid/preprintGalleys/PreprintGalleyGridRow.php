@@ -15,13 +15,14 @@
 
 namespace APP\controllers\grid\preprintGalleys;
 
+use APP\core\Application;
+use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 use PKP\controllers\grid\GridRow;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
 use PKP\submissionFile\SubmissionFile;
-use PKP\controllers\api\file\linkAction\AddFileLinkAction;
 
 class PreprintGalleyGridRow extends GridRow
 {
@@ -75,10 +76,10 @@ class PreprintGalleyGridRow extends GridRow
                 'editGalley',
                 new AjaxModal(
                     $router->url($request, null, null, 'editGalley', null, $actionArgs),
-                    ($this->_isEditable)?__('submission.layout.editGalley'):__('submission.layout.viewGalley'),
+                    ($this->_isEditable) ? __('submission.layout.editGalley') : __('submission.layout.viewGalley'),
                     'modal_edit'
                 ),
-                ($this->_isEditable)?__('grid.action.edit'):__('grid.action.view'),
+                ($this->_isEditable) ? __('grid.action.edit') : __('grid.action.view'),
                 'edit'
             ));
 
@@ -91,7 +92,7 @@ class PreprintGalleyGridRow extends GridRow
                         WORKFLOW_STAGE_ID_PRODUCTION,
                         [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR],
                         SubmissionFile::SUBMISSION_FILE_PROOF,
-                        ASSOC_TYPE_REPRESENTATION,
+                        Application::ASSOC_TYPE_REPRESENTATION,
                         $rowId,
                         null
                     ));

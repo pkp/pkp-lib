@@ -17,6 +17,7 @@
 
 namespace APP\controllers\grid\preprintGalleys\form;
 
+use APP\core\Request;
 use APP\facades\Repo;
 use APP\publication\Publication;
 use APP\submission\Submission;
@@ -42,6 +43,7 @@ class PreprintGalleyForm extends Form
     /**
      * Constructor.
      *
+     * @param Request $request
      * @param Submission $submission
      * @param Publication $publication
      * @param Galley $preprintGalley (optional)

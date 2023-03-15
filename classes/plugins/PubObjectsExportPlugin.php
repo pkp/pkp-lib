@@ -18,7 +18,9 @@ namespace APP\plugins;
 use APP\core\Application;
 use APP\core\Request;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\server\ServerDAO;
 use APP\template\TemplateManager;
 use PKP\context\Context;
 use PKP\core\JSONMessage;
@@ -32,7 +34,6 @@ use PKP\plugins\Hook;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 use PKP\submission\PKPSubmission;
-use APP\plugins\PubObjectCache;
 
 // The statuses.
 define('EXPORT_STATUS_ANY', '');
@@ -111,7 +112,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $form->readInputData();
                 if ($form->validate()) {
                     $form->execute();
-                    $notificationManager->createTrivialNotification($user->getId(), NOTIFICATION_TYPE_SUCCESS);
+                    $notificationManager->createTrivialNotification($user->getId(), Notification::NOTIFICATION_TYPE_SUCCESS);
                     return new JSONMessage(true);
                 } else {
                     return new JSONMessage(true, $form->fetch($request));
@@ -248,7 +249,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $this->_sendNotification(
                     $request->getUser(),
                     $this->getDepositSuccessNotificationMessageKey(),
-                    NOTIFICATION_TYPE_SUCCESS
+                    Notification::NOTIFICATION_TYPE_SUCCESS
                 );
             } else {
                 if (is_array($result)) {
@@ -257,7 +258,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                         $this->_sendNotification(
                             $request->getUser(),
                             $error[0],
-                            NOTIFICATION_TYPE_ERROR,
+                            Notification::NOTIFICATION_TYPE_ERROR,
                             ($error[1] ?? null)
                         );
                     }
@@ -407,7 +408,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      * @param string $filter
      * @param Context $context
      * @param bool $noValidation If set to true no XML validation will be done
-     * @param $outputErrors null|mixed Error messages can be added here to handle error display external to displayXMLValidationErrors()
+     * @param null|mixed $outputErrors Error messages can be added here to handle error display external to displayXMLValidationErrors()
      *
      * @return string XML document.
      */
@@ -614,6 +615,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
         $contextPath = array_shift($args);
         $objectType = array_shift($args);
 
+        /** @var ServerDAO */
         $contextDao = DAORegistry::getDAO('ServerDAO');
         $context = $contextDao->getByPath($contextPath);
         if (!$context) {
@@ -702,7 +704,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                     foreach ($result as $error) {
                         assert(is_array($error) && count($error) >= 1);
                         $errorMessage = __($error[0], ['param' => ($error[1] ?? null)]);
-                        echo "*** ${errorMessage}\n";
+                        echo "*** {$errorMessage}\n";
                     }
                     echo "\n";
                 } else {
@@ -733,7 +735,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     }
 
     /**
-     * Get preprint galleys from gallley IDs.
+     * Get preprint galleys from galley IDs.
      *
      * @param array $galleyIds
      *
@@ -756,7 +758,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @param User $user
      * @param string $message An i18n key.
-     * @param int $notificationType One of the NOTIFICATION_TYPE_* constants.
+     * @param int $notificationType One of the Notification::NOTIFICATION_TYPE_* constants.
      * @param string $param An additional parameter for the message.
      */
     public function _sendNotification($user, $message, $notificationType, $param = null)
@@ -819,7 +821,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
     /**
      * Checks for export action type as set user var and as action passed from API call
      *
-     * @param $exportAction string Action to check for
+     * @param string $exportAction Action to check for
      *
      */
     protected function _checkForExportAction(string $exportAction): bool

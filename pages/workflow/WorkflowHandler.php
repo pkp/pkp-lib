@@ -10,7 +10,7 @@
  * @class WorkflowHandler
  * @ingroup pages_reviewer
  *
- * @brief Handle requests for the submssion workflow.
+ * @brief Handle requests for the submission workflow.
  */
 
 namespace APP\pages\workflow;
@@ -25,6 +25,7 @@ use APP\notification\Notification;
 use APP\publication\Publication;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
+use Exception;
 use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\pages\workflow\PKPWorkflowHandler;
@@ -142,7 +143,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getEditorAssignmentNotificationTypeByStageId($stageId)
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new \Exception('Only the production stage is supported in OPS.');
+            throw new Exception('Only the production stage is supported in OPS.');
         }
         switch ($stageId) {
             case WORKFLOW_STAGE_ID_PRODUCTION:
@@ -170,7 +171,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getStageDecisionTypes(int $stageId): array
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new \Exception('Only the production stage is supported in OPS.');
+            throw new Exception('Only the production stage is supported in OPS.');
         }
 
         $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
@@ -194,7 +195,7 @@ class WorkflowHandler extends PKPWorkflowHandler
     protected function getStageRecommendationTypes(int $stageId): array
     {
         if ($stageId !== WORKFLOW_STAGE_ID_PRODUCTION) {
-            throw new \Exception('Only the production stage is supported in OPS.');
+            throw new Exception('Only the production stage is supported in OPS.');
         }
 
         $decisionTypes = [];

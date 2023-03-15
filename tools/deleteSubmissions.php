@@ -14,6 +14,7 @@
  */
 
 use APP\facades\Repo;
+use PKP\cliTool\CommandLineTool;
 
 require(dirname(__FILE__) . '/bootstrap.php');
 
@@ -55,7 +56,7 @@ class SubmissionDeletionTool extends CommandLineTool
         foreach ($this->parameters as $preprintId) {
             $preprint = Repo::submission()->get($preprintId);
             if (!$preprint) {
-                printf("Error: Skipping ${preprintId}. Unknown submission.\n");
+                printf("Error: Skipping {$preprintId}. Unknown submission.\n");
                 continue;
             }
             Repo::submission()->delete($preprint);

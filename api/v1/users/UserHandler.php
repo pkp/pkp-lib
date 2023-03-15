@@ -15,7 +15,7 @@
  */
 
 namespace APP\API\v1\users;
- 
+
 class UserHandler extends \PKP\API\v1\users\PKPUserHandler
 {
 }

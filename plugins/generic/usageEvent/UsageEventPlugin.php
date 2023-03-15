@@ -15,6 +15,7 @@
 
 namespace APP\plugins\generic\usageEvent;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\submission\Submission;
 
@@ -93,17 +94,17 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
 
                     if ($server) {
                         $pubObject = $server;
-                        $assocType = ASSOC_TYPE_SERVER;
+                        $assocType = Application::ASSOC_TYPE_SERVER;
                         $canonicalUrlOp = '';
                     }
 
                     if ($submission) {
                         $pubObject = $submission;
-                        $assocType = ASSOC_TYPE_SUBMISSION;
+                        $assocType = Application::ASSOC_TYPE_SUBMISSION;
                         $canonicalUrlParams = [$pubObject->getId()];
                         $idParams = ['m' . $pubObject->getId()];
                         if (isset($publicationId)) {
-                            // no need to check if the publication exists (for the submisison),
+                            // no need to check if the publication exists (for the submission),
                             // 404 would be returned and the usage event would not be there
                             $canonicalUrlParams = [$pubObject->getId(), 'version', $publicationId];
                         }
@@ -116,11 +117,11 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
                     // Preprint file.
                 case 'PreprintHandler::download':
                 case 'HtmlArticleGalleyPlugin::articleDownload':
-                    $assocType = ASSOC_TYPE_SUBMISSION_FILE;
+                    $assocType = Application::ASSOC_TYPE_SUBMISSION_FILE;
                     $preprint = $hookArgs[0];
                     $galley = $hookArgs[1];
                     $submissionFileId = $hookArgs[2];
-                    // if file is not a gallay file (e.g. CSS or images), there is no usage event.
+                    // if file is not a galley file (e.g. CSS or images), there is no usage event.
                     if ($galley->getData('submissionFileId') != $submissionFileId) {
                         return false;
                     }
@@ -145,8 +146,8 @@ class UsageEventPlugin extends \PKP\plugins\generic\usageEvent\PKPUsageEventPlug
     protected function getHtmlPageAssocTypes()
     {
         return [
-            ASSOC_TYPE_SERVER,
-            ASSOC_TYPE_SUBMISSION,
+            Application::ASSOC_TYPE_SERVER,
+            Application::ASSOC_TYPE_SUBMISSION,
         ];
     }
 

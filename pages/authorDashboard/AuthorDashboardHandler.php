@@ -15,6 +15,8 @@
 
 namespace APP\pages\authorDashboard;
 
+use APP\core\Application;
+use APP\core\PageRouter;
 use APP\core\Services;
 use APP\facades\Repo;
 use APP\publication\Publication;
@@ -37,7 +39,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
         parent::setupTemplate($request);
         $templateMgr = TemplateManager::getManager($request);
 
-        $submission = $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        $submission = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
 
         $submissionContext = $request->getContext();
         if ($submission->getContextId() !== $submissionContext->getId()) {
@@ -125,6 +127,7 @@ class AuthorDashboardHandler extends PKPAuthorDashboardHandler
             return (int) $stageId;
         }
         // Maintain the old check for previous path urls
+        /** @var PageRouter */
         $router = $request->getRouter();
         $workflowPath = $router->getRequestedOp($request);
         $stageId = WorkflowStageDAO::getIdFromPath($workflowPath);

@@ -14,8 +14,6 @@
 
 namespace APP\components\forms\publication;
 
-use PKP\components\forms\publication\PKPContributorForm;
-
 class ContributorForm extends PKPContributorForm
 {
     //

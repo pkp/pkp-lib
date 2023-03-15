@@ -21,6 +21,7 @@ use APP\core\Application;
 use APP\facades\Repo;
 
 use APP\notification\managerDelegate\ApproveSubmissionNotificationManager;
+use APP\server\Server;
 use PKP\core\PKPApplication;
 use PKP\notification\PKPNotificationManager;
 
@@ -39,8 +40,9 @@ class NotificationManager extends PKPNotificationManager
 
         switch ($notification->getType()) {
             // OPS: links leading to a new submission have to be redirected to production stage
-            case NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
+            case Notification::NOTIFICATION_TYPE_SUBMISSION_SUBMITTED:
                 $contextDao = Application::getContextDAO();
+                /** @var Server */
                 $context = $contextDao->getById($notification->getContextId());
                 return $dispatcher->url($request, PKPApplication::ROUTE_PAGE, $context->getPath(), 'workflow', 'production', $notification->getAssocId());
             default:
@@ -57,7 +59,7 @@ class NotificationManager extends PKPNotificationManager
      */
     public function _getPreprintTitle($notification)
     {
-        assert($notification->getAssocType() == ASSOC_TYPE_SUBMISSION);
+        assert($notification->getAssocType() == Application::ASSOC_TYPE_SUBMISSION);
         assert(is_numeric($notification->getAssocId()));
         $preprint = Repo::submission()->get($notification->getAssocId());
         if (!$preprint) {
@@ -76,7 +78,7 @@ class NotificationManager extends PKPNotificationManager
     public function getIconClass($notification)
     {
         switch ($notification->getType()) {
-            case NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
+            case Notification::NOTIFICATION_TYPE_NEW_ANNOUNCEMENT:
                 return 'notifyIconNewAnnouncement';
             default: return parent::getIconClass($notification);
         }
@@ -88,8 +90,8 @@ class NotificationManager extends PKPNotificationManager
     protected function getMgrDelegate($notificationType, $assocType, $assocId)
     {
         switch ($notificationType) {
-            case NOTIFICATION_TYPE_APPROVE_SUBMISSION:
-                assert($assocType == ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
+            case Notification::NOTIFICATION_TYPE_APPROVE_SUBMISSION:
+                assert($assocType == Application::ASSOC_TYPE_SUBMISSION && is_numeric($assocId));
                 return new ApproveSubmissionNotificationManager($notificationType);
         }
         // Otherwise, fall back on parent class

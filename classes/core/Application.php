@@ -19,9 +19,11 @@
 namespace APP\core;
 
 use APP\facades\Repo;
+use APP\server\ServerDAO;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\galley\DAO;
 use PKP\submission\RepresentationDAOInterface;
 
 class Application extends PKPApplication
@@ -141,16 +143,16 @@ class Application extends PKPApplication
 
     /**
      * Get the top-level context DAO.
-     *
-     * @return ContextDAO
      */
-    public static function getContextDAO()
+    public static function getContextDAO(): ServerDAO
     {
         return DAORegistry::getDAO('ServerDAO');
     }
 
     /**
      * Get the representation DAO.
+     *
+     * @return DAO|RepresentationDAOInterface
      */
     public static function getRepresentationDAO(): RepresentationDAOInterface
     {
@@ -189,11 +191,11 @@ class Application extends PKPApplication
     /**
      * Returns the context type for this application.
      *
-     * @return int ASSOC_TYPE_...
+     * @return int Application::ASSOC_TYPE_...
      */
     public static function getContextAssocType()
     {
-        return ASSOC_TYPE_SERVER;
+        return static::ASSOC_TYPE_SERVER;
     }
 
     /**

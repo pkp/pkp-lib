@@ -19,7 +19,10 @@ use APP\controllers\grid\preprintGalleys\form\PreprintGalleyForm;
 use APP\controllers\tab\pubIds\form\PublicIdentifiersForm;
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use APP\template\TemplateManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
@@ -37,8 +40,6 @@ use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
 use PKP\submission\GenreDAO;
 use PKP\submission\PKPSubmission;
-use APP\publication\Publication;
-use APP\submission\Submission;
 
 class PreprintGalleyGridHandler extends GridHandler
 {
@@ -67,7 +68,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function getSubmission(): Submission
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_SUBMISSION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION);
     }
 
     /**
@@ -76,7 +77,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function getPublication(): Publication
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_PUBLICATION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
     }
 
     /**
@@ -86,7 +87,7 @@ class PreprintGalleyGridHandler extends GridHandler
      */
     public function getGalley()
     {
-        return $this->getAuthorizedContextObject(ASSOC_TYPE_REPRESENTATION);
+        return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_REPRESENTATION);
     }
 
 
@@ -330,17 +331,18 @@ class PreprintGalleyGridHandler extends GridHandler
 
         Repo::galley()->delete($galley);
 
+        /** @var NotificationDAO */
         $notificationDao = DAORegistry::getDAO('NotificationDAO');
-        $notificationDao->deleteByAssoc(ASSOC_TYPE_REPRESENTATION, $galley->getId());
+        $notificationDao->deleteByAssoc(Application::ASSOC_TYPE_REPRESENTATION, $galley->getId());
 
         if ($this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $this->getSubmission()->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
                 $request,
-                [NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
+                [Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
                 null,
-                ASSOC_TYPE_SUBMISSION,
+                Application::ASSOC_TYPE_SUBMISSION,
                 $this->getSubmission()->getId()
             );
         }
@@ -429,9 +431,9 @@ class PreprintGalleyGridHandler extends GridHandler
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(
                     $request,
-                    [NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
+                    [Notification::NOTIFICATION_TYPE_AWAITING_REPRESENTATIONS],
                     null,
-                    ASSOC_TYPE_SUBMISSION,
+                    Application::ASSOC_TYPE_SUBMISSION,
                     $this->getSubmission()->getId()
                 );
             }
@@ -478,7 +480,7 @@ class PreprintGalleyGridHandler extends GridHandler
         $user = $request->getUser();
         $publication = $this->getPublication();
         $submission = $this->getSubmission();
-        $userRoles = $this->getAuthorizedContextObject(ASSOC_TYPE_USER_ROLES);
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
 
         if ($publication->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
             return false;

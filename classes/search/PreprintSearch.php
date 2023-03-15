@@ -21,12 +21,14 @@ namespace APP\search;
 use APP\core\Application;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\server\Server;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\plugins\Hook;
 
 use PKP\search\SubmissionSearch;
 use PKP\submission\PKPSubmission;
+use PKP\submission\SubmissionKeywordDAO;
 
 class PreprintSearch extends SubmissionSearch
 {
@@ -101,6 +103,7 @@ class PreprintSearch extends SubmissionSearch
 
                 case 'serverTitle':
                     if (!isset($contextTitles[$data['server_id']])) {
+                        /** @var Server */
                         $context = $contextDao->getById($data['server_id']);
                         $contextTitles[$data['server_id']] = $context->getLocalizedName();
                     }
@@ -313,6 +316,7 @@ class PreprintSearch extends SubmissionSearch
             $preprint = Repo::submission()->get($submissionId);
             if ($preprint->getData('status') === PKPSubmission::STATUS_PUBLISHED) {
                 // Retrieve keywords (if any).
+                /** @var SubmissionKeywordDAO */
                 $submissionSubjectDao = DAORegistry::getDAO('SubmissionKeywordDAO');
                 $allSearchTerms = array_filter($submissionSubjectDao->getKeywords($preprint->getId(), [Locale::getLocale(), $preprint->getLocale(), Locale::getPrimaryLocale()]));
                 foreach ($allSearchTerms as $locale => $localeSearchTerms) {

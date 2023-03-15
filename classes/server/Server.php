@@ -23,8 +23,9 @@
 
 namespace APP\server;
 
+use APP\core\Application;
 use PKP\context\Context;
-use PKP\core\DAORegistry;
+use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 
 class Server extends Context
@@ -81,7 +82,7 @@ class Server extends Context
      */
     public function getAssocType()
     {
-        return ASSOC_TYPE_SERVER;
+        return Application::ASSOC_TYPE_SERVER;
     }
 
     /**

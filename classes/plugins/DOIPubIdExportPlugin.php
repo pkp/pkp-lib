@@ -153,7 +153,7 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
     }
 
     /**
-     * Get preprint galleys with a DOI assigned from gallley IDs.
+     * Get preprint galleys with a DOI assigned from galley IDs.
      *
      * @param array $galleyIds
      *

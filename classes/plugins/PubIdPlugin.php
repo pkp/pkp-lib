@@ -224,7 +224,7 @@ abstract class PubIdPlugin extends PKPPubIdPlugin
     {
         // %j - server initials, remove special characters and uncapitalize
         $pubIdSuffix = PKPString::regexp_replace('/%j/', PKPString::regexp_replace('/[^-._;()\/A-Za-z0-9]/', '', PKPString::strtolower($context->getAcronym($context->getPrimaryLocale()))), $pubIdSuffix);
-
+        /** @var Representation $pubObject */
         // %x - custom identifier
         if ($pubObject->getStoredPubId('publisher-id')) {
             $pubIdSuffix = PKPString::regexp_replace('/%x/', $pubObject->getStoredPubId('publisher-id'), $pubIdSuffix);

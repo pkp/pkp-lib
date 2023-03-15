@@ -25,5 +25,4 @@ use PKP\decision\Decision as BaseDecision;
 
 class Decision extends BaseDecision
 {
-    
 }

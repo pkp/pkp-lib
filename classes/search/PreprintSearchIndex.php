@@ -15,6 +15,7 @@
 
 namespace APP\search;
 
+use APP\core\Application;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
@@ -80,6 +81,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     public function deleteTextIndex($preprintId, $type = null, $assocId = null)
     {
+        /** @var PreprintSearchDAO */
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         return $searchDao->deleteSubmissionKeywords($preprintId, $type, $assocId);
     }
@@ -108,6 +110,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             $parser = SearchFileParser::fromFile($submissionFile);
 
             if (isset($parser) && $parser->open()) {
+                /** @var PreprintSearchDAO */
                 $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
                 $objectId = $searchDao->insertObject($preprintId, $type, $submissionFile->getId());
 
@@ -126,6 +129,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     public function clearSubmissionFiles($submission)
     {
+        /** @var PreprintSearchDAO */
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         $searchDao->deleteSubmissionKeywords($submission->getId(), SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE);
     }
@@ -162,7 +166,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
                 $dependentFiles = Repo::submissionFile()
                     ->getCollector()
                     ->filterByAssoc(
-                        ASSOC_TYPE_SUBMISSION_FILE,
+                        Application::ASSOC_TYPE_SUBMISSION_FILE,
                         [$submissionFile->getId()]
                     )->filterBySubmissionIds([$preprint->getId()])
                     ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
@@ -283,6 +287,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
             if ($log) {
                 echo __('search.cli.rebuildIndex.clearingIndex') . ' ... ';
             }
+            /** @var PreprintSearchDAO */
             $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
             $searchDao->clearIndex();
             if ($log) {
@@ -333,6 +338,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     protected function _indexObjectKeywords($objectId, $text)
     {
+        /** @var PreprintSearchDAO */
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         $keywords = $this->filterKeywords($text);
         $searchDao->insertObjectKeywords($objectId, $keywords);
@@ -348,6 +354,7 @@ class PreprintSearchIndex extends SubmissionSearchIndex
      */
     protected function _updateTextIndex($preprintId, $type, $text, $assocId = null)
     {
+        /** @var PreprintSearchDAO */
         $searchDao = DAORegistry::getDAO('PreprintSearchDAO');
         $objectId = $searchDao->insertObject($preprintId, $type, $assocId);
         $this->_indexObjectKeywords($objectId, $text);

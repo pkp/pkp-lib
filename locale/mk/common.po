@@ -1,19 +1,20 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2021.
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-04 13:46+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-15 15:39+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/mk_MK/>\n"
-"Language: mk_MK\n"
+"common/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
-msgstr "Public Knowledge Project"
+msgstr "Проект за општо знаење"
 
 msgid "common.currentStyleSheet"
 msgstr "Моментален стил"
@@ -129,22 +130,22 @@ msgid "common.add"
 msgstr "Додади"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Додадете CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Додадете датотеки"
 
 msgid "common.addSelf"
 msgstr "Доделете на себе"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Прикачени датотеки"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Прикачете датотеки"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Прикачи го означеното"
 
 msgid "common.name"
 msgstr "Име"
@@ -153,7 +154,7 @@ msgid "common.all"
 msgstr "Сите"
 
 msgid "common.alphaList"
-msgstr "А Б В Г Д Ѓ Е  Ж З Ѕ И Ј К Л Љ М Н Њ О П Р С Т Ќ У Ф Х Ц Ч Џ Ш"
+msgstr "А Б В Г Д Ѓ Е Ж З Ѕ И Ј К Л Љ М Н Њ О П Р С Т Ќ У Ф Х Ц Ч Џ Ш"
 
 msgid "common.titleSmallWords"
 msgstr ""
@@ -340,7 +341,7 @@ msgid "common.deleteSelection"
 msgstr "Избриши селекција"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Поништи го означеното"
 
 msgid "common.designation"
 msgstr "Ознака"
@@ -349,7 +350,7 @@ msgid "common.description"
 msgstr "Опис"
 
 msgid "common.details"
-msgstr ""
+msgstr "Детали"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; изразено во {$dpi} DPI/PPI"
@@ -358,10 +359,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} пиксели"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Не, отфрли ги незачуваните промени"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Исклучено"
 
 msgid "common.disable"
 msgstr "Оневозможи"
@@ -382,13 +383,13 @@ msgid "common.downloadPdf"
 msgstr "Преземи ПДФ"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Преземете го извештајот"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Влечете и испуштете датотеки овде."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Или прикачете датотека"
 
 msgid "common.edit"
 msgstr "Уреди"
@@ -397,7 +398,7 @@ msgid "common.editItem"
 msgstr "Уреди {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Шаблони за емаил"
 
 msgid "common.enable"
 msgstr "Овозможи"
@@ -468,13 +469,13 @@ msgid "common.filterRemove"
 msgstr "Исчисти филтер: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Пронајди Шаблон"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Форматирање"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Географски"
 
 msgid "common.go"
 msgstr "Оди"
@@ -507,10 +508,10 @@ msgid "common.insert"
 msgstr "Вметни"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Вметнете содржина"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Најдете содржина за вметнување"
 
 msgid "common.itemsPerPage"
 msgstr "Елеменатаи по страница"
@@ -519,7 +520,7 @@ msgid "common.keywords"
 msgstr "Клучни зборови"
 
 msgid "common.label"
-msgstr ""
+msgstr "Етикета"
 
 msgid "common.language"
 msgstr "Јазик"
@@ -528,7 +529,7 @@ msgid "common.languages"
 msgstr "Јазици"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Последно зачувано {$when}"
 
 msgid "common.lastActivity"
 msgstr "Последна активност забележана на: {$date}."
@@ -543,7 +544,7 @@ msgid "common.lessThanOnly"
 msgstr "Помалку од"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Продолжи да работиш"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -585,10 +586,10 @@ msgid "common.none"
 msgstr "Ниедно"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ништо не е означено"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Ништо не е обезбедено"
 
 msgid "common.no"
 msgstr "Не"
@@ -634,7 +635,7 @@ msgid "common.noMatches"
 msgstr "Нема"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "Уште {$number}"
 
 msgid "common.off"
 msgstr "Исклучено"
@@ -679,7 +680,7 @@ msgid "common.pagination.label"
 msgstr "Види додатни страници"
 
 msgid "common.pagination.goToPage"
-msgstr "Оди на  {$page}"
+msgstr "Оди на {$page}"
 
 msgid "common.pagination.next"
 msgstr "Следна страница"
@@ -733,7 +734,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Прочитај повеќе за {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Повторно поврзување"
 
 msgid "common.record"
 msgstr "Запиши"
@@ -763,7 +764,7 @@ msgid "common.removeItem"
 msgstr "Отстрани: {$item}"
 
 msgid "common.removeSelection"
-msgstr "Избриши  селекција"
+msgstr "Избриши означување"
 
 msgid "common.replaced"
 msgstr "Заменето"
@@ -781,10 +782,10 @@ msgid "common.reset"
 msgstr "Ресетирај"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Круг {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Улога"
 
 msgid "common.saveAndContinue"
 msgstr "Сними и продолжи"
@@ -802,10 +803,10 @@ msgid "common.search"
 msgstr "Барај"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Фраза за пребарување"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Пребарување"
 
 msgid "common.searchQuery"
 msgstr "Барај по"
@@ -835,10 +836,10 @@ msgid "common.sendEmail"
 msgstr "Испрати имејл"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Прикажи ги сите чекори"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} чекори"
 
 msgid "common.size"
 msgstr "Големина"
@@ -865,10 +866,10 @@ msgid "common.suggest"
 msgstr "Предложи"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Префрли се на"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Префрли се на {$name}"
 
 msgid "common.title"
 msgstr "Наслов"
@@ -886,10 +887,10 @@ msgid "common.type"
 msgstr "Вид"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Прикачено од {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Поставено од {$name} на {$date}"
 
 msgid "common.component"
 msgstr "Компонента"
@@ -906,10 +907,14 @@ msgid "common.unread"
 msgstr "Непрочитано"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Незачувани промени"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Најдовме незачувани промени од {$when}. Ова може да се случи ако ја изгубите "
+"врската со серверот додека работите. Враќањето на тие промени може да ги "
+"презапише сите промени што сте ги направиле оттогаш. Дали сакате да ги "
+"вратите тие промени сега?"
 
 msgid "common.untitled"
 msgstr "Без наслов"
@@ -936,13 +941,13 @@ msgid "common.upload.addFile"
 msgstr "Прикачи фајл"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Прикачете датотека од вашиот компјутер."
 
 msgid "common.upload.restore"
 msgstr "Врати го оригиналниот"
 
 msgid "common.upload.thumbnailPreview"
-msgstr "Прегледај  ја селектираната слика."
+msgstr "Прегледај ја означената слика."
 
 msgid "common.upload.changeFile"
 msgstr "Смени го фајлот"
@@ -963,7 +968,7 @@ msgid "common.view"
 msgstr "Погледај"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Види грешки"
 
 msgid "common.viewWithName"
 msgstr "Види {$name}"
@@ -1011,10 +1016,10 @@ msgid "debug.notes.localeListLoad"
 msgstr "Вчитана листа на локализации \"{$localeList}\" од XML"
 
 msgid "debug.notes.localeLoad"
-msgstr "Вчитан фајл  за локализација \"{$localeFile}\" од XML"
+msgstr "Вчитана локална датотека „{$localeFile}“ од XML"
 
 msgid "debug.notes.missingLocaleKey"
-msgstr "Недостасува клуч за локализација  \"{$key}\"."
+msgstr "Недостасува клуч за локализација \"{$key}\"."
 
 msgid "debug.notes"
 msgstr "Белешки:"
@@ -1032,28 +1037,30 @@ msgid "email.addAttachment"
 msgstr "Додади прилог"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Прикачете датотеки за поднесување"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Прикачете датотеки поставени од авторот во фазата на поднесување."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Прикачете датотеки поставени за време на работниот тек на поднесување, како "
+"што се ревизии или датотеки што треба да се рецензираат."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Датотеки од библиотека"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Прикачете датотеки од библиотека"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Прикачете датотеки од библиотеките на поднесоците и објавувачите ."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Прикачете ги рецензираните датотеки"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Прикачете ги датотеките кои ги поднеле рецензентите"
 
 msgid "email.addBccRecipient"
 msgstr "Додади невидлива копија"
@@ -1068,7 +1075,7 @@ msgid "email.attachments"
 msgstr "Прилози"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Датотеката {$fileName} не може да се прикачи."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1084,6 +1091,9 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Дали сте сигурни дека сакате да се промените во {$localeName} со составување "
+"со овој емаил? Сите промени што сте ги направиле на темата и контекстот на "
+"емаилот ќе бидат изгубени."
 
 msgid "email.compose"
 msgstr "Испрати имејл"
@@ -1093,8 +1103,8 @@ msgstr "Пораката што сакате да ја испратите има
 
 msgid "email.compose.tooSoon"
 msgstr ""
-"Се обидувате да испратите порака прерано  по испратената последната порака. "
-"Ве молиме почекајте пред да испратите друга порака."
+"Се обидувате да испратите порака веднаш по испратената последната порака. Ве "
+"молиме почекајте пред да испратите друга порака."
 
 msgid "email.compose.error"
 msgstr ""
@@ -1179,8 +1189,8 @@ msgstr ""
 
 msgid "form.dropzone.dictFileTooBig"
 msgstr ""
-"Датотеката е премногу голема  ({{filesize}}mb). Датотеките поголеми од "
-"{{maxFilesize}} mb не можат да се постават."
+"Датотеката е премногу голема ({{filesize}}mb). Датотеките поголеми од "
+"{{maxFilesize}} mb не можат да се прикачат."
 
 msgid "form.dropzone.dictInvalidFileType"
 msgstr "Датотеките од овој тип не можат да се постават."
@@ -1219,7 +1229,7 @@ msgstr "Ве молам исправете {$count} грешки."
 
 msgid "form.errors"
 msgstr ""
-"Образецот не е зачуван затоа што се појавиле {$count} грешка (и).  Поправете "
+"Образецот не е зачуван затоа што се појавиле {$count} грешка (и). Поправете "
 "ги овие грешки и обидете се повторно."
 
 msgid "form.errorsOccurred"
@@ -1555,7 +1565,7 @@ msgid "navigation.viewFrontend"
 msgstr "Погледни ја страницата"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Институција"
 
 msgid "notification.addedAuditor"
 msgstr "Додаден ревизор."
@@ -1703,7 +1713,7 @@ msgid "search.indexTerms"
 msgstr "Поими"
 
 msgid "search.indexTermsLong"
-msgstr "Сите полиња со термини  за индекс"
+msgstr "Сите полиња со термини за индекс"
 
 msgid "search.matchAll"
 msgstr "Одговара на сите категории"
@@ -1847,7 +1857,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Рецензентот повторно е доделен."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Беше испратено барање за преиспитување на задачата за преглед."
 
 msgid "notification.addedStageParticipant"
 msgstr "Корисникот е додаден како учесник на чекорот."
@@ -1887,10 +1897,10 @@ msgid "notification.signedFile"
 msgstr "Документот е земен за разгледување."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Временска зона"
 
 msgid "user.email"
-msgstr "е-пошта"
+msgstr "Емаил"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1958,7 +1968,7 @@ msgstr ""
 "преку уредничкиот извештај."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Неделна пошта за задачи кои чекаат да бидат извршени"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1993,7 +2003,7 @@ msgstr ""
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"Може да се презачлените за нотификација на имејли во било кое време од  <a "
+"Може да се презачлените за нотификација на емаил во било кое време од <a "
 "href=\"{$profileNotificationUrl}\">кориснички профил</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
@@ -2019,10 +2029,10 @@ msgid "list.viewLess"
 msgstr "Сокриј ги проширените детали за {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Прошири ги сите"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Собери ги сите"
 
 msgid "validation.invalidOption"
 msgstr "Ова не е валидна опција."
@@ -2077,6 +2087,9 @@ msgstr "Ова е непостоечка земја."
 
 msgid "validator.country.regex"
 msgstr ""
+"Ова не е валидна земја. Земјата мора да биде еден од меѓународните кодови со "
+"2 букви. Видете ги сите кодови на https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Ова не е важечка валута."
@@ -2088,10 +2101,10 @@ msgid "validator.date_format"
 msgstr "Ова не се совпаѓа со форматот {$format}."
 
 msgid "validator.different"
-msgstr "{$attribute}} и  {$other} мора да бидат различни."
+msgstr "{$attribute}} и {$other} мора да бидат различни."
 
 msgid "validator.digits"
-msgstr "Ова мора да биде долга{ $digits}  цифри."
+msgstr "Ова мора да биде долга { $digits} цифри."
 
 msgid "validator.digits_between"
 msgstr "Ова мора да биде помеѓу {$min} и {$max} цифри."
@@ -2164,7 +2177,7 @@ msgid "validator.min.array"
 msgstr "Ова мора да има најмалку {$min} ставки."
 
 msgid "validator.not_in"
-msgstr "Избраниот {$attribute}  е неважечки."
+msgstr "Избраниот {$attribute} е неважечки."
 
 msgid "validator.numeric"
 msgstr "Ова не е валиден број."
@@ -2221,16 +2234,16 @@ msgid "validator.timezone"
 msgstr "Ова не е валидна временска зона."
 
 msgid "validator.unique"
-msgstr "{$attribute}  е зафатено."
+msgstr "{$attribute} е зафатено."
 
 msgid "validator.url"
 msgstr "Ова не е валиден УРЛ."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Не е дозволена нова линија."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Дозволени се само [{$tags}] html ознаки."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2246,7 +2259,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Не може да се импортира XML Node"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Непозната команда {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

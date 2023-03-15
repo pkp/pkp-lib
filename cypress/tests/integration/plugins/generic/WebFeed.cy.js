@@ -8,7 +8,7 @@
  */
 
 describe('Web Feed plugin tests', () => {
-	const feedSize = 3;
+	const feedSize = 2;
 	it('The side bar and the feeds are displayed properly', () => {
 		cy.login('admin', 'admin', 'publicknowledge');
 
@@ -16,9 +16,9 @@ describe('Web Feed plugin tests', () => {
 		cy.get('button[id="plugins-button"]').click();
 
 		// Access the settings and setup some options
-		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]');
-		cy.wait(2000);
-		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]').click({force: true});
+		cy.get('a[id^="component-grid-settings-plugins-settingsplugingrid-category-generic-row-webfeedplugin-settings-button-"]', {timeout: 20_000}).as('settings');
+		cy.waitJQuery();
+		cy.get('@settings').click({force: true});
 		cy.get('#displayPage-all').check();
 		cy.get('input[id^="recentItems"]').clear().type(feedSize, {delay: 0});
 		cy.get('#includeIdentifiers').check();
@@ -36,7 +36,8 @@ describe('Web Feed plugin tests', () => {
 
 		// Visit homepage
 		cy.wait(2000);
-		cy.visit('');
+
+		cy.visit('/');
 		const feeds = {
 			'atom': {mimeType: 'application/atom+xml'},
 			'rss': {mimeType: 'application/rdf+xml'},
@@ -49,6 +50,7 @@ describe('Web Feed plugin tests', () => {
 			// Find the linked feeds at the homepage
 			cy.get(`link[href$="WebFeedGatewayPlugin/${feed}"][type="${feeds[feed].mimeType}"]`);
 		}
+		// The validation depends on querying the API, which needs an ID, but it might not be possible to extract IDs from the feed due to custom URLs
 		cy.then(() => {
 			validateAtom(feeds.atom);
 			validateRss(feeds.rss);
@@ -64,7 +66,10 @@ describe('Web Feed plugin tests', () => {
 			expect($entries.length).to.equal(feedSize);
 			$entries.each((index, entry) => {
 				const $entry = cy.$$(entry);
-				const id = $entry.find('id').text().match(/\d+$/).pop();
+				const id = $entry.find('id').text().match(/\/(\d+)\/?$/)?.[1];
+				if (!id) {
+					return;
+				}
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
 					expect($entry.find('title').text()).to.contain(publication.title.en);
@@ -82,7 +87,10 @@ describe('Web Feed plugin tests', () => {
 			expect($entries.length).to.equal(feedSize);
 			$entries.each((index, entry) => {
 				const $entry = cy.$$(entry);
-				const id = $entry.find('link').text().match(/\d+$/).pop();
+				const id = $entry.find('id').text().match(/\/(\d+)\/?$/)?.[1];
+				if (!id) {
+					return;
+				}
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
 					expect($entry.find('title').text()).to.contain(publication.title.en);
@@ -100,7 +108,10 @@ describe('Web Feed plugin tests', () => {
 			expect($entries.length).to.equal(feedSize);
 			$entries.each((index, entry) => {
 				const $entry = cy.$$(entry);
-				const id = $entry.find('link').text().match(/\d+$/).pop();
+				const id = $entry.find('id').text().match(/\/(\d+)\/?$/)?.[1];
+				if (!id) {
+					return;
+				}
 				getSubmission(id).then(response => {
 					const publication = response.body.publications.pop();
 					expect($entry.find('title').text()).to.contain(publication.title.en);

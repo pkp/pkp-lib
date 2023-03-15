@@ -13,11 +13,11 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Collection;
 use Illuminate\Database\PostgresConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
+use Throwable;
 
 class I8737_SectionEditorsUniqueIndexUpdate extends Migration
 {
@@ -26,8 +26,8 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
      */
     public function up(): void
     {
+        $this->dropUniqueIndexKey();
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $this->dropUniqueIndexKey($table);
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
         });
     }
@@ -37,39 +37,44 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
      */
     public function down(): void
     {
+        $this->dropUniqueIndexKey();
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $this->dropUniqueIndexKey($table);
             $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
         });
     }
 
     /**
-     * Drop the unique index key if exists
-     * 
-     * @param \Illuminate\Database\Schema\Blueprint $table
-     * @return void
+     * Drop the unique index key
      */
-    protected function dropUniqueIndexKey(Blueprint $table): void
+    protected function dropUniqueIndexKey(): void
     {
         if (DB::connection() instanceof PostgresConnection) {
-            
-            $keyExists = Collection::make(DB::select("SELECT * FROM pg_indexes WHERE tablename='subeditor_submission_group'"))
-                ->pluck('indexname')
-                ->contains('section_editors_pkey');
-            
-            if ( $keyExists ) {
-                DB::statement('ALTER TABLE subeditor_submission_group DROP CONSTRAINT section_editors_pkey');
+
+            try {
+                Schema::table(
+                    'subeditor_submission_group', 
+                    fn ($table) => $table->dropUnique('section_editors_pkey')
+                );
+            } catch (Throwable $exception) {
+                
+                $this->_installer->log('Failed to drop unique index "section_editors_pkey" from table "subeditor_submission_group", another attempt will be done.'); 
+                
+                try {
+                    Schema::table(
+                        'subeditor_submission_group', 
+                        fn ($table) => $table->dropIndex('section_editors_pkey')
+                    );
+                } catch (Throwable $exception) {
+                    $this->_installer->log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.'); 
+                }
             }
 
             return;
         }
 
-        $keyExists = Collection::make(DB::select('SHOW INDEXES FROM subeditor_submission_group'))
-                ->pluck('Key_name')
-                ->contains('section_editors_pkey');
-
-        if ($keyExists) {
-            $table->dropIndex('section_editors_pkey');
-        }
+        Schema::table(
+            'subeditor_submission_group', 
+            fn ($table) => $table->dropIndex('section_editors_pkey')
+        );
     }
 }

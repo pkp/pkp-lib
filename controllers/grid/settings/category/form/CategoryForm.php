@@ -152,17 +152,27 @@ class CategoryForm extends Form
 
             $sortOption = $category->getSortOption() ? $category->getSortOption() : Repo::submission()->getDefaultSortOption();
             $this->setData('sortOption', $sortOption);
-
-            $this->setData(
-                'assignedSubeditors',
-                Repo::user()
-                    ->getCollector()
-                    ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
-                    ->filterByRoleIds($this->assignableRoles)
-                    ->assignedToCategoryIds([$this->getCategoryId()])
-                    ->getIds()
-                    ->toArray()
-            );
+            
+            $subeditorUserGroups = [];
+            $assignedSubeditors = Repo::user()
+                ->getCollector()
+                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                ->filterByRoleIds($this->assignableRoles)
+                ->assignedToCategoryIds([$this->getCategoryId()])
+                ->getIds()
+                ->toArray();
+            
+            if (!empty($assignedSubeditors)) {
+                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+                $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
+                    Application::get()->getRequest()->getContext()->getId(),
+                    Application::ASSOC_TYPE_CATEGORY,
+                    $this->getCategoryId(), 
+                    $assignedSubeditors
+                )->toArray();
+            }
+            
+            $this->setData('subeditorUserGroups', $subeditorUserGroups);
         }
 
         return parent::initData();

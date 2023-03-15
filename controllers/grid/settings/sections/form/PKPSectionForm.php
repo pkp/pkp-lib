@@ -142,12 +142,23 @@ class PKPSectionForm extends Form
         $subeditorUserGroups = [];
 
         if ($this->getSection() !== null) {
-            $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
-            $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
-                Application::get()->getRequest()->getContext()->getId(),
-                $this->getSection()->getId(), 
-                $this->assignableRoles
-            )->toArray();
+            $assignedSubeditors = Repo::user()
+                ->getCollector()
+                ->filterByContextIds([Application::get()->getRequest()->getContext()->getId()])
+                ->filterByRoleIds($this->assignableRoles)
+                ->assignedToSectionIds([$this->getSectionId()])
+                ->getIds()
+                ->toArray();
+            
+            if (!empty($assignedSubeditors)) {
+                $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
+                $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
+                    Application::get()->getRequest()->getContext()->getId(),
+                    Application::ASSOC_TYPE_SECTION,
+                    $this->getSection()->getId(), 
+                    $assignedSubeditors
+                )->toArray();
+            }
         }
 
         $this->setData([

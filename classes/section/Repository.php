@@ -145,6 +145,15 @@ class Repository
         $this->dao->update($newSection);
     }
 
+    /**
+     * Deletes all sections for a given context
+     */
+    public function deleteByContextId(int $contextId)
+    {
+        $collector = $this->getCollector()->filterByContextIds([$contextId]);
+        $this->deleteMany($collector);
+    }
+
     /** @copydoc DAO::delete() */
     public function delete(Section $section): void
     {

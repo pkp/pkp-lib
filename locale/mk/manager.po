@@ -1,16 +1,17 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2021.
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-04 13:46+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-15 15:39+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/mk_MK/>\n"
-"Language: mk_MK\n"
+"manager/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Информација"
@@ -151,85 +152,108 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Видови објави"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Депонирајте ги сите"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Депонирајте DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Ќе испратите записи од DOI метаподатоци за {$count} ставки до "
+"{$registrationAgency}. Дали сте сигурни дека сакате да ги депонирате овие "
+"записи?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Обележете го DOI како регистриран"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Ќе ги означите записите на метаподатоци за DOI за {$count} ставки како "
+"регистрирани. Дали сте сигурни дека сакате да ги означите овие записи како "
+"регистрирани?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Обележете го DOI како нерегистриран"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Ќе ги означите записите на метаподатоци за DOI за {$count} ставки како "
+"нерегистрирани. Дали сте сигурни дека сакате да ги означите овие записи како "
+"нерегистрирани?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Означи DOIs Needs Sync"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Ќе ги означите записите на метаподатоци за DOI за {$count} ставки како што "
+"треба да се синхронизираат. Статусот Needs Sync може да се примени само на "
+"претходно поднесени DOI. Дали сте сигурни дека сакате да ги означите овие "
+"записи како застарени?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Експортирајте DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Ќе експортирате записи од метаподатоци за DOI за {$count} ставки за "
+"{$registrationAgency}. Дали сте сигурни дека сакате да ги експортирате овие "
+"записи?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Доделете DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Ќе доделите нови DOI на {$count} ставки за која било подобна ставка што веќе "
+"нема доделено DOI. Дали сте сигурни дека сакате да доделите DOI на овие "
+"ставки?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Депонирајте ги сите DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Ќе ги закажете сите извонредни записи на метаподатоци за DOI да бидат "
+"депонирани кај {$registrationAgency}. Ќе се депонираат само објавени ставки "
+"со DOI. Статусот на секоја ставка ќе се ажурира кога ќе се добие одговор. "
+"Дали сте сигурни дека сакате да закажете депозити за сите овие ставки?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Преземете дејство за {$count} обележаните ставки."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Обемни акции"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Статус на депозит"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Статус на публикација"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Метаподатоците за оваа ставка се поднесени до {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Оваа ставка е рачно регистрирана во агенција за регистрација."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Метаподатоците за оваа ставка не се доставени до {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Оваа ставка не може да се депонира додека не биде објавена."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Видете ја грешката"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Порака за грешка при регистрација"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Прикажи запис"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Порака за успешна регистрација"
 
 msgid "manger.dois.update.success"
 msgstr ""

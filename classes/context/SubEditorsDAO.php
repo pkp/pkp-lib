@@ -21,6 +21,7 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Exception;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -303,26 +304,14 @@ class SubEditorsDAO extends \PKP\db\DAO
      *
      * @return  Collection Collection A list of user group IDs for each user, keyed by user ID.
      */
-    public function getAssignedUserGroupIds(int $contextId, int $sectionId, array $assignableRoles): Collection
-    {
-        $assignedSubeditorUserIds = Repo::user()
-            ->getCollector()
-            ->filterByContextIds([$contextId])
-            ->filterByRoleIds($assignableRoles)
-            ->assignedToSectionIds([$sectionId])
-            ->getIds()
-            ->toArray();
-        
-        if (empty($assignedSubeditorUserIds)) {
-            return collect([]);
-        }
-        
+    public function getAssignedUserGroupIds(int $contextId, int $assocType, int $assocId, int|array $userIds): Collection
+    {        
         return DB::table('subeditor_submission_group')
             ->select(['user_id', 'user_group_id'])
-            ->where('assoc_type', Application::ASSOC_TYPE_SECTION)
+            ->where('assoc_type', $assocType)
             ->where('context_id', $contextId)
-            ->where('assoc_id', $sectionId)
-            ->whereIn('user_id', $assignedSubeditorUserIds)
+            ->where('assoc_id', $assocId)
+            ->whereIn('user_id', Arr::wrap($userIds))
             ->get()
             ->groupBy('user_id')
             ->map(fn($userGroups) => $userGroups->pluck('user_group_id'));

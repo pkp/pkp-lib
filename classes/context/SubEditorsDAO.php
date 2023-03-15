@@ -21,7 +21,6 @@ use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use Exception;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -302,20 +301,28 @@ class SubEditorsDAO extends \PKP\db\DAO
     /**
      * Get the section assigned sub eidtor's associated user groups ids for given section
      *
-     * @param   int         $contextId
-     * @param   int         sectionId
-     * @param   int|array   $userId
-     *
-     * @return  Collection The user ids and user group id assosciation for given section
+     * @return  Collection Collection A list of user group IDs for each user, keyed by user ID.
      */
-    public function getAssignedUserGroupIds(int $contextId, int $sectionId, int|array $userIds): Collection
+    public function getAssignedUserGroupIds(int $contextId, int $sectionId, array $assignableRoles): Collection
     {
+        $assignedSubeditorUserIds = Repo::user()
+            ->getCollector()
+            ->filterByContextIds([$contextId])
+            ->filterByRoleIds($assignableRoles)
+            ->assignedToSectionIds([$sectionId])
+            ->getIds()
+            ->toArray();
+        
+        if (empty($assignedSubeditorUserIds)) {
+            return collect([]);
+        }
+        
         return DB::table('subeditor_submission_group')
             ->select(['user_id', 'user_group_id'])
             ->where('assoc_type', Application::ASSOC_TYPE_SECTION)
             ->where('context_id', $contextId)
             ->where('assoc_id', $sectionId)
-            ->whereIn('user_id', Arr::wrap($userIds))
+            ->whereIn('user_id', $assignedSubeditorUserIds)
             ->get()
             ->groupBy('user_id')
             ->map(fn($userGroups) => $userGroups->pluck('user_group_id'));

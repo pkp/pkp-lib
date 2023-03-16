@@ -2,7 +2,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
+"PO-Revision-Date: 2023-03-16 09:51+0000\n"
 "Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -256,118 +256,138 @@ msgid "manager.dois.registration.viewRecord.title"
 msgstr "Порака за успешна регистрација"
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI(и) успешно се ажурирани"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Депонирајте DOI(и)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Потребно е DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Нерегистрирани"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Поднесено"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Регистриран"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Грешка"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Има грешка"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Потребна е синхронизација"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "Доделено DOI"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "На сите ставки им недостасува DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "На сите ставки им е доделен DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Сите ставки со DOI кои се објавени, но сè уште не се депонирани во агенција "
+"за регистрација."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Сите ставки кои се доставени до агенција за регистрација."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Сите артикли кои се регистрирани во агенција за регистрација или рачно "
+"означени како регистрирани."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Сите ставки кои наишле на грешка во процесот на регистрација."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Сите артикли кои се повторно објавени откако последен пат биле депонирани во "
+"агенција за регистрација. Тие треба повторно да бидат доставени до "
+"агенцијата за регистрација за да се ажурираат нивните метаподатоци."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Ажурирањата на DOI не успеаја"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Некои DOI не може да се ажурираат"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Ставките се успешно извезени"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Ставките успешно означени како регистрирани"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Ставките успешно се означени како нерегистрирани"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Успешно означените ставки бараат синхронизација"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "На ставките успешно им се доделени нови DOI"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Предметите успешно се поднесени за депонирање"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Статуси на DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Управувањето со DOI се пресели. Погледнете ги страниците <a href=\""
+"{$doiManagementUrl}\">Управување со DOI</a> и <a href=\"{$doiSettingsUrl}\""
+">Поставки за DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI не може да се доделат освен ако не го наведете вашиот доделен DOI "
+"префикс. <a href=\"{$doiSettingsUrl}\">Додај префикс DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Се обидов да креирам DOI, но потребен е префикс DOI за контекстот да создаде."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Пред да може да се избрише оваа компонента, мора да ги поврзете сите "
+"поврзани датотеки за поднесување со друга компонента."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Уредување институција"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "ID на истражувачкаta организација за оваа институција."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Опсег на IP"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Валидните вредности вклучуваат IP адреса (на пр. 142.58.103.1), опсег на IP ("
+"на пр. 142.58.103.1 - 142.58.103.4), опсег на IP со знак „*“ (на пр. 142."
+"58.*.*) и опсег на IP e на пр. CI. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Избриши институција"
 
 msgid "manager.institutions.confirmDelete"
 msgstr ""
+"Дали сте сигурни дека сакате да продолжите и да ја избришете оваа "
+"институција?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Неважечки опсег на IP"
 
 msgid "manager.publication.submissionStage"
 msgstr "Поднесок"
@@ -391,13 +411,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Деталите за рецензија се ажурирани."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOIs"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Следната грешка беше вратена од {$registrationAgency} и содржи детали за "
+"причината за грешката:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Следната порака беше вратена од {$registrationAgency} и содржи детали за "
+"регистрацијата:"
 
 msgid "manager.emails.addEmail"
 msgstr "Додади шаблон"
@@ -759,50 +783,59 @@ msgid "manager.roles"
 msgstr "Улоги"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Статистика"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Географска статистика"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Изберете го типот на статистика за географска употреба за собирање. "
+"Подеталната географска статистика може значително да ја зголеми големината "
+"на вашата база на податоци и, во некои ретки случаи, може да ја загрози "
+"анонимноста на вашите посетители."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Не собирајте никакви географски податоци"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Зачувај ја државата на посетителот"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Зачувај ја државата на посетителот и регионот"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Зачувај ја државата на посетителот, регионот и градот"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Институционална статистика"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Овозможете институционална статистика ако сакате да собирате статистика за "
+"користење по институција. Ако е овозможено, ќе треба да гo конфигурирате "
+"опсегот на IP за секоја институција што сакате да ја следите."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Овозможете институционална статистика"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Јавен API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Дали да се ограничи или не пристапот до крајните точки на API за "
+"статистиката на COUNTER SUSHI. Ако не е штиклирано, API ќе биде достапен "
+"само за корисници со администраторски или менаџерски улоги."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Статистиката на COUNTER SUSHI нека биде јавно достапна"
 
 msgid "manager.statistics"
 msgstr "Статистики и Извештаи"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Генератор на извештаи"
+msgstr "Извештаи"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -821,25 +854,30 @@ msgid "manager.affiliationAndSupport"
 msgstr "Спонзор"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIs"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Поставување"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Регистрација"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI префикс"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Автоматски депозит"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Овозможете автоматско депонирање"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"Регистрацијата и метаподатоците за DOI може автоматски да се депонираат кај "
+"избраната агенција за регистрација секогаш кога ќе се објави ставка со DOI. "
+"Автоматското депонирање ќе се случува во закажани интервали и статусот на "
+"регистрација на секоја DOI може да се следи од страницата за управување со "
+"DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -848,40 +886,42 @@ msgstr ""
 "xxxx (на пример, 10.1234):"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "Префиксот DOI е потребен и мора да биде во следниов формат: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Автоматско доделување DOI"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Кога на поднесокот треба да му се додели DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "После публикација"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Никогаш"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI префикс"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Содржина на весник"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Потребен е префикс DOI"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "Додаток на ДОИ"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Наставка DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Прилагодено DOI Наставка Шема"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Еден или повеќе избрани типови DOI не се дозволени за конфигурираната "
+"агенција за регистрација DOI."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -893,42 +933,49 @@ msgstr "Користете стандардни обрасци."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Никој - Суфиксите мора да се внесат рачно на <a href=\"{$doiManagementUrl}\""
+">страницата за управување со DOI</a> и нема да се генерираат автоматски"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Прилагодена шема - (не се препорачува)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Агенција за регистрација"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Ве молиме изберете ја агенцијата за регистрација што сакате да ја користите "
+"при депонирање на DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Не е овозможена агенција за регистрација"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI може автоматски да се обработи и депонира со агенција за регистрација. "
+"За да ја користите оваа функција, лоцирајте и инсталирајте приклучок од "
+"соодветната агенција за регистрација."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ништо"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Верзија на DOI"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Не можете да ја повикате оваа операција без овозможени DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Има {$count} верзии."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Види се"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI за сите верзии"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI содржи неважечки знаци."
 
 msgid "manager.setup.publishing"
 msgstr "Детали за објавување"
@@ -1024,16 +1071,19 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Испратете копија на оваа е-пошта"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Известете ги сите автори"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Кој треба да добие емаил за известување кога е снимена уредувачка одлука?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Испратете известување преку емаил до сите автори на поднесокот."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Испраќајте емаил само до авторите доделени на работниот тек на поднесување. "
+"Обично, тоа е авторот што поднесува."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Известувања"
@@ -1238,7 +1288,7 @@ msgid "manager.setup.theme"
 msgstr "Тема"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Институции"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1250,24 +1300,42 @@ msgstr "Темата што ја избравте не е инсталирана
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Следното е прикажано на авторите пред да започнат со нивното поднесување. "
+"Обезбедете кратко објаснување за процесот на поднесување, така што авторот "
+"знае што да очекува."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на чекорот за поставување "
+"датотеки. Обезбедете кратко објаснување за тоа кои датотеки се очекува да ги "
+"споделат авторите со нивното поднесување."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на чекорот на соработниците. "
+"Обезбедете кратко објаснување за тоа кои информации авторот треба да ги даде "
+"за себе, коавторите и сите други соработници."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на чекорот за податоци, кога "
+"од нив се бара да го дадат насловот, апстрактот и другите клучни информации "
+"за нивниот поднесок."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на чекорот За уредувачите, "
+"кога од нив се бара да дадат метаподатоци како што се клучни зборови, "
+"коментари на уредникот и други детали за да помогнат во уредничкиот преглед."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на последниот чекор од "
+"помошникот за поднесување, кога од нив се бара да ги прегледаат сите "
+"информации што ги дале пред да ја поднесат својата работа."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Упатство за авторот"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Список за подготовка на поднесување"
@@ -1293,16 +1361,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Сигурен ли сте дека сакате да ја активирате оваа секција?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Уреднички задачи"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Изберете ги уредничките корисници кои автоматски треба да се доделат на сите "
+"нови поднесоци во овој дел."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Доделете го {$name} како {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Изберете ги уредничките корисници кои автоматски треба да се доделат на сите "
+"нови поднесоци во оваа категорија."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Опции за пристап до страницата"
@@ -1793,16 +1865,19 @@ msgstr ""
 "метаподатоци за кредитирање, наслови и лиценцирање."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Барање со Поднесоци"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Дали треба да се бара барем една од овие датотеки со секое ново поднесување? "
+"Ако изберете да, на авторите нема да им биде дозволено да поднесуваат додека "
+"не поднесат барем една датотека од овој тип."
 
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Да, побарајте од авторите да поднесат една или повеќе од овие датотеки."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Не, дозволете нови поднесоци без овие датотеки."
 
 msgid "manager.settings.wizard"
 msgstr "Волшебник за поставки"
@@ -2191,18 +2266,27 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Кратка изјава во која се опишува дали авторот(ите) ги ставиле достапни или "
+"не своите податоци од истражувањето и, доколку е така, каде читателите можат "
+"да пристапат до нив."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Овозможете метаподатоци за изјавата за достапност на податоци"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Не барајте изјава за достапност на податоците од авторот за време на "
+"поднесувањето."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Побарајте од авторот да даде изјава за достапноста на податоците за време на "
+"поднесувањето."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Побарајте од авторот да обезбеди изјава за достапноста на податоците пред да "
+"го прифатите нивниот поднесок."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Грешки при проверка:"
@@ -2288,7 +2372,7 @@ msgstr ""
 "на друг и на постоечкиот корисник."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Тестирање"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Наслов"
@@ -2526,16 +2610,16 @@ msgid "stats.city"
 msgstr "Град"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Прегледи"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Преземања"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Вкупно прегледи по датум"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Вкупно преземања по датум"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/year)"
@@ -3513,3 +3597,18 @@ msgstr ""
 #~ "Овој и-меил е испратен од уредник како потсетник до рецензентот дека "
 #~ "рокот за нивната рецензија е достигнат. Овој и-меил се користи кога "
 #~ "уредникот рачно испраќа потсетник до рецензентот"
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Сликата на насловната страница на публикацијата {$id} не беше експортирана, "
+"нејзината датотека не беше пронајдена на патеката „{$path}“."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Датотеката за поднесување {$id} беше прескокната бидејќи нема валидна "
+"ревизија."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Ревизијата {$revision} на датотеката за поднесување {$id} беше прескокната "
+"бидејќи датотеката не беше пронајдена на патеката „{$path}“."

@@ -1,15 +1,16 @@
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-15 05:21+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-17 13:48+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"reviewer/mk_MK/>\n"
-"Language: mk_MK\n"
+"reviewer/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "reviewer.reviewSteps.request"
 msgstr "1. Барање"
@@ -43,11 +44,11 @@ msgstr "Одби го барањето за рецензија"
 
 msgid "reviewer.submission.declineReviewMessage"
 msgstr ""
-"Може да му наведете  причини на уредникот зошто го одбивате овој преглед на "
+"Може да му наведете причини на уредникот зошто го одбивате овој преглед на "
 "полето подолу."
 
 msgid "reviewer.submission.acceptReview"
-msgstr "Прифатете рецензија, продолжете на чекор  2"
+msgstr "Прифатете рецензија, продолжете на чекор 2"
 
 msgid "reviewer.submission.continueToStepThree"
 msgstr "Продолжете кон чекор 3"
@@ -70,7 +71,7 @@ msgid "reviewer.submission.noCompetingInterests"
 msgstr "Немам никаков конлфикт на интереси"
 
 msgid "reviewer.submission.hasCompetingInterests"
-msgstr "Можеби имам конлфикт на  интереси (наведете подолу)"
+msgstr "Можеби имам конлфикт на интереси (наведете подолу)"
 
 msgid "reviewer.submission.competingInterests"
 msgstr "Конлфикт на интереси"
@@ -91,12 +92,12 @@ msgstr "Внесете (или залепете) преглед на овој п
 
 msgid "reviewer.submission.uploadDescription"
 msgstr ""
-"Поставете датотеки за кои  сакате да се консултирате со уредникот и / или "
+"Поставете датотеки за кои сакате да се консултирате со уредникот и / или "
 "авторот, вклучувајќи ги и ревидираните верзии на оригиналната датотека за "
 "рецензија."
 
 msgid "reviewer.complete"
-msgstr "Рецензирај го  поднесеното"
+msgstr "Рецензирај го поднесеното"
 
 msgid "reviewer.confirmSubmit"
 msgstr "Дали сте сигурни дека сакате да ја доставите оваа рецензија?"

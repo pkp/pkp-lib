@@ -1,16 +1,16 @@
-# Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
+# Teodora Fildishevska <t.fildishevska@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-06-30 09:03+0000\n"
+"PO-Revision-Date: 2023-03-16 19:17+0000\n"
 "Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
-"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/api/"
-"mk_MK/>\n"
-"Language: mk_MK\n"
+"Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/api/mk/>"
+"\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.announcements.400.contextsNotMatched"
 msgstr "Огласот што го побаравте не е дел од овој сервер."
@@ -47,10 +47,10 @@ msgid "api.contexts.404.contextNotFound"
 msgstr "Серверот што го баравте не беше пронајден."
 
 msgid "api.dois.400.contextsNotMatched"
-msgstr ""
+msgstr "Побараното DOI не се наоѓа на овој сервер."
 
 msgid "api.dois.400.noRegistrationAgencyConfigured"
-msgstr ""
+msgstr "Не е конфигурирана агенција за регистрација на DOI на овој сервер."
 
 msgid "api.emails.403.disabled"
 msgstr "Можноста за имејл нотификација не е овозможена на овој сервер."

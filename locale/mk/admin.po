@@ -1,7 +1,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-14 19:40+0000\n"
+"PO-Revision-Date: 2023-03-17 13:48+0000\n"
 "Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/mk/>\n"
@@ -85,7 +85,7 @@ msgstr ""
 
 msgid "admin.languages.cantDisable"
 msgstr ""
-"Оваа локализација  е примарен јазик на страницата. Не можете да го "
+"Оваа локализација е примарен јазик на страницата. Не можете да го "
 "оневозможите сè додека не изберете друг основна локализација."
 
 msgid "admin.languages.confirmSitePrimaryLocaleChange"
@@ -105,7 +105,7 @@ msgid "admin.languages.installedLocales"
 msgstr "Инсталирани локализации"
 
 msgid "admin.languages.installLanguages"
-msgstr "Уреди  локализација"
+msgstr "Уреди локализација"
 
 msgid "admin.languages.availableLocales"
 msgstr "Можни локализации"
@@ -298,7 +298,7 @@ msgid "admin.server.phpVersion"
 msgstr "PHP верзија"
 
 msgid "admin.server.platform"
-msgstr "OS  платформа"
+msgstr "OS платформа"
 
 msgid "admin.settings"
 msgstr "Подесувања"
@@ -341,7 +341,7 @@ msgid "admin.settings.siteStyleSheet"
 msgstr "syle sheet на сајтот"
 
 msgid "admin.settings.siteLogo"
-msgstr "Лого  на сајтот"
+msgstr "Лого на сајтот"
 
 msgid "admin.settings.siteTitle"
 msgstr "Име на сајтот"
@@ -418,14 +418,14 @@ msgstr "Верзија"
 
 msgid "admin.fileLoader.wrongBasePathLocation"
 msgstr ""
-"Основна патека path  {$path} мора да биде во директориумот на јавни датотеки."
+"Основна патека path {$path} мора да биде во директориумот на јавни датотеки."
 
 msgid "admin.fileLoader.pathNotAccessible"
 msgstr "Фолдерот path{$path не е директориум или не може да се чита."
 
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
-"Датотеката {$filename} не може да се премести од  {$currentFilePath} "
+"Датотеката {$filename} не може да се премести од {$currentFilePath} "
 "до{$destinationPath}"
 
 msgid "admin.fileLoader.fileProcessed"
@@ -634,243 +634,298 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Испратена тест работа што е обврзана да не успее во редот со име {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Испратена тест работа која е обврзана да биде успешна во редот со име "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Неважечка опција за тест за работа. Може да се одбере само „неуспешно“ или "
+"„успешно“ за опцијата „--only=“."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Неважечки ID"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Работата е избришана!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Не се најдени работи за бришење."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Беше невозможно да се избришат сите работи."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Избришани сите работи!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} неуспешни работни места се успешно отстранети од неуспешната "
+"листа."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} работни места беа успешно испратени назад во редот."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Имаме {$total} неуспешни работи"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Имаме {$total} работни места во редица"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Опцијата {$option} не постои."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Дали мислевте на едно од следниве?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Има вкупно <strong>{$total}</strong> работни места на редот"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Има вкупно <strong>{$total}</strong> неуспешни задачи."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Прикажи работни места во редица"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Работни места"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Неуспешни работни места"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Неуспешни детали за работа"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Прикажете ги сите задачи во ред во системот и следете ги неуспешните обиди."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Прикажи работни места"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Види неуспешни работни места"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Види неуспешна работа:{$id} Детали"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Својство"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Вредност на својството"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Работно место"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Ред"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Поврзување"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Обиди"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Создаден на"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Неуспешно во"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Корисен товар"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Исклучок"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Акции"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Создадено на {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Создадено на {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Обидете се повторно"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Побарајте ги сите неуспешни Работни места"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Работата што ги вчитува податоците за статистиката за користење од "
+"датотеката {$file} не успеа и датотеката не можеше да се премести од "
+"{$archivedFilePath} во {$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Работата што ги вчитува податоците за статистиката за користење од "
+"датотеката {$file} не успеа. Датотеката е преместена во директориумот."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Собирање на податоци"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Конфигурирајте каква статистика за користење треба да се собира."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Складирање на податоци"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Конфигурирајте каква статистика за користење треба да се складира на "
+"серверот."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi протокол"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Конфигурирајте го протоколот <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, формат признат од индустријата за "
+"дистрибуција на статистика за користење."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Месечна или дневна статистика"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Дали да се следи дневната или месечната статистика за користење или не. "
+"Следењето дневни статистики може значително да ја зголеми големината на "
+"вашата база на податоци."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Следете дневни и месечни статистики"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Следете ги само месечните статистики"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Компресирај логови"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Статистиките се генерираат од датотеките за евиденција за лог што се "
+"преместуваат во <code>{$path}</code> откако ќе бидат обработени. Дали лог-"
+"датотеките треба да се компресираат во датотеки <code>.gz</code> откако ќе "
+"бидат обработени? Компресирањето на датотеките за евиденција може да заштеди "
+"простор на дискот на серверот."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Оставете ги лог датотеките на место"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Компресирајте ги лог датотеките"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Ограничете го пристапот до АПИ-то за статистика COUNTER SUSHI на менаџерите "
+"и администраторите"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Платформа"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Според протоколот CONTER SUSHI, секој статистички извештај мора да ја "
+"идентификува „платформата“ што ја обезбедува статистиката. Стандардно, "
+"списанието ќе биде назначено како платформа за сите статистики. Меѓутоа, ако "
+"сите списанија на оваа страница се објавени, во сопственост или управувани "
+"од истиот провајдер, можеби ќе сакате да ја назначите страницата како "
+"платформа."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Користете ја страницата како платформа за сите списанија."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID на платформата"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Како да се идентификува оваа платформа во извештаите CONTER SUSHI. ИД на "
+"платформата мора да има 17 знаци или помалку и може да содржи букви (a–z, "
+"A–Z), цифри (0–9), долни црти (_), точки (.) и коси линии (/). ИД на "
+"платформата се користи во неколку колони и треба да биде што е можно "
+"пократок, а да остане препознатлив. ИД на платформата обично се заснова на "
+"име на издавач или платформа, име на домен или добро позната, единствена "
+"кратенка."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Мора да се бара ID на платформата кога локацијата ќе биде идентификувана "
+"како SUSHI платформа."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "опции за работна команда"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "употреба : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Достапни опции за работна команда"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Името на врската во редот за работа[стандардно : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Името на редот за работа[стандардно : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Името на работникот[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Бројот на секунди да чека пред повторно да се обидете со работа што наиде на "
+"неидентификуванисклучок[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Ограничувањето на меморијата во мегабајти[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Бројот на секунди што може да работи последователниот процес[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
-msgstr ""
+msgstr "Број на секунди за спиење кога нема работа[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Број на пати обид за работа пред да се евидентира не успеа[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Присилете го работникот да работи дури и во режим на одржување[default : "
+"{$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Застанете кога редот е празен[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Бројот на работни места што треба да се обработат пред да се запре[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Максималниот број секунди што работникот треба да ги работи[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Број на секунди за одмор помеѓу работите[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Стартувај го работникот daemon за тест редица"
 
 #~ msgid "admin.languages.download.cannotModifyRegistry"
 #~ msgstr ""

@@ -2,7 +2,7 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-16 09:51+0000\n"
+"PO-Revision-Date: 2023-03-17 13:48+0000\n"
 "Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
@@ -52,7 +52,7 @@ msgid "manager.announcements.editTitle"
 msgstr "Уреди"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Изберете година и / или месец покрај  денот на крајниот датум."
+msgstr "Изберете година и / или месец покрај денот на крајниот датум."
 
 msgid "manager.announcements.form.dateExpire"
 msgstr "Краен рок"
@@ -69,7 +69,7 @@ msgid "manager.announcements.form.dateExpireValid"
 msgstr "Изберете важечки датум на истекување на објавата."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Ве молиме изберете месец и / или ден  годината од крајниот рок."
+msgstr "Ве молиме изберете месец и / или ден годината од крајниот рок."
 
 msgid "manager.announcements.form.description"
 msgstr "Известување"
@@ -84,7 +84,7 @@ msgid "manager.announcements.form.descriptionShortInstructions"
 msgstr "Краток опис кој ќе стои покрај насловот на објавата."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Краток опис  на објавата е задолжителен."
+msgstr "Краток опис на објавата е задолжителен."
 
 msgid "manager.announcements.form.descriptionShort"
 msgstr "Краток опис"
@@ -458,7 +458,7 @@ msgstr "Останати шаблони"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr ""
-"Мора да да дадете идентификација на контекст кога додавате образец за имејл."
+"Мора да дадете идентификација на контекст кога додавате образец за емаил."
 
 msgid "manager.emails.enabled"
 msgstr "Овозможи го овој шаблон за имелј"
@@ -639,7 +639,7 @@ msgstr "Избери локализација"
 
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
-"Изберете ги корисниците на кои  што сакате да им испратите е-пошта со "
+"Изберете ги корисниците на кои што сакате да им испратите емаил со "
 "означување на полињата покрај нивните имиња"
 
 msgid "manager.people.enable"
@@ -675,11 +675,10 @@ msgstr "Спои ги корисниците"
 
 msgid "manager.people.mergeUsers.confirm"
 msgstr ""
-"225/5000\n"
-"Дали сте сигурни дека сакате да ги споите избраните {$oldAccountCount} "
-"сметката со корисничкото име \"{$newUsername}\"? Избраните "
-"{$oldAccountCount} сметки нема да постојат потоа. Оваа акција не е "
-"реверзибилна."
+"Дали сте сигурни дека сакате да ги споите избраниот профил на "
+"{$oldAccountCount} во профилот со корисничкото име „{$newUsername}“? "
+"Избраниот профили на {$oldAccountCount} нема да постои потоа. Оваа акција не "
+"е реверзибилна."
 
 msgid "manager.people.mergeUsers"
 msgstr "Спои ги корисниците"
@@ -708,7 +707,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Зачувај и креирај нов"
 
 msgid "manager.people.signedInAs"
-msgstr "Сега сте логиран како  {$username}"
+msgstr "Сега сте логиран како {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Логирај се како"
@@ -881,9 +880,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Префиксот DOI е доделен од агенциите за регистрација (на пр. <a href="
-"\"http://www.crossref.org\" target=\"_new\">Crossref</a>) и е во формат 10."
-"xxxx (на пример, 10.1234):"
+"Префиксот DOI е доделен од агенција за регистрација, како што е <a href="
+"\"https://www.crossref.org\" target=\"_new\">Crossref</a> или <a href=\"https"
+"://datacite. org/\" target=\"new\">DataCite</a>. Пример: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "Префиксот DOI е потребен и мора да биде во следниов формат: 10.xxxx."
@@ -929,7 +928,7 @@ msgstr ""
 "сите објавувачки објекти со ист доделен префикс ДОИ:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Користете стандардни обрасци."
+msgstr "Стандардно - Автоматски генерира единствен суфикс од осум знаци"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1050,7 +1049,7 @@ msgstr "Странична лента"
 
 msgid "manager.setup.layout.sidebar.invalidBlock"
 msgstr ""
-"Блокот {$name}  не може да се најде. Ве молиме, проверете дали приклучокот е "
+"Блокот {$name} не може да се најде. Ве молиме, проверете дали приклучокот е "
 "инсталиран и овозможен."
 
 msgid "manager.setup.loggingAndAuditing"
@@ -1118,7 +1117,7 @@ msgid "manager.setup.notifyUsers"
 msgstr "Извести"
 
 msgid "manager.setup.notifyUsers.description"
-msgstr "Избери корисници кои кои треба да примат имејл нотификација."
+msgstr "Избери корисници кои треба да примат емаил нотификација."
 
 msgid "manager.setup.notifyUsers.copyDetails"
 msgstr "Испрати копија од овој имејл за мане на {$email}."
@@ -1128,8 +1127,8 @@ msgstr "Испрати имејл"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
-"Треба да испратите и-мејл кон  {$total} корисници. Сигурен ли сте дека "
-"сакате да го испратите овој имејл?"
+"Треба да испратите емаил кон {$total} корисници. Дали сте сигурни дека "
+"сакате да го испратите овој емаил?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr "Испраќање имејл. Волам не листај пред да се комплетира испраќањето."
@@ -1189,8 +1188,8 @@ msgstr "Фирмати за дата и за време"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Избери посакуван формат за дати и за времиња.  Избраниот формат може да се "
-"внесе со користење на специјален  <a href='http://php.net/manual/en/function."
+"Избери посакуван формат за дати и за времиња. Избраниот формат може да се "
+"внесе со користење на специјален <a href='http://php.net/manual/en/function."
 "strftime.php#refsect1-function.strftime-parameters'>формат на карактери</a>."
 
 msgid "manager.setup.dateTime.longDate"
@@ -1214,9 +1213,9 @@ msgstr "Избрано"
 msgid "manager.setup.privacyStatement.description"
 msgstr ""
 "Оваа изјава ќе се појави за време на регистрација на корисниците, поднесоци "
-"од автори и на јавно достапна страница за приватност. Во некои јурисдикции,  "
-"правно треба да откриете како управувате со податоците за корисниците во "
-"оваа политика за приватност."
+"од автори и на јавно достапна страница за приватност. Во некои правни "
+"системи, правно треба да откриете како управувате со податоците за "
+"корисниците во оваа политика за приватност."
 
 msgid "manager.setup.reviewOptions.defaultReviewResponseTime"
 msgstr "Стандарден краен рок за одговор"
@@ -1340,15 +1339,11 @@ msgstr "Упатство за авторот"
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Список за подготовка на поднесување"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"При поднесување на пријава до списанието, од авторите прво се бара да ја "
-"проверат секоја ставка во Списокот за подготовка на поднесувањето како "
-"завршен, пред да продолжат. Листата за проверка исто така се појавува во "
-"Упатството за авторот, под За списанието. Списокот може да се уредува "
-"подолу, но за сите ставки на списокот ќе биде потребна ознака пред авторите "
-"да продолжат со поднесувањето."
+"Следното им се прикажува на авторите кога ќе започнат со нивното "
+"поднесување. Од авторите се бара да потврдат дека нивното поднесување е во "
+"согласност со сите барања наведени овде пред да започне нивното поднесување."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1412,7 +1407,7 @@ msgid "plugins.categories.gateways.description"
 msgstr "Gateway плагини обезбедуваат податоци во живо на надворешните системи."
 
 msgid "plugins.categories.gateways"
-msgstr "Gateway  плагини"
+msgstr "Gateway плагини"
 
 msgid "plugins.categories.generic"
 msgstr "Генерички плагини"
@@ -1449,7 +1444,7 @@ msgid "plugins.categories.themes"
 msgstr "Плагин за теми"
 
 msgid "plugins.categories.oaiMetadataFormats"
-msgstr "Плаг ин за  OAI Metadata Format"
+msgstr "Плагин за OAI Metadata Format"
 
 msgid "plugins.categories.oaiMetadataFormats.description"
 msgstr "Овие додатоци на формат изразуваат метаподатоци во OAI комуникациите."
@@ -1508,7 +1503,7 @@ msgid "manager.plugins.doesNotExist"
 msgstr "Плагинот \"{$pluginName}\" не постои"
 
 msgid "manager.plugins.fileSelectError"
-msgstr "Прво  изберете фајл"
+msgstr "Прво изберете датотека"
 
 msgid "manager.plugins.upload"
 msgstr "Аплодирај нов плагин"
@@ -1859,10 +1854,9 @@ msgstr ""
 "Изберете го типот на метаподтоци кои овие датотеки може да ги добијат. За "
 "главните датотеки за објавување треба да се одбере Документ, како PDF што "
 "може да се преземе, така што овие датотеки ќе ги наследат нивните "
-"метаподатоци од објавените.  Инаку, изберете Дополнителна содржина за "
-"повеќето типови датотеки.\n"
-"Илустрација е соодветно за датотеки кои имаат потреба за посебни "
-"метаподатоци за кредитирање, наслови и лиценцирање."
+"метаподатоци од објавените. Инаку, изберете Дополнителна содржина за "
+"повеќето типови датотеки. Илустрација е соодветно за датотеки кои имаат "
+"потреба за посебни метаподатоци за кредитирање, наслови и лиценцирање."
 
 msgid "manager.setup.genres.submitRequired.label"
 msgstr "Барање со Поднесоци"
@@ -2230,7 +2224,7 @@ msgstr ""
 "истражувањето."
 
 msgid "manager.setup.metadata.agencies.enable"
-msgstr "Овозможете метаподатоци  за поддршка за агенции"
+msgstr "Овозможете метаподатоци за поддршка за агенции"
 
 msgid "manager.setup.metadata.agencies.noRequest"
 msgstr "Не барај поддржувачки агенции од авторот за време на поднесувањето."
@@ -2313,7 +2307,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Содржината не е шифрирана како {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Непозната корисничка група {$param}"
+msgstr ""
+"Датотеката за импорт вклучува автор „{$authorName}“, со корисничка група "
+"„{$userGroupName}“. Не постои корисничка група дефинирана во дестинацијата "
+"на инсталацијата со корисничка група со ова име."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "Недостасува корисничка група за името на авторот {$param}"
@@ -2396,8 +2393,8 @@ msgstr "Содржина"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
-"Полето за патека мора да содржи само алфанумерички знаци плус  '.', '/', "
-"'-', и '_'."
+"Полето за патека мора да содржи само алфанумерички знаци плус '.', '/', '-', "
+"и '_'."
 
 msgid "manager.navigationMenus.form.duplicatePath"
 msgstr "Оваа патека веќе постои за друг елемент на навигациското мени."
@@ -2714,6 +2711,8 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Ова ги вклучува поднесоците што не се бројат во други збирки, како што се "
+"оние што сè уште се во тек и оние што се имортирани."
 
 msgid "stats.descriptionForStat"
 msgstr "Опис за {$stat}"
@@ -2722,10 +2721,10 @@ msgid "stats.editorialActivity"
 msgstr "Уредничка активност"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Примарна датотека"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Дополнителна датотека"
 
 msgid "stats.fileViews"
 msgstr "Прегледи на датотека"
@@ -2740,28 +2739,28 @@ msgid "stats.pdf"
 msgstr "ПДФ"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Геолокација обезбедена од <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "За Геолокацијата"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} до {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Сите {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Преземете Датотеки"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Бројот на преземања за секоја датотека."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Преземете Географик"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Бројот на прегледи и преземања за секој град, регион или земја."
 
 msgid "stats.region"
 msgstr "Регион"
@@ -2773,25 +2772,25 @@ msgid "stats.submissionsActive"
 msgstr "Активни поднесоци"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Временска рамка"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Бројот на {$type} за секој {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Преземете Временска рамка"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Интервал на Временска рамка"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Тип на Временска рамка"
 
 msgid "stats.total"
 msgstr "Вкупно"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Уникатно"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Вкупно во опсег на датуми"
@@ -2800,7 +2799,7 @@ msgid "stats.trends"
 msgstr "Трендови"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "непознато"
 
 msgid "stats.userStatistics"
 msgstr "Статистички податоци за корисник"
@@ -2809,13 +2808,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Добиени поднесоци"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Други Поднесоци"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Поднесоци во тек"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Импортирани Поднесоци"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Прифатени поднесоци"
@@ -2894,42 +2893,46 @@ msgstr "Процесот не успеа да ги парсира изданиј
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Сите коментари од завршени рецензии. Имињата на рецензентите се скриени за "
+"анонимни критики"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Имињата и работните места на авторите на поднесокот."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "УРЛ кон страницата каде што корисникот може да ја обнови лозинката"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "УРЛ за преглед на сите поднесоци на корисникот"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL-адресата за корисникот да го гледа и уредува својот профил"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Името на одлуката што е донесена"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Опис на одлуката што е донесена"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Во фазата на уредувачкиот работен тек е донесена оваа одлука"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Во кругот на разгледување оваа одлука е донесена, доколку одлуката е "
+"поврзана со фаза на рецензија"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Предмет на дискусија"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Содржината на новата дискусија или одговор"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Список на поднесоци со задачи што чекаат"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Бројот на поднесоци доделени на овој уредник"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Целосно име од примателот или примателите"
@@ -2938,46 +2941,56 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr "Корисничко име од примателот или примателите"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Датум кога треба да се заврши рецензијата"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Датум кога рецензентот треба да ја прифати или одбие задачата"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "УРЛ кон назначување рецензент"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Препорачаната одлука, како што е Прифати поднесок"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Датумот кога е доделена оваа рецензија"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Типот на рецензија, како што е анонимен, двојно анонимен или отворен"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Препорака на рецензентот, како што се Прифати поднесок или Одбиј"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Круг на преглед, како што е Круг 1 или Круг 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Датотеките прикачени од рецензентот"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Име на рецензентот"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Ова списание спроведува двојна анонимна рецензија. Рецензентите нема да "
+"видат никакви информации за идентификација за вас или за вашите коавтори. "
+"Слично на тоа, нема да знаете кој го прегледал вашиот поднесок и нема да "
+"слушнете директно од рецензентите."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Ова списание спроведува „анонимна рецензентска рецензија“. Вашето име и оние "
+"на вашите коавтори ќе бидат видливи за рецензентите; сепак, идентитетите на "
+"рецензентите ќе останат анонимни."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Ова списание спроведува отворена рецензија. Рецензентите ќе го видат вашето "
+"име и припадност, како и имињата и припадностите на вашите коавтори. Слично "
+"на тоа, ќе ги видите имињата и припадностите на рецензентите."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Целосно име на испраќачот"
@@ -2992,10 +3005,10 @@ msgid "emailTemplate.variable.site.siteContactName"
 msgstr "Целосно име на примарниот контакт за веб страница"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Емаилот на примарниот контакт на веб-сајтот"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Потпис за емаил на веб-страницата за автоматизирани пораки"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "Назначени уредници за овој поднесок кои можат да одлучат"
@@ -3009,268 +3022,316 @@ msgstr "Единствен ИД број на поднесокот"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Извадок на поднесокот"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Имиња на авторите во облик на скратен наслов"
+msgstr "Имиња на авторите во облик на скратен наслов, како „Барнс, и други“"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Целосно име на авторите"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "URL на авторот до поднесокот"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "УРЛ од поднесокот во уредничкиот приод"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL на објавениот поднесок"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL-то до поднесокот во помошникот за поднесување"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Имињата на авторите доделени на работниот тек на поднесување. Обично ова е "
+"авторот што поднесува"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Хеширана URL-адреса која се испраќа до корисник за да го потврди "
+"ресетирањето на лозинката"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Нова корисничка лозинка по случаен избор"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Повторно воведи го рецензентот"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Повторно испратете го барањето за рецензија до рецензентот"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Целосното име на корисникот кој поставил датотека за поднесување"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Насловот на соопштението"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Краток опис на соопштението"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URL до соопштението"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Бројот на примени поднесоци овој месец"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Број на одбиени поднесоци"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Број на прифатени поднесоци"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Бројот на поднесоци кои не се вклучени во другите групи"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Вкупниот број на примени поднесоци"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Месец на извештајот"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Година на извештајот"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Идентификација на проблемот, вклучувајќи том, број, година и наслов"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL на објавеното издание"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Година на извештајот"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Линк до страницата за уредничка активност"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Овој емаил се испраќа кога рецензент што не бил доделен на таа задача ќе "
+"биде братен од уредникот ."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Овој емаил е испратена од уредник до рецензент кој одбил барање за "
+"рецензија, кога уредникот сака повторно да го испрати барањето."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Не е доделен Рецензент"
 
 msgid "mailable.reviewerUnassign.description"
-msgstr ""
+msgstr "Овој емаил се испраќа кога уредникот ќе го отповика рецензентот."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Потврди емаил (Сајт)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Овој емаил автоматски се испраќа до нов корисник кога ќе се регистрира на "
+"сајтот кога поставките бараат да се потврди адресата на емаил."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Известете ги другите автори"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Овој емаил е испратен за да ги извести авторите на поднесокот кои не се "
+"назначени како учесници дека е донесена одлука. Обично ова се сите други "
+"освен авторот што поднесува."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Копија од емаил-от што е испратен до авторот што поднесува"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Известете ги рецензентите за одлуката"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Овој емаил е испратен од Уредник до Рецензент за да го извести дека е "
+"донесена одлука во врска со поднесокот што тие го рецензирале."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Краток опис на оваа одлука кој е наменет да се сподели во известување преку "
+"емаил испратено до рецензентите за оваа одлука"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Избравме да го прифатиме овој поднесок без ревизии."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Избравме да го одбиеме овој поднесок."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Ги поканивме авторите да поднесат ревизии."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Ги поканивме авторите да достават ревидирана верзија за понатамошна ревизија."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Поканетиот рецензент на поднесокот не е доделен."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е прифатен"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека нивниот поднесок е прифатен за "
+"објавување."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е испратен назад кон Уредување"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека нивниот поднесок е вратен во фазата на "
+"уредување."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е испратен назад од Уредување"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека нивниот поднесок е вратен од фазата на "
+"уредување."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Кругот на рецензија е откажан"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека кругот на рецензија за неговиот "
+"поднесок е откажан."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е одбиен"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок е е одбиен после "
+"рецензија."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е одбиен (Пред-рецензија)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Започна нов круг на рецензија"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека започнува нова рунда на рецензија за "
+"неговиот поднесок."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Побарани Ревизии"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот за одлуката за побарана ревизија при "
+"рецензија."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Повторно испратете за рецензија"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот за одлуката за „ревидирање и повторно "
+"испраќање“ во врска со неговиот поднесок."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Враќање на одбиениот поднесок"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека претходната одлука да се одбие неговиот "
+"поднесок по рецензијата е вратена назад."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Враќање по одбивањето на поднесокот без рецензија"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека претходната одлука да се одбие неговиот "
+"поднесок без рецензија е вратена назад."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Испратено на уредување"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок се испраќа до фазата "
+"на рецензија."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Испратено во Обработка"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок се испраќа до фазата "
+"на обработка."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е прифатен (Без Рецензија)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок се испраќа директно "
+"до фазата на уредување и нема да биде рецензиран."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Направена препорака"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Оваа порака го известува сениор уредникот или секцискиот уредник дека е "
+"дадена уредничка препорака во врска со еден од нивните доделени поднесоци. "
+"Оваа порака се користи кога на уредникот му е дозволено само да препорача "
+"уредувачка одлука и бара од овластен уредник да ги снима уредувачките "
+"одлуки. Оваа опција може да се избере кога се доделуваат учесници на "
+"поднесок."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Потврди Рецензија"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Овој и-меил е испратен од Рецензент до Секциски уредник како одговор на "
-"барањето за рецензија со цел да до извести секцискиот уредник дека барањето "
-"за рецензија е прифатено и ќе биде извршено до посочениот датум."
+"Овој емаил автоматски се испраќа кога рецензентот ќе прифати барање за "
+"рецензија"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Одбиј Рецензија"
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
-"Овој и-меил е испратен од Рецензент до Секциски уредник како одговор на "
-"барањето за рецензија со цел да го извести секцискиот уредник дека барањето "
-"за рецензија е одбиено."
+msgstr "Овој емаил го испраќа рецензент кога одбива барање за рецензија"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Потсетник за рецензија"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Овој емаил е испратен од уредник за да го потсети рецензентот дека треба да "
+"се рецензира."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Потсетник за рецензија (Автоматски)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Овој и-меил автоматски се испраќа кога рецензентот нема да ја заврши "
-"рецензијата до датумот на доспевање. Автоматските потсетници за рецензија се "
-"овозможуваат во поставките за рецензија."
+"Овој емаил автоматски се испраќа кога рецензентот не ја завршил рецензијаа "
+"до датумот на доспевање."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Потврда за рецензија"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Овој емаил е испратен од уредник до рецензент за да потврди дека неговата "
+"рецензија е примена и да му се заблагодари на рецензентот за неговиот "
+"придонес."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Одговорот за рецензија е истечен (Автоматски)"
 
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
@@ -3281,16 +3342,15 @@ msgstr ""
 "за прилагодување на веб-страницата)."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Барање за рецензија"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Овој и-меил од Секцискиот уредник до Рецензентот бара рецензентот да ја "
+"Овој емаил од Секцискиот уредник до Рецензентот бара рецензентот да ја "
 "прифати или одбие задачата за рецензирање на поднесок. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Последователно барање за рецензија"
 
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
@@ -3300,19 +3360,19 @@ msgstr ""
 "датумот на доспевање на рецензијата и како да се пристапи до самиот поднесок."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Недостасува тековната публикација на поднесокот"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Следбеникот на поднесокот {$child} не успеа да се обработи"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Уреднички потсетник"
 
 msgid "mailable.editorialReminder.description"
-msgstr ""
+msgstr "Автоматски емаил испратен до уредниците со заостанати задачи"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Потврди за ресетирање на лозинката"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3321,16 +3381,17 @@ msgstr ""
 "адреса на која можат да ја ресетираат својата лозинка."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Создаден корисник"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Овој и-меил е испратен до новорегистриран корисник за да го пречека во "
-"системот и да му обезбеди запис за неговото корисничко име и лозинка."
+"Овој емаил се испраќа до новосоздаден корисник кога уредничкиот менаџер ќе "
+"го создаде корисникот преку корисничките поставки. Емаилот треба да им "
+"посака добредојде во системот и да им обезбеди евиденција за нивното "
+"корисничко име и лозинка."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Регистрирај се за рецензент"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3338,57 +3399,64 @@ msgstr ""
 "системот и да им обезбеди запис за нивното корисничко име и лозинка."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Поднесокот е зачуван за подоцна"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Автоматски емаил испратен до авторите кога ќе го зачуваат нивниот поднесок "
+"да го завршат подоцна"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Потврда за поднесување"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Овој и-меил, кога овозможен, автоматски е испратен до авторот кога ќе го "
-"завршат процесот на поднесување ракопис до списанието. Им обезбедува "
-"информации за следење на поднесокот низ процесот на уредување и изразува "
-"благодарност до авторот за поднесокот."
+"Овој емаил автоматски се испраќа до авторот кога ќе поднесе труд. Обезбедува "
+"информации за следење на поднесокот преку уредувачкиот процес и му се "
+"заблагодарува на авторот за поднесувањето."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Потврда за поднесување (Други автори)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Овој и-меил, кога овозможен, автоматски е испратен до авторите назначени на "
-"поднесокот кои не се главниот автор."
+"Овој емаил автоматски се испраќа до авторите именувани во поднесокот кои не "
+"се автор на поднесување."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Дискусија (Поднесок)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Овој емаил се испраќа кога се креира дискусија или на која се одговара во "
+"фазата на поднесување."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Дискусија (Рецензија)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Овој емаил се испраќа кога се креира дискусија или на која се одговара во "
+"фазата на рецензија."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Дискусија (Уредување)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Овој емаил се испраќа кога се креира дискусија или на која се одговара во "
+"фазата на уредување."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Дискусија (Обработка)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Овој емаил се испраќа кога се креира дискусија или на која се одговара во "
+"фазата на обработка."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Известување за ревидирана верзија"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3396,163 +3464,191 @@ msgstr ""
 "прикачи корегирана верзија на трудот."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Ново соопштение"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Оваа е-пошта се испраќа кога ќе се креира ново соопштение."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Известување за извештај за статистика"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Изменете го известувањето за ревизија"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Овој емаил автоматски го известува рецензентот кога ќе се сменат деталите за "
+"нивната задача за рецензија."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Рецензентот даде коментар Известете ги уредниците"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Овој емаил автоматски се испраќа до доделените уредници кога рецензентот "
+"дава препорака"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Извор за автентикација"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е испратен назад на рецензија"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок е вратен во фазата на "
+"рецензија."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Поднесокот е испратен назад до поднесување"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот поднесок е вратен во фазата на "
+"поднесување."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Управувајте со емаил"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Додајте и уредувајте шаблони</a> за сите пораки "
+"испратени од системот.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Додавајте и уредувајте шаблони што би сакале да ги ставите достапни на "
+"корисникот кога ја испраќа оваа порака. Стандардно ќе се вчита автоматски, а "
+"корисникот ќе може брзо да ги вчита сите други шаблони што ќе ги додадете "
+"овде."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Шаблони"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Уреди шаблон"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Отстранете го шаблонот"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Дали сте сигурни дека сакате да го избришете шаблонот "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Ресетирај шаблон"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Дали сте сигурни дека сакате да ги ресетирате предметот и содржината на "
+"нивните стандардни вредности за шаблонот <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Пребарувајте по име или опис"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Внесете кратко име за да ви помогне да го најдете овој шаблон."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Нов Поднесок"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Конфигурирајте ги известувањата по емаил да се испраќаат кога ќе се поднесе "
+"нов поднесок."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Кој треба да добие емаил кога ќе заврши новото поднесување."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Не испраќајте емаил."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Испратете емаил само до авторот што поднесува."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Испратете емаил до сите автори."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Одлуки на Уредниците"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Конфигурирајте ги известувањата по емаил да се испраќаат до авторите кога ќе "
+"се снима одлука од уредникот."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "За Уредниците"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Конфигурирајте ги известувањата по емаил да се испраќаат до уредниците."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Статистика на уредниците"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Дали да се испраќа месечна порака до уредниците со уредничката статистика на "
+"списанието, како што се стапките на прифаќање и одбивање. Уредниците можат "
+"да се откажат од оваа порака од нивниот кориснички профил."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Испратете месечна порака до уредниците."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Не испраќајте порака до уредниците."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Дали треба да се побара од авторот што поднесува да избере категорија кога "
+"ќе поднесе нов труд?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Да, додадете поле за категории во помошникот за поднесување."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Не, не им го прикажувајте ова поле на авторите."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Побарајте Уредување"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Прашање за цитирање"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Доделен уредник"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Подготвен за обработка"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Систем"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Создадена верзија"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Рецензијата е завршен"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Рецензијата е уреден"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Внесување на други автори"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Доделен уредник (Автоматски)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Овој емаил се испраќа до уредник кога тие автоматски се доделени на поднесок."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Доделете уредник"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Потребен е уредник за поднесокот"
 
 #~ msgid "manager.emails.editEmail.success"
 #~ msgstr "Шаблонот за имејли е изменет."

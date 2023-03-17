@@ -16,7 +16,7 @@
 		{/fbvFormSection}
 	{else}
 		<!-- REVIEW_REQUEST or REVIEW_REQUEST_SUBSEQUENT -->
-		<input type="hidden" name="template" value=""/>
+		<input type="hidden" name="template" value="{$templates|array_key_first}"/>
 	{/if}
 
 	<!--  Message to reviewer textarea -->

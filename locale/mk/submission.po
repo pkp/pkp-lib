@@ -1,8 +1,9 @@
 # katerina spiroska <kspiroska07@gmail.com>, 2023.
+# Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-03-17 20:28+0000\n"
-"Last-Translator: katerina spiroska <kspiroska07@gmail.com>\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/mk/>\n"
 "Language: mk\n"
@@ -71,7 +72,7 @@ msgid "publication.invalidSection"
 msgstr "Делот за оваа верзија не може да се најде."
 
 msgid "publication.inactiveSection"
-msgstr "{$section} (Inactive)"
+msgstr "{$section} (Неактивно)"
 
 msgid "preprint.entry"
 msgstr "Внес на печатење"
@@ -97,13 +98,11 @@ msgstr ""
 "Ве молиме назначете ако овој препринт е објавен или поднесен за објавување "
 "на друго место."
 
-#, fuzzy
 msgid "publication.relation.none"
-msgstr "Отпечатокот не е доставен за објавување"
+msgstr "Отпечатокот не е доставен за објавување."
 
-#, fuzzy
 msgid "publication.relation.published"
-msgstr "Предпечатокот е објавен во списание како предпечаток"
+msgstr "Предпечатокот е објавен во списание како предпечаток."
 
 msgid "publication.relation.vorDoi"
 msgstr "ДОИ на објавениот предпечаток"

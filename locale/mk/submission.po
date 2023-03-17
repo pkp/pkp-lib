@@ -1,15 +1,16 @@
+# katerina spiroska <kspiroska07@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-16 10:54+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-17 20:28+0000\n"
+"Last-Translator: katerina spiroska <kspiroska07@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/"
-"submissions/mk_MK/>\n"
-"Language: mk_MK\n"
+"submissions/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "submission.submit.userGroup"
 msgstr "Поднесете во моја улога како..."
@@ -93,6 +94,8 @@ msgstr "Поднесено за објавување"
 
 msgid "publication.relation.description"
 msgstr ""
+"Ве молиме назначете ако овој препринт е објавен или поднесен за објавување "
+"на друго место."
 
 #, fuzzy
 msgid "publication.relation.none"
@@ -106,19 +109,19 @@ msgid "publication.relation.vorDoi"
 msgstr "ДОИ на објавениот предпечаток"
 
 msgid "publication.publish.relationStatus"
-msgstr ""
+msgstr "Поврзана публикација"
 
 msgid "publication.publish.relationStatus.none"
-msgstr ""
+msgstr "Овој препринт не е објавуван на друго место."
 
 msgid "publication.publish.relationStatus.submitted"
-msgstr ""
+msgstr "Овој препринт е поднесен во списание или друга академска публикација."
 
 msgid "publication.publish.relationStatus.published.noDoi"
-msgstr ""
+msgstr "Овој препринт е објавен, но DOI се уште не е достапен."
 
 msgid "publication.publish.relationStatus.published"
-msgstr ""
+msgstr "Овој препринт е<a href='{$vorDoi}' target='_blank'>објавен</a>."
 
 msgid "publication.publish.confirmation"
 msgstr ""
@@ -223,36 +226,59 @@ msgstr "Дискусии"
 
 msgid "doi.submission.incorrectContext"
 msgstr ""
+"Не може да се создаде DOI за следниов поднесок: {$pubObjectTitle}. Не постои "
+"во постоечката содржина на серверот."
 
 msgid "submission.layout.viewGalley"
-msgstr ""
+msgstr "Погледнете Отисок"
 
 msgid "galley.cantEditPublished"
-msgstr ""
+msgstr "Овој отисок не може да се уреди, бидејќи веќе е објавен."
 
 msgid "submission.licenseSection.description"
 msgstr ""
+"Ве молиме одберете ја дозволата која се однесува на вашиот препринт кога ќе "
+"биде објавен."
 
 msgid "submission.licenseUrl.missing"
-msgstr ""
+msgstr "Не е избрана лиценца."
 
 msgid "submission.submit.complete.canPost"
 msgstr ""
+"Ви благодариме за поднесување на вашиот поднесок. Сега можете да го<a href=\""
+"{$workflowUrl}\">објавите Вашиот препринт</a>јавно."
 
 msgid "submission.submit.complete.canNotPost"
 msgstr ""
+"Ви благодариме за поднесувањето на вашиот препринт. Серверот е известен за "
+"вашиот поднесок и добивте емаил за потврда на Вашиот запис. Кога модераторот "
+"ќе го прегледа вашиот поднесок, ќе го објави вашиот препринт или ќе Ве "
+"контактира."
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Дали сте сигурни дека сакате да го "
+"поднесете<strong>{$title}</strong>во<strong>{$context}</strong>? Кога еднаш "
+"ќе го поднесете, модераторот ќе го прегледа Вашиот препринт пред јавно да го "
+"објави."
 
 msgid "submission.wizard.confirmSubmit.canPublish"
 msgstr ""
+"Дали сте сигурни дека сакате да го "
+"поднесете<strong>{$title}</strong>во<strong>{$context}</strong>? Кога еднаш "
+"ќе го објавите, ќе можете да го прегледате Вашиот поднесок и да го објавите "
+"онлајн."
 
 msgid "submission.wizard.sectionClosed.message"
 msgstr ""
+"{$contextName} не прифаќа поднесоци во {$section} оддел. Ако Ви треба помош "
+"за да го вратите Вашиот поднесок, Ве молиме контактирајте<a href=\"mailto"
+":{$email}\">{$name}</a>."
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "За читатели"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Додадете било каква информација за која мислите дека модераторите треба да "
+"ја знаат пред да го објават вашиот препринт."

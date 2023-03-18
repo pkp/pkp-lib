@@ -300,7 +300,7 @@ class SubEditorsDAO extends \PKP\db\DAO
     }
 
     /**
-     * Get the section assigned sub eidtor's associated user groups ids for given section
+     * Get the section assigned sub editor's associated user groups ids for given section
      *
      * @return  Collection Collection A list of user group IDs for each user, keyed by user ID.
      */

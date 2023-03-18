@@ -168,7 +168,7 @@ class SearchHandler extends Handler
             'authorUserGroups' => Repo::userGroup()->getCollector()
                 ->filterByRoleIds([\PKP\security\Role::ROLE_ID_AUTHOR])
                 ->filterByContextIds($searchFilters['searchServer'] ? [$searchFilters['searchServer']->getId()] : null)
-                ->getMany(),
+                ->getMany()->remember(),
         ]);
         $templateMgr->display('frontend/pages/search.tpl');
     }

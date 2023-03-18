@@ -138,6 +138,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
             // pkp/pkp-lib#6903 Prepare to add foreign key relationships
             DB::table('notifications')->where('user_id', '=', 0)->update(['user_id' => null]);
+            // Clean orphan notifications by user ID
+            $orphanedIds = DB::table('notifications AS n')->leftJoin('users AS u', 'n.user_id', '=', 'u.user_id')->whereNull('u.user_id')->whereNotNull('n.user_id')->select(['n.user_id AS user_id'])->distinct()->get();
+            foreach ($orphanedIds as $row) {
+                DB::table('notifications')->where('user_id', '=', $row->user_id)->delete();
+            }
+            // Clean orphan notifications by context ID
+            $orphanedIds = DB::table('notifications AS n')->leftJoin($this->getContextTable() . ' AS c', 'n.context_id', '=', 'c.' . $this->getContextKeyField())->whereNotNull('n.context_id')->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('n.context_id');
+            foreach ($orphanedIds as $contextId) {
+                DB::table('notifications')->where('context_id', '=', $contextId)->delete();
+            }
 
             // Clean orphaned assoc_type/assoc_id data in announcement_types
             $orphanedIds = DB::table('announcement_types AS at')->leftJoin($this->getContextTable() . ' AS c', 'at.assoc_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->orWhere('at.assoc_type', '<>', Application::get()->getContextAssocType())->distinct()->pluck('at.type_id');

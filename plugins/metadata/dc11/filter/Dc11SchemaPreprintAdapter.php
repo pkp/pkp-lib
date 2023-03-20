@@ -37,18 +37,6 @@ use PKP\submission\SubmissionSubjectDAO;
 class Dc11SchemaPreprintAdapter extends MetadataDataObjectAdapter
 {
     //
-    // Implement template methods from Filter
-    //
-    /**
-     * @see Filter::getClassName()
-     */
-    public function getClassName()
-    {
-        return (string) self::class;
-    }
-
-
-    //
     // Implement template methods from MetadataDataObjectAdapter
     //
     /**

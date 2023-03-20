@@ -163,6 +163,10 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('announcement_type_settings')->where('type_id', '=', $typeId)->delete();
             }
 
+            if ($count = DB::table('submissions AS s')->whereNull('locale')->count()) {
+                throw new Exception('There are submission records with null in the locale column. Please correct these before upgrading.');
+            }
+
             if ($count = DB::table('announcements AS a')->leftJoin('announcement_types AS at', 'a.type_id', '=', 'at.type_id')->whereNull('at.type_id')->whereNotNull('a.type_id')->update(['a.type_id' => null])) {
                 $this->_installer->log("Reset {$count} announcements with orphaned (non-null) announcement types to no announcement type.");
             }

@@ -14,6 +14,7 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\statistics\StatisticsHelper;
+use Illuminate\Support\Facades\DB;
 use PKP\cliTool\ConvertLogFile;
 use PKP\config\Config;
 use PKP\file\FileManager;
@@ -30,6 +31,8 @@ class I8508_ConvertCurrentLogFile extends Migration
         $fileManager = new FileManager();
         $convertCurrentUsageStatsLogFile = new ConvertCurrentUsageStatsLogFile();
 
+        $counterR5StartlDate = date('Y-m-d');
+
         $todayFileName = 'usage_events_' . date('Ymd') . '.log';
         if (file_exists($convertCurrentUsageStatsLogFile->getLogFileDir() . '/' . $todayFileName)) {
             $convertCurrentUsageStatsLogFile->convert($todayFileName);
@@ -45,6 +48,7 @@ class I8508_ConvertCurrentLogFile extends Migration
         $yesterdayFileName = 'usage_events_' . date('Ymd', strtotime('-1 days')) . '.log';
         if (file_exists($convertCurrentUsageStatsLogFile->getLogFileDir() . '/' . $yesterdayFileName)) {
             $convertCurrentUsageStatsLogFile->convert($yesterdayFileName);
+            $counterR5StartlDate = date('Y-m-d', strtotime('-1 days'));
             $oldFilePath = $convertCurrentUsageStatsLogFile->getLogFileDir() . '/usage_events_' . date('Ymd', strtotime('-1 days')) . '_old.log';
             $oldFileRemoved = $fileManager->deleteByPath($oldFilePath);
             if ($oldFileRemoved) {
@@ -53,6 +57,8 @@ class I8508_ConvertCurrentLogFile extends Migration
                 $this->_installer->log("The old usage stats log file {$oldFilePath} could not be deleted.");
             }
         }
+
+        DB::table('site_settings')->insert(['setting_name' => 'counterR5StartlDate', 'setting_value' => $counterR5StartlDate]);
     }
 
     /**

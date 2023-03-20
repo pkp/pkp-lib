@@ -299,17 +299,16 @@ abstract class CounterR5Report
     protected function checkDate($params): void
     {
         // get the first month the usage data is available for COUNTER R5, it is either:
-        // the next month of the installation date of the release 3.4.0.0 or of the first next release, or
+        // the next month of the COUNTER R5 start, or
         // this journal's first publication date.
-        // Once we decide how to allow reprocessing of the log files in old format, this might change.
         $statsService = Services::get('sushiStats');
-        $dateInstalled = $statsService->getEarliestDate();
+        $counterR5StartDate = $statsService->getEarliestDate();
         $firstDatePublished = Repo::publication()->getDateBoundaries(
             Repo::publication()
                 ->getCollector()
                 ->filterByContextIds([$this->context->getId()])
         )->min_date_published;
-        $earliestDate = $firstDatePublished > $dateInstalled ? $firstDatePublished : $dateInstalled;
+        $earliestDate = strtotime($firstDatePublished) > strtotime($counterR5StartDate) ? $firstDatePublished : $counterR5StartDate;
         $earliestDate = date('Y-m-01', strtotime($earliestDate . ' + 1 months'));
         $lastDate = date('Y-m-d', strtotime('last day of previous month')); // get the last month in the DB table
         $beginDate = $params['begin_date'];

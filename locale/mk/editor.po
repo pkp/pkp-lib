@@ -1,15 +1,16 @@
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-01-31 11:53+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-15 15:39+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"editor/mk_MK/>\n"
-"Language: mk_MK\n"
+"editor/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Дали сте сигурни дека сакате трајно да го избришете овој поднесок?"
@@ -33,7 +34,7 @@ msgid "editor.submission.workflowDecision.submission.published"
 msgstr "Поднесувањето е објавено."
 
 msgid "editor.submission.workflowDecision.submission.reviewRound"
-msgstr "Прати за нов  круг на лектура."
+msgstr "Прати за нов круг на рецензија."
 
 msgid "editor.submission.workflowDecision.submission.production"
 msgstr "Прати во продукција."
@@ -45,40 +46,54 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Промени ја одлуката"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "Немате дозвола да ја донесете оваа одлука на овој поднесок."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Уредникот не беше препознаен и можеби нема дозвола да донесува одлука за "
+"овој поднесок."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Не можете да испратите емаил до следните примачи: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Овој круг на преглед не може да се најде."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Обезбеден е круг на преглед, но оваа одлука не е донесена во фаза на "
+"рецензија."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Овој круг на преглед не е дел од овој поднесок."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Поднесокот не е во соодветната фаза од работниот тек за да се донесе оваа "
+"одлука."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Мора да бидете доделени на овој поднесок за да донесете уредничка одлука."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"За да се донесе оваа одлука, мора да се приложи редоследен круг на рецензија."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Не може да се даде препорака освен ако во оваа фаза не е назначен уредник "
+"кој може да донесе конечна одлука."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Не можеше да се донесе одлука за овој поднесок. Идентификацијата на "
+"поднесокот недостасува или не се совпаѓа со бараниот поднесок."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Оваа одлука не можеше да се најде. Ве молиме одберете една од наведените "
+"типови на одлуки."
 
 msgid "editor.review.notInitiated"
 msgstr "Процесот на рецензија сè уште не е започнат."
@@ -153,7 +168,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Назначи лектор повторно"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Повторно испратете барање за реценција"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Вид на лектура"
@@ -189,7 +204,7 @@ msgid "editor.review.anonymousReviewer"
 msgstr "Анонимен рецензент"
 
 msgid "editor.review.personalMessageToReviewer"
-msgstr "Имејл  да се прати на рецензентот"
+msgstr "Да се прати емаил на рецензентот"
 
 msgid "editor.review.importantDates"
 msgstr "Важни датуми"
@@ -204,19 +219,19 @@ msgid "editor.review.NotifyAuthorRevisions"
 msgstr "Ревизиите нема да бидат испратени на нов круг на рецензија."
 
 msgid "editor.review.NotifyAuthorResubmit"
-msgstr "Ревизиите ќе  бидат испратени на нов круг на рецензија."
+msgstr "Ревизиите ќе бидат испратени на нов круг на рецензија."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Ревизиите не треба да подлежат на нова рунда на рецензии."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Ревизиите треба да подлежат на нова рунда на рецензии."
 
 msgid "editor.review.dateAccepted"
 msgstr "Датум за прифаќање на рецензирање"
 
 msgid "editor.review.reviewsAdded"
-msgstr "Рецензијата додена вотекстот на  пораката."
+msgstr "Рецензијата додадена во текстот на пораката."
 
 msgid "editor.review.noReviews"
 msgstr "Нема рецензии за импортирање"
@@ -288,7 +303,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Заблагодарено на рецензентот"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Барањето е повторно испратено"
 
 msgid "editor.review.reviewerComments"
 msgstr "Коментари на рецензентот"
@@ -318,6 +333,8 @@ msgstr "Грешка при повторно додавање рецензент
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Настана грешка при барањето на рецензентот да ја преиспита поканата за "
+"рецензија. Ве молиме обидете се повторно."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Вклучи корисник групата на овој рецензент"
@@ -407,7 +424,7 @@ msgid "editor.review.noReviewFilesUploaded.details"
 msgstr "Немате аплодирано никакви рецензентски фајлови."
 
 msgid "editor.review.emailReviewer"
-msgstr "Имејл до  рецензентот"
+msgstr "Емаил до рецензентот"
 
 msgid "editor.submission.production.productionReadyFiles"
 msgstr "Фајлови подготвени за објавување"
@@ -487,8 +504,8 @@ msgstr "Откажи го одобрувањето на корегираниот
 
 msgid "editor.submission.proofreading.confirmCompletion"
 msgstr ""
-"Одобрете ја корегирана верзија за да означите дека  лекторирање е завршено и "
-"датотеката е подготвена да биде објавена."
+"Одобрете ја корегирана верзија за да означите дека лекторирањето е завршено "
+"и датотеката е подготвена да биде објавена."
 
 msgid "editor.submission.proofreading.confirmRemoveCompletion"
 msgstr ""
@@ -516,7 +533,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Активни рецензии што се доделени во моментов"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Овој рецензент го заврши прегледот во последниот круг."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Завршени рецензии"
@@ -549,12 +566,11 @@ msgid "reviewer.list.reassign"
 msgstr "Прераспредели"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Повторно додели {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Овој рецензент веќе е назначен на овој поднесок."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Овој рецензент е заклучен затоа што им е доделена улога која му овозможува "
@@ -574,31 +590,31 @@ msgid "reviewer.list.empty"
 msgstr "Не се најдени рецензенти"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Доделени на претходниот круг"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Откажете ја одлуката"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Дали сте сигурни дека сакате да ја откажете оваа одлука?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Завршете ги следните чекори за да ја донесете оваа одлука"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Не го прескокнувајте овој емаил"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Овој чекор е прескокнат и нема да се испрати емаил."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Зачувај ја одлуката"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Прескокни го овој емаил"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Имаше проблем со чекорот {$stepName}."
 
 #~ msgid "reviewer.list.itemsOfTotal"
 #~ msgstr "{$count} од{$total} рецензенти"

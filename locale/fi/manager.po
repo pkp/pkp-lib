@@ -1,14 +1,14 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2022-11-24 02:46+0000\n"
+"PO-Revision-Date: 2023-03-13 16:48+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,199 +153,240 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Ilmoitustyyppi"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Talleta kaikki"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Talleta DOI-tunnukset"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Olet lähettämässä DOI-metatietueet {$count} nimikkeelle kohteeseen "
+"{$registrationAgency}. Oletko varma, että haluat tallettaa nämä tietueet??"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Merkitse DOIt rekisteröidyiksi"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen DOI-metatietueet rekisteröidyiksi. "
+"Oletko varma, että haluat merkitä nämä tietueet rekisteröidyiksi?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Merkitse DOIt rekisteröimättömiksi"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen DOI-metatietueet rekisteröimättömiksi. "
+"Oletko varma, että haluat merkitä nämä tietueet rekisteröimättömiksi?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Merkitse DOIt synkronointia vaativiksi"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Olet merkitsemässä {$count} kohteen {$count} DOI-metatietueet "
+"synkronoitavaksi. Vaati synkronointia -tilaa voidaan soveltaa vain aiemmin "
+"talletettuihin DOI-tunnuksiin. Oletko varma, että haluat merkitä nämä "
+"tietueet vanhentuneiksi?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Vie DOI-tunnuksia"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Olet viemässä DOI-metatietueet {$count} nimikkeelle kohteeseen "
+"{$registrationAgency}. Oletko varma, että haluat viedä nämä tietueet?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Osoita DOI-tunnuksia"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Olet määrittämässä uusia DOI-tunnuksia {$count} nimikkeelle joille ei vielä "
+"ole annettu DOI-tunnusta. Oletko varma, että haluat määrittää DOI-tunnukset "
+"näille kohteille?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Talleta kaikki DOIt"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Olet ajoittamassa kaikki jäljellä olevat DOI-metatietueet talletettavaksi "
+"kohteeseen {$registrationAgency}. Vain julkaistut nimikkeet, joilla on DOI, "
+"talletetaan. Nimikkeiden tila päivitetään tallettamisen jälkeen. Oletko "
+"varma, että haluat ajoittaa kaikkien näiden nimikkeiden tallettamisen?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Tee muutoksia {$count} nimikkeelle."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Massatoiminnot"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Talletuksen tila"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Julkaisutila"
 
 msgid "manager.dois.registration.submittedDescription"
 msgstr ""
+"Tämän nimikkeen metatiedot on toimitettu kohteeseen {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Tämä nimike on rekisteröity manuaalisesti rekisteröintitoimistossa."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"Tämän nimikkeen metatietoja ei ole toimitettu kohteeseen "
+"{$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Tätä nimikettä ei voi tallettaa ennen kuin se on julkaistu."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Näytä virhe"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Rekisteröinnin virheilmoitus"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Näytä tietue"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Rekisteröinnin onnistumisilmoitus"
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI(t) päivitetty onnistuneesti"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Talleta DOI(t)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Tarvitsee DOI:n"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Rekisteröimätön"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Lähetetty"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Rekisteröity"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Virhe"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Sisältää virheen"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Tarvitsee synkronoinnin"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI osoitettu"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joista puuttuu DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joille on annettu DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Kaikki nimikkeet joilla on DOI, jotka on julkaistu mutta joita ei ole vielä "
+"talletettu."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joiden DOI-tunnukset on talletettu."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Kaikki nimikkeet, jotka on rekisteröity tai merkitty manuaalisesti "
+"rekisteröidyiksi."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Kaikki nimikkeet, joiden rekisteröinnissä on tapahtunut virhe."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Kaikki nimikkeet, jotka on julkaistu uudelleen sen jälkeen, kun niiden DOI-"
+"tunnukset viimeksi talletettiin. Ne on rekisteröitävä uudelleen "
+"metatietotietueiden päivittämiseksi."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI-päivitykset epäonnistuivat"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Joitakin DOI-tunnuksia ei voitu päivittää"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Nimikkeet viety onnistuneesti"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty rekisteröidyksi onnistuneesti"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty rekisteröimättömäksi onnistuneesti"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Nimikkeet merkitty synkronointia tarvitsevaksi onnistuneesti"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Nimikkeille osoitettu DOI-tunnukset onnistuneesti"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Nimikkeet lähetetty onnistuneesti talletettavaksi"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI-statukset"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI-tunnusten hallinnointi on siirtynyt. Katso sivut <a href=\""
+"{$doiManagementUrl}\">DOI-hallinnointi</a> ja <a href=\"{$doiSettingsUrl"
+"}\">DOI-asetukset</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-tunnuksia ei voida osoittaa, ellet anna DOI-prefiksiä. <a href=\""
+"{$doiSettingsUrl}\">Lisää DOI-prefiksi</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Yritin luoda DOI-tunnukset, mutta DOI-prefiksi vaaditaan, jotta voidaan "
+"luoda DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Ennen kuin tämä osa voidaan poistaa, sinun on liitettävä kaikki siihen "
+"liittyvät käsikirjoitusten tiedostot toiseen osaan."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Muokkaa instituutiota"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Tämän instituution Research Organization Registry ID."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP-alueet"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Kelvollisia arvoja ovat IP-osoite (esim. 142.58.103.1), IP-alue (esim. "
+"142.58.103.1 - 142.58.103.4), IP-alue jokerimerkillä '*' (esim. 142.58.*.*) "
+"ja IP-alue CIDR:llä (esim. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Poista instituutio"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Haluatko varmasti jatkaa ja poistaa tämän instituution?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Virheellinen IP-alue"
 
 msgid "manager.publication.submissionStage"
 msgstr "Käsikirjoituksen vastaanotto"
@@ -369,13 +410,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Arviointimuistutuksen tiedot on päivitetty."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOIt"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"{$registrationAgency} palautti seuraavan virheen, ja se sisältää tarkempia "
+"tietoja virheen syystä:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"{$registrationAgency} palautti seuraavan viestin, joka sisältää tietoja "
+"rekisteröinnistä:"
 
 msgid "manager.emails.addEmail"
 msgstr "Lisää sähköpostipohja"
@@ -736,50 +781,59 @@ msgid "manager.roles"
 msgstr "Roolit"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Tilastot"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Maantieteelliset tilastot"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Valitse kerättävien maantieteellisten käyttötilastojen tyyppi. "
+"Yksityiskohtaisemmat maantieteelliset tilastot voivat kasvattaa tietokantasi "
+"kokoa huomattavasti ja joissakin harvinaisissa tapauksissa heikentää "
+"kävijöiden anonymiteettiä."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Älä kerää maantieteellisiä tietoja"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Kerää kävijän maa"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Kerää kävijän maa ja alue"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Kerää kävijän maa, alue ja kaupunki"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institutionaaliset tilastot"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Ota käyttöön institutionaaliset tilastot, jos haluat kerätä "
+"instituutiokohtaisia käyttötilastoja. Sinun on määritettävä IP-alueet "
+"kullekin instituutiolle, jota haluat seurata."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Ota institutionaaliset tilastot käyttöön"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Julkinen API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Rajoitetaanko pääsyä COUNTER SUSHI -tilastojen rajapintoihin vai ei. Jos "
+"valinta poistetaan, rajapinnan käyttöoikeus on vain käyttäjillä, joilla on "
+"ylläpitäjän- tai hallinnoijanrooli."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Aseta COUNTER SUSHI -tilastot julkisesti saataville"
 
 msgid "manager.statistics"
 msgstr "Tilastot &amp; Raportit"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Raporttigeneraattori"
+msgstr "Raportit"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -797,67 +851,74 @@ msgid "manager.affiliationAndSupport"
 msgstr "Tukija"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOIt"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Asetukset"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Rekisteröinti"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiksi"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Automaattinen talletus"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Ota käyttöön automaattinen talletus"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"DOI-tunnukset ja metatiedot voidaan tallettaa automaattisesti valittuun "
+"rekisteröintilaitokseen aina, kun DOI-tunnuksen sisältävä nimike "
+"julkaistaan. Automaattinen talletus tapahtuu ajastetuin väliajoin, ja kunkin "
+"DOI-tunnuksen rekisteröintitilannetta voidaan seurata DOI-tunnusten "
+"hallintasivulta."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"DOI-prefiksi on rekisteröinnistä vastaavien tahojen (esim. <a href=\"http://"
-"www.crossref.org\" target=\"_new\">Crossrefin</a>) määrittämä ja on muodossa "
-"10.xxxx (esim. 10.1234):"
+"DOI-prefiksin antaa rekisteröintitoimisto, kuten <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> tai <a href=\"https://datacite."
+"org/\" target=\"new\">DataCite</a>. Esimerkki: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "DOI-prefiksi vaaditaan, ja sen on oltava muodossa 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Automaattinen DOI-tunnusten osoitus"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Milloin käsikirjoitukselle tulee antaa DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Julkaistaessa"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Ei koskaan"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "DOI-prefiksi"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Julkaisun sisältö"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "DOI-prefiksi vaaditaan"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-suffiksi"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI-suffiksi"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Mukautettu malli DOI-suffiksille"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Yksi tai useampi valittu DOI-tyyppi ei ole sallittu määritetyssä DOI-"
+"rekisteröintitoimistossa."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -866,46 +927,53 @@ msgstr ""
 "prefiksi:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Käytä oletusmuotoiluja."
+msgstr "Oletus - Luo automaattisesti yksilöllisen kahdeksanmerkkisen suffiksin."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ei mitään - Suffiksi on syötettävä manuaalisesti <a href=\"{$doiManagementUrl"
+"}\">DOI-hallintasivulla</a>, eikä sitä luoda automaattisesti"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Mukautettu malli - (ei suositella)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Rekisteröintitoimisto"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Valitse rekisteröintilaitos, jota haluat käyttää tallettaessasi DOI-"
+"tunnuksia."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Rekisteröintilaitosta ei valittu"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI-tunnukset voidaan luoda automaattisesti ja tallettaa "
+"rekisteröintitoimistoon. Jos haluat käyttää tätä ominaisuutta, etsi ja "
+"asenna halutun rekisteröintitoimiston lisäosa."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ei mitään"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI-versionhallinta"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Tätä toimintoa ei voi kutsua ilman, että DOI-tunnukset ovat käytössä."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Versioita on {$count}."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Näytä kaikki"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI-tunnukset kaikille versioille"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI sisältää virheellisiä merkkejä."
 
 msgid "manager.setup.publishing"
 msgstr "Julkaisua koskevat tiedot"
@@ -997,16 +1065,21 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Lähetä kopio tähän sähköpostiosoitteeseen"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Ilmoita kaikille kirjoittajille"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Kenen pitäisi saada ilmoitussähköposti, kun toimituksellinen päätös on "
+"tallennettu?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Lähetä sähköposti-ilmoitus kaikille käsikirjoituksen kirjoittajille."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Lähetä sähköpostiviesti vain niille kirjoittajille, jotka on määritetty "
+"käsikirjoituksen työnkulkuun. Yleensä tämä on käsikirjoituksen lähettänyt "
+"kirjoittaja."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Ilmoitukset"
@@ -1025,9 +1098,12 @@ msgstr "Ilmoita kaikille"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Kopio uutta käsikirjoitusta koskevasta vahvistusviestistä toimitetaan tässä "
+"annettuihin sähköpostiosoitteisiin. Erottele useat sähköpostiosoitteet "
+"pilkulla. Esimerkki: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Yksi tai useampi näistä sähköpostiosoitteista ei ole kelvollinen."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1210,7 +1286,7 @@ msgid "manager.setup.theme"
 msgstr "Teema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Instituutiot"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1222,37 +1298,53 @@ msgstr "Valitsemaasi teemaa ei ole asennettu tai sitä ei ole otettu käyttöön
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille ennen kuin he aloittavat "
+"käsikirjoituksen lähetyksen. Selitä lyhyesti lähetysprosessi, jotta "
+"kirjoittaja tietää, mitä tietoja häneltä odotetaan."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Kirjoittajille näytetään tiedostojen latausvaiheen aikana seuraavaa kuvaus. "
+"Selitä lyhyesti, mitä tiedostoja kirjoittajien odotetaan lähettävän "
+"käsikirjoituksen mukana."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille tekijöiden lisäämisen yhteydessä. "
+"Selitä lyhyesti, mitä tietoja kirjoittajan on annettava itsestään, muista "
+"kirjoittajista ja muista tekijöistä."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Seuraava kuvaus näytetään kirjoittajille yksityiskohtia koskevassa "
+"vaiheessa, kun heitä pyydetään antamaan otsikko, tiivistelmä ja muita "
+"keskeisiä tietoja käsikirjoituksestaan."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille Toimittajille-vaiheessa, jolloin "
+"heitä pyydetään antamaan kuvailutietoja, kuten avainsanoja, kommentteja "
+"toimittajalle ja muita tarkennuksia toimituksellisen käsittelyn "
+"helpottamiseksi."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Seuraavat tiedot näytetään kirjoittajille käsikirjoituksen lähetyksen "
+"viimeisessä vaiheessa, jolloin heitä pyydetään tarkistamaan kaikki antamansa "
+"tiedot ennen lähettämistä."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Kirjoittajan ohjeistus"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Käsikirjoituksen lähettämisen tarkistuslista"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Käsikirjoituksen lähetettäessä kirjoittajia pyydetään ennen jatkamista "
-"vahvistamaan (rastittamalla kohdat), että käsikirjoitus noudattaa "
-"tarkistuslistan jokaista kohtaa. Tarkistuslista on näkyvillä myös "
-"Kirjoittajan ohjeet -sivun Tietoa julkaisusta -kohdassa. Listaa voidaan "
-"muokata alla, mutta kaikki listan kohdat on rastitettava ennen kuin "
-"kirjoittaja voi jatkaa lähetysprosessia."
+"Kirjoittajille näytetään seuraavat tiedot, kun he aloittavat "
+"käsikirjoituksen lähetyksen. Kirjoittajia pyydetään vahvistamaan, että "
+"heidän käsikirjoituksensa on tässä esitettyjen vaatimusten mukainen, ennen "
+"kuin he aloittavat sen lähettämisen."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1266,16 +1358,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Oletko varma, että haluat ottaa osaston käyttöön?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Toimitukselliset toimeksiannot"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Valitse toimituksen jäsenet, jotka osoitetaan automaattisesti kaikkiin tämän "
+"osion uusiin käsikirjoituksiin."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Määritä {$name} rooliksi {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Valitse toimituksen jäsenet, jotka osoitetaan automaattisesti kaikkiin tämän "
+"kategorian uusiin käsikirjoituksiin."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Sivuston pääsyoikeuksien valinnat"
@@ -1768,16 +1864,21 @@ msgstr ""
 "taideteokset, äänitteet ja valokuvat."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Vaadi käsikirjoitusten kanssa"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Pitäisikö vähintään yksi näistä tiedostoista vaatia jokaisen uuden "
+"käsikirjoituksen yhteydessä? Jos valitset kyllä, kirjoittajat eivät saa "
+"lähettää käsikirjoitusta ennen kuin he ovat ladanneet vähintään yhden "
+"tämäntyyppisen tiedoston."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Kyllä, vaadi kirjoittajia lataamaan yksi tai useampi näistä tiedostoista."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Ei, salli uusia käsikirjoituksia ilman näitä tiedostoja."
 
 msgid "manager.settings.wizard"
 msgstr "Ohjattu asetusten luonti"
@@ -2159,18 +2260,26 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Lyhyt maininta siitä, onko kirjoittaja(t) asettanut tutkimusdatan "
+"saataville, ja jos on, mistä lukijat voivat saada sen käyttöönsä."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Ota tutkimusdatan saatavuutta koskeva kuvailutieto käyttöön"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Älä kysy kirjoittajalta tietoja tutkimusdatan saatavuudesta lähetyksen "
+"yhteydessä."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Kysy kirjoittajalta mainintaa tutkimusdatan saatavuudesta käsikirjoituksen "
+"lähetyksen yhteydessä."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Vaadi kirjoittajalta mainintaa tutkimusdatan saatavuudesta käsikirjoituksen "
+"lähetyksen yhteydessä."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Vahvistusvirheitä:"
@@ -2182,7 +2291,7 @@ msgid "plugins.importexport.common.errorsOccured"
 msgstr "Tapahtui virheitä:"
 
 msgid "plugins.importexport.common.id"
-msgstr ""
+msgstr "Id: {$id}"
 
 msgid "plugins.importexport.common.error.unknownElement"
 msgstr "Tuntematon kohta {$param}"
@@ -2197,10 +2306,12 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Sisältö on koodattu muotoon {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Tuntematon käyttäjäryhmä {$param}"
+msgstr ""
+"Tuontitiedosto sisältää tekijän '{$authorName}' jonka käyttäjäryhmä on "
+"'{$userGroupName}'. Kohdeasennuksessa ei ole tämän nimistä käyttäjäryhmää."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
-msgstr ""
+msgstr "UserGroup puuttuu tekijän nimestä {$param}"
 
 msgid "plugins.importexport.common.error.missingGivenName"
 msgstr ""
@@ -2257,7 +2368,7 @@ msgstr ""
 "olemassa olevan käyttäjän tietojen kanssa."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testaus"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Otsikko"
@@ -2483,16 +2594,16 @@ msgid "stats.city"
 msgstr "Kaupunki"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Katselukerrat"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Lataukset"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Katselukerrat päivämäärän mukaan"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Latauskerrat päivämäärän mukaan"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/vuosi)"
@@ -2534,7 +2645,7 @@ msgid "stats.dateRange.invalidEndDateMax"
 msgstr "Päättymisajankohdan tulee olla ennen {$date}."
 
 msgid "stats.dateRange.invalidStartDateMin"
-msgstr "Aloitusajankohta on aikaisintaan  {$date}."
+msgstr "Aloitusajankohta on aikaisintaan {$date}."
 
 msgid "stats.dateRange.last12Months"
 msgstr "Viimeiset 12 kuukautta"
@@ -2579,10 +2690,13 @@ msgstr ""
 "hylkääminen tai lähetä arvioitavaksi.<br /><br />Arvo ilmaisee, että 80% "
 "käsikirjoituksista on saanut päätöksen kyseisen päivälukeman aikana.<br /"
 "><br />Tilasto kuvailee ajanjaksoa, jonka aikana käsikirjoituksen "
-"lähettäneet kirjoittajat voivat olettaa saavansa  päätöksen."
+"lähettäneet kirjoittajat voivat olettaa saavansa päätöksen."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Tämä sisältää käsikirjoitukset, joita ei lasketa muihin kokonaislukemiin, "
+"kuten ne, jotka ovat vielä kesken, ja ne, jotka on ilmeisesti "
+"todennäköisesti tuotu järjestelmään koneellisesti."
 
 msgid "stats.descriptionForStat"
 msgstr "{$stat}:n kuvailutieto"
@@ -2591,10 +2705,10 @@ msgid "stats.editorialActivity"
 msgstr "Toimituksellinen toiminta"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Ensisijainen tiedosto"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Liitetiedosto"
 
 msgid "stats.fileViews"
 msgstr "Tiedostolatauksia"
@@ -2609,28 +2723,28 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Geopaikannuksen tarjoaa <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Geopaikannuksesta"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} - {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Kaikki {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Lataa tiedostot"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Kunkin tiedoston latausten määrä."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Lataa maantieteellinen"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Kunkin kaupungin, alueen tai maan katselu- ja latausmäärät."
 
 msgid "stats.region"
 msgstr "Alue"
@@ -2642,25 +2756,25 @@ msgid "stats.submissionsActive"
 msgstr "Aktiiviset käsikirjoitukset"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Aikajana"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "{$type} lukumäärä kutakin {$interval} kohti."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Lataa aikajana"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Aikajanan väli"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Aikajanan tyyppi"
 
 msgid "stats.total"
 msgstr "Yhteensä"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Uniikki"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Päivämääräväli yhteensä"
@@ -2669,7 +2783,7 @@ msgid "stats.trends"
 msgstr "Trendi"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "tuntematon"
 
 msgid "stats.userStatistics"
 msgstr "Käyttäjätilastot"
@@ -2678,13 +2792,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Saadut käsikirjoitukset"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Muut käsikirjoitukset"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Keskeneräiset käsikirjoitusten lähetykset"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Tuodut käsikirjoitukset"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Hyväksytyt käsikirjoitukset"
@@ -2723,25 +2837,27 @@ msgid "stats.name.declinedReviewRate"
 msgstr "Arvioinnin jälkeinen hylkäysaste"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Prosessi epäonnistui. Tarkista alla olevat virheet/varoitukset."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Käsikirjoitusten viennin tulokset"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Lataa vientitiedosto"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Vienti saatiin onnistuneesti päätökseen."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Lataa vientitiedosto alla olevasta painikkeesta."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Yleiset kohteet"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Väärä suodatinmääritys [{$filterName}]: {$filterCount} esiintymää. Pitäisi "
+"olla vain yksi."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "VIRHE:"
@@ -2750,250 +2866,293 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Annettua lehden polkua, \"{$contextPath}\", ei löydy."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Prosessi ei onnistunut jäsentämään tekijöitä"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Prosessi ei onnistunut jäsentämään julkaistuja versioita"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Kaikki valmistuneiden arvioiden kommentit. Arvioijien nimet on piilotettu "
+"anonyymeissä arvioinneissa"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Käsikirjoituksen kirjoittajien nimet ja affiliaatiot."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL-osoite sivulle, jolla käyttäjä voi palauttaa kadonneen salasanan"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"URL-osoite, jossa voi tarkastella kaikkia käyttäjälle osoitettuja "
+"käsikirjoituksia"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"URL-osoite, jonka kautta käyttäjä voi tarkastella ja muokata profiiliaan"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Tehdyn päätöksen nimi"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Kuvaus tehdystä päätöksestä"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Toimituksellisen työnkulun vaihe, jossa tämä päätös tehtiin"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Arviointikierros, jolla päätös on tehty, jos päätös liittyy "
+"arviointivaiheeseen"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Keskustelun aihe"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Uuden keskustelun tai vastauksen sisältö"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Luettelo käsikirjoituksista, joissa on keskeneräisiä tehtäviä"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Tälle toimittajalle osoitettujen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Vastaanottajan tai kaikkien vastaanottajien koko nimi"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Vastaanottajan tai kaikkien vastaanottajien käyttäjänimi"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Ajankohta, jolloin arviointi olisi saatettava päätökseen"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ajankohta, jolloin arvioijan on hyväksyttävä tai hylättävä pyyntö"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Arviointipyynnön URL-osoite"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Suositeltu päätös, kuten hyväksy käsikirjoitus"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Ajankohta, jona tämä arviointipyyntö osoitettiin"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Arvioinnin tyyppi, kuten anonyymi, kaksoisanonyymi tai avoin arviointi"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Arvioijan suositus, kuten hyväksy käsikirjoitus tai hylkää"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Arviointikierros, kuten kierros 1 tai kierros 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Arvioijan lataamat tiedostot"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Arvioijan nimi"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Tässä lehdessä käytetään kaksinkertaista anonyymia vertaisarviointia. "
+"Arvioijat eivät näe mitään tunnistetietoja sinusta tai muista "
+"kirjoittajista. Et myöskään saa tietää, kuka on arvioinut käsikirjoituksesi, "
+"etkä ole yhteydessä suoraan arvioijiin."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Tässä lehdessä käytetään anonyymia vertaisarviointia. Sinun ja muiden "
+"kirjoittajien nimet näkyvät arvioijille, mutta arvioijien henkilöllisyys "
+"säilyy tuntemattomana."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Tässä lehdessä käytetään avointa vertaisarviointia. Arvioijat näkevät nimesi "
+"ja yhteystietosi sekä muiden kirjoittajien nimet ja yhteystiedot. "
+"Vastaavasti sinä näet arvioijien nimet ja affiliaatiot."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Lähettäjän koko nimi"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Lähettäjän sähköpostiosoite"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Lähettäjän sähköpostiallekirjoitus"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Verkkosivuston ensisijaisen yhteyshenkilön koko nimi"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Verkkosivuston ensisijaisen yhteyshenkilön sähköpostiosoite"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Verkkosivuston allekirjoitus automatisoituja sähköpostiviestejä varten"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
+"Toimittajat, jotka on nimetty tähän käsikirjoitukseen ja jotka voivat tehdä "
+"päätöksen"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Käsikirjoituksen otsikko"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Käsikirjoituksen uniikki ID-tunniste"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Käsikirjoituksen abstrakti"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Kirjoittajien nimet lyhyenä merkkijonona, kuten \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Kirjoittajien täydelliset nimet"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Kirjoittajalle näytettävä URL-osoite käsikirjoitukseen"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Käsikirjoituksen URL-osoite toimituksen hallintapaneeliin"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Julkaistun käsikirjoituksen URL-osoite"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Käsikirjoituksen URL-osoite ohjatussa lähetystoiminnossa"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Käsikirjoituksen työnkulkuun osoitettujen kirjoittajien nimet. Yleensä "
+"käsikirjoituksen lähettänyt kirjoittaja"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"URL-osoite, joka lähetetään käyttäjälle salasanan palauttamisen "
+"vahvistamiseksi"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Uusi satunnainen käyttäjän salasana"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Arvioijan uudelleenosoitus"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Lähetä arviointipyyntö uudelleen arvioijalle"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Käsikirjoitustiedoston ladanneen käyttäjän koko nimi"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Ilmoituksen otsikko"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Lyhyt kuvaus ilmoituksesta"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Ilmoituksen URL-osoite"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Tässä kuussa vastaanotettujen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Hylättyjen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Hyväksyttyjen käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Muihin kokonaislukemiin sisältymättömien käsikirjoitusten määrä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Saatujen käsikirjoitusten kokonaismäärä"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Raportin kuukausi"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Raportin vuosi"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Numeron tunnistetiedot, mukaan lukien vuosikerta, numero, vuosi ja nimi"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Julkaistun numeron URL-osoite"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Raportin vuosi"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Linkki toimitustyön tilastosivulle"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Tämä sähköpostiviesti lähetetään, kun toimittaja osoittaa käsikirjoituksen "
+"uudelleen arvioijalle, jolle lähetetty arviointipyyntö oli peruttu."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin arviointipyynnön hylänneelle "
+"arvioijalle, kun hän haluaa lähettää pyynnön uudelleen."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Peru arviointipyyntö"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Tämä sähköpostiviesti lähetetään, kun toimittaja peruu arviointipyynnön, "
+"johon arvioija ei ole vielä vastannut mitään."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Vahvista sähköposti (sivusto)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Tämä sähköposti lähetetään automaattisesti uudelle käyttäjälle, kun hän "
+"rekisteröityy sivustolle, kun asetukset edellyttävät sähköpostiosoitteen "
+"vahvistamista."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Ilmoita muille kirjoittajille"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Tällä sähköpostiviestillä ilmoitetaan käsikirjoituksen lähetyksestä "
+"sellaisille käsikirjoituksen kirjoittajille, joita ei ole osoitettu "
+"osallistujiksi käsikirjoituksen työnkulkuun. Tämä tarkoittaa yleensä kaikkia "
+"muita kirjoittajia paitsi käsikirjoituksen järjestelmään lähettänyttä "
+"kirjoittajaa."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Jäljennös sähköpostiviestistä, joka lähetettiin käsikirjoituksen "
+"lähettäneelle kirjoittajalle"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Ilmoita päätöksestä arvioijille"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Toimittaja lähettää tämän sähköpostiviestin arvioijalle ilmoittaakseen "
+"hänelle, että hänen arvioimastaan käsikirjoituksesta on tehty päätös."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Lyhyt kuvaus tästä päätöksestä, joka lähetetään tiedoksi arvioijille "
+"sähköpostilla"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Olemme päättäneet hyväksyä tämän käsikirjoituksen ilman korjauksia."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Olemme päättäneet hylätä tämän käsikirjoituksen."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
@@ -3104,10 +3263,7 @@ msgid "mailable.reviewDecline.name"
 msgstr ""
 
 msgid "mailable.reviewDecline.description"
-msgstr ""
-"This email is sent by a Reviewer to the Section Editor in response to a "
-"review request to notify the Section Editor that the review request has been "
-"declined."
+msgstr "Arvioija lähettää tämän sähköpostin, kun hän hylkää arviointipyynnön."
 
 msgid "mailable.reviewRemind.name"
 msgstr ""
@@ -3146,15 +3302,10 @@ msgstr ""
 msgid "mailable.reviewRequest.name"
 msgstr ""
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"This email from the Section Editor to a Reviewer requests that the reviewer "
-"accept or decline the task of reviewing a submission. It provides "
-"information about the submission such as the title and abstract, a review "
-"due date, and how to access the submission itself. This message is used when "
-"the Standard Review Process is selected in Management > Settings > Workflow "
-"> Review."
+"Tämä sähköpostiviesti osastotoimittajalta arvioijalle pyytää arvioijaa "
+"hyväksymään tai hylkäämään käsikirjoituksen arvioinnin. "
 
 msgid "mailable.reviewRequestSubsequent.name"
 msgstr ""
@@ -3468,3 +3619,18 @@ msgstr ""
 #~ msgstr ""
 #~ "This email is sent by a Section Editor to remind a reviewer that their "
 #~ "review is due."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Käsikirjoitustiedosto {$id} ohitettiin, koska sillä ei ole kelvollista "
+"versiota."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Käsikirjoitustiedoston {$id} versio {$revision} ohitettiin, koska tiedostoa "
+"ei löytynyt polusta \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Julkaistun version {$id} kansikuvaa ei viety, koska tiedostoa ei löytynyt "
+"polusta \"{$path}\"."

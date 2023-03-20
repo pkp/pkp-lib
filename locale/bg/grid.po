@@ -1,11 +1,11 @@
-# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022.
+# Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-31 09:07+0000\n"
+"PO-Revision-Date: 2023-03-06 23:07+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"bg_BG/>\n"
-"Language: bg_BG\n"
+"bg/>\n"
+"Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -459,8 +459,7 @@ msgstr "Преглед"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
-"Сътрудниците в тази публикация ще бъдат идентифицирани в това списание в "
-"следните формати."
+"Сътрудниците в тази публикация ще бъдат идентифицирани в следните формати."
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Формат"

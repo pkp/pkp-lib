@@ -1,14 +1,14 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2022-08-22 20:13+0000\n"
+"PO-Revision-Date: 2023-03-09 20:05+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
-"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"sv_SE/>\n"
-"Language: sv_SE\n"
+"Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/sv/"
+">\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -370,7 +370,7 @@ msgid "grid.columns.locale"
 msgstr "Språk/region"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Kod"
 
 msgid "grid.sponsor.title"
 msgstr "Sponsor"
@@ -462,8 +462,7 @@ msgid "contributor.listPanel.preview"
 msgstr "Förhandsvisning"
 
 msgid "contributor.listPanel.preview.description"
-msgstr ""
-"Medarbetare i denna publikation kommer anges i tidskriften i följande format."
+msgstr "Medarbetare i denna publikation kommer anges i följande format."
 
 msgid "contributor.listPanel.preview.format"
 msgstr "Format"
@@ -712,7 +711,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Välj typ..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Visa"
 
 msgid "author.users.contributor.name"
 msgstr "Namn"

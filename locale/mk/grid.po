@@ -1,15 +1,16 @@
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-04 07:48+0000\n"
-"Last-Translator: Jovan Jonovski <jonovski@hotmail.com>\n"
+"PO-Revision-Date: 2023-03-15 15:39+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"mk_MK/>\n"
-"Language: mk_MK\n"
+"mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "Нема елементи"
@@ -129,7 +130,7 @@ msgid "grid.action.order"
 msgstr "Редослед"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Зачувај нарачка"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Откажи редослед"
@@ -240,7 +241,7 @@ msgid "grid.action.details"
 msgstr "Види го овој елемент"
 
 msgid "grid.action.enrolExisting"
-msgstr "Вклучи постоечки корисник како  рецензент"
+msgstr "Вклучи постоечки корисник како рецензент"
 
 msgid "grid.action.selectCreate"
 msgstr "Создај нов рецензент"
@@ -282,7 +283,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Додади известување"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Наведете институција"
 
 msgid "grid.action.mergeUser"
 msgstr "Спои корисник"
@@ -363,7 +364,7 @@ msgid "grid.columns.locale"
 msgstr "Локализација"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Код"
 
 msgid "grid.sponsor.title"
 msgstr "Организација спонзор"
@@ -406,6 +407,8 @@ msgstr "Избриши соработник"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Дали сте сигурни дека сакате да го отстраните {$name} како соработник? Ова "
+"дејство не може да се врати."
 
 msgid "grid.action.newVersion"
 msgstr "Креирај нова верзија"
@@ -447,28 +450,30 @@ msgid "author.users.contributor.principalContact"
 msgstr "Примарен контакт"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Поставете примарен контакт"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Преглед"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Соработниците на оваа публикација ќе бидат идентификувани во следните "
+"формати."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Форматирање"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Приказ"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Скратено"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Списоци на публикации"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Полно"
 
 msgid "grid.roles.currentRoles"
 msgstr "Тековни улоги"
@@ -626,7 +631,7 @@ msgid "grid.plugin.disable"
 msgstr "Дали сте сигурни дека сакате да го оневозможите овој плагин?"
 
 msgid "grid.action.fileUnconsider"
-msgstr "Има лектурски корекции.  Можеш да ја откажеш оваа задача"
+msgstr "Направени се лекторски корекции. Можеш да ја откажеш оваа задача"
 
 msgid "grid.artworkFile.caption"
 msgstr "Наслов"
@@ -666,11 +671,11 @@ msgstr "Улогата {$userGroupName} не може да се отстрани
 
 msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
-"Не може да се отстрани улогата {$userGroupName}.  {$usersCount} корисник(ци) "
+"Не може да се отстрани улогата {$userGroupName}. {$usersCount} корисник(ци) "
 "се назначени."
 
 msgid "grid.userGroup.removed"
-msgstr "Улогата {$userGroupName}  е отстранета."
+msgstr "Улогата {$userGroupName} е отстранета."
 
 msgid "grid.userGroup.assignedStage"
 msgstr "Улогата {$userGroupName} назначена во {$stageName} фаза."
@@ -700,7 +705,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Одбери тип..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Види"
 
 msgid "author.users.contributor.name"
 msgstr "Име"

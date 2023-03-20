@@ -1,15 +1,16 @@
 # Maja Jurić <maja-juric@windowslive.com>, 2023.
 # Jula Dakić <juladakic@gmail.com>, 2023.
+# Boris Badurina <boris.badurina@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-12 06:11+0000\n"
-"Last-Translator: Jula Dakić <juladakic@gmail.com>\n"
+"PO-Revision-Date: 2023-03-03 16:17+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hr_HR/>\n"
-"Language: hr_HR\n"
+"manager/hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -277,13 +278,13 @@ msgid "manager.dois.status.error"
 msgstr "Pogreška"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Postoje pogreške"
 
 msgid "manager.dois.status.stale"
 msgstr "Zastarjelo"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI doijeljen"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
@@ -292,7 +293,7 @@ msgstr ""
 "DOI-ja neće se pojaviti ovdje osim ako je DOI za tarifu omogućen)"
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "DOI je dodijeljen svim stavkama."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -2915,7 +2916,7 @@ msgid "emailTemplate.variable.review.files"
 msgstr ""
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ime recenzenta"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -3043,7 +3044,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identifikacija izdanja, uključujući svezak, broj, godinu i naslov"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL objavljenog sveska"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Godina izvješća"
@@ -3424,7 +3425,6 @@ msgstr ""
 "Ova poruka e-pošte automatski obavještava recenzenta kada su pojedinosti "
 "njegovog zadatka recenzije promijenjene."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Obavijest urednicima o preporuci recenzenta"
 

@@ -1,24 +1,25 @@
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:47+00:00\n"
-"PO-Revision-Date: 2021-04-07 23:27+0000\n"
+"PO-Revision-Date: 2023-03-01 11:26+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
-"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"fi_FI/>\n"
-"Language: fi_FI\n"
+"Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/fi/>"
+"\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parametria {$param} ei tueta."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "Ominaisuutta {$prop} ei voi muokata."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -29,13 +30,13 @@ msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "API-avain aiheutti seuraavan virheen: {$error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Anna sähköpostille aihe ja leipäteksti."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Ajankohtaa ei voi muuttaa."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "DOI-prefiksi vaaditaan DOI-tunnusten luomiseen."
 
 msgid "api.403.unauthorized"
 msgstr "Sinulla ei ole pääsyä pyydettyyn resurssiin."
@@ -55,55 +56,65 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "Etsimääsi ilmoitusta ei löytynyt."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "Pyytämääsi instituutiota ei löytynyt."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Seuraavia kielialueita ei tueta: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "Et voi muokata kontekstiin kuulumattoman nimikkeen DOI-tunnusta."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Julkaisutyyppiä ei tunnistettu"
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Tämä päätepiste ei ole saatavilla sivuston laajuisesta nimiavaruudesta "
+"käsin, ja se on pyydettävä tietystä kontekstista."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "Pyytämääsi DOI:ta ei löytynyt."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Pyytämääsi kohdetta ei löytynyt."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Pyytämääsi käsikirjoitusta ei löytynyt."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Julkaisemattomia kohteita ei voi viedä/tallentaa. Poista julkaisemattomien "
+"kohteiden valinnat ja yritä uudelleen."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "Tapahtui virhe, eikä DOI-tunnusta voitu luoda."
 
 msgid "api.dois.400.xmlExportFailed"
-msgstr ""
+msgstr "Tapahtui XML-validointivirhe, eikä XML:ää voitu viedä."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"Tapahtui virhe, ja joitakin lähetettyjä kohteita ei merkitty "
+"rekisteröidyiksi."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Joitakin kohteita ei onnistuttu tallettamaan. Tarkista yksittäisten "
+"kohteiden virheilmoitukset."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "Pyyntöön ei liitetty kelvollisia kohteita."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
-msgstr ""
+msgstr "Pyyntöön on liitetty yksi tai useampi virheellinen kohde."
 
 msgid "api.dois.400.invalidPluginType"
-msgstr ""
+msgstr "Määritettävän lisäosan on oltava rekisteröintitoimiston lisäosa."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Et voi tallentaa päätöstä etkä suositella päätöstä tästä käsikirjoituksesta, "
+"koska se on jo julkaistu."
 
 msgid "api.emails.400.missingBody"
 msgstr "Sinun täytyy lisätä lähetettävä sähköposti."
@@ -120,10 +131,10 @@ msgstr ""
 "käyttäjärooleista."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Tämä ei ole tunnetun sähköpostin oletussähköpostimalli."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Tämä ei ole kelvollinen konteksti."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Etsimääsi sähköpostipohjaa ei löytynyt."
@@ -206,6 +217,7 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Pyyntösi ei ollut kelvollinen. TimelineInterval tulee olla `day` tai `month`."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -233,13 +245,15 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Sinun täytyy antaa tiedostojen vaihe."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Antamasi tiedostovaihe ei ole kelvollinen."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "Muokkauspyyntö ei sisältänyt muutoksia tiedostoon."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Sinun on annettava arviointikierroksen ID-tunnus, kun siirrät tiedoston "
+"tähän tiedostovaiheeseen."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Antamasi arviointikierros ei kuulu tähän käsikirjoitukseen."
@@ -260,7 +274,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Pyydetty vuosikerta, numero tai vuosi ei ole kelvollinen."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Et voi lähettää käsikirjoituksia tässä käyttäjäroolissa."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -295,50 +309,54 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Kielialuetta {$locale} ei tueta."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "Pyytämääsi sähköpostia ei löytynyt."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Epäonnistunutta työtä ei löydy epäonnistuneiden luettelosta."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
+"Epäonnistuneesta työstä puuttuu uudelleen lähetettäväksi tarkoitettu "
+"hyötykuorma."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Luettelosta ei löytynyt yhtään epäonnistunutta työtä."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Epäonnistunutta työtä ei pystytä lähettämään uudelleen."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Epäonnistunut työ lähetetty uudelleen onnistuneesti."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Kaikki uudelleenlähetettävissä olevat epäonnistuneet työt, joiden "
+"hyötykuorma on kelvollinen, on uudelleenlähetetty onnistuneesti."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Epäonnistunutta työtä ei voida poistaa epäonnistuneiden luettelosta."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Epäonnistunut työ poistettu onnistuneesti epäonnistuneiden luettelosta."
+
+msgid "api.submissions.400.stageNotValid"
 msgstr ""
+"Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on "
+"virheellinen."
 
-#~ msgid "api.submissions.400.stageNotValid"
-#~ msgstr ""
-#~ "Pyyntöäsi ei voitu suorittaa, koska annettu työvaiheen tunniste on "
-#~ "virheellinen."
+msgid "api.vocabs.400.vocabNotSupported"
+msgstr "Sanastoa {$vocab} ei tueta."
 
-#~ msgid "api.vocabs.400.vocabNotSupported"
-#~ msgstr "Sanastoa {$vocab} ei tueta."
+msgid "api.temporaryFiles.400.config"
+msgstr ""
+"Palvelimen määritysvirheen vuoksi tiedostoa ei voitu ladata. Ota yhteys "
+"järjestelmän ylläpitäjään."
 
-#~ msgid "api.temporaryFiles.400.config"
-#~ msgstr ""
-#~ "Palvelimen määritysvirheen vuoksi tiedostoa ei voitu ladata. Ota yhteys "
-#~ "järjestelmän ylläpitäjään."
+msgid "api.temporaryFiles.400.fileSize"
+msgstr "Tiedostokooltaan {$maxSize} suurempia tiedostoja ei voi ladata."
 
-#~ msgid "api.temporaryFiles.400.fileSize"
-#~ msgstr "Tiedostokooltaan {$maxSize} suurempia tiedostoja ei voi ladata."
+msgid "api.temporaryFiles.409.uploadFailed"
+msgstr "Yhtä tai useampaa tiedostoa ei voitu ladata."
 
-#~ msgid "api.temporaryFiles.409.uploadFailed"
-#~ msgstr "Yhtä tai useampaa tiedostoa ei voitu ladata."
-
-#~ msgid "api.temporaryFiles.400.noUpload"
-#~ msgstr "Pyynnöstä ei löytynyt ladattavaa tiedostoa."
+msgid "api.temporaryFiles.400.noUpload"
+msgstr "Pyynnöstä ei löytynyt ladattavaa tiedostoa."

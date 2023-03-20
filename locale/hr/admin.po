@@ -6,11 +6,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
-"PO-Revision-Date: 2023-02-11 17:48+0000\n"
-"Last-Translator: Tadej Grlić <tadejgrlic@gmail.com>\n"
+"PO-Revision-Date: 2023-03-03 16:17+0000\n"
+"Last-Translator: Boris Badurina <boris.badurina@gmail.com>\n"
 "Language-Team: Croatian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"hr_HR/>\n"
-"Language: hr_HR\n"
+"hr/>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -203,7 +203,7 @@ msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Uklonite nepotvrđene korisnike kojima je istekao račun"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Ukloni stare neuspješne zadatke iz popisa zadataka."
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Redoslijed poslova na čekanju"
@@ -576,7 +576,7 @@ msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Opcija ne može biti prazna! Provjerite način korištenja."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Lista čekanja neuspjećnih zadataka"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Poslovi u redu čekanja"
@@ -588,7 +588,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Red"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Konekcija"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Naziv posla za prikaz"
@@ -609,7 +609,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
 msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Iznimka"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Paginacija"
@@ -658,7 +658,7 @@ msgid "admin.cli.tool.jobs.purge.successful.all"
 msgstr "Izbrisani svi poslovi!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "{$jobsCount} neuspješnih zadataka uklonjenu s popisa."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
 msgstr ""
@@ -707,10 +707,10 @@ msgid "navigation.tools.job.failed.details.view"
 msgstr ""
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atribut"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Vrijednost atributa"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -719,10 +719,10 @@ msgid "admin.jobs.list.displayName"
 msgstr "Posao"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Red čekanja"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Konekcija"
 
 msgid "admin.jobs.list.attempts"
 msgstr "Pokušaji"
@@ -737,19 +737,19 @@ msgid "admin.jobs.list.payload"
 msgstr ""
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Iznimka"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Akcije"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Kreirano u {$failedAt}"
 
 msgid "admin.jobs.createdAt"
 msgstr "Stvoreno u {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Pokušaj ponovo"
 
 msgid "admin.jobs.failed.action.redispatch.all"
 msgstr ""

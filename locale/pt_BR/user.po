@@ -2,15 +2,16 @@
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
+# Andre Moura Melgarejo <melgarejo.andre@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2023-01-31 17:03+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/user/pt_BR/>\n"
+"PO-Revision-Date: 2023-03-02 13:56+0000\n"
+"Last-Translator: Andre Moura Melgarejo <melgarejo.andre@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/user/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -349,7 +350,7 @@ msgstr "O e-mail informado nos campos não correspondem."
 
 msgid "user.register.form.usernameAlphaNumeric"
 msgstr ""
-"O nome de usuário pode conter apenas caracteres alfanuméricos minúsculos, "
+"O campo usuário pode conter apenas caracteres alfanuméricos minúsculos, "
 "sublinhados e hifens e deve começar e terminar com um caractere alfanumérico "
 "(letra ou número)."
 

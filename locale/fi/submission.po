@@ -1,14 +1,14 @@
-# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022.
+# Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2022-11-24 02:46+0000\n"
+"PO-Revision-Date: 2023-03-06 23:07+0000\n"
 "Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/fi_FI/>\n"
-"Language: fi_FI\n"
+"submission/fi/>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -47,18 +47,17 @@ msgstr "Valitse rooli, jota haluat käyttää käsikirjoituksen lähetykseen."
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Valitse toimituksellinen rooli, jos haluat toimittaa ja julkaista tämän "
+"käsikirjoituksen itse."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Käsikirjoituksen lähettämiseen liittyvät vaatimukset"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Sinun täytyy lukea ja vahvistaa, että täytät alla mainitut vaatimukset, "
-"ennen kuin jatkat."
+msgstr "Kaikkien käsikirjoitusten on täytettävä seuraavat vaatimukset."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Kyllä, käsikirjoitukseni täyttää kaikki nämä vaatimukset."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Käsikirjoitus on lähetetty"
@@ -542,7 +541,7 @@ msgid "submission.coverage"
 msgstr "Kattavuustiedot"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Käsikirjoituksen tiedot"
 
 msgid "submission.done"
 msgstr "Valmis"
@@ -602,12 +601,14 @@ msgstr "Poista lokimerkintä"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Päätöksestä lähetettiin sähköpostiviesti {$recipientCount} arvioijalle "
+"otsikolla {$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Käsikirjoituksen ensimmäinen lähetys suoritettu."
 
 msgid "submission.event.copyrightAgreed"
-msgstr ""
+msgstr "{$name} ({$username}) on hyväksynyt tekijänoikeutta koskevat ehdot."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -661,9 +662,13 @@ msgstr "Arvioijan korjaama tiedosto päivitetty"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} lähetti käyttäjälle {$recipientName} muistutuksen "
+"arviointitehtävästä"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Käyttäjälle {$recipientName} lähetettiin automaattinen muistutussähköposti "
+"arviointitehtävästä"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Sähköposti on lähetetty:"
@@ -693,10 +698,10 @@ msgstr ""
 "muuttaa."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Julkaistu ensimmäisen kerran"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Toimittajille"
 
 msgid "submission.galley"
 msgstr "Julkaistava tiedosto"
@@ -973,7 +978,7 @@ msgid "submission.review"
 msgstr "Arviointi"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Tarkista ja lähetä"
 
 msgid "submission.reviewed"
 msgstr "Arvioitu"
@@ -1060,7 +1065,7 @@ msgid "submission.submit.includeInBrowse"
 msgstr "Sisällytetäänkö tämä tekijä selausluetteloihin?"
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Julkaisuluettelot"
 
 msgid "submission.submit.newFile"
 msgstr "Lisää toinen tiedosto"
@@ -1071,11 +1076,8 @@ msgstr "Lisätarkennuksia"
 msgid "submission.submit.submissionLocale"
 msgstr "Käsikirjoituksen kieli"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Tämä paino hyväksyy käsikirjoituksia useilla kielillä. Valitse "
-"käsikirjoituksen ensisijainen kieli yllä olevasta vetovalikosta."
+msgstr "Valitse käsikirjoituksen ensisijainen kieli."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Käsikirjoitustiedostot"
@@ -1183,7 +1185,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Anna viitteet."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Anna kuvaus tutkimusdatan saatavuudesta."
 
 msgid "submission.form.name"
 msgstr "Nimeä tiedosto (esim. Käsikirjoitus; Taulukko 1)"
@@ -1304,9 +1306,8 @@ msgstr "Tällä hetkellä sinulla ei ole korjattavia tiedostoja."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Korjauksia on pyydetty."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Uusi versioita on lähetetty."
+msgstr "Uusi versioita on lähetetty, ja tarvitaan päätös."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Käsikirjoitus pitää lähettää uudelle arviointikierrokselle."
@@ -1348,10 +1349,11 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Kaikki suositukset ovat valmiina ja päätöstä tarvitaan."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Toimeton yli {$days} päivää vaiheessa {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
+"Uusi käsikirjoitus odottaa lähettämistä tarkistettavaksi tai hylkäämistä."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Osallistujat"
@@ -1414,17 +1416,24 @@ msgid "editor.submission.decision"
 msgstr "Päätös"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Ilmoita kirjoittajille"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Ilmoita arvioijille"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Lähetä arvioijille sähköpostiviesti, jossa kiität heitä arvioinnista ja "
+"ilmoitat heille, että päätös on tehty. Kullekin arvioijalle lähetetään "
+"erillinen sähköpostiviesti anonymiteetin takaamiseksi. Viestissä voidaan "
+"käyttää lauseketta {$recipientName}, jotta jokaisen arvioijan nimi voidaan "
+"sisällyttää viestiin turvallisesti."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Lähetä sähköpostiviesti osoitetuille arvioijille ja ilmoita heille, että "
+"heidän arviointipyyntönsä on peruttu."
 
 msgid "editor.submission.decision.accept"
 msgstr "Lähetä teknisesti toimitettavaksi"

@@ -1,15 +1,16 @@
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-03-29 10:30+0000\n"
-"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
+"PO-Revision-Date: 2023-03-15 15:40+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/mk_MK/>\n"
-"Language: mk_MK\n"
+"submission/mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
 msgstr "Не може да се уредува затоа што списанието веќе е објавено."
@@ -41,18 +42,17 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Изберете уредувачка улога ако сакате сами да го уредите и објавите овој "
+"поднесок."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Барања за поднесување"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Мора да прочитате и да прифатите дека сте ги завршиле барањата подолу пред "
-"да продолжите."
+msgstr "Сите поднесоци мора да ги исполнуваат следните барања."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Да, мојот поднесок ги исполнува сите овие барања."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Поднесувањето е завршено"
@@ -540,7 +540,7 @@ msgid "submission.coverage"
 msgstr "Информации за покриеност"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Податоци за поднесокот"
 
 msgid "submission.done"
 msgstr "Готово"
@@ -607,12 +607,16 @@ msgstr "Избриши запис во евиденција"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Испратен е емаил за одлуката до {$recipientCount} рецензенти(и) со тема "
+"{$subject}."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Првобитниот поднесок е завршен."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) се согласи со условите за авторски права за "
+"поднесување."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -665,9 +669,13 @@ msgstr "Датотеката со измени на рецензентот е а
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} испрати потсетник до {$recipientName} во врска со нивната "
+"задача за рецензија"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Испратен е емаил за автоматско потсетување до {$recipientName} во врска со "
+"нивната задача за рецензија"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Испратен е и-меил:"
@@ -697,10 +705,10 @@ msgstr ""
 "не може да се промени."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Прво објавено"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "За уредниците"
 
 msgid "submission.galley"
 msgstr "Отисок на труд"
@@ -977,7 +985,7 @@ msgid "submission.review"
 msgstr "Рецензија"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Прегледајте и поднесете"
 
 msgid "submission.reviewed"
 msgstr "Рецензирано"
@@ -1061,10 +1069,12 @@ msgid "submission.submit.fileAdded"
 msgstr "Додадена датотека"
 
 msgid "submission.submit.includeInBrowse"
-msgstr "Вклучи го овој соработник во листите за преглед?"
+msgstr ""
+"Вклучете го овој соработник кога ги идентификувате авторите во списоците на "
+"публикации."
 
 msgid "submission.submit.includeInBrowse.title"
-msgstr ""
+msgstr "Листа на публикации"
 
 msgid "submission.submit.newFile"
 msgstr "Додај уште една датотека"
@@ -1075,11 +1085,8 @@ msgstr "Дополнителни подобрувања"
 msgid "submission.submit.submissionLocale"
 msgstr "Јазик на поднесокот"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Прифатливи се поднесоци на неколку јазици. Изберете го главниот јазик на "
-"поднесокот од опаѓачкото мени погоре."
+msgstr "Изберете го примаренот јазик на поднесокот."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Датотеки на поднесокот"
@@ -1189,7 +1196,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Ве молиме внесете ги референците."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Ве молиме внесете ја изјавата за достапност на податоци."
 
 msgid "submission.form.name"
 msgstr "Именувајте ја датотеката (пр. Ракопис; Табела 1)"
@@ -1311,9 +1318,8 @@ msgstr "Немате датотеки за рецензија во момент�
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Потребни се корекции."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Корекциите се поднесени."
+msgstr "Ревизии се поднесени и потребна е одлука."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
@@ -1356,10 +1362,10 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Пристигнати се сите препораки и потребна е одлука."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Неактивен повеќе од {$days} дена во фазата {$stage}."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Новиот поднесок чека да биде испратен на рецензија или одбиен."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Учесници"
@@ -1422,155 +1428,215 @@ msgid "editor.submission.decision"
 msgstr "Одлука"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Известете ги авторите"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Известете ги рецензентите"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Испратете емаил до рецензентите за да им се заблагодарите за нивната "
+"рецензија и да ги известите дека е донесена одлука. На секој рецензент ќе му "
+"биде испратен посебн емаил за да се заштити нивната анонимност. Фразата "
+"{$recipientName} може да се користи во пораката за безбедно да се вклучи "
+"името на секој рецензент."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Испратете емаил до доделените рецензенти за да ги известите дека нивната "
+"задача за рецензија е откажана."
 
 msgid "editor.submission.decision.accept"
 msgstr "Прифати поднесок"
 
 msgid "editor.submission.decision.accept.description"
-msgstr ""
+msgstr "Овој поднесок ќе биде прифатен за објавување и испратен за уредување."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} го прифати овој поднесок и го испрати во фазата за уредување."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Поднесокот е прифатен"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Поднесокот, {$title}, е прифатен за објавување и испратен во фаза за "
+"уредување. Сите известувања се испратени, освен оние што сте избрале да ги "
+"прескокнете."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека нивниот поднесок е "
+"прифатен за објавување. Овој емаил нема да биде испратена додека одлуката не "
+"биде снимена."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека кругот за рецензија е "
+"затворен. Овој емаил нема да биде испратен додека одлуката не биде снимена."
 
 msgid "editor.submission.decision.decline"
 msgstr "Одбиј поднесок"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Овој поднесок ќе биде одбиен. Фазата на рецензија ќе биде затворена и "
+"поднесокот ќе биде архивиран."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} го одби овој поднесок."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Поднесокот е одбиен"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Поднесокот, {$title}, е одбиен и испратен во архивата. Сите известувања се "
+"испратени, освен оние што сте избрале да ги прескокнете."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека нивниот поднесок е "
+"одбиен. Оваа емаил нема да биде испратен додека одлуката не биде снимена."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Овој поднесок ќе биде одбиен. Нема да се врши понатамошен преглед и "
+"поднесокот ќе биде архивиран."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Нов круг на рецензија"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Отворете уште еден круг на рецензија за овој поднесок."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr ""
+msgstr "{$editorName} создаде нов круг на рецензија за овој поднесок."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Создаден круг на рецензија"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Создаден е нов круг на рецензија за поднесокот, {$title}. Авторот е "
+"известен, освен ако не одлучивте да ја прескокнете таа порака."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека нивниот поднесок е "
+"испратен на нов круг на преглед. Овој емаил нема да биде испратена додека "
+"одлуката не биде снимена."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Изберете датотеки што треба да се испратат во фазата на уредување."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Изберете датотеки што треба да се испратат на рецензија."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Изберете датотеки што треба да се испратат до фазата на уредување."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Побарај корекции"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Авторот мора да обезбеди ревизии пред овој поднесок да биде прифатен за "
+"објавување."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} побара ревизии за овој поднесок."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Побарана е ревизија"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Побарани се ревизии за поднесокот, {$title}. Сите известувања се испратени, "
+"освен оние што сте избрале да ги прескокнете."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека ќе бидат потребни "
+"ревизии пред овој поднесок да биде прифатен за објавување. Вклучете ги сите "
+"детали што ќе му бидат потребни на авторот за да го ревидира неговиот "
+"поднесок. Каде што е соодветно, не заборавајте да ги анонимизирате сите "
+"коментари на рецензентите. Овој емаил нема да биде испратена додека одлуката "
+"не биде снимена."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Откажи круг на рецензија"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Откажете го тековниот круг на рецензија и испратете го поднесокот назад во "
+"последниот круг на рецензија. Ако ова е прва рунда за рецензија, ќе биде "
+"вратен во фазата на поднесување."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} го откажа кругот на рецензија."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Откажан последниот круг на рецензија."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Кругот за рецензија за поднесокот, {$title}, е откажан. Сите известувања се "
+"испратени, освен оние што сте избрале да ги прескокнете."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Може да се откаже кругот на рецензија ако ниту еден поврзан рецензент нема "
+"доставено рецензија."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Повторно поднеси за рецензија"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Авторот мора да обезбеди ревизии кои ќе бидат испратени на уште еден круг на "
+"рецензија пред овој поднесок да биде прифатен за објавување."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} побара ревизии за овој поднесок што треба да се испрати на "
+"уште еден круг на рецензија."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Побарани ревизии"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Побарани се ревизии за поднесокот, {$title}. Евидентирана е одлука за "
+"испраќање на ревизиите на уште еден круг на рецензија. Сите известувања се "
+"испратени, освен оние што сте избрале да ги прескокнете."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека ќе треба да се завршат "
+"ревизиите и да се испратат на уште еден круг на рецензија. Вклучете ги сите "
+"детали што ќе му бидат потребни на авторот за да го ревидира неговиот "
+"поднесок. Каде што е соодветно, не заборавајте да ги анонимизирате сите "
+"коментари на рецензентите."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Испрати за рецензија"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Овој поднесок е подготвен да биде испратен на рецензија."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} го испрати овој поднесок во фазата на рецензија."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Испратено на рецензија"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Поднесокот, {$title}, е испратен во фаза на рецензија. Авторот е известен, "
+"освен ако не одлучивте да ја прескокнете таа порака."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Нова рунда на рецензија"
@@ -1580,72 +1646,99 @@ msgstr "Испрати на обработка"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Испратете го овој поднесок до фазата на обработка за да се подготви за "
+"објавување."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} го испрати овој поднесок до фазата на обработка."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Испратено за обработка"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Поднесокот, {$title}, беше испратен до фазата на обработка. Авторот е "
+"известен, освен ако не одлучивте да ја прескокнете таа порака."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека овој поднесок е испратен "
+"до фазата на обработка. Оваа порака нема да биде испратена додека одлуката "
+"не биде снимена."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Откажи Уредување"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Испратете го овој поднесок назад од фазата на уредување."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr ""
+msgstr "{$editorName} го испрати овој поднесок назад од фазата на уредување."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Испратено назад од Уредување"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Поднесокот, {$title}, беше вратен од фазата на уредување. Авторот е "
+"известен, освен ако не одлучивте да ја прескокнете таа порака."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека уредувањето е откажано и "
+"нивниот поднесок ќе биде подложен на понатамошен уредувачки преглед."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Назад на Уредување"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Испратете го овој поднесок назад во фазата на уредување."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr ""
+msgstr "{$editorName} го испрати овој поднесок назад во фазата на уредување."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Испратено назад на Уредување"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"Поднесокот, {$title}, беше вратен во фазата на уредување. Авторот е "
+"известен, освен ако не одлучивте да ја прескокнете таа порака."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека овој поднесок е вратен "
+"во фазата на уредување. Објаснете зошто е донесена оваа одлука и "
+"информирајте го авторот какво дополнително уредување ќе биде потребно пред "
+"овој поднесок да биде подготвен за обработка."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Прифати и прескокни ја рецензијата"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Прифатете го овој поднесок за објавување и прескокнете ја фазата на "
+"рецензија. Оваа одлука ќе го испрати поднесокот во фаза на уредување."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} ја прескокна фазата на рецензија и го испрати овој поднесок во "
+"фазата на уредување."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Прескокната Рецензија"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"Поднесокот, {$title}, ја прескокна фазата на рецензија и е испратен во "
+"фазата на уредување. Авторот е известен, освен ако не одлучивте да ја "
+"прескокнете таа порака."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека овој поднесок е прифатен "
+"за објавување и испратен до фазата на уредување без преглед. Оваа порака "
+"нема да биде испратена додека одлуката не биде снимена."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Испрати до Интерна рецензија"
@@ -1668,70 +1761,93 @@ msgstr "Поврати одбивање"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Вратете ја претходната одлука да го одбиете овој поднесок и вратете го на "
+"активниот уредувачки процес. Авторот е известен, освен ако не одлучивте да "
+"ја прескокнете таа порака."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} ја смени одлуката да го одбие овој поднесок."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Поднесокот е повторно активен"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Поднесокот, {$title}, сега е активен поднесок во фазата на рецензија."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Испратете емаил до авторите за да ги известите дека претходната одлука да се "
+"одбие овој поднесок е поништена. Објаснете зошто одлуката е поништена и нека "
+"знаат дали се очекува поднесокот да биде подложен на дополнително "
+"рецензирање."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"Поднесокот, {$title}, сега е активен во фазата на поднесување. Авторот е "
+"известен, освен ако не одлучивте да ја прескокнете таа порака."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr "Назначете уредник за да ги овозможите уредничките одлуки за оваа фаза."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Испратете порака до уредниците кои одлучуваат за да ги известите за "
+"препораките. Објаснете зошто оваа препорака е дадена како одговор на "
+"препораките и коментарите поднесени од рецензентите."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Препорача да се Прифати"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Препорача овој поднесок да биде прифатен за објавување и испратен на "
+"уредување."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} препорача овој поднесок да биде прифатен и испратен на "
+"уредување."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Препораката е поднесена"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Вашата препорака е снимена и уредникот(и) кој(и) одлучува(ат) е(се) "
+"известен(и)."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Препорача Ревизија"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Препорача да се побараат ревизии од авторот пред овој поднесок да биде "
+"прифатен за објавување."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} препорача да се бараат ревизии."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Препорача повторно да се испрати за Рецензија"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Препорачуваме од авторот да се побара да поднесе ревизии за уште еден круг "
+"на рецензија."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} препорача да се побараат ревизии и да се испратат на уште една "
+"рунда на рецензија."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Препорача Одбивање"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Препорачува поднесокот да биде одбиен за објавување."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} препорача овој поднесок да се одбие."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Направете препораки"
@@ -1747,6 +1863,8 @@ msgstr "Препораки: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Не можете да дадете препорака додека не биде доделен уредник со дозвола да "
+"донесува одлука."
 
 msgid "editor.submission.recommendation"
 msgstr "Препорака"
@@ -1926,6 +2044,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Повторно испратете го барањето за рецензија во кругот {$round} до "
+"{$reviewerName} за поднесување {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2027,7 +2147,7 @@ msgid "submission.copyright"
 msgstr "Авторско право"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Да, се согласувам со изјавата за авторски права."
 
 msgid "submission.copyrightHolder"
 msgstr "Носител на авторско право"
@@ -2257,7 +2377,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Избришете го поднесокот?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Прикажи ги сите поднесоци"
 
 msgid "submission.list.viewSubmission"
 msgstr "Прегледајте го поднесокот"
@@ -2309,72 +2429,87 @@ msgstr "Назначи уредник"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Овој поднесок е веќе поднесен. Посетете ја вашата <a href=\"{$url}\">табла "
+"за поднесоци</a> за да видите."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Пред да почнете"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Изберете ги само категориите што се соодветни за вашиот поднесок."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Променете ги поставките за поднесување"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Завршете ги чекорите за да поднесете поднесок"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Поднесокот, <strong>{$title}</strong>, ќе биде доставен до "
+"<strong>{$context}</strong> за уредувачки преглед. Дали сте сигурни дека "
+"сакате да го завршите ова поднесување?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Има еден или повеќе проблеми што треба да се поправат пред да можете да "
+"поднесете. Ве молиме прегледајте ги информациите подолу и направете ги "
+"бараните промени."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Проверка на вашиот поднесок"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Додадете какви било информации што мислите дека нашата редакција треба да ги "
+"знае при оценувањето на вашиот поднесок."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Ве молиме потврдете го следново пред да поднесете."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Поднесете поднесок"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Поднесете поднесок: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Не се додадени соработници за овој поднесок."
 
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Име недостасува во {$language} за еден или повеќе од соработниците."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Не е дозволено"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Согласност за приватност"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Зачувано за подоцна"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Деталите за вашиот поднесок се зачувани во нашиот систем, но сè уште не е "
+"поднесен на разгледување. Можете да се вратите за да го комплетирате вашиот "
+"поднесок во секое време со отварање на линкот подолу."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Ви испративме емаил со линк на {$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Делот е затворен"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Започнете со поднесување"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Почеток на ново поднесување"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Настана грешка и не можевме да го зачуваме вашиот поднесок. Можеби сте биле "
+"исклучени."
 
 msgid "grid.category.categories"
 msgstr "Категории"
@@ -2392,7 +2527,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Датум на објава (најнов прво)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Категории"
 
 msgid "category.coverImage"
 msgstr "Насловна слика"
@@ -2465,11 +2600,15 @@ msgstr "Број на зборови: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Не успеа да се означи DOI треба да се синхронизира за {$pubObjectTitle}. DOI "
+"не може да се означи има потреба од синхронизација бидејќи сè уште не се "
+"регистрирани или поднесени."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Не успеа да се означи DOI регистриран за {$pubObjectTitle}. Поднесокот мора "
+"да биде објавен пред да може да се ажурира статусот."
 
-#, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
 "Ова е преглед кој не е објавен. <a href=\"{$url}\">Види го поднесокот</a>"
@@ -2481,13 +2620,15 @@ msgid "author.submit.confirmation"
 msgstr "Потврда"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Се поднесува на <strong>{$language}</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Се поднесува во делот <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Се поднесува во делот <strong>{$section}</strong> во "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2517,16 +2658,18 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Главен контакт за уреднички допис."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Изјава за достапност на податоци"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Наведете дали имате достапни докази кои ја поддржуваат оваа работа, и ако е "
+"така, каде и како може да се пристапи до нив"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Мора да прикачите најмалку една датотека {$genre}."
 
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Мора да поставите барем еден од следниве типови датотеки: {$genres}."
 
 msgid "publication.version"
 msgstr "Верзија {$version}"

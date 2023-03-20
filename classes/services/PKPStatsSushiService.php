@@ -15,7 +15,7 @@
 
 namespace PKP\services;
 
-use PKP\db\DAORegistry;
+use APP\core\Application;
 use PKP\services\queryBuilders\PKPStatsSushiQueryBuilder;
 
 class PKPStatsSushiService
@@ -54,14 +54,14 @@ class PKPStatsSushiService
     }
 
     /**
-     * Get earliest date, the COUNTER R5 started at
-     * R5 is introduced in the release 3.4.0.0, so get the date installed of the release 3.4.0.0 or the first version used after that
+     * Get earliest date, the COUNTER R5 (introduced in the release 3.4.0.) counting started at
+     * The start date is determined in classes/migration/upgrade/v3_4_0/I8508_ConvertCurrentLogFile.php
+     *
+     * @return string Date formatted as Y-m-d
      */
     public function getEarliestDate(): string
     {
-        /** @var VersionDAO */
-        $versionDao = DAORegistry::getDAO('VersionDAO');
-        return $versionDao->getInstallationDate(3400);
+        return Application::get()->getRequest()->getSite()->getData('counterR5StartlDate');
     }
 
     /**

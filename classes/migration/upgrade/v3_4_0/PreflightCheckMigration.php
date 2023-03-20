@@ -15,6 +15,7 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\core\Application;
 use APP\migration\upgrade\v3_4_0\MergeLocalesMigration;
+use APP\statistics\StatisticsHelper;
 use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
@@ -36,6 +37,22 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
     public function up(): void
     {
         try {
+            $usageStatsDir = StatisticsHelper::getUsageStatsDirPath();
+            // check if there are usage stats log files older than yesterday
+            foreach (glob($usageStatsDir . '/usageEventLogs/*') as $usageStatsLogFile) {
+                $lastModified = date('Ymd', filemtime($usageStatsLogFile));
+                $yesterday = date('Ymd', strtotime('-1 days'));
+                if ($yesterday > $lastModified) {
+                    throw new \Exception("There are unprocessed log files from more than 1 day ago in the directory {$usageStatsDir}/usageEventLogs/. This happens when the scheduled task to process usage stats logs is not being run daily. All logs in this directory older than {$yesterday} must be processed or removed before the upgrade can continue.");
+                }
+            }
+            // check if there are old usage stats log files there that were not successfully processed
+            if (count(glob($usageStatsDir . '/processing/*')) !== 0 ||
+                count(glob($usageStatsDir . '/reject/*')) !== 0 ||
+                count(glob($usageStatsDir . '/stage/*')) !== 0) {
+                throw new \Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
+            }
+
             // email_templates_default_data keys should not conflict after locale migration
             // See MergeLocalesMigration (#8598)
             $affectedLocales = MergeLocalesMigration::getAffectedLocales();

@@ -17,14 +17,11 @@
 namespace PKP\API\v1\_email;
 
 use APP\facades\Repo;
-use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Queue;
 use PKP\core\APIResponse;
-use PKP\core\PKPContainer;
 use PKP\handler\APIHandler;
-use PKP\mail\Mailable;
+use PKP\jobs\bulk\BulkEmailSender;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
@@ -33,9 +30,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class PKPEmailHandler extends APIHandler
 {
-    /** @var int Number of emails to send in each job */
-    public const EMAILS_PER_JOB = 100;
-
     /**
      * Constructor
      */
@@ -146,15 +140,9 @@ class PKPEmailHandler extends APIHandler
 
         $userIds = Repo::user()->getCollector()
             ->filterByContextIds([$contextId])
-            ->filterByUserGroupIds(['userGroupIds'])
+            ->filterByUserGroupIds($params['userGroupIds'])
             ->getIds()
             ->toArray();
-
-        $subject = $params['subject'];
-        $body = $params['body'];
-        $fromEmail = $context->getData('contactEmail');
-        $fromName = $context->getData('contactName');
-        $queueId = 'email_' . uniqid();
 
         if (!empty($params['copy'])) {
             $currentUserId = $this->getRequest()->getUser()->getId();
@@ -163,25 +151,22 @@ class PKPEmailHandler extends APIHandler
             }
         }
 
-        $batches = array_chunk($userIds, self::EMAILS_PER_JOB);
+        $queueId = 'email_' . uniqid();
+        $batches = array_chunk($userIds, BulkEmailSender::EMAILS_PER_JOB);
+
         foreach ($batches as $userIds) {
-            Queue::push(function () use ($userIds, $contextId, $subject, $body, $fromEmail, $fromName) {
-                $users = Repo::user()->getCollector()
-                    ->filterByContextIds([$contextId])
-                    ->filterByUserIds($userIds)
-                    ->getMany();
-
-                foreach ($users as $user) {
-                    $mailable = new Mailable();
-                    $mailable
-                        ->from($fromEmail, $fromName)
-                        ->to($user->getEmail(), $user->getFullName())
-                        ->subject($subject)
-                        ->body($body);
-
-                    Mail::send($mailable);
-                }
-            }, [], $queueId);
+            Queue::push(
+                new BulkEmailSender(
+                    $userIds, 
+                    $contextId, 
+                    $params['subject'], 
+                    $params['body'], 
+                    $context->getData('contactEmail'), 
+                    $context->getData('contactName')
+                ),
+                [],
+                $queueId
+            );
         }
 
         return $response->withJson([
@@ -199,23 +184,20 @@ class PKPEmailHandler extends APIHandler
      */
     public function process(ServerRequestInterface $slimRequest, APIResponse $response, array $args)
     {
-        $countRunning = DB::table('jobs')
-            ->where('queue', $args['queueId'])
-            ->whereNotNull('reserved_at')
-            ->count();
-        $countPending = $this->countPending($args['queueId']);
+        $countRunning = Repo::job()->getRunningJobCount($args['queueId']);
+        $countPending = Repo::job()->getPendingJobCount($args['queueId']);
+        $jobQueue = app('pkpJobQueue'); /** @var \PKP\core\PKPQueueProvider $jobQueue */
 
         // Don't run another job if one is already running.
         // This should ensure jobs are run one after the other and
         // prevent long-running jobs from running simultaneously
         // and piling onto the server like a DDOS attack.
         if (!$countRunning && $countPending) {
-            $laravelContainer = PKPContainer::getInstance();
-            $options = new WorkerOptions();
-            $laravelContainer['queue.worker']->runNextJob('database', $args['queueId'], $options);
+
+            $jobQueue->forQueue($args['queueId'])->runJobInQueue();
 
             // Update count of pending jobs
-            $countPending = $this->countPending($args['queueId']);
+            $countPending = Repo::job()->getPendingJobCount($args['queueId']);
         }
 
         return $response->withJson([
@@ -223,14 +205,4 @@ class PKPEmailHandler extends APIHandler
         ], 200);
     }
 
-    /**
-     * Return a count of the pending jobs in a given queue
-     *
-     */
-    protected function countPending(string $queueId): int
-    {
-        return DB::table('jobs')
-            ->where('queue', $queueId)
-            ->count();
-    }
 }

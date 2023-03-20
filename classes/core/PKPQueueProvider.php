@@ -101,7 +101,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
 
         $laravelContainer['queue.worker']->runNextJob(
             'database',
-            $job->queue,
+            $job->queue ?? Config::getVar('queues', 'default_queue', 'queue'),
             $this->getWorkerOptions()
         );
     }

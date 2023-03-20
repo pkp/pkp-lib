@@ -1,16 +1,17 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
+# Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 21:20+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2023-03-17 20:28+0000\n"
+"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/manager/"
-"mk_MK/>\n"
-"Language: mk_MK\n"
+"mk/>\n"
+"Language: mk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.distribution.access"
 msgstr "Пристап"
@@ -35,18 +36,23 @@ msgstr "Серверот ќе обезбеди отворен пристап д�
 
 msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr ""
+"Користете стандардни обрасци.<br />%j.%a за трудови<br />%j.%a.g%g за "
+"отисоци."
 
 msgid "doi.manager.settings.doiCreationTime.copyedit"
-msgstr ""
+msgstr "По достигнувањето на фазата на обработка"
 
 msgid "doi.manager.settings.doiVersioning.description"
 msgstr ""
+"Да се додели нова DOI на секоја верзија на публикацијата? Повеќето сервери "
+"за трудови ќе сакаат да ја користат стандардната опција (да) за да се "
+"осигураат дека на верзиите пред издавање се правилно доделени DOI."
 
 msgid "doi.manager.settings.doiVersioning.yes"
-msgstr ""
+msgstr "Да, доделете единствена DOI на секоја верзија за трудови."
 
 msgid "doi.manager.settings.doiVersioning.no"
-msgstr ""
+msgstr "Не, сите верзии за трудови треба да имаат ист DOI."
 
 msgid "manager.language.ui"
 msgstr "УИ"
@@ -119,6 +125,8 @@ msgstr ""
 
 msgid "manager.payment.options.enablePayments"
 msgstr ""
+"Плаќањата ќе бидат овозможени за овој сервер. Имајте предвид дека од "
+"корисниците ќе се бара да се логираат за да вршат плаќања."
 
 msgid "manager.setup"
 msgstr "Поставки на серверот"
@@ -194,6 +202,8 @@ msgstr ""
 
 msgid "manager.setup.enableDois.description"
 msgstr ""
+"Дозволете идентификатори на дигитални објекти (DOI) да се доделуваат на дела "
+"објавени на овој сервер."
 
 #, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
@@ -507,31 +517,35 @@ msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "Назначените предмети не беа пронајдени."
 
 msgid "stats.contextStats"
-msgstr ""
+msgstr "Статистика на серверот"
 
 msgid "stats.context.tooltip.text"
-msgstr ""
+msgstr "Број на посетители кои ја гледаат страницата со индекс на серверот."
 
 msgid "stats.context.tooltip.label"
-msgstr ""
+msgstr "За статистиката на серверот"
 
 msgid "stats.context.downloadReport.description"
 msgstr ""
+"Преземете табела CSV/Excel со статистика за користење за овој сервер што "
+"одговара на следните параметри."
 
 msgid "stats.context.downloadReport.downloadContext.description"
-msgstr ""
+msgstr "Бројот на прегледи на страницата со индекс на серверот."
 
 msgid "stats.context.downloadReport.downloadContext"
-msgstr ""
+msgstr "Преземање Сервер"
 
 msgid "stats.publications.downloadReport.description"
 msgstr ""
+"Преземете табела CSV/Excel со статистика за користење за трудови што "
+"одговара на следните параметри."
 
 msgid "stats.publications.downloadReport.downloadSubmissions"
-msgstr ""
+msgstr "Преземете трудови"
 
 msgid "stats.publications.downloadReport.downloadSubmissions.description"
-msgstr ""
+msgstr "Бројот на апстрактни прегледи и преземања на датотеки за секој труд."
 
 msgid "stats.publicationStats"
 msgstr "Статистички податоци за отпечатокот"
@@ -579,7 +593,7 @@ msgid "emailTemplate.variable.context.contactName"
 msgstr "Името на гланото лице за контакт на серверот"
 
 msgid "emailTemplate.variable.context.contextSignature"
-msgstr ""
+msgstr "Потпис за емаил на серверот за автоматизирани пораки"
 
 msgid "emailTemplate.variable.context.principalContactSignature"
 msgstr "Потписот за автоматска е-пошта на е-поштата на серверот"
@@ -600,16 +614,18 @@ msgid "emailTemplate.variable.site.siteTitle"
 msgstr "Името на њеб-страницата кога е хостиран повеќе од еден сервер"
 
 msgid "mailable.validateEmailContext.name"
-msgstr ""
+msgstr "Потврдете емаил (регистрација на серверот)"
 
 msgid "mailable.validateEmailContext.description"
 msgstr ""
+"Овој емаил автоматски се испраќа до нов корисник кога ќе се регистрира на "
+"серверот кога поставките бараат да се потврди емаил адресата."
 
 msgid "doi.displayName"
 msgstr "ДОИ"
 
 msgid "doi.manager.displayName"
-msgstr ""
+msgstr "DOIs"
 
 msgid "doi.description"
 msgstr ""
@@ -617,7 +633,7 @@ msgstr ""
 "за отпечатоци и отисоците на труд во OPS."
 
 msgid "doi.manager.submissionDois"
-msgstr ""
+msgstr "DOI на трудот"
 
 msgid "doi.readerDisplayName"
 msgstr "ДОИ"
@@ -633,7 +649,7 @@ msgstr ""
 "идентификатори на дигитални објекти (ДОИ):"
 
 msgid "doi.manager.settings.galleysWithDescription"
-msgstr ""
+msgstr "Отисоци на трудови, како објавен PDF"
 
 msgid "doi.manager.settings.enableRepresentationDoi"
 msgstr "Отисоци на труд"
@@ -652,15 +668,18 @@ msgstr "Префиксот DOI е задолжителен и мора да би
 
 msgid "doi.manager.settings.doiSuffixPattern"
 msgstr ""
-"Користете ја шемата внесена подолу за да генерирате наставки DOI. Користете "
-"%j за почетни иницијали на серверот %a за ИД-от за отпечаток на ОПС, %g за "
-"отисок на труд за ОПС, %f за ИД-датотека за ОПС и %x за \"Прилагоден "
-"идентификатор\"."
+"Внесете приспособена шема на суфикс за секој тип на публикација. Шемата за "
+"приспособена наставка може да ги користи следните симболи за да генерира "
+"суфикс:<br><br> <code>%j.%a</code> Трудови<br> <code>%j.%a.g%g</code> "
+"Печатарски табаци<br><br> Пазете се дека приспособените обрасци на суфикси "
+"често доведуваат до проблеми со генерирање и депонирање на DOI. Кога "
+"користите приспособена шема на суфикс, внимателно тестирајте дали уредниците "
+"можат да генерираат DOI и да ги депонираат во агенција за регистрација како "
+"Crossref. "
 
 msgid "doi.manager.settings.doiSuffixPattern.example"
 msgstr ""
-"На пример,  %j.%a може да создаде ДОИ како што е 10.1234/"
-"server_initials.12345"
+"На пример, %j.%a може да создаде ДОИ како што е 10.1234/server_initials.12345"
 
 msgid "doi.manager.settings.doiSuffixPattern.submissions"
 msgstr "за отпечатоци"
@@ -704,13 +723,15 @@ msgstr ""
 "не им се доделени ДОИ?"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Агенција за регистрација"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Ве молиме изберете ја агенцијата за регистрација што сакате да ја користите "
+"при депонирање на DOI."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ништо"
 
 msgid "doi.editor.doi"
 msgstr "ДОИ"
@@ -767,10 +788,12 @@ msgid "doi.editor.assignDoi.pattern"
 msgstr "ДОИ {$pubId} не може да се додели бидејќи содржи нерешена шема."
 
 msgid "doi.editor.assignDoi.assigned"
-msgstr "Назначен е ДОИ {$pubId}."
+msgstr ""
+"DOI {$pubId} е доделен. За да ја уредите DOI, посетете ја <a href=\""
+"{$doiManagementLink}\">страницата за управување со DOI</a>."
 
 msgid "doi.editor.assignDoi.toBeAssigned"
-msgstr ""
+msgstr "DOI {$pubId} ќе биде доделен при објавувањето."
 
 msgid "doi.editor.missingPrefix"
 msgstr "ДОИ мора да започне со {$doiPrefix}."
@@ -788,25 +811,25 @@ msgid "doi.editor.preview.objects"
 msgstr "Предмет"
 
 msgid "api.galley.403.publicationDidNotMatch"
-msgstr ""
+msgstr "Отисокот што го побаравте не е дел од оваа публикација."
 
 msgid "api.galley.403.canEditPublishedDoi"
-msgstr ""
+msgstr "Само DOI може да се уредува откако ќе се објави публикација/отисок"
 
 msgid "api.issue.400.invalidDoi"
-msgstr ""
+msgstr "Поднесениот DOI не е валиден"
 
 msgid "api.issue.403.canEditPublishedDoi"
-msgstr ""
+msgstr "Само DOI може да се уредува по објавувањето на трудот"
 
 msgid "manager.institutions.noContext"
-msgstr ""
+msgstr "Не можеше да се најде списанието на оваа институција."
 
 msgid "manager.manageEmails.description"
-msgstr ""
+msgstr "Уредете ги пораките испратени во емаил од ова списание."
 
 msgid "mailable.postedAck.name"
-msgstr ""
+msgstr "Објавено признание"
 
 msgid "mailable.postedAck.description"
 msgstr ""
@@ -814,52 +837,83 @@ msgstr ""
 "отпечатокот е објавен онлајн на серверот."
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Доделен модератор (Автоматски)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Овој емаил се испраќа до модератор кога автоматски ќе се доделат на поднесок."
 
 msgid "manager.preprintPosted"
-msgstr ""
+msgstr "Објавен труд"
 
 msgid "manager.preprintPosted.description"
 msgstr ""
+"Конфигурирајте ги известувањата по емаил да се испраќаат кога ќе се објави "
+"нов труд."
 
 msgid "manager.preprintPosted.fieldDescription"
-msgstr ""
+msgstr "Дали да се испрати или не емаил до авторите на трудоте кога е објавен."
 
 msgid "mailable.publicationVersionNotify.name"
-msgstr ""
+msgstr "Создадена е нова верзија"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""
+"Овој емаил автоматски ги известува доделените модератори кога ќе се креира "
+"нова верзија на трудот."
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Потврда за поднесување (Во очекување на модерирање)"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Овој емаил автоматски се испраќа до авторот кога ќе поднесе поднесок и "
+"модераторот мора да го одобри."
 
 msgid "mailable.submissionAckCanPost.name"
-msgstr ""
+msgstr "Потврда за поднесување (не е потребна модерација)"
 
 msgid "mailable.submissionAckCanPost.description"
 msgstr ""
+"Овој емаил автоматски се испраќа до авторот кога ќе поднесе труд и не е "
+"потребна модерација. Авторот може веднаш да го објави својот труд."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Следното им се прикажува на авторите за време на чекорот За читатели, кога "
+"од нив се бара да дадат метаподатоци како клучни зборови, информации за "
+"лиценцирање и други податоци за да помогнат во контролата и контекстот."
 
 msgid "mailable.postedNewVersionAck.name"
-msgstr ""
+msgstr "Објавена нова верзија"
 
 msgid "mailable.postedNewVersionAck.description"
 msgstr ""
+"Овој емаил се испраќа до авторот кога ќе биде објавена нова верзија на "
+"неговиот труд."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Подесокот е одбиен"
 
 msgid "mailable.decision.initialDecline.notifyAuthor.description"
 msgstr ""
+"Овој емаил го известува авторот дека неговиот труд е одбиен и нема да биде "
+"објавен."
 
 #~ msgid "doi.manager.settings.enablePublicationDoi"
 #~ msgstr "Отпечатоци"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Овој емаил го известува авторот дека неговиот труд е прифатен за објавување."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Овој емаил автоматски се испраќа месечно до модераторите и менаџерите на "
+"серверите за да им се обезбеди преглед на системот."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Поштенската адреса на серверот"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Линк до страницата за статистика за трудот"

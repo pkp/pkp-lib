@@ -1,0 +1,47 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-28 20:38+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/editor/bg/"
+">\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "editor.publicIdentificationExists"
+msgstr ""
+"Публичният идентификатор '{$publicIdentifier}' вече съществува за друг обект "
+"(предпечатен материал, типография или файл). Моля, изберете уникални "
+"идентификатори във вашия сървър."
+
+msgid "grid.action.addGalley"
+msgstr "Добавяне на типография"
+
+msgid "editor.submission.proof.manageProofFilesDescription"
+msgstr ""
+"Всички файлове, които вече са били качени на който и да е етап на подаване, "
+"могат да бъдат добавени към списъка за корекция, като поставите отметка в "
+"квадратчето за включване по-долу и щракнете върху Търсене: всички налични "
+"файлове ще бъдат изброени и могат да бъдат избрани за включване."
+
+msgid "editor.publicIdentificationExistsForTheSameType"
+msgstr ""
+"Публичният идентификатор '{$publicIdentifier}' вече съществува за друг обект "
+"от същия тип. Моля, изберете уникални идентификатори за обекти от същия тип "
+"във вашия сървър."
+
+msgid "editor.preprint.coverImage"
+msgstr "Изображение на корицата"
+
+msgid "editor.publication.authorPublishRequirements"
+msgstr "Авторът не отговаря на следните изисквания за публикуване:"
+
+msgid "editor.submissions.assignedTo"
+msgstr "Възложено на модератор"
+
+msgid "editor.submission.schedulePublication"
+msgstr "Публикуване на предпечатния материал"

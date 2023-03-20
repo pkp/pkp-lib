@@ -1,0 +1,102 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-28 20:38+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/"
+"themes-default/bg/>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "plugins.themes.default.description"
+msgstr "Прилага се темата по подразбиране."
+
+msgid "plugins.themes.default.option.typography.label"
+msgstr "Типография"
+
+msgid "plugins.themes.default.option.typography.notoSerif"
+msgstr "Noto Serif: Серифен вариант на дигиталния оригинален шрифт на Google."
+
+msgid "plugins.themes.default.option.typography.notoSerif_notoSans"
+msgstr ""
+"Noto Serif/Noto Sans: Допълнителна комбинация със серифни заглавия и "
+"безсерифен основен текст."
+
+msgid "plugins.themes.default.option.typography.lato"
+msgstr "Lato: Популярен модерен шрифт без сериф."
+
+msgid "plugins.themes.default.option.typography.lora"
+msgstr "Lora: Шрифт с широк сериф, подходящ за четене онлайн."
+
+msgid "plugins.themes.default.option.typography.lora_openSans"
+msgstr ""
+"Lora/Open Sans: Допълнително съчетание със серифни заглавия и безсерифен "
+"основен текст."
+
+msgid "plugins.themes.default.option.colour.label"
+msgstr "Цвят"
+
+msgid "plugins.themes.default.option.colour.description"
+msgstr "Изберете цвят за заглавката."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.label"
+msgstr "Фоново изображение на заглавката"
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.option"
+msgstr ""
+"Показване на изображението на началната страница като фон на заглавката."
+
+msgid "plugins.themes.default.option.displayStats.label"
+msgstr "Опции за показване на статистика за употреба"
+
+msgid "plugins.themes.default.option.displayStats.bar"
+msgstr ""
+"Използване на лентов тип диаграма за показване на статистически данни за "
+"употребата."
+
+msgid "plugins.themes.default.option.displayStats.line"
+msgstr ""
+"Използване на линеен тип диаграма за показване на статистически данни за "
+"употребата."
+
+msgid "plugins.themes.default.displayStats.monthInitials"
+msgstr "яну фев мар апр май юни юли авг сеп окт ное дек"
+
+msgid "plugins.themes.default.displayStats.downloads"
+msgstr "Изтегляния"
+
+msgid "plugins.themes.default.displayStats.noStats"
+msgstr "Данните за изтеглянията все още не са налични."
+
+msgid "plugins.themes.default.name"
+msgstr "Тема по подразбиране"
+
+msgid "plugins.themes.default.option.typography.description"
+msgstr "Изберете комбинация от шрифтове, която подхожда на този сървър."
+
+msgid "plugins.themes.default.option.typography.notoSans"
+msgstr ""
+"Noto Sans: Дигитален оригинален шрифт, проектиран от Google за широка "
+"езикова поддръжка."
+
+msgid "plugins.themes.default.option.typography.notoSans_notoSerif"
+msgstr ""
+"Noto Sans/Noto Serif: Допълнително сдвояване със заглавия без сериф и "
+"основен текст със сериф."
+
+msgid "plugins.themes.default.option.showDescriptionInServerIndex.option"
+msgstr "Показване на резюмето на сървъра на началната страница."
+
+msgid "plugins.themes.default.option.useHomepageImageAsHeader.description"
+msgstr ""
+"Когато изображение на начална страница е качено, покажете го на фона на "
+"заглавката вместо обичайната му позиция на началната страница."
+
+msgid "plugins.themes.default.option.displayStats.none"
+msgstr ""
+"Да не се показва диаграма със статистически данни за използването на "
+"подаването за четец."

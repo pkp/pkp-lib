@@ -1,0 +1,59 @@
+# Cyril Kamburov <cc@intermedia.bg>, 2023.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-02-28 20:38+0000\n"
+"Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
+"Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/author/bg/"
+">\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "author.submit"
+msgstr "Нов материал"
+
+msgid "author.competingInterests"
+msgstr ""
+"Конфликт на интереси: <a target=\"_new\" class=\"action\" href=\""
+"{$competingInterestGuidelinesUrl}\">Правила за КИ</a>"
+
+msgid "author.submit.startHereLink"
+msgstr ""
+"<a href=\"{$submitUrl}\" class=\"action\">Щракнете тук</a>, за да преминете "
+"към първа стъпка от процеса на изпращане в пет стъпки."
+
+msgid "author.submit.start"
+msgstr "Старт"
+
+msgid "author.submit.upload"
+msgstr "Качване на материал"
+
+msgid "author.submit.metadata"
+msgstr "Въвеждане на метаданни"
+
+msgid "author.submit.nextSteps"
+msgstr "Следващи стъпки"
+
+msgid "author.submit.notAccepting"
+msgstr "Този сървър не приема нови материали в момента."
+
+msgid "author.submit.serverSection"
+msgstr "Раздел от сървъра"
+
+msgid "author.submit.serverSectionDescription"
+msgstr "Материалите трябва да бъдат изпратени в един от разделите на сървъра."
+
+msgid "submission.submit.coverNote"
+msgstr "Коментари за модератора"
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"Английски=en; Френски=fr; Испански=es. <a href=\"https://www.loc.gov/"
+"standards/iso639-2/php/code_list.php\" target=\"_blank\">Допълнителни "
+"кодове</a>."
+
+msgid "author.submit.form.abstractRequired"
+msgstr "Моля, въведете резюмето на вашия материал."

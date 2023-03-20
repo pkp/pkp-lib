@@ -794,7 +794,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      *
      * @param Context $context
      *
-     * @return CrossRefSettingsForm
+     * @return CrossrefSettingsForm
      */
     public function _instantiateSettingsForm($context)
     {

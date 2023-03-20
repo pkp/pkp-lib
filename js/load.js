@@ -17,10 +17,13 @@ import VueScrollTo from 'vue-scrollto';
 
 // Global components of UI Library
 import Badge from '@/components/Badge/Badge.vue';
+import Dropdown from '@/components/Dropdown/Dropdown.vue';
 import Icon from '@/components/Icon/Icon.vue';
+import Notification from '@/components/Notification/Notification.vue';
 import Panel from '@/components/Panel/Panel.vue';
 import PanelSection from '@/components/Panel/PanelSection.vue';
 import PkpButton from '@/components/Button/Button.vue';
+import PkpHeader from '@/components/Header/Header.vue';
 import Spinner from '@/components/Spinner/Spinner.vue';
 import Step from '@/components/Steps/Step.vue';
 import Steps from '@/components/Steps/Steps.vue';
@@ -40,10 +43,13 @@ Vue.mixin(GlobalMixins);
 
 // Register global components
 Vue.component('Badge', Badge);
+Vue.component('Dropdown', Dropdown);
 Vue.component('Icon', Icon);
+Vue.component('Notification', Notification);
 Vue.component('Panel', Panel);
 Vue.component('PanelSection', PanelSection);
 Vue.component('PkpButton', PkpButton);
+Vue.component('PkpHeader', PkpHeader);
 Vue.component('Spinner', Spinner);
 Vue.component('Step', Step);
 Vue.component('Steps', Steps);

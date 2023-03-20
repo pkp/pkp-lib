@@ -122,19 +122,6 @@ class XSLTransformationFilter extends PersistableFilter
         $this->setData('resultType', $resultType);
     }
 
-
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @see PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.classes.xslt.XSLTransformationFilter';
-    }
-
-
     //
     // Implement template methods from Filter
     //

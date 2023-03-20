@@ -30,19 +30,6 @@ class RepresentationNativeXmlFilter extends NativeExportFilter
         parent::__construct($filterGroup);
     }
 
-
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return self::class;
-    }
-
-
     //
     // Implement template methods from Filter
     //

@@ -62,18 +62,6 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         return 'submission_file';
     }
 
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.plugins.importexport.native.filter.NativeXmlSubmissionFileFilter';
-    }
-
-
     /**
      * Handle a submission file element
      *

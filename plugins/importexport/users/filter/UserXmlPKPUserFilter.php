@@ -54,17 +54,6 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
         return 'PKPUsers';
     }
 
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return (string) self::class;
-    }
-
     /**
      * Handle a user_groups element
      *

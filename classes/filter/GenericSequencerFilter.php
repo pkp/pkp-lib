@@ -20,18 +20,6 @@ namespace PKP\filter;
 class GenericSequencerFilter extends CompositeFilter
 {
     //
-    // Implementing abstract template methods from PersistableFilter
-    //
-    /**
-     * @see PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.classes.filter.GenericSequencerFilter';
-    }
-
-
-    //
     // Implementing abstract template methods from Filter
     //
     /**

@@ -30,17 +30,6 @@ class PersistableTestFilter extends PersistableFilter
         $this->addSetting(new FilterSetting('some-key', null, null));
         parent::__construct($filterGroup);
     }
-
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.tests.classes.filter.PersistableTestFilter';
-    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -34,19 +34,6 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         parent::__construct($filterGroup);
     }
 
-
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.plugins.importexport.native.filter.NativeXmlPKPPublicationFilter';
-    }
-
-
     //
     // Implement template methods from NativeImportFilter
     //

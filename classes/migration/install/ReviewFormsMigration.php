@@ -39,6 +39,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         if (!Schema::hasTable('review_form_settings')) {
             Schema::create('review_form_settings', function (Blueprint $table) {
                 $table->comment('More data about review forms, including localized content such as names.');
+                $table->bigIncrements('review_form_setting_id');
                 $table->bigInteger('review_form_id');
                 $table->foreign('review_form_id', 'review_form_settings_review_form_id')->references('review_form_id')->on('review_forms')->onDelete('cascade');
                 $table->index(['review_form_id'], 'review_form_settings_review_form_id');
@@ -73,6 +74,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
         if (!Schema::hasTable('review_form_element_settings')) {
             Schema::create('review_form_element_settings', function (Blueprint $table) {
                 $table->comment('More data about review form elements, including localized content such as question text.');
+                $table->bigIncrements('review_form_element_setting_id');
                 $table->bigInteger('review_form_element_id');
                 $table->foreign('review_form_element_id', 'review_form_element_settings_review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
                 $table->index(['review_form_element_id'], 'review_form_element_settings_review_form_element_id');

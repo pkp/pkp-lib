@@ -38,6 +38,7 @@ class TombstoneMigration extends \PKP\migration\Migration
         // Data object tombstone settings.
         Schema::create('data_object_tombstone_settings', function (Blueprint $table) {
             $table->comment('More data about data object tombstones, including localized content.');
+            $table->bigIncrements('tombstone_setting_id');
             $table->bigInteger('tombstone_id');
             $table->foreign('tombstone_id', 'data_object_tombstone_settings_tombstone_id')->references('tombstone_id')->on('data_object_tombstones')->onDelete('cascade');
             $table->index(['tombstone_id'], 'data_object_tombstone_settings_tombstone_id');

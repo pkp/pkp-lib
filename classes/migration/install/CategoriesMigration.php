@@ -49,6 +49,7 @@ class CategoriesMigration extends \PKP\migration\Migration
         // Category-specific settings
         Schema::create('category_settings', function (Blueprint $table) {
             $table->comment('More data about categories, including localized properties such as names.');
+            $table->bigIncrements('category_setting_id');
             $table->bigInteger('category_id');
             $table->foreign('category_id')->references('category_id')->on('categories')->onDelete('cascade');
             $table->index(['category_id'], 'category_settings_category_id');
@@ -63,6 +64,7 @@ class CategoriesMigration extends \PKP\migration\Migration
         // Associations for categories and publications.
         Schema::create('publication_categories', function (Blueprint $table) {
             $table->comment('Associates publications (and thus submissions) with categories.');
+            $table->bigIncrements('publication_category_id');
             $table->bigInteger('publication_id');
             $table->foreign('publication_id')->references('publication_id')->on('publications')->onDelete('cascade');
             $table->index(['publication_id'], 'publication_categories_publication_id');

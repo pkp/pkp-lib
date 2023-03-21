@@ -103,6 +103,7 @@ class ReviewsMigration extends \PKP\migration\Migration
         if (!Schema::hasTable('review_form_responses')) {
             Schema::create('review_form_responses', function (Blueprint $table) {
                 $table->comment('Each review form response records a reviewer\'s answer to a review form element associated with a peer review.');
+                $table->bigIncrements('review_form_response_id');
                 $table->bigInteger('review_form_element_id');
                 $table->foreign('review_form_element_id')->references('review_form_element_id')->on('review_form_elements')->onDelete('cascade');
                 $table->index(['review_form_element_id'], 'review_form_responses_review_form_element_id');
@@ -121,6 +122,7 @@ class ReviewsMigration extends \PKP\migration\Migration
         // Submission Files for each review round
         Schema::create('review_round_files', function (Blueprint $table) {
             $table->comment('Records the files made available to reviewers for a round of reviews. These can be further customized on a per review basis with review_files.');
+            $table->bigIncrements('review_round_file_id');
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'review_round_files_submission_id');
@@ -141,6 +143,7 @@ class ReviewsMigration extends \PKP\migration\Migration
         // Associates reviewable submission files with reviews
         Schema::create('review_files', function (Blueprint $table) {
             $table->comment('A list of the submission files made available to each assigned reviewer.');
+            $table->bigIncrements('review_file_id');
             $table->bigInteger('review_id');
             $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
             $table->index(['review_id'], 'review_files_review_id');

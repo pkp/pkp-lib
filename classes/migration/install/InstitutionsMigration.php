@@ -39,6 +39,7 @@ class InstitutionsMigration extends \PKP\migration\Migration
 
         Schema::create('institution_settings', function (Blueprint $table) {
             $table->comment('More data about institutions, including localized properties like names.');
+            $table->bigIncrements('institution_setting_id');
             $table->bigInteger('institution_id');
             $table->foreign('institution_id')->references('institution_id')->on('institutions')->onDelete('cascade');
             $table->index(['institution_id'], 'institution_settings_institution_id');

@@ -61,6 +61,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // Submission metadata
         Schema::create('submission_settings', function (Blueprint $table) {
             $table->comment('Localized data about submissions');
+            $table->bigIncrements('submission_setting_id');
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'submission_settings_submission_id');
@@ -75,6 +76,8 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // publication metadata
         Schema::create('publication_settings', function (Blueprint $table) {
             $table->comment('More data about publications, including localized properties such as the title and abstract.');
+            $table->bigIncrements('publication_setting_id');
+
             // The foreign key relationship on this table is defined with the publications table.
             $table->bigInteger('publication_id');
 
@@ -112,6 +115,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // Language dependent author metadata.
         Schema::create('author_settings', function (Blueprint $table) {
             $table->comment('More data about authors, including localized properties such as their name and affiliation.');
+            $table->bigIncrements('author_setting_id');
             $table->bigInteger('author_id');
             $table->foreign('author_id', 'author_settings_author_id')->references('author_id')->on('authors')->onDelete('cascade');
             $table->index(['author_id'], 'author_settings_author_id');
@@ -173,6 +177,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // Assignments of sub editors to submission groups.
         Schema::create('subeditor_submission_group', function (Blueprint $table) {
             $table->comment('Subeditor assignments to e.g. sections and categories');
+            $table->bigIncrements('subeditor_submission_group_id');
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'section_editors_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
@@ -210,6 +215,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // queries posted on submission workflow
         Schema::create('query_participants', function (Blueprint $table) {
             $table->comment('The users assigned to a discussion.');
+            $table->bigIncrements('query_participant_id');
             $table->bigInteger('query_id');
             $table->foreign('query_id')->references('query_id')->on('queries')->onDelete('cascade');
             $table->index(['query_id'], 'query_participants_query_id');
@@ -245,6 +251,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
         // Keyword occurrences for each indexed object.
         Schema::create('submission_search_object_keywords', function (Blueprint $table) {
             $table->comment('Relationships between search objects and keywords in the search index');
+            $table->bigIncrements('submission_search_object_keyword_id');
             $table->bigInteger('object_id');
             $table->foreign('object_id')->references('object_id')->on('submission_search_objects')->onDelete('cascade');
             $table->index(['object_id'], 'submission_search_object_keywords_object_id');

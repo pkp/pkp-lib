@@ -39,6 +39,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 
         Schema::create('user_group_settings', function (Blueprint $table) {
             $table->comment('More data about user groups, including localized properties such as the name.');
+            $table->bigIncrements('user_group_setting_id');
             $table->bigInteger('user_group_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);
@@ -51,6 +52,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 
         Schema::create('user_user_groups', function (Blueprint $table) {
             $table->comment('Maps users to their assigned user_groups.');
+            $table->bigIncrements('user_user_group_id');
             $table->bigInteger('user_group_id');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
             $table->index(['user_group_id'], 'user_user_groups_user_group_id');
@@ -64,6 +66,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
 
         Schema::create('user_group_stage', function (Blueprint $table) {
             $table->comment('Which stages of the editorial workflow the user_groups can access.');
+            $table->bigIncrements('user_group_stage_id');
             $table->bigInteger('context_id');
             $contextDao = \APP\core\Application::getContextDAO();
             $table->foreign('context_id', 'user_group_stage_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');

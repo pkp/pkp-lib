@@ -41,6 +41,7 @@ class MetadataMigration extends \PKP\migration\Migration
         // Citation settings
         Schema::create('citation_settings', function (Blueprint $table) {
             $table->comment('Additional data about citations, including localized content.');
+            $table->bigIncrements('citation_setting_id');
             $table->bigInteger('citation_id');
             $table->foreign('citation_id', 'citation_settings_citation_id')->references('citation_id')->on('citations')->onDelete('cascade');
             $table->index(['citation_id'], 'citation_settings_citation_id');
@@ -85,6 +86,7 @@ class MetadataMigration extends \PKP\migration\Migration
         // Filter Settings
         Schema::create('filter_settings', function (Blueprint $table) {
             $table->comment('More data about filters, including localized content.');
+            $table->bigIncrements('filter_setting_id');
             $table->bigInteger('filter_id');
             $table->foreign('filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
             $table->index(['filter_id'], 'filter_settings_id');

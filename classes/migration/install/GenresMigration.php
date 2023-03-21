@@ -48,6 +48,7 @@ class GenresMigration extends \PKP\migration\Migration
         // Genre settings
         Schema::create('genre_settings', function (Blueprint $table) {
             $table->comment('More data about file genres, including localized properties such as the genre name.');
+            $table->bigIncrements('genre_setting_id');
             $table->bigInteger('genre_id');
             $table->foreign('genre_id')->references('genre_id')->on('genres')->onDelete('cascade');
             $table->index(['genre_id'], 'genre_settings_genre_id');

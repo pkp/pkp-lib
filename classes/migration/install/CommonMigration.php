@@ -26,6 +26,7 @@ class CommonMigration extends \PKP\migration\Migration
     {
         Schema::create('versions', function (Blueprint $table) {
             $table->comment('Describes the installation and upgrade version history for the application and all installed plugins.');
+            $table->bigIncrements('version_id');
             $table->integer('major')->default(0)->comment('Major component of version number, e.g. the 2 in OJS 2.3.8-0');
             $table->integer('minor')->default(0)->comment('Minor component of version number, e.g. the 3 in OJS 2.3.8-0');
             $table->integer('revision')->default(0)->comment('Revision component of version number, e.g. the 8 in OJS 2.3.8-0');
@@ -43,6 +44,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Common site settings.
         Schema::create('site', function (Blueprint $table) {
             $table->comment('A singleton table describing basic information about the site.');
+            $table->bigIncrements('site_id');
             $table->bigInteger('redirect')->default(0)->comment('If not 0, redirect to the specified journal/conference/... site.');
             $table->string('primary_locale', 14)->comment('Primary locale for the site.');
             $table->smallInteger('min_password_length')->default(6);
@@ -54,6 +56,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Site settings.
         Schema::create('site_settings', function (Blueprint $table) {
             $table->comment('More data about the site, including localized properties such as its name.');
+            $table->bigIncrements('site_setting_id');
             $table->string('setting_name', 255);
             $table->string('locale', 14)->default('');
             $table->mediumText('setting_value')->nullable();
@@ -100,6 +103,8 @@ class CommonMigration extends \PKP\migration\Migration
 
         Schema::create('user_settings', function (Blueprint $table) {
             $table->comment('More data about users, including localized properties like their name and affiliation.');
+            $table->bigIncrements('user_setting_id');
+
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_settings_user_id');
@@ -174,6 +179,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Stores metadata for specific notifications
         Schema::create('notification_settings', function (Blueprint $table) {
             $table->comment('More data about notifications, including localized properties.');
+            $table->bigIncrements('notification_setting_id');
             $table->bigInteger('notification_id');
             $table->foreign('notification_id')->references('notification_id')->on('notifications')->onDelete('cascade');
             $table->index(['notification_id'], 'notification_settings_notification_id');
@@ -205,6 +211,7 @@ class CommonMigration extends \PKP\migration\Migration
 
         Schema::create('email_templates_default_data', function (Blueprint $table) {
             $table->comment('Default email templates created for every installed locale.');
+            $table->bigIncrements('email_templates_default_data_id');
             $table->string('email_key', 255)->comment('Unique identifier for this email.');
             $table->string('locale', 14)->default('en');
             $table->string('name', 255);
@@ -231,6 +238,7 @@ class CommonMigration extends \PKP\migration\Migration
 
         Schema::create('email_templates_settings', function (Blueprint $table) {
             $table->comment('More data about custom email templates, including localized properties such as the subject and body.');
+            $table->bigIncrements('email_template_setting_id');
             $table->bigInteger('email_id');
             $table->foreign('email_id', 'email_templates_settings_email_id')->references('email_id')->on('email_templates')->onDelete('cascade');
             $table->index(['email_id'], 'email_templates_settings_email_id');
@@ -245,6 +253,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Resumption tokens for the OAI protocol interface.
         Schema::create('oai_resumption_tokens', function (Blueprint $table) {
             $table->comment('OAI resumption tokens are used to allow for pagination of large result sets into manageable pieces.');
+            $table->bigIncrements('oai_resumption_token_id');
             $table->string('token', 32);
             $table->bigInteger('expire');
             $table->integer('record_offset');
@@ -255,6 +264,7 @@ class CommonMigration extends \PKP\migration\Migration
         // Plugin settings.
         Schema::create('plugin_settings', function (Blueprint $table) {
             $table->comment('More data about plugins, including localized properties. This table is frequently used to store plugin-specific configuration.');
+            $table->bigIncrements('plugin_setting_id');
             $table->string('plugin_name', 80);
             $table->bigInteger('context_id');
             $table->string('setting_name', 80);

@@ -43,6 +43,7 @@ class LogMigration extends \PKP\migration\Migration
 
         Schema::create('event_log_settings', function (Blueprint $table) {
             $table->comment('Data about an event log entry. This data is commonly used to display information about an event to a user.');
+            $table->bigIncrements('event_log_setting_id');
             $table->bigInteger('log_id');
             $table->foreign('log_id', 'event_log_settings_log_id')->references('log_id')->on('event_log')->onDelete('cascade');
             $table->index(['log_id'], 'event_log_settings_log_id');
@@ -80,6 +81,9 @@ class LogMigration extends \PKP\migration\Migration
 
         // Associations for email logs within a user.
         Schema::create('email_log_users', function (Blueprint $table) {
+            $table->comment('A record of users associated with an email log entry.');
+            $table->bigIncrements('email_log_user_id');
+
             $table->bigInteger('email_log_id');
             $table->foreign('email_log_id')->references('log_id')->on('email_log')->onDelete('cascade');
             $table->index(['email_log_id'], 'email_log_users_email_log_id');

@@ -43,6 +43,7 @@ class DoiMigration extends Migration
         // Settings
         Schema::create('doi_settings', function (Blueprint $table) {
             $table->comment('More data about DOIs, including the registration agency.');
+            $table->bigIncrements('doi_setting_id');
             $table->bigInteger('doi_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

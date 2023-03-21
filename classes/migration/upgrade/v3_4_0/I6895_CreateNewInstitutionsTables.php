@@ -42,6 +42,7 @@ class I6895_CreateNewInstitutionsTables extends Migration
 
         // Locale-specific institution data
         Schema::create('institution_settings', function (Blueprint $table) {
+            $table->bigIncrements('institution_setting_id');
             $table->bigInteger('institution_id');
             $table->string('locale', 14)->default('');
             $table->string('setting_name', 255);

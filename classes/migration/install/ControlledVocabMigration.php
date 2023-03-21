@@ -49,6 +49,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
         // Controlled vocabulary entry settings
         Schema::create('controlled_vocab_entry_settings', function (Blueprint $table) {
             $table->comment('More data about a controlled vocabulary entry, including localized properties such as the actual word or phrase.');
+            $table->bigIncrements('controlled_vocab_entry_setting_id');
             $table->bigInteger('controlled_vocab_entry_id');
             $table->foreign('controlled_vocab_entry_id', 'c_v_e_s_entry_id')->references('controlled_vocab_entry_id')->on('controlled_vocab_entries')->onDelete('cascade');
             $table->index(['controlled_vocab_entry_id'], 'c_v_e_s_entry_id');
@@ -63,6 +64,7 @@ class ControlledVocabMigration extends \PKP\migration\Migration
         // Reviewer Interests Associative Table
         Schema::create('user_interests', function (Blueprint $table) {
             $table->comment('Associates users with user interests (which are stored in the controlled vocabulary tables).');
+            $table->bigIncrements('user_interest_id');
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_interests_user_id');

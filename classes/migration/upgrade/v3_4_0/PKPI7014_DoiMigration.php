@@ -30,6 +30,7 @@ abstract class PKPI7014_DoiMigration extends Migration
 
         // Settings
         Schema::create('doi_settings', function (Blueprint $table) {
+            $table->bigIncrements('doi_setting_id');
             $table->bigInteger('doi_id');
             $table->foreign('doi_id')->references('doi_id')->on('dois')->cascadeOnDelete();
             $table->index(['doi_id'], 'doi_settings_doi_id');

@@ -44,6 +44,7 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         // Locale-specific navigation menu item data
         Schema::create('navigation_menu_item_settings', function (Blueprint $table) {
             $table->comment('More data about navigation menu items, including localized content such as names.');
+            $table->bigIncrements('navigation_menu_item_setting_id');
             $table->bigInteger('navigation_menu_item_id');
             $table->foreign('navigation_menu_item_id', 'navigation_menu_item_settings_navigation_menu_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
             $table->index(['navigation_menu_item_id'], 'navigation_menu_item_settings_navigation_menu_item_id');
@@ -76,6 +77,7 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         // Locale-specific navigation menu item assignments data
         Schema::create('navigation_menu_item_assignment_settings', function (Blueprint $table) {
             $table->comment('More data about navigation menu item assignments to navigation menus, including localized content.');
+            $table->bigIncrements('navigation_menu_item_assignment_setting_id');
             $table->bigInteger('navigation_menu_item_assignment_id');
             $table->foreign('navigation_menu_item_assignment_id', 'assignment_settings_navigation_menu_item_assignment_id')->references('navigation_menu_item_assignment_id')->on('navigation_menu_item_assignments')->onDelete('cascade');
             $table->index(['navigation_menu_item_assignment_id'], 'navigation_menu_item_assignment_settings_n_m_i_a_id');

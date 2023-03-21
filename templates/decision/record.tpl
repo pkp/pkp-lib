@@ -100,6 +100,7 @@
 								deselect-label="{translate|escape key="common.deselect"}"
 								:email-templates="step.emailTemplates"
 								:email-templates-api-url="emailTemplatesApiUrl"
+								:errors="step.errors"
 								find-template-label="{translate|escape key="common.findTemplate"}"
 								:id="step.id"
 								:initial-template-key="step.initialTemplateKey"

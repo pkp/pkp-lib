@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Display the page to view the editorial team.
+ * @brief Display the edit link.
  *
  * @uses $page string Page to pass to the url constructor
  * @uses $op string Op to pass to the url constructor

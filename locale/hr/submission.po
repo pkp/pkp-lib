@@ -87,12 +87,12 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Prošireni metapodaci"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef e-adresa za registraciju"
+msgstr "Crossref e-adresa za registraciju"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Unesite valjanu e-adresu za registraciju CrossRef-a. Svoju e-poštu možete "
-"besplatno registrirati na web mjestu CrossRef."
+"Unesite valjanu e-adresu za registraciju Crossref-a. Svoju e-poštu možete "
+"besplatno registrirati na web mjestu Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API Ključ"

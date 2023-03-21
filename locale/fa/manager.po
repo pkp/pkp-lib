@@ -3303,7 +3303,7 @@ msgstr ""
 #~ "به  <a href=\"http://isbndb.com/api/v1/docs/keys\" target=\"_blank"
 #~ "\">مستندات این پایگاه داده</a>  مراجعه کنید</p>"
 
-#~ msgid "manager.setup.filter.lookup.grid.description.crossRef"
+#~ msgid "manager.setup.filter.lookup.grid.description.crossref"
 #~ msgstr ""
 #~ "<p>  این فیلتر به پایگاه داده ارجاع Crossref (با استفاده از   <a href="
 #~ "\"http://www.crossref.org/02publishers/openurl_info.html\" target=\"_blank"

@@ -3592,7 +3592,7 @@ msgstr ""
 #~ "információért látogasson el az <a href=\"http://isbndb.com/api/v1/docs/"
 #~ "keys\" target=\"_blank\">online dokumentációhoz</a>.</p>"
 
-#~ msgid "manager.setup.filter.lookup.grid.description.crossRef"
+#~ msgid "manager.setup.filter.lookup.grid.description.crossref"
 #~ msgstr ""
 #~ "<p>Ez a kapcsolat a Crossref idézettség adatbázisból használja a Crossref "
 #~ "<a href=\"http://www.crossref.org/02publishers/openurl_info.html\" target="

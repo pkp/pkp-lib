@@ -42,6 +42,7 @@ class DAO extends EntityDAO
         'contextId' => 'context_id',
         'sequence' => 'seq',
         'path' => 'path',
+        'image' => 'image',
     ];
 
     /**

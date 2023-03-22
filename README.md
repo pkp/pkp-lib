@@ -1,35 +1,31 @@
 # Open Preprint Systems
 
-> Open Preprint Systems (OPS) has been developed by the Public Knowledge Project. For general information about OPS and other open research systems, visit the [PKP web site][pkp].
-
 [![Build Status](https://app.travis-ci.com/pkp/ops.svg?branch=main)](https://app.travis-ci.com/pkp/ops)
 
-## Using Git development source
+Open Preprint Systems (OPS) is open source software developed by the [Public Knowledge Project](https://pkp.sfu.ca/) to manage a preprint server. [Learn More](https://pkp.sfu.ca/software/ops/)
 
-Checkout submodules and copy default configuration :
+## Usage
 
-    git submodule update --init --recursive
-    cp config.TEMPLATE.inc.php config.inc.php
+Read one of these guides to get started using OPS:
 
-Install or update dependencies via Composer (https://getcomposer.org/):
+- Read the [Admin Guide](https://docs.pkp.sfu.ca/admin-guide/) to learn how to install and configure the application from an official release package. Use this guide to deploy to production.
+- Read the [Getting Started](https://docs.pkp.sfu.ca/dev/documentation/en/getting-started) guide to learn how to install the application from this source repository. Use this guide for local development.
 
-    composer --working-dir=lib/pkp install
-    composer --working-dir=plugins/generic/citationStyleLanguage install
+Visit our [Documentation Hub](https://docs.pkp.sfu.ca/) for user guides, tutorials, and technical documentation.
 
-Install or update dependencies via [NPM](https://www.npmjs.com/):
+## Bugs / Feature Requests
 
-    # install [nodejs](https://nodejs.org/en/) if you don't already have it
-    npm install
-    npm run build
+> ⚠️ If you have found a security risk or vulnerability, please read our [security policy](SECURITY.md).
 
-If your PHP version supports built-in development server :
-
-    php -S localhost:8000
-
-See the [Documentation Hub][doc-hub] for a more complete development guide.
+All issues should be filed at the [pkp/pkp-lib](https://github.com/pkp/pkp-lib/issues/) repository. Feature requests can be made at our [Community Forum](https://forum.pkp.sfu.ca/). Learn more about how to [report a problem](https://docs.pkp.sfu.ca/dev/contributors/#report-a-problem).
 
 ## Community Code of Conduct
-This repository is one of PKP's community spaces and all activities here are guided by [PKP's Code of Conduct](https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.
+
+This repository is a PKP community space. All activities here are governed by [PKP's Code of Conduct](https://pkp.sfu.ca/code-of-conduct/). Please review the Code and help us create a welcoming environment for all participants.
+
+## Contributions
+
+Read the [Contributor's Guide](https://docs.pkp.sfu.ca/dev/contributors/) to learn how to make a pull request. This document describes our code formatting guidelines as well as information about how we organize stable branches and submodules.
 
 ## License
 
@@ -41,9 +37,3 @@ of this license.
 Third parties are welcome to modify and redistribute OPS in entirety or parts
 according to the terms of this license. PKP also welcomes patches for
 improvements or bug fixes to the software.
-
-[pkp]: https://pkp.sfu.ca/
-[readme]: docs/README.md
-[doc-hub]: https://docs.pkp.sfu.ca/
-[php-unit]: https://phpunit.de/
-[gpl-licence]: docs/COPYING

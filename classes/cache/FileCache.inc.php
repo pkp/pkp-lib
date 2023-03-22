@@ -40,13 +40,23 @@ class FileCache extends GenericCache {
 
 		$this->filename = $path . DIRECTORY_SEPARATOR . "fc-$context-" . str_replace('/', '.', $cacheId) . '.php';
 
-		// Load the cache data if it exists.
-		if (($fp = @fopen($this->filename, 'r')) !== false) {
-			flock($fp, LOCK_SH);
-			$this->cache = include($this->filename);
-			flock($fp, LOCK_UN);
-		} else {
+		// If the file couldn't be opened or if a lock couldn't be acquired, quit
+		if (!($fp = @fopen($this->filename, 'r')) || !flock($fp, LOCK_SH)) {
+			return $this->cache = null;
+		}
+
+		// Reasoning: When the include below fails, it returns "false" and we have no way to determine if it's an error or a valid cache value
+		$previousHandler = set_error_handler(function () {
+			throw new Exception('Failed to include file');
+		});
+		try {
+			$this->cache = include $this->filename;
+		} catch (Exception) {
 			$this->cache = null;
+		} finally {
+			set_error_handler($previousHandler);
+			flock($fp, LOCK_UN);
+			fclose($fp);
 		}
 	}
 
@@ -84,7 +94,7 @@ class FileCache extends GenericCache {
 	 * Set the entire contents of the cache.
 	 */
 	function setEntireCache($contents) {
-		if (file_put_contents(
+		if (@file_put_contents(
 			$this->filename,
 			'<?php return ' . var_export($contents, true) . ';',
 			LOCK_EX

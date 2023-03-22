@@ -109,7 +109,7 @@ class I7014_DoiMigration extends PKPI7014_DoiMigration
                         if (in_array($item->setting_value, ['found', 'registered', 'markedRegistered'])) {
                             $status = Doi::STATUS_REGISTERED;
                             if ($item->setting_value === 'registered') {
-                                $registrationAgency = 'CrossRefExportPlugin';
+                                $registrationAgency = 'CrossrefExportPlugin';
                             }
                         }
                         $doisBySubmission[$item->submission_id]['status'] = $status;

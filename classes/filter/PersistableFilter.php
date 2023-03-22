@@ -204,23 +204,15 @@ class PersistableFilter extends Filter
         return (is_array($this->_settings) && count($this->_settings));
     }
 
-    //
-    // Abstract template methods to be implemented by subclasses
-    //
     /**
      * Return the fully qualified class name of the filter class. This
      * information must be persisted when saving a filter so that the
      * filter can later be reconstructed from the information in the
      * database.
-     *
-     * (This must be hard coded by sub-classes for PHP4 compatibility.
-     * PHP4 always returns class names lowercase which we cannot
-     * tolerate as we need this path to find the class on case sensitive
-     * file systems.)
      */
-    public function getClassName()
+    public function getClassName(): string
     {
-        assert(false);
+        return static::class;
     }
 
     //

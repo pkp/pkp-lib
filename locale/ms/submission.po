@@ -85,12 +85,12 @@ msgid "submission.submit.extendedMetadata"
 msgstr "Metadata Lanjutan"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "E-mel Pendaftaran CrossRef"
+msgstr "E-mel Pendaftaran Crossref"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"Sila masukkan e-mel pendaftaran CrossRef yang sah. Anda boleh mendaftarkan e-"
-"mel anda secara percuma di laman web CrossRef."
+"Sila masukkan e-mel pendaftaran Crossref yang sah. Anda boleh mendaftarkan e-"
+"mel anda secara percuma di laman web Crossref."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "Kunci API ISBNdb"

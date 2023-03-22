@@ -83,12 +83,12 @@ msgid "submission.submit.extendedMetadata"
 msgstr "გაფართოებული მეტა-მონაცემები"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef რეგისტრაციის ელფოსტა"
+msgstr "Crossref რეგისტრაციის ელფოსტა"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"გთხოვთ, შეიყვანოთ სწორი CrossRef სარეგისტრაციო ელწერილი. თქვენი ელფოსტის "
-"რეგისტრაცია შეგიძლიათ უფასოდ CrossRef ვებსაიტზე."
+"გთხოვთ, შეიყვანოთ სწორი Crossref სარეგისტრაციო ელწერილი. თქვენი ელფოსტის "
+"რეგისტრაცია შეგიძლიათ უფასოდ Crossref ვებსაიტზე."
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"
 msgstr "ISBNdb API გასაღები"

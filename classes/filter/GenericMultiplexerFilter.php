@@ -53,19 +53,6 @@ class GenericMultiplexerFilter extends CompositeFilter
         return $this->_tolerateFailures;
     }
 
-
-    //
-    // Implementing abstract template methods from PersistentFilter
-    //
-    /**
-     * @see PersistentFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.classes.filter.GenericMultiplexerFilter';
-    }
-
-
     //
     // Implementing abstract template methods from Filter
     //

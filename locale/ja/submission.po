@@ -81,11 +81,11 @@ msgid "submission.submit.extendedMetadata"
 msgstr "拡張メタデータ"
 
 msgid "metadata.filters.crossref.settings.email.displayName"
-msgstr "CrossRef 登録メールアドレス"
+msgstr "Crossref 登録メールアドレス"
 
 msgid "metadata.filters.crossref.settings.email.validationMessage"
 msgstr ""
-"適切なCrossRef登録メールアドレスを入力してください。CrossRefのWebサイトであな"
+"適切なCrossref登録メールアドレスを入力してください。CrossrefのWebサイトであな"
 "たのメールアドレスを無料で登録することができます。"
 
 msgid "metadata.filters.isbndb.settings.apiKey.displayName"

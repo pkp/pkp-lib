@@ -58,18 +58,6 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         return 'author';
     }
 
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return 'lib.pkp.plugins.importexport.native.filter.NativeXmlPKPAuthorFilter';
-    }
-
-
     /**
      * Handle an author element
      *

@@ -55,18 +55,6 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
         return 'user_group';
     }
 
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return (string) self::class;
-    }
-
-
     /**
      * Handle a user_group element
      *
@@ -90,7 +78,7 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             $userGroups = Repo::userGroup()->getCollector()
                 ->filterByContextIds([$context->getId()])
                 ->getMany();
-                
+
             foreach ($userGroups as $testGroup) {
                 if (in_array($content[1], $testGroup->getName(null))) {
                     return $testGroup;  // we found one with the same name.

@@ -32,19 +32,6 @@ class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\N
         parent::__construct($filterGroup);
     }
 
-
-    //
-    // Implement template methods from PersistableFilter
-    //
-    /**
-     * @copydoc PersistableFilter::getClassName()
-     */
-    public function getClassName()
-    {
-        return (string) self::class;
-    }
-
-
     //
     // Implement template methods from Filter
     //

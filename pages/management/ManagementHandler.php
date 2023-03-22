@@ -463,7 +463,6 @@ class ManagementHandler extends Handler
 
         $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
         $notifyUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email');
-        $progressUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email/{queueId}');
 
         $userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
         $isBulkEmailsEnabled = in_array($context->getId(), (array) $request->getSite()->getData('enableBulkEmails'));
@@ -484,7 +483,6 @@ class ManagementHandler extends Handler
                 FORM_USER_ACCESS => $userAccessForm->getConfig(),
                 PKPNotifyUsersForm::FORM_NOTIFY_USERS => $notifyUsersForm ? $notifyUsersForm->getConfig() : null,
             ],
-            'progressUrl' => $progressUrl,
         ]);
 
         $templateMgr->display('management/access.tpl');

@@ -1091,12 +1091,8 @@ msgstr ""
 "You are about to send an email to {$total} users. Are you sure you want to "
 "send this email?"
 
-msgid "manager.setup.notifyUsers.sending"
-msgstr ""
-"Sending the email. Please do not browse away until sending is complete."
-
-msgid "manager.setup.notifyUsers.sent"
-msgstr "Email was successfully sent to all recipients."
+msgid "manager.setup.notifyUsers.queued"
+msgstr "Emails are successfully queued to be sent at the earliest convenience."
 
 msgid "manager.setup.notifyUsers.sendAnother"
 msgstr "Send another email"

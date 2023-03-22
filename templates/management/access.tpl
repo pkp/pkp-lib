@@ -25,19 +25,14 @@
 		</tab>
 		{if $enableBulkEmails}
 		<tab id="notify" label="{translate key="manager.setup.notifyUsers"}">
-			<div v-if="queueId" role="alert">
-				<p v-if="completedJobs < totalJobs">
-					<spinner class="notifyUsers__progress__spinner"></spinner>
-					{translate key="manager.setup.notifyUsers.sending"}
-				</p>
-				<p v-else>
+			<div v-if="totalBulkJobs" role="alert">
+				<p>
 					<icon icon="check" :inline="true"></icon>
-					{translate key="manager.setup.notifyUsers.sent"}
+					{translate key="manager.setup.notifyUsers.queued"}
 					<button class="-linkButton" @click="reload">
 						{translate key="manager.setup.notifyUsers.sendAnother"}
 					</button>
 				</p>
-				<progress-bar :max="totalJobs" :min="0" :value="completedJobs" />
 			</div>
 			<notify-users-form v-else
 				v-bind="components.{$smarty.const.FORM_NOTIFY_USERS}"

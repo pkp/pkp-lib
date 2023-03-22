@@ -39,29 +39,6 @@ class Job extends BaseRepository
             ->count();
     }
 
-    public function getRunningJobCount(string $queue = null): int
-    {
-        $query = $this->model;
-
-        if ($queue) {
-            $query = $query->onQueue($queue);
-        }
-
-        return $query->whereNotNull('reserved_at')->count();
-    }
-
-    public function getPendingJobCount(string $queue = null): int
-    {
-        if (!$queue) {
-            return $this->total();
-        }
-
-        return $this->model
-            ->onQueue($queue)
-            ->nonReserved()
-            ->count();
-    }
-
     public function showJobs(): LengthAwarePaginator
     {
         $currentPage = LengthAwarePaginator::resolveCurrentPage();

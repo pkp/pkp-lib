@@ -16,19 +16,15 @@
 namespace PKP\jobs\bulk;
 
 use APP\facades\Repo;
+use Illuminate\Bus\Batchable;
 use Illuminate\Support\Facades\Mail;
 use PKP\mail\Mailable;
 use PKP\jobs\BaseJob;
 
 class BulkEmailSender extends BaseJob
 {
-    /**
-     * Number of emails to send in each job
-     * 
-     * @var int
-     */
-    public const EMAILS_PER_JOB = 100;
-
+    use Batchable;
+    
     /**
      * The user ids to send email
      */

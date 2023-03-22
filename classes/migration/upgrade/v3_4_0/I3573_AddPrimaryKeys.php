@@ -13,6 +13,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Exception;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -23,6 +24,20 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
      */
     public function up(): void
     {
+        // Rename tablename_pkey unique indexes to tablename_unique to avoid PostgreSQL collision
+        foreach (static::getIndexData() as $tableName => [$oldIndexName, $columns, $newIndexName]) {
+            // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
+            // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
+            try {
+                Schema::table($tableName, fn (Blueprint $table) => $table->dropUnique($oldIndexName));
+            } catch (Exception $e) {
+                Schema::table($tableName, fn (Blueprint $table) => $table->dropIndex($oldIndexName));
+            }
+
+            Schema::table($tableName, fn (Blueprint $table) => $table->unique($columns, $newIndexName));
+        }
+
+        // Add the autoincrement columns
         foreach (static::getKeyNames() as $tableName => $keyName) {
             // If the table does not exist, do not process it.
             if (!Schema::hasTable($tableName)) {
@@ -45,6 +60,7 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
      */
     public function down(): void
     {
+        // Remove the autoincrement columns
         foreach (static::getKeyNames() as $tableName => $keyName) {
             // If the table does not exist, do not process it.
             if (!Schema::hasTable($tableName)) {
@@ -65,6 +81,14 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
                 $table->unsignedInteger($keyName)->change(); // Drop auto increment
                 $table->dropPrimary($keyName);
                 $table->dropColumn($keyName);
+            });
+        }
+
+        // Rename tablename_unique indexes back to tablename_pkey
+        foreach (static::getIndexData() as $tableName => [$oldIndexName, $columns, $newIndexName]) {
+            Schema::table($tableName, function (Blueprint $table) use ($columns, $oldIndexName, $newIndexName) {
+                $table->dropUnique($newIndexName);
+                $table->unique($columns, $oldIndexName);
             });
         }
     }
@@ -116,6 +140,43 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
             'user_settings' => 'user_setting_id',
             'site_settings' => 'site_setting_id',
             'static_page_settings' => 'static_page_setting_id', // PLUGIN
+        ];
+    }
+
+    public static function getIndexData(): array
+    {
+        return [
+            'announcement_type_settings' => ['announcement_type_settings_pkey', ['type_id', 'locale', 'setting_name'], 'announcement_type_settings_unique'],
+            'announcement_settings' => ['announcement_settings_pkey', ['announcement_id', 'locale', 'setting_name'], 'announcement_settings_unique'],
+            'category_settings' => ['category_settings_pkey', ['category_id', 'locale', 'setting_name'], 'category_settings_unique'],
+            'versions' => ['versions_pkey', ['product_type', 'product', 'major', 'minor', 'revision', 'build'], 'versions_unique'],
+            'site_settings' => ['site_settings_pkey', ['setting_name', 'locale'], 'site_settings_unique'],
+            'user_settings' => ['user_settings_pkey', ['user_id', 'locale', 'setting_name'], 'user_settings_unique'],
+            'notification_settings' => ['notification_settings_pkey', ['notification_id', 'locale', 'setting_name'], 'notification_settings_unique'],
+            'email_templates_default_data' => ['email_templates_default_data_pkey', ['email_key', 'locale'], 'email_templates_default_data_unique'],
+            'email_templates_settings' => ['email_settings_pkey', ['email_id', 'locale', 'setting_name'], 'email_templates_settings_unique'],
+            'oai_resumption_tokens' => ['oai_resumption_tokens_pkey', ['token'], 'oai_resumption_tokens_unique'],
+            'plugin_settings' => ['plugin_settings_pkey', ['plugin_name', 'context_id', 'setting_name'], 'plugin_settings_unique'],
+            'genre_settings' => ['genre_settings_pkey', ['genre_id', 'locale', 'setting_name'], 'genre_settings_unique'],
+            'library_file_settings' => ['library_file_settings_pkey', ['file_id', 'locale', 'setting_name'], 'library_file_settings_unique'],
+            'event_log_settings' => ['event_log_settings_pkey', ['log_id', 'setting_name'], 'event_log_settings_unique'],
+            'citation_settings' => ['citation_settings_pkey', ['citation_id', 'locale', 'setting_name'], 'citation_settings_unique'],
+            'filter_settings' => ['filter_settings_pkey', ['filter_id', 'locale', 'setting_name'], 'filter_settings_unique'],
+            'navigation_menu_item_settings' => ['navigation_menu_item_settings_pkey', ['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_unique'],
+            'navigation_menu_item_assignment_settings' => ['navigation_menu_item_assignment_settings_pkey', ['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_unique'],
+            'review_form_settings' => ['review_form_settings_pkey', ['review_form_id', 'locale', 'setting_name'], 'review_form_settings_unique'],
+            'review_form_element_settings' => ['review_form_element_settings_pkey', ['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_unique'],
+            'user_group_settings' => ['user_group_settings_pkey', ['user_group_id', 'locale', 'setting_name'], 'user_group_settings_unique'],
+            'user_user_groups' => ['user_user_groups_pkey', ['user_group_id', 'user_id'], 'user_user_groups_unique'],
+            'user_group_stage' => ['user_group_stage_pkey', ['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_unique'],
+            'submission_file_settings' => ['submission_file_settings_pkey', ['submission_file_id', 'locale', 'setting_name'], 'submission_file_settings_unique'],
+            'submission_settings' => ['submission_settings_pkey', ['submission_id', 'locale', 'setting_name'], 'submission_settings_unique'],
+            'publication_settings' => ['publication_settings_pkey', ['publication_id', 'locale', 'setting_name'], 'publication_settings_unique'],
+            'author_settings' => ['author_settings_pkey', ['author_id', 'locale', 'setting_name'], 'author_settings_unique'],
+            'subeditor_submission_group' => ['section_editors_pkey', ['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_unique'],
+            'query_participants' => ['query_participants_pkey', ['query_id', 'user_id'], 'query_participants_unique'],
+            'submission_search_object_keywords' => ['submission_search_object_keywords_pkey', ['object_id', 'pos'], 'submission_search_object_keywords_unique'],
+            'data_object_tombstone_settings' => ['data_object_tombstone_settings_pkey', ['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_unique'],
         ];
     }
 }

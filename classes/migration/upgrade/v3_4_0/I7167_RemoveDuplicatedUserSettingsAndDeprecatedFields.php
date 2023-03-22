@@ -13,9 +13,7 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Exception;
 use Illuminate\Database\MySqlConnection;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\install\DowngradeNotSupportedException;
@@ -91,29 +89,6 @@ class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields extends Migration
                     AND best.user_id IS NOT NULL"
             );
         }
-
-        // Here we should be free of duplicates, so it's safe to remove the columns without creating duplicated entries.
-        // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
-        // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
-        try {
-            Schema::table('user_settings', fn (Blueprint $table) => $table->dropUnique('user_settings_pkey'));
-        } catch (Exception $e) {
-            $this->_installer->log('Failed to drop unique index "user_settings_pkey" from table "user_settings", another attempt will be done.');
-            try {
-                Schema::table('user_settings', fn (Blueprint $table) => $table->dropIndex('user_settings_pkey'));
-            } catch (Exception $e) {
-                $this->_installer->log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
-            }
-        }
-
-        Schema::table(
-            'user_settings',
-            function (Blueprint $table): void {
-                $table->dropColumn('assoc_id', 'assoc_type');
-                // Restore the primary/unique index, using the previous field order
-                $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
-            }
-        );
     }
 
     /**

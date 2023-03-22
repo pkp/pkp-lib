@@ -49,7 +49,7 @@ class DoiMigration extends Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['doi_id', 'locale', 'setting_name'], 'doi_settings_pkey');
+            $table->unique(['doi_id', 'locale', 'setting_name'], 'doi_settings_unique');
             $table->index(['doi_id'], 'doi_settings_doi_id');
             $table->foreign('doi_id')->references('doi_id')->on('dois')->cascadeOnDelete();
         });

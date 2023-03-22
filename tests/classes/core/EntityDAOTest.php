@@ -46,7 +46,7 @@ class EntityDAOTest extends PKPTestCase
             $table->text('setting_value')->nullable();
             $table->string('setting_type', 6)->nullable();
             $table->index(['test_id'], 'test_entity_settings_test_id');
-            $table->unique(['test_id', 'locale', 'setting_name'], 'test_entity_settings_pkey');
+            $table->unique(['test_id', 'locale', 'setting_name'], 'test_entity_settings_unique');
         });
 
         // Inject a test schema

@@ -47,7 +47,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
 
-            $table->unique(['type_id', 'locale', 'setting_name'], 'announcement_type_settings_pkey');
+            $table->unique(['type_id', 'locale', 'setting_name'], 'announcement_type_settings_unique');
         });
 
         // Announcements.
@@ -80,7 +80,7 @@ class AnnouncementsMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->nullable();
 
-            $table->unique(['announcement_id', 'locale', 'setting_name'], 'announcement_settings_pkey');
+            $table->unique(['announcement_id', 'locale', 'setting_name'], 'announcement_settings_unique');
         });
     }
 

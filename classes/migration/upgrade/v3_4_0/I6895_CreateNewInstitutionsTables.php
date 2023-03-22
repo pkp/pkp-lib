@@ -49,7 +49,7 @@ class I6895_CreateNewInstitutionsTables extends Migration
             $table->mediumText('setting_value')->nullable();
             $table->foreign('institution_id')->references('institution_id')->on('institutions')->onDelete('cascade');
             $table->index(['institution_id'], 'institution_settings_institution_id');
-            $table->unique(['institution_id', 'locale', 'setting_name'], 'institution_settings_pkey');
+            $table->unique(['institution_id', 'locale', 'setting_name'], 'institution_settings_unique');
         });
 
         // Institution IPs and IP ranges.

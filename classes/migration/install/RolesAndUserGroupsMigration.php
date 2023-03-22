@@ -45,7 +45,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['user_group_id', 'locale', 'setting_name'], 'user_group_settings_pkey');
+            $table->unique(['user_group_id', 'locale', 'setting_name'], 'user_group_settings_unique');
             $table->foreign('user_group_id')->references('user_group_id')->on('user_groups')->onDelete('cascade');
             $table->index(['user_group_id'], 'user_group_settings_user_group_id');
         });
@@ -61,7 +61,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->foreign('user_id', 'user_user_groups_user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'user_user_groups_user_id');
 
-            $table->unique(['user_group_id', 'user_id'], 'user_user_groups_pkey');
+            $table->unique(['user_group_id', 'user_id'], 'user_user_groups_unique');
         });
 
         Schema::create('user_group_stage', function (Blueprint $table) {
@@ -79,7 +79,7 @@ class RolesAndUserGroupsMigration extends \PKP\migration\Migration
             $table->bigInteger('stage_id');
             $table->index(['stage_id'], 'user_group_stage_stage_id');
 
-            $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_pkey');
+            $table->unique(['context_id', 'user_group_id', 'stage_id'], 'user_group_stage_unique');
         });
 
         Schema::create('stage_assignments', function (Blueprint $table) {

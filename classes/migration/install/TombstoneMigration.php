@@ -48,7 +48,7 @@ class TombstoneMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
 
-            $table->unique(['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_pkey');
+            $table->unique(['tombstone_id', 'locale', 'setting_name'], 'data_object_tombstone_settings_unique');
         });
 
         // Objects that are part of a data object tombstone OAI set.

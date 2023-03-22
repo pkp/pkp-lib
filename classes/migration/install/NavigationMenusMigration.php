@@ -54,7 +54,7 @@ class NavigationMenusMigration extends \PKP\migration\Migration
             $table->longText('setting_value')->nullable();
             $table->string('setting_type', 6);
 
-            $table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_pkey');
+            $table->unique(['navigation_menu_item_id', 'locale', 'setting_name'], 'navigation_menu_item_settings_unique');
         });
 
         // NavigationMenuItemAssignments which assign menu items to a menu and describe nested menu structure.
@@ -87,7 +87,7 @@ class NavigationMenusMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
 
-            $table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_pkey');
+            $table->unique(['navigation_menu_item_assignment_id', 'locale', 'setting_name'], 'navigation_menu_item_assignment_settings_unique');
         });
     }
 

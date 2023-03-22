@@ -70,7 +70,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['submission_id', 'locale', 'setting_name'], 'submission_settings_pkey');
+            $table->unique(['submission_id', 'locale', 'setting_name'], 'submission_settings_unique');
         });
 
         // publication metadata
@@ -85,7 +85,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_pkey');
+            $table->unique(['publication_id', 'locale', 'setting_name'], 'publication_settings_unique');
         });
         // Add partial index (DBMS-specific)
         switch (DB::getDriverName()) {
@@ -124,7 +124,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_pkey');
+            $table->unique(['author_id', 'locale', 'setting_name'], 'author_settings_unique');
         });
 
         // Editor decisions.
@@ -195,7 +195,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->index(['user_group_id'], 'subeditor_submission_group_user_group_id');
 
             $table->index(['assoc_id', 'assoc_type'], 'subeditor_submission_group_assoc_id');
-            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_unique');
         });
 
         // queries posted on submission workflow
@@ -224,7 +224,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
             $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'query_participants_user_id');
 
-            $table->unique(['query_id', 'user_id'], 'query_participants_pkey');
+            $table->unique(['query_id', 'user_id'], 'query_participants_unique');
         });
 
         // List of all keywords.
@@ -262,7 +262,7 @@ class SubmissionsMigration extends \PKP\migration\Migration
 
             $table->integer('pos')->comment('Word position of the keyword in the object.');
 
-            $table->unique(['object_id', 'pos'], 'submission_search_object_keywords_pkey');
+            $table->unique(['object_id', 'pos'], 'submission_search_object_keywords_unique');
         });
     }
 

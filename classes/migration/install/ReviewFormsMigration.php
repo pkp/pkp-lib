@@ -49,7 +49,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
 
-                $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_pkey');
+                $table->unique(['review_form_id', 'locale', 'setting_name'], 'review_form_settings_unique');
             });
         }
 
@@ -84,7 +84,7 @@ class ReviewFormsMigration extends \PKP\migration\Migration
                 $table->mediumText('setting_value')->nullable();
                 $table->string('setting_type', 6);
 
-                $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_pkey');
+                $table->unique(['review_form_element_id', 'locale', 'setting_name'], 'review_form_element_settings_unique');
             });
         }
     }

@@ -5,8 +5,8 @@ declare(strict_types=1);
 /**
  * @file classes/core/PKPQueueProvider.php
  *
- * Copyright (c) 2014-2021 Simon Fraser University
- * Copyright (c) 2000-2021 John Willinsky
+ * Copyright (c) 2014-2023 Simon Fraser University
+ * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPQueueProvider
@@ -19,6 +19,7 @@ namespace PKP\core;
 
 use APP\core\Application;
 use PKP\core\PKPContainer;
+use PKP\core\PKPQueueDatabaseConnector;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Events\JobFailed;
@@ -27,7 +28,6 @@ use Illuminate\Queue\Worker;
 use Illuminate\Queue\WorkerOptions;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Queue;
-use Illuminate\Support\Facades\Schema;
 use PKP\config\Config;
 use PKP\job\models\Job as PKPJobModel;
 use PKP\queue\JobRunner;
@@ -158,6 +158,19 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
         parent::register();
 
         $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
+    }
+
+    /**
+     * Register the database queue connector.
+     *
+     * @param  \Illuminate\Queue\QueueManager  $manager
+     * @return void
+     */
+    protected function registerDatabaseConnector($manager)
+    {
+        $manager->addConnector('database', function () {
+            return new PKPQueueDatabaseConnector($this->app['db']);
+        });
     }
 
     /**

@@ -58,7 +58,7 @@ class CategoriesMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['category_id', 'locale', 'setting_name'], 'category_settings_pkey');
+            $table->unique(['category_id', 'locale', 'setting_name'], 'category_settings_unique');
         });
 
         // Associations for categories and publications.

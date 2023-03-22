@@ -38,7 +38,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('product_class_name', 80)->comment('Specifies the class name associated with this product, for plugins, or the empty string where not applicable.')->nullable();
             $table->smallInteger('lazy_load')->default(0)->comment('1 iff the row describes a lazy-load plugin; 0 otherwise');
             $table->smallInteger('sitewide')->default(0)->comment('1 iff the row describes a site-wide plugin; 0 otherwise');
-            $table->unique(['product_type', 'product', 'major', 'minor', 'revision', 'build'], 'versions_pkey');
+            $table->unique(['product_type', 'product', 'major', 'minor', 'revision', 'build'], 'versions_unique');
         });
 
         // Common site settings.
@@ -60,7 +60,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->string('locale', 14)->default('');
             $table->mediumText('setting_value')->nullable();
-            $table->unique(['setting_name', 'locale'], 'site_settings_pkey');
+            $table->unique(['setting_name', 'locale'], 'site_settings_unique');
         });
 
         Schema::create('users', function (Blueprint $table) {
@@ -113,7 +113,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_pkey');
+            $table->unique(['user_id', 'locale', 'setting_name'], 'user_settings_unique');
             $table->index(['setting_name', 'locale'], 'user_settings_locale_setting_name_index');
         });
 
@@ -188,7 +188,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_name', 64);
             $table->mediumText('setting_value');
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
-            $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_pkey');
+            $table->unique(['notification_id', 'locale', 'setting_name'], 'notification_settings_unique');
         });
 
         Schema::create('notification_subscription_settings', function (Blueprint $table) {
@@ -217,7 +217,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('name', 255);
             $table->string('subject', 255);
             $table->text('body')->nullable();
-            $table->unique(['email_key', 'locale'], 'email_templates_default_data_pkey');
+            $table->unique(['email_key', 'locale'], 'email_templates_default_data_unique');
         });
 
         Schema::create('email_templates', function (Blueprint $table) {
@@ -247,7 +247,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['email_id', 'locale', 'setting_name'], 'email_settings_pkey');
+            $table->unique(['email_id', 'locale', 'setting_name'], 'email_templates_settings_unique');
         });
 
         // Resumption tokens for the OAI protocol interface.
@@ -258,7 +258,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->bigInteger('expire');
             $table->integer('record_offset');
             $table->text('params')->nullable();
-            $table->unique(['token'], 'oai_resumption_tokens_pkey');
+            $table->unique(['token'], 'oai_resumption_tokens_unique');
         });
 
         // Plugin settings.
@@ -271,7 +271,7 @@ class CommonMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');
             $table->index(['plugin_name'], 'plugin_settings_plugin_name');
-            $table->unique(['plugin_name', 'context_id', 'setting_name'], 'plugin_settings_pkey');
+            $table->unique(['plugin_name', 'context_id', 'setting_name'], 'plugin_settings_unique');
         });
     }
 

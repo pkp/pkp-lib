@@ -48,7 +48,7 @@ class InstitutionsMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->mediumText('setting_value')->nullable();
 
-            $table->unique(['institution_id', 'locale', 'setting_name'], 'institution_settings_pkey');
+            $table->unique(['institution_id', 'locale', 'setting_name'], 'institution_settings_unique');
         });
 
         // Institution IPs and IP ranges.

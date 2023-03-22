@@ -61,7 +61,7 @@ class LibraryFilesMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object|date)');
 
-            $table->unique(['file_id', 'locale', 'setting_name'], 'library_file_settings_pkey');
+            $table->unique(['file_id', 'locale', 'setting_name'], 'library_file_settings_unique');
         });
     }
 

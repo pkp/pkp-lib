@@ -51,7 +51,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
 
-            $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_pkey');
+            $table->unique(['citation_id', 'locale', 'setting_name'], 'citation_settings_unique');
         });
 
         // Filter groups
@@ -96,7 +96,7 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6);
 
-            $table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_pkey');
+            $table->unique(['filter_id', 'locale', 'setting_name'], 'filter_settings_unique');
         });
     }
 

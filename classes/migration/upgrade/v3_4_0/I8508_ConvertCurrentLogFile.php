@@ -20,6 +20,7 @@ use PKP\config\Config;
 use PKP\file\FileManager;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
+use PKP\task\UpdateIPGeoDB;
 
 class I8508_ConvertCurrentLogFile extends Migration
 {
@@ -30,6 +31,18 @@ class I8508_ConvertCurrentLogFile extends Migration
     {
         $fileManager = new FileManager();
         $convertCurrentUsageStatsLogFile = new ConvertCurrentUsageStatsLogFile();
+
+        // If Geo usage stats are enabled download the GeoIPDB
+        $siteGeoUsageStatsSettings = DB::table('site_settings')
+            ->where('setting_name', '=', 'enableGeoUsageStats')
+            ->value('setting_value');
+        if ($siteGeoUsageStatsSettings != null && $siteGeoUsageStatsSettings !== 'disabled') {
+            $geoIPDBFile = StatisticsHelper::getGeoDBPath();
+            if (!file_exists($geoIPDBFile)) {
+                $geoIPDB = new UpdateIPGeoDB();
+                $geoIPDB->execute();
+            }
+        }
 
         $counterR5StartDate = date('Y-m-d');
 

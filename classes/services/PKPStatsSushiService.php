@@ -16,6 +16,7 @@
 namespace PKP\services;
 
 use APP\core\Application;
+use PKP\db\DAORegistry;
 use PKP\services\queryBuilders\PKPStatsSushiQueryBuilder;
 
 class PKPStatsSushiService
@@ -61,7 +62,13 @@ class PKPStatsSushiService
      */
     public function getEarliestDate(): string
     {
-        return Application::get()->getRequest()->getSite()->getData('counterR5StartlDate');
+        $siteSettingsDate = Application::get()->getRequest()->getSite()->getData('counterR5StartDate');
+        if (isset($siteSettingsDate)) {
+            return $siteSettingsDate;
+        }
+        /** @var VersionDAO */
+        $versionDao = DAORegistry::getDAO('VersionDAO');
+        return $versionDao->getInstallationDate(3400);
     }
 
     /**

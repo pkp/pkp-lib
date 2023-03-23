@@ -240,3 +240,8 @@ msgstr "For Readers"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr "Add any information that you think our moderators should know before posting your preprint."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Please read and understand the copyright terms for submissions to this "
+"preprint server."

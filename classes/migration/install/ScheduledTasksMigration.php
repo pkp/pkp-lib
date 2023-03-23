@@ -29,7 +29,7 @@ class ScheduledTasksMigration extends \PKP\migration\Migration
             $table->bigIncrements('scheduled_task_id');
             $table->string('class_name', 255);
             $table->datetime('last_run')->nullable();
-            $table->unique(['class_name'], 'scheduled_tasks_pkey');
+            $table->unique(['class_name'], 'scheduled_tasks_unique');
         });
     }
 

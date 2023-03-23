@@ -115,7 +115,7 @@ class ReviewsMigration extends \PKP\migration\Migration
                 $table->string('response_type', 6)->nullable();
                 $table->text('response_value')->nullable();
 
-                $table->index(['review_form_element_id', 'review_id'], 'review_form_responses_pkey');
+                $table->index(['review_form_element_id', 'review_id'], 'review_form_responses_unique');
             });
         }
 
@@ -123,6 +123,7 @@ class ReviewsMigration extends \PKP\migration\Migration
         Schema::create('review_round_files', function (Blueprint $table) {
             $table->comment('Records the files made available to reviewers for a round of reviews. These can be further customized on a per review basis with review_files.');
             $table->bigIncrements('review_round_file_id');
+
             $table->bigInteger('submission_id');
             $table->foreign('submission_id')->references('submission_id')->on('submissions')->onDelete('cascade');
             $table->index(['submission_id'], 'review_round_files_submission_id');
@@ -137,13 +138,14 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'review_round_files_submission_file_id');
 
-            $table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_pkey');
+            $table->unique(['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_unique');
         });
 
         // Associates reviewable submission files with reviews
         Schema::create('review_files', function (Blueprint $table) {
             $table->comment('A list of the submission files made available to each assigned reviewer.');
             $table->bigIncrements('review_file_id');
+
             $table->bigInteger('review_id');
             $table->foreign('review_id')->references('review_id')->on('review_assignments')->onDelete('cascade');
             $table->index(['review_id'], 'review_files_review_id');
@@ -152,7 +154,7 @@ class ReviewsMigration extends \PKP\migration\Migration
             $table->foreign('submission_file_id')->references('submission_file_id')->on('submission_files')->onDelete('cascade');
             $table->index(['submission_file_id'], 'review_files_submission_file_id');
 
-            $table->unique(['review_id', 'submission_file_id'], 'review_files_pkey');
+            $table->unique(['review_id', 'submission_file_id'], 'review_files_unique');
         });
     }
 

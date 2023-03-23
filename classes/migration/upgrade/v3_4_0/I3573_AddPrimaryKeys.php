@@ -146,6 +146,10 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
     public static function getIndexData(): array
     {
         return [
+            'review_form_responses' => ['review_form_responses_pkey', ['review_form_element_id', 'review_id'], 'review_form_responses_unique'],
+            'review_round_files' => ['review_round_files_pkey', ['submission_id', 'review_round_id', 'submission_file_id'], 'review_round_files_unique'],
+            'review_files' => ['review_files_pkey', ['review_id', 'submission_file_id'], 'review_files_unique'],
+            'scheduled_tasks' => ['scheduled_tasks_pkey', ['class_name'], 'scheduled_tasks_unique'],
             'announcement_type_settings' => ['announcement_type_settings_pkey', ['type_id', 'locale', 'setting_name'], 'announcement_type_settings_unique'],
             'announcement_settings' => ['announcement_settings_pkey', ['announcement_id', 'locale', 'setting_name'], 'announcement_settings_unique'],
             'category_settings' => ['category_settings_pkey', ['category_id', 'locale', 'setting_name'], 'category_settings_unique'],

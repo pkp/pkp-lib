@@ -46,7 +46,7 @@ class FileCache extends GenericCache {
 		}
 
 		// Reasoning: When the include below fails, it returns "false" and we have no way to determine if it's an error or a valid cache value
-		$previousHandler = set_error_handler(function () {
+		set_error_handler(static function () {
 			throw new Exception('Failed to include file');
 		});
 		try {
@@ -54,7 +54,7 @@ class FileCache extends GenericCache {
 		} catch (Exception $e) {
 			$this->cache = null;
 		} finally {
-			set_error_handler($previousHandler);
+			restore_error_handler();
 			flock($fp, LOCK_UN);
 			fclose($fp);
 		}

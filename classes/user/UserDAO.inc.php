@@ -137,7 +137,7 @@ class UserDAO extends DAO {
 	 * @return DAOResultFactory containing matching Users
 	 */
 	function getReviewersForSubmission($contextId, $submissionId, $round) {
-		return new DAOResultFactory($result,
+		return new DAOResultFactory(
 			$this->retrieve(
 				'SELECT	u.* ,
 				' . $this->getFetchColumns() . '
@@ -156,8 +156,7 @@ class UserDAO extends DAO {
 					ROLE_ID_REVIEWER,
 					(int) $submissionId,
 					(int) $round
-				]),
-				$params
+				])
 			),
 			$this, '_returnUserFromRowWithData'
 		);

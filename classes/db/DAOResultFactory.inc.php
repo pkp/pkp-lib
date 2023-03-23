@@ -63,7 +63,7 @@ class DAOResultFactory extends ItemIterator {
 	 * @param $dao object DAO class for factory
 	 * @param $functionName The function to call on $dao to create an object
 	 * @param $idFields array an array of primary key field names that uniquely identify a result row in the record set. Should be data object _data array key, not database column name
-	 * @param $sql string Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
+	 * @param $sql string|Builder Optional SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
 	 * @param $params array Optional parameters for SQL query used to generate paged result set. Necessary when total row counts will be needed (e.g. when paging). WARNING: New code should not use this.
 	 * @param $rangeInfo DBResultRange Optional pagination information. WARNING: New code should not use this.
 	 */

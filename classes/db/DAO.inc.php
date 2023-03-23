@@ -29,6 +29,7 @@ define('SORT_DIRECTION_ASC', 0x00001);
 define('SORT_DIRECTION_DESC', 0x00002);
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Query\Builder;
 
 class DAO {
 	/**
@@ -98,11 +99,21 @@ class DAO {
 
 	/**
 	 * Count the number of records in the supplied SQL statement (with optional bind parameters parameters)
-	 * @param $sql string SQL query to be counted
+	 * @param $sql string|Builder SQL query to be counted
 	 * @param $params array Optional SQL query bind parameters
 	 * @return int
 	 */
 	public function countRecords($sql, $params = []) {
+		// In case a Laravel Builder has been received, drop its SELECT and ORDER BY clauses for optimization purposes
+		if ($sql instanceof Builder) {
+			// Clone query to avoid side-effects
+			/** @var Builder */
+			$builder = clone $sql;
+			// Discard the SELECT and ORDER BY clauses
+			$builder->select(Capsule::raw('0'))->reorder();
+			$params = $builder->getBindings();
+			$sql = $builder->toSql();
+		}
 		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
 		return $result->current()->row_count;
 	}

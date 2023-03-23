@@ -8,12 +8,13 @@
   "properties": {
 	"contextId": {
 	  "type": "integer",
-	  "description": "Context id for DOI",
-	  "apiSummary": true
+	  "description": "The context this DOI was created by.",
+	  "apiSummary": true,
+	  "writeDisabledInApi": true
 	},
 	"doi": {
 	  "type": "string",
-	  "description": "Persistent identifier",
+	  "description": "The DOI itself, such as `10.1234/5a6b-7c8d`.",
 	  "apiSummary": true,
 	  "validation": [
 		"regex:/^\\d+(.\\d+)+\\//"
@@ -21,18 +22,19 @@
 	},
 	"id": {
 	  "type": "integer",
+	  "description": "An internal id used to track the DOI.",
 	  "apiSummary": true,
 	  "readOnly": true
 	},
 	"resolvingUrl": {
 	  "type": "string",
-	  "description": "DOI URL that resolves to the indicated item",
+	  "description": "The full URL to resolve the DOI, such as `https://doi.org/10.1234/5a6b-7c8d`.",
 	  "apiSummary": true,
 	  "readOnly": true
 	},
 	"status": {
 	  "type": "integer",
-	  "description": "Persistent identifier status",
+	  "description": "The status of the DOI, such as whether it has been successfully deposited. Must match the value of one of the following: `Doi::STATUS_UNREGISTERED`, `Doi::STATUS_SUBMITTED`, `Doi::STATUS_REGISTERED`, `Doi::STATUS_ERROR`, `Doi::STATUS_STALE`.",
 	  "apiSummary": true,
 	  "default": 1,
 	  "validation": [
@@ -41,7 +43,7 @@
 	},
 	"registrationAgency": {
 	  "type": "string",
-	  "description": "The agency with which the DOI is registered. Will be null, if marked as manually registered.",
+	  "description": "The agency with which the DOI is registered. If the DOI was manually marked registered, this will be `null`.",
 	  "apiSummary": true
 	}
   }

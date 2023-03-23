@@ -84,7 +84,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
 
                     // Special handling to catch readOnly, writeOnly and apiSummary props in objects
                     if (!empty($propSchema->{'$ref'})) {
-                        if (empty($propSchema->readOnly) && empty($propSchema->writeDisabledInApi)) {
+                        if (empty($propSchema->readOnly) || empty($propSchema->writeDisabledInApi)) {
                             $editPropSchema->properties = $propSchema;
                         }
                         if (empty($propSchema->writeOnly)) {
@@ -172,19 +172,20 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
                         $summaryDefinition['properties'][$propName] = $summaryPropSchema;
                     }
                 }
+
                 if (!empty($editDefinition['properties'])) {
                     $definitionEditableName = $definitionName . 'Editable';
                     ksort($editDefinition['properties']);
-                    $apiSchema->definitions->{$definitionEditableName} = $editDefinition;
+                    $apiSchema->definitions->{$definitionEditableName} = $this->setEnum($editDefinition);
                 }
                 if (!empty($readDefinition['properties'])) {
                     ksort($readDefinition['properties']);
-                    $apiSchema->definitions->{$definitionName} = $readDefinition;
+                    $apiSchema->definitions->{$definitionName} = $this->setEnum($readDefinition);
                 }
                 if (!empty($summaryDefinition['properties'])) {
                     $definitionSummaryName = $definitionName . 'Summary';
                     ksort($summaryDefinition['properties']);
-                    $apiSchema->definitions->{$definitionSummaryName} = $summaryDefinition;
+                    $apiSchema->definitions->{$definitionSummaryName} = $this->setEnum($summaryDefinition);
                 }
             }
 
@@ -192,6 +193,29 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
 
             echo "Done\n";
         }
+    }
+
+    /**
+     * Convert the `in:` validation rules to swagger's
+     * `enum` specification
+     */
+    protected function setEnum(array $definition): array
+    {
+        foreach ($definition['properties'] as $propName => $schema) {
+            if (isset($schema->validation) && is_array($schema->validation)) {
+                foreach ($schema->validation as $rule) {
+                    if (substr($rule, 0, 3) === 'in:') {
+                        $enum = explode(',', substr($rule, 3));
+                        if ($schema->type === 'integer') {
+                            $enum = array_map('intval', $enum);
+                        }
+                        $definition['properties'][$propName]->enum = $enum;
+                    }
+                }
+            }
+        }
+
+        return $definition;
     }
 }
 

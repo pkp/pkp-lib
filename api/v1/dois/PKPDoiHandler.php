@@ -218,7 +218,7 @@ class PKPDoiHandler extends APIHandler
 
         return $response->withJson(
             [
-                'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+                'itemsMax' => $collector->limit(null)->offset(0)->getCount(),
                 'items' => Repo::doi()->getSchemaMap()->summarizeMany($dois)->values(),
             ],
             200

@@ -51,6 +51,8 @@ class OPSMigration extends \PKP\migration\Migration
         // Section-specific settings
         Schema::create('section_settings', function (Blueprint $table) {
             $table->comment('More data about sections, including localized properties such as section titles.');
+            $table->bigIncrements('section_setting_id');
+
             $table->bigInteger('section_id');
             $table->foreign('section_id')->references('section_id')->on('sections')->onDelete('cascade');
             $table->index(['section_id'], 'section_settings_section_id');
@@ -59,7 +61,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
 
-            $table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_pkey');
+            $table->unique(['section_id', 'locale', 'setting_name'], 'section_settings_unique');
         });
 
         // Publications
@@ -134,6 +136,8 @@ class OPSMigration extends \PKP\migration\Migration
         // Galley metadata.
         Schema::create('publication_galley_settings', function (Blueprint $table) {
             $table->comment('More data about publication galleys, including localized properties such as labels.');
+            $table->bigIncrements('publication_galley_setting_id');
+
             $table->bigInteger('galley_id');
             $table->foreign('galley_id')->references('galley_id')->on('publication_galleys');
             $table->index(['galley_id'], 'publication_galley_settings_galley_id');
@@ -142,7 +146,7 @@ class OPSMigration extends \PKP\migration\Migration
             $table->string('setting_name', 255);
             $table->text('setting_value')->nullable();
 
-            $table->unique(['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_pkey');
+            $table->unique(['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_unique');
         });
 
 

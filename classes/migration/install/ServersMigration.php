@@ -37,6 +37,8 @@ class ServersMigration extends \PKP\migration\Migration
         // Server settings.
         Schema::create('server_settings', function (Blueprint $table) {
             $table->comment('More data about server settings, including localized properties such as policies.');
+            $table->bigIncrements('server_setting_id');
+
             $table->bigInteger('server_id');
             $table->foreign('server_id', 'server_settings_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'server_settings_server_id');
@@ -46,7 +48,7 @@ class ServersMigration extends \PKP\migration\Migration
             $table->text('setting_value')->nullable();
             $table->string('setting_type', 6)->nullable();
 
-            $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_pkey');
+            $table->unique(['server_id', 'locale', 'setting_name'], 'server_settings_unique');
         });
     }
 

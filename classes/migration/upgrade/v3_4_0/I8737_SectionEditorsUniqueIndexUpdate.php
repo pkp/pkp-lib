@@ -12,8 +12,8 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\migration\Migration;
@@ -28,7 +28,7 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     {
         $this->dropUniqueIndexKey();
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_pkey');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id', 'user_group_id'], 'section_editors_unique');
         });
     }
 
@@ -39,7 +39,7 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     {
         $this->dropUniqueIndexKey();
         Schema::table('subeditor_submission_group', function (Blueprint $table) {
-            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_pkey');
+            $table->unique(['context_id', 'assoc_id', 'assoc_type', 'user_id'], 'section_editors_unique');
         });
     }
 
@@ -49,23 +49,21 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
     protected function dropUniqueIndexKey(): void
     {
         if (DB::connection() instanceof PostgresConnection) {
-
             try {
                 Schema::table(
-                    'subeditor_submission_group', 
-                    fn ($table) => $table->dropUnique('section_editors_pkey')
+                    'subeditor_submission_group',
+                    fn ($table) => $table->dropUnique('section_editors_unique')
                 );
             } catch (Throwable $exception) {
-                
-                $this->_installer->log('Failed to drop unique index "section_editors_pkey" from table "subeditor_submission_group", another attempt will be done.'); 
-                
+                $this->_installer->log('Failed to drop unique index "section_editors_unique" from table "subeditor_submission_group", another attempt will be done.');
+
                 try {
                     Schema::table(
-                        'subeditor_submission_group', 
-                        fn ($table) => $table->dropIndex('section_editors_pkey')
+                        'subeditor_submission_group',
+                        fn ($table) => $table->dropIndex('section_editors_unique')
                     );
                 } catch (Throwable $exception) {
-                    $this->_installer->log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.'); 
+                    $this->_installer->log('Second attempt to remove the index has failed, perhaps it doesn\'t exist.');
                 }
             }
 
@@ -73,8 +71,8 @@ class I8737_SectionEditorsUniqueIndexUpdate extends Migration
         }
 
         Schema::table(
-            'subeditor_submission_group', 
-            fn ($table) => $table->dropIndex('section_editors_pkey')
+            'subeditor_submission_group',
+            fn ($table) => $table->dropIndex('section_editors_unique')
         );
     }
 }

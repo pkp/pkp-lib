@@ -18,6 +18,7 @@
 import('lib.pkp.classes.core.ItemIterator');
 import('lib.pkp.classes.db.DAOResultIterator');
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Enumerable;
 
 class DAOResultFactory extends ItemIterator {
@@ -37,7 +38,7 @@ class DAOResultFactory extends ItemIterator {
 	var $records;
 
 	/**
-	 * @var string|null Fetch SQL
+	 * @var string|Builder|null Fetch SQL
 	 */
 	var $sql;
 

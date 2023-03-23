@@ -51,7 +51,7 @@ class FileCache extends GenericCache {
 		});
 		try {
 			$this->cache = include $this->filename;
-		} catch (Exception) {
+		} catch (Exception $e) {
 			$this->cache = null;
 		} finally {
 			set_error_handler($previousHandler);

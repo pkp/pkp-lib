@@ -184,23 +184,21 @@ class ExportableUsersGridHandler extends GridHandler
         // Get the context.
         $context = $request->getContext();
 
-        // Get all users for this context that match search criteria.
-        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
-
         // The user interface uses filter['userGroup'] and $filter['search']
         $userGroupSearchTerm = $filter['userGroup'] ? [$filter['userGroup']] : null;
 
         $userCollector = Repo::user()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->searchPhrase($filter['search'])
-            ->filterByUserGroupIds($userGroupSearchTerm)
-            ->limit($rangeInfo->getCount())
-            ->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+            ->filterByUserGroupIds($userGroupSearchTerm);
         
-        $users = $userCollector->getMany();
-        
-        $totalCount = $users->count($userCollector->limit(null)->offset(null));
-        return new \PKP\core\VirtualArrayIterator(iterator_to_array($users, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
+        // Get all users for this context that match search criteria.
+        $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
+        $totalCount = $userCollector->getCount();
+        $userCollector->limit($rangeInfo->getCount());
+        $userCollector->offset($rangeInfo->getOffset() + max(0, $rangeInfo->getPage() - 1) * $rangeInfo->getCount());
+        $iterator = $userCollector->getMany();
+        return new \PKP\core\VirtualArrayIterator(iterator_to_array($iterator, true), $totalCount, $rangeInfo->getPage(), $rangeInfo->getCount());
     }
 
     /**

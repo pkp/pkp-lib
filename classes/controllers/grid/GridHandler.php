@@ -41,6 +41,7 @@ namespace PKP\controllers\grid;
 use APP\template\TemplateManager;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\LazyCollection;
+use Illuminate\Support\Str;
 
 use PKP\core\JSONMessage;
 use PKP\handler\PKPHandler;
@@ -704,6 +705,8 @@ class GridHandler extends PKPHandler
      */
     public function fetchGrid($args, $request)
     {
+        $this->checkIfResetActionsNeeded($request);
+
         $this->setUrls($request);
 
         // Prepare the template to render the grid.
@@ -1331,6 +1334,32 @@ class GridHandler extends PKPHandler
             assert($feature instanceof \PKP\controllers\grid\feature\GridFeature);
             $this->_features[$feature->getId()] = $feature;
         }
+    }
+
+    private function checkIfResetActionsNeeded($request)
+    {
+        // #8696: This is added in order to reset the page of a grid to 1 if the "search" button is clicked, effectively executing a 
+        //        new search.
+
+        // Check if the grid has any PagingFeature features
+        if ($this->getFeatures() != null) {
+            $pagingFeatureArray = array_filter($this->getFeatures(), function($value) {
+                return $value instanceof \PKP\controllers\grid\feature\PagingFeature;
+            });
+
+            if (!empty($pagingFeatureArray)) {
+                if (array_key_exists("search", $request->getUserVars()) && array_key_exists("submitFormButton", $request->getUserVars())) {
+                    $filteredKeys = array_filter(array_keys($request->getUserVars()), function($key) {
+                        return Str::endsWith($key, 'gridPage');
+                    });
+
+                    if (!empty($filteredKeys)) {
+                        $request->_requestVars[$filteredKeys[0]] = 1;
+                    }
+                }
+            }
+        }
+        
     }
 
     /**

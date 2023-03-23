@@ -70,9 +70,7 @@ class PKPAnnouncementQueryBuilder implements EntityQueryBuilderInterface {
 	public function getCount() {
 		return $this
 			->getQuery()
-			->select('a.announcement_id')
-			->get()
-			->count();
+			->safeCount();
 	}
 
 	/**

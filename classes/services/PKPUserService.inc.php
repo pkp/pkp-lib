@@ -567,8 +567,9 @@ class PKPUserService implements EntityPropertyInterface, EntityReadInterface {
 	 * @param array $args See self::getMany()
 	 */
 	public function count($args = []) {
-		$qb = $this->getQueryBuilder($args);
-		return $qb->getQuery()->get()->count();
+		return $this->getQueryBuilder($args)
+			->getQuery()
+			->safeCount();
 	}
 
 	/**

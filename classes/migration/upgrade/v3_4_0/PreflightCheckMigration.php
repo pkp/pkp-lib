@@ -93,53 +93,54 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
             // _settings tables locales should not conflict after locale migration
             // See MergeLocalesMigration (#8598)
-            $settingsTables = MergeLocalesMigration::getSettingsTables();
             $conflictingSettings = collect();
             $settingsExceptionMessage = '';
-            foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
-                if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
-                    foreach ($affectedLocales as $localeCode => $localeTarget) {
-                        $defaultLocale = $localeTarget;
-                        if ($localeTarget instanceof Collection) {
-                            $defaultLocale = $localeTarget->first();
+            foreach (MergeLocalesMigration::getSettingsTables() as $tableName => [$entityIdColumnName, $primaryKeyColumnName]) {
+                if (!Schema::hasTable($tableName) || !Schema::hasColumn($tableName, 'locale')) {
+                    continue;
+                }
 
-                            $conflictingSettings = DB::table($settingsTable)
-                                ->select('setting_name', DB::raw('COUNT(*)'))
-                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->addSelect($settingsTableIdColumn);
-                                })
-                                ->where('locale', 'LIKE', $localeCode . '_%')
-                                ->orWhere('locale', $localeCode)
-                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
-                                })
-                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->groupBy('setting_name');
-                                })
-                                ->havingRaw('COUNT(*) >= 2')
-                                ->get();
-                        } else {
-                            $conflictingSettings = DB::table($settingsTable)
-                                ->select('setting_name', DB::raw('COUNT(*)'))
-                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->addSelect($settingsTableIdColumn);
-                                })
-                                ->where('locale', $localeCode)
-                                ->orWhere('locale', $localeTarget)
-                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->groupBy($settingsTableIdColumn, 'setting_name');
-                                })
-                                ->when(is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                                    return $query->groupBy('setting_name');
-                                })
-                                ->havingRaw('COUNT(*) >= 2')
-                                ->get();
-                        }
+                foreach ($affectedLocales as $localeCode => $localeTarget) {
+                    $defaultLocale = $localeTarget;
+                    if ($localeTarget instanceof Collection) {
+                        $defaultLocale = $localeTarget->first();
 
-                        if (!$conflictingSettings->isEmpty()) {
-                            foreach ($conflictingSettings as $conflictingSetting) {
-                                $settingsExceptionMessage .= 'A row with "' . $settingsTableIdColumn . '"="' . $conflictingSetting->{$settingsTableIdColumn} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $settingsTable . '" which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
-                            }
+                        $conflictingSettings = DB::table($tableName)
+                            ->select('setting_name', DB::raw('COUNT(*)'))
+                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->addSelect($entityIdColumnName);
+                            })
+                            ->where('locale', 'LIKE', $localeCode . '_%')
+                            ->orWhere('locale', $localeCode)
+                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->groupBy($entityIdColumnName, 'setting_name');
+                            })
+                            ->when(is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->groupBy('setting_name');
+                            })
+                            ->havingRaw('COUNT(*) >= 2')
+                            ->get();
+                    } else {
+                        $conflictingSettings = DB::table($tableName)
+                            ->select('setting_name', DB::raw('COUNT(*)'))
+                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->addSelect($entityIdColumnName);
+                            })
+                            ->where('locale', $localeCode)
+                            ->orWhere('locale', $localeTarget)
+                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->groupBy($entityIdColumnName, 'setting_name');
+                            })
+                            ->when(is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
+                                return $query->groupBy('setting_name');
+                            })
+                            ->havingRaw('COUNT(*) >= 2')
+                            ->get();
+                    }
+
+                    if (!$conflictingSettings->isEmpty()) {
+                        foreach ($conflictingSettings as $conflictingSetting) {
+                            $settingsExceptionMessage .= 'A row with "' . $entityIdColumnName . '"="' . $conflictingSetting->{$entityIdColumnName} . '" and "setting_name"="' . $conflictingSetting->setting_name . '" found in table "' . $tableName . '" which will conflict with other rows specific to the locale key "' . $localeCode . '" after the migration. Please review this row before upgrading.' . PHP_EOL;
                         }
                     }
                 }

@@ -26,6 +26,11 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
     {
         // Rename tablename_pkey unique indexes to tablename_unique to avoid PostgreSQL collision
         foreach (static::getIndexData() as $tableName => [$oldIndexName, $columns, $newIndexName]) {
+            // If the table does not exist, do not process it.
+            if (!Schema::hasTable($tableName)) {
+                continue;
+            }
+
             // Depending on whether the schema was created with ADODB or Laravel schema management, user_settings_pkey
             // will either be a constraint or an index. See https://github.com/pkp/pkp-lib/issues/7670.
             try {
@@ -86,6 +91,11 @@ abstract class I3573_AddPrimaryKeys extends \PKP\migration\Migration
 
         // Rename tablename_unique indexes back to tablename_pkey
         foreach (static::getIndexData() as $tableName => [$oldIndexName, $columns, $newIndexName]) {
+            // If the table does not exist, do not process it.
+            if (!Schema::hasTable($tableName)) {
+                continue;
+            }
+
             Schema::table($tableName, function (Blueprint $table) use ($columns, $oldIndexName, $newIndexName) {
                 $table->dropUnique($newIndexName);
                 $table->unique($columns, $oldIndexName);

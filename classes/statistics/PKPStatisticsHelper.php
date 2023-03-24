@@ -151,6 +151,24 @@ abstract class PKPStatisticsHelper
     }
 
     /**
+     * Create a new salt, write it to the salt file and return it
+     */
+    public static function createNewSalt(string $saltFileName): string
+    {
+        if (function_exists('mcrypt_create_iv')) {
+            $newSalt = bin2hex(mcrypt_create_iv(16, MCRYPT_DEV_URANDOM | MCRYPT_RAND));
+        } elseif (function_exists('openssl_random_pseudo_bytes')) {
+            $newSalt = bin2hex(openssl_random_pseudo_bytes(16, $cstrong));
+        } elseif (file_exists('/dev/urandom')) {
+            $newSalt = bin2hex(file_get_contents('/dev/urandom', false, null, 0, 16));
+        } else {
+            $newSalt = mt_rand();
+        }
+        file_put_contents($saltFileName, $newSalt, LOCK_EX);
+        return $newSalt;
+    }
+
+    /**
       * Retrieve Geo data (country, region, city) using IP and based on the site i.e. context settings
       */
     public function getGeoData(Site $site, Context $context, string $ip, string $hashedIp, bool $flushCache = false): array

@@ -118,7 +118,15 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
 
         // Read the salt for IP hashing here and not for each line
         $saltFileName = StatisticsHelper::getSaltFileName();
-        $salt = trim(file_get_contents($saltFileName));
+        // Create salt file and salt for the first time
+        if (!file_exists($saltFileName)) {
+            $salt = StatisticsHelper::createNewSalt($saltFileName);
+            // Salt changed, flush the cache
+            $flushCache = true;
+        } else {
+            $salt = trim(file_get_contents($saltFileName));
+            $flushCache = false;
+        }
 
         $lineNumber = 0;
         $isSuccessful = false;
@@ -197,7 +205,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             if ($ipNotHashed) {
                 $statisticsHelper = new StatisticsHelper();
                 $site = Application::get()->getRequest()->getSite();
-                [$country, $region, $city] = $statisticsHelper->getGeoData($site, $context, $ip, $hashedIp, false);
+                [$country, $region, $city] = $statisticsHelper->getGeoData($site, $context, $ip, $hashedIp, $flushCache);
             }
             $newEntry['country'] = $country;
             $newEntry['region'] = $region;
@@ -206,7 +214,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
             // institutions IDs
             $institutionIds = [];
             if ($ipNotHashed && $context->isInstitutionStatsEnabled($site)) {
-                $institutionIds = $statisticsHelper->getInstitutionIds($context->getId(), $ip, $hashedIp, false);
+                $institutionIds = $statisticsHelper->getInstitutionIds($context->getId(), $ip, $hashedIp, $flushCache);
             }
             $newEntry['institutionIds'] = $institutionIds;
 

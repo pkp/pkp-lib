@@ -89,7 +89,6 @@ class I6759_RenameVariables extends \PKP\migration\Migration
             $table->foreign('server_id', 'sections_server_id')->references('server_id')->on('servers')->onDelete('cascade');
             $table->index(['server_id'], 'sections_server_id');
         });
-
     }
 
 
@@ -141,7 +140,9 @@ class I6759_RenameVariables extends \PKP\migration\Migration
         }
 
         // Rename journals folder to contexts folder in files
-        rename($filesDir . '/journals/', $filesDir . '/contexts/');
+        if (is_dir($filesDir . '/journals/')) {
+            rename($filesDir . '/journals/', $filesDir . '/contexts/');
+        }
 
         // Rename journals folder to contexts folder in public
         $publicFilesDir = Config::getVar('files', 'public_files_dir');

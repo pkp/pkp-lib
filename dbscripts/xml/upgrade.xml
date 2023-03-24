@@ -32,6 +32,8 @@
 	<upgrade minversion="3.1.0.0" maxversion="3.3.9.9">
 		<migration class="APP\migration\upgrade\v3_4_0\PreflightCheckMigration" fallback="3.3.9.9" />
 		<migration class="APP\migration\upgrade\v3_4_0\ReviewFormsMigration" />
+		<migration class="PKP\migration\upgrade\v3_4_0\I8060_UpdateUserLocalesDefaultToEmptyArrayFromNull" />
+		<migration class="PKP\migration\upgrade\v3_4_0\I7245_UpdateUserLocaleStringToParsableJsonString" />
 		<migration class="APP\migration\upgrade\v3_4_0\MergeLocalesMigration"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6093_AddForeignKeys" />
 		<migration class="PKP\migration\upgrade\v3_4_0\FailedJobsMigration" />
@@ -48,8 +50,6 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I7624_StrftimeDeprecation"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7592_RemoveUnusedEmailTemplates"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7126_Galleys"/>
-		<migration class="PKP\migration\upgrade\v3_4_0\I8060_UpdateUserLocalesDefaultToEmptyArrayFromNull" />
-		<migration class="PKP\migration\upgrade\v3_4_0\I7245_UpdateUserLocaleStringToParsableJsonString" />
 		<migration class="PKP\migration\upgrade\v3_4_0\I8073_RemoveNotesWithoutQueriesAndRelatedObjects" />
 		<migration class="APP\migration\upgrade\v3_4_0\I5716_EmailTemplateAssignments"/>
 		<migration class="APP\migration\upgrade\v3_4_0\InstallEmailTemplates"/>

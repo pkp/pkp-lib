@@ -76,7 +76,6 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I7287_RemoveEmailTemplatesDefault"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7874_NotificationMetadataModifiedRemove"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7191_ResubscribeSubeditors"/>
-		<migration class="PKP\migration\upgrade\v3_4_0\I8508_ConvertCurrentLogFile"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I8027_DoiVersioning"/>
 		<migration class="APP\migration\upgrade\v3_4_0\I6306_EnableCategories"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I8592_SiteNotificationSubscriptions"/>
@@ -86,6 +85,7 @@
 		<migration class="PKP\migration\upgrade\v3_4_0\I7486_RenameUnconsideredColumnToConsidered"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I7486_RemoveItemViewsTable"/>
 		<migration class="PKP\migration\upgrade\v3_4_0\I8737_SectionEditorsUniqueIndexUpdate"/>
+		<migration class="PKP\migration\upgrade\v3_4_0\I8508_ConvertCurrentLogFile"/>
 		<note file="docs/release-notes/README-3.4.0" />
 	</upgrade>
 

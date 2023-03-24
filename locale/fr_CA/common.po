@@ -1,10 +1,10 @@
-# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-11-12 10:02+0000\n"
+"PO-Revision-Date: 2023-03-25 01:08+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2010,7 +2010,7 @@ msgstr "Nous n'avons pas pu vous désabonner"
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
 "Veuillez choisir les courriels que vous ne désirez plus recevoir à {$email} "
-"de {$contextName}."
+"de la revue {$contextName}."
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""

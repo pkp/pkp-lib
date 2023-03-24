@@ -51,13 +51,13 @@ class FileCache extends GenericCache
         }
 
         // Reasoning: When the include below fails, it returns "false" and we have no way to determine if it's an error or a valid cache value
-        $previousHandler = set_error_handler(fn () => throw new Exception('Failed to include file'));
+        set_error_handler(static fn () => throw new Exception('Failed to include file'));
         try {
             $this->cache = include $this->filename;
         } catch (Exception) {
             $this->cache = null;
         } finally {
-            set_error_handler($previousHandler);
+            restore_error_handler();
             flock($fp, LOCK_UN);
             fclose($fp);
         }

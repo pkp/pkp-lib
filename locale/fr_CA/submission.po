@@ -1,12 +1,12 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
-# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 # Maxence Larrieu <maxence.Larrieu@u-paris.fr>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-11-15 13:08+0000\n"
+"PO-Revision-Date: 2023-03-25 01:08+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -1380,7 +1380,7 @@ msgid "editor.submission.status.inactiveDaysInStage"
 msgstr ""
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr "Une nouvelle soumission doit être envoyée à l'évaluation ou refusée."
+msgstr "Une nouvelle soumission doit être envoyée en évaluation ou refusée."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Participants-es"

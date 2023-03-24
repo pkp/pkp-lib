@@ -14,10 +14,10 @@
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Exception;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use PKP\install\DowngradeNotSupportedException;
 
 abstract class MergeLocalesMigration extends \PKP\migration\Migration
@@ -36,104 +36,79 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
 
         // All _settings tables.
-        $settingsTables = $this->getSettingsTables();
-        foreach ($settingsTables as $settingsTable => $settingsTableIdColumn) {
-            if (Schema::hasTable($settingsTable) && Schema::hasColumn($settingsTable, 'locale')) {
-                $settingsValues = DB::table($settingsTable)
-                    ->select(['locale', 'setting_name', 'setting_value'])
-                    ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn) {
-                        return $query->addSelect($settingsTableIdColumn);
-                    })
-                    ->get();
+        foreach ($this->getSettingsTables() as $tableName => [$entityIdColumnName, $primaryKeyColumnName]) {
+            if (!Schema::hasTable($tableName) || !Schema::hasColumn($tableName, 'locale')) {
+                continue;
+            }
 
-                foreach ($settingsValues as $settingsValue) {
-                    $stillExists = DB::table($settingsTable)
-                        ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                            return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                        })
-                        ->where('setting_name', '=', $settingsValue->setting_name)
-                        ->where('locale', '=', $settingsValue->locale)
-                        ->exists();
-
-                    // if it does not exist we should do nothing
-                    if ($stillExists) {
-                        $updatedLocaleRet = $this->getUpdatedLocale($settingsValue->locale);
+            DB::table($tableName)
+                ->select([$primaryKeyColumnName, 'locale', 'setting_name', 'setting_value'])
+                ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
+                ->chunkById(1000, function ($rows) use ($tableName, $entityIdColumnName, $primaryKeyColumnName) {
+                    foreach ($rows as $row) {
+                        $updatedLocaleRet = $this->getUpdatedLocale($row->locale);
 
                         // if this is null we should do nothing - we are not handling this locale
-                        if (!is_null($updatedLocaleRet)) {
-                            $updatedLocale = $updatedLocaleRet->keys()->first();
-                            $defaultLocale = $updatedLocaleRet->get($updatedLocale);
+                        if (is_null($updatedLocaleRet)) {
+                            continue;
+                        }
 
-                            // if the updatedLocale is the same as the setting's locale we should do nothing
-                            if ($updatedLocale != $settingsValue->locale) {
+                        $updatedLocale = $updatedLocaleRet->keys()->first();
+                        $defaultLocale = $updatedLocaleRet->get($updatedLocale);
 
-                                // Check if the database already has an updated locale with the same value -
-                                $hasAlreadyExistingUpdatedLocale = DB::table($settingsTable)
-                                    ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                        return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                    })
-                                    ->where('setting_name', '=', $settingsValue->setting_name)
-                                    ->where('locale', '=', $updatedLocale)
-                                    ->where('setting_value', '=', $settingsValue->setting_value)
-                                    ->exists();
+                        // If the updatedLocale is the same as the setting's locale we should do nothing.
+                        if ($updatedLocale == $row->locale) {
+                            continue;
+                        }
 
-                                // if so, it is safe to delete the currently processed value.
-                                if ($hasAlreadyExistingUpdatedLocale) {
-                                    DB::table($settingsTable)
-                                        ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                            return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                        })
-                                        ->where('setting_name', '=', $settingsValue->setting_name)
-                                        ->where('locale', '=', $settingsValue->locale)
-                                        ->delete();
-                                } else {
-                                    // If we are managing the defaultLocale then we can update the value to the $updatedLocale
-                                    if ($defaultLocale == $settingsValue->locale) {
-                                        DB::table($settingsTable)
-                                            ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                                return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                            })
-                                            ->where('setting_name', '=', $settingsValue->setting_name)
-                                            ->where('locale', '=', $settingsValue->locale)
-                                            ->update(['locale' => $updatedLocale]);
-                                    } else {
-                                        // If we are not managing the defaultLocale
+                        // Check if the database already has an updated locale with the same value.
+                        $hasAlreadyExistingUpdatedLocale = DB::table($tableName)
+                            ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
+                            ->where('setting_name', $row->setting_name)
+                            ->where('locale', $updatedLocale)
+                            ->where('setting_value', $row->setting_value)
+                            ->exists();
 
-                                        // we must first check if there is the default locale in the dataset
-                                        $hasExistingDefaultLocale = $settingsValues
-                                            ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                                return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                            })
-                                            ->where('setting_name', '=', $settingsValue->setting_name)
-                                            ->where('locale', '=', $defaultLocale)
-                                            ->exists();
+                        // If so, it is safe to delete the currently processed value and go to the next row.
+                        if ($hasAlreadyExistingUpdatedLocale) {
+                            DB::table($tableName)
+                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
+                                ->delete();
+                            continue;
+                        }
 
-                                        // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
-                                        if (!$hasExistingDefaultLocale) {
-                                            DB::table($settingsTable)
-                                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                                    return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                                })
-                                                ->where('setting_name', '=', $settingsValue->setting_name)
-                                                ->where('locale', '=', $settingsValue->locale)
-                                                ->update(['locale' => $updatedLocale]);
-                                        } else {
-                                            // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
-                                            DB::table($settingsTable)
-                                                ->when(!is_null($settingsTableIdColumn), function ($query) use ($settingsTableIdColumn, $settingsValue) {
-                                                    return $query->where($settingsTableIdColumn, '=', $settingsValue->{$settingsTableIdColumn});
-                                                })
-                                                ->where('setting_name', '=', $settingsValue->setting_name)
-                                                ->where('locale', '=', $settingsValue->locale)
-                                                ->delete();
-                                        }
-                                    }
-                                }
-                            }
+                        // If we are managing the defaultLocale then we can update the value to the $updatedLocale and go to the next row.
+                        if ($defaultLocale == $row->locale) {
+                            DB::table($tableName)
+                                ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
+                                ->where('setting_name', $row->setting_name)
+                                ->where('locale', $row->locale)
+                                ->update(['locale' => $updatedLocale]);
+                            continue;
+                        }
+
+                        // We are not managing the defaultLocale.
+
+                        // we must first check if there is the default locale in the dataset
+                        $hasExistingDefaultLocale = DB::table($tableName)
+                            ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
+                            ->where('setting_name', '=', $row->setting_name)
+                            ->where('locale', '=', $defaultLocale)
+                            ->exists();
+
+                        // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
+                        if (!$hasExistingDefaultLocale) {
+                            DB::table($tableName)
+                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
+                                ->update(['locale' => $updatedLocale]);
+                        } else {
+                            // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
+                            DB::table($tableName)
+                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
+                                ->delete();
                         }
                     }
-                }
-            }
+                }, $primaryKeyColumnName);
         }
 
         // Tables
@@ -211,7 +186,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateArrayLocaleNoId(string $dbLocales, string $table, string $column)
+    public function updateArrayLocaleNoId(string $dbLocales, string $table, string $column)
     {
         $siteSupportedLocales = json_decode($dbLocales);
 
@@ -238,35 +213,33 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateArrayLocale(string $dbLocales, string $table, string $column, string $tableKeyColumn, int $id)
+    public function updateArrayLocale(string $dbLocales, string $table, string $column, string $tableKeyColumn, int $id)
     {
-        $siteSupportedLocales = json_decode($dbLocales);
+        $siteSupportedLocales = json_decode($dbLocales) || [];
 
-        if ($siteSupportedLocales !== false) {
-            $newLocales = [];
-            foreach ($siteSupportedLocales as $siteSupportedLocale) {
-                $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
+        $newLocales = [];
+        foreach ($siteSupportedLocales as $siteSupportedLocale) {
+            $updatedLocaleRet = $this->getUpdatedLocale($siteSupportedLocale);
 
-                if (!is_null($updatedLocaleRet)) {
-                    $updatedLocale = $updatedLocaleRet->keys()->first();
+            if (!is_null($updatedLocaleRet)) {
+                $updatedLocale = $updatedLocaleRet->keys()->first();
 
-                    if (!in_array($updatedLocale, $newLocales)) {
-                        $newLocales[] = $updatedLocale;
-                    }
-                } else {
-                    $newLocales[] = $siteSupportedLocale;
+                if (!in_array($updatedLocale, $newLocales)) {
+                    $newLocales[] = $updatedLocale;
                 }
+            } else {
+                $newLocales[] = $siteSupportedLocale;
             }
-
-            DB::table($table)
-                ->where($tableKeyColumn, '=', $id)
-                ->update([
-                    $column => $newLocales
-                ]);
         }
+
+        DB::table($table)
+            ->where($tableKeyColumn, '=', $id)
+            ->update([
+                $column => $newLocales
+            ]);
     }
 
-    function updateArrayLocaleSetting(string $dbLocales, string $table, string $settingValue, string $tableKeyColumn, int $id)
+    public function updateArrayLocaleSetting(string $dbLocales, string $table, string $settingValue, string $tableKeyColumn, int $id)
     {
         $siteSupportedLocales = json_decode($dbLocales);
 
@@ -295,7 +268,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id)
+    public function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id)
     {
         $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
@@ -310,7 +283,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocaleNoId(string $localevalue, string $table, string $column)
+    public function updateSingleValueLocaleNoId(string $localevalue, string $table, string $column)
     {
         $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
@@ -324,7 +297,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData)
+    public function updateSingleValueLocaleEmailData(string $localevalue, string $table, string $email_key, Collection $allEmailTemplateData)
     {
         $stillExists = DB::table($table)
             ->where('email_key', '=', $email_key)
@@ -393,7 +366,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
      * Returns null if no conversion is available or
      * a key value pair collection that the key is the output locale and the value is the defaultLocale.
      */
-    function getUpdatedLocale(string $localeValue) : ?Collection
+    public function getUpdatedLocale(string $localeValue): ?Collection
     {
         $affectedLocales = $this->getAffectedLocales();
 
@@ -410,7 +383,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 $defaultLocale = $affectedLocales->get($localeCode)->first();
 
                 // Check for cases like code_XX@latin
-                $extension = "";
+                $extension = '';
                 if (strpos($localeValue, '@') !== false) {
                     $extension = substr($localeValue, strpos($localeValue, '@'));
                 }
@@ -434,37 +407,40 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         throw new DowngradeNotSupportedException();
     }
 
+    /**
+     * Get a list of settings tables, keyed by table name. Values are [entity_id_column_name, settings_table_id_column_name].
+     */
     protected static function getSettingsTables(): Collection
     {
         return collect([
-            'announcement_settings' => 'announcement_id',
-            'announcement_type_settings' => 'type_id',
-            'author_settings' => 'author_id',
-            'category_settings' => 'category_id',
-            'citation_settings' => 'citation_id',
-            'controlled_vocab_entry_settings' => 'controlled_vocab_entry_id',
-            'data_object_tombstone_settings' => 'tombstone_id',
-            'email_templates_settings' => 'email_id',
-            'event_log_settings' => 'log_id',
-            'filter_settings' => 'filter_id',
-            'genre_settings' => 'genre_id',
-            'library_file_settings' => 'file_id',
-            'navigation_menu_item_assignment_settings' => 'navigation_menu_item_assignment_id',
-            'navigation_menu_item_settings' => 'navigation_menu_item_id',
-            'notification_settings' => 'notification_id',
-            'notification_subscription_settings' => 'setting_id',
-            'plugin_settings' => 'context_id',
-            'publication_settings' => 'publication_id',
-            'review_form_element_settings' => 'review_form_element_id',
-            'review_form_settings' => 'review_form_id',
-            'submission_file_settings' => 'submission_file_id',
-            'submission_settings' => 'submission_id',
-            'user_group_settings' => 'user_group_id',
-            'user_settings' => 'user_id',
-            'site_settings' => null,
-            'funder_settings' => 'funder_id',
-            'funder_award_settings' => 'funder_award_id',
-            'static_page_settings' => 'static_page_id',
+            'announcement_settings' => ['announcement_id', 'announcement_setting_id'],
+            'announcement_type_settings' => ['type_id', 'announcement_type_setting_id'],
+            'author_settings' => ['author_id', 'author_setting_id'],
+            'category_settings' => ['category_id', 'category_setting_id'],
+            'citation_settings' => ['citation_id', 'citation_setting_id'],
+            'controlled_vocab_entry_settings' => ['controlled_vocab_entry_id', 'controlled_vocab_entry_setting_id'],
+            'data_object_tombstone_settings' => ['tombstone_id', 'tombstone_setting_id'],
+            'email_templates_settings' => ['email_id', 'email_template_setting_id'],
+            'event_log_settings' => ['log_id', 'event_log_setting_id'],
+            'filter_settings' => ['filter_id', 'filter_setting_id'],
+            'genre_settings' => ['genre_id', 'genre_setting_id'],
+            'library_file_settings' => ['file_id', 'library_file_setting_id'],
+            'navigation_menu_item_assignment_settings' => ['navigation_menu_item_assignment_id', 'navigation_menu_item_assignment_setting_id'],
+            'navigation_menu_item_settings' => ['navigation_menu_item_id', 'navigation_menu_item_setting_id'],
+            'notification_settings' => ['notification_id', 'notification_setting_id'],
+            'notification_subscription_settings' => ['setting_id', 'notification_subscription_setting_id'],
+            'plugin_settings' => ['context_id', 'plugin_setting_id'],
+            'publication_settings' => ['publication_id', 'publication_setting_id'],
+            'review_form_element_settings' => ['review_form_element_id', 'review_form_element_setting_id'],
+            'review_form_settings' => ['review_form_id', 'review_form_setting_id'],
+            'submission_file_settings' => ['submission_file_id', 'submission_file_setting_id'],
+            'submission_settings' => ['submission_id', 'submission_setting_id'],
+            'user_group_settings' => ['user_group_id', 'user_group_setting_id'],
+            'user_settings' => ['user_id', 'user_setting_id'],
+            'site_settings' => [null, 'site_setting_id'],
+            'funder_settings' => ['funder_id', 'funder_setting_id'],
+            'funder_award_settings' => ['funder_award_id', 'funder_award_setting_id'],
+            'static_page_settings' => ['static_page_id', 'static_page_setting_id'],
         ]);
     }
 

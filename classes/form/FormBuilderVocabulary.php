@@ -857,7 +857,7 @@ class FormBuilderVocabulary
 
         $returner = '';
 
-        $smarty->assign(['FBV_suppressId' => null, 'FBV_label' => null, 'FBV_required' => false, 'FBV_uniqId' => null, 'FBV_multilingual' => false, 'FBV_required' => false]);
+        $smarty->assign(['FBV_suppressId' => null, 'FBV_label' => null, 'FBV_required' => false, 'FBV_uniqId' => null, 'FBV_multilingual' => false]);
         foreach ($params as $key => $value) {
             switch ($key) {
                 case 'subLabelTranslate': $smarty->assign('FBV_subLabelTranslate', $value);

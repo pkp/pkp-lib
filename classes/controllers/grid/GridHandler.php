@@ -365,7 +365,7 @@ class GridHandler extends PKPHandler
             $this->setGridDataElements($data);
         }
 
-        $this->callFeaturesHook('getGridDataElements', ['request' => &$request, 'grid' => &$this, 'gridData' => &$data, 'filter' => &$filter]);
+        $this->callFeaturesHook('getGridDataElements', ['request' => &$request, 'grid' => &$this, 'gridData' => &$this->_data, 'filter' => &$filter]);
 
         return $this->_data;
     }

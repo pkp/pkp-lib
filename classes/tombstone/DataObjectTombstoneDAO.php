@@ -192,11 +192,11 @@ class DataObjectTombstoneDAO extends \PKP\db\DAO
                 $this->datetimeToDB(date('Y-m-d H:i:s'))
             ),
             [
-                (int) $publicationFormatTombstone->getDataObjectId(),
-                $publicationFormatTombstone->getSetSpec(),
-                $publicationFormatTombstone->getSetName(),
-                $publicationFormatTombstone->getOAIIdentifier(),
-                (int) $publicationFormatTombstone->getId()
+                (int) $dataObjectTombstone->getDataObjectId(),
+                $dataObjectTombstone->getSetSpec(),
+                $dataObjectTombstone->getSetName(),
+                $dataObjectTombstone->getOAIIdentifier(),
+                (int) $dataObjectTombstone->getId()
             ]
         );
 

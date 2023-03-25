@@ -117,7 +117,7 @@ class PKPVocabHandler extends APIHandler
                 break;
             default:
                 $entries = [];
-                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $this->request]);
+                Hook::call('API::vocabs::getMany', [$vocab, &$entries, $slimRequest, $response, $request]);
         }
 
         $data = [];

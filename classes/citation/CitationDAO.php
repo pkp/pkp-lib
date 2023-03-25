@@ -39,6 +39,7 @@ class CitationDAO extends \PKP\db\DAO
 				WHERE publication_id = ?',
                 [(int)$citation->getData('publicationId')]
             );
+            $row = $result->current();
             $citation->setSequence($row ? $row->lastseq + 1 : 1);
         }
 

@@ -47,7 +47,7 @@ class PKPXMLParser {
 
 		if (!isset($this->handler)) {
 			// Use default handler for parsing
-			$handler = new PKPXMLParserDOMHandler();
+			$handler = new XMLParserDOMHandler();
 			$this->setHandler($handler);
 		}
 

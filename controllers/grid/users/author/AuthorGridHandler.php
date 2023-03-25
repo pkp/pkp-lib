@@ -18,7 +18,7 @@
 namespace PKP\controllers\grid\users\author;
 
 use APP\controllers\grid\users\author\form\AuthorForm;
-use App\core\Application;
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\OrderGridItemsFeature;

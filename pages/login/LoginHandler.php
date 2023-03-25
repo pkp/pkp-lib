@@ -15,7 +15,7 @@
 
 namespace PKP\pages\login;
 
-use App\core\Application;
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\template\TemplateManager;

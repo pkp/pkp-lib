@@ -17,6 +17,7 @@
 namespace PKP\db;
 
 use APP\submission\DAO;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use PKP\core\ItemIterator;
 use ReflectionClass;
@@ -113,7 +114,7 @@ class DAOResultFactory extends ItemIterator
         if ($this->records instanceof \Generator) {
             $row = $this->records->current();
             $this->records->next();
-        } elseif ($this->records instanceof Enumerable) {
+        } elseif ($this->records instanceof Collection) {
             $row = $this->records->shift();
         } else {
             throw new \Exception('Unsupported record set type (' . join(', ', class_implements($this->records)) . ')');
@@ -200,7 +201,9 @@ class DAOResultFactory extends ItemIterator
         if ($this->records == null) {
             return true;
         }
-        return !$this->records->valid();
+        /** @var DAOResultIterator */
+        $records = $this->records;
+        return !$records->valid();
     }
 
     /**

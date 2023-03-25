@@ -44,7 +44,7 @@ class FileArchive
         if (self::zipFunctional()) {
             $zipTest = true;
             $zip = new ZipArchive();
-            if ($zip->open($archivePath, ZIPARCHIVE::CREATE) == true) {
+            if ($zip->open($archivePath, ZipArchive::CREATE) == true) {
                 foreach ($files as $serverPath => $clientFilename) {
                     $zip->addFile($filesDir . '/' . $serverPath, $clientFilename);
                 }

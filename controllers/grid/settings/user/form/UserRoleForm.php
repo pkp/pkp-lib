@@ -15,7 +15,7 @@
 
 namespace PKP\controllers\grid\settings\user\form;
 
-use App\core\Application;
+use APP\core\Application;
 use APP\facades\Repo;
 use APP\template\TemplateManager;
 
@@ -64,7 +64,7 @@ class UserRoleForm extends UserForm
 
         //save the user's user group assignment
         $this->saveUserGroupAssignments($request);
-        
+
         parent::execute(...$functionParams);
 
         // Role management handled by parent form, just return user.

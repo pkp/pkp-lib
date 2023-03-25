@@ -16,4 +16,4 @@
  *
  */
 
-return new \PKP\plugins\importexport\user\UserImportExportPlugin();
+return new \APP\plugins\importexport\users\UserImportExportPlugin();

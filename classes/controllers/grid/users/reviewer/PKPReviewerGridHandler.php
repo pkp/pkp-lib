@@ -40,7 +40,7 @@ use PKP\core\PKPRequest;
 use PKP\core\PKPServices;
 use PKP\db\DAO;
 use PKP\db\DAORegistry;
-use PKP\emailtemplate\EmailTemplate;
+use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;

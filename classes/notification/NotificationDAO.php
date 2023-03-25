@@ -165,7 +165,7 @@ class NotificationDAO extends \PKP\db\DAO
     {
         DB::table('notifications')
             ->when(
-                $contextId === PKPApplication::SITE_CONTEXT,
+                $contextId === PKPApplication::CONTEXT_SITE,
                 fn ($query) => $query->whereNull('context_id'),
                 fn ($query) => $query->where('context_id', '=', $contextId)
             )

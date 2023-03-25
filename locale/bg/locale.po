@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-16 19:17+0000\n"
+"PO-Revision-Date: 2023-03-26 14:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/locale/bg/"
 ">\n"
@@ -95,3 +95,21 @@ msgstr "Търсене на препринт"
 
 msgid "submission.numberOfVersions"
 msgstr "Версии: {$numberOfVersions}"
+
+msgid "submission.dates"
+msgstr "Изпратено {$submitted} - Публикувано {$published}"
+
+msgid "publication.galley.downloads"
+msgstr "Сваляния: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Сървъри"
+
+msgid "context.context"
+msgstr "Сървър"
+
+msgid "user.authorization.representationNotFound"
+msgstr "Търсената типография не може да бъде намерена."
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Включете потребители без роли в този сървър."

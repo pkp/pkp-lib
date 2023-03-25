@@ -47,9 +47,6 @@ class FieldRichTextarea extends Field
             $config['init'] = $this->init;
         }
         $config['plugins'] = $this->plugins;
-        if (!empty($this->preparedContent)) {
-            $config['preparedContent'] = $this->preparedContent;
-        }
         if (!empty($this->size)) {
             $config['size'] = $this->size;
         }

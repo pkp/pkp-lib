@@ -14,8 +14,6 @@
 
 namespace PKP\components\forms;
 
-use stdClass;
-
 class FieldPreparedContent extends FieldRichTextarea
 {
     public $component = 'field-prepared-content';

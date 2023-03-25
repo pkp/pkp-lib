@@ -83,11 +83,16 @@ class PKPStatsUserHandler extends APIHandler
         }
 
         $collector = Repo::user()->getCollector();
+        $dateParams = [];
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
-                case 'registeredAfter': $collector->filterRegisteredAfter($value);
+                case 'registeredAfter':
+                    $collector->filterRegisteredAfter($value);
+                    $dateParams['dateStart'] = $value;
                     break;
-                case 'registeredBefore': $collector->filterRegisteredBefore($value);
+                case 'registeredBefore':
+                    $collector->filterRegisteredBefore($value);
+                    $dateParams['dateEnd'] = $value;
                     break;
                 case 'status': switch ($value) {
                     case 'disabled':
@@ -108,6 +113,7 @@ class PKPStatsUserHandler extends APIHandler
 
         $collector->filterByContextIds([$request->getContext()->getId()]);
 
+        $result = $this->_validateStatDates($dateParams);
         if ($result !== true) {
             return $response->withStatus(400)->withJsonError($result);
         }

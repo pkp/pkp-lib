@@ -159,7 +159,7 @@ class EditorAction
             $reviewAssignment->setDateDue($reviewDueDate);
 
             // Set the response due date
-            $defaultNumWeeks = $context->getData('numWeeksPerReponse');
+            $defaultNumWeeks = $context->getData('numWeeksPerResponse');
             $reviewAssignment->setDateResponseDue($responseDueDate);
 
             // update the assignment (with both the new dates)

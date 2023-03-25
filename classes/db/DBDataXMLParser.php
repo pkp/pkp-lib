@@ -167,7 +167,6 @@ class DBDataXMLParser
      */
     public function executeData($continueOnError = false)
     {
-        $this->errorMsg = null;
         foreach ($this->sql as $stmt) {
             try {
                 DB::statement($stmt);

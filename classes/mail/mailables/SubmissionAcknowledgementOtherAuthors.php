@@ -48,7 +48,7 @@ class SubmissionAcknowledgementOtherAuthors extends Mailable
         $this->submission = $submission;
         $this->submitterUsers = $submitterUsers;
         $this->addData([
-            self::AUTHORS_WITH_AFFILIATION => $this->getAuthorsWithAffiliaton(),
+            self::AUTHORS_WITH_AFFILIATION => $this->getAuthorsWithAffiliation(),
             self::SUBMITTER_NAME => $this->getSubmitterName(),
         ]);
     }
@@ -71,7 +71,7 @@ class SubmissionAcknowledgementOtherAuthors extends Mailable
             ->join(__('common.commaListSeparator'));
     }
 
-    protected function getAuthorsWithAffiliaton(): string
+    protected function getAuthorsWithAffiliation(): string
     {
         $authors = $this->submission->getCurrentPublication()->getData('authors');
 

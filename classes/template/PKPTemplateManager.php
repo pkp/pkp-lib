@@ -1759,6 +1759,7 @@ class PKPTemplateManager extends Smarty
         // Extract the reserved variables named in $paramList, and remove them
         // from the parameters array. Variables remaining in parameters will be passed
         // along to Request::url as extra parameters.
+        $params = $router = $page = $component = $anchor = $escape = $op = $path = null;
         $paramList = ['params', 'router', 'context', 'page', 'component', 'op', 'path', 'anchor', 'escape'];
         foreach ($paramList as $parameter) {
             if (isset($parameters[$parameter])) {

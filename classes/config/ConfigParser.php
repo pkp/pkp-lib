@@ -138,6 +138,7 @@ class ConfigParser
         $lines = file($file);
 
         // Parse each line of the configuration file
+        $currentSection = null;
         for ($i = 0, $count = count($lines); $i < $count; $i++) {
             $line = $lines[$i];
 

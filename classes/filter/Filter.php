@@ -414,6 +414,7 @@ class Filter extends \PKP\core\DataObject
     public function isCompatibleWithRuntimeEnvironment()
     {
         if ($this->_runtimeEnvironment === false) {
+            $phpVersionMin = $phpVersionMax = $phpExtensions = $externalPrograms = null;
             // The runtime environment has never been
             // queried before.
             $runtimeSettings = $this->supportedRuntimeEnvironmentSettings();

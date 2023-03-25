@@ -44,7 +44,7 @@ class PKPXMLParser {
 
 	function parseText($text) {
 		$parser = $this->createParser();
-
+		$handler = null;
 		if (!isset($this->handler)) {
 			// Use default handler for parsing
 			$handler = new XMLParserDOMHandler();
@@ -75,7 +75,7 @@ class PKPXMLParser {
 	 */
 	function parse($file) {
 		$parser = $this->createParser();
-
+		$handler = null;
 		if (!isset($this->handler)) {
 			// Use default handler for parsing
 			$handler = new XMLParserDOMHandler();

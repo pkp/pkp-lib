@@ -264,6 +264,7 @@ abstract class SubmissionSearch
 
         // Check whether a search plug-in jumps in to provide ranked search results.
         $totalResults = null;
+        $results = null;
         $hookResult = Hook::call(
             'SubmissionSearch::retrieveResults',
             [&$context, &$keywords, $publishedFrom, $publishedTo, $orderBy, $orderDir, $exclude, $page, $itemsPerPage, &$totalResults, &$error, &$results]

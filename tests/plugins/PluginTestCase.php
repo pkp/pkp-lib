@@ -24,6 +24,7 @@ namespace PKP\tests\plugins;
 use APP\core\Request;
 use APP\install\Install;
 use PKP\config\Config;
+use PKP\core\PKPRequest;
 use PKP\core\PKPRouter;
 use PKP\core\Registry;
 use PKP\db\DAORegistry;
@@ -69,7 +70,29 @@ class PluginTestCase extends DatabaseTestCase
         $mockRequest = $this->getMockBuilder(Request::class)
             ->onlyMethods(['getRouter', 'getUser'])
             ->getMock();
-        $router = new PKPRouter();
+        $router = new class() extends PKPRouter {
+            public function route($request) {
+            }
+
+            public function url(
+                PKPRequest $request,
+                ?string $newContext = null,
+                $handler = null,
+                $op = null,
+                $path = null,
+                $params = null,
+                $anchor = null,
+                $escape = false
+            ) {
+            }
+
+            public function handleAuthorizationFailure(
+                $request,
+                $authorizationMessage,
+                array $messageParams = []
+            ){
+            }
+        };
         $mockRequest->expects($this->any())
             ->method('getRouter')
             ->will($this->returnValue($router));

@@ -33,9 +33,6 @@ class PKPSelectReviewerListPanel extends ListPanel
     /** @var array List of user IDs already assigned as a reviewer to this review round */
     public $currentlyAssigned = [];
 
-    /** @var array Query parameters to pass if this list executes GET requests  */
-    public $getParams = [];
-
     /** @var int Count of total items available for list */
     public $itemsMax = 0;
 

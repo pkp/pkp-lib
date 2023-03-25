@@ -424,9 +424,8 @@ abstract class PluginGridHandler extends CategoryGridHandler
 
         $notificationMgr = new NotificationManager();
         $user = $request->getUser();
-
+        $pluginName = ['pluginName' => $plugin->getDisplayName()];
         if ($installedPlugin) {
-            $pluginName = ['pluginName' => $plugin->getDisplayName()];
             $pluginDest = Core::getBaseDir() . "/plugins/{$category}/{$productName}";
             $pluginLibDest = Core::getBaseDir() . '/' . PKP_LIB_PATH . "/plugins/{$category}/{$productName}";
 

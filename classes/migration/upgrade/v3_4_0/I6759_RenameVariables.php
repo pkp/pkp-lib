@@ -146,7 +146,7 @@ class I6759_RenameVariables extends \PKP\migration\Migration
 
         // Rename journals folder to contexts folder in public
         $publicFilesDir = Config::getVar('files', 'public_files_dir');
-        if (is_dir($publicFilesDir)) {
+        if (is_dir($publicFilesDir . '/journals/')) {
             rename($publicFilesDir . '/journals/', $publicFilesDir . '/contexts/');
         }
     }

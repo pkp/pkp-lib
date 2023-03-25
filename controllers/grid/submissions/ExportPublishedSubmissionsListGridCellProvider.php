@@ -26,6 +26,10 @@ class ExportPublishedSubmissionsListGridCellProvider extends DataObjectGridCellP
     /** @var ImportExportPlugin */
     public $_plugin;
 
+    public $_authorizedRoles;
+
+    public $_titleColumn;
+
     /**
      * Constructor
      *

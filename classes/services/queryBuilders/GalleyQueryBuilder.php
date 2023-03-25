@@ -26,6 +26,8 @@ class GalleyQueryBuilder implements EntityQueryBuilderInterface
 
     public ?array $contextIds = null;
 
+    public $columns;
+
     /**
      * Set publicationIds filter
      *

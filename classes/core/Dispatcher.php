@@ -110,6 +110,8 @@ class Dispatcher
 
         // Go through all configured routers by priority
         // and find out whether one supports the incoming request
+        /** @var PKPRouter */
+        $router = null;
         foreach ($routerNames as $shortcut => $routerCandidateName) {
             $routerCandidate = & $this->_instantiateRouter($routerCandidateName, $shortcut);
 
@@ -252,7 +254,7 @@ class Dispatcher
         $time = substr($data, 0, $i);
         $contents = substr($data, $i + 1);
 
-        if (mktime() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) {
+        if (time() > $time + Config::getVar('cache', 'web_cache_hours') * 60 * 60) {
             return false;
         }
 
@@ -278,7 +280,7 @@ class Dispatcher
         $filename = $this->_router->getCacheFilename($this->_requestCallbackHack);
         $fp = fopen($filename, 'w');
         if ($fp) {
-            fwrite($fp, mktime() . ':' . $contents);
+            fwrite($fp, time() . ':' . $contents);
             fclose($fp);
         }
         return $contents;
@@ -287,7 +289,7 @@ class Dispatcher
     /**
      * Handle a 404 error (page not found).
      */
-    public function handle404()
+    public static function handle404()
     {
         header('HTTP/1.0 404 Not Found');
         fatalError('404 Not Found');

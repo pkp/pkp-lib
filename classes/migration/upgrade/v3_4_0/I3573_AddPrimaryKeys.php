@@ -40,9 +40,9 @@ class I3573_AddPrimaryKeys extends \PKP\migration\upgrade\v3_4_0\I3573_AddPrimar
     public static function getIndexData(): array
     {
         return array_merge(parent::getIndexData(), [
-            'journal_settings' => ['journal_settings_pkey', ['journal_id', 'locale', 'setting_name'], 'server_settings_unique'],
-            'section_settings' => ['section_settings_pkey', ['section_id', 'locale', 'setting_name'], 'section_settings_unique'],
-            'publication_galley_settings' => ['publication_galley_settings_pkey', ['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_unique'],
+            'journal_settings' => ['journal_settings_pkey', ['journal_id', 'locale', 'setting_name'], 'server_settings_unique', true],
+            'section_settings' => ['section_settings_pkey', ['section_id', 'locale', 'setting_name'], 'section_settings_unique', true],
+            'publication_galley_settings' => ['publication_galley_settings_pkey', ['galley_id', 'locale', 'setting_name'], 'publication_galley_settings_unique', true],
         ]);
     }
 }

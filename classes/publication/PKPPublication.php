@@ -17,6 +17,7 @@
 
 namespace PKP\publication;
 
+use APP\facades\Repo;
 use PKP\core\Core;
 
 use PKP\core\PKPString;
@@ -432,6 +433,35 @@ class PKPPublication extends \PKP\core\DataObject
             return $this->getDoi();
         } else {
             return $this->getData('pub-id::' . $pubIdType);
+        }
+    }
+
+    /**
+     * Set stored public issue id.
+     *
+     * @param string $pubIdType One of the NLM pub-id-type values or
+     * 'other::something' if not part of the official NLM list
+     * (see <http://dtd.nlm.nih.gov/publishing/tag-library/n-4zh0.html>).
+     * @param string $pubId
+     */
+    public function setStoredPubId($pubIdType, $pubId)
+    {
+        if ($pubIdType == 'doi') {
+            if ($doiObject = $this->getData('doiObject')) {
+                Repo::doi()->edit($doiObject, ['doi' => $pubId]);
+            } else {
+                $newDoiObject = Repo::doi()->newDataObject(
+                    [
+                        'doi' => $pubId,
+                        'contextId' => Repo::submission()->get($this->getData('submissionId'))->getData('contextId')
+                    ]
+                );
+                $doiId = Repo::doi()->add($newDoiObject);
+
+                $this->setData('doiId', $doiId);
+            }
+        } else {
+            $this->setData('pub-id::' . $pubIdType, $pubId);
         }
     }
 }

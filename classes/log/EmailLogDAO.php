@@ -266,6 +266,16 @@ class EmailLogDAO extends \PKP\db\DAO
             }
         }
     }
+
+    /**
+     * Construct a new email log entry.
+     *
+     * @return EmailLogEntry
+     */
+    public function newDataObject()
+    {
+        return new EmailLogEntry();
+    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -80,9 +80,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                         // If we are managing the defaultLocale then we can update the value to the $updatedLocale and go to the next row.
                         if ($defaultLocale == $row->locale) {
                             DB::table($tableName)
-                                ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
-                                ->where('setting_name', $row->setting_name)
-                                ->where('locale', $row->locale)
+                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
                                 ->update(['locale' => $updatedLocale]);
                             continue;
                         }

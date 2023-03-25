@@ -21,6 +21,10 @@ use PKP\install\DowngradeNotSupportedException;
 
 abstract class I7191_EditorAssignments extends \PKP\migration\Migration
 {
+    protected string $sectionDb;
+    protected string $sectionIdColumn;
+    protected string $contextColumn;
+
     /**
      * Adds a user_group_id column to the subeditor_submission_group
      * table and adds initial data. Adds foreign keys where appropriate.

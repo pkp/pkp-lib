@@ -29,6 +29,7 @@ class QueriesGridRow extends GridRow
     public $_stageId;
 
     /** @var QueriesAccessHelper */
+    public $_queriesAccessHelper;
 
     /**
      * Constructor

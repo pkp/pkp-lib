@@ -40,6 +40,9 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     /** @var string search phrase */
     protected $searchPhrase = null;
 
+    /** @var string[] Selected columns */
+    protected $columns = [];
+
     /**
      * Set isEnabled filter
      *

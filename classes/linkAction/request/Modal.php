@@ -35,6 +35,9 @@ class Modal extends LinkActionRequest
     /** @var array The id of any Vue instances that must be destroyed when modal closed */
     public $_closeCleanVueInstances;
 
+    /** @var string Text for the close button */
+    public $_closeButtonText;
+
     /**
      * Constructor
      *

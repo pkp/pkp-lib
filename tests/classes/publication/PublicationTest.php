@@ -28,6 +28,8 @@ use PKP\tests\PKPTestCase;
 
 class PublicationTest extends PKPTestCase
 {
+    public $publication;
+
     /**
      * @see PKPTestCase::setUp()
      */

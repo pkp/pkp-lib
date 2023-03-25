@@ -31,6 +31,9 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	/** @var string reference to the current data */
 	var $currentData;
 
+    /** @var XMLNode[] */
+    var $rootNodes = [];
+
 	/**
 	 * Constructor.
 	 */

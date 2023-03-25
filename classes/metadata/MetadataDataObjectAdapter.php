@@ -52,6 +52,9 @@ class MetadataDataObjectAdapter extends PersistableFilter
     /** @var string */
     public $_dataObjectName;
 
+    /** @var DataObject */
+    public $_targetDataObject;
+
     /**
      * Constructor
      *

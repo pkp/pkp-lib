@@ -43,7 +43,7 @@ class Payment
     public $assocId;
 
     /** @var int PaymentManager::PAYMENT_TYPE_... */
-    public $_type;
+    public $type;
 
     /**
      * Constructor

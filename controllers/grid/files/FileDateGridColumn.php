@@ -23,6 +23,9 @@ use PKP\core\PKPString;
 
 class FileDateGridColumn extends GridColumn
 {
+    /** @var ?int */
+    public $_stageId;
+
     /** @var bool */
     public $_includeNotes;
 

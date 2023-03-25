@@ -78,6 +78,8 @@ class PKPReviewerGridHandler extends GridHandler
     /** @var bool Is the current user assigned as an author to this submission */
     public $_isCurrentUserAssignedAuthor;
 
+    public bool $isAuthorGrid = false;
+
 
     /**
      * Constructor
@@ -104,8 +106,6 @@ class PKPReviewerGridHandler extends GridHandler
             [Role::ROLE_ID_ASSISTANT],
             $assistantOperations
         );
-
-        $this->isAuthorGrid = false;
     }
 
     /**

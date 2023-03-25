@@ -35,6 +35,7 @@ abstract class PolicyTestCase extends PKPTestCase
     protected const ROLE_ID_TEST = 0x9999;
 
     private ?Context $contextObject = null;
+    public $contextObjects;
 
     /** @var AuthorizationPolicy internal state variable that contains the policy that will be used to manipulate the authorization context */
     private ?AuthorizationPolicy $authorizationContextManipulationPolicy = null;

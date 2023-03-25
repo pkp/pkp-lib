@@ -23,6 +23,9 @@ use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileEventLogGridHandler extends SubmissionEventLogGridHandler
 {
+    /** @var SubmissionFile SubmissionFile */
+    public $_submissionFile;
+
     //
     // Getters/Setters
     //

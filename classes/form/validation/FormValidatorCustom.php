@@ -26,6 +26,9 @@ class FormValidatorCustom extends FormValidator
     /** @var bool If true, field is considered valid if user function returns false instead of true */
     public $_complementReturn;
 
+    /** @var mixed[] Arguments to pass to getMessage() */
+    public $_messageArgs = [];
+
     /** @var array If present, additional arguments to pass to the getMessage translation function
      * The user function is passed the form data as its first argument and $additionalArguments, if set, as the remaining arguments. This function must return a boolean value.
      *

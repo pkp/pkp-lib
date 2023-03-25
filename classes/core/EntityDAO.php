@@ -31,6 +31,9 @@ abstract class EntityDAO
     /** @var string The column name for the object id in primary and settings tables */
     public $primaryKeyColumn;
 
+    /** @var array Maps schema properties for the primary table to their column names */
+    public $primaryTableColumns = [];
+
     /**
      * @var array Map schema properties to the primary table
      *

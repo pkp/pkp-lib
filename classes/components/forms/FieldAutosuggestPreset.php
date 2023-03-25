@@ -22,6 +22,9 @@ class FieldAutosuggestPreset extends FieldBaseAutosuggest
     /** @var array Key/value list of suggestions for this field */
     public $options = [];
 
+    /** @var array Key/value list of languages this field should support. Key = locale code. Value = locale name */
+    public $locales = [];
+
     /**
      * @copydoc Field::getConfig()
      */

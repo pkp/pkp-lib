@@ -22,6 +22,9 @@ use PKP\submissionFile\SubmissionFile;
 
 class ManageProofFilesForm extends ManageSubmissionFilesForm
 {
+    /** @var int PublicationId ID. */
+    public $_publicationId;
+
     /** @var int Representation ID. */
     public $_representationId;
 

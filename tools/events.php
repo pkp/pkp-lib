@@ -64,7 +64,7 @@ class commandEvents extends CommandLineTool
 
         if (!$this->option) {
             throw new CommandNotFoundException(
-                sprintf('Option could not be empty! Check the usage method.', $this->option),
+                'Option could not be empty! Check the usage method.',
                 array_keys(self::AVAILABLE_OPTIONS)
             );
         }

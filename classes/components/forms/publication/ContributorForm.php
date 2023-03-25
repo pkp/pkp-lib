@@ -14,7 +14,6 @@
 
 namespace APP\components\forms\publication;
 
-class ContributorForm extends PKPContributorForm
+class ContributorForm extends \PKP\components\forms\publication\ContributorForm
 {
-    //
 }

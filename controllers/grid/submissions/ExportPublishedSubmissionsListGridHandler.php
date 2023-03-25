@@ -13,7 +13,8 @@
  * @brief Handle exportable published submissions list grid requests.
  */
 
-use APP\controllers\grid\submissions\ExportPublishedSubmissionsListGridCellProvider;
+namespace APP\controllers\grid\submissions;
+
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\grid\feature\PagingFeature;

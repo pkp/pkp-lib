@@ -25,12 +25,6 @@ class BackendSubmissionsHandler extends \PKP\API\v1\_submissions\PKPBackendSubmi
     {
         $collector = parent::getSubmissionCollector($queryParams);
 
-        if (isset($queryParams['issueIds'])) {
-            $collector->filterByIssueIds(
-                array_map('intval', $this->paramToArray($queryParams['issueIds']))
-            );
-        }
-
         if (isset($queryParams['sectionIds'])) {
             $collector->filterBySectionIds(
                 array_map('intval', $this->paramToArray($queryParams['sectionIds']))

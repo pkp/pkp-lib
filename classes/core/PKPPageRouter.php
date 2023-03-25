@@ -42,8 +42,6 @@ class PKPPageRouter extends PKPRouter
     public $_page;
     /** @var string the requested operation */
     public $_op;
-    /** @var string index url */
-    public $_indexUrl;
     /** @var string cache filename */
     public $_cacheFilename;
 

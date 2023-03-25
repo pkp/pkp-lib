@@ -77,6 +77,8 @@ abstract class PKPRouter
     protected ?string $_contextPath = null;
     public ?Context $_context = null;
     public ?PKPHandler $_handler = null;
+    /** @var string */
+    public $_indexUrl;
 
     /**
      * Constructor

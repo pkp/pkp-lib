@@ -20,10 +20,12 @@ use APP\core\Application;
 use APP\template\TemplateManager;
 use BadMethodCallException;
 use Exception;
+use PKP\context\Context;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
+use PKP\user\User;
 
 abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
 {
@@ -367,5 +369,30 @@ abstract class PKPNativeImportExportPlugin extends ImportExportPlugin
                 $this->usage($scriptName);
                 return true;
         }
+    }
+
+    /**
+     * Custom deployment
+     *
+     * @param Context $context
+     * @param ?User $user
+     *
+     * @return PKPNativeImportExportDeployment
+     */
+    public function getAppSpecificDeployment($context, $user)
+    {
+        return new Exception('Not implemented');
+    }
+
+    /**
+     * Get the import filter for a given element.
+     *
+     * @param string $elementName Name of XML element
+     *
+     * @return Filter
+     */
+    public function getImportFilter($elementName)
+    {
+        return new Exception('Not implemented');
     }
 }

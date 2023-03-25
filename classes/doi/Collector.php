@@ -17,6 +17,7 @@ use APP\doi\DAO;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\LazyCollection;
 use PKP\core\interfaces\CollectorInterface;
 use PKP\plugins\Hook;
 
@@ -29,7 +30,7 @@ class Collector implements CollectorInterface
 
     public ?int $count = 30;
 
-    public int $offset = 0;
+    public ?int $offset = 0;
 
     public ?array $statuses = null;
 
@@ -96,7 +97,7 @@ class Collector implements CollectorInterface
      * Offset the number of objects retrieved, for example to
      * retrieve the second page of contents
      */
-    public function offset(int $offset): self
+    public function offset(?int $offset): self
     {
         $this->offset = $offset;
         return $this;

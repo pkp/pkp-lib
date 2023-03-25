@@ -119,7 +119,7 @@ class PreprintGalleyForm extends Form
                 $this->addErrorField('urlPath');
             } else {
                 $existingGalley = Repo::galley()->getByUrlPath((string) $this->getData('urlPath'), $this->_publication);
-                if ($existingGalley && (!$this->_articleGalley || $this->_articleGalley->getId() !== $existingGalley->getId())) {
+                if ($existingGalley && (!$this->_preprintGalley || $this->_preprintGalley->getId() !== $existingGalley->getId())) {
                     $this->addError('urlPath', __('publication.urlPath.duplicate'));
                     $this->addErrorField('urlPath');
                 }

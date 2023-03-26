@@ -106,13 +106,7 @@ class DAO {
 	public function countRecords($sql, $params = []) {
 		// In case a Laravel Builder has been received, drop its SELECT and ORDER BY clauses for optimization purposes
 		if ($sql instanceof Builder) {
-			// Clone query to avoid side-effects
-			/** @var Builder */
-			$builder = clone $sql;
-			// Discard the SELECT and ORDER BY clauses
-			$builder->select(Capsule::raw('0'))->reorder();
-			$params = $builder->getBindings();
-			$sql = $builder->toSql();
+			return $sql->safeCount();
 		}
 		$result = $this->retrieve('SELECT COUNT(*) AS row_count FROM (' . $sql . ') AS count_subquery', $params);
 		return $result->current()->row_count;

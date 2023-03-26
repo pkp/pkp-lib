@@ -186,7 +186,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     public function updateArrayLocaleNoId(string $dbLocales, string $table, string $column)
     {
-        $siteSupportedLocales = json_decode($dbLocales);
+        $siteSupportedLocales = json_decode($dbLocales) ?? [];
 
         if ($siteSupportedLocales !== false) {
             $newLocales = [];
@@ -213,7 +213,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     public function updateArrayLocale(string $dbLocales, string $table, string $column, string $tableKeyColumn, int $id)
     {
-        $siteSupportedLocales = json_decode($dbLocales) || [];
+        $siteSupportedLocales = json_decode($dbLocales) ?? [];
 
         $newLocales = [];
         foreach ($siteSupportedLocales as $siteSupportedLocale) {
@@ -239,7 +239,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
 
     public function updateArrayLocaleSetting(string $dbLocales, string $table, string $settingValue, string $tableKeyColumn, int $id)
     {
-        $siteSupportedLocales = json_decode($dbLocales);
+        $siteSupportedLocales = json_decode($dbLocales) ?? [];
 
         if ($siteSupportedLocales !== false) {
             $newLocales = [];
@@ -439,7 +439,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'funder_settings' => ['funder_id', 'funder_setting_id'],
             'funder_award_settings' => ['funder_award_id', 'funder_award_setting_id'],
             'static_page_settings' => ['static_page_id', 'static_page_setting_id'],
-        ]);
+      ]);
     }
 
     public static function getAffectedLocales(): Collection

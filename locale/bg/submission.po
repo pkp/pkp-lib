@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-16 19:17+0000\n"
+"PO-Revision-Date: 2023-03-28 07:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/bg/>\n"
@@ -26,3 +26,6 @@ msgstr "Насрочени"
 
 msgid "publication.status.unscheduled"
 msgstr "Разсрочени"
+
+msgid "submission.title"
+msgstr "Заглавие на препринт"

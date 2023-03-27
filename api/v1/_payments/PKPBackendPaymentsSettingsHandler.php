@@ -17,7 +17,9 @@
 namespace PKP\API\v1\_payments;
 
 use APP\core\Services;
+use Illuminate\Support\Collection;
 use PKP\handler\APIHandler;
+use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
@@ -105,21 +107,23 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
             }
         }
 
-        $paymentPlugins = PluginRegistry::loadCategory('paymethod', true);
-        $errors = [];
-        foreach ($paymentPlugins as $paymentPlugin) {
-            $errors = array_merge(
-                $errors,
-                $paymentPlugin->saveSettings($params, $slimRequest, $request)
-            );
-        }
-        if (!empty($errors)) {
-            return $response->withStatus(400)->withJson($errors);
+        PluginRegistry::loadCategory('paymethod', true);
+        Hook::call('API::payments::settings::edit', [
+                $slimRequest,
+                $request,
+                $params,
+                $updatedSettings = new Collection(),
+                $errors = new Collection()
+            ]
+        );
+
+        if ($errors->isNotEmpty()) {
+            return $response->withStatus(400)->withJson($errors->toArray());
         }
 
         $context = $contextService->get($context->getId());
-        $context = $contextService->edit($context, $params, $request);
+        $contextService->edit($context, $params, $request);
 
-        return $response->withJson($params);
+        return $response->withJson(array_merge($params, $updatedSettings->toArray()));
     }
 }

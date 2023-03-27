@@ -15,8 +15,22 @@
 
 namespace PKP\plugins;
 
+use APP\core\Request;
+use Slim\Http\Request as SlimRequest;
+
 abstract class PaymethodPlugin extends LazyLoadPlugin
 {
+    public function register($category, $path, $mainContextId = null)
+    {
+        if (!parent::register($category, $path, $mainContextId)) {
+            return false;
+        }
+
+        Hook::add('API::payments::settings::edit', [$this, 'saveSettings']);
+
+        return true;
+    }
+
     /**
      * Get the payment form for this plugin.
      *
@@ -40,18 +54,9 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     }
 
     /**
-     * Save settings for this payment method
-     *
-     * @param array $params Params that have already been
-     * @param Request $slimRequest Slim request object
-     * @param Request $request
-     *
-     * @return array List of errors
+     * Must be implemented in a child class to save payment settings and attach updated data to the response
      */
-    public function saveSettings($params, $slimRequest, $request)
-    {
-        assert(false); // implement in child classes
-    }
+    abstract function saveSettings(string $hookName, array $args);
 }
 
 if (!PKP_STRICT_MODE) {

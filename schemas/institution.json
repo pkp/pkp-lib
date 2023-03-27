@@ -15,15 +15,19 @@
 		},
 		"contextId": {
 			"type": "integer",
+			"description": "The context which added this institution.",
+			"writeDisabledInApi": true,
 			"apiSummary": true
 		},
 		"id": {
 			"type": "integer",
+			"description": "The unique id of the institution in the database.",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"name": {
 			"type": "string",
+			"description": "The name of this institution.",
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
@@ -32,7 +36,7 @@
 		},
 		"ror": {
 			"type": "string",
-			"description": "The ROR of this institution. See: https://ror.org/",
+			"description": "The [ROR](https://ror.org/) id of this institution.",
 			"apiSummary": true,
 			"validation": [
 				"nullable",
@@ -41,12 +45,13 @@
 		},
 		"deletedAt": {
 			"type": "string",
+			"description": "The date this institution was deleted, if it has been deleted. Institutions are kept after being deleted because they may be referenced in statistics data.",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"ipRanges": {
 			"type": "array",
-			"description": "A list of IP ranges belonging to this institution.",
+			"description": "A list of IP ranges belonging to this institution. Used to track usage statistics and subscription access by institution.",
 			"apiSummary": true,
 			"items": {
 				"type": "string"

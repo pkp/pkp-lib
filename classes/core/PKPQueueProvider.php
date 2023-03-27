@@ -150,17 +150,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     }
 
     /**
-     * Register the service provider.
-     *
-     */
-    public function register()
-    {
-        parent::register();
-
-        $this->registerDatabaseConnector(app()->get(\Illuminate\Queue\QueueManager::class));
-    }
-
-    /**
      * Register the database queue connector.
      *
      * @param  \Illuminate\Queue\QueueManager  $manager

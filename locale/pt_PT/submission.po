@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2023-02-13 10:12+0000\n"
+"PO-Revision-Date: 2023-03-27 17:47+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -608,6 +608,8 @@ msgstr "Submissão inicial concluída."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) concordou com os termos dos direitos de autor para "
+"submissão."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -660,9 +662,13 @@ msgstr "Ficheiro de revisões do Revisor actualizado"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} enviou um lembrete para {$recipientName} sobre a tarefa de "
+"revisão"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Um e-mail de lembrete automático foi enviado para {$recipientName} sobre a "
+"tarefa de revisão"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Foi enviado um e-mail:"
@@ -1183,7 +1189,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Introduza as referências."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Insira a Declaração de Disponibilidade de Dados de Investigação."
 
 msgid "submission.form.name"
 msgstr "Nomeie o ficheiro (por exemplo, Manuscrito; Tabela 1)"
@@ -1542,9 +1548,10 @@ msgstr "{$editorName} solicitou revisões para esta submissão."
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Revisões solicitadas"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
-msgstr "Foram solicitadas revisões para a submissão, {$title}."
+msgstr ""
+"Foram solicitadas as revisões para a submissão: {$title}. Todas as "
+"notificações foram enviadas, exceto as que optou por ignorar."
 
 #, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"

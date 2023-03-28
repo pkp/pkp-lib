@@ -160,7 +160,7 @@ class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\Nativ
                         break;
                     case 'inline_help':$n->textContent == 'true' ? $user->setInlineHelp(true) : $user->setInlineHelp(false) ;
                         break;
-                    case 'auth_string': $user->setAuthString($n->textContent);
+                    case 'auth_string': $user->setAuthStr($n->textContent);
                         break;
                     case 'disabled_reason': $user->setDisabledReason($n->textContent);
                         break;

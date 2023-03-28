@@ -176,7 +176,7 @@ class PKPStatsSushiHandler extends APIHandler
             'Name' => $institutionName,
         ];
         if (isset($institutionId)) {
-            $item['Insitution_ID'] = $institutionId;
+            $item['Institution_ID'] = $institutionId;
         }
         return $response->withJson([$item], 200);
     }

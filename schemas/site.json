@@ -30,6 +30,12 @@
 				"nullable"
 			]
 		},
+		"counterR5StartDate": {
+			"type": "string",
+			"validation": [
+				"nullable"
+			]
+		},
 		"enableBulkEmails": {
 			"type": "array",
 			"description": "Which hosted journals, presses or preprint servers are allowed to send bulk emails.",

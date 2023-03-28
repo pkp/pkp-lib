@@ -287,7 +287,7 @@ abstract class CounterR5Report
         $this->customerId = $customerId;
         $this->institutionName = $institutionName;
         if (isset($institutionId)) {
-            $this->institutionId = $institutionId;
+            $this->institutionIds = $institutionId;
         }
     }
 
@@ -517,8 +517,8 @@ abstract class CounterR5Report
             'Report_Name' => $this->getName(),
             'Institution_Name' => $this->institutionName,
         ];
-        if (!empty($this->institutionId)) {
-            $reportHeader['Institution_ID'][] = $this->institutionId;
+        if (!empty($this->institutionIds)) {
+            $reportHeader['Institution_ID'] = $this->institutionIds;
         }
         $reportHeader['Report_Filters'] = $this->getFilters();
         if (!empty($this->getAttributes())) {

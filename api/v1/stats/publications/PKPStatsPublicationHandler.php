@@ -89,6 +89,9 @@ abstract class PKPStatsPublicationHandler extends APIHandler
         parent::__construct();
     }
 
+    /** The name of the section ids query param for this application */
+    abstract public function getSectionIdsQueryParam();
+
     /**
      * @copydoc PKPHandler::authorize()
      */
@@ -130,16 +133,17 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     protected function getManyAllowedParams()
     {
-        return [
+        $allowedParams = [
             'dateStart',
             'dateEnd',
             'count',
             'offset',
             'orderDirection',
             'searchPhrase',
-            $this->sectionIdsQueryParam,
             'submissionIds',
         ];
+        $allowedParams[] = $this->getSectionIdsQueryParam();
+        return $allowedParams;
     }
 
     /**
@@ -147,15 +151,16 @@ abstract class PKPStatsPublicationHandler extends APIHandler
      */
     protected function getManyTimelineAllowedParams()
     {
-        return [
+        $allowedParams = [
             'dateStart',
             'dateEnd',
             'timelineInterval',
             'searchPhrase',
-            $this->sectionIdsQueryParam,
             'submissionIds',
             'type'
         ];
+        $allowedParams[] = $this->getSectionIdsQueryParam();
+        return $allowedParams;
     }
 
     /**
@@ -683,6 +688,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
     protected function _processParam(string $requestParam, mixed $value): array
     {
         $returnParams = [];
+        $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
         switch ($requestParam) {
             case 'dateStart':
             case 'dateEnd':
@@ -704,7 +710,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                 $returnParams[$requestParam] = strtoupper($value);
                 break;
 
-            case $this->sectionIdsQueryParam:
+            case $sectionIdsQueryParam:
                 if (is_string($value) && str_contains($value, ',')) {
                     $value = explode(',', $value);
                 } elseif (!is_array($value)) {
@@ -712,6 +718,7 @@ abstract class PKPStatsPublicationHandler extends APIHandler
                 }
                 $returnParams['pkpSectionIds'] = array_map('intval', $value);
                 break;
+
             case 'submissionIds':
                 if (is_string($value) && str_contains($value, ',')) {
                     $value = explode(',', $value);

@@ -154,7 +154,6 @@ class PKPSiteStatisticsForm extends FormComponent
             ->addField(new FieldOptions('isSiteSushiPlatform', [
                 'label' => __('admin.settings.statistics.sushiPlatform'),
                 'description' => __('admin.settings.statistics.sushiPlatform.description'),
-                'groupId' => 'sushi',
                 'options' => [
                     [
                         'value' => true,

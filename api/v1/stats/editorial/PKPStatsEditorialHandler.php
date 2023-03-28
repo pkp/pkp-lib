@@ -50,6 +50,9 @@ abstract class PKPStatsEditorialHandler extends APIHandler
         parent::__construct();
     }
 
+    /** The name of the section ids query param for this application */
+    abstract public function getSectionIdsQueryParam();
+
     /**
      * @copydoc PKPHandler::authorize()
      */
@@ -89,6 +92,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
         }
 
         $params = [];
+        $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
                 case 'dateStart':
@@ -96,7 +100,7 @@ abstract class PKPStatsEditorialHandler extends APIHandler
                     $params[$param] = $value;
                     break;
 
-                case $this->sectionIdsQueryParam:
+                case $sectionIdsQueryParam:
                     if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {
@@ -146,9 +150,10 @@ abstract class PKPStatsEditorialHandler extends APIHandler
         }
 
         $params = [];
+        $sectionIdsQueryParam = $this->getSectionIdsQueryParam();
         foreach ($slimRequest->getQueryParams() as $param => $value) {
             switch ($param) {
-                case $this->sectionIdsQueryParam:
+                case $sectionIdsQueryParam:
                     if (is_string($value) && str_contains($value, ',')) {
                         $value = explode(',', $value);
                     } elseif (!is_array($value)) {

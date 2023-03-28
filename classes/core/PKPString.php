@@ -180,7 +180,7 @@ class PKPString
      */
     public static function substr_count($haystack, $needle)
     {
-        return Stringy::create($haystack)->countSubstring($needle);
+        return Stringy::create($haystack)->countSubstr($needle);
     }
 
     /**

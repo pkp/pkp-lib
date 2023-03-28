@@ -41,72 +41,11 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
                 continue;
             }
 
-            DB::table($tableName)
-                ->select([$primaryKeyColumnName, 'locale', 'setting_name', 'setting_value'])
-                ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
-                ->chunkById(1000, function ($rows) use ($tableName, $entityIdColumnName, $primaryKeyColumnName) {
-                    foreach ($rows as $row) {
-                        $updatedLocaleRet = $this->getUpdatedLocale($row->locale);
-
-                        // if this is null we should do nothing - we are not handling this locale
-                        if (is_null($updatedLocaleRet)) {
-                            continue;
-                        }
-
-                        $updatedLocale = $updatedLocaleRet->keys()->first();
-                        $defaultLocale = $updatedLocaleRet->get($updatedLocale);
-
-                        // If the updatedLocale is the same as the setting's locale we should do nothing.
-                        if ($updatedLocale == $row->locale) {
-                            continue;
-                        }
-
-                        // Check if the database already has an updated locale with the same value.
-                        $hasAlreadyExistingUpdatedLocale = DB::table($tableName)
-                            ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
-                            ->where('setting_name', $row->setting_name)
-                            ->where('locale', $updatedLocale)
-                            ->where('setting_value', $row->setting_value)
-                            ->exists();
-
-                        // If so, it is safe to delete the currently processed value and go to the next row.
-                        if ($hasAlreadyExistingUpdatedLocale) {
-                            DB::table($tableName)
-                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
-                                ->delete();
-                            continue;
-                        }
-
-                        // If we are managing the defaultLocale then we can update the value to the $updatedLocale and go to the next row.
-                        if ($defaultLocale == $row->locale) {
-                            DB::table($tableName)
-                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
-                                ->update(['locale' => $updatedLocale]);
-                            continue;
-                        }
-
-                        // We are not managing the defaultLocale.
-
-                        // we must first check if there is the default locale in the dataset
-                        $hasExistingDefaultLocale = DB::table($tableName)
-                            ->when($entityIdColumnName, fn ($query) => $query->where($entityIdColumnName, $row->{$entityIdColumnName}))
-                            ->where('setting_name', '=', $row->setting_name)
-                            ->where('locale', '=', $defaultLocale)
-                            ->exists();
-
-                        // if the dataset does not have the defaultLocale, then we can update to the $updatedLocale
-                        if (!$hasExistingDefaultLocale) {
-                            DB::table($tableName)
-                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
-                                ->update(['locale' => $updatedLocale]);
-                        } else {
-                            // if the dataset does have the defaultLocale, we are going to delete this locale in favor of the default
-                            DB::table($tableName)
-                                ->where($primaryKeyColumnName, $row->{$primaryKeyColumnName})
-                                ->delete();
-                        }
-                    }
-                }, $primaryKeyColumnName);
+            foreach (self::getAffectedLocales() as $target => $source) {
+                DB::table($tableName)
+                    ->where('locale', $source)
+                    ->update(['locale' => $target]);
+            }
         }
 
         // Tables
@@ -124,20 +63,20 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         });
 
         // users
-        $users = DB::table('users')
-            ->get();
-
-        foreach ($users as $user) {
-            $this->updateArrayLocale($user->locales, 'users', 'locales', 'user_id', $user->user_id);
-        }
+        $migration = $this;
+        $users = DB::table('users')->chunkById(1000, function ($users) use ($migration) {
+            foreach ($users as $user) {
+                $migration->updateArrayLocale($user->locales, 'users', 'locales', 'user_id', $user->user_id);
+            }
+        }, 'user_id');
 
         // submissions
-        $submissions = DB::table('submissions')
-            ->get();
+        $submissions = DB::table('submissions')->chunkById(1000, function ($submissions) use ($migration) {
+            foreach ($submissions as $submission) {
+                $migration->updateSingleValueLocale($submission->locale, 'submissions', 'locale', 'submission_id', $submission->submission_id);
+            }
+        }, 'submission_id');
 
-        foreach ($submissions as $submission) {
-            $this->updateSingleValueLocale($submission->locale, 'submissions', 'locale', 'submission_id', $submission->submission_id);
-        }
 
         // email_templates_default_data
         $emailTemplatesDefaultData = DB::table('email_templates_default_data')
@@ -164,7 +103,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             ->get();
 
         foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedFormLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedFormLocales', $this->CONTEXT_COLUMN, $contextSettingsFormLocale->{$this->CONTEXT_COLUMN});
         }
 
         $contextSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
@@ -172,7 +111,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             ->get();
 
         foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedLocales', $this->CONTEXT_COLUMN, $contextSettingsFormLocale->{$this->CONTEXT_COLUMN});
         }
 
         $contextSettingsFormLocales = DB::table($this->CONTEXT_SETTINGS_TABLE)
@@ -180,7 +119,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             ->get();
 
         foreach ($contextSettingsFormLocales as $contextSettingsFormLocale) {
-            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedSubmissionLocales', $this->CONTEXT_COLUMN, $context->{$this->CONTEXT_COLUMN});
+            $this->updateArrayLocaleSetting($contextSettingsFormLocale->setting_value, $this->CONTEXT_SETTINGS_TABLE, 'supportedSubmissionLocales', $this->CONTEXT_COLUMN, $contextSettingsFormLocale->{$this->CONTEXT_COLUMN});
         }
     }
 
@@ -266,8 +205,12 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         }
     }
 
-    public function updateSingleValueLocale(string $localevalue, string $table, string $column, string $tableKeyColumn, int $id)
+    public function updateSingleValueLocale(?string $localevalue, string $table, string $column, string $tableKeyColumn, int $id)
     {
+        if ($localevalue === null) {
+            return;
+        }
+
         $updatedLocaleRet = $this->getUpdatedLocale($localevalue);
 
         if (!is_null($updatedLocaleRet)) {
@@ -439,7 +382,7 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             'funder_settings' => ['funder_id', 'funder_setting_id'],
             'funder_award_settings' => ['funder_award_id', 'funder_award_setting_id'],
             'static_page_settings' => ['static_page_id', 'static_page_setting_id'],
-      ]);
+        ]);
     }
 
     public static function getAffectedLocales(): Collection

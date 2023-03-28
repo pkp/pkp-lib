@@ -43,14 +43,14 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $lastModified = date('Ymd', filemtime($usageStatsLogFile));
                 $yesterday = date('Ymd', strtotime('-1 days'));
                 if ($yesterday > $lastModified) {
-                    throw new \Exception("There are unprocessed log files from more than 1 day ago in the directory {$usageStatsDir}/usageEventLogs/. This happens when the scheduled task to process usage stats logs is not being run daily. All logs in this directory older than {$yesterday} must be processed or removed before the upgrade can continue.");
+                    throw new Exception("There are unprocessed log files from more than 1 day ago in the directory {$usageStatsDir}/usageEventLogs/. This happens when the scheduled task to process usage stats logs is not being run daily. All logs in this directory older than {$yesterday} must be processed or removed before the upgrade can continue.");
                 }
             }
             // check if there are old usage stats log files there that were not successfully processed
             if (count(glob($usageStatsDir . '/processing/*')) !== 0 ||
                 count(glob($usageStatsDir . '/reject/*')) !== 0 ||
                 count(glob($usageStatsDir . '/stage/*')) !== 0) {
-                throw new \Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
+                throw new Exception("There are one or more log files that were unable to finish processing. This happens when the scheduled task to process usage stats logs encounters a failure of some kind. These logs must be repaired and reprocessed or removed before the upgrade can continue. The logs can be found in the folders reject, processing and stage in {$usageStatsDir}.");
             }
 
             // email_templates_default_data keys should not conflict after locale migration
@@ -88,7 +88,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
 
             if (!empty($exceptionMessage)) {
-                throw new \Exception($exceptionMessage);
+                throw new Exception($exceptionMessage);
             }
 
             // _settings tables locales should not conflict after locale migration
@@ -107,33 +107,27 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
 
                         $conflictingSettings = DB::table($tableName)
                             ->select('setting_name', DB::raw('COUNT(*)'))
-                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->addSelect($entityIdColumnName);
-                            })
+                            ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
                             ->where('locale', 'LIKE', $localeCode . '_%')
                             ->orWhere('locale', $localeCode)
-                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->groupBy($entityIdColumnName, 'setting_name');
-                            })
-                            ->when(is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->groupBy('setting_name');
-                            })
+                            ->when(
+                                $entityIdColumnName,
+                                fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
+                                fn ($query) => $query->groupBy('setting_name')
+                            )
                             ->havingRaw('COUNT(*) >= 2')
                             ->get();
                     } else {
                         $conflictingSettings = DB::table($tableName)
                             ->select('setting_name', DB::raw('COUNT(*)'))
-                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->addSelect($entityIdColumnName);
-                            })
+                            ->when($entityIdColumnName, fn ($query) => $query->addSelect($entityIdColumnName))
                             ->where('locale', $localeCode)
                             ->orWhere('locale', $localeTarget)
-                            ->when(!is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->groupBy($entityIdColumnName, 'setting_name');
-                            })
-                            ->when(is_null($entityIdColumnName), function ($query) use ($entityIdColumnName) {
-                                return $query->groupBy('setting_name');
-                            })
+                            ->when(
+                                $entityIdColumnName,
+                                fn ($query) => $query->groupBy($entityIdColumnName, 'setting_name'),
+                                fn ($query) => $query->groupBy('setting_name')
+                            )
                             ->havingRaw('COUNT(*) >= 2')
                             ->get();
                     }
@@ -147,7 +141,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             }
 
             if (!empty($settingsExceptionMessage)) {
-                throw new \Exception($settingsExceptionMessage);
+                throw new Exception($settingsExceptionMessage);
             }
 
 
@@ -670,7 +664,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->whereNull('locale')
                 ->count();
             if ($invalidSubmissionsChecklist > 0) {
-                throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . ' with null in the locale column. Remove this row or add a locale before upgrading.');
+                throw new Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . ' with null in the locale column. Remove this row or add a locale before upgrading.');
             }
             // All submission checklists should be a json-encoded array
             // See I7191_SubmissionChecklistMigration
@@ -680,7 +674,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->each(function ($value) {
                     $checklist = json_decode($value);
                     if (is_null($checklist) || !is_array($checklist)) {
-                        throw new \Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
+                        throw new Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
                     }
                 });
 

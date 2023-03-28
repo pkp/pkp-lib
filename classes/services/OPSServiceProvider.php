@@ -36,11 +36,6 @@ class OPSServiceProvider implements \Pimple\ServiceProviderInterface
             return new PKPFileService();
         };
 
-        // Section service
-        $pimple['section'] = function () {
-            return new SectionService();
-        };
-
         // NavigationMenus service
         $pimple['navigationMenu'] = function () {
             return new NavigationMenuService();

@@ -177,7 +177,7 @@ class IR extends CounterR5Report
                     $this->yearsOfPublication = explode('|', $filter['Value']);
                     break;
                 case 'Item_Id':
-                    $this->itemIds = (int) $filter['Value'];
+                    $this->itemId = (int) $filter['Value'];
                     break;
             }
         }

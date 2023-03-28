@@ -125,11 +125,10 @@ class ManagementHandler extends Handler
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $apiUrl = $this->getContextApiUrl($request);
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $locales = $this->getSupportedFormLocales($context);
 
         $contactForm = new \PKP\components\forms\context\PKPContactForm($apiUrl, $locales, $context);
         $mastheadForm = new \APP\components\forms\context\MastheadForm($apiUrl, $locales, $context, $publicFileApiUrl);
@@ -182,7 +181,7 @@ class ManagementHandler extends Handler
         $dispatcher = $request->getDispatcher();
         $router = $request->getRouter();
 
-        $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $contextApiUrl = $this->getContextApiUrl($request);
         $themeApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/theme');
         $temporaryFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'temporaryFiles');
         $publicFileApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_uploadPublicFile');
@@ -190,8 +189,7 @@ class ManagementHandler extends Handler
         $publicFileManager = new PublicFileManager();
         $baseUrl = $request->getBaseUrl() . '/' . $publicFileManager->getContextFilesPath($context->getId());
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $locales = $this->getSupportedFormLocales($context);
 
         $announcementSettingsForm = new \PKP\components\forms\context\PKPAnnouncementSettingsForm($contextApiUrl, $locales, $context);
         $appearanceAdvancedForm = new \APP\components\forms\context\AppearanceAdvancedForm($contextApiUrl, $locales, $context, $baseUrl, $temporaryFileApiUrl, $publicFileApiUrl);
@@ -250,16 +248,13 @@ class ManagementHandler extends Handler
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
 
-        $contextApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $contextApiUrl = $this->getContextApiUrl($request);
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $locales = $this->getSupportedFormLocales($context);
 
         $disableSubmissionsForm = new \PKP\components\forms\context\PKPDisableSubmissionsForm($contextApiUrl, $locales, $context);
         $emailSetupForm = $this->getEmailSetupForm($contextApiUrl, $locales, $context);
         $metadataSettingsForm = new \APP\components\forms\context\MetadataSettingsForm($contextApiUrl, $context);
-        $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
-        $reviewSetupForm = new PKPReviewSetupForm($contextApiUrl, $locales, $context);
         $submissionGuidanceSettingsForm = new SubmissionGuidanceSettings($contextApiUrl, $locales, $context);
 
         $templateMgr->setState([
@@ -267,8 +262,6 @@ class ManagementHandler extends Handler
                 FORM_DISABLE_SUBMISSIONS => $disableSubmissionsForm->getConfig(),
                 $emailSetupForm->id => $emailSetupForm->getConfig(),
                 FORM_METADATA_SETTINGS => $metadataSettingsForm->getConfig(),
-                FORM_REVIEW_GUIDANCE => $reviewGuidanceForm->getConfig(),
-                FORM_REVIEW_SETUP => $reviewSetupForm->getConfig(),
                 $submissionGuidanceSettingsForm->id => $submissionGuidanceSettingsForm->getConfig(),
             ],
         ]);
@@ -293,13 +286,12 @@ class ManagementHandler extends Handler
         $router = $request->getRouter();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $apiUrl = $this->getContextApiUrl($request);
         $doiRegistrationSettingsApiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId() . '/registrationAgency');
         $sitemapUrl = $router->url($request, $context->getPath(), 'sitemap');
         $paymentsUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_payments');
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $locales = $this->getSupportedFormLocales($context);
 
         $licenseForm = new \APP\components\forms\context\LicenseForm($apiUrl, $locales, $context);
         $doiSetupSettingsForm = new DoiSetupSettingsForm($apiUrl, $locales, $context);
@@ -354,8 +346,7 @@ class ManagementHandler extends Handler
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'announcements');
         $context = $request->getContext();
 
-        $locales = $context->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        $locales = $this->getSupportedFormLocales($context);
 
         $announcementForm = new \PKP\components\forms\announcement\PKPAnnouncementForm($apiUrl, $locales, $request->getContext());
 
@@ -405,9 +396,9 @@ class ManagementHandler extends Handler
         $this->setupTemplate($request);
 
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'institutions');
-
-        $locales = $request->getContext()->getSupportedFormLocaleNames();
-        $locales = array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+        
+        $context = $request->getContext();
+        $locales = $this->getSupportedFormLocales($context);
 
         $institutionForm = new \PKP\components\forms\institution\PKPInstitutionForm($apiUrl, $locales);
 
@@ -461,7 +452,7 @@ class ManagementHandler extends Handler
         $context = $request->getContext();
         $dispatcher = $request->getDispatcher();
 
-        $apiUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+        $apiUrl = $this->getContextApiUrl($request);
         $notifyUrl = $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), '_email');
 
         $userAccessForm = new \APP\components\forms\context\UserAccessForm($apiUrl, $context);
@@ -591,5 +582,47 @@ class ManagementHandler extends Handler
             $context,
             $publicFileApiUrl
         );
+    }
+
+    /**
+     * Return Context API Url
+     */
+    protected function getContextApiUrl(PKPRequest $request): string
+    {
+        $context = $request->getContext();
+        $dispatcher = $request->getDispatcher();
+
+        return $dispatcher->url($request, PKPApplication::ROUTE_API, $context->getPath(), 'contexts/' . $context->getId());
+    }
+
+    /**
+     * Return context's supportedFormLocales 
+     */
+    protected function getSupportedFormLocales(Context $context): array
+    {
+        $locales = $context->getSupportedFormLocaleNames();
+        return array_map(fn (string $locale, string $name) => ['key' => $locale, 'label' => $name], array_keys($locales), $locales);
+    }
+
+    /**
+     * Add support for review related forms in workflow.
+     */
+    protected function addReviewFormWorkflowSupport(PKPRequest $request): void
+    {
+        $templateMgr = TemplateManager::getManager($request);
+
+        $context = $request->getContext();
+
+        $contextApiUrl = $this->getContextApiUrl($request);
+
+        $locales = $this->getSupportedFormLocales($context);
+
+        $reviewGuidanceForm = new \APP\components\forms\context\ReviewGuidanceForm($contextApiUrl, $locales, $context);
+        $reviewSetupForm = new PKPReviewSetupForm($contextApiUrl, $locales, $context);
+
+        $components = $templateMgr->getState('components');
+        $components[$reviewGuidanceForm->id] = $reviewGuidanceForm->getConfig();
+        $components[$reviewSetupForm->id] = $reviewSetupForm->getConfig();
+        $templateMgr->setState(['components' => $components]);
     }
 }

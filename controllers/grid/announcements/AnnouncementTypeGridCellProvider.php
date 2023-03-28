@@ -65,7 +65,7 @@ class AnnouncementTypeGridCellProvider extends GridCellProvider
 
         switch ($columnId) {
             case 'title':
-                return ['label' => $announcementType->getLocalizedName()];
+                return ['label' => $announcementType->getLocalizedTypeName()];
                 break;
             default:
                 break;

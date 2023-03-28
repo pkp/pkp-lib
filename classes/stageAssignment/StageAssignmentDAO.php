@@ -416,7 +416,7 @@ class StageAssignmentDAO extends \PKP\db\DAO
             }
             // no matches were found.
             if ($row = $result->current()) {
-                return $this->fromRow((array) $row);
+                return $this->_fromRow((array) $row);
             }
             return false;
         }

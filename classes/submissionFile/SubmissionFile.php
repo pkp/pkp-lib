@@ -149,7 +149,7 @@ class SubmissionFile extends \PKP\core\DataObject
                 $newDoiObject = Repo::doi()->newDataObject(
                     [
                         'doi' => $pubId,
-                        'contextId' => $this->getContextId()
+                        'contextId' => Repo::submission()->get($this->getData('submissionId'))->getData('contextId')
                     ]
                 );
                 $doiId = Repo::doi()->add($newDoiObject);

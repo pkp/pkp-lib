@@ -895,27 +895,3 @@ msgid "mailable.decision.initialDecline.notifyAuthor.description"
 msgstr ""
 "This email notifies the author that their preprint has been declined and "
 "will not be posted."
-
-msgid "manager.setup.reviewGuidelines"
-msgstr "Review Guidelines"
-
-msgid "manager.setup.reviewOptions.restrictReviewerFileAccess"
-msgstr "Restrict File Access"
-
-msgid "manager.setup.reviewOptions.restrictReviewerFileAccess.description"
-msgstr "Reviewers will not be given access to the submission file until they have agreed to review it."
-
-msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled"
-msgstr "One-click Reviewer Access"
-
-msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled.description"
-msgstr "Reviewers can be sent a secure link in the email invitation, which will log them in automatically when they click the link."
-
-msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled.label"
-msgstr "Include a secure link in the email invitation to reviewers."
-
-msgid "manager.setup.reviewOptions.automatedReminders"
-msgstr "Automated Email Reminders"
-
-msgid "manager.setup.reviewOptions.automatedRemindersDisabled"
-msgstr "To send automated email reminders, the site administrator must enable the <tt>scheduled_tasks</tt> option in the OPS configuration file. Additional server configuration may be required as indicated in the OPS documentation."

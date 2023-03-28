@@ -75,7 +75,7 @@ class AnnouncementTypeDAO extends \PKP\db\DAO
     {
         $announcementType = $this->newDataObject();
         $announcementType->setId($row['type_id']);
-        $announcementType->setContextId($row['context_id']);
+        $announcementType->setData('contextId', $row['context_id']);
         $this->getDataObjectSettings('announcement_type_settings', 'type_id', $row['type_id'], $announcementType);
 
         return $announcementType;

@@ -37,6 +37,7 @@
 			"type": "string",
 			"description": "The date this announcement was posted.",
 			"apiSummary": true,
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable",
 				"date_format:Y-m-d H:i:s"
@@ -62,6 +63,7 @@
 		},
 		"id": {
 			"type": "integer",
+			"readOnly": true,
 			"apiSummary": true
 		},
 		"title": {

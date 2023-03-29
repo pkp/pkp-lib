@@ -1,9 +1,9 @@
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2021.
 # Bruna Lopes dos Santos <brlopes.dosantos@gmail.com>, 2021.
-# Diego José Macêdo <diegojmacedo@gmail.com>, 2021.
+# Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-23 17:19+0000\n"
+"PO-Revision-Date: 2023-03-22 17:48+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "emails/pt_BR/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "emails.passwordResetConfirm.subject"
 msgstr "Confirmação de Redefinição de Senha"
@@ -251,3 +251,20 @@ msgstr ""
 
 #~ msgid "emails.notification.subject"
 #~ msgstr "Nova notificação de {$siteTitle}"
+
+msgid "emails.editorDecisionRevertInitialDecline.body"
+msgstr ""
+"<p>Prezado(a) {$recipientName},</p>\n"
+"<p>A decisão de recusar sua submissão, {$submissionTitle}, foi revertida.\n"
+"Um moderador examinará mais detalhadamente sua submissão antes de decidir se "
+"deve recusar\n"
+"ou postar a submissão.</p>\n"
+"<p>Ocasionalmente, uma decisão de recusar uma submissão será acidentalmente "
+"registrada em\n"
+"nosso sistema e deve ser revertida. Peço desculpas por qualquer confusão que "
+"isso possa ter causado.</p>\n"
+"<p>Entraremos em contato se precisarmos de mais assistência.</p>\n"
+"<p>Se você tiver alguma dúvida, entre em contato comigo em seu <a href=\""
+"{$authorSubmissionUrl}\">painel de submissão</a>.</p>\n"
+"<p>Atenciosamente,</p>\n"
+"<p>{$assinatura}</p>\n"

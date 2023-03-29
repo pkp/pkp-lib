@@ -1,7 +1,7 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-14 02:02+0000\n"
+"PO-Revision-Date: 2023-03-25 01:08+0000\n"
 "Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
@@ -550,7 +550,7 @@ msgid "stats.context.downloadReport.downloadContext.description"
 msgstr "O número de exibições da página index do servidor."
 
 msgid "stats.context.downloadReport.downloadContext"
-msgstr ""
+msgstr "Servidor de Download"
 
 msgid "stats.publications.downloadReport.description"
 msgstr ""
@@ -848,7 +848,7 @@ msgid "manager.manageEmails.description"
 msgstr "Edite as mensagens enviadas nos e-mails deste servidor."
 
 msgid "mailable.postedAck.name"
-msgstr ""
+msgstr "Reconhecimento Postado"
 
 msgid "mailable.postedAck.description"
 msgstr ""
@@ -885,7 +885,7 @@ msgstr ""
 "nova versão de um preprint é criado."
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Reconhecimento da Submissão (Moderação Pendente)"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
@@ -893,7 +893,7 @@ msgstr ""
 "submissão e um moderador deve aprová-lo."
 
 msgid "mailable.submissionAckCanPost.name"
-msgstr ""
+msgstr "Reconhecimento de Submissão (Sem Moderação Necessária)"
 
 msgid "mailable.submissionAckCanPost.description"
 msgstr ""
@@ -941,3 +941,35 @@ msgstr "O endereço de correspondência do servidor"
 
 msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 msgstr "O link para a página de estatísticas de preprints"
+
+msgid "manager.setup.reviewOptions.automatedRemindersDisabled"
+msgstr ""
+"Para enviar lembretes automáticos por e-mail, o administrador do site deve "
+"habilitar a opção <tt>scheduled_tasks</tt> no arquivo de configuração OPS. "
+"Configuração de servidor adicional pode ser necessária conforme indicado na "
+"documentação do OPS."
+
+msgid "manager.setup.reviewGuidelines"
+msgstr "Diretrizes de Avaliação"
+
+msgid "manager.setup.reviewOptions.restrictReviewerFileAccess"
+msgstr "Restringir Acesso a Arquivos"
+
+msgid "manager.setup.reviewOptions.restrictReviewerFileAccess.description"
+msgstr ""
+"Os avaliadores não terão acesso ao arquivo de submissão até que concordem em "
+"avalia-lo."
+
+msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled"
+msgstr "Acesso da avaliador com um clique"
+
+msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled.description"
+msgstr ""
+"Os avaliadores podem receber um link seguro no convite por e-mail, que os "
+"conectará automaticamente quando clicarem no link."
+
+msgid "manager.setup.reviewOptions.reviewerAccessKeysEnabled.label"
+msgstr "Inclua um link seguro no convite por e-mail para os avaliadores."
+
+msgid "manager.setup.reviewOptions.automatedReminders"
+msgstr "Lembretes de e-mail automatizados"

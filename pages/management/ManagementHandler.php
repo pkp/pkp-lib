@@ -396,7 +396,7 @@ class ManagementHandler extends Handler
         $this->setupTemplate($request);
 
         $apiUrl = $request->getDispatcher()->url($request, PKPApplication::ROUTE_API, $request->getContext()->getPath(), 'institutions');
-        
+
         $context = $request->getContext();
         $locales = $this->getSupportedFormLocales($context);
 

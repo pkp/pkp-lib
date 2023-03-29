@@ -15,10 +15,10 @@
 
 namespace PKP\controllers\grid\navigationMenus\form;
 
-use APP\core\Application;
 use APP\core\Services;
 use APP\template\TemplateManager;
 use PKP\db\DAORegistry;
+use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\navigationMenu\NavigationMenuItem;
 
@@ -238,11 +238,10 @@ class PKPNavigationMenuItemsForm extends Form
                     $this->addError('path', __('manager.navigationMenus.form.duplicatePath'));
                 }
             } elseif ($this->getData('menuItemType') == NavigationMenuItem::NMI_TYPE_REMOTE_URL) {
-                $context = Application::get()->getRequest()->getContext();
                 $remoteUrls = $this->getData('remoteUrl');
                 foreach ($remoteUrls as $locale => $remoteUrl) {
                     // URLs are optional for languages other than the primary locale.
-                    if ($locale !== $context->getPrimaryLocale() && $remoteUrl == '') {
+                    if ($locale !== Locale::getPrimaryLocale() && $remoteUrl == '') {
                         continue;
                     }
                     if (!filter_var($remoteUrl, FILTER_VALIDATE_URL)) {

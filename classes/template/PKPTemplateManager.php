@@ -302,6 +302,7 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'uniqid', 'uniqid');
         $this->registerPlugin('modifier', 'substr', 'substr');
         $this->registerPlugin('modifier', 'strstr', 'strstr');
+        $this->registerPlugin('modifier', 'array_key_first', 'array_key_first');
         $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
         $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
         $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');

@@ -1,11 +1,11 @@
 # Nicolas Dickner <dickner.nicolas@uqam.ca>, 2022.
-# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-11-15 13:08+0000\n"
+"PO-Revision-Date: 2023-03-25 01:08+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -2687,6 +2687,9 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Cela inclut les soumissions qui ne sont pas comptabilisées dans d'autres "
+"totaux, comme celles qui sont toujours en cours et celles qui semblent avoir "
+"été importées."
 
 msgid "stats.descriptionForStat"
 msgstr "Description de {$stat}"
@@ -2698,7 +2701,7 @@ msgid "stats.file.type.primaryFile"
 msgstr ""
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Fichier supplémentaire"
 
 msgid "stats.fileViews"
 msgstr "Consultations de fichiers"
@@ -2785,10 +2788,10 @@ msgid "stats.name.submissionsSkipped"
 msgstr "Autres soumissions"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Soumissions en cours"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Soumissions importées"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Soumissions acceptées"
@@ -2844,10 +2847,12 @@ msgid "plugins.importexport.native.export.completed.downloadFile"
 msgstr "Télécharger le fichier exporté avec le bouton ci-dessous."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Éléments génériques"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Mauvaise configuration du filtre [{$filterName}] : {$filterCount} "
+"occurrences. Il ne devrait y en avoir qu'une seule."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "ERREUR :"
@@ -2856,7 +2861,7 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Le chemin « {$contextPath} » de la revue n'existe pas."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
 msgstr ""
@@ -2931,7 +2936,7 @@ msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Le cycle d'évaluation, tel le Cycle 1 ou Cycle 2"
 
 msgid "emailTemplate.variable.review.files"
 msgstr ""

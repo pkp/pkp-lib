@@ -1,10 +1,11 @@
+# Deleted User <noreply+532@weblate.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:49+00:00\n"
-"PO-Revision-Date: 2021-02-01 13:53+0000\n"
-"Last-Translator: Paul Heckler <paul.d.heckler@gmail.com>\n"
+"PO-Revision-Date: 2023-03-28 16:51+0000\n"
+"Last-Translator: Deleted User <noreply+532@weblate.org>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "fr_FR/>\n"
 "Language: fr_FR\n"
@@ -12,13 +13,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Le paramètre « {$param} » n'est pas supporté."
 
+#, fuzzy
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "La propriété {$prop} ne peut pas être modifiée."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -27,16 +29,18 @@ msgstr ""
 
 msgid "api.400.tokenCouldNotBeDecoded"
 msgstr ""
-"Le jeton API n'a pas pu être décodé à cause de l'erreur suivante : {$error}"
+"Le jeton API n'a pas pu être décodé à cause de l'erreur suivante : {$error}"
 
+#, fuzzy
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Vous devez remplir le sujet et le contenu de cet email."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Il est impossible de modifier l'heure de création."
 
+#, fuzzy
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Un préfixe de DOI est requis pour générer les DOI."
 
 msgid "api.403.unauthorized"
 msgstr "Vous n'avez pas l'autorisation d'accéder à la ressource demandée."
@@ -45,7 +49,7 @@ msgid "api.404.resourceNotFound"
 msgstr "La ressource demandée n'a pas été trouvée."
 
 msgid "api.404.endpointNotFound"
-msgstr "l'URL demandé n'a pas été reconnu."
+msgstr "L'URL demandé n'a pas été reconnu."
 
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
@@ -55,29 +59,34 @@ msgstr ""
 msgid "api.announcements.404.announcementNotFound"
 msgstr "L'annonce que vous avez demandée est introuvable."
 
+#, fuzzy
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "L'institution que vous recherchez est introuvable."
 
 msgid "api.contexts.400.localesNotSupported"
-msgstr "Les traductions suivantes ne sont pas supportées : {$locales}."
+msgstr "Les traductions suivantes ne sont pas supportées : {$locales}."
 
+#, fuzzy
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "Vous ne pouvez pas ajouter un DOI à un élément dans cette situation."
 
+#, fuzzy
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Le type de publication n'a pas été reconnu."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
 
+#, fuzzy
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "Le DOI que vous recherchez est introuvable."
 
 msgid "api.dois.404.pubObjectNotFound"
 msgstr ""
 
+#, fuzzy
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "La soumission que vous recherchez est introuvable."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -216,8 +225,11 @@ msgstr ""
 "Votre demande était invalide. Le « orderDirection » doit être « desc » ou « "
 "asc »."
 
+#, fuzzy
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Votre demande est invalide. L'intervalle de dates doit être en jours ou en "
+"mois."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -283,8 +295,11 @@ msgstr "La requête n'a pas pu être terminée par manque d'information."
 msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Le volume requis n'est pas valide."
 
+#, fuzzy
 msgid "api.submissions.400.invalidSubmitAs"
 msgstr ""
+"Vous n'êtes pas autorisé à soumettre un document avec le rôle que vous "
+"occupez."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -303,7 +318,7 @@ msgid "api.submissions.403.unauthorizedDeleteSubmission"
 msgstr "Vous n'avez pas la permission de supprimer cette soumission."
 
 msgid "api.submissions.403.userCantEdit"
-msgstr "vous n'avez pas l'autorisation de modifier cette publication."
+msgstr "Vous n'avez pas l'autorisation de modifier cette publication."
 
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
@@ -318,8 +333,9 @@ msgstr ""
 msgid "api.vocabs.400.localeNotSupported"
 msgstr "La langue {$locale} n'est pas prise en charge."
 
+#, fuzzy
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "L'email que vous recherchez est introuvable."
 
 msgid "api.jobs.404.failedJobNotFound"
 msgstr ""

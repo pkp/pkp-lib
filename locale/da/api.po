@@ -1,15 +1,15 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-02-02 10:35+0000\n"
-"Last-Translator: Jesper B. Thestrup <jbt@kb.dk>\n"
-"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"da_DK/>\n"
-"Language: da_DK\n"
+"PO-Revision-Date: 2023-03-29 13:19+0000\n"
+"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/da/>"
+"\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,7 +54,7 @@ msgstr ""
 "webstedsadministratoren ikke har konfigureret en hemmelig nøgle."
 
 msgid "api.announcements.404.announcementNotFound"
-msgstr "Den meddelelse, du søgte efter, blev ikke fundet."
+msgstr "Den meddelelse, du efterspurgte, blev ikke fundet."
 
 msgid "api.institutions.404.institutionNotFound"
 msgstr "Den institution, du efterspurgte, blev ikke fundet."
@@ -66,7 +66,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Du kan ikke redigere et emnes DOI, som ikke findes i denne kontekst."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Publikationstypen blev ikke genkendt"
+msgstr "Publikationstypen blev ikke genkendt."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -77,10 +77,10 @@ msgid "api.dois.404.doiNotFound"
 msgstr "Den DOI, du efterspurgte, blev ikke fundet."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr "Det udgivelsesobjekt, du anmodede om, blev ikke fundet."
+msgstr "Det udgivelsesobjekt, du efterspurgte, blev ikke fundet."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Den indsendelse, du efterspurgte, blev ikke fundet."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -116,6 +116,8 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Det plugin, der i øjeblikket er konfigureret, skal være et plugin for en "
+"registreringsopganisation."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
@@ -320,31 +322,33 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Sproget {$locale} understøttes ikke."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr "Den e-mail, du anmodede om, blev ikke fundet."
+msgstr "Den e-mail, du efterspurgte, blev ikke fundet."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Den fejlede opgave blev ikke fundet i fejl-listen."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "Fejlet opgave, der mangler \"payload\" for at kunne blive gensendt."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Ingen fejlede opgaver blev fundet på listen."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Ude af stand til at gensende fejlede opgaver."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Fejlet opgave blev gensendt succesfuldt."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Alle gensendte, fejlede opgaver med gyldig \"payload\" er blevet sat i kø "
+"igen succesfuldt."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Var ikke i stand til at slette en fejlet opgave fra fejllisten."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Fejlet opgave blev succesfuldt slettet fra fejllisten."
 
 #~ msgid "api.stats.400.wrongTimeSegmentDaily"
 #~ msgstr ""

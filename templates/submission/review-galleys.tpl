@@ -26,11 +26,20 @@
             submissionWizard__reviewPanel__body--{$step.id}
         "
     >
-        <notification v-if="!galleys.length" type="warning" class="submissionWizard__reviewEmptyWarning">
+        <notification
+            v-for="(error, i) in errors.files"
+            :key="i"
+            type="warning"
+            class="submissionWizard__reviewEmptyWarning"
+        >
+            <icon icon="exclamation-triangle" :inline="true"></icon>
+            {{ error }}
+        </notification>
+        <notification v-if="!errors.files && !galleys.length" type="warning" class="submissionWizard__reviewEmptyWarning">
             <icon icon="exclamation-triangle" :inline="true"></icon>
             {translate key="author.submit.noFiles"}
         </notification>
-        <ul v-else class="submissionWizard__reviewPanel__list">
+        <ul v-if="galleys.length" class="submissionWizard__reviewPanel__list">
             <li
                 v-for="galley in galleys"
                 :key="galley.id"

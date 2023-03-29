@@ -181,7 +181,7 @@ class PKPDoiHandler extends APIHandler
 
         // The contextId should always point to the requested contextId
         if ($doi->getData('contextId') !== $this->getRequest()->getContext()->getId()) {
-            return $response->withStatus(403)->withJsonError('api.dois.400.contextsNotMatched');
+            return $response->withStatus(403)->withJsonError('api.dois.403.contextsNotMatched');
         }
 
         return $response->withJson(Repo::doi()->getSchemaMap()->map($doi), 200);
@@ -218,7 +218,7 @@ class PKPDoiHandler extends APIHandler
 
         return $response->withJson(
             [
-                'itemsMax' => $collector->limit(null)->offset(null)->getCount(),
+                'itemsMax' => $collector->limit(null)->offset(0)->getCount(),
                 'items' => Repo::doi()->getSchemaMap()->summarizeMany($dois)->values(),
             ],
             200

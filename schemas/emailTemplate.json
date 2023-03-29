@@ -33,6 +33,7 @@
 			"type": "integer",
 			"description": "The ID of the context (journal/press) this email is related to. Only used for custom email templates. Default is `null`.",
 			"apiSummary": true,
+			"writeDisabledInApi": true,
 			"validation": [
 				"nullable",
 				"min:0"

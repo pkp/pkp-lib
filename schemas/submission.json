@@ -7,18 +7,20 @@
 	"properties": {
 		"_href": {
 			"type": "string",
+			"description": "A URL to this object in the REST API.",
 			"readOnly": true,
 			"apiSummary": true
 		},
 		"commentsForTheEditors": {
 			"type": "string",
-			"description": "Comments from the submitting author to the editors. This is only available for submissions that have not yet been submitted. Once submitted, the message is converted to a discussion and you can not read or write to this property.",
+			"description": "Optional. Comments from the submitting author to the editors. This is only available for submissions that have not yet been submitted. Once submitted, the message is converted to a discussion and you can not read or write to this property.",
 			"validation": [
 				"nullable"
 			]
 		},
 		"contextId": {
 			"type": "integer",
+			"description": "The id of the context this submission was created in.",
 			"apiSummary": true,
 			"writeDisabledInApi": true
 		},
@@ -39,6 +41,7 @@
 		},
 		"dateSubmitted": {
 			"type": "string",
+			"description": "The date this submission was submitted.",
 			"apiSummary": true,
 			"writeDisabledInApi": true,
 			"validation": [
@@ -47,6 +50,8 @@
 		},
 		"id": {
 			"type": "integer",
+			"description": "The id of this submission.",
+			"readOnly": true,
 			"apiSummary": true
 		},
 		"lastModified": {
@@ -232,13 +237,13 @@
 		},
 		"urlAuthorWorkflow": {
 			"type": "string",
-			"description": "A URL to the author's editorial workflow.",
+			"description": "A URL to this submission for the author's editorial workflow.",
 			"apiSummary": true,
 			"readOnly": true
 		},
 		"urlEditorialWorkflow": {
 			"type": "string",
-			"description": "A URL to the editors' and assistants' editorial workflow.",
+			"description": "A URL to this submission for the editors' and assistants' editorial workflow.",
 			"apiSummary": true,
 			"readOnly": true
 		},
@@ -250,13 +255,13 @@
 		},
 		"urlWorkflow": {
 			"type": "string",
-			"description": "A URL to the workflow most appropriate for the current user. It will match the `urlAuthorWorkflow` or `urlEditorialWorkflow.",
+			"description": "A URL to this submission for the workflow most appropriate for the current user. It will match the `urlAuthorWorkflow` or `urlEditorialWorkflow`, depending on what roles the user is assigned.",
 			"apiSummary": true,
 			"readOnly": true
 		},
 		"urlPublished": {
 			"type": "string",
-			"description": "A URL to the current publication or where it will be published.",
+			"description": "A URL to view the published version of this submission. If it is not published, the URL will point to the location where it will be published in the future.",
 			"apiSummary": true,
 			"readOnly": true
 		}

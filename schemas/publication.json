@@ -161,7 +161,7 @@
 		},
 		"fullTitle": {
 			"type": "string",
-			"description": "The combined prefix, title and subtitle.",
+			"description": "The combined prefix, title and subtitle. This may include inline HTML tags, such as `<i>` and `<b>`.",
 			"multilingual": true,
 			"readOnly": true,
 			"apiSummary": true
@@ -275,6 +275,7 @@
 		},
 		"subtitle": {
 			"type": "string",
+			"description": "The subtitle. This may include inline HTML tags, such as `<i>` and `<b>`.",
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [
@@ -305,6 +306,7 @@
 		},
 		"title": {
 			"type": "string",
+			"description": "The title without a prefix or subtitle. This may include inline HTML tags, such as `<i>` and `<b>`.",
 			"multilingual": true,
 			"apiSummary": true,
 			"validation": [

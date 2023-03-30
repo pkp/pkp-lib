@@ -2025,7 +2025,7 @@ msgstr "{$fullName}, {$userGroup}"
 msgid "submission.query.noParticipantOptions"
 msgstr "You must assign at least one participant to this submission before initiating a discussion."
 
-msgid submission.query.allowedEditTime
+msgid "submission.query.allowedEditTime"
 msgstr "You can update this discussion for {$allowedEditTimeNoticeLimit} minutes."
 
 msgid "submission.list.infoCenter"

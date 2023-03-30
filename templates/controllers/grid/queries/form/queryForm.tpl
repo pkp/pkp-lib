@@ -62,7 +62,7 @@
 		<p><span class="formRequired">{translate key="common.requiredField"}</span></p>
 
 		{if $allowedEditTimeNotice['show']}
-			<p><span class="sub_label">{translate key="submission.query.allowedEditTime" allowedEditTimeNoticeLimit="{$allowedEditTimeNotice['limit']}"}</span></p>
+			<p><span class="sub_label">{translate key="submission.query.allowedEditTime" allowedEditTimeNoticeLimit=$allowedEditTimeNotice['limit']}</span></p>
 		{/if}
 
 		{fbvFormButtons id="addQueryButton"}

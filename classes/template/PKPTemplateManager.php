@@ -306,6 +306,9 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'fatalError', 'fatalError');
         $this->registerPlugin('modifier', 'translate', [$this, 'smartyTranslateModifier']);
         $this->registerPlugin('modifier', 'strip_unsafe_html', '\PKP\core\PKPString::stripUnsafeHtml');
+        $this->registerPlugin('modifier', 'parse_url', 'parse_url');
+        $this->registerPlugin('modifier', 'parse_str', 'parse_str');
+        $this->registerPlugin('modifier', 'strtok', 'strtok');
         $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
         $this->registerPlugin('modifier', 'to_array', [$this, 'smartyToArray']);

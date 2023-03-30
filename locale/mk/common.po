@@ -1,9 +1,10 @@
 # Mirko Spiroski <mspiroski@id-press.eu>, 2021.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-15 15:39+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-03-31 08:40+0000\n"
+"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/mk/>\n"
 "Language: mk\n"
@@ -758,7 +759,7 @@ msgid "common.remoteURL"
 msgstr "Далечински УРЛ"
 
 msgid "common.remove"
-msgstr "Отсртани"
+msgstr "Отстрани"
 
 msgid "common.removeItem"
 msgstr "Отстрани: {$item}"

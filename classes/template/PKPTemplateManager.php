@@ -755,9 +755,9 @@ class PKPTemplateManager extends Smarty
             $allLocales = [];
             if ($context) {
                 $allLocales = array_merge(
-                    $context->getSupportedLocales(),
-                    $context->getSupportedFormLocales(),
-                    $context->getSupportedSubmissionLocales()
+                    $context->getSupportedLocales() ?? [],
+                    $context->getSupportedFormLocales() ?? [],
+                    $context->getSupportedSubmissionLocales() ?? []
                 );
             } else {
                 $allLocales = $this->_request->getSite()->getSupportedLocales();

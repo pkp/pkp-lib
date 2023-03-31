@@ -275,7 +275,7 @@ class PKPPublication extends DataObject {
 	 * @return array
 	 */
 	public function getPageArray() {
-		$pages = $this->getData('pages');
+		$pages = $this->getData('pages') ?? '';
 		// Strip any leading word
 		if (preg_match('/^[[:alpha:]]+\W/', $pages)) {
 			// but don't strip a leading roman numeral

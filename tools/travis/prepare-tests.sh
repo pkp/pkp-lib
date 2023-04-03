@@ -40,9 +40,6 @@ elif [[ "$TEST" == "mysql" ]]; then
 	sudo mysql -u root -e "GRANT ALL ON \`${DBNAME}\`.* TO \`${DBUSERNAME}\`@localhost WITH GRANT OPTION"
 	export DBTYPE=MySQLi
 elif [[ "$TEST" == "mariadb" ]]; then
-	sudo service mysql stop
-	sudo apt-get remove --purge mysql-server mysql-client mysql-common
-	sudo apt-get install -q -y mariadb-server
 	sudo service mariadb start
 	sudo mysql -u root -e "CREATE DATABASE \`${DBNAME}\` DEFAULT CHARACTER SET utf8"
 	sudo mysql -u root -e "CREATE USER \`${DBUSERNAME}\`@${DBHOST} IDENTIFIED BY '${DBPASSWORD}'"

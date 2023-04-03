@@ -13,6 +13,10 @@ class Api {
         this.url = baseUrl;
     }
 
+    contexts(id) {
+        return this.url + '/contexts' + (id ? '/' + id : '');
+    }
+
     submissions(id) {
         return this.url + '/submissions' + (id ? '/' + id : '');
     }

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-01-03 10:02+0000\n"
+"PO-Revision-Date: 2023-04-03 18:19+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
@@ -277,13 +277,13 @@ msgid "manager.dois.status.error"
 msgstr "Erro"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Com Erro"
 
 msgid "manager.dois.status.stale"
 msgstr "Obsoleto"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI Atribuído"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
@@ -293,7 +293,7 @@ msgstr ""
 "composição não estiver ativado)"
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Todos os itens com um DOI atribuído."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -352,9 +352,13 @@ msgstr ""
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"Os DOIs não podem ser atribuídos, deverá fornecer um prefixo DOI. <a href=\""
+"{$doiSettingsUrl}\">Adicionar prefixo DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Tentei criar um DOI, mas é necessário um prefixo DOI para que o contexto "
+"crie um."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -912,6 +916,8 @@ msgstr "Padrão de sufixo DOI personalizado"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Um ou mais tipos de DOI selecionados não são permitidos para a agência de "
+"registo de DOI configurada."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -923,6 +929,9 @@ msgstr "Usar padrão"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Nenhum - Os sufixos devem ser inseridos manualmente na <a href=\""
+"{$doiManagementUrl}\">Página de gestão DOI</a> e não serão gerados "
+"automaticamente"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Padrão personalizado (não recomendado)"
@@ -1853,12 +1862,17 @@ msgstr "Exigir com as Submissões"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Pelo menos um desses ficheiros deve ser exigido a cada nova submissão? Se "
+"selecionar sim, os autores não terão permissão para submeter até que tenham "
+"carregado pelo menos um ficheiro desse tipo."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Sim, exija que os autores que estão a submeter carreguem um ou mais desses "
+"ficheiros."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Não, permitir novas submissões sem esses ficheiros."
 
 msgid "manager.settings.wizard"
 msgstr "Assistente de configurações"
@@ -2243,18 +2257,28 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Uma breve declaração descrevendo se o autor disponibilizou ou não os seus "
+"dados de investigação e, em caso afirmativo, onde os leitores os podem "
+"encontrar."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
 msgstr ""
+"Ativar metadados da declaração de disponibilidade dos dados de investigação"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Não solicite uma declaração de disponibilidade de dados de investigação do "
+"autor durante a submissão."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Peça ao autor para fornecer uma declaração de disponibilidade de dados de "
+"investigação durante a submissão."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Exija que o autor forneça uma declaração de disponibilidade de dados de "
+"investigação antes de aceitar a submissão."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Erros validação:"
@@ -2343,7 +2367,7 @@ msgstr ""
 "correspondem ao mesmo utilizador."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testar"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Título"
@@ -2872,7 +2896,7 @@ msgstr ""
 "ocultos para revisões anónimas"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Os nomes e afiliações dos autores da submissão."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
@@ -2929,22 +2953,22 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "A decisão recomendada, tal como Aceitar Submissão"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "A data em que esta avaliação foi designada"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "O tipo de avaliação, como cega, duplamente cega ou aberta"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "A recomendação do revisor, como Aceitar ou Recusar a submissão"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "A ronda de revisão, como Ronda 1 ou Ronda 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Os ficheiros enviados pelo revisor"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "O nome do revisor"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
@@ -3013,10 +3037,10 @@ msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "O URL da submissão no dashboard editorial"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "O URL para a submissão publicada"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "O URL para a submissão no assistente de submissão"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
@@ -3059,7 +3083,7 @@ msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
 msgstr "O número de submissões aceites"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "O número de submissões não incluídas noutros totais"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
 msgstr "O número total de submissões recebidas"
@@ -3074,7 +3098,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Identificação da edição, incluindo volume, número, ano e título"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "O URL para a edição publicada"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "O ano do relatório"
@@ -3287,6 +3311,8 @@ msgstr "Lembrete de Revisão"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Este e-mail é enviado por um editor para lembrar um revisor de que a sua "
+"revisão está atrasada."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Lembrete de Revisão (automático)"
@@ -3371,10 +3397,12 @@ msgstr ""
 "nome de utilizador e senha para acesso."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Submissão salva para mais tarde"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Um e-mail automático enviado aos autores quando eles guardam a submissão "
+"para concluir mais tarde"
 
 msgid "mailable.submissionAck.name"
 msgstr "Agradecimento da Submissão"
@@ -3387,7 +3415,7 @@ msgstr ""
 "pelo processo editorial e agradece a submissão ao autor."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Confirmação de Submissão (Outros Autores)"
 
 #, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
@@ -3436,7 +3464,7 @@ msgstr ""
 "envia uma versão revista de um artigo."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Novo Comunicado"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Este email é enviado quando uma nova notícia é criada."
@@ -3481,127 +3509,146 @@ msgstr ""
 "etapa de submissão."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Gerir E-mails"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Adicione e edite modelos</a> para todos os e-mails "
+"enviados pelo sistema.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Adicione e edite os modelos que gostaria de disponibilizar ao utilizador "
+"quando ele enviar este e-mail. O texto padrão será carregado automaticamente "
+"e o utilizador poderá carregar rapidamente quaisquer outros modelos que "
+"adicionar aqui."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Modelos"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Editar Modelo"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Remover Modelo"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Tem certeza de que deseja excluir o modelo <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Redefinir Modelo"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Tem a certeza de que deseja redefinir o assunto e o corpo para os padrões do "
+"modelo <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Pesquise por nome ou descrição"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Insira um nome breve para ajudá-lo a encontrar este modelo."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nova Submissão"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Configure quais as notificações por e-mail a serem enviadas quando uma nova "
+"submissão for efetuada."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Quem deve receber um e-mail quando uma nova submissão for concluída."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Não envie um e-mail."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Envie um e-mail apenas para o autor da submissão."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Envie um e-mail para todos os autores."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Decisões Editoriais"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Configure as notificações por e-mail para enviar aos autores quando uma "
+"decisão editorial for registada."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Para Editores"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Configure as notificações por e-mail para enviar aos editores."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Estatísticas Editoriais"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Se deve ou não enviar um e-mail mensal aos editores com as estatísticas "
+"editoriais da revista, como as taxas de aceitação e rejeição. Os editores "
+"podem cancelar a assinatura deste e-mail no seu perfil de utilizador."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Envie um e-mail mensal para os editores."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Não envie o e-mail para editores."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"O autor da submissão deve poder selecionar uma categoria quando fizer uma "
+"nova submissão?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Sim, adicione um campo de categorias ao assistente de submissão."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Não, não mostre aos autores este campo."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Solicitar Edição de Texto"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Pergunta sobre Citação"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Editor Atribuído"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Pronto para Produção"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistema"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Versão Criada"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Avaliação Concluída"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Avaliação Editada"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Agradecimento de submissão a outros autores"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Editor Atribuído (Auto)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Este e-mail é enviado a um editor quando ele é associado a uma submissão."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Designar Editor"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Submissão necessita de um Editor"
 
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Prazos de Revisão Padrão"
@@ -3652,3 +3699,22 @@ msgstr ""
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "O link para a página de estatísticas de artigos publicados"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Os emails foram programados para serem enviados o mais rapidamente possível."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"O ficheiro de submissão {$id} foi ignorado porque não possui uma revisão "
+"válida."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"A revisão {$revision} do ficheiro de submissão {$id} foi ignorada porque o "
+"fichiero não foi encontrado no caminho \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"A imagem da capa da publicação {$id} não foi exportada, o seu ficheiro não "
+"foi encontrado no caminho \"{$path}\"."

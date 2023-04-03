@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-27 07:24+0000\n"
+"PO-Revision-Date: 2023-04-04 20:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/bg/>\n"
@@ -2725,3 +2725,8 @@ msgstr "Изпращащане обратно към етап подадени �
 
 msgid "editor.submission.decision.backToSubmission"
 msgstr "Обратно към етап подадени материали"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Можете да актуализирате тази дискусия за {$allowedEditTimeNoticeLimit} "
+"минути."

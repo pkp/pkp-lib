@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2023-03-27 17:47+0000\n"
+"PO-Revision-Date: 2023-04-03 18:19+0000\n"
 "Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
@@ -2478,6 +2478,9 @@ msgstr "Guardado para mais tarde"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Os detalhes da submissão foram guardados no sistema, mas ainda não foram "
+"submetidas para consideração. Pode voltar para concluir a submissão a "
+"qualquer momento, seguindo o link abaixo."
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr "Enviamos uma cópia deste link para {$email}."
@@ -2642,19 +2645,21 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Contacto principal para correspondência editorial."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Declaração de Disponibilidade de Dados de Investigação"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Indique se disponibilizou evidências que comprovem este trabalho e, em caso "
+"afirmativo, onde e como podem ser acedidas"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Deve enviar pelo menos um ficheiro {$genre}."
 
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Deve enviar pelo menos um ficheiro de cada tipos: {$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Versão {$version}"
 
 #~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
 #~ msgstr ""
@@ -2682,3 +2687,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Voltar à Submissão"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Pode atualizar esta discussão durante {$allowedEditTimeNoticeLimit} minutos."

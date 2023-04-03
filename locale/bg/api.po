@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-27 07:24+0000\n"
+"PO-Revision-Date: 2023-04-04 20:27+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "bg/>\n"
@@ -62,7 +62,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Не можете да редактирате DOI на елемент, който не е в този контекст."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Типът публикация не беше разпознат"
+msgstr "Типът публикация не беше разпознат."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""

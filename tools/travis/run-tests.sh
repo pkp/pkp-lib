@@ -21,7 +21,7 @@ tar czf ${FILESDUMP} ${FILESDIR}
 
 # If desired, store the built dataset in https://github.com/pkp/datasets
 if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$SAVE_BUILD" == "true" ]]; then
-      git clone https://pkp-machine-user:${GITHUB_ACCESS_KEY}@github.com/pkp/datasets
+      git clone --depth 1 https://pkp-machine-user:${GITHUB_ACCESS_KEY}@github.com/pkp/datasets
       rm -rf datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
       mkdir -p datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}
       zcat ${DATABASEDUMP} > datasets/${APPLICATION}/${TRAVIS_BRANCH}/${TEST}/database.sql

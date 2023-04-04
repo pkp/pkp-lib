@@ -1,13 +1,14 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
+# Mickael Gomes da Silva <mickael.silva@uc.pt>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-04-03 18:19+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2023-04-04 20:27+0000\n"
+"Last-Translator: Mickael Gomes da Silva <mickael.silva@uc.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -286,11 +287,7 @@ msgid "manager.dois.filters.doiAssigned"
 msgstr "DOI Atribuído"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"Qualquer item publicado ou não publicado que 1) tenha um sub-objeto sem um "
-"DOI atribuído onde 2) o tipo de DOI do sub-objeto esteja ativado (por "
-"exemplo, uma composição sem um DOI não aparecerá aqui se o tipo de DOI de "
-"composição não estiver ativado)"
+msgstr "Nenhum dos itens tem DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
 msgstr "Todos os itens com um DOI atribuído."
@@ -2903,24 +2900,24 @@ msgstr ""
 "O URL para uma página onde o utilizador pode recuperar a password perdida"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "O URL para visualizar todas as submissões designadas a um utilizador."
+msgstr "O URL para visualizar todas as submissões designadas a um utilizador"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "O URL para um utilizador visualizar e editar o seu perfil."
+msgstr "O URL para um utilizador visualizar e editar o seu perfil"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr "O nome da decisão que foi tomada."
+msgstr "O nome da decisão que foi tomada"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr "Uma descrição da decisão que foi tomada."
+msgstr "Uma descrição da decisão que foi tomada"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr "A etapa do fluxo editorial em que esta decisão foi tomada."
+msgstr "A etapa do fluxo editorial em que esta decisão foi tomada"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "A ronda de revisão em que esta decisão foi tomada, se a decisão estiver "
-"relacionada com uma etapa de revisão."
+"relacionada com uma etapa de revisão"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "O assunto da discussão"
@@ -3153,7 +3150,7 @@ msgstr ""
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Uma breve descrição desta decisão que se destina a ser partilhada através de "
-"notificação de e-mail enviada aos revisores sobre esta decisão."
+"notificação de e-mail enviada aos revisores sobre esta decisão"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Decidimos aceitar esta submissão sem revisões."
@@ -3323,13 +3320,12 @@ msgstr ""
 "revisão dentro do prazo."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr "Agradacimento da avaliação"
+msgstr "Agradecimento da avaliação"
 
-#, fuzzy
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
-"Este e-mail é enviado por um Editor de Secção para confirmar a receção de "
-"uma revisão concluída e agradecer ao revisor pelas suas contribuições."
+"Este e-mail é enviado por um Editor para confirmar a receção de uma revisão "
+"concluída e agradecer ao revisor pelas suas contribuições."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
 msgstr "Lembrete de resposta atrasada (automatizada)"
@@ -3382,11 +3378,11 @@ msgstr ""
 msgid "mailable.userRegister.name"
 msgstr "Registo de Utilizador"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Mensagem enviada aos utilizadores recém-registados no sistema, para dar-lhes "
-"as boas vindas e fornecer o nome de utilizador e senha."
+"Mensagem enviada aos utilizadores recém-registados no sistema pelo Editor "
+"através das definições de utilizador. A mensagem deverá dar-lhes as boas-"
+"vindas ao sistema e um registo do seu nome de utilizador e palavra-passe."
 
 msgid "mailable.reviewerRegister.name"
 msgstr "Registo de Revisor"
@@ -3407,53 +3403,51 @@ msgstr ""
 msgid "mailable.submissionAck.name"
 msgstr "Agradecimento da Submissão"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Este e-mail, quando ativo, é enviado automaticamente ao autor quando submete "
-"um trabalho à revista. Oferece informações sobre como acompanhar o trabalho "
-"pelo processo editorial e agradece a submissão ao autor."
+"Este e-mail é enviado automaticamente ao autor quando realiza uma submissão. "
+"Este oferece informações sobre como acompanhar o trabalho pelo processo "
+"editorial e agradece a submissão ao autor."
 
 msgid "mailable.submissionAckNotAuthor.name"
 msgstr "Confirmação de Submissão (Outros Autores)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Este e-mail, quando ativo, é enviado automaticamente para os autores "
-"nomeados que não o autor que submeteu o trabalho."
+"Este e-mail é enviado automaticamente para os autores nomeados numa "
+"submissão que não sejam o autor que realizou a submissão."
 
 msgid "mailable.discussionSubmission.name"
 msgstr "Discussão da Submissão"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
-"Este e-mail é enviado no passo da submissão para notificar um utilizador "
-"acerca da submissão"
+"Este e-mail é enviado quando uma discussão é criada ou respondida na etapa "
+"de submissão."
 
 msgid "mailable.discussionReview.name"
 msgstr "Discussão da Revisão"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
-"Este e-mail é enviado no passo de revisão no fluxo de trabalho para "
-"notificar um utilizador acerca da submissão"
+"Este e-mail é enviado quando uma discussão é criada ou respondida na etapa "
+"de revisão."
 
 msgid "mailable.discussionCopyediting.name"
 msgstr "Discussão da Edição de Texto"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
-"Este e-mail é enviado no passo de edição de texto para notificar um "
-"utilizador acerca da submissão"
+"Este e-mail é enviado quando uma discussão é criada ou respondida na etapa "
+"de Edição Cópia."
 
 msgid "mailable.discussionProduction.name"
 msgstr "Discussão da Produção"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
-"Este e-mail é enviado no passo de produção para notificar um utilizador "
-"acerca da submissão"
+"Este e-mail é enviado quando uma discussão é criada ou respondida na etapa "
+"de produção."
 
 msgid "mailable.revisedVersionNotify.name"
 msgstr "Notificação da Versão Revista"
@@ -3477,12 +3471,11 @@ msgstr "Editar Notificação de Revisão"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
-"Este e-mail notifica automaticamente o revisor sobre os detalhes modificados "
-"na revisão"
+"Este e-mail notifica automaticamente o revisor quando os detalhes da revisão "
+"atribuída são alterados."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr "Comentários do Avaliador para Notificar Editores"
+msgstr "Comentários do Avaliador Notificar Editores"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""

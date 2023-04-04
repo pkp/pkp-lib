@@ -1,12 +1,12 @@
-# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022.
+# Carla Marques <carla.marques@usdb.uminho.pt>, 2021, 2022, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2023-04-03 18:19+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2023-04-04 20:27+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/submission/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 msgid "author.editPublishedDisabled"
 msgstr ""
-"Os autores desta publicação não podem ser alterados por que ela já está "
+"Os autores desta publicação não podem ser alterados porque já se encontra "
 "publicada."
 
 msgid "author.publicationNotFound"
@@ -1553,13 +1553,13 @@ msgstr ""
 "Foram solicitadas as revisões para a submissão: {$title}. Todas as "
 "notificações foram enviadas, exceto as que optou por ignorar."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
 "Envie um e-mail aos autores para informá-los que serão solicitadas revisões "
 "antes que a submissão seja aceite para publicação. Inclua todos os detalhes "
 "que o autor irá necessitar para rever a sua submissão. Quando apropriado, "
-"lembre-se de anonimizar qualquer comentário do revisor."
+"lembre-se de anonimizar qualquer comentário do revisor. Este e-mail não será "
+"enviado até que a decisão seja registada."
 
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar Ronda de Revisão"
@@ -1576,9 +1576,10 @@ msgstr "{$editorName} cancelou a ronda de revisão."
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Cancelada a última ronda de revisão."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
-msgstr "A ronda de revisão para a submissão {$title} foi cancelada."
+msgstr ""
+"A ronda de revisão para a submissão {$title} foi cancelada. Todas as "
+"notificações foram enviadas, exceto as que optou por ignorar."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -1601,11 +1602,11 @@ msgstr ""
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Revisões solicitadas"
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
 "Foram solicitadas revisões para a submissão, {$title}. A decisão de enviar "
-"as revisões para outra ronda de revisão foi registada."
+"as revisões para outra ronda de revisão foi registada. Todas as notificações "
+"foram enviadas, exceto as que optou por ignorar."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
@@ -1653,11 +1654,11 @@ msgstr ""
 "A submissão {$title}, foi enviada para a etapa de produção. O autor foi "
 "notificado, a menos que tenha optado por ignorar esse e-mail."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
-"Envie um e-mail para os autores para informá-lo que esta submissão foi "
-"enviada para a etapa de produção."
+"Envia um e-mail para os autores a informá-lo de que esta submissão foi "
+"enviada para a etapa de produção. Este e-mail não será enviado antes da "
+"decisão ficar registada."
 
 msgid "editor.submission.decision.backFromCopyediting"
 msgstr "Cancelar Edição de Texto"
@@ -1729,11 +1730,11 @@ msgstr ""
 "de edição de texto. O autor foi notificado, a menos que tenha optado por "
 "ignorar esse e-mail."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
-"Envie um e-mail aos autores para informá-los que esta submissão foi aceite "
-"para publicação e enviada para a etapa de edição de texto sem revisão."
+"Envia um e-mail aos autores para informá-los que esta submissão foi aceite "
+"para publicação e enviada para a etapa de edição de texto sem revisão. Este "
+"e-mail não será enviado antes que a decisão fique registada."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Enviar para Revisão Interna"
@@ -2597,8 +2598,8 @@ msgstr ""
 
 msgid "submission.viewingPreview"
 msgstr ""
-"Isto é uma visualização prévia e não foi ainda publicado.  <a href="
-"\"{$url}\">Ver submissão</a>"
+"Isto é uma visualização prévia e não foi ainda publicado. <a href=\"{$url}\""
+">Ver submissão</a>"
 
 msgid "author.submit.noFiles"
 msgstr "Nenhum documento anexado à submissão."

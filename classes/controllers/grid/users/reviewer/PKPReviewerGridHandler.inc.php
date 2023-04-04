@@ -36,6 +36,7 @@ class PKPReviewerGridHandler extends GridHandler {
 	/** @var boolean Is the current user assigned as an author to this submission */
 	var $_isCurrentUserAssignedAuthor;
 
+	var $isAuthorGrid;
 
 	/**
 	 * Constructor

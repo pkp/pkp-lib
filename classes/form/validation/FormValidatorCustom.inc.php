@@ -26,7 +26,7 @@ class FormValidatorCustom extends FormValidator {
 	/** @var boolean If true, field is considered valid if user function returns false instead of true */
 	var $_complementReturn;
 
-	/** @var array If present, additional arguments to pass to the getMessage translation function
+	/** @var array If present, additional arguments to pass to the getMessage translation function */
 	var $_messageArgs;
 
 	/**

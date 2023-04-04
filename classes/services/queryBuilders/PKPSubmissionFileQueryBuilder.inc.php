@@ -48,6 +48,8 @@ class PKPSubmissionFileQueryBuilder implements EntityQueryBuilderInterface {
 	/** @var boolean include submission files in the SUBMISSION_FILE_DEPENDENT stage */
 	protected $includeDependentFiles = false;
 
+	protected $uploaderUserIds = [];
+
 	/**
 	 * Set fileStages filter
 	 *

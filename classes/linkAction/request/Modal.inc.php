@@ -34,6 +34,8 @@ class Modal extends LinkActionRequest {
 	/** @var array The id of any Vue instances that must be destroyed when modal closed */
 	var $_closeCleanVueInstances;
 
+	var $_closeButtonText;
+
 	/**
 	 * Constructor
 	 * @param $title string (optional) The localized modal title.

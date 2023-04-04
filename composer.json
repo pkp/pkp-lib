@@ -53,9 +53,6 @@
 				"Inhibit __ Laravel helper": "lib/laravel-helper-4017.diff",
 				"Hide PHP8.1 deprecation notice": "lib/laravel-php8.1.diff"
 			},
-			"nesbot/carbon": {
-				"Hide PHP8.1 deprecation notice": "lib/carbon-php8.1.diff"
-			},
 			"smarty/smarty": {
 				"Hide PHP8.1 deprecation notice": "lib/smarty-php8.1.diff"
 			},

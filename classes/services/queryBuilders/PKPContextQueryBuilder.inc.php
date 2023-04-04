@@ -18,6 +18,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface {
+	/** @var array list of columns for query */
+	protected $columns = array();
 
 	/** @var string The database name for this context: `journals` or `presses` */
 	protected $db;

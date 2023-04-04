@@ -34,7 +34,6 @@ class XMLParserDOMHandler extends XMLParserHandler {
 	 * Constructor.
 	 */
 	function __construct() {
-		$this->rootNodes = array();
 		$this->currentNode = null;
 	}
 

@@ -205,7 +205,7 @@ class ControlledVocabEntryDAO extends DAO {
 		if (count($words)) {
 			array_push($params, ...$words);
 			$condition = 'cves.setting_value LIKE ?';
-			$termFilter = " AND (${condition}" . str_repeat(" OR ${condition}", count($words) - 1) . ')';
+			$termFilter = " AND ({$condition}" . str_repeat(" OR {$condition}", count($words) - 1) . ')';
 		}
 		$result = $this->retrieve(
 			"SELECT cve.*
@@ -219,7 +219,7 @@ class ControlledVocabEntryDAO extends DAO {
 				AND cv.assoc_type = ?
 				AND s.context_id = ?
 				AND cves.locale = ?
-				${termFilter}
+				{$termFilter}
 			ORDER BY
 				cves.setting_value",
 			$params

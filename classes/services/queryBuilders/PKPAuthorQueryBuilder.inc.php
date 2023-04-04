@@ -18,6 +18,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use PKP\Services\QueryBuilders\Interfaces\EntityQueryBuilderInterface;
 
 class PKPAuthorQueryBuilder implements EntityQueryBuilderInterface {
+	/** @var array list of columns for query */
+	protected $columns = array();
 
 	/** @var array get authors for one or more contexts */
 	protected $contextIds = [];

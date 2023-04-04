@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
+ *
  * @ingroup template
  *
  * @brief Class for accessing the underlying template engine.
@@ -309,6 +310,8 @@ class PKPTemplateManager extends Smarty
         $this->registerPlugin('modifier', 'parse_url', 'parse_url');
         $this->registerPlugin('modifier', 'parse_str', 'parse_str');
         $this->registerPlugin('modifier', 'strtok', 'strtok');
+        $this->registerPlugin('modifier', 'array_pop', 'array_pop');
+        $this->registerPlugin('modifier', 'array_keys', 'array_keys');
         $this->registerPlugin('modifier', 'String_substr', '\PKP\core\PKPString::substr');
         $this->registerPlugin('modifier', 'dateformatPHP2JQueryDatepicker', '\PKP\core\PKPString::dateformatPHP2JQueryDatepicker');
         $this->registerPlugin('modifier', 'to_array', [$this, 'smartyToArray']);
@@ -972,7 +975,6 @@ class PKPTemplateManager extends Smarty
          */
         if (Application::isInstalled() && !SessionManager::isDisabled()) {
             if ($request->getUser()) {
-
                 // Get a count of unread tasks
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */
                 $unreadTasksCount = (int) $notificationDao->getNotificationCount(false, $request->getUser()->getId(), null, Notification::NOTIFICATION_LEVEL_TASK);
@@ -1171,7 +1173,6 @@ class PKPTemplateManager extends Smarty
      */
     public function fetch($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
-
         // If no compile ID was assigned, get one.
         if (!$compile_id) {
             $compile_id = $this->getCompileId($template);
@@ -1249,7 +1250,6 @@ class PKPTemplateManager extends Smarty
      */
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
-
         // Output global constants and locale keys used in new component library
         $output = '';
         if (!empty($this->_constants)) {
@@ -1344,6 +1344,7 @@ class PKPTemplateManager extends Smarty
      *
      * @param string $hookName
      * @param array $args [
+     *
      * 	@option Context|Site The new values
      * 	@option Context|Site The old values
      * 	@option array Key/value of params that were modified
@@ -1409,6 +1410,7 @@ class PKPTemplateManager extends Smarty
      *
      * @param string $hookName
      * @param array $args [
+     *
      *		@option array Params passed to the hook
      *		@option Smarty
      *		@option string The output
@@ -2370,7 +2372,6 @@ class PKPTemplateManager extends Smarty
      */
     public function smartyPluckFiles($params, $smarty)
     {
-
         // The variable to assign the result to.
         if (empty($params['assign'])) {
             error_log('Smarty: {pluck_files} function called without required `assign` param. Called in ' . __FILE__ . ':' . __LINE__);
@@ -2413,7 +2414,6 @@ class PKPTemplateManager extends Smarty
         $genreDao = DAORegistry::getDAO('GenreDAO'); /** @var GenreDAO $genreDao */
         foreach ($params['files'] as $file) {
             switch ($params['by']) {
-
                 case 'chapter':
                     $genre = $genreDao->getById($file->getGenreId());
                     if (!$genre->getDependent() && method_exists($file, 'getChapterId')) {

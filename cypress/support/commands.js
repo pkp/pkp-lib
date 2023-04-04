@@ -80,7 +80,7 @@ Cypress.Commands.add('dispatchTestQueueJobs', (times) => {
 
 	times = times || 1;
 	for (let index = 0; index < times; index++) {
-		cy.exec('php lib/pkp/tools/jobs.php test');	
+		cy.exec('php lib/pkp/tools/jobs.php test');
 	}
 });
 
@@ -865,4 +865,22 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 				.get('.pkpBadge:contains("' + file.genre + '")');
 		});
 	});
+});
+
+Cypress.Commands.add('changeLanguage', (locale, contextPath) => {
+	contextPath = contextPath || 'publicknowledge';
+
+	// Workaround to make the request with a referrer
+	// It is not possible to set the referrer header with cy.visit()
+	cy.window()
+		.then((win) => {
+			const link = win.document.createElement('a');
+			const url = Cypress.config().baseUrl + '/index.php/' + contextPath + '/user/setLocale/' + locale;
+			link.setAttribute('href', url);
+			link.setAttribute('id', 'cypressChangeLanguage');
+			link.innerHTML = locale;
+			win.document.body.appendChild(link);
+		});
+	cy.get('a#cypressChangeLanguage')
+	  .click();
 });

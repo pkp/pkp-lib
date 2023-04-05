@@ -1,8 +1,9 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-02-01 18:48+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-04-06 14:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -50,9 +51,8 @@ msgstr ""
 "Estas especificações estão baseadas no conjunto de metadatos Dublin Core, um "
 "padrão internacional utilizado para descrever conteúdo."
 
-#, fuzzy
 msgid "submission.sectionOptions"
-msgstr "Opções de série"
+msgstr "Opções da Seção"
 
 msgid "catalog.browseTitles"
 msgstr "{$numTitles} Itens"
@@ -88,23 +88,19 @@ msgstr ""
 msgid "publication.relation"
 msgstr "Relações"
 
-#, fuzzy
 msgid "publication.relation.label"
-msgstr "Submetido para publicação"
+msgstr "Status da relação"
 
 msgid "publication.relation.description"
 msgstr ""
 "Indique se este preprint foi publicado ou enviado para publicação em outro "
 "lugar."
 
-#, fuzzy
 msgid "publication.relation.none"
-msgstr "O preprint não foi submetido para publicação."
+msgstr "O preprint não foi publicado em outro meio."
 
-#, fuzzy
 msgid "publication.relation.published"
-msgstr ""
-"O preprint foi publicado em um periódico ou em outra publicação acadêmica."
+msgstr "O preprint foi publicado em outro meio."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI do preprint publicado"
@@ -125,11 +121,8 @@ msgstr "Este preprint foi publicado, mas ainda não há DOI disponível."
 msgid "publication.publish.relationStatus.published"
 msgstr "Este preprint foi <a href='{$vorDoi}' target='_blank'>publicado</a>."
 
-#, fuzzy
 msgid "publication.publish.confirmation"
-msgstr ""
-"Todos os requisitos de publicação foram cumpridos. Está seguro de que deseja "
-"publicar este?"
+msgstr "Todos os requisitos foram cumpridos. Está seguro de que deseja postar?"
 
 msgid "author.submit.authorsCanNotPublish"
 msgstr ""
@@ -205,7 +198,7 @@ msgstr ""
 
 msgid "submission.license.description"
 msgstr ""
-"A licença será  configurada automaticamente para <a href='{$licenseUrl}' "
+"A licença será configurada automaticamente para <a href='{$licenseUrl}' "
 "target='_blank'>{$licenseName}</a> quando este manuscrito for postado."
 
 msgid "submission.copyrightHolder.description"
@@ -286,3 +279,8 @@ msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
 "Adicione qualquer informação que você acha que nossos moderadores devem "
 "saber antes de postar seu preprint."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Favor ler e entender os termos de direitos autorais para submissões feitas a "
+"este servidor de preprint."

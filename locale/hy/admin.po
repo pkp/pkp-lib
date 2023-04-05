@@ -2,11 +2,11 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-08 12:02+0000\n"
+"PO-Revision-Date: 2023-04-05 12:16+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"hy_AM/>\n"
-"Language: hy_AM\n"
+"hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -189,6 +189,7 @@ msgstr "Հեռացրեք չվավերացված ժամկետանց օգտվող�
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Հեռացրեք շատ ավելի հին ձախողված աշխատանքները ձախողված աշխատանքների ցանկից:"
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Մշակել սպասվող հերթերի աշխատանքները"
@@ -509,7 +510,8 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Թվարկեք հերթագրված բոլոր աշխատանքները: Եթե ցանկանում եք էջանշել "
-"արդյունքները, օգտագործեք --page= և --perPage= պարամետրերը"
+"արդյունքները, օգտագործեք --page= և --perPage= պարամետրերը: Pass flag --"
+"չհաջողվեց ցուցակագրել ձախողված աշխատանքները."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -531,6 +533,10 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Թվարկեք բոլոր ձախողված աշխատանքները: Ցուցակը զտելու համար սահմանեք --"
+"queue=QUEUE_NAME և --connection=CONNECTION_NAME պարամետրը: Նաև փոխանցեք "
+"պարամետրը/դրոշակը՝ --redispatch և --clear՝ նորից հերթ ուղարկելու համար կամ "
+"ջնջեք բոլոր/հատուկ ձախողված աշխատանքները:"
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
@@ -546,7 +552,9 @@ msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr "{$queueName} անունով հերթում առաջադրանքներ չկան:"
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Ցուցադրել հերթագրված աշխատանքների քանակը"
+msgstr ""
+"Ցուցադրել ընդհանուր հերթագրված աշխատանքները: Pass the flag -- չհաջողվեց "
+"տեսնել ձախողված աշխատանքների ընդհանուր քանակը:"
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Ցուցադրել Jobs հրամանի օգտագործումը"
@@ -558,7 +566,7 @@ msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Տարբերակը չէր կարող դատարկ լինել: Ստուգեք օգտագործման եղանակը:"
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Ձախողված հերթագրված աշխատանքներ"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Հերթագրված աշխատանքներ"
@@ -570,7 +578,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Հերթ"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Միացում"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Աշխատանքի ցուցադրման անվանումը"
@@ -588,10 +596,10 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Ստեղծված է"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Ձախողվել է"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Բացառության հաղորդագրություն"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Էջակալում"
@@ -642,12 +650,13 @@ msgstr "Ջնջված են բոլոր աշխատանքները:"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} ձախողված աշխատանքը հաջողությամբ հեռացվեց ձախողվածների ցուցակից:"
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} աշխատանքը հաջողությամբ վերադարձվել է հերթ:"
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Մենք ունենք {$total} ձախողված աշխատանք"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "Մենք ունենք {$total} հերթագրված աշխատանք"
@@ -662,7 +671,7 @@ msgid "admin.jobs.totalCount"
 msgstr "Հերթում ընդհանուր առմամբ կա <strong>{$total}</strong> աշխատանք(ներ)"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Ընդհանուր առմամբ կան <strong>{$total}</strong> ձախողված աշխատանք:"
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "Դիտեք հերթագրված աշխատանքները"
@@ -671,10 +680,10 @@ msgid "navigation.tools.jobs"
 msgstr "Աշխատանքներ"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Ձախողված աշխատանքներ"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Ձախողված աշխատանքի մանրամասներ"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -684,16 +693,16 @@ msgid "navigation.tools.jobs.view"
 msgstr "Դիտեք աշխատանքները"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Դիտեք ձախողված աշխատանքները"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Դիտեք ձախողված աշխատանքը:{$id} Մանրամասներ"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Հատկանիշ"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Հատկանիշի արժեք"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -705,7 +714,7 @@ msgid "admin.jobs.list.queue"
 msgstr "Հերթ"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Միացում"
 
 msgid "admin.jobs.list.attempts"
 msgstr "Փորձեր"
@@ -714,28 +723,28 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Ստեղծված է"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Ձախողվել է"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Օգտակար բեռ"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Բացառություն"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Գործողություններ"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Ստեղծվել է {$failedAt} -ում"
 
 msgid "admin.jobs.createdAt"
 msgstr "Ստեղծված է {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Կրկին փորձեք"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Պահանջել բոլոր ձախողված աշխատանքները"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

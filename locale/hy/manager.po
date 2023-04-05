@@ -3,11 +3,11 @@
 # Artashes Mirzoyan <amirzoyan@sci.am>, 2022.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-05 02:07+0000\n"
+"PO-Revision-Date: 2023-04-05 12:16+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/hy_AM/>\n"
-"Language: hy_AM\n"
+"manager/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -224,13 +224,13 @@ msgstr ""
 "որոնք պահվում են {$registrationAgency} -ում: Կպահվեն միայն DOI-ով "
 "հրապարակված նյութերը: Յուրաքանչյուր նյութի կարգավիճակը կթարմացվի, երբ "
 "պատասխան ստացվի: Համոզվա՞ծ եք, որ ցանկանում եք ավանդներ պլանավորել այս բոլոր "
-"տարրերի համար:որ տարրերի համար:"
+"տարրերի համար:"
 
 msgid "manager.dois.actions.description"
 msgstr "Գործողություն կատարեք {$count} ընտրված նյութ(եր)ի նկատմամբ:"
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Զանգվածային գործողություններ"
 
 msgid "manager.dois.depositStatus"
 msgstr "Ավանդադրման վիճակ"
@@ -242,7 +242,7 @@ msgid "manager.dois.registration.submittedDescription"
 msgstr "Այս տարրի մետատվյալներն ուղարկվել են {$registrationAgency}:"
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Այս նյութը ձեռքով գրանցվել է գրանցման գործակալությունում:"
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr "Այս տարրի մետատվյալները չեն ներկայացվել {$registrationAgency} -ին:"
@@ -284,40 +284,47 @@ msgid "manager.dois.status.error"
 msgstr "Սխալ"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Սխալ ունի"
 
 msgid "manager.dois.status.stale"
 msgstr "Հնացած"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "Նշանակված է DOI"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Բոլոր նյութերում բացակայում է DOI:"
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Բոլոր նյութերին նշանակված է DOI:"
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"DOI ունեցող բոլոր տարրերը, որոնք հրապարակվել են, բայց դեռ չեն պահվել "
+"գրանցման գործակալությունում:"
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Բոլոր նյութերը, որոնք ներկայացվել են գրանցման գործակալություն:"
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Բոլոր նյութերը, որոնք գրանցվել են գրանցման գործակալությունում կամ ձեռքով "
+"նշվել որպես գրանցված:"
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Բոլոր տարրերը, որոնք գրանցման գործընթացում սխալ են ունեցել:"
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Բոլոր նյութերը, որոնք վերահրատարակվել են գրանցման գործակալությունում վերջին "
+"պահից ի վեր: Նրանք պետք է նորից ներկայացվեն գրանցման գործակալություն՝ իրենց "
+"մետատվյալների գրառումները թարմացնելու համար:"
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-ի թարմացումները ձախողվեցին"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Որոշ DOI-ներ հնարավոր չէ թարմացնել:"
+msgstr "Որոշ DOI-ներ հնարավոր չէ թարմացնել"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Նյութերը հաջողությամբ արտահանվեցին"
@@ -338,16 +345,23 @@ msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Նյութերը հաջողությամբ ներկայացվել են ավանդադրման համար"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI կարգավիճակներ"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"DOI-ի կառավարումը տեղափոխվել է: Խնդրում ենք տեսնել <a href=\""
+"{$doiManagementUrl}\">DOI կառավարում</a> և <a href=\"{$doiSettingsUrl}\">DOI "
+"կարգավորումներ</a> էջերը:"
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI-ները չեն կարող նշանակվել, քանի դեռ չեք տրամադրել ձեր նշանակված DOI "
+"նախածանցը: <a href=\"{$doiSettingsUrl}\">Ավելացնել DOI նախածանց</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Փորձել եմ ստեղծել DOI, բայց DOI նախածանց է պահանջվում, որպեսզի համատեքստը "
+"ստեղծի այն:"
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -408,12 +422,12 @@ msgstr "DOI-ներ"
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
 "Հետևյալ սխալն է վերադարձվել {$registrationAgency} -ի կողմից և պարունակում է "
-"մանրամասներ սխալի պատճառի մասին։"
+"մանրամասներ սխալի պատճառի մասին:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
 "Հետևյալ հաղորդագրությունն է վերադարձվել {$registrationAgency} -ի կողմից և "
-"պարունակում է մանրամասներ գրանցման մասին."
+"պարունակում է մանրամասներ գրանցման մասին:"
 
 msgid "manager.emails.addEmail"
 msgstr "Ավելացնել ձևանմուշ"
@@ -910,6 +924,8 @@ msgstr "Պատվերով DOI վերջածանցի նմուշ"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Մեկ կամ մի քանի ընտրված DOI տեսակներ չեն թույլատրվում կազմաձևված DOI "
+"գրանցման գործակալության համար:"
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr "Ընտրեք այն ձևաչափը, որը կօգտագործվի, երբ հավելվածը ստեղծում է DOI:"
@@ -919,6 +935,8 @@ msgstr "Լռելյայն"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ոչ մեկը - վերջածանցները պետք է ձեռքով մուտքագրվեն <a href=\""
+"{$doiManagementUrl}\">DOI կառավարման էջում</a> և ինքնաբերաբար չեն ստեղծվի:"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Պատվերով կաղապար (խորհուրդ չի տրվում)"
@@ -944,19 +962,19 @@ msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Ոչ մեկը"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI տարբերակում"
 
 msgid "doi.authorization.enabledRequired"
 msgstr "Դուք չեք կարող կանչել այս գործողությունը առանց միացված DOI -ների:"
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Առկա են {$count} տարբերակներ."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Դիտել բոլորը"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI -ներ բոլոր տարբերակների համար"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "DOI-ն պարունակում է անվավեր նիշեր:"
@@ -1093,7 +1111,7 @@ msgid "manager.setup.notifications.description"
 msgstr ""
 "Հեղինակներին ինքնաշխատ կերպով ուղարկվում է նամակ՝ հաստատող իրենց "
 "ներկայացումը: Դուք կարող եք ունենալ էլ․ փոստի այս պատճեններն ուղարկված "
-"հետևյալ հասցեով."
+"հետևյալ հասցեով:"
 
 msgid "manager.setup.notifyUsers"
 msgstr "Ծանուցել"
@@ -1848,16 +1866,21 @@ msgstr ""
 "երախտիքի, ենթագրերի և արտոնագրման մետատվյալներ:"
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Պահանջվում է ներկայացումների հետ"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Արդյո՞ք այս նիշքերից առնվազն մեկը պետք է պահանջվի յուրաքանչյուր նոր "
+"ներկայացման ժամանակ: Եթե ընտրեք այո, հեղինակներին չի թույլատրվի ներկայացնել, "
+"քանի դեռ նրանք չեն վերբեռնել այս տեսակի առնվազն մեկ նիշք:"
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Այո, պահանջվում է ներկայացնող հեղինակները վերբեռնեն այս նիշքերից մեկը կամ մի "
+"քանիսը:"
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Ոչ, թույլ տվեք նոր ներկայացումներ առանց այս նիշքերի:"
 
 msgid "manager.settings.wizard"
 msgstr "Կարգավորումների հրաշագործ"
@@ -2235,27 +2258,35 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Կարճ հայտարարություն, որը նկարագրում է, թե արդյոք հեղինակ(ներ)ը հասանելի են "
+"դարձրել իրենց հետազոտության տվյալները, և, եթե այո, որտեղ ընթերցողները կարող "
+"են տեսնել դրանք:"
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Միացնել տվյալների հասանելիության հայտարարագրի մետատվյալները"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Ներկայացման ընթացքում հեղինակից մի պահանջեք տվյալների առկայության մասին "
+"հայտարարություն:"
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Խնդրեք հեղինակին ներկայացնել տվյալների առկայության մասին հայտարարություն:"
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Հեղինակից պահանջեք տրամադրել տվյալների առկայության մասին հայտարարություն՝ "
+"նախքան հեղինակի ներկայացումն ընդունելը:"
 
 msgid "plugins.importexport.common.validationErrors"
-msgstr "Վավերացման սխալներ."
+msgstr "Վավերացման սխալներ:"
 
 msgid "plugins.importexport.common.warningsEncountered"
-msgstr "Հանդիպած զգուշացումներ."
+msgstr "Հանդիպած զգուշացումներ:"
 
 msgid "plugins.importexport.common.errorsOccured"
-msgstr "Սխալներ են տեղի ունեցել."
+msgstr "Սխալներ են տեղի ունեցել:"
 
 msgid "plugins.importexport.common.id"
 msgstr "Id: {$id}"
@@ -2311,7 +2342,7 @@ msgstr ""
 "ներմուծվի, օրինակ՝ վերանայման առաջադրանք կամ քննարկում:"
 
 msgid "plugins.importexport.user.importExportErrors"
-msgstr "Ներմուծման/արտահանման սխալներ."
+msgstr "Ներմուծման/արտահանման սխալներ:"
 
 msgid "plugins.importexport.user.error.userHasNoPassword"
 msgstr ""
@@ -2335,7 +2366,7 @@ msgstr ""
 "գոյություն ունեցող օգտվողի հետ:"
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Փորձարկում"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Վերնագիր"
@@ -2869,31 +2900,25 @@ msgstr "Ներկայացման հեղինակների անուններն ու պ
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "Էջի URL-ը, որտեղից օգտագործողը կարող է վերականգնել կորցրած գաղտնաբառը"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայացումները դիտելու URL-ը:"
+msgstr "Օգտվողի կողմից նշանակված բոլոր ներկայացումները դիտելու URL-ը"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "Օգտատիրոջ՝ իր պրոֆիլը դիտելու և խմբագրելու URL-ը:"
+msgstr "Օգտատիրոջ՝ իր պրոֆիլը դիտելու և խմբագրելու URL-ը"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "Ընդունված որոշման անվանումը."
+msgstr "Ընդունված որոշման անվանումը"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "Ընդունված որոշման նկարագրությունը."
+msgstr "Ընդունված որոշման նկարագրությունը"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
-msgstr "Այս որոշումն ընդունվել է խմբագրական աշխատանքի փուլում։"
+msgstr "Այս որոշումն ընդունվել է խմբագրական աշխատանքի փուլում"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Սույն որոշումն ընդունվել է գրախոսման փուլում, եթե որոշումը կապված է "
-"գրախոսման փուլի հետ։"
+"գրախոսման փուլի հետ"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Քննարկման թեման"
@@ -2914,10 +2939,10 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr "Ստացողի կամ բոլոր ստացողների օգտանունը"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Ամսաթիվ, երբ վերանայումը պետք է ավարտվի"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Ամսաթիվ, երբ գրախոսողը պետք է ընդունի կամ մերժի հանձնարարությունը"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Վերանայման առաջադրանքի URL-ը"
@@ -2926,22 +2951,22 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "Առաջարկվող որոշումը, օրինակ՝ Ընդունել ներկայացումը"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Այս գրախոսման նշանակման ամսաթիվը"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Գրախոսման տեսակը, օրինակ՝ անանուն, կրկնակի անանուն կամ բաց"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Վերանայողի առաջարկությունը, օրինակ՝ Ընդունել ներկայացումը կամ մերժել"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Վերանայման փուլ, ինչպիսին է 1-ին կամ 2-րդ փուլը"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Գրախոսի կողմից վերբեռնված նիշքերը"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Գրախոսի անունը"
 
 #, fuzzy
 msgid "emailTemplate.variable.reviewType"
@@ -2999,9 +3024,8 @@ msgstr "Այս ներկայացման եզակի ID թիվը"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Ներկայացման համառոտագրությունը"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Հեղինակների անունները կրճատված տողի տեսքով"
+msgstr "Հեղինակների անունները կարճ տողով, ինչպես «Barnes, et al»"
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Հեղինակների լրիվ անունները"
@@ -3074,7 +3098,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Թողարկման նույնականացում, ներառյալ հատորը, թիվը, տարին և անվանումը"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Հրապարակված նյութի URL-ը"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Հաշվետվության տարին"
@@ -3128,11 +3152,10 @@ msgstr ""
 "Այս նամակը խմբագրի կողմից ուղարկվում է գրախոսին՝ ծանուցելու որ որոշում է "
 "կայացվել իր կողմից գրախոսված ներկայացման վերաբերյալ:"
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "Այս որոշման համառոտ նկարագրությունը, որը նախատեսվում է համօգտագործել այս "
-"որոշման մասին գրախոսներին ուղարկված էլեկտրոնային ծանուցման միջոցով:"
+"որոշման մասին գրախոսներին ուղարկված էլեկտրոնային ծանուցման միջոցով"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Մենք որոշել ենք ընդունել այս ներկայացումը առանց վերանայումների:"
@@ -3293,6 +3316,8 @@ msgstr "Գրախոսման հիշեցում"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Այս նամակն ուղարկվում է խմբագրի կողմից՝ գրախոսին հիշեցնելու, որ իրենց "
+"վերանայումն մոտնեւոմ է ավարտին:"
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Վերանայման հիշեցում (ինքնաշխատ դարձված)"
@@ -3459,9 +3484,8 @@ msgstr ""
 "Այս էլ․ նամակն ինքնաշխատ կերպով ծանուցում է գրախոսին, երբ նրա վերանայման "
 "հանձնարարության մանրամասները փոխվել են:"
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr "Գրախոսը մեկնաբանել է Տեղեկացնել խմբագիրներին"
+msgstr "Գրախոսողը մեկնաբանել է՝ Տեղեկացնել խմբագիրներին"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
@@ -3580,12 +3604,14 @@ msgstr "Էլ․ նամակ մի ուղարկեք խմբագիրներին:"
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Արդյո՞ք ներկայացնող հեղինակին պետք է առաջարկվի ընտրել դաս, երբ նրանք նոր "
+"ներկայացում են կատարում:"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Այո, ավելացրեք դասերի դաշտ ներկայացման հրաշագործին:"
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Ոչ, մի ցուցադրեք այս դաշտը հեղինակներին:"
 
 msgid "mailable.copyeditRequest.name"
 msgstr "Հայցեք գրական խմբագրում"
@@ -3622,7 +3648,7 @@ msgstr ""
 "Այս նամակն ուղարկվում է խմբագրին, երբ նրան հանձնարարվում է ներկայացում:"
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Նշանակեք խմբագիր"
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr "Ներկայացումը խմբագրի կարիք ունի"
@@ -3673,3 +3699,21 @@ msgstr "Ներկայացումը խմբագրի կարիք ունի"
 
 #~ msgid "stats.publications.downloadReport.allFilters"
 #~ msgstr "Բոլոր {$filter}"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Էլ. նամակները հաջողությամբ հերթագրվում են՝ հնարավորինս շուտ ուղարկելու համար:"
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Հրապարակման {$id} շապիկի պատկերը չի արտահանվել, դրա նիշքը չի գտնվել «{$path}»"
+" ուղու վրա:"
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Ներկայացման {$id} նիշքը բաց է թողնվել, քանի որ այն վավեր վերանայում չունի:"
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Ներկայացման {$id} նիշքի {$revision} տարբերակը բաց է թողնվել, քանի որ նիշքը "
+"չի գտնվել «{$path}» ուղու վրա:"

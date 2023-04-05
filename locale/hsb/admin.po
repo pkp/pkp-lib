@@ -2,7 +2,7 @@
 # Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-05 06:51+0000\n"
+"PO-Revision-Date: 2023-04-05 12:16+0000\n"
 "Last-Translator: Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>\n"
 "Language-Team: Upper Sorbian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "admin/hsb/>\n"
@@ -25,3 +25,9 @@ msgstr "mjeno nastajenja"
 
 msgid "admin.currentVersion"
 msgstr "aktualna wersija"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "Datajowy typ so njepodpěruje."
+
+msgid "admin.settings.about"
+msgstr "wopisanje „Wo nas“"

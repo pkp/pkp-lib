@@ -1,8 +1,9 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-25 01:08+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-04-06 14:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -20,17 +21,14 @@ msgstr ""
 "Escolha como selecionar uma data predeterminada de copyright para um "
 "preprint. Este valor predeterminado pode ser cancelado caso a caso."
 
-#, fuzzy
 msgid "manager.distribution.copyrightYearBasis.submission"
-msgstr "Use a data de publicação do preprint"
+msgstr "Use a data de postagem do preprint"
 
-#, fuzzy
 msgid "manager.distribution.publishingMode"
-msgstr "Modo de publicação"
+msgstr "Modo de Postagem"
 
-#, fuzzy
 msgid "manager.distribution.publishingMode.none"
-msgstr "OPS não será utilizado para publicar os conteúdos do servidos online."
+msgstr "OPS não será utilizado para postar os conteúdos do servidos online."
 
 msgid "manager.distribution.publishingMode.openAccess"
 msgstr "O servidor fornecerá acesso aberto aos seus conteúdos."
@@ -77,51 +75,42 @@ msgstr ""
 "Remover este usuário deste servidor? Esta ação anulará a inscrição deste "
 "usuário de todas as funções dentro deste servidor."
 
-#, fuzzy
 msgid "manager.sections.abstractsNotRequired"
-msgstr "Não requer resumos"
+msgstr "Não exigir resumos"
 
-#, fuzzy
 msgid "manager.sections.confirmDelete"
-msgstr "Está seguro de que deseja eliminar está serie de forma permanente?"
+msgstr "Está seguro de que deseja eliminar esta seção de forma permanente?"
 
 msgid "manager.sections.alertDelete"
 msgstr ""
 "Antes de eliminar esta série, você deve mover os preprints postados nesta "
 "série para outra série."
 
-#, fuzzy
 msgid "manager.sections.create"
-msgstr "Criar série"
+msgstr "Criar Seção"
 
-#, fuzzy
 msgid "manager.sections.editorRestriction"
-msgstr ""
-"Os artigos podem apenas ser submetidos por Editores e Editores de Série."
+msgstr "Os artigos podem apenas ser submetidos por Gerentes e Moderadores."
 
 msgid "manager.sections.confirmDeactivateSection.error"
 msgstr ""
 "Pelo menos uma série deve estar ativa. Visite as configurações de fluxo de "
 "trabalho para desabilitar todas as submissões para esse servidor."
 
-#, fuzzy
 msgid "manager.sections.form.abbrevRequired"
-msgstr "Um título abreviado para a série é requerido"
+msgstr "Um título abreviado para a seção é requerido"
 
-#, fuzzy
 msgid "manager.setup.form.section.pathRequired"
-msgstr "Uma rota de URL para a série é requerida"
+msgstr "Uma rota de URL para a seção é requerida"
 
-#, fuzzy
 msgid "manager.sections.identifyType"
-msgstr "Identifique os artigos postados nesta série como um"
+msgstr "Identifique os artigos postados nesta seção como um"
 
 msgid "manager.sections.identifyTypeExamples"
 msgstr "(Por exemplo, etc.)"
 
-#, fuzzy
 msgid "manager.sections.policy"
-msgstr "Política de série"
+msgstr "Política da Seção"
 
 msgid "manager.sections.submissionIndexing"
 msgstr "Não será incluída a indexação do servidor"
@@ -129,10 +118,9 @@ msgstr "Não será incluída a indexação do servidor"
 msgid "manager.sections.wordCount"
 msgstr "Contagem de palavras"
 
-#, fuzzy
 msgid "manager.sections.wordCountInstructions"
 msgstr ""
-"Limite de contagem de palavras do resumo para esta série (0 para sem limite)"
+"Limite de contagem de palavras do resumo para esta seção (0 para sem limite)"
 
 msgid "manager.payment.options.enablePayments"
 msgstr ""
@@ -145,9 +133,8 @@ msgstr "Configuração do servidor"
 msgid "manager.setup.masthead"
 msgstr "Corpo Editorial"
 
-#, fuzzy
 msgid "manager.setup.editorialTeam"
-msgstr "Equipe Editorial"
+msgstr "Equipe do Servidor de Preprint"
 
 msgid "manager.setup.useStyleSheet"
 msgstr "Página de estilo do servidor"
@@ -189,11 +176,10 @@ msgstr ""
 msgid "manager.setup.emailSignature"
 msgstr "Assinatura"
 
-#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
-"Os e-mails preparados que o sistema envia em nome do servidor terão a "
-"seguinte assinatura inserida no final."
+"Os e-mails enviados automaticamente pelo sistema em nome do servidor de "
+"preprint terão a seguinte assinatura inserida ao final."
 
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Habilitar anúncios"
@@ -227,9 +213,8 @@ msgstr ""
 msgid "manager.setup.enableUserRegistration"
 msgstr "Os visitantes podem registrar uma conta de usuário com o servidor."
 
-#, fuzzy
 msgid "manager.setup.identity"
-msgstr "Identidade do servidor"
+msgstr "Identidade do Servidor de Preprint"
 
 msgid "manager.setup.information"
 msgstr "Informação"
@@ -267,14 +252,13 @@ msgstr "Resumo do servidor"
 msgid "manager.setup.contextAbout"
 msgstr "Sobre o servidor"
 
-#, fuzzy
 msgid "manager.setup.contextAbout.description"
 msgstr ""
 "Inclua qualquer informação sobre seu servidor que possa ser de interesse "
-"para leitores ou autores. Isso poderia incluir sua política de acesso "
-"aberto, o enfoque e o alcance do servidor, o aviso de direitos de autor, a "
-"divulgação do patrocínio, o histórico do servidor e uma declaração de "
-"privacidade."
+"para leitores ou autores. Isso inclui sua política de acesso aberto, o "
+"enfoque e o alcance do servidor, política de moderação e triagem, aviso de "
+"direitos autorais, divulgação de patrocínio, histórico do servidor e uma "
+"declaração de privacidade."
 
 msgid "manager.setup.contextInitials"
 msgstr "Iniciais do servidor"
@@ -384,9 +368,8 @@ msgstr "Diminuição"
 msgid "manager.statistics.statistics.count.revise"
 msgstr "Reenviar"
 
-#, fuzzy
 msgid "manager.statistics.statistics.daysToPublication"
-msgstr "Dias até a publicação"
+msgstr "Dias até a postagem do preprint"
 
 msgid "manager.statistics.statistics.itemsPublished"
 msgstr "Itens postados"
@@ -424,7 +407,7 @@ msgid "manager.publication.library"
 msgstr "Biblioteca do servidor de Preprint"
 
 msgid "manager.setup.resetPermissions"
-msgstr "Redefinir permissões do Preprint"
+msgstr "Redefinir Permissões do Preprint"
 
 msgid "manager.setup.resetPermissions.confirm"
 msgstr ""

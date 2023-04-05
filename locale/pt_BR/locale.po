@@ -1,8 +1,9 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-20 17:01+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-04-06 14:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "locale/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -171,8 +172,8 @@ msgstr "Descendente"
 msgid "manager.people.noAdministrativeRights"
 msgstr ""
 "Desculpe, você não possui direitos administrativos sobre este usuário. Isso "
-"pode ser porque:  <ul> <li>O usuário é um administrador do site </li>  <li>O "
-"usuário está ativo em servidores que você não gerencia </li>\t </ul>\tEsta "
+"pode ser porque: <ul> <li>O usuário é um administrador do site </li> <li>O "
+"usuário está ativo em servidores que você não gerencia </li> </ul>Esta "
 "tarefa deve ser executada por um administrador do site."
 
 msgid "submission.layout.galley.remotelyHostedContent"

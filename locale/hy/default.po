@@ -1,12 +1,12 @@
 # Hovhannes Harutyunyan <hharutyunyan@gmail.com>, 2022.
-# Tigran Zargaryan <tigran@flib.sci.am>, 2022.
+# Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-12-16 17:02+0000\n"
+"PO-Revision-Date: 2023-04-05 12:16+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"default/hy_AM/>\n"
-"Language: hy_AM\n"
+"default/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -139,12 +139,10 @@ msgstr "Պատկեր"
 msgid "default.genres.styleSheet"
 msgstr "HTML Stylesheet,"
 
-#, fuzzy
 msgid "default.contextSettings.emailSignature"
 msgstr ""
-"<br/><hr /><br/><p><a href=\"{$contextUrl}\">{$contextName}</a></"
-"p><p>{$mailingAddress}</p><p>{$contactName}, <a href=\"mailto: "
-"{$contactEmail}\">{$contactEmail}</a></p>․"
+"<br><br>—<br><p>Սա ինքնաշխատ հաղորդագրություն է սրանից <a href=\""
+"{$contextUrl}\">{$contextName}</a>.</p>"
 
 msgid "default.submission.step.beforeYouBegin"
 msgstr ""

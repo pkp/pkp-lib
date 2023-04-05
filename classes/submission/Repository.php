@@ -380,13 +380,17 @@ abstract class Repository
         // Required metadata
         $publicationSchema = $this->schemaService->get(PKPSchemaService::SCHEMA_PUBLICATION);
         foreach ($context->getRequiredMetadata() as $metadata) {
-            $schema = $publicationSchema->properties?->{$metadata};
-            if (!$schema) {
-                continue;
+            // The `citations` metadata is received and validated at `citationsRaw`
+            if ($metadata === 'citations') {
+                $metadata = 'citationsRaw';
             }
             // The `supportingAgencies` metadata is called `agencies` on the context
             if ($metadata === 'agencies') {
                 $metadata = 'supportingAgencies';
+            }
+            $schema = $publicationSchema->properties?->{$metadata};
+            if (!$schema) {
+                continue;
             }
             if (empty($schema->multilingual) && empty($publication->getData($metadata))) {
                 $errors[$metadata] = [__('validator.required')];

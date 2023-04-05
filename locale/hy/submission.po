@@ -3,11 +3,11 @@
 # Tigran Zargaryan <tigran@flib.sci.am>, 2022, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-01-08 12:02+0000\n"
+"PO-Revision-Date: 2023-04-05 12:16+0000\n"
 "Last-Translator: Tigran Zargaryan <tigran@flib.sci.am>\n"
 "Language-Team: Armenian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/hy_AM/>\n"
-"Language: hy_AM\n"
+"submission/hy/>\n"
+"Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -607,6 +607,8 @@ msgstr "Նախնական ներկայացումն ավարտված է:"
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) -ը համաձայնել է ներկայացման հեղինակային իրավունքի "
+"պայմաններին:"
 
 msgid "submission.event.fileRevised"
 msgstr "\"{$name}\" տարբերակը վերբեռնվել է {$submissionFileId} նիշքի համար:"
@@ -658,9 +660,13 @@ msgstr "Գրախոսի դիտարկումների նիշքը թարմացված 
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} -ը հիշեցում է ուղարկել {$recipientName} -ին գրախոսման իր "
+"հանձնարարության վերաբերյալ"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Ինքնաշխատ հիշեցման նամակ է ուղարկվել {$recipientName} -ին նրա գրախոսության "
+"հանձնարարության վերաբերյալ"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Ուղարկվել է էլ․ նամակ:"
@@ -1180,7 +1186,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Մուտք արեք մատենագիտական հղումը։"
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Խնդրում ենք մուտքագրել տվյալների հասանելիության հայտարարությունը:"
 
 msgid "submission.form.name"
 msgstr "Անվանեք նիշքը (օրինակ՝ ձեռագիր, Աղյուսակ 1)"
@@ -2396,7 +2402,7 @@ msgstr ""
 msgid "submission.list.reviewerWorkflowLink"
 msgstr ""
 "Ձեզ նշանակվել է խմբագրական դեր այս ներկայացման համար: Ցանկանու՞մ եք մուտք "
-"գործել <a href=\"{$urlEditorialWorkflow}\">Խմբագրական աշխատանքային հոսք</a>:"
+"գործել <a href=\"{$urlEditorialWorkflow}\">Խմբագրական աշխատանքային հոսք</a>"
 
 msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Այս ներկայացումը պետք է ավարտվի, նախքան խմբագիրը կվերանայի այն:"
@@ -2643,19 +2649,24 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Գլխավոր կոնտակտ խմբագրական նամակագրության համար:"
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Տվյալների առկայության մասին հայտարարություն"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Նշեք, թե արդյոք դուք տրամադրել եք ապացույցներ, որոնք հաստատում են այս "
+"աշխատանքի հասանելիությունը, և եթե այո, ապա որտեղ և ինչպես կարելի է մուտք "
+"գործել դրան"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Դուք պետք է բեռնեք առնվազն մեկ {$genre} նիշք:"
 
 msgid "submission.files.required.genres"
 msgstr ""
+"Դուք պետք է վերբեռնեք հետևյալ նիշքերից յուրաքանչյուրից առնվազն մեկը՝ "
+"{$genres}:"
 
 msgid "publication.version"
-msgstr ""
+msgstr "Տարբերակ {$version}"
 
 #~ msgid "editor.submission.decision.backToSubmissionFromCopyediting.log"
 #~ msgstr ""
@@ -2683,3 +2694,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Վերադարձ դեպի Ներկայացում"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Դուք կարող եք թարմացնել այս քննարկումը {$allowedEditTimeNoticeLimit} րոպեով:"

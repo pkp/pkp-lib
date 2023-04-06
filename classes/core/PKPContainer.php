@@ -30,6 +30,7 @@ use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
 use Illuminate\Support\Facades\Facade;
 use PKP\config\Config;
+use PKP\db\DatabaseServiceProvider;
 use PKP\i18n\LocaleServiceProvider;
 use PKP\core\PKPUserProvider;
 use PKP\proxy\ProxyParser;
@@ -143,6 +144,7 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
+        $this->register(new DatabaseServiceProvider($this));
 
         $this->register(new \PKP\core\PKPAuthServiceProvider($this));
         $this->register(new \Illuminate\Cookie\CookieServiceProvider($this));

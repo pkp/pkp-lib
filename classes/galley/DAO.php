@@ -296,35 +296,38 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
             $params[] = $pubIdSettingValue;
         }
 
+        $baseSql = '
+            FROM publication_galleys g
+            LEFT JOIN publications p ON (p.publication_id = g.publication_id)
+            LEFT JOIN publication_settings ps ON (ps.publication_id = p.publication_id)
+            LEFT JOIN submissions s ON (s.submission_id = p.submission_id)
+            LEFT JOIN submission_files sf ON (g.submission_file_id = sf.submission_file_id)
+            ' . ($pubIdType != null ? ' LEFT JOIN publication_galley_settings gs ON (g.galley_id = gs.galley_id)' : '')
+            . ($title != null ? ' LEFT JOIN publication_settings pst ON (p.publication_id = pst.publication_id)' : '')
+            . ($author != null ? ' LEFT JOIN authors au ON (p.publication_id = au.publication_id)
+                    LEFT JOIN author_settings asgs ON (asgs.author_id = au.author_id AND asgs.setting_name = \'' . Identity::IDENTITY_SETTING_GIVENNAME . '\')
+                    LEFT JOIN author_settings asfs ON (asfs.author_id = au.author_id AND asfs.setting_name = \'' . Identity::IDENTITY_SETTING_FAMILYNAME . '\')
+                ' : '')
+            . ($pubIdSettingName != null ? ' LEFT JOIN publication_galley_settings gss ON (g.galley_id = gss.galley_id AND gss.setting_name = ?)' : '') . '
+            WHERE
+            s.status = ? AND s.context_id = ?
+            ' . ($pubIdType != null ? ' AND gs.setting_name = ? AND gs.setting_value IS NOT NULL' : '')
+            . ($title != null ? ' AND (pst.setting_name = ? AND pst.setting_value LIKE ?)' : '')
+            . ($author != null ? ' AND (asgs.setting_value LIKE ? OR asfs.setting_value LIKE ?)' : '')
+            . ($issueId != null ? ' AND (ps.setting_name = \'issueId\' AND ps.setting_value = ? AND ps.locale = \'\'' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value IS NULL' : '')
+            . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value = ?' : '')
+            . (($pubIdSettingName != null && is_null($pubIdSettingValue)) ? ' AND (gss.setting_value IS NULL OR gss.setting_value = \'\')' : '');
+
         $result = $this->deprecatedDao->retrieveRange(
-            $sql = 'SELECT	g.*
-			FROM	publication_galleys g
-				LEFT JOIN publications p ON (p.publication_id = g.publication_id)
-				LEFT JOIN publication_settings ps ON (ps.publication_id = p.publication_id)
-				LEFT JOIN submissions s ON (s.submission_id = p.submission_id)
-				LEFT JOIN submission_files sf ON (g.submission_file_id = sf.submission_file_id)
-				' . ($pubIdType != null ? ' LEFT JOIN publication_galley_settings gs ON (g.galley_id = gs.galley_id)' : '')
-                . ($title != null ? ' LEFT JOIN publication_settings pst ON (p.publication_id = pst.publication_id)' : '')
-                . ($author != null ? ' LEFT JOIN authors au ON (p.publication_id = au.publication_id)
-						LEFT JOIN author_settings asgs ON (asgs.author_id = au.author_id AND asgs.setting_name = \'' . Identity::IDENTITY_SETTING_GIVENNAME . '\')
-						LEFT JOIN author_settings asfs ON (asfs.author_id = au.author_id AND asfs.setting_name = \'' . Identity::IDENTITY_SETTING_FAMILYNAME . '\')
-					' : '')
-                . ($pubIdSettingName != null ? ' LEFT JOIN publication_galley_settings gss ON (g.galley_id = gss.galley_id AND gss.setting_name = ?)' : '') . '
-			WHERE
-				s.status = ? AND s.context_id = ?
-				' . ($pubIdType != null ? ' AND gs.setting_name = ? AND gs.setting_value IS NOT NULL' : '')
-                . ($title != null ? ' AND (pst.setting_name = ? AND pst.setting_value LIKE ?)' : '')
-                . ($author != null ? ' AND (asgs.setting_value LIKE ? OR asfs.setting_value LIKE ?)' : '')
-                . ($issueId != null ? ' AND (ps.setting_name = \'issueId\' AND ps.setting_value = ? AND ps.locale = \'\'' : '')
-                . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue == EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value IS NULL' : '')
-                . (($pubIdSettingName != null && $pubIdSettingValue != null && $pubIdSettingValue != EXPORT_STATUS_NOT_DEPOSITED) ? ' AND gss.setting_value = ?' : '')
-                . (($pubIdSettingName != null && is_null($pubIdSettingValue)) ? ' AND (gss.setting_value IS NULL OR gss.setting_value = \'\')' : '') . '
-				GROUP BY g.galley_id
-				ORDER BY p.date_published DESC, p.publication_id DESC, g.galley_id DESC',
+            "SELECT g.*
+			{$baseSql}
+            GROUP BY g.galley_id
+            ORDER BY p.date_published DESC, p.publication_id DESC, g.galley_id DESC",
             $params,
             $rangeInfo
         );
 
-        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params, $rangeInfo);
+        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params, $rangeInfo);
     }
 }

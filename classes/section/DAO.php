@@ -54,8 +54,7 @@ abstract class DAO extends EntityDAO
     {
         return $query
             ->getQueryBuilder()
-            ->select($this->primaryKeyColumn)
-            ->count();
+            ->safeCount();
     }
 
     /**

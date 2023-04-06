@@ -110,7 +110,7 @@ abstract class PKPStatsEditorialQueryBuilder
             $q->where('s.date_submitted', '<=', $this->dateEnd);
         }
 
-        return $q->count();
+        return $q->safeCount();
     }
 
     /**
@@ -184,7 +184,7 @@ abstract class PKPStatsEditorialQueryBuilder
     {
         return $this->_getObject()
             ->whereIn('s.status', (array) $status)
-            ->count();
+            ->safeCount();
     }
 
     /**
@@ -199,7 +199,7 @@ abstract class PKPStatsEditorialQueryBuilder
         return $this->_getObject()
             ->where('s.status', '=', PKPSubmission::STATUS_QUEUED)
             ->whereIn('s.stage_id', $stages)
-            ->count();
+            ->safeCount();
     }
 
     /**
@@ -234,7 +234,7 @@ abstract class PKPStatsEditorialQueryBuilder
             }
         }
 
-        return $q->count();
+        return $q->safeCount();
     }
 
     /**
@@ -460,7 +460,7 @@ abstract class PKPStatsEditorialQueryBuilder
             ->where(DB::raw('CAST(s.date_submitted AS DATE)'), '>', DB::raw('pi.date_published'))
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
             ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
-            ->count();
+            ->safeCount();
     }
 
     /**
@@ -475,7 +475,7 @@ abstract class PKPStatsEditorialQueryBuilder
             ->where('s.submission_progress', '<>', '')
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
             ->when($this->dateEnd, fn (Builder $q) => $q->where('s.date_submitted', '<=', $this->dateEnd))
-            ->count();
+            ->safeCount();
     }
 
     /**

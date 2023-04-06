@@ -73,19 +73,20 @@ class EmailLogDAO extends \PKP\db\DAO
             $params[] = $userId;
         }
 
+        $baseSql = '
+            FROM email_log e
+            ' . ($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') . '
+            WHERE e.assoc_type = ? AND
+            e.assoc_id = ? AND
+            e.event_type = ?
+            ' . ($userId ? ' AND u.user_id = ?' : '');
         $result = $this->retrieveRange(
-            $sql = 'SELECT	e.*
-			FROM	email_log e' .
-            ($userId ? ' LEFT JOIN email_log_users u ON e.log_id = u.email_log_id' : '') .
-            ' WHERE	e.assoc_type = ? AND
-				e.assoc_id = ? AND
-				e.event_type = ?' .
-                ($userId ? ' AND u.user_id = ?' : ''),
+            "SELECT e.* {$baseSql}",
             $params,
             $rangeInfo
         );
 
-        return new DAOResultFactory($result, $this, 'build', [], $sql, $params, $rangeInfo); // Counted in submissionEmails.tpl
+        return new DAOResultFactory($result, $this, 'build', [], "SELECT 0 {$baseSql}", $params, $rangeInfo); // Counted in submissionEmails.tpl
     }
 
     /**
@@ -227,7 +228,7 @@ class EmailLogDAO extends \PKP\db\DAO
                 [(int) $newUserId, (int) $oldUserId]
             ),
             $this->update(
-                'UPDATE email_log_users 
+                'UPDATE email_log_users
                 SET user_id = ?
                 WHERE user_id = ? AND email_log_id NOT IN (SELECT t1.email_log_id
                     FROM (SELECT email_log_id FROM email_log_users WHERE user_id = ?) AS t1

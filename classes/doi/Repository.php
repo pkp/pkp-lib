@@ -322,8 +322,8 @@ abstract class Repository
             Repo::doi()::TYPE_PUBLICATION => Repo::publication()
                 ->getCollector()
                 ->filterByDoiIds([$doiId])
-                ->getIds()
-                ->count(),
+                ->getQueryBuilder()
+                ->safeCount() > 0,
             default => false,
         };
     }

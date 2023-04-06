@@ -93,9 +93,7 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
     {
         return $this
             ->getQuery()
-            ->select('c.' . $this->dbIdColumn)
-            ->get()
-            ->count();
+            ->safeCount();
     }
 
     /**

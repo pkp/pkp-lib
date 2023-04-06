@@ -145,7 +145,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     public function getRecords($setIds, $from, $until, $set, $offset, $limit, &$total)
     {
         $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
-        $total = $query->count();
+        $total = $query->safeCount();
         $results = $query->offset($offset)->limit($limit)->get();
 
         $records = [];
@@ -173,7 +173,7 @@ abstract class PKPOAIDAO extends \PKP\db\DAO
     public function getIdentifiers($setIds, $from, $until, $set, $offset, $limit, &$total)
     {
         $query = $this->_getRecordsRecordSetQuery($setIds, $from, $until, $set);
-        $total = $query->count();
+        $total = $query->safeCount();
         $results = $query->offset($offset)->limit($limit)->get();
 
         $records = [];

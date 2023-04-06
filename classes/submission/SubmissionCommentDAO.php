@@ -94,24 +94,17 @@ class SubmissionCommentDAO extends \PKP\db\DAO
         if ($reviewId) {
             $params[] = (int) $reviewId;
         }
-        return new DAOResultFactory(
-            $this->retrieve(
-                $sql = 'SELECT	a.*
-				FROM	submission_comments a
-				WHERE	submission_id = ?
-					' . ($reviewerId ? ' AND author_id = ?' : '') . '
-					' . ($reviewId ? ' AND assoc_id = ?' : '') . '
-					' . ($viewable === true ? ' AND viewable = 1' : '') . '
-					' . ($viewable === false ? ' AND viewable = 0' : '') . '
-				ORDER BY date_posted DESC',
-                $params
-            ),
-            $this,
-            '_fromRow',
-            [],
-            $sql,
-            $params // Counted in readReview.tpl and authorReadReview.tpl
-        );
+
+        $baseSql = '
+            FROM submission_comments a
+            WHERE submission_id = ?
+            ' . ($reviewerId ? ' AND author_id = ?' : '') . '
+            ' . ($reviewId ? ' AND assoc_id = ?' : '') . '
+            ' . ($viewable === true ? ' AND viewable = 1' : '') . '
+            ' . ($viewable === false ? ' AND viewable = 0' : '');
+
+        $result = $this->retrieve("SELECT a.* {$baseSql} ORDER BY date_posted DESC", $params);
+        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params); // Counted in readReview.tpl and authorReadReview.tpl
     }
 
     /**

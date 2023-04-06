@@ -201,15 +201,13 @@ class ReviewRoundDAO extends \PKP\db\DAO
             $params[] = $round;
         }
 
-        $result = $this->retrieve(
-            $sql = 'SELECT * FROM review_rounds WHERE submission_id = ?' .
-            ($stageId ? ' AND stage_id = ?' : '') .
-            ($round ? ' AND round = ?' : '') .
-            ' ORDER BY stage_id ASC, round ASC',
-            $params
-        );
-
-        return new DAOResultFactory($result, $this, '_fromRow', [], $sql, $params);
+        $baseSql = '
+            FROM review_rounds
+            WHERE submission_id = ?
+            ' . ($stageId ? ' AND stage_id = ?' : '') . '
+            ' . ($round ? ' AND round = ?' : '');
+        $result = $this->retrieve("SELECT * {$baseSql} ORDER BY stage_id ASC, round ASC", $params);
+        return new DAOResultFactory($result, $this, '_fromRow', [], "SELECT 0 {$baseSql}", $params);
     }
 
     /**

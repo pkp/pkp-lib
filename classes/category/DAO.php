@@ -70,7 +70,7 @@ class DAO extends EntityDAO
      */
     public function getCount(Collector $query): int
     {
-        return $query->getQueryBuilder()->count();
+        return $query->getQueryBuilder()->safeCount();
     }
 
     /**

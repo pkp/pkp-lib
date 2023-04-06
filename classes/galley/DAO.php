@@ -91,9 +91,7 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
     {
         return $query
             ->getQueryBuilder()
-            ->select('g.' . $this->primaryKeyColumn)
-            ->get()
-            ->count();
+            ->safeCount();
     }
 
     /**

@@ -389,7 +389,7 @@ class ReviewRoundDAO extends \PKP\db\DAO
         return DB::table('review_rounds')
             ->where('submission_id', $submissionId)
             ->when(!is_null($stageId), fn ($query) => $query->where('stage_id', $stageId))
-            ->count();
+            ->safeCount();
     }
 }
 

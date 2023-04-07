@@ -1,19 +1,20 @@
+# Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2020-04-18 18:17+0000\n"
-"Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
+"PO-Revision-Date: 2023-04-08 15:48+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
 "uk/>\n"
-"Language: uk_UA\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "user.accountInformation"
 msgstr "Інформація облікового запису"
@@ -166,11 +167,11 @@ msgstr "Невірне ім'я користувача або пароль. Бу�
 msgid "user.login"
 msgstr "Увійти"
 
-#, fuzzy
 msgid "user.login.lostPassword.confirmationSent"
 msgstr ""
-"На вашу адресу email було надіслане підтвердження. Виконайте вказані у листі "
-"інструкції, щоб змінити ваш пароль."
+"На вашу електронну адресу надіслано підтвердження, якщо було знайдено "
+"відповідний обліковий запис. Будь ласка, дотримуйтесь інструкцій в "
+"електронному листі, щоб скинути пароль."
 
 msgid "user.login.lostPassword.invalidHash"
 msgstr ""
@@ -241,8 +242,8 @@ msgstr "Бажане загальнодоступне ім’я"
 
 msgid "user.preferredPublicName.description"
 msgstr ""
-"Як ви вважаєте за краще звертатися? Привітання, прізвища та суфікси можна "
-"додати тут, якщо хочете."
+"Будь ласка, укажіть повне ім'я, оскільки в опублікованій роботі має бути "
+"вказано автора. Приклад: Dr. Алан П. Мванденга"
 
 msgid "user.profile.changePasswordInstructions"
 msgstr ""
@@ -490,7 +491,7 @@ msgid "user.apiKey.generate"
 msgstr "Згенерувати новий ключ API"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Видалити"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -499,9 +500,10 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Видалення ключа скасує доступ до будь-якої програми, яка його використовує."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Ви дійсно хочете видалити цей ключ API?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -514,13 +516,13 @@ msgstr ""
 "\"_blank\"> заяви про конфіденційність</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Жодного користувача з указаною адресою електронної пошти не існує."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
-msgstr ""
+msgstr "Не вдається виконати запит на скидання пароля через {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Введіть новий пароль для оновлення пароля для входу."
 
 msgid "user.login.resetPassword.passwordUpdated"
-msgstr ""
+msgstr "Пароль успішно оновлено. Будь ласка, увійдіть з оновленим паролем."

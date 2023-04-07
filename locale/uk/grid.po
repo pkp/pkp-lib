@@ -1,19 +1,20 @@
+# Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-05-02 02:20+0000\n"
-"Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
+"PO-Revision-Date: 2023-04-08 15:48+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"uk_UA/>\n"
-"Language: uk_UA\n"
+"uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "Немає елементів"
@@ -135,7 +136,7 @@ msgid "grid.action.order"
 msgstr "Порядок Сортування"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Зберегти порядок"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Скасувати впорядкування"
@@ -288,7 +289,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Додати оголошення"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Додати організацію"
 
 msgid "grid.action.mergeUser"
 msgstr "Об'єднати користувачів"
@@ -370,7 +371,7 @@ msgid "grid.columns.locale"
 msgstr "Мова"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Код"
 
 msgid "grid.sponsor.title"
 msgstr "Спонсори"
@@ -413,6 +414,8 @@ msgstr "Видалити учасника"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Ви дійсно хочете видалити {$name} зі списку осіб, які зробити свій внесок? "
+"Цю дію не можна буде скасувати."
 
 msgid "grid.action.newVersion"
 msgstr "Створити нову версію"
@@ -454,28 +457,30 @@ msgid "author.users.contributor.principalContact"
 msgstr "Контактна особа"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Установити головну контактну особу"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Попередній перегляд"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Осіб, які зробили свій внесок у цю публікацію, буде визначено в таких "
+"форматах."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Формат"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Відображення"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Скорочено"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Списки публікацій"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Повністю"
 
 msgid "grid.roles.currentRoles"
 msgstr "Поточні ролі"
@@ -707,7 +712,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Оберіть тип..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Перегляд"
 
 msgid "author.users.contributor.name"
 msgstr "Ім'я"

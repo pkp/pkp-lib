@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-28 07:48+0000\n"
+"PO-Revision-Date: 2023-04-08 08:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/bg/>\n"
@@ -29,3 +29,27 @@ msgstr "Разсрочени"
 
 msgid "submission.title"
 msgstr "Заглавие на препринт"
+
+msgid "submission.submit.userGroup"
+msgstr "Изпращане в ролята ми на..."
+
+msgid "submission.upload.selectComponent"
+msgstr "Изберете компонент за препринт"
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Нов материал"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Резюмето трябва да съдържа {$wordCount} думи или по-малко."
+
+msgid "submission.submit.noContext"
+msgstr "Сървърът на това изпращане на материали не можа да бъде намерен."
+
+msgid "submission.galleyFiles"
+msgstr "Типографски файлове"
+
+msgid "submission.upload.fileContents"
+msgstr "Препринт компонент"
+
+msgid "submission.complete"
+msgstr "Одобрен"

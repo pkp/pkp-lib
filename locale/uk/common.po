@@ -1,19 +1,20 @@
+# Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2020-04-29 15:38+0000\n"
-"Last-Translator: Fylypovych Georgii <red.ukr@gmail.com>\n"
+"PO-Revision-Date: 2023-04-08 15:48+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/uk_UA/>\n"
-"Language: uk_UA\n"
+"common/uk/>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -124,28 +125,28 @@ msgid "common.active"
 msgstr "Активні"
 
 msgid "common.inactive"
-msgstr ""
+msgstr "Неактивно"
 
 msgid "common.add"
 msgstr "Додати"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Додавання CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Додавання файлів"
 
 msgid "common.addSelf"
 msgstr "Додати себе"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Вкладені файли"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Вкласти файли"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Вкласти вибране"
 
 msgid "common.name"
 msgstr "Ім'я"
@@ -340,7 +341,7 @@ msgid "common.deleteSelection"
 msgstr "Видалити вибране"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Скасувати вибір"
 
 msgid "common.designation"
 msgstr "Позначення"
@@ -349,7 +350,7 @@ msgid "common.description"
 msgstr "Опис"
 
 msgid "common.details"
-msgstr ""
+msgstr "Подробиці"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; в {$dpi} DPI/PPI"
@@ -358,10 +359,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} пікселів"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Ні, відкинути незбережені зміни"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Відключено"
 
 msgid "common.disable"
 msgstr "Відключити"
@@ -382,22 +383,22 @@ msgid "common.downloadPdf"
 msgstr "Завантажити PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Завантажити звіт"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Перетягніть файли сюди."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Або завантажте файл"
 
 msgid "common.edit"
 msgstr "Редагувати"
 
 msgid "common.editItem"
-msgstr ""
+msgstr "Редагувати {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Шаблони електронних листів"
 
 msgid "common.enable"
 msgstr "Включити"
@@ -467,13 +468,13 @@ msgid "common.filterRemove"
 msgstr "Скасувати фільтр: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Знайти шаблон"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Форматування"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Географічно"
 
 msgid "common.go"
 msgstr "Вперед"
@@ -503,13 +504,13 @@ msgid "common.inProgress"
 msgstr "Триває"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Вставити"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Вставити вміст"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Пошук вмісту для вставлення"
 
 msgid "common.itemsPerPage"
 msgstr "Об'єкти на сторінці"
@@ -518,7 +519,7 @@ msgid "common.keywords"
 msgstr "Ключові слова"
 
 msgid "common.label"
-msgstr ""
+msgstr "Мітка"
 
 msgid "common.language"
 msgstr "Мова"
@@ -527,7 +528,7 @@ msgid "common.languages"
 msgstr "Мови"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Востаннє збережено {$when}"
 
 msgid "common.lastActivity"
 msgstr "Остання активність зафіксована {$date}."
@@ -539,10 +540,10 @@ msgid "common.lessThan"
 msgstr "{$value} або менше"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "Менше"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Продовжуйте працювати"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -575,7 +576,7 @@ msgid "common.moreThan"
 msgstr "{$value} або більше"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Більше"
 
 msgid "common.noneAssigned"
 msgstr "Немає призначень"
@@ -584,10 +585,10 @@ msgid "common.none"
 msgstr "Немає"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Не вибрано"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Не надано"
 
 msgid "common.no"
 msgstr "Ні"
@@ -633,7 +634,7 @@ msgid "common.noMatches"
 msgstr "Немає співпадінь"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "Ще {$number}"
 
 msgid "common.off"
 msgstr "Викл."
@@ -650,13 +651,11 @@ msgstr "Опції"
 msgid "common.order"
 msgstr "Порядок Сортування"
 
-#, fuzzy
 msgid "common.orderUp"
-msgstr "Підняти позицію {$itemTitle}"
+msgstr "Пересунути вверх «{$itemTitle}»"
 
-#, fuzzy
 msgid "common.orderDown"
-msgstr "Опустити позицію {$itemTitle}"
+msgstr "Пересунути вниз «{$itemTitle}»"
 
 msgid "common.originalFileName"
 msgstr "Оригінальне ім'я файлу"
@@ -722,7 +721,7 @@ msgid "common.queue.long.active"
 msgstr "Всі активні"
 
 msgid "common.range"
-msgstr "{$min}-{$max}"
+msgstr "{$min}–{$max}"
 
 msgid "common.re"
 msgstr "Re:"
@@ -734,7 +733,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Читати більше про {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Перепідключення"
 
 msgid "common.record"
 msgstr "Запис"
@@ -782,10 +781,10 @@ msgid "common.reset"
 msgstr "Перезавантаження"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Круг {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Роль"
 
 msgid "common.saveAndContinue"
 msgstr "Зберегти та продовжити"
@@ -803,10 +802,10 @@ msgid "common.search"
 msgstr "Пошук"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Пошукова фраза"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Пошук"
 
 msgid "common.searchQuery"
 msgstr "Пошуковий запит"
@@ -830,16 +829,16 @@ msgid "common.select"
 msgstr "Вибрати"
 
 msgid "common.selectWithName"
-msgstr ""
+msgstr "Вибрати {$name}"
 
 msgid "common.sendEmail"
 msgstr "Відправити Email"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Показати всі кроки"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "Кроки {$current}/{$total}"
 
 msgid "common.size"
 msgstr "Розмір"
@@ -856,9 +855,8 @@ msgstr "Тема"
 msgid "common.subjects"
 msgstr "Теми"
 
-#, fuzzy
 msgid "common.submenu"
-msgstr "Субменю"
+msgstr "Підменю"
 
 msgid "common.subtitle"
 msgstr "Підзаголовок"
@@ -867,16 +865,16 @@ msgid "common.suggest"
 msgstr "Запропонувати"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Перейти до"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Перейти до {$name}"
 
 msgid "common.title"
 msgstr "Заголовок"
 
 msgid "common.titleSeparator"
-msgstr ""
+msgstr " | "
 
 msgid "common.top"
 msgstr "До початку"
@@ -888,10 +886,10 @@ msgid "common.type"
 msgstr "Тип"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Завантажено {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Завантажено {$name} {$date}"
 
 msgid "common.component"
 msgstr "Компонент"
@@ -901,15 +899,20 @@ msgstr "Нерозпочате"
 
 msgid "common.unknownError"
 msgstr ""
+"Сталася несподівана помилка. Будь ласка, оновіть сторінку та спробуйте ще "
+"раз."
 
 msgid "common.unread"
 msgstr "Непрочитане"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Незбережені зміни"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Ми знайшли незбережені зміни з {$when}. Це може статися, якщо під час роботи "
+"буде втрачено з'єднання із сервером. Відновлення цих змін може перезаписати "
+"всі зміни, внесені з того часу. Чи хотіли б ви відновити ці зміни зараз?"
 
 msgid "common.untitled"
 msgstr "Без заголовку"
@@ -930,13 +933,13 @@ msgid "common.up"
 msgstr "Нагору"
 
 msgid "common.addFile"
-msgstr ""
+msgstr "Додати файл"
 
 msgid "common.upload.addFile"
 msgstr "Завантажити файл"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Завантажити файл з вашого комп'ютера."
 
 msgid "common.upload.restore"
 msgstr "Відновити попереднє"
@@ -957,16 +960,16 @@ msgid "common.user"
 msgstr "Користувач"
 
 msgid "common.user.nonexistent"
-msgstr ""
+msgstr "[Неіснуючий користувач]"
 
 msgid "common.view"
 msgstr "Дивитися"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Помилка перегляду"
 
 msgid "common.viewWithName"
-msgstr ""
+msgstr "Переглянути {$name}"
 
 msgid "common.viewProfile"
 msgstr "Переглянути профайл"
@@ -1032,28 +1035,30 @@ msgid "email.addAttachment"
 msgstr "Додати вкладення"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Прикріпити файли подання"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Прикріпити файли, завантажені автором на етапі подання."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Вкласти файли, завантажені під час процесу надсилання, такі як редакції або "
+"файли для перевірки."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Файли бібліотеки"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Вкладення файлів бібліотеки"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Вкладення файлів із бібліотек подання та видавця."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Вкладення файлів рецензій"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Вкладення файлів, переданих рецензентами"
 
 msgid "email.addBccRecipient"
 msgstr "Додати до списку прихованих копій"
@@ -1068,7 +1073,7 @@ msgid "email.attachments"
 msgstr "Вкладення"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Не вдалося вкласти файл {$fileName}."
 
 msgid "email.bcc"
 msgstr "Прихована копія"
@@ -1084,6 +1089,8 @@ msgstr "Копія"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Ви дійсно хочете змінити на {$localeName}, щоб скласти цей електронний лист? "
+"Будь-які зміни, внесені до теми й тіла електронного листа, буде втрачено."
 
 msgid "email.compose"
 msgstr "Відправити листа"
@@ -1261,7 +1268,7 @@ msgid "form.resubmit"
 msgstr "Відправити знову"
 
 msgid "form.saved"
-msgstr ""
+msgstr "Збережено"
 
 msgid "form.saveToUpload"
 msgstr "Для завантаження файлу використовуйте кнопку \"Зберегти\"."
@@ -1400,9 +1407,11 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Дозвіл на редагування метаданих подання"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Дозволити зміну метаданих для цього користувача."
+msgstr ""
+"Дозвольте цій особі вносити зміни до публікації, наприклад назви, анотації, "
+"метаданих та інших відомостей про публікацію. Ви можете відкликати цей "
+"привілей, якщо подання пройшло остаточну перевірку та готове до публікації."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Учасник"
@@ -1619,9 +1628,11 @@ msgstr "Налаштування сповіщень"
 
 msgid "notification.settingsDescription"
 msgstr ""
-"Оберіть події системи, про які Ви хочете бути сповіщені.  У Вашій стрічці "
-"сповіщень не будуть з'являтися події, що відповідають типам, які Ви "
-"відключите."
+"Виберіть системні події, про які Ви хочете отримувати сповіщення. Зняття "
+"прапорця запобігає появі сповіщень про подію в системі, а також надсилання "
+"вам електронної пошти. Відмічені події з'являться в системі, а у вас є "
+"додаткова можливість отримувати або не отримувати таке ж повідомлення "
+"електронною поштою."
 
 msgid "notification.reminderError"
 msgstr ""
@@ -1635,7 +1646,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Метадані подання збережені."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Відправлено сповіщення всім зареєстрованим користувачам"
+msgstr "Надіслати електронний лист про це всім зареєстрованим користувачам."
 
 msgid "search.author"
 msgstr "Автори"
@@ -1882,7 +1893,7 @@ msgid "timeZone"
 msgstr ""
 
 msgid "user.email"
-msgstr ""
+msgstr "Адреса електронної пошти"
 
 msgid "user.authorization.submissionFile"
 msgstr "Поточний користувач не має права доступу до вказаного файлу подання."
@@ -2227,7 +2238,7 @@ msgid "plugins.importexport.common.error.unknownCommand"
 msgstr ""
 
 msgid "common.withForwardSlash"
-msgstr "{$item}/{$afterSlash}"
+msgstr "{$item} / {$afterSlash}"
 
 msgid "common.categorySeparator"
 msgstr "{$parent} > {$child}"

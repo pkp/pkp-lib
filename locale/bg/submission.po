@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-08 08:48+0000\n"
+"PO-Revision-Date: 2023-04-11 08:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/bg/>\n"
@@ -53,3 +53,23 @@ msgstr "Препринт компонент"
 
 msgid "submission.complete"
 msgstr "Одобрен"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Контролен списък за подаване на материали"
+
+msgid "submission.submit.contributorRole"
+msgstr "Авторство и съавторство"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Тези спецификации се основават на набора метаданни Dublin Core, международен "
+"стандарт, използван за описване на съдържание."
+
+msgid "submission.sectionOptions"
+msgstr "Опции за раздела"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} заглавия"
+
+msgid "catalog.category.heading"
+msgstr "Всички заглавия"

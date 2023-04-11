@@ -25,14 +25,14 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {
     /**
      * The submission id of the targeted submission
-     * 
+     *
      * @var int
      */
     protected $submissionId;
 
     /**
      * The submission file id of the targeted submission file to delete
-     * 
+     *
      * @var int
      */
     protected $submissionFileId;
@@ -60,5 +60,6 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
             SubmissionSearch::SUBMISSION_SEARCH_GALLEY_FILE,
             $this->submissionFileId
         );
+        $submissionSearchIndex->submissionChangesFinished();
     }
 }

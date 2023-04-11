@@ -20,7 +20,6 @@ namespace PKP\tools\event;
 
 use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
-use PKP\cache\CacheManager;
 use PKP\cliTool\CommandLineTool;
 
 use PKP\core\PKPContainer;
@@ -143,8 +142,7 @@ class commandEvents extends CommandLineTool
      */
     protected function clear(): void
     {
-        $cacheManager = CacheManager::getManager();
-        $cacheManager->flush('event');
+        PKPEventServiceProvider::clearCache();
 
         $this->getOutput()->success('Cache cleared!');
     }
@@ -154,9 +152,7 @@ class commandEvents extends CommandLineTool
      */
     protected function cache(): void
     {
-        // Cleaning old file
-        $cacheManager = CacheManager::getManager();
-        $cacheManager->flush('event');
+        PKPEventServiceProvider::clearCache();
 
         $eventServiceProvider = app()
             ->makeWith(
@@ -164,19 +160,8 @@ class commandEvents extends CommandLineTool
                 ['app' => PKPContainer::getInstance()]
             );
 
-        // Forcing the cache rebuild
+        // Rebuild the cache
         $eventServiceProvider->getEvents();
-
-        $filePath = $cacheManager->getFileCachePath();
-        $files = glob("{$filePath}/fc-event*.php");
-        foreach ($files as $file) {
-            if (!file_exists($file)) {
-                $this->getOutput()->error('Cached file was not created');
-
-                return;
-            }
-        }
-
         $this->getOutput()->success('Cache rebuilt!');
     }
 
@@ -207,13 +192,8 @@ try {
         );
 
         $alternatives = $e->getAlternatives();
-
-        $message = 'Did you mean this?';
-        if (count($alternatives) > 1) {
-            $message = 'Did you mean one of those?';
-        }
-
-        $message = $message . PHP_EOL . implode(PHP_EOL, $alternatives);
+        $message = count($alternatives) > 1 ? 'Did you mean one of those?' : 'Did you mean this?';
+        $message .= PHP_EOL . implode(PHP_EOL, $alternatives);
 
         $output->block(
             [$e->getMessage(), $message],
@@ -223,7 +203,7 @@ try {
             true
         );
 
-        return;
+        exit;
     }
 
     throw $e;

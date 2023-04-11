@@ -16,18 +16,18 @@
 
 namespace PKP\core;
 
+use DateInterval;
 use Illuminate\Events\EventServiceProvider;
-
 use Illuminate\Foundation\Events\DiscoverEvents;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Event;
-
-use PKP\cache\CacheManager;
-use PKP\cache\FileCache;
-
 use SplFileInfo;
 
 class PKPEventServiceProvider extends EventServiceProvider
 {
+    /** Max lifetime for the event discovery cache */
+    protected const MAX_CACHE_LIFETIME = '1 day';
+
     /**
      * @var array $listen $event => $listeners[]
      *
@@ -42,6 +42,16 @@ class PKPEventServiceProvider extends EventServiceProvider
      */
     protected $subscribe = [];
 
+    private static function getCacheKey(): string
+    {
+        return __METHOD__ . static::MAX_CACHE_LIFETIME;
+    }
+
+    public static function clearCache(): void
+    {
+        Cache::forget(static::getCacheKey());
+    }
+
     /**
      * Get the discovered events and listeners for the application
      *
@@ -49,15 +59,11 @@ class PKPEventServiceProvider extends EventServiceProvider
      */
     public function getEvents()
     {
-        $cacheManager = CacheManager::getManager();
-        /** @var FileCache */
-        $cache = $cacheManager->getCache('event', PKPApplication::CONTEXT_SITE, function (FileCache $cache) {
-            $cache->setEntireCache($this->discoveredEvents());
-        });
-
+        $expiration = DateInterval::createFromDateString(static::MAX_CACHE_LIFETIME);
+        $events = Cache::remember(static::getCacheKey(), $expiration, fn () => $this->discoveredEvents());
 
         return array_merge_recursive(
-            $cache->getContents(),
+            $events,
             $this->listens()
         );
     }

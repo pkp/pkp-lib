@@ -435,7 +435,13 @@ abstract class Collector implements CollectorInterface
                             ->when(is_array($this->assignedTo), function ($q) {
                                 $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 'p.submission_id')
                                     ->whereIn('ra.reviewer_id', $this->assignedTo)
-                                    ->whereNull('ra.reviewer_id');
+                                    ->where(fn (Builder $q) => $q
+                                        ->whereNull('ra.reviewer_id')
+                                        ->orWhereNotIn('aus.setting_name', [
+                                            Identity::IDENTITY_SETTING_GIVENNAME,
+                                            Identity::IDENTITY_SETTING_FAMILYNAME
+                                        ])
+                                    );
                             })
                             ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
                     });

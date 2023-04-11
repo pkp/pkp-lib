@@ -883,4 +883,5 @@ Cypress.Commands.add('changeLanguage', (locale, contextPath) => {
 		});
 	cy.get('a#cypressChangeLanguage')
 	  .click();
+	cy.get('html[lang="' + locale.replace('_', '-') + '"]');
 });

@@ -115,6 +115,9 @@ class PKPContainer extends Container
     {
         // Load main settings, this should be done before registering services, e.g., it's used by Database Service
         $this->loadConfiguration();
+        $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
+        $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
+        $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new PKPEventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
@@ -122,9 +125,6 @@ class PKPContainer extends Container
         $this->register(new PKPQueueProvider($this));
         $this->register(new MailServiceProvider($this));
         $this->register(new AppServiceProvider($this));
-        $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
-        $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
-        $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
         $this->register(new LocaleServiceProvider($this));
     }
 

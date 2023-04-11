@@ -24,12 +24,12 @@ namespace PKP\core;
 define('PKP_LIB_PATH', 'lib/pkp');
 define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/counterBots/generated/COUNTER_Robots_list.txt');
 
+use Exception;
 use Illuminate\Support\Str;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
 use PKP\config\Config;
 use SplFileInfo;
-use Symfony\Component\Finder\Finder;
 
 class Core
 {
@@ -499,18 +499,16 @@ class Core
      */
     public static function classFromFile(SplFileInfo $file): string
     {
-        $pathFromBase = trim(Str::replaceFirst(base_path(), '', $file->getRealPath()), '/');
-        $libPath = 'lib/pkp/';
-        $namespace = Str::startsWith($pathFromBase, $libPath) ? 'PKP\\' : 'APP\\';
+        $libPath = realpath(base_path(PKP_LIB_PATH));
+        $isLib = str_starts_with($file->getRealPath(), $libPath);
+        $className = str_replace($isLib ? $libPath : realpath(base_path()), '', $file->getRealPath());
+        $className = preg_replace('#^[\\\\/]classes|\.php$#', '', $className);
+        $className = str_replace('/', '\\', '/' . ($isLib ? 'PKP' : 'APP') . $className);
 
-        $path = $pathFromBase;
-        if ($namespace === 'PKP\\') {
-            $path = Str::replaceFirst($libPath, '', $path);
-        }
-        if (Str::startsWith($path, 'classes')) {
-            $path = Str::replaceFirst('classes/', '', $path);
+        if (!class_exists($className)) {
+            error_log(new Exception("Failed to map the file \"{$file->getRealPath()}\" to a class"));
         }
 
-        return $namespace . str_replace('/', '\\', Str::replaceLast('.php', '', $path));
+        return $className;
     }
 }

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-06 14:48+0000\n"
+"PO-Revision-Date: 2023-04-12 13:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "bg/>\n"
@@ -26,3 +26,35 @@ msgstr "За сървъра"
 
 msgid "plugins.importexport.common.action.register"
 msgstr "Регистриране"
+
+msgid "manager.distribution.copyrightYearBasis.description"
+msgstr ""
+"Изберете как да бъде избрана дата на авторското право по подразбиране за "
+"препринт. Това по подразбиране може да бъде заменено за всеки отделен случай."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr ""
+"Използвайте шаблони по подразбиране.<br />%j.%a за препринти<br />%j.%a.g%g "
+"за типографии."
+
+msgid "manager.distribution.access"
+msgstr "Достъп"
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Използвайте датата на публикуване на препринта"
+
+msgid "manager.distribution.publishingMode"
+msgstr "Режим на публикуване"
+
+msgid "manager.distribution.publishingMode.none"
+msgstr ""
+"OPS няма да се използва за публикуване на съдържанието на сървъра онлайн."
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Сървърът ще осигури отворен достъп до съдържанието си."
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr "При достигане на продукционен етап"
+
+msgid "manager.setup.information.forReaders"
+msgstr "За читатели"

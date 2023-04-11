@@ -63,6 +63,7 @@ abstract class Collector implements CollectorInterface
     public ?array $stageIds = null;
     public ?array $doiStatuses = null;
     public ?bool $hasDois = null;
+    public ?array $excludeIds = null;
 
     /** @var array Which DOI types should be considered when checking if a submission has DOIs set */
     public array $enabledDoiTypes = [];
@@ -220,6 +221,15 @@ abstract class Collector implements CollectorInterface
     public function searchPhrase(?string $phrase): AppCollector
     {
         $this->searchPhrase = $phrase;
+        return $this;
+    }
+
+    /**
+     * Ensure the given submission IDs are not included
+     */
+    public function excludeIds(?array $ids): AppCollector
+    {
+        $this->excludeIds = $ids;
         return $this;
     }
 
@@ -459,6 +469,9 @@ abstract class Collector implements CollectorInterface
         $q->when($this->hasDois !== null, function (Builder $q) {
             $this->addHasDoisFilterToQuery($q);
         });
+
+        // By whether any child pub objects have DOIs assigned
+        $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));
 
         // Limit and offset results for pagination
         if (isset($this->count)) {

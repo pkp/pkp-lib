@@ -30,15 +30,15 @@ abstract class SubmissionSearchIndex
     /**
      * Split a string into a clean array of keywords
      *
-     * @param string $text
+     * @param string|array $text
      * @param bool $allowWildcards
      *
-     * @return array of keywords
+     * @return string[] of keywords
      */
-    public function filterKeywords($text, $allowWildcards = false)
+    public static function filterKeywords($text, $allowWildcards = false, bool $allowShortWords = false): array
     {
         $minLength = Config::getVar('search', 'min_word_length');
-        $stopwords = $this->_loadStopwords();
+        $stopwords = static::loadStopwords();
 
         // Join multiple lines into a single string
         if (is_array($text)) {
@@ -56,11 +56,11 @@ abstract class SubmissionSearchIndex
 
         // FIXME Do not perform further filtering for some fields, e.g., author names?
 
-        // Remove stopwords
         $keywords = [];
-        foreach ($words as $k) {
-            if (!isset($stopwords[$k]) && PKPString::strlen($k) >= $minLength && !is_numeric($k)) {
-                $keywords[] = PKPString::substr($k, 0, self::SEARCH_KEYWORD_MAX_LENGTH);
+        foreach ($words as $word) {
+            // Ignores: stop words, short words (when $allowShortWords is false) and words composed solely of numbers
+            if (empty($stopwords[$word]) && ($allowShortWords || PKPString::strlen($word) >= $minLength) && !is_numeric($word)) {
+                $keywords[] = PKPString::substr($word, 0, static::SEARCH_KEYWORD_MAX_LENGTH);
             }
         }
         return $keywords;
@@ -70,26 +70,22 @@ abstract class SubmissionSearchIndex
      * Return list of stopwords.
      * FIXME: Should this be locale-specific?
      *
-     * @return array with stopwords as keys
+     * @return array<string,int> Stop words (in lower case) as keys and 1 as value
      */
-    protected function _loadStopwords()
+    protected static function loadStopwords()
     {
         static $searchStopwords;
 
-        if (!isset($searchStopwords)) {
-            // Load stopwords only once per request
-            $searchStopwords = array_count_values(
-                array_filter(
-                    array_map('trim', file(dirname(__FILE__, 5) . '/' . self::SEARCH_STOPWORDS_FILE)),
-                    function ($a) {
-                        return !empty($a) && $a[0] != '#';
-                    }
-                )
-            );
-            $searchStopwords[''] = 1;
-        }
-
-        return $searchStopwords;
+        return $searchStopwords ??= array_fill_keys(
+            collect(file(base_path(static::SEARCH_STOPWORDS_FILE)))
+                ->map(fn (string $word) => trim($word))
+                // Ignore comments/line-breaks
+                ->filter(fn (string $word) => !empty($word) && $word[0] !== '#')
+                // Include a map for empty words
+                ->push('')
+                ->toArray(),
+            1
+        );
     }
 
     /**

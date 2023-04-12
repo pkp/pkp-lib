@@ -53,14 +53,15 @@ class UpdateSubmissionSearchJob extends BaseJob
             throw new JobException(JobException::INVALID_PAYLOAD);
         }
 
+        $submissionSearchIndex = Application::getSubmissionSearchIndex();
         if ($submission->getData('status') !== PKPSubmission::STATUS_PUBLISHED) {
-            Application::getSubmissionSearchIndex()->deleteTextIndex($submission->getId());
-            Application::getSubmissionSearchIndex()->clearSubmissionFiles($submission);
+            $submissionSearchIndex->deleteTextIndex($submission->getId());
+        } else {
+            $submissionSearchIndex->submissionMetadataChanged($submission);
+            $submissionSearchIndex->submissionFilesChanged($submission);
         }
 
-        Application::getSubmissionSearchIndex()->submissionMetadataChanged($submission);
-        Application::getSubmissionSearchIndex()->submissionFilesChanged($submission);
         Application::getSubmissionSearchDAO()->flushCache();
-        Application::getSubmissionSearchIndex()->submissionChangesFinished();
+        $submissionSearchIndex->submissionChangesFinished();
     }
 }

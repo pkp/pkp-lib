@@ -43,6 +43,7 @@ abstract class Collector implements CollectorInterface
     public const ORDERBY_LAST_MODIFIED = 'lastModified';
     public const ORDERBY_SEQUENCE = 'sequence';
     public const ORDERBY_TITLE = 'title';
+    public const ORDERBY_SEARCH_RANKING = 'ranking';
     public const ORDER_DIR_ASC = 'ASC';
     public const ORDER_DIR_DESC = 'DESC';
 
@@ -326,6 +327,23 @@ abstract class Collector implements CollectorInterface
                 $coalesceTitles = 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)';
                 $q->addSelect([DB::raw($coalesceTitles)]);
                 $q->orderBy(DB::raw($coalesceTitles), $this->orderDirection);
+                break;
+            case self::ORDERBY_SEARCH_RANKING:
+                if (!$keywords->count()) {
+                    $q->orderBy('s.date_submitted', $this->orderDirection);
+                    break;
+                }
+                // Retrieves the number of matches for all keywords
+                $orderByMatchCount = DB::table('submission_search_objects', 'sso')
+                    ->join("submission_search_object_keywords AS ssok", "ssok.object_id", '=', 'sso.object_id')
+                    ->join("submission_search_keyword_list AS sskl", "sskl.keyword_id", '=', "ssok.keyword_id")
+                    ->whereIn("sskl.keyword_text", $keywords->map(fn () => DB::raw("CONCAT(LOWER(?), '%')")))->addBinding($keywords->toArray())
+                    ->whereColumn('s.submission_id', '=', 'sso.submission_id')
+                    ->selectRaw('COUNT(0)');
+                // Retrieves the number of distinct matched keywords
+                $orderByDistinctKeyword = (clone $orderByMatchCount)->groupBy('sskl.keyword_id');
+                $q->orderBy($orderByDistinctKeyword, $this->orderDirection)
+                    ->orderBy($orderByMatchCount, $this->orderDirection);
                 break;
             case self::ORDERBY_DATE_SUBMITTED:
             default:

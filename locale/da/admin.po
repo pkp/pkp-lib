@@ -1,15 +1,15 @@
-# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022.
+# Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2022-09-29 12:01+0000\n"
+"PO-Revision-Date: 2023-04-12 16:29+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
-"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"da_DK/>\n"
-"Language: da_DK\n"
+"Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/da/"
+">\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,6 +201,7 @@ msgstr "Fjern uvaliderede, udløbne brugere"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Fjern meget ældre mislykkede opgaver fra listen over mislykkede opgaver."
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Behandl afventende opgaver i kø"
@@ -523,7 +524,8 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Skab liste over alle opgaver i køen. Hvis du vil sideopdele resultatet, så "
-"brug parametrene --page= og --perPage="
+"brug parametrene --page= og --perPage=. Anvend flaget --failed for at "
+"opliste alle mislykkede opgaver."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -545,6 +547,10 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Oplist alle mislykkede opgaver. Sæt parameteren --queue=QUEUE_NAME og --"
+"connection=CONNECTION_NAME for at filtrere listen. Du kan også anvende "
+"parameteren/flag --redispatch og --clear for at gensende opgaverne til køen "
+"eller fjerne alle/bestemte mislykkede opgaver."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
@@ -560,7 +566,9 @@ msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr "Ingen opgaver tilgængelige i køen kaldet {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Vis antal opgaver i køen"
+msgstr ""
+"Vis det totale antal opgaver i køen. Anvend flaget --failed for at se det "
+"totale antal mislykkede opgaver."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Vis brugen af opgavekommandoen"
@@ -572,7 +580,7 @@ msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Muligheden kan ikke være tom! Kontroller anvendelsen."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Mislykkede opgaver i kø"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Opgaver i kø"
@@ -584,7 +592,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Kø"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Forbindelse"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Opgavens visningsnavn"
@@ -602,10 +610,10 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Skabt af"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Mislykkedes ved"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Meddelelse om undtagelse"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Sidetal"
@@ -633,7 +641,7 @@ msgstr "Afsendte testopgave, der vil lykkes, til køen kaldet {$queueName}"
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
 "Ugyldig testopgave-parameter. Du kan kun angive 'failed' eller 'success' til "
-"'--only=' parameteren"
+"'--only=' parameteren."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
 msgstr "Ugyldigt opgave ID"
@@ -652,12 +660,14 @@ msgstr "Slettede alle opgaver!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} mislykkede opgaver blev fjernet fra listen over mislykkede "
+"opgaver."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} opgaver blev gensendt til køen."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Vi har {$total} mislykkede opgaver"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "Vi har {$total} opgaver i kø"
@@ -672,7 +682,7 @@ msgid "admin.jobs.totalCount"
 msgstr "Der er totalt <strong>{$total}</strong> opgave(r) i kø"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Der er i alt <strong>{$total}</strong> mislykkede opgave(r)."
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "Vis opgaver i kø"
@@ -681,10 +691,10 @@ msgid "navigation.tools.jobs"
 msgstr "Opgaver"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Mislykkede opgaver"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detaljer om mislykkede opgaver"
 
 msgid "navigation.tools.jobs.description"
 msgstr "Se alle opgaver i kø i systemet og følg fejlede forsøg."
@@ -693,16 +703,16 @@ msgid "navigation.tools.jobs.view"
 msgstr "Se opgaver"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Se mislykkede opgaver"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Se detaljer om den mislykkede opgave:{$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Tilskriv"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Tilskrivelsesværdi"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -714,7 +724,7 @@ msgid "admin.jobs.list.queue"
 msgstr "Kø"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Forbindelse"
 
 msgid "admin.jobs.list.attempts"
 msgstr "Forsøg"
@@ -723,28 +733,28 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Skabt den"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Mislykkedes ved"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Nyttelast"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Undtagelse"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Handlinger"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Skabt den {$createdAt}"
 
 msgid "admin.jobs.createdAt"
 msgstr "Skabt den {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Forsøg igen"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Sæt alle mislykkede opgaver i kø igen"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

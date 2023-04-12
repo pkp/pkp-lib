@@ -1451,7 +1451,7 @@ class PKPTemplateManager extends Smarty
      */
     public function getTinyMceSkinUrl(Request $request): string
     {
-        return $request->getBaseUrl() . '/lib/ui-library/public/styles/tinymce';
+        return $request->getBaseUrl() . '/lib/pkp/styles/tinymce';
     }
 
 

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreflightCheckMigration
+ *
  * @brief Check for common problems early in the upgrade process.
  */
 
@@ -580,6 +581,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('submission_file_revisions')->where('submission_file_id', '=', $submissionFileId)->delete();
                 DB::table('submission_file_settings')->where('submission_file_id', '=', $submissionFileId)->delete();
                 DB::table('submission_files')->where('submission_file_id', '=', $submissionFileId)->delete();
+            }
+            // Clean orphaned submission_file_revisions entries by submission_file_id
+            $orphanedIds = DB::table('submission_file_revisions AS sfr')->leftJoin('submission_files AS sf', 'sf.submission_file_id', '=', 'sfr.submission_file_id')->whereNull('sf.submission_file_id')->pluck('sfr.submission_file_id');
+            foreach ($orphanedIds as $submissionFileId) {
+                DB::table('submission_file_revisions')->where('submission_file_id', '=', $submissionFileId)->delete();
+            }
+            // Clean orphaned submission_file_revisions entries by file_id
+            $orphanedIds = DB::table('submission_file_revisions AS sfr')->leftJoin('files AS f', 'f.file_id', '=', 'sfr.file_id')->whereNull('f.file_id')->pluck('sfr.file_id');
+            foreach ($orphanedIds as $fileId) {
+                DB::table('submission_file_revisions')->where('file_id', '=', $fileId)->delete();
             }
             // Clean orphaned submission_files entries by file_id
             $orphanedIds = DB::table('submission_files AS sf')->leftJoin('files AS f', 'sf.file_id', '=', 'f.file_id')->whereNull('f.file_id')->distinct()->pluck('sf.file_id');

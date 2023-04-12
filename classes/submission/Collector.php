@@ -28,6 +28,7 @@ use PKP\core\interfaces\CollectorInterface;
 use PKP\facades\Locale;
 use PKP\identity\Identity;
 use PKP\plugins\Hook;
+use PKP\search\SubmissionSearch;
 use PKP\security\Role;
 use PKP\submission\reviewRound\ReviewRound;
 
@@ -294,6 +295,8 @@ abstract class Collector implements CollectorInterface
             $q->whereIn('s.context_id', $this->contextIds);
         }
 
+        // Prepare keywords, but allows short words
+        $keywords = collect(Application::getSubmissionSearchIndex()->filterKeywords($this->searchPhrase, false, true))->unique();
         switch ($this->orderBy) {
             case self::ORDERBY_DATE_PUBLISHED:
                 $q->addSelect(['po.date_published']);
@@ -410,46 +413,76 @@ abstract class Collector implements CollectorInterface
                 ->where(DB::raw('(' . $sub->toSql() . ')'), '=', '0');
         }
 
-        // search phrase
-        if ($this->searchPhrase !== null) {
-            $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
-            $words = explode(' ', $this->searchPhrase);
-            foreach ($words as $word) {
-                $q->where(function ($query) use ($word, $likePattern) {
-                    $query->whereIn('s.submission_id', function ($query) use ($word, $likePattern) {
-                        $query->select('p.submission_id')->from('publications AS p')
-                            ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
-                            ->where('ps.setting_name', '=', 'title')
-                            ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
-                    });
-                    $query->orWhereIn('s.submission_id', function ($query) use ($word, $likePattern) {
-                        $query->select('p.submission_id')->from('publications AS p')
-                            ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
-                            ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
-                            ->whereIn('aus.setting_name', [
-                                Identity::IDENTITY_SETTING_GIVENNAME,
-                                Identity::IDENTITY_SETTING_FAMILYNAME,
-                                'orcid'
-                            ])
-                            // Don't permit reviewers to search on author names
-                            ->when(is_array($this->assignedTo), function ($q) {
-                                $q->leftJoin('review_assignments AS ra', 'ra.submission_id', '=', 'p.submission_id')
-                                    ->whereIn('ra.reviewer_id', $this->assignedTo)
-                                    ->where(fn (Builder $q) => $q
-                                        ->whereNull('ra.reviewer_id')
-                                        ->orWhereNotIn('aus.setting_name', [
-                                            Identity::IDENTITY_SETTING_GIVENNAME,
-                                            Identity::IDENTITY_SETTING_FAMILYNAME
-                                        ])
-                                    );
-                            })
-                            ->where(DB::raw('lower(aus.setting_value)'), 'LIKE', $likePattern)->addBinding($word);
-                    });
-                    if (ctype_digit((string) $word)) {
-                        $query->orWhere('s.submission_id', '=', $word);
-                    }
-                });
+        // Search phrase
+        if ($keywords->count()) {
+            if(!empty($this->assignedTo)) {
+                // Holds a single random row to check whether we have any assignment
+                $q->leftJoinSub(fn (Builder $q) => $q
+                    ->from('review_assignments', 'ra')
+                    ->whereIn('ra.reviewer_id', $this->assignedTo)
+                    ->select(DB::raw('1 AS value'))
+                    ->limit(1),
+                    'any_assignment', 'any_assignment.value', '=', DB::raw('1')
+                );
             }
+            $likePattern = DB::raw("CONCAT('%', LOWER(?), '%')");
+            // Builds the filters
+            $q->where(fn (Builder $q) => $keywords
+                ->map(fn (string $keyword) => $q
+                    // Look for matches on the indexed data
+                    ->orWhereExists(fn (Builder $query) => $query
+                        ->from('submission_search_objects', 'sso')
+                        ->join('submission_search_object_keywords AS ssok', 'sso.object_id', '=', 'ssok.object_id')
+                        ->join("submission_search_keyword_list AS sskl", "sskl.keyword_id", '=', "ssok.keyword_id")
+                        ->where("sskl.keyword_text", '=', DB::raw("CONCAT(LOWER(?), '%')"))->addBinding($keyword)
+                        ->whereColumn('s.submission_id', '=', 'sso.submission_id')
+                        // Don't permit reviewers to search on author names
+                        ->when(!empty($this->assignedTo), fn (Builder $q) => $q
+                            ->where(fn (Builder $q) => $q
+                                ->whereNull('any_assignment.value')
+                                ->orWhere('sso.type', '!=', SubmissionSearch::SUBMISSION_SEARCH_AUTHOR)
+                            )
+                        )
+                    )
+                    // Search on the publication title
+                    ->orWhereIn('s.submission_id', fn (Builder $query) => $query
+                        ->select('p.submission_id')->from('publications AS p')
+                        ->join('publication_settings AS ps', 'p.publication_id', '=', 'ps.publication_id')
+                        ->where('ps.setting_name', '=', 'title')
+                        ->where(DB::raw('LOWER(ps.setting_value)'), 'LIKE', $likePattern)
+                            ->addBinding($keyword)
+                    )
+                    // Search on the author name and ORCID
+                    ->orWhereIn('s.submission_id', fn (Builder $query) => $query
+                        ->select('p.submission_id')
+                        ->from('publications AS p')
+                        ->join('authors AS au', 'au.publication_id', '=', 'p.publication_id')
+                        ->join('author_settings AS aus', 'aus.author_id', '=', 'au.author_id')
+                        ->whereIn('aus.setting_name', [
+                            Identity::IDENTITY_SETTING_GIVENNAME,
+                            Identity::IDENTITY_SETTING_FAMILYNAME,
+                            'orcid'
+                        ])
+                        // Don't permit reviewers to search on author names
+                        ->when(!empty($this->assignedTo), fn (Builder $q) => $q
+                            ->where(fn (Builder $q) => $q
+                                ->whereNull('any_assignment.value')
+                                ->orWhereNotIn('aus.setting_name', [
+                                    Identity::IDENTITY_SETTING_GIVENNAME,
+                                    Identity::IDENTITY_SETTING_FAMILYNAME
+                                ])
+                            )
+                        )
+                        ->where(DB::raw('LOWER(aus.setting_value)'), 'LIKE', $likePattern)
+                            ->addBinding($keyword)
+                    )
+                    // Search for exact submission ID
+                    ->when(
+                        ($numericWords = $keywords->filter(fn (string $keyword) => ctype_digit($keyword)))->count(),
+                        fn (Builder $query) => $query->orWhereIn('s.submission_id', $numericWords)
+                    )
+                )
+            );
         }
 
         if (isset($this->categoryIds)) {

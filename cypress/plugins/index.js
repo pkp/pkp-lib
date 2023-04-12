@@ -11,17 +11,8 @@
 // See https://github.com/bahmutov/cypress-failed-log
 // See https://github.com/cypress-io/cypress/issues/3199#issuecomment-534717443
 // See https://github.com/cypress-io/cypress/issues/909#issuecomment-578505704
-let shouldSkip = false;
 module.exports = ( on, config ) => {
 	on('task', {
-		resetShouldSkipFlag () {
-			shouldSkip = false;
-			return null;
-		},
-		shouldSkip ( value ) {
-			if ( value != null ) shouldSkip = value;
-			return shouldSkip;
-		},
 		failed: require('cypress-failed-log/src/failed')(),
 		consoleLog(message) {
 			console.log(message);

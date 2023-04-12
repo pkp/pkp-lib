@@ -319,18 +319,18 @@ abstract class Collector implements CollectorInterface
             case self::ORDERBY_TITLE:
                 $locale = Locale::getLocale();
                 $q->leftJoin('publications as publication_tlp', 's.current_publication_id', '=', 'publication_tlp.publication_id')
-                    ->leftJoin('publication_settings as publication_tlps', function (JoinClause $join) use ($locale) {
+                    ->leftJoin('publication_settings as publication_tlps', fn (JoinClause $join) =>
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlps.publication_id')
                             ->where('publication_tlps.setting_name', '=', 'title')
                             ->where('publication_tlps.setting_value', '!=', '')
-                            ->where('publication_tlps.locale', '=', $locale);
-                    });
+                            ->where('publication_tlps.locale', '=', $locale)
+                    );
                 $q->leftJoin('publications as publication_tlpl', 's.current_publication_id', '=', 'publication_tlpl.publication_id')
-                    ->leftJoin('publication_settings as publication_tlpsl', function (JoinClause $join) {
+                    ->leftJoin('publication_settings as publication_tlpsl', fn (JoinClause $join) =>
                         $join->on('publication_tlp.publication_id', '=', 'publication_tlpsl.publication_id')
                             ->on('publication_tlpsl.locale', '=', 's.locale')
-                            ->where('publication_tlpsl.setting_name', '=', 'title');
-                    });
+                            ->where('publication_tlpsl.setting_name', '=', 'title')
+                    );
                 $coalesceTitles = 'COALESCE(publication_tlps.setting_value, publication_tlpsl.setting_value)';
                 $q->addSelect([DB::raw($coalesceTitles)]);
                 $q->orderBy(DB::raw($coalesceTitles), $this->orderDirection);
@@ -376,10 +376,10 @@ abstract class Collector implements CollectorInterface
 
         if ($this->isOverdue) {
             $q->leftJoin('review_assignments as raod', 'raod.submission_id', '=', 's.submission_id')
-                ->leftJoin('review_rounds as rr', function ($table) {
-                    $table->on('rr.submission_id', '=', 's.submission_id');
-                    $table->on('raod.review_round_id', '=', 'rr.review_round_id');
-                });
+                ->leftJoin('review_rounds as rr', fn (Builder $table) =>
+                    $table->on('rr.submission_id', '=', 's.submission_id')
+                        ->on('raod.review_round_id', '=', 'rr.review_round_id')
+                );
             // Only get overdue assignments on active review rounds
             $q->whereNotIn('rr.status', [
                 ReviewRound::REVIEW_ROUND_STATUS_RESUBMIT_FOR_REVIEW,
@@ -387,38 +387,37 @@ abstract class Collector implements CollectorInterface
                 ReviewRound::REVIEW_ROUND_STATUS_ACCEPTED,
                 ReviewRound::REVIEW_ROUND_STATUS_DECLINED,
             ]);
-            $q->where(function ($q) {
-                $q->where('raod.declined', '<>', 1);
-                $q->where('raod.cancelled', '<>', 1);
-                $q->where(function ($q) {
-                    $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')));
-                    $q->whereNull('raod.date_completed');
-                });
-                $q->orWhere(function ($q) {
-                    $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')));
-                    $q->whereNull('raod.date_confirmed');
-                });
-            });
+            $q->where(fn (Builder $q) =>
+                $q->where('raod.declined', '<>', 1)
+                    ->where('raod.cancelled', '<>', 1)
+                    ->where(fn (Builder $q) =>
+                        $q->where('raod.date_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                            ->whereNull('raod.date_completed')
+                    )
+                    ->orWhere(fn (Builder $q) =>
+                        $q->where('raod.date_response_due', '<', Core::getCurrentDate(strtotime('tomorrow')))
+                        ->whereNull('raod.date_confirmed')
+                    )
+            );
         }
 
         if (is_array($this->assignedTo)) {
-            $q->whereIn('s.submission_id', function ($q) {
+            $q->whereIn('s.submission_id', fn (Builder $q) =>
                 $q->select('s.submission_id')
                     ->from('submissions AS s')
-                    ->leftJoin('stage_assignments as sa', function ($q) {
+                    ->leftJoin('stage_assignments as sa', fn (Builder $q) =>
                         $q->on('s.submission_id', '=', 'sa.submission_id')
-                            ->whereIn('sa.user_id', $this->assignedTo);
-                    });
-
-                $q->leftJoin('review_assignments as ra', function ($table) {
-                    $table->on('s.submission_id', '=', 'ra.submission_id');
-                    $table->where('ra.declined', '=', (int) 0);
-                    $table->where('ra.cancelled', '=', (int) 0);
-                    $table->whereIn('ra.reviewer_id', $this->assignedTo);
-                });
-                $q->whereNotNull('sa.stage_assignment_id')
-                    ->orWhereNotNull('ra.review_id');
-            });
+                            ->whereIn('sa.user_id', $this->assignedTo)
+                    )
+                    ->leftJoin('review_assignments as ra', fn (Builder $table) =>
+                        $table->on('s.submission_id', '=', 'ra.submission_id')
+                            ->where('ra.declined', '=', (int) 0)
+                            ->where('ra.cancelled', '=', (int) 0)
+                            ->whereIn('ra.reviewer_id', $this->assignedTo)
+                    )
+                    ->whereNotNull('sa.stage_assignment_id')
+                    ->orWhereNotNull('ra.review_id')
+            );
         } elseif ($this->assignedTo === self::UNASSIGNED) {
             $sub = DB::table('stage_assignments')
                 ->select(DB::raw('count(stage_assignments.stage_assignment_id)'))
@@ -518,14 +517,10 @@ abstract class Collector implements CollectorInterface
         }
 
         // By any child pub object's DOI status
-        $q->when($this->doiStatuses !== null, function (Builder $q) {
-            $this->addDoiStatusFilterToQuery($q);
-        });
+        $q->when($this->doiStatuses !== null, fn (Builder $q) => $this->addDoiStatusFilterToQuery($q));
 
         // By whether any child pub objects have DOIs assigned
-        $q->when($this->hasDois !== null, function (Builder $q) {
-            $this->addHasDoisFilterToQuery($q);
-        });
+        $q->when($this->hasDois !== null, fn (Builder $q) => $this->addHasDoisFilterToQuery($q));
 
         // By whether any child pub objects have DOIs assigned
         $q->when($this->excludeIds !== null, fn (Builder $q) => $q->whereNotIn('s.submission_id', $this->excludeIds));

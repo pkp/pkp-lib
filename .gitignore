@@ -6,3 +6,4 @@ lib/components
 .php_cs.cache
 tests/.phpunit.result.cache
 .php-cs-fixer.cache
+styles/tinymce

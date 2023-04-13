@@ -58,17 +58,17 @@ abstract class I6782_OrphanedMetrics extends Migration
         $metricsColumns = Schema::getColumnListing('metrics_tmp');
 
         // Clean orphaned metrics context IDs. These IDs can be deleted.
-        // as assoc_id
-        $orphanedIds = DB::table('metrics AS m')->leftJoin($this->getContextTable() . ' AS c', 'm.assoc_id', '=', 'c.' . $this->getContextKeyField())->where('m.assoc_type', '=', $this->getContextAssocType())->where('m.metric_type', '=', $this->getMetricType())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('m.assoc_id');
-        foreach ($orphanedIds as $contextId) {
-            $this->_installer->log("Removing stats for context {$contextId} because no context with that ID could be found.");
-            DB::table('metrics')->where('assoc_type', '=', $this->getContextAssocType())->where('assoc_id', '=', $contextId)->delete();
-        }
         // as context_id
         $orphanedIds = DB::table('metrics AS m')->leftJoin($this->getContextTable() . ' AS c', 'm.context_id', '=', 'c.' . $this->getContextKeyField())->where('m.metric_type', '=', $this->getMetricType())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('m.context_id');
         foreach ($orphanedIds as $contextId) {
             $this->_installer->log("Removing stats for context {$contextId} because no context with that ID could be found.");
             DB::table('metrics')->where('context_id', '=', $contextId)->delete();
+        }
+        // as assoc_id
+        $orphanedIds = DB::table('metrics AS m')->leftJoin($this->getContextTable() . ' AS c', 'm.assoc_id', '=', 'c.' . $this->getContextKeyField())->where('m.assoc_type', '=', $this->getContextAssocType())->where('m.metric_type', '=', $this->getMetricType())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('m.assoc_id');
+        foreach ($orphanedIds as $contextId) {
+            $this->_installer->log("Removing stats for context {$contextId} because no context with that ID could be found.");
+            DB::table('metrics')->where('assoc_type', '=', $this->getContextAssocType())->where('assoc_id', '=', $contextId)->delete();
         }
 
         // Clean orphaned metrics submission IDs

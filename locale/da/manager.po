@@ -6,11 +6,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-02-04 04:48+0000\n"
+"PO-Revision-Date: 2023-04-13 14:24+0000\n"
 "Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"da_DK/>\n"
-"Language: da_DK\n"
+"da/>\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -282,23 +282,19 @@ msgid "manager.dois.status.error"
 msgstr "Fejl"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Har fejl"
 
 msgid "manager.dois.status.stale"
 msgstr "Forældet"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI tildelt"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"Ethvert udgivet eller ikke-publiceret element, der 1) har et underobjekt "
-"uden en DOI tildelt, hvor 2) underobjektets DOI-type er aktiveret (f.eks. "
-"vises en fil uden en DOI ikke her, hvis filens type ikke er aktiveret som "
-"DOI-type)"
+msgstr "Alle elementer, der mangler en DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "All elementer er tildelt en DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -329,7 +325,7 @@ msgid "manager.dois.update.failedCreation"
 msgstr "DOI opdatering mislykkedes"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Nogle DOI('er) kunne ikke opdateres."
+msgstr "Nogle DOI('er) kunne ikke opdateres"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Elementer lykkedes med at blive eksporteret"
@@ -360,9 +356,13 @@ msgstr ""
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI'er kan ikke tildeles medmindre du angiver dit tildelte DOI prefix. <a "
+"href=\"{$doiSettingsUrl}\">Tilføj DOI prefix</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Forsøgte at danne et DOI, men et DOI prefix er påkrævet for, at der kan "
+"dannes et."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -924,6 +924,8 @@ msgstr "Brugerdefineret DOI-suffiksmønster"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"En eller flere DOI typer er ikke tilladte hos det konfigurerede DOI "
+"registreringsbureau."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -935,6 +937,8 @@ msgstr "Standard"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ingen - Suffixes skal angives manuelt på <a href=\"{$doiManagementUrl}\">DOI "
+"management siden</a> og vil ikke blive genereret automatisk"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Brugerdefineret mønster (ikke anbefalet)"
@@ -2374,7 +2378,7 @@ msgstr ""
 "med en og samme eksisterende bruger."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Tester"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -2907,32 +2911,26 @@ msgstr "Navne og tilhørsforhold til indsendelsens forfattere."
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr "URL til en side, hvor brugeren kan gendanne en mistet adgangskode"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr "URL til at se alle brugerens tildelte indsendelser."
+msgstr "URL til at se alle brugerens tildelte indsendelser"
 
-#, fuzzy
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr "URL til en side, hvor brugeren kan se og redigere sin profil."
+msgstr "URL til en side, hvor brugeren kan se og redigere sin profil"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.name"
-msgstr "Navnet på beslutningen, der blev truffet."
+msgstr "Navnet på beslutningen, der blev truffet"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.description"
-msgstr "En beskrivelse af den trufne beslutning."
+msgstr "En beskrivelse af den trufne beslutning"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.stage"
 msgstr ""
-"Trinnet af det redaktionelle workflow, hvor denne beslutning blev truffet."
+"Trinnet i det redaktionelle workflow, hvor denne beslutning blev truffet"
 
-#, fuzzy
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
 "Bedømmelsesrunden, hvor denne beslutning blev truffet, hvis beslutningen er "
-"relateret til bedømmelsestrinnet."
+"relateret til bedømmelsestrinnet"
 
 msgid "emailTemplate.variable.discussion.subject"
 msgstr "Emnet for diskussionen"
@@ -2953,10 +2951,10 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr "Modtagerens eller alle modtagers brugernavn"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datoen hvor bedømmelsen skulle være færdig"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Dato hvor bedømmeren skulle acceptere eller afvise opgaven"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Webadressen til bedømmelsestildelingen"
@@ -2965,22 +2963,22 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "Den anbefalede beslutning, som fx Accepter Indsendelse"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datoen hvor denne bedømmelse blev tildelt"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Typen af bedømmelse, såsom anonym, dobbelt anonym eller åben"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Bedømmerens anbefaling, såsom Accepter indsendelsen eller Afvis"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Bedømmelsesrunden, såsom Runde 1 eller Runde 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Filer uploadet af bedømmeren"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Navnet på bedømmeren"
 
 #, fuzzy
 msgid "emailTemplate.variable.reviewType"
@@ -3039,9 +3037,8 @@ msgstr "Indsendelsen unikke ID-nummer"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Indsendelsens resumé"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Forfatternavne i form af en forkortet streng"
+msgstr "Forfatternavne i form af en forkortet streng, fx \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Forfatternes fulde navne"
@@ -3113,7 +3110,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "Nummer identifikation, inklusive årgang, nummer, år og titel"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL til det publicerede nummer"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "Året for rapporten"
@@ -3167,11 +3164,10 @@ msgstr ""
 "at der er blevet truffet en beslutning angående en indsendelse, som de har "
 "bedømt."
 
-#, fuzzy
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
 "En kort beskrivelse af denne beslutning, som er ment til at blive delt i en "
-"e-mail besked, der sendes til bedømmerne omkring denne indsendelse."
+"e-mail besked, der sendes til bedømmerne omkring denne beslutning"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr "Vi har besluttet af acceptere denne indsendelse uden revisioner."
@@ -3334,6 +3330,8 @@ msgstr "Påmindelse om bedømmelse"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Denne e-mail sendes af en redaktør for at påminde en bedømmer om, at "
+"vedkommendes bedømmelse skal afleveres."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "Påmindelse om bedømmelse (automatisk)"
@@ -3499,7 +3497,6 @@ msgstr ""
 "Denne e-mail meddeler automatisk bedømmeren om ændrede detaljer for "
 "bedømmelsen."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
 msgstr "Bedømmer kommenterede, meddel redaktører"
 
@@ -3716,3 +3713,21 @@ msgstr "Indsendelse skal tildeles en redaktør"
 
 #~ msgid "stats.publications.downloadReport.allFilters"
 #~ msgstr "Alle {$filter}"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "E-mails er sat i kø og vil blive sendt hurtigst muligt."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Indsendelsesfilen {$id} blev sprunget over, fordi den ikke har en gyldig "
+"revision."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revisionen {$revision} af indsendelsesfilen {$id} blev sprunget over, fordi "
+"filen ikke blev fundet på stien \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Forsidebilledet af publikationen {$id} blev ikke eksporteret, da filen ikke "
+"blev fundet på stien \"{$path}\"."

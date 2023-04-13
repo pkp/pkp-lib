@@ -35,7 +35,7 @@ abstract class SubmissionSearchIndex
      *
      * @return string[] of keywords
      */
-    public static function filterKeywords($text, $allowWildcards = false, bool $allowShortWords = false): array
+    public static function filterKeywords($text, $allowWildcards = false, bool $allowShortWords = false, bool $allowNumericWords = false): array
     {
         $minLength = Config::getVar('search', 'min_word_length');
         $stopwords = static::loadStopwords();
@@ -58,8 +58,8 @@ abstract class SubmissionSearchIndex
 
         $keywords = [];
         foreach ($words as $word) {
-            // Ignores: stop words, short words (when $allowShortWords is false) and words composed solely of numbers
-            if (empty($stopwords[$word]) && ($allowShortWords || PKPString::strlen($word) >= $minLength) && !is_numeric($word)) {
+            // Ignores: stop words, short words (when $allowShortWords is false) and words composed solely of numbers (when $allowNumericWords is false)
+            if (empty($stopwords[$word]) && ($allowShortWords || PKPString::strlen($word) >= $minLength) && ($allowNumericWords || !is_numeric($word))) {
                 $keywords[] = PKPString::substr($word, 0, static::SEARCH_KEYWORD_MAX_LENGTH);
             }
         }

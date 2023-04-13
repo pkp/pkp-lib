@@ -18,6 +18,8 @@
 
 namespace PKP\search;
 
+use Illuminate\Database\Query\Builder;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use PKP\core\PKPString;
 
@@ -75,24 +77,11 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function deleteSubmissionKeywords($submissionId, $type = null, $assocId = null)
     {
-        $sql = 'SELECT object_id FROM submission_search_objects WHERE submission_id = ?';
-        $params = [(int) $submissionId];
-
-        if (isset($type)) {
-            $sql .= ' AND type = ?';
-            $params[] = (int) $type;
-        }
-
-        if (isset($assocId)) {
-            $sql .= ' AND assoc_id = ?';
-            $params[] = (int) $assocId;
-        }
-
-        $result = $this->retrieve($sql, $params);
-        foreach ($result as $row) {
-            $this->update('DELETE FROM submission_search_object_keywords WHERE object_id = ?', [$row->object_id]);
-            $this->update('DELETE FROM submission_search_objects WHERE object_id = ?', [$row->object_id]);
-        }
+        DB::table('submission_search_objects')
+            ->where('submission_id', '=', $submissionId)
+            ->when(isset($type), fn (Builder $query) => $query->where('type', '=', $type))
+            ->when(isset($assocId), fn (Builder $query) => $query->where('assoc_id', '=', $assocId))
+            ->delete();
     }
 
     /**
@@ -100,29 +89,31 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      *
      * @param int $submissionId
      * @param int $type
-     * @param int $assocId
+     * @param ?int $assocId
      *
      * @return int the object ID
      */
-    public function insertObject($submissionId, $type, $assocId, $keepExisting = false)
+    public function insertObject($submissionId, $type, $assocId)
     {
-        $result = $this->retrieve(
-            'SELECT object_id FROM submission_search_objects WHERE submission_id = ? AND type = ? AND assoc_id = ?',
-            [(int) $submissionId, (int) $type, (int) $assocId]
-        );
-        if ($row = $result->current()) {
-            $this->update(
-                'DELETE FROM submission_search_object_keywords WHERE object_id = ?',
-                [(int) $row->object_id]
-            );
-            return $row->object_id;
-        } else {
-            $this->update(
-                'INSERT INTO submission_search_objects (submission_id, type, assoc_id) VALUES (?, ?, ?)',
-                [(int) $submissionId, (int) $type, (int) $assocId]
-            );
-            return $this->_getInsertId();
+        $objectId = DB::table('submission_search_objects')
+            ->where('submission_id', '=', $submissionId)
+            ->where('type', '=', $type)
+            ->when($assocId !== null, fn (Builder $query) => $query->where('assoc_id', '=', $assocId))
+            ->value('object_id');
+
+        if ($objectId) {
+            // Clear the old keywords
+            DB::table('submission_search_object_keywords')
+                ->where('object_id', '=', $objectId)
+                ->delete();
+            return $objectId;
         }
+
+        return DB::table('submission_search_objects')->insertGetId([
+            'submission_id' => $submissionId,
+            'type' => $type,
+            'assoc_id' => $assocId
+        ]);
     }
 
     /**

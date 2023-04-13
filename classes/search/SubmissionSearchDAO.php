@@ -164,9 +164,8 @@ class SubmissionSearchDAO extends \PKP\db\DAO
      */
     public function clearIndex()
     {
-        $this->update('DELETE FROM submission_search_object_keywords');
-        $this->update('DELETE FROM submission_search_objects');
-        $this->update('DELETE FROM submission_search_keyword_list');
+        DB::table('submission_search_objects')->truncate();
+        DB::table('submission_search_keyword_list')->truncate();
     }
 }
 

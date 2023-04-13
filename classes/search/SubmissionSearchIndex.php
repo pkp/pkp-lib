@@ -45,9 +45,8 @@ abstract class SubmissionSearchIndex
             $text = join("\n", $text);
         }
 
-        // Remove punctuation
-        $text = PKPString::regexp_replace('/[!"\#\$%\'\(\)\.\?@\[\]\^`\{\}~]/', '', $text);
-        $text = PKPString::regexp_replace('/[\+,:;&\/<=>\|\\\]/', ' ', $text);
+        // Removes all control (C) characters, marks (M), punctuations (P), symbols (S) and separators (Z) except "*" (which is addressed below)
+        $text = PKPString::regexp_replace('/(?!\*)[\\p{C}\\p{M}\\p{P}\\p{S}\\p{Z}]+/', ' ', $text);
         $text = PKPString::regexp_replace('/[\*]/', $allowWildcards ? '%' : ' ', $text);
         $text = PKPString::strtolower($text);
 

@@ -22,6 +22,7 @@
 
 namespace PKP\search;
 
+use Exception;
 use PKP\config\Config;
 use PKP\submissionFile\SubmissionFile;
 
@@ -70,8 +71,10 @@ class SearchFileParser
      */
     public function open()
     {
-        $this->fp = @fopen($this->filePath, 'rb');
-        return $this->fp ? true : false;
+        if (!($this->fp = @fopen($this->filePath, 'rb'))) {
+            throw new Exception("Failed to parse the file \"{$this->filePath}\"\nLast error: " . error_get_last());
+        }
+        return true;
     }
 
     /**
@@ -115,12 +118,12 @@ class SearchFileParser
      *
      * @param SubmissionFile $submissionFile
      *
-     * @return SearchFileParser
+     * @return ?SearchFileParser
      */
     public static function fromFile($submissionFile)
     {
         $fullPath = rtrim(Config::getVar('files', 'files_dir'), '/') . '/' . $submissionFile->getData('path');
-        return self::fromFileType($submissionFile->getData('mimetype'), $fullPath);
+        return static::fromFileType($submissionFile->getData('mimetype'), $fullPath);
     }
 
     /**
@@ -129,20 +132,23 @@ class SearchFileParser
      * @param string $type
      * @param string $path
      *
-     * @return SearchFileParser
+     * @return ?SearchFileParser
      */
     public static function fromFileType($type, $path)
     {
-        switch ($type) {
-            case 'text/plain':
-                return new self($path);
-            case 'text/html':
-            case 'text/xml':
-            case 'application/xhtml':
-            case 'application/xml':
-                return new \PKP\search\SearchHTMLParser($path);
-        }
-        return new \PKP\search\SearchHelperParser($type, $path);
+        $type = Config::getVar('search', "index[{$type}]")
+            ? 'process'
+            : (Config::hasVar('search', "index[{$type}]") ? 'disabled' : $type);
+        return match ($type) {
+            // External process
+            'process' => new SearchHelperParser($type, $path),
+            // Text processor
+            'text/plain' => new static($path),
+            // HTML/XML processor
+            'text/html', 'text/xml', 'application/xhtml', 'application/xml' => new SearchHTMLParser($path),
+            // Disabled/no suitable parser
+            default => null
+        };
     }
 }
 

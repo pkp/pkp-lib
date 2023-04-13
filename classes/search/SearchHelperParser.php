@@ -16,6 +16,7 @@
 
 namespace PKP\search;
 
+use Exception;
 use PKP\config\Config;
 
 class SearchHelperParser extends SearchFileParser
@@ -35,8 +36,10 @@ class SearchHelperParser extends SearchFileParser
 
         if (isset($prog)) {
             $exec = sprintf($prog, escapeshellarg($this->getFilePath()));
-            $this->fp = @popen($exec, 'r');
-            return $this->fp ? true : false;
+            if (!($this->fp = @popen($exec, 'r'))) {
+                throw new Exception("Failed to parse file through the command: {$exec}\nLast error: " . error_get_last());
+            }
+            return true;
         }
 
         return false;

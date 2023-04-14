@@ -1,15 +1,15 @@
 # Fulvio Delle Donne <fulviodelledonne@libero.it>, 2022.
-# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022.
+# Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:52+00:00\n"
-"PO-Revision-Date: 2022-09-22 18:31+0000\n"
+"PO-Revision-Date: 2023-04-14 15:45+0000\n"
 "Last-Translator: Stefano Bolelli Gallevi <stefano.bolelli@unimi.it>\n"
 "Language-Team: Italian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"it_IT/>\n"
-"Language: it_IT\n"
+"it/>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,10 +199,10 @@ msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Rimuovere gli utenti scaduti non validati"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Rimuovi i job falliti piu' vecchi dalla lista dei job falliti."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Processa la coda dei job pendenti"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Aggiornamento del database DB-IP city lite"
@@ -519,6 +519,8 @@ msgstr "Comandi disponibili per lo spazio dei nomi `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Impossibile processare la coda dei job perche' la modalita' di manutenzione "
+"dell'applicazione e' abilitata."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
@@ -536,6 +538,8 @@ msgstr "Aggiungere un lavoro di prova alla coda predefinita"
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Avvia un processo daemon worker infinito che continui a processare i job. "
+"Usa il flag --help per le opzioni disponibili associate a questo comando."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""

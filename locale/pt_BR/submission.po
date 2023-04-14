@@ -1,15 +1,16 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:14-07:00\n"
-"PO-Revision-Date: 2023-02-23 08:16+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/submission/pt_BR/>\n"
+"PO-Revision-Date: 2023-04-15 02:07+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/submission/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,11 +55,8 @@ msgstr ""
 msgid "submission.submit.submissionChecklist"
 msgstr "Requisitos para Envio de Manuscrito"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Você deve ler e reconhecer que você completou os requisitos abaixo antes de "
-"prosseguir."
+msgstr "Todas as submissões devem atender aos seguintes requisitos."
 
 msgid "submission.submit.submissionChecklistConfirm"
 msgstr "Sim, minha submissão atende a todos esses requisitos."
@@ -3103,3 +3101,7 @@ msgstr "Versão {$version}"
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Voltar para a submissão"
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Você pode atualizar esta discussão por {$allowedEditTimeNoticeLimit} minutos."

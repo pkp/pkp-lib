@@ -60,7 +60,9 @@ abstract class OAI {
 		OAIUtils::prepInput($this->params);
 
 		// Encode data with gzip, deflate, or none, depending on browser support
-		ob_start('ob_gzhandler');
+		if (!ini_get('zlib.output_compression')) {
+			ob_start('ob_gzhandler');
+		}
 	}
 
 	/**

@@ -1,19 +1,20 @@
+# Dariusz Lis <Dariusz@Lis.PL>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:25+00:00\n"
-"PO-Revision-Date: 2020-11-27 10:51+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
-"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"pl_PL/>\n"
-"Language: pl_PL\n"
+"PO-Revision-Date: 2023-04-15 16:23+0000\n"
+"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
+"Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/pl/"
+">\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Nazwa"
@@ -25,10 +26,12 @@ msgid "admin.adminFunctions"
 msgstr "Funkcje administracyjne"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Usuń pamięci podręczne"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Usuń pliki pamięci podręcznej z systemu. Należy to robić tylko w "
+"środowiskach programistycznych."
 
 msgid "admin.clearDataCache"
 msgstr "Wyczyść pamięć cache danych"
@@ -77,6 +80,8 @@ msgstr "Wyloguj wszystkich użytkowników"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Wszyscy użytkownicy zostaną natychmiast wylogowani z aplikacji, w tym Ty, i "
+"będą musieli zalogować się ponownie."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -141,7 +146,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "Proces nie wygenerował pliku dziennika."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Zdeponuj DOI w agencji rejestrującej, wskazanej w ustawieniach"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -150,12 +155,16 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Wyślij wiadomość e-mail do każdego redaktora, przypominając mu o zaległych "
+"zadaniach"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Identyfikacja redaktorów do przypomnienia w kontekście {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Zadysponowano {$count} zadań, aby wysłać e-maile z przypomnieniami "
+"redakcyjnymi do użytkowników {$userIds} w kontekście {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Czy na pewno usunąć wszystkie pliki dziennika?"
@@ -165,9 +174,11 @@ msgstr "Wyczyść pliki dziennika"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Usuń wszystkie dzienniki powstałe przy działaniu procesów realizujących "
+"zaplanowane zadania."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Usuń dzienniki zadań"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Opublikuj zgłoszenia zaplanowane do publikacji"
@@ -176,79 +187,101 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Przypomnienie recenzji"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Powiadomienie o raporcie redakcyjnym"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Przypomnienie o końcu subskrypcji"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr ""
+"Usuń użytkowników, którzy nie zweryfikowali się w wyznaczonym okresie czasu"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Z listy zadań zakończonych niepowodzeniem usuń te najstarsze."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Przetwarzaj zadania oczekujące w kolejce"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Zaktualizuj bazę danych DB-IP City Lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Zmiana nazwy pliku bazy danych DB-IP City Lite {$sourceFilename} na "
+"{$targetFilename} nie powiodła się."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Katalog {$directory} nie jest pusty. Może to wskazywać na poprzednio "
+"zakończony niepowodzeniem proces lub współbieżnie działający proces. Ten "
+"plik zostanie automatycznie ponownie przetworzony."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
-msgstr ""
+msgstr "Nie można było otworzyć pliku {$file}, więc został odrzucony."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Plik {$file} jest w starym formacie pliku dziennika, którego nie można "
+"przetworzyć i dlatego zostanie przeniesiony z powrotem do katalogu etapu."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Pominięto plik dziennika {$file}, ponieważ statystyki z tego miesiąca "
+"zostały już obliczone. Aby ponownie obliczyć statystyki z poprzedniego "
+"miesiąca, musisz przywrócić wszystkie pliki dziennika z tego miesiąca i użyć "
+"narzędzia linii poleceń do ponownego przetworzenia statystyk."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Wiersz {$lineNumber} w pliku dziennika {$file} ma niewłaściwy format i "
+"dlatego zostanie pominięty."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Nieprawidłowy wpis dziennika dla wiersza {$lineNumber} w pliku dziennika "
+"{$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Czas nie jest prawidłową datą."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Identyfikator kontekstu nie jest liczbą całkowitą."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Identyfikator zgłoszenia nie jest liczbą całkowitą."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Identyfikator reprezentacji nie jest liczbą całkowitą."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Nie obsługiwany typ przypisania."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Nie obsługiwany typ pliku."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Kraj nie jest ciągiem składającym się z dwóch znaków alfabetu."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr ""
+"Region nie jest łańcuchem składającym się z maksymalnie trzech znaków "
+"alfanumerycznych."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
 msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Podczas przetwarzania pliku dziennika {$file} wystąpił błąd w wierszu "
+"{$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Zadanie w tle, które przetworzy plik dziennika {$file} i zapisze dane "
+"statystyczne, zostało zadysponowane."
 
 msgid "admin.server.apacheVersion"
 msgstr "Wersja serwera Apache"
@@ -275,7 +308,7 @@ msgid "admin.settings.about"
 msgstr "O Czasopiśmie"
 
 msgid "admin.settings.enableBulkEmails.label"
-msgstr ""
+msgstr "Masowe wiadomości e-mail"
 
 msgid "admin.settings.contactEmail"
 msgstr "Adres e-mail głównego administratora"
@@ -290,13 +323,13 @@ msgid "admin.settings.minPasswordLength"
 msgstr "Minimalna długość hasła"
 
 msgid "admin.settings.restrictBulkEmails"
-msgstr ""
+msgstr "Ogranicz masowe wiadomości e-mail"
 
 msgid "admin.settings.disableBulkEmailRoles.label"
-msgstr ""
+msgstr "Wyłącz role"
 
 msgid "admin.settings.disableBulkEmailRoles.adminOnly"
-msgstr ""
+msgstr "Tylko administrator może modyfikować to ustawienie."
 
 msgid "admin.settings.siteLanguage"
 msgstr "Język strony"
@@ -338,9 +371,11 @@ msgstr "Informacje dotyczące systemu"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Zobacz informacje o wersji i ustawieniach konfiguracyjnych aplikacji i "
+"serwera."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Podejrzyj informacje o systemie"
 
 msgid "admin.versionBuild"
 msgstr "Wersja"
@@ -402,252 +437,317 @@ msgstr "Załaduj plik"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Nie można rozpakować pliku. Nie można otworzyć źródłowego pliku gz "
+"{$filePath} za pomocą gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Nie można rozpakować pliku. Nie można otworzyć pliku docelowego {$filePath}."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Nie można rozpakować pliku. Nie można odczytać źródłowego pliku gz {$file} "
+"za pomocą gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Nie można rozpakować pliku. Nie można zapisać pliku docelowego {$filePath} "
+"za pomocą fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Nie można rozpakować pliku. Otwartego pliku docelowego {$filePath} nie można "
+"zamknąć za pomocą fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Nie można rozpakować pliku. Nie można zamknąć pliku gz z otwartym kodem "
+"źródłowym {$filePath} za pomocą polecenia gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Nie można rozpakować pliku. Rozpakowanego źródłowego pliku gz {$filePath} "
+"nie można usunąć za pomocą funkcji unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Nie można skompresować pliku. Nie można otworzyć docelowego pliku gz "
+"{$filePath} za pomocą gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Nie można skompresować pliku. Nie można otworzyć pliku źródłowego {$filePath}"
+" za pomocą funkcji fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Nie można skompresować pliku. Nie można odczytać pliku źródłowego {$filePath}"
+" za pomocą fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Nie można skompresować pliku. Nie można zapisać docelowego pliku gz "
+"{$filePath} za pomocą gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Nie można skompresować pliku. Nie można zamknąć otwartego pliku źródłowego "
+"{$filePath} za pomocą fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Nie można skompresować pliku. Otwartego docelowego pliku gz {$filePath} nie "
+"można zamknąć za pomocą gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Nie można skompresować pliku. Skompresowanego pliku źródłowego {$filePath} "
+"nie można usunąć przez usunięcie łącza."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Brak plików tłumaczeń do pobrania."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Używanie:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "polecenie [argumenty]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Polecenia dostępne dla przestrzeni nazw `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Nie można uruchomić zadań w kolejce, ponieważ włączony jest tryb konserwacji "
+"aplikacji."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Wyświetl listę wszystkich zadań oczekujących w kolejce. Jeśli chcesz "
+"podzielić wyniki na strony, użyj parametrów --page= oraz --perPage= . "
+"Przekaż flagę --failed, aby wyświetlić zadania zakończone niepowodzeniem."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Wyczyść określone zadanie w kolejce na podstawie jego identyfikatora. Jeśli "
+"chcesz usunąć wszystko, przekaż parametr --all. Jeśli chcesz usunąć wszystko "
+"z określonej kolejki, przekaż parametr --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Dodaj zadanie testowe do kolejki testowej. Użyj opcjonalnego parametru --"
+"only= oraz przekaż mu 'failed' lub 'success', aby wybrać zadanie zakończone "
+"niepowodzeniem lub sukcesem."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Uruchom proces roboczy jako nieskończonego demona, który nadal będzie "
+"przetwarzał zadania. Użyj flagi --help, aby zobaczyć dostępne opcje związane "
+"z tym poleceniem."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Wyświetl listę wszystkich zadań zakończonych niepowodzeniem. Do filtrowania "
+"listy użyj parametrów --queue=NAZWA_KOLEJKI oraz --"
+"connection=NAZWA_POŁĄCZENIA. Dodatkowo, możesz te zadania uruchomić ponownie "
+"(użyj --redispatch) albo usunąć (użyj --clear)."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Wyślij dostępne zadania do kolejki. Możesz wskazać do jakiej (użyj parametru "
+"--queue=NAZWA_KOLEJKI), wymusić pojedyncze ich przetwarzanie (użyj "
+"przełącznika --once) albo uruchomić jako testowe (użyj przełącznika --test)"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Zakończono wykonywanie zadań {$jobCount} w kolejce o nazwie {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "W kolejce o nazwie {$queueName} brak zadań dostępnych do wykonania."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Wyświetl łączną liczbę zadań w kolejce. Jeżeli interesują Cię jedynie te "
+"zakończone niepowodzeniem, to użyj przełącznika --failed."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Wyświetl użycie polecenia Jobs"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Wyświetl parametry polecenia Jobs dotyczące użycia"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Opcja nie może być pusta! Sprawdź metodę użycia."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Zadania kolejki zakończone niepowodzeniem"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Zadania kolejki"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Kolejka"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Połączenie"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Wyświetlana nazwa zadania"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Próby"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Zarezerwowane o"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Dostępne o"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Utworzono o"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Nie udało się o"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Komunikat o wyjątku"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Stronicowanie"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Bieżący"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Poprzedni"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Następny"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Aby użyć tego polecenia, należy mu przekazać co najmniej ID zadania, "
+"przełącznik '--all' lub parametr '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Zakończone niepowodzeniem zadanie testowe, zadysponowane w kolejce nazwanej "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Zakończone powodzeniem zadanie testowe, zadysponowane w kolejce nazwanej "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Nieprawidłowa opcja dla zadania testowego. Dla parametru '--only=' jedyne "
+"prawidłowe wartości to 'failed' albo 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Nieprawidłowy identyfikator zadania"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Zadanie zostało usunięte!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Nie znaleziono żadnych zadań do usunięcia."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Usunięcie wszystkich zadań okazało się niemożliwe."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Usunięto wszystkie zadania!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"Ilość zadań pomyślnie usuniętych z listy zadań zakończonych niepowodzeniem "
+"to {$jobsCount}."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "Ilość zadań pomyślnie wysłanych z powrotem do kolejki to {$jobsCount}."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Ilość zadań zakończonych niepowodzeniem to {$total}"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Ilość zadań w kolejce to {$total}"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Opcja {$option} nie istnieje."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Czy chodziło Ci o jedno z poniższych?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Całkowita ilość zadań w kolejce to <strong>{$total}</strong>"
 
 msgid "admin.jobs.failed.totalCount"
 msgstr ""
+"Całkowita ilość zadań zakończonych niepowodzeniem to "
+"<strong>{$total}</strong>."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Zobacz zadania w kolejce"
 
 msgid "navigation.tools.jobs"
 msgstr ""
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Zadania zakończone niepowodzeniem"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Szczegóły zadań zakończonych niepowodzeniem"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Przejrzyj wszystkie zadania w kolejkach systemu i wyśledź te zakończone "
+"niepowodzeniem."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Przejrzyj zadania"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Przejrzyj zadania zakończone niepowodzeniem"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Podejrzyj szczegóły zadania {$id} zakończonego niepowodzeniem"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atrybut"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Wartość atrybutu"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "Identyfikator"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Zadanie"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Kolejka"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Połączenie"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Próby"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Utworzono o"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Zakończone niepowodzeniem o"
 
 msgid "admin.jobs.list.payload"
 msgstr ""
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Wyjątek"
 
 msgid "admin.jobs.list.actions"
 msgstr ""

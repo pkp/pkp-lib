@@ -70,7 +70,7 @@ class SubmissionSearchDAO extends \PKP\db\DAO
             'submission_id' => $submissionId,
             'type' => $type,
             'assoc_id' => $assocId
-        ]);
+        ], 'object_id');
     }
 
     /**

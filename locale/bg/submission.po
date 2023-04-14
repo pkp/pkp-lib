@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-28 07:48+0000\n"
+"PO-Revision-Date: 2023-04-12 13:48+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/bg/>\n"
@@ -29,3 +29,263 @@ msgstr "Разсрочени"
 
 msgid "submission.title"
 msgstr "Заглавие на препринт"
+
+msgid "submission.submit.userGroup"
+msgstr "Изпращане в ролята ми на..."
+
+msgid "submission.upload.selectComponent"
+msgstr "Изберете компонент за препринт"
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Нов материал"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Резюмето трябва да съдържа {$wordCount} думи или по-малко."
+
+msgid "submission.submit.noContext"
+msgstr "Сървърът на това изпращане на материали не можа да бъде намерен."
+
+msgid "submission.galleyFiles"
+msgstr "Типографски файлове"
+
+msgid "submission.upload.fileContents"
+msgstr "Препринт компонент"
+
+msgid "submission.complete"
+msgstr "Одобрен"
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Контролен списък за подаване на материали"
+
+msgid "submission.submit.contributorRole"
+msgstr "Авторство и съавторство"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Тези спецификации се основават на набора метаданни Dublin Core, международен "
+"стандарт, използван за описване на съдържание."
+
+msgid "submission.sectionOptions"
+msgstr "Опции за раздела"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} заглавия"
+
+msgid "catalog.category.heading"
+msgstr "Всички заглавия"
+
+msgid "submission.copyright.description"
+msgstr ""
+"Моля, прочетете и разберете условията за авторско право за изпращане на този "
+"сървър за препринти."
+
+msgid "submission.copyrightOther.description"
+msgstr ""
+"Преотстъпете авторски права за публикувани материали на следната страна."
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+"Не може да се създаде DOI за следното изпращане на материал: "
+"{$pubObjectTitle}. Не съществува в контекста на текущия сървър."
+
+msgid "submission.licenseSection.description"
+msgstr ""
+"Моля, изберете лиценза, който да приложите към вашия препринт, когато бъде "
+"публикуван."
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+"Благодарим ви, че изпратихте своя препринт. Вече можете да <a href=\""
+"{$workflowUrl}\">публикувате своя препринт</a> публично."
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+"Благодарим ви, че изпратихте своя препринт. Сървърът е уведомен за вашето "
+"изпращане и ви е изпратено имейл с потвърждение за вашите записи. След като "
+"модераторът прегледа подаването ви, той ще публикува вашия препринт или ще "
+"се свърже с вас."
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+"{$contextName} не приема изпращания в секцията {$section}. Ако имате нужда "
+"от помощ за възстановяване на изпратеното от вас, моля, свържете се с <a "
+"href=\"mailto:{$email}\">{$name}</a>."
+
+msgid "publication.event.scheduled"
+msgstr "Изпратените материали бяха насрочени за публикуване."
+
+msgid "publication.required.declined"
+msgstr "Отхвърлено изпращане на материали не може да бъде публикувано."
+
+msgid "submission.license.description"
+msgstr ""
+"Лицензът ще бъде зададен автоматично на <a href='{$licenseUrl}' "
+"target='_blank'>{$licenseName}</a>, когато материалът бъде публикуван."
+
+msgid "galley.editPublishedDisabled"
+msgstr ""
+"Типографиите на тази версия не могат да бъдат редактирани, защото вече е "
+"публикувана."
+
+msgid "galley.publicationNotFound"
+msgstr "Версията за тази типография не може да бъде намерена."
+
+msgid "publication.invalidSection"
+msgstr "Разделът за тази версия не може да бъде намерен."
+
+msgid "publication.inactiveSection"
+msgstr "{$section} (Неактивен)"
+
+msgid "preprint.entry"
+msgstr "Препринт запис"
+
+msgid "publication.issue.success"
+msgstr "Подробностите за препринт записа са актуализирани."
+
+msgid "publication.datePublished.description"
+msgstr ""
+"Датата на публикуване ще бъде зададена автоматично, когато бъде публикуван "
+"препринтът. Не въвеждайте публикувана дата, освен ако не трябва да я "
+"поставите със задна дата."
+
+msgid "publication.relation"
+msgstr "Връзки"
+
+msgid "publication.relation.label"
+msgstr "Статус на връзките"
+
+msgid "publication.relation.description"
+msgstr ""
+"Моля, посочете дали този препринт е бил публикуван или изпратен за "
+"публикуване другаде."
+
+msgid "publication.relation.none"
+msgstr "Този препринт не е публикуван другаде."
+
+msgid "publication.publish.relationStatus"
+msgstr "Свързана публикация"
+
+msgid "publication.relation.published"
+msgstr "Този препринт е бил публикуван другаде."
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI на публикувания препринт"
+
+msgid "publication.publish.relationStatus.none"
+msgstr "Този препринт не е публикуван другаде."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr ""
+"Този препринт е изпратен в научно списание или друга академична публикация."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "Този препринт е публикуван, но все още няма наличен DOI."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "Този препринт е <a href='{$vorDoi}' target='_blank'>публикуван</a>."
+
+msgid "publication.publish.confirmation"
+msgstr ""
+"Всички изисквания са спазени. Сигурни ли сте, че искате да публикувате това?"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Не можете да публикувате свой собствен препринт. Препринтът трябва да бъде "
+"одобрен и публикуван от модератор."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr ""
+"Годината на авторските права ще бъде зададена автоматично, когато това бъде "
+"публикувано."
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr ""
+"Годината на авторските права ще бъде зададена автоматично въз основа на "
+"публикуваната дата."
+
+msgid "publication.datePublished"
+msgstr "Дата на изпращане/публикуване"
+
+msgid "publication.editDisabled"
+msgstr "Тази версия е публикувана и не може да се редактира."
+
+msgid "publication.event.published"
+msgstr "Изпратените материали бяха публикувани."
+
+msgid "publication.event.unpublished"
+msgstr "Изпратените материали бяха снети от публикуване."
+
+msgid "publication.event.versionPublished"
+msgstr "Нова версия беше публикувана."
+
+msgid "publication.event.versionScheduled"
+msgstr "Нова версия беше насрочена за публикуване."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Тази версия беше снета от публикуване и вече не е публично достъпна."
+
+msgid "publication.invalidSubmission"
+msgstr "Изпращането за този препринт не можа да бъде намерено."
+
+msgid "publication.publish"
+msgstr "Публикуване"
+
+msgid "publication.publish.requirements"
+msgstr ""
+"Следните изисквания трябва да бъдат изпълнени, преди материалите да могат да "
+"бъдат публикувани."
+
+msgid "publication.required.reviewStage"
+msgstr ""
+"Изпращането на материали трябва да се намира в продукционен етап, преди да "
+"може да бъде публикувано."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Авторските права ще бъдат присвоени автоматично на {$copyright}, когато "
+"материалът бъде публикуван."
+
+msgid "publication.unpublish"
+msgstr "Снемане от публикация"
+
+msgid "publication.unpublish.confirm"
+msgstr "Сигурни ли сте, че материалът искате да бъде снет от публикуване?"
+
+msgid "publication.unschedule.confirm"
+msgstr ""
+"Сигурни ли сте, че не искате материалът да бъде насрочен за публикуване?"
+
+msgid "publication.version.details"
+msgstr "Подробности за версия {$version}"
+
+msgid "submission.queries.production"
+msgstr "Дискусии"
+
+msgid "submission.layout.viewGalley"
+msgstr "Преглед на типография"
+
+msgid "galley.cantEditPublished"
+msgstr "Тази типография не може да се редактира, защото вече е публикувана."
+
+msgid "submission.licenseUrl.missing"
+msgstr "Не е избран лиценз."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Сигурни ли сте, че искате да изпратите <strong>{$title}</strong> в "
+"<strong>{$context}</strong>? След като изпратите материала, модератор ще "
+"прегледа препринта, преди да го публикува онлайн."
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+"Сигурни ли сте, че искате да изпратите <strong>{$title}</strong> в "
+"<strong>{$context}</strong>? След като изпратите материала, ще можете да "
+"прегледате изпратеното и да го публикувате онлайн."
+
+msgid "submission.forTheEditors"
+msgstr "За читатели"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Добавете всякаква информация, която смятате, че нашите модератори трябва да "
+"знаят, преди да публикуват вашия препринт."

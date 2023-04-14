@@ -1,10 +1,11 @@
 # cicilia conceiçao de maria <ccmaria@uem.br>, 2021.
 # Bruna Lopes dos Santos <brlopes.dosantos@gmail.com>, 2021.
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2023.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-22 17:48+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-04-06 14:48+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/ops/"
 "emails/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -109,7 +110,7 @@ msgstr ""
 "{$signature}"
 
 msgid "emails.submissionAckCanPost.subject"
-msgstr ""
+msgstr "Agradecimento pela Submissão"
 
 msgid "emails.submissionAckNotAuthor.subject"
 msgstr "Confirmação da submissão"
@@ -220,7 +221,7 @@ msgstr ""
 "trabalho.</p>{$contextSignature}"
 
 msgid "emails.postedNewVersionAck.subject"
-msgstr ""
+msgstr "Notificação de Nova Versão Postada"
 
 msgid "emails.postedNewVersionAck.body"
 msgstr ""

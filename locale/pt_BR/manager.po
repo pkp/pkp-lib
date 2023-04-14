@@ -1,14 +1,14 @@
 # Felipe Geremia Nievinski <fgnievinski@gmail.com>, 2021.
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
-# Alex Mendonça <alex.mendonca@scielo.org>, 2022.
+# Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-03-02 13:56+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
+"PO-Revision-Date: 2023-04-15 02:08+0000\n"
+"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1351,14 +1351,11 @@ msgstr "Orientação para Autores"
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Condições para a submissão"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Ao submeter um trabalho para a revista, os autores devem ler, aceitar e "
-"marcar como realizados cada condição para a submissão, antes de proceder. A "
-"lista de condições também é apresentada em Diretrizes para autores, na "
-"página Sobre a revista. A lista pode ser modificada, porém todos os itens "
-"requerem a marcação dos autores para procederem à submissão."
+"Os seguintes itens são exibidos aos autores quando iniciam sua submissão. "
+"Pede-se aos autores que confirmem que sua submissão está de acordo com "
+"quaisquer requisitos aqui especificados antes de iniciar sua submissão."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -3488,9 +3485,8 @@ msgstr ""
 "Este e-mail notifica automaticamente o avaliador sobre os detalhes "
 "modificados da avaliação."
 
-#, fuzzy
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr "Comentários do Avaliador Notificar Editores"
+msgstr "Notificar Editores sobre Comentários do Avaliador"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
@@ -3736,3 +3732,8 @@ msgid "plugins.importexport.common.error.publicationCoverImageMissing"
 msgstr ""
 "A imagem da capa da publicação {$id} não foi exportada, seu arquivo não foi "
 "encontrado no caminho \"{$path}\"."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Os e-mails foram colocados em fila de espera com sucesso para serem enviados "
+"o mais rápido possível."

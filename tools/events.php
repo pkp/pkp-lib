@@ -23,7 +23,7 @@ use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
 
 use PKP\core\PKPContainer;
-use PKP\core\PKPEventServiceProvider;
+use PKP\core\EventServiceProvider;
 
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Helper\Helper;
@@ -122,7 +122,7 @@ class commandEvents extends CommandLineTool
     {
         $eventServiceProvider = app()
             ->makeWith(
-                PKPEventServiceProvider::class,
+                EventServiceProvider::class,
                 ['app' => PKPContainer::getInstance()]
             );
 
@@ -142,7 +142,7 @@ class commandEvents extends CommandLineTool
      */
     protected function clear(): void
     {
-        PKPEventServiceProvider::clearCache();
+        EventServiceProvider::clearCache();
 
         $this->getOutput()->success('Cache cleared!');
     }
@@ -152,11 +152,11 @@ class commandEvents extends CommandLineTool
      */
     protected function cache(): void
     {
-        PKPEventServiceProvider::clearCache();
+        EventServiceProvider::clearCache();
 
         $eventServiceProvider = app()
             ->makeWith(
-                PKPEventServiceProvider::class,
+                EventServiceProvider::class,
                 ['app' => PKPContainer::getInstance()]
             );
 

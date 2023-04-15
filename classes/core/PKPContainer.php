@@ -22,6 +22,7 @@ use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Console\Kernel as KernelContract;
 use Illuminate\Contracts\Debug\ExceptionHandler;
+use Illuminate\Events\EventServiceProvider as LaravelEventServiceProvider;
 use Illuminate\Foundation\Console\Kernel;
 use Illuminate\Log\LogServiceProvider;
 use Illuminate\Queue\Failed\DatabaseFailedJobProvider;
@@ -118,7 +119,8 @@ class PKPContainer extends Container
         $this->register(new \Illuminate\Cache\CacheServiceProvider($this));
         $this->register(new \Illuminate\Filesystem\FilesystemServiceProvider($this));
         $this->register(new \ElcoBvg\Opcache\ServiceProvider($this));
-        $this->register(new PKPEventServiceProvider($this));
+        $this->register(new LaravelEventServiceProvider($this));
+        $this->register(new EventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
         $this->register(new \Illuminate\Database\DatabaseServiceProvider($this));
         $this->register(new \Illuminate\Bus\BusServiceProvider($this));
@@ -136,12 +138,30 @@ class PKPContainer extends Container
     public function register($provider)
     {
         $provider->register();
+        $provider->callBootingCallbacks();
         if (method_exists($provider, 'boot')) {
-            /** @var mixed $provider */
-            $provider->boot();
+            $this->call([$provider, 'boot']);
         }
 
-        $this->app->bind('request', fn ($app) => PKPApplication::get()->getRequest());
+        // If there are bindings / singletons set as properties on the provider we
+        // will spin through them and register them with the application, which
+        // serves as a convenience layer while registering a lot of bindings.
+        if (property_exists($provider, 'bindings')) {
+            foreach ($provider->bindings as $key => $value) {
+                $this->bind($key, $value);
+            }
+        }
+
+        if (property_exists($provider, 'singletons')) {
+            foreach ($provider->singletons as $key => $value) {
+                $key = is_int($key) ? $value : $key;
+                $this->singleton($key, $value);
+            }
+        }
+
+        $provider->callBootedCallbacks();
+
+        $this->app->bind('request', fn () => PKPApplication::get()->getRequest());
     }
 
     /**

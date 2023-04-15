@@ -2,13 +2,14 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2021, 2022, 2023.
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
+# Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-04-15 02:08+0000\n"
-"Last-Translator: Alex Mendonça <alex.mendonca@scielo.org>\n"
+"PO-Revision-Date: 2023-04-15 16:23+0000\n"
+"Last-Translator: Danilo Silva <profdanilocsilva@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -289,11 +290,7 @@ msgid "manager.dois.filters.doiAssigned"
 msgstr "DOI Atribuído"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
-"Qualquer item publicado ou não publicado que 1) tenha um subobjeto sem um "
-"DOI atribuído onde 2) o tipo de DOI do subobjeto esteja ativado (por "
-"exemplo, uma cozinha sem um DOI não aparecerá aqui se o tipo de DOI da "
-"composição não estiver ativado)"
+msgstr "Todos os itens estão sem DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
 msgstr ""
@@ -2695,12 +2692,12 @@ msgstr "Até {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
-"A porcentagem para o período selecionado é calculada para submissões que "
-"foram submetidas durante esse período e receberam uma decisão final. <br> "
-"<br>Por exemplo, considere o caso em que dez submissões foram feitas durante "
-"esse período. Quatro foram aceitas, quatro foram rejeitadas e dois ainda "
-"aguardam uma decisão final. <br> <br> A taxa de aceitação será de 50% (4 de "
-"8 submissões) porque as duas submissões que não chegaram a uma decisão final "
+"A porcentagem para o período selecionado é calculada para envios que foram "
+"submetidos durante esse período e receberam uma decisão final. <br> <br>Por "
+"exemplo, considere o caso em que dez submissões foram feitas durante esse "
+"período. Quatro foram aceitas, quatro foram rejeitadas e dois ainda aguardam "
+"uma decisão final. <br> <br> A taxa de aceitação será de 50% (4 de 8 "
+"submissões) porque as duas submissões que não chegaram a uma decisão final "
 "não são contadas."
 
 msgid "stats.description.daysToDecision"

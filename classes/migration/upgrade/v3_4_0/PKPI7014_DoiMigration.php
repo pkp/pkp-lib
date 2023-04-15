@@ -1,5 +1,17 @@
 <?php
 
+/**
+ * @file classes/migration/upgrade/v3_4_0/PKPI7014_DoiMigration.php
+ *
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class PKPI7014_DoiMigration
+ *
+ * @brief Migrate DOI related fields to the new structures
+ */
+
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Query\Builder;

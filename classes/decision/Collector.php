@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class decision
+ * @class Collector
  *
  * @brief A helper class to configure a Query Builder to get a collection of editor decisions
  */

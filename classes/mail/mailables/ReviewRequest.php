@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewerRequest
+ * @class ReviewRequest
  * @ingroup mail_mailables
  *
  * @brief An email send to a reviewer with a request to accept or decline a task to review a submission

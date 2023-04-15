@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class AnnouncementNotify
+ * @class StatisticsReportNotify
  *
  * @brief Email sent to notify users about new announcement
  */

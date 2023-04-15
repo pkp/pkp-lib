@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Section
+ * @class PKPSection
  * @ingroup section
  *
  * @see DAO

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class Job
+ * @class FailedJob
  *
  * @brief Job Repository
  */
@@ -83,7 +83,7 @@ class FailedJob extends BaseRepository
         $failedJobs = $failedJobs->get();
 
         DB::beginTransaction();
-        
+
         $failedJobs->each(fn($failedJob) => Repo::job()->add([
             'queue' => $failedJob->queue,
             'payload' => $failedJob->payload,
@@ -93,7 +93,7 @@ class FailedJob extends BaseRepository
         ]));
 
         DB::commit();
-        
+
         return $failedJobs->toQuery()->delete();
     }
 

@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class BackendDoiHandler
+ * @class PKPBackendDoiHandler
  * @ingroup api_v1_backend
  *
  * @brief Handle API requests for backend operations.

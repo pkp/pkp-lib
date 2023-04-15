@@ -7,7 +7,7 @@
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I8508_ConvertCurrentLogFile
+ * @class ConvertCurrentUsageStatsLogFile
  * @brief Convert current usage stats log file into the new format.
  */
 

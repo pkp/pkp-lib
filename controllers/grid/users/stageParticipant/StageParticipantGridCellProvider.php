@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DataObjectGridCellProvider
+ * @class StageParticipantGridCellProvider
  * @ingroup controllers_grid_users_submissionContributor
  *
  * @brief Cell provider to retrieve the user's name from the stage assignment

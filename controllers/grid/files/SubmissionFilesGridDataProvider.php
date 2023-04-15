@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPSubmissionFilesGridDataProvider
+ * @class SubmissionFilesGridDataProvider
  * @ingroup controllers_grid_files
  *
  * @brief Provide access to submission file data for grids.

@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPProfileForm
+ * @class RolesForm
  * @ingroup user_form
  *
  * @brief Form to edit the roles area of the user profile.

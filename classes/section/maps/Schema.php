@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class section
+ * @class Schema
  *
  * @brief Map sections to the properties defined in the section schema
  */

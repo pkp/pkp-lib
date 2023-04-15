@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class LibraryFileGridHandler
+ * @class SubmissionDocumentsFilesGridHandler
  * @ingroup controllers_grid_files_submissionDocuments
  *
  * @brief Handle submission documents file grid requests.

@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2020 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class schema
+ * @class Base
  *
  * @brief A base class for creating extensible maps of any kind.
  */

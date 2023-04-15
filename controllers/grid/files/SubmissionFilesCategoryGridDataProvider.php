@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionFilesCategoryDataProvider
+ * @class SubmissionFilesCategoryGridDataProvider
  * @ingroup controllers_grid_files_review
  *
  * @brief Provide access to submission files data for category grids.

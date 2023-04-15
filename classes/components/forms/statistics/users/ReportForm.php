@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class AssignToIssueForm
+ * @class ReportForm
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for configuring the users report.

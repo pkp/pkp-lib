@@ -6,7 +6,7 @@
  * Copyright (c) 2003-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class section
+ * @class Collector
  *
  * @brief A helper class to configure a Query Builder to get a collection of sections
  */

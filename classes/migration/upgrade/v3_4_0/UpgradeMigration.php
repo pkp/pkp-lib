@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class PKPv3_4_0UpgradeMigration
+ * @class UpgradeMigration
  * @brief Describe upgrade/downgrade operations from 3.3.x to 3.4.0.
  */
 

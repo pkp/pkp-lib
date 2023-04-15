@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class FileForm
+ * @class NewLibraryFileForm
  * @ingroup controllers_grid_file_form
  *
  * @brief Form for adding/editing a file

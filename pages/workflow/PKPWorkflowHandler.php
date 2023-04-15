@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class WorkflowHandler
+ * @class PKPWorkflowHandler
  * @ingroup pages_reviewer
  *
  * @brief Handle requests for the submssion workflow.

@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewRoundTabHandler
+ * @class PKPReviewRoundTabHandler
  * @ingroup controllers_tab_workflow
  *
  * @brief Handle AJAX operations for review round tabs on review stages workflow pages.

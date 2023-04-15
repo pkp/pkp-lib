@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class DoiHandler
+ * @class PKPDoiHandler
  * @ingroup api_v1_dois
  *
  * @brief Handle API requests for DOI operations.

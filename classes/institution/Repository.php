@@ -6,7 +6,7 @@
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class institution
+ * @class Repository
  *
  * @brief A repository to find and manage institutions.
  */

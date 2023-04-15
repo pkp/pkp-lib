@@ -7,7 +7,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class FilterTest
+ * @class PersistableFilterTest
  * @ingroup tests_classes_filter
  *
  * @see Filter

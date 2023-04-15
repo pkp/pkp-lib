@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class decision
+ * @class RecommendResubmit
  *
  * @brief A recommendation to request revisions to be sent for another round of review.
  */

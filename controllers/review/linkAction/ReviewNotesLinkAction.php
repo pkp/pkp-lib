@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ReviewInfoCenterLinkAction
+ * @class ReviewNotesLinkAction
  * @ingroup controllers_review_linkAction
  *
  * @brief An action to open up the review notes for a review assignments.

@@ -7,7 +7,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionHandler
+ * @class PKPSubmissionHandler
  * @ingroup api_v1_submission
  *
  * @brief Handle API requests for submission operations.

@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class core
+ * @class EntityDAO
  *
  * @brief A base class for DAOs that read and write an entity to the database
  */

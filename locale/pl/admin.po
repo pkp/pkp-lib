@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:12:25+00:00\n"
-"PO-Revision-Date: 2023-04-15 16:23+0000\n"
+"PO-Revision-Date: 2023-04-17 11:10+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/pl/"
 ">\n"
@@ -211,7 +211,7 @@ msgstr ""
 "{$targetFilename} nie powiodła się."
 
 msgid "admin.scheduledTask.usageStatsLoader"
-msgstr ""
+msgstr "Zadanie ładowarki pliku statystyk użycia"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
@@ -271,7 +271,7 @@ msgstr ""
 "alfanumerycznych."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Identyfikatory instytucji to nie tablica."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
@@ -694,7 +694,7 @@ msgid "admin.jobs.viewQueuedJobs"
 msgstr "Zobacz zadania w kolejce"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Zadania"
 
 msgid "navigation.tools.jobs.failed"
 msgstr "Zadania zakończone niepowodzeniem"
@@ -744,145 +744,184 @@ msgid "admin.jobs.list.failedAt"
 msgstr "Zakończone niepowodzeniem o"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Dane właściwe"
 
 msgid "admin.jobs.list.exception"
 msgstr "Wyjątek"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Działania"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Utworzono o {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Utworzono o {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Spróbuj ponownie"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Wszystkie zadania zakończone niepowodzeniem ponownie zakolejkuj"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Zadanie ładowania z pliku {$file} danych o statystykach użytkowania nie "
+"powiodło się i nie można przenieść tego pliku z {$archivedFilePath} do "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Zadanie ładowania z pliku {$file} danych o statystykach użytkowania nie "
+"powiodło się, ale plik ten został przeniesiony do katalogu pomostowego."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Kolekcja danych"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Skonfiguruj jaki rodzaj statystyk użycia ma być zbierany."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Przechowywanie danych"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Skonfiguruj jakie statystyki użycia mają być przechowywane na serwerze."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protokół SUSHI"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Skonfiguruj protokół <a href=\"https://www.projectcounter.org/counter-sushi/"
+"\">COUNTER 5 SUSHI</a>."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Statystyki miesięczne lub dzienne"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Zdecyduj czy śledzić dzienne (znaczny wzrost rozmiaru bazy danych) czy "
+"miesięczne statystyki użytkowania."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Śledź statystyki dzienne i miesięczne"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Śledź tylko statystyki miesięczne"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Kompresuj dzienniki"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statystyki generowane są z plików dziennika dostępu, które po przetworzeniu "
+"przenoszone są do <code>{$path}</code>. Czy po przetworzeniu pliki te "
+"powinny być skompresowane do plików <code>.gz</code>? Kompresowanie plików "
+"dziennika może zaoszczędzić miejsce na dysku na serwerze."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Pozostaw pliki dziennika na miejscu"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Skompresuj pliki dziennika"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Ogranicz dostęp do interfejsu API statystyk COUNTER SUSHI do menedżerów i "
+"administratorów"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Platforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Zgodnie z protokołem COUNTER SUSHI każdy raport statystyczny musi "
+"identyfikować „platformę” udostępniającą statystyki. Domyślnie platformą dla "
+"wszystkich statystyk będzie to czasopismo. Jeśli jednak w tej witrynie "
+"wszystkie czasopisma są własnością tego samego dostawcy, są przez niego "
+"publikowane lub obsługiwane, to jako platformę możesz wyznaczyć witrynę."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Użyj witryny jako platformy dla wszystkich czasopism."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Identyfikator platformy"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Identyfikator platformy w raportach COUNTER SUSHI może mieć maksymalnie 17 "
+"znaków i może zawierać litery (a–z, A–Z), cyfry (0–9), znaki podkreślenia (_)"
+", kropki (.) i ukośniki (/). Identyfikator platformy jest używany w kilku "
+"kolumnach i powinien być jak najkrótszy, ale jednocześnie rozpoznawalny. "
+"Identyfikator platformy jest zwykle oparty na nazwie wydawcy lub platformy, "
+"nazwie domeny lub dobrze znanym, unikalnym skrócie."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Identyfikator platformy musi być wymagany, gdy ta witryna zostanie "
+"zidentyfikowana jako platforma SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "opcje polecenia work"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "użycie : [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Opcje dostępne dla polecenia work"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Nazwa połączenia dla polecenia work [domyślnie : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Nazwa kolejki dla polecenia work [domyślnie : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Nazwa procesu roboczego [domyślnie : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Liczba sekund oczekiwania przed ponowną próbą wykonania zadania, które "
+"napotkało nieprzechwycony wyjątek [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Limit pamięci w megabajtach [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
-msgstr ""
+msgstr "Liczba sekund działania procesu potomnego [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Liczba sekund uśpienia, gdy żadne zadanie nie jest dostępne [domyślnie: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Ile razy próbować wykonać zadanie zanim niepowodzenie jego wykonania "
+"zostanie zarejestrowane [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Zmuś proces roboczy do działania nawet w trybie konserwacji [domyślnie: "
+"{$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Zatrzymaj, gdy kolejka jest pusta [domyślnie: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Liczba zadań do przetworzenia przed zatrzymaniem [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Maksymalna liczba sekund działania procesu roboczego [domyślnie: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Liczba sekund odpoczynku między zadaniami [domyślnie: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Uruchom demona procesu roboczego dla kolejki testowej"
 
 #~ msgid "admin.settings.aboutDescription"
 #~ msgstr "Opis strony"

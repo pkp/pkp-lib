@@ -502,13 +502,13 @@ class Core
         $libPath = realpath(base_path(PKP_LIB_PATH));
         $isLib = str_starts_with($file->getRealPath(), $libPath);
         $className = str_replace($isLib ? $libPath : realpath(base_path()), '', $file->getRealPath());
+        // Drop the "classes" from the path (we don't use it on the namespaces) and the extension
         $className = preg_replace('#^[\\\\/]classes|\.php$#', '', $className);
+        // Include the base namespace and replace the directory separator by the namespace separator
         $className = str_replace('/', '\\', '/' . ($isLib ? 'PKP' : 'APP') . $className);
 
-        if (!class_exists($className)) {
-            error_log(new Exception("Failed to map the file \"{$file->getRealPath()}\" to a class"));
-        }
-
-        return $className;
+        return class_exists($className)
+            ? $className
+            : throw new Exception("Failed to map the file \"{$file->getRealPath()}\" to a full qualified class name");
     }
 }

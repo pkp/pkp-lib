@@ -1,13 +1,14 @@
 # Diego José Macêdo <diegojmacedo@gmail.com>, 2022, 2023.
+# Danilo Silva <profdanilocsilva@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-02-23 08:16+0000\n"
-"Last-Translator: Diego José Macêdo <diegojmacedo@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/api/pt_BR/>\n"
+"PO-Revision-Date: 2023-04-15 16:23+0000\n"
+"Last-Translator: Danilo Silva <profdanilocsilva@outlook.com>\n"
+"Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/api/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,7 +66,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Você não pode editar o DOI de um item que não esteja neste contexto."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "O tipo de publicação não foi reconhecido"
+msgstr "O tipo de publicação não foi reconhecido."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""

@@ -7,7 +7,7 @@
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class I7027_DoiVersioning
+ * @class I8027_DoiVersioning
  *
  * @brief Add new DOI versioning context setting
  */

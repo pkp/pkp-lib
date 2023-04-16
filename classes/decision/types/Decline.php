@@ -6,7 +6,7 @@
  * Copyright (c) 2000-2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class decision
+ * @class Decline
  *
  * @brief A decision to decline a submission in the initial submission stage.
  */

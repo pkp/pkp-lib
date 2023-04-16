@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorDashboardReviewRoundTabHandler
+ *
  * @ingroup controllers_tab_authorDashboard
  *
  * @brief Handle AJAX operations for review round tabs on author dashboard page.

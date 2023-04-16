@@ -17,8 +17,8 @@ namespace PKP\mail\mailables;
 use APP\core\Application;
 use PKP\context\Context;
 use PKP\core\PKPApplication;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Unsubscribe;
 use PKP\security\Role;
@@ -45,8 +45,7 @@ class StatisticsReportNotify extends Mailable
         int $totalSubmissions,
         string $month,
         int $year
-    )
-    {
+    ) {
         parent::__construct([$context]);
         $this->context = $context;
         $this->setupStatisticsVariables($context, $editorialTrends, $totalSubmissions, $month, $year);
@@ -75,8 +74,7 @@ class StatisticsReportNotify extends Mailable
         int $totalSubmissions,
         string $month,
         int $year
-    ): void
-    {
+    ): void {
         $dispatcher = Application::get()->getDispatcher();
         $request = Application::get()->getRequest();
 
@@ -85,11 +83,11 @@ class StatisticsReportNotify extends Mailable
             $trends[$stat['key']] = $stat['value'];
         }
 
-        list('submissionsReceived' => $newSubmissions,
+        ['submissionsReceived' => $newSubmissions,
             'submissionsDeclined' => $declinedSubmissions,
             'submissionsAccepted' => $acceptedSubmissions,
             'submissionsSkipped' => $skippedSubmissions
-        ) = $trends;
+        ] = $trends;
 
         $this->addData([
             'newSubmissions' => $newSubmissions,

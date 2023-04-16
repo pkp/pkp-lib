@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserForm
+ *
  * @ingroup controllers_grid_settings_user_form
  *
  * @brief Base class for user forms.
@@ -17,9 +18,9 @@ namespace PKP\controllers\grid\settings\user\form;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\form\Form;
-use APP\facades\Repo;
 
 class UserForm extends Form
 {
@@ -52,7 +53,7 @@ class UserForm extends Form
         if (!is_null($this->userId)) {
             $userGroups = Repo::userGroup()->userUserGroups($this->userId);
 
-            foreach($userGroups as $userGroup) {
+            foreach ($userGroups as $userGroup) {
                 $userGroupIds[] = $userGroup->getId();
             }
         }
@@ -89,7 +90,7 @@ class UserForm extends Form
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$contextId])
             ->getMany();
-            
+
         foreach ($userGroups as $userGroup) {
             $allUserGroups[(int) $userGroup->getId()] = $userGroup->getLocalizedName();
         }
@@ -121,17 +122,17 @@ class UserForm extends Form
 
         Repo::userGroup()
             ->deleteAssignmentsByContextId(
-                Application::get()->getRequest()->getContext()->getId(), 
+                Application::get()->getRequest()->getContext()->getId(),
                 $this->userId
             );
 
-        
+
         if ($this->getData('userGroupIds')) {
-            
             $contextId = $request->getContext()->getId();
-            
+
             collect($this->getData('userGroupIds'))
-                ->each(fn($userGroupId) =>
+                ->each(
+                    fn ($userGroupId) =>
                     Repo::userGroup()->contextHasGroup($contextId, $userGroupId)
                         ? Repo::userGroup()->assignUserToGroup($this->userId, $userGroupId)
                         : null

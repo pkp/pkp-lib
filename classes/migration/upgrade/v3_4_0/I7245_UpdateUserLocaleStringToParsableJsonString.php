@@ -8,12 +8,14 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7245_UpdateUserLocaleStringToParsableJsonString
+ *
  * @brief Update the users locales columns where multiple locales are presented as simple string separated by colon(:)
- * 
+ *
  * @see https://github.com/pkp/pkp-lib/issues/7245
  */
 
 // en:fr_CA:fr_FR
+
 namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Support\Facades\DB;
@@ -28,12 +30,10 @@ class I7245_UpdateUserLocaleStringToParsableJsonString extends Migration
             ->select(['user_id', 'locales'])
             ->where('locales', '<>', '[]')
             ->cursor()
-            ->each(function($user){
-
+            ->each(function ($user) {
                 $parsedLocales = @json_decode($user->locales, true);
 
                 if (!is_array($parsedLocales)) {
-
                     $locales = explode(':', $user->locales);
 
                     if (is_array($locales)) {

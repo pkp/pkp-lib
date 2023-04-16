@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationSubscriptionSettingsDAO
+ *
  * @ingroup notification
  *
  * @see Notification
@@ -185,11 +186,14 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
     public function getSubscribedUserIds(array $blockedNotificationKey, array $blockedNotificationType, array $contextIds, ?array $roleIds = null): Collection
     {
         return DB::table('users as u')->select('u.user_id')
-            ->whereNotIn('u.user_id', fn (Builder $q) =>
+            ->whereNotIn(
+                'u.user_id',
+                fn (Builder $q) =>
                 $q->select('nss.user_id')->from('notification_subscription_settings as nss')
                     ->whereIn('setting_name', $blockedNotificationKey)
                     ->whereIn('setting_value', $blockedNotificationType)
-            )->whereExists(fn (Builder $q) => $q->from('user_user_groups', 'uug')
+            )->whereExists(
+                fn (Builder $q) => $q->from('user_user_groups', 'uug')
                     ->join('user_groups AS ug', 'uug.user_group_id', '=', 'ug.user_group_id')
                     ->whereColumn('uug.user_id', '=', 'u.user_id')
                     ->whereIn('ug.context_id', $contextIds)

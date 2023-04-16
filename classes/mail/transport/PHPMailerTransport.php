@@ -15,15 +15,15 @@
 namespace PKP\mail\transport;
 
 use APP\core\Application;
+use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use PKP\core\PKPString;
+use ReflectionObject;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Transport\TransportInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\RawMessage;
-use Exception;
-use ReflectionObject;
 
 class PHPMailerTransport implements TransportInterface
 {

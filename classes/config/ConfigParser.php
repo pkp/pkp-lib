@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConfigParser
+ *
  * @ingroup config
  *
  * @brief Class for parsing and modifying php.ini style configuration files.

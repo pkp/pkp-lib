@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AllowedHostsPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to ensure allowed hosts, when configured, are respected. (pkp/pkp-lib#7649)

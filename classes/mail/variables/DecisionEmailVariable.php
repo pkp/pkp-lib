@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionEmailVariable
+ *
  * @ingroup mail_variables
  *
  * @brief Represents variables associated with an editorial decision

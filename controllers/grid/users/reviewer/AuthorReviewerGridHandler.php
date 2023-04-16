@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorReviewerGridHandler
+ *
  * @ingroup controllers_grid_users_reviewer
  *
  * @brief Handle reviewer grid requests from author workflow in open reviews
@@ -119,7 +120,6 @@ class AuthorReviewerGridHandler extends PKPReviewerGridHandler
      */
     public function authorize($request, &$args, $roleAssignments)
     {
-
         // Bypass the parent authorization checks
         $this->isAuthorGrid = true;
 

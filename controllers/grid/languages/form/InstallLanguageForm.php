@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallLanguageForm
+ *
  * @ingroup controllers_grid_languages_form
  *
  * @brief Form for installing languages.

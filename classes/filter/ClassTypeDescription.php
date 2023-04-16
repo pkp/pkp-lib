@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ClassTypeDescription
+ *
  * @ingroup filter
  *
  * @brief A type description that validates objects by class type.

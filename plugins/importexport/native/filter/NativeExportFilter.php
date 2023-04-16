@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeExportFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a DataObject to a Native XML document
@@ -95,8 +96,8 @@ class NativeExportFilter extends PKPImportExportFilter
                 }
 
                 $node = $doc->createElementNS(
-                    $deployment->getNamespace(), 
-                    $name, 
+                    $deployment->getNamespace(),
+                    $name,
                     $format === 'html' ? $value : htmlspecialchars($value, ENT_COMPAT, 'UTF-8')
                 );
 

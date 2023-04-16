@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryGridHandler
+ *
  * @ingroup controllers_grid_settings_pluginGallery
  *
  * @brief Handle review form grid requests.

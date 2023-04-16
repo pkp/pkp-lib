@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class galley
+ *
  * @ingroup galley
  *
  * @brief A galley is a presentation version of a published submission file.

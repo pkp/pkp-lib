@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLanguageDAO
+ *
  * @ingroup submission
  *
  * @see Submission
@@ -117,7 +118,6 @@ class SubmissionLanguageDAO extends ControlledVocabDAO
             }
         }
         if (is_array($languages)) { // localized, array of arrays
-
             foreach ($languages as $locale => $list) {
                 if (is_array($list)) {
                     $list = array_unique($list); // Remove any duplicate Languages

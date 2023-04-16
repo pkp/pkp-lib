@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileGridCellProvider
+ *
  * @ingroup controllers_grid_settings_library
  *
  * @brief Subclass for a LibraryFile grid column's cell provider

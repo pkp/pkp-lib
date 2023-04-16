@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XSLTransformer
+ *
  * @ingroup xslt
  *
  * @brief Wrapper class for running XSL transformations.
@@ -210,7 +211,6 @@ class XSLTransformer
      */
     public function _transformExternal($xml, $xmlType, $xsl, $xslType, $resultType)
     {
-
         // External transformation can only be done on files
         if ($xmlType != self::XSL_TRANSFORMER_DOCTYPE_FILE || $xslType != self::XSL_TRANSFORMER_DOCTYPE_FILE) {
             return false;

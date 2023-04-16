@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridCategoryRowCellProvider
+ *
  * @ingroup controllers_grid
  *
  * @brief Default grid category row column's cell provider. This class will retrieve

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueuedPaymentEmailVariable
+ *
  * @ingroup mail_variables
  *
  * @brief Represents email template variables that are associated with payments

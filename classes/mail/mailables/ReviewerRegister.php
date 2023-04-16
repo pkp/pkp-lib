@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerRegister
+ *
  * @ingroup mail_mailables
  *
  * @brief Email is sent automatically to a newly registered reviewer (see Create Reviewer Form)

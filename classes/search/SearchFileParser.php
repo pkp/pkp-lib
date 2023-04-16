@@ -14,6 +14,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchFileParser
+ *
  * @ingroup search
  *
  * @brief Abstract class to extract search text from a given file.

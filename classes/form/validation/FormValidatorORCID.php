@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorORCID
+ *
  * @ingroup form_validation
  *
  * @brief Form validation check for ORCID iDs.

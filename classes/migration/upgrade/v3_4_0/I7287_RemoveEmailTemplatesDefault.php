@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7287_RemoveEmailTemplatesDefault
+ *
  * @brief Remove default email template table after data migrated to the Mailable class
  */
 
@@ -15,9 +16,9 @@ namespace PKP\migration\upgrade\v3_4_0;
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Collection;
-use PKP\migration\Migration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use PKP\migration\Migration;
 
 class I7287_RemoveEmailTemplatesDefault extends Migration
 {
@@ -54,7 +55,7 @@ class I7287_RemoveEmailTemplatesDefault extends Migration
             $table->index(['email_key'], 'email_templates_default_email_key');
         });
 
-        $this->emailTemplatesDefault->each(function(\stdClass $row) {
+        $this->emailTemplatesDefault->each(function (\stdClass $row) {
             DB::table('email_templates_default')->insert([
                 'email_key' => $row->{'email_key'},
                 'can_disable' => $row->{'can_disable'},
@@ -68,7 +69,7 @@ class I7287_RemoveEmailTemplatesDefault extends Migration
         Schema::table('email_templates_default_data', function (Blueprint $table) {
             $table->addColumn('text', 'description')->nullable();
         });
-        $this->emailTemplateDefaultData->each(function(\stdClass $dataRow) {
+        $this->emailTemplateDefaultData->each(function (\stdClass $dataRow) {
             DB::table('email_templates_default_data')
                 ->where('email_key', $dataRow->{'email_key'})
                 ->where('locale', $dataRow->locale)

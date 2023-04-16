@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorGridHandler
+ *
  * @ingroup controllers_grid_users_author
  *
  * @deprecated 3.4

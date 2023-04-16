@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PageHandler
+ *
  * @ingroup controllers_page
  *
  * @brief Handler for requests for page components such as the header, tasks,
@@ -78,7 +79,6 @@ class PageHandler extends Handler
             $name = 'pkp-lib';
         }
         switch ($name) {
-
             // The core app stylesheet
             case 'pkp-lib':
                 $cachedFile = $templateManager->getCachedLessFilePath($name);
@@ -107,7 +107,6 @@ class PageHandler extends Handler
                 } else {
                     $cachedFile = $templateManager->getCachedLessFilePath($name);
                     if (!file_exists($cachedFile)) {
-
                         // Process styles registered with the current theme
                         $styles = '';
                         $themes = PluginRegistry::loadCategory('themes', true);
@@ -115,7 +114,6 @@ class PageHandler extends Handler
                             if ($theme->isActive()) {
                                 $style = $theme->getStyle($name);
                                 if (!empty($style)) {
-
                                     // Compile and cache the stylesheet
                                     $styles = $templateManager->compileLess(
                                         $name,

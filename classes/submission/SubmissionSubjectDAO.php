@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionSubjectDAO
+ *
  * @ingroup submission
  *
  * @see Submission
@@ -118,7 +119,6 @@ class SubmissionSubjectDAO extends ControlledVocabDAO
             }
         }
         if (is_array($subjects)) { // localized, array of arrays
-
             foreach ($subjects as $locale => $list) {
                 if (is_array($list)) {
                     $list = array_unique($list); // Remove any duplicate Subjects

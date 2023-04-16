@@ -77,6 +77,7 @@ class Repository
      * Perform validation checks on data used to add or edit an email template.
      *
      * @param array $props A key/value array with the new data to validate
+     *
      * @return array A key/value array with validation errors. Empty if no errors
      */
     public function validate(?EmailTemplate $object, array $props, Context $context): array
@@ -116,7 +117,7 @@ class Repository
             $validator->after(function ($validator) use ($props, $context) {
                 $mailableExists = Repo::mailable()
                     ->getMany($context)
-                    ->contains(fn(string $mailable) => $mailable::getEmailTemplateKey() === $props['alternateTo']);
+                    ->contains(fn (string $mailable) => $mailable::getEmailTemplateKey() === $props['alternateTo']);
 
                 if (!$mailableExists) {
                     $validator->errors()->add('alternateTo', __('api.emailTemplates.400.invalidAlternateTo'));

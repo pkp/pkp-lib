@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormComponent
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A base class for building forms to be passed to the Form component
@@ -79,6 +80,7 @@ class FormComponent
      *
      * @param Field $field
      * @param array $position [
+     *
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The field to position it before or after
      * ]
@@ -127,12 +129,14 @@ class FormComponent
      * Add a form group
      *
      * @param array $args [
+     *
      *  @option id string Required A unique ID for this form group
      *  @option label string A label to identify this group of fields. Will become the fieldset's <legend>
      *  @option description string A description of this group of fields.
      * ]
      *
      * @param array $position [
+     *
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The group to position it before or after
      * ]
@@ -170,6 +174,7 @@ class FormComponent
      * Add a form page
      *
      * @param array $args [
+     *
      *  @option id string Required A unique ID for this form page
      *  @option label string The name of the page to identify it in the page list
      *  @option submitButton array Required Assoc array defining submission/next button params. Supports any param of the Button component in the UI Library.
@@ -177,6 +182,7 @@ class FormComponent
      * ]
      *
      * @param array $position [
+     *
      *  @option string One of FIELD_POSITION_BEFORE or FIELD_POSITION_AFTER
      *  @option string The page to position it before or after
      * ]

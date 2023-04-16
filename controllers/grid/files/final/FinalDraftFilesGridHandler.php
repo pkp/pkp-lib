@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FinalDraftFilesGridHandler
+ *
  * @ingroup controllers_grid_files_final
  *
  * @brief Handle the final draft files grid (displays files sent to copyediting from the review stage)

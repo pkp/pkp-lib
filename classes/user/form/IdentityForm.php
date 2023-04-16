@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class IdentityForm
+ *
  * @ingroup user_form
  *
  * @brief Form to edit user's identity information.

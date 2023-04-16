@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAOResultIterator
+ *
  * @ingroup db
  *
  * @brief Wrapper around a DAOResultFactory providing a proper PHP Iterator implementation

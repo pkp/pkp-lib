@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AssignDOIs
+ *
  * @ingroup core
  *
  * @brief Assign DOIs when a submission is moved to the appropriate stage

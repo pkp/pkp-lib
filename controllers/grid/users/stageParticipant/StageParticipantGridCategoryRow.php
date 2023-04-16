@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridCategoryRow
+ *
  * @ingroup controllers_grid_users_stageParticipant
  *
  * @brief Stage participant grid category row definition

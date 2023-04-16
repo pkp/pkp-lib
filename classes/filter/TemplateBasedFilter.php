@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemplateBasedFilter
+ *
  * @ingroup classes_filter
  *
  * @brief Abstract base class for all filters that transform

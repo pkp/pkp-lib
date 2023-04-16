@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DependentFilesGridHandler
+ *
  * @ingroup controllers_grid_files_dependent
  *
  * @brief Handle dependent files that are associated with a submissions's display
@@ -21,9 +22,9 @@ use APP\core\Application;
 use APP\submission\Submission;
 use PKP\controllers\grid\files\fileList\FileListGridHandler;
 use PKP\controllers\grid\files\FilesGridCapabilities;
+use PKP\security\authorization\PublicationAccessPolicy;
 use PKP\security\authorization\SubmissionFileAccessPolicy;
 use PKP\security\Role;
-use PKP\security\authorization\PublicationAccessPolicy;
 
 class DependentFilesGridHandler extends FileListGridHandler
 {
@@ -51,9 +52,11 @@ class DependentFilesGridHandler extends FileListGridHandler
 
     /**
      * Get the authorized publication.
+     *
      * @return \Publication
      */
-    function getPublication() {
+    public function getPublication()
+    {
         return $this->getAuthorizedContextObject(Application::ASSOC_TYPE_PUBLICATION);
     }
 
@@ -85,7 +88,7 @@ class DependentFilesGridHandler extends FileListGridHandler
         );
     }
 
-    function initialize($request, $args = null)
+    public function initialize($request, $args = null)
     {
         $capabilities = FilesGridCapabilities::FILE_GRID_ADD | FilesGridCapabilities::FILE_GRID_DELETE | FilesGridCapabilities::FILE_GRID_VIEW_NOTES | FilesGridCapabilities::FILE_GRID_EDIT;
 

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldBaseAutosuggest
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A base class for text fields that provide suggested values while typing.

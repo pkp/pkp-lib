@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorizationDecisionManagerTest
+ *
  * @ingroup tests_classes_security_authorization
  *
  * @see AuthorizationDecisionManager
@@ -22,7 +23,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PKP\security\authorization\AuthorizationDecisionManager;
 use PKP\security\authorization\AuthorizationPolicy;
 use PKP\security\authorization\PolicySet;
-use PKP\userGroup\UserGroup;
 
 class AuthorizationDecisionManagerTest extends PolicyTestCase
 {

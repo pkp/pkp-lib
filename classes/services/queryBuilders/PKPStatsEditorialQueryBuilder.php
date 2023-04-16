@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialQueryBuilder
+ *
  * @ingroup query_builders
  *
  * @brief Helper class to construct a query to fetch stats records from the
@@ -451,7 +452,8 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @return int
      */
-    public function countImported() {
+    public function countImported()
+    {
         return $this->_getBaseQuery()
             ->whereColumn('s.date_submitted', '>', 'pi.date_published')
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))
@@ -465,7 +467,8 @@ abstract class PKPStatsEditorialQueryBuilder
      *
      * @return int
      */
-    public function countInProgress() {
+    public function countInProgress()
+    {
         return $this->_getBaseQuery()
             ->where('s.submission_progress', '<>', 0)
             ->when($this->dateStart, fn (Builder $q) => $q->where('s.date_submitted', '>=', $this->dateStart))

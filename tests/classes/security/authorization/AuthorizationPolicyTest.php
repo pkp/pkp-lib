@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorizationPolicyTest
+ *
  * @ingroup tests_classes_security_authorization
  *
  * @see AuthorizationPolicy

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class generateTestMetrics
+ *
  * @ingroup tools
  *
  * @brief Generate example metric data.

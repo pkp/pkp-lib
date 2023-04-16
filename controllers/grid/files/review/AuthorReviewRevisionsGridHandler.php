@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorReviewRevisionsGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Display to authors the file revisions that they have uploaded.

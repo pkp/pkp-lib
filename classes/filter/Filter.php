@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Filter
+ *
  * @ingroup filter
  *
  * @brief Class that provides the basic template for a filter. Filters are

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentEmailVariable
+ *
  * @ingroup mail_variables
  *
  * @brief Represents email template variables that are associated with a review assignment
@@ -94,7 +95,6 @@ class ReviewAssignmentEmailVariable extends Variable
 
     protected function getRecommendation(string $locale): string
     {
-
         $recommendationOptions = ReviewAssignment::getReviewerRecommendationOptions();
 
         return isset($recommendationOptions[$this->reviewAssignment->getRecommendation()])

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ViewCompetingInterestGuidelinesLinkAction
+ *
  * @ingroup controllers_confirmationModal_linkAction
  *
  * @brief An action to open the competing interests confirmation modal.

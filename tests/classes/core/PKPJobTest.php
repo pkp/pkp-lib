@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPJobTest
+ *
  * @ingroup tests_classes_core
  *
  * @brief Tests for the Job dispatching.
@@ -20,9 +21,9 @@ use Illuminate\Bus\PendingBatch;
 use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Queue;
 use PKP\config\Config;
-use PKP\tests\PKPTestCase;
 use PKP\jobs\testJobs\TestJobFailure;
 use PKP\jobs\testJobs\TestJobSuccess;
+use PKP\tests\PKPTestCase;
 
 class PKPJobTest extends PKPTestCase
 {
@@ -108,7 +109,7 @@ class PKPJobTest extends PKPTestCase
             new TestJobFailure(),
         ])->name('test-jobs')->dispatch();
 
-        Bus::assertBatched(function(PendingBatch $batch) {
+        Bus::assertBatched(function (PendingBatch $batch) {
             return $batch->name === 'test-jobs' && $batch->jobs->count() === 4;
         });
     }

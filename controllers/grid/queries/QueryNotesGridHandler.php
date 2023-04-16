@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotesGridHandler
+ *
  * @ingroup controllers_grid_query
  *
  * @brief base PKP class to handle query grid requests.
@@ -15,26 +16,26 @@
 
 namespace PKP\controllers\grid\queries;
 
+use APP\core\Application;
+use APP\facades\Repo;
+use APP\notification\Notification;
+use APP\notification\NotificationManager;
+use APP\submission\Submission;
+use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\queries\form\QueryNoteForm;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\note\Note;
 use PKP\note\NoteDAO;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\query\Query;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\Role;
-use PKP\note\Note;
-use APP\facades\Repo;
-use APP\core\Application;
-use APP\notification\Notification;
-use Illuminate\Support\Facades\Mail;
-use PKP\controllers\grid\queries\traits\StageMailable;
-use APP\notification\NotificationManager;
-use PKP\query\Query;
-use APP\submission\Submission;
 
 class QueryNotesGridHandler extends GridHandler
 {
@@ -184,7 +185,7 @@ class QueryNotesGridHandler extends GridHandler
     {
         return $this->getQuery()
             ->getReplies(null, NoteDAO::NOTE_ORDER_DATE_CREATED, \PKP\db\DAO::SORT_DIRECTION_ASC)
-            ->filter(function(Note $note) use ($request) {
+            ->filter(function (Note $note) use ($request) {
                 return (bool) $note->getContents() || (
                     $note->getUserId() === $request->getUser()->getId()
                 );
@@ -320,11 +321,14 @@ class QueryNotesGridHandler extends GridHandler
             );
 
             // Check if user is subscribed to this type of notification emails
-            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
-                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                        $userId,
-                        (int) $context->getId()))
+            if (!$notification || in_array(
+                PKPNotification::NOTIFICATION_TYPE_QUERY_ACTIVITY,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $userId,
+                    (int) $context->getId()
+                )
+            )
             ) {
                 continue;
             }
@@ -333,7 +337,7 @@ class QueryNotesGridHandler extends GridHandler
             $mailable = $this->getStageMailable($context, $submission)
                 ->sender($sender)
                 ->recipients([$recipient])
-                ->subject(__('common.re').' '.$title)
+                ->subject(__('common.re') . ' ' . $title)
                 ->body($note->getContents())
                 ->allowUnsubscribe($notification);
 

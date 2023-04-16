@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAppearanceAdvancedForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for advanced settings under the website appearance tab.

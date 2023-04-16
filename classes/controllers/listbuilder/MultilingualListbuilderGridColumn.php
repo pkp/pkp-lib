@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MultilingualListbuilderGridColumn
+ *
  * @ingroup controllers_listbuilder
  *
  * @brief Represents a multilingual text column within a listbuilder.
@@ -38,7 +39,6 @@ class MultilingualListbuilderGridColumn extends ListbuilderGridColumn
         $availableLocales = null,
         $flags = []
     ) {
-
         // Make sure this is a text input
         assert($listbuilder->getSourceType() == ListbuilderHandler::LISTBUILDER_SOURCE_TYPE_TEXT);
 

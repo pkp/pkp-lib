@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Base Form for adding a reviewer to a submission.

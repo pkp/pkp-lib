@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailLinkAction
+ *
  * @ingroup controllers_api_submission
  *
  * @brief An action to open up a modal to view an email sent to a user.

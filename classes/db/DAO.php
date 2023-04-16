@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
+ *
  * @ingroup db
  *
  * @see DAORegistry
@@ -22,14 +23,12 @@
 
 namespace PKP\db;
 
-use Exception;
 use Generator;
 use Illuminate\Support\Facades\DB;
 
 use PKP\cache\CacheManager;
 use PKP\core\JSONMessage;
 use PKP\plugins\Hook;
-use stdClass;
 
 class DAO
 {
@@ -429,8 +428,8 @@ class DAO
                 break;
             case 'string':
             default:
-            // do nothing.
-            }
+                // do nothing.
+        }
 
         return $value;
     }

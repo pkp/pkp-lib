@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CompileMonthlyMetrics
+ *
  * @ingroup jobs
  *
  * @brief Compile and store monthly usage stats from the daily records.
@@ -16,8 +17,8 @@
 namespace PKP\jobs\statistics;
 
 use APP\core\Services;
-use PKP\site\Site;
 use PKP\jobs\BaseJob;
+use PKP\site\Site;
 
 class CompileMonthlyMetrics extends BaseJob
 {

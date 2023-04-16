@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PasswordResetUrl
+ *
  * @ingroup mail_traits
  *
  * @brief Mailable trait to ensure compatibility of `passwordResetUrl` variable for templates:

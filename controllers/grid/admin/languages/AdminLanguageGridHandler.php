@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdminLanguageGridHandler
+ *
  * @ingroup controllers_grid_admin_languages
  *
  * @brief Handle administrative language grid requests. If in single context (e.g.

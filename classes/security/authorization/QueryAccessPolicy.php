@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryAccessPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to control access to queries.
@@ -68,7 +69,6 @@ class QueryAccessPolicy extends ContextPolicy
         // Assistants
         //
         if (isset($roleAssignments[Role::ROLE_ID_ASSISTANT])) {
-
             // 1) Assistants can access all operations on queries...
             $assistantQueryAccessPolicy = new PolicySet(PolicySet::COMBINING_DENY_OVERRIDES);
             $assistantQueryAccessPolicy->addPolicy(new RoleBasedHandlerOperationPolicy($request, Role::ROLE_ID_ASSISTANT, $roleAssignments[Role::ROLE_ID_ASSISTANT]));

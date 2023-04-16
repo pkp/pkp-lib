@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextService
+ *
  * @ingroup services
  *
  * @brief Helper class that encapsulates business logic for contexts (journals
@@ -42,10 +43,8 @@ use PKP\security\Role;
 use PKP\services\interfaces\EntityPropertyInterface;
 use PKP\services\interfaces\EntityReadInterface;
 use PKP\services\interfaces\EntityWriteInterface;
-use PKP\services\PKPSchemaService;
 use PKP\submission\GenreDAO;
 use PKP\validation\ValidatorFactory;
-
 
 abstract class PKPContextService implements EntityPropertyInterface, EntityReadInterface, EntityWriteInterface
 {
@@ -108,6 +107,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
      * and sorted by $args
      *
      * @param array $args {
+     *
      * 		@option bool isEnabled
      * 		@option int userId
      * 		@option string searchPhrase

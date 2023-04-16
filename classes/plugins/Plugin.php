@@ -14,6 +14,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Plugin
+ *
  * @ingroup plugins
  *
  * @see PluginRegistry, PluginSettingsDAO
@@ -413,6 +414,7 @@ abstract class Plugin
      *
      * @param string $hookName TemplateResource::getFilename
      * @param array $args [
+     *
      *		@option string File path to preferred template. Leave as-is to not
      *			override template.
      *		@option string Template file requested

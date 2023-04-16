@@ -23,9 +23,9 @@ use PKP\jobs\BaseJob;
 class TestJobSuccess extends BaseJob
 {
     use Batchable;
-    
+
     public $tries = 1;
-    
+
     public function __construct()
     {
         $this->connection = config('queue.default');
@@ -34,6 +34,5 @@ class TestJobSuccess extends BaseJob
 
     public function handle(): void
     {
-
     }
 }

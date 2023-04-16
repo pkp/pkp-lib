@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RepresentationNativeXmlFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a representation to a Native XML document

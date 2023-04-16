@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableItemsFeature
+ *
  * @ingroup controllers_grid_feature_selectableItems
  *
  * @brief Implements grid widgets selectable items functionality.

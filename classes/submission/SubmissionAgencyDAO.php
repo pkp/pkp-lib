@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAgencyDAO
+ *
  * @ingroup submission
  *
  * @see Submission
@@ -116,7 +117,6 @@ class SubmissionAgencyDAO extends ControlledVocabDAO
             }
         }
         if (is_array($agencies)) { // localized, array of arrays
-
             foreach ($agencies as $locale => $list) {
                 if (is_array($list)) {
                     $list = array_unique($list); // Remove any duplicate keywords

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilesGridDataProvider
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Basic files grid data provider.

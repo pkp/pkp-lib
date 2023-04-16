@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TypeDescriptionFactory
+ *
  * @ingroup filter
  *
  * @brief A factory class that takes a plain text type descriptor

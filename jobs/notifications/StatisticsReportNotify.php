@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StatisticsReportNotify
+ *
  * @ingroup jobs
  *
  * @brief Class to create system notifications for editors about editorial report
@@ -18,8 +19,8 @@ namespace PKP\jobs\notifications;
 use APP\facades\Repo;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Collection;
-use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 use PKP\jobs\BaseJob;
+use PKP\notification\managerDelegate\EditorialReportNotificationManager;
 
 class StatisticsReportNotify extends BaseJob
 {

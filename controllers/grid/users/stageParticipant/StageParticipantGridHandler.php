@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridHandler
+ *
  * @ingroup controllers_grid_users_stageParticipant
  *
  * @brief Handle stageParticipant grid requests.
@@ -419,7 +420,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
         if ($stageId == WORKFLOW_STAGE_ID_EDITING ||
             $stageId == WORKFLOW_STAGE_ID_PRODUCTION) {
-
             // Update submission notifications
             $notificationMgr->updateNotification(
                 $request,
@@ -518,7 +518,6 @@ class StageParticipantGridHandler extends CategoryGridHandler
 
             if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
                 $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-
                 // Update submission notifications
                 $notificationMgr = new NotificationManager();
                 $notificationMgr->updateNotification(

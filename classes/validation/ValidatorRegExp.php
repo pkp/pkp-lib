@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorRegExp
+ *
  * @ingroup validation
  *
  * @brief Validation check using a regular expression.

@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LocaleBundle
+ *
  * @ingroup i18n
  *
  * @brief Bundles several locale files for a given locale into a single object

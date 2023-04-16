@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ListbuilderGridColumn
+ *
  * @ingroup controllers_listbuilder
  *
  * @brief Represents a column within a listbuilder.
@@ -39,7 +40,6 @@ class ListbuilderGridColumn extends GridColumn
         $cellProvider = null,
         $flags = []
     ) {
-
         // Set this here so that callers using later optional parameters don't need to
         // duplicate it.
         if ($template === null) {

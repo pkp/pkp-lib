@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileAccessPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Base class to control (write) access to submissions and (read) access to

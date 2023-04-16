@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ThemePlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for theme plugins
@@ -119,7 +120,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function themeRegistered($themes)
     {
-
         // Don't fully initialize the theme until the application is installed, so that
         // there are no requests to the database before it exists
         if (SessionManager::isDisabled()) {
@@ -198,7 +198,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function addStyle($name, $style, $args = [])
     {
-
         // Pass a file path for LESS files
         if (substr($style, (strlen(LESS_FILENAME_SUFFIX) * -1)) === LESS_FILENAME_SUFFIX) {
             $args['style'] = $this->_getBaseDir($style);
@@ -282,7 +281,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function &getStyle($name)
     {
-
         // Search this theme
         if (isset($this->styles[$name])) {
             $style = &$this->styles[$name];
@@ -375,7 +373,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function &getScript($name)
     {
-
         // Search this theme
         if (isset($this->scripts[$name])) {
             $style = &$this->scripts[$name];
@@ -469,7 +466,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     public function getOption($name)
     {
-
         // Check if this is a valid option
         if (!isset($this->options[$name])) {
             return $this->parent ? $this->parent->getOption($name) : false;
@@ -754,7 +750,6 @@ abstract class ThemePlugin extends LazyLoadPlugin
      */
     private function _registerTemplates()
     {
-
         // Register parent theme template directory
         if (isset($this->parent) && $this->parent instanceof self) {
             $this->parent->_registerTemplates();

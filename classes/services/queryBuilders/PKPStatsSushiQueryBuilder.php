@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsSushiQueryBuilder
+ *
  * @ingroup query_builders
  *
  * @brief Helper class to construct a query to fetch COUNTER stats records from the

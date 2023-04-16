@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPWorkflowTabHandler
+ *
  * @ingroup controllers_tab_workflow
  *
  * @brief Handle AJAX operations for workflow tabs.

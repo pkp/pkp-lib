@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridHandler
+ *
  * @ingroup classes_controllers_grid
  *
  * @brief This class defines basic operations for handling HTML grids. Grids
@@ -1338,18 +1339,18 @@ class GridHandler extends PKPHandler
 
     private function checkIfResetActionsNeeded($request)
     {
-        // #8696: This is added in order to reset the page of a grid to 1 if the "search" button is clicked, effectively executing a 
+        // #8696: This is added in order to reset the page of a grid to 1 if the "search" button is clicked, effectively executing a
         //        new search.
 
         // Check if the grid has any PagingFeature features
         if ($this->getFeatures() != null) {
-            $pagingFeatureArray = array_filter($this->getFeatures(), function($value) {
+            $pagingFeatureArray = array_filter($this->getFeatures(), function ($value) {
                 return $value instanceof \PKP\controllers\grid\feature\PagingFeature;
             });
 
             if (!empty($pagingFeatureArray)) {
-                if (array_key_exists("search", $request->getUserVars()) && array_key_exists("submitFormButton", $request->getUserVars())) {
-                    $filteredKeys = array_filter(array_keys($request->getUserVars()), function($key) {
+                if (array_key_exists('search', $request->getUserVars()) && array_key_exists('submitFormButton', $request->getUserVars())) {
+                    $filteredKeys = array_filter(array_keys($request->getUserVars()), function ($key) {
                         return Str::endsWith($key, 'gridPage');
                     });
 
@@ -1359,7 +1360,6 @@ class GridHandler extends PKPHandler
                 }
             }
         }
-        
     }
 
     /**

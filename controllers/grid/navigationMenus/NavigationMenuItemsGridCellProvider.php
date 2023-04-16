@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemsGridCellProvider
+ *
  * @ingroup controllers_grid_navigationMenus
  *
  * @brief Cell provider for title column of a NavigationMenuItems grid.

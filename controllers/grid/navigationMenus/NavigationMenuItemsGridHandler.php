@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuItemsGridHandler
+ *
  * @ingroup controllers_grid_navigationMenus
  *
  * @brief Handle NavigationMenuItems grid requests.

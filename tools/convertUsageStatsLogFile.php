@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConvertUsageStatsLogFile
+ *
  * @ingroup tools
  *
  * @brief CLI tool to convert an old usage stats log file (used in releases < 3.4) into the new format.

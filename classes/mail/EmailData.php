@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailData
+ *
  * @ingroup mail
  *
  * @brief A class to hold data received from common request parameters. Used

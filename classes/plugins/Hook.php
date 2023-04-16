@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Hook
+ *
  * @ingroup plugins
  *
  * @brief Class implementing a registry of hooks for extending core functionality

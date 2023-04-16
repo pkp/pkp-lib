@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DiscussionProduction
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent when a new query is created or a note is added to a query on the production workflow stage
@@ -17,11 +18,11 @@ namespace PKP\mail\mailables;
 
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
+use PKP\mail\traits\Discussion;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
-use PKP\mail\traits\Discussion;
 use PKP\security\Role;
 
 class DiscussionProduction extends Mailable

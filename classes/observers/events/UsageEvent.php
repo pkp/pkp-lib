@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UsageEvent
+ *
  * @ingroup observers_events
  *
  * @brief Base class for the usage event used to record usage logs.
@@ -63,8 +64,7 @@ abstract class UsageEvent
         Submission $submission = null,
         Representation $representation = null,
         SubmissionFile $submissionFile = null
-    )
-    {
+    ) {
         $this->time = Core::getCurrentDate();
         $this->assocType = $assocType;
         $this->context = $context;

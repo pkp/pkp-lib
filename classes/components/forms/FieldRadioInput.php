@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldRadioInput
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A field to select one of a set of options, and one option is a text

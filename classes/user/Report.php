@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file LICENSE.
  *
  * @class Report
+ *
  * @ingroup lib_pkp_classes_user
  *
  * @brief Generates a CSV report with basic user information given a list of users and an output stream.
@@ -20,10 +21,9 @@ namespace PKP\user;
 
 use APP\core\Application;
 use APP\core\Request;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use PKP\facades\Locale;
 use PKP\userGroup\UserGroup;
-use APP\facades\Repo;
 
 class Report
 {
@@ -92,7 +92,7 @@ class Report
     {
         $userGroups = Repo::userGroup()->userUserGroups($user->getId());
         $groups = [];
-        foreach($userGroups as $userGroup) {
+        foreach ($userGroups as $userGroup) {
             $groups[$userGroup->getId()] = 0;
         }
 

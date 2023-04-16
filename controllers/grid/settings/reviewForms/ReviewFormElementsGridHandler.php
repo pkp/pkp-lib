@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementsGridHandler
+ *
  * @ingroup controllers_grid_settings_reviewForms
  *
  * @brief Handle review form element grid requests.

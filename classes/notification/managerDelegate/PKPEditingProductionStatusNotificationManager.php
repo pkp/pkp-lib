@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEditingProductionStatusNotificationManager
+ *
  * @ingroup classses_notification_managerDelegate
  *
  * @brief Editing and productionstatus notifications types manager delegate.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldOptions
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A field to select from a set of checkbox or radio options.

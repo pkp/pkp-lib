@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileRequestedRevisionRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Base Submission file policy to ensure we have a viewable file that is part of

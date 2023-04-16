@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPVocabHandler
+ *
  * @ingroup api_v1_vocab
  *
  * @brief Handle API requests for controlled vocab operations.

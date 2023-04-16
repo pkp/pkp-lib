@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailLogDAO
+ *
  * @ingroup log
  *
  * @see EmailLogEntry, Log
@@ -199,6 +200,7 @@ class EmailLogDAO extends \PKP\db\DAO
      * Delete all log entries for an object.
      *
      * @param int $assocType
+     *
      * @praam $assocId int
      */
     public function deleteByAssoc($assocType, $assocId)
@@ -219,8 +221,8 @@ class EmailLogDAO extends \PKP\db\DAO
     {
         return [
             $this->update(
-            'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
-            [(int) $newUserId, (int) $oldUserId]
+                'UPDATE email_log SET sender_id = ? WHERE sender_id = ?',
+                [(int) $newUserId, (int) $oldUserId]
             ),
             $this->update(
                 'UPDATE email_log_users 

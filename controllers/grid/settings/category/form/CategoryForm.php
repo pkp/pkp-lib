@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryForm
+ *
  * @ingroup controllers_grid_settings_category_form
  *
  * @brief Form to add/edit category.
@@ -152,7 +153,7 @@ class CategoryForm extends Form
 
             $sortOption = $category->getSortOption() ? $category->getSortOption() : Repo::submission()->getDefaultSortOption();
             $this->setData('sortOption', $sortOption);
-            
+
             $subeditorUserGroups = [];
             $assignedSubeditors = Repo::user()
                 ->getCollector()
@@ -161,17 +162,17 @@ class CategoryForm extends Form
                 ->assignedToCategoryIds([$this->getCategoryId()])
                 ->getIds()
                 ->toArray();
-            
+
             if (!empty($assignedSubeditors)) {
                 $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
                 $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
                     Application::get()->getRequest()->getContext()->getId(),
                     Application::ASSOC_TYPE_CATEGORY,
-                    $this->getCategoryId(), 
+                    $this->getCategoryId(),
                     $assignedSubeditors
                 )->toArray();
             }
-            
+
             $this->setData('subeditorUserGroups', $subeditorUserGroups);
         }
 

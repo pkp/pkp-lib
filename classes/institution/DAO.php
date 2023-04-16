@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
+ *
  * @ingroup institution
  *
  * @see Institution
@@ -207,10 +208,8 @@ class DAO extends EntityDAO
             $ipRange = trim($ipRange);
             // Parse and check single IP string
             if (strpos($ipRange, Institution::IP_RANGE_RANGE) === false) {
-
                 // Check for wildcards in IP
                 if (strpos($ipRange, Institution::IP_RANGE_WILDCARD) === false) {
-
                     // Get non-CIDR IP
                     if (strpos($ipRange, '/') === false) {
                         $ipStart = sprintf('%u', ip2long($ipRange));

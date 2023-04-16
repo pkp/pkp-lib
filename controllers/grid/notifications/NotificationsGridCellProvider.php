@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationsGridCellProvider
+ *
  * @ingroup controllers_grid_notifications
  *
  * @brief Class for a cell provider that can retrieve labels from notifications

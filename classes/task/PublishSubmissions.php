@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublishSubmissions
+ *
  * @ingroup tasks
  *
  * @brief Class to published submissions scheduled for publication.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EnrollExistingReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for enrolling an existing reviewer and adding them to a submission.
@@ -16,8 +17,8 @@
 namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
-use Illuminate\Support\Facades\Mail;
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Mail;
 
 class EnrollExistingReviewerForm extends ReviewerForm
 {

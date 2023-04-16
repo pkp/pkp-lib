@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DocumentLibraryHandler
+ *
  * @ingroup controllers_modals_documentLibrary
  *
  * @brief Submission document library modal handler.

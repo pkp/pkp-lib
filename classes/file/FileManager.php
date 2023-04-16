@@ -13,7 +13,9 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  * ePUB mime type added  Leah M Root (rootl) SUNY Geneseo
+ *
  * @class FileManager
+ *
  * @ingroup file
  *
  * @brief Class defining basic operations for file management.
@@ -817,9 +819,9 @@ class FileManager
     {
         // Sanitize the filename, mostly to avoid navigating through the filesystem with ".."
         $sanitize = fn (?string $path) => preg_replace('/[^\w.-]/', '', (string) $path);
-        $basePath = rtrim(sys_get_temp_dir(), '\\/') . "/";
+        $basePath = rtrim(sys_get_temp_dir(), '\\/') . '/';
         $lastException = null;
-        for ($maxRetries = max(0, $maxRetries) + 1; $maxRetries--; ) {
+        for ($maxRetries = max(0, $maxRetries) + 1; $maxRetries--;) {
             $path = $basePath . $sanitize($prefix) . substr(md5(mt_rand()), 0, 10) . $sanitize($suffix);
             try {
                 // If the file already exists, an Exception will be raised due to the "x" mode
@@ -830,7 +832,7 @@ class FileManager
                 return $file;
             } catch (Throwable $e) {
                 // Keeps track of the last exception, so it can be re-thrown when the retries are over
-                $lastException = new Exception("Failed to create temporary file \"{$path}\"" . ($maxRetries ? ", {$maxRetries} retries remaining" : ""), 0, $e);
+                $lastException = new Exception("Failed to create temporary file \"{$path}\"" . ($maxRetries ? ", {$maxRetries} retries remaining" : ''), 0, $e);
                 error_log($lastException);
             }
         }

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewFilesGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Handle the reviewer review file grid (for reviewers to download files to review)

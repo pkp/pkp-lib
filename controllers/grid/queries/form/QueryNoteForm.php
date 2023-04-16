@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteForm
+ *
  * @ingroup controllers_grid_queries_form
  *
  * @brief Form for adding/editing a new query note.
@@ -17,9 +18,9 @@ namespace PKP\controllers\grid\queries\form;
 
 use APP\core\Application;
 use APP\template\TemplateManager;
+use PKP\core\Core;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
-use PKP\core\Core;
 use PKP\note\Note;
 
 class QueryNoteForm extends Form

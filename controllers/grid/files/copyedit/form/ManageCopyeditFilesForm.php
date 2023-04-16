@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageCopyeditFilesForm
+ *
  * @ingroup controllers_grid_files_copyedit
  *
  * @brief Form to add files to the copyedited files grid

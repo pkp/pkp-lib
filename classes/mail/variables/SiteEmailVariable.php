@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SiteEmailVariable
+ *
  * @ingroup mail_variables
  *
  * @brief Represents variables that are associated with a website

@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPLocale
+ *
  * @ingroup i18n
  *
  * @brief Deprecated class, kept only for backwards compatibility with external plugins
@@ -23,7 +24,6 @@ namespace PKP\i18n;
 use PKP\facades\Locale;
 
 if (!PKP_STRICT_MODE) {
-
     /**
      * @deprecated The class \PKP\i18n\PKPLocale has been replaced by PKP\facades\Locale
      */

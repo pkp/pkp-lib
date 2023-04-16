@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectReviewFilesLinkAction
+ *
  * @ingroup controllers_grid_files_fileList_linkAction
  *
  * @brief An action to open up the modal that allows users to select review files

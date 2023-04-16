@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionDisciplineDAO
+ *
  * @ingroup submission
  *
  * @see Submission
@@ -117,7 +118,6 @@ class SubmissionDisciplineDAO extends ControlledVocabDAO
             }
         }
         if (is_array($disciplines)) { // localized, array of arrays
-
             foreach ($disciplines as $locale => $list) {
                 if (is_array($list)) {
                     $list = array_unique($list); // Remove any duplicate keywords

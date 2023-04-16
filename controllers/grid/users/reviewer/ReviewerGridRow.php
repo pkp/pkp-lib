@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerGridRow
+ *
  * @ingroup controllers_grid_users_reviewer
  *
  * @brief Reviewer grid row definition
@@ -21,8 +22,8 @@ use PKP\core\PKPApplication;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\security\Validation;
+use PKP\submission\reviewAssignment\ReviewAssignment;
 
 class ReviewerGridRow extends GridRow
 {
@@ -111,7 +112,6 @@ class ReviewerGridRow extends GridRow
             );
 
             if (!$this->_isCurrentUserAssignedAuthor) {
-
                 if ($reviewAssignment->canResendReviewRequest()) {
                     $this->addAction(
                         new LinkAction(

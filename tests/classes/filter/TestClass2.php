@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TestClass2
+ *
  * @ingroup tests_classes_filter
  *
  * @brief Test class to be used/instantiated by ClassTypeDescriptionTest.

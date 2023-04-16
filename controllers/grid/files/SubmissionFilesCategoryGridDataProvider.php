@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesCategoryGridDataProvider
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Provide access to submission files data for category grids.

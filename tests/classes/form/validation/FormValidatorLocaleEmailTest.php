@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorLocaleEmailTest
+ *
  * @ingroup tests_classes_form_validation
  *
  * @see FormValidatorLocaleEmail

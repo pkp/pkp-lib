@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPComponentRouterTest
+ *
  * @ingroup tests_classes_core
  *
  * @see PKPComponentRouter
@@ -196,7 +197,9 @@ class PKPComponentRouterTest extends PKPRouterTestCase
      * @covers PKPComponentRouter::_getValidatedServiceEndpointParts
      * @covers PKPComponentRouter::_retrieveServiceEndpointParts
      * @covers PKPComponentRouter::_validateServiceEndpointParts
+     *
      * @runInSeparateProcess
+     *
      * @preserveGlobalState disabled
      */
     public function testRoute()

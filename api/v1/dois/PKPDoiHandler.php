@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPDoiHandler
+ *
  * @ingroup api_v1_dois
  *
  * @brief Handle API requests for DOI operations.
@@ -711,7 +712,6 @@ class PKPDoiHandler extends APIHandler
      * Retrieve the pub object with the given ID.
      *
      * @param mixed $pubObjectHandler Either a repo or DAO for the pub object type
-     * @param int $pubObjectId
      *
      * @return mixed The actual pub object
      */

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContextRequiredPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Policy to deny access if a context cannot be found in the request.

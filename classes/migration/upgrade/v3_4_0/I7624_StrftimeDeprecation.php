@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7624_StrftimeDeprecation
+ *
  * @brief Convert strftime-based date formats into DateTime::format instead.
  */
 

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileBaseAccessPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Abstract class for submission file access policies.

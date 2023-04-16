@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubEditorsDAO
+ *
  * @ingroup context
  *
  * @brief Base class associating sections, series and categories to sub editors.
@@ -252,7 +253,6 @@ class SubEditorsDAO extends \PKP\db\DAO
 
         $emailTemplate = Repo::emailTemplate()->getByKey($context->getId(), EditorAssigned::getEmailTemplateKey());
         if (count($editorAssignments) && $emailTemplate) {
-
             // Never notify the same user twice, even if they are assigned in multiple roles
             $notifiedEditors = [];
 
@@ -305,7 +305,7 @@ class SubEditorsDAO extends \PKP\db\DAO
      * @return  Collection Collection A list of user group IDs for each user, keyed by user ID.
      */
     public function getAssignedUserGroupIds(int $contextId, int $assocType, int $assocId, int|array $userIds): Collection
-    {        
+    {
         return DB::table('subeditor_submission_group')
             ->select(['user_id', 'user_group_id'])
             ->where('assoc_type', $assocType)
@@ -314,7 +314,7 @@ class SubEditorsDAO extends \PKP\db\DAO
             ->whereIn('user_id', Arr::wrap($userIds))
             ->get()
             ->groupBy('user_id')
-            ->map(fn($userGroups) => $userGroups->pluck('user_group_id'));
+            ->map(fn ($userGroups) => $userGroups->pluck('user_group_id'));
     }
 }
 

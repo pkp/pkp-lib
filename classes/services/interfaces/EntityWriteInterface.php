@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EntityWriteInterface
+ *
  * @ingroup services_interfaces
  *
  * @brief An interface describing the methods a service class will implement to

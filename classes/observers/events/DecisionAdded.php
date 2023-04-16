@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionAdded
+ *
  * @ingroup observers_events
  *
  * @brief An event fired when an editorial decision is recorded.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailHandler
+ *
  * @ingroup api_v1_announcement
  *
  * @brief Handle API request to send bulk email
@@ -37,7 +38,7 @@ class PKPEmailHandler extends APIHandler
     public function __construct()
     {
         $this->_handlerPath = '_email';
-        
+
         $this->_endpoints = [
             'POST' => [
                 [
@@ -152,11 +153,11 @@ class PKPEmailHandler extends APIHandler
 
         foreach ($batches as $userIds) {
             $jobs[] = new BulkEmailSender(
-                $userIds, 
-                $contextId, 
-                $params['subject'], 
-                $params['body'], 
-                $context->getData('contactEmail'), 
+                $userIds,
+                $contextId,
+                $params['subject'],
+                $params['body'],
+                $context->getData('contactEmail'),
                 $context->getData('contactName')
             );
         }
@@ -167,5 +168,4 @@ class PKPEmailHandler extends APIHandler
             'totalBulkJobs' => count($batches),
         ], 200);
     }
-
 }

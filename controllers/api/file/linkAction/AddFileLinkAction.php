@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddFileLinkAction
+ *
  * @ingroup controllers_api_file_linkAction
  *
  * @brief An action to add a submission file.
@@ -56,7 +57,6 @@ class AddFileLinkAction extends BaseAddFileLinkAction
         $dependentFilesOnly = false,
         $queryId = null
     ) {
-
         // Create the action arguments array.
         $actionArgs = ['fileStage' => $fileStage, 'reviewRoundId' => $reviewRoundId];
         if (is_numeric($assocType) && is_numeric($assocId)) {

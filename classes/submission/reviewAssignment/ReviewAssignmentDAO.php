@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentDAO
+ *
  * @ingroup submission
  *
  * @see ReviewAssignment
@@ -17,8 +18,8 @@
 
 namespace PKP\submission\reviewAssignment;
 
-use APP\facades\Repo;
 use APP\core\Application;
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use PKP\db\DAORegistry;

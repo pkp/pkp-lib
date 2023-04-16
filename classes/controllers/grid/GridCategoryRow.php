@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridCategoryRow
+ *
  * @ingroup controllers_grid
  *
  * @brief Class defining basic operations for handling the category row in a grid

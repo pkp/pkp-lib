@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignmentFileWritePolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Authorize access to add, edit and delete reviewer attachments. This policy

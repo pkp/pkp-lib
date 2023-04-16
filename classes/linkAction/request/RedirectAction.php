@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RedirectAction
+ *
  * @ingroup linkAction_request
  *
  * @brief This action request redirects to another page.

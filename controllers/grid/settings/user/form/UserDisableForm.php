@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDisableForm
+ *
  * @ingroup controllers_grid_settings_user_form
  *
  * @brief Form for enabling/disabling a user

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorReviewFilesGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Handle the editor review file grid (displays files that are to be reviewed in the current round)

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LanguageGridCellProvider
+ *
  * @ingroup controllers_grid_languages
  *
  * @brief Subclass for a language grid column's cell provider
@@ -17,7 +18,6 @@ namespace PKP\controllers\grid\languages;
 
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridHandler;
-use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
 use PKP\linkAction\request\RemoteActionConfirmationModal;

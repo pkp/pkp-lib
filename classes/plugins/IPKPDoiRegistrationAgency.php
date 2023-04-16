@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class IPKPDoiRegistrationAgency
+ *
  * @ingroup plugins
  *
  * @brief Interface that registration agency plugins must implement to support DOI registrations.
@@ -25,6 +26,7 @@ interface IPKPDoiRegistrationAgency
      *
      * @param string $hookName DoiSettingsForm::setEnabledRegistrationAgencies
      * @param array $args [
+     *
      *      @option $enabledRegistrationAgencies array
      * ]
      */

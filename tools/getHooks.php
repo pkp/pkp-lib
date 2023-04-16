@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class getHooks
+ *
  * @ingroup tools
  *
  * @brief CLI tool to compile documentation on hooks in markdown
@@ -38,13 +39,12 @@ class getHooks extends \PKP\cliTool\CommandLineTool
     /**
      * Parse and execute the import/export task.
      */
-    function execute()
+    public function execute()
     {
         $this->loadIgnoreDirs(APP_ROOT . '/.gitignore');
         $this->loadIgnoreDirs(APP_ROOT . '/lib/pkp/.gitignore', './lib/pkp/');
 
         $this->processDir('./', function ($fileName) {
-
             if (substr($fileName, -4) === '.php') {
                 $file = file_get_contents($fileName);
 
@@ -128,5 +128,5 @@ class getHooks extends \PKP\cliTool\CommandLineTool
     }
 }
 
-$tool = new getHooks(isset($argv) ? $argv : array());
+$tool = new getHooks($argv ?? []);
 $tool->execute();

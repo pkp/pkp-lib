@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I8866_DispatchRegionCodesFixingJobs
+ *
  * @brief Dispatches the jobs (a job per coutry) that shell fix the old region codes, if needed i.e. if any region exists.
  */
 
@@ -28,7 +29,6 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
     {
         if (DB::table('metrics_submission_geo_monthly')->whereNotNull('region')->exists() ||
             DB::table('metrics_submission_geo_daily')->whereNotNull('region')->exists()) {
-
             // read the FIPS to ISO mappings and displatch a job per country
             $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
             $lastCountry = array_key_last($mappings);

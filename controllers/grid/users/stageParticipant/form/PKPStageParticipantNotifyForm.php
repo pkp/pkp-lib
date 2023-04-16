@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStageParticipantNotifyForm
+ *
  * @ingroup controllers_grid_users_stageParticipant_form
  *
  * @brief Form to notify a user regarding a file
@@ -24,6 +25,7 @@ use APP\submission\Submission;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\controllers\grid\queries\traits\StageMailable;
+use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\form\Form;
@@ -33,9 +35,8 @@ use PKP\log\SubmissionEmailLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\notification\PKPNotification;
 use PKP\security\Role;
-use Symfony\Component\Mailer\Exception\TransportException;
 
-use PKP\core\Core;
+use Symfony\Component\Mailer\Exception\TransportException;
 
 class PKPStageParticipantNotifyForm extends Form
 {

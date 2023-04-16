@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileMatchesWorkflowStageIdPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Submission file policy to check if the file belongs to the specified workflow stage ID

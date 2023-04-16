@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TaskNotificationsGridHandler
+ *
  * @ingroup controllers_grid_notifications
  *
  * @brief Handle the display of task notifications for a given user

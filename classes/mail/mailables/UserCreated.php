@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserCreated
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent when a new user is added from the user management screen.
@@ -15,9 +16,9 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\mail\traits\Configurable;
-use PKP\mail\Mailable;
 use PKP\context\Context;
+use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;

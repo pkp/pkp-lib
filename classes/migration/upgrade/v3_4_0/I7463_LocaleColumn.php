@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7463_LocaleColumn
+ *
  * @brief Remove's locale column installed to publications table
  */
 

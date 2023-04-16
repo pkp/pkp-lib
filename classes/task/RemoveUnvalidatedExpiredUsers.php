@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RemoveUnvalidatedExpiredUser
+ *
  * @ingroup tasks
  *
  * @brief Class to remove all unvalidated and expired users after validation timeout
@@ -37,7 +38,7 @@ class RemoveUnvalidatedExpiredUsers extends ScheduledTask
     public function executeActions()
     {
         // No need to remove invalidated users if validation requirement is turned off
-        if ( !Config::getVar('email', 'require_validation', false) ) {
+        if (!Config::getVar('email', 'require_validation', false)) {
             return true;
         }
 

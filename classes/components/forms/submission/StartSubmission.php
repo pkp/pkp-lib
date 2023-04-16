@@ -1,12 +1,13 @@
 <?php
 /**
- * @file classes/components/form/submission/StartSubmission.inc.php
+ * @file classes/components/form/submission/StartSubmission.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StartSubmission
+ *
  * @ingroup classes_controllers_form
  *
  * @brief The form to begin the submission wizard
@@ -18,7 +19,6 @@ use APP\core\Application;
 use Illuminate\Support\Enumerable;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
-use PKP\components\forms\FieldText;
 use PKP\components\forms\FieldRichText;
 use PKP\components\forms\FormComponent;
 use PKP\config\Config;

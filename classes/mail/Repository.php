@@ -31,6 +31,7 @@ class Repository
      *
      * @param string $searchPhrase Only include mailables with a name or description matching this search phrase
      * @param ?bool $includeDisabled Whether or not to include mailables not used in this context, based on the context settings
+     *
      * @return Collection<string> The fully-qualified class name of each mailable
      */
     public function getMany(Context $context, ?string $searchPhrase = null, ?bool $includeDisabled = false): Collection
@@ -38,8 +39,8 @@ class Repository
         $mailables = $this->map();
         Hook::call('Mailer::Mailables', [$mailables, $context]);
 
-        return $mailables->filter(fn(string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
-            ->filter(function(string $class) use ($context, $includeDisabled) {
+        return $mailables->filter(fn (string $class) => !$searchPhrase || $this->containsSearchPhrase($class, $searchPhrase))
+            ->filter(function (string $class) use ($context, $includeDisabled) {
                 return $includeDisabled || $this->isMailableEnabled($class, $context);
             });
     }
@@ -68,7 +69,7 @@ class Repository
     {
         /** @var ?string $mailable */
         $mailable = $this->getMany($context)
-            ->first(fn(string $mailable) => $mailable::getEmailTemplateKey() === $emailTemplateKey);
+            ->first(fn (string $mailable) => $mailable::getEmailTemplateKey() === $emailTemplateKey);
 
         if (!$mailable) {
             return null;

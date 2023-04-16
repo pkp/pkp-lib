@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorReviewerGridRow
+ *
  * @ingroup controllers_grid_users_reviewer
  *
  * @brief Reviewer grid row definition

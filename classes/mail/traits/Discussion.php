@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Discussion
+ *
  * @ingroup mail_traits
  *
  * @brief trait to support Discussion email template variables

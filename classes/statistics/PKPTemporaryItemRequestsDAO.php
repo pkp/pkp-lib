@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemporaryItemRequestsDAO
+ *
  * @ingroup statistics
  *
  * @brief Operations for retrieving and adding unique item (submission) requests (primary files downloads).

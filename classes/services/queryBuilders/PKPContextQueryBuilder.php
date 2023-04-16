@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextQueryBuilder
+ *
  * @ingroup query_builders
  *
  * @brief Base class for context (journals/presses) list query builder
@@ -154,15 +155,15 @@ abstract class PKPContextQueryBuilder implements EntityQueryBuilderInterface
         }
 
         // Filter for user id if present
-        $q->when(!empty($this->userId), function($q){
-            $q->whereIn('c.' . $this->dbIdColumn, function($q){
+        $q->when(!empty($this->userId), function ($q) {
+            $q->whereIn('c.' . $this->dbIdColumn, function ($q) {
                 $q->select('context_id')
                     ->from('user_groups')
-                    ->where(function($q){
+                    ->where(function ($q) {
                         $q->where('role_id', '=', Role::ROLE_ID_MANAGER)
                             ->orWhere('c.enabled', '=', 1);
                     })
-                    ->whereIn('user_group_id', function($q){
+                    ->whereIn('user_group_id', function ($q) {
                         $q->select('user_group_id')
                             ->from('user_user_groups')
                             ->where('user_id', '=', $this->userId);

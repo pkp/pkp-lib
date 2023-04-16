@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEventServiceProvider
+ *
  * @ingroup core
  *
  * @brief Registers Events Service Provider and boots data on events and their listeners
@@ -29,12 +30,14 @@ class PKPEventServiceProvider extends EventServiceProvider
 {
     /**
      * @var array $listen $event => $listeners[]
+     *
      * @brief Registering events & listeners, see Illuminate\Events\EventServiceProvider
      */
     protected $listen = [];
 
     /**
      * @var array
+     *
      * @brief to load subscriber classes, currently empty
      */
     protected $subscribe = [];
@@ -116,7 +119,6 @@ class PKPEventServiceProvider extends EventServiceProvider
      */
     public function discoverEvents()
     {
-
         // Adapt classes naming convention
         $discoverEvents = new class () extends DiscoverEvents {
             /**

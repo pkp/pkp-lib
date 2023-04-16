@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Installer
+ *
  * @ingroup install
  *
  * @brief Base class for install and upgrade scripts.
@@ -17,9 +18,9 @@ namespace PKP\install;
 
 use adoSchema;
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use Exception;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\cache\CacheManager;
@@ -30,9 +31,8 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\DBDataXMLParser;
-use PKP\facades\Locale;
-use APP\facades\Repo;
 use PKP\db\XMLDAO;
+use PKP\facades\Locale;
 use PKP\file\FileManager;
 use PKP\filter\FilterHelper;
 use PKP\notification\PKPNotification;

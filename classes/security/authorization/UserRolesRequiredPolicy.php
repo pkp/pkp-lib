@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRolesRequiredPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Policy to build an authorized user roles object. Because we may have

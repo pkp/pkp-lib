@@ -50,7 +50,7 @@ abstract class BaseRepository
         return $this->model->create($attributes);
     }
 
-    public function edit(int $modelId, array $data): bool 
+    public function edit(int $modelId, array $data): bool
     {
         return $this->model->find($modelId)->update($data);
     }
@@ -91,7 +91,7 @@ abstract class BaseRepository
         $query = $this->model->newQuery();
 
         if ($queue) {
-            $query = $query->queuedAt($queue); 
+            $query = $query->queuedAt($queue);
         }
 
         if (!empty($ids)) {

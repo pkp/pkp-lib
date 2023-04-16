@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorDashboardTabHandler
+ *
  * @ingroup controllers_tab_authorDashboard
  *
  * @brief Handle AJAX operations for authorDashboard tabs.

@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RemoveSubmissionFromSearchIndexJob
+ *
  * @ingroup jobs
  *
  * @brief Class to handle the Deleted Submission data update as a Job
@@ -24,7 +25,7 @@ class RemoveSubmissionFromSearchIndexJob extends BaseJob
 {
     /**
      * The submission id of the targeted submission to delete
-     * 
+     *
      * @var int
      */
     protected $submissionId;

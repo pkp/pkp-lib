@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewerHandler
+ *
  * @ingroup pages_reviewer
  *
  * @brief Handle requests for reviewer functions.
@@ -25,7 +26,6 @@ use Illuminate\Support\Facades\Mail;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewAssignment\ReviewAssignment;

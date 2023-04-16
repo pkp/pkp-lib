@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationManagerDelegate
+ *
  * @ingroup notification
  *
  * @brief Abstract class to support notification manager delegates

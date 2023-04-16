@@ -15,6 +15,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Translator
+ *
  * @ingroup i18n
  *
  * @brief Extends the default GetText translator with serialization and the possibility to detect when translations failed

@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileDeleted
+ *
  * @ingroup core
  *
  * @brief Event fired when submission's deleted
@@ -18,8 +19,6 @@ declare(strict_types=1);
 namespace PKP\observers\events;
 
 use Illuminate\Foundation\Events\Dispatchable;
-
-use PKP\submissionFile\SubmissionFile;
 
 class SubmissionFileDeleted
 {
@@ -38,7 +37,7 @@ class SubmissionFileDeleted
 
     public function __construct(int $submissionId, int $submissionFileId)
     {
-        $this->submissionId     = $submissionId;
+        $this->submissionId = $submissionId;
         $this->submissionFileId = $submissionFileId;
     }
 }

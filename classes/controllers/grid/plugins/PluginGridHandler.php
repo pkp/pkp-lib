@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGridHandler
+ *
  * @ingroup controllers_grid_plugins
  *
  * @brief Handle plugins grid requests.
@@ -117,7 +118,6 @@ abstract class PluginGridHandler extends CategoryGridHandler
         // Grid level actions.
         $userRoles = $this->getAuthorizedContextObject(PKPApplication::ASSOC_TYPE_USER_ROLES);
         if (in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
-
             // Install plugin.
             $this->addAction(
                 new LinkAction(

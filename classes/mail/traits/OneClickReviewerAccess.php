@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OneClickReviewerAccess
+ *
  * @ingroup mail_traits
  *
  * @brief Mailable trait to override the review assignment URL with the

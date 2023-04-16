@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LinkAction
+ *
  * @ingroup linkAction
  *
  * @brief Base class defining an action that can be performed by the user

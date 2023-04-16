@@ -12,6 +12,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginTestCase
+ *
  * @ingroup tests_plugins
  *
  * @see Plugin
@@ -70,8 +71,9 @@ class PluginTestCase extends DatabaseTestCase
         $mockRequest = $this->getMockBuilder(Request::class)
             ->onlyMethods(['getRouter', 'getUser'])
             ->getMock();
-        $router = new class() extends PKPRouter {
-            public function route($request) {
+        $router = new class () extends PKPRouter {
+            public function route($request)
+            {
             }
 
             public function url(
@@ -90,7 +92,7 @@ class PluginTestCase extends DatabaseTestCase
                 $request,
                 $authorizationMessage,
                 array $messageParams = []
-            ){
+            ) {
             }
         };
         $mockRequest->expects($this->any())

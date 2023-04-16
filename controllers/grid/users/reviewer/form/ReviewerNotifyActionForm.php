@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerNotifyActionForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Perform an action on a review including a reviewer notification email.

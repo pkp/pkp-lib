@@ -15,6 +15,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Locale
+ *
  * @ingroup i18n
  *
  * @brief Provides methods for loading locale data and translating strings identified by unique keys
@@ -32,7 +33,6 @@ use PKP\core\PKPRequest;
 use PKP\facades\Repo;
 use PKP\i18n\interfaces\LocaleInterface;
 use PKP\i18n\translation\LocaleBundle;
-use PKP\i18n\LocaleMetadata;
 use PKP\plugins\Hook;
 use PKP\plugins\PluginRegistry;
 use PKP\session\SessionManager;
@@ -342,8 +342,7 @@ class Locale implements LocaleInterface
      */
     public function getLanguages(?string $locale = null, bool $fromCache = true): LanguagesInterface
     {
-        if ( $fromCache ) {
-
+        if ($fromCache) {
             return $this->_getLocaleCache(
                 __METHOD__,
                 $locale,
@@ -384,15 +383,15 @@ class Locale implements LocaleInterface
 
         $localeCodesCount = array_count_values(
             collect(array_keys($filterByLocales ?? $locales))
-                ->map(fn(string $value) => trim(explode('@', explode('_', $value)[0])[0]))
+                ->map(fn (string $value) => trim(explode('@', explode('_', $value)[0])[0]))
                 ->toArray()
         );
 
         return collect($locales)
-            ->map(function(LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus, $omitLocaleCodeInDisplay) {
+            ->map(function (LocaleMetadata $locale, string $localeKey) use ($localeCodesCount, $langLocaleStatus, $omitLocaleCodeInDisplay) {
                 $localeCode = trim(explode('@', explode('_', $localeKey)[0])[0]);
                 $localeDisplay = $locale->getDisplayName(null, ($localeCodesCount[$localeCode] ?? 0) > 1, $langLocaleStatus);
-                return $localeDisplay . ($omitLocaleCodeInDisplay  ? "" : " ({$localeKey})");
+                return $localeDisplay . ($omitLocaleCodeInDisplay ? '' : " ({$localeKey})");
             })
             ->toArray();
     }

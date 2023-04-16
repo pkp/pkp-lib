@@ -16,9 +16,6 @@
 
 namespace PKP\userGroup;
 
-use PKP\facades\Locale;
-use PKP\db\DAORegistry;
-
 class UserGroup extends \PKP\core\DataObject
 {
     /**

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRoleForm
+ *
  * @ingroup controllers_grid_settings_user_form
  *
  * @brief Form for managing roles for a newly created user.

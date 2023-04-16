@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNotificationManager
+ *
  * @ingroup managerDelegate
  *
  * @brief Query notification types manager delegate.

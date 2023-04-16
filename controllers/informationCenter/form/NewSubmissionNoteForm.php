@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewSubmissionNoteForm
+ *
  * @ingroup informationCenter_form
  *
  * @brief Form to display and post notes on a file

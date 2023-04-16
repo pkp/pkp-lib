@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsEditorialService
+ *
  * @ingroup services
  *
  * @brief Helper class that encapsulates business logic for getting
@@ -17,7 +18,6 @@
 namespace PKP\services;
 
 use APP\decision\Decision;
-use APP\services\queryBuilders\StatsEditorialQueryBuilder;
 use PKP\plugins\Hook;
 
 class PKPStatsEditorialService
@@ -395,9 +395,11 @@ class PKPStatsEditorialService
      * all incomplete submissions.
      *
      * @param array $args See self::getQueryBuilder()
+     *
      * @return int
      */
-    public function countSubmissionsInProgress($args = []) {
+    public function countSubmissionsInProgress($args = [])
+    {
         return $this->getQueryBuilder($args)->countInProgress();
     }
 
@@ -408,9 +410,11 @@ class PKPStatsEditorialService
      * all imported submissions.
      *
      * @param array $args See self::getQueryBuilder()
+     *
      * @return int
      */
-    public function countSubmissionsImported($args = []) {
+    public function countSubmissionsImported($args = [])
+    {
         return $this->getQueryBuilder($args)->countImported();
     }
 

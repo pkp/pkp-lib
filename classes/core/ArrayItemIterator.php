@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ArrayItemIterator
+ *
  * @ingroup db
  *
  * @brief Provides paging and iteration for arrays.

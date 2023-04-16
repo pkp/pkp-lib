@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldPreparedContent
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A rich text editor that can insert prepared content snippets

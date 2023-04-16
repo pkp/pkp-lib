@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridDataProvider
+ *
  * @ingroup classes_controllers_grid
  *
  * @brief Grid data providers serve data to the grid classes for presentation

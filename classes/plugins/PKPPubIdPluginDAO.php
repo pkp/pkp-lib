@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPubIdPluginDAO
+ *
  * @ingroup plugins
  *
  * @brief Interface that DAOs would need to implement in order for pub ID support to be added.

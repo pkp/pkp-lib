@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SchemaDAO
+ *
  * @ingroup db
  *
  * @brief A base class for DAOs which rely on a json-schema file to define

@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DownloadAllLinkAction
+ *
  * @ingroup controllers_grid_files_fileList_linkAction
  *
  * @brief An action to download all files in a submission file grid.

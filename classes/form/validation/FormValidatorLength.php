@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorLength
+ *
  * @ingroup form_validation
  *
  * @brief Form validation check that checks if a field's length meets certain requirements.

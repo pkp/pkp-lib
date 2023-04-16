@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseAddFileLinkAction
+ *
  * @ingroup controllers_api_file_linkAction
  *
  * @brief Abstract base class for file upload actions.
@@ -50,7 +51,6 @@ class BaseAddFileLinkAction extends LinkAction
         $wizardTitle,
         $buttonLabel
     ) {
-
         // Augment the action arguments array.
         $actionArgs['submissionId'] = $submissionId;
         $actionArgs['stageId'] = $stageId;

@@ -10,7 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JobException
- * 
+ *
  */
 
 namespace PKP\job\exceptions;

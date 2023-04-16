@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidator
+ *
  * @ingroup form_validation
  *
  * @brief Class to represent a form validation check.

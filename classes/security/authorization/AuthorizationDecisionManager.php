@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorizationDecisionManager
+ *
  * @ingroup security_authorization
  *
  * @brief A class that can take a list of authorization policies, apply

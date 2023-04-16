@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryDAO
+ *
  * @ingroup plugins
  *
  * @see DAO
@@ -212,9 +213,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
                     }
                     break;
                 default:
-                // Not erroring out here so that future
-                // additions won't break old releases.
-                }
+                    // Not erroring out here so that future
+                    // additions won't break old releases.
+            }
         }
         if (!$foundRelease) {
             // No compatible release was found.
@@ -245,9 +246,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
                     $plugin->setContactEmail($n->nodeValue);
                     break;
                 default:
-                // Not erroring out here so that future
-                // additions won't break old releases.
-                }
+                    // Not erroring out here so that future
+                    // additions won't break old releases.
+            }
         }
     }
 
@@ -288,9 +289,9 @@ class PluginGalleryDAO extends \PKP\db\DAO
                     $release[$n->tagName][] = $n->getAttribute('type');
                     break;
                 default:
-                // Not erroring out here so that future
-                // additions won't break old releases.
-                }
+                    // Not erroring out here so that future
+                    // additions won't break old releases.
+            }
         }
 
         if ($compatible && (!$plugin->getData('version') || version_compare($plugin->getData('version'), $release['version'], '<'))) {

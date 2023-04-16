@@ -16,7 +16,6 @@ namespace PKP\section;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use PKP\section\Collector;
 use APP\section\DAO;
 use APP\section\Section;
 use Illuminate\Support\Facades\App;

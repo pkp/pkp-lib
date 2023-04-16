@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BulkEmailSender
+ *
  * @ingroup jobs
  *
  * @brief Job to send bulk emails
@@ -18,13 +19,13 @@ namespace PKP\jobs\bulk;
 use APP\facades\Repo;
 use Illuminate\Bus\Batchable;
 use Illuminate\Support\Facades\Mail;
-use PKP\mail\Mailable;
 use PKP\jobs\BaseJob;
+use PKP\mail\Mailable;
 
 class BulkEmailSender extends BaseJob
 {
     use Batchable;
-    
+
     /**
      * The user ids to send email
      */
@@ -62,12 +63,12 @@ class BulkEmailSender extends BaseJob
     {
         parent::__construct();
 
-        $this->userIds      = $userIds;
-        $this->contextId    = $contextId;
-        $this->subject      = $subject;
-        $this->body         = $body;
-        $this->fromEmail    = $fromEmail;
-        $this->fromName     = $fromName;
+        $this->userIds = $userIds;
+        $this->contextId = $contextId;
+        $this->subject = $subject;
+        $this->body = $body;
+        $this->fromEmail = $fromEmail;
+        $this->fromName = $fromName;
     }
 
     public function handle()

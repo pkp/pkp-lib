@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUploadPublicFileHandler
+ *
  * @ingroup api_v1_uploadPublicFile
  *
  * @brief Handle API requests to upload a file to a user's public directory.

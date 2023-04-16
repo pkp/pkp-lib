@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskHelper
+ *
  * @ingroup scheduledTask
  *
  * @brief Helper class for common scheduled tasks operations.
@@ -16,10 +17,10 @@
 namespace PKP\scheduledTask;
 
 use APP\core\Application;
+use Illuminate\Support\Facades\Mail;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\file\PrivateFileManager;
-use Illuminate\Support\Facades\Mail;
 use PKP\mail\Mailable;
 
 class ScheduledTaskHelper

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerUnassign
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent when a reviewer is unassigned

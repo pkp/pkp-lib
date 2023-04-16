@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsSushiService
+ *
  * @ingroup services
  *
  * @brief Helper class that encapsulates COUNTER R5 SUSHI statistics business logic

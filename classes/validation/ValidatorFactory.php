@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorFactory
+ *
  * @ingroup validation
  *
  * @brief A factory class for creating a Validator from the Laravel framework.
@@ -43,7 +44,6 @@ class ValidatorFactory
      */
     public static function make(array $props, array $rules, ?array $messages = []): Validator
     {
-
         // This configures a non-existent translation file, but it is necessary to
         // instantiate Laravel's validator. We override the messages with our own
         // translated strings before returning the validator.
@@ -59,7 +59,6 @@ class ValidatorFactory
         // custom validation rules to check anything other that defined html tags
         // in title or sub title in config[allowed_title_html]
         $validation->extend('allowable_title_html_tags', function ($attribute, $value, $parameters, $validator) use ($validation) {
-
             // TinyMCE sometimes converts special chars to entity code and some times not
             // A very weird quirk by tinyMCE
             // e.g '&' turned into '&amp;'
@@ -301,7 +300,6 @@ class ValidatorFactory
             $props = $validator->getData();
 
             foreach ($requiredProps as $requiredProp) {
-
                 // Required multilingual props should only be
                 // required in the primary locale
                 if (in_array($requiredProp, $multilingualProps)) {

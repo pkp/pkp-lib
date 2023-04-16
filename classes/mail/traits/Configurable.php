@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Configurable
+ *
  * @ingroup mail_traits
  *
  * @brief trait to support Mailable's name and description displayed in the UI

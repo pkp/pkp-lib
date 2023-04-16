@@ -630,7 +630,6 @@ abstract class Repository
         string $localeKey = '',
         bool $isImage = false
     ) {
-
         // If the value is null, delete any existing unused file in the system
         if (is_null($value)) {
             $oldPublication = Repo::publication()->get($publication->getId());

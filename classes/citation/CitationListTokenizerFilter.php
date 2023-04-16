@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CitationListTokenizerFilter
+ *
  * @ingroup classes_citation
  *
  * @brief Class that takes an unformatted list of citations

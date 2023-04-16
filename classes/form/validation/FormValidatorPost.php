@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorPost
+ *
  * @ingroup form_validation
  *
  * @brief Form validation check to make sure the form is POSTed.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPageRouterTest
+ *
  * @ingroup tests_classes_core
  *
  * @see PKPPageRouter
@@ -80,7 +81,9 @@ class PKPPageRouterTest extends PKPRouterTestCase
 
     /**
      * @covers PKPPageRouter::isCacheable
+     *
      * @runInSeparateProcess
+     *
      * @preserveGlobalState disabled
      */
     public function testIsCacheableWithPathinfoSuccess()

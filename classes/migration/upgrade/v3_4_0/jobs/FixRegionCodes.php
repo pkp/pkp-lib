@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FixRegionCodes
+ *
  * @ingroup jobs
  *
  * @brief Loads the FIPS-ISO mapping for the given country to the temporary table and fixes the wrong region codes, using the temporary table of FIPS-ISO mapping.

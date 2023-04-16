@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerGossipForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for viewing and editing gossip about a reviewer

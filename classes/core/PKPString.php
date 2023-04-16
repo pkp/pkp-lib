@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPString
+ *
  * @ingroup core
  *
  * @brief String manipulation wrapper class.
@@ -368,6 +369,7 @@ class PKPString
 
     /**
      * @return string[]
+     *
      * @brief overrides for ambiguous mime types returned by finfo
      * SUGGESTED_EXTENSION:DETECTED_MIME_TYPE => OVERRIDE_MIME_TYPE
      */

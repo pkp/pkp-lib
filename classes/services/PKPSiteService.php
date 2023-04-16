@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteService
+ *
  * @ingroup services
  *
  * @brief Helper class that encapsulates business logic for the overall site

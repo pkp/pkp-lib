@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserSelectGridHandler
+ *
  * @ingroup controllers_grid_users_userSelect
  *
  * @brief Handle user selector grid requests.

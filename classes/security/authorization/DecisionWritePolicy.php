@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionWritePolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Checks access to take a decision based on authorized roles and submission.

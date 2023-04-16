@@ -8,10 +8,12 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManager
+ *
  * @ingroup notification
  *
  * @see NotificationDAO
  * @see Notification
+ *
  * @brief Class for Notification Manager.
  */
 

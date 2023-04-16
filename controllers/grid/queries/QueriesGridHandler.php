@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesGridHandler
+ *
  * @ingroup controllers_grid_query
  *
  * @brief base PKP class to handle query grid requests.
@@ -26,6 +27,7 @@ use PKP\controllers\grid\feature\OrderGridItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\controllers\grid\queries\form\QueryForm;
+use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -33,18 +35,17 @@ use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
-use PKP\controllers\grid\queries\traits\StageMailable;
+use PKP\log\SubmissionEmailLogEntry;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
+use PKP\query\QueryDAO;
 use PKP\security\authorization\QueryAccessPolicy;
 use PKP\security\authorization\QueryWorkflowStageAccessPolicy;
 use PKP\security\Role;
-use PKP\log\SubmissionEmailLogEntry;
-use PKP\query\QueryDAO;
 
 class QueriesGridHandler extends GridHandler
 {
-	use StageMailable;
+    use StageMailable;
 
     /** @var int WORKFLOW_STAGE_ID_... */
     public $_stageId;
@@ -380,7 +381,6 @@ class QueriesGridHandler extends GridHandler
 
         if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
             $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-
             // Update submission notifications
             $notificationMgr = new NotificationManager();
             $notificationMgr->updateNotification(
@@ -615,7 +615,6 @@ class QueriesGridHandler extends GridHandler
 
             if ($this->getStageId() == WORKFLOW_STAGE_ID_EDITING ||
                 $this->getStageId() == WORKFLOW_STAGE_ID_PRODUCTION) {
-
                 // Update submission notifications
                 $notificationMgr->updateNotification(
                     $request,

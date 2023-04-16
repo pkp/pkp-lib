@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPDateTimeForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for presenting date and time on the frontend

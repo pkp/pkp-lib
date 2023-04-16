@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileListGridHandler
+ *
  * @ingroup controllers_grid_files_fileList
  *
  * @brief Base grid for simple file lists. This grid shows the file type in

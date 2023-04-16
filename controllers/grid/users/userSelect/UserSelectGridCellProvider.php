@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserSelectGridCellProvider
+ *
  * @ingroup controllers_grid_users_userSelect
  *
  * @brief Base class for a cell provider that retrieves data for selecting a user

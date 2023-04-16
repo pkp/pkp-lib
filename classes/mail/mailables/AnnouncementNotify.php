@@ -15,12 +15,12 @@
 namespace PKP\mail\mailables;
 
 use APP\core\Application;
-use PKP\core\PKPApplication;
 use PKP\announcement\Announcement;
 use PKP\context\Context;
+use PKP\core\PKPApplication;
 use PKP\facades\Locale;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\mail\traits\Unsubscribe;

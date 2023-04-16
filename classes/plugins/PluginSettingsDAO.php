@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingsDAO
+ *
  * @ingroup plugins
  *
  * @see Plugin
@@ -19,7 +20,6 @@ namespace PKP\plugins;
 
 use Illuminate\Support\Facades\DB;
 use PKP\cache\CacheManager;
-use PKP\observers\events\PluginSettingChanged;
 use PKP\xml\PKPXMLParser;
 
 class PluginSettingsDAO extends \PKP\db\DAO

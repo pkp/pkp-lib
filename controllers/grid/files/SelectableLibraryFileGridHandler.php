@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableLibraryFileGridHandler
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Handle selectable library file list category grid requests.

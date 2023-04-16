@@ -147,7 +147,6 @@ class Collector implements CollectorInterface
      *
      * @see self::getCompiledQuery()
      *
-     * @return
      */
     protected function getDefaultQueryBuilder(): Builder
     {

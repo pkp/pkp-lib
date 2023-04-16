@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPToolsHandler
+ *
  * @ingroup pages_management
  *
  * @brief Handle requests for Tool pages.

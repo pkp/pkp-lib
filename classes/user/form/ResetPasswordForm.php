@@ -1,13 +1,14 @@
 <?php
 
 /**
- * @file classes/user/form/ResetPasswordForm.inc.php
+ * @file classes/user/form/ResetPasswordForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ResetPasswordForm
+ *
  * @ingroup user_form
  *
  * @brief Form to reset a user's password.
@@ -26,7 +27,7 @@ use PKP\form\validation\FormValidatorPost;
 use PKP\security\Validation;
 use PKP\session\SessionManager;
 
-class ResetPasswordForm extends Form 
+class ResetPasswordForm extends Form
 {
     /** @var object */
     protected $_user;

@@ -1,18 +1,19 @@
 <?php
 
 /**
-* @file classes/sushi/SushiException.php
-*
-* Copyright (c) 2022 Simon Fraser University
-* Copyright (c) 2022 John Willinsky
-* Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
-*
-* @class SushiException
-* @ingroup sushi
-*
-* @brief Class that defines an COUNTER R5 exception
-*
-*/
+ * @file classes/sushi/SushiException.php
+ *
+ * Copyright (c) 2022 Simon Fraser University
+ * Copyright (c) 2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class SushiException
+ *
+ * @ingroup sushi
+ *
+ * @brief Class that defines an COUNTER R5 exception
+ *
+ */
 
 namespace PKP\sushi;
 

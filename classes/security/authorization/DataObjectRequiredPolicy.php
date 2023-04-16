@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectRequiredPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Abstract base class for policies that check for a data object from a parameter.

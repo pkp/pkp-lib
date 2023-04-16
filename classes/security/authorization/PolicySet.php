@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PolicySet
+ *
  * @ingroup security_authorization
  *
  * @brief An ordered list of policies. Policy sets can be added to

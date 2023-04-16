@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewNotesLinkAction
+ *
  * @ingroup controllers_review_linkAction
  *
  * @brief An action to open up the review notes for a review assignments.
@@ -55,7 +56,7 @@ class ReviewNotesLinkAction extends LinkAction
             'modal_information'
         );
 
-        $icon = match($reviewAssignment->getConsidered()) {
+        $icon = match ($reviewAssignment->getConsidered()) {
             ReviewAssignment::REVIEW_ASSIGNMENT_NEW => 'read_new_review',
             default => null
         };

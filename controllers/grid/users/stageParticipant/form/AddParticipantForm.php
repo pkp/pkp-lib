@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddParticipantForm
+ *
  * @ingroup controllers_grid_users_stageParticipant_form
  *
  * @brief Form for adding a stage participant
@@ -84,7 +85,7 @@ class AddParticipantForm extends PKPStageParticipantNotifyForm
     public function initialize()
     {
         // assign all user group IDs with ROLE_ID_MANAGER or ROLE_ID_SUB_EDITOR
-        $this->_managerGroupIds =  Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_MANAGER, $this->_contextId);
+        $this->_managerGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_MANAGER, $this->_contextId);
         $subEditorGroupIds = Repo::userGroup()->getArrayIdByRoleId(Role::ROLE_ID_SUB_EDITOR, $this->_contextId);
         $this->_possibleRecommendOnlyUserGroupIds = array_merge($this->_managerGroupIds, $subEditorGroupIds);
     }

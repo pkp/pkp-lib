@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPv3_3_0UpgradeMigration
+ *
  * @brief Describe database table structures.
  */
 
@@ -440,7 +441,9 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
 
             // Update revision data in event logs
             DB::table('event_log_settings as els')
-                ->join('event_log_settings as file_setting', fn (JoinClause $join) =>
+                ->join(
+                    'event_log_settings as file_setting',
+                    fn (JoinClause $join) =>
                     $join->on('file_setting.log_id', '=', 'els.log_id')
                         ->where('file_setting.setting_name', '=', 'fileId')
                         ->where('file_setting.setting_value', '=', (string) $row->file_id)
@@ -841,6 +844,7 @@ abstract class PKPv3_3_0UpgradeMigration extends \PKP\migration\Migration
      * @param array $array to check
      *
      * @return bool
+     *
      * @brief checks unserialized array; returns true if array keys are integers
      * otherwise if keys are mixed and sequence starts from any positive integer it will be serialized as JSON object instead of an array
      * See pkp/pkp-lib#5690 for more details

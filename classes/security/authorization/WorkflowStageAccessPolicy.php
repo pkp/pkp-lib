@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WorkflowStageAccessPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to control access to OMP's submission workflow stage components

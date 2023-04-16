@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableSubmissionFileListCategoryGridHandler
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Handle selectable submission file list category grid requests.

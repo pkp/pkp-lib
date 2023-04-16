@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLDAO
+ *
  * @ingroup db
  *
  * @brief Operations for retrieving and modifying objects from an XML data source.

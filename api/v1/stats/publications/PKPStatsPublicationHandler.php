@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsPublicationHandler
+ *
  * @ingroup api_v1_stats
  *
  * @brief Handle API requests for submission statistics.

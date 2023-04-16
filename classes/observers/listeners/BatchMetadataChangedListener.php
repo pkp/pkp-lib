@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BatchMetadataChangedListener
+ *
  * @ingroup core
  *
  * @brief Listener fired when submission metadata's changed on batch

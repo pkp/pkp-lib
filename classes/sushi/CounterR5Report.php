@@ -1,18 +1,19 @@
 <?php
 
 /**
-* @file classes/sushi/CounterR5Report.php
-*
-* Copyright (c) 2022 Simon Fraser University
-* Copyright (c) 2022 John Willinsky
-* Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
-*
-* @class CounterR5Report
-* @ingroup sushi
-*
-* @brief Base class for COUNTER R5 reports
-*
-*/
+ * @file classes/sushi/CounterR5Report.php
+ *
+ * Copyright (c) 2022 Simon Fraser University
+ * Copyright (c) 2022 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * @class CounterR5Report
+ *
+ * @ingroup sushi
+ *
+ * @brief Base class for COUNTER R5 reports
+ *
+ */
 
 namespace PKP\sushi;
 

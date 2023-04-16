@@ -393,7 +393,6 @@ class Schema extends \PKP\core\maps\Schema
 
             // Stage-specific statuses
             switch ($stageId) {
-
                 case WORKFLOW_STAGE_ID_SUBMISSION:
                     $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
                     $assignedEditors = $stageAssignmentDao->editorAssignedToStage($submission->getId(), $stageId);

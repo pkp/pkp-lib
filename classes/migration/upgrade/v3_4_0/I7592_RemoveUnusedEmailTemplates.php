@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7592_RemoveUnusedEmailTemplates
+ *
  * @brief Describe upgrade/downgrade for removing unused reviewer related email templates from the default data
  */
 

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallEmailTemplates
+ *
  * @brief Install all new email templates for 3.4.
  */
 
@@ -43,7 +44,6 @@ abstract class InstallEmailTemplates extends Migration
         );
 
         foreach ($data['email'] as $entry) {
-
             $attrs = $entry['attributes'];
 
             if (!in_array($attrs['key'], $this->getEmailTemplateKeys())) {
@@ -84,7 +84,6 @@ abstract class InstallEmailTemplates extends Migration
             Locale::setMissingKeyHandler($previous);
 
             if (isset($attrs['alternateTo'])) {
-
                 $exists = DB::table('email_templates_default_data')
                     ->where('email_key', $attrs['alternateTo'])
                     ->exists();
@@ -136,5 +135,4 @@ abstract class InstallEmailTemplates extends Migration
 
         return preg_replace($variables, $replacements, $string);
     }
-
 }

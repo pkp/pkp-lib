@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContextGridHandler
+ *
  * @ingroup controllers_grid_admin_context
  *
  * @brief Handle context grid requests.

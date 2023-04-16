@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegistrationForm
+ *
  * @ingroup user_form
  *
  * @brief Form for user registration.
@@ -47,6 +48,7 @@ class RegistrationForm extends Form
 
     /**
      * Constructor.
+     *
      * @param Site $site
      */
     public function __construct($site)
@@ -279,7 +281,6 @@ class RegistrationForm extends Form
 
         // Save the email notification preference
         if ($request->getContext() && !$this->getData('emailConsent')) {
-
             // Get the public notification types
             $notificationSettingsForm = new NotificationSettingsForm();
             $notificationCategories = $notificationSettingsForm->getNotificationSettingCategories($request->getContext());

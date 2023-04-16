@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileEventLogGridHandler
+ *
  * @ingroup controllers_grid_eventLog
  *
  * @brief Grid handler presenting the submission file event log grid.

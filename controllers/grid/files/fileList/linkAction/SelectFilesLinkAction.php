@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectFilesLinkAction
+ *
  * @ingroup controllers_grid_files_fileList_linkAction
  *
  * @brief An abstract base action for actions to open up a modal that allows users to

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPKPAuthorFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a Native XML document to a set of authors
@@ -19,7 +20,6 @@ use APP\core\Application;
 use APP\facades\Repo;
 use Exception;
 use PKP\author\Author;
-use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 
 class NativeXmlPKPAuthorFilter extends NativeImportFilter

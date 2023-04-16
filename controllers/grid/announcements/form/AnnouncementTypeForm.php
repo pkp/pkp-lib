@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeForm
+ *
  * @ingroup controllers_grid_announcements_form
  *
  * @see AnnouncementType

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileGridHandler
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Base class for handling library file grid requests.
@@ -337,6 +338,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      *  Must be implemented by subclasses.
      *
      * @param Context $context
+     *
      * @return Form
      */
     public function _getNewFileForm($context)
@@ -350,6 +352,7 @@ class LibraryFileGridHandler extends CategoryGridHandler
      *
      * @param Press $context
      * @param int $fileId
+     *
      * @return LibraryFileForm
      */
     public function _getEditFileForm($context, $fileId)

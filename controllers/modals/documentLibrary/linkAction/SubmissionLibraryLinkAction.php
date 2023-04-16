@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLibraryLinkAction
+ *
  * @ingroup controllers_grid_files_submissionDocuments
  *
  * @brief An action to open up the submission documents modal.

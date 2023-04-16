@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorAssigned
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent to editors assigned to a submission.

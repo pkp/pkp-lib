@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNativeImportExportCLIDeployment
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief CLI Deployment for Import/Export operations
@@ -78,6 +79,7 @@ class PKPNativeImportExportCLIDeployment
 
     /**
      * Pull out getopt style long options.
+     *
      * @param array $args
      * @param array $optCodes
      */

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileUploadWizardHandler
+ *
  * @ingroup controllers_wizard_fileUpload
  *
  * @brief A controller that handles basic server-side
@@ -445,7 +446,7 @@ class FileUploadWizardHandler extends Handler
         $templateMgr->assign([
             'primaryLocale' => $this->getSubmission()->getLocale(),
         ]);
-        
+
         $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
         $form = new SubmissionFilesMetadataForm($submissionFile, $this->getStageId(), $this->getReviewRound());
         $form->initData();

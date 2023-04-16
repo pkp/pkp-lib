@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryGridHandler
+ *
  * @ingroup controllers_grid
  *
  * @brief Class defining basic operations for handling HTML grids with categories.
@@ -507,7 +508,6 @@ class CategoryGridHandler extends GridHandler
 
         $elements = $this->getGridDataElements($request);
         foreach ($elements as $key => $element) {
-
             // Instantiate a new row
             $categoryRow = $this->_getInitializedCategoryRowInstance($request, $key, $element);
 

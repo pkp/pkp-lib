@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DataObjectTombstoneSettingsDAO
+ *
  * @ingroup submission
  *
  * @brief Operations for retrieving and modifying submission tombstone settings.

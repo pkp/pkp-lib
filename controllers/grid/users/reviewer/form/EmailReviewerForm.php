@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for sending an email to a user

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RepresentationUploadAccessPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Policy that checks whether a file can be uploaded to a representation.

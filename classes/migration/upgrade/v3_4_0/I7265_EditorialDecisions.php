@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7265_EditorialDecisions
+ *
  * @brief Database migrations for editorial decision refactor.
  */
 
@@ -94,7 +95,7 @@ abstract class I7265_EditorialDecisions extends \PKP\migration\Migration
                 DB::table($this->getContextTable())
                     ->pluck($this->getContextIdColumn())
                     ->map(
-                        function(int $contextId) {
+                        function (int $contextId) {
                             return [
                                 $this->getContextIdColumn() => $contextId,
                                 'setting_name' => 'notifyAllAuthors',

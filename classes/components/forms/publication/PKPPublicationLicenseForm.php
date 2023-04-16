@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPublicationLicenseForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for setting a publication's license and copyright info
@@ -15,9 +16,9 @@
 namespace PKP\components\forms\publication;
 
 use APP\core\Application;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use Illuminate\Support\LazyCollection;
 
 define('FORM_PUBLICATION_LICENSE', 'publicationLicense');
 

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I8060_UpdateUserLocalesDefaultToEmptyArray
+ *
  * @brief Update the users table locales column default to empty array from NULL and update existing NULL ones to []
  */
 

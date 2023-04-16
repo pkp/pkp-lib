@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginSettingChanged
+ *
  * @ingroup observers_events
  *
  * @brief Event fired when a plugin's setting is changed, including whether
@@ -35,8 +36,7 @@ class PluginSettingChanged
         string $settingName,
         $newValue,
         ?int $contextId = null
-    )
-    {
+    ) {
         $this->plugin = $plugin;
         $this->settingName = $settingName;
         $this->newValue = $newValue;

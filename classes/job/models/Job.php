@@ -19,8 +19,8 @@ namespace PKP\job\models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\InteractsWithTime;
-use PKP\job\casts\DatetimeToInt;
 use PKP\config\Config;
+use PKP\job\casts\DatetimeToInt;
 use PKP\job\traits\Attributes;
 
 class Job extends Model
@@ -80,12 +80,12 @@ class Job extends Model
      * @var string[]
      */
     protected $casts = [
-        'queue'         => 'string',
-        'payload'       => 'array',
-        'attempts'      => 'int',
-        'reserved_at'   => DatetimeToInt::class,
-        'available_at'  => DatetimeToInt::class,
-        'created_at'    => DatetimeToInt::class,
+        'queue' => 'string',
+        'payload' => 'array',
+        'attempts' => 'int',
+        'reserved_at' => DatetimeToInt::class,
+        'available_at' => DatetimeToInt::class,
+        'created_at' => DatetimeToInt::class,
     ];
 
     /**

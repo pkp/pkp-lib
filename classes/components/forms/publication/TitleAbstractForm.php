@@ -1,12 +1,13 @@
 <?php
 /**
- * @file classes/components/form/publication/TitleAbstractForm.inc.php
+ * @file classes/components/form/publication/TitleAbstractForm.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TitleAbstractForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for setting a publication's title and abstract
@@ -42,8 +43,7 @@ class TitleAbstractForm extends FormComponent
         Publication $publication,
         int $abstractWordLimit = 0,
         bool $isAbstractRequired = false
-    )
-    {
+    ) {
         $this->action = $action;
         $this->locales = $locales;
         $this->publication = $publication;
@@ -51,12 +51,12 @@ class TitleAbstractForm extends FormComponent
         $this->isAbstractRequired = $isAbstractRequired;
 
         $this->addField(new FieldText('prefix', [
-                'label' => __('common.prefix'),
-                'description' => __('common.prefixAndTitle.tip'),
-                'size' => 'small',
-                'isMultilingual' => true,
-                'value' => $publication->getData('prefix'),
-            ]))
+            'label' => __('common.prefix'),
+            'description' => __('common.prefixAndTitle.tip'),
+            'size' => 'small',
+            'isMultilingual' => true,
+            'value' => $publication->getData('prefix'),
+        ]))
             ->addField(new FieldRichText('title', [
                 'label' => __('common.title'),
                 'isMultilingual' => true,

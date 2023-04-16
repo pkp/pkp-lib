@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditFileLinkAction
+ *
  * @ingroup controllers_api_file_linkAction
  *
  * @brief An action to edit a file's metadata.

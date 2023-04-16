@@ -1,15 +1,16 @@
 <?php
 
 /**
-* @file classes/mail/Mailer.php
-*
+ * @file classes/mail/Mailer.php
+ *
  * Copyright (c) 2014-2021 Simon Fraser University
-* Copyright (c) 2000-2021 John Willinsky
-* Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ * Copyright (c) 2000-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Mailer
+ *
  * @ingroup mail
-*
+ *
  * @brief Represents interface to manage emails sending and view
  */
 
@@ -211,7 +212,8 @@ class Mailer extends IlluminateMailer
             return;
         }
 
-        if (!(Config::getVar('email', 'force_default_envelope_sender')
+        if (!(
+            Config::getVar('email', 'force_default_envelope_sender')
             && Config::getVar('email', 'default_envelope_sender')
             && Config::getVar('email', 'force_dmarc_compliant_from')
         )) {
@@ -227,8 +229,8 @@ class Mailer extends IlluminateMailer
      */
     protected function promoteFromToReplyTo(Message $message): void
     {
-        $replyToEmails = array_map(fn($x) => $x->getAddress(), $message->getReplyTo());
-        $fromEmails = array_map(fn($x) => $x->getAddress(), $message->getFrom());
+        $replyToEmails = array_map(fn ($x) => $x->getAddress(), $message->getReplyTo());
+        $fromEmails = array_map(fn ($x) => $x->getAddress(), $message->getFrom());
         $alreadyExists = array_intersect($replyToEmails, $fromEmails);
 
         foreach ($message->getFrom() as $address) {
@@ -242,7 +244,7 @@ class Mailer extends IlluminateMailer
         if (Config::getVar('email', 'dmarc_compliant_from_displayname')) {
             $patterns = ['#%n#', '#%s#'];
             $replacements = [
-                implode(',', array_map(fn($x) => $x->getName(), $message->getFrom())),
+                implode(',', array_map(fn ($x) => $x->getName(), $message->getFrom())),
                 $site->getLocalizedData('title'),
             ];
             $dmarcFromName = preg_replace($patterns, $replacements, Config::getVar('email', 'dmarc_compliant_from_displayname'));

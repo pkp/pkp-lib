@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RemoveFailedJobs
+ *
  * @ingroup tasks
  *
  * @brief Remove the much older failed jobs form the failed list
@@ -38,7 +39,7 @@ class RemoveFailedJobs extends ScheduledTask
         $cleanUpPeriod = (int) Config::getVar('queues', 'delete_failed_jobs_after', null);
 
         // No need to run the clean up process if the cleaning period is not defined in config
-        if ( !$cleanUpPeriod ) {
+        if (!$cleanUpPeriod) {
             return true;
         }
 

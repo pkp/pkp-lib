@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CategoryGridDataProvider
+ *
  * @ingroup classes_controllers_grid
  *
  * @brief Provide access to category grid data. Can optionally use a grid data

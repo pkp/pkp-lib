@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupGridCellProvider
+ *
  * @ingroup controllers_grid_settings_roles
  *
  * @brief Cell provider for columns in a user group grid.
@@ -16,13 +17,13 @@
 namespace PKP\controllers\grid\settings\roles;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxAction;
-use APP\facades\Repo;
 
 class UserGroupGridCellProvider extends GridCellProvider
 {
@@ -79,7 +80,7 @@ class UserGroupGridCellProvider extends GridCellProvider
         if (in_array($columnId, $workflowStages)) {
             $userGroup = $row->getData(); /** @var UserGroup $userGroup */
 
-            $assignedStages =  Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->getContextId(), $userGroup->getId())->toArray();
+            $assignedStages = Repo::userGroup()->getAssignedStagesByUserGroupId($userGroup->getContextId(), $userGroup->getId())->toArray();
 
             $router = $request->getRouter();
             $roleDao = DAORegistry::getDAO('RoleDAO'); /** @var RoleDAO $roleDao */

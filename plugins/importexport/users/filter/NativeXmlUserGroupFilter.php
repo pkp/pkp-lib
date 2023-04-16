@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlUserGroupFilter
+ *
  * @ingroup plugins_importexport_users
  *
  * @brief Base class that converts a Native XML document to a set of user groups
@@ -15,7 +16,6 @@
 
 namespace PKP\plugins\importexport\users\filter;
 
-use PKP\db\DAORegistry;
 use APP\facades\Repo;
 use PKP\userGroup\relationships\UserGroupStage;
 
@@ -88,13 +88,20 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
             for ($n = $node->firstChild; $n !== null; $n = $n->nextSibling) {
                 if ($n instanceof \DOMElement) {
                     switch ($n->tagName) {
-                        case 'role_id': $userGroup->setRoleId($n->textContent); break;
-                        case 'is_default': $userGroup->setDefault(isset($n->textContent) ? $n->textContent : false); break;
-                        case 'show_title': $userGroup->setShowTitle(isset($n->textContent) ? $n->textContent : true); break;
-                        case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale')); break;
-                        case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale')); break;
-                        case 'permit_self_registration': $userGroup->setPermitSelfRegistration(isset($n->textContent) ? $n->textContent : false); break;
-                        case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit(isset($n->textContent) ? $n->textContent : false); break;
+                        case 'role_id': $userGroup->setRoleId($n->textContent);
+                        break;
+                        case 'is_default': $userGroup->setDefault($n->textContent ?? false);
+                        break;
+                        case 'show_title': $userGroup->setShowTitle($n->textContent ?? true);
+                        break;
+                        case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale'));
+                        break;
+                        case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale'));
+                        break;
+                        case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent ?? false);
+                        break;
+                        case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent ?? false);
+                        break;
                     }
                 }
             }

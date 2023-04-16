@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenreDAO
+ *
  * @ingroup submission
  *
  * @see Genre
@@ -167,7 +168,7 @@ class GenreDAO extends DAO
             ->where('context_id', $contextId)
             ->where('required', 1)
             ->get()
-            ->map(function(object $row) {
+            ->map(function (object $row) {
                 return $this->_fromRow((array) $row);
             });
     }

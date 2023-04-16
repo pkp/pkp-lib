@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PrimitiveTypeDescription
+ *
  * @ingroup filter
  *
  * @brief Class that describes a primitive input/output type.

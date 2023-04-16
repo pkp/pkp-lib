@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerGridCellProvider
+ *
  * @ingroup controllers_grid_users_reviewer
  *
  * @brief Base class for a cell provider that can retrieve labels for reviewer grid rows

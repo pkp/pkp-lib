@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Registry
+ *
  * @ingroup core
  *
  * @brief Maintains a static table of keyed references.

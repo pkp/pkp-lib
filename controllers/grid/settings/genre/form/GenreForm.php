@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GenreForm
+ *
  * @ingroup controllers_grid_settings_genre_form
  *
  * @brief Form for adding/editing a Submission File Genre.

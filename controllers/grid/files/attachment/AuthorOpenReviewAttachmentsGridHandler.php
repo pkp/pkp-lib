@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AuthorOpenReviewAttachmentsGridHandler
+ *
  * @ingroup controllers_grid_files_attachment
  *
  * @brief Handle review attachment grid requests in open reviews (author's perspective)

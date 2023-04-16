@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilesGridCapabilities
+ *
  * @ingroup classes_controllers_grid_files
  *
  * @brief Defines files grid capabilities. Should be used by grid handlers

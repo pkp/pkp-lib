@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIProfileForm
+ *
  * @ingroup user_form
  *
  * @brief Form to edit user's API key settings.
@@ -55,7 +56,7 @@ class APIProfileForm extends BaseProfileForm
         parent::readInputData();
 
         $this->readUserVars([
-            'apiKeyEnabled', 
+            'apiKeyEnabled',
             'generateApiKey',
             'apiKeyAction',
         ]);
@@ -75,13 +76,14 @@ class APIProfileForm extends BaseProfileForm
         $user = $request->getUser();
         $secret = Config::getVar('security', 'api_key_secret', '');
         $templateMgr = TemplateManager::getManager($request);
-        
+
         if ($secret === '') {
             $this->handleOnMissingAPISecret($templateMgr, $user);
             return parent::fetch($request, $template, $display);
         }
 
-        $templateMgr->assign($user->getData('apiKey') ? [
+        $templateMgr->assign(
+            $user->getData('apiKey') ? [
                 'apiKey' => JWT::encode($user->getData('apiKey'), $secret, 'HS256'),
                 'apiKeyAction' => self::API_KEY_DELETE,
                 'apiKeyActionTextKey' => 'user.apiKey.remove',
@@ -109,7 +111,7 @@ class APIProfileForm extends BaseProfileForm
         }
 
         $apiKeyAction = (int)$this->getData('apiKeyAction');
-        
+
         $user->setData('apiKeyEnabled', $apiKeyAction === self::API_KEY_NEW ? 1 : null);
         $user->setData('apiKey', $apiKeyAction === self::API_KEY_NEW ? sha1(time()) : null);
 
@@ -120,11 +122,8 @@ class APIProfileForm extends BaseProfileForm
 
     /**
      * Handle on missing API secret
-     * 
-     * @param TemplateManager $templateMgr
-     * @param User $user
      *
-     * @return void
+     *
      */
     protected function handleOnMissingAPISecret(TemplateManager $templateMgr, User $user): void
     {

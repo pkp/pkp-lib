@@ -8,7 +8,9 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserStageAssignmentDAO
+ *
  * @ingroup user
+ *
  * @brief Operations for users as related to their stage assignments
  */
 

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JsEventConfirmationModal
+ *
  * @ingroup linkAction_request
  *
  * @brief Class defining a simple confirmation modal which generates a JS event and ok/cancel buttons.

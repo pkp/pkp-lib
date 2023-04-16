@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddTabAction
+ *
  * @ingroup linkAction_request
  *
  * @brief This action triggers a containing tabset to add a new tab.

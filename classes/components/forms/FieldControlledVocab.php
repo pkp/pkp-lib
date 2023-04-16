@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldControlledVocab
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A type of autosuggest field for controlled vocabulary like keywords.

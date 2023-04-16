@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I5716_EmailTemplateAssignments
+ *
  * @brief Refactors relationship between Mailables and Email Templates
  */
 
@@ -41,19 +42,19 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         $this->moveDisabledEmailTemplateSettings($contextIds);
         $this->migrateNotificationCenterTemplates();
 
-        Schema::table('email_templates', function(Blueprint $table) {
+        Schema::table('email_templates', function (Blueprint $table) {
             $table->dropColumn('enabled');
             $table->string('alternate_to', 255)->nullable();
             $table->index(['alternate_to'], 'email_templates_alternate_to');
         });
 
-        Schema::table('email_templates_default_data', function(Blueprint $table) {
+        Schema::table('email_templates_default_data', function (Blueprint $table) {
             $table->string('name', 255)->nullable();
         });
 
         $this->addDefaultTemplateNames();
 
-        Schema::table('email_templates_default_data', function(Blueprint $table) {
+        Schema::table('email_templates_default_data', function (Blueprint $table) {
             $table->string('name', 255)->change();
         });
 
@@ -91,8 +92,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     public function moveDisabledEmailTemplateSettings(Collection $contextIds): void
     {
-        $contextIds->each(function(int $contextId) {
-
+        $contextIds->each(function (int $contextId) {
             if (
                 DB::table('email_templates')
                     ->where('context_id', $contextId)
@@ -156,11 +156,11 @@ abstract class I5716_EmailTemplateAssignments extends Migration
             ->where('email_key', 'NOTIFICATION_CENTER_DEFAULT')
             ->update(['email_key' => $newDefaultKey]);
 
-        $newDefaultKeys->each(function(string $key) use ($newDefaultKey) {
+        $newDefaultKeys->each(function (string $key) use ($newDefaultKey) {
             DB::table('email_templates_default_data')
                 ->where('email_key', $newDefaultKey)
                 ->get()
-                ->each(function(stdClass $row) use ($key) {
+                ->each(function (stdClass $row) use ($key) {
                     DB::table('email_templates_default_data')
                         ->insert([
                             'email_key' => $key,
@@ -174,8 +174,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         DB::table('email_templates')
             ->where('email_key', 'NOTIFICATION_CENTER_DEFAULT')
             ->get()
-            ->each(function(stdClass $row) use ($alternateTos) {
-
+            ->each(function (stdClass $row) use ($alternateTos) {
                 $keys = clone $alternateTos;
 
                 DB::table('email_templates')
@@ -186,7 +185,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                     ->where('email_id', $row->email_id)
                     ->get();
 
-                $keys->each(function(string $key) use ($row, $settingsRows) {
+                $keys->each(function (string $key) use ($row, $settingsRows) {
                     DB::table('email_templates')
                         ->insert([
                             'email_key' => $key,
@@ -195,7 +194,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                     $newEmailId = DB::getPdo()->lastInsertId();
                     if ($settingsRows->count()) {
                         DB::table('email_templates_settings')->insert(
-                            $settingsRows->map(fn(stdClass $settingsRow) => [
+                            $settingsRows->map(fn (stdClass $settingsRow) => [
                                 'email_id' => $newEmailId,
                                 'locale' => $settingsRow->locale,
                                 'setting_name' => $settingsRow->setting_name,
@@ -233,7 +232,6 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         Locale::setMissingKeyHandler(fn (string $key): string => '');
 
         foreach ($locales as $locale) {
-
             Locale::setLocale($locale);
 
             foreach ($data['email'] as $entry) {
@@ -252,7 +250,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         DB::table('email_templates_default_data')
             ->whereNull('name')
             ->get()
-            ->each(function(stdClass $row) {
+            ->each(function (stdClass $row) {
                 DB::table('email_templates_default_data')
                     ->where('email_key', $row->email_key)
                     ->where('locale', $row->locale)
@@ -275,7 +273,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     protected function assignIncludedAlternateTemplates(Collection $contextIds): void
     {
-        $contextIds->each(function(int $contextId) {
+        $contextIds->each(function (int $contextId) {
             foreach ($this->mapIncludedAlternateTemplates() as $key => $alternateTo) {
                 DB::table('email_templates')->updateOrInsert(
                     [
@@ -304,7 +302,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
         $newTemplates = $this->mapEditorAssignTemplates();
 
         $newTemplates->each(
-            function(string $alternateTo, string $key) {
+            function (string $alternateTo, string $key) {
                 Repo::emailTemplate()->dao->installEmailTemplates(
                     Repo::emailTemplate()->dao->getMainEmailTemplatesFilename(),
                     [],
@@ -313,8 +311,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
             }
         );
 
-        $contextIds->each(function(int $contextId) use ($newTemplates) {
-
+        $contextIds->each(function (int $contextId) use ($newTemplates) {
             $customTemplateId = DB::table('email_templates')
                 ->where('context_id', $contextId)
                 ->where('email_key', 'EDITOR_ASSIGN')
@@ -333,11 +330,11 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                 ->where('context_id', $contextId)
                 ->whereIn('email_key', $newTemplates->keys())
                 ->pluck('email_id')
-                ->each(function(int $emailId) use ($rows) {
+                ->each(function (int $emailId) use ($rows) {
                     DB::table('email_templates_settings')
                         ->insert(
                             $rows->map(
-                                function(stdClass $row) use ($emailId) {
+                                function (stdClass $row) use ($emailId) {
                                     return [
                                         'email_id' => $emailId,
                                         'locale' => $row->locale,
@@ -381,8 +378,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
      */
     protected function assignRemainingCustomTemplates(Collection $contextIds): void
     {
-        $contextIds->each(function(int $contextId) {
-
+        $contextIds->each(function (int $contextId) {
             DB::table('email_templates as et')
                 ->leftJoin('email_templates_default_data as etdd', 'et.email_key', '=', 'etdd.email_key')
                 ->where('et.context_id', $contextId)
@@ -390,7 +386,6 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                 ->whereNull('etdd.email_key')
                 ->get(['et.email_id', 'et.email_key'])
                 ->each(function (stdClass $row) use ($contextId) {
-
                     $alternateTos = $this->getDiscussionTemplates();
 
                     DB::table('email_templates')
@@ -405,8 +400,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
                         ->where('email_id', $row->email_id)
                         ->get();
 
-                    $alternateTos->each(function(string $alternateTo) use ($row, $settingsRows, $contextId) {
-
+                    $alternateTos->each(function (string $alternateTo) use ($row, $settingsRows, $contextId) {
                         DB::table('email_templates')->insert([
                             'email_key' => $row->email_key . '_' . $alternateTo,
                             'context_id' => $contextId,
@@ -415,7 +409,7 @@ abstract class I5716_EmailTemplateAssignments extends Migration
 
                         $newEmailId = DB::getPdo()->lastInsertId();
 
-                        $settingsRows->each(function(stdClass $settingsRow) use ($newEmailId) {
+                        $settingsRows->each(function (stdClass $settingsRow) use ($newEmailId) {
                             DB::table('email_templates_settings')->insert([
                                 'email_id' => $newEmailId,
                                 'locale' => $settingsRow->locale,
@@ -463,14 +457,14 @@ abstract class I5716_EmailTemplateAssignments extends Migration
 
         $contextIds->each(function (int $contextId) use ($primaryLocales) {
             $primaryLocale = $primaryLocales
-                ->first(fn($row) => $row->context_id === $contextId)
+                ->first(fn ($row) => $row->context_id === $contextId)
                 ->primary_locale;
 
             $nameRows = DB::table('email_templates')
                 ->where('context_id', $contextId)
                 ->whereNotNull('alternate_to')
                 ->get(['email_id', 'email_key'])
-                ->map(function($row) use ($primaryLocale) {
+                ->map(function ($row) use ($primaryLocale) {
                     return [
                         'email_id' => $row->email_id,
                         'locale' => $primaryLocale,

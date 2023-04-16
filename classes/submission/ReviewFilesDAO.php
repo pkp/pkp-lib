@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFilesDAO
+ *
  * @ingroup submission
  *
  * @brief Operations for managing review round / submission file associations.

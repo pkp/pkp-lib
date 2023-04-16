@@ -8,17 +8,18 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserUserXmlFilter
+ *
  * @brief Base class that converts a set of users to a User XML document
  */
 
 namespace PKP\plugins\importexport\users\filter;
 
+use APP\facades\Repo;
 use DOMDocument;
 use PKP\config\Config;
 use PKP\db\DAORegistry;
 use PKP\plugins\importexport\native\filter\NativeExportFilter;
 use PKP\user\InterestManager;
-use APP\facades\Repo;
 use PKP\user\User;
 
 class PKPUserUserXmlFilter extends NativeExportFilter

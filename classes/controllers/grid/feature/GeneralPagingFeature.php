@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GeneralPagingFeature
+ *
  * @ingroup controllers_grid_feature
  *
  * @brief Base class that implements common functionality for

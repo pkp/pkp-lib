@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldColor
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A color picker field in a form.

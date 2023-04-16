@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserFormHelper
+ *
  * @ingroup user_form
  *
  * @brief Helper functions for shared user form concerns.
@@ -16,10 +17,9 @@
 namespace PKP\user\form;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
 
-use PKP\security\Role;
 use APP\facades\Repo;
+use PKP\security\Role;
 
 class UserFormHelper
 {

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InformationCenterHandler
+ *
  * @ingroup controllers_informationCenter
  *
  * @brief Parent class for file/submission information center handlers.

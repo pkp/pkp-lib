@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementsListPanel
+ *
  * @ingroup classes_components_list
  *
  * @brief A ListPanel component for viewing and editing email templates

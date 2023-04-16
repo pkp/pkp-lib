@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserHandler
+ *
  * @ingroup api_v1_users
  *
  * @brief Base class to handle API requests for user operations.
@@ -253,7 +254,6 @@ class PKPUserHandler extends APIHandler
      */
     private function _processAllowedparams($params, $allowedKeys)
     {
-
         // Merge query params over default params
         $defaultParams = [
             'count' => 20,

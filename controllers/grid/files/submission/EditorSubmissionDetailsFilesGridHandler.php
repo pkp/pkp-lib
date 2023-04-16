@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorSubmissionDetailsFilesGridHandler
+ *
  * @ingroup controllers_grid_files_submission
  *
  * @brief Handle submission file grid requests on the editor's submission details pages.

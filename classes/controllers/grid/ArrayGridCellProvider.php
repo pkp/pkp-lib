@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ArrayGridCellProvider
+ *
  * @ingroup controllers_grid
  *
  * @brief Base class for a cell provider that can retrieve labels from arrays

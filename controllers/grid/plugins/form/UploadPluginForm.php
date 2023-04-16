@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UploadPluginForm
+ *
  * @ingroup controllers_grid_plugins_form
  *
  * @brief Form to upload a plugin file.

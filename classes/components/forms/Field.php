@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Field
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A base class representing a single field in a form.
@@ -70,6 +71,7 @@ abstract class Field
      *
      * @param string $name
      * @param array $args [
+     *
      *  @option label string|object
      *  @option groupId string
      *  @option isRequired boolean

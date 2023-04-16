@@ -8,18 +8,16 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class buildSwagger
+ *
  * @ingroup tools
  *
  * @brief CLI tool to compile a complete swagger.json file for hosting API
  *  documentation.
  */
 
-use APP\core\Application;
 use APP\core\Services;
-use APP\facades\Repo;
 use PKP\decision\DecisionType;
 use PKP\file\FileManager;
-use PKP\submission\reviewRound\ReviewRound;
 
 define('APP_ROOT', dirname(__FILE__, 4));
 require(APP_ROOT . '/tools/bootstrap.php');
@@ -247,7 +245,7 @@ class buildSwagger extends \PKP\cliTool\CommandLineTool
 
             if (!empty($decision->actions)) {
                 $value['actions'] = array_map(
-                    function(stdClass $action) {
+                    function (stdClass $action) {
                         if ($action->type === 'form') {
                             return array_merge((array) $action->data, ['id' => $action->id]);
                         } elseif ($action->type === 'email') {

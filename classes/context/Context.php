@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Context
+ *
  * @ingroup core
  *
  * @brief Basic class describing a context.
@@ -16,13 +17,13 @@
 namespace PKP\context;
 
 use APP\core\Application;
-use PKP\i18n\LocaleMetadata;
 use APP\core\Services;
 use APP\plugins\IDoiRegistrationAgency;
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Arr;
 use PKP\config\Config;
 use PKP\facades\Locale;
+use PKP\i18n\LocaleMetadata;
 use PKP\plugins\Plugin;
 use PKP\plugins\PluginRegistry;
 use PKP\site\Site;
@@ -339,6 +340,7 @@ abstract class Context extends \PKP\core\DataObject
      * Return associative array of all locales supported by forms on the site.
      *
      * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     *
      * @return array
      */
     public function getSupportedFormLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
@@ -361,6 +363,7 @@ abstract class Context extends \PKP\core\DataObject
      * context.
      *
      * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     *
      * @return array
      */
     public function getSupportedSubmissionLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)
@@ -383,6 +386,7 @@ abstract class Context extends \PKP\core\DataObject
      * These locales are used to provide a language toggle on the main site pages.
      *
      * @param  int  $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
+     *
      * @return array
      */
     public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT)

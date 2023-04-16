@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Query
+ *
  * @ingroup submission
  *
  * @see QueryDAO
@@ -17,11 +18,11 @@
 
 namespace PKP\query;
 
+use Illuminate\Support\LazyCollection;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\note\Note;
 use PKP\note\NoteDAO;
-use Illuminate\Support\LazyCollection;
-use PKP\core\PKPApplication;
 
 class Query extends \PKP\core\DataObject
 {
@@ -143,9 +144,8 @@ class Query extends \PKP\core\DataObject
      * @param int $sortBy Optional NoteDAO::NOTE_ORDER_...
      * @param int $sortOrder Optional DAO::SORT_DIRECTION_...
      *
-     * @return LazyCollection
      */
-    public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC) : LazyCollection
+    public function getReplies(?int $userId = null, int $sortBy = NoteDAO::NOTE_ORDER_ID, int $sortOrder = \PKP\db\DAO::SORT_DIRECTION_ASC): LazyCollection
     {
         $noteDao = DAORegistry::getDAO('NoteDAO'); /** @var NoteDAO $noteDao */
         return $noteDao->getByAssoc(PKPApplication::ASSOC_TYPE_QUERY, $this->getId(), null, $sortBy, $sortOrder);

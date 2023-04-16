@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageReviewFilesGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Handle the editor review file selection grid (selects which files to send to review or to next review round)

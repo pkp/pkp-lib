@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
+ *
  * @ingroup api_v1_submission
  *
  * @brief Handle API requests for submission operations.
@@ -53,7 +54,6 @@ use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\userGroup\UserGroup;
 use Slim\Http\Request as SlimRequest;
-use Slim\Http\Response;
 
 class PKPSubmissionHandler extends APIHandler
 {
@@ -450,7 +450,6 @@ class PKPSubmissionHandler extends APIHandler
     /**
      * Add a new submission
      *
-     * @return APIResponse
      */
     public function add(SlimRequest $slimRequest, APIResponse $response, array $args): APIResponse
     {
@@ -941,7 +940,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $params = (new \PKP\submission\Sanitizer)->sanitize($params, ['title']);
+        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title']);
         $publication = Repo::publication()->newDataObject($params);
         $newId = Repo::publication()->add($publication);
         $publication = Repo::publication()->get($newId);
@@ -1100,7 +1099,7 @@ class PKPSubmissionHandler extends APIHandler
             return $response->withStatus(400)->withJson($errors);
         }
 
-        $params = (new \PKP\submission\Sanitizer)->sanitize($params, ['title', 'subtitle']);
+        $params = (new \PKP\submission\Sanitizer())->sanitize($params, ['title', 'subtitle']);
         Repo::publication()->edit($publication, $params);
 
         $publication = Repo::publication()->get($publication->getId());

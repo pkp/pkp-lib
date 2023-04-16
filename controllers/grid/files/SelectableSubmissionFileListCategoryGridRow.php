@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SelectableSubmissionFileListCategoryGridRow
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Selectable submission file list category grid row definition.

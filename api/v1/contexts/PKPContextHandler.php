@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextHandler
+ *
  * @ingroup api_v1_context
  *
  * @brief Base class to handle API requests for contexts (journals/presses).
@@ -656,7 +657,6 @@ class PKPContextHandler extends APIHandler
      */
     public function delete($slimRequest, $response, $args)
     {
-
         // This endpoint is only available at the site-wide level
         if ($this->getRequest()->getContext()) {
             return $response->withStatus(404)->withJsonError('api.submissions.404.siteWideEndpoint');

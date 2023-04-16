@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorTypeDescriptionTest
+ *
  * @ingroup tests_classes_filter
  *
  * @see ValidatorTypeDescription
@@ -61,6 +62,7 @@ class ValidatorTypeDescriptionTest extends PKPTestCase
     /**
      * @covers ValidatorTypeDescription
      * @covers TypeDescription
+     *
      * @dataProvider typeDescriptorDataProvider
      */
     public function testInstantiateWithInvalidTypeDescriptor(string $type)

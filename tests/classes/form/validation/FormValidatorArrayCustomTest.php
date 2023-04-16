@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorArrayCustomTest
+ *
  * @ingroup tests_classes_form_validation
  *
  * @see FormValidatorArrayCustom
@@ -17,7 +18,6 @@
 
 namespace PKP\tests\classes\form\validation;
 
-use Closure;
 use PKP\form\Form;
 use PKP\form\validation\FormValidator;
 use PKP\form\validation\FormValidatorArrayCustom;

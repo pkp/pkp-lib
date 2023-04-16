@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class JSONMessage
+ *
  * @ingroup core
  *
  * @brief Class to represent a JSON (Javascript Object Notation) message.

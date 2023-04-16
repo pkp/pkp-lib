@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewAttachmentGridDataProvider
+ *
  * @ingroup controllers_grid_files_attachment
  *
  * @brief Provide the reviewers access to their own review attachments data for grids.

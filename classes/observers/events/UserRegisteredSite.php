@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserRegisteredSite
+ *
  * @ingroup observers_events
  *
  * @brief An event fired when a user registers from the site-wide registration form

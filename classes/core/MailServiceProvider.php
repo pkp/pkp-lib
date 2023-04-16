@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MailServiceProvider
+ *
  * @ingroup core
  *
  * @brief Registers Laravel's Mailer service without support for markup rendering, such as blade or markdown templates

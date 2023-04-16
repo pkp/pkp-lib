@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProfileHandler
+ *
  * @ingroup pages_user
  *
  * @brief Handle requests for modifying user profiles.

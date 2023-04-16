@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileApiHandler
+ *
  * @ingroup controllers_api_file
  *
  * @brief Class defining an AJAX API for supplying file information.

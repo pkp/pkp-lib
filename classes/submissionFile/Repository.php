@@ -433,7 +433,7 @@ abstract class Repository
             ->filterByFileStages([SubmissionFile::SUBMISSION_FILE_DEPENDENT])
             ->filterByAssoc(Application::ASSOC_TYPE_SUBMISSION_FILE, [$submissionFile->getId()])
             ->getMany()
-            ->each(function(SubmissionFile $dependentFile) {
+            ->each(function (SubmissionFile $dependentFile) {
                 $this->delete($dependentFile);
             });
 

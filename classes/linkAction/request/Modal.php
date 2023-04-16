@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Modal
+ *
  * @ingroup linkAction_request
  *
  * @brief Abstract base class for all modal dialogs.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridColumn
+ *
  * @ingroup controllers_grid
  *
  * @brief The GridColumn class represents a column within a grid. It is used to
@@ -53,7 +54,6 @@ class GridColumn extends GridBodyElement
         $cellProvider = null,
         $flags = []
     ) {
-
         // Use default template if none specified
         if ($template === null) {
             $template = 'controllers/grid/gridCell.tpl';

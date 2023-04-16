@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageParticipantGridRow
+ *
  * @ingroup controllers_grid_users_stageParticipant
  *
  * @brief StageParticipant grid row definition
@@ -15,17 +16,16 @@
 
 namespace PKP\controllers\grid\users\stageParticipant;
 
+use APP\facades\Repo;
 use PKP\controllers\grid\GridRow;
 use PKP\controllers\grid\users\stageParticipant\linkAction\NotifyLinkAction;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\RedirectConfirmationModal;
 use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\security\Role;
 use PKP\security\Validation;
-use APP\facades\Repo;
 
 class StageParticipantGridRow extends GridRow
 {

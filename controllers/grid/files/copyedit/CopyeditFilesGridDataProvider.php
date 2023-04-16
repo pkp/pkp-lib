@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CopyeditFilesGridDataProvider
+ *
  * @ingroup controllers_grid_files_copyedit
  *
  * @brief Provide access to copyedited files management.

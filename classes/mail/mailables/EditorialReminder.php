@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialReminder
+ *
  * @ingroup mail_mailables
  *
  * @brief Email is sent automatically to an editor to remind them of outstanding tasks

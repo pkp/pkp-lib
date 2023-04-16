@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ListPanel
+ *
  * @ingroup classes_components_list
  *
  * @brief A base class for ListPanel components.
@@ -59,7 +60,6 @@ class ListPanel
      *
      * @param array $args Configuration params
      *
-     * @return
      */
     public function set($args)
     {

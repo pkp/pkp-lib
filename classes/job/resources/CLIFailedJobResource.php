@@ -29,12 +29,12 @@ class CLIFailedJobResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'            => $this->getResource()->id,
-            'queue'         => $this->getResource()->queue,
-            'displayName'   => $this->getJobName(),
-            'connection'    => $this->getResource()->connection,
-            'failed_at'     => $this->getFailedAt(),
-            'exception'     => chunk_split($this->getResource()->exceptionMessage(), 50),
+            'id' => $this->getResource()->id,
+            'queue' => $this->getResource()->queue,
+            'displayName' => $this->getJobName(),
+            'connection' => $this->getResource()->connection,
+            'failed_at' => $this->getFailedAt(),
+            'exception' => chunk_split($this->getResource()->exceptionMessage(), 50),
         ];
     }
 }

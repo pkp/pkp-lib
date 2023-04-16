@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGridCellProvider
+ *
  * @ingroup controllers_grid_plugins
  *
  * @brief Cell provider for columns in a plugin grid.

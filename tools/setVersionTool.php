@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SetVersionTool
+ *
  * @ingroup tools
  *
  * @brief CLI tool to set a version number for each publication.

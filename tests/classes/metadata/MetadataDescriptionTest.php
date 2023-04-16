@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataDescriptionTest
+ *
  * @ingroup tests_classes_metadata
  *
  * @see MetadataDescription

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationManagerTest
+ *
  * @ingroup tests_classes_notification
  *
  * @see Config
@@ -63,6 +64,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
     /**
      * @covers PKPNotificationManager::createNotification
+     *
      * @dataProvider trivialNotificationDataProvider
      */
     public function testCreateNotification($notification, $notificationParams = [])
@@ -96,6 +98,7 @@ class PKPNotificationManagerTest extends PKPTestCase
 
     /**
      * @covers PKPNotificationManager::createTrivialNotification
+     *
      * @dataProvider trivialNotificationDataProvider
      */
     public function testCreateTrivialNotification($notification, $notificationParams = [])
@@ -189,10 +192,6 @@ class PKPNotificationManagerTest extends PKPTestCase
      * @param array $blockedNotifications (optional) Each notification type
      * that is blocked by user. Will be used as return value for the
      * getUserBlockedNotifications method.
-     * @param array $emailedNotifications (optional) Each notification type
-     * that user will be also notified by email.
-     * @param array $extraOpToStub (optional) Method names to be stubbed.
-     * Its expectations can be set on the returned object.
      *
      * @return PHPUnit_Framework_MockObject_MockObject
      */

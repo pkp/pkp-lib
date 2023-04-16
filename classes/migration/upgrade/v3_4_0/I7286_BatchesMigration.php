@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7286_BatchesMigration
+ *
  * @brief Database migrations for batches refactor, see https://github.com/illuminate/queue/blob/9.x/Console/stubs/batches.stub
  */
 
@@ -19,7 +20,6 @@ use PKP\migration\Migration;
 
 class I7286_BatchesMigration extends Migration
 {
-
     /**
      * Run the migrations.
      */

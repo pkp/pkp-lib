@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OAIMetadataFormatPlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for OAI Metadata format plugins

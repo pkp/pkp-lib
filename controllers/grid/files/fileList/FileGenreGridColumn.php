@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileGenreGridColumn
+ *
  * @ingroup controllers_grid_files_fileList
  *
  * @brief Implements a file name column.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageRolePolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to check if the user has an assigned role on a specific
@@ -17,9 +18,9 @@
 namespace PKP\security\authorization;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\db\DAORegistry;
 use PKP\security\Role;
-use APP\facades\Repo;
 
 class StageRolePolicy extends AuthorizationPolicy
 {
@@ -58,7 +59,6 @@ class StageRolePolicy extends AuthorizationPolicy
      */
     public function effect()
     {
-
         // Use the submission's current stage id if none is specified in policy
         if (!$this->_stageId) {
             $this->_stageId = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION)->getData('stageId');

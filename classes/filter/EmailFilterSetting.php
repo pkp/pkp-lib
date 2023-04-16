@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailFilterSetting
+ *
  * @ingroup classes_filter
  *
  * @brief Class that describes a configurable filter setting which

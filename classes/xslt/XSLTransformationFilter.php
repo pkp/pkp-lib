@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XSLTransformationFilter
+ *
  * @ingroup xslt
  *
  * @brief Class that transforms XML via XSL.

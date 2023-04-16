@@ -15,6 +15,7 @@ namespace PKP\emailTemplate;
 
 use APP\core\Application;
 use APP\core\Services;
+use APP\facades\Repo;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\LazyCollection;
@@ -23,7 +24,6 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\db\XMLDAO;
 use PKP\facades\Locale;
-use APP\facades\Repo;
 use PKP\site\Site;
 use PKP\site\SiteDAO;
 use Stringy\Stringy;
@@ -77,6 +77,7 @@ class DAO extends EntityDAO
      * of a default template.
      *
      * @throws Exception
+     *
      * @return string The email template key
      */
     public function insert(EmailTemplate $object): string
@@ -356,7 +357,6 @@ class DAO extends EntityDAO
         }
 
         foreach ($data['email'] as $entry) {
-
             $attrs = $entry['attributes'];
             $alternateTo = $attrs['alternateTo'] ?? null;
 

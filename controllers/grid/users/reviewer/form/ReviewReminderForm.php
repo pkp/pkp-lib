@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewReminderForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for sending a review reminder to a reviewer
@@ -168,7 +169,6 @@ class ReviewReminderForm extends Form
             $reviewAssignment->stampModified();
             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $reviewAssignmentDao->updateObject($reviewAssignment);
-
         } catch (TransportException $e) {
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(

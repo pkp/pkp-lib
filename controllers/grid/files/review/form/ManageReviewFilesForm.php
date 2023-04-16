@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageReviewFilesForm
+ *
  * @ingroup controllers_grid_files_review_form
  *
  * @brief Form for add or removing files from a review

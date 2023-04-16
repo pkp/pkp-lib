@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LoginChangePasswordForm
+ *
  * @ingroup user_form
  *
  * @brief Form to change a user's password in order to login.
@@ -25,6 +26,7 @@ class LoginChangePasswordForm extends Form
 {
     /**
      * Constructor.
+     *
      * @param Site $site
      */
     public function __construct($site)

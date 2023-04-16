@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LinkActionRequest
+ *
  * @ingroup linkAction_request
  *
  * @brief Abstract base class defining an action to be taken when a link action is activated.

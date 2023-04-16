@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Variable
+ *
  * @ingroup mail_variables
  *
  * @brief A base class for email template variables
@@ -15,10 +16,10 @@
 
 namespace PKP\mail\variables;
 
+use Exception;
 use Illuminate\Support\Arr;
 use PKP\context\Context;
 use PKP\mail\Mailable;
-use Exception;
 
 abstract class Variable
 {

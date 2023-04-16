@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenuForm
+ *
  * @ingroup controllers_grid_navigationMenus_form
  *
  * @see NavigationMenu

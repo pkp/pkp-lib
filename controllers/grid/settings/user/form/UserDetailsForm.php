@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserDetailsForm
+ *
  * @ingroup controllers_grid_settings_user_form
  *
  * @brief Form for editing user profiles.
@@ -17,7 +18,6 @@ namespace PKP\controllers\grid\settings\user\form;
 
 use APP\author\Author;
 use APP\core\Application;
-use APP\core\Request;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
@@ -76,7 +76,6 @@ class UserDetailsForm extends UserForm
      * Attach the validation checks for this form
      *
      * @param PKPRequest|null $request
-     * @return self
      */
     public function attachValidationChecks($request = null): self
     {
@@ -133,7 +132,6 @@ class UserDetailsForm extends UserForm
     /**
      * Apply the update only for user's user group
      *
-     * @return self
      */
     public function applyUserGroupUpdateOnly(): self
     {
@@ -252,7 +250,7 @@ class UserDetailsForm extends UserForm
         parent::readInputData();
 
         // if doing only a partial update that includes only updating user's user group
-        if ( $this->userGroupUpdateOnly ) {
+        if ($this->userGroupUpdateOnly) {
             return;
         }
 

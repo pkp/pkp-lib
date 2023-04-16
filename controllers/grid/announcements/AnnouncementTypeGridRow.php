@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeGridRow
+ *
  * @ingroup controllers_grid_content_announcements
  *
  * @brief Announcement type grid row definition

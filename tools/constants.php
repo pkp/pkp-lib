@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class constants
+ *
  * @ingroup tools
  *
  * @brief Get the value of application constants.

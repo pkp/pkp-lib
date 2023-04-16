@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class HandlerOperationPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Abstract base class that provides infrastructure

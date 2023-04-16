@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MessageSendingFromContext
+ *
  * @ingroup observers_events
  *
  * @brief overrides Illuminate event which is fired just before sending email message from the journal/press

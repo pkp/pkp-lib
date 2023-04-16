@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileLoader
+ *
  * @ingroup classes_task
  *
  * @brief Base scheduled task class to reliably handle files processing.

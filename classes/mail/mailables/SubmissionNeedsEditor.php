@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNeedsEditor
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent to managers when a new submission is made and no editor is assigned

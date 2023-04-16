@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionStageValidPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Checks whether the authorized submission is in the correct stage

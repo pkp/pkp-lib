@@ -15,6 +15,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Form
+ *
  * @ingroup core
  *
  * @brief Class defining basic operations for handling HTML forms.
@@ -23,9 +24,9 @@
 namespace PKP\form;
 
 use APP\core\Application;
-use PKP\core\PKPRequest;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use PKP\core\PKPRequest;
 use PKP\facades\Locale;
 use PKP\form\validation\FormValidator;
 use PKP\notification\PKPNotification;
@@ -203,8 +204,8 @@ class Form
 
         if (!$templateMgr->getTemplateVars('primaryLocale')) {
             $templateMgr->assign([
-                'primaryLocale' => $context 
-                    ? $context->getPrimaryLocale() 
+                'primaryLocale' => $context
+                    ? $context->getPrimaryLocale()
                     : (Application::isInstalled() ? $request->getSite()->getPrimaryLocale() : null),
             ]);
         }

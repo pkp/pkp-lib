@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WorkflowStageDAO
+ *
  * @ingroup workflow
  *
  * @brief class for operations involving the workflow stages.
@@ -93,7 +94,7 @@ class WorkflowStageDAO extends \PKP\db\DAO
             WORKFLOW_STAGE_ID_EDITING,
             WORKFLOW_STAGE_ID_PRODUCTION
         ])
-            ->mapWithKeys(fn(int $stageId) => [$stageId => Application::getWorkflowStageName($stageId)])
+            ->mapWithKeys(fn (int $stageId) => [$stageId => Application::getWorkflowStageName($stageId)])
             ->toArray();
         if ($filtered) {
             $applicationStages = Application::getApplicationStages();

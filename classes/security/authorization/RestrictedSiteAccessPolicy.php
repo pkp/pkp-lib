@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RestrictedSiteAccessPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Policy enforcing restricted site access when the context

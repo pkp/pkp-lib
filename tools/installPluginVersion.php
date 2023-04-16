@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InstallPluginVersionTool
+ *
  * @ingroup tools
  *
  * @brief CLI tool for installing a plugin version descriptor.

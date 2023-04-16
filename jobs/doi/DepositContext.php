@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DepositContext
+ *
  * @ingroup jobs
  *
  * @brief Job to deposit all DOIs and associated metadata to the configured registration agency for a given context
@@ -21,8 +22,8 @@ use APP\core\Application;
 use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\context\ContextDAO;
-use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
 
 class DepositContext extends BaseJob
 {

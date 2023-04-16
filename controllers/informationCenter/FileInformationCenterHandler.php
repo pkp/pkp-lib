@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileInformationCenterHandler
+ *
  * @ingroup controllers_informationCenter
  *
  * @brief Handle requests to view the information center for a file.
@@ -17,9 +18,9 @@ namespace PKP\controllers\informationCenter;
 
 use APP\core\Application;
 use APP\facades\Repo;
+use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\informationCenter\form\NewFileNoteForm;
-use PKP\core\ArrayItemIterator;
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
@@ -27,7 +28,6 @@ use PKP\log\EventLogEntry;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
-use APP\notification\NotificationManager;
 
 class FileInformationCenterHandler extends InformationCenterHandler
 {

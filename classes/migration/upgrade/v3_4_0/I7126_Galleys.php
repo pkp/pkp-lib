@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7126_Galleys
+ *
  * @brief Update the galley class filters in the database
  */
 

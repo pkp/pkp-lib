@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StatisticsReportMail
+ *
  * @ingroup jobs
  *
  * @brief Class to send email to editors with monthly editorial report

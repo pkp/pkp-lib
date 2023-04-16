@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I3573_AddPrimaryKeys
+ *
  * @brief Add primary keys to tables that do not currently have them, to support DB replication.
  */
 

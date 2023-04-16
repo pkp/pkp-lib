@@ -10,6 +10,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerViewMetadataLinkAction
+ *
  * @ingroup controllers_modals_review_linkAction
  *
  * @brief An action to open the submission meta-data modal.

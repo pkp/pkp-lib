@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ThankReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for sending a thank you to a reviewer
@@ -149,7 +150,7 @@ class ThankReviewerForm extends Form
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignment->setDateAcknowledged(Core::getCurrentDate());
         $reviewAssignment->stampModified();
-        if(!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
+        if (!in_array($reviewAssignment->getConsidered(), [ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED, ReviewAssignment::REVIEW_ASSIGNMENT_RECONSIDERED])) {
             $reviewAssignment->setConsidered(
                 $reviewAssignment->getConsidered() === ReviewAssignment::REVIEW_ASSIGNMENT_NEW
                     ? ReviewAssignment::REVIEW_ASSIGNMENT_CONSIDERED

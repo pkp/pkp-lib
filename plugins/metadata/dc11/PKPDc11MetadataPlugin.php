@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPDc11MetadataPlugin
+ *
  * @ingroup plugins_metadata_dc11
  *
  * @brief Abstract base class for Dublin Core version 1.1 metadata plugins

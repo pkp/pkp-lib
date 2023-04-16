@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridRow
+ *
  * @ingroup controllers_grid_eventLog
  *
  * @brief EventLog grid row definition
@@ -18,14 +19,14 @@ namespace PKP\controllers\grid\eventLog;
 use APP\core\Application;
 use APP\facades\Repo;
 use PKP\controllers\api\file\linkAction\DownloadFileLinkAction;
+use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 use PKP\controllers\grid\GridRow;
 use PKP\db\DAORegistry;
 use PKP\log\EmailLogEntry;
 use PKP\log\EventLogEntry;
 use PKP\log\SubmissionFileEventLogEntry;
-use PKP\submissionFile\SubmissionFile;
-use PKP\controllers\grid\eventLog\linkAction\EmailLinkAction;
 use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submissionFile\SubmissionFile;
 
 class EventLogGridRow extends GridRow
 {

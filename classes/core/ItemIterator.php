@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ItemIterator
+ *
  * @ingroup db
  *
  * @brief Generic iterator class; needs to be overloaded by subclasses

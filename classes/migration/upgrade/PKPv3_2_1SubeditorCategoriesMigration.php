@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPv3_2_1SubeditorCategoriesMigration
+ *
  * @brief pkp/pkp-lib#5694 Allow subeditors to be assigned to Categories
  */
 

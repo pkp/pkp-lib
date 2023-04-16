@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationWritePolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to permit or deny write functions (add/edit) on a publication

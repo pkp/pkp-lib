@@ -36,7 +36,6 @@ trait WithReviewAssignments
      */
     protected function getReviewAssignments(int $submissionId, int $reviewRoundId, int $reviewAssignmentStatus): array
     {
-
         /** @var ReviewAssignmentDAO $reviewAssignmentDao */
         $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO');
 

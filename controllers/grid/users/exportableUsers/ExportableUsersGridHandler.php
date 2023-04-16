@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ExportableUsersGridHandler
+ *
  * @ingroup controllers_grid_users_exportableUsers
  *
  * @brief Handle exportable user grid requests.
@@ -22,7 +23,6 @@ use PKP\controllers\grid\feature\selectableItems\SelectableItemsFeature;
 use PKP\controllers\grid\GridColumn;
 use PKP\controllers\grid\GridHandler;
 use PKP\core\PKPApplication;
-use PKP\db\DAORegistry;
 use PKP\identity\Identity;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectConfirmationModal;
@@ -191,7 +191,7 @@ class ExportableUsersGridHandler extends GridHandler
             ->filterByContextIds([$context->getId()])
             ->searchPhrase($filter['search'])
             ->filterByUserGroupIds($userGroupSearchTerm);
-        
+
         // Get all users for this context that match search criteria.
         $rangeInfo = $this->getGridRangeInfo($request, $this->getId());
         $totalCount = $userCollector->getCount();
@@ -211,7 +211,7 @@ class ExportableUsersGridHandler extends GridHandler
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
-            
+
         $userGroupOptions = ['' => __('grid.user.allRoles')];
         foreach ($userGroups as $userGroup) {
             $userGroupOptions[$userGroup->getId()] = $userGroup->getLocalizedName();

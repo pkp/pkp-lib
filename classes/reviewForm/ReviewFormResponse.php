@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormResponse
+ *
  * @ingroup reviewForm
  *
  * @see ReviewFormResponseDAO
@@ -67,7 +68,6 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Get response value.
      *
-     * @return mixed
      */
     public function getValue()
     {
@@ -77,7 +77,6 @@ class ReviewFormResponse extends \PKP\core\DataObject
     /**
      * Set response value.
      *
-     * @param mixed $value
      */
     public function setValue($value)
     {

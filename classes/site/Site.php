@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Site
+ *
  * @ingroup site
  *
  * @see SiteDAO
@@ -32,7 +33,6 @@ class Site extends \PKP\core\DataObject
      * These locales are used to provide a language toggle on the main site pages.
      *
      * @param  int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
-     * @return array
      */
     public function getSupportedLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITHOUT): array
     {
@@ -40,7 +40,7 @@ class Site extends \PKP\core\DataObject
         if (isset($supportedLocales)) {
             return $supportedLocales;
         }
-        
+
         $supportedLocales = Locale::getFormattedDisplayNames($this->getSupportedLocales(), null, $langLocaleStatus);
 
         asort($supportedLocales);
@@ -52,7 +52,6 @@ class Site extends \PKP\core\DataObject
      * These locales are used to provide a language toggle on the main site pages.
      *
      * @param  int $langLocaleStatus The const value of one of LocaleMetadata:LANGUAGE_LOCALE_*
-     * @return array
      */
     public function getInstalledLocaleNames(int $langLocaleStatus = LocaleMetadata::LANGUAGE_LOCALE_WITH): array
     {
@@ -60,7 +59,7 @@ class Site extends \PKP\core\DataObject
         if (isset($installedLocales)) {
             return $installedLocales;
         }
-        
+
         $installedLocales = Locale::getFormattedDisplayNames($this->getInstalledLocales(), null, $langLocaleStatus);
 
         asort($installedLocales);

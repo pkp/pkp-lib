@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I6895_CreateNewInstitutionsTables
+ *
  * @brief Describe database table structures.
  */
 
@@ -26,7 +27,6 @@ class I6895_CreateNewInstitutionsTables extends Migration
      */
     public function up(): void
     {
-
         // Institutions.
         Schema::create('institutions', function (Blueprint $table) {
             $table->bigInteger('institution_id')->autoIncrement();

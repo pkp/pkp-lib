@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionTypeRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Policy that ensures that the requested decision type is valid

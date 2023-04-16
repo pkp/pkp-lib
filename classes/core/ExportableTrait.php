@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ExportableTrait
+ *
  * @ingroup db
  *
  * @brief Implements the __set_state magic method, for classes that have a parameterless constructor, in order to recover classes exported with "var_export"

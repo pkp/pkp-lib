@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PasswordResetRequested
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent automatically when user requests to reset a password
@@ -15,8 +16,8 @@
 
 namespace PKP\mail\mailables;
 
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\PasswordResetUrl;
 use PKP\mail\traits\Recipient;
 use PKP\security\Role;

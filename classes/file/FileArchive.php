@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileArchive
+ *
  * @ingroup file
  *
  * @brief Class provides functionality for creating an archive of files.

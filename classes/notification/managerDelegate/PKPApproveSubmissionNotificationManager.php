@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApproveSubmissionNotificationManager
+ *
  * @ingroup managerDelegate
  *
  * @brief Approve submission notification type manager delegate.

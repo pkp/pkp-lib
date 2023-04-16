@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewResponseRemindAuto
+ *
  * @ingroup mail_mailables
  *
  * @brief Email is sent automatically to a reviewer as a reminder after a deadline for response

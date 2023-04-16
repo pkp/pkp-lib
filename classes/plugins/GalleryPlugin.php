@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GalleryPlugin
+ *
  * @ingroup plugins
  *
  * @brief Class describing a plugin in the Plugin Gallery.

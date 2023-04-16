@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridFeature
+ *
  * @ingroup controllers_grid_feature
  *
  * @brief Base grid feature class. A feature is a type of plugin specific

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SendThankYouLinkAction
+ *
  * @ingroup controllers_api_task
  *
  * @brief An action to open up a modal to send a thank you email to users assigned to a review task.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPMetadataForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for setting a publication's metadata fields
@@ -150,7 +151,7 @@ class PKPMetadataForm extends FormComponent
                 'value' => $publication->getData('dataAvailability'),
             ]));
         }
-        
+
         if ($this->enabled('pub-id::publisher-id')) {
             $this->addField(new FieldText('pub-id::publisher-id', [
                 'label' => __('submission.publisherId'),

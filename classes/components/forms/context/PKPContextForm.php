@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContextForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for adding and editing a context from the admin area.
@@ -73,12 +74,12 @@ class PKPContextForm extends FormComponent
                 'value' => $context ? $context->getData('acronym') : null,
             ]))
             ->addField(new FieldText('contactName', [
-                'label' => __('manager.setup.principalContact') .' '. __('common.name'),
+                'label' => __('manager.setup.principalContact') . ' ' . __('common.name'),
                 'isRequired' => true,
                 'value' => $context ? $context->getData('contactName') : null,
             ]))
             ->addField(new FieldText('contactEmail', [
-                'label' => __('manager.setup.principalContact') .' '. __('user.email'),
+                'label' => __('manager.setup.principalContact') . ' ' . __('user.email'),
                 'isRequired' => true,
                 'value' => $context ? $context->getData('contactEmail') : null,
             ]))

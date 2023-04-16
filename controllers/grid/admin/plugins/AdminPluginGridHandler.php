@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdminPluginGridHandler
+ *
  * @ingroup controllers_grid_admin_plugins
  *
  * @brief Handle site level plugins grid requests.

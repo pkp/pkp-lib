@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ApiCsrfMiddleware
+ *
  * @ingroup security_authorization
  *
  * @brief Slim middleware which requires a CSRF token for POST, PUT and DELETE

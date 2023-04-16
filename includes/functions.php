@@ -19,14 +19,14 @@ use PKP\core\Registry;
 /*
  * Constants for expressing human-readable data sizes in their respective number of bytes.
  */
-define( 'KB_IN_BYTES', 1024 );
-define( 'MB_IN_BYTES', 1024 * KB_IN_BYTES );
-define( 'GB_IN_BYTES', 1024 * MB_IN_BYTES );
-define( 'TB_IN_BYTES', 1024 * GB_IN_BYTES );
-define( 'PB_IN_BYTES', 1024 * TB_IN_BYTES );
-define( 'EB_IN_BYTES', 1024 * PB_IN_BYTES );
-define( 'ZB_IN_BYTES', 1024 * EB_IN_BYTES );
-define( 'YB_IN_BYTES', 1024 * ZB_IN_BYTES );
+define('KB_IN_BYTES', 1024);
+define('MB_IN_BYTES', 1024 * KB_IN_BYTES);
+define('GB_IN_BYTES', 1024 * MB_IN_BYTES);
+define('TB_IN_BYTES', 1024 * GB_IN_BYTES);
+define('PB_IN_BYTES', 1024 * TB_IN_BYTES);
+define('EB_IN_BYTES', 1024 * PB_IN_BYTES);
+define('ZB_IN_BYTES', 1024 * EB_IN_BYTES);
+define('YB_IN_BYTES', 1024 * ZB_IN_BYTES);
 
 /**
  * Emulate a Java-style import statement.
@@ -362,16 +362,14 @@ function __p(string $key, int $number, array $replace = [], ?string $locale = nu
 /**
  * Check if run on CLI
  */
-if (!function_exists('runOnCLI'))
-{
+if (!function_exists('runOnCLI')) {
     function runOnCLI(string $scriptPath = null): bool
     {
-        if ( php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
+        if (php_sapi_name() && strtolower(php_sapi_name()) === 'cli') {
             return true;
         }
 
         if ($scriptPath) {
-
             $serverVars = $_SERVER;
 
             if (isset($serverVars['SCRIPT_NAME']) && strpos(strtolower($serverVars['SCRIPT_NAME']), strtolower($scriptPath)) !== false) {
@@ -394,25 +392,25 @@ if (!function_exists('runOnCLI'))
  * @link https://secure.php.net/manual/en/faq.using.php#faq.using.shorthandbytes
  *
  * @param   string  A (PHP ini) byte value, either shorthand or ordinary.
+ *
  * @return  int     An integer byte value.
  */
-if (!function_exists('convertHrToBytes'))
-{
+if (!function_exists('convertHrToBytes')) {
     function convertHrToBytes(string $value): int
     {
-        $value = strtolower( trim( $value ) );
+        $value = strtolower(trim($value));
         $bytes = (int) $value;
 
-        if ( false !== strpos( $value, 'g' ) ) {
+        if (false !== strpos($value, 'g')) {
             $bytes *= GB_IN_BYTES;
-        } elseif ( false !== strpos( $value, 'm' ) ) {
+        } elseif (false !== strpos($value, 'm')) {
             $bytes *= MB_IN_BYTES;
-        } elseif ( false !== strpos( $value, 'k' ) ) {
+        } elseif (false !== strpos($value, 'k')) {
             $bytes *= KB_IN_BYTES;
         }
 
         // Deal with large (float) values which run into the maximum integer size.
-        return min( $bytes, PHP_INT_MAX );
+        return min($bytes, PHP_INT_MAX);
     }
 }
 
@@ -420,10 +418,10 @@ if (!function_exists('convertHrToBytes'))
  * Check if valid JSON
  *
  * @param   mixed  $data
+ *
  * @return  bool
  */
-if (!function_exists('isValidJson'))
-{
+if (!function_exists('isValidJson')) {
     function isValidJson(mixed $data): bool
     {
         if (!empty($data)) {
@@ -433,4 +431,3 @@ if (!function_exists('isValidJson'))
         return false;
     }
 }
-

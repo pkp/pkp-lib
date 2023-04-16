@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProductionReadyFilesGridHandler
+ *
  * @ingroup controllers_grid_files_productionready
  *
  * @brief Handle the fair copy files grid (displays copyedited files ready to move to proofreading)

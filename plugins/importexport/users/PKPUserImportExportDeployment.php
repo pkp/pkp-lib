@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserImportExportDeployment
+ *
  * @ingroup plugins_importexport_user
  *
  * @brief Class configuring the user import/export process to this

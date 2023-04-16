@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupNativeXmlFilter
+ *
  * @ingroup plugins_importexport_users
  *
  * @brief Base class that converts a set of user groups to a Native XML document
@@ -15,9 +16,8 @@
 
 namespace PKP\plugins\importexport\users\filter;
 
-use DOMDocument;
-use PKP\db\DAORegistry;
 use APP\facades\Repo;
+use DOMDocument;
 
 class UserGroupNativeXmlFilter extends \PKP\plugins\importexport\native\filter\NativeExportFilter
 {

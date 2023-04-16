@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormGridCellProvider
+ *
  * @ingroup controllers_grid_settings_reviewForms
  *
  * @brief Subclass for review form column's cell provider

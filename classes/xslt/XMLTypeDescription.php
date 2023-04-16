@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLTypeDescription
+ *
  * @ingroup xslt
  *
  * @brief Class that describes an XML input/output type.

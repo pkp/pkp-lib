@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupForm
+ *
  * @ingroup controllers_grid_settings_roles_form
  *
  * @brief Form to add/edit user group.
@@ -16,6 +17,7 @@
 namespace PKP\controllers\grid\settings\roles\form;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\template\TemplateManager;
 use PKP\core\JSONMessage;
 use PKP\db\DAORegistry;
@@ -23,9 +25,8 @@ use PKP\facades\Locale;
 use PKP\form\Form;
 use PKP\security\Role;
 use PKP\security\Validation;
-use PKP\workflow\WorkflowStageDAO;
-use APP\facades\Repo;
 use PKP\userGroup\relationships\UserGroupStage;
+use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupForm extends Form
 {
@@ -197,7 +198,7 @@ class UserGroupForm extends Form
             $userGroup->setRoleId($this->getData('roleId'));
             $userGroup->setContextId($this->getContextId());
             $userGroup->setDefault(false);
-            $userGroup->setShowTitle(is_null($this->getData('showTitle'))?false:$this->getData('showTitle'));
+            $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
             $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
             if (in_array($this->getData('roleId'), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
@@ -211,7 +212,7 @@ class UserGroupForm extends Form
         } else {
             $userGroup = Repo::userGroup()->get($userGroupId);
             $userGroup = $this->_setUserGroupLocaleFields($userGroup, $request);
-            $userGroup->setShowTitle(is_null($this->getData('showTitle'))?false:$this->getData('showTitle'));
+            $userGroup->setShowTitle(is_null($this->getData('showTitle')) ? false : $this->getData('showTitle'));
             $userGroup->setPermitSelfRegistration($this->getData('permitSelfRegistration') && in_array($userGroup->getRoleId(), $this->getPermitSelfRegistrationRoles()));
             $userGroup->setPermitMetadataEdit($this->getData('permitMetadataEdit') && !in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES));
             if (in_array($userGroup->getRoleId(), Repo::userGroup()::NOT_CHANGE_METADATA_EDIT_PERMISSION_ROLES)) {
@@ -266,7 +267,6 @@ class UserGroupForm extends Form
         }
 
         foreach ($userAssignedStages as $stageId) {
-
             // Make sure we don't assign forbidden stages based on
             // user groups role id. Override in case of some permission levels.
             $roleId = $this->getData('roleId');
@@ -296,7 +296,7 @@ class UserGroupForm extends Form
      * @param Request $request
      *
      */
-    public function _setUserGroupLocaleFields($userGroup, $request) : \PKP\userGroup\UserGroup
+    public function _setUserGroupLocaleFields($userGroup, $request): \PKP\userGroup\UserGroup
     {
         $router = $request->getRouter();
         $context = $router->getContext($request);

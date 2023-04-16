@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionFilesUploadBaseForm
+ *
  * @ingroup controllers_wizard_fileUpload_form
  *
  * @brief Form for adding/editing a submission file
@@ -65,7 +66,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         $assocId = null,
         $queryId = null
     ) {
-
         // Check the incoming parameters.
         if (!is_numeric($submissionId) || $submissionId <= 0 ||
             !is_numeric($fileStage) || $fileStage <= 0 ||
@@ -310,7 +310,6 @@ class PKPSubmissionFilesUploadBaseForm extends Form
         $submissionFiles = $this->getRevisionSubmissionFilesSelection($user, $uploadedFile);
 
         foreach ((array) $submissionFiles as $submissionFile) {
-
             // Is this the revised file?
             if ($revisedFileId && $revisedFileId == $submissionFile->getId()) {
                 // This is the revised submission file, so pass its data on to the form.

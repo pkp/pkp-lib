@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormBuilderVocabulary
+ *
  * @ingroup core
  *
  * @brief Class defining Form Builder Vocabulary methods.
@@ -464,6 +465,7 @@ class FormBuilderVocabulary
                     break;
                 case 'validation':
                     $smarty->assign('FBV_' . $key, $value);
+                    // no break
                 default:
                     $textInputParams .= htmlspecialchars($key, ENT_QUOTES) . '="' . htmlspecialchars($value, ENT_QUOTES) . '" ';
             }

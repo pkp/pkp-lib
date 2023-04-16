@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPApplication
+ *
  * @ingroup core
  *
  * @brief Class describing this application.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotifyLinkAction
+ *
  * @ingroup controllers_grid_users_stageParticipant
  *
  * @brief An action to open up the notify part of the stage participants grid.

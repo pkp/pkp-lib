@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageQueryNoteFilesGridHandler
+ *
  * @ingroup controllers_grid_files_query
  *
  * @brief Handle the query file selection grid

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LanguageGridHandler
+ *
  * @ingroup classes_controllers_grid_languages
  *
  * @brief Handle language grid requests.

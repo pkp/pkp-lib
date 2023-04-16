@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserApiHandler
+ *
  * @ingroup controllers_api_user
  *
  * @brief Class defining the headless AJAX API for backend user manipulation.

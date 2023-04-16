@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class reprocessUsageStatsMonth
+ *
  * @ingroup tools
  *
  * @brief CLI tool to reprocess the usage stats log files for a month.

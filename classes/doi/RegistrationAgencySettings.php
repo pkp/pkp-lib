@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RegistrationAgencySettings
+ *
  * @ingroup doi
  *
  * @brief Base class for registration agency plugin settings management

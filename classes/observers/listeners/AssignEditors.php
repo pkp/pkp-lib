@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AssignEditors
+ *
  * @ingroup observers_listeners
  *
  * @brief Assign editors to a submission based on the configuration settings

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPWorkflowHandler
+ *
  * @ingroup pages_reviewer
  *
  * @brief Handle requests for the submssion workflow.

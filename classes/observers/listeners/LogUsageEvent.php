@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LogUsageEvent
+ *
  * @ingroup observers_traits
  *
  * @brief Listener listening for and logging the usage events.

@@ -12,6 +12,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LocaleTest
+ *
  * @ingroup tests_classes_i18n
  *
  * @see Locale

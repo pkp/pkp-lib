@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SoftDeleteTrait
+ *
  * @ingroup core
  *
  * @brief Implements the methods for soft deletion that can be used in entity daos that support it

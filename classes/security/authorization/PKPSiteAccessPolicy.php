@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteAccessPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Class to that makes sure that a user is logged in.

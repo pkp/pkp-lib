@@ -13,12 +13,10 @@
 
 namespace PKP\userGroup\maps;
 
-use PKP\userGroup\UserGroup;
 use Illuminate\Support\Enumerable;
-use PKP\security\Role;
-use PKP\services\PKPSchemaService;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
+use PKP\services\PKPSchemaService;
+use PKP\userGroup\UserGroup;
 
 class Schema extends \PKP\core\maps\Schema
 {

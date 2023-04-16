@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeGridCellProvider
+ *
  * @ingroup controllers_grid_announcements
  *
  * @brief Cell provider for title column of an announcement type grid.

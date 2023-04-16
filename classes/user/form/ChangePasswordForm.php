@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ChangePasswordForm
+ *
  * @ingroup user_form
  *
  * @brief Form to change a user's password.
@@ -33,6 +34,7 @@ class ChangePasswordForm extends Form
 
     /**
      * Constructor.
+     *
      * @param User $user
      * @param Site $site
      */

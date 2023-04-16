@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UnassignReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Allow the editor to remove a review assignment
@@ -22,11 +23,11 @@ use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
+use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
 use PKP\submission\reviewAssignment\ReviewAssignment;
-use PKP\mail\Mailable;
 
 class UnassignReviewerForm extends ReviewerNotifyActionForm
 {

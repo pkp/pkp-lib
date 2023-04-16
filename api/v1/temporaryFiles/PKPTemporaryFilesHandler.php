@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemporaryFilesHandler
+ *
  * @ingroup api_v1_users
  *
  * @brief Handle API requests to upload a file and receive a temporary file ID.

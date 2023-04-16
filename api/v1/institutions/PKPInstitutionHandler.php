@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPInstitutionHandler
+ *
  * @ingroup api_v1_institutions
  *
  * @brief Handle API requests for institution operations.

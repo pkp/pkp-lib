@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManagementHandler
+ *
  * @ingroup pages_management
  *
  * @brief Base class for all management page handlers.
@@ -596,7 +597,7 @@ class ManagementHandler extends Handler
     }
 
     /**
-     * Return context's supportedFormLocales 
+     * Return context's supportedFormLocales
      */
     protected function getSupportedFormLocales(Context $context): array
     {

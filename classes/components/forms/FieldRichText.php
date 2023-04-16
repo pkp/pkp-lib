@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldRichText
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A rich single line text editor field in a form.
@@ -40,9 +41,9 @@ class FieldRichText extends Field
 
         $config['i18nFormattingLabel'] = __('common.formatting');
 
-        $config['toolbar']  = $this->toolbar;
-        $config['plugins']  = $this->plugins;
-        $config['size']     = $this->size;
+        $config['toolbar'] = $this->toolbar;
+        $config['plugins'] = $this->plugins;
+        $config['size'] = $this->size;
 
         if (!empty($this->init)) {
             $config['init'] = $this->init;

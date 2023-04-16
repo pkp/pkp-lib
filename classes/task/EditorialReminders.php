@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialReminders
+ *
  * @ingroup classes_task
  *
  * @brief Dispatches jobs to send a reminder email to editors of outstanding tasks

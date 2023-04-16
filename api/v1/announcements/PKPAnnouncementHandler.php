@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPAnnouncementHandler
+ *
  * @ingroup api_v1_announcement
  *
  * @brief Handle API requests for announcement operations.

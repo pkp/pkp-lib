@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InfiniteScrollingFeature
+ *
  * @ingroup controllers_grid_feature
  *
  * @brief Add infinite scrolling functionality to grids. It doesn't support

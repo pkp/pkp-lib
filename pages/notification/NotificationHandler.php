@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NotificationHandler
+ *
  * @ingroup pages_help
  *
  * @brief Handle requests for viewing notifications.

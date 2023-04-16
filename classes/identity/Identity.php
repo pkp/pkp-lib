@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Identity
+ *
  * @ingroup identity
  *
  * @brief Basic class providing common functionality for users and authors in the system.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReportPlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for report plugins
@@ -57,9 +58,8 @@ abstract class ReportPlugin extends Plugin
      *
      * @param array $args
      * @param PKPRequest $request
-     * @return void
      */
-    public abstract function display($args, $request);
+    abstract public function display($args, $request);
 }
 
 if (!PKP_STRICT_MODE) {

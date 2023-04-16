@@ -8,7 +8,9 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class INotificationInfoProvider
+ *
  * @ingroup notification
+ *
  * @brief Interface to retrieve notification presentation information.
  */
 

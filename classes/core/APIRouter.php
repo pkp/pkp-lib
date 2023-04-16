@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class APIRouter
+ *
  * @ingroup core
  *
  * @brief Map HTTP requests to a REST API using the Slim microframework.
@@ -171,7 +172,6 @@ class APIRouter extends PKPRouter
         $anchor = null,
         $escape = false
     ) {
-
         // APIHandlers do not understand $op, $path or $anchor. All routing is baked
         // into the $endpoint string. It only accepts a string as the $newContext,
         // since it relies on this when path info is disabled.

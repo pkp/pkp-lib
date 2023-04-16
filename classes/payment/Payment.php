@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Payment
+ *
  * @ingroup payment
  *
  * @brief Abstract class for payments.

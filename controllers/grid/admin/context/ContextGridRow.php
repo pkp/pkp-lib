@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContextGridRow
+ *
  * @ingroup controllers_grid_admin_context
  *
  * @brief Context grid row definition

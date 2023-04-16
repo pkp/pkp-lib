@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpdateAuthorStageAssignments
+ *
  * @ingroup observers_listeners
  *
  * @brief Update author stage assignments when a submission is submitted

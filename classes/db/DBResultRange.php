@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DBResultRange
+ *
  * @ingroup db
  *
  * @brief Container class for range information when retrieving a result set.

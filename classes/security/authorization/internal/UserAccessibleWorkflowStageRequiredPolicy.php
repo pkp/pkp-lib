@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserAccessibleWorkflowStageRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Policy to deny access if an user assigned workflow stage is not found.

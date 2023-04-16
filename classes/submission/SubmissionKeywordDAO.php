@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionKeywordDAO
+ *
  * @ingroup submission
  *
  * @see Submission
@@ -115,7 +116,6 @@ class SubmissionKeywordDAO extends ControlledVocabDAO
             $currentKeywords = $this->build($publicationId, $assocType);
         }
         if (is_array($keywords)) { // localized, array of arrays
-
             foreach ($keywords as $locale => $list) {
                 if (is_array($list)) {
                     $list = array_unique($list); // Remove any duplicate keywords

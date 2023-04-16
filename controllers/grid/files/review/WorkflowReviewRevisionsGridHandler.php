@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WorkflowReviewRevisionsGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Display in workflow pages the file revisions that authors have uploaded.

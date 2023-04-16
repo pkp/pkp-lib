@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CommandLineTool
+ *
  * @ingroup tools
  *
  * @brief Initialization code for command-line scripts.

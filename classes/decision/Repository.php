@@ -135,7 +135,6 @@ abstract class Repository
         );
 
         $validator->after(function ($validator) use ($props, $decisionType, $submission, $context) {
-
             // The decision stage id must match the decision type's stage id
             // and the submission's current workflow stage
             if ($props['stageId'] !== $decisionType->getStageId()
@@ -164,7 +163,6 @@ abstract class Repository
 
             // Validate the review round
             if (isset($props['reviewRoundId'])) {
-
                 // The decision must be taken during a review stage
                 if (!$decisionType->isInReview() && !$validator->errors()->get('reviewRoundId')) {
                     $validator->errors()->add('reviewRoundId', __('editor.submission.workflowDecision.invalidReviewRoundStage'));

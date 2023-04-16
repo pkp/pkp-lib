@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPManageFileApiHandler
+ *
  * @ingroup controllers_api_file
  *
  * @brief Class defining an AJAX API for file manipulation.
@@ -166,7 +167,6 @@ abstract class PKPManageFileApiHandler extends Handler
             );
 
             if ($reviewRound) {
-
                 // Delete any 'revision requested' notifications since revisions are now in.
                 $context = $request->getContext();
                 $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */

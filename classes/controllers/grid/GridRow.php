@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridRow
+ *
  * @ingroup controllers_grid
  *
  * @brief GridRow implements a row of a Grid. See GridHandler for general

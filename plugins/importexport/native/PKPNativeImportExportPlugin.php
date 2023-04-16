@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNativeImportExportPlugin
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Native XML import/export plugin
@@ -21,7 +22,6 @@ use BadMethodCallException;
 use Exception;
 use PKP\core\JSONMessage;
 use PKP\file\TemporaryFileManager;
-use PKP\filter\Filter;
 use PKP\plugins\ImportExportPlugin;
 use PKP\plugins\PluginRegistry;
 

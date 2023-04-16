@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MetadataProperty
+ *
  * @ingroup metadata
  *
  * @see MetadataSchema
@@ -108,7 +109,6 @@ class MetadataProperty
         $validationMessage = null,
         $mandatory = false
     ) {
-
         // Validate name and assoc type array
         if (!is_string($name)) {
             throw new InvalidArgumentException('$name should be a string.');

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionHandler
+ *
  * @ingroup pages_submission
  *
  * @brief Handles page requests to the submission wizard
@@ -35,7 +36,6 @@ use PKP\components\forms\submission\PKPSubmissionFileForm;
 use PKP\components\listPanels\ContributorsListPanel;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
-use PKP\file\FileManager;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRequiredPolicy;
 use PKP\security\Role;

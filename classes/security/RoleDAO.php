@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RoleDAO
+ *
  * @ingroup security
  *
  * @deprecated Deprecated in 3.4; use the UserGroup repository and collector etc.

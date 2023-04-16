@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorAction
+ *
  * @ingroup submission_action
  *
  * @brief Editor actions.
@@ -153,7 +154,6 @@ class EditorAction
         }
 
         if ($reviewAssignment->getSubmissionId() == $submission->getId() && !Hook::call('EditorAction::setDueDates', [&$reviewAssignment, &$reviewer, &$reviewDueDate, &$responseDueDate])) {
-
             // Set the review due date
             $defaultNumWeeks = $context->getData('numWeeksPerReview');
             $reviewAssignment->setDateDue($reviewDueDate);

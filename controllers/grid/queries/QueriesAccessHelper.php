@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueriesAccessHelper
+ *
  * @ingroup controllers_grid_query
  *
  * @brief Implements access rules for queries.
@@ -122,7 +123,7 @@ class QueriesAccessHelper
         }
 
         // Assistants, authors and reviewers are allowed, if they created the query less than x seconds ago
-        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
+        if ($this->hasStageRole($query->getStageId(), [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $headNote = $query->getHeadNote();
             if ($headNote->getUserId() === $this->_user->getId() && (time() - strtotime($headNote->getDateCreated()) < 3600)) {
                 return true;

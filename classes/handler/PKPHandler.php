@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @package core
+ *
  * @class PKPHandler
  *
  * Base request handler abstract class.

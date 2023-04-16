@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7474_UpdateMimetypes
+ *
  * @brief Updates the mimetype of some files that were not detected properly
  */
 

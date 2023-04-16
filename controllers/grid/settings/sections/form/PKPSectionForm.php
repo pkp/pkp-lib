@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSectionForm
+ *
  * @ingroup controllers_grid_settings_section_form
  *
  * @brief Form for adding/editing a section
@@ -149,20 +150,20 @@ class PKPSectionForm extends Form
                 ->assignedToSectionIds([$this->getSectionId()])
                 ->getIds()
                 ->toArray();
-            
+
             if (!empty($assignedSubeditors)) {
                 $subEditorsDao = DAORegistry::getDAO('SubEditorsDAO'); /** @var SubEditorsDAO $subEditorsDao */
                 $subeditorUserGroups = $subEditorsDao->getAssignedUserGroupIds(
                     Application::get()->getRequest()->getContext()->getId(),
                     Application::ASSOC_TYPE_SECTION,
-                    $this->getSection()->getId(), 
+                    $this->getSection()->getId(),
                     $assignedSubeditors
                 )->toArray();
             }
         }
 
         $this->setData([
-            'subeditorUserGroups'   => $subeditorUserGroups,
+            'subeditorUserGroups' => $subeditorUserGroups,
         ]);
 
         parent::initData();

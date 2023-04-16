@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSiteHandler
+ *
  * @ingroup api_v1_users
  *
  * @brief Base class to handle API requests for the site object.

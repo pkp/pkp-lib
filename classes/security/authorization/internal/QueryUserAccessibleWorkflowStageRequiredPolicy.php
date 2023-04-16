@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryUserAccessibleWorkflowStageRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Policy to extend access to queries to assigned reviewers.

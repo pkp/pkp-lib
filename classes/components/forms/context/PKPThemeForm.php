@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPThemeForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A form for selecting a theme and theme options. Expects to be attached
@@ -103,6 +104,7 @@ class PKPThemeForm extends FormComponent
      * @param string $theme The theme's base plugin path
      * @param Field $field
      * @param array $position [
+     *
      *  @option string One of `before` or `after`
      *  @option string The field to position it before or after
      * ]

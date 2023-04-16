@@ -15,6 +15,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class IsoCodesTranslationDriver
+ *
  * @ingroup i18n
  *
  * @brief Translation provider for the IsoCodes package, faster and optimized to not keep items in memory

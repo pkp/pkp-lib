@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchHTMLParser
+ *
  * @ingroup search
  *
  * @brief Class to extract text from an HTML file.

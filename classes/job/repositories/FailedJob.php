@@ -17,12 +17,10 @@ declare(strict_types=1);
 namespace PKP\job\repositories;
 
 use Carbon\Carbon;
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use PKP\facades\Repo;
-use PKP\job\repositories\BaseRepository;
 use PKP\job\models\FailedJob as PKPFailedJobModel;
 use PKP\job\resources\CLIFailedJobResource;
 use PKP\job\resources\HttpFailedJobResource;
@@ -62,9 +60,10 @@ class FailedJob extends BaseRepository
             $failedJobs = $failedJobs->queuedAt($queue);
         }
 
-        return $failedJobs->where(fn($query) => $query
-            ->whereNotNull('payload')
-            ->whereRaw("payload <> ''")
+        return $failedJobs->where(
+            fn ($query) => $query
+                ->whereNotNull('payload')
+                ->whereRaw("payload <> ''")
         )->get();
     }
 
@@ -76,7 +75,7 @@ class FailedJob extends BaseRepository
             $failedJobs = $failedJobs->queuedAt($queue);
         }
 
-        if ( !empty($failedIds) ) {
+        if (!empty($failedIds)) {
             $failedJobs = $failedJobs->whereIn('id', $failedIds);
         }
 
@@ -84,7 +83,7 @@ class FailedJob extends BaseRepository
 
         DB::beginTransaction();
 
-        $failedJobs->each(fn($failedJob) => Repo::job()->add([
+        $failedJobs->each(fn ($failedJob) => Repo::job()->add([
             'queue' => $failedJob->queue,
             'payload' => $failedJob->payload,
             'attempts' => 0,

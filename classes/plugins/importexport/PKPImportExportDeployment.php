@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPImportExportDeployment
+ *
  * @ingroup plugins_importexport
  *
  * @brief Base class configuring the import/export process to an
@@ -20,15 +21,15 @@
 namespace PKP\plugins\importexport;
 
 use APP\facades\Repo;
+use APP\publication\Publication;
+use APP\submission\Submission;
 use Error;
 use Exception;
 use Illuminate\Support\Facades\DB;
-use LibXMLError;
-use PKP\core\PKPApplication;
-use PKP\context\Context;
-use APP\submission\Submission;
-use APP\publication\Publication;
 use InvalidArgumentException;
+use LibXMLError;
+use PKP\context\Context;
+use PKP\core\PKPApplication;
 
 class PKPImportExportDeployment
 {
@@ -123,6 +124,7 @@ class PKPImportExportDeployment
 
     /**
      * Get the representation node name
+     *
      * @return string
      */
     public function getRepresentationNodeName()
@@ -167,9 +169,8 @@ class PKPImportExportDeployment
     /**
      * Get the import/export context.
      *
-     * @return Context
      */
-    public function getContext() : Context
+    public function getContext(): Context
     {
         return $this->_context;
     }
@@ -188,7 +189,7 @@ class PKPImportExportDeployment
     /**
      * Get the import/export submission.
      */
-    public function getSubmission() : ?Submission
+    public function getSubmission(): ?Submission
     {
         return $this->_submission;
     }
@@ -209,7 +210,7 @@ class PKPImportExportDeployment
      *
      * @return Publication
      */
-    public function getPublication() : ?Publication
+    public function getPublication(): ?Publication
     {
         return $this->_publication;
     }

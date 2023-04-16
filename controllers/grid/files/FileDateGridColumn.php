@@ -9,6 +9,7 @@
  * Borrowed from FileDateGridColumn.php
  *
  * @class FileDateGridColumn
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Implements a file name column.

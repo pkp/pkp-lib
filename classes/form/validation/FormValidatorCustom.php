@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorCustom
+ *
  * @ingroup form_validation
  *
  * @brief Form validation check with a custom user function performing the validation check.

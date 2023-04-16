@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LogSubmissionSubmitted
+ *
  * @ingroup observers_listeners
  *
  * @brief Create an entry in the submission log when a submission is submitted

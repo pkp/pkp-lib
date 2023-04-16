@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConfirmationModal
+ *
  * @ingroup linkAction_request
  *
  * @brief Class defining a simple confirmation modal either with remote action or not.

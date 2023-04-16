@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ViewReviewGuidelinesLinkAction
+ *
  * @ingroup controllers_confirmationModal_linkAction
  *
  * @brief An action to open the review guidelines confirmation modal.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpgradeMigration
+ *
  * @brief Describe upgrade/downgrade operations from 3.3.x to 3.4.0.
  */
 

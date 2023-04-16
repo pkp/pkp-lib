@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormForm
+ *
  * @ingroup controllers_grid_settings_reviewForms_form
  *
  * @brief Form for manager to edit a review form.

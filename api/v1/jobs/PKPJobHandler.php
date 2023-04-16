@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPJobHandler
+ *
  * @ingroup api_v1_jobs
  *
  * @brief Handle API requests for jobs
@@ -19,10 +20,10 @@ namespace PKP\API\v1\jobs;
 use APP\facades\Repo;
 use PKP\core\APIResponse;
 use PKP\handler\APIHandler;
-use PKP\security\authorization\UserRolesRequiredPolicy;
-use PKP\security\Role;
 use PKP\security\authorization\PolicySet;
 use PKP\security\authorization\RoleBasedHandlerOperationPolicy;
+use PKP\security\authorization\UserRolesRequiredPolicy;
+use PKP\security\Role;
 use Slim\Http\Request as SlimRequest;
 use Slim\Http\Response;
 
@@ -103,14 +104,14 @@ class PKPJobHandler extends APIHandler
     {
         $params = $slimRequest->getQueryParams();
 
-        $jobs =  Repo::job()
+        $jobs = Repo::job()
             ->setOutputFormat(Repo::failedJob()::OUTPUT_HTTP)
             ->setPage($params['page'] ?? 1)
             ->showJobs();
 
         return $response->withJson([
             'data' => $jobs->all(),
-            'total' =>  Repo::job()->total(),
+            'total' => Repo::job()->total(),
             'pagination' => [
                 'lastPage' => $jobs->lastPage(),
                 'currentPage' => $jobs->currentPage(),
@@ -154,7 +155,7 @@ class PKPJobHandler extends APIHandler
 
         $redispatableFailedJobs = Repo::failedJob()->getRedispatchableJobsInQueue(null, ['id']);
 
-        return Repo::failedJob()->redispatchToQueue(null ,$redispatableFailedJobs->pluck('id')->toArray())
+        return Repo::failedJob()->redispatchToQueue(null, $redispatableFailedJobs->pluck('id')->toArray())
             ? $response->withJson(['message' => __('api.jobs.200.allFailedJobRedispatchedSucceed')], 200)
             : $response->withStatus(400)->withJson(['errorMessage' => __('api.jobs.400.failedJobRedispatchedFailed')]);
     }
@@ -178,7 +179,7 @@ class PKPJobHandler extends APIHandler
             ]);
         }
 
-        return Repo::failedJob()->redispatchToQueue(null ,[$failedJob->id])
+        return Repo::failedJob()->redispatchToQueue(null, [$failedJob->id])
             ? $response->withJson(['message' => __('api.jobs.200.failedJobRedispatchedSucceed')], 200)
             : $response->withStatus(400)->withJson(['errorMessage' => __('api.jobs.400.failedJobRedispatchedFailed')]);
     }

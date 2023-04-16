@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ListbuilderGridRow
+ *
  * @ingroup controllers_listbuilder
  *
  * @brief Handle list builder row requests.

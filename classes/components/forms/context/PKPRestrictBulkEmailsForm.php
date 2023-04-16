@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPRestrictBulkEmailsForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A form for setting restrictions on the sending of bulk emails in a context.
@@ -15,9 +16,9 @@
 namespace PKP\components\forms\context;
 
 use APP\core\Application;
+use Illuminate\Support\LazyCollection;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
-use Illuminate\Support\LazyCollection;
 
 define('FORM_RESTRICT_BULK_EMAILS', 'restrictBulkEmails');
 

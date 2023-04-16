@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPImportExportFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base helper class for import/export filters

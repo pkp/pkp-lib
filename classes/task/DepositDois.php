@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DepositDois
+ *
  * @ingroup classes_task
  *
  * @brief Dispatches job to automatically deposit DOIs for all configured contexts

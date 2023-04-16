@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PendingRevisionsNotificationManager
+ *
  * @ingroup managerDelegate
  *
  * @brief Pending revision notification types manager delegate.

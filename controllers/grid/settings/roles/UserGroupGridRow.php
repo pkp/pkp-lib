@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupGridRow
+ *
  * @ingroup controllers_grid_settings_roles
  *
  * @brief User group grid row definition

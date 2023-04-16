@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MoveLocaleKeysToLib
+ *
  * @ingroup tools
  *
  * @brief Move a locale key from an application's locale files to the pkp-lib locale files.

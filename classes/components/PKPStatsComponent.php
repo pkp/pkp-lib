@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsComponent
+ *
  * @ingroup classes_components_stats
  *
  * @brief A class to prepare the data object for a statistics UI component

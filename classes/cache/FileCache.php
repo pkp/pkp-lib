@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileCache
+ *
  * @ingroup cache
  *
  * @brief Provides caching based on machine-generated PHP code on the filesystem.
@@ -136,7 +137,6 @@ class FileCache extends GenericCache
 
     /**
      * Get the entire contents of the cache in an associative array.
-     * @return mixed
      */
     public function &getContents()
     {

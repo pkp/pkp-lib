@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class MailableHandler
+ *
  * @ingroup api_v1_mailables
  *
  * @brief Base class to handle API requests for mailables.
@@ -76,10 +77,10 @@ class MailableHandler extends APIHandler
     public function getMany(SlimRequest $slimRequest, Response $response, array $args): Response
     {
         $mailables = Repo::mailable()->getMany(
-                $this->getRequest()->getContext(),
-                $slimRequest->getQueryParam('searchPhrase')
-            )
-            ->map(fn(string $class) => Repo::mailable()->summarizeMailable($class))
+            $this->getRequest()->getContext(),
+            $slimRequest->getQueryParam('searchPhrase')
+        )
+            ->map(fn (string $class) => Repo::mailable()->summarizeMailable($class))
             ->sortBy('name');
 
         return $response->withJson($mailables->values(), 200);
@@ -87,6 +88,7 @@ class MailableHandler extends APIHandler
 
     /**
      * Get a mailable by its class name
+     *
      * @param APIResponse $response
      */
     public function get(SlimRequest $slimRequest, Response $response, array $args): Response

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesCategoryGridDataProvider
+ *
  * @ingroup controllers_grid_files_query
  *
  * @brief Provide access to query file data for category grids.

@@ -1,12 +1,13 @@
 <?php
 /**
- * @file classes/components/form/publication/Details.inc.php
+ * @file classes/components/form/publication/Details.php
  *
  * Copyright (c) 2014-2023 Simon Fraser University
  * Copyright (c) 2000-2023 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Details
+ *
  * @ingroup classes_controllers_form
  *
  * @brief The Details form in the submission wizard.
@@ -16,7 +17,6 @@ namespace PKP\components\forms\publication;
 
 use APP\publication\Publication;
 use PKP\components\forms\FieldControlledVocab;
-use PKP\components\forms\publication\TitleAbstractForm;
 use PKP\context\Context;
 use PKP\submission\SubmissionKeywordDAO;
 
@@ -24,7 +24,7 @@ class Details extends TitleAbstractForm
 {
     /**
      * Constructor
-     * 
+     *
      * @param string $suggestionUrlBase The base URL to get suggestions for controlled vocab.
      */
     public function __construct(
@@ -35,8 +35,7 @@ class Details extends TitleAbstractForm
         public string $suggestionUrlBase,
         int $abstractWordLimit = 0,
         bool $isAbstractRequired = false
-    )
-    {
+    ) {
         parent::__construct($action, $locales, $publication, $abstractWordLimit, $isAbstractRequired);
 
         $this->removeField('prefix');

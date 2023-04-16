@@ -8,15 +8,13 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PaymethodPlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for generic plugins
  */
 
 namespace PKP\plugins;
-
-use APP\core\Request;
-use Slim\Http\Request as SlimRequest;
 
 abstract class PaymethodPlugin extends LazyLoadPlugin
 {
@@ -56,7 +54,7 @@ abstract class PaymethodPlugin extends LazyLoadPlugin
     /**
      * Must be implemented in a child class to save payment settings and attach updated data to the response
      */
-    abstract function saveSettings(string $hookName, array $args);
+    abstract public function saveSettings(string $hookName, array $args);
 }
 
 if (!PKP_STRICT_MODE) {

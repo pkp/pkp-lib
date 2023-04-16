@@ -8,9 +8,11 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class InterestManager
+ *
  * @ingroup user
  *
  * @see InterestDAO
+ *
  * @brief Handle user interest functions.
  */
 

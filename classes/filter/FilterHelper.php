@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterHelper
+ *
  * @ingroup filter
  *
  * @brief Class that provides filter-related helper methods.
@@ -24,6 +25,7 @@ class FilterHelper
      * Helper method that installs filter groups based on
      * the given XML node which represents a <filterGroups>
      * element.
+     *
      * @endverbatim
      *
      * @param XMLNode $filterGroupsNode
@@ -64,6 +66,7 @@ class FilterHelper
      * Helper method that configures and optionally
      * installs a filter based on the given XML node
      * which represents a <filter> element.
+     *
      * @endverbatim
      *
      * @param XMLNode $filterNode
@@ -201,6 +204,7 @@ class FilterHelper
      * @verbatim
      * Helper method that extracts filter settings
      * from the children of a <filter> element.
+     *
      * @endverbatim
      *
      * @param XMLNode $settingNode

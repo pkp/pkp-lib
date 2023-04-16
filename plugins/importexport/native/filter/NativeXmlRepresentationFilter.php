@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlRepresentationFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base class that converts a Native XML document to a set of authors
@@ -73,7 +74,6 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
                         break;
                     case 'remote': $representation->setRemoteURL($n->getAttribute('src'));
                         break;
-
                 }
             }
         }

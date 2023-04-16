@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTemplateResource
+ *
  * @ingroup template
  *
  * @brief Representation for a PKP template resource (template directory).

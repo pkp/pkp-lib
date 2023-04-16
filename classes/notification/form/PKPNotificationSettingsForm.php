@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationSettingsForm
+ *
  * @ingroup notification_form
  *
  * @brief Form to edit notification settings.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPCatalogHandler
+ *
  * @ingroup pages_catalog
  *
  * @brief Handle requests for the public-facing catalog.
@@ -44,6 +45,7 @@ class PKPCatalogHandler extends Handler
      * View the content of a category.
      *
      * @param array $args [
+     *
      *		@option string Category path
      *		@option int Page number if available
      * ]

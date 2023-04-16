@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7874_NotificationMetadataModifiedRemove
+ *
  * @brief Removes deprecated PKPNotification::NOTIFICATION_TYPE_METADATA_MODIFIED setting
  *
  */

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -101,41 +102,39 @@ class WorkerConfiguration
     /**
      * Set the configurations
      *
-     * @param array $options
-     * @return self
      */
     public static function withOptions(array $options = []): self
     {
-        $self = new static;
+        $self = new static();
 
         collect($options)
-            ->each(fn($value, $option) => method_exists($self, 'set' . ucfirst($option)) 
-                ? $self->{'set' . ucfirst($option)}($value) 
+            ->each(
+                fn ($value, $option) => method_exists($self, 'set' . ucfirst($option))
+                ? $self->{'set' . ucfirst($option)}($value)
                 : throw new Exception(sprintf('Unknown option "%s"', $option))
             );
-        
+
         return $self;
     }
 
     /**
      * Get the worker options
      *
-     * @return array
      */
-    public function getWorkerOptions(): array 
+    public function getWorkerOptions(): array
     {
         return [
-            'name'          => $this->getName(),
-            'backoff'       => $this->getBackoff(),
-            'memory'        => $this->getMemory(),
-            'timeout'       => $this->getTimeout(),
-            'sleep'         => $this->getSleep(),
-            'maxTries'      => $this->getMaxTries(),
-            'force'         => $this->getForce(),
+            'name' => $this->getName(),
+            'backoff' => $this->getBackoff(),
+            'memory' => $this->getMemory(),
+            'timeout' => $this->getTimeout(),
+            'sleep' => $this->getSleep(),
+            'maxTries' => $this->getMaxTries(),
+            'force' => $this->getForce(),
             'stopWhenEmpty' => $this->getStopWhenEmpty(),
-            'maxJobs'       => $this->getMaxJobs(),
-            'maxTime'       => $this->getMaxTime(),
-            'rest'          => $this->getRest(),
+            'maxJobs' => $this->getMaxJobs(),
+            'maxTime' => $this->getMaxTime(),
+            'rest' => $this->getRest(),
         ];
     }
 
@@ -156,7 +155,7 @@ class WorkerConfiguration
     {
         return $this->name;
     }
-    
+
     /**
      * The number of seconds to wait before retrying the job
      */

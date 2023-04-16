@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesUploadForm
+ *
  * @ingroup controllers_wizard_fileUpload_form
  *
  * @brief Form for adding/editing a submission file
@@ -16,9 +17,9 @@
 namespace PKP\controllers\wizard\fileUpload\form;
 
 use APP\core\Application;
-use APP\submission\Submission;
 use APP\core\Services;
 use APP\facades\Repo;
+use APP\submission\Submission;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\form\validation\FormValidator;
@@ -61,7 +62,6 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
         $assocId = null,
         $queryId = null
     ) {
-
         // Initialize class.
         assert(is_null($uploaderRoles) || (is_array($uploaderRoles) && count($uploaderRoles) >= 1));
         $this->_uploaderRoles = $uploaderRoles;
@@ -174,7 +174,6 @@ class SubmissionFilesUploadForm extends PKPSubmissionFilesUploadBaseForm
      */
     public function execute(...$functionParams)
     {
-
         // Identify the uploading user.
         $request = Application::get()->getRequest();
         $user = $request->getUser();

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CompositeFilter
+ *
  * @ingroup filter
  *
  * @brief An abstract base class for generic filters that compose other

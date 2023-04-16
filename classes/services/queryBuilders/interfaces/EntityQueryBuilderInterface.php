@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EntityQueryBuilderInterface
+ *
  * @ingroup services_query_builders
  *
  * @brief An interface that defines required methods for

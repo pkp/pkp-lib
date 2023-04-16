@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorialReminder
+ *
  * @ingroup jobs
  *
  * @brief Class to handle a job to send an editorial reminder
@@ -27,10 +28,10 @@ use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
+use PKP\jobs\BaseJob;
 use PKP\mail\mailables\EditorialReminder as MailablesEditorialReminder;
 use PKP\notification\PKPNotification;
 use PKP\submission\reviewRound\ReviewRound;
-use PKP\jobs\BaseJob;
 use PKP\user\User;
 
 class EditorialReminder extends BaseJob

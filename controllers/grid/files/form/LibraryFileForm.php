@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileForm
+ *
  * @ingroup controllers_grid_file_form
  *
  * @brief Form for adding/editing a file

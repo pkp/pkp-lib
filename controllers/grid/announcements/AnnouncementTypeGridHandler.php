@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AnnouncementTypeGridHandler
+ *
  * @ingroup controllers_grid_announcements
  *
  * @brief Handle announcement type grid requests.
@@ -181,7 +182,6 @@ class AnnouncementTypeGridHandler extends GridHandler
      */
     public function updateAnnouncementType($args, $request)
     {
-
         // Identify the announcement type id.
         $announcementTypeId = $request->getUserVar('announcementTypeId');
         $context = $request->getContext();

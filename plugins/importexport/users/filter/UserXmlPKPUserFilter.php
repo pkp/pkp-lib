@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserXmlPKPUserFilter
+ *
  * @ingroup plugins_importexport_users
  *
  * @brief Base class that converts a User XML document to a set of users
@@ -16,16 +17,15 @@
 namespace PKP\plugins\importexport\users\filter;
 
 use APP\facades\Repo;
+use Illuminate\Support\Facades\Mail;
 use PKP\db\DAORegistry;
 use PKP\filter\FilterDAO;
 use PKP\filter\FilterGroup;
-use PKP\security\UserGroupDAO;
+use PKP\mail\mailables\UserCreated;
+use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
 use PKP\security\Validation;
 use PKP\site\SiteDAO;
 use PKP\user\InterestManager;
-use Illuminate\Support\Facades\Mail;
-use PKP\mail\mailables\UserCreated;
-use PKP\plugins\importexport\users\PKPUserImportExportDeployment;
 use PKP\user\User;
 
 class UserXmlPKPUserFilter extends \PKP\plugins\importexport\native\filter\NativeImportFilter

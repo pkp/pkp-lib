@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAcknowledgement
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent by a section editor to confirm receipt of a completed review and thank the reviewer
@@ -16,8 +17,8 @@
 namespace PKP\mail\mailables;
 
 use PKP\context\Context;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;

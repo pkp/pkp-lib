@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSelectReviewerListPanel
+ *
  * @ingroup classes_controllers_list
  *
  * @brief A class for loading a panel to select a reviewer.

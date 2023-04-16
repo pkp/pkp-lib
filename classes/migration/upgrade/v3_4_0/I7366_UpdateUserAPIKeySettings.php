@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7366_UpdateUserAPIKeySettings
+ *
  * @brief Describe upgrade/downgrade for updating user API related settings
  */
 
@@ -47,6 +48,5 @@ class I7366_UpdateUserAPIKeySettings extends \PKP\migration\Migration
      */
     public function down(): void
     {
-
     }
 }

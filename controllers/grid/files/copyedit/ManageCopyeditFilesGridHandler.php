@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageCopyeditFilesGridHandler
+ *
  * @ingroup controllers_grid_files_copyedit
  *
  * @brief Handle the copyedited file selection grid

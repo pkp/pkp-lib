@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewerReviewStep3Form
+ *
  * @ingroup submission_reviewer_form
  *
  * @brief Form for Step 3 of a review.
@@ -21,8 +22,8 @@ use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
-use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use Illuminate\Support\Facades\Mail;
+use PKP\controllers\confirmationModal\linkAction\ViewReviewGuidelinesLinkAction;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\core\PKPRequest;
@@ -80,7 +81,7 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         $submissionCommentPrivate = $submissionCommentsPrivate->next();
         $this->setData('commentsPrivate', $submissionCommentPrivate ? $submissionCommentPrivate->getComments() : '');
 
-	parent::initData();
+        parent::initData();
     }
 
     //
@@ -115,7 +116,6 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
         ]);
 
         if ($reviewAssignment->getReviewFormId()) {
-
             // Get the review form components
             $reviewFormElementDao = DAORegistry::getDAO('ReviewFormElementDAO'); /** @var ReviewFormElementDAO $reviewFormElementDao */
             $reviewFormResponseDao = DAORegistry::getDAO('ReviewFormResponseDAO'); /** @var ReviewFormResponseDAO $reviewFormResponseDao */
@@ -196,11 +196,14 @@ class PKPReviewerReviewStep3Form extends ReviewerReviewForm
             );
 
             // Check if user is subscribed to this type of notification emails
-            if (!$notification || in_array(PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
-                    $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
-                        NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
-                        $userId,
-                        (int) $context->getId()))
+            if (!$notification || in_array(
+                PKPNotification::NOTIFICATION_TYPE_REVIEWER_COMMENT,
+                $notificationSubscriptionSettingsDao->getNotificationSubscriptionSettings(
+                    NotificationSubscriptionSettingsDAO::BLOCKED_EMAIL_NOTIFICATION_KEY,
+                    $userId,
+                    (int) $context->getId()
+                )
+            )
             ) {
                 continue;
             }

@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Validator
+ *
  * @ingroup validation
  *
  * @brief Abstract class that represents a validation check. This class and its

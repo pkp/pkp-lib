@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BatchMetadataChangedJob
+ *
  * @ingroup jobs
  *
  * @brief Class to handle the Batch Metadata Changed job
@@ -19,8 +20,8 @@ namespace PKP\jobs\metadata;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
 
 class BatchMetadataChangedJob extends BaseJob
 {

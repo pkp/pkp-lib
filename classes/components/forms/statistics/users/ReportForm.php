@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReportForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for configuring the users report.
@@ -14,9 +15,9 @@
 
 namespace PKP\components\forms\statistics\users;
 
+use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FormComponent;
-use APP\facades\Repo;
 use PKP\context\Context;
 use PKP\userGroup\UserGroup;
 

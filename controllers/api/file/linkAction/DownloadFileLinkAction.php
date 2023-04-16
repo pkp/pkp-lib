@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DownloadFileLinkAction
+ *
  * @ingroup controllers_api_file_linkAction
  *
  * @brief An action to download a file.

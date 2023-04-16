@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RevisedVersionNotify
+ *
  * @ingroup mail_mailables
  *
  * @brief The email is sent automatically to the assigned editor when author uploads a revised version of an article
@@ -17,8 +18,8 @@ namespace PKP\mail\mailables;
 
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
 use PKP\security\Role;

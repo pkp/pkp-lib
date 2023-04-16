@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNativeImportExportDeployment
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Base class configuring the native import/export process to an

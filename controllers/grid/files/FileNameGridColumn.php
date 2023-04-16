@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileNameGridColumn
+ *
  * @ingroup controllers_grid_files
  *
  * @brief Implements a file name column.

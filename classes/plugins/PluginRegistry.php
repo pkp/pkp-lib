@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginRegistry
+ *
  * @ingroup plugins
  *
  * @see Plugin
@@ -195,7 +196,7 @@ class PluginRegistry
         $isObject = is_object($plugin);
         // Complements $classToCheck with a namespace when needed
         if (!str_contains($classToCheck, '\\') && $isObject && ($reflection = new ReflectionObject($plugin))->inNamespace()) {
-            $classToCheck = "{$reflection->getNamespaceName()}\\$classToCheck";
+            $classToCheck = "{$reflection->getNamespaceName()}\\{$classToCheck}";
         }
         if (!($plugin instanceof $classToCheck)) {
             $type = $isObject ? $plugin::class : gettype($plugin);
@@ -246,6 +247,7 @@ class PluginRegistry
 
     /**
      * Instantiate a plugin.
+     *
      * @deprecated 3.4.0 Old way to instantiate a plugin
      */
     private static function _deprecatedInstantiatePlugin(string $category, string $pluginName): ?Plugin

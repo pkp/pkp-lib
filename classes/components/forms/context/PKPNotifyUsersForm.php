@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotifyUsersForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for sending an email notification to users.
@@ -15,12 +16,11 @@
 namespace PKP\components\forms\context;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldRichTextarea;
 use PKP\components\forms\FieldText;
 use PKP\components\forms\FormComponent;
-use PKP\db\DAORegistry;
-use APP\facades\Repo;
 
 define('FORM_NOTIFY_USERS', 'notifyUsers');
 
@@ -50,7 +50,7 @@ class PKPNotifyUsersForm extends FormComponent
         $userGroups = Repo::userGroup()->getCollector()
             ->filterByContextIds([$context->getId()])
             ->getMany();
-            
+
         $userCountByGroupId = Repo::userGroup()->getUserCountByContextId($context->getId());
 
         $userGroupOptions = [];

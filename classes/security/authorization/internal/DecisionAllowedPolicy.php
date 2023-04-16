@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DecisionAllowedPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Checks whether a user is allowed to take the authorized decision

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SearchHelperParser
+ *
  * @ingroup search
  *
  * @brief Class to extract text from a file using an external helper program.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I6306_EnableCategories
+ *
  * @brief Set the new context setting,`submitWithCategories`, to `true` for
  *   existing journals to preserve the pre-existing behaviour.
  */
@@ -35,12 +36,12 @@ abstract class I6306_EnableCategories extends Migration
 
 
         DB::table($this->getContextSettingsTable())->insert(
-            $contextIds->map(fn(int $id) => [
+            $contextIds->map(fn (int $id) => [
                 $this->getContextIdColumn() => $id,
                 'setting_name' => 'submitWithCategories',
                 'setting_value' => '1',
             ])
-            ->toArray()
+                ->toArray()
         );
     }
 

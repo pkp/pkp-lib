@@ -12,6 +12,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPTestCase
+ *
  * @ingroup tests
  *
  * @brief Class that implements functionality common to all PKP unit test cases.

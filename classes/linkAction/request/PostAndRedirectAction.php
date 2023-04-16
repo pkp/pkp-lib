@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PostAndRedirectAction
+ *
  * @ingroup linkAction_request
  *
  * @brief Class defining a post and redirect action. See PostAndRedirectRequest.js

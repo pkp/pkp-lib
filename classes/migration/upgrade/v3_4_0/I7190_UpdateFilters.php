@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7190_UpdateFilters
+ *
  * @brief Ensures filters based on the NativeImportFilter expect an array as output.
  */
 

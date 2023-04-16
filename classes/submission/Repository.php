@@ -879,7 +879,6 @@ abstract class Repository
      * based on their roles in the context (i.e. Manager, Editor, etc).
      *
      * @param User $user
-     * @param Submission $submission
      *
      */
     protected function _roleCanPreview(?User $user, Submission $submission): bool

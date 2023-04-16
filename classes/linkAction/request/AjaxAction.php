@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AjaxAction
+ *
  * @ingroup linkAction_request
  *
  * @brief Class defining an AJAX action.

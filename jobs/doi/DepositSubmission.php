@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DepositSubmission
+ *
  * @ingroup jobs
  *
  * @brief Job to deposit submission DOI and metadata to the configured registration agency
@@ -20,8 +21,8 @@ namespace PKP\jobs\doi;
 use APP\facades\Repo;
 use APP\plugins\IDoiRegistrationAgency;
 use PKP\context\Context;
-use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
 
 class DepositSubmission extends BaseJob
 {

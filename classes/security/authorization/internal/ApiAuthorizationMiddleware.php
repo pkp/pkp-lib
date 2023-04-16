@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ApiAuthorizationMiddleware
+ *
  * @ingroup security_authorization
  *
  * @brief Slim middleware which enforces authorization policies

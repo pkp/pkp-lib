@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPPubIdPlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for public identifiers plugins

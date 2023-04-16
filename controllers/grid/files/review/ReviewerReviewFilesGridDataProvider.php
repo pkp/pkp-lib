@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewFilesGridDataProvider
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Provide reviewer access to review file data for review file grids.

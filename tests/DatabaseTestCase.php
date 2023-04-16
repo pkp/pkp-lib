@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DatabaseTestCase
+ *
  * @ingroup tests
  *
  * @brief Base class for unit tests that require database support.

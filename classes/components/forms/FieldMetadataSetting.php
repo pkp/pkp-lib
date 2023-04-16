@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldMetadataSetting
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A field to enable a type of metadata and determine when it should be

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPRequestTest
+ *
  * @ingroup tests_classes_core
  *
  * @see PKPRequest
@@ -245,6 +246,7 @@ class PKPRequestTest extends PKPTestCase
 
     /**
      * @covers PKPRequest::getServerHost
+     *
      * @depends testGetServerHostLocalhost
      */
     public function testGetServerHostWithHostname()
@@ -259,6 +261,7 @@ class PKPRequestTest extends PKPTestCase
 
     /**
      * @covers PKPRequest::getServerHost
+     *
      * @depends testGetServerHostLocalhost
      */
     public function testGetServerHostWithServerName()
@@ -273,6 +276,7 @@ class PKPRequestTest extends PKPTestCase
 
     /**
      * @covers PKPRequest::getServerHost
+     *
      * @depends testGetServerHostWithHostname
      */
     public function testGetServerHostWithHttpHost()
@@ -288,6 +292,7 @@ class PKPRequestTest extends PKPTestCase
 
     /**
      * @covers PKPRequest::getServerHost
+     *
      * @depends testGetServerHostWithHttpHost
      */
     public function testGetServerHostWithHttpXForwardedHost()

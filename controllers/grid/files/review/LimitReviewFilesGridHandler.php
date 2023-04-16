@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LimitReviewFilesGridHandler
+ *
  * @ingroup controllers_grid_files_review
  *
  * @brief Display a selectable list of review files for the round to editors.

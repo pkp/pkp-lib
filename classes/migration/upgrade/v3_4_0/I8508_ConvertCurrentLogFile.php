@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConvertCurrentUsageStatsLogFile
+ *
  * @brief Convert current usage stats log file into the new format.
  */
 

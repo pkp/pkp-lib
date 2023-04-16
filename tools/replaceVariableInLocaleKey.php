@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReplaceVariableInLocaleKey
+ *
  * @ingroup tools
  *
  * @brief Replace a {$variable} in a specific locale key across all locales
@@ -97,7 +98,7 @@ class ReplaceVariableInLocaleKey extends \PKP\cliTool\CommandLineTool
                         $this->output('Skipping directory ' . $file);
                         continue;
                     }
-        
+
                     $lines = explode("\n", file_get_contents($file));
                     foreach ($lines as $i => $line) {
                         if ($line === "msgid \"{$this->msgidMatch}\"") {

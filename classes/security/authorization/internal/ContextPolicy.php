@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContextPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Basic policy that ensures availability of a context in

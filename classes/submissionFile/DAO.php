@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAO
+ *
  * @ingroup submissionFile
  *
  * @see SubmissionFile
@@ -312,7 +313,6 @@ class DAO extends EntityDAO implements PKPPubIdPluginDAO
         SubmissionFile $submissionFile,
         ReviewRound $reviewRound
     ): void {
-
         DB::table('review_round_files')->updateOrInsert(
             [
                 'submission_id' => $reviewRound->getSubmissionId(),

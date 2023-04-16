@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewerReviewForm
+ *
  * @ingroup submission_reviewer_form
  *
  * @brief Base class for reviewer forms.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class XMLTypeDescriptionTest
+ *
  * @ingroup tests_classes_xslt
  *
  * @see XMLTypeDescription
@@ -17,7 +18,6 @@
 
 namespace PKP\tests\classes\xslt;
 
-use DOMDocument;
 use PKP\tests\PKPTestCase;
 use PKP\tests\PKPTestHelper;
 use PKP\xslt\XMLTypeDescription;

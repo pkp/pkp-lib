@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorDecisionNotificationManager
+ *
  * @ingroup managerDelegate
  *
  * @brief Editor decision notification types manager delegate.

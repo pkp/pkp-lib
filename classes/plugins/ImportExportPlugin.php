@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ImportExportPlugin
+ *
  * @ingroup plugins
  *
  * @brief Abstract class for import/export plugins
@@ -17,21 +18,21 @@ namespace PKP\plugins;
 
 use APP\facades\Repo;
 use APP\template\TemplateManager;
+use DateTime;
 use Exception;
 use PKP\config\Config;
+use PKP\context\Context;
+
 use PKP\core\JSONMessage;
 use PKP\core\PKPApplication;
-
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\RedirectAction;
-use PKP\session\SessionManager;
-use DateTime;
-use PKP\plugins\importexport\PKPImportExportDeployment;
 use PKP\plugins\importexport\native\PKPNativeImportExportDeployment;
-use PKP\context\Context;
-use PKP\core\PKPRequest;
+use PKP\plugins\importexport\PKPImportExportDeployment;
+use PKP\session\SessionManager;
 
 abstract class ImportExportPlugin extends Plugin
 {
@@ -193,20 +194,20 @@ abstract class ImportExportPlugin extends Plugin
      *
      * @param string $basePath Base path for temporary file storage
      * @param string $objectsFileNamePart Part different for each object type.
-     * @param Context $context
      * @param string $extension
      * @param ?DateTime $dateFilenamePart
      *
      * @return string
      */
-    function getExportFileName($basePath, $objectsFileNamePart, Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null)
+    public function getExportFileName($basePath, $objectsFileNamePart, Context $context, $extension = '.xml', ?DateTime $dateFilenamePart = null)
     {
         $dateFilenamePartString = date(self::EXPORT_FILE_DATE_PART_FORMAT);
 
-        if (isset($dateFilenamePart))
+        if (isset($dateFilenamePart)) {
             $dateFilenamePartString = $dateFilenamePart->format(self::EXPORT_FILE_DATE_PART_FORMAT);
+        }
 
-        return $basePath . $this->getPluginSettingsPrefix() . '-' . $dateFilenamePartString .'-' . $objectsFileNamePart .'-' . $context->getId() . $extension;
+        return $basePath . $this->getPluginSettingsPrefix() . '-' . $dateFilenamePartString . '-' . $objectsFileNamePart . '-' . $context->getId() . $extension;
     }
 
     /**
@@ -427,7 +428,7 @@ abstract class ImportExportPlugin extends Plugin
      */
     public function downloadExportedFile(string $exportedFileContentNamePart, string $exportedFileDatePart, PKPImportExportDeployment $deployment)
     {
-        $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT,  $exportedFileDatePart);
+        $date = DateTime::createFromFormat(self::EXPORT_FILE_DATE_PART_FORMAT, $exportedFileDatePart);
         if (!$date) {
             return false;
         }
@@ -443,9 +444,6 @@ abstract class ImportExportPlugin extends Plugin
     /**
      * Create file given it's name and content
      *
-     * @param string $filename
-     * @param string $fileContent
-     * @param Context $context
      * @param ?DateTime $dateFilenamePart
      *
      * @return string

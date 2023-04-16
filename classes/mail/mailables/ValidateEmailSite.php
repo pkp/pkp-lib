@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidateEmailSite
+ *
  * @ingroup mail_mailables
  *
  * @brief Represents registration validation email

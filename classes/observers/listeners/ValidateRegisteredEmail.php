@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidateRegisteredEmail
+ *
  * @ingroup observers_listeners
  *
  * @brief Send an email to a newly registered user asking them to validate their email address

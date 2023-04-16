@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EmailTemplateForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for adding and editing email templates.
@@ -31,10 +32,10 @@ class EmailTemplateForm extends FormComponent
         $this->locales = $locales;
 
         $this->addField(new FieldText('name', [
-                'label' => __('common.name'),
-                'description' => __('manager.emailTemplate.name.description'),
-                'isMultilingual' => true,
-            ]))
+            'label' => __('common.name'),
+            'description' => __('manager.emailTemplate.name.description'),
+            'isMultilingual' => true,
+        ]))
             ->addField(new FieldText('subject', [
                 'label' => __('email.subject'),
                 'isMultilingual' => true,

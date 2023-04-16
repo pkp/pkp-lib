@@ -15,6 +15,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LocaleMetadata
+ *
  * @ingroup i18n
  *
  * @brief Holds metadata about a system locale
@@ -61,14 +62,12 @@ class LocaleMetadata
     public function __construct(
         /** Locale identification */
         public ?string $locale = null
-    )
-    {
+    ) {
     }
 
     /**
      * Get the language locale conversion status
      *
-     * @return array
      */
     public static function getLanguageLocaleStatuses(): array
     {
@@ -93,7 +92,7 @@ class LocaleMetadata
         if (!in_array($langLocaleStatus, static::getLanguageLocaleStatuses())) {
             throw new Exception(
                 sprintf(
-                    "Invalid language locale conversion status %s given, must be among [%s]",
+                    'Invalid language locale conversion status %s given, must be among [%s]',
                     $langLocaleStatus,
                     implode(',', static::getLanguageLocaleStatuses())
                 )
@@ -113,8 +112,7 @@ class LocaleMetadata
             )
         );
 
-        if ( $langLocaleStatus === self::LANGUAGE_LOCALE_WITH ) {
-
+        if ($langLocaleStatus === self::LANGUAGE_LOCALE_WITH) {
             // Get the translated language name in language's own locale
             $nameInLangLocale = PKPString::regexp_replace(
                 '/\s*\([^)]*\)\s*/',
@@ -142,15 +140,11 @@ class LocaleMetadata
         }
 
         if ($langLocaleStatus !== self::LANGUAGE_LOCALE_WITHOUT) {
-
             $localizedCountryName = $this->getCountry($this->locale);
 
             if ($langLocaleStatus === self::LANGUAGE_LOCALE_ONLY) {
-
                 $country = $localizedCountryName;
-
             } else {
-
                 if (strcmp($localizedCountryName, $country) !== 0) {
                     $country = __(
                         'common.withForwardSlash',

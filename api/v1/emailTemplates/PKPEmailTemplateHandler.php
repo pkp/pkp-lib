@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailTemplateHandler
+ *
  * @ingroup api_v1_email_templates
  *
  * @brief Base class to handle API requests for email templates.

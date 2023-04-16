@@ -8,10 +8,12 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPNotificationOperationManager
+ *
  * @ingroup notification
  *
  * @see NotificationDAO
  * @see Notification
+ *
  * @brief Base class for notification manager that implements
  * basic notification operations and default notifications info.
  * Subclasses can implement specific information.
@@ -24,13 +26,13 @@ use APP\core\Request;
 use APP\notification\Notification;
 use APP\template\TemplateManager;
 use Firebase\JWT\JWT;
+use InvalidArgumentException;
 use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
+use PKP\core\PKPRequest;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
-use InvalidArgumentException;
-use PKP\core\PKPRequest;
 use PKP\linkAction\LinkAction;
 
 abstract class PKPNotificationOperationManager implements INotificationInfoProvider
@@ -152,8 +154,6 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      * @param int $assocId
      * @param int $level
      * @param array $params
-     * @param bool $suppressEmail Whether or not to suppress the notification email.
-     * @param callable $mailConfigurator Enables the customization of the Notification email
      *
      * @return Notification object|null
      */
@@ -419,6 +419,7 @@ abstract class PKPNotificationOperationManager implements INotificationInfoProvi
      *
      * @param PKPRequest $request
      * @param Notification $notification
+     * @param null|mixed $context
      *
      * @return string
      */

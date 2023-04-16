@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AjaxModal
+ *
  * @ingroup linkAction_request
  *
  * @brief A modal that retrieves its content from via AJAX.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicationIsSubmissionPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Policy to ensure the authorized publication is related to the authorized submission.

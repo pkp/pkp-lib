@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionInformationCenterHandler
+ *
  * @ingroup controllers_informationCenter
  *
  * @brief Handle requests to view the information center for a submission.

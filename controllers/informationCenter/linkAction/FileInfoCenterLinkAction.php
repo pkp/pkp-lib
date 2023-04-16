@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FileInfoCenterLinkAction
+ *
  * @ingroup controllers_informationCenter
  *
  * @brief A base action to open up the information center for a file.

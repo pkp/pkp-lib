@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ValidatorControlledVocab
+ *
  * @ingroup validation
  *
  * @brief Validation check that checks if value is within a certain set retrieved

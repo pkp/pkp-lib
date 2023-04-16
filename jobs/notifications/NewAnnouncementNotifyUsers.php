@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewAnnouncementNotifyUsers
+ *
  * @ingroup jobs
  *
  * @brief Class to send system notifications when a new announcement is added
@@ -19,17 +20,16 @@ use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\Notification;
 use Illuminate\Bus\Batchable;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
-use InvalidArgumentException;
 use PKP\announcement\Announcement;
 use PKP\context\Context;
 use PKP\emailTemplate\EmailTemplate;
-use PKP\mail\mailables\AnnouncementNotify;
-use PKP\user\User;
-use Illuminate\Support\Collection;
-use PKP\notification\managerDelegate\AnnouncementNotificationManager;
-use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
+use PKP\mail\mailables\AnnouncementNotify;
+use PKP\notification\managerDelegate\AnnouncementNotificationManager;
+use PKP\user\User;
 
 class NewAnnouncementNotifyUsers extends BaseJob
 {
@@ -49,8 +49,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
         int $announcementId,
         string $locale,
         ?User $sender = null // Leave null to not send an email
-    )
-    {
+    ) {
         parent::__construct();
 
         $this->recipientIds = $recipientIds;
@@ -102,8 +101,7 @@ class NewAnnouncementNotifyUsers extends BaseJob
         User $recipient,
         Announcement $announcement,
         EmailTemplate $template
-    ): AnnouncementNotify
-    {
+    ): AnnouncementNotify {
         $mailable = new AnnouncementNotify($context, $announcement);
 
         $mailable->sender($this->sender);

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementResponseItemListbuilderGridCellProvider
+ *
  * @ingroup controllers_listbuilder_settings_reviewForms
  *
  * @brief Review form element response item listbuilder grid handler.

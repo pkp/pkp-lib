@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileStageAccessPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Submission file policy to ensure that the user can read or write to a particular

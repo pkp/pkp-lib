@@ -147,17 +147,16 @@ class DAO extends EntityDAO implements RepresentationDAOInterface
 
     public function getById(int $id, ?int $publicationId = null, ?int $contextId = null): ?Representation
     {
-		$row = DB::table($this->table)
-			->where($this->primaryKeyColumn, $id)
-			->when(!is_null($publicationId), function(Builder $query) use ($publicationId) {
-				$query->where('publication_id', $publicationId);
-			})
-			->first();
-		if (!$row) {
-			return null;
-		}
-		return $this->fromRow($row);
-
+        $row = DB::table($this->table)
+            ->where($this->primaryKeyColumn, $id)
+            ->when(!is_null($publicationId), function (Builder $query) use ($publicationId) {
+                $query->where('publication_id', $publicationId);
+            })
+            ->first();
+        if (!$row) {
+            return null;
+        }
+        return $this->fromRow($row);
     }
 
     /** @copydoc RepresentationDAOInterface::getByPublicationId() */

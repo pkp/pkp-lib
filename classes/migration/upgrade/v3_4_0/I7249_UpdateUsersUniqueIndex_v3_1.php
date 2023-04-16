@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7249_UpdateUsersUniqueIndex_v3_1
+ *
  * @brief Update the users table constraints to reflect case sensitive username, email indexes for postgres DB (For ver. 3.1.0, 3.2.0, 3.2.1)
  */
 

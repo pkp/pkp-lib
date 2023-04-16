@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewAssignment
+ *
  * @ingroup submission
  *
  * @see ReviewAssignmentDAO
@@ -17,11 +18,7 @@
 
 namespace PKP\submission\reviewAssignment;
 
-use APP\core\Application;
-use APP\facades\Repo;
 use PKP\core\Core;
-use PKP\db\DAORegistry;
-use PKP\security\Role;
 
 class ReviewAssignment extends \PKP\core\DataObject
 {
@@ -707,7 +704,7 @@ class ReviewAssignment extends \PKP\core\DataObject
      */
     public function isRead()
     {
-        if($this->getConsidered() === self::REVIEW_ASSIGNMENT_CONSIDERED || $this->getConsidered() === self::REVIEW_ASSIGNMENT_RECONSIDERED) {
+        if ($this->getConsidered() === self::REVIEW_ASSIGNMENT_CONSIDERED || $this->getConsidered() === self::REVIEW_ASSIGNMENT_RECONSIDERED) {
             return true;
         }
 

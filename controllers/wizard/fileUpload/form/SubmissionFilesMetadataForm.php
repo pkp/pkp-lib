@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFilesMetadataForm
+ *
  * @ingroup controllers_wizard_fileUpload_form
  *
  * @brief Form for editing a submission file's metadata

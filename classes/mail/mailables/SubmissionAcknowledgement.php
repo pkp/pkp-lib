@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionAcknowledgement
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent to a submitting author when they submit their submission

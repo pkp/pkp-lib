@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class BaseProfileForm
+ *
  * @ingroup user_form
  *
  * @brief Base form to edit an aspect of user profile.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RolesForm
+ *
  * @ingroup user_form
  *
  * @brief Form to edit the roles area of the user profile.
@@ -17,10 +18,9 @@ namespace PKP\user\form;
 
 use APP\core\Application;
 
-use APP\template\TemplateManager;
-use PKP\db\DAORegistry;
-use PKP\user\InterestManager;
 use APP\facades\Repo;
+use APP\template\TemplateManager;
+use PKP\user\InterestManager;
 
 class RolesForm extends BaseProfileForm
 {

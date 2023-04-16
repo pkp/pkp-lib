@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryDAO
+ *
  * @ingroup query
  *
  * @see Query
@@ -318,10 +319,10 @@ class QueryDAO extends \PKP\db\DAO
     {
         $countDeleted = DB::table('queries')
             ->where('query_id', '=', $queryId)
-            ->when(!is_null($assocType), function(Builder $q) use ($assocType) {
+            ->when(!is_null($assocType), function (Builder $q) use ($assocType) {
                 $q->where('assoc_type', '=', $assocType);
             })
-            ->when(!is_null($assocId), function(Builder $q) use ($assocId) {
+            ->when(!is_null($assocId), function (Builder $q) use ($assocId) {
                 $q->where('assoc_id', '=', $assocId);
             })
             ->delete();
@@ -452,7 +453,6 @@ class QueryDAO extends \PKP\db\DAO
      */
     public function addCommentsForEditorsQuery(Submission $submission): int
     {
-
         /** @var StageAssignmentDAO $stageAssignmentDao */
         $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO');
         $assigned = $stageAssignmentDao->getBySubmissionAndRoleIds(

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserEmailForm
+ *
  * @ingroup controllers_grid_settings_user_form
  *
  * @brief Form for sending an email to a user
@@ -15,15 +16,15 @@
 
 namespace PKP\controllers\grid\settings\user\form;
 
-use Exception;
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
+use Exception;
+use Illuminate\Support\Facades\Mail;
 use PKP\form\Form;
 use PKP\mail\Mailable;
 use PKP\notification\PKPNotification;
-use Illuminate\Support\Facades\Mail;
 
 class UserEmailForm extends Form
 {

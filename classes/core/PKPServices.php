@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPServices
+ *
  * @ingroup core
  *
  * @see Core
@@ -60,6 +61,7 @@ abstract class PKPServices
 
     /**
      * Returns the instance of the container
+     *
      * @return static
      */
     private static function _instance()

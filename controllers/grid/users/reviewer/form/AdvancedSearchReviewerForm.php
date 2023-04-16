@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AdvancedSearchReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Form for an advanced search and for adding a reviewer to a submission.
@@ -76,7 +77,7 @@ class AdvancedSearchReviewerForm extends ReviewerForm
         $templates = Repo::emailTemplate()->getCollector($context->getId())
             ->filterByKeys([ReviewRequest::getEmailTemplateKey(), ReviewRequestSubsequent::getEmailTemplateKey()])
             ->getMany()
-            ->mapWithKeys(function(EmailTemplate $item, int $key) use ($mailable) {
+            ->mapWithKeys(function (EmailTemplate $item, int $key) use ($mailable) {
                 return [$item->getData('key') => Mail::compileParams($item->getLocalizedData('body'), $mailable->viewData)];
             });
 

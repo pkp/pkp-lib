@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SessionManager
+ *
  * @ingroup session
  *
  * @brief Implements PHP methods for a custom session storage handler (see http://php.net/session).
@@ -203,6 +204,7 @@ class SessionManager implements SessionHandlerInterface
 
     /**
      * Prevents the session initialization
+     *
      * @todo Drop the constant definition once it's safe
      */
     public static function disable(): void

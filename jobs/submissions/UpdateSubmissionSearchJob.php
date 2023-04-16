@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpdateSubmissionSearchJob
+ *
  * @ingroup jobs
  *
  * @brief Class to handle the Submission Search data update as a Job
@@ -19,9 +20,9 @@ namespace PKP\jobs\submissions;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use PKP\submission\PKPSubmission;
-use PKP\jobs\BaseJob;
 use PKP\job\exceptions\JobException;
+use PKP\jobs\BaseJob;
+use PKP\submission\PKPSubmission;
 
 class UpdateSubmissionSearchJob extends BaseJob
 {

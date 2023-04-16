@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class GridBodyElement
+ *
  * @ingroup controllers_grid
  *
  * @brief Base class for grid body elements.

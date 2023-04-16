@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I8093_UpdateUserGroupRelationTablesFK
+ *
  * @brief Update the foreign keys for UserGroup relation tables
  */
 

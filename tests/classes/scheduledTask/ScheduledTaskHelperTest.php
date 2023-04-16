@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ScheduledTaskHelperTest
+ *
  * @ingroup tests_classes_scheduledTask
  *
  * @see ScheduledTask
@@ -32,7 +33,9 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * @param string $taskId
      * @param string $taskName
      * @param string $message
+     *
      * @dataProvider notifyExecutionResultTestsDataProvider
+     *
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
     public function testNotifyExecutionResultError($taskId, $taskName, $message)
@@ -61,7 +64,9 @@ class ScheduledTaskHelperTest extends PKPTestCase
      * @param string $taskId
      * @param string $taskName
      * @param string $message
+     *
      * @dataProvider notifyExecutionResultTestsDataProvider
+     *
      * @covers ScheduledTaskHelper::notifyExecutionResult
      */
     public function testNotifyExecutionResultSuccess($taskId, $taskName, $message)

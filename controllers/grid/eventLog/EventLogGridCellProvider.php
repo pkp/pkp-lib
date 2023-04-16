@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EventLogGridCellProvider
+ *
  * @ingroup controllers_grid_publicationEntry
  *
  * @brief Cell provider for event log entries.

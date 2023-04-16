@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DBDataXMLParser
+ *
  * @ingroup db
  *
  * @brief Class to import and export database data from an XML format.

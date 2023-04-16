@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Doi
+ *
  * @ingroup doi
  *
  * @see DoiDAO
@@ -108,7 +109,6 @@ class Doi extends DataObject
     /**
      * Encode DOI according to ANSI/NISO Z39.84-2005, Appendix E.
      *
-     * @param string $pubId
      *
      */
     protected function _doiURLEncode(string $pubId): string

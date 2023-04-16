@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DAOResultFactory
+ *
  * @ingroup db
  *
  * @brief Wrapper around Enumerable providing "factory" features for generating

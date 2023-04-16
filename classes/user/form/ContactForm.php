@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContactForm
+ *
  * @ingroup user_form
  *
  * @brief Form to edit user's contact information.
@@ -40,11 +41,11 @@ class ContactForm extends BaseProfileForm
             'email',
             'required',
             'user.register.form.emailExists',
-            function(string $email, int $userId) {
-                if ( $user = Repo::user()->getByEmail($email, true) ) {
+            function (string $email, int $userId) {
+                if ($user = Repo::user()->getByEmail($email, true)) {
                     return (int)$user->getId() === $userId;
                 }
-                
+
                 return true;
             },
             [(int)$user->getId()]

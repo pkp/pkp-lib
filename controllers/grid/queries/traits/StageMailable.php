@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StageMailable
+ *
  * @ingroup mail_traits
  *
  * @brief Mailable trait to associate Workflow Stage with specific Discussion email
@@ -15,7 +16,6 @@
 
 namespace PKP\controllers\grid\queries\traits;
 
-use APP\notification\Notification;
 use APP\submission\Submission;
 use PKP\context\Context;
 use PKP\mail\Mailable;

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RestrictAuthorAssignment
+ *
  * @ingroup observers_listeners
  *
  * @brief Change the authors' stage assignments to restrict their

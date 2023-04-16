@@ -9,7 +9,6 @@
  *
  * @class \PKP\userGroup\relationships\UserUserGroup
  *
- *
  * @brief UserUserGroup metadata class.
  */
 

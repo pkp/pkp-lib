@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class WizardModal
+ *
  * @ingroup linkAction_request
  *
  * @brief A modal that contains a wizard retrieved via AJAX.

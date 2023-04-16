@@ -173,8 +173,8 @@ class Resubmit extends DecisionType
                     $context->getSupportedFormLocales(),
                     $fileAttachers
                 ))
-                ->canChangeRecipients(true)
-                ->anonymizeRecipients(true)
+                    ->canChangeRecipients(true)
+                    ->anonymizeRecipients(true)
             );
         }
 

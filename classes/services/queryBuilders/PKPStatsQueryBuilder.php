@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPStatsQueryBuilder
+ *
  * @ingroup query_builders
  *
  * @brief Base class for statistics query builders.

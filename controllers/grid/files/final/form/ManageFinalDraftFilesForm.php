@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageFinalDraftFilesForm
+ *
  * @ingroup controllers_grid_files_finalDraftFiles
  *
  * @brief Form to add files to the final draft files grid

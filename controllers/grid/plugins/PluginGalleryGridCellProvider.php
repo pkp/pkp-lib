@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginGalleryGridCellProvider
+ *
  * @ingroup controllers_grid_plugins
  *
  * @brief Provide information about plugins to the plugin gallery grid handler

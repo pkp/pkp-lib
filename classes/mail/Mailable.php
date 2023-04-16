@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Mailable
+ *
  * @ingroup mail
  *
  * @brief  A base class that represents an email sent in the system.
@@ -192,7 +193,10 @@ class Mailable extends IlluminateMailable
 
     /**
      * Alias of self::addData()
+     *
      * @see \Illuminate\Mail\Mailable::with()
+     *
+     * @param null|mixed $value
      */
     public function with($key, $value = null)
     {
@@ -384,7 +388,6 @@ class Mailable extends IlluminateMailable
     {
         $map = static::templateVariablesMap();
         foreach ($variables as $variable) {
-
             // Pass context as additional data if exists, see pkp/pkp-lib#8204
             if (is_a($variable, Context::class)) {
                 static::buildViewDataUsing(function () use ($variable) {

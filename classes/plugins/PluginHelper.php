@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginHelper
+ *
  * @ingroup classes_plugins
  *
  * @brief Helper class implementing plugin administration functions.
@@ -44,10 +45,13 @@ class PluginHelper
      * Extract the plugin, executes the callback, then cleanup the files
      *
      * @template T of mixed
+     *
      * @param string $filePath Full path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
      * @param callable(string $pluginDirectory):T $onExtracted The function will receive as parameter the directory of the plugin
+     *
      * @throws Exception If any unexpected error happens (failure to unpack, absence of version.xml, etc)
+     *
      * @return T Returns the result of the $onExtracted call
      */
     private function extractPlugin(string $filePath, string $originalFileName, callable $onExtracted): mixed
@@ -72,7 +76,7 @@ class PluginHelper
             (new PharData($filePathWithExtension ?? $filePath))->extractTo($extractPath, null, true);
 
             // Ensure there's a file named "version.xml" at the main directory or at the direct sub-directories
-            foreach(new DirectoryIterator($extractPath) as $current) {
+            foreach (new DirectoryIterator($extractPath) as $current) {
                 if ($current->isDir() && $current->getBasename() !== '..' && is_file(($path = "{$current->getPathname()}/") . static::PLUGIN_VERSION_FILE)) {
                     return $onExtracted($path);
                 }
@@ -167,12 +171,9 @@ class PluginHelper
     /**
      * Upgrade a plugin to a newer version from the user's filesystem
      *
-     * @param string $category
-     * @param string $plugin
      * @param string $path path to plugin archive
      * @param string $originalFileName Original filename of plugin archive
      *
-     * @return Version
      */
     public function upgradePlugin(string $category, string $plugin, string $path, string $originalFileName): Version
     {

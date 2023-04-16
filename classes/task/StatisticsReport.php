@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class StatisticsReport
+ *
  * @ingroup tasks
  *
  * @brief Class responsible to send the monthly statistics report.
@@ -27,7 +28,6 @@ use PKP\notification\NotificationSubscriptionSettingsDAO;
 use PKP\notification\PKPNotification;
 use PKP\scheduledTask\ScheduledTask;
 use PKP\security\Role;
-use APP\facades\Repo;
 
 class StatisticsReport extends ScheduledTask
 {
@@ -53,7 +53,6 @@ class StatisticsReport extends ScheduledTask
 
         $jobs = [];
         for ($contexts = $contextDao->getAll(true); $context = $contexts->next();) {
-
             if (!$context->getData('editorialStatsEmail')) {
                 continue;
             }

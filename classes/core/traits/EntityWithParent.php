@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EntityWithParent
+ *
  * @ingroup core_traits
  *
  * @brief A trait for DAO classes that can be used with entities that have a parent entity. For example, a Submission always has a parent Context.

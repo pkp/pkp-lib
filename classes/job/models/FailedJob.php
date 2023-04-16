@@ -58,17 +58,17 @@ class FailedJob extends Model
      * @var string[]
      */
     protected $casts = [
-        'connection'    => 'string',
-        'payload'       => 'array',
-        'queue'         => 'string',
-        'exception'     => 'string',
-        'failed_at'     => 'datetime',
+        'connection' => 'string',
+        'payload' => 'array',
+        'queue' => 'string',
+        'exception' => 'string',
+        'failed_at' => 'datetime',
     ];
 
     /**
      * Add a local scope to handle jobs associated in a queue
      */
-    public function scopeQueuedAt(Builder $query, string $queue): Builder 
+    public function scopeQueuedAt(Builder $query, string $queue): Builder
     {
         return $query->where('queue', $queue);
     }
@@ -82,7 +82,7 @@ class FailedJob extends Model
             $exception = json_decode($this->exception);
             return $exception->message . ' in ' . $exception->file . ' at ' . $exception->line;
         }
-        
+
         return preg_replace('/\s+/', ' ', trim(explode('Stack trace', $this->exception)[0]));
     }
 }

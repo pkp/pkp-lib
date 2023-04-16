@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CollapsibleGridFeature
+ *
  * @ingroup controllers_grid_feature
  *
  * @brief Add collapse and expand functionality to grids.

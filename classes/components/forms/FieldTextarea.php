@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldTextarea
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A multiline textarea field in a form.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageQueryNoteFilesForm
+ *
  * @ingroup controllers_grid_files_query
  *
  * @brief Form to add files to the query files grid

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGroupGridHandler
+ *
  * @ingroup controllers_grid_settings
  *
  * @brief Handle operations for user group management operations.
@@ -16,6 +17,7 @@
 namespace PKP\controllers\grid\settings\roles;
 
 use APP\core\Application;
+use APP\facades\Repo;
 use APP\notification\NotificationManager;
 use PKP\controllers\grid\feature\PagingFeature;
 use PKP\controllers\grid\GridColumn;
@@ -28,12 +30,11 @@ use PKP\linkAction\request\AjaxModal;
 use PKP\notification\PKPNotification;
 use PKP\security\authorization\ContextAccessPolicy;
 use PKP\security\authorization\internal\WorkflowStageRequiredPolicy;
-use PKP\security\Role;
 
-use PKP\workflow\WorkflowStageDAO;
-use APP\facades\Repo;
+use PKP\security\Role;
 use PKP\userGroup\relationships\UserGroupStage;
 use PKP\userGroup\UserGroup;
+use PKP\workflow\WorkflowStageDAO;
 
 class UserGroupGridHandler extends GridHandler
 {
@@ -195,9 +196,9 @@ class UserGroupGridHandler extends GridHandler
             return Repo::userGroup()->getByRoleIds([$roleIdFilter], $contextId)->toArray();
         } else {
             return Repo::userGroup()->getCollector()
-            ->filterByContextIds([$contextId])
-            ->getMany()
-            ->toArray();
+                ->filterByContextIds([$contextId])
+                ->getMany()
+                ->toArray();
         }
     }
 

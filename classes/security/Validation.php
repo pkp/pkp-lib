@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Validation
+ *
  * @ingroup security
  *
  * @brief Class providing user validation/authentication operations.
@@ -21,10 +22,10 @@ use PKP\config\Config;
 use PKP\core\Core;
 use PKP\core\PKPString;
 use PKP\db\DAORegistry;
-use PKP\site\SiteDAO;
+use PKP\session\SessionManager;
 use PKP\site\Site;
 
-use PKP\session\SessionManager;
+use PKP\site\SiteDAO;
 
 class Validation
 {
@@ -521,7 +522,7 @@ class Validation
             ->filterByRoleIds([Role::ROLE_ID_MANAGER])
             ->getCount();
 
-        if ( $roleManagerCount <= 0 ) {
+        if ($roleManagerCount <= 0) {
             return self::ADMINISTRATION_PROHIBITED;
         }
 
@@ -529,7 +530,7 @@ class Validation
             ->getCollector()
             ->filterByUserIds([$administeredUserId])
             ->getMany()
-            ->map(fn($userGroup) => $userGroup->getContextId())
+            ->map(fn ($userGroup) => $userGroup->getContextId())
             ->sort()
             ->toArray();
 
@@ -538,13 +539,13 @@ class Validation
             ->filterByUserIds([$administratorUserId])
             ->filterByRoleIds([Role::ROLE_ID_MANAGER])
             ->getMany()
-            ->map(fn($userGroup) => $userGroup->getContextId())
+            ->map(fn ($userGroup) => $userGroup->getContextId())
             ->sort()
             ->toArray();
 
         // Check for administered user group assignments in other contexts
         // that the administrator user doesn't have a manager role in.
-        if ( collect($administeredUserAssignedGroupIds)->diff($administratorUserAssignedGroupIds)->count() > 0 ) {
+        if (collect($administeredUserAssignedGroupIds)->diff($administratorUserAssignedGroupIds)->count() > 0) {
             // Found an assignment: disqualified.
             // But also determine if a partial administrate is allowed
             // if the Administrator User is a Journal Manager in the current context

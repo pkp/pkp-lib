@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileGridCategoryRow
+ *
  * @ingroup controllers_grid_settings_library
  *
  * @brief Library file grid category row definition

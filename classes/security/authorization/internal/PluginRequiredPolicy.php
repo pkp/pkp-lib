@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PluginRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Class to make sure we have a valid plugin in request.

@@ -11,6 +11,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UnconsiderReviewLinkAction
+ *
  * @ingroup controllers_review_linkAction
  *
  * @brief An action to allow editors to unconsider a review.

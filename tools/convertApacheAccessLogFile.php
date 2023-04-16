@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ConvertApacheAccessLogFile
+ *
  * @ingroup tools
  *
  * @brief CLI tool to copy, prepare and convert apache access log file into the new format needed for stats reprocessing.

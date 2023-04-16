@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RedirectConfirmationModal
+ *
  * @ingroup linkAction_request
  *
  * @brief Class defining a simple confirmation modal with a redirect url and ok/cancel buttons.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewRemind
+ *
  * @ingroup mail_mailables
  *
  * @brief Email is sent by an editor to a reviewer to remind about the review request
@@ -15,16 +16,13 @@
 
 namespace PKP\mail\mailables;
 
-use APP\core\Application;
 use APP\submission\Submission;
 use PKP\context\Context;
-use PKP\mail\traits\Configurable;
 use PKP\mail\Mailable;
+use PKP\mail\traits\Configurable;
 use PKP\mail\traits\OneClickReviewerAccess;
 use PKP\mail\traits\Recipient;
 use PKP\mail\traits\Sender;
-use PKP\mail\variables\ReviewAssignmentEmailVariable;
-use PKP\security\AccessKeyManager;
 use PKP\security\Role;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 

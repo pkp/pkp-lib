@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryForm
+ *
  * @ingroup controllers_grid_users_queries_form
  *
  * @brief Form for adding/editing a new query
@@ -23,7 +24,6 @@ use PKP\controllers\grid\queries\traits\StageMailable;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\emailTemplate\EmailTemplate;
 use PKP\form\Form;
 use PKP\query\QueryDAO;
 use PKP\security\Role;
@@ -303,13 +303,12 @@ class QueryForm extends Form
         })();
 
         if ($query->getStageId() == WORKFLOW_STAGE_ID_EXTERNAL_REVIEW || $query->getStageId() == WORKFLOW_STAGE_ID_INTERNAL_REVIEW) {
-
             // Get all review assignments for current submission
             $reviewAssignmentDao = DAORegistry::getDAO('ReviewAssignmentDAO'); /** @var ReviewAssignmentDAO $reviewAssignmentDao */
             $reviewAssignments = $reviewAssignmentDao->getBySubmissionId($submission->getId());
 
             // if current user is editor/journal manager/site admin and not have author role , add all reviewers
-            if ( array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || ( empty($assignedRoles) && ( $user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE) ) ) ) {
+            if (array_intersect($assignedRoles, [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SUB_EDITOR]) || (empty($assignedRoles) && ($user->hasRole([Role::ROLE_ID_MANAGER], $context->getId()) || $user->hasRole([Role::ROLE_ID_SITE_ADMIN], \PKP\core\PKPApplication::CONTEXT_SITE)))) {
                 foreach ($reviewAssignments as $reviewAssignment) {
                     $includeUsers[] = $reviewAssignment->getReviewerId();
                 }
@@ -377,7 +376,7 @@ class QueryForm extends Form
 
         // Notify assistants, authors and reviewers that they have x minutes to update their own discussion
         $allowedEditTimeNotice = ['show' => false, 'limit' => 60];
-        if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) { 
+        if (array_intersect($assignedRoles, [Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_AUTHOR, Role::ROLE_ID_REVIEWER])) {
             $allowedEditTimeNotice['show'] = true;
             $allowedEditTimeNotice['limit'] = (int) ($allowedEditTimeNotice['limit'] - (time() - strtotime($headNote->getDateCreated())) / 60);
         }

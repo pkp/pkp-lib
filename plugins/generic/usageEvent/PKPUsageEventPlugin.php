@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUsageEventPlugin
+ *
  * @ingroup plugins_generic_usageEvent
  *
  * @brief Base class for usage event plugin. Provide usage events to

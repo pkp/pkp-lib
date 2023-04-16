@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditorReviewAttachmentsGridHandler
+ *
  * @ingroup controllers_grid_files_attachment
  *
  * @brief Editor's view of the Review Attachments Grid.

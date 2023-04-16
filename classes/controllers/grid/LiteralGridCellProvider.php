@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LiteralGridCellProvider
+ *
  * @ingroup controllers_grid
  *
  * @brief A cell provider that passes literal data through directly.

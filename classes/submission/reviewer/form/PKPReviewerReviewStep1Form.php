@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPReviewerReviewStep1Form
+ *
  * @ingroup submission_reviewer_form
  *
  * @brief Form for Step 1 of a review.
@@ -20,7 +21,6 @@ use APP\template\TemplateManager;
 use PKP\controllers\confirmationModal\linkAction\ViewCompetingInterestGuidelinesLinkAction;
 use PKP\controllers\modals\review\ReviewerViewMetadataLinkAction;
 use PKP\core\PKPRequest;
-use PKP\db\DAORegistry;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\linkAction\request\ConfirmationModal;

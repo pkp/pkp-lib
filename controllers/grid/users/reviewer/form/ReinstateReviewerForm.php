@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReinstateReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Allow the editor to reinstate a cancelled review assignment

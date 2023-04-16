@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PrimitiveTypeDescriptionTest
+ *
  * @ingroup tests_classes_filter
  *
  * @see PrimitiveTypeDescription
@@ -86,6 +87,7 @@ class PrimitiveTypeDescriptionTest extends PKPTestCase
     /**
      * @covers PrimitiveTypeDescription
      * @covers TypeDescription
+     *
      * @dataProvider typeDescriptorDataProvider
      */
     public function testInstantiateWithInvalidTypeDescriptor(string $type)

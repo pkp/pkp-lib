@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I7167_RemoveDuplicatedUserSettingsAndDeprecatedFields
+ *
  * @brief Removes duplicated user_settings, as well as the deprecated fields "assoc_id" and "assoc_type".
  */
 

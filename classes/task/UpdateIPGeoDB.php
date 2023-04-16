@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UpdateIPGeoDB
+ *
  * @ingroup tasks
  *
  * @brief Class responsible to monthly update of the DB-IP city lite database used for Geo statistics.

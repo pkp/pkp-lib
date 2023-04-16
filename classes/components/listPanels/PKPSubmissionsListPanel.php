@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPSubmissionsListPanel
+ *
  * @ingroup classes_components_list
  *
  * @brief A ListPanel component for displaying submissions in the dashboard

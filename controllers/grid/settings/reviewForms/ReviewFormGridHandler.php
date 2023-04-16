@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormGridHandler
+ *
  * @ingroup controllers_grid_settings_reviewForms
  *
  * @brief Handle review form grid requests.
@@ -451,7 +452,6 @@ class ReviewFormGridHandler extends GridHandler
      */
     public function deactivateReviewForm($args, $request)
     {
-
         // Identify the current review form
         $reviewFormId = (int) $request->getUserVar('reviewFormKey');
 

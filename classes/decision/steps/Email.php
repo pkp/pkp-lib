@@ -135,7 +135,7 @@ class Email extends Step
                 ->getCollector($context->getId())
                 ->alternateTo([$this->mailable::getEmailTemplateKey()])
                 ->getMany()
-                ->each(fn(EmailTemplate $e) => $emailTemplates->add($e));
+                ->each(fn (EmailTemplate $e) => $emailTemplates->add($e));
         }
 
         return Repo::emailTemplate()->getSchemaMap()->mapMany($emailTemplates)->toArray();

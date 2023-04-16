@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileUploaderAccessPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Submission file policy to check if the current user is the uploader.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FieldHTML
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A component for inserting HTML into a form, when you don't need any

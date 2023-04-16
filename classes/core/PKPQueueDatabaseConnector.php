@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPQueueDatabaseConnector
+ *
  * @ingroup core
  *
  * @brief Registers the database queue connector
@@ -26,7 +27,6 @@ class PKPQueueDatabaseConnector extends IlluminateQueueDatabaseConnector
     /**
      * Establish a queue connection.
      *
-     * @param  array  $config
      * @return \Illuminate\Contracts\Queue\Queue
      */
     public function connect(array $config)

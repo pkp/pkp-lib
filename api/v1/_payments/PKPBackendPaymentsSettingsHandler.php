@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPBackendPaymentsSettingsHandler
+ *
  * @ingroup api_v1_backend
  *
  * @brief A private API endpoint handler for payment settings. It may be
@@ -108,7 +109,9 @@ class PKPBackendPaymentsSettingsHandler extends APIHandler
         }
 
         PluginRegistry::loadCategory('paymethod', true);
-        Hook::call('API::payments::settings::edit', [
+        Hook::call(
+            'API::payments::settings::edit',
+            [
                 $slimRequest,
                 $request,
                 $params,

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FilterGroupDAOTest
+ *
  * @ingroup tests_classes_filter
  *
  * @see FilterGroupDAO

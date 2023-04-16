@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ItemSelectionGridColumn
+ *
  * @ingroup classes_controllers_grid_feature_selectableItems
  *
  * @brief Implements a column with checkboxes to select grid items.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileLog
+ *
  * @ingroup log
  *
  * @brief Static class for adding / accessing submission file log entries.

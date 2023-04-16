@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NavigationMenusGridRow
+ *
  * @ingroup controllers_grid_navigationMenus
  *
  * @brief NavigationMenu grid row definition

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class AddRevisionLinkAction
+ *
  * @ingroup controllers_api_file_linkAction
  *
  * @brief An action to upload a revision of file currently under review.

@@ -30,10 +30,10 @@ use PKP\category\Repository as CategoryRepository;
 use PKP\decision\Repository as DecisionRepository;
 use PKP\emailTemplate\Repository as EmailTemplateRepository;
 use PKP\institution\Repository as InstitutionRepository;
+use PKP\job\repositories\FailedJob as FailedJobRepository;
+use PKP\job\repositories\Job as JobRepository;
 use PKP\submissionFile\Repository as SubmissionFileRepository;
 use PKP\userGroup\Repository as UserGroupRepository;
-use PKP\job\repositories\Job as JobRepository;
-use PKP\job\repositories\FailedJob as FailedJobRepository;
 
 class Repo
 {

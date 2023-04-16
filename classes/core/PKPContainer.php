@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPContainer
+ *
  * @ingroup core
  *
  * @brief Bootstraps Laravel services, application-level parts and creates bindings
@@ -35,6 +36,7 @@ class PKPContainer extends Container
 {
     /**
      * @var string
+     *
      * @brief the base path of the application, needed for base_path helper
      */
     protected $basePath;
@@ -128,6 +130,7 @@ class PKPContainer extends Container
 
     /**
      * @param \Illuminate\Support\ServiceProvider $provider
+     *
      * @brief Simplified service registration
      */
     public function register($provider)
@@ -138,7 +141,7 @@ class PKPContainer extends Container
             $provider->boot();
         }
 
-        $this->app->bind('request', fn($app) => PKPApplication::get()->getRequest());
+        $this->app->bind('request', fn ($app) => PKPApplication::get()->getRequest());
     }
 
     /**
@@ -262,6 +265,7 @@ class PKPContainer extends Container
 
     /**
      * @param string $path appended to the base path
+     *
      * @brief see Illuminate\Foundation\Application::basePath
      */
     public function basePath($path = '')
@@ -271,6 +275,7 @@ class PKPContainer extends Container
 
     /**
      * @param string $path appended to the path
+     *
      * @brief alias of basePath(), Laravel app path differs from installation path
      */
     public function path($path = '')

@@ -29,11 +29,11 @@ class HttpJobResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'            => $this->getResource()->id,
-            'queue'         => $this->getResource()->queue,
-            'displayName'   => $this->getJobName(),
-            'attempts'      => $this->getResource()->attempts,
-            'created_at'    => __('admin.jobs.createdAt', ['createdAt' => $this->getCreatedAt()]),
+            'id' => $this->getResource()->id,
+            'queue' => $this->getResource()->queue,
+            'displayName' => $this->getJobName(),
+            'attempts' => $this->getResource()->attempts,
+            'created_at' => __('admin.jobs.createdAt', ['createdAt' => $this->getCreatedAt()]),
         ];
     }
 }

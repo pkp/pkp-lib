@@ -29,13 +29,13 @@ class CLIJobResource extends JsonResource
     public function toArray($request): array
     {
         return [
-            'id'            => $this->getResource()->id,
-            'queue'         => $this->getResource()->queue,
-            'displayName'   => $this->getJobName(),
-            'attempts'      => $this->getResource()->attempts,
-            'reserved_at'   => $this->getReservedAt(),
-            'available_at'  => $this->getAvailableAt(),
-            'created_at'    => $this->getCreatedAt(),
+            'id' => $this->getResource()->id,
+            'queue' => $this->getResource()->queue,
+            'displayName' => $this->getJobName(),
+            'attempts' => $this->getResource()->attempts,
+            'reserved_at' => $this->getReservedAt(),
+            'available_at' => $this->getAvailableAt(),
+            'created_at' => $this->getCreatedAt(),
         ];
     }
 }

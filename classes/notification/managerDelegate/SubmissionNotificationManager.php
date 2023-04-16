@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionNotificationManager
+ *
  * @ingroup managerDelegate
  *
  * @brief Submission notification types manager delegate.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DateGridCellProvider
+ *
  * @ingroup controllers_grid
  *
  * @brief Wraps date formatting support around a provided DataProvider.

@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionDocumentsFilesGridDataProvider
+ *
  * @ingroup controllers_grid_files_submissionDocuments
  *
  * @brief The base data provider for the submission documents library files grid.
@@ -61,7 +62,6 @@ class SubmissionDocumentsFilesGridDataProvider extends CategoryGridDataProvider
      */
     public function loadCategoryData($request, $fileType, $filter = null)
     {
-
         // Retrieve all library files for the given submission document category.
         $submission = $this->getSubmission();
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */

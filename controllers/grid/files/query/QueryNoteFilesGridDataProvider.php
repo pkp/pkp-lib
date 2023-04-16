@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class QueryNoteFilesGridDataProvider
+ *
  * @ingroup controllers_grid_files_query
  *
  * @brief Provide access to query files management.

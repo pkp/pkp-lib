@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPEmailSetupForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for configuring a context's email settings.
@@ -14,9 +15,9 @@
 
 namespace PKP\components\forms\context;
 
+use APP\core\Application;
 use APP\mail\variables\ContextEmailVariable;
 use Illuminate\Support\Arr;
-use APP\core\Application;
 use PKP\components\forms\FieldHTML;
 use PKP\components\forms\FieldOptions;
 use PKP\components\forms\FieldPreparedContent;
@@ -28,12 +29,12 @@ use PKP\context\Context;
 
 class PKPEmailSetupForm extends FormComponent
 {
-    const GROUP_EMAIL_TEMPLATES = 'emailTemplates';
-    const GROUP_NEW_SUBMISSION = 'newSubmission';
-    const GROUP_EDITORIAL_DECISIONS = 'decisions';
-    const GROUP_EDITORS = 'editors';
-    const GROUP_ADVANCED = 'advanced';
-    const FIELD_SUBMISSION_ACK = 'submissionAcknowledgement';
+    public const GROUP_EMAIL_TEMPLATES = 'emailTemplates';
+    public const GROUP_NEW_SUBMISSION = 'newSubmission';
+    public const GROUP_EDITORIAL_DECISIONS = 'decisions';
+    public const GROUP_EDITORS = 'editors';
+    public const GROUP_ADVANCED = 'advanced';
+    public const FIELD_SUBMISSION_ACK = 'submissionAcknowledgement';
 
     public $id = 'emailSetup';
     public $method = 'PUT';
@@ -47,10 +48,10 @@ class PKPEmailSetupForm extends FormComponent
         $this->context = $context;
 
         $this->addGroup([
-                'id' => self::GROUP_EMAIL_TEMPLATES,
-                'label' => __('manager.manageEmails'),
-                'description' => __('manager.manageEmails.description'),
-            ])
+            'id' => self::GROUP_EMAIL_TEMPLATES,
+            'label' => __('manager.manageEmails'),
+            'description' => __('manager.manageEmails.description'),
+        ])
             ->addEmailTemplatesField()
             ->addSignatureField()
             ->addGroup([
@@ -111,7 +112,7 @@ class PKPEmailSetupForm extends FormComponent
                             return [
                                 'key' => $key,
                                 'description' => $description,
-                                'value' => '{$' . $key .'}'
+                                'value' => '{$' . $key . '}'
                             ];
                         }
                     )

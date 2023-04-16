@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OrderItemsFeature
+ *
  * @ingroup controllers_grid_feature
  *
  * @brief Base class for grid widgets ordering functionality.

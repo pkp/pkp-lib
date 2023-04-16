@@ -12,6 +12,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ProfileTabHandler
+ *
  * @ingroup controllers_tab_user
  *
  * @brief Handle requests for profile tab operations.

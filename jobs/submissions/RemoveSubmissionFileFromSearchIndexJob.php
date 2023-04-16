@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RemoveSubmissionFileFromSearchIndexJob
+ *
  * @ingroup jobs
  *
  * @brief Class to handle the Submission File deletion as a Job
@@ -18,8 +19,8 @@ declare(strict_types=1);
 namespace PKP\jobs\submissions;
 
 use APP\core\Application;
-use PKP\search\SubmissionSearch;
 use PKP\jobs\BaseJob;
+use PKP\search\SubmissionSearch;
 
 class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
 {
@@ -44,7 +45,7 @@ class RemoveSubmissionFileFromSearchIndexJob extends BaseJob
     {
         parent::__construct();
 
-        $this->submissionId     = $submissionId;
+        $this->submissionId = $submissionId;
         $this->submissionFileId = $submissionFileId;
     }
 

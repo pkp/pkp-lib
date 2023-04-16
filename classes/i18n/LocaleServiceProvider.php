@@ -15,6 +15,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LocaleServiceProvider
+ *
  * @ingroup i18n
  *
  * @brief Service provider for the i18n features

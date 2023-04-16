@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionFileStageRequiredPolicy
+ *
  * @ingroup security_authorization_internal
  *
  * @brief Submission file policy to ensure that we have a file at a required stage.

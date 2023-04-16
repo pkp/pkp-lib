@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class FormValidatorInSet
+ *
  * @ingroup form_validation
  *
  * @brief Form validation check that checks if value is within a certain set.

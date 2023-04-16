@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ManageProofFilesGridHandler
+ *
  * @ingroup controllers_grid_files_proof
  *
  * @brief Handle the editor's proof files selection grid (selects which files to include)

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UserGridHandler
+ *
  * @ingroup controllers_grid_settings_user
  *
  * @brief Handle user grid requests.
@@ -319,7 +320,7 @@ class UserGridHandler extends GridHandler
 
         $user = $request->getUser();
         $administrationLevel = null;
-        
+
         if ($userId !== null && ($administrationLevel = Validation::getAdministrationLevel($userId, $user->getId(), $request->getContext()->getId())) === Validation::ADMINISTRATION_PROHIBITED) {
             // We don't have administrative rights over this user.
             return new JSONMessage(false, __('grid.user.cannotAdminister'));
@@ -331,7 +332,7 @@ class UserGridHandler extends GridHandler
         $administrationLevel === Validation::ADMINISTRATION_PARTIAL
             ? $userForm->applyUserGroupUpdateOnly()
             : $userForm->attachValidationChecks($request);
-        
+
         $userForm->initData();
 
         return new JSONMessage(true, $userForm->display($request));
@@ -376,7 +377,6 @@ class UserGridHandler extends GridHandler
                 $userRoleForm->initData();
                 return new JSONMessage(true, $userRoleForm->display($request));
             } else {
-
                 // Successful edit of an existing user.
                 $notificationManager = new NotificationManager();
                 $user = $request->getUser();

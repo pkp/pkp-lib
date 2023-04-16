@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormElementForm
+ *
  * @ingroup controllers_grid_settings_reviewForms_form
  *
  * @see ReviewFormElement

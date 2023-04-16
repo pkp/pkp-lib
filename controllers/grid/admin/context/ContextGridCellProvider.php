@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContextGridCellProvider
+ *
  * @ingroup controllers_grid_admin_context
  *
  * @brief Subclass for a context grid column's cell provider

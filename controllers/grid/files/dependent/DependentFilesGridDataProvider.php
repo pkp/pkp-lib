@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DependentFilesGridDataProvider
+ *
  * @ingroup controllers_grid_files_dependent
  *
  * @brief Provide access to dependent file data for grids.

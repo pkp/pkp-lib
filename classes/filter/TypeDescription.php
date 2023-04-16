@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TypeDescription
+ *
  * @ingroup filter
  *
  * @brief Abstract base class for filter input/output type descriptions.

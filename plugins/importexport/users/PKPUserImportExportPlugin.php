@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPUserImportExportPlugin
+ *
  * @ingroup plugins_importexport_users
  *
  * @brief User XML import/export plugin

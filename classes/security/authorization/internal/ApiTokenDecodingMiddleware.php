@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ApiTokenDecodingMiddleware
+ *
  * @ingroup security_authorization
  *
  * @brief Slim middleware which decodes and validates JSON Web Tokens

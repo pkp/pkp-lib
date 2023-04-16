@@ -11,6 +11,7 @@
  *
  * @see PKPPageRouter
  * @see PKPComponentRouter
+ *
  * @ingroup core
  *
  * @brief Basic router class that has functionality common to all routers.

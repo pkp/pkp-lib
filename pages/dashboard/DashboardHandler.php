@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DashboardHandler
+ *
  * @ingroup pages_dashboard
  *
  * @brief Handle requests for user's dashboard.
@@ -135,7 +136,6 @@ class DashboardHandler extends Handler
         $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
 
         if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {
-
             // Unassigned
             $unassignedListPanel = new \APP\components\listPanels\SubmissionsListPanel(
                 SUBMISSIONS_LIST_UNASSIGNED,

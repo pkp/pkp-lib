@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class installEmailTemplate
+ *
  * @ingroup tools
  *
  * @brief CLI tool to install email templates from PO files into the database.

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Unsubscribe
+ *
  * @ingroup mail_traits
  *
  * @brief trait to embed footer with unsubscribe link to notification emails
@@ -16,12 +17,12 @@
 namespace PKP\mail\traits;
 
 use APP\core\Application;
+use APP\mail\variables\ContextEmailVariable;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
+use Exception;
 use PKP\mail\Mailable;
 use PKP\mail\variables\ContextEmailVariable as PKPContextEmailVariable;
-use APP\mail\variables\ContextEmailVariable;
-use Exception;
 
 trait Unsubscribe
 {
@@ -38,8 +39,8 @@ trait Unsubscribe
      */
     protected static array $requiredVariables = [PKPContextEmailVariable::class];
 
-    abstract function addData(array $data): Mailable;
-    abstract function getVariables(): array;
+    abstract public function addData(array $data): Mailable;
+    abstract public function getVariables(): array;
 
     /**
      * Use this public method to set footer for this email
@@ -51,17 +52,22 @@ trait Unsubscribe
         if (!$this->hasRequiredVariables()) {
             throw new Exception(
                 'Mailable should include the following template variables: ' .
-                implode(",", static::getRequiredVariables()));
+                implode(',', static::getRequiredVariables())
+            );
         }
         return $this;
     }
 
     /**
      * Setup footer with unsubscribe link if notification is deliberately set with self::allowUnsubscribe()
+     *
+     * @param null|mixed $localeKey
      */
     protected function setupUnsubscribeFooter(string $locale, $context, $localeKey = null): void
     {
-        if (!isset($this->notification)) return;
+        if (!isset($this->notification)) {
+            return;
+        }
 
         $this->footer = $this->renameContextVariables($this->setFooterText($locale, $localeKey));
 

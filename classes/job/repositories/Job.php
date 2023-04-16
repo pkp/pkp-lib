@@ -16,13 +16,11 @@ declare(strict_types=1);
 
 namespace PKP\job\repositories;
 
-use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
+use PKP\job\models\Job as PKPJobModel;
 use PKP\job\resources\CLIJobResource;
 use PKP\job\resources\HttpJobResource;
-use PKP\job\repositories\BaseRepository;
-use PKP\job\models\Job as PKPJobModel;
 
 class Job extends BaseRepository
 {

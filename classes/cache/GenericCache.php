@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class generic_cache_miss
+ *
  * @ingroup cache
  *
  * @brief Provides implementation-independent caching. Although this class is intended

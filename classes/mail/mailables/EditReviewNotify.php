@@ -44,8 +44,7 @@ class EditReviewNotify extends Mailable
         Context $context,
         Submission $submission,
         ReviewAssignment $reviewAssignment
-    )
-    {
+    ) {
         parent::__construct(func_get_args());
         $this->context = $context;
     }

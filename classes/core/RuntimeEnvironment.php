@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class RuntimeEnvironment
+ *
  * @ingroup core
  *
  * @brief Class that describes a runtime environment.

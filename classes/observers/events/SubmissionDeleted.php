@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionDeleted
+ *
  * @ingroup core
  *
  * @brief Event fired when submission's deleted

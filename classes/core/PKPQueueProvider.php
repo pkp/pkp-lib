@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPQueueProvider
+ *
  * @ingroup core
  *
  * @brief Registers Events Service Provider and boots data on events and their listeners
@@ -18,8 +19,6 @@ declare(strict_types=1);
 namespace PKP\core;
 
 use APP\core\Application;
-use PKP\core\PKPContainer;
-use PKP\core\PKPQueueDatabaseConnector;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Queue\Events\JobFailed;
@@ -113,10 +112,9 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
     public function boot()
     {
         if (Config::getVar('queues', 'job_runner', true)) {
-            register_shutdown_function(function() { 
-                
+            register_shutdown_function(function () {
                 // As this runs at the current request's end but the 'register_shutdown_function' registered
-                // at the service provider's registration time at application initial bootstrapping, 
+                // at the service provider's registration time at application initial bootstrapping,
                 // need to check the maintenance status within the 'register_shutdown_function'
                 if (Application::get()->isUnderMaintenance()) {
                     return;
@@ -130,7 +128,7 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                     ->processJobs();
             });
         }
-        
+
         Queue::failing(function (JobFailed $event) {
             error_log($event->exception->__toString());
 
@@ -139,11 +137,11 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
                 $event->job->getQueue(),
                 $event->job->getRawBody(),
                 json_encode([
-                    'message'   => $event->exception->getMessage(),
-                    'code'      => $event->exception->getCode(),
-                    'file'      => $event->exception->getFile(),
-                    'line'      => $event->exception->getLine(),
-                    'trace'     => $event->exception->getTrace(),
+                    'message' => $event->exception->getMessage(),
+                    'code' => $event->exception->getCode(),
+                    'file' => $event->exception->getFile(),
+                    'line' => $event->exception->getLine(),
+                    'trace' => $event->exception->getTrace(),
                 ])
             );
         });
@@ -153,7 +151,6 @@ class PKPQueueProvider extends IlluminateQueueServiceProvider
      * Register the database queue connector.
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
-     * @return void
      */
     protected function registerDatabaseConnector($manager)
     {

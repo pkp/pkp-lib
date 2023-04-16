@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ResendRequestReviewerForm
+ *
  * @ingroup controllers_grid_users_reviewer_form
  *
  * @brief Allow the editor to resend request to reconsider a declined review assignment invitation
@@ -24,27 +25,23 @@ use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\log\SubmissionLog;
 use PKP\mail\Mailable;
-use PKP\notification\PKPNotification;
-use PKP\submission\reviewRound\ReviewRound;
-use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\mail\mailables\ReviewerResendRequest;
-
+use PKP\notification\PKPNotification;
+use PKP\submission\reviewAssignment\ReviewAssignment;
+use PKP\submission\reviewRound\ReviewRound;
 
 class ResendRequestReviewerForm extends ReviewerNotifyActionForm
 {
     /**
      * Constructor
      *
-     * @param ReviewAssignment $reviewAssignment
-     * @param ReviewRound $reviewRound
-     * @param Submission $submission
      */
     public function __construct(ReviewAssignment $reviewAssignment, ReviewRound $reviewRound, Submission $submission)
     {
         parent::__construct(
-            $reviewAssignment, 
-            $reviewRound, 
-            $submission, 
+            $reviewAssignment,
+            $reviewRound,
+            $submission,
             'controllers/grid/users/reviewer/form/resendRequestReviewerForm.tpl'
         );
     }
@@ -85,7 +82,7 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             // $reviewAssignment->setCancelled(false);
             $reviewAssignment->setDeclined(false);
             $reviewAssignment->setRequestResent(true);
-            $reviewAssignment->setDateConfirmed(NULL);
+            $reviewAssignment->setDateConfirmed(null);
             $reviewAssignmentDao->updateObject($reviewAssignment);
 
             // Stamp the modification date
@@ -96,23 +93,23 @@ class ResendRequestReviewerForm extends ReviewerNotifyActionForm
             $currentUser = $request->getUser();
             $notificationMgr = new NotificationManager();
             $notificationMgr->createTrivialNotification(
-                $currentUser->getId(), 
-                PKPNotification::NOTIFICATION_TYPE_SUCCESS, 
+                $currentUser->getId(),
+                PKPNotification::NOTIFICATION_TYPE_SUCCESS,
                 ['contents' => __('notification.reviewerResendRequest')]
             );
 
             // Add log
             SubmissionLog::logEvent(
-                $request, 
-                $submission, 
-                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN, 
-                'log.review.reviewerResendRequest', 
+                $request,
+                $submission,
+                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_ASSIGN,
+                'log.review.reviewerResendRequest',
                 [
-                    'reviewAssignmentId'    => $reviewAssignment->getId(), 
-                    'reviewerName'          => $reviewer->getFullName(), 
-                    'submissionId'          => $submission->getId(), 
-                    'stageId'               => $reviewAssignment->getStageId(), 
-                    'round'                 => $reviewAssignment->getRound(),
+                    'reviewAssignmentId' => $reviewAssignment->getId(),
+                    'reviewerName' => $reviewer->getFullName(),
+                    'submissionId' => $submission->getId(),
+                    'stageId' => $reviewAssignment->getStageId(),
+                    'round' => $reviewAssignment->getRound(),
                 ]
             );
 

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NullGridCellProvider
+ *
  * @ingroup controllers_grid
  *
  * @brief Class to return null when render method is called by a grid handler.

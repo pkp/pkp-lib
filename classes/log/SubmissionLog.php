@@ -13,6 +13,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionLog
+ *
  * @ingroup log
  *
  * @brief Static class for adding / accessing PKP log entries.

@@ -1,8 +1,341 @@
 # Osman Durmaz <osmandurmaz@hotmail.de>, 2023.
+# Gadirova <leylakb@yahoo.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-17 11:10+0000\n"
+"Last-Translator: Gadirova <leylakb@yahoo.com>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "XML doğrulama xətası baş verdi və XML ixrac edilə bilmədi."
+
+msgid "api.files.400.config"
+msgstr ""
+"Server konfiqurasiya xətası səbəbindən faylı yükləmək mümkün olmadı. Zəhmət "
+"olmasa sistem administratoru ilə əlaqə saxlayın."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Bu nəşri silməkdən əvvəl onu dərcdən çıxarmalısınız."
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "E-poçt üçün mövzu və mətni təqdim etməlisiniz."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Yaradılma vaxtını dəyişmək mümkün deyil."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "DOI-ləri yaratmaq üçün DOI prefiksi tələb olunur."
+
+msgid "api.400.paramNotSupported"
+msgstr "{$param} parametri dəstəklənmir."
+
+msgid "api.400.propReadOnly"
+msgstr "{$prop} xüsusiyyətinə dəyişiklik etmək mümkün deyil."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"API işarəsini doğrulamaq mümkün olmadı. Bu, API işarəsindəki xətanı və ya "
+"API işarəsinin artıq etibarlı olmadığını göstərə bilər."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Aşağıdakı xətaya görə apiToken şifrəsini açmaq mümkün olmadı: {$error}"
+
+msgid "api.403.unauthorized"
+msgstr "Tələb olunan resursa daxil olmaq səlahiyyətiniz yoxdur."
+
+msgid "api.404.resourceNotFound"
+msgstr "Tələb olunan resurs tapılmadı."
+
+msgid "api.404.endpointNotFound"
+msgstr "Sorğu edilən URL tanınmadı."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"API nişanı bu sayta daxil olmaq üçün istifadə edilə bilməz, çünki sayt "
+"administratoru gizli açarı konfiqurasiya etməyib."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "İstədiyiniz elan tapılmadı."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "İstədiyiniz təşkilat tapılmadı."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Aşağıdakı dillər dəstəklənmir: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Bu kontekstdə olmayan DOI-nin elementini redaktə edə bilməzsiniz."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Nəşr növü tanınmadı."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Bu son nöqtə bütün sayt ad məkanında mövcud deyil və verilmiş kontekst üçün "
+"tələb olunmalıdır."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Tələb etdiyiniz DOI tapılmadı."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "İstədiyiniz nəşr obyekti tapılmadı."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "İstədiyiniz məqalə tapılmadı."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Dərc olunmamış elementləri ixrac etmək/depozit etmək olmaz. Lütfən, dərc "
+"olunmamış elementlərin seçimini ləğv edin və yenidən cəhd edin."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Xəta baş verdi və DOI obyektini yaratmaq mümkün olmadı."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Bəzi elementlər uğurla depozitə qoyulmadı. Xüsusi xəta mesajları üçün fərdi "
+"elementləri yoxlayın."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Xəta baş verdi və təqdim edilən elementlərin bəziləri qeydiyyatdan keçməyib."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Sorğuya heç bir etibarlı nəşr obyekti daxil edilməyib."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "Bir və ya bir neçə etibarsız nəşr obyekti sorğuya daxil edilib."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Hazırda konfiqurasiya edilmiş plagin qeydiyyat agentliyinin plagini "
+"olmalıdır."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Bu nəşr üçün qərarı qeyd edə və ya qərar tövsiyə edə bilməzsiniz, çünki o, "
+"artıq dərc olunub."
+
+msgid "api.emails.400.missingBody"
+msgstr "Siz göndəriləcək e-poçtu daxil etməlisiniz."
+
+msgid "api.emails.400.missingSubject"
+msgstr "E-poçtun mövzusunu qeyd etməlisiniz."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Siz bu e-poçtu alacaq istifadəçilərin rollarını göstərməlisiniz."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Seçilmiş rollardan birində və ya bir neçəsində istifadəçilərə e-poçt "
+"göndərmək icazəniz yoxdur."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Bu, məlum e-poçt üçün standart e-poçt şablonu deyil."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Bu etibarlı kontekst deyil."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "İstədiyiniz e-poçt şablonu tapılmadı."
+
+msgid "api.files.400.noUpload"
+msgstr "Sorğu ilə yükləmək üçün fayl tapılmadı."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Bir və ya bir neçə faylı yükləmək mümkün olmadı."
+
+msgid "api.files.400.fileSize"
+msgstr "{$maxSize} ölçüsündən böyük fayllar yüklənə bilməz."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Dərc etmək istədiyiniz nəşr artıq dərc olunub."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Ləğv etmək istədiyiniz nəşr dərc olunmayıb."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Siz bu nəşri redaktə edə bilməzsiniz, çünki o, artıq dərc olunub."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Siz statusu birbaşa API vasitəsilə dəyişdirə bilməzsiniz. Bunun əvəzinə, /"
+"dərc et və /dərc etmə son nöqtələrindən istifadə edin."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Siz yalnız aşağıdakı fayl növlərini yükləyə bilərsiniz: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Yüklədiyiniz şəkil düzgün deyil."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"Yüklədiyiniz fayl fayl uzantısı ilə uyğun gəlmir. Bu, faylın adı uyğun "
+"olmayan tipə dəyişdirildikdə baş verə bilər, məsələn, photo.png-nin photo."
+"jpg-yə dəyişdirilməsi."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Faylları yükləmək icazəniz yoxdur."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"İstifadəçi kataloqunuzda kifayət qədər yer yoxdur. Yüklənən fayl "
+"{$fileUploadSize} KB-dır və sizdə {$dirSizeLeft} KB qalıb."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Ümumi fayllar kataloqu tapılmadı və ya fayllar orada saxlanıla bilmədi. Bu "
+"problemi həll etmək üçün administratorunuzla əlaqə saxlayın."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Tarix İİİİ-AA-GG (il-ay-gün) formatında olmalıdır."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Başlama tarixi bitmə tarixindən gec ola bilməz."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Başlama tarixi 2001-01-01 tarixindən tez ola bilməz."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Bitmə tarixi dünəndən gec ola bilməz."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Sorğunuz etibarlı deyildi. Zaman qrafiki Interval 'gün' və ya 'ay' olmalıdır."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"AssocType və assocId-ı təyin etmədən fayl assosiasiyasını dəyişə bilməzsiniz."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Sorğunuz düzgün deyil. OrderDirection (Çeşidləmə sırası) `desc` və ya `asc` ("
+"artan və ya azalan) olmalıdır."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Sorğunuz etibarlı deyildi. TimelineInterval (Zaman qrafiki intervalı) `day` "
+"və ya `month`(\"gün\" və ya \"ay\") olmalıdır."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Bu mərhələdə faylı həmyaşıd baxışı mərhələsi ilə əlaqələndirə bilməzsiniz."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Bu mərhələdən faylı müzakirə qeydinə bağlaya bilməzsiniz."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Bu mərhələdən faylı başqa yükləmə faylı ilə əlaqələndirə bilməzsiniz."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Qeyd etdiyiniz fayl mərhələsi düzgün deyil."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Bu faylı redaktə etmək üçün sorğuda ediləcək heç bir dəyişiklik tapılmadı."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr ""
+"Siz bu mərhələdən faylı həmyaşıd baxışı raundu ilə əlaqələndirə bilməzsiniz."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Rəyə göndərmək üçün faylları tələb edərkən həmyaşıd baxışı raundunu təyin "
+"etməlisiniz."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Faylın hansı mərhələdə olduğunu göstərməlisiniz."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Faylı bu fayl mərhələsinə köçürərkən siz həmyaşıd baxışı raundunun "
+"identifikatorunu (ID'si) təqdim etməlisiniz."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr ""
+"Bu həmyaşıd baxışı mərhələsi bu məqalə göndər mərhələsinin bir hissəsi deyil."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Bu fayllara giriş icazəniz yoxdur."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Bu faylları əlavə etmək və redaktə etmək icazəniz yoxdur."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Bu həmyaşıd baxışı mərhələsində fayllara daxil olmaq icazəniz yoxdur."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "Tələb olunan məlumat çatmadığı üçün sorğunuz yerinə yetirilə bilmədi."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Tələb olunan həcm, nömrə və ya il düzgün deyil."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Bu istifadəçi rolunda məqalə göndərməyə icazəniz yoxdur."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"Sorğunuz rədd edildi. Bu, girişinizin müddəti bitdiyinə görə ola bilər. "
+"Səhifəni yenidən yükləyin və yenidən cəhd edin."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Bu kontekstə təyin edilməmiş materialı silə bilməzsiniz."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Siz yalnız sizə təyin edilmiş dərc edilməmiş məqalələrə baxa bilərsiniz."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Bu materialı silmək üçün icazəniz yoxdur."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Bu materialı redaktə etmək icazəniz yoxdur."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Bu son nöqtə kontekstdə mövcud deyil. Ona saytın ad sahəsindən daxil olmaq "
+"lazımdır."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"'{$themePluginPath}' aktiv mövzusu aktiv deyil və serverdə quraşdırılmaya "
+"bilər."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "{$locale} dili dəstəklənmir."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "İstədiyiniz e-poçt tapılmadı."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "Uğursuz iş xətaların siyahısında tapılmadı."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "Uğursuz işin yenidən göndəriləcək yükü yoxdur."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Siyahıda heç bir uğursuz iş tapılmayıb."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Uğursuz işi yenidən göndərmək mümkün deyil."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Uğursuz iş uğurla yenidən göndərildi."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Etibarlı yükü olan bütün yenidən təqdim edilmiş uğursuz işlər uğurla növbəyə "
+"qoyuldu."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Uğursuz iş xətaların siyahısından uğurla silindi."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Uğursuz işi xətaların siyahısından silmək mümkün deyil."

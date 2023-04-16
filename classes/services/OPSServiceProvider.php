@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OPSServiceProvider
+ *
  * @ingroup services
  *
  * @brief Utility class to package all OPS services

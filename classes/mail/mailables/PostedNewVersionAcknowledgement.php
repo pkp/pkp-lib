@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PostedNewVersionAcknowledgement
+ *
  * @ingroup mail_mailables
  *
  * @brief Email sent to submitting author when their preprint is posted.

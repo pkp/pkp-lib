@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SectionsHandler
+ *
  * @ingroup pages_preprints
  *
  * @brief Handle requests for sections functions.
@@ -44,6 +45,7 @@ class SectionsHandler extends Handler
      * View a section
      *
      * @param array $args [
+     *
      *		@option string Section ID
      *		@option string page number
      * ]

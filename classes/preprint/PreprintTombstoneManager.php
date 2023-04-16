@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintTombstoneManager
+ *
  * @ingroup preprint
  *
  * @brief Class defining basic operations for preprint tombstones.

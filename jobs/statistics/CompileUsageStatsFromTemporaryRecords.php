@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CompileUsageStatsFromTemporaryRecords
+ *
  * @ingroup jobs
  *
  * @brief Class to handle the usage metrics data loading as a Job

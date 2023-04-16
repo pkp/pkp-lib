@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OpsServerMustPublishPolicy
+ *
  * @ingroup security_authorization
  *
  * @brief Access policy to limit access to servers that do not publish online.

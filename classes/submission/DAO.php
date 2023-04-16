@@ -6,14 +6,13 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class submission
+ * @class DAO
  *
  * @brief Read and write submissions to the database.
  */
 
 namespace APP\submission;
 
-use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\Generator;
 use PKP\identity\Identity;

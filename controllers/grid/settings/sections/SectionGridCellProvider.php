@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SectionGridCellProvider
+ *
  * @ingroup controllers_grid_settings_sections
  *
 * @brief Grid cell provider for section grid
@@ -14,10 +15,10 @@
 
 namespace APP\controllers\grid\settings\sections;
 
-use PKP\linkAction\request\RemoteActionConfirmationModal;
 use PKP\controllers\grid\GridCellProvider;
 use PKP\controllers\grid\GridHandler;
 use PKP\linkAction\LinkAction;
+use PKP\linkAction\request\RemoteActionConfirmationModal;
 
 class SectionGridCellProvider extends GridCellProvider
 {

@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ReviewFormsMigration
+ *
  * @brief Describe database table structures. This is a copy of the installation ReviewFormsMigration with the foreign keys removed, which
  *        roughly corresponds to the version of the migration that shipped with 3.3.0. This is because foreign keys are added later in the
  *        I6093 migration and adding them here (via the installation migration) would attempt to add them twice.

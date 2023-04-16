@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class I6782_OrphanedMetrics
+ *
  * @briefMigrate metrics data from objects that do not exist any more into a temporary table.
  */
 

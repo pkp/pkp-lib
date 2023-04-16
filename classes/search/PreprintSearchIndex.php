@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintSearchIndex
+ *
  * @ingroup search
  *
  * @brief Class to maintain the preprint search index.

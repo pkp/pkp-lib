@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintHandler
+ *
  * @ingroup pages_preprint
  *
  * @brief Handle requests for preprint functions.
@@ -301,7 +302,6 @@ class PreprintHandler extends Handler
                 return;
             }
         } else {
-
             // Ask robots not to index outdated versions
             if ($publication->getId() !== $preprint->getCurrentPublication()->getId()) {
                 $templateMgr->addHeader('noindex', '<meta name="robots" content="noindex">');

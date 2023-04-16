@@ -7,7 +7,8 @@
  * Copyright (c) 2000-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class SubmissionsMigration
+ * @class I6759_RenameVariables
+ *
  * @brief Describe database table structures.
  */
 
@@ -30,7 +31,6 @@ class I6759_RenameVariables extends \PKP\migration\Migration
      */
     public function up(): void
     {
-
         // pkp/pkp-lib#6759 rename tables
         $this->_updateTablesWithReference();
 
@@ -116,7 +116,6 @@ class I6759_RenameVariables extends \PKP\migration\Migration
         $contextDao = Application::getContextDAO();
         $contexts = $contextDao->getAll(true)->toArray();
         foreach ($contexts as $context) {
-
             // Move library files folder to journals folder
             $oldFolder = $filesDir . '/contexts/' . $context->getId() . '/library/';
             if (is_dir($oldFolder)) {

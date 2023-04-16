@@ -7,10 +7,12 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class OPSNotification
+ * @class Notification
+ *
  * @ingroup notification
  *
  * @see NotificationDAO
+ *
  * @brief OPS subclass for Notifications (defines OPS-specific types).
  */
 

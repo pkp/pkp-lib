@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintGalleyGridCellProvider
+ *
  * @ingroup controllers_grid_preprintGalleys
  *
  * @brief Base class for a cell provider for preprint galleys.

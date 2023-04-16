@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class Dc11Plugin
+ *
  * @brief Dublic Core version 1.1 metadata plugin
  */
 

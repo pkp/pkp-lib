@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class UsageEvent
+ *
  * @ingroup observers_events
  *
  * @brief Implements the base UsageEvent class.

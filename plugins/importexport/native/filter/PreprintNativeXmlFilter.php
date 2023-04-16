@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintNativeXmlFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Class that converts a Preprint to a Native XML document.

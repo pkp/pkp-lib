@@ -66,7 +66,7 @@ class Repository extends BaseRepository
 
             event(
                 new SubmissionFileDeleted(
-                    (int)$submissionFile->getData('submissionId'), 
+                    (int)$submissionFile->getData('submissionId'),
                     (int)$submissionFile->getId()
                 )
             );

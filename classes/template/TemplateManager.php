@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class TemplateManager
+ *
  * @ingroup template
  *
  * @brief Class for accessing the underlying template engine.

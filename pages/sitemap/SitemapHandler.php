@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SitemapHandler
+ *
  * @ingroup pages_sitemap
  *
  * @brief Produce a sitemap in XML format for submitting to search engines.
@@ -15,10 +16,10 @@
 
 namespace APP\pages\sitemap;
 
-use PKP\plugins\Hook;
 use APP\facades\Repo;
 use APP\submission\Submission;
 use PKP\pages\sitemap\PKPSitemapHandler;
+use PKP\plugins\Hook;
 
 class SitemapHandler extends PKPSitemapHandler
 {
@@ -37,10 +38,10 @@ class SitemapHandler extends PKPSitemapHandler
 
         // Preprints
         $submissionIds = Repo::submission()
-                ->getCollector()
-                ->filterByContextIds([$server->getId()])
-                ->filterByStatus([Submission::STATUS_PUBLISHED])
-                ->getIds();
+            ->getCollector()
+            ->filterByContextIds([$server->getId()])
+            ->filterByStatus([Submission::STATUS_PUBLISHED])
+            ->getIds();
 
         foreach ($submissionIds as $submissionId) {
             $root->appendChild($this->_createUrlTree($doc, $request->url($server->getPath(), 'preprint', 'view', [$submissionId])));

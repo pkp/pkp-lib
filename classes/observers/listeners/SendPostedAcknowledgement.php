@@ -10,6 +10,7 @@ declare(strict_types=1);
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SendPostedAcknowledgement
+ *
  * @ingroup core
  *
  * @brief Send an email to the authors when a preprint is posted
@@ -40,7 +41,6 @@ class SendPostedAcknowledgement
 
     public function handle(PublicationPublished $event)
     {
-
         if (!$event->context->getData('postedAcknowledgement')) {
             return;
         }

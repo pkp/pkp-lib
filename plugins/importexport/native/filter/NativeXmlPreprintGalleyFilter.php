@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NativeXmlPreprintGalleyFilter
+ *
  * @ingroup plugins_importexport_native
  *
  * @brief Class that converts a Native XML document to a set of publication formats.

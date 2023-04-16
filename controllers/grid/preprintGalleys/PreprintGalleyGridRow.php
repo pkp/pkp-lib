@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintGalleyGridRow
+ *
  * @ingroup controllers_grid_preprintGalleys
  *
  * @brief Representation of an preprint galley grid row.

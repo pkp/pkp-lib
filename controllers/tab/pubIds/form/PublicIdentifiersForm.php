@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PublicIdentifiersForm
+ *
  * @ingroup controllers_tab_pubIds_form
  *
  * @brief Displays a pub ids form.
@@ -15,8 +16,8 @@
 
 namespace APP\controllers\tab\pubIds\form;
 
-use PKP\controllers\tab\pubIds\form\PKPPublicIdentifiersForm;
 use APP\template\TemplateManager;
+use PKP\controllers\tab\pubIds\form\PKPPublicIdentifiersForm;
 use PKP\galley\Galley;
 
 class PublicIdentifiersForm extends PKPPublicIdentifiersForm

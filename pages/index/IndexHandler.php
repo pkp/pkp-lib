@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class IndexHandler
+ *
  * @ingroup pages_index
  *
  * @brief Handle site index requests.
@@ -59,7 +60,6 @@ class IndexHandler extends PKPIndexHandler
         $router = $request->getRouter();
         $templateMgr = TemplateManager::getManager($request);
         if ($server) {
-
             // OPS: sections
             $sections = Repo::section()->getCollector()->filterByContextIds([$server->getId()])->getMany();
 

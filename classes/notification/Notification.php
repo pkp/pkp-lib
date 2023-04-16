@@ -8,9 +8,11 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OPSNotification
+ *
  * @ingroup notification
  *
  * @see NotificationDAO
+ *
  * @brief OPS subclass for Notifications (defines OPS-specific types).
  */
 

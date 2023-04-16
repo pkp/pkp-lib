@@ -13,7 +13,6 @@
 
 namespace APP\submission;
 
-use PKP\db\DAORegistry;
 use PKP\db\DAOResultFactory;
 use PKP\db\Generator;
 use PKP\identity\Identity;

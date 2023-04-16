@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class DoisHandler
+ *
  * @ingroup pages_doi
  *
  * @brief Handle requests for DOI management functions.
@@ -15,8 +16,8 @@
 
 namespace APP\pages\dois;
 
-use PKP\core\PKPApplication;
 use APP\components\listPanels\DoiListPanel;
+use PKP\core\PKPApplication;
 use PKP\pages\dois\PKPDoisHandler;
 
 class DoisHandler extends PKPDoisHandler

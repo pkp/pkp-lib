@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class SubmissionHandler
+ *
  * @ingroup api_v1_submission
  *
  * @brief Handle API requests for submission operations.
@@ -41,7 +42,6 @@ class SubmissionHandler extends \PKP\API\v1\submissions\PKPSubmissionHandler
      */
     public function setupEndpoints()
     {
-
         // Add endpoints
         $this->_endpoints['PUT'][] = [
             'pattern' => $this->getEndpointPattern() . '/{submissionId:\d+}/publications/{publicationId:\d+}/relate',

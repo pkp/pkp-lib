@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PreprintGalleyForm
+ *
  * @ingroup controllers_grid_preprintGalleys_form
  *
  * @see Galley
@@ -111,7 +112,6 @@ class PreprintGalleyForm extends Form
      */
     public function validate($callHooks = true)
     {
-
         /// Validate the urlPath
         if ($this->getData('urlPath')) {
             if (ctype_digit((string) $this->getData('urlPath'))) {
@@ -175,7 +175,6 @@ class PreprintGalleyForm extends Form
         $galley = $this->_preprintGalley;
 
         if ($galley) {
-
             // Update galley in the db
             $newData = [
                 'label' => $this->getData('label'),

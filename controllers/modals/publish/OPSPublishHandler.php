@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class OPSPublishHandler
+ *
  * @ingroup controllers_modals_publish
  *
  * @brief A handler to load final publishing confirmation checks

@@ -1,8 +1,197 @@
 # Gadirova <leylakb@yahoo.com>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-17 11:10+0000\n"
+"Last-Translator: Gadirova <leylakb@yahoo.com>\n"
+"Language-Team: Azerbaijani <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"admin/az/>\n"
 "Language: az\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "admin.systemInfo.settingName"
+msgstr "Adı təyin edin"
+
+msgid "admin.systemInfo.settingValue"
+msgstr "Dəyəri təyin edin"
+
+msgid "admin.adminFunctions"
+msgstr "İnzibati funksiyalar"
+
+msgid "admin.deleteCache"
+msgstr "Keşləri silin"
+
+msgid "admin.deleteCache.description"
+msgstr ""
+"Keş fayllarını sistemdən silir. Bu, yalnız inkişaf üçün ustifadə edilən "
+"serverlərində edilməlidir."
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"Konfiqurasiya faylınız uğurla yeniləndi. Nəzərə alın ki, saytınız düzgün "
+"işləməyi dayandırarsa, birbaşa <tt>config.inc.php</tt> redaktə edərək "
+"konfiqurasiyanızı əl ilə düzəltməli ola bilərsiniz."
+
+msgid "admin.confirmClearTemplateCache"
+msgstr "Tərtib edilmiş şablonların keşini təmizləmək istədiyinizə əminsiniz?"
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"Bütün istifadəçilərin sessiyalarının müddətini başa vurmaq istədiyinizə "
+"əminsiniz? Hazırda sistemə daxil olan bütün istifadəçilər yenidən daxil "
+"olmağa məcbur olacaqlar (siz də daxil olmaqla)."
+
+msgid "admin.contentsOfConfigFile"
+msgstr "Konfiqurasiya faylının məzmunu"
+
+msgid "admin.contexts.confirmDelete"
+msgstr ""
+"{$contextName} və onun bütün məzmununu birdəfəlik silmək istədiyinizə "
+"əminsiniz?"
+
+msgid "admin.currentVersion"
+msgstr "Cari versiya"
+
+msgid "admin.dateInstalled"
+msgstr "Quraşdırılma tarixi"
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"Yenilənmiş konfiqurasiyanın məzmunu aşağıda göstərilmişdir. Konfiqurasiyaya "
+"dəyişiklikləri tətbiq etmək üçün siz uyğun mətn redaktorunda <tt>config.inc."
+"php</tt> açmalı və onun məzmununu aşağıdakı mətn sahəsinin məzmunu ilə əvəz "
+"etməlisiniz."
+
+msgid "admin.displayNewSystemConfig"
+msgstr "Yeni Konfiqurasiyanı göstərin"
+
+msgid "admin.expireSessions"
+msgstr "İstifadəçi sessiyalarını dayandırın"
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"Siz də daxil olmaqla, bütün istifadəçilər proqramdan dərhal çıxacaqlar və "
+"yenidən daxil olmaq məcburiyyətində qalacaqsınız."
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"Bu dili yenidən endirmək istədiyinizə əminsiniz? Bu, e-poçt şablonlarına "
+"edilən dəyişikliklər kimi həmin dillə əlaqəli bütün istifadəçi məlumatlarını "
+"siləcək."
+
+msgid "admin.languages.installedLocales"
+msgstr "Quraşdırılmış Dillər"
+
+msgid "admin.languages.installLanguages"
+msgstr "Dilləri idarə edin"
+
+msgid "admin.languages.installLocale"
+msgstr "Dili quraşdırın"
+
+msgid "admin.languages.installLocales"
+msgstr "Quraşdırın"
+
+msgid "admin.languages.installNewLocales"
+msgstr "Yeni Dilləri quraşdırın"
+
+msgid "admin.languages.languageSettings"
+msgstr "Dil Parametrləri"
+
+msgid "admin.languages.noLocalesAvailable"
+msgstr "Quraşdırma üçün əlavə dil mövcud deyil."
+
+msgid "admin.languages.reload"
+msgstr "Dili yenidən yükləyin"
+
+msgid "admin.languages.uninstall"
+msgstr "Dili silin"
+
+msgid "admin.phpInfo"
+msgstr "Genişləndirilmiş PHP Məlumatı"
+
+msgid "admin.scheduledTask"
+msgstr "Planlaşdırılmış tapşırıq"
+
+msgid "admin.scheduledTask.startTime"
+msgstr "Tapşırıq prosesi başladı."
+
+msgid "admin.scheduledTask.stopTime"
+msgstr "Tapşırıq prosesi dayandırıldı."
+
+msgid "admin.scheduledTask.noLog"
+msgstr "Tapşırıq hadisə jurnalı üçün qeydlər yaratmadı."
+
+msgid "admin.scheduledTask.depositDois"
+msgstr "DOI-ni konfiqurasiya edilmiş qeydiyyat agentliyinə depozit edin"
+
+msgid "admin.scheduledTask.downloadLog"
+msgstr ""
+"{$softwareName} quraşdırmanız bu tapşırığı avtomatik yerinə yetirdi və "
+"tamamladı və hadisə jurnalının (log) faylını buradan endirə bilərsiniz: "
+"{$url}"
+
+msgid "admin.scheduledTask.editorialReminder"
+msgstr ""
+"Redaktorlara onların gözlənilən tapşırıqlarını xatırladan e-poçt göndərin"
+
+msgid "admin.scheduledTask.editorialReminder.logStart"
+msgstr ""
+"{$contextId} kontekstində xatırlatmaq üçün redaktorların müəyyən edilməsi"
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"{$contextId} kontekstində {$userIds} istifadəçilərinə redaksiya işi haqqında "
+"xatırlatma ilə {$count} e-məktub göndərildi"
+
+msgid "admin.scheduledTask.confirmClearLogs"
+msgstr ""
+"Planlaşdırılmış tapşırıqların icrası haqqında məlumatı ehtiva edən bütün "
+"hadisə qeydlərini silmək istədiyinizə əminsiniz?"
+
+msgid "admin.scheduledTask.clearLogs.delete"
+msgstr "Tapşırıq Qeydlərini silin"
+
+msgid "admin.scheduledTask.reviewReminder"
+msgstr "Rəyçiyə Xatırlatma"
+
+msgid "admin.scheduledTask.statisticsReport"
+msgstr "Redaksiya Hesabatına dair Bildiriş"
+
+msgid "admin.scheduledTask.subscriptionExpiryReminder"
+msgstr "Abunəlik müddətinin bitməsi barədə xatırlatma"
+
+msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
+msgstr ""
+"Müəyyən bir müddət ərzində autentifikasiya olunmamış istifadəçiləri silin"
+
+msgid "admin.scheduledTask.processQueueJobs"
+msgstr "Növbədə gözləyən işlərin emalı"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "DB-IP city lite məlumat bazasını yeniləməsi"
+
+msgid "admin.languages.cantDisable"
+msgstr ""
+"Bu dil saytın əsas dilidir. Başqa əsas dil seçənə qədər onu söndürə "
+"bilməzsiniz."
+
+msgid "admin.languages.availableLocales"
+msgstr "Mövcud Dillər"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"Saytın əsas dilini dəyişmək istədiyinizə əminsiniz? Saytın əsas dilində qeyd "
+"edilməli olan istifadəçi adları, bu cür adlar saytın yeni əsas dilində "
+"mövcud olmadıqda, cari əsas dildən yenisinə kopyalanacaq."
+
+msgid "admin.scheduledTask.clearLogs.description"
+msgstr "Bütün işləyən planlaşdırılan tapşırıq proseslərinin qeydlərini silin."
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "Nəşr üçün nəzərdə tutulmuş materialları dərc edin"
+
+msgid "admin.scheduledTask.removeFailedJobs"
+msgstr "Çox köhnə uğursuz işləri xətalar siyahısından çıxarın."

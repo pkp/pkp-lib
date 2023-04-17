@@ -1,7 +1,7 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-17 14:06+0000\n"
+"PO-Revision-Date: 2023-04-17 14:08+0000\n"
 "Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
@@ -93,3 +93,33 @@ msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
 "Itens não publicados não podem ser exportados/depositados. Desmarque os "
 "itens não publicados e tente novamente."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Alguns itens não foram depositados. Verifique as mensagens de erro "
+"específicas para cada item individual."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "Nenhum objeto de publicação válido foi incluído na solicitação."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Não pode registar ou recomendar uma decisão para esta submissão porque esta "
+"já foi publicada."
+
+msgid "api.emails.400.missingBody"
+msgstr "Deve incluir um e-mail para ser enviado."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Deve inserir um assunto para o e-mail."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr "Deve indicar os papéis de utilizador que devem receber este e-mail."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr ""
+"Um ou mais objetos de publicação inválidos foram incluídos na solicitação."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"O plugin atualmente configurado deve ser um plugin de uma agência de registo."

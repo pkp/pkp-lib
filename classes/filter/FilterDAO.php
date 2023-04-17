@@ -296,7 +296,7 @@ class FilterDAO extends \PKP\db\DAO
         }
 
         // Build the object-specific adapter cache.
-        $objectFilterCacheKey = md5($filterCacheKey . (is_object($data) ? get_class($data) : "'${data}'") . ($dataIsInput ? 'in' : 'out'));
+        $objectFilterCacheKey = md5($filterCacheKey . (is_object($data) ? get_class($data) : "'{$data}'") . ($dataIsInput ? 'in' : 'out'));
         if (!isset($objectFilterCache[$objectFilterCacheKey])) {
             $objectFilterCache[$objectFilterCacheKey] = [];
             foreach ($filterCache[$filterCacheKey] as $filterCandidateId => $filterCandidate) { /** @var PersistableFilter $filterCandidate */

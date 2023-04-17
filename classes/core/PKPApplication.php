@@ -563,13 +563,17 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
      * Get the Creative Commons license badge associated with a given
      * license URL.
      *
-     * @param string $ccLicenseURL URL to creative commons license
-     * @param string $locale Optional locale to return badge in
+     * @param ?string $ccLicenseURL URL to creative commons license
+     * @param ?string $locale Optional locale to return badge in
      *
-     * @return string HTML code for CC license
+     * @return ?string HTML code for CC license
      */
     public function getCCLicenseBadge($ccLicenseURL, $locale = null)
     {
+        if (!$ccLicenseURL) {
+            return null;
+        }
+
         $licenseKeyMap = [
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-nc-nd/4.0[/]?|' => 'submission.license.cc.by-nc-nd4.footer',
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-nc/4.0[/]?|' => 'submission.license.cc.by-nc4.footer',
@@ -584,10 +588,8 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             '|http[s]?://(www\.)?creativecommons.org/licenses/by/3.0[/]?|' => 'submission.license.cc.by3.footer',
             '|http[s]?://(www\.)?creativecommons.org/licenses/by-sa/3.0[/]?|' => 'submission.license.cc.by-sa3.footer'
         ];
-        if ($locale === null) {
-            $locale = Locale::getLocale();
-        }
 
+        $locale ??= Locale::getLocale();
         foreach ($licenseKeyMap as $pattern => $key) {
             if (preg_match($pattern, $ccLicenseURL)) {
                 return __($key, [], $locale);

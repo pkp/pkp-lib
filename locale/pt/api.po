@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-04-18 13:49+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -141,7 +141,7 @@ msgstr "O modelo de e-mail solicitado não foi encontrado."
 
 msgid "api.files.400.noUpload"
 msgstr ""
-"Nenhum ficheiro a ser carregado no sistema foi encontrado na solicitação."
+"Nenhum ficheiro a ser carregado no sistema foi encontrado com a solicitação."
 
 msgid "api.files.400.uploadFailed"
 msgstr "Um ou mais ficheiros não foram enviados."

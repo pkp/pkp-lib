@@ -235,7 +235,7 @@ abstract class PKPTestCase extends TestCase
     protected function localeToRegExp(string $translation): string
     {
         $pieces = preg_split('/\{\$[^}]+\}/', $translation);
-        $escapedPieces = array_map(fn ($piece) => preg_quote($piece), $pieces);
+        $escapedPieces = array_map(fn ($piece) => preg_quote($piece, '/'), $pieces);
         return '/^' . implode('.*?', $escapedPieces) . '$/u';
     }
 }

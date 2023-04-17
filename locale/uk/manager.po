@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-08 15:48+0000\n"
+"PO-Revision-Date: 2023-04-17 11:10+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -46,7 +46,7 @@ msgid "manager.announcements.datePublish"
 msgstr "Опубліковано"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr ""
+msgstr "Видалити анонс"
 
 msgid "manager.announcements.edit"
 msgstr "Редагувати анонс"
@@ -161,157 +161,184 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Тип анонсу"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Депонувати все"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Депонувати DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Ви збираєтеся надіслати записи метаданих DOI для {$count} елементів(-а) до "
+"{$registrationAgency}. Ви впевнені, що хочете депонувати ці записи?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Відмітити DOI як зареєстровані"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Ви збираєтеся відмітити записи метаданих DOI для {$count} елементів(-а) як "
+"зареєстровані. Ви дійсно хочете відмітити ці записи як зареєстровані?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Відмітити DOI як незареєстровані"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Ви збираєтеся відмітити записи метаданих DOI для {$count} елементів(-а) як "
+"незареєстровані. Ви дійсно хочете відмітити ці записи як незареєстровані?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Відмітити DOI як такі, що потребують синхронізації"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Ви збираєтеся позначити записи метаданих DOI для {$count} елементів(-а) як "
+"такі, що потребують синхронізації. Статус \"потребує синхронізації\" можна "
+"застосувати лише до раніше поданих DOI. Ви впевнені, що хочете позначити ці "
+"записи як застарілі?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Експортувати DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Ви збираєтеся експортувати записи метаданих DOI для {$count} елементів(-а) у "
+"{$registrationAgency}. Ви дійсно хочете експортувати ці записи?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Призначити DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Ви збираєтеся призначити нові DOI {$count} елементам(-у) для будь-якого "
+"прийнятного елемента, якому ще не призначено DOI. Ви дійсно хочете "
+"призначити цим елементам DOI?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Депонувати всі DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Ви збираєтеся запланувати зберігання всіх непогашених записів метаданих DOI "
+"у {$registrationAgency}. Депонуватимуться лише опубліковані елементи з DOI. "
+"Статус кожного елемента буде оновлено після отримання відповіді. Ви "
+"впевнені, що хочете запланувати депонування за всіма цими елементами?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Виконання дій щодо {$count} виділених елементів."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Масові дії"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Статус депонування"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Статус публікації"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Метадані цього елемента надіслано до {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Цей елемент було вручну зареєстровано в реєстраційному агентстві."
 
 msgid "manager.dois.registration.notSubmittedDescription"
-msgstr ""
+msgstr "Метадані цього елемента не надіслано до {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
 msgstr ""
+"Цей елемент не можна здавати на зберігання, доки він не буде опублікований."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Переглянути помилку"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Повідомлення про помилку реєстрації"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Переглянути запис"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Повідомлення про успішну реєстрацію"
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI успішно оновлено"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Депонувати DOI"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Потребує DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "Не зареєстровано"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Подано"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Зареєстровано"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Помилка"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Має помилку"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Потребує синхронізації"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "Призначено DOI"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "У всіх елементах відсутній DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Усім елементам призначено DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Всі елементи з DOI, які були опубліковані, але ще не здані на зберігання в "
+"реєстраційне агентство."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Усі елементи, які було подано в реєстраційне агентство."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Усі елементи, які було зареєстровано в реєстраційному агентстві або вручну "
+"позначено як зареєстровані."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Усі елементи, які зіткнулися з помилкою в процесі реєстрації."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Усі елементи, які було перевидано з моменту їх останньої здачі на зберігання "
+"в реєстраційне агентство. Їх потрібно повторно подати до реєстраційного "
+"агентства, щоб оновити записи їхніх метаданих."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Помилка оновлення DOI"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "Деякі DOI не вдалося оновити"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Елементи було успішно експортовано"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Елементи було успішно позначено як зареєстровані"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Елементи було успішно позначено як незареєстровані"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Елементи було успішно позначено як такі, що потребують синхронізації"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Елементам успішно призначено нові DOI"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr ""
@@ -1386,7 +1413,8 @@ msgid "manager.plugins.deleteConfirm"
 msgstr "Ви впевнені, що хочете видалити цей плагін із системи?"
 
 msgid "manager.plugins.deleteDescription"
-msgstr "Натиснувши «Видалити», ви видалите плагін із файлової системи сервера."
+msgstr ""
+"Натиснувши \"Видалити\", ви видалите плагін із файлової системи сервера."
 
 msgid "manager.plugins.deleteError"
 msgstr ""

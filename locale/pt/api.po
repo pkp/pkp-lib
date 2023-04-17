@@ -1,8 +1,95 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-17 14:06+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.400.propReadOnly"
+msgstr "A propriedade {$prop} não pode ser modificada."
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "A apiToken não pôde ser descodificado devido ao seguinte erro: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Deve fornecer um assunto e corpo para o e-mail."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Não é possível alterar a hora em que foi criado."
+
+msgid "api.403.unauthorized"
+msgstr "Não tem autorização para aceder ao recurso solicitado."
+
+msgid "api.404.resourceNotFound"
+msgstr "O recurso solicitado não foi encontrado."
+
+msgid "api.404.endpointNotFound"
+msgstr "O URL solicitado não foi reconhecido."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "A notícia que solicitou não foi encontrada."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Os seguintes idiomas não são suportados: {$locales}."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr "Não pode editar o DOI de um item que não esteja neste contexto."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "O tipo de publicação não foi reconhecido."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "O DOI solicitado não foi encontrado."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "O objeto de publicação solicitado não foi encontrado."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "A submissão solicitada não foi encontrada."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Ocorreu um erro e o objeto DOI não pôde ser criado."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Ocorreu um erro de validação XML e não foi possível exportar o XML."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Ocorreu um erro e alguns dos itens submetidos não foram marcados como "
+"registados."
+
+msgid "api.400.paramNotSupported"
+msgstr "O parâmetro {$param} não é suportado."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"O toke da API não pôde ser validado. Isto pode indicar um erro no token da "
+"API ou que o token da API já não é válido."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "É necessário um prefixo para gerar DOIs."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"O token da API não pôde ser usado para aceder a este site porque o "
+"administrador não configurou uma chave secreta."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "A institutuição que solicitou não foi encontrada."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Este endpoint não está disponível no namespace de todo o site e deve ser "
+"solicitado para um determinado contexto."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Itens não publicados não podem ser exportados/depositados. Desmarque os "
+"itens não publicados e tente novamente."

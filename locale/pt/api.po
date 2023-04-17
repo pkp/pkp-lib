@@ -2,8 +2,8 @@
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-17 14:11+0000\n"
-"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
+"PO-Revision-Date: 2023-04-18 13:49+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -145,3 +145,198 @@ msgstr ""
 
 msgid "api.files.400.uploadFailed"
 msgstr "Um ou mais ficheiros não foram enviados."
+
+msgid "api.files.400.fileSize"
+msgstr "Ficheiros maiores do que {$maxSize} não podem ser carregados."
+
+msgid "api.files.400.config"
+msgstr ""
+"O ficheiro não pôde ser carregado devido a um erro de configuração no "
+"servidor. Entre em contacto com o administrador do sistema."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "A publicação que deseja publicar já se encontra publicada."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "A publicação que deseja despublicar ainda não está publicada."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr "Não pode editar esta publicação porque ela já está publicada."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Não pode modificar o estado diretamente através da API. Em vez disso, use os "
+"endpoints /publish e /unpublish."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Deve despublicar esta publicação antes de poder eliminá-la."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Só pode carregar ficheiros dos seguintes tipos: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "A imagem que fez upload não é válida."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"O ficheiro que enviou não corresponde à extensão do mesmo. Isso pode "
+"acontecer quando um ficheiro foi renomeado para um tipo incompatível, por "
+"exemplo alterar photo.png para photo.jpg."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Não tem permissão para fazer upload de ficheiros."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"Não possui espaço suficiente no seu diretório de utilizador. O ficheiro que "
+"está a fazer upload tem {$fileUploadSize} kb e só tem {$dirSizeLeft}kb "
+"restantes."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"O diretório de ficheiros públicos não foi encontrado ou os ficheiros não "
+"podem ser lá guardados. Entre em contacto com o seu administrador para "
+"resolver este problema."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "A data deve estar no formato AAAA-MM-DD."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "A data de início não pode ser posterior à data de fim."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "A data de início não pode ser anterior a 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "A data final não pode ser posterior a ontem."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Requisição inválida. O valor orderDirection precisa ser `desc` ou `asc`."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"A sua solicitação não é válida. O timelineInterval deve ser `dia` ou `mês`."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"A sua solicitação não foi válida. O timelineInterval deve ser `dia` ou `mês`."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Não pode modificar a associação do ficheiro sem passar um assocType e "
+"assocId."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr ""
+"Não pode associar um ficheiro desta etapa com outro ficheiro de submissão."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Não pode associar um ficheiro desta etapa com a nota de discussão."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Não pode associar um ficheiro desta etapa com uma designação de revisão."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Não pode associar um ficheiro desta etapa com uma ronda de revisão."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Deve especificar uma ronda de revisão quando solicitar ficheiros numa etapa "
+"de revisão."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Deve informar uma etapa do ficheiro."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "A etapa do ficheiro fornecida não é válida."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr ""
+"Nenhuma alteração foi encontrada na solicitação para editar este ficheiro."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Deve fornecer um ID da ronda de revisão ao mover um ficheiro para esta etapa "
+"do ficheiro."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "A ronda de revisão fornecida não faz parte desta submissão."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Não tem permissão para aceder a estes ficheiros."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Não tem permissão para adicionar e editar estes ficheiros."
+
+msgid "api.submissions.400.missingRequired"
+msgstr "O seu pedido não pôde ser atendido pois falta informação obrigatória."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "O volume requisitado, número ou ano não é válido."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Não tem permissão para submeter neste papel de utilizador."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"O seu pedido foi negado. Provavelmente o seu acesso ao sistema expirou. "
+"Recarregue a página e tente novamente."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Não pode eliminar uma submissão que não está associada a este contexto."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr "Só pode ver submissões não publicadas que lhe foram atribuídas."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "Não tem permissões para eliminar esta submissão."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Não tem permissão para editar esta publicação."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Este endpoint não está disponível para um contexto. Ele deve ser acedido no "
+"namespace de todo o site."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr ""
+"O tema ativo, {$themePluginPath}, não está ativado e pode não ter sido "
+"instalado."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "O idioma {$locale} não é suportado."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "O e-mail solicitado não foi encontrado."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "A tarefa falhada não foi encontrada na lista de falhas."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr "A tarefa falhada não possui a carga para ser reenviada."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "Nenhuma tarefa falhada foi encontrada na lista."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Não é possível reenviar a tarefa falhada."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "A tarefa falhada foi reenviada com sucesso."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Todas as tarefas falhadas reencaminháveis com carga útil válida foram "
+"reenfileiradas com sucesso."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Não foi possível eliminar a tarefa falhada da lista de falhas."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Tarefa falhada eliminada com sucesso da lista de falhas."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Não tem permissão para aceder aos ficheiros nesta ronda de revisão."

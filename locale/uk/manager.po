@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-17 11:10+0000\n"
+"PO-Revision-Date: 2023-04-18 13:49+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -341,46 +341,58 @@ msgid "manager.dois.notification.assignDoisSuccess"
 msgstr "Елементам успішно призначено нові DOI"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Елементи успішно відправлено на депонування"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Статуси DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Управління DOI переїхало. Будь ласка, перегляньте сторінки <a href=\""
+"{$doiManagementUrl}\">управління DOI</a> та <a href=\"{$doiSettingsUrl}\""
+">налаштування DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOI не можуть бути призначені, якщо ви не надасте відповідний префікс DOI. "
+"<a href=\"{$doiSettingsUrl}\">Додати префікс DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Була спроба створити DOI, але для створення контексту потрібен префікс DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Перш ніж цей компонент можна буде видалити, потрібно зв'язати всі пов'язані "
+"файли подання з іншим компонентом."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Редагувати організацію"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "РДО (Реєстр дослідницьких організацій)"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "ID РДО для цієї організації."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Діапазон IP-адрес"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Допустимі значення включають IP-адресу (наприклад, 142.58.103.1), діапазон "
+"IP (наприклад, 142.58.103.1 - 142.58.103.4), діапазон IP із символом "
+"узагальнення '*' (наприклад, 142.58.*.*) і діапазон IP із CIDR (наприклад, "
+"142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Видалити організацію"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "Ви впевнені, що хочете продовжити і видалити цю організацію?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Неприпустимий діапазон IP-адрес"
 
 msgid "manager.publication.submissionStage"
 msgstr "Подання"
@@ -404,16 +416,20 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Деталі нагадування для рецензентів оновлено."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"Наведена нижче помилка повернулася з {$registrationAgency} і містить "
+"докладні відомості про її причину:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"Наступне повідомлення повернулося з {$registrationAgency} і містить докладні "
+"відомості про реєстрацію:"
 
 msgid "manager.emails.addEmail"
-msgstr "Додати шаблон листа"
+msgstr "Додати шаблон"
 
 msgid "manager.emails.createEmail"
 msgstr "Створити лист"
@@ -430,8 +446,8 @@ msgstr "Відключити"
 msgid "manager.emails.disable.message"
 msgstr ""
 "Ви намагаєтеся відключити цей шаблон листа. Якщо система була налаштована на "
-"використання цього шаблону, вона не зможе надалі його використовувати. Ви "
-"підтверджуєте цю дію?"
+"використання цього шаблону, вона не зможе надалі його використовувати. "
+"Бажаєте підтвердити цю операцію?"
 
 msgid "manager.emails.editTestExample"
 msgstr "Редагувати тестовий лист"
@@ -443,7 +459,7 @@ msgid "manager.emails.emailTemplates"
 msgstr "Шаблони листів"
 
 msgid "manager.emails.otherTemplates"
-msgstr ""
+msgstr "Інші шаблони"
 
 msgid "manager.emails.emailTemplate.contextRequired"
 msgstr "Ви повинні зазначити ID при додаванні шаблона для email."
@@ -475,12 +491,12 @@ msgstr "Скинути всі шаблони"
 msgid "manager.emails.resetAll.message"
 msgstr ""
 "Якщо ви скинете всі шаблони, всі зміни до шаблонів електронної пошти будуть "
-"втрачені. Ви хочете підтвердити цю операцію?"
+"втрачені. Бажаєте підтвердити цю операцію?"
 
 msgid "manager.emails.reset.message"
 msgstr ""
 "Якщо ви скинете цей шаблон, усі дані повідомлення будуть скинуті до "
-"усталеного значення, втративши усі зміни. Ви хочете підтвердити цю операцію?"
+"усталеного значення, втративши усі зміни. Бажаєте підтвердити цю операцію?"
 
 msgid "manager.emails.resetToDefault"
 msgstr "Скинути до стандартних"
@@ -492,10 +508,10 @@ msgid "manager.emails.sentTo"
 msgstr "Відправлено до"
 
 msgid "manager.export.usersToCsv.label"
-msgstr ""
+msgstr "Експорт в Excel / CSV"
 
 msgid "manager.export.usersToCsv.description"
-msgstr ""
+msgstr "Виберіть користувачів, яких потрібно експортувати у файл Excel / CSV."
 
 msgid "manager.filesBrowser"
 msgstr "Браузер файлів"
@@ -691,7 +707,7 @@ msgid "manager.people.saveAndCreateAnotherUser"
 msgstr "Записати та створити іншого"
 
 msgid "manager.people.signedInAs"
-msgstr ""
+msgstr "Наразі ви ввійшли як {$username}"
 
 msgid "manager.people.signInAs"
 msgstr "Зайти як"
@@ -740,6 +756,9 @@ msgstr "Пошук користувача за іменем"
 
 msgid "manager.representative.inUse"
 msgstr ""
+"Ви не можете видалити цього представника, оскільки його призначено для "
+"ринкових метаданих за одним або декількома форматами публікації для цього "
+"подання."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Змінити"
@@ -763,50 +782,59 @@ msgid "manager.roles"
 msgstr "Ролі"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Статистика"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Географічна статистика"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Виберіть тип статистики географічного використання, яку потрібно збирати. "
+"Більш детальна географічна статистика може значно збільшити розмір вашої "
+"бази даних і в деяких рідкісних випадках може підірвати анонімність ваших "
+"відвідувачів."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Не збирати жодних географічних даних"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Збирати дані про країну відвідувача"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Збирати дані про країну та регіон відвідувача"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Збирати дані про країну, регіон і місто відвідувача"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Статистика щодо організацій"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Увімкніть статистику щодо організацій, якщо ви хочете збирати статистику "
+"використання за організаціями. Якщо ввімкнено, вам потрібно буде налаштувати "
+"діапазони IP-адрес для кожної організації, яку ви хочете відстежувати."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Увімкнення статистики щодо організацій"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Публічний API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Чи варто обмежувати доступ до кінцевих точок API для статистики COUNTER "
+"SUSHI. Якщо цей прапорець знято, API буде доступний лише для користувачів із "
+"ролями адміністратора або адміністратора."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Зробити статистику COUNTER SUSHI загальнодоступною"
 
 msgid "manager.statistics"
 msgstr "Статистика та звіти"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Генератор звітів"
+msgstr "Звіти"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -815,76 +843,83 @@ msgstr ""
 "перегляду якого потрібний табличний процесор."
 
 msgid "manager.statistics.reports.month.label"
-msgstr "Використайте формат YYYYMM."
+msgstr "Використовувати формат РРРРMM."
 
 msgid "manager.statistics.reports.day.label"
-msgstr "Використайте формат YYYYMMDD."
+msgstr "Використовувати формат РРРРMMДД."
 
 msgid "manager.affiliationAndSupport"
-msgstr "Спонсорство"
+msgstr "Спонсор"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Установка"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Реєстрація"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Префікс DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Автоматичне депонування"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Включити автоматичне депонування"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"Реєстрація DOI та депонування метаданих можуть здійснюватися автоматично "
+"обраному реєстраційному агентству кожного разу, коли публікується стаття з "
+"DOI. Автоматичне депонування відбуватиметься через регулярні проміжки часу, "
+"а статус реєстрації кожного DOI можна буде відстежувати зі сторінки "
+"управління DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Префікс DOI призначається реєстраційним агентством, наприклад</a> <a href="
-"\"https://www.crossref.org\" target=\"_new\">Crossref або <a href=\"https"
-"://datacite.org/\" target=\"new\">DataCite</a>. Приклад: 10.xxxx"
+"Префікс DOI призначається реєстраційним агентством, таким як <a href=\"https"
+"://www.crossref.org\" target=\"_new\">Crossref або <a href=\"https://datacite"
+".org/\" target=\"new\">DataCite</a>. Приклад: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
-msgstr ""
+msgstr "Префікс DOI є обов'язковим і повинен бути в такому форматі: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Автоматичне надання DOI"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "Коли поданню має бути надано DOI?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "При публікації"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Ніколи"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Префікс DOI"
 
 msgid "doi.manager.settings.doiObjects"
-msgstr "Зміст журналу"
+msgstr "Елементи з DOI"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Префікс DOI є обов'язковим"
 
 msgid "doi.manager.settings.doiSuffix"
-msgstr "Суфікс DOI"
+msgstr "Формат DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Суфікс DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Користувацький шаблон суфіксів DOI"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Один або декілька вибраних типів DOI не допускаються для налаштованого "
+"агентства реєстрації DOI."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -892,49 +927,56 @@ msgstr ""
 "опублікованих об'єктів з однаковим префіксом DOI:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "За замовчуванням - автоматично генерує унікальний восьмизначний суфікс"
+msgstr "За замовчуванням – автоматично генерує унікальний восьмизначний суфікс"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Немає – Суфікси повинні вводитися вручну на <a href=\"{$doiManagementUrl}\""
+">сторінці управління DOI</a> і не генеруватимуться автоматично"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Користувацький шаблон – (не рекомендується)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Реєстраційне агентство"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Будь ласка, оберіть реєстраційне агентство, яке ви хочете використовувати "
+"при депонуванні DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "Жодне реєстраційне агентство не ввімкнено"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"DOI можуть бути автоматично згенеровані й депоновані реєстраційним "
+"агентством. Щоб скористатися цією функцією, знайдіть і встановіть плагін від "
+"відповідного реєстраційного агентства."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Жодне"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Керування версіями DOI"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Ви не можете викликати цю операцію без увімкнених DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Існують {$count} версій."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Подивитись усі"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI для всіх версій"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "DOI містить неприпустимі символи."
 
 msgid "manager.setup.publishing"
-msgstr ""
+msgstr "Подробиці публікації"
 
 msgid "manager.setup.publishingDescription"
 msgstr ""
@@ -959,7 +1001,7 @@ msgstr ""
 "частини процесу подання."
 
 msgid "manager.setup.authorGuidelines"
-msgstr "Довідник для авторів"
+msgstr "Настанови для авторів"
 
 msgid "manager.setup.authorGuidelines.description"
 msgstr ""
@@ -968,7 +1010,7 @@ msgstr ""
 "використовуватимуться під час подання матеріалів."
 
 msgid "manager.setup.disableSubmissions"
-msgstr ""
+msgstr "Вимкнути здійснення подання"
 
 msgid "manager.setup.checklist"
 msgstr "Контрольний список"
@@ -1028,37 +1070,44 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Надіслати копію на цю електронну адресу"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Повідомляти всіх авторів"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Хто повинен отримувати повідомлення електронною поштою при записі "
+"редакційного рішення?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
-msgstr ""
+msgstr "Надсилати повідомлення електронною поштою всім авторам подання."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Надсилати електронний лист лише авторам, яким призначено робочий процес щодо "
+"подання. Зазвичай це автор, який здійснює подання."
 
 msgid "manager.setup.submissionsNotifications"
-msgstr ""
+msgstr "Сповіщення"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact"
-msgstr ""
+msgstr "Сповістити основну контактну особу"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.enabled"
-msgstr ""
+msgstr "Так, надіслати копію на адресу {$email}"
 
 msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.disabled"
-msgstr ""
+msgstr "Ні"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress"
-msgstr ""
+msgstr "Повідомляти будь-кого"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.description"
 msgstr ""
+"Копія електронного листа з підтвердженням подання буде надіслана на будь-яку "
+"з указаних тут адрес електронної пошти. Розділяйте кілька адрес електронної "
+"пошти комою. Приклад: one@example.com,two@example.com"
 
 msgid "manager.setup.notifications.copySubmissionAckAddress.invalid"
-msgstr ""
+msgstr "Одна або кілька із цих адрес електронної пошти є недійсними."
 
 msgid "manager.setup.notifications.description"
 msgstr ""
@@ -1066,19 +1115,22 @@ msgstr ""
 "подання. Ви можете надіслати копії цього електронного листа до нижчевказаним:"
 
 msgid "manager.setup.notifyUsers"
-msgstr ""
+msgstr "Сповістити"
 
 msgid "manager.setup.notifyUsers.description"
 msgstr ""
+"Виберіть користувачів, які мають отримати сповіщення електронною поштою."
 
 msgid "manager.setup.notifyUsers.copyDetails"
-msgstr ""
+msgstr "Надішліть копію цього електронного листа мені на адресу {$email}."
 
 msgid "manager.setup.notifyUsers.send"
-msgstr ""
+msgstr "Надіслати електронний лист"
 
 msgid "manager.setup.notifyUsers.confirm"
 msgstr ""
+"Ви збираєтеся надіслати електронний лист {$total} користувачам. Ви впевнені, "
+"що хочете надіслати цей електронний лист?"
 
 msgid "manager.setup.notifyUsers.sending"
 msgstr ""
@@ -1087,7 +1139,7 @@ msgid "manager.setup.notifyUsers.sent"
 msgstr ""
 
 msgid "manager.setup.notifyUsers.sendAnother"
-msgstr ""
+msgstr "Надіслати інший електронний лист"
 
 msgid "manager.setup.openAccessPolicy"
 msgstr "Правила відкритого доступу"
@@ -1206,14 +1258,13 @@ msgstr ""
 msgid "manager.setup.reviewOptions.reviewMode"
 msgstr "Спосіб рецензування за замовчуванням"
 
-#, fuzzy
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Додати посилання на <button type=\"button\">Забезпечення сліпого "
-"рецензування</button> під час завантаження"
+"Додати посилання на матеріал, як <button type=\"button\">забезпечити "
+"анонімізацію всіх файлів</button> під час завантаження"
 
 msgid "manager.setup.sponsors.note"
-msgstr "Опис правил та стосунків зі спонсорами"
+msgstr "Опис правил і відносин зі спонсорами"
 
 msgid "manager.setup.sponsors.description"
 msgstr ""
@@ -1235,10 +1286,10 @@ msgstr ""
 "чи публікації матеріалів."
 
 msgid "manager.setup.theme"
-msgstr "Теми"
+msgstr "Тема"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Організації"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1246,28 +1297,43 @@ msgstr ""
 "цієї сторінки."
 
 msgid "manager.setup.theme.notFound"
-msgstr "Тема, яку ви обрали, не інстальована або не увімкнена."
+msgstr "Тему, яку ви вибрали, не інстальовано або не ввімкнено."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Це показується авторам перед тим, як вони почнуть робити подання. Надайте "
+"коротке пояснення процесу подання, щоб автор знав, чого очікувати."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Це показується авторам на етапі завантаження файлів. Надайте коротке "
+"пояснення того, якими файлами автори повинні поділитися у своєму поданні."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Це показується авторам на етапі додавання відомостей про осіб, які зробили "
+"свій внесок у роботу. Надайте коротке пояснення того, яку інформацію автор "
+"повинен надати про себе, співавторів та будь-яких інших осіб, які зробили "
+"свій внесок у роботу."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Це показується авторам на етапі деталізації, коли їх просять надати назву, "
+"анотацію та іншу ключову інформацію про їхнє подання."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Це показується авторам під час кроку «Для редакторів», коли їх просять "
+"надати редактору метадані, такі як ключові слова, коментарі й інші "
+"подробиці, щоб допомогти в редакційному рецензуванні."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Це показується авторам на останньому кроці майстра подання, коли їх просять "
+"переглянути всю інформацію, яку вони надали, перш ніж надсилати свою роботу."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Настанови для авторів"
 
 #, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
@@ -3517,3 +3583,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Цим листом редактор розділу нагадує рецензенту про настання кінцевої дати "
 #~ "рецензування."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Електронні листи успішно стоять у черзі, щоб бути відправленими якомога "
+"раніше."

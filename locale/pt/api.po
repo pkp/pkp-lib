@@ -2,8 +2,8 @@
 # Carlos Costa <carlos.costa@uc.pt>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-17 14:08+0000\n"
-"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
+"PO-Revision-Date: 2023-04-17 14:11+0000\n"
+"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -124,3 +124,24 @@ msgstr ""
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
 "O plugin atualmente configurado deve ser um plugin de uma agência de registo."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Não tem permissões para enviar um e-mail para utilizadores com um ou mais "
+"dos papéis selecionados."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr "Este não é um modelo de e-mail padrão para um e-mail conhecido."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Este não é um contexto válido."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "O modelo de e-mail solicitado não foi encontrado."
+
+msgid "api.files.400.noUpload"
+msgstr ""
+"Nenhum ficheiro a ser carregado no sistema foi encontrado na solicitação."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Um ou mais ficheiros não foram enviados."

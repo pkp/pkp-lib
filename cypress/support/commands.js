@@ -867,21 +867,10 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 	});
 });
 
-Cypress.Commands.add('changeLanguage', (locale, contextPath) => {
+Cypress.Commands.add('changeLanguage', (language, contextPath) => {
 	contextPath = contextPath || 'publicknowledge';
 
-	// Workaround to make the request with a referrer
-	// It is not possible to set the referrer header with cy.visit()
-	cy.window()
-		.then((win) => {
-			const link = win.document.createElement('a');
-			const url = Cypress.config().baseUrl + '/index.php/' + contextPath + '/user/setLocale/' + locale;
-			link.setAttribute('href', url);
-			link.setAttribute('id', 'cypressChangeLanguage');
-			link.innerHTML = locale;
-			win.document.body.appendChild(link);
-		});
-	cy.get('a#cypressChangeLanguage')
-	  .click();
-	cy.get('html[lang="' + locale.replace('_', '-') + '"]');
+	cy.get('.app__userNav > button').click();
+	cy.get('.app__userNav a:contains("Français")').click();
+	cy.wait(2000);
 });

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-09 17:48+0000\n"
+"PO-Revision-Date: 2023-04-17 11:10+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -435,7 +435,7 @@ msgid "submission.shortAuthor"
 msgstr "{$author} та ін."
 
 msgid "submission.representationOfTitle"
-msgstr "{$representation} «{$title}»"
+msgstr "{$representation} \"{$title}\""
 
 msgid "submission.mySubmissions"
 msgstr "За моїм авторством"
@@ -1465,7 +1465,7 @@ msgstr "Подання прийнято"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"Подання «{$title}» було прийнято до опублікування та відправлено на етап "
+"Подання \"{$title}\" було прийнято до опублікування та відправлено на етап "
 "корегування. Усі сповіщення надіслано, крім тих, які ви вирішили пропустити."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
@@ -1496,7 +1496,7 @@ msgstr "Подання відхилено"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
-"Подання «{$title}» було відхилено та надіслано в архіви. Усі сповіщення "
+"Подання \"{$title}\" було відхилено та надіслано в архіви. Усі сповіщення "
 "надіслано, крім тих, які ви вирішили пропустити."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
@@ -1524,7 +1524,7 @@ msgstr "Раунд рецензування створено"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
-"Для подання «{$title}» було створено новий раунд рецензування. Автора було "
+"Для подання \"{$title}\" було створено новий раунд рецензування. Автора було "
 "сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
@@ -1558,8 +1558,8 @@ msgstr "Запитано зміни"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
-"Було запитано правки для подання «{$title}». Усі сповіщення надіслано, крім "
-"тих, які ви вирішили пропустити."
+"Було запитано правки для подання \"{$title}\". Усі сповіщення надіслано, "
+"крім тих, які ви вирішили пропустити."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
@@ -1587,7 +1587,7 @@ msgstr "Скасовано останній раунд рецензування.
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
-"Раунд рецензування подання «{$title}» скасовано. Усі сповіщення надіслано, "
+"Раунд рецензування подання \"{$title}\" скасовано. Усі сповіщення надіслано, "
 "крім тих, які ви вирішили пропустити."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
@@ -1614,7 +1614,7 @@ msgstr "Запитано зміни"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
-"Було запитано правки для подання «{$title}». Було зафіксовано рішення про "
+"Було запитано правки для подання \"{$title}\". Було зафіксовано рішення про "
 "направлення правок на ще один раунд рецензування. Усі сповіщення надіслано, "
 "крім тих, які ви вирішили пропустити."
 
@@ -1639,7 +1639,7 @@ msgstr "Надіслано на рецензування"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"Подання «{$title}» було відправлено на стадію рецензування. Автора було "
+"Подання \"{$title}\" було відправлено на стадію рецензування. Автора було "
 "сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.newRound"
@@ -1660,7 +1660,7 @@ msgstr "Направлено на виробництво"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"Подання «{$title}» було відправлено на стадію виробництва. Автора було "
+"Подання \"{$title}\" було відправлено на стадію виробництва. Автора було "
 "сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
@@ -1683,8 +1683,8 @@ msgstr "Відправлено назад із копіювання"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"Подання «{$title}» було відправлено назад зі стадії корегування. Автора було "
-"сповіщено, якщо ви не вирішили пропустити цей електронний лист."
+"Подання \"{$title}\" було відправлено назад зі стадії корегування. Автора "
+"було сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
@@ -1705,8 +1705,8 @@ msgstr "Відправлено назад на корегування"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"Подання «{$title}» було відправлено назад на стадію корегування. Автора було "
-"сповіщено, якщо ви не вирішили пропустити цей електронний лист."
+"Подання \"{$title}\" було відправлено назад на стадію корегування. Автора "
+"було сповіщено, якщо ви не вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""

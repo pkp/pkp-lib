@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-04-17 14:11+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -123,7 +123,7 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
-"O plugin atualmente configurado deve ser um plugin de uma agência de registo."
+"O plugin atualmente configurado deve ser um plugin de agência de registo."
 
 msgid "api.emails.403.notAllowedUserGroup"
 msgstr ""

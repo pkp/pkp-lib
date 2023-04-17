@@ -1,8 +1,9 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
+# Carlos Costa <carlos.costa@uc.pt>, 2023.
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2023-04-17 14:08+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
 "Language-Team: Portuguese <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "pt/>\n"
 "Language: pt\n"
@@ -40,7 +41,7 @@ msgid "api.contexts.400.localesNotSupported"
 msgstr "Os seguintes idiomas não são suportados: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr "Não pode editar o DOI de um item que não esteja neste contexto."
+msgstr "Não pode editar o DOI de um item que não se encontra neste contexto."
 
 msgid "api.dois.403.pubTypeNotRecognized"
 msgstr "O tipo de publicação não foi reconhecido."

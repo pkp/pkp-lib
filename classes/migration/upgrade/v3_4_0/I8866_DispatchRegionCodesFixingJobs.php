@@ -14,7 +14,11 @@
 
 namespace PKP\migration\upgrade\v3_4_0;
 
+use Illuminate\Bus\Batch;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use PKP\core\Core;
 use PKP\install\DowngradeNotSupportedException;
 use PKP\migration\Migration;
@@ -29,13 +33,63 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
     {
         if (DB::table('metrics_submission_geo_monthly')->whereNotNull('region')->exists() ||
             DB::table('metrics_submission_geo_daily')->whereNotNull('region')->exists()) {
+
+            // create a temporary table for the FIPS-ISO mapping
+            if (!Schema::hasTable('region_mapping_tmp')) {
+                Schema::create('region_mapping_tmp', function (Blueprint $table) {
+                    $table->string('country', 2);
+                    $table->string('fips', 3);
+                    $table->string('iso', 3)->nullable();
+                });
+            }
+
+            // temporary create index on the column country and region, in order to be able to update the region codes in a reasonable time
+            Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
+                $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
+                if (!array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
+                    $table->index(['country', 'region'], 'metrics_submission_geo_daily_tmp_index');
+                }
+            });
+            Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
+                $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
+                if (!array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
+                    $table->index(['country', 'region'], 'metrics_submission_geo_monthly_tmp_index');
+                }
+            });
+
             // read the FIPS to ISO mappings and displatch a job per country
             $mappings = include Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/regionMapping.php';
-            $lastCountry = array_key_last($mappings);
+            $jobs = [];
             foreach (array_keys($mappings) as $country) {
-                $lastJob = $country == $lastCountry ? true : false;
-                dispatch(new FixRegionCodes($country, $lastJob));
+                $jobs[] = new FixRegionCodes($country);
             }
+
+            Bus::batch($jobs)
+                ->then(function (Batch $batch) {
+                        // drop the temporary index
+                        Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
+                            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
+                            if (array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
+                                $table->dropIndex(['tmp']);
+                            }
+                        });
+                        Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
+                            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
+                            if (array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
+                                $table->dropIndex(['tmp']);
+                            }
+                        });
+
+                        // drop the temporary table
+                        if (Schema::hasTable('region_mapping_tmp')) {
+                            Schema::drop('region_mapping_tmp');
+                        }
+                    })
+                ->dispatch();
         }
     }
 

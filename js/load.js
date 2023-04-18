@@ -11,6 +11,7 @@
 // Vue lib and custom mixins
 import Vue from 'vue';
 import GlobalMixins from '@/mixins/global.js';
+import VueAnnouncer from 'vue-announcer';
 import VModal from 'vue-js-modal';
 import VTooltip from 'v-tooltip';
 import VueScrollTo from 'vue-scrollto';
@@ -33,6 +34,7 @@ import Tabs from '@/components/Tabs/Tabs.vue';
 // Helper for initializing and tracking Vue controllers
 import VueRegistry from './classes/VueRegistry.js';
 
+Vue.use(VueAnnouncer);
 Vue.use(VModal, {
 	dynamic: true,
 	injectModalsContainer: true,

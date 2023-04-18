@@ -35,6 +35,7 @@
 	</script>
 
 	<div id="app" class="app {if $isLoggedInAs} app--isLoggedInAs{/if}" v-cloak>
+		<vue-announcer />
 		<header class="app__header" role="banner">
 			{if $availableContexts}
 				<dropdown class="app__headerAction app__contexts">
@@ -187,7 +188,7 @@
 										{else}
 											{assign var=_name value=$breadcrumb.name|strip_unsafe_html}
 										{/if}
-										
+
 										<li>
 											{if $smarty.foreach.breadcrumbs.last}
 												<span aria-current="page">

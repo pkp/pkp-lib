@@ -884,6 +884,7 @@ class PKPTemplateManager extends Smarty
             'form.multilingualLabel',
             'form.multilingualProgress',
             'form.saved',
+            'grid.action.sort',
             'help.help',
             'navigation.backTo',
             'validator.required'

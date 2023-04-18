@@ -1,12 +1,13 @@
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2022, 2023.
 # José Carvalho <jcarvalho@keep.pt>, 2022, 2023.
+# Carlos Costa <carlos.costa@uc.pt>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-04-03 18:19+0000\n"
-"Last-Translator: José Carvalho <jcarvalho@keep.pt>\n"
+"PO-Revision-Date: 2023-04-18 13:48+0000\n"
+"Last-Translator: Carlos Costa <carlos.costa@uc.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/admin/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -519,7 +520,8 @@ msgstr ""
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Lista de todas as tarefas em espera. Se desejar dividir por páginas, use os "
-"parâmetros --page= e --perPage="
+"parâmetros --page= e --perPage= . Parâmetro --failed para listar trabalhos "
+"falhados."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -559,7 +561,9 @@ msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr "Nenhum job disponível para execução na fila chamada {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Disponibilizar a quantidade de tarefas de cada fila"
+msgstr ""
+"Lista de todas as tarefas em espera. Parâmetro --failed para listar todos os "
+"trabalhos falhados."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Disponibilizar o comando de uso Tarefas"

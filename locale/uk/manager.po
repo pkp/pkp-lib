@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-18 13:49+0000\n"
+"PO-Revision-Date: 2023-04-19 22:36+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -1053,7 +1053,7 @@ msgstr ""
 "увімкнено."
 
 msgid "manager.setup.loggingAndAuditing"
-msgstr "Журналізація та аудит"
+msgstr "Ведення журналу й аудит"
 
 msgid "manager.setup.logo"
 msgstr "Логотип"
@@ -1159,8 +1159,8 @@ msgstr "Нижній колонтитул сторінки"
 
 msgid "manager.setup.pageFooter.description"
 msgstr ""
-"Вкажіть зображення, текст, чи код HTML, який Ви хотіли б розмістити у нижній "
-"частині веб-сайту."
+"Укажіть зображення, текст чи код HTML, який Ви хотіли б розмістити в нижній "
+"частині вебсайту."
 
 msgid "manager.setup.peerReview.description"
 msgstr ""
@@ -1174,9 +1174,9 @@ msgstr "Контактна особа"
 
 msgid "manager.setup.principalContactDescription"
 msgstr ""
-"Введіть контактні дані, як правило, це головний редактор, керуючий редактор "
-"чи хтось з адміністрації. Ці дані можуть відображатися на вашому сайті у "
-"відкритому доступі."
+"Введіть контактні дані, як правило, для посади головного редактора, "
+"відповідального редактора або адміністративного персоналу, які можуть "
+"відображатися на вашому загальнодоступному вебсайті."
 
 msgid "manager.setup.privacyStatement"
 msgstr "Заява про конфіденційність"
@@ -1273,8 +1273,8 @@ msgstr ""
 
 msgid "manager.setup.styleSheetDescription"
 msgstr ""
-"Досвідчені веб-розробники можуть завантажувати файл CSS для додаткового "
-"оформлення веб-сайту."
+"Досвідчені веб-розробники можуть завантажити файл CSS для подальшого "
+"налаштування зовнішнього вигляду вебсайту."
 
 msgid "manager.setup.technicalSupportContact"
 msgstr "Контакти технічної підтримки"
@@ -1335,40 +1335,39 @@ msgstr ""
 msgid "manager.setup.workflow.guidance"
 msgstr "Настанови для авторів"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Вимоги до подання"
+msgstr "Контрольний перелік щодо подання"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Під час подання рукопису до журналу автори не зможуть завершити цей процес, "
-"поки вони не підтвердять відповідність рукопису всім встановленим вимогам. "
-"Список вимог також з'явиться у розділі \"Керівництво для авторів\" сторінки "
-"\"Про журнал\". Поданий нижче список вимог можна редагувати, але зауважте, "
-"що автор повинен буде підтвердити відповідність рукопису кожному з пунктів "
-"вимог, без цього він не зможе завершити процес подання рукопису до журналу."
+"Це показується авторам, коли вони починають подання. Авторів просять "
+"підтвердити, що їхнє подання відповідає будь-яким вимогам, зазначеним тут, "
+"перед початком здійснення подання."
 
 msgid "manager.sections.form.deactivateSection"
-msgstr ""
+msgstr "Деактивуйте цей розділ і не дозволяйте вносити в нього нові подання."
 
 msgid "manager.sections.confirmDeactivateSection"
-msgstr ""
+msgstr "Ви впевнені, що хочете деактивувати цей розділ?"
 
 msgid "manager.sections.confirmActivateSection"
-msgstr ""
+msgstr "Ви впевнені, що хочете активувати цей розділ?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Редакційні завдання"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Виберіть редакційних користувачів, яким слід автоматично призначати всі нові "
+"подання до цього розділу."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Призначити {$name} як {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Виберіть редакційних користувачів, яким слід автоматично призначати всі нові "
+"подання до цієї категорії."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Параметри доступу до сайту"
@@ -1674,6 +1673,8 @@ msgstr "Налаштування мови збережені."
 
 msgid "notification.localeSettingsCannotBeSaved"
 msgstr ""
+"Не вдалося зберегти мовні налаштування. Для кожного параметра потрібно "
+"ввімкнути принаймні одну мову"
 
 msgid "notification.editedUser"
 msgstr "Користувача відредаговано."
@@ -1821,13 +1822,17 @@ msgid "grid.action.restoreGenres"
 msgstr "Відновити компоненти з усталеними налаштуваннями"
 
 msgid "manager.setup.genres.label"
-msgstr ""
+msgstr "Тип файлу"
 
 msgid "manager.setup.genres.dependent"
 msgstr ""
+"Це залежні файли, такі як зображення, що відображаються HTML-файлом, і вони "
+"не відображатимуться з опублікованим вмістом."
 
 msgid "manager.setup.genres.supplementary"
 msgstr ""
+"Це додаткові файли, такі як набори даних і дослідницькі матеріали, і вони "
+"відображатимуться окремо від основних файлів публікацій."
 
 msgid "manager.setup.genres.key"
 msgstr "Ключ"
@@ -1844,10 +1849,16 @@ msgstr ""
 "має починатися і закінчауватися літерою чи цифрою."
 
 msgid "manager.setup.genres.metatadata"
-msgstr ""
+msgstr "Метадані файлу"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
+"Виберіть тип метаданих, які ці файли можуть отримувати. \"Документ\" слід "
+"вибрати для основних файлів публікації, таких як PDF-файл, який можна "
+"завантажити, щоб ці файли успадкували свої метадані від публікації. В іншому "
+"разі виберіть пункт \"Додатковий контент\" для більшості типів файлів. "
+"\"Зображення\" підходить для файлів, які вимагають окремого посилання, "
+"підписів та ліцензійних метаданих."
 
 msgid "manager.setup.genres.submitRequired.label"
 msgstr ""
@@ -1869,10 +1880,10 @@ msgstr ""
 "Потрібно вибрати принаймні одну роль, яка буде пов'язана з цим користувачем."
 
 msgid "manager.website"
-msgstr "Веб-сайт"
+msgstr "Вебсайт"
 
 msgid "manager.website.title"
-msgstr "Налаштування веб-сайту"
+msgstr "Налаштування вебсайту"
 
 msgid "manager.workflow"
 msgstr "Робочий процес"
@@ -2452,8 +2463,8 @@ msgstr "Посилання на сторінку, котра показує ог
 
 msgid "manager.navigationMenus.announcements.conditionalWarning"
 msgstr ""
-"Це посилання відображатиметься, лише якщо ви увімкнули оголошення в "
-"Налаштування > Веб-сайт."
+"Це посилання відображатиметься, лише якщо ви ввімкнули оголошення в розділі "
+"\"Налаштування\" > \"Вебсайт\"."
 
 msgid "manager.navigationMenus.login.description"
 msgstr "Посилання на сторінку входу користувача в систему."
@@ -2929,13 +2940,13 @@ msgid "emailTemplate.variable.sender.signature"
 msgstr ""
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Повне ім'я (П. І. Б.) основної контактної особи вебсайту"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Адреса електронної пошти основної контактної особи вебсайту"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Підпис електронної пошти вебсайту для автоматичних електронних листів"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""

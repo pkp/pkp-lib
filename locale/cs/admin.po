@@ -4,11 +4,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:40+00:00\n"
-"PO-Revision-Date: 2023-01-08 12:02+0000\n"
+"PO-Revision-Date: 2023-04-19 22:36+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
-"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"cs_CZ/>\n"
-"Language: cs_CZ\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/cs/>"
+"\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -194,6 +194,7 @@ msgstr "Odstranění neověřených uživatelů s prošlou platností"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Odstranění mnohem starších neúspěšných úloh ze seznamu neúspěšných úloh."
 
 msgid "admin.scheduledTask.processQueueJobs"
 msgstr "Zpracování úloh čekajících ve frontě"
@@ -514,7 +515,8 @@ msgstr "Nelze spustit úlohy fronty, protože je povolen režim údržby aplikac
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
 "Vypsat všechny úlohy ve frontě. Pokud chcete výsledky stránkovat, použijte "
-"parametry --page= a --perPage="
+"parametry --page= a --perPage=. Předejte příznak --failed pro výpis "
+"neúspěšných úloh."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
@@ -536,6 +538,10 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Vypište všechny neúspěšné úlohy. Pro filtrování seznamu nastavte parametr --"
+"queue=QUEUE_NAME a --connection=CONNECTION_NAME. Také zadejte parametr/flag "
+"--redispatch a --clear pro redispečink zpět do fronty nebo vymazání všech/"
+"konkrétních neúspěšných úloh."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
@@ -551,7 +557,9 @@ msgstr ""
 "Ve frontě s názvem {$queueName} nejsou k dispozici žádné úlohy ke spuštění."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
-msgstr "Zobrazení množství úloh ve frontě"
+msgstr ""
+"Zobrazení množství úloh ve frontě. Předejte příznak --failed, abyste viděli "
+"celkový počet neúspěšných úloh."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
 msgstr "Zobrazení použití příkazu Jobs"
@@ -563,7 +571,7 @@ msgid "admin.cli.tool.jobs.empty.option"
 msgstr "Možnost nemůže být prázdná! Zkontrolujte způsob použití."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Neúspěšné úlohy ve frontě"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
 msgstr "Fronta Jobs"
@@ -575,7 +583,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
 msgstr "Fronta"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Připojení"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Zobrazení názvu úlohy"
@@ -593,10 +601,10 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Vytvořeno v"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Neúspěšný v"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Zpráva o výjimce"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Stránkování"
@@ -647,12 +655,13 @@ msgstr "Všechny úlohy byly smazány!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} neúspěšných úloh úspěšně odstraněno ze seznamu neúspěšných úloh."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} úloh úspěšně odesláno zpět do fronty."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Máme {$total} neúspěšných úloh"
 
 msgid "admin.cli.tool.jobs.total.jobs"
 msgstr "Ve frontě máme {$total} úloh"
@@ -667,7 +676,7 @@ msgid "admin.jobs.totalCount"
 msgstr "Ve frontě je celkem <strong>{$total}</strong> úloh"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Existuje celkem <strong>{$total}</strong> neúspěšných úloh."
 
 msgid "admin.jobs.viewQueuedJobs"
 msgstr "Zobrazení úloh ve frontě"
@@ -676,10 +685,10 @@ msgid "navigation.tools.jobs"
 msgstr "Úlohy"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Neúspěšné úlohy"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Podrobnosti o neúspěšné úloze"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
@@ -689,16 +698,16 @@ msgid "navigation.tools.jobs.view"
 msgstr "Zobrazit úlohy"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Zobrazit neúspěšné úlohy"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Zobrazit podrobnosti o neúspěšné úloze č. {$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Příznak"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Hodnota příznaku"
 
 msgid "admin.jobs.list.id"
 msgstr "ID"
@@ -710,7 +719,7 @@ msgid "admin.jobs.list.queue"
 msgstr "Fronta"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Připojení"
 
 msgid "admin.jobs.list.attempts"
 msgstr "Pokusy"
@@ -719,28 +728,28 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Vytvořeno v"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Selhalo v"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Užitné zatížení"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Výjimka"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Akce"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Vytvořeno v {$failedAt}"
 
 msgid "admin.jobs.createdAt"
 msgstr "Vytvořeno v {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Zkuste znovu"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Znovu zařadit všechny neúspěšné úlohy"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""

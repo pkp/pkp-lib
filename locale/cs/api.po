@@ -1,8 +1,18 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-21 08:43+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/api/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.submissions.403.cantChangeContext"
+msgstr "Server příspěvku nelze změnit."
+
+msgid "api.announcements.400.contextsNotMatched"
+msgstr "Vámi požadované oznámení není součástí tohoto serveru."

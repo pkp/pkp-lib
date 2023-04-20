@@ -1,11 +1,12 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2021, 2022, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:41+00:00\n"
-"PO-Revision-Date: 2023-04-19 22:36+0000\n"
-"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "cs/>\n"
 "Language: cs\n"
@@ -829,7 +830,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Zveřejnit statistiky COUNTER SUSHI"
 
 msgid "manager.statistics"
-msgstr "Statistiky &amp; Zprávy"
+msgstr "Statistiky & Zprávy"
 
 msgid "manager.statistics.reports"
 msgstr "Zprávy"

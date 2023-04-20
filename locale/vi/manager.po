@@ -1,15 +1,16 @@
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-08-28 19:44+0000\n"
-"Last-Translator: Nguyen Xuan Giao <giaonxb@gmail.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Vietnamese <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"manager/vi_VN/>\n"
-"Language: vi_VN\n"
+"manager/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Thông tin"
@@ -772,7 +773,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics"
-msgstr "Thống kê &amp; Báo cáo"
+msgstr "Thống kê & Báo cáo"
 
 #, fuzzy
 msgid "manager.statistics.reports"

@@ -1,13 +1,14 @@
 # Niels Erik Frederiksen <nef@kb.dk>, 2021.
 # Alexandra Fogtmann-Schulz <alfo@kb.dk>, 2022, 2023.
 # Jesper B. Thestrup <jbt@kb.dk>, 2022, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:42+00:00\n"
-"PO-Revision-Date: 2023-04-13 14:24+0000\n"
-"Last-Translator: Alexandra Fogtmann-Schulz <alfo@kb.dk>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Danish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "da/>\n"
 "Language: da\n"
@@ -835,7 +836,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Gør COUNTER SUSHI-statistikken offentligt tilgængelig"
 
 msgid "manager.statistics"
-msgstr "Statistikker &amp; rapporter"
+msgstr "Statistikker & rapporter"
 
 msgid "manager.statistics.reports"
 msgstr "Rapporter"

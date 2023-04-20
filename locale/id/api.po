@@ -1,22 +1,22 @@
-# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-07-14 11:03+0000\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"id_ID/>\n"
-"Language: id_ID\n"
+"id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Parameter {$param} tidak didukung."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "Properti {$prop} tidak dapat dimodifikasi."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -27,13 +27,13 @@ msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "ApiToken tidak bisa dipecahkan karena galat berikut: {$error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Anda harus mengisi subjek dan isi email."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Tidak dapat mengubah waktu pembuatannya."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Awalan DOI diperlukan untuk membuat DOI."
 
 msgid "api.403.unauthorized"
 msgstr "Anda tidak berwenang mengakses sumber yang Anda diminta."
@@ -53,55 +53,65 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "Pengumuman yang Anda minta tidak ditemukan."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "Institusi yang Anda minta tidak ditemukan."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Belum mendukung bahasa di bawah ini: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "Anda tidak dapat mengedit DOI item yang tidak ada dalam konteks ini."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Jenis publikasi tidak dikenali."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Endpoint ini tidak tersedia dari namespace di seluruh situs, dan harus "
+"diminta untuk konteks tertentu."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "DOI yang Anda cari tidak ditemukan."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Objek publikasi yang Anda cari tidak ditemukan."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Naskah yang Anda cari tidak ditemukan."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Item yang belum tidak dapat diekspor/disetor. Cabut item yang belum terbit "
+"dan coba lagi."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "Terjadi kesalahan dan objek DOI tidak dapat dibuat."
 
 msgid "api.dois.400.xmlExportFailed"
-msgstr ""
+msgstr "Terjadi kesalahan validasi XML sehingga XML tidak dapat diekspor."
 
 msgid "api.dois.400.markRegisteredFailed"
-msgstr ""
+msgstr "Terjadi kesalahan dan beberapa item naskah tidak ditandai terdaftar."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Beberapa item gagal disetor. Silakan periksa item satu per satu untuk "
+"melihat pesan kesalahan khususnya."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "Tidak ada objek publikasi valid yang disertakan dengan permintaan."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Satu atau beberapa objek publikasi yang tidak valid disertakan dengan "
+"permintaan."
 
 msgid "api.dois.400.invalidPluginType"
-msgstr ""
+msgstr "Plugin yang diatur saat ini harus berupa plugin agen pendaftaran."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Anda tidak dapat merekam keputusan atau merekomendasikan keputusan untuk "
+"naskah ini karena telah diterbutkan."
 
 msgid "api.emails.400.missingBody"
 msgstr "Anda harus mencantumkan surel yang akan dikirimi."
@@ -118,10 +128,10 @@ msgstr ""
 "dipilih."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Template email inu bukan bawaan untuk email yang dikenal."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Konteks ini tidak valid."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Template surel yang Anda minta tidak ditemukan."
@@ -203,6 +213,8 @@ msgstr "Permintaan tidak valid. orderDirection harus `desc` atau `asc`."
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Permintaan Anda tidak valid. Interval timeline harus berupa `hari` atau "
+"`bulan`."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -236,13 +248,15 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Anda harus memberikan file stage."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Tahap file yang Anda berikan tidak valid."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "Tidak ada perubahan ditemukan pada permintaan mengedit file ini."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Anda harus memberikan id ronde review saat memindahkan file ke tahapan file "
+"ini."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr "Putaran review yang Anda berikan bukan bagian dari naskah ini."
@@ -265,7 +279,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Volume, nomor atau tahun yang diminta tidak valid."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Anda tidak bisa mengirim dengan peran pengguna ini."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -300,31 +314,33 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Bahasa {$locale} belum didukung."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "Email yang dicari tidak ditemukan."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Tugas gagal tidak ditemukan dalam daftar tugas gagal."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "Tugas gagal kehilangan muatan akan ditugaskan ulang."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Tidak ada tugas gagal dalam daftar."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Tidak dapat menugaskan ulang tugas yang gagal."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Tugas yang gagal berhasil dikirim ulang."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Semua tugas gagal yang dapat dikirim ulang dengan payload yang valid telah "
+"berhasil diantrekan kembali."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "Tidak dapat menghapus tugas yang gagal dari daftar tugas gagal."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Tugas gagal berhasil duhapusdar daftar."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Kosa kata {$vocab} belum didukung."

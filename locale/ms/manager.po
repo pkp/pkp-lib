@@ -1,8 +1,9 @@
 # Studiorimau <studiorimau@gmail.com>, 2021.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-01 13:07+0000\n"
-"Last-Translator: Studiorimau <studiorimau@gmail.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Malay <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "ms/>\n"
 "Language: ms\n"
@@ -10,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Maklumat"
@@ -780,7 +781,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics"
-msgstr "Statistik &amp; Laporan"
+msgstr "Statistik & Laporan"
 
 msgid "manager.statistics.reports"
 msgstr "Laporan"

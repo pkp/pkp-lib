@@ -1,11 +1,12 @@
 # Huang Feilong <hfl@nominsang.org>, 2021.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:07-08:00\n"
-"PO-Revision-Date: 2021-11-02 17:32+0000\n"
-"Last-Translator: Huang Feilong <hfl@nominsang.org>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/common/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "公共知识计划"
@@ -1389,7 +1390,7 @@ msgid "locale.supported"
 msgstr "支持的语言环境"
 
 msgid "navigation.access"
-msgstr "用户&amp;角色"
+msgstr "用户&角色"
 
 msgid "navigation.about"
 msgstr "关于我们"

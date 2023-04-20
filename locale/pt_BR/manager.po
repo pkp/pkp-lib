@@ -3,13 +3,14 @@
 # Alex Mendonça <alex.mendonca@scielo.org>, 2022, 2023.
 # Daniel Caixeta <daniel.caixeta@inep.gov.br>, 2022.
 # Danilo Silva <profdanilocsilva@outlook.com>, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-30T11:54:13-07:00\n"
-"PO-Revision-Date: 2023-04-15 16:23+0000\n"
-"Last-Translator: Danilo Silva <profdanilocsilva@outlook.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Portuguese (Brazil) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -832,7 +833,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Disponibilizar publicamente as estatísticas do COUNTER SUSHI"
 
 msgid "manager.statistics"
-msgstr "Estatísticas &amp; Relatórios"
+msgstr "Estatísticas & Relatórios"
 
 msgid "manager.statistics.reports"
 msgstr "Gerador de Relatórios"

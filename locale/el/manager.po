@@ -1,19 +1,20 @@
 # Manolis Saldaris <omanos@gmail.com>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2022-07-09 18:41+0000\n"
-"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"el_GR/>\n"
-"Language: el_GR\n"
+"el/>\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
 msgstr "Πληροφορίες"
@@ -789,7 +790,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics"
-msgstr "Στατιστικά &amp; Αναφορές"
+msgstr "Στατιστικά & Αναφορές"
 
 #, fuzzy
 msgid "manager.statistics.reports"

@@ -1,12 +1,13 @@
 # Yukari Chiba <Charles@nia.ac.cn>, 2021.
 # HKBU Library <libms@hkbu.edu.hk>, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-04T08:55:35-08:00\n"
-"PO-Revision-Date: 2023-01-31 13:35+0000\n"
-"Last-Translator: HKBU Library <libms@hkbu.edu.hk>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Chinese (Simplified) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/manager/zh_CN/>\n"
 "Language: zh_CN\n"
@@ -746,7 +747,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics"
-msgstr "状态 &amp; 报告"
+msgstr "状态 & 报告"
 
 #, fuzzy
 msgid "manager.statistics.reports"

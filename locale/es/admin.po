@@ -1,12 +1,13 @@
 # Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 # Juan Francisco Vinueza Cobos <tallergrafico@ucuenca.edu.ec>, 2022.
+# Marc Bria <marc.bria@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-19 22:36+0000\n"
-"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Marc Bria <marc.bria@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
 "Language: es\n"
@@ -83,6 +84,8 @@ msgstr "Caducidad de las sesiones"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Se cerrará inmediatamente todas las sesiones de la aplicación, incluida la "
+"suya, y tendrán que volver a iniciar sesión."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -148,7 +151,7 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La tarea no ha generado ningún registro."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr ""
+msgstr "Depositar los DOI en la agencia de registro establecida"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
@@ -157,6 +160,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Enviar un correo electrónico a cada editor/a recordándole sus tareas "
+"pendientes"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""

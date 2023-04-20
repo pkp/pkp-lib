@@ -5,11 +5,11 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:38+00:00\n"
-"PO-Revision-Date: 2023-02-04 04:48+0000\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
-"ar_IQ/>\n"
-"Language: ar_IQ\n"
+"ar/>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -276,13 +276,13 @@ msgid "manager.dois.status.error"
 msgstr "خطأ"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "فيه خطأ"
 
 msgid "manager.dois.status.stale"
 msgstr "عتيقة"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "معرف المكون الرقمي تم تعيينه"
 
 msgid "manager.dois.status.needsDoi.description"
 msgstr ""
@@ -291,7 +291,7 @@ msgstr ""
 "بدون معرف المكون الرقمي لن يظهر هنا إذا لم يتم تمكين نوع المعرف له)"
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "كل العناصر حصلت على معرفات المكونات الرقمية."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
@@ -349,9 +349,13 @@ msgstr ""
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"لا يمكن تعيين معرفات المكونات الرقمية ما لم تقم بتقديم بادئتها. <a href=\""
+"{$doiSettingsUrl}\">إضافة بادئة معرف المكون الرقمي</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"تمت محاولة إنشاء معرف المكون الرقمي، ولكن بادئته مطلوبة في السياق من أجل "
+"إنشائه."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -895,6 +899,8 @@ msgstr "النمط المخصص للاحقة معرف المكون الرقمي"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"واحد أو أكثر من أنواع معرفات المكونات الرقمية المحددة غير مسموح به عند وكالة "
+"تسجيل معرفات المكونات الرقمية التي تمت تهيئتها."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -2270,7 +2276,7 @@ msgstr ""
 "ما هو مسجل في النظام لنفس المستخدم."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "قيد الاختبار"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "العنوان"
@@ -2835,22 +2841,22 @@ msgid "emailTemplate.variable.recommendation"
 msgstr "القرار الموصى به، مثل قبول طلب التقديم"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "تاريخ التكليف بهذا التحكيم"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "نوع التحكيم، كأن يكون غير مشخصن، غير مشخصن للطرفين، أو مفتوح"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "توصية المحكم، كأن تكون قبول طلب التقديم أو رفضه"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "جولة التحكيم، كأن تكون الجولة 1 أو الجولة 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "الملفات المرفوعة من قبل المحكم"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "اسم المحكم"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr "وصف لطريقة التحكيم الافتراضية، مثلاً السري المزدوج أو المفتوح."
@@ -2974,7 +2980,7 @@ msgid "emailTemplate.variable.issue.issueIdentification"
 msgstr "مُعرَّف العدد، متضمنًا المجلد، العدد، السنة، والعنوان"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "عنوان الرابط المؤدي إلى العدد المنشور"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
 msgstr "السنة في التقرير"
@@ -3172,6 +3178,8 @@ msgstr "تذكير التحكيم"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"رسالة البريد الالكتروني هذه يرسلها المحرر لتذكير المحكم باستيجاب تسليم "
+"التحكيم."
 
 msgid "mailable.reviewRemindAuto.name"
 msgstr "تذكير التحكيم (مؤتمت)"
@@ -3539,3 +3547,19 @@ msgstr "طلب التقديم بحاجة إلى محرر"
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "الرابط إلى صفحة إحصائيات المقالات المنشورة"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr "رسائل البريد الالكترونية معدة بنجاح لإرسالها في أقرب مناسبة."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "ملف التقديم {$id} تم تخطيه لأنه لا يمتلك تحكيم صالح."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"التحكيم {$revision} لملف التقديم {$id} تم تخطيه لتعذر العثور على الملف في "
+"المسار \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"صورة الغلاف للمنشور {$id} لم يتم تصديرها، تعذر العثور على ملفها في المسار \""
+"{$path}\"."

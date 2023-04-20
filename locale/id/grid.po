@@ -1,18 +1,19 @@
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2020-02-12 08:50+0000\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
 "Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "id/>\n"
-"Language: id_ID\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "Tidak Ada Item"
@@ -132,7 +133,7 @@ msgid "grid.action.order"
 msgstr "Urutkan"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Simpan Urutan"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Batalkan pengurutan"
@@ -285,7 +286,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Tambahkan Pengumuman"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Tambah Institusi"
 
 msgid "grid.action.mergeUser"
 msgstr "Gabunggan pengguna"
@@ -367,7 +368,7 @@ msgid "grid.columns.locale"
 msgstr "Bahasa"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Kode"
 
 msgid "grid.sponsor.title"
 msgstr "Sponsor"
@@ -410,6 +411,8 @@ msgstr "Hapus Kontributor"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"Yakin mau menghapus {$name} sebagai kontributor? Tindakan ini tidak bisa "
+"dipulihkan."
 
 msgid "grid.action.newVersion"
 msgstr "Buat versi baru"
@@ -451,28 +454,28 @@ msgid "author.users.contributor.principalContact"
 msgstr "Kontak Utama"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Atur Kontak Utama"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Pratinjau"
 
 msgid "contributor.listPanel.preview.description"
-msgstr ""
+msgstr "Kontributor publikasi ini akan ditandai sesua format berikut."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Format"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Tampilkan"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Singkatan"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Daftar Publikasi"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Lengkap"
 
 msgid "grid.roles.currentRoles"
 msgstr "Peran Sekarang"
@@ -700,7 +703,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Pilih tipe..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Lihat"
 
 msgid "author.users.contributor.name"
 msgstr "Nama"

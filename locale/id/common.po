@@ -1,20 +1,20 @@
-# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021.
+# Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>, 2021, 2023.
 # Rahman Ramsi <rahmanramsi19@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:51+00:00\n"
-"PO-Revision-Date: 2021-08-19 04:05+0000\n"
-"Last-Translator: Rahman Ramsi <rahmanramsi19@gmail.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Ramli Baharuddin <ramli.baharuddin@relawanjurnal.id>\n"
 "Language-Team: Indonesian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"common/id_ID/>\n"
-"Language: id_ID\n"
+"common/id/>\n"
+"Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -131,22 +131,22 @@ msgid "common.add"
 msgstr "Tambah"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Tambahkan CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Tambahkan File"
 
 msgid "common.addSelf"
 msgstr "Tambahkan Diri Sendiri"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "File Terlampir"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Lampirkan File"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Lampirkan Pilihan"
 
 msgid "common.name"
 msgstr "Nama"
@@ -159,8 +159,8 @@ msgstr "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
 
 msgid "common.titleSmallWords"
 msgstr ""
-"of a the and an or nor but is if then else when at from by on off for in out "
-"over to into with"
+"dari sebuah dan atau tapi jika kemudian lainnya jika pada di dari maka oleh "
+"untuk dalam atas"
 
 msgid "common.alreadyAssigned"
 msgstr "Ditugaskan"
@@ -341,7 +341,7 @@ msgid "common.deleteSelection"
 msgstr "Hapus Pilihan"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Hapus Pilihan"
 
 msgid "common.designation"
 msgstr "Penunjukan"
@@ -350,19 +350,19 @@ msgid "common.description"
 msgstr "Deskripsi"
 
 msgid "common.details"
-msgstr ""
+msgstr "Detail"
 
 msgid "common.dimensionsInches"
-msgstr "{$width}&Prime;&times;{$height}&Prime; at {$dpi} DPI/PPI"
+msgstr "{$width}&Prime;&times;{$height}&Prime; pada {$dpi} DPI/PPI"
 
 msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Tidak, batalkan perubahan"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Terputus"
 
 msgid "common.disable"
 msgstr "Nonaktifkan"
@@ -383,22 +383,22 @@ msgid "common.downloadPdf"
 msgstr "Unduh PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Unduh Laporan"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Tarik dan lepas file di sini."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Atau unggah file"
 
 msgid "common.edit"
-msgstr "Edit"
+msgstr "Ubah"
 
 msgid "common.editItem"
 msgstr "Sunting {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Template Surel"
 
 msgid "common.enable"
 msgstr "Aktifkan"
@@ -468,13 +468,13 @@ msgid "common.filterRemove"
 msgstr "Hapus filter: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Cari Template"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Menformat"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografi"
 
 msgid "common.go"
 msgstr "Lanjut"
@@ -507,10 +507,10 @@ msgid "common.insert"
 msgstr "Memasukkan"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Masukkan Isi"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Cari isi untuk disematkan"
 
 msgid "common.itemsPerPage"
 msgstr "Item per halaman"
@@ -519,7 +519,7 @@ msgid "common.keywords"
 msgstr "Kata Kunci"
 
 msgid "common.label"
-msgstr ""
+msgstr "Label"
 
 msgid "common.language"
 msgstr "Bahasa"
@@ -528,7 +528,7 @@ msgid "common.languages"
 msgstr "Bahasa"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Terakhir disimpan {$when}"
 
 msgid "common.lastActivity"
 msgstr "Aktivitas terkahir dicatat pada {$date}."
@@ -543,7 +543,7 @@ msgid "common.lessThanOnly"
 msgstr "Kuran dari"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Tetap Jalankan"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -585,10 +585,10 @@ msgid "common.none"
 msgstr "Tidak Ada"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Tidak ada yag dipilih"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Tidak ada yang diberikan"
 
 msgid "common.no"
 msgstr "Tidak Ada"
@@ -632,7 +632,7 @@ msgid "common.noMatches"
 msgstr "Tidak Cocok"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} lagi"
 
 msgid "common.off"
 msgstr "Mati"
@@ -731,7 +731,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Baca lebih lanjut tentang {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Mengulang sambungan"
 
 msgid "common.record"
 msgstr "Rekam"
@@ -779,10 +779,10 @@ msgid "common.reset"
 msgstr "Reset"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Ronde {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Peran"
 
 msgid "common.saveAndContinue"
 msgstr "Simpan dan lanjutkan"
@@ -800,10 +800,10 @@ msgid "common.search"
 msgstr "Cari"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Cari Frasa"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Mencari"
 
 msgid "common.searchQuery"
 msgstr "Mencari"
@@ -833,10 +833,10 @@ msgid "common.sendEmail"
 msgstr "Kirim Surel"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Tampilkan semua tahapan"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} tahap"
 
 msgid "common.size"
 msgstr "Ukuran"
@@ -863,10 +863,10 @@ msgid "common.suggest"
 msgstr "Saran"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Beralih ke"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Beralih ke {$name}"
 
 msgid "common.title"
 msgstr "Judul"
@@ -884,10 +884,10 @@ msgid "common.type"
 msgstr "Tipe"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Diunggah oleh {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Diunggah oleh {$name} pada {$date}"
 
 msgid "common.component"
 msgstr "Komponen"
@@ -902,10 +902,14 @@ msgid "common.unread"
 msgstr "Belum dibaca"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Perubahan Belum Tersimpan"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Kami menemukan perubahan yang belum disimpan dari {$when}. Ini dapat terjadi "
+"jika koneksi ke server terputus saat bekerja. Mengembalikan perubahan "
+"tersebut dapat menimpa perubahan apa pun yang telah Anda buat sejak saat "
+"itu. Apakah Anda ingin memulihkan perubahan tersebut sekarang?"
 
 msgid "common.untitled"
 msgstr "Tidak berjudul"
@@ -934,7 +938,7 @@ msgid "common.upload.addFile"
 msgstr "Unggah File"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Unggah file dari komputer Anda."
 
 msgid "common.upload.restore"
 msgstr "Pulihkan Ke Asal"
@@ -961,7 +965,7 @@ msgid "common.view"
 msgstr "Lihat"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Lihat Galat"
 
 msgid "common.viewWithName"
 msgstr "Lihat {$name}"
@@ -985,7 +989,7 @@ msgid "common.yes"
 msgstr "Ya"
 
 msgid "common.loading"
-msgstr "Memuat ..."
+msgstr "Memuat"
 
 msgid "common.plugins"
 msgstr "Plugin"
@@ -1030,28 +1034,31 @@ msgid "email.addAttachment"
 msgstr "Tambah lampiran"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Lampirkan File Naskah"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
 msgstr ""
+"Lampirkan file yang diunggah oleh penulis pada tahap pengiriiman naskah."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Lampirkan file yang diunggah selama alur kerja naskah, seperti revisi atau "
+"file yang akan direview."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "File Pustaka"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Lampirkan File Pustaka"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Lampirkan file dari tahap Pengiriman Naskan dan dari Pustaka Penerbit."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Lampirkan File Review"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Lampirkan file yang diunggah oleh mitra bestari"
 
 msgid "email.addBccRecipient"
 msgstr "Tambah BCC"
@@ -1066,7 +1073,7 @@ msgid "email.attachments"
 msgstr "Lampiran"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "File {$fileName} tidak dapat dilampirkan."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1082,6 +1089,8 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Yakin ingin mengubah ke {$localeName} untuk menulis email ini? Setiap "
+"perubahan yang Anda buat pada subjek dan isi email akan hilang."
 
 msgid "email.compose"
 msgstr "Kirim Email"
@@ -1305,10 +1314,10 @@ msgid "icon.delete.alt"
 msgstr "Hapus"
 
 msgid "icon.edit.alt"
-msgstr "Edit"
+msgstr "Ubah"
 
 msgid "icon.folder.alt"
-msgstr "Folder"
+msgstr "Berkas"
 
 msgid "icon.font_large.alt"
 msgstr "Besar"
@@ -1398,9 +1407,11 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Perijinan"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Izinkan orang ini mengubah rincian publikasi."
+msgstr ""
+"Izinkan orang ini melakukan perubahan data publikasi, seperti abstrak "
+"metadata, dan informasi lainnya. Kamu bisa membatalkan izin ini jika naskah "
+"telah selesai dicek dan siap diterbitkan."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Partisipan"
@@ -1544,7 +1555,7 @@ msgid "navigation.viewFrontend"
 msgstr "Buka Situs"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Institusi"
 
 msgid "notification.addedAuditor"
 msgstr "Auditor ditambahkan."
@@ -1833,7 +1844,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Mitra Bestari dipulihkan."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Permintaan untuk mempertimbangkan kembali tugas mereview telah dikirim."
 
 msgid "notification.addedStageParticipant"
 msgstr "Pengguna ditambahkan sebagai partisipan tahapan."
@@ -1875,7 +1886,7 @@ msgid "notification.signedFile"
 msgstr "File dipertimbangkan."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Zona Waktu"
 
 msgid "user.email"
 msgstr "Alamat Surel"
@@ -1944,7 +1955,7 @@ msgstr ""
 "melalui laporan editorial."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Email mingguan berisi tugas-tugas yang belum selesai"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -1979,7 +1990,7 @@ msgstr ""
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
-"Kamu bisa melanggan ulang ke notifikasi email kapan saja melalui menu  <a "
+"Kamu bisa melanggan ulang ke notifikasi email kapan saja melalui menu <a "
 "href=\"{$profileNotificationUrl}\">profil pengguna</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
@@ -2005,13 +2016,13 @@ msgid "list.viewLess"
 msgstr "Sembunyikan rincian tentang {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Tampilkan Semua"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Sembunyikan Semua"
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Ini bukan pilihan valid."
 
 msgid "validator.accepted"
 msgstr "Terima item ini."
@@ -2030,6 +2041,8 @@ msgstr "Hanya boleh diisi huruf, angka, garis datar, dan garis bawah."
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Isian ini hanya boleh berisi huruf, angka, tanda pisah, garis bawah, dan "
+"titik."
 
 msgid "validator.alpha_num"
 msgstr "Hanya boleh diisi huruf dan angka."
@@ -2063,6 +2076,9 @@ msgstr "Negara ini tidak valid."
 
 msgid "validator.country.regex"
 msgstr ""
+"Ini bukan negara yang valid. Negara harus terdiri dari salah satu dari kode "
+"internasional 2 huruf. Lihat semua kode di https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Mata uang ini tidak valid."
@@ -2071,7 +2087,7 @@ msgid "validator.date"
 msgstr "Tanggal tidak valid."
 
 msgid "validator.date_format"
-msgstr "Formatnya tidak cocok dengan  {$format}."
+msgstr "Formatnya tidak cocok dengan {$format}."
 
 msgid "validator.different"
 msgstr "{$attribute} dan {$other} harus berbeda."
@@ -2213,10 +2229,10 @@ msgid "validator.url"
 msgstr "URL tidak vallid."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Tidak diperbolekan baris baru."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Hanya [{$tags}] tag html yang diperbolehkan."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2232,7 +2248,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Tidak dapat mengimpor Node XML"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Perintah tidak dikenali {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

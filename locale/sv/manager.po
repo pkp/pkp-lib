@@ -1,12 +1,13 @@
 # Magnus Annemark <magnus.annemark@ub.lu.se>, 2021, 2022, 2023.
 # Viveka Svensson <viveka.svensson@lnu.se>, 2022.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
 "PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
 "Language: sv\n"
@@ -804,7 +805,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
 msgid "manager.statistics"
-msgstr "Statistik &amp; Rapporter"
+msgstr "Statistik & Rapporter"
 
 msgid "manager.statistics.reports"
 msgstr "Rapporter"

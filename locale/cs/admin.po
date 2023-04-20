@@ -1,8 +1,73 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-21 08:43+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/admin/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "admin.hostedContexts"
+msgstr "Hostované servery"
+
+msgid "admin.languages.confirmDisable"
+msgstr ""
+"Jste si jisti, že chcete tuto lokalizaci zakázat? Může to mít vliv na "
+"všechny hostované servery, které v současné době používají tuto lokalizaci."
+
+msgid "admin.locale.maybeIncomplete"
+msgstr "Označené lokalizace mohou být neúplné"
+
+msgid "admin.languages.installNewLocalesInstructions"
+msgstr ""
+"Vyberte další jazyky, jejichž podporu chcete v tomto systému nainstalovat. "
+"Jazyky musí být nainstalovány, aby je hostované servery mohly používat. "
+"Informace o přidávání podpory nových jazyků naleznete v dokumentaci OPS."
+
+msgid "admin.languages.localeInstalled"
+msgstr "Lokalizace \"{$locale}\" byla nainstalována."
+
+msgid "admin.systemConfiguration"
+msgstr "Konfigurace OPS"
+
+msgid "admin.contexts.create"
+msgstr "Vytvořit server"
+
+msgid "admin.contexts.form.pathExists"
+msgstr "Vámi zadaná cesta je již používána jiným serverem."
+
+msgid "admin.contexts.form.primaryLocaleNotSupported"
+msgstr "Primární jazyk musí být jedním z jazyků podporovaných serverem."
+
+msgid "admin.contexts.contextDescription"
+msgstr "Popis serveru"
+
+msgid "admin.contexts.enableContextInstructions"
+msgstr "Povolení veřejného zobrazení tohoto preprintového serveru na webu"
+
+msgid "admin.siteManagement.description"
+msgstr ""
+"Přidávejte, upravujte nebo odstraňujte servery s preprinty z tohoto webu a "
+"spravujte nastavení celého webu."
+
+msgid "admin.settings.redirect"
+msgstr "Přesměrování serveru"
+
+msgid "admin.settings.redirectInstructions"
+msgstr ""
+"Požadavky na hlavní web budou přesměrovány na tento server. To může být "
+"užitečné například v případě, že web hostuje pouze jeden server."
+
+msgid "admin.languages.confirmUninstall"
+msgstr ""
+"Jste si jisti, že chcete tuto lokalizaci odinstalovat? Může to mít vliv na "
+"všechny hostované servery, které v současné době používají tuto lokalizaci."
+
+msgid "admin.contexts.form.pathAlphaNumeric"
+msgstr ""
+"Cesta může obsahovat pouze písmena, číslice a znaky \"_\" a \"-\". Musí "
+"začínat a končit písmenem nebo číslicí."

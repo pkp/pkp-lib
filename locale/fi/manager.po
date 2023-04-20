@@ -1,11 +1,12 @@
 # Antti-Jussi Nygård <ajnyga@gmail.com>, 2022, 2023.
+# Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:48+00:00\n"
-"PO-Revision-Date: 2023-03-13 16:48+0000\n"
-"Last-Translator: Antti-Jussi Nygård <ajnyga@gmail.com>\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
 "Language-Team: Finnish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "fi/>\n"
 "Language: fi\n"
@@ -830,7 +831,7 @@ msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Aseta COUNTER SUSHI -tilastot julkisesti saataville"
 
 msgid "manager.statistics"
-msgstr "Tilastot &amp; Raportit"
+msgstr "Tilastot & Raportit"
 
 msgid "manager.statistics.reports"
 msgstr "Raportit"

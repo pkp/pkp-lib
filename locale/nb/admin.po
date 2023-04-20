@@ -1,16 +1,16 @@
 # Tormod Strømme <tormod.stromme@uib.no>, 2022, 2023.
 # Eirik Hanssen <eirikh@oslomet.no>, 2023.
 # FRITT, University of Oslo Library <fritt-info@journals.uio.no>, 2023.
+# Eirik Hanssen <eirikhanssen79@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:54+00:00\n"
-"PO-Revision-Date: 2023-02-17 03:48+0000\n"
-"Last-Translator: FRITT, University of Oslo Library <fritt-info@journals.uio."
-"no>\n"
-"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/pkp-"
-"lib/admin/nb_NO/>\n"
+"PO-Revision-Date: 2023-04-20 08:17+0000\n"
+"Last-Translator: Eirik Hanssen <eirikhanssen79@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <http://translate.pkp.sfu.ca/projects/"
+"pkp-lib/admin/nb_NO/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +32,7 @@ msgstr "Slett cache"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Slett cache-filer fra systemet. Dette bør kun gjøres i utviklingsmiljøer."
 
 msgid "admin.clearDataCache"
 msgstr "Tøm data-cacher"
@@ -166,6 +167,8 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Sendte {$count} jobber for å sende redaksjonelle e-postpåminnelser til "
+"bruker(e) {$userIds} i konteksten {$contextId}"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr "Er du sikker på at du vil slette alle loggene over planlagte oppgaver?"
@@ -195,70 +198,88 @@ msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
 msgstr "Fjern ubekreftede, utløpte brukere"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Fjern veldig gamle mislykkede jobber fra jobblisten."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Behandle jobber som venter i køen"
 
 msgid "admin.scheduledTask.updateGeoDB"
 msgstr "Oppdater DB-IP city lite database"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Endring av navn på databasefilen DB-IP city lite fra {$sourceFilename} til "
+"{$targetFilename} mislyktes."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Bruksstatistikk  over fillaster-oppgave"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Mappen {$directory} er ikke tom. Dette kan indikere en tidligere mislykket "
+"prosess, eller en prosess som kjører samtidig. Denne filen blir automatisk "
+"behandlet på nytt."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "Filen {$file} kunne ikke åpnes, og ble avvist."
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Filen {$file} er i et gammelt loggfilformat som ikke kan behandles og vil "
+"dermed bli flyttet tilbake til stage-mappen."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Hoppet over loggfilen {$file} fordi statistikk fra den måneden allerede er "
+"beregnet. For å beregne statistikk for en tidligere måned på nytt, må du "
+"gjenopprette alle månedens loggfiler og bruke CLI-verktøyet til å behandle "
+"statistikk på nytt."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Linjen {$lineNumber} i loggfilen {$file} er i feil format og vil dermed bli "
+"hoppet over."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Ugyldig loggoppføring på linje {$lineNumber} i loggfilen {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
 msgstr "Tidsangivelsen er ikke en gyldig dato."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Context-ID er ikke et heltall."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Submission ID er ikke et heltall."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Representation ID er ikke et heltall."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc type støttes ikke."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Filtypen støttes ikke."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Country er ikke en streng med to alfabetiske tegn."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
-msgstr ""
+msgstr "Region er ikke en streng på opptil tre alfanumeriske tegn."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Institution ID-er er ikke en array."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Det oppstod en feil under behandling av loggfilen {$file} på linjen "
+"{$lineNumber}: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Bakgrunnsjobben som skal behandle loggfilen {$file} og lagre "
+"statistikkdataene er sendt."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-versjon"
@@ -348,9 +369,11 @@ msgstr "Systeminformasjon"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Se informasjon om versjonen og konfigurasjonsinnstillingene for "
+"applikasjonen og serveren."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Se systeminformasjon"
 
 msgid "admin.versionBuild"
 msgstr "Versjon"
@@ -410,387 +433,480 @@ msgstr "Fillaster"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Kilde-gz-filen {$filePath} kunne ikke åpnes "
+"med gzopen."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Destinasjonsfilen {$filePath} kunne ikke "
+"åpnes med fopen."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Kilde-gz-filen {$file} kunne ikke leses med "
+"gzread."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Destinasjonsfilen {$filePath} kunne ikke "
+"skrives med fwrite."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Den åpnede målfilen {$filePath} kunne ikke "
+"lukkes med fclose."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Den åpnede kilden gz-filen {$filePath} kunne "
+"ikke lukkes med gzclose."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Filen kunne ikke dekomprimeres. Den dekomprimerte kilde-gz-filen {$filePath} "
+"kunne ikke fjernes med unlink."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Filen kunne ikke komprimeres. Destinasjonen gz-filen {$filePath} kunne ikke "
+"åpnes med gzopen."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Filen kunne ikke komprimeres. Kildefilen {$filePath} kunne ikke åpnes med "
+"fopen."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Filen kunne ikke komprimeres. Kildefilen {$filePath} kunne ikke leses med "
+"fread."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Filen kunne ikke komprimeres. Mål-gz-filen {$filePath} kunne ikke skrives "
+"med gzwrite."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Filen kunne ikke komprimeres. Den åpnede kildefilen {$filePath} kunne ikke "
+"lukkes med fclose."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Filen kunne ikke komprimeres. Den åpnede mål-gz-filen {$filePath} kunne ikke "
+"lukkes med gzclose."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Filen kunne ikke komprimeres. Den komprimerte kildefilen {$filePath} kunne "
+"ikke fjernes med unlink."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Ingen språkpakker er tilgjengelig for nedlasting."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Bruk:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "kommando [argumenter]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Tilgjengelige kommandoer for `{$namespace}` navnerom:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Kan ikke kjøre køjobber fordi applikasjonsvedlikeholdsmodus er aktivert."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"List opp alle jobber i køen. Hvis du vil paginere resultater, bruk "
+"parameterne --page= og --perPage=\n"
+"Bruk flagget --failed for å liste opp mislykkede jobber."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Slett en spesifikk jobb i kø basert på dens ID. Hvis du vil tømme alt, send "
+"parameteren --all. Hvis du ønsker å fjerne alt fra en spesifikk kø, sender "
+"du parameteren --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Legg til en testjobb i testkøen. Bruk de valgfrie parameterne --only= og "
+"send 'failed' eller 'success' for å sende en mislykket eller vellykket jobb."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Kjør en bakgrunnsprosess som ikke stopper, og vil fortsette å behandle "
+"jobber. Bruk --help flagget for å se tilgjengelige alternativer knyttet til "
+"denne kommandoen."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"List opp alle de mislykkede jobbene. Angi parameteren --queue=QUEUE_NAME og "
+"--connection=CONNECTION_NAME for å filtrere listen. Send også parameter/"
+"flagg --redispatch og --clear for å sende tilbake til køen eller slette alle/"
+"spesifikke mislykkede jobber."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Send tilgjengelige jobber til køen. Hvis du ønsker å sende en jobb inn i en "
+"bestemt kø, send parameteren --queue=QUEUE_NAME. Du kan også bare bruke "
+"parameteren --test for å kjøre testjobben og --once for å kjøre kun en jobb "
+"om gangen"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "Fullførte kjøringen av {$jobCount} jobber i køen kalt {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "Ingen jobber tilgjengelig for å kjøre i køen kalt {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Vis det totale antallet jobber i køen. Send flagget --failed for å se totalt "
+"antall mislykkede jobber."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Vis hvordan kommandoen Jobs skal brukes"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Vis parametre til kommandoen Jobs"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Alternativet kunne ikke være tomt! Sjekk hvordan den skal brukes."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Mislykkede jobber i kø"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Jobber i kø"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Kø"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Kobling"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Jobbnavn"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Forsøk"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Reservert"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Tilgjengelig"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Opprettet"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Mislyktes"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Feilmelding"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Paginering"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Gjeldende"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Forrige"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Neste"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Du bør sende minst en jobb ID, '--all' eller '--queue=' for å bruke denne "
+"kommandoen"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Sendt testjobb som er dømt til å mislyktes i køen med navnet {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
-msgstr ""
+msgstr "Sendt testjobb som er dømt til å lykkes i køen kalt {$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Ugyldig alternativ for testjobb. Alternativet '--only=' tar kun 'failed' "
+"eller 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Ugyldig jobb ID"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Jobben ble slettet!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Finner ingen jobber å slette."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Det var ikke mulig å slette alle jobber."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Slettet alle jobbene!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} mislykkede jobber ble fjernet fra listen over mislykkede jobber."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} jobber ble sendt tilbake til køen."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Vi har {$total} mislykkede jobber"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Vi har {$total} jobber i kø"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Alternativet {$option} eksisterer ikke."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Mente du en av de følgende?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Det er totalt <strong>{$total}</strong> jobb(er) i køen"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Det er totalt <strong>{$total}</strong> mislykkede jobb(er)."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Se jobber i køen"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Jobber"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Mislykkede jobber"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detaljer om mislykket jobb"
 
 msgid "navigation.tools.jobs.description"
-msgstr ""
+msgstr "Vis alle jobbene i køen i systemet og spor mislykkede forsøk."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Vis jobber"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Vis mislykkede jobber"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Vis mislykket jobb:{$id} detaljer"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atributt"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Atributtverdi"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Jobb"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Kø"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Kobling"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Forsøk"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Opprettet"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Mislyktes"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Nyttelast (payload)"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Unntak"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Handlinger"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Opprettet {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Opprettet {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Prøv igjen"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Send alle mislykkede jobber tilbake til køen"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Jobben som laster inn bruksstatistikkdata fra filen {$file} mislyktes, og "
+"filen kunne ikke flyttes fra {$archivedFilePath} til {$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Jobben som laster inn bruksstatistikkdata fra filen {$file} mislyktes. Filen "
+"er flyttet til stage-mappen."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Datainnsamling"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Konfigurer hva slags bruksstatistikk som skal samles inn."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Datalagring"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Konfigurer hvilken bruksstatistikk som skal lagres på serveren."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi protokoll"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Konfigurer <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER "
+"5 SUSHI</a>-protokollen, et bransjeanerkjent format for distribusjon av "
+"bruksstatistikk."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Månedlig eller daglig statistikk"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Hvorvidt du skal spore daglig eller månedlig bruksstatistikk. Sporing av "
+"daglig statistikk kan øke databasestørrelsen betraktelig."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Spor daglig og månedlig statistikk"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Spor kun månedlig statistikk"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Komprimer logger"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statistikk genereres fra tilgangsloggfiler som flyttes til <code>{$path}</"
+"code> når de er behandlet. Bør loggfilene komprimeres til <code>.gz</code>-"
+"filer når de har blitt behandlet? Komprimering av loggfiler kan spare "
+"diskplass på serveren."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "La loggfilene være ukomprimert"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Komprimer loggfilene"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Begrens tilgangen til COUNTER SUSHI statistikk-API til kun redaksjonsledere "
+"og administratorer"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plattform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"I henhold til COUNTER SUSHI-protokollen må hver statistikkrapport "
+"identifisere \"plattformen\" som gir statistikken. Som standard vil "
+"tidsskriftet bli angitt som plattformen for all statistikk. Like fullt, hvis "
+"alle tidsskriftene på dette nettstedet er publisert, eid eller drevet av "
+"samme leverandør, kan det hende du ønsker å angi nettstedet som plattformen."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Bruk nettsiden som plattform for alle tidsskrifter."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Plattform ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Hvordan identifisere denne plattformen i COUNTER SUSHI-rapporter. Plattform "
+"ID må bestå av 17 tegn eller mindre og kan inneholde bokstavene (a–z, A–Z), "
+"sifrene (0–9), understreker (_), prikker (.) og skråstreker (/). Plattform "
+"ID brukes i flere kolonner og skal være så kort som mulig samtidig som den "
+"fortsatt er gjenkjennelig. Plattform ID er vanligvis basert på navnet på en "
+"utgiver eller plattform, et domenenavn eller en kjent, unik forkortelse."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"En plattform-ID kreves når nettstedet skal identifiseres som SUSHI-"
+"plattformen."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "alternativer for jobb kommando"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "bruk : [--alternativ1 --alternativ2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Tilgjengelige alternativer for jobb kommandoen"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Navnet på køtilkoblingen til jobb [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Navnet på køen til jobb [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Navnet på arbeideren [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Antall sekunder som må vente før du prøver en jobb på nytt som oppdaget et "
+"uoppdaget unntak [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Minnegrensen i megabyte [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Antall sekunder en underordnet prosess kan kjøre [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Antall sekunder å vente når ingen jobb er tilgjengelig [standard: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Antall ganger å prøve en jobb før logging av den mislyktes [default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Tving arbeideren til å kjøre selv i vedlikeholdsmodus [standard: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Stopp når køen er tom [standard: {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
-msgstr ""
+msgstr "Antall jobber som skal behandles før stopp [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Maksimalt antall sekunder arbeideren skal kjøre [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
-msgstr ""
+msgstr "Antall sekunder å vente mellom jobbene [default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Kjør arbeider-bakgrunnsprosessen for testkø"
 
 #~ msgid "admin.serverInformationDescription"
 #~ msgstr ""

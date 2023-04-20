@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:06+00:00\n"
-"PO-Revision-Date: 2023-03-14 19:40+0000\n"
+"PO-Revision-Date: 2023-04-21 03:49+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "sv/>\n"
@@ -272,34 +272,41 @@ msgid "manager.dois.status.error"
 msgstr "Fel"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Har fel"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Behöver synkas"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI tilldelad"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Alla objekt saknar en DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Alla objekt har tilldelats en DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Alla objekt med en DOI som har publicerats men som inte har deponerats hos "
+"en DOI-organisation."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Alla objekt som har skickats in till en DOI-organisation."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Alla objekt som har registrerats hos en DOI-organisation eller manuellt "
+"märkta som registrerade."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Alla objekt som har stött på ett fel i registreringsprocessen."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Alla objekt som har blivit återpublicerade sedan senaste deponeringen hos en "
+"DOI-organisation. De måste skickas in till DOI-organisationen på nytt för "
+"att metadatan ska uppdateras."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "DOI-uppdatering misslyckades"

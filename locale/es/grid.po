@@ -1,19 +1,19 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2021-09-10 09:05+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
-"es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/es/"
+">\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "grid.noItems"
 msgstr "No hay artículos"
@@ -133,7 +133,7 @@ msgid "grid.action.order"
 msgstr "Ordenar"
 
 msgid "grid.action.saveOrdering"
-msgstr ""
+msgstr "Guardar el pedido"
 
 msgid "grid.action.cancelOrdering"
 msgstr "Cancelar la ordenación"
@@ -287,7 +287,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Añadir anuncio"
 
 msgid "grid.action.addInstitution"
-msgstr ""
+msgstr "Añadir institución"
 
 msgid "grid.action.mergeUser"
 msgstr "Fusionar usuario/a"
@@ -370,7 +370,7 @@ msgid "grid.columns.locale"
 msgstr "Local"
 
 msgid "grid.columns.locale.code"
-msgstr ""
+msgstr "Código"
 
 msgid "grid.sponsor.title"
 msgstr "Patrocinadores"
@@ -413,6 +413,8 @@ msgstr "Eliminar colaborador/a"
 
 msgid "grid.action.deleteContributor.confirmationMessage"
 msgstr ""
+"¿Seguro que quiere eliminar a {$name} como colaborador/a? Esta acción no se "
+"puede deshacer."
 
 msgid "grid.action.newVersion"
 msgstr "Crear una versión nueva"
@@ -454,28 +456,30 @@ msgid "author.users.contributor.principalContact"
 msgstr "Contacto principal"
 
 msgid "author.users.contributor.setPrincipalContact"
-msgstr ""
+msgstr "Establecer contacto principal"
 
 msgid "contributor.listPanel.preview"
-msgstr ""
+msgstr "Previsualizar"
 
 msgid "contributor.listPanel.preview.description"
 msgstr ""
+"Los colaboradores/as de esta publicación se identificarán con los siguientes "
+"formatos."
 
 msgid "contributor.listPanel.preview.format"
-msgstr ""
+msgstr "Formato"
 
 msgid "contributor.listPanel.preview.display"
-msgstr ""
+msgstr "Mostrar"
 
 msgid "contributor.listPanel.preview.abbreviated"
-msgstr ""
+msgstr "Abreviado"
 
 msgid "contributor.listPanel.preview.publicationLists"
-msgstr ""
+msgstr "Listas de publicación"
 
 msgid "contributor.listPanel.preview.full"
-msgstr ""
+msgstr "Completo"
 
 msgid "grid.roles.currentRoles"
 msgstr "Roles actuales"
@@ -708,7 +712,7 @@ msgid "grid.navigationMenus.navigationMenu.selectType"
 msgstr "Escoger un tipo..."
 
 msgid "grid.action.view"
-msgstr ""
+msgstr "Ver"
 
 msgid "author.users.contributor.name"
 msgstr "Nombre"

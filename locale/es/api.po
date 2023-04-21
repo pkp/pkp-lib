@@ -1,22 +1,22 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-08-04 09:04+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
-"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/api/es/>"
+"\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "El parámetro {$param} no está soportado."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "La propiedad {$prop} no puede ser modificada."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -29,13 +29,13 @@ msgstr ""
 "{$error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Debe proporcionar el asunto y el cuerpo del correo electrónico."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "No es posible cambiar la fecha en que fue creado."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Es necesario un prefijo DOI para generar los DOI."
 
 msgid "api.403.unauthorized"
 msgstr "No está autorizado para acceder al recurso solicitado."
@@ -55,56 +55,68 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "No se ha encontrado el aviso solicitado."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "No se encontró la institución solicitada."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr ""
 "Las siguientes configuraciones regionales no son compatibles: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
-msgstr ""
+msgstr "No puede editar un elemento del DOI que no aparezca en este contexto."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "No se reconoció el tipo de publicación."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Este terminal no está disponible desde el espacio de nombres de todo el "
+"sitio y debe solicitarse para un determinado contexto."
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "No se encontró el DOI solicitado."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "No se encontró el objeto de publicación solicitado."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "No se encontró el envío solicitado."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Los elementos sin publicar no se pueden exportar/depositar. Desmarque los "
+"elementos sin publicar y vuelva a intentarlo."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "Ocurrió un error y el objeto DOI no pudo crearse."
 
 msgid "api.dois.400.xmlExportFailed"
-msgstr ""
+msgstr "Ocurrió un error en la validación del XML y no se pudo exportar."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"Ocurrió un error y algunos de los elementos enviados no fueron marcados como "
+"registrados."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Algunos elementos no se depositaron con éxito. Compruebe los mensajes de "
+"error específicos de cada elemento."
 
 msgid "api.dois.404.noPubObjectIncluded"
-msgstr ""
+msgstr "No se incluyeron objetos de publicación válidos con la solicitud."
 
 msgid "api.dois.400.invalidPubObjectIncluded"
 msgstr ""
+"Se incluyeron uno o más objetos de publicación inválidos con la solicitud."
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"El módulo configurado actualmente debe ser un módulo de agencia de registro."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"No puede registrar ni recomendar una decisión para este envío porque ya ha "
+"sido publicado."
 
 msgid "api.emails.400.missingBody"
 msgstr "Debe incluir un correo electrónico para enviarlo."
@@ -123,9 +135,11 @@ msgstr ""
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr ""
+"Esto no es una plantilla de correo electrónico predeterminada para un correo "
+"conocido."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Esto no es un contexto válido."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "No se encontró la plantilla de correo electrónico solicitada."
@@ -211,6 +225,7 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Su solicitud no es válida. El intervalo temporal debe ser 'día' o 'mes'."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -240,13 +255,15 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Debe proporcionar una fase de archivo."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "La fase del archivo proporcionada no es válida."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr "No se han encontrado cambios en la solicitud para editar este archivo."
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Debe proporcionar un identificador de la ronda de revisión cuando mueva un "
+"archivo a esta fase."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
@@ -271,7 +288,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "El volumen, número o año solicitados no son válidos."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "No puede enviar con este rol de usuario/a."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -305,31 +322,33 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "La configuración regional {$locale} no está soportada."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "No se encontró el correo electrónico solicitado."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "No se encontró el trabajo fallido en la lista de fallos."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
-msgstr ""
+msgstr "El trabajo fallido no tiene la carga útil para poder ser reenviado."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "No se ha encontrado ningún trabajo fallido en el listado."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "No se puede reenviar el trabajo fallido."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "El trabajo fallido se reenvió con éxito."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Todos los trabajos fallidos reenviables con carga útil válida se han vuelto "
+"a poner en la cola con éxito."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
-msgstr ""
+msgstr "No se puede eliminar el trabajo fallido del listado de fallos."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "El trabajo fallido se ha eliminado con éxito del listado de fallos."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "El vocabulario {$vocab} no está soportado."

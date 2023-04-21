@@ -576,7 +576,7 @@ msgid "manager.language.ui"
 msgstr "UI"
 
 msgid "manager.language.submissions"
-msgstr "Příspěvek"
+msgstr "Příspěvky"
 
 msgid "manager.language.forms"
 msgstr "Formuláře"
@@ -1321,7 +1321,7 @@ msgid "manager.setup.workflow.guidance"
 msgstr "Průvodce autora"
 
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Zaškrtávací seznam pro přípravu příspěvku"
+msgstr "Kontrolní seznam pro příspěvek"
 
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
@@ -3570,6 +3570,26 @@ msgstr "Přiřadit redaktora"
 msgid "mailable.submissionNeedsEditor.name"
 msgstr "Příspěvek potřebuje přiřazení redaktora"
 
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"E-maily jsou úspěšně řazeny do fronty k odeslání v nejbližším možném termínu."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr "Soubor {$id} byl přeskočen, protože nemá platnou revizi."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Revize {$revision} souboru příspěvku {$id} byla přeskočena, protože soubor "
+"nebyl nalezen na cestě \"{$path}\"."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Obrázek obálky publikace {$id} nebyl exportován, jeho soubor nebyl nalezen v "
+"cestě \"{$path}\"."
+
+msgid "manager.statistics"
+msgstr "Statistiky & Zprávy"
+
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Výchozí termín pro recenze"
 
@@ -3666,20 +3686,3 @@ msgstr "Příspěvek potřebuje přiřazení redaktora"
 
 #~ msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
 #~ msgstr "Odkaz na stránku se statistikami publikovaných článků"
-
-msgid "manager.setup.notifyUsers.queued"
-msgstr ""
-"E-maily jsou úspěšně řazeny do fronty k odeslání v nejbližším možném termínu."
-
-msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
-msgstr "Soubor {$id} byl přeskočen, protože nemá platnou revizi."
-
-msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
-msgstr ""
-"Revize {$revision} souboru příspěvku {$id} byla přeskočena, protože soubor "
-"nebyl nalezen na cestě \"{$path}\"."
-
-msgid "plugins.importexport.common.error.publicationCoverImageMissing"
-msgstr ""
-"Obrázek obálky publikace {$id} nebyl exportován, jeho soubor nebyl nalezen v "
-"cestě \"{$path}\"."

@@ -1,7 +1,7 @@
 # M. Ali <vorteem@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -139,3 +139,300 @@ msgstr "تذكير إنتهاء الاشتراك"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr "إزالة المهمات الفاشلة الأقدم من قائمة المهمات الفاشلة."
+
+msgid "admin.configFileUpdatedInstructions"
+msgstr ""
+"تم تحديث ملف التهيئة بنجاح. يرجى ملاحظة أنه إذا لم يعد موقعك يعمل بشكل صحيح "
+"فقد تحتاج إلى إصلاحه يدويًا عبر تحرير <tt>config.inc.php</tt> مباشرة."
+
+msgid "admin.confirmExpireSessions"
+msgstr ""
+"هل أنت متأكد من رغبتك في إنهاء جلسات كل المستخدمين؟ كل المستخدمين الذين "
+"يستعملون الموقع حاليًا سيصيرون مجبرين على تسجيل الدخول مجددًا (بضمنهم أنت)."
+
+msgid "admin.displayConfigFileInstructions"
+msgstr ""
+"محتويات إعدادات التهيئة المحدثة معروضة أدناه. لتطبيق تغييرات التهيئة عليك أن "
+"تفتح <tt>config.inc.php</tt> مستعملاً محرر نصوص مناسب ثم تستبدل محتوياته "
+"بمحتويات الحقل النصي أدناه."
+
+msgid "admin.expireSessions.description"
+msgstr ""
+"كل المستخدمين سيجري إخراجهم من البرنامج، بضمنهم أنت، وسيصير لزامًا عليهم "
+"تسجيل الدخول مجددًا."
+
+msgid "admin.languages.confirmReload"
+msgstr ""
+"هل أنت متأكد من رغبتك في إعادة تحميل هذه اللغة؟ هذا من شأنه حذف كل البيانات "
+"ذات الصلة باللغة، مثل قوالب البريد الالكتروني المخصصة."
+
+msgid "admin.scheduledTask.editorialReminder.logEnd"
+msgstr ""
+"إطلاق {$count} من المهام لإرسال رسائل التذكير الخاصة بالتحرير إلى المستخدمين "
+"{$userIds} في السياق {$contextId}"
+
+msgid "admin.scheduledTask.publishSubmissions"
+msgstr "نشر طلبات التقديم المجدولة للنشر"
+
+msgid "admin.scheduledTask.updateGeoDB"
+msgstr "تحديث قاعدة بيانات DB-IP city lite"
+
+msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
+msgstr ""
+"فشلت إعادة تسمية ملف قاعدة بيانات DB-IP city lite {$sourceFilename} إلى "
+"{$targetFilename}."
+
+msgid "admin.scheduledTask.usageStatsLoader"
+msgstr "مهمة تحميل ملف إحصائيات الاستعمال"
+
+msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
+msgstr "تعذر فتح الملف {$file} وتم رفضه."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
+msgstr "نوع المساعد غير مدعوم."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
+msgstr "رمز البلد ليس نصًا من حرفين هجائيين."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
+msgstr "مُعرَّف المؤسسة ليس مصفوفة."
+
+msgid "admin.scheduledTask.usageStatsLoader.insertError"
+msgstr "وقع خطأ عند معالجة ملف الوقوعات {$file} عند السطر {$lineNumber}: {$msg}"
+
+msgid "admin.server.dbDriver"
+msgstr "مشغل قاعدة البيانات"
+
+msgid "admin.server.dbVersion"
+msgstr "إصدار مخدم قاعدة البيانات"
+
+msgid "admin.settings.enableBulkEmails.label"
+msgstr "رسائل البريد الالكتروني بالجملة"
+
+msgid "admin.settings.restrictBulkEmails"
+msgstr "تقييد رسائل البريد الالكتروني بالجملة"
+
+msgid "admin.settings.disableBulkEmailRoles.label"
+msgstr "تعطيل الأدوار"
+
+msgid "admin.settings.siteLanguage"
+msgstr "لغة الموقع"
+
+msgid "admin.settings.siteStyleSheet"
+msgstr "ملف أنماط الموقع"
+
+msgid "admin.settings.siteLogo"
+msgstr "شعار الموقع"
+
+msgid "admin.settings.siteTitle"
+msgstr "اسم الموقع"
+
+msgid "admin.siteManagement"
+msgstr "إدارة الموقع"
+
+msgid "admin.siteAdmin"
+msgstr "إشراف الموقع"
+
+msgid "admin.siteSettings"
+msgstr "إعدادات الموقع"
+
+msgid "admin.siteSetup"
+msgstr "تنصيب الموقع"
+
+msgid "admin.systemInformation"
+msgstr "معلومات النظام"
+
+msgid "admin.systemInformation.description"
+msgstr "معاينة معلومات عن إعدادات التهيئة والإصدار للتطبيق والمخدم."
+
+msgid "admin.systemInformation.view"
+msgstr "معاينة معلومات النظام"
+
+msgid "admin.versionBuild"
+msgstr "البناء"
+
+msgid "admin.version.checkForUpdates"
+msgstr "التحقق من وجود تحديثات"
+
+msgid "admin.version.downloadPackage"
+msgstr "تنزيل"
+
+msgid "admin.versionHistory"
+msgstr "الإصدارات السابقة"
+
+msgid "admin.versionMajor"
+msgstr "الرئيسي"
+
+msgid "admin.versionMinor"
+msgstr "الثانوي"
+
+msgid "admin.version.moreInfo"
+msgstr "مزبد من المعلومات"
+
+msgid "admin.versionRevision"
+msgstr "التنقيح"
+
+msgid "admin.version.updateAvailable"
+msgstr "يتوفر إصدار أحدث"
+
+msgid "admin.version"
+msgstr "الإصدار"
+
+msgid "admin.fileLoader.emailSubject"
+msgstr "رافع الملفات"
+
+msgid "admin.error.gzDecompressFile.gzread"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"gzread."
+
+msgid "admin.error.gzDecompressFile.fclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المستهدف المفتوح {$filePath} باستعمال "
+"fclose."
+
+msgid "admin.error.gzDecompressFile.unlink"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت إزالة الملف المصدري مفكوك الضغط الذي بصيغة gz "
+"{$filePath} باستعمال unlink."
+
+msgid "admin.error.gzCompressFile.fopen"
+msgstr "تعذر ضغط الملف. تعذر فتح الملف المصدري {$filePath} باستعمال fopen."
+
+msgid "admin.error.gzCompressFile.fread"
+msgstr "تعذر ضغط الملف. تعذرت قراءة الملف المصدري {$filePath} باستعمال fread."
+
+msgid "admin.error.gzCompressFile.gzwrite"
+msgstr ""
+"تعذر ضغط الملف. تعذرت كتابة الملف المستهدف الذي بصيغة gz {$filePath} "
+"باستعمال gzwrite."
+
+msgid "admin.error.gzCompressFile.unlink"
+msgstr ""
+"تعذر ضغط الملف. تعذرت إزالة الملف المصدري المضغوط {$filePath} باستعمال "
+"unlink."
+
+msgid "admin.cli.tool.usage.title"
+msgstr "طريقة الاستعمال:"
+
+msgid "admin.languages.confirmSitePrimaryLocaleChange"
+msgstr ""
+"هل أنت متأكد من رغبتك في تغيير اللغة الرئيسية للموقع؟ سيتم نسخ أسماء "
+"المستخدمين، التي هي مطلوبة باللغة الرئيسية للموقع، من اللغة الرئيسية الحالية "
+"للموقع حيثما كانت مفقودة."
+
+msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
+msgstr ""
+"المجلد {$directory} ليس فارغًا. هذا قد يشير إلى وجود عملية سابقة فاشلة، أو "
+"عملية شغالة حاليًا. ستتم إعادة معالجة هذا الملف تلقائيًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
+msgstr ""
+"الملف {$file} هو بصيغة ملف وقوعات قديم لا تمكن معالجته ولهذا السبب ستجري "
+"إعادته إلى مجلد منصة العمل."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
+msgstr ""
+"مُدخل سجل وقوعات خاطئ عند السطر {$lineNumber} في ملف الوقوعات {$file}: "
+"{$error}"
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
+msgstr "الوقت ليس بشكل تاريخ صالح."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
+msgstr "مُعرَّف السياق ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
+msgstr "مُعرَّف طلب التقديم ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
+msgstr "مُعرَّف العرض التقديمي ليس عددًا صحيحًا."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
+msgstr "نوع الملف غير مدعوم."
+
+msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
+msgstr "اسم المنطقة ليس نصًا أقصاه ثلاثة حروف هجائية."
+
+msgid "admin.server.apacheVersion"
+msgstr "إصدار Apache"
+
+msgid "admin.serverInformation"
+msgstr "معلومات المخدم"
+
+msgid "admin.server.phpVersion"
+msgstr "إصدار PHP"
+
+msgid "admin.server.platform"
+msgstr "منصة نظام التشغيل"
+
+msgid "admin.settings"
+msgstr "الإعدادات"
+
+msgid "admin.settings.about"
+msgstr "عن الموقع"
+
+msgid "admin.settings.contactEmail"
+msgstr "عنوان بريد جهة الاتصال الرئيسية"
+
+msgid "admin.settings.contactName"
+msgstr "اسم جهة الاتصال الرئيسية"
+
+msgid "admin.settings.introduction"
+msgstr "المقدمة"
+
+msgid "admin.settings.minPasswordLength"
+msgstr "أقل طول لكل المرور (محارف)"
+
+msgid "admin.settings.disableBulkEmailRoles.adminOnly"
+msgstr "المشرف فقط يُسمح له بتعديل هذا الإعداد."
+
+msgid "admin.settings.siteStyleSheetInvalid"
+msgstr "صيغة ملف أنماط الموقع غير صالحة. الصيغة المقبولة هي css."
+
+msgid "admin.settings.siteTheme"
+msgstr "مظهر الموقع"
+
+msgid "admin.systemConfigFileReadError"
+msgstr ""
+"ملف التهيئة <tt>config.inc.php</tt> غير موجود، غير قابل للكتابة، أو غير صالح."
+
+msgid "admin.version.downloadPatch"
+msgstr "حزمة التنزيل"
+
+msgid "admin.version.latest"
+msgstr "آخر إصدار"
+
+msgid "admin.version.upToDate"
+msgstr "نظامك بآخر إصدار"
+
+msgid "admin.error.gzDecompressFile.gzopen"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر فتح الملف المصدري الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzDecompressFile.fopen"
+msgstr "تعذر فك ضغط الملف. تعذر فتح الملف المستهدف {$filePath} باستعمال fopen."
+
+msgid "admin.error.gzDecompressFile.fwrite"
+msgstr ""
+"تعذر فك ضغط الملف. تعذرت كتابة الملف المستهدف {$filePath} باستعمال fwrite."
+
+msgid "admin.error.gzDecompressFile.gzclose"
+msgstr ""
+"تعذر فك ضغط الملف. تعذر إغلاق الملف المصدري المفتوح الذي بصيغة gz {$filePath}"
+" باستعمال gzclose."
+
+msgid "admin.error.gzCompressFile.gzopen"
+msgstr ""
+"تعذر ضغط الملف. تعذر فتح الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzopen."
+
+msgid "admin.error.gzCompressFile.fclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المصدري المفتوح {$filePath} باستعمال fclose."
+
+msgid "admin.error.gzCompressFile.gzclose"
+msgstr ""
+"تعذر ضغط الملف. تعذر إغلاق الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
+"gzclose."

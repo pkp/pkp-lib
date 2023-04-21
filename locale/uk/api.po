@@ -1,8 +1,348 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
+"Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
+"uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "api.400.tokenCouldNotBeDecoded"
+msgstr "Токен API не вдалося розшифрувати через таку помилку: {$error}"
+
+msgid "api.400.requireEmailSubjectBody"
+msgstr "Ви повинні вказати тему й тіло електронного листа."
+
+msgid "api.files.400.notAllowedCreatedAt"
+msgstr "Неможливо змінити час створення цього."
+
+msgid "api.dois.403.prefixRequired"
+msgstr "Для створення DOI необхідний префікс DOI."
+
+msgid "api.404.resourceNotFound"
+msgstr "Запитуваний ресурс не знайдено."
+
+msgid "api.404.endpointNotFound"
+msgstr "Запитувану URL-адресу не розпізнано."
+
+msgid "api.institutions.404.institutionNotFound"
+msgstr "Організацію, яку ви запитали, не знайдено."
+
+msgid "api.dois.403.editItemOutOfContext"
+msgstr ""
+"Ви не можете редагувати DOI елемента, який не відповідає цьому контексту."
+
+msgid "api.dois.403.pubTypeNotRecognized"
+msgstr "Тип публікації не було розпізнано."
+
+msgid "api.dois.404.doiNotFound"
+msgstr "Запитаний вами DOI не знайдено."
+
+msgid "api.dois.404.pubObjectNotFound"
+msgstr "Запитуваний об'єкт публікації не знайдено."
+
+msgid "api.dois.404.submissionNotFound"
+msgstr "Запитане вами подання не знайдено."
+
+msgid "api.dois.400.creationFailed"
+msgstr "Сталася помилка, і не вдалося створити об'єкт DOI."
+
+msgid "api.dois.400.xmlExportFailed"
+msgstr "Сталася помилка перевірки XML, і не вдалося експортувати XML."
+
+msgid "api.dois.404.noPubObjectIncluded"
+msgstr "До запиту не було включено жодних дійсних об'єктів публікації."
+
+msgid "api.dois.400.invalidPubObjectIncluded"
+msgstr "До запиту було включено один або кілька недійсних об'єктів публікації."
+
+msgid "api.decisions.403.alreadyPublished"
+msgstr ""
+"Ви не можете записати рішення або рекомендувати рішення для цього подання, "
+"оскільки його вже було опубліковано."
+
+msgid "api.emails.400.missingBody"
+msgstr "Ви повинні включити електронний лист для надсилання."
+
+msgid "api.emails.403.notAllowedUserGroup"
+msgstr ""
+"Вам заборонено надсилати електронні листи користувачам в одній або кількох "
+"із вибраних ролей."
+
+msgid "api.emailTemplates.400.invalidAlternateTo"
+msgstr ""
+"Це не шаблон електронного листа за замовчуванням для відомої електронної "
+"пошти."
+
+msgid "api.emailTemplates.400.invalidContext"
+msgstr "Це неприпустимий контекст."
+
+msgid "api.files.400.noUpload"
+msgstr "За запитом не вдалося знайти жодного файлу, який потрібно завантажити."
+
+msgid "api.files.400.uploadFailed"
+msgstr "Один або кілька файлів завантажити не вдалося."
+
+msgid "api.publication.403.cantEditPublished"
+msgstr ""
+"Ви не можете відредагувати цю публікацію, оскільки її вже було опубліковано."
+
+msgid "api.publication.403.cantDeletePublished"
+msgstr "Вам потрібно скасувати цю публікацію, перш ніж її можна буде видалити."
+
+msgid "api.publicFiles.400.extensionNotSupported"
+msgstr "Можна завантажувати лише такі типи файлів: {$fileTypes}."
+
+msgid "api.publicFiles.400.invalidImage"
+msgstr "Завантажене вами зображення не є припустимим."
+
+msgid "api.publicFiles.403.unauthorized"
+msgstr "Вам заборонено завантажувати файли."
+
+msgid "api.publicFiles.500.badFilesDir"
+msgstr ""
+"Каталог публічних файлів не знайдено або в ньому не можна зберегти файли. "
+"Зверніться до адміністратора, щоб вирішити цю проблему."
+
+msgid "api.stats.400.wrongDateFormat"
+msgstr "Дата повинна бути у форматі РРРР-ММ-ДД."
+
+msgid "api.stats.400.wrongDateRange"
+msgstr "Дата початку не може бути пізнішою за дату завершення."
+
+msgid "api.stats.400.earlyDateRange"
+msgstr "Дата початку не може бути раніше 2001-01-01."
+
+msgid "api.stats.400.lateDateRange"
+msgstr "Дата завершення не може бути пізнішою за вчорашній день."
+
+msgid "api.stats.400.invalidOrderDirection"
+msgstr ""
+"Ваш запит був неприпустимим. Напрямок упорядкування має бути \"за спаданням\""
+" або \"за зростанням\"."
+
+msgid "api.submissionFiles.400.badDependentFileAssocType"
+msgstr "Не можна пов'язати файл із цієї файлової стадії з іншим файлом подання."
+
+msgid "api.submissionFiles.400.badNoteAssocType"
+msgstr "Не можна пов'язати файл із цієї файлової стадії з нотаткою обговорення."
+
+msgid "api.submissionFiles.400.badReviewRoundAssocType"
+msgstr "Не можна пов'язати файл із цієї файлової стадії з раундом рецензування."
+
+msgid "api.submissionFiles.400.noFileStageId"
+msgstr "Необхідно вказати файлову стадію."
+
+msgid "api.submissionFiles.400.invalidFileStage"
+msgstr "Указана файлова стадія не є дійсною."
+
+msgid "api.submissionsFiles.400.noParams"
+msgstr "У запиті на редагування цього файлу не вдалося знайти жодних змін."
+
+msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
+msgstr "Указаний вами раунд рецензування не є частиною цього подання."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageId"
+msgstr "Ви не маєте доступу до цих файлів."
+
+msgid "api.submissionFiles.403.unauthorizedFileStageIdWrite"
+msgstr "Вам заборонено додавати та редагувати ці файли."
+
+msgid "api.submissions.400.invalidSubmitAs"
+msgstr "Ви не маєте права робити подання в цій ролі користувача."
+
+msgid "api.submissions.403.deleteSubmissionOutOfContext"
+msgstr "Ви не можете видалити подання, яке не призначено для цього контексту."
+
+msgid "api.themes.404.themeUnavailable"
+msgstr "Активна тема {$themePluginPath} не ввімкнута та може не інсталюватися."
+
+msgid "api.vocabs.400.localeNotSupported"
+msgstr "Локалізація \"{$locale}\" не підтримується."
+
+msgid "api.mailables.404.mailableNotFound"
+msgstr "Запитаний вами електронний лист не знайдено."
+
+msgid "api.jobs.404.failedJobNotFound"
+msgstr "Провалене завдання не знайдено в провальному списку."
+
+msgid "api.jobs.406.failedJobPayloadMissing"
+msgstr ""
+"Проваленому завданню не вистачає корисного навантаження, яке потрібно "
+"перевідправити."
+
+msgid "api.jobs.406.failedJobEmpty"
+msgstr "У списку не знайдено жодного проваленого завдання."
+
+msgid "api.jobs.200.failedJobRedispatchedSucceed"
+msgstr "Провалене завдання успішно перевідправлено."
+
+msgid "api.jobs.400.failedJobDeleteFailed"
+msgstr "Неможливо видалити провалене завдання з провального списку."
+
+msgid "api.jobs.200.failedJobDeleteSucceed"
+msgstr "Провалене завдання успішно видалено з провального списку."
+
+msgid "api.400.paramNotSupported"
+msgstr "Параметр \"{$param}\" не підтримується."
+
+msgid "api.400.propReadOnly"
+msgstr "Властивість \"{$prop}\" змінити не можна."
+
+msgid "api.400.invalidApiToken"
+msgstr ""
+"Токен API не вдалося перевірити. Це може свідчити про помилку в токені API "
+"або про те, що токен API більше не дійсний."
+
+msgid "api.403.unauthorized"
+msgstr "Ви не авторизовані для доступу до запитуваного ресурсу."
+
+msgid "api.500.apiSecretKeyMissing"
+msgstr ""
+"Токен API не може бути використаний для доступу до цього вебсайту, оскільки "
+"адміністратор сайту не налаштував секретний ключ."
+
+msgid "api.announcements.404.announcementNotFound"
+msgstr "Анонс, який ви запитали, не знайдено."
+
+msgid "api.contexts.400.localesNotSupported"
+msgstr "Не підтримуються такі локалізації: {$locales}."
+
+msgid "api.dois.404.contextNotFound"
+msgstr ""
+"Ця кінцева точка недоступна в просторі імен для всього сайту, тому її "
+"потрібно запитувати для певного контексту."
+
+msgid "api.dois.400.noUnpublishedItems"
+msgstr ""
+"Неопубліковані елементи не можна експортувати / депонувати. Скасуйте "
+"виділення неопублікованих елементів і повторіть спробу."
+
+msgid "api.dois.400.markRegisteredFailed"
+msgstr ""
+"Сталася помилка, і деякі з поданих елементів не було позначено як "
+"зареєстровані."
+
+msgid "api.dois.400.depositFailed"
+msgstr ""
+"Деякі елементи не було депоновано успішно. Будь ласка, перевірте окремі "
+"елементи на наявність повідомлень про конкретні помилки."
+
+msgid "api.emails.400.missingSubject"
+msgstr "Ви повинні вказати тему електронного листа."
+
+msgid "api.emailTemplates.404.templateNotFound"
+msgstr "Запитаний вами шаблон електронного листа не знайдено."
+
+msgid "api.files.400.fileSize"
+msgstr "Файли, більші за {$maxSize}, не можна завантажити."
+
+msgid "api.files.400.config"
+msgstr ""
+"файл завантажити не вдалося через помилку конфігурації сервера. Зверніться "
+"до системного адміністратора."
+
+msgid "api.publication.403.alreadyPublished"
+msgstr "Публікацію, яку ви хочете опублікувати, уже опубліковано."
+
+msgid "api.publication.403.alreadyUnpublished"
+msgstr "Публікацію, опублікування якої ви хочете скасувати, не опубліковано."
+
+msgid "api.dois.400.invalidPluginType"
+msgstr ""
+"Наразі налаштований плагін повинен бути плагіном реєстраційного агентства."
+
+msgid "api.emails.400.missingUserGroups"
+msgstr ""
+"Ви повинні вказати ролі користувачів, які мають отримати цей електронний "
+"лист."
+
+msgid "api.publication.403.cantEditStatus"
+msgstr ""
+"Ви не можете змінити статус безпосередньо через API. Замість цього "
+"використовуйте кінцеві точки /publish та /unpublish."
+
+msgid "api.publicFiles.400.mimeTypeNotMatched"
+msgstr ""
+"У завантаженому файлі не вказано відповідне розширення. Це може статися, "
+"якщо файл перейменовано на несумісний тип, наприклад, у випадку змінити "
+"photo.png на photo.jpg."
+
+msgid "api.publicFiles.413.noDirSpace"
+msgstr ""
+"У вас недостатньо місця в каталозі користувача. Файл, який ви завантажуєте, "
+"має розмір {$fileUploadSize} kb, а у вас залишилося {$dirSizeLeft} kb."
+
+msgid "api.stats.400.wrongTimelineInterval"
+msgstr ""
+"Ваш запит був неприпустимим. Інтервал часової шкали має бути \"день\" або "
+"\"місяць\"."
+
+msgid "api.submissionFiles.400.assocTypeAndIdRequired"
+msgstr ""
+"Ви не можете змінити асоціацію файлу без визначення типу асоціації та ID "
+"асоціації."
+
+msgid "api.submissionFiles.400.reviewRoundIdRequired"
+msgstr ""
+"Під час переміщення файлу на цю файлову стадію потрібно вказати ID раунду "
+"рецензування."
+
+msgid "api.stats.400.invalidTimelineInterval"
+msgstr ""
+"Ваш запит був неприпустимим. Інтервал часової шкали має бути \"день\" або "
+"\"місяць\"."
+
+msgid "api.submissionFiles.400.badReviewAssignmentAssocType"
+msgstr ""
+"Не можна пов'язати файл із цієї файлової стадії з призначенням рецензування."
+
+msgid "api.submissionFiles.403.unauthorizedReviewRound"
+msgstr "Ви не маєте доступу до файлів на цьому раунді рецензування."
+
+msgid "api.submissions.400.missingRequired"
+msgstr ""
+"Ваш запит не може бути виконано, оскільки в ньому відсутня необхідна "
+"інформація."
+
+msgid "api.submissions.400.invalidIssueIdentifiers"
+msgstr "Запитуваний том, номер або рік не є дійсними."
+
+msgid "api.submissions.403.csrfTokenFailure"
+msgstr ""
+"У вашому запиті було відмовлено. Це може бути тому, що строк дії вашого "
+"логіна закінчився. Спробуйте перезавантажити сторінку й повторити спробу."
+
+msgid "api.submissionFiles.400.missingReviewRoundAssocType"
+msgstr ""
+"Ви повинні вказати раунд рецензування під час запиту файлів на стадії "
+"рецензування."
+
+msgid "api.submissions.403.requestedOthersUnpublishedSubmissions"
+msgstr ""
+"Ви можете переглядати лише неопубліковані подання, для яких вас призначили."
+
+msgid "api.submissions.403.unauthorizedDeleteSubmission"
+msgstr "У вас немає дозволу на видалення цього подання."
+
+msgid "api.submissions.403.userCantEdit"
+msgstr "Вам заборонено редагувати цю публікацію."
+
+msgid "api.submissions.404.siteWideEndpoint"
+msgstr ""
+"Ця кінцева точка недоступна з контексту. Доступ до неї повинен бути з "
+"простору назв для всього сайту."
+
+msgid "api.jobs.400.failedJobRedispatchedFailed"
+msgstr "Неможливо перевідправити провалене завдання."
+
+msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
+msgstr ""
+"Усі перевідправлені провалені завдання з дійсним корисним навантаженням "
+"успішно повернуто в чергу."

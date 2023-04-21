@@ -1,15 +1,15 @@
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 # Diego Abadan <diego@lepidus.com.br>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2022-12-13 16:00+0000\n"
-"Last-Translator: Diego Abadan <diego@lepidus.com.br>\n"
+"PO-Revision-Date: 2023-04-21 11:50+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"es_ES/>\n"
-"Language: es_ES\n"
+"es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -133,22 +133,22 @@ msgid "common.add"
 msgstr "Añadir"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Añadir CC/BCC"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Añadir archivos"
 
 msgid "common.addSelf"
 msgstr "Añadirse"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Archivos adjuntos"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Adjuntar archivos"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Adjuntar lo seleccionado"
 
 msgid "common.name"
 msgstr "Nombre"
@@ -238,12 +238,17 @@ msgstr ""
 msgid "common.ccLicense.rt"
 msgstr ""
 "\n"
-"\t<div class=\"rtBlock\"><br /> <a rel=\"license\" href=\"https://"
-"creativecommons.org/licenses/by/3.0/\" target=\"_blank\"><img alt=\"Licencia "
-"de Creative Commons\" style=\"border-width:0\" src=\"//i.creativecommons.org/"
-"l/by/3.0/80x15.png\" /></a><br /> Este trabajo se distribuye bajo una <a rel="
-"\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" target="
-"\"_blank\">Licencia de reconocimiento 3.0 de Creative Commons</a>.</div>\n"
+"\t<div class=\"rtBlock\">\n"
+"<br /> \n"
+"<a rel=\"license\" href=\"https://creativecommons.org/licenses/by/3.0/\" "
+"target=\"_blank\">\n"
+"<img alt=\"Licencia de Creative Commons\" style=\"border-width:0\" src=\"//i."
+"creativecommons.org/l/by/3.0/80x15.png\" /></a>\n"
+"<br /> \n"
+"Este trabajo se distribuye bajo una <a rel=\"license\" href=\"https"
+"://creativecommons.org/licenses/by/3.0/\" target=\"_blank\">Licencia de "
+"reconocimiento 3.0 de Creative Commons</a>.\n"
+"</div>\n"
 "\t"
 
 msgid "common.changesSaved"
@@ -340,7 +345,7 @@ msgid "common.deleteSelection"
 msgstr "Eliminar selección"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Desmarcar"
 
 msgid "common.designation"
 msgstr "Designación"
@@ -349,7 +354,7 @@ msgid "common.description"
 msgstr "Descripción"
 
 msgid "common.details"
-msgstr ""
+msgstr "Detalles"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}\" x {$height}\" @ {$dpi} DPI/PPI"
@@ -358,10 +363,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} píxeles"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "No, descartar los cambios no guardados"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Desconectado"
 
 msgid "common.disable"
 msgstr "Desactivar"
@@ -382,13 +387,13 @@ msgid "common.downloadPdf"
 msgstr "Descargar PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Descargar informe"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Arrastrar y soltar los archivos aquí."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "O cargar un archivo"
 
 msgid "common.edit"
 msgstr "Editar"
@@ -397,7 +402,7 @@ msgid "common.editItem"
 msgstr "Editar {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Plantillas de correo electrónico"
 
 msgid "common.enable"
 msgstr "Activar"
@@ -468,13 +473,13 @@ msgid "common.filterRemove"
 msgstr "Limpiar filtros: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Encontrar plantilla"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formato"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geográfico"
 
 msgid "common.go"
 msgstr "Ir"
@@ -507,10 +512,10 @@ msgid "common.insert"
 msgstr "Insertar"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Insertar contenido"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Encontrar contenido para insertar"
 
 msgid "common.itemsPerPage"
 msgstr "Elementos por página"
@@ -519,7 +524,7 @@ msgid "common.keywords"
 msgstr "Palabras clave"
 
 msgid "common.label"
-msgstr ""
+msgstr "Etiqueta"
 
 msgid "common.language"
 msgstr "Idioma"
@@ -528,7 +533,7 @@ msgid "common.languages"
 msgstr "Idiomas"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Último guardado {$when}"
 
 msgid "common.lastActivity"
 msgstr "Última actividad registrada el {$date}."
@@ -543,7 +548,7 @@ msgid "common.lessThanOnly"
 msgstr "Menos que"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Continúe trabajando"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -585,10 +590,10 @@ msgid "common.none"
 msgstr "Ninguno"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ninguno seleccionado"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Ninguno proporcionado"
 
 msgid "common.no"
 msgstr "No"
@@ -633,7 +638,7 @@ msgid "common.noMatches"
 msgstr "Sin coincidencias"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} más"
 
 msgid "common.off"
 msgstr "Desactivado"
@@ -732,7 +737,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Leer más acerca de {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Reconectando"
 
 msgid "common.record"
 msgstr "Registro"
@@ -780,10 +785,10 @@ msgid "common.reset"
 msgstr "Restaurar"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Ronda {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rol"
 
 msgid "common.saveAndContinue"
 msgstr "Guardar y continuar"
@@ -801,10 +806,10 @@ msgid "common.search"
 msgstr "Buscar"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Buscar frase"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Buscando"
 
 msgid "common.searchQuery"
 msgstr "Búsqueda"
@@ -834,10 +839,10 @@ msgid "common.sendEmail"
 msgstr "Enviar correo electrónico"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Mostrar todos los pasos"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} pasos"
 
 msgid "common.size"
 msgstr "Tamaño"
@@ -864,10 +869,10 @@ msgid "common.suggest"
 msgstr "Sugerir"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Cambiar a"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Cambiar a {$name}"
 
 msgid "common.title"
 msgstr "Título"
@@ -885,10 +890,10 @@ msgid "common.type"
 msgstr "Tipo"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Cargado por {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Cargado por {$name} el {$date}"
 
 msgid "common.component"
 msgstr "Componente"
@@ -905,10 +910,14 @@ msgid "common.unread"
 msgstr "No leído"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Cambios sin guardar"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Hemos encontrado cambios sin guardar desde el {$when}. Esto puede ocurrir si "
+"pierde la conexión con el servidor mientras trabaja. Restaurar estos cambios "
+"podría sobrescribir cualquier modificación que haya hecho desde entonces. ¿"
+"Quiere restaurar dichos cambios ahora?"
 
 msgid "common.untitled"
 msgstr "Sin título"
@@ -937,7 +946,7 @@ msgid "common.upload.addFile"
 msgstr "Subir fichero"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Cargar un archivo desde su ordenador."
 
 msgid "common.upload.restore"
 msgstr "Restaurar el original"
@@ -964,7 +973,7 @@ msgid "common.view"
 msgstr "Ver"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Ver el error"
 
 msgid "common.viewWithName"
 msgstr "Ver {$name}"
@@ -1035,28 +1044,30 @@ msgid "email.addAttachment"
 msgstr "Añadir adjunto"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Adjuntar los archivos de envío"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Adjuntar los archivos cargados por el autor en la fase de envío."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Adjuntar los archivos cargados durante el flujo de trabajo del envío, como "
+"las revisiones o los archivos pendientes de revisión."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Archivos de biblioteca"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Adjuntar los archivos de biblioteca"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Adjuntar los archivos desde la biblioteca editorial y de envío."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Adjuntar los archivos de revisión"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Adjuntar los archivos cargados por los revisores/as"
 
 msgid "email.addBccRecipient"
 msgstr "Añadir CCO"
@@ -1071,7 +1082,7 @@ msgid "email.attachments"
 msgstr "Adjuntos"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "No se pudo adjuntar el archivo {$fileName}."
 
 msgid "email.bcc"
 msgstr "CCO"
@@ -1087,6 +1098,9 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"¿Seguro que quiere cambiar a {$localeName} para redactar este correo "
+"electrónico? Los cambios que haya hecho en el asunto y en el cuerpo del "
+"correo se perderán."
 
 msgid "email.compose"
 msgstr "Enviar correo electrónico"
@@ -1409,9 +1423,12 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Permisos"
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
-msgstr "Permitir a esta persona editar los detalles de publicación."
+msgstr ""
+"Permitir a esta persona hacer cambios en la publicación, como el título, el "
+"resumen, los metadatos u otros detalles. Puede que desee revocar este "
+"privilegio si el envío recibe una comprobación final y está listo para su "
+"publicación."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participante"
@@ -1555,7 +1572,7 @@ msgid "navigation.viewFrontend"
 msgstr "Ver el sitio"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Instituciones"
 
 msgid "notification.addedAuditor"
 msgstr "Auditor/a añadido."
@@ -1854,7 +1871,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Revisor/a restablecido."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Solicitud para reconsiderar la asignación de revisión enviada."
 
 msgid "notification.addedStageParticipant"
 msgstr "Usuario/a añadido como participante de la fase."
@@ -1895,7 +1912,7 @@ msgid "notification.signedFile"
 msgstr "Archivo examinado."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Zona horaria"
 
 msgid "user.email"
 msgstr "Dirección de correo electrónico"
@@ -1965,7 +1982,7 @@ msgstr ""
 "informe editorial."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Correo electrónico semanal de las tareas pendientes"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -2029,10 +2046,10 @@ msgid "list.viewLess"
 msgstr "Ocultar los detalles sobre {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Expandir todo"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Contraer todo"
 
 msgid "validation.invalidOption"
 msgstr "Esto no es una opción válida."
@@ -2088,6 +2105,9 @@ msgstr "Este país no es válido."
 
 msgid "validator.country.regex"
 msgstr ""
+"Esto no es un país válido. El país debe seguir el código internacional de 2 "
+"letras. Puede ver todos los códigos en https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Esta no es una moneda válida."
@@ -2238,10 +2258,10 @@ msgid "validator.url"
 msgstr "Esta URL no es válida."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "No se permite una línea nueva."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Solo se permiten [{$tags}] html."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2257,7 +2277,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "No se ha podido importar el nodo XML"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Comando desconocido {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

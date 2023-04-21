@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-19 22:36+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -1210,10 +1210,10 @@ msgid "workflow.review.internalReview"
 msgstr "Внутрішнє рецензування"
 
 msgid "workflow.stage.any"
-msgstr "Будь-який етап"
+msgstr "Будь-яка стадія"
 
 msgid "workflow.stage"
-msgstr "Етап"
+msgstr "Стадія"
 
 msgid "submission.status.editorial"
 msgstr "На редагуванні"
@@ -1383,20 +1383,17 @@ msgstr "Редагувтаи призначення"
 
 msgid "editor.submission.addStageParticipant.userGroup"
 msgstr ""
-"Користувачі призначаються для етапів робочого процесу за групою "
-"користувачів. Будь-який користувач, призначений для цього етапу, буде "
-"автоматично призначений для інших етапів, до яких було призначено їх групу "
-"користувачів. Це зазвичай резервується для редакторів, авторів та "
+"Користувачі призначаються для стадій робочого процесу за групою "
+"користувачів. Будь-який користувач, призначений для цієї стадії, буде "
+"автоматично призначений для інших стадій, до яких було призначено їх групу "
+"користувачів. Це зазвичай резервується для редакторів, авторів і "
 "перекладачів."
 
 msgid "editor.submission.removeStageParticipant"
 msgstr "Видалити учасника"
 
 msgid "editor.submission.removeStageParticipant.description"
-msgstr ""
-"Ви збираєтеся видалити цього учасника з <strong>усіх</strong> етапів. Якщо "
-"користувач також має призупинені завдання аудитора, вони також будуть "
-"видалені."
+msgstr "Ви збираєтеся видалити цього учасника з <strong>усіх</strong> стадій."
 
 msgid "editor.submission.addStageParticipant.form.userGroupRequired"
 msgstr "Ви маєте вибрати групу користувачів."
@@ -1458,14 +1455,16 @@ msgstr ""
 "Це подання буде прийнято до опублікування та відправлено на корегування."
 
 msgid "editor.submission.decision.accept.log"
-msgstr "{$editorName} прийняв це подання і відправив його на етап корегування."
+msgstr ""
+"{$editorName} прийняв(-ла) це подання і відправив(-ла) його на стадію "
+"корегування."
 
 msgid "editor.submission.decision.accept.completed"
 msgstr "Подання прийнято"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
-"Подання \"{$title}\" було прийнято до опублікування та відправлено на етап "
+"Подання \"{$title}\" було прийнято до опублікування та відправлено на стадію "
 "корегування. Усі сповіщення надіслано, крім тих, які ви вирішили пропустити."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
@@ -1485,11 +1484,11 @@ msgstr "Відхилити подання"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
-"Це подання буде відхилено для опублікування. Етап рецензування буде закрито, "
-"а подання буде заархівовано."
+"Це подання буде відхилено для опублікування. Стадію рецензування буде "
+"закрито, а подання буде заархівовано."
 
 msgid "editor.submission.decision.decline.log"
-msgstr "{$editorName} відхилив це подання."
+msgstr "{$editorName} відхилив(-ла) це подання."
 
 msgid "editor.submission.decision.decline.completed"
 msgstr "Подання відхилено"
@@ -1517,7 +1516,7 @@ msgid "editor.submission.decision.newReviewRound.description"
 msgstr "Відкрийте ще один раунд рецензування цього подання."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr "{$editorName} створив новий раунд рецензування цього подання."
+msgstr "{$editorName} створив(-ла) новий раунд рецензування цього подання."
 
 msgid "editor.submission.decision.newReviewRound.completed"
 msgstr "Раунд рецензування створено"
@@ -1534,7 +1533,7 @@ msgstr ""
 "надіслано, доки рішення не буде записано."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr "Виберіть файли, які слід відправити на етап корегування."
+msgstr "Виберіть файли, які слід відправити на стадію корегування."
 
 msgid "editor.submission.decision.promoteFiles.review"
 msgstr "Виберіть файли, які слід надіслати на рецензування."
@@ -1551,7 +1550,7 @@ msgstr ""
 "опублікування."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr "{$editorName} попросив доопрацювати це подання."
+msgstr "{$editorName} попросив(-ла) доопрацювати це подання."
 
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Запитано зміни"
@@ -1577,10 +1576,10 @@ msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Скасуйте поточний раунд рецензування та надішліть подання назад до "
 "останнього раунду рецензування. Якщо це перший раунд рецензування, він буде "
-"відправлений назад на етап подання."
+"відправлений назад на стадію подачі."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr "{$editorName} скасував раунд рецензування."
+msgstr "{$editorName} скасував(-ла) раунд рецензування."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
 msgstr "Скасовано останній раунд рецензування."
@@ -1606,8 +1605,8 @@ msgstr ""
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
-"{$editorName} запросив доопрацювати це подання, яке має бути відправлено на "
-"ще один раунд рецензування."
+"{$editorName} запросив(-ла) доопрацювати це подання, яке має бути "
+"відправлено на ще один раунд рецензування."
 
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Запитано зміни"
@@ -1632,7 +1631,7 @@ msgid "editor.submission.decision.sendExternalReview.description"
 msgstr "Це подання готове до відправки на експертну оцінювання."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr "{$editorName} відправив це подання на стадію рецензування."
+msgstr "{$editorName} відправив(-ла) це подання на стадію рецензування."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
 msgstr "Надіслано на рецензування"
@@ -1653,7 +1652,7 @@ msgstr ""
 "Надішліть це подання на стадію виробництва для підготовки до опублікування."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "{$editorName} відправив це подання на стадію виробництва."
+msgstr "{$editorName} відправив(-ла) це подання на стадію виробництва."
 
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Направлено на виробництво"
@@ -1670,13 +1669,13 @@ msgstr ""
 "доки рішення не буде записано."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr "Скасувани корегування"
+msgstr "Скасувати корегування"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr "Надішліть це подання назад зі стадії корегування."
+msgstr "Надіслати це подання назад зі стадії корегування."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr "{$editorName} відправив це подання назад зі стадії корегування."
+msgstr "{$editorName} відправив(-ла) це подання назад зі стадії корегування."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
 msgstr "Відправлено назад із копіювання"
@@ -1695,10 +1694,10 @@ msgid "editor.submission.decision.backToCopyediting"
 msgstr "Повернутися до корегування"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "Надішліть це подання назад на етап корегування."
+msgstr "Надіслати це подання назад на стадію корегування."
 
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "{$editorName} відправив це подання назад на етап корегування."
+msgstr "{$editorName} відправив(-ла) це подання назад на стадію корегування."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
 msgstr "Відправлено назад на корегування"
@@ -1711,7 +1710,7 @@ msgstr ""
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Надішліть електронний лист авторам, щоб повідомити їх, що це подання було "
-"надіслано назад на етап корегування. Поясніть, чому було прийнято таке "
+"надіслано назад на стадію корегування. Поясніть, чому було прийнято таке "
 "рішення, і повідомте автору про те, яке подальше редагування буде потрібно, "
 "перш ніж це подання буде готове до виробництва."
 
@@ -1720,18 +1719,29 @@ msgstr "Прийняти та пропустити рецензування"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Прийняти це подання до публікації та пропустити стадію рецензування. Це "
+"рішення відправить подання на стадію корегування."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} пропустив(-ла) стадію рецензування і відправив(-ла) це подання "
+"на стадію корегування."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Пропущене рецензування"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"Подання \"{$title}\" пропустило стадію рецензування і було відправлене на "
+"стадію корегування. Автора було сповіщено, якщо ви не вирішили пропустити "
+"цей електронний лист."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Надішліть електронний лист авторам, щоб повідомити їх, що це подання "
+"прийняте до опублікування та надіслано на стадію корегування без "
+"рецензування. Цей електронний лист не буде надіслано, доки рішення не буде "
+"записано."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Направити на внутрішнє рецензування"
@@ -1742,7 +1752,7 @@ msgstr ""
 "його доступним. Ви хочете його затвердити?"
 
 msgid "editor.submission.decision.approveProofs"
-msgstr "Схвалити коректури"
+msgstr "Схвалити пруфи"
 
 msgid "editor.submission.decision.disapproveProofsDescription"
 msgstr ""
@@ -1750,74 +1760,96 @@ msgstr ""
 "Ви хочете відхилити схвалення?"
 
 msgid "editor.submission.decision.revertDecline"
-msgstr ""
+msgstr "Відкликати відхилення"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Відкликати попереднє рішення про відхилення цього подання та повернути його "
+"до активного редакційного процесу. Автора було сповіщено, якщо ви не "
+"вирішили пропустити цей електронний лист."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} відкликав(-ла) рішення про відхилення цього подання."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Подання реактивовано"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "Подання \"{$title}\" зараз є активним поданням на стадії рецензування."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Надішліть електронний лист авторам, щоб повідомити їх, що попереднє рішення "
+"про відхилення цього подання було відкликано. Поясніть, чому рішення було "
+"скасовано, і повідомте їм, чи очікується подальше рецензування подання."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"Подання \"{$title}\" зараз активне на стадії подачі. Автора було сповіщено, "
+"якщо ви не вирішили пропустити цей електронний лист."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Призначте редактора, щоб включити рішення редакції для цього етапу."
+msgstr "Призначте редактора, щоб включити рішення редакції для цієї стадії."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Надішліть повідомлення редакторам, які приймають рішення, щоб повідомити їм "
+"рекомендацію. Поясніть, чому ця рекомендація була зроблена у відповідь на "
+"рекомендації та коментарі, надіслані рецензентами."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Рекомендувати прийняти"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Рекомендувати, щоб це подання було прийнято до опублікування та відправлене "
+"на корегування."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} рекомендував(-ла), щоб це подання було прийнято й відправлено "
+"для корегування."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Надіслано рекомендацію"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Вашу рекомендацію було записано, а редактор(и), що приймає(-ють) рішення, "
+"був(-ли) повідомлений(-і)."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Рекомендувати зміни"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Рекомендувати запросити виправлення від автора, перш ніж це подання буде "
+"прийнято до опублікування."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} рекомендував(-ла) запросити внесення змін."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Рекомендувати повторно надіслати на рецензування"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Рекомендувати, щоб автора попросили представити правки для ще одного раунду "
+"рецензування."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} рекомендував(-ла) запросити внесення змін і надіслати ці зміни "
+"на ще один раунд рецензування."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Рекомендувати відхилити"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Рекомендувати, щоб подання було відхилено щодо опублікування."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} рекомендував(-ла) відхилити це подання."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Дати рекомендацію"
@@ -1833,6 +1865,8 @@ msgstr "Рекомендації: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Ви не можете дати рекомендацію, поки редактор не отримає дозвіл на запис "
+"рішення."
 
 msgid "editor.submission.recommendation"
 msgstr "Рекомендація"
@@ -1844,7 +1878,7 @@ msgid "editor.submission.recordedRecommendations"
 msgstr "Записані рекомендації"
 
 msgid "submission.currentStage"
-msgstr "Поточний етап"
+msgstr "Поточна стадія"
 
 msgid "submission.noActionRequired"
 msgstr "Жодних дій не вимагається"
@@ -1867,7 +1901,7 @@ msgstr ""
 "раз."
 
 msgid "submission.event.fileEdited"
-msgstr ""
+msgstr "Метадані файлу \"{$originalFileName}\" були відредаговані {$username}."
 
 msgid "submission.event.fileUploaded"
 msgstr ""
@@ -1918,7 +1952,7 @@ msgid "submission.description"
 msgstr "Опис"
 
 msgid "submission.stageNotInitiated"
-msgstr "Етап не розпочався."
+msgstr "Стадія не розпочалася."
 
 msgid "submission.documents"
 msgstr "Документи подання"
@@ -1951,13 +1985,13 @@ msgid "notification.type.editorDecisionResubmit"
 msgstr "Повторно надіслати на рецензування."
 
 msgid "notification.type.editorDecisionNewRound"
-msgstr ""
+msgstr "Було ініційовано новий раунд рецензувань."
 
 msgid "notification.type.editorDecisionDecline"
 msgstr "Подання відхилено."
 
 msgid "notification.type.editorDecisionRevertDecline"
-msgstr ""
+msgstr "Відхилене подання реактивовано."
 
 msgid "notification.uploadedResponse"
 msgstr "Відповідь завантажено."
@@ -1968,10 +2002,10 @@ msgstr ""
 "додайте редактора, використовуючи список \"Учасники\"."
 
 msgid "notification.type.submissionNewVersion"
-msgstr ""
+msgstr "Створено нову версію подання"
 
 msgid "notification.type.revertDecline"
-msgstr ""
+msgstr "Рішення про відхилення цього подання було відкликано."
 
 msgid "grid.reviewAttachments.title"
 msgstr "Файли, прикріплені рецензентом"
@@ -1997,8 +2031,8 @@ msgstr ""
 
 msgid "log.review.reviewUnconsidered"
 msgstr ""
-"{$editorName} позначив раунд {$round} рецензування подання {$submissionId} "
-"як невизначений."
+"{$editorName} позначив(-ла) раунд {$round} рецензування подання "
+"{$submissionId} як невизначений."
 
 msgid "log.review.reviewReinstated"
 msgstr ""
@@ -2006,6 +2040,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Повторно надіслати запит на розгляд у раунді {$round} до {$reviewerName} для "
+"подання {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2103,7 +2139,7 @@ msgid "submission.copyright"
 msgstr "Авторське право"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Так, я погоджуюсь із заявою про авторські права."
 
 msgid "submission.copyrightHolder"
 msgstr "Власник авторського права"
@@ -2111,9 +2147,8 @@ msgstr "Власник авторського права"
 msgid "submission.copyrightHolder.other"
 msgstr "Користувацьке формулювання \"Попередження про авторські права\""
 
-#, fuzzy
 msgid "submission.copyrightOther"
-msgstr "Попередження про авторські права"
+msgstr "Заява про авторські права"
 
 msgid "submission.copyrightYear"
 msgstr "Рік отримання авторського права"
@@ -2346,7 +2381,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Видалити подання?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Переглянути всі подання"
 
 msgid "submission.list.viewSubmission"
 msgstr "Переглянути подання"
@@ -2384,85 +2419,104 @@ msgid "submission.list.incompleteSubmissionNotice"
 msgstr "Це подання необхідно завершити, перш ніж редактор рецензуватиме його."
 
 msgid "submission.list.currentStage"
-msgstr "Зараз на етапі {$stage}."
+msgstr "Зараз на стадії {$stage}."
 
 msgid "submission.list.activity"
-msgstr ""
+msgstr "Активність"
 
 msgid "submission.list.daysSinceLastActivity"
-msgstr ""
+msgstr "Днів від останньої активності"
 
 msgid "submission.list.assignEditor"
 msgstr "Призначений редактор"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Це подання вже було подано. Будь ласка, відвідайте свою <a href=\"{$url}\""
+">інформаційну панель подань</a>, щоб переглянути його."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Перш ніж почати"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Виберіть лише категорії, які підходять для вашого подання."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Змінити налаштування подання"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Виконайте дії, щоб надіслати подання"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Подання <strong>\"{$title}\"</strong> буде представлене у "
+"<strong>{$context}</strong> для редакційного розгляду. Ви впевнені, що "
+"хочете завершити цю подачу?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Є одна або кілька проблем, які потрібно виправити, перш ніж ви зможете "
+"надіслати запит. Будь ласка, перегляньте наведену нижче інформацію та "
+"внесіть необхідні зміни."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Перевірка вашого подання"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Додайте будь-яку інформацію, яку, на вашу думку, повинна знати наша "
+"редакція, оцінюючи ваше подання."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Будь ласка, підтвердьте наступне, перш ніж надсилати."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Зробити подання"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Зробити подання: {$step}"
 
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "Для цього подання не додано осіб, які зробили свій внесок у роботу."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"Дане ім'я відсутнє в мові \"{$language}\" для одного або декількох осіб, які "
+"зробили свій внесок у роботу."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Заборонено"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Угода на конфіденційність"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Збережено на потім"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Ваші дані про подання збереглися в нашій системі, але ще не були передані на "
+"розгляд. Ви можете повернутися, щоб завершити подання, у будь-який час, "
+"перейшовши за посиланням нижче."
 
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr ""
+"Ми надіслали вам копію цього посилання електронною поштою на адресу: "
+"{$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Розділ закрито"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Почати подавання"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Початок нового подання"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Сталася помилка, і ми не змогли зберегти ваше подання. Можливо, вас було "
+"роз'єднано."
 
 msgid "grid.category.categories"
 msgstr "Категорії"
@@ -2480,7 +2534,7 @@ msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Дата публікації (спочатку нова)"
 
 msgid "category.category"
-msgstr ""
+msgstr "Категорії"
 
 msgid "category.coverImage"
 msgstr "Зображення обкладинки"
@@ -2552,28 +2606,36 @@ msgstr "Кількість слів: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Не вдалося позначити, що DOI потребує синхронізації для {$pubObjectTitle}. "
+"DOI не може бути позначений як такий, що потребує синхронізації, оскільки "
+"вони ще не були зареєстровані або подані."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Не вдалося позначити, що для {$pubObjectTitle} зареєстровано DOI. Подання "
+"має бути опубліковане, перш ніж статус можна буде оновити."
 
 msgid "submission.viewingPreview"
 msgstr ""
+"Це попередній перегляд, подання ще не опубліковано. <a href=\"{$url}\""
+">Переглянути подання</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
-msgstr "Жодних файлів не було приєднано до подання."
+msgstr "Для цього подання не завантажено жодних файлів."
 
 msgid "author.submit.confirmation"
 msgstr "Підтвердження"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Подання мовою <strong>\"{$language}\"</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Подання до розділу <strong>{$section}</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Подання до розділу <strong>{$section}</strong> мовою <strong>\"{$language}\""
+"</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2603,19 +2665,21 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Контактна особа для редакційної кореспонденції."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Заява про доступність даних"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Укажіть, чи надали ви докази, що підтверджують цю роботу, і якщо так, то де "
+"і як до них можна отримати доступ"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Необхідно завантажити принаймні один {$genre} файл."
 
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Потрібно завантажити принаймні один із таких типів файлів: {$genres}."
 
 msgid "publication.version"
-msgstr ""
+msgstr "Версія {$version}"
 
 #~ msgid "submission.indexing"
 #~ msgstr "Індексна інформація"
@@ -2668,3 +2732,8 @@ msgstr ""
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Посилання були оновлені."
+
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Ви можете оновити це обговорення протягом {$allowedEditTimeNoticeLimit} "
+"хвилин."

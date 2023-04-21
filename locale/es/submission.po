@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: pep sanso <pep.sanso@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
@@ -1819,11 +1819,20 @@ msgstr ""
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Revisión omitida"
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"El envío, {$title}, ha pasado la fase de revisión y se ha enviado a la fase "
+"de corrección. Se ha notificado el autor/a, a menos que haya elegido omitir "
+"el correo electrónico."
 
+#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correo electrónico a los autores/as para comunicarles que este "
+"envío ha sido aceptado para su publicación y remitido a la fase de "
+"corrección de estilo sin revisión. Este correo electrónico no se enviará "
+"hasta que se registre la decisión."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Enviar para revisión interna"
@@ -1844,73 +1853,118 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rechazo"
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Revertir una decisión anterior de rechazar este envío y devolverlo al "
+"proceso editorial activo. Se ha notificado el autor/a, a menos que haya "
+"optado por omitir ese correo electrónico."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} revocó la decisión de rechazar este envío."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Envío reactivado"
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr ""
+msgstr "El envío, {$title}, ahora es un envío activo en fase de revisión."
 
+#, fuzzy
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Enviar un correo electrónico a los autores/as para informarles de que se ha "
+"revocado la decisión anterior de rechazar el envío. Explicar por qué se ha "
+"revocado la decisión e indicar si se espera que el envío se someta a una "
+"nueva revisión."
 
+#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"El envío, {$title}, ahora está activo en la fase de envío. Se ha notificado "
+"el autor/a, a menos que haya elegido omitir ese correo electrónico."
 
 #, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
 "Asigne un editor/a para habilitar las decisiones editoriales en esta fase."
 
+#, fuzzy
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Enviar un mensaje a los editores/as decisores para comunicarles la "
+"recomendación. Explicar por qué se ha hecho esta recomendación en respuesta "
+"a las recomendaciones y comentarios enviados por los revisores/as."
 
+#, fuzzy
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Recomendar aceptar"
 
+#, fuzzy
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Recomendar que se acepte este envío para su publicación y que se envíe a "
+"corrección de estilo."
 
+#, fuzzy
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} ha recomendado que se acepte este envío y se envie a "
+"corrección."
 
+#, fuzzy
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Recomendación enviada"
 
+#, fuzzy
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Se ha registrado su recomendación y se ha notificado al editor/a o editores/"
+"as que han tomado la decisión."
 
+#, fuzzy
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Recomendar revisiones"
 
+#, fuzzy
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Recomendar que se soliciten revisiones al autor/a antes de aceptar este "
+"envío para su publicación."
 
+#, fuzzy
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} ha recomendado que se soliciten revisiones."
 
+#, fuzzy
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Recomendar reenviar para revisión"
 
+#, fuzzy
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Recomendar que se pida al autor/a que presente revisiones para otra ronda de "
+"revisión."
 
+#, fuzzy
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} ha recomendado que se soliciten revisiones y que éstas se "
+"envien para otra ronda de revisión."
 
+#, fuzzy
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Recomendar declinar"
 
+#, fuzzy
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Recomendar que se rechace la publicación de la propuesta."
 
+#, fuzzy
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} recomienda que se rechace este envío."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Hacer una recomendación"
@@ -1924,8 +1978,11 @@ msgstr "Recomendación: {$recommendation}"
 msgid "editor.submission.allRecommendations.display"
 msgstr "Recomendaciónes: {$recommendations}"
 
+#, fuzzy
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"No puede hacer una recomendación hasta que se le asigne un editor/a con "
+"permiso para registrar una decisión."
 
 msgid "editor.submission.recommendation"
 msgstr "Recomendación"
@@ -2097,8 +2154,11 @@ msgstr ""
 "La ronda de revisión {$round} de {$reviewerName} para el envío "
 "{$submissionId} ha sido reiniciada."
 
+#, fuzzy
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Reenviar la solicitud de revisión en la ronda {$round} a {$reviewerName} "
+"para el envío {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2199,8 +2259,9 @@ msgstr "Licencia"
 msgid "submission.copyright"
 msgstr "Derechos de autor"
 
+#, fuzzy
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Sí, acepto la declaración de derechos de autor."
 
 msgid "submission.copyrightHolder"
 msgstr "Titular de los derechos de autor"
@@ -2433,7 +2494,7 @@ msgid "submission.list.confirmDelete"
 msgstr "¿Eliminar envío?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Ver todos los envíos"
 
 msgid "submission.list.viewSubmission"
 msgstr "Ver Envío"
@@ -2482,74 +2543,111 @@ msgstr "Días desde la última actividad"
 msgid "submission.list.assignEditor"
 msgstr "Asignar Editor"
 
+#, fuzzy
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Esta solicitud ya ha sido presentada. Visite su <a href=\"{$url}\">panel de "
+"envíos</a> para verlo."
 
+#, fuzzy
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Antes de empezar"
 
+#, fuzzy
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Seleccione sólo las categorías apropiadas para su envío."
 
+#, fuzzy
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Cambiar la configuración del envío"
 
+#, fuzzy
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Siga los pasos para hacer un envío"
 
+#, fuzzy
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"El envío <strong>{$title}</strong>, se remitirá a <strong>{$context}</"
+"strong> para la revisión editorial. ¿Seguro que quiere completar este envío?"
 
+#, fuzzy
 msgid "submission.wizard.errors"
 msgstr ""
+"Hay uno o más problemas que deben solucionarse antes de que pueda enviar la "
+"solicitud. Revise la siguiente información y realice los cambios solicitados."
 
+#, fuzzy
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Comprobación del envío"
 
+#, fuzzy
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Añada la información que considere que nuestro personal editorial debe "
+"conocer a la hora de evaluar su envío."
 
+#, fuzzy
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Confirmar lo siguiente antes de hacer el envio."
 
+#, fuzzy
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Hacer un envío"
 
+#, fuzzy
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Hacer un envío: {$step}"
 
+#, fuzzy
 msgid "submission.wizard.noContributors"
-msgstr ""
+msgstr "No se han añadido colaboradores para este envío."
 
+#, fuzzy
 msgid "submission.wizard.missingContributorLanguage"
-msgstr ""
+msgstr "Falta el nombre en {$language} para un o más un colaborador."
 
+#, fuzzy
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "No se permite"
 
+#, fuzzy
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Consentimiento de privacidad"
 
+#, fuzzy
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Guardar para más adelante"
 
+#, fuzzy
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Los datos de su propuesta se han guardado en nuestro sistema, pero aún no se "
+"ha enviado para su consideración. Puede volver a completar su envío en "
+"cualquier momento siguiendo el enlace que aparece a continuación."
 
+#, fuzzy
 msgid "submission.wizard.saved.emailConfirmation"
 msgstr ""
+"Se ha enviado una copia de este enlace por correo electrónico a {$email}."
 
+#, fuzzy
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Sección cerrada"
 
+#, fuzzy
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Comenzar un envío"
 
+#, fuzzy
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Iniciar un nuevo envío"
 
+#, fuzzy
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Se ha producido un error y no hemos podido guardar su envío. Es posible que "
+"se haya desconectado."
 
 msgid "grid.category.categories"
 msgstr "Categorías"
@@ -2566,8 +2664,9 @@ msgstr "Fecha de publicación (más antiguos primero)"
 msgid "catalog.sortBy.datePublishedDesc"
 msgstr "Fecha de publicación (más nuevos primero)"
 
+#, fuzzy
 msgid "category.category"
-msgstr ""
+msgstr "Categorías"
 
 msgid "category.coverImage"
 msgstr "Imagen de cubierta"
@@ -2637,17 +2736,24 @@ msgstr ""
 msgid "publication.wordCount"
 msgstr "Contador de palabras: {$count}/{$limit}"
 
+#, fuzzy
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Error al marcar el DOI necesita sincronización para {$pubObjectTitle}. El "
+"DOI no se puede marcar como si necesitara sincronización, porque aún no se "
+"ha registrado o enviado."
 
+#, fuzzy
 msgid "doi.submission.notPublished"
 msgstr ""
+"No se ha podido marcar el DOI registrado para {$pubObjectTitle}. El envío "
+"debe publicarse antes de poder actualizar el estado."
 
 #, fuzzy
 msgid "submission.viewingPreview"
 msgstr ""
-"Esta es una vista previa y no se ha publicado. <a href=\"{$url}\">Ver envío</"
-"a>"
+"Esto es una previsualización y no se ha publicado. <a href=\"{$url}\">Ver "
+"envío</a>"
 
 msgid "author.submit.noFiles"
 msgstr "No se han adjuntado archivos a este envío."
@@ -2655,14 +2761,19 @@ msgstr "No se han adjuntado archivos a este envío."
 msgid "author.submit.confirmation"
 msgstr "Confirmación"
 
+#, fuzzy
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Enviando en <strong>{$language}</strong>."
 
+#, fuzzy
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Enviando a la sección <strong>{$section}</strong>."
 
+#, fuzzy
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Enviando a la sección <strong>{$section}</strong> en "
+"<strong>{$language}</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2690,17 +2801,23 @@ msgstr ""
 msgid "submission.submit.selectPrincipalContact"
 msgstr "Contacto principal para la correspondencia editorial."
 
+#, fuzzy
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Declaración de disponibilidad de datos"
 
+#, fuzzy
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Indicar si ha facilitado pruebas que respalden este trabajo y, en caso "
+"afirmativo, dónde y cómo se puede acceder a ellas."
 
+#, fuzzy
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Debe cargar al menos un archivo {$genre}."
 
+#, fuzzy
 msgid "submission.files.required.genres"
-msgstr ""
+msgstr "Debe cargar al menos uno de los siguientes tipos de archivo: {$genres}."
 
 msgid "publication.version"
 msgstr "Versión {$version}"
@@ -2765,3 +2882,9 @@ msgstr "Versión {$version}"
 
 #~ msgid "catalog.noTitlesSection"
 #~ msgstr "No se ha publicado ningún título aún para esta sección."
+
+#, fuzzy
+msgid "submission.query.allowedEditTime"
+msgstr ""
+"Puede actualizar esta discusión durante {$allowedEditTimeNoticeLimit} "
+"minutos."

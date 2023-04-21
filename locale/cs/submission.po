@@ -1,8 +1,96 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/submissions/"
+"cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "submission.submit.userGroup"
+msgstr "Předkládám v roli..."
+
+msgid "submission.upload.selectComponent"
+msgstr "Vybrat komponentu preprintu"
+
+msgid "submission.title"
+msgstr "Název preprintu"
+
+msgid "submission.abstract.wordCount.description"
+msgstr "Abstrakt musí mít maximálně {$wordCount} slov."
+
+msgid "submission.galleyFiles"
+msgstr "Soubory sazebnice"
+
+msgid "submission.upload.fileContents"
+msgstr "Komponenta preprintu"
+
+msgid "submission.complete"
+msgstr "Schváleno"
+
+msgid "submission.submit.contributorRole"
+msgstr "Role přispěvatele"
+
+msgid "submission.sectionOptions"
+msgstr "Možnosti sekce"
+
+msgid "catalog.browseTitles"
+msgstr "{$numTitles} položek"
+
+msgid "catalog.category.heading"
+msgstr "Všechny položky"
+
+msgid "galley.editPublishedDisabled"
+msgstr "Sazebnice tohoto příspěvku nelze upravovat, protože již byla odeslána."
+
+msgid "galley.publicationNotFound"
+msgstr "Verze této sazebnice nejde najít."
+
+msgid "publication.invalidSection"
+msgstr "Sekci pro tuto verzi se nepodařilo najít."
+
+msgid "publication.inactiveSection"
+msgstr "{$section} (Neaktivní)"
+
+msgid "preprint.entry"
+msgstr "Vstup preprintu"
+
+msgid "publication.issue.success"
+msgstr "Byly aktualizovány údaje pro zadání preprintu."
+
+msgid "publication.datePublished.description"
+msgstr ""
+"Datum odeslání se nastaví automaticky při odeslání preprintu. Nezadávejte "
+"datum odeslání, pokud ho nepotřebujete nastavit zpětně."
+
+msgid "publication.relation"
+msgstr "Vztahy"
+
+msgid "publication.relation.label"
+msgstr "Stav vztahu"
+
+msgid "publication.relation.description"
+msgstr ""
+"Uveďte, zda byl tento preprint publikován nebo předložen k publikování jinde."
+
+msgid "publication.relation.none"
+msgstr "Tento preprint nebyl nikde jinde publikován."
+
+msgid "submission.submit.newSubmissionSingle"
+msgstr "Nový příspěvek"
+
+msgid "submission.submit.noContext"
+msgstr "Není možné nalézt server tohoto příspěvku."
+
+msgid "submission.submit.submissionChecklist"
+msgstr "Kontrolní seznam pro příspěvek"
+
+msgid "submission.metadataDescription"
+msgstr ""
+"Tyto specifikace jsou založeny na mezinárodním metadatovém standardu Dublin "
+"Core, který je využíván k popisu obsahu."

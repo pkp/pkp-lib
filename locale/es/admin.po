@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Marc Bria <marc.bria@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -163,11 +163,14 @@ msgstr ""
 "Enviar un correo electrónico a cada editor/a recordándole sus tareas "
 "pendientes"
 
+#, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr ""
+msgstr "Identificando editores para recordar en el contexto {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"Se han distribuido {$count} recordatorios editoriales por correo para "
+"{$userIds} en el contexto {$contextId}\""
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -179,9 +182,11 @@ msgstr "Limpiar el registro de ejecución de tareas programadas"
 
 msgid "admin.scheduledTask.clearLogs.description"
 msgstr ""
+"Eliminar todos los registros de procesos de tareas programadas que se hayan "
+"ejecutado."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Eliminar registros de tareas"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Publicar los envíos programados para su publicación"
@@ -190,30 +195,31 @@ msgid "admin.scheduledTask.reviewReminder"
 msgstr "Recordatorio de revisión"
 
 msgid "admin.scheduledTask.statisticsReport"
-msgstr ""
+msgstr "Notificación de informe editorial"
 
 msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Recordatorio de caducidad de subscripción"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Eliminar usuarios caducados y no validados"
 
 msgid "admin.scheduledTask.removeFailedJobs"
-msgstr ""
+msgstr "Eliminar los trabajos más antiguos de la lista de trabajos fallidos."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Procesar los trabajos pendientes"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "Actualizar la base de datos de ciudades de DB-IP Lite"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Ha fallado la operación de cambio de nombre del archivo de la base de datos "
+"de ciudades de DB-IP Lite de {$sourceFilename} a {$targetFilename}."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Tarea de carga de archivo de estadísticas de uso"
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
 "El directorio {$directory} no está vacío. Esto podría indicar un proceso "
@@ -223,50 +229,67 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "El archivo {$file} no pudo abrirse y fue rechazado."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"El archivo {$file} está en un formato de registro antiguo que no puede ser "
+"procesado y se devolverá al directorio de preparación (stage)."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Se omitirá el archivo de registro {$file} pues las estadísticas de ese mes "
+"ya se habían calculado. Para recalcular las estadísticas de un mes anterior, "
+"debe restaurar todos los archivos de registro del mes y usar la herramienta "
+"de línea de comandos para volver a procesar las estadísticas."
 
+#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Se omitirá la línea {$lineNumber} en el archivo de registro {$file} porque "
+"tiene un formato incorrecto."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Entrada de registro inválida en la línea {$lineNumber} del archivo de "
+"registro {$file}: {$error}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "La hora (Time) no tiene un formato de fecha válido."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "El ID de contexto (Context ID) no es un número entero."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "El ID de envío (Sumbission ID) no es un número entero."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "El ID de representación (Representation ID) no es un número entero."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "El tipo asociado (Assoc type) no es compatible."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "El tipo de archivo (File type) no es compatible."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "El país (Country) debe ser una cadena alfabética de dos caracteres."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr ""
+"La región (Region) debe ser una cadena alfanumérica de hasta tres caracteres."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Los ID de instituciones (Institution IDs) deben ser una array."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Error al procesar el archivo de registro {$file} en la línea {$lineNumber}: "
+"{$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Se ha enviado el trabajo a segundo plano para procesar el archivo de "
+"registro {$file} y almacenar los datos estadísticos."
 
 msgid "admin.server.apacheVersion"
 msgstr "Versión Apache"
@@ -357,9 +380,11 @@ msgstr "Información del sistema"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Ver información sobre la versión y la configuración de la aplicación y del "
+"servidor."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Ver información del sistema"
 
 msgid "admin.versionBuild"
 msgstr "Crear"
@@ -420,207 +445,270 @@ msgstr "Cargador de archivos"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"abrir con \"gzopen\"."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"abrir con \"fopen\"."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$file} no se pudo leer "
+"con \"gzread\"."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"escribir con \"fwrite\"."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"cerrar con \"fclose\"."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"cerrar con \"gzclose\"."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"eliminar con \"unlink\"."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"abrir con \"gzopen\"."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"abrir con \"fopen\"."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"leer con \"fread\"."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"abrir escribir con \"gzwrite\"."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"cerrar con \"fclose\"."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"No se pudo descomprimir el archivo porque el destino {$filePath} no se pudo "
+"cerrar con \"gzclose\"."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"No se pudo descomprimir el archivo porque el origen {$filePath} no se pudo "
+"eliminar con \"unlink\"."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "No hay traducciones disponibles para descargar."
 
 msgid "admin.cli.tool.usage.title"
-msgstr ""
+msgstr "Uso:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "comando [argumentos]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Comandos disponibles para el espacio de nombres `{$namespace}`:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"No se pueden ejecutar trabajos en cola cuando el modo de mantenimiento de la "
+"aplicación está activado."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Listar todos los trabajos en cola. Si quiere paginar los resultados, use los "
+"parámetros --page= y --perPage=. Utilice la bandera --failed para listar los "
+"trabajos fallidos."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Eliminar un trabajo específico de la cola basado en su Id. Si desea eliminar "
+"todos los trabajos, use el parámetro --all. Si desea eliminar todos los "
+"trabajos de una cola específica, pase el parámetro --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Añadir un trabajo a la cola de pruebas. Usa los parámetros opcionales --"
+"only= y pasa 'failed' o 'success' para enviar un trabajo fallido o exitoso."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Ejecutar un proceso infinito del demonio que continuará procesando trabajos. "
+"Usa el parámetro --help para ver las opciones disponibles asociadas con este "
+"comando."
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Listar todos los trabajos fallidos. Establece el parámetro --queue=NOMBRE_DE:"
+"COLA y --connection=NOMBRE_DE_CONEXIÓN para filtrar la lista. También se "
+"puede pasar el parámetro/flag --redispatch y --clear para reintroducir los "
+"trabajos fallidos en la cola o borrar algunos o todos los trabajos fallidos."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Procesa los trabajos disponibles en la cola. Si deseas enviar un trabajo en "
+"una cola específica, pasa el parámetro --queue=NOMBRE_DE_COLA. También "
+"puedes pasar --test para ejecutar el trabajo de prueba y --once para "
+"ejecutar un trabajo a la vez"
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
 msgstr ""
+"Se han completado la ejecución de {$jobCount} trabajos en la cola llamada "
+"{$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
-msgstr ""
+msgstr "No hay trabajos disponibles para ejecutar en la cola {$queueName}."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Mostrar el total de trabajos en cola. Usa el parámetro --failed para ver el "
+"total de trabajos fallidos."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Mostrar el uso del comando Trabajos (Jobs)"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Mostrar el uso de los parámetros del comando Trabajos (Jobs)"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "\"Option\" no puede estar vacía. Verifica el método de uso."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Trabajos fallidos de la cola"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Trabajos en cola"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Cola"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Conexión"
 
+#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Nombre del trabajo a mostrar"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Intentos"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Reservado a"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Disponible en"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Creado en"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Error en"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Mensaje de error"
 
 msgid "admin.cli.tool.jobs.pagination"
 msgstr "Paginación"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Actual"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Anterior"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Siguiente"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Para usar este comando, debe introducir al menos un ID de trabajo (Job ID), '"
+"--all' o '--queue='"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"El trabajo de prueba ejecutado y fallido está vinculado a la cola "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"El trabajo de prueba ejecutado con exito está vinculado a la cola "
+"{$queueName}"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Opción no válida para un trabajo de prueba. La opción '--only=' solo permite "
+"los valores 'failed' o 'success'."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "ID de trabajo inválido"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "El trabajo fue eliminado!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "No hay trabajos para eliminar."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Fue imposible eliminar todos los trabajos."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Se han eliminado todos los trabajos!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
-msgstr ""
+msgstr "{$jobsCount} trabajos eliminados correctamente de la lista de fallidos."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} trabajos reasignados con éxito a la cola."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "Hay {$total} trabajos fallidos"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "Hay {$total} trabajos en cola"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "La opción {$option} no existe."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "¿Se refería a uno de los siguientes?"
 
 msgid "admin.jobs.totalCount"
-msgstr ""
+msgstr "Hay un total de <strong>{$total}</strong> trabajo/s en la cola"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Hay un total de <strong>{$total}</strong> trabajo/s fallidos."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Ver los trabajos en cola"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Trabajos"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Trabajos fallidos"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Detalles de los trabajos fallidos"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""

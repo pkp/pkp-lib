@@ -156,10 +156,10 @@ msgid "manager.announcementTypes.typeName"
 msgstr "Tipo de aviso"
 
 msgid "manager.dois.actions.deposit.all"
-msgstr ""
+msgstr "Depositar todo"
 
 msgid "manager.dois.actions.deposit.label"
-msgstr ""
+msgstr "Depositar los DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
@@ -3476,6 +3476,9 @@ msgstr ""
 
 msgid "mailable.submissionNeedsEditor.name"
 msgstr ""
+
+msgid "manager.statistics"
+msgstr "Stats &Reports"
 
 #~ msgid "manager.setup.competingInterestsDescription"
 #~ msgstr ""

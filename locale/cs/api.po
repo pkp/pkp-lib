@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 08:43+0000\n"
+"PO-Revision-Date: 2023-04-22 01:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/api/cs/>\n"
 "Language: cs\n"
@@ -16,3 +16,49 @@ msgstr "Server příspěvku nelze změnit."
 
 msgid "api.announcements.400.contextsNotMatched"
 msgstr "Vámi požadované oznámení není součástí tohoto serveru."
+
+msgid "api.submissions.403.contextRequired"
+msgstr ""
+"Chcete-li odeslat nebo upravit příspěvek, musíte zadat požadavek na koncový "
+"bod API serveru."
+
+msgid "api.contexts.403.requestedDisabledContexts"
+msgstr "Můžete zobrazit pouze servery, které byly povoleny."
+
+msgid "api.contexts.403.contextsDidNotMatch"
+msgstr ""
+"Tento sever nemůžete prohlížet ani upravovat, dokud nepožádáte o API server "
+"nebo API pro celý web."
+
+msgid "api.contexts.403.requiresContext"
+msgstr "Tento sever nelze upravovat přes API pro celý web."
+
+msgid "api.contexts.403.notAllowedDelete"
+msgstr "K odstranění tohoto serveru nemáte oprávnění."
+
+msgid "api.contexts.404.contextNotFound"
+msgstr "Požadovaný server nebyl nalezen."
+
+msgid "api.dois.400.contextsNotMatched"
+msgstr "Požadované DOI není součástí tohoto serveru."
+
+msgid "api.dois.400.noRegistrationAgencyConfigured"
+msgstr "Pro tento server nebyla nakonfigurována žádná registrační agentura DOI."
+
+msgid "api.emails.403.disabled"
+msgstr "Pro tento server nebyla zapnuta e-mailová upozornění."
+
+msgid "api.publications.403.submissionsDidNotMatch"
+msgstr "Požadované verze není součástí tohoto příspěvku."
+
+msgid "api.submissionFiles.400.badRepresentationAssocType"
+msgstr "Soubor z této fáze nelze přiřadit ke sazebnici."
+
+msgid "api.contexts.403.notAllowed"
+msgstr "Nemáte oprávnění zobrazit tento server."
+
+msgid "api.contexts.403.notAllowedEdit"
+msgstr "Nemáte oprávnění upravovat tento server."
+
+msgid "api.emailTemplates.403.notAllowedChangeContext"
+msgstr "Nemáte oprávnění přesunout tuto e-mailovou šablonu na jiný server."

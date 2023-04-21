@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 08:43+0000\n"
+"PO-Revision-Date: 2023-04-22 01:59+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/author/cs/>\n"
 "Language: cs\n"
@@ -18,3 +18,41 @@ msgid "author.competingInterests"
 msgstr ""
 "Konflikt zájmů <a target=\"_new\" class=\"action\" href=\""
 "{$competingInterestGuidelinesUrl}\">Zásady pro konflikt zájmů</a>"
+
+msgid "author.submit.startHereLink"
+msgstr ""
+"Pro přechod k prvnímu z pěti kroků odesílání příspěvku <a href=\"{$submitUrl}"
+"\" class=\"action\">klikněte zde</a>."
+
+msgid "author.submit.start"
+msgstr "Zahájení"
+
+msgid "author.submit.metadata"
+msgstr "Vložit metadata"
+
+msgid "author.submit.nextSteps"
+msgstr "Další kroky"
+
+msgid "author.submit.notAccepting"
+msgstr "Tento server aktuálně nepřijímá příspěvky."
+
+msgid "author.submit.serverSection"
+msgstr "Sekce serveru"
+
+msgid "author.submit.serverSectionDescription"
+msgstr "Preprinty musí být zaslány do jedné ze sekcí serveru."
+
+msgid "submission.submit.coverNote"
+msgstr "Komentáře pro moderátora"
+
+msgid "author.submit.languageInstructions"
+msgstr ""
+"Čeština=cs; angličtina=en; francouzština=fr; španělština=es. <a href=\"https"
+"://www.loc.gov/standards/iso639-2/php/code_list.php\" target=\"_blank\""
+">Další kódy</a>."
+
+msgid "author.submit.form.abstractRequired"
+msgstr "Vložte, prosím, abstrakt vašeho preprintu."
+
+msgid "author.submit.upload"
+msgstr "Nahrát příspěvek"

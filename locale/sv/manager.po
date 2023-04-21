@@ -804,9 +804,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-msgid "manager.statistics"
-msgstr "Statistik & Rapporter"
-
 msgid "manager.statistics.reports"
 msgstr "Rapporter"
 

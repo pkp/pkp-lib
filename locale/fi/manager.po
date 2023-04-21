@@ -830,9 +830,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Aseta COUNTER SUSHI -tilastot julkisesti saataville"
 
-msgid "manager.statistics"
-msgstr "Tilastot & Raportit"
-
 msgid "manager.statistics.reports"
 msgstr "Raportit"
 

@@ -837,9 +837,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Направете статистиката на COUNTER SUSHI публично достъпна"
 
-msgid "manager.statistics"
-msgstr "Статистика и отчети"
-
 msgid "manager.statistics.reports"
 msgstr "Отчети"
 

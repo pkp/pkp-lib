@@ -755,9 +755,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-msgid "manager.statistics"
-msgstr "آمار و گزارشات"
-
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "تولیدگر گزارش "

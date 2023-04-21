@@ -791,9 +791,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-msgid "manager.statistics"
-msgstr "Estadístiques i informes"
-
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Generador d’informes"

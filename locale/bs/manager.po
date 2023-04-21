@@ -755,9 +755,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-msgid "manager.statistics"
-msgstr "Statistike i izvještaji"
-
 msgid "manager.statistics.reports"
 msgstr ""
 

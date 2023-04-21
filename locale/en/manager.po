@@ -801,9 +801,6 @@ msgstr "Whether or not to restrict access to the API endpoints for COUNTER SUSHI
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Make the COUNTER SUSHI statistics publicly available"
 
-msgid "manager.statistics"
-msgstr "Stats & Reports"
-
 msgid "manager.statistics.reports"
 msgstr "Reports"
 

@@ -829,9 +829,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "Zveřejnit statistiky COUNTER SUSHI"
 
-msgid "manager.statistics"
-msgstr "Statistiky & Zprávy"
-
 msgid "manager.statistics.reports"
 msgstr "Zprávy"
 

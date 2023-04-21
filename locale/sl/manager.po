@@ -818,9 +818,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "COUNTER SUSHI statistike naj bodo javno dostopne"
 
-msgid "manager.statistics"
-msgstr "Statistike in poročila"
-
 msgid "manager.statistics.reports"
 msgstr "Poročila"
 

@@ -800,9 +800,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "COUNTER SUSHI istatistiklerini herkese açık hale getirin"
 
-msgid "manager.statistics"
-msgstr "İstatistikler ve Raporlar"
-
 msgid "manager.statistics.reports"
 msgstr "Raporlar"
 

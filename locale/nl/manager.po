@@ -763,9 +763,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-msgid "manager.statistics"
-msgstr "Statistieken & rapporten"
-
 #, fuzzy
 msgid "manager.statistics.reports"
 msgstr "Rapporteringstool"

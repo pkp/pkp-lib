@@ -811,9 +811,6 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr "جعل إحصائيات COUNTER SUSHI متاحة بشكل عمومي"
 
-msgid "manager.statistics"
-msgstr "الإحصائيات والتقارير"
-
 msgid "manager.statistics.reports"
 msgstr "التقارير"
 

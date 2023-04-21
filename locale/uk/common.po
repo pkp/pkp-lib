@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-04-17 11:10+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -1038,7 +1038,7 @@ msgid "email.addAttachment.submissionFiles.attach"
 msgstr "Прикріпити файли подання"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr "Прикріпити файли, завантажені автором на етапі подання."
+msgstr "Прикріпити файли, завантажені автором на стадії подачі."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
@@ -1850,10 +1850,10 @@ msgid "notification.reviewerResendRequest"
 msgstr "Надіслати запит щодо повторного розгляду завдання на рецензування."
 
 msgid "notification.addedStageParticipant"
-msgstr "Користувача додано як учасника етапу."
+msgstr "Користувача додано як учасника стадії."
 
 msgid "notification.editStageParticipant"
-msgstr "Етап призначення було змінено."
+msgstr "Призначення стадії змінено."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Нове оголошення."
@@ -1868,18 +1868,18 @@ msgid "notification.type.auditorRequest"
 msgstr "Запит аудиту для \"{$file}\""
 
 msgid "notification.type.allReviewsIn"
-msgstr "Усі рецензії є і необхідно прийняти рішення на етапі {$stage}."
+msgstr "Усі рецензенти відповіли, і в стадії {$stage} потрібне рішення."
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
-"Нова версія файлу була завантажена для редакційного розгляду на етапі "
+"Нова версія файлу була завантажена для редакційного розгляду на стадії "
 "{$stage}."
 
 msgid "notification.type.pendingRevisions"
-msgstr "Нові версії розглядаються на етапі {$stage}."
+msgstr "Нові версії для розгляду на стадії {$stage}."
 
 msgid "notification.type.pendingRevisions.title"
-msgstr "Нові версії надіслані на етап {$stage}."
+msgstr "Нові версії подано на стадію {$stage}."
 
 msgid "notification.type.reviewerComment"
 msgstr "Рецензент прокоментував \"{$title}\"."

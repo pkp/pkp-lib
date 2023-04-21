@@ -1,8 +1,175 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
+"Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/manager/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "manager.distribution.copyrightYearBasis.submission"
+msgstr "Použijte datum zveřejnění preprintu"
+
+msgid "manager.distribution.publishingMode"
+msgstr "Mód odesílání"
+
+msgid "manager.distribution.publishingMode.none"
+msgstr "OPS se nebude nepoužívat ke zveřejňování obsahu serveru na internetu."
+
+msgid "manager.distribution.publishingMode.openAccess"
+msgstr "Server bude poskytovat otevřený přístup ke svému obsahu."
+
+msgid "doi.manager.settings.doiSuffixLegacy"
+msgstr ""
+"Použijte výchozí zástupné znaky.<br />%j.%a pro preprinty<br />%j.%a.g%g pro "
+"sazebnice."
+
+msgid "doi.manager.settings.doiCreationTime.copyedit"
+msgstr "Po dosažení produkční fáze"
+
+msgid "doi.manager.settings.doiVersioning.yes"
+msgstr "Ano, každé verzi preprintu přiřaďte jedinečný DOI."
+
+msgid "manager.language.ui"
+msgstr "UI"
+
+msgid "manager.language.submissions"
+msgstr "Příspěvky"
+
+msgid "manager.language.forms"
+msgstr "Formuláře"
+
+msgid "manager.people.allUsers"
+msgstr "Všichni zaregistrovaní uživatelé"
+
+msgid "manager.sections.abstractsNotRequired"
+msgstr "Nevyžadovat abstrakty"
+
+msgid "manager.sections.confirmDelete"
+msgstr "Jste si jisti, že chcete natrvalo vymazat tuto sekci?"
+
+msgid "manager.sections.alertDelete"
+msgstr ""
+"Než budete moci smazat tuto sekci, musíte přesunout všechny preprinty z této "
+"sekce do jiných sekcí."
+
+msgid "manager.sections.create"
+msgstr "Vytvořit sekci"
+
+msgid "manager.sections.editorRestriction"
+msgstr "Položky mohou zadávat pouze manažeři a moderátoři."
+
+msgid "manager.sections.form.abbrevRequired"
+msgstr "Je vyžadován zkrácený název pro tuto sekci"
+
+msgid "manager.setup.form.section.pathRequired"
+msgstr "Pro sekci je vyžadována cesta URL"
+
+msgid "manager.sections.identifyType"
+msgstr "Označte položky zaslané do tohoto oddílu jako"
+
+msgid "manager.sections.identifyTypeExamples"
+msgstr "(Například etc.)"
+
+msgid "manager.sections.policy"
+msgstr "Pravidla sekce"
+
+msgid "manager.sections.submissionIndexing"
+msgstr "Nebudou zahrnuty do indexace serveru"
+
+msgid "manager.setup.masthead"
+msgstr "Hlavička"
+
+msgid "manager.setup.editorialTeam"
+msgstr "Tým preprintového serveru"
+
+msgid "manager.setup.announcements"
+msgstr "Oznámení"
+
+msgid "manager.setup.announcementsIntroduction"
+msgstr "Úvod"
+
+msgid "manager.setup.disableUserRegistration"
+msgstr "Správce serveru zaregistruje všechny uživatelské účty."
+
+msgid "manager.setup.emailBounceAddress"
+msgstr "Adresa pro nedoručitelné zprávy"
+
+msgid "manager.setup.emailBounceAddress.description"
+msgstr ""
+"Jakékoliv nedoručitelné e-maily povedou k zaslání chybové zprávy na tuto "
+"adresu."
+
+msgid "manager.setup.emailSignature"
+msgstr "Podpis"
+
+msgid "manager.setup.emailSignature.description"
+msgstr ""
+"E-maily odesílané automaticky jménem preprintového serveru budou opatřeny "
+"následujícím podpisem."
+
+msgid "manager.setup.enableAnnouncements.enable"
+msgstr "Povolit oznámení"
+
+msgid "manager.distribution.access"
+msgstr "Přístup"
+
+msgid "manager.distribution.copyrightYearBasis.description"
+msgstr ""
+"Zvolte způsob výběru výchozího data autorských práv pro preprint. Toto "
+"výchozí datum lze v jednotlivých případech změnit."
+
+msgid "manager.language.confirmDefaultSettingsOverwrite"
+msgstr "Toto nahradí všechna nastavení specifická pro danou lokalizaci serveru"
+
+msgid "doi.manager.settings.doiVersioning.description"
+msgstr ""
+"Přiřadit každé verzi publikace nový DOI? Většina preprintových serverů bude "
+"chtít použít výchozí možnost (ano), aby se zajistilo, že verzím preprintů "
+"budou správně přiřazeny DOI."
+
+msgid "manager.sections.confirmDeactivateSection.error"
+msgstr ""
+"Je třeba, aby byla aktivní alespoň jedna sekce. Chcete-li zakázat všechny "
+"příspěvky na tento server, přejděte do nastavení workflow."
+
+msgid "doi.manager.settings.doiVersioning.no"
+msgstr "Ne, všechny verze preprintu by měly mít stejný DOI."
+
+msgid "manager.sections.wordCount"
+msgstr "Počet slov"
+
+msgid "manager.people.confirmRemove"
+msgstr ""
+"Odebrat tohoto uživatele z tohoto serveru? Tato akce odhlásí uživatele ze "
+"všech rolí v rámci tohoto serveru."
+
+msgid "manager.sections.wordCountInstructions"
+msgstr "Omezit počet slov abstraktu pro tuto sekci na (0 pro žádný limit)"
+
+msgid "manager.payment.options.enablePayments"
+msgstr ""
+"Pro tento server budou povoleny platby. Všimněte si, že uživatelé se budou "
+"muset přihlásit, aby mohli provádět platby."
+
+msgid "manager.setup"
+msgstr "Nastavení serveru"
+
+msgid "manager.setup.useStyleSheet"
+msgstr "Styl serveru"
+
+msgid "manager.setup.announcementsIntroduction.description"
+msgstr ""
+"Vložte jakékoliv doplňující informace, které by měly být zobrazeny čtenářům "
+"na stránce Oznámení."
+
+msgid "manager.setup.emailBounceAddress.disabled"
+msgstr ""
+"Aby bylo možné odesílat nedoručitelné e-maily na kontrolní adresu, musí "
+"správce webu povolit v konfiguračním souboru webu možnost "
+"<code>allow_envelope_sender</code>. Může být vyžadována konfigurace serveru, "
+"jak je uvedeno v dokumentaci OPS."

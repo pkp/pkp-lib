@@ -1,12 +1,13 @@
 # José Carvalho <jcarvalho@keep.pt>, 2023.
 # Carla Marques <carla.marques@usdb.uminho.pt>, 2023.
+# Judite Leite de Oliveira Dias <judite.dias@usdb.uminho.pt>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:58+00:00\n"
-"PO-Revision-Date: 2023-02-10 15:52+0000\n"
-"Last-Translator: Carla Marques <carla.marques@usdb.uminho.pt>\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"Last-Translator: Judite Leite de Oliveira Dias <judite.dias@usdb.uminho.pt>\n"
 "Language-Team: Portuguese (Portugal) <http://translate.pkp.sfu.ca/projects/"
 "pkp-lib/default/pt_PT/>\n"
 "Language: pt_PT\n"
@@ -17,10 +18,10 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "default.groups.name.siteAdmin"
-msgstr "Administrador Portal"
+msgstr "Administrador do Portal"
 
 msgid "default.groups.plural.siteAdmin"
-msgstr "Administradores Portal"
+msgstr "Administradores do Portal"
 
 msgid "default.groups.name.productionEditor"
 msgstr "Editor"
@@ -32,19 +33,19 @@ msgid "default.groups.abbrev.productionEditor"
 msgstr "EDIT"
 
 msgid "default.groups.name.copyeditor"
-msgstr "Editor Cópia"
+msgstr "Editor de cópia"
 
 msgid "default.groups.plural.copyeditor"
-msgstr "Editores Cópia"
+msgstr "Editores de cópia"
 
 msgid "default.groups.abbrev.copyeditor"
 msgstr "EC"
 
 msgid "default.groups.name.proofreader"
-msgstr "Leitor Provas"
+msgstr "Leitor de provas"
 
 msgid "default.groups.plural.proofreader"
-msgstr "Leitores Provas"
+msgstr "Leitores de provas"
 
 msgid "default.groups.abbrev.proofreader"
 msgstr "LP"
@@ -59,10 +60,10 @@ msgid "default.groups.abbrev.designer"
 msgstr "Design"
 
 msgid "default.groups.name.internalReviewer"
-msgstr "Revisor Interno"
+msgstr "Revisor interno"
 
 msgid "default.groups.plural.internalReviewer"
-msgstr "Revisores Internos"
+msgstr "Revisores internos"
 
 msgid "default.groups.abbrev.internalReviewer"
 msgstr "RI"
@@ -95,10 +96,10 @@ msgid "default.groups.abbrev.indexer"
 msgstr "IND"
 
 msgid "default.groups.name.layoutEditor"
-msgstr "Editor Layout"
+msgstr "Editor de layout"
 
 msgid "default.groups.plural.layoutEditor"
-msgstr "Editores Layout"
+msgstr "Editores de layout"
 
 msgid "default.groups.abbrev.layoutEditor"
 msgstr "EL"
@@ -161,7 +162,7 @@ msgstr ""
 msgid "default.submission.step.uploadFiles"
 msgstr ""
 "<p>Forneça todos os ficheiros necessários para a equipa editorial analisar a "
-"submissão. Além do trabalho principal, pode enviar conjuntos de dados, "
+"submissão. Além do trabalho principal, pode enviar o conjuntos de dados, "
 "declarações de conflito de interesses ou outros ficheiros suplementares, se "
 "forem úteis para os editores.</p>"
 

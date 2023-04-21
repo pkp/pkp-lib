@@ -1,20 +1,20 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2021-08-07 02:45+0000\n"
+"PO-Revision-Date: 2023-04-21 23:28+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"es_ES/>\n"
-"Language: es_ES\n"
+"es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "¿Está seguro/a de que desea eliminar este envío de forma permanente?"
@@ -50,40 +50,56 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Cambiar la decisión"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "No tiene permiso para registrar esta decisión en este envío."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"No se ha reconocido al editor/a y puede que no tenga permiso para registrar "
+"una decisión en este envío."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
+"No puede enviar un correo electrónico a los siguientes destinatarios: "
+"{$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "No se encontró la ronda de revisión."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Se proporcionó una ronda de revisión pero la decisión no se ha tomado "
+"durante la fase de revisión."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Esta ronda de revisión no forma parte del envío."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"El envío no se encuentra en la fase apropiada del flujo de trabajo para "
+"tomar esta decisión."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
-msgstr ""
+msgstr "Debe ser asignado a este envío para registrar una decisión editorial."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Debe proporcionarse un identificador de ronda de revisión para tomar esta "
+"decisión."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"No se puede hacer una recomendación a menos que un editor/a que pueda tomar "
+"la decisión final sea asignado a esta fase."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"No se puede tomar una decisión para este envío. El identificador del envío "
+"no está o no coincide con el envío solicitado."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"No se pudo encontrar esta decisión. Proporcione un tipo de decisión "
+"reconocida."
 
 msgid "editor.review.notInitiated"
 msgstr "El proceso de revisión todavía no se ha iniciado."
@@ -161,7 +177,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Restablecer el revisor/a"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Reenviar la solicitud de revisión"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Tipo de revisión"
@@ -219,9 +235,11 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Las revisiones no deberían someterse a una nueva ronda de revisión por pares."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Las revisiones deberían someterse a una nueva ronda de revisión por pares."
 
 msgid "editor.review.dateAccepted"
 msgstr "Fecha de aprobación de la revisión"
@@ -299,7 +317,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Agradecimientos al revisor/a"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Solicitud reenviada"
 
 msgid "editor.review.reviewerComments"
 msgstr "Comentarios del revisor/a"
@@ -332,6 +350,8 @@ msgstr ""
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Se produjo un error al solicitar al revisor/a que reconsidere la invitación "
+"de revisión. Vuelva a intentarlo."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Dar de alta el usuario/a con este grupo de usuarios/as revisores"
@@ -527,7 +547,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Revisiones activas actualmente asignadas"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "El revisor/a completó la revisión en la última ronda."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Revisiones completadas"
@@ -560,16 +580,15 @@ msgid "reviewer.list.reassign"
 msgstr "Volver a asignar"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Reasignar a {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Este revisor/a ya ha sido asignado para revisar este envío."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
 "Este revisor/a está bloqueado porque tiene un rol que le permite ver la "
-"identidad del autor/a. Por lo tanto, la revisión ciega por pares no está "
+"identidad del autor/a. Por lo tanto, la revisión anónima por pares no está "
 "garantizada. ¿Desea desbloquearlo igualmente?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
@@ -585,28 +604,29 @@ msgid "reviewer.list.empty"
 msgstr "No se encontraron revisores/as"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Asignado a una ronda previa"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Cancelar decisión"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "¿Seguro que quiere cancelar esta decisión?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Complete los pasos siguientes para tomar esta decisión"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "No omitir este correo electrónico"
 
 msgid "editor.decision.emailSkipped"
 msgstr ""
+"Se ha omitido este paso, de modo que no se enviará ningún correo electrónico."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Registrar decisión"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Omitir este correo electrónico"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Hubo un problema con el paso {$stepName}."

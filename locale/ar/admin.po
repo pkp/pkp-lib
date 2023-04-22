@@ -1,7 +1,7 @@
 # M. Ali <vorteem@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2023-04-22 18:48+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -436,3 +436,190 @@ msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
 "تعذر ضغط الملف. تعذر إغلاق الملف المستهدف الذي بصيغة gz {$filePath} باستعمال "
 "gzclose."
+
+msgid "admin.scheduledTask.usageStatsLoader.monthExists"
+msgstr ""
+"تم تخطي ملف الوقوعات {$file} لأن الإحصائبات من ذلك الشهر سبق وأن تم "
+"احتسابها. لإعادة إحتساب الإحصائيات لشهر سابق، ينبغي عليك استعادة كل ملفات "
+"الوقوعات العائدة له واستعمال أداة واجهة سطر الأوامر لإعادة معالجة الإحصائيات."
+
+msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
+msgstr ""
+"السطر {$lineNumber} في ملف الوقوعات {$file} هو بصيغة خاطئة ولها سيجري تخطيه."
+
+msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
+msgstr ""
+"المهمة التي في الخلفية التي ستعالج ملف الوقوعات {$file} وتخزن بيانات "
+"الإحصائيات قد تم إطلاقها."
+
+msgid "admin.fileLoader.wrongBasePathLocation"
+msgstr "المسار الأساسي {$path} ينبغي أن يكون داخل مجلد الملفات العام."
+
+msgid "admin.fileLoader.pathNotAccessible"
+msgstr "المجلد {$path} ليس مجلدًا في الواقع أو ليس قابلاً للكتابة."
+
+msgid "admin.fileLoader.moveFileFailed"
+msgstr "الملف {$filename}تعذر نقله من {$currentFilePath} إلى {$destinationPath}"
+
+msgid "admin.fileLoader.fileProcessed"
+msgstr "الملف {$filename} قد تمت معالجته وأرشفته."
+
+msgid "admin.languages.noLocalesToDownload"
+msgstr "ليست هناك لغات متاحة للتنزيل."
+
+msgid "admin.cli.tool.available.commands"
+msgstr "الأوامر المتاحة لنطاق الاسم`{$namespace}`:"
+
+msgid "admin.cli.tool.usage.parameters"
+msgstr "الأمر [المعاملات]"
+
+msgid "admin.cli.tool.jobs.maintenance.message"
+msgstr "يتعذر تشغيل مهمات الطابور بسبب تمكين وضع الصيانة في التطبيق."
+
+msgid "admin.cli.tool.jobs.available.options.purge.description"
+msgstr ""
+"تطهير مهمة معينة في الطابور بناءً على مُعرَّفها. إذا أردت تطهيرها كلها، مرر "
+"المعامل --all. إذا أردت تطهير كل مهام طابور معين، مرر المعامل --queue="
+
+msgid "admin.cli.tool.jobs.available.options.run.completed.description"
+msgstr "قد اكتمل تشغيل {$jobCount} من المهام في الطابور المسمى {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.run.empty.description"
+msgstr "لا توجد مهام متاحة لتشغيلها في الطابور المسمى {$queueName}."
+
+msgid "admin.cli.tool.jobs.available.options.help.description"
+msgstr "عرض استعمالات الأمر Jobs"
+
+msgid "admin.cli.tool.jobs.available.options.usage.description"
+msgstr "عرض استعمالات معاملات Jobs"
+
+msgid "admin.cli.tool.jobs.empty.option"
+msgstr "الخيار لا يمكن أن يكون فارغًا! تحقق من طريقة الاستعمال."
+
+msgid "admin.cli.tool.jobs.queued.jobs.title"
+msgstr "مهمات الطابور"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
+msgstr "المُعرَّف"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
+msgstr "الطابور"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
+msgstr "الاتصال"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
+msgstr "تسمية عرض المهمة"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
+msgstr "المحاولات"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
+msgstr "محفوظة عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
+msgstr "متاحة عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
+msgstr "منشأة عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
+msgstr "فشلت عند"
+
+msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
+msgstr "رسالة الاستثناء"
+
+msgid "admin.cli.tool.jobs.pagination.current"
+msgstr "الحالي"
+
+msgid "admin.cli.tool.jobs.pagination.previous"
+msgstr "السابق"
+
+msgid "admin.cli.tool.jobs.pagination.next"
+msgstr "التالي"
+
+msgid "admin.cli.tool.jobs.pagination"
+msgstr "ترقيم الصفحات"
+
+msgid "admin.cli.tool.jobs.purge.invalid.id"
+msgstr "مُعرَّف المهمة غير صالح"
+
+msgid "admin.cli.tool.jobs.purge.successful"
+msgstr "المهمة تم حذفها!"
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
+msgstr "لا توجد مهام لحذفها."
+
+msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
+msgstr "كان من المستحيل حذف كل المهام."
+
+msgid "admin.cli.tool.jobs.purge.successful.all"
+msgstr "تم حذف كل المهام!"
+
+msgid "admin.cli.tool.jobs.failed.clear.successful"
+msgstr "بنجاح تمت إزالة {$jobsCount} من المهام الفاشلة من القائمة."
+
+msgid "admin.cli.tool.jobs.failed.redispatch.successful"
+msgstr "بنجاح تمت إعادة إطلاق {$jobsCount} من المهام في الطابور."
+
+msgid "admin.cli.tool.jobs.total.jobs"
+msgstr "لدينا {$total} من المهام في الطابور"
+
+msgid "admin.cli.tool.jobs.total.failed.jobs"
+msgstr "لدينا {$total} من المهام الفاشلة"
+
+msgid "admin.cli.tool.jobs.option.doesnt.exists"
+msgstr "الخيار {$option} غير موجود."
+
+msgid "admin.cli.tool.jobs.mean.those"
+msgstr "هل كنت تعني واحدًأ مما يأتي؟"
+
+msgid "admin.jobs.viewQueuedJobs"
+msgstr "معاينة المهام في الطابور"
+
+msgid "navigation.tools.jobs"
+msgstr "المهام"
+
+msgid "navigation.tools.jobs.failed"
+msgstr "المهام الفاشلة"
+
+msgid "navigation.tools.jobs.failed.details"
+msgstr "تفاصيل المهمة الفاشلة"
+
+msgid "navigation.tools.jobs.description"
+msgstr "معاينة كل مهام الطابور في النظام وتتبع المحاولات الفاشلة."
+
+msgid "navigation.tools.jobs.view"
+msgstr "معاينة المهام"
+
+msgid "navigation.tools.jobs.failed.view"
+msgstr "معاينة المهام الفاشلة"
+
+msgid "admin.job.failed.list.attribute"
+msgstr "السمة"
+
+msgid "admin.job.failed.list.attribute.value"
+msgstr "قيمة السمة"
+
+msgid "admin.jobs.list.id"
+msgstr "المُعرَّف"
+
+msgid "admin.jobs.list.displayName"
+msgstr "المهمة"
+
+msgid "admin.jobs.list.queue"
+msgstr "الطابور"
+
+msgid "admin.jobs.list.connection"
+msgstr "الاتصال"
+
+msgid "admin.jobs.list.attempts"
+msgstr "المحاولات"
+
+msgid "admin.cli.tool.jobs.available.options.total.description"
+msgstr ""
+"عرض كل المهام في الطابور. مرر العلم --failed لمشاهدة إجمالي كل المهام "
+"الفاشلة."
+
+msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
+msgstr "مهمات الطابور الفاشلة"

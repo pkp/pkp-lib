@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-19 22:36+0000\n"
+"PO-Revision-Date: 2023-04-22 18:48+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -1327,7 +1327,7 @@ msgstr ""
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
-"Це показується авторам на останньому кроці майстра подання, коли їх просять "
+"Це показується авторам на останньому кроці майстра подачі, коли їх просять "
 "переглянути всю інформацію, яку вони надали, перш ніж надсилати свою роботу."
 
 msgid "manager.setup.workflow.guidance"
@@ -2584,19 +2584,19 @@ msgid "stats.city"
 msgstr "Місто"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Переглядів"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Завантажень"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Усього переглядів за датою"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Усього завантажень за датою"
 
 msgid "stats.countWithYearlyAverage"
-msgstr ""
+msgstr "{$count} ({$average}/рік)"
 
 msgid "stats.daily"
 msgstr "Щодня"
@@ -2668,12 +2668,27 @@ msgstr "До {$date}"
 
 msgid "stats.description.acceptRejectRate"
 msgstr ""
+"Відсоток для вибраного діапазону дат обчислюється для подань, що були "
+"надіслані протягом цього проміжку часу та отримали остаточне рішення. "
+"<br><br>Наприклад, розглянемо випадок, коли протягом цього проміжку часу "
+"було зроблено десять подань. Чотири були прийняті, чотири відхилені, а двоє "
+"все ще очікують остаточного рішення. <br><br>Відсоток прийняття становитиме "
+"50% (4 з 8 подань), оскільки два подання, які не дійшли до остаточного "
+"рішення, не враховуються."
 
 msgid "stats.description.daysToDecision"
 msgstr ""
+"Кількість днів, необхідних більшості подань, щоб отримати перше редакційне "
+"рішення, наприклад, відхилення одразу або надсилання на розгляд. <br><br>Ці "
+"цифри свідчать про те, що 80% подань доходять до рішення протягом певної "
+"кількості днів.<br> <br>Ця статистика намагається описати, коли більшість "
+"авторів, які роблять подання до вашого журналу, можуть очікувати рішення."
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Сюди входять подання, які не враховуються в інших підсумкових результатах, "
+"наприклад ті, що все ще виконуються, і ті, які, виявляється, було "
+"імпортовано."
 
 msgid "stats.descriptionForStat"
 msgstr "Опис для {$stat}"
@@ -2682,13 +2697,13 @@ msgid "stats.editorialActivity"
 msgstr "Активність редакції"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Основний файл"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Додатковий файл"
 
 msgid "stats.fileViews"
-msgstr "Перегляди файлів"
+msgstr "Перегляди файлу"
 
 msgid "stats.html"
 msgstr "HTML"
@@ -2700,58 +2715,59 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Геолокація надана <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Про геолокацію"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "З {$startDate} по {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Усі {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Завантажень файлів"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Кількість завантажень для кожного файлу."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Завантажень географії"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
 msgstr ""
+"Кількість переглядів і завантажень для кожного міста, регіону або країни."
 
 msgid "stats.region"
 msgstr "Регіон"
 
 msgid "stats.searchSubmissionDescription"
-msgstr "Пошук за назвою, автором та ідентифікатором"
+msgstr "Пошук за назвою, автором та ID"
 
 msgid "stats.submissionsActive"
-msgstr "Активних Подань"
+msgstr "Активних подань"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Життєпис"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Кількість {$type} для кожного {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Завантажити хронологію"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Інтервал хронології"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Тип хронології"
 
 msgid "stats.total"
 msgstr "Усього"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Унікальних"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Усього за період часу"
@@ -2760,37 +2776,37 @@ msgid "stats.trends"
 msgstr "Тренди"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "невідомо"
 
 msgid "stats.userStatistics"
-msgstr "Статистика по користувачам"
+msgstr "Статистика користувачів"
 
 msgid "stats.name.submissionsReceived"
-msgstr "отримано Подань"
+msgstr "Отримано подань"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Інших подань"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Подань у процесі"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Імпортованих подань"
 
 msgid "stats.name.submissionsAccepted"
-msgstr "Прийнято Подань"
+msgstr "Прийнятих подань"
 
 msgid "stats.name.submissionsDeclined"
-msgstr "Відхилено Подань"
+msgstr "Відхилених подань"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr "Відхилено Подань (одразу)"
+msgstr "Відхилених подань (одразу)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr "Відхилено Подань (після рецензування)"
+msgstr "Відхилених подань (після рецензування)"
 
 msgid "stats.name.submissionsPublished"
-msgstr "Опубліковано Подань"
+msgstr "Опублікованих подань"
 
 msgid "stats.name.daysToDecision"
 msgstr "Днів до першого рішення редакції"
@@ -2801,150 +2817,165 @@ msgstr "Днів до прийняття"
 msgid "stats.name.daysToReject"
 msgstr "Днів до відмови"
 
-#, fuzzy
 msgid "stats.name.acceptanceRate"
-msgstr "Відсоток Прийняття"
+msgstr "Частка прийнятих"
 
 msgid "stats.name.declineRate"
-msgstr "Відсоток відмов"
+msgstr "Частка відхилених"
 
 msgid "stats.name.declinedDeskRate"
-msgstr "Відсоток відмов (одразу)"
+msgstr "Частка відхилених одразу"
 
 msgid "stats.name.declinedReviewRate"
-msgstr "Частка відмов після рецензування"
+msgstr "Частка відхилених після рецензування"
 
 msgid "plugins.importexport.native.processFailed"
-msgstr ""
+msgstr "Процес не вдався. Перевірте нижче наявність помилок / попереджень."
 
 msgid "plugins.importexport.native.export.submissions.results"
-msgstr ""
+msgstr "Результати експорту подання"
 
 msgid "plugins.importexport.native.export.download.results"
-msgstr ""
+msgstr "Завантажити експортований файл"
 
 msgid "plugins.importexport.native.export.completed"
-msgstr ""
+msgstr "Експорт завершено успішно."
 
 msgid "plugins.importexport.native.export.completed.downloadFile"
-msgstr ""
+msgstr "Завантажте експортований файл за допомогою кнопки нижче."
 
 msgid "plugins.importexport.native.common.any"
-msgstr ""
+msgstr "Загальні елементи"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Неправильна конфігурація фільтра [{$filterName}] – випадків: {$filterCount}. "
+"Повинен бути тільки один."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "ПОМИЛКА:"
 
 msgid "plugins.importexport.common.error.unknownContext"
-msgstr "Вказаний шлях журналу \"{$contextPath}\" не існує."
+msgstr "Указаний шлях журналу \"{$contextPath}\" не існує."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr ""
+msgstr "\"{$submissionId}\" – \"{$submissionTitle}\""
 
 msgid "plugins.importexport.author.exportFailed"
-msgstr ""
+msgstr "Процес щодо розбору авторів не вдався"
 
 msgid "plugins.importexport.publication.exportFailed"
-msgstr ""
+msgstr "Процес щодо розбору публікацій не вдався"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Усі коментарі із завершених рецензувань. Імена рецензентів приховані для "
+"анонімних рецензій"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Імена та афіліації авторів подання."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
-msgstr ""
+msgstr "URL-адреса сторінки, на якій користувач може відновити втрачений пароль"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "URL-адреса для перегляду всіх призначених користувачу подань"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "URL-адреса для користувача, щоб переглядати та редагувати профіль"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Назва ухваленого рішення"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Опис ухваленого рішення"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "На стадії редакційного робочого процесу це рішення було прийнято в"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Раунд рецензування, у якому це рішення було ухвалено, якщо рішення пов'язане "
+"зі стадією рецензування"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Предмет обговорення"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Зміст нового обговорення або відповіді"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Список подань із невиконаними завданнями"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Кількість подань, призначених цьому редактору"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Повне ім'я (П. І. Б.) одержувача або всіх одержувачів"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Ім'я користувача одержувача або всіх одержувачів"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Дата, коли рецензування має бути завершено"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
-msgstr ""
+msgstr "Дата, коли рецензент повинен прийняти або відхилити призначення"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "URL-адреса призначення на рецензування"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Рекомендоване рішення, таке як прийняти подання"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Дата призначення цього рецензування"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Тип рецензування, такий як анонімне, подвійне анонімне або відкрите"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Рекомендації рецензента, як-от прийняти подання або відхилити"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Раунд рецензування, такий як раунд 1 або раунд 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Файли, завантажені рецензентом"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Ім'я рецензента"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Цей журнал проводить подвійне анонімне рецензування. Рецензенти не "
+"бачитимуть жодної ідентифікуючої інформації про вас або ваших співавторів. "
+"Так само ви не знатимете, хто рецензував ваше подання, і не почуєтеся "
+"безпосередньо з рецензентами."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Цей журнал проводить рецензування \"анонімний рецензент\". Ваше ім'я та "
+"імена ваших співавторів будуть видимі рецензентам; однак особи рецензентів "
+"залишаться анонімними."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Цей журнал проводить відкрите рецензування. Рецензенти побачать ваше ім'я та "
+"афіліацію, а також імена та афіліації ваших співавторів. Так само ви "
+"побачите імена та афіліації рецензентів."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Повне ім'я (П. І. Б.) відправника"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Адреса електронної пошти відправника"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Підпис електронного листа відправника"
 
 msgid "emailTemplate.variable.site.siteContactName"
 msgstr "Повне ім'я (П. І. Б.) основної контактної особи вебсайту"
@@ -2956,238 +2987,293 @@ msgid "emailTemplate.variable.site.siteSignature"
 msgstr "Підпис електронної пошти вебсайту для автоматичних електронних листів"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Редактори, призначені для цього подання, які можуть ухвалювати рішення"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Назва подання"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Унікальний номер ID подання"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Анотація до подання"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Імена авторів коротким рядком, як \"Барнс та ін.\""
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Повні імена (П. І. Б.) авторів"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "URL-адреса авторові до надісланого подання"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "URL-адреса подання в мережі редакції"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL-адреса опублікованого подання"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL-адреса подання в майстрі подачі"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Імена авторів, призначених для робочого процесу стосовно подання. Зазвичай "
+"це автор, який подає матеріали"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Хешована URL-адреса, яка надсилається користувачеві для підтвердження "
+"скидання пароля"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Новий випадковий пароль користувача"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Відновлення рецензента"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Повторне надсилання рецензенту запиту на рецензування"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Повне ім'я (П. І. Б.) користувача, який завантажив файл подання"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Назва анонсу"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Короткий опис анонсу"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URL-адреса анонсу"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Кількість подань, отриманих цього місяця"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Кількість відхилених подань"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Кількість прийнятих подань"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Кількість подань, не включених до інших підсумків"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Загальна кількість отриманих подань"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Місяць звіту"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Рік звіту"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Ідентифікація випуску, включно з томом, номером, роком і назвою"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL-адреса опублікованого випуску"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Рік звіту"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Посилання на сторінку активності редакції"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Цей електронний лист надсилається, коли редактор відновлює рецензента, "
+"призначення якого було скасовано."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Цей електронний лист надсилається редактором рецензенту, який відхилив запит "
+"на рецензування, коли редактор бажає повторно надіслати запит."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Скасування призначення рецензента"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Цей електронний лист надсилається, коли редактор скасовує призначення "
+"рецензента."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Перевірка електронної пошти (вебсайту)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Цей електронний лист автоматично надсилається новому користувачеві під час "
+"його реєстрації на вебсайті, коли налаштування вимагають перевірки адреси "
+"електронної пошти."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Повідомити інших авторів"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Цей електронний лист надсилається, щоб повідомити авторів подання, які не "
+"призначені учасниками, про прийняття рішення. Зазвичай це всі інші, крім "
+"автора, який подає матеріали."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Копія повідомлення електронної пошти, надісланого автору, який надсилає "
+"матеріали"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Повідомити рецензентів про рішення"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Цей електронний лист надсилається редактором рецензенту, щоб повідомити його "
+"про прийняття рішення щодо подання, яке вони переглянули."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Короткий опис цього рішення, яким можна поділитися електронною поштою в "
+"повідомленні рецензентам про це рішення"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Ми вирішили прийняти це подання без змін."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Ми вирішили відхилити це подання."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Ми запросили авторів подати правки."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Ми запропонували авторам подати доопрацьовану версію для подальшого розгляду."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Призначення запрошеного рецензента до подання було скасовано."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Подання прийнято"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання прийнято до "
+"опублікування."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Подання повернуто на корегування"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання повернуто на "
+"стадію корегування."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Подання повернуто з корегування"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання повернуто зі "
+"стадії корегування."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Раунд рецензування скасовано"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що раунд рецензування для "
+"їхнього подання скасовано."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Подання відхилено"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання відхилено "
+"після рецензування."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Подання відхилено (попередній розгляд)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Розпочато новий раунд рецензування"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про початок нового раунду "
+"рецензування для їхнього подання."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Потрібні зміни"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про рішення запросити доопрацювання "
+"під час рецензування."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Повторно надіслати на рецензування"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про рішення \"переглянути та повторно "
+"надіслати\" щодо їхнього подання."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Відновлення відхиленого подання"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що попереднє рішення про "
+"відхилення їхнього подання після рецензування скасовується."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Поновлення подання, відхиленого без рецензування"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що попереднє рішення "
+"відхилити їхнє подання без рецензування скасовується."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Надіслано на рецензування"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що його подання надсилається "
+"на стадію рецензування."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Відправлено у виробництво"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання "
+"відправляється на стадію виробництва."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Подання прийнято (без рецензування)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що їхнє подання надсилається "
+"безпосередньо на стадію корегування і не буде рецензовано."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Зроблено рекомендацію"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Це повідомлення повідомляє старшого редактора або редактора розділу про те, "
+"що було зроблено редакційну рекомендацію щодо одного з призначених їм "
+"матеріалів. Це повідомлення використовується, коли редактору дозволено лише "
+"рекомендувати редакційне рішення, і вимагає від уповноваженого редактора "
+"запису редакційних рішень. Цей параметр можна вибрати, призначаючи учасників "
+"для подання."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Підтвердження рецензування"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3195,325 +3281,355 @@ msgstr ""
 "на рецензування"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Відхилення рецензування"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
 "Цей електронний лист надсилається рецензентом, коли він відхиляє запит на "
-"перевірку"
+"рецензування"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Нагадування про рецензування"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Цей електронний лист надсилається редактором, щоб нагадати рецензенту, що "
+"їхнє рецензування підлягає виконанню."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Нагадування про рецензування (автоматизовано)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Цей лист автоматично надсилається рецензенту, коли настає кінцева дата "
-"рецензування (див. розділ \"Налаштування рецензування\" кроку 2 Налаштування "
-"журналу) та відключений доступ рецензента \"єдиним натисканням\". Щоб ця "
-"функціональність працювала необхідно включити на налаштувати Scheduled tasks "
-"(див. файл конфігурації сайту)."
+"Цей електронний лист надсилається автоматично, якщо рецензент не завершив "
+"рецензування до встановленого терміну."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Визнання рецензії"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Цей електронний лист надсилається редактором рецензенту, щоб підтвердити, що "
+"його рецензія була отримана, і подякувати рецензенту за їхній внесок."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Прострочена відповідь щодо рецензування (автоматизовано)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Цей лист надсилається автоматично, коли рецензент пропустив дату "
-"рецензування (Див Налаштування > Робочий процес > Рецензування > "
-"Налаштування Рецензування) і прямий доступ рецензента за посиланням "
-"відключено. Заплановані завдання повинні бути увімкнені та налаштовані (Див. "
-"файл налаштування сайту)."
+"Цей електронний лист надсилається автоматично, коли минає кінцевий термін "
+"відповіді рецензента на запит щодо рецензування."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Запит щодо рецензування"
 
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Цей електронний лист від редактора розділу до рецензента просить рецензента "
-"прийняти або відхилити завдання рецензувати подання. "
+"прийняти або відхилити завдання щодо рецензування подання. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Наступний запит щодо рецензування"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Цим листом редактор розділу просить рецензента взятися за виконання другого "
-"раунду рецензування подання або відмовитись від цієї роботи. У листі "
-"міститься інформація про подання (назва та анотація), про кінцевий термін "
-"рецензування та про те, як отримати доступ безпосередньо до подання. Цей "
-"шаблон використовується, якщо на кроці 2 Налаштування журналу обраний "
-"Стандартний процес рецензування."
+"Цей електронний лист від редактора до рецензента вимагає від рецензента "
+"прийняти або відхилити завдання щодо рецензування подання для додаткового "
+"раунду рецензування. Він надає інформацію про подання, таку як назва та "
+"анотація, термін розгляду та як отримати доступ до самого подання."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Поточна публікація подання відсутня"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "Дочірнє подання {$child} не було оброблено"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Нагадування редакції"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Автоматичний електронний лист, надісланий редакторам із невиконаними "
+"завданнями"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Підтвердження про скидання пароля"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
-"Цей лист надсилається зареєстрованому користувачу, який вказав, що забув "
-"свій пароль і не може увійти до системи. У листі міститься URL, натиснувши "
-"на який користувач може скинути свій пароль."
+"Цей електронний лист надсилається зареєстрованому користувачеві, коли вони "
+"вказують, що забули свій пароль або не можуть увійти. Він надає URL-адресу, "
+"за якою вони можуть перейти, щоб скинути свій пароль."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Створено користувача"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Цей лист надсилається новому зареєстрованому користувачу для того, щоб "
-"привітати його з реєстрацією та надіслати йому його ім'я користувача та "
-"пароль."
+"Цей електронний лист надсилається новоствореному користувачеві, коли "
+"менеджер редакції створив користувача через налаштування користувача. "
+"Електронний лист повинен вітати їх у системі та надавати запис їхнього імені "
+"користувача та пароля."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Реєстр рецензентів"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
-"Цей лист надсилається новому зареєстрованому рецензенту для того, щоб "
-"повідомити йому про реєстрацію та надіслати його ім'я користувача та пароль."
+"Цей електронний лист надсилається нещодавно зареєстрованому рецензенту, щоб "
+"привітати їх у системі та надати запис їхнього імені користувача та пароля."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Подання зберігається на потім"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Автоматичний електронний лист, який надсилається авторам, коли вони "
+"зберігають свої подання для завершення пізніше"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Підтвердження подачі"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Якщо розсилання таких листів дозволене, цей лист автоматично надсилається "
-"автору, коли він або вона завершує процес подання рукопису до журналу. У "
-"ньому міститься інформація про відстеження редакційного опрацювання рукопису "
-"та подяка автору за подання."
+"Цей електронний лист автоматично надсилається автору, коли вони роблять "
+"подачу. Він надає інформацію про відстеження подання в редакційному процесі "
+"і дякує авторові за подання."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Підтвердження подачі (інші автори)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"При ввімкненні цей електронний лист автоматично надсилається іншим авторам, "
-"які не є користувачами OJS, зазначеними у процесі подання рукопису."
+"Цей електронний лист автоматично надсилається авторам, зазначеним у поданні, "
+"які не є авторами, які подають матеріали."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Обговорення (подача)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Цей електронний лист надсилається, коли створюється обговорення або на нього "
+"відповідають на стадії подачі."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Обговорення (рецензування)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Цей електронний лист надсилається, коли створюється обговорення або на нього "
+"відповідають на стадії рецензування."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Обговорення (корегування)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Цей електронний лист надсилається, коли створюється обговорення або на нього "
+"відповідають на стадії корегування."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Обговорення (виробництво)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Цей електронний лист надсилається, коли створюється обговорення або на нього "
+"відповідають на стадії виробництва."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Повідомлення про переглянуту версію"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
-"Цей лист автоматично надсилається призначеному редактору, коли автор "
-"вивантажує перероблену версію своєї статті."
+"Цей електронний лист автоматично надсилається призначеному редактору, коли "
+"автор завантажує виправлену версію статті."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Новий анонс"
 
 msgid "mailable.announcementNotify.description"
-msgstr ""
+msgstr "Цей електронний лист надсилається під час створення нового анонсу."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Повідомлення про статистичний звіт"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Редагувати повідомлення про рецензування"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Цей електронний лист автоматично повідомляє рецензента про зміну відомостей "
+"щодо призначення рецензії."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Повідомлення редакторам про коментар рецензента"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Цей електронний лист автоматично надсилається призначеним редакторам, коли "
+"рецензент дає рекомендацію в рецензії"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Джерело автентифікації"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Подання повернуто на рецензування"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що його подання повернуто на "
+"стадію рецензування."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Подання повернуто на стадію подачі"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Цей електронний лист повідомляє автора про те, що його подання повернуто на "
+"стадію подачі."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Керувати електронними листами"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Додавайте та редагуйте шаблони</a> для всіх "
+"електронних листів, надісланих системою.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Додавайте та редагуйте шаблони, які ви хотіли б зробити доступними для "
+"користувача, коли він надсилає цей електронний лист. Повідомлення за "
+"замовчуванням будуть завантажені автоматично, і користувач зможе швидко "
+"завантажити будь-які інші шаблони, які ви додасте сюди."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Шаблони"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Редагувати шаблон"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Видалити шаблон"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Ви дійсно хочете видалити шаблон <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Скинути шаблон"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Ви дійсно хочете скинути тему та тіло за замовчуванням для шаблону "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Пошук за назвою або описом"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Введіть коротку назву, яка допоможе вам знайти цей шаблон."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Нове подання"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Налаштуйте сповіщення електронною поштою для ситуації, коли надсилано нове "
+"подання."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Хто повинен отримати електронний лист після завершення нового подання."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Не надсилати електронний лист."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Надіслати електронний лист лише автору, який його подає."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Надіслати електронний лист усім авторам."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Редакційні рішення"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Налаштуйте сповіщення електронною поштою для надсилання авторам, коли "
+"записано редакційне рішення."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Для редакторів"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Налаштуйте сповіщення електронною поштою для надсилання редакторам."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Редакційна статистика"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Надсилати чи ні щомісячний електронний лист редакторам із редакційною "
+"статистикою журналу, такою як показники прийняття та відхилення. Редактори "
+"можуть скасувати підписку на цей електронний лист зі свого профілю "
+"користувача."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Надсилати щомісячний електронний лист редакторам."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Не надсилати електронний лист редакторам."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Чи слід попросити автора, який подав заявку, вибрати категорію, коли вони "
+"роблять нове подання?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Так, додати поле категорій до майстра подачі."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Ні, не показувати авторам це поле."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Запит коректури"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Запитання про цитування"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Призначено редактора"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Готово до виробництва"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Система"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Версію створено"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Рецензування завершено"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Рецензію відредаговано"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Подяка за подання іншим авторам"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Призначено редактора (автоматично)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Цей електронний лист надсилається редактору, коли він автоматично "
+"призначається для подання."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Призначення редактора"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Подання потребує редактора"
 
 msgid "manager.setup.notifyUsers.queued"
 msgstr ""

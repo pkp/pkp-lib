@@ -1,14 +1,14 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:01+00:00\n"
-"PO-Revision-Date: 2022-11-04 17:21+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
-"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"ru_RU/>\n"
-"Language: ru_RU\n"
+"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/user/ru/"
+">\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -526,13 +526,15 @@ msgstr ""
 "\"_blank\">Заявлением о конфиденциальности</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Нет пользователей с указанным адресом электронной почты."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Не удаётся завершить запрос на сброс пароля по следующей причине: {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Введите новый пароль, чтобы обновить пароль входа."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Пароль был успешно обновлен. Пожалуйста, войдите в систему с новым паролем."

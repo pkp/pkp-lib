@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"PO-Revision-Date: 2023-04-23 18:49+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/locale/cs/>\n"
 "Language: cs\n"
@@ -52,3 +52,504 @@ msgstr "Identifikace veřejné sazebnice již existuje."
 
 msgid "section.description"
 msgstr "Popis archivu sekce"
+
+msgid "section.pathDescription"
+msgstr "Cesta URL sekce. Místo mezer použijte pomlčky (-)."
+
+msgid "section.emptySection"
+msgstr "Do této sekce nebylo zatím nic zasláno."
+
+msgid "category.categories"
+msgstr "Kategorie"
+
+msgid "common.publication"
+msgstr "Preprint"
+
+msgid "common.publications"
+msgstr "Preprinty"
+
+msgid "preprint.details"
+msgstr "Podrobnosti"
+
+msgid "preprint.abstract"
+msgstr "Abstrakt"
+
+msgid "preprint.pageTitle"
+msgstr "Zobrazit {$title}"
+
+msgid "submissions.published"
+msgstr "Publikováno"
+
+msgid "submission.search"
+msgstr "Hledání preprintu"
+
+msgid "submission.numberOfVersions"
+msgstr "Verze: {$numberOfVersions}"
+
+msgid "submission.dates"
+msgstr "Podáno {$submitted} - Zveřejněno {$published}"
+
+msgid "publication.galley.downloads"
+msgstr "Stažení: {$downloads}"
+
+msgid "context.contexts"
+msgstr "Servery"
+
+msgid "context.context"
+msgstr "Server"
+
+msgid "user.noRoles.selectUsersWithoutRoles"
+msgstr "Zahrnout i uživatele bez rolí na tomto serveru."
+
+msgid "user.register.contextsPrompt"
+msgstr "Které servery na tomto webu byste si chtěli zaregistrovat?"
+
+msgid "user.register.otherContextRoles"
+msgstr "Požádat o následující role."
+
+msgid "user.role.subEditor"
+msgstr "Moderátor"
+
+msgid "user.role.subEditors"
+msgstr "Moderátoři"
+
+msgid "submission.event.submissionSubmitted"
+msgstr "Předkládaný preprint"
+
+msgid "search.results.orderBy"
+msgstr "Řadit výsledky podle"
+
+msgid "search.results.orderBy.preprint"
+msgstr "Název preprintu"
+
+msgid "search.results.orderBy.author"
+msgstr "Autor"
+
+msgid "search.results.orderBy.date"
+msgstr "Datum zveřejnění"
+
+msgid "search.results.orderBy.server"
+msgstr "Název serveru"
+
+msgid "search.results.orderBy.popularityMonth"
+msgstr "Popularita (Poslední měsíc)"
+
+msgid "search.results.orderBy.relevance"
+msgstr "Relevance"
+
+msgid "search.results.orderDir.asc"
+msgstr "Vzestupně"
+
+msgid "search.results.orderDir.desc"
+msgstr "Sestupně"
+
+msgid "submission.layout.galley.remotelyHostedContent"
+msgstr "Tato sazebnice bude dostupná na nové webové stránce."
+
+msgid "submission.layout.galley.remoteURL"
+msgstr "URL adresa vzdáleně hostovaného obsahu"
+
+msgid "user.register.registrationDisabled"
+msgstr "Tento server v současnosti nepřijímá registrace uživatelů."
+
+msgid "user.register.form.privacyConsentThisContext"
+msgstr ""
+"Ano, souhlasím s tím, aby moje údaje byly shromažďovány a ukládány podle <a "
+"href=\"{$privacyUrl}\" target=\"_blank\">prohlášení o ochraně osobních údajů "
+"</a> tohoto serveru."
+
+msgid "user.register.form.missingContextConsent"
+msgstr ""
+"Musíte souhlasit s prohlášením o ochraně osobních údajů každého serveru, do "
+"kterého se registrujete."
+
+msgid "index.latestPreprints"
+msgstr "Nejnovější preprinty"
+
+msgid "search.searchFor"
+msgstr "Hledání preprintů pro"
+
+msgid "search.authorDetails"
+msgstr "Podrobnosti o autorovi"
+
+msgid "site.serverView"
+msgstr "Zobrazit server"
+
+msgid "archive.archives"
+msgstr "Archivy"
+
+msgid "archive.archivesPageNumber"
+msgstr "Archivy - strana {$pageNumber}"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.aboutContext"
+msgstr "Podrobnosti o tomto serveru"
+
+msgid "about.editorialTeam"
+msgstr "Tým preprintového serveru"
+
+msgid "about.submissions"
+msgstr "Příspěvky"
+
+msgid "about.onlineSubmissions.login"
+msgstr "Přihlášení"
+
+msgid "about.onlineSubmissions.submissionActions"
+msgstr "{$newSubmission} nebo {$viewSubmissions}."
+
+msgid "about.onlineSubmissions.submitToSection"
+msgstr "Odešlete nový příspěvek do sekce <a href=\"{$url}\">{$name}</a>."
+
+msgid "about.onlineSubmissions.newSubmission"
+msgstr "Vytvořit nový příspěvek"
+
+msgid "about.onlineSubmissions.viewSubmissions"
+msgstr "zobrazit vaše rozpracované příspěvky"
+
+msgid "about.authorGuidelines"
+msgstr "Pokyny pro autory"
+
+msgid "about.submissionPreparationChecklist"
+msgstr "Kontrolní seznam pro přípravu příspěvku"
+
+msgid "about.copyrightNotice"
+msgstr "Oznámení o copyrightu"
+
+msgid "about.privacyStatement"
+msgstr "Prohlášení o ochraně osobních údajů"
+
+msgid "about.aboutThisPublishingSystem"
+msgstr "Více informací o publikačním systému, platformě a workflow OPS/PKP."
+
+msgid "about.aboutThisPublishingSystem.altText"
+msgstr "Proces prověřování a zveřejňování OPS"
+
+msgid "about.aboutSoftware"
+msgstr "O Open Preprint Systems"
+
+msgid "help.goToEditPage"
+msgstr "Editovat {$sectionTitle}"
+
+msgid "installer.appInstallation"
+msgstr "Instalace OPS"
+
+msgid "installer.updatingInstructions"
+msgstr ""
+"Pokud aktualizujete existující instalaci OPS, <a href=\"{$upgradeUrl}\""
+">pokračujte zde</a>."
+
+msgid "installer.installationInstructions"
+msgstr ""
+"<h4>Verze OPS {$version}</h4>\n"
+"<p>Děkujeme, že jste si stáhli projekt Public Knowledge <strong>Open "
+"Preprint Systems</strong>. Před pokračováním si přečtěte <a href=\""
+"{$baseUrl}/docs/README.md\">README</a> soubor, který je součástí tohoto "
+"softwaru. Další informace o projektu Public Knowledge a jeho softwarových "
+"projektech naleznete na adrese <a href=\"https://pkp.sfu.ca/\" target="
+"\"_blank\">stránky PKP</a>. Pokud máte hlášení o chybách nebo dotazy na "
+"technickou podporu týkající se systému Open Preprint Systems, podívejte se "
+"na následující stránky <a href=\"https://forum.pkp.sfu.ca\" target=\"_blank\""
+">fórum podpory</a> nebo navštivte v rámci stránek PKP <a href=\"https"
+"://github.com/pkp/pkp-lib#issues\" target=\"_blank\">stránky systému hlášení "
+"chyb</a>. Ačkoli je preferovaným způsobem kontaktu fórum podpory, můžete tým "
+"kontaktovat také e-mailem na adrese. <a href=\"mailto:pkp.contact@gmail.com\""
+">pkp.contact@gmail.com</a>.</p>\n"
+"\n"
+"<h4>Upgrade</h4>\n"
+"<p>Pokud aktualizujete stávající instalaci OPS, <a href=\"{$upgradeUrl}\""
+">klikněte zde</a> pro pokračování.</p>\n"
+"\n"
+"<h4>Doporučené systémové požadavky</h4>\n"
+"<ul>\n"
+"\t<li><a href=\"https://www.php.net\" target=\"_blank\">PHP</a> >= "
+"{$phpRequiredVersion}; v současné době používáte PHP "
+"{$phpVersion}{$wrongPhpText}</li>\n"
+"\t<li><a href=\"https://www.mysql.com\" target=\"_blank\">MySQL</a> >= 4.1 "
+"or <a href=\"https://www.postgresql.org\" target=\"_blank\">PostgreSQL</a> "
+">= 9.1.5</li>\n"
+"\t<li><a href=\"https://httpd.apache.org\" target=\"_blank\">Apache</a> >= "
+"1.3.2x or >= 2.0.4x or Microsoft IIS 6</li>\n"
+"\t<li>Operační systém: Jakýkoli operační systém, který podporuje výše "
+"uvedený software, včetně <a href=\"https://www.linux.org/\" target=\"_blank\""
+">Linuxu</a>, <a href=\"https://www.bsd.org\" target=\"_blank\">BSD</a>, <a "
+"href=\"https://www.oracle.com/solaris/\" target=\"_blank\">Solaris</a>, <a "
+"href=\"https://www.apple.com\" target=\"_blank\">Mac OS X</a>, <a href="
+"\"https://www.microsoft.com\">Windows</a></li>\n"
+"</ul>\n"
+"\n"
+"<p>Protože společnost PKP nemá prostředky na testování všech možných "
+"kombinací verzí softwaru a platforem, není zaručena správná funkce ani "
+"podpora.</p>\n"
+"\n"
+"<p>Změny těchto nastavení lze provést po instalaci úpravou souboru. "
+"<tt>config.inc.php</tt> v základním adresáři OPS nebo pomocí webového "
+"rozhraní pro správu webu.</p>\n"
+"\n"
+"<h4>Podporované databázové systémy</h4>\n"
+"<p>OPS byl v současné době testován pouze na systémech MySQL a PostgreSQL, "
+"ačkoli ostatní systémy pro správu databází podporované systémem<a href="
+"\"https://adodb.org\" target=\"_blank\">ADOdb</a> může fungovat (zcela nebo "
+"částečně). Zprávy o kompatibilitě a/nebo opravy kódu pro alternativní DBMS "
+"lze zaslat týmu OPS.</p>"
+
+msgid "installer.localeSettingsInstructions"
+msgstr ""
+"Pro úplnou podporu Unicode (UTF-8) vyberte pro všechna nastavení znakové "
+"sady možnost UTF-8. Vezměte prosím na vědomí, že plná podpora Unicode "
+"vyžaduje, aby bylo PHP zkompilováno s podporou pro <a href=\"https://www.php."
+"net/mbstring\" target=\"_blank\">knihovnu mbstring</a> (ve výchozím "
+"nastavení povoleno ve většině nejnovějších instalací PHP). Pokud váš server "
+"nesplňuje tyto požadavky, může dojít k problémům při používání rozšířených "
+"znakových sad.<br /><br />Váš server v současné době podporuje mbstring: "
+"<strong>{$supportsMBString}</strong>"
+
+msgid "installer.allowFileUploads"
+msgstr ""
+"Váš server v současnosti umožňuje nahrávání souborů: "
+"<strong>{$allowFileUploads}</strong>"
+
+msgid "installer.maxFileUploadSize"
+msgstr ""
+"Váš server v současnosti dovoluje nahrávání souborů o maximální velikosti "
+"<strong>{$maxFileUploadSize}</strong>"
+
+msgid "installer.localeInstructions"
+msgstr ""
+"Výchozí jazyk pro použití tohoto systému. Pokud Vás zajímá podpora jazyků "
+"zde neuvedených, prostudujte si dokumentaci k OPS."
+
+msgid "installer.filesDirInstructions"
+msgstr ""
+"Zadejte úplný název cesty k existujícímu adresáři, kde mají být nahrané "
+"soubory uloženy. Tento adresář by neměl být přímo přístupný z internetu. "
+"<strong>Před instalací se ujistěte, že tento adresář existuje a lze do něj "
+"zapisovat..</strong> Názvy cest v systému Windows by měly používat lomítka, "
+"např. \"C:/myserver/files\"."
+
+msgid "installer.installApplication"
+msgstr "Instalace Open Preprint Systems"
+
+msgid "installer.upgradeApplication"
+msgstr "Aktualizace Open Preprint Systems"
+
+msgid "site.upgradeAvailable.admin"
+msgstr ""
+"Nová verze OPS je dostupná! V současné době používáte verzi OPS "
+"{$currentVersion}. Nejnovější verze OPS je {$latestVersion}. Navštivte, "
+"prosím, <a href=\"https://pkp.sfu.ca/ojs_download\" target=\"_new\">tuto "
+"stránku</a> a stáhněte si nejnovější verzi OPS a přečtěte si pokyny pro "
+"upgrade."
+
+msgid "site.upgradeAvailable.manager"
+msgstr ""
+"Je dostupná nová verze OPS! Vy používáte následující verzi OPS: "
+"{$currentVersion}. Nejnovější verze OPS je: {$latestVersion}. Kontaktujte, "
+"prosím, administrátora webu ({$siteAdminName}, <a href=\"mailto"
+":{$siteAdminEmail}\">{$siteAdminEmail}</a>) a upozorněte ho na novou verzi "
+"OJS. Více informací lze nalézt <a href=\"https://pkp.sfu.ca/ojs/ojs_download/"
+"\" target=\"_new\">zde</a>."
+
+msgid "log.editor.decision"
+msgstr ""
+"Rozhodnutí moderátora ({$decision}) pro preprint {$submissionId} nahrál/a "
+"{$editorName}."
+
+msgid "notification.type.submissionSubmitted"
+msgstr "Nový preprint s názvem \"{$title}\" byl vložen."
+
+msgid "notification.type.newAnnouncement"
+msgstr "Bylo vytvořeno nové oznámení."
+
+msgid "notification.type.reviewing"
+msgstr "Události týkající se recenzního řízení"
+
+msgid "notification.type.submissions"
+msgstr "Události týkající se příspěvku"
+
+msgid "notification.type.public"
+msgstr "Veřejná oznámení"
+
+msgid "notification.type.editorAssignmentTask"
+msgstr "Byl předložen nový preprint, kterému je třeba přidělit moderátora."
+
+msgid "notification.type.awaitingRepresentations"
+msgstr "Jsou očekávány sazebnice."
+
+msgid "user.authorization.noContext"
+msgstr "Žádný server v kontextu!"
+
+msgid "notification.type.approveSubmission"
+msgstr "Tento příspěvek v současné době čeká na schválení."
+
+msgid "notification.type.approveSubmissionTitle"
+msgstr "Čeká na schválení."
+
+msgid "user.profile.form.showOtherContexts"
+msgstr "Zaregistrovat se do dalších serverů"
+
+msgid "user.profile.form.hideOtherContexts"
+msgstr "Skrýt další servery"
+
+msgid "search.cli.rebuildIndex.indexing"
+msgstr "Indexování \"{$serverName}\""
+
+msgid "search.cli.rebuildIndex.indexingByServerNotSupported"
+msgstr ""
+"Tato implementace vyhledávání neumožňuje reindexaci pro jednotlivé servery."
+
+msgid "catalog.sortBy"
+msgstr "Pořadí preprintů"
+
+msgid "catalog.sortBy.categoryDescription"
+msgstr "Vyberte způsob řazení preprintů v této kategorii."
+
+msgid "preprint.subject"
+msgstr "Klíčová slova"
+
+msgid "submissionGroup.assignedSubEditors"
+msgstr "Přiděleno moderátorovi"
+
+msgid "user.authorization.representationNotFound"
+msgstr "Nelze nalézt požadovanou sazebnici."
+
+msgid "user.role.manager"
+msgstr "Manažer"
+
+msgid "search.results.orderBy.popularityAll"
+msgstr "Popularita (za celou dobu)"
+
+msgid "user.register.form.missingSiteConsent"
+msgstr "Musíte souhlasit s prohlášením o ochraně osobních údajů na tomto webu."
+
+msgid "site.noServers"
+msgstr "Nejsou k dispozici žádné servery."
+
+msgid "about.onlineSubmissions.register"
+msgstr "Registrace"
+
+msgid "about.submissionPreparationChecklist.description"
+msgstr ""
+"Jako součást procesu odesílání příspěvku je požadováno, aby autoři "
+"zaškrnutím potvrdili, že jejich příspěvek je v souladu se všemi "
+"následujícími položkami. Příspěvky, které nebudou v souladu s těmito "
+"pravidly, mohou být autorům vráceny."
+
+msgid "about.aboutOPSServer"
+msgstr ""
+"Tento server používá Open Preprint Systems {$ojsVersion}, což je open source "
+"preprintový server pro správu a publikování preprintů vyvinutý, podporovaný "
+"a volně šířený v rámci projektu Public Knowledge Project pod GNU General "
+"Public licencí. Navštivte webové stránky <a href=\"https://pkp.sfu.ca/\""
+">pokud se chcete dozvědět více o tomto software</a>. <a href=\"{$contactUrl}"
+"\">Kontaktujte přímo server</a> pokud máte jakékoliv otázky k serveru a k "
+"možnostem do něj přispívat."
+
+msgid "user.register.noContextReviewerInterests"
+msgstr "Pokud jste uvedli zájem o roli recenzenta, zadejte své zájmy."
+
+msgid "search.authorIndex"
+msgstr "Procházet index autorů"
+
+msgid "about.onlineSubmissions.registrationRequired"
+msgstr "K podání příspěvku je třeba {$login} nebo {$register}."
+
+msgid "installer.preInstallationInstructions"
+msgstr ""
+"<h4>Kroky před instalací</h4><p>1. Následující soubory a adresáře (a jejich "
+"obsah) musí být přístupné pro zápis:</p><ul>\t<li><tt>config.inc.php</tt> je "
+"zapisovatelný (nepovinné): {$writable_config}</li>\t<li><tt>public/</tt> je "
+"zapisovatelný: {$writable_public}</li>\t<li><tt>cache/</tt> je zapisovatelný:"
+" {$writable_cache}</li>\t<li><tt>cache/t_cache/</tt> je zapisovatelný: "
+"{$writable_templates_cache}</li>\t<li><tt>cache/t_compile/</tt> je "
+"zapisovatelný: {$writable_templates_compile}</li>\t<li><tt>cache/_db</tt> je "
+"zapisovatelný: {$writable_db_cache}</li></ul><p>2. Je třeba vytvořit adresář "
+"pro ukládání nahraných souborů a zajistit, aby do něj bylo možné zapisovat. ("
+"viz \"Nastavení souborů\" níže).</p>"
+
+msgid "about.aboutOPSSite"
+msgstr ""
+"Tento web používá Open Preprint Systems {$ojsVersion}, což je open source "
+"preprintový server pro správu a publikování preprintů vyvinutý, podporovaný "
+"a volně šířený v rámci projektu Public Knowledge Project pod GNU General "
+"Public licencí. Navštivte webové stránky <a href=\"https://pkp.sfu.ca/\""
+">pokud se chcete dozvědět více o tomto software</a>. Kontaktujte přímo web, "
+"pokud máte jakékoliv otázky k serverům a k možnostem do nich přispívat."
+
+msgid "manager.people.noAdministrativeRights"
+msgstr ""
+"Omlouváme se, ale k tomuto uživateli nemáte práva správce. Důvodem může být:"
+"\t\t<ul>\t\t\t<li>Uživatel je správce webu</li>\t\t\t<li>Uživatel je aktivní "
+"na serverech, které nespravujete.</li>\t\t</ul>\tTento úkol musí provést "
+"správce webu."
+
+msgid "installer.upgradeInstructions"
+msgstr ""
+"<h4>Verze OPS {$version}</h4>\n"
+"<p>Děkujeme, že jste si stáhli projekt Public Knowledge <strong>Open "
+"Preprint Systems</strong>. Před pokračováním si přečtěte <a href=\""
+"{$baseUrl}/docs/README.md\">README</a> a <a href=\"{$baseUrl}/docs/UPGRADE."
+"md\">UPGRADE</a> soubory, které jsou součástí tohoto softwaru. Další "
+"informace o projektu Public Knowledge a jeho softwarových projektech "
+"naleznete na adrese <a href=\"https://pkp.sfu.ca\" target=\"_blank\">stránky "
+"PKP</a>. Pokud máte hlášení o chybách nebo dotazy na technickou podporu "
+"týkající se systému Open Preprint Systems, podívejte se na stránku <a href="
+"\"https://forum.pkp.sfu.ca\" target=\"_blank\">fóra podpory</a> nebo "
+"navštivte PKP online <a href=\"https://github.com/pkp/pkp-lib/issues\" "
+"target=\"_blank\">systém hlášení chyb</a>. Ačkoli je preferovaným způsobem "
+"kontaktu fórum podpory, můžete tým kontaktovat také e-mailem na adrese. <a "
+"href=\"mailto:pkp.contact@gmail.com\">pkp.contact@gmail.com</a>.</p>\n"
+"<p><strong>Důrazně doporučujeme</strong> abyste před pokračováním zálohovali "
+"databázi, adresář se soubory a instalační adresář OPS.</p>\n"
+"<p>Ujistěte se, že je v konfiguračním souboru php.ini nastavena vysoká "
+"hodnota max_execution_time. Pokud dojde k dosažení tohoto nebo jiného "
+"časového limitu (např. \"Timeout\" Apache) a proces aktualizace bude "
+"přerušen, bude nutný ruční zásah.</p>"
+
+msgid "installer.additionalLocalesInstructions"
+msgstr ""
+"Vyberte další jazyky, které chcete v tomto systému podporovat. Tyto jazyky "
+"budou k dispozici pro použití na serverech hostovaných na webu. Další jazyky "
+"lze také kdykoli nainstalovat z rozhraní pro správu webu."
+
+msgid "installer.databaseSettingsInstructions"
+msgstr ""
+"OPS vyžaduje pro ukládání svých dat přístup k databázi SQL. Seznam "
+"podporovaných databází naleznete v systémových požadavcích výše. Do níže "
+"uvedených polí zadejte nastavení, která se mají použít pro připojení k "
+"databázi."
+
+msgid "installer.overwriteConfigFileInstructions"
+msgstr ""
+"<h4>DŮLEŽITÉ!</h4><p>Instalační program nemohl automaticky přepsat "
+"konfigurační soubor. Před pokusem o použití systému otevřete, prosím "
+"<tt>config.inc.php</tt> ve vhodném textovém editoru a nahraďte jeho obsah "
+"obsahem níže uvedeného textového pole.</p>"
+
+msgid "installer.installationComplete"
+msgstr ""
+"<p>Instalace systému OPS byla úspěšně dokončena.</p>\n"
+"<p>Chcete-li začít používat systém, <a href=\"{$loginUrl}\">přihlaste se</a> "
+"s uživatelským jménem a heslem zadanými na předchozí stránce.</p>\n"
+"<p>Navštivte naše <a href=\"https://forum.pkp.sfu.ca\" target=\"_new\""
+">komunitní fórum</a> nebo se přihlaste k odběru našeho <a href=\"https://pkp."
+"sfu.ca/developer-newsletter\" target=\"_new\">zpravodaje pro vývojáře,</a> "
+"abyste dostávali bezpečnostní upozornění a aktualizace o nadcházejících "
+"verzích, nových pluginech a plánovaných funkcích.</p>"
+
+msgid "installer.upgradeComplete"
+msgstr ""
+"<p>Aktualizace systému OPS na verzi {$version} byla úspěšně dokončena.</"
+"p><p>Nezapomeňte upravit nastavení \"installed\" ve Vašem config.inc.php "
+"konfiguračním souboru zpět na <em>On</em>.</p><p>Navštivte naše <a href="
+"\"https://forum.pkp.sfu.ca\" target=\"_new\">komunitní fórum</a> nebo se "
+"přihlaste k odběru našeho <a href=\"https://pkp.sfu.ca/developer-newsletter\""
+" target=\"_new\">zpravodaje pro vývojáře</a>, abyste dostávali bezpečnostní "
+"upozornění a aktualizace o nadcházejících verzích, nových pluginech a "
+"plánovaných funkcích.</p>"
+
+msgid "log.editor.recommendation"
+msgstr ""
+"Doporučení moderátora ({$decision}) pro preprint {$submissionId} nahrál/a "
+"{$editorName}."

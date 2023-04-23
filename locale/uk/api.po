@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -209,7 +209,7 @@ msgstr ""
 "адміністратор сайту не налаштував секретний ключ."
 
 msgid "api.announcements.404.announcementNotFound"
-msgstr "Анонс, який ви запитали, не знайдено."
+msgstr "Оголошення, яке ви запитали, не знайдено."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Не підтримуються такі локалізації: {$locales}."
@@ -245,8 +245,8 @@ msgstr "Файли, більші за {$maxSize}, не можна заванта
 
 msgid "api.files.400.config"
 msgstr ""
-"файл завантажити не вдалося через помилку конфігурації сервера. Зверніться "
-"до системного адміністратора."
+"Файл завантажити не вдалося через помилку конфігурації сервера. Будь ласка, "
+"зверніться до системного адміністратора."
 
 msgid "api.publication.403.alreadyPublished"
 msgstr "Публікацію, яку ви хочете опублікувати, уже опубліковано."

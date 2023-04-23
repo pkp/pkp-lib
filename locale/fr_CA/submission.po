@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-03-25 01:08+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -54,18 +54,17 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Sélectionner un rôle éditorial si vous souhaitez modifier et publier cette "
+"soumission vous-même."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Liste de vérification de la soumission"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Vous devez lire et reconnaître que vous avez rempli les conditions ci-"
-"dessous avant de poursuivre."
+msgstr "Toutes les soumissions doivent répondre aux exigences suivantes."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Oui, ma soumission répond à toutes ces exigences."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Soumission complète"
@@ -716,7 +715,7 @@ msgid "submission.firstPublished"
 msgstr "Première publication"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Pour les rédacteur.trice.s"
 
 msgid "submission.galley"
 msgstr "Épreuves"
@@ -993,8 +992,9 @@ msgstr "Évaluer les métadonnées"
 msgid "submission.review"
 msgstr "Évaluation"
 
+#, fuzzy
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Évaluer et soumettre"
 
 msgid "submission.reviewed"
 msgstr "Révisée"

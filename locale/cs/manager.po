@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"PO-Revision-Date: 2023-04-23 18:49+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/manager/cs/>\n"
 "Language: cs\n"
@@ -173,3 +173,721 @@ msgstr ""
 "správce webu povolit v konfiguračním souboru webu možnost "
 "<code>allow_envelope_sender</code>. Může být vyžadována konfigurace serveru, "
 "jak je uvedeno v dokumentaci OPS."
+
+msgid "manager.setup.numAnnouncementsHomepage"
+msgstr "Zobrazit na úvodní stránce"
+
+msgid "manager.setup.numAnnouncementsHomepage.description"
+msgstr ""
+"Kolik oznámení se má zobrazit na domovské stránce. Pokud nechcete zobrazovat "
+"žádná, nechte tuto položku prázdnou."
+
+msgid "manager.setup.enableDois.description"
+msgstr ""
+"Povolit přidělování identifikátorů digitálních objektů (DOI) pracím "
+"vydanýmna tomto serveru."
+
+msgid "doi.manager.settings.doiObjectsRequired"
+msgstr ""
+"Vyberte typy prací publikovaných na tomto serveru, kterým mají být přiřazeny "
+"DOI. Většina preprintových serverů přiděluje DOI preprintům, ale můžete "
+"chtít přidělit DOI i sazebnicím preprintů."
+
+msgid "manager.setup.enableUserRegistration"
+msgstr "Návštěvníci si mohou na serveru zaregistrovat uživatelský účet."
+
+msgid "manager.setup.information"
+msgstr "Informace"
+
+msgid "manager.setup.information.forAuthors"
+msgstr "Pro autory"
+
+msgid "manager.setup.information.forReaders"
+msgstr "Pro čtenáře"
+
+msgid "manager.setup.itemsPerPage"
+msgstr "Položek na stránku"
+
+msgid "manager.setup.serverAbbreviation"
+msgstr "Zkratka serveru"
+
+msgid "manager.setup.contextSummary"
+msgstr "Souhrn informací o serveru"
+
+msgid "manager.setup.contextAbout"
+msgstr "Podrobnosti o tomto serveru"
+
+msgid "manager.setup.contextAbout.description"
+msgstr ""
+"Uveďte veškeré informace o svém serveru, které by mohly čtenáře nebo autory "
+"zajímat. Mohlo by se jednat o politiku otevřeného přístupu, zaměření a "
+"rozsah serveru, zásady moderování a kontroly, upozornění na autorská práva, "
+"informace o sponzorování, historii serveru a prohlášení o ochraně osobních "
+"údajů."
+
+msgid "manager.setup.contextInitials"
+msgstr "Iniciály serveru"
+
+msgid "manager.setup.selectCountry"
+msgstr ""
+"Vyberte zemi, ve které se tento server nachází, nebo zemi poštovní adresy "
+"serveru či vydavatele."
+
+msgid "manager.setup.serverThumbnail"
+msgstr "Miniatura serveru"
+
+msgid "manager.setup.contextTitle"
+msgstr "Název serveru"
+
+msgid "manager.setup.keyInfo"
+msgstr "Klíčová informace"
+
+msgid "manager.setup.lists"
+msgstr "Seznamy"
+
+msgid "manager.setup.numPageLinks"
+msgstr "Odkazy na stránky"
+
+msgid "manager.setup.restrictPreprintAccess"
+msgstr ""
+"Uživatelé musí být registrovaní a přihlášení, aby mohli prohlížet obsah s "
+"otevřeným přístupem."
+
+msgid "manager.setup.restrictSiteAccess"
+msgstr ""
+"Pro zobrazení stránek serveru musí být uživatelé zaregistrováni a přihlášeni."
+
+msgid "manager.setup.searchEngineIndexing"
+msgstr "Indexace vyhledávacími nástroji"
+
+msgid "manager.setup.searchEngineIndexing.description"
+msgstr ""
+"Pomozte vyhledávačům, jako je například Google, objevit a zobrazit vaše "
+"stránky. Doporučujeme vám odeslat soubor <a href=\"{$sitemapUrl}\" target="
+"\"_blank\">sitemap</a>."
+
+msgid "manager.setup.searchDescription.description"
+msgstr ""
+"Uveďte stručný popis serveru (50-300 znaků), který mohou vyhledávače "
+"zobrazit při výpisu serveru ve výsledcích vyhledávání."
+
+msgid "manager.setup.siteAccess.view"
+msgstr "Přístup na stránky"
+
+msgid "manager.setup.sponsoringOrganization"
+msgstr "Sponzor"
+
+msgid "manager.setup.disableSubmissions.description"
+msgstr ""
+"Zamezte uživatelům zasílání nových preprintů na tento server. Na stránce "
+"nastavení <a href=\"{$url}\">sekce serveru</a> lze zakázat odesílání "
+"příspěvků do jednotlivých sekcí serveru."
+
+msgid "manager.setup.disableSubmissions.notAccepting"
+msgstr ""
+"Toto server v současné době nepřijímá příspěvky. Navštivte nastavení "
+"pracovního postupu a povolte zasílání příspěvků."
+
+msgid "manager.setup.enableOai"
+msgstr "Povolit OAI"
+
+msgid "manager.setup.enableOai.description"
+msgstr ""
+"Poskytujte metadata indexovacím službám třetích stran prostřednictvím <a "
+"href=\"https://www.openarchives.org/\">iniciativy Open Archives</a>."
+
+msgid "manager.setup.userRegistration"
+msgstr "Registrace uživatelů"
+
+msgid "manager.statistics.statistics"
+msgstr "Statistiky serveru"
+
+msgid "manager.statistics.statistics.preprintViews"
+msgstr "Počet zobrazení preprintu (pouze pro autory)"
+
+msgid "manager.statistics.statistics.count.accept"
+msgstr "Přijmout"
+
+msgid "manager.statistics.statistics.count.decline"
+msgstr "Odmítnout"
+
+msgid "manager.statistics.statistics.count.revise"
+msgstr "Znovu odeslat"
+
+msgid "manager.statistics.statistics.numSubmissions"
+msgstr "Celkem příspěvků"
+
+msgid "manager.statistics.statistics.registeredReaders"
+msgstr "Registrovaní čtenáři"
+
+msgid "manager.statistics.reports.defaultReport.preprintDownloads"
+msgstr "Stažení preprintových souborů"
+
+msgid "manager.statistics.reports.defaultReport.preprintAbstract"
+msgstr "Počet zobrazení stránek s abstraktem preprintu"
+
+msgid "grid.category.path"
+msgstr "Cesta"
+
+msgid "manager.publication.library"
+msgstr "Knihovna preprint serveru"
+
+msgid "manager.setup.resetPermissions"
+msgstr "Obnovit oprávnění k preprintům"
+
+msgid "manager.setup.resetPermissions.description"
+msgstr ""
+"Odstraňte prohlášení o autorských právech a informace o licenci u každého "
+"publikovaného preprintu a vraťte je zpět na aktuální výchozí nastavení "
+"serveru. Tím se trvale odstraní všechny předchozí informace o autorských "
+"právech a licencích připojené k preprintům. V některých případech nemusí být "
+"legálně povoleno opětovné licencování díla, které bylo publikováno pod jinou "
+"licencí. Při používání tohoto nástroje buďte opatrní a pokud si nejste "
+"jisti, jaká máte práva k preprintům zveřejněným ve vašem serveru, obraťte se "
+"na právníka."
+
+msgid "manager.setup.resetPermissions.success"
+msgstr "Oprávnění k preprintům byla úspěšně resetována."
+
+msgid "grid.genres.title.short"
+msgstr "Komponenty"
+
+msgid "grid.genres.title"
+msgstr "Komponenty preprintu"
+
+msgid "plugins.importexport.common.settings"
+msgstr "Nastavení"
+
+msgid "plugins.importexport.common.settings.DOIPluginSettings"
+msgstr "Nastavení pluginu DOI"
+
+msgid "plugins.importexport.common.export.preprints"
+msgstr "Preprinty"
+
+msgid "plugins.importexport.common.missingRequirements"
+msgstr "Nevyhovuje požadavkům pluginu"
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+"Aby bylo možné používat tento plugin, jděte prosím do kategorie pluginů "
+"Veřejné identifikátory, povolte a nastavte plugin DOI a specifikujte tam "
+"platný prefix DOI."
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "Plugin není plně nastavený."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Heslo"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Upozornění: heslo bude uloženo jako prostý text, nebude tedy zašifrováno."
+
+msgid "plugins.importexport.common.status.any"
+msgstr "Libovolný status"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Neuloženo"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Označeno jako registrované"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Registrováno"
+
+msgid "plugins.importexport.common.action"
+msgstr "Akce"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Exportovat"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Označit registrované"
+
+msgid "plugins.importexport.common.action.register"
+msgstr "Registrovat"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Validujte XML před exportem a registrací."
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Nebyly vybrány žádné objekty."
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Vybrané objekty se nepodařilo převést."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "Neplatné XML:"
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "Do výstupního souboru {$param} nejde zapisovat."
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+"Registrace nebyla úspěšná! Registrační server DOI vrátil následující chybu: "
+"'{$param}'."
+
+msgid "plugins.importexport.common.register.success"
+msgstr "Registrace byla úspěšná!"
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "Prefix DOI chybí pro server na adrese {$path}."
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Zadané objekty se nepodařilo najít."
+
+msgid "stats.contextStats"
+msgstr "Statistiky serveru"
+
+msgid "stats.context.tooltip.text"
+msgstr "Počet návštěvníků kteří si zobrazili titulní stránku serveru."
+
+msgid "stats.context.tooltip.label"
+msgstr "O statistikách serveru"
+
+msgid "stats.context.downloadReport.downloadContext.description"
+msgstr "Počet zobrazení titulní stránky serveru."
+
+msgid "stats.context.downloadReport.downloadContext"
+msgstr "Stažení ze serveru"
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+"Stáhněte si tabulku CSV/Excel se statistikami používání preprintů, které "
+"odpovídají následujícím parametrům."
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr "Stažené preprinty"
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr "Počet zobrazení abstraktů a stažení souborů pro každý preprint."
+
+msgid "stats.publicationStats"
+msgstr "Statistiky preprintů"
+
+msgid "stats.publications.details"
+msgstr "Podrobnosti preprintu"
+
+msgid "stats.publications.none"
+msgstr "Nebyly nalezeny žádné preprinty odpovídající těmto parametrům."
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Celkový počet zobrazení abstraktů podle data"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} z {$total} preprintů"
+
+msgid "stats.publications.abstracts"
+msgstr "Abstrakty"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "Jméno serveru"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "URL domovské stránky serveru"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "Jméno primárního kontaktu serveru"
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr "E- mailový podpis serveru pro automatizované e-maily"
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "E- mailový podpis serveru pro automatizované e-maily"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "E-mailová adresa hlavní kontaktní osoby serveru"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "Název typu platby"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "Výše platby"
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "Měna částky platby, například USD"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Odkaz na stránku se statistikami preprintů"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho preprint byl přijat k publikaci."
+
+msgid "mailable.validateEmailContext.name"
+msgstr "Validace emailu (Registrace serveru)"
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán novému uživateli při registraci na "
+"serveru, pokud nastavení vyžaduje ověření e-mailové adresy."
+
+msgid "doi.displayName"
+msgstr "DOI"
+
+msgid "doi.manager.displayName"
+msgstr "DOI"
+
+msgid "doi.description"
+msgstr ""
+"Tento plugin umožňuje přiřazení identifikátorů digitálních objektů DOI k "
+"číslům, článkům a sazebnicím v rámci OPS."
+
+msgid "doi.manager.submissionDois"
+msgstr "DOI preprintů"
+
+msgid "doi.readerDisplayName"
+msgstr "DOI"
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Nakonfigurujte, prosím, plugin DOI, abyste mohli spravovat a používat DOI v "
+"OPS:"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Zvolte, prosím, publikační objekty, které mají mít přiděleny Digital Object "
+"Identifiers (DOI):"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr "Sazebnice preprintu, jako publikovaná PDF"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Sazebnice preprintů"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Automatické přiřazování"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr "Automatické přiřazení DOI pro následující objekty při jejich vytvoření:"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "Prefix DOI"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Prefix DOI je povinný a musí být ve formátu 10.xxxx."
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Zadejte vlastní vzor přípony pro každý typ publikace. Vlastní vzor přípony "
+"může pro generování přípony používat následující symboly:<br><br> "
+"<code>%j.%a</code> Preprinty<br> <code>%j.%a.g%g</code> Sazebnice<br><br> "
+"Dejte pozor na to, že vlastní vzory přípon často vedou k problémům při "
+"generování a ukládání DOI. Při použití vlastního vzoru přípony pečlivě "
+"otestujte, zda editoři mohou generovat DOI a ukládat je u registrační "
+"agentury, jako je Crossref. "
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr ""
+"Například %j.%a může vytvořit DOI ve tvaru 10.1234/iniciály_serveru.12345"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "pro preprinty"
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "pro sazebnice"
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Zadejte, prosím, vzor sufixu DOI pro preprinty."
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Zadejte, prosím, vzor DOI suffixu pro sazebnice."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "Znovu přidělit DOI"
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Změníte-li konfiguraci DOI, ty DOI, které již byly přiřazeny, nebudou "
+"ovlivněny. Jakmile je konfigurace DOI uložena, použijte toto tlačítko pro "
+"vymazání všech stávajících DOI tak, aby se nová nastavení projevila i u "
+"stávajících objektů."
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Jste si jisti, že chcete smazat všechny existující identifikátory DOI?"
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "Přiřadit DOI"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Jste si jisti, že chcete přidělit DOI všem publikovaným objektům, které "
+"doposud neměly přiděleno DOI?"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Registrační agentura"
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr "Vyberte registrační agenturu, kterou chcete použít při ukládání DOI."
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Žádný"
+
+msgid "doi.editor.doi"
+msgstr "DOI"
+
+msgid "doi.editor.doi.description"
+msgstr "DOI musí začínat {$prefix}."
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "Přidělit"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "preprint"
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "sazebnice"
+
+msgid "doi.editor.customSuffixMissing"
+msgstr "DOI nelze přiřadit, protože chybí vlastní suffix."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Není možné vygenerovat DOI, protože jedné nebo více součástem ze vzoru pro "
+"sufix DOI chybí data."
+
+msgid "doi.editor.patternNotResolved"
+msgstr "DOI nemůže být přiděleno, protože obsahuje neplatný vzorec."
+
+msgid "doi.editor.assigned"
+msgstr "Tomuto {$pubObjectType} bylo přiděleno DOI."
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Vymazat DOI"
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Jste si jisti, že chcete smazat existující DOI?"
+
+msgid "doi.editor.assignDoi"
+msgstr "Přiřadit {$pubId} tomuto {$pubObjectType}"
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr "DOI nelze přiřadit, protože chybí vlastní suffix."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr "DOI {$pubId} nelze přiřadit, protože obsahuje neplatný vzor."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr ""
+"DOI {$pubId} bylo přiřazeno. Pro editaci DOI použijte <a href=\""
+"{$doiManagementLink}\">stránku pro správu DOI</a>."
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr "DOI {$pubId} bude přiřazen při zveřejnění.."
+
+msgid "doi.editor.missingPrefix"
+msgstr "DOI musí začínat {$doiPrefix}."
+
+msgid "doi.editor.preview.publication.none"
+msgstr "Do této publikace nebyl přiřazen DOI."
+
+msgid "doi.editor.preview.galleys"
+msgstr "Sazebnice: {$galleyLabel}"
+
+msgid "doi.editor.preview.objects"
+msgstr "Položka"
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr "Vámi požadovaná sazebnice není součástí této publikace."
+
+msgid "api.issue.400.invalidDoi"
+msgstr "Zadaný DOI není platný"
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr "Po zveřejnění publikace lze upravovat pouze DOI"
+
+msgid "manager.institutions.noContext"
+msgstr "Vydavatelství této instituce se nepodařilo najít."
+
+msgid "mailable.postedAck.name"
+msgstr "Poděkování za publikování"
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Tento e-mail je automaticky zaslán autorovi, když je preprint zveřejněn "
+"online na serveru."
+
+msgid "mailable.editorAssigned.name"
+msgstr "Moderátor přiřazen (automaticky)"
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Tento e-mail je zaslán moderátorovi, když je mu automaticky přiřazen "
+"příspěvek."
+
+msgid "manager.preprintPosted"
+msgstr "Preprint byl zveřejněn"
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+"Konfigurace e-mailových oznámení, která se mají odesílat zveřejnění nového "
+"preprintu."
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr "Zda se má autorům preprintu po jeho zveřejnění poslat e-mail."
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Byla vytvořena nová verze"
+
+msgid "mailable.submissionAck.name"
+msgstr "Potvrzení o příspěvku (čeká se na moderaci)"
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr "Potvrzení o příspěvku (bez nutnosti moderování)"
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Následující informace se autorům zobrazí v kroku Pro čtenáře, kdy jsou "
+"požádáni o poskytnutí metadat, jako jsou klíčová slova, licenční informace a "
+"další podrobnosti, které pomohou při vyhledávání a moderování."
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr "Byla zveřejněna nová verze"
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+"Tento e-mail je zaslán autorovi, když je zveřejněna nová verze jeho "
+"preprintu."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Příspěvek odmítnut"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""
+"Tento e-mail oznamuje autorovi, že jeho preprint byl odmítnut a nebude "
+"zveřejněn."
+
+msgid "manager.setup.enableAnnouncements.description"
+msgstr ""
+"Mohou být zveřejňována oznámení, která čtenáře informují o novinkách a "
+"událostech na serveru. Zveřejněná oznámení se objeví na stránce Oznámení."
+
+msgid "manager.setup.identity"
+msgstr "Identita Preprint serveru"
+
+msgid "manager.setup.information.description"
+msgstr ""
+"Stručný popis serveru pro knihovníky a budoucí autory a čtenáře. Ty jsou k "
+"dispozici v postranním panelu webu po přidání bloku Informace."
+
+msgid "manager.setup.itemsPerPage.description"
+msgstr ""
+"Omezit počet položek (například příspěvků, uživatelů nebo redakčních úkolů), "
+"které se mají zobrazit v seznamu před zobrazením dalších položek na jiné "
+"stránce."
+
+msgid "manager.setup.information.forLibrarians"
+msgstr "Pro knihovníky"
+
+msgid "manager.setup.serverThumbnail.description"
+msgstr ""
+"Malé logo nebo vyobrazení serveru, které lze použít v seznamech serverů."
+
+msgid "manager.setup.siteAccess.viewContent"
+msgstr "Zobrazit obsah preprintu"
+
+msgid "manager.statistics.statistics.daysToPublication"
+msgstr "Dnů od zveřejnění preprintu"
+
+msgid "manager.setup.resetPermissions.confirm"
+msgstr ""
+"Jste si jisti, že si přejete obnovit údaje o oprávněních pro všechny "
+"preprinty? Tuto akci nelze vrátit zpět."
+
+msgid "manager.setup.keyInfo.description"
+msgstr ""
+"Uveďte popis svého serveru a identifikujte správce preprintů a další členy "
+"týmu preprintového serveru."
+
+msgid "manager.setup.numPageLinks.description"
+msgstr ""
+"Omezte počet odkazů, které se mají zobrazit na následujících stránkách v "
+"seznamu."
+
+msgid "manager.statistics.statistics.itemsPublished"
+msgstr "Zveřejněné položky"
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Celkový počet zobrazení souboru podle data"
+
+msgid "manager.statistics.statistics.makePublic"
+msgstr "Zatrhněte položky, které mají být přístupné čtenářům v části O serveru."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Poštovní adresa serveru"
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Název webové stránky, pokud je hostován více než jeden server"
+
+msgid "stats.context.downloadReport.description"
+msgstr ""
+"Stáhněte si tabulku CSV/Excel se statistikami použití stránek tohoto "
+"serveru, které odpovídají následujícím parametrům."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+"Zašlete kopii e-mailu s potvrzením o příspěvku na hlavní kontaktní osobu "
+"tohoto serveru."
+
+msgid "manager.statistics.statistics.note"
+msgstr ""
+"Poznámka: Procenta pro recenzované příspěvky nemusí dosáhnout 100 %, jelikož "
+"znovu odeslané položky jsou buď přijaty, odmítnuty nebo probíhá jejich "
+"zpracování."
+
+msgid "manager.statistics.reports.defaultReport.serverIndexPageViews"
+msgstr "Počet zobrazení hlavní stránky serveru"
+
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
+msgstr ""
+"Pro tento server nebyl definován žádný primární kontakt. Primární kontakt "
+"můžete zadat <a href=\"{$url}\">v nastavení preprintového serveru</a>"
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Přiřadit DOI všem objektům všech objektů na serveru, které doposud neměly "
+"přiřazeno DOI. Tato akce nemůže být použita v případě individuální "
+"konfigurace přípon. Pokud jste změnili konfiguraci DOI výše, je třeba před "
+"zahájením této akce uložit změny. Přiřazení DOI může trvat dlouho v "
+"závislosti na počtu publikovaných objektů na serveru."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"To co vidíte, je náhled DOI. Vyberte zaškrtávací políčko a uložte formulář "
+"pro přiřazení DOI."
+
+msgid "doi.editor.preview.publication"
+msgstr "DOI pro tuto publikaci bude {$doi}."
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr "Po zveřejnění publikace/sazebnice lze upravovat pouze DOI"
+
+msgid "manager.manageEmails.description"
+msgstr "Úprava zpráv odeslaných v e-mailech z tohoto preprintového serveru."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Tento e-mail automaticky upozorní přiřazené moderátory na vytvoření nové "
+"verze preprintu."
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Uvedený suffix DOI se již používá pro další publikovanou položku. Pro každou "
+"položku zadejte jedinečný suffix DOI."
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán autorovi při odeslání příspěvku, který "
+"musí schválit moderátor."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Tento e-mail je každý měsíc automaticky zasílán moderátorům a manažerům "
+"serveru, aby jim poskytl přehled o stavu systému."
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+"Tento e-mail je automaticky odeslán autorovi při odeslání příspěvku, který "
+"není nutné moderovat. Autor může svůj preprint zveřejnit okamžitě."

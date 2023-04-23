@@ -1,7 +1,7 @@
 # Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-22 01:59+0000\n"
+"PO-Revision-Date: 2023-04-23 18:49+0000\n"
 "Last-Translator: Jiří Dlouhý <jiri.dlouhy@czp.cuni.cz>\n"
 "Language-Team: Czech <http://translate.pkp.sfu.ca/projects/ops/submissions/"
 "cs/>\n"
@@ -94,3 +94,180 @@ msgid "submission.metadataDescription"
 msgstr ""
 "Tyto specifikace jsou založeny na mezinárodním metadatovém standardu Dublin "
 "Core, který je využíván k popisu obsahu."
+
+msgid "publication.relation.published"
+msgstr "Tento preprint byl publikován jinde."
+
+msgid "publication.relation.vorDoi"
+msgstr "DOI zveřejněného preprintu"
+
+msgid "publication.publish.relationStatus"
+msgstr "Související publikace"
+
+msgid "publication.publish.relationStatus.none"
+msgstr "Tento preprint nebyl nikde jinde publikován."
+
+msgid "publication.publish.relationStatus.submitted"
+msgstr "Tento preprint byl zaslán do časopisu nebo jiné akademické publikace."
+
+msgid "publication.publish.relationStatus.published.noDoi"
+msgstr "Tento preprint byl publikován, jeho DOI ale zatím není k dispozici."
+
+msgid "publication.publish.relationStatus.published"
+msgstr "Tento preprint byl <a href='{$vorDoi}' target='_blank'>zveřejněn</a>."
+
+msgid "publication.publish.confirmation"
+msgstr "Všechny požadavky byly splněny. Jste si jisti, že to chcete zveřejnit?"
+
+msgid "author.submit.authorsCanNotPublish"
+msgstr ""
+"Nemůžete zveřejnit svůj vlastní preprint. Musí být schválen a zveřejněn "
+"moderátorem."
+
+msgid "publication.status.published"
+msgstr "Publikováno"
+
+msgid "submission.status.scheduled"
+msgstr "Naplánováno"
+
+msgid "submission.publication"
+msgstr "Preprint"
+
+msgid "submission.publications"
+msgstr "Preprinty"
+
+msgid "publication.copyrightYearBasis.submissionDescription"
+msgstr "Rok autorských práv se nastaví automaticky na základě data publikování."
+
+msgid "publication.datePublished"
+msgstr "Datum publikování"
+
+msgid "publication.editDisabled"
+msgstr "Tato verze byla publikována a nelze ji upravovat."
+
+msgid "publication.event.published"
+msgstr "Příspěvek byl publikován."
+
+msgid "publication.event.scheduled"
+msgstr "Bylo naplánováno publikování tohoto příspěvku."
+
+msgid "publication.event.versionPublished"
+msgstr "Byla publikována nová verze."
+
+msgid "publication.event.versionScheduled"
+msgstr "Nová verze byla naplánována k publikování."
+
+msgid "publication.invalidSubmission"
+msgstr "Příspěvek s tímto preprintem nebyl nalezen."
+
+msgid "publication.publish"
+msgstr "Zveřejnění"
+
+msgid "publication.publish.requirements"
+msgstr "Před zveřejněním musí být splněny následující požadavky."
+
+msgid "publication.required.declined"
+msgstr "Odmítnutý příspěvek nelze zveřejnit."
+
+msgid "publication.required.reviewStage"
+msgstr "Před zveřejněním musí být příspěvek ve fázi Produkce."
+
+msgid "submission.copyrightHolder.description"
+msgstr ""
+"Po jeho zveřejnění bude autorské právo automaticky nastaveno na {$copyright}."
+
+msgid "submission.copyrightOther.description"
+msgstr "Přiřaďte autorská práva k publikovaným příspěvkům následující straně."
+
+msgid "publication.unpublish"
+msgstr "Zrušit publikování"
+
+msgid "publication.unpublish.confirm"
+msgstr "Opravdu chcete ukončit zveřejnění tohoto?"
+
+msgid "publication.unschedule.confirm"
+msgstr "Jste si jistí, že nechcete, aby se toto naplánovalo ke zveřejnění?"
+
+msgid "publication.version.details"
+msgstr "Podrobnosti verze {$version}"
+
+msgid "submission.queries.production"
+msgstr "Diskuse"
+
+msgid "doi.submission.incorrectContext"
+msgstr ""
+"Nepodařilo se vytvořit DOI pro následující příspěvek: {$pubObjectTitle}. V "
+"aktuálním kontextu serveru neexistuje."
+
+msgid "submission.layout.viewGalley"
+msgstr "Zobrazit sazebnici"
+
+msgid "galley.cantEditPublished"
+msgstr "Sazebnici nelze editovat protože už byla zveřejněna."
+
+msgid "submission.licenseSection.description"
+msgstr ""
+"Vyberte prosím licenci, která se bude vztahovat na váš preprint při jeho "
+"zveřejnění."
+
+msgid "submission.licenseUrl.missing"
+msgstr "Nebyla vybrána licence."
+
+msgid "submission.submit.complete.canPost"
+msgstr ""
+"Děkujeme za zaslání preprintu. Nyní můžete <a href=\"{$workflowUrl}\""
+">preprint publikovat</a> veřejně."
+
+msgid "submission.wizard.confirmSubmit"
+msgstr ""
+"Jste si jisti, že chcete odeslat <strong>{$title}</strong> do "
+"<strong>{$context}</strong>? Po odeslání preprint zkontroluje moderátor a "
+"poté jej zveřejní online."
+
+msgid "submission.wizard.confirmSubmit.canPublish"
+msgstr ""
+"Jste si jisti, že chcete odeslat <strong>{$title}</strong> do "
+"<strong>{$context}</strong>? Po odeslání si budete moci svůj příspěvek "
+"zkontrolovat a zveřejnit jej online."
+
+msgid "submission.wizard.sectionClosed.message"
+msgstr ""
+"{$contextName} nepřijímá příspěvky do sekce {$section}. Pokud potřebujete "
+"pomoc s obnovou svého příspěvku, obraťte se na <a href=\"mailto:{$email}\""
+">{$name}</a>."
+
+msgid "submission.forTheEditors"
+msgstr "Pro čtenáře"
+
+msgid "submission.wizard.commentsForTheEditor.description"
+msgstr ""
+"Přidejte jakékoli informace, které by podle vás měli naši moderátoři vědět "
+"před zveřejněním vašeho preprintu."
+
+msgid "publication.status.unscheduled"
+msgstr "Publikování bylo zrušeno"
+
+msgid "publication.event.unpublished"
+msgstr "Publikování tohoto příspěvku bylo ukončeno."
+
+msgid "publication.copyrightYearBasis.issueDescription"
+msgstr "Rok autorských práv se nastaví automaticky při publikování."
+
+msgid "publication.event.versionUnpublished"
+msgstr "Publikování této verze bylo ukončeno a není již veřejně dostupná."
+
+msgid "submission.license.description"
+msgstr ""
+"Jakmile bude tento příspěvek zveřejněn, bude licence automaticky nastavena "
+"na <a href='{$licenseUrl}' target='_blank'> {$licenseName} </a>."
+
+msgid "submission.submit.complete.canNotPost"
+msgstr ""
+"Děkujeme za zaslání preprintu. Server byl o vašem podání informován a bylo "
+"vám zasláno potvrzení pro vaše záznamy. Jakmile moderátor posoudí váš "
+"příspěvek, zveřejní váš preprint nebo vás bude kontaktovat."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Přečtěte si prosím podmínky autorských práv pro zasílání příspěvků na tento "
+"preprintový server a seznamte se s nimi."

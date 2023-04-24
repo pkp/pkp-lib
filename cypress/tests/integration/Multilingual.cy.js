@@ -27,5 +27,12 @@ describe('Multilingual configurations', function() {
 		cy.get('#titleAbstract-title-control-fr_CA').type("L'influence de la lactation sur la quantité et la qualité de la production de cachemire", {force: true});
 		cy.get('#titleAbstract button').contains('Save').click();
 		cy.get('#titleAbstract [role="status"]').contains('Saved');
+
+		// Re-enable French in UI
+		cy.visit('index.php/publicknowledge/management/settings/website');
+		cy.get('button').contains('Setup').eq(0).click();
+		cy.get('button').contains('Languages').click();
+		cy.get('input[id^="select-cell-fr_CA-uiLocale').check();
+		cy.contains('Locale settings saved.');
 	});
 });

@@ -1,7 +1,7 @@
 # Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-24 10:29+0000\n"
+"PO-Revision-Date: 2023-04-24 12:24+0000\n"
 "Last-Translator: Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>\n"
 "Language-Team: Upper Sorbian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/hsb/>\n"
@@ -60,3 +60,27 @@ msgstr "Wobsah"
 
 msgid "navigation.about"
 msgstr "Wo nas"
+
+msgid "help.previous"
+msgstr "wróćo"
+
+msgid "help.next"
+msgstr "dale"
+
+msgid "navigation.archives"
+msgstr "Archiw"
+
+msgid "navigation.infoForReaders"
+msgstr "Za čitarjow/čitarki"
+
+msgid "navigation.infoForReaders.long"
+msgstr "Informacije za čitarjow / čitarki"
+
+msgid "navigation.search"
+msgstr "Pytanje"
+
+msgid "search.subject"
+msgstr "Hesła"
+
+msgid "search.title"
+msgstr "titul"

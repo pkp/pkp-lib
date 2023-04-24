@@ -1,10 +1,10 @@
-# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022.
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2022-11-15 13:08+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -53,18 +53,27 @@ msgstr "Changer la décision"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
+"Vous n'avez pas l'autorisation d'enregistrer cette décision sur cette "
+"soumission."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Le,la rédacteur.trice n'a pas été reconnu.e et n'a peut-être pas "
+"l'autorisation d'enregistrer une décision sur cette soumission."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
+"Vous ne pouvez pas envoyer de courriel aux destinataires suivants : {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Ce cycle d'évaluation n'a pu être trouvé."
 
+#, fuzzy
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Un cycle d'évaluation a été prévu, mais cette décision n'est pas prise au "
+"cours de l'étape d'évaluation."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr "Le cycle d'évaluation spécifié ne fait pas partie de cette soumission."
@@ -229,6 +238,8 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Les révisions devraient être assujetties à un nouveau cycle d'évaluation par "
+"les pairs."
 
 msgid "editor.review.dateAccepted"
 msgstr "Date d'acceptation de l'évaluation"
@@ -306,7 +317,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Évaluateur-trice remercié-e"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Demande envoyée de nouveau"
 
 msgid "editor.review.reviewerComments"
 msgstr "Commentaires de l'évaluateur-trice"
@@ -342,6 +353,8 @@ msgstr ""
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Une erreur s'est produite lors de la demande de réexamen de l'invitation par "
+"l'évaluateur.trice.  Veuillez réessayer."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Recruter l'utilisateur-trice dans ce groupe d'évaluateurs-trices"
@@ -541,7 +554,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Évaluation(s) en cours"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Cet.te évaluateur.trice a effectué une révision lors du dernier cycle."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Évaluation(s) complétée(s)"

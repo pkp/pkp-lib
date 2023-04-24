@@ -1,8 +1,47 @@
 # Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>, 2023.
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"Last-Translator: Astrid Schmiedel <astrid.schmiedel@serbski-institut.de>\n"
+"Language-Team: Upper Sorbian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
+"common/hsb/>\n"
 "Language: hsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Weblate\n"
+"Plural-Forms: nplurals=4; plural=(n % 100 == 1) ? 0 : ((n % 100 == 2) ? 1 : "
+"((n % 100 == 3 || n % 100 == 4) ? 2 : 3));\n"
+"X-Generator: Weblate 4.13.1\n"
+
+msgid "about.guidelines"
+msgstr "Směrnicy"
+
+msgid "about.aboutSite"
+msgstr "Wo nas"
+
+msgid "about.contact"
+msgstr "Kontakt"
+
+msgid "about.contact.email"
+msgstr "E-mejl"
+
+msgid "about.contact.phone"
+msgstr "Telefon"
+
+msgid "about.contact.supportContact"
+msgstr "Kontakt při techniskich prašenjach"
+
+msgid "about.people"
+msgstr "about.people"
+
+msgid "announcement.announcements"
+msgstr "Zdźělenja"
+
+msgid "announcement.announcementsHome"
+msgstr "Zdźělenja"
+
+msgid "announcement.moreAnnouncements"
+msgstr "Dalše zdźělenja..."
+
+msgid "about.contact.principalContact"
+msgstr "Hłowny kontakt"

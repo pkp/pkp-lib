@@ -1,7 +1,7 @@
 # M. Ali <vorteem@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-22 18:48+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -623,3 +623,138 @@ msgstr ""
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
 msgstr "مهمات الطابور الفاشلة"
+
+msgid "admin.cli.tool.jobs.available.options.list.description"
+msgstr ""
+"إدراج كل مهام الطابور. إذا أردت وضع النتائج في صفحات، استعمل المعاملات --"
+"page= و --perPage=. مرر العلم --failed لإدراج المهام الفاشلة."
+
+msgid "admin.cli.tool.jobs.available.options.test.description"
+msgstr ""
+"إضافة مهمة اختبارية إلى طابور الاختبار. استعمل المعاملات الاختيارية --only= "
+"ومرر 'failed' أو 'success' لإطلاق مهمة فاشلة أو مهمة ناجحة."
+
+msgid "admin.cli.tool.jobs.available.options.work.description"
+msgstr ""
+"تشغيل منفذ مهام دائمي يقوم بمعالجة المهام بشكل مستمر. استعمل العلم --help "
+"لمشاهدة الخيارات المتاحة المرتبطة بهذا الأمر."
+
+msgid "admin.cli.tool.jobs.available.options.failed.description"
+msgstr ""
+"إدراج كل المهام الفاشلة. استعمل المعامل --queue=QUEUE_NAME و --"
+"connection=CONNECTION_NAME لتصفية القائمة. أيضًا، مرر المعامل/العلم --"
+"redispatch و --clear لإعادة الإطلاق إلى الطابور أو إزالة كل المهام الفاشلة "
+"أو مهمة فاشلة بعينها."
+
+msgid "admin.cli.tool.jobs.available.options.run.description"
+msgstr ""
+"إطلاق المهام المتاحة إلى الطابور. إذا أردت إطلاق مهمة ما في طابور معين، مرر "
+"المعامل --queue=QUEUE_NAME. أيضًا يمكنك فقط تمرير --test لتشغيل المهمة "
+"الاختبارية والمعامل --once لتشغيل المهمات كل على حدة"
+
+msgid "admin.cli.tool.jobs.purge.without.id"
+msgstr ""
+"ينبغي عليك تمرير مُعرَّف المهمة على الأقل، '--all' أو '--queue=' لاستعمال "
+"هذا الأمر"
+
+msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
+msgstr "أطلق المهمة الاختبارية المراد لها الفشل في الطابور المسمى {$queueName}"
+
+msgid "admin.cli.tool.jobs.test.invalid.option"
+msgstr ""
+"خيار خاطئ للمهمة الاختبارية. يمكنها فقط أن تمتلك العلم 'failed' أو 'success' "
+"مع الخيار '--only='."
+
+msgid "admin.jobs.totalCount"
+msgstr "هناك ما مجمله <strong>{$total}</strong> من المهام في الطابور"
+
+msgid "admin.jobs.failed.totalCount"
+msgstr "هناك ما مجمله <strong>{$total}</strong> من المهام من المهام الفاشلة."
+
+msgid "navigation.tools.job.failed.details.view"
+msgstr "معاينة تفاصيل المهمة الفاشلة: {$id}"
+
+msgid "admin.jobs.list.createdAt"
+msgstr "منشأة عند"
+
+msgid "admin.jobs.list.failedAt"
+msgstr "فشلت عند"
+
+msgid "admin.jobs.list.payload"
+msgstr "الحمولة"
+
+msgid "admin.jobs.list.exception"
+msgstr "الاستثناء"
+
+msgid "admin.jobs.list.actions"
+msgstr "الإجراءات"
+
+msgid "admin.jobs.createdAt"
+msgstr "منشأن عند {$createdAt}"
+
+msgid "admin.jobs.failed.action.redispatch"
+msgstr "حاول مجددًا"
+
+msgid "admin.jobs.failed.action.redispatch.all"
+msgstr "إعادة كل المهام الفاشلة إلى الطابور"
+
+msgid "admin.settings.statistics.collection"
+msgstr "تجميع البيانات"
+
+msgid "admin.settings.statistics.collection.description"
+msgstr "تعريف نوعية إحصائيات الاستعمال التي ينبغي تجميعها."
+
+msgid "admin.settings.statistics.sushi"
+msgstr "بروتوكول سوشي"
+
+msgid "admin.settings.statistics.keepDaily"
+msgstr "إحصائيات شهرية أم يومية"
+
+msgid "admin.settings.statistics.keepDaily.description"
+msgstr ""
+"فيما إذا يجري تتبع الإحصائيات بوتيرة يومية أم شهرية. متابعة إحصائيات يومية "
+"قد يزيد من حجم قاعدة بياناتك بشكل ملحوظ."
+
+msgid "admin.settings.statistics.keepDaily.keep"
+msgstr "تتبع إحصائيات يومية وشهرية"
+
+msgid "admin.settings.statistics.keepDaily.discard"
+msgstr "تتبع إحصائيات شهرية فقط"
+
+msgid "admin.settings.statistics.compressStatsLogs.label"
+msgstr "ضغط سجل الوقوعات"
+
+msgid "admin.settings.statistics.compressStatsLogs.default"
+msgstr "أترك ملفات الوقوعات في مكانها"
+
+msgid "admin.settings.statistics.compressStatsLogs.compress"
+msgstr "إضغط ملفات الوقوعات"
+
+msgid "admin.settings.statistics.publicSushiApi.private"
+msgstr ""
+"إجعل الوصول إلى واجهة برمجة التطبيق لإحصائيات COUNTER SUSHI مقصورة على "
+"المشرفين والمدراء"
+
+msgid "admin.settings.statistics.sushiPlatform"
+msgstr "المنصة"
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
+msgstr "مُعرَّف المنصة"
+
+msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
+msgstr "أطلق المهمة الاختبارية المراد لها النجاح في الطابور المسمى {$queueName}"
+
+msgid "admin.jobs.failedAt"
+msgstr "منشأة عند {$failedAt}"
+
+msgid "admin.settings.statistics.storage"
+msgstr "تخزين البيانات"
+
+msgid "admin.settings.statistics.storage.description"
+msgstr "تعريف أي من إحصائيات الاستعمال ينبغي تخزينها في المخدم."
+
+msgid "admin.settings.statistics.sushi.description"
+msgstr ""
+"تهيئة بروتوكول <a href=\"https://www.projectcounter.org/counter-sushi/\""
+">COUNTER 5 SUSHI</a>، وهو صيغة معروفة في هذا المضمار لتوزيع إحصائبات "
+"الاستعمال."

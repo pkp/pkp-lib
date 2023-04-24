@@ -80,7 +80,7 @@ Cypress.Commands.add('dispatchTestQueueJobs', (times) => {
 
 	times = times || 1;
 	for (let index = 0; index < times; index++) {
-		cy.exec('php lib/pkp/tools/jobs.php test');	
+		cy.exec('php lib/pkp/tools/jobs.php test');
 	}
 });
 
@@ -865,4 +865,12 @@ Cypress.Commands.add('uploadSubmissionFiles', (files, options) => {
 				.get('.pkpBadge:contains("' + file.genre + '")');
 		});
 	});
+});
+
+Cypress.Commands.add('changeLanguage', (language, contextPath) => {
+	contextPath = contextPath || 'publicknowledge';
+
+	cy.get('.app__userNav > button').click();
+	cy.get('.app__userNav a:contains("Français")').click();
+	cy.wait(2000);
 });

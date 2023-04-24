@@ -418,13 +418,19 @@ class FileUploadWizardHandler extends Handler
             return new JSONMessage(false, $uploadForm->fetch($request));
         }
 
+		$submissionFileId = $uploadForm->getRevisedFileId();
+		// Store the data of the submission file before it's replaced by the revised file
+		if ($submissionFileId) {
+			$originalFile = Repo::submissionFile()->get($submissionFileId);
+		}
+
         $uploadedFile = $uploadForm->execute(); /** @var SubmissionFile $uploadedFile */
         if (!is_a($uploadedFile, 'SubmissionFile')) {
             return new JSONMessage(false, __('common.uploadFailed'));
         }
 
         // Retrieve file info to be used in a JSON response.
-        $uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile);
+        $uploadedFileInfo = $this->_getUploadedFileInfo($uploadedFile, $originalFile ?? null);
         $reviewRound = $this->getReviewRound();
 
         // Advance to the next step (i.e. meta-data editing).
@@ -552,9 +558,9 @@ class FileUploadWizardHandler extends Handler
      *
      * @return array
      */
-    public function _getUploadedFileInfo($uploadedFile)
+    public function _getUploadedFileInfo(SubmissionFile $uploadedFile, ?SubmissionFile $originalFile = null)
     {
-        return [
+        $uploadedFile = [
             'uploadedFile' => [
                 'id' => $uploadedFile->getId(),
                 'fileId' => $uploadedFile->getData('fileId'),
@@ -562,5 +568,15 @@ class FileUploadWizardHandler extends Handler
                 'genreId' => $uploadedFile->getGenreId(),
             ]
         ];
+
+		if ($originalFile) {
+			$uploadedFile['uploadedFile']['originalFile'] = [
+				'fileId' => $originalFile->getData('fileId'),
+				'name' => $originalFile->getData('name'),
+				'uploaderUserId' => $originalFile->getData('uploaderUserId'),
+			];
+		}
+
+		return $uploadedFile;
     }
 }

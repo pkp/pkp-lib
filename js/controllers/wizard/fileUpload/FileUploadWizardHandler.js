@@ -39,6 +39,7 @@
 		this.deleteUrl_ = options.deleteUrl;
 		this.metadataUrl_ = options.metadataUrl;
 		this.finishUrl_ = options.finishUrl;
+		this.cancelUrl_ = options.cancelUrl;
 
 		// Bind events of the nested upload forms.
 		this.bind('fileUploaded', this.handleFileUploaded);
@@ -65,7 +66,7 @@
 
 
 	/**
-	 * The URL to be called when a cancel event occurs.
+	 * The URL to be called when a delete event occurs.
 	 * @private
 	 * @type {string}
 	 */
@@ -90,6 +91,14 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.finishUrl_ = '';
 
+	/**
+	 * he URL to be called when a cancel event occurs.
+	 * @private
+	 * @type {string}
+	 */
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+		prototype.cancelUrl_ = '';
+
 
 	/**
 	 * Information about the uploaded file (once there is one).
@@ -99,7 +108,13 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.uploadedFile_ = null;
 
-
+	/**
+	 * Information about the file being revised.
+	 * @private
+	 * @type {{fileId: number, name: string, uploaderUserId: number}}
+	 */
+	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
+		prototype.originalFile_ = null;
 	//
 	// Public methods
 	//
@@ -243,7 +258,8 @@
 				this.uploadedFile_.csrfToken = this.csrfToken_;
 				// Authorization policy expects to find the submissionFileId para
 				this.uploadedFile_.submissionFileId = this.uploadedFile_.id;
-				$.post(this.deleteUrl_, this.uploadedFile_,
+				this.uploadedFile_.originalFile = this.originalFile_;
+				$.post(this.cancelUrl_, this.uploadedFile_,
 						$.pkp.classes.Helper.curry(this.wizardCancelSuccess, this,
 								wizardElement, event), 'json');
 
@@ -298,7 +314,13 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.handleFileUploaded = function(callingForm, event, uploadedFile) {
 
-		// Save the uploaded file information.
+		// Keep the original file data to restore if the wizard is canceled
+		if (this.originalFile_ === null) {
+			this.originalFile_ = uploadedFile.originalFile;
+		}
+		delete uploadedFile.originalFile;
+
+		// Save the uploaded file information
 		this.uploadedFile_ = uploadedFile;
 	};
 
@@ -348,8 +370,8 @@
 	$.pkp.controllers.wizard.fileUpload.FileUploadWizardHandler.
 			prototype.startWizard = function() {
 
-		// Reset the uploaded file.
-		this.uploadedFile_ = null;
+		// Reset the uploaded and original file.
+		this.uploadedFile_ = this.originalFile_= null;
 
 		this.parent('startWizard');
 	};

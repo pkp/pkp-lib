@@ -18,6 +18,7 @@ namespace PKP\controllers\api\file;
 
 use APP\core\Application;
 use APP\core\Request;
+use APP\core\Services;
 use APP\facades\Repo;
 use APP\handler\Handler;
 use APP\notification\NotificationManager;
@@ -43,7 +44,7 @@ abstract class PKPManageFileApiHandler extends Handler
         parent::__construct();
         $this->addRoleAssignment(
             [Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_SUB_EDITOR, Role::ROLE_ID_ASSISTANT, Role::ROLE_ID_REVIEWER, Role::ROLE_ID_AUTHOR],
-            ['deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata']
+            ['deleteFile', 'editMetadata', 'editMetadataTab', 'saveMetadata', 'cancelFileUpload']
         );
     }
 
@@ -90,6 +91,51 @@ abstract class PKPManageFileApiHandler extends Handler
 
         return \PKP\db\DAO::getDataChangedEvent();
     }
+
+	/**
+	 * Restore original file when cancelling the upload wizard
+	 */
+	public function cancelFileUpload(array $args, Request $request): JSONMessage
+	{
+		if (!$request->checkCSRF()) {
+			return new JSONMessage(false);
+		}
+
+		$submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+		$originalFile = $request->getUserVar('originalFile') ? (array) $request->getUserVar('originalFile') : null;
+		$revisedFileId = $request->getUserVar('fileId') ? (int) $request->getUserVar('fileId') : null;
+
+		// Get revisions and check file IDs
+		$revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
+		$revisionIds = [];
+		foreach ($revisions as $revision) {
+			$revisionIds[] = $revision->fileId;
+		}
+
+		if (!$revisedFileId && !in_array($revisedFileId, $revisionIds)) {
+			return new JSONMessage(false);
+		}
+
+		if (!isset($originalFile['fileId']) && !in_array($originalFile['fileId'], $revisionIds)) {
+			return new JSONMessage(false);
+		}
+
+		// Restore original submission file
+		Repo::submissionFile()->edit(
+			$submissionFile,
+			[
+				'fileId' => $originalFile['fileId'],
+				'name' => $originalFile['name'],
+				'uploaderUserId' => $originalFile['uploaderUserId'],
+			]
+		);
+
+		// Remove uploaded file
+		Services::get('file')->delete($revisedFileId);
+
+		$this->setupTemplate($request);
+		return \PKP\db\DAO::getDataChangedEvent();
+	}
 
     /**
      * Edit submission file metadata modal.

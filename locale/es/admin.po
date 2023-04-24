@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-21 23:28+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Marc Bria <marc.bria@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -242,7 +242,6 @@ msgstr ""
 "debe restaurar todos los archivos de registro del mes y usar la herramienta "
 "de línea de comandos para volver a procesar las estadísticas."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
 "Se omitirá la línea {$lineNumber} en el archivo de registro {$file} porque "
@@ -553,13 +552,13 @@ msgstr ""
 "Usa el parámetro --help para ver las opciones disponibles asociadas con este "
 "comando."
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
-"Listar todos los trabajos fallidos. Establece el parámetro --queue=NOMBRE_DE:"
-"COLA y --connection=NOMBRE_DE_CONEXIÓN para filtrar la lista. También se "
-"puede pasar el parámetro/flag --redispatch y --clear para reintroducir los "
-"trabajos fallidos en la cola o borrar algunos o todos los trabajos fallidos."
+"Listar todos los trabajos fallidos. Establece el parámetro --"
+"queue=NOMBRE_DE_COLA y --connection=NOMBRE_DE_CONEXIÓN para filtrar la "
+"lista. También se puede pasar el parámetro --redispatch o --clear para "
+"reintroducir los trabajos fallidos en la cola o borrar algunos o todos los "
+"trabajos fallidos."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
@@ -693,7 +692,7 @@ msgid "admin.cli.tool.jobs.mean.those"
 msgstr "¿Se refería a uno de los siguientes?"
 
 msgid "admin.jobs.totalCount"
-msgstr "Hay un total de <strong>{$total}</strong> trabajo/s en la cola"
+msgstr "Hay un total de <strong>{$total}</strong> trabajo(s) en la cola"
 
 msgid "admin.jobs.failed.totalCount"
 msgstr "Hay un total de <strong>{$total}</strong> trabajo/s fallidos."
@@ -712,105 +711,123 @@ msgstr "Detalles de los trabajos fallidos"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Ver todos los trabajos en cola y realizar un seguimiento de los intentos "
+"fallidos."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Ver trabajos"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Ver trabajos fallidos"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Ver detalles del trabajo fallido:{$id}"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Atributo"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Valor del atributo"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Trabajo"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Cola"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Conexión"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Intentos"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Creado en"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Fallo en"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Contenido"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Excepción"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Acciones"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Creado en {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Creado en {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Intentar de nuevo"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Añadir a la cola los trabajos fallidos"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"El trabajo que carga los datos estadísticos del archivo {$archivo} ha "
+"fallado, y el archivo no se pudo mover de {$archivedFilePath} a "
+"{$stagingPath}."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"El trabajo que carga los datos estadísticos del archivo {$archivo} ha "
+"fallado. El archivo se ha movido al directorio \"stage\"."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Recolección de datos"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Configurar qué tipo de estadísticas de uso se deben recopilar."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Almacenamiento de datos"
 
 msgid "admin.settings.statistics.storage.description"
-msgstr ""
+msgstr "Configurar qué estadísticas de uso deben almacenarse en el servidor."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Protocolo Sushi"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Configurar el protocolo <a href=\"https://www.projectcounter.org/"
+"counter-sushi/\">COUNTER 5 SUSHI</a>, un formato reconocido en la industria "
+"para distribuir estadísticas de uso."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Estadísticas diarias o mensuales"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Indicar si se quiere realizar un seguimiento de las estadísticas de uso "
+"diarias o mensuales. Rastrear diariamente las estadísticas puede aumentar "
+"considerablemente el tamaño de la base de datos."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Almacenar estadísticas diarias y mensuales"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Solo almacenar las estadísticas mensuales"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Comprimir registros (logs)"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Las estadísticas se generan a partir de archivos de registro de acceso que "
+"se mueven a <code>{$path}</code> una vez que se han procesado. ¿Deberían "
+"comprimirse los archivos de registro en archivos <code>.gz</code> una vez "
+"que se hayan procesado? Comprimir los archivos de registro puede ahorrar "
+"espacio en disco en el servidor."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr ""

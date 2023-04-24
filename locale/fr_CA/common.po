@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-03-25 01:08+0000\n"
+"PO-Revision-Date: 2023-04-24 10:26+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -134,7 +134,7 @@ msgid "common.add"
 msgstr "Ajouter"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Ajouter CC/CCI"
 
 msgid "common.addFiles"
 msgstr "Ajouter des fichiers"
@@ -345,7 +345,7 @@ msgid "common.deleteSelection"
 msgstr "Supprimer la sélection"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Désélectionner"
 
 msgid "common.designation"
 msgstr "Désignation"
@@ -354,7 +354,7 @@ msgid "common.description"
 msgstr "Description"
 
 msgid "common.details"
-msgstr ""
+msgstr "Détails"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&nbsp;x&nbsp;{$height}&Prime; @ {$dpi} DPI/PPI"
@@ -363,10 +363,11 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} &times; {$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Non, rejeter les modifications non sauvegardées"
 
+#, fuzzy
 msgid "common.disconnected"
-msgstr ""
+msgstr "Déconnecté.e"
 
 msgid "common.disable"
 msgstr "Désactiver"
@@ -387,13 +388,13 @@ msgid "common.downloadPdf"
 msgstr "Télécharger le PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Télécharger le rapport"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Glisser-déposer des fichiers ici."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Ou télécharger un fichier"
 
 msgid "common.edit"
 msgstr "Modifier"
@@ -402,7 +403,7 @@ msgid "common.editItem"
 msgstr "Modifier {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Modèles de courriel"
 
 msgid "common.enable"
 msgstr "Activer"
@@ -474,13 +475,13 @@ msgid "common.filterRemove"
 msgstr "Enlever le filtre : {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Trouver un modèle de courriel"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Mise en forme"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Géographique"
 
 msgid "common.go"
 msgstr "Continuer"
@@ -510,13 +511,15 @@ msgid "common.inProgress"
 msgstr "En cours"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Insérer"
 
+#, fuzzy
 msgid "common.insertContent"
-msgstr ""
+msgstr "Insérer le contenu"
 
+#, fuzzy
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Recherche de contenu à insérer"
 
 msgid "common.itemsPerPage"
 msgstr "Éléments par page"
@@ -525,7 +528,7 @@ msgid "common.keywords"
 msgstr "Mots-clés"
 
 msgid "common.label"
-msgstr ""
+msgstr "Étiquette"
 
 msgid "common.language"
 msgstr "Langue"
@@ -534,7 +537,7 @@ msgid "common.languages"
 msgstr "Langues"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Dernière sauvegarde {$when}"
 
 msgid "common.lastActivity"
 msgstr "Dernière activité enregistrée le {$date}."
@@ -548,8 +551,9 @@ msgstr "{$value} ou moins"
 msgid "common.lessThanOnly"
 msgstr "Moins que"
 
+#, fuzzy
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Poursuivre le travail"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -591,10 +595,11 @@ msgid "common.none"
 msgstr "Aucun-e"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Aucun.e sélectionné.e"
 
+#, fuzzy
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Aucun.e fourni.e"
 
 msgid "common.no"
 msgstr "Non"
@@ -640,7 +645,7 @@ msgid "common.noMatches"
 msgstr "Aucune concordance"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} de plus"
 
 msgid "common.off"
 msgstr "Arrêté"
@@ -738,8 +743,9 @@ msgstr "En lire davantage"
 msgid "common.readMoreWithTitle"
 msgstr "En lire davantage à propos de {$title}"
 
+#, fuzzy
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Reconnexion"
 
 msgid "common.record"
 msgstr "Consigner"
@@ -787,10 +793,10 @@ msgid "common.reset"
 msgstr "Réinitialiser"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Cycle {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rôle"
 
 msgid "common.saveAndContinue"
 msgstr "Enregistrer et continuer"
@@ -807,11 +813,13 @@ msgstr "Enregistrer"
 msgid "common.search"
 msgstr "Rechercher"
 
+#, fuzzy
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Recherche de phrase"
 
+#, fuzzy
 msgid "common.searching"
-msgstr ""
+msgstr "Recherche"
 
 msgid "common.searchQuery"
 msgstr "Requête"
@@ -841,10 +849,11 @@ msgid "common.sendEmail"
 msgstr "Envoyer le courriel"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Afficher toutes les étapes"
 
+#, fuzzy
 msgid "common.showingSteps"
-msgstr ""
+msgstr "étape {$current}/{$total}"
 
 msgid "common.size"
 msgstr "Taille"
@@ -871,10 +880,10 @@ msgid "common.suggest"
 msgstr "Suggérer"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Passer à"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Passer à {$name}"
 
 msgid "common.title"
 msgstr "Titre"
@@ -892,10 +901,10 @@ msgid "common.type"
 msgstr "Type"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Téléversé par {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Téléversé par {$name} le {$date}"
 
 msgid "common.component"
 msgstr "Élément"
@@ -912,10 +921,15 @@ msgid "common.unread"
 msgstr "Non lu-e"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Modifications non sauvegardées"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Nous avons trouvé des modifications non sauvegardées depuis {$when}. Cela "
+"peut se produire si vous perdez la connexion au serveur pendant que vous "
+"travaillez. La restauration de ces modifications risque d'écraser toutes les "
+"modifications que vous avez apportées depuis lors. Souhaitez-vous restaurer "
+"ces modifications maintenant ?"
 
 msgid "common.untitled"
 msgstr "Sans titre"
@@ -942,7 +956,7 @@ msgid "common.upload.addFile"
 msgstr "Téléverser un fichier"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Téléverser un fichier depuis votre ordinateur."
 
 msgid "common.upload.restore"
 msgstr "Restaurer l'original"
@@ -969,7 +983,7 @@ msgid "common.view"
 msgstr "Afficher"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Afficher les erreurs"
 
 msgid "common.viewWithName"
 msgstr "Afficher {$name}"
@@ -1038,28 +1052,35 @@ msgid "email.addAttachment"
 msgstr "Ajouter une pièce jointe"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers de soumission"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
 msgstr ""
+"Joindre les fichiers téléversés par l'auteur.e lors de la phase de "
+"soumission."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Joindre des fichiers téléversés au cours du processus de soumission, tels "
+"que des correctifs ou des fichiers à corriger."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Fichiers de la bibliothèque"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers de la bibliothèque"
 
+#, fuzzy
 msgid "email.addAttachment.libraryFiles.description"
 msgstr ""
+"Joindre des fichiers provenant des bibliothèques de soumission et de celle "
+"de l'éditeur."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Joindre les fichiers d'évaluation"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Joindre les fichiers téléversés par les évaluateur.trice.s"
 
 msgid "email.addBccRecipient"
 msgstr "Ajouter un-e destinataire en CCI"
@@ -1074,7 +1095,7 @@ msgid "email.attachments"
 msgstr "Pièces jointes"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Le fichier {$fileName} n'a pu être joint."
 
 msgid "email.bcc"
 msgstr "CCI"
@@ -1090,6 +1111,9 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Voulez-vous vraiement passer à {$localeName} pour rédiger ce courriel ? "
+"Toutes les modifications apportées à l'objet et au corps du message seront "
+"perdues."
 
 msgid "email.compose"
 msgstr "Envoyer le courriel"
@@ -1416,11 +1440,13 @@ msgstr ""
 msgid "stageParticipants.submissionEditMetadataOptions"
 msgstr "Autorisation de modifications aux métadonnées de la soumission."
 
-#, fuzzy
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
-"Autoriser cet utilisateur-trice à apporter des modifications aux métadonnées "
-"de la soumission."
+"Autoriser cet utilisateur.trice à apporter des modifications à cette "
+"publication, comme le titre, le résumé, les métadonnées et les autres "
+"détails de la publication. Vous pouvez révoquer ce privilège si la "
+"soumission a été définitivement vérifiée et qu'elle est prête pour "
+"publication."
 
 msgid "stageParticipants.selectedUser"
 msgstr "Participant-e"
@@ -1564,7 +1590,7 @@ msgid "navigation.viewFrontend"
 msgstr "Voir le site"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Établissements"
 
 msgid "notification.addedAuditor"
 msgstr "Un-e vérificateur-trice a été ajouté-e."
@@ -1786,22 +1812,21 @@ msgstr "Mes soumissions"
 msgid "review.anonymousPeerReview.title"
 msgstr "Comment s'assurer que les fichiers soient anonymisés"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Afin d'assurer l'intégrité de l'évaluation par les pairs en double-"
-"aveugle des soumissions envoyées à cette revue, tous les efforts possibles "
-"devraient être faits pour éviter de révéler l'identité des auteurs-es et des "
-"évaluateurs-trices. Cela implique que les auteurs-es, éditeurs-trices et "
-"évaluateurs-trices (qui téléversent des documents dans le cadre de leur "
-"évaluation) vérifient si les étapes suivantes ont été prises en ce qui "
-"concerne le texte et les propriétés du fichier :</p>\n"
-"<ul><li>Supprimer le nom de l'auteur-e du texte. Dans la bibliographie et "
-"dans les notes en bas de page, on utilise le mot  « Auteur-e » et l'année au "
-"lieu du nom de l'auteur-e, du titre de l'article, etc.</li>\n"
-"<li>L'identification de l'auteur-e ne doit plus apparaître dans les "
-"propriétés du fichier. Pour se faire vous devez suivre les étapes "
-"suivantes :\n"
+"<p>Afin d'assurer l'intégrité de l'évaluation anonyme par les pairs en "
+"double-aveugle des soumissions envoyées à cette revue, tous les efforts "
+"possibles devraient être faits pour éviter de révéler l'identité des "
+"auteur.e.s et des évaluateur.trice.s. Cela implique que les auteur.e.s, "
+"éditeur.trice.s et évaluateur.trice.s (qui téléversent des documents dans le "
+"cadre de leur évaluation) vérifient si les étapes suivantes ont été prises "
+"en ce qui concerne le texte et les propriétés du fichier :</p>\n"
+"<ul><li>Supprimer le nom de l'auteur.ee du texte. Dans la bibliographie et "
+"dans les notes en bas de page, on utilise le mot  « Auteur.e » et l'année au "
+"lieu du nom de l'auteur.e, du titre de l'article, etc.</li>\n"
+"<li>L'identification de l'auteur.e ne doit plus apparaître dans les "
+"propriétés du fichier. Pour se faire vous devez suivre les étapes suivantes :"
+"\n"
 "<ul><li>Microsoft Word pour Windows :\n"
 "<ul><li>Aller à « Fichier »</li>\n"
 "<li>Sélectionner « Inspecter le document »</li>\n"
@@ -1862,8 +1887,9 @@ msgstr "L'évaluateur-trice a été annulé-e."
 msgid "notification.reinstatedReviewer"
 msgstr "L'évaluateur-trice a été réintégré-e."
 
+#, fuzzy
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Demande de réexamen de l'attribution de l'évaluation a été envoyée."
 
 msgid "notification.addedStageParticipant"
 msgstr "L'utilisateur-trice a été ajouté-e à titre de participant-e."
@@ -1906,7 +1932,7 @@ msgid "notification.signedFile"
 msgstr "Fichier pris en considération."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Fuseau horaire"
 
 msgid "user.email"
 msgstr "Adresse de courriel"
@@ -1977,8 +2003,9 @@ msgstr ""
 "Ceci est un rappel amical pour vous inciter à vérifier la bonne marche de "
 "votre revue via le rapport éditorial."
 
+#, fuzzy
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Envoi hebdomadaire par courriel des tâches en suspens"
 
 msgid "semicolon"
 msgstr "{$label} :"
@@ -2040,13 +2067,13 @@ msgid "list.viewLess"
 msgstr "Masquer les renseignement sur {$name}"
 
 msgid "list.expandAll"
-msgstr ""
+msgstr "Développer tout"
 
 msgid "list.collapseAll"
-msgstr ""
+msgstr "Réduire tout"
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Ce n'est pas une option valide."
 
 msgid "validator.accepted"
 msgstr "Veuillez accepter cet élément."
@@ -2067,6 +2094,8 @@ msgstr ""
 
 msgid "validator.alpha_dash_period"
 msgstr ""
+"Cela ne peut contenir que des lettres, des chiffres, des tirets, des traits "
+"de soulignement et des points."
 
 msgid "validator.alpha_num"
 msgstr "Cela ne peut contenir que des lettres et des chiffres."
@@ -2100,6 +2129,9 @@ msgstr "Ce n'est pas un pays valide."
 
 msgid "validator.country.regex"
 msgstr ""
+"Ce n'est pas un pays valide. Le pays doit correspondre à l'un des codes "
+"internationaux à 2 lettres. Voir tous les codes sur https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Ce n'est pas une devise valide."
@@ -2250,10 +2282,10 @@ msgid "validator.url"
 msgstr "Ceci n'est pas un URL valide."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Aucune nouvelle ligne n'est autorisée."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Seules les balises html [{$tags}] sont autorisées."
 
 #, fuzzy
 msgid "filter.input.error.notSupported"
@@ -2270,7 +2302,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Le noeud XML n'a pu être importé"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Commande inconnue {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-23 18:49+0000\n"
+"PO-Revision-Date: 2023-04-25 17:49+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "bg/>\n"
@@ -441,3 +441,202 @@ msgstr ""
 "под различен лиценз. Моля, бъдете внимателни, когато използвате този "
 "инструмент и се консултирайте с правни специалисти, ако не сте сигурни какви "
 "права притежавате върху препринтите, публикувани на вашия сървър."
+
+msgid "plugins.importexport.common.error.DOIsNotAvailable"
+msgstr ""
+"За да използвате този плъгин, моля, отидете в категорията на плъгина "
+"\"Публичен идентификатор\", активирайте и конфигурирайте приставката за DOI "
+"и посочете валиден префикс за DOI там."
+
+msgid "plugins.importexport.common.error.pluginNotConfigured"
+msgstr "Плъгинът не е напълно настроен."
+
+msgid "plugins.importexport.common.settings.form.password"
+msgstr "Парола"
+
+msgid "plugins.importexport.common.settings.form.password.description"
+msgstr ""
+"Моля, обърнете внимание, че паролата ще бъде запазена като обикновен текст, "
+"т.е. не е криптирана."
+
+msgid "plugins.importexport.common.status.any"
+msgstr "Всеки статус"
+
+msgid "plugins.importexport.common.status.notDeposited"
+msgstr "Недепозирани"
+
+msgid "plugins.importexport.common.status.markedRegistered"
+msgstr "Маркирани като регистрирани"
+
+msgid "plugins.importexport.common.status.registered"
+msgstr "Регистрирани"
+
+msgid "plugins.importexport.common.action"
+msgstr "Действие"
+
+msgid "plugins.importexport.common.action.export"
+msgstr "Експортиране"
+
+msgid "plugins.importexport.common.action.markRegistered"
+msgstr "Маркиране като регистрирани"
+
+msgid "plugins.importexport.common.validation"
+msgstr "Валидирайте XML преди експортирането и регистрацията."
+
+msgid "plugins.importexport.common.error.validation"
+msgstr "Неуспешно преобразуване на избраните обекти."
+
+msgid "plugins.importexport.common.invalidXML"
+msgstr "Невалиден XML:"
+
+msgid "plugins.importexport.common.register.error.mdsError"
+msgstr ""
+"Регистрацията не беше успешна! Сървърът за регистрация на DOI върна грешка: "
+"'{$param}'."
+
+msgid "plugins.importexport.common.register.success"
+msgstr "Успешна регистрация!"
+
+msgid "plugins.importexport.common.senderTask.warning.noDOIprefix"
+msgstr "DOI префиксът липсва за сървъра с пътя {$path}."
+
+msgid "stats.contextStats"
+msgstr "Статистика на сървъра"
+
+msgid "stats.context.tooltip.text"
+msgstr "Брой посетители, разглеждащи индексната страница на сървъра."
+
+msgid "stats.context.tooltip.label"
+msgstr "Относно сървърните статистики"
+
+msgid "stats.context.downloadReport.downloadContext.description"
+msgstr "Брой показвания на индексните страници на сървъра."
+
+msgid "stats.context.downloadReport.downloadContext"
+msgstr "Изтеглете статистическата информация за сървъра"
+
+msgid "stats.publications.downloadReport.downloadSubmissions"
+msgstr "Сваляне на статистическата информация за препринти"
+
+msgid "stats.publications.downloadReport.downloadSubmissions.description"
+msgstr ""
+"Брой на абстрактните изгледи и изтеглянията на файлове за всеки препринт."
+
+msgid "stats.publicationStats"
+msgstr "Статистики за препринти"
+
+msgid "stats.publications.details"
+msgstr "Подробности за препринт"
+
+msgid "stats.publications.totalAbstractViews.timelineInterval"
+msgstr "Общ брой абстрактни прегледи по дата"
+
+msgid "stats.publications.totalGalleyViews.timelineInterval"
+msgstr "Общ брой файлови прегледи по дата"
+
+msgid "stats.publications.countOfTotal"
+msgstr "{$count} от {$total} препринта"
+
+msgid "stats.publications.abstracts"
+msgstr "Абстракти"
+
+msgid ""
+"manager.setup.notifications.copySubmissionAckPrimaryContact.disabled."
+"description"
+msgstr ""
+"Не е дефиниран основен контакт за този сървър за препринти. Можете да "
+"въведете основен контакт в <a href=\"{$url}\">настройките на сървъра за "
+"препринти</a>"
+
+msgid "emailTemplate.variable.context.contextName"
+msgstr "Име на сървъра"
+
+msgid "emailTemplate.variable.context.contextUrl"
+msgstr "URL адресът към началната страница на сървъра"
+
+msgid "emailTemplate.variable.context.contactName"
+msgstr "Името на основния контакт на сървъра"
+
+msgid "emailTemplate.variable.context.principalContactSignature"
+msgstr "Имейл подпис на сървъра за автоматизирани имейли"
+
+msgid "emailTemplate.variable.context.contactEmail"
+msgstr "Имейл адрес на основния контакт на сървъра"
+
+msgid "emailTemplate.variable.queuedPayment.itemName"
+msgstr "Име на вида плащане"
+
+msgid "emailTemplate.variable.queuedPayment.itemCost"
+msgstr "Сумата на плащането"
+
+msgid "emailTemplate.variable.queuedPayment.itemCurrencyCode"
+msgstr "Валута на сумата на плащането, като например USD"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Връзка към страницата със статистически данни за препринтите"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че неговият препринт е приет за публикуване."
+
+msgid "mailable.validateEmailContext.name"
+msgstr "Валидиране на имейл (регистрация на сървъра)"
+
+msgid "doi.displayName"
+msgstr "DOI (ДИО)"
+
+msgid "doi.manager.displayName"
+msgstr "DOIs (ДИОта)"
+
+msgid "emailTemplate.variable.context.contextSignature"
+msgstr "Имейл подпис на сървъра за автоматизирани имейли"
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Пощенският адрес на основния контакт на сървъра"
+
+msgid "plugins.importexport.common.error.noObjectsSelected"
+msgstr "Няма избрани обекти."
+
+msgid "emailTemplate.variable.site.siteTitle"
+msgstr "Име на уебсайта, когато се хоства повече от един сървър"
+
+msgid "plugins.importexport.common.export.error.outputFileNotWritable"
+msgstr "Изходният файл {$param} не може да се записва."
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Този имейл се изпраща автоматично ежемесечно до модераторите и сървърните "
+"мениджъри, за да им предостави преглед на състоянието на системата."
+
+msgid "plugins.importexport.common.error.unknownObjects"
+msgstr "Посочените обекти не могат да бъдат намерени."
+
+msgid "mailable.validateEmailContext.description"
+msgstr ""
+"Този имейл се изпраща автоматично на нов потребител, когато се регистрира на "
+"сървъра, когато настройките изискват имейл адресът да бъде валидиран."
+
+msgid "stats.context.downloadReport.description"
+msgstr ""
+"Изтеглете CSV/Excel електронна таблица със статистически данни за "
+"използването на този сървър, отговарящи на следните параметри."
+
+msgid "doi.description"
+msgstr ""
+"Този плъгин позволява присвояването на идентификаторите на цифрови обекти ("
+"DOI, ДИО) към препренти и типографии в OPS."
+
+msgid "stats.publications.downloadReport.description"
+msgstr ""
+"Изтеглете CSV/Excel електронна таблица със статистически данни за използване "
+"за препринти, съответстващи на следните параметри."
+
+msgid "stats.publications.none"
+msgstr ""
+"Не бяха открити препринти със статистически данни за употреба, съответстващи "
+"на тези параметри."
+
+msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
+msgstr ""
+"Изпращане на копие от имейла за потвърждение на подаването до основния "
+"контакт на този сървър за препринти."

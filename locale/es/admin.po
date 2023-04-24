@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-24 10:29+0000\n"
+"PO-Revision-Date: 2023-04-24 12:24+0000\n"
 "Last-Translator: Marc Bria <marc.bria@gmail.com>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
@@ -606,13 +606,13 @@ msgstr "Conexión"
 
 #, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr "Nombre del trabajo a mostrar"
+msgstr "Nombre del trabajo"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
 msgstr "Intentos"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr "Reservado a"
+msgstr "Reservado"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
 msgstr "Disponible en"
@@ -621,7 +621,7 @@ msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
 msgstr "Creado en"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr "Error en"
+msgstr "Error"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
 msgstr "Mensaje de error"
@@ -748,7 +748,7 @@ msgid "admin.jobs.list.createdAt"
 msgstr "Creado en"
 
 msgid "admin.jobs.list.failedAt"
-msgstr "Fallo en"
+msgstr "Falló"
 
 msgid "admin.jobs.list.payload"
 msgstr "Contenido"
@@ -837,72 +837,109 @@ msgstr "Comprimir los archivos de registro (logs)"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Solo permitir el acceso a la API de estadísticas COUNTER SUSHI a los "
+"gestores (managers) y administradores"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Según el protocolo COUNTER SUSHI, cada informe debe identificar la "
+"\"plataforma\" que proporciona las estadísticas. Por defecto, la revista/"
+"editorial/repositorio se designará como la plataforma para todas las "
+"estadísticas. Sin embargo, si todas las revistas/editoriales/repositorios de "
+"este sitio son publicadas, son propiedad o están operadas por el mismo "
+"proveedor, es posible que desee designar en su lugar el sitio como "
+"plataforma."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
 msgstr ""
+"Usar este sitio como plataforma para todas las revistas/editoriales/"
+"repositorios."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "ID de plataforma"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"Indicar cómo se debe identificar esta plataforma en los informes COUNTER "
+"SUSHI. El ID de la plataforma debe ser de 17 caracteres o menos y puede "
+"contener letras (a-z, A-Z), dígitos (0-9), guiones bajos (_), puntos (.) y "
+"barras inclinadas (/). El ID de la plataforma se usará en varias columnas y "
+"debe ser lo más corto posible y al mismo tiempo reconocible. El ID de la "
+"plataforma suele estar basado en el nombre del editor o la plataforma, un "
+"nombre de dominio o una abreviatura conocida y única."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Se requiere un ID de plataforma cuando se identifica el sitio como la "
+"plataforma SUSHI."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "opciones del comando de trabajo"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "uso : [--opción1 --opción2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Opciones disponibles para el comando de trabajo"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
 msgstr ""
+"Nombre de la conexión a la cola que se debe ejecutar[por defecto : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Nombre de la cola que se debe ejecutar[por defecto : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Nombre del trabajador (worker)[por defecto : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Número de segundos a esperar antes de reintentar un trabajo que se ha "
+"encontrado con una excepción no capturada[por defecto : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Límite de memoria en megabytes[por defecto : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Número de segundos que puede durar la ejecución de un proceso hijo/a[default "
+": '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Número de segundos que debe dormir (sleep) cuando no hay trabajos "
+"disponibles[por defecto: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Número de intentos de un trabajo antes de registrar que ha fallado[por "
+"defecto: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Forzar al \"worker\" a correr incluso en modo de mantenimiento[por defecto: "
+"{$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Parar cuando la cola esté vacía[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Número de trabajos que debe procesar antes de detenerse[por defecto: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Duración máxima de segundos que el \"worker\" puede correr[por defecto: "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr ""
+"Número de segundos de descanso entre trabajos[por defecto: '{$default}']\""
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Ejecutar el demonio (daemon) de trabajos para la cola de pruebas"

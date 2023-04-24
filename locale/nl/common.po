@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2023-04-24 12:24+0000\n"
+"PO-Revision-Date: 2023-04-25 14:49+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
@@ -141,13 +141,13 @@ msgid "common.addSelf"
 msgstr "Uzelf toevoegen"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Gekoppelde bestanden"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Koppel bestanden"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Koppel geselecteerde bestand"
 
 msgid "common.name"
 msgstr "Naam"
@@ -272,7 +272,7 @@ msgid "common.confirm"
 msgstr "Bevestig"
 
 msgid "common.confirmed.date"
-msgstr "Datum van bevestiging: {$dateConfirmed}"
+msgstr "Bevestigd: {$dateConfirmed}"
 
 msgid "common.content"
 msgstr "Inhoud"
@@ -296,7 +296,7 @@ msgid "common.dateCompleted"
 msgstr "Datum van voltooiing"
 
 msgid "common.dateDecided"
-msgstr ""
+msgstr "Gekozen datum"
 
 msgid "common.date"
 msgstr "Datum"
@@ -338,7 +338,7 @@ msgid "common.deleteSelection"
 msgstr "Verwijder selectie"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Deselecteer"
 
 msgid "common.designation"
 msgstr "Benoeming"
@@ -347,7 +347,7 @@ msgid "common.description"
 msgstr "Beschrijving"
 
 msgid "common.details"
-msgstr ""
+msgstr "Details"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
@@ -356,10 +356,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} pixels"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Nee, verwijder onopgeslagen wijzigingen"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Niet verbonden"
 
 msgid "common.disable"
 msgstr "Uitschakelen"
@@ -380,22 +380,22 @@ msgid "common.downloadPdf"
 msgstr "Download PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Download rapport"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Sleep bestanden hierheen om te uploaden."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Of upload een bestand"
 
 msgid "common.edit"
 msgstr "Wijzig"
 
 msgid "common.editItem"
-msgstr ""
+msgstr "Wijzig {$name}"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "E-mail sjablonen"
 
 msgid "common.enable"
 msgstr "Inschakelen"
@@ -466,7 +466,7 @@ msgid "common.filterRemove"
 msgstr "Verwijder filter: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Zoek sjabloon"
 
 msgid "common.formatting"
 msgstr ""
@@ -517,7 +517,7 @@ msgid "common.keywords"
 msgstr "Trefwoorden"
 
 msgid "common.label"
-msgstr ""
+msgstr "Label"
 
 msgid "common.language"
 msgstr "Taal"
@@ -526,10 +526,10 @@ msgid "common.languages"
 msgstr "Talen"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Voor het laatst bewaard {$when}"
 
 msgid "common.lastActivity"
-msgstr ""
+msgstr "Laatste activiteit geregistreerd op {$date}."
 
 msgid "common.less"
 msgstr "Minder"
@@ -538,7 +538,7 @@ msgid "common.lessThan"
 msgstr "{$value} of kleiner"
 
 msgid "common.lessThanOnly"
-msgstr ""
+msgstr "Kleiner dan"
 
 msgid "common.keepWorking"
 msgstr ""
@@ -574,7 +574,7 @@ msgid "common.moreThan"
 msgstr "{$value} of meer"
 
 msgid "common.moreThanOnly"
-msgstr ""
+msgstr "Meer dan"
 
 msgid "common.noneAssigned"
 msgstr "Geen toegewezen"
@@ -583,10 +583,10 @@ msgid "common.none"
 msgstr "Geen"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Geen geselecteerd"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Geen verstrekt"
 
 msgid "common.no"
 msgstr "Nee"
@@ -611,8 +611,8 @@ msgstr "Opmerking"
 
 msgid "common.noTemporaryFile"
 msgstr ""
-"Het bestand dat u heeft opgeladen kan niet worden gevonden. Probeer het "
-"opnieuw op te laden."
+"Het bestand dat u heeft geupload kan niet worden gevonden. Probeer het "
+"opnieuw te uploaden."
 
 msgid "common.notes"
 msgstr "Opmerkingen"

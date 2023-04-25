@@ -1,7 +1,7 @@
 # Cyril Kamburov <cc@intermedia.bg>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-25 17:49+0000\n"
+"PO-Revision-Date: 2023-04-27 15:49+0000\n"
 "Last-Translator: Cyril Kamburov <cc@intermedia.bg>\n"
 "Language-Team: Bulgarian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "bg/>\n"
@@ -583,7 +583,7 @@ msgid "mailable.validateEmailContext.name"
 msgstr "Валидиране на имейл (регистрация на сървъра)"
 
 msgid "doi.displayName"
-msgstr "DOI (ДИО)"
+msgstr "DOI (ДОИ)"
 
 msgid "doi.manager.displayName"
 msgstr "DOIs (ДИОта)"
@@ -640,3 +640,279 @@ msgid "manager.setup.notifications.copySubmissionAckPrimaryContact.description"
 msgstr ""
 "Изпращане на копие от имейла за потвърждение на подаването до основния "
 "контакт на този сървър за препринти."
+
+msgid "doi.manager.submissionDois"
+msgstr "DOI на препринти"
+
+msgid "doi.readerDisplayName"
+msgstr "DOI (ДОИ)"
+
+msgid "doi.manager.settings.explainDois"
+msgstr ""
+"Моля, изберете обектите за публикуване, на които ще бъдат присвоени "
+"идентификатори на цифрови обекти (DOI):"
+
+msgid "doi.manager.settings.galleysWithDescription"
+msgstr "Типографии на препринт, като например публикуван PDF"
+
+msgid "doi.manager.settings.enableRepresentationDoi"
+msgstr "Типографии на препринт"
+
+msgid "doi.manager.settings.explainpublicationDoiAutoAssign"
+msgstr ""
+"Автоматично присвояване на DOI за следните обекти, когато бъдат създадени:"
+
+msgid "doi.manager.settings.doiPrefix"
+msgstr "DOI префикс"
+
+msgid "doi.manager.settings.doiSuffixPattern.example"
+msgstr "Например %j.%a може да създаде DOI като 10.1234/server_initials.12345"
+
+msgid "doi.manager.settings.doiSuffixPattern.submissions"
+msgstr "за препринти"
+
+msgid "doi.manager.settings.doiSuffixPattern.representations"
+msgstr "за типографии"
+
+msgid "doi.manager.settings.doiSubmissionSuffixPatternRequired"
+msgstr "Моля, въведете модела на суфикс на DOI за препринти."
+
+msgid "doi.manager.settings.doiRepresentationSuffixPatternRequired"
+msgstr "Моля, въведете модела на суфикс на DOI за типографии."
+
+msgid "doi.manager.settings.doiReassign"
+msgstr "Преназначаване на множество DOI"
+
+msgid "doi.manager.settings.doiReassign.confirm"
+msgstr "Сигурни ли сте, че искате да изтриете всички съществуващи DOI?"
+
+msgid "doi.manager.settings.doiAssignServerWide"
+msgstr "Присвояване на DOI"
+
+msgid "doi.manager.settings.doiAssignServerWide.confirm"
+msgstr ""
+"Сигурни ли сте, че искате да присвоите DOI на всички публикувани обекти, на "
+"които не са присвоени DOI?"
+
+msgid "doi.manager.settings.registrationAgency"
+msgstr "Агенция по регистрацията на DOI"
+
+msgid "doi.manager.settings.registrationAgency.none"
+msgstr "Не е зададено"
+
+msgid "doi.editor.doi"
+msgstr "DOI (ДОИ)"
+
+msgid "doi.editor.doi.description"
+msgstr "DOI трябва да започва с {$prefix}."
+
+msgid "doi.editor.doi.assignDoi"
+msgstr "Присвояване"
+
+msgid "doi.editor.doiObjectTypeSubmission"
+msgstr "препринт"
+
+msgid "doi.editor.doiObjectTypeRepresentation"
+msgstr "типография"
+
+msgid "doi.editor.customSuffixMissing"
+msgstr "DOI не може да бъде присвоен, защото персонализираният суфикс липсва."
+
+msgid "doi.editor.assignDoi.emptySuffix"
+msgstr "DOI не може да бъде присвоен, защото персонализираният суфикс липсва."
+
+msgid "doi.editor.assignDoi.toBeAssigned"
+msgstr "DOI {$pubId} ще бъде присвоен при публикуване."
+
+msgid "doi.editor.missingParts"
+msgstr ""
+"Не можете да генерирате DOI, тъй като в една или повече части от шаблона DOI "
+"липсват данни."
+
+msgid "doi.editor.patternNotResolved"
+msgstr "DOI не може да бъде присвоен, защото съдържа неразрешен модел."
+
+msgid "doi.editor.assigned"
+msgstr "DOI е присвоен на този {$pubObjectType}."
+
+msgid "doi.editor.doiSuffixCustomIdentifierNotUnique"
+msgstr ""
+"Даденият DOI суфикс вече се използва за друг публикуван елемент. Моля, "
+"въведете уникален DOI суфикс за всеки елемент."
+
+msgid "doi.editor.clearObjectsDoi"
+msgstr "Изтриване"
+
+msgid "doi.editor.assignDoi"
+msgstr "Задайте DOI {$pubId} на този {$pubObjectType}"
+
+msgid "doi.editor.missingPrefix"
+msgstr "DOI трябва да започва с {$doiPrefix}."
+
+msgid "doi.editor.preview.publication"
+msgstr "DOI за тази публикация ще бъде {$doi}."
+
+msgid "doi.editor.preview.publication.none"
+msgstr "DOI не е присвоен на тази публикация."
+
+msgid "doi.editor.preview.galleys"
+msgstr "Типография: {$galleyLabel}"
+
+msgid "doi.editor.preview.objects"
+msgstr "Елемент"
+
+msgid "api.galley.403.canEditPublishedDoi"
+msgstr ""
+"Само DOI могат да бъдат редактирани след публикуване на препринт/типография"
+
+msgid "api.issue.400.invalidDoi"
+msgstr "Изпратеният DOI не е валиден"
+
+msgid "manager.institutions.noContext"
+msgstr "Тази институция не може да бъде намерена."
+
+msgid "manager.manageEmails.description"
+msgstr ""
+"Редактиране на съобщенията, изпращани в имейли от този сървър за препринти."
+
+msgid "mailable.postedAck.name"
+msgstr "Изпратено потвърждение"
+
+msgid "mailable.editorAssigned.name"
+msgstr "Асоцииран модератор (автоматично)"
+
+msgid "manager.preprintPosted"
+msgstr "Изпратен препринт"
+
+msgid "manager.preprintPosted.description"
+msgstr ""
+"Конфигуриране на известията по имейл, които да се изпращат, когато бъде "
+"публикуван нов препринт."
+
+msgid "manager.preprintPosted.fieldDescription"
+msgstr ""
+"Дали да се изпрати имейл до авторите на препринта, когато бъде публикуван."
+
+msgid "mailable.publicationVersionNotify.name"
+msgstr "Създадена е нова версия"
+
+msgid "mailable.submissionAck.name"
+msgstr "Потвърждение за изпращане на материал (предстоящо модериране)"
+
+msgid "mailable.submissionAckCanPost.name"
+msgstr "Потвърждение за изпращане на материал (без изискване за модериране)"
+
+msgid "mailable.postedNewVersionAck.name"
+msgstr "Публикувана е нова версия"
+
+msgid "mailable.postedNewVersionAck.description"
+msgstr ""
+"Този имейл се изпраща на автора, когато бъде публикувана нова версия на "
+"неговия препринт."
+
+msgid "mailable.decision.initialDecline.notifyAuthor.name"
+msgstr "Изпращането е отказано"
+
+msgid "mailable.decision.initialDecline.notifyAuthor.description"
+msgstr ""
+"Този имейл уведомява автора, че неговият препринт е отхвърлен и няма да бъде "
+"публикуван."
+
+msgid "doi.manager.settings.description"
+msgstr ""
+"Моля, конфигурирайте приставката (плъгинът) за DOI, за да можете да "
+"управлявате и използвате DOI в OPS:"
+
+msgid "doi.manager.settings.publicationDoiAutoAssign"
+msgstr "Автоматично присвояване"
+
+msgid "doi.manager.settings.doiPrefixPattern"
+msgstr "Префиксът DOI е задължителен и трябва да бъде във формата 10.xxxx."
+
+msgid "doi.manager.settings.doiSuffixPattern"
+msgstr ""
+"Въведете персонализиран модел на суфикс за всеки тип публикация. "
+"Персонализираният шаблон на суфикс може да използва следните символи за "
+"генериране на суфикс:<br><br> <code>%j.%a</code> Препринти<br> <code>%j.%a."
+"g%g</code> Типографии<br><br> Обърнете внимание, че персонализираните "
+"суфиксни модели често водят до проблеми при генерирането и депозирането на "
+"DOI. Когато използвате персонализиран шаблон на суфикс, внимателно тествайте "
+"дали редакторите могат да генерират DOI и ги депозирайте в регистрационна "
+"агенция като Crossref. "
+
+msgid "doi.manager.settings.doiReassign.description"
+msgstr ""
+"Ако промените вашата DOI конфигурация, DOI, които вече са били зададени, "
+"няма да бъдат засегнати. След като конфигурацията на DOI бъде запазена, "
+"използвайте този бутон, за да изчистите всички съществуващи DOI, така че "
+"новите настройки да влязат в сила със съществуващите обекти."
+
+msgid "doi.manager.settings.doiAssignServerWide.description"
+msgstr ""
+"Присвояване на DOI на всички публикувани сървърни обекти, на които не са "
+"присвоени DOI. Това действие не може да се използва с индивидуалната "
+"конфигурация на суфикса. Ако сте променили конфигурацията на DOI по-горе, "
+"моля, запазете промените си, преди да започнете това действие. Присвояването "
+"на DOI може да отнеме много време в зависимост от броя на публикуваните "
+"обекти в сървъра."
+
+msgid "doi.manager.settings.registrationAgency.description"
+msgstr ""
+"Моля, изберете регистрационната агенция, която искате да използвате, когато "
+"депозирате DOI."
+
+msgid "doi.editor.assignDoi.pattern"
+msgstr ""
+"DOI {$pubId} не може да бъде присвоен, защото съдържа неразрешен шаблон."
+
+msgid "doi.editor.assignDoi.assigned"
+msgstr ""
+"DOI {$pubId} е присвоен. За да редактирате DOI, посетете <a href=\""
+"{$doiManagementLink}\">страницата за управление на DOI</a>."
+
+msgid "api.galley.403.publicationDidNotMatch"
+msgstr "Типографията, която поискахте, не е част от тази публикация."
+
+msgid "doi.editor.canBeAssigned"
+msgstr ""
+"Това, което виждате, е преглед на DOI. Поставете отметка в квадратчето и "
+"запазете формуляра, за да зададете DOI."
+
+msgid "doi.editor.clearObjectsDoi.confirm"
+msgstr "Сигурни ли сте, че искате да изтриете съществуващия DOI?"
+
+msgid "api.issue.403.canEditPublishedDoi"
+msgstr "Само DOI могат да бъдат редактирани след публикуването на препринта"
+
+msgid "mailable.postedAck.description"
+msgstr ""
+"Този имейл се изпраща автоматично до автор, когато препринтът е публикуван "
+"онлайн на сървъра."
+
+msgid "mailable.editorAssigned.description"
+msgstr ""
+"Този имейл се изпраща на модератор, когато той автоматично бъде асоцииран "
+"към изпратен материал."
+
+msgid "mailable.publicationVersionNotify.description"
+msgstr ""
+"Този имейл автоматично уведомява асоциираните модератори, когато бъде "
+"създадена нова версия на препринт."
+
+msgid "mailable.submissionAck.description"
+msgstr ""
+"Този имейл се изпраща автоматично до автор, когато той направи изпращане на "
+"материал и модераторът трябва да го одобри."
+
+msgid "mailable.submissionAckCanPost.description"
+msgstr ""
+"Този имейл се изпраща автоматично до автора, когато направи изпращане на "
+"материал и не е необходимо модериране. Авторът може незабавно да публикува "
+"своя препринт."
+
+msgid "manager.setup.workflow.forTheEditorsHelp.description"
+msgstr ""
+"Следното се показва на авторите по време на стъпката За читатели, когато те "
+"са помолени да предоставят метаданни като ключови думи, информация за "
+"лицензиране и други подробности, за да помогнат при откриването и "
+"модерирането."

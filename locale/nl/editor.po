@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/nl/"
 ">\n"
@@ -19,7 +19,7 @@ msgid "editor.submissionArchive.confirmDelete"
 msgstr "Weet u zeker dat u deze inzending definitief wilt verwijderen?"
 
 msgid "editor.activityLog"
-msgstr ""
+msgstr "Activiteitenlogboek"
 
 msgid "editor.submissionLibrary"
 msgstr "Bibliotheek van de inzending"
@@ -64,22 +64,30 @@ msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Deze reviewronde maakt geen deel uit van deze inzending."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"De inzending heeft niet de juiste fase van het redactieproces om deze "
+"beslissing te kunnen nemen."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Deze inzending moet aan u toegewezen zijn om een redactionele beslissing "
+"vast te kunnen leggen."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
-msgstr ""
+msgstr "Een reviewronde id moet opgegeven worden om deze beslissing te nemen."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Een aanbeveling kan alleen worden gedaan als een redacteur is toegewezen die "
+"in deze fase een definitieve beslissing kan nemen."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Er kon geen beslissing worden genomen over deze inzending. Het id van de "
+"inzending ontbreekt of komt niet overeen met de gevraagde inzending."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
@@ -155,10 +163,10 @@ msgid "editor.review.cancelReviewer"
 msgstr ""
 
 msgid "editor.review.reinstateReviewer"
-msgstr ""
+msgstr "Reviewer opnieuw toevoegen"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Reviewverzoek opnieuw versturen"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Reviewtype"
@@ -175,13 +183,11 @@ msgstr "Verstuur geen verwittigings-e-mail"
 msgid "editor.submissionReview.open"
 msgstr "Open"
 
-#, fuzzy
 msgid "editor.submissionReview.anonymous"
-msgstr "Blind"
+msgstr "Anonieme reviewer/auteur zichtbaar"
 
-#, fuzzy
 msgid "editor.submissionReview.doubleAnonymous"
-msgstr "Dubbel blind"
+msgstr "Anonieme reviewer/anonieme auteur"
 
 msgid "editor.submissionReview.restrictFiles"
 msgstr "Bestanden voor review"
@@ -268,7 +274,7 @@ msgid "editor.review.requestDeclined"
 msgstr "Verzoek is afgewezen"
 
 msgid "editor.review.requestCancelled"
-msgstr ""
+msgstr "Verzoek ingetrokken"
 
 msgid "editor.review.requestDeclined.tooltip"
 msgstr "De reviewer heeft het reviewverzoek afgewezen."
@@ -295,10 +301,10 @@ msgid "editor.review.reviewSubmitted"
 msgstr "Review ingediend"
 
 msgid "editor.review.reviewerThanked"
-msgstr ""
+msgstr "Reviewer bedankt"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Verzoek opnieuw gestuurd"
 
 msgid "editor.review.reviewerComments"
 msgstr "Opmerkingen van de reviewer"
@@ -325,9 +331,13 @@ msgstr "Er was een fout bij het verwijderen van de reviewer. Probeer opnieuw."
 
 msgid "editor.review.errorReinstatingReviewer"
 msgstr ""
+"Er is een fout opgetreden bij het herstellen van de reviewer. Probeer het "
+"opnieuw."
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Er is een fout opgetreden bij het verzoek aan de reviewer om de uitnodiging "
+"te heroverwegen. Probeer het opnieuw."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Voeg deze gebruiker toe bij de reviewers"
@@ -531,7 +541,7 @@ msgid "reviewer.list.declinedReviews"
 msgstr "Afgewezen reviewverzoeken"
 
 msgid "reviewer.list.cancelledReviews"
-msgstr ""
+msgstr "Review verzoeken teruggetrokken"
 
 msgid "reviewer.list.reviewerRating"
 msgstr "Reviewer beoordeling: {$rating}"
@@ -577,25 +587,25 @@ msgid "reviewer.list.biography"
 msgstr "Biografie"
 
 msgid "reviewer.list.empty"
-msgstr ""
+msgstr "Geen reviewers gevonden"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Toegekend aan eerdere ronde"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Maak beslissing ongedaan"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Weet u zeker dat u deze beslissing ongedaan wilt maken?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Voltooi de volgende stappen om deze beslissing te maken"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Sla deze e-mail niet over"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Deze stap is overgeslagen en er zal geen e-mail verzonden worden."
 
 msgid "editor.decision.recordDecision"
 msgstr ""

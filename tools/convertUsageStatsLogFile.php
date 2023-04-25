@@ -18,10 +18,10 @@
 require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 
 use APP\statistics\StatisticsHelper;
-use PKP\cliTool\ConvertLogFile;
+use PKP\cliTool\ConvertLogFileTool;
 use PKP\task\FileLoader;
 
-class ConvertUsageStatsLogFile extends ConvertLogFile
+class ConvertUsageStatsLogFile extends ConvertLogFileTool
 {
     /**
      * Weather the URL parameters are used instead of CGI PATH_INFO.

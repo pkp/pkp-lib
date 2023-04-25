@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file lib/pkp/classes/cliTool/ConvertLogFile.php
+ * @file lib/pkp/classes/cliTool/traits/ConvertLogFile.php
  *
  * Copyright (c) 2022 Simon Fraser University
  * Copyright (c) 2022 John Willinsky
@@ -9,9 +9,7 @@
  *
  * @class ConvertLogFile
  *
- * @ingroup tools
- *
- * @brief Tool to convert usage stats log file (used in releases < 3.4) into the new format.
+ * @brief Trait to convert usage stats log file (used in releases < 3.4) into the new format.
  *
  * Special cases from the release 2.x:
  * HTML and remote galley:
@@ -21,7 +19,7 @@
  * article/downloadSuppFile/articleId/galleyId
  */
 
-namespace PKP\cliTool;
+namespace PKP\cliTool\traits;
 
 use APP\core\Application;
 use APP\facades\Repo;
@@ -34,20 +32,20 @@ use PKP\db\DAORegistry;
 use PKP\file\FileManager;
 use PKP\submission\Genre;
 
-abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
+if (!defined('STDERR')) {
+    define('STDERR', fopen('php://stderr', 'w'));
+}
+
+trait ConvertLogFile
 {
     /** List of contexts by their paths */
     public array $contextsByPath;
 
     /**
      * Constructor.
-     *
-     * @param array $argv command-line arguments (see usage)
      */
-    public function __construct($argv = [])
+    public function __constructTrait()
     {
-        parent::__construct($argv);
-
         $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
         $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
         $this->contextsByPath = [];
@@ -236,7 +234,7 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 fwrite(STDERR, "Error: Could not rename the file {$filePath} to {$renameToOldFilePath}." . PHP_EOL);
                 exit(4);
             } else {
-                if (!$this->isApacheAccessLogFile()) {
+                if (!$this->isApacheAccessLogFile() && !Application::isUnderMaintenance()) {
                     // This is not important information for the apache log file conversion --
                     // the file is in a temporary folder that will be removed.
                     echo "The original file is renamed to {$renameToOldFilePath}.\n";
@@ -246,7 +244,9 @@ abstract class ConvertLogFile extends \PKP\cliTool\CommandLineTool
                 fwrite(STDERR, "Error: Could not rename the new file {$newFilePath} to {$filePath}." . PHP_EOL);
                 exit(5);
             } else {
-                echo "File {$filePath} is converted.\n";
+                if (!Application::isUnderMaintenance()) {
+                    echo "File {$filePath} is converted.";
+                }
             }
             if ($extension == 'gz') {
                 try {

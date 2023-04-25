@@ -7,16 +7,16 @@
  * Copyright (c) 2022 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @class ConvertCurrentUsageStatsLogFile
+ * @class I8508_ConvertCurrentLogFile
  *
- * @brief Convert current usage stats log file into the new format.
+ * @brief Convert current and evetnually the usage stats log file from yesterday into the new format.
  */
 
 namespace PKP\migration\upgrade\v3_4_0;
 
 use APP\statistics\StatisticsHelper;
 use Illuminate\Support\Facades\DB;
-use PKP\cliTool\ConvertLogFile;
+use PKP\cliTool\traits\ConvertLogFile;
 use PKP\config\Config;
 use PKP\file\FileManager;
 use PKP\install\DowngradeNotSupportedException;
@@ -86,8 +86,18 @@ class I8508_ConvertCurrentLogFile extends Migration
     }
 }
 
-class ConvertCurrentUsageStatsLogFile extends ConvertLogFile
+class ConvertCurrentUsageStatsLogFile
 {
+    use ConvertLogFile;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        $this->__constructTrait();
+    }
+
     public function getLogFileDir(): string
     {
         return StatisticsHelper::getUsageStatsDirPath() . '/usageEventLogs';

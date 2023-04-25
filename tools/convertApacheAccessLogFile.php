@@ -55,7 +55,7 @@ require(dirname(__FILE__, 4) . '/tools/bootstrap.php');
 use APP\core\Application;
 use APP\facades\Repo;
 use APP\statistics\StatisticsHelper;
-use PKP\cliTool\ConvertLogFile;
+use PKP\cliTool\ConvertLogFileTool;
 use PKP\context\Context;
 use PKP\db\DAORegistry;
 use PKP\file\FileManager;
@@ -63,7 +63,7 @@ use PKP\statistics\PKPStatisticsHelper;
 use PKP\submission\Genre;
 use PKP\task\FileLoader;
 
-class ConvertApacheAccessLogFile extends ConvertLogFile
+class ConvertApacheAccessLogFile extends ConvertLogFileTool
 {
     /**
      * Path to the egrep program, required for this tool to work, e.g. '/bin/egrep'

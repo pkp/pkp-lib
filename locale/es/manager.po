@@ -1,13 +1,13 @@
 # Alejandra Casas Niño de Rivera <alejandra.casas.n@gmail.com>, 2021.
-# Jordi LC <jordi.lacruz@uab.cat>, 2021.
+# Jordi LC <jordi.lacruz@uab.cat>, 2021, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es/>\n"
 "Language: es\n"
@@ -163,192 +163,236 @@ msgstr "Depositar los DOI"
 
 msgid "manager.dois.actions.deposit.prompt"
 msgstr ""
+"Está a punto de enviar los registros de metadatos DOI de {$count} elemento(s)"
+" a {$registrationAgency}. ¿Seguro que quiere depositar estos registros?"
 
 msgid "manager.dois.actions.markRegistered.label"
-msgstr ""
+msgstr "Marcar los DOI como registrados"
 
 msgid "manager.dois.actions.markRegistered.prompt"
 msgstr ""
+"Está a punto de marcar los registros de metadatos DOI de {$count} elemento(s)"
+" como registrados. ¿Seguro que quiere marcar estos registros como "
+"registrados?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "Marcar los DOI como no registrados"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Está a punto de marcar los registros de metadatos DOI de {$count} elemento(s)"
+" como no registrados. ¿Seguro que quiere marcar estos registros como no "
+"registrados?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "Marcar los DOI que necesitan sincronización"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Está a punto de marcar que los registros de metadatos DOI de {$count} "
+"elemento(s) necesitan ser sincronizados. El estado \"necesita "
+"sincronización\" solo puede aplicarse a los DOI enviados previamente. ¿"
+"Seguro que quiere marcar estos registros como obsoletos?"
 
 msgid "manager.dois.actions.export.label"
-msgstr ""
+msgstr "Exportar los DOI"
 
 msgid "manager.dois.actions.export.prompt"
 msgstr ""
+"Está a punto de exportar los registros de metadatos DOI de {$count} a "
+"{$registrationAgency}. ¿Seguro que quiere exportar estos registros?"
 
 msgid "manager.dois.actions.assign.label"
-msgstr ""
+msgstr "Asignar los DOI"
 
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
+"Está a punto de asignar nuevos DOI a {$count} elemento(s) para cualquier "
+"elemento elegible que no tuviera un DOI ya asignado. ¿Seguro que quiere "
+"asignar DOI a estos elementos?"
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Depositar todos los DOI"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
+"Está a punto de programar todos los registros pendientes de metadatos DOI "
+"para ser depositados con {$registrationAgency}. Solo se depositarán los "
+"elementos publicados con un DOI. El estado de cada elemento se actualizará "
+"cuando se reciba la respuesta. ¿Seguro que quiere programar los depósitos de "
+"todos estos elementos?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Actuar en {$count} elemento(s) seleccionado(s)."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Acciones en bloque"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Estado del depósito"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Estado de la publicación"
 
 msgid "manager.dois.registration.submittedDescription"
-msgstr ""
+msgstr "Se han enviado los metadatos de este elemento a {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Este elemento se ha registrado manualmente en la agencia de registro."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"Los metadatos de este elemento no se han enviado a {$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Este elemento no se puede depositar hasta que no sea publicado."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Ver el error"
 
 msgid "manager.dois.registration.viewError.title"
-msgstr ""
+msgstr "Mensaje de error de registro"
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Ver registro"
 
 msgid "manager.dois.registration.viewRecord.title"
-msgstr ""
+msgstr "Mensaje de registro correcto"
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI(s) actualizados con éxito"
 
 msgid "manager.dois.registration.depositDois"
-msgstr ""
+msgstr "Depositar DOI(s)"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Necesita DOI"
 
 msgid "manager.dois.status.unregistered"
-msgstr ""
+msgstr "No registrado"
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Enviado"
 
 msgid "manager.dois.status.registered"
-msgstr ""
+msgstr "Registrado"
 
 msgid "manager.dois.status.error"
-msgstr ""
+msgstr "Error"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Tiene algún error"
 
 msgid "manager.dois.status.stale"
-msgstr ""
+msgstr "Necesita sincronización"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI asignado"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Ningún elemento tiene DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Todos los elementos tienen DOI asignado."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Todos los elementos publicados con DOI pero que aún no se han depositado en "
+"una agencia de registro."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Todos los elementos enviados a una agencia de registro."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Todos los elementos registrados en una agencia de registro o marcados "
+"manualmente como registrados."
 
 msgid "manager.dois.status.error.description"
 msgstr ""
+"Todos los elementos que han tenido algún error durante el proceso de "
+"registro."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Todos los elementos que se han vuelto a publicar desde su último depósito en "
+"una agencia de registro. Será necesario volverlos a enviar a la agencia de "
+"registro para actualizar sus metadatos."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "Actualización de DOI fallida"
 
 msgid "manager.dois.update.partialFailure"
-msgstr ""
+msgstr "No se han podido actualizar algunos DOI(s)"
 
 msgid "manager.dois.notification.exportSuccess"
-msgstr ""
+msgstr "Elementos exportados con éxito"
 
 msgid "manager.dois.notification.markRegisteredSuccess"
-msgstr ""
+msgstr "Elementos marcados como registrados con éxito"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Elementos marcados como no registrados con éxito"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Elementos marcados como que necesitan sincronización con éxito"
 
 msgid "manager.dois.notification.assignDoisSuccess"
-msgstr ""
+msgstr "Se han asignado nuevos DOI a los elementos con éxito"
 
 msgid "manager.dois.notification.depositQueuedSuccess"
-msgstr ""
+msgstr "Se han enviado los elementos para depósito con éxito"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Estados de los DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Se ha cambiado la gestión del DOI. Visite las páginas <a href=\""
+"{$doiManagementUrl}\">gestión del DOI</a> y <a href=\"{$doiSettingsUrl}\""
+">ajustes del DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"No se pueden asignar los DOI hasta que no proporcione su prefijo DOI "
+"asignado. <a href=\"{$doiSettingsUrl}\">Añadir prefijo DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Se intentó crear el DOI, pero en este contexto es necesario el prefijo DOI "
+"para generarlo."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Antes de eliminar este componente debe asociar todos los archivos de envío "
+"relacionados con otro componente."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Editar institución"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "ID ROR (Research Organization Registry) de esta institución."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "Rangos IP"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Los valores válidos incluyen una dirección IP (p. ej.: 142.58.103.1), un "
+"rango IP (p. ej.: 142.58.103.1 - 142.58.103.4), un rango IP con comodín '*' ("
+"p. ej.: 142.58.*.*), y un rango IP con CIDR (p. ej.: 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Eliminar institución"
 
 msgid "manager.institutions.confirmDelete"
-msgstr ""
+msgstr "¿Seguro que quiere continuar y eliminar esta institución?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Rango IP inválido"
 
 msgid "manager.publication.submissionStage"
 msgstr "Envío"
@@ -372,13 +416,17 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Los detalles del recordatorio para revisores/as han sido actualizados."
 
 msgid "manager.dois.title"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
+"{$registrationAgency} devolvió el siguiente error, que contiene detalles "
+"sobre su causa:"
 
 msgid "manager.dois.registrationAgency.registeredMessagePreamble"
 msgstr ""
+"{$registrationAgency} devolvió el siguiente mensaje, que contiene detalles "
+"acerca del registro:"
 
 msgid "manager.emails.addEmail"
 msgstr "Añadir plantilla"
@@ -745,47 +793,56 @@ msgid "manager.roles"
 msgstr "Tareas"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Estadísticas"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Estadísticas geográficas"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Seleccionar el tipo de estadísticas de uso geográficas que se recopilarán. "
+"Estadísticas geográficas más detalladas pueden incrementar el tamaño de su "
+"base de datos considerablemente y, en algunos casos poco frecuentes, socavar "
+"el anonimato de los visitantes."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "No recopilar ningún dato geográfico"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Recopilar el país de los visitantes"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Recopilar el país y la región de los visitantes"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Recopilar el país, la región y la ciudad de los visitantes"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Estadísticas institucionales"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Habilite las estadísticas institucionales si quiere recopilar las "
+"estadísticas de uso por institución. Si las activa necesitará configurar los "
+"rangos IP de cada institución que quiera rastrear."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Habilitar las estadísticas institucionales"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "API pública"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Indicar si se quiere restringir el acceso a las terminales API para las "
+"estadísticas COUNTER SUSHI. Si se deja desmarcado, la API solo será "
+"accesible para usuarios/as con roles de gestión o administración."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "Hacer que las estadísticas COUNTER SUSHI estén disponibles públicamente"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Generador de informes"
+msgstr "Informes"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -804,25 +861,30 @@ msgid "manager.affiliationAndSupport"
 msgstr "Patrocinador"
 
 msgid "manager.setup.dois"
-msgstr ""
+msgstr "DOI"
 
 msgid "manager.setup.dois.setup"
-msgstr ""
+msgstr "Configuración"
 
 msgid "manager.setup.dois.registration"
-msgstr ""
+msgstr "Registro"
 
 msgid "doi.manager.settings.doiPrefix"
-msgstr ""
+msgstr "Prefijo DOI"
 
 msgid "doi.manager.setup.automaticDeposit"
-msgstr ""
+msgstr "Depósito automático"
 
 msgid "doi.manager.setup.automaticDeposit.enable"
-msgstr ""
+msgstr "Habilitar el depósito automático"
 
 msgid "doi.manager.setup.automaticDeposit.description"
 msgstr ""
+"El registro DOI y los metadatos pueden depositarse automáticamente en la "
+"agencia de registro seleccionada siempre que el elemento con el DOI esté "
+"publicado. El depósito automático se producirá durante los intervalos "
+"programados y el estado de cada registro DOI se podrá monitorizar desde la "
+"página de gestión del DOI."
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
@@ -832,39 +894,42 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
+"El prefijo DOI es obligatorio y debe tener el siguiente formato: 10.xxxx."
 
 msgid "doi.manager.settings.doiCreationTime.label"
-msgstr ""
+msgstr "Asignación de DOI automática"
 
 msgid "doi.manager.settings.doiCreationTime.description"
-msgstr ""
+msgstr "¿Cuándo debería asignarse DOI a un envío?"
 
 msgid "doi.manager.settings.doiCreationTime.publication"
-msgstr ""
+msgstr "Tras la publicación"
 
 msgid "doi.manager.settings.doiCreationTime.never"
-msgstr ""
+msgstr "Nunca"
 
 msgid "manager.setup.doiPrefix"
-msgstr ""
+msgstr "Prefijo DOI"
 
 msgid "doi.manager.settings.doiObjects"
 msgstr "Contenido de la revista"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "El prefijo DOI es obligatorio"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "Sufijo DOI"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "Sufijo DOI"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Patrón de sufijo DOI personalizado"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Uno o más tipos de DOI seleccionados no están permitidos para la agencia de "
+"registro DOI configurada."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -876,42 +941,50 @@ msgstr "Usar patrones por defecto."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Ninguno - Los sufijos deben introducirse manualmente en la <a href=\""
+"{$doiManagementUrl}\">página de gestión del DOI</a> y no se generarán "
+"automáticamente"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Patrón personalizado - (no recomendado)"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Agencia de registro"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Seleccione la agencia de registro que quiera utilizar cuando deposite los "
+"DOI."
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.label"
-msgstr ""
+msgstr "No hay ninguna agencia de registro habilitada"
 
 msgid "doi.manager.settings.registrationAgency.noPluginsEnabled.description"
 msgstr ""
+"Los DOI pueden acuñarse y depositarse automáticamente en la agencia de "
+"registro. Para utilizar esta característica, localice e instale el módulo "
+"desde la agencia de registro apropiada."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Ninguno"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Versionado del DOI"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "No puede ejecutar esta operación sin los DOI habilitados."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Hay {$count} versiones."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Ver todo"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI para todas las versiones"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "El DOI contiene caracteres inválidos."
 
 msgid "manager.setup.publishing"
 msgstr "Detalles de publicación"
@@ -1006,16 +1079,22 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Envía una copia a esta dirección de correo electrónico"
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Notificar a todos los autores/as"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"¿Quién debería recibir un correo electrónico de notificación cuando se "
+"registre una decisión editorial?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"Enviar un correo electrónico de notificación a todos los autores/as del "
+"envío."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Solo enviar un correo electrónico a los autores/as asignados al flujo de "
+"trabajo del envío. Normalmente se trata del autor que hizo el envío."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Notificaciones"
@@ -1228,7 +1307,7 @@ msgid "manager.setup.theme"
 msgstr "Tema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Instituciones"
 
 msgid "manager.setup.theme.description"
 msgstr ""
@@ -1240,38 +1319,53 @@ msgstr "El tema seleccionado no está instalado o habilitado."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Antes de empezar el envío se les mostrará lo siguiente a los autores/as. "
+"Proporcione una breve explicación del proceso de envío para que los autores/"
+"as sepan a qué atenerse."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"En el paso de carga de archivos se les mostrará lo siguiente a los autores/"
+"as. Proporcione una breve explicación sobre qué tipo de archivos deberían "
+"compartir los autores/as junto con el envío."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"En el paso sobre la información de los colaboradores/as se les mostrará lo "
+"siguiente a los autores/as. Proporcione una breve explicación sobre qué tipo "
+"de información deberían aportar de sí mismos, de los coautores/as y de "
+"cualquier otro colaborador/a."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"En el paso de carga detalles se les mostrará lo siguiente a los autores/as, "
+"momento en que se les solicitará que proporcionen el título, el resumen y "
+"otra información clave relacionada con el envío."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"En el paso \"para los editores/as\" se les mostrará lo siguiente a los "
+"autores/as, momento en que se les solicitará que proporcionen metadatos como "
+"las palabras clave, comentarios para el editor/a y otros detalles que ayuden "
+"en la revisión editorial."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"En el paso final del asistente de envío se les mostrará lo siguiente a los "
+"autores/as, momento en que se les solicitará que revisen toda la información "
+"introducida antes de enviar su trabajo."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Guía del autor/a"
 
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Lista de comprobación para la preparación de envíos"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Cuando se realice un envío a la revista, se pedirá a los autores/as que "
-"comprueben cada elemento enviado en la Lista de comprobación para preparar "
-"los envíos y registren el resultado como completado antes de continuar con "
-"el proceso. Esta lista también está disponible en la sección Indicaciones "
-"para los autores/as de la sección Acerca de la revista. Se puede editar "
-"aquí, aunque todos sus elementos necesitarán haberse comprobado y registrado "
-"para que los autores/as puedan continuar con la entrega."
+"Cuando empiezan el envío se les muestra lo siguiente a los autores/as. Se "
+"les solicitará que confirmen que el envío cumple todos los requisitos "
+"especificados en este apartado antes de empezar el proceso."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1284,16 +1378,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "¿Seguro que desea activar esta sección?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Asignaciones editoriales"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Seleccionar los usuarios/as editoriales que deberían asignarse "
+"automáticamente a todos los envíos nuevos de esta sección."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Asignar a {$name} como {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Seleccionar los usuarios/as editoriales que deberían asignarse "
+"automáticamente a todos los envíos nuevos de esta categoría."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Opciones de acceso a sitio"
@@ -1799,16 +1897,19 @@ msgstr ""
 "créditos distintos, para pies de foto y para metadatos de licencia."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Requerir en los envíos"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"¿Debería requerirse al menos uno de estos archivos en cada envío nuevo? En "
+"caso afirmativo, los autores/as no podrán realizar un envío hasta que hayan "
+"cargado como mínimo un archivo de este tipo."
 
 msgid "manager.setup.genres.submitRequired.yes"
-msgstr ""
+msgstr "Sí, requerir a los autores/as que carguen uno o más de estos archivos."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "No, permitir envíos nuevos sin estos archivos."
 
 msgid "manager.settings.wizard"
 msgstr "Asistente de ajustes"
@@ -2186,18 +2287,27 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Una breve declaración que describa si los autores/as han puesto a "
+"disposición del público los datos de la investigación y, en caso afirmativo, "
+"dónde pueden acceder a ellos los lectores/as."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Habilitar los metadatos de la declaración de disponibilidad de datos"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"No solicitar una declaración de disponibilidad de datos al autor/a durante "
+"el envío."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Solicitar al autor/a que proporcione una declaración de disponibilidad de "
+"datos durante el envío."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Solicitar al autor/a que proporcione una declaración de disponibilidad de "
+"datos antes de aceptar el envío."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Errores de validación:"
@@ -2283,7 +2393,7 @@ msgstr ""
 "coinciden con el mismo usuario/a ya existente."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Probando"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Título"
@@ -2523,16 +2633,16 @@ msgid "stats.city"
 msgstr "Ciudad"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Visualizaciones"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Descargas"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Visualizaciones totales por fecha"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Descargas totales por fecha"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/año)"
@@ -2628,6 +2738,8 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Esto incluye envíos que no se contabilizan en otros totales, como los que "
+"aún están en proceso o aquellos que parece que han sido importados."
 
 msgid "stats.descriptionForStat"
 msgstr "Descripción para {$stat}"
@@ -2636,10 +2748,10 @@ msgid "stats.editorialActivity"
 msgstr "Actividad editorial"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Archivo principal"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Archivo complementario"
 
 msgid "stats.fileViews"
 msgstr "Visualizaciones de archivo"
@@ -2654,28 +2766,28 @@ msgid "stats.pdf"
 msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
-msgstr ""
+msgstr "Geolocalización proporcionada por <a href='https://db-ip.com'>DB-IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Acerca de la geolocalización"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} a {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Todos {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Descargar archivos"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Número de descargas de cada archivo."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Descargar datos geográficos"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Número de visualizaciones y descargas de cada ciudad, región o país."
 
 msgid "stats.region"
 msgstr "Región"
@@ -2687,25 +2799,25 @@ msgid "stats.submissionsActive"
 msgstr "Envíos activos"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Cronología"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Número de {$type} de cada {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Descargar cronología"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Intervalo cronológico"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Tipo de cronología"
 
 msgid "stats.total"
 msgstr "Total"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Único"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Total dentro del rango de fechas"
@@ -2714,7 +2826,7 @@ msgid "stats.trends"
 msgstr "Tendencias"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "desconocido"
 
 msgid "stats.userStatistics"
 msgstr "Estadísticas de usuario/a"
@@ -2723,13 +2835,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Envíos recibidos"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Otros envíos"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Envíos en proceso"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Envíos importados"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Envíos aceptados"
@@ -2807,43 +2919,47 @@ msgstr "El proceso ha fallado al analizar las publicaciones"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Todos los comentarios de las revisiones completadas. Se ocultan los nombres "
+"de los revisores/as para garantizar revisiones anónimas"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Nombres y afiliaciones de los autores/as del envío."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
 "La URL a una página para que el usuario/a pueda recuperar la contraseña"
 
 msgid "emailTemplate.variable.context.submissionsUrl"
-msgstr ""
+msgstr "La URL para ver todos los envíos asignados a un usuario/a"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
-msgstr ""
+msgstr "La URL para que el usuario/a vea y edite su perfil"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Nombre de la decisión tomada"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Descripción de la decisión tomada"
 
 msgid "emailTemplate.variable.decision.stage"
-msgstr ""
+msgstr "Fase del flujo de trabajo en la que se tomó esta decisión"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Ronda de revisión en la que se tomó esta decisión, si la decisión está "
+"relacionada con una fase de revisión"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Asunto de la discusión"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Contenido de la nueva discusión o de la respuesta"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Lista de envíos con tareas pendientes"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Número de envíos asignados a este editor/a"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "El nombre completo del destinatario/a o todos los destinatarios/as"
@@ -2852,46 +2968,57 @@ msgid "emailTemplate.variable.recipient.username"
 msgstr "El nombre de usuario/a del destinatario/a o todos los destinatarios/as"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Fecha en la que la revisión debería estar completada"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Fecha en la que el revisor/a debería haber aceptado o declinado la asignación"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "La URL a la asignación de revisión"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Decisión recomendada, como \"aceptar el envío\""
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Fecha en la que se asignó la revisión"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Tipo de revisión, por ejemplo anónima, doble anónima o abierta"
 
 msgid "emailTemplate.variable.review.recommendation"
-msgstr ""
+msgstr "Recomendación del revisor/a, por ejemplo aceptar el envío o declinarlo"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Ronda de revisión, por ejemplo ronda 1 o ronda 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Archivos cargados por el revisor/a"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Nombre del revisor/a"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Esta revista lleva a cabo una revisión por pares de doble anonimato. Los "
+"revisores/as no verán ninguna información suya o de los coautores/as. De "
+"igual forma, usted no sabrá quién ha revisado su artículo ni recibirá "
+"noticias directamente de los revisores/as."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Esta revista lleva a cabo una revisión por pares de \"revisor/a anónimo\". "
+"Su nombre y el de los coautores/as serán visibles para los revisores/as. Sin "
+"embargo, la identidad de los revisores/as permanecerá anónima."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Esta revista lleva a cabo una revisión por pares abierta. Los revisores/as "
+"verán su nombre y afiliación, así como los de los coautores/as. De igual "
+"forma, usted también verá los nombres y afiliaciones de los revisores/as."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "El nombre completo del remitente"
@@ -2906,10 +3033,10 @@ msgid "emailTemplate.variable.site.siteContactName"
 msgstr "El nombre completo del contacto principal del sitio web"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Correo electrónico del contacto principal del sitio web"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Firma del correo electrónico del sitio web para los correos automáticos"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr "Los editores/as asignados a este envío que pueden tomar una decisión"
@@ -2924,220 +3051,267 @@ msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "El resumen del envío"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Nombres de los autores/as de forma abreviada, como \"Barnes, et al.\""
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Nombres abreviados de los autores/as"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "URL del autor/a al envío"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "La URL del envío en la interficie de administración editorial"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "URL al envío publicado"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "URL al envío en el asistente de envío"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Nombres de los autores/as asignados al flujo de trabajo del envío. "
+"Normalmente se trata del autor/a que hizo el envío"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nueva contraseña de usuario/a aleatoria"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Restaurar revisor/a"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Reenviar la solicitud de revisión al revisor/a"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Nombre completo del usuario/a que cargó el archivo de envío"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Título del aviso"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Breve descripción del aviso"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "URL al aviso"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Número de envíos recibidos este mes"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Número de envíos rechazados"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Número de envíos aceptados"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Número de envíos no incluidos en otros totales"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Número total de envíos recibidos"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Mes del informe"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Año del informe"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Identificación del número, incluyendo volumen, número, año y título"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "URL al número publicado"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Año del informe"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Enlace a la página de actividad editorial"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Este correo electrónico se envía cuando un editor/a restaura un revisor/a "
+"que había sido desasignado."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"El editor/a envía este correo electrónico a un revisor/a que ha rechazado "
+"una solicitud de revisión cuando quiere reenviarle la solicitud."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Desasignar revisor/a"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Este correo electrónico se envía cuando un editor/a desasigna a un revisor/a."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Validar correo electrónico (Sitio)"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Este correo electrónico se envía automáticamente a un usuario/a nuevo cuando "
+"se registra en el sitio si los ajustes exigen que la dirección de correo "
+"electrónico se valide."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Notificar a los otros autores/as"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Este correo electrónico se envía para notificar que se ha tomado una "
+"decisión a los autores/as del envío que no han sido asignados como "
+"participantes. Normalmente se trata de todas las personas exceptuando al "
+"autor/a remitente."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Copia del mensaje de correo electrónico que se envió al autor/a remitente"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Notificar a los revisores/as de la decisión"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Un editor/a envía este correo electrónico a un revisor/a para notificarle "
+"que se ha tomado una decisión respecto a un envío que ha revisado."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Breve descripción de la decisión que se pretende compartir en una "
+"notificación de correo electrónico con los revisores/as sobre esta decisión"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Hemos decidido aceptar el envío sin revisiones."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Hemos decidido rechazar el envío."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Hemos invitado a los autores/as a que envíen revisiones."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Hemos invitado a los autores/as a que envíen una versión revisada para otra "
+"revisión."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Se ha desasignado el revisor/a invitado al envío."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Envío aceptado"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío ha sido aceptado "
+"para su publicación."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Se ha retornado el envío a Edición"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío ha sido retornado a "
+"la fase de edición."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Envío retornado desde Edición"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío ha sido retornado "
+"desde la fase de edición."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Ronda de revisión cancelada"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que la ronda de revisión de su "
+"envío ha sido cancelada."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Envío rechazado"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío ha sido rechazado "
+"después de la revisión por pares."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Envío rechazado (antes de revisión)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Se inició una ronda de revisión nueva"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que se va a iniciar una ronda de "
+"revisión nueva para su envío."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Revisiones solicitadas"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a la decisión de solicitar "
+"revisiones durante la revisión por pares."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Reenviar para revisión"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a la decisión de \"revisar y "
+"reenviar\" en relación con su envío."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Restaurar envío rechazado"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que se ha revertido la decisión "
+"previa de rechazar su envío tras la revisión por pares."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Restaurar el envío rechazado sin revisión"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que se ha revertido la decisión "
+"previa de rechazar su envío sin revisión."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Enviar a revisión"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que se ha remitido su envío a la "
+"fase de revisión."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Enviar a producción"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que se ha remitido su envío a la "
+"fase de producción."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Envío aceptado (sin revisión)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío se ha remitido "
+"directamente a la fase de edición y que no será revisado por pares."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Recomendación hecha"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
@@ -3570,3 +3744,22 @@ msgstr "Stats &Reports"
 #~ msgstr ""
 #~ "Este correo es enviado por el/la Editor/a de Sección para recordar a un/a "
 #~ "revisor/a que ya debe entregar su revisión."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Los correos electrónicos se pusieron en cola correctamente para ser enviados "
+"lo antes posible."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"No se exportó la portada de la publicación {$id} porque no se encontró el "
+"archivo en la ruta \"{$path}\"."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Se omitió el archivo de envío {$id} porque no tiene una revisión válida."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Se omitió la revisión {$revision} del archivo de envío {$id} porque no se "
+"encontró el archivo en la ruta \"{$path}\"."

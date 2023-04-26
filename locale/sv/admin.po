@@ -1,14 +1,14 @@
-# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022.
+# Magnus Annemark <magnus.annemark@ub.lu.se>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:05+00:00\n"
-"PO-Revision-Date: 2022-09-27 20:51+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Magnus Annemark <magnus.annemark@ub.lu.se>\n"
 "Language-Team: Swedish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"sv_SE/>\n"
-"Language: sv_SE\n"
+"sv/>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -709,26 +709,24 @@ msgstr ""
 msgid "admin.settings.statistics.compressStatsLogs.label"
 msgstr ""
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.description"
-msgstr "Välj vad som ska göras med arkiverade loggfiler."
+msgstr ""
+"Statistik hämtas från loggfiler som flyttas till <code>{$path}</code> när de "
+"har bearbetats. Ska filerna komprimeras till formatet <code>.gz</code> när "
+"de är färdiga? Att komprimera loggfiler kan spara utrymme på servern."
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.default"
 msgstr "Låt loggfilerna vara"
 
-#, fuzzy
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr "Komprimera arkiv"
+msgstr "Komprimera loggfilerna"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr "Platform för COUNTER SUSHI-statistik"
+msgstr "Platform"
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
 "Detta alternativ ger tillgång till statistik enligt COUNTER SUSHI-"
@@ -754,9 +752,9 @@ msgstr ""
 "beteckning enligt en standard såsom GRID eller ROR (utan https://) kan också "
 "användas."
 
-#, fuzzy
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
-msgstr "Ett plattforms-ID krävs"
+msgstr ""
+"Ett plattforms-ID krävs när webbsidan ska identifieras som SUSHI-plattform."
 
 msgid "admin.cli.tool.jobs.work.options.title"
 msgstr ""

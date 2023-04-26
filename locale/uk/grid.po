@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/grid/"
 "uk/>\n"
@@ -63,8 +63,8 @@ msgstr "Скасувати призначення цього рецензент�
 
 msgid "grid.action.approveCopyedit"
 msgstr ""
-"Схвалити цей файл, що пройшов корегування, для відправлення його на наступну "
-"стадію"
+"Схвалити цей файл, що пройшов літературну редактуру, для відправлення його "
+"на наступну стадію"
 
 msgid "grid.action.reload"
 msgstr "Перезавантажити"
@@ -289,7 +289,7 @@ msgid "grid.action.addAnnouncement"
 msgstr "Додати оголошення"
 
 msgid "grid.action.addInstitution"
-msgstr "Додати організацію"
+msgstr "Додати установу"
 
 msgid "grid.action.mergeUser"
 msgstr "Об'єднати користувачів"
@@ -680,17 +680,17 @@ msgstr "Роль {$userGroupName} є усталеною і не може бут�
 
 msgid "grid.userGroup.cantRemoveUserGroup"
 msgstr ""
-"Неможливо видалити роль {$userGroupName}. Зараз вона призначена "
-"{$usersCount} користувачу(ам)."
+"Неможливо видалити роль {$userGroupName}. Наразі її призначено {$usersCount} "
+"користувачу(-ам)."
 
 msgid "grid.userGroup.removed"
 msgstr "Роль {$userGroupName} видалена."
 
 msgid "grid.userGroup.assignedStage"
-msgstr "Роль {$userGroupName} призначена на стадію {$stageName}."
+msgstr "Роль {$userGroupName} призначено на стадію {$stageName}."
 
 msgid "grid.userGroup.unassignedStage"
-msgstr "Призначення ролі {$userGroupName} на стадію {$stageName} скасовано."
+msgstr "Призначення ролі {$userGroupName} на стадію {$stageName} відкликано."
 
 msgid "grid.submission.itemTitle"
 msgstr "Автор; Назва"

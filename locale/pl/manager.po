@@ -1,11 +1,12 @@
 # rl <biuro@fimagis.pl>, 2022, 2023.
+# Dariusz Lis <Dariusz@Lis.PL>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-03-08 15:43+0000\n"
-"Last-Translator: rl <biuro@fimagis.pl>\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
 "Language: pl\n"
@@ -219,7 +220,7 @@ msgid "manager.dois.actions.description"
 msgstr "Wybierz działanie dla wybranych {$count} elementów."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Działania masowe"
 
 msgid "manager.dois.depositStatus"
 msgstr "Status rejestracji"
@@ -231,7 +232,7 @@ msgid "manager.dois.registration.submittedDescription"
 msgstr "Metadane tego artykułu zostały przysłane do {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
-msgstr ""
+msgstr "Ta pozycja została ręcznie zarejestrowana w agencji rejestracyjnej."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr "Metadane tego artykułu nie zostały przysłane do {$registrationAgency}."
@@ -273,34 +274,42 @@ msgid "manager.dois.status.error"
 msgstr "Błąd"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Zawiera błąd"
 
 msgid "manager.dois.status.stale"
 msgstr "Przestarzały"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "Przypisany DOI"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Wszystkim pozycjom brakuje DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Wszystkim pozycjom przypisano DOI."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Wszystkie pozycje z DOI, które zostały opublikowane, ale nie zostały jeszcze "
+"zdeponowane w agencji rejestracyjnej."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Wszystkie pozycje, które zostały zgłoszone do agencji rejestracyjnej."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Wszystkie pozycje, które zostały zarejestrowane w agencji rejestracyjnej lub "
+"ręcznie oznaczone jako zarejestrowane."
 
 msgid "manager.dois.status.error.description"
-msgstr ""
+msgstr "Wszystkie pozycje, które napotkały błąd w procesie rejestracji."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Wszystkie pozycje, które zostały ponownie opublikowane od czasu ich "
+"ostatniego zdeponowania w agencji rejestracyjnej. Muszą zostać ponownie "
+"przesłane do agencji rejestracyjnej w celu zaktualizowania ich rekordów "
+"metadanych."
 
 msgid "manager.dois.update.failedCreation"
 msgstr "Nieudana aktualizacja DOI"
@@ -327,16 +336,22 @@ msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Wybrane elementy pomyślnie zgłoszone do rejestracji"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "Statusy DOI"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Zarządzanie DOI zostało przeniesione. Proszę zobaczyć strony <a href=\""
+"{$doiManagementUrl}\">Zarządzanie DOI</a> i <a href=\"{$doiSettingsUrl}\""
+">Ustawienia DOI</a>."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"Nie można przypisać DOI, dopóki nie podasz prefiksu DOI. <a href=\""
+"{$doiSettingsUrl}\">Podaj prefiks DOI</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Próbowano utworzyć DOI, ale do jego utworzenia wymagany jest prefiks DOI."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
@@ -883,6 +898,8 @@ msgstr "Własny wzór sufiksu DOI"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Co najmniej jeden wybrany typ DOI jest niedozwolony dla skonfigurowanej "
+"agencji rejestracyjnej DOI."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -894,6 +911,9 @@ msgstr "Korzystaj z domyślnego wzoru."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Nic z tego — sufiksy należy wprowadzić ręcznie na <a href=\""
+"{$doiManagementUrl}\">Zarządzanie DOI</a> i nie zostaną one wygenerowane "
+"automatycznie"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
 msgstr "Własny wzór (niezalecany)"
@@ -917,19 +937,19 @@ msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Brak"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "Wersjonowanie DOI"
 
 msgid "doi.authorization.enabledRequired"
 msgstr "Nie możesz wywołać tej operacji bez włączonego DOI."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Istnieje {$count} wersji."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Podejrzyj wszystkie"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOI dla wszystkich wersji"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
 msgstr "DOI zawiera nieprawidłowe znaki."
@@ -1252,34 +1272,53 @@ msgstr "Szablon który wybrałeś nie jest zainstalowany lub włączony."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Poniższe informacje są wyświetlane autorom, zanim rozpoczną przesyłanie. "
+"Podaj krótkie wyjaśnienie procesu przesyłania, aby autor wiedział, czego się "
+"spodziewać."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Poniższe informacje są wyświetlane autorom na etapie przesyłania plików. "
+"Podaj krótkie wyjaśnienie, jakie pliki autorzy mają udostępnić wraz ze swoim "
+"zgłoszeniem."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Poniższe informacje są wyświetlane autorom na etapie podawania "
+"współautorstwa. Podaj krótkie wyjaśnienie, jakie informacje autor powinien "
+"podać o sobie, współautorach i innych współautorach."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Poniższe informacje są wyświetlane autorom na etapie podawania szczegółów, "
+"kiedy są proszeni o podanie tytułu, abstraktu i innych kluczowych informacji "
+"dotyczących ich zgłoszenia."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Następujące informacje są wyświetlane autorom w kroku <b>Dla redaktorów</b>, "
+"gdy są oni proszeni o podanie metadanych, takich jak słowa kluczowe, "
+"komentarze dla redaktora i inne szczegóły, które mogą pomóc w recenzji "
+"redakcyjnej."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Poniższe informacje są wyświetlane autorom na ostatnim etapie kreatora "
+"przesyłania, gdy są proszeni o przejrzenie wszystkich podanych informacji "
+"przed zarejestrowaniem zgłoszenia."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Wytyczne dla autora"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
-msgstr "Sprawdzenie tekstu przed wysłaniem"
+msgstr "Sprawdzenie zgłoszenia przed jego rejestracją"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Na stronie przesyłania tekstu, autorzy muszą oznaczyć każdy z elementów "
-"listy."
+"Poniższe informacje są wyświetlane autorom, gdy rozpoczynają kompletowanie "
+"zgłoszenia. Autorzy, przed rozpoczęciem kompletowania ich zgłoszenia, "
+"proszeni są o potwierdzenie, że spełnia ono wszelkie wymienione tutaj "
+"wymagania czasopisma."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1292,16 +1331,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Czy chcesz włączyć tę sekcję?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Zadania redakcyjne"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Wybierz pracowników redakcyjnych, którzy mają być automatycznie przypisywani "
+"do wszystkich nowych zgłoszeń do tej sekcji."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "Przypisz {$name} rolę {$role}"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Wybierz pracowników redakcyjnych, którzy mają być automatycznie przypisywani "
+"do wszystkich nowych zgłoszeń do tej kategorii."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Ustawienia dostępu do strony"
@@ -1786,16 +1829,21 @@ msgstr ""
 "informacji o licencjach."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Wymagaj razem ze zgłoszeniami"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Czy co najmniej jeden z tych plików powinien być wymagany przy każdym nowym "
+"zgłoszeniu? Jeśli wybierzesz tak, autorom nie będzie wolno zarejestrować "
+"zgłoszenia, dopóki nie prześlą co najmniej jednego pliku tego typu."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Tak, wymagaj od autorów rejestrujących zgłoszenie, aby przesłali jeden lub "
+"więcej z tych plików."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Nie, zezwalaj autorom na rejestrację nowych zgłoszeń bez tych plików."
 
 msgid "manager.settings.wizard"
 msgstr "Kreator ustawień"
@@ -2173,18 +2221,26 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Krótkie oświadczenie opisujące, czy autorzy udostępnili swoje dane badawcze, "
+"a jeśli tak, to gdzie czytelnicy mogą uzyskać do nich dostęp."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Włącz metadane oświadczenia o dostępności danych"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Podczas rejestracji zgłoszenia nie żądaj od autora oświadczenia o "
+"dostępności danych."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Podczas rejestracji zgłoszenia poproś autora o dostarczenie oświadczenia o "
+"dostępności danych."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Podczas rejestracji zgłoszenia wymagaj od autora oświadczenia o dostępności "
+"danych."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Błędy walidacji:"
@@ -2270,7 +2326,7 @@ msgstr ""
 "jednego i tego samego użytkownika."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testowanie"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Tytuł"
@@ -2673,10 +2729,10 @@ msgid "stats.timeline.downloadReport.downloadTimeline"
 msgstr "Pobierz raport osi czasu"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Przedział osi czasu"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Typ osi czasu"
 
 msgid "stats.total"
 msgstr "Łącznie"
@@ -2703,10 +2759,10 @@ msgid "stats.name.submissionsSkipped"
 msgstr "Inne zgłoszenia"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Zgłoszenia są procedowane"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Zgłoszenia zaimportowane"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Zgłoszenia zaakceptowane"
@@ -2764,6 +2820,8 @@ msgstr "Elementy generyczne"
 
 msgid "plugins.importexport.native.common.error.filter.configuration.count"
 msgstr ""
+"Nieprawidłowa konfiguracja filtra [{$filterName}]: {$filterCount} wystąpień. "
+"Powinien być tylko jeden."
 
 msgid "plugins.importexport.common.cliError"
 msgstr "BŁĄD:"
@@ -2786,7 +2844,7 @@ msgstr ""
 "dla trybu ślepej recenzji"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Nazwiska i afiliacje autorów zgłoszenia."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
@@ -2810,12 +2868,14 @@ msgstr "Etap pracy redaktorskiej w trakcie którego została podjęta decyzja."
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Runda recenzji, w której podjęto tę decyzję, o ile decyzja jest związana z "
+"etapem recenzji"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Temat korespondencji"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Zawartość nowej korespondencji"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
 msgstr "Lista zgłoszeń z wyjątkowymi zadaniami"
@@ -2824,70 +2884,83 @@ msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
 msgstr "Ilość zgłoszeń przypisanych do redaktora"
 
 msgid "emailTemplate.variable.recipient.userFullName"
-msgstr ""
+msgstr "Pełna nazwa odbiorcy lub wszystkich odbiorców"
 
 msgid "emailTemplate.variable.recipient.username"
-msgstr ""
+msgstr "Nazwa użytkownika u odbiorcy lub u wszystkich odbiorców"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Data do której recenzja powinna zostać wykonana"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Data do której recenzent powinien zaakceptować lub odrzucić prośbę o recenzję"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
-msgstr ""
+msgstr "Internetowy adres strony recenzji"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Zalecana decyzja, np. <b>Zaakceptuj zgłoszenie</b>"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Data przypisania tej recenzji do recenzenta"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Typ recenzji, np. anonimowa, podwójnie anonimowa lub otwarta"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"Rekomendacja recenzenta, np. <b>Zaakceptuj zgłoszenie</b> lub <b>Odrzuć "
+"zgłoszenie</b>"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Runda przeglądu, np. <b>Runda 1</b> lub <b>Runda 2</b>"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Pliki przesłane przez recenzenta"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Nazwisko recenzenta"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"W tym czasopiśmie przeprowadzana jest recenzja typu <b>Podwójna anonimowość</"
+"b>. Recenzenci nie zobaczą żadnych informacji identyfikujących autorów, ani "
+"autorzy nie zobaczą, kto recenzował ich zgłoszenie. Autorzy i recenzenci nie "
+"będą mieli możliwości bezpośredniego kontaktu między sobą."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"W tym czasopiśmie przeprowadzana jest recenzja typu <b>Anonimowy recenzent</"
+"b>. Imiona i nazwiska autorów będą widoczne dla recenzentów, ale tożsamości "
+"recenzentów pozostaną anonimowe dla autorów."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"W tym czasopiśmie przeprowadzana jest recenzja typu <b>Otwarta recenzja</b>. "
+"Imiona, nazwiska oraz afiliacje autorów i recenzentów są widoczne dla "
+"wszystkich."
 
 msgid "emailTemplate.variable.sender.senderName"
-msgstr ""
+msgstr "Pełna nazwa nadawcy"
 
 msgid "emailTemplate.variable.sender.senderEmail"
-msgstr ""
+msgstr "Adres e-mail nadawcy"
 
 msgid "emailTemplate.variable.sender.signature"
-msgstr ""
+msgstr "Podpis e-mail nadawcy"
 
 msgid "emailTemplate.variable.site.siteContactName"
-msgstr ""
+msgstr "Pełna nazwa głównej osoby kontaktowej w witrynie"
 
 msgid "emailTemplate.variable.site.siteContactEmail"
-msgstr ""
+msgstr "Adres e-mail głównej osoby kontaktowej w witrynie"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Podpis e-mail witryny dla automatycznych wiadomości e-mail"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
@@ -3574,3 +3647,22 @@ msgstr ""
 
 #~ msgid "emailTemplate.variable.context.mailingAddress"
 #~ msgstr "Adres pocztowy czasopisma"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Wiadomości e-mail są pomyślnie umieszczane w kolejce do wysłania w "
+"najbliższym możliwym terminie."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Przesłany plik {$id} został pominięty, ponieważ nie ma prawidłowej wersji."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Wersja {$revision} przesłanego pliku {$id} została pominięta, ponieważ plik "
+"nie został znaleziony w ścieżce „{$path}”."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Obraz okładki publikacji {$id} nie został wyeksportowany, ponieważ "
+"zawierający go plik nie został znaleziony w ścieżce \"{$path}\"."

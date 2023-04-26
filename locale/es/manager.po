@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "es/>\n"
@@ -888,9 +888,9 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"El prefijo DOI lo asignan las agencias registradoras (p. ej., <a href="
-"\"http://www.crossref.org\" target=\"_new\">Crossref</a>) y sigue el formato "
-"10.xxxx (p. ej., 10.1234):"
+"El prefijo DOI lo asigna una agencia de registro, como <a href=\"https://www."
+"crossref.org\" target=\"_new\">Crossref</a> o <a href=\"https://datacite.org/"
+"\" target=\"new\">DataCite</a>. Ejemplo: 10.xxxx"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr ""
@@ -937,7 +937,8 @@ msgstr ""
 "los objetos de publicación con el mismo prefijo DOI asignado:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Usar patrones por defecto."
+msgstr ""
+"Predeterminado - Se genera automáticamente un sufijo único de ocho caracteres"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1033,7 +1034,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Ocurrió un error al eliminar este elemento."
 
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "Icono de web (Favicon)"
 
 msgid "manager.setup.homepageImage"
 msgstr "Imagen de inicio"
@@ -1271,7 +1272,7 @@ msgstr "Recordatorio de revisor/a"
 msgid "manager.setup.reviewOptions.reminders.submit.description"
 msgstr ""
 "Enviar un correo electrónico de recordatorio si el revisor/a no ha enviado "
-"una recomendación dentro de estos días tras  la fecha de vencimiento de la "
+"una recomendación dentro de estos días tras la fecha de vencimiento de la "
 "revisión."
 
 msgid "manager.setup.reviewOptions.reviewMode"
@@ -2208,11 +2209,11 @@ msgstr "Exigir al autor/a que proporcione materias antes de aceptar su envío."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
-"La naturaleza o género del contenido principal del envío. La tipología "
-"normalmente es \"Texto\",  pero también podría ser \"Conjunto de datos\", "
-"\"Imagen\" o cualquiera de las <a target=\"_blank\" href=\"http://dublincore."
-"org/documents/dcmi-type-vocabulary/#section-7-dcmi-type-vocabulary"
-"\">tipologías Dublin Core</a>."
+"La naturaleza o el género del contenido principal del envío. La tipología "
+"normalmente es \"Texto\", pero también podría ser \"Conjunto de datos\", "
+"\"Imagen\" o cualquiera de las <a target=\"_blank\" href=\"https://www."
+"dublincore.org/specifications/dublin-core/dcmi-terms/\">tipologías Dublin "
+"Core</a>."
 
 msgid "manager.setup.metadata.type.enable"
 msgstr "Habilitar metadatos de tipología"
@@ -2334,7 +2335,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "El contenido no está codificado como {$param}"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Grupo de usuario {$param} desconocido"
+msgstr ""
+"El archivo de importación incluye un autor/a '{$authorName}', con un grupo "
+"de usuario '{$userGroupName}'. No hay un grupo de usuario definido en la "
+"instalación de destino con este nombre."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "Falta el grupo de usuario/a para el nombre del autor/a {$param}"
@@ -2575,8 +2579,8 @@ msgstr ""
 msgid "manager.navigationMenus.mySubscriptions.conditionalWarning"
 msgstr ""
 "Este enlace solo se mostrará si el visitante ha iniciado la sesión, la "
-"opción de pagos está activa en Ajustes > Distribución > Pagos  y se "
-"requieren suscripciones  en Ajustes > Distribución > Acceso."
+"opción de pagos está activa en Ajustes > Distribución > Pagos y se requieren "
+"suscripciones en Ajustes > Distribución > Acceso."
 
 msgid "manager.navigationMenus.search.description"
 msgstr "Enlace a la página de búsqueda."
@@ -3075,6 +3079,8 @@ msgstr ""
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"URL codificada que se envía al usuario para confirmar el restablecimiento de "
+"la contraseña"
 
 msgid "emailTemplate.variable.password"
 msgstr "Nueva contraseña de usuario/a aleatoria"
@@ -3315,100 +3321,95 @@ msgstr "Recomendación hecha"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Este mensaje notifica a un editor/a senior o a un editor/a de sección que se "
+"ha hecho una recomendación editorial relacionada con alguno de sus envíos "
+"asignados. Este mensaje se utiliza cuando el editor/a solo puede recomendar "
+"una decisión editorial y necesita que un editor/a autorizado registre las "
+"decisiones editoriales. Esta opción puede seleccionarse cuando se asignan "
+"participantes a un envío."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Confirmación de la revisión"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Este correo es enviado por un/a revisor/a al / a la Editor/a de Sección en "
-"respuesta a una petición de revisión para notificarle que ha aceptado la "
-"petición y que será completada antes de la fecha especificada."
+"Este correo electrónico se envía automáticamente cuando un revisor/a acepta "
+"una solicitud de revisión"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Rechazo de la revisión"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
-"Este correo es enviado por un/a revisor/a al / a la Editor/a de Sección en "
-"respuesta a una petición de revisión para notificarle que rechaza la "
-"petición de revisión."
+"El revisor/a envía este correo electrónico cuando rechaza una solicitud de "
+"revisión"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Recordatorio de la revisión"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"El editor/a envía este correo electrónico para recordar al revisor/a que la "
+"revisión ha caducado."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Recordatorio de revisión (automático)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Este correo es enviado automáticamente cuando se supera la fecha de entrega "
-"de un/a revisor/a (véase Opciones de Revisión en Configuración de la "
-"revista, paso 2). Las tareas planificadas deben estar activadas y "
-"configuradas (ver fichero de configuración del sitio)."
+"Este correo se envía automáticamente cuando un revisor/a no ha completado la "
+"revisión en la fecha estipulada."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Agradecimiento por la revisión"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"El editor/a envía este correo electrónico al revisor/a para confirmarle que "
+"ha recibido la revisión y para agradecerle sus contribuciones."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Respuesta de revisión vencida (automática)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Este correo electrónico se envía automáticamente cuando transcurre la fecha "
-"de entrega del revisor/a (vea las opciones de revisión en el paso 2 de la "
-"configuración de la revista) y se deshabilita el acceso al revisor/a con un "
-"solo clic. Las tareas planificadas se deben habilitar y configurar (vea el "
-"archivo de configuración del sitio)."
+"Este correo electrónico se envía automáticamente al revisor/a cuando vence "
+"la fecha límite para responder a una solicitud de revisión."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Solicitud de revisión"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Este correo electrónico del editor/a de sección se dirige a un revisor/a "
-"para solicitarle que acepte o rechace la tarea de revisión de un envío. El "
-"correo proporciona información sobre el envío, como el título y el resumen, "
-"el plazo de revisión y cómo acceder al envío propiamente dicho. Este mensaje "
-"se usa cuando se selecciona el proceso de revisión estándar en Gestión > "
-"Ajustes > Flujo de trabajo > Revisión."
+"para solicitarle que acepte o rechace la tarea de revisión de un envío. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Solicitud de revisión posterior"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Este correo electrónico del editor/a de sección a un revisor/a solicita que "
-"el revisor/a acepte o rechace la tarea de revisar un envío para una ronda de "
-"revisión adicional. Además, proporciona información sobre el envío como el "
-"título, el resumen, la fecha de entrega de la revisión y cómo obtener acceso "
-"al propio envío. Este mensaje se usa cuando se selecciona el proceso de "
-"revisión estándar en Gestión > Ajustes > Flujo de trabajo > Revisión."
+"Este correo electrónico del editor/a a un revisor/a le solicita que acepte o "
+"rechace la tarea de revisar un envío para una ronda de revisión adicional. "
+"Además, proporciona información sobre el envío, como el título, el resumen, "
+"la fecha de entrega de la revisión y cómo obtener acceso al propio envío."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Falta la publicación actual del envío"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "No se pudo procesar el hijo (child) {$child} del envío"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Recordatorio editorial"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Correo electrónico automático que se envía a los editores/as con las tareas "
+"pendientes"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Confirmación de restablecimiento de contraseña"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3417,16 +3418,17 @@ msgstr ""
 "para que cambien su contraseña."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Usuario/a creado"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Este correo se envía a un/a usuario/a que se acaba de registrar para darle "
-"la bienvenida al sistema y proporcionarle sus datos de acceso."
+"Este correo electrónico se envía a los nuevos usuarios/as que han sido "
+"creados por el gestor/a editorial a través de los ajustes de usuario/a. El "
+"correo sirve para darles la bienvenida al sistema y para proporcionarles el "
+"registro de su nombre de usuario/a y contraseña."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Registro de revisor/a"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3434,58 +3436,64 @@ msgstr ""
 "sistema y proporcionarles sus datos de acceso."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Se guardó el envío para más adelante"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Correo electrónico que se envía a los autores/as cuando guardan el envío "
+"para completarlo posteriormente"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Confirmación de envío"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Este correo electrónico, si está activado, se envía automáticamente a un "
-"autor/a cuando completa el proceso de envío de un manuscrito a la editorial. "
-"Proporciona información sobre el seguimiento del envío en el proceso y "
-"agradece al autor/a el envío."
+"Este correo electrónico se envía automáticamente al autor/a cuando realiza "
+"un envío. Proporciona información sobre el seguimiento del envío durante el "
+"proceso editorial y le agradece su contribución."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Confirmación del envío (otros autores/as)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Este correo electrónico, si está activado, se envía automáticamente a los "
-"autores/as que no son usuarios/as del OJS especificado durante el proceso de "
-"envío."
+"Este correo electrónico se envía automáticamente a los autores/as nombrados "
+"en el envío que no son el autor/a remitente."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Discusión (envío)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Este correo electrónico se envía cuando se crea una discusión o hay una "
+"respuesta en la fase de envío."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Discusión (revisión)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Este correo electrónico se envía cuando se crea una discusión o hay una "
+"respuesta en la fase de revisión."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Discusión (edición)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Este correo electrónico se envía cuando se crea una discusión o hay una "
+"respuesta en la fase de edición."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Discusión (producción)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Este correo electrónico se envía cuando se crea una discusión o hay una "
+"respuesta en la fase de producción."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Notificación de versión revisada"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3493,163 +3501,195 @@ msgstr ""
 "cuando el autor/a carga una versión revisada de un artículo."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Nuevo aviso"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Se mandará este email tras la creación de un nuevo anuncio."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Notificación de informe de estadísticas"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Editar notificación de revisión"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Este correo electrónico notifica al revisor/a cuando se produce algún cambio "
+"en los detalles de su asignación de revisión."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Notificar a los editores/as los comentarios del revisor/a"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Este correo electrónico automático se envía a los editores/as asignados "
+"cuando el revisor/a hace una recomendación de revisión"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Fuente de autenticación"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "El envío se ha retornado a la fase de revisión"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío se ha retornado a "
+"la fase de revisión."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "El envío se ha retornado a la fase de envío"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Este correo electrónico notifica al autor/a que su envío se ha retornado a "
+"la fase de envío."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Administrar correos electrónicos"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Añadir y editar las plantillas</a> de todos los "
+"correos electrónicos enviados por el sistema.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Añada y edite las plantillas que le gustaría poner a disposición de los "
+"usuarios/as cuando envíen este correo electrónico. El modelo predeterminado "
+"se cargará automáticamente y el usuario/a podrá cargar rápidamente cualquier "
+"plantilla que haya agregado aquí."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Plantillas"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Editar plantilla"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Eliminar plantilla"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "¿Seguro que quiere eliminar la plantilla <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Restaurar plantilla"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"¿Seguro que quiere restaurar el asunto y el cuerpo a los valores "
+"predeterminados de la plantilla <strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Buscar por nombre o descripción"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Introducir un nombre breve para ayudarle a encontrar esta plantilla."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nuevo envío"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Configurar las notificaciones de correo electrónico para que se envíen "
+"cuando se haga un nuevo envío."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Personas que deberían recibir un correo electrónico cuando se completa un "
+"nuevo envío."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "No enviar correo electrónico."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Enviar correo electrónico solo al autor/a remitente."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "Enviar correo electrónico a todos los autores/as."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Decisiones editoriales"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Configurar las notificaciones por correo electrónico para que se envíen a "
+"los autores cuando se registre una decisión editorial."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Para editores/as"
 
 msgid "manager.forEditors.description"
 msgstr ""
+"Configurar las notificaciones por correo electrónico para que se envíen a "
+"los editores/as."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Estadísticas editoriales"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Indicar si se quiere enviar o no un correo electrónico mensual a los "
+"editores/as con las estadísticas de la revista, como por ejemplo las ratios "
+"de aceptación y rechazo. Los editores/as pueden darse de baja de este correo "
+"electrónico desde su perfil de usuario/a."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Enviar correo electrónico mensual a los editores/as."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "No enviar el correo electrónico a los editores/as."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"¿Se le debería pedir al autor/a remitente que seleccione una categoría "
+"cuando hace un nuevo envío?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Sí, añadir el campo de categorías al asistente de envío."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "No mostrar a los autores/as este campo."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Solicitar corrección"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Pregunta sobre citación"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Editor/a asignado"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Listo para producción"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "Sistema"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Versión creada"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Revisión finalizada"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Revisión editada"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Agradecimientos por el envío a otros autores/as"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Editor/a asignado (automático)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Este correo electrónico se envía al editor/a cuando se le asigna "
+"automáticamente a un envío."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Asignar editor/a"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "El envío necesita un editor/a"
 
 msgid "manager.statistics"
 msgstr "Stats &Reports"

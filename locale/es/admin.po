@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:22-07:00\n"
-"PO-Revision-Date: 2023-04-24 12:24+0000\n"
-"Last-Translator: Marc Bria <marc.bria@gmail.com>\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "es/>\n"
 "Language: es\n"
@@ -151,21 +151,20 @@ msgid "admin.scheduledTask.noLog"
 msgstr "La tarea no ha generado ningún registro."
 
 msgid "admin.scheduledTask.depositDois"
-msgstr "Depositar los DOI en la agencia de registro establecida"
+msgstr "Depositar los DOI en la agencia de registro configurada"
 
 msgid "admin.scheduledTask.downloadLog"
 msgstr ""
 "Su instalación de {$softwareName} ejecutó y finalizó automáticamente esta "
-"tarea y  puede descargarse el fichero de registro aquí: {$url}"
+"tarea y puede descargarse el archivo de registro aquí: {$url}"
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
 "Enviar un correo electrónico a cada editor/a recordándole sus tareas "
 "pendientes"
 
-#, fuzzy
 msgid "admin.scheduledTask.editorialReminder.logStart"
-msgstr "Identificando editores para recordar en el contexto {$contextId}"
+msgstr "Identificando editores/as para recordar en el contexto {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
@@ -229,11 +228,10 @@ msgstr ""
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr "El archivo {$file} no pudo abrirse y fue rechazado."
 
-#, fuzzy
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
 "El archivo {$file} está en un formato de registro antiguo que no puede ser "
-"procesado y se devolverá al directorio de preparación (stage)."
+"procesado, así que se devolverá al directorio de preparación (stage)."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
@@ -604,7 +602,6 @@ msgstr "Cola"
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
 msgstr "Conexión"
 
-#, fuzzy
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
 msgstr "Nombre del trabajo"
 

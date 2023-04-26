@@ -1,7 +1,7 @@
 # Petro Bilous <petrobilous@ukr.net>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "uk/>\n"
@@ -32,7 +32,7 @@ msgid "api.404.endpointNotFound"
 msgstr "Запитувану URL-адресу не розпізнано."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr "Організацію, яку ви запитали, не знайдено."
+msgstr "Установу, яку ви запитали, не знайдено."
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
@@ -205,7 +205,7 @@ msgstr "Ви не авторизовані для доступу до запит
 
 msgid "api.500.apiSecretKeyMissing"
 msgstr ""
-"Токен API не може бути використаний для доступу до цього вебсайту, оскільки "
+"Токен API не може бути використано для доступу до цього вебсайту, оскільки "
 "адміністратор сайту не налаштував секретний ключ."
 
 msgid "api.announcements.404.announcementNotFound"
@@ -216,7 +216,7 @@ msgstr "Не підтримуються такі локалізації: {$local
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
-"Ця кінцева точка недоступна в просторі імен для всього сайту, тому її "
+"Ця кінцева точка недоступна в просторі імен для всього вебсайту, тому її "
 "потрібно запитувати для певного контексту."
 
 msgid "api.dois.400.noUnpublishedItems"
@@ -337,7 +337,7 @@ msgstr "Вам заборонено редагувати цю публікаці
 msgid "api.submissions.404.siteWideEndpoint"
 msgstr ""
 "Ця кінцева точка недоступна з контексту. Доступ до неї повинен бути з "
-"простору назв для всього сайту."
+"простору назв для всього вебсайту."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
 msgstr "Неможливо перевідправити провалене завдання."

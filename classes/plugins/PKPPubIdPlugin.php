@@ -417,13 +417,13 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * @see PKPPubIdPlugin::addToSchema()
      *
      * @param string $hookName
-     * @param array $params
+     * @param DAO $dao
+     * @param array $additionalFields
      */
-    public function getAdditionalFieldNames($hookName, $params)
+    public function getAdditionalFieldNames($hookName, $dao, &$additionalFields)
     {
-        $fields = & $params[1];
         foreach (array_merge($this->getFormFieldNames(), $this->getDAOFieldNames()) as $fieldName) {
-            $fields[] = $fieldName;
+            $additionalFields[] = $fieldName;
         }
         return false;
     }

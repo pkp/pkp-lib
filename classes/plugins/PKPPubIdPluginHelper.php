@@ -220,9 +220,6 @@ class PKPPubIdPluginHelper
                     // delete the pubId from the DB
                     $dao = $pubObject->getDAO();
                     $pubObjectId = $pubObject->getId();
-                    if ($pubObject instanceof SubmissionFile) {
-                        $pubObjectId = $pubObject->getId();
-                    }
                     $dao->deletePubId($pubObjectId, $pubIdPlugin->getPubIdType());
                     // set the object setting/data 'pub-id::...' to null, in order
                     // not to be considered in the DB object update later in the form

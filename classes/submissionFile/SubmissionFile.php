@@ -405,6 +405,14 @@ class SubmissionFile extends \PKP\core\DataObject
             return $doiObject->getData('doi');
         }
     }
+
+    /**
+     * @copydoc \PKP\core\DataObject::getDAO()
+     */
+    public function getDAO(): DAO
+    {
+        return Repo::submissionFile()->dao;
+    }
 }
 
 if (!PKP_STRICT_MODE) {

@@ -1,9 +1,10 @@
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-12-15 09:58+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:53:45 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "installer.additionalLocales"
@@ -127,7 +128,7 @@ msgstr ""
 "obligatoire."
 
 msgid "installer.form.timeZoneRequired"
-msgstr ""
+msgstr "Un fuseau horaire doit être sélectionné."
 
 msgid "installer.installationWrongPhp"
 msgstr ""
@@ -156,11 +157,10 @@ msgstr ""
 "Erreur de traitement du fichier d'installation de la base de données "
 "<tt>{$file}</tt>."
 
-#, fuzzy
 msgid "installer.installMigrationError"
 msgstr ""
 "Une erreur s'est produite lors de l'exécution de la classe de migration "
-"<tt>{$class}</tt>."
+"<tt>{$class}</tt>. L'exception était {$message}."
 
 msgid "installer.installParseEmailTemplatesFileError"
 msgstr ""
@@ -177,10 +177,14 @@ msgstr ""
 "renseignements."
 
 msgid "installer.timezoneInstructions"
-msgstr ""
+msgstr "Le fuseau horaire à utiliser pour ce système."
 
 msgid "installer.additionalLocalesInstructions"
 msgstr ""
+"Sélectionner toutes les langues supplémentaires à prendre en charge dans ce "
+"système. Des langues supplémentaires peuvent également être installées à "
+"tout moment depuis l'interface d'administration du site. <br> * = Désigne "
+"les langues qui ne sont pas entièrement traduites (> 90% des termes traduits)"
 
 msgid "installer.locale"
 msgstr "Paramètre régional"

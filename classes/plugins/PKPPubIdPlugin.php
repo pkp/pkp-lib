@@ -127,7 +127,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * Get the public identifier.
      *
      * @param object $pubObject
-     * 	Submission, Representation, SubmissionFile + OJS Issue
+     * 	Publication, Representation, SubmissionFile
      *
      * @return string
      */
@@ -321,7 +321,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
             }
             $newPubId = $this->constructPubId($pubIdPrefix, $fieldValue, $contextId);
 
-            if (!$this->checkDuplicate($newPubId, $pubObject->getId(), get_class($pubObject), $contextId)) {
+            if (!$this->checkDuplicate($newPubId, get_class($pubObject), $pubObject->getId(), $contextId)) {
                 $errorMsg = $this->getNotUniqueErrorMsg();
                 return false;
             }
@@ -351,7 +351,6 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
     {
         return  [
             Repo::publication()->dao,
-            Repo::submission()->dao,
             Application::getRepresentationDAO(),
             Repo::submissionFile()->dao,
         ];
@@ -361,7 +360,7 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * Can a pub id be assigned to the object.
      *
      * @param object $pubObject
-     * 	Submission, Representation, SubmissionFile + OJS Issue
+     * 	Publication, Representation, SubmissionFile, OJS Issue, OMP Chapter
      *
      * @return bool
      * 	false, if the pub id contains an unresolved pattern i.e. '%' or
@@ -419,6 +418,8 @@ abstract class PKPPubIdPlugin extends LazyLoadPlugin
      * @param string $hookName
      * @param DAO $dao
      * @param array $additionalFields
+     *
+     * @return bool
      */
     public function getAdditionalFieldNames($hookName, $dao, &$additionalFields)
     {

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -2963,223 +2963,274 @@ msgid "emailTemplate.variable.site.siteSignature"
 msgstr "Podpis e-mail witryny dla automatycznych wiadomości e-mail"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
-msgstr ""
+msgstr "Redaktorzy przypisani do tego zgłoszenia, mogący podjąć decyzję"
 
 msgid "emailTemplate.variable.submission.submissionTitle"
-msgstr ""
+msgstr "Tytuł zgłoszenia"
 
 msgid "emailTemplate.variable.submission.submissionId"
-msgstr ""
+msgstr "Unikalny numer identyfikacyjny zgłoszenia"
 
 msgid "emailTemplate.variable.submission.submissionAbstract"
-msgstr ""
+msgstr "Abstrakt zgłoszenia"
 
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr ""
+msgstr "Skrótowe ujęcie nazwisk autorów, np. „Kowalski i in.”"
 
 msgid "emailTemplate.variable.submission.authors"
-msgstr ""
+msgstr "Pełne nazwiska autorów"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Internetowy adres zgłoszenia dostępny dla autora"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
-msgstr ""
+msgstr "Internetowy adres zgłoszenia dostępny dla redakcji"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Internetowy adres zgłoszenia dostępny po publikacji"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
 msgstr ""
+"Internetowy adres zgłoszenia dostępny podczas działania kreatora zgłoszenia"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Nazwiska autorów do kontaktu na czas procedowania zgłoszenia. Zwykle jest to "
+"autor zgłaszający"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Zmieszany adres internetowy, wysyłany do użytkownika w celu potwierdzenia "
+"zresetowania hasła"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Nowe losowe hasło użytkownika"
 
 msgid "mailable.reviewerReinstate.name"
-msgstr ""
+msgstr "Przywróć recenzenta"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Wyślij ponownie do recenzenta prośbę o wykonanie recenzji"
 
 msgid "emailTemplate.variable.submitterName"
-msgstr ""
+msgstr "Pełna nazwa użytkownika, który zarejestrował zgłoszenie"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Tytuł ogłoszenia"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Krótki opis ogłoszenia"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Internetowy adres ogłoszenia"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Ilość zgłoszeń zarejestrowanych w tym miesiącu"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Ilość zgłoszeń odrzuconych"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Ilość zgłoszeń zaakceptowanych"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
-msgstr ""
+msgstr "Ilość zgłoszeń nigdzie nieuwzględnionych"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Łączna ilość otrzymanych zgłoszeń"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Miesiąc raportu"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Rok raportu"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Identyfikacja wydania - tom, numer, rok i tytuł"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Internetowy adres opublikowanego wydania"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Rok raportu"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Odsyłacz do strony o aktywności redakcyjnej"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
+"Ta wiadomość e-mail jest wysyłana, gdy recenzent nieprzypisany do żadnego "
+"zgłoszenia zostaje przywrócony przez redaktora."
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Ta wiadomość e-mail jest wysyłana przez redaktora do recenzenta, który "
+"odrzucił prośbę o wykonanie recenzji, ale redaktor chce tę prośbę ponowić."
 
 msgid "mailable.reviewerUnassign.name"
-msgstr ""
+msgstr "Cofnij przypisanie recenzenta"
 
 msgid "mailable.reviewerUnassign.description"
 msgstr ""
+"Ta wiadomość e-mail jest wysyłana, gdy redaktor wycofuje przypisanie "
+"recenzenta."
 
 msgid "mailable.validateEmailSite.name"
 msgstr ""
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest automatycznie do użytkownika "
+"rejestrującego się w witrynie, gdy ta wymaga weryfikacji jego adresu e-mail."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Powiadom innych autorów"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest do tych autorów ze zgłoszenia, którzy nie "
+"są przypisani jako uczestnicy jego procedowania, w celu powiadomienia ich o "
+"podjęciu decyzji. Zwykle są to autorzy wszyscy inni niż autor rejestrujący "
+"zgłoszenie."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
-msgstr ""
+msgstr "Kopia wiadomości e-mail wysłanej do autora rejestrującego zgłoszenie"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Powiadom recenzentów o decyzji"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest przez redaktora do recenzenta w celu "
+"powiadomienia go o podjęciu decyzji dotyczącej dalszego procedowania "
+"recenzowanego przez niego zgłoszenia."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Krótki opis decyzji o dalszym procedowaniu zgłoszenia, dołączany do "
+"wiadomości e-mail do recenzentów tego zgłoszenia, powiadamiającej ich o tej "
+"decyzji"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
-msgstr ""
+msgstr "Zdecydowaliśmy się przyjąć to zgłoszenie bez rewizji."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Zdecydowaliśmy się odrzucić to zgłoszenie."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Poprosiliśmy autorów o przeprowadzenie rewizji ich zgłoszeń."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Poprosiliśmy autorów o przeprowadzenie rewizji ich zgłoszeń, by poddać je "
+"ponownej recenzji."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
-msgstr ""
+msgstr "Usunięto powiązanie recenzenta z tym zgłoszeniem."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie przyjęte"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora, że jego zgłoszenie zostało przyjęte "
+"do publikacji."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie odesłano do korekty"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora, że jego zgłoszenie odesłano do "
+"korekty."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie powróciło z korekty"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
-msgstr ""
+msgstr "Ta wiadomość e-mail powiadamia autora o powrocie zgłoszenia z korekty."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Runda recenzji odwołana"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
-msgstr ""
+msgstr "Ta wiadomość e-mail powiadamia autora o odwołaniu rundy recenzji."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie odrzucone"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o odrzuceniu jego zgłoszenia po "
+"rekomendacjach recenzentów."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie odrzucone"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Rozpoczęto nową rundę recenzji"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o rozpoczęciu nowej rundy recenzji "
+"jego zgłoszenia."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Wymagana rewizja"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o wymogu rewizji jego zgłoszenia na "
+"skutek rekomendacji recenzentów."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Rewizja i ponowna recenzja"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o wymogu rewizji i ponownej recenzji "
+"jego zgłoszenia na skutek rekomendacji recenzentów."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
 msgstr ""
+"Zgłoszenie odrzucone przed przeprowadzeniem recenzji przywrócono do "
+"ponownego procedowania redakcyjnego"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o przywróceniu jego zgłoszenia, "
+"wcześniej odrzuconego po rekomendacjach recenzentów, do ponownego "
+"procedowania redakcyjnego."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
 msgstr ""
+"Zgłoszenie odrzucone przed przeprowadzeniem recenzji przywrócono do "
+"ponownego procedowania redakcyjnego"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o przywróceniu jego zgłoszenia, "
+"odrzuconego przed przeprowadzeniem recenzji, do ponownego procedowania "
+"redakcyjnego."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Rozpoczęto etap recenzowania zgłoszenia"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o rozpoczęciu etapu recenzowania jego "
+"zgłoszenia."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "Zgłoszenie weszło w etap produkcji"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail powiadamia autora o rozpoczęciu etapu produkcji dla jego "
+"zgłoszenia."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
 msgstr ""

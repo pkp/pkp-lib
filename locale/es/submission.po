@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2023-04-27 10:50+0000\n"
 "Last-Translator: Jordi LC <jordi.lacruz@uab.cat>\n"
 "Language-Team: Spanish <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/es/>\n"
@@ -1561,45 +1561,39 @@ msgstr "{$editorName} solicitó revisiones para este envío."
 msgid "editor.submission.decision.requestRevisions.completed"
 msgstr "Revisiones solicitadas"
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
 "Se han solicitado revisiones para el envío, {$title}. Se han enviado todas "
-"las notificaciones, excepto las que decidió omitir."
+"las notificaciones, excepto las que haya decidido omitir."
 
-#, fuzzy
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
-"Envíe un correo electrónico a los autores para informarles de que será "
+"Enviar un correo electrónico a los autores/as para informarles de que será "
 "necesario realizar revisiones antes de aceptar el envío para su publicación. "
-"Incluya todos los detalles que el autor necesitará para revisar su envío. "
-"Cuando proceda, recuerde anonimizar los comentarios de los revisores. Este "
-"correo electrónico no se enviará hasta que se haya registrado la decisión."
+"Incluya todos los detalles que el autor/a necesitará para revisar su envío. "
+"Cuando proceda, recuerde anonimizar los comentarios de los revisores/as. "
+"Este correo electrónico no se enviará hasta que se haya registrado la "
+"decisión."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound"
 msgstr "Cancelar ronda de revisión"
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
 "Cancelar la ronda de revisión actual y devolver el envío a la última ronda "
 "de revisión. Si se trata de la primera ronda de revisión, se devolverá a la "
 "fase de envío."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.log"
 msgstr "{$editorName} ha cancelado la ronda de revisión."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr "Cancelada la última ronda de revisión."
+msgstr "La última ronda de revisión fue cancelada."
 
-#, fuzzy
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
 "La ronda de revisión del envío {$title} ha sido cancelada. Se han enviado "
-"todas las notificaciones, excepto las que decidió omitir."
+"todas las notificaciones, excepto las que haya decidido omitir."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
@@ -1609,58 +1603,48 @@ msgstr ""
 msgid "editor.submission.decision.resubmit"
 msgstr "Reevaluable"
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
-"El autor/a debe proporcionar las revisiones que serán enviadas a otra ronda "
-"de revisión antes de que este envío sea aceptado para su publicación."
+"El autor/a debe proporcionar las revisiones que se enviarán a otra ronda de "
+"revisión antes de que este envío sea aceptado para su publicación."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
-"{$editorName} ha solicitado revisiones para este envío que deberían enviarse "
-"para otra ronda de revisión."
+"{$editorName} ha solicitado revisiones para este envío que deberían "
+"remitirse a otra ronda de revisión."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed"
 msgstr "Revisiones solicitadas"
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
-"Se han solicitado revisiones para el envío, {$title}. Se ha tomado la "
+"Se han solicitado revisiones para el envío {$title}. Se ha registrado la "
 "decisión de enviar las revisiones a otra ronda de revisión. Se han enviado "
-"todas las notificaciones, excepto las que decidió omitir."
+"todas las notificaciones, excepto las que haya decidido omitir."
 
-#, fuzzy
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
-"Envíe un correo electrónico a los autores/as para informarles de que deberán "
-"completar las revisiones y enviarlas para otra ronda de revisión. Incluya "
-"todos los detalles que el autor/a necesitará para revisar su envío. Cuando "
-"proceda, recuerde anonimizar los comentarios de los revisores/as."
+"Enviar un correo electrónico a los autores/as para informarles de que será "
+"necesario completar las revisiones y enviarlas a otra ronda de revisión. "
+"Incluya todos los detalles que el autor/a necesitará para revisar su envío. "
+"Cuando proceda, recuerde anonimizar los comentarios de los revisores/as."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview"
 msgstr "Enviar a revisión"
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr "Este envío está listo para enviar a la revisión por pares."
+msgstr "Este envío está listo para enviarse a revisión por pares."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr "{$editorName} ha enviado este envío a la fase de revisión."
+msgstr "{$editorName} envió este envío a la fase de revisión."
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr "Enviado para revisión"
+msgstr "Enviado a revisión"
 
-#, fuzzy
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
-"El envío, {$title}, ha sido enviado a la fase de revisión. El autor/a ha "
-"sido notificado, a menos que haya elegido omitir ese correo electrónico."
+"El envío, {$title}, ha sido enviado a la fase de revisión. Se ha notificado "
+"al autor/a, a menos que haya elegido omitir el correo electrónico."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Nueva ronda de revisión"
@@ -1668,125 +1652,103 @@ msgstr "Nueva ronda de revisión"
 msgid "editor.submission.decision.sendToProduction"
 msgstr "Enviar a producción"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
-"Enviar este envío a la fase de producción para prepararlo para su "
-"publicación."
+"Pasar este envío a la fase de producción para prepararlo para su publicación."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr "{$editorName} envió este envío a la fase de producción."
+msgstr "{$editorName} remitió este envío a la fase de producción."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed"
 msgstr "Enviado a producción"
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
-"El envío, {$title}, ha pasado a la fase de producción. El autor/a ha sido "
-"notificado, a menos que haya elegido omitir ese correo electrónico."
+"El envío, {$title}, ha pasado a la fase de producción. Se notificó al autor/"
+"a, a menos que haya elegido omitir el correo electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
-"Enviar un correo electrónico a los autores/as para informarles de que la "
-"propuesta ha pasado a la fase de producción. Este correo electrónico no se "
+"Enviar un correo electrónico a los autores/as para informarles de que el "
+"envío ha pasado a la fase de producción. Este correo electrónico no se "
 "enviará hasta que se registre la decisión."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr "Anular la corrección"
+msgstr "Cancelar la corrección"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr "Devolver este envío desde la fase de corrección."
+msgstr "Retornar este envío desde la fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.log"
-msgstr "{$editorName} ha devuelto este envío de la fase de corrección."
+msgstr "{$editorName} ha retornado este envío desde la fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr "Devuelto de la fase de corrección"
+msgstr "Retornado desde la fase de edición"
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
-"El envío, {$title}, ha sido devuelto de la fase de revisión. El autor/a ha "
-"sido notificado, a menos que haya optado por omitir ese correo electrónico."
+"El envío, {$title}, ha sido retornado desde la fase de edición. Se ha "
+"notificado al autor/a, a menos que haya decidido omitir el correo "
+"electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
-"Enviar un correo electrónico a los autores/as para informarles que se ha "
-"cancelado la corrección y que su envío se someterá a una posterior revisión "
+"Enviar un correo electrónico a los autores/as para informarles de que se ha "
+"cancelado la corrección y de que su envío se someterá a otra revisión "
 "editorial."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting"
-msgstr "Devuelto a corrección"
+msgstr "Retornar a edición"
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr "Devolver este envío a la fase de corrección."
+msgstr "Retornar este envío a la fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.log"
-msgstr "{$editorName} ha devuelto este envío a la fase de corrección."
+msgstr "{$editorName} ha retornado este envío a la fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr "Devuelto a corrección"
+msgstr "Retornado a edición"
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
-"El envío, {$title}, se ha devuelto a la fase de corrección. El autor/a ha "
-"sido notificado, a menos que haya elegido omitir ese correo electrónico."
+"El envío, {$title}, se ha retornado a la fase de edición. El autor/a ha sido "
+"notificado, a menos que haya decidido omitir el correo electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
 "Enviar un correo electrónico a los autores/as para informarles de que la "
-"propuesta ha sido devuelta a la fase de corrección. Explicar por qué se ha "
-"tomado esta decisión e informar al autor/a de qué será necesario corregir "
+"propuesta ha sido retornada a la fase de edición. Explique por qué se ha "
+"tomado esta decisión e informe al autor/a de qué será necesario corregir "
 "antes de que el envío esté listo para la producción."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Aceptar y omitir la revisión"
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
-"Aceptar este envío para su publicación y ometer la fase de revisión. Esta "
-"decisión remitirá el envío a la fase de corrección."
+"Aceptar este envío para su publicación y omitir la fase de revisión. Esta "
+"decisión remitirá el envío a la fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
 "{$editorName} ha omitido la fase de revisión y ha remitido este envío a la "
-"fase de corrección."
+"fase de edición."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed"
 msgstr "Revisión omitida"
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
-"El envío, {$title}, ha pasado la fase de revisión y se ha enviado a la fase "
-"de corrección. Se ha notificado el autor/a, a menos que haya elegido omitir "
-"el correo electrónico."
+"El envío, {$title}, ha omitido la fase de revisión y se ha enviado a la fase "
+"de edición. Se ha notificado al autor/a, a menos que haya decidido omitir el "
+"correo electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
-"Enviar un correo electrónico a los autores/as para comunicarles que este "
-"envío ha sido aceptado para su publicación y remitido a la fase de "
-"corrección de estilo sin revisión. Este correo electrónico no se enviará "
-"hasta que se registre la decisión."
+"Enviar un correo electrónico a los autores/as para informarles de que el "
+"envío ha sido aceptado para su publicación y se ha enviado a la fase de "
+"edición sin revisión. Este correo electrónico no se enviará hasta que se "
+"registre la decisión."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Enviar para revisión interna"
@@ -1807,94 +1769,76 @@ msgstr ""
 msgid "editor.submission.decision.revertDecline"
 msgstr "Revertir el rechazo"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
-"Revertir una decisión anterior de rechazar este envío y devolverlo al "
-"proceso editorial activo. Se ha notificado el autor/a, a menos que haya "
-"optado por omitir ese correo electrónico."
+"Revertir la decisión anterior de rechazar este envío y devolverlo al proceso "
+"editorial activo. Se ha notificado al autor/a, a menos que haya decidido "
+"omitir el correo electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.log"
 msgstr "{$editorName} revocó la decisión de rechazar este envío."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed"
 msgstr "Envío reactivado"
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.completed.description"
-msgstr "El envío, {$title}, ahora es un envío activo en fase de revisión."
+msgstr "El envío, {$title}, ahora está activo en la fase de revisión."
 
-#, fuzzy
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
 "Enviar un correo electrónico a los autores/as para informarles de que se ha "
-"revocado la decisión anterior de rechazar el envío. Explicar por qué se ha "
-"revocado la decisión e indicar si se espera que el envío se someta a una "
-"nueva revisión."
+"revocado la decisión anterior de rechazar su envío. Explique por qué se ha "
+"revocado la decisión e indique si se espera que el envío se someta a otra "
+"revisión."
 
-#, fuzzy
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
 "El envío, {$title}, ahora está activo en la fase de envío. Se ha notificado "
-"el autor/a, a menos que haya elegido omitir ese correo electrónico."
+"al autor/a, a menos que haya decidido omitir el correo electrónico."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
 msgstr ""
-"Asigne un editor/a para habilitar las decisiones editoriales en esta fase."
+"Asignar un editor/a para habilitar las decisiones editoriales en esta fase."
 
-#, fuzzy
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
-"Enviar un mensaje a los editores/as decisores para comunicarles la "
-"recomendación. Explicar por qué se ha hecho esta recomendación en respuesta "
-"a las recomendaciones y comentarios enviados por los revisores/as."
+"Enviar un mensaje a los editores/as responsables para informarlos de la "
+"recomendación. Explique por qué se ha hecho esta recomendación en relación "
+"con las recomendaciones y comentarios enviados por los revisores/as."
 
-#, fuzzy
 msgid "editor.submission.recommend.accept"
-msgstr "Recomendar aceptar"
+msgstr "Recomendar la aceptación"
 
-#, fuzzy
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
 "Recomendar que se acepte este envío para su publicación y que se envíe a "
-"corrección de estilo."
+"edición."
 
-#, fuzzy
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
-"{$editorName} ha recomendado que se acepte este envío y se envie a "
-"corrección."
+"{$editorName} recomendó la aceptación del envío y que se envíe a edición."
 
-#, fuzzy
 msgid "editor.submission.recommend.completed"
 msgstr "Recomendación enviada"
 
-#, fuzzy
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
-"Se ha registrado su recomendación y se ha notificado al editor/a o editores/"
-"as que han tomado la decisión."
+"Se ha registrado su recomendación y se ha notificado a los editores/as "
+"responsables."
 
-#, fuzzy
 msgid "editor.submission.recommend.revisions"
 msgstr "Recomendar revisiones"
 
-#, fuzzy
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
 "Recomendar que se soliciten revisiones al autor/a antes de aceptar este "
 "envío para su publicación."
 
-#, fuzzy
 msgid "editor.submission.recommend.revisions.log"
-msgstr "{$editorName} ha recomendado que se soliciten revisiones."
+msgstr "{$editorName} recomendó que se soliciten revisiones."
 
-#, fuzzy
 msgid "editor.submission.recommend.resubmit"
-msgstr "Recomendar reenviar para revisión"
+msgstr "Recomendar el reenvío a revisión"
 
 #, fuzzy
 msgid "editor.submission.recommend.resubmit.description"

@@ -1,20 +1,20 @@
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2022-02-22 10:26+0000\n"
+"PO-Revision-Date: 2023-04-27 10:50+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
-"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
+">\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "admin.systemInfo.settingName"
 msgstr "Name der Einstellung"
@@ -26,10 +26,12 @@ msgid "admin.adminFunctions"
 msgstr "Administrationsaufgaben"
 
 msgid "admin.deleteCache"
-msgstr ""
+msgstr "Caches löschen"
 
 msgid "admin.deleteCache.description"
 msgstr ""
+"Cache Dateien aus dem System löschen. Dies sollte nur in Entwicklungs-"
+"Umgebungen getan werden."
 
 msgid "admin.clearDataCache"
 msgstr "Den Datenspeicher leeren"
@@ -81,6 +83,8 @@ msgstr "Benutzer/innensitzungen schließen"
 
 msgid "admin.expireSessions.description"
 msgstr ""
+"Alle Nutzer/innen, inkl. Ihnen, werden sofort aus der Applikation ausgeloggt "
+"und müssen sich erneut einloggen."
 
 msgid "admin.languages.cantDisable"
 msgstr ""
@@ -156,12 +160,17 @@ msgstr ""
 
 msgid "admin.scheduledTask.editorialReminder"
 msgstr ""
+"Eine E-Mail an alle Redakteur/innen schicken um sie an ihre ausstehenden "
+"Aufgaben zu erinnern"
 
 msgid "admin.scheduledTask.editorialReminder.logStart"
 msgstr ""
+"Identifizierung der zu erinnernden Redakteur/innen im Kontext {$contextId}"
 
 msgid "admin.scheduledTask.editorialReminder.logEnd"
 msgstr ""
+"{$count} Jobs erstellt, um redaktionelle E-Mail-Erinnerungen an Benutzer/"
+"innen {$userIds} im Kontext {$contextId} zu senden"
 
 msgid "admin.scheduledTask.confirmClearLogs"
 msgstr ""
@@ -172,10 +181,10 @@ msgid "admin.scheduledTask.clearLogs"
 msgstr "Logdateien zur Ausführung geplanter Aufgaben löschen"
 
 msgid "admin.scheduledTask.clearLogs.description"
-msgstr ""
+msgstr "Alle Protokolle der ausgeführten geplanten Aufgabenprozesse löschen."
 
 msgid "admin.scheduledTask.clearLogs.delete"
-msgstr ""
+msgstr "Aufgabenprotokolle löschen"
 
 msgid "admin.scheduledTask.publishSubmissions"
 msgstr "Die zur Veröffentlichung vorgesehenen Beiträge jetzt veröffentlichen"
@@ -190,25 +199,32 @@ msgid "admin.scheduledTask.subscriptionExpiryReminder"
 msgstr "Erinnerung an Ende des Abonnements"
 
 msgid "admin.scheduledTask.removeUnvalidatedExpiredUsers"
-msgstr ""
+msgstr "Unvalidierte abgelaufene Benutzer/innen entfernen"
 
 msgid "admin.scheduledTask.removeFailedJobs"
 msgstr ""
+"Ältere fehlgeschlagene Aufgaben aus der Liste der fehlgeschlagenen Aufgaben "
+"entfernen."
 
 msgid "admin.scheduledTask.processQueueJobs"
-msgstr ""
+msgstr "Ausstehende Aufgaben in der Warteschlange abarbeiten"
 
 msgid "admin.scheduledTask.updateGeoDB"
-msgstr ""
+msgstr "DB-IP city lite Datenbank aktualisieren"
 
 msgid "admin.scheduledTask.updateGeoDB.fileRename.error"
 msgstr ""
+"Umbenennung der DB-IP city lite Datenbank-Datei {$sourceFilename} zu "
+"{$targetFilename} fehlgeschlagen."
 
 msgid "admin.scheduledTask.usageStatsLoader"
 msgstr "Task zum Laden der Nutzungsstatistik-Datei"
 
 msgid "admin.scheduledTask.usageStatsLoader.processingPathNotEmpty"
 msgstr ""
+"Das Verzeichnis {$directory} ist nicht leer. Dies könnte auf einen zuvor "
+"fehlgeschlagenen Prozess oder auf einen gleichzeitig laufenden Prozess "
+"hinweisen. Diese Datei wird automatisch erneut verarbeitet."
 
 msgid "admin.scheduledTask.usageStatsLoader.openFileFailed"
 msgstr ""

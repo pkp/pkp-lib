@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-04-24 10:25+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -69,34 +69,41 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Le type de publication n'a pas été reconnu."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
 
 msgid "api.dois.404.doiNotFound"
-msgstr ""
+msgstr "Le DOI demandé n'a pas été trouvé."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "L'objet de publication demandé n'a pas été trouvé."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "La soumission que vous avez demandée n'a pas été trouvée."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
+"Les éléments non publiés ne peuvent pas être exportés/déposés. Veuillez "
+"désélectionner les éléments non publiés et essayer de nouveau."
 
 msgid "api.dois.400.creationFailed"
-msgstr ""
+msgstr "Une erreur s'est produite et l'objet DOI n'a pas pu être créé."
 
 msgid "api.dois.400.xmlExportFailed"
 msgstr ""
+"Une erreur de validation XML s'est produite et le XML n'a pu être exporté."
 
 msgid "api.dois.400.markRegisteredFailed"
 msgstr ""
+"Une erreur s'est produite et certains des éléments soumis n'ont pas été "
+"marqués comme étant enregistrés."
 
 msgid "api.dois.400.depositFailed"
 msgstr ""
+"Certains éléments n'ont pas été déposés avec succès. Veuillez vérifier les "
+"messages d'erreur spécifiques à chaque élément."
 
 msgid "api.dois.404.noPubObjectIncluded"
 msgstr ""

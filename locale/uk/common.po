@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"PO-Revision-Date: 2023-04-27 07:49+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "common/uk/>\n"
@@ -29,7 +29,7 @@ msgid "about.guidelines"
 msgstr "Методичні рекомендації"
 
 msgid "about.aboutSite"
-msgstr "Про сайт"
+msgstr "Про вебсайт"
 
 msgid "about.contact"
 msgstr "Контактна інформація"
@@ -56,7 +56,7 @@ msgid "about.policies"
 msgstr "Політика"
 
 msgid "about.siteMap"
-msgstr "Карта сайту"
+msgstr "Мапа вебсайту"
 
 msgid "announcement.announcements"
 msgstr "Оголошення"
@@ -86,10 +86,10 @@ msgid "common.navigation.sidebar"
 msgstr "Бічна панель"
 
 msgid "common.navigation.site"
-msgstr "Навігація сайту"
+msgstr "Навігація вебсайту"
 
 msgid "common.navigation.siteContext"
-msgstr "Контекстна навігація сайту"
+msgstr "Контекстна навігація вебсайту"
 
 msgid "common.navigation.user"
 msgstr "Навігація користувача"
@@ -163,7 +163,7 @@ msgstr ""
 "там тоді що"
 
 msgid "common.alreadyAssigned"
-msgstr "Призначений"
+msgstr "Призначено"
 
 msgid "common.altText"
 msgstr "Альтернативний текст"
@@ -184,10 +184,10 @@ msgid "common.assign"
 msgstr "Призначити"
 
 msgid "common.assigned"
-msgstr "Призначений"
+msgstr "Призначено"
 
 msgid "common.assigned.date"
-msgstr "Призначений: {$dateAssigned}"
+msgstr "Призначено: {$dateAssigned}"
 
 msgid "common.available"
 msgstr "Доступно"
@@ -945,7 +945,7 @@ msgid "common.upload.restore"
 msgstr "Відновити попереднє"
 
 msgid "common.upload.thumbnailPreview"
-msgstr "Попередній перегляд обраного зображення."
+msgstr "Попередній перегляд наразі вибраного зображення."
 
 msgid "common.upload.changeFile"
 msgstr "Змінити файл"
@@ -1556,7 +1556,7 @@ msgid "navigation.viewFrontend"
 msgstr "Переглянути сайт"
 
 msgid "institution.institutions"
-msgstr "Організації"
+msgstr "Установи"
 
 msgid "notification.addedAuditor"
 msgstr "Аудитора додано."
@@ -1831,7 +1831,7 @@ msgstr "Повернутись назад"
 
 msgid "notification.addedReviewer"
 msgstr ""
-"{$reviewerName} було призначено рецензентом цього подання та надіслано "
+"{$reviewerName} було призначено рецензентом цього подання, і було надіслано "
 "повідомлення електронною поштою."
 
 msgid "notification.addedReviewerNoEmail"
@@ -1921,9 +1921,9 @@ msgstr "Ви не маєте доступу до цього призначенн
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
-"Ви не маєте достатньо прав для перегляду подання. Будь ласка, відредагуйте "
-"свій профіль, щоб переконатися, що вам надано відповідні ролі у розділі "
-"\"Реєстрація як\"."
+"Ви наразі не маєте достатньо прав для перегляду подання. Будь ласка, "
+"відредагуйте свій профіль, щоб переконатися, що Вам надано відповідні ролі в "
+"розділі \"Зареєструватися як\"."
 
 msgid "user.authorization.submissionAuthor"
 msgstr ""
@@ -1941,7 +1941,8 @@ msgstr "Обговорення додано."
 
 msgid "notification.type.assignCopyeditors"
 msgstr ""
-"Призначте коректора, використовуючи покликання \"Додати\" в списку учасників."
+"Призначте літературного редактора, використовуючи покликання \"Призначити\" "
+"в списку учасників."
 
 msgid "notification.type.awaitingCopyedits"
 msgstr "Очікується літературне редагування."
@@ -2043,14 +2044,13 @@ msgid "validator.alpha"
 msgstr "Це може містити тільки букви."
 
 msgid "validator.alpha_dash"
-msgstr ""
-"Це може містити тільки букви, числа, дефіс, тире та нижнє підкреслення."
+msgstr "Це може містити тільки букви, числа, цифри, тире й підкреслення."
 
 msgid "validator.alpha_dash_period"
 msgstr "Може містити лише букви, цифри, тире, підкреслення та крапки."
 
 msgid "validator.alpha_num"
-msgstr "Це може містити тільки букви та числа."
+msgstr "Це може містити тільки букви та цифри."
 
 msgid "validator.array"
 msgstr "Це не є валідним масивом."
@@ -2081,8 +2081,8 @@ msgstr "Такої країни немає."
 
 msgid "validator.country.regex"
 msgstr ""
-"Такої країни немає. Країна повинна мати один із 2-літерних міжнародних "
-"кодів. Побачте всі коди на https://en.wikipedia.org/wiki/"
+"Такої країни немає. Країна повинна мати один із 2-буквених міжнародних "
+"кодів. Перегляньте всі коди на https://en.wikipedia.org/wiki/"
 "ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"

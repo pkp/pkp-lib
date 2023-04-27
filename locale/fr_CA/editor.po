@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -80,21 +80,33 @@ msgstr "Le cycle d'évaluation spécifié ne fait pas partie de cette soumission
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"La soumission n'est pas à l'étape appropriée du processus éditorial pour "
+"pouvoir prendre cette décision."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Vous devez être assigné.e à cette soumission afin d'enregistrer une décision "
+"éditoriale."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Un numéro d'identification du cycle d'évaluation doit être fourni afin de "
+"prendre cette décision."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Une recommandation ne peut être faite que si un.e rédacteur.trice qui soit "
+"en mesure de prendre une décision finale est affecté.e à cette étape."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Aucune décision n'a pu être prise concernant cette soumission. L'identifiant "
+"de la soumission est manquant ou ne correspond pas à la soumission demandée."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Cette décision n'a pas été trouvée. Veuillez indiquer un type de décision "
+"reconnu."
 
 msgid "editor.review.notInitiated"
 msgstr "Le processus d'évaluation n'a pas encore débuté."
@@ -175,7 +187,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Réintégrer l'évaluateur-trice"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Envoyer de nouveau la demande d'évaluation"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Type d'évaluation"
@@ -235,6 +247,8 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Les révisions ne devraient pas être assujetties à un nouveau cycle "
+"d'évaluation par les pairs."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
@@ -594,13 +608,12 @@ msgstr ""
 "Cet,Cette évaluateur-trice a déjà été assigné-e à l'évaluation de cette "
 "soumission."
 
-#, fuzzy
 msgid "reviewer.list.warnOnAssign"
 msgstr ""
-"Cet,Cette évaluateur-trice est verrouillé-e car un rôle lui a été attribué "
-"qui lui permet de connaître l'identité de l'auteur-e. L'évaluation par les "
-"pairs en aveugle ne peut être garantie. Souhaitez-vous tout de même "
-"déverrouiller cet ou cette évaluateur-trice ?"
+"Cet.te évaluateur.trice est verrouillé.e car un rôle lui a été attribué qui "
+"lui permet de connaître l'identité de l'auteur.e. L'évaluation par les pairs "
+"en aveugle ne peut être garantie. Souhaitez-vous tout de même déverrouiller "
+"cet.te évaluateur.trice ?"
 
 msgid "reviewer.list.warnOnAssignUnlock"
 msgstr "Déverrouiller"
@@ -615,28 +628,28 @@ msgid "reviewer.list.empty"
 msgstr "Aucun-e évaluateur-trice n'a été trouvé-e"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Assigné à un cycle précédent"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Annuler la décision"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Êtes-vous certain.e de vouloir annuler cette décision ?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Compléter les étapes suivantes pour prendre cette décision"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Ne pas passer outre ce courriel"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Cette étape a été sautée et aucun courriel ne sera envoyé."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Enregistrer la décision"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Passer outre ce courriel"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Un problème est survenu avec l'étape {$stepName}."

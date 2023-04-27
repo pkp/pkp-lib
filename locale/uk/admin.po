@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:08+00:00\n"
-"PO-Revision-Date: 2023-04-27 07:49+0000\n"
+"PO-Revision-Date: 2023-04-27 10:50+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/"
 "uk/>\n"
@@ -307,7 +307,7 @@ msgid "admin.settings"
 msgstr "Налаштування"
 
 msgid "admin.settings.about"
-msgstr "Про цей сайт"
+msgstr "Про цей вебсайт"
 
 msgid "admin.settings.enableBulkEmails.label"
 msgstr "Масові електронні листи"
@@ -334,34 +334,35 @@ msgid "admin.settings.disableBulkEmailRoles.adminOnly"
 msgstr "Змінювати цей параметр може лише адміністратор."
 
 msgid "admin.settings.siteLanguage"
-msgstr "Мова сайту"
+msgstr "Мова вебсайту"
 
 msgid "admin.settings.siteStyleSheetInvalid"
-msgstr "Неприпустимий формат таблиці стилю сайту. Припустимий формат .css."
+msgstr ""
+"Неприпустимий формат таблиці стилю вебсайту. Припустимим форматом є .css."
 
 msgid "admin.settings.siteStyleSheet"
-msgstr "Таблиця стилю сайту"
+msgstr "Таблиця стилю вебсайту"
 
 msgid "admin.settings.siteLogo"
-msgstr "Логотип сайту"
+msgstr "Логотип вебсайту"
 
 msgid "admin.settings.siteTitle"
-msgstr "Заголовок сайту"
+msgstr "Назва вебсайту"
 
 msgid "admin.settings.siteTheme"
-msgstr "Тема сайту"
+msgstr "Тема вебсайту"
 
 msgid "admin.siteAdmin"
-msgstr "Адміністрування сайту"
+msgstr "Адміністрування вебсайту"
 
 msgid "admin.siteManagement"
-msgstr "Керування сайтом"
+msgstr "Керування вебсайтом"
 
 msgid "admin.siteSettings"
-msgstr "Налаштування сайту"
+msgstr "Налаштування вебсайту"
 
 msgid "admin.siteSetup"
-msgstr "Налаштування сайту"
+msgstr "Налаштування вебсайту"
 
 msgid "admin.systemConfigFileReadError"
 msgstr ""

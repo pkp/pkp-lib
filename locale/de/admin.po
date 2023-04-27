@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2023-04-27 10:50+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/de/"
 ">\n"
@@ -232,48 +232,65 @@ msgstr ""
 
 msgid "admin.scheduledTask.usageStatsLoader.veryOldLogFile"
 msgstr ""
+"Die Datei {$file} hat ein altes Protokolldateiformat, das nicht verarbeitet "
+"werden kann, und wird daher zurück in das Verzeichnis \"Stage\" geschoben."
 
 msgid "admin.scheduledTask.usageStatsLoader.monthExists"
 msgstr ""
+"Die Protokolldatei {$file} wurde übersprungen, da die Statistiken für diesen "
+"Monat bereits berechnet wurden. Um die Statistiken für einen früheren Monat "
+"neu zu berechnen, müssen Sie alle Protokolldateien dieses Monats "
+"wiederherstellen und das CLI-Tool verwenden, um die Statistiken neu zu "
+"verarbeiten."
 
 msgid "admin.scheduledTask.usageStatsLoader.wrongLoglineFormat"
 msgstr ""
+"Die Zeile {$lineNumber} in der Protokolldatei {$file} hat das falsche Format "
+"und wird daher übersprungen."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry"
 msgstr ""
+"Ungültiger Protokolleintrag in Zeile {$lineNumber} in der Protokolldatei "
+"{$file}: {$Fehler}"
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.time"
-msgstr ""
+msgstr "Die Zeit ist kein gültiges Datum."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.contextId"
-msgstr ""
+msgstr "Kontext ID ist keine ganze Zahl."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.submissionId"
-msgstr ""
+msgstr "Einreichungs-ID ist keine ganze Zahl."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.representationId"
-msgstr ""
+msgstr "Repräsentations-ID ist keine ganze Zahl."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.assocType"
-msgstr ""
+msgstr "Assoc type wird nicht unterstützt."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.fileType"
-msgstr ""
+msgstr "Dateityp wird nicht unterstützt."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.country"
-msgstr ""
+msgstr "Land ist keine aus zwei Buchstaben bestehende Zeichenfolge."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.region"
 msgstr ""
+"Region ist keine aus bis zu drei alphanumerischen Zeichen bestehende "
+"Zeichenfolge."
 
 msgid "admin.scheduledTask.usageStatsLoader.invalidLogEntry.institutionIds"
-msgstr ""
+msgstr "Institutions-ID ist kein Array."
 
 msgid "admin.scheduledTask.usageStatsLoader.insertError"
 msgstr ""
+"Bei der Verarbeitung der Protokolldatei {$file} ist in der Zeile "
+"{$lineNumber} ein Fehler aufgetreten: {$msg}"
 
 msgid "admin.scheduledTask.usageStatsLoader.jobDispatched"
 msgstr ""
+"Der Hintergrundauftrag, der die Protokolldatei {$file} verarbeitet und die "
+"Statistikdaten speichert, wurde eingeleitet."
 
 msgid "admin.server.apacheVersion"
 msgstr "Apache-Version"
@@ -365,9 +382,11 @@ msgstr "Systeminformationen"
 
 msgid "admin.systemInformation.description"
 msgstr ""
+"Informationen über die Version und Konfigurationseinstellungen der Anwendung "
+"und des Servers ansehen."
 
 msgid "admin.systemInformation.view"
-msgstr ""
+msgstr "Systeminformationen ansehen"
 
 msgid "admin.versionBuild"
 msgstr "Build"
@@ -400,10 +419,10 @@ msgid "admin.versionRevision"
 msgstr "Revision"
 
 msgid "admin.version.updateAvailable"
-msgstr "Eine aktuellere Version ist verfügbar."
+msgstr "Eine aktuellere Version ist verfügbar"
 
 msgid "admin.version.upToDate"
-msgstr "Ihr System ist auf dem aktuellen Stand."
+msgstr "Ihr System ist auf dem aktuellen Stand"
 
 msgid "admin.version"
 msgstr "Version"
@@ -418,7 +437,7 @@ msgstr "Der Ordner {$path} ist kein Verzeichnis oder ist nicht lesbar."
 msgid "admin.fileLoader.moveFileFailed"
 msgstr ""
 "Die Datei {$filename} konnte nicht von {$currentFilePath} nach "
-"{$destinationPath} verschoben werden."
+"{$destinationPath} verschoben werden"
 
 msgid "admin.fileLoader.fileProcessed"
 msgstr "Die Datei {$filename} wurde verarbeitet und archiviert."
@@ -428,45 +447,73 @@ msgstr "Fileloader"
 
 msgid "admin.error.gzDecompressFile.gzopen"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die gz-Sourcedatei {$filePath} "
+"konnte nicht mit gzopen geöffnet werden."
 
 msgid "admin.error.gzDecompressFile.fopen"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die Zieldatei {$filePath} konnte "
+"nicht mit fopen geöffnet werden."
 
 msgid "admin.error.gzDecompressFile.gzread"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die gz-Sourcedatei {$file} konnte "
+"nicht mit gzread gelesen werden."
 
 msgid "admin.error.gzDecompressFile.fwrite"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die Zieldatei {$filePath} konnte "
+"nicht mit fwrite geschrieben werden."
 
 msgid "admin.error.gzDecompressFile.fclose"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die geöffnete Zieldatei {$filePath} "
+"konnte nicht mit fclose geschlossen werden."
 
 msgid "admin.error.gzDecompressFile.gzclose"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die geöffnete gz-Sourcedatei "
+"{$filePath} konnte nicht mit gzclose geschlossen werden."
 
 msgid "admin.error.gzDecompressFile.unlink"
 msgstr ""
+"Datei konnte nicht dekomprimiert werden. Die dekomprimierte gz-Sourcedatei "
+"{$filePath} konnte nicht mit unlink entfernt werden."
 
 msgid "admin.error.gzCompressFile.gzopen"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die gz-Zieldatei {$filePath} konnte "
+"nicht mit gzopen geöffnet werden."
 
 msgid "admin.error.gzCompressFile.fopen"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die Sourcedatei {$filePath} konnte "
+"nicht mit fopen geöffnet werden."
 
 msgid "admin.error.gzCompressFile.fread"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die Sourcedatei {$filePath} konnte "
+"nicht mit fread gelesen werden."
 
 msgid "admin.error.gzCompressFile.gzwrite"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die gz-Zieldatei {$filePath} konnte "
+"nicht mit gzwrite geschrieben werden."
 
 msgid "admin.error.gzCompressFile.fclose"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die geöffnete Sourcedatei {$filePath} "
+"konnte nicht mit fclose geschlossen werden."
 
 msgid "admin.error.gzCompressFile.gzclose"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die geöffnete gz-Zieldatei {$filePath}"
+" konnte nicht mit gzclose geschlossen werden."
 
 msgid "admin.error.gzCompressFile.unlink"
 msgstr ""
+"Datei konnte nicht komprimiert werden. Die komprimierte Sourcedatei "
+"{$filePath} konnte nicht mit unlink entfernt werden."
 
 msgid "admin.languages.noLocalesToDownload"
 msgstr "Es sind keine Regionaleinstellungen zum Download verfügbar."
@@ -475,337 +522,426 @@ msgid "admin.cli.tool.usage.title"
 msgstr "Benutzung:"
 
 msgid "admin.cli.tool.usage.parameters"
-msgstr ""
+msgstr "command [arguments]"
 
 msgid "admin.cli.tool.available.commands"
-msgstr ""
+msgstr "Verfügbare Befehle für den '{$namespace}' Namensraum:"
 
 msgid "admin.cli.tool.jobs.maintenance.message"
 msgstr ""
+"Aufträge in der Warteschlange können nicht ausgeführt werden, da der "
+"Wartungsmodus der Anwendung aktiviert ist."
 
 msgid "admin.cli.tool.jobs.available.options.list.description"
 msgstr ""
+"Alle Aufträge aus der Warteschlange aufzählen. Wenn Sie die Ergebnisse in "
+"Seiten aufteilen möchten, verwenden Sie die Parameter --page= und --"
+"perPage=. Geben Sie das --failed an, um fehlgeschlagene Aufträge aufzulisten."
 
 msgid "admin.cli.tool.jobs.available.options.purge.description"
 msgstr ""
+"Löscht einen bestimmten Auftrag in der Warteschlange anhand seiner Id. Wenn "
+"Sie alle löschen möchten, verwenden Sie den Parameter --all. Wenn Sie alle "
+"Aufträge aus einer bestimmten Warteschlange löschen möchten, verwenden Sie "
+"den Parameter --queue="
 
 msgid "admin.cli.tool.jobs.available.options.test.description"
 msgstr ""
+"Fügen Sie einen Testauftrag in die Testwarteschlange ein. Verwenden Sie die "
+"optionalen Parameter --only= und verwenden Sie 'failed' oder 'success', um "
+"einen fehlgeschlagenen oder erfolgreichen Auftrag zu versenden."
 
 msgid "admin.cli.tool.jobs.available.options.work.description"
 msgstr ""
+"Startet einen unendlichen Daemon-Arbeitsprozess, der kontinuierlich Aufträge "
+"verarbeitet. Verwenden Sie die Option --help, um die verfügbaren Optionen "
+"für diesen Befehl anzuzeigen."
 
 msgid "admin.cli.tool.jobs.available.options.failed.description"
 msgstr ""
+"Alle fehlgeschlagenen Aufträge aufzählen. Setzen Sie die Parameter --"
+"queue=QUEUE_NAME und --connection=CONNECTION_NAME, um die Liste zu filtern. "
+"Verwenden Sie auch die Parameter/Flags --redispatch und --clear, um alle/"
+"bestimmte fehlgeschlagene Aufträge wieder in die Warteschlange zu stellen "
+"oder zu löschen."
 
 msgid "admin.cli.tool.jobs.available.options.run.description"
 msgstr ""
+"Verfügbare Aufträge in die Warteschlange stellen. Verwenden Sie den "
+"Parameter --queue=QUEUE_NAME, wenn Sie einen Auftrag in eine bestimmte "
+"Warteschlange einreihen möchten. Sie können auch einfach --test verwenden, "
+"um den Testauftrag auszuführen, und --once, um einen Auftrag nach dem "
+"anderen auszuführen."
 
 msgid "admin.cli.tool.jobs.available.options.run.completed.description"
-msgstr ""
+msgstr "{$jobCount} Aufträge aus der Warteschlange {$queueName} ausgeführt."
 
 msgid "admin.cli.tool.jobs.available.options.run.empty.description"
 msgstr ""
+"In der Warteschlange {$queueName} sind keine Aufträge zur Ausführung "
+"verfügbar."
 
 msgid "admin.cli.tool.jobs.available.options.total.description"
 msgstr ""
+"Die Gesamtzahl der Aufträge in der Warteschlange anzeigen. Verwenden Sie das "
+"Flag --failed, um alle fehlgeschlagenen Aufträge anzuzeigen."
 
 msgid "admin.cli.tool.jobs.available.options.help.description"
-msgstr ""
+msgstr "Command-Nutzung der Aufträge anzeigen"
 
 msgid "admin.cli.tool.jobs.available.options.usage.description"
-msgstr ""
+msgstr "Nutzungsparameter der Aufträge anzeigen"
 
 msgid "admin.cli.tool.jobs.empty.option"
-msgstr ""
+msgstr "Option konnte nicht leer sein! Überprüfen Sie die Nutzungsmethode."
 
 msgid "admin.cli.tool.jobs.queued.jobs.failed.title"
-msgstr ""
+msgstr "Fehlgeschlagene Aufträge in der Warteschlange"
 
 msgid "admin.cli.tool.jobs.queued.jobs.title"
-msgstr ""
+msgstr "Aufträge in der Warteschlange"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.queue"
-msgstr ""
+msgstr "Warteschlange"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.connection"
-msgstr ""
+msgstr "Verbindung"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.job.display.name"
-msgstr ""
+msgstr "Anzeigename des Auftrags"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.attempts"
-msgstr ""
+msgstr "Versuche"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.reserved.at"
-msgstr ""
+msgstr "Reserviert in"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.available.at"
-msgstr ""
+msgstr "Verfügbar in"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.created.at"
-msgstr ""
+msgstr "Kreiert in"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.failed.at"
-msgstr ""
+msgstr "Fehlgeschlagen in"
 
 msgid "admin.cli.tool.jobs.queued.jobs.fields.exception"
-msgstr ""
+msgstr "Ausnahmemitteilung"
 
 msgid "admin.cli.tool.jobs.pagination"
-msgstr ""
+msgstr "Seitenzahlen"
 
 msgid "admin.cli.tool.jobs.pagination.current"
-msgstr ""
+msgstr "Aktuell"
 
 msgid "admin.cli.tool.jobs.pagination.previous"
-msgstr ""
+msgstr "Vorherige"
 
 msgid "admin.cli.tool.jobs.pagination.next"
-msgstr ""
+msgstr "Nächste"
 
 msgid "admin.cli.tool.jobs.purge.without.id"
 msgstr ""
+"Sie sollten mindestens eine Auftrags-ID '--all' oder '--queue=' verwenden, "
+"um diesen Befehl zu benutzen"
 
 msgid "admin.cli.tool.jobs.test.job.failed.dispatch.message"
 msgstr ""
+"Versendeter Testauftrag, der an das Fehlschlagen in der Warteschlange "
+"{$queueName} gebunden ist"
 
 msgid "admin.cli.tool.jobs.test.job.success.dispatch.message"
 msgstr ""
+"Versendeter Testauftrag, der an den Erfolg in der Warteschlange {$queueName} "
+"gebunden ist"
 
 msgid "admin.cli.tool.jobs.test.invalid.option"
 msgstr ""
+"Ungültige Testauftragsoption. Für die Option '--only' kann nur 'failed' oder "
+"'success' angegeben werden."
 
 msgid "admin.cli.tool.jobs.purge.invalid.id"
-msgstr ""
+msgstr "Ungültige Auftrags-ID"
 
 msgid "admin.cli.tool.jobs.purge.successful"
-msgstr ""
+msgstr "Auftrag wurde gelöscht!"
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.empty"
-msgstr ""
+msgstr "Keine Aufträge zum löschen gefunden."
 
 msgid "admin.cli.tool.jobs.purge.impossible.to.purge.all"
-msgstr ""
+msgstr "Es war nicht möglich, alle Aufträge zu löschen."
 
 msgid "admin.cli.tool.jobs.purge.successful.all"
-msgstr ""
+msgstr "Alle Aufträge gelöscht!"
 
 msgid "admin.cli.tool.jobs.failed.clear.successful"
 msgstr ""
+"{$jobsCount} fehlgeschlagene Aufträge erfolgreich von der Fehlerliste "
+"entfernt."
 
 msgid "admin.cli.tool.jobs.failed.redispatch.successful"
-msgstr ""
+msgstr "{$jobsCount} Aufträge erfolgreich zurück in die Warteschlange gesendet."
 
 msgid "admin.cli.tool.jobs.total.failed.jobs"
-msgstr ""
+msgstr "{$total} fehlgeschlagene Aufträge"
 
 msgid "admin.cli.tool.jobs.total.jobs"
-msgstr ""
+msgstr "{$total} Aufträge in der Warteschlange"
 
 msgid "admin.cli.tool.jobs.option.doesnt.exists"
-msgstr ""
+msgstr "Option {$option} existiert nicht."
 
 msgid "admin.cli.tool.jobs.mean.those"
-msgstr ""
+msgstr "Meinten Sie einen der folgenden Punkte?"
 
 msgid "admin.jobs.totalCount"
 msgstr ""
+"Es sind insgesamt <strong>{$total}</strong> Aufträge in der Warteschlange"
 
 msgid "admin.jobs.failed.totalCount"
-msgstr ""
+msgstr "Es gibt insgesamt <strong>{$total}</strong> fehlgeschlagene Aufträge."
 
 msgid "admin.jobs.viewQueuedJobs"
-msgstr ""
+msgstr "Aufträge in der Warteschlange ansehen"
 
 msgid "navigation.tools.jobs"
-msgstr ""
+msgstr "Aufträge"
 
 msgid "navigation.tools.jobs.failed"
-msgstr ""
+msgstr "Fehlgeschlagene Aufträge"
 
 msgid "navigation.tools.jobs.failed.details"
-msgstr ""
+msgstr "Details der fehlgeschlagenen Aufträge"
 
 msgid "navigation.tools.jobs.description"
 msgstr ""
+"Alle Aufträge in der Warteschlange des Systems ansehen und fehlgeschlagene "
+"Versuche verfolgen."
 
 msgid "navigation.tools.jobs.view"
-msgstr ""
+msgstr "Aufträge ansehen"
 
 msgid "navigation.tools.jobs.failed.view"
-msgstr ""
+msgstr "Fehlgeschlagene Aufträge ansehen"
 
 msgid "navigation.tools.job.failed.details.view"
-msgstr ""
+msgstr "Details des fehlgeschlagenen Auftrags {$id} ansehen"
 
 msgid "admin.job.failed.list.attribute"
-msgstr ""
+msgstr "Attribute"
 
 msgid "admin.job.failed.list.attribute.value"
-msgstr ""
+msgstr "Attribute Wert"
 
 msgid "admin.jobs.list.id"
-msgstr ""
+msgstr "ID"
 
 msgid "admin.jobs.list.displayName"
-msgstr ""
+msgstr "Auftrag"
 
 msgid "admin.jobs.list.queue"
-msgstr ""
+msgstr "Warteschlange"
 
 msgid "admin.jobs.list.connection"
-msgstr ""
+msgstr "Verbindung"
 
 msgid "admin.jobs.list.attempts"
-msgstr ""
+msgstr "Versuche"
 
 msgid "admin.jobs.list.createdAt"
-msgstr ""
+msgstr "Kreiert in"
 
 msgid "admin.jobs.list.failedAt"
-msgstr ""
+msgstr "Fehlgeschlagen in"
 
 msgid "admin.jobs.list.payload"
-msgstr ""
+msgstr "Nutzlastdaten"
 
 msgid "admin.jobs.list.exception"
-msgstr ""
+msgstr "Ausnahme"
 
 msgid "admin.jobs.list.actions"
-msgstr ""
+msgstr "Aktionen"
 
 msgid "admin.jobs.failedAt"
-msgstr ""
+msgstr "Fehlgeschlagen in {$failedAt}"
 
 msgid "admin.jobs.createdAt"
-msgstr ""
+msgstr "Kreiert in {$createdAt}"
 
 msgid "admin.jobs.failed.action.redispatch"
-msgstr ""
+msgstr "Erneut versuchen"
 
 msgid "admin.jobs.failed.action.redispatch.all"
-msgstr ""
+msgstr "Alle fehlgeschlagenen Aufträge in die Warteschlange zurückschicken"
 
 msgid "admin.job.compileMetrics.returnToStaging.error"
 msgstr ""
+"Der Auftrag zum Laden der Nutzungsstatistikdaten aus der Datei {$file} ist "
+"fehlgeschlagen, und die Datei konnte nicht von {$archivedFilePath} nach "
+"{$stagingPath} verschoben werden."
 
 msgid "admin.job.compileMetrics.error"
 msgstr ""
+"Der Auftrag zum Laden der Nutzungsstatistikdaten aus der Datei {$file} ist "
+"fehlgeschlagen. Die Datei wurde in das Verzeichnis \"Stage\" verschoben."
 
 msgid "admin.settings.statistics.collection"
-msgstr ""
+msgstr "Datensammlung"
 
 msgid "admin.settings.statistics.collection.description"
-msgstr ""
+msgstr "Einstellen, welche Art von Nutzungsstatistiken gesammelt werden sollen."
 
 msgid "admin.settings.statistics.storage"
-msgstr ""
+msgstr "Datenspeicherung"
 
 msgid "admin.settings.statistics.storage.description"
 msgstr ""
+"Einstellen, welche Nutzungsstatistiken auf dem Server gespeichert werden "
+"sollen."
 
 msgid "admin.settings.statistics.sushi"
-msgstr ""
+msgstr "Sushi Protokoll"
 
 msgid "admin.settings.statistics.sushi.description"
 msgstr ""
+"Das <a href=\"https://www.projectcounter.org/counter-sushi/\">COUNTER 5 "
+"SUSHI</a> Protokoll einrichten, ein branchenweit anerkanntes Format für die "
+"Verteilung von Nutzungsstatistiken."
 
 msgid "admin.settings.statistics.keepDaily"
-msgstr ""
+msgstr "Monatliche oder tägliche Statistiken"
 
 msgid "admin.settings.statistics.keepDaily.description"
 msgstr ""
+"Ob tägliche oder monatliche Nutzungsstatistiken geführt werden sollen. "
+"Tägliche Statistiken können die Größe Ihrer Datenbank erheblich erhöhen."
 
 msgid "admin.settings.statistics.keepDaily.keep"
-msgstr ""
+msgstr "Tägliche und monatliche Statistiken führen"
 
 msgid "admin.settings.statistics.keepDaily.discard"
-msgstr ""
+msgstr "Nur monatliche Statistiken führen"
 
 msgid "admin.settings.statistics.compressStatsLogs.label"
-msgstr ""
+msgstr "Protokolle komprimieren"
 
 msgid "admin.settings.statistics.compressStatsLogs.description"
 msgstr ""
+"Statistiken werden aus Zugriffsprotokolldateien erstellt, die nach ihrer "
+"Verarbeitung nach <code>{$path}</code> verschoben werden. Sollen die "
+"Protokolldateien nach ihrer Verarbeitung in <code>gz</code>-Dateien "
+"komprimiert werden? Die Komprimierung von Protokolldateien kann "
+"Speicherplatz auf dem Server sparen."
 
 msgid "admin.settings.statistics.compressStatsLogs.default"
-msgstr ""
+msgstr "Die Protokolldateien an ihrem Platz lassen"
 
 msgid "admin.settings.statistics.compressStatsLogs.compress"
-msgstr ""
+msgstr "Protokolldateien komprimieren"
 
 msgid "admin.settings.statistics.publicSushiApi.private"
 msgstr ""
+"Zugriff auf die COUNTER SUSHI Statistik-API auf Manager/innen und Admins "
+"beschränken"
 
 msgid "admin.settings.statistics.sushiPlatform"
-msgstr ""
+msgstr "Plattform"
 
 msgid "admin.settings.statistics.sushiPlatform.description"
 msgstr ""
+"Gemäß dem COUNTER SUSHI-Protokoll muss in jedem Statistikbericht die "
+"\"Plattform\" angegeben werden, die die Statistiken liefert. Standardmäßig "
+"wird die Zeitschrift als Plattform für alle Statistiken angegeben. Wenn "
+"jedoch alle Zeitschriften auf dieser Website von ein und demselben Anbieter "
+"herausgegeben, besitzt oder betrieben werden, können Sie die Website als "
+"Plattform angeben."
 
 msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
-msgstr ""
+msgstr "Website als Plattform für alle Zeitschriften verwenden."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID"
-msgstr ""
+msgstr "Plattform ID"
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
 msgstr ""
+"So identifizieren Sie diese Plattform in COUNTER SUSHI-Berichten. Die "
+"Plattform-ID darf höchstens 17 Zeichen lang sein und kann Buchstaben (a-z, "
+"A-Z), Ziffern (0-9), Unterstriche (_), Punkte (.) und Schrägstriche (/) "
+"enthalten. Die Plattform-ID wird in mehreren Spalten verwendet und sollte so "
+"kurz wie möglich sein und dennoch erkennbar bleiben. Die Plattform-ID "
+"basiert in der Regel auf dem Namen eines Herausgebers oder einer Plattform, "
+"einem Domänennamen oder einer bekannten, eindeutigen Abkürzung."
 
 msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
 msgstr ""
+"Eine Plattform-ID muss angegeben werden, wenn die Website als SUSHI-"
+"Plattform identifiziert werden soll."
 
 msgid "admin.cli.tool.jobs.work.options.title"
-msgstr ""
+msgstr "work command Optionen"
 
 msgid "admin.cli.tool.jobs.work.options.usage"
-msgstr ""
+msgstr "Nutzung: [--options1 --options2= ...]"
 
 msgid "admin.cli.tool.jobs.work.options.description"
-msgstr ""
+msgstr "Verfügbare Optionen für work command"
 
 msgid "admin.cli.tool.jobs.work.option.connection.description"
-msgstr ""
+msgstr "Name der Warteschlangenverbindung zu work[default: '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.queue.description"
-msgstr ""
+msgstr "Name der Warteschlange zu work[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.name.description"
-msgstr ""
+msgstr "Name des worker[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.backoff.description"
 msgstr ""
+"Anzahl der zu wartenden Sekunden, bevor ein Auftrag, der eine unerwartete "
+"Ausnahme gefunden hat, erneut ausgeführt werden soll[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.memory.description"
-msgstr ""
+msgstr "Das Speicherlimit in megabytes[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.timeout.description"
 msgstr ""
+"Anzahl der Sekunden, die ein Unterprozess laufen kann[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.sleep.description"
 msgstr ""
+"Anzahl der Sekunden, die geschlafen werden soll, wenn kein Auftrag verfügbar "
+"ist[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.tries.description"
 msgstr ""
+"Anzahl der Versuche für einen Auftrag, bevor er als fehlgeschlagen "
+"protokolliert wird[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.force.description"
 msgstr ""
+"Erzwingen, dass der worker auch im Wartungsmodus läuft[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
-msgstr ""
+msgstr "Anhalten, wenn die Warteschlange leer ist[default : {$default}]"
 
 msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
 msgstr ""
+"Die Anzahl der Aufträge, die vor dem Anhalten verarbeitet werden sollen["
+"default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.maxTime.description"
 msgstr ""
+"Die maximale Anzahl von Sekunden, die der worker laufen soll[default : "
+"'{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.rest.description"
 msgstr ""
+"Anzahl der Sekunden für die Pause zwischen Aufträgen[default : '{$default}']"
 
 msgid "admin.cli.tool.jobs.work.option.test.description"
-msgstr ""
+msgstr "Worker-Daemon für die Test-Warteschlange ausführen"

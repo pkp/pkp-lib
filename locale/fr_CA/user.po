@@ -1,9 +1,10 @@
+# Marie-Hélène Vézina [UdeMontréal] <marie-helene.vezina@umontreal.ca>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2020-12-15 09:58+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 # localization file for fr_CA. Last revision 2019-10-23T01:54:34 by Marie-Hélène Vézina, Bibliothèques, Université de Montréal.
 msgid "user.accountInformation"
@@ -504,7 +505,7 @@ msgid "user.apiKey.generate"
 msgstr "Générer une nouvelle clé API"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Supprimer"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -513,9 +514,10 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"La suppression d'une clé révoquera l'accès à toute application qui l'utilise."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Êtes-vous certain.e de vouloir supprimer cette clé API ?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -528,13 +530,19 @@ msgstr ""
 "target=\"_blank\">déclaration de confidentialité</a>."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Aucun utilisateur.trice n'existe avec l'adresse courriel spécifiée."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Impossible de compléter la demande de réinitialisation du mot de passe en "
+"raison de : {$reason}."
 
 msgid "user.login.passwordResetProcessInstructions"
 msgstr ""
+"Entrer un nouveau mot de passe pour mettre à jour le mot de passe de "
+"connexion."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Le mot de passe a été mis à jour avec succès. Veuillez vous connecter avec "
+"le nouveau mot de passe."

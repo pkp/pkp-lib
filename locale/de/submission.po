@@ -1,21 +1,21 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2022-01-12 09:23+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/de_DE/>\n"
-"Language: de_DE\n"
+"submission/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -53,18 +53,17 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Wählen Sie eine redaktionelle Rolle, wenn Sie die Einreichung selbst "
+"bearbeiten und veröffentlichen wollen."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Einreichungs-Anforderungen"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
-msgstr ""
-"Sie müssen Sie die Anforderungen lesen und bestätigen, bevor Sie fortfahren "
-"können."
+msgstr "Alle Einreichungen müssen die folgenden Anforderungen erfüllen."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Ja, meine Einreichung erfüllt alle Anforderungen."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Die Einreichung ist abgeschlossen."
@@ -562,7 +561,7 @@ msgid "submission.coverage"
 msgstr "Informationen zur Abdeckung"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Details zur Einreichung"
 
 msgid "submission.done"
 msgstr "Erledigt"
@@ -629,12 +628,16 @@ msgstr "Eintrag löschen"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"Eine E-Mail zu dieser Entscheidung wurde an {$recipientCount} Gutachter/"
+"innen mit dem Titel {$subject} geschickt."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Ersteinreichung abgeschlossen."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) hat den Copyright-Bedingungen für die Einreichung "
+"zugestimmt."
 
 msgid "submission.event.fileRevised"
 msgstr ""
@@ -687,9 +690,13 @@ msgstr "Bearbeitungsdatei der Gutachterin/des Gutachter aktualisiert"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} hat eine Erinnerung über die Gutachtungsaufgabe an "
+"{$recipientName} geschickt"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Eine automatische Erinnerungs-E-Mail über die Gutachtungsaufgabe wurde an "
+"{$recipientName} geschickt"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Eine E-Mail ist gesendet worden:"
@@ -719,10 +726,10 @@ msgstr ""
 "wird, und kann nicht geändert werden."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Zuerst veröffentlicht"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Für die Redaktion"
 
 msgid "submission.galley"
 msgstr "Fahne"
@@ -1001,7 +1008,7 @@ msgid "submission.review"
 msgstr "Begutachtung"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Überprüfen und einreichen"
 
 msgid "submission.reviewed"
 msgstr "Begutachtet"
@@ -1101,11 +1108,8 @@ msgstr "Zusätzliche Verfeinerung"
 msgid "submission.submit.submissionLocale"
 msgstr "Beitragssprache"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Es werden Einreichungen in verschiedenen Sprachen akzeptiert. Wählen Sie die "
-"Hauptsprache der Einreichung im Pulldown-Menü oben aus."
+msgstr "Wählen Sie die Hauptsprache der Einreichung aus."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Beitragsdateien"
@@ -1215,7 +1219,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Bitte geben Sie die Literaturnachweise ein."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Geben Sie die Erklärung zur Datenverfügbarkeit ein."
 
 msgid "submission.form.name"
 msgstr "Bitte geben Sie dieser Datei einen aussagekräftigen Namen."
@@ -1337,9 +1341,8 @@ msgstr "Momentan liegen keine Dateien für Sie zur Überarbeitung vor."
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Überarbeitungen wurden angefordert."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Überarbeitungen wurden eingereicht."
+msgstr "Überarbeitungen wurden eingereicht und eine Entscheidung wird benötigt."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr ""
@@ -1384,10 +1387,12 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Alle Empfehlungen liegen vor, nun wird eine Entscheidung benötigt."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Für mehr als {$days} Tage in der {$stage} Phase inaktiv."
 
 msgid "editor.submission.status.waitingInitialReview"
 msgstr ""
+"Eine neue Einreichung wartet darauf, zur Begutachtung gesendet oder "
+"abgelehnt zu werden."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Beteiligte"
@@ -1457,155 +1462,224 @@ msgid "editor.submission.decision"
 msgstr "Entscheidung"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Autor/innen benachrichtigen"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Gutachter/innen benachrichtigen"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Senden Sie den Gutachter/innen eine E-Mail, in der Sie ihnen für ihr "
+"Gutachtung danken und ihnen mitteilen, dass eine Entscheidung getroffen "
+"wurde. Jede/r Gutachter/in erhält eine separate E-Mail, um die Anonymität zu "
+"wahren. Die Phrase {$recipientName} kann in der Nachricht verwendet werden, "
+"um alle Namen sicher einzuschließen."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Eine E-Mail an die zugewiesenen Gutachter/innen schicken um sie zu "
+"benachrichtigen, dass ihre Gutachtungsaufgabe aufgehoben wird."
 
 msgid "editor.submission.decision.accept"
 msgstr "Einreichung annehmen"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Diese Einreichung wird zur Veröffentlichung angenommen und in das Lektorat "
+"geschickt."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} hat diese Einreichung angenommen und in das Lektorat geschickt."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Einreichung angenommen"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Die Einreichung {$title} wurde zur Veröffentlichung angenommen und in das "
+"Lektorat geschickt. Alle Benachrichtungen, die Sie nicht übersprungen haben, "
+"wurden verschickt."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie über die Annahme ihrer "
+"Einreichung zur Veröffentlichung zu informieren. Diese E-Mail wird erst "
+"versandt, wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"die Begutachtungsrunde abgeschlossen wurde. Diese E-Mail wird erst versandt, "
+"wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.decline"
 msgstr "Beitrag ablehnen"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Diese Einreichung wird für die Veröffentlichung abgelehnt. Die Peer Review-"
+"Phase wird beendet und die Einreichung wird archiviert."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "[$editorName} hat die Einreichung abgelehnt."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Einreichung abgelehnt"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Die Einreichung {$title} wurde abgelehnt und in das Archiv geschickt. Alle "
+"Benachrichtigungen, die Sie nicht übersprungen haben, wurden versandt."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie über die Ablehnung ihrer "
+"Einreichung zu informieren. Diese E-Mail wird erst versandt, wenn die "
+"Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Diese Einreichung wird für die Veröffentlichung abgelehnt. Es werden keine "
+"weiteren Gutachten stattfinden und die Einreichung wird archiviert."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Neue Gutachtenrunde"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Eine neue Gutachtenrunde für diese Einreichung eröffnen."
 
 msgid "editor.submission.decision.newReviewRound.log"
 msgstr ""
+"{$editorName} hat eine neue Gutachtenrunde für diese Einreichung erstellt."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Gutachtenrunde erstellt"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Eine neue Gutachtenrunde wurde für die Einreichung {$title} erstellt. Die "
+"Autor/innen wurden darüber informiert, sofern Sie nicht entschlossen haben, "
+"diese Benachrichtigung zu überspringen."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"ihre Einreichung in eine neue Gutachtenrunde geschickt wurde. Diese E-Mail "
+"wird erst versandt, wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
-msgstr ""
+msgstr "Dateien auswählen, die in das Lektorat geschickt werden sollen."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Dateien auswählen, die zur Begutachtung geschickt werden sollen."
 
 msgid "editor.submission.decision.promoteFiles.production"
-msgstr ""
+msgstr "Dateien auswählen, die in die Produktionsphase geschickt werden sollen."
 
 msgid "editor.submission.decision.requestRevisions"
 msgstr "Überarbeitung anfordern"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Die Autor/innen müssen Überarbeitungen vornehmen, bevor diese Einreichung "
+"zur Veröffentlichung angenommen wird."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} hat Überarbeitungen für diese Einreichung angefordert."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Überarbeitungen angefordert"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Überarbeitungen für den Titel {$title} wurden angefordert. Alle "
+"Benachrichtigungen, die Sie nicht übersprungen haben, wurden versandt."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"ihre Einreichung Überarbeitungen benötigt, bevor sie zur Veröffentlichung "
+"angenommen wird. Geben Sie alle Einzelheiten an, die die Autor/innen für die "
+"Überarbeitung der Einreichung benötigen. Denken Sie gegebenenfalls daran, "
+"die Kommentare der Gutachter/innen zu anonymisieren. Diese E-Mail wird erst "
+"versandt, wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Gutachtenrunde abbrechen"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Die aktuelle Gutachtenrunde abbrechen und die Einreichung zurück in die "
+"letzte Gutachtenrunde schicken. Handelt es sich um die erste Gutachtenrunde, "
+"wird die Einreichung in die Einreichungsphase zurückgeschickt."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} hat die Gutachtenrunde abgebrochen."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Die neueste Gutachtenrunde wurde abgebrochen."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Die Gutachtenrunde für den Title {$title} wurde abgebrochen. Alle "
+"Benachrichtigungen, die Sie nicht übersprungen haben, wurden versandt."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Gutachtenrunde kann nur abgebrochen werden, wenn zugewiesene Gutachter/innen "
+"noch kein abgeschlossenes oder eingereichtes Gutachten zur Verfügung haben."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Erneut zur Begutachtung einreichen"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Die Autor/innen muss Überarbeitungen vornehmen, die einer weiteren "
+"Begutachtung unterzogen werden, bevor die Einreichung zur Veröffentlichung "
+"angenommen wird."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} hat Überarbeitungen für diese Einreichung angefordert, die "
+"einer weiteren Begutachtung unterzogen werden sollten."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Überarbeitungen angefordert"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Überarbeitungen für die Einreichung {$title} wurden angefordert. Eine "
+"Entscheidung, die Überarbeitungen in eine neue Gutachtenrunde zu schicken, "
+"wurde festgehalten. Alle Benachrichtigungen, die Sie nicht übersprungen "
+"haben, wurden versandt."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"ihre Einreichung Überarbeitungen benötigt und dann in eine neue "
+"Gutachtenrunde geschickt wird. Geben Sie alle Einzelheiten an, die die Autor/"
+"innen für die Überarbeitung der Einreichung benötigen. Denken Sie "
+"gegebenenfalls daran, die Kommentare der Gutachter/innen zu anonymisieren."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "In die Begutachtung schicken"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Diese Einreichung kann in den Peer Review geschickt werden."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} hat diese Einreichung in die Gutachtenphase geschickt."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Zur Begutachtung geschickt"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Die Einreichung {$title} wurde zur Begutachtungsphase geschickt. Die Autor/"
+"innen wurden benachrichtigt, sofern Sie diese E-Mail nicht übersprungen "
+"haben."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Neue Review-Runde"
@@ -1615,39 +1689,54 @@ msgstr "Zur Herstellung senden"
 
 msgid "editor.submission.decision.sendToProduction.description"
 msgstr ""
+"Diese Einreichung in die Produktionsphase schicken um sie für die "
+"Veröffentlichung vorzubereiten."
 
 msgid "editor.submission.decision.sendToProduction.log"
-msgstr ""
+msgstr "{$editorName} hat diese Einreichung in die Produktionsphase geschickt."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Zur Produktion geschickt"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Die Einreichung {$title} wurde in die Produktionsphase geschickt. Die Autor/"
+"innen wurden benachrichtigt, sofern Sie diese E-Mail nicht übersprungen "
+"haben."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"ihre Einreichung zur Produktionsphase geschickt wurde. Diese E-Mail wird "
+"erst versandt, wenn die Entscheidung festgehalten wurde."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Lektorat abbrechen"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Diese Einreichung von dem Lektorat aus zurückschicken."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} hat diese Einreichung von dem Lektorat aus zurückgeschickt."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Vom Lektorat aus zurückgeschickt"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Die Einreichung {$title} wurde vom Lektorat aus zurückgeschickt. Die Autor/"
+"innen wurden benachrichtigt, sofern Sie diese E-Mail nicht übersprungen "
+"haben."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Eine E-Mail an die Autor/innen schicken um sie darüber zu informieren, dass "
+"das Lektorat abgebrochen wurde und ihre Einreichung weitere Begutachtungen "
+"durchlaufen wird."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Zurück zum Lektorat"
 
 msgid "editor.submission.decision.backToCopyediting.description"
 msgstr ""

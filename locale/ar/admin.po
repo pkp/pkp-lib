@@ -1,7 +1,7 @@
 # M. Ali <vorteem@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-24 10:26+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: M. Ali <vorteem@gmail.com>\n"
 "Language-Team: Arabic <http://translate.pkp.sfu.ca/projects/pkp-lib/admin/ar/"
 ">\n"
@@ -758,3 +758,100 @@ msgstr ""
 "تهيئة بروتوكول <a href=\"https://www.projectcounter.org/counter-sushi/\""
 ">COUNTER 5 SUSHI</a>، وهو صيغة معروفة في هذا المضمار لتوزيع إحصائبات "
 "الاستعمال."
+
+msgid "admin.job.compileMetrics.returnToStaging.error"
+msgstr ""
+"المهمة التي تقوم بتحميل إحصائيات الاستعمال من الملف {$file} قد فشلت، ويتعذر "
+"نقل الملف من {$archivedFilePath} إلى {$stagingPath}."
+
+msgid "admin.job.compileMetrics.error"
+msgstr ""
+"المهمة التي تقوم بتحميل إحصائيات الاستعمال من الملف {$file} قد فشلت. تم نقل "
+"الملف إلى مجلد الخزن."
+
+msgid "admin.settings.statistics.sushiPlatform.isSiteSushiPlatform"
+msgstr "استعمل الموقع بمثابة المنصة لكل المجلات."
+
+msgid "admin.cli.tool.jobs.work.options.title"
+msgstr "خيارات أمر العمل"
+
+msgid "admin.cli.tool.jobs.work.options.usage"
+msgstr "طريقة الاستعمال:[--options1 --options2= ...]"
+
+msgid "admin.cli.tool.jobs.work.options.description"
+msgstr "الخيارات المتاحة لأمر العمل"
+
+msgid "admin.cli.tool.jobs.work.option.name.description"
+msgstr "اسم العامل[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.memory.description"
+msgstr "أقصة حد للذاكرة بالميغا بايت[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.timeout.description"
+msgstr ""
+"عدد الثواني التي يمكن أن تستغرقها المهمة الفرعية[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.sleep.description"
+msgstr "عدد ثواني الخمول عندما لا تتواجد أي مهمة[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.force.description"
+msgstr "إجبار العامل على التنفيذ حتى في وضع الصيانة[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.stopWhenEmpty.description"
+msgstr "التوقف عندما يكون الطابور خاليًا[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxJobs.description"
+msgstr "عدد المهام المزمعة معالجتها قبل التوقف[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.rest.description"
+msgstr "عدد ثواني الاستراحة ما بين المهام[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.test.description"
+msgstr "تشغيل برنامج العامل عند الطابور التجريبي"
+
+msgid "admin.settings.statistics.compressStatsLogs.description"
+msgstr ""
+"تم توليد الإحصائيات من ملفات سجلات الوقوعات التي تم نقلها إلى <code>{$path}</"
+"code> بمجرد أن تمت معالجتها. هل ينبغي ضغط ملفات الوقوعات إلى ملفات <code>."
+"gz</code> بمجرد معالجتها؟ ضغط تلك الملفات من شأنه توفير مساحة الخزن في "
+"المخدم."
+
+msgid "admin.settings.statistics.sushiPlatform.description"
+msgstr ""
+"وفقًا لبروتوكول COUNTER SUSHI، على كل تقرير إحصائي أن يُعرِّف \"المنصة\" "
+"الموفرة للإحصائيات. إفتراضيًا، سيتم اعتبار المجلة بمثابة المنصة لكل "
+"الإحصائيات. مع ذلك، إن كانت كل المجلات في هذا الموقع منشورة، مملوكة أو مدارة "
+"من قبل نفس الجهة، فقد ترغب باعتبار الموقع هو بمثابة المنصة."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.description"
+msgstr ""
+"كيفية تعريف هذه المنصة في تقارير COUNTER SUSHI. مُعرَّف المنصة ينبغي أن "
+"يتكون من 17 حرفًا أو أقل ويمكنه أن يضم حروفًا (a–z, A–Z)، أرقامًا (0–9)، شُ"
+"رط تحتانية (_)، نقاط (.) وشُرط مائلة أمامية (/). مُعرَّف المنصة يُستعمل في "
+"عدة أعمدة وينبغي أن يكون قصيرًا قدر الإمكان مع بقائه مُميزًا ما بين المنصات "
+"الأخرى. عادة ما يكون مُعرَّف المنصة مبنيًا على اسم الناشر أو اسم المنصة نفسه،"
+" اسم النطاق، أو اختصار معروف وفريد."
+
+msgid "admin.settings.statistics.sushiPlatform.sushiPlatformID.required"
+msgstr ""
+"ينبغي أن يكون مُعرَّف المنصة مطلوبًا عندما يجري تعريف الموقع على أنه منصة "
+"SUSHI."
+
+msgid "admin.cli.tool.jobs.work.option.connection.description"
+msgstr "اسم طابور الاتصال مع العمل[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.queue.description"
+msgstr "اسم الطابور المؤدي إلى العمل[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.backoff.description"
+msgstr ""
+"عدد الثواني المفترض انتظارها قبل إعادة محاولة المهمة التي واجهتها أخطاء غير "
+"معالجة[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.tries.description"
+msgstr ""
+"عدد مرات محاولة المهمة قبل الإبلاغ بأنها فاشلة[الافتراضي : '{$default}']"
+
+msgid "admin.cli.tool.jobs.work.option.maxTime.description"
+msgstr ""
+"أقصى عدد من الثواني التي على العامل التنفيذ خلالها[الافتراضي : '{$default}']"

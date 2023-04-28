@@ -1,15 +1,15 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2022-08-09 07:17+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -353,7 +353,7 @@ msgid "common.description"
 msgstr "Beschreibung"
 
 msgid "common.details"
-msgstr ""
+msgstr "Details"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}\"&nbsp;x&nbsp;{$height}\" @ {$dpi} DPI/PPI"
@@ -362,10 +362,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width} x {$height} Pixel"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Nein, nicht gespeicherte Änderungen verwerfen"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Getrennt"
 
 msgid "common.disable"
 msgstr "Ausschalten"
@@ -386,7 +386,7 @@ msgid "common.downloadPdf"
 msgstr "PDF herunterladen"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Bericht herunterladen"
 
 msgid "common.dragAndDropHere"
 msgstr "Dateien hierher ziehen und ablegen."
@@ -401,7 +401,7 @@ msgid "common.editItem"
 msgstr "{$name} bearbeiten"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "E-Mail Templates"
 
 msgid "common.enable"
 msgstr "Aktivieren"
@@ -476,10 +476,10 @@ msgid "common.findTemplate"
 msgstr "Vorlage finden"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Formatierung"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografisch"
 
 msgid "common.go"
 msgstr "Los"
@@ -524,7 +524,7 @@ msgid "common.keywords"
 msgstr "Schlagworte"
 
 msgid "common.label"
-msgstr ""
+msgstr "Label"
 
 msgid "common.language"
 msgstr "Sprache"
@@ -533,7 +533,7 @@ msgid "common.languages"
 msgstr "Sprachen"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Zuletzt gespeichert {$when}"
 
 msgid "common.lastActivity"
 msgstr "Letzte Aktivität verzeichnet am {$date}."
@@ -590,10 +590,10 @@ msgid "common.none"
 msgstr "Keine"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Nichts ausgewählt"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Nichts angegeben"
 
 msgid "common.no"
 msgstr "Nein"
@@ -736,7 +736,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Lesen Sie mehr über {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Wiederaufnahme der Verbindung"
 
 msgid "common.record"
 msgstr "Protokollieren"
@@ -775,7 +775,7 @@ msgid "common.replaceFile"
 msgstr "Datei ersetzen"
 
 msgid "common.requiredField"
-msgstr "Mit * gekennzeichnete Eingabefelder sind Pflichtfelder."
+msgstr "Mit * gekennzeichnete Eingabefelder sind Pflichtfelder"
 
 msgid "common.required"
 msgstr "Erforderlich"
@@ -784,10 +784,10 @@ msgid "common.reset"
 msgstr "Zurücksetzen"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Runde {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rolle"
 
 msgid "common.saveAndContinue"
 msgstr "Speichern und fortfahren"
@@ -805,7 +805,7 @@ msgid "common.search"
 msgstr "Suchen"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Suchphrase"
 
 msgid "common.searching"
 msgstr "Suchend"
@@ -841,7 +841,7 @@ msgid "common.showAllSteps"
 msgstr "Zeige alle Schritte"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} Schritte"
 
 msgid "common.size"
 msgstr "Größe"
@@ -889,10 +889,10 @@ msgid "common.type"
 msgstr "Typ"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Hochgeladen von {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Hochgeladen von {$name} am {$date}"
 
 msgid "common.component"
 msgstr "Komponente"
@@ -909,10 +909,15 @@ msgid "common.unread"
 msgstr "Ungelesen"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Ungespeicherte Änderungen"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Es wurden ungespeicherte Änderungen von {$when} gefunden. Dies kann "
+"passieren, wenn Sie während der Arbeit die Verbindung zum Server verlieren. "
+"Diese Änderungen wiederherzustellen kann Änderungen, die Sie seitdem "
+"unternommen haben, überschreiben. Möchten Sie die Änderungen jetzt "
+"wiederherstellen?"
 
 msgid "common.untitled"
 msgstr "Ohne Titel"
@@ -1239,7 +1244,7 @@ msgstr ""
 "Bitte korrigieren Sie diese(n) Fehler und versuchen Sie es erneut."
 
 msgid "form.errorsOccurred"
-msgstr "Es sind Fehler bei der Bearbeitung des Formulars aufgetreten."
+msgstr "Es sind Fehler bei der Bearbeitung des Formulars aufgetreten"
 
 msgid "form.formLanguage.description"
 msgstr ""
@@ -1436,7 +1441,7 @@ msgid "stageParticipants.selectedUser"
 msgstr "Beteiligte/r"
 
 msgid "stageParticipants.noOptionsToHandle"
-msgstr "Dieser Beteiligte kann nicht geändert werden."
+msgstr "Dieser Beteiligte kann nicht geändert werden"
 
 msgid "locale.primary"
 msgstr "Primäre Regionaleinstellung"
@@ -1866,7 +1871,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Gutachter/in wiedereingesetzt."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Antrag auf Überprüfung des Begutachtungsauftrags gestellt."
 
 msgid "notification.addedStageParticipant"
 msgstr "Benutzer/in als Teilnehmer/in dieser Phase hinzugefügt."
@@ -1884,7 +1889,7 @@ msgid "notification.type.reviewAssignmentUpdated"
 msgstr "Begutachtungsbitte aktualisiert."
 
 msgid "notification.type.auditorRequest"
-msgstr "Sie sind gebeten worden, die Datei \"{$file}\" zu prüfen."
+msgstr "Sie sind gebeten worden, die Datei \"{$file}\" zu prüfen"
 
 msgid "notification.type.allReviewsIn"
 msgstr ""
@@ -2104,6 +2109,9 @@ msgstr "Dies ist kein gültiges Land."
 
 msgid "validator.country.regex"
 msgstr ""
+"Dies ist kein gültiges Land. Das Land muss ein zweistelliger internationaler "
+"code sein. Alle codes finden Sie auf https://en.wikipedia.org/wiki/"
+"ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Dies ist keine gültige Währung."
@@ -2255,10 +2263,10 @@ msgid "validator.url"
 msgstr "Dies ist keine gültige URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Keine neue Zeile erlaubt."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Nur [{$tags}] html tags sind erlaubt."
 
 msgid "filter.input.error.notSupported"
 msgstr ""

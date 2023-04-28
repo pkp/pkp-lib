@@ -1,15 +1,15 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:23-07:00\n"
-"PO-Revision-Date: 2022-08-09 07:17+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
-"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/api/de/>"
+"\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgid "api.400.paramNotSupported"
 msgstr "Der Parameter {$param} wird nicht unterstützt."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "Die Eigenschaft {$prop} kann nicht verändert werden."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -66,21 +66,25 @@ msgstr "Die folgenden Sprachen werden nicht unterstützt: {$locales}."
 
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
+"Sie können keine DOI eines Objektes bearbeiten, dass nicht in diesem Kontext "
+"ist."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Der Publikationstyp wurde nicht erkannt."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
+"Dieser Endpunkt ist nicht über den seitenübergreifenden Namensraum verfügbar "
+"und muss für einen bestimmten Kontext angefordert werden."
 
 msgid "api.dois.404.doiNotFound"
 msgstr "Die DOI, nach der Sie suchen, konnte nicht gefunden werden."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Das angefragte Publikationsobjekt wurde nicht gefunden."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Die angefragte Einreichung wurde nicht gefunden."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -116,9 +120,12 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Das aktuell konfigurierte Plugin muss ein Registrierungsagentur-Plugin sein."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Für diese Einreichung kann keine Entscheidung mehr gespeichert oder "
+"empfohlen werden, da sie bereits veröffentlicht ist."
 
 msgid "api.emails.400.missingBody"
 msgstr "Sie müssen eine zu sendende E-Mail anfügen."
@@ -136,10 +143,10 @@ msgstr ""
 "ausgewählten Rollen zu senden."
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
-msgstr ""
+msgstr "Dies ist keine Standard-E-Mail-Vorlage für eine bekannte E-Mail."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Dies ist kein gültiger Kontext."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Die angeforderte E-Mail-Vorlage wurde nicht gefunden."
@@ -227,6 +234,7 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Ihre Anfrage war ungültig. Der Zeitabschnitt muss `day` oder `month` sein."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr ""
@@ -262,7 +270,7 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Sie müssen eine Dateistufe angeben."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Die von Ihnen angegebene Phase der Datei ist nicht gültig."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
@@ -271,6 +279,8 @@ msgstr ""
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Es muss eine Begutachtungsrunden-ID angegeben werden, um eine Datei zu "
+"dieser Phase zu verschieben."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
@@ -294,7 +304,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Band, Nummer oder Jahr ist nicht gültig."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Mit dieser Nutzer/innen-Rolle können Sie keine Einreichungen machen."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -330,31 +340,37 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Die {$locale} Regionaleinstellung wird nicht unterstützt."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "Die angefragte E-Mail wurde nicht gefunden."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Der fehlgeschlagene Auftrag wurde in der Fehlerliste nicht gefunden."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
+"Der fehlgeschlagene Auftrag verfügt nicht über die nötigen Nutzlastdaten, um "
+"erneut gesendet werden zu können."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "Keine fehlgeschlagenen Aufträge in der Liste gefunden."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Fehlgeschlagenen Aufträge können nicht erneut versandt werden."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
-msgstr ""
+msgstr "Fehlgeschlagener Auftrag erfolgreich erneut versandt."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Alle fehlgeschlagenen Aufträge mit gültigen Nutzlastdaten, die erneut "
+"versandt werden konnten, wurden erfolgreich in die Warteschlange "
+"zurückgeschickt."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
+"Fehlgeschlagene Aufträge konnten nicht von der Fehlerliste gelöscht werden."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
-msgstr ""
+msgstr "Fehlgeschlagener Auftrag erfolgreich von der Fehlerliste gelöscht."
 
 #~ msgid "api.vocabs.400.vocabNotSupported"
 #~ msgstr "Das {$vocab} Vokabular wird nicht unterstützt."

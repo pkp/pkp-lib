@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"PO-Revision-Date: 2023-04-30 09:49+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -3317,19 +3317,22 @@ msgstr ""
 "pracować będzie w systemie"
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "To zgłoszenie nie zostało opublikowane"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
 msgstr ""
+"Procedowanie elementu podrzędnego {$child} tego zgłoszenia zakończone "
+"niepowodzeniem"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Przypomnienie redakcyjne"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Wiadomość e-mail automatycznie wysyłana do redaktorów z zaległymi zadaniami"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Potwierdzenie resetowanie hasła"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3338,16 +3341,16 @@ msgstr ""
 "hasła."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Zarejestrowano użytkownika"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Wiadomość jest wysyłana do nowych użytkowników systemu. Zawiera powitanie i "
-"dane do zalogowania."
+"Ta wiadomość e-mail wysyłana jest do użytkownika po redakcyjnym utworzeniu "
+"dla niego konta w systemie. Powinna witać go w systemie oraz informować o "
+"danych do logowania."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Rejestr recenzentów"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3356,56 +3359,66 @@ msgstr ""
 
 msgid "mailable.submissionSavedForLater.name"
 msgstr ""
+"Wstrzymano tworzenie zgłoszenia, utrwalając dotychczas wprowadzone informacje"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Ta wiadomość e-mail jest wysyłana do autora automatycznie po wstrzymaniu "
+"przez niego tworzenia zgłoszenia, z jednoczesnym utrwaleniem dotychczas "
+"wprowadzonych informacji"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Potwierdzenie zgłoszenia"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Wiadomość jest automatycznie wysyłana do autora po zgłoszeniu tekstu do "
-"czasopisma. Dostarcza informacji o możliwości obserwowania procesu "
-"redakcyjnego zgłoszenia oraz podziękowania dla autora za dokonanie "
-"zgłoszenia."
+"Ta wiadomość e-mail jest wysyłana do autora automatycznie po zarejestrowaniu "
+"jego zgłoszenia. Powinna zawierać podziękowanie za rejestrację i informować "
+"o możliwości śledzenia zgłoszenia podczas procedowania procesu redakcyjnego."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Potwierdzenie zgłoszenia współautorom"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Jeżeli jest włączona, ta wiadomość jest automatycznie wysyłana do innych "
-"autorów, którzy nie posiadają kont w OJS."
+"Ta wiadomość e-mail wysyłana automatycznie po zarejestrowaniu zgłoszenia "
+"jest skierowana do autorów zgłoszenia, innych niż autor rejestrujący "
+"zgłoszenie."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Dyskusje etapu zgłaszania"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest po każdej korespondencji w dyskusji etapu "
+"zgłaszania."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Dyskusja etapu recenzowania"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest po każdej korespondencji w dyskusji etapu "
+"recenzowania."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Dyskusja etapu korekcji"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest po każdej korespondencji w dyskusji etapu "
+"korekcji."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Dyskusja etapu produkcji"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Ta wiadomość e-mail wysyłana jest po każdej korespondencji w dyskusji etapu "
+"produkcji."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Powiadomienie o zrewidowanej wersji"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3413,34 +3426,41 @@ msgstr ""
 "przez autora poprawionej wersji tekstu."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Nowe ogłoszenie"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Ten email jest wysyłany, kiedy pojawiło się nowe ogłoszenie."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Powiadomienie o raporcie statystycznym"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Powiadomienie o zmianach w ustaleniach dotyczących recenzji"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Ta wiadomość e-mail to powiadomienie dla recenzenta, automatycznie wysyłane "
+"przez system po zmianach przez redaktora w ustaleniach dotyczących recenzji."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Powiadomienie o otrzymaniu rekomendacji dla zgłoszenia"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Ta wiadomość e-mail to powiadomienie dla redaktorów prowadzących, "
+"automatycznie generowane przez system po otrzymaniu od recenzenta "
+"rekomendacji dla zgłoszenia"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Źródło uwierzytelnienia"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Cofnięcie zgłoszenia do recenzowania"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail to powiadomienie dla autora, wysyłane przez redaktora po "
+"decyzji o cofnięciu zgłoszenia do recenzowania."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
 msgstr ""

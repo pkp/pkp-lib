@@ -1,16 +1,16 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2022-08-08 09:30+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
-"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/user/de/>"
+"\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -466,7 +466,7 @@ msgstr "Bestätigung"
 msgid "user.sendPassword.description"
 msgstr ""
 "Senden Sie mir eine Bestätigungs-E-Mail mit meinem Benutzer/innen-Namen und "
-"meinem Passwort."
+"meinem Passwort"
 
 msgid "user.signature"
 msgstr "Signatur"
@@ -515,7 +515,7 @@ msgid "user.apiKey.generate"
 msgstr "Neuen API-Key erzeugen"
 
 msgid "user.apiKey.remove"
-msgstr ""
+msgstr "Löschen"
 
 msgid "user.apiKey.generateWarning"
 msgstr ""
@@ -524,9 +524,11 @@ msgstr ""
 
 msgid "user.apiKey.removeWarning"
 msgstr ""
+"Das Löschen eines Keys führt dazu, dass alle Anwendungen, die ihn verwenden, "
+"keinen Zugriff mehr haben."
 
 msgid "user.apiKey.remove.confirmation.message"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie diesen API-Key löschen möchten?"
 
 msgid "user.apiKey.secretRequired"
 msgstr ""
@@ -541,13 +543,17 @@ msgstr ""
 "gespeichert."
 
 msgid "user.login.lostPassword.invalidUser"
-msgstr ""
+msgstr "Es existiert kein/e Benutzer/in mit der angegebenen E-Mail-Adresse."
 
 msgid "user.login.lostPassword.confirmationSentFailedWithReason"
 msgstr ""
+"Aufgrund von {$reason} konnte die Anfrage zur Erneuerung des Passwortes "
+"nicht vollendet werden."
 
 msgid "user.login.passwordResetProcessInstructions"
-msgstr ""
+msgstr "Neues Passwort eingeben, um das Login-Passwort zu aktualisieren."
 
 msgid "user.login.resetPassword.passwordUpdated"
 msgstr ""
+"Das Passwort wurde erfolgreich aktualisiert. Bitten melden Sie sich mit "
+"Ihrem neuen Passwort an."

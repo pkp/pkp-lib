@@ -319,7 +319,7 @@ class DAO extends EntityDAO
     {
         DB::table($this->settingsTable)
             ->where('publication_id', (int) $pubObjectId)
-            ->where('setting_name', '=', $pubIdType)
+            ->where('setting_name', '=', 'pub-id::' . $pubIdType)
             ->delete();
     }
 

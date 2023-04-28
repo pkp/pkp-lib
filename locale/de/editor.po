@@ -1,15 +1,15 @@
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2022-08-09 07:17+0000\n"
-"Last-Translator: Heike Riegler <heike.riegler@julius-kuehn.de>\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,39 +51,59 @@ msgstr "Entscheidung ändern"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
 msgstr ""
+"Sie haben keine Erlaubnis, diese Entscheidung für diese Einreichung "
+"festzuhalten."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Der/Die Redakteur/in wurde nicht erkannt und hat möglicherweise nicht die "
+"Erlaubnis, eine Entscheidung über diese Einreichung zu treffen."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
 msgstr ""
+"Sie können keine E-Mail an die folgenden Empfänger/innen schicken: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Diese Gutachtungsrunde konnte nicht gefunden werden."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Eine Gutachtungsrunde wurde angegeben, aber diese Entscheidung wurde nicht "
+"während einer Begutachtungsphase getroffen."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
-msgstr ""
+msgstr "Diese Gutachtungsrunde ist nicht Teil dieser Einreichung."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Die Einreichung ist nicht in der korrekten Workflowphase, um diese "
+"Entscheidung zu treffen."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Sie müssen dieser Einreichung zugewiesen werden, um redaktionelle "
+"Entscheidungen machen zu können."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Eine Gutachtungsrunden-ID muss angegeben werden, um diese Entscheidung zu "
+"machen."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Eine Empfehlung kann erst gegeben werden, wenn ein Redaktionsmitglied, dass "
+"die finale Entscheidung vornehmen kann, dieser Phase zugewiesen worden ist."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Eine Entscheidung konnte für diese Einreichung nicht vorgenommen werden. Die "
+"Einreichungs-ID fehlt oder stimmt mit der angefragten Einreichung nicht "
+"überein."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Diese Entscheidung konnte nicht gefunden werden. Bitte geben Sie einen "
+"erkennbaren Entscheidungstyp an."
 
 msgid "editor.review.notInitiated"
 msgstr "Der Begutachtungsprozess ist noch nicht eingeleitet worden."
@@ -163,7 +183,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Gutachter wiedereinsetzen"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Begutachtungsanfrage erneut schicken"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Begutachtungstyp"
@@ -224,9 +244,12 @@ msgstr ""
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
 msgstr ""
+"Überarbeitungen sollten nicht einer neuen Runde von Peer Reviews unterzogen "
+"werden."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
 msgstr ""
+"Überarbeitungen sollten einer neuen Runde von Peer Reviews unterzogen werden."
 
 msgid "editor.review.dateAccepted"
 msgstr "Datum der Annahme"
@@ -304,7 +327,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Dem Gutachter gedankt"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Anfrage erneut versandt"
 
 msgid "editor.review.reviewerComments"
 msgstr "Begutachtungskommentare"
@@ -340,6 +363,8 @@ msgstr ""
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Es ist ein Fehler bei der Anfrage an den/die Gutachter/in aufgetreten, die "
+"Begutachtungseinladung zu überdenken. Bitte versuchen Sie es erneut."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Diese/n Benutzer/in in diese Gutachter/innengruppe eintragen"
@@ -459,8 +484,7 @@ msgid "editor.submission.newRoundDescription"
 msgstr ""
 "Sie leiten eine neue Begutachtungsrunde für diese Einreichung ein. Dateien, "
 "die noch nicht in anderen Begutachtungsrunden benutzt worden sind, sind "
-"unten aufgelistet. Standardgemäß sind die Gutachter/innen der vorherigen "
-"Begutachtungsrunde als Gutachter/innen dieser neuen Runde ausgewählt worden."
+"unten aufgelistet."
 
 msgid "editor.submission.createNewRound"
 msgstr "Neue Begutachtungsrunde anlegen"
@@ -546,6 +570,7 @@ msgstr "Momentan zugewiesene aktive Gutachten"
 
 msgid "reviewer.list.assignedToLastRound"
 msgstr ""
+"Diese/r Gutachter/in hat in der letzten Runde ein Gutachten durchgeführt."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Gutachten abgeschlossen"
@@ -578,7 +603,7 @@ msgid "reviewer.list.reassign"
 msgstr "Wieder zuweisen"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "{$name} neu zuweisen"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr ""
@@ -605,28 +630,28 @@ msgid "reviewer.list.empty"
 msgstr "Es wurden keine Gutachter/innen gefunden"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Einer früheren Runde zugewiesen"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Entscheidung abbrechen"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Sind Sie sicher, dass Sie diese Entscheidung abbrechen möchten?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Führen Sie die folgenden Schritte aus, um diese Entscheidung zu treffen"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Diese E-Mail nicht überspringen"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Dieser Schritt wurde übersprungen und es wird keine E-Mail verschickt."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Entscheidung festhalten"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Diese E-Mail überspringen"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Es gab ein Problem im Schritt {$stepName}."

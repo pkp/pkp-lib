@@ -90,6 +90,12 @@
 							@set="set"
 					/>
 				</tab>
+				<tab id="submissionsListSettings" label="{translate key="manager.setup.submissionsListSettings"}">
+					<pkp-form
+						v-bind="components.{$smarty.const.FORM_SUBMISSIONS_LIST_SETTINGS}"
+						@set="set"
+					/>
+				</tab>		
 				{call_hook name="Template::Settings::website::setup"}
 			</tabs>
 		</tab>

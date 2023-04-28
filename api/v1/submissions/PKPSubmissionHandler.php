@@ -820,7 +820,28 @@ class PKPSubmissionHandler extends APIHandler
 
         $map = Repo::user()->getSchemaMap();
         foreach ($usersIterator as $user) {
-            $data[] = $map->summarizeReviewer($user);
+            $mappedUser = $map->summarizeReviewer($user);
+            
+            // update mappedUser with the list of userGroups corresponding to stageAssignments
+            if ($stageId !== null ) {
+                $stageAssignmentDao = DAORegistry::getDAO('StageAssignmentDAO'); /** @var StageAssignmentDAO $stageAssignmentDao */
+                $stageAssignments = $stageAssignmentDao->getBySubmissionAndUserIdAndStageId(
+                        $submission->getId(),
+                        $user->getId(),
+                        $stageId
+                        );
+                $mapUG = Repo::userGroup()->getSchemaMap();
+                // Make a list of the active user groups.
+                $userGroups = [];
+                while ($stageAssignment = $stageAssignments->next()) {
+                    $userGroupId = $stageAssignment->getUserGroupId();
+                    $userGroup = Repo::userGroup()->get($userGroupId);
+                    $userGroups[] = $mapUG->map($userGroup);
+                }
+                $mappedUser['assignedAs'] = $userGroups;
+            }
+
+            $data[] = $mappedUser;
         }
 
         return $response->withJson($data, 200);

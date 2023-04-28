@@ -23,6 +23,7 @@ use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\security\authorization\PKPSiteAccessPolicy;
 use PKP\security\Role;
+use PKP\submission\maps\Schema;
 use PKP\submission\PKPSubmission;
 
 define('SUBMISSIONS_LIST_ACTIVE', 'active');
@@ -102,7 +103,7 @@ class DashboardHandler extends Handler
             ->filterByContextIds([(int) $request->getContext()->getId()])
             ->filterByStatus([PKPSubmission::STATUS_QUEUED])
             ->assignedTo([(int) $request->getUser()->getId()]);
-
+        
         $itemsMax = $collector->getCount();
         $items = $collector->limit(30)->getMany();
 
@@ -113,6 +114,29 @@ class DashboardHandler extends Handler
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
         $genres = $genreDao->getByContextId($context->getId())->toArray();
+
+        // set columns order (used if submissions list is shown as a table)
+        $availableColumns = Schema::getPropertyColumnsName();
+        
+        $currentColumns = (array) $context->getData('submissionsListSettings');
+        $enableColumns = [];
+
+        // sort available columns by choosen order
+        foreach ($currentColumns as $value) {
+            $enableColumns[] = $availableColumns[$value];
+        }
+
+        $submissionPanel = "submissions-list-panel"; //set submissions as a list by default
+
+        // show submissions in a table only if current user has SITE_ADMIN or MANAGER role AND option is true
+        if (!empty(array_intersect([Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER], $userRoles))) {
+            $enableCustomSubmissionsList = (bool) $context->getData('enableCustomSubmissionsList');
+            if ($enableCustomSubmissionsList) {
+                $submissionPanel = "submissions-table-panel";
+            }
+        }
+
+        $openSubmissionsInANewTab = (bool) $context->getData('openSubmissionsInANewTab');
 
         $items = Repo::submission()->getSchemaMap()->mapManyToSubmissionsList($items, $userGroups, $genres);
 
@@ -131,6 +155,10 @@ class DashboardHandler extends Handler
                 'items' => $items->values(),
                 'itemsMax' => $itemsMax,
                 'categories' => $categories,
+                "orderBy" => "lastActivity",
+                "orderDirection" => true,
+                'tableColumns' => $enableColumns,
+                'openSubmissionsInANewTab' => $openSubmissionsInANewTab,
             ]
         );
         $lists[$myQueueListPanel->id] = $myQueueListPanel->getConfig();
@@ -151,6 +179,8 @@ class DashboardHandler extends Handler
                     'includeCategoriesFilter' => $includeCategoriesFilter,
                     'includeActiveSectionFiltersOnly' => true,
                     'categories' => $categories,
+                    'tableColumns' => $enableColumns,
+                    'openSubmissionsInANewTab' => $openSubmissionsInANewTab,
                 ]
             );
             $lists[$unassignedListPanel->id] = $unassignedListPanel->getConfig();
@@ -169,6 +199,8 @@ class DashboardHandler extends Handler
                     'includeCategoriesFilter' => $includeCategoriesFilter,
                     'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
                     'categories' => $categories,
+                    'tableColumns' => $enableColumns,
+                    'openSubmissionsInANewTab' => $openSubmissionsInANewTab,
                 ]
             );
             $lists[$activeListPanel->id] = $activeListPanel->getConfig();
@@ -192,13 +224,23 @@ class DashboardHandler extends Handler
                 'includeCategoriesFilter' => $includeCategoriesFilter,
                 'includeAssignedEditorsFilter' => $includeAssignedEditorsFilter,
                 'categories' => $categories,
+                'tableColumns' => $enableColumns,
+                'openSubmissionsInANewTab' => $openSubmissionsInANewTab,
             ]
         );
         $lists[$archivedListPanel->id] = $archivedListPanel->getConfig();
 
         $templateMgr->setState(['components' => $lists]);
+
+        $templateMgr->setState([
+                'apiUrl' => $apiUrl,
+                'lazyLoad' => true,
+                'searchPhrase' => null,
+                ]);
+
         $templateMgr->assign([
             'pageTitle' => __('navigation.submissions'),
+            'submissionPanel' => $submissionPanel,
         ]);
 
         return $templateMgr->display('dashboard/index.tpl');

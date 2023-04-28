@@ -67,6 +67,11 @@ class PKPContextHandler extends APIHandler
                     'handler' => [$this, 'getTheme'],
                     'roles' => $roles,
                 ],
+//                [
+//                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/submissionsList',
+//                    'handler' => [$this, 'getSubmissionsList'],
+//                    'roles' => $roles,
+//                ],
             ],
             'POST' => [
                 [
@@ -87,6 +92,11 @@ class PKPContextHandler extends APIHandler
                     'roles' => $roles,
                 ],
                 [
+                    'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/submissionsList',
+                    'handler' => [$this, 'editSubmissionsList'],
+                    'roles' => $roles,
+                ],
+		[
                     'pattern' => $this->getEndpointPattern() . '/{contextId:\d+}/registrationAgency',
                     'handler' => [$this, 'editDoiRegistrationAgencyPlugin'],
                     'roles' => $roles,
@@ -299,6 +309,143 @@ class PKPContextHandler extends APIHandler
 
         return $response->withJson($data, 200);
     }
+
+//    /**
+//     * Get the submission list settings for a context
+//     *
+//     * @param Request $slimRequest Slim request object
+//     * @param Response $response object
+//     * @param array $args arguments
+//     *
+//     * @return Response
+//     */
+//    public function getSubmissionsList($slimRequest, $response, $args)
+//    {
+//        $request = $this->getRequest();
+//        $user = $request->getUser();
+//
+//        $contextService = Services::get('context');
+//        $context = $contextService->get((int) $args['contextId']);
+//
+//        if (!$context) {
+//            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+//        }
+//
+//        // Don't allow to get one context from a different context's endpoint
+//        if ($request->getContext() && $request->getContext()->getId() !== $context->getId()) {
+//            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+//        }
+//
+//        // A disabled journal can only be access by site admins and users with a
+//        // manager role in that journal
+//        if (!$context->getEnabled()) {
+//            $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+//            if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
+//                $roleDao = DAORegistry::getDao('RoleDAO'); /** @var RoleDAO $roleDao */
+//                if (!$roleDao->userHasRole($context->getId(), $user->getId(), Role::ROLE_ID_MANAGER)) {
+//                    return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowed');
+//                }
+//            }
+//        }
+//
+//        $data = [];
+//        $data['columnsEnable'] = [
+//            [
+//                        'name' => 'id',
+//                        'label' => __('submissionId'),
+//                        'value' => 'id',             
+//                            ],
+//            [
+//                        'name' => 'title',
+//                        'label' => __('common.title'),
+//                        'value' => 'title',             
+//                    ],
+//            [
+//                        'name' => 'status',
+//                        'label' => __('common.status'),
+//                        'value' => 'status',             
+//                    ],
+//            [
+//                        'name' => 'openDiscussion',
+//                        'label' => __('common.openDiscussion'),
+//                        'value' => 'openDiscussion',             
+//                    ],
+//            [
+//                        'name' => 'files',
+//                        'label' => __('common.files'),
+//                        'value' => 'files',             
+//                    ],
+//            [
+//                        'name' => 'stage',
+//                        'label' => __('common.stage'),
+//                        'value' => 'stage',             
+//                    ],
+//            [
+//                        'name' => 'lastActivity',
+//                        'label' => __('common.lastActivity'),
+//                        'value' => 'dateLastActivity',
+//             ],
+//            
+//                    
+//            ];
+//        $data['columnsDisable'] = [
+//            [
+//                        'name' => 'dateSubmitted',
+//                        'label' => __('common.dateSubmitted'),
+//                        'value' => 'dateSubmitted',
+//                    ],
+//            ];
+//
+//        return $response->withJson($data, 200);
+//    }
+//    
+    
+     /**
+     * Save submissions list settings
+     *
+     * @param Request $slimRequest Slim request object
+     * @param Response $response object
+     * @param array $args arguments
+     *
+     * @return Response
+     */
+    public function editSubmissionsList($slimRequest, $response, $args)
+    {
+        $request = $this->getRequest();
+        $requestContext = $request->getContext();
+
+        $contextId = (int) $args['contextId'];
+
+        // Don't allow to get one context from a different context's endpoint
+        if ($request->getContext() && $request->getContext()->getId() !== $contextId) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.contextsDidNotMatch');
+        }
+
+        // Don't allow to edit the context from the site-wide API, because the
+        // context's plugins will not be enabled
+        if (!$request->getContext()) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.requiresContext');
+        }
+
+        $contextService = Services::get('context');
+        $context = $contextService->get($contextId);
+
+        if (!$context) {
+            return $response->withStatus(404)->withJsonError('api.contexts.404.contextNotFound');
+        }
+
+        $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
+        if (!$requestContext && !in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
+            return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
+        }
+
+        $params = $slimRequest->getParsedBody();
+
+        $data = ['ok'];
+
+        return $response->withJson($data, 200);
+    }
+
 
     /**
      * Add a context

@@ -51,6 +51,12 @@ abstract class PKPSubmissionsListPanel extends ListPanel
 
     /** @var array List of all available categories */
     public $categories = [];
+    
+    /** @var array List of all enable columns */
+    public $tableColumns = [];
+
+    /** @var bool Whether to open submissions in a new tab */
+    public $openSubmissionsInANewTab = false;
 
     /**
      * @copydoc ListPanel::getConfig()
@@ -67,6 +73,8 @@ abstract class PKPSubmissionsListPanel extends ListPanel
         $config['getParams'] = $this->getParams;
         $config['lazyLoad'] = $this->lazyLoad;
         $config['itemsMax'] = $this->itemsMax;
+        $config['tableColumns'] = $this->tableColumns;
+        $config['openSubmissionsInANewTab'] = $this->openSubmissionsInANewTab;
 
         // URL to add a new submission
         if ($context->getData('disableSubmissions')) {
@@ -100,6 +108,14 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'addParticipant',
             null,
             ['submissionId' => '__id__', 'stageId' => '__stageId__']
+        );
+
+        // URL to get participants on active stage
+        $config['getParticipantsApiUrl'] = $request->getDispatcher()->url(
+            $request,
+            Application::ROUTE_API,
+            $context->getPath(),
+            'submissions/__id__/participants/__stageId__',
         );
 
         $config['filters'] = [
@@ -227,6 +243,7 @@ abstract class PKPSubmissionsListPanel extends ListPanel
             'submission.list.reviewDue',
             'submission.list.reviewerWorkflowLink',
             'submission.list.reviewsCompleted',
+            'editor.submission.recommendation.display',
             'submission.list.revisionsSubmitted',
             'submission.list.viewSubmission',
         ]);

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:55+00:00\n"
-"PO-Revision-Date: 2023-04-25 14:49+0000\n"
+"PO-Revision-Date: 2023-04-28 14:09+0000\n"
 "Last-Translator: Dorien van Rheenen <d.van.rheenen@rug.nl>\n"
 "Language-Team: Dutch <http://translate.pkp.sfu.ca/projects/pkp-lib/common/nl/"
 ">\n"
@@ -469,10 +469,10 @@ msgid "common.findTemplate"
 msgstr "Zoek sjabloon"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Opmaak"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Geografisch"
 
 msgid "common.go"
 msgstr "Ga"
@@ -502,13 +502,13 @@ msgid "common.inProgress"
 msgstr "In uitvoering"
 
 msgid "common.insert"
-msgstr ""
+msgstr "Invoegen"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Voeg inhoud toe"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Zoek inhoud om in te voegen"
 
 msgid "common.itemsPerPage"
 msgstr "Items per pagina"
@@ -541,7 +541,7 @@ msgid "common.lessThanOnly"
 msgstr "Kleiner dan"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Blijf werken"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -592,7 +592,7 @@ msgid "common.no"
 msgstr "Nee"
 
 msgid "common.noItemsFound"
-msgstr ""
+msgstr "Geen items gevonden."
 
 msgid "common.noComments"
 msgstr "Geen commentaren"
@@ -632,7 +632,7 @@ msgid "common.noMatches"
 msgstr "Niet gevonden"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} meer"
 
 msgid "common.off"
 msgstr "Uit"
@@ -668,7 +668,7 @@ msgid "common.overdue"
 msgstr "Te laat"
 
 msgid "common.override"
-msgstr ""
+msgstr "Overschrijven"
 
 msgid "common.pagination"
 msgstr "{$start}-{$end} van {$total}"
@@ -677,13 +677,13 @@ msgid "common.pagination.label"
 msgstr "Blader naar verdere pagina's"
 
 msgid "common.pagination.goToPage"
-msgstr ""
+msgstr "Ga naar {$page}"
 
 msgid "common.pagination.next"
-msgstr ""
+msgstr "Volgende pagina"
 
 msgid "common.pagination.previous"
-msgstr ""
+msgstr "Vorige pagina"
 
 msgid "common.pageNumber"
 msgstr "Pagina {$pageNumber}"
@@ -707,7 +707,7 @@ msgid "common.prefixAndTitle.tip"
 msgstr ""
 "Zet korte niet-betekenisvolle woorden waarmee de titel begint, zoals \"een\" "
 "of \"de/het\" (of gelijkaardige korte woorden die de alfabetische volgorde "
-"verstoren) in Prefix."
+"verstoren) in Prefix"
 
 msgid "common.preview"
 msgstr "Voorvertoning"
@@ -734,7 +734,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Lees meer over {$title}"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Opnieuw verbinden"
 
 msgid "common.record"
 msgstr "Vastleggen"
@@ -752,16 +752,16 @@ msgid "common.reminded.date"
 msgstr "Datum van herinnering: {$dateReminded}"
 
 msgid "common.remote"
-msgstr "Remote"
+msgstr "Externe"
 
 msgid "common.remoteURL"
-msgstr "RemoteURL"
+msgstr "Externe URL"
 
 msgid "common.remove"
 msgstr "Verwijder"
 
 msgid "common.removeItem"
-msgstr ""
+msgstr "Verwijder {$item}"
 
 msgid "common.removeSelection"
 msgstr "Selectie weghalen"
@@ -782,10 +782,10 @@ msgid "common.reset"
 msgstr "Herstel"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Ronde {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Rol"
 
 msgid "common.saveAndContinue"
 msgstr "Bewaar en ga door"
@@ -803,10 +803,10 @@ msgid "common.search"
 msgstr "Zoek"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Zoekwoorden"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Zoeken"
 
 msgid "common.searchQuery"
 msgstr "Zoekterm"
@@ -821,7 +821,7 @@ msgid "common.selectAll"
 msgstr "Selecteer alle"
 
 msgid "common.selectedPrefix"
-msgstr ""
+msgstr "Gekozen:"
 
 msgid "common.selectNone"
 msgstr "Selecteer niets"
@@ -830,16 +830,16 @@ msgid "common.select"
 msgstr "Selecteer"
 
 msgid "common.selectWithName"
-msgstr ""
+msgstr "Selecteer {$name}"
 
 msgid "common.sendEmail"
 msgstr "Verstuur e-mail"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Toon alle stappen"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} stappen"
 
 msgid "common.size"
 msgstr "Grootte"
@@ -857,7 +857,7 @@ msgid "common.subjects"
 msgstr "Onderwerpen"
 
 msgid "common.submenu"
-msgstr ""
+msgstr "Submenu"
 
 msgid "common.subtitle"
 msgstr "Ondertitel"
@@ -866,16 +866,16 @@ msgid "common.suggest"
 msgstr "Suggereer"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Overschakelen naar"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Overschakelen naar {$name}"
 
 msgid "common.title"
 msgstr "Titel"
 
 msgid "common.titleSeparator"
-msgstr ""
+msgstr " | "
 
 msgid "common.top"
 msgstr "Boven"
@@ -887,10 +887,10 @@ msgid "common.type"
 msgstr "Type"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Geladen door {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Geladen door {$name} op {$date}"
 
 msgid "common.component"
 msgstr "Onderdeel"
@@ -900,15 +900,21 @@ msgstr "Onbekend"
 
 msgid "common.unknownError"
 msgstr ""
+"Er is een onverwachte fout opgetreden. Laad de pagina opnieuw en probeer "
+"nogmaals."
 
 msgid "common.unread"
 msgstr "Ongelezen"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Niet opgeslagen wijzigingen"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"We vonden niet opgeslagen wijzigingen van {$when}. Dit kan gebeuren als u "
+"tijdens het werk de verbinding met de server verliest. Het herstellen van "
+"die wijzigingen kan alle wijzigingen overschrijven die u sindsdien hebt "
+"aangebracht. Wilt u die wijzigingen nu terugzetten?"
 
 msgid "common.untitled"
 msgstr "Zonder titel"
@@ -931,13 +937,13 @@ msgid "common.up"
 msgstr "Omhoog"
 
 msgid "common.addFile"
-msgstr ""
+msgstr "Voeg bestand toe"
 
 msgid "common.upload.addFile"
-msgstr "Upload bestand"
+msgstr "Laad bestand"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Laad een bestand van uw computer."
 
 msgid "common.upload.restore"
 msgstr "Herstel het origineel"
@@ -958,16 +964,16 @@ msgid "common.user"
 msgstr "Gebruiker"
 
 msgid "common.user.nonexistent"
-msgstr ""
+msgstr "[Nonexistent user]"
 
 msgid "common.view"
 msgstr "Bekijk"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Bekijk foutmelding"
 
 msgid "common.viewWithName"
-msgstr ""
+msgstr "Bekijk {$name}"
 
 msgid "common.viewProfile"
 msgstr "Bekijk profiel"
@@ -1033,28 +1039,30 @@ msgid "email.addAttachment"
 msgstr "Voeg bijlage toe"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Inzendingsbestanden toevoegen"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Voeg bestanden toe die de auteur bij de inzending heeft geüpload."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Voeg bestanden toe die tijdens het inzendingsproces zijn geüpload, zoals "
+"gereviseerde versies of te reviewen bestanden."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Bibliotheek van de inzending"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Voeg bibliotheekbestanden toe"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Voeg inzendingsbestanden en uitgeversbestanden toe."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Voeg reviewbestanden toe"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Voeg bestanden toe die door reviewers zijn geüpload"
 
 msgid "email.addBccRecipient"
 msgstr "Voeg BCC toe"
@@ -1069,7 +1077,7 @@ msgid "email.attachments"
 msgstr "Bijlagen"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Het bestand {$fileName} kon niet worden toegevoegd."
 
 msgid "email.bcc"
 msgstr "BCC"
@@ -1085,6 +1093,9 @@ msgstr "CC"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Weet u zeker dat u wilt overschakelen naar {$localeName} om deze e-mail op "
+"te stellen? Alle wijzigingen die u in het onderwerp en de inhoud van de e-"
+"mail hebt aangebracht, gaan verloren."
 
 msgid "email.compose"
 msgstr "Stuur e-mail"
@@ -1261,7 +1272,7 @@ msgid "form.resubmit"
 msgstr "Zend opnieuw in"
 
 msgid "form.saved"
-msgstr ""
+msgstr "Bewaard"
 
 msgid "form.saveToUpload"
 msgstr "Gebruik Bewaar om het bestand te laden."
@@ -1399,16 +1410,20 @@ msgstr ""
 "maken."
 
 msgid "stageParticipants.submissionEditMetadataOptions"
-msgstr ""
+msgstr "Rechten"
 
 msgid "stageParticipants.canChangeMetadata"
 msgstr ""
+"Geef deze persoon toestemming om wijzigingen aan te brengen in de "
+"publicatie, zoals de titel, abstract, metadata en andere publicatiedetails. "
+"U kunt dit recht weer intrekken als de inzending een laatste controle heeft "
+"ondergaan en klaar is voor publicatie."
 
 msgid "stageParticipants.selectedUser"
-msgstr ""
+msgstr "Deelnemer"
 
 msgid "stageParticipants.noOptionsToHandle"
-msgstr ""
+msgstr "Deze deelnemer kan niet worden gewijzigd"
 
 msgid "locale.primary"
 msgstr "Primaire taal"
@@ -1447,7 +1462,7 @@ msgid "navigation.browse"
 msgstr "Blader"
 
 msgid "navigation.backTo"
-msgstr ""
+msgstr "⟵ Terug naar {$page}"
 
 msgid "navigation.browseByAuthor"
 msgstr "Op auteur"
@@ -1510,10 +1525,10 @@ msgid "navigation.sitemap"
 msgstr "Site Map"
 
 msgid "navigation.skip.description"
-msgstr ""
+msgstr "Ga naar inhoudsopgave"
 
 msgid "navigation.skip.announcements"
-msgstr ""
+msgstr "Ga naar aankondigingen"
 
 msgid "navigation.skip.main"
 msgstr "Ga naar tekst"
@@ -1546,7 +1561,7 @@ msgid "navigation.viewFrontend"
 msgstr "Toon website"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Instituten"
 
 msgid "notification.addedAuditor"
 msgstr "Corrector toegevoegd."
@@ -1567,7 +1582,7 @@ msgid "notification.updatedReviewFiles"
 msgstr "Reviewbestanden zijn bijgewerkt."
 
 msgid "notification.allow"
-msgstr "Toon deze soorten attenderingen in uw attenderingenlijst"
+msgstr "Toon deze soorten attenderingen in uw attenderingenlijst."
 
 msgid "notification.addedAnnouncementType"
 msgstr "Nieuwsbericht-type toegevoegd."
@@ -1585,13 +1600,13 @@ msgid "notification.confirmError"
 msgstr "Er is een fout opgetreden bij het bevestigen van uw abonnement."
 
 msgid "notification.confirmSuccess"
-msgstr "U bent met succes geabonneerd"
+msgstr "U bent succesvol ingeschreven."
 
 msgid "notification.email"
-msgstr "Stuur me een e-mail voor deze types van nieuwsberichten."
+msgstr "Stuur me geen e-mail voor deze types nieuwsberichten."
 
 msgid "notification.noneExist"
-msgstr "U heeft momenteel geen attenderingen"
+msgstr "U heeft momenteel geen attenderingen."
 
 msgid "notification.addedNote"
 msgstr "Noot gepost."
@@ -1619,8 +1634,8 @@ msgstr "Attenderingsinstellingen"
 
 msgid "notification.settingsDescription"
 msgstr ""
-"Kies de gebeurtenissen waarop u geattendeerd wilt worden.  Niet aanvinken "
-"van een onderdeel voorkomt attenderingen daarop."
+"Kies de gebeurtenissen waarop u geattendeerd wilt worden. Niet aanvinken van "
+"een onderdeel voorkomt attenderingen daarop."
 
 msgid "notification.reminderError"
 msgstr ""
@@ -1634,7 +1649,7 @@ msgid "notification.savedSubmissionMetadata"
 msgstr "Metadata voor inzending opgeslagen."
 
 msgid "notification.sendNotificationConfirmation"
-msgstr "Verstuur e-mail naar alle geregistreerde gebruikers"
+msgstr "Verstuur e-mail naar alle geregistreerde gebruikers."
 
 msgid "search.author"
 msgstr "Auteurs"
@@ -1715,10 +1730,10 @@ msgid "search.searchResults"
 msgstr "Zoekresultaten"
 
 msgid "search.searchResults.foundSingle"
-msgstr ""
+msgstr "Een resultaat gevonden."
 
 msgid "search.searchResults.foundPlural"
-msgstr ""
+msgstr "{$count} resultaten gevonden."
 
 msgid "search.subject"
 msgstr "Trefwoord(en"
@@ -1738,7 +1753,6 @@ msgstr "Download dit bestand"
 msgid "context.path"
 msgstr "Pad"
 
-#, fuzzy
 msgid "review.ensuringAnonymousReview"
 msgstr "Verzeker een blinde review"
 
@@ -1761,12 +1775,11 @@ msgid "dashboard.myQueue"
 msgstr "Mijn wachtlijst"
 
 msgid "review.anonymousPeerReview.title"
-msgstr ""
+msgstr "Hoe kan ik ervoor zorgen dat alle bestanden anoniem zijn"
 
-#, fuzzy
 msgid "review.anonymousPeerReview"
 msgstr ""
-"<p>Om de integriteit van het blinde peer-review proces te garanderen voor "
+"<p>Om de integriteit van het anonieme peer-review proces te garanderen voor "
 "inzendingen voor dit tijdschrift, moeten alle maatregelen worden genomen om "
 "de identiteit van auteurs en reviewers te verbergen voor elkaar. Daarom "
 "moeten auteurs, redacteurs en reviewers (die bestanden opladen als deel van "
@@ -1775,14 +1788,14 @@ msgstr ""
 "\t\t\t<ul><li>De auteurs van een document hebben hun namen uit de tekst "
 "verwijderd, en in de literatuurlijst verwijzingen naar hun eigen publicaties "
 "geanonymiseerd tot \"Auteur\" en publicatiejaar.</li>\n"
-"\t\t\t<li>Voor  Microsoft Office documenten moet eveneens "
-"auteursidentificatie worden verwijderd van de bestandseigenschappen, door "
+"\t\t\t<li>Voor Microsoft Office documenten moet eveneens "
+"auteursidentificatie worden verwijderd uit de bestandseigenschappen, door "
 "volgende handelingen: Bestand > Opslaan als > Opties > Beveiligingscentrum > "
 "Verwijder persoonlijke gegevens bij opslaan van het bestand > Opslaan.</li>\n"
 "\t\t\t<li>Voor PDF bestanden moeten de auteursnamen eveneens worden "
 "verwijderd uit Documenteigenschappen, onder Bestand in het hoofdmenu van "
 "Adobe Acrobat.</li>\n"
-"\t\t</ul>"
+"\t\t</ul>\n"
 
 msgid "reviewer.submission.reviewSchedule"
 msgstr "Review planning"
@@ -1816,19 +1829,19 @@ msgid "notification.removedReviewer"
 msgstr "Reviewer verwijderd."
 
 msgid "notification.cancelledReviewer"
-msgstr ""
+msgstr "Reviewer geannuleerd."
 
 msgid "notification.reinstatedReviewer"
-msgstr ""
+msgstr "Reviewer opnieuw toegevoegd."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Verzoek tot heroverweging van review is verzonden."
 
 msgid "notification.addedStageParticipant"
 msgstr "Gebruiker toegevoegd als deelnemer."
 
 msgid "notification.editStageParticipant"
-msgstr ""
+msgstr "De toewijzing is aangepast."
 
 msgid "notification.type.newAnnouncement"
 msgstr "Nieuw nieuwsbericht."
@@ -1844,18 +1857,18 @@ msgstr "Correctieverzoek voor \"{$file}\""
 
 msgid "notification.type.allReviewsIn"
 msgstr ""
-"Alle reviews zijn ingediend en er wordt een beslissing verwacht in {$stage}"
+"Alle reviews zijn ingediend en er wordt een beslissing verwacht in {$stage}."
 
 msgid "notification.type.allRevisionsIn"
 msgstr ""
-"Een gereviseerde versie van een bestand is opgeladen voor redactionele "
+"Een gereviseerde versie van een bestand is geüpload voor redactionele "
 "beoordeling in {$stage}."
 
 msgid "notification.type.pendingRevisions"
 msgstr "Er worden nog revisies verwacht in {$stage}."
 
 msgid "notification.type.pendingRevisions.title"
-msgstr "Revisies zijn ingediend in {$stage}"
+msgstr "Revisies zijn ingediend in {$stage}."
 
 msgid "notification.type.reviewerComment"
 msgstr "Een reviewer heeft opmerkingen toegevoegd voor \"{$title}\"."
@@ -1864,10 +1877,10 @@ msgid "notification.signedFile"
 msgstr "Bestand aanvaard."
 
 msgid "timeZone"
-msgstr ""
+msgstr "Tijdzone"
 
 msgid "user.email"
-msgstr ""
+msgstr "E-mailadres"
 
 msgid "user.authorization.submissionFile"
 msgstr ""
@@ -1875,7 +1888,7 @@ msgstr ""
 "bekijken."
 
 msgid "user.authorization.invalidPublication"
-msgstr ""
+msgstr "Ongeldige publicatie."
 
 msgid "user.authorization.invalidSubmission"
 msgstr "Ongeldige inzending."
@@ -1884,16 +1897,16 @@ msgid "user.authorization.invalidRepresentation"
 msgstr "Ongeldige weergave."
 
 msgid "user.authorization.invalidReviewRound"
-msgstr ""
+msgstr "Ongeldige review ronde."
 
 msgid "user.authorization.invalidQuery"
-msgstr ""
+msgstr "Ongeldige discussie."
 
 msgid "user.authorization.unauthorizedNote"
-msgstr ""
+msgstr "U heeft geen toegang tot dit discussiebericht."
 
 msgid "user.authorization.unauthorizedReviewAssignment"
-msgstr ""
+msgstr "U heeft geen toegang tot dit reviewverzoek."
 
 msgid "user.authorization.authorRoleMissing"
 msgstr ""
@@ -1906,7 +1919,7 @@ msgstr ""
 "Controleer of u ingelogd bent met het juiste gebruikersaccount."
 
 msgid "user.register.form.privacyConsentLabel"
-msgstr ""
+msgstr "Privacy opties"
 
 msgid "notification.type.queryActivity"
 msgstr "Activiteit in de discussie."
@@ -1926,19 +1939,21 @@ msgid "notification.type.roundStatusTitle"
 msgstr "Ronde {$round} status"
 
 msgid "notification.type.editorialReport"
-msgstr ""
+msgstr "Samenvatting statistisch rapport."
 
 msgid "notification.type.editorialReport.contents"
 msgstr ""
+"Dit is een vriendelijke herinnering om de gezondheid van uw tijdschrift te "
+"controleren op basis van het redactierapport."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Wekelijkse e-mail van openstaande taken"
 
 msgid "semicolon"
 msgstr "{$label}:"
 
 msgid "notification.editedNavigationMenuItem"
-msgstr "Navigatiemenu bijgewerkt."
+msgstr "Navigatiemenu bijgewerkt"
 
 msgid "notification.removedNavigationMenuItem"
 msgstr "Item verwijderd uit navigatiemenu"
@@ -1956,25 +1971,35 @@ msgid "notification.removedNavigationMenu"
 msgstr "Navigatiemenu verwijderd"
 
 msgid "notification.unsubscribeNotifications.success"
-msgstr ""
+msgstr "U bent uitgeschreven"
 
 msgid "notification.unsubscribeNotifications.error"
-msgstr ""
+msgstr "We konden u niet uitschrijven"
 
 msgid "notification.unsubscribeNotifications.pageMessage"
 msgstr ""
+"Selecteer de e-mails die u niet langer wenst te ontvangen bij {$email} van "
+"{$contextName}."
 
 msgid "notification.unsubscribeNotifications.resubscribe"
 msgstr ""
+"U kunt zich te allen tijde opnieuw aanmelden voor e-mailberichten in uw <a "
+"href=\"{$profileNotificationUrl}\">profiel</a>."
 
 msgid "notification.unsubscribeNotifications.successMessage"
 msgstr ""
+"Het e-mailadres {$email} is succesvol uitgeschreven. We zullen u deze e-"
+"mails niet meer sturen. U kunt zich te allen tijde opnieuw aanmelden voor e-"
+"mailberichten in uw <a href=\"{$profileNotificationUrl}\">profiel</a>."
 
 msgid "notification.unsubscribeNotifications.errorMessage"
 msgstr ""
+"Er is een onverwachte fout opgetreden en we konden het e-mailadres {$email} "
+"niet afmelden. U kunt alle e-mailberichten uitschakelen in uw <a href=\""
+"{$profileNotificationUrl}\">profiel</a> of ons direct benaderen voor hulp."
 
 msgid "notification.unsubscribeNotifications"
-msgstr ""
+msgstr "Uitschrijven"
 
 msgid "list.viewMore"
 msgstr "Toon meer details over {$name}"
@@ -1989,7 +2014,7 @@ msgid "list.collapseAll"
 msgstr ""
 
 msgid "validation.invalidOption"
-msgstr ""
+msgstr "Dit is geen geldige keuze."
 
 msgid "validator.accepted"
 msgstr "Accepteer dit item."

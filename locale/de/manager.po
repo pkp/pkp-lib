@@ -1,5 +1,5 @@
 # Sebastian Wolf <bibliothekswelt@htmlwolf.de>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2022, 2023.
 # Heike Riegler <heike.riegler@julius-kuehn.de>, 2022.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
 "Language: de\n"
@@ -181,16 +181,23 @@ msgstr ""
 "markieren möchten?"
 
 msgid "manager.dois.actions.markUnregistered.label"
-msgstr ""
+msgstr "DOIs als \"Nicht registriert\" markieren"
 
 msgid "manager.dois.actions.markUnregistered.prompt"
 msgstr ""
+"Sie sind im Begriff, DOI Metadaten für {$count} Objekt(e) als \"Nicht "
+"registriert\" zu markieren. Sind Sie sicher, dass Sie diese Datensätze als "
+"\"Nicht registriert\" markieren möchten?"
 
 msgid "manager.dois.actions.markStale.label"
-msgstr ""
+msgstr "DOIs mit \"Benötigt Synchronisierung\" markieren"
 
 msgid "manager.dois.actions.markStale.prompt"
 msgstr ""
+"Sie sind im Begriff, DOI Metadaten für {$count} Objekt(e) mit \"Benötigt "
+"Synchronisierung\" zu markieren. Dieser Status kann nur DOIs zugewiesen "
+"werden, die zuvor eingereicht wurden. Sind Sie sicher, dass Sie die Daten "
+"als überholt markieren möchten?"
 
 msgid "manager.dois.actions.export.label"
 msgstr "DOIs exportieren"
@@ -221,10 +228,10 @@ msgstr ""
 "die Daten für alle Objekte abliefern möchten?"
 
 msgid "manager.dois.actions.description"
-msgstr ""
+msgstr "Aktion für {$count} ausgewählte Objekte ausführen."
 
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Bulk Aktionen"
 
 msgid "manager.dois.depositStatus"
 msgstr "Ablieferungsstatus"
@@ -238,6 +245,7 @@ msgstr ""
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
 msgstr ""
+"Dieses Objekt wurde manuell bei einer Registrierungsagentur registriert."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
@@ -267,7 +275,7 @@ msgid "manager.dois.registration.depositDois"
 msgstr "DOI(s) abliefern"
 
 msgid "manager.dois.status.needsDoi"
-msgstr ""
+msgstr "Benötigt DOI"
 
 msgid "manager.dois.status.unregistered"
 msgstr "Nicht registriert"
@@ -282,37 +290,45 @@ msgid "manager.dois.status.error"
 msgstr "Fehler"
 
 msgid "manager.dois.status.error.filterTitle"
-msgstr ""
+msgstr "Hat Fehler"
 
 msgid "manager.dois.status.stale"
 msgstr "Abgelaufen"
 
 msgid "manager.dois.filters.doiAssigned"
-msgstr ""
+msgstr "DOI Zugeteilt"
 
 msgid "manager.dois.status.needsDoi.description"
-msgstr ""
+msgstr "Allen Objekten fehlt eine DOI."
 
 msgid "manager.dois.filters.doiAssigned.description"
-msgstr ""
+msgstr "Allen Objekten wurde eine DOI zugeteilt."
 
 msgid "manager.dois.status.unregistered.description"
 msgstr ""
+"Alle Objekte mit DOI, die bereits veröffentlicht wurden, aber noch nicht an "
+"eine Registrierungsagentur abgeliefert wurden."
 
 msgid "manager.dois.status.submitted.description"
-msgstr ""
+msgstr "Alle Objekte, die an eine Registrierungsagentur abgeliefert wurden."
 
 msgid "manager.dois.status.registered.description"
 msgstr ""
+"Alle Objekte, die an eine Registrierungsagentur abgeliefert wurden oder "
+"manuell als \"Registriert\" markiert wurden."
 
 msgid "manager.dois.status.error.description"
 msgstr ""
+"Alle Objekte, bei denen ein Fehler im Registrierungsprozess aufgetreten ist."
 
 msgid "manager.dois.status.stale.description"
 msgstr ""
+"Alle Objekte, die neu veröffentlicht wurden seit sie bei einer "
+"Registrierungsagentur abgeliefert wurden. Sie müssen erneut abgeliefert "
+"werden, um die Metadaten zu aktualisieren."
 
 msgid "manager.dois.update.failedCreation"
-msgstr ""
+msgstr "DOI Aktualisierungen fehlgeschlagen"
 
 msgid "manager.dois.update.partialFailure"
 msgstr "Einige DOI(s) konnten nicht aktualisiert werden."
@@ -324,10 +340,10 @@ msgid "manager.dois.notification.markRegisteredSuccess"
 msgstr "Objekte erfolgreich als 'registriert' markiert"
 
 msgid "manager.dois.notification.markUnregisteredSuccess"
-msgstr ""
+msgstr "Objekte wurden erfolgreich als \"Nicht registriert\" markiert"
 
 msgid "manager.dois.notification.markStaleSuccess"
-msgstr ""
+msgstr "Objekte wurden erfolgreich mit \"Benötigt Synchronisierung\" markiert"
 
 msgid "manager.dois.notification.assignDoisSuccess"
 msgstr "Objekten wurden erfolgreich neue DOIs zugewiesen"
@@ -336,43 +352,56 @@ msgid "manager.dois.notification.depositQueuedSuccess"
 msgstr "Objekte wurden erfolgreich zur Ablieferung eingereicht"
 
 msgid "manager.dois.help.statuses.title"
-msgstr ""
+msgstr "DOI Stati"
 
 msgid "manager.dois.settings.relocated"
 msgstr ""
+"Die DOI-Verwaltung ist umgezogen. Bitte sehen Sie sich die Seiten zur <a "
+"href=\"{$doiManagementUrl}\">DOI-Verwaltung</a> und den <a href=\""
+"{$doiSettingsUrl}\">DOI-Einstellungen</a> an."
 
 msgid "manager.dois.settings.prefixRequired"
 msgstr ""
+"DOIs können nicht zugeteilt werden, bevor Sie Ihr zugeordnetes DOI-Präfix "
+"eingetragen haben. <a href=\"{$doiSettingsUrl}\">DOI-Präfix eintragen</a>."
 
 msgid "doi.exceptions.missingPrefix"
 msgstr ""
+"Es wurde versucht, eine DOI zu erstellen, aber es wird ein DOI-Präfix für "
+"den Kontext benötigt."
 
 msgid "manager.genres.alertDelete"
 msgstr ""
+"Bevor diese Komponente gelöscht werden kann müssen alle zugehörigen "
+"Einreichungsdateien einer anderen Komponente zugewiesen werden."
 
 msgid "manager.institutions.edit"
-msgstr ""
+msgstr "Institution bearbeiten"
 
 msgid "manager.institutions.form.ror"
-msgstr ""
+msgstr "ROR"
 
 msgid "manager.institutions.form.ror.description"
-msgstr ""
+msgstr "Research Organization Registry ID für diese Institution."
 
 msgid "manager.institutions.form.ipRanges"
-msgstr ""
+msgstr "IP ranges"
 
 msgid "manager.institutions.form.ipRangesInstructions"
 msgstr ""
+"Gültige Werte sind eine IP Adresse (z.B. 142.58.103.1), IP range (z.B. "
+"142.58.103.1 - 142.58.103.4), IP range mit Wildcard '*' (z.B. 142.58.*.*), "
+"und eine IP range mit CIDR (z.B. 142.58.100.0/24)."
 
 msgid "manager.institutions.deleteInstitution"
-msgstr ""
+msgstr "Institution löschen"
 
 msgid "manager.institutions.confirmDelete"
 msgstr ""
+"Sind Sie sicher, dass Sie fortfahren und diese Institution löschen möchten?"
 
 msgid "manager.institutions.invalidIPRange"
-msgstr ""
+msgstr "Ungültige IP range"
 
 msgid "manager.publication.submissionStage"
 msgstr "Einreichung"
@@ -780,47 +809,56 @@ msgid "manager.roles"
 msgstr "Rollen"
 
 msgid "manager.setup.statistics"
-msgstr ""
+msgstr "Statistiken"
 
 msgid "manager.settings.statistics.geoUsageStats"
-msgstr ""
+msgstr "Geographische Statistiken"
 
 msgid "manager.settings.statistics.geoUsageStats.description"
 msgstr ""
+"Wählen Sie die Art der geographischen Nutzungsstatistiken, die erfasst "
+"werden sollen. Detailliertere geographische Statistiken können die Größe "
+"Ihrer Datenbank beträchtlich erhöhen und in einigen seltenen Fällen die "
+"Anonymität Ihrer Besucher/innen gefährden."
 
 msgid "manager.settings.statistics.geoUsageStats.disabled"
-msgstr ""
+msgstr "Keine geographischen Daten erfassen"
 
 msgid "manager.settings.statistics.geoUsageStats.countryLevel"
-msgstr ""
+msgstr "Das Land des/der Besucher/in erfassen"
 
 msgid "manager.settings.statistics.geoUsageStats.regionLevel"
-msgstr ""
+msgstr "Das Land und die Region des/der Besucher/in erfassen"
 
 msgid "manager.settings.statistics.geoUsageStats.cityLevel"
-msgstr ""
+msgstr "Das Land, die Region, und den Ort des/der Besucher/in erfassen"
 
 msgid "manager.settings.statistics.institutionUsageStats"
-msgstr ""
+msgstr "Institutionelle Statistiken"
 
 msgid "manager.settings.statistics.institutionUsageStats.description"
 msgstr ""
+"Aktivieren Sie institutionelle Statistiken, wenn Sie Nutzungsstatistiken "
+"nach Institution erfassen möchten. Sofern aktiviert müssen Sie die IP Ranges "
+"für jede Institution hinzufügen, deren Daten Sie erfassen möchten."
 
 msgid "manager.settings.statistics.institutionUsageStats.enable"
-msgstr ""
+msgstr "Institutionelle Statistiken aktivieren"
 
 msgid "manager.settings.statistics.publicSushiApi"
-msgstr ""
+msgstr "Public API"
 
 msgid "manager.settings.statistics.publicSushiApi.description"
 msgstr ""
+"Ob die API-Endpunkte für die COUNTER SUSHI Statistiken restriktiert werden "
+"sollen. Wenn diese Option nicht aktiviert ist, ist die API nur für Benutzer/"
+"innen mit Admin oder Manager/inrollen zugänglich."
 
 msgid "manager.settings.statistics.publicSushiApi.public"
-msgstr ""
+msgstr "COUNTER SUSHI Statistiken öffentlich verfügbar machen"
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Berichtserstellung"
+msgstr "Berichte"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -890,19 +928,21 @@ msgid "doi.manager.settings.doiObjects"
 msgstr "Objekte mit DOIs"
 
 msgid "doi.manager.settings.doiPrefix.required"
-msgstr ""
+msgstr "Ein DOI-Präfix wird benötigt"
 
 msgid "doi.manager.settings.doiSuffix"
 msgstr "DOI-Suffix"
 
 msgid "doi.manager.settings.doiSuffix.pattern"
-msgstr ""
+msgstr "DOI-Suffix"
 
 msgid "doi.manager.settings.doiSuffix.custom"
-msgstr ""
+msgstr "Benutzerdefiniertes DOI-Suffix Muster"
 
 msgid "doi.manager.settings.enabledDoiTypes.error"
 msgstr ""
+"Einer oder mehrere der ausgewählten DOI-Typen sind bei der eingestellten DOI-"
+"Registrierungsagentur nicht erlaubt."
 
 msgid "doi.manager.settings.doiSuffix.description"
 msgstr ""
@@ -914,9 +954,12 @@ msgstr "Standard-Pattern verwenden."
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
+"Keine - Suffixe müssen manuell auf der <a href=\"{$doiManagementUrl}\">DOI-"
+"Verwaltungsseite</a> eingetragen werden und werden nicht automatisch "
+"generiert"
 
 msgid "doi.manager.settings.doiSuffixUserDefined"
-msgstr ""
+msgstr "Benutzerdefiniertes Muster - (nicht empfohlen)"
 
 msgid "doi.manager.settings.registrationAgency"
 msgstr "Registrierungsagentur"
@@ -939,22 +982,22 @@ msgid "doi.manager.settings.registrationAgency.none"
 msgstr "Keine"
 
 msgid "doi.manager.settings.doiVersioning"
-msgstr ""
+msgstr "DOI Versionierung"
 
 msgid "doi.authorization.enabledRequired"
-msgstr ""
+msgstr "Sie können diese Funktion nicht nutzen, wenn DOIs nicht aktiviert sind."
 
 msgid "doi.manager.versions.countStatement"
-msgstr ""
+msgstr "Es gibt {$count} Versionen."
 
 msgid "doi.manager.versions.view"
-msgstr ""
+msgstr "Alle anzeigen"
 
 msgid "doi.manager.versions.modalTitle"
-msgstr ""
+msgstr "DOIs für alle Versionen"
 
 msgid "doi.editor.doiSuffixInvalidCharacters"
-msgstr ""
+msgstr "Die DOI beinhaltet ungültige Zeichen."
 
 msgid "manager.setup.publishing"
 msgstr "Veröffentlichungsdetails"
@@ -1050,16 +1093,21 @@ msgid "manager.setup.notifications.copySpecifiedAddress"
 msgstr "Eine Kopie an diese E-Mail-Adresse schicken."
 
 msgid "manager.setup.notifyAllAuthors"
-msgstr ""
+msgstr "Alle Autor/innen benachrichtigen"
 
 msgid "manager.setup.notifyAllAuthors.description"
 msgstr ""
+"Wer soll eine Benachrichtigungs-E-Mail erhalten, wenn eine redaktionelle "
+"Entscheidung festgehalten wurde?"
 
 msgid "manager.setup.notifyAllAuthors.allAuthors"
 msgstr ""
+"Eine E-Mail-Benachrichtigung an alle Autor/innen dieser Einreichung schicken."
 
 msgid "manager.setup.notifyAllAuthors.assignedAuthors"
 msgstr ""
+"Nur an dem Einreichungsworkflow zugewiesene Autor/innen eine E-Mail "
+"schicken. Im Regelfall ist dies der/die einreichende Autor/in."
 
 msgid "manager.setup.submissionsNotifications"
 msgstr "Benachrichtigungen"
@@ -1270,7 +1318,7 @@ msgid "manager.setup.theme"
 msgstr "Grafisches Thema"
 
 msgid "manager.setup.institutions"
-msgstr ""
+msgstr "Institutionen"
 
 msgid "manager.setup.theme.description"
 msgstr "Wählen Sie ein Grafikthema aus den verfügbaren Thema-Plugins aus."
@@ -1280,38 +1328,54 @@ msgstr "Das ausgewählte Theme ist nicht installiert oder nicht aktiviert."
 
 msgid "manager.setup.workflow.beginSubmissionHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen vor dem Start ihrer "
+"Einreichung angezeigt. Erläutern Sie kurz, wie der Einreichungsprozess "
+"funktioniert, damit Autor/innen wissen, was zu erwarten ist."
 
 msgid "manager.setup.workflow.uploadFilesHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem Schritt "
+"angezeigt, in dem sie Dateien hochladen. Erläutern Sie kurz, welche Dateien "
+"Autor/innen mit ihrer Einreichung bereitstellen müssen."
 
 msgid "manager.setup.workflow.contributorsHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem Schritt "
+"angezeigt, in dem sie Mitwirkende eintragen. Erläutern Sie kurz, welche "
+"Informationen Autor/innen über sich selbst, Co-Autor/innen, und andere "
+"Mitwirkende angeben sollten."
 
 msgid "manager.setup.workflow.detailsHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem Schritt "
+"angezeigt, in dem sie Details zu Titel, Abstract, und anderen wesentlichen "
+"Informationen zu ihrer Einreichung angeben müssen."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem Schritt "
+"angezeigt, in dem sie Metadaten wie Schlagwörter, Kommentare an die "
+"Redaktion, und weitere Details, die der redaktionellen Begutachtung helfen, "
+"angeben."
 
 msgid "manager.setup.workflow.reviewHelp.description"
 msgstr ""
+"Die nachfolgenden Informationen werden Autor/innen während dem letzten "
+"Schritt der Einreichung angezeigt, in dem sie alle von ihnen angegebenen "
+"Informationen überprüfen sollen, bevor sie die Einreichung abschließen."
 
 msgid "manager.setup.workflow.guidance"
-msgstr ""
+msgstr "Richtlinien für Autor/innen"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklist"
 msgstr "Checkliste für die Beitragseinreichung"
 
-#, fuzzy
 msgid "manager.setup.submissionPreparationChecklistDescription"
 msgstr ""
-"Autor/innen, die beabsichtigen, einen Beitrag einzureichen, werden zunächst "
-"gebeten, die Checkliste Punkt für Punkt abzuarbeiten. Die Liste erscheint "
-"bei den Richtlinien für Autor/innen unter \"Über uns\". Die Liste kann "
-"weiter unten verändert werden, doch müssen alle Punkte der Liste abgehakt "
-"sein, bevor die Autor/innen mit dem Einreichen ihres Beitrags fortfahren "
-"können."
+"Die nachfolgenden Punkte werden Autor/innen angezeigt, sobald sie mit der "
+"Einreichung beginnen. Autor/innen werden gebeten, sich vor Beginn der "
+"Einreichung zu vergewissern, dass ihr Beitrag den hier genannten "
+"Anforderungen entspricht."
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
@@ -1325,16 +1389,20 @@ msgid "manager.sections.confirmActivateSection"
 msgstr "Sind Sie sicher, dass Sie diese Sektion aktivieren wollen?"
 
 msgid "manager.sections.form.assignEditors"
-msgstr ""
+msgstr "Redaktionsaufgaben"
 
 msgid "manager.sections.form.assignEditors.description"
 msgstr ""
+"Wählen Sie die Mitglieder der Redaktion aus, die automatisch neuen "
+"Einreichungen in dieser Rubrik zugewiesen werden sollen."
 
 msgid "manager.sections.form.assignEditorAs"
-msgstr ""
+msgstr "{$name} als {$role} zuweisen"
 
 msgid "manager.categories.form.assignEditors.description"
 msgstr ""
+"Wählen Sie die Mitglieder der Redaktion aus, die automatisch neuen "
+"Einreichungen in dieser Kategorie zugewiesen werden sollen."
 
 msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Zugriffsoptionen"
@@ -1847,16 +1915,21 @@ msgstr ""
 "Bildunterschriften und Lizenzierung benötigen."
 
 msgid "manager.setup.genres.submitRequired.label"
-msgstr ""
+msgstr "Mit Einreichungen verlangen"
 
 msgid "manager.setup.genres.submitRequired.description"
 msgstr ""
+"Soll mindestens eine dieser Dateien mit jeder neuen Einreichung verlangt "
+"werden? Wenn Sie zustimmen, müssen Autor/innen mindestens eine Datei dieses "
+"Typs hochladen, bevor sie einreichen können."
 
 msgid "manager.setup.genres.submitRequired.yes"
 msgstr ""
+"Ja, verlangen, dass Autor/innen eine oder mehrere dieser Dateien hochladen "
+"müssen."
 
 msgid "manager.setup.genres.submitRequired.no"
-msgstr ""
+msgstr "Nein, neue Einreichungen ohne diese Dateien erlauben."
 
 msgid "manager.settings.wizard"
 msgstr "Einstellungs-Assistent"
@@ -2234,18 +2307,26 @@ msgstr ""
 
 msgid "manager.setup.metadata.dataAvailability.description"
 msgstr ""
+"Eine kurze Erklärung, ob die Autor/innen ihre Forschungsdaten zur Verfügung "
+"gestellt haben, und wenn ja, wo Leser/innen auf diese Daten zugreifen können."
 
 msgid "manager.setup.metadata.dataAvailability.enable"
-msgstr ""
+msgstr "Metadaten für die Erklärung zur Datenverfügbarkeit aktivieren"
 
 msgid "manager.setup.metadata.dataAvailability.noRequest"
 msgstr ""
+"Keine Erklärung zur Datenverfügbarkeit von den Autor/innen während der "
+"Einreichung anfordern."
 
 msgid "manager.setup.metadata.dataAvailability.request"
 msgstr ""
+"Von den Autor/innen während der Einreichung eine Erklärung zur "
+"Datenverfügbarkeit anfordern."
 
 msgid "manager.setup.metadata.dataAvailability.require"
 msgstr ""
+"Verlangen, dass Autor/innen eine Erklärung zur Datenverfügbarkeit verfassen "
+"müssen, bevor ihre Einreichung akzeptiert wird."
 
 msgid "plugins.importexport.common.validationErrors"
 msgstr "Validierungsfehler:"
@@ -2334,7 +2415,7 @@ msgstr ""
 "passen nicht zur selben Benutzerin/zum selben Benutzer."
 
 msgid "plugins.importexport.common.settings.form.testMode.label"
-msgstr ""
+msgstr "Testen"
 
 msgid "manager.navigationMenus.form.title"
 msgstr "Titel"
@@ -2576,16 +2657,16 @@ msgid "stats.city"
 msgstr "Stadt"
 
 msgid "stats.views"
-msgstr ""
+msgstr "Aufrufe"
 
 msgid "stats.downloads"
-msgstr ""
+msgstr "Downloads"
 
 msgid "stats.views.timelineInterval"
-msgstr ""
+msgstr "Alle Aufrufe nach Datum"
 
 msgid "stats.downloads.timelineInterval"
-msgstr ""
+msgstr "Alle Downloads nach Datum"
 
 msgid "stats.countWithYearlyAverage"
 msgstr "{$count} ({$average}/Jahr)"
@@ -2680,6 +2761,9 @@ msgstr ""
 
 msgid "stats.description.submissionsSkipped"
 msgstr ""
+"Dies beinhaltet Einreichungen, die nicht in anderen Gesamtzahlen gezählt "
+"werden, z.B. solche, die noch bearbeitet werden oder solche, die importiert "
+"wurden."
 
 msgid "stats.descriptionForStat"
 msgstr "Beschreibung für {$stat}"
@@ -2688,10 +2772,10 @@ msgid "stats.editorialActivity"
 msgstr "Redaktionelle Aktivität"
 
 msgid "stats.file.type.primaryFile"
-msgstr ""
+msgstr "Hauptdatei"
 
 msgid "stats.file.type.suppFile"
-msgstr ""
+msgstr "Ergänzende Datei"
 
 msgid "stats.fileViews"
 msgstr "Dateiansichten"
@@ -2707,27 +2791,29 @@ msgstr "PDF"
 
 msgid "stats.geographic.ccAttribution"
 msgstr ""
+"Geolokalisierung zur Verfügung gestellt von <a href='https://db-ip.com'>DB-"
+"IP</a>"
 
 msgid "stats.geographic.tooltip.label"
-msgstr ""
+msgstr "Über Geolokalisierung"
 
 msgid "stats.downloadReport.betweenDates"
-msgstr ""
+msgstr "{$startDate} bis {$endDate}"
 
 msgid "stats.downloadReport.allFilters"
-msgstr ""
+msgstr "Alle {$filter}"
 
 msgid "stats.publications.downloadReport.downloadFiles"
-msgstr ""
+msgstr "Dateien herunterladen"
 
 msgid "stats.publications.downloadReport.downloadFiles.description"
-msgstr ""
+msgstr "Anzahl der Downloads für jede Datei."
 
 msgid "stats.publications.downloadReport.downloadGeographic"
-msgstr ""
+msgstr "Geographische Daten herunterladen"
 
 msgid "stats.publications.downloadReport.downloadGeographic.description"
-msgstr ""
+msgstr "Anzahl der Aufrufe und Downloads für jeden Ort, Region, oder Land."
 
 msgid "stats.region"
 msgstr "Region"
@@ -2739,25 +2825,25 @@ msgid "stats.submissionsActive"
 msgstr "Aktive Einreichungen"
 
 msgid "stats.timeline"
-msgstr ""
+msgstr "Zeitleiste"
 
 msgid "stats.timeline.downloadReport.description"
-msgstr ""
+msgstr "Anzahl von {$type} für jeden {$interval}."
 
 msgid "stats.timeline.downloadReport.downloadTimeline"
-msgstr ""
+msgstr "Zeitleiste herunterladen"
 
 msgid "stats.timelineInterval"
-msgstr ""
+msgstr "Intervall der Zeitleiste"
 
 msgid "stats.timelineType"
-msgstr ""
+msgstr "Typ der Zeitleiste"
 
 msgid "stats.total"
 msgstr "Gesamt"
 
 msgid "stats.unique"
-msgstr ""
+msgstr "Einmalig"
 
 msgid "stats.totalWithinDateRange"
 msgstr "Gesamt innerhalb des Datumsbereichs"
@@ -2766,7 +2852,7 @@ msgid "stats.trends"
 msgstr "Tendenzen"
 
 msgid "stats.unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 msgid "stats.userStatistics"
 msgstr "Nutzerstatistiken"
@@ -2775,13 +2861,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Erhaltene Einreichungen"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Andere Einreichungen"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Laufende Einreichungen"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Importierte Einreichungen"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Angenommene Einreichungen"
@@ -2859,9 +2945,11 @@ msgstr "Prozess konnte Publikationen nicht parsen"
 
 msgid "emailTemplate.variable.allReviewersComments"
 msgstr ""
+"Alle Kommentare von abgeschlossenen Gutachten. Namen von Gutachter/innen in "
+"anonymen Gutachten wurden ausgeblendet"
 
 msgid "emailTemplate.variable.authorsWithAffiliation"
-msgstr ""
+msgstr "Namen und Affiliationen der Autor/innen der Einreichung."
 
 msgid "emailTemplate.variable.context.passwordLostUrl"
 msgstr ""
@@ -2870,33 +2958,40 @@ msgstr ""
 
 msgid "emailTemplate.variable.context.submissionsUrl"
 msgstr ""
+"Die URL, um alle zugewiesenen Einreichungen von eine/r Nutzer/in anzuzeigen"
 
 msgid "emailTemplate.variable.context.userProfileUrl"
 msgstr ""
+"Die URL, unter der ein/e Nutzer/in das eigene Profil anzeigen und bearbeiten "
+"kann"
 
 msgid "emailTemplate.variable.decision.name"
-msgstr ""
+msgstr "Name der Entscheidung, die getroffen wurde"
 
 msgid "emailTemplate.variable.decision.description"
-msgstr ""
+msgstr "Beschreibung der Entscheidung, die getroffen wurde"
 
 msgid "emailTemplate.variable.decision.stage"
 msgstr ""
+"Schritt des redaktionellen Workflows, in dem diese Entscheidung getroffen "
+"wurde"
 
 msgid "emailTemplate.variable.decision.round"
 msgstr ""
+"Gutachtenrunde, in der diese Entscheidung getroffen wurde, sofern die "
+"Entscheidung in einer Gutachtungsphase entstanden ist"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr ""
+msgstr "Thema der Diskussion"
 
 msgid "emailTemplate.variable.discussion.content"
-msgstr ""
+msgstr "Inhalt der neuen Diskussion oder der Antwort"
 
 msgid "emailTemplate.variable.editorialReminder.outstandingTasks"
-msgstr ""
+msgstr "Liste der Einreichungen mit ausstehenden Aufgaben"
 
 msgid "emailTemplate.variable.editorialReminder.numberOfSubmissions"
-msgstr ""
+msgstr "Anzahl der Einreichungen, die dem/der Redakteur/in zugewiesen sind"
 
 msgid "emailTemplate.variable.recipient.userFullName"
 msgstr "Der volle Name der Empfängerin/des Empfängers oder aller Empfangenden"
@@ -2906,40 +3001,47 @@ msgstr ""
 "Der Benutzer/innenname der Empfängerin/des Empfängers oder aller Empfangenden"
 
 msgid "emailTemplate.variable.recipient.reviewDueDate"
-msgstr ""
+msgstr "Datum, zu dem das Gutachten abgeschlossen sein sollte"
 
 msgid "emailTemplate.variable.recipient.responseDueDate"
 msgstr ""
+"Datum, zu dem der/die Gutachter/in die Aufgabe annehmen oder ablehnen sollte"
 
 msgid "emailTemplate.variable.recipient.reviewAssignmentUrl"
 msgstr "Die URL zu der zugeordneten Begutachtung"
 
 msgid "emailTemplate.variable.recommendation"
-msgstr ""
+msgstr "Die empfohlene Entscheidung, z.B. Einreichung annehmen"
 
 msgid "emailTemplate.variable.review.assignedDate"
-msgstr ""
+msgstr "Datum, an dem dieses Gutachten zugewiesen wurde"
 
 msgid "emailTemplate.variable.review.method"
-msgstr ""
+msgstr "Typ des Gutachtens, z.B. anonym, doppelt anonym, oder offen"
 
 msgid "emailTemplate.variable.review.recommendation"
 msgstr ""
+"Empfehlung von dem/der Gutachter/in, z.B. Einreichung annehmen oder Ablehnen"
 
 msgid "emailTemplate.variable.review.round"
-msgstr ""
+msgstr "Die Gutachtenrunde, z.B. Runde 1 oder Runde 2"
 
 msgid "emailTemplate.variable.review.files"
-msgstr ""
+msgstr "Dateien, die von dem/der Gutachter/in hochgeladen wurden"
 
 msgid "emailTemplate.variable.review.name"
-msgstr ""
+msgstr "Name von dem/der Gutachter/in"
 
 msgid "emailTemplate.variable.reviewType"
 msgstr ""
 
 msgid "emailTemplate.variable.reviewType.doubleAnonymous"
 msgstr ""
+"Diese Zeitschrift führt einen doppelt-anonymen Peer Review durch. Die "
+"Gutachter/innen sehen keine Informationen, die Aufschluss über Sie oder Ihre "
+"Co-Autor/innen geben. Sie werden auch nicht erfahren, wer Ihre Einreichung "
+"begutachtet hat, und Sie werden auch nicht direkt von den Gutachter/innen "
+"hören."
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
@@ -3581,3 +3683,23 @@ msgstr ""
 
 #~ msgid "manager.setup.enableDois.enable"
 #~ msgstr "DOIs aktivieren"
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"E-Mails wurden erfolgreich in die Warteschlange gestellt, um so früh wie "
+"möglich versendet zu werden."
+
+msgid "plugins.importexport.native.error.submissionFileWithoutRevision"
+msgstr ""
+"Die Einreichungsdatei {$id} wurde übersprungen, da sie keine gültige "
+"Überarbeitung hat."
+
+msgid "plugins.importexport.common.error.publicationCoverImageMissing"
+msgstr ""
+"Das Coverbild der Veröffentlichung {$id} wurde nicht exportiert, da die "
+"Datei nicht unter dem Pfad \"{$path}\" gefunden wurde."
+
+msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
+msgstr ""
+"Die Überarbeitung {$revision} der Einreichungsdatei {$id} wurde "
+"übersprungen, da die Datei nicht unter dem Pfad \"{$path}\" gefunden wurde."

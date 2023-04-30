@@ -1,18 +1,18 @@
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
 # Barbara Bornewasser <bornewasser@mikado-ac.info>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-09 10:15+0000\n"
+"PO-Revision-Date: 2023-05-01 21:49+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
-"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/manager/de/>"
+"\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.distribution.access"
 msgstr "Zugang"
@@ -36,18 +36,23 @@ msgstr "Der Server bietet freien Zugang zu seinem Inhalt."
 
 msgid "doi.manager.settings.doiSuffixLegacy"
 msgstr ""
+"Standard-Pattern benutzen.<br />%j.%a für Preprints<br />%j.%a.g%g für "
+"Fahnen."
 
 msgid "doi.manager.settings.doiCreationTime.copyedit"
-msgstr ""
+msgstr "Bei Erreichen der Produktionsphase"
 
 msgid "doi.manager.settings.doiVersioning.description"
 msgstr ""
+"Eine neue DOI für jede Veröffentlichungsversion zuweisen? Die meisten "
+"Preprint-Server werden die Default Option (ja) verwenden wollen, um "
+"sicherzugehen, dass Preprint-Versionen korrekt DOIs zugewiesen bekommen."
 
 msgid "doi.manager.settings.doiVersioning.yes"
-msgstr ""
+msgstr "Ja, eine unikate DOI zu jeder Version eines Preprints zuweisen."
 
 msgid "doi.manager.settings.doiVersioning.no"
-msgstr ""
+msgstr "Nein, alle Versionen eines Preprints sollen dieselbe DOI haben."
 
 msgid "manager.language.ui"
 msgstr "UI"
@@ -121,6 +126,8 @@ msgstr ""
 
 msgid "manager.payment.options.enablePayments"
 msgstr ""
+"Zahlungen werden für diesen Server aktiviert. Beachten Sie, dass sich die "
+"Nutzer/innen anmelden müssen, um Zahlungen zu tätigen."
 
 msgid "manager.setup"
 msgstr "Server-Einstellungen"
@@ -169,12 +176,10 @@ msgstr ""
 msgid "manager.setup.emailSignature"
 msgstr "Unterschrift"
 
-#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
-"Die vorbereiteten E-Mails, die vom System im Namen des Servers versendet "
-"werden, werden mit der folgenden Signatur versehen, die am Ende hinzugefügt "
-"wird."
+"E-Mails, die vom System im Namen des Servers versendet werden, werden mit "
+"der folgenden Signatur versehen."
 
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Ankündigungen einschalten"
@@ -195,10 +200,15 @@ msgstr ""
 
 msgid "manager.setup.enableDois.description"
 msgstr ""
+"Erlauben Sie die Zuweisung von Digital Object Identifiers (DOIs) für auf "
+"diesem Server veröffentlichte Werke."
 
-#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Bitte wählen Sie die Objekte aus, denen DOIs zugewiesen werden sollen."
+msgstr ""
+"Bitte wählen Sie die Art von Werken, die auf diesem Server veröffentlicht "
+"sind, denen DOIs zugewiesen werden sollen. Die meisten Preprint Server "
+"weisen DOIs Preprints zu, aber Sie möchten möglicherweise auch "
+"Preprintfahnen DOIs zuweisen."
 
 msgid "manager.setup.enableUserRegistration"
 msgstr "Besucher können ein Benutzerkonto auf dem Server anlegen."
@@ -511,31 +521,35 @@ msgid "plugins.importexport.common.error.unknownObjects"
 msgstr "Die angegebenen Objekte konnten nicht gefunden werden."
 
 msgid "stats.contextStats"
-msgstr ""
+msgstr "Server Statistiken"
 
 msgid "stats.context.tooltip.text"
-msgstr ""
+msgstr "Anzahl der Besucher/innen der Indexseite des Servers."
 
 msgid "stats.context.tooltip.label"
-msgstr ""
+msgstr "Über Serverstatistiken"
 
 msgid "stats.context.downloadReport.description"
 msgstr ""
+"Laden Sie eine CSV/Excel-Datei mit Nutzungsstatistiken für diesen Server "
+"herunter, die den folgenden Parametern entsprechen."
 
 msgid "stats.context.downloadReport.downloadContext.description"
-msgstr ""
+msgstr "Anzahl der Anzeigen der Server-Indexseite."
 
 msgid "stats.context.downloadReport.downloadContext"
-msgstr ""
+msgstr "Server herunterladen"
 
 msgid "stats.publications.downloadReport.description"
 msgstr ""
+"Laden Sie eine CSV/Excel-Datei mit Nutzungsstatistiken für Preprints "
+"herunter, die den folgenden Parametern entsprechen."
 
 msgid "stats.publications.downloadReport.downloadSubmissions"
-msgstr ""
+msgstr "Preprints herunterladen"
 
 msgid "stats.publications.downloadReport.downloadSubmissions.description"
-msgstr ""
+msgstr "Anzahl der Abstract-Besuche und Datei-Downloads für jeden Preprint."
 
 msgid "stats.publicationStats"
 msgstr "Preprint-Statistiken"
@@ -583,7 +597,7 @@ msgid "emailTemplate.variable.context.contactName"
 msgstr "Der Name des Hauptkontakts des Servers"
 
 msgid "emailTemplate.variable.context.contextSignature"
-msgstr ""
+msgstr "Die E-Mail-Signatur des Servers für automatisierte E-Mails"
 
 msgid "emailTemplate.variable.context.principalContactSignature"
 msgstr "Die E-Mail-Signatur des Servers für automatisierte E-Mails"
@@ -616,7 +630,7 @@ msgid "doi.displayName"
 msgstr "DOI"
 
 msgid "doi.manager.displayName"
-msgstr ""
+msgstr "DOIs"
 
 msgid "doi.description"
 msgstr ""
@@ -624,7 +638,7 @@ msgstr ""
 "Preprints und Gesamtfahnen im OPS."
 
 msgid "doi.manager.submissionDois"
-msgstr ""
+msgstr "Preprint DOIs"
 
 msgid "doi.readerDisplayName"
 msgstr "DOI"
@@ -640,7 +654,7 @@ msgstr ""
 "Identifier (DOI) zugewiesen werden sollen:"
 
 msgid "doi.manager.settings.galleysWithDescription"
-msgstr ""
+msgstr "Preprint-Fahnen, wie z.B. ein veröffentlichtes PDF"
 
 msgid "doi.manager.settings.enableRepresentationDoi"
 msgstr "Gesamtfahnen"
@@ -662,9 +676,14 @@ msgstr ""
 
 msgid "doi.manager.settings.doiSuffixPattern"
 msgstr ""
-"Verwenden Sie das unten eingegebene Muster, um DOI-Suffixe zu erzeugen. "
-"Verwenden Sie %j für die Serverinitialen, %a für die OPS Preprint ID, %g für "
-"die OPS Galley ID, %f für die OPS File ID und %x für \"Custom Identifier\"."
+"Geben Sie für jeden Publikationstyp ein benutzerdefiniertes Suffix-Muster "
+"ein. Das benutzerdefinierte Suffix-Muster kann die folgenden Symbole "
+"verwenden, um das Suffix zu erzeugen:<br><br> <code>%j.%a</code> "
+"Preprints<br> <code>%j.%a.g%g</code> Fahnen<br><br>Beachten Sie, dass "
+"benutzerdefinierte Suffix-Muster oft zu Problemen bei der Erstellung und "
+"Hinterlegung von DOIs führen. Wenn Sie ein benutzerdefiniertes Suffix-Muster "
+"verwenden, prüfen Sie sorgfältig, ob die Herausgeber DOIs erzeugen und bei "
+"einer Registrierungsagentur wie Crossref hinterlegen können. "
 
 msgid "doi.manager.settings.doiSuffixPattern.example"
 msgstr ""
@@ -714,13 +733,15 @@ msgstr ""
 "zugewiesen wurden, DOIs zuweisen möchten?"
 
 msgid "doi.manager.settings.registrationAgency"
-msgstr ""
+msgstr "Registrierungsagentur"
 
 msgid "doi.manager.settings.registrationAgency.description"
 msgstr ""
+"Bitte wählen Sie die Registrierungsagentur aus, bei der Sie DOIs abliefern "
+"möchten."
 
 msgid "doi.manager.settings.registrationAgency.none"
-msgstr ""
+msgstr "Keine"
 
 msgid "doi.editor.doi"
 msgstr "DOI"
@@ -786,10 +807,12 @@ msgstr ""
 "Muster enthält."
 
 msgid "doi.editor.assignDoi.assigned"
-msgstr "Der DOI {$pubId} ist zugewiesen worden."
+msgstr ""
+"Die DOI {$pubId} ist zugewiesen worden. Um die DOI zu bearbeiten, besuchen "
+"Sie die <a href=\"{$doiManagementLink}\">DOI-Verwaltungsseite</a>."
 
 msgid "doi.editor.assignDoi.toBeAssigned"
-msgstr ""
+msgstr "Die DOI {$pubId} wird bei der Veröffentlichung zugewiesen."
 
 msgid "doi.editor.missingPrefix"
 msgstr "Der DOI muss mit {$doiPrefix} beginnen."
@@ -808,24 +831,31 @@ msgstr "Eintrag"
 
 msgid "api.galley.403.publicationDidNotMatch"
 msgstr ""
+"Die Fahne, die Sie angefordert haben, ist nicht Teil dieser Veröffentlichung."
 
 msgid "api.galley.403.canEditPublishedDoi"
 msgstr ""
+"Nur DOIs können bearbeitet werden, nachdem eine Veröffentlichung/Fahne "
+"veröffentlicht wurde"
 
 msgid "api.issue.400.invalidDoi"
-msgstr ""
+msgstr "Die vorgelegte DOI ist ungültig"
 
 msgid "api.issue.403.canEditPublishedDoi"
 msgstr ""
+"Nur DOIs können bearbeitet werden, nachdem eine Veröffentlichung "
+"veröffentlicht wurde"
 
 msgid "manager.institutions.noContext"
-msgstr ""
+msgstr "Der Verlag der Institution konnte nicht gefunden werden."
 
 msgid "manager.manageEmails.description"
 msgstr ""
+"Nachrichten bearbeiten, die in E-Mails von diesem Preprint Server versandt "
+"werden."
 
 msgid "mailable.postedAck.name"
-msgstr ""
+msgstr "Bestätigung der Veröffentlichung"
 
 msgid "mailable.postedAck.description"
 msgstr ""
@@ -833,52 +863,90 @@ msgstr ""
 "gesendet, wenn der Preprint auf dem Server online gestellt wird."
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Moderator/in zugewiesen (Automatisch)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Diese E-Mail wird an eine/n Moderator/in geschickt, wenn sie automatisch "
+"einer Einreichung zugewiesen wurden."
 
 msgid "manager.preprintPosted"
-msgstr ""
+msgstr "Preprint veröffentlicht"
 
 msgid "manager.preprintPosted.description"
 msgstr ""
+"Bearbeiten Sie die E-Mail-Benachrichtigungen, die geschickt werden, wenn ein "
+"neuer Preprint veröffentlicht wird."
 
 msgid "manager.preprintPosted.fieldDescription"
 msgstr ""
+"Ob eine E-Mail an die Autor/innen eines Preprints geschickt werden soll, "
+"wenn er veröffentlicht wird."
 
 msgid "mailable.publicationVersionNotify.name"
-msgstr ""
+msgstr "Neue Version erstellt"
 
 msgid "mailable.publicationVersionNotify.description"
 msgstr ""
+"Diese E-Mail benachrichtigt automatisch die zugewiesenen Moderator/innen, "
+"wenn eine neue Version eines Preprints erstellt wird."
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bestätigung einer Einreichung (Moderation ausstehend)"
 
 msgid "mailable.submissionAck.description"
 msgstr ""
+"Diese E-Mail wird automatisch an Autor/innen geschickt, wenn Sie einen "
+"Beitrag einreichen und ein/e Moderator/in ihn annehmen muss."
 
 msgid "mailable.submissionAckCanPost.name"
-msgstr ""
+msgstr "Bestätigung einer Einreichung (Keine Moderation benötigt)"
 
 msgid "mailable.submissionAckCanPost.description"
 msgstr ""
+"Diese E-Mail wird automatisch an Autor/innen geschickt, wenn Sie einen "
+"Beitrag einreichen und keine Moderation benötigt wird. Autor/innen können "
+"ihren Preprint sofort veröffentlichen."
 
 msgid "manager.setup.workflow.forTheEditorsHelp.description"
 msgstr ""
+"Die folgenden Informationen wird Autor/innenen während des Schritts \"Für "
+"Leser/innen\" angezeigt, wenn sie aufgefordert werden, Metadaten wie "
+"Schlagwörter, Lizenzinformationen und andere Details anzugeben, um die "
+"Auffindbarkeit und die Moderation zu unterstützen."
 
 msgid "mailable.postedNewVersionAck.name"
-msgstr ""
+msgstr "Neue Version wurde veröffentlicht"
 
 msgid "mailable.postedNewVersionAck.description"
 msgstr ""
+"Diese E-Mail wird an Autor/innen geschickt, wenn eine neue Version ihres "
+"Preprints veröffentlicht wird."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung abgelehnt"
 
 msgid "mailable.decision.initialDecline.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt Autor/innen, dass ihr Preprint abgelehnt wurde "
+"und nicht veröffentlicht wird."
 
 #~ msgid "doi.manager.settings.enablePublicationDoi"
 #~ msgstr "Preprints"
+
+msgid "emailTemplate.variable.statisticsReportNotify.publicationStatsLink"
+msgstr "Link zur Statistikseite der Preprints"
+
+msgid "mailable.statisticsReportNotify.description"
+msgstr ""
+"Diese E-Mail wird monatlich automatisch an Moderator/innen und "
+"Server-Manager/innen versandt, um ihnen einen Überblick über den "
+"Systemzustand zu geben."
+
+msgid "emailTemplate.variable.context.mailingAddress"
+msgstr "Adresse des Servers"
+
+msgid "mailable.decision.accept.notifyAuthor.description"
+msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihr Preprint zur "
+"Veröffentlichung angenommen wurde."

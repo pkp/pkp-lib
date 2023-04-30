@@ -1,20 +1,20 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-02-20 09:24+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/common/"
-"ru_RU/>\n"
-"Language: ru_RU\n"
+"ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "common.publicKnowledgeProject"
 msgstr "Public Knowledge Project"
@@ -132,22 +132,22 @@ msgid "common.add"
 msgstr "Добавить"
 
 msgid "common.addCCBCC"
-msgstr ""
+msgstr "Добавить CC/BCC (копия/скрытая копия)"
 
 msgid "common.addFiles"
-msgstr ""
+msgstr "Добавить файлы"
 
 msgid "common.addSelf"
 msgstr "Добавить себя"
 
 msgid "common.attachedFiles"
-msgstr ""
+msgstr "Прикреплённые файлы"
 
 msgid "common.attachFiles"
-msgstr ""
+msgstr "Прикрепить файлы"
 
 msgid "common.attachSelected"
-msgstr ""
+msgstr "Прикрепить выбранные"
 
 msgid "common.name"
 msgstr "Имя"
@@ -341,7 +341,7 @@ msgid "common.deleteSelection"
 msgstr "Удалить выбранное"
 
 msgid "common.deselect"
-msgstr ""
+msgstr "Снять выделение"
 
 msgid "common.designation"
 msgstr "Назначение"
@@ -350,7 +350,7 @@ msgid "common.description"
 msgstr "Описание"
 
 msgid "common.details"
-msgstr ""
+msgstr "Подробности"
 
 msgid "common.dimensionsInches"
 msgstr "{$width}&Prime;&times;{$height}&Prime; @ {$dpi} DPI/PPI"
@@ -359,10 +359,10 @@ msgid "common.dimensionsPixels"
 msgstr "{$width}&times;{$height} пикселей"
 
 msgid "common.discardChanges"
-msgstr ""
+msgstr "Нет, отменить несохраненные изменения"
 
 msgid "common.disconnected"
-msgstr ""
+msgstr "Отсоединён"
 
 msgid "common.disable"
 msgstr "Отключить"
@@ -383,13 +383,13 @@ msgid "common.downloadPdf"
 msgstr "Скачать PDF"
 
 msgid "common.downloadReport"
-msgstr ""
+msgstr "Скачать отчёт"
 
 msgid "common.dragAndDropHere"
-msgstr ""
+msgstr "Перетащить файлы сюда."
 
 msgid "common.orUploadFile"
-msgstr ""
+msgstr "Или загрузить файл"
 
 msgid "common.edit"
 msgstr "Редактировать"
@@ -398,7 +398,7 @@ msgid "common.editItem"
 msgstr "Редактировать «{$name}»"
 
 msgid "common.emailTemplates"
-msgstr ""
+msgstr "Шаблоны писем электронной почты"
 
 msgid "common.enable"
 msgstr "Включить"
@@ -469,13 +469,13 @@ msgid "common.filterRemove"
 msgstr "Сбросить фильтр: {$filterTitle}"
 
 msgid "common.findTemplate"
-msgstr ""
+msgstr "Найти шаблон"
 
 msgid "common.formatting"
-msgstr ""
+msgstr "Форматирование"
 
 msgid "common.geographic"
-msgstr ""
+msgstr "Географические"
 
 msgid "common.go"
 msgstr "Выполнить"
@@ -508,10 +508,10 @@ msgid "common.insert"
 msgstr "Вставить"
 
 msgid "common.insertContent"
-msgstr ""
+msgstr "Вставить контент"
 
 msgid "common.insertContentSearch"
-msgstr ""
+msgstr "Найти контент для вставки"
 
 msgid "common.itemsPerPage"
 msgstr "Элементов на странице"
@@ -520,7 +520,7 @@ msgid "common.keywords"
 msgstr "Ключевые слова"
 
 msgid "common.label"
-msgstr ""
+msgstr "Текст"
 
 msgid "common.language"
 msgstr "Язык"
@@ -529,7 +529,7 @@ msgid "common.languages"
 msgstr "Языки"
 
 msgid "common.lastSaved"
-msgstr ""
+msgstr "Последнее сохранение {$when}"
 
 msgid "common.lastActivity"
 msgstr "Последний раз активность зафиксирована {$date}."
@@ -544,7 +544,7 @@ msgid "common.lessThanOnly"
 msgstr "Менее чем"
 
 msgid "common.keepWorking"
-msgstr ""
+msgstr "Продолжить работу"
 
 msgid "common.commaListSeparator"
 msgstr ", "
@@ -586,10 +586,10 @@ msgid "common.none"
 msgstr "Нет"
 
 msgid "common.noneSelected"
-msgstr ""
+msgstr "Ничего не выбрано"
 
 msgid "common.noneProvided"
-msgstr ""
+msgstr "Ничего не предоставлено"
 
 msgid "common.no"
 msgstr "Нет"
@@ -635,7 +635,7 @@ msgid "common.noMatches"
 msgstr "Нет совпадений"
 
 msgid "common.numberedMore"
-msgstr ""
+msgstr "{$number} следующих"
 
 msgid "common.off"
 msgstr "отключено"
@@ -734,7 +734,7 @@ msgid "common.readMoreWithTitle"
 msgstr "Читать дальше про «{$title}»"
 
 msgid "common.reconnecting"
-msgstr ""
+msgstr "Подключаемся повторно"
 
 msgid "common.record"
 msgstr "Запись"
@@ -782,10 +782,10 @@ msgid "common.reset"
 msgstr "Сбросить"
 
 msgid "common.reviewRoundNumber"
-msgstr ""
+msgstr "Раунд {$round}"
 
 msgid "common.role"
-msgstr ""
+msgstr "Роль"
 
 msgid "common.saveAndContinue"
 msgstr "Сохранить и продолжить"
@@ -803,10 +803,10 @@ msgid "common.search"
 msgstr "Найти"
 
 msgid "common.searchPhrase"
-msgstr ""
+msgstr "Найти фразу"
 
 msgid "common.searching"
-msgstr ""
+msgstr "Ищем"
 
 msgid "common.searchQuery"
 msgstr "Поисковый запрос"
@@ -836,10 +836,10 @@ msgid "common.sendEmail"
 msgstr "Отправить письмо электронной почтой"
 
 msgid "common.showAllSteps"
-msgstr ""
+msgstr "Показать все шаги"
 
 msgid "common.showingSteps"
-msgstr ""
+msgstr "{$current}/{$total} шагов"
 
 msgid "common.size"
 msgstr "Размер"
@@ -866,10 +866,10 @@ msgid "common.suggest"
 msgstr "Предложить"
 
 msgid "common.switchTo"
-msgstr ""
+msgstr "Переключиться на"
 
 msgid "common.switchToNamedItem"
-msgstr ""
+msgstr "Переключиться на {$name}"
 
 msgid "common.title"
 msgstr "Заголовок"
@@ -887,10 +887,10 @@ msgid "common.type"
 msgstr "Тип"
 
 msgid "common.uploadedBy"
-msgstr ""
+msgstr "Кто загружал: {$name}"
 
 msgid "common.uploadedByAndWhen"
-msgstr ""
+msgstr "Кто загружал: {$name}, {$date}"
 
 msgid "common.component"
 msgstr "Компонент"
@@ -907,10 +907,14 @@ msgid "common.unread"
 msgstr "Не прочитан"
 
 msgid "common.unsavedChanges"
-msgstr ""
+msgstr "Несохранённые изменения"
 
 msgid "common.unsavedChangesMessage"
 msgstr ""
+"Мы обнаружили несохраненные изменения с {$when}. Это может произойти, если "
+"вы потеряли соединение с сервером во время работы. Восстановление этих "
+"изменений может перезаписать все изменения, которые вы внесли с того "
+"момента. Хотите ли вы восстановить эти изменения сейчас?"
 
 msgid "common.untitled"
 msgstr "Без имени"
@@ -937,7 +941,7 @@ msgid "common.upload.addFile"
 msgstr "Загрузить файл"
 
 msgid "common.upload.addFile.description"
-msgstr ""
+msgstr "Загрузить файл с вашого компьютера."
 
 msgid "common.upload.restore"
 msgstr "Восстановить исходный"
@@ -964,7 +968,7 @@ msgid "common.view"
 msgstr "Просмотреть"
 
 msgid "common.viewError"
-msgstr ""
+msgstr "Показать ошибку"
 
 msgid "common.viewWithName"
 msgstr "Просмотреть «{$name}»"
@@ -1033,28 +1037,30 @@ msgid "email.addAttachment"
 msgstr "Добавить вложение"
 
 msgid "email.addAttachment.submissionFiles.attach"
-msgstr ""
+msgstr "Прикрепить файлы материала"
 
 msgid "email.addAttachment.submissionFiles.submissionDescription"
-msgstr ""
+msgstr "Прикрепить файлы, загруженные автором на этапе подачи материала."
 
 msgid "email.addAttachment.submissionFiles.reviewDescription"
 msgstr ""
+"Прикрепить файлы, загруженные во время процесса отправки, например, "
+"исправленные версии или файлы для рецензирования."
 
 msgid "email.addAttachment.libraryFiles"
-msgstr ""
+msgstr "Файлы библиотеки"
 
 msgid "email.addAttachment.libraryFiles.attach"
-msgstr ""
+msgstr "Прикрепить файлы библиотеки"
 
 msgid "email.addAttachment.libraryFiles.description"
-msgstr ""
+msgstr "Прикрепить файлы из библиотек отправленных материалов и издателя."
 
 msgid "email.addAttachment.reviewFiles.attach"
-msgstr ""
+msgstr "Прикрепить файлы рецензии"
 
 msgid "email.addAttachment.reviewFiles.description"
-msgstr ""
+msgstr "Прикрепить файлы, которые были загружены рецензентами"
 
 msgid "email.addBccRecipient"
 msgstr "Добавить BCC"
@@ -1069,7 +1075,7 @@ msgid "email.attachments"
 msgstr "Вложения"
 
 msgid "email.attachmentNotFound"
-msgstr ""
+msgstr "Не удалось прикрепить файл {$fileName}."
 
 msgid "email.bcc"
 msgstr "Скрытая копия"
@@ -1085,6 +1091,8 @@ msgstr "Копия"
 
 msgid "email.confirmSwitchLocale"
 msgstr ""
+"Вы уверены, что хотите перейти на язык «{$localeName}» для составления этого "
+"письма? Все изменения, внесенные в тему и текст письма, будут потеряны."
 
 msgid "email.compose"
 msgstr "Отправить письмо"
@@ -1556,7 +1564,7 @@ msgid "navigation.viewFrontend"
 msgstr "Показать сайт"
 
 msgid "institution.institutions"
-msgstr ""
+msgstr "Организации"
 
 msgid "notification.addedAuditor"
 msgstr "Аудитор добавлен."
@@ -1853,7 +1861,7 @@ msgid "notification.reinstatedReviewer"
 msgstr "Рецензент восстановлен."
 
 msgid "notification.reviewerResendRequest"
-msgstr ""
+msgstr "Был отправлен запрос на пересмотр задания на рецензирование."
 
 msgid "notification.addedStageParticipant"
 msgstr "Пользователь добавлен в качестве участника этапа."
@@ -1899,7 +1907,7 @@ msgid "timeZone"
 msgstr "Часовой пояс"
 
 msgid "user.email"
-msgstr "Электронная почта"
+msgstr "Адрес электронной почты"
 
 msgid "user.authorization.submissionFile"
 msgstr "Данному пользователю не разрешен доступ к файлу указанного материала."
@@ -1965,7 +1973,7 @@ msgstr ""
 "редакционного отчёта."
 
 msgid "notification.type.editorialReminder"
-msgstr ""
+msgstr "Еженедельная рассылка по электронной почте невыполненных задач"
 
 msgid "semicolon"
 msgstr "{$label}:"
@@ -2086,6 +2094,9 @@ msgstr "Такой страны нет."
 
 msgid "validator.country.regex"
 msgstr ""
+"Страна указана неверно. Страна должна быть одним из двухбуквенных "
+"международных кодов. Смотрите все коды на сайте https://en.wikipedia.org/"
+"wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements."
 
 msgid "validator.currency"
 msgstr "Некорректная валюта."
@@ -2236,10 +2247,10 @@ msgid "validator.url"
 msgstr "Некорректный URL."
 
 msgid "validator.no_new_line"
-msgstr ""
+msgstr "Новые строки запрещены."
 
 msgid "validator.allowable_title_html_tags"
-msgstr ""
+msgstr "Разрешены только следующие html-теги: [{$tags}]."
 
 msgid "filter.input.error.notSupported"
 msgstr ""
@@ -2255,7 +2266,7 @@ msgid "filter.import.error.couldNotImportNode"
 msgstr "Не могу импортировать XML-узел"
 
 msgid "plugins.importexport.common.error.unknownCommand"
-msgstr ""
+msgstr "Неизвестная команда {$command}"
 
 msgid "common.withForwardSlash"
 msgstr "{$item}/{$afterSlash}"

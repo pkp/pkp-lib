@@ -1,26 +1,26 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2022.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:59+00:00\n"
-"PO-Revision-Date: 2022-02-20 09:24+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
-"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
-"ru_RU/>\n"
-"Language: ru_RU\n"
+"Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/ru/>"
+"\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "api.400.paramNotSupported"
 msgstr "Параметр «{$param}» не поддерживается."
 
 msgid "api.400.propReadOnly"
-msgstr ""
+msgstr "Свойство {$prop} не может быть изменено."
 
 msgid "api.400.invalidApiToken"
 msgstr ""
@@ -31,13 +31,13 @@ msgid "api.400.tokenCouldNotBeDecoded"
 msgstr "Токен API не удаётся декодировать из-за следующей ошибки: {$error}"
 
 msgid "api.400.requireEmailSubjectBody"
-msgstr ""
+msgstr "Вы должны указать тему и текст для письма электронной почты."
 
 msgid "api.files.400.notAllowedCreatedAt"
 msgstr "Невозможно изменить время создания этого элемента."
 
 msgid "api.dois.403.prefixRequired"
-msgstr ""
+msgstr "Для генерации DOI требуется префикс DOI."
 
 msgid "api.403.unauthorized"
 msgstr "Вы не авторизованы для доступа к запрашиваемому ресурсу."
@@ -57,7 +57,7 @@ msgid "api.announcements.404.announcementNotFound"
 msgstr "Объявление, запрошенное Вами, не найдено."
 
 msgid "api.institutions.404.institutionNotFound"
-msgstr ""
+msgstr "Запрашиваемая вами организация не найдена."
 
 msgid "api.contexts.400.localesNotSupported"
 msgstr "Не поддерживаются следующие языки: {$locales}."
@@ -65,10 +65,10 @@ msgstr "Не поддерживаются следующие языки: {$local
 msgid "api.dois.403.editItemOutOfContext"
 msgstr ""
 "Вы не можете редактировать DOI элемента, который не находится в этом "
-"контексте"
+"контексте."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr ""
+msgstr "Тип публикации не был распознан."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""
@@ -79,10 +79,10 @@ msgid "api.dois.404.doiNotFound"
 msgstr "Запрошенный вами DOI не найден."
 
 msgid "api.dois.404.pubObjectNotFound"
-msgstr ""
+msgstr "Запрошенный вами объект публикации не найден."
 
 msgid "api.dois.404.submissionNotFound"
-msgstr ""
+msgstr "Запрошенный вами материал не найден."
 
 msgid "api.dois.400.noUnpublishedItems"
 msgstr ""
@@ -115,9 +115,12 @@ msgstr ""
 
 msgid "api.dois.400.invalidPluginType"
 msgstr ""
+"Настроенный сейчас модуль должен быть модулем регистрационного агентства."
 
 msgid "api.decisions.403.alreadyPublished"
 msgstr ""
+"Вы не можете записать решение или рекомендовать решение по данному "
+"материалу, так как он уже был опубликован."
 
 msgid "api.emails.400.missingBody"
 msgstr "Вы должны добавить текст письма для отправки."
@@ -136,9 +139,11 @@ msgstr ""
 
 msgid "api.emailTemplates.400.invalidAlternateTo"
 msgstr ""
+"Это не шаблон электронного письма по умолчанию для известного адреса "
+"электронной почты."
 
 msgid "api.emailTemplates.400.invalidContext"
-msgstr ""
+msgstr "Этот контекст не является допустимым."
 
 msgid "api.emailTemplates.404.templateNotFound"
 msgstr "Шаблон письма, который вы запросили, не был найден."
@@ -223,6 +228,8 @@ msgstr ""
 
 msgid "api.stats.400.invalidTimelineInterval"
 msgstr ""
+"Ваш запрос некорректный. Временной интервал должен быть «day» (день) или "
+"«month» (месяц)."
 
 msgid "api.submissionFiles.400.assocTypeAndIdRequired"
 msgstr "Вы не можете изменить связь файла, не передав assocType и assocId."
@@ -248,7 +255,7 @@ msgid "api.submissionFiles.400.noFileStageId"
 msgstr "Вы должны указать этап, на котором находится файл."
 
 msgid "api.submissionFiles.400.invalidFileStage"
-msgstr ""
+msgstr "Вы указали некорректный этап для файла."
 
 msgid "api.submissionsFiles.400.noParams"
 msgstr ""
@@ -257,6 +264,8 @@ msgstr ""
 
 msgid "api.submissionFiles.400.reviewRoundIdRequired"
 msgstr ""
+"Вы должны указать идентификатор раунда рецензирования при перемещении файла "
+"на этот этап."
 
 msgid "api.submissionFiles.400.reviewRoundSubmissionNotMatch"
 msgstr ""
@@ -281,7 +290,7 @@ msgid "api.submissions.400.invalidIssueIdentifiers"
 msgstr "Неправильно указан запрашиваемый том, номер или год."
 
 msgid "api.submissions.400.invalidSubmitAs"
-msgstr ""
+msgstr "Вы не можете отправить материал в этой роли пользователя."
 
 msgid "api.submissions.403.csrfTokenFailure"
 msgstr ""
@@ -317,28 +326,37 @@ msgid "api.vocabs.400.localeNotSupported"
 msgstr "Язык {$locale} не поддерживается."
 
 msgid "api.mailables.404.mailableNotFound"
-msgstr ""
+msgstr "Указанный вами адрес электронной почты не найден."
 
 msgid "api.jobs.404.failedJobNotFound"
-msgstr ""
+msgstr "Невыполненная задача не найдена в списке задач, завершившихся неудачей."
 
 msgid "api.jobs.406.failedJobPayloadMissing"
 msgstr ""
+"В задаче, завершившейся неудачей, отсутствует полезная нагрузка для "
+"повторного добавления задачи в очередь."
 
 msgid "api.jobs.406.failedJobEmpty"
-msgstr ""
+msgstr "В списке не найдено ни одной задачи, завершившейся неудачей."
 
 msgid "api.jobs.400.failedJobRedispatchedFailed"
-msgstr ""
+msgstr "Не удалось повторно добавить в очередь задачу, завершившуюся неудачей."
 
 msgid "api.jobs.200.failedJobRedispatchedSucceed"
 msgstr ""
+"Задача, завершившаяся неудачей, была успешно повторно добавлена в очередь."
 
 msgid "api.jobs.200.allFailedJobRedispatchedSucceed"
 msgstr ""
+"Все повторно добавляемые задачи, завершившиеся ранее неудачей, с корректной "
+"полезной нагрузкой были успешно добавлены в очередь."
 
 msgid "api.jobs.400.failedJobDeleteFailed"
 msgstr ""
+"Не удалось удалить задачу, завершившуюся неудачей, из списка задач, "
+"завершившихся неудачей."
 
 msgid "api.jobs.200.failedJobDeleteSucceed"
 msgstr ""
+"Задача, завершившаяся неудачей, была успешно удалена из списка задач, "
+"завершившихся неудачей."

@@ -41,7 +41,7 @@
 			<div class="username">
 				<label>
 					<span class="label">
-						{translate key="user.username"}
+						{translate key="user.usernameOrEmail"}
 						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}

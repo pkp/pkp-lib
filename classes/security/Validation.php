@@ -17,6 +17,7 @@
 namespace PKP\security;
 
 use APP\core\Application;
+use PKP\validation\ValidatorFactory;
 use APP\facades\Repo;
 use PKP\config\Config;
 use PKP\core\Core;
@@ -47,7 +48,15 @@ class Validation
     public static function login($username, $password, &$reason, $remember = false)
     {
         $reason = null;
-        $user = Repo::user()->getByUsername($username, true);
+        $loginUsingEmail = false;
+
+        if (ValidatorFactory::make(['email' => $username], ['email' => 'email'])->passes()) {
+            $user = Repo::user()->getByEmail($username, true);
+            $loginUsingEmail = true;
+        } else{
+            $user = Repo::user()->getByUsername($username, true);
+        }
+
         if (!isset($user)) {
             // User does not exist
             return false;
@@ -64,7 +73,7 @@ class Validation
             $user->setPassword($rehash);
         }
 
-        return self::registerUserSession($user, $reason, $remember);
+        return self::registerUserSession($user, $reason, $remember, $loginUsingEmail);
     }
 
     /**
@@ -100,10 +109,11 @@ class Validation
      * @param User $user user to register in the session
      * @param string $reason reference to string to receive the reason an account was disabled; null otherwise
      * @param bool $remember remember a user's session past the current browser session
+     * @param bool $loginUsingEmail authentication done via user email instead of username
      *
      * @return mixed User or boolean the User associated with the login credentials, or false if the credentials are invalid
      */
-    public static function registerUserSession($user, &$reason, $remember = false)
+    public static function registerUserSession($user, &$reason, $remember = false, $loginUsingEmail = false)
     {
         if (!$user instanceof User) {
             return false;
@@ -128,6 +138,9 @@ class Validation
         $session->setSessionVar('userId', $user->getId());
         $session->setUserId($user->getId());
         $session->setSessionVar('username', $user->getUsername());
+        if ($loginUsingEmail) {
+            $session->setSessionVar('email', $user->getEmail());
+        }
         $session->getCSRFToken(); // Force generation (see issue #2417)
         $session->setRemember($remember);
 

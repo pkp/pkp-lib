@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-27T09:47:24-07:00\n"
-"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "de/>\n"
@@ -331,7 +331,7 @@ msgid "manager.dois.update.failedCreation"
 msgstr "DOI Aktualisierungen fehlgeschlagen"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Einige DOI(s) konnten nicht aktualisiert werden."
+msgstr "Einige DOI(s) konnten nicht aktualisiert werden"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Objekte erfolgreich exportiert"
@@ -455,7 +455,7 @@ msgstr "Deaktivieren"
 msgid "manager.emails.disable.message"
 msgstr ""
 "Sie sind dabei, diese E-Mail-Vorlage zu deaktivieren. Wenn es Systemprozesse "
-"geben sollte, die diese Vorlage benutzen, werden sie sie nicht mehr "
+"geben sollte, die diese Vorlage benutzen, werden Sie sie nicht mehr "
 "benutzen. Möchten Sie diese Aktion bestätigen?"
 
 msgid "manager.emails.editTestExample"
@@ -663,7 +663,7 @@ msgstr "Eine Regionaleinstellung auswählen"
 msgid "manager.people.emailUsers.selectUsers"
 msgstr ""
 "Wählen Sie die Benutzer/innen, denen Sie eine E-Mail senden wollen, aus, "
-"indem Sie die Kästchen neben ihren Namen anklicken."
+"indem Sie die Kästchen neben ihren Namen anklicken"
 
 msgid "manager.people.enable"
 msgstr "Aktivieren"
@@ -784,8 +784,8 @@ msgstr "Nutzer/in per Name suchen"
 
 msgid "manager.representative.inUse"
 msgstr ""
-"Sie können diesen Vertreter nicht löschen. Er ist  den market Metadaten "
-"eines oder mehrerer Puklikationsformate zugeordnet."
+"Sie können diesen Vertreter nicht löschen. Er ist den market Metadaten eines "
+"oder mehrerer Puklikationsformate zugeordnet."
 
 msgid "manager.reviewerSearch.change"
 msgstr "Wechseln"
@@ -950,7 +950,7 @@ msgstr ""
 "Publikationsobjekten sein, denen dasselbe DOI-Präfix zugewiesen wird:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Standard-Pattern verwenden."
+msgstr "Standard - Generiert automatisch ein unikates acht-Zeichen suffix"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1090,7 +1090,7 @@ msgid "manager.setup.notifications"
 msgstr "Bestätigung der Beitragseinreichung durch die Autor/innen"
 
 msgid "manager.setup.notifications.copySpecifiedAddress"
-msgstr "Eine Kopie an diese E-Mail-Adresse schicken."
+msgstr "Eine Kopie an diese E-Mail-Adresse schicken"
 
 msgid "manager.setup.notifyAllAuthors"
 msgstr "Alle Autor/innen benachrichtigen"
@@ -1379,7 +1379,7 @@ msgstr ""
 
 msgid "manager.sections.form.deactivateSection"
 msgstr ""
-"Diese Sektion deaktivieren und  keine neuen Einreichungen zu dieser Sektion "
+"Diese Sektion deaktivieren und keine neuen Einreichungen zu dieser Sektion "
 "zulassen."
 
 msgid "manager.sections.confirmDeactivateSection"
@@ -1540,7 +1540,7 @@ msgstr ""
 "eingesetzten Plugins."
 
 msgid "manager.plugins.doesNotExist"
-msgstr "Das Plugin \"{$pluginName}\" existiert nicht."
+msgstr "Das Plugin \"{$pluginName}\" existiert nicht"
 
 msgid "manager.plugins.fileSelectError"
 msgstr "Bitte wählen Sie zuerst eine Datei aus"
@@ -1665,12 +1665,12 @@ msgstr ""
 "nicht zu dem Namen des aktualisierten Plugins passt."
 
 msgid "manager.plugins.pleaseInstall"
-msgstr "Plugin nicht verfügbar. Bitte wählen Sie \"Installieren\"."
+msgstr "Plugin nicht verfügbar. Bitte wählen Sie \"Installieren\""
 
 msgid "manager.plugins.pleaseUpgrade"
 msgstr ""
 "Das Plugin existiert bereits, ist aber neuer als die installierte Version. "
-"Bitte wählen Sie \"Upgrade\"."
+"Bitte wählen Sie \"Upgrade\""
 
 msgid "manager.plugins.settings"
 msgstr "Einstellungen"
@@ -2353,7 +2353,10 @@ msgid "plugins.importexport.common.error.encodingError"
 msgstr "Dieser Inhalt ist nicht als {$param} encodiert"
 
 msgid "plugins.importexport.common.error.unknownUserGroup"
-msgstr "Unbekannte Nutzergruppe {$param}"
+msgstr ""
+"Die Importdatei enthält eine/n Autor/in '{$authorName}', mit der Benutzer/"
+"innengruppe '{$userGroupName}'. In der Zielinstallation ist keine Benutzer/"
+"innengruppe mit diesem Namen definiert."
 
 msgid "plugins.importexport.common.error.userGroupMissing"
 msgstr "Nutzergruppe fehlt für Autorenname {$param}"
@@ -2439,7 +2442,7 @@ msgstr "Inhalt"
 
 msgid "manager.navigationMenus.form.pathRegEx"
 msgstr ""
-"Der Pfad darf nur alphanumerische Zeichen sowie  '.', '/', '-' und '_' "
+"Der Pfad darf nur alphanumerische Zeichen sowie '.', '/', '-' und '_' "
 "enthalten."
 
 msgid "manager.navigationMenus.form.duplicatePath"
@@ -2450,7 +2453,7 @@ msgid "manager.navigationMenus.form.duplicateTitles"
 msgstr "Dieser Titel existiert bereits in einem anderen Navigationsmenü."
 
 msgid "manager.navigationMenus.form.titleRequired"
-msgstr "Der Titel ist erforderlich."
+msgstr "Der Titel ist erforderlich"
 
 msgid "manager.navigationMenuItems"
 msgstr "Einträge im Navigationsmenü"
@@ -3045,9 +3048,16 @@ msgstr ""
 
 msgid "emailTemplate.variable.reviewType.anonymous"
 msgstr ""
+"Diese Zeitschrift führt ein anonymes Peer Review durch. Ihr Name und der "
+"Ihrer Co-Autor/innen sind für die Gutachter/innen sichtbar; die Identität "
+"der Gutachter/innen bleibt jedoch anonym."
 
 msgid "emailTemplate.variable.reviewType.open"
 msgstr ""
+"Diese Zeitschrift führt einen offenen Peer Review durch. Die Gutachter/innen "
+"sehen Ihren Namen und Ihre Affiliation sowie die Namen und Affiliationen "
+"Ihrer Co-Autor/innen. Ebenso sehen Sie die Namen und Affiliationen der "
+"Gutachter/innen."
 
 msgid "emailTemplate.variable.sender.senderName"
 msgstr "Der volle Name der Absenderin/des Absenders"
@@ -3065,7 +3075,7 @@ msgid "emailTemplate.variable.site.siteContactEmail"
 msgstr "E-Mailadresse des Hauptkontaktes der Webseite"
 
 msgid "emailTemplate.variable.site.siteSignature"
-msgstr ""
+msgstr "Die E-Mail-Signatur der Website für automatisierte E-Mails"
 
 msgid "emailTemplate.variable.stageAssignment.editors"
 msgstr ""
@@ -3080,84 +3090,91 @@ msgstr "Die unikate ID-Nummer der Einreichung"
 msgid "emailTemplate.variable.submission.submissionAbstract"
 msgstr "Der Abstract der Einreichung"
 
-#, fuzzy
 msgid "emailTemplate.variable.submission.authorsShort"
-msgstr "Autorennamen in Form einer verkürzten Zeichenfolge"
+msgstr ""
+"Autor/innennamen in Form einer verkürzten Zeichenfolge, wie \"Barnes, et al\""
 
 msgid "emailTemplate.variable.submission.authors"
 msgstr "Die vollständigen Namen der Autoren"
 
 msgid "emailTemplate.variable.submission.authorSubmissionUrl"
-msgstr ""
+msgstr "Die URL zur Einreichung für die Autor/innen"
 
 msgid "emailTemplate.variable.submission.submissionUrl"
 msgstr "Die URL zu der Einreichung im redaktionellen Backend"
 
 msgid "emailTemplate.variable.submission.submissionPublishedUrl"
-msgstr ""
+msgstr "Die URL zur veröffentlichten Einreichung"
 
 msgid "emailTemplate.variable.submission.submissionWizardUrl"
-msgstr ""
+msgstr "Die URL zur Einreichung im Einreichungsassistenten"
 
 msgid "emailTemplate.variable.submission.submittingAuthorName"
 msgstr ""
+"Die Namen der Autor/innen, die dem Einreichungs-Workflow zugewiesen sind. In "
+"der Regel ist dies der/die einreichend/e Autor/in"
 
 msgid "emailTemplate.variable.passwordResetUrl"
 msgstr ""
+"Hash-URL, die an eine/n Benutzer/in gesendet wird, um das Zurücksetzen des "
+"Passworts zu bestätigen"
 
 msgid "emailTemplate.variable.password"
-msgstr ""
+msgstr "Neues zufälliges Benutzer/innnenpasswort"
 
 msgid "mailable.reviewerReinstate.name"
 msgstr "Gutachter/in wieder eingesetzt"
 
 msgid "mailable.reviewerResendRequest.name"
-msgstr ""
+msgstr "Gutachtenanfrage erneut an Gutachter/in senden"
 
 msgid "emailTemplate.variable.submitterName"
 msgstr ""
+"Der volle Name des/der Benutzer/in, der/die eine Einreichungsdatei "
+"hochgeladen hat"
 
 msgid "emailTemplate.variable.announcementTitle"
-msgstr ""
+msgstr "Der Titel der Mitteilung"
 
 msgid "emailTemplate.variable.announcementSummary"
-msgstr ""
+msgstr "Kurzbeschreibung der Mitteilung"
 
 msgid "emailTemplate.variable.announcementUrl"
-msgstr ""
+msgstr "Die URL zu der Mitteilung"
 
 msgid "emailTemplate.variable.statisticsReportNotify.newSubmissions"
-msgstr ""
+msgstr "Anzahl der Einreichungen, die diesen Monat erhalten wurden"
 
 msgid "emailTemplate.variable.statisticsReportNotify.declinedSubmissions"
-msgstr ""
+msgstr "Anzahl der abgelehnten Einreichungen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.acceptedSubmissions"
-msgstr ""
+msgstr "Anzahl der angenommenen Einreichungen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.otherSubmissions"
 msgstr ""
+"Anzahl der Einreichungen, die in anderen Gesamtsummen nicht enthalten sind"
 
 msgid "emailTemplate.variable.statisticsReportNotify.totalSubmissions"
-msgstr ""
+msgstr "Anzahl aller erhaltenen Einreichungen"
 
 msgid "emailTemplate.variable.statisticsReportNotify.month"
-msgstr ""
+msgstr "Monat des Berichts"
 
 msgid "emailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Jahr des Berichts"
 
 msgid "emailTemplate.variable.issue.issueIdentification"
-msgstr ""
+msgstr "Ausgabenidentifikation, inklusive Band, Nummer, Jahr, und Titel"
 
 msgid "emailTemplate.variable.issue.issuePublishedUrl"
-msgstr ""
+msgstr "Die URL zur veröffentlichten Ausgabe"
 
 msgid "mailTemplate.variable.statisticsReportNotify.year"
-msgstr ""
+msgstr "Jahr des Berichts"
 
 msgid "emailTemplate.variable.statisticsReportNotify.editorialStatsLink"
-msgstr ""
+msgstr "Der Link zur Seite mit den redaktionellen Tätigkeiten"
 
 msgid "mailable.reviewerReinstate.description"
 msgstr ""
@@ -3166,6 +3183,9 @@ msgstr ""
 
 msgid "mailable.reviewerResendRequest.description"
 msgstr ""
+"Diese E-Mail wird von einem/r Redakteur/in an eine/n Gutachter/in gesendet, "
+"der eine RGutachtensanfrage abgelehnt hat, wenn der/die Redakteur/in die "
+"Anfrage erneut stellen möchte."
 
 msgid "mailable.reviewerUnassign.name"
 msgstr "Gutachter/in nicht mehr zugeordnet"
@@ -3185,228 +3205,265 @@ msgstr ""
 "Einstellungen verlangt wird."
 
 msgid "mailable.decision.notifyOtherAuthors.name"
-msgstr ""
+msgstr "Andere Autor/innen benachrichtigen"
 
 msgid "mailable.decision.notifyOtherAuthors.description"
 msgstr ""
+"Diese E-Mail wird verschickt, um Autor/innen einer Einreichung, die nicht "
+"als Teilnehmer/innen zugewiesen sind, darüber zu informieren, dass eine "
+"Entscheidung getroffen wurde. In der Regel sind dies alle außer dem/der "
+"einreichenden Autor/in."
 
 msgid "mailable.decision.notifyOtherAuthors.variable.message.description"
 msgstr ""
+"Eine Kopie der E-Mail-Nachricht, die an den/die einreichende/n Autor/in "
+"gesendet wurde"
 
 msgid "mailable.decision.notifyReviewer.name"
-msgstr ""
+msgstr "Gutachter/innen über die Entscheidung benachrichtigen"
 
 msgid "mailable.decision.notifyReviewer.description"
 msgstr ""
+"Diese E-Mail wird von einem/r Redakteur/in an eine/n Gutachter/in geschickt, "
+"um darüber zu informieren, dass eine Entscheidung bezüglich einer von ihm/"
+"ihr begutachteten Einreichung getroffen wurde."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription"
 msgstr ""
+"Eine kurze Beschreibung dieser Entscheidung, die in einer E-Mail-"
+"Benachrichtigung an die Gutachter/innen weitergegeben werden soll"
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.accept"
 msgstr ""
+"Wir haben uns entschieden, diese Einreichung ohne Überarbeitungen anzunehmen."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.decline"
-msgstr ""
+msgstr "Wir haben uns entschieden, diese Einreichung abzulehnen."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription."
 "pendingRevisions"
-msgstr ""
+msgstr "Wir haben die Autor/innen dazu eingeladen, Überarbeitungen vorzulegen."
 
 msgid "mailable.decision.notifyReviewer.variable.decisionDescription.resubmit"
 msgstr ""
+"Wir haben die Autor/innen dazu eingeladen, eine überarbeitete Version für "
+"weitere Begutachtungen vorzulegen."
 
 msgid ""
 "mailable.decision.notifyReviewer.variable.decisionDescription.unassigned"
 msgstr ""
+"Zu der Einreichung eingeladene/r Gutachter/in ist nicht mehr zugewiesen."
 
 msgid "mailable.decision.accept.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung akzeptiert"
 
 msgid "mailable.decision.accept.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung zur "
+"Veröffentlichung angenommen wurde."
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung wurde ins Lektorat zurückgeschickt"
 
 msgid "mailable.decision.backToCopyediting.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung in das "
+"Lektorat zurückgeschickt wurde."
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung vom Lektorat aus zurückgeschickt"
 
 msgid "mailable.decision.backFromCopyediting.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung vom "
+"Lektorat aus zurückgeschickt wurde."
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Gutachtenrunde abgebrochen"
 
 msgid "mailable.decision.cancelReviewRound.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass eine Gutachtenrunde für "
+"ihre Einreichung abgebrochen wurde."
 
 msgid "mailable.decision.decline.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung abgelehnt"
 
 msgid "mailable.decision.decline.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung nach dem "
+"Peer Review abgelehnt wurde."
 
 msgid "mailable.decision.initialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung abgelehnt (Vor dem Gutachten)"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.name"
-msgstr ""
+msgstr "Neue Gutachtenrunde gestartet"
 
 msgid "mailable.decision.newReviewRound.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass eine neue Gutachtenrunde "
+"für ihre Einreichung gestartet wurde."
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.name"
-msgstr ""
+msgstr "Überarbeitungen angefordert"
 
 msgid "mailable.decision.requestRevisions.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass während des Peer Reviews "
+"entschieden wurde, Überarbeitungen anzufordern."
 
 msgid "mailable.decision.resubmit.notifyAuthor.name"
-msgstr ""
+msgstr "Erneut für die Begutachtung vorlegen"
 
 msgid "mailable.decision.resubmit.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass eine \"Überarbeiten und "
+"erneut einsenden\"-Enscheidung für ihre Einreichung getroffen wurde."
 
 msgid "mailable.decision.revertDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Abgelehnte Einreichung wieder aufnehmen"
 
 msgid "mailable.decision.revertDecline.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass eine vorherige "
+"Entscheidung, ihre Einreichung nach dem Peer Review abzulehnen, rückgängig "
+"gemacht wird."
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.name"
-msgstr ""
+msgstr "Ohne Gutachten abgelehnte Einreichung wieder aufnehmen"
 
 msgid "mailable.decision.revertInitialDecline.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass eine vorherige "
+"Entscheidung, ihre Einreichung ohne Peer Review abzulehnen, rückgängig "
+"gemacht wird."
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.name"
-msgstr ""
+msgstr "Zur Begutachtung geschickt"
 
 msgid "mailable.decision.sendExternalReview.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung zur "
+"Begutachtung geschickt wird."
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.name"
-msgstr ""
+msgstr "In die Produktion geschickt"
 
 msgid "mailable.decision.sendToProduction.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung in die "
+"Produktionsphase geschickt wurde."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung angenommen (ohne Begutachtung)"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt die Autor/innen, dass ihre Einreichung ohne "
+"Begutachtung direkt in das Lektorat geschickt wird."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Empfehlung gegeben"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Diese Nachricht benachrichtigt eine/n leitende/n Redakteurin oder "
+"Sektionsredakteur/in, dass eine redaktionelle Empfehlung für eine ihm/ihr "
+"zugewiesene Einreichung abgegeben wurde. Diese Nachricht wird verwendet, "
+"wenn ein/e Redakteur/in nur eine redaktionelle Entscheidung empfehlen darf "
+"und eine/n autorisierte/n Redakteur/in benötigt, um redaktionelle "
+"Entscheidungen festzuhalten. Diese Option kann bei der Zuweisung von "
+"Teilnehmer/innen zu einer Einreichung ausgewählt werden."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Gutachten bestätigt"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
-"Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den "
-"Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um "
-"die/den Rubrikredakteur/in darüber zu informieren, dass die Begutachtung "
-"übernommen wird und bis zu dem angegebenen Datum abgeschlossen sein wird."
+"Diese E-Mail wird automatisch verschickt, wenn ein/e Gutachter/in die "
+"Gutachtenanfrage annimmt"
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Gutachten abgelehnt"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
-"Diese E-Mail wird von einer Gutachterin/einem Gutachter an die/den "
-"Rubrikredakteur/in als Antwort auf eine Begutachtungsanfrage gesendet, um "
-"darüber zu informieren, dass die Anfrage abgelehnt wird."
+"Diese E-Mail wird von einer Gutachterin/einem Gutachter geschickt, wenn eine "
+"Gutachtenanfrage abgelehnt wird"
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Erinnerung an das Gutachten"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
+"Diese E-Mail wird von einem/r Redakteur/in geschickt um ein/e Gutachter/in "
+"an das fällige Gutachten zu erinnern."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Erinnerung an das Gutachten (Automatisiert)"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
 "Diese E-Mail wird automatisch verschickt, wenn das Fälligkeitsdatum für eine/"
-"n Gutachter/in verstrichen ist (vgl. die Begutachtungseinstellungen in "
-"Schritt 2 des Zeitschriftensetups) und wenn der One-Click-Zugang für "
-"Gutachter/innen deaktiviert ist. Planmäßige Aufgaben (scheduled tasks) "
-"müssen aktiviert und konfiguriert sein (vgl. die Konfigurationsdatei der "
-"Website)."
+"n Gutachter/in verstrichen ist und noch kein Gutachten vorliegt."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Gutachten erhalten"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Diese E-Mail wird von einem/r Redakteur/in an ein/e Gutachter/in geschickt "
+"um zu bestätigen, dass das Gutachten eingegangen ist und um dem/der "
+"Gutachter/in für ihren Beitrag zu danken."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Antwort auf eine Gutachtenanfrage fällig (Automatisiert)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Diese E-Mail wird automatisch verschickt, wenn das Fälligkeitsdatum für eine/"
-"n Gutachter/in verstrichen ist (vgl. die Begutachtungseinstellungen in "
-"Schritt 2 des Zeitschriftensetups) und wenn der One-Click-Zugang für "
-"Gutachter/innen deaktiviert ist. Planmäßige Aufgaben (scheduled tasks) "
-"müssen aktiviert und konfiguriert sein (vgl. die Konfigurationsdatei der "
-"Website)."
+"Diese E-Mail wird automatisch verschickt, wenn das Fälligkeitsdatum für eine "
+"Gutachtenanfrage verstrichen ist und noch keine Antwort von dem/der "
+"Gutachter/in vorliegt."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Gutachtenanfrage"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
 "Diese E-Mail von der/dem Rubrikredakteur/in an eine/n Gutachter/in bittet "
-"darum, dass diese/r die Aufgabe, eine Einreichung zu begutachten, übernimmt "
-"oder ablehnt. Sie liefert Informationen über die Einreichung wie Titel und "
-"Abstract, ein Fälligkeitsdatum für das Gutachten und darüber, wie auf die "
-"Einreichung zugegriffen werden kann. Diese Nachricht wird benutzt, wenn in "
-"Schritt 2 des Zeitschriftensetups das Standardbegutachtungsverfahren "
-"ausgewählt worden ist."
+"darum, dass diese/r die Aufgabe, eine Einreichung zu begutachten, annimmt "
+"oder ablehnt. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Nachfolgende Gutachtenanfrage"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
 "Diese E-Mail wird von der/dem Rubrikredakteur/in an eine/n Gutachter/in "
-"gesendet, damit diese/r die Aufgabe, eine Einreichung in einer zweiten oder "
-"weiteren Begutachtungsrunde zu beurteilen, übernimmt oder ablehnt. Sie "
-"übermittelt Informationen über die Einreichung wie den Titel und das "
-"Abstract, ein Fälligkeitsdatum für das Gutachten und Informationen, wie auf "
-"die Einreichung zugegriffen werden kann. Diese Nachricht wird benutzt, wenn "
-"in Schritt 2 des Zeitschriftensetups das Standardbegutachtungsverfahren "
-"ausgewählt worden ist."
+"gesendet, damit diese/r die Aufgabe, eine Einreichung in einer weiteren "
+"Gutachtungsrunde zu beurteilen, übernimmt oder ablehnt. Sie übermittelt "
+"Informationen über die Einreichung wie den Titel und das Abstract, ein "
+"Fälligkeitsdatum für das Gutachten und Informationen, wie auf die "
+"Einreichung zugegriffen werden kann."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
-msgstr ""
+msgstr "Die aktuelle Veröffentlichung der Einreichung fehlt"
 
 msgid "plugins.importexport.common.error.submissionChildFailed"
-msgstr ""
+msgstr "The submission's child {$child} failed to be processed"
 
 msgid "mailable.editorialReminder.name"
-msgstr ""
+msgstr "Redaktionserinnerung"
 
 msgid "mailable.editorialReminder.description"
 msgstr ""
+"Eine automatisierte E-Mail, die an Redakteur/innen mit aussstehenden "
+"Aufgaben geschickt wird"
 
 msgid "mailable.passwordResetRequested.name"
-msgstr ""
+msgstr "Bestätigung der Passwortzurücksetzung"
 
 msgid "mailable.passwordResetRequested.description"
 msgstr ""
@@ -3416,17 +3473,17 @@ msgstr ""
 "Benutzer/innen folgen können, um ihr Passwort zurückzusetzen."
 
 msgid "mailable.userRegister.name"
-msgstr ""
+msgstr "Benutzer/in angelegt"
 
-#, fuzzy
 msgid "mailable.userRegister.description"
 msgstr ""
-"Diese E-Mail wird an neu registrierte Benutzer/innen gesendet, um sie beim "
-"System willkommen zu heißen und ihnen Benutzer/innennamen und Passwort zu "
-"bestätigen."
+"Diese E-Mail wird an neu registrierte Benutzer/innen gesendet, wenn von der "
+"Redaktion ein Account für sie über die Nutzer/inneneinstellungen angelegt "
+"wurde. Die E-Mail sollte sie im System willkommen heißen und ihnen Benutzer/"
+"innennamen und Passwort mitteilen."
 
 msgid "mailable.reviewerRegister.name"
-msgstr ""
+msgstr "Gutachter/in registriert"
 
 msgid "mailable.reviewerRegister.description"
 msgstr ""
@@ -3435,58 +3492,65 @@ msgstr ""
 "bestätigen."
 
 msgid "mailable.submissionSavedForLater.name"
-msgstr ""
+msgstr "Einreichung für später gespeichert"
 
 msgid "mailable.submissionSavedForLater.description"
 msgstr ""
+"Eine automatisierte E-Mail, die an Autor/innen geschickt wird, wenn sie ihre "
+"Einreichung zur späteren Fertigstellung gespeichert haben"
 
 msgid "mailable.submissionAck.name"
-msgstr ""
+msgstr "Bestätigung der Einreichung"
 
-#, fuzzy
 msgid "mailable.submissionAck.description"
 msgstr ""
-"Diese E-Mail wird, sofern aktiviert, automatisch an eine Autorin/einen Autor "
-"gesendet, wenn sie den Einreichungsprozess eines Manuskripts für die "
-"Zeitschrift abgeschlossen haben. Sie liefert Informationen über das "
-"Verfolgen der Einreichung durch den Prozess hindurch und dankt der Autorin/"
-"dem Autor für die Einreichung."
+"Diese E-Mail wird automatisch an Autor/innen gesendet, wenn sie einen "
+"Beitrag einreichn. Sie liefert Informationen über das Verfolgen der "
+"Einreichung durch den redaktionellen Prozess hindurch und dankt Autor/innen "
+"für die Einreichung."
 
 msgid "mailable.submissionAckNotAuthor.name"
-msgstr ""
+msgstr "Bestätigung der Einreichung (andere Autor/innen)"
 
-#, fuzzy
 msgid "mailable.submissionAckNotAuthor.description"
 msgstr ""
-"Diese E-Mail wird, sofern aktiviert, automatisch an die weiteren Autor/innen "
-"geschickt, die laut Einreichung keine OJS-Benutzeraccounts haben."
+"Diese E-Mail wird automatisch an die weiteren Autor/innen einer Einreichung "
+"geschickt, die nicht der/die einreichende Autor/in sind."
 
 msgid "mailable.discussionSubmission.name"
-msgstr ""
+msgstr "Diskussion (Einreichung)"
 
 msgid "mailable.discussionSubmission.description"
 msgstr ""
+"Diese E-Mail wird verschickt, wenn eine Diskussion in der Einreichungsphase "
+"erstellt wird oder eine neue Antwort erhält."
 
 msgid "mailable.discussionReview.name"
-msgstr ""
+msgstr "Diskussion (Begutachtung)"
 
 msgid "mailable.discussionReview.description"
 msgstr ""
+"Diese E-Mail wird verschickt, wenn eine Diskussion in der Begutachtungsphase "
+"erstellt wird oder eine neue Antwort erhält."
 
 msgid "mailable.discussionCopyediting.name"
-msgstr ""
+msgstr "Diskussion (Lektorat)"
 
 msgid "mailable.discussionCopyediting.description"
 msgstr ""
+"Diese E-Mail wird verschickt, wenn eine Diskussion in dem Lektorat erstellt "
+"wird oder eine neue Antwort erhält."
 
 msgid "mailable.discussionProduction.name"
-msgstr ""
+msgstr "Diskussion (Produktion)"
 
 msgid "mailable.discussionProduction.description"
 msgstr ""
+"Diese E-Mail wird verschickt, wenn eine Diskussion in der Produktionsphase "
+"erstellt wird oder eine neue Antwort erhält."
 
 msgid "mailable.revisedVersionNotify.name"
-msgstr ""
+msgstr "Benachrichtigung über eine überarbeitete Version"
 
 msgid "mailable.revisedVersionNotify.description"
 msgstr ""
@@ -3495,163 +3559,198 @@ msgstr ""
 "hochgeladen hat."
 
 msgid "mailable.announcementNotify.name"
-msgstr ""
+msgstr "Neue Mitteilung"
 
 msgid "mailable.announcementNotify.description"
 msgstr "Diese E-Mail wird gesendet, wenn eine neue Ankündigung erstellt wird."
 
 msgid "mailable.statisticsReportNotify.name"
-msgstr ""
+msgstr "Benachrichtigung über einen Statistikbericht"
 
 msgid "mailable.editReviewNotify.name"
-msgstr ""
+msgstr "Benachrichtigung über eine Gutachtenbearbeitung"
 
 msgid "mailable.editReviewNotify.description"
 msgstr ""
+"Diese E-Mail benachrichtigt automatisch den/die Gutachter/in, wenn die "
+"Details der Gutachtenaufgabe verändert wurden."
 
 msgid "mailable.reviewCompleteNotifyEditors.name"
-msgstr ""
+msgstr "Benachrichtigung an die Redaktion über eine Gutachtenempfehlung"
 
 msgid "mailable.reviewCompleteNotifyEditors.description"
 msgstr ""
+"Diese E-Mail wird automatisch an die zugewiesenen Redaktionsmitglieder "
+"geschickt, wenn ein/e Gutachter/in eine Gutachtenempfehlung ausspricht"
 
 msgid "manager.people.authSource"
-msgstr ""
+msgstr "Authentifizierungsquelle"
 
 msgid "mailable.decision.backToReview.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung zurück zur Begutachtung geschickt"
 
 msgid "mailable.decision.backToReview.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail informiert Autor/innen, dass ihre Einreichung zur Begutachtung "
+"zurückgeschickt wurde."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Einreichung zurück zur Einreichungsphase geschickt"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Diese E-Mail benachrichtigt Autor/innen, dass ihre Einreichung zurück in die "
+"Einreichungsphase geschickt wurde."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "E-Mails verwalten"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Bearbeiten und hinzufügen von Vorlagen</a> für alle "
+"vom System versandten E-Mails.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Bearbeiten und fügen Sie Templates hinzu, die Sie den Benutzer/innen zur "
+"Verfügung stellen möchten, wenn diese E-Mail versendet wird. Die "
+"Standardvorlage wird automatisch geladen und der/die Benutzer/in kann alle "
+"anderen Vorlagen, die Sie hier hinzufügen, schnell laden."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Vorlagen"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Vorlage bearbeiten"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Vorlage entfernen"
 
 msgid "manager.mailables.removeTemplate.confirm"
 msgstr ""
+"Sind Sie sicher, dass Sie die Vorlage <strong>{$template}</strong> entfernen "
+"wollen?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Vorlage zurücksetzen"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Sind Sie sicher, dass Sie den Betreff und Inhalt der Vorlage "
+"<strong>{$template}</strong> zu den Standardwerten zurücksetzen möchten?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Nach Name oder Beschreibung suchen"
 
 msgid "manager.emailTemplate.name.description"
 msgstr ""
+"Geben Sie einen kurzen Namen ein, um diese Vorlage leichter auffindbar zu "
+"machen."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Neue Einreichung"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Konfigurieren Sie die E-Mail Benachrichtigungen, die geschickt werden, wenn "
+"ein neuer Beitrag eingereicht wurde."
 
 msgid "manager.submissionAck.description"
 msgstr ""
+"Wer eine E-Mail erhalten sollte, wenn eine neue Einreichung abgeschlossen "
+"wurde."
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Keine E-Mail senden."
 
 msgid "manager.submissionAck.submittingAuthor"
-msgstr ""
+msgstr "Nur an den/die einreichende/n Autor/in eine E-Mail schicken."
 
 msgid "manager.submissionAck.allAuthors"
-msgstr ""
+msgstr "An alle Autor/innen eine E-Mail schicken."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Redaktionelle Entscheidungen"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Konfigurieren Sie die E-Mail Benachrichtigungen, die an Autor/innen "
+"geschickt werden, wenn eine redaktionelle Entscheidung festgehalten wurde."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Für Redakteur/innen"
 
 msgid "manager.forEditors.description"
 msgstr ""
+"Konfigurieren Sie die E-Mail Benachrichtigungen, die an Redakteur/innen "
+"geschickt werden."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Redaktionelle Statistiken"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Ob eine monatliche E-Mail an Redakteur/innen mit den redaktionellen "
+"Statistiken geschickt werden soll, wie z.B. Annahme- und Ablehnungsquoten. "
+"Redakteur/innen können diese E-Mail von ihrem Profil aus abbestellen."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Eine monatliche E-Mail an die Redakteur/innen schicken."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Diese E-Mail nicht an die Redakteur/innen schicken."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Sollen einreichende Autor/innen darum gebeten werden, eine Kategorie "
+"auszuwählen, wenn sie einen neuen Beitrag einreichen?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Ja, ein Kategorienfeld in den Einreichungsassistenten einfügen."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nein, Autor/innen dieses Feld nicht anzeigen."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Lektorat anfragen"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Frage zur Zitation"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Redakteur/in zugewiesen"
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Für die Produktion bereit"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "System"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Version erstellt"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Gutachten abgeschlossen"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Gutachten bearbeitet"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Einreichungsbestätigung an weitere Autor/innen"
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Gutachter/in zugewiesen (Automatisch)"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Diese E-Mail wird an Redakteur/innen geschickt, wenn sie einer Einreichung "
+"automatisch zugewiesen wurden."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Redakteur/in zuweisen"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Einreichung benötigt Redakteur/in"
 
 #~ msgid "manager.setup.reviewOptions.reviewTime"
 #~ msgstr "Standard-Fristen für Begutachtung"

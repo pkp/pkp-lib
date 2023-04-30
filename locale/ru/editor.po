@@ -1,19 +1,20 @@
+# Pavel Pisklakov <ppv1979@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-01-28 15:01+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/editor/"
-"ru_RU/>\n"
-"Language: ru_RU\n"
+"ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "editor.submissionArchive.confirmDelete"
 msgstr "Вы уверены, что хотите навсегда удалить этот материал?"
@@ -49,40 +50,56 @@ msgid "editor.submission.workflowDecision.changeDecision"
 msgstr "Изменить решение"
 
 msgid "editor.submission.workflowDecision.disallowedDecision"
-msgstr ""
+msgstr "У вас нет разрешения на запись этого решения по данному материалу."
 
 msgid "editor.submission.workflowDecision.invalidEditor"
 msgstr ""
+"Редактор не был определён и, возможно, не имеет разрешения на запись решения "
+"по этому материалу."
 
 msgid "editor.submission.workflowDecision.invalidRecipients"
-msgstr ""
+msgstr "Вы не можете отправить письмо следующим получателям: {$names}."
 
 msgid "editor.submission.workflowDecision.invalidReviewRound"
-msgstr ""
+msgstr "Данный раунд рецензирования найти не удалось."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundStage"
 msgstr ""
+"Раунд рецензирования был указан, но это решение не принимается на этапе "
+"рецензирования."
 
 msgid "editor.submission.workflowDecision.invalidReviewRoundSubmission"
 msgstr ""
+"Этот раунд рецензирования не является частью рассмотрения данного материала."
 
 msgid "editor.submission.workflowDecision.invalidStage"
 msgstr ""
+"Материал находится не на той стадии рабочего процесса, чтобы принимать такое "
+"решение."
 
 msgid "editor.submission.workflowDecision.noUnassignedDecisions"
 msgstr ""
+"Вы должны быть назначены на этот материал, чтобы записать решение редакции."
 
 msgid "editor.submission.workflowDecision.requiredReviewRound"
 msgstr ""
+"Для принятия этого решения необходимо указать идентификатор раунда "
+"рецензирования."
 
 msgid "editor.submission.workflowDecision.requiredDecidingEditor"
 msgstr ""
+"Рекомендация не может быть дана, если на этом этапе не назначен редактор, "
+"который может принять окончательное решение."
 
 msgid "editor.submission.workflowDecision.submissionInvalid"
 msgstr ""
+"Решение по данному материалу не может быть принято. Идентификатор материала "
+"отсутствует или не соответствует материалу в запросе."
 
 msgid "editor.submission.workflowDecision.typeInvalid"
 msgstr ""
+"Это решение не может быть найдено. Пожалуйста, укажите правильный тип "
+"решения."
 
 msgid "editor.review.notInitiated"
 msgstr "Процесс рецензирования еще не был начат."
@@ -156,7 +173,7 @@ msgid "editor.review.reinstateReviewer"
 msgstr "Восстановить в роли рецензента"
 
 msgid "editor.review.resendRequestReviewer"
-msgstr ""
+msgstr "Повторная отправка запроса на рецензию"
 
 msgid "editor.submissionReview.reviewType"
 msgstr "Тип рецензирования"
@@ -215,10 +232,10 @@ msgstr ""
 "Новые версии файлов будут рассматриваться в новом раунде рецензирования."
 
 msgid "editor.review.NotifyAuthorRevisions.recommendation"
-msgstr ""
+msgstr "Исправления не должны подвергаться новому раунду рецензирования."
 
 msgid "editor.review.NotifyAuthorResubmit.recommendation"
-msgstr ""
+msgstr "Исправления должны пройти через новый раунд рецензирования."
 
 msgid "editor.review.dateAccepted"
 msgstr "Дата принятия материала на рецензирование"
@@ -296,7 +313,7 @@ msgid "editor.review.reviewerThanked"
 msgstr "Рецензента поблагодарили"
 
 msgid "editor.review.ReviewerResendRequest"
-msgstr ""
+msgstr "Запрос отправлен повторно"
 
 msgid "editor.review.reviewerComments"
 msgstr "Комментарии рецензента"
@@ -330,6 +347,8 @@ msgstr ""
 
 msgid "editor.review.errorResendingReviewerRequest"
 msgstr ""
+"Произошла ошибка при запросе рецензента на повторное рассмотрение "
+"приглашения на рецензию. Пожалуйста, попробуйте еще раз."
 
 msgid "editor.review.userGroupSelect"
 msgstr "Записать пользователя в эту группу рецензентов"
@@ -527,7 +546,7 @@ msgid "reviewer.list.activeReviewsDescription"
 msgstr "Число рецензий в работе"
 
 msgid "reviewer.list.assignedToLastRound"
-msgstr ""
+msgstr "Этот рецензент выполнил рецензирование в последнем раунде."
 
 msgid "reviewer.list.completedReviews"
 msgstr "Завершено рецензий"
@@ -560,7 +579,7 @@ msgid "reviewer.list.reassign"
 msgstr "Переназначить"
 
 msgid "reviewer.list.reassign.withName"
-msgstr ""
+msgstr "Повторно назначить {$name}"
 
 msgid "reviewer.list.currentlyAssigned"
 msgstr "Этот рецензент уже был назначен рецензентом этого материала."
@@ -585,28 +604,28 @@ msgid "reviewer.list.empty"
 msgstr "Рецензенты не найдены"
 
 msgid "reviewer.list.showOnlyReviewersFromPreviousRound"
-msgstr ""
+msgstr "Назначены на предыдущий раунд"
 
 msgid "editor.decision.cancelDecision"
-msgstr ""
+msgstr "Отменить решение"
 
 msgid "editor.decision.cancelDecision.confirmation"
-msgstr ""
+msgstr "Вы уверены, что хотите отменить это решение?"
 
 msgid "editor.decision.completeSteps"
-msgstr ""
+msgstr "Для принятия этого решения выполните следующие действия"
 
 msgid "editor.decision.dontSkipEmail"
-msgstr ""
+msgstr "Не пропускать это письмо"
 
 msgid "editor.decision.emailSkipped"
-msgstr ""
+msgstr "Этот шаг был пропущен, и электронное письмо не будет отправлено."
 
 msgid "editor.decision.recordDecision"
-msgstr ""
+msgstr "Записать решение"
 
 msgid "editor.decision.skipEmail"
-msgstr ""
+msgstr "Пропустить это письмо"
 
 msgid "editor.decision.stepError"
-msgstr ""
+msgstr "Возникла проблема с шагом {$stepName}."

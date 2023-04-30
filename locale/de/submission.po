@@ -1,18 +1,18 @@
 # Matthias <matt@m2labs.de>, 2021.
 # Matina Curic <matina.curic@mikado-ac.info>, 2021.
-# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021.
+# Pia Piontkowitz <pia.piontkowitz@rub.de>, 2021, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-21 10:07+0000\n"
+"PO-Revision-Date: 2023-05-01 21:49+0000\n"
 "Last-Translator: Pia Piontkowitz <pia.piontkowitz@rub.de>\n"
 "Language-Team: German <http://translate.pkp.sfu.ca/projects/ops/submissions/"
-"de_DE/>\n"
-"Language: de_DE\n"
+"de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "submission.submit.userGroup"
 msgstr "Einreichen in meiner Rolle als..."
@@ -90,39 +90,41 @@ msgstr ""
 msgid "publication.relation"
 msgstr "Verbindugen"
 
-#, fuzzy
 msgid "publication.relation.label"
-msgstr "Eingereicht zur Veröffentlichung"
+msgstr "Status der Verbindungen"
 
 msgid "publication.relation.description"
 msgstr ""
+"Bitte geben Sie an, ob dieser Preprint bereits an anderer Stelle "
+"veröffentlicht oder zur Veröffentlichung eingereicht wurde."
 
-#, fuzzy
 msgid "publication.relation.none"
-msgstr "Der Preprint wurde nicht zur Veröffentlichung eingereicht"
+msgstr "Dieser Preprint wurde nicht an anderer Stelle veröffentlicht."
 
-#, fuzzy
 msgid "publication.relation.published"
-msgstr ""
-"Der Preprint wurde in einer Zeitschrift als ein Preprint veröffentlicht"
+msgstr "Der Preprint wurde an einer anderen Stelle veröffentlicht."
 
 msgid "publication.relation.vorDoi"
 msgstr "DOI des veröffentlichten Preprints"
 
 msgid "publication.publish.relationStatus"
-msgstr ""
+msgstr "Verwandte Veröffentlichung"
 
 msgid "publication.publish.relationStatus.none"
-msgstr ""
+msgstr "Dieser Preprint wurde an keiner anderen Stelle veröffentlicht."
 
 msgid "publication.publish.relationStatus.submitted"
 msgstr ""
+"Dieser Preprint wurde bei einer Zeitschrift oder anderen akademische "
+"Publikation eingereicht."
 
 msgid "publication.publish.relationStatus.published.noDoi"
 msgstr ""
+"Dieser Preprint wurde veröffentlicht, aber eine DOI ist noch nicht verfügbar."
 
 msgid "publication.publish.relationStatus.published"
 msgstr ""
+"Dieser Preprint wurde <a href='{$vorDoi}' target='_blank'>veröffentlicht</a>."
 
 msgid "publication.publish.confirmation"
 msgstr ""
@@ -241,36 +243,64 @@ msgstr "Diskussionen"
 
 msgid "doi.submission.incorrectContext"
 msgstr ""
+"Es konnte keine DOI für die Einreichung {$pubObjectTitle} erstellt werden. "
+"Sie existiert im aktuelle Server-Kontext nicht."
 
 msgid "submission.layout.viewGalley"
-msgstr ""
+msgstr "Fahne anzeigen"
 
 msgid "galley.cantEditPublished"
 msgstr ""
+"Diese Fahne kann nicht bearbeitet werden, da sie bereits veröffentlicht "
+"wurde."
 
 msgid "submission.licenseSection.description"
 msgstr ""
+"Bitte wählen Sie die Lizenz aus, die Ihr Preprint bei der Veröffentlichung "
+"erhalten soll."
 
 msgid "submission.licenseUrl.missing"
-msgstr ""
+msgstr "Keine Lizenz ausgewählt."
 
 msgid "submission.submit.complete.canPost"
 msgstr ""
+"Vielen Dank für die Einreichung Ihres Preprints. Sie können jetzt<a href=\""
+"{$workflowUrl}\">Ihren Preprint veröffentlichen</a>."
 
 msgid "submission.submit.complete.canNotPost"
 msgstr ""
+"Vielen Dank für die Einreichung Ihres Preprints. Der Server wurde über Ihre "
+"Einreichung informiert und Sie haben eine Bestätigung für Ihre Unterlagen "
+"per E-Mail erhalten. Sobald der/die Moderator/innen Ihre Einreichung geprüft "
+"hat, wird er/sie Ihren Preprint veröffentlichen oder Sie kontaktieren."
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Sind Sie sicher, dass Sie <strong>{$title}</strong> bei <strong>{$context}</"
+"strong> einreichen wollen? Sobald Sie eingereicht haben, wird ein/e "
+"Moderator/in den Preprint prüfen, bevor er online veröffentlicht wird."
 
 msgid "submission.wizard.confirmSubmit.canPublish"
 msgstr ""
+"Sind Sie sicher, dass Sie <strong>{$title}</strong> bei <strong>{$context}</"
+"strong> einreichen wollen? Sobald Sie eingereicht haben, können Sie Ihre "
+"Einreichung überprüfen und online veröffentlichen."
 
 msgid "submission.wizard.sectionClosed.message"
 msgstr ""
+"{$contextName} akzeptiert keine Einreichungen für die Sektion {$section}. "
+"Wenn Sie Hilfe bei der Wiederherstellung Ihrer Einreichung benötigen, bitte "
+"kontaktieren Sie <a href='mailto:{$email}'>{$name}</a>."
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Für Leser/innen"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Fügen Sie jegliche Informationen zu, die Ihrer Meinung nach wichtig für "
+"unsere Moderator/innen sind, bevor sie Ihren Preprint veröffentlichen."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Bitte lesen und verstehen Sie die Copyright-Bestimmungen für Einreichungen "
+"an diesen Preprint-Server."

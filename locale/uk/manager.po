@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"PO-Revision-Date: 2023-05-02 16:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/uk/>\n"
@@ -87,10 +87,10 @@ msgid "manager.announcements.form.descriptionRequired"
 msgstr "Необхідно ввести опис оголошення."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Короткий опис відображатиметься разом із назвою анонсу."
+msgstr "Короткий опис, що має відображатиметься разом із заголовком оголошення."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Необхідно ввести короткий опис анонсу."
+msgstr "Необхідно ввести короткий опис оголошення."
 
 msgid "manager.announcements.form.descriptionShort"
 msgstr "Короткий опис"
@@ -99,7 +99,7 @@ msgid "manager.announcements.form.saveAndCreateAnother"
 msgstr "Записати та створити інший"
 
 msgid "manager.announcements.form.titleRequired"
-msgstr "Необхідно ввести заголовок анонсу."
+msgstr "Необхідно ввести заголовок оголошення."
 
 msgid "manager.announcements.form.title"
 msgstr "Заголовок"
@@ -111,7 +111,7 @@ msgid "manager.announcements.form.typeIdValid"
 msgstr "Будь ласка, виберіть коректний тип оголошення."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Жодного анонсу не було створено."
+msgstr "Жодного оголошення не було створено."
 
 msgid "manager.announcements.title"
 msgstr "Заголовок"
@@ -125,7 +125,7 @@ msgstr "Типи оголошень"
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
 "Попередження! Усі оголошення з цього типу будуть також видалені. Ви "
-"впевнені, що бажаєте продовжити та видалити цей тип оголошення?"
+"впевнені, що хочете продовжити та видалити цей тип оголошення?"
 
 msgid "manager.announcementTypes.create"
 msgstr "Створити тип оголошення"
@@ -143,13 +143,13 @@ msgid "manager.announcementTypes.form.saveAndCreateAnother"
 msgstr "Зберегти та створити інший"
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Тип оголошення із цією назвою вже існує."
+msgstr "Тип оголошення із цим ім'ям уже існує."
 
 msgid "manager.announcementTypes.form.typeName"
-msgstr "Назва"
+msgstr "Ім'я"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Необхідно вказати назву для типу оголошення."
+msgstr "Необхідно вказати ім'я для типу оголошення."
 
 msgid "manager.announcementTypes.noneCreated"
 msgstr "Жодних типів оголошення не було створено."
@@ -209,7 +209,7 @@ msgstr "Призначити DOI"
 msgid "manager.dois.actions.assign.prompt"
 msgstr ""
 "Ви збираєтеся призначити нові DOI {$count} елементам(-у) для будь-якого "
-"прийнятного елемента, якому ще не призначено DOI. Ви дійсно хочете "
+"прийнятного елемента, якому ще не призначено DOI. Ви впевнені, що хочете "
 "призначити цим елементам DOI?"
 
 msgid "manager.dois.actions.depositAll.label"
@@ -1523,7 +1523,7 @@ msgid "manager.plugins.installed"
 msgstr "Встановлені плагіни"
 
 msgid "manager.plugins.pluginGallery"
-msgstr "Галерея Плагінів"
+msgstr "Галерея плагінів"
 
 msgid "manager.plugins.pluginGallery.overview"
 msgstr "Огляд"
@@ -1539,16 +1539,14 @@ msgstr "Офіційний"
 
 msgid "manager.plugins.pluginGallery.certifications.official.description"
 msgstr ""
-"Цей плагін розроблений та підтримується командою проекту Public Knowledge "
-"Project."
+"Цей плагін розроблений та підтримується командою Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed"
 msgstr "Рецензований"
 
 msgid "manager.plugins.pluginGallery.certifications.reviewed.description"
 msgstr ""
-"Цей плагін був переглянутий та затверджений командою проекту Public "
-"Knowledge Project."
+"Цей плагін був переглянутий та схвалений командою Public Knowledge Project."
 
 msgid "manager.plugins.pluginGallery.certifications.partner"
 msgstr "Партнерський"
@@ -2154,16 +2152,16 @@ msgstr ""
 "описуються тему подання."
 
 msgid "manager.setup.metadata.subjects.enable"
-msgstr "Включити об'єкт у метадані"
+msgstr "Включити тему в метадані"
 
 msgid "manager.setup.metadata.subjects.noRequest"
-msgstr "Не вимагати від авторів вказувати об'єкт(и) під час подання."
+msgstr "Не запитувати від автора вказувати теми під час подання."
 
 msgid "manager.setup.metadata.subjects.request"
-msgstr "Прохати авторів зазначати об'єкт(и) під час подання."
+msgstr "Прохати автора вказувати теми під час подання."
 
 msgid "manager.setup.metadata.subjects.require"
-msgstr "Вимагати від авторів зазначати об'єкт(и) перед прийняттм подання."
+msgstr "Вимагати від автора вказувати теми перед прийняттям їхнього подання."
 
 msgid "manager.setup.metadata.type.description"
 msgstr ""
@@ -2908,7 +2906,7 @@ msgstr ""
 "зі стадією рецензування"
 
 msgid "emailTemplate.variable.discussion.subject"
-msgstr "Предмет обговорення"
+msgstr "Тема обговорення"
 
 msgid "emailTemplate.variable.discussion.content"
 msgstr "Зміст нового обговорення або відповіді"

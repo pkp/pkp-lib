@@ -281,7 +281,7 @@ class PKPString
      */
     public static function regexp_replace($pattern, $replacement, $subject, $limit = -1)
     {
-        return preg_replace($pattern . 'u', $replacement, $subject, $limit);
+        return preg_replace($pattern . 'u', (string) $replacement, (string) $subject, $limit);
     }
 
     /**

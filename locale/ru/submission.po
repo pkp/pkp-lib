@@ -1,20 +1,20 @@
-# Pavel Pisklakov <ppv1979@mail.ru>, 2021.
+# Pavel Pisklakov <ppv1979@mail.ru>, 2021, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:00+00:00\n"
-"PO-Revision-Date: 2021-12-26 09:24+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Pavel Pisklakov <ppv1979@mail.ru>\n"
 "Language-Team: Russian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
-"submission/ru_RU/>\n"
-"Language: ru_RU\n"
+"submission/ru/>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 3.9.1\n"
+"X-Generator: Weblate 4.13.1\n"
 
 msgid "author.editPublishedDisabled"
 msgstr ""
@@ -49,18 +49,18 @@ msgstr ""
 
 msgid "submission.submit.managerUserGroupsDescription"
 msgstr ""
+"Выберите роль редактора, если вы хотите сами редактировать и публиковать "
+"этот материал."
 
 msgid "submission.submit.submissionChecklist"
 msgstr "Требования к отправляемому материалу"
 
-#, fuzzy
 msgid "submission.submit.submissionChecklistDescription"
 msgstr ""
-"Вы должны прочесть и подтвердить, что вы выполнили все приведенные ниже "
-"требования, перед тем как продолжить."
+"Все отправляемые материалы должны соответствовать следующим требованиям."
 
 msgid "submission.submit.submissionChecklistConfirm"
-msgstr ""
+msgstr "Да, мой материал соответствует всем этим требованиям."
 
 msgid "submission.submit.submissionComplete"
 msgstr "Отправка материала завершена"
@@ -547,7 +547,7 @@ msgid "submission.coverage"
 msgstr "Информация об охвате"
 
 msgid "submission.details"
-msgstr ""
+msgstr "Подробности о материале"
 
 msgid "submission.done"
 msgstr "Готово"
@@ -609,12 +609,16 @@ msgstr "Удалить запись журнала"
 
 msgid "submission.event.decisionReviewerEmailSent"
 msgstr ""
+"{$recipientCount} рецензенту(ам) было отправлено электронное письмо с темой "
+"{$subject} о принятом решении."
 
 msgid "submission.event.submissionSubmitted"
 msgstr "Первоначальная отправка материала завершена."
 
 msgid "submission.event.copyrightAgreed"
 msgstr ""
+"{$name} ({$username}) согласился(ась) с условиями авторского права на "
+"отправленный материал."
 
 msgid "submission.event.fileRevised"
 msgstr "Версия «{$name}» (ID файла {$submissionFileId}) была загружена."
@@ -666,9 +670,13 @@ msgstr "Файл с правками рецензента обновлен"
 
 msgid "submission.event.reviewer.reviewerReminded"
 msgstr ""
+"{$senderName} отправил {$recipientName} напоминание о задании на "
+"рецензирование"
 
 msgid "submission.event.reviewer.reviewerRemindedAuto"
 msgstr ""
+"Пользователю {$recipientName} было отправлено автоматическое письмо с "
+"напоминанием о задании на рецензирование"
 
 msgid "submission.event.subjectPrefix"
 msgstr "Письмо электронной почты было отправлено:"
@@ -697,10 +705,10 @@ msgstr ""
 "Запись загрузчика файлов сохранена при создании файла и её нельзя изменить."
 
 msgid "submission.firstPublished"
-msgstr ""
+msgstr "Впервые опубликован"
 
 msgid "submission.forTheEditors"
-msgstr ""
+msgstr "Для редакторов"
 
 msgid "submission.galley"
 msgstr "Гранка"
@@ -979,7 +987,7 @@ msgid "submission.review"
 msgstr "Рецензия"
 
 msgid "submission.reviewAndSubmit"
-msgstr ""
+msgstr "Дать рецензию и отправить"
 
 msgid "submission.reviewed"
 msgstr "Отрецензирована"
@@ -1077,11 +1085,8 @@ msgstr "Дополнительные уточнения"
 msgid "submission.submit.submissionLocale"
 msgstr "Язык материала"
 
-#, fuzzy
 msgid "submission.submit.submissionLocaleDescription"
-msgstr ""
-"Принимаются материалы на нескольких языках. Выберите основной язык "
-"отправляемого материала из выпадающего меню выше."
+msgstr "Выберите основной язык отправляемого материала."
 
 msgid "submission.submit.submissionFiles"
 msgstr "Файлы материала"
@@ -1191,7 +1196,7 @@ msgid "submission.submit.form.citationsRequired"
 msgstr "Пожалуйста, укажите библиографические ссылки."
 
 msgid "submission.submit.form.dataAvailabilityRequired"
-msgstr ""
+msgstr "Пожалуйста, введите Заявление о доступности данных."
 
 msgid "submission.form.name"
 msgstr "Назовите файл (например, Рукопись; Таблица 1)"
@@ -1311,9 +1316,8 @@ msgstr "На данный момент нет файлов, которые вы 
 msgid "editor.submission.roundStatus.revisionsRequested"
 msgstr "Новые версии были запрошены."
 
-#, fuzzy
 msgid "editor.submission.roundStatus.revisionsSubmitted"
-msgstr "Новые версии были отправлены."
+msgstr "Новые версии были отправлены, нужно принять решение."
 
 msgid "editor.submission.roundStatus.resubmitForReview"
 msgstr "Материал нужно повторно отправить на рецензирование."
@@ -1355,10 +1359,10 @@ msgid "editor.submission.roundStatus.recommendationsCompleted"
 msgstr "Все рекомендации пришли, нужно принять решение."
 
 msgid "editor.submission.status.inactiveDaysInStage"
-msgstr ""
+msgstr "Неактивен более {$days} дней на этапе «{$stage}»."
 
 msgid "editor.submission.status.waitingInitialReview"
-msgstr ""
+msgstr "Новый материал ожидает отправки на рецензию или отклонения."
 
 msgid "editor.submission.stageParticipants"
 msgstr "Участники"
@@ -1422,155 +1426,227 @@ msgid "editor.submission.decision"
 msgstr "Решение"
 
 msgid "editor.submission.decision.notifyAuthors"
-msgstr ""
+msgstr "Уведомить авторов"
 
 msgid "editor.submission.decision.notifyReviewers"
-msgstr ""
+msgstr "Уведомить рецензентов"
 
 msgid "editor.submission.decision.notifyReviewers.description"
 msgstr ""
+"Отправить электронное письмо рецензентам, чтобы поблагодарить их за рецензию "
+"и сообщить им о принятом решении. Каждому рецензенту будет отправлено "
+"отдельное электронное письмо для защиты их анонимности. В сообщении можно "
+"использовать фразу «{$recipientName}», чтобы безопасно включить в письмо имя "
+"каждого рецензента."
 
 msgid ""
 "editor.submission.decision.reviewerUnassigned.notifyReviewers.description"
 msgstr ""
+"Отправить электронное письмо назначенным рецензентам, чтобы сообщить им, что "
+"их задание на рецензирование отменено."
 
 msgid "editor.submission.decision.accept"
 msgstr "Принять материал"
 
 msgid "editor.submission.decision.accept.description"
 msgstr ""
+"Этот материал будет принят к публикации и отправлен на литературное "
+"редактирование."
 
 msgid "editor.submission.decision.accept.log"
 msgstr ""
+"{$editorName} принял(а) этот материал и отправил(а) его на стадию "
+"литературного редактирования."
 
 msgid "editor.submission.decision.accept.completed"
-msgstr ""
+msgstr "Материал принят"
 
 msgid "editor.submission.decision.accept.completedDescription"
 msgstr ""
+"Материал «{$title}» был принят к публикации и отправлен на стадию "
+"литературного редактирования. Все уведомления были отправлены, за "
+"исключением тех, которые вы решили пропустить."
 
 msgid "editor.submission.decision.accept.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что их материал "
+"принят к публикации. Это письмо не будет отправлено до тех пор, пока решение "
+"не будет записано в системе."
 
 msgid "editor.submission.decision.cancelReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что раунд "
+"рецензирования закончен. Это письмо не будет отправлено до тех пор, пока "
+"решение не будет записано в системе."
 
 msgid "editor.submission.decision.decline"
 msgstr "Отклонить материал"
 
 msgid "editor.submission.decision.decline.description"
 msgstr ""
+"Этот материал будет отклонен от публикации. Этап рецензирования будет "
+"завершён, а материал будет помещён в архив."
 
 msgid "editor.submission.decision.decline.log"
-msgstr ""
+msgstr "{$editorName} отклонил(а) этот материал."
 
 msgid "editor.submission.decision.decline.completed"
-msgstr ""
+msgstr "Материал отклонён"
 
 msgid "editor.submission.decision.decline.completed.description"
 msgstr ""
+"Материал «{$title}» был отклонён от публикации и отправлен в архив. Все "
+"уведомления были отправлены, за исключением тех, которые вы решили "
+"пропустить."
 
 msgid "editor.submission.decision.decline.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что их материал "
+"отклонён от публикации. Это письмо не будет отправлено до тех пор, пока "
+"решение не будет записано в системе."
 
 msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
+"Этот материал будет отклонён от публикации. Дальнейшее рецензирование "
+"проводиться не будет, а сам материал будет помещён в архив."
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Новый раунд рецензирования"
 
 msgid "editor.submission.decision.newReviewRound.description"
-msgstr ""
+msgstr "Начать ещё один раунд рецензирования этого материала."
 
 msgid "editor.submission.decision.newReviewRound.log"
-msgstr ""
+msgstr "{$editorName} создал(а) новый раунд рецензирования этого материала."
 
 msgid "editor.submission.decision.newReviewRound.completed"
-msgstr ""
+msgstr "Создан раунд рецензирования"
 
 msgid "editor.submission.decision.newReviewRound.completedDescription"
 msgstr ""
+"Для материала «{$title}» был создан новый раунд рецензирования. Автор был "
+"уведомлен, если вы не решили пропустить это письмо."
 
 msgid "editor.submission.decision.newReviewRound.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что их материал "
+"отправлен на новый раунд рецензирования. Это письмо не будет отправлено до "
+"тех пор, пока решение не будет записано в системе."
 
 msgid "editor.submission.decision.promoteFiles.copyediting"
 msgstr ""
+"Выберите файлы, которые должны быть отправлены на этап литературного "
+"редактирования."
 
 msgid "editor.submission.decision.promoteFiles.review"
-msgstr ""
+msgstr "Выберите файлы, которые должны быть отправлены на рецензирование."
 
 msgid "editor.submission.decision.promoteFiles.production"
 msgstr ""
+"Выберите файлы, которые должны быть отправлены на этап подготовки к "
+"публикации."
 
 msgid "editor.submission.decision.requestRevisions"
-msgstr "Запросить новые версии"
+msgstr "Запросить исправления"
 
 msgid "editor.submission.decision.requestRevisions.description"
 msgstr ""
+"Автор должен предоставить исправленный вариант, прежде чем этот материал "
+"будет принят к публикации."
 
 msgid "editor.submission.decision.requestRevisions.log"
-msgstr ""
+msgstr "{$editorName} запросил(а) исправления для этого материала."
 
 msgid "editor.submission.decision.requestRevisions.completed"
-msgstr ""
+msgstr "Запрошены исправления"
 
 msgid "editor.submission.decision.requestRevisions.completed.description"
 msgstr ""
+"Запрошены исправления для материала «{$title}». Все уведомления были "
+"отправлены, за исключением тех, которые вы решили пропустить."
 
 msgid "editor.submission.decision.requestRevisions.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что требуется "
+"внести исправления, прежде чем материал будет принят к публикации. Добавьте "
+"всю информацию, которая понадобится автору для исправления представленного "
+"материала. При необходимости не забудьте обезличить комментарии рецензентов. "
+"Это письмо не будет отправлено до тех пор, пока решение не будет записано в "
+"системе."
 
 msgid "editor.submission.decision.cancelReviewRound"
-msgstr ""
+msgstr "Отменить раунд рецензирования"
 
 msgid "editor.submission.decision.cancelReviewRound.description"
 msgstr ""
+"Отменить текущий раунд рецензирования и вернуть материал обратно на "
+"последний раунд рецензирования. Если это первый раунд рецензирования, "
+"материал будет отправлен обратно на стадию отправки материала."
 
 msgid "editor.submission.decision.cancelReviewRound.log"
-msgstr ""
+msgstr "{$editorName} отменил(а) раунд рецензирования."
 
 msgid "editor.submission.decision.cancelReviewRound.completed"
-msgstr ""
+msgstr "Отменён последний раунд рецензирования."
 
 msgid "editor.submission.decision.cancelReviewRound.completed.description"
 msgstr ""
+"Раунд рецензирования материала «{$title}» был отменен. Все уведомления были "
+"отправлены, за исключением тех, которые вы решили пропустить."
 
 msgid "editor.submission.decision.cancelReviewRound.restriction"
 msgstr ""
+"Можно отменить раунд рецензирования, только если ни у одного связанного с "
+"ним рецензента нет завершенных или отправленных рецензий."
 
 msgid "editor.submission.decision.resubmit"
 msgstr "Отправить повторно на рецензию"
 
 msgid "editor.submission.decision.resubmit.description"
 msgstr ""
+"Автор должен предоставить исправленный вариант, который будет отправлен на "
+"еще один раунд рецензирования, прежде чем этот материал будет принят к "
+"публикации."
 
 msgid "editor.submission.decision.resubmit.log"
 msgstr ""
+"{$editorName} запросил(а) исправленный вариант этого материала, который "
+"должен быть отправлен на ещё один раунд рецензирования."
 
 msgid "editor.submission.decision.resubmit.completed"
-msgstr ""
+msgstr "Запрошены исправления"
 
 msgid "editor.submission.decision.resubmit.completed.description"
 msgstr ""
+"Запрошены исправления для материала «{$title}». Было принято решение "
+"отправить исправленный вариант на еще один раунд рецензирования. Все "
+"уведомления были отправлены, за исключением тех, которые вы решили "
+"пропустить."
 
 msgid "editor.submission.decision.resubmit.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что необходимо "
+"внести исправления, а затем исправленный вариант будет отправлен на "
+"очередной раунд рецензирования. Добавьте всю информацию, которая понадобится "
+"автору для исправления представленного материала. При необходимости не "
+"забудьте обезличить комментарии рецензентов."
 
 msgid "editor.submission.decision.sendExternalReview"
-msgstr ""
+msgstr "Отправить на рецензирование"
 
 msgid "editor.submission.decision.sendExternalReview.description"
-msgstr ""
+msgstr "Этот материал готов к отправке на рецензирование."
 
 msgid "editor.submission.decision.sendExternalReview.log"
-msgstr ""
+msgstr "{$editorName} отправил(а) этот материал на этап рецензирования."
 
 msgid "editor.submission.decision.sendExternalReview.completed"
-msgstr ""
+msgstr "Отправлен на рецензирование"
 
 msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
+"Материал «{$title}» был отправлен на этап рецензирования. Автор был "
+"уведомлен, если вы не решили пропустить это письмо."
 
 msgid "editor.submission.decision.newRound"
 msgstr "Новый раунд рецензирования"
@@ -1579,73 +1655,105 @@ msgid "editor.submission.decision.sendToProduction"
 msgstr "Отправить на публикацию"
 
 msgid "editor.submission.decision.sendToProduction.description"
-msgstr ""
+msgstr "Отправить этот материал на этап подготовки к публикации."
 
 msgid "editor.submission.decision.sendToProduction.log"
 msgstr ""
+"{$editorName} отправил(а) этот материал на этап подготовки к публикации."
 
 msgid "editor.submission.decision.sendToProduction.completed"
-msgstr ""
+msgstr "Отправлен на подготовку к публикации"
 
 msgid "editor.submission.decision.sendToProduction.completed.description"
 msgstr ""
+"Материал «{$title}» был отправлен на этап подготовки к публикации. Автор был "
+"уведомлен, если вы не решили пропустить это письмо."
 
 msgid "editor.submission.decision.sendToProduction.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что этот материал "
+"отправлен на этап подготовки к публикации. Это письмо не будет отправлено до "
+"тех пор, пока решение не будет записано в системе."
 
 msgid "editor.submission.decision.backFromCopyediting"
-msgstr ""
+msgstr "Отменить литературное редактирование"
 
 msgid "editor.submission.decision.backFromCopyediting.description"
-msgstr ""
+msgstr "Отправить материал назад с этапа литературного редактирования."
 
 msgid "editor.submission.decision.backFromCopyediting.log"
 msgstr ""
+"{$editorName} отправил(а) этот материал назад с этапа литературного "
+"редактирования."
 
 msgid "editor.submission.decision.backFromCopyediting.completed"
-msgstr ""
+msgstr "Отправлен назад с этапа литературного редактирования"
 
 msgid "editor.submission.decision.backFromCopyediting.completed.description"
 msgstr ""
+"Материал «{$title}» был отправлен назад с этапа литературного "
+"редактирования. Автор был уведомлен, если вы не решили пропустить это письмо."
 
 msgid "editor.submission.decision.backFromCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что литературное "
+"редактирование отменено, и их материал будет проходить дальнейшее "
+"рецензирование."
 
 msgid "editor.submission.decision.backToCopyediting"
-msgstr ""
+msgstr "Назад на этап литературного редактирования"
 
 msgid "editor.submission.decision.backToCopyediting.description"
-msgstr ""
+msgstr "Отправить этот материал назад на этап литературного редактирования."
 
 msgid "editor.submission.decision.backToCopyediting.log"
 msgstr ""
+"{$editorName} отправил(а) этот материал назад на этап литературного "
+"редактирования."
 
 msgid "editor.submission.decision.backToCopyediting.completed"
-msgstr ""
+msgstr "Отправлен назад на этап литературного редактирования"
 
 msgid "editor.submission.decision.backToCopyediting.completed.description"
 msgstr ""
+"Материал «{$title}» был отправлен назад на этап литературного "
+"редактирования. Автор был уведомлен, если вы не решили пропустить это письмо."
 
 msgid "editor.submission.decision.backToCopyediting.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что материал был "
+"возвращён на этап литературного редактирования. Объясните, почему было "
+"принято такое решение, и проинформируйте автора о том, какие дополнительные "
+"правки требуются, прежде чем материал будет готов к публикации."
 
 msgid "editor.submission.decision.skipReview"
 msgstr "Принять материал и пропустить рецензирование"
 
 msgid "editor.submission.decision.skipReview.description"
 msgstr ""
+"Принять материал к публикации и пропустить этап рецензирования. Это решение "
+"отправит материал на этап литературного редактирования."
 
 msgid "editor.submission.decision.skipReview.log"
 msgstr ""
+"{$editorName} пропустил(а) этап рецензирования и отправил(а) этот материал "
+"на этап литературного редактирования."
 
 msgid "editor.submission.decision.skipReview.completed"
-msgstr ""
+msgstr "Рецензирование пропущено"
 
 msgid "editor.submission.decision.skipReview.completed.description"
 msgstr ""
+"Материал «{$title}» пропускает этап рецензирования и был отправлен на этап "
+"литературного редактирования. Автор был уведомлен, если вы не решили "
+"пропустить это письмо."
 
 msgid "editor.submission.decision.skipReview.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что этот материал "
+"принят к публикации и отправлен на этап литературного редактирования без "
+"рецензирования. Это письмо не будет отправлено до тех пор, пока решение не "
+"будет записано в системе."
 
 msgid "editor.submission.decision.sendInternalReview"
 msgstr "Отправить на внутреннее рецензирование"
@@ -1668,70 +1776,96 @@ msgstr "Отменить отклонение материала"
 
 msgid "editor.submission.decision.revertDecline.description"
 msgstr ""
+"Отмена предыдущего решения об отклонении данного материала и возвращение его "
+"в активный редакционный процесс. Автор был уведомлен, если вы не решили "
+"пропустить это письмо."
 
 msgid "editor.submission.decision.revertDecline.log"
-msgstr ""
+msgstr "{$editorName} отменил(а) решение отклонить этот материал."
 
 msgid "editor.submission.decision.revertDecline.completed"
-msgstr ""
+msgstr "Материал восстановлен"
 
 msgid "editor.submission.decision.revertDecline.completed.description"
 msgstr ""
+"Материал «{$title}» теперь является активным материалом на этапе "
+"рецензирования."
 
 msgid "editor.submission.decision.revertDecline.notifyAuthorsDescription"
 msgstr ""
+"Отправить электронное письмо авторам, чтобы сообщить им, что предыдущее "
+"решение об отклонении материала было отменено. Объясните, почему решение "
+"было отменено, и сообщите, ожидается ли дальнейшее прохождение материалом "
+"рецензирования."
 
 msgid "editor.submission.decision.revertInitialDecline.completed.description"
 msgstr ""
+"Материал «{$title}» теперь является активным материалом на этапе отправки. "
+"Автор был уведомлен, если вы не решили пропустить это письмо."
 
-#, fuzzy
 msgid "editor.submission.decision.noDecisionsAvailable"
-msgstr "Назначить редактора, чтобы включить решения редакции для этого этапа."
+msgstr ""
+"Назначить редактора, который будет принимать решения редакции на этом этапе."
 
 msgid "editor.submission.recommend.notifyEditors.description"
 msgstr ""
+"Отправить сообщение редакторам, принимающим решение, чтобы сообщить им о "
+"рекомендации. Объясните, почему эта рекомендация была сделана в ответ на "
+"рекомендации и комментарии, отправленные рецензентами."
 
 msgid "editor.submission.recommend.accept"
-msgstr ""
+msgstr "Рекомендовать принять"
 
 msgid "editor.submission.recommend.accept.description"
 msgstr ""
+"Рекомендовать принять этот материал к публикации и отправить его на этап "
+"литературного редактирования."
 
 msgid "editor.submission.recommend.accept.log"
 msgstr ""
+"{$editorName} рекомендовал(а) принять этот материал и отправить его на "
+"литературное редактирование."
 
 msgid "editor.submission.recommend.completed"
-msgstr ""
+msgstr "Рекомендация отправлена"
 
 msgid "editor.submission.recommend.completed.description"
 msgstr ""
+"Ваша рекомендация была записана в систему, принимающий решение редактор(ы) "
+"был(и) уведомлен(ы)."
 
 msgid "editor.submission.recommend.revisions"
-msgstr ""
+msgstr "Рекомендовать исправить"
 
 msgid "editor.submission.recommend.revisions.description"
 msgstr ""
+"Рекомендовать запросить у автора исправленный вариант до принятия этого "
+"материала к публикации."
 
 msgid "editor.submission.recommend.revisions.log"
-msgstr ""
+msgstr "{$editorName} рекомендовал(а) запросить исправленный вариант."
 
 msgid "editor.submission.recommend.resubmit"
-msgstr ""
+msgstr "Рекомендовать повторно отправить на рецензирование"
 
 msgid "editor.submission.recommend.resubmit.description"
 msgstr ""
+"Рекомендовать автору представить исправленный вариант для еще одного раунда "
+"рецензирования."
 
 msgid "editor.submission.recommend.resubmit.log"
 msgstr ""
+"{$editorName} рекомендовал(а) запросить исправленный вариант и отправить его "
+"на повторное рецензирование."
 
 msgid "editor.submission.recommend.decline"
-msgstr ""
+msgstr "Рекомендовать отклонить"
 
 msgid "editor.submission.recommend.decline.description"
-msgstr ""
+msgstr "Рекомендовать отклонить представленный материал от публикации."
 
 msgid "editor.submission.recommend.decline.log"
-msgstr ""
+msgstr "{$editorName} рекомендовал(а) отклонить этот материал."
 
 msgid "editor.submission.makeRecommendation"
 msgstr "Дать рекомендацию"
@@ -1747,6 +1881,8 @@ msgstr "Рекомендации: {$recommendations}"
 
 msgid "editor.submission.recommendation.noDecidingEditors"
 msgstr ""
+"Вы не можете давать рекомендации до тех пор, пока не будет назначен редактор "
+"с правом на запись решения."
 
 msgid "editor.submission.recommendation"
 msgstr "Рекомендация"
@@ -1921,6 +2057,8 @@ msgstr ""
 
 msgid "log.review.reviewerResendRequest"
 msgstr ""
+"Повторно отправлен запрос на рецензию в раунде {$round} на имя рецензента "
+"{$reviewerName} для материала {$submissionid}."
 
 msgid "log.review.reviewConfirmed"
 msgstr ""
@@ -2018,7 +2156,7 @@ msgid "submission.copyright"
 msgstr "Авторское право"
 
 msgid "submission.copyright.agree"
-msgstr ""
+msgstr "Да, я согласен с Заявлением об авторских правах."
 
 msgid "submission.copyrightHolder"
 msgstr "Владелец авторского права"
@@ -2271,7 +2409,7 @@ msgid "submission.list.confirmDelete"
 msgstr "Удалить материал?"
 
 msgid "submission.list.viewAllSubmissions"
-msgstr ""
+msgstr "Показать все материалы"
 
 msgid "submission.list.viewSubmission"
 msgstr "Показать материал"
@@ -2324,72 +2462,91 @@ msgstr "Назначить редактора"
 
 msgid "submission.wizard.alreadySubmitted"
 msgstr ""
+"Этот материал уже был отправлен. Пожалуйста, посетите <a href=\"{$url}\""
+">панель управления материалами</a>, чтобы просмотреть его."
 
 msgid "submission.wizard.beforeStart"
-msgstr ""
+msgstr "Прежде чем начать"
 
 msgid "submission.wizard.categories.description"
-msgstr ""
+msgstr "Выберите только те категории, которые подходят для вашего материала."
 
 msgid "submission.wizard.changeSubmission"
-msgstr ""
+msgstr "Изменить настройки материала"
 
 msgid "submission.wizard.completeSteps"
-msgstr ""
+msgstr "Выполните следующие шаги для подачи материала"
 
 msgid "submission.wizard.confirmSubmit"
 msgstr ""
+"Материал <strong>«{$title}»</strong> будет отправлен в "
+"журнал<strong>«{$context}»</strong> для редакционной работы. Вы уверены, что "
+"хотите завершить отправку этого материала?"
 
 msgid "submission.wizard.errors"
 msgstr ""
+"Есть одна или несколько проблем, которые необходимо устранить, прежде чем вы "
+"сможете отправить материал. Пожалуйста, просмотрите приведенную ниже "
+"информацию и внесите необходимые изменения."
 
 msgid "submission.wizard.validating"
-msgstr ""
+msgstr "Проверка вашего материала"
 
 msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
+"Добавьте любую информацию, которую, по вашему мнению, должна знать наша "
+"редакция при оценке вашего материала."
 
 msgid "submission.wizard.confirm"
-msgstr ""
+msgstr "Пожалуйста, подтвердите следующую информацию перед отправкой."
 
 msgid "submission.wizard.title"
-msgstr ""
+msgstr "Отправить материал"
 
 msgid "submission.wizard.titleWithStep"
-msgstr ""
+msgstr "Отправить материал: {$step}"
 
 msgid "submission.wizard.noContributors"
 msgstr ""
+"Для этого материала не было добавлено ни одного соавтора или участника "
+"процесса исследования."
 
 msgid "submission.wizard.missingContributorLanguage"
 msgstr ""
+"Имя человека не указано на языке «{$language}» для одного или нескольких "
+"участников."
 
 msgid "submission.wizard.notAllowed"
-msgstr ""
+msgstr "Не разрешено"
 
 msgid "submission.wizard.privacyConsent"
-msgstr ""
+msgstr "Соглашение о конфиденциальности"
 
 msgid "submission.wizard.saved"
-msgstr ""
+msgstr "Сохранить на будущее"
 
 msgid "submission.wizard.saved.description"
 msgstr ""
+"Данные о вашем материале сохранены в нашей системе, но она еще не отправлен "
+"на рассмотрение. Вы можете вернуться для завершения отправки в любое время, "
+"перейдя по ссылке ниже."
 
 msgid "submission.wizard.saved.emailConfirmation"
-msgstr ""
+msgstr "Мы отправили вам копию этой ссылки по электронной почте на {$email}."
 
 msgid "submission.wizard.sectionClosed"
-msgstr ""
+msgstr "Раздел закрыт"
 
 msgid "submission.wizard.start"
-msgstr ""
+msgstr "Начать отправку"
 
 msgid "submission.wizard.startingStatus"
-msgstr ""
+msgstr "Начать новую отправку"
 
 msgid "submission.wizard.unableToSave"
 msgstr ""
+"Возникла ошибка, и мы не смогли сохранить ваш материал. Возможно, вы были "
+"отключены от сети."
 
 msgid "grid.category.categories"
 msgstr "Категории"
@@ -2479,28 +2636,36 @@ msgstr "Число слов: {$count}/{$limit}"
 
 msgid "doi.incorrectStaleStatus"
 msgstr ""
+"Не удалось пометить DOI как требующий синхронизации для «{$pubObjectTitle}». "
+"DOI не может быть помечен как требующий синхронизации, поскольку он еще не "
+"был зарегистрирован или отправлен."
 
 msgid "doi.submission.notPublished"
 msgstr ""
+"Не удалось пометить DOI как зарегистрированный для «{$pubObjectTitle}». "
+"Материал должен быть опубликован, прежде чем его статус может быть обновлен."
 
 msgid "submission.viewingPreview"
 msgstr ""
+"Это предварительный просмотр и материал не был опубликован. <a href=\"{$url}"
+"\">Показать материал</a>"
 
-#, fuzzy
 msgid "author.submit.noFiles"
-msgstr "Ни один файл не был прикреплен к этому отправляемому материалу."
+msgstr "Для этого материала не было загружено ни одного файла."
 
 msgid "author.submit.confirmation"
 msgstr "Подтверждение"
 
 msgid "submission.wizard.submittingInLanguage"
-msgstr ""
+msgstr "Отправка на языке <strong>«{$language}»</strong>."
 
 msgid "submission.wizard.submittingToSection"
-msgstr ""
+msgstr "Отправка в раздел <strong>«{$section}»</strong>."
 
 msgid "submission.wizard.submittingToSectionInLanguage"
 msgstr ""
+"Отправка в раздел <strong>«{$section}»</strong> на языке "
+"<strong>«{$language}»</strong>."
 
 msgid "submission.type.tip"
 msgstr ""
@@ -2530,16 +2695,25 @@ msgid "submission.submit.selectPrincipalContact"
 msgstr "Контактное лицо для переписки с редакцией."
 
 msgid "submission.dataAvailability"
-msgstr ""
+msgstr "Заявление о доступности данных"
 
 msgid "submission.dataAvailability.tip"
 msgstr ""
+"Укажите, предоставили ли вы доступ к материалам, подтверждающим результаты "
+"вашего исследования, и если да, то где и как к ним можно получить доступ"
 
 msgid "submission.files.required.genre"
-msgstr ""
+msgstr "Вы должны загрузить хотя бы один файл {$genre}."
 
 msgid "submission.files.required.genres"
 msgstr ""
+"Вы должны загрузить хотя бы по одному файлу каждого из следующих типов: "
+"{$genres}."
 
 msgid "publication.version"
+msgstr "Версия {$version}"
+
+msgid "submission.query.allowedEditTime"
 msgstr ""
+"Вы можете изменить это обсуждение в течение {$allowedEditTimeNoticeLimit} "
+"минут."

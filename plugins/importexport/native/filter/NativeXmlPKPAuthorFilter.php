@@ -131,7 +131,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
             }
         }
 
-        $authorGivenName = $author->getFullName($publication->getData('locale'));
+        $authorGivenName = $author->getFullName(true, false, $publication->getData('locale'));
         if (empty($authorGivenName)) {
             $deployment->addError(
                 Application::ASSOC_TYPE_SUBMISSION,
@@ -159,7 +159,7 @@ class NativeXmlPKPAuthorFilter extends NativeImportFilter
         }
 
         if (!$author->getUserGroupId()) {
-            $authorFullName = $author->getFullName($publication->getData('locale'));
+            $authorFullName = $author->getFullName(true, false, $publication->getData('locale'));
             $deployment->addError(Application::ASSOC_TYPE_AUTHOR, $publication->getId(), __('plugins.importexport.common.error.unknownUserGroup', ['authorName' => $authorFullName, 'userGroupName' => $userGroupName]));
             throw new Exception(__('plugins.importexport.author.exportFailed'));
         }

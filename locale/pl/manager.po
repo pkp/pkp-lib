@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"PO-Revision-Date: 2023-05-01 13:49+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -3467,42 +3467,50 @@ msgstr ""
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
+"Ta wiadomość e-mail to powiadomienie dla autora, wysyłane przez redaktora po "
+"cofnięciu zgłoszenia do etapu kompletacji."
 
 msgid "manager.manageEmails"
-msgstr ""
+msgstr "Zarządcze wiadomości e-mail"
 
 msgid "manager.manageEmailTemplates.description"
 msgstr ""
+"<p><a href=\"{$url}\">Dodaj i edytuj szablony</a> dla wszystkich wiadomości "
+"e-mail wysyłanych z systemu.</p>"
 
 msgid "manager.mailables.addTemplates"
 msgstr ""
+"Dodawaj i edytuj dodatkowe szablony wiadomości e-mail dostępne użytkownikom "
+"systemu po załadowaniu szablonu domyślnego."
 
 msgid "manager.mailables.templates"
-msgstr ""
+msgstr "Szablony"
 
 msgid "manager.mailables.editTemplate"
-msgstr ""
+msgstr "Edytuj szablon"
 
 msgid "manager.mailables.removeTemplate"
-msgstr ""
+msgstr "Usuń szablon"
 
 msgid "manager.mailables.removeTemplate.confirm"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć szablon <strong>{$template}</strong>?"
 
 msgid "manager.mailables.resetTemplate"
-msgstr ""
+msgstr "Przywróć domyślny temat i treść szablonu"
 
 msgid "manager.mailables.resetTemplate.confirm"
 msgstr ""
+"Czy na pewno chcesz przywrócić domyślny temat i treść szablonu "
+"<strong>{$template}</strong>?"
 
 msgid "manager.mailables.search"
-msgstr ""
+msgstr "Szukaj według nazwy lub opisu"
 
 msgid "manager.emailTemplate.name.description"
-msgstr ""
+msgstr "Wpisz krótką nazwę, która pomoże Ci odnajdywać ten szablon."
 
 msgid "manager.newSubmission"
-msgstr ""
+msgstr "Nowe zgłoszenie"
 
 msgid "manager.newSubmission.description"
 msgstr ""

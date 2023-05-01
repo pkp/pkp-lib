@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-05-01 13:49+0000\n"
+"PO-Revision-Date: 2023-05-02 16:13+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -3233,19 +3233,24 @@ msgstr ""
 "zgłoszenia."
 
 msgid "mailable.decision.skipReview.notifyAuthor.name"
-msgstr ""
+msgstr "Akceptacji zgłoszenia z pominięciem recenzowania"
 
 msgid "mailable.decision.skipReview.notifyAuthor.description"
 msgstr ""
+"Wiadomość e-mail powiadamiająca autora o akceptacji zgłoszenia z pominięciem "
+"recenzowania."
 
 msgid "mailable.decision.recommendation.notifyEditors.name"
-msgstr ""
+msgstr "Powiadomienie o rekomendacji"
 
 msgid "mailable.decision.recommendation.notifyEditors.description"
 msgstr ""
+"Wiadomość e-mail powiadamiająca redaktorów z uprawnieniami rekomendowania "
+"decyzji redakcyjnej (nadawanymi podczas przypisywania do zgłoszenia) jaka "
+"decyzja została podjęta."
 
 msgid "mailable.reviewConfirm.name"
-msgstr ""
+msgstr "Zatwierdzenie recenzji"
 
 msgid "mailable.reviewConfirm.description"
 msgstr ""
@@ -3253,7 +3258,7 @@ msgstr ""
 "akceptację prośby o wykonanie recenzji."
 
 msgid "mailable.reviewDecline.name"
-msgstr ""
+msgstr "Odrzucenie recenzji"
 
 msgid "mailable.reviewDecline.description"
 msgstr ""
@@ -3261,7 +3266,7 @@ msgstr ""
 "odrzucenie prośby o wykonanie recenzji."
 
 msgid "mailable.reviewRemind.name"
-msgstr ""
+msgstr "Ręczne przypomnienie o recenzji"
 
 msgid "mailable.reviewRemind.description"
 msgstr ""
@@ -3269,52 +3274,46 @@ msgstr ""
 "przypomnienie o terminie wykonania recenzji."
 
 msgid "mailable.reviewRemindAuto.name"
-msgstr ""
+msgstr "Automatyczne przypomnienie o recenzji"
 
-#, fuzzy
 msgid "mailable.reviewRemindAuto.description"
 msgstr ""
-"Wiadomość automatycznie wysłana po upłynięciu terminu nadesłania recenzji. "
-"Zaplanowane zadania w systemie muszą zostać na nowo skonfigurowane."
+"Automatyczna wiadomość e-mail przypominająca recenzentowi niewykonanie "
+"recenzji w określonym terminie."
 
 msgid "mailable.reviewAcknowledgement.name"
-msgstr ""
+msgstr "Potwierdzenie otrzymania recenzji"
 
 msgid "mailable.reviewAcknowledgement.description"
 msgstr ""
+"Wysyłka od redaktora, potwierdzająca recenzentowi otrzymanie recenzji i "
+"dziękująca za współpracę."
 
 msgid "mailable.reviewResponseOverdueAuto.name"
-msgstr ""
+msgstr "Prośba o recenzję bez odpowiedzi w terminie (Automatycznie)"
 
-#, fuzzy
 msgid "mailable.reviewResponseOverdueAuto.description"
 msgstr ""
-"Wiadomość od redaktora działu do recenzenta. Zawiera prośbę o przygotowanie "
-"recenzji artykułu, jego tytuł i abstrakt, a także zalecenie dot. "
-"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
-"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie."
+"Wysyłka automatyczna z systemu, gdy recenzent nie odpowiedział w wyznaczonym "
+"terminie na prośbę redakcji o wykonanie recenzji (z logowaniem w systemie)."
 
 msgid "mailable.reviewRequest.name"
-msgstr ""
+msgstr "Prośba o wykonanie recenzji"
 
-#, fuzzy
 msgid "mailable.reviewRequest.description"
 msgstr ""
-"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
-"przygotowanie recenzji tekstu, jego tytuł i abstrakt, a także zalecenie dot. "
-"zresetowania hasła w sytuacji, gdy recenzent nie pamięta danych do "
-"logowania. Wysyłana, jeśli recenzent pracować będzie w systemie"
+"Wysyłka od redaktora, prosząca recenzenta o wykonanie recenzji (z logowaniem "
+"w systemie). Powinna zawierać informacje o recenzowanym zgłoszeniu oraz "
+"logowaniu w systemie. "
 
 msgid "mailable.reviewRequestSubsequent.name"
-msgstr ""
+msgstr "Prośba o wykonanie kolejnej rundy recenzji"
 
-#, fuzzy
 msgid "mailable.reviewRequestSubsequent.description"
 msgstr ""
-"Wiadomość od redaktora prowadzącego do recenzenta. Zawiera prośbę o "
-"przygotowanie recenzji tekstu, jego tytuł i abstrakt oraz informacje o "
-"dostępie do tekstu i formularza recenzji. Wysyłana, jeżeli recenzent "
-"pracować będzie w systemie"
+"Wysyłka od redaktora, prosząca recenzenta o wykonanie kolejnej rundy "
+"recenzji (z logowaniem w systemie). Powinna zawierać informacje o "
+"recenzowanym zgłoszeniu oraz logowaniu w systemie."
 
 msgid "plugins.importexport.common.error.currentPublicationNullOrMissing"
 msgstr "To zgłoszenie nie zostało opublikowane"
@@ -3463,7 +3462,7 @@ msgstr ""
 "decyzji o cofnięciu zgłoszenia do recenzowania."
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.name"
-msgstr ""
+msgstr "Cofnięcie zgłoszenia do kompletacji"
 
 msgid "mailable.decision.backToSubmission.notifyAuthor.description"
 msgstr ""
@@ -3514,90 +3513,101 @@ msgstr "Nowe zgłoszenie"
 
 msgid "manager.newSubmission.description"
 msgstr ""
+"Automatyczna wysyłka z systemu, informująca zarządzających redakcją o "
+"zarejestrowaniu nowego zgłoszenia."
 
 msgid "manager.submissionAck.description"
 msgstr ""
 
 msgid "manager.submissionAck.off"
-msgstr ""
+msgstr "Nie wysyłaj potwierdzenia zarejestrowania zgłoszenia."
 
 msgid "manager.submissionAck.submittingAuthor"
 msgstr ""
+"Wyślij potwierdzenie zarejestrowania zgłoszenia tylko autorowi zgłaszającemu."
 
 msgid "manager.submissionAck.allAuthors"
 msgstr ""
+"Wyślij potwierdzenie zarejestrowania zgłoszenia wszystkim autorom zgłoszenia."
 
 msgid "manager.editorialDecisions"
-msgstr ""
+msgstr "Decyzje redakcyjne"
 
 msgid "manager.editorialDecisions.description"
 msgstr ""
+"Skonfiguruj powiadomienia autorów zgłoszenia o podjętej decyzji redakcyjnej."
 
 msgid "manager.forEditors"
-msgstr ""
+msgstr "Dla redaktorów"
 
 msgid "manager.forEditors.description"
-msgstr ""
+msgstr "Skonfiguruj powiadomienia dla redaktorów."
 
 msgid "manager.editorialStatistics"
-msgstr ""
+msgstr "Statystyki redakcyjne"
 
 msgid "manager.editorialStatistics.description"
 msgstr ""
+"Skonfiguruj comiesięczną subskrypcję statystyk redakcyjnych dla redaktorów, "
+"którzy mogą ją anulować w swoim profilu użytkownika."
 
 msgid "manager.editorialStatistics.on"
-msgstr ""
+msgstr "Wysyłaj redaktorom comiesięczną statystykę redakcyjną."
 
 msgid "manager.editorialStatistics.off"
-msgstr ""
+msgstr "Nie wysyłaj redaktorom comiesięcznej statystyki redakcyjnej."
 
 msgid "manager.submitWithCategories.description"
 msgstr ""
+"Czy przy tworzeniu zgłoszenia ma pojawić się prośba o wskazanie docelowej "
+"kategorii?"
 
 msgid "manager.submitWithCategories.yes"
-msgstr ""
+msgstr "Oczekuj wskazania kategorii dla zgłoszenia przy jego tworzeniu."
 
 msgid "manager.submitWithCategories.no"
-msgstr ""
+msgstr "Nie oczekuj wskazania kategorii dla zgłoszenia przy jego tworzeniu."
 
 msgid "mailable.copyeditRequest.name"
-msgstr ""
+msgstr "Prośba o korektę"
 
 msgid "mailable.citationAuthorQuery.name"
-msgstr ""
+msgstr "Pytanie o cytowanie"
 
 msgid "mailable.editorAssign.name"
 msgstr ""
 
 msgid "mailable.layoutRequest.name"
-msgstr ""
+msgstr "Prośba o skład"
 
 msgid "mailable.system"
-msgstr ""
+msgstr "System"
 
 msgid "mailable.versionCreated.name"
-msgstr ""
+msgstr "Utworzono wersję"
 
 msgid "mailable.reviewComplete.name"
-msgstr ""
+msgstr "Recenzja zakończona"
 
 msgid "mailable.reviewEdit.name"
-msgstr ""
+msgstr "Recenzja zmieniona"
 
 msgid "mailable.submissionAckOtherAuthors.name"
 msgstr ""
 
 msgid "mailable.editorAssigned.name"
-msgstr ""
+msgstr "Automatyczne przypisanie redaktora do zgłoszenia"
 
 msgid "mailable.editorAssigned.description"
 msgstr ""
+"Systemowa wiadomość e-mail powiadamiająca redaktora o automatycznym "
+"przypisaniu go do zgłoszenia."
 
 msgid "mailable.editorAssignedManual.name"
-msgstr ""
+msgstr "Ręczne przypisanie redaktora do zgłoszenia"
 
 msgid "mailable.submissionNeedsEditor.name"
-msgstr ""
+msgstr "Redaktor wymagań dla zgłoszeń"
 
 #~ msgid "manager.reviewerSearch.doneAmount"
 #~ msgstr "Wykonanych recenzji: {$current}"

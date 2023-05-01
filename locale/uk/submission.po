@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:50:09+00:00\n"
-"PO-Revision-Date: 2023-04-30 09:49+0000\n"
+"PO-Revision-Date: 2023-05-02 16:13+0000\n"
 "Last-Translator: Petro Bilous <petrobilous@ukr.net>\n"
 "Language-Team: Ukrainian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/uk/>\n"
@@ -101,8 +101,8 @@ msgstr "Ключ API ISBNdb"
 
 msgid "metadata.filters.isbndb.settings.apiKey.validationMessage"
 msgstr ""
-"Будь ласка, введіть ваш Ключ API ISBNdb. Якщо поки ви не маєте ключа, ви "
-"можете безкоштовно його замовити у проекті ISBNdb."
+"Будь ласка, введіть ваш ключ API ISBNdb. Якщо поки ви не маєте ключа, ви "
+"можете безкоштовно його замовити в проєкті ISBNdb."
 
 msgid "metadata.filters.pubmed.settings.email.displayName"
 msgstr "Електронна пошта реєстрації в PubMed"
@@ -139,7 +139,7 @@ msgstr "Автори"
 
 msgid "metadata.property.validationMessage.author"
 msgstr ""
-"Для найкращих результатів рекомендується вводити імена авторів у наступному "
+"Для найкращих результатів рекомендується вводити імена авторів у такому "
 "форматі: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.editor"
@@ -147,17 +147,17 @@ msgstr "Редактори"
 
 msgid "metadata.property.validationMessage.editor"
 msgstr ""
-"Для найкращих результатів рекомендується вводити імена редакторів у "
-"наступному форматі: Coleman Jr, D. (Ralf) Dr."
+"Для найкращих результатів рекомендується вводити імена редакторів у такому "
+"форматі: Coleman Jr, D. (Ralf) Dr."
 
 msgid "metadata.property.displayName.article-title"
-msgstr "Назва статті/праці"
+msgstr "Назва статті / праці"
 
 msgid "metadata.property.validationMessage.article-title"
 msgstr "Будь ласка, вкажіть коректну назву статті/праці."
 
 msgid "metadata.property.displayName.source"
-msgstr "Назва журналу/книги"
+msgstr "Назва публікації"
 
 msgid "metadata.property.validationMessage.source"
 msgstr "Будь ласка, вкажіть коректну назву журналу/книги."
@@ -501,7 +501,7 @@ msgid "submission.comments.comments"
 msgstr "Коментарі"
 
 msgid "submission.comments.confirmDelete"
-msgstr "Ви впевнені, що хочете видалити цей коментар?"
+msgstr "Ви впевнені, що хотіли б видалити цей коментар?"
 
 msgid "submission.comments.corrections"
 msgstr "Виправлення"
@@ -604,7 +604,7 @@ msgid "submission.event.confirmClearLog"
 msgstr "Ви впевнені, що хочете очистити журнал подій цього подання?"
 
 msgid "submission.event.confirmDeleteLogEntry"
-msgstr "Ви впевнені, що хочете видалити цей запис з журналу подій?"
+msgstr "Ви впевнені, що хочете видалити цей запис із журналу подій?"
 
 msgid "submission.event.deleteLogEntry"
 msgstr "Видалити запис журналу"
@@ -1173,7 +1173,7 @@ msgid "submission.submit.form.languagesRequired"
 msgstr "Будь ласка, вкажіть мову."
 
 msgid "submission.submit.form.subjectsRequired"
-msgstr "Будь ласка, вкажіть тему."
+msgstr "Будь ласка, введіть тему."
 
 msgid "submission.submit.form.disciplinesRequired"
 msgstr "Будь ласка, вкажіть предмет."

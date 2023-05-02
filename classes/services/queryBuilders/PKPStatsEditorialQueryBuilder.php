@@ -494,6 +494,7 @@ abstract class PKPStatsEditorialQueryBuilder
         switch (Config::getVar('database', 'driver')) {
             case 'mysql':
             case 'mysqli':
+            case 'mysqlnd':
                 return 'DATEDIFF(' . $leftDate . ',' . $rightDate . ')';
         }
         return "DATE_PART('day', " . $leftDate . ' - ' . $rightDate . ')';

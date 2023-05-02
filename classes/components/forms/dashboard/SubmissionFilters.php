@@ -17,6 +17,7 @@ namespace PKP\components\forms\dashboard;
 
 use APP\components\forms\FieldSelectIssues;
 use APP\core\Application;
+use APP\facades\Repo;
 use Illuminate\Support\LazyCollection;
 use PKP\category\Category;
 use PKP\components\forms\FieldAutosuggestPreset;
@@ -131,17 +132,18 @@ class SubmissionFilters extends FormComponent
             return $this;
         }
 
+        $options = Repo::category()
+            ->getBreadcrumbs($this->categories)
+            ->map(fn ($breadcrumb, $id) => [
+                'value' => $id,
+                'label' => $breadcrumb
+            ])
+            ->values()
+            ->all();
+
         $props = [
             'label' => __('category.category'),
-            'options' => $this->categories->map(
-                    function(Category $category) {
-                        return [
-                            'value' => $category->getId(),
-                            'label' => $category->getLocalizedTitle(),
-                        ];
-                    }
-                )
-                ->values(),
+            'options' => $options,
             'value' => [],
         ];
 

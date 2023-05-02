@@ -159,6 +159,7 @@ abstract class PKPBackendSubmissionsHandler extends APIHandler
                     if (in_array($val, [
                         $collector::ORDERBY_DATE_PUBLISHED,
                         $collector::ORDERBY_DATE_SUBMITTED,
+                        $collector::ORDERBY_ID,
                         $collector::ORDERBY_LAST_ACTIVITY,
                         $collector::ORDERBY_LAST_MODIFIED,
                         $collector::ORDERBY_SEQUENCE,

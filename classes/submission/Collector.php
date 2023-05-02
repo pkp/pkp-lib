@@ -35,6 +35,7 @@ abstract class Collector implements CollectorInterface
 {
     public const ORDERBY_DATE_PUBLISHED = 'datePublished';
     public const ORDERBY_DATE_SUBMITTED = 'dateSubmitted';
+    public const ORDERBY_ID = 'id';
     public const ORDERBY_LAST_ACTIVITY = 'lastActivity';
     public const ORDERBY_LAST_MODIFIED = 'lastModified';
     public const ORDERBY_SEQUENCE = 'sequence';
@@ -221,15 +222,6 @@ abstract class Collector implements CollectorInterface
 
     /**
      * Order the results
-     *
-     * The following column values are supported:
-     *
-     * - lastModified
-     * - dateLastActivity
-     * - title
-     * - seq (sequence)
-     * - DAO::ORDERBY_DATE_PUBLISHED
-     *
      * Results are ordered by the date submitted by default.
      *
      * @param string $sorter One of the self::ORDERBY_ constants
@@ -274,6 +266,9 @@ abstract class Collector implements CollectorInterface
             case self::ORDERBY_DATE_PUBLISHED:
                 $q->addSelect(['po.date_published']);
                 $q->orderBy('po.date_published', $this->orderDirection);
+                break;
+            case self::ORDERBY_ID;
+                $q->orderBy('s.submission_id', $this->orderDirection);
                 break;
             case self::ORDERBY_LAST_ACTIVITY:
                 $q->orderBy('s.date_last_activity', $this->orderDirection);

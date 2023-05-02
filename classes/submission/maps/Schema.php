@@ -64,6 +64,7 @@ class Schema extends \PKP\core\maps\Schema
             'reviewAssignments',
             'reviewRounds',
             'stageId',
+            'stageName',
             'stages',
             'status',
             'statusLabel',
@@ -238,6 +239,9 @@ class Schema extends \PKP\core\maps\Schema
                     break;
                 case 'reviewRounds':
                     $output[$prop] = $this->getPropertyReviewRounds($submission);
+                    break;
+                case 'stageName':
+                    $output[$prop] = __(Application::get()->getWorkflowStageName($submission->getData('stageId')));
                     break;
                 case 'stages':
                     $output[$prop] = $this->getPropertyStages($submission);

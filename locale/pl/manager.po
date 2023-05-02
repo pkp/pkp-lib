@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-30T17:13:28+00:00\n"
-"PO-Revision-Date: 2023-05-02 16:13+0000\n"
+"PO-Revision-Date: 2023-05-04 22:49+0000\n"
 "Last-Translator: Dariusz Lis <Dariusz@Lis.PL>\n"
 "Language-Team: Polish <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "pl/>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "X-Generator: Weblate 4.13.1\n"
 
 msgid "manager.website.information"
-msgstr "Informacje"
+msgstr "Informacja"
 
 msgid "manager.website.appearance"
 msgstr "Wygląd"
 
 msgid "manager.website.imageFileRequired"
 msgstr ""
-"Obraz jest wymagany. Upewnij się, że wybrałeś(aś) i przesłałeś(aś) plik."
+"Wymagany jest plik z obrazem. Upewnij się, że taki plik wybrano i przesłano."
 
 msgid "manager.announcements"
 msgstr "Ogłoszenia"
 
 msgid "manager.announcements.confirmDelete"
-msgstr "Czy na pewno chcesz usunąć na stałe to ogłoszenie - {$title}?"
+msgstr "Czy na pewno trwale usunąć ogłoszenie „{$title}”?"
 
 msgid "manager.announcements.create"
-msgstr "Utwórz nowy wpis"
+msgstr "Utwórz nowe ogłoszenie"
 
 msgid "manager.announcements.createTitle"
 msgstr "Utwórz"
@@ -43,57 +43,64 @@ msgid "manager.announcements.dateExpire"
 msgstr "Wygaśnięcie"
 
 msgid "manager.announcements.datePublish"
-msgstr "Opublikowany"
+msgstr "Publikacja"
 
 msgid "manager.announcements.deleteAnnouncement"
-msgstr "Skasuj ogłoszenie"
+msgstr "Usuń ogłoszenie"
 
 msgid "manager.announcements.edit"
-msgstr "Edytuj"
+msgstr "Edytuj ogłoszenie"
 
 msgid "manager.announcements.editTitle"
-msgstr "Edycja"
+msgstr "Edytuj"
 
 msgid "manager.announcements.form.dateExpireDayIncompleteDate"
-msgstr "Wybierz rok i/lub miesiąc wygaśnięcia."
+msgstr ""
+"Dla daty wygaśnięcia wskazano jedynie dzień. Proszę wskazać również miesiąc "
+"i/lub rok."
 
 msgid "manager.announcements.form.dateExpire"
 msgstr "Data wygaśnięcia"
 
 msgid "manager.announcements.form.dateExpireInstructions"
 msgstr ""
-"Wpis będzie wyświetlany czytelnikom do tej daty. Zostaw pole puste, aby wpis "
-"nie wygasał."
+"Ogłoszenie będzie wyświetlane do tej daty. Pozostaw puste, jeśli ogłoszenie "
+"ma być wyświetlane w nieskończoność."
 
 msgid "manager.announcements.form.dateExpireMonthIncompleteDate"
-msgstr "Wybierz rok i/lub dzień wygaśnięcia wpisu."
+msgstr ""
+"Dla daty wygaśnięcia wskazano jedynie miesiąc. Proszę wskazać również dzień "
+"i/lub rok."
 
 msgid "manager.announcements.form.dateExpireValid"
-msgstr "Wybierz poprawną datę wygaśnięcia wpisu."
+msgstr "Wybierz prawidłową datę wygaśnięcia ogłoszenia."
 
 msgid "manager.announcements.form.dateExpireYearIncompleteDate"
-msgstr "Wybierz miesiąc i/lub dzień wygaśnięcia wpisu."
+msgstr ""
+"Dla daty wygaśnięcia wskazano jedynie rok. Proszę wskazać również dzień i/"
+"lub miesiąc."
 
 msgid "manager.announcements.form.description"
 msgstr "Treść ogłoszenia"
 
 msgid "manager.announcements.form.descriptionInstructions"
-msgstr "Pełna treść wpisu."
+msgstr "Pełna treść ogłoszenia."
 
 msgid "manager.announcements.form.descriptionRequired"
-msgstr "Opis jest wymagany."
+msgstr "Opis ogłoszenia jest wymagany."
 
 msgid "manager.announcements.form.descriptionShortInstructions"
-msgstr "Krótki opis wyświetlany wraz z tytułem wpisu."
+msgstr ""
+"Zwiastun ogłoszenia wyświetlany niżej tytułu ogłoszenia w sekcji ogłoszeń."
 
 msgid "manager.announcements.form.descriptionShortRequired"
-msgstr "Krótki opis jest wymagany."
+msgstr "Zwiastun ogłoszenia jest wymagany."
 
 msgid "manager.announcements.form.descriptionShort"
-msgstr "Krótki opis"
+msgstr "Zwiastun ogłoszenia"
 
 msgid "manager.announcements.form.saveAndCreateAnother"
-msgstr "Zapisz i utwórz następny"
+msgstr "Zapisz i stwórz kolejne"
 
 msgid "manager.announcements.form.titleRequired"
 msgstr "Tytuł ogłoszenia jest wymagany."
@@ -102,57 +109,57 @@ msgid "manager.announcements.form.title"
 msgstr "Tytuł"
 
 msgid "manager.announcements.form.typeId"
-msgstr "Rodzaj"
+msgstr "Typ"
 
 msgid "manager.announcements.form.typeIdValid"
-msgstr "Wybierz poprawny rodzaj wpisu."
+msgstr "Wybierz prawidłowy typ ogłoszenia."
 
 msgid "manager.announcements.noneCreated"
-msgstr "Wpis nie został utworzony."
+msgstr "Nie stworzono jeszcze żadnych ogłoszeń."
 
 msgid "manager.announcements.title"
 msgstr "Tytuł"
 
 msgid "manager.announcements.type"
-msgstr "Rodzaj"
+msgstr "Typ"
 
 msgid "manager.announcementTypes"
-msgstr "Rodzaje ogłoszeń"
+msgstr "Typy ogłoszeń"
 
 msgid "manager.announcementTypes.confirmDelete"
 msgstr ""
-"Uwaga! Wszystkie wpisy tego rodzaju zostaną usunięte. Czy na pewno chcesz je "
-"usunąć?"
+"Uwaga! Usunięcie typu ogłoszenia spowoduje usunięcie wszystkich ogłoszeń z "
+"tym typem. Czy na pewno kontynuować?"
 
 msgid "manager.announcementTypes.create"
-msgstr "Utwórz rodzaj wpisu"
+msgstr "Utwórz typ ogłoszenia"
 
 msgid "manager.announcementTypes.createTitle"
 msgstr "Utwórz"
 
 msgid "manager.announcementTypes.edit"
-msgstr "Edytuj rodzaj wpisu"
+msgstr "Edytuj typ ogłoszenia"
 
 msgid "manager.announcementTypes.editTitle"
 msgstr "Edytuj"
 
 msgid "manager.announcementTypes.form.saveAndCreateAnother"
-msgstr "Zapisz i utwórz następne"
+msgstr "Zapisz i utwórz kolejny"
 
 msgid "manager.announcementTypes.form.typeNameExists"
-msgstr "Rodzaj wpisu o takiej samej nazwie już istnieje."
+msgstr "Typ ogłoszenia o takiej nazwie już istnieje."
 
 msgid "manager.announcementTypes.form.typeName"
 msgstr "Nazwa"
 
 msgid "manager.announcementTypes.form.typeNameRequired"
-msgstr "Nazwa rodzaju wpisu jest wymagana."
+msgstr "Nazwa typu ogłoszenia jest wymagana."
 
 msgid "manager.announcementTypes.noneCreated"
-msgstr "Żadne rodzaje wpisów nie zostały utworzone."
+msgstr "Nie utworzono jeszcze żadnych typów ogłoszeń."
 
 msgid "manager.announcementTypes.typeName"
-msgstr "Rodzaje wpisów"
+msgstr "Typ ogłoszenia"
 
 msgid "manager.dois.actions.deposit.all"
 msgstr "Zarejestruj wszystko"
@@ -315,7 +322,7 @@ msgid "manager.dois.update.failedCreation"
 msgstr "Nieudana aktualizacja DOI"
 
 msgid "manager.dois.update.partialFailure"
-msgstr "Niektóre DOI nie zostały aktualizowane."
+msgstr "Niektóre DOI nie zostały aktualizowane"
 
 msgid "manager.dois.notification.exportSuccess"
 msgstr "Elementy wyeksportowane poprawnie"
@@ -402,7 +409,7 @@ msgid "manager.publication.emails"
 msgstr "Wiadomości e-mail"
 
 msgid "manager.publication.reviewerGuidance"
-msgstr "Wytyczne  dla recenzentów"
+msgstr "Wytyczne dla recenzentów"
 
 msgid "manager.publication.reviewReminders.success"
 msgstr "Ustawienia przypomnień dot. recenzji zostały zaktualizowane."
@@ -421,7 +428,7 @@ msgstr ""
 "przyczyny nieudanej rejestracji:"
 
 msgid "manager.emails.addEmail"
-msgstr "Dodaj szablon wiadomości e-mail"
+msgstr "Dodaj szablon"
 
 msgid "manager.emails.createEmail"
 msgstr "Utwórz e-mail"
@@ -430,7 +437,7 @@ msgid "manager.emails.data"
 msgstr "Dane szablonu"
 
 msgid "manager.emails.details"
-msgstr "Właściwości szablonu"
+msgstr "Szczegóły szablonu"
 
 msgid "manager.emails.disable"
 msgstr "Wyłącz"
@@ -618,7 +625,7 @@ msgid "manager.people.editUser"
 msgstr "Edytuj użytkownika"
 
 msgid "manager.people.emailUsers.emailSelectedUsers"
-msgstr "Wyślij e-mail do zaznaczonych użytowników"
+msgstr "Wyślij e-mail do zaznaczonych użytkowników"
 
 msgid "manager.people.emailUsers.emailUsersEnrolledAs"
 msgstr "Wyślij e-mail do użytkowników zapisanych jako"
@@ -690,7 +697,7 @@ msgid "manager.people.remove"
 msgstr "Usuń"
 
 msgid "manager.people.saveAndCreateAnotherUser"
-msgstr "Zapisz i utwórz następny"
+msgstr "Zapisz i utwórz następnego"
 
 msgid "manager.people.signedInAs"
 msgstr "Jesteś zalogowany jako {$username}"
@@ -859,9 +866,10 @@ msgstr ""
 
 msgid "doi.manager.settings.doiPrefix.description"
 msgstr ""
-"Prefiks DOI jest przydzielany przez organizacje rejestrujące, np. <a href="
-"\"http://www.crossref.org\" target=\"_new\">Crossref</a> i posiada format 10."
-"xxxx (np. 10.1234):"
+"Prefiks DOI nadawany jest przez agencję rejestracyjną, np. <a href=\"https"
+"://www.CrossRef.Org\" target=\"_new\">CrossRef</a> lub <a href=\"https"
+"://DataCite.Org\" target=\"new\">DataCite</a>, i ma formę 10.NNNN, gdzie "
+"NNNN to czterocyfrowa liczba większa lub równa 1000"
 
 msgid "doi.manager.settings.doiPrefixPattern"
 msgstr "Wymagany jest prefiks DOI w formacie: 10.xxxx."
@@ -907,7 +915,9 @@ msgstr ""
 "wszystkich obiektów z takim samym prefiksem:"
 
 msgid "doi.manager.settings.doiSuffixDefault"
-msgstr "Korzystaj z domyślnego wzoru."
+msgstr ""
+"Każdy sufiks DOI musi być unikalny (dla danego prefiksu), ale może być "
+"dowolny. Domyślnie generowany jest ośmioznakowy"
 
 msgid "doi.manager.settings.doiSuffixManual"
 msgstr ""
@@ -1163,9 +1173,10 @@ msgstr "Format czasu i daty"
 
 msgid "manager.setup.dateTime.description"
 msgstr ""
-"Wybierz preferowany format czasu i daty. Inne kombinacje także są możliwe za "
-"pomocą  <a href='http://php.net/manual/en/function.strftime.php#refsect1-"
-"function.strftime-parameters'>opisanych schematów</a>."
+"Wybierz preferowany format dat i godzin. Niestandardowy format można "
+"wprowadzić za pomocą specjalnych <a href=\"https://www.php.net/manual/en/"
+"function.strftime.php#refsect1-function.strftime-parameters\">znaków "
+"formatu</a>."
 
 msgid "manager.setup.dateTime.longDate"
 msgstr "Data"
@@ -1231,8 +1242,8 @@ msgstr "Domyślny tryb recenzji"
 
 msgid "manager.setup.reviewOptions.showAnonymousReviewLink"
 msgstr ""
-"Wyświetl link do zasad  <button type=\"button\">Anonimizowania tekstu </"
-"button> podczas przesyłania plików"
+"Podczas przesyłania plików pokazuj odsyłacz <button type=\"button\">Jak "
+"prawidłowo anonimizować</button>"
 
 msgid "manager.setup.sponsors.note"
 msgstr "Instytucje finansujące oraz zasady"
@@ -1264,8 +1275,7 @@ msgstr "Instytucje"
 
 msgid "manager.setup.theme.description"
 msgstr ""
-"Nowe szablony graficzne  mogą być wgrywane w zakładce Wtyczki znajdującej "
-"się na górze niniejszej strony."
+"Nowe motywy graficzne można instalować w zakładce Wtyczki u góry tej strony."
 
 msgid "manager.setup.theme.notFound"
 msgstr "Szablon który wybrałeś nie jest zainstalowany lub włączony."
@@ -1821,12 +1831,12 @@ msgstr "Metadane pliku"
 
 msgid "manager.setup.genres.metatadata.description"
 msgstr ""
-"Wybierz typ metadanych odpowiedni dla wgrywanych plików. Manuskrypt powinien "
-"otrzymać opcję \"Tekst manuskryptu\" (który będzie docelowo PDF-em lub "
-"HTML)  aby później mógł być pobrany jako główny tekst. W przeciwnym razie "
-"lepsza będzie opcja \"plik dodatkowy\". Kwalifikują się do nich także "
-"wszelkie dzieła graficzne które wymagają opisania twórców, podpisów i "
-"informacji o licencjach."
+"Wybierz typ metadanych przypisywany do plików. Dla głównych plików "
+"publikacji (takich jak w formatach PDF, EPUB, HTML) należy wybrać typ "
+"<b>Dokument</b>, aby dziedziczyły swoje metadane z publikacji. Dla innych "
+"plików, wybierz typ <b>Zawartość dodatkowa</b>. Typ <b>Grafika</b> jest "
+"odpowiedni dla plików, które wymagają odrębnych informacji o autorstwie, "
+"podpisach i licencjach."
 
 msgid "manager.setup.genres.submitRequired.label"
 msgstr "Wymagaj razem ze zgłoszeniami"
@@ -3076,7 +3086,7 @@ msgstr ""
 "recenzenta."
 
 msgid "mailable.validateEmailSite.name"
-msgstr ""
+msgstr "Weryfikuj adres e-mail"
 
 msgid "mailable.validateEmailSite.description"
 msgstr ""
@@ -3517,7 +3527,7 @@ msgstr ""
 "zarejestrowaniu nowego zgłoszenia."
 
 msgid "manager.submissionAck.description"
-msgstr ""
+msgstr "Skonfiguruj potwierdzanie rejestracji zgłoszenia."
 
 msgid "manager.submissionAck.off"
 msgstr "Nie wysyłaj potwierdzenia zarejestrowania zgłoszenia."
@@ -3575,7 +3585,7 @@ msgid "mailable.citationAuthorQuery.name"
 msgstr "Pytanie o cytowanie"
 
 msgid "mailable.editorAssign.name"
-msgstr ""
+msgstr "Redaktor przydzielony do zgłoszenia"
 
 msgid "mailable.layoutRequest.name"
 msgstr "Prośba o skład"
@@ -3593,7 +3603,7 @@ msgid "mailable.reviewEdit.name"
 msgstr "Recenzja zmieniona"
 
 msgid "mailable.submissionAckOtherAuthors.name"
-msgstr ""
+msgstr "Potwierdzenie rejestracji zgłoszenia dla pozostałych autorów"
 
 msgid "mailable.editorAssigned.name"
 msgstr "Automatyczne przypisanie redaktora do zgłoszenia"

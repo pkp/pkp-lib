@@ -46,31 +46,31 @@
 					{translate key="manager.newSubmission"}
 				</pkp-button>
 			</div>
-			<h2 class="submissions__list__title">
+			<h2 class="submissions__list__title" id="table-title">
 				{{ currentView.name }}
 				<span class="submissions__view__count">
 					{{ submissionsMax }}
 				</span>
 			</h2>
-			<pkp-table>
-				<template slot="caption">
-					<button-row>
-						<template slot="end">
-							<pkp-button @click="openFilters">
-								{translate key="common.filter"}
-							</pkp-button>
-							<span v-if="isLoadingSubmissions">
-								<spinner></spinner>
-								{translate key="common.loading"}
-							</span>
-						</template>
-						<search
-							:search-phrase="searchPhrase"
-							search-label="{translate key="editor.submission.search"}"
-							@search-phrase-changed="setSearchPhrase"
-						></search>
-					</button-row>
-				</template>
+			<div id="table-controls" class="submissions__list__controls">
+				<button-row>
+					<template slot="end">
+						<pkp-button @click="openFilters" tabindex="0">
+							{translate key="common.filter"}
+						</pkp-button>
+						<span v-if="isLoadingSubmissions">
+							<spinner></spinner>
+							{translate key="common.loading"}
+						</span>
+					</template>
+					<search
+						:search-phrase="searchPhrase"
+						search-label="{translate key="editor.submission.search"}"
+						@search-phrase-changed="setSearchPhrase"
+					></search>
+				</button-row>
+			</div>
+			<pkp-table aria-labelledby="table-title" aria-describedby="table-controls">
 				<template slot="head">
 					<table-header
 						:can-sort="true"
@@ -135,6 +135,7 @@
 							<pkp-button
 								class="submissions__list__item__view"
 								:aria-describedby="'submission-title-' + submission.id"
+								:is-link="true"
 								@click="openSummary(submission)"
 							>
 								{translate key="editor.submission.viewSummary"}

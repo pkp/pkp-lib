@@ -680,10 +680,10 @@ msgid "common.pagination.goToPage"
 msgstr "Go to {$page}"
 
 msgid "common.pagination.next"
-msgstr "Next page"
+msgstr "Next"
 
 msgid "common.pagination.previous"
-msgstr "Previous page"
+msgstr "Previous"
 
 msgid "common.pageNumber"
 msgstr "Page {$pageNumber}"
@@ -838,6 +838,9 @@ msgstr "Show all steps"
 msgid "common.showingSteps"
 msgstr "{$current}/{$total} steps"
 
+msgid "common.showingXofX"
+msgstr "Showing <strong>{$start} to {$finish}</strong> of {$total}"
+
 msgid "common.size"
 msgstr "Size"
 
@@ -989,6 +992,9 @@ msgstr "Yes"
 
 msgid "common.loading"
 msgstr "Loading"
+
+msgid "common.loaded"
+msgstr "Loaded"
 
 msgid "common.plugins"
 msgstr "Plugins"

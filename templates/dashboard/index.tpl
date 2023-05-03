@@ -120,7 +120,16 @@
 									)
 									&& submission.reviewRounds.length
 								">
-									(Round {{ submission.reviewRounds[submission.reviewRounds.length - 1].round }})
+									{{
+										__('common.inParenthesis', {
+											text: i18nReviewRound.replace(
+												'{ldelim}$round{rdelim}',
+												submission
+													.reviewRounds[submission.reviewRounds.length - 1]
+													.round
+											)
+										})
+									}}
 								</template>
 							</stage-bubble>
 						</td>

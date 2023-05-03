@@ -981,6 +981,9 @@ msgstr "weeks"
 msgid "common.width"
 msgstr "Width"
 
+msgid "common.inParenthesis"
+msgstr "({$text})"
+
 msgid "common.withParenthesis"
 msgstr "{$item} ({$inParenthesis})"
 

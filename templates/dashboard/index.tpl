@@ -105,9 +105,9 @@
 							:id="'submission-title-' + submission.id"
 							:is-row-header="true"
 						>
-							<strong>
+							<span class="submissions__list__item__author">
 								{{ submission.publications[0].authorsStringShort }}
-							</strong>
+							</span>
 							<template v-if="submission.publications[0].authorsStringShort">—</template>
 							{{ submission.publications[0].fullTitle.en }}
 						</td>

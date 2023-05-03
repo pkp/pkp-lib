@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:45+00:00\n"
-"PO-Revision-Date: 2023-04-18 13:49+0000\n"
+"PO-Revision-Date: 2023-05-04 22:49+0000\n"
 "Last-Translator: Josu Acosta <josuacostacalvo@gmail.com>\n"
 "Language-Team: Basque <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/eu/>\n"
@@ -1126,7 +1126,7 @@ msgid "submission.submit.contributorRole"
 msgstr ""
 
 msgid "submission.submit.addAuthor"
-msgstr ""
+msgstr "Gehitu egilea"
 
 msgid "submission.submit.form.languagesRequired"
 msgstr ""
@@ -1418,7 +1418,7 @@ msgid "editor.submission.decision.initialDecline.description"
 msgstr ""
 
 msgid "editor.submission.decision.newReviewRound"
-msgstr ""
+msgstr "Ebaluazio-txanda berria"
 
 msgid "editor.submission.decision.newReviewRound.description"
 msgstr ""
@@ -1514,7 +1514,7 @@ msgid "editor.submission.decision.sendExternalReview.completed.description"
 msgstr ""
 
 msgid "editor.submission.decision.newRound"
-msgstr ""
+msgstr "Ebaluazio-txanda berria"
 
 msgid "editor.submission.decision.sendToProduction"
 msgstr ""
@@ -1754,7 +1754,7 @@ msgid "submission.description"
 msgstr ""
 
 msgid "submission.stageNotInitiated"
-msgstr ""
+msgstr "Hasi gabeko pausoa."
 
 msgid "submission.documents"
 msgstr ""
@@ -1938,7 +1938,7 @@ msgid "submission.copyrightOther"
 msgstr ""
 
 msgid "submission.copyrightYear"
-msgstr ""
+msgstr "Copyright-urtea"
 
 msgid "submission.copyrightStatement"
 msgstr ""
@@ -2004,7 +2004,7 @@ msgid "submission.license.cc.by-sa3.footer"
 msgstr ""
 
 msgid "submission.queries.submission"
-msgstr "Berrikuspenaren aurreko eztabaidak"
+msgstr "Ebaluazioaren aurreko eztabaidak"
 
 msgid "submission.queries.review"
 msgstr ""
@@ -2066,7 +2066,7 @@ msgid "submission.list.infoCenter"
 msgstr ""
 
 msgid "submission.list.empty"
-msgstr ""
+msgstr "Ez da bidalketarik aurkitu."
 
 msgid "submission.list.responseDue"
 msgstr ""
@@ -2234,7 +2234,7 @@ msgid "catalog.category.subcategories"
 msgstr ""
 
 msgid "publication.contributors"
-msgstr ""
+msgstr "Egileak"
 
 msgid "publication.createVersion"
 msgstr ""

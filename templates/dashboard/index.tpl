@@ -41,7 +41,6 @@
 				<pkp-button
 					element="a"
 					href="{url page="submission"}"
-					:is-primary="true"
 				>
 					{translate key="manager.newSubmission"}
 				</pkp-button>

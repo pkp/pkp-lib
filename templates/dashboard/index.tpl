@@ -137,7 +137,15 @@
 							TODO
 						</td>
 						<td is="table-cell">
-							TODO
+							<pkp-button
+								v-if="isManager && needsEditors(submission)"
+								@click="openAssignParticipant(submission)"
+							>
+								{translate key="submission.list.assignEditor"}
+							</pkp-button>
+							<template v-else>
+								TODO
+							</template>
 						</td>
 						<td is="table-cell">
 							<pkp-button

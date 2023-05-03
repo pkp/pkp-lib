@@ -123,6 +123,7 @@ class DashboardHandler extends Handler
             'count' => $this->perPage,
             'currentViewId' => 'active',
             'filtersForm' => $filtersForm->getConfig(),
+            'i18nReviewRound' => __('common.reviewRoundNumber'),
             'i18nShowingXofX' => __('common.showingXofX'),
             'submissions' => Repo::submission()
                 ->getSchemaMap()

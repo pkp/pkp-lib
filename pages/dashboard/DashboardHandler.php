@@ -120,6 +120,18 @@ class DashboardHandler extends Handler
 
         $templateMgr->setState([
             'apiUrl' => $apiUrl,
+            'assignParticipantUrl' => $dispatcher->url(
+                $request,
+                Application::ROUTE_COMPONENT,
+                null,
+                'grid.users.stageParticipant.StageParticipantGridHandler',
+                'addParticipant',
+                null,
+                [
+                    'submissionId' => '__id__',
+                    'stageId' => '__stageId__',
+                ]
+            ),
             'count' => $this->perPage,
             'currentViewId' => 'active',
             'filtersForm' => $filtersForm->getConfig(),
@@ -141,6 +153,10 @@ class DashboardHandler extends Handler
             'pageComponent' => 'SubmissionsPage',
             'pageTitle' => __('navigation.submissions'),
             'pageWidth' => TemplateManager::PAGE_WIDTH_FULL,
+        ]);
+
+        $templateMgr->setConstants([
+            'STAGE_STATUS_SUBMISSION_UNASSIGNED' => Repo::submission()::STAGE_STATUS_SUBMISSION_UNASSIGNED,
         ]);
 
         return $templateMgr->display('dashboard/index.tpl');

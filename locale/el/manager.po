@@ -1,12 +1,12 @@
-# Manolis Saldaris <omanos@gmail.com>, 2022.
+# Manolis Saldaris <omanos@gmail.com>, 2022, 2023.
 # Martin Brändle <martin.braendle@uzh.ch>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2023-04-21 03:49+0000\n"
-"Last-Translator: Martin Brändle <martin.braendle@uzh.ch>\n"
+"PO-Revision-Date: 2023-05-05 07:04+0000\n"
+"Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
 "Language: el\n"
@@ -2724,13 +2724,13 @@ msgid "stats.name.submissionsReceived"
 msgstr "Κατατεθειμένες Υποβολές"
 
 msgid "stats.name.submissionsSkipped"
-msgstr ""
+msgstr "Άλλες Υποβολές"
 
 msgid "stats.name.submissionsInProgress"
-msgstr ""
+msgstr "Υποβολές σε εξέλιξη"
 
 msgid "stats.name.submissionsImported"
-msgstr ""
+msgstr "Εισηγμένες υποβολές"
 
 msgid "stats.name.submissionsAccepted"
 msgstr "Αποδεκτές Υποβολές"
@@ -2739,10 +2739,10 @@ msgid "stats.name.submissionsDeclined"
 msgstr "Απορριφθείσες Υποβολές"
 
 msgid "stats.name.submissionsDeclinedDeskReject"
-msgstr ""
+msgstr "Απορριφθείσες Υποβολές (πριν την κρίση)"
 
 msgid "stats.name.submissionsDeclinedPostReview"
-msgstr ""
+msgstr "Απορριφθείσες Υποβολές (μετά την κρίση)"
 
 msgid "stats.name.submissionsPublished"
 msgstr "Δημοσιευμένες Υποβολές"
@@ -2763,10 +2763,10 @@ msgid "stats.name.declineRate"
 msgstr "Ποσοστό Απόρριψης"
 
 msgid "stats.name.declinedDeskRate"
-msgstr ""
+msgstr "Ποσοστό απόρριψης πριν την κρίση"
 
 msgid "stats.name.declinedReviewRate"
-msgstr "Ποσοστό Απόρριψης μετά την αξιολόγηση"
+msgstr "Ποσοστό Απόρριψης μετά την κρίση"
 
 msgid "plugins.importexport.native.processFailed"
 msgstr ""

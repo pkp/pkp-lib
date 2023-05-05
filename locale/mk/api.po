@@ -1,8 +1,9 @@
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 13:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-05-06 11:49+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/api/"
 "mk/>\n"
 "Language: mk\n"
@@ -62,7 +63,7 @@ msgid "api.dois.403.editItemOutOfContext"
 msgstr "Не можете да уредувате DOI на ставка што не е во овој контекст."
 
 msgid "api.dois.403.pubTypeNotRecognized"
-msgstr "Типот на публикација не беше препознаен"
+msgstr "Типот на публикација не беше препознаен."
 
 msgid "api.dois.404.contextNotFound"
 msgstr ""

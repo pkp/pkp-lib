@@ -1,9 +1,10 @@
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2021.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 20:28+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-05-06 04:32+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/manager/"
 "mk/>\n"
 "Language: mk\n"
@@ -177,11 +178,10 @@ msgstr ""
 msgid "manager.setup.emailSignature"
 msgstr "Потпис"
 
-#, fuzzy
 msgid "manager.setup.emailSignature.description"
 msgstr ""
-"Подготвените е-пошти што системот ги испраќа во име на серверот ќе го "
-"додадат следниов потпис на крајот."
+"Испратените е-пошти што препринт серверот ги испраќа ќе го додадат следниов "
+"потпис на крајот."
 
 msgid "manager.setup.enableAnnouncements.enable"
 msgstr "Овозможете соопштенија"
@@ -205,9 +205,11 @@ msgstr ""
 "Дозволете идентификатори на дигитални објекти (DOI) да се доделуваат на дела "
 "објавени на овој сервер."
 
-#, fuzzy
 msgid "doi.manager.settings.doiObjectsRequired"
-msgstr "Ве молиме, изберете ги предметите на кои треба да се доделат ДОИ."
+msgstr ""
+"Ве молиме, изберете ги предметите на кои треба да се доделат ДОИ. Најмногу "
+"препринт сервери доделуваат ДОИ на препринтите, но можеби вие сакате да "
+"доделите ДОИ и на пробните отисоци."
 
 msgid "manager.setup.enableUserRegistration"
 msgstr "Посетителите можат да регистрираат корисничка сметка со серверот."
@@ -625,7 +627,7 @@ msgid "doi.displayName"
 msgstr "ДОИ"
 
 msgid "doi.manager.displayName"
-msgstr "DOIs"
+msgstr "ДОИ"
 
 msgid "doi.description"
 msgstr ""

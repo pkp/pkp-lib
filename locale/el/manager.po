@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:44+00:00\n"
-"PO-Revision-Date: 2023-05-05 07:04+0000\n"
+"PO-Revision-Date: 2023-05-06 11:49+0000\n"
 "Last-Translator: Manolis Saldaris <omanos@gmail.com>\n"
 "Language-Team: Greek <http://translate.pkp.sfu.ca/projects/pkp-lib/manager/"
 "el/>\n"
@@ -789,9 +789,8 @@ msgstr ""
 msgid "manager.settings.statistics.publicSushiApi.public"
 msgstr ""
 
-#, fuzzy
 msgid "manager.statistics.reports"
-msgstr "Δημιουργία  Εκθέσεων"
+msgstr "Αναφορές"
 
 msgid "manager.statistics.reports.description"
 msgstr ""
@@ -1822,7 +1821,7 @@ msgid "manager.workflow.title"
 msgstr "Ρυθμίσεις Ροής Εργασιών"
 
 msgid "manager.distribution"
-msgstr "Κατανομή"
+msgstr "Διανομή"
 
 msgid "manager.distribution.title"
 msgstr "Ρυθμίσεις Κατανομής"

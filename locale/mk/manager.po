@@ -1,9 +1,9 @@
-# Mirko Spiroski <mspiroski@id-press.eu>, 2021.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2021, 2023.
 # Emilija Andonoska <emilija-andonoska@hotmail.com>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 13:48+0000\n"
-"Last-Translator: Emilija Andonoska <emilija-andonoska@hotmail.com>\n"
+"PO-Revision-Date: 2023-05-06 11:49+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "manager/mk/>\n"
 "Language: mk\n"
@@ -411,7 +411,7 @@ msgid "manager.publication.reviewReminders.success"
 msgstr "Деталите за рецензија се ажурирани."
 
 msgid "manager.dois.title"
-msgstr "DOIs"
+msgstr "ДОИ"
 
 msgid "manager.dois.registrationAgency.errorMessagePreamble"
 msgstr ""
@@ -850,7 +850,7 @@ msgid "manager.affiliationAndSupport"
 msgstr "Спонзор"
 
 msgid "manager.setup.dois"
-msgstr "DOIs"
+msgstr "ДОИ"
 
 msgid "manager.setup.dois.setup"
 msgstr "Поставување"
@@ -1020,7 +1020,7 @@ msgid "manager.setup.errorDeletingItem"
 msgstr "Имаше грешка при бришење на оваа ставка."
 
 msgid "manager.setup.favicon"
-msgstr "Favicon"
+msgstr "Фавикон"
 
 msgid "manager.setup.homepageImage"
 msgstr "Слика за насловна страница"
@@ -1372,7 +1372,7 @@ msgid "manager.siteAccessOptions.siteAccessOptions"
 msgstr "Опции за пристап до страницата"
 
 msgid "manager.statistics.statistics.count.value"
-msgstr "{$count} ({$percentage}%)"
+msgstr "{$број} ({$процент}%)"
 
 msgid "manager.statistics.statistics.totalNewValue"
 msgstr "{$numTotal} ({$numNew} нов)"
@@ -2616,7 +2616,7 @@ msgid "stats.downloads.timelineInterval"
 msgstr "Вкупно преземања по датум"
 
 msgid "stats.countWithYearlyAverage"
-msgstr "{$count} ({$average}/year)"
+msgstr "{$број} ({$средно}/година)"
 
 msgid "stats.daily"
 msgstr "Дневно"
@@ -2880,7 +2880,7 @@ msgid "plugins.importexport.common.error.unknownContext"
 msgstr "Назначената патека на списание, \"{$contextPath}\", не постои."
 
 msgid "plugins.importexport.submission.cli.display"
-msgstr "\"{$submissionId}\" - \"{$submissionTitle}\""
+msgstr "\"{$ПоднесокИд}\" - \"{$ПоднесокНаслов}\""
 
 msgid "plugins.importexport.author.exportFailed"
 msgstr "Процесот не успеа да ги парсира авторите"
@@ -3705,3 +3705,7 @@ msgid "plugins.importexport.native.error.submissionFileRevisionMissing"
 msgstr ""
 "Ревизијата {$revision} на датотеката за поднесување {$id} беше прескокната "
 "бидејќи датотеката не беше пронајдена на патеката „{$path}“."
+
+msgid "manager.setup.notifyUsers.queued"
+msgstr ""
+"Електронските писма се успешно подготвени за испраќање при првата прилика."

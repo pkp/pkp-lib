@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-10-15T13:36:56-07:00\n"
-"PO-Revision-Date: 2023-03-25 01:08+0000\n"
+"PO-Revision-Date: 2023-05-06 11:49+0000\n"
 "Last-Translator: Marie-Hélène Vézina [UdeMontréal] <marie-helene."
 "vezina@umontreal.ca>\n"
 "Language-Team: French (Canada) <http://translate.pkp.sfu.ca/projects/pkp-lib/"
@@ -162,7 +162,6 @@ msgstr "Type d'annonce"
 msgid "manager.dois.actions.deposit.all"
 msgstr "Tout déposer"
 
-#, fuzzy
 msgid "manager.dois.actions.deposit.label"
 msgstr "Déposer les DOIs"
 
@@ -204,7 +203,7 @@ msgid "manager.dois.actions.assign.prompt"
 msgstr ""
 
 msgid "manager.dois.actions.depositAll.label"
-msgstr ""
+msgstr "Déposer tous les DOIs"
 
 msgid "manager.dois.actions.depositAll.prompt"
 msgstr ""
@@ -212,41 +211,47 @@ msgstr ""
 msgid "manager.dois.actions.description"
 msgstr ""
 
+#, fuzzy
 msgid "manager.dois.actions.bulkActions"
-msgstr ""
+msgstr "Actions en lot"
 
 msgid "manager.dois.depositStatus"
-msgstr ""
+msgstr "Statut de dépôt"
 
 msgid "manager.dois.publicationStatus"
-msgstr ""
+msgstr "Statut de publication"
 
 msgid "manager.dois.registration.submittedDescription"
 msgstr ""
+"Les métadonnées de cet article ont été soumises à {$registrationAgency}."
 
 msgid "manager.dois.registration.manuallyMarkedRegistered"
 msgstr ""
+"Cet article a été enregistré manuellement auprès d'une agence "
+"d'enregistrement."
 
 msgid "manager.dois.registration.notSubmittedDescription"
 msgstr ""
+"Les métadonnées de cet article n'ont pas été soumises à "
+"{$registrationAgency}."
 
 msgid "manager.dois.registration.notPublishedDescription"
-msgstr ""
+msgstr "Cet article ne peut être déposé avant d'avoir été publié."
 
 msgid "manager.dois.registration.viewError"
-msgstr ""
+msgstr "Afficher les erreurs"
 
 msgid "manager.dois.registration.viewError.title"
 msgstr ""
 
 msgid "manager.dois.registration.viewRecord"
-msgstr ""
+msgstr "Afficher la notice"
 
 msgid "manager.dois.registration.viewRecord.title"
 msgstr ""
 
 msgid "manger.dois.update.success"
-msgstr ""
+msgstr "DOI(s) actualisé(s) avec succès"
 
 msgid "manager.dois.registration.depositDois"
 msgstr ""
@@ -258,7 +263,7 @@ msgid "manager.dois.status.unregistered"
 msgstr ""
 
 msgid "manager.dois.status.submitted"
-msgstr ""
+msgstr "Soumis"
 
 msgid "manager.dois.status.registered"
 msgstr ""

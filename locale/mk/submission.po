@@ -1,9 +1,10 @@
 # katerina spiroska <kspiroska07@gmail.com>, 2023.
 # Teodora Fildishevska <t.fildishevska@gmail.com>, 2023.
+# Mirko Spiroski <mspiroski@id-press.eu>, 2023.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-03-17 20:28+0000\n"
-"Last-Translator: Teodora Fildishevska <t.fildishevska@gmail.com>\n"
+"PO-Revision-Date: 2023-05-06 04:32+0000\n"
+"Last-Translator: Mirko Spiroski <mspiroski@id-press.eu>\n"
 "Language-Team: Macedonian <http://translate.pkp.sfu.ca/projects/ops/"
 "submissions/mk/>\n"
 "Language: mk\n"
@@ -89,9 +90,8 @@ msgstr ""
 msgid "publication.relation"
 msgstr "Односи"
 
-#, fuzzy
 msgid "publication.relation.label"
-msgstr "Поднесено за објавување"
+msgstr "Состојба на сооднос"
 
 msgid "publication.relation.description"
 msgstr ""
@@ -281,3 +281,8 @@ msgid "submission.wizard.commentsForTheEditor.description"
 msgstr ""
 "Додадете било каква информација за која мислите дека модераторите треба да "
 "ја знаат пред да го објават вашиот препринт."
+
+msgid "submission.copyright.description"
+msgstr ""
+"Молам прочитај ги и разбери ги поимите за печатарски права за поднесување на "
+"овој препринт сервер."

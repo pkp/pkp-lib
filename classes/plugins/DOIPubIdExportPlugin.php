@@ -130,11 +130,18 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      */
     public function getPublishedSubmissions($submissionIds, $context)
     {
+        $allSubmissionIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+            ->getIds()
+            ->toArray();
+        $validSubmissionIds = array_intersect($allSubmissionIds, $submissionIds);
         $submissions = array_map(function ($submissionId) {
             return Repo::submission()->get($submissionId);
-        }, $submissionIds);
+        }, $validSubmissionIds);
         return array_filter($submissions, function ($submission) {
-            return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED;
+            return $submission->getCurrentPublication()->getDoi() !== null;
         });
     }
 
@@ -142,18 +149,23 @@ abstract class DOIPubIdExportPlugin extends PubObjectsExportPlugin
      * Get preprint galleys with a DOI assigned from galley IDs.
      *
      * @param array $galleyIds
+     * @param Context $context
      *
      * @return array
      */
-    public function getPreprintGalleys($galleyIds)
+    public function getPreprintGalleys($galleyIds, $context)
     {
-        $galleys = [];
-        foreach ($galleyIds as $galleyId) {
-            $preprintGalley = Repo::galley()->get((int) $galleyId);
-            if ($preprintGalley && $preprintGalley->getStoredPubId('doi')) {
-                $galleys[] = $preprintGalley;
-            }
-        }
-        return $galleys;
+        $allGalleyIds = Repo::galley()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getIds()
+            ->toArray();
+        $validGalleyIds = array_intersect($allGalleyIds, $galleyIds);
+        $galleys = array_map(function ($galleyId) {
+            return Repo::galley()->get($galleyId);
+        }, $validGalleyIds);
+        return array_filter($galleys, function ($galley) {
+            return $galley->getDoi() !== null;
+        });
     }
 }

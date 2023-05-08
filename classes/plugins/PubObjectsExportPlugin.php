@@ -202,7 +202,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
             $filter = $this->getSubmissionFilter();
             $objectsFileNamePart = 'preprints';
         } elseif (!empty($selectedRepresentations)) {
-            $objects = $this->getPreprintGalleys($selectedRepresentations);
+            $objects = $this->getPreprintGalleys($selectedRepresentations, $context);
             $filter = $this->getRepresentationFilter();
             $objectsFileNamePart = 'galleys';
         }
@@ -650,7 +650,7 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
                 $objectsFileNamePart = 'preprints';
                 break;
             case 'galleys':
-                $objects = $this->getPreprintGalleys($args);
+                $objects = $this->getPreprintGalleys($args, $context);
                 $filter = $this->getRepresentationFilter();
                 $objectsFileNamePart = 'galleys';
                 break;
@@ -726,31 +726,37 @@ abstract class PubObjectsExportPlugin extends ImportExportPlugin
      */
     public function getPublishedSubmissions($submissionIds, $context)
     {
-        $submissions = array_map(function ($submissionId) {
+        $allSubmissionIds = Repo::submission()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
+            ->getIds()
+            ->toArray();
+        $validSubmissionIds = array_intersect($allSubmissionIds, $submissionIds);
+        return array_map(function ($submissionId) {
             return Repo::submission()->get($submissionId);
-        }, $submissionIds);
-        return array_filter($submissions, function ($submission) {
-            return $submission->getData('status') === PKPSubmission::STATUS_PUBLISHED;
-        });
+        }, $validSubmissionIds);
     }
 
     /**
      * Get preprint galleys from galley IDs.
      *
      * @param array $galleyIds
+     * @param Context $context
      *
      * @return array
      */
-    public function getPreprintGalleys($galleyIds)
+    public function getPreprintGalleys($galleyIds, $context)
     {
-        $galleys = [];
-        foreach ($galleyIds as $galleyId) {
-            $preprintGalley = Repo::galley()->get((int) $galleyId);
-            if ($preprintGalley) {
-                $galleys[] = $preprintGalley;
-            }
-        }
-        return $galleys;
+        $allGalleyIds = Repo::galley()
+            ->getCollector()
+            ->filterByContextIds([$context->getId()])
+            ->getIds()
+            ->toArray();
+        $validGalleyIds = array_intersect($allGalleyIds, $galleyIds);
+        return array_map(function ($galleyId) {
+            return Repo::submission()->get($galleyId);
+        }, $validGalleyIds);
     }
 
     /**

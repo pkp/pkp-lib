@@ -301,7 +301,7 @@ class PluginGalleryDAO extends \PKP\db\DAO
             $plugin->setVersion($release['version']);
             $plugin->setReleaseMD5($release['md5']);
             $plugin->setReleaseDescription($release['description']);
-            $plugin->setReleaseCertifications($release['certification']);
+            $plugin->setReleaseCertifications($release['certification'] ?? []);
             $plugin->setReleasePackage($release['package']);
             return true;
         }

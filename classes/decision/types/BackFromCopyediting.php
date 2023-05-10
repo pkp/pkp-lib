@@ -102,7 +102,7 @@ class BackFromCopyediting extends DecisionType
 
     public function getLog(): string
     {
-        return __('editor.submission.decision.backFromCopyediting.log');
+        return 'editor.submission.decision.backFromCopyediting.log';
     }
 
     public function getCompletedLabel(): string

@@ -97,7 +97,7 @@ class CancelReviewRound extends DecisionType implements DecisionRetractable
 
     public function getLog(): string
     {
-        return __('editor.submission.decision.cancelReviewRound.log');
+        return 'editor.submission.decision.cancelReviewRound.log';
     }
 
     public function getCompletedLabel(): string

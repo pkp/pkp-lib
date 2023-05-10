@@ -59,8 +59,12 @@ use PKP\site\Site;
 use PKP\submission\PKPSubmission;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use ReflectionClass;
+use ReflectionIntersectionType;
 use ReflectionMethod;
+use ReflectionNamedType;
 use ReflectionParameter;
+use ReflectionType;
+use ReflectionUnionType;
 
 class Mailable extends IlluminateMailable
 {
@@ -451,21 +455,41 @@ class Mailable extends IlluminateMailable
             }
         }
 
-        foreach ($args as $arg) { /** @var ReflectionParameter $arg) */
-            $argClassName = $arg->getType()->getName();
-
+        foreach ($args as $arg) {
+            $argTypes = static::getTypeNames($arg->getType());
             foreach ($map as $dataClass => $variableClass) {
-                if (is_a($argClassName, $dataClass, true)) {
-                    $descriptions = array_merge(
-                        $descriptions,
-                        $variableClass::descriptions()
-                    );
-                    continue 2;
+                foreach ($argTypes as $argType) {
+                    if (is_a($argType, $dataClass, true)) {
+                        $descriptions = array_merge(
+                            $descriptions,
+                            $variableClass::descriptions()
+                        );
+                        // An intersection type could be passed in (e.g. Submission & PublishedSubmission), so allow the code check other maps for correctness
+                        continue 2;
+                    }
                 }
             }
         }
 
         return $descriptions;
+    }
+
+    /**
+     * Retrieve the list of type names that might compose a given type
+     * @return string[]
+     */
+    protected static function getTypeNames(ReflectionType $type): array
+    {
+        if ($type instanceof ReflectionNamedType) {
+            return [$type->getName()];
+        }
+        if ($type instanceof ReflectionUnionType || $type instanceof ReflectionIntersectionType) {
+            return collect($type->getTypes())
+                ->map(fn ($type) => static::getTypeNames($type))
+                ->flatten()
+                ->toArray();
+        }
+        throw new Exception('Unexpected subtype ' . $type::class);
     }
 
     /**
@@ -485,6 +509,7 @@ class Mailable extends IlluminateMailable
      * Retrieves arguments of the specified methods
      *
      * @see self::getTemplateVarsDescription
+     * @return ReflectionParameter[]
      */
     protected static function getParamsClass(ReflectionMethod $method): array
     {

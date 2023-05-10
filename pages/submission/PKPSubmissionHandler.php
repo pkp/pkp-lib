@@ -199,7 +199,7 @@ abstract class PKPSubmissionHandler extends Handler
 
         /** @var GenreDAO $genreDao */
         $genreDao = DAORegistry::getDAO('GenreDAO');
-        $genres = $genreDao->getByContextId($context->getId())->toArray();
+        $genres = $genreDao->getEnabledByContextId($context->getId())->toArray();
 
         $sections = $this->getSubmitSections($context);
         $categories = Repo::category()->getCollector()

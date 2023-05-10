@@ -12,19 +12,19 @@
 {else}
 	{translate key="plugins.importexport.native.export.completed"}
 	{translate key="plugins.importexport.native.export.completed.downloadFile"}
-
-	<div id="exportIssues-tab">
+	{assign var="uuid" value=""|uniqid|escape}
+	<div id="exportIssues-tab-{$uuid}">
 		<script type="text/javascript">
 			$(function() {ldelim}
 				// Attach the form handler.
-				$('#exportIssuesXmlForm').pkpHandler('$.pkp.controllers.form.FormHandler');
+				$('#exportIssuesXmlFormDownload-{$uuid}').pkpHandler('$.pkp.controllers.form.FormHandler');
 			{rdelim});
 		</script>
-		<form id="exportIssuesXmlForm" class="pkp_form" action="{plugin_url path="downloadExportFile"}" method="post">
+		<form id="exportIssuesXmlFormDownload-{$uuid}" class="pkp_form" action="{plugin_url path="downloadExportFile"}" method="post">
 			{csrf}
-			<input type="hidden" name="exportedFileDatePart" id="exportedFileDatePart" value="{$exportedFileDatePart|escape}" />
-			<input type="hidden" name="exportedFileContentNamePart" id="exportedFileContentNamePart" value="{$exportedFileContentNamePart|escape}" />
-			{fbvFormArea id="issuesXmlForm"}
+			<input type="hidden" name="exportedFileDatePart" id="exportedFileDatePart-{$uuid}" value="{$exportedFileDatePart|escape}" />
+			<input type="hidden" name="exportedFileContentNamePart" id="exportedFileContentNamePart-{$uuid}" value="{$exportedFileContentNamePart|escape}" />
+			{fbvFormArea id="issuesXmlForm-{$uuid}"}
 				{fbvFormButtons submitText="plugins.importexport.native.export.download.results" hideCancel="true"}
 			{/fbvFormArea}
 		</form>

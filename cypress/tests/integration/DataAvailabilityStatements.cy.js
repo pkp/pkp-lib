@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/DataAvailabilityStatements.spec.js
+ * @file cypress/tests/integration/DataAvailabilityStatements.cy.js
 */
 
 describe('DataAvailabilityStatements', function () {

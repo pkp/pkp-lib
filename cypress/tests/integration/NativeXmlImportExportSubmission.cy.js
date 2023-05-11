@@ -18,13 +18,13 @@ describe('Data suite tests', function() {
 		cy.get('.app__nav a').contains('Tools').click();
 		cy.get('a:contains("Native XML Plugin")').click();
 		cy.get('a[href="#exportSubmissions-tab"]').click();
-		cy.waitJQuery();
+		cy.waitJQuery({timeout:20000});
+
 		// Export first 2 submissions
 		cy.get('input[name="selectedSubmissions[]"]:lt(2)').check();
-
 		cy.get('form#exportXmlForm button[type="submit"]').click({timeout:60000});
-
 		cy.contains('The export completed successfully.', {timeout:60000});
+
 		cy.intercept({method: 'POST'}, (req) => {
 			req.redirect('/');
 		}).as('download');
@@ -37,7 +37,7 @@ describe('Data suite tests', function() {
 			});
 		});
 	});
-	it.only('Imports submissions from XML', function() {
+	it('Imports submissions from XML', function() {
 		var username = 'admin';
 		cy.login(username, 'admin');
 
@@ -48,15 +48,13 @@ describe('Data suite tests', function() {
 		// tab to load. Do not convert to cy.get('a').contains('Native XML Plugin')
 		cy.get('a:contains("Native XML Plugin")').click();
 
-		cy.wait(250);
+		cy.waitJQuery({timeout:20000});
 		cy.readFile(downloadedSubmissionPath).then(fileContent => {
 			cy.get('input[type=file]').attachFile({fileContent, filePath: downloadedSubmissionPath, mimeType: 'text/xml', encoding: 'utf8'});
 		});
 
 		cy.get('input[name="temporaryFileId"][value!=""]', {timeout:20000});
-
 		cy.get('form#importXmlForm button[type="submit"]').click();
-
 		cy.contains('The import completed successfully.', {timeout:20000});
 	});
 });

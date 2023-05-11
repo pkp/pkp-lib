@@ -683,8 +683,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 ->where('setting_name', 'submissionChecklist')
                 ->pluck('setting_value')
                 ->each(function ($value) {
-                    $checklist = json_decode($value);
-                    if (is_null($checklist) || !is_array($checklist)) {
+                    if (!isValidJson($value)) {
                         throw new Exception('A row with setting_name="submissionChecklist" found in table ' . $this->getContextSettingsTable() . " without the expected setting_value. Expected an array encoded in JSON but found:\n\n" . $value . "\n\nFix or remove this row before upgrading.");
                     }
                 });

@@ -701,7 +701,7 @@ abstract class Repository
             $reviewRoundDao = DAORegistry::getDAO('ReviewRoundDAO'); /** @var ReviewRoundDAO $reviewRoundDao */
             $reviewRound = $reviewRoundDao->getBySubmissionFileId($submissionFile->getId());
 
-            return $reviewRound->getStageId();
+            return $reviewRound?->getStageId();
         }
 
         if ($fileStage === SubmissionFile::SUBMISSION_FILE_QUERY) {

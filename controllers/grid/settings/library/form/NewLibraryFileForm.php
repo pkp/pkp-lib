@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class NewLibraryFileForm
+ *
  * @ingroup controllers_grid_file_form
  *
  * @brief Form for adding/editing a file
@@ -16,11 +17,11 @@
 
 namespace PKP\controllers\grid\settings\library\form;
 
-use PKP\file\TemporaryFileManager;
 use APP\core\Application;
+use APP\file\LibraryFileManager;
 use PKP\controllers\grid\files\form\LibraryFileForm;
 use PKP\db\DAORegistry;
-use APP\file\LibraryFileManager;
+use PKP\file\TemporaryFileManager;
 
 class NewLibraryFileForm extends LibraryFileForm
 {

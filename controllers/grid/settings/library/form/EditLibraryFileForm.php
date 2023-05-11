@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class EditLibraryFileForm
+ *
  * @ingroup controllers_grid_file_form
  *
  * @brief Form for editing a library file
@@ -15,8 +16,8 @@
 
 namespace PKP\controllers\grid\settings\library\form;
 
-use PKP\db\DAORegistry;
 use PKP\controllers\grid\files\form\LibraryFileForm;
+use PKP\db\DAORegistry;
 
 class EditLibraryFileForm extends LibraryFileForm
 {

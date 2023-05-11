@@ -33,7 +33,6 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
     {
         if (DB::table('metrics_submission_geo_monthly')->whereNotNull('region')->exists() ||
             DB::table('metrics_submission_geo_daily')->whereNotNull('region')->exists()) {
-
             // create a temporary table for the FIPS-ISO mapping
             if (!Schema::hasTable('region_mapping_tmp')) {
                 Schema::create('region_mapping_tmp', function (Blueprint $table) {
@@ -68,27 +67,27 @@ class I8866_DispatchRegionCodesFixingJobs extends Migration
 
             Bus::batch($jobs)
                 ->then(function (Batch $batch) {
-                        // drop the temporary index
-                        Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
-                            $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
-                            if (array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
-                                $table->dropIndex(['tmp']);
-                            }
-                        });
-                        Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
-                            $sm = Schema::getConnection()->getDoctrineSchemaManager();
-                            $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
-                            if (array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
-                                $table->dropIndex(['tmp']);
-                            }
-                        });
-
-                        // drop the temporary table
-                        if (Schema::hasTable('region_mapping_tmp')) {
-                            Schema::drop('region_mapping_tmp');
+                    // drop the temporary index
+                    Schema::table('metrics_submission_geo_daily', function (Blueprint $table) {
+                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_daily');
+                        if (array_key_exists('metrics_submission_geo_daily_tmp_index', $indexesFound)) {
+                            $table->dropIndex(['tmp']);
                         }
-                    })
+                    });
+                    Schema::table('metrics_submission_geo_monthly', function (Blueprint $table) {
+                        $sm = Schema::getConnection()->getDoctrineSchemaManager();
+                        $indexesFound = $sm->listTableIndexes('metrics_submission_geo_monthly');
+                        if (array_key_exists('metrics_submission_geo_monthly_tmp_index', $indexesFound)) {
+                            $table->dropIndex(['tmp']);
+                        }
+                    });
+
+                    // drop the temporary table
+                    if (Schema::hasTable('region_mapping_tmp')) {
+                        Schema::drop('region_mapping_tmp');
+                    }
+                })
                 ->dispatch();
         }
     }

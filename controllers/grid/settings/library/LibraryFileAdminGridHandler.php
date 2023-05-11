@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileAdminGridHandler
+ *
  * @ingroup controllers_grid_settings_library
  *
  * @brief Handle library file grid requests.
@@ -16,9 +17,8 @@
 namespace PKP\controllers\grid\settings\library;
 
 use PKP\controllers\grid\files\LibraryFileGridHandler;
-use PKP\controllers\grid\settings\library\LibraryFileAdminGridDataProvider;
-use PKP\controllers\grid\settings\library\form\NewLibraryFileForm;
 use PKP\controllers\grid\settings\library\form\EditLibraryFileForm;
+use PKP\controllers\grid\settings\library\form\NewLibraryFileForm;
 use PKP\security\Role;
 
 class LibraryFileAdminGridHandler extends LibraryFileGridHandler
@@ -45,7 +45,10 @@ class LibraryFileAdminGridHandler extends LibraryFileGridHandler
 
     /**
      * Configure the grid
+     *
      * @see LibraryGridHandler::initialize
+     *
+     * @param null|mixed $args
      */
     public function initialize($request, $args = null)
     {

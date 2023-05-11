@@ -89,19 +89,19 @@ class NativeXmlUserGroupFilter extends \PKP\plugins\importexport\native\filter\N
                 if ($n instanceof \DOMElement) {
                     switch ($n->tagName) {
                         case 'role_id': $userGroup->setRoleId($n->textContent);
-                        break;
+                            break;
                         case 'is_default': $userGroup->setDefault($n->textContent ?? false);
-                        break;
+                            break;
                         case 'show_title': $userGroup->setShowTitle($n->textContent ?? true);
-                        break;
+                            break;
                         case 'name': $userGroup->setName($n->textContent, $n->getAttribute('locale'));
-                        break;
+                            break;
                         case 'abbrev': $userGroup->setAbbrev($n->textContent, $n->getAttribute('locale'));
-                        break;
+                            break;
                         case 'permit_self_registration': $userGroup->setPermitSelfRegistration($n->textContent ?? false);
-                        break;
+                            break;
                         case 'permit_metadata_edit': $userGroup->setPermitMetadataEdit($n->textContent ?? false);
-                        break;
+                            break;
                     }
                 }
             }

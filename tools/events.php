@@ -22,8 +22,8 @@ use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Console\OutputStyle;
 use PKP\cliTool\CommandLineTool;
 
-use PKP\core\PKPContainer;
 use PKP\core\EventServiceProvider;
+use PKP\core\PKPContainer;
 
 use Symfony\Component\Console\Exception\CommandNotFoundException;
 use Symfony\Component\Console\Helper\Helper;

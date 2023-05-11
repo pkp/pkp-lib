@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class PKPLibraryHandler
+ *
  * @ingroup api_v1_announcement
  *
  * @brief Handle API requests for announcement operations.
@@ -48,7 +49,6 @@ class PKPLibraryHandler extends APIHandler
             ],
         ];
         parent::__construct();
-
     }
 
     /**
@@ -94,7 +94,7 @@ class PKPLibraryHandler extends APIHandler
         if (isset($params['includeSubmissionId'])) {
             /** @var DAOResultFactory $result */
             $result = $libraryFileDao->getBySubmissionId($submission->getId());
-             /** @var LibraryFile $file */
+            /** @var LibraryFile $file */
             while ($file = $result->next()) {
                 $files[] = $this->fileToResponse($file, $libraryFileManager);
             }

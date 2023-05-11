@@ -25,7 +25,6 @@ define('PKP_LIB_PATH', 'lib/pkp');
 define('COUNTER_USER_AGENTS_FILE', Core::getBaseDir() . '/' . PKP_LIB_PATH . '/lib/counterBots/generated/COUNTER_Robots_list.txt');
 
 use Exception;
-use Illuminate\Support\Str;
 use PKP\cache\CacheManager;
 use PKP\cache\FileCache;
 use PKP\config\Config;

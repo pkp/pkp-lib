@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileAdminGridDataProvider
+ *
  * @ingroup controllers_grid_settings_library
  *
  * @brief The data provider for the admin library files grid.
@@ -16,8 +17,8 @@
 namespace PKP\controllers\grid\settings\library;
 
 use PKP\controllers\grid\CategoryGridDataProvider;
-use PKP\security\authorization\ContextAccessPolicy;
 use PKP\db\DAORegistry;
+use PKP\security\authorization\ContextAccessPolicy;
 
 class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
 {
@@ -87,7 +88,6 @@ class LibraryFileAdminGridDataProvider extends CategoryGridDataProvider
      */
     public function loadCategoryData($request, $fileType, $filter = null)
     {
-
         // Elements to be displayed in the grid
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $context = $this->getContext();

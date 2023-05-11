@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class LibraryFileHandler
+ *
  * @ingroup pages_libraryFiles
  *
  * @brief Class defining a handler for library file access
@@ -15,11 +16,10 @@
 namespace PKP\pages\libraryFiles;
 
 use APP\core\Application;
-use PKP\db\DAORegistry;
+use APP\facades\Repo;
 use APP\file\LibraryFileManager;
 use APP\handler\Handler;
-use APP\facades\Repo;
-use PKP\user\Collector;
+use PKP\db\DAORegistry;
 use PKP\security\Role;
 
 class LibraryFileHandler extends Handler
@@ -78,7 +78,6 @@ class LibraryFileHandler extends Handler
         $libraryFileDao = DAORegistry::getDAO('LibraryFileDAO'); /** @var LibraryFileDAO $libraryFileDao */
         $libraryFile = $libraryFileDao->getById($request->getUserVar('libraryFileId'), $context->getId());
         if ($libraryFile) {
-
             // If this file has a submission ID, ensure that the current
             // user has access to that submission.
             if ($libraryFile->getSubmissionId()) {

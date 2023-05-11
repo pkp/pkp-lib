@@ -8,6 +8,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @ingroup pages_publicLibraryFiles
+ *
  * @brief Handle requests for public library files.
  *
  */

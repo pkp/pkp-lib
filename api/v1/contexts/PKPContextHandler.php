@@ -448,7 +448,9 @@ class PKPContextHandler extends APIHandler
         }
 
         $userRoles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
-        if (!in_array(Role::ROLE_ID_SITE_ADMIN, $userRoles)) {
+        $allowedRoles = [Role::ROLE_ID_SITE_ADMIN, Role::ROLE_ID_MANAGER];
+
+        if (!array_intersect($allowedRoles, $userRoles)) {
             return $response->withStatus(403)->withJsonError('api.contexts.403.notAllowedEdit');
         }
 

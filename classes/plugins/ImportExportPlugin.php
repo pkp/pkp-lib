@@ -60,6 +60,14 @@ abstract class ImportExportPlugin extends Plugin
     abstract public function usage($scriptName);
 
     /**
+     * Whether this plugin provides CLI import/export
+     */
+    public function supportsCLI(): bool
+    {
+        return true;
+    }
+
+    /**
      * @copydoc Plugin::getActions()
      */
     public function getActions($request, $actionArgs)

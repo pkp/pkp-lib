@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/Doi.spec.js
+ * @file cypress/tests/integration/Doi.cy.js
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky

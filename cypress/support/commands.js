@@ -648,7 +648,7 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 
 Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
 	cy.get('h2:contains("' + articleDetails + '")');
-	cy.get('div:contains("2 of 2 ' + articles + '")');
+	cy.get('div:contains("4 of 4 ' + articles + '")');
 	authors.forEach(author => {
 		cy.get('.pkpStats__panel .pkpTable__cell:contains("' + author + '")');
 	});
@@ -657,7 +657,7 @@ Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
 	cy.get('div:contains("0 of 0 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear().type(authors[0], {delay: 0});
 	cy.get('.pkpStats__panel .pkpTable__cell:contains("' + authors[0] + '")');
-	cy.get('div:contains("1 of 1 ' + articles + '")');
+	cy.get('div:contains("2 of 2 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear();
 });
 

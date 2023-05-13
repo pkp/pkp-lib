@@ -7,6 +7,7 @@
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ContributorForm
+ *
  * @ingroup classes_controllers_form
  *
  * @brief A preset form for adding and editing a contributor for a publication.

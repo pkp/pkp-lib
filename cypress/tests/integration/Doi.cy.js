@@ -53,7 +53,8 @@ describe('DOI tests', function() {
 		cy.log('Check Submission Filter Behaviour (pre-deposit)');
 		loginAndGoToDoiPage();
 
-		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 18);
+		cy.log("Williamson — Self-Organization in Multi-Level Institutions in Networked Environments has 20");
+		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 20);
 		cy.checkDoiFilterResults('DOI Assigned', 'Woods — Finocchiaro: Arguments About Arguments', 1);
 		clearFilter();
 		cy.checkDoiFilterResults('Unregistered', 'Woods — Finocchiaro: Arguments About Arguments', 1);

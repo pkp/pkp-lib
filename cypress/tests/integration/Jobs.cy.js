@@ -7,7 +7,7 @@
  *
  */
 
- describe('Jobs tests', function() {
+describe('Jobs tests', function() {
     it('Check if Jobs page is alive and with contents', function() {
 
         cy.login('admin', 'admin', 'publicknowledge');
@@ -48,7 +48,7 @@
       cy.purgeQueueJobs(null, true);
 
       // Clear all existing failed jobs
-      cy.clearFailedJobs()
+      cy.clearFailedJobs();
 
       // Add 8 test jobs[successable(4) and failable(4)] on queue
       cy.dispatchTestQueueJobs(4);

@@ -47,16 +47,16 @@ Cypress.Commands.add('getTinyMceContent', (tinyMceId, content) => {
 Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
 	let command = 'php lib/pkp/tools/jobs.php run';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	if ( test || false ) {
-		command = command + ' --test';
+	if (test) {
+		command += ' --test';
 	}
 
-	if ( once || false ) {
-		command = command + ' --once';
+	if (once) {
+		command += ' --once';
 	}
 
 	cy.exec(command);
@@ -65,34 +65,31 @@ Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
 Cypress.Commands.add('purgeQueueJobs', (queue, all) => {
 	let command = 'php lib/pkp/tools/jobs.php purge';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	if ( all || false ) {
-		command = command + ' --all';
+	if (all) {
+		command += ' --all';
 	}
 
 	cy.exec(command);
 });
 
 Cypress.Commands.add('dispatchTestQueueJobs', (times) => {
-
-	times = times || 1;
-	for (let index = 0; index < times; index++) {
+	for (times = Math.max(~~times, 1); times--;) {
 		cy.exec('php lib/pkp/tools/jobs.php test');
 	}
 });
 
 Cypress.Commands.add('clearFailedJobs', (queue) => {
-
 	let command = 'php lib/pkp/tools/jobs.php failed';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	command = command + ' --clear';
+	command += ' --clear';
 
 	cy.exec(command);
 });

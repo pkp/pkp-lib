@@ -2492,3 +2492,7 @@ msgstr ""
 
 msgid "publication.version"
 msgstr ""
+
+msgid "submission.submissionFile"
+msgstr "投稿物ファイル"
+

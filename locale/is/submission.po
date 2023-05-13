@@ -2643,3 +2643,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.nextButton"
 #~ msgstr "Næst: Veldu skrár fyrir {$stageName}"
+
+msgid "submission.submissionFile"
+msgstr "Innsendingarskrá"
+

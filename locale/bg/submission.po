@@ -2730,3 +2730,7 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Можете да актуализирате тази дискусия за {$allowedEditTimeNoticeLimit} "
 "минути."
+
+msgid "submission.submissionFile"
+msgstr "Файл с материали за статия"
+

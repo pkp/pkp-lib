@@ -2712,3 +2712,7 @@ msgstr "Verze {$version}"
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Tuto diskusi můžete aktualizovat po dobu {$allowedEditTimeNoticeLimit} minut."
+
+msgid "submission.submissionFile"
+msgstr "Soubor s příspěvkem"
+

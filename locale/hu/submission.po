@@ -2965,3 +2965,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Vissza a kézirat státuszba"
+
+msgid "submission.submissionFile"
+msgstr "Beküldési fájl"
+

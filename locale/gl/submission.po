@@ -2507,3 +2507,7 @@ msgstr ""
 
 msgid "publication.version"
 msgstr ""
+
+msgid "submission.submissionFile"
+msgstr "Arquivo de envío"
+

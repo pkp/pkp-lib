@@ -2605,3 +2605,7 @@ msgstr "إصدار {$version}"
 
 msgid "submission.query.allowedEditTime"
 msgstr "يمكنك تحديث هذه المناقشة لمدة {$allowedEditTimeNoticeLimit} من الدقائق."
+
+msgid "submission.submissionFile"
+msgstr "ملف طلب النشر"
+

@@ -2631,3 +2631,7 @@ msgstr "Morate učitati barem jednu od sljedećih vrsta datoteka: {$genres}."
 
 msgid "publication.version"
 msgstr "Verzija {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Datoteka s prilogom"
+

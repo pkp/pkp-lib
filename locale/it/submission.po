@@ -2685,3 +2685,7 @@ msgstr ""
 #~ msgstr ""
 #~ "Annulla la decisione di accettare la proposta e lo rimanda alla fase di "
 #~ "invio."
+
+msgid "submission.submissionFile"
+msgstr "File del contributo"
+

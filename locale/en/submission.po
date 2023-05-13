@@ -2311,3 +2311,7 @@ msgstr "You must upload at least one of each of the following file types: {$genr
 
 msgid "publication.version"
 msgstr "Version {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Submission File"
+

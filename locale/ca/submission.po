@@ -2709,3 +2709,7 @@ msgstr ""
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Les referències s'han actualitzat."
+
+msgid "submission.submissionFile"
+msgstr "Fitxer de la tramesa"
+

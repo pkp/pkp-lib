@@ -2536,3 +2536,7 @@ msgstr ""
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Các tài liệu tham khảo đã được cập nhật."
+
+msgid "submission.submissionFile"
+msgstr "Tập tin bài gửi"
+

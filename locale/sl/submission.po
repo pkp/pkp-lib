@@ -2674,3 +2674,7 @@ msgstr "Verzija {$version}"
 
 msgid "submission.query.allowedEditTime"
 msgstr "Diskusijo lahko urejate še {$allowedEditTimeNoticeLimit} minut."
+
+msgid "submission.submissionFile"
+msgstr "Datoteka s prispevkom"
+

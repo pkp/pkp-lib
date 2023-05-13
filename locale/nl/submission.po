@@ -2513,3 +2513,7 @@ msgstr ""
 
 #~ msgid "catalog.noTitlesSection"
 #~ msgstr "Er zijn nog geen titels gepubliceerd voor deze sectie"
+
+msgid "submission.submissionFile"
+msgstr "In te sturen bestand"
+

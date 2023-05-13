@@ -2338,3 +2338,7 @@ msgstr ""
 
 #~ msgid "submission.supplementaryFiles"
 #~ msgstr "Dopunske datoteke"
+
+msgid "submission.submissionFile"
+msgstr "Datoteka s prilogom"
+

@@ -2698,3 +2698,7 @@ msgstr "Տարբերակ {$version}"
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Դուք կարող եք թարմացնել այս քննարկումը {$allowedEditTimeNoticeLimit} րոպեով:"
+
+msgid "submission.submissionFile"
+msgstr "Ներկայացման նիշք"
+

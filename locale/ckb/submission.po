@@ -2394,3 +2394,7 @@ msgstr ""
 
 msgid "publication.version"
 msgstr ""
+
+msgid "submission.submissionFile"
+msgstr "فایلی پێشکەشکردن"
+

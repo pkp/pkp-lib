@@ -2569,3 +2569,7 @@ msgstr ""
 
 #~ msgid "submission.layout.confirmDeleteSupplementaryFile"
 #~ msgstr "Sigur doriți să ștergeți definitiv acest fișier suplimentar?"
+
+msgid "submission.submissionFile"
+msgstr "Fișier înregistrare manuscris"
+

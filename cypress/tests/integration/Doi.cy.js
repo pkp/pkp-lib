@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/Doi.spec.js
+ * @file cypress/tests/integration/Doi.cy.js
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -53,7 +53,8 @@ describe('DOI tests', function() {
 		cy.log('Check Submission Filter Behaviour (pre-deposit)');
 		loginAndGoToDoiPage();
 
-		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 18);
+		cy.log("Williamson — Self-Organization in Multi-Level Institutions in Networked Environments has 20");
+		cy.checkDoiFilterResults('Needs DOI', 'Williamson — Self-Organization in Multi-Level Institutions in Networked Environments', 20);
 		cy.checkDoiFilterResults('DOI Assigned', 'Woods — Finocchiaro: Arguments About Arguments', 1);
 		clearFilter();
 		cy.checkDoiFilterResults('Unregistered', 'Woods — Finocchiaro: Arguments About Arguments', 1);

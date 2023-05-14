@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/data/20-CreateContext.spec.js
+ * @file cypress/tests/data/20-CreateContext.cy.js
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2000-2021 John Willinsky
@@ -40,7 +40,7 @@ describe('Data suite tests', function() {
 		cy.get('button').contains('Save').click()
 		cy.get('div[id=context-contactEmail-error]').find('span').contains('This is not a valid email address.');
 		cy.get('div[id=context-urlPath-error]').find('span').contains('The path can only include letters');
-		
+
 		// Fill up the path information with valid path data
 		cy.get('input[name=urlPath]').clear().type('publicknowledge', {delay: 0});
 

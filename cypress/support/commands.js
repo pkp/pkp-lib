@@ -47,16 +47,16 @@ Cypress.Commands.add('getTinyMceContent', (tinyMceId, content) => {
 Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
 	let command = 'php lib/pkp/tools/jobs.php run';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	if ( test || false ) {
-		command = command + ' --test';
+	if (test) {
+		command += ' --test';
 	}
 
-	if ( once || false ) {
-		command = command + ' --once';
+	if (once) {
+		command += ' --once';
 	}
 
 	cy.exec(command);
@@ -65,34 +65,31 @@ Cypress.Commands.add('runQueueJobs', (queue, test, once) => {
 Cypress.Commands.add('purgeQueueJobs', (queue, all) => {
 	let command = 'php lib/pkp/tools/jobs.php purge';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	if ( all || false ) {
-		command = command + ' --all';
+	if (all) {
+		command += ' --all';
 	}
 
 	cy.exec(command);
 });
 
 Cypress.Commands.add('dispatchTestQueueJobs', (times) => {
-
-	times = times || 1;
-	for (let index = 0; index < times; index++) {
+	for (times = Math.max(~~times, 1); times--;) {
 		cy.exec('php lib/pkp/tools/jobs.php test');
 	}
 });
 
 Cypress.Commands.add('clearFailedJobs', (queue) => {
-
 	let command = 'php lib/pkp/tools/jobs.php failed';
 
-	if ( queue ) {
-		command = command + ' --queue=' + queue;
+	if (queue) {
+		command += ' --queue=' + queue;
 	}
 
-	command = command + ' --clear';
+	command += ' --clear';
 
 	cy.exec(command);
 });
@@ -605,8 +602,8 @@ Cypress.Commands.add('flushNotifications', function() {
 	});
 });
 
-Cypress.Commands.add('waitJQuery', function() {
-	cy.waitUntil(() => cy.window().then(win => win.jQuery.active == 0));
+Cypress.Commands.add('waitJQuery', function(options) {
+	cy.waitUntil(() => cy.window().then(win => win.jQuery.active == 0), options);
 });
 
 Cypress.Commands.add('consoleLog', message => {
@@ -646,9 +643,9 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 	cy.get('div.pkpStats__graphSelectors button:contains("Monthly")').click();
 });
 
-Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
-	cy.get('h2:contains("' + articleDetails + '")');
-	cy.get('div:contains("2 of 2 ' + articles + '")');
+Cypress.Commands.add('checkTable', (articleDetails, articles, authors, submissionCount, submissionCountFromAuthor) => {
+	cy.get('h2:contains("' + articleDetails + '")').scrollIntoView();
+	cy.get(`div:contains("${submissionCount} of ${submissionCount} ${articles}")`);
 	authors.forEach(author => {
 		cy.get('.pkpStats__panel .pkpTable__cell:contains("' + author + '")');
 	});
@@ -657,7 +654,7 @@ Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
 	cy.get('div:contains("0 of 0 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear().type(authors[0], {delay: 0});
 	cy.get('.pkpStats__panel .pkpTable__cell:contains("' + authors[0] + '")');
-	cy.get('div:contains("1 of 1 ' + articles + '")');
+	cy.get(`div:contains("${submissionCountFromAuthor} of ${submissionCountFromAuthor} ${articles}")`);
 	cy.get('input.pkpSearch__input').clear();
 });
 

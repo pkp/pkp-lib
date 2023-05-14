@@ -2503,3 +2503,7 @@ msgstr ""
 #~ msgid "submission.uploadSuccessfulContinue"
 #~ msgstr ""
 #~ "File Anda telah diupload. Tekan lanjutkan untuk mengedit metadata file."
+
+msgid "submission.submissionFile"
+msgstr "File Penyerahan Naskah"
+

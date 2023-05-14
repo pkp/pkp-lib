@@ -2717,3 +2717,7 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Вы можете изменить это обсуждение в течение {$allowedEditTimeNoticeLimit} "
 "минут."
+
+msgid "submission.submissionFile"
+msgstr "Отправляемый файл"
+

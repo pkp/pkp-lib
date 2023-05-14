@@ -635,7 +635,7 @@ class PKPImportExportDeployment
             PKPApplication::ASSOC_TYPE_AUTHOR => __('user.role.author'),
             PKPApplication::ASSOC_TYPE_PUBLICATION => __('submission.publication'),
             PKPApplication::ASSOC_TYPE_SECTION => __('section.section'),
-            PKPApplication::ASSOC_TYPE_SUBMISSION_FILE => __('author.submit.submissionFile'),
+            PKPApplication::ASSOC_TYPE_SUBMISSION_FILE => __('submission.submissionFile'),
         ];
 
         return $objectTypes;

@@ -2696,3 +2696,7 @@ msgstr "Versão {$version}"
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Pode atualizar esta discussão durante {$allowedEditTimeNoticeLimit} minutos."
+
+msgid "submission.submissionFile"
+msgstr "Ficheiro submetido"
+

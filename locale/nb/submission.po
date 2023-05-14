@@ -2537,3 +2537,7 @@ msgstr ""
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Referansene har blitt oppdatert."
+
+msgid "submission.submissionFile"
+msgstr "Innleveringsfil"
+

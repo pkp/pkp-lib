@@ -50,7 +50,7 @@ trait Sender
      */
     public function sender(User $sender, ?string $defaultLocale = null): Mailable
     {
-        $this->setAddress($sender->getEmail(), $sender->getFullName($defaultLocale), 'from');
+        $this->setAddress($sender->getEmail(), $sender->getFullName(true, false, $defaultLocale), 'from');
         $this->variables[] = new SenderEmailVariable($sender, $this);
         $this->sender = $sender;
         return $this;

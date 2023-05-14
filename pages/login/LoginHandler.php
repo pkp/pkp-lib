@@ -150,7 +150,7 @@ class LoginHandler extends Handler
                 $request->redirect(null, null, 'changePassword', $user->getUsername());
             }
             $source = $request->getUserVar('source');
-            if (preg_match('#^/\w#', $source) === 1) {
+            if (preg_match('#^/\w#', (string) $source) === 1) {
                 $request->redirectUrl($source);
             }
             $redirectNonSsl = Config::getVar('security', 'force_login_ssl') && !Config::getVar('security', 'force_ssl');

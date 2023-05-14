@@ -715,7 +715,7 @@ class PKPSubmissionHandler extends APIHandler
                 'submission.event.copyrightAgreed',
                 [
                     'username' => $request->getUser()->getUsername(),
-                    'name' => $request->getUser()->getFullName(Locale::getLocale()),
+                    'name' => $request->getUser()->getFullName(true, false, Locale::getLocale()),
                     'copyrightNotice' => $context->getLocalizedData('copyrightNotice', Locale::getLocale()),
                 ]
             );

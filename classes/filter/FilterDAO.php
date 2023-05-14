@@ -139,8 +139,8 @@ class FilterDAO extends \PKP\db\DAO
 
         $this->update(
             sprintf('INSERT INTO filters
-				(filter_group_id, context_id, display_name, class_name, is_template, parent_filter_id, seq)
-				VALUES (?, ?, ?, ?, ?, ?, ?)'),
+                (filter_group_id, context_id, display_name, class_name, is_template, parent_filter_id, seq)
+                VALUES (?, ?, ?, ?, ?, ?, ?)'),
             [
                 (int) $filterGroup->getId(),
                 (int) $contextId,
@@ -188,8 +188,8 @@ class FilterDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT * FROM filters
-			 WHERE ' . ($allowSubfilter ? '' : 'parent_filter_id = 0 AND ') . '
-			 filter_id = ?',
+            WHERE ' . ($allowSubfilter ? '' : 'parent_filter_id = 0 AND ') . '
+            filter_id = ?',
             [(int) $filterId]
         );
         $row = $result->current();
@@ -212,10 +212,10 @@ class FilterDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT	* FROM filters
-			 WHERE	context_id = ? AND
-				class_name = ? AND
-			' . ($allowSubfilters ? '' : ' parent_filter_id = 0 AND ') . '
-			' . ($getTemplates ? ' is_template = 1' : ' is_template = 0'),
+                WHERE context_id = ? AND
+                LOWER(class_name) = LOWER(?) AND
+            ' . ($allowSubfilters ? '' : ' parent_filter_id = 0 AND ') . '
+            ' . ($getTemplates ? ' is_template = 1' : ' is_template = 0'),
             [(int) $contextId, $className]
         );
 
@@ -241,7 +241,7 @@ class FilterDAO extends \PKP\db\DAO
         $result = $this->retrieve(
             'SELECT f.* FROM filters f' .
             ' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id' .
-            ' WHERE fg.symbolic = ? AND f.context_id = ? AND f.class_name = ?' .
+            ' WHERE fg.symbolic = ? AND f.context_id = ? AND LOWER(f.class_name) = LOWER(?)' .
             ' ' . ($allowSubfilters ? '' : 'AND f.parent_filter_id = 0') .
             ' AND ' . ($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0'),
             [$groupSymbolic, (int) $contextId, $className]
@@ -279,8 +279,8 @@ class FilterDAO extends \PKP\db\DAO
                 'SELECT f.*' .
                 ' FROM filters f' .
                 '  INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id' .
-                ' WHERE fg.input_type like ?' .
-                '  AND fg.output_type like ?' .
+                ' WHERE LOWER(fg.input_type) LIKE LOWER(?)' .
+                '  AND LOWER(fg.output_type) LIKE LOWER(?)' .
                 '  AND f.parent_filter_id = 0 AND f.is_template = 0',
                 [$inputTypeDescription, $outputTypeDescription]
             );
@@ -340,8 +340,8 @@ class FilterDAO extends \PKP\db\DAO
         $result = $this->retrieve(
             'SELECT f.* FROM filters f' .
             ' INNER JOIN filter_groups fg ON f.filter_group_id = fg.filter_group_id' .
-            ' WHERE fg.symbolic = ? AND ' . ($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0') .
-            '  ' . (is_null($contextId) ? '' : 'AND f.context_id in (0, ' . (int)$contextId . ')') .
+            ' WHERE LOWER(fg.symbolic) = LOWER(?) AND ' . ($getTemplates ? 'f.is_template = 1' : 'f.is_template = 0') .
+            '  ' . ($contextId ? 'AND f.context_id in (0, ' . (int)$contextId . ')' : '') .
             '  AND f.parent_filter_id = 0',
             [$groupSymbolic]
         );

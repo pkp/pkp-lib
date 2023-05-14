@@ -2592,3 +2592,7 @@ msgstr ""
 
 msgid "publication.version"
 msgstr "Version {$version}"
+
+msgid "submission.submissionFile"
+msgstr "Fichier de soumission"
+

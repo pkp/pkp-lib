@@ -77,17 +77,19 @@ class NativeXmlSubmissionFilter extends NativeImportFilter
         $submission->setData('locale', $node->getAttribute('locale') ?: $context->getPrimaryLocale());
         $submission->setData('contextId', $context->getId());
         $submission->stampLastActivity();
+        $submission->stampModified();
         $submission->setData('status', $node->getAttribute('status'));
         $submission->setData('submissionProgress', '');
 
         $submission->setData('stageId', WorkflowStageDAO::getIdFromPath($node->getAttribute('stage')));
-        $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
 
         // Handle any additional attributes etc.
         $submission = $this->populateObject($submission, $node);
 
         $submissionId = Repo::submission()->dao->insert($submission);
         $submission = Repo::submission()->get($submissionId);
+        // Non-persisted temporary ID, will be updated once the publication gets parsed
+        $submission->setData('currentPublicationId', $node->getAttribute('current_publication_id'));
         $deployment->setSubmission($submission);
         $deployment->addProcessedObjectId(Application::ASSOC_TYPE_SUBMISSION, $submission->getId());
 

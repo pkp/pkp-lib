@@ -2635,3 +2635,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Жіберу кезеңіне қайта оралу"
+
+msgid "submission.submissionFile"
+msgstr "Мақала файлы"
+

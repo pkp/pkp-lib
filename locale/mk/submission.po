@@ -2678,3 +2678,7 @@ msgstr "Верзија {$version}"
 msgid "submission.query.allowedEditTime"
 msgstr ""
 "Можете да ја обновите оваа дискусија за {$allowedEditTimeNoticeLimit} минути."
+
+msgid "submission.submissionFile"
+msgstr "Фајлот на поднесокот"
+

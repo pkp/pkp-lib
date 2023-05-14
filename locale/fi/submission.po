@@ -2554,3 +2554,7 @@ msgstr ""
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Viitteet on päivitetty."
+
+msgid "submission.submissionFile"
+msgstr "Käsikirjoitustiedosto"
+

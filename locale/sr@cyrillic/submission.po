@@ -2413,3 +2413,7 @@ msgstr ""
 
 #~ msgid "submission.event.reviewer.reviewCancelled"
 #~ msgstr "Додела рецензије поништена"
+
+msgid "submission.submissionFile"
+msgstr "Фајл предаје"
+

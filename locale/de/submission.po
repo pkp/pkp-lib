@@ -2763,3 +2763,7 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Sie können diese Diskussion für {$allowedEditTimeNoticeLimit} Minuten "
 "aktualisieren."
+
+msgid "submission.submissionFile"
+msgstr "Beitragsdatei"
+

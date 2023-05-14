@@ -26,6 +26,7 @@ class TestJobFailure extends BaseJob
     use Batchable;
 
     public $tries = 1;
+    public $maxExceptions = 1;
 
     public function __construct()
     {

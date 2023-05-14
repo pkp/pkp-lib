@@ -67,10 +67,13 @@ class CommandLineTool
         $request->setRouter($router);
 
         // Initialize the locale and load generic plugins.
-        $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
-        $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
-        foreach ($contextFactory->toIterator() as $context) { /** @var Context $context */
-            PluginRegistry::loadCategory('generic', false, $context->getId());
+        PluginRegistry::loadCategory('generic');
+        if (!$application->isUnderMaintenance()) {
+            $contextDao = Application::getContextDAO(); /** @var ContextDAO $contextDao */
+            $contextFactory = $contextDao->getAll(); /** @var DAOResultFactory $contextFactory */
+            foreach ($contextFactory->toIterator() as $context) { /** @var Context $context */
+                PluginRegistry::loadCategory('generic', false, $context->getId());
+            }
         }
 
         $this->argv = isset($argv) && is_array($argv) ? $argv : [];

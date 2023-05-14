@@ -2338,3 +2338,7 @@ msgstr ""
 
 msgid "publication.version"
 msgstr ""
+
+msgid "submission.submissionFile"
+msgstr "Bidalketa-fitxategia"
+

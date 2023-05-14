@@ -2651,3 +2651,7 @@ msgstr ""
 
 #~ msgid "editor.submission.decision.backToSubmission"
 #~ msgstr "Tillbaka till inskickat-steget"
+
+msgid "submission.submissionFile"
+msgstr "Bidragsfil"
+

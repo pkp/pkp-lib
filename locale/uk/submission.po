@@ -2743,3 +2743,7 @@ msgid "submission.query.allowedEditTime"
 msgstr ""
 "Ви можете оновити це обговорення протягом {$allowedEditTimeNoticeLimit} "
 "хвилин."
+
+msgid "submission.submissionFile"
+msgstr "Файл подання"
+

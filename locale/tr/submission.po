@@ -2645,3 +2645,7 @@ msgstr "Sürüm {$version}"
 
 #~ msgid "publication.citations.success"
 #~ msgstr "Referanslar güncellendi."
+
+msgid "submission.submissionFile"
+msgstr "Gönderi Dosyası"
+

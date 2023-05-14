@@ -1,5 +1,5 @@
 /**
- * @file cypress/tests/integration/Jobs.spec.js
+ * @file cypress/tests/integration/Jobs.cy.js
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2000-2022 John Willinsky
@@ -7,7 +7,7 @@
  *
  */
 
- describe('Jobs tests', function() {
+describe('Jobs tests', function() {
     it('Check if Jobs page is alive and with contents', function() {
 
         cy.login('admin', 'admin', 'publicknowledge');
@@ -36,7 +36,7 @@
         cy.get('.pkpTable')
           .find('span:contains("queuedTestJob")')
           .should('have.length', 0);
-        
+
         cy.logout();
     });
 
@@ -48,7 +48,7 @@
       cy.purgeQueueJobs(null, true);
 
       // Clear all existing failed jobs
-      cy.clearFailedJobs()
+      cy.clearFailedJobs();
 
       // Add 8 test jobs[successable(4) and failable(4)] on queue
       cy.dispatchTestQueueJobs(4);
@@ -82,7 +82,7 @@
       cy.get('.pkpTable')
         .find('span:contains("queuedTestJob")')
         .should('have.length', 2);
-      
+
       // Back to Jobs page
       cy.get('a:contains("Administration")').click();
       cy.get('a:contains("View Jobs")').click();
@@ -92,7 +92,7 @@
       cy.get('.pkpTable')
         .find('span:contains("queuedTestJob")')
         .should('have.length', 1);
-      
+
       // Back to failed jobs page
       cy.get('a:contains("Administration")').click();
       cy.get('a:contains("View Failed Jobs")').click();
@@ -103,7 +103,7 @@
       cy.get('.pkpTable')
         .find('td:contains("Payload")')
         .should('have.length', 1);
-      
+
       // Back to failed jobs page again
       cy.go('back');
       cy.waitJQuery();
@@ -116,7 +116,7 @@
       cy.get('.pkpTable')
         .find('span:contains("queuedTestJob")')
         .should('have.length', 0);
-      
+
       // Confirm that 'Requeue All Failed Jobs' button has removed from view
       cy.get('button:contains("Requeue All Failed Jobs")').should('not.exist');
 
@@ -129,7 +129,7 @@
       cy.get('.pkpTable')
         .find('span:contains("queuedTestJob")')
         .should('have.length', 3);
-      
+
       // purge all existing jobs in the test queue
       cy.purgeQueueJobs('queuedTestJob');
 
@@ -139,7 +139,7 @@
       cy.get('.pkpTable')
         .find('span:contains("queuedTestJob")')
         .should('have.length', 0);
-      
+
       cy.logout();
   });
 

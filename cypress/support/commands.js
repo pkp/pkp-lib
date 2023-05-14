@@ -643,9 +643,9 @@ Cypress.Commands.add('checkGraph', (totalAbstractViews, abstractViews, files, to
 	cy.get('div.pkpStats__graphSelectors button:contains("Monthly")').click();
 });
 
-Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
-	cy.get('h2:contains("' + articleDetails + '")');
-	cy.get('div:contains("4 of 4 ' + articles + '")');
+Cypress.Commands.add('checkTable', (articleDetails, articles, authors, submissionCount, submissionCountFromAuthor) => {
+	cy.get('h2:contains("' + articleDetails + '")').scrollIntoView();
+	cy.get(`div:contains("${submissionCount} of ${submissionCount} ${articles}")`);
 	authors.forEach(author => {
 		cy.get('.pkpStats__panel .pkpTable__cell:contains("' + author + '")');
 	});
@@ -654,7 +654,7 @@ Cypress.Commands.add('checkTable', (articleDetails, articles, authors) => {
 	cy.get('div:contains("0 of 0 ' + articles + '")');
 	cy.get('input.pkpSearch__input').clear().type(authors[0], {delay: 0});
 	cy.get('.pkpStats__panel .pkpTable__cell:contains("' + authors[0] + '")');
-	cy.get('div:contains("2 of 2 ' + articles + '")');
+	cy.get(`div:contains("${submissionCountFromAuthor} of ${submissionCountFromAuthor} ${articles}")`);
 	cy.get('input.pkpSearch__input').clear();
 });
 

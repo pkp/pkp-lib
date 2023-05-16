@@ -76,12 +76,11 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
         $submission = $deployment->getSubmission();
         $context = $deployment->getContext();
         $stageName = $node->getAttribute('stage');
-        $submissionFileId = $node->getAttribute('id');
+        $submissionFileIdFromXml = $node->getAttribute('id');
         $stageNameIdMapping = $deployment->getStageNameStageIdMapping();
         assert(isset($stageNameIdMapping[$stageName]));
         $stageId = $stageNameIdMapping[$stageName];
-        $request = Application::get()->getRequest();
-        $errorOccured = false;
+        $errorOccurred = false;
 
         $genreId = null;
         $genreName = $node->getAttribute('genre');
@@ -98,7 +97,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             }
             if (!isset($genresByContextId[$context->getId()][$genreName])) {
                 $deployment->addError(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE, $submission->getId(), __('plugins.importexport.common.error.unknownGenre', ['param' => $genreName]));
-                $errorOccured = true;
+                $errorOccurred = true;
             } else {
                 $genre = $genresByContextId[$context->getId()][$genreName];
                 $genreId = $genre->getId();
@@ -217,15 +216,15 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             }
         }
 
-        if ($errorOccured) {
+        if ($errorOccurred) {
             return null;
         }
 
         // Add and edit the submission file revisions one-by-one so that a useful activity
         // log is built and past revisions can be accessed
+        $submissionFileId = null;
         if (count($allRevisionIds) < 2) {
             $submissionFileId = Repo::submissionFile()->add($submissionFile);
-
             $submissionFile = Repo::submissionFile()->get($submissionFileId);
         } else {
             $currentFileId = $submissionFile->getData('fileId');
@@ -234,13 +233,10 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             });
             $allRevisionIds = array_values($allRevisionIds);
 
-            $submissionFileId = $submissionFile->getId();
-
             foreach ($allRevisionIds as $i => $fileId) {
                 if ($i === 0) {
                     $submissionFile->setData('fileId', $fileId);
-                    $id = Repo::submissionFile()->add($submissionFile);
-
+                    $submissionFileId = Repo::submissionFile()->add($submissionFile);
                     $submissionFile = Repo::submissionFile()->get($submissionFileId);
                 } else {
                     Repo::submissionFile()->edit($submissionFile, ['fileId' => $fileId]);
@@ -255,7 +251,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
             $submissionFile = Repo::submissionFile()->get($submissionFileId);
         }
 
-        $deployment->setSubmissionFileDBId($submissionFileId, $submissionFile->getId());
+        $deployment->setSubmissionFileDBId($submissionFileIdFromXml, $submissionFile->getId());
 
         return $submissionFile;
     }
@@ -395,7 +391,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         }
                     } else {
                         // Load pub id plugins
-                        $pubIdPlugins = PluginRegistry::loadCategory('pubIds', true, $context->getId());
+                        PluginRegistry::loadCategory('pubIds', true, $context->getId());
                         $submissionFile->setStoredPubId($element->getAttribute('type'), $element->textContent);
                     }
                 }

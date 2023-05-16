@@ -86,7 +86,7 @@ class PreprintGalleyGridRow extends GridRow
 
             if ($this->_isEditable) {
                 $galley = $this->getData();
-                if ($galley->getRemoteUrl() == '') {
+                if (!$galley->getRemoteUrl()) {
                     $this->addAction(new AddFileLinkAction(
                         $request,
                         $this->getSubmission()->getId(),

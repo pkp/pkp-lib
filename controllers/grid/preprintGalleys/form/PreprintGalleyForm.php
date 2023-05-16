@@ -176,8 +176,8 @@ class PreprintGalleyForm extends Form
             'publicationId' => $this->_publication->getId(),
             'label' => $this->getData('label'),
             'locale' => $this->getData('locale'),
-            'urlPath' => $this->getData('urlPath'),
-            'urlRemote' => $this->getData('urlRemote')
+            'urlPath' => strlen($urlPath = (string) $this->getData('urlPath')) ? $urlPath : null,
+            'urlRemote' => strlen($urlRemote = (string) $this->getData('urlRemote')) ? $urlRemote : null
         ];
         if ($this->_preprintGalley) {
             // Update galley in the db

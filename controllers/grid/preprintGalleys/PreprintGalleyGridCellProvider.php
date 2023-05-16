@@ -59,7 +59,7 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
         switch ($columnId) {
             case 'label':
                 return [
-                    'label' => ($element->getRemoteUrl() == '' && $element->getData('submissionFileId')) ? '' : $element->getLabel()
+                    'label' => !$element->getRemoteUrl() && $element->getData('submissionFileId') ? '' : $element->getLabel()
                 ];
                 break;
             default: assert(false);
@@ -90,7 +90,7 @@ class PreprintGalleyGridCellProvider extends DataObjectGridCellProvider
         switch ($column->getId()) {
             case 'label':
                 $element = $row->getData();
-                if ($element->getRemoteUrl() != '' || !$element->getData('submissionFileId')) {
+                if ($element->getRemoteUrl() || !$element->getData('submissionFileId')) {
                     break;
                 }
 

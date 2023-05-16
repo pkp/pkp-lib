@@ -1,12 +1,13 @@
 # Martin Brändle <martin.braendle@uzh.ch>, 2022.
 # Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>, 2023.
+# Stefan Schneider <mail@stefan-schneider.at>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-11-19T10:49:50+00:00\n"
 "PO-Revision-Date: 2023-05-17 15:49+0000\n"
-"Last-Translator: Mathias Vitalis <mathias.vitalis@u-bordeaux.fr>\n"
+"Last-Translator: Stefan Schneider <mail@stefan-schneider.at>\n"
 "Language-Team: French <http://translate.pkp.sfu.ca/projects/pkp-lib/"
 "submission/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -2413,7 +2414,7 @@ msgid "submission.wizard.unableToSave"
 msgstr ""
 
 msgid "grid.category.categories"
-msgstr "catégories"
+msgstr "Catégories"
 
 msgid "catalog.sortBy.titleAsc"
 msgstr "Titre (A-Z)"

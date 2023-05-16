@@ -180,7 +180,7 @@ abstract class Repository
 
         // The urlPath must not be used in a publication attached to
         // any submission other than this publication's submission
-        if (!empty($props['urlPath'])) {
+        if (strlen($props['urlPath'] ?? '')) {
             $validator->after(function ($validator) use ($publication, $props) {
                 if (!$validator->errors()->get('urlPath')) {
                     if (ctype_digit((string) $props['urlPath'])) {

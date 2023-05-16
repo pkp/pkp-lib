@@ -107,11 +107,9 @@ abstract class Repository
      */
     public function getByBestId(string $idOrUrlPath, int $contextId = null): ?Submission
     {
-        $submission = $this->getByUrlPath($idOrUrlPath, $contextId);
-        if (!$submission && (is_int($idOrUrlPath) || ctype_digit($idOrUrlPath))) {
-            $submission = $this->get((int) $idOrUrlPath, $contextId);
-        }
-        return $submission ?? null;
+        return ctype_digit((string) $idOrUrlPath)
+            ? $this->get((int) $idOrUrlPath, $contextId)
+            : $this->getByUrlPath($idOrUrlPath, $contextId);
     }
 
     /**

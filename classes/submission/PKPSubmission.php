@@ -70,11 +70,7 @@ abstract class PKPSubmission extends \PKP\core\DataObject
      */
     public function getBestId()
     {
-        $currentPublication = $this->getCurrentPublication();
-        if (!$currentPublication) {
-            return $this->getId();
-        }
-        return $currentPublication->getData('urlPath') ?? $this->getId();
+        return strlen($urlPath = (string) $this->getCurrentPublication()?->getData('urlPath')) ? $urlPath : $this->getId();
     }
 
     /**

@@ -70,11 +70,9 @@ class Repository
      */
     public function getByBestId(string $idOrUrlPath, Publication $publication): ?Galley
     {
-        $galley = $this->getByUrlPath($idOrUrlPath, $publication);
-        if (!$galley && (is_int($idOrUrlPath) || ctype_digit($idOrUrlPath))) {
-            $galley = $this->get((int) $idOrUrlPath, $publication->getId());
-        }
-        return $galley ?? null;
+        return ctype_digit((string) $idOrUrlPath)
+            ? $this->get((int) $idOrUrlPath, $publication->getId())
+            : $this->getByUrlPath($idOrUrlPath, $publication);
     }
 
     /**

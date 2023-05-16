@@ -105,9 +105,7 @@ class Galley extends Representation
      */
     public function getBestGalleyId()
     {
-        return $this->getData('urlPath')
-            ? $this->getData('urlPath')
-            : $this->getId();
+        return strlen($urlPath = $this->getData('urlPath')) ? $urlPath : $this->getId();
     }
 
     /**

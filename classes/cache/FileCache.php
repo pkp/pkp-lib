@@ -33,7 +33,7 @@ class FileCache extends GenericCache
     public $filename;
 
     /**
-     * The cached data
+     * @var array The cached data
      */
     public $cache;
 

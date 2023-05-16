@@ -64,15 +64,14 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
                     case 'id': $this->parseIdentifier($n, $representation);
                         break;
                     case 'name':
-                        $locale = $n->getAttribute('locale');
-                        if (empty($locale)) {
-                            $locale = $publication->getData('locale');
-                        }
+                        $locale = $n->getAttribute('locale') ?: $publication->getData('locale');
                         $representation->setName($n->textContent, $locale);
                         break;
-                    case 'seq': $representation->setSequence($n->textContent);
+                    case 'seq':
+                        $representation->setSequence($n->textContent);
                         break;
-                    case 'remote': $representation->setRemoteURL($n->getAttribute('src'));
+                    case 'remote':
+                        $representation->setRemoteURL(($remoteUrl = $n->getAttribute('src')) ? $remoteUrl : null);
                         break;
                 }
             }

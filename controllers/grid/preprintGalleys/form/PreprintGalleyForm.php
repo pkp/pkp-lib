@@ -113,7 +113,7 @@ class PreprintGalleyForm extends Form
     public function validate($callHooks = true)
     {
         /// Validate the urlPath
-        if (strlen($this->getData('urlPath'))) {
+        if (strlen((string) $this->getData('urlPath'))) {
             if (ctype_digit((string) $this->getData('urlPath'))) {
                 $this->addError('urlPath', __('publication.urlPath.numberInvalid'));
                 $this->addErrorField('urlPath');
@@ -168,7 +168,7 @@ class PreprintGalleyForm extends Form
     /**
      * Save changes to the galley.
      *
-     * @return PreprintGalley The resulting preprint galley.
+     * @return Galley The resulting preprint galley.
      */
     public function execute(...$functionArgs)
     {

@@ -289,6 +289,7 @@ class Dispatcher
 
     /**
      * Handle a 404 error (page not found).
+     * @return never
      */
     public static function handle404()
     {

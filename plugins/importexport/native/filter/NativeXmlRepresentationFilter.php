@@ -54,7 +54,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         $representation = $representationDao->newDataObject(); /** @var Representation $representation */
 
         $representation->setData('publicationId', $publication->getId());
-        $representation->setData('urlPath', $node->getAttribute('url_path'));
+        $representation->setData('urlPath', strlen($urlPath = (string) $node->getAttribute('url_path')) ? $urlPath : null);
 
         // Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
         // All other elements are handled by subclasses.
@@ -64,15 +64,14 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
                     case 'id': $this->parseIdentifier($n, $representation);
                         break;
                     case 'name':
-                        $locale = $n->getAttribute('locale');
-                        if (empty($locale)) {
-                            $locale = $publication->getData('locale');
-                        }
+                        $locale = $n->getAttribute('locale') ?: $publication->getData('locale');
                         $representation->setName($n->textContent, $locale);
                         break;
-                    case 'seq': $representation->setSequence($n->textContent);
+                    case 'seq':
+                        $representation->setSequence($n->textContent);
                         break;
-                    case 'remote': $representation->setRemoteURL($n->getAttribute('src'));
+                    case 'remote':
+                        $representation->setRemoteURL(($remoteUrl = $n->getAttribute('src')) ? $remoteUrl : null);
                         break;
                 }
             }

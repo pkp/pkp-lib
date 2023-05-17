@@ -237,11 +237,7 @@ class SubmissionFile extends \PKP\core\DataObject
      */
     public function getBestId()
     {
-        $publicFileId = $this->getStoredPubId('publisher-id');
-        if (!empty($publicFileId)) {
-            return $publicFileId;
-        }
-        return $this->getId();
+        return strlen($publisherId = (string) $this->getStoredPubId('publisher-id')) ? $publisherId : $this->getId();
     }
 
     /**

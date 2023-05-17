@@ -288,7 +288,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         // Ensure that a urlPath, if provided, does not already exist
         $validator->after(function ($validator) use ($action, $props) {
-            if (isset($props['urlPath']) && !$validator->errors()->get('urlPath')) {
+            if (strlen($props['urlPath'] ?? '') && !$validator->errors()->get('urlPath')) {
                 $contextDao = Application::getContextDAO();
                 $contextWithPath = $contextDao->getByPath($props['urlPath']);
                 if ($contextWithPath) {
@@ -303,7 +303,7 @@ abstract class PKPContextService implements EntityPropertyInterface, EntityReadI
 
         // Ensure that a urlPath is not 0, because this will cause router problems
         $validator->after(function ($validator) use ($props) {
-            if (isset($props['urlPath']) && !$validator->errors()->get('urlPath') && $props['urlPath'] == '0') {
+            if (strlen($props['urlPath'] ?? '') && !$validator->errors()->get('urlPath') && $props['urlPath'] == '0') {
                 $validator->errors()->add('urlPath', __('admin.contexts.form.pathRequired'));
             }
         });

@@ -403,30 +403,21 @@ class PKPString
      * onclick(...) attributes, javascript: urls, and special characters.
      *
      * @param string $input input string
-     * @param string $configKey The config section key['allowed_html', 'allowed_title_html']
+     * @param string $key   The config section key['allowed_html', 'allowed_title_html']
      *
      * @return string
      */
-    public static function stripUnsafeHtml($input, $configKey = 'allowed_html')
+    public static function stripUnsafeHtml(string $input, string $key = 'allowed_html'): string
     {
-        // static $purifier;
-        // if (!isset($purifier)) {
-        //     $config = HTMLPurifier_Config::createDefault();
-        //     $config->set('Core.Encoding', 'utf-8');
-        //     $config->set('HTML.Doctype', 'HTML 4.01 Transitional');
-        //     $config->set('HTML.Allowed', Config::getVar('security', $configKey));
-        //     $config->set('Cache.SerializerPath', 'cache');
-        //     $purifier = new HTMLPurifier($config);
-        // }
-        // return $purifier->purify((string) $input);
-
         static $sanitizer;
+        static $configKey;
         static $allowedTagToAttributeMap;
 
-        if (!isset($htmlTagToAttributeMap)) {
-            Str::of(Config::getVar('security', $configKey))
+        if ($configKey !== $key) {
+            $configKey = $key;
+            $allowedTagToAttributeMap = Str::of(Config::getVar('security', $configKey))
                 ->explode(',')
-                ->each(function(string $allowedTagWithAttr) use (&$allowedTagToAttributeMap) {
+                ->mapWithKeys(function(string $allowedTagWithAttr) {
                     
                     // Extract the tag itself (e.g. div, p, a ...)
                     preg_match('/\[[^][]+]\K|\w+/', $allowedTagWithAttr, $matches);
@@ -437,11 +428,15 @@ class PKPString
                     $allowedAttributes = collect($matches)->last();
 
                     if($allowedTag) {
-                        $allowedTagToAttributeMap[$allowedTag] = Str::of($allowedAttributes)
-                            ->explode('|')
-                            ->filter()
-                            ->toArray();
+                        return [
+                            $allowedTag => Str::of($allowedAttributes)
+                                ->explode('|')
+                                ->filter()
+                                ->toArray()
+                        ];
                     }
+            
+                    return [];
                 });
         }
 
@@ -451,7 +446,7 @@ class PKPString
                 ->allowLinkSchemes(['https', 'http', 'mailto'])
                 ->allowMediaSchemes(['https', 'http']);
 
-            collect($allowedTagToAttributeMap)
+            $allowedTagToAttributeMap
                 ->each(function(array $attributes, string $tag) use (&$config){
                     $config = $config->allowElement($tag, $attributes);
                 });
@@ -462,7 +457,7 @@ class PKPString
         return $sanitizer->sanitize(
             strip_tags(
                 $input, 
-                array_keys($allowedTagToAttributeMap)
+                $allowedTagToAttributeMap->keys()->toArray()
             )
         );
     }

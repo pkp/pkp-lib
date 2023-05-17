@@ -402,13 +402,17 @@ class PKPString
      * Strip unsafe HTML from the input text. Covers XSS attacks like scripts,
      * onclick(...) attributes, javascript: urls, and special characters.
      *
-     * @param string $input input string
-     * @param string $key   The config section key['allowed_html', 'allowed_title_html']
+     * @param string|null   $input input string
+     * @param string        $key   The config section key['allowed_html', 'allowed_title_html']
      *
      * @return string
      */
-    public static function stripUnsafeHtml(string $input, string $key = 'allowed_html'): string
+    public static function stripUnsafeHtml(?string $input, string $key = 'allowed_html'): string
     {
+        if (!$input) {
+            return '';
+        }
+
         static $sanitizer;
         static $configKey;
         static $allowedTagToAttributeMap;

@@ -54,7 +54,7 @@ class NativeXmlRepresentationFilter extends NativeImportFilter
         $representation = $representationDao->newDataObject(); /** @var Representation $representation */
 
         $representation->setData('publicationId', $publication->getId());
-        $representation->setData('urlPath', strlen($urlPath = $node->getAttribute('url_path')) ? $urlPath : null);
+        $representation->setData('urlPath', strlen($urlPath = (string) $node->getAttribute('url_path')) ? $urlPath : null);
 
         // Handle metadata in subelements.  Look for the 'name' and 'seq' elements.
         // All other elements are handled by subclasses.

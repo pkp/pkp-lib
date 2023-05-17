@@ -80,7 +80,7 @@ class NativeXmlPKPPublicationFilter extends NativeImportFilter
         $publication->setData('seq', $node->getAttribute('seq'));
         $publication->setData('accessStatus', $node->getAttribute('access_status'));
         $publication->setData('status', $node->getAttribute('status'));
-        $publication->setData('urlPath', strlen($urlPath = $node->getAttribute('url_path')) ? $urlPath : null);
+        $publication->setData('urlPath', strlen($urlPath = (string) $node->getAttribute('url_path')) ? $urlPath : null);
 
         $publicationId = Repo::publication()->dao->insert($publication);
         $publication = Repo::publication()->get($publicationId);

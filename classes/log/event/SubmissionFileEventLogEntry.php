@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/log/SubmissionFileEventLogEntry.php
+ * @file classes/log/event/SubmissionFileEventLogEntry.php
  *
  * Copyright (c) 2014-2021 Simon Fraser University
  * Copyright (c) 2003-2021 John Willinsky
@@ -11,12 +11,10 @@
  *
  * @ingroup log
  *
- * @see SubmissionFileEventLogDAO
- *
  * @brief Describes an entry in the submission file history log.
  */
 
-namespace PKP\log;
+namespace PKP\log\event;
 
 class SubmissionFileEventLogEntry extends EventLogEntry
 {
@@ -37,7 +35,7 @@ class SubmissionFileEventLogEntry extends EventLogEntry
 }
 
 if (!PKP_STRICT_MODE) {
-    class_alias('\PKP\log\SubmissionFileEventLogEntry', '\SubmissionFileEventLogEntry');
+    class_alias('\PKP\log\event\SubmissionFileEventLogEntry', '\SubmissionFileEventLogEntry');
     foreach ([
         'SUBMISSION_LOG_FILE_UPLOAD',
         'SUBMISSION_LOG_FILE_DELETE',

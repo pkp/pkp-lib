@@ -99,7 +99,7 @@ class DBDataXMLParser
                                 if ($column) {
                                     $this->sql = array_merge($this->sql, array_column(DB::pretend(function () use ($table, $column) {
                                         Schema::table($table, function (Blueprint $table) use ($column) {
-                                            $table->dropColumn('column');
+                                            $table->dropColumn($column);
                                         });
                                     }), 'query'));
                                 } else {

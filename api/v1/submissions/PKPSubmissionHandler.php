@@ -21,7 +21,7 @@ use APP\core\Application;
 use APP\core\Request;
 use APP\core\Services;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
+use APP\log\event\SubmissionEventLogEntry;
 use APP\notification\Notification;
 use APP\notification\NotificationManager;
 use APP\section\Section;
@@ -31,11 +31,12 @@ use Illuminate\Support\Enumerable;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\APIResponse;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\decision\DecisionType;
 use PKP\facades\Locale;
 use PKP\handler\APIHandler;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\PublicationVersionNotify;
 use PKP\mail\mailables\SubmissionSavedForLater;
 use PKP\notification\NotificationSubscriptionSettingsDAO;
@@ -48,6 +49,7 @@ use PKP\security\authorization\StageRolePolicy;
 use PKP\security\authorization\SubmissionAccessPolicy;
 use PKP\security\authorization\UserRolesRequiredPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\services\PKPSchemaService;
 use PKP\stageAssignment\StageAssignmentDAO;
 use PKP\submission\GenreDAO;
@@ -709,17 +711,21 @@ class PKPSubmissionHandler extends APIHandler
         $submission = Repo::submission()->get($submission->getId());
 
         if ($slimRequest->getParsedBodyParam('confirmCopyright')) {
-            SubmissionLog::logEvent(
-                Application::get()->getRequest(),
-                $submission,
-                SubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
-                'submission.event.copyrightAgreed',
-                [
-                    'username' => $request->getUser()->getUsername(),
-                    'name' => $request->getUser()->getFullName(true, false, Locale::getLocale()),
-                    'copyrightNotice' => $context->getLocalizedData('copyrightNotice', Locale::getLocale()),
-                ]
-            );
+            $user = $request->getUser();
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_COPYRIGHT_AGREED,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'submission.event.copyrightAgreed',
+                'isTranslated' => 0,
+                'dateLogged' => Core::getCurrentDate(),
+                'username' => $user->getUsername(),
+                'userFullName' => $user->getFullName(true, false, Locale::getLocale()),
+                'copyrightNotice' => $context->getData('copyrightNotice'),
+            ]);
+
+            Repo::eventLog()->add($eventLog);
         }
 
         $userGroups = Repo::userGroup()

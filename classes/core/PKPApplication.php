@@ -506,8 +506,6 @@ abstract class PKPApplication implements iPKPApplicationInfoProvider
             'SubmissionDisciplineDAO' => 'PKP\submission\SubmissionDisciplineDAO',
             'SubmissionDisciplineEntryDAO' => 'PKP\submission\SubmissionDisciplineEntryDAO',
             'SubmissionEmailLogDAO' => 'PKP\log\SubmissionEmailLogDAO',
-            'SubmissionEventLogDAO' => 'PKP\log\SubmissionEventLogDAO',
-            'SubmissionFileEventLogDAO' => 'PKP\log\SubmissionFileEventLogDAO',
             'QueryDAO' => 'PKP\query\QueryDAO',
             'SubmissionLanguageDAO' => 'PKP\submission\SubmissionLanguageDAO',
             'SubmissionLanguageEntryDAO' => 'PKP\submission\SubmissionLanguageEntryDAO',

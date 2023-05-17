@@ -179,7 +179,7 @@ class ReviewerGridRow extends GridRow
 
             $user = $request->getUser();
             if (
-                !Validation::isLoggedInAs() &&
+                !Validation::loggedInAs() &&
                 $user->getId() != $reviewAssignment->getReviewerId() &&
                 Validation::getAdministrationLevel($reviewAssignment->getReviewerId(), $user->getId()) === Validation::ADMINISTRATION_FULL &&
                 !$reviewAssignment->getCancelled()

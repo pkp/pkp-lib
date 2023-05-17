@@ -15,16 +15,19 @@ namespace PKP\decision\types\traits;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
+use APP\log\event\SubmissionEventLogEntry;
 use APP\submission\Submission;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\mail\EmailData;
 use PKP\mail\mailables\DecisionNotifyReviewer;
 use PKP\mail\mailables\ReviewerUnassign;
+use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\user\User;
@@ -62,16 +65,18 @@ trait NotifyReviewers
             }
         }
 
-        SubmissionLog::logEvent(
-            Application::get()->getRequest(),
-            $submission,
-            SubmissionEventLogEntry::SUBMISSION_LOG_DECISION_EMAIL_SENT,
-            'submission.event.decisionReviewerEmailSent',
-            [
-                'recipientCount' => count($recipients),
-                'subject' => $email->subject,
-            ]
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_DECISION_EMAIL_SENT,
+            'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
+            'message' => 'submission.event.decisionReviewerEmailSent',
+            'isTranslated' => 0,
+            'dateLogged' => Core::getCurrentDate(),
+            'recipientCount' => count($recipients),
+            'subject' => $email->subject,
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 
     /**

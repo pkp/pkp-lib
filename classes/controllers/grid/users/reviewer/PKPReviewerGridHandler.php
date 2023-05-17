@@ -20,7 +20,7 @@ use APP\core\Application;
 use APP\core\PageRouter;
 use APP\core\Request;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
+use APP\log\event\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use APP\template\TemplateManager;
@@ -46,6 +46,7 @@ use PKP\emailTemplate\EmailTemplate;
 use PKP\facades\Locale;
 use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\log\SubmissionLog;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerReinstate;
@@ -62,6 +63,7 @@ use PKP\security\authorization\internal\ReviewAssignmentRequiredPolicy;
 use PKP\security\authorization\internal\ReviewRoundRequiredPolicy;
 use PKP\security\authorization\WorkflowStageAccessPolicy;
 use PKP\security\Role;
+use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use PKP\submission\reviewRound\ReviewRound;
@@ -682,17 +684,19 @@ class PKPReviewerGridHandler extends GridHandler
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
         // log the unconsider.
-        SubmissionLog::logEvent(
-            $request,
-            $submission,
-            SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
-            'log.review.reviewUnconsidered',
-            [
-                'editorName' => $user->getFullName(),
-                'submissionId' => $submission->getId(),
-                'round' => $reviewAssignment->getRound(),
-            ]
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_UNCONSIDERED,
+            'userId' => Validation::loggedInAs() ?? $user->getId(),
+            'message' => 'log.review.reviewUnconsidered',
+            'isTranslated' => 0,
+            'dateLogged' => Core::getCurrentDate(),
+            'editorName' => $user->getFullName(),
+            'submissionId' => $submission->getId(),
+            'round' => $reviewAssignment->getRound(),
+        ]);
+        Repo::eventLog()->add($eventLog);
 
         return DAO::getDataChangedEvent($reviewAssignment->getId());
     }
@@ -745,17 +749,19 @@ class PKPReviewerGridHandler extends GridHandler
             $submissionId = $reviewAssignment->getSubmissionId();
             $submission = Repo::submission()->get($submissionId);
 
-            SubmissionLog::logEvent(
-                $request,
-                $submission,
-                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
-                'log.review.reviewConfirmed',
-                [
-                    'userName' => $user->getFullName(),
-                    'submissionId' => $reviewAssignment->getSubmissionId(),
-                    'round' => $reviewAssignment->getRound()
-                ]
-            );
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CONFIRMED,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'log.review.reviewConfirmed',
+                'isTranslated' => 0,
+                'dateLogged' => Core::getCurrentDate(),
+                'editorName' => $user->getFullName(),
+                'submissionId' => $reviewAssignment->getSubmissionId(),
+                'round' => $reviewAssignment->getRound()
+            ]);
+            Repo::eventLog()->add($eventLog);
         }
         // Remove the reviewer task.
         $notificationDao = DAORegistry::getDAO('NotificationDAO'); /** @var NotificationDAO $notificationDao */

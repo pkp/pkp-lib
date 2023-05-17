@@ -17,17 +17,19 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\submission\Submission;
 use PKP\context\Context;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\Mailable;
 use PKP\mail\mailables\ReviewerUnassign;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\plugins\Hook;
+use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 
@@ -101,7 +103,21 @@ class UnassignReviewerForm extends ReviewerNotifyActionForm
             $notificationMgr->createTrivialNotification($currentUser->getId(), PKPNotification::NOTIFICATION_TYPE_SUCCESS, ['contents' => $reviewAssignment->getDateConfirmed() ? __('notification.cancelledReviewer') : __('notification.removedReviewer')]);
 
             // Add log
-            SubmissionLog::logEvent($request, $submission, SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CLEAR, 'log.review.reviewCleared', ['reviewAssignmentId' => $reviewAssignment->getId(), 'reviewerName' => $reviewer->getFullName(), 'submissionId' => $submission->getId(), 'stageId' => $reviewAssignment->getStageId(), 'round' => $reviewAssignment->getRound()]);
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_CLEAR,
+                'userId' => Validation::loggedInAs() ?? $currentUser->getId(),
+                'message' => 'log.review.reviewCleared',
+                'isTranslated' => 0,
+                'dateLogged' => Core::getCurrentDate(),
+                'reviewAssignmentId' => $reviewAssignment->getId(),
+                'reviewerName' => $reviewer->getFullName(),
+                'submissionId' => $submission->getId(),
+                'stageId' => $reviewAssignment->getStageId(),
+                'round' => $reviewAssignment->getRound()
+            ]);
+            Repo::eventLog()->add($eventLog);
 
             return true;
         }

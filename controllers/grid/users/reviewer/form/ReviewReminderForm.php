@@ -18,18 +18,19 @@ namespace PKP\controllers\grid\users\reviewer\form;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
 use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Mail;
 use PKP\core\Core;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
 use PKP\facades\Locale;
 use PKP\form\Form;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRemind;
 use PKP\mail\variables\ReviewAssignmentEmailVariable;
 use PKP\notification\PKPNotification;
+use PKP\security\Validation;
 use PKP\submission\reviewAssignment\ReviewAssignment;
 use PKP\submission\reviewAssignment\ReviewAssignmentDAO;
 use Symfony\Component\Mailer\Exception\TransportException;
@@ -153,18 +154,20 @@ class ReviewReminderForm extends Form
         try {
             Mail::send($mailable);
 
-            SubmissionLog::logEvent(
-                $request,
-                $submission,
-                SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND,
-                'submission.event.reviewer.reviewerReminded',
-                [
-                    'recipientId' => $reviewer->getId(),
-                    'recipientName' => $reviewer->getFullName(),
-                    'senderId' => $user->getId(),
-                    'senderName' => $user->getFullName(),
-                ]
-            );
+            $eventLog = Repo::eventLog()->newDataObject([
+                'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+                'assocId' => $submission->getId(),
+                'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND,
+                'userId' => Validation::loggedInAs() ?? $user->getId(),
+                'message' => 'submission.event.reviewer.reviewerReminded',
+                'isTranslate' => 0,
+                'dateLogged' => Core::getCurrentDate(),
+                'recipientId' => $reviewer->getId(),
+                'recipientName' => $reviewer->getFullName(),
+                'senderId' => $user->getId(),
+                'senderName' => $user->getFullName(),
+            ]);
+            Repo::eventLog()->add($eventLog);
 
             $reviewAssignment->setDateReminded(Core::getCurrentDate());
             $reviewAssignment->stampModified();

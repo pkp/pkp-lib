@@ -18,13 +18,12 @@ namespace PKP\task;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\log\SubmissionEventLogEntry;
 use Illuminate\Support\Facades\Mail;
 use PKP\context\Context;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
-use PKP\log\SubmissionLog;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\mail\mailables\ReviewRemindAuto;
 use PKP\mail\mailables\ReviewResponseRemindAuto;
 use PKP\scheduledTask\ScheduledTask;
@@ -97,16 +96,18 @@ class ReviewReminder extends ScheduledTask
         $reviewAssignment->setReminderWasAutomatic(1);
         $reviewAssignmentDao->updateObject($reviewAssignment);
 
-        SubmissionLog::logEvent(
-            $request,
-            $submission,
-            SubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND_AUTO,
-            'submission.event.reviewer.reviewerRemindedAuto',
-            [
-                'recipientId' => $reviewer->getId(),
-                'recipientName' => $reviewer->getFullName(),
-            ]
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_REVIEW_REMIND_AUTO,
+            'userId' => null,
+            'message' => 'submission.event.reviewer.reviewerRemindedAuto',
+            'isTranslated' => 0,
+            'dateLogged' => Core::getCurrentDate(),
+            'recipientId' => $reviewer->getId(),
+            'recipientName' => $reviewer->getFullName(),
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 
     /**

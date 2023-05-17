@@ -46,6 +46,7 @@ class PKPSchemaService
     public const SCHEMA_SUBMISSION_FILE = 'submissionFile';
     public const SCHEMA_USER = 'user';
     public const SCHEMA_USER_GROUP = 'userGroup';
+	public const SCHEMA_EVENT_LOG = 'eventLog';
 
     /** @var array cache of schemas that have been loaded */
     private $_schemas = [];

@@ -1,0 +1,245 @@
+{
+	"title": "Event Log",
+	"description": "Logged action taken regarding the submission.",
+	"required": [
+		"assocType",
+		"assocId",
+		"dateLogged"
+	],
+	"properties": {
+		"assocId": {
+			"type": "integer",
+			"description": "The submission or submission file ID.",
+			"apiSummary": true
+		},
+		"assocType": {
+			"type": "integer",
+			"description": "The assoc object. This should always be `ASSOC_TYPE_SUBMISSION` or `ASSOC_TYPE_SUBMISSION_FILE`.",
+			"apiSummary": true
+		},
+		"copyrightNotice": {
+			"type": "string",
+			"description": "The context derived copyright notice confirmed for the submission",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"dateLogged": {
+			"type": "string",
+			"description": "The date this event was recorded.",
+			"apiSummary": true,
+			"writeDisabledInApi": true,
+			"validation": [
+				"date_format:Y-m-d H:i:s"
+			]
+		},
+		"decision": {
+			"type": "integer",
+			"description": "The decision type identifier. One of the Decision::* constants.",
+			"validation": [
+				"nullable",
+				"min:1",
+				"max:32"
+			]
+		},
+		"editorId": {
+			"type": "integer",
+			"description": "The user ID of the editor associated with the event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+
+		},
+		"editorName": {
+			"type": "string",
+			"description": "The full name of the editor associated with the event, e.g., who made a decision or recommendation.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"eventType": {
+			"type": "integer",
+			"description": "The type of the event. One of the `SUBMISSION_LOG_` constants.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"fileId": {
+			"type": "integer",
+			"description": "The ID of the file associated with the submission file",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"filename": {
+			"type": "string",
+			"description": "The name of the file associated with the submission file",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"fileStage": {
+			"type": "integer",
+			"description": "One of the `SubmissionFile::SUBMISSION_FILE_` constants",
+			"validation": [
+				"nullable",
+				"in:2,3,4,5,6,7,8,9,10,11,13,15,17,18,19,20"
+			]
+		},
+		"id": {
+			"type": "integer",
+			"description": "The id of the event log.",
+			"readOnly": true,
+			"apiSummary": true
+		},
+		"isTranslated": {
+			"type": "boolean",
+			"description": "Whether the message is translated.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"message": {
+			"type": "string",
+			"description": "Custom log message, either a locale key or literal string.",
+			"apiSummary": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"recipientCount": {
+			"type": "integer",
+			"description": "The number of users indicated as recipients of an email.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"recipientId": {
+			"type": "integer",
+			"description": "The user ID of the email recipient.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"recipientName": {
+			"type": "string",
+			"description": "The full name of the email recipient.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"reviewAssignmentId": {
+			"type": "integer",
+			"description": "The ID of associated review assignment.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"reviewDueDate": {
+			"type": "string",
+			"description": "Date when the reviewer should accept or decline the assignment. Uses context's date and time format.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"reviewerName": {
+			"type": "string",
+			"description": "The full name of the reviewer associated with the event.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"round": {
+			"type": "integer",
+			"description": "The number of the review round.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"senderId": {
+			"type": "integer",
+			"description": "The user ID of the email sender.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"senderName": {
+			"type": "string",
+			"description": "The full name of the email sender.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"stageId": {
+			"type": "integer",
+			"description": "The workflow stage ID associated submission is in. One of the `WORKFLOW_STAGE_ID_` constants",
+			"validation": [
+				"nullable",
+				"in:1,2,3,4,5"
+			]
+		},
+		"sourceSubmissionFileId": {
+			"type": "integer",
+			"description": "The ID of the source file from which the current submission file was promoted to another stage",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"subject": {
+			"type": "string",
+			"description": "The subject of the sent email.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"submissionId": {
+			"type": "integer",
+			"description": "The ID of the submission associates with the logged event.",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"userFullName": {
+			"type": "string",
+			"description": "The full name of the user/author associated with the event, e.g., confirming the copyright during submission.",
+			"validation": [
+				"nullable"
+			]
+		},
+		"userGroupName": {
+			"type": "string",
+			"description": "The name of the role the user is in.",
+			"multilingual": true,
+			"validation": [
+				"nullable"
+			]
+		},
+		"userId": {
+			"type": "integer",
+			"description": "The ID of the user who triggered the event",
+			"validation": [
+				"nullable",
+				"min:1"
+			]
+		},
+		"username": {
+			"type": "string",
+			"description": "The username of the user/author associated with the event.",
+			"validation": [
+				"nullable"
+			]
+		}
+	}
+}

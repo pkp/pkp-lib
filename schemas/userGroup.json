@@ -4,13 +4,13 @@
 	"properties": {
 		"abbrev": {
 			"type": "string",
-			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
+			"description": "The short name of the user group.",
 			"apiSummary": true,
 			"multilingual": true
 		},
 		"name": {
 			"type": "string",
-			"description": "An optional field for contributors to specify how they prefer to be identified in this publication.",
+			"description": "The name of the user group.",
 			"apiSummary": true,
 			"multilingual": true
 		},

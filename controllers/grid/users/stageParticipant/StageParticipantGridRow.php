@@ -110,7 +110,7 @@ class StageParticipantGridRow extends GridRow
 
             $user = $request->getUser();
             if (
-                !Validation::isLoggedInAs() &&
+                !Validation::loggedInAs() &&
                 $user->getId() != $userId &&
                 Validation::getAdministrationLevel($userId, $user->getId()) === Validation::ADMINISTRATION_FULL
             ) {

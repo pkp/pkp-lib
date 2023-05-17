@@ -25,7 +25,9 @@ use APP\notification\NotificationManager;
 use APP\template\TemplateManager;
 use PKP\controllers\wizard\fileUpload\form\SubmissionFilesMetadataForm;
 use PKP\core\JSONMessage;
+use PKP\core\PKPApplication;
 use PKP\db\DAORegistry;
+use PKP\log\event\EventLogEntry;
 use PKP\notification\NotificationDAO;
 use PKP\notification\PKPNotification;
 use PKP\observers\events\MetadataChanged;
@@ -92,50 +94,70 @@ abstract class PKPManageFileApiHandler extends Handler
         return \PKP\db\DAO::getDataChangedEvent();
     }
 
-	/**
-	 * Restore original file when cancelling the upload wizard
-	 */
-	public function cancelFileUpload(array $args, Request $request): JSONMessage
-	{
-		if (!$request->checkCSRF()) {
-			return new JSONMessage(false);
-		}
+    /**
+     * Restore original file when cancelling the upload wizard
+     */
+    public function cancelFileUpload(array $args, Request $request): JSONMessage
+    {
+        if (!$request->checkCSRF()) {
+            return new JSONMessage(false);
+        }
 
-		$submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
-		$originalFile = $request->getUserVar('originalFile') ? (array) $request->getUserVar('originalFile') : null;
-		$revisedFileId = $request->getUserVar('fileId') ? (int) $request->getUserVar('fileId') : null;
+        $submissionFile = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_SUBMISSION_FILE);
+        $originalFile = $request->getUserVar('originalFile') ? (array)$request->getUserVar('originalFile') : null;
+        $revisedFileId = $request->getUserVar('fileId') ? (int)$request->getUserVar('fileId') : null;
 
-		// Get revisions and check file IDs
-		$revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
-		$revisionIds = [];
-		foreach ($revisions as $revision) {
-			$revisionIds[] = $revision->fileId;
-		}
+        // Get revisions and check file IDs
+        $revisions = Repo::submissionFile()->getRevisions($submissionFile->getId());
+        $revisionIds = [];
+        foreach ($revisions as $revision) {
+            $revisionIds[] = $revision->fileId;
+        }
 
-		if (!$revisedFileId && !in_array($revisedFileId, $revisionIds)) {
-			return new JSONMessage(false);
-		}
+        if (!$revisedFileId || !in_array($revisedFileId, $revisionIds)) {
+            return new JSONMessage(false);
+        }
 
-		if (!isset($originalFile['fileId']) && !in_array($originalFile['fileId'], $revisionIds)) {
-			return new JSONMessage(false);
-		}
+        if (!isset($originalFile['fileId']) || !in_array($originalFile['fileId'], $revisionIds)) {
+            return new JSONMessage(false);
+        }
 
-		// Restore original submission file
-		Repo::submissionFile()->edit(
-			$submissionFile,
-			[
-				'fileId' => $originalFile['fileId'],
-				'name' => $originalFile['name'],
-				'uploaderUserId' => $originalFile['uploaderUserId'],
-			]
-		);
+        $originalFileId = $originalFile['fileId'];
 
-		// Remove uploaded file
-		Services::get('file')->delete($revisedFileId);
+        // Get the file name and uploader user ID
+        $originalUserId = $originalFile['uploaderUserId'] ? (int)$originalFile['uploaderUserId'] : null;
+        $originalFileName = $originalFile['name'] ? (array)$originalFile['name'] : null;
+        if (!$originalUserId || !$originalFileName) {
+            return new JSONMessage(false);
+        }
 
-		$this->setupTemplate($request);
-		return \PKP\db\DAO::getDataChangedEvent();
-	}
+        $originalUser = Repo::user()->get($originalUserId);
+        if (!$originalUser) {
+            return new JSONMessage(false);
+        }
+
+        $originalUsername = $originalUser->getUsername();
+        $matchedLogEntry = $this->findMatchedLogEntry($submissionFile, $originalFileId, $originalUsername, $originalFileName);
+        if (!$matchedLogEntry) {
+            return new JSONMessage(false);
+        }
+
+        // Restore original submission file
+        Repo::submissionFile()->edit(
+            $submissionFile,
+            [
+                'fileId' => $matchedLogEntry->getData('fileId'),
+                'name' => $matchedLogEntry->getData('filename'),
+                'uploaderUserId' => Repo::user()->getByUsername($matchedLogEntry->getData('username'))->getId(),
+            ]
+        );
+
+        // Remove uploaded file
+        Services::get('file')->delete($revisedFileId);
+
+        $this->setupTemplate($request);
+        return \PKP\db\DAO::getDataChangedEvent();
+    }
 
     /**
      * Edit submission file metadata modal.
@@ -243,5 +265,44 @@ abstract class PKPManageFileApiHandler extends Handler
     protected function getUpdateNotifications()
     {
         return [PKPNotification::NOTIFICATION_TYPE_PENDING_EXTERNAL_REVISIONS];
+    }
+
+    /**
+     * Compare user supplied data when cancelling file upload with saved in the event log;
+     * assuming we found the right entry if they match
+     */
+    protected function findMatchedLogEntry(
+        SubmissionFile $submissionFile,
+        int            $originalFileId,
+        string         $originalUsername,
+        array          $originalFileName
+    ): ?EventLogEntry
+    {
+        $logEntries = Repo::eventLog()->getCollector()
+            ->filterByAssocType(PKPApplication::ASSOC_TYPE_SUBMISSION_FILE)
+            ->filterByAssocId([$submissionFile->getId()])
+            ->getMany();
+
+        $match = null;
+        foreach ($logEntries as $logEntry) {
+
+            $loggedUsername = $logEntry->getData('username');
+            $loggedFileName = $logEntry->getData('filename');
+            $loggedFileId = $logEntry->getData('fileId');
+            if (!$loggedUsername || !$loggedFileName || !$loggedFileId) {
+                continue;
+            }
+
+            if (
+                $loggedUsername === $originalUsername &&
+                $loggedFileName == $originalFileName &&
+                $loggedFileId === $originalFileId
+            ) {
+                $match = $logEntry;
+                break;
+            }
+        }
+
+        return $match;
     }
 }

@@ -16,10 +16,13 @@
 namespace PKP\observers\listeners;
 
 use APP\core\Application;
-use APP\log\SubmissionEventLogEntry;
+use APP\facades\Repo;
 use Illuminate\Events\Dispatcher;
-use PKP\log\SubmissionLog;
+use PKP\core\Core;
+use PKP\core\PKPApplication;
+use PKP\log\event\PKPSubmissionEventLogEntry;
 use PKP\observers\events\SubmissionSubmitted;
+use PKP\security\Validation;
 
 class LogSubmissionSubmitted
 {
@@ -33,11 +36,15 @@ class LogSubmissionSubmitted
 
     public function handle(SubmissionSubmitted $event)
     {
-        SubmissionLog::logEvent(
-            Application::get()->getRequest(),
-            $event->submission,
-            SubmissionEventLogEntry::SUBMISSION_LOG_SUBMISSION_SUBMIT,
-            'submission.event.submissionSubmitted'
-        );
+        $eventLog = Repo::eventLog()->newDataObject([
+            'assocType' => PKPApplication::ASSOC_TYPE_SUBMISSION,
+            'assocId' => $event->submission->getId(),
+            'eventType' => PKPSubmissionEventLogEntry::SUBMISSION_LOG_SUBMISSION_SUBMIT,
+            'userId' => Validation::loggedInAs() ?? Application::get()->getRequest()->getUser()?->getId(),
+            'message' => 'submission.event.submissionSubmitted',
+            'isTranslated' => 0,
+            'dateLogged' => Core::getCurrentDate(),
+        ]);
+        Repo::eventLog()->add($eventLog);
     }
 }

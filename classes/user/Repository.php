@@ -320,8 +320,7 @@ class Repository
 
         $submissionEmailLogDao = DAORegistry::getDAO('SubmissionEmailLogDAO'); /** @var SubmissionEmailLogDAO $submissionEmailLogDao */
         $submissionEmailLogDao->changeUser($oldUserId, $newUserId);
-        $submissionEventLogDao = DAORegistry::getDAO('SubmissionEventLogDAO'); /** @var SubmissionEventLogDAO $submissionEventLogDao */
-        $submissionEventLogDao->changeUser($oldUserId, $newUserId);
+        Repo::eventLog()->dao->changeUser($oldUserId, $newUserId);
 
         $submissionCommentDao = DAORegistry::getDAO('SubmissionCommentDAO'); /** @var SubmissionCommentDAO $submissionCommentDao */
         $submissionComments = $submissionCommentDao->getByUserId($oldUserId);

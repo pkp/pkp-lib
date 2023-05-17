@@ -173,7 +173,7 @@ class UserGridRow extends GridRow
 
                 $canAdminister = Validation::getAdministrationLevel($this->getId(), $request->getUser()->getId()) === Validation::ADMINISTRATION_FULL;
                 if (
-                    !Validation::isLoggedInAs() &&
+                    !Validation::loggedInAs() &&
                     $request->getUser()->getId() != $this->getId() &&
                     $canAdminister
                 ) {

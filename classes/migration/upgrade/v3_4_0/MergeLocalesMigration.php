@@ -324,6 +324,14 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
             if ($localeTransformation instanceof Collection) {
                 $defaultLocale = $affectedLocales->get($localeCode)->first();
 
+                $excludedLocales = $affectedLocales->get($localeCode)->reject(function ($value) use ($defaultLocale) {
+                    return $value === $defaultLocale;
+                });
+
+                if ($excludedLocales->contains($localeValue)) {
+                    return null;
+                }
+
                 // Check for cases like code_XX@latin
                 $extension = '';
                 if (strpos($localeValue, '@') !== false) {
@@ -386,10 +394,24 @@ abstract class MergeLocalesMigration extends \PKP\migration\Migration
         ]);
     }
 
+    /**
+     * Get affected Locales for Migration
+     * The collection has 2 "cases"
+     * 
+     * 1. 'localeCode' => collect(['defaultLocale', 'excludedLocale1', 'excludedLocale2', ...])
+     *      All locales named 'localeCode_xxx' is changed to 'localeCode', if the 'localeCode_xxx' is not one
+     *      excluded locales. The first collection locale 'defaultLocale' serves as the priority locale in case 
+     *      there are more than one translations for the same locale key.
+     *      The resulting installation will merge all 'localeCode_xxx' except from the excuded ones 
+     *      will be merged into 'localeCode'
+     * 2. 'locale1' => 'locale2'
+     *      The locale named 'locale1' will be migrated into 'locale2'. 
+     *      The resulting installation will maintain only the 'locale2' locale
+     */
     public static function getAffectedLocales(): Collection
     {
         return collect([
-            'es' => collect(['es_ES']),
+            'es' => collect(['es_ES', 'es_AR']),
             'en' => collect(['en_US']),
             'sr' => collect(['sr_RS']),
             'el' => collect(['el_GR']),

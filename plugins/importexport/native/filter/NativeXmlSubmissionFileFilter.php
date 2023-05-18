@@ -199,7 +199,7 @@ class NativeXmlSubmissionFileFilter extends NativeImportFilter
                         $fileId = $deployment->getFileDBId($childNode->getAttribute('id')) ?: $this->handleRevisionElement($childNode);
                         // Failed to insert the file (error messages are set at the <file> handler)
                         if (!$fileId) {
-                            continue;
+                            break;
                         }
 
                         // If this is the current file revision, set the submission file id

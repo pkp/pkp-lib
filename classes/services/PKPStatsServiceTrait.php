@@ -32,7 +32,7 @@ trait PKPStatsServiceTrait
      */
     public function getTimeline(string $timelineInterval, array $args = []): array
     {
-        $defaultArgs = array_merge($this->getDefaultArgs());
+        $defaultArgs = $this->getDefaultArgs();
         $args = array_merge($defaultArgs, $args);
         $timelineQB = $this->getQueryBuilder($args);
 

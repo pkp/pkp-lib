@@ -20,6 +20,8 @@ use APP\statistics\StatisticsHelper;
 use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\PostgresConnection;
+use Illuminate\Database\Query\JoinClause;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use PKP\db\DAORegistry;
@@ -120,6 +122,35 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // pkp/pkp-lib#8183 check to see if all contexts' contact name/email are set
             $this->checkContactSetting();
 
+            // Clean orphaned publications entries by current_publication_id
+            $rows = DB::table('submissions AS s')
+                ->leftJoin('publications AS p', 'p.publication_id', '=', 's.current_publication_id')
+                ->join(
+                    'publications AS last',
+                    fn (JoinClause $q) => $q->where(
+                        fn ($q) => $q->from('publications AS p2')
+                            ->whereColumn('p2.submission_id', '=', 's.submission_id')
+                            ->orderByDesc('p2.publication_id')
+                            ->limit(1)
+                            ->select('p2.publication_id'),
+                        '=',
+                        DB::raw('last.publication_id')
+                    )
+                )
+                ->whereNull('p.publication_id')
+                ->pluck('s.submission_id', 'last.publication_id');
+            foreach ($rows as $submissionId => $publicationId) {
+                DB::table('submissions')->where('submission_id', '=', $submissionId)->update(['current_publication_id' => $publicationId]);
+            }
+            DB::table('submissions s')->leftJoin('publications p', 'p.publication_id', '=', 's.current_publication_id')->whereNull('s.current_publication_id')->orWhereNull('p.publication_id')->delete();
+
+            // Clean orphan access keys by user ID
+            $orphanedIds = DB::table('access_keys AS n')->leftJoin('users AS u', 'n.user_id', '=', 'u.user_id')->whereNull('u.user_id')->distinct()->pluck('n.user_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing orphaned access keys for user ID {$userId}");
+                DB::table('access_keys')->where('user_id', '=', $userId)->delete();
+            }
+
             // pkp/pkp-lib#6903 Prepare to add foreign key relationships
             DB::table('notifications')->where('user_id', '=', 0)->update(['user_id' => null]);
             // Clean orphan notifications by user ID
@@ -166,6 +197,14 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 $this->_installer->log("Removing orphaned category ID {$categoryId} with no matching context ID.");
                 DB::table('categories')->where('category_id', '=', $categoryId)->delete();
             }
+
+            // Clean orphaned category data
+            $orphanedIds = DB::table('categories AS c')->leftJoin('categories AS pc', 'pc.category_id', '=', 'c.parent_id')->whereNull('pc.category_id')->pluck('c.category_id');
+            foreach ($orphanedIds as $categoryId) {
+                $this->_installer->log("Removing orphaned category ID {$categoryId} with no matching parent category ID.");
+                DB::table('categories')->where('category_id', '=', $categoryId)->delete();
+            }
+
             // Clean orphaned category_setting entries
             $orphanedIds = DB::table('category_settings AS cs')->leftJoin('categories AS c', 'cs.category_id', '=', 'c.category_id')->whereNull('c.category_id')->distinct()->pluck('cs.category_id');
             foreach ($orphanedIds as $categoryId) {
@@ -366,6 +405,42 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $navigationMenuItemAssignmentId) {
                 DB::table('navigation_menu_item_assignment_settings')->where('navigation_menu_item_assignment_id', '=', $navigationMenuItemAssignmentId)->delete();
             }
+            // Clean orphaned completed_payments by context_id
+            $orphanedIds = DB::table('completed_payments AS n')->leftJoin($this->getContextTable() . ' AS c', 'n.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('n.context_id');
+            foreach ($orphanedIds as $contextId) {
+                $this->_installer->log("Removing completed payments from orphan context ID {$contextId}");
+                DB::table('completed_payments')->where('context_id', '=', $contextId)->delete();
+            }
+            // Clean orphaned completed_payments by user_id
+            $orphanedIds = DB::table('completed_payments AS n')->leftJoin('users AS u', 'n.user_id', '=', 'u.user_id')->whereNotNull('n.user_id')->whereNull('u.user_id')->distinct()->pluck('n.user_id');
+            foreach ($orphanedIds as $userId) {
+                $this->_installer->log("Removing completed payments from orphan user ID {$userId}");
+                DB::table('completed_payments')->where('user_id', '=', $userId)->delete();
+            }
+
+            if (Schema::hasTable('review_assignments')) {
+                // Clean orphaned review_assignments entries by review_form_id
+                $orphanedIds = DB::table('review_assignments AS r')->leftJoin('review_forms AS rf', 'rf.review_form_id', '=', 'r.review_form_id')->whereNotNull('r.review_form_id')->whereNull('rf.review_form_id')->distinct()->pluck('r.review_form_id');
+                foreach ($orphanedIds as $reviewFormId) {
+                    DB::table('review_assignments')->where('review_form_id', '=', $reviewFormId)->delete();
+                }
+                // Clean orphaned review_assignments entries by review_round_id
+                $orphanedIds = DB::table('review_assignments AS r')->leftJoin('review_rounds AS rr', 'rr.review_round_id', '=', 'r.review_round_id')->whereNull('rr.review_round_id')->distinct()->pluck('r.review_round_id');
+                foreach ($orphanedIds as $reviewRoundId) {
+                    DB::table('review_assignments')->where('review_round_id', '=', $reviewRoundId)->delete();
+                }
+                // Clean orphaned review_assignments entries by reviewer_id
+                $orphanedIds = DB::table('review_assignments AS r')->leftJoin('users AS u', 'u.user_id', '=', 'r.reviewer_id')->whereNull('u.user_id')->distinct()->pluck('r.reviewer_id');
+                foreach ($orphanedIds as $reviewerId) {
+                    DB::table('review_assignments')->where('reviewer_id', '=', $reviewerId)->delete();
+                }
+                // Clean orphaned review_assignments entries by submission_id
+                $orphanedIds = DB::table('review_assignments AS r')->leftJoin('submissions AS s', 's.submission_id', '=', 'r.submission_id')->whereNull('s.submission_id')->distinct()->pluck('r.submission_id');
+                foreach ($orphanedIds as $submissionId) {
+                    DB::table('review_assignments')->where('submission_id', '=', $submissionId)->delete();
+                }
+            }
+
             if (Schema::hasTable('review_form_settings')) {
                 // Clean orphaned review_form_settings entries
                 $orphanedIds = DB::table('review_form_settings AS rfs')->leftJoin('review_forms AS rf', 'rf.review_form_id', '=', 'rfs.review_form_id')->whereNull('rf.review_form_id')->distinct()->pluck('rfs.review_form_id');
@@ -425,6 +500,14 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $publicationId) {
                 DB::table('publications')->where('publication_id', '=', $publicationId)->delete();
             }
+            // Clean orphaned publications entries by primary_contact_id
+            if(DB::connection() instanceof MySqlConnection) {
+                DB::statement('UPDATE publications p LEFT JOIN users u ON (p.primary_contact_id = u.user_id) SET p.primary_contact_id = NULL WHERE u.user_id IS NULL');
+            } elseif (DB::connection() instanceof PostgresConnection) {
+                DB::statement('UPDATE publications SET primary_contact_id = NULL WHERE publication_id IN (SELECT publication_id FROM publications p LEFT JOIN users u ON (p.primary_contact_id = u.user_id) WHERE u.user_id IS NULL AND p.primary_contact_id IS NOT NULL)');
+            } else {
+                throw new Exception('Unknown database connection type!');
+            }
             // Clean orphaned publication_settings entries
             $orphanedIds = DB::table('publication_settings AS ps')->leftJoin('publications AS p', 'ps.publication_id', '=', 'p.publication_id')->whereNull('p.publication_id')->distinct()->pluck('ps.publication_id');
             foreach ($orphanedIds as $publicationId) {
@@ -439,7 +522,7 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             // Flag orphaned authors entries by user_group_id
             $result = DB::table('authors AS a')->leftJoin('user_groups AS ug', 'ug.user_group_id', '=', 'a.user_group_id')->leftJoin('publications AS p', 'p.publication_id', '=', 'a.publication_id')->whereNull('ug.user_group_id')->select('a.author_id AS author_id', 'a.publication_id AS publication_id', 'a.user_group_id AS user_group_id', 'p.submission_id AS submission_id')->get();
             foreach ($result as $row) {
-                $this->_installer->log("Found an orphaned authors entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
+                $this->_installer->log("Found an orphaned author entry with author_id {$row->author_id} for publication_id {$row->publication_id} with submission_id {$row->submission_id} and user_group_id {$row->user_group_id}.");
             }
             if ($result->count()) {
                 throw new Exception('There are author records without matching user_group entries. Please correct these before upgrading.');
@@ -461,6 +544,12 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $submissionId) {
                 $this->_installer->log("Removing orphaned edit_decisions entries for missing submission_id {$submissionId}");
                 DB::table('edit_decisions')->where('submission_id', '=', $submissionId)->delete();
+            }
+            // Clean orphaned edit_decisions entries by review_round_id
+            $orphanedIds = DB::table('edit_decisions AS ed')->leftJoin('review_rounds AS r', 'r.review_round_id', '=', 'ed.review_round_id')->whereNull('r.review_round_id')->distinct()->pluck('ed.review_round_id');
+            foreach ($orphanedIds as $reviewRoundId) {
+                $this->_installer->log("Removing orphaned edit_decisions entries for missing review_round_id {$reviewRoundId}");
+                DB::table('edit_decisions')->where('review_round_id', '=', $reviewRoundId)->delete();
             }
             // Clean orphaned submission_comments entries by submission_id
             $orphanedIds = DB::table('submission_comments AS sc')->leftJoin('submissions AS s', 's.submission_id', '=', 'sc.submission_id')->whereNull('s.submission_id')->distinct()->pluck('sc.submission_id');
@@ -512,6 +601,16 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
             foreach ($orphanedIds as $submissionId) {
                 DB::table('review_round_files')->where('submission_id', '=', $submissionId)->delete();
             }
+            // Clean orphaned review_round_files entries by review_round_id
+            $orphanedIds = DB::table('review_round_files AS rrf')->leftJoin('review_rounds AS s', 's.review_round_id', '=', 'rrf.review_round_id')->whereNull('s.review_round_id')->distinct()->pluck('rrf.review_round_id');
+            foreach ($orphanedIds as $reviewRoundId) {
+                DB::table('review_round_files')->where('review_round_id', '=', $reviewRoundId)->delete();
+            }
+            // Clean orphaned review_round_files entries by submission_file_id
+            $orphanedIds = DB::table('review_round_files AS rrf')->leftJoin('submission_files AS s', 's.submission_file_id', '=', 'rrf.submission_file_id')->whereNull('s.submission_file_id')->distinct()->pluck('rrf.submission_file_id');
+            foreach ($orphanedIds as $submissionFileId) {
+                DB::table('review_round_files')->where('submission_file_id', '=', $submissionFileId)->delete();
+            }
 
             // Clean orphaned user_user_groups entries by user_id
             $orphanedIds = DB::table('user_user_groups AS uug')->leftJoin('users AS u', 'u.user_id', '=', 'uug.user_id')->whereNull('u.user_id')->distinct()->pluck('uug.user_id');
@@ -519,10 +618,28 @@ abstract class PreflightCheckMigration extends \PKP\migration\Migration
                 DB::table('user_user_groups')->where('user_id', '=', $userId)->delete();
             }
 
+            // Clean orphaned user_user_groups entries by user_group_id
+            $orphanedIds = DB::table('user_user_groups AS uug')->leftJoin('user_groups AS u', 'u.user_group_id', '=', 'uug.user_group_id')->whereNull('u.user_group_id')->distinct()->pluck('uug.user_group_id');
+            foreach ($orphanedIds as $userGroupId) {
+                DB::table('user_user_groups')->where('user_group_id', '=', $userGroupId)->delete();
+            }
+
+            // Clean orphaned user_group_settings entries by user_group_id
+            $orphanedIds = DB::table('user_group_settings AS ugs')->leftJoin('user_groups AS u', 'u.user_group_id', '=', 'ugs.user_group_id')->whereNull('u.user_group_id')->distinct()->pluck('ugs.user_group_id');
+            foreach ($orphanedIds as $userGroupId) {
+                DB::table('user_group_settings')->where('user_group_id', '=', $userGroupId)->delete();
+            }
+
             // Clean orphaned user_group_stage entries by context_id
             $orphanedIds = DB::table('user_group_stage AS ugs')->leftJoin($this->getContextTable() . ' AS c', 'ugs.context_id', '=', 'c.' . $this->getContextKeyField())->whereNull('c.' . $this->getContextKeyField())->distinct()->pluck('ugs.context_id');
             foreach ($orphanedIds as $contextId) {
                 DB::table('subeditor_submission_group')->where('context_id', '=', $contextId)->delete();
+            }
+
+            // Clean orphaned user_group_stage entries by user_group_id
+            $orphanedIds = DB::table('user_group_stage AS ugs')->leftJoin('user_groups AS c', 'ugs.user_group_id', '=', 'c.user_group_id')->whereNull('c.user_group_id')->distinct()->pluck('ugs.user_group_id');
+            foreach ($orphanedIds as $userGroupId) {
+                DB::table('user_group_stage')->where('user_group_id', '=', $userGroupId)->delete();
             }
 
             // Clean orphaned stage_assignments entries by user_id

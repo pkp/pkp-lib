@@ -458,10 +458,10 @@ class PKPString
             $sanitizer = new HtmlSanitizer($config);
         }
 
-        return $sanitizer->sanitize(
-            strip_tags(
-                $input, 
-                $allowedTagToAttributeMap->keys()->toArray()
+        // need to apply html_entity_decode as sanitizer apply htmlentities internally for special chars
+        return html_entity_decode(
+            $sanitizer->sanitize(
+                strip_tags($input, $allowedTagToAttributeMap->keys()->toArray())
             )
         );
     }

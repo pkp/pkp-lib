@@ -253,6 +253,7 @@ class PKPTemplateManager extends Smarty {
 		}
 
 		// Register custom functions
+		$this->registerPlugin('modifier', 'intval', 'intval');
 		$this->registerPlugin('modifier', 'json_encode', 'json_encode');
 		$this->registerPlugin('modifier', 'uniqid', 'uniqid');
 		$this->registerPlugin('modifier', 'substr', 'substr');

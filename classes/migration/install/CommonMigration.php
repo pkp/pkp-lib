@@ -268,7 +268,9 @@ class CommonMigration extends \PKP\migration\Migration
             $table->comment('More data about plugins, including localized properties. This table is frequently used to store plugin-specific configuration.');
             $table->bigIncrements('plugin_setting_id');
             $table->string('plugin_name', 80);
-            $table->bigInteger('context_id');
+            $table->bigInteger('context_id')->nullable();
+            $table->foreign('context_id', 'plugin_settings_context_id')->references(Application::getContextDAO()->primaryKeyColumn)->on(Application::getContextDAO()->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'plugin_settings_context_id');
             $table->string('setting_name', 80);
             $table->mediumText('setting_value')->nullable();
             $table->string('setting_type', 6)->comment('(bool|int|float|string|object)');

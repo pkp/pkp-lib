@@ -997,16 +997,18 @@ abstract class ThemePlugin extends LazyLoadPlugin
     {
         $request = Application::get()->getRequest();
         $submission = Repo::submission()->get($submissionId);
-        $originalPublication = $submission->getOriginalPublication();
-        $earliestDatePublished = $originalPublication->getData('datePublished');
         $params = [
             'contextIds' => [$request->getContext()->getId()],
             'submissionIds' => [$submissionId],
             'assocTypes' => [Application::ASSOC_TYPE_SUBMISSION_FILE],
             'timelineInterval' => StatisticsHelper::STATISTICS_DIMENSION_MONTH,
-            'dateStart' => $earliestDatePublished
         ];
-        $statsService = Services::get('publicationStats');
+
+        if ($earliestDatePublished = $submission->getOriginalPublication()?->getData('datePublished')) {
+            $params['dateStart'] = $earliestDatePublished;
+        }
+
+        $statsService = Services::get('publicationStats'); /** @var \App\services\StatsPublicationService $statsService */
         $data = $statsService->getTimeline($params['timelineInterval'], $params);
         $cache->setEntireCache([$submissionId => $data]);
         return $data;

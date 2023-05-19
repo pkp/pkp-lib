@@ -26,6 +26,7 @@ class InstallEmailTemplates extends \PKP\migration\upgrade\v3_4_0\InstallEmailTe
             'SUBMISSION_NEEDS_EDITOR',
             'SUBMISSION_ACK_CAN_POST',
             'POSTED_NEW_VERSION_ACK',
+            'VERSION_CREATED',
         ];
     }
 

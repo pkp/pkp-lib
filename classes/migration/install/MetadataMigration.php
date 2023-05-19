@@ -14,6 +14,7 @@
 
 namespace PKP\migration\install;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -72,15 +73,23 @@ class MetadataMigration extends \PKP\migration\Migration
             $table->comment('Filters represent a transformation of a supported piece of data from one form to another, such as a PHP object into an XML document.');
             $table->bigInteger('filter_id')->autoIncrement();
 
-            $table->bigInteger('filter_group_id')->default(0);
+            $table->bigInteger('filter_group_id');
             $table->foreign('filter_group_id')->references('filter_group_id')->on('filter_groups')->onDelete('cascade');
             $table->index(['filter_group_id'], 'filters_filter_group_id');
 
-            $table->bigInteger('context_id')->default(0);
+            $contextDao = Application::getContextDAO();
+            $table->bigInteger('context_id')->nullable();
+            $table->foreign('context_id', 'filters_context_id')->references($contextDao->primaryKeyColumn)->on($contextDao->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'filters_context_id');
+
             $table->string('display_name', 255)->nullable();
             $table->string('class_name', 255)->nullable();
             $table->smallInteger('is_template')->default(0);
-            $table->bigInteger('parent_filter_id')->default(0);
+
+            $table->bigInteger('parent_filter_id')->nullable();
+            $table->foreign('parent_filter_id')->references('filter_id')->on('filters')->onDelete('cascade');
+            $table->index(['parent_filter_id'], 'filters_parent_filter_id');
+
             $table->bigInteger('seq')->default(0);
         });
 

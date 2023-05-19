@@ -14,6 +14,7 @@
 
 namespace PKP\migration\install;
 
+use APP\core\Application;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -28,7 +29,9 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         Schema::create('navigation_menus', function (Blueprint $table) {
             $table->comment('Navigation menus on the website are installed with the software as a default set, and can be customized.');
             $table->bigInteger('navigation_menu_id')->autoIncrement();
-            $table->bigInteger('context_id');
+            $table->bigInteger('context_id')->nullable();
+            $table->foreign('context_id', 'navigation_menus_context_id')->references(Application::getContextDAO()->primaryKeyColumn)->on(Application::getContextDAO()->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'navigation_menus_context_id');
             $table->string('area_name', 255)->default('')->nullable();
             $table->string('title', 255);
         });
@@ -37,7 +40,9 @@ class NavigationMenusMigration extends \PKP\migration\Migration
         Schema::create('navigation_menu_items', function (Blueprint $table) {
             $table->comment('Navigation menu items are single elements within a navigation menu.');
             $table->bigInteger('navigation_menu_item_id')->autoIncrement();
-            $table->bigInteger('context_id');
+            $table->bigInteger('context_id')->nullable();
+            $table->foreign('context_id', 'navigation_menu_items_context_id')->references(Application::getContextDAO()->primaryKeyColumn)->on(Application::getContextDAO()->tableName)->onDelete('cascade');
+            $table->index(['context_id'], 'navigation_menu_items_context_id');
             $table->string('path', 255)->default('')->nullable();
             $table->string('type', 255)->default('')->nullable();
         });
@@ -72,6 +77,8 @@ class NavigationMenusMigration extends \PKP\migration\Migration
             $table->index(['navigation_menu_item_id'], 'navigation_menu_item_assignments_navigation_menu_item_id');
 
             $table->bigInteger('parent_id')->nullable();
+            $table->foreign('parent_id', 'navigation_menu_item_assignments_parent_id')->references('navigation_menu_item_id')->on('navigation_menu_items')->onDelete('cascade');
+            $table->index(['parent_id'], 'navigation_menu_item_assignments_parent_id');
             $table->bigInteger('seq')->default(0)->nullable();
         });
 

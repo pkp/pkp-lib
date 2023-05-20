@@ -19,6 +19,7 @@
 namespace PKP\notification;
 
 use APP\notification\Notification;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Facades\DB;
 use PKP\core\Core;
 use PKP\core\PKPApplication;
@@ -61,8 +62,7 @@ class NotificationDAO extends \PKP\db\DAO
             ->where('user_id', '=', $userId)
             ->where('level', '=', $level)
             ->when($type !== null, fn ($query) => $query->where('type', '=', $type))
-            ->when($contextId === PKPApplication::CONTEXT_SITE, fn ($query) => $query->whereNull('context_id'))
-            ->when($contextId, fn ($query) => $query->where('context_id', '=', $contextId))
+            ->when($contextId !== null, fn ($query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
             ->orderBy('date_created', 'desc')
             ->get();
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -142,9 +142,9 @@ class NotificationDAO extends \PKP\db\DAO
                 $this->datetimeToDB(Core::getCurrentDate())
             ),
             [
-                $notification->getUserId() ? (int) $notification->getUserId() : null,
+                (int) $notification->getUserId() ?: null,
                 (int) $notification->getLevel(),
-                $notification->getContextId() ? (int) $notification->getContextId() : null,
+                (int) $notification->getContextId() ?: null,
                 (int) $notification->getType(),
                 (int) $notification->getAssocType(),
                 (int) $notification->getAssocId()
@@ -166,15 +166,11 @@ class NotificationDAO extends \PKP\db\DAO
     public function build(int $contextId, int $level, int $type, int $assocType, int $assocId, ?int $userId = null): Notification
     {
         DB::table('notifications')
-            ->when(
-                $contextId === PKPApplication::CONTEXT_SITE,
-                fn ($query) => $query->whereNull('context_id'),
-                fn ($query) => $query->where('context_id', '=', $contextId)
-            )
+            ->when(fn (Builder $query) => $query->where(DB::raw('COALESCE(context_id, 0)'), '=', (int) $contextId))
             ->where('level', '=', $level)
             ->where('assoc_type', '=', $assocType)
             ->where('assoc_id', '=', $assocId)
-            ->when($userId !== null, fn ($query, $userId) => $query->where('user_id', '=', $userId))
+            ->when($userId !== null, fn (Builder $query) => $query->where('user_id', '=', $userId))
             ->delete();
 
         $notification = $this->newDataObject();

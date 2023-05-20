@@ -126,7 +126,7 @@ class PersistableFilter extends Filter
     /**
      * Set the parent filter id
      *
-     * @param int $parentFilterId
+     * @param ?int $parentFilterId
      */
     public function setParentFilterId($parentFilterId)
     {
@@ -136,7 +136,7 @@ class PersistableFilter extends Filter
     /**
      * Get the parent filter id
      *
-     * @return int
+     * @return ?int
      */
     public function getParentFilterId()
     {

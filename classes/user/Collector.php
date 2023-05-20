@@ -455,7 +455,7 @@ class Collector implements CollectorInterface
                 )
                 ->when($this->excludeRoles !== null, fn ($query) => $query->whereNotIn('ug.role_id', $this->excludeRoles))
                 ->when($this->roleIds !== null, fn ($query) => $query->whereIn('ug.role_id', $this->roleIds))
-                ->when($this->contextIds !== null, fn ($query) => $query->whereIn('ug.context_id', $this->contextIds))
+                ->when($this->contextIds !== null, fn ($query) => $query->whereIn(DB::raw('COALESCE(ug.context_id, 0)'), $this->contextIds))
         );
         return $this;
     }

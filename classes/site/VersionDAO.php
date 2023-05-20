@@ -187,7 +187,7 @@ class VersionDAO extends \PKP\db\DAO
             LEFT JOIN plugin_settings ps
                 ON LOWER(v.product_class_name) = ps.plugin_name
                 AND ps.setting_name = \'enabled\'
-                ' . ($contextId !== null ? ' AND (context_id = ? OR v.sitewide = 1) ' : '') . '
+                ' . ($contextId !== null ? ' AND (COALESCE(context_id, 0) = ? OR v.sitewide = 1) ' : '') . '
             WHERE v.current = 1 AND (ps.setting_value = \'1\' OR v.lazy_load <> 1)',
             $contextId !== null ? [$contextId] : [],
             false

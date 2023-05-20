@@ -243,7 +243,7 @@ class Collector implements CollectorInterface
         }
 
         if (isset($this->contextIds)) {
-            $q->whereIn('ug.context_id', $this->contextIds);
+            $q->whereIn(DB::raw('COALESCE(ug.context_id, 0)'), $this->contextIds);
         }
 
         if (isset($this->roleIds)) {

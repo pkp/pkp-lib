@@ -60,7 +60,7 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Get the context ID
      *
-     * @return int
+     * @return ?int
      */
     public function getContextId()
     {
@@ -70,11 +70,11 @@ class UserGroup extends \PKP\core\DataObject
     /**
      * Set the context ID
      *
-     * @param int $contextId
+     * @param ?int $contextId
      */
     public function setContextId($contextId)
     {
-        $this->setData('contextId', $contextId);
+        $this->setData('contextId', (int) $contextId ?: null);
     }
 
     /**

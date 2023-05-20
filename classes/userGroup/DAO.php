@@ -153,7 +153,7 @@ class DAO extends EntityDAO
         return DB::table('user_groups', 'ug')
             ->join('user_user_groups AS uug', 'uug.user_group_id', '=', 'ug.user_group_id')
             ->join('users AS u', 'u.user_id', '=', 'uug.user_id')
-            ->when($contextId !== null, fn (Builder $query) => $query->where('ug.context_id', '=', $contextId))
+            ->when($contextId !== null, fn (Builder $query) => $query->where(DB::raw('COALESCE(ug.context_id, 0)'), '=', $contextId))
             ->where('u.disabled', '=', 0)
             ->groupBy('ug.user_group_id')
             ->select('ug.user_group_id')

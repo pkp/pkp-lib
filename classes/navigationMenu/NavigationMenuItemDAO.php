@@ -468,7 +468,6 @@ class NavigationMenuItemDAO extends \PKP\db\DAO
             $params
         );
 
-        $setting = [];
         foreach ($result as $row) {
             $returner[$row->locale] = $this->convertFromDB($row->setting_value, $row->setting_type);
         }

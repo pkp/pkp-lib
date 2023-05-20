@@ -60,11 +60,6 @@ class NavigationMenuItemHandler extends Handler
     {
         $path = array_shift($args);
         $context = $request->getContext();
-        $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE;
-        if ($context) {
-            $contextId = $context->getId();
-        }
-
         // Ensure that if we're previewing, the current user is a manager or admin.
         $roles = $this->getAuthorizedContextObject(Application::ASSOC_TYPE_USER_ROLES);
         if (count(array_intersect([Role::ROLE_ID_MANAGER, Role::ROLE_ID_SITE_ADMIN], $roles)) == 0) {

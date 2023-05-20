@@ -146,8 +146,6 @@ class UserDetailsForm extends UserForm
     public function initData()
     {
         $request = Application::get()->getRequest();
-        $context = $request->getContext();
-        $contextId = $context ? $context->getId() : \PKP\core\PKPApplication::CONTEXT_ID_NONE;
         $templateMgr = TemplateManager::getManager($request);
 
         $templateMgr->assign('site', $request->getSite());

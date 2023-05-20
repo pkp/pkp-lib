@@ -45,8 +45,10 @@ abstract class I8933_EventLogLocalized extends Migration
 
         // Events can be triggered without a user, e.g., in schedule tasks
         Schema::table('event_log', function (Blueprint $table) {
+            $table->dropForeign('event_log_user_id_foreign');
             $table->dropIndex('event_log_user_id');
             $table->bigInteger('user_id')->nullable()->change();
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             $table->index(['user_id'], 'event_log_user_id');
         });
 
@@ -161,8 +163,10 @@ abstract class I8933_EventLogLocalized extends Migration
      */
     protected function renameSettings()
     {
+        $eventTypes = $this->mapSettings()->keys()->toArray();
         DB::table('event_log')
-            ->whereIn('event_type', [$this->mapSettings()->keys()->all()])
+            ->whereIn('event_type', $eventTypes)
+            ->orderBy('date_logged')
             ->each(function (object $row) {
 
                 // resolve conflict between 'name' and 'originalFileName'

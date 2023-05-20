@@ -340,7 +340,7 @@ class FilterDAO extends \PKP\db\DAO
      */
     public function getObjectsByGroup(
         string $groupSymbolic,
-        int $contextId = \PKP\core\PKPApplication::CONTEXT_ID_NONE,
+        ?int $contextId = null,
         bool $getTemplates = false,
         bool $checkRuntimeEnvironment = true
     ): array {

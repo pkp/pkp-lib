@@ -113,10 +113,10 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
     {
         $result = $this->retrieve(
             'SELECT nmh.*
-				FROM navigation_menu_item_assignments as nmh
-				WHERE nmh.navigation_menu_id = ?
-				AND nmh.parent_id = ?
-                ORDER BY nmh.seq',
+            FROM navigation_menu_item_assignments as nmh
+            WHERE nmh.navigation_menu_id = ?
+            AND COALESCE(nmh.parent_id, 0) = ?
+            ORDER BY nmh.seq',
             [$menuId, $parentId]
         );
         return new DAOResultFactory($result, $this, '_fromRow');
@@ -154,11 +154,11 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
 				seq = ?
 			WHERE navigation_menu_item_assignment_id = ?',
             [
-                $navigationMenuItemAssignment->getMenuId(),
-                $navigationMenuItemAssignment->getMenuItemId(),
-                $navigationMenuItemAssignment->getParentId(),
-                $navigationMenuItemAssignment->getSequence(),
-                $navigationMenuItemAssignment->getId(),
+                (int) $navigationMenuItemAssignment->getMenuId(),
+                (int) $navigationMenuItemAssignment->getMenuItemId(),
+                (int) $navigationMenuItemAssignment->getParentId() ?: null,
+                (int) $navigationMenuItemAssignment->getSequence(),
+                (int) $navigationMenuItemAssignment->getId(),
             ]
         );
         $this->updateLocaleFields($navigationMenuItemAssignment);
@@ -179,7 +179,7 @@ class NavigationMenuItemAssignmentDAO extends \PKP\db\DAO
             [
                 $assignment->getMenuId(),
                 $assignment->getMenuItemId(),
-                $assignment->getParentId(),
+                (int) $assignment->getParentId() ?: null,
                 $assignment->getSequence(),
             ]
         );

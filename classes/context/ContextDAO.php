@@ -187,7 +187,7 @@ abstract class ContextDAO extends SchemaDAO
         $result = $this->retrieve('SELECT ' . $this->primaryKeyColumn . ' AS context_id FROM ' . $this->tableName . ' ORDER BY seq');
 
         foreach ($result as $key => $value) {
-            $this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE ' . $this->primaryKeyColumn . ' = ?', [$key + 1, $value->context_id]);
+            $this->update('UPDATE ' . $this->tableName . ' SET seq = ? WHERE COALESCE(' . $this->primaryKeyColumn . ', 0) = ?', [$key + 1, (int) $value->context_id]);
         }
     }
 }

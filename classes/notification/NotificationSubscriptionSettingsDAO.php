@@ -123,7 +123,7 @@ class NotificationSubscriptionSettingsDAO extends \PKP\db\DAO
                         fn (Builder $q) => $q->where('uug.date_end', '>', $currentDateTime)
                             ->orWhereNull('uug.date_end')
                     )
-                    ->whereIn('ug.context_id', $contextIds)
+                    ->whereIn(DB::raw('COALESCE(ug.context_id, 0)'), $contextIds)
                     ->when(!is_null($roleIds), fn (Builder $q) => $q->whereIn('ug.role_id', $roleIds))
             )->pluck('user_id');
     }

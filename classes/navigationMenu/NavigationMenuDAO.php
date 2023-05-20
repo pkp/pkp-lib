@@ -43,7 +43,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
         }
         $result = $this->retrieve(
             'SELECT * FROM navigation_menus WHERE navigation_menu_id = ?' .
-            ($contextId !== null ? ' AND context_id = ?' : ''),
+            ($contextId !== null ? ' AND COALESCE(context_id, 0) = ?' : ''),
             $params
         );
 
@@ -56,9 +56,9 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<NavigationMenu>
      */
-    public function getByContextId(int $contextId): DAOResultFactory
+    public function getByContextId(?int $contextId): DAOResultFactory
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ?', [$contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE COALESCE(context_id, 0) = ?', [(int) $contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
@@ -67,18 +67,18 @@ class NavigationMenuDAO extends \PKP\db\DAO
      *
      * @return DAOResultFactory<NavigationMenu>
      */
-    public function getByArea(int $contextId, string $areaName): DAOResultFactory
+    public function getByArea(?int $contextId, string $areaName): DAOResultFactory
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? and context_id = ?', [$areaName, $contextId]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE area_name = ? AND COALESCE(context_id, 0) = ?', [$areaName, (int) $contextId]);
         return new DAOResultFactory($result, $this, '_fromRow');
     }
 
     /**
      * Retrieve a navigation menu by title
      */
-    public function getByTitle(int $contextId, string $title): ?NavigationMenu
+    public function getByTitle(?int $contextId, string $title): ?NavigationMenu
     {
-        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE context_id = ? and title = ?', [(int) $contextId, $title]);
+        $result = $this->retrieve('SELECT * FROM navigation_menus WHERE COALESCE(context_id, 0) = ? AND title = ?', [(int) $contextId, $title]);
         $row = (array) $result->current();
         return $row ? $this->_fromRow($row) : null;
     }
@@ -88,7 +88,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
      */
     public function navigationMenuExistsByTitle(int $contextId, string $title): bool
     {
-        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND context_id = ?', [$title, $contextId]);
+        $result = $this->retrieve('SELECT COUNT(*) AS row_count FROM navigation_menus WHERE title = ? AND COALESCE(context_id, 0) = ?', [$title, (int) $contextId]);
         $row = (array) $result->current();
         return $row && $row['row_count'] != 0;
     }
@@ -122,7 +122,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     {
         $this->update(
             'INSERT INTO navigation_menus (title, area_name, context_id) VALUES (?, ?, ?)',
-            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), $navigationMenu->getContextId()]
+            [$navigationMenu->getTitle(), $navigationMenu->getAreaName(), (int) $navigationMenu->getContextId() ?: null]
         );
         $navigationMenu->setId($this->getInsertId());
         return $navigationMenu->getId();
@@ -143,8 +143,8 @@ class NavigationMenuDAO extends \PKP\db\DAO
             [
                 $navigationMenu->getTitle(),
                 $navigationMenu->getAreaName(),
-                $navigationMenu->getContextId(),
-                $navigationMenu->getId(),
+                (int) $navigationMenu->getContextId() ?: null,
+                (int) $navigationMenu->getId(),
             ]
         );
     }
@@ -171,7 +171,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Delete NavigationMenus by contextId.
      */
-    public function deleteByContextId(int $contextId)
+    public function deleteByContextId(?int $contextId)
     {
         $navigationMenus = $this->getByContextId($contextId);
         while ($navigationMenu = $navigationMenus->next()) {
@@ -182,7 +182,7 @@ class NavigationMenuDAO extends \PKP\db\DAO
     /**
      * Load the XML file and move the settings to the DB
      */
-    public function installSettings(int $contextId, string $filename): bool
+    public function installSettings(?int $contextId, string $filename): bool
     {
         $xmlParser = new PKPXMLParser();
         $tree = $xmlParser->parse($filename);

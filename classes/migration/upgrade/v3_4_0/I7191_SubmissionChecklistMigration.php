@@ -51,12 +51,7 @@ abstract class I7191_SubmissionChecklistMigration extends \PKP\migration\Migrati
                 }
                 $checklist = json_decode($row->setting_value);
 
-                usort($checklist, function ($a, $b) {
-                    if (!property_exists($a, 'order')) {
-                        return false;
-                    }
-                    return !property_exists($b, 'order') || $a->order > $b->order;
-                });
+                usort($checklist, fn ($a, $b) => ($a->order ?? 0) <=> ($b->order ?? 0));
 
                 $textList = [];
                 foreach ($checklist as $item) {

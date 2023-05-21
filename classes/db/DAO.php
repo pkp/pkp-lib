@@ -247,7 +247,7 @@ class DAO
         if ($dt === null) {
             return 'NULL';
         }
-        if (!ctype_digit($dt)) {
+        if (!ctype_digit((string) $dt)) {
             $dt = strtotime($dt);
         }
         return '\'' . date('Y-m-d H:i:s', $dt) . '\'';
